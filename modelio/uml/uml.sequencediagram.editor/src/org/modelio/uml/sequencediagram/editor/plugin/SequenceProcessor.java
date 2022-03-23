@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.plugin;
 
 import java.net.URL;
@@ -64,6 +63,7 @@ public class SequenceProcessor extends AbstractDiagramInitializationProcessor {
         factoryRegistry.registerDiagramFactories(SequenceDiagram.MNAME, new SequenceGmNodeFactory(), new SequenceGmLinkFactory(), new SequenceEditPartFactory());
         
         factoryRegistry.registerExtensions(StaticDiagram.MNAME, SequenceDiagram.MNAME);
+        
     }
 
     @objid ("c45215d1-ae9d-4a2e-84d7-7ba1105400ab")
@@ -108,6 +108,7 @@ public class SequenceProcessor extends AbstractDiagramInitializationProcessor {
         
         // StateInvariant
         factory.declareProvider(GmStateInvariantStructuredStyleKeys.class);
+        
     }
 
     @objid ("b1725a5f-ec9e-4fe1-8a14-3e4af693f01f")
@@ -121,6 +122,7 @@ public class SequenceProcessor extends AbstractDiagramInitializationProcessor {
         loader.load(url);
         
         factoryStyle.injectDefaultValues(loader.getStyleProperties());
+        
     }
 
 }

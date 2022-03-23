@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.text.MessageFormat;
@@ -61,16 +60,15 @@ public class ConnectorEnd2PropertyModel extends AbstractPropertyModel<ConnectorE
      */
     @objid ("34842d8b-d56c-4e85-811d-2291c343be17")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "LinkName", "Base",
-			"Linked", "Name", "ConnectorEndRepresentedFeature", "MultiplicityMin", "MultiplicityMax", "IsNavigable",
-			"IsOrdered", "IsUnique" };
+    			"Linked", "Name", "ConnectorEndRepresentedFeature", "MultiplicityMin", "MultiplicityMax", "IsNavigable",
+    			"IsOrdered", "IsUnique" };
 
     /**
      * Create a new <i>LinkEnd</i> data model from an <i>LinkEnd</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("2a85870d-8ebd-421b-8e73-f7204fbe5680")
-    public ConnectorEnd2PropertyModel(ConnectorEnd theEditedElement) {
+    public  ConnectorEnd2PropertyModel(ConnectorEnd theEditedElement) {
         super(theEditedElement);
     }
 
@@ -99,6 +97,7 @@ public class ConnectorEnd2PropertyModel extends AbstractPropertyModel<ConnectorE
             // else
             return null; // Link base Association
         }
+        
     }
 
     @objid ("5f5d159a-6f38-4619-893a-29542cd5a00e")
@@ -144,6 +143,7 @@ public class ConnectorEnd2PropertyModel extends AbstractPropertyModel<ConnectorE
         default:
             return null;
         }
+        
     }
 
     @objid ("ba2920fc-bb72-4a5c-98f9-777488a73237")
@@ -177,6 +177,7 @@ public class ConnectorEnd2PropertyModel extends AbstractPropertyModel<ConnectorE
         default:
             return null;
         }
+        
     }
 
     @objid ("c084db3b-b595-4c13-98b9-417b710f7735")
@@ -242,6 +243,7 @@ public class ConnectorEnd2PropertyModel extends AbstractPropertyModel<ConnectorE
         default:
             return null;
         }
+        
     }
 
     @objid ("d0c19d1d-2d65-4faf-a861-d618b087a47c")
@@ -312,6 +314,7 @@ public class ConnectorEnd2PropertyModel extends AbstractPropertyModel<ConnectorE
         default:
             return;
         }
+        
     }
 
     @objid ("6be899dc-716b-4986-aded-ae400d28cb22")
@@ -329,6 +332,7 @@ public class ConnectorEnd2PropertyModel extends AbstractPropertyModel<ConnectorE
         default:
             return;
         }
+        
     }
 
     /**

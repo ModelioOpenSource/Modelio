@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.drawings.layer;
 
 import java.beans.PropertyChangeEvent;
@@ -49,9 +48,9 @@ import org.modelio.diagram.elements.core.figures.freeform.FreeformLayer2;
 import org.modelio.diagram.elements.core.figures.freeform.FreeformLayeredPane2;
 import org.modelio.diagram.elements.core.link.IAnchorModelProvider;
 import org.modelio.diagram.elements.core.link.anchors.GmPointAnchor;
+import org.modelio.diagram.elements.core.link.anchors.RectangleNodeAnchorProvider;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.model.IGmObject;
-import org.modelio.diagram.elements.core.node.RectangleNodeAnchorProvider;
 import org.modelio.diagram.elements.drawings.core.IGmDrawingLink;
 import org.modelio.diagram.elements.drawings.core.IGmNodeDrawing;
 import org.modelio.diagram.elements.drawings.core.link.CreateDrawingLinkEditPolicy;
@@ -81,7 +80,7 @@ public class DrawingLayerEditPart extends AbstractGraphicalEditPart implements P
      * Default constructor.
      */
     @objid ("5baf5d42-e5cb-473e-9eb3-b34f5b9301de")
-    public DrawingLayerEditPart() {
+    public  DrawingLayerEditPart() {
         super();
     }
 
@@ -141,7 +140,6 @@ public class DrawingLayerEditPart extends AbstractGraphicalEditPart implements P
      * </ul>
      * </ul>
      * @see IAdaptable#getAdapter(Class)
-     * 
      * @param adapter the adapter class to look up
      * @return a object castable to the given class, or <code>null</code> if this object does not have an adapter for
      * the given class
@@ -182,6 +180,7 @@ public class DrawingLayerEditPart extends AbstractGraphicalEditPart implements P
                 return super.getAdapter(adapter);
             }
         }
+        
     }
 
     @objid ("64211158-3d86-4edd-9904-742bdf98840e")
@@ -189,6 +188,7 @@ public class DrawingLayerEditPart extends AbstractGraphicalEditPart implements P
     public void activate() {
         super.activate();
         getModel().addPropertyChangeListener(this);
+        
     }
 
     @objid ("c89b9b62-2b32-4782-ad33-aa5c3be781e3")
@@ -196,6 +196,7 @@ public class DrawingLayerEditPart extends AbstractGraphicalEditPart implements P
     public void deactivate() {
         super.deactivate();
         getModel().removePropertyChangeListener(this);
+        
     }
 
     @objid ("0f659c8f-1f71-404b-8a6b-405d8f2bdf5b")
@@ -217,6 +218,7 @@ public class DrawingLayerEditPart extends AbstractGraphicalEditPart implements P
         default:
             break;
         }
+        
     }
 
     @objid ("553f28ac-7866-4277-acf5-c0512ef9cec7")
@@ -234,6 +236,7 @@ public class DrawingLayerEditPart extends AbstractGraphicalEditPart implements P
         
         // Snap to Geometry feedback
         installEditPolicy("Snap Feedback", new SnapFeedbackPolicy()); //$NON-NLS-1$
+        
     }
 
     @objid ("cceeaaab-235c-4937-9602-2307787d9b61")
@@ -294,11 +297,11 @@ public class DrawingLayerEditPart extends AbstractGraphicalEditPart implements P
             return createAnchor(p);
         }
         throw new IllegalArgumentException(request + " not handled.");
+        
     }
 
     /**
      * Create a XY anchor with the layer coordinates
-     * 
      * @param absPoint an absolute point.
      * @return a XY anchor for the layer figure
      */
@@ -321,6 +324,7 @@ public class DrawingLayerEditPart extends AbstractGraphicalEditPart implements P
             return createAnchor(p);
         }
         throw new IllegalArgumentException(request + " not handled.");
+        
     }
 
     @objid ("d2710091-a984-4f89-a109-1dbcd99b4dbe")
@@ -339,7 +343,6 @@ public class DrawingLayerEditPart extends AbstractGraphicalEditPart implements P
      * Add a connection to the layer.
      * <p>
      * The connection is added to the connections sub layer.
-     * 
      * @param connectionFigure a connection figure
      */
     @objid ("688b848e-599b-44f5-b3d1-ae78d4059316")
@@ -348,6 +351,7 @@ public class DrawingLayerEditPart extends AbstractGraphicalEditPart implements P
         getFigure();
         
         this.connectionsLayer.add(connectionFigure);
+        
     }
 
     @objid ("474c542a-729a-4f90-812c-fbb652021d1a")

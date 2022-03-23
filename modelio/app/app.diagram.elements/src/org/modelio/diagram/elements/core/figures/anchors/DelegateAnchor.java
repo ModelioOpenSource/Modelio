@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.anchors;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,11 +43,11 @@ public class DelegateAnchor extends ConnectionAnchorBase implements ISlidableAnc
     public void anchorMoved(ConnectionAnchor anchor) {
         // fires own listeners when the delgate anchor changes.
         fireAnchorMoved();
+        
     }
 
     /**
      * Get the real anchor that does the work.
-     * 
      * @return the real anchor.
      */
     @objid ("7f5151c3-1dec-11e2-8cad-001ec947c8cc")
@@ -77,7 +76,6 @@ public class DelegateAnchor extends ConnectionAnchorBase implements ISlidableAnc
 
     /**
      * Set the connection anchor that does the real work.
-     * 
      * @param delegate the new real anchor.
      */
     @objid ("7f5151e2-1dec-11e2-8cad-001ec947c8cc")
@@ -94,6 +92,7 @@ public class DelegateAnchor extends ConnectionAnchorBase implements ISlidableAnc
         if (this.delegate != null) {
             this.delegate.addAnchorListener(this);
         }
+        
     }
 
     @objid ("7f5151e8-1dec-11e2-8cad-001ec947c8cc")
@@ -102,6 +101,7 @@ public class DelegateAnchor extends ConnectionAnchorBase implements ISlidableAnc
         if (this.delegate instanceof ISlidableAnchor) {
             ((ISlidableAnchor) this.delegate).setLocation(newlocation);
         }
+        
     }
 
 }

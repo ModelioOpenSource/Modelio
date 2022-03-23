@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.processor;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -48,6 +47,7 @@ public abstract class AbstractDiagramInitializationProcessor {
         
         // Do it only after style key providers registration.
         declareFactorySettings(factoryStyle);
+        
     }
 
     /**

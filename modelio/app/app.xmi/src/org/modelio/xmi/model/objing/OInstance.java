@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -76,9 +75,10 @@ public class OInstance extends OModelElement {
      * @param element : The exported Instance
      */
     @objid ("e5ed492d-d9d3-474e-8e91-43107e5e7c26")
-    public OInstance(final Instance element) {
+    public  OInstance(final Instance element) {
         super(element);
         this.root = AbstractObjingModelNavigation.getBindableInstanceOwner(getObjingElement());
+        
     }
 
     @objid ("c0f8acdb-1551-4aea-a6b4-b1a613685d4d")
@@ -96,6 +96,7 @@ public class OInstance extends OModelElement {
                 ecoreElt.destroy();
             }
         }
+        
     }
 
     @objid ("5cc0bb95-bdb1-4d5c-87b4-e0172fefa33e")
@@ -119,6 +120,7 @@ public class OInstance extends OModelElement {
             if (GenerationProperties.getInstance().isRoundtripEnabled())
                 setEAnnotationName((org.eclipse.uml2.uml.Slot) ecoreElt);
         }
+        
     }
 
     @objid ("35eca0e5-c66a-40b7-9d0f-24f327c070f5")
@@ -147,6 +149,7 @@ public class OInstance extends OModelElement {
                 genProp.addWarning(message, getObjingElement(), description);
             }
         }
+        
     }
 
     @objid ("4640e40a-4e47-4631-b9f8-67a2e6f1ef6b")
@@ -171,6 +174,7 @@ public class OInstance extends OModelElement {
                 ObjingEAnnotation.setValue(ecoreElt, getObjingElement().getValue());
             }
         }
+        
     }
 
     @objid ("0c0580b2-a91c-4ee7-bfcf-82e257cd1405")
@@ -259,6 +263,7 @@ public class OInstance extends OModelElement {
                 ((org.eclipse.uml2.uml.OpaqueExpression) result).getBodies().add(value.toString());
             }
         }
+        
     }
 
     @objid ("4ed60b23-73d9-48b4-ae90-67e159ac2cb7")
@@ -284,6 +289,7 @@ public class OInstance extends OModelElement {
         } else {
             ecoreElt.destroy();
         }
+        
     }
 
     @objid ("7e18cdff-4671-4dd2-ac7d-8bd7e6af6891")
@@ -314,6 +320,7 @@ public class OInstance extends OModelElement {
                 ObjingEAnnotation.setIsBindableInstance(ecoreElt);
             }
         }
+        
     }
 
     @objid ("e18238d1-655f-478d-aeb8-61b2737bab83")
@@ -346,6 +353,7 @@ public class OInstance extends OModelElement {
             }
         
         }
+        
     }
 
     @objid ("cb91c900-adfd-4818-858a-22539da80d0d")
@@ -361,6 +369,7 @@ public class OInstance extends OModelElement {
             setMultiMax(ecoreElt);
             setMultiMin(ecoreElt);
         }
+        
     }
 
     @objid ("46f5f19d-aed5-446a-8a90-2825d83a70d0")
@@ -368,6 +377,7 @@ public class OInstance extends OModelElement {
         if (AbstractObjingModelNavigation.isNotNullOrEmpty(getObjingElement().getName())) {
             ecoreElt.setName(getObjingElement().getName());
         }
+        
     }
 
     @objid ("c1ea47c7-a515-401a-880a-1824d2aa4e50")
@@ -397,6 +407,7 @@ public class OInstance extends OModelElement {
             }
         
         }
+        
     }
 
     @objid ("f63b2083-f503-44ef-bdc6-58750dc85db4")
@@ -423,6 +434,7 @@ public class OInstance extends OModelElement {
                 }
             }
         }
+        
     }
 
     @objid ("70135b94-0fc0-4609-a64a-aa4183dc797a")
@@ -449,6 +461,7 @@ public class OInstance extends OModelElement {
                 }
             }
         }
+        
     }
 
     @objid ("72fb917d-e4d8-4218-a521-7d65b7adb59e")
@@ -572,6 +585,7 @@ public class OInstance extends OModelElement {
                 }
             }
         }
+        
     }
 
     @objid ("7949fbae-7031-4173-b13a-fa0017f614fc")
@@ -590,6 +604,7 @@ public class OInstance extends OModelElement {
                 setValueSpecification(base, getObjingElement().getValue(), ecoreElt);
             }
         }
+        
     }
 
     @objid ("f16ae7ab-0ae2-4186-a6b6-f53b22715c0d")
@@ -666,6 +681,7 @@ public class OInstance extends OModelElement {
             org.eclipse.uml2.uml.ValueSpecification result = slot.createValue(null, type, opaqueExpr.eClass());
             ((org.eclipse.uml2.uml.OpaqueExpression) result).getBodies().add(value.toString());
         }
+        
     }
 
     @objid ("7b8861b0-ec79-448d-9c13-5b7654f098a8")

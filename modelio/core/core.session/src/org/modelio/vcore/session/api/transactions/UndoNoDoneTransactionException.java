@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.api.transactions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -28,7 +27,7 @@ public class UndoNoDoneTransactionException extends TransactionException {
     private static final long serialVersionUID = 1L;
 
     @objid ("006ef866-0d1e-1f20-85a5-001ec947cd2a")
-    public UndoNoDoneTransactionException(final String msg) {
+    public  UndoNoDoneTransactionException(final String msg) {
         super(msg);
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.executionspecification;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,11 +45,11 @@ public class MoveResizeExecutionSpecificationCommand extends Command {
         execution.getStart().setLineNumber(this.startTime);
         execution.setLineNumber(this.startTime);
         execution.getFinish().setLineNumber(this.finishTime);
+        
     }
 
     /**
      * Sets the new "time" of the ExecutionOccurenceSpecification that finishes the execution.
-     * 
      * @param value the new "time" of the ExecutionOccurenceSpecification that finishes the execution.
      */
     @objid ("d8efb2e4-55b6-11e2-877f-002564c97630")
@@ -60,7 +59,6 @@ public class MoveResizeExecutionSpecificationCommand extends Command {
 
     /**
      * Sets the modified execution.
-     * 
      * @param value the modified execution.
      */
     @objid ("d8efb2e8-55b6-11e2-877f-002564c97630")
@@ -70,7 +68,6 @@ public class MoveResizeExecutionSpecificationCommand extends Command {
 
     /**
      * Sets the new "time" of the ExecutionOccurenceSpecification that starts the execution.
-     * 
      * @param value the new "time" of the ExecutionOccurenceSpecification that starts the execution.
      */
     @objid ("d8efb2ec-55b6-11e2-877f-002564c97630")

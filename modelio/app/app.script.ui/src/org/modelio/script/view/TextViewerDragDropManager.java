@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.script.view;
 
 import java.io.BufferedReader;
@@ -79,7 +78,7 @@ class TextViewerDragDropManager {
      * @param aTextViewer
      */
     @objid ("0087e420-663d-105c-84ef-001ec947cd2a")
-    public TextViewerDragDropManager(ScriptView aViewPart, TextViewer aTextViewer) {
+    public  TextViewerDragDropManager(ScriptView aViewPart, TextViewer aTextViewer) {
         this.viewPart = aViewPart;
         this.textViewer = aTextViewer;
         this.textWidget = aTextViewer.getTextWidget();
@@ -377,6 +376,7 @@ class TextViewerDragDropManager {
         // target.setTransfer(dropableTypes);
         // target.addDropListener(dropTargetListener);
         // }
+        
     }
 
     /**
@@ -403,6 +403,7 @@ class TextViewerDragDropManager {
         // }
         
         // fIsTextDragAndDropInstalled= false;
+        
     }
 
 }

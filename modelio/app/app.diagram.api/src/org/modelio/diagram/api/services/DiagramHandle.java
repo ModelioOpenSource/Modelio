@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.api.services;
 
 import java.util.ArrayList;
@@ -46,8 +45,8 @@ import org.modelio.diagram.editor.silent.SilentDiagramEditor;
 import org.modelio.diagram.elements.common.abstractdiagram.ImageBuilder;
 import org.modelio.diagram.elements.common.freezone.ILayoutAssistant;
 import org.modelio.diagram.elements.core.model.GmModel;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmObject;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
@@ -86,11 +85,11 @@ public final class DiagramHandle implements IDiagramHandle {
         setBatchMode(false);
         this.editor.disposeHandle();
         this.diagramEditorInput = null;
+        
     }
 
     /**
      * Creates and returns a DiagramHandle for the given diagram. It is the caller's responsibility to call {@link #close()} on the handle once it isn't needed anymore.
-     * 
      * @param abstractDiagram the diagram model element.
      * @param manager a diagram model manager
      * @param projectService the project service
@@ -108,13 +107,13 @@ public final class DiagramHandle implements IDiagramHandle {
             SilentDiagramEditor editor = new SilentDiagramEditor(input, projectService);
             return DiagramHandle.create(editor, false);
         }
+        
     }
 
     /**
      * Creates and returns a DiagramHandle for the given diagram editor.
      * <p>
      * It is the caller's responsibility to call {@link #close()} on the handle once it isn't needed anymore.
-     * 
      * @param editor a diagram editor.
      * @param performValidation whether or not to force a validation on the diagram's figure.
      * @return a diagram handle
@@ -159,11 +158,11 @@ public final class DiagramHandle implements IDiagramHandle {
         } else {
             return null;
         }
+        
     }
 
     /**
      * Returns the edit part for the passed object.
-     * 
      * @param gmObject the graphic object model
      * @return the edit part
      */
@@ -190,6 +189,7 @@ public final class DiagramHandle implements IDiagramHandle {
     public void save() {
         getDiagramEditorInput().getGmDiagram().refreshAllFromObModel();
         getDiagramEditorInput().getGmDiagram().save(true);
+        
     }
 
     @objid ("0ac50eb5-b841-4c14-81e2-a213a221030f")
@@ -210,6 +210,7 @@ public final class DiagramHandle implements IDiagramHandle {
         }
         
         saveAsImage(this.editor.getRootEditPart(), targetFile, intFormat, margin);
+        
     }
 
     @objid ("510b917d-4b3f-48c4-9df8-07bd36ec7029")
@@ -219,6 +220,7 @@ public final class DiagramHandle implements IDiagramHandle {
         if (stack instanceof DiagramCommandStack) {
             ((DiagramCommandStack) stack).setBatchMode(batchMode);
         }
+        
     }
 
     @objid ("e7782f79-589d-4be4-8ac7-bf0620cc97e6")
@@ -255,7 +257,7 @@ public final class DiagramHandle implements IDiagramHandle {
     }
 
     @objid ("869afd7e-eee8-40cf-87f8-cc9785c2b4c0")
-    private DiagramHandle(final IDiagramEditor editor, DiagramEditorInput diagramEditorInput, boolean performValidation) {
+    private  DiagramHandle(final IDiagramEditor editor, DiagramEditorInput diagramEditorInput, boolean performValidation) {
         this.editor = editor;
         this.creationFactory = new DiagramGraphicFactory(this);
         this.diagramEditorInput = diagramEditorInput;
@@ -275,13 +277,13 @@ public final class DiagramHandle implements IDiagramHandle {
         // disable the layout assistant
         this.previousLayoutAssistantState = getLayoutAssitantState();
         setLayoutAssistantEnabled(false);
+        
     }
 
     /**
      * Tells whether the layout assistant is disabled in the viewer properties.
      * <p>
      * The layout assistant may be disabled temporarily (without modifying the model) by setting {@link ILayoutAssistant#VIEWPROP_ENABLED} property id to <i>false</i>.
-     * 
      * @return whether the layout assistant is disabled in the viewer properties.
      */
     @objid ("1c07a6cb-76a3-46b0-aa14-c0f2eecd2f1b")
@@ -303,6 +305,7 @@ public final class DiagramHandle implements IDiagramHandle {
                 img.dispose();
             }
         }
+        
     }
 
     @objid ("e5e72c0a-e091-45c8-80fb-2c4b15a1064d")
@@ -322,6 +325,7 @@ public final class DiagramHandle implements IDiagramHandle {
                 getDiagramGraphicModels(child, ref, ret);
             }
         }
+        
     }
 
 }

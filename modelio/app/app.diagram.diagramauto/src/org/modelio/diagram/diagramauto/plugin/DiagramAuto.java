@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.diagramauto.plugin;
 
 import java.util.ResourceBundle;
@@ -58,6 +57,7 @@ public class DiagramAuto implements BundleActivator {
         ServiceReference<ExtendedLogService> ref = bundleContext.getServiceReference(ExtendedLogService.class);
         ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), PLUGIN_ID));
+        
     }
 
     @objid ("9d4cfffb-8da2-4feb-b385-f4320b3c6da4")

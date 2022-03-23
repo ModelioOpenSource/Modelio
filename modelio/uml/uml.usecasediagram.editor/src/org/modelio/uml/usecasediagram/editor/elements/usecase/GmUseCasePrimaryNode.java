@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.elements.usecase;
 
 import java.util.Collections;
@@ -108,7 +107,7 @@ public class GmUseCasePrimaryNode extends GmNoStyleCompositeNode implements IIma
     private GmInnerClass innerElements;
 
     @objid ("5e611378-55b7-11e2-877f-002564c97630")
-    public GmUseCasePrimaryNode(IGmDiagram diagram, MRef ref) {
+    public  GmUseCasePrimaryNode(IGmDiagram diagram, MRef ref) {
         super(diagram, ref);
         this.header = new GmNamespaceHeader(diagram, ref);
         this.header.setRoleInComposition(GmUseCasePrimaryNode.HEADER);
@@ -134,10 +133,11 @@ public class GmUseCasePrimaryNode extends GmNoStyleCompositeNode implements IIma
         super.addChild(this.extensionPointGroup);
         super.addChild(this.internalStructure);
         super.addChild(this.innerElements);
+        
     }
 
     @objid ("5e611381-55b7-11e2-877f-002564c97630")
-    public GmUseCasePrimaryNode() {
+    public  GmUseCasePrimaryNode() {
         // empty constructor for the serialization
     }
 
@@ -255,6 +255,7 @@ public class GmUseCasePrimaryNode extends GmNoStyleCompositeNode implements IIma
             break;
         }
         }
+        
     }
 
     @objid ("5e629a10-55b7-11e2-877f-002564c97630")
@@ -263,6 +264,7 @@ public class GmUseCasePrimaryNode extends GmNoStyleCompositeNode implements IIma
         super.refreshFromObModel();
         // forcing visual refresh in case Image changed
         firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("5e629a13-55b7-11e2-877f-002564c97630")
@@ -271,6 +273,7 @@ public class GmUseCasePrimaryNode extends GmNoStyleCompositeNode implements IIma
         // Returned result depends on current representation mode:
         List<GmNodeModel> ret;
         switch (getRepresentationMode()) {
+        case USER_IMAGE:
         case IMAGE: {
             ret = Collections.emptyList();
             break;
@@ -290,6 +293,7 @@ public class GmUseCasePrimaryNode extends GmNoStyleCompositeNode implements IIma
         
         // Write version of this Gm if different of 0.
         writeMinorVersion(out, "GmUseCasePrimaryNode.", Integer.valueOf(GmUseCasePrimaryNode.MINOR_VERSION));
+        
     }
 
     @objid ("5e629a22-55b7-11e2-877f-002564c97630")
@@ -317,6 +321,7 @@ public class GmUseCasePrimaryNode extends GmNoStyleCompositeNode implements IIma
         this.internalStructure = new GmInternalStructure(getDiagram(), getRepresentedRef(), internalStructureZone, internalStructureGroup);
         this.internalStructure.setRoleInComposition(GmUseCasePrimaryNode.INTERNAL);
         addChild(this.internalStructure);
+        
     }
 
     @objid ("5e629a2d-55b7-11e2-877f-002564c97630")
@@ -325,7 +330,7 @@ public class GmUseCasePrimaryNode extends GmNoStyleCompositeNode implements IIma
     }
 
     @objid ("5e629a31-55b7-11e2-877f-002564c97630")
-    GmUseCasePrimaryNode(final _GmUseCase oldVersionGm) {
+     GmUseCasePrimaryNode(final _GmUseCase oldVersionGm) {
         super(oldVersionGm.getDiagram(), oldVersionGm.getRepresentedRef());
         this.header = oldVersionGm.getHeader();
         this.header.setRoleInComposition(GmUseCasePrimaryNode.HEADER);
@@ -366,6 +371,7 @@ public class GmUseCasePrimaryNode extends GmNoStyleCompositeNode implements IIma
         super.addChild(this.internalStructure);
         oldVersionGm.removeChild(this.innerElements);
         super.addChild(this.innerElements);
+        
     }
 
     @objid ("5e629a36-55b7-11e2-877f-002564c97630")
@@ -378,6 +384,7 @@ public class GmUseCasePrimaryNode extends GmNoStyleCompositeNode implements IIma
         this.innerElements = (GmInnerClass) getFirstChild(GmUseCasePrimaryNode.INNER);
         this.extensionPointGroup = (GmGroup) getFirstChild(GmUseCasePrimaryNode.EXTENSIONS);
         this.internalStructure = (GmInternalStructure) getFirstChild(GmUseCasePrimaryNode.INTERNAL);
+        
     }
 
 }

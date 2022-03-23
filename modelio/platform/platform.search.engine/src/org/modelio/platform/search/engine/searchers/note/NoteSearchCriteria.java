@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.search.engine.searchers.note;
 
 import java.util.regex.Pattern;
@@ -28,51 +27,54 @@ import org.modelio.platform.search.engine.ISearchCriteria;
 
 @objid ("97b747cf-44d7-4b4c-9cd7-6d5092134f63")
 public class NoteSearchCriteria implements ISearchCriteria {
+    
     @mdl.prop
     @objid ("2a2f51bd-1e5b-4455-aed7-b8a7d1809d67")
-    private String expression = ".*";
+    public String expression = ".*";
 
     @mdl.propgetter
     public String getExpression() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.expression;
     }
 
     @mdl.propsetter
     public void setExpression(String value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.expression = value;
     }
 
+    
     @mdl.prop
     @objid ("d9ee8995-c35b-44e1-a611-1f19963e9266")
-    private boolean caseSensitive;
+    public boolean caseSensitive;
 
     @mdl.propgetter
     public boolean isCaseSensitive() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.caseSensitive;
     }
 
     @mdl.propsetter
     public void setCaseSensitive(boolean value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.caseSensitive = value;
     }
 
+    
     @mdl.prop
     @objid ("826b0aa2-4e70-454a-be4a-aa93896086e8")
-    private String noteType = ".*";
+    public String noteType = ".*";
 
     @mdl.propgetter
     public String getNoteType() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.noteType;
     }
 
     @mdl.propsetter
     public void setNoteType(String value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.noteType = value;
     }
 
@@ -81,6 +83,7 @@ public class NoteSearchCriteria implements ISearchCriteria {
         this.expression = ".*";
         this.noteType = "description";
         this.caseSensitive = false;
+        
     }
 
     @objid ("336eaedb-57a5-4f2f-91af-08d0f578bb46")
@@ -91,6 +94,7 @@ public class NoteSearchCriteria implements ISearchCriteria {
         } catch (final PatternSyntaxException e) {
             return false;
         }
+        
     }
 
 }

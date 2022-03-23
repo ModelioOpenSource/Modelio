@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.reverse;
 
 import java.util.HashMap;
@@ -285,12 +284,13 @@ public class OwnedCompositionUml2Visitor extends UMLSwitch<Object> {
     private Map<Object, Object> visitorMap;
 
     @objid ("02368aee-ed5a-4398-a1ca-305c479ec841")
-    public OwnedCompositionUml2Visitor(XMIImportBehavior behavior, Package ecoreRootModel) {
+    public  OwnedCompositionUml2Visitor(XMIImportBehavior behavior, Package ecoreRootModel) {
         this.behavior = behavior;
         this.visitorMap = new HashMap<>();
         
         if (ecoreRootModel instanceof Model)
             this.visitorMap.put(ecoreRootModel, ecoreRootModel);
+        
     }
 
     @objid ("16405fe1-7b42-40af-a39d-663498d2e4f0")
@@ -300,6 +300,7 @@ public class OwnedCompositionUml2Visitor extends UMLSwitch<Object> {
             return super.doSwitch(inputElement);
         else
             return null;
+        
     }
 
     @objid ("27e81b36-5445-4c1f-9841-a12b2fc68070")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.abstractdiagram;
 
 import java.util.Collection;
@@ -60,7 +59,6 @@ public class UnmaskLinkToVoidCommand extends Command {
 
     /**
      * C'tor.
-     * 
      * @param link the link element to unmask.
      * @param from the source element
      * @param to the destination element (should usually be the diagram)
@@ -68,12 +66,13 @@ public class UnmaskLinkToVoidCommand extends Command {
      * @param dropLocation the drop location.
      */
     @objid ("7e274c06-1dec-11e2-8cad-001ec947c8cc")
-    public UnmaskLinkToVoidCommand(final MObject link, final MObject from, final MObject to, final AbstractDiagramEditPart host, final Point dropLocation) {
+    public  UnmaskLinkToVoidCommand(final MObject link, final MObject from, final MObject to, final AbstractDiagramEditPart host, final Point dropLocation) {
         this.linkElement = link;
         this.fromElement = from;
         this.toElement = to;
         this.dropLocation = dropLocation;
         this.host = host;
+        
     }
 
     @objid ("7e29ae23-1dec-11e2-8cad-001ec947c8cc")
@@ -141,6 +140,7 @@ public class UnmaskLinkToVoidCommand extends Command {
         if (connectionCreationCommand != null && connectionCreationCommand.canExecute()) {
             connectionCreationCommand.execute();
         }
+        
     }
 
     @objid ("7e29ae2b-1dec-11e2-8cad-001ec947c8cc")
@@ -183,11 +183,11 @@ public class UnmaskLinkToVoidCommand extends Command {
         if (command != null && command.canExecute()) {
             command.execute();
         }
+        
     }
 
     /**
      * Get the center of te figure bounds in absolute coordinates.
-     * 
      * @param editPart a figure edit part
      * @return the center of the figure.
      */

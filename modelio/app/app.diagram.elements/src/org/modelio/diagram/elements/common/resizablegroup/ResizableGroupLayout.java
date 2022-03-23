@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.resizablegroup;
 
 import java.util.HashMap;
@@ -79,6 +78,7 @@ public class ResizableGroupLayout extends ToolbarLayout {
         if (constraint instanceof Integer) {
             this.constraints.put(child, (Integer) constraint);
         }
+        
     }
 
     /**
@@ -197,6 +197,7 @@ public class ResizableGroupLayout extends ToolbarLayout {
             prefMinSumHeight -= (prefHeight - minHeight);
             y += newBounds.height + getSpacing();
         }
+        
     }
 
 }

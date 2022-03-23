@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.resizablegroup;
 
 import java.util.ArrayList;
@@ -50,13 +49,18 @@ import org.eclipse.gef.editpolicies.SelectionEditPolicy;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gef.requests.DropRequest;
+import org.eclipse.gef.requests.GroupRequest;
 import org.modelio.diagram.elements.core.commands.DefaultReparentElementCommand;
+import org.modelio.diagram.elements.core.commands.DeleteInDiagramCommand;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
+import org.modelio.diagram.elements.core.helpers.RequestHelper;
 import org.modelio.diagram.elements.core.model.GmModel;
+import org.modelio.diagram.elements.core.model.IGmObject;
 import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.elements.core.policies.AutoExpandHelper;
 import org.modelio.diagram.elements.core.policies.DefaultNodeResizableEditPolicy;
+import org.modelio.diagram.elements.core.requests.RequestProperty;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MExpert;
@@ -65,8 +69,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 /**
  * An EditPolicy for use with {@link ResizableGroupLayout}.
  * <p>
- * This EditPolicy knows how to map an <x,y> coordinate on the layout container to the appropriate index for the operation being
- * performed. It also shows target feedback consisting of an insertion line at the appropriate location.
+ * This EditPolicy knows how to map an <x,y> coordinate on the layout container to the appropriate index for the operation being performed. It also shows target feedback consisting of an insertion line at the appropriate location.
  * 
  * 
  * @author fpoyer
@@ -82,17 +85,17 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
     @objid ("7f15b723-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public Command getCommand(Request request) {
-        if (REQ_RESIZE_CHILDREN.equals(request.getType())) {
+        Object type = request.getType();
+        if (REQ_RESIZE_CHILDREN.equals(type)) {
             return getResizeChildrenCommand((ChangeBoundsRequest) request);
+        } else if (REQ_DELETE_DEPENDANT.equals(type)) {
+            return getDeleteChildrenCommand((GroupRequest)request);
         }
-        // else
         return super.getCommand(request);
     }
 
     /**
-     * Returns a Rectangle at the given Point with width and height of -1. Layout uses width or height equal to '-1' to mean use the
-     * figure's preferred size.
-     * 
+     * Returns a Rectangle at the given Point with width and height of -1. Layout uses width or height equal to '-1' to mean use the figure's preferred size.
      * @param p the input Point
      * @return a Rectangle
      */
@@ -126,10 +129,8 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
     }
 
     /**
-     * Returns whether this edit policy can handle this metaclass (either through simple or smart behavior). Default behavior is to
-     * accept any metaclass that can be child (in the CreationExpert's understanding) of the host's metaclass This method should be
+     * Returns whether this edit policy can handle this metaclass (either through simple or smart behavior). Default behavior is to accept any metaclass that can be child (in the CreationExpert's understanding) of the host's metaclass This method should be
      * overridden by subclasses to add specific the behavior.
-     * 
      * @param metaclass the metaclass to handle.
      * @return true if this policy can handle the metaclass.
      */
@@ -137,7 +138,8 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
     protected boolean canHandle(MClass metaclass) {
         MExpert expert = getHostElement().getMClass().getMetamodel().getMExpert();
         return expert.canCompose(getHostElement(), metaclass, null)
-                                                                                                                && getHostCompositeNode().canCreate(metaclass.getJavaInterface());
+                && getHostCompositeNode().canCreate(metaclass.getJavaInterface());
+        
     }
 
     @objid ("7f10f24e-1dec-11e2-8cad-001ec947c8cc")
@@ -147,7 +149,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
             return null;
         }
         // First re-parent, then put at the correct place.
-        // TODO: could probably be done better with a single dedicated
+        // TODO: could probably be done better with a single dedicate
         // command...
         GmNodeModel reference = null;
         if (after != null) {
@@ -182,18 +184,17 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
      * Creates the EditPartListener for observing when children are added to the host.
      * <p>
      * Redefined to auto expand on child edit part addition.
-     * 
-     * @return EditPartListener
      */
     @objid ("8e90c3cf-7bf6-42a5-9466-378ecdcbae5b")
     @Override
     protected EditPartListener createListener() {
         return new EditPartListener.Stub() {
-                                                    @Override
-                                                    public void childAdded(EditPart child, int index) {
-                                                        onChildAdded(child);
-                                                    }
-                                                };
+            @Override
+            public void childAdded(EditPart child, int index) {
+                onChildAdded(child);
+            }
+        };
+        
     }
 
     @objid ("7f10f241-1dec-11e2-8cad-001ec947c8cc")
@@ -219,6 +220,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
             removeFeedback(this.insertionLine);
             this.insertionLine = null;
         }
+        
     }
 
     @objid ("7f181965-1dec-11e2-8cad-001ec947c8cc")
@@ -243,9 +245,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
      * Overridden to prevent sizes from becoming too small, and to prevent preferred sizes from getting lost.
      * <p>
      * If the Request is a MOVE, the existing width and height are preserved.<br>
-     * During RESIZE, the new width and height have a lower bound determined by
-     * {@link #getMinimumSizeFor(GraphicalEditPart)}.
-     * 
+     * During RESIZE, the new width and height have a lower bound determined by {@link #getMinimumSizeFor(GraphicalEditPart)}.
      * @param request the ChangeBoundsRequest.
      * @param child the child EditPart for which the constraint should be generated.
      * @return the rectangle being the desired bounds of the child.
@@ -272,14 +272,14 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
             if (newChildRect.width < minSize.width) {
                 newChildRect.width = minSize.width;
         
-                if (newChildRect.x > (oldChildRect.right() - minSize.width)) {
+                if (newChildRect.x > oldChildRect.right() - minSize.width) {
                     // prevent new bounds to go outside old bounds ?
                     newChildRect.x = oldChildRect.right() - minSize.width;
                 }
             }
             if (newChildRect.height < minSize.height) {
                 newChildRect.height = minSize.height;
-                if (newChildRect.y > (oldChildRect.bottom() - minSize.height)) {
+                if (newChildRect.y > oldChildRect.bottom() - minSize.height) {
                     // prevent new bounds to go outside old bounds ?
                     newChildRect.y = oldChildRect.bottom() - minSize.height;
                 }
@@ -291,13 +291,10 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
     }
 
     /**
-     * Generates a draw2d constraint for the given <code>CreateRequest</code>. If the CreateRequest has a size,
-     * {@link #getConstraintFor(Rectangle)} is called with a Rectangle of that size and the result is returned. This is used during
-     * size-on-drop creation. Otherwise, {@link #getConstraintFor(Point)} is returned.
+     * Generates a draw2d constraint for the given <code>CreateRequest</code>. If the CreateRequest has a size, {@link #getConstraintFor(Rectangle)} is called with a Rectangle of that size and the result is returned. This is used during size-on-drop
+     * creation. Otherwise, {@link #getConstraintFor(Point)} is returned.
      * <P>
-     * The CreateRequest's location is relative the Viewer. The location is made layout-relative before calling one of the methods
-     * mentioned above.
-     * 
+     * The CreateRequest's location is relative the Viewer. The location is made layout-relative before calling one of the methods mentioned above.
      * @param request the CreateRequest
      * @return a draw2d constraint
      */
@@ -328,11 +325,12 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
         final ModelioCreationContext ctx = ModelioCreationContext.lookRequest(request);
         if (ctx != null) {
             final EditPart insertAfter = getInsertionReference(request);
-            final GmNodeModel insertAfterModel = (insertAfter == null ? null : (GmNodeModel) insertAfter.getModel());
+            final GmNodeModel insertAfterModel = insertAfter == null ? null : (GmNodeModel) insertAfter.getModel();
         
             IFigure containerFig = getLayoutContainer();
-            containerFig.revalidate();
+            containerFig.getUpdateManager().performValidation();
         
+            // Compute initial width/height
             int constraint = -1;
             final Dimension containerDimension = containerFig.getSize();
             if (isHorizontal() && containerDimension.width != 0) {
@@ -342,15 +340,16 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
             } else {
                 constraint = -1;
             }
+        
             return new AddChildToGroupCommand(getHost(), ctx, insertAfterModel, constraint);
         } else {
             return null;
         }
+        
     }
 
     /**
      * Retrieves the child's current constraint from the <code>LayoutManager</code>.
-     * 
      * @param child the child
      * @return the current constraint
      */
@@ -361,15 +360,21 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
     }
 
     /**
+     * Get the index of the group item from the request location.
      * @param request the Request
-     * @return the index for the insertion reference
+     * @return the index of the item under mouse.
      */
     @objid ("7f1354a2-1dec-11e2-8cad-001ec947c8cc")
     protected int getFeedbackIndexFor(Request request) {
-        List<?> children = getHost().getChildren();
+        List<GraphicalEditPart> children = getHost().getChildren();
         if (children.isEmpty()) {
             return -1;
         }
+        
+        // If the index is specified in the request return it directly
+        Integer refIndex = RequestProperty.PROP_GROUP_ITEM_INDEX.get(request);
+        if (refIndex != null)
+            return refIndex;
         
         Transposer transposer = new Transposer();
         transposer.setEnabled(!isHorizontal());
@@ -381,40 +386,42 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
         int rowBottom = Integer.MIN_VALUE;
         int candidate = -1;
         for (int i = 0; i < children.size(); i++) {
-            EditPart child = (EditPart) children.get(i);
-            Rectangle rect = transposer.t(getAbsoluteBounds(((GraphicalEditPart) child)));
+            GraphicalEditPart child = children.get(i);
+            Rectangle rect = transposer.t(getAbsoluteBounds(child));
             if (rect.y > rowBottom) {
                 /*
-                 * We are in a new row, so if we don't have a candidate but yet are within the previous row, then the current entry
-                 * becomes the candidate. This is because we know we must be to the right of center of the last Figure in the
-                 * previous row, so this Figure (which is at the start of a new row) is the candidate.
+                 * We are in a new row, so if we don't have a candidate but yet are within the previous row,
+                 * then the current entry becomes the candidate.
+                 * This is because we know we must be to the right of center of the last Figure in the previous row,
+                 * so this Figure (which is at the start of a new row) is the candidate.
                  */
-                if (p.y <= rowBottom) {
-                    if (candidate == -1) {
-                        candidate = i;
-                    }
-                    break;
+                if (p.y <= rowBottom && candidate == -1) {
+                    // Fast return
+                    return  i;
                 }
-                // else
-                candidate = -1; // Mouse's Y is outside the row, so reset the
-                // candidate
+        
+                candidate = -1; // Mouse's Y is outside the row, so reset the candidate
             }
             rowBottom = Math.max(rowBottom, rect.bottom());
+        
             if (candidate == -1) {
                 /*
-                 * See if we have a possible candidate. It is a candidate if the cursor is left of the center of this candidate.
+                 * See if we have a possible candidate.
+                 * It is a candidate if the cursor is left of the center of this candidate.
                  */
-                if (p.x <= rect.x + (rect.width / 2)) {
+                if (p.x <= rect.x + rect.width / 2) {
                     candidate = i;
                 }
             }
+        
             if (candidate != -1) {
                 // We have a candidate, see if the rowBottom has grown to
                 // include the mouse Y.
                 if (p.y <= rowBottom) {
                     /*
-                     * Now we have determined that the cursor.Y is above the bottom of the current row of figures. Stop now, to
-                     * prevent the next row from being searched
+                     * Now we have determined that the cursor.
+                     * Y is above the bottom of the current row of figures.
+                     * Stop now, to prevent the next row from being searched.
                      */
                     break;
                 }
@@ -440,32 +447,33 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
     @objid ("7f1354aa-1dec-11e2-8cad-001ec947c8cc")
     @Override
     protected EditPart getInsertionReference(Request request) {
-        List<?> children = getHost().getChildren();
+        List<EditPart> children = getHost().getChildren();
         
-        if (request.getType().equals(RequestConstants.REQ_CREATE)) {
+        if (RequestConstants.REQ_CREATE.equals(request.getType())) {
             int i = getFeedbackIndexFor(request);
             if (i == -1) {
                 return null;
             }
-            return (EditPart) children.get(i);
+            return children.get(i);
         }
         
         int index = getFeedbackIndexFor(request);
         if (index != -1) {
             List<?> selection = getHost().getViewer().getSelectedEditParts();
             do {
-                EditPart editpart = (EditPart) children.get(index);
+                EditPart editpart = children.get(index);
                 if (!selection.contains(editpart)) {
                     return editpart;
                 }
             } while (++index < children.size());
         }
-        return null; // Not found, add at the end.
+        
+        // Not found, add at the end.
+        return null;
     }
 
     /**
      * Lazily creates and returns a <code>Polyline</code> Figure for use as feedback.
-     * 
      * @return a Polyline figure
      */
     @objid ("7f1354b4-1dec-11e2-8cad-001ec947c8cc")
@@ -485,9 +493,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
     }
 
     /**
-     * Determines the <em>minimum</em> size that the specified child can be resized to. Called from
-     * {@link #getConstraintFor(ChangeBoundsRequest, GraphicalEditPart)}. By default, a small <code>Dimension</code> is returned.
-     * 
+     * Determines the <em>minimum</em> size that the specified child can be resized to. Called from {@link #getConstraintFor(ChangeBoundsRequest, GraphicalEditPart)}. By default, a small <code>Dimension</code> is returned.
      * @param child the child
      * @return the minimum size
      */
@@ -497,8 +503,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
     }
 
     /**
-     * A translation is interpreted here as a change in order of the children. This method obtains the proper index, and then calls
-     * {@link #createMoveChildCommand(EditPart, EditPart)}.
+     * A translation is interpreted here as a change in order of the children. This method obtains the proper index, and then calls {@link #createMoveChildCommand(EditPart, EditPart)}.
      * @see LayoutEditPolicy#getMoveChildrenCommand(Request)
      */
     @objid ("7f1354da-1dec-11e2-8cad-001ec947c8cc")
@@ -507,17 +512,25 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
         if (!getHostCompositeNode().allowsMove()) {
             return null;
         }
-        
-        // Translation
-        List<?> editParts = ((ChangeBoundsRequest) request).getEditParts();
+        return super.getMoveChildrenCommand(request);
+    }
+
+    @objid ("b2acabec-05dc-4d30-b7a9-b48a5bcc4610")
+    protected Command getDeleteChildrenCommand(GroupRequest request) {
+        List<GraphicalEditPart> editParts = request.getEditParts();
         CompoundCommand command = new CompoundCommand();
-        
-        EditPart insertionReference = getInsertionReference(request);
         for (int i = 0; i < editParts.size(); i++) {
-            EditPart child = (EditPart) editParts.get(i);
-            command.add(createMoveChildCommand(child, insertionReference));
+            GraphicalEditPart child = editParts.get(i);
+            command.add(createDeleteChildCommand(request, child));
         }
         return command.unwrap();
+    }
+
+    @objid ("c6507c80-be26-42e5-b2de-b284d813ddb5")
+    protected Command createDeleteChildCommand(GroupRequest request, GraphicalEditPart child) {
+        DeleteInDiagramCommand command = new DeleteInDiagramCommand();
+        command.setNodetoDelete((IGmObject) child.getModel());
+        return command;
     }
 
     @objid ("7f181970-1dec-11e2-8cad-001ec947c8cc")
@@ -586,7 +599,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
             Dimension remainDelta = putShrinkChildrenConstraints(resizedEditParts, topLeftBorderMoved, containerDelta, newConstraints);
         
             // - The remaining delta is the delta the container needs to expand
-            containerDelta = remainDelta ;
+            containerDelta = remainDelta;
         } else if (trContainerDelta.height() < 0) {
             // allow container to shrink only if moving extremity borders
             if (!containsExtremity(resizedEditParts, topLeftBorderMoved)) {
@@ -605,7 +618,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
             containerDelta = t.t(trContainerDelta);
         }
         
-        if (containerDelta.width() != 0 || containerDelta.height() != 0 ) {
+        if (containerDelta.width() != 0 || containerDelta.height() != 0) {
             // Ask container to expand.
             //
             // Request a resize of the the container and append the
@@ -619,8 +632,9 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
             resizeContainerRequest.setEditParts(toResize);
             resizeContainerRequest.setSizeDelta(containerDelta);
             resizeContainerRequest.setExtendedData(request.getExtendedData());
+            RequestHelper.addSharedEditParts(resizeContainerRequest, request);
         
-            if (! request.getMoveDelta().equals(0, 0)) {
+            if (!request.getMoveDelta().equals(0, 0)) {
                 // Top and/or left border moved
                 // - major axis : use computed container delta
                 // - minor axis : use initial request move delta
@@ -638,6 +652,8 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
         }
         
         compound.add(command);
+        
+        //LayoutChildrenNodeConnectionsHelper.addLayoutConnectionCommands(getHost(), compound, getHost().getChildren(), request);
         return compound.unwrap();
     }
 
@@ -653,7 +669,6 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
      * Called by the edit part listener created by {@link #createListener()} when a child edit part is added.
      * <p>
      * Try to expand the container to fit all children.
-     * 
      * @param child the added edit part
      */
     @objid ("99bc7c31-bf9a-4c48-9d74-2ac6407f3f52")
@@ -670,6 +685,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
             // resize needed
             AutoExpandHelper.executeExpandRequest(req, getHost());
         }
+        
     }
 
     /**
@@ -692,12 +708,11 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
             // Otherwise, show a line where the partition would be inserted.
             showInsertionFeedback(request);
         }
+        
     }
 
     /**
      * Tells whether the given list contains the first or the last child.
-     * @param resizedEditParts
-     * 
      * @param topBorder if true look for fist child else for last child
      * @return whether the given list contains the first or the last child.
      */
@@ -750,8 +765,8 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
                 // Depending on the resize direction, return either previous or
                 // next child, or null.
                 // If movement to the right, return next child
-                if (((request.getResizeDirection() & PositionConstants.EAST) != 0)
-                        || ((request.getResizeDirection() & PositionConstants.SOUTH) != 0)) {
+                if ((request.getResizeDirection() & PositionConstants.EAST) != 0
+                        || (request.getResizeDirection() & PositionConstants.SOUTH) != 0) {
                     // Watch out: first element if the nextChildren list might
                     // be the current child, in which case just skip over it.
                     if (child.equals(nextChildren.get(0))) {
@@ -761,8 +776,8 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
                     return nextChildren.get(0);
                 }
                 // If movement to the left, return previous child
-                if (((request.getResizeDirection() & PositionConstants.WEST) != 0)
-                        || ((request.getResizeDirection() & PositionConstants.NORTH) != 0)) {
+                if ((request.getResizeDirection() & PositionConstants.WEST) != 0
+                        || (request.getResizeDirection() & PositionConstants.NORTH) != 0) {
                     return previousChild;
                 }
                 // else
@@ -781,6 +796,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
         }
         // Not found, something is wrong here
         throw new IllegalArgumentException("argument edit part is not a child of current container");
+        
     }
 
     @objid ("7f1354bb-1dec-11e2-8cad-001ec947c8cc")
@@ -790,10 +806,8 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
 
     /**
      * Return the host edit part if this policy can handle the metaclass involved in the request.
-     * 
      * @param createRequest the request.
-     * @return the host editpart if the metaclass involved in the request can be handled by this policy, <code>null</code>
-     * otherwise.
+     * @return the host editpart if the metaclass involved in the request can be handled by this policy, <code>null</code> otherwise.
      */
     @objid ("7f10f26f-1dec-11e2-8cad-001ec947c8cc")
     private EditPart getTargetEditPart(CreateRequest createRequest) {
@@ -816,10 +830,8 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
 
     /**
      * Return the host edit part if this policy can handle all edit parts involved in the request.
-     * 
      * @param changeBoundsRequest the request, can be CLONE or ADD.
-     * @return the host editpart if all editparts involved in the request can be handled by this policy, <code>null</code>
-     * otherwise.
+     * @return the host editpart if all editparts involved in the request can be handled by this policy, <code>null</code> otherwise.
      */
     @objid ("7f10f279-1dec-11e2-8cad-001ec947c8cc")
     private EditPart getTargetEditPart(ChangeBoundsRequest changeBoundsRequest) {
@@ -870,7 +882,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
         int shrinkIxStart;
         if (topLeftBorderMoved) {
             // top/left border moved
-            shrinkIxStart = hostChildren.size() - 1 ;
+            shrinkIxStart = hostChildren.size() - 1;
         } else {
             // bottom/right border
             shrinkIxStart = 0;
@@ -882,7 +894,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
             if (topLeftBorderMoved) {
                 // top/left border moved
                 shrinkIxStart = Math.min(shrinkIxStart, childIndex - 1);
-            }  else {
+            } else {
                 // bottom/right border
                 shrinkIxStart = Math.max(shrinkIxStart, childIndex + 1);
             }
@@ -896,6 +908,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
         Dimension neighbourConstraint = getConstraintFor(inverseRequest, child).getSize();
         newConstraints.put((GmNodeModel) child.getModel(),
                 isHorizontal() ? Integer.valueOf(neighbourConstraint.width) : Integer.valueOf(neighbourConstraint.height));
+        
     }
 
     @objid ("ab220182-907e-49bb-9449-27d554d65ad8")
@@ -906,7 +919,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
         int shrinkIxEnd;
         if (topLeftBorderMoved) {
             // top/left border moved
-            shrinkIxStart = hostChildren.size() - 1 ;
+            shrinkIxStart = hostChildren.size() - 1;
             shrinkIxEnd = 0;
         } else {
             // bottom/right border
@@ -920,7 +933,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
             if (topLeftBorderMoved) {
                 // top/left border moved
                 shrinkIxStart = Math.min(shrinkIxStart, childIndex - 1);
-            }  else {
+            } else {
                 // bottom/right border
                 shrinkIxStart = Math.max(shrinkIxStart, childIndex + 1);
             }
@@ -932,8 +945,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
     }
 
     /**
-     * @param askedEnd last index
-     * 
+     * @param askedEnd       last index
      * @param start start index
      * @param newConstraints the constraints map to fill
      * @param askedShrink the requested shrink (values must be positive)
@@ -945,7 +957,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
         Dimension remainingShrink = askedShrink.getCopy();
         boolean horizontal = isHorizontal();
         
-        for (int i = start; (inc > 0 ? i <= end : i >= end) && !remainingShrink.equals(0, 0); i+=inc) {
+        for (int i = start; (inc > 0 ? i <= end : i >= end) && !remainingShrink.equals(0, 0); i += inc) {
             GraphicalEditPart child = hostChildren.get(i);
             IFigure childFig = child.getFigure();
             Dimension childSize = childFig.getSize();
@@ -985,25 +997,22 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
         Transposer transposer = new Transposer();
         transposer.setEnabled(!isHorizontal());
         Rectangle r = transposer.t(getAbsoluteBounds((GraphicalEditPart) getHost()));
-        Point p1 = new Point(r.x + (r.width / 2), r.y - 4);
+        Point p1 = new Point(r.x + r.width / 2, r.y - 4);
         p1 = transposer.t(p1);
         fb.translateToRelative(p1);
-        Point p2 = new Point(r.x + (r.width / 2), r.y + r.height + 4);
+        Point p2 = new Point(r.x + r.width / 2, r.y + r.height + 4);
         p2 = transposer.t(p2);
         fb.translateToRelative(p2);
         fb.setPoint(p1, 0);
         fb.setPoint(p1, 1);
         fb.setPoint(p2, 2);
         fb.setPoint(p2, 3);
+        
     }
 
-    /**
-     * @param request
-     * @param childrenEditParts
-     */
     @objid ("7f18195d-1dec-11e2-8cad-001ec947c8cc")
     private void showInsertionFeedback(Request request) {
-        List<?> childrenEditParts = getHost().getChildren();
+        List<GraphicalEditPart> childrenEditParts = getHost().getChildren();
         Polyline fb = getLineFeedback();
         Transposer transposer = new Transposer();
         transposer.setEnabled(!isHorizontal());
@@ -1014,40 +1023,38 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
         if (epIndex == -1) {
             before = false;
             epIndex = childrenEditParts.size() - 1;
-            EditPart editPart = (EditPart) childrenEditParts.get(epIndex);
-            r = transposer.t(getAbsoluteBounds((GraphicalEditPart) editPart));
+            GraphicalEditPart editPart = childrenEditParts.get(epIndex);
+            r = transposer.t(getAbsoluteBounds(editPart));
         } else {
-            EditPart editPart = (EditPart) childrenEditParts.get(epIndex);
-            r = transposer.t(getAbsoluteBounds((GraphicalEditPart) editPart));
+            GraphicalEditPart editPart = childrenEditParts.get(epIndex);
+            r = transposer.t(getAbsoluteBounds(editPart));
             Point p = transposer.t(getLocationFromRequest(request));
-            if (p.x <= r.x + (r.width / 2)) {
+            if (p.x <= r.x + r.width / 2) {
                 before = true;
             } else {
                 /*
-                 * We are not to the left of this Figure, so the emphasis line needs to be to the right of the previous Figure,
-                 * which must be on the previous row.
+                 * We are not to the left of this Figure, so the emphasis line needs to be to the right of the previous Figure, which must be on the previous row.
                  */
                 before = false;
                 epIndex--;
-                editPart = (EditPart) childrenEditParts.get(epIndex);
-                r = transposer.t(getAbsoluteBounds((GraphicalEditPart) editPart));
+                editPart = childrenEditParts.get(epIndex);
+                r = transposer.t(getAbsoluteBounds(editPart));
             }
         }
         int x = Integer.MIN_VALUE;
         if (before) {
             /*
-             * Want the line to be halfway between the end of the previous and the beginning of this one. If at the begining of a
-             * line, then start halfway between the left edge of the parent and the beginning of the box, but no more than 5 pixels
-             * (it would be too far and be confusing otherwise).
+             * Want the line to be halfway between the end of the previous and the beginning of this one. If at the begining of a line, then start halfway between the left edge of the parent and the beginning of the box, but no more than 5 pixels (it would
+             * be too far and be confusing otherwise).
              */
             if (epIndex > 0) {
                 // Need to determine if a line break.
-                Rectangle boxPrev = transposer.t(getAbsoluteBounds((GraphicalEditPart) childrenEditParts.get(epIndex - 1)));
+                Rectangle boxPrev = transposer.t(getAbsoluteBounds(childrenEditParts.get(epIndex - 1)));
                 int prevRight = boxPrev.right();
-                if (prevRight < (r.x - ((ResizableGroupLayout) getHostFigure().getLayoutManager()).getSpacing())) {
+                if (prevRight < r.x - ((ResizableGroupLayout) getHostFigure().getLayoutManager()).getSpacing()) {
                     // Not a line break
                     x = prevRight + (r.x - prevRight) / 2;
-                } else if (prevRight == (r.x - ((ResizableGroupLayout) getHostFigure().getLayoutManager()).getSpacing())) {
+                } else if (prevRight == r.x - ((ResizableGroupLayout) getHostFigure().getLayoutManager()).getSpacing()) {
                     x = prevRight + 1;
                 }
             }
@@ -1061,8 +1068,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
             }
         } else {
             /*
-             * We only have before==false if we are at the end of a line, so go halfway between the right edge and the right edge of
-             * the parent, but no more than 5 pixels.
+             * We only have before==false if we are at the end of a line, so go halfway between the right edge and the right edge of the parent, but no more than 5 pixels.
              */
             Rectangle parentBox = transposer.t(getAbsoluteBounds((GraphicalEditPart) getHost()));
             int rRight = r.x + r.width;
@@ -1088,6 +1094,7 @@ public class ResizableGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
         fb.setPoint(header2, 1);
         fb.setPoint(p1, 2);
         fb.setPoint(p2, 3);
+        
     }
 
 }

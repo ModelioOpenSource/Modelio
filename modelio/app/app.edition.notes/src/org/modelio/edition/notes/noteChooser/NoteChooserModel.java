@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.noteChooser;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,17 +32,15 @@ public class NoteChooserModel {
 
     /**
      * Constructor.
-     * 
      * @param element the element to create notes on.
      */
     @objid ("26e385b0-186f-11e2-bc4e-002564c97630")
-    public NoteChooserModel(ModelElement element) {
+    public  NoteChooserModel(ModelElement element) {
         this.element = element;
     }
 
     /**
      * Get the element beeing edited.
-     * 
      * @return a model element
      */
     @objid ("42b724c1-1917-11e2-bc4e-002564c97630")

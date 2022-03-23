@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import java.util.List;
@@ -69,9 +68,10 @@ public class EConstraint extends ENamedElement {
     }
 
     @objid ("8db133e8-3167-48f5-931c-63a2b67bcae3")
-    public EConstraint(org.eclipse.uml2.uml.Constraint element) {
+    public  EConstraint(org.eclipse.uml2.uml.Constraint element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("c9e3ba3e-c263-46e6-9cd9-7de7bde00722")
@@ -88,6 +88,7 @@ public class EConstraint extends ENamedElement {
         if (objingElt instanceof Constraint) {
             setBody((Constraint) objingElt);
         }
+        
     }
 
     @objid ("6e173c08-8158-4e23-86e4-d99eb83ea0fb")
@@ -98,6 +99,7 @@ public class EConstraint extends ENamedElement {
             if (body != null)
                 objingElt.setBody(body);
         }
+        
     }
 
 }

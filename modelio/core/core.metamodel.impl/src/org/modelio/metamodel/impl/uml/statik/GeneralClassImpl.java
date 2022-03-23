@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.uml.statik.GeneralClassData;
 import org.modelio.metamodel.uml.behavior.activityModel.ExceptionHandler;
 import org.modelio.metamodel.uml.behavior.activityModel.ObjectNode;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Signal;
@@ -79,6 +78,7 @@ public abstract class GeneralClassImpl extends ClassifierImpl implements General
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("46714c72-c8d5-4efb-9116-e2cf9e0bb45e")
@@ -113,6 +113,7 @@ public abstract class GeneralClassImpl extends ClassifierImpl implements General
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("523e571f-466b-43e8-892e-8dc3a95f77a2")
@@ -134,6 +135,7 @@ public abstract class GeneralClassImpl extends ClassifierImpl implements General
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("0ec03e2b-1304-4d43-aecd-488c7b10bf99")
@@ -155,6 +157,7 @@ public abstract class GeneralClassImpl extends ClassifierImpl implements General
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("cc770e6b-80df-4c7d-93d2-c05b4ab44350")

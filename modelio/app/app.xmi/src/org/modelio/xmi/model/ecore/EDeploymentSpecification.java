@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class EDeploymentSpecification extends EArtifact {
     }
 
     @objid ("217c6da0-1819-40cf-98b1-ba75c1d0df92")
-    public EDeploymentSpecification(org.eclipse.uml2.uml.DeploymentSpecification element) {
+    public  EDeploymentSpecification(org.eclipse.uml2.uml.DeploymentSpecification element) {
         super(element);
     }
 

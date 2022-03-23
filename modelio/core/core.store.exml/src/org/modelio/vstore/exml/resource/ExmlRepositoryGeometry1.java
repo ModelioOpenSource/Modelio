@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.resource;
 
 import java.util.ArrayList;
@@ -38,11 +37,10 @@ public class ExmlRepositoryGeometry1 implements IExmlRepositoryGeometry {
      * EXML files storage directory path relative to the project space path.
      */
     @objid ("d82c530a-1ceb-11e2-8eb9-001ec947ccaf")
-     static final String MODEL_STORAGE_PATH = MODEL_DIRNAME;
+    static final String MODEL_STORAGE_PATH = MODEL_DIRNAME;
 
     /**
      * Get the EXML file local path of an element reference relative to the project space.
-     * 
      * @param ref an element reference.
      * @return the EXML file path relative to the project space directory.
      */
@@ -53,7 +51,6 @@ public class ExmlRepositoryGeometry1 implements IExmlRepositoryGeometry {
 
     /**
      * Get the element reference representing the given file.
-     * 
      * @param exmlFile an EXML file
      * @return the represented element reference.
      */
@@ -71,7 +68,6 @@ public class ExmlRepositoryGeometry1 implements IExmlRepositoryGeometry {
      * <p>
      * The answer is based on the file extension.
      * Returns <i>false</i> if it is a {@link IExmlRepositoryGeometry#EXT_LOCAL_EXML ".local.exml"} file.
-     * 
      * @param relativePath a file
      * @return <i>true</i> if it is an EXML file, else <i>false</i>.
      */
@@ -134,11 +130,11 @@ public class ExmlRepositoryGeometry1 implements IExmlRepositoryGeometry {
         } else {
             return qname.substring(i+1);
         }
+        
     }
 
     /**
      * Get the directory name where the metaclass instances are stored.
-     * 
      * @param cls a metaclass
      * @return its directory name.
      */

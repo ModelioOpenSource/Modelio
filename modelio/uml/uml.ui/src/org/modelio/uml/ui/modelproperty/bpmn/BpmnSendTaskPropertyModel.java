@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import java.util.ArrayList;
@@ -65,21 +64,20 @@ public class BpmnSendTaskPropertyModel extends AbstractPropertyModel<BpmnSendTas
 
     /**
      * Create a new <i>BpmnSendTask</i> data model from an <i>BpmnSendTask</i>.
-     * 
      * @param theEditedElement the model to edit.
      * @param modelService the model service needed to find elements.
      */
     @objid ("aec42798-4ec9-4095-a6b1-bbc8b4a2c062")
-    public BpmnSendTaskPropertyModel(BpmnSendTask theEditedElement, IMModelServices modelService, IMdaExpert mdaExpert) {
+    public  BpmnSendTaskPropertyModel(BpmnSendTask theEditedElement, IMModelServices modelService, IMdaExpert mdaExpert) {
         super(theEditedElement);
         this.modelService = modelService;
         this.mdaExpert = mdaExpert;
         initPropertyModel();
+        
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("c058c79c-7506-49d9-8052-d7044ed9a092")
@@ -90,7 +88,6 @@ public class BpmnSendTaskPropertyModel extends AbstractPropertyModel<BpmnSendTas
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("6e2353d4-a47a-4488-9203-dca3140746a2")
@@ -105,7 +102,6 @@ public class BpmnSendTaskPropertyModel extends AbstractPropertyModel<BpmnSendTas
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -175,7 +171,6 @@ public class BpmnSendTaskPropertyModel extends AbstractPropertyModel<BpmnSendTas
      * This type will be used to choose an editor and a renderer for each cell of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -275,13 +270,13 @@ public class BpmnSendTaskPropertyModel extends AbstractPropertyModel<BpmnSendTas
             this.properties.add("CompletionCondition");
             this.properties.add("EventDefinition");
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -343,6 +338,7 @@ public class BpmnSendTaskPropertyModel extends AbstractPropertyModel<BpmnSendTas
                 }
             }
         }
+        
     }
 
 }

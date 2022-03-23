@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta.mof;
 
 import java.util.Arrays;
@@ -47,19 +46,20 @@ public class MofMetamodelFragment implements ISmMetamodelFragment {
     @objid ("07ade684-18c8-40f6-9fe6-99e8c2319962")
     private final boolean isExtension;
 
+    
     @mdl.prop
     @objid ("5b189c86-a805-46f5-acc5-a74132da5cc2")
-    private boolean temporary;
+    public boolean temporary;
 
     @mdl.propgetter
     public boolean isTemporary() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.temporary;
     }
 
     @mdl.propsetter
     public void setTemporary(boolean value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.temporary = value;
     }
 
@@ -104,7 +104,6 @@ public class MofMetamodelFragment implements ISmMetamodelFragment {
 
     /**
      * Create the metaclasses.
-     * 
      * @return the metaclasses.
      */
     @objid ("6247bde4-af88-4f8a-8e7d-3b455046a2f4")
@@ -138,18 +137,18 @@ public class MofMetamodelFragment implements ISmMetamodelFragment {
      * or a standard Modelio metamodel fragment.
      * <p>
      * Standard Modelio metamodel fragments are guaranteed to have no metaclass name collisions.
-     * 
      * @param name the metamodel fragment name.
      * @param version the metamodel fragment version.
      * @param isExtension <i>true</i> if the fragment is an extension, <i>false</i> if it is a Modelio standard fragment.
      */
     @objid ("5dcd6596-5669-4212-ae9f-9cf41a987a55")
-    public MofMetamodelFragment(String name, Version version, boolean isExtension) {
+    public  MofMetamodelFragment(String name, Version version, boolean isExtension) {
         this.name = name;
         this.version = version;
         this.isExtension = isExtension;
         this.provider = "Modeliosoft MOF service";
         this.providerVersion = "";
+        
     }
 
     @objid ("5de343b8-b854-43ba-9637-52b66a0b7fa6")
@@ -161,21 +160,20 @@ public class MofMetamodelFragment implements ISmMetamodelFragment {
 
     /**
      * Creates a metamodel fragment with 1.0.0 as version.
-     * 
      * @param name the metamodel fragment name.
      */
     @objid ("adb267f6-8ada-4ed5-ba0f-7933df10ff63")
-    MofMetamodelFragment(String name) {
+     MofMetamodelFragment(String name) {
         this.name = name;
         this.version = new Version(1,0,0);
         this.isExtension = true;
         this.provider = "Modeliosoft MOF service";
         this.providerVersion = "";
+        
     }
 
     /**
      * Set the provider.
-     * 
      * @param provider the provider.
      * @return this instance.
      */

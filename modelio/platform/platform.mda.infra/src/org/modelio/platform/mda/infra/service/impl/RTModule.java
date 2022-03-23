@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl;
 
 import java.lang.reflect.Constructor;
@@ -50,9 +49,13 @@ import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.platform.mda.infra.plugin.MdaInfra;
 import org.modelio.platform.mda.infra.service.IRTModule;
+import org.modelio.platform.mda.infra.service.IRTModule.DiagramCustomizationDescriptor;
+import org.modelio.platform.mda.infra.service.IRTModule.DiagramToolDescriptor;
+import org.modelio.platform.mda.infra.service.IRTModule.ModuleRuntimeState;
 import org.modelio.platform.mda.infra.service.IRTModuleController;
 import org.modelio.platform.mda.infra.service.IRTModuleListener;
 import org.modelio.platform.mda.infra.service.contributions.WizardContribution;
+import org.modelio.platform.mda.infra.service.impl.common.ConfigurationImpl;
 import org.modelio.platform.mda.infra.service.impl.common.ModuleConfiguration;
 import org.modelio.platform.mda.infra.service.impl.common.PeerModuleConfiguration;
 import org.modelio.platform.mda.infra.service.impl.controller.RTModuleController;
@@ -133,7 +136,6 @@ class RTModule implements IRTModuleAccess {
 
     /**
      * Returns the collection of {@link IModuleAction} associated with passed location.
-     * 
      * @param location the location for which actions are to be returned.
      * @return the collection of {@link IModuleAction} associated with passed location.
      */
@@ -145,11 +147,11 @@ class RTModule implements IRTModuleAccess {
         } else {
             return Collections.emptyList();
         }
+        
     }
 
     /**
      * Register a module action for the contextual popupmenu(s) of the application.
-     * 
      * @param location The action insertion point in the popupmenu (see {@link ActionLocation})
      * @param action Action to store
      */
@@ -159,6 +161,7 @@ class RTModule implements IRTModuleAccess {
         List<IModuleAction> actionsList = this.actionsRegistry.get(location);
         // Register the command in the moduleActions registry
         actionsList.add(action);
+        
     }
 
     @objid ("aa1fa07b-3f01-49f9-9138-33d937183699")
@@ -215,7 +218,6 @@ class RTModule implements IRTModuleAccess {
 
     /**
      * Return the defined property panels
-     * 
      * @return The collection of property panels
      */
     @objid ("c0e4c841-da08-40ff-9f85-5ca1dad1423c")
@@ -226,7 +228,6 @@ class RTModule implements IRTModuleAccess {
 
     /**
      * Get ids of all defined diagram tools.
-     * 
      * @return the toolIds.
      */
     @objid ("762d4fa9-9dc4-42bd-93cd-a16d6c7562c6")
@@ -254,12 +255,13 @@ class RTModule implements IRTModuleAccess {
     }
 
     @objid ("6a8d552f-e55f-4b45-9ee4-c3eaa092f085")
-    public RTModule(GModule gModule, IModuleRegistryAccess moduleRegistry) {
+    public  RTModule(GModule gModule, IModuleRegistryAccess moduleRegistry) {
         this.gmodule = gModule;
         this.moduleRegistry = moduleRegistry;
         this.controller = new RTModuleController(this, moduleRegistry);
         
         setGModule(gModule);
+        
     }
 
     @objid ("bb8632e0-0621-4ea9-b388-18b29a8fcb86")
@@ -348,7 +350,6 @@ class RTModule implements IRTModuleAccess {
 
     /**
      * The module configuration for API use.
-     * 
      * @return The module configuration for API use.
      */
     @objid ("5c33aaf2-b361-4869-a6e5-3ab20788237b")
@@ -431,13 +432,16 @@ class RTModule implements IRTModuleAccess {
         
         // Prepare the ModuleConfiguration objects for the module.
         IModuleHandle moduleHandle = gModule.getModuleHandle();
-        this.moduleUserConfiguration = new ModuleConfiguration(gModule, moduleHandle.getResourcePath(), moduleHandle.getDocPaths(), moduleHandle.getStylePaths());
-        this.moduleApiConfiguration = new PeerModuleConfiguration(gModule, moduleHandle.getResourcePath(), moduleHandle.getDocPaths());
+        
+        ConfigurationImpl impl = new ConfigurationImpl(gModule, moduleHandle.getResourcePath());
+        this.moduleUserConfiguration = new ModuleConfiguration(impl, moduleHandle.getDocPaths(), moduleHandle.getStylePaths());
+        this.moduleApiConfiguration = new PeerModuleConfiguration(impl, moduleHandle.getDocPaths());
         
         resetDependencies();
         
         // Instantiate temporary fake IModule
         this.iModule = new ModuleLoader(this).createFakeModule();
+        
     }
 
     @objid ("e2895d64-8d49-4da7-b826-33b6f2280a21")
@@ -453,6 +457,7 @@ class RTModule implements IRTModuleAccess {
         for (ActionLocation actionLocation : ActionLocation.values()) {
             this.actionsRegistry.put(actionLocation, new ArrayList<IModuleAction>());
         }
+        
     }
 
     @objid ("17a4a161-3f8e-404b-9420-3b478e4c38da")
@@ -463,6 +468,7 @@ class RTModule implements IRTModuleAccess {
         } else {
             return super.toString();
         }
+        
     }
 
     /**
@@ -473,6 +479,7 @@ class RTModule implements IRTModuleAccess {
     public final void resetDependencies() {
         this.requiredModules = null;
         this.usedModules = null;
+        
     }
 
     @objid ("3a545164-16ab-48cc-a666-420f7d1c2ff8")
@@ -480,6 +487,7 @@ class RTModule implements IRTModuleAccess {
     public void resetModuleUsers() {
         this.moduleUsers = null;
         this.moduleOptionalUsers = null;
+        
     }
 
     @objid ("dc35235c-a2bf-4cb1-bd1b-2ca318c7ae5b")
@@ -504,6 +512,7 @@ class RTModule implements IRTModuleAccess {
         // Set fields last to avoid concurrent field reset by resetModuleUsers()
         this.moduleUsers = newUsers;
         this.moduleOptionalUsers = newOptionalUsers;
+        
     }
 
     @objid ("44c30332-0ec2-4d31-b365-555641ab7c4f")
@@ -567,6 +576,7 @@ class RTModule implements IRTModuleAccess {
             this.requiredModules = Collections.emptyList();
             this.usedModules = Collections.emptyList();
         }
+        
     }
 
 }

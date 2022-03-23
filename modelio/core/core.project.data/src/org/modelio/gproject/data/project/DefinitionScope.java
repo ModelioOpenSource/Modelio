@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.project;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,9 +32,12 @@ public enum DefinitionScope {
     /**
      * Local element.
      */
+    @objid ("5e58239a-2ff2-11e2-8f81-001ec947ccaf")
     LOCAL,
     /**
      * Element shared by a server.
      */
+    @objid ("62782bd0-2ff2-11e2-8f81-001ec947ccaf")
     SHARED;
+
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,7 +36,7 @@ public class OExitPointPseudoState extends OAbstractPseudoState {
     }
 
     @objid ("4026c571-8576-493b-b61f-b530d614d314")
-    public OExitPointPseudoState(ExitPointPseudoState param) {
+    public  OExitPointPseudoState(ExitPointPseudoState param) {
         super(param);
     }
 
@@ -71,6 +70,7 @@ public class OExitPointPseudoState extends OAbstractPseudoState {
             ecoreElt.destroy();
             throw new NotFoundException("Owner Class of "+ this.getObjingElement().getClass().getSimpleName() + " Not Found");
         }
+        
     }
 
     @objid ("da8e8e27-fab9-4b2b-8ef9-16e452eb4425")
@@ -78,6 +78,7 @@ public class OExitPointPseudoState extends OAbstractPseudoState {
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         super.setProperties(ecoreElt);
         setKind( (Pseudostate)ecoreElt);
+        
     }
 
     @objid ("ae9d7c49-ecdc-4fb2-9d89-913715a7e4c6")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.rotated;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -56,13 +55,14 @@ class RotatedGraphics extends Graphics {
     private Graphics g;
 
     @objid ("31c97933-43cd-42c2-9cc9-fee16039be12")
-    public RotatedGraphics(Graphics g, int angle) {
+    public  RotatedGraphics(Graphics g, int angle) {
         this.g = g;
         this.angle = angle;
         
         double rad = Math.toRadians(angle);
         this.cos = Math.cos(rad);
         this.sin = Math.sin(rad);
+        
     }
 
     @objid ("7eb9a650-eb66-4ccd-84d2-199288b4873c")
@@ -76,6 +76,7 @@ class RotatedGraphics extends Graphics {
         }
         
         this.g.clipPath(new Path(path.getDevice(), d));
+        
     }
 
     @objid ("c1119808-08ec-46f4-8d9a-cb9e6e23564b")
@@ -83,6 +84,7 @@ class RotatedGraphics extends Graphics {
     public void clipRect(Rectangle r) {
         // TODO to be done, currently clipping is ignored.
         // this may have some side drawing effects.
+        
     }
 
     @objid ("ec330f1c-47f9-48d5-9a9d-f44d569bc5d7")
@@ -102,6 +104,7 @@ class RotatedGraphics extends Graphics {
     public void drawFocus(int x, int y, int w, int h) {
         int[] points = trRectangle(x, y, w, h);
         this.g.drawPolygon(points);
+        
     }
 
     @objid ("48563677-462e-4b92-a51d-7313b3847c41")
@@ -111,6 +114,7 @@ class RotatedGraphics extends Graphics {
         this.g.rotate(this.angle);
         this.g.drawImage(srcImage, x, y);
         this.g.popState();
+        
     }
 
     @objid ("34e544f0-9b03-4aad-9287-b174f9de9638")
@@ -120,6 +124,7 @@ class RotatedGraphics extends Graphics {
         this.g.rotate(this.angle);
         this.g.drawImage(srcImage, x1, y1, w1, h1, x2, y2, w2, h2);
         this.g.popState();
+        
     }
 
     @objid ("2416c9d4-5c5e-4b27-9130-958330827eca")
@@ -135,6 +140,7 @@ class RotatedGraphics extends Graphics {
         this.g.rotate(this.angle);
         this.g.drawOval(x, y, w, h);
         this.g.popState();
+        
     }
 
     @objid ("a6735397-e769-4ed2-bd8c-069448d53d0d")
@@ -144,6 +150,7 @@ class RotatedGraphics extends Graphics {
         this.g.rotate(this.angle);
         this.g.drawPath(path);
         this.g.popState();
+        
     }
 
     @objid ("6c6e6875-7565-4538-943e-bb39ae3bb472")
@@ -164,6 +171,7 @@ class RotatedGraphics extends Graphics {
         int[] np = trPoints(points);
         
         this.g.drawPolygon(np);
+        
     }
 
     @objid ("0e0552a7-81e0-4587-a762-053db317c551")
@@ -177,6 +185,7 @@ class RotatedGraphics extends Graphics {
     public void drawPolyline(int[] points) {
         int[] np = trPoints(points);
         this.g.drawPolyline(np);
+        
     }
 
     @objid ("8a5a908c-cbeb-4d86-a240-e665ce24479d")
@@ -184,6 +193,7 @@ class RotatedGraphics extends Graphics {
     public void drawRectangle(int x, int y, int width, int height) {
         int[] points = trRectangle(x, y, width, height);
         this.g.drawPolygon(points);
+        
     }
 
     @objid ("f2d3f665-9244-4dbd-822f-a02544ddf5a9")
@@ -193,6 +203,7 @@ class RotatedGraphics extends Graphics {
         this.g.rotate(this.angle);
         this.g.drawRoundRectangle(r, arcWidth, arcHeight);
         this.g.popState();
+        
     }
 
     @objid ("f2a28b75-dc6f-460f-8bda-789846c4e246")
@@ -202,6 +213,7 @@ class RotatedGraphics extends Graphics {
         this.g.rotate(this.angle);
         this.g.drawString(s, x, y);
         this.g.popState();
+        
     }
 
     @objid ("7d71e918-d817-412b-89bf-0ea91821d255")
@@ -211,6 +223,7 @@ class RotatedGraphics extends Graphics {
         this.g.rotate(this.angle);
         this.g.drawText(s, x, y);
         this.g.popState();
+        
     }
 
     @objid ("883e12a2-20b0-471d-8791-4901033edcc1")
@@ -220,6 +233,7 @@ class RotatedGraphics extends Graphics {
         this.g.rotate(this.angle);
         this.g.drawText(s, x, y, style);
         this.g.popState();
+        
     }
 
     @objid ("9696bcc4-3a0d-4a9c-a3e6-c4adce335beb")
@@ -230,6 +244,7 @@ class RotatedGraphics extends Graphics {
         this.g.drawTextLayout(layout, x, y, selectionStart, selectionEnd,
                 selectionForeground, selectionBackground);
         this.g.popState();
+        
     }
 
     @objid ("714e58db-a3bd-4a6f-8380-4323f8c3b9fd")
@@ -239,6 +254,7 @@ class RotatedGraphics extends Graphics {
         this.g.rotate(this.angle);
         this.g.fillArc(x, y, w, h, offset, length);
         this.g.popState();
+        
     }
 
     @objid ("bec6f33f-1989-41d0-90d8-f194c809ac9c")
@@ -248,6 +264,7 @@ class RotatedGraphics extends Graphics {
         this.g.rotate(this.angle);
         this.g.fillGradient(x, y, w, h, vertical);
         this.g.popState();
+        
     }
 
     @objid ("88b7922b-e202-43de-9e00-7df9aa167b30")
@@ -257,6 +274,7 @@ class RotatedGraphics extends Graphics {
         this.g.rotate(this.angle);
         this.g.fillOval(x, y, w, h);
         this.g.popState();
+        
     }
 
     @objid ("751337d2-50a8-4c58-816b-aeac6979edfb")
@@ -266,6 +284,7 @@ class RotatedGraphics extends Graphics {
         this.g.rotate(this.angle);
         this.g.fillPath(path);
         this.g.popState();
+        
     }
 
     @objid ("21195808-f076-4627-9f50-de28c02dc091")
@@ -293,6 +312,7 @@ class RotatedGraphics extends Graphics {
         this.g.rotate(this.angle);
         this.g.fillRoundRectangle(r, arcWidth, arcHeight);
         this.g.popState();
+        
     }
 
     @objid ("94b714c1-906a-4167-95b3-90aea9bfa567")
@@ -302,6 +322,7 @@ class RotatedGraphics extends Graphics {
         this.g.rotate(this.angle);
         this.g.fillString(s, x, y);
         this.g.popState();
+        
     }
 
     @objid ("c29b1f05-210a-4521-af5a-c491220c8531")
@@ -311,6 +332,7 @@ class RotatedGraphics extends Graphics {
         this.g.rotate(this.angle);
         this.g.fillText(s, x, y);
         this.g.popState();
+        
     }
 
     @objid ("d7742f85-ad87-4f48-a692-b377969b484e")
@@ -516,6 +538,7 @@ class RotatedGraphics extends Graphics {
         
         Rectangle r2 = new PointList(rp).getBounds();
         this.g.setClip(r2);
+        
     }
 
     @objid ("94020590-34dc-48f2-9a61-d9663d8749b1")
@@ -529,6 +552,7 @@ class RotatedGraphics extends Graphics {
         }
         
         this.g.setClip(new Path(path.getDevice(), d));
+        
     }
 
     @objid ("a86eeb31-8386-4ccf-b69e-291ca9c919f7")

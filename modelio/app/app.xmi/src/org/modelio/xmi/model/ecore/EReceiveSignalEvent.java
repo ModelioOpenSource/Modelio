@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,7 @@ public class EReceiveSignalEvent extends ENamedElement {
     }
 
     @objid ("3bb42071-e0d0-4248-a4a8-40babccdb0f2")
-    public EReceiveSignalEvent(org.eclipse.uml2.uml.ReceiveSignalEvent element) {
+    public  EReceiveSignalEvent(org.eclipse.uml2.uml.ReceiveSignalEvent element) {
         super(element);
     }
 

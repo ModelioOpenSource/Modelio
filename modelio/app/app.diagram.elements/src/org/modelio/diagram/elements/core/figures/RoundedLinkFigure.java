@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures;
 
 import java.util.ArrayList;
@@ -80,7 +79,6 @@ public class RoundedLinkFigure extends LinkFigure {
 
     /**
      * Get the radius of the rounded line bends.
-     * 
      * @return The radius
      */
     @objid ("7fb0afda-1dec-11e2-8cad-001ec947c8cc")
@@ -90,7 +88,6 @@ public class RoundedLinkFigure extends LinkFigure {
 
     /**
      * If true, bridges are drawn where vertical segments cross horizontal ones.
-     * 
      * @return true if bridges are drawn, else false.
      */
     @objid ("7fb0afdf-1dec-11e2-8cad-001ec947c8cc")
@@ -101,7 +98,6 @@ public class RoundedLinkFigure extends LinkFigure {
 
     /**
      * Enable drawing bridges where vertical segments cross horizontal ones.
-     * 
      * @param value true to enable bridges.
      */
     @objid ("7fb0afe4-1dec-11e2-8cad-001ec947c8cc")
@@ -110,13 +106,13 @@ public class RoundedLinkFigure extends LinkFigure {
         
         invalidate();
         repaint();
+        
     }
 
     /**
      * Set the radius of the rounded line corners.
      * <p>
      * Zero disable rounded corners.
-     * 
      * @param radius The new radius.
      */
     @objid ("7fb0afe8-1dec-11e2-8cad-001ec947c8cc")
@@ -128,6 +124,7 @@ public class RoundedLinkFigure extends LinkFigure {
         this.radius = radius;
         invalidate();
         repaint();
+        
     }
 
     @objid ("7fb0afec-1dec-11e2-8cad-001ec947c8cc")
@@ -138,11 +135,11 @@ public class RoundedLinkFigure extends LinkFigure {
         } else {
             outlineRoundedShape(g);
         }
+        
     }
 
     /**
      * Get all connection figures in the diagram.
-     * 
      * @return the connection figures.
      */
     @objid ("7fb0aff2-1dec-11e2-8cad-001ec947c8cc")
@@ -157,7 +154,6 @@ public class RoundedLinkFigure extends LinkFigure {
 
     /**
      * Draw a line with bridges where other connections are crossing.
-     * 
      * @param g The graphics to draw to.
      * @param pp The source of the line
      * @param p1 The end of the line
@@ -221,11 +217,11 @@ public class RoundedLinkFigure extends LinkFigure {
             // Horizontal or oblique line, just draw the line.
             g.drawLine(pp, p1);
         }
+        
     }
 
     /**
      * Get the root figure
-     * 
      * @return the root figure.
      */
     @objid ("7fb0b017-1dec-11e2-8cad-001ec947c8cc")
@@ -250,7 +246,6 @@ public class RoundedLinkFigure extends LinkFigure {
 
     /**
      * Draw the polyline with rounded corners.
-     * 
      * @param g the graphics object
      */
     @objid ("7fb31226-1dec-11e2-8cad-001ec947c8cc")
@@ -335,11 +330,11 @@ public class RoundedLinkFigure extends LinkFigure {
             drawLine(g, pp, p1, connections);
             pp = p2;
         }
+        
     }
 
     /**
      * Draw the outline with straight edges.
-     * 
      * @param g the graphics object
      */
     @objid ("7fb3122c-1dec-11e2-8cad-001ec947c8cc")
@@ -366,12 +361,14 @@ public class RoundedLinkFigure extends LinkFigure {
             drawLine(g, pp, p, connections);
             pp = p;
         }
+        
     }
 
     @objid ("b3dc8905-ebb8-4ebf-b655-da17c8a8fb56")
     public void setAllDiagramConnections(Collection<Connection> allDiagramConnections) {
         this.allDiagramConnections = allDiagramConnections;
         this.allDiagramConnections.add(this);
+        
     }
 
     @objid ("2de644f9-8bbe-48dc-b00a-f6f6424b58e4")
@@ -382,6 +379,7 @@ public class RoundedLinkFigure extends LinkFigure {
         if (this.allDiagramConnections != null) {
             this.allDiagramConnections.add(this);
         }
+        
     }
 
     @objid ("9572d801-6ee6-4062-a627-bc7869216e62")
@@ -392,6 +390,7 @@ public class RoundedLinkFigure extends LinkFigure {
         }
         
         super.removeNotify();
+        
     }
 
 }

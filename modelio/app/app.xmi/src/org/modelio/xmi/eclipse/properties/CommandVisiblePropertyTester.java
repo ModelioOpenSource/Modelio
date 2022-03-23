@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.eclipse.properties;
 
 import java.util.List;
@@ -40,7 +39,7 @@ public class CommandVisiblePropertyTester extends PropertyTester {
      * Default constructor.
      */
     @objid ("edf6cdf6-497a-40dc-a7c3-abc7cc08a4e9")
-    public CommandVisiblePropertyTester() {
+    public  CommandVisiblePropertyTester() {
         // nothing
     }
 
@@ -70,6 +69,7 @@ public class CommandVisiblePropertyTester extends PropertyTester {
         default:
             throw new IllegalArgumentException(property +" property not supported by "+getClass().getSimpleName());
         }
+        
     }
 
 }

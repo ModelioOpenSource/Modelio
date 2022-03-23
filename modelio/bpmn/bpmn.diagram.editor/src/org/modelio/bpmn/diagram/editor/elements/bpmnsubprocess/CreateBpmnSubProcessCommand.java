@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnsubprocess;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,14 +45,13 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class CreateBpmnSubProcessCommand extends DefaultCreateElementCommand {
     /**
      * Creates a node creation command.
-     * 
      * @param parentElement the element that lead to this command.
      * @param parentNode The parent editPart
      * @param context Details on the MObject and/or the node to create
      * @param requestConstraint Request Constraint
      */
     @objid ("0257512e-5dc4-4aef-8bcc-bc0e895d23b9")
-    public CreateBpmnSubProcessCommand(MObject parentElement, GmCompositeNode parentNode, ModelioCreationContext context, Object requestConstraint) {
+    public  CreateBpmnSubProcessCommand(MObject parentElement, GmCompositeNode parentNode, ModelioCreationContext context, Object requestConstraint) {
         super(parentElement, parentNode, context, requestConstraint);
     }
 
@@ -78,6 +76,7 @@ public class CreateBpmnSubProcessCommand extends DefaultCreateElementCommand {
                 populateDiagram(subProcess, modelFactory, namer, diagram);
             }
         }
+        
     }
 
     /**
@@ -121,6 +120,7 @@ public class CreateBpmnSubProcessCommand extends DefaultCreateElementCommand {
         
         // Layout diagram
         new BpmnLayouter(diagram).run();
+        
     }
 
     @objid ("5c8ac658-2556-4b84-9ce0-c4089728dfd9")
@@ -133,6 +133,7 @@ public class CreateBpmnSubProcessCommand extends DefaultCreateElementCommand {
             BpmnSubProcess subProcess = (BpmnSubProcess) newElement;
             subProcess.getLane().add((BpmnLane) relatedElement);
         }
+        
     }
 
 }

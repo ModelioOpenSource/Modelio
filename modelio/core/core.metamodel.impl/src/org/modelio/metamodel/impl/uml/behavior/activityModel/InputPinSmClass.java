@@ -17,21 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityActionSmClass;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ExceptionHandlerSmClass;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.InputPinData;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.PinSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityAction;
 import org.modelio.metamodel.uml.behavior.activityModel.ExceptionHandler;
 import org.modelio.metamodel.uml.behavior.activityModel.InputPin;
@@ -61,7 +57,7 @@ public class InputPinSmClass extends PinSmClass {
     private SmDependency inputingDep;
 
     @objid ("9ac25ee6-f135-4493-89fd-d4c0cc351c20")
-    public InputPinSmClass(ISmMetamodelFragment origin) {
+    public  InputPinSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -69,6 +65,7 @@ public class InputPinSmClass extends PinSmClass {
     @Override
     public String getName() {
         return "InputPin";
+        
     }
 
     @objid ("97e664d7-af4c-4e77-8471-7e05d228d880")
@@ -81,18 +78,21 @@ public class InputPinSmClass extends PinSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return InputPin.class;
+        
     }
 
     @objid ("fdd3cb49-fcd2-4bdf-ba9a-4e507fd0fae1")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("0fefffcf-eaef-4416-a9ba-07832fa1376f")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("bea9970e-6586-40f8-be3e-ef2b401e2e9f")
@@ -116,6 +116,8 @@ public class InputPinSmClass extends PinSmClass {
         this.inputingDep = new InputingSmDependency();
         this.inputingDep.init("Inputing", this, metamodel.getMClass(ActivityAction.MQNAME), 0, 1 );
         registerDependency(this.inputingDep);
+        
+        
     }
 
     @objid ("39f55910-895e-4e46-a461-65902d04a480")
@@ -148,7 +150,7 @@ public class InputPinSmClass extends PinSmClass {
         private InputPinSmClass smClass;
 
         @objid ("6342471c-9c0b-4bea-b5e2-0c1e52d02c8a")
-        public InputPinObjectFactory(InputPinSmClass smClass) {
+        public  InputPinObjectFactory(InputPinSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -195,6 +197,7 @@ public class InputPinSmClass extends PinSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((InputPinData) data).mHandler = values;
+            
         }
 
         @objid ("b1e7e3c8-bcc6-43c9-9c7a-2d156a88937a")
@@ -204,6 +207,7 @@ public class InputPinSmClass extends PinSmClass {
             	this.symetricDep = ((ExceptionHandlerSmClass)this.getTarget()).getExceptionInputDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -232,6 +236,7 @@ public class InputPinSmClass extends PinSmClass {
             	this.symetricDep = ((ActivityActionSmClass)this.getTarget()).getInputDep();
             }
             return this.symetricDep;
+            
         }
 
     }

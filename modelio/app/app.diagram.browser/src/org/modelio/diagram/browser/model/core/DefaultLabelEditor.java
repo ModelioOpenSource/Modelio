@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.model.core;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,10 +43,11 @@ public class DefaultLabelEditor implements ICellModifier {
     private ICoreSession iCoreSession;
 
     @objid ("00359d96-0d4f-10c6-842f-001ec947cd2a")
-    public DefaultLabelEditor(TreeViewer view, ICoreSession iCoreSession) {
+    public  DefaultLabelEditor(TreeViewer view, ICoreSession iCoreSession) {
         super();
         this.view = view;
         this.iCoreSession = iCoreSession;
+        
     }
 
     @objid ("0035bcc2-0d4f-10c6-842f-001ec947cd2a")
@@ -105,12 +105,12 @@ public class DefaultLabelEditor implements ICellModifier {
                 }
             }
         }
+        
     }
 
     /**
      * Check if the object can theoretically be edited based on its nature. The diagram browser tree shows only three types of node:
      * DiagramSet, DiagramRef, VirtualFolder. Only the name of DiagramSet and DiagramRef can be edited.
-     * 
      * @return true if the object nature allows its edition, false otherwise.
      */
     @objid ("0036fd6c-0d4f-10c6-842f-001ec947cd2a")

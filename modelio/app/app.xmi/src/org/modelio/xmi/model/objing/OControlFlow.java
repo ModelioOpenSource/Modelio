@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class OControlFlow extends OActivityEdge {
     }
 
     @objid ("9b093edd-cf56-4a6b-bf3d-3662f992cf07")
-    public OControlFlow(ControlFlow element) {
+    public  OControlFlow(ControlFlow element) {
         super(element);
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,7 +34,6 @@ import org.eclipse.draw2d.PrinterGraphics;
 public class ZoomDrawer {
     /**
      * Set the graphics line width depending on the zoom level and the graphics type.
-     * 
      * @param g the graphics
      * @param width line width
      */
@@ -45,6 +43,7 @@ public class ZoomDrawer {
             double dw = width * g.getAbsoluteScale();
             g.setLineWidth((int) Math.ceil(dw));
         }
+        
     }
 
 }

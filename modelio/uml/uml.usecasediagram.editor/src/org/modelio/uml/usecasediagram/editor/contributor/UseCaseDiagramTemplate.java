@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.contributor;
 
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.modelio.api.ui.viewtemplate.IModelViewTemplate;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
@@ -44,7 +43,7 @@ public class UseCaseDiagramTemplate implements IModelViewTemplate<AbstractDiagra
      * Mandatory default c'tor needed by eclipse when loading the extension point.
      */
     @objid ("67cf3777-e43b-4f4a-9dda-3e0d4c1143c1")
-    public UseCaseDiagramTemplate() {
+    public  UseCaseDiagramTemplate() {
         super();
     }
 

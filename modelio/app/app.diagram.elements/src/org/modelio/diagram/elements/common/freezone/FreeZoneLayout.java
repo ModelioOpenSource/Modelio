@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.freezone;
 
 import java.util.Iterator;
@@ -43,7 +42,6 @@ public class FreeZoneLayout extends XYLayout {
 
     /**
      * Fix the child position so that it is inside the client area rectangle as much as possible
-     * 
      * @param clientArea the area in which the child rectangle must fit.
      * @param childRectangle The rectangle to fix.
      */
@@ -56,6 +54,7 @@ public class FreeZoneLayout extends XYLayout {
         // Fix top left
         childRectangle.x = Math.max(childRectangle.x, clientArea.x);
         childRectangle.y = Math.max(childRectangle.y, clientArea.y);
+        
     }
 
     @objid ("7e37fc8d-1dec-11e2-8cad-001ec947c8cc")
@@ -92,6 +91,7 @@ public class FreeZoneLayout extends XYLayout {
         
             f.setBounds(bounds);
         }
+        
     }
 
     /**
@@ -143,6 +143,7 @@ public class FreeZoneLayout extends XYLayout {
             // In a free zone layout, constraints should always be Rectangle, ignoring invalid constraint
             return null;
         }
+        
     }
 
     @objid ("27c523ef-66d2-4076-9a10-32948f2b8447")
@@ -154,11 +155,11 @@ public class FreeZoneLayout extends XYLayout {
             DiagramElements.LOG.warning(new IllegalArgumentException(String.format("In a free zone layout, constraints should always be Rectangle, ignoring [%s] constraint for %s in %s",
                     newConstraint, figure, figure.getParent())));
         }
+        
     }
 
     /**
      * Truncates the rectangle of its negative part.
-     * 
      * @param rect a Rectangle that on return will start on positive coordinates.
      */
     @objid ("994d820b-a532-4398-9e18-d27680f41399")
@@ -173,6 +174,7 @@ public class FreeZoneLayout extends XYLayout {
                 rect.y = 0;
             }
         }
+        
     }
 
 }

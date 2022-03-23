@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,9 +37,10 @@ public class EConditionalNode extends EStructuredActivityNode {
     }
 
     @objid ("0835a3c8-60e6-48df-ad26-f7cc7058452a")
-    public EConditionalNode(org.eclipse.uml2.uml.ConditionalNode element) {
+    public  EConditionalNode(org.eclipse.uml2.uml.ConditionalNode element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("78b70c48-55c9-4dfa-ba27-5843d4ca6e3b")
@@ -53,6 +53,7 @@ public class EConditionalNode extends EStructuredActivityNode {
         // Properties specific to org.eclipse.uml2.uml.ConditionalNodes:
         setIsAssured((ConditionalNode) objingElt);
         setDeterminate((ConditionalNode) objingElt);
+        
     }
 
     @objid ("1d42cc49-2dfb-4767-afdf-4684e44caa46")

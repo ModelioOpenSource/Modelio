@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.statemachine;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,18 +31,18 @@ import org.modelio.uml.statikdiagram.editor.style.StaticAbstractStyleKeyProvider
 @objid ("e5e5de40-5e16-47ae-8f91-363d05a2b2da")
 public class GmStateMachineUserImageStyleKeys extends StaticAbstractStyleKeyProvider {
     @objid ("d2f25462-6d3f-44ce-b996-178daedc17f2")
-     static final StyleKey REPMODE = GmStateMachineStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmStateMachineStructuredStyleKeys.REPMODE;
 
     @objid ("f675f37c-fb52-4158-8f44-a7ae25076349")
-     static final StyleKey FONT = GmStateMachineStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmStateMachineStructuredStyleKeys.FONT;
 
     @objid ("f5e5fdf4-6aa2-473e-8dd3-815ef2f85af3")
-     static final StyleKey TEXTCOLOR = GmStateMachineStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmStateMachineStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("98c88deb-8acf-41fb-bb74-f4772c6f9a6c")
-     static final StyleKey SHOWSTEREOTYPES = GmStateMachineStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmStateMachineStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("14620d18-a908-40e2-b1c5-3fc39c467af1")
-     static final StyleKey SHOWTAGS = GmStateMachineStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmStateMachineStructuredStyleKeys.SHOWTAGS;
 
 }

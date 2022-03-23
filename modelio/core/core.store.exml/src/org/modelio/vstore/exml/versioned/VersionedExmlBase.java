@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.versioned;
 
 import java.io.FileNotFoundException;
@@ -33,8 +32,8 @@ import org.modelio.vstore.exml.common.AbstractExmlRepository;
 import org.modelio.vstore.exml.common.ExmlStorageHandler;
 import org.modelio.vstore.exml.common.ILoadHelper;
 import org.modelio.vstore.exml.common.model.ObjId;
-import org.modelio.vstore.exml.resource.IExmlResourceProvider.ExmlResource;
 import org.modelio.vstore.exml.resource.IExmlResourceProvider;
+import org.modelio.vstore.exml.resource.IExmlResourceProvider.ExmlResource;
 import org.modelio.vstore.exml.versioned.load.IVersionedExmlLoader;
 import org.modelio.vstore.exml.versioned.load.sax.SaxVersionedExmlLoader;
 import org.modelio.vstore.exml.versioned.save.VersionedExmlSaver;
@@ -53,11 +52,10 @@ public abstract class VersionedExmlBase extends AbstractExmlRepository {
 
     /**
      * Initialize the repository.
-     * 
      * @param resProvider an EXML resource provider.
      */
     @objid ("979e7140-12de-11e2-816a-001ec947ccaf")
-    public VersionedExmlBase(IExmlResourceProvider resProvider) {
+    public  VersionedExmlBase(IExmlResourceProvider resProvider) {
         super(resProvider);
     }
 
@@ -90,6 +88,7 @@ public abstract class VersionedExmlBase extends AbstractExmlRepository {
                 this.versionedLoader.load(src, lsrc, modelLoader);
             }
         }
+        
     }
 
     @objid ("979e714e-12de-11e2-816a-001ec947ccaf")
@@ -103,6 +102,7 @@ public abstract class VersionedExmlBase extends AbstractExmlRepository {
             
             saver.externalize(cmsNode, os, getResourceProvider().getLocalResource(cmsNodeId));
         }
+        
     }
 
     @objid ("3e36dd14-1ea1-11e2-90db-001ec947ccaf")
@@ -110,11 +110,11 @@ public abstract class VersionedExmlBase extends AbstractExmlRepository {
     protected final void initializeLoader() {
         this.loadHelper = new VersionedLoadHelper(this, getStatusInitializer(), isWriteable());
         this.versionedLoader = new SaxVersionedExmlLoader(this.loadHelper);
+        
     }
 
     /**
      * Get the version status flags initializer.
-     * 
      * @return the status flags initializer.
      */
     @objid ("3e36dd17-1ea1-11e2-90db-001ec947ccaf")

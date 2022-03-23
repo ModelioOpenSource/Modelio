@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.wizard;
 
 import java.util.List;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.gef.EditPart;
@@ -223,6 +222,7 @@ public class MessageFlowTransformer implements IModelTransformer {
         unmask(sequenceFlow, dropLocation, parentEditPart, viewer);
         
         createGmSequenceFlow(messageFlow, (NodeEditPart) linkEditPart.getSource(), findNode(newTargetGm, viewer), linkEditPart);
+        
     }
 
     @objid ("1841c108-cb22-4249-8112-e33389ba82af")
@@ -238,6 +238,7 @@ public class MessageFlowTransformer implements IModelTransformer {
         unmask(sequenceFlow, dropLocation, parentEditPart, viewer);
         
         createGmSequenceFlow(messageFlow, findNode(newSourceGm, viewer), (NodeEditPart) linkEditPart.getTarget(), linkEditPart);
+        
     }
 
     @objid ("9101f136-657d-4715-bbdc-7f222b9d3870")
@@ -318,6 +319,7 @@ public class MessageFlowTransformer implements IModelTransformer {
         }
         
         throw new IllegalArgumentException(String.format("No child edit part in '%s' that supports %s", from, RequestHelper.toString(req)));
+        
     }
 
     @objid ("0671ff9f-9287-4b29-9813-87cda8a1704d")
@@ -326,6 +328,7 @@ public class MessageFlowTransformer implements IModelTransformer {
             String msg = String.format("%s is not excutable for %s", command, RequestHelper.toString(recoReq));
             throw new IllegalStateException(msg);
         }
+        
     }
 
 }

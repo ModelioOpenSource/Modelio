@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.service;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,19 +31,23 @@ public enum AuditSeverity {
     /**
      * Success
      */
-    AuditSuccess (Audit.I18N.getString("Audit.Severity.AuditSuccess"), "icons/idle.png", "none"),
+    @objid ("1ae42cd6-ab37-4742-9f96-93f4c181ef21")
+    AuditSuccess(Audit.I18N.getString("Audit.Severity.AuditSuccess"), "icons/idle.png", "none"),
     /**
      * Tip
      */
-    AuditAdvice (Audit.I18N.getString("Audit.Severity.AuditAdvices"), "icons/advice.png", "tip"),
+    @objid ("b1abbb87-3b8c-4b0a-85b3-f3f86d6dadbc")
+    AuditAdvice(Audit.I18N.getString("Audit.Severity.AuditAdvices"), "icons/advice.png", "tip"),
     /**
      * Warning
      */
-    AuditWarning (Audit.I18N.getString("Audit.Severity.AuditWarnings"), "icons/warning.png", "warning"),
+    @objid ("40e0c839-9bab-4702-90b9-aa8ca4c0ebdc")
+    AuditWarning(Audit.I18N.getString("Audit.Severity.AuditWarnings"), "icons/warning.png", "warning"),
     /**
      * Error.
      */
-    AuditError (Audit.I18N.getString("Audit.Severity.AuditErrors"), "icons/error.png", "error");
+    @objid ("2ede8d61-8e93-4b28-8321-b4f961a5d37e")
+    AuditError(Audit.I18N.getString("Audit.Severity.AuditErrors"), "icons/error.png", "error");
 
     @objid ("e0b1e5ac-53fa-4633-8a0e-37cef4a9d2b4")
     private String label;
@@ -56,10 +59,11 @@ public enum AuditSeverity {
     private Image image;
 
     @objid ("ad9fdb86-b7ec-4df0-823b-f154bec40c13")
-    private AuditSeverity(String label, String image, String identifier) {
+    private  AuditSeverity(String label, String image, String identifier) {
         this.image = Audit.getImageDescriptor(image).createImage();
         this.label = label;
         this.identifier = identifier;
+        
     }
 
     /**
@@ -80,7 +84,6 @@ public enum AuditSeverity {
 
     /**
      * Get all severities GUI labels.
-     * 
      * @return severities GUI labels.
      */
     @objid ("7f116674-7e37-4ec9-ba9a-f53d71d66d81")
@@ -90,7 +93,6 @@ public enum AuditSeverity {
 
     /**
      * Get all severity icons.
-     * 
      * @return all severity icons.
      */
     @objid ("ac48ee03-e231-4779-9586-ef1179093bc6")
@@ -100,7 +102,6 @@ public enum AuditSeverity {
 
     /**
      * Find an AuditSeverity from its GUI label.
-     * 
      * @param value a translated GUI label.
      * @return the matching severity or <code>null</code>.
      */
@@ -120,10 +121,9 @@ public enum AuditSeverity {
 
     /**
      * Find an AuditSeverity from the identifier used in configuration files.
-     * 
      * @param v the audit identifier.
      * @return the found severity
-     * @throws java.lang.IllegalArgumentException if the identifier does not match a severity.
+     * @throws IllegalArgumentException if the identifier does not match a severity.
      */
     @objid ("eeec0ede-b5f2-4684-b7a5-4f54a5be4fd8")
     public static AuditSeverity fromIdentifier(String v) throws IllegalArgumentException {
@@ -133,11 +133,11 @@ public enum AuditSeverity {
             }
         }
         throw new IllegalArgumentException("Invalid severity:" + v);
+        
     }
 
     /**
      * Get the identifier to use for persistence.
-     * 
      * @return the enum identifier.
      */
     @objid ("5106b839-a2c8-40a7-a7d2-9560de63b2a7")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.utils.log.writers;
 
 import java.util.Objects;
@@ -67,22 +66,21 @@ public class PluginLogger {
 
     /**
      * C'tor a combined OSGI/Modelio logger for a plugin.
-     * 
      * @param osgiLogger the OSGI logger provider by the caller plugin
      */
     @objid ("008a1d9e-4307-1fe3-9845-001ec947cd2a")
-    public PluginLogger(final Logger osgiLogger) {
+    public  PluginLogger(final Logger osgiLogger) {
         // The osgi logger is provided by the caller
         this.osgiLogger = osgiLogger;
         
         // The slf4J logger is obtained from Slf4j logger factory.
         // Reuse the osgi logger name to name the slf4j logger
         this.slf4jLogger = org.slf4j.LoggerFactory.getLogger(osgiLogger.getName());
+        
     }
 
     /**
      * Log an error.
-     * 
      * @param msg the error message to log
      */
     @objid ("008ae936-4307-1fe3-9845-001ec947cd2a")
@@ -91,11 +89,11 @@ public class PluginLogger {
             this.osgiLogger.log(LogLevel.ERROR.ordinal(), msg);
             this.slf4jLogger.error(msg);
         }
+        
     }
 
     /**
      * Log a formatted error. The logged message is build as <code>String.format(format, args);</code>
-     * 
      * @param format the message formating string
      * @param args the message arguments to formatter
      */
@@ -106,11 +104,11 @@ public class PluginLogger {
             this.osgiLogger.log(LogLevel.ERROR.ordinal(), msg);
             this.slf4jLogger.error(msg);
         }
+        
     }
 
     /**
      * Log an error for an exception. The log message is e.getMaeesage() plus e.toString()
-     * 
      * @param e the exception to log
      */
     @objid ("008b3d32-4307-1fe3-9845-001ec947cd2a")
@@ -119,11 +117,11 @@ public class PluginLogger {
             this.osgiLogger.log(LogLevel.ERROR.ordinal(), e.getMessage(), e);
             this.slf4jLogger.error(e.getMessage(), e);
         }
+        
     }
 
     /**
      * Log a warning.
-     * 
      * @param msg the warning message to log
      */
     @objid ("008b5c5e-4307-1fe3-9845-001ec947cd2a")
@@ -132,11 +130,11 @@ public class PluginLogger {
             this.osgiLogger.log(LogLevel.WARN.ordinal(), msg);
             this.slf4jLogger.warn(msg);
         }
+        
     }
 
     /**
      * Log a formatted warning. The logged message is build as <code>String.format(format, args);</code>
-     * 
      * @param format the message formating string
      * @param args the message arguments to formatter
      */
@@ -147,11 +145,11 @@ public class PluginLogger {
             this.osgiLogger.log(LogLevel.WARN.ordinal(), msg);
             this.slf4jLogger.warn(msg);
         }
+        
     }
 
     /**
      * Log an warning for an exception. The log message is e.getMaeesage() plus e.toString()
-     * 
      * @param e the exception to log
      */
     @objid ("008bb0f0-4307-1fe3-9845-001ec947cd2a")
@@ -160,11 +158,11 @@ public class PluginLogger {
             this.osgiLogger.log(LogLevel.WARN.ordinal(), e.getMessage(), e);
             this.slf4jLogger.warn(e.getMessage(), e);
         }
+        
     }
 
     /**
      * Log an informational message.
-     * 
      * @param msg the information message to log
      */
     @objid ("008bcf04-4307-1fe3-9845-001ec947cd2a")
@@ -173,11 +171,11 @@ public class PluginLogger {
             this.osgiLogger.log(LogLevel.INFO.ordinal(), msg);
             this.slf4jLogger.info(msg);
         }
+        
     }
 
     /**
      * Log a formatted information message. The logged message is build as <code>String.format(format, args);</code>
-     * 
      * @param format the message formating string
      * @param args the message arguments to formatter
      */
@@ -188,11 +186,11 @@ public class PluginLogger {
             this.osgiLogger.log(LogLevel.INFO.ordinal(), msg);
             this.slf4jLogger.info(msg);
         }
+        
     }
 
     /**
      * Log an information for an exception. The log message is e.getMaeesage() plus e.toString()
-     * 
      * @param e the exception to log
      */
     @objid ("008c2544-4307-1fe3-9845-001ec947cd2a")
@@ -201,11 +199,11 @@ public class PluginLogger {
             this.osgiLogger.log(LogLevel.INFO.ordinal(), e.getMessage(), e);
             this.slf4jLogger.info(e.getMessage(), e);
         }
+        
     }
 
     /**
      * Log a debug information.
-     * 
      * @param msg the debug message to log
      */
     @objid ("008c43e4-4307-1fe3-9845-001ec947cd2a")
@@ -214,11 +212,11 @@ public class PluginLogger {
             this.osgiLogger.log(LogLevel.DEBUG.ordinal(), msg);
             this.slf4jLogger.debug(msg);
         }
+        
     }
 
     /**
      * Log a formatted debug message. The logged message is build as <code>String.format(format, args);</code>
-     * 
      * @param format the message formating string
      * @param args the message arguments to formatter
      */
@@ -229,11 +227,11 @@ public class PluginLogger {
             this.osgiLogger.log(LogLevel.DEBUG.ordinal(), msg);
             this.slf4jLogger.debug(msg);
         }
+        
     }
 
     /**
      * Log a debug message for an exception. The log message is e.getMaeesage() plus e.toString()
-     * 
      * @param e the exception to log
      */
     @objid ("008c9ee8-4307-1fe3-9845-001ec947cd2a")
@@ -242,6 +240,7 @@ public class PluginLogger {
             this.osgiLogger.log(LogLevel.DEBUG.ordinal(), e.getMessage(), e);
             this.slf4jLogger.debug(e.getMessage(), e);
         }
+        
     }
 
     /**
@@ -251,11 +250,11 @@ public class PluginLogger {
     public boolean isDebugEnabled() {
         return (PluginLogger.logLevel.implies(LogLevel.DEBUG)) &&
                 (this.osgiLogger.isLoggable(LogLevel.DEBUG.ordinal()) || this.slf4jLogger.isDebugEnabled());
+        
     }
 
     /**
      * Find the current Modelio log file from the logback current configuration.
-     * 
      * @return the current Modelio log file, null if unable to find it.
      */
     @objid ("1ff3ef68-3b26-4aeb-836f-3079fe4e7b2a")
@@ -279,7 +278,6 @@ public class PluginLogger {
      * <li>{@link LogLevel#DEBUG}
      * </ul>
      * LogLevel.AUDIT and LogLevel.TRACE are not supported.
-     * 
      * @param value the new log level
      * @return the previous log level.
      */
@@ -312,7 +310,6 @@ public class PluginLogger {
      * <li>{@link LogLevel#DEBUG}
      * </ul>
      * LogLevel.AUDIT and LogLevel.TRACE are not supported.
-     * 
      * @param value the requested log level
      * @return the previous log level.
      */

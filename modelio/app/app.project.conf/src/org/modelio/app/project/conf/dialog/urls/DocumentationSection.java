@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.urls;
 
 import java.util.List;
@@ -76,13 +75,12 @@ public class DocumentationSection {
     private Button removeBtn;
 
     @objid ("85072c3c-b724-4904-85bc-fba209aacc4b")
-    public DocumentationSection(ReferencedUrlsPage referencedUrlPage) {
+    public  DocumentationSection(ReferencedUrlsPage referencedUrlPage) {
         this.referencedUrlPage = referencedUrlPage;
     }
 
     /**
      * Update() is called by the referenced url view when the project to be displayed changes or need contents refresh
-     * 
      * @param selectedProject the project selected in the workspace tree view
      */
     @objid ("d4464549-baf6-4f7e-8bce-318139ba1226")
@@ -107,6 +105,7 @@ public class DocumentationSection {
             this.editBtn.setEnabled(false);
             this.removeBtn.setEnabled(false);
         }
+        
     }
 
     @objid ("88cc4543-d4ce-403d-86bf-078d35fc81bf")
@@ -291,6 +290,7 @@ public class DocumentationSection {
         // Button addUrl is always enabled
         this.editBtn.setEnabled(hasSelectedUrl);
         this.removeBtn.setEnabled(hasSelectedUrl && getProjectAdapter().isLocalProject());
+        
     }
 
     @objid ("8d5296ea-4a5a-4acf-b667-9db64bf42f38")
@@ -316,6 +316,7 @@ public class DocumentationSection {
         } else {
             this.viewer.setSelection(new StructuredSelection());
         }
+        
     }
 
     @objid ("efc86e70-3ad0-4478-a11a-5d8615ee6026")
@@ -329,9 +330,10 @@ public class DocumentationSection {
         private final TableViewer tViewer;
 
         @objid ("9160a4cc-31df-4fb5-a9fa-ecf888762ef2")
-        public NameEditingSupport(TableViewer viewer) {
+        public  NameEditingSupport(TableViewer viewer) {
             super(viewer);
             this.tViewer = viewer;
+            
         }
 
         @objid ("6646cecd-06b5-4c88-b5b9-50860b388e7f")
@@ -358,6 +360,7 @@ public class DocumentationSection {
         protected void setValue(Object element, Object value) {
             ((UrlEntry) element).name = (String.valueOf(value));
             this.tViewer.refresh();
+            
         }
 
     }
@@ -368,9 +371,10 @@ public class DocumentationSection {
         private final TableViewer tViewer;
 
         @objid ("93377337-3a67-4867-91ec-1cf50811118a")
-        public UrlEditingSupport(TableViewer viewer) {
+        public  UrlEditingSupport(TableViewer viewer) {
             super(viewer);
             this.tViewer = viewer;
+            
         }
 
         @objid ("3048d4e4-ba39-4c1c-9caa-7fad3032e432")
@@ -397,6 +401,7 @@ public class DocumentationSection {
         protected void setValue(Object element, Object value) {
             ((UrlEntry) element).url = (String.valueOf(value));
             this.tViewer.refresh();
+            
         }
 
     }
@@ -411,6 +416,7 @@ public class DocumentationSection {
             } else {
                 return element.toString();
             }
+            
         }
 
         @objid ("b2b7c5bb-2a44-4d25-8651-3b3927db78cc")
@@ -421,6 +427,7 @@ public class DocumentationSection {
             } else {
                 return element.toString();
             }
+            
         }
 
     }

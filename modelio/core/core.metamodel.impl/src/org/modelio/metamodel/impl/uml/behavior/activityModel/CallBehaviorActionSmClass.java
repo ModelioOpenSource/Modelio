@@ -17,18 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.CallActionSmClass;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.CallBehaviorActionData;
 import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.BehaviorSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.CallAction;
 import org.modelio.metamodel.uml.behavior.activityModel.CallBehaviorAction;
@@ -50,7 +48,7 @@ public class CallBehaviorActionSmClass extends CallActionSmClass {
     private SmDependency calledDep;
 
     @objid ("793a45cd-2c70-42b4-91fe-99f0f39e6a27")
-    public CallBehaviorActionSmClass(ISmMetamodelFragment origin) {
+    public  CallBehaviorActionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -58,6 +56,7 @@ public class CallBehaviorActionSmClass extends CallActionSmClass {
     @Override
     public String getName() {
         return "CallBehaviorAction";
+        
     }
 
     @objid ("7e3fe7d9-f52d-41f1-a477-fb386010b411")
@@ -70,18 +69,21 @@ public class CallBehaviorActionSmClass extends CallActionSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return CallBehaviorAction.class;
+        
     }
 
     @objid ("1e62b65d-bf5d-4e64-93ad-15e51bb8da39")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("3cf899e1-771e-40bf-8f1c-bc138dafd533")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("4202d136-2096-4482-a32f-e6d75a4b3d6f")
@@ -97,6 +99,8 @@ public class CallBehaviorActionSmClass extends CallActionSmClass {
         this.calledDep = new CalledSmDependency();
         this.calledDep.init("Called", this, metamodel.getMClass(Behavior.MQNAME), 1, 1 , SmDirective.SMCDPARTOF);
         registerDependency(this.calledDep);
+        
+        
     }
 
     @objid ("d8311350-9b21-47c5-931e-4335e4d3dc11")
@@ -113,7 +117,7 @@ public class CallBehaviorActionSmClass extends CallActionSmClass {
         private CallBehaviorActionSmClass smClass;
 
         @objid ("8ba48465-d201-42b0-bb34-6e773cf7efec")
-        public CallBehaviorActionObjectFactory(CallBehaviorActionSmClass smClass) {
+        public  CallBehaviorActionObjectFactory(CallBehaviorActionSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -155,6 +159,7 @@ public class CallBehaviorActionSmClass extends CallActionSmClass {
             	this.symetricDep = ((BehaviorSmClass)this.getTarget()).getCallerDep();
             }
             return this.symetricDep;
+            
         }
 
     }

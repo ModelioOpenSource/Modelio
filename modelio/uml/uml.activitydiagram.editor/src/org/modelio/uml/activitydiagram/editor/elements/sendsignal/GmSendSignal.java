@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.sendsignal;
 
 import java.util.Collections;
@@ -33,8 +32,8 @@ import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.AbstractStyleKeyProvider;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.InputPin;
 import org.modelio.metamodel.uml.behavior.activityModel.OutputPin;
 import org.modelio.metamodel.uml.behavior.activityModel.SendSignalAction;
@@ -66,26 +65,25 @@ public class GmSendSignal extends GmPinContainer {
     private static final String IMAGE_LABEL_ROLE = "ImageLabel";
 
     @objid ("d098a4c9-55c0-11e2-9337-002564c97630")
-     static final AbstractStyleKeyProvider STRUCTURED_KEYS = new GmSendSignalStructuredStyleKeys();
+    static final AbstractStyleKeyProvider STRUCTURED_KEYS = new GmSendSignalStructuredStyleKeys();
 
     @objid ("d098a4cb-55c0-11e2-9337-002564c97630")
-     static final AbstractStyleKeyProvider SIMPLE_KEYS = new GmSendSignalSimpleStyleKeys();
+    static final AbstractStyleKeyProvider SIMPLE_KEYS = new GmSendSignalSimpleStyleKeys();
 
     @objid ("d098a4cd-55c0-11e2-9337-002564c97630")
-     static final AbstractStyleKeyProvider IMAGE_KEYS = new GmSendSignalImageStyleKeys();
+    static final AbstractStyleKeyProvider IMAGE_KEYS = new GmSendSignalImageStyleKeys();
 
     @objid ("a23f687c-5aa2-4a28-99eb-2e8a642c6a74")
-     static final AbstractStyleKeyProvider USERIMAGE_KEYS = new GmSendSignalUserImageStyleKeys();
+    static final AbstractStyleKeyProvider USERIMAGE_KEYS = new GmSendSignalUserImageStyleKeys();
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the sendSignal is unmasked.
      * @param el the unmasked element, can be <i>null</i>.
      * @param ref the unmasked element reference, must not be <i>null</i>..
      */
     @objid ("2b420772-55b6-11e2-877f-002564c97630")
-    public GmSendSignal(IGmDiagram diagram, SendSignalAction el, MRef ref) {
+    public  GmSendSignal(IGmDiagram diagram, SendSignalAction el, MRef ref) {
         super(diagram, ref);
         this.element = el;
         
@@ -98,6 +96,7 @@ public class GmSendSignal extends GmPinContainer {
         
         super.addChild(mainNode);
         super.addChild(imageModeHeader);
+        
     }
 
     @objid ("2b42077e-55b6-11e2-877f-002564c97630")
@@ -112,6 +111,7 @@ public class GmSendSignal extends GmPinContainer {
         return ((InputPin.class.isAssignableFrom(el.getClass()) ||
                         ValuePin.class.isAssignableFrom(el.getClass()) || OutputPin.class.isAssignableFrom(el.getClass())) && el.getCompositionOwner()
                                 .equals(this.element));
+        
     }
 
     @objid ("2b438e02-55b6-11e2-877f-002564c97630")
@@ -158,7 +158,7 @@ public class GmSendSignal extends GmPinContainer {
      * Empty constructor needed for deserialisation.
      */
     @objid ("2b438e15-55b6-11e2-877f-002564c97630")
-    public GmSendSignal() {
+    public  GmSendSignal() {
         // Nothing specific to do.
     }
 
@@ -183,6 +183,7 @@ public class GmSendSignal extends GmPinContainer {
             break;
         }
         }
+        
     }
 
     @objid ("2b438e1e-55b6-11e2-877f-002564c97630")
@@ -204,6 +205,7 @@ public class GmSendSignal extends GmPinContainer {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmSendSignal.", GmSendSignal.MINOR_VERSION);
+        
     }
 
     @objid ("2b438e32-55b6-11e2-877f-002564c97630")
@@ -216,6 +218,7 @@ public class GmSendSignal extends GmPinContainer {
         imageModeHeader.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         
         super.addChild(imageModeHeader, 1);
+        
     }
 
     @objid ("2b438e37-55b6-11e2-877f-002564c97630")
@@ -228,6 +231,7 @@ public class GmSendSignal extends GmPinContainer {
     private void read_1(final IDiagramReader in) {
         super.read(in);
         this.element = (SendSignalAction) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("2b4514a0-55b6-11e2-877f-002564c97630")
@@ -243,6 +247,7 @@ public class GmSendSignal extends GmPinContainer {
                 ret.remove(imageModeHeader);
                 break;
             }
+            case USER_IMAGE:
             case IMAGE:
             default: {
                 break;
@@ -255,7 +260,6 @@ public class GmSendSignal extends GmPinContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -265,11 +269,11 @@ public class GmSendSignal extends GmPinContainer {
         String role = childNode.getRoleInComposition();
         return GmPortContainer.SATELLITE_ROLE.equals(role)
                         || GmSendSignal.IMAGE_LABEL_ROLE.equals(role);
+        
     }
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */

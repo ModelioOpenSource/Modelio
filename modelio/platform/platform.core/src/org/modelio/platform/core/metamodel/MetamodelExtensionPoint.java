@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.core.metamodel;
 
 import java.util.Collection;
@@ -57,7 +56,7 @@ public class MetamodelExtensionPoint<S> {
      * @param extensionPointId the handled extension point id
      */
     @objid ("720f7e9c-410d-4e58-8a3d-88f6850660fc")
-    public MetamodelExtensionPoint(String extensionPointId) {
+    public  MetamodelExtensionPoint(String extensionPointId) {
         IExtensionRegistry registry = RegistryFactory.getRegistry();
         this.listener = new MmServicesListener();
         
@@ -65,6 +64,7 @@ public class MetamodelExtensionPoint<S> {
         
         IConfigurationElement[] cfels = registry.getConfigurationElementsFor(extensionPointId);
         addExtensionElements(cfels);
+        
     }
 
     /**
@@ -76,11 +76,11 @@ public class MetamodelExtensionPoint<S> {
         if (registry != null) {
             registry.removeListener(this.listener);
         }
+        
     }
 
     /**
      * Get the service for a model object
-     * 
      * @param obj a model object
      * @return the found service or null.
      */
@@ -91,7 +91,6 @@ public class MetamodelExtensionPoint<S> {
 
     /**
      * Get the service for a metamodel fragment.
-     * 
      * @param mmf a metamodel fragment.
      * @return the found service or null.
      */
@@ -102,7 +101,6 @@ public class MetamodelExtensionPoint<S> {
 
     /**
      * Register a service implementation for a metamodel fragment.
-     * 
      * @param mmName the metamodel fragment name as returned by {@link MMetamodelFragment#getName()}.
      * @param svc the service implementation.
      */
@@ -113,7 +111,6 @@ public class MetamodelExtensionPoint<S> {
 
     /**
      * Unregister a service implementation for a metamodel fragment.
-     * 
      * @param mmName the metamodel fragment name as returned by {@link MMetamodelFragment#getName()}.
      * @param svc the service implementation.
      */
@@ -124,7 +121,6 @@ public class MetamodelExtensionPoint<S> {
 
     /**
      * Register the service implementation for a metamodel fragment.
-     * 
      * @param mmName the metamodel fragment name as returned by {@link MMetamodelFragment#getName()}.
      */
     @objid ("a578c917-c002-40e2-bc86-5c71ba857090")
@@ -139,7 +135,6 @@ public class MetamodelExtensionPoint<S> {
      * <li>a "metamodel" string attribute
      * <li>a "implementation" string attribute representing a java class accessible by the declaring plugin.
      * </ul>
-     * 
      * @param configurationElements the {@link IConfigurationElement} at the root of the matched plugin extensions.
      */
     @objid ("b18453f3-4211-4f5b-8333-7dfaf6b825bf")
@@ -161,12 +156,12 @@ public class MetamodelExtensionPoint<S> {
                 AppCore.LOG.error(e);
             }
         }
+        
     }
 
     /**
      * Unregister the services that were registered with {@link #addExtensionElements(IConfigurationElement[])}.
      * @see #addExtensionElements(IConfigurationElement[])
-     * 
      * @param configurationElements the configuration elements to remove.
      */
     @objid ("f21efb64-b606-44ed-9ca2-bd509f18463c")
@@ -179,11 +174,11 @@ public class MetamodelExtensionPoint<S> {
                 }
             }
         }
+        
     }
 
     /**
      * Get all registered services
-     * 
      * @return a collection of services. Might be empty.
      */
     @objid ("5061d878-c883-43e6-a2d6-63ae2b2bad9e")
@@ -194,7 +189,8 @@ public class MetamodelExtensionPoint<S> {
     @objid ("4a30929c-64da-4645-a97a-4756c0a7bfe5")
     class MmServicesListener implements IRegistryEventListener {
         @objid ("7dd8ed98-56a7-43b6-a966-e054f4095f35")
-        public MmServicesListener() {
+        public  MmServicesListener() {
+            
         }
 
         @objid ("aec08f3e-92ca-42ed-9bc5-fe615b2efe54")
@@ -204,6 +200,7 @@ public class MetamodelExtensionPoint<S> {
                 IConfigurationElement[] configurationElements = extension.getConfigurationElements();
                 addExtensionElements(configurationElements);
             }
+            
         }
 
         @objid ("48807ddc-ddd4-4261-a993-33c4640f501e")
@@ -213,6 +210,7 @@ public class MetamodelExtensionPoint<S> {
                 IConfigurationElement[] configurationElements = extension.getConfigurationElements();
                 removeExtensionElements(configurationElements);
             }
+            
         }
 
         @objid ("685f30c8-ad3a-4250-ae6d-a352fb0d64ab")

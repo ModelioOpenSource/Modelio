@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.contributor;
 
 import java.net.MalformedURLException;
@@ -46,21 +45,20 @@ class BrowserDialog extends ModelioDialog {
 
     /**
      * Create an BrowserDialog instance.
-     * 
      * @param parentShell The parent shell.
      * @param docUrl The documentation url to display.
      */
     @objid ("d3bc5d6b-8c27-4e91-ae6c-6e48b1c835a8")
-    public BrowserDialog(final Shell parentShell, final String docUrl) {
+    public  BrowserDialog(final Shell parentShell, final String docUrl) {
         super(parentShell);
         this.docUrl = docUrl;
+        
     }
 
     /**
      * Add buttons to the buttons bar in the bottom of the dialog.
      * <p>
      * Here we just need to have a "close" button.
-     * 
      * @param parent the parent composite of the dialog.
      */
     @objid ("6d91fbf4-00cd-4f7a-936e-6ca15283cc78")
@@ -71,7 +69,6 @@ class BrowserDialog extends ModelioDialog {
 
     /**
      * This is the main method that is called to construct the GUI content of the box.
-     * 
      * @param parent the parent composite of the dialog.
      */
     @objid ("d9d926fa-58bf-4b88-896e-e6bec32332ce")
@@ -117,6 +114,7 @@ class BrowserDialog extends ModelioDialog {
         //setMessage(Messages.getString("BrowserDialog.DialogMessage"));
         getShell().setSize(600, 550);
         getShell().setMinimumSize(600, 550);
+        
     }
 
 }

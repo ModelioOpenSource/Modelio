@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.flowfinal;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,24 +29,24 @@ import org.modelio.uml.activitydiagram.editor.style.ActivityAbstractStyleKeyProv
 @objid ("2a784edb-55b6-11e2-877f-002564c97630")
 public class GmFlowFinalImageStyleKeys extends ActivityAbstractStyleKeyProvider {
     @objid ("d2010e6e-55c0-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmFlowFinalStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmFlowFinalStructuredStyleKeys.REPMODE;
 
     @objid ("d2010e70-55c0-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmFlowFinalStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmFlowFinalStructuredStyleKeys.FONT;
 
     @objid ("d2010e72-55c0-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmFlowFinalStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmFlowFinalStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("d2010e74-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmFlowFinalStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmFlowFinalStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("d202950a-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmFlowFinalStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmFlowFinalStructuredStyleKeys.SHOWTAGS;
 
     /**
      * Show the label.
      */
     @objid ("d202950c-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWLABEL = GmFlowFinalStructuredStyleKeys.SHOWLABEL;
+    static final StyleKey SHOWLABEL = GmFlowFinalStructuredStyleKeys.SHOWLABEL;
 
 }

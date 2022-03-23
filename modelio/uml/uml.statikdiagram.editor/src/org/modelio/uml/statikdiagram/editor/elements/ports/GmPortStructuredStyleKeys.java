@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.ports;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,30 +32,30 @@ import org.modelio.uml.statikdiagram.editor.style.StaticAbstractStyleKeyProvider
 @objid ("36482f13-55b7-11e2-877f-002564c97630")
 public class GmPortStructuredStyleKeys extends StaticAbstractStyleKeyProvider {
     @objid ("a757d02c-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("PORT_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("PORT_REPMODE", MetaKey.REPMODE);
 
     @objid ("a757d02e-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("PORT_FILL_COLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("PORT_FILL_COLOR", MetaKey.FILLCOLOR);
 
     @objid ("a757d030-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("PORT_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("PORT_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("a757d032-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("PORT_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("PORT_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("a75956ca-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("PORT_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("PORT_FONT", MetaKey.FONT);
 
     @objid ("a75956cc-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("PORT_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("PORT_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("a75956ce-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("PORT_SHOWSTEREOTYPES", MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("PORT_SHOWSTEREOTYPES", MetaKey.SHOWSTEREOTYPES);
 
     @objid ("a75956d0-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("PORT_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("PORT_SHOWTAGS", MetaKey.SHOWTAGS);
 
     @objid ("a75956d2-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWLABEL = createStyleKey("PORT_SHOWLABEL", MetaKey.SHOWLABEL);
+    static final StyleKey SHOWLABEL = createStyleKey("PORT_SHOWLABEL", MetaKey.SHOWLABEL);
 
 }

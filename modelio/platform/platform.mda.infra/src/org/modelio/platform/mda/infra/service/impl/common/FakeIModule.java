@@ -17,18 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.common;
 
 import java.util.Map;
 import java.util.ResourceBundle;
-import javax.script.ScriptEngine;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.script.ScriptEngine;
 import org.eclipse.swt.graphics.Image;
 import org.modelio.api.modelio.IModelioContext;
 import org.modelio.api.modelio.IModelioServices;
 import org.modelio.api.modelio.model.IModelingSession;
 import org.modelio.api.module.IModule;
+import org.modelio.api.module.IModule.ImageType;
 import org.modelio.api.module.IPeerModule;
 import org.modelio.api.module.context.IModuleContext;
 import org.modelio.api.module.context.configuration.IModuleAPIConfiguration;
@@ -78,13 +78,12 @@ public class FakeIModule implements IModule {
     /**
      * Instantiate a fake module.
      * @param modelingSession a modeling session.
-     * 
      * @param gmodule the low level module.
      * @param moduleUserConfiguration the user version of the module configuration
      * @param moduleApiConfiguration the api version of the module configuration
      */
     @objid ("b317e52b-f11c-11e1-af52-001ec947c8cc")
-    public FakeIModule(final GModule gmodule, final IModuleUserConfiguration moduleUserConfiguration, final IModuleAPIConfiguration moduleApiConfiguration) {
+    public  FakeIModule(final GModule gmodule, final IModuleUserConfiguration moduleUserConfiguration, final IModuleAPIConfiguration moduleApiConfiguration) {
         this.gmodule = gmodule;
         this.moduleComponent = gmodule.getModuleElement();
         this.moduleConfiguration = moduleUserConfiguration;
@@ -124,11 +123,11 @@ public class FakeIModule implements IModule {
         
         this.peerModule = new DefaultPeerModule(this.moduleComponent,
                 moduleApiConfiguration);
+        
     }
 
     /**
      * Used to return the module description.
-     * 
      * @return The module description
      */
     @objid ("b317e540-f11c-11e1-af52-001ec947c8cc")
@@ -152,7 +151,6 @@ public class FakeIModule implements IModule {
     /**
      * Get the module label that is displayed in dialog boxes and other GUIU
      * parts.
-     * 
      * @return The module label.
      */
     @objid ("b317e559-f11c-11e1-af52-001ec947c8cc")
@@ -181,7 +179,6 @@ public class FakeIModule implements IModule {
 
     /**
      * Always returns null.
-     * 
      * @return null.
      */
     @objid ("b317e567-f11c-11e1-af52-001ec947c8cc")
@@ -202,7 +199,6 @@ public class FakeIModule implements IModule {
      * <p>
      * The module name corresponds to the name of the module, as defined in the
      * <i>MDA Designer<i> tool.
-     * 
      * @return The module name
      */
     @objid ("b31a4782-f11c-11e1-af52-001ec947c8cc")
@@ -215,7 +211,6 @@ public class FakeIModule implements IModule {
      * Returns the peer module, connected to this module.
      * <p>
      * The peer module represents the public services of this current module.
-     * 
      * @return The associated peer module
      */
     @objid ("b31a478e-f11c-11e1-af52-001ec947c8cc")
@@ -232,7 +227,6 @@ public class FakeIModule implements IModule {
 
     /**
      * Used to return the module version.
-     * 
      * @return The module version
      */
     @objid ("b31a47a8-f11c-11e1-af52-001ec947c8cc")

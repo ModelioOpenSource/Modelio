@@ -17,19 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.infrastructure.AbstractResourceData;
-import org.modelio.metamodel.impl.uml.infrastructure.ModelElementSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.ResourceTypeSmClass;
 import org.modelio.metamodel.uml.infrastructure.AbstractResource;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.ResourceType;
@@ -60,7 +57,7 @@ public class AbstractResourceSmClass extends ModelElementSmClass {
     private SmDependency subjectDep;
 
     @objid ("7a075438-5b74-42e8-ae1c-2b35abbe3545")
-    public AbstractResourceSmClass(ISmMetamodelFragment origin) {
+    public  AbstractResourceSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -68,6 +65,7 @@ public class AbstractResourceSmClass extends ModelElementSmClass {
     @Override
     public String getName() {
         return "AbstractResource";
+        
     }
 
     @objid ("ff28cafa-95f4-4221-8118-3631b085c12b")
@@ -80,18 +78,21 @@ public class AbstractResourceSmClass extends ModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return AbstractResource.class;
+        
     }
 
     @objid ("4461b460-05aa-4910-af09-d291fdb3815b")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("1509a57f-f0f8-4352-9fb7-96a6bcdb875c")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("cd7d79d0-a05b-45ef-9f6e-b2c13855aae2")
@@ -119,6 +120,8 @@ public class AbstractResourceSmClass extends ModelElementSmClass {
         this.subjectDep = new SubjectSmDependency();
         this.subjectDep.init("Subject", this, metamodel.getMClass(ModelElement.MQNAME), 0, 1 );
         registerDependency(this.subjectDep);
+        
+        
     }
 
     @objid ("9a9d456e-e64b-4696-a202-1748d8623018")
@@ -159,7 +162,7 @@ public class AbstractResourceSmClass extends ModelElementSmClass {
         private AbstractResourceSmClass smClass;
 
         @objid ("d1638009-b5b4-410e-93da-edb060459610")
-        public AbstractResourceObjectFactory(AbstractResourceSmClass smClass) {
+        public  AbstractResourceObjectFactory(AbstractResourceSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -215,6 +218,7 @@ public class AbstractResourceSmClass extends ModelElementSmClass {
             	this.symetricDep = ((ResourceTypeSmClass)this.getTarget()).getTypedResourceDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -243,6 +247,7 @@ public class AbstractResourceSmClass extends ModelElementSmClass {
             	this.symetricDep = ((ModelElementSmClass)this.getTarget()).getAttachedDep();
             }
             return this.symetricDep;
+            
         }
 
     }

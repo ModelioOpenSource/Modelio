@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,6 @@ public class CompatibilityHelper {
 
     /**
      * Tells whether a module with this compatibility level can be run.
-     * 
      * @param level a CompatibilityLevel
      * @return true if a module with this compatibility level can be run
      */
@@ -49,7 +47,6 @@ public class CompatibilityHelper {
 
     /**
      * Get the compatibility level of a module handle with the current Modelio version.
-     * 
      * @param mh the module handle
      * @return the compatibility level
      */
@@ -61,7 +58,6 @@ public class CompatibilityHelper {
 
     /**
      * Get the compatibility level of a module binary version with the given Modelio version.
-     * 
      * @param modelioVersion the Modelio binary version
      * @param moduleBinaryVersion the module required binary version
      * @return the binary compatibility level
@@ -138,6 +134,7 @@ public class CompatibilityHelper {
                 return CompatibilityLevel.MODELIO_TOO_OLD;
             }
         }
+        
     }
 
     /**
@@ -148,19 +145,24 @@ public class CompatibilityHelper {
         /**
          * No problem
          */
+        @objid ("4cd493f0-99c9-4222-ae5c-3d57fb2e6f8b")
         FULLYCOMPATIBLE,
         /**
          * The module should be compatible but upgrading to a newer version is recommended.
          */
+        @objid ("0575f60c-3a66-4d50-b53e-746e591f95e0")
         COMPATIBLE,
         /**
          * Modelio is too old
          */
+        @objid ("a5054748-e4b8-45f8-b2e4-b1bad73a4c3c")
         MODELIO_TOO_OLD,
         /**
          * The module is too old.
          */
+        @objid ("4aa6e12d-caf8-4dcd-8d3c-6434f649c68f")
         MODULE_TOO_OLD;
+
     }
 
 }

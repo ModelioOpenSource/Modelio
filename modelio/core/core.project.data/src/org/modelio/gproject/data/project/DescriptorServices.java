@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.project;
 
 import java.net.URI;
@@ -33,7 +32,7 @@ import org.modelio.vbasic.net.UriUtils;
 @objid ("a0ccd9ea-19fa-4daa-84cb-3816d0f8eaa5")
 public class DescriptorServices {
     @objid ("d694dacb-869b-483f-9cf6-270c688478ad")
-    private DescriptorServices() {
+    private  DescriptorServices() {
         // no instance
     }
 
@@ -41,7 +40,6 @@ public class DescriptorServices {
      * Merges a project descriptor into another.
      * <p>
      * Fragments and modules details in the source descriptor override the destination descriptor.
-     * 
      * @param source the descriptor whose content will be merged into the destination descriptor.
      * @param dest the descriptor that will be modified.
      */
@@ -81,11 +79,11 @@ public class DescriptorServices {
         
         dest.getSharedResources().clear();
         dest.getSharedResources().addAll(source.getSharedResources());
+        
     }
 
     /**
      * Remove all {@link DefinitionScope#LOCAL local} parts from the descriptor.
-     * 
      * @param projectDescriptor the project descriptor to clear.
      */
     @objid ("bdc4f09a-2f51-4db4-8321-ba230545f58e")
@@ -114,6 +112,7 @@ public class DescriptorServices {
         
         removeScopedPart(projectDescriptor.getAuthDescriptor(), DefinitionScope.LOCAL);
         removeScopedPart(projectDescriptor.getProperties(), DefinitionScope.LOCAL);
+        
     }
 
     /**
@@ -121,7 +120,6 @@ public class DescriptorServices {
      * <p>
      * Replaces shared fragments and modules descriptors by references if they contain
      * local properties or authentication data.
-     * 
      * @param projectDescriptor the project descriptor to clear.
      */
     @objid ("e803e272-539a-4eab-9b73-e287e88240f2")
@@ -166,11 +164,11 @@ public class DescriptorServices {
         removeScopedPart(projectDescriptor.getProperties(), DefinitionScope.SHARED);
         removeScopedPart(projectDescriptor.getAuthDescriptor(), DefinitionScope.SHARED);
         projectDescriptor.getSharedResources().clear();
+        
     }
 
     /**
      * Modifies the descriptor to resolve the descriptor URIs against the given URI.
-     * 
      * @param projectDescriptor the descriptor to resolve.
      * @param aRemoteUri the remote project URI
      */
@@ -191,11 +189,11 @@ public class DescriptorServices {
                 md.setArchiveLocation(baseUri.resolve(md.getArchiveLocation()));
             }
         }
+        
     }
 
     /**
      * Merge the other fragment details into this one.
-     * 
      * @param fd the fragment to merge into this.
      */
     @objid ("0460ce5e-3019-11e2-8f81-001ec947ccaf")
@@ -211,11 +209,11 @@ public class DescriptorServices {
         }
         
         dest.getProperties().merge(fd.getProperties());
+        
     }
 
     /**
      * Merge the other module descriptor into this one.
-     * 
      * @param source the other module descriptor
      */
     @objid ("046a5765-3019-11e2-8f81-001ec947ccaf")
@@ -230,6 +228,7 @@ public class DescriptorServices {
         if (source.getAuthDescriptor().isDefined()) {
             dest.setAuthDescriptor(source.getAuthDescriptor());
         }
+        
     }
 
     @objid ("9fcc21f1-6b6e-484f-bb79-89af0d1465d1")
@@ -241,6 +240,7 @@ public class DescriptorServices {
         if (authDescriptor.getScope() == scope) {
             authDescriptor.setData(null);
         }
+        
     }
 
     @objid ("4a27d6db-9095-4e9a-81b5-bfeca4ce662d")
@@ -251,6 +251,7 @@ public class DescriptorServices {
                 it.remove();
             }
         }
+        
     }
 
 }

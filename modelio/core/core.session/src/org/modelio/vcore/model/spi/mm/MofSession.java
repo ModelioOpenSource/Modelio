@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model.spi.mm;
 
 import java.io.IOException;
@@ -78,16 +77,16 @@ public class MofSession implements IMofSession {
      * @param report the migration report builder
      */
     @objid ("bb21c45d-c3b5-4701-ac9e-3d60cdc5ad1c")
-    public MofSession(ICoreSession coreSession, IRepository targetRepository, IMigrationReporter report) {
+    public  MofSession(ICoreSession coreSession, IRepository targetRepository, IMigrationReporter report) {
         this.coreSession = coreSession;
         this.targetRepository = targetRepository;
         this.report = report;
+        
     }
 
     /**
      * Create an object
      * @throws MetaclassNotFoundException
-     * 
      * @param cls a metaclass name, preferably qualified
      * @param name the element name
      * @return the created object
@@ -132,7 +131,6 @@ public class MofSession implements IMofSession {
 
     /**
      * Find an element from a reference.
-     * 
      * @param ref an element reference
      * @return the found element or null.
      */
@@ -173,13 +171,12 @@ public class MofSession implements IMofSession {
 
     /**
      * Look for an object by scanning a dependency. Create the element if not found.
-     * 
      * @param from the source element to scan
      * @param depName the dependency name
      * @param clsName the target metaclass name, preferably qualified
      * @param name the element name
      * @return the found or created element.
-     * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException if the metaclass does not exist.
+     * @throws MetaclassNotFoundException if the metaclass does not exist.
      */
     @objid ("2fc1acad-c499-44c5-b40a-f22be4f0561e")
     @Override
@@ -252,6 +249,7 @@ public class MofSession implements IMofSession {
             this.toReidentify = new ArrayList<>();
         
         }
+        
     }
 
     /**
@@ -260,7 +258,6 @@ public class MofSession implements IMofSession {
      * A new object is created.
      * The original object is detached to all references, that are attached to the new object.
      * At the end the original object is deleted.
-     * 
      * @param original the original object to be replaced by another
      * @param newMetaclass the new object metaclass
      * @param newUuid the new object UUID. If <i>null</i> a new UUID will be generated. This UUID must NOT be the same as the original one.
@@ -363,7 +360,6 @@ public class MofSession implements IMofSession {
      * from the original one.
      * The original object is deleted in the process.
      * The transmuted object will be reidentified at the end of the migration.
-     * 
      * @param toTransmute the object to transmute.
      * @param newMetaclass the new metaclass
      * @return the new object.
@@ -417,6 +413,7 @@ public class MofSession implements IMofSession {
         } catch (IOException e) {
             throw new MofMigrationException(FileUtils.getLocalizedMessage(e), e);
         }
+        
     }
 
     @objid ("ea5d98da-bdf1-4d09-a20b-da644872a34b")
@@ -427,13 +424,13 @@ public class MofSession implements IMofSession {
         }
         
         mofDiagramMigrator.run(monitor);
+        
     }
 
     /**
      * Move the given dependency value to the new object
      * while ensuring order is preserved on the opposite association.
      * @param dep the dependency to move
-     * 
      * @param original the original object
      * @param transmuted the transmuted version of the object
      * @param transmutedDepOpposite the dependency opposite
@@ -503,6 +500,7 @@ public class MofSession implements IMofSession {
             assert(! value.mGet(transmutedDepOpposite).contains(original)) : String.format("%s.%s still contains %s", value, transmutedDepOpposite, original);
             assert(! value.mGet(origDepOpposite).contains(original)) : String.format("%s.%s still contains %s", value, origDepOpposite, original);
         }
+        
     }
 
     /**
@@ -517,19 +515,20 @@ public class MofSession implements IMofSession {
     @objid ("fc4c7ad3-3b53-4a8c-a62c-5c69244db153")
     private static final class ReidentData {
         @objid ("db19f628-b959-45d8-be5c-71e83ef09375")
-         final MRef origIdent;
+        final MRef origIdent;
 
         @objid ("406a9fcd-3190-4b20-b844-cd987db1e8b4")
-         final MRef tempIdent;
+        final MRef tempIdent;
 
         @objid ("2087cc1a-5448-43af-a127-55f5789b716c")
-         final MRef finalIdent;
+        final MRef finalIdent;
 
         @objid ("2042794f-e168-4d3c-b376-472c90c51b0b")
-        public ReidentData(MRef origIdent, MRef tempIdent, MRef finalIdent) {
+        public  ReidentData(MRef origIdent, MRef tempIdent, MRef finalIdent) {
             this.origIdent = origIdent;
             this.tempIdent = tempIdent;
             this.finalIdent = finalIdent;
+            
         }
 
     }

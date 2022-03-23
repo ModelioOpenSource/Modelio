@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.viewer;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -70,7 +69,7 @@ class StyleEditPanelUI implements IStyleChangeListener {
     private StyleEditPanelController controller;
 
     @objid ("3cad4e57-92e0-416c-943e-2fb1ef193139")
-     ColumnViewer viewer;
+    ColumnViewer viewer;
 
     @objid ("8e84fea0-7733-4b8b-ba40-653caa127ae8")
     private Label descriptionText;
@@ -113,9 +112,10 @@ class StyleEditPanelUI implements IStyleChangeListener {
     }
 
     @objid ("0b5c4210-98cf-4e1e-88f8-92d8feda2980")
-    public StyleEditPanelUI(StyleEditPanelController controller, boolean tableMode) {
+    public  StyleEditPanelUI(StyleEditPanelController controller, boolean tableMode) {
         this.controller = controller;
         this.tableMode = tableMode;
+        
     }
 
     /**
@@ -138,6 +138,7 @@ class StyleEditPanelUI implements IStyleChangeListener {
             column.getColumn().setMoveable(true);
             return column;
         }
+        
     }
 
     /**
@@ -182,6 +183,7 @@ class StyleEditPanelUI implements IStyleChangeListener {
                 this.tableMode,
                 () -> getModel().getStyleTreeModel()));
         col2.setEditingSupport(new StylePropertyEditingSupport(this.viewer));
+        
     }
 
     /**
@@ -279,6 +281,7 @@ class StyleEditPanelUI implements IStyleChangeListener {
                 column.getColumn().pack();
             }
         }
+        
     }
 
     @objid ("992eebbc-aaa7-416e-b80c-f52f53f7d72c")
@@ -287,6 +290,7 @@ class StyleEditPanelUI implements IStyleChangeListener {
         if (this.model != null && this.model.getStyleData() != null) {
             this.model.getStyleData().removeListener(this);
         }
+        
     }
 
     @objid ("79c96ed3-29f6-4637-bee1-272d29f048f9")
@@ -304,6 +308,7 @@ class StyleEditPanelUI implements IStyleChangeListener {
             // Sometimes, this listener is called when the tree viewer is already disposed. Make sure to unregister it.
             this.model.getStyleData().removeListener(this);
         }
+        
     }
 
     @objid ("ee861f58-552a-400e-be9d-02efd8441387")
@@ -313,7 +318,6 @@ class StyleEditPanelUI implements IStyleChangeListener {
 
     /**
      * Add entries to the contextual menu
-     * 
      * @param popupMenu the contextual menu to fill.
      */
     @objid ("22d302ce-9e17-4c4b-9d66-6800061cd842")
@@ -348,13 +352,13 @@ class StyleEditPanelUI implements IStyleChangeListener {
             resetAction.update();
             normalizeAction.update();
         });
+        
     }
 
     /**
      * Get the contextual menu manager.
      * <p>
      * The caller may add entries to the menu.
-     * 
      * @return the contextual menu manager.
      */
     @objid ("8cfe4e8e-bbf9-45de-8d8d-404289c46ebc")

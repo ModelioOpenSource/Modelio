@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnsequenceflow;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.bpmn.diagram.editor.elements.bpmndataobject.dataobject.GmBpmnDataObject;
 import org.modelio.bpmn.diagram.editor.elements.bpmnsequenceflowdataassociation.GmBpmnSequenceFlowDataAssociation;
@@ -53,9 +52,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("619f43fe-55b6-11e2-877f-002564c97630")
 public class GmBpmnSequenceFlow extends GmLink {
-    @objid ("619f4404-55b6-11e2-877f-002564c97630")
-    private BpmnSequenceFlow element;
-
     /**
      * Current version of this Gm class. Defaults to 0.
      */
@@ -71,18 +67,20 @@ public class GmBpmnSequenceFlow extends GmLink {
     @objid ("9295cb26-d4cc-4b98-b3e0-9e1fbe26c9d8")
     public static final String ROLE_DATAOBJECT = "dataobject";
 
+    @objid ("619f4404-55b6-11e2-877f-002564c97630")
+    private BpmnSequenceFlow element;
+
     @objid ("c5ca6e8d-59a6-11e2-ae45-002564c97630")
     private static final GmBpmnSequenceFlowStyleKeys styleKeyProvider = new GmBpmnSequenceFlowStyleKeys();
 
     /**
      * Initialize a control flow graphic model.
-     * 
      * @param diagram The owning diagram
      * @param element The reference flow, may be null
      * @param ref The referenced flow reference, may not be null
      */
     @objid ("619f440c-55b6-11e2-877f-002564c97630")
-    public GmBpmnSequenceFlow(IGmDiagram diagram, BpmnSequenceFlow element, MRef ref) {
+    public  GmBpmnSequenceFlow(IGmDiagram diagram, BpmnSequenceFlow element, MRef ref) {
         super(diagram, ref);
         
         this.element = element;
@@ -91,13 +89,14 @@ public class GmBpmnSequenceFlow extends GmLink {
         extension.setShowLabel(false);
         addExtension(ExtensionLocation.MiddleNW, IGmLink.ROLE_MAIN_LABEL, extension);
         addExtension(ExtensionLocation.SourceNW, GmBpmnSequenceFlow.ROLE_GUARD, new GmBpmnEdgeGuard(diagram, ref));
+        
     }
 
     /**
      * For deserialization only.
      */
     @objid ("619f4418-55b6-11e2-877f-002564c97630")
-    public GmBpmnSequenceFlow() {
+    public  GmBpmnSequenceFlow() {
         // Nothing to do.
     }
 
@@ -219,6 +218,7 @@ public class GmBpmnSequenceFlow extends GmLink {
             firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, null, getRepresentedElement().getName());
         }
         super.refreshFromObModel();
+        
     }
 
     @objid ("61a0ca9e-55b6-11e2-877f-002564c97630")
@@ -226,6 +226,7 @@ public class GmBpmnSequenceFlow extends GmLink {
     public void readLink(IDiagramReader in) {
         super.readLink(in);
         this.element = (BpmnSequenceFlow) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("61a0caa4-55b6-11e2-877f-002564c97630")
@@ -241,6 +242,7 @@ public class GmBpmnSequenceFlow extends GmLink {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmBpmnSequenceFlow.", GmBpmnSequenceFlow.MINOR_VERSION);
+        
     }
 
     @objid ("61a0cab1-55b6-11e2-877f-002564c97630")
@@ -261,6 +263,7 @@ public class GmBpmnSequenceFlow extends GmLink {
                 n.setRoleInComposition(IGmLink.ROLE_MAIN_LABEL);
             }
         }
+        
     }
 
     @objid ("de1d2cff-baff-466c-96e7-9948abaa301a")
@@ -269,6 +272,7 @@ public class GmBpmnSequenceFlow extends GmLink {
         
         addStartingLink(gmLink);
         target.getMainNode().addEndingLink(gmLink);
+        
     }
 
 }

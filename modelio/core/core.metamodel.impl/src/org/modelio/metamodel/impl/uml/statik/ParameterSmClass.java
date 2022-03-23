@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
@@ -32,9 +32,6 @@ import org.modelio.metamodel.impl.uml.behavior.activityModel.PinSmClass;
 import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.BehaviorParameterSmClass;
 import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.SignalSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
-import org.modelio.metamodel.impl.uml.statik.GeneralClassSmClass;
-import org.modelio.metamodel.impl.uml.statik.OperationSmClass;
-import org.modelio.metamodel.impl.uml.statik.ParameterData;
 import org.modelio.metamodel.uml.behavior.activityModel.Pin;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.BehaviorParameter;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.ParameterEffectKind;
@@ -108,7 +105,7 @@ public class ParameterSmClass extends UmlModelElementSmClass {
     private SmDependency behaviorParamDep;
 
     @objid ("d38683f1-aba9-473d-b57b-ab936d39672f")
-    public ParameterSmClass(ISmMetamodelFragment origin) {
+    public  ParameterSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -116,6 +113,7 @@ public class ParameterSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "Parameter";
+        
     }
 
     @objid ("4fd9ba4d-78b0-4dca-9da7-61019e9ea46b")
@@ -128,18 +126,21 @@ public class ParameterSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Parameter.class;
+        
     }
 
     @objid ("d152e6f6-5f7c-44aa-951a-6715e3f99606")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("a4f10d71-c72c-48c7-b162-2237bd78f0d2")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("137f061f-8411-45bc-8dac-8a0affc7a0f8")
@@ -215,6 +216,8 @@ public class ParameterSmClass extends UmlModelElementSmClass {
         this.behaviorParamDep = new BehaviorParamSmDependency();
         this.behaviorParamDep.init("BehaviorParam", this, metamodel.getMClass(BehaviorParameter.MQNAME), 0, -1 , SmDirective.SMCDTODELETE);
         registerDependency(this.behaviorParamDep);
+        
+        
     }
 
     @objid ("c74c1c77-0246-4e9b-936a-419118f4c8e9")
@@ -351,7 +354,7 @@ public class ParameterSmClass extends UmlModelElementSmClass {
         private ParameterSmClass smClass;
 
         @objid ("cb583291-be44-4bc2-bc7a-6c3deba96d85")
-        public ParameterObjectFactory(ParameterSmClass smClass) {
+        public  ParameterObjectFactory(ParameterSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -533,6 +536,7 @@ public class ParameterSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((GeneralClassSmClass)this.getTarget()).getOccurenceDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -561,6 +565,7 @@ public class ParameterSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((OperationSmClass)this.getTarget()).getIODep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -580,6 +585,7 @@ public class ParameterSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ParameterData) data).mMatching = values;
+            
         }
 
         @objid ("8476fa35-a803-4726-aa94-4a3af13c3606")
@@ -589,6 +595,7 @@ public class ParameterSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((PinSmClass)this.getTarget()).getMatchedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -608,6 +615,7 @@ public class ParameterSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ParameterData) data).mSRepresentation = values;
+            
         }
 
         @objid ("4261bdac-1bce-4c43-82c2-72c4a83b4d0d")
@@ -617,6 +625,7 @@ public class ParameterSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((SignalSmClass)this.getTarget()).getPBaseDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -645,6 +654,7 @@ public class ParameterSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((OperationSmClass)this.getTarget()).getReturnDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -664,6 +674,7 @@ public class ParameterSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ParameterData) data).mBehaviorParam = values;
+            
         }
 
         @objid ("d07dcda3-fd82-4afa-b6b9-6982159595d2")
@@ -673,6 +684,7 @@ public class ParameterSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((BehaviorParameterSmClass)this.getTarget()).getMappedDep();
             }
             return this.symetricDep;
+            
         }
 
     }

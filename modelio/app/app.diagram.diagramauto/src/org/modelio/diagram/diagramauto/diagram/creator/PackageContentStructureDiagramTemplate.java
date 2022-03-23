@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.diagramauto.diagram.creator;
 
 import java.util.ArrayList;
@@ -55,10 +54,11 @@ public class PackageContentStructureDiagramTemplate extends AbstractDiagramTempl
      * Mandatory default c'tor needed by eclipse when loading the extension point.
      */
     @objid ("f0acf05c-f837-4cca-b24f-2945ec08b40f")
-    public PackageContentStructureDiagramTemplate() {
+    public  PackageContentStructureDiagramTemplate() {
         super();
         
         this._contentDgs = new ArrayList<>();
+        
     }
 
     @objid ("7788d30f-0a7f-46b2-90e0-371fb226d7b0")
@@ -75,6 +75,7 @@ public class PackageContentStructureDiagramTemplate extends AbstractDiagramTempl
         } else {
             return null;
         }
+        
     }
 
     @objid ("f3c9db29-c938-47bf-9093-e09f2ef0d4eb")
@@ -83,6 +84,7 @@ public class PackageContentStructureDiagramTemplate extends AbstractDiagramTempl
         if (main instanceof Package) {
             initialUnmasking(dh, (ModelTree) main);
         }
+        
     }
 
     @objid ("be7be4b6-123d-417a-a2aa-2eadf505ccce")
@@ -186,6 +188,7 @@ public class PackageContentStructureDiagramTemplate extends AbstractDiagramTempl
                 }
             }
         }
+        
     }
 
     @objid ("aa037884-d4c6-4984-a6b7-ba8d6445af16")
@@ -197,6 +200,7 @@ public class PackageContentStructureDiagramTemplate extends AbstractDiagramTempl
         } else {
             node.setStyle(new DiagramStyleHandle(DiagramStyles.getStyleManager().getStyle(DiagramStyles.INTERN_STYLE_NAME)));
         }
+        
     }
 
     @objid ("e2d8e1ba-0e37-4486-8db1-7f08860e44d6")
@@ -209,6 +213,7 @@ public class PackageContentStructureDiagramTemplate extends AbstractDiagramTempl
             // Should never happen
             DiagramAuto.LOG.debug(e);
         }
+        
     }
 
     @objid ("4ab4a0a2-6c84-4a87-b330-5c17541a38fc")

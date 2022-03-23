@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.usecase;
 
 import java.util.ArrayList;
@@ -46,7 +45,7 @@ public class UseCaseDG extends PortContainerDG {
      * @param node The gm node represented by this class.
      */
     @objid ("b01acb46-ecaf-4b1e-94ed-beacecf0a3b9")
-    public UseCaseDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  UseCaseDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 

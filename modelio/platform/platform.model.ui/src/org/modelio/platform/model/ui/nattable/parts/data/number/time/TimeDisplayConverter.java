@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.number.time;
 
 import java.text.DateFormat;
@@ -45,7 +44,7 @@ public class TimeDisplayConverter extends DisplayConverter {
      * Convert {@link Date} to {@link String} using the default format from {@link SimpleDateFormat}
      */
     @objid ("b1f3cca1-d57c-4c01-85db-aafe06367f54")
-    public TimeDisplayConverter() {
+    public  TimeDisplayConverter() {
         this.timeFormatter = DateFormat.getTimeInstance(DateFormat.DEFAULT, Locale.getDefault());
     }
 
@@ -78,6 +77,7 @@ public class TimeDisplayConverter extends DisplayConverter {
             // Ignore failed conversion
             return new Date();
         }
+        
     }
 
 }

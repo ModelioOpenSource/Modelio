@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.partition.bodyhybridcontainer;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,6 +33,7 @@ import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.eclipse.gef.requests.CreateRequest;
 import org.modelio.diagram.elements.common.freezone.DefaultFreeZoneLayoutEditPolicy;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
+import org.modelio.diagram.elements.core.helpers.RequestHelper;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityPartition;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
 import org.modelio.uml.activitydiagram.editor.elements.partition.PartitionEditPart;
@@ -70,7 +70,7 @@ public class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
      * C'tor.
      */
     @objid ("2af87b65-55b6-11e2-877f-002564c97630")
-    public BodyHybridContainerLayoutEditPolicy() {
+    public  BodyHybridContainerLayoutEditPolicy() {
         super();
         // Create an instance of both DefaultFreeZoneLayoutEditPolicy and
         // PartitionContainerLayoutEditPolicy.
@@ -84,6 +84,7 @@ public class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
                 resizeContainerRequest.setEditParts(getHost().getParent());
                 resizeContainerRequest.setLocation(request.getLocation());
                 resizeContainerRequest.setResizeDirection(request.getResizeDirection());
+                RequestHelper.addSharedEditParts(resizeContainerRequest, request);
         
                 Dimension sizeDelta = resizeContainerRequest.getSizeDelta();
                 sizeDelta.setSize(constraintDelta);
@@ -103,6 +104,7 @@ public class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
                 compound.add(parentCommand);
             }
         };
+        
     }
 
     @objid ("2af87b68-55b6-11e2-877f-002564c97630")
@@ -126,6 +128,7 @@ public class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
             break;
         }
         }
+        
     }
 
     @objid ("2af87b6b-55b6-11e2-877f-002564c97630")
@@ -147,6 +150,7 @@ public class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
         }
         }
         super.deactivate();
+        
     }
 
     @objid ("2af87b6e-55b6-11e2-877f-002564c97630")
@@ -170,6 +174,7 @@ public class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
             break;
         }
         }
+        
     }
 
     @objid ("2af87b72-55b6-11e2-877f-002564c97630")
@@ -193,6 +198,7 @@ public class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
             break;
         }
         }
+        
     }
 
     @objid ("2af87b76-55b6-11e2-877f-002564c97630")
@@ -249,6 +255,7 @@ public class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
         super.setHost(editpart);
         this.freeZonePolicy.setHost(editpart);
         this.partitionContainerPolicy.setHost(editpart);
+        
     }
 
     @objid ("2afa01e7-55b6-11e2-877f-002564c97630")
@@ -271,6 +278,7 @@ public class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
             break;
         }
         }
+        
     }
 
     @objid ("2afa01eb-55b6-11e2-877f-002564c97630")
@@ -293,6 +301,7 @@ public class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
             break;
         }
         }
+        
     }
 
     @objid ("2afa01ef-55b6-11e2-877f-002564c97630")
@@ -319,7 +328,6 @@ public class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
 
     /**
      * Sets the behaviour to adopt.
-     * 
      * @param value the new behaviour.
      */
     @objid ("2afa01f5-55b6-11e2-877f-002564c97630")
@@ -360,6 +368,7 @@ public class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
             }
             }
         }
+        
     }
 
     @objid ("2afa01f9-55b6-11e2-877f-002564c97630")
@@ -421,6 +430,7 @@ public class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
         } else {
             return this.freeZonePolicy;
         }
+        
     }
 
     /**
@@ -454,11 +464,11 @@ public class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
             // Everything of the same type, return corresponding policy.
             return allPartitions == Boolean.TRUE ? this.partitionContainerPolicy : this.freeZonePolicy;
         }
+        
     }
 
     /**
      * Returns the current behaviour.
-     * 
      * @return the current behaviour.
      */
     @objid ("2afa020a-55b6-11e2-877f-002564c97630")

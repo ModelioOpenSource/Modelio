@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,7 +39,7 @@ public class EGate extends ENamedElement {
     }
 
     @objid ("c38ff673-ae95-474e-a64a-0326ebb2a337")
-    public EGate(org.eclipse.uml2.uml.Gate element) {
+    public  EGate(org.eclipse.uml2.uml.Gate element) {
         super(element);
     }
 
@@ -59,6 +58,7 @@ public class EGate extends ENamedElement {
                 ((CombinedFragment) owner).getFragmentGate().add((Gate) objingElt);
             }
         }
+        
     }
 
     @objid ("6d3311c8-8a5e-4723-a268-8fd5e4e89e7c")
@@ -66,6 +66,7 @@ public class EGate extends ENamedElement {
     public void setProperties(Element objingElt) {
         super.setProperties(objingElt);
         setStartOrEnd(objingElt);
+        
     }
 
     @objid ("0fad6aee-a860-41db-a588-128d700eb752")
@@ -86,6 +87,7 @@ public class EGate extends ENamedElement {
             }
         
         }
+        
     }
 
 }

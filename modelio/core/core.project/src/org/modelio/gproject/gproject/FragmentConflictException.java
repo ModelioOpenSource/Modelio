@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.gproject;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,15 +46,15 @@ public class FragmentConflictException extends Exception {
      * @param project the involved project.
      */
     @objid ("66cda570-15aa-43f9-bdf8-1ac8ae99f217")
-    public FragmentConflictException(IProjectFragment orig, IProjectFragment duplicate, GProject project) {
+    public  FragmentConflictException(IProjectFragment orig, IProjectFragment duplicate, GProject project) {
         this.orig = orig;
         this.duplicate = duplicate;
         this.project = project;
+        
     }
 
     /**
      * Get the fragment that was already in the project.
-     * 
      * @return the original fragment.
      */
     @objid ("84a89b56-4958-47ab-ba2f-e86393b66f7e")
@@ -85,6 +84,7 @@ public class FragmentConflictException extends Exception {
         return CoreProject.I18N.getMessage("FragmentConflictException", 
                         this.orig.getId(), this.duplicate.getId(), 
                         this.orig.getUri(), this.duplicate.getUri());
+        
     }
 
 }

@@ -17,16 +17,15 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.versioned.load.sax.local;
 
 import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.vcore.model.DuplicateObjectException;
 import org.modelio.vcore.session.impl.storage.IModelLoader;
 import org.modelio.vcore.smkernel.SmObjectImpl;
@@ -60,11 +59,10 @@ public class SaxLocalExmlLoader implements IDependencyContentHook {
 
     /**
      * Initialize the SAX loader.
-     * 
      * @param loadHelper a load helper
      */
     @objid ("b5c58ec8-3fbb-11e2-87cb-001ec947ccaf")
-    public SaxLocalExmlLoader(ILoadHelper loadHelper) {
+    public  SaxLocalExmlLoader(ILoadHelper loadHelper) {
         this.dataModel = new LocalDataModel(loadHelper);
         this.defaultHandler = new DocumentContentHandler(this.dataModel);
         
@@ -84,16 +82,16 @@ public class SaxLocalExmlLoader implements IDependencyContentHook {
             // should never happen
             throw new Error(e);
         }
+        
     }
 
     /**
      * Load an EXML resource from an XML {@link InputSource}.
-     * 
      * @param is the EXML source.
      * @param loader the API to use to load the content.
      * @return the loaded CMS node.
-     * @throws java.io.IOException in case of failure
-     * @throws org.modelio.vcore.model.DuplicateObjectException if another object with the same identifier as a loaded object already exists in another repository.
+     * @throws IOException in case of failure
+     * @throws DuplicateObjectException if another object with the same identifier as a loaded object already exists in another repository.
      */
     @objid ("b5c58ecd-3fbb-11e2-87cb-001ec947ccaf")
     public LocalDataModel load(final InputSource is, IModelLoader loader) throws IOException, DuplicateObjectException {
@@ -129,6 +127,7 @@ public class SaxLocalExmlLoader implements IDependencyContentHook {
             this.loadInProgress = false;
             this.dataModel.setModelLoader (null);
         }
+        
     }
 
     /**
@@ -138,6 +137,7 @@ public class SaxLocalExmlLoader implements IDependencyContentHook {
     public void clear() {
         this.dataModel.reset();
         this.defaultHandler.reset();
+        
     }
 
     /**

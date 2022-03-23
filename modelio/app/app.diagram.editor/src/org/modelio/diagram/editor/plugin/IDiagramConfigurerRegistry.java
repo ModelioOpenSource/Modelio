@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.plugin;
 
 import java.util.List;
@@ -27,7 +26,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IDiagramConfigurerRegistry {
     /**
      * Registers a {@link IDiagramConfigurer} for the given metaclass and stereotype.
-     * 
      * @param metaclassName the name of the diagram metaclass the given IDiagramConfigurer is bound to. Must not be <code>null</code> nor
      * empty.
      * @param stereotype the stereotype the given IDiagramConfigurer is bound to. May be <code>null</code> or empty.
@@ -38,7 +36,6 @@ public interface IDiagramConfigurerRegistry {
 
     /**
      * Unregisters a {@link IDiagramConfigurer} for the given metaclass and stereotype.
-     * 
      * @param metaclassName the name of the diagram metaclass the given IDiagramConfigurer is bound to. Must not be <code>null</code> nor
      * empty.
      * @param stereotype the stereotype the given IDiagramConfigurer is bound to. May be <code>null</code> or empty.
@@ -49,7 +46,6 @@ public interface IDiagramConfigurerRegistry {
 
     /**
      * Returns the {@link IDiagramConfigurer}s for the given metaclass and stereotypes if any, an empty list otherwise.
-     * 
      * @param metaclassName the name of the diagram metaclass. Must not be <code>null</code> nor empty.
      * @param stereotypes the list of stereotypes. May be <code>null</code> or empty.
      */
@@ -58,7 +54,6 @@ public interface IDiagramConfigurerRegistry {
 
     /**
      * Returns the {@link IDiagramConfigurer}s for the given metaclass.
-     * 
      * @param metaclassName the name of the diagram metaclass. Must not be <code>null</code> nor empty.
      */
     @objid ("667336a1-33f7-11e2-95fe-001ec947c8cc")

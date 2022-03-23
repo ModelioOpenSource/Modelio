@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.modelmanipulation;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,6 @@ public class Variable {
 
     /**
      * Returns the current integer value of this Variable object.
-     * 
      * @return the current integer value.
      */
     @objid ("d96fdf7f-55b6-11e2-877f-002564c97630")
@@ -48,7 +46,6 @@ public class Variable {
 
     /**
      * Sets the new value of this Variable object.
-     * 
      * @param value the new integer value.
      */
     @objid ("d96fdf84-55b6-11e2-877f-002564c97630")
@@ -57,7 +54,7 @@ public class Variable {
     }
 
     @objid ("e8d5ee16-2b9d-4d1a-9018-ecabe16f2632")
-    public Variable(TimeReference ref) {
+    public  Variable(TimeReference ref) {
         this.ref = ref;
     }
 

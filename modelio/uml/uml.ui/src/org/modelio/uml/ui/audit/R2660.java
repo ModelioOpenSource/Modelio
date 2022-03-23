@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.audit;
 
 import java.util.ArrayList;
@@ -73,6 +72,7 @@ public class R2660 extends AbstractUmlRule {
         plan.registerRule(StateMachine.MQNAME, this, AuditTrigger.UPDATE);
         plan.registerRule(State.MQNAME, this, AuditTrigger.UPDATE | AuditTrigger.MOVE);
         plan.registerRule(InternalTransition.MQNAME, this, AuditTrigger.CREATE);
+        
     }
 
     /**
@@ -106,14 +106,14 @@ public class R2660 extends AbstractUmlRule {
      * Default constructor for R2660
      */
     @objid ("116499f7-141d-4b77-83fb-00a485bc47ff")
-    public R2660() {
+    public  R2660() {
         this.checkerInstance = new CheckR2660(this);
     }
 
     @objid ("04ffc580-d351-4ee2-b1f7-bd1b57a7a8b1")
     private static class CheckR2660 extends AbstractControl {
         @objid ("372171bf-06f7-4f87-8ddd-5d6581568cdb")
-        public CheckR2660(IRule rule) {
+        public  CheckR2660(IRule rule) {
             super(rule);
         }
 
@@ -159,7 +159,6 @@ public class R2660 extends AbstractUmlRule {
 
         /**
          * This methods recursively fetches the StateMachine containing the state.
-         * 
          * @param state The state.
          * @return The StateMachine.
          */
@@ -172,6 +171,7 @@ public class R2660 extends AbstractUmlRule {
             } else {
                 return getStateMachine(region.getParent());
             }
+            
         }
 
         @objid ("376329af-9a7f-4448-ae2e-3aa36b65e523")

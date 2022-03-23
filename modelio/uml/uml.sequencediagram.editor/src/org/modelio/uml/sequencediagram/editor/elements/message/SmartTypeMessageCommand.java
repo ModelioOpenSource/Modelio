@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.message;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -48,26 +47,26 @@ public class SmartTypeMessageCommand extends Command {
 
     /**
      * Constructor to type the message with a called operation
-     * 
      * @param messageToType the message to type
      * @param operation the operation to call
      */
     @objid ("d96b4ba5-55b6-11e2-877f-002564c97630")
-    public SmartTypeMessageCommand(final Message messageToType, final Operation operation) {
+    public  SmartTypeMessageCommand(final Message messageToType, final Operation operation) {
         this.messageToType = messageToType;
         this.operation = operation;
+        
     }
 
     /**
      * Constructor to type the message with a called operation
-     * 
      * @param messageToType the message to type
      * @param signal the signal to send
      */
     @objid ("d96b4bb0-55b6-11e2-877f-002564c97630")
-    public SmartTypeMessageCommand(final Message messageToType, final Signal signal) {
+    public  SmartTypeMessageCommand(final Message messageToType, final Signal signal) {
         this.messageToType = messageToType;
         this.signal = signal;
+        
     }
 
     @objid ("d96cd219-55b6-11e2-877f-002564c97630")
@@ -76,6 +75,7 @@ public class SmartTypeMessageCommand extends Command {
         return MTools.getAuthTool().canModify(this.messageToType) &&
                         (this.operation == null || MTools.getAuthTool().canModify(this.operation)) &&
                         (this.signal == null || MTools.getAuthTool().canModify(this.signal));
+        
     }
 
     @objid ("d96cd21e-55b6-11e2-877f-002564c97630")
@@ -89,6 +89,7 @@ public class SmartTypeMessageCommand extends Command {
             this.messageToType.setSignalSignature(this.signal);
             this.messageToType.setName(this.signal.getName());
         }
+        
     }
 
     @objid ("d96cd221-55b6-11e2-877f-002564c97630")
@@ -101,6 +102,7 @@ public class SmartTypeMessageCommand extends Command {
             this.messageToType.setSignalSignature(null);
             this.messageToType.setName(this.oldMessageName);
         }
+        
     }
 
     @objid ("d96cd224-55b6-11e2-877f-002564c97630")
@@ -113,6 +115,7 @@ public class SmartTypeMessageCommand extends Command {
             this.messageToType.setSignalSignature(this.signal);
             this.messageToType.setName(this.signal.getName());
         }
+        
     }
 
 }

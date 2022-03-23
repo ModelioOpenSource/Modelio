@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.helper;
 
 import java.nio.file.Files;
@@ -44,17 +43,15 @@ public class RichNoteFilesGeometry {
 
     /**
      * initialize the service.
-     * 
      * @param project the project to handle
      */
     @objid ("8f1bf648-57fd-48fb-8d86-069b26a5ecdc")
-    public RichNoteFilesGeometry(GProject project) {
+    public  RichNoteFilesGeometry(GProject project) {
         this.project = project;
     }
 
     /**
      * Get the file path of the given document.
-     * 
      * @param doc an external document.
      * @return the file path.
      */
@@ -76,7 +73,6 @@ public class RichNoteFilesGeometry {
     /**
      * Relativize the given path and return it in a format that can be directly
      * stored in the {@link ExternDocument#getPath() path} rich note field.
-     * 
      * @param filePath the path to relativize.
      * @return the relativized path.
      */
@@ -94,6 +90,7 @@ public class RichNoteFilesGeometry {
             // Store as is
             return filePath.toString();
         }
+        
     }
 
     /**
@@ -103,7 +100,6 @@ public class RichNoteFilesGeometry {
      * in a file with the element UUID as name with the given extension.
      * <p>
      * The returned path should be made relative before being stored in the rich note element using {@link ExternDocument#setPath(String)}.
-     * 
      * @param doc a rich note.
      * @param extension the file extension
      * @return its default path.
@@ -119,7 +115,6 @@ public class RichNoteFilesGeometry {
      * If <i>fileName</i> contains {@value #PROJECT_KEYWORD}, the path is relative to the project
      * root directory. In the other case the path is relative to the project
      * runtime directory.
-     * 
      * @param fileName a relative file path
      * @return an absolute file path.
      */
@@ -131,6 +126,7 @@ public class RichNoteFilesGeometry {
         } else {
             return this.project.getProjectFileStructure().getProjectPath().resolve(fileName.substring(idx + RichNoteFilesGeometry.PROJECT_KEYWORD.length()));
         }
+        
     }
 
     /**

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.embeddeddiagram;
 
 import java.beans.PropertyChangeListener;
@@ -31,6 +30,7 @@ import org.eclipse.gef.AccessibleEditPart;
 import org.eclipse.gef.EditDomain;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPartFactory;
+import org.eclipse.gef.EditPartViewer.Conditional;
 import org.eclipse.gef.GraphicalViewer;
 import org.eclipse.gef.Handle;
 import org.eclipse.gef.KeyHandler;
@@ -69,11 +69,12 @@ class EmbeddedEditPartViewer implements GraphicalViewer {
     private final GraphicalViewer parentViewer;
 
     @objid ("d07a4bdf-712f-4e2a-899a-80272d5d3fed")
-    public EmbeddedEditPartViewer(EmbeddedDiagramRootEditPart rootEp) {
+    public  EmbeddedEditPartViewer(EmbeddedDiagramRootEditPart rootEp) {
         Objects.requireNonNull(rootEp);
         
         this.parentViewer = (GraphicalViewer) Objects.requireNonNull(rootEp.getParent().getRoot().getViewer());
         this.editPartRegistry = new EmbeddedEditPartRegistry(this.parentViewer.getEditPartRegistry(), new EmbeddedLayerManager(rootEp));
+        
     }
 
     @objid ("6778bac8-98fb-4553-9f43-e62bb9a90e88")

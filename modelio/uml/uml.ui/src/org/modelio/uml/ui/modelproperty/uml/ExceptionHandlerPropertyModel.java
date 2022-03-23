@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.util.ArrayList;
@@ -56,22 +55,20 @@ public class ExceptionHandlerPropertyModel extends AbstractPropertyModel<Excepti
      */
     @objid ("c48c7e16-bfd8-4d2e-bec7-1a363e679620")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name",
-			"ExceptionType", "ExceptionInput" };
+    			"ExceptionType", "ExceptionInput" };
 
     /**
      * Create a new <i>ExceptionHandler</i> data model from an
      * <i>ExceptionHandler</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("a6c4f567-27dc-4e8b-b308-8c02d01bf8a5")
-    public ExceptionHandlerPropertyModel(ExceptionHandler theEditedElement) {
+    public  ExceptionHandlerPropertyModel(ExceptionHandler theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("695d4294-852a-441d-b8ff-03ccfabc3506")
@@ -82,7 +79,6 @@ public class ExceptionHandlerPropertyModel extends AbstractPropertyModel<Excepti
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("b7bda5ac-497b-4c10-a504-25c4001489ce")
@@ -95,7 +91,6 @@ public class ExceptionHandlerPropertyModel extends AbstractPropertyModel<Excepti
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -121,6 +116,7 @@ public class ExceptionHandlerPropertyModel extends AbstractPropertyModel<Excepti
         default:
             return null;
         }
+        
     }
 
     /**
@@ -130,7 +126,6 @@ public class ExceptionHandlerPropertyModel extends AbstractPropertyModel<Excepti
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -160,13 +155,13 @@ public class ExceptionHandlerPropertyModel extends AbstractPropertyModel<Excepti
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -205,6 +200,7 @@ public class ExceptionHandlerPropertyModel extends AbstractPropertyModel<Excepti
         default:
             return;
         }
+        
     }
 
 }

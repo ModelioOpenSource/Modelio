@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.bpmnbehavior;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -27,8 +26,8 @@ import org.modelio.diagram.persistence.IPersistent;
 import org.modelio.diagram.persistence.IPersistentMigrator;
 import org.modelio.diagram.persistence.PersistenceException;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnCollaboration;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnLane;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnParticipant;
@@ -60,6 +59,7 @@ public class GmBpmnBehaviorMigrator implements IPersistentMigrator {
             return null;
         }
         }
+        
     }
 
     @objid ("70db2a2f-5ccf-48d9-9378-9f142c187d89")
@@ -76,10 +76,9 @@ public class GmBpmnBehaviorMigrator implements IPersistentMigrator {
      * <li>{@link GmBpmnBehavior} representing a {@link BpmnSharedDefinitions} are handled by {@link #migrateToSharedDefinitions(GmBpmnBehavior)}</li>
      * <li>{@link GmBpmnBehavior} representing a {@link Package} are handled by {@link #migrateToPackage(GmBpmnBehavior)}</li>
      * </ul>
-     * 
      * @param oldGmBehavior the gm being migrated.
      * @return the migrated gm, replacing the given one.
-     * @throws org.modelio.diagram.persistence.PersistenceException if the lane do not represents a {@link BpmnLane} nor a {@link BpmnParticipant}.
+     * @throws PersistenceException if the lane do not represents a {@link BpmnLane} nor a {@link BpmnParticipant}.
      */
     @objid ("e285d561-b5e1-4a0f-ab41-4c7765cde828")
     private IPersistent migrateFromV0(final GmBpmnBehavior oldGmBehavior) throws PersistenceException {
@@ -96,6 +95,7 @@ public class GmBpmnBehaviorMigrator implements IPersistentMigrator {
             // Should never happen, return the deprecated Gm
             return oldGmBehavior;
         }
+        
     }
 
     /**
@@ -183,6 +183,7 @@ public class GmBpmnBehaviorMigrator implements IPersistentMigrator {
             StyleKey newKey = newGm.getStyleKey(oldKey.getMetakey());
             newGm.getPersistedStyle().setProperty(newKey, oldValue);
         }
+        
     }
 
 }

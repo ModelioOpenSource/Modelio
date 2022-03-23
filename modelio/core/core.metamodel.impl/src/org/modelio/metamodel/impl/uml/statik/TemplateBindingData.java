@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.List;
@@ -33,22 +33,22 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("001cc6ae-c4bf-1fd8-97fe-001ec947cd2a")
 public class TemplateBindingData extends UmlModelElementData {
     @objid ("f322f99e-4b76-481b-8905-918ac12a437f")
-     List<SmObjectImpl> mParameterSubstitution = null;
+    List<SmObjectImpl> mParameterSubstitution = null;
 
     @objid ("94b6c2e6-3bbc-424f-b7e5-1116c3cbf1db")
-     SmObjectImpl mBoundOperation;
+    SmObjectImpl mBoundOperation;
 
     @objid ("d8a37f78-c9ed-42b0-a89c-d18512a152d9")
-     SmObjectImpl mInstanciatedTemplateOperation;
+    SmObjectImpl mInstanciatedTemplateOperation;
 
     @objid ("14b758cc-0f8e-487f-bda8-8e1b0528c232")
-     SmObjectImpl mInstanciatedTemplate;
+    SmObjectImpl mInstanciatedTemplate;
 
     @objid ("ec15deb3-62cc-447d-96de-5bda66961c63")
-     SmObjectImpl mBoundElement;
+    SmObjectImpl mBoundElement;
 
     @objid ("fbf224d9-f078-4ad3-8d7d-c8589048e4eb")
-    public TemplateBindingData(TemplateBindingSmClass smClass) {
+    public  TemplateBindingData(TemplateBindingSmClass smClass) {
         super(smClass);
     }
 

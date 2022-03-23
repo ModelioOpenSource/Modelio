@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,7 +34,7 @@ public class OAcceptTimeEventAction extends OActivityNode {
     }
 
     @objid ("d63a187f-574d-4b5b-98ed-f17687d701c9")
-    public OAcceptTimeEventAction(AcceptTimeEventAction element) {
+    public  OAcceptTimeEventAction(AcceptTimeEventAction element) {
         super(element);
     }
 
@@ -51,6 +50,7 @@ public class OAcceptTimeEventAction extends OActivityNode {
         super.setProperties(ecoreElt);
         setTimeExpression( (org.eclipse.uml2.uml.AcceptEventAction) ecoreElt);
         setTime((org.eclipse.uml2.uml.AcceptEventAction) ecoreElt);
+        
     }
 
     @objid ("3de38f11-5819-4bcf-9f7e-b5594c0c61f4")
@@ -75,6 +75,7 @@ public class OAcceptTimeEventAction extends OActivityNode {
             org.eclipse.uml2.uml.Package nearestPkg = action.getNearestPackage();
             nearestPkg.getPackagedElements().add(timeEvent);
         }
+        
     }
 
     @objid ("ccde4bab-cbe2-42bd-a426-9c0b8aca91dd")
@@ -82,6 +83,7 @@ public class OAcceptTimeEventAction extends OActivityNode {
         if (GenerationProperties.getInstance().isRoundtripEnabled()){
             ObjingEAnnotation.setSignal(ecoreElt, "time");
         }
+        
     }
 
     @objid ("36211ee2-a664-46f6-9afb-3bb208351ab0")

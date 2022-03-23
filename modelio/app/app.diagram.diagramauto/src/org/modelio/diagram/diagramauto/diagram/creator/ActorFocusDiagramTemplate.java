@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.diagramauto.diagram.creator;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.modelio.api.modelio.diagram.IDiagramGraphic;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
-import org.modelio.api.modelio.diagram.IDiagramLink.LinkRouterKind;
 import org.modelio.api.modelio.diagram.IDiagramLink;
+import org.modelio.api.modelio.diagram.IDiagramLink.LinkRouterKind;
 import org.modelio.api.modelio.diagram.IDiagramNode;
 import org.modelio.diagram.diagramauto.plugin.DiagramAuto;
 import org.modelio.diagram.diagramauto.tools.groups.DgNodeGroup;
@@ -68,10 +67,11 @@ public class ActorFocusDiagramTemplate extends AbstractDiagramTemplate {
      * Mandatory default c'tor needed by eclipse when loading the extension point.
      */
     @objid ("a596718a-fdaf-437c-8d2b-d04770c5d963")
-    public ActorFocusDiagramTemplate() {
+    public  ActorFocusDiagramTemplate() {
         super();
         this._linksDgs = new ArrayList<>();
         this._linkedUseCaseDgs = new ArrayList<>();
+        
     }
 
     @objid ("a9ea0071-c9b6-4fa4-8e3e-cf7ea8ed1de6")
@@ -92,6 +92,7 @@ public class ActorFocusDiagramTemplate extends AbstractDiagramTemplate {
         if (main instanceof Actor) {
             initialUnmasking(dh, (Actor) main);
         }
+        
     }
 
     @objid ("5a583caf-4ed0-4c84-9a86-019600a8e9d2")
@@ -149,6 +150,7 @@ public class ActorFocusDiagramTemplate extends AbstractDiagramTemplate {
                 }
             }
         }
+        
     }
 
     @objid ("33273501-f12d-4b2c-8254-3692e0873ae1")
@@ -185,6 +187,7 @@ public class ActorFocusDiagramTemplate extends AbstractDiagramTemplate {
                 DiagramAuto.LOG.debug(e);
             }
         }
+        
     }
 
     @objid ("2e68029e-e6b8-4e9b-a607-b82127d784a0")
@@ -209,6 +212,7 @@ public class ActorFocusDiagramTemplate extends AbstractDiagramTemplate {
         this._actorDG = null;
         this._linksDgs.clear();
         this._linkedUseCaseDgs.clear();
+        
     }
 
     @objid ("2bd596c0-5f7f-4050-ba17-730349b95e93")
@@ -252,6 +256,7 @@ public class ActorFocusDiagramTemplate extends AbstractDiagramTemplate {
                     linkDg.setPath(points);
                 }
             }
+            
         }
 
         @objid ("652a4bb0-a30b-4c64-864b-e965b336b855")

@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.propertyview.fragment.model;
 
 import java.io.IOException;
 import java.util.Map;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.gproject.fragment.url.UrlFragment.UrlFragmentInfos;
 import org.modelio.gproject.fragment.url.UrlFragment;
+import org.modelio.gproject.fragment.url.UrlFragment.UrlFragmentInfos;
 import org.modelio.propertyview.plugin.PropertyViewPlugin;
 
 /**
@@ -43,11 +42,10 @@ public class UrlFragmentPropertyModel extends AbstractFragmentPropertyModel {
 
     /**
      * Create a new <i>UrlFragment</i> data model from an <i>UrlFragment</i>.
-     * 
      * @param fragment the fragment of which properties will be display
      */
     @objid ("67b929ad-d68e-470b-8f43-b4cf87783625")
-    public UrlFragmentPropertyModel(UrlFragment fragment) {
+    public  UrlFragmentPropertyModel(UrlFragment fragment) {
         super(fragment);
         UrlFragmentInfos infos;
         try {
@@ -58,6 +56,7 @@ public class UrlFragmentPropertyModel extends AbstractFragmentPropertyModel {
         } catch (IOException e) {
             PropertyViewPlugin.LOG.error(e);
         }
+        
     }
 
     @objid ("5d6a82f9-b276-4590-8884-fa143b2008ce")

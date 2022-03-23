@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
@@ -91,6 +90,7 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
         } else {
             throw new IllegalArgumentException("'" + realStereotypeName + "' stereotype is not unique in module '" + realModuleName + "'");
         }
+        
     }
 
     @objid ("0ca61d4e-418c-443f-be4b-e7c66435aba9")
@@ -186,6 +186,7 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
         } else {
             return props.getProperty(key);
         }
+        
     }
 
     @objid ("1d48ff5f-be07-4379-a570-386efed731a9")
@@ -423,6 +424,14 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
     public void putNoteContent(String moduleName, String noteTypeName, String content) throws ExtensionNotFoundException {
         Note theNote = getNote(moduleName, noteTypeName);
         
+        if (content == null) {
+            // Delete the note if no more value
+            if (theNote != null) {
+                theNote.delete();
+            }
+            return;
+        }
+        
         if (theNote == null) {
             // No such note on element, the factory creates it if there is only
             // one matching
@@ -432,12 +441,21 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
         } else {
             theNote.setContent(content);
         }
+        
     }
 
     @objid ("fb9eb565-3a4a-464e-a4f6-a962d1416b26")
     @Override
     public void putNoteContent(String moduleName, String ownerName, String noteTypeName, String content) throws ExtensionNotFoundException {
         Note theNote = getNote(moduleName, ownerName, noteTypeName);
+        
+        if (content == null) {
+            // Delete the note if no more value
+            if (theNote != null) {
+                theNote.delete();
+            }
+            return;
+        }
         
         if (theNote == null) {
             // No such note on element, the factory creates it if there is only
@@ -448,12 +466,21 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
         } else {
             theNote.setContent(content);
         }
+        
     }
 
     @objid ("aefaf984-0498-4ec8-8b97-ffc07b89d10f")
     @Override
     public void putNoteContent(NoteType noteType, String content) throws ExtensionNotFoundException {
         Note theNote = getNote(noteType);
+        
+        if (content == null) {
+            // Delete the note if no more value
+            if (theNote != null) {
+                theNote.delete();
+            }
+            return;
+        }
         
         if (theNote == null) {
             // No such note on element, the factory creates it if there is only
@@ -464,6 +491,7 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
         } else {
             theNote.setContent(content);
         }
+        
     }
 
     @objid ("ce50811d-dbfa-4cea-9586-7f014f1fadd4")
@@ -504,6 +532,7 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
         if (cpt < 1) {
             factory.createTagParameter(value, tag);
         }
+        
     }
 
     @objid ("0574e663-cdbf-45db-ad97-46fa076df907")
@@ -544,6 +573,7 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
         if (cpt < 1) {
             factory.createTagParameter(value, tag);
         }
+        
     }
 
     @objid ("a8565815-c2ed-4bed-9435-06497e5cde4b")
@@ -584,6 +614,7 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
         if (cpt < 1) {
             factory.createTagParameter(value, tag);
         }
+        
     }
 
     @objid ("fb629575-89cc-4917-9950-111a2836ed6b")
@@ -627,6 +658,7 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
             factory.createTagParameter(values.get(cpt), tag);
             cpt++;
         }
+        
     }
 
     @objid ("97a550a5-eb52-4d06-bd64-643e0261ceaa")
@@ -670,6 +702,7 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
             factory.createTagParameter(values.get(cpt), tag);
             cpt++;
         }
+        
     }
 
     @objid ("ffbcd909-2397-4e8a-9efe-658f9da43ca9")
@@ -713,6 +746,7 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
             factory.createTagParameter(values.get(cpt), tag);
             cpt++;
         }
+        
     }
 
     @objid ("7cb75488-166c-4c68-99b1-b4c847647aa6")
@@ -734,6 +768,7 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
         for (Note note : toRemove) {
             note.delete();
         }
+        
     }
 
     @objid ("ffe91118-0bd9-444c-a41c-883cda6c2ace")
@@ -755,6 +790,7 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
         for (Note note : toRemove) {
             note.delete();
         }
+        
     }
 
     @objid ("6a9c5ff8-29f1-407a-8081-49abbfddd958")
@@ -770,6 +806,7 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
         for (Note note : toRemove) {
             note.delete();
         }
+        
     }
 
     @objid ("dbd8e19d-f363-4e05-9c12-87254ac70f24")
@@ -800,6 +837,7 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
         }
         
         getExtension().removeAll(toRemove);
+        
     }
 
     @objid ("fe9fdc86-7c1f-402a-a53d-bbce0f8e6d4b")
@@ -823,6 +861,7 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
         for (TaggedValue tag : toRemove) {
             tag.delete();
         }
+        
     }
 
     @objid ("4fc0bbf8-860d-4e32-ae11-f03e0ad39613")
@@ -846,6 +885,7 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
         for (TaggedValue tag : toRemove) {
             tag.delete();
         }
+        
     }
 
     @objid ("dbbcb2ed-0f87-4e9e-b48d-5dc4ea6e009c")
@@ -863,6 +903,7 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
         for (TaggedValue tag : toRemove) {
             tag.delete();
         }
+        
     }
 
     @objid ("c1843b5a-2198-47a6-9bf5-79d3435cadc5")
@@ -875,6 +916,7 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
             table.setLocalAnnoted(this);
         }
         table.setProperty(key, value);
+        
     }
 
     @objid ("6f56b93d-1506-457e-932f-0b5c13dc205e")
@@ -889,6 +931,7 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
         }
         
         props.setProperty(key, value);
+        
     }
 
     @objid ("d7bb4f95-2012-4a9e-9606-8db9208f9d84")
@@ -903,11 +946,11 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
             throw new ExtensionNotFoundException("'" + stereotypeName + "' stereotype not found");
         }
         setProperty(s, key, value);
+        
     }
 
     /**
      * Tells whether 'stereotype' or one of its inheritance parent matches the given 'stereotypeName'.
-     * 
      * @param stereotype a stereotype
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param stereotypeName the name of another stereotype.
@@ -935,7 +978,6 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
 
     /**
      * Answer to the question: does 'metaclass' or one of its inheritance parent matches the given 'metaclassName'.
-     * 
      * @param metaclass a metaclass
      * @param metaclassName the name of a metaclass.
      * @return <code>true</code> if 'metaclass' or one of its inheritance parent matches the given 'metaclassName'.
@@ -965,6 +1007,7 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
         } else {
             return aStereotype.hasBase(refStereotype);
         }
+        
     }
 
     /**
@@ -982,7 +1025,6 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
 
     /**
      * Answer to the question: does an Mda extension (TagType, NoteType...) belong to a {@link Stereotype} or {@link MetaclassReference} named 'ownerName' in a module 'moduleName'.
-     * 
      * @return <code>true</code> if 'ownerName' matches the name of the 'owner' and 'moduleName' matches the name of the module.
      */
     @objid ("68d0055e-08fe-4215-b786-19291f27c8ec")
@@ -1008,6 +1050,7 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
                 return false;
             }
         }
+        
     }
 
     @objid ("2745d6dd-e102-4473-b519-36f4c8d9bda4")
@@ -1032,6 +1075,7 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
         } else {
             return props.getProperty(key);
         }
+        
     }
 
     @objid ("26f4bc98-c831-40ec-a161-3e45c2e61936")
@@ -1047,6 +1091,7 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
         }
         
         props.setProperty(key, value);
+        
     }
 
     @objid ("4df39b0d-e208-4bf7-8fde-91e83ddd50a1")
@@ -1062,6 +1107,7 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
         } else {
             return props.getProperty(key);
         }
+        
     }
 
     @objid ("adc32447-ec66-4c9d-b328-fa70fde57649")
@@ -1077,6 +1123,7 @@ public abstract class ModelElementImpl extends ElementImpl implements ModelEleme
         }
         
         props.setProperty(key, value);
+        
     }
 
     @objid ("036a50a8-dfbf-43c3-a8e8-1e6ecbf37753")

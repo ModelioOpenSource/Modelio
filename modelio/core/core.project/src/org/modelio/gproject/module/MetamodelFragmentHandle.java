@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.module;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,19 +44,19 @@ public class MetamodelFragmentHandle implements IMetamodelFragmentHandle {
 
     /**
      * @param mainClassName
-     * 
      * @param name the metamodel fragment name
      * @param version the metamodel fragment version for Modelio
      * @param vendor the vendor name this metamodel come from
      * @param vendorVersion the metamodel version from the vendor
      */
     @objid ("d516564e-1333-4234-8f5e-be39400b7a67")
-    public MetamodelFragmentHandle(String name, Version version, String vendor, String vendorVersion, String mainClassName) {
+    public  MetamodelFragmentHandle(String name, Version version, String vendor, String vendorVersion, String mainClassName) {
         this.name = name;
         this.version = version;
         this.vendor = vendor;
         this.vendorVersion = vendorVersion;
         this.mainClassName = mainClassName;
+        
     }
 
     /**

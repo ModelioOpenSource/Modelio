@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.util.ArrayList;
@@ -63,23 +62,22 @@ public class ValuePinPropertyModel extends AbstractPropertyModel<ValuePin> {
      */
     @objid ("f73e3110-6efe-4c8a-8b32-5ea8f263b976")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name", "Type",
-			"Value", "UpperBound", "IsExpansion", "Matched", "IsControlType", "InState",
-			"Represented" };
+    			"Value", "UpperBound", "IsExpansion", "Matched", "IsControlType", "InState",
+    			"Represented" };
 
     /**
      * Create a new <i>ValuePin</i> data model from an <i>ValuePin</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("77a59661-3757-4ab9-8948-78a7362f3ce6")
-    public ValuePinPropertyModel(ValuePin theEditedElement) {
+    public  ValuePinPropertyModel(ValuePin theEditedElement) {
         // Removed properties: "Ordering", "SelectionBehavior",
         super(theEditedElement);
+        
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("166eb7b7-2663-41ef-9bf1-9e14b450b22d")
@@ -90,7 +88,6 @@ public class ValuePinPropertyModel extends AbstractPropertyModel<ValuePin> {
 
     /**
      * Returns the element represented by the given instance node.
-     * 
      * @return the represented element
      */
     @objid ("8f2a29d9-ffe7-4d89-9b12-aa2f0acde4ec")
@@ -113,7 +110,6 @@ public class ValuePinPropertyModel extends AbstractPropertyModel<ValuePin> {
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("d89322d6-f069-420f-b04f-8e748a9ccad9")
@@ -126,7 +122,6 @@ public class ValuePinPropertyModel extends AbstractPropertyModel<ValuePin> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -164,6 +159,7 @@ public class ValuePinPropertyModel extends AbstractPropertyModel<ValuePin> {
         default:
             return null;
         }
+        
     }
 
     /**
@@ -173,7 +169,6 @@ public class ValuePinPropertyModel extends AbstractPropertyModel<ValuePin> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -218,12 +213,12 @@ public class ValuePinPropertyModel extends AbstractPropertyModel<ValuePin> {
         default:
             return null;
         }
+        
     }
 
     /**
      * Set the InstanceNode represented elements. This method set the right
      * dependency and clears the otheEditedElement.
-     * 
      * @param theEditedElement the instance node
      * @param value the new represented element
      */
@@ -274,13 +269,13 @@ public class ValuePinPropertyModel extends AbstractPropertyModel<ValuePin> {
                 theEditedElement.setRepresentedRealParameter((BehaviorParameter) value);
             }
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -328,6 +323,7 @@ public class ValuePinPropertyModel extends AbstractPropertyModel<ValuePin> {
         default:
             return;
         }
+        
     }
 
 }

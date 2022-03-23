@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.production.eventdefinitions;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import javax.xml.bind.JAXBElement;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.xml.bind.JAXBElement;
 import org.modelio.bpmnxml.model.ObjectFactory;
 import org.modelio.bpmnxml.model.TCatchEvent;
 import org.modelio.bpmnxml.model.TConditionalEventDefinition;
@@ -43,7 +42,7 @@ import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("208bca14-04de-472d-9960-08658d727228")
-public class ConditionalEventDefinitionNode implements IProductionNode<BpmnConditionalEventDefinition,TConditionalEventDefinition> {
+public class ConditionalEventDefinitionNode implements IProductionNode<BpmnConditionalEventDefinition, TConditionalEventDefinition> {
     @objid ("8723d226-2e9d-4ba6-b8c9-933ede7f4892")
     private Map<String, Object> elementsMap;
 
@@ -74,6 +73,7 @@ public class ConditionalEventDefinitionNode implements IProductionNode<BpmnCondi
         } else {
             return factory.create(BpmnConditionalEventDefinition.class, context, "EventDefinitions");
         }
+        
     }
 
     @objid ("c14559e5-0fa5-4435-835a-91fda56b8b71")

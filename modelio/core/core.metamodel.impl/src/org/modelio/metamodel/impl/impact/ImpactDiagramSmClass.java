@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.impact;
 
 import java.util.ArrayList;
@@ -42,7 +42,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("09aabc1b-3c73-4356-8c32-fe32f693c2c1")
 public class ImpactDiagramSmClass extends AbstractDiagramSmClass {
     @objid ("f0d1ecb5-d979-473f-bf08-80dc12d0731c")
-    public ImpactDiagramSmClass(ISmMetamodelFragment origin) {
+    public  ImpactDiagramSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +50,7 @@ public class ImpactDiagramSmClass extends AbstractDiagramSmClass {
     @Override
     public String getName() {
         return "ImpactDiagram";
+        
     }
 
     @objid ("68ff53f2-5ffd-4126-a9d4-d5d3147d36e5")
@@ -62,18 +63,21 @@ public class ImpactDiagramSmClass extends AbstractDiagramSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ImpactDiagram.class;
+        
     }
 
     @objid ("023fc063-e8ea-428c-93ad-43e426a9a897")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("e0bbc061-0765-45f0-a3c0-d941015e3ced")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("6146dcdd-9e27-4c86-8c36-629752f7dad6")
@@ -86,6 +90,7 @@ public class ImpactDiagramSmClass extends AbstractDiagramSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("2beae2ef-f96a-4cf6-a497-966596be45ac")
@@ -94,7 +99,7 @@ public class ImpactDiagramSmClass extends AbstractDiagramSmClass {
         private ImpactDiagramSmClass smClass;
 
         @objid ("488e1ce9-7a38-4059-bab2-6e132dafcc08")
-        public ImpactDiagramObjectFactory(ImpactDiagramSmClass smClass) {
+        public  ImpactDiagramObjectFactory(ImpactDiagramSmClass smClass) {
             this.smClass = smClass;
         }
 

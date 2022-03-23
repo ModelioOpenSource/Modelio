@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,7 @@ public class EImage extends EElement {
     }
 
     @objid ("441589e7-69f3-4876-b783-dc3a0cfeebb2")
-    public EImage(org.eclipse.uml2.uml.Image element) {
+    public  EImage(org.eclipse.uml2.uml.Image element) {
         super(element);
     }
 

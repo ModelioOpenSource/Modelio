@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.fragment;
 
 import java.io.Closeable;
@@ -55,8 +54,8 @@ import org.modelio.vcore.session.api.IAccessManager;
 import org.modelio.vcore.session.api.repository.IRepository;
 import org.modelio.vcore.session.api.repository.IRepositoryErrorListener;
 import org.modelio.vcore.smkernel.mapi.MObject;
-import org.modelio.vcore.smkernel.mapi.MetamodelVersionDescriptor.Difference;
 import org.modelio.vcore.smkernel.mapi.MetamodelVersionDescriptor;
+import org.modelio.vcore.smkernel.mapi.MetamodelVersionDescriptor.Difference;
 import org.modelio.vcore.smkernel.meta.SmMetamodel;
 
 /**
@@ -110,14 +109,13 @@ public abstract class AbstractFragment implements IProjectFragment {
 
     /**
      * Initialize the fragment
-     * 
      * @param id the fragment id.
      * @param definitionScope definition scope
      * @param properties the fragment properties.
      * @param authConf authentication configuration
      */
     @objid ("c1778cce-95da-11e1-ac83-001ec947ccaf")
-    public AbstractFragment(final String id, DefinitionScope definitionScope, final GProperties properties, GAuthConf authConf) {
+    public  AbstractFragment(final String id, DefinitionScope definitionScope, final GProperties properties, GAuthConf authConf) {
         Objects.requireNonNull(id, "id is null.");
         Objects.requireNonNull(definitionScope, "definition scope is null");
         Objects.requireNonNull(properties, "properties is null");
@@ -129,6 +127,7 @@ public abstract class AbstractFragment implements IProjectFragment {
         this.definitionScope = definitionScope;
         this.errSupport = new RepositoryListener();
         this.authConf = authConf;
+        
     }
 
     @objid ("c1778cd1-95da-11e1-ac83-001ec947ccaf")
@@ -145,7 +144,6 @@ public abstract class AbstractFragment implements IProjectFragment {
 
     /**
      * Changes the fragment state and fires a project change event.
-     * 
      * @param newState the new fragment state.
      */
     @objid ("6a73421e-d66d-11e1-9f03-001ec947ccaf")
@@ -164,6 +162,7 @@ public abstract class AbstractFragment implements IProjectFragment {
         if (changed && getProject() != null) {
             getProject().getMonitorSupport().fireMonitors(GProjectEvent.fragmentStateChanged(this));
         }
+        
     }
 
     @objid ("9df6c318-ceb8-4cc7-9b93-886f0de15a85")
@@ -178,6 +177,7 @@ public abstract class AbstractFragment implements IProjectFragment {
         synchronized (this.stateLock) {
             return this.downError;
         }
+        
     }
 
     /**
@@ -187,19 +187,20 @@ public abstract class AbstractFragment implements IProjectFragment {
     public final Path getDataDirectory() {
         return this.gproject.getProjectFileStructure().getProjectDataPath().resolve(AbstractFragment.FRAGMENTS_SUBDIR)
                 .resolve(this.encodedDirName);
+        
     }
 
     /**
      * Get the fragment runtime directory.
      * <p>
      * The runtime directory contains files that can be deleted at any time without breaking the fragment.
-     * 
      * @return the fragment runtime directory.
      */
     @objid ("b422a1ed-0baa-11e2-bed6-001ec947ccaf")
     public final Path getRuntimeDirectory() {
         return this.gproject.getProjectFileStructure().getProjectRuntimePath().resolve(AbstractFragment.FRAGMENTS_SUBDIR)
                 .resolve(this.encodedDirName);
+        
     }
 
     /**
@@ -223,6 +224,7 @@ public abstract class AbstractFragment implements IProjectFragment {
                 return Collections.emptyList();
             }
         }
+        
     }
 
     @objid ("6327ff06-3004-11e2-8f81-001ec947ccaf")
@@ -237,11 +239,11 @@ public abstract class AbstractFragment implements IProjectFragment {
         synchronized (this.stateLock) {
             return this.state;
         }
+        
     }
 
     /**
      * Get the project to which the fragment is attached
-     * 
      * @return the project.
      */
     @objid ("8ed62b33-07f4-11e2-b193-001ec947ccaf")
@@ -260,6 +262,7 @@ public abstract class AbstractFragment implements IProjectFragment {
         unmount();
         FileUtils.delete(getRuntimeDirectory());
         FileUtils.delete(getDataDirectory());
+        
     }
 
     /**
@@ -317,6 +320,7 @@ public abstract class AbstractFragment implements IProjectFragment {
                 }
             }
         }
+        
     }
 
     @objid ("8ed62b30-07f4-11e2-b193-001ec947ccaf")
@@ -338,13 +342,13 @@ public abstract class AbstractFragment implements IProjectFragment {
         }
         
         setState(FragmentState.INITIAL);
+        
     }
 
     /**
      * Default implementation.
      * <p>
      * Unregister itself and install a new fragment if the URI is different. Replaces its properties by the given ones.
-     * 
      * @param aMonitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be reported and that
      * the operation cannot be cancelled.
      */
@@ -396,12 +400,12 @@ public abstract class AbstractFragment implements IProjectFragment {
                 }
             }
         }
+        
     }
 
     /**
      * Check the fragment is mount and throws an exception if not.
-     * 
-     * @throws java.lang.IllegalStateException if the fragment is not mount.
+     * @throws IllegalStateException if the fragment is not mount.
      */
     @objid ("242ea4bc-d0da-11e1-b069-001ec947ccaf")
     protected final void assertMount() throws IllegalStateException {
@@ -410,13 +414,13 @@ public abstract class AbstractFragment implements IProjectFragment {
                 throw new IllegalStateException(MessageFormat.format("The ''{0}'' fragment is not mount.", getId()));
             }
         }
+        
     }
 
     /**
      * Hook for sub classes called by {@link #delete()} in first place.
      * <p>
      * Does nothing by default. The fragment is still mounted and all files still exist but will be deleted on return. Sub classes may do more cleaning.
-     * 
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be reported and that the
      * operation cannot be cancelled.
      */
@@ -429,8 +433,7 @@ public abstract class AbstractFragment implements IProjectFragment {
      * Hook called by {@link #unmount()} after having disconnected the repository from the modeling session.
      * <p>
      * May be redefined by subclasses to clean resources.
-     * 
-     * @throws java.io.IOException if some errors should be reported. The unmount will not be cancelled.
+     * @throws IOException if some errors should be reported. The unmount will not be cancelled.
      */
     @objid ("8ed62b38-07f4-11e2-b193-001ec947ccaf")
     protected void doUnmountPostProcess() throws IOException {
@@ -441,10 +444,9 @@ public abstract class AbstractFragment implements IProjectFragment {
      * Hook called by {@link #mount(GProject, IModelioProgress)} after having connected the repository to the session.
      * <p>
      * Does nothing by default. Subclasses may redefine it to populate the repository.
-     * 
      * @param mon the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be reported and that the
      * operation cannot be cancelled.
-     * @throws java.io.IOException in case of failure.
+     * @throws IOException in case of failure.
      */
     @objid ("8ed62b3b-07f4-11e2-b193-001ec947ccaf")
     protected void doMountPostConnect(IModelioProgress mon) throws IOException {
@@ -455,16 +457,14 @@ public abstract class AbstractFragment implements IProjectFragment {
      * Get the root elements of the fragment.
      * <p>
      * This method is called by {@link AbstractFragment#getRoots()} that ensures there is an open repository.
-     * 
      * @return the root elements of the fragment.
-     * @throws java.io.IOException in case of failure.
+     * @throws IOException in case of failure.
      */
     @objid ("b427669a-0baa-11e2-bed6-001ec947ccaf")
     protected abstract Collection<MObject> doGetRoots() throws IOException;
 
     /**
      * Initialize the access manager.
-     * 
      * @return the access manager.
      */
     @objid ("a15a3399-38aa-11e2-a6db-001ec947ccaf")
@@ -476,15 +476,14 @@ public abstract class AbstractFragment implements IProjectFragment {
      * This is a hook called by {@link #mount(GProject, IModelioProgress)}. The implementation must just instantiate the {@link IRepository} without opening it.
      * <p>
      * The implementation must <b>not</b> call <code>done()</code> on the given monitor and must leave a non negligible part of the progress unconsumed.
-     * 
      * @param aMonitor the progress monitor to use for reporting progress to the user.
      * <p>
      * The implementation must <b>not</b> call <code>done()</code> the given monitor and must leave a non negligible part of the progress unconsumed.
      * <p>
      * Accepts <i>null</i>, indicating that no progress should be reported and that the operation cannot be cancelled.
      * @return the instantiated repository.
-     * @throws java.io.IOException in case of failure.
-     * @throws org.modelio.gproject.fragment.FragmentAuthenticationException in case of authentication failure
+     * @throws IOException in case of failure.
+     * @throws FragmentAuthenticationException in case of authentication failure
      */
     @objid ("8ed62b3e-07f4-11e2-b193-001ec947ccaf")
     protected abstract IRepository doMountInitRepository(IModelioProgress aMonitor) throws IOException, FragmentAuthenticationException;
@@ -493,7 +492,6 @@ public abstract class AbstractFragment implements IProjectFragment {
      * Get the real authentication data to use for this fragment.
      * <p>
      * If the fragment uses inherited authentication data, returns the project authentication data.
-     * 
      * @return the fragment authentication data.
      */
     @objid ("577094a7-243a-48fb-90d6-5dbb08813676")
@@ -503,7 +501,6 @@ public abstract class AbstractFragment implements IProjectFragment {
 
     /**
      * Get the error handler that should be attached as listener to the repository when mount.
-     * 
      * @return the error handler
      */
     @objid ("6a70dfdd-d66d-11e1-9f03-001ec947ccaf")
@@ -515,7 +512,6 @@ public abstract class AbstractFragment implements IProjectFragment {
      * Set the fragment in "down" state, with the cause.
      * <p>
      * Fires a {@link GProjectEventType#FRAGMENT_DOWN FRAGMENT_DOWN} {@link GProjectEvent event}.
-     * 
      * @param error the cause of down state
      */
     @objid ("6a734221-d66d-11e1-9f03-001ec947ccaf")
@@ -549,6 +545,7 @@ public abstract class AbstractFragment implements IProjectFragment {
             // Change the states and fires a GProjectEvent
             getProject().getMonitorSupport().fireMonitors(GProjectEvent.FragmentDownEvent(this));
         }
+        
     }
 
     /**
@@ -558,9 +555,8 @@ public abstract class AbstractFragment implements IProjectFragment {
      * <p>
      * Returns normally if the fragment may be directly open else throws an exception. Implementations may use {@link #getRepository()} that returns the not yet open repository to check .
      * @param repository the repository to check
-     * 
-     * @throws java.io.IOException if the metamodel version does not allow the fragment to be open.
-     * @throws org.modelio.gproject.fragment.FragmentMigrationNeededException if the fragment needs to be migrated before opening.
+     * @throws IOException if the metamodel version does not allow the fragment to be open.
+     * @throws FragmentMigrationNeededException if the fragment needs to be migrated before opening.
      */
     @objid ("86471d8d-0b51-4f7c-b692-423a07a2286f")
     protected void checkVersions() throws IOException, FragmentMigrationNeededException {
@@ -586,11 +582,11 @@ public abstract class AbstractFragment implements IProjectFragment {
                 }
             }
         }
+        
     }
 
     /**
      * Get the current Modelio metamodel version descriptor Get the last available metamodel version descriptor.
-     * 
      * @return the last metamodel version.
      */
     @objid ("420b51fd-a248-4d22-8d40-f342f7a3d024")
@@ -611,7 +607,6 @@ public abstract class AbstractFragment implements IProjectFragment {
 
     /**
      * Convenience method to get the project metamodel.
-     * 
      * @return the project metamodel.
      */
     @objid ("881fb52d-a77f-4193-b7d4-42ac2ff91099")
@@ -666,6 +661,7 @@ public abstract class AbstractFragment implements IProjectFragment {
                 }
             }
         }
+        
     }
 
     @objid ("4877c4b1-b98f-4cb4-9b20-bb5dcf2a1354")
@@ -707,7 +703,7 @@ public abstract class AbstractFragment implements IProjectFragment {
     @objid ("6a70dfd0-d66d-11e1-9f03-001ec947ccaf")
     private class RepositoryListener implements IRepositoryErrorListener {
         @objid ("6a70dfd1-d66d-11e1-9f03-001ec947ccaf")
-        public RepositoryListener() {
+        public  RepositoryListener() {
             // nothing
         }
 
@@ -743,7 +739,8 @@ public abstract class AbstractFragment implements IProjectFragment {
         private List<Path> backup;
 
         @objid ("d97534b4-0587-4fbf-a8f5-f40464af92b9")
-        public UndoableDeletion() {
+        public  UndoableDeletion() {
+            
         }
 
         @objid ("9e03d6fb-edfe-4eea-b454-afb070ce2891")
@@ -762,6 +759,7 @@ public abstract class AbstractFragment implements IProjectFragment {
                     this.toDelete.add(path);
                 }
             }
+            
         }
 
         /**
@@ -788,6 +786,7 @@ public abstract class AbstractFragment implements IProjectFragment {
             } else {
                 restore();
             }
+            
         }
 
         @objid ("32bbb4c7-ad20-4c42-be85-9cfce6a35f74")
@@ -796,6 +795,7 @@ public abstract class AbstractFragment implements IProjectFragment {
                 Path toRestore = this.backup.get(i);
                 FileUtils.move(toRestore, this.toDelete.get(i));
             }
+            
         }
 
     }

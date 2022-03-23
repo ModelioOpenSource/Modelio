@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,14 +33,14 @@ public class SmStatusFactory {
      */
     @objid ("3796cd8e-d27b-11e1-b069-001ec947ccaf")
     private static final long DEFAULT_CMSNODE_RSTATUS_FALSE = IRStatus.BEINGDELETED | IRStatus.DELETED |
-            IRStatus.MASK_CMS | IRStatus.RAMC | IRStatus.SHELL | IRStatus.MASK_AUDIT;
+                IRStatus.MASK_CMS | IRStatus.RAMC | IRStatus.SHELL | IRStatus.MASK_AUDIT;
 
     /**
      * Flags that are set to FALSE on non CMS node elements by default.
      */
     @objid ("3796cd94-d27b-11e1-b069-001ec947ccaf")
     private static final long DEFAULT_RSTATUS_FALSE = IRStatus.BEINGDELETED | IRStatus.DELETED |
-            IRStatus.RAMC | IRStatus.SHELL | IRStatus.MASK_AUDIT;
+                IRStatus.RAMC | IRStatus.SHELL | IRStatus.MASK_AUDIT;
 
     /**
      * Flags that are set to TRUE on an object.
@@ -57,7 +56,6 @@ public class SmStatusFactory {
 
     /**
      * Read the persistent and runtime status from the given long.
-     * 
      * @param data the model object to initialize
      * @param readLong the read statuses
      */
@@ -68,7 +66,6 @@ public class SmStatusFactory {
 
     /**
      * Reset the runtime status of the given model object data.
-     * 
      * @param data a model object data.
      */
     @objid ("a176a4c0-220c-4387-a96c-72cd9ef24e66")
@@ -80,11 +77,11 @@ public class SmStatusFactory {
             data.setRFlags(DEFAULT_RSTATUS_FALSE, StatusState.FALSE);
         }
         data.setRFlags(DEFAULT_RSTATUS_TRUE, StatusState.TRUE);
+        
     }
 
     /**
      * Reset the persistent status of the given model object data.
-     * 
      * @param data a model object data.
      */
     @objid ("a3946258-7ae5-4689-be3f-4c1279897e68")

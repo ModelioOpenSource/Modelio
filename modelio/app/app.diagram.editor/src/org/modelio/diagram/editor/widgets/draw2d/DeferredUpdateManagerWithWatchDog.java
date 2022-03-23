@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.widgets.draw2d;
 
 import java.util.Collection;
@@ -64,6 +63,7 @@ public class DeferredUpdateManagerWithWatchDog extends DeferredUpdateManager {
         } else {
             super.addInvalidFigure(f);
         }
+        
     }
 
     @objid ("2c9359bb-3cae-4ed4-85fd-53b962778e84")
@@ -82,6 +82,7 @@ public class DeferredUpdateManagerWithWatchDog extends DeferredUpdateManager {
             this.nbAdded = 0;
             this.localQueue.clear();
         }
+        
     }
 
     @objid ("edb9fe28-6037-4066-bdc2-a15c5b5e9c4b")

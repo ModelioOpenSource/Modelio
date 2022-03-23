@@ -17,20 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.communicationModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.communicationModel.CommunicationChannelData;
-import org.modelio.metamodel.impl.uml.behavior.communicationModel.CommunicationMessageSmClass;
-import org.modelio.metamodel.impl.uml.behavior.communicationModel.CommunicationNodeSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
 import org.modelio.metamodel.impl.uml.statik.LinkSmClass;
 import org.modelio.metamodel.impl.uml.statik.NaryLinkSmClass;
@@ -73,7 +70,7 @@ public class CommunicationChannelSmClass extends UmlModelElementSmClass {
     private SmDependency endDep;
 
     @objid ("c7089942-3f74-4525-b1c7-3e10b5d23f8f")
-    public CommunicationChannelSmClass(ISmMetamodelFragment origin) {
+    public  CommunicationChannelSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -81,6 +78,7 @@ public class CommunicationChannelSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "CommunicationChannel";
+        
     }
 
     @objid ("ffa3b545-abd9-4fdd-90eb-a09cb57070b1")
@@ -93,18 +91,21 @@ public class CommunicationChannelSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return CommunicationChannel.class;
+        
     }
 
     @objid ("545cc839-9baf-454a-b01d-ed44ce0b83ff")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("8b42baf2-560a-4ad3-898a-700026e68ac8")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("836388a8-6e14-40db-be7a-776e249ee12f")
@@ -140,6 +141,8 @@ public class CommunicationChannelSmClass extends UmlModelElementSmClass {
         this.endDep = new EndSmDependency();
         this.endDep.init("End", this, metamodel.getMClass(CommunicationNode.MQNAME), 0, 1 , SmDirective.SMCDLINKTARGET, SmDirective.SMCDPARTOF);
         registerDependency(this.endDep);
+        
+        
     }
 
     @objid ("91b4ba32-fc8d-42a7-8eb9-e98ab3da64a4")
@@ -194,6 +197,7 @@ public class CommunicationChannelSmClass extends UmlModelElementSmClass {
     @Override
     public boolean isLinkMetaclass() {
         return true;
+        
     }
 
     @objid ("4297b476-7a04-4d34-8e78-e76630688d26")
@@ -202,7 +206,7 @@ public class CommunicationChannelSmClass extends UmlModelElementSmClass {
         private CommunicationChannelSmClass smClass;
 
         @objid ("af8648b2-09b3-4bfe-8f4c-193ca361dc36")
-        public CommunicationChannelObjectFactory(CommunicationChannelSmClass smClass) {
+        public  CommunicationChannelObjectFactory(CommunicationChannelSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -235,6 +239,7 @@ public class CommunicationChannelSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((CommunicationChannelData) data).mStartToEndMessage = values;
+            
         }
 
         @objid ("e299060c-07c8-4c0d-9f15-98a85fd8897e")
@@ -244,6 +249,7 @@ public class CommunicationChannelSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((CommunicationMessageSmClass)this.getTarget()).getChannelDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -272,6 +278,7 @@ public class CommunicationChannelSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((LinkSmClass)this.getTarget()).getSentDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -300,6 +307,7 @@ public class CommunicationChannelSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((CommunicationNodeSmClass)this.getTarget()).getStartedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -328,6 +336,7 @@ public class CommunicationChannelSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((NaryLinkSmClass)this.getTarget()).getSentDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -347,6 +356,7 @@ public class CommunicationChannelSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((CommunicationChannelData) data).mEndToStartMessage = values;
+            
         }
 
         @objid ("acb84df7-19c1-4adf-ae2d-a4de11ba26fe")
@@ -356,6 +366,7 @@ public class CommunicationChannelSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((CommunicationMessageSmClass)this.getTarget()).getInvertedChannelDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -384,6 +395,7 @@ public class CommunicationChannelSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((CommunicationNodeSmClass)this.getTarget()).getEndedDep();
             }
             return this.symetricDep;
+            
         }
 
     }

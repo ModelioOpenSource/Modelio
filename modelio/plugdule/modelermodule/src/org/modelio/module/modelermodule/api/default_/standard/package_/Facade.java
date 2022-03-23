@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.package_;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("de0809b5-09b8-4993-822d-cd90c93c207d")
 public class Facade {
-    @objid ("c9cb6caf-b283-4b9a-91e8-cd5aa81b5468")
+    @objid ("d9246ce8-2cdc-4342-9abf-b1867e3cfa3f")
     public static final String STEREOTYPE_NAME = "facade";
 
     /**
      * The underlying {@link Package} represented by this proxy, never null.
      */
-    @objid ("8dcc1d80-e054-472a-abea-7052ff36648d")
+    @objid ("9098038a-047c-4b3d-bc02-825686aec054")
     protected final Package elt;
 
     /**
      * Tells whether a {@link Facade proxy} can be instantiated from a {@link MObject} checking it is a {@link Package} stereotyped << facade >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("832ce648-efc5-4622-ae2f-395a15c7ad7e")
+    @objid ("68ae476e-c20f-435e-88c3-e5fe521dbd70")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Package) && ((Package) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Facade.STEREOTYPE_NAME));
     }
@@ -77,9 +75,9 @@ public class Facade {
      * 
      * @return a {@link Facade} proxy on the created {@link Package}.
      */
-    @objid ("5491a9ea-8fb3-49a4-a5c7-87210050e00e")
+    @objid ("ed75bb1b-aab2-4e95-9c58-c04107dde193")
     public static Facade create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Package");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.Package");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Facade.STEREOTYPE_NAME);
         return Facade.instantiate((Package)e);
     }
@@ -91,7 +89,7 @@ public class Facade {
      * @param obj a Package
      * @return a {@link Facade} proxy or <i>null</i>.
      */
-    @objid ("97b81005-5169-4e53-b46a-22e2447a710b")
+    @objid ("53e95ba2-6780-49c0-b86a-0cac61f2f823")
     public static Facade instantiate(Package obj) {
         return Facade.canInstantiate(obj) ? new Facade(obj) : null;
     }
@@ -104,7 +102,7 @@ public class Facade {
      * @return a {@link Facade} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("3a89f4ef-0c50-4ebd-ae6a-dd1c5e0a581d")
+    @objid ("909b1535-e6fc-4fe7-b08f-4545934744a4")
     public static Facade safeInstantiate(Package obj) throws IllegalArgumentException {
         if (Facade.canInstantiate(obj))
         	return new Facade(obj);
@@ -112,7 +110,7 @@ public class Facade {
         	throw new IllegalArgumentException("Facade: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("2a78c155-d2c3-4939-82df-1c519d34d1ec")
+    @objid ("3b3de6eb-618a-4efd-9c5d-148b916ac2d0")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,46 +130,47 @@ public class Facade {
      * Get the underlying {@link Package}. 
      * @return the Package represented by this proxy, never null.
      */
-    @objid ("69dc1182-07bf-4d2e-bf68-85a92e2f2c5d")
+    @objid ("519219bf-daaf-41cd-a75b-4be553e744e6")
     public Package getElement() {
         return this.elt;
     }
 
-    @objid ("bfd860a5-25f4-4f9c-9485-81cd818a5f14")
+    @objid ("fe155da6-471a-4677-a050-f5659bf6b41f")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("287e09e9-2f11-4f87-803d-c4f52161bcc6")
-    protected Facade(Package elt) {
+    @objid ("e2698a3c-2195-4def-8cf5-d111bf545af6")
+    protected  Facade(Package elt) {
         this.elt = elt;
     }
 
     @objid ("5a57592c-acc8-457a-899c-a8d0cc2b60df")
     public static final class MdaTypes {
-        @objid ("c2068bb7-1ca6-4fae-b27b-3ed7edfd49bd")
+        @objid ("c21cffd5-cd38-4c87-8025-495a6972ca7a")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("c0ab4f5e-53fe-4c75-ba03-5da808ca8300")
+        @objid ("28eb5256-3236-460c-a774-fb1ca6873be3")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("8493cfaa-5b1f-4ace-8404-4297eb2e6760")
+        @objid ("c5cf34c6-55b6-4d04-baac-802187337bb4")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("0a280e0d-e755-4f53-bfc8-7c68b3e39181")
+        @objid ("9c701e4d-45e7-469d-9b23-1275675b28cf")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "00700680-0000-01d5-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

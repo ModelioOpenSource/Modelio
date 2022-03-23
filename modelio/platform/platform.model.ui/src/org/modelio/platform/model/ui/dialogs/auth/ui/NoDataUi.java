@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.dialogs.auth.ui;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,7 +30,7 @@ import org.modelio.vbasic.auth.IAuthData;
 @objid ("cf77c2cd-cd3e-4aae-ab03-834e940fe564")
 public class NoDataUi extends AbstractDataUi {
     @objid ("b5db3765-c844-4045-97e7-b4d11a19f197")
-    public NoDataUi(Composite parent) {
+    public  NoDataUi(Composite parent) {
         super(parent);
     }
 
@@ -43,6 +42,7 @@ public class NoDataUi extends AbstractDataUi {
         Label label = new Label(data, SWT.NONE);
         label.setText("No data required");
         label.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, true));
+        
     }
 
     @objid ("91af9019-086b-4118-92d8-ba017895c934")

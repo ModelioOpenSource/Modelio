@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.handlers.drawings;
 
 import java.util.function.Consumer;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
@@ -80,6 +79,7 @@ public class SetDrawingHyperLinkHandler {
                 choosen -> execute(ep, choosen));
         
         dlg.open();
+        
     }
 
     @objid ("cb264e13-2be1-4fd0-bc8a-c2af7f1f5dfd")
@@ -112,6 +112,7 @@ public class SetDrawingHyperLinkHandler {
         } else if (viewer == null) {
             DiagramEditor.LOG.warning("%s : could not reach a valid EditPartViewer from %s", getClass().getSimpleName(), ep);
         }
+        
     }
 
     @objid ("2b7b7d5b-9538-4960-b3f5-625455c363c4")
@@ -152,7 +153,7 @@ public class SetDrawingHyperLinkHandler {
         private MObject choosen;
 
         @objid ("eaeb38c5-c16e-4ad2-8733-ee3e0440509c")
-        public SetDrawingHyperLinkDialog(Shell parentShell, ICoreSession session, IModelioPickingService pickingService, MObject initial, Consumer<MObject> onOk) {
+        public  SetDrawingHyperLinkDialog(Shell parentShell, ICoreSession session, IModelioPickingService pickingService, MObject initial, Consumer<MObject> onOk) {
             super(parentShell);
             this.session = session;
             this.pickingService = pickingService;
@@ -161,6 +162,7 @@ public class SetDrawingHyperLinkHandler {
             
             setBlockOnOpen(false);
             setShellStyle(getShellStyle() & ~(SWT.APPLICATION_MODAL | SWT.SYSTEM_MODAL | SWT.PRIMARY_MODAL));
+            
         }
 
         @objid ("bb930eb8-85b5-4ea7-832a-f42448fc4f40")
@@ -171,6 +173,7 @@ public class SetDrawingHyperLinkHandler {
             setTitle(DiagramEditor.I18N.getMessage("Gui.SetDrawingHyperLinkDialog.Title"));
             setMessage(DiagramEditor.I18N.getMessage("Gui.SetDrawingHyperLinkDialog.Message"));
             setBlockOnOpen(false);
+            
         }
 
         @objid ("21314bb3-a51d-4701-a12c-e7483e4a03b0")
@@ -178,6 +181,7 @@ public class SetDrawingHyperLinkHandler {
         public void addButtonsInButtonBar(final Composite parent) {
             createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL, true);
             createButton(parent, IDialogConstants.CANCEL_ID, IDialogConstants.CANCEL_LABEL, false);
+            
         }
 
         @objid ("063017ad-6686-46ca-9458-f26153ee6bad")
@@ -185,6 +189,7 @@ public class SetDrawingHyperLinkHandler {
         protected void okPressed() {
             super.okPressed();
             this.onOk.accept(this.elementText.getValue());
+            
         }
 
         @objid ("f3c335a1-5916-40d8-80ac-7a47e526e42c")

@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.events;
 
 import java.util.List;
@@ -33,10 +33,10 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("008cffbe-c4bf-1fd8-97fe-001ec947cd2a")
 public abstract class BpmnEventData extends BpmnFlowNodeData {
     @objid ("3c9283a2-b700-4e92-be23-3cf9aac076d1")
-     List<SmObjectImpl> mEventDefinitions = null;
+    List<SmObjectImpl> mEventDefinitions = null;
 
     @objid ("092ce81d-5050-4b84-9696-8436864d09e3")
-    public BpmnEventData(BpmnEventSmClass smClass) {
+    public  BpmnEventData(BpmnEventSmClass smClass) {
         super(smClass);
     }
 

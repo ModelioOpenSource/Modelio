@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,9 +38,10 @@ public class OSubstitution extends OModelElement {
     }
 
     @objid ("645093ff-1a29-48d8-be34-6869b8bc1da7")
-    public OSubstitution(Substitution param) {
+    public  OSubstitution(Substitution param) {
         super(param);
         this.objingElement = param;
+        
     }
 
     @objid ("828719dc-b4f1-40ef-9083-bd942457190d")
@@ -72,6 +72,7 @@ public class OSubstitution extends OModelElement {
                 ecorePkg.getPackagedElements().add(ecoreSubstitution);
             }
         }
+        
     }
 
     @objid ("a949dce9-8a87-4b3b-bff3-056ad7ef0d1e")

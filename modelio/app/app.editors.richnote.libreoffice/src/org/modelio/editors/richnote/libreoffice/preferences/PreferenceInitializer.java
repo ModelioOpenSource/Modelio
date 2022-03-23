@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.libreoffice.preferences;
 
 import java.util.Objects;
@@ -47,6 +46,7 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
         // LibreOffice plugin now uses its own preference node instead of 'app.preferences' one.
         // copy any existing value to our own preference node.
         migrateTo40(path);
+        
     }
 
     /**
@@ -54,7 +54,6 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
      * <p>
      * LibreOffice plugin now uses its own preference node instead of 'app.preferences' one.
      * copy any existing value to our own preference node.
-     * 
      * @param foundOooPath The found LibreOffice path
      */
     @objid ("c580d862-316c-4516-98dd-7be6fe852f81")
@@ -74,6 +73,7 @@ public class PreferenceInitializer extends AbstractPreferenceInitializer {
                 appPrefPreferences.setToDefault(P_OOOPATH);
             }
         }
+        
     }
 
 }

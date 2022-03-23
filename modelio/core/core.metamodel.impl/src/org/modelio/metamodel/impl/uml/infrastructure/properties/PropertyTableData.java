@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,22 +32,22 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("0069a7f8-ec87-1098-b22e-001ec947cd2a")
 public class PropertyTableData extends ElementData {
     @objid ("146b722e-3397-4ea7-8efa-fd9eb5686718")
-     Object mName = "";
+    Object mName = "";
 
     @objid ("6506f4e8-b37c-41a1-905e-b3fa1bc0c314")
-     Object mContent = "";
+    Object mContent = "";
 
     @objid ("85d1fe8b-75d0-419d-9d96-1d5a6a396167")
-     SmObjectImpl mOwnerValDef;
+    SmObjectImpl mOwnerValDef;
 
     @objid ("c0ae397d-b128-4dfa-9de3-71c70b34314f")
-     SmObjectImpl mOwnerQuery;
+    SmObjectImpl mOwnerQuery;
 
     @objid ("08987e11-7618-4ff8-acc3-0e796946395e")
-     SmObjectImpl mOwner;
+    SmObjectImpl mOwner;
 
     @objid ("9124c7f5-94b3-4449-9ec5-40a8a1653a4f")
-    public PropertyTableData(PropertyTableSmClass smClass) {
+    public  PropertyTableData(PropertyTableSmClass smClass) {
         super(smClass);
     }
 

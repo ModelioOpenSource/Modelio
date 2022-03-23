@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.drawings.ellipse;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -68,7 +67,7 @@ public class EllipseDrawingEditPart extends NodeDrawingWithLabelEditPart {
     @objid ("02236acb-33d0-43bf-9ec2-e3f60f1534d4")
     public static final class EllipseDrawingFigure extends EllipseFigure {
         @objid ("509b92da-7a84-4ec1-9f46-d46f821c4f20")
-        public EllipseDrawingFigure() {
+        public  EllipseDrawingFigure() {
             super();
         }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.core.modelshield.engine.execution;
 
 import java.util.Collection;
@@ -34,7 +33,7 @@ public class PlanExecution {
     private final IModelShieldPlan plan;
 
     @objid ("00280c2c-0000-02cd-0000-000000000000")
-    public PlanExecution(final IModelShieldPlan plan) {
+    public  PlanExecution(final IModelShieldPlan plan) {
         this.plan = plan;
     }
 
@@ -44,6 +43,7 @@ public class PlanExecution {
         for (IChecker checker : rulesToApply) {
             context.applyChecker(checker, obj);
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model.spi.mm;
 
 import java.util.ArrayList;
@@ -40,14 +39,14 @@ public class MigrationChain {
     private final List<IMofRepositoryMigrator> steps;
 
     @objid ("074a338f-1513-4af8-b5a1-ed5c1e856458")
-    public MigrationChain(Collection<IMofRepositoryMigrator> chain, boolean successful) {
+    public  MigrationChain(Collection<IMofRepositoryMigrator> chain, boolean successful) {
         this.successful = successful;
         this.steps = Collections.unmodifiableList(new ArrayList<>(chain));
+        
     }
 
     /**
      * Tells whether the resolution is successful.
-     * 
      * @return whether the resolution is successful.
      */
     @objid ("fff75bc0-eb0c-48d7-9b12-9888d97b376f")
@@ -64,7 +63,6 @@ public class MigrationChain {
      * Tells whether the migration chain is a valid migration chain that does not modify the model.
      * <p>
      * This case usually means that source and target metamodel are compatible and only version metadatas need to be updated.
-     * 
      * @return true if the repository don't need to be modified.
      */
     @objid ("3d14aa4e-79d4-4412-8b22-6319e202a254")
@@ -83,7 +81,6 @@ public class MigrationChain {
 
     /**
      * Return a copy of this migration chain with one migrator appended to the steps.
-     * 
      * @param migrator the migrator to append
      * @return a copy of this migration chain with one migrator appended.
      */

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.borders;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,15 +46,15 @@ public class ShadowBorder extends AbstractBorder {
 
     /**
      * Create a shadow border.
-     * 
      * @param shadowColor Shadow color
      * @param shadowWidth Shadow width
      */
     @objid ("7f620231-1dec-11e2-8cad-001ec947c8cc")
-    public ShadowBorder(Color shadowColor, int shadowWidth) {
+    public  ShadowBorder(Color shadowColor, int shadowWidth) {
         this.shadowColor = shadowColor;
         this.shadowWidth = shadowWidth;
         this.myInsets = new Insets(0, 0, shadowWidth, shadowWidth);
+        
     }
 
     @objid ("7f620236-1dec-11e2-8cad-001ec947c8cc")
@@ -87,6 +86,7 @@ public class ShadowBorder extends AbstractBorder {
         
         // graphics.drawLine(tempRect.getTopRight().translate(0, 3), tempRect.getBottomRight());
         // graphics.drawLine(tempRect.getBottomLeft().translate(3, 0), tempRect.getBottomRight());
+        
     }
 
     @objid ("7f620242-1dec-11e2-8cad-001ec947c8cc")

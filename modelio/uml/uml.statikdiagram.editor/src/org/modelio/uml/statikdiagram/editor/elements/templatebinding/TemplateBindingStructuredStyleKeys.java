@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.templatebinding;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,69 +35,69 @@ public class TemplateBindingStructuredStyleKeys extends StaticAbstractStyleKeyPr
      * Connection routing mode.
      */
     @objid ("a7f6812b-55c2-11e2-9337-002564c97630")
-     static final StyleKey CONNECTIONROUTER = createStyleKey("TEMPLATEBINDING_CONNECTIONROUTER",
-                                                            MetaKey.CONNECTIONROUTER);
+    static final StyleKey CONNECTIONROUTER = createStyleKey("TEMPLATEBINDING_CONNECTIONROUTER",
+                                                                MetaKey.CONNECTIONROUTER);
 
     /**
      * Line color
      */
     @objid ("a7f6812e-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("TEMPLATEBINDING_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("TEMPLATEBINDING_LINECOLOR", MetaKey.LINECOLOR);
 
     /**
      * Line width
      */
     @objid ("a7f68131-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("TEMPLATEBINDING_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("TEMPLATEBINDING_LINEWIDTH", MetaKey.LINEWIDTH);
 
     /**
      * Line corners radius
      */
     @objid ("a7f68134-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINERADIUS = createStyleKey("TEMPLATEBINDING_LINERADIUS", MetaKey.LINERADIUS);
+    static final StyleKey LINERADIUS = createStyleKey("TEMPLATEBINDING_LINERADIUS", MetaKey.LINERADIUS);
 
     /**
      * Draw bridge where vertical segments cross horizontal ones.
      */
     @objid ("a7f68137-55c2-11e2-9337-002564c97630")
-     static final StyleKey DRAWLINEBRIDGES = createStyleKey("TEMPLATEBINDING_DRAWLINEBRIDGES",
-                                                           MetaKey.DRAWLINEBRIDGES);
+    static final StyleKey DRAWLINEBRIDGES = createStyleKey("TEMPLATEBINDING_DRAWLINEBRIDGES",
+                                                               MetaKey.DRAWLINEBRIDGES);
 
     /**
      * Text font
      */
     @objid ("a7f6813a-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("TEMPLATEBINDING_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("TEMPLATEBINDING_FONT", MetaKey.FONT);
 
     /**
      * Text color
      */
     @objid ("a7f6813d-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("TEMPLATEBINDING_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("TEMPLATEBINDING_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     /**
      * Show name (alias)
      */
     @objid ("a7f68140-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWNAME = createStyleKey("TEMPLATEBINDING_SHOWNAME", MetaKey.SHOWNAME);
+    static final StyleKey SHOWNAME = createStyleKey("TEMPLATEBINDING_SHOWNAME", MetaKey.SHOWNAME);
 
     /**
      * Show stereotypes
      */
     @objid ("a7f68143-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("TEMPLATEBINDING_SHOWSTEREOTYPES",
-                                                           MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("TEMPLATEBINDING_SHOWSTEREOTYPES",
+                                                               MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Show tagged values
      */
     @objid ("a7f68146-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("TEMPLATEBINDING_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("TEMPLATEBINDING_SHOWTAGS", MetaKey.SHOWTAGS);
 
     /**
      * Line pattern
      */
     @objid ("a7f68149-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEPATTERN = createStyleKey("TEMPLATEBINDING_LINEPATTERN", MetaKey.LINEPATTERN);
+    static final StyleKey LINEPATTERN = createStyleKey("TEMPLATEBINDING_LINEPATTERN", MetaKey.LINEPATTERN);
 
 }

@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.production.events;
 
 import java.util.List;
 import java.util.Map;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.bind.JAXBElement;
 import javax.xml.namespace.QName;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.bpmnxml.model.ObjectFactory;
 import org.modelio.bpmnxml.model.TActivity;
 import org.modelio.bpmnxml.model.TBoundaryEvent;
@@ -44,7 +43,7 @@ import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("6dffdb67-3c14-434d-b528-8ddbc85d376c")
-public class BoundaryEventNode implements IProductionNode<BpmnBoundaryEvent,TBoundaryEvent> {
+public class BoundaryEventNode implements IProductionNode<BpmnBoundaryEvent, TBoundaryEvent> {
     @objid ("7bf91a28-29eb-4536-8103-992029c992be")
     private Map<String, Object> elementsMap;
 
@@ -81,6 +80,7 @@ public class BoundaryEventNode implements IProductionNode<BpmnBoundaryEvent,TBou
         } else {
             return factory.create(BpmnBoundaryEvent.class, context);
         }
+        
     }
 
     @objid ("90b29606-1a1f-4935-bf3f-e913587eb8c2")

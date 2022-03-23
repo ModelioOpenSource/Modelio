@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.group;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -59,17 +58,17 @@ public abstract class GmGroup extends GmNoStyleCompositeNode {
      * Constructor for deserialization only.
      */
     @objid ("7e549878-1dec-11e2-8cad-001ec947c8cc")
-    public GmGroup() {
+    public  GmGroup() {
+        
     }
 
     /**
      * Initialize a group.
-     * 
      * @param diagram The diagram.
      * @param relatedRef a reference to the element this GmModel is related to. Must not be <i>null</i>.
      */
     @objid ("7e54987b-1dec-11e2-8cad-001ec947c8cc")
-    public GmGroup(IGmDiagram diagram, MRef relatedRef) {
+    public  GmGroup(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -79,6 +78,7 @@ public abstract class GmGroup extends GmNoStyleCompositeNode {
         super.addChild(toAdd);
         
         updateHiddenFeatures();
+        
     }
 
     /**
@@ -117,11 +117,11 @@ public abstract class GmGroup extends GmNoStyleCompositeNode {
         } else {
             return null;
         }
+        
     }
 
     /**
      * Tells whether the group has hidden features.
-     * 
      * @return true if the group has hidden features.
      */
     @objid ("7e549898-1dec-11e2-8cad-001ec947c8cc")
@@ -133,7 +133,6 @@ public abstract class GmGroup extends GmNoStyleCompositeNode {
      * Tells whether the zone must be hidden if empty.
      * <p>
      * The default implementation returns false. It may be overridden to return true depending on a style key.
-     * 
      * @return whether the zone must be hidden if empty.
      */
     @objid ("7e54989d-1dec-11e2-8cad-001ec947c8cc")
@@ -150,6 +149,7 @@ public abstract class GmGroup extends GmNoStyleCompositeNode {
     public void removeChild(GmNodeModel child) {
         super.removeChild(child);
         updateHiddenFeatures();
+        
     }
 
     /**
@@ -158,7 +158,6 @@ public abstract class GmGroup extends GmNoStyleCompositeNode {
      * The default implementation returns <i>false</i>.
      * <p>
      * Subclasses may redefine this method.
-     * 
      * @return true to grab excess space, else false.
      */
     @objid ("7e5498a9-1dec-11e2-8cad-001ec947c8cc")
@@ -200,7 +199,6 @@ public abstract class GmGroup extends GmNoStyleCompositeNode {
      * </ul>
      * <p>
      * Implementations MUST NOT check whether the element is already unmasked.
-     * 
      * @param el The element to unmask
      * @return <tt>true</tt> if it satisfies all conditions, else <tt>false</tt>.
      */
@@ -211,7 +209,6 @@ public abstract class GmGroup extends GmNoStyleCompositeNode {
      * Set whether the group hides some elements.
      * <p>
      * In this case adds a "..." label. Remove the label in the other case.
-     * 
      * @param hasHiddenFeatures true if some elements are hidden else false.
      */
     @objid ("7e56fade-1dec-11e2-8cad-001ec947c8cc")
@@ -220,6 +217,7 @@ public abstract class GmGroup extends GmNoStyleCompositeNode {
             this.hasHiddenFeatures = hasHiddenFeatures;
             firePropertyChange(IGmObject.PROPERTY_CHILDREN, null, hasHiddenFeatures);
         }
+        
     }
 
     /**
@@ -235,6 +233,15 @@ public abstract class GmGroup extends GmNoStyleCompositeNode {
     public void addChild(final GmNodeModel child, final int index) {
         super.addChild(child, index);
         updateHiddenFeatures();
+        
+    }
+
+    @objid ("cd0a2ca4-cac1-4b67-b1c8-c5065ce5b07c")
+    @Override
+    public void refreshFromObModel() {
+        //TODO : move this in parent class
+        firePropertyChange(PROP_REFRESH_FROM_OBMODEL, null, this);
+        
     }
 
     @objid ("7e56faeb-1dec-11e2-8cad-001ec947c8cc")
@@ -254,6 +261,7 @@ public abstract class GmGroup extends GmNoStyleCompositeNode {
             break;
         
         }
+        
     }
 
     @objid ("7e56faef-1dec-11e2-8cad-001ec947c8cc")
@@ -263,6 +271,7 @@ public abstract class GmGroup extends GmNoStyleCompositeNode {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmGroup.", GmGroup.MINOR_VERSION);
+        
     }
 
     @objid ("7e56faf3-1dec-11e2-8cad-001ec947c8cc")

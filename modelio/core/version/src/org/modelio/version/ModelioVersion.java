@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.version;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,7 @@ public final class ModelioVersion {
      * Modelio version as a string.
      */
     @objid ("53a2d18d-300b-4607-9904-301d9723dcb4")
-    public static final String STR_VERSION = "4.1.0";
+    public static final String STR_VERSION = "5.1.0";
 
     /**
      * Modelio build ID
@@ -47,10 +46,19 @@ public final class ModelioVersion {
     public static final Version VERSION = new Version(STR_VERSION);
 
     /**
+     * "major.minor" Modelio version as a {@link Version}.
+     * <p>
+     * The build version is reset.
+     * To be used to compare versions without build.
+     */
+    @objid ("fe83f5ec-a833-4293-96ee-d8d13b3b3e9d")
+    public static final Version MAJOR_MINOR = VERSION.withoutBuild();
+
+    /**
      * No instance.
      */
     @objid ("f53a0942-7a4a-43bc-a017-3063e1cdc709")
-    private ModelioVersion() {
+    private  ModelioVersion() {
         // no instance
     }
 

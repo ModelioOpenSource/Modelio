@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.association;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -57,7 +56,7 @@ public class AssociationEditPart extends LinkEditPart {
 
     @objid ("fd05239c-7ba4-4763-9285-a121c9fa7002")
     private static final PointList NAVIG_AGGREG_TIP = new PointList(new int[] { -1, 1, 0, 0, -1, -1, -2, 0,
-            -3, -1, -2, 0, -3, 1, -2, 0 });
+                -3, -1, -2, 0, -3, 1, -2, 0 });
 
     @objid ("33e2c79a-55b7-11e2-877f-002564c97630")
     @Override
@@ -74,6 +73,7 @@ public class AssociationEditPart extends LinkEditPart {
         }
         
         refreshDecorationsFromStyle((LinkFigure) aFigure, style);
+        
     }
 
     @objid ("33e2c7a1-55b7-11e2-877f-002564c97630")
@@ -88,6 +88,7 @@ public class AssociationEditPart extends LinkEditPart {
         createDecorations(connection, model);
         
         refreshDecorationsFromStyle(connection, getModelStyle());
+        
     }
 
     @objid ("33e2c7a4-55b7-11e2-877f-002564c97630")
@@ -106,6 +107,7 @@ public class AssociationEditPart extends LinkEditPart {
             ((CompositeDecoration) connection.getSourceDecoration()).setDecoration(deco);
         else
             connection.setSourceDecoration(deco);
+        
     }
 
     @objid ("33e2c7aa-55b7-11e2-877f-002564c97630")
@@ -182,6 +184,7 @@ public class AssociationEditPart extends LinkEditPart {
             pennable.setLinePattern(linePattern);
             pennable.setLineWidth(lineWidth);
         }
+        
     }
 
     @objid ("33e2c7ba-55b7-11e2-877f-002564c97630")
@@ -191,6 +194,7 @@ public class AssociationEditPart extends LinkEditPart {
         installEditPolicy("qualifiers", new CreateQualifierEditPolicy());
         
         super.createEditPolicies();
+        
     }
 
     @objid ("33e2c7bd-55b7-11e2-877f-002564c97630")
@@ -210,6 +214,7 @@ public class AssociationEditPart extends LinkEditPart {
         } else {
             super.addChildVisual(childEditPart, index);
         }
+        
     }
 
     @objid ("33e2c7c4-55b7-11e2-877f-002564c97630")
@@ -227,6 +232,7 @@ public class AssociationEditPart extends LinkEditPart {
             if (oldDecoration != null)
                 compoDeco.setDecoration(oldDecoration);
         }
+        
     }
 
     @objid ("33e2c7c8-55b7-11e2-877f-002564c97630")
@@ -244,6 +250,7 @@ public class AssociationEditPart extends LinkEditPart {
             if (oldDecoration != null)
                 compoDeco.setDecoration(oldDecoration);
         }
+        
     }
 
     @objid ("33e2c7cc-55b7-11e2-877f-002564c97630")
@@ -263,6 +270,7 @@ public class AssociationEditPart extends LinkEditPart {
         } else {
             super.removeChildVisual(childEditPart);
         }
+        
     }
 
     @objid ("33e2c7d1-55b7-11e2-877f-002564c97630")
@@ -275,6 +283,7 @@ public class AssociationEditPart extends LinkEditPart {
         } else {
             //throw new IllegalStateException("There is no source composite decoration to remove the figure from.");
         }
+        
     }
 
     @objid ("33e2c7d3-55b7-11e2-877f-002564c97630")
@@ -287,6 +296,7 @@ public class AssociationEditPart extends LinkEditPart {
         } else {
             //throw new IllegalStateException("There is no target composite decoration to remove the figure from.");
         }
+        
     }
 
 }

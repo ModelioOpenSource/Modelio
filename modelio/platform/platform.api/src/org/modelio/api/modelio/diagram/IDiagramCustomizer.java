@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.diagram;
 
 import java.util.List;
@@ -32,7 +31,6 @@ public interface IDiagramCustomizer {
     /**
      * Indicates whether the 'standard' content of the diagram palette must be kept or flushed when opening this stereotyped
      * diagram.
-     * 
      * @return <code>true</code> when the 'standard' content of the diagram palette must be kept.
      */
     @objid ("52c272ec-7010-11e0-b520-001ec947cd2a")
@@ -49,7 +47,6 @@ public interface IDiagramCustomizer {
     /**
      * Initialize the customizer. Called right after the constructor. Passed values are collected from the module.xml definition of
      * the customizer.
-     * 
      * @param module the module this diagram custimizer comes from.
      * @param tools tools defined in the diagram definition.
      * @param hParameters parameters defined in the diagram definition.
@@ -69,7 +66,6 @@ public interface IDiagramCustomizer {
      * <p>
      * With a decorator, it becomes possible to dynamically overwrite graphical property on any unmasked element.
      * </p>
-     * 
      * @return an instance of {@link IDGDynamicDecorator}.
      * @since 3.6
      */

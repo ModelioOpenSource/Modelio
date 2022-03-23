@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.module.modelermodule.gui;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,6 +43,7 @@ public class ShellHelper {
         int x = parentBounds.x + (parentBounds.width - shellBounds.width) / 2;
         int y = parentBounds.y + (parentBounds.height - shellBounds.height) / 2;
         shell.setLocation(x, y);
+        
     }
 
 }

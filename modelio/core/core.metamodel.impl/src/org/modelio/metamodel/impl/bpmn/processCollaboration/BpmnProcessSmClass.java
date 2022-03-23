@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.processCollaboration;
 
 import java.util.ArrayList;
@@ -37,10 +37,6 @@ import org.modelio.metamodel.bpmn.processCollaboration.OptionalBoolean;
 import org.modelio.metamodel.bpmn.resources.BpmnResourceRole;
 import org.modelio.metamodel.bpmn.rootElements.BpmnArtifact;
 import org.modelio.metamodel.bpmn.rootElements.BpmnFlowElement;
-import org.modelio.metamodel.impl.bpmn.processCollaboration.BpmnCollaborationSmClass;
-import org.modelio.metamodel.impl.bpmn.processCollaboration.BpmnLaneSetSmClass;
-import org.modelio.metamodel.impl.bpmn.processCollaboration.BpmnParticipantSmClass;
-import org.modelio.metamodel.impl.bpmn.processCollaboration.BpmnProcessData;
 import org.modelio.metamodel.impl.bpmn.resources.BpmnResourceRoleSmClass;
 import org.modelio.metamodel.impl.bpmn.rootElements.BpmnArtifactSmClass;
 import org.modelio.metamodel.impl.bpmn.rootElements.BpmnFlowElementSmClass;
@@ -95,7 +91,7 @@ public class BpmnProcessSmClass extends BehaviorSmClass {
     private SmDependency definitionalCollaborationDep;
 
     @objid ("dd7cbb34-5276-484b-94d7-16f3611d3a45")
-    public BpmnProcessSmClass(ISmMetamodelFragment origin) {
+    public  BpmnProcessSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -103,6 +99,7 @@ public class BpmnProcessSmClass extends BehaviorSmClass {
     @Override
     public String getName() {
         return "BpmnProcess";
+        
     }
 
     @objid ("22f87c79-df67-4526-a2e8-4d068aac5b56")
@@ -115,18 +112,21 @@ public class BpmnProcessSmClass extends BehaviorSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnProcess.class;
+        
     }
 
     @objid ("de8e9b93-441c-4450-b5dd-0b3a162a3990")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("c04cb950-22bf-4974-ab88-eb5db7493303")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("dff6600a-18c1-468d-8fbc-1e6bf8d7d2e6")
@@ -182,6 +182,8 @@ public class BpmnProcessSmClass extends BehaviorSmClass {
         this.definitionalCollaborationDep = new DefinitionalCollaborationSmDependency();
         this.definitionalCollaborationDep.init("DefinitionalCollaboration", this, metamodel.getMClass(BpmnCollaboration.MQNAME), 0, 1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.definitionalCollaborationDep);
+        
+        
     }
 
     @objid ("771fae46-acc3-4d80-87d6-bc196b8b6b9b")
@@ -278,7 +280,7 @@ public class BpmnProcessSmClass extends BehaviorSmClass {
         private BpmnProcessSmClass smClass;
 
         @objid ("e7afe6d5-f48d-48ed-8ff3-a5add24716f9")
-        public BpmnProcessObjectFactory(BpmnProcessSmClass smClass) {
+        public  BpmnProcessObjectFactory(BpmnProcessSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -353,6 +355,7 @@ public class BpmnProcessSmClass extends BehaviorSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnProcessData) data).mSupports = values;
+            
         }
 
         @objid ("ac957a1d-17c9-4d2b-9b8b-54e6d7242e65")
@@ -362,6 +365,7 @@ public class BpmnProcessSmClass extends BehaviorSmClass {
             	this.symetricDep = ((BpmnProcessSmClass)this.getTarget()).getSupportedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -381,6 +385,7 @@ public class BpmnProcessSmClass extends BehaviorSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnProcessData) data).mArtifact = values;
+            
         }
 
         @objid ("a1d330ea-7737-4895-82b7-21279b370b5e")
@@ -390,6 +395,7 @@ public class BpmnProcessSmClass extends BehaviorSmClass {
             	this.symetricDep = ((BpmnArtifactSmClass)this.getTarget()).getProcessDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -418,6 +424,7 @@ public class BpmnProcessSmClass extends BehaviorSmClass {
             	this.symetricDep = ((BpmnLaneSetSmClass)this.getTarget()).getProcessDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -437,6 +444,7 @@ public class BpmnProcessSmClass extends BehaviorSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnProcessData) data).mSupported = values;
+            
         }
 
         @objid ("6ef53103-b790-4ee8-ac03-02076a050a6a")
@@ -446,6 +454,7 @@ public class BpmnProcessSmClass extends BehaviorSmClass {
             	this.symetricDep = ((BpmnProcessSmClass)this.getTarget()).getSupportsDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -465,6 +474,7 @@ public class BpmnProcessSmClass extends BehaviorSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnProcessData) data).mParticipant = values;
+            
         }
 
         @objid ("cf4f92c7-6955-4980-82b9-7ca61a48d27b")
@@ -474,6 +484,7 @@ public class BpmnProcessSmClass extends BehaviorSmClass {
             	this.symetricDep = ((BpmnParticipantSmClass)this.getTarget()).getProcessDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -493,6 +504,7 @@ public class BpmnProcessSmClass extends BehaviorSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnProcessData) data).mFlowElement = values;
+            
         }
 
         @objid ("0e540f08-a0c7-436d-aa05-8379f8fffdcf")
@@ -502,6 +514,7 @@ public class BpmnProcessSmClass extends BehaviorSmClass {
             	this.symetricDep = ((BpmnFlowElementSmClass)this.getTarget()).getContainerDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -521,6 +534,7 @@ public class BpmnProcessSmClass extends BehaviorSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnProcessData) data).mResource = values;
+            
         }
 
         @objid ("4aaf86bb-34e6-44d6-af55-087244d66706")
@@ -530,6 +544,7 @@ public class BpmnProcessSmClass extends BehaviorSmClass {
             	this.symetricDep = ((BpmnResourceRoleSmClass)this.getTarget()).getProcessDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -558,6 +573,7 @@ public class BpmnProcessSmClass extends BehaviorSmClass {
             	this.symetricDep = ((BpmnCollaborationSmClass)this.getTarget()).getDefinedProcessDep();
             }
             return this.symetricDep;
+            
         }
 
     }

@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.navigation;
 
 import java.util.List;
@@ -29,7 +28,6 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface INavigationListener {
     /**
      * Implementation should display and select the element in its view.
-     * 
      * @param target The navigated element.
      */
     @objid ("a41d0bd1-0ecc-11e2-96c4-002564c97630")
@@ -37,7 +35,6 @@ public interface INavigationListener {
 
     /**
      * Implementation should display and select the elements in its view.
-     * 
      * @param targets List of the navigated elements.
      */
     @objid ("5f16e38a-fcd2-4d5e-866b-b6f87a0a1a0f")

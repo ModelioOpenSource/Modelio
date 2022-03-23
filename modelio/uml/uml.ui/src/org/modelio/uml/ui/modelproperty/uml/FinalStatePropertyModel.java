@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,17 +50,15 @@ public class FinalStatePropertyModel extends AbstractPropertyModel<FinalState> {
     /**
      * Create a new <i>ForkPseudoState</i> data model from an
      * <i>ForkPseudoState</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("331fbb2d-3582-4c30-91c5-2b8367ea95bc")
-    public FinalStatePropertyModel(FinalState theEditedElement) {
+    public  FinalStatePropertyModel(FinalState theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("71afd57f-c05e-44be-bf55-99cf7d66c399")
@@ -72,7 +69,6 @@ public class FinalStatePropertyModel extends AbstractPropertyModel<FinalState> {
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("534d2604-c5f4-4d14-8d44-05a5b3f1b742")
@@ -85,7 +81,6 @@ public class FinalStatePropertyModel extends AbstractPropertyModel<FinalState> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -107,6 +102,7 @@ public class FinalStatePropertyModel extends AbstractPropertyModel<FinalState> {
         default:
             return null;
         }
+        
     }
 
     /**
@@ -116,7 +112,6 @@ public class FinalStatePropertyModel extends AbstractPropertyModel<FinalState> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -139,13 +134,13 @@ public class FinalStatePropertyModel extends AbstractPropertyModel<FinalState> {
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -170,6 +165,7 @@ public class FinalStatePropertyModel extends AbstractPropertyModel<FinalState> {
         default:
             return;
         }
+        
     }
 
 }

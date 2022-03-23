@@ -17,19 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.infrastructure.ModelElementSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.NoteData;
-import org.modelio.metamodel.impl.uml.infrastructure.NoteTypeSmClass;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.Note;
 import org.modelio.metamodel.uml.infrastructure.NoteType;
@@ -60,7 +57,7 @@ public class NoteSmClass extends ModelElementSmClass {
     private SmDependency subjectDep;
 
     @objid ("19eaf28f-4116-4c54-a6ad-72b6f6547f60")
-    public NoteSmClass(ISmMetamodelFragment origin) {
+    public  NoteSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -68,6 +65,7 @@ public class NoteSmClass extends ModelElementSmClass {
     @Override
     public String getName() {
         return "Note";
+        
     }
 
     @objid ("19492eb1-8637-4c8d-9b72-17ddcb88d6ab")
@@ -80,18 +78,21 @@ public class NoteSmClass extends ModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Note.class;
+        
     }
 
     @objid ("a57c9f54-1640-44e9-8c66-24bca00f3b96")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("ada4314a-92c7-4921-a740-e98bc22d04d3")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("7b932367-a47a-46f3-bd63-45fffdc21677")
@@ -119,6 +120,8 @@ public class NoteSmClass extends ModelElementSmClass {
         this.subjectDep = new SubjectSmDependency();
         this.subjectDep.init("Subject", this, metamodel.getMClass(ModelElement.MQNAME), 0, 1 );
         registerDependency(this.subjectDep);
+        
+        
     }
 
     @objid ("34f366ea-68ba-4671-a809-04205f895899")
@@ -159,7 +162,7 @@ public class NoteSmClass extends ModelElementSmClass {
         private NoteSmClass smClass;
 
         @objid ("aefb53f6-715d-4179-a02a-508b9a4dacc1")
-        public NoteObjectFactory(NoteSmClass smClass) {
+        public  NoteObjectFactory(NoteSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -229,6 +232,7 @@ public class NoteSmClass extends ModelElementSmClass {
             	this.symetricDep = ((NoteTypeSmClass)this.getTarget()).getElementDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -257,6 +261,7 @@ public class NoteSmClass extends ModelElementSmClass {
             	this.symetricDep = ((ModelElementSmClass)this.getTarget()).getDescriptorDep();
             }
             return this.symetricDep;
+            
         }
 
     }

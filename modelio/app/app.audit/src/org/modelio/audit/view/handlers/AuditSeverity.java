@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.view.handlers;
 
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.core.di.annotations.Optional;
@@ -37,7 +36,8 @@ import org.modelio.audit.view.model.AuditRuleModel;
 public class AuditSeverity extends AbstractAuditEntryHandler {
     @objid ("6ba91151-b8e5-4e00-91c0-3b3e10b0bc9a")
     @Execute
-    void execute(EModelService modelService, MApplication application, @Optional @Named("mode") final String mode, IAuditService auditService) {
+    void execute(EModelService modelService, MApplication application, @Optional
+    @Named("mode") final String mode, IAuditService auditService) {
         Object obj = getSelectedAuditEntry(modelService, application);
         String ruleId = null;
         if (obj instanceof IAuditEntry) {
@@ -60,11 +60,13 @@ public class AuditSeverity extends AbstractAuditEntryHandler {
                 auditService.apply(prefModel);
             }
         }
+        
     }
 
     @objid ("3fe4d19e-0cff-4e68-b207-161f88af8c93")
     @CanExecute
-    boolean isEnabled(EModelService modelService, MApplication application, @Optional @Named("mode") final String mode) {
+    boolean isEnabled(EModelService modelService, MApplication application, @Optional
+    @Named("mode") final String mode) {
         Object obj = getSelectedAuditEntry(modelService, application);
         org.modelio.audit.service.AuditSeverity severity = null;
         if (obj instanceof IAuditEntry) {

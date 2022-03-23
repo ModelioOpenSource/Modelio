@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,7 +36,7 @@ public class OActivityGroup extends OModelElement {
     }
 
     @objid ("e77b4c20-3921-45af-bb75-81edbb084a6c")
-    public OActivityGroup(final ActivityPartition element) {
+    public  OActivityGroup(final ActivityPartition element) {
         super(element);
     }
 
@@ -53,6 +52,7 @@ public class OActivityGroup extends OModelElement {
             else if (objingOwner instanceof Activity)
                 attachToActivity(ecoreElt, ecoreOwner);
         }
+        
     }
 
     @objid ("a0994055-6fef-47e8-b766-5e2a0d64027a")
@@ -71,6 +71,7 @@ public class OActivityGroup extends OModelElement {
             throw new NotFoundException("Owner Class ("
                     + ecoreOwner.getClass().getSimpleName() + ") Not Found");
         }
+        
     }
 
     @objid ("c2bb4ce5-b27b-4962-9a64-8805b6460c2e")
@@ -83,6 +84,7 @@ public class OActivityGroup extends OModelElement {
             throw new NotFoundException("Owner Class ("
                     + ecoreOwner.getClass().getSimpleName() + ") Not Found");
         }
+        
     }
 
     @objid ("6b14e80e-07a9-4691-9d68-d56856199814")

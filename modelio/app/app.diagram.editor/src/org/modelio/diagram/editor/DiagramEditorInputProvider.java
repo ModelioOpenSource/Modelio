@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -56,7 +55,6 @@ public class DiagramEditorInputProvider extends ContextFunction {
      * <p>
      * Scans the {@value #INPUTPROVIDER_ID}INPUTPROVIDER_ID extension point to find a contribution that is able to instantiate a {@link DiagramEditorInput}.
      * </p>
-     * 
      * @param diagram The element to unmask
      * @param modelManager a diagram model manager
      * @return a diagram editor input for the given diagram. <code>null</code> if no contribution supports this diagram's kind.

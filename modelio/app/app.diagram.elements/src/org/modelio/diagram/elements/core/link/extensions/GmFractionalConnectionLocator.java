@@ -17,9 +17,9 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.extensions;
 
+import java.util.Objects;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
@@ -32,8 +32,22 @@ import org.modelio.diagram.persistence.IDiagramWriter;
  */
 @objid ("80042256-1dec-11e2-8cad-001ec947c8cc")
 public class GmFractionalConnectionLocator extends GmAbstractLocator {
+    @objid ("8004225f-1dec-11e2-8cad-001ec947c8cc")
+    private static final int MAJOR_VERSION = 0;
+
     @objid ("80042258-1dec-11e2-8cad-001ec947c8cc")
     private double fraction;
+
+    /**
+     * Rotatable figures orientation:
+     * <li>true: toward the target.
+     * <li>false: toward the source.
+     */
+    @objid ("8004225d-1dec-11e2-8cad-001ec947c8cc")
+    private boolean towardTarget = true;
+
+    @objid ("45567e98-451d-48a2-b6cb-dc022e8a3714")
+    private boolean useObsoleteLocator = false;
 
     /**
      * Distance from the reference point towards the target
@@ -48,22 +62,15 @@ public class GmFractionalConnectionLocator extends GmAbstractLocator {
     private int vDistance;
 
     /**
-     * Rotatable figures orientation:
-     * <li>true: toward the target.
-     * <li>false: toward the source.
+     * Default constructor.
      */
-    @objid ("8004225d-1dec-11e2-8cad-001ec947c8cc")
-    private boolean towardTarget = true;
-
-    @objid ("8004225f-1dec-11e2-8cad-001ec947c8cc")
-    private static final int MAJOR_VERSION = 0;
-
-    @objid ("45567e98-451d-48a2-b6cb-dc022e8a3714")
-    private boolean useObsoleteLocator = false;
+    @objid ("80068479-1dec-11e2-8cad-001ec947c8cc")
+    public  GmFractionalConnectionLocator() {
+        
+    }
 
     /**
      * Creates a GmFractionalConnectionLocator.
-     * 
      * @param fraction the position of the reference point as a fraction of the connection length. Must be between 0.0 and
      * 1.0
      * @param uOffset offset toward the next connection point
@@ -75,36 +82,49 @@ public class GmFractionalConnectionLocator extends GmAbstractLocator {
      * </ul>
      */
     @objid ("80042261-1dec-11e2-8cad-001ec947c8cc")
-    public GmFractionalConnectionLocator(final double fraction, final int uOffset, final int vOffset, final boolean towardTarget) {
+    public  GmFractionalConnectionLocator(final double fraction, final int uOffset, final int vOffset, final boolean towardTarget) {
         this(fraction, uOffset, vOffset);
         this.towardTarget = towardTarget;
-    }
-
-    /**
-     * Default constructor.
-     */
-    @objid ("80068479-1dec-11e2-8cad-001ec947c8cc")
-    public GmFractionalConnectionLocator() {
+        
     }
 
     /**
      * Creates a GmFractionalConnectionLocator.
-     * 
      * @param fraction the position of the reference point as a fraction of the connection length. Must be between 0.0 and
      * 1.0
      * @param uOffset offset toward the next connection point
      * @param vOffset distance from the connection. v < 0 place the figure on the top or left side.
      */
     @objid ("8006847c-1dec-11e2-8cad-001ec947c8cc")
-    public GmFractionalConnectionLocator(final double fraction, final int uOffset, final int vOffset) {
+    public  GmFractionalConnectionLocator(final double fraction, final int uOffset, final int vOffset) {
         this.fraction = fraction;
         this.uDistance = uOffset;
         this.vDistance = vOffset;
+        
+    }
+
+    /**
+     * Copy constructor.
+     * @param src the object to copy.
+     */
+    @objid ("7ad4ab1e-3171-4cb9-bdec-e50aed7d34e1")
+    public  GmFractionalConnectionLocator(GmFractionalConnectionLocator src) {
+        super(src);
+        
+        this.fraction = src.fraction;
+        this.uDistance = src.uDistance;
+        this.vDistance = src.vDistance;
+        
+    }
+
+    @objid ("6664b0eb-f1ad-4253-94ed-a1b9dcf749ec")
+    @Override
+    public IGmLocator copy() {
+        return new GmFractionalConnectionLocator(this);
     }
 
     /**
      * Returns the distance in fraction of the connection length from connection source.
-     * 
      * @return the fractional distance from connection source.
      */
     @objid ("80068485-1dec-11e2-8cad-001ec947c8cc")
@@ -112,9 +132,14 @@ public class GmFractionalConnectionLocator extends GmAbstractLocator {
         return this.fraction;
     }
 
+    @objid ("800684bb-1dec-11e2-8cad-001ec947c8cc")
+    @Override
+    public int getMajorVersion() {
+        return GmFractionalConnectionLocator.MAJOR_VERSION;
+    }
+
     /**
      * Distance from the reference point towards the target
-     * 
      * @return Distance from the reference point towards the target
      */
     @objid ("8006848a-1dec-11e2-8cad-001ec947c8cc")
@@ -124,7 +149,6 @@ public class GmFractionalConnectionLocator extends GmAbstractLocator {
 
     /**
      * Get the distance from the connection.
-     * 
      * @return The distance from the connection.
      */
     @objid ("8006848f-1dec-11e2-8cad-001ec947c8cc")
@@ -134,12 +158,16 @@ public class GmFractionalConnectionLocator extends GmAbstractLocator {
 
     /**
      * Get the rotatable figures orientation.
-     * 
      * @return true : toward the target, false: toward the source
      */
     @objid ("8006849a-1dec-11e2-8cad-001ec947c8cc")
     public boolean isTowardTarget() {
         return this.towardTarget;
+    }
+
+    @objid ("1d885492-22d2-43ba-99ad-5f07b790b0e0")
+    public boolean isUseObsoleteLocator() {
+        return this.useObsoleteLocator;
     }
 
     @objid ("8006849f-1dec-11e2-8cad-001ec947c8cc")
@@ -155,11 +183,11 @@ public class GmFractionalConnectionLocator extends GmAbstractLocator {
         // Special migration case: use an obsolete locator for GMs created before Modelio 3.8.1
         Object isObsolete = in.readProperty("obsolete");
         this.useObsoleteLocator = isObsolete == null || Boolean.TRUE.equals(isObsolete);
+        
     }
 
     /**
      * Sets the distance in fraction of the connection length from connection source.
-     * 
      * @param d the fractional distance from connection source.
      */
     @objid ("800684a3-1dec-11e2-8cad-001ec947c8cc")
@@ -169,7 +197,6 @@ public class GmFractionalConnectionLocator extends GmAbstractLocator {
 
     /**
      * Set the rotatable figures orientation.
-     * 
      * @param towardTarget true to orient toward the target, false for the source
      */
     @objid ("800684a8-1dec-11e2-8cad-001ec947c8cc")
@@ -179,7 +206,6 @@ public class GmFractionalConnectionLocator extends GmAbstractLocator {
 
     /**
      * Distance from the reference point towards the target
-     * 
      * @param uDistance The distance from the reference point towards the target
      */
     @objid ("800684ad-1dec-11e2-8cad-001ec947c8cc")
@@ -189,7 +215,6 @@ public class GmFractionalConnectionLocator extends GmAbstractLocator {
 
     /**
      * Distance from the connection.
-     * 
      * @param vDistance The distance from the connection
      */
     @objid ("800684b2-1dec-11e2-8cad-001ec947c8cc")
@@ -207,37 +232,34 @@ public class GmFractionalConnectionLocator extends GmAbstractLocator {
         out.writeProperty("v", this.vDistance);
         out.writeProperty("t", this.towardTarget);
         out.writeProperty("obsolete", this.useObsoleteLocator);
-    }
-
-    @objid ("800684bb-1dec-11e2-8cad-001ec947c8cc")
-    @Override
-    public int getMajorVersion() {
-        return GmFractionalConnectionLocator.MAJOR_VERSION;
-    }
-
-    /**
-     * Copy constructor.
-     * 
-     * @param src the object to copy.
-     */
-    @objid ("7ad4ab1e-3171-4cb9-bdec-e50aed7d34e1")
-    public GmFractionalConnectionLocator(GmFractionalConnectionLocator src) {
-        super(src);
         
-        this.fraction = src.fraction;
-        this.uDistance = src.uDistance;
-        this.vDistance = src.vDistance;
     }
 
-    @objid ("6664b0eb-f1ad-4253-94ed-a1b9dcf749ec")
+    @objid ("cd263f7c-5b5a-4873-b1f7-f7045b3dd048")
     @Override
-    public IGmLocator copy() {
-        return new GmFractionalConnectionLocator(this);
+    public int hashCode() {
+        return Objects.hash(this.fraction, this.towardTarget, this.uDistance, this.useObsoleteLocator, this.vDistance);
     }
 
-    @objid ("1d885492-22d2-43ba-99ad-5f07b790b0e0")
-    public boolean isUseObsoleteLocator() {
-        return this.useObsoleteLocator;
+    @objid ("2d43867c-858f-43ce-8ccd-c261587ee891")
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        GmFractionalConnectionLocator other = (GmFractionalConnectionLocator) obj;
+        return Double.doubleToLongBits(this.fraction) == Double.doubleToLongBits(other.fraction)
+                && this.towardTarget == other.towardTarget
+                && this.uDistance == other.uDistance
+                && this.useObsoleteLocator == other.useObsoleteLocator
+                && this.vDistance == other.vDistance;
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.datatype;
 
 import java.util.ArrayList;
@@ -38,9 +37,9 @@ import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
+import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey.ShowStereotypeMode;
-import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.metamodel.uml.statik.Attribute;
 import org.modelio.metamodel.uml.statik.DataType;
 import org.modelio.metamodel.uml.statik.Instance;
@@ -113,18 +112,17 @@ public class GmDataTypePrimaryNode extends GmNoStyleCompositeNode implements IIm
      * Constructor for deserialization only.
      */
     @objid ("34c18f0e-55b7-11e2-877f-002564c97630")
-    public GmDataTypePrimaryNode() {
+    public  GmDataTypePrimaryNode() {
         // Nothing to do.
     }
 
     /**
      * Creates a GmClass.
-     * 
      * @param diagram The owner diagram.
      * @param ref a reference to the element this GmModel is related to, must not be null.
      */
     @objid ("34c18f11-55b7-11e2-877f-002564c97630")
-    public GmDataTypePrimaryNode(IGmDiagram diagram, final MRef ref) {
+    public  GmDataTypePrimaryNode(IGmDiagram diagram, final MRef ref) {
         super(diagram, ref);
         
         this.header = new GmNamespaceHeader(diagram, ref);
@@ -149,6 +147,7 @@ public class GmDataTypePrimaryNode extends GmNoStyleCompositeNode implements IIm
         group.addChild(this.internalStructure);
         
         styleChanged(getDisplayedStyle());
+        
     }
 
     @objid ("34c31581-55b7-11e2-877f-002564c97630")
@@ -156,6 +155,7 @@ public class GmDataTypePrimaryNode extends GmNoStyleCompositeNode implements IIm
     public boolean canCreate(Class<? extends MObject> type) {
         return (NameSpace.class.isAssignableFrom(type) && !TemplateParameter.class.isAssignableFrom(type) ) ||
                                 (Instance.class.isAssignableFrom(type) && !Port.class.isAssignableFrom(type));
+        
     }
 
     @objid ("34c31589-55b7-11e2-877f-002564c97630")
@@ -166,7 +166,6 @@ public class GmDataTypePrimaryNode extends GmNoStyleCompositeNode implements IIm
 
     /**
      * Get the group where <tt>GmAttributes</tt> are unmasked.
-     * 
      * @return the attributes group.
      */
     @objid ("34c31591-55b7-11e2-877f-002564c97630")
@@ -200,7 +199,6 @@ public class GmDataTypePrimaryNode extends GmNoStyleCompositeNode implements IIm
 
     /**
      * Get the internal structure.
-     * 
      * @return the internal structure.
      */
     @objid ("34c315a7-55b7-11e2-877f-002564c97630")
@@ -210,7 +208,6 @@ public class GmDataTypePrimaryNode extends GmNoStyleCompositeNode implements IIm
 
     /**
      * Get the group where {@link Operation} are unmasked.
-     * 
      * @return the operations group.
      */
     @objid ("34c315ac-55b7-11e2-877f-002564c97630")
@@ -236,25 +233,26 @@ public class GmDataTypePrimaryNode extends GmNoStyleCompositeNode implements IIm
         // Read version, defaults to 0 if not found
         int readVersion = readMinorVersion(in, "GmDataTypePrimaryNode.");
         switch (readVersion) {
-        case 0: 
+        case 0:
             read_0(in);
             break;
-        case 1: 
+        case 1:
             read_1(in);
             break;
         case 2:
             read_2(in);
             break;
-        case 3: 
+        case 3:
             read_3(in);
             break;
-        default: 
+        default:
             assert (false) : readVersion+ " version number not covered!";
             // reading as last handled version: 3
             read_3(in);
             break;
         
         }
+        
     }
 
     @objid ("34c49c23-55b7-11e2-877f-002564c97630")
@@ -266,6 +264,7 @@ public class GmDataTypePrimaryNode extends GmNoStyleCompositeNode implements IIm
         firePropertyChange(PROPERTY_LABEL, oldLabel, this.header.getMainLabel());
         // forcing visual refresh in case Image changed
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("34c49c26-55b7-11e2-877f-002564c97630")
@@ -274,6 +273,7 @@ public class GmDataTypePrimaryNode extends GmNoStyleCompositeNode implements IIm
         // Returned result depends on current representation mode:
         List<GmNodeModel> ret;
         switch (getRepresentationMode()) {
+        case USER_IMAGE:
         case IMAGE:
             ret = Collections.emptyList();
             break;
@@ -295,6 +295,7 @@ public class GmDataTypePrimaryNode extends GmNoStyleCompositeNode implements IIm
         super.styleChanged(changedStyle);
         
         refreshHeaderFromStyle(changedStyle);
+        
     }
 
     @objid ("34c49c36-55b7-11e2-877f-002564c97630")
@@ -305,6 +306,7 @@ public class GmDataTypePrimaryNode extends GmNoStyleCompositeNode implements IIm
         if (property.equals(DataTypeStructuredStyleKeys.SHOWSTEREOTYPES)) {
             refreshHeaderFromStyle(getDisplayedStyle());
         }
+        
     }
 
     /**
@@ -330,6 +332,7 @@ public class GmDataTypePrimaryNode extends GmNoStyleCompositeNode implements IIm
             this.header.setShowMetaclassKeyword(true);
             this.header.setShowMetaclassIcon(true);
         }
+        
     }
 
     @objid ("34c49c46-55b7-11e2-877f-002564c97630")
@@ -339,6 +342,7 @@ public class GmDataTypePrimaryNode extends GmNoStyleCompositeNode implements IIm
         
         // Write version of this Gm if different of 0.
         writeMinorVersion(out, "GmDataTypePrimaryNode.", Integer.valueOf(GmDataTypePrimaryNode.MINOR_VERSION));
+        
     }
 
     @objid ("34c49c4c-55b7-11e2-877f-002564c97630")
@@ -375,6 +379,7 @@ public class GmDataTypePrimaryNode extends GmNoStyleCompositeNode implements IIm
         group.addChild(this.methodGroup);
         group.addChild(this.internalStructure);
         super.addChild(group, 1);
+        
     }
 
     @objid ("34c49c51-55b7-11e2-877f-002564c97630")
@@ -415,6 +420,7 @@ public class GmDataTypePrimaryNode extends GmNoStyleCompositeNode implements IIm
         group.addChild(this.methodGroup);
         group.addChild(this.internalStructure);
         super.addChild(group, 1);
+        
     }
 
     @objid ("34c622c1-55b7-11e2-877f-002564c97630")
@@ -441,6 +447,7 @@ public class GmDataTypePrimaryNode extends GmNoStyleCompositeNode implements IIm
         this.internalStructure = new GmInternalStructure(getDiagram(), getRepresentedRef(), internalStructureZone, internalStructureGroup);
         this.internalStructure.setRoleInComposition(INTERNAL);
         group.addChild(this.internalStructure);
+        
     }
 
     @objid ("34c622c7-55b7-11e2-877f-002564c97630")
@@ -452,6 +459,7 @@ public class GmDataTypePrimaryNode extends GmNoStyleCompositeNode implements IIm
         this.attributeGroup = (GmAttributeGroup) group.getFirstChild(ATTRIBUTE_GROUP);
         this.methodGroup = (GmGroup) group.getFirstChild(METHOD_GROUP);
         this.internalStructure = (GmInternalStructure) group.getFirstChild(INTERNAL);
+        
     }
 
 }

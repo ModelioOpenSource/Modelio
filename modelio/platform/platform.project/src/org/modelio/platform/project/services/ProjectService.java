@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.project.services;
 
 import java.io.IOException;
@@ -26,8 +25,8 @@ import java.nio.file.FileSystemException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Objects;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.e4.core.contexts.IEclipseContext;
@@ -120,7 +119,6 @@ public class ProjectService implements IProjectService, EventHandler {
 
     /**
      * Mandatory constructor.
-     * 
      * @param context the Eclipse context.
      * @param projectCreator2 the project creation service
      * @param projectOpener the project openeing service
@@ -130,7 +128,7 @@ public class ProjectService implements IProjectService, EventHandler {
      * @param fragmentMigratorFactory the fragment migration service factory
      */
     @objid ("00802442-acc2-103b-a520-001ec947cd2a")
-    public ProjectService(final IEclipseContext context, final IProjectCreator2 projectCreator2, final IProjectOpener projectOpener, final GProjectConfigurer projectSynchronizer, final IProjectCloser projectCloser, final IWorkspaceService worskpaceService, IFragmentMigratorFactory fragmentMigratorFactory) {
+    public  ProjectService(final IEclipseContext context, final IProjectCreator2 projectCreator2, final IProjectOpener projectOpener, final GProjectConfigurer projectSynchronizer, final IProjectCloser projectCloser, final IWorkspaceService worskpaceService, IFragmentMigratorFactory fragmentMigratorFactory) {
         this.context = Objects.requireNonNull(context);
         this.projectCreator2 = Objects.requireNonNull(projectCreator2);
         this.projectOpener = Objects.requireNonNull(projectOpener);
@@ -145,6 +143,7 @@ public class ProjectService implements IProjectService, EventHandler {
         
         final IEventBroker eventBroker = context.get(IEventBroker.class);
         eventBroker.subscribe("BATCH", this);
+        
     }
 
     @objid ("005385e0-bb2f-103c-a520-001ec947cd2a")
@@ -154,6 +153,7 @@ public class ProjectService implements IProjectService, EventHandler {
         openedProject.registerFragment(newFragment, new ModelioProgressAdapter(monitor));
         
         this.context.get(IModelioEventService.class).postAsyncEvent(this, ModelioEvent.FRAGMENT_ADDED, newFragment);
+        
     }
 
     @objid ("4bf5aa25-e4cd-4639-850f-47816c59766d")
@@ -163,6 +163,7 @@ public class ProjectService implements IProjectService, EventHandler {
             throw new IllegalStateException("A project is already opened.");
         }
         this.worskpaceService.changeWorkspace(path);
+        
     }
 
     @objid ("177f74d3-e774-49fd-85ed-cdc3e12f08e1")
@@ -230,6 +231,7 @@ public class ProjectService implements IProjectService, EventHandler {
         default:
             return;
         }
+        
     }
 
     /**
@@ -255,6 +257,7 @@ public class ProjectService implements IProjectService, EventHandler {
             this.batchMode = data.isBatch();
             Display.getCurrent().asyncExec(new BatchRunner(this.context.get(IModelioProgressService.class), this, data));
         }
+        
     }
 
     @objid ("971ad6d9-026d-11e2-8189-001ec947ccaf")
@@ -270,6 +273,7 @@ public class ProjectService implements IProjectService, EventHandler {
         Objects.requireNonNull(projectToOpen, "Cannot open 'null' project descriptor.");
         
         this.projectOpener.openProject(projectToOpen, authData, this.batchMode, monitor);
+        
     }
 
     @objid ("004dc0f6-8d1e-10b4-9941-001ec947cd2a")
@@ -285,6 +289,7 @@ public class ProjectService implements IProjectService, EventHandler {
         Objects.requireNonNull(projectURI, "Cannot open 'null' project URI.");
         
         this.projectOpener.openProject(projectURI, authData, this.batchMode, monitor);
+        
     }
 
     @objid ("29e438c4-9d31-43c5-a5b7-d48c966d1f20")
@@ -304,6 +309,7 @@ public class ProjectService implements IProjectService, EventHandler {
         if (Files.isRegularFile(confFile)) {
             openProject(confFile.toUri(), authData, newChild);
         }
+        
     }
 
     @objid ("06b1cb72-cbd4-4798-9761-554f3afd144a")
@@ -341,6 +347,7 @@ public class ProjectService implements IProjectService, EventHandler {
         }
         
         this.context.get(IModelioEventService.class).postAsyncEvent(this, ModelioEvent.FRAGMENT_REMOVED, fragmentToRemove);
+        
     }
 
     @objid ("b336181e-5102-4ca9-a4c5-2408111aca57")
@@ -354,6 +361,7 @@ public class ProjectService implements IProjectService, EventHandler {
         fragment.rename(name, null);
         
         this.context.get(IModelioEventService.class).postAsyncEvent(this, ModelioEvent.FRAGMENT_ADDED, fragment);
+        
     }
 
     @objid ("17b2b85f-9ab0-429f-8a8f-6e0d5dc5b91e")
@@ -378,6 +386,7 @@ public class ProjectService implements IProjectService, EventHandler {
         this.prefsStore.resetDirty();
         
         this.context.get(IModelioEventService.class).postAsyncEvent(this, ModelioEvent.PROJECT_SAVED, this.project);
+        
     }
 
     @objid ("9de1f14d-8669-48e5-b0c0-11c43702c837")
@@ -385,13 +394,13 @@ public class ProjectService implements IProjectService, EventHandler {
         if (this.project == null) {
             throw new IllegalStateException("No current project.");
         }
+        
     }
 
     /**
      * Get a module catalog.
      * <p>
      * Returns the module catalog cache. Instantiate the module catalog and the cache on first call.
-     * 
      * @return the module catalog cache.
      */
     @objid ("e84ef926-a1af-4f78-9342-507d1c7efcb4")
@@ -405,6 +414,7 @@ public class ProjectService implements IProjectService, EventHandler {
     public void createProject(final IProjectCreator projectCreator, final IProjectCreationData data, final IProgressMonitor monitor) throws IOException {
         Objects.requireNonNull(data);
         this.projectCreator2.createProject(projectCreator, data, monitor);
+        
     }
 
     @objid ("fd9e23c8-9e64-4728-8928-26116f210a04")
@@ -412,6 +422,7 @@ public class ProjectService implements IProjectService, EventHandler {
     public void createProject(final IProjectCreationData data, final IProgressMonitor monitor) throws IOException {
         Objects.requireNonNull(data);
         this.projectCreator2.createProject(data, monitor);
+        
     }
 
     @objid ("7d1533ec-7800-448b-8b2c-a27212baf61d")
@@ -421,6 +432,7 @@ public class ProjectService implements IProjectService, EventHandler {
         this.projectOpener.configure(svcAccess);
         this.worskpaceService.configure(svcAccess);
         this.projectCloser.configure(svcAccess);
+        
     }
 
     @objid ("00809bf2-acc2-103b-a520-001ec947cd2a")
@@ -433,6 +445,7 @@ public class ProjectService implements IProjectService, EventHandler {
         }
         
         this.projectCloser.closeProject(projectToClose, sendSyncEvents);
+        
     }
 
     @objid ("4d01f465-9cf4-4e11-9a47-4e061e01c47e")
@@ -465,7 +478,7 @@ public class ProjectService implements IProjectService, EventHandler {
          * @param ps the {@link ProjectService} to setup.
          */
         @objid ("934935a3-a06d-4d50-9b89-c5e9e37be9e2")
-        public ProjectServiceAccess(ProjectService ps) {
+        public  ProjectServiceAccess(ProjectService ps) {
             this.ps = ps;
         }
 
@@ -529,6 +542,7 @@ public class ProjectService implements IProjectService, EventHandler {
                     this.ps.appStateStore = null;
                 }
             }
+            
         }
 
         @objid ("0a9e400f-6f6d-48ac-bc24-5acbe9f4f7b1")

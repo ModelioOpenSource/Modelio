@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition;
 
@@ -49,24 +48,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("406ee77a-a498-461f-bd3f-0a9f8dab7754")
 public class RequirementPropertyset {
-    @objid ("9aa3cab5-35cd-424f-b03e-dd1083aee9b3")
+    @objid ("70b5c29d-d3f7-4277-b7c8-43e67c37a4ce")
     public static final String STEREOTYPE_NAME = "requirement_propertyset";
 
     /**
      * The underlying {@link PropertyTableDefinition} represented by this proxy, never null.
      */
-    @objid ("29350daf-fa55-45e9-9c4d-fc06559092c7")
+    @objid ("3ea29358-117d-44da-a38e-63321418d70f")
     protected final PropertyTableDefinition elt;
 
     /**
      * Tells whether a {@link RequirementPropertyset proxy} can be instantiated from a {@link MObject} checking it is a {@link PropertyTableDefinition} stereotyped << requirement_propertyset >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("ac8cc888-4b99-4e4f-8f9c-a64fdbe1fcce")
+    @objid ("e27a6a66-d805-4751-81f3-8125052c354c")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof PropertyTableDefinition) && ((PropertyTableDefinition) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, RequirementPropertyset.STEREOTYPE_NAME));
     }
@@ -76,9 +74,9 @@ public class RequirementPropertyset {
      * 
      * @return a {@link RequirementPropertyset} proxy on the created {@link PropertyTableDefinition}.
      */
-    @objid ("13212a39-2dc0-4ad1-9571-67ba93473809")
+    @objid ("f4e760a2-e435-4dd9-8c26-f2537d70ddd9")
     public static RequirementPropertyset create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("PropertyTableDefinition");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Infrastructure.PropertyTableDefinition");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, RequirementPropertyset.STEREOTYPE_NAME);
         return RequirementPropertyset.instantiate((PropertyTableDefinition)e);
     }
@@ -90,7 +88,7 @@ public class RequirementPropertyset {
      * @param obj a PropertyTableDefinition
      * @return a {@link RequirementPropertyset} proxy or <i>null</i>.
      */
-    @objid ("6eb9d397-1adb-47de-bd24-93c84f91ff62")
+    @objid ("aed87e32-fe12-467b-a97d-1abeb502c9f5")
     public static RequirementPropertyset instantiate(PropertyTableDefinition obj) {
         return RequirementPropertyset.canInstantiate(obj) ? new RequirementPropertyset(obj) : null;
     }
@@ -103,7 +101,7 @@ public class RequirementPropertyset {
      * @return a {@link RequirementPropertyset} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("6e68a5fd-b578-48ea-a6f9-d01e89f36b10")
+    @objid ("7d887039-e590-4512-a246-b23193810478")
     public static RequirementPropertyset safeInstantiate(PropertyTableDefinition obj) throws IllegalArgumentException {
         if (RequirementPropertyset.canInstantiate(obj))
         	return new RequirementPropertyset(obj);
@@ -111,7 +109,7 @@ public class RequirementPropertyset {
         	throw new IllegalArgumentException("RequirementPropertyset: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("b2bb735b-7128-4c37-9fbd-567d700875d0")
+    @objid ("bcab1c41-69fc-470d-b05b-be8fdcd8a1f7")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -131,46 +129,47 @@ public class RequirementPropertyset {
      * Get the underlying {@link PropertyTableDefinition}. 
      * @return the PropertyTableDefinition represented by this proxy, never null.
      */
-    @objid ("309fca1a-38aa-455c-8bec-17d82bf03c4c")
+    @objid ("0ffbedec-c304-428c-a21d-664c355ac98a")
     public PropertyTableDefinition getElement() {
         return this.elt;
     }
 
-    @objid ("7a9c0f8b-8e23-4a36-b37e-9f414acf8155")
+    @objid ("f17cc216-5f86-416d-b4ca-dfd28c41c64d")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("b387d510-5c67-45bc-9a0d-2357fff9caf5")
-    protected RequirementPropertyset(PropertyTableDefinition elt) {
+    @objid ("b71e781e-b104-4190-a151-ee10ffebb1f6")
+    protected  RequirementPropertyset(PropertyTableDefinition elt) {
         this.elt = elt;
     }
 
     @objid ("8fb90d31-ee90-41bf-8357-2e601bf691dc")
     public static final class MdaTypes {
-        @objid ("affa8ea1-4c5b-4c0c-9e71-acd7aa565d90")
+        @objid ("d00107ae-a6be-4448-b488-bcf7e7527216")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("b1871c11-1152-494d-9a07-d4829db94eab")
+        @objid ("bf1cd680-8f03-44c5-930e-c5b107051ca0")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("fa16b866-4281-4727-a41e-d458f00a7be8")
+        @objid ("b1b2969e-f342-4882-9216-be603527aeff")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("3d429184-796a-4e63-9c2b-868382c3f0a7")
+        @objid ("9c30546a-b25f-4602-8141-f09382140cb4")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "01ec141c-0000-12f7-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

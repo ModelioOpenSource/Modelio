@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.catalog.gui;
 
 import java.nio.file.Files;
@@ -106,6 +105,7 @@ public class PatternCatalogPanel implements IPanelProvider {
         } else {
             this.controller.setData(null);
         }
+        
     }
 
     @objid ("a10c86a1-4e98-43ed-a8a3-1c58dea88548")
@@ -127,7 +127,7 @@ public class PatternCatalogPanel implements IPanelProvider {
     }
 
     @objid ("d5434e9e-9974-4135-be31-a4f55749fbc2")
-    public PatternCatalogPanel() {
+    public  PatternCatalogPanel() {
         this.controller = new PatternCatalogController();
     }
 
@@ -161,7 +161,7 @@ public class PatternCatalogPanel implements IPanelProvider {
         private Button installButton;
 
         @objid ("81561aab-944e-48f3-a15d-294fbccd7c13")
-        public PatternCatalogPanelUI(PatternCatalogController controller) {
+        public  PatternCatalogPanelUI(PatternCatalogController controller) {
             this.controller = controller;
         }
 
@@ -245,6 +245,7 @@ public class PatternCatalogPanel implements IPanelProvider {
             } else {
                 this.patternTree.setInput(Collections.emptyList());
             }
+            
         }
 
         @objid ("bc1f4a17-710e-4f88-8d63-2817bc97517b")
@@ -415,6 +416,7 @@ public class PatternCatalogPanel implements IPanelProvider {
             if (this.ui != null) {
                 this.ui.update(this.data);
             }
+            
         }
 
         @objid ("c36027ef-77eb-412c-9d71-b42f26d51b10")
@@ -434,6 +436,7 @@ public class PatternCatalogPanel implements IPanelProvider {
         public void dispose() {
             this.ui.dispose();
             this.ui = null;
+            
         }
 
         @objid ("cb65c187-c9e0-4283-ac8c-d7e908bf49a9")
@@ -452,6 +455,7 @@ public class PatternCatalogPanel implements IPanelProvider {
                 throw new InvalidParameterException("Listener already registered");
             }
             this.listeners.add(l);
+            
         }
 
         @objid ("b1f81060-f77a-4f52-99c9-9e979793508a")
@@ -462,6 +466,7 @@ public class PatternCatalogPanel implements IPanelProvider {
                 this.ui.update(this.data);
                 fireListeners(this.data, true);
             }
+            
         }
 
         @objid ("6286c769-667f-4036-bef4-1ae9bcab1bd5")
@@ -473,6 +478,7 @@ public class PatternCatalogPanel implements IPanelProvider {
                 this.ui.update(this.data);
                 fireListeners(this.data, true);
             }
+            
         }
 
         @objid ("976b3230-d3f1-4571-acb6-c2ad8ad81f06")
@@ -489,6 +495,7 @@ public class PatternCatalogPanel implements IPanelProvider {
                 this.ui.update(this.data);
                 fireListeners(this.data, true);
             }
+            
         }
 
     }

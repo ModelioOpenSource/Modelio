@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.production.gateways;
 
 import java.util.List;
 import java.util.Map;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.bind.JAXBElement;
 import javax.xml.namespace.QName;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.bpmnxml.model.ObjectFactory;
 import org.modelio.bpmnxml.model.TEventBasedGateway;
 import org.modelio.bpmnxml.model.TEventBasedGatewayType;
@@ -47,7 +46,7 @@ import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("febd72b0-bbff-4552-ae6b-b3b84b335489")
-public class EventBasedGatewayNode implements IProductionNode<BpmnEventBasedGateway,TEventBasedGateway> {
+public class EventBasedGatewayNode implements IProductionNode<BpmnEventBasedGateway, TEventBasedGateway> {
     @objid ("36090eee-5aa3-4cac-8ee0-2540858d4a6c")
     private Map<String, Object> elementsMap;
 
@@ -84,6 +83,7 @@ public class EventBasedGatewayNode implements IProductionNode<BpmnEventBasedGate
         } else {
             return factory.create(BpmnEventBasedGateway.class, context);
         }
+        
     }
 
     @objid ("abf4bacf-bb91-40f8-a587-c69c0cd73869")

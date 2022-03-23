@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.browser.view.handlers.move;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
@@ -57,7 +56,6 @@ public class MoveElementUpHandler {
 
     /**
      * Available only when the selection contains only one modifiable element.
-     * 
      * @param selection the current modelio selection.
      * @return true if the handler can be executed.
      */
@@ -149,7 +147,6 @@ public class MoveElementUpHandler {
 
     /**
      * Cut the currently selected elements.
-     * 
      * @param selection the current modelio selection.
      * @param currentDisplay the display Modelio runs into.
      */
@@ -203,6 +200,7 @@ public class MoveElementUpHandler {
             // is not a RuntimeException.
             MoveElementUpHandler.reportException(e);
         }
+        
     }
 
     @objid ("25481874-43a4-11e2-b513-002564c97630")
@@ -220,6 +218,8 @@ public class MoveElementUpHandler {
             while (index != -1 && !(listToReorder.get(index) instanceof BpmnFlowElement)) {
                 index--;
             }
+        } else if (element.getMClass().getOrigin().getName().equals("Archimate")) {
+            // Thanks TMA!
         } else {
         
             // Iterate until we find an element of the same metaclass or until we
@@ -241,6 +241,7 @@ public class MoveElementUpHandler {
         MessageDialog.openError(null, title, e.getLocalizedMessage());
         
         BrowserViewActivator.LOG.error(e);
+        
     }
 
     @objid ("4cefcc9b-4b5d-4d1d-9fa2-f3a990306ab9")

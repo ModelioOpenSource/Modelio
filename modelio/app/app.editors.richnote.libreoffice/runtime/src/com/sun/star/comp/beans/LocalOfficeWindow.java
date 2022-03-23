@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package com.sun.star.comp.beans;
 
 import java.awt.Component;
@@ -65,19 +64,18 @@ public class LocalOfficeWindow extends java.awt.Canvas implements OfficeWindow, 
 
     /**
      * Constructor.
-     * 
      * @param connection The office connection object the window
      * belongs to.
      */
     @objid ("3667ef08-f14a-4c2b-803a-1fc238b3f550")
-    protected LocalOfficeWindow(final OfficeConnection connection) {
+    protected  LocalOfficeWindow(final OfficeConnection connection) {
         this.mConnection    = connection;
         this.mConnection.addEventListener(this);
+        
     }
 
     /**
      * Retrieves an AWT component object associated with the OfficeWindow.
-     * 
      * @return The AWT component object associated with the OfficeWindow.
      * @deprecated
      */
@@ -90,7 +88,6 @@ public class LocalOfficeWindow extends java.awt.Canvas implements OfficeWindow, 
 
     /**
      * Retrieves an UNO XWindowPeer object associated with the OfficeWindow.
-     * 
      * @return The UNO XWindowPeer object associated with the OfficeWindow.
      * @deprecated
      */
@@ -114,6 +111,7 @@ public class LocalOfficeWindow extends java.awt.Canvas implements OfficeWindow, 
         // the window will be disposed by the framework
         this.mWindow = null;
         this.mConnection    = null;
+        
     }
 
     /**
@@ -135,6 +133,7 @@ public class LocalOfficeWindow extends java.awt.Canvas implements OfficeWindow, 
         }
         else
             return null;
+        
     }
 
     /**
@@ -154,6 +153,7 @@ public class LocalOfficeWindow extends java.awt.Canvas implements OfficeWindow, 
             XWindow aWindow = UnoRuntime.queryInterface(XWindow.class, this.mWindow);
             aWindow.setVisible( true );
         }
+        
     }
 
     /**
@@ -175,6 +175,7 @@ public class LocalOfficeWindow extends java.awt.Canvas implements OfficeWindow, 
         
             this.bPeer = false;
         }
+        
     }
 
     /**
@@ -191,6 +192,7 @@ public class LocalOfficeWindow extends java.awt.Canvas implements OfficeWindow, 
             aquireSystemWindow();
         else
             releaseSystemWindow();
+        
     }
 
     /**
@@ -255,11 +257,11 @@ public class LocalOfficeWindow extends java.awt.Canvas implements OfficeWindow, 
             e.printStackTrace(System.err);
         }
         super.removeNotify();
+        
     }
 
     /**
      * Retrives a platform dependant system window identifier.
-     * 
      * @return The system window identifier.
      */
     @objid ("eecaeef6-39d6-417f-873f-73e669a4c144")
@@ -267,7 +269,6 @@ public class LocalOfficeWindow extends java.awt.Canvas implements OfficeWindow, 
 
     /**
      * Retrives a platform dependant system window type.
-     * 
      * @return The system window type.
      */
     @objid ("f4530b30-89c1-4eca-b47a-18b1684ae846")
@@ -295,6 +296,7 @@ public class LocalOfficeWindow extends java.awt.Canvas implements OfficeWindow, 
         return new Any(
                 new Type("[]com.sun.star.beans.NamedValue"),
                 new NamedValue[] {window, xembed});
+        
     }
 
 }

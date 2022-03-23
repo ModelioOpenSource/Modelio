@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.portcontainer;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -27,6 +26,7 @@ import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
+import org.modelio.diagram.elements.core.helpers.RequestHelper;
 import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.elements.core.policies.DefaultNodeResizableEditPolicy;
@@ -34,8 +34,7 @@ import org.modelio.diagram.elements.core.policies.DefaultNodeResizableEditPolicy
 /**
  * {@link PortContainerEditPart} preferred drag policy.
  * <p>
- * Specialisation that will actually resize the main node while making sure that the container bounds still contains all
- * children (and no more).
+ * Specialisation that will actually resize the main node while making sure that the container bounds still contains all children (and no more).
  * 
  * @author fpoyer
  */
@@ -60,12 +59,13 @@ public class AutoSizeEditPolicy extends DefaultNodeResizableEditPolicy {
         } else {
             newHandleBounds = containerFigure.getHandleBounds().getCopy();
         }
-        //Rectangle newHandleBounds = ((HandleBounds)containerFigure).getHandleBounds().getCopy();
+        // Rectangle newHandleBounds = ((HandleBounds)containerFigure).getHandleBounds().getCopy();
         containerFigure.translateToAbsolute(newHandleBounds);
         newHandleBounds = request.getTransformedRectangle(newHandleBounds);
-        //containerFigure.translateToRelative(newHandleBounds);
+        // containerFigure.translateToRelative(newHandleBounds);
         
         req.getExtendedData().put(PortResizeHelper.REQPROP_MAIN_NODE_BOUNDS, newHandleBounds);
+        RequestHelper.addSharedEditParts(req, request);
         return getHost().getParent().getCommand(req);
     }
 
@@ -84,7 +84,7 @@ public class AutoSizeEditPolicy extends DefaultNodeResizableEditPolicy {
         }
         containerFigure.translateToAbsolute(newHandleBounds);
         newHandleBounds = request.getTransformedRectangle(newHandleBounds);
-        //containerFigure.translateToRelative(newHandleBounds);
+        // containerFigure.translateToRelative(newHandleBounds);
         
         request.getExtendedData().put(PortResizeHelper.REQPROP_MAIN_NODE_BOUNDS, newHandleBounds);
         return super.getOrphanCommand(request);
@@ -115,12 +115,12 @@ public class AutoSizeEditPolicy extends DefaultNodeResizableEditPolicy {
             // If the main node can provide a resize policy, use it, otherwise
             // use default.
             if (mainNodeEditPart instanceof AbstractNodeEditPart &&
-                ((AbstractNodeEditPart) mainNodeEditPart).getPreferredDragRolePolicy(REQ_RESIZE) != null) {
+                    ((AbstractNodeEditPart) mainNodeEditPart).getPreferredDragRolePolicy(REQ_RESIZE) != null) {
                 mainNodeEditPart.installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-                                                   ((AbstractNodeEditPart) mainNodeEditPart).getPreferredDragRolePolicy(REQ_RESIZE));
+                        ((AbstractNodeEditPart) mainNodeEditPart).getPreferredDragRolePolicy(REQ_RESIZE));
             } else {
                 mainNodeEditPart.installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE,
-                                                   new DefaultNodeResizableEditPolicy());
+                        new DefaultNodeResizableEditPolicy());
             }
         
             // Apply the bounds change to the main node. The container should
@@ -135,6 +135,7 @@ public class AutoSizeEditPolicy extends DefaultNodeResizableEditPolicy {
             changeMainNodeBoundsRequest.setMoveDelta(request.getMoveDelta());
             changeMainNodeBoundsRequest.setResizeDirection(request.getResizeDirection());
             changeMainNodeBoundsRequest.setSizeDelta(request.getSizeDelta());
+            RequestHelper.addSharedEditParts(changeMainNodeBoundsRequest, request);
             Command resizeMainNodeCommand = mainNodeEditPart.getCommand(changeMainNodeBoundsRequest);
         
             // Remove the install resize policy: remember that main node is NOT

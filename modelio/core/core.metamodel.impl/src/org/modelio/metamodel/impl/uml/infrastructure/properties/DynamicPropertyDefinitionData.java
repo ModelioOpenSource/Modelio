@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,7 +30,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 @objid ("9ab0ac5e-1050-4546-8b50-f8fc9f82e2b0")
 public class DynamicPropertyDefinitionData extends PropertyDefinitionData {
     @objid ("91634254-2d2f-4772-bab8-87bb12cd4e37")
-    public DynamicPropertyDefinitionData(DynamicPropertyDefinitionSmClass smClass) {
+    public  DynamicPropertyDefinitionData(DynamicPropertyDefinitionSmClass smClass) {
         super(smClass);
     }
 

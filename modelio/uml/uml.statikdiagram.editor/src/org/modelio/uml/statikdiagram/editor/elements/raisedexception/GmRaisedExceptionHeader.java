@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.raisedexception;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,12 +45,11 @@ public class GmRaisedExceptionHeader extends GmDefaultModelElementLabel {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
     @objid ("365f126d-55b7-11e2-877f-002564c97630")
-    public GmRaisedExceptionHeader(IGmDiagram diagram, MRef relatedRef) {
+    public  GmRaisedExceptionHeader(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -59,7 +57,8 @@ public class GmRaisedExceptionHeader extends GmDefaultModelElementLabel {
      * For deserialization only.
      */
     @objid ("365f1276-55b7-11e2-877f-002564c97630")
-    public GmRaisedExceptionHeader() {
+    public  GmRaisedExceptionHeader() {
+        
     }
 
     @objid ("366098ee-55b7-11e2-877f-002564c97630")
@@ -91,6 +90,7 @@ public class GmRaisedExceptionHeader extends GmDefaultModelElementLabel {
                 break;
             }
         }
+        
     }
 
     @objid ("36609912-55b7-11e2-877f-002564c97630")
@@ -100,6 +100,7 @@ public class GmRaisedExceptionHeader extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmRaisedExceptionHeader.", GmRaisedExceptionHeader.MINOR_VERSION);
+        
     }
 
     @objid ("36609918-55b7-11e2-877f-002564c97630")

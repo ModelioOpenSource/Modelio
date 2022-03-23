@@ -17,22 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.interactionModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.CombinedFragmentSmClass;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.GateData;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.InteractionSmClass;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.InteractionUseSmClass;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.MessageEndSmClass;
 import org.modelio.metamodel.uml.behavior.interactionModel.CombinedFragment;
 import org.modelio.metamodel.uml.behavior.interactionModel.Gate;
 import org.modelio.metamodel.uml.behavior.interactionModel.Interaction;
@@ -68,7 +63,7 @@ public class GateSmClass extends MessageEndSmClass {
     private SmDependency formalDep;
 
     @objid ("6aa39c8d-1c27-47a1-b544-bbfc13542d24")
-    public GateSmClass(ISmMetamodelFragment origin) {
+    public  GateSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -76,6 +71,7 @@ public class GateSmClass extends MessageEndSmClass {
     @Override
     public String getName() {
         return "Gate";
+        
     }
 
     @objid ("354f113b-42f7-4fcc-986f-bc1a7f9eb790")
@@ -88,18 +84,21 @@ public class GateSmClass extends MessageEndSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Gate.class;
+        
     }
 
     @objid ("f76d04ae-b083-476f-91e5-5e2471b881e9")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("cc68684b-a1fe-4049-b6ed-686e2faee5f5")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("fc94d5c3-f64e-4c0a-9e85-0db23202c3e1")
@@ -131,6 +130,8 @@ public class GateSmClass extends MessageEndSmClass {
         this.formalDep = new FormalSmDependency();
         this.formalDep.init("Formal", this, metamodel.getMClass(Gate.MQNAME), 0, 1 , SmDirective.SMCDPARTOF);
         registerDependency(this.formalDep);
+        
+        
     }
 
     @objid ("3ff48af0-7a46-4c30-ab82-7b32ef088d21")
@@ -179,7 +180,7 @@ public class GateSmClass extends MessageEndSmClass {
         private GateSmClass smClass;
 
         @objid ("e9e5f1fc-45dc-4596-ade6-b59361227ffd")
-        public GateObjectFactory(GateSmClass smClass) {
+        public  GateObjectFactory(GateSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -221,6 +222,7 @@ public class GateSmClass extends MessageEndSmClass {
             	this.symetricDep = ((InteractionUseSmClass)this.getTarget()).getActualGateDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -240,6 +242,7 @@ public class GateSmClass extends MessageEndSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((GateData) data).mActual = values;
+            
         }
 
         @objid ("56edc165-a72f-41c0-aa80-90f2a0ff388e")
@@ -249,6 +252,7 @@ public class GateSmClass extends MessageEndSmClass {
             	this.symetricDep = ((GateSmClass)this.getTarget()).getFormalDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -277,6 +281,7 @@ public class GateSmClass extends MessageEndSmClass {
             	this.symetricDep = ((InteractionSmClass)this.getTarget()).getFormalGateDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -305,6 +310,7 @@ public class GateSmClass extends MessageEndSmClass {
             	this.symetricDep = ((CombinedFragmentSmClass)this.getTarget()).getFragmentGateDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -333,6 +339,7 @@ public class GateSmClass extends MessageEndSmClass {
             	this.symetricDep = ((GateSmClass)this.getTarget()).getActualDep();
             }
             return this.symetricDep;
+            
         }
 
     }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmncallactivity;
 
 import java.util.Collections;
@@ -35,8 +34,8 @@ import org.modelio.diagram.elements.core.node.IImageableNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.bpmn.activities.BpmnCallActivity;
 import org.modelio.metamodel.bpmn.activities.BpmnMultiInstanceLoopCharacteristics;
 import org.modelio.metamodel.bpmn.activities.BpmnStandardLoopCharacteristics;
@@ -52,14 +51,17 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("609bddb3-55b6-11e2-877f-002564c97630")
 public class GmBpmnCallActivityPrimaryNode extends GmNoStyleCompositeNode implements IImageableNode {
+    @objid ("609bddbf-55b6-11e2-877f-002564c97630")
+    private static final int MAJOR_VERSION = 0;
+
     /**
      * Current version of this Gm.
      */
     @objid ("609bddbc-55b6-11e2-877f-002564c97630")
     private static final int MINOR_VERSION = 1;
 
-    @objid ("609bddbf-55b6-11e2-877f-002564c97630")
-    private static final int MAJOR_VERSION = 0;
+    @objid ("c52d53ce-59a6-11e2-ae45-002564c97630")
+    private GmBpmnNodeFooter footer;
 
     /**
      * Header
@@ -67,17 +69,13 @@ public class GmBpmnCallActivityPrimaryNode extends GmNoStyleCompositeNode implem
     @objid ("609bddb9-55b6-11e2-877f-002564c97630")
     private GmBpmnCallActivityHeader header;
 
-    @objid ("c52d53ce-59a6-11e2-ae45-002564c97630")
-    private GmBpmnNodeFooter footer;
-
     /**
      * Default constructor.
-     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param relatedRef ref
      */
     @objid ("609bddc1-55b6-11e2-877f-002564c97630")
-    public GmBpmnCallActivityPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
+    public  GmBpmnCallActivityPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
         
         this.header = new GmBpmnCallActivityHeader(diagram, relatedRef, true);
@@ -86,13 +84,14 @@ public class GmBpmnCallActivityPrimaryNode extends GmNoStyleCompositeNode implem
         
         super.addChild(this.header);
         super.addChild(this.footer);
+        
     }
 
     /**
      * Empty constructor, needed for serialisation.
      */
     @objid ("609bddca-55b6-11e2-877f-002564c97630")
-    public GmBpmnCallActivityPrimaryNode() {
+    public  GmBpmnCallActivityPrimaryNode() {
         // empty constructor for the serialization
     }
 
@@ -124,11 +123,42 @@ public class GmBpmnCallActivityPrimaryNode extends GmNoStyleCompositeNode implem
         return ElementImageService.getImage(getRelatedElement());
     }
 
+    @objid ("609d6476-55b6-11e2-877f-002564c97630")
+    @Override
+    public int getMajorVersion() {
+        return GmBpmnCallActivityPrimaryNode.MAJOR_VERSION;
+    }
+
+    @objid ("609d644f-55b6-11e2-877f-002564c97630")
+    @Override
+    public BpmnCallActivity getRelatedElement() {
+        return (BpmnCallActivity) super.getRelatedElement();
+    }
+
     @objid ("609d6442-55b6-11e2-877f-002564c97630")
     @Override
     public RepresentationMode getRepresentationMode() {
         final StyleKey repModeKey = GmBpmnCallActivity.STRUCTURED_KEYS.getStyleKey(MetaKey.REPMODE);
         return getDisplayedStyle().getProperty(repModeKey);
+    }
+
+    @objid ("609d6462-55b6-11e2-877f-002564c97630")
+    @Override
+    public List<GmNodeModel> getVisibleChildren() {
+        // Returned result depends on current representation mode:
+        List<GmNodeModel> ret;
+        switch (getRepresentationMode()) {
+        case USER_IMAGE:
+        case IMAGE: {
+            ret = Collections.emptyList();
+            break;
+        }
+        default: {
+            ret = super.getVisibleChildren();
+            break;
+        }
+        }
+        return ret;
     }
 
     @objid ("609d6449-55b6-11e2-877f-002564c97630")
@@ -152,12 +182,7 @@ public class GmBpmnCallActivityPrimaryNode extends GmNoStyleCompositeNode implem
             break;
         }
         }
-    }
-
-    @objid ("609d644f-55b6-11e2-877f-002564c97630")
-    @Override
-    public BpmnCallActivity getRelatedElement() {
-        return (BpmnCallActivity) super.getRelatedElement();
+        
     }
 
     @objid ("609d6456-55b6-11e2-877f-002564c97630")
@@ -208,38 +233,7 @@ public class GmBpmnCallActivityPrimaryNode extends GmNoStyleCompositeNode implem
         this.footer.refreshFromObModel();
         // forcing visual refresh in case Image changed
         firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, null, getLayoutData());
-    }
-
-    @objid ("609d6459-55b6-11e2-877f-002564c97630")
-    @Override
-    public void obElementAdded(MObject movedEl) {
-        super.obElementAdded(movedEl);
-        refreshFromObModel();
-    }
-
-    @objid ("609d645f-55b6-11e2-877f-002564c97630")
-    @Override
-    public void obElementsUpdated() {
-        super.obElementsUpdated();
-        refreshFromObModel();
-    }
-
-    @objid ("609d6462-55b6-11e2-877f-002564c97630")
-    @Override
-    public List<GmNodeModel> getVisibleChildren() {
-        // Returned result depends on current representation mode:
-        List<GmNodeModel> ret;
-        switch (getRepresentationMode()) {
-        case IMAGE: {
-            ret = Collections.emptyList();
-            break;
-        }
-        default: {
-            ret = super.getVisibleChildren();
-            break;
-        }
-        }
-        return ret;
+        
     }
 
     @objid ("609d646b-55b6-11e2-877f-002564c97630")
@@ -249,6 +243,7 @@ public class GmBpmnCallActivityPrimaryNode extends GmNoStyleCompositeNode implem
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmBpmnCallActivityPrimaryNode.", GmBpmnCallActivityPrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("609d6471-55b6-11e2-877f-002564c97630")
@@ -259,12 +254,7 @@ public class GmBpmnCallActivityPrimaryNode extends GmNoStyleCompositeNode implem
         
         GmDefaultModelElementLabel imageModeHeader = (GmDefaultModelElementLabel) this.getChildren().get(2);
         imageModeHeader.delete();
-    }
-
-    @objid ("609d6476-55b6-11e2-877f-002564c97630")
-    @Override
-    public int getMajorVersion() {
-        return GmBpmnCallActivityPrimaryNode.MAJOR_VERSION;
+        
     }
 
     @objid ("609eead9-55b6-11e2-877f-002564c97630")
@@ -272,6 +262,7 @@ public class GmBpmnCallActivityPrimaryNode extends GmNoStyleCompositeNode implem
         super.read(in);
         this.header = (GmBpmnCallActivityHeader) this.getChildren().get(0);
         this.footer = (GmBpmnNodeFooter) this.getChildren().get(1);
+        
     }
 
 }

@@ -17,18 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.interactionModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.GeneralOrderingData;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.OccurrenceSpecificationSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.ElementSmClass;
 import org.modelio.metamodel.uml.behavior.interactionModel.GeneralOrdering;
 import org.modelio.metamodel.uml.behavior.interactionModel.OccurrenceSpecification;
@@ -53,7 +51,7 @@ public class GeneralOrderingSmClass extends ElementSmClass {
     private SmDependency afterDep;
 
     @objid ("10113d2d-f34f-4081-9fac-27f2b9613a4b")
-    public GeneralOrderingSmClass(ISmMetamodelFragment origin) {
+    public  GeneralOrderingSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -61,6 +59,7 @@ public class GeneralOrderingSmClass extends ElementSmClass {
     @Override
     public String getName() {
         return "GeneralOrdering";
+        
     }
 
     @objid ("9e79557d-2ceb-4f71-af9b-46b22a3cc461")
@@ -73,18 +72,21 @@ public class GeneralOrderingSmClass extends ElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return GeneralOrdering.class;
+        
     }
 
     @objid ("1d24facc-7938-4625-b43c-d4a9ad8b208e")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("81d85ee2-5d9a-4a02-88dc-2a4f070c9599")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("887b6af9-6281-4457-8de8-68537ac72be4")
@@ -104,6 +106,8 @@ public class GeneralOrderingSmClass extends ElementSmClass {
         this.afterDep = new AfterSmDependency();
         this.afterDep.init("After", this, metamodel.getMClass(OccurrenceSpecification.MQNAME), 1, 1 , SmDirective.SMCDPARTOF);
         registerDependency(this.afterDep);
+        
+        
     }
 
     @objid ("c58539b4-3426-4f46-b6ea-544c74320286")
@@ -128,7 +132,7 @@ public class GeneralOrderingSmClass extends ElementSmClass {
         private GeneralOrderingSmClass smClass;
 
         @objid ("8d3d132a-98c7-41de-bc73-4c265f7d4431")
-        public GeneralOrderingObjectFactory(GeneralOrderingSmClass smClass) {
+        public  GeneralOrderingObjectFactory(GeneralOrderingSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -170,6 +174,7 @@ public class GeneralOrderingSmClass extends ElementSmClass {
             	this.symetricDep = ((OccurrenceSpecificationSmClass)this.getTarget()).getToAfterDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -198,6 +203,7 @@ public class GeneralOrderingSmClass extends ElementSmClass {
             	this.symetricDep = ((OccurrenceSpecificationSmClass)this.getTarget()).getToBeforeDep();
             }
             return this.symetricDep;
+            
         }
 
     }

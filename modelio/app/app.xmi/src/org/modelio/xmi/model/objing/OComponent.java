@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -57,15 +56,17 @@ public class OComponent extends ONameSpace {
     private org.eclipse.uml2.uml.Element getOrCreateEcoreAssociationClass() {
         return GenerationProperties.getInstance()
                                                  .getMappedElement(getObjingElement());
+        
     }
 
     @objid ("7689f272-1341-4ada-b9ef-1bd0186f6e08")
-    public OComponent(Component element) {
+    public  OComponent(Component element) {
         super(element);
         if (AbstractObjingModelNavigation.isIsClassAssociation(element))
             this.isIsClassAssociation = true;
         else
             this.isIsClassAssociation = false;
+        
     }
 
     @objid ("3e6e447b-4287-4a10-ac28-f1f7517e6938")
@@ -73,6 +74,7 @@ public class OComponent extends ONameSpace {
     public void attach(org.eclipse.uml2.uml.Element ecoreElt) {
         if (!this.isIsClassAssociation)
             linkEcoreComponent((org.eclipse.uml2.uml.Component) ecoreElt);
+        
     }
 
     @objid ("96278f15-3a6a-4214-97b9-13008a562cf1")
@@ -80,6 +82,7 @@ public class OComponent extends ONameSpace {
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         if (!this.isIsClassAssociation)
             setComponentProperties((org.eclipse.uml2.uml.Component) ecoreElt);
+        
     }
 
     @objid ("24c044c8-9d99-4ec0-803a-6fd840f9a1a0")
@@ -123,6 +126,7 @@ public class OComponent extends ONameSpace {
                         + ecoreOwner.getClass().getSimpleName() + ") Not Found");
             }
         }
+        
     }
 
     @objid ("4730da56-16df-425b-8811-84f4ce85f6dd")
@@ -136,6 +140,7 @@ public class OComponent extends ONameSpace {
             setPrimitiveEAnnotation(ecoreElt);
             setMainEAnnotation(ecoreElt);
         }
+        
     }
 
     @objid ("cbb92038-3ce0-466d-a13e-ea50e536a05c")

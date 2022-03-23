@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.versioned.load.sax.local;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -58,7 +57,7 @@ final class DocumentContentHandler extends DefaultHandler {
     private final OBJECTState objectState;
 
     @objid ("b5c58e09-3fbb-11e2-87cb-001ec947ccaf")
-    public DocumentContentHandler(LocalDataModel dataModel) {
+    public  DocumentContentHandler(LocalDataModel dataModel) {
         this.objectState = new OBJECTState();
         this.relationState = new RelationState();
         this.documentState = new DocumentState();
@@ -70,6 +69,7 @@ final class DocumentContentHandler extends DefaultHandler {
         this.currentState = (this.documentState);
         this.errorEncountered = false;
         this.dataModel = dataModel;
+        
     }
 
     @objid ("b5c58e0f-3fbb-11e2-87cb-001ec947ccaf")
@@ -84,6 +84,7 @@ final class DocumentContentHandler extends DefaultHandler {
         //TODO trace
         //System.out.println(" /"+localName);
         this.currentState.endElement (uri, localName, qName);
+        
     }
 
     @objid ("b5c58e2f-3fbb-11e2-87cb-001ec947ccaf")
@@ -103,6 +104,7 @@ final class DocumentContentHandler extends DefaultHandler {
         //     XMLString.release( msg);
         throw exc;
         // === end cxx code ===
+        
     }
 
     @objid ("b5c58e34-3fbb-11e2-87cb-001ec947ccaf")
@@ -126,6 +128,7 @@ final class DocumentContentHandler extends DefaultHandler {
         // 
         //     throw exc;
         // === end cxx code ===
+        
     }
 
     @objid ("b5c58e39-3fbb-11e2-87cb-001ec947ccaf")
@@ -138,6 +141,7 @@ final class DocumentContentHandler extends DefaultHandler {
     public void setDocumentLocator(final Locator aLocator) {
         this.locator = aLocator;
         this.dataModel.setDocumentLocator(aLocator);
+        
     }
 
     @objid ("b5c58e46-3fbb-11e2-87cb-001ec947ccaf")
@@ -146,6 +150,7 @@ final class DocumentContentHandler extends DefaultHandler {
         //TODO trace
         //System.out.println(" >"+localName);
         this.currentState.startElement (uri, localName, qName, atts);
+        
     }
 
     @objid ("b5c58e5a-3fbb-11e2-87cb-001ec947ccaf")
@@ -165,6 +170,7 @@ final class DocumentContentHandler extends DefaultHandler {
         //     XMLString.release ( msg);
         // === end cxx code ===
         Log.warning(exc); // TODO better reporting
+        
     }
 
     @objid ("b5c58e2b-3fbb-11e2-87cb-001ec947ccaf")
@@ -194,6 +200,7 @@ final class DocumentContentHandler extends DefaultHandler {
     void reset() {
         this.errorEncountered = false;
         enterDocumentState();
+        
     }
 
     @objid ("b5c58e44-3fbb-11e2-87cb-001ec947ccaf")

@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.bpmn;
 
 import java.util.Collection;
 import java.util.Collections;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.modelio.api.modelio.diagram.IDiagramLink.ExtensionRole;
 import org.modelio.bpmn.diagram.editor.elements.bpmnsequenceflow.GmBpmnSequenceFlow;
 import org.modelio.diagram.api.services.DiagramHandle;
 import org.modelio.diagram.api.services.DiagramLink;
@@ -39,7 +39,7 @@ public class BpmnSequenceFlowDG extends DiagramLink {
      * @param link The graphic model link represented by this class.
      */
     @objid ("25ed1eff-79ac-4114-8783-7ba86d0d8fa0")
-    public BpmnSequenceFlowDG(DiagramHandle diagramHandle, IGmLink link) {
+    public  BpmnSequenceFlowDG(DiagramHandle diagramHandle, IGmLink link) {
         super(diagramHandle, link);
     }
 
@@ -58,6 +58,7 @@ public class BpmnSequenceFlowDG extends DiagramLink {
             return Collections.emptyList();
         
         }
+        
     }
 
 }

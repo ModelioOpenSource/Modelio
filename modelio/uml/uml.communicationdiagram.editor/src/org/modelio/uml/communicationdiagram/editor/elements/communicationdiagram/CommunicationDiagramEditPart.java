@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.communicationdiagram.editor.elements.communicationdiagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -57,6 +56,7 @@ public class CommunicationDiagramEditPart extends AbstractDiagramEditPart {
         
         // Policy to create Lost, Found and Creation messages.
         installEditPolicy(ModelElementDropRequest.TYPE, new DiagramElementDropEditPolicy());
+        
     }
 
 }

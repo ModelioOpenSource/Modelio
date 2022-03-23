@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.module.propertytab.ui.panel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;

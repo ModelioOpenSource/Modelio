@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.interactionoperand.primarynode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -94,6 +93,7 @@ public class GuardEditPart extends ElementLabelEditPart {
         } else {
             super.performRequest(req);
         }
+        
     }
 
     @objid ("d90cb0bf-55b6-11e2-877f-002564c97630")
@@ -115,6 +115,7 @@ public class GuardEditPart extends ElementLabelEditPart {
         if (fontStyleKey != null) {
             label.setFont(style.getFont(fontStyleKey));
         }
+        
     }
 
     @objid ("d90cb0c8-55b6-11e2-877f-002564c97630")
@@ -126,6 +127,7 @@ public class GuardEditPart extends ElementLabelEditPart {
         getLabelFigure(fig).setText(model.getLabel());
         
         fig.getParent().setConstraint(fig, model.getLayoutData());
+        
     }
 
     @objid ("60d0aec2-e519-47e9-9feb-fbc9c161801a")
@@ -136,6 +138,7 @@ public class GuardEditPart extends ElementLabelEditPart {
         } else {
             return (LabelumFigure) mainFig.getChildren().get(0);
         }
+        
     }
 
 }

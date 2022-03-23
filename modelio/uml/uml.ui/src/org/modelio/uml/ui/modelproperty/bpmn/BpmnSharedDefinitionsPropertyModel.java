@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,17 +50,15 @@ public class BpmnSharedDefinitionsPropertyModel extends AbstractPropertyModel<Bp
 
     /**
      * Create a new <i>BpmnSharedDefinitions</i> data model from an <i>BpmnSharedDefinitions</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("10ebde10-20df-49cd-a075-4b12fc4fd925")
-    public BpmnSharedDefinitionsPropertyModel(BpmnSharedDefinitions theEditedElement) {
+    public  BpmnSharedDefinitionsPropertyModel(BpmnSharedDefinitions theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("5b8a8caa-4518-4711-8eba-ab207e811865")
@@ -72,7 +69,6 @@ public class BpmnSharedDefinitionsPropertyModel extends AbstractPropertyModel<Bp
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("c582c758-e146-45cf-a49c-7f8172c13c54")
@@ -85,7 +81,6 @@ public class BpmnSharedDefinitionsPropertyModel extends AbstractPropertyModel<Bp
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -109,6 +104,7 @@ public class BpmnSharedDefinitionsPropertyModel extends AbstractPropertyModel<Bp
         default:
             return null;
         }
+        
     }
 
     /**
@@ -118,7 +114,6 @@ public class BpmnSharedDefinitionsPropertyModel extends AbstractPropertyModel<Bp
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -143,13 +138,13 @@ public class BpmnSharedDefinitionsPropertyModel extends AbstractPropertyModel<Bp
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -177,6 +172,7 @@ public class BpmnSharedDefinitionsPropertyModel extends AbstractPropertyModel<Bp
         default:
             return;
         }
+        
     }
 
 }

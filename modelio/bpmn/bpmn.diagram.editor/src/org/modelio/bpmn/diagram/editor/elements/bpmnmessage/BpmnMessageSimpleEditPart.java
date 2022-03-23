@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnmessage;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -28,7 +27,7 @@ import org.eclipse.draw2d.geometry.Insets;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.swt.graphics.Color;
-import org.modelio.bpmn.diagram.editor.elements.policies.BpmnCreateLinkEditPolicy;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnCreateLinkEditPolicy;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeEndReconnectEditPolicy;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeRequestConstants;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeStartCreationEditPolicy;
@@ -69,6 +68,7 @@ public class BpmnMessageSimpleEditPart extends AbstractNodeEditPart {
         super.refreshVisuals();
         GmAbstractObject model = getModel();
         getFigure().getParent().setConstraint(getFigure(), model.getLayoutData());
+        
     }
 
     @objid ("a5bb0ee2-deaa-463f-b5a5-b092698931d3")
@@ -81,6 +81,7 @@ public class BpmnMessageSimpleEditPart extends AbstractNodeEditPart {
         installEditPolicy(ModelElementDropRequest.TYPE, new BpmnMessageElementDropEditPolicy());
         
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START, new LinkedNodeStartCreationEditPolicy());
+        
     }
 
     @objid ("217713ac-06e7-4ca3-a11b-714a1e835f8c")
@@ -91,6 +92,7 @@ public class BpmnMessageSimpleEditPart extends AbstractNodeEditPart {
                 super.refreshFromStyle(aFigure, style);
             }
         }
+        
     }
 
     @objid ("58d28b13-b7ca-448d-b7a9-8665ebd31a25")
@@ -111,13 +113,14 @@ public class BpmnMessageSimpleEditPart extends AbstractNodeEditPart {
          * Default c'tor building an opaque figure using a {@link ToolbarLayoutWithGrab}.
          */
         @objid ("e0f1c0a1-51f1-4efe-af17-8a685df868f8")
-        public BpmnMessageFigure() {
+        public  BpmnMessageFigure() {
             // Add layout
             final ToolbarLayoutWithGrab layout = new ToolbarLayoutWithGrab();
             layout.setHorizontal(false);
             layout.setStretchMinorAxis(true);
             setLayoutManager(layout);
             setOpaque(true);
+            
         }
 
         @objid ("bf928e46-7d37-4328-87a1-eaecfd71f3bc")
@@ -173,6 +176,7 @@ public class BpmnMessageSimpleEditPart extends AbstractNodeEditPart {
             graphics.drawLine(messageBounds.x + messageBounds.width / 2, messageBounds.y + messageBounds.height / 2, messageBounds.x + messageBounds.width - 1, messageBounds.y);
             
             graphics.restoreState();
+            
         }
 
     }

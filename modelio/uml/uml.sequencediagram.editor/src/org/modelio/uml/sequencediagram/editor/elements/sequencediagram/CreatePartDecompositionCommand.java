@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.sequencediagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.gef.commands.Command;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
 import org.modelio.metamodel.uml.behavior.interactionModel.Interaction;
@@ -50,18 +49,18 @@ class CreatePartDecompositionCommand extends Command {
 
     /**
      * Creates a node creation command.
-     * 
      * @param interaction The parent MObject of the MObject to create
      * @param parentNode The parent node
      * @param context Details on the MObject and/or the node to create
      * @param constraint The initial constraint of the created node.
      */
     @objid ("d972ecb2-55b6-11e2-877f-002564c97630")
-    public CreatePartDecompositionCommand(final Interaction interaction, final GmCompositeNode parentNode, final ModelioCreationContext context, final Object constraint) {
+    public  CreatePartDecompositionCommand(final Interaction interaction, final GmCompositeNode parentNode, final ModelioCreationContext context, final Object constraint) {
         this.parentNode = parentNode;
         this.interaction = interaction;
         this.context = context;
         this.constraint = constraint;
+        
     }
 
     @objid ("d972ecc3-55b6-11e2-877f-002564c97630")
@@ -94,6 +93,7 @@ class CreatePartDecompositionCommand extends Command {
         
         // Show the new lifeline in the diagram (ie create its Gm )
         diagram.unmask(this.parentNode, lifeline, this.constraint);
+        
     }
 
     @objid ("d972ecc6-55b6-11e2-877f-002564c97630")

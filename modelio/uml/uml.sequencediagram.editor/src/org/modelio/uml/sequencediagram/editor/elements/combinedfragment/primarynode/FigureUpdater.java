@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.combinedfragment.primarynode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,9 +38,10 @@ class FigureUpdater extends Stub {
     private GraphicalEditPart editPart;
 
     @objid ("d8cb13e8-55b6-11e2-877f-002564c97630")
-    public FigureUpdater(final GraphicalEditPart editPart) {
+    public  FigureUpdater(final GraphicalEditPart editPart) {
         super();
         this.editPart = editPart;
+        
     }
 
     @objid ("d8cb13ec-55b6-11e2-877f-002564c97630")
@@ -78,6 +78,7 @@ class FigureUpdater extends Stub {
             }
         
         }
+        
     }
 
 }

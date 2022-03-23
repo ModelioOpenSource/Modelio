@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.contributor;
 
 import java.util.ArrayList;
@@ -122,10 +121,11 @@ public abstract class AbstractWizardContributor implements IWizardContributor {
      * Default constructor that ensure {@link #getParameters()} and {@link #getScopes()} won't return null.
      */
     @objid ("21f46c96-013a-4b5c-b716-b0afdabb5ed3")
-    public AbstractWizardContributor() {
+    public  AbstractWizardContributor() {
         // Ensure non null containers
         this.parameters = new HashMap<>();
         this.scopes = new ArrayList<>();
+        
     }
 
     @objid ("63bb2c7d-fef1-4459-9d28-50f539c15de6")
@@ -273,7 +273,6 @@ public abstract class AbstractWizardContributor implements IWizardContributor {
      * <li><i>module regex<b>#</b>stereotype regex</i>
      * </ul>
      * Returns <i>null</i> if the specification is <i>null</i> or the stereotype is not found.
-     * 
      * @param metaclass the metaclass to look from
      * @param stereotypeSpec the stereotype specification
      * @return the found stereotype or <i>null</i>.
@@ -309,7 +308,6 @@ public abstract class AbstractWizardContributor implements IWizardContributor {
 
     /**
      * Called by {@link #accept(MObject)} to check whether the given object has sufficient rights to create the wizard new element.
-     * 
      * @param owner the new element owner.
      * @return true if the operation is allowed else false.
      */

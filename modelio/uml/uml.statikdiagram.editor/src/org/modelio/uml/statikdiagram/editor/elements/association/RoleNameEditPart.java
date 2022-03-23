@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.association;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,6 +40,7 @@ public class RoleNameEditPart extends ModelElementLabelEditPart {
         super.refreshVisuals();
         
         refreshFromStyle(getFigure(), getModelStyle());
+        
     }
 
     @objid ("33f209f2-55b7-11e2-877f-002564c97630")
@@ -48,6 +48,7 @@ public class RoleNameEditPart extends ModelElementLabelEditPart {
     protected void refreshFromStyle(final IFigure fig, final IStyle style) {
         super.refreshFromStyle(fig, style);
         refreshStaticAbstract((IHeaderFigure) fig);
+        
     }
 
     @objid ("33f209fb-55b7-11e2-877f-002564c97630")
@@ -65,6 +66,7 @@ public class RoleNameEditPart extends ModelElementLabelEditPart {
             // restore default font from style
             fig.setTextFont(gm.getDisplayedStyle().getFont(gm.getStyleKey(MetaKey.FONT)));
         }
+        
     }
 
 }

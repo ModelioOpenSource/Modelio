@@ -17,20 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.commonBehaviors;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.BehaviorSmClass;
-import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.EventData;
-import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.SignalSmClass;
 import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.StateSmClass;
 import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.TransitionSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
@@ -80,7 +77,7 @@ public class EventSmClass extends UmlModelElementSmClass {
     private SmDependency composedDep;
 
     @objid ("0325166e-3741-4c6c-a6e3-7d10d7486391")
-    public EventSmClass(ISmMetamodelFragment origin) {
+    public  EventSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -88,6 +85,7 @@ public class EventSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "Event";
+        
     }
 
     @objid ("74a77ccd-ccf9-466c-9a73-b24c9df5eddd")
@@ -100,18 +98,21 @@ public class EventSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Event.class;
+        
     }
 
     @objid ("96a58a24-dd4c-4122-83b1-d7622b099405")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("f71d308b-c1e8-4b1f-b362-d65f7f9bc34d")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("55465732-0d7f-4dfc-adad-9d6c1599b57d")
@@ -151,6 +152,8 @@ public class EventSmClass extends UmlModelElementSmClass {
         this.composedDep = new ComposedSmDependency();
         this.composedDep.init("Composed", this, metamodel.getMClass(Behavior.MQNAME), 1, 1 );
         registerDependency(this.composedDep);
+        
+        
     }
 
     @objid ("48540c3c-79e5-49f4-a880-ebc9069051f6")
@@ -215,7 +218,7 @@ public class EventSmClass extends UmlModelElementSmClass {
         private EventSmClass smClass;
 
         @objid ("01703612-2e15-4928-8a66-7af78771332d")
-        public EventObjectFactory(EventSmClass smClass) {
+        public  EventObjectFactory(EventSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -276,6 +279,7 @@ public class EventSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((EventData) data).mTriggered = values;
+            
         }
 
         @objid ("5e8f09f2-5c82-4db2-8986-19ac5b0cf830")
@@ -285,6 +289,7 @@ public class EventSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((TransitionSmClass)this.getTarget()).getTriggerDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -313,6 +318,7 @@ public class EventSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((SignalSmClass)this.getTarget()).getEOccurenceDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -332,6 +338,7 @@ public class EventSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((EventData) data).mOrigin = values;
+            
         }
 
         @objid ("cfa8ef0c-dbc6-4835-8fa5-e6ac789a8630")
@@ -341,6 +348,7 @@ public class EventSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((StateSmClass)this.getTarget()).getDefferedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -369,6 +377,7 @@ public class EventSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((OperationSmClass)this.getTarget()).getOccurenceDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -397,6 +406,7 @@ public class EventSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((BehaviorSmClass)this.getTarget()).getEComponentDep();
             }
             return this.symetricDep;
+            
         }
 
     }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.checker;
 
 import java.io.ByteArrayOutputStream;
@@ -57,7 +56,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 @objid ("96eb884f-f002-4509-9546-ecebafdc1802")
 public class CheckerView extends ModelioDialog {
     @objid ("41fda318-77e3-4cbb-8aec-2682b8e60b6c")
-     volatile boolean refreshPending = false;
+    volatile boolean refreshPending = false;
 
     @objid ("e428177c-adbe-46b1-9a18-38eac264991b")
     private static final int SAVE_AS_TEXT_FILE_ID = IDialogConstants.CLIENT_ID + 1;
@@ -72,7 +71,7 @@ public class CheckerView extends ModelioDialog {
     private String lastUsedName;
 
     @objid ("c876561d-097d-4e0b-95d6-10268bc5eea6")
-     Label statusLabel;
+    Label statusLabel;
 
     @objid ("04a2cb18-1b8f-4991-9f66-3f6a735b148b")
     private List<MObject> checkedElements;
@@ -81,7 +80,7 @@ public class CheckerView extends ModelioDialog {
     private CheckerPanelProvider checkerPanel;
 
     @objid ("02060f87-ee74-494d-8c22-b6a55f4f1f30")
-    protected CheckerView(Shell parentShell, Object selection, IMModelServices modelService, IModelioNavigationService navigationService, MApplication application, EModelService emService, IAuditService auditService, IProjectService projectService) {
+    protected  CheckerView(Shell parentShell, Object selection, IMModelServices modelService, IModelioNavigationService navigationService, MApplication application, EModelService emService, IAuditService auditService, IProjectService projectService) {
         super(parentShell);
         
         // Used as proposed path for the 'save as file' command.
@@ -99,6 +98,7 @@ public class CheckerView extends ModelioDialog {
         this.checkerPanel.setProjectService(projectService);
         
         setBlockOnOpen(false);
+        
     }
 
     @objid ("b484dcf7-7e02-40ee-be38-9b221a65a6aa")
@@ -199,6 +199,7 @@ public class CheckerView extends ModelioDialog {
         createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL, true);
         createButton(parent, CheckerView.SAVE_AS_TEXT_FILE_ID, Audit.I18N.getString("Audit.CheckerView.SaveAsFile.label"), false);
         createButton(parent, CheckerView.SAVE_AS_TEXT_CLIP_ID, Audit.I18N.getString("Audit.CheckerView.CopyToClipboard.label"), false);
+        
     }
 
     @objid ("511c844f-45a0-4750-9d9b-63ec8abed84f")
@@ -209,6 +210,7 @@ public class CheckerView extends ModelioDialog {
         setMessage(Audit.I18N.getString("Audit.CheckerView.DialogMessage"));
         getShell().setSize(800, 400);
         getShell().setMinimumSize(300, 300);
+        
     }
 
     @objid ("63a3a266-4063-45a7-b816-3310e63d25b5")
@@ -223,6 +225,7 @@ public class CheckerView extends ModelioDialog {
         if (!this.refreshPending && !CheckerView.this.statusLabel.isDisposed()) {
             this.refreshPending = true;
         }
+        
     }
 
     @objid ("9d183d37-76f3-4dbe-b645-2291bb194daf")
@@ -273,6 +276,7 @@ public class CheckerView extends ModelioDialog {
         } else {
             super.buttonPressed(buttonId);
         }
+        
     }
 
     @objid ("1924bde1-ab29-4e07-91d6-7a825c813346")
@@ -300,6 +304,7 @@ public class CheckerView extends ModelioDialog {
             this.lastUsedName = new File(file).getName();
             this.lastUsedPath = new File(file).getParentFile().getPath();
         }
+        
     }
 
     @objid ("dee3a7ed-9a71-4e24-81de-a70a01ea2419")
@@ -322,6 +327,7 @@ public class CheckerView extends ModelioDialog {
         Object[] data = new Object[] { s };
         cb.setContents(data, new Transfer[] { transfer });
         cb.dispose();
+        
     }
 
 }

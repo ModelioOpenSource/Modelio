@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.flowfinal;
 
 import java.util.Collections;
@@ -31,8 +30,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.FlowFinalNode;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -57,7 +56,7 @@ public class GmFlowFinal extends GmPortContainer {
     private static final int MAJOR_VERSION = 0;
 
     @objid ("2dde9e26-58a2-11e2-9574-002564c97630")
-     static final GmFlowFinalStructuredStyleKeys STRUCTURED_KEYS = new GmFlowFinalStructuredStyleKeys();
+    static final GmFlowFinalStructuredStyleKeys STRUCTURED_KEYS = new GmFlowFinalStructuredStyleKeys();
 
     @objid ("2dde9e28-58a2-11e2-9574-002564c97630")
     private static final GmFlowFinalSimpleStyleKeys SIMPLE_KEYS = new GmFlowFinalSimpleStyleKeys();
@@ -70,13 +69,12 @@ public class GmFlowFinal extends GmPortContainer {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the timeEvent is unmasked.
      * @param el the unmasked timeEvent.
      * @param ref a reference to the unmasked timeEvent.
      */
     @objid ("2a754193-55b6-11e2-877f-002564c97630")
-    public GmFlowFinal(IGmDiagram diagram, FlowFinalNode el, MRef ref) {
+    public  GmFlowFinal(IGmDiagram diagram, FlowFinalNode el, MRef ref) {
         super(diagram, ref);
         
         GmFlowFinalPrimaryNode mainNode = new GmFlowFinalPrimaryNode(diagram, ref);
@@ -88,6 +86,7 @@ public class GmFlowFinal extends GmPortContainer {
         label.setRoleInComposition(GmPortContainer.SATELLITE_ROLE);
         label.setLayoutData(Integer.valueOf(PositionConstants.EAST));
         this.addChild(label);
+        
     }
 
     @objid ("2a75419f-55b6-11e2-877f-002564c97630")
@@ -146,7 +145,7 @@ public class GmFlowFinal extends GmPortContainer {
      * Empty constructor needed for deserialisation.
      */
     @objid ("2a76c822-55b6-11e2-877f-002564c97630")
-    public GmFlowFinal() {
+    public  GmFlowFinal() {
         // Nothing specific to do.
     }
 
@@ -167,6 +166,7 @@ public class GmFlowFinal extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("2a76c82b-55b6-11e2-877f-002564c97630")
@@ -188,12 +188,14 @@ public class GmFlowFinal extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmFlowFinal.", GmFlowFinal.MINOR_VERSION);
+        
     }
 
     @objid ("2a76c83f-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (FlowFinalNode) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("2a76c844-55b6-11e2-877f-002564c97630")
@@ -204,7 +206,6 @@ public class GmFlowFinal extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -216,7 +217,6 @@ public class GmFlowFinal extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

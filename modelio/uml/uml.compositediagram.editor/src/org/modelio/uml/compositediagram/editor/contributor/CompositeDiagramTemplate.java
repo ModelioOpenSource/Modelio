@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.compositediagram.editor.contributor;
 
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.modelio.api.ui.viewtemplate.IModelViewTemplate;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
@@ -41,7 +40,7 @@ public class CompositeDiagramTemplate implements IModelViewTemplate<AbstractDiag
      * Mandatory default c'tor needed by eclipse when loading the extension point.
      */
     @objid ("0965d1d3-17b6-433b-83f5-5424e09de274")
-    public CompositeDiagramTemplate() {
+    public  CompositeDiagramTemplate() {
         super();
     }
 

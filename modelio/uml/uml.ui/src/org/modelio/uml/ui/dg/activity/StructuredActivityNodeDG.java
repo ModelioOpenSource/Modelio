@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.activity;
 
 import java.util.List;
@@ -39,7 +38,7 @@ public class StructuredActivityNodeDG extends PortContainerDG {
      * @param node The gm node represented by this class.
      */
     @objid ("fdf0c423-a2a2-4bb2-8471-42edef3490e6")
-    public StructuredActivityNodeDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  StructuredActivityNodeDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 

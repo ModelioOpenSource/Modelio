@@ -17,19 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.events;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.bpmn.events.BpmnConditionalEventDefinition;
 import org.modelio.metamodel.bpmn.events.BpmnEventDefinition;
-import org.modelio.metamodel.impl.bpmn.events.BpmnEventDefinitionSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -46,7 +45,7 @@ public class BpmnConditionalEventDefinitionSmClass extends BpmnEventDefinitionSm
     private SmAttribute conditionAtt;
 
     @objid ("36af8266-7ba7-4472-88b0-d5439b7171d8")
-    public BpmnConditionalEventDefinitionSmClass(ISmMetamodelFragment origin) {
+    public  BpmnConditionalEventDefinitionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -54,6 +53,7 @@ public class BpmnConditionalEventDefinitionSmClass extends BpmnEventDefinitionSm
     @Override
     public String getName() {
         return "BpmnConditionalEventDefinition";
+        
     }
 
     @objid ("db7431eb-843f-42d3-a37c-df50726779f2")
@@ -66,18 +66,21 @@ public class BpmnConditionalEventDefinitionSmClass extends BpmnEventDefinitionSm
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnConditionalEventDefinition.class;
+        
     }
 
     @objid ("5016dbb6-69ca-406c-96a4-5c043639dd31")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("9140699d-cfb6-4472-9d00-5fedf1725859")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("a83890cd-867a-499f-928c-e84ab391ab15")
@@ -94,6 +97,7 @@ public class BpmnConditionalEventDefinitionSmClass extends BpmnEventDefinitionSm
         
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("a5937c13-cfd2-4c2a-8d05-c272ff1854f2")
@@ -110,7 +114,7 @@ public class BpmnConditionalEventDefinitionSmClass extends BpmnEventDefinitionSm
         private BpmnConditionalEventDefinitionSmClass smClass;
 
         @objid ("aaba4b21-8b92-4ae2-b7dd-bac18f9f3a7e")
-        public BpmnConditionalEventDefinitionObjectFactory(BpmnConditionalEventDefinitionSmClass smClass) {
+        public  BpmnConditionalEventDefinitionObjectFactory(BpmnConditionalEventDefinitionSmClass smClass) {
             this.smClass = smClass;
         }
 

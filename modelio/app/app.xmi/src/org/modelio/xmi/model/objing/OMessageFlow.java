@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import java.util.ArrayList;
@@ -44,7 +43,7 @@ public class OMessageFlow extends OElement implements IOElement {
     }
 
     @objid ("871332e8-2a70-430e-99cb-50ca16e3e5e6")
-    public OMessageFlow(MessageFlow param) {
+    public  OMessageFlow(MessageFlow param) {
         super(param);
     }
 

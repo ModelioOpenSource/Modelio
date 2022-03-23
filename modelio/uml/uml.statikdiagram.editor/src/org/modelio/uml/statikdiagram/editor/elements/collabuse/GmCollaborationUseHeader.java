@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.collabuse;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -28,8 +27,8 @@ import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.ShowNameMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.ShowNameMode;
 import org.modelio.metamodel.uml.statik.Collaboration;
 import org.modelio.metamodel.uml.statik.CollaborationUse;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -52,20 +51,20 @@ public class GmCollaborationUseHeader extends GmDefaultModelElementHeader {
      * Constructor for deserialization only.
      */
     @objid ("3479d7a3-55b7-11e2-877f-002564c97630")
-    public GmCollaborationUseHeader() {
+    public  GmCollaborationUseHeader() {
         init();
     }
 
     /**
      * Initialize a classifier header
-     * 
      * @param diagram the owning diagram.
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
     @objid ("3479d7a6-55b7-11e2-877f-002564c97630")
-    public GmCollaborationUseHeader(IGmDiagram diagram, MRef relatedRef) {
+    public  GmCollaborationUseHeader(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
         init();
+        
     }
 
     @objid ("3479d7af-55b7-11e2-877f-002564c97630")
@@ -82,6 +81,7 @@ public class GmCollaborationUseHeader extends GmDefaultModelElementHeader {
         }
         
         super.styleChanged(changedStyle);
+        
     }
 
     @objid ("3479d7bc-55b7-11e2-877f-002564c97630")
@@ -94,6 +94,7 @@ public class GmCollaborationUseHeader extends GmDefaultModelElementHeader {
         }
         
         super.styleChanged(property, newValue);
+        
     }
 
     @objid ("347b5e1c-55b7-11e2-877f-002564c97630")
@@ -115,11 +116,11 @@ public class GmCollaborationUseHeader extends GmDefaultModelElementHeader {
                 return computeSimpleLabel(c);
         
         }
+        
     }
 
     /**
      * Qualified label : return only the name and the type
-     * 
      * @param c A collaboration use
      * @return The collaboration use label
      */
@@ -131,7 +132,6 @@ public class GmCollaborationUseHeader extends GmDefaultModelElementHeader {
 
     /**
      * Qualified label : return only the name and the type
-     * 
      * @param c A collaboration use
      * @return The collaboration use label
      */
@@ -148,7 +148,6 @@ public class GmCollaborationUseHeader extends GmDefaultModelElementHeader {
 
     /**
      * Simple label : return only the name
-     * 
      * @param c A collaboration use
      * @return The collaboration use label
      */
@@ -179,6 +178,7 @@ public class GmCollaborationUseHeader extends GmDefaultModelElementHeader {
                 break;
             }
         }
+        
     }
 
     @objid ("347b5e40-55b7-11e2-877f-002564c97630")
@@ -188,6 +188,7 @@ public class GmCollaborationUseHeader extends GmDefaultModelElementHeader {
         
         // Write version of this Gm if different of 0.
         writeMinorVersion(out, "GmCollaborationUseHeader.", Integer.valueOf(GmCollaborationUseHeader.MINOR_VERSION));
+        
     }
 
     @objid ("347b5e46-55b7-11e2-877f-002564c97630")

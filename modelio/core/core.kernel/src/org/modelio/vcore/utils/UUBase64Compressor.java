@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.utils;
 
 import java.io.ByteArrayOutputStream;
@@ -45,7 +44,6 @@ public class UUBase64Compressor {
 
     /**
      * Compress a string
-     * 
      * @param source a string
      * @return a compressed Base64 UUencoded string.
      */
@@ -58,11 +56,11 @@ public class UUBase64Compressor {
             Log.error(e);
             return null;
         }
+        
     }
 
     /**
      * Uncompress a Base64 encoded compressed string.
-     * 
      * @param source the compressed string
      * @return the string uncompressed.
      */

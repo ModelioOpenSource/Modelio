@@ -17,16 +17,15 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.xml;
 
 import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.stream.FactoryConfigurationError;
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
  * Factory and Container of {@link XMLStreamWriter} that will close the contained
@@ -39,14 +38,13 @@ public class CloseableXMLStreamWriter implements AutoCloseable {
 
     /**
      * Create a {@link XMLStreamWriter}.
-     * 
      * @param os an output stream.
      * @param indent <code>true</code> to instantiate an indenting writer.
-     * @throws javax.xml.stream.XMLStreamException in case of failure
-     * @throws javax.xml.stream.FactoryConfigurationError in case of failure
+     * @throws XMLStreamException in case of failure
+     * @throws FactoryConfigurationError in case of failure
      */
     @objid ("78520859-3010-11e2-8359-001ec947ccaf")
-    public CloseableXMLStreamWriter(OutputStream os, boolean indent) throws XMLStreamException, FactoryConfigurationError {
+    public  CloseableXMLStreamWriter(OutputStream os, boolean indent) throws XMLStreamException, FactoryConfigurationError {
         final XMLOutputFactory f = XMLOutputFactory.newFactory();
         
         XMLStreamWriter first = f.createXMLStreamWriter(os, StandardCharsets.UTF_8.toString());
@@ -54,6 +52,7 @@ public class CloseableXMLStreamWriter implements AutoCloseable {
             this.w = new IndentingXMLStreamWriter(first);
         else
             this.w = first;
+        
     }
 
     @objid ("7852085e-3010-11e2-8359-001ec947ccaf")

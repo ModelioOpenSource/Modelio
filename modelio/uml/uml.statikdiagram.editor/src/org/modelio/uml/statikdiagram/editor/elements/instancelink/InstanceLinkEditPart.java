@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.instancelink;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -63,13 +62,13 @@ public class InstanceLinkEditPart extends LinkEditPart {
      */
     @objid ("898bc4dd-d72e-49b4-95b7-83d7a8542327")
     private static PointList NAVIG_AGGREG_TIP = new PointList(new int[] { -1, 1, 0, 0, -1, -1, -2, 0, -3, -1,
-            -2, 0, -3, 1, -2, 0 });
+                -2, 0, -3, 1, -2, 0 });
 
     /**
      * Default constructor.
      */
     @objid ("3560400d-55b7-11e2-877f-002564c97630")
-    public InstanceLinkEditPart() {
+    public  InstanceLinkEditPart() {
         super();
     }
 
@@ -91,6 +90,7 @@ public class InstanceLinkEditPart extends LinkEditPart {
                                     style,
                                     AggregationKind.KINDISASSOCIATION,
                                     AggregationKind.KINDISASSOCIATION);
+        
     }
 
     @objid ("35604017-55b7-11e2-877f-002564c97630")
@@ -108,11 +108,11 @@ public class InstanceLinkEditPart extends LinkEditPart {
                                     getModelStyle(),
                                     AggregationKind.KINDISASSOCIATION,
                                     AggregationKind.KINDISASSOCIATION);
+        
     }
 
     /**
      * Recreate the source and target decoration arrows and/or diamonds.
-     * 
      * @param connection The connection figure
      * @param model The GmAssociation
      */
@@ -127,11 +127,11 @@ public class InstanceLinkEditPart extends LinkEditPart {
         deco = createDecoration(AggregationKind.KINDISASSOCIATION,
                                 this.showNavigability && model.isFromNavigable());
         connection.setSourceDecoration(deco);
+        
     }
 
     /**
      * Create the connection decoration from the given parameters.
-     * 
      * @param toAggregation The aggregation mode
      * @param withArrow Whether a navigability arrow must be displayed.
      * @return
@@ -169,7 +169,6 @@ public class InstanceLinkEditPart extends LinkEditPart {
 
     /**
      * Refresh decorations from the style.
-     * 
      * @param connection The connection figure.
      * @param style The style to use.
      */
@@ -216,6 +215,7 @@ public class InstanceLinkEditPart extends LinkEditPart {
             pennable.setLinePattern(lineStyle);
             pennable.setLineWidth(lineWidth);
         }
+        
     }
 
     @objid ("3561c693-55b7-11e2-877f-002564c97630")
@@ -225,6 +225,7 @@ public class InstanceLinkEditPart extends LinkEditPart {
         installEditPolicy("CreateInfoFlow", new CreateInfoFlowEditPolicy());
         
         super.createEditPolicies();
+        
     }
 
 }

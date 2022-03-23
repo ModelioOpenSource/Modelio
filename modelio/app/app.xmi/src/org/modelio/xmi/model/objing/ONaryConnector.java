@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -62,13 +61,13 @@ public class ONaryConnector extends ONaryLink {
 
     /**
      * Constructor
-     * 
      * @param param : the exported Modelio Connector
      */
     @objid ("f88b3648-3057-4206-9002-eda4fc82bc3b")
-    public ONaryConnector(final NaryConnector param) {
+    public  ONaryConnector(final NaryConnector param) {
         super(param);                
         this.objElt = param;
+        
     }
 
     @objid ("e38fba38-0233-4fa1-a401-70a867e2a6b9")
@@ -77,6 +76,7 @@ public class ONaryConnector extends ONaryLink {
         if ((ecoreElt != null) && (ecoreElt instanceof org.eclipse.uml2.uml.Connector)){
             attachConnector(ecoreElt);
         }
+        
     }
 
     @objid ("797d34c8-f83c-4144-8c4d-3e18becb2c3c")
@@ -108,6 +108,7 @@ public class ONaryConnector extends ONaryLink {
                 }
             }
         }
+        
     }
 
     @objid ("ee37003f-0ace-49c6-af2c-6fd0c2897082")
@@ -120,6 +121,7 @@ public class ONaryConnector extends ONaryLink {
                     && (this.objElt instanceof Connector))
                 ObjingEAnnotation.setIsConnector(ecoreElt);
         }
+        
     }
 
 }

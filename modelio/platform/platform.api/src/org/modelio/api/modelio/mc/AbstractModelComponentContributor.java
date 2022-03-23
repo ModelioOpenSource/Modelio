@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.mc;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,17 +30,15 @@ public abstract class AbstractModelComponentContributor implements IModelCompone
 
     /**
      * Constructor initializing the module.
-     * 
      * @param module the module this contributor is about.
      */
     @objid ("f7ec83e0-ee0c-11dd-bb8c-0014222a9f79")
-    public AbstractModelComponentContributor(IModule module) {
+    public  AbstractModelComponentContributor(IModule module) {
         this.module = module;
     }
 
     /**
      * Get the module attached to this contributor.
-     * 
      * @return a IModule.
      */
     @objid ("f7eee633-ee0c-11dd-bb8c-0014222a9f79")

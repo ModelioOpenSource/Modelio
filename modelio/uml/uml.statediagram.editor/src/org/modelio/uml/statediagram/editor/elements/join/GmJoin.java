@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.join;
 
 import java.util.Collections;
@@ -31,8 +30,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.JoinPseudoState;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -44,9 +43,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("f551a0fa-55b6-11e2-877f-002564c97630")
 public class GmJoin extends GmPortContainer {
-    @objid ("f551a0fe-55b6-11e2-877f-002564c97630")
-    private JoinPseudoState element;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -56,8 +52,11 @@ public class GmJoin extends GmPortContainer {
     @objid ("f551a10a-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
 
+    @objid ("f551a0fe-55b6-11e2-877f-002564c97630")
+    private JoinPseudoState element;
+
     @objid ("fdc7abc3-5a5b-11e2-9e33-00137282c51b")
-     static final GmJoinStructuredStyleKeys STRUCTURED_KEYS = new GmJoinStructuredStyleKeys();
+    static final GmJoinStructuredStyleKeys STRUCTURED_KEYS = new GmJoinStructuredStyleKeys();
 
     @objid ("fdc7abc5-5a5b-11e2-9e33-00137282c51b")
     private static final GmJoinSimpleStyleKeys SIMPLE_KEYS = new GmJoinSimpleStyleKeys();
@@ -70,13 +69,12 @@ public class GmJoin extends GmPortContainer {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the element is unmasked.
      * @param el the unmasked element, can be <i>null</i>.
      * @param ref the unmasked element reference, must not be <i>null</i>..
      */
     @objid ("f553279a-55b6-11e2-877f-002564c97630")
-    public GmJoin(IGmDiagram diagram, JoinPseudoState el, MRef ref) {
+    public  GmJoin(IGmDiagram diagram, JoinPseudoState el, MRef ref) {
         super(diagram, ref);
         
         GmJoinPrimaryNode mainNode = new GmJoinPrimaryNode(diagram, ref);
@@ -90,6 +88,7 @@ public class GmJoin extends GmPortContainer {
         
         this.addChild(mainNode);
         this.addChild(label);
+        
     }
 
     @objid ("f55327a6-55b6-11e2-877f-002564c97630")
@@ -148,7 +147,7 @@ public class GmJoin extends GmPortContainer {
      * Empty constructor needed for deserialisation.
      */
     @objid ("f55327c9-55b6-11e2-877f-002564c97630")
-    public GmJoin() {
+    public  GmJoin() {
         // Nothing specific to do.
     }
 
@@ -169,6 +168,7 @@ public class GmJoin extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("f55327d2-55b6-11e2-877f-002564c97630")
@@ -190,12 +190,14 @@ public class GmJoin extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmJoin.", GmJoin.MINOR_VERSION);
+        
     }
 
     @objid ("f554ae3f-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (JoinPseudoState) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("f554ae44-55b6-11e2-877f-002564c97630")
@@ -206,7 +208,6 @@ public class GmJoin extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -218,7 +219,6 @@ public class GmJoin extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

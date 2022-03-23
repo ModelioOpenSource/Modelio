@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel.data.standard.infrastructure;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,11 +39,10 @@ public class ResourceTypePropertyModel extends AbstractPropertyModel<ResourceTyp
 
     /**
      * Instantiate the note type properties view.
-     * 
      * @param theEditedElement the current note type.
      */
     @objid ("a1b34859-3b58-4162-8e64-fb6ab1cdf078")
-    public ResourceTypePropertyModel(ResourceType theEditedElement) {
+    public  ResourceTypePropertyModel(ResourceType theEditedElement) {
         super(theEditedElement);
     }
 
@@ -93,6 +91,7 @@ public class ResourceTypePropertyModel extends AbstractPropertyModel<ResourceTyp
         default:
             return null;
         }
+        
     }
 
     /**
@@ -121,6 +120,7 @@ public class ResourceTypePropertyModel extends AbstractPropertyModel<ResourceTyp
         default:
             return null;
         }
+        
     }
 
     /**
@@ -152,6 +152,7 @@ public class ResourceTypePropertyModel extends AbstractPropertyModel<ResourceTyp
         default:
             return;
         }
+        
     }
 
 }

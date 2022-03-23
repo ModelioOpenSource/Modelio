@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn.delegated;
 
 import java.util.ArrayList;
@@ -61,17 +60,15 @@ public class BpmnLinkEventDefinitionPropertyModel extends AbstractPropertyModel<
 
     /**
      * Create a new <i>BpmnLinkEventDefinition</i> data model from an <i>BpmnLinkEventDefinition</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("26b07366-7093-4ef3-8194-bfdb86ce5eb9")
-    public BpmnLinkEventDefinitionPropertyModel(BpmnLinkEventDefinition theEditedElement) {
+    public  BpmnLinkEventDefinitionPropertyModel(BpmnLinkEventDefinition theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("fb3c0506-c071-4b28-85a8-17260e617521")
@@ -82,7 +79,6 @@ public class BpmnLinkEventDefinitionPropertyModel extends AbstractPropertyModel<
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("d8078a49-742d-4105-981b-985af84c3b07")
@@ -95,7 +91,6 @@ public class BpmnLinkEventDefinitionPropertyModel extends AbstractPropertyModel<
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -127,6 +122,7 @@ public class BpmnLinkEventDefinitionPropertyModel extends AbstractPropertyModel<
         default:
             return null;
         }
+        
     }
 
     /**
@@ -135,7 +131,6 @@ public class BpmnLinkEventDefinitionPropertyModel extends AbstractPropertyModel<
      * This type will be used to choose an editor and a renderer for each cell of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -160,13 +155,13 @@ public class BpmnLinkEventDefinitionPropertyModel extends AbstractPropertyModel<
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -216,6 +211,7 @@ public class BpmnLinkEventDefinitionPropertyModel extends AbstractPropertyModel<
         default:
             return;
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /*
  *
  * This file is part of Modelio.
@@ -41,8 +40,8 @@ package org.modelio.xmi.handlers;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
@@ -76,6 +75,7 @@ public class ExportProfile {
         SwtWizardExportProfile dialog = new SwtWizardExportProfile(activeShell, progressService, projectService);
         dialog.setSelectedElt(this.selectedProfile.get(0));
         dialog.open();
+        
     }
 
     @objid ("9421d2b7-89e4-4a45-9c30-8dbda32ff794")
@@ -95,7 +95,6 @@ public class ExportProfile {
     /**
      * This methods authorizes a command to be displayed in a defined context. The commands are displayed, by default,
      * depending on the kind of metaclass on which the command has been launched.
-     * 
      * @param selectedElements the selection
      * @return <code>true</code> to display the command, <code>false</code> to hide it.
      */

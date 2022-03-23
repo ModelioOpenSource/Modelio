@@ -17,19 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
-import org.modelio.metamodel.impl.uml.statik.GeneralizationData;
-import org.modelio.metamodel.impl.uml.statik.NameSpaceSmClass;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.metamodel.uml.statik.Generalization;
 import org.modelio.metamodel.uml.statik.NameSpace;
@@ -57,7 +55,7 @@ public class GeneralizationSmClass extends UmlModelElementSmClass {
     private SmDependency subTypeDep;
 
     @objid ("de517abb-449e-4069-87e6-3d5c4ae96f56")
-    public GeneralizationSmClass(ISmMetamodelFragment origin) {
+    public  GeneralizationSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -65,6 +63,7 @@ public class GeneralizationSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "Generalization";
+        
     }
 
     @objid ("54c27434-9a02-40ab-8175-f3c740ecdded")
@@ -77,18 +76,21 @@ public class GeneralizationSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Generalization.class;
+        
     }
 
     @objid ("6c7193f6-d2a8-4f11-979b-6ff24ca202b5")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("681685bf-9168-4660-b821-1249ad94b2cc")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("7d92c51a-1df2-4c21-a4ba-5647aef6ee0a")
@@ -112,6 +114,8 @@ public class GeneralizationSmClass extends UmlModelElementSmClass {
         this.subTypeDep = new SubTypeSmDependency();
         this.subTypeDep.init("SubType", this, metamodel.getMClass(NameSpace.MQNAME), 1, 1 , SmDirective.SMCDLINKSOURCE);
         registerDependency(this.subTypeDep);
+        
+        
     }
 
     @objid ("308d2c0e-5ae6-4810-b4fd-ca49d32c6ab9")
@@ -142,6 +146,7 @@ public class GeneralizationSmClass extends UmlModelElementSmClass {
     @Override
     public boolean isLinkMetaclass() {
         return true;
+        
     }
 
     @objid ("f072cfcf-fdaf-4308-a83c-5f3d23019895")
@@ -150,7 +155,7 @@ public class GeneralizationSmClass extends UmlModelElementSmClass {
         private GeneralizationSmClass smClass;
 
         @objid ("4a0579c6-427b-469a-8522-daccf78a43a9")
-        public GeneralizationObjectFactory(GeneralizationSmClass smClass) {
+        public  GeneralizationObjectFactory(GeneralizationSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -206,6 +211,7 @@ public class GeneralizationSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((NameSpaceSmClass)this.getTarget()).getSpecializationDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -234,6 +240,7 @@ public class GeneralizationSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((NameSpaceSmClass)this.getTarget()).getParentDep();
             }
             return this.symetricDep;
+            
         }
 
     }

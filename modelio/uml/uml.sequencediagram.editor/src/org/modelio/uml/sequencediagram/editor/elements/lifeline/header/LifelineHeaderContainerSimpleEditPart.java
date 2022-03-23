@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.lifeline.header;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,6 +34,7 @@ public class LifelineHeaderContainerSimpleEditPart extends NonSelectableSimpleEd
         super.createEditPolicies();
         
         removeEditPolicy(EditPolicy.NODE_ROLE);
+        
     }
 
 }

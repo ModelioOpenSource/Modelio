@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.participant.header;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -104,6 +103,7 @@ public class ParticipantHeaderEditPart extends ModelElementHeaderEditPart {
         } else {
             super.performRequest(req);
         }
+        
     }
 
     @objid ("e89d3d60-702a-49c6-9924-2dca1f7b4a0b")
@@ -113,6 +113,7 @@ public class ParticipantHeaderEditPart extends ModelElementHeaderEditPart {
         if (getParent() != null) {
             getParent().setFocus(value);
         }
+        
     }
 
     @objid ("215bd57a-47fa-4928-9726-2962843c64e8")
@@ -123,6 +124,7 @@ public class ParticipantHeaderEditPart extends ModelElementHeaderEditPart {
         } else {
             return new RotatedFigureContainer(super.createFigure(), 90);
         }
+        
     }
 
     @objid ("46aee48f-072c-4799-b28f-01236c596cf6")
@@ -135,6 +137,7 @@ public class ParticipantHeaderEditPart extends ModelElementHeaderEditPart {
         } else {
             return getHeaderFigure((IFigure) aFigure.getChildren().get(0));
         }
+        
     }
 
     @objid ("89a7df3c-864c-46ff-bb0e-47d3da80b9a4")
@@ -148,6 +151,7 @@ public class ParticipantHeaderEditPart extends ModelElementHeaderEditPart {
     protected void createEditPolicies() {
         super.createEditPolicies();
         installEditPolicy(ModelElementDropRequest.TYPE, new BpmnParticipantElementDropEditPolicy());
+        
     }
 
 }

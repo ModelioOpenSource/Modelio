@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.workflow;
 
 import java.util.ArrayList;
@@ -31,14 +30,18 @@ import org.eclipse.gef.commands.CompoundCommand;
 import org.modelio.api.module.mda.IMdaExpert;
 import org.modelio.bpmn.diagram.editor.elements.bpmnlane.GmBpmnLane;
 import org.modelio.bpmn.diagram.editor.elements.bpmnlanesetcontainer.GmBpmnLaneSetContainer;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnDiagramElementDropEditPolicy.BpmnSourceAnchorRefResolver;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnDiagramElementDropEditPolicy.BpmnTargetAnchorRefResolver;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.CreateCallActivityCommand;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.CreateDataObjectCommand;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.CreateEventCommand;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.CreateServiceTaskCommand;
 import org.modelio.bpmn.diagram.editor.elements.diagrams.GmBpmnDiagramStyleKeys;
-import org.modelio.bpmn.diagram.editor.elements.policies.CreateCallActivityCommand;
-import org.modelio.bpmn.diagram.editor.elements.policies.CreateDataObjectCommand;
-import org.modelio.bpmn.diagram.editor.elements.policies.CreateEventCommand;
-import org.modelio.bpmn.diagram.editor.elements.policies.CreateServiceTaskCommand;
+import org.modelio.diagram.elements.common.abstractdiagram.UnmaskLinkCommand;
+import org.modelio.diagram.elements.core.link.GmLink;
 import org.modelio.diagram.elements.core.model.GmModel;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.elements.core.policies.DefaultElementDropEditPolicy;
@@ -120,7 +123,7 @@ public class WorkflowDropEditPolicy extends DefaultElementDropEditPolicy {
             if (isSmartDropTarget(droppedElement)) {
                 // Smart drop
                 subCmd = createSmartCommandForElement(dropLocation, droppedElement);
-            } else if (droppedElement.getMClass().isLinkMetaclass() && !(droppedElement instanceof Dependency && (((Dependency) droppedElement).isStereotyped(RelatedDiagram.MdaTypes.STEREOTYPE_ELT)))) {
+            } else if (droppedElement.getMClass().isLinkMetaclass() && !(droppedElement instanceof Dependency && ((Dependency) droppedElement).isStereotyped(RelatedDiagram.MdaTypes.STEREOTYPE_ELT))) {
                 subCmd = createDropCommandForLinkElement(dropLocation, droppedElement);
             } else if (BpmnDataAssociation.class.isAssignableFrom(droppedElement.getMClass().getJavaInterface())) {
                 // BpmnDataAssociations are not flagged as link in the metamodel, but are displayed as such
@@ -214,6 +217,7 @@ public class WorkflowDropEditPolicy extends DefaultElementDropEditPolicy {
         IMdaExpert mdaExpert = modelManager.getMdaExpert();
         return mdaExpert.canLink(Represents.MdaTypes.STEREOTYPE_ELT, linkMetaclass, sourceMetaclass, droppedElement.getMClass()) ||
                 mdaExpert.canLink(State.MdaTypes.STEREOTYPE_ELT, linkMetaclass, sourceMetaclass, droppedElement.getMClass());
+        
     }
 
     @objid ("b6ff151b-d34f-4609-93ff-ab800f3df27c")
@@ -260,6 +264,16 @@ public class WorkflowDropEditPolicy extends DefaultElementDropEditPolicy {
         return new CreateServiceTaskCommand(dropLocation, toUnmask, getHost(), owner);
     }
 
+    @objid ("ae146514-27da-4071-8e1f-18ac2b8cb1d3")
+    @Override
+    protected UnmaskLinkCommand createUnmaskCommandForLink(Point dropLocation, GmLink link) {
+        // TODO Auto-generated method stub
+        UnmaskLinkCommand unmaskCommand = super.createUnmaskCommandForLink(dropLocation, link);
+        unmaskCommand.setSourceAnchorResolver(new BpmnSourceAnchorRefResolver());
+        unmaskCommand.setTargetAnchorResolver(new BpmnTargetAnchorRefResolver());
+        return unmaskCommand;
+    }
+
     /**
      * Specific command that will create and unmask a {@link BpmnLane} and use the unmasked model element as a 'partitionElement'.
      * <p>
@@ -282,18 +296,18 @@ public class WorkflowDropEditPolicy extends DefaultElementDropEditPolicy {
 
         /**
          * Initialize the command.
-         * 
          * @param dropLocation The location of the element in the diagram
          * @param partitionElement element to be referenced by the {@link BpmnLane} as a 'partitionElement'.
          * @param editPart The destination edit part that will own the lane.
          * @param parentElement The process owing the lane.
          */
         @objid ("61f94aea-55b6-11e2-877f-002564c97630")
-        public CreateLaneCommand(final Point dropLocation, final MObject partitionElement, final EditPart editPart, final BpmnProcess parentElement) {
+        public  CreateLaneCommand(final Point dropLocation, final MObject partitionElement, final EditPart editPart, final BpmnProcess parentElement) {
             this.partitionElement = partitionElement;
             this.dropLocation = dropLocation;
             this.editPart = editPart;
             this.parentElement = parentElement;
+            
         }
 
         @objid ("61f94af9-55b6-11e2-877f-002564c97630")
@@ -316,6 +330,7 @@ public class WorkflowDropEditPolicy extends DefaultElementDropEditPolicy {
             
             // Show the new elements in the diagram (ie create their Gm )
             unmaskLane(gmDiagram, newElement, laneSet);
+            
         }
 
         @objid ("61f94b02-55b6-11e2-877f-002564c97630")
@@ -325,6 +340,7 @@ public class WorkflowDropEditPolicy extends DefaultElementDropEditPolicy {
                     this.parentElement.isValid() &&
                     this.parentElement.getStatus().isModifiable() &&
                     (this.partitionElement == null || this.partitionElement instanceof ModelElement);
+            
         }
 
         @objid ("6a11eb25-885e-4331-8ff6-4e31529cdbcf")
@@ -389,6 +405,7 @@ public class WorkflowDropEditPolicy extends DefaultElementDropEditPolicy {
                 n.getParentNode().removeChild(n);
                 newLaneGm.addChild(n);
             }
+            
         }
 
     }

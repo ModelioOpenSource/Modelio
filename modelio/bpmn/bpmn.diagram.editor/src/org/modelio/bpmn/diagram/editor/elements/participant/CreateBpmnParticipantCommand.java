@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.participant;
 
 import java.util.Map;
@@ -25,8 +24,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.gef.commands.Command;
 import org.modelio.api.module.mda.IMdaExpert;
 import org.modelio.bpmn.diagram.editor.layout.BpmnLayouter;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.metamodel.bpmn.activities.BpmnTask;
 import org.modelio.metamodel.bpmn.bpmnDiagrams.BpmnProcessDesignDiagram;
@@ -79,7 +78,6 @@ public class CreateBpmnParticipantCommand extends Command {
 
     /**
      * Creates a node creation command.
-     * 
      * @param parentCollaboration the element that lead to this command.
      * @param parentNode The parent editPart
      * @param elementToUnmask The element to unmask. Might be <code>null</code>.
@@ -89,7 +87,7 @@ public class CreateBpmnParticipantCommand extends Command {
      * @param requestConstraint Request Constraint
      */
     @objid ("0533624f-46c4-4005-830a-15c7296bc6f0")
-    public CreateBpmnParticipantCommand(BpmnCollaboration parentCollaboration, GmCompositeNode parentNode, MObject elementToUnmask, boolean isParticipantCreation, Stereotype participantStereotype, Map<String, Object> creationProperties, Object requestConstraint) {
+    public  CreateBpmnParticipantCommand(BpmnCollaboration parentCollaboration, GmCompositeNode parentNode, MObject elementToUnmask, boolean isParticipantCreation, Stereotype participantStereotype, Map<String, Object> creationProperties, Object requestConstraint) {
         this.parentNode = parentNode;
         this.parentCollaboration = parentCollaboration;
         this.newConstraint = requestConstraint;
@@ -97,6 +95,7 @@ public class CreateBpmnParticipantCommand extends Command {
         this.isParticipantCreation = isParticipantCreation;
         this.participantStereotype = participantStereotype;
         this.creationProperties = creationProperties;
+        
     }
 
     @objid ("518810bc-d3d7-4639-b219-aeec44133d37")
@@ -159,6 +158,7 @@ public class CreateBpmnParticipantCommand extends Command {
         }
         
         diagram.unmask(this.parentNode, participant, this.newConstraint);
+        
     }
 
     @objid ("b55bc17d-7745-4d71-ae6d-efbdb48daaa6")
@@ -282,6 +282,7 @@ public class CreateBpmnParticipantCommand extends Command {
         
         // Layout diagram
         new BpmnLayouter(diagram).run();
+        
     }
 
     @objid ("a5e12111-ecc6-408b-8afc-b7f8f1e90870")
@@ -292,6 +293,7 @@ public class CreateBpmnParticipantCommand extends Command {
         } else {
             return this.parentCollaboration.getCompositionOwner();
         }
+        
     }
 
 }

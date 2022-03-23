@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,7 +40,7 @@ public class DiamondShaper implements IShaper {
 
     @objid ("7f77777b-1dec-11e2-8cad-001ec947c8cc")
     @Override
-    public Path getShapePath(Rectangle rect) {
+    public Path createShapePath(Rectangle rect) {
         int x = rect.x;
         int y = rect.y;
         int w = rect.width;
@@ -49,11 +48,11 @@ public class DiamondShaper implements IShaper {
         
         Path path = new Path(Display.getCurrent());
         
-        path.moveTo(x + w / 2, y);
-        path.lineTo(x + w, y + h / 2);
-        path.lineTo(x + w / 2, y + h);
-        path.lineTo(x, y + h / 2);
-        path.lineTo(x + w / 2, y);
+        path.moveTo(x + w / 2 , y);
+        path.lineTo(x + w     , y + h / 2);
+        path.lineTo(x + w / 2 , y + h);
+        path.lineTo(x         , y + h / 2);
+        path.lineTo(x + w / 2 , y);
         return path;
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,6 +39,7 @@ public class OClass extends ONameSpace {
             return createEcoreClass();
         }else
             return getOrCreateEcoreAssociationClass();
+        
     }
 
     @objid ("ffca62b1-d024-49df-a933-bf6c3f348013")
@@ -53,9 +53,10 @@ public class OClass extends ONameSpace {
     }
 
     @objid ("1157bb84-fe52-46b4-a871-77dace7d1d03")
-    public OClass(Class element) {
+    public  OClass(Class element) {
         super(element);
         this.isIsClassAssociation = (AbstractObjingModelNavigation.isIsClassAssociation(element));
+        
     }
 
     @objid ("72ca974f-3f59-43d9-9f1f-2a68d94d9883")
@@ -67,6 +68,7 @@ public class OClass extends ONameSpace {
         
         if (!this.isIsClassAssociation)
             linkEcoreClass( (org.eclipse.uml2.uml.Class) ecoreElt);
+        
     }
 
     @objid ("800bd8b2-4e87-4e9a-9fed-3728711677f0")
@@ -78,6 +80,7 @@ public class OClass extends ONameSpace {
             setClassProperties( (org.eclipse.uml2.uml.Class) ecoreElt);
         else
             setAssociationClassProperties((org.eclipse.uml2.uml.AssociationClass) ecoreElt);
+        
     }
 
     @objid ("44d3b4a3-a270-4d43-bcf8-8aa78d36aeed")
@@ -126,6 +129,7 @@ public class OClass extends ONameSpace {
                         + ecoreOwner.getClass().getSimpleName() + ") Not Found");
             }
         }
+        
     }
 
     @objid ("08f87693-1790-4d07-92a5-a13e6864bed1")
@@ -138,6 +142,7 @@ public class OClass extends ONameSpace {
             this.setMainEAnnotation(ecoreElt);
             this.setRootEAnnotation(ecoreElt);
         }
+        
     }
 
     @objid ("367cd918-8f6d-4411-993b-ecee4e380078")
@@ -150,6 +155,7 @@ public class OClass extends ONameSpace {
             this.setMainEAnnotation(ecoreElt);
             this.setRootEAnnotation(ecoreElt);
         }
+        
     }
 
     @objid ("6441a27b-5a11-42cb-913c-d830424d0674")

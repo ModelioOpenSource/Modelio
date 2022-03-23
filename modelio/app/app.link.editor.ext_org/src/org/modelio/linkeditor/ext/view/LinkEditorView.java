@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.ext.view;
 
 import java.beans.PropertyChangeListener;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Optional;
@@ -99,6 +98,7 @@ public class LinkEditorView implements ILinkEditorView {
         if (this.linkEditorPanel != null && this.linkEditorPanel.getPanel() != null && !this.linkEditorPanel.getPanel().isDisposed()) {
             this.linkEditorPanel.modelChanged(null);
         }
+        
     }
 
     /**
@@ -106,7 +106,6 @@ public class LinkEditorView implements ILinkEditorView {
      * However, calling it directly passing a ModelElement is perfectly valid.
      * Passing a <code>null</code> element 'disables' the view that becomes inactive.
      * <p>
-     * 
      * @param element the new input element for the view.
      */
     @objid ("1ba6add5-5e33-11e2-b81d-002564c97630")
@@ -125,6 +124,7 @@ public class LinkEditorView implements ILinkEditorView {
         }
         this.linkEditorPanel.dispose();
         this.linkEditorPanel = null;
+        
     }
 
     @objid ("1ba90f74-5e33-11e2-b81d-002564c97630")
@@ -141,6 +141,7 @@ public class LinkEditorView implements ILinkEditorView {
         this.linkEditorPanel.setEditMode(false);
         selectionService.setSelection(StructuredSelection.EMPTY);
         setInput(null);
+        
     }
 
     @objid ("1249df2f-9ab2-4dfd-baa3-0b4bc8152bff")
@@ -150,11 +151,11 @@ public class LinkEditorView implements ILinkEditorView {
         // Make the view listening to model changes, the panel itself can be used as a IodelChnageListener
         project.getSession().getModelChangeSupport().addModelChangeListener(this.linkEditorPanel);
         refreshFromCurrentSelection();
+        
     }
 
     /**
      * Eclipse 4 constructor.
-     * 
      * @param part the Eclipse 4 part
      * @param composite the parent SWT composite
      * @param theProjectService the Modelio project services
@@ -162,7 +163,8 @@ public class LinkEditorView implements ILinkEditorView {
      */
     @objid ("d4aed2ab-5efd-11e2-a8be-00137282c51b")
     @PostConstruct
-    void postConstruct(MPart part, Composite composite, IEclipseContext ctx, IProjectService theProjectService, @Optional @Named(IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
+    void postConstruct(MPart part, Composite composite, IEclipseContext ctx, IProjectService theProjectService, @Optional
+    @Named(IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
         // get the view toolbar and view menu for future updates
         this.toolbar = part.getToolbar();
         
@@ -182,6 +184,7 @@ public class LinkEditorView implements ILinkEditorView {
         if (project != null) {
             onProjectOpened(project);
         }
+        
     }
 
     @objid ("1ba6addf-5e33-11e2-b81d-002564c97630")
@@ -190,6 +193,7 @@ public class LinkEditorView implements ILinkEditorView {
         if (this.linkEditorPanel != null && this.linkEditorPanel.getPanel() != null) {
             this.linkEditorPanel.getPanel().setFocus();
         }
+        
     }
 
     @objid ("64ebcb9e-d8c7-4100-ba50-96cfd9f29eca")
@@ -218,6 +222,7 @@ public class LinkEditorView implements ILinkEditorView {
             }
         
         }
+        
     }
 
 }

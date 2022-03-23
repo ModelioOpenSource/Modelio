@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.handlers;
 
 import java.util.List;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
@@ -49,6 +48,7 @@ public class OpenEditor {
                 openEditor(activationService, getMapping(elt));
             }
         }
+        
     }
 
     @objid ("1799244d-66ac-4e9a-a04c-6a7fe49b3959")
@@ -72,6 +72,7 @@ public class OpenEditor {
         if (elt != null) {
             activationService.activateMObject(elt);
         }
+        
     }
 
     @objid ("d2879a2a-0fb4-4ccc-9595-ff8ca9df50d3")
@@ -83,6 +84,7 @@ public class OpenEditor {
         } else {
             return null;
         }
+        
     }
 
     @objid ("8e18586d-4ea0-4088-9a26-82c33b9b5e4a")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.deployment;
 
 import java.util.Collection;
@@ -37,7 +36,7 @@ public class ManifestationDG extends DiagramLink {
      * @param link The graphic model link represented by this class.
      */
     @objid ("219f65a8-33b1-43bf-b841-63a773296f1e")
-    public ManifestationDG(DiagramHandle diagramHandle, IGmLink link) {
+    public  ManifestationDG(DiagramHandle diagramHandle, IGmLink link) {
         super(diagramHandle, link);
     }
 

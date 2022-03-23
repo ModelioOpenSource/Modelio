@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.browser.handlers;
 
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.swt.widgets.Display;
 import org.modelio.metamodel.diagrams.CommunicationDiagram;
@@ -44,7 +43,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class CreateCommunicationInteractionHandler extends CreateCmsElementHandler {
     @objid ("67d5e460-750d-4656-b7c1-15eac4eb9207")
     @Inject
-     IModelioEventService eventService;
+    IModelioEventService eventService;
 
     @objid ("4e4bf6cd-ccde-11e1-97e5-001ec947c8cc")
     @Override
@@ -59,6 +58,7 @@ public class CreateCommunicationInteractionHandler extends CreateCmsElementHandl
         } else {
             smartCreateForNameSpace(interaction, mmServices);
         }
+        
     }
 
     @objid ("4e4bf6d1-ccde-11e1-97e5-001ec947c8cc")
@@ -77,6 +77,7 @@ public class CreateCommunicationInteractionHandler extends CreateCmsElementHandl
                 }, ModelioEvent.EDIT_ELEMENT, param);
             }
         });
+        
     }
 
     @objid ("4e4bf6d6-ccde-11e1-97e5-001ec947c8cc")
@@ -104,6 +105,7 @@ public class CreateCommunicationInteractionHandler extends CreateCmsElementHandl
         interaction.getOwned().add(node);
         node.setName("this");
         node.setRepresented(instance);
+        
     }
 
     @objid ("4e4bf6da-ccde-11e1-97e5-001ec947c8cc")
@@ -119,6 +121,7 @@ public class CreateCommunicationInteractionHandler extends CreateCmsElementHandl
         Collaboration locals = mmFactory.createCollaboration();
         interaction.getOwnedCollaboration().add(locals);
         locals.setName("locals");
+        
     }
 
     @objid ("4e4bf6dd-ccde-11e1-97e5-001ec947c8cc")
@@ -146,6 +149,7 @@ public class CreateCommunicationInteractionHandler extends CreateCmsElementHandl
         interaction.getOwned().add(node);
         node.setName("this");
         node.setRepresented(instance);
+        
     }
 
 }

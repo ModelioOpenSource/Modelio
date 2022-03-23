@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.transactions.events;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.vcore.session.api.model.change.ChangeCause;
@@ -37,35 +36,34 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 @objid ("00d00074-0000-085f-0000-000000000000")
 class ModelChangeEvent implements IModelChangeEvent {
     @objid ("c7a56091-7730-4098-9c32-60ebe23d34cb")
-     ChangeCause cause;
+    ChangeCause cause;
 
     @objid ("003cb1b2-ca41-1f3c-aafd-001ec947cd2a")
-     Set<MObject> createdElements = new HashSet<>();
+    Set<MObject> createdElements = new HashSet<>();
 
     @objid ("001e8390-47fe-1f3d-aafd-001ec947cd2a")
     private List<IElementDeletedEvent> deleteEvents = null;
 
     @objid ("00357c3a-ca6e-1f3c-aafd-001ec947cd2a")
-     Map<MObject, MObject> deletedElements = new HashMap<>();
+    Map<MObject, MObject> deletedElements = new HashMap<>();
 
     @objid ("293a5e79-5c02-4033-b74f-bf808d892dc3")
-     Set<MObject> deletedRootElements = new HashSet<>();
+    Set<MObject> deletedRootElements = new HashSet<>();
 
     @objid ("0035beca-ca6e-1f3c-aafd-001ec947cd2a")
-     Map<MObject, MObject> erasedElements = new HashMap<>();
+    Map<MObject, MObject> erasedElements = new HashMap<>();
 
     @objid ("001e64c8-47fe-1f3d-aafd-001ec947cd2a")
     private List<IElementMovedEvent> moveEvents = null;
 
     @objid ("0035d3c4-ca6e-1f3c-aafd-001ec947cd2a")
-     Map<MObject, MObject> movedElements = new HashMap<>();
+    Map<MObject, MObject> movedElements = new HashMap<>();
 
     @objid ("003596ac-ca6e-1f3c-aafd-001ec947cd2a")
-     Set<MObject> updatedElements = new HashSet<>();
+    Set<MObject> updatedElements = new HashSet<>();
 
     /**
      * Get the origin of this model change event
-     * 
      * @return the model change event cause.
      */
     @objid ("fd08e6f2-d258-4e5a-b4f6-a068f92f49cd")
@@ -78,7 +76,6 @@ class ModelChangeEvent implements IModelChangeEvent {
      * Get a resume of model object creations.
      * <p>
      * When whole composition trees are created the list only contains the root and CMS node elements .
-     * 
      * @return the created elements.
      */
     @objid ("003d7bec-ca41-1f3c-aafd-001ec947cd2a")
@@ -91,7 +88,6 @@ class ModelChangeEvent implements IModelChangeEvent {
      * Get a resume of model object deletions.
      * <p>
      * When whole composition trees are deleted the list only contains the root and CMS node elements .
-     * 
      * @return model objects deletions
      */
     @objid ("003e0eb8-ca41-1f3c-aafd-001ec947cd2a")
@@ -108,7 +104,6 @@ class ModelChangeEvent implements IModelChangeEvent {
 
     /**
      * Get all model moves.
-     * 
      * @return all model moves.
      */
     @objid ("003ddea2-ca41-1f3c-aafd-001ec947cd2a")
@@ -128,7 +123,6 @@ class ModelChangeEvent implements IModelChangeEvent {
      * Get all deleted composition root model objects.
      * <p>
      * This list contains all composition tree root that were deleted.
-     * 
      * @return all deleted composition roots.
      */
     @objid ("35ae0406-b6f4-4c28-a6fd-66a0a885fd55")
@@ -142,7 +136,6 @@ class ModelChangeEvent implements IModelChangeEvent {
      * <p>
      * This list does not contain the composition owner of created elements, unless other
      * modification was made on the owner.
-     * 
      * @return all modified model objects.
      */
     @objid ("003dae64-ca41-1f3c-aafd-001ec947cd2a")
@@ -155,7 +148,6 @@ class ModelChangeEvent implements IModelChangeEvent {
      * Test whether the model change event is empty.
      * <p>
      * An empty model change events does not need to be fired.
-     * 
      * @return <code>true</code> if the model change event is empty.
      */
     @objid ("6e9bc8dd-aabe-4050-8784-c6e832542201")
@@ -177,9 +169,10 @@ class ModelChangeEvent implements IModelChangeEvent {
         private MObject oldParent;
 
         @objid ("0020f5d0-47fe-1f3d-aafd-001ec947cd2a")
-        public ElementDeletedEvent(final MObject moved, final MObject oldParent) {
+        public  ElementDeletedEvent(final MObject moved, final MObject oldParent) {
             this.moved = moved;
             this.oldParent = oldParent;
+            
         }
 
         @objid ("002110ba-47fe-1f3d-aafd-001ec947cd2a")
@@ -208,10 +201,11 @@ class ModelChangeEvent implements IModelChangeEvent {
         private MObject oldParent;
 
         @objid ("001fcf98-47fe-1f3d-aafd-001ec947cd2a")
-        public ElementMovedEvent(final MObject mObject, final MObject mObject2, final MObject mObject3) {
+        public  ElementMovedEvent(final MObject mObject, final MObject mObject2, final MObject mObject3) {
             this.moved = mObject;
             this.newParent = mObject2;
             this.oldParent = mObject3;
+            
         }
 
         @objid ("00206dea-47fe-1f3d-aafd-001ec947cd2a")

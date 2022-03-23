@@ -17,12 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.exit;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Path;
 import org.modelio.diagram.elements.core.figures.EllipseFigure;
 
 /**
@@ -34,22 +35,44 @@ import org.modelio.diagram.elements.core.figures.EllipseFigure;
  */
 @objid ("f5192bfc-55b6-11e2-877f-002564c97630")
 public class ExitPointFigure extends EllipseFigure {
+    @objid ("4b36c053-9b79-45f2-9746-53d28953d8a7")
+    protected Path createShapePath(Rectangle r) {
+        Path shapePath = null;
+        if (this.shaper != null) {
+            shapePath = this.shaper.createShapePath(r);
+        }
+        return shapePath;
+    }
+
     @objid ("f5192c00-55b6-11e2-877f-002564c97630")
     @Override
     protected void paintFigure(Graphics graphics) {
         // super method will draw the shapedFigure
         super.paintFigure(graphics);
         
+        graphics.setAdvanced(true);
+        graphics.setAntialias(SWT.ON);
+        
         // Reclip with path and draw crossed lines
         final Rectangle r = getBounds().getCopy();
         
-        if (this.shaper != null)
-            graphics.setClip(this.shaper.getShapePath(r));
+        Path shapePath = createShapePath(r);
+        try {
+            if (shapePath != null) {
+                graphics.setClip(shapePath);
+            }
         
-        graphics.setForegroundColor(this.penOptions.lineColor);
-        graphics.setLineWidth(this.penOptions.lineWidth);
-        graphics.drawLine(r.getTopLeft(), r.getBottomRight());
-        graphics.drawLine(r.getTopRight(), r.getBottomLeft());
+            graphics.setForegroundColor(this.penOptions.lineColor);
+            graphics.setLineWidth(this.penOptions.lineWidth);
+            graphics.drawLine(r.getTopLeft(), r.getBottomRight());
+            graphics.drawLine(r.getTopRight(), r.getBottomLeft());
+        } finally {
+            if (shapePath != null) {
+                shapePath.dispose();
+            }
+        }
+        graphics.restoreState();
+        
     }
 
 }

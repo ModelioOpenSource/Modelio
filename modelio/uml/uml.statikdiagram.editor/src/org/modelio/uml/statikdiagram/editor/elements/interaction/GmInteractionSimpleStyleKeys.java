@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.interaction;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,30 +30,30 @@ import org.modelio.uml.statikdiagram.editor.style.StaticAbstractStyleKeyProvider
 @objid ("356dfb98-55b7-11e2-877f-002564c97630")
 public class GmInteractionSimpleStyleKeys extends StaticAbstractStyleKeyProvider {
     @objid ("a6baa5cd-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmInteractionStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmInteractionStructuredStyleKeys.REPMODE;
 
     @objid ("a6baa5cf-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = GmInteractionStructuredStyleKeys.FILLCOLOR;
+    static final StyleKey FILLCOLOR = GmInteractionStructuredStyleKeys.FILLCOLOR;
 
     @objid ("a6baa5d1-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = GmInteractionStructuredStyleKeys.FILLMODE;
+    static final StyleKey FILLMODE = GmInteractionStructuredStyleKeys.FILLMODE;
 
     @objid ("a6bc2c6a-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = GmInteractionStructuredStyleKeys.LINECOLOR;
+    static final StyleKey LINECOLOR = GmInteractionStructuredStyleKeys.LINECOLOR;
 
     @objid ("a6bc2c6c-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = GmInteractionStructuredStyleKeys.LINEWIDTH;
+    static final StyleKey LINEWIDTH = GmInteractionStructuredStyleKeys.LINEWIDTH;
 
     @objid ("a6bc2c6e-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmInteractionStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmInteractionStructuredStyleKeys.FONT;
 
     @objid ("a6bc2c70-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmInteractionStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmInteractionStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("a6bc2c72-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmInteractionStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmInteractionStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("a6bc2c74-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmInteractionStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmInteractionStructuredStyleKeys.SHOWTAGS;
 
 }

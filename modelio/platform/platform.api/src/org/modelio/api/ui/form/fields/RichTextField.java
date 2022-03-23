@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.form.fields;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,9 +40,10 @@ public class RichTextField extends AbstractField {
     private final IModuleContext moduleContext;
 
     @objid ("ce181e6c-c478-4369-9e02-398a75a99df6")
-    public RichTextField(IModuleContext moduleContext, FormToolkit toolkit, Composite parent, IFormFieldData model) {
+    public  RichTextField(IModuleContext moduleContext, FormToolkit toolkit, Composite parent, IFormFieldData model) {
         super(toolkit, parent, model);
         this.moduleContext = moduleContext;
+        
     }
 
     @objid ("1d29d6cd-b96a-462c-80b5-795c2d944f63")
@@ -71,6 +71,7 @@ public class RichTextField extends AbstractField {
         Image newImage = externDocument != null ? this.moduleContext.getModelioServices().getImageService().getIcon(externDocument) : null;
         this.image.setImage(newImage);
         this.image.setText(newImage != null ? "" : Api.I18N.getString("RichTextField.emptylabel"));
+        
     }
 
     @objid ("143f8582-f600-4383-bcdd-9fc9627cb05f")
@@ -87,6 +88,7 @@ public class RichTextField extends AbstractField {
         } catch (IllegalArgumentException e) {
             return null;
         }
+        
     }
 
 }

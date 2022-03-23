@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.model;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,17 +32,15 @@ import org.modelio.diagram.persistence.PersistenceException;
 public interface IDiagramPersister {
     /**
      * Save the diagram in the model.
-     * 
      * @param withEmbeddeddiagrams if true, modifiable embedded diagrams will be saved too.
-     * @throws org.modelio.diagram.persistence.PersistenceException on failure
+     * @throws PersistenceException on failure
      */
     @objid ("e99d752f-7403-493a-9601-907103a31e07")
     void save(boolean withEmbeddeddiagrams) throws PersistenceException;
 
     /**
      * Load the diagram from the model.
-     * 
-     * @throws org.modelio.diagram.persistence.PersistenceException on failure
+     * @throws PersistenceException on failure
      */
     @objid ("7f9f6dae-ce28-4d97-a1e8-61068a68a4da")
     void load() throws PersistenceException;

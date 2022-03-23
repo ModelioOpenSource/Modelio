@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.participant;
 
 import java.util.Arrays;
@@ -36,8 +35,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.view.ISymbolViewModel;
 import org.modelio.diagram.styles.core.view.LegacyStyleKeyProviderSymbolViewModel;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnParticipant;
@@ -75,13 +74,12 @@ public class GmBpmnParticipantPortContainer extends GmPortContainer {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the BpmnReceiveTask is unmasked.
      * @param element the unmasked BpmnReceiveTask.
      * @param ref a reference to the unmasked callOperation.
      */
     @objid ("6ff21340-44ae-4992-808a-f6a0f3027e08")
-    public GmBpmnParticipantPortContainer(IGmDiagram diagram, BpmnParticipant element, MRef ref) {
+    public  GmBpmnParticipantPortContainer(IGmDiagram diagram, BpmnParticipant element, MRef ref) {
         super(diagram, ref);
         this.element = element;
         
@@ -94,13 +92,14 @@ public class GmBpmnParticipantPortContainer extends GmPortContainer {
         
         super.addChild(mainNode);
         super.addChild(imageModeHeader);
+        
     }
 
     /**
      * Empty constructor needed for deserialisation.
      */
     @objid ("186edf2c-c55e-4f4b-86d1-ab99a3781c01")
-    public GmBpmnParticipantPortContainer() {
+    public  GmBpmnParticipantPortContainer() {
         super();
     }
 
@@ -185,7 +184,6 @@ public class GmBpmnParticipantPortContainer extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -197,7 +195,6 @@ public class GmBpmnParticipantPortContainer extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -207,6 +204,7 @@ public class GmBpmnParticipantPortContainer extends GmPortContainer {
         String role = childNode.getRoleInComposition();
         return GmPortContainer.SATELLITE_ROLE.equals(role)
                         || GmBpmnParticipantPortContainer.ROLE_IMAGE_LABEL.equals(role);
+        
     }
 
     @objid ("21f8e055-7a7c-4809-8ce0-f2347213ec7a")
@@ -225,6 +223,7 @@ public class GmBpmnParticipantPortContainer extends GmPortContainer {
             break;
         
         }
+        
     }
 
     @objid ("05f2da0f-fc17-4328-8993-d1f8358c4a95")
@@ -234,12 +233,14 @@ public class GmBpmnParticipantPortContainer extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, GmBpmnParticipantPortContainer.MINOR_PREFIX, GmBpmnParticipantPortContainer.MINOR_VERSION);
+        
     }
 
     @objid ("9eeda7cd-0398-498d-8aeb-e415412b531b")
     private void read_0(final IDiagramReader in) {
         super.read(in);
         this.element = (BpmnParticipant) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("2a9271db-fc31-4408-8fee-6125804ef722")
@@ -250,7 +251,6 @@ public class GmBpmnParticipantPortContainer extends GmPortContainer {
 
     /**
      * Get the diagram model embedded in this participant.
-     * 
      * @return the embedded diagram for an expanded participant, else <i>null</i>.
      */
     @objid ("f351db08-e2ff-4c1a-adc1-4d4e9f7cc63c")
@@ -266,7 +266,6 @@ public class GmBpmnParticipantPortContainer extends GmPortContainer {
 
     /**
      * Get the {@link GmWorkflow} embedded in this participant.
-     * 
      * @return the embedded {@link GmWorkflow} for an expanded participant, else <i>null</i>.
      */
     @objid ("bf07b7c7-b460-4b23-99bb-b22b67105c4d")
@@ -277,6 +276,7 @@ public class GmBpmnParticipantPortContainer extends GmPortContainer {
         } else {
             return null;
         }
+        
     }
 
 }

@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ObjectNodeSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityParameterNode;
 import org.modelio.metamodel.uml.behavior.activityModel.ObjectNode;
 import org.modelio.vbasic.version.Version;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("b0385a6c-1cd1-4e16-a2d8-4b18d6303053")
 public class ActivityParameterNodeSmClass extends ObjectNodeSmClass {
     @objid ("eecaaac9-9444-441e-ab38-5a6f139b2c89")
-    public ActivityParameterNodeSmClass(ISmMetamodelFragment origin) {
+    public  ActivityParameterNodeSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class ActivityParameterNodeSmClass extends ObjectNodeSmClass {
     @Override
     public String getName() {
         return "ActivityParameterNode";
+        
     }
 
     @objid ("2bd2c7c5-5648-4202-8aed-127bebe92dff")
@@ -62,18 +62,21 @@ public class ActivityParameterNodeSmClass extends ObjectNodeSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ActivityParameterNode.class;
+        
     }
 
     @objid ("61f7e535-4503-4e7d-ab49-c2f7a043fd7b")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("e34ca4e7-28dd-4a56-ac9d-088efc8583d0")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("17d43054-eb36-4bf1-a113-38af4bc3786d")
@@ -86,6 +89,7 @@ public class ActivityParameterNodeSmClass extends ObjectNodeSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("9eec084b-0001-4717-98c8-17dee8a26c2b")
@@ -94,7 +98,7 @@ public class ActivityParameterNodeSmClass extends ObjectNodeSmClass {
         private ActivityParameterNodeSmClass smClass;
 
         @objid ("6c0356fb-c37e-4825-a1ec-604da94008e3")
-        public ActivityParameterNodeObjectFactory(ActivityParameterNodeSmClass smClass) {
+        public  ActivityParameterNodeObjectFactory(ActivityParameterNodeSmClass smClass) {
             this.smClass = smClass;
         }
 

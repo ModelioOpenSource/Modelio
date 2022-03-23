@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.templatebinding;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,6 @@ import org.modelio.metamodel.uml.statik.TemplateParameterSubstitution;
 public class TemplateBindingSymbolProvider {
     /**
      * Get the symbol of the given template binding.
-     * 
      * @param binding a template binding.
      * @return the symbol.
      */
@@ -80,6 +78,7 @@ public class TemplateBindingSymbolProvider {
         } else {
             s.append(p.getValue());
         }
+        
     }
 
     @objid ("36dc31a1-55b7-11e2-877f-002564c97630")
@@ -112,12 +111,14 @@ public class TemplateBindingSymbolProvider {
                     s.append(type.getName());
             }
         }
+        
     }
 
     @objid ("36dc31a9-55b7-11e2-877f-002564c97630")
     private static void appendSymbol(final NameSpace ns, final StringBuilder s) {
         if (ns != null)
             s.append(ns.getName());
+        
     }
 
 }

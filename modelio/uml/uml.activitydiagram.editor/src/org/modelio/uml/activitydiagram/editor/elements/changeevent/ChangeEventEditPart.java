@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.changeevent;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -70,6 +69,7 @@ public class ChangeEventEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                 new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("29f51506-55b6-11e2-877f-002564c97630")
@@ -77,6 +77,7 @@ public class ChangeEventEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         GmChangeEventPrimaryNode changeeventModel = (GmChangeEventPrimaryNode) getModel();
         getFigure().getParent().setConstraint(getFigure(), changeeventModel.getLayoutData());
+        
     }
 
     @objid ("29f51509-55b6-11e2-877f-002564c97630")
@@ -94,6 +95,7 @@ public class ChangeEventEditPart extends AbstractNodeEditPart {
             throw new IllegalArgumentException("ChangeEventEditPart#addChildVisual: unknown index " + index);
         }
         getFigure().add(child, gmAbstractObject.getLayoutData(), index);
+        
     }
 
     @objid ("29f5150e-55b6-11e2-877f-002564c97630")
@@ -110,6 +112,7 @@ public class ChangeEventEditPart extends AbstractNodeEditPart {
                 super.refreshFromStyle(aFigure, style);
             }
         }
+        
     }
 
 }

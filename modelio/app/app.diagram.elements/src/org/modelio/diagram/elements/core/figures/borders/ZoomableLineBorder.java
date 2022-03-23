@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.borders;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,13 +37,12 @@ import org.modelio.diagram.elements.core.figures.ZoomDrawer;
 public class ZoomableLineBorder extends LineBorder {
     /**
      * Constructs a LineBorder with the specified color and of the specified width.
-     * 
      * @param lineColor The color of the border.
      * @param lineWidth The width of the border in pixels.
      * @since 2.0
      */
     @objid ("7f66c6ff-1dec-11e2-8cad-001ec947c8cc")
-    public ZoomableLineBorder(Color lineColor, int lineWidth) {
+    public  ZoomableLineBorder(Color lineColor, int lineWidth) {
         super(lineColor, lineWidth);
     }
 
@@ -65,6 +63,7 @@ public class ZoomableLineBorder extends LineBorder {
             graphics.setForegroundColor(getColor());
         }
         graphics.drawRectangle(AbstractBorder.tempRect);
+        
     }
 
     @objid ("90768f22-26f9-4ff3-a89a-4e0d591f8a64")

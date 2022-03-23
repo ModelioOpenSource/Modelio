@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.embeddeddiagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -67,6 +66,7 @@ public class EmbeddedDiagramViewport extends FreeformViewport {
             getVerticalRangeModel().setAll(newBounds.y, clientArea.height, newBounds.bottom());
             getHorizontalRangeModel().setAll(newBounds.x, clientArea.width, newBounds.right());
         }
+        
     }
 
     @objid ("c4320d69-3bf6-47d2-91a1-c418f8c19b6f")

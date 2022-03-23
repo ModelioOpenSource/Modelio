@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.element.multirow;
 
 import java.util.Collection;
@@ -39,7 +38,6 @@ public interface IMultiRowElementNatValue extends ISingleNatValue {
     /**
      * Get the list of all accepted (and proposed) metaclasses for this cell.
      * Add metaclasses to this list to complete it.
-     * 
      * @return the current allowed metaclasses.
      */
     @objid ("a5bb2566-01c3-4f8f-8f48-00b97725dd30")
@@ -47,7 +45,6 @@ public interface IMultiRowElementNatValue extends ISingleNatValue {
 
     /**
      * Get the filter that will be used to accept (and propose) elements for this cell.
-     * 
      * @return the current filter. Might be <code>null</code>.
      */
     @objid ("23b879cb-efc3-43be-9a8a-ab9969c76794")
@@ -62,7 +59,6 @@ public interface IMultiRowElementNatValue extends ISingleNatValue {
 
     /**
      * Set a filter that will be used to accept (and propose) elements for this cell.
-     * 
      * @param elementFilter the new filter. Might be <code>null</code>.
      */
     @objid ("6968dd64-c1c0-43f2-bd22-89d4c388379d")

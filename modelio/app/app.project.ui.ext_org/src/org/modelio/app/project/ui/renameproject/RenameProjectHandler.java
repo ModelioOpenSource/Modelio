@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.ui.renameproject;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.core.di.annotations.Optional;
@@ -66,11 +65,13 @@ public class RenameProjectHandler {
                 }
             }
         }
+        
     }
 
     @objid ("943b7c1c-80ae-434e-b352-687bd9d62e97")
     @CanExecute
-    public boolean canExecute(final IProjectService projectService, @Optional @Named (IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
+    public boolean canExecute(final IProjectService projectService, @Optional
+    @Named (IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
         if (selection == null) {
             return false;
         }

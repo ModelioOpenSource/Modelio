@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.panelprovider.actions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,10 +31,11 @@ public class PasteAction extends Action {
     private NotesPanelController controller;
 
     @objid ("55e5d749-9c1b-467c-a63f-1be8c19f1a1f")
-    public PasteAction(NotesPanelController controller) {
+    public  PasteAction(NotesPanelController controller) {
         this.controller = controller;
         this.setText(EditionNotes.I18N.getString("PasteAnnotation.label"));
         this.setImageDescriptor(UI.getImageDescriptor("icons/paste.png"));
+        
     }
 
     @objid ("57b4d1e3-34e3-4b78-9436-26a1bfd5b191")

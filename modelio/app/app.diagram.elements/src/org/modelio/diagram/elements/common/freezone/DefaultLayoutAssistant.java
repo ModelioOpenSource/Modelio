@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.freezone;
 
 import java.util.ArrayDeque;
@@ -27,8 +26,8 @@ import java.util.Deque;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.Connection;
@@ -134,7 +133,6 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
 
     /**
      * Record a node bounds change and compute all changes to do to avoid new intersections.
-     * 
      * @param node the moved edit part
      * @param oldBounds the old node bounds in absolute coordinates.
      * @param newBounds the new node bounds in absolute coordinates.
@@ -161,6 +159,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
         }
         
         this.isDirty = true;
+        
     }
 
     @objid ("dd4931f6-16b2-4ecd-aedd-62d81601125d")
@@ -170,11 +169,11 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
             this.pushExecCommand = new ExecuteCommand();
         }
         this.pushExecCommand.add(cmd);
+        
     }
 
     /**
      * Add an involved child edit part
-     * 
      * @param part the edit part
      * @param bounds the edit part bounds in absolute coords
      */
@@ -206,6 +205,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
                 }
             }
         }
+        
     }
 
     @objid ("c31b8834-9f8a-4309-95a1-5d427629c9cf")
@@ -216,11 +216,11 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
         } else {
             return this.pushExecCommand;
         }
+        
     }
 
     /**
      * Get the requests to apply to avoid connection intersections with changed nodes.
-     * 
      * @return the bend point requests to apply.
      */
     @objid ("7573ab46-ab1a-4803-8efd-a4a02016d25c")
@@ -242,7 +242,6 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
 
     /**
      * Get the requests to apply to avoid node intersections.
-     * 
      * @return the requests to apply.
      */
     @objid ("1c391f20-8a37-4c01-9bf1-95c7e0ff25e7")
@@ -272,7 +271,6 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
 
     /**
      * Set the minimum distance between nodes.
-     * 
      * @param d the minimum distance between nodes.
      */
     @objid ("ddae834f-9d01-48d3-8c1d-a6371d671639")
@@ -340,7 +338,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
     }
 
     @objid ("457045d5-c7dc-4fad-86fd-0df5afca5eb9")
-    protected Map<?,?> getVisualPartMap() {
+    protected Map<?, ?> getVisualPartMap() {
         Map<?,?> visualPartMap = this.any.getViewer().getVisualPartMap();
         return visualPartMap;
     }
@@ -349,7 +347,6 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
      * Tells whether a connection is to exclude.
      * <p>
      * A connection is to exclude if it is initially moved or joins to initially moved nodes.
-     * 
      * @param cp a connection edit part.
      * @return whether the connection is to exclude.
      */
@@ -361,6 +358,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
             // test both extremities
             return this.movedNodes.contains(cp.getTarget()) && this.movedNodes.contains(cp.getSource());
         }
+        
     }
 
     /**
@@ -378,6 +376,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
                 it.remove();
             }
         }
+        
     }
 
     @objid ("2112f19b-b2fa-49a6-b0bc-dccc40048925")
@@ -402,6 +401,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
         
             this.isDirty = false;
         }
+        
     }
 
     @objid ("77f0dc66-ade0-441e-a90c-e870ee1c3123")
@@ -553,11 +553,11 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
                 }
             }
         }
+        
     }
 
     /**
      * Compute the direction in which childRect must be pushed to avoid intersection with newBounds.
-     * 
      * @param newBounds a rectangle
      * @param childRect the rectangle that intersects with the first.
      * @return the direction in which childRect must be pushed to avoid intersection with newBounds.
@@ -576,11 +576,11 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
         
             return pushDirection;
         }
+        
     }
 
     /**
      * Compute bounding box of all movable edit part parent edit parts.
-     * 
      * @return the global bounding box
      */
     @objid ("4b24cf4e-3dd5-4be9-94a8-1ba9408cc381")
@@ -609,7 +609,6 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
 
     /**
      * Compute the move needed to keep the 'tpPush' rectangle at least at {@link #minDist} from 'ref' rectangle.
-     * 
      * @param cause the reference edit part that causes the move
      * @param toPush the rectangle to move to keep minimal distance
      * @param ref the reference new rectangle (the one that was moved/resized)
@@ -648,11 +647,11 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
                 pushMove.setMaxTop(-dy, toPush.bottom(), cause);
             }
         }
+        
     }
 
     /**
      * Compute the orthogonal direction in which the point must be moved to escape the rectangle.
-     * 
      * @param toMove the point to move
      * @param rect the rectangle to escape
      * @return the shortest orthogonal direction
@@ -682,7 +681,6 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
 
     /**
      * Compute the direction in which childRect must be pushed to avoid the given intersection rectangle.
-     * 
      * @param childRect a rectangle
      * @param intersection the intersection with the first rectangle
      * @return the direction in which childRect must be pushed to avoid the intersection.
@@ -780,7 +778,6 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
      * Same thing for height.
      * <p>
      * If both width and height are 0, the rectangles intersect.
-     * 
      * @param from a rectangle
      * @param to another rectangle
      * @return the orthogonal distance vector between the 2 rectangles borders.
@@ -831,7 +828,6 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
     /**
      * Return a copy of this Rectangle expanded on horizontal and vertical sides with at least the given value
      * while keeping the width/height ratio.
-     * 
      * @param toExpand the rectangle to expand
      * @param minValue the minimum expand
      * @return the expanded rectangle.
@@ -867,7 +863,6 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
 
     /**
      * If true collision will be avoided with connection bend points too.
-     * 
      * @param avoidBendPoints true to avoid collision with bend points.
      */
     @objid ("fe6d2b03-50f5-4835-beea-ada01d4f748e")
@@ -886,7 +881,6 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
     /**
      * If true all nodes will keep same distance.
      * If false a minimal distance will be kept.
-     * 
      * @param keepSameDistance true to keep same distance between all nodes
      */
     @objid ("bcd7434c-005e-453f-9559-ca1369be680e")
@@ -897,20 +891,21 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
     @objid ("f95535a8-3b44-4fc9-9a90-ffb72b36589c")
     private static class BoundChange {
         @objid ("f724d4d1-ffde-4d90-9fa0-38f2106d5b55")
-         GraphicalEditPart node;
+        GraphicalEditPart node;
 
         @objid ("b15aedb1-fdcd-4e4f-bfb0-1fe8059d4711")
-         PrecisionRectangle oldBounds;
+        PrecisionRectangle oldBounds;
 
         @objid ("443061c7-1bcc-451f-9087-ff0b340b3d15")
-         PrecisionRectangle newBounds;
+        PrecisionRectangle newBounds;
 
         @objid ("d43da022-efd1-4409-8a13-1a3ec86add29")
-        public BoundChange(GraphicalEditPart node, PrecisionRectangle oldBounds, PrecisionRectangle newBounds) {
+        public  BoundChange(GraphicalEditPart node, PrecisionRectangle oldBounds, PrecisionRectangle newBounds) {
             super();
             this.node = node;
             this.oldBounds = oldBounds;
             this.newBounds = newBounds;
+            
         }
 
     }
@@ -924,10 +919,10 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
          * Original bend point location in absolute coordinates.
          */
         @objid ("d8f2fe06-897e-46ee-afcb-7f01da78643e")
-         PrecisionPoint origPoint;
+        PrecisionPoint origPoint;
 
         @objid ("0e57a6ef-5a90-4ea4-b326-f938283dbcc1")
-        public BpMove() {
+        public  BpMove() {
             super();
         }
 
@@ -939,16 +934,17 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
     @objid ("6837e5ed-fe42-426a-8852-381f6b2db434")
     private static class BpRef {
         @objid ("686089ec-9779-410c-8d92-d3425fd90200")
-         int index;
+        int index;
 
         @objid ("3d39c56b-0605-4390-90db-b80349a8405b")
-         ConnectionEditPart conn;
+        ConnectionEditPart conn;
 
         @objid ("2af45e82-cebf-4159-80c0-9f47843c096b")
-        public BpRef(ConnectionEditPart conn, int index) {
+        public  BpRef(ConnectionEditPart conn, int index) {
             super();
             this.conn = conn;
             this.index = index;
+            
         }
 
         @objid ("22c422f1-bb1a-4533-b95f-0e3e367a2d36")
@@ -1002,6 +998,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
                 DiagramElements.LOG.debug(" Running %s", this);
                 super.execute();
             }
+            
         }
 
         @objid ("fe6ffd35-f073-4e84-932d-e41e646e8675")
@@ -1012,6 +1009,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
             } else {
                 return super.canExecute();
             }
+            
         }
 
         @objid ("617c6630-1726-4d99-ae96-8408eefc818c")
@@ -1022,6 +1020,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
             } else {
                 return getDebugLabel();
             }
+            
         }
 
         @objid ("c69156ab-0e26-438c-a46d-6488b10a250d")
@@ -1032,6 +1031,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
             } else {
                 return DefaultLayoutAssistant.this.toString();
             }
+            
         }
 
     }
@@ -1042,43 +1042,43 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
     @objid ("ef2c8a18-2f28-4bc3-b352-ec193a21ccba")
     private static class Move {
         @objid ("d1428fda-b161-4a59-b9c1-287750de5db4")
-         double leftMove;
+        double leftMove;
 
         @objid ("8ed7cc1b-f413-43a0-87dd-15cd74206a1d")
-         double rightMove;
+        double rightMove;
 
         @objid ("f8d6883f-63bb-4c46-be48-2ae7617a3309")
-         double topMove;
+        double topMove;
 
         @objid ("60e8c3a8-ed3a-4c31-839a-d0d4b6eeed44")
-         double bottomMove;
+        double bottomMove;
 
         @objid ("3b133e08-4e99-46f0-be84-3b15f11d7746")
-         double leftFrom;
+        double leftFrom;
 
         @objid ("1a94489f-7c83-45cc-adc9-74fb079e32a1")
-         double rightFrom;
+        double rightFrom;
 
         @objid ("6fb916ac-c2d0-4c2c-ab0e-e5668999aaa6")
-         double topFrom;
+        double topFrom;
 
         @objid ("57efa0e9-8c2b-43d4-b09c-74676d06ab4d")
-         double bottomFrom;
+        double bottomFrom;
 
         @objid ("14a2429f-7370-49dd-a3e9-dc06f1c32f05")
-         GraphicalEditPart leftCause;
+        GraphicalEditPart leftCause;
 
         @objid ("26bad93b-5a35-4998-9860-8d7c4ebe6aaa")
-         GraphicalEditPart rightCause;
+        GraphicalEditPart rightCause;
 
         @objid ("a601412e-9162-476b-9734-93e9755e2b13")
-         GraphicalEditPart topCause;
+        GraphicalEditPart topCause;
 
         @objid ("f50571f1-8851-439a-98e0-25b67983d449")
-         GraphicalEditPart bottomCause;
+        GraphicalEditPart bottomCause;
 
         @objid ("3a535426-d53b-412e-bbf3-6e38df98590f")
-        public Move() {
+        public  Move() {
             super();
         }
 
@@ -1096,10 +1096,11 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
             if (refMove.bottomMove != 0 ) {
                 setMaxBottom(refMove.bottomMove, refMove.bottomFrom, refMove.bottomCause);
             }
+            
         }
 
         @objid ("a1d70d66-8ce7-4699-ac97-1b66d43d0d27")
-        public Move(Move other) {
+        public  Move(Move other) {
             this.leftMove = other.leftMove;
             this.rightMove = other.rightMove;
             this.topMove = other.topMove;
@@ -1112,6 +1113,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
             this.rightCause = other.rightCause;
             this.topCause = other.topCause;
             this.bottomCause = other.bottomCause;
+            
         }
 
         @objid ("4601ea1d-9e64-463b-9171-8370171796da")
@@ -1127,6 +1129,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
                 this.leftFrom = leftFrom;
                 this.leftCause = leftCause;
             }
+            
         }
 
         @objid ("5b5e961b-164e-4c40-80bf-58bd93ca2307")
@@ -1137,6 +1140,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
                 this.rightFrom = rightFrom;
                 this.rightCause = rightCause;
             }
+            
         }
 
         @objid ("72e71df3-2a99-42e5-abe5-02f0ca279d47")
@@ -1147,6 +1151,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
                 this.topFrom = topFrom;
                 this.topCause = topCause;
             }
+            
         }
 
         @objid ("4e48ad3d-c737-4cf3-9bba-3304a981f264")
@@ -1157,6 +1162,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
                 this.bottomFrom = bottomFrom;
                 this.bottomCause = bottomCause;
             }
+            
         }
 
         @objid ("7562531f-7970-4c41-98a2-332e10ecacd9")
@@ -1171,7 +1177,6 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
 
         /**
          * Get the same move with fields that does not match the given vector directions reset.
-         * 
          * @param oldDist old vector from ref to push.
          * @return a filtered copy
          */
@@ -1184,7 +1189,6 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
 
         /**
          * Reset fields that do not match the given vector directions.
-         * 
          * @param oldDist old vector from ref to push.
          */
         @objid ("e450ae8f-8684-4a76-a6ee-d5a46d08858b")
@@ -1200,6 +1204,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
             } else  {
                 this.topMove = 0;
             }
+            
         }
 
         @objid ("b698bbb1-c598-4c7c-85e6-212408f652ab")
@@ -1209,11 +1214,11 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
             } else {
                 return a;
             }
+            
         }
 
         /**
          * Get the same move with fields that does not match the target rectangle position reset.
-         * 
          * @param toPush the rectangle to apply this move.
          * @return a filtered copy
          */
@@ -1226,7 +1231,6 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
 
         /**
          * Reset fields that don't apply to the given rectangle to push.
-         * 
          * @param target the rectangle to push.
          */
         @objid ("634b79bc-f6a9-4342-b950-52dde0bc4077")
@@ -1246,6 +1250,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
             if (target.y() < this.bottomFrom) {
                 this.bottomMove = 0;
             }
+            
         }
 
         @objid ("da2e11af-9008-4319-8b24-1682cd0888df")
@@ -1287,6 +1292,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
             
                 return s.toString();
             }
+            
         }
 
         @objid ("c457abda-1fb3-46dc-9d99-336f67ae63cc")
@@ -1296,6 +1302,7 @@ class DefaultLayoutAssistant implements ILayoutAssistant {
             } else {
                 return String.valueOf(cause.getModel());
             }
+            
         }
 
     }

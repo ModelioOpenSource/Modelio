@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import java.util.Collections;
@@ -54,22 +53,20 @@ public class BpmnMultiInstanceLoopCharacteristicsPropertyModel extends AbstractP
      */
     @objid ("9e42ec31-33f8-4127-b0d8-9ef4ed195bf7")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name", "Sequencial",
-			"Behavior", "LoopCardinality", "CompletionCondition", "EventDefinition" };
+    			"Behavior", "LoopCardinality", "CompletionCondition", "EventDefinition" };
 
     /**
      * Create a new <i>BpmnMultiInstanceLoopCharacteristics</i> data model from
      * an <i>BpmnMultiInstanceLoopCharacteristics</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("6ca0e8f7-7326-46d6-b333-2e02d5a0d8fe")
-    public BpmnMultiInstanceLoopCharacteristicsPropertyModel(BpmnMultiInstanceLoopCharacteristics theEditedElement) {
+    public  BpmnMultiInstanceLoopCharacteristicsPropertyModel(BpmnMultiInstanceLoopCharacteristics theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("7c043421-c9ae-4dcb-a3e4-d671f05d6082")
@@ -80,7 +77,6 @@ public class BpmnMultiInstanceLoopCharacteristicsPropertyModel extends AbstractP
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("4ffda3a0-2770-4ad7-852b-4512c340e84f")
@@ -93,7 +89,6 @@ public class BpmnMultiInstanceLoopCharacteristicsPropertyModel extends AbstractP
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -125,6 +120,7 @@ public class BpmnMultiInstanceLoopCharacteristicsPropertyModel extends AbstractP
         default:
             return null;
         }
+        
     }
 
     /**
@@ -134,7 +130,6 @@ public class BpmnMultiInstanceLoopCharacteristicsPropertyModel extends AbstractP
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -168,13 +163,13 @@ public class BpmnMultiInstanceLoopCharacteristicsPropertyModel extends AbstractP
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -214,6 +209,7 @@ public class BpmnMultiInstanceLoopCharacteristicsPropertyModel extends AbstractP
         default:
             return;
         }
+        
     }
 
 }

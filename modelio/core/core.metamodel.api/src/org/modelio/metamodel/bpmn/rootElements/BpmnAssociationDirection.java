@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.bpmn.rootElements;
 
 import java.util.Arrays;
@@ -36,65 +35,68 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  */
 @objid ("00409336-91e1-1f74-804b-001ec947cd2a")
 public enum BpmnAssociationDirection {
-    NONEDIRECTION (0, "NoneDirection", "NoneDirection"),
-    ONEDIRECTION (1, "OneDirection", "OneDirection"),
-    BOTHDIRECTION (2, "BothDirection", "BothDirection");
-
+    @objid ("3fb83394-3834-4385-a99c-e8162f2247db")
+    NONEDIRECTION(0, "NoneDirection", "NoneDirection"),
+    @objid ("0c58c487-e777-4483-9478-1113c21eef70")
+    ONEDIRECTION(1, "OneDirection", "OneDirection"),
+    @objid ("87fc44c9-1c8c-42be-a583-5b8586cc5759")
+    BOTHDIRECTION(2, "BothDirection", "BothDirection");
 public static final int NONEDIRECTION_VALUE = 0;
-public static final int ONEDIRECTION_VALUE = 1;
-public static final int BOTHDIRECTION_VALUE = 2;
-private static final BpmnAssociationDirection[] VALUES_ARRAY =
-new BpmnAssociationDirection[] {
-NONEDIRECTION,
-ONEDIRECTION,
-BOTHDIRECTION,
-};
-public static final List<BpmnAssociationDirection> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
-public static BpmnAssociationDirection get(String literal) {
-  for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-    BpmnAssociationDirection result = VALUES_ARRAY[i];
-    if (result.toString().equals(literal)) {
-       return result;
+    public static final int ONEDIRECTION_VALUE = 1;
+    public static final int BOTHDIRECTION_VALUE = 2;
+    private static final BpmnAssociationDirection[] VALUES_ARRAY =
+    new BpmnAssociationDirection[] {
+    NONEDIRECTION,
+    ONEDIRECTION,
+    BOTHDIRECTION,
+    };
+    public static final List<BpmnAssociationDirection> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static BpmnAssociationDirection get(String literal) {
+      for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+        BpmnAssociationDirection result = VALUES_ARRAY[i];
+        if (result.toString().equals(literal)) {
+           return result;
+        }
+      }
+      return null;
     }
-  }
-  return null;
-}
-public static BpmnAssociationDirection getByName(String name) {
-    for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-BpmnAssociationDirection result = VALUES_ARRAY[i];
-if (result.getName().equals(name)) {
-return result;
-}
-}
-return null;
-}
-public static BpmnAssociationDirection get(int value) {
-    switch (value) {
-        case NONEDIRECTION_VALUE: return NONEDIRECTION;
-        case ONEDIRECTION_VALUE: return ONEDIRECTION;
-        case BOTHDIRECTION_VALUE: return BOTHDIRECTION;
+    public static BpmnAssociationDirection getByName(String name) {
+        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+    BpmnAssociationDirection result = VALUES_ARRAY[i];
+    if (result.getName().equals(name)) {
+    return result;
+    }
     }
     return null;
-}
-private final int value;
-private final String name;
-private final String literal;
-private BpmnAssociationDirection(int value, String name, String literal) {
-  this.value = value;
-  this.name = name;
-  this.literal = literal;
-}
-public int getValue() {
-   return value;
-}
- public String getName() {
-    return name;
-}
-public String getLiteral() {
-  return literal;
-}
- @Override
-public String toString() {
-   return literal;
-}
+    }
+    public static BpmnAssociationDirection get(int value) {
+        switch (value) {
+            case NONEDIRECTION_VALUE: return NONEDIRECTION;
+            case ONEDIRECTION_VALUE: return ONEDIRECTION;
+            case BOTHDIRECTION_VALUE: return BOTHDIRECTION;
+        }
+        return null;
+    }
+    private final int value;
+    private final String name;
+    private final String literal;
+    private BpmnAssociationDirection(int value, String name, String literal) {
+      this.value = value;
+      this.name = name;
+      this.literal = literal;
+    }
+    public int getValue() {
+       return value;
+    }
+     public String getName() {
+        return name;
+    }
+    public String getLiteral() {
+      return literal;
+    }
+     @Override
+    public String toString() {
+       return literal;
+    }
+    
 }

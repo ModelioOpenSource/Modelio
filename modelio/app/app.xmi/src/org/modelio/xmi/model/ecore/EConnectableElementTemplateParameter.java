@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class EConnectableElementTemplateParameter extends EElement {
     }
 
     @objid ("ea5fc7b4-ab44-4196-8e29-057d5fc401d4")
-    public EConnectableElementTemplateParameter(org.eclipse.uml2.uml.ConnectableElementTemplateParameter element) {
+    public  EConnectableElementTemplateParameter(org.eclipse.uml2.uml.ConnectableElementTemplateParameter element) {
         super(element);
     }
 

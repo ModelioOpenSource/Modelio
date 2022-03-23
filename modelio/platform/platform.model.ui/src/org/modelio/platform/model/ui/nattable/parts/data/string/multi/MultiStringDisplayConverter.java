@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.string.multi;
 
 import java.util.Iterator;
@@ -53,6 +52,7 @@ public class MultiStringDisplayConverter extends DisplayConverter {
         } else {
             return "";
         }
+        
     }
 
     @objid ("be19cd41-0947-4d3e-824a-a663ef1a7296")

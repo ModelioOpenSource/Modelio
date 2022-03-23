@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.providedinterface;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("83587edf-dd8d-4ef4-92ea-da32f377cc8d")
 public class MMStandardProvidedInterface {
-    @objid ("8d4c3c2f-7cad-46f4-bcb2-9301b8f5325f")
+    @objid ("fd03d404-aafd-4469-af13-8df48e7dac39")
     public static final String USERDIAGRAMIMAGE_TAGTYPE = "userDiagramImage";
 
     /**
      * The underlying {@link ProvidedInterface} represented by this proxy, never null.
      */
-    @objid ("60f5c27c-939f-4ffa-aa7c-9934405a7861")
+    @objid ("e9fb721c-e24b-40c3-b006-0240c823f656")
     protected final ProvidedInterface elt;
 
     /**
      * Tells whether a {@link MMStandardProvidedInterface proxy} can be instantiated from a {@link MObject} checking it is a {@link ProvidedInterface}.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("495c8b64-1aad-439d-a05f-f60821567edb")
+    @objid ("ff016aad-d980-4fe5-b710-8ad092fc612a")
     public static boolean canInstantiate(MObject elt) {
         return (elt instanceof ProvidedInterface);
     }
@@ -79,12 +77,12 @@ public class MMStandardProvidedInterface {
      * @param obj a ProvidedInterface
      * @return a {@link MMStandardProvidedInterface} proxy or <i>null</i>.
      */
-    @objid ("11bafa1c-b4a5-4ec7-b3c6-9d7d525195d0")
+    @objid ("52b20eef-9a57-4d19-a7d9-d80aca10a1d0")
     public static MMStandardProvidedInterface instantiate(ProvidedInterface obj) {
         return MMStandardProvidedInterface.canInstantiate(obj) ? new MMStandardProvidedInterface(obj) : null;
     }
 
-    @objid ("2cf2fdbd-79d3-43fc-b143-0e1c21feefce")
+    @objid ("a545e315-2899-4c95-b65f-f49dac9cd128")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -104,7 +102,7 @@ public class MMStandardProvidedInterface {
      * Get the underlying {@link ProvidedInterface}. 
      * @return the ProvidedInterface represented by this proxy, never null.
      */
-    @objid ("43d8406f-10d8-459b-a643-6e04d0446438")
+    @objid ("09c887fb-d605-40a2-a87c-2f5ce1eee7c9")
     public ProvidedInterface getElement() {
         return this.elt;
     }
@@ -116,15 +114,16 @@ public class MMStandardProvidedInterface {
      * 
      * The file path must be either absolute or relative to the project path.</i></p>
      */
-    @objid ("b911cd44-7d59-4d64-8980-bf82b2698ef5")
+    @objid ("c727a287-8931-42f1-b7e5-b948d591e4cd")
     public String getUserDiagramImage() {
         return this.elt.getTagValue(MMStandardProvidedInterface.MdaTypes.USERDIAGRAMIMAGE_TAGTYPE_ELT);
     }
 
-    @objid ("6dada3e2-ff50-43a1-9c2c-fe7a0a65472b")
+    @objid ("dcb5d8e8-b9f1-414b-9ce6-363e7f4dcf89")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
     /**
@@ -134,40 +133,40 @@ public class MMStandardProvidedInterface {
      * 
      * The file path must be either absolute or relative to the project path.</i></p>
      */
-    @objid ("d9003ebb-1b27-449c-85d7-e882222eec27")
+    @objid ("50cb9801-a955-4617-996b-3875b2089740")
     public void setUserDiagramImage(String value) {
         this.elt.putTagValue(MMStandardProvidedInterface.MdaTypes.USERDIAGRAMIMAGE_TAGTYPE_ELT, value);
     }
 
-    @objid ("e627e9ea-70de-4b2f-a424-16587d38daa4")
-    protected MMStandardProvidedInterface(ProvidedInterface elt) {
+    @objid ("f1a95f08-f6a9-4aff-a881-b29a901c731c")
+    protected  MMStandardProvidedInterface(ProvidedInterface elt) {
         this.elt = elt;
     }
 
     @objid ("84fa4400-1661-49c6-b3f8-e8e811e2059a")
     public static final class MdaTypes {
-        @objid ("1506a82e-5f63-4537-a623-1e55f5b85533")
+        @objid ("75b01757-f159-4bac-815f-35c7b7bab80d")
         public static TagType USERDIAGRAMIMAGE_TAGTYPE_ELT;
 
-        @objid ("7d30bf2e-be3d-40b1-8482-d4b73f9b212e")
+        @objid ("12a39cdb-6ca9-4f81-9365-ffada5ebad81")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("b662e85d-d068-4d5b-8e0c-9e5839db18cd")
+        @objid ("438dcce9-2ef5-4e93-9368-56d119525a52")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("24ad3ed3-b1a6-4d29-ac4e-c8a01c158cb7")
+        @objid ("490e319d-78b7-4260-936d-8a2233ab090a")
         public static void init(IModuleContext ctx) {
             USERDIAGRAMIMAGE_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "92b9f937-3bd2-44b1-b691-6f2f988e24a9");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

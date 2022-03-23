@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import java.util.ArrayList;
@@ -58,9 +57,10 @@ public class EComment extends EElement {
     }
 
     @objid ("214027c4-7a8f-43d6-be90-8696a1c94004")
-    public EComment(org.eclipse.uml2.uml.Comment element) {
+    public  EComment(org.eclipse.uml2.uml.Comment element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("7fbf2ca9-cd75-43c8-b5ba-2d4bf0ccb103")
@@ -101,6 +101,7 @@ public class EComment extends EElement {
                 }
             }
         }
+        
     }
 
     @objid ("3916ec60-6288-497d-a890-23390b7ed96e")
@@ -111,6 +112,7 @@ public class EComment extends EElement {
         if ((objingElt != null) && (objingElt instanceof Note)) {
             setNote((Note) objingElt);
         }
+        
     }
 
     @objid ("ad241920-7c0e-4196-b7e1-ca476b99b15c")
@@ -123,6 +125,7 @@ public class EComment extends EElement {
             objingNote.setSubject((ModelElement) objingAnnotatedElt);
             ((ModelElement) objingAnnotatedElt).getDescriptor().add(objingNote);
         }
+        
     }
 
     @objid ("ec20e832-599f-41d3-aaa8-1275ac89ca0d")
@@ -131,6 +134,7 @@ public class EComment extends EElement {
         if (body != null) {
             objingElt.setContent(body);
         }
+        
     }
 
     @objid ("f31a49d3-e814-4a9c-b3da-c19289b22616")
@@ -144,6 +148,7 @@ public class EComment extends EElement {
                 objingElt.setModel(objingNoteType.get(0));
             }
         }
+        
     }
 
     @objid ("d585e1b7-bf53-449b-ab8e-e9876f4ed316")
@@ -153,6 +158,7 @@ public class EComment extends EElement {
         if (ReverseProperties.getInstance().isRoundtripEnabled()) {
             setModel(note);
         }
+        
     }
 
 }

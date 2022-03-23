@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,7 @@ public class EOperationTemplateParameter extends EElement {
     }
 
     @objid ("f7cf5ae8-59fc-42ba-ac07-578f3d575ae1")
-    public EOperationTemplateParameter(org.eclipse.uml2.uml.OperationTemplateParameter element) {
+    public  EOperationTemplateParameter(org.eclipse.uml2.uml.OperationTemplateParameter element) {
         super(element);
     }
 
@@ -63,6 +62,7 @@ public class EOperationTemplateParameter extends EElement {
         }else{
             objingElt.delete();
         }
+        
     }
 
 }

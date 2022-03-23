@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.events;
 
 import java.util.ArrayList;
@@ -31,8 +31,6 @@ import org.modelio.metamodel.bpmn.activities.BpmnActivity;
 import org.modelio.metamodel.bpmn.events.BpmnBoundaryEvent;
 import org.modelio.metamodel.bpmn.events.BpmnCatchEvent;
 import org.modelio.metamodel.impl.bpmn.activities.BpmnActivitySmClass;
-import org.modelio.metamodel.impl.bpmn.events.BpmnBoundaryEventData;
-import org.modelio.metamodel.impl.bpmn.events.BpmnCatchEventSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -54,7 +52,7 @@ public class BpmnBoundaryEventSmClass extends BpmnCatchEventSmClass {
     private SmDependency attachedToRefDep;
 
     @objid ("2ab3a1fe-9b03-457f-b3c0-412b90f6d9a8")
-    public BpmnBoundaryEventSmClass(ISmMetamodelFragment origin) {
+    public  BpmnBoundaryEventSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -62,6 +60,7 @@ public class BpmnBoundaryEventSmClass extends BpmnCatchEventSmClass {
     @Override
     public String getName() {
         return "BpmnBoundaryEvent";
+        
     }
 
     @objid ("ab83b9ff-beb3-4406-a1b9-9d7bfb146805")
@@ -74,18 +73,21 @@ public class BpmnBoundaryEventSmClass extends BpmnCatchEventSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnBoundaryEvent.class;
+        
     }
 
     @objid ("e0167d8a-638f-43cb-83c4-5ea1157a9b90")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("3507c1e4-e111-4536-9601-2922806394a2")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("e3b5c63c-5bbf-45b8-aeb0-205db070d776")
@@ -105,6 +107,8 @@ public class BpmnBoundaryEventSmClass extends BpmnCatchEventSmClass {
         this.attachedToRefDep = new AttachedToRefSmDependency();
         this.attachedToRefDep.init("AttachedToRef", this, metamodel.getMClass(BpmnActivity.MQNAME), 1, 1 );
         registerDependency(this.attachedToRefDep);
+        
+        
     }
 
     @objid ("00ec2a82-e7b1-4361-a1e8-7c81adbd5f3d")
@@ -129,7 +133,7 @@ public class BpmnBoundaryEventSmClass extends BpmnCatchEventSmClass {
         private BpmnBoundaryEventSmClass smClass;
 
         @objid ("2e920b25-fbdb-411a-aa50-702c0db19634")
-        public BpmnBoundaryEventObjectFactory(BpmnBoundaryEventSmClass smClass) {
+        public  BpmnBoundaryEventObjectFactory(BpmnBoundaryEventSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -185,6 +189,7 @@ public class BpmnBoundaryEventSmClass extends BpmnCatchEventSmClass {
             	this.symetricDep = ((BpmnActivitySmClass)this.getTarget()).getBoundaryEventRefDep();
             }
             return this.symetricDep;
+            
         }
 
     }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.communicationdiagram.editor.elements.communicationnode;
 
 import java.util.Collections;
@@ -63,23 +62,23 @@ public class GmCommunicationNodePrimaryNode extends GmNoStyleCompositeNode imple
 
     /**
      * Default constructor.
-     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param ref a reference to the represented object node.
      */
     @objid ("7a5bf7c1-55b6-11e2-877f-002564c97630")
-    public GmCommunicationNodePrimaryNode(IGmDiagram diagram, MRef ref) {
+    public  GmCommunicationNodePrimaryNode(IGmDiagram diagram, MRef ref) {
         super(diagram, ref);
         this.header = new GmCommunicationNodeHeader(diagram, ref);
         this.header.setShowMetaclassIcon(true);
         super.addChild(this.header);
+        
     }
 
     /**
      * Empty constructor, needed for serialization.
      */
     @objid ("7a5bf7ca-55b6-11e2-877f-002564c97630")
-    public GmCommunicationNodePrimaryNode() {
+    public  GmCommunicationNodePrimaryNode() {
         // empty constructor for the serialization
     }
 
@@ -106,7 +105,6 @@ public class GmCommunicationNodePrimaryNode extends GmNoStyleCompositeNode imple
 
     /**
      * Get the stereotype image to display.
-     * 
      * @return the stereotype image to display. Must not be <i>null</i>.
      */
     @objid ("7a5bf7e7-55b6-11e2-877f-002564c97630")
@@ -138,6 +136,7 @@ public class GmCommunicationNodePrimaryNode extends GmNoStyleCompositeNode imple
             break;
         }
         }
+        
     }
 
     @objid ("7a5d7e59-55b6-11e2-877f-002564c97630")
@@ -146,6 +145,7 @@ public class GmCommunicationNodePrimaryNode extends GmNoStyleCompositeNode imple
         super.refreshFromObModel();
         // forcing visual refresh in case Image changed
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("7a5d7e5c-55b6-11e2-877f-002564c97630")
@@ -154,6 +154,7 @@ public class GmCommunicationNodePrimaryNode extends GmNoStyleCompositeNode imple
         // Returned result depends on current representation mode:
         List<GmNodeModel> ret;
         switch (this.getRepresentationMode()) {
+        case USER_IMAGE:
         case IMAGE: {
             ret = Collections.emptyList();
             break;
@@ -173,12 +174,14 @@ public class GmCommunicationNodePrimaryNode extends GmNoStyleCompositeNode imple
         
         // Write version of this Gm if different of 0.
         writeMinorVersion(out, "GmCommunicationNodePrimaryNode.", Integer.valueOf(GmCommunicationNodePrimaryNode.MINOR_VERSION));
+        
     }
 
     @objid ("7a5d7e6b-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.header = (GmModelElementHeader) this.getChildren().get(0);
+        
     }
 
     @objid ("7a5d7e70-55b6-11e2-877f-002564c97630")
@@ -189,16 +192,16 @@ public class GmCommunicationNodePrimaryNode extends GmNoStyleCompositeNode imple
 
     /**
      * Migration constructor.
-     * 
      * @param oldVersionGm the instance to migrate from.
      */
     @objid ("7a5d7e75-55b6-11e2-877f-002564c97630")
-    GmCommunicationNodePrimaryNode(final _GmCommunicationNode oldVersionGm) {
+     GmCommunicationNodePrimaryNode(final _GmCommunicationNode oldVersionGm) {
         super(oldVersionGm.getDiagram(), oldVersionGm.getRepresentedRef());
         this.header = oldVersionGm.getHeader();
         this.header.setShowMetaclassIcon(true);
         oldVersionGm.removeChild(this.header);
         super.addChild(this.header);
+        
     }
 
 }

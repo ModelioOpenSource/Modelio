@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.infrastructure;
 
 import java.util.Arrays;
@@ -67,6 +66,7 @@ public class R2680 extends AbstractInfrastructureRule {
     public void autoRegister(InfrastructureAuditPlan plan) {
         plan.registerRule(TaggedValue.MQNAME, this, AuditTrigger.CREATE | AuditTrigger.UPDATE);
         plan.registerRule(TagParameter.MQNAME, this, AuditTrigger.CREATE);
+        
     }
 
     /**
@@ -100,14 +100,14 @@ public class R2680 extends AbstractInfrastructureRule {
      * Default constructor for R2680
      */
     @objid ("1d7706bb-6c61-4fe7-86e8-77158e9af014")
-    public R2680() {
+    public  R2680() {
         this.checkerInstance = new CheckR2680(this);
     }
 
     @objid ("7b6dadd5-1813-4174-8796-ca4ca9c02f3e")
     private static class CheckR2680 extends AbstractControl {
         @objid ("315880b7-da21-45cf-9b8c-3aeb28222953")
-        public CheckR2680(IRule rule) {
+        public  CheckR2680(IRule rule) {
             super(rule);
         }
 

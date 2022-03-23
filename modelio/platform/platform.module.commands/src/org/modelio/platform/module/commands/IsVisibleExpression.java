@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.module.commands;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -48,9 +47,10 @@ public class IsVisibleExpression extends Expression {
     private final Object object;
 
     @objid ("17e936a9-13bd-11e2-825e-001ec947c8cc")
-    public IsVisibleExpression(Object object, MUIElement item) {
+    public  IsVisibleExpression(Object object, MUIElement item) {
         this.object = object;
         this.item = item;
+        
     }
 
     @objid ("17e936ac-13bd-11e2-825e-001ec947c8cc")
@@ -85,6 +85,7 @@ public class IsVisibleExpression extends Expression {
         } else {
             return EvaluationResult.TRUE;
         }
+        
     }
 
 }

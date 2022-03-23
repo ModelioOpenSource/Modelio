@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.initial;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -55,6 +54,7 @@ public final class InitialEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                 new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("2aa48f0f-55b6-11e2-877f-002564c97630")
@@ -82,6 +82,7 @@ public final class InitialEditPart extends AbstractNodeEditPart {
                 super.refreshFromStyle(aFigure, style);
             }
         }
+        
     }
 
     @objid ("2aa6157f-55b6-11e2-877f-002564c97630")
@@ -89,6 +90,7 @@ public final class InitialEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         GmInitialPrimaryNode initialNodeModel = (GmInitialPrimaryNode) this.getModel();
         getFigure().getParent().setConstraint(getFigure(), initialNodeModel.getLayoutData());
+        
     }
 
     /**
@@ -102,7 +104,8 @@ public final class InitialEditPart extends AbstractNodeEditPart {
          * Public default constructor.
          */
         @objid ("2aa61587-55b6-11e2-877f-002564c97630")
-        public FilledEllipseFigure() {
+        public  FilledEllipseFigure() {
+            
         }
 
         @objid ("2aa6158a-55b6-11e2-877f-002564c97630")
@@ -111,6 +114,7 @@ public final class InitialEditPart extends AbstractNodeEditPart {
             super.setFillColor(fillColor);
             
             setLineColor(fillColor);
+            
         }
 
     }

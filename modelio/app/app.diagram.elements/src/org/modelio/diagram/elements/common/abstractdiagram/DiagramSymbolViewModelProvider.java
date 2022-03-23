@@ -17,16 +17,15 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.abstractdiagram;
 
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
 import org.modelio.diagram.elements.plugin.DiagramElements;
+import org.modelio.diagram.elements.style.SymbolViewContentBuilder;
 import org.modelio.diagram.elements.style.SymbolViewContentBuilder.IEntryFilter;
 import org.modelio.diagram.elements.style.SymbolViewContentBuilder.LabelItemBuilder;
-import org.modelio.diagram.elements.style.SymbolViewContentBuilder;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.diagram.styles.core.view.ISymbolViewModel;
@@ -42,7 +41,6 @@ import org.modelio.platform.model.ui.MetamodelLabels;
 public class DiagramSymbolViewModelProvider {
     /**
      * Create the symbol view.
-     * 
      * @param editedStyle the edited style
      * @param input the selected diagram
      * @return the produced symbol view.
@@ -66,7 +64,6 @@ public class DiagramSymbolViewModelProvider {
      * Hook for subclasses to add more entries to the symbol view.
      * @param input
      * @param editedStyle
-     * 
      * @param b the symbol view builder
      */
     @objid ("7265e64f-163f-4eb6-a866-45eb6f472d19")
@@ -78,7 +75,6 @@ public class DiagramSymbolViewModelProvider {
      * Create the layout assistant group for the symbol view.
      * <p>
      * The group is not added to the symbol view.
-     * 
      * @param b the symbol view builder
      * @return the layout assistant group
      */
@@ -96,7 +92,6 @@ public class DiagramSymbolViewModelProvider {
      * Create the "Background" group for the symbol view.
      * <p>
      * The group is not added to the symbol view.
-     * 
      * @param b the symbol view builder
      * @return the "Background" group
      */
@@ -117,7 +112,6 @@ public class DiagramSymbolViewModelProvider {
      * Create the geometry snapping group for the symbol view.
      * <p>
      * The group is not added to the symbol view.
-     * 
      * @param b the symbol view builder
      * @return the geometry snapping group.
      */
@@ -142,7 +136,6 @@ public class DiagramSymbolViewModelProvider {
      * <p>
      * The group is not added to the symbol view.
      * @return the geometry snapping group.
-     * 
      * @param b the symbol view builder
      * @deprecated Experimental, not used on 3.7.1
      */
@@ -161,6 +154,7 @@ public class DiagramSymbolViewModelProvider {
         if (! group.getChildren().isEmpty()) {
             b.add(group);
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.plugin;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,7 @@ public class UseCaseSharedImages implements ISharedImages {
     private ImageRegistry imageRegistry;
 
     @objid ("5e91e78d-55b7-11e2-877f-002564c97630")
-    UseCaseSharedImages() {
+     UseCaseSharedImages() {
         initializeImageRegistry();
     }
 
@@ -70,6 +69,7 @@ public class UseCaseSharedImages implements ISharedImages {
                                                                                new Path("images/actor64x64.png"),
                                                                                null));
         declareImage(Actor.class.getName(), image);
+        
     }
 
 }

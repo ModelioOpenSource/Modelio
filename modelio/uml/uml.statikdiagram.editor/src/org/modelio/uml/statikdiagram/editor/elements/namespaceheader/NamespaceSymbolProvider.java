@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.namespaceheader;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,6 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class NamespaceSymbolProvider {
     /**
      * Compute a fully qualified name.
-     * 
      * @param c a namespace
      * @param withVisibility true to show visibility.
      * @return the computed symbol.
@@ -57,7 +55,6 @@ public class NamespaceSymbolProvider {
 
     /**
      * Compute a qualified name.
-     * 
      * @param c a namespace
      * @param withVisibility true to show visibility.
      * @return the computed symbol.
@@ -69,11 +66,11 @@ public class NamespaceSymbolProvider {
             return computeVisibility(c, withVisibility) + c.getName();
         else
             return computeVisibility(c, withVisibility) + parent.getName() + "." + c.getName();
+        
     }
 
     /**
      * Compute a simple name.
-     * 
      * @param c a namespace
      * @param withVisibility true to show visibility.
      * @return the computed symbol.
@@ -101,11 +98,11 @@ public class NamespaceSymbolProvider {
         } else {
             return "";
         }
+        
     }
 
     /**
      * Tells whether the given element is the root package a the project.
-     * 
      * @param el the element to test
      * @return true if the given element is the root package a the project, else false.
      */

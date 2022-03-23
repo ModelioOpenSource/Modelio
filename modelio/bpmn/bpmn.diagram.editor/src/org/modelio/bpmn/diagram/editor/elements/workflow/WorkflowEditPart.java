@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.workflow;
 
 import java.beans.PropertyChangeEvent;
@@ -39,9 +38,9 @@ import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.requests.DropRequest;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnCreateLinkChooseNodeEditPolicy;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnLaneSetContainerLayout;
 import org.modelio.bpmn.diagram.editor.elements.diagrams.BpmnDiagramUnmaskHelper;
-import org.modelio.bpmn.diagram.editor.elements.policies.BpmnCreateLinkChooseNodeEditPolicy;
-import org.modelio.bpmn.diagram.editor.elements.policies.BpmnLaneSetContainerLayout;
 import org.modelio.diagram.elements.common.abstractdiagram.AbstractDiagramLayout;
 import org.modelio.diagram.elements.common.freezone.FreeZoneEditPart;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeFinishCreationEditPolicy;
@@ -102,6 +101,7 @@ public class WorkflowEditPart extends FreeZoneEditPart {
         
         // Policy to create notes
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_END, new LinkedNodeFinishCreationEditPolicy());
+        
     }
 
     @objid ("abbe1225-e3df-4924-bdd2-0df671c65e23")
@@ -126,6 +126,7 @@ public class WorkflowEditPart extends FreeZoneEditPart {
         } else if (evt.getPropertyName().equals(GmModel.PROP_REFRESH_FROM_OBMODEL)) {
             getUnmaksHelper().unmaskAllWorkflowElements();
         }
+        
     }
 
     @objid ("953dfc3c-dae3-48a5-9435-fe548386c39e")
@@ -133,6 +134,7 @@ public class WorkflowEditPart extends FreeZoneEditPart {
     public void refresh() {
         super.refresh();
         refreshLayout();
+        
     }
 
     @objid ("a1219fc8-f450-4507-8d8d-2f69a69852b4")
@@ -169,6 +171,7 @@ public class WorkflowEditPart extends FreeZoneEditPart {
                 break;
             }
         }
+        
     }
 
     @objid ("e3a3765e-86ec-441b-837c-7260847f9c0c")
@@ -183,6 +186,7 @@ public class WorkflowEditPart extends FreeZoneEditPart {
         } else {
             return LayoutMode.EMBEDDED_READ_ONLY;
         }
+        
     }
 
     @objid ("74e07ab5-49d2-4f2d-8af2-5c506574a397")
@@ -197,11 +201,11 @@ public class WorkflowEditPart extends FreeZoneEditPart {
             Object ld = ((IGmObject) childEp.getModel()).getLayoutData();
             setLayoutConstraint(childEp, childEp.getFigure(), ld);
         });
+        
     }
 
     /**
      * Create a XY anchor with the layer coordinates
-     * 
      * @param absPoint an absolute point.
      * @return a XY anchor for the layer figure
      */
@@ -221,6 +225,7 @@ public class WorkflowEditPart extends FreeZoneEditPart {
             return createAnchor(p);
         }
         throw new IllegalArgumentException(request + " not handled.");
+        
     }
 
     @objid ("3f77f7cb-05ff-467f-b96c-c5a65c2269ef")
@@ -231,6 +236,7 @@ public class WorkflowEditPart extends FreeZoneEditPart {
             return createAnchor(p);
         }
         throw new IllegalArgumentException(request + " not handled.");
+        
     }
 
     @objid ("a3f21ef6-a8dc-4151-8882-7a9b7238cb73")
@@ -243,6 +249,7 @@ public class WorkflowEditPart extends FreeZoneEditPart {
         if (newLayoutManager instanceof XYLayout) {
             refreshChildrenLayoutData();
         }
+        
     }
 
     @objid ("2ac255b3-f9c1-49ca-aa50-19d3fd6eeda2")
@@ -255,6 +262,7 @@ public class WorkflowEditPart extends FreeZoneEditPart {
             fig = parent;
             parent = parent.getParent();
         }
+        
     }
 
     @objid ("ee8d7def-e0cb-4075-af6a-69dd54d29a34")
@@ -266,6 +274,7 @@ public class WorkflowEditPart extends FreeZoneEditPart {
                 parent = parent.getParent();
             }
         }
+        
     }
 
     @objid ("2d22b174-7d3d-4876-9128-4a181691f4a5")
@@ -319,7 +328,7 @@ public class WorkflowEditPart extends FreeZoneEditPart {
         }
 
         @objid ("03622dc2-33fa-45c2-ac08-5aeeebb3a5dd")
-        public WorkflowFreeformLayer(Supplier<LayoutMode> layoutMode) {
+        public  WorkflowFreeformLayer(Supplier<LayoutMode> layoutMode) {
             this.layoutMode = layoutMode;
         }
 
@@ -351,7 +360,21 @@ public class WorkflowEditPart extends FreeZoneEditPart {
                 return b;
             
             }
+            
         }
+
+    }
+
+    @objid ("a6e46c90-5923-4848-bd5e-cc1e1f1aec55")
+    protected enum LayoutMode {
+        @objid ("7916ee86-7b0b-414e-970d-dc22d747afba")
+        ROOT,
+        @objid ("de5bc565-b1a5-47af-9e03-677f1521164c")
+        EMBEDDED_LANE_CONTAINER,
+        @objid ("83b24e6e-f18d-49ae-a03d-f046da952cdb")
+        EMBEDDED_EDITABLE,
+        @objid ("fe34ce55-c6e6-4977-a3d8-fa73b16f6b1e")
+        EMBEDDED_READ_ONLY;
 
     }
 
@@ -380,6 +403,7 @@ public class WorkflowEditPart extends FreeZoneEditPart {
                     f.setBounds(bounds);
                 }
             }
+            
         }
 
         /**
@@ -431,16 +455,9 @@ public class WorkflowEditPart extends FreeZoneEditPart {
             Insets insets = figure.getInsets();
             return new Dimension(rect.width + insets.getWidth(), rect.height
                     + insets.getHeight()).union(getBorderPreferredSize(figure));
+            
         }
 
-    }
-
-    @objid ("a6e46c90-5923-4848-bd5e-cc1e1f1aec55")
-    protected enum LayoutMode {
-        ROOT,
-        EMBEDDED_LANE_CONTAINER,
-        EMBEDDED_EDITABLE,
-        EMBEDDED_READ_ONLY;
     }
 
 }

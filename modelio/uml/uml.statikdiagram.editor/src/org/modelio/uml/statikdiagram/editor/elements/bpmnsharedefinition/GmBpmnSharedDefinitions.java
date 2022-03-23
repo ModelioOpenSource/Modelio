@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.bpmnsharedefinition;
 
 import java.util.Collections;
@@ -32,8 +31,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.bpmn.rootElements.BpmnSharedDefinitions;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -59,26 +58,25 @@ public class GmBpmnSharedDefinitions extends GmPortContainer {
     private static final String IMAGE_LABEL_ROLE = "ImageLabel";
 
     @objid ("bf872394-8ce4-409c-8ed9-9f734b4dc360")
-     static final GmBpmnSharedDefinitionsStructuredStyleKeys STRUCTURED_KEYS = new GmBpmnSharedDefinitionsStructuredStyleKeys();
+    static final GmBpmnSharedDefinitionsStructuredStyleKeys STRUCTURED_KEYS = new GmBpmnSharedDefinitionsStructuredStyleKeys();
 
     @objid ("5c643784-e68d-4485-b85b-e2292132132e")
-     static final GmBpmnSharedDefinitionsSimpleStyleKeys SIMPLE_KEYS = new GmBpmnSharedDefinitionsSimpleStyleKeys();
+    static final GmBpmnSharedDefinitionsSimpleStyleKeys SIMPLE_KEYS = new GmBpmnSharedDefinitionsSimpleStyleKeys();
 
     @objid ("a010aa56-be60-4cce-b4ef-8ae9597c8143")
-     static final GmBpmnSharedDefinitionsImageStyleKeys IMAGE_KEYS = new GmBpmnSharedDefinitionsImageStyleKeys();
+    static final GmBpmnSharedDefinitionsImageStyleKeys IMAGE_KEYS = new GmBpmnSharedDefinitionsImageStyleKeys();
 
     @objid ("ebee0743-1dd8-4638-b6d7-b740610b4886")
-     static final GmBpmnSharedDefinitionsUserImageStyleKeys USERIMAGE_KEYS = new GmBpmnSharedDefinitionsUserImageStyleKeys();
+    static final GmBpmnSharedDefinitionsUserImageStyleKeys USERIMAGE_KEYS = new GmBpmnSharedDefinitionsUserImageStyleKeys();
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the callBehavior is unmasked.
      * @param el the unmasked callBehavior.
      * @param ref a reference to the unmasked callBehavior.
      */
     @objid ("23825b6d-745b-4877-8677-09f8b5e8d720")
-    public GmBpmnSharedDefinitions(final IGmDiagram diagram, final BpmnSharedDefinitions el, final MRef ref) {
+    public  GmBpmnSharedDefinitions(final IGmDiagram diagram, final BpmnSharedDefinitions el, final MRef ref) {
         super(diagram, ref);
         this.element = el;
         
@@ -91,13 +89,14 @@ public class GmBpmnSharedDefinitions extends GmPortContainer {
         
         super.addChild(mainNode);
         super.addChild(imageModeHeader);
+        
     }
 
     /**
      * Empty constructor needed for deserialisation.
      */
     @objid ("35daedae-d210-49e9-a4a1-1d9efa6d28d0")
-    public GmBpmnSharedDefinitions() {
+    public  GmBpmnSharedDefinitions() {
         // Nothing specific to do.
     }
 
@@ -186,6 +185,7 @@ public class GmBpmnSharedDefinitions extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("66b30bd8-f9a6-4837-b295-8d50cc47e107")
@@ -195,6 +195,7 @@ public class GmBpmnSharedDefinitions extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmBpmnSharedDefinitions.", GmBpmnSharedDefinitions.MINOR_VERSION);
+        
     }
 
     @objid ("61dd4a56-dc01-4a5d-83bf-65cd4606c870")
@@ -207,6 +208,7 @@ public class GmBpmnSharedDefinitions extends GmPortContainer {
         imageModeHeader.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         
         super.addChild(imageModeHeader, 1);
+        
     }
 
     @objid ("79ab670b-5e80-438d-ba39-6d515f00b74d")
@@ -219,6 +221,7 @@ public class GmBpmnSharedDefinitions extends GmPortContainer {
     private void read_1(final IDiagramReader in) {
         super.read(in);
         this.element = (BpmnSharedDefinitions) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("aa892ffa-471c-4860-b339-a0876424582b")
@@ -234,6 +237,7 @@ public class GmBpmnSharedDefinitions extends GmPortContainer {
                 ret.remove(imageModeHeader);
                 break;
             }
+            case USER_IMAGE:
             case IMAGE:
             default: {
                 break;
@@ -246,7 +250,6 @@ public class GmBpmnSharedDefinitions extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -256,11 +259,11 @@ public class GmBpmnSharedDefinitions extends GmPortContainer {
         String role = childNode.getRoleInComposition();
         return GmPortContainer.SATELLITE_ROLE.equals(role)
                         || GmBpmnSharedDefinitions.IMAGE_LABEL_ROLE.equals(role);
+        
     }
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */

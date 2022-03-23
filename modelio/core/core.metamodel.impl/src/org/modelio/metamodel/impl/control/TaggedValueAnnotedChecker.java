@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.control;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,7 @@ public class TaggedValueAnnotedChecker extends AbstractDependencyTypeChecker {
      * C'tor
      */
     @objid ("f2d63946-bfd8-49e7-bea5-c429708e2311")
-    public TaggedValueAnnotedChecker(SmMetamodel mm) {
+    public  TaggedValueAnnotedChecker(SmMetamodel mm) {
         // Cached SmClass
         // none
         
@@ -48,6 +47,7 @@ public class TaggedValueAnnotedChecker extends AbstractDependencyTypeChecker {
         // Symetric checker
         ModelElementTagChecker symetricChecker = new ModelElementTagChecker(this);
         symetricChecker.register(mm.getMClass(ModelElement.class), "Tag");
+        
     }
 
     @objid ("03014eac-f027-11e1-8bdc-002564c97630")
@@ -78,6 +78,7 @@ public class TaggedValueAnnotedChecker extends AbstractDependencyTypeChecker {
         } else {
             return null;
         }
+        
     }
 
     /**
@@ -86,10 +87,10 @@ public class TaggedValueAnnotedChecker extends AbstractDependencyTypeChecker {
     @objid ("03014ec4-f027-11e1-8bdc-002564c97630")
     static class ModelElementTagChecker extends AbstractDependencyTypeChecker {
         @objid ("0302d530-f027-11e1-8bdc-002564c97630")
-         TaggedValueAnnotedChecker symetricChecker;
+        TaggedValueAnnotedChecker symetricChecker;
 
         @objid ("0302d531-f027-11e1-8bdc-002564c97630")
-        public ModelElementTagChecker(TaggedValueAnnotedChecker symetricChecker) {
+        public  ModelElementTagChecker(TaggedValueAnnotedChecker symetricChecker) {
             this.symetricChecker = symetricChecker;
         }
 

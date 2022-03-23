@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.version;
 
 import java.io.Serializable;
@@ -56,11 +55,12 @@ public class VersionedItem<T> implements Comparable<VersionedItem<?>>, Serializa
      * @param object the represented object
      */
     @objid ("5ab48a8b-64b5-4f94-95ef-846b2dc91ea1")
-    public VersionedItem(String name, Version version, T object) {
+    public  VersionedItem(String name, Version version, T object) {
         super();
         this.name = name;
         this.version = version;
         this.object = object;
+        
     }
 
     /**
@@ -68,7 +68,7 @@ public class VersionedItem<T> implements Comparable<VersionedItem<?>>, Serializa
      * @param version the version
      */
     @objid ("2e7c59c9-a161-43d7-8395-6746188541c1")
-    public VersionedItem(String name, Version version) {
+    public  VersionedItem(String name, Version version) {
         this(name, version , null);
     }
 
@@ -119,7 +119,6 @@ public class VersionedItem<T> implements Comparable<VersionedItem<?>>, Serializa
 
     /**
      * Convenience to find a versioned item by name in a generic collection.
-     * 
      * @param name the name to look for
      * @param coll the collection to look into
      * @return the found item or <i>null</i>.
@@ -144,7 +143,6 @@ public class VersionedItem<T> implements Comparable<VersionedItem<?>>, Serializa
 
     /**
      * Get the represented object, or any data attached.
-     * 
      * @return the object
      */
     @objid ("b6245d28-9c01-4886-864c-0d1dc153bf1a")
@@ -174,7 +172,6 @@ public class VersionedItem<T> implements Comparable<VersionedItem<?>>, Serializa
 
     /**
      * Attach the represented object or any other data.
-     * 
      * @param object the object to attach.
      */
     @objid ("98d2a4cd-1031-4160-a7d1-3d257bda7a7e")
@@ -183,7 +180,7 @@ public class VersionedItem<T> implements Comparable<VersionedItem<?>>, Serializa
     }
 
     @objid ("94a1c256-2abe-4def-ad67-0e8c5a51b759")
-    private static <T extends  Comparable<T>> int nullCompare(T a, T b) {
+    private static <T extends Comparable<T>> int nullCompare(T a, T b) {
         if (a == null) {
             if (b != null) {
                 return -1;
@@ -195,6 +192,7 @@ public class VersionedItem<T> implements Comparable<VersionedItem<?>>, Serializa
         } else {
             return a.compareTo(b);
         }
+        
     }
 
     @objid ("609c3374-e846-4c41-a4ad-41d199ff4405")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.packaze;
 
 import java.util.Collections;
@@ -35,8 +34,8 @@ import org.modelio.diagram.elements.core.node.IImageableNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
 import org.modelio.metamodel.uml.statik.Instance;
 import org.modelio.metamodel.uml.statik.NameSpace;
@@ -72,12 +71,11 @@ public class GmPackagePrimaryNode extends GmNoStyleCompositeNode implements IIma
 
     /**
      * Creates a GmPackagePrimaryNode.
-     * 
      * @param diagram The diagram.
      * @param ref The represented package reference, may not be <tt>null</tt>.
      */
     @objid ("3622094e-55b7-11e2-877f-002564c97630")
-    public GmPackagePrimaryNode(IGmDiagram diagram, MRef ref) {
+    public  GmPackagePrimaryNode(IGmDiagram diagram, MRef ref) {
         super(diagram, ref);
         
         this.header = new GmNamespaceHeader(diagram, ref);
@@ -88,13 +86,15 @@ public class GmPackagePrimaryNode extends GmNoStyleCompositeNode implements IIma
         
         super.addChild(this.header);
         super.addChild(this.body);
+        
     }
 
     /**
      * For deserialization only.
      */
     @objid ("36220957-55b7-11e2-877f-002564c97630")
-    public GmPackagePrimaryNode() {
+    public  GmPackagePrimaryNode() {
+        
     }
 
     @objid ("3622095a-55b7-11e2-877f-002564c97630")
@@ -106,6 +106,7 @@ public class GmPackagePrimaryNode extends GmNoStyleCompositeNode implements IIma
         } else {
             super.addChild(child);
         }
+        
     }
 
     @objid ("36220960-55b7-11e2-877f-002564c97630")
@@ -150,6 +151,7 @@ public class GmPackagePrimaryNode extends GmNoStyleCompositeNode implements IIma
         } else {
             return false;
         }
+        
     }
 
     /**
@@ -184,11 +186,11 @@ public class GmPackagePrimaryNode extends GmNoStyleCompositeNode implements IIma
             break;
         }
         }
+        
     }
 
     /**
      * Get the stereotype image to display.
-     * 
      * @return the stereotype image to display. Must not be <i>null</i>.
      */
     @objid ("36238fea-55b7-11e2-877f-002564c97630")
@@ -203,6 +205,7 @@ public class GmPackagePrimaryNode extends GmNoStyleCompositeNode implements IIma
         // Returned result depends on current representation mode:
         List<GmNodeModel> ret;
         switch (this.getRepresentationMode()) {
+        case USER_IMAGE:
         case IMAGE:
             ret = Collections.emptyList();
             break;
@@ -219,6 +222,7 @@ public class GmPackagePrimaryNode extends GmNoStyleCompositeNode implements IIma
         super.refreshFromObModel();
         // forcing visual refresh in case Image changed
         firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("36238ffc-55b7-11e2-877f-002564c97630")
@@ -228,6 +232,7 @@ public class GmPackagePrimaryNode extends GmNoStyleCompositeNode implements IIma
         
         // Write version of this Gm if different of 0.
         writeMinorVersion(out, "GmPackagePrimaryNode.", Integer.valueOf(GmPackagePrimaryNode.MINOR_VERSION));
+        
     }
 
     @objid ("36239002-55b7-11e2-877f-002564c97630")
@@ -236,6 +241,7 @@ public class GmPackagePrimaryNode extends GmNoStyleCompositeNode implements IIma
         
         this.header = (GmModelElementHeader) getFirstChild("header");
         this.body = (GmPackageBody) getFirstChild("body");
+        
     }
 
     @objid ("36239007-55b7-11e2-877f-002564c97630")
@@ -246,7 +252,6 @@ public class GmPackagePrimaryNode extends GmNoStyleCompositeNode implements IIma
 
     /**
      * Returns the body of this package.
-     * 
      * @return the GmCompositeNode instance that is the body of this package.
      */
     @objid ("3623900c-55b7-11e2-877f-002564c97630")
@@ -256,11 +261,10 @@ public class GmPackagePrimaryNode extends GmNoStyleCompositeNode implements IIma
 
     /**
      * Migration constructor.
-     * 
      * @param oldVersionGm the instance to migrate from.
      */
     @objid ("36251679-55b7-11e2-877f-002564c97630")
-    GmPackagePrimaryNode(final _GmPackage oldVersionGm) {
+     GmPackagePrimaryNode(final _GmPackage oldVersionGm) {
         super(oldVersionGm.getDiagram(), oldVersionGm.getRepresentedRef());
         
         this.header = oldVersionGm.getHeader();
@@ -273,6 +277,7 @@ public class GmPackagePrimaryNode extends GmNoStyleCompositeNode implements IIma
         super.addChild(this.header);
         oldVersionGm.removeChild(this.body);
         super.addChild(this.body);
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.diagramauto.diagram.creator;
 
 import java.util.ArrayList;
@@ -43,9 +42,10 @@ public class CompositionNavigationDiagramTemplate extends AbstractDiagramTemplat
      * Mandatory default c'tor needed by eclipse when loading the extension point.
      */
     @objid ("cdcde0aa-53a2-4028-8709-57745d8c23a1")
-    public CompositionNavigationDiagramTemplate() {
+    public  CompositionNavigationDiagramTemplate() {
         super();
         this.contentDgs = new ArrayList<>();
+        
     }
 
     @objid ("d1feaaa2-7e6c-47f1-a810-80644a9ad7be")
@@ -66,6 +66,7 @@ public class CompositionNavigationDiagramTemplate extends AbstractDiagramTemplat
         if (main instanceof org.modelio.metamodel.uml.statik.Package) {
             initialUnmasking(dh, (ModelTree) main);
         }
+        
     }
 
     @objid ("04e7eb26-dda3-4b75-a9cf-7c0c6405370e")
@@ -88,6 +89,7 @@ public class CompositionNavigationDiagramTemplate extends AbstractDiagramTemplat
                 this.contentDgs.add(node);
             }
         }
+        
     }
 
     @objid ("93f3987c-2be7-47df-b8cf-d763f33aea9c")
@@ -100,6 +102,7 @@ public class CompositionNavigationDiagramTemplate extends AbstractDiagramTemplat
     protected void layout(final IDiagramHandle dh) {
         MatrixLayout layout = new MatrixLayout(10, 10);
         layout.layout(dh, this.contentDgs);
+        
     }
 
     @objid ("c5fbe005-5762-4c92-b02b-a4b141d5acd8")

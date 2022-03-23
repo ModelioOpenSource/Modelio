@@ -3,7 +3,7 @@
   <appender name="LOGFILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
        <!-- daily rollover -->
-       <fileNamePattern>${user.home}/.modelio/4.1/modelio-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+       <fileNamePattern>${user.home}/.modelio/5.1/modelio-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
 
        <!-- keep 10 days' worth of history -->
        <maxHistory>10</maxHistory>

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.tools;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -69,7 +68,6 @@ public class BendedConnectionAndNodeCreationTool extends BendedConnectionCreatio
     /**
      * Called when the user creates a node and link.
      * @see #handleCreateConnection()
-     * 
      * @return always true
      */
     @objid ("7cc66948-5a73-4f89-9110-513c3ecb43fd")
@@ -97,6 +95,7 @@ public class BendedConnectionAndNodeCreationTool extends BendedConnectionCreatio
             this.savedmenu = viewerControl.getMenu();
             viewerControl.setMenu(null);
         }
+        
     }
 
     @objid ("844302c2-9393-48e3-bda7-9c9b953d4c95")
@@ -105,6 +104,7 @@ public class BendedConnectionAndNodeCreationTool extends BendedConnectionCreatio
         // When the interaction starts, remove the popup menu
         disableViewerPopupMenu();
         super.updateTargetRequest();
+        
     }
 
     /**
@@ -113,9 +113,13 @@ public class BendedConnectionAndNodeCreationTool extends BendedConnectionCreatio
     @objid ("73534f9b-0e96-4c01-a877-3a6b77210c7b")
     private void restoreViewerPopupMenu() {
         if (this.savedmenu != null && getCurrentViewer() != null) {
-            getCurrentViewer().getControl().setMenu(this.savedmenu);
+            Control control = getCurrentViewer().getControl();
+            if (control != null && !control.isDisposed()) {
+                control.setMenu(this.savedmenu);
+            }
             this.savedmenu = null;
         }
+        
     }
 
     @objid ("46e780fb-07d8-4cda-8b7e-9fe00d074e6e")
@@ -124,6 +128,7 @@ public class BendedConnectionAndNodeCreationTool extends BendedConnectionCreatio
         // Just in case an interaction has been aborted while the menu was removed.
         restoreViewerPopupMenu();
         super.deactivate();
+        
     }
 
     @objid ("6e42d70f-c2a7-446f-b7ad-59efadf9357f")
@@ -137,13 +142,13 @@ public class BendedConnectionAndNodeCreationTool extends BendedConnectionCreatio
             if (editPart == null && isInState(AbstractConnectionCreationTool.STATE_CONNECTION_STARTED)) {
                 // If no target can end the link, ask to add a node and link
                 if (getCurrentInput().isControlKeyDown() || getCurrentInput().isMouseButtonDown(3)) {
-                    newRequestType = (CreateLinkConstants.REQ_CONNECTION_CREATE_LINK_CHOOSENODE);
+                    newRequestType = CreateLinkConstants.REQ_CONNECTION_CREATE_LINK_CHOOSENODE;
                     editPart = findTargetUnderMouse(newRequestType);
                 }
         
                 if (editPart == null) {
                     // If no target can add a node and link, ask to add a bendpoint
-                    newRequestType = (CreateLinkConstants.REQ_CONNECTION_ADD_BENDPOINT);
+                    newRequestType = CreateLinkConstants.REQ_CONNECTION_ADD_BENDPOINT;
                     editPart = findTargetUnderMouse(newRequestType);
                 }
         
@@ -157,6 +162,7 @@ public class BendedConnectionAndNodeCreationTool extends BendedConnectionCreatio
         } else {
             return false;
         }
+        
     }
 
     @objid ("881d2948-8623-4812-a325-53ef033c8024")
@@ -180,7 +186,7 @@ public class BendedConnectionAndNodeCreationTool extends BendedConnectionCreatio
         AbstractTool.Input input = getCurrentInput();
         
         if (isInState(AbstractConnectionCreationTool.STATE_CONNECTION_STARTED)) {
-            if (button == 1 ) {
+            if (button == 1) {
                 if (input.isControlKeyDown()) {
                     if (isCreateLinkChooseNodeRequest() && handleCreateConnection()) {
                         return true;

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.finaliser.subplan;
 
 import java.util.Map;
@@ -37,7 +36,7 @@ public class CallActivityPlanFinder {
     private Map<String, Object> elementsMap;
 
     @objid ("97cdc2ca-d2b5-4bf9-8a89-2c7240cd2942")
-    public CallActivityPlanFinder(Map<String, Object> elementsMap) {
+    public  CallActivityPlanFinder(Map<String, Object> elementsMap) {
         this.elementsMap = elementsMap;
     }
 

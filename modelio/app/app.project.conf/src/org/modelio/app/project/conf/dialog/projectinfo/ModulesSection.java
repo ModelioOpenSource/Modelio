@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.projectinfo;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -65,7 +64,7 @@ class ModulesSection {
     protected IModuleManagementService moduleService;
 
     @objid ("a745c460-33f6-11e2-a514-002564c97630")
-    public ModulesSection(IEclipseContext applicationContext) {
+    public  ModulesSection(IEclipseContext applicationContext) {
         this.moduleService = applicationContext.get(IModuleManagementService.class);
     }
 
@@ -82,6 +81,7 @@ class ModulesSection {
         for (TableColumn col : this.modulesTable.getTable().getColumns()) {
             col.pack();
         }
+        
     }
 
     @objid ("a745c466-33f6-11e2-a514-002564c97630")

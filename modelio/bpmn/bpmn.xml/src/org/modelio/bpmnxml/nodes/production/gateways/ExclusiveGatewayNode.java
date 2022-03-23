@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.production.gateways;
 
 import java.util.List;
 import java.util.Map;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.bind.JAXBElement;
 import javax.xml.namespace.QName;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.bpmnxml.model.ObjectFactory;
 import org.modelio.bpmnxml.model.TExclusiveGateway;
 import org.modelio.bpmnxml.model.TFlowElement;
@@ -47,7 +46,7 @@ import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("3f945518-635f-4988-b760-648276805592")
-public class ExclusiveGatewayNode implements IProductionNode<BpmnExclusiveGateway,TExclusiveGateway> {
+public class ExclusiveGatewayNode implements IProductionNode<BpmnExclusiveGateway, TExclusiveGateway> {
     @objid ("461ebaa5-dfe5-4c8d-8932-a03f7188dd14")
     private Map<String, Object> elementsMap;
 
@@ -84,6 +83,7 @@ public class ExclusiveGatewayNode implements IProductionNode<BpmnExclusiveGatewa
         } else {
             return factory.create(BpmnExclusiveGateway.class, context);
         }
+        
     }
 
     @objid ("9d12c057-b715-4454-b37f-5505a51ce4d0")

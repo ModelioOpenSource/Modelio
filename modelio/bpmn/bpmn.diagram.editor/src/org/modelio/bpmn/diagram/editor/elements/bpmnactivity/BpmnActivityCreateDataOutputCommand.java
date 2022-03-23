@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnactivity;
 
 import java.util.Collections;
@@ -29,8 +28,8 @@ import org.modelio.diagram.elements.core.commands.DefaultCreateElementCommand;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
 import org.modelio.diagram.elements.core.link.GmPath;
 import org.modelio.diagram.elements.core.link.anchors.GmLinkAnchor;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmPath;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
@@ -50,7 +49,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 @objid ("0f869a44-debd-4ae5-bebb-06f3f3ca5ba3")
 public class BpmnActivityCreateDataOutputCommand extends DefaultCreateElementCommand {
     @objid ("74a526d3-692c-445f-9034-7f3d7ecd08f2")
-    public BpmnActivityCreateDataOutputCommand(MObject parentElement, GmCompositeNode parentNode, ModelioCreationContext context, Object constraint) {
+    public  BpmnActivityCreateDataOutputCommand(MObject parentElement, GmCompositeNode parentNode, ModelioCreationContext context, Object constraint) {
         super(parentElement, parentNode, context, constraint);
     }
 
@@ -96,6 +95,7 @@ public class BpmnActivityCreateDataOutputCommand extends DefaultCreateElementCom
         gmpath.setRouterKind(ConnectionRouterId.DIRECT);
         
         diagram.unmaskLink(dataAssoc, getParentNode(), gmDataOutput, gmpath);
+        
     }
 
     @objid ("0eaedbd7-d1e3-4c54-ab4e-9b17f2e42890")

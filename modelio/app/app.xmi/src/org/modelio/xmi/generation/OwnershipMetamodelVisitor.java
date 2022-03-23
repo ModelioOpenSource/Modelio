@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.generation;
 
 import java.util.List;
@@ -214,7 +213,7 @@ public class OwnershipMetamodelVisitor implements IDefaultModelVisitor, IDefault
     private IParseModelBehavior behavior;
 
     @objid ("9924fdd0-8475-4100-8b6c-17d59ffb6559")
-    public OwnershipMetamodelVisitor(IParseModelBehavior behavior) {
+    public  OwnershipMetamodelVisitor(IParseModelBehavior behavior) {
         this.behavior = behavior;
     }
 

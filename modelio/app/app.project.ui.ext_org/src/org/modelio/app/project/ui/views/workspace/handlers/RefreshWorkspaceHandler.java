@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.ui.views.workspace.handlers;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,6 +31,7 @@ public class RefreshWorkspaceHandler {
     public void execute(final IProjectService projectService) {
         GProject currentProject = projectService.getOpenedProject();
         projectService.refreshWorkspace((currentProject != null) ? currentProject.getName() : null);
+        
     }
 
 }

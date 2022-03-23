@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.api.services;
 
 import java.util.ArrayList;
@@ -62,7 +61,7 @@ class DiagramGraphicFactory implements IDiagramGraphicFactory {
     private DiagramHandle diagramHandle;
 
     @objid ("34d389c1-6d7f-4f28-9b79-cccdcae8e5e4")
-    public DiagramGraphicFactory(DiagramHandle diagramHandle) {
+    public  DiagramGraphicFactory(DiagramHandle diagramHandle) {
         this.diagramHandle = diagramHandle;
     }
 
@@ -109,6 +108,7 @@ class DiagramGraphicFactory implements IDiagramGraphicFactory {
         } else {
             return null;
         }
+        
     }
 
     @objid ("90cd95da-5e01-4706-9cc3-5bb01dfaf2ae")
@@ -199,7 +199,7 @@ class DiagramGraphicFactory implements IDiagramGraphicFactory {
     @objid ("f47d13f7-ac88-4f80-af2e-4081c1303964")
     @Override
     public List<IDiagramGraphic> unmask(MObject element, int x, int y) {
-        if (element == null) {
+        if (element == null || element.isShell()) {
             return Collections.emptyList();
         }
         List<IDiagramGraphic> existingGraphics = this.diagramHandle.getDiagramGraphics(element);
@@ -275,7 +275,7 @@ class DiagramGraphicFactory implements IDiagramGraphicFactory {
         private final Request req;
 
         @objid ("9a7b81dd-4cfc-4524-8bc8-6ca003a55c60")
-        public Conditional(final Request req) {
+        public  Conditional(final Request req) {
             this.req = req;
         }
 

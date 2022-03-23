@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnsripttask;
 
 import java.util.Collections;
@@ -25,10 +24,10 @@ import java.util.List;
 import java.util.Objects;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.PositionConstants;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnTaskImageStyleKeys;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnTaskSimpleStyleKeys;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnTaskStructuredStyleKeys;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnTaskUserImageStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnTaskImageStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnTaskSimpleStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnTaskStructuredStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnTaskUserImageStyleKeys;
 import org.modelio.diagram.elements.common.label.modelelement.GmDefaultModelElementLabel;
 import org.modelio.diagram.elements.common.portcontainer.GmPortContainer;
 import org.modelio.diagram.elements.core.model.GmAbstractObject;
@@ -48,9 +47,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("61ae8643-55b6-11e2-877f-002564c97630")
 public class GmBpmnScriptTask extends GmPortContainer {
-    @objid ("61ae864d-55b6-11e2-877f-002564c97630")
-    private BpmnScriptTask element;
-
     /**
      * Current version of this Gm.
      */
@@ -63,27 +59,29 @@ public class GmBpmnScriptTask extends GmPortContainer {
     @objid ("61ae8655-55b6-11e2-877f-002564c97630")
     private static final String IMAGE_LABEL_ROLE = "ImageLabel";
 
+    @objid ("61ae864d-55b6-11e2-877f-002564c97630")
+    private BpmnScriptTask element;
+
     @objid ("c5d3f40e-59a6-11e2-ae45-002564c97630")
-     static final GmBpmnTaskStructuredStyleKeys STRUCTURED_KEYS = new GmBpmnTaskStructuredStyleKeys();
+    static final GmBpmnTaskStructuredStyleKeys STRUCTURED_KEYS = new GmBpmnTaskStructuredStyleKeys();
 
     @objid ("c5d3f410-59a6-11e2-ae45-002564c97630")
-     static final GmBpmnTaskSimpleStyleKeys SIMPLE_KEYS = new GmBpmnTaskSimpleStyleKeys();
+    static final GmBpmnTaskSimpleStyleKeys SIMPLE_KEYS = new GmBpmnTaskSimpleStyleKeys();
 
     @objid ("c5d3f412-59a6-11e2-ae45-002564c97630")
-     static final GmBpmnTaskImageStyleKeys IMAGE_KEYS = new GmBpmnTaskImageStyleKeys();
+    static final GmBpmnTaskImageStyleKeys IMAGE_KEYS = new GmBpmnTaskImageStyleKeys();
 
     @objid ("2cd598b3-924b-43a8-b3a4-c2b0954ac95a")
-     static final GmBpmnTaskUserImageStyleKeys USERIMAGE_KEYS = new GmBpmnTaskUserImageStyleKeys();
+    static final GmBpmnTaskUserImageStyleKeys USERIMAGE_KEYS = new GmBpmnTaskUserImageStyleKeys();
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the BpmnScriptTask is unmasked.
      * @param element the unmasked BpmnScriptTask.
      * @param ref a reference to the unmasked callOperation.
      */
     @objid ("61ae8657-55b6-11e2-877f-002564c97630")
-    public GmBpmnScriptTask(IGmDiagram diagram, BpmnScriptTask element, MRef ref) {
+    public  GmBpmnScriptTask(IGmDiagram diagram, BpmnScriptTask element, MRef ref) {
         super(diagram, ref);
         this.element = element;
         
@@ -96,6 +94,7 @@ public class GmBpmnScriptTask extends GmPortContainer {
         
         super.addChild(mainNode);
         super.addChild(imageModeHeader);
+        
     }
 
     @objid ("61b00cbf-55b6-11e2-877f-002564c97630")
@@ -134,6 +133,7 @@ public class GmBpmnScriptTask extends GmPortContainer {
         default:
             return null;
         }
+        
     }
 
     @objid ("61b00cd8-55b6-11e2-877f-002564c97630")
@@ -151,13 +151,14 @@ public class GmBpmnScriptTask extends GmPortContainer {
         default:
             return Collections.emptyList();
         }
+        
     }
 
     /**
      * Empty constructor needed for deserialisation.
      */
     @objid ("61b00ce0-55b6-11e2-877f-002564c97630")
-    public GmBpmnScriptTask() {
+    public  GmBpmnScriptTask() {
         // Nothing specific to do.
     }
 
@@ -182,6 +183,7 @@ public class GmBpmnScriptTask extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("61b00ce9-55b6-11e2-877f-002564c97630")
@@ -203,6 +205,7 @@ public class GmBpmnScriptTask extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmBpmnScriptTask.", GmBpmnScriptTask.MINOR_VERSION);
+        
     }
 
     @objid ("61b1935a-55b6-11e2-877f-002564c97630")
@@ -215,6 +218,7 @@ public class GmBpmnScriptTask extends GmPortContainer {
         imageModeHeader.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         
         super.addChild(imageModeHeader, 1);
+        
     }
 
     @objid ("61b1935f-55b6-11e2-877f-002564c97630")
@@ -227,6 +231,7 @@ public class GmBpmnScriptTask extends GmPortContainer {
     private void read_1(final IDiagramReader in) {
         super.read(in);
         this.element = (BpmnScriptTask) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("61b1936a-55b6-11e2-877f-002564c97630")
@@ -242,6 +247,7 @@ public class GmBpmnScriptTask extends GmPortContainer {
                 ret.remove(imageModeHeader);
                 break;
             }
+            case USER_IMAGE:
             case IMAGE:
             default: {
                 break;
@@ -254,7 +260,6 @@ public class GmBpmnScriptTask extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -264,11 +269,11 @@ public class GmBpmnScriptTask extends GmPortContainer {
         String role = childNode.getRoleInComposition();
         return GmPortContainer.SATELLITE_ROLE.equals(role)
                         || GmBpmnScriptTask.IMAGE_LABEL_ROLE.equals(role);
+        
     }
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */

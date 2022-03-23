@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.view;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,9 +33,10 @@ public class DiagramBrowserModelChangeListener implements IModelChangeListener, 
     private final DiagramBrowserPanelProvider view;
 
     @objid ("000ffd8e-0d4f-10c6-842f-001ec947cd2a")
-    public DiagramBrowserModelChangeListener(DiagramBrowserPanelProvider view) {
+    public  DiagramBrowserModelChangeListener(DiagramBrowserPanelProvider view) {
         super();
         this.view = view;
+        
     }
 
     @objid ("001011b6-0d4f-10c6-842f-001ec947cd2a")
@@ -55,6 +55,7 @@ public class DiagramBrowserModelChangeListener implements IModelChangeListener, 
                 updateNavigatorView();
             }
         });
+        
     }
 
     @objid ("001055e0-0d4f-10c6-842f-001ec947cd2a")
@@ -73,6 +74,7 @@ public class DiagramBrowserModelChangeListener implements IModelChangeListener, 
                 updateNavigatorView();
             }
         });
+        
     }
 
     @objid ("00108e16-0d4f-10c6-842f-001ec947cd2a")
@@ -82,6 +84,7 @@ public class DiagramBrowserModelChangeListener implements IModelChangeListener, 
         }
         this.view.getPanel().setSelection(new StructuredSelection());
         this.view.getPanel().refresh(true);
+        
     }
 
 }

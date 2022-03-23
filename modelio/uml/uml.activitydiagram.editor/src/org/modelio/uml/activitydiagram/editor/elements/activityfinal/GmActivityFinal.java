@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.activityfinal;
 
 import java.util.Collections;
@@ -31,8 +30,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityFinalNode;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -60,7 +59,7 @@ public class GmActivityFinal extends GmPortContainer {
     private static final GmActivityFinalSimpleStyleKeys SIMPLE_KEYS = new GmActivityFinalSimpleStyleKeys();
 
     @objid ("2f949ebe-58a2-11e2-9574-002564c97630")
-     static final GmActivityFinalStructuredStyleKeys STRUCTURED_KEYS = new GmActivityFinalStructuredStyleKeys();
+    static final GmActivityFinalStructuredStyleKeys STRUCTURED_KEYS = new GmActivityFinalStructuredStyleKeys();
 
     @objid ("2f949ec0-58a2-11e2-9574-002564c97630")
     private static final GmActivityFinalImageStyleKeys IMAGE_KEYS = new GmActivityFinalImageStyleKeys();
@@ -70,13 +69,12 @@ public class GmActivityFinal extends GmPortContainer {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the timeEvent is unmasked.
      * @param el the unmasked timeEvent.
      * @param ref a reference to the unmasked timeEvent.
      */
     @objid ("29a5bcb0-55b6-11e2-877f-002564c97630")
-    public GmActivityFinal(IGmDiagram diagram, ActivityFinalNode el, MRef ref) {
+    public  GmActivityFinal(IGmDiagram diagram, ActivityFinalNode el, MRef ref) {
         super(diagram, ref);
         
         GmActivityFinalPrimaryNode mainNode = new GmActivityFinalPrimaryNode(diagram, ref);
@@ -89,6 +87,7 @@ public class GmActivityFinal extends GmPortContainer {
         
         this.addChild(mainNode);
         this.addChild(label);
+        
     }
 
     @objid ("29a74322-55b6-11e2-877f-002564c97630")
@@ -147,7 +146,7 @@ public class GmActivityFinal extends GmPortContainer {
      * Empty constructor needed for deserialization.
      */
     @objid ("29a74345-55b6-11e2-877f-002564c97630")
-    public GmActivityFinal() {
+    public  GmActivityFinal() {
         // Nothing specific to do.
     }
 
@@ -168,6 +167,7 @@ public class GmActivityFinal extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("29a7434e-55b6-11e2-877f-002564c97630")
@@ -189,12 +189,14 @@ public class GmActivityFinal extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmActivityFinal.", GmActivityFinal.MINOR_VERSION);
+        
     }
 
     @objid ("29a8c9c0-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (ActivityFinalNode) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("29a8c9c5-55b6-11e2-877f-002564c97630")
@@ -205,7 +207,6 @@ public class GmActivityFinal extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -217,7 +218,6 @@ public class GmActivityFinal extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

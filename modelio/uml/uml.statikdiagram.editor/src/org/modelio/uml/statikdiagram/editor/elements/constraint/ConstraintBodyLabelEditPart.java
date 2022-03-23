@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.constraint;
 
 import java.beans.PropertyChangeEvent;
@@ -74,6 +73,7 @@ public class ConstraintBodyLabelEditPart extends ModelElementHeaderEditPart {
         } else {
             super.performRequest(req);
         }
+        
     }
 
     @objid ("b69b320c-0ee2-4f20-9e05-28db8c86d862")
@@ -93,6 +93,7 @@ public class ConstraintBodyLabelEditPart extends ModelElementHeaderEditPart {
         if (fig != null) {
             updateAlignment(fig, style);
         }
+        
     }
 
     @objid ("76a5fe82-95e1-48d7-9d7e-04b9ba750d42")
@@ -112,6 +113,7 @@ public class ConstraintBodyLabelEditPart extends ModelElementHeaderEditPart {
             break;
         
         }
+        
     }
 
     @objid ("4dd8e197-5db2-4730-8dcc-ae4686b5f844")
@@ -143,6 +145,7 @@ public class ConstraintBodyLabelEditPart extends ModelElementHeaderEditPart {
         }
         
         super.propertyChange(evt);
+        
     }
 
 }

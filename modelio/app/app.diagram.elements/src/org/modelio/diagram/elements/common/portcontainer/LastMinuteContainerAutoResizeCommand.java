@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.portcontainer;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,14 +43,14 @@ class LastMinuteContainerAutoResizeCommand extends Command {
 
     /**
      * C'tor.
-     * 
      * @param host the host on which to apply the autoresize.
      */
     @objid ("02137fbd-ff50-47f1-825b-0a68aa02375b")
-    public LastMinuteContainerAutoResizeCommand(PortContainerEditPart host) {
+    public  LastMinuteContainerAutoResizeCommand(PortContainerEditPart host) {
         this.host = host;
         this.previousTrimmedBounds = host.getTrimmedBounds().getCopy();
         host.getFigure().translateToAbsolute(this.previousTrimmedBounds);
+        
     }
 
     @objid ("05b522c7-e557-45f6-a793-acfaf8fc14b5")
@@ -113,6 +112,7 @@ class LastMinuteContainerAutoResizeCommand extends Command {
                 translateChildrenCommand.execute();
             }
         }
+        
     }
 
 }

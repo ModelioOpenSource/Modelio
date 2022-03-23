@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.ports;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -66,6 +65,7 @@ public class PortFigure extends RectangularFigure {
         }
         
         g.restoreState();
+        
     }
 
     @objid ("364b3c4e-55b7-11e2-877f-002564c97630")
@@ -74,6 +74,7 @@ public class PortFigure extends RectangularFigure {
             this.portDirection = portDirection;
             repaint();
         }
+        
     }
 
     @objid ("364b3c54-55b7-11e2-877f-002564c97630")
@@ -106,6 +107,7 @@ public class PortFigure extends RectangularFigure {
             break;
         }
         }
+        
     }
 
     @objid ("364cc2b9-55b7-11e2-877f-002564c97630")
@@ -138,6 +140,7 @@ public class PortFigure extends RectangularFigure {
             break;
         }
         }
+        
     }
 
     @objid ("364cc2bd-55b7-11e2-877f-002564c97630")
@@ -150,30 +153,35 @@ public class PortFigure extends RectangularFigure {
         
         int[] points = { x + (w / 2), y - 1, x, y + (h / 2), x + (w / 2), y + h, x + w, y + (h / 2) };
         g.fillPolygon(points);
+        
     }
 
     @objid ("364cc2c1-55b7-11e2-877f-002564c97630")
     private void drawArrowPointingSouth(final Graphics g, final int x, final int y, final int w, final int h) {
         int[] points = { x, y + (h / 4) + 1, x + (w / 2), y + (3 * h / 4) + 2, x + w, y + (h / 4) + 1 };
         g.fillPolygon(points);
+        
     }
 
     @objid ("364cc2cd-55b7-11e2-877f-002564c97630")
     private void drawArrowPointingNorth(final Graphics g, final int x, final int y, final int w, final int h) {
         int[] points = { x - 1, y + (3 * h / 4), x + (w / 2), y + (h / 4) - 2, x + w + 1, y + (3 * h / 4) };
         g.fillPolygon(points);
+        
     }
 
     @objid ("364cc2d9-55b7-11e2-877f-002564c97630")
     private void drawArrowPointingWest(final Graphics g, final int x, final int y, final int w, final int h) {
         int[] points = { x + (3 * w / 4), y - 1, x + (w / 4) - 1, y + (h / 2), x + (3 * w / 4), y + h + 1 };
         g.fillPolygon(points);
+        
     }
 
     @objid ("364cc2e5-55b7-11e2-877f-002564c97630")
     private void drawArrowPointingEast(final Graphics g, final int x, final int y, final int w, final int h) {
         int[] points = { x + (w / 4) + 1, y - 1, x + (3 * w / 4) + 2, y + (h / 2), x + (w / 4) + 1, y + h };
         g.fillPolygon(points);
+        
     }
 
 }

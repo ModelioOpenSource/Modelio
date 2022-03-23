@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.handlers.rightdepth;
 
-import javax.annotation.PostConstruct;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.annotation.PostConstruct;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -86,6 +85,7 @@ public class RightDepthSpinner {
                 }
             }
         });
+        
     }
 
     @objid ("2f0fcd24-38d5-403d-98d8-e5421a2f8d6a")

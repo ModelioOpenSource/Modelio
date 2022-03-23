@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.browser.contrib;
 
 import java.util.List;
@@ -30,7 +29,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 @objid ("611678ea-beea-482d-b137-6314d54e9539")
 public class BpmnEventsContainer extends AbstractContainer<BpmnEvent> {
     @objid ("573a21da-5829-445f-bb28-d8ecddd59a91")
-    public BpmnEventsContainer(MObject owner, List<BpmnEvent> contents) {
+    public  BpmnEventsContainer(MObject owner, List<BpmnEvent> contents) {
         super(owner, contents);
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.modelshield.standardcheckers;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -77,10 +76,11 @@ public class E263Checker extends TypeChecker {
         
         // trigger=move, metaclass=Interaction, feature=
         plan.registerChecker(this, smMetamodel.getMClass(Interaction.class), TriggerType.Move, "");
+        
     }
 
     @objid ("001cacd2-159d-1f6a-b3fb-001ec947cd2a")
-    public E263Checker() {
+    public  E263Checker() {
         super(ERRORID);
     }
 

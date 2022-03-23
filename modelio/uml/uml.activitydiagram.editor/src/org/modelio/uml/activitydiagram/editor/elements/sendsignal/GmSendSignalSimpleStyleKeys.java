@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.sendsignal;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,33 +29,33 @@ import org.modelio.uml.activitydiagram.editor.style.ActivityAbstractStyleKeyProv
 @objid ("2b4b2f5d-55b6-11e2-877f-002564c97630")
 public class GmSendSignalSimpleStyleKeys extends ActivityAbstractStyleKeyProvider {
     @objid ("d0a045ea-55c0-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmSendSignalStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmSendSignalStructuredStyleKeys.REPMODE;
 
     @objid ("d0a045ec-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = GmSendSignalStructuredStyleKeys.FILLCOLOR;
+    static final StyleKey FILLCOLOR = GmSendSignalStructuredStyleKeys.FILLCOLOR;
 
     @objid ("d0a045ee-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = GmSendSignalStructuredStyleKeys.FILLMODE;
+    static final StyleKey FILLMODE = GmSendSignalStructuredStyleKeys.FILLMODE;
 
     @objid ("d0a045f0-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = GmSendSignalStructuredStyleKeys.LINECOLOR;
+    static final StyleKey LINECOLOR = GmSendSignalStructuredStyleKeys.LINECOLOR;
 
     @objid ("d0a045f2-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = GmSendSignalStructuredStyleKeys.LINEWIDTH;
+    static final StyleKey LINEWIDTH = GmSendSignalStructuredStyleKeys.LINEWIDTH;
 
     @objid ("d0a045f4-55c0-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmSendSignalStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmSendSignalStructuredStyleKeys.FONT;
 
     @objid ("d0a045f6-55c0-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmSendSignalStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmSendSignalStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("d0a045f8-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmSendSignalStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmSendSignalStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("d0a045fa-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmSendSignalStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmSendSignalStructuredStyleKeys.SHOWTAGS;
 
     @objid ("d0a045fc-55c0-11e2-9337-002564c97630")
-     static final StyleKey AUTOSHOWPINS = GmSendSignalStructuredStyleKeys.AUTOSHOWPINS;
+    static final StyleKey AUTOSHOWPINS = GmSendSignalStructuredStyleKeys.AUTOSHOWPINS;
 
 }

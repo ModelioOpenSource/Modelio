@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.handlers;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
@@ -109,6 +108,7 @@ public class CreateStereotypeHandler implements IModelioService {
         if (newStecreotype != null) {
             eventService.postAsyncEvent(this, ModelioEvent.NAVIGATE_ELEMENT, Arrays.asList(newStecreotype));
         }
+        
     }
 
     @objid ("200e5614-cf0d-43d8-bbe2-0864b1455031")

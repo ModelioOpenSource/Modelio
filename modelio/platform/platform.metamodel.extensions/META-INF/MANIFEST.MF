@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Metamodel Extensions
 Bundle-SymbolicName: org.modelio.platform.metamodel.extensions;singleton:=true
 Bundle-Localization: plugin
-Bundle-Version: 4.1.0.qualifier
+Bundle-Version: 5.1.0.qualifier
 Bundle-Vendor: modelio.org
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ClassPath: .,

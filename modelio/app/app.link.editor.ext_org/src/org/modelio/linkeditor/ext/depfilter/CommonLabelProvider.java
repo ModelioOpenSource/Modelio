@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.ext.depfilter;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,6 +42,7 @@ public class CommonLabelProvider extends LabelProvider {
         } else {
             return null;
         }
+        
     }
 
     @objid ("1b5f44ac-5e33-11e2-b81d-002564c97630")
@@ -74,6 +74,7 @@ public class CommonLabelProvider extends LabelProvider {
         } else {
             return "?" + element.toString();
         }
+        
     }
 
     @objid ("1b5f44b1-5e33-11e2-b81d-002564c97630")

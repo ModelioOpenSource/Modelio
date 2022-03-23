@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.astyle;
 
 import java.io.BufferedReader;
@@ -54,7 +53,6 @@ public final class AStyle {
 
     /**
      * Call the AStyleMain function in Artistic Style.
-     * 
      * @param textIn A string containing the source code to be formatted.
      * @param options A string of options to Artistic Style.
      * @return A String containing the formatted source from Artistic Style, or an empty string on error.
@@ -68,15 +66,15 @@ public final class AStyle {
         } else {
             return textOut;
         }
+        
     }
 
     /**
      * Call the AStyleMain function in Artistic Style.
-     * 
      * @param inputFile A file containing the source code to be formatted.
      * @param outputFile The file which will contain the formatted source from Artistic Style, or an empty string on error.
      * @param options A string of options to Artistic Style.
-     * @throws java.io.IOException Occurs when the input or output files are invalid or can't be accessed.
+     * @throws IOException Occurs when the input or output files are invalid or can't be accessed.
      */
     @objid ("005dd874-13d7-1f63-9ca6-001e4fea2d8b")
     public static void format(final File inputFile, final File outputFile, final String options) throws IOException {
@@ -84,13 +82,15 @@ public final class AStyle {
         String textOut = format(textIn, options);
         
         writeFile(textOut, outputFile);
+        
     }
 
     /**
      * This is a pure service class, it can't be instanciated.
      */
     @objid ("005dfb38-13d7-1f63-9ca6-001e4fea2d8b")
-    private AStyle() {
+    private  AStyle() {
+        
     }
 
     @objid ("005e1488-13d7-1f63-9ca6-001e4fea2d8b")
@@ -121,6 +121,7 @@ public final class AStyle {
         try (BufferedWriter out = new BufferedWriter(new FileWriter(outFile))) {
             out.write(textOut, 0, textOut.length());
         }
+        
     }
 
 }

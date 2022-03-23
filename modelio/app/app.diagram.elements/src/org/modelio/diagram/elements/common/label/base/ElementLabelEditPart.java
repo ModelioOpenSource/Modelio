@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.label.base;
 
 import java.beans.PropertyChangeEvent;
@@ -58,7 +57,7 @@ public class ElementLabelEditPart extends AbstractNodeEditPart {
      * Creates the label edit part.
      */
     @objid ("7e90337c-1dec-11e2-8cad-001ec947c8cc")
-    public ElementLabelEditPart() {
+    public  ElementLabelEditPart() {
         super();
     }
 
@@ -90,6 +89,7 @@ public class ElementLabelEditPart extends AbstractNodeEditPart {
         
         }
         super.performRequest(req);
+        
     }
 
     /**
@@ -111,6 +111,7 @@ public class ElementLabelEditPart extends AbstractNodeEditPart {
         } else {
             super.propertyChange(evt);
         }
+        
     }
 
     @objid ("7e92959d-1dec-11e2-8cad-001ec947c8cc")
@@ -121,6 +122,7 @@ public class ElementLabelEditPart extends AbstractNodeEditPart {
         if (((GmModel) getModel()).getEditableText() != null) {
             installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE, new DefaultElementDirectEditPolicy());
         }
+        
     }
 
     /**
@@ -165,6 +167,7 @@ public class ElementLabelEditPart extends AbstractNodeEditPart {
         }
         
         updateVisibility(aFigure);
+        
     }
 
     @objid ("7e9295af-1dec-11e2-8cad-001ec947c8cc")
@@ -174,6 +177,7 @@ public class ElementLabelEditPart extends AbstractNodeEditPart {
         final LabelumFigure labelFigure = getLabelFigure(getFigure());
         labelFigure.setText(model.getLabel());
         labelFigure.getParent().setConstraint(labelFigure, model.getLayoutData());
+        
     }
 
     @objid ("7e9295b2-1dec-11e2-8cad-001ec947c8cc")
@@ -184,6 +188,7 @@ public class ElementLabelEditPart extends AbstractNodeEditPart {
         } else {
             aFigure.setVisible(false);
         }
+        
     }
 
     /**
@@ -212,13 +217,13 @@ public class ElementLabelEditPart extends AbstractNodeEditPart {
                 resizeCommand.execute();
             }
         }
+        
     }
 
     /**
      * Get the {@link LabelumFigure} from the main figure.
      * <p>
      * To be redefined if {@link #createFigure()} is redefined and returns a composite figure.
-     * 
      * @param mainFig the main figure, usually {@link #getFigure()}
      * @return the {@link LabelumFigure}
      */

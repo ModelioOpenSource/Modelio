@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.namespacinglink;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,9 +43,10 @@ public class CircleDeco extends GradientFigure implements RotatableDecoration {
     private static final PrecisionPoint tmp = new PrecisionPoint();
 
     @objid ("35a670a3-55b7-11e2-877f-002564c97630")
-    public CircleDeco() {
+    public  CircleDeco() {
         super();
         setSize(CIRCLE_OFFSET * 2, CIRCLE_OFFSET * 2);
+        
     }
 
     @objid ("35a670a5-55b7-11e2-877f-002564c97630")
@@ -56,6 +56,7 @@ public class CircleDeco extends GradientFigure implements RotatableDecoration {
         pt.setLocation(ref);
         pt.negate().translate(this.location);
         this.transform.setRotation(Math.atan2(pt.y, pt.x));
+        
     }
 
     @objid ("35a670aa-55b7-11e2-877f-002564c97630")
@@ -63,6 +64,7 @@ public class CircleDeco extends GradientFigure implements RotatableDecoration {
     public void setLocation(final Point p) {
         this.location.setLocation(p);
         this.transform.setTranslation(p.x, p.y);
+        
     }
 
     @objid ("35a670af-55b7-11e2-877f-002564c97630")
@@ -83,6 +85,7 @@ public class CircleDeco extends GradientFigure implements RotatableDecoration {
                          0,
                          360);
         //super.paintFigure(graphics);
+        
     }
 
     @objid ("35a670b4-55b7-11e2-877f-002564c97630")
@@ -105,6 +108,7 @@ public class CircleDeco extends GradientFigure implements RotatableDecoration {
         graphics.drawLine(tmp.x() - CIRCLE_OFFSET, tmp.y(), tmp.x() + CIRCLE_OFFSET, tmp.y());
         graphics.drawLine(tmp.x(), tmp.y() - CIRCLE_OFFSET, tmp.x(), tmp.y() + CIRCLE_OFFSET);
         //super.paintBorder(graphics);
+        
     }
 
     @objid ("35a670b9-55b7-11e2-877f-002564c97630")
@@ -116,6 +120,7 @@ public class CircleDeco extends GradientFigure implements RotatableDecoration {
                                                              tmp.y() - (CIRCLE_OFFSET + 1),
                                                              (CIRCLE_OFFSET + 1) * 2,
                                                              (CIRCLE_OFFSET + 1) * 2);
+        
     }
 
 }

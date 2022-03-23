@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.script.macro.catalogdialog;
 
 import java.net.URL;
@@ -96,17 +95,18 @@ public class MacroDialog extends ModelioDialog {
      * Create a macro edition dialog for an existing macro
      */
     @objid ("00697800-c497-106a-bf4f-001ec947cd2a")
-    public MacroDialog(Shell parentShell, Macro macroToEdit) {
+    public  MacroDialog(Shell parentShell, Macro macroToEdit) {
         super(parentShell);
         this.editedMacro = macroToEdit;
         this.catalog = macroToEdit.getCatalog();
+        
     }
 
     /**
      * Create a macro edition dialog for a new macro
      */
     @objid ("00697896-c497-106a-bf4f-001ec947cd2a")
-    public MacroDialog(Shell parentShell, Catalog catalog) {
+    public  MacroDialog(Shell parentShell, Catalog catalog) {
         super(parentShell);
         if (catalog == null) {
             throw new NullPointerException("catalog cannot be null.");
@@ -114,6 +114,7 @@ public class MacroDialog extends ModelioDialog {
         
         this.catalog = catalog;
         this.editedMacro = null;
+        
     }
 
     @objid ("0069a460-c497-106a-bf4f-001ec947cd2a")
@@ -201,7 +202,6 @@ public class MacroDialog extends ModelioDialog {
 
     /**
      * Get the edited macro.
-     * 
      * @return the edited macro.
      */
     @objid ("006a05cc-c497-106a-bf4f-001ec947cd2a")
@@ -214,6 +214,7 @@ public class MacroDialog extends ModelioDialog {
     public void init() {
         setTitle(Script.I18N.getString("MacroDialog.title"));
         setMessage(Script.I18N.getString("MacroDialog.description"));
+        
     }
 
     @objid ("006a07a2-c497-106a-bf4f-001ec947cd2a")
@@ -229,11 +230,11 @@ public class MacroDialog extends ModelioDialog {
             }
             super.okPressed();
         }
+        
     }
 
     /**
      * Add a metaclass to the applicable metaclass list table.
-     * 
      * @param s a metaclass name
      */
     @objid ("006a0842-c497-106a-bf4f-001ec947cd2a")
@@ -241,11 +242,11 @@ public class MacroDialog extends ModelioDialog {
         TableItem i = new TableItem(this.metaclassList, 0);
         i.setText(s);
         i.setImage(MetamodelImageService.getIcon(this.catalog.getMetamodel().getMClass(s)));
+        
     }
 
     /**
      * Check the path is an existing a readable file path.
-     * 
      * @param pathString The path to check
      */
     @objid ("0069a5c8-c497-106a-bf4f-001ec947cd2a")
@@ -331,6 +332,7 @@ public class MacroDialog extends ModelioDialog {
             this.showInToolbarToggle.setEnabled(true);
         }
         this.editedMacro = script;
+        
     }
 
     @objid ("006a0b80-c497-106a-bf4f-001ec947cd2a")
@@ -370,6 +372,7 @@ public class MacroDialog extends ModelioDialog {
         this.editedMacro.setShowInContextualMenu(this.showInMenuToggle.getSelection());
         this.editedMacro.setShowInToolbar(this.showInToolbarToggle.getSelection());
         this.editedMacro.setMetaclasses(getApplicableMetaclasses());
+        
     }
 
     @objid ("6a04233f-e2dd-4587-9070-fb1151cf4c45")
@@ -394,13 +397,14 @@ public class MacroDialog extends ModelioDialog {
         super.configureShell(newShell);
         newShell.setMinimumSize(600, 400);
         newShell.setText(Script.I18N.getString("MacroDialog.title"));
+        
     }
 
     @objid ("00696428-c497-106a-bf4f-001ec947cd2a")
     @SuppressWarnings ("serial")
     private static class IllegalPathException extends Exception {
         @objid ("00697936-c497-106a-bf4f-001ec947cd2a")
-        public IllegalPathException(String message) {
+        public  IllegalPathException(String message) {
             super(message);
         }
 
@@ -436,10 +440,11 @@ public class MacroDialog extends ModelioDialog {
                     addMetaclass(s.getName());
                 }
             }
+            
         }
 
         @objid ("9b0b78cb-ec0d-445e-b3e8-301268413ef5")
-        public ApplicableOnListener() {
+        public  ApplicableOnListener() {
             super();
         }
 

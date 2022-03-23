@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.fragment;
 
 import java.io.IOException;
@@ -55,28 +54,28 @@ public class FragmentMigrationNeededException extends Exception {
 
     /**
      * Constructor that builds a default summary.
-     * 
      * @param fragment the fragment that needs migration.
      * @param targetVersion the needed metamodel version
      */
     @objid ("e757dced-f50b-4622-9110-a78f3ceccb73")
-    public FragmentMigrationNeededException(IProjectFragment fragment, MetamodelVersionDescriptor targetVersion) {
+    public  FragmentMigrationNeededException(IProjectFragment fragment, MetamodelVersionDescriptor targetVersion) {
         super(computeMessage(fragment, targetVersion));
         
         init(fragment, targetVersion);
+        
     }
 
     /**
      * Constructor with a custom summary.
-     * 
      * @param fragment the fragment that needs migration.
      * @param targetVersion the needed metamodel version
      * @param summary summary about the needed migration.
      */
     @objid ("5b35eb86-1a46-42be-a2a2-de90ced5e036")
-    public FragmentMigrationNeededException(IProjectFragment fragment, MetamodelVersionDescriptor targetVersion, String summary) {
+    public  FragmentMigrationNeededException(IProjectFragment fragment, MetamodelVersionDescriptor targetVersion, String summary) {
         super(summary);
         init(fragment, targetVersion);
+        
     }
 
     @objid ("c1db3301-480e-4fd9-ab7f-7a4dfb5e2acb")
@@ -91,11 +90,11 @@ public class FragmentMigrationNeededException extends Exception {
         
             this.fragmentVersion = new MetamodelVersionDescriptor(d);
         }
+        
     }
 
     /**
      * Get the identifier of the fragment to migrate.
-     * 
      * @return the fragment identifier.
      */
     @objid ("8b32a0cd-360e-47fa-8cd7-a8615d2e8108")
@@ -105,7 +104,6 @@ public class FragmentMigrationNeededException extends Exception {
 
     /**
      * Get the metamodel version of the fragment to migrate.
-     * 
      * @return the fragment metamodel version.
      */
     @objid ("82f680f3-5d9c-4a85-9b82-70c5167a6b61")
@@ -115,7 +113,6 @@ public class FragmentMigrationNeededException extends Exception {
 
     /**
      * Get the metamodel version the fragment must be migrated to.
-     * 
      * @return the target metamodel version.
      */
     @objid ("8022e424-f360-4941-908f-955b80da8bb4")
@@ -125,7 +122,6 @@ public class FragmentMigrationNeededException extends Exception {
 
     /**
      * Compute the exception message.
-     * 
      * @param fragment the fragment to migrate
      * @param targetVersion the target metamodel versions
      * @return a message.
@@ -147,11 +143,11 @@ public class FragmentMigrationNeededException extends Exception {
         } catch (IOException e) {
             return FileUtils.getLocalizedMessage(e);
         }
+        
     }
 
     /**
      * Tells for a remote/versioned fragment whether the remote repository needs to be migrated too.
-     * 
      * @return true if the remote repository needs to be migrated, false if only the local model needs migration.
      * @since 3.7.01
      */
@@ -162,7 +158,6 @@ public class FragmentMigrationNeededException extends Exception {
 
     /**
      * Set the remote repository needs to be migrated too.
-     * 
      * @return this instance to chain calls.
      * @since 3.7.01
      */

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.ramcs.edition;
 
 import java.nio.file.Path;
@@ -50,14 +49,14 @@ public class RamcModel extends ModelComponent {
      * @param ramc the model component artifact.
      */
     @objid ("af33b675-81be-489f-88e8-bc5c79e22efd")
-    public RamcModel(Path projectPath, Artifact ramc) {
+    public  RamcModel(Path projectPath, Artifact ramc) {
         super(ramc);
         this.projectPath = projectPath;
+        
     }
 
     /**
      * Replace the current contributors.
-     * 
      * @param contributorCandidates the module contributors to the model component packaging.
      */
     @objid ("2ca9927b-cda5-4edf-9835-4e3ad6a9b02d")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -25,7 +24,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 @objid ("3ce072f3-5ae0-4f52-95e8-adcdfe7d972c")
 public class ERealization extends EAbstraction {
     @objid ("ae9743ae-074d-443e-b840-1c5639699e14")
-    public ERealization(org.eclipse.uml2.uml.Realization element) {
+    public  ERealization(org.eclipse.uml2.uml.Realization element) {
         super(element);
     }
 

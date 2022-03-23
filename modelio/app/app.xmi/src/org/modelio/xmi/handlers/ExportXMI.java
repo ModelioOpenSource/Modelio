@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.handlers;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
@@ -60,6 +59,7 @@ public class ExportXMI {
         final SwtWizardExport dialog = new SwtWizardExport(activeShell, progressService, projectService);
         dialog.setSelectedElt(this.selectedPackages.get(0));
         dialog.open();
+        
     }
 
     @objid ("83392784-7629-44b9-a089-ee91420fef33")

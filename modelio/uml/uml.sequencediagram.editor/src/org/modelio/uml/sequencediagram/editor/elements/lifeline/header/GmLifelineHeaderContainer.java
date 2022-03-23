@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.lifeline.header;
 
 import java.util.ArrayList;
@@ -64,27 +63,26 @@ public class GmLifelineHeaderContainer extends GmNoStyleCompositeNode implements
      * Deserialisation c'tor only.
      */
     @objid ("d94525df-55b6-11e2-877f-002564c97630")
-    public GmLifelineHeaderContainer() {
+    public  GmLifelineHeaderContainer() {
         super();
     }
 
     /**
      * C'tor.
-     * 
      * @param diagram the diagram in which this gm is created.
      * @param relatedRef a reference to the represented element.
      */
     @objid ("d94525e2-55b6-11e2-877f-002564c97630")
-    public GmLifelineHeaderContainer(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmLifelineHeaderContainer(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
         this.addChild(new GmLifelineHeader(diagram, relatedRef));
         this.imageModeLabel = new GmDefaultModelElementLabel(diagram, relatedRef);
         this.addChild(this.imageModeLabel);
+        
     }
 
     /**
      * Get the stereotype image to display.
-     * 
      * @return the stereotype image to display. Must not be <i>null</i>.
      */
     @objid ("d94525ed-55b6-11e2-877f-002564c97630")
@@ -103,6 +101,7 @@ public class GmLifelineHeaderContainer extends GmNoStyleCompositeNode implements
         } else {
             return ElementImageService.getImage(lifeline);
         }
+        
     }
 
     @objid ("d94525f2-55b6-11e2-877f-002564c97630")
@@ -135,6 +134,7 @@ public class GmLifelineHeaderContainer extends GmNoStyleCompositeNode implements
         super.refreshFromObModel();
         // forcing visual refresh in case Image changed
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("d946ac79-55b6-11e2-877f-002564c97630")
@@ -154,6 +154,7 @@ public class GmLifelineHeaderContainer extends GmNoStyleCompositeNode implements
             break;
         }
         }
+        
     }
 
     @objid ("d946ac80-55b6-11e2-877f-002564c97630")
@@ -186,12 +187,14 @@ public class GmLifelineHeaderContainer extends GmNoStyleCompositeNode implements
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmLifelineHeaderContainer.", MINOR_VERSION);
+        
     }
 
     @objid ("d946ac8f-55b6-11e2-877f-002564c97630")
     private void read_0(final IDiagramReader in) {
         super.read(in);
         this.imageModeLabel = (GmDefaultModelElementLabel) getChildren().get(1);
+        
     }
 
     @objid ("d946ac95-55b6-11e2-877f-002564c97630")

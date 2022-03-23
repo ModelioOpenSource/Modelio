@@ -18,8 +18,8 @@
 main()
 {
 	MODELIO_PATH="$(getModelioInstallPath "$0")"
-	if [ -f "/etc/modelio-open-source4.1/modelio.config" ] ; then
-		. "/etc/modelio-open-source4.1/modelio.config"
+	if [ -f "/etc/modelio-open-source5.1/modelio.config" ] ; then
+		. "/etc/modelio-open-source5.1/modelio.config"
 	else
 		UBUNTU_MENUPROXY=0
 		LIBOVERLAY_SCROLLBAR=0

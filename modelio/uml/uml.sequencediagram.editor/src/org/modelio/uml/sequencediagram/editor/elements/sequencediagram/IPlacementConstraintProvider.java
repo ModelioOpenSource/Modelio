@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.sequencediagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,7 +36,6 @@ import org.modelio.diagram.elements.core.model.GmModel;
 public interface IPlacementConstraintProvider {
     /**
      * Creates and returns a PlacementConstraint for the given model.
-     * 
      * @param model the graphic model for which a constraint is to be created.
      * @param x the desired X coordinate in coordinates relative to the parent figure.
      * @param width the desired width of the figure.

@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.gmdbg;
 
 import java.util.Objects;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.e4.ui.workbench.modeling.ISelectionListener;
@@ -144,9 +143,10 @@ public class GmDebugger extends Dialog {
      * @param gmDiagram a diagram.
      */
     @objid ("cc3469d5-9d30-468d-b761-1a3254d175ba")
-    private GmDebugger(Shell parent) {
+    private  GmDebugger(Shell parent) {
         super(parent);
         setBlockOnOpen(false);
+        
     }
 
     @objid ("99981d52-2105-4a72-81f2-89e54a9f2f8c")
@@ -166,6 +166,7 @@ public class GmDebugger extends Dialog {
     protected void configureShell(Shell shell) {
         super.configureShell(shell);
         shell.setText("GmViewer");
+        
     }
 
     @objid ("06eb0f7c-c7e1-467b-80aa-3f5c87543378")
@@ -197,6 +198,7 @@ public class GmDebugger extends Dialog {
                 setInput2(this.diagramEditPart, SelectionHelper.getFirst(selection, GmAbstractObject.class));
             }
         }
+        
     }
 
     @objid ("0d7d4a49-4c85-4fa5-84bf-dd2f6c12c4cb")
@@ -223,6 +225,7 @@ public class GmDebugger extends Dialog {
             // got a non-supported selection
             return;
         }
+        
     }
 
     /**
@@ -268,6 +271,7 @@ public class GmDebugger extends Dialog {
             };
             this.selectionService.addSelectionListener(this.selectionListener);
         }
+        
     }
 
 }

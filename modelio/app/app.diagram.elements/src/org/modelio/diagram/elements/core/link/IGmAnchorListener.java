@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,7 +28,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IGmAnchorListener {
     /**
      * Called by the anchor when its location changes.
-     * 
      * @param gmLinkAnchor The moved anchor.
      */
     @objid ("3747adba-574a-43a2-8ec6-8eeaa0e259b0")

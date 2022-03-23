@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.policies;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -83,6 +82,7 @@ public class SmartGeneralizationEditPolicy extends DefaultCreateLinkEditPolicy {
         } else {
             return super.getConnectionCompleteCommand(request);
         }
+        
     }
 
 }

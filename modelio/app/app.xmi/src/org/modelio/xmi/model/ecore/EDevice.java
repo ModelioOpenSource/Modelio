@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class EDevice extends ENode {
     }
 
     @objid ("224f9f85-0e96-4871-9f98-b38a9034ee90")
-    public EDevice(org.eclipse.uml2.uml.Device element) {
+    public  EDevice(org.eclipse.uml2.uml.Device element) {
         super(element);
     }
 

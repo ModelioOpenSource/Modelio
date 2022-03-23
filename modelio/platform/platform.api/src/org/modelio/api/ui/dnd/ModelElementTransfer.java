@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.dnd;
 
 import java.io.ByteArrayInputStream;
@@ -46,7 +45,6 @@ public final class ModelElementTransfer extends ByteArrayTransfer {
 
     /**
      * Returns the singleton gadget transfer instance.
-     * 
      * @return the instance of ModelElementTransfer.
      */
     @objid ("01f4081c-0000-001a-0000-000000000000")
@@ -58,7 +56,8 @@ public final class ModelElementTransfer extends ByteArrayTransfer {
      * Avoid explicit instantiation
      */
     @objid ("01f4081c-0000-001f-0000-000000000000")
-    private ModelElementTransfer() {
+    private  ModelElementTransfer() {
+        
     }
 
     @objid ("01f4081c-0000-0022-0000-000000000000")
@@ -85,6 +84,7 @@ public final class ModelElementTransfer extends ByteArrayTransfer {
         byte[] bytes = toByteArray(refs);
                 if (bytes != null)
                    super.javaToNative(bytes, transferData);
+        
     }
 
     @objid ("01f4081c-0000-0034-0000-000000000000")
@@ -96,7 +96,6 @@ public final class ModelElementTransfer extends ByteArrayTransfer {
 
     /**
      * Converts a table of model element references to a byte array.
-     * 
      * @param refs the model elements to convert.
      * @return a java byte[] containing the converted data if the conversion was successful; otherwise null
      */
@@ -120,7 +119,6 @@ public final class ModelElementTransfer extends ByteArrayTransfer {
 
     /**
      * Converts a byte array to a table of model element references.
-     * 
      * @param buffer the byte array to convert.
      * @return an ObRef[] containing the converted data if the conversion was successful; otherwise null
      */

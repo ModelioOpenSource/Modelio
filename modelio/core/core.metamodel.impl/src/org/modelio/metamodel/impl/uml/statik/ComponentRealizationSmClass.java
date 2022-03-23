@@ -17,20 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
-import org.modelio.metamodel.impl.uml.statik.ClassifierSmClass;
-import org.modelio.metamodel.impl.uml.statik.ComponentRealizationData;
-import org.modelio.metamodel.impl.uml.statik.ComponentSmClass;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.metamodel.uml.statik.Classifier;
 import org.modelio.metamodel.uml.statik.Component;
@@ -55,7 +52,7 @@ public class ComponentRealizationSmClass extends UmlModelElementSmClass {
     private SmDependency abstractionDep;
 
     @objid ("4e72ba3f-5d54-4453-8f3a-25f2cfc7a3e1")
-    public ComponentRealizationSmClass(ISmMetamodelFragment origin) {
+    public  ComponentRealizationSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -63,6 +60,7 @@ public class ComponentRealizationSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "ComponentRealization";
+        
     }
 
     @objid ("61667ee1-5f6a-47b4-9d21-dff88fa66c9c")
@@ -75,18 +73,21 @@ public class ComponentRealizationSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ComponentRealization.class;
+        
     }
 
     @objid ("493f0f04-54bd-4851-9037-cf6542926cd5")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("99d93851-c2ce-4387-bf6f-2396957fd1da")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("42752c53-6701-4935-9980-30ba8175a4e4")
@@ -106,6 +107,8 @@ public class ComponentRealizationSmClass extends UmlModelElementSmClass {
         this.abstractionDep = new AbstractionSmDependency();
         this.abstractionDep.init("Abstraction", this, metamodel.getMClass(Component.MQNAME), 1, 1 );
         registerDependency(this.abstractionDep);
+        
+        
     }
 
     @objid ("d7a20ee6-f717-4800-b769-cc0cf3ebff6d")
@@ -130,7 +133,7 @@ public class ComponentRealizationSmClass extends UmlModelElementSmClass {
         private ComponentRealizationSmClass smClass;
 
         @objid ("d842ed54-a93d-453f-9980-6ae1eb5ac818")
-        public ComponentRealizationObjectFactory(ComponentRealizationSmClass smClass) {
+        public  ComponentRealizationObjectFactory(ComponentRealizationSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -172,6 +175,7 @@ public class ComponentRealizationSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((ClassifierSmClass)this.getTarget()).getRealizedComponentDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -200,6 +204,7 @@ public class ComponentRealizationSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((ComponentSmClass)this.getTarget()).getRealizationDep();
             }
             return this.symetricDep;
+            
         }
 
     }

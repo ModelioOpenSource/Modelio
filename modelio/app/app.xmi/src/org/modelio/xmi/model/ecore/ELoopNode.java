@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,9 +38,10 @@ public class ELoopNode extends EStructuredActivityNode {
     }
 
     @objid ("6dbcad6b-ed7a-4a21-b683-18a99cd4a178")
-    public ELoopNode(org.eclipse.uml2.uml.LoopNode element) {
+    public  ELoopNode(org.eclipse.uml2.uml.LoopNode element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("349df57b-5799-46eb-a027-0a658f8dd8a0")
@@ -57,6 +57,7 @@ public class ELoopNode extends EStructuredActivityNode {
         setBody((LoopNode) objingElt);
         setSetup((LoopNode) objingElt);
         setTest((LoopNode) objingElt);
+        
     }
 
     @objid ("062535ca-a668-4c23-9f04-c64e6dc974f9")
@@ -71,6 +72,7 @@ public class ELoopNode extends EStructuredActivityNode {
             if (objingBody instanceof ActivityNode)
                 node.getBody().add((ActivityNode) objingBody);
         }
+        
     }
 
     @objid ("39dfc420-ee7c-41b6-9fc2-0180c81fa207")
@@ -92,6 +94,7 @@ public class ELoopNode extends EStructuredActivityNode {
             }
         }
         node.setSetup(objingSetup);
+        
     }
 
     @objid ("1ee3a966-346a-418a-b626-c90fcbded171")
@@ -114,6 +117,7 @@ public class ELoopNode extends EStructuredActivityNode {
             }
         }
         node.setTest(objingTest);
+        
     }
 
 }

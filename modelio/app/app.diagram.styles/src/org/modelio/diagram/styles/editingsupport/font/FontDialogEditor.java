@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.editingsupport.font;
 
 import java.util.Objects;
@@ -56,26 +55,25 @@ public class FontDialogEditor extends CellEditor {
     /**
      * Creates a new color cell editor parented under the given control. The cell editor value is black (
      * <code>Font(0,0,0)</code>) initially, and has no validator.
-     * 
      * @param parent the parent control
      */
     @objid ("85a23439-1926-11e2-92d2-001ec947c8cc")
-    public FontDialogEditor(final Composite parent) {
+    public  FontDialogEditor(final Composite parent) {
         this(parent, SWT.NONE);
     }
 
     /**
      * Creates a new font cell editor parented under the given control.
      * The cell editor value is null initially, and has no validator.
-     * 
      * @param parent the parent control
      * @param style the style bits
      * @since 2.1
      */
     @objid ("85a2343d-1926-11e2-92d2-001ec947c8cc")
-    public FontDialogEditor(final Composite parent, final int style) {
+    public  FontDialogEditor(final Composite parent, final int style) {
         super(parent, style);
         doSetValue(null);
+        
     }
 
     @objid ("85a49689-1926-11e2-92d2-001ec947c8cc")
@@ -133,6 +131,7 @@ public class FontDialogEditor extends CellEditor {
             fireApplyEditorValue();
         }
         deactivate();
+        
     }
 
     @objid ("e483e907-d747-42c7-bb34-c918d1c8c6e3")
@@ -141,11 +140,13 @@ public class FontDialogEditor extends CellEditor {
         if (activationEvent.eventType != ColumnViewerEditorActivationEvent.TRAVERSAL) {
             super.activate(activationEvent);
         }
+        
     }
 
     @objid ("1e2bdb62-7420-4788-a25b-6263de1162a4")
     @Override
     public void dispose() {
+        
     }
 
 }

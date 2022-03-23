@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.api;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,16 +30,14 @@ import org.modelio.patterns.model.RuntimePattern;
 public interface IPatternService {
     /**
      * Export a pattern.
-     * 
      * @param pattern the pattern to export.
-     * @throws org.modelio.api.modelio.pattern.IPatternService.PatternException when the pattern metadatas are invalid or the pattern can't be read.
+     * @throws PatternException when the pattern metadatas are invalid or the pattern can't be read.
      */
     @objid ("196087f9-a115-4c62-b919-6733aae3e06b")
     void exportPattern(RuntimePattern pattern) throws PatternException;
 
     /**
      * Get the project's pattern catalog.
-     * 
      * @return the pattern catalog. Should be <code>null</code> when no project is opened.
      */
     @objid ("b21e3d18-54cf-4992-8c9e-f81720eea83e")

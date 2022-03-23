@@ -17,9 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta.smannotations;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.vcore.smkernel.SmObjectData;
 import org.modelio.vcore.smkernel.meta.SmDependency;
@@ -52,8 +53,8 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
  */
 @objid ("00092428-f99c-1f1f-85a5-001ec947cd2a")
 @Deprecated
-@java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
-public @interface SmaMetaAssociation  {
+@Retention(RetentionPolicy.RUNTIME)
+public @interface SmaMetaAssociation {
     /**
      * 
      * @return the role name
@@ -96,28 +97,28 @@ public @interface SmaMetaAssociation  {
      * @return true for a composition dependency
      */
     @objid ("002a6eb2-7f00-1f32-acd1-001ec947cd2a")
-    boolean component() default false;
+    boolean component();
 
     /**
      * 
      * @return true for a shared composition dependency
      */
     @objid ("002ac8ee-7f00-1f32-acd1-001ec947cd2a")
-    boolean sharedComponent() default false;
+    boolean sharedComponent();
 
     /**
      * 
      * @return true for a "partof" dependency
      */
     @objid ("002a65e8-7f00-1f32-acd1-001ec947cd2a")
-    boolean partof() default false;
+    boolean partof();
 
     /**
      * 
      * @return true to cascade deletion to the target
      */
     @objid ("002a779a-7f00-1f32-acd1-001ec947cd2a")
-    boolean istodelete() default false;
+    boolean istodelete();
 
     /**
      * Tells whether it is advisable to avoid storing this dependency on saving.
@@ -126,6 +127,6 @@ public @interface SmaMetaAssociation  {
      * @return true to tell storage to not save the dependency.
      */
     @objid ("002a80c8-7f00-1f32-acd1-001ec947cd2a")
-    boolean performanceRisk() default false;
+    boolean performanceRisk();
 
 }

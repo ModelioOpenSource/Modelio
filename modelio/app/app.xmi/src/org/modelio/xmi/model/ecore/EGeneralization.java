@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import java.util.ArrayList;
@@ -73,17 +72,18 @@ public class EGeneralization extends EElement {
         } else {
             return createGeneralizationElt(ecoreSpecific, objingSpecific);
         }
+        
     }
 
     /**
      * The EGeneralization constructor with the imported Ecore org.eclipse.uml2.uml.Generalization as parameter
-     * 
      * @param element : the imported Ecore org.eclipse.uml2.uml.Generalization
      */
     @objid ("89655b78-47b1-43d3-9517-ec4da208023b")
-    public EGeneralization(final org.eclipse.uml2.uml.Generalization element) {
+    public  EGeneralization(final org.eclipse.uml2.uml.Generalization element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("4a1ed6cd-77af-40cb-a4bb-cf78a903f7c7")
@@ -112,6 +112,7 @@ public class EGeneralization extends EElement {
         } else {
             objingElt.delete();
         }
+        
     }
 
     @objid ("9ca5e39c-5ef4-4676-8d6f-67012a88a1de")
@@ -122,6 +123,7 @@ public class EGeneralization extends EElement {
         if (this.revProp.isRoundtripEnabled()) {
             setDiscriminator((Generalization) objingElt);
         }
+        
     }
 
     @objid ("838bc89f-728a-4b1f-8142-c86216b37779")
@@ -130,6 +132,7 @@ public class EGeneralization extends EElement {
         if (discriminator != null) {
             objingElt.setDiscriminator(discriminator);
         }
+        
     }
 
     @objid ("5635228c-e5e9-4ed4-b7f2-5edc3e652cc2")
@@ -148,6 +151,7 @@ public class EGeneralization extends EElement {
             this.revProp.addError(message);
             return null;
         }
+        
     }
 
     @objid ("7b88ce6a-3ee4-46f5-b765-21bbf574bb47")

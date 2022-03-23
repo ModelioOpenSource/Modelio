@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.interactionfragment;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("61594814-18dd-4b16-99f8-7a7a8f6e0dae")
 public class MMStandardInteractionFragment {
-    @objid ("6c50cc27-8a56-42a9-837c-f70f46ab877f")
+    @objid ("cffdde3f-a5b1-4da5-a097-147e229ebf1a")
     public static final String USERDIAGRAMIMAGE_TAGTYPE = "userDiagramImage";
 
     /**
      * The underlying {@link InteractionFragment} represented by this proxy, never null.
      */
-    @objid ("1867e49c-9f3b-479b-b740-aceba7230d3f")
+    @objid ("8d1e4e5a-cfde-4f14-8606-6ebf2f175471")
     protected final InteractionFragment elt;
 
     /**
      * Tells whether a {@link MMStandardInteractionFragment proxy} can be instantiated from a {@link MObject} checking it is a {@link InteractionFragment}.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("e84e3797-1fd7-45b6-94e9-4f0629f89d16")
+    @objid ("071a71b5-8057-4f83-ae9e-a585af85eecf")
     public static boolean canInstantiate(MObject elt) {
         return (elt instanceof InteractionFragment);
     }
@@ -79,12 +77,12 @@ public class MMStandardInteractionFragment {
      * @param obj a InteractionFragment
      * @return a {@link MMStandardInteractionFragment} proxy or <i>null</i>.
      */
-    @objid ("5d983b90-b189-4fbc-90a0-67aec7e418ba")
+    @objid ("171a560a-a8f9-4f54-96eb-a1f08d3d7032")
     public static MMStandardInteractionFragment instantiate(InteractionFragment obj) {
         return MMStandardInteractionFragment.canInstantiate(obj) ? new MMStandardInteractionFragment(obj) : null;
     }
 
-    @objid ("d94cb04b-dc45-4f23-8485-94aeb463ab17")
+    @objid ("609017d5-30a0-497a-9c82-106e937759a5")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -104,7 +102,7 @@ public class MMStandardInteractionFragment {
      * Get the underlying {@link InteractionFragment}. 
      * @return the InteractionFragment represented by this proxy, never null.
      */
-    @objid ("d2e10ccf-ca5d-4761-b870-61108d0708b3")
+    @objid ("db579f9f-211f-401c-9120-7d256b24c4c0")
     public InteractionFragment getElement() {
         return this.elt;
     }
@@ -116,15 +114,16 @@ public class MMStandardInteractionFragment {
      * 
      * The file path must be either absolute or relative to the project path.</i></p>
      */
-    @objid ("c8d3a095-be1b-436a-9646-c78f80d64e84")
+    @objid ("ee262308-66eb-4ecb-b2ff-accba0eac226")
     public String getUserDiagramImage() {
         return this.elt.getTagValue(MMStandardInteractionFragment.MdaTypes.USERDIAGRAMIMAGE_TAGTYPE_ELT);
     }
 
-    @objid ("4e59a47a-62c3-4d38-9224-d9db373b9e6a")
+    @objid ("aa6db3a7-36a5-4083-b40d-ff792bea8817")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
     /**
@@ -134,40 +133,40 @@ public class MMStandardInteractionFragment {
      * 
      * The file path must be either absolute or relative to the project path.</i></p>
      */
-    @objid ("f271dc93-4911-4272-9c28-c738d5724871")
+    @objid ("0ec7359b-175e-43ab-81b1-e20b7ed15e0b")
     public void setUserDiagramImage(String value) {
         this.elt.putTagValue(MMStandardInteractionFragment.MdaTypes.USERDIAGRAMIMAGE_TAGTYPE_ELT, value);
     }
 
-    @objid ("61c68717-48f5-4c55-b6a6-ac30530ff4c7")
-    protected MMStandardInteractionFragment(InteractionFragment elt) {
+    @objid ("725efb21-2238-4396-b01f-4a73fd6b9f5b")
+    protected  MMStandardInteractionFragment(InteractionFragment elt) {
         this.elt = elt;
     }
 
     @objid ("385be880-2e41-4668-a364-913f895f5d26")
     public static final class MdaTypes {
-        @objid ("fe8a76d0-9a59-485e-9c7f-ed82fd9cbbd6")
+        @objid ("a125b8e4-6a02-4804-b71b-e9dbd827b605")
         public static TagType USERDIAGRAMIMAGE_TAGTYPE_ELT;
 
-        @objid ("e18feca9-ba50-4fc4-91aa-e2bb0434345f")
+        @objid ("0875a2fd-f27d-48b1-b759-20ed010ccc85")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("d0810b3a-be88-4573-8edb-722fd68fae98")
+        @objid ("46a61cb4-7e11-402f-b007-336a2c831b55")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("f7ef52db-e64f-49f1-b1e7-b37b5998f179")
+        @objid ("f90aecde-546e-447a-a388-e473f4d46814")
         public static void init(IModuleContext ctx) {
             USERDIAGRAMIMAGE_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "a1907f56-2ae2-4a5d-93ef-fa577e9d07f3");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

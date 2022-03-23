@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,7 @@ public class EStructuredClassifier extends EElement {
     }
 
     @objid ("d48332b4-25b8-4217-9d67-497accdfcd3b")
-    public EStructuredClassifier(org.eclipse.uml2.uml.StructuredClassifier element) {
+    public  EStructuredClassifier(org.eclipse.uml2.uml.StructuredClassifier element) {
         super(element);
     }
 

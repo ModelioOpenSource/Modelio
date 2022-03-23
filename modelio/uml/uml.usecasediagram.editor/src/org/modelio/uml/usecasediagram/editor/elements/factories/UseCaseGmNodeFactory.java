@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.elements.factories;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -137,9 +136,10 @@ public final class UseCaseGmNodeFactory implements IGmNodeFactory {
         private Object initialLayoutData;
 
         @objid ("5e8eda3a-55b7-11e2-877f-002564c97630")
-        public GmLabelFactoryVisitor(IGmDiagram diagram, Object initialLayoutData) {
+        public  GmLabelFactoryVisitor(IGmDiagram diagram, Object initialLayoutData) {
             this.diagram = diagram;
             this.initialLayoutData = initialLayoutData;
+            
         }
 
         @objid ("5e8eda40-55b7-11e2-877f-002564c97630")
@@ -163,9 +163,10 @@ public final class UseCaseGmNodeFactory implements IGmNodeFactory {
         private Object initialLayoutData;
 
         @objid ("5e8eda1c-55b7-11e2-877f-002564c97630")
-        public NodeFactoryVisitor(IGmDiagram diagram, Object initialLayoutData) {
+        public  NodeFactoryVisitor(IGmDiagram diagram, Object initialLayoutData) {
             this.diagram = diagram;
             this.initialLayoutData = initialLayoutData;
+            
         }
 
         @objid ("5e8eda22-55b7-11e2-877f-002564c97630")

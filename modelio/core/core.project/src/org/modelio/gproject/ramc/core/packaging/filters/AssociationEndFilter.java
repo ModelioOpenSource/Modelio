@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.ramc.core.packaging.filters;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,7 +36,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 @objid ("d0c46f18-ab12-46e0-a5d4-b41ac46ba594")
 class AssociationEndFilter extends LinkTargetFilter {
     @objid ("f1cdd5c2-9856-4d6b-96e0-503d201e445f")
-    public AssociationEndFilter(IObjectFilter targetFilter, MExpert expert) {
+    public  AssociationEndFilter(IObjectFilter targetFilter, MExpert expert) {
         super(expert, targetFilter);
     }
 
@@ -45,8 +44,24 @@ class AssociationEndFilter extends LinkTargetFilter {
     @Override
     public boolean accept(MObject obj) {
         AssociationEnd e = (AssociationEnd) obj;
+        
         VisibilityMode vis = e.getVisibility();
-        return (vis == VisibilityMode.PUBLIC || vis == VisibilityMode.PROTECTED) && super.accept(obj);
+        if (vis != VisibilityMode.PUBLIC && vis != VisibilityMode.PROTECTED) {
+            return false;
+        }
+        
+        // Check the target is to be exported
+        MObject target = this.expert.getTarget(obj);
+        if (!isValidTarget(target)) {
+            return false;
+        }
+        
+        // Check the source is to be exported
+        MObject source = this.expert.getSource(obj);
+        if (!isValidTarget(source)) {
+            return false;
+        }
+        return true;
     }
 
 }

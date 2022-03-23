@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,9 +44,10 @@ public class EInformationItem extends ENamedElement {
     }
 
     @objid ("b1d90dc5-6170-4024-9813-2ab4ad11709f")
-    public EInformationItem(org.eclipse.uml2.uml.InformationItem element) {
+    public  EInformationItem(org.eclipse.uml2.uml.InformationItem element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("6ccbba8e-2914-440f-9d87-e0a6f0e8c310")
@@ -65,6 +65,7 @@ public class EInformationItem extends ENamedElement {
             ((InformationItem) objingElt).setOwner(ReverseProperties.getInstance().getExternalPackage());
         }else
              ((InformationItem) objingElt).setOwner(ReverseProperties.getInstance().getExternalPackage());
+        
     }
 
     @objid ("12bc6c35-4fa0-411f-b620-6525dc2fb5c0")
@@ -78,12 +79,14 @@ public class EInformationItem extends ENamedElement {
             setRoot((InformationItem) objingElt);
             setEAVisibility((InformationItem) objingElt);
         }
+        
     }
 
     @objid ("69fdae02-79f8-474e-900d-316bb9bd3b20")
     private void setEAVisibility(InformationItem objingElt) {
         int literal = ObjingEAnnotation.getVisibility(this.ecoreElement);
         objingElt.setVisibility(VisibilityMode.values()[literal]);
+        
     }
 
     @objid ("469e33e1-af65-4e69-b4b9-caa6f0929e66")
@@ -108,6 +111,7 @@ public class EInformationItem extends ENamedElement {
             if (objRepresented instanceof Classifier)
                 objingElt.getRepresented().add((Classifier) objRepresented);
         }
+        
     }
 
 }

@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.context;
 
 import java.util.List;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.AboutToHide;
 import org.eclipse.e4.ui.di.AboutToShow;
@@ -60,6 +59,7 @@ public class ModuleMenuCreator {
                 }
             }
         }
+        
     }
 
     @objid ("5316cecb-313c-4f34-99ef-ab42d3ecf5c2")
@@ -80,6 +80,7 @@ public class ModuleMenuCreator {
                 ModulePopupManager.removeMenu(module, activePart);
             }
         }
+        
     }
 
 }

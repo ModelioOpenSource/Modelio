@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,9 +32,10 @@ public class EStereotype extends EElement {
     }
 
     @objid ("0fff9e13-ee5b-4079-9315-3a6279ce3cb2")
-    public EStereotype(org.eclipse.uml2.uml.Stereotype element) {
+    public  EStereotype(org.eclipse.uml2.uml.Stereotype element) {
         super(element);
         ProfileUtils.visitStereotype((org.eclipse.uml2.uml.Stereotype) getEcoreElement());
+        
     }
 
 }

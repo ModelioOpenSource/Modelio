@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.communicationdiagram.editor.contributor;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.swt.graphics.Image;
 import org.modelio.api.modelio.model.scope.ElementScope;
@@ -93,6 +92,7 @@ public class CommunicationDiagramCreationContributor extends AbstractDiagramWiza
         } else {
             return null;
         }
+        
     }
 
     @objid ("cb0ed8cd-2e4f-4a60-826a-b5a25941d00c")
@@ -128,6 +128,7 @@ public class CommunicationDiagramCreationContributor extends AbstractDiagramWiza
         } else {
             return this.mmServices.getMetamodel();
         }
+        
     }
 
     @objid ("403d5d9d-d82b-4de6-9646-45ce23518cd5")

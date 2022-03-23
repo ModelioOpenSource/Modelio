@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.gproject;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -55,18 +54,18 @@ public class GProjectEvent {
 
     /**
      * Initialize an event.
-     * 
      * @param type the event type
      * @param message the event message. May be <code>null</code>.
      * @param fragment the related fragment, may be <code>null</code>.
      * @param throwable the exception that caused the event, may be <code>null</code>.
      */
     @objid ("0ceb3d8d-6f93-406b-980f-6a1eee957317")
-    public GProjectEvent(GProjectEventType type, String message, IProjectFragment fragment, Throwable throwable) {
+    public  GProjectEvent(GProjectEventType type, String message, IProjectFragment fragment, Throwable throwable) {
         this.type = type;
         this.fragment=fragment;
         this.message = message;
         this.throwable = throwable;
+        
     }
 
     @objid ("6fc1698e-6fb6-45c7-911b-11574fbacb7a")
@@ -94,7 +93,6 @@ public class GProjectEvent {
 
     /**
      * Instantiate a warning event for a fragment.
-     * 
      * @param f the fragment
      * @param e an exception
      * @return the built warning
@@ -110,7 +108,6 @@ public class GProjectEvent {
 
     /**
      * Instantiate a warning event for a fragment.
-     * 
      * @param f the involved fragment
      * @param e an exception
      * @return the built warning
@@ -126,7 +123,6 @@ public class GProjectEvent {
 
     /**
      * Instantiate an event for a fragment down event.
-     * 
      * @param abstractFragment the fragment that went down.
      * @return the event.
      */
@@ -141,7 +137,6 @@ public class GProjectEvent {
 
     /**
      * Instantiate a fragment added event.
-     * 
      * @param afragment the fragment
      * @return the built event
      */
@@ -156,7 +151,6 @@ public class GProjectEvent {
 
     /**
      * Instantiate a fragment added event.
-     * 
      * @param afragment the fragment
      * @return the built event
      */
@@ -171,7 +165,6 @@ public class GProjectEvent {
 
     /**
      * Instantiate a fragment state changed event.
-     * 
      * @param afragment the changed fragment
      * @return the built event.
      */
@@ -187,11 +180,11 @@ public class GProjectEvent {
         
             return ev;
         }
+        
     }
 
     /**
      * Instantiate a warning event for the project.
-     * 
      * @param e an exception
      * @return the built warning
      */
@@ -206,7 +199,6 @@ public class GProjectEvent {
 
     /**
      * Instantiate a warning event for a fragment.
-     * 
      * @param f the involved fragment
      * @param message the warning message
      * @return the built warning

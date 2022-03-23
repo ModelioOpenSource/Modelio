@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta.mof;
 
 import java.util.HashMap;
@@ -37,10 +36,10 @@ public class MofSmObjectData extends SmObjectData {
      * Contains the content of MAttributes and MDependencies.
      */
     @objid ("8c8a3a85-9e80-4b86-afd7-802227280ddb")
-     final Map<Object, Object> content = new HashMap<>();
+    final Map<Object, Object> content = new HashMap<>();
 
     @objid ("a753d9e1-5d4f-4b46-ac4f-76af7f76949c")
-    protected MofSmObjectData(MofSmClass classof) {
+    protected  MofSmObjectData(MofSmClass classof) {
         super(classof);
     }
 

@@ -17,18 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.informationFlow;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.SignalSmClass;
-import org.modelio.metamodel.impl.uml.informationFlow.DataFlowData;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
 import org.modelio.metamodel.impl.uml.statik.NameSpaceSmClass;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Signal;
@@ -61,7 +60,7 @@ public class DataFlowSmClass extends UmlModelElementSmClass {
     private SmDependency sModelDep;
 
     @objid ("10f7f256-c8e5-4c58-b888-d36eb98980bc")
-    public DataFlowSmClass(ISmMetamodelFragment origin) {
+    public  DataFlowSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -69,6 +68,7 @@ public class DataFlowSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "DataFlow";
+        
     }
 
     @objid ("f73bcf96-bc1c-4629-a0f1-d9c59fb26051")
@@ -81,18 +81,21 @@ public class DataFlowSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return DataFlow.class;
+        
     }
 
     @objid ("2985ea86-c520-44bd-a571-74e9d2b34efc")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("74d8f09a-de52-4813-90d1-fe13994b6519")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("59a35aa5-69c0-4df6-84fd-1f42708bdf12")
@@ -120,6 +123,8 @@ public class DataFlowSmClass extends UmlModelElementSmClass {
         this.sModelDep = new SModelSmDependency();
         this.sModelDep.init("SModel", this, metamodel.getMClass(Signal.MQNAME), 0, 1 , SmDirective.SMCDPARTOF);
         registerDependency(this.sModelDep);
+        
+        
     }
 
     @objid ("df8e47ee-09e1-44cd-99ed-8c7ff9bc6861")
@@ -158,6 +163,7 @@ public class DataFlowSmClass extends UmlModelElementSmClass {
     @Override
     public boolean isLinkMetaclass() {
         return true;
+        
     }
 
     @objid ("ed334312-1f9f-4246-a411-90b790e90110")
@@ -166,7 +172,7 @@ public class DataFlowSmClass extends UmlModelElementSmClass {
         private DataFlowSmClass smClass;
 
         @objid ("0918b7c6-9754-49e1-8488-3d0b88fdcf7a")
-        public DataFlowObjectFactory(DataFlowSmClass smClass) {
+        public  DataFlowObjectFactory(DataFlowSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -208,6 +214,7 @@ public class DataFlowSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((NameSpaceSmClass)this.getTarget()).getReceivedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -236,6 +243,7 @@ public class DataFlowSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((NameSpaceSmClass)this.getTarget()).getSentDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -264,6 +272,7 @@ public class DataFlowSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((NameSpaceSmClass)this.getTarget()).getOwnedDataFlowDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -292,6 +301,7 @@ public class DataFlowSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((SignalSmClass)this.getTarget()).getDOccurenceDep();
             }
             return this.symetricDep;
+            
         }
 
     }

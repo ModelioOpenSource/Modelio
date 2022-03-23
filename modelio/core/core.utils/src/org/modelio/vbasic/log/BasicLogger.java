@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.log;
 
 import java.io.PrintWriter;
@@ -51,6 +50,7 @@ class BasicLogger implements IBasicLogger {
         builder.append(message);
         
         print(builder.toString());
+        
     }
 
     /**
@@ -89,6 +89,7 @@ class BasicLogger implements IBasicLogger {
         final StringWriter stackTrace = new StringWriter();
         ex.printStackTrace(new PrintWriter(stackTrace));
         log(IBasicLogger.ERROR, stackTrace.toString());
+        
     }
 
     /**
@@ -125,6 +126,7 @@ class BasicLogger implements IBasicLogger {
         final StringWriter stackTrace = new StringWriter();
         ex.printStackTrace(new PrintWriter(stackTrace));
         log(IBasicLogger.WARNING, stackTrace.toString());
+        
     }
 
     /**

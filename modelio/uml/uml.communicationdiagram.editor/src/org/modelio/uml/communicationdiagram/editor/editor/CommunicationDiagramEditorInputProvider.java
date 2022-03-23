@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.communicationdiagram.editor.editor;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.editor.DiagramEditorInput;
 import org.modelio.diagram.editor.IDiagramEditorInputProvider;
+import org.modelio.diagram.editor.IDiagramEditorInputProvider.GmDiagramCreator;
 import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.metamodel.diagrams.CommunicationDiagram;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -33,7 +33,7 @@ import org.modelio.vcore.smkernel.mapi.MRef;
 @objid ("333d94ba-598e-11e2-ae45-002564c97630")
 public class CommunicationDiagramEditorInputProvider implements IDiagramEditorInputProvider {
     @objid ("057c2929-599a-11e2-ae45-002564c97630")
-    public CommunicationDiagramEditorInputProvider() {
+    public  CommunicationDiagramEditorInputProvider() {
         super();
     }
 

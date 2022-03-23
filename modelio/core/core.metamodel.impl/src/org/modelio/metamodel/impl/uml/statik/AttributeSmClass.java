@@ -17,24 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.behavior.activityModel.ObjectNodeSmClass;
-import org.modelio.metamodel.impl.uml.statik.AssociationEndSmClass;
-import org.modelio.metamodel.impl.uml.statik.AttributeData;
-import org.modelio.metamodel.impl.uml.statik.AttributeLinkSmClass;
-import org.modelio.metamodel.impl.uml.statik.ClassifierSmClass;
-import org.modelio.metamodel.impl.uml.statik.GeneralClassSmClass;
-import org.modelio.metamodel.impl.uml.statik.StructuralFeatureSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.ObjectNode;
 import org.modelio.metamodel.uml.statik.AssociationEnd;
 import org.modelio.metamodel.uml.statik.Attribute;
@@ -82,7 +76,7 @@ public class AttributeSmClass extends StructuralFeatureSmClass {
     private SmDependency qualifiedDep;
 
     @objid ("93f57037-97fb-4066-8c10-0a6b3883ce13")
-    public AttributeSmClass(ISmMetamodelFragment origin) {
+    public  AttributeSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -90,6 +84,7 @@ public class AttributeSmClass extends StructuralFeatureSmClass {
     @Override
     public String getName() {
         return "Attribute";
+        
     }
 
     @objid ("4c8317d8-08fd-41f0-abbe-9d1fd3d9c863")
@@ -102,18 +97,21 @@ public class AttributeSmClass extends StructuralFeatureSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Attribute.class;
+        
     }
 
     @objid ("891d0766-dd71-4960-b6e5-4f9e5579d549")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("e7641107-8eeb-4852-9d2c-7dd3d580c1fe")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("f7d67a98-83f9-4c3f-be0d-47fd110cbce6")
@@ -157,6 +155,8 @@ public class AttributeSmClass extends StructuralFeatureSmClass {
         this.qualifiedDep = new QualifiedSmDependency();
         this.qualifiedDep.init("Qualified", this, metamodel.getMClass(AssociationEnd.MQNAME), 0, 1 );
         registerDependency(this.qualifiedDep);
+        
+        
     }
 
     @objid ("8c09022b-f21b-4a11-a0b1-975505f3b2df")
@@ -229,7 +229,7 @@ public class AttributeSmClass extends StructuralFeatureSmClass {
         private AttributeSmClass smClass;
 
         @objid ("6840009e-96ad-4a9d-9d53-03ec5f4e69e6")
-        public AttributeObjectFactory(AttributeSmClass smClass) {
+        public  AttributeObjectFactory(AttributeSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -313,6 +313,7 @@ public class AttributeSmClass extends StructuralFeatureSmClass {
             	this.symetricDep = ((GeneralClassSmClass)this.getTarget()).getObjectDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -341,6 +342,7 @@ public class AttributeSmClass extends StructuralFeatureSmClass {
             	this.symetricDep = ((ClassifierSmClass)this.getTarget()).getOwnedAttributeDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -360,6 +362,7 @@ public class AttributeSmClass extends StructuralFeatureSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((AttributeData) data).mOccurence = values;
+            
         }
 
         @objid ("7258fdc4-8967-4fbb-a6bc-88ea46458ef8")
@@ -369,6 +372,7 @@ public class AttributeSmClass extends StructuralFeatureSmClass {
             	this.symetricDep = ((AttributeLinkSmClass)this.getTarget()).getBaseDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -388,6 +392,7 @@ public class AttributeSmClass extends StructuralFeatureSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((AttributeData) data).mRepresentingObjectNode = values;
+            
         }
 
         @objid ("250677a3-a1ba-4398-9475-510cef578c5e")
@@ -397,6 +402,7 @@ public class AttributeSmClass extends StructuralFeatureSmClass {
             	this.symetricDep = ((ObjectNodeSmClass)this.getTarget()).getRepresentedAttributeDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -425,6 +431,7 @@ public class AttributeSmClass extends StructuralFeatureSmClass {
             	this.symetricDep = ((AssociationEndSmClass)this.getTarget()).getQualifierDep();
             }
             return this.symetricDep;
+            
         }
 
     }

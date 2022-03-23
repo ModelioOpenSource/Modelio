@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.gui.nattable;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,7 +50,7 @@ public class ConfigurationProvider implements IPropertyTableConfigurationProvide
         private INatTableViewerContext context;
 
         @objid ("981b9333-73ac-413e-9a73-3edfc88bb177")
-        public Configuration(INatTableViewerContext context, PropertyTableDataModel dataModel) {
+        public  Configuration(INatTableViewerContext context, PropertyTableDataModel dataModel) {
             this.context = context;
         }
 
@@ -79,6 +78,7 @@ public class ConfigurationProvider implements IPropertyTableConfigurationProvide
             configRegistry.registerConfigAttribute(EditConfigAttributes.CELL_EDITOR, editor, DisplayMode.EDIT, tag);
             
             // Validator
+            
         }
 
     }

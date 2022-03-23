@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.simple;
 
 import java.beans.PropertyChangeEvent;
@@ -60,6 +59,7 @@ public class RoundedSimpleEditPart extends AbstractNodeEditPart {
          * should be processed here. | Typical code fragment: | if (evt.getPropertyName().equals( "My Special Event Type") { | ...my special processing code... | } else super.propertyChange(evt); |
          */
         super.propertyChange(evt);
+        
     }
 
     /**
@@ -91,7 +91,6 @@ public class RoundedSimpleEditPart extends AbstractNodeEditPart {
      * <p>
      * Often called in {@link #createFigure()} and after a style change.
      * @param figure The figure to update, should be {@link #getFigure()}.
-     * 
      * @param style The style to update from, usually {
      * @link #getModelStyle()}
      */
@@ -107,6 +106,7 @@ public class RoundedSimpleEditPart extends AbstractNodeEditPart {
             super.refreshFromStyle(aFigure, style);
             // SimpleFigure figure = (SimpleFigure)aFigure;
         }
+        
     }
 
     @objid ("7f21a2c3-1dec-11e2-8cad-001ec947c8cc")
@@ -116,6 +116,7 @@ public class RoundedSimpleEditPart extends AbstractNodeEditPart {
         
         installEditPolicy(EditPolicy.NODE_ROLE, new DefaultCreateLinkEditPolicy());
         installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE, new DefaultElementDirectEditPolicy());
+        
     }
 
     /**
@@ -136,6 +137,7 @@ public class RoundedSimpleEditPart extends AbstractNodeEditPart {
         } else {
             aFigure.setLabel(e.toString());
         }
+        
     }
 
     /**
@@ -173,6 +175,7 @@ public class RoundedSimpleEditPart extends AbstractNodeEditPart {
         } else {
             super.performRequest(req);
         }
+        
     }
 
 }

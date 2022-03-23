@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import java.util.ArrayList;
@@ -70,14 +69,14 @@ public class BpmnDataInputPropertyModel extends AbstractPropertyModel<BpmnDataIn
 
     /**
      * Create a new <i>BpmnDataInput</i> data model from an <i>BpmnDataInput</i> .
-     * 
      * @param theEditedElement the model to edit.
      * @param mdaExpert the MDA expert to handle Methodological links.
      */
     @objid ("5f3c52e0-1d87-49d0-a8bc-54bdada5e378")
-    public BpmnDataInputPropertyModel(BpmnDataInput theEditedElement, IMdaExpert mdaExpert) {
+    public  BpmnDataInputPropertyModel(BpmnDataInput theEditedElement, IMdaExpert mdaExpert) {
         super(theEditedElement);
         this.mdaExpert = mdaExpert;
+        
     }
 
     /**
@@ -130,7 +129,6 @@ public class BpmnDataInputPropertyModel extends AbstractPropertyModel<BpmnDataIn
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("d7be4e87-a35f-458d-b673-6fcc2843ae56")
@@ -147,11 +145,11 @@ public class BpmnDataInputPropertyModel extends AbstractPropertyModel<BpmnDataIn
         } else {
             return new DefaultElementChoiceNatValue(value, true, Collections.singletonList(org.modelio.metamodel.uml.behavior.stateMachineModel.State.class), availableStates);
         }
+        
     }
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("2d0f25e4-8ab7-46ca-9db6-2795b1b32f77")
@@ -164,7 +162,6 @@ public class BpmnDataInputPropertyModel extends AbstractPropertyModel<BpmnDataIn
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -190,6 +187,7 @@ public class BpmnDataInputPropertyModel extends AbstractPropertyModel<BpmnDataIn
         default:
             return null;
         }
+        
     }
 
     /**
@@ -198,7 +196,6 @@ public class BpmnDataInputPropertyModel extends AbstractPropertyModel<BpmnDataIn
      * This type will be used to choose an editor and a renderer for each cell of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -237,13 +234,13 @@ public class BpmnDataInputPropertyModel extends AbstractPropertyModel<BpmnDataIn
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -281,6 +278,7 @@ public class BpmnDataInputPropertyModel extends AbstractPropertyModel<BpmnDataIn
         default:
             return;
         }
+        
     }
 
 }

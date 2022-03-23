@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.gateways;
 
 import java.util.ArrayList;
@@ -47,7 +47,7 @@ public class BpmnGatewaySmClass extends BpmnFlowNodeSmClass {
     private SmAttribute gatewayDirectionAtt;
 
     @objid ("7a04f727-3200-4926-8c7c-1c57c213d138")
-    public BpmnGatewaySmClass(ISmMetamodelFragment origin) {
+    public  BpmnGatewaySmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -55,6 +55,7 @@ public class BpmnGatewaySmClass extends BpmnFlowNodeSmClass {
     @Override
     public String getName() {
         return "BpmnGateway";
+        
     }
 
     @objid ("8a5251cf-68b2-433d-89a0-0d8ea08c3346")
@@ -67,18 +68,21 @@ public class BpmnGatewaySmClass extends BpmnFlowNodeSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnGateway.class;
+        
     }
 
     @objid ("b2aa0495-60b3-479d-9687-30352de55d0c")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("f336c7e7-d978-40d5-9cb9-e8864d1daf84")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("c68ecf77-636e-4691-a1c0-c0fbec8d175e")
@@ -95,6 +99,7 @@ public class BpmnGatewaySmClass extends BpmnFlowNodeSmClass {
         
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("5c45f2ec-cab3-4d87-bcad-c889bfabcd12")
@@ -111,7 +116,7 @@ public class BpmnGatewaySmClass extends BpmnFlowNodeSmClass {
         private BpmnGatewaySmClass smClass;
 
         @objid ("8726a9dc-8a62-412c-b1f1-8d3dcf2f7b76")
-        public BpmnGatewayObjectFactory(BpmnGatewaySmClass smClass) {
+        public  BpmnGatewayObjectFactory(BpmnGatewaySmClass smClass) {
             this.smClass = smClass;
         }
 

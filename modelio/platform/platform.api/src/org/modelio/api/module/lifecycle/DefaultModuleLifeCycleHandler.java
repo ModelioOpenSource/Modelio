@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.lifecycle;
 
 import java.util.Map;
@@ -38,22 +37,21 @@ public class DefaultModuleLifeCycleHandler implements IModuleLifeCycleHandler {
 
     /**
      * C'tor initializing the module.
-     * 
      * @param module the module being constructed.
      */
     @objid ("53dce8bc-1100-4612-b48b-7fa77a21e7a4")
-    public DefaultModuleLifeCycleHandler(IModule module) {
+    public  DefaultModuleLifeCycleHandler(IModule module) {
         this.module = module;
         this.module.getModuleContext().getConfiguration().addListener((pName, oldValue, newValue) -> configurationChanged(pName, oldValue, newValue));
+        
     }
 
     /**
      * Accepts the installation by default.
-     * 
      * @param modelioPath the path of modelio application
      * @param installPath the path where the module archive contents have been expanded.
      * @return true if the module accepts to be installed false otherwise.
-     * @throws org.modelio.api.module.lifecycle.ModuleException when the installation failed.
+     * @throws ModuleException when the installation failed.
      */
     @objid ("7c488de4-5402-4775-b1e0-1f241bb80dc8")
     public static boolean install(String modelioPath, String installPath) throws ModuleException {

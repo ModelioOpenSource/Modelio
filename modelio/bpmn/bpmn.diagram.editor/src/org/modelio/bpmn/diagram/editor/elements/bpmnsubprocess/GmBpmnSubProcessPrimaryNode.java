@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnsubprocess;
 
 import java.util.Collections;
@@ -27,7 +26,7 @@ import org.eclipse.swt.graphics.Image;
 import org.modelio.bpmn.diagram.editor.elements.bpmnnodefooter.GmBpmnNodeFooter;
 import org.modelio.bpmn.diagram.editor.elements.bpmnnodeheader.GmBpmnNodeHeader;
 import org.modelio.bpmn.diagram.editor.elements.bpmnsubprocess.content.GmBpmnSubProcessContent;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnSubProcessStructuredStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnSubProcessStructuredStyleKeys;
 import org.modelio.bpmn.diagram.editor.elements.workflow.GmWorkflow;
 import org.modelio.diagram.elements.common.label.modelelement.GmDefaultModelElementLabel;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
@@ -39,8 +38,8 @@ import org.modelio.diagram.elements.core.node.IImageableNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.bpmn.activities.BpmnMultiInstanceLoopCharacteristics;
 import org.modelio.metamodel.bpmn.activities.BpmnStandardLoopCharacteristics;
 import org.modelio.metamodel.bpmn.activities.BpmnSubProcess;
@@ -58,17 +57,14 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("61c9fd79-55b6-11e2-877f-002564c97630")
 public class GmBpmnSubProcessPrimaryNode extends GmNoStyleCompositeNode implements IImageableNode {
+    @objid ("61c9fd86-55b6-11e2-877f-002564c97630")
+    private static final int MAJOR_VERSION = 0;
+
     /**
      * Current version of this Gm.
      */
     @objid ("61c9fd83-55b6-11e2-877f-002564c97630")
     private static final int MINOR_VERSION = 1;
-
-    @objid ("61c9fd86-55b6-11e2-877f-002564c97630")
-    private static final int MAJOR_VERSION = 0;
-
-    @objid ("e130646c-1680-43e7-8cc3-b3684e19124f")
-    public static final String ROLE_HEADER = "HEADER";
 
     @objid ("80330b1b-6589-49dc-9c6d-9547d447334a")
     public static final String ROLE_BODY = "BODY";
@@ -76,26 +72,28 @@ public class GmBpmnSubProcessPrimaryNode extends GmNoStyleCompositeNode implemen
     @objid ("d51fdb71-86c2-4ff3-b385-3b20eac476f0")
     public static final String ROLE_FOOTER = "FOOTER";
 
+    @objid ("e130646c-1680-43e7-8cc3-b3684e19124f")
+    public static final String ROLE_HEADER = "HEADER";
+
+    @objid ("61c9fd82-55b6-11e2-877f-002564c97630")
+    private GmBpmnSubProcessContent body;
+
+    @objid ("61c9fd81-55b6-11e2-877f-002564c97630")
+    private GmBpmnNodeFooter footer;
+
     /**
      * Header
      */
     @objid ("61c9fd7f-55b6-11e2-877f-002564c97630")
     private GmBpmnNodeHeader header;
 
-    @objid ("61c9fd81-55b6-11e2-877f-002564c97630")
-    private GmBpmnNodeFooter footer;
-
-    @objid ("61c9fd82-55b6-11e2-877f-002564c97630")
-    private GmBpmnSubProcessContent body;
-
     /**
      * Default constructor.
-     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param relatedRef ref
      */
     @objid ("61c9fd88-55b6-11e2-877f-002564c97630")
-    public GmBpmnSubProcessPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
+    public  GmBpmnSubProcessPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
         this.header = new GmBpmnNodeHeader(diagram, relatedRef, false);
         this.footer = new GmBpmnNodeFooter(diagram, relatedRef);
@@ -111,6 +109,15 @@ public class GmBpmnSubProcessPrimaryNode extends GmNoStyleCompositeNode implemen
         }
         
         super.addChild(this.footer);
+        
+    }
+
+    /**
+     * Empty constructor, needed for serialisation.
+     */
+    @objid ("61c9fd97-55b6-11e2-877f-002564c97630")
+    public  GmBpmnSubProcessPrimaryNode() {
+        // empty constructor for the serialization
     }
 
     @objid ("61c9fd91-55b6-11e2-877f-002564c97630")
@@ -121,14 +128,7 @@ public class GmBpmnSubProcessPrimaryNode extends GmNoStyleCompositeNode implemen
         } else {
             super.addChild(child);
         }
-    }
-
-    /**
-     * Empty constructor, needed for serialisation.
-     */
-    @objid ("61c9fd97-55b6-11e2-877f-002564c97630")
-    public GmBpmnSubProcessPrimaryNode() {
-        // empty constructor for the serialization
+        
     }
 
     @objid ("61c9fd9a-55b6-11e2-877f-002564c97630")
@@ -159,6 +159,20 @@ public class GmBpmnSubProcessPrimaryNode extends GmNoStyleCompositeNode implemen
         return ElementImageService.getImage(getRelatedElement());
     }
 
+    /**
+     * @return the structured inner zone.
+     */
+    @objid ("61cb8434-55b6-11e2-877f-002564c97630")
+    public GmCompositeNode getInnerZone() {
+        return this.body;
+    }
+
+    @objid ("61cd0ab5-55b6-11e2-877f-002564c97630")
+    @Override
+    public int getMajorVersion() {
+        return GmBpmnSubProcessPrimaryNode.MAJOR_VERSION;
+    }
+
     @objid ("61cb8414-55b6-11e2-877f-002564c97630")
     @Override
     public BpmnSubProcess getRelatedElement() {
@@ -170,6 +184,31 @@ public class GmBpmnSubProcessPrimaryNode extends GmNoStyleCompositeNode implemen
     public RepresentationMode getRepresentationMode() {
         final StyleKey repModeKey = GmBpmnSubProcess.STRUCTURED_KEYS.getStyleKey(MetaKey.REPMODE);
         return getDisplayedStyle().getProperty(repModeKey);
+    }
+
+    @objid ("61cd0aa1-55b6-11e2-877f-002564c97630")
+    @Override
+    public List<GmNodeModel> getVisibleChildren() {
+        // Returned result depends on current representation mode:
+        switch (getRepresentationMode()) {
+        case USER_IMAGE:
+        case IMAGE:
+            return Collections.emptyList();
+        default:
+            return super.getVisibleChildren();
+        }
+        
+    }
+
+    @objid ("22a3ea76-603f-4273-9ca4-89dec47d1f97")
+    public GmWorkflow getWorkflow() {
+        if (this.body != null) {
+            List<GmNodeModel> visibleChildren = this.body.getVisibleChildren();
+            return (GmWorkflow) visibleChildren.get(visibleChildren.size() - 1);
+        } else {
+            return null;
+        }
+        
     }
 
     @objid ("61cb8422-55b6-11e2-877f-002564c97630")
@@ -193,6 +232,7 @@ public class GmBpmnSubProcessPrimaryNode extends GmNoStyleCompositeNode implemen
             break;
         }
         }
+        
     }
 
     @objid ("61cb8428-55b6-11e2-877f-002564c97630")
@@ -242,41 +282,18 @@ public class GmBpmnSubProcessPrimaryNode extends GmNoStyleCompositeNode implemen
         this.footer.refreshFromObModel();
         // forcing visual refresh in case Image changed
         firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
-    @objid ("61cb842b-55b6-11e2-877f-002564c97630")
+    @objid ("cb31acb9-22c3-453e-bb1e-3dceede02800")
     @Override
-    public void obElementAdded(MObject movedEl) {
-        super.obElementAdded(movedEl);
-        refreshFromObModel();
-    }
-
-    @objid ("61cb8431-55b6-11e2-877f-002564c97630")
-    @Override
-    public void obElementsUpdated() {
-        super.obElementsUpdated();
-        refreshFromObModel();
-    }
-
-    /**
-     * @return the structured inner zone.
-     */
-    @objid ("61cb8434-55b6-11e2-877f-002564c97630")
-    public GmCompositeNode getInnerZone() {
-        return this.body;
-    }
-
-    @objid ("61cd0aa1-55b6-11e2-877f-002564c97630")
-    @Override
-    public List<GmNodeModel> getVisibleChildren() {
-        // Returned result depends on current representation mode:
-        switch (getRepresentationMode()) {
-        case USER_IMAGE:
-        case IMAGE:
-            return Collections.emptyList();
-        default:
-            return super.getVisibleChildren();
+    public void styleChanged(StyleKey property, Object newValue) {
+        super.styleChanged(property, newValue);
+        
+        if (GmBpmnSubProcessStructuredStyleKeys.SHOWCONTENT.equals(property)) {
+            fireChildVisibilityChanged(getFirstChild(GmBpmnSubProcessPrimaryNode.ROLE_BODY));
         }
+        
     }
 
     @objid ("61cd0aaa-55b6-11e2-877f-002564c97630")
@@ -286,34 +303,7 @@ public class GmBpmnSubProcessPrimaryNode extends GmNoStyleCompositeNode implemen
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmBpmnSubProcessPrimaryNode.", GmBpmnSubProcessPrimaryNode.MINOR_VERSION);
-    }
-
-    @objid ("61cd0ab0-55b6-11e2-877f-002564c97630")
-    private void read_0(IDiagramReader in) {
-        super.read(in);
         
-        this.header = (GmBpmnNodeHeader) getFirstChild(GmBpmnSubProcessPrimaryNode.ROLE_HEADER);
-        this.footer = (GmBpmnNodeFooter) getFirstChild(GmBpmnSubProcessPrimaryNode.ROLE_FOOTER);
-        
-        GmDefaultModelElementLabel imageModeHeader = (GmDefaultModelElementLabel) this.getChildren().get(3);
-        imageModeHeader.delete();
-        
-        this.body = (GmBpmnSubProcessContent) getFirstChild(GmBpmnSubProcessPrimaryNode.ROLE_BODY);
-    }
-
-    @objid ("61cd0ab5-55b6-11e2-877f-002564c97630")
-    @Override
-    public int getMajorVersion() {
-        return GmBpmnSubProcessPrimaryNode.MAJOR_VERSION;
-    }
-
-    @objid ("61cd0aba-55b6-11e2-877f-002564c97630")
-    private void read_1(final IDiagramReader in) {
-        super.read(in);
-        
-        this.header = (GmBpmnNodeHeader) getFirstChild(GmBpmnSubProcessPrimaryNode.ROLE_HEADER);
-        this.footer = (GmBpmnNodeFooter) getFirstChild(GmBpmnSubProcessPrimaryNode.ROLE_FOOTER);
-        this.body = (GmBpmnSubProcessContent) getFirstChild(GmBpmnSubProcessPrimaryNode.ROLE_BODY);
     }
 
     @objid ("bf6c9c9b-f2b1-4ff4-ae6a-edf03f1961cf")
@@ -331,24 +321,28 @@ public class GmBpmnSubProcessPrimaryNode extends GmNoStyleCompositeNode implemen
         return null;
     }
 
-    @objid ("22a3ea76-603f-4273-9ca4-89dec47d1f97")
-    public GmWorkflow getWorkflow() {
-        if (this.body != null) {
-            List<GmNodeModel> visibleChildren = this.body.getVisibleChildren();
-            return (GmWorkflow) visibleChildren.get(visibleChildren.size() - 1);
-        } else {
-            return null;
-        }
+    @objid ("61cd0ab0-55b6-11e2-877f-002564c97630")
+    private void read_0(IDiagramReader in) {
+        super.read(in);
+        
+        this.header = (GmBpmnNodeHeader) getFirstChild(GmBpmnSubProcessPrimaryNode.ROLE_HEADER);
+        this.footer = (GmBpmnNodeFooter) getFirstChild(GmBpmnSubProcessPrimaryNode.ROLE_FOOTER);
+        
+        GmDefaultModelElementLabel imageModeHeader = (GmDefaultModelElementLabel) this.getChildren().get(3);
+        imageModeHeader.delete();
+        
+        this.body = (GmBpmnSubProcessContent) getFirstChild(GmBpmnSubProcessPrimaryNode.ROLE_BODY);
+        
     }
 
-    @objid ("cb31acb9-22c3-453e-bb1e-3dceede02800")
-    @Override
-    public void styleChanged(StyleKey property, Object newValue) {
-        super.styleChanged(property, newValue);
+    @objid ("61cd0aba-55b6-11e2-877f-002564c97630")
+    private void read_1(final IDiagramReader in) {
+        super.read(in);
         
-        if (GmBpmnSubProcessStructuredStyleKeys.SHOWCONTENT.equals(property)) {
-            fireChildVisibilityChanged(getFirstChild(GmBpmnSubProcessPrimaryNode.ROLE_BODY));
-        }
+        this.header = (GmBpmnNodeHeader) getFirstChild(GmBpmnSubProcessPrimaryNode.ROLE_HEADER);
+        this.footer = (GmBpmnNodeFooter) getFirstChild(GmBpmnSubProcessPrimaryNode.ROLE_FOOTER);
+        this.body = (GmBpmnSubProcessContent) getFirstChild(GmBpmnSubProcessPrimaryNode.ROLE_BODY);
+        
     }
 
 }

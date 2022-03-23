@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.edition;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,11 +36,10 @@ public class MultilineTextCellEditor extends TextCellEditor {
      * <p>
      * The cell editor value is the string itself, which is initially the empty string.
      * Initially, the cell editor has no cell validator.
-     * 
      * @param parent the parent control
      */
     @objid ("7e30d53b-1dec-11e2-8cad-001ec947c8cc")
-    public MultilineTextCellEditor(Composite parent) {
+    public  MultilineTextCellEditor(Composite parent) {
         super(parent, SWT.MULTI);
     }
 
@@ -50,12 +48,11 @@ public class MultilineTextCellEditor extends TextCellEditor {
      * <p>
      * The cell editor value is the string itself, which is initially the empty string.
      * Initially, the cell editor has no cell validator.
-     * 
      * @param parent the parent control
      * @param style more style bytes. See {@link org.eclipse.swt.widgets.Text}
      */
     @objid ("a96848b3-7f02-4a80-bf23-4b4a04389589")
-    public MultilineTextCellEditor(Composite parent, int style) {
+    public  MultilineTextCellEditor(Composite parent, int style) {
         super(parent, SWT.MULTI | style);
     }
 

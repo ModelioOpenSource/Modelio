@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -65,26 +64,27 @@ public class PenOptions {
      * Initialize a pen options.
      */
     @objid ("7fa988e6-1dec-11e2-8cad-001ec947c8cc")
-    public PenOptions() {
+    public  PenOptions() {
         this.lineColor = ColorConstants.black;
         this.lineWidth = 1;
         this.linePattern = LinePattern.LINE_SOLID;
         this.textColor = ColorConstants.black;
         this.textFont = null;
+        
     }
 
     /**
      * Copy constructor.
-     * 
      * @param other the original
      */
     @objid ("c7e70a28-24aa-4fb6-bf86-cdbcad34b2ba")
-    public PenOptions(PenOptions other) {
+    public  PenOptions(PenOptions other) {
         this.lineColor = other.lineColor;
         this.lineWidth = other.lineWidth;
         this.linePattern = other.linePattern;
         this.textColor = other.textColor;
         this.textFont = other.textFont;
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.gef.edge;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,11 +34,10 @@ public class DeleteEdgeCommand extends Command {
 
     /**
      * Creates a command that will delete the given Edge when executed.
-     * 
      * @param edge the edge to delete.
      */
     @objid ("1b9ac6fa-5e33-11e2-b81d-002564c97630")
-    public DeleteEdgeCommand(final Edge edge) {
+    public  DeleteEdgeCommand(final Edge edge) {
         this.edge = edge;
     }
 
@@ -57,6 +55,7 @@ public class DeleteEdgeCommand extends Command {
         } else {
             return false;
         }
+        
     }
 
     @objid ("1b9ac705-5e33-11e2-b81d-002564c97630")
@@ -65,6 +64,7 @@ public class DeleteEdgeCommand extends Command {
         if (this.edge.data instanceof MObject) {
             ((MObject) this.edge.data).delete();
         }
+        
     }
 
 }

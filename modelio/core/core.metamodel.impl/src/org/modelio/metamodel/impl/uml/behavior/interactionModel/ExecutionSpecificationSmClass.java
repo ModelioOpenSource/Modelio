@@ -17,19 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.interactionModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.ExecutionOccurenceSpecificationSmClass;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.ExecutionSpecificationData;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.InteractionFragmentSmClass;
 import org.modelio.metamodel.uml.behavior.interactionModel.ExecutionOccurenceSpecification;
 import org.modelio.metamodel.uml.behavior.interactionModel.ExecutionSpecification;
 import org.modelio.metamodel.uml.behavior.interactionModel.InteractionFragment;
@@ -53,7 +50,7 @@ public class ExecutionSpecificationSmClass extends InteractionFragmentSmClass {
     private SmDependency startDep;
 
     @objid ("d6caeb72-9941-4f54-ab7c-45515f7c53d5")
-    public ExecutionSpecificationSmClass(ISmMetamodelFragment origin) {
+    public  ExecutionSpecificationSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -61,6 +58,7 @@ public class ExecutionSpecificationSmClass extends InteractionFragmentSmClass {
     @Override
     public String getName() {
         return "ExecutionSpecification";
+        
     }
 
     @objid ("fc4bca9f-3ba2-4011-84ad-dce47c85c6cd")
@@ -73,18 +71,21 @@ public class ExecutionSpecificationSmClass extends InteractionFragmentSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ExecutionSpecification.class;
+        
     }
 
     @objid ("3a993be4-7149-4c94-b477-512266407884")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("4617e50b-4245-49ce-8df1-a70fa2c0833d")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("72f7a88d-fb61-49f1-b7a8-ded656d4a8fd")
@@ -104,6 +105,8 @@ public class ExecutionSpecificationSmClass extends InteractionFragmentSmClass {
         this.startDep = new StartSmDependency();
         this.startDep.init("Start", this, metamodel.getMClass(ExecutionOccurenceSpecification.MQNAME), 1, 1 );
         registerDependency(this.startDep);
+        
+        
     }
 
     @objid ("30069734-8276-4208-9684-82bb9c67b0e4")
@@ -128,7 +131,7 @@ public class ExecutionSpecificationSmClass extends InteractionFragmentSmClass {
         private ExecutionSpecificationSmClass smClass;
 
         @objid ("91d6ec6e-a799-4fff-9fb3-7bc12ecd9fed")
-        public ExecutionSpecificationObjectFactory(ExecutionSpecificationSmClass smClass) {
+        public  ExecutionSpecificationObjectFactory(ExecutionSpecificationSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -170,6 +173,7 @@ public class ExecutionSpecificationSmClass extends InteractionFragmentSmClass {
             	this.symetricDep = ((ExecutionOccurenceSpecificationSmClass)this.getTarget()).getFinishedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -198,6 +202,7 @@ public class ExecutionSpecificationSmClass extends InteractionFragmentSmClass {
             	this.symetricDep = ((ExecutionOccurenceSpecificationSmClass)this.getTarget()).getStartedDep();
             }
             return this.symetricDep;
+            
         }
 
     }

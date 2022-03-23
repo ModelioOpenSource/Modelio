@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.control;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,7 +42,7 @@ public class BindableInstanceInternalOwnerChecker extends AbstractDependencyType
      * C'tor
      */
     @objid ("d6ded598-8849-43d3-9b41-6b0ed81e40e8")
-    public BindableInstanceInternalOwnerChecker(SmMetamodel mm) {
+    public  BindableInstanceInternalOwnerChecker(SmMetamodel mm) {
         // Cached SmClass
         this.bindableInstanceID = mm.getMClass(BindableInstance.class);
         this.interfaceID = mm.getMClass(Interface.class);
@@ -55,6 +54,7 @@ public class BindableInstanceInternalOwnerChecker extends AbstractDependencyType
         SmClass classifierID = mm.getMClass(Classifier.class);
         ClassifierInternalStructureChecker symetricChecker = new ClassifierInternalStructureChecker(this);
         symetricChecker.register(classifierID, "InternalStructure");
+        
     }
 
     @objid ("93e51c0c-ec6f-11e1-91c5-002564c97630")
@@ -77,7 +77,7 @@ public class BindableInstanceInternalOwnerChecker extends AbstractDependencyType
         private BindableInstanceInternalOwnerChecker symetricChecker;
 
         @objid ("93e9ae78-ec6f-11e1-91c5-002564c97630")
-        public ClassifierInternalStructureChecker(BindableInstanceInternalOwnerChecker symetricChecker) {
+        public  ClassifierInternalStructureChecker(BindableInstanceInternalOwnerChecker symetricChecker) {
             this.symetricChecker = symetricChecker;
         }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.gui.creation.model;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -56,10 +55,10 @@ class ModelPanelUI {
     private Text nameText;
 
     @objid ("99d7dc84-dad6-4584-a911-d3648f5fe982")
-     Composite top = null;
+    Composite top = null;
 
     @objid ("c2253e98-3cd1-4e5f-94b6-f6350861ea70")
-    public ModelPanelUI(ModelPanelController controller) {
+    public  ModelPanelUI(ModelPanelController controller) {
         this.controller = controller;
     }
 
@@ -146,6 +145,7 @@ class ModelPanelUI {
             this.docTypeDriver.selectInViewer(data.getDocumentType());
             this.abstractText.setText(data.getAbstract());
         }
+        
     }
 
 }

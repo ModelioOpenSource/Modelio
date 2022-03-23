@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.trimbarcomponent;
 
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
@@ -76,16 +75,16 @@ public abstract class TrimBarComponent {
             this.isVisible = isVisible;
             refreshLayout();
         }
+        
     }
 
     @objid ("60e241e3-cc38-4b5f-ab9b-9a9b2663c592")
-    protected TrimBarComponent(String title) {
+    protected  TrimBarComponent(String title) {
         this.title = title;
     }
 
     /**
      * Defines the actual content of the TrimBar component.
-     * 
      * @param parent a composite control which will be the parent of the new instance (cannot be null).
      * @return the created SWT control. Must not be <code>null</code>.
      */
@@ -101,6 +100,7 @@ public abstract class TrimBarComponent {
         this.controlZone = null;
         this.control = null;
         this.titleLabel = null;
+        
     }
 
     @objid ("89922cc6-22ce-4fdc-be4b-3c9134d77ff3")
@@ -158,6 +158,7 @@ public abstract class TrimBarComponent {
             this.control.pack();
         }
         this.control.getShell().layout(new Control[] { this.controlZone }, SWT.DEFER);
+        
     }
 
     @objid ("dc105066-4c14-404d-b3e3-2b2bdb5b25e0")
@@ -202,7 +203,6 @@ public abstract class TrimBarComponent {
 
     /**
      * Initialize the SWT toolbar.
-     * 
      * @param parent a widget which will be the parent of the new SWT components.
      */
     @objid ("18b624ec-9978-4af3-b378-8c1823088cf4")
@@ -254,6 +254,7 @@ public abstract class TrimBarComponent {
         postCreate();
         
         refreshLayout();
+        
     }
 
 }

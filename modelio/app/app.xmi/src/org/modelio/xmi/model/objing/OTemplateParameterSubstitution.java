@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,15 +42,15 @@ public class OTemplateParameterSubstitution extends OElement implements IOElemen
             return UMLFactory.eINSTANCE.createTemplateParameterSubstitution();
         else 
             return null;
+        
     }
 
     /**
      * Constructor
-     * 
      * @param param : the exported Modelio TemplateParameterSubstitution
      */
     @objid ("68ec8b48-d3fb-427e-9665-3cc7b0edd72c")
-    public OTemplateParameterSubstitution(final TemplateParameterSubstitution param) {
+    public  OTemplateParameterSubstitution(final TemplateParameterSubstitution param) {
         super(param);
     }
 
@@ -63,6 +62,7 @@ public class OTemplateParameterSubstitution extends OElement implements IOElemen
         if (ecoreOwner instanceof org.eclipse.uml2.uml.TemplateBinding){              
             ((org.eclipse.uml2.uml.TemplateBinding) ecoreOwner).getParameterSubstitutions().add((org.eclipse.uml2.uml.TemplateParameterSubstitution) ecoreElt);               
         }
+        
     }
 
     @objid ("ceae893e-151d-420c-83b2-3c09a88c69d2")
@@ -71,6 +71,7 @@ public class OTemplateParameterSubstitution extends OElement implements IOElemen
         setValue(ecoreElt);
         setFormal(ecoreElt);
         setActual(ecoreElt);
+        
     }
 
     @objid ("39f0d40d-6023-4327-a9c8-8aeece841ae5")
@@ -89,6 +90,7 @@ public class OTemplateParameterSubstitution extends OElement implements IOElemen
         
             }
         }
+        
     }
 
     @objid ("d6404135-446f-41e5-b591-350de27babbc")
@@ -112,6 +114,7 @@ public class OTemplateParameterSubstitution extends OElement implements IOElemen
         
             }
         }
+        
     }
 
 }

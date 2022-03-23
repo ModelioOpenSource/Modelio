@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.message;
 
 import java.text.MessageFormat;
@@ -85,15 +84,15 @@ public class CreateMessageHelper {
      * @param modelFactory model factory that will be used to create all the necessary model org.modelio.uml.sequencediagram.editor.elements.
      */
     @objid ("d9515b07-55b6-11e2-877f-002564c97630")
-    public CreateMessageHelper(GmSequenceDiagram gmDiagram) {
+    public  CreateMessageHelper(GmSequenceDiagram gmDiagram) {
         this.interaction = gmDiagram.getRelatedInteraction();
         this.modelFactory = gmDiagram.getModelManager().getModelFactory().getFactory(IStandardModelFactory.class);
         this.interactionSvc = new SequenceModelManipulationServices(this.interaction);
+        
     }
 
     /**
      * Main method. Handles the model creation and the unmaskings.
-     * 
      * @param sourceModel the model that is the source of the link creation interaction
      * @param sourceTime the "time" of the source event
      * @param targetModel the model that is the target of the link creation interaction
@@ -141,6 +140,7 @@ public class CreateMessageHelper {
                     targetElement.getMClass().getName()));
         
         }
+        
     }
 
     @objid ("d9515b19-55b6-11e2-877f-002564c97630")
@@ -224,6 +224,7 @@ public class CreateMessageHelper {
         
             replyEnd.setLineNumber(targetTime + CreateMessageHelper.DEFAULT_EXECUTION_DURATION);
         }
+        
     }
 
     @objid ("d952e17d-55b6-11e2-877f-002564c97630")
@@ -242,6 +243,7 @@ public class CreateMessageHelper {
         if (this.request != null && unmaskedLink != null) {
             this.request.getCreatedObjectsToSelect().add(unmaskedLink);
         }
+        
     }
 
     @objid ("d952e187-55b6-11e2-877f-002564c97630")
@@ -317,6 +319,7 @@ public class CreateMessageHelper {
                 replyEnd.setLineNumber(endTime);
             }
         }
+        
     }
 
     @objid ("d952e193-55b6-11e2-877f-002564c97630")
@@ -361,6 +364,7 @@ public class CreateMessageHelper {
         
         }
         theMessage.setSortOfMessage(messageSort);
+        
     }
 
     @objid ("d952e199-55b6-11e2-877f-002564c97630")
@@ -414,7 +418,6 @@ public class CreateMessageHelper {
      * Set the request that will be completed by this helper.
      * <p>
      * This helper will call {@link CreateBendedConnectionRequest#getCreatedObjectsToSelect()} to add objects to the list.
-     * 
      * @param request the request to complete.
      */
     @objid ("d952e1b5-55b6-11e2-877f-002564c97630")
@@ -444,6 +447,7 @@ public class CreateMessageHelper {
         if (this.request != null && unmaskedLink != null) {
             this.request.getCreatedObjectsToSelect().add(unmaskedLink);
         }
+        
     }
 
     @objid ("b8cdb540-c718-48f2-99fb-5c2d6a678b4c")
@@ -476,9 +480,10 @@ public class CreateMessageHelper {
         public final MessageEnd inOb;
 
         @objid ("d954681e-55b6-11e2-877f-002564c97630")
-        SourceStructure(final MessageEnd inOb, final IGmLinkable inGm) {
+         SourceStructure(final MessageEnd inOb, final IGmLinkable inGm) {
             this.inOb = inOb;
             this.inGm = inGm;
+            
         }
 
     }

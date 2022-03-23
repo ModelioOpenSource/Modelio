@@ -17,19 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.diagrams;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.diagrams.GraphDiagram;
-import org.modelio.metamodel.impl.diagrams.AbstractDiagramSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("b7bd8c6f-a843-4efb-bf69-5e27dc50bf10")
 public class GraphDiagramSmClass extends AbstractDiagramSmClass {
     @objid ("1606d446-dff4-439d-9b08-f24ed3814a9b")
-    public GraphDiagramSmClass(ISmMetamodelFragment origin) {
+    public  GraphDiagramSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class GraphDiagramSmClass extends AbstractDiagramSmClass {
     @Override
     public String getName() {
         return "GraphDiagram";
+        
     }
 
     @objid ("f86fba42-abc1-4858-930b-dfeb61bb2fbf")
@@ -62,18 +62,21 @@ public class GraphDiagramSmClass extends AbstractDiagramSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return GraphDiagram.class;
+        
     }
 
     @objid ("802fe5ea-cc8f-40e6-ba2d-73273f2d4c49")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("dfbf9a58-b667-4ee0-ae0c-fb49bace59dc")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("441cd25b-8590-4449-b95d-190bf0452354")
@@ -86,6 +89,7 @@ public class GraphDiagramSmClass extends AbstractDiagramSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("e54bdc5a-5209-49c7-b3cb-11287d6dde79")
@@ -94,7 +98,7 @@ public class GraphDiagramSmClass extends AbstractDiagramSmClass {
         private GraphDiagramSmClass smClass;
 
         @objid ("56fe2488-132e-4bbc-9bf8-0f3632baa8c1")
-        public GraphDiagramObjectFactory(GraphDiagramSmClass smClass) {
+        public  GraphDiagramObjectFactory(GraphDiagramSmClass smClass) {
             this.smClass = smClass;
         }
 

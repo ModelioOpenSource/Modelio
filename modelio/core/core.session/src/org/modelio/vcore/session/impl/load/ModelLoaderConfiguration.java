@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.load;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -64,7 +63,6 @@ public final class ModelLoaderConfiguration {
 
     /**
      * @param unloadedRepositoryHandle
-     * 
      * @param session the core session
      * @param kid the kernel id
      * @param rid the repository id
@@ -74,7 +72,7 @@ public final class ModelLoaderConfiguration {
      * @param refreshEventService the model refresh event service
      */
     @objid ("1c44100c-b515-42ac-aa4a-bb6f2728a65b")
-    public ModelLoaderConfiguration(CoreSession session, short kid, byte rid, IRepository shellRepository, CacheManager cacheManager, IAccessManager accessManager, RefreshEventService refreshEventService, IRepositoryObject unloadedRepositoryHandle) {
+    public  ModelLoaderConfiguration(CoreSession session, short kid, byte rid, IRepository shellRepository, CacheManager cacheManager, IAccessManager accessManager, RefreshEventService refreshEventService, IRepositoryObject unloadedRepositoryHandle) {
         this.session = session;
         this.accessManager = accessManager;
         this.cacheManager = cacheManager;
@@ -86,6 +84,7 @@ public final class ModelLoaderConfiguration {
         this.metamodel = session.getMetamodel();
         
         assert (this.refreshEventService != null);
+        
     }
 
     /**

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.creation.wizard.dialog;
 
 import java.net.URL;
@@ -92,7 +91,7 @@ public abstract class CreationWizardDialog extends ModelioDialog {
     private IProjectService projectService;
 
     @objid ("5bea84f2-12d4-49a2-a86f-b1f96eb6daec")
-     CreationWizardController controller;
+    CreationWizardController controller;
 
     @objid ("2400bdf1-e2f1-42c9-84ca-2849f483456f")
     private IPanelProvider customArea;
@@ -116,7 +115,7 @@ public abstract class CreationWizardDialog extends ModelioDialog {
     private Composite typeBrowserArea;
 
     @objid ("52e2480d-b76d-4a54-9aa6-3b5816804629")
-    public CreationWizardDialog(final Shell parentShell, final CreationWizardModel dataModel, IProjectService projectService, IModelioPickingService pickingService) {
+    public  CreationWizardDialog(final Shell parentShell, final CreationWizardModel dataModel, IProjectService projectService, IModelioPickingService pickingService) {
         super(parentShell);
         setShellStyle(SWT.DIALOG_TRIM | SWT.RESIZE | SWT.MAX);
         
@@ -124,6 +123,7 @@ public abstract class CreationWizardDialog extends ModelioDialog {
         this.pickingService = pickingService;
         
         this.controller = new CreationWizardController(this, dataModel);
+        
     }
 
     @objid ("825a2d6a-684f-4ef1-806c-6b3a4b630b16")
@@ -131,6 +131,7 @@ public abstract class CreationWizardDialog extends ModelioDialog {
     public void addButtonsInButtonBar(final Composite parent) {
         createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL, true);
         createButton(parent, IDialogConstants.CANCEL_ID, IDialogConstants.CANCEL_LABEL, false);
+        
     }
 
     @objid ("3ba41043-418f-478a-8245-5253493d105a")
@@ -192,6 +193,7 @@ public abstract class CreationWizardDialog extends ModelioDialog {
         addListeners();
         
         this.controller.onInit();
+        
     }
 
     @objid ("c8eae388-4fc3-4b1d-9a4c-75fc5ec39fc3")
@@ -207,6 +209,7 @@ public abstract class CreationWizardDialog extends ModelioDialog {
         
         // Ok button
         updateOkButton(dataModel.isValid());
+        
     }
 
     @objid ("763f832c-825a-47d3-aca8-2c4ed70d988b")
@@ -218,6 +221,7 @@ public abstract class CreationWizardDialog extends ModelioDialog {
     protected void okPressed() {
         this.controller.onOk();
         super.okPressed();
+        
     }
 
     @objid ("c9db9dd4-a9cf-4e08-b462-28a675e0e7d6")
@@ -270,6 +274,7 @@ public abstract class CreationWizardDialog extends ModelioDialog {
         
             }
         });
+        
     }
 
     @objid ("a1850387-e800-4bd9-9c5c-7dad3b3cc6d3")
@@ -343,6 +348,7 @@ public abstract class CreationWizardDialog extends ModelioDialog {
         }
         
         this.hideInvalidCheckBox.setSelection(!dataModel.isShowInvalid());
+        
     }
 
     @objid ("db9a2b63-4b40-48e3-bc0c-b4a6830e14e4")
@@ -389,6 +395,7 @@ public abstract class CreationWizardDialog extends ModelioDialog {
         if (!this.nameText.getText().equals(dataModel.getName())) {
             this.nameText.setText(dataModel.getName());
         }
+        
     }
 
     @objid ("0b089dc8-df54-49b9-a2f3-259dd85115d8")
@@ -396,6 +403,7 @@ public abstract class CreationWizardDialog extends ModelioDialog {
     protected void cancelPressed() {
         this.controller.onCancel();
         super.cancelPressed();
+        
     }
 
     @objid ("0a24a639-991b-4444-b062-32a56ea4accc")
@@ -434,6 +442,7 @@ public abstract class CreationWizardDialog extends ModelioDialog {
         }
         
         this.composite.layout(true);
+        
     }
 
     /**
@@ -453,6 +462,7 @@ public abstract class CreationWizardDialog extends ModelioDialog {
                 this.dwData.setName(s);
                 this.dwDialog.update(this.dwData);
             }
+            
         }
 
         @objid ("86bba2b1-bc31-47eb-94d8-7522ea4866db")
@@ -461,6 +471,7 @@ public abstract class CreationWizardDialog extends ModelioDialog {
                 this.dwData.setContext((ModelElement) newElement);
                 this.dwDialog.update(this.dwData);
             }
+            
         }
 
         @objid ("0e5ed87e-f73d-41d0-91d0-0dbcc04de42b")
@@ -469,6 +480,7 @@ public abstract class CreationWizardDialog extends ModelioDialog {
                 this.dwData.setSelectedContributor(selectedContributor);
                 this.dwDialog.update(this.dwData);
             }
+            
         }
 
         @objid ("07bd578d-1175-457b-85db-e917da56ecfd")
@@ -496,12 +508,14 @@ public abstract class CreationWizardDialog extends ModelioDialog {
             this.dwDialog.treeViewer.setInput(this.dwDialog.treeViewer.getInput());
             
             this.dwDialog.update(this.dwData);
+            
         }
 
         @objid ("9454e825-dea3-4ba4-a1d3-121a42caed1a")
-        public CreationWizardController(CreationWizardDialog dwDialog, CreationWizardModel dwModel) {
+        public  CreationWizardController(CreationWizardDialog dwDialog, CreationWizardModel dwModel) {
             this.dwData = dwModel;
             this.dwDialog = dwDialog;
+            
         }
 
         @objid ("147fe5f7-acd4-4b82-8d9f-4e228415f5c2")
@@ -569,6 +583,7 @@ public abstract class CreationWizardDialog extends ModelioDialog {
                 this.dwData.setContext(context);
             }
             this.dwDialog.update(this.dwData);
+            
         }
 
         @objid ("80ddb03c-1892-4fff-956d-3c8610abdfdf")
@@ -616,7 +631,7 @@ public abstract class CreationWizardDialog extends ModelioDialog {
         private WizardPreviewPanelController controller;
 
         @objid ("8299ea2e-79c1-43c4-a34e-2fbe8926f84d")
-        public WizardPreviewPanel() {
+        public  WizardPreviewPanel() {
             this.controller = new WizardPreviewPanelController();
         }
 
@@ -652,6 +667,7 @@ public abstract class CreationWizardDialog extends ModelioDialog {
             } else {
                 this.controller.setData(null);
             }
+            
         }
 
         @objid ("7ab495c6-5e39-43d7-9930-46a7d7138d1e")
@@ -690,7 +706,7 @@ public abstract class CreationWizardDialog extends ModelioDialog {
             private Link detailsLink;
 
             @objid ("4e6702fa-7787-433b-b4ee-4fa24c449722")
-            public WizardPreviewPanelUI(WizardPreviewPanelController controller) {
+            public  WizardPreviewPanelUI(WizardPreviewPanelController controller) {
                 this.controller = controller;
             }
 
@@ -739,6 +755,7 @@ public abstract class CreationWizardDialog extends ModelioDialog {
                     this.previewImage.setImage(null);
                 }
                 this.previewGroup.dispose();
+                
             }
 
             @objid ("401b9fed-28be-453b-ba82-d63b9caba247")
@@ -758,6 +775,7 @@ public abstract class CreationWizardDialog extends ModelioDialog {
                     URL imageUrl = FileLocator.find(bundle, new Path("images/noimagepreview400x300.png"), null);
                     this.previewImage.setImage(ImageDescriptor.createFromURL(imageUrl).createImage());
                 }
+                
             }
 
             @objid ("cde581a7-a498-44f9-953f-52e6c72b560d")
@@ -779,6 +797,7 @@ public abstract class CreationWizardDialog extends ModelioDialog {
                     this.detailsLink.setText("");
                     this.detailsLink.setData("url", null);
                 }
+                
             }
 
         }
@@ -802,6 +821,7 @@ public abstract class CreationWizardDialog extends ModelioDialog {
                 if (this.ui != null) {
                     this.ui.update(this.data);
                 }
+                
             }
 
             @objid ("d91b349a-63c4-45ea-886b-bb9457f2f2ba")
@@ -821,6 +841,7 @@ public abstract class CreationWizardDialog extends ModelioDialog {
             public void dispose() {
                 this.ui.dispose();
                 this.ui = null;
+                
             }
 
             @objid ("9b9d908e-b3fa-4503-b2b3-a5c1a9cb4075")
@@ -829,6 +850,7 @@ public abstract class CreationWizardDialog extends ModelioDialog {
                     BrowserDialog dialog = new BrowserDialog(getUi().getShell(), helpUrl);
                     dialog.open();
                 }
+                
             }
 
         }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.constraint;
 
 import java.beans.PropertyChangeEvent;
@@ -61,6 +60,7 @@ public class ConstraintBodyEditPart extends AbstractNodeEditPart {
         }
         // In any case apply the super routine.
         super.propertyChange(evt);
+        
     }
 
     @objid ("8116508f-1dec-11e2-8cad-001ec947c8cc")
@@ -119,6 +119,7 @@ public class ConstraintBodyEditPart extends AbstractNodeEditPart {
                 }
             }
         }
+        
     }
 
     @objid ("81165093-1dec-11e2-8cad-001ec947c8cc")
@@ -139,6 +140,7 @@ public class ConstraintBodyEditPart extends AbstractNodeEditPart {
     protected void addChildVisual(final EditPart childEditPart, final int index) {
         IFigure child = ((GraphicalEditPart) childEditPart).getFigure();
         getContentPane().add(child, BorderLayout.CENTER, index);
+        
     }
 
     @objid ("811650a3-1dec-11e2-8cad-001ec947c8cc")
@@ -146,6 +148,7 @@ public class ConstraintBodyEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         final GmAbstractObject model = getModel();
         getFigure().getParent().setConstraint(getFigure(), model.getLayoutData());
+        
     }
 
 }

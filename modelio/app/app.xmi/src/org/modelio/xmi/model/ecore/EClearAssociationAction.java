@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,9 +40,10 @@ public class EClearAssociationAction extends EActivityNode {
     }
 
     @objid ("e45e3016-7357-4257-80da-3a297a53d2e0")
-    public EClearAssociationAction(org.eclipse.uml2.uml.ClearAssociationAction element) {
+    public  EClearAssociationAction(org.eclipse.uml2.uml.ClearAssociationAction element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("4cd50ff6-49b9-4d09-b72e-2221bb8d88a4")
@@ -51,6 +51,7 @@ public class EClearAssociationAction extends EActivityNode {
     public void setProperties(Element objingElt) {
         super.setProperties(objingElt);
         setAssociation((OpaqueAction) objingElt);
+        
     }
 
     @objid ("27c13eef-627c-4fdc-82a0-c0bf6b555cd0")
@@ -66,6 +67,7 @@ public class EClearAssociationAction extends EActivityNode {
                 dependency.setImpacted(objingElt);
             }
         }
+        
     }
 
 }

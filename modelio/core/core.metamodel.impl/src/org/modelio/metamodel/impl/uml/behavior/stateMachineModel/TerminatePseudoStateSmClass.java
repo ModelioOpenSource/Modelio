@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.stateMachineModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.AbstractPseudoStateSmClass;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.AbstractPseudoState;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.TerminatePseudoState;
 import org.modelio.vbasic.version.Version;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("1427429a-2d1c-400a-81f2-36a8036426ab")
 public class TerminatePseudoStateSmClass extends AbstractPseudoStateSmClass {
     @objid ("875c460c-21ce-4b83-87eb-2658a224f986")
-    public TerminatePseudoStateSmClass(ISmMetamodelFragment origin) {
+    public  TerminatePseudoStateSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class TerminatePseudoStateSmClass extends AbstractPseudoStateSmClass {
     @Override
     public String getName() {
         return "TerminatePseudoState";
+        
     }
 
     @objid ("c0d30df5-79b6-4414-b747-423753ed831b")
@@ -62,18 +62,21 @@ public class TerminatePseudoStateSmClass extends AbstractPseudoStateSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return TerminatePseudoState.class;
+        
     }
 
     @objid ("88667452-8717-4cc5-854c-a4cad1c4ed2f")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("cd76ea30-dd61-4a16-a1b9-a200cb5a8958")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("fae63e77-3275-4aa6-9ad9-2fd7e16fb076")
@@ -86,6 +89,7 @@ public class TerminatePseudoStateSmClass extends AbstractPseudoStateSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("19122cb5-e5fd-4992-acb1-79f91ccc2390")
@@ -94,7 +98,7 @@ public class TerminatePseudoStateSmClass extends AbstractPseudoStateSmClass {
         private TerminatePseudoStateSmClass smClass;
 
         @objid ("15aba4b8-de68-4afb-85fe-a8f8a46557b8")
-        public TerminatePseudoStateObjectFactory(TerminatePseudoStateSmClass smClass) {
+        public  TerminatePseudoStateObjectFactory(TerminatePseudoStateSmClass smClass) {
             this.smClass = smClass;
         }
 

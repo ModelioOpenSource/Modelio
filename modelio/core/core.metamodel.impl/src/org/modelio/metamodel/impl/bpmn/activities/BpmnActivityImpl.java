@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.activities;
 
 import java.util.ArrayList;
@@ -38,7 +38,6 @@ import org.modelio.metamodel.bpmn.flows.BpmnSequenceFlow;
 import org.modelio.metamodel.bpmn.objects.BpmnDataAssociation;
 import org.modelio.metamodel.bpmn.objects.BpmnDataInput;
 import org.modelio.metamodel.bpmn.objects.BpmnDataOutput;
-import org.modelio.metamodel.impl.bpmn.activities.BpmnActivityData;
 import org.modelio.metamodel.impl.bpmn.rootElements.BpmnFlowNodeImpl;
 import org.modelio.metamodel.visitors.IModelVisitor;
 import org.modelio.vcore.smkernel.SmConstrainedList;
@@ -106,6 +105,7 @@ public class BpmnActivityImpl extends BpmnFlowNodeImpl implements BpmnActivity {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("7086fc90-f983-4e4b-9116-c55ae59c00fd")
@@ -127,6 +127,7 @@ public class BpmnActivityImpl extends BpmnFlowNodeImpl implements BpmnActivity {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("2a7449db-2e68-4795-b5ee-b57f97e4d020")
@@ -148,6 +149,7 @@ public class BpmnActivityImpl extends BpmnFlowNodeImpl implements BpmnActivity {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("c39837b5-d57b-4864-bc2d-bb23cb8389ad")
@@ -169,6 +171,7 @@ public class BpmnActivityImpl extends BpmnFlowNodeImpl implements BpmnActivity {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("d86ec704-2e21-4722-b16f-c5c960f55f72")
@@ -203,6 +206,7 @@ public class BpmnActivityImpl extends BpmnFlowNodeImpl implements BpmnActivity {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("43e66569-9c26-4e54-bb47-4bd4c2ccdb6b")
@@ -224,6 +228,7 @@ public class BpmnActivityImpl extends BpmnFlowNodeImpl implements BpmnActivity {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("87c3a6be-9275-4a00-afa3-e8d12e231895")

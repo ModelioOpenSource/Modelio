@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.expansionnode;
 
 import java.util.Collections;
@@ -31,8 +30,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.ExpansionNode;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -63,20 +62,19 @@ public class GmExpansionNode extends GmPortContainer {
     private static final GmExpansionNodeSimpleStyleKeys SIMPLE_KEYS = new GmExpansionNodeSimpleStyleKeys();
 
     @objid ("30a8c085-58a2-11e2-9574-002564c97630")
-     static final GmExpansionNodeStructuredStyleKeys STRUCTURED_KEYS = new GmExpansionNodeStructuredStyleKeys();
+    static final GmExpansionNodeStructuredStyleKeys STRUCTURED_KEYS = new GmExpansionNodeStructuredStyleKeys();
 
     @objid ("f28dba26-7305-4da3-8f8d-ff853b58ba0b")
     private static final GmExpansionNodeUserImageStyleKeys USERIMAGE_KEYS = new GmExpansionNodeUserImageStyleKeys();
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the expansionNode is unmasked.
      * @param el the unmasked expansionNode.
      * @param ref a reference to the unmasked expansionNode.
      */
     @objid ("2a522952-55b6-11e2-877f-002564c97630")
-    public GmExpansionNode(IGmDiagram diagram, ExpansionNode el, MRef ref) {
+    public  GmExpansionNode(IGmDiagram diagram, ExpansionNode el, MRef ref) {
         super(diagram, ref);
         
         GmExpansionNodePrimaryNode mainNode = new GmExpansionNodePrimaryNode(diagram, el, ref);
@@ -88,13 +86,14 @@ public class GmExpansionNode extends GmPortContainer {
         label.setRoleInComposition(GmPortContainer.SATELLITE_ROLE);
         label.setLayoutData(Integer.valueOf(PositionConstants.EAST));
         this.addChild(label);
+        
     }
 
     /**
      * Empty constructor needed for deserialisation.
      */
     @objid ("2a53afc4-55b6-11e2-877f-002564c97630")
-    public GmExpansionNode() {
+    public  GmExpansionNode() {
         // Nothing specific to do.
     }
 
@@ -173,6 +172,7 @@ public class GmExpansionNode extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("2a553659-55b6-11e2-877f-002564c97630")
@@ -188,12 +188,14 @@ public class GmExpansionNode extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmExpansionNode.", GmExpansionNode.MINOR_VERSION);
+        
     }
 
     @objid ("2a553666-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (ExpansionNode) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("2a55366b-55b6-11e2-877f-002564c97630")
@@ -204,7 +206,6 @@ public class GmExpansionNode extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -216,7 +217,6 @@ public class GmExpansionNode extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

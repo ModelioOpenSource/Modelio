@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.finaliser.subplan;
 
 import java.util.ArrayList;
@@ -36,24 +35,25 @@ import org.modelio.metamodel.bpmn.bpmnDiagrams.BpmnProcessDesignDiagram;
 
 @objid ("569f8b00-84bb-44ba-a0bd-0c1c1776a5dc")
 public class ParticipantPlan {
+    @objid ("c1753c2e-042b-4329-953a-f8807888b9bd")
+    private Point transposition;
+
     @objid ("1ae2eee9-afa7-4415-b373-e056336c3e16")
     private BpmnProcessCollaborationDiagram diagram;
 
     @objid ("6c98b61a-5960-4443-9777-37b349fc8aaa")
     private Bounds bounds;
 
-    @objid ("acbe6a5f-2701-40d2-b5bd-865e0a5f9605")
-    private Point transposition;
-
     @objid ("d6e5156c-cc92-4b8b-8bff-c480b0d104d6")
     private BPMNPlane jaxPlan;
 
     @objid ("8693efae-f233-4188-b4ad-0264259c591a")
-    public ParticipantPlan(BpmnProcessDesignDiagram diagram, Bounds bounds) {
+    public  ParticipantPlan(BpmnProcessDesignDiagram diagram, Bounds bounds) {
         this.diagram = diagram;
         this.jaxPlan = new BPMNPlane();
         this.bounds = bounds;
         this.transposition = new PrecisionPoint(bounds.getX(), bounds.getY());
+        
     }
 
     @objid ("2752e3ff-581f-421f-a7d5-dd3c8a56ae64")
@@ -98,6 +98,7 @@ public class ParticipantPlan {
         
         ObjectFactory factory = new ObjectFactory();
         this.jaxPlan.getDiagramElement().add(factory.createBPMNShape(jaxShape));
+        
     }
 
     @objid ("db665e07-c476-4026-a7a1-e350fe34447d")
@@ -116,6 +117,7 @@ public class ParticipantPlan {
         
         ObjectFactory factory = new ObjectFactory();
         this.jaxPlan.getDiagramElement().add(factory.createBPMNEdge(jaxEdge));
+        
     }
 
     @objid ("eb127d1f-9eb1-4431-9426-826849af5ab2")

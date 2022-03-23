@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.deploymentdiagram.editor.elements.node;
 
 import java.util.Collections;
@@ -63,34 +62,33 @@ public class GmNode extends GmPortContainer {
     private static final String IMAGE_LABEL_ROLE = "ImageLabel";
 
     @objid ("438a7209-5beb-11e2-9e33-00137282c51b")
-     static final GmNodeImageStyleKeys IMAGE_KEYS = new GmNodeImageStyleKeys();
+    static final GmNodeImageStyleKeys IMAGE_KEYS = new GmNodeImageStyleKeys();
 
     @objid ("438a720b-5beb-11e2-9e33-00137282c51b")
-     static final GmNodeSimpleStyleKeys SIMPLE_KEYS = new GmNodeSimpleStyleKeys();
+    static final GmNodeSimpleStyleKeys SIMPLE_KEYS = new GmNodeSimpleStyleKeys();
 
     @objid ("438a720d-5beb-11e2-9e33-00137282c51b")
-     static final GmNodeStructuredStyleKeys STRUCTURED_KEYS = new GmNodeStructuredStyleKeys();
+    static final GmNodeStructuredStyleKeys STRUCTURED_KEYS = new GmNodeStructuredStyleKeys();
 
     @objid ("463fa838-e1c9-4749-98ee-295cd3cca67a")
-     static final GmNodeUserImageStyleKeys USERIMAGE_KEYS = new GmNodeUserImageStyleKeys();
+    static final GmNodeUserImageStyleKeys USERIMAGE_KEYS = new GmNodeUserImageStyleKeys();
 
     /**
      * Empty constructor needed for deserialisation.
      */
     @objid ("97375bcc-55b6-11e2-877f-002564c97630")
-    public GmNode() {
+    public  GmNode() {
         // Nothing specific to do.
     }
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the class is unmasked.
      * @param el the unmasked class.
      * @param ref a reference to the unmasked class.
      */
     @objid ("97375bcf-55b6-11e2-877f-002564c97630")
-    public GmNode(IGmDiagram diagram, Node el, MRef ref) {
+    public  GmNode(IGmDiagram diagram, Node el, MRef ref) {
         super(diagram, ref);
         this.element = el;
         
@@ -103,6 +101,7 @@ public class GmNode extends GmPortContainer {
         
         super.addChild(mainNode);
         super.addChild(imageModeHeader);
+        
     }
 
     @objid ("9738e23c-55b6-11e2-877f-002564c97630")
@@ -144,6 +143,7 @@ public class GmNode extends GmPortContainer {
         default:
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("9738e265-55b6-11e2-877f-002564c97630")
@@ -167,6 +167,7 @@ public class GmNode extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("9738e26b-55b6-11e2-877f-002564c97630")
@@ -189,6 +190,7 @@ public class GmNode extends GmPortContainer {
             }
         
         }
+        
     }
 
     @objid ("9738e275-55b6-11e2-877f-002564c97630")
@@ -197,6 +199,7 @@ public class GmNode extends GmPortContainer {
         super.refreshFromObModel();
         
         refreshPortsFromObModel();
+        
     }
 
     /**
@@ -220,6 +223,7 @@ public class GmNode extends GmPortContainer {
                 ret.remove(imageModeHeader);
                 break;
             }
+            case USER_IMAGE:
             case IMAGE:
             default: {
                 break;
@@ -237,6 +241,7 @@ public class GmNode extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmNode.", GmNode.MINOR_VERSION);
+        
     }
 
     @objid ("973a68e8-55b6-11e2-877f-002564c97630")
@@ -250,6 +255,7 @@ public class GmNode extends GmPortContainer {
                 children.setRoleInComposition(GmNode.IMAGE_LABEL_ROLE);
             }
         }
+        
     }
 
     @objid ("973a68ed-55b6-11e2-877f-002564c97630")
@@ -262,11 +268,11 @@ public class GmNode extends GmPortContainer {
     private void read_1(final IDiagramReader in) {
         super.read(in);
         this.element = (Node) resolveRef(getRepresentedRef());
+        
     }
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -276,11 +282,11 @@ public class GmNode extends GmPortContainer {
         String role = childNode.getRoleInComposition();
         return GmPortContainer.SATELLITE_ROLE.equals(role)
                         || GmNode.IMAGE_LABEL_ROLE.equals(role);
+        
     }
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -298,6 +304,7 @@ public class GmNode extends GmPortContainer {
         } else {
             super.addStartingLink(link);
         }
+        
     }
 
     @objid ("973bef7c-55b6-11e2-877f-002564c97630")
@@ -308,6 +315,7 @@ public class GmNode extends GmPortContainer {
         } else {
             super.addEndingLink(link);
         }
+        
     }
 
     @objid ("71a9b7d4-3761-49d0-997d-d09f567a82f5")

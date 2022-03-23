@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.edition;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -86,7 +85,7 @@ public final class TextDirectEditManager extends DirectEditManager2 {
      * @param initialText the initial text
      */
     @objid ("6889f954-2c6d-40dd-8ddb-355eb3443f4f")
-    public TextDirectEditManager(GraphicalEditPart source, CellEditorLocator locator, HAlign halign, String initialText) {
+    public  TextDirectEditManager(GraphicalEditPart source, CellEditorLocator locator, HAlign halign, String initialText) {
         // Call inherited constructor.
         // we pass no 'cell editor type' because we instantiate it ourself.
         super(source, null, locator);
@@ -107,6 +106,7 @@ public final class TextDirectEditManager extends DirectEditManager2 {
         default:
             break;
         }
+        
     }
 
     @objid ("93035905-0c8a-4dc0-bba0-64e95cc07579")
@@ -119,6 +119,7 @@ public final class TextDirectEditManager extends DirectEditManager2 {
         } else {
             return new TextCellEditor(composite, this.controlStyle);
         }
+        
     }
 
     @objid ("dc93a2a4-0006-4821-8d63-fc6f2cd8e34d")
@@ -133,11 +134,11 @@ public final class TextDirectEditManager extends DirectEditManager2 {
         textControl.setForeground(ColorConstants.blue);
         
         super.initCellEditor();
+        
     }
 
     /**
      * Set whether the editor is multiline.
-     * 
      * @param v true for multiline, else false
      * @return this instance.
      */
@@ -158,7 +159,6 @@ public final class TextDirectEditManager extends DirectEditManager2 {
      * Set whether wrapping is enabled or not on the widget.
      * <p>
      * Note : This method does not modify the locator whose behavior must be coherent.
-     * 
      * @param wrap true to enable wrap, else false.
      * @return this instance.
      */
@@ -174,7 +174,6 @@ public final class TextDirectEditManager extends DirectEditManager2 {
 
     /**
      * Creates a {@link TextDirectEditManager} configured for the given {@link LabelumFigure}.
-     * 
      * @param source the edited edit part
      * @param headerFigure the header figure owning the Labelum
      * @param initialText the initial text
@@ -232,6 +231,7 @@ public final class TextDirectEditManager extends DirectEditManager2 {
                 halign,
                 initialText)
                 .setWrap(!autoExpandHorizontally);
+        
     }
 
     /**
@@ -248,12 +248,11 @@ public final class TextDirectEditManager extends DirectEditManager2 {
          * Creates a new text string cell editor parented under the given control.
          * The cell editor value is the string itself, which is initially the empty string.
          * Initially, the cell editor has no cell validator.
-         * 
          * @param parent the parent control
          * @param controlStyle the style bits
          */
         @objid ("fcfe5fa2-9297-480e-8ed9-8cd88e2a685a")
-        public WrappingTextCellEditor(Composite parent, int controlStyle) {
+        public  WrappingTextCellEditor(Composite parent, int controlStyle) {
             super(parent, controlStyle | SWT.WRAP | SWT.MULTI);
         }
 
@@ -267,6 +266,7 @@ public final class TextDirectEditManager extends DirectEditManager2 {
             } else {
                 super.keyReleaseOccured(keyEvent);
             }
+            
         }
 
     }
@@ -287,7 +287,7 @@ public final class TextDirectEditManager extends DirectEditManager2 {
          * @param figure the label figure to override.
          */
         @objid ("7319e4c6-de23-4239-8d9b-08d7586eb08b")
-        public EditorLocatorForLabelum(LabelumFigure figure) {
+        public  EditorLocatorForLabelum(LabelumFigure figure) {
             this.figure = figure;
         }
 
@@ -331,6 +331,7 @@ public final class TextDirectEditManager extends DirectEditManager2 {
                     absLabelRect.y,
                     absLabelRect.width + TextDirectEditManager.MARGINS.width,
                     absLabelRect.height + TextDirectEditManager.MARGINS.height);
+            
         }
 
     }

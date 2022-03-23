@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.operationgroup;
 
 import java.util.Comparator;
@@ -34,8 +33,8 @@ import org.modelio.diagram.elements.core.model.IGmObject;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.UmaskByVisibilityStragegy;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.UmaskByVisibilityStragegy;
 import org.modelio.metamodel.uml.statik.Classifier;
 import org.modelio.metamodel.uml.statik.Operation;
 import org.modelio.metamodel.uml.statik.VisibilityMode;
@@ -56,6 +55,7 @@ public class OperationGroupEditPart extends GroupEditPart {
         if (model.getLayoutData() != null) {
             getFigure().getParent().setConstraint(getFigure(), model.getLayoutData());
         }
+        
     }
 
     @objid ("3601fe20-55b7-11e2-877f-002564c97630")
@@ -77,6 +77,7 @@ public class OperationGroupEditPart extends GroupEditPart {
             border.setWidth(style.getInteger(gmModel.getStyleKey(MetaKey.LINEWIDTH)));
         }
         aFigure.setBorder(border);
+        
     }
 
     @objid ("fd37bcc2-f2e9-43c5-a8bd-5b13ac959558")
@@ -85,6 +86,7 @@ public class OperationGroupEditPart extends GroupEditPart {
         super.createEditPolicies();
         
         installEditPolicy(GmGroup.PROP_REFRESH_FROM_OBMODEL, new GroupRefreshFromModelEditPolicy(this::getExpectedChildren));
+        
     }
 
     @objid ("572ee6c5-49b5-45dd-aab8-c2599e450c48")
@@ -121,6 +123,7 @@ public class OperationGroupEditPart extends GroupEditPart {
             // do nothing.
             return null;
         }
+        
     }
 
 }

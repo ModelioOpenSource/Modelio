@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,9 +37,10 @@ public class EDecisionNode extends EActivityNode {
     }
 
     @objid ("2ca4905e-c8f9-4499-86ed-430a01143c18")
-    public EDecisionNode(org.eclipse.uml2.uml.DecisionNode element) {
+    public  EDecisionNode(org.eclipse.uml2.uml.DecisionNode element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("0d7722ee-e9df-417e-9033-62cd7a19b594")
@@ -48,6 +48,7 @@ public class EDecisionNode extends EActivityNode {
     public void setProperties(Element objingElt) {
         super.setProperties(objingElt);
         setDecisionInput((DecisionMergeNode) objingElt);
+        
     }
 
     @objid ("6a0f1d33-3be5-4ab8-a0bd-25b04fde46e1")
@@ -61,6 +62,7 @@ public class EDecisionNode extends EActivityNode {
                 }
             }
         }
+        
     }
 
 }

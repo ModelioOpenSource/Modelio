@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.command;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -27,22 +26,27 @@ public enum ActionLocation {
     /**
      * the application menu
      */
+    @objid ("a3ab2c31-17f0-11e0-ae49-001ec947cd2a")
     menu,
     /**
      * the application toolbar
      */
+    @objid ("a3ab2c32-17f0-11e0-ae49-001ec947cd2a")
     toolbar,
     /**
      * the property view toolbar
      */
+    @objid ("a3ab2c34-17f0-11e0-ae49-001ec947cd2a")
     property,
     /**
      * the explorers and diagram contextual popup menus
      */
+    @objid ("a3ab2c36-17f0-11e0-ae49-001ec947cd2a")
     contextualpopup,
     /**
      * the diagram toolbar
      */
+    @objid ("a3ad8e60-17f0-11e0-ae49-001ec947cd2a")
     diagramtoolbar;
 
     @objid ("e00e7656-edf0-11e1-82c2-001ec947ccaf")

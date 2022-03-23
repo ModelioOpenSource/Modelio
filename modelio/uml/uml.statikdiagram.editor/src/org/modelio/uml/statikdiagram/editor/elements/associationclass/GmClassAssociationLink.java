@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.associationclass;
 
 import java.util.List;
@@ -57,24 +56,24 @@ public class GmClassAssociationLink extends GmLink {
 
     /**
      * Create a generalization link model.
-     * 
      * @param diagram The diagram
      * @param generalization The represented ClassAssociation, may be null
      * @param ref The represented generalization reference, may not be null
      */
     @objid ("33f51736-55b7-11e2-877f-002564c97630")
-    public GmClassAssociationLink(IGmDiagram diagram, ClassAssociation generalization, MRef ref) {
+    public  GmClassAssociationLink(IGmDiagram diagram, ClassAssociation generalization, MRef ref) {
         super(diagram, ref);
         this.element = generalization;
         
         //addExtension(ExtensionLocation.MiddleSE, new GmDefaultModelElementHeader(diagram, ref));
+        
     }
 
     /**
      * Constructor for deserialization only.
      */
     @objid ("33f51742-55b7-11e2-877f-002564c97630")
-    public GmClassAssociationLink() {
+    public  GmClassAssociationLink() {
         // Nothing to do.
     }
 
@@ -123,6 +122,7 @@ public class GmClassAssociationLink extends GmLink {
     protected void readLink(IDiagramReader in) {
         super.readLink(in);
         this.element = (ClassAssociation) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("33f69dd5-55b7-11e2-877f-002564c97630")
@@ -132,6 +132,7 @@ public class GmClassAssociationLink extends GmLink {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmClassAssociationLink.", GmClassAssociationLink.MINOR_VERSION);
+        
     }
 
     @objid ("33f69ddb-55b7-11e2-877f-002564c97630")

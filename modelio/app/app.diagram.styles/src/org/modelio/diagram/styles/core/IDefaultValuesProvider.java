@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.core;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,7 +30,6 @@ public interface IDefaultValuesProvider {
      * However, for some specific case, safe defaults values are possible, for example a Font.<br>
      * @param type
      * @throws Exception
-     * 
      * @return the value or null
      */
     @objid ("85512461-1926-11e2-92d2-001ec947c8cc")
@@ -43,7 +41,6 @@ public interface IDefaultValuesProvider {
      * meaning.
      * @param metaKey
      * @throws Exception
-     * 
      * @return the value or null
      */
     @objid ("85512467-1926-11e2-92d2-001ec947c8cc")

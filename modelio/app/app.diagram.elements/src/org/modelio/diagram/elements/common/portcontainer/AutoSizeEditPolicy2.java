@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.portcontainer;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,8 +30,8 @@ import org.eclipse.gef.editpolicies.SelectionEditPolicy;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.modelio.diagram.elements.core.helpers.RequestHelper;
 import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
-import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.elements.core.policies.DefaultNodeResizableEditPolicy;
+import org.modelio.diagram.elements.core.requests.ChangeBoundsFeedbackMap;
 
 /**
  * {@link PortContainerEditPart} preferred drag policy.
@@ -52,7 +51,7 @@ public class AutoSizeEditPolicy2 extends DefaultNodeResizableEditPolicy {
 
     @objid ("dce6626f-f4f4-4211-a6f8-ea1a2d202402")
     private SelectionEditPolicy getMainNodeMovePolicy(AbstractNodeEditPart mainNodeEditPart) {
-        if (this.mainNodeMovePolicy == null || ! this.mainNodeMovePolicy.getHost().isActive()) {
+        if (this.mainNodeMovePolicy == null || !this.mainNodeMovePolicy.getHost().isActive()) {
             this.mainNodeMovePolicy = mainNodeEditPart.getPreferredDragRolePolicy(RequestConstants.REQ_MOVE);
             if (this.mainNodeMovePolicy != null) {
                 this.mainNodeMovePolicy.setHost(mainNodeEditPart);
@@ -64,7 +63,7 @@ public class AutoSizeEditPolicy2 extends DefaultNodeResizableEditPolicy {
 
     @objid ("7b7ae00c-573f-43db-9fea-131048ca6a8d")
     private SelectionEditPolicy getMainNodeResizePolicy(AbstractNodeEditPart mainNodeEditPart) {
-        if (this.mainNodeResizePolicy == null || ! this.mainNodeResizePolicy.getHost().isActive()) {
+        if (this.mainNodeResizePolicy == null || !this.mainNodeResizePolicy.getHost().isActive()) {
             this.mainNodeResizePolicy = mainNodeEditPart.getPreferredDragRolePolicy(RequestConstants.REQ_RESIZE);
             if (this.mainNodeResizePolicy != null) {
                 this.mainNodeResizePolicy.setHost(mainNodeEditPart);
@@ -90,6 +89,8 @@ public class AutoSizeEditPolicy2 extends DefaultNodeResizableEditPolicy {
                 ChangeBoundsRequest changeMainNodeBoundsRequest = RequestHelper.shallowCopy(request);
                 changeMainNodeBoundsRequest.setType(REQ_MOVE);
                 changeMainNodeBoundsRequest.setEditParts(mainNodeEditPart);
+                RequestHelper.addSharedEditParts(changeMainNodeBoundsRequest, request);
+        
                 // shortcut : ask directly to the policy
                 dragPolicy.setHost(mainNodeEditPart);
                 Command resizeMainNodeCommand = dragPolicy.getCommand(changeMainNodeBoundsRequest);
@@ -105,6 +106,7 @@ public class AutoSizeEditPolicy2 extends DefaultNodeResizableEditPolicy {
         req.setMoveDelta(request.getMoveDelta());
         req.setSizeDelta(request.getSizeDelta());
         req.setLocation(request.getLocation());
+        RequestHelper.addSharedEditParts(req, request);
         
         // Adding modified handle bounds to extended data.
         PortContainerFigure containerFigure = (PortContainerFigure) getHostFigure();
@@ -112,7 +114,7 @@ public class AutoSizeEditPolicy2 extends DefaultNodeResizableEditPolicy {
         req.getExtendedData().put(PortResizeHelper.REQPROP_MAIN_NODE_BOUNDS, newMainNodeBounds);
         
         // Same for trimmed bounds
-        Rectangle tb = ((PortContainerEditPart) getHost()).getTrimmedBounds().getCopy();
+        Rectangle tb = getHost().getTrimmedBounds().getCopy();
         containerFigure.translateToAbsolute(tb);
         tb = req.getTransformedRectangle(tb);
         req.getExtendedData().put(AbstractNodeEditPart.REQPROP_TRIMMED_BOUNDS, tb);
@@ -121,33 +123,47 @@ public class AutoSizeEditPolicy2 extends DefaultNodeResizableEditPolicy {
         return getHost().getParent().getCommand(req);
     }
 
+    @objid ("7e31d20c-33fe-49b0-8e0b-3c4262e934ff")
+    @Override
+    public PortContainerEditPart getHost() {
+        return (PortContainerEditPart) super.getHost();
+    }
+
     @objid ("359a7534-7710-4420-a2f1-d1450473c2d1")
     @Override
     protected void showChangeBoundsFeedback(ChangeBoundsRequest request) {
         AbstractNodeEditPart mainNodeEditPart = getMainNodeEditPart();
-        SelectionEditPolicy dragPolicy = getMainNodeDragPolicy(request,mainNodeEditPart);
-        
+        SelectionEditPolicy dragPolicy = getMainNodeDragPolicy(request, mainNodeEditPart);
         if (dragPolicy != null) {
             dragPolicy.showSourceFeedback(request);
+        
+            ChangeBoundsFeedbackMap feedbackMap = ChangeBoundsFeedbackMap.getOrCreate(request);
+            feedbackMap.put(getHost(), feedbackMap.get(mainNodeEditPart));
         } else {
             super.showChangeBoundsFeedback(request);
-            //DiagramElements.LOG.debug("%s: No drag policy for show feedback '%s'\n", getClass().getSimpleName(), request.getType());
+        
+            ChangeBoundsFeedbackMap feedbackMap = ChangeBoundsFeedbackMap.getOrCreate(request);
+            feedbackMap.put(mainNodeEditPart, feedbackMap.get(getHost()));
+        
+            // DiagramElements.LOG.debug("%s: No drag policy for show feedback '%s'\n", getClass().getSimpleName(), request.getType());
         }
+        
     }
 
     @objid ("1c21067c-7add-45d4-b10a-4577fdaaeae4")
     @Override
     public void eraseSourceFeedback(Request request) {
         GraphicalEditPart mainNodeEditPart = getMainNodeEditPart();
-        SelectionEditPolicy dragPolicy = getMainNodeDragPolicy(request,mainNodeEditPart);
+        SelectionEditPolicy dragPolicy = getMainNodeDragPolicy(request, mainNodeEditPart);
         
         if (dragPolicy != null) {
             dragPolicy.eraseSourceFeedback(request);
         } else {
-            //DiagramElements.LOG.debug("%s: No drag policy for erase feedback '%s'\n", getClass().getSimpleName(), request.getType());
+            // DiagramElements.LOG.debug("%s: No drag policy for erase feedback '%s'\n", getClass().getSimpleName(), request.getType());
         }
         
         super.eraseSourceFeedback(request);
+        
     }
 
     @objid ("694ef610-18ca-49aa-b48c-51506c642cd2")
@@ -162,16 +178,17 @@ public class AutoSizeEditPolicy2 extends DefaultNodeResizableEditPolicy {
         }
         
         super.deactivate();
+        
     }
 
     @objid ("2ce7d296-493a-4a83-94d9-71b85f3b7fa3")
     protected SelectionEditPolicy getMainNodeDragPolicy(Request request, GraphicalEditPart mainNodeEditPart) {
         Object requestType = request.getType();
         
-        if(REQ_MOVE.equals(requestType) || REQ_ADD.equals(requestType)
+        if (REQ_MOVE.equals(requestType) || REQ_ADD.equals(requestType)
                 || REQ_CLONE.equals(requestType) || REQ_ALIGN.equals(requestType)) {
             return getMainNodeMovePolicy((AbstractNodeEditPart) mainNodeEditPart);
-        } else if(REQ_RESIZE.equals(requestType)) {
+        } else if (REQ_RESIZE.equals(requestType)) {
             return getMainNodeResizePolicy((AbstractNodeEditPart) mainNodeEditPart);
         }
         return null;
@@ -211,6 +228,7 @@ public class AutoSizeEditPolicy2 extends DefaultNodeResizableEditPolicy {
             ChangeBoundsRequest changeMainNodeBoundsRequest = RequestHelper.shallowCopy(request);
             changeMainNodeBoundsRequest.setType(REQ_RESIZE);
             changeMainNodeBoundsRequest.setEditParts(mainNodeEditPart);
+            RequestHelper.addSharedEditParts(changeMainNodeBoundsRequest, request);
         
             Command resizeMainNodeCommand = mainNodeEditPart.getCommand(changeMainNodeBoundsRequest);
         
@@ -222,31 +240,13 @@ public class AutoSizeEditPolicy2 extends DefaultNodeResizableEditPolicy {
         } else {
             return super.getResizeCommand(request);
         }
+        
     }
 
     @objid ("a4401948-50b0-4f89-94e3-db9a3db414b7")
-    private AbstractNodeEditPart getMainNodeEditPart() {
-        GraphicalEditPart mainNodeEditPart = null;
-        GmPortContainer gmPortContainer = (GmPortContainer) getHost().getModel();
-        for (Object childEditPartObj : getHost().getChildren()) {
-            GraphicalEditPart childEditPart = (GraphicalEditPart) childEditPartObj;
-            GmNodeModel childModel = (GmNodeModel) childEditPart.getModel();
-            if (gmPortContainer.equals(childModel.getParent())) {
-                // There is a possibility (when the port container is deleting
-                // a child) that the edit part has a child whose model is not a
-                // child of the GmPortContainer.
-                if (childModel == gmPortContainer.getMainNode()) {
-                    mainNodeEditPart = childEditPart;
-                    break;
-                }
-            }
-        }
-        
-        if (mainNodeEditPart instanceof AbstractNodeEditPart) {
-            return (AbstractNodeEditPart) mainNodeEditPart;
-        } else {
-            return null;
-        }
+    @Override
+    protected AbstractNodeEditPart getMainNodeEditPart() {
+        return getHost().getMainNodeEditPart();
     }
 
 }

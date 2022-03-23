@@ -17,10 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.geometry;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.ListIterator;
@@ -40,10 +40,10 @@ import org.modelio.diagram.elements.core.figures.geometry.LineSeg.KeyPoint;
 @objid ("7f8f4edf-1dec-11e2-8cad-001ec947c8cc")
 public class PointListUtilities {
     @objid ("7f8f4ee1-1dec-11e2-8cad-001ec947c8cc")
-     static final int INTERSECT_TOLERANCE = 1;
+    static final int INTERSECT_TOLERANCE = 1;
 
     @objid ("7f8f4ee3-1dec-11e2-8cad-001ec947c8cc")
-     static final int MIN_LINE_LENGTH = 5;
+    static final int MIN_LINE_LENGTH = 5;
 
     /**
      * Constant that is the default number of lines that a bezier is approximated by as a polyline point list.
@@ -52,7 +52,7 @@ public class PointListUtilities {
     public static final int DEFAULT_BEZIERLINES = 16;
 
     @objid ("7f8f4ee8-1dec-11e2-8cad-001ec947c8cc")
-     static final int MAX_BEZIERLINES = 32;
+    static final int MAX_BEZIERLINES = 32;
 
     /**
      * @since 1.2
@@ -64,12 +64,9 @@ public class PointListUtilities {
     private static final int BIGDISTANCE = 32766;
 
     /**
-     * Replaces bendpoints (all points except the first and last) in points list by points defining corresponding arcs.
-     * That is, each bendpoint is replaced with the start and end point of the arc, and if calculateApproxPoints is
-     * true, there will also be points in between that approximate the arc. Arc size is r. Sometimes, segment between
-     * two bendpoints is shorter than r. In that case, arc size for both bendpoints has to be reduced to be half of the
-     * segment length, so that both arcs can fit. These reduced arc sizes (if any) are kept in rForBendpoint hashtable.
-     * 
+     * Replaces bendpoints (all points except the first and last) in points list by points defining corresponding arcs. That is, each bendpoint is replaced with the start and end point of the arc, and if calculateApproxPoints is true, there will also be
+     * points in between that approximate the arc. Arc size is r. Sometimes, segment between two bendpoints is shorter than r. In that case, arc size for both bendpoints has to be reduced to be half of the segment length, so that both arcs can fit. These
+     * reduced arc sizes (if any) are kept in rForBendpoint hashtable.
      * @param points Initial list of connection points
      * @param r Size (radius) of the arc that should replace bendpoint
      * @param rForBendpoint Hashtable keeping track of bendpoints whose arcs have to be smaller than r
@@ -91,7 +88,7 @@ public class PointListUtilities {
             int y1 = points.getPoint(k).y;
             int x2 = points.getPoint(k + 1).x;
             int y2 = points.getPoint(k + 1).y;
-            if ((x0 == x1 && x1 == x2) || (y0 == y1 && y1 == y2)) {
+            if (x0 == x1 && x1 == x2 || y0 == y1 && y1 == y2) {
                 // (x1, y1) is not needed, remove it
                 points.removePoint(k);
             } else {
@@ -133,7 +130,7 @@ public class PointListUtilities {
             // to fit whatever space we have. Add changed r in rForBendpoint so it can be used later.
             r = rDefault;
             int distance = Math.min(points.getPoint(i - 1).getDistanceOrthogonal(points.getPoint(i)),
-                                    points.getPoint(i).getDistanceOrthogonal(points.getPoint(i + 1)));
+                    points.getPoint(i).getDistanceOrthogonal(points.getPoint(i + 1)));
             if (r > distance / 2) {
                 r = distance / 2 - 1;
                 rForBendpoint.put(new Integer(i), new Integer(r));
@@ -143,52 +140,52 @@ public class PointListUtilities {
             int sign = 1;
             int p, q; // coordinates of the arc center
             switch (cornerCase) {
-                case 1:
-                case 2:
-                    p = x1 + r;
-                    q = y1 - r;
-                    break;
-                case 3:
-                case 4:
-                    p = x1 - r;
-                    q = y1 - r;
-                    break;
-                case 5:
-                case 6:
-                    p = x1 + r;
-                    q = y1 + r;
-                    sign = -1;
-                    break;
-                default: // 7 and 8
-                    p = x1 - r;
-                    q = y1 + r;
-                    sign = -1;
-                    break;
+            case 1:
+            case 2:
+                p = x1 + r;
+                q = y1 - r;
+                break;
+            case 3:
+            case 4:
+                p = x1 - r;
+                q = y1 - r;
+                break;
+            case 5:
+            case 6:
+                p = x1 + r;
+                q = y1 + r;
+                sign = -1;
+                break;
+            default: // 7 and 8
+                p = x1 - r;
+                q = y1 + r;
+                sign = -1;
+                break;
             }
             // Find the first and last point of the arc, and add the first point to the result list
             Point lastPoint = null; // last point in bendpoint approximation
             switch (cornerCase) {
-                case 1:
-                case 4:
-                case 6:
-                case 7:
-                    newPoints.addPoint(new Point(x1, q));
-                    lastPoint = new Point(p, y1);
-                    break;
-                default:
-                    newPoints.addPoint(new Point(p, y1));
-                    lastPoint = new Point(x1, q);
-                    break;
+            case 1:
+            case 4:
+            case 6:
+            case 7:
+                newPoints.addPoint(new Point(x1, q));
+                lastPoint = new Point(p, y1);
+                break;
+            default:
+                newPoints.addPoint(new Point(p, y1));
+                lastPoint = new Point(x1, q);
+                break;
             }
             // Find out if x will be decreasing or increasing while calculating approximation points.
             int incrementSign = 1;
             switch (cornerCase) {
-                case 2:
-                case 4:
-                case 5:
-                case 7:
-                    incrementSign = -1;
-                    break;
+            case 2:
+            case 4:
+            case 5:
+            case 7:
+                incrementSign = -1;
+                break;
             }
             // If arcs need to be approximated: for given x find y so that (x, y)
             // is on the arc
@@ -217,7 +214,6 @@ public class PointListUtilities {
 
     /**
      * Method calcSmoothPolyline. Calculate the smooth polyline approximation of this polyline based on a smooth factor.
-     * 
      * @param points the <code>PointList</code> that is used to calculate the smooth point list from.
      * @param nSmoothFactor the <code>int</code> smooth factor to smooth the line with 0 - None, 15 - some, 30 - lots
      * @param nBezierSteps the <code>int</code> number of line steps used to approximate the smooth curve
@@ -230,9 +226,7 @@ public class PointListUtilities {
     }
 
     /**
-     * Calculates the smooth polyline equivalent of the given points list. It will extrapolate a bezier approximation in
-     * polylines that resembles a curved line.
-     * 
+     * Calculates the smooth polyline equivalent of the given points list. It will extrapolate a bezier approximation in polylines that resembles a curved line.
      * @param points the <code>PointList</code> that is used to calculate the smooth bezier approximation.
      * @param nSmoothFactor the <code>int</code> smooth factor to smooth the line with 0 - None, 15 - some, 30 - lots
      * @param nBezierSteps the <code>int</code> number of line steps used to approximate the smooth curve
@@ -248,12 +242,10 @@ public class PointListUtilities {
 
     /**
      * Finds a point relative to the pointList passed in based on the parameters passed in.
-     * 
      * @param pointList the <code>PointList</code>
      * @param fromLine distance off the line
      * @param fromEnd distance from the starting point of the line (i.e. distance from source end along the line)
      * @param isPercentage is the fromEnd given as a percentage?
-     * @return Point
      */
     @objid ("7f8f4f1a-1dec-11e2-8cad-001ec947c8cc")
     public static Point calculatePointRelativeToLine(PointList pointList, int fromLine, int fromEnd, boolean isPercentage) {
@@ -269,11 +261,13 @@ public class PointListUtilities {
             double inSegPercDist = 0;
             LineSeg seg = locateInfo.theSegment;
             if (seg != null) {
-                if (seg.length() > 0)
+                if (seg.length() > 0) {
                     inSegPercDist = locateInfo.remainingDist / seg.length();
+                }
                 // relative position is coded as the the sign of the height
-                Point location = seg.locatePoint(inSegPercDist, Math.abs(fromLine), (fromLine > 0
-                        ? LineSeg.Sign.POSITIVE : LineSeg.Sign.NEGATIVE));
+                Point location = seg.locatePoint(inSegPercDist, Math.abs(fromLine), fromLine > 0
+                        ? LineSeg.Sign.POSITIVE
+                        : LineSeg.Sign.NEGATIVE);
                 return location;
             }
         }
@@ -282,7 +276,6 @@ public class PointListUtilities {
 
     /**
      * Utility method used to check if a point is contained inside a polygon
-     * 
      * @param points the polygon
      * @param point point to check
      * @return true is the pointis inside the polygon, otherwise false
@@ -292,7 +285,7 @@ public class PointListUtilities {
         boolean isOdd = false;
         int[] pointsxy = points.toIntArray();
         int n = pointsxy.length;
-        if (n > 3) { //If there are at least 2 Points (4 ints)
+        if (n > 3) { // If there are at least 2 Points (4 ints)
             int x1, y1;
             int x0 = pointsxy[n - 2];
             int y0 = pointsxy[n - 1];
@@ -301,24 +294,23 @@ public class PointListUtilities {
                 x1 = pointsxy[i++];
                 y1 = pointsxy[i++];
         
-                if (y0 <= point.y && point.y < y1 && crossProduct(x1, y1, x0, y0, point.x, point.y) > 0)
+                if (y0 <= point.y && point.y < y1 && crossProduct(x1, y1, x0, y0, point.x, point.y) > 0) {
                     isOdd = !isOdd;
-                if (y1 <= point.y && point.y < y0 && crossProduct(x0, y0, x1, y1, point.x, point.y) > 0)
+                }
+                if (y1 <= point.y && point.y < y0 && crossProduct(x0, y0, x1, y1, point.x, point.y) > 0) {
                     isOdd = !isOdd;
+                }
             }
-            if (isOdd)
+            if (isOdd) {
                 return true;
+            }
         }
         return false;
     }
 
     /**
-     * copyPoints This method is necessary because of an apparent defect in the getCopy() routine of PointList class. It
-     * is initializing the copy based on size but then making the copy based on the array allocation which may be
-     * different causing an ArrayIndexOutOfBounds exception.
-     * @param pointsFrom
-     * 
-     * @return PointList
+     * copyPoints This method is necessary because of an apparent defect in the getCopy() routine of PointList class. It is initializing the copy based on size but then making the copy based on the array allocation which may be different causing an
+     * ArrayIndexOutOfBounds exception.
      */
     @objid ("7f8f4f32-1dec-11e2-8cad-001ec947c8cc")
     public static PointList copyPoints(PointList pointsFrom) {
@@ -329,7 +321,6 @@ public class PointListUtilities {
 
     /**
      * createPointsFromRect
-     * 
      * @param rBox Rectangle to base the PointList from
      * @return PointList that is equivalent to the Rectangle
      */
@@ -351,12 +342,10 @@ public class PointListUtilities {
 
     /**
      * Find all intersection points between this polyline and another polyline passed into the method.
-     * 
      * @param points PointList to calculate interesections with.
      * @param poly the <code>PointList</code> to calculate intersections with.
      * @param intersections the <code>PointList</code> containing the resulting calculated intersection points.
-     * @param distances the <code>PointList</code> containing point values representing the distance along the polyline the
-     * intersections occur.
+     * @param distances the <code>PointList</code> containing point values representing the distance along the polyline the intersections occur.
      * @return boolean true if intersections could be calculated, false otherwise.
      */
     @objid ("7f91b14a-1dec-11e2-8cad-001ec947c8cc")
@@ -387,9 +376,10 @@ public class PointListUtilities {
                     if (pLastIntersect != null) {
                         // check case where intersect is on a corner - causing intersect
                         // to show up in two adjacent line segments
-                        if (Math.abs(pLastIntersect.x - ptIntersect.x) < (INTERSECT_TOLERANCE * 2) &&
-                            Math.abs(pLastIntersect.y - ptIntersect.y) < (INTERSECT_TOLERANCE * 2))
+                        if (Math.abs(pLastIntersect.x - ptIntersect.x) < INTERSECT_TOLERANCE * 2 &&
+                                Math.abs(pLastIntersect.y - ptIntersect.y) < INTERSECT_TOLERANCE * 2) {
                             bAddIntersect = false;
+                        }
                     }
         
                     if (bAddIntersect) {
@@ -398,8 +388,8 @@ public class PointListUtilities {
         
                         Point ptDistance = new Point(0, 0);
                         ptDistance.x = (int) Math.round(dCurrentLength +
-                                                        pSegment.distanceAlong(ptIntersect) *
-                                                        dSegLength);
+                                pSegment.distanceAlong(ptIntersect) *
+                                        dSegLength);
                         distances.addPoint(ptDistance);
                     }
                 }
@@ -413,11 +403,9 @@ public class PointListUtilities {
 
     /**
      * Calculate the nearest line segment index distance wise to the given point.
-     * 
      * @param points PointList to calculate the nearest line segment of.
      * @param ptCoord the <code>Point</code> to test containment of.
-     * @return int Index of line segment that is nearest in the polyline to the given point. The index is 1 based where
-     * 1 represents the first segment.
+     * @return int Index of line segment that is nearest in the polyline to the given point. The index is 1 based where 1 represents the first segment.
      */
     @objid ("7f91b15c-1dec-11e2-8cad-001ec947c8cc")
     public static int findNearestLineSegIndexOfPoint(PointList points, final Point ptCoord) {
@@ -444,14 +432,14 @@ public class PointListUtilities {
 
     /**
      * Method getLineSegments. Converts the points of this polyline into a list of <code>LineSeg</code> objects
-     * 
      * @param points PointList to get LineSeg equivalents of.
      * @return List of LineSeg objects.
      */
     @objid ("7f91b168-1dec-11e2-8cad-001ec947c8cc")
     public static List<LineSeg> getLineSegments(PointList points) {
-        if (points.size() <= 1)
+        if (points.size() <= 1) {
             return new ArrayList<>(0);
+        }
         
         ArrayList<LineSeg> lines = new ArrayList<>(points.size() - 1);
         
@@ -467,7 +455,6 @@ public class PointListUtilities {
 
     /**
      * Static utility method to get the nearest segment in the polyline from the given coordinates.
-     * 
      * @param mySegments the <code>List</code> of <code>LineSeg</code> objects
      * @param xCoord the <code>int</code> x coordinate of the point
      * @param yCoord the <code>int</code> y coordinate of the point
@@ -492,8 +479,9 @@ public class PointListUtilities {
             }
         }
         
-        if (closeSegment != null)
+        if (closeSegment != null) {
             return closeSegment;
+        }
         
         // prevent crash
         return firstSegment;
@@ -501,7 +489,6 @@ public class PointListUtilities {
 
     /**
      * Method getPointsSupremum. Get points representing the minimum for this poly line.
-     * 
      * @param points PointList to calculate the minimum point from.
      * @return Point value of the lowest point in the bounding box of the polyline.
      */
@@ -517,7 +504,6 @@ public class PointListUtilities {
 
     /**
      * Static utility function to calculate the length of a series of points if interpreted as line segments.
-     * 
      * @param points PointList to calculate the length of.
      * @return length of the line segments
      */
@@ -529,7 +515,6 @@ public class PointListUtilities {
 
     /**
      * Method getPointsSupremum. Get points representing the extrema for this poly line.
-     * 
      * @param points PointList to calculate the highest point from.
      * @return Point value of the highest point in the bounding box of the polyline.
      */
@@ -544,10 +529,7 @@ public class PointListUtilities {
     }
 
     /**
-     * Normalizes the line segments in the polyline. Checks for lines that are with-in a threshold for length and
-     * removes them. Additionally, it will remove points that that adjacent segments that are both horizontal, or both
-     * vertical.
-     * 
+     * Normalizes the line segments in the polyline. Checks for lines that are with-in a threshold for length and removes them. Additionally, it will remove points that that adjacent segments that are both horizontal, or both vertical.
      * @param points <code>PointList</code> to be normalized
      * @return <code>boolean</code> <code>true</code> if segments were changed, <code>false</code> otherwise
      */
@@ -557,10 +539,8 @@ public class PointListUtilities {
     }
 
     /**
-     * Normalizes the line segments in the polyline. Checks for lines that are with-in a threshold for length and
-     * removes them. Additionally, it will remove points that that adjacent segments that are both horizontal, or both
-     * vertical. Will utilize a tolerance value to determine if segments needs to flattened or not.
-     * 
+     * Normalizes the line segments in the polyline. Checks for lines that are with-in a threshold for length and removes them. Additionally, it will remove points that that adjacent segments that are both horizontal, or both vertical. Will utilize a
+     * tolerance value to determine if segments needs to flattened or not.
      * @param points <code>PointList</code> to normalize
      * @param straightLineTolerance the tolerance value within which indicates the line is straight in relative coordinates.
      * @return <code>boolean</code> <code>true</code> if segments were changed, <code>false</code> otherwise
@@ -587,17 +567,14 @@ public class PointListUtilities {
         hasChanged |= flattenSegments(points, straightLineTolerance);
         
         // recursively normalize the points if something has changed.
-        if (hasChanged)
+        if (hasChanged) {
             normalizeSegments(points, straightLineTolerance);
+        }
         return hasChanged;
     }
 
     /**
-     * Assumption: Points in the <Code>PointList</Code> and <Code>Point</Code> p lie on the same line. Returns the
-     * <Code>Point</Code> from the <Code>PointList</Code> closest to
-     * @param p
-     * @param p
-     * 
+     * Assumption: Points in the <Code>PointList</Code> and <Code>Point</Code> p lie on the same line. Returns the <Code>Point</Code> from the <Code>PointList</Code> closest to
      * @param points - the list of points to select the result from
      * @param p - the point to which the closest point must be found
      * @return the <Code>Point</Code> from the <Code>PointList</Code> closest to
@@ -609,21 +586,18 @@ public class PointListUtilities {
             result = points.getFirstPoint();
             for (int i = 1; i < points.size(); i++) {
                 Point temp = points.getPoint(i);
-                if (Math.abs(temp.x - p.x) < Math.abs(result.x - p.x))
+                if (Math.abs(temp.x - p.x) < Math.abs(result.x - p.x)) {
                     result = temp;
-                else if (Math.abs(temp.y - p.y) < Math.abs(result.y - p.y))
+                } else if (Math.abs(temp.y - p.y) < Math.abs(result.y - p.y)) {
                     result = temp;
+                }
             }
         }
         return result;
     }
 
     /**
-     * Assumption: Points in the <Code>PointList</Code> and <Code>Point</Code> p lie on the same line. Returns the
-     * <Code>Point</Code> from the <Code>PointList</Code> closest to
-     * @param p
-     * @param p
-     * 
+     * Assumption: Points in the <Code>PointList</Code> and <Code>Point</Code> p lie on the same line. Returns the <Code>Point</Code> from the <Code>PointList</Code> closest to
      * @param points - the list of points to select the result from
      * @param p - the point to which the closest point must be found
      * @return the <Code>Point</Code> from the <Code>PointList</Code> closest to
@@ -635,10 +609,11 @@ public class PointListUtilities {
             result = points.getFirstPoint();
             for (int i = 1; i < points.size(); i++) {
                 Point temp = points.getPoint(i);
-                if (Math.abs(temp.x - p.x) > Math.abs(result.x - p.x))
+                if (Math.abs(temp.x - p.x) > Math.abs(result.x - p.x)) {
                     result = temp;
-                else if (Math.abs(temp.y - p.y) > Math.abs(result.y - p.y))
+                } else if (Math.abs(temp.y - p.y) > Math.abs(result.y - p.y)) {
                     result = temp;
+                }
             }
         }
         return result;
@@ -646,7 +621,6 @@ public class PointListUtilities {
 
     /**
      * Calculate the point on the polyline given a distance from a key point.
-     * 
      * @param points the <code>PointList</code> to calculate the point on the polyline.
      * @param theDistance the <code>long</code> x coordinate of the point
      * @param fromKeyPoint the <code>int</code> constant value indicating the key point Origin, Terminus, Midpoint
@@ -661,7 +635,6 @@ public class PointListUtilities {
 
     /**
      * Calculate a new routed version of this polyline that will route itself around a given point.
-     * 
      * @param points PointList to modify
      * @param ptCenter the <code>Point</code> around which the routing will occur.
      * @param nHeight the <code>int</code> height to route around the point.
@@ -669,8 +642,7 @@ public class PointListUtilities {
      * @param nSmoothFactor the <code>int</code> smooth factor to route the line with 0 - None, 15 - some, 30 - lots
      * @param nInclineOffset the <code>int</code> amount to incline the routed points.
      * @param bTop the <code>boolean</code> route above or below the point on the line.
-     * @return <code>PointList</code> that is the newly routed version of <code>points</code> of <code>null</code> if
-     * operation was not successful or if the calculation is not possible.
+     * @return <code>PointList</code> that is the newly routed version of <code>points</code> of <code>null</code> if operation was not successful or if the calculation is not possible.
      */
     @objid ("7f9413cb-1dec-11e2-8cad-001ec947c8cc")
     public static PointList routeAroundPoint(PointList points, final Point ptCenter, int nHeight, int nWidth, int nSmoothFactor, int nInclineOffset, boolean bTop) {
@@ -680,49 +652,52 @@ public class PointListUtilities {
         long nCenterDistance = Math.round(distanceAlong(mySegments, ptCenter) * nPolyLength);
         
         Point ptMidStart = new Point();
-        pointOn(mySegments, nCenterDistance - (nWidth / 2), LineSeg.KeyPoint.ORIGIN, ptMidStart);
+        pointOn(mySegments, nCenterDistance - nWidth / 2, LineSeg.KeyPoint.ORIGIN, ptMidStart);
         Point ptMidEnd = new Point();
-        pointOn(mySegments, nCenterDistance + (nWidth / 2), LineSeg.KeyPoint.ORIGIN, ptMidEnd);
+        pointOn(mySegments, nCenterDistance + nWidth / 2, LineSeg.KeyPoint.ORIGIN, ptMidEnd);
         LineSeg lineNew = new LineSeg(ptMidStart, ptMidEnd);
         
         Point ptStart = new Point();
         lineNew.pointOn(nInclineOffset, LineSeg.KeyPoint.ORIGIN, ptStart);
         LocateInfo locateInfo = new LocateInfo();
         if (!locateSegment(mySegments,
-                           (nCenterDistance - ((long) nWidth / 2)) / (double) nPolyLength,
-                           LineSeg.KeyPoint.ORIGIN,
-                           locateInfo))
+                (nCenterDistance - (long) nWidth / 2) / (double) nPolyLength,
+                LineSeg.KeyPoint.ORIGIN,
+                locateInfo)) {
             return null;
+        }
         LineSeg pStartSeg = locateInfo.theSegment;
         
         Point ptEnd = new Point();
         lineNew.pointOn(nInclineOffset, LineSeg.KeyPoint.TERMINUS, ptEnd);
         if (!locateSegment(mySegments,
-                           (nCenterDistance + ((long) nWidth / 2)) / (double) nPolyLength,
-                           LineSeg.KeyPoint.ORIGIN,
-                           locateInfo))
+                (nCenterDistance + (long) nWidth / 2) / (double) nPolyLength,
+                LineSeg.KeyPoint.ORIGIN,
+                locateInfo)) {
             return null;
+        }
         LineSeg pEndSeg = locateInfo.theSegment;
         
         // figure out which side to route around
         float fSlope = lineNew.slope();
         int nDir = 1;
-        if ((bTop && fSlope <= 0) || (!bTop && fSlope > 0))
+        if (bTop && fSlope <= 0 || !bTop && fSlope > 0) {
             nDir *= -1;
+        }
         
         LineSeg lineStart = new LineSeg(LineSeg.KeyPoint.ORIGIN, // Origin or Midpoint
-                                        ptStart.x,
-                                        ptStart.y,
-                                        lineNew.perpSlope(),
-                                        nHeight,
-                                        nDir);
+                ptStart.x,
+                ptStart.y,
+                lineNew.perpSlope(),
+                nHeight,
+                nDir);
         
         LineSeg lineEnd = new LineSeg(LineSeg.KeyPoint.ORIGIN, // Origin or Midpoint
-                                      ptEnd.x,
-                                      ptEnd.y,
-                                      lineNew.perpSlope(),
-                                      nHeight,
-                                      nDir);
+                ptEnd.x,
+                ptEnd.y,
+                lineNew.perpSlope(),
+                nHeight,
+                nDir);
         
         PointList rRotatedBox = new PointList();
         rRotatedBox.addPoint(new Point(ptMidStart));
@@ -752,59 +727,58 @@ public class PointListUtilities {
                 LineSeg pCurSeg1 = boxSegments.get(0);
                 LineSeg pCurSeg2 = boxSegments.get(boxSegments.size() - 1);
                 getRoutedPoints(points,
-                                newRoutePoints,
-                                ptMidStart,
-                                ptMidEnd,
-                                ptMidStart,
-                                ptMidEnd,
-                                pCurSeg1,
-                                pCurSeg2,
-                                rRotatedBox,
-                                nSmoothFactor,
-                                false,
-                                true,
-                                0);
+                        newRoutePoints,
+                        ptMidStart,
+                        ptMidEnd,
+                        ptMidStart,
+                        ptMidEnd,
+                        pCurSeg1,
+                        pCurSeg2,
+                        rRotatedBox,
+                        nSmoothFactor,
+                        false,
+                        true,
+                        0);
         
                 while (nPointsSinceStart > 0) {
                     rPolyPoints.removePoint(rPolyPoints.size() - 1);
                     nPointsSinceStart--;
                 }
         
-                for (int i = 0; i < newRoutePoints.size(); i++)
+                for (int i = 0; i < newRoutePoints.size(); i++) {
                     rPolyPoints.addPoint(new Point(newRoutePoints.getPoint(i)));
+                }
                 rPolyPoints.addPoint(new Point(pSegment.getTerminus()));
                 bFoundEnd = true;
             } else {
                 rPolyPoints.addPoint(new Point(pSegment.getOrigin()));
         
-                if (bFoundStart)
+                if (bFoundStart) {
                     nPointsSinceStart++;
+                }
         
-                if (!lineIter.hasNext())
+                if (!lineIter.hasNext()) {
                     rPolyPoints.addPoint(new Point(pSegment.getTerminus()));
+                }
             }
         
         }
         
-        if (bFoundEnd)
+        if (bFoundEnd) {
             return rPolyPoints;
+        }
         return null;
     }
 
     /**
      * Routes this polyline around another polyline that is presumably intersecting with it.
-     * 
-     * @param points the <code>PointList</code> that is to be modified based on the routing calculations made around the
-     * <code>poly</code> parameter.
+     * @param points the <code>PointList</code> that is to be modified based on the routing calculations made around the <code>poly</code> parameter.
      * @param poly the <code>PolylinePointList</code> around which the routing will occur.
      * @param nSmoothFactor the <code>int</code> smooth factor to route the line with 0 - None, 15 - some, 30 - lots
-     * @param bShortestDistance the <code>boolean</code> determining whether to use the shortest distance possible to achieve this or
-     * else minimally modify the existing polyline.
-     * @param bIncludeIntersectionPoints the <code>boolean</code> determining whether to include the points that intersect with the rectangle
-     * in the newly routed polyline.
+     * @param bShortestDistance the <code>boolean</code> determining whether to use the shortest distance possible to achieve this or else minimally modify the existing polyline.
+     * @param bIncludeIntersectionPoints the <code>boolean</code> determining whether to include the points that intersect with the rectangle in the newly routed polyline.
      * @param nBuffer the <code>int</code> buffer around the rectangle.
-     * @return <code>PointList</code> that is the newly routed version of <code>points</code> of <code>null</code> if
-     * operation was not successful or if the calculation is not possible.
+     * @return <code>PointList</code> that is the newly routed version of <code>points</code> of <code>null</code> if operation was not successful or if the calculation is not possible.
      */
     @objid ("7f9413de-1dec-11e2-8cad-001ec947c8cc")
     public static PointList routeAroundPoly(PointList points, final PointList poly, int nSmoothFactor, boolean bShortestDistance, final boolean bIncludeIntersectionPoints, final int nBuffer) {
@@ -838,15 +812,15 @@ public class PointListUtilities {
                 if (ptIntersect != null) {
                     // check case where intersect is on a corner - causing intersect
                     // to show up in two adjacent line segments
-                    if (Math.abs(ptPrevIntersect.x - ptIntersect.x) > (INTERSECT_TOLERANCE * 2) ||
-                        Math.abs(ptPrevIntersect.y - ptIntersect.y) > (INTERSECT_TOLERANCE * 2)) {
+                    if (Math.abs(ptPrevIntersect.x - ptIntersect.x) > INTERSECT_TOLERANCE * 2 ||
+                            Math.abs(ptPrevIntersect.y - ptIntersect.y) > INTERSECT_TOLERANCE * 2) {
                         if (ptIntersect1 != null) {
                             Point ptIntersect2 = null;
                             LineSeg pCurBoxSeg2;
                             PointList newRoutePoints = new PointList();
         
                             int nCurrentLength2 = nCurrentLength +
-                                                  (int) (pSegment.distanceAlong(ptIntersect) * pSegment.length());
+                                    (int) (pSegment.distanceAlong(ptIntersect) * pSegment.length());
         
                             // which intersection point should be added first?
                             if (nCurrentLength1 < nCurrentLength2) {
@@ -861,26 +835,27 @@ public class PointListUtilities {
                             }
         
                             getRoutedPoints(points,
-                                            newRoutePoints,
-                                            ptIntersect1,
-                                            ptIntersect2,
-                                            rPolyPoints.getLastPoint(),
-                                            pSegment.getTerminus(),
-                                            pCurBoxSeg,
-                                            pCurBoxSeg2,
-                                            poly,
-                                            nSmoothFactor,
-                                            bShortestDistance,
-                                            bIncludeIntersectionPoints,
-                                            nBuffer);
+                                    newRoutePoints,
+                                    ptIntersect1,
+                                    ptIntersect2,
+                                    rPolyPoints.getLastPoint(),
+                                    pSegment.getTerminus(),
+                                    pCurBoxSeg,
+                                    pCurBoxSeg2,
+                                    poly,
+                                    nSmoothFactor,
+                                    bShortestDistance,
+                                    bIncludeIntersectionPoints,
+                                    nBuffer);
         
                             while (nPointsSinceFirstIntersection > 0) {
                                 rPolyPoints.removePoint(rPolyPoints.size() - 1);
                                 nPointsSinceFirstIntersection--;
                             }
         
-                            for (int i = 0; i < newRoutePoints.size(); i++)
+                            for (int i = 0; i < newRoutePoints.size(); i++) {
                                 rPolyPoints.addPoint(newRoutePoints.getPoint(i));
+                            }
                             rPolyPoints.addPoint(new Point(pSegment.getTerminus()));
         
                             ptIntersect1 = null;
@@ -894,7 +869,7 @@ public class PointListUtilities {
         
                             nPointsSinceFirstIntersection = 0;
                             nCurrentLength1 = nCurrentLength +
-                                              (int) (pSegment.distanceAlong(ptIntersect) * pSegment.length());
+                                    (int) (pSegment.distanceAlong(ptIntersect) * pSegment.length());
                         }
                     }
         
@@ -907,11 +882,13 @@ public class PointListUtilities {
             if (!bFoundIntersects) {
                 rPolyPoints.addPoint(new Point(pSegment.getOrigin()));
         
-                if (ptIntersect1 != null)
+                if (ptIntersect1 != null) {
                     nPointsSinceFirstIntersection++;
+                }
         
-                if (!listIter.hasNext())
+                if (!listIter.hasNext()) {
                     rPolyPoints.addPoint(new Point(pSegment.getTerminus()));
+                }
             }
         }
         
@@ -923,15 +900,12 @@ public class PointListUtilities {
 
     /**
      * Route this polyline around a rectangle that is presumably intersecting with it.
-     * 
      * @param points PointList that will be modified to route around the given rectangle
      * @param rBox the <code>Rectangle</code> around which the routing will occur.
      * @param nSmoothFactor the <code>int</code> smooth factor to route the line with 0 - None, 15 - some, 30 - lots
-     * @param bIncludeIntersectionPoints the <code>boolean</code> determining whether to include the points that intersect with the rectangle
-     * in the newly routed polyline.
+     * @param bIncludeIntersectionPoints the <code>boolean</code> determining whether to include the points that intersect with the rectangle in the newly routed polyline.
      * @param nBuffer the <code>int</code> buffer around the rectangle.
-     * @return <code>PointList</code> that is the newly routed version of <code>points</code> of <code>null</code> if
-     * operation was not successful or if the calculation is not possible.
+     * @return <code>PointList</code> that is the newly routed version of <code>points</code> of <code>null</code> if operation was not successful or if the calculation is not possible.
      */
     @objid ("7f9413f2-1dec-11e2-8cad-001ec947c8cc")
     public static PointList routeAroundRect(PointList points, final Rectangle rBox, int nSmoothFactor, final boolean bIncludeIntersectionPoints, final int nBuffer) {
@@ -972,8 +946,9 @@ public class PointListUtilities {
                     LineSeg seg = li.next();
         
                     rBoxPoly.addPoint(seg.getOrigin());
-                    if (!li.hasNext())
+                    if (!li.hasNext()) {
                         rBoxPoly.addPoint(seg.getTerminus());
+                    }
                 }
             }
         
@@ -984,7 +959,6 @@ public class PointListUtilities {
 
     /**
      * Removes redudant points from the point list.
-     * 
      * @param points the <code>PointList</code> which will be modified to remove redudant points
      * @param straightLineTolerance the tolerance value within which indicates the line is straight
      * @return <code>boolean</code> <code>true</code> if segments were modified, <code>false</code> otherwise.
@@ -997,15 +971,17 @@ public class PointListUtilities {
             Point ptStart = points.getPoint(i);
         
             Point ptTerm = null;
-            if (i + 1 < points.size())
+            if (i + 1 < points.size()) {
                 ptTerm = points.getPoint(i + 1);
+            }
         
             Point ptNext = null;
-            if (i + 2 < points.size())
+            if (i + 2 < points.size()) {
                 ptNext = points.getPoint(i + 2);
+            }
         
             // We conservatively avoid changing the endpoint of the line, since it may then
-            // fail to attach to the terminal view.  This implies ptNext must be non-NIL.
+            // fail to attach to the terminal view. This implies ptNext must be non-NIL.
             if (points.size() <= 2 || ptTerm == null || ptNext == null) {
                 return changed;
             }
@@ -1028,10 +1004,6 @@ public class PointListUtilities {
 
     /**
      * Method sameOrientation.
-     * @param pt1
-     * @param pt2
-     * @param pt3
-     * 
      * @return boolean true if the line connecting all three points are straight, false otherwise.
      */
     @objid ("7f967603-1dec-11e2-8cad-001ec947c8cc")
@@ -1043,8 +1015,6 @@ public class PointListUtilities {
 
     /**
      * Static utility function to calculate the distanceAlong a series of line segments a given point is on the line.
-     * @param mySegments
-     * 
      * @param aPoint Point to calculate the distance along the polyline of.
      * @return double value of the distance along the polyline of the given point.
      */
@@ -1057,17 +1027,17 @@ public class PointListUtilities {
         if (0.0 <= segmentPct && segmentPct <= 1.0) {
             long polyLength = length(mySegments);
             if (polyLength != 0) {
-                linePct += (segmentPct * (theSegment.length() / polyLength));
+                linePct += segmentPct * (theSegment.length() / polyLength);
             }
             return linePct;
         } else {
             return segmentPct;
         }
+        
     }
 
     /**
      * Static utility function to calculate the length of a series of line segments.
-     * 
      * @param mySegments List of line segments to calculate the length of.
      * @return long length of the line segments
      */
@@ -1084,8 +1054,6 @@ public class PointListUtilities {
 
     /**
      * Static utility function used by <code>pointOn</code>.
-     * @param mySegments
-     * 
      * @param theDistance the <code>long</code> x coordinate of the point
      * @param fromKeyPoint the <code>int</code> constant value indicating the key point Origin, Terminus, Midpoint
      * @param ptResult the <code>Point</code> where the resulting point value is set.
@@ -1099,18 +1067,18 @@ public class PointListUtilities {
         if (theDistance >= thisLength) {
             if (fromKeyPoint == LineSeg.KeyPoint.ORIGIN) {
                 mySegments.get(mySegments.size() - 1).pointOn(theDistance - thisLength,
-                                                              LineSeg.KeyPoint.TERMINUS,
-                                                              ptResult);
+                        LineSeg.KeyPoint.TERMINUS,
+                        ptResult);
                 return ptResult;
             } else if (fromKeyPoint == LineSeg.KeyPoint.MIDPOINT) {
                 mySegments.get(mySegments.size() - 1).pointOn(theDistance - halfLength,
-                                                              LineSeg.KeyPoint.TERMINUS,
-                                                              ptResult);
+                        LineSeg.KeyPoint.TERMINUS,
+                        ptResult);
                 return ptResult;
             } else if (fromKeyPoint == LineSeg.KeyPoint.TERMINUS) {
                 mySegments.get(mySegments.size() - 1).pointOn(theDistance,
-                                                              LineSeg.KeyPoint.TERMINUS,
-                                                              ptResult);
+                        LineSeg.KeyPoint.TERMINUS,
+                        ptResult);
                 return ptResult;
             } else {
                 IllegalArgumentException iae = new IllegalArgumentException();
@@ -1132,29 +1100,25 @@ public class PointListUtilities {
         } else {
             LocateInfo locateInfo = new LocateInfo();
             if (!locateSegment(mySegments,
-                               ((double) theDistance) / ((double) thisLength),
-                               fromKeyPoint,
-                               locateInfo))
+                    (double) theDistance / (double) thisLength,
+                    fromKeyPoint,
+                    locateInfo)) {
                 return null;
+            }
         
             locateInfo.theSegment.pointOn(locateInfo.remainingDist,
-                                          (fromKeyPoint == LineSeg.KeyPoint.MIDPOINT
-                                                  ? LineSeg.KeyPoint.ORIGIN : fromKeyPoint),
-                                          ptResult);
+                    fromKeyPoint == LineSeg.KeyPoint.MIDPOINT
+                            ? LineSeg.KeyPoint.ORIGIN
+                            : fromKeyPoint,
+                    ptResult);
             return ptResult;
         }
+        
     }
 
     /**
-     * Compute the percentage of the distance along this polyline that the given segment occurs. If the keypoint
-     * specified is Origin, then the given segment will not be included in the percentage; if the keypoint is Midpoint,
-     * then half of the length will be included; if the keypoint is Terminus, the the whole length will be included. The
-     * segment must be a segment of this polyline.
-     * @param mySegments
-     * @param theSegment
-     * @param uptoKeyPoint
-     * 
-     * @return double
+     * Compute the percentage of the distance along this polyline that the given segment occurs. If the keypoint specified is Origin, then the given segment will not be included in the percentage; if the keypoint is Midpoint, then half of the length will
+     * be included; if the keypoint is Terminus, the the whole length will be included. The segment must be a segment of this polyline.
      */
     @objid ("7f967635-1dec-11e2-8cad-001ec947c8cc")
     protected static double segmentDistance(List<LineSeg> mySegments, LineSeg theSegment, final KeyPoint uptoKeyPoint) {
@@ -1178,7 +1142,7 @@ public class PointListUtilities {
         
                 long polyLength = length(mySegments);
                 if (polyLength != 0) {
-                    return ((double) accumulatedLength / (double) polyLength);
+                    return (double) accumulatedLength / (double) polyLength;
                 } else {
                     // RJ: removed the ASSERT for now
                     return 0.0;
@@ -1192,14 +1156,6 @@ public class PointListUtilities {
 
     /**
      * Method BezierToLines. Utility function that takes a set of bezier points and calculates a polyline approximation.
-     * @param thePolyPoints
-     * @param ptCtl1
-     * @param ptCtl2
-     * @param ptCtl3
-     * @param ptCtl4
-     * @param nSteps
-     * 
-     * @return boolean
      */
     @objid ("7f967640-1dec-11e2-8cad-001ec947c8cc")
     private static boolean BezierToLines(PointList thePolyPoints, Point ptCtl1, Point ptCtl2, Point ptCtl3, Point ptCtl4, int nSteps) {
@@ -1245,7 +1201,7 @@ public class PointListUtilities {
                 lpWorkY[2 * i] = lpWorkY[i];
             }
         
-            nTotalPoints = (2 * nTotalPoints) - 1;
+            nTotalPoints = 2 * nTotalPoints - 1;
         
             /* average consecutive coordinates and put average between coordinates */
         
@@ -1260,7 +1216,7 @@ public class PointListUtilities {
             for (i = nTotalPoints - 3; i > 0; i -= 2) {
                 /* only control points */
         
-                if ((i % 6) != 0) {
+                if (i % 6 != 0) {
                     lpWorkX[i] = (lpWorkX[i - 1] + lpWorkX[i + 1]) / 2;
                     lpWorkY[i] = (lpWorkY[i - 1] + lpWorkY[i + 1]) / 2;
                 }
@@ -1274,7 +1230,7 @@ public class PointListUtilities {
                 lpWorkY[i] = (lpWorkY[i - 1] + lpWorkY[i + 1]) / 2;
             }
         
-            nLinePoints = (nTotalPoints / 3) + 1;
+            nLinePoints = nTotalPoints / 3 + 1;
         }
         
         /* have enough bezier endpoints, move bezier endpoints to */
@@ -1283,27 +1239,18 @@ public class PointListUtilities {
         for (i = 0; i < nSteps; i++) {
             Point ptTemp = new Point();
         
-            j = (3 * i);
+            j = 3 * i;
             // consider converting to a float & running through the point convertor if needed */
             ptTemp.x = (int) Math.round(lpWorkX[j]);
             ptTemp.y = (int) Math.round(lpWorkY[j]);
         
             thePolyPoints.addPoint(ptTemp);
         }
-        return (bRC);
+        return bRC;
     }
 
     /**
-     * Method addRoutedPoints. Utility function used by getRoutedPoints to add the new "detour" route to the existing
-     * polyline.
-     * @param routePoints
-     * @param pCurBoxSeg1
-     * @param pCurBoxSeg2
-     * @param routePoly
-     * @param bForward
-     * @param nBuffer
-     * 
-     * @return int
+     * Method addRoutedPoints. Utility function used by getRoutedPoints to add the new "detour" route to the existing polyline.
      */
     @objid ("7f98d84d-1dec-11e2-8cad-001ec947c8cc")
     private static int addRoutedPoints(PointList routePoints, LineSeg pCurBoxSeg1, LineSeg pCurBoxSeg2, final PointList routePoly, final boolean bForward, final int nBuffer) {
@@ -1317,8 +1264,9 @@ public class PointListUtilities {
                 : rBoxSegments.listIterator(rBoxSegments.size());
         while (bForward ? boxIter.hasNext() : boxIter.hasPrevious()) {
             LineSeg seg = bForward ? (LineSeg) boxIter.next() : (LineSeg) boxIter.previous();
-            if (seg.equals(pCurBoxSeg1))
+            if (seg.equals(pCurBoxSeg1)) {
                 break;
+            }
         }
         
         // traverse forward
@@ -1334,24 +1282,28 @@ public class PointListUtilities {
                 ptEnd = pCurBoxSeg1.getOrigin();
             }
         
-            if (routePoints.size() > 0)
+            if (routePoints.size() > 0) {
                 nDistance += routePoints.getLastPoint().getDistance(ptEnd);
+            }
         
-            if (nBuffer > 0)
+            if (nBuffer > 0) {
                 pNewPoint = new Point(pCurBoxSeg1.locatePoint(fOffset, nBuffer, LineSeg.Sign.POSITIVE));
-            else
+            } else {
                 pNewPoint = new Point(ptEnd);
+            }
         
             routePoints.addPoint(pNewPoint);
         
             if (!pCurBoxSeg1.equals(pCurBoxSeg2)) {
                 if (bForward) {
-                    if (!boxIter.hasNext())
+                    if (!boxIter.hasNext()) {
                         boxIter = rBoxSegments.listIterator();
+                    }
                     pCurBoxSeg1 = boxIter.next();
                 } else {
-                    if (!boxIter.hasPrevious())
+                    if (!boxIter.hasPrevious()) {
                         boxIter = rBoxSegments.listIterator(rBoxSegments.size());
+                    }
         
                     pCurBoxSeg1 = boxIter.previous();
                 }
@@ -1362,7 +1314,6 @@ public class PointListUtilities {
 
     /**
      * Utility function that takes a set of bezier points and calculates a polyline approximation.
-     * 
      * @param points the <code>PointList</code> to calculate the bezier from.
      * @param nBezierSteps the <code>int</code> number of line steps that will be used to approximate each bezier curve
      * @return PolylinePointList List of PolylinePoint representing the smooth polyline.
@@ -1374,8 +1325,9 @@ public class PointListUtilities {
         Point ptCtl1, ptCtl2, ptCtl3, ptCtl4;
         boolean bStart = true;
         
-        if (points.size() < 4)
+        if (points.size() < 4) {
             return thePolyPoints;
+        }
         
         ptCtl1 = new Point();
         for (int i = 0; i < points.size() - 3; i = i + 3) {
@@ -1390,8 +1342,9 @@ public class PointListUtilities {
             ptCtl3 = new Point(points.getPoint(i + 2));
             ptCtl4 = new Point(points.getPoint(i + 3));
         
-            if (!BezierToLines(thePolyPoints, ptCtl1, ptCtl2, ptCtl3, ptCtl4, nBezierSteps))
+            if (!BezierToLines(thePolyPoints, ptCtl1, ptCtl2, ptCtl3, ptCtl4, nBezierSteps)) {
                 return null;
+            }
         
             ptCtl1 = new Point(ptCtl4);
         }
@@ -1404,7 +1357,6 @@ public class PointListUtilities {
 
     /**
      * Calculate the actual bezier points of this polyline based on a smooth factor.
-     * 
      * @param points PointList to calculate the bezier approximation from
      * @param nSmoothFactor the <code>int</code> smooth factor to smooth the line with 0 - None, 15 - some, 30 - lots
      * @param nStartIndex int Index to start the calculation at
@@ -1425,10 +1377,11 @@ public class PointListUtilities {
             double dControlLength = dLineLength * nSmoothFactor / 100;
         
             boolean bAddToBezier = false;
-            if (i >= nStartIndex && i <= nEndIndex)
+            if (i >= nStartIndex && i <= nEndIndex) {
                 bAddToBezier = true;
-            else if (i > nEndIndex)
+            } else if (i > nEndIndex) {
                 return theBezierPoints;
+            }
         
             if (dLineLength > MIN_LINE_LENGTH) {
                 Point ptStartControl = new Point();
@@ -1437,24 +1390,26 @@ public class PointListUtilities {
                 Point ptTerminus = new Point(pLineSeg.getTerminus());
         
                 if (theBezierPoints.size() == 0) {
-                    if (bAddToBezier)
+                    if (bAddToBezier) {
                         theBezierPoints.addPoint(ptStart);
+                    }
                 }
         
                 if (ptPrevControl != null) {
                     LineSeg prevControlSeg = new LineSeg(ptPrevControl, ptStart);
                     ptStartControl = new Point();
                     prevControlSeg.pointOn((int) Math.round(prevControlSeg.length() + dControlLength),
-                                           LineSeg.KeyPoint.ORIGIN,
-                                           ptStartControl);
+                            LineSeg.KeyPoint.ORIGIN,
+                            ptStartControl);
                 } else {
                     ptStartControl = new Point();
                     pLineSeg.pointOn((int) Math.round(dControlLength),
-                                     LineSeg.KeyPoint.ORIGIN,
-                                     ptStartControl);
+                            LineSeg.KeyPoint.ORIGIN,
+                            ptStartControl);
                 }
-                if (bAddToBezier)
+                if (bAddToBezier) {
                     theBezierPoints.addPoint(ptStartControl);
+                }
         
                 // Calculate the next terminating control point
                 LineSeg pNextSeg = null;
@@ -1462,10 +1417,11 @@ public class PointListUtilities {
                     pNextSeg = theSegments.get(i + 1);
                     while (pNextSeg != null && pNextSeg.length() < MIN_LINE_LENGTH) {
                         i++;
-                        if (i + 1 < theSegments.size())
+                        if (i + 1 < theSegments.size()) {
                             pNextSeg = theSegments.get(i + 1);
-                        else
+                        } else {
                             pNextSeg = null;
+                        }
                     }
                 }
         
@@ -1479,28 +1435,29 @@ public class PointListUtilities {
         
                     dNewAngle = Math.atan2(-val.sinTheta, -val.cosTheta);
         
-                    if (dNewAngle > 0)
+                    if (dNewAngle > 0) {
                         dNewAngle = (Math.PI - dNewAngle) / -2;
-                    else
+                    } else {
                         dNewAngle = (-Math.PI - dNewAngle) / -2;
+                    }
         
                     Transform trans = new Transform();
                     trans.setRotation(dNewAngle);
                     Point ptVector1Prime = trans.getTransformed(new Point(ptVector1.x, ptVector1.y));
         
                     LineSeg nextControlSeg = new LineSeg(new Point(0, 0), new Point(ptVector1Prime.x,
-                                                                                    ptVector1Prime.y));
+                            ptVector1Prime.y));
                     Point ptProjection = new Point();
                     nextControlSeg.pointOn((int) Math.round(dControlLength),
-                                           LineSeg.KeyPoint.ORIGIN,
-                                           ptProjection);
+                            LineSeg.KeyPoint.ORIGIN,
+                            ptProjection);
         
                     ptTerminusControl = new Point(pLineSeg.getTerminus().x - ptProjection.x,
-                                                  pLineSeg.getTerminus().y - ptProjection.y);
+                            pLineSeg.getTerminus().y - ptProjection.y);
                 } else {
                     pLineSeg.pointOn((int) Math.round(dLineLength - dControlLength),
-                                     LineSeg.KeyPoint.ORIGIN,
-                                     ptTerminusControl);
+                            LineSeg.KeyPoint.ORIGIN,
+                            ptTerminusControl);
                 }
         
                 ptPrevControl = new Point(ptTerminusControl);
@@ -1516,8 +1473,10 @@ public class PointListUtilities {
     @objid ("7f98d879-1dec-11e2-8cad-001ec947c8cc")
     private static void copyFrom(PointList pointsTo, PointList pointsFrom) {
         pointsTo.removeAllPoints();
-        for (int i = 0; i < pointsFrom.size(); i++)
+        for (int i = 0; i < pointsFrom.size(); i++) {
             pointsTo.addPoint(pointsFrom.getPoint(i));
+        }
+        
     }
 
     @objid ("7f98d881-1dec-11e2-8cad-001ec947c8cc")
@@ -1527,19 +1486,6 @@ public class PointListUtilities {
 
     /**
      * Method getRoutedPoints. Utility function for the routing functions to created a new routed polyline.
-     * @param points
-     * @param newRoutePoints
-     * @param ptIntersect1
-     * @param ptIntersect2
-     * @param ptPrev
-     * @param ptNext
-     * @param pCurBoxSeg1
-     * @param pCurBoxSeg2
-     * @param routePoly
-     * @param nSmoothFactor
-     * @param bShortestDistance
-     * @param bIncludeIntersectionPoints
-     * @param nBuffer
      */
     @objid ("7f98d88b-1dec-11e2-8cad-001ec947c8cc")
     private static void getRoutedPoints(PointList points, PointList newRoutePoints, final Point ptIntersect1, final Point ptIntersect2, final Point ptPrev, final Point ptNext, LineSeg pCurBoxSeg1, LineSeg pCurBoxSeg2, final PointList routePoly, int nSmoothFactor, boolean bShortestDistance, final boolean bIncludeIntersectionPoints, final int nBuffer) {
@@ -1577,7 +1523,7 @@ public class PointListUtilities {
         newRoutePoints1.addPoint(new Point(ptAbove));
         newRoutePoints2.addPoint(new Point(ptAbove));
         
-        if ((nDistance1 < nDistance2 && bShortestDistance) || (nDistance1 > nDistance2 && !bShortestDistance)) {
+        if (nDistance1 < nDistance2 && bShortestDistance || nDistance1 > nDistance2 && !bShortestDistance) {
             copyFrom(newRoutePoints, newRoutePoints1);
         } else {
             copyFrom(newRoutePoints, newRoutePoints2);
@@ -1588,8 +1534,9 @@ public class PointListUtilities {
             PointList checkPoints = new PointList(newRoutePoints.size() + 2);
         
             checkPoints.addPoint(new Point(ptPrev));
-            for (int i = 0; i < newRoutePoints.size(); i++)
+            for (int i = 0; i < newRoutePoints.size(); i++) {
                 checkPoints.addPoint(new Point(newRoutePoints.getPoint(i)));
+            }
             checkPoints.addPoint(new Point(ptNext));
         
             int nIndex = 0;
@@ -1627,10 +1574,11 @@ public class PointListUtilities {
         
                 ptCheckSkip = new Point(ptEnd);
         
-                if (nIndex < checkPoints.size())
+                if (nIndex < checkPoints.size()) {
                     ptEnd = checkPoints.getPoint(nIndex++);
-                else
+                } else {
                     ptEnd = null;
+                }
             }
         }
         
@@ -1638,16 +1586,12 @@ public class PointListUtilities {
             PointList tempPoly = calcSmoothPolyline(newRoutePoints, nSmoothFactor, DEFAULT_BEZIERLINES);
             copyFrom(newRoutePoints, tempPoly);
         }
+        
     }
 
     /**
-     * Find the line segment of this polyline that includes the given percentage of the length of the polyline from the
-     * given keypoint. Return a pointer to the segment and the portion of the length of the return segment to complete
-     * the distance of the total length. The pctDist must be between 0.0 and 1.0 if the keypoint is either the origin or
-     * the terminus; pctDist must be between 0.0 and 0.5 if the keypoint is the midpoint.
-     * @param mySegments
-     * @param pctDist
-     * 
+     * Find the line segment of this polyline that includes the given percentage of the length of the polyline from the given keypoint. Return a pointer to the segment and the portion of the length of the return segment to complete the distance of the
+     * total length. The pctDist must be between 0.0 and 1.0 if the keypoint is either the origin or the terminus; pctDist must be between 0.0 and 0.5 if the keypoint is the midpoint.
      * @param fromKeyPoint the <code>int</code> constant value indicating the key point Origin, Terminus, Midpoint
      * @param locateInfo LocateInfo where the calculated info is stored for return.
      * @return boolean true if the segment could be located, false otherwise.
@@ -1717,15 +1661,13 @@ public class PointListUtilities {
     }
 
     /**
-     * reAdjustBoxSize private utility method to shrink / expand the box segment size to accommodate the given point on
-     * the edge. When completed the containedPoint will be on the border of the boxSegs list. Assumptions: 1. boxSegs is
-     * a list of LineSegs that represent a rectangle. 2. boxSegs is ordered clockwise around the rectangle.
-     * 
+     * reAdjustBoxSize private utility method to shrink / expand the box segment size to accommodate the given point on the edge. When completed the containedPoint will be on the border of the boxSegs list. Assumptions: 1. boxSegs is a list of LineSegs
+     * that represent a rectangle. 2. boxSegs is ordered clockwise around the rectangle.
      * @param boxSegs List of LineSegs to shrink / expand
      * @param containedPoint Point that is typically contained inside the Rectangle the the boxSegs LineSeg list represents.
      */
     @objid ("7f9b3abe-1dec-11e2-8cad-001ec947c8cc")
-    @SuppressWarnings("null")
+    @SuppressWarnings ("null")
     private static void reAdjustBoxSize(List<LineSeg> boxSegs, Point containedPoint) {
         assert boxSegs.size() == 4;
         
@@ -1737,14 +1679,16 @@ public class PointListUtilities {
         LineSeg next = null;
         LineSeg current = null;
         
-        if (li.hasNext())
+        if (li.hasNext()) {
             current = li.next();
+        }
         
         while (current != null) {
-            if (li.hasNext())
+            if (li.hasNext()) {
                 next = li.next();
-            else
+            } else {
                 next = null;
+            }
         
             if (current.equals(seg)) {
                 if (prev != null) {
@@ -1760,6 +1704,7 @@ public class PointListUtilities {
             }
             current = next;
         }
+        
     }
 
     @objid ("7f9b3ac8-1dec-11e2-8cad-001ec947c8cc")
@@ -1770,6 +1715,20 @@ public class PointListUtilities {
         }
         points.setSize(points.size() - 1);
         return removedPt;
+    }
+
+    /**
+     * Check if points lists are different.
+     * @param newPointList a point list.
+     * @param oldPointList another point list
+     * @return <code>true</code> if the size or points are different
+     */
+    @objid ("c25b1b4d-62c4-4cf8-b5f5-c1bcfebbf60e")
+    public static boolean isContentDifferent(PointList newPointList, PointList oldPointList) {
+        if (oldPointList.size() != newPointList.size()) {
+            return true;
+        }
+        return !Arrays.equals(newPointList.toIntArray(), oldPointList.toIntArray());
     }
 
     @objid ("7f9b3ad2-1dec-11e2-8cad-001ec947c8cc")

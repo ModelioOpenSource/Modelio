@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.ext.depfilter;
 
 import java.util.HashSet;
@@ -33,9 +32,10 @@ final class RemoveAllButtonSelectionListener extends SelectionAdapter {
     private final DialogView dialogView;
 
     @objid ("1b68ca33-5e33-11e2-b81d-002564c97630")
-    public RemoveAllButtonSelectionListener(final DialogView dialogView) {
+    public  RemoveAllButtonSelectionListener(final DialogView dialogView) {
         super();
         this.dialogView = dialogView;
+        
     }
 
     @objid ("1b68ca37-5e33-11e2-b81d-002564c97630")
@@ -45,6 +45,7 @@ final class RemoveAllButtonSelectionListener extends SelectionAdapter {
         for (ModuleComponent module : allMdacs) {
             this.dialogView.getModel().removeFromFilter(module);
         }
+        
     }
 
 }

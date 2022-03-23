@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.libraries.local.property;
 
 import java.io.IOException;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.StyledCellLabelProvider;
-import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.jface.viewers.StyledString;
+import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.swt.graphics.TextStyle;
 import org.modelio.app.project.conf.plugin.AppProjectConfExt;
@@ -39,19 +38,20 @@ import org.modelio.vbasic.version.VersionedItem;
 class DependenciesLabelProvider extends StyledCellLabelProvider {
     @objid ("c259c973-22ab-42e4-90ee-bb30ec9814de")
     public static final Styler INVALID = new Styler() {
-        @Override
-        public void applyStyles(final TextStyle textStyle) {
-            textStyle.foreground = UIColor.RED;
-        }
-    };
+            @Override
+            public void applyStyles(final TextStyle textStyle) {
+                textStyle.foreground = UIColor.RED;
+            }
+        };
 
     @objid ("37356e22-2a51-4b45-a073-3da24245963c")
     private final List<RamcFileFragment> fragments;
 
     @objid ("aa5cfa19-237d-4eef-9e0e-26a83dde3ccb")
-    public DependenciesLabelProvider(final List<RamcFileFragment> fragments) {
+    public  DependenciesLabelProvider(final List<RamcFileFragment> fragments) {
         super();
         this.fragments = fragments;
+        
     }
 
     @objid ("e10cd899-7853-4f80-a769-9b9139262c28")
@@ -65,6 +65,7 @@ class DependenciesLabelProvider extends StyledCellLabelProvider {
         cell.setText(text.getString());
         cell.setStyleRanges(text.getStyleRanges());
         super.update(cell);
+        
     }
 
     @objid ("7cc0f797-ec1e-48ac-82d3-ff7605d5dc8e")

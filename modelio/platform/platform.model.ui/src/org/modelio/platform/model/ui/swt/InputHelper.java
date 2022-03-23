@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt;
 
 import java.util.ArrayList;
@@ -52,7 +51,6 @@ public final class InputHelper {
      * Tells whether the input contains <b>at least</b> one element of the given type.
      * <p>
      * Returns false if the input is empty.
-     * 
      * @param input an object
      * @param cls the required type
      * @return true if the input contains at least one such element.
@@ -73,7 +71,6 @@ public final class InputHelper {
      * Tells whether the input contains <b>only</b> elements of the given type.
      * <p>
      * Returns false if the input is empty.
-     * 
      * @param input a input object
      * @param cls the required type
      * @return true if the input is not empty and contains only such elements.
@@ -97,7 +94,6 @@ public final class InputHelper {
 
     /**
      * Count in the input the elements matching the given type.
-     * 
      * @param input a input object
      * @param cls the required type
      * @return true the matching elements count.
@@ -118,7 +114,6 @@ public final class InputHelper {
     /**
      * Get the first element in the input that matches the given type.
      * @param <T> the required type
-     * 
      * @param input the input object
      * @param cls the required type class
      * @return the first matching element or null.
@@ -138,7 +133,6 @@ public final class InputHelper {
 
     /**
      * Get the input size.
-     * 
      * @param input a input object.
      * @return the input size.
      */
@@ -153,7 +147,6 @@ public final class InputHelper {
      * <p>
      * All input elements not matching the type are filtered out.
      * @param <T> the wanted type
-     * 
      * @param input the input object
      * @param cls the wanted type
      * @return the filtered input content
@@ -177,7 +170,6 @@ public final class InputHelper {
      * <p>
      * All input elements not matching the type are filtered out.
      * @param <T> the wanted type
-     * 
      * @param input the input object
      * @param cls the wanted type
      * @return the filtered input content
@@ -193,10 +185,11 @@ public final class InputHelper {
         return stream
                                 .map(element -> adapt(element, cls))
                                 .filter(Objects::nonNull);
+        
     }
 
     @objid ("15444df8-e8d1-4764-8281-8dab32fbf397")
-    private InputHelper() {
+    private  InputHelper() {
         // no instance
     }
 

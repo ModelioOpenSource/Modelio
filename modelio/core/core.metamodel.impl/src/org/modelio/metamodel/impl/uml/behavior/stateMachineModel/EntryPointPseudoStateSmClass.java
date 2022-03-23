@@ -17,22 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.stateMachineModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.AbstractPseudoStateSmClass;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.ConnectionPointReferenceSmClass;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.EntryPointPseudoStateData;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.StateMachineSmClass;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.StateSmClass;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.AbstractPseudoState;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.ConnectionPointReference;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.EntryPointPseudoState;
@@ -62,7 +57,7 @@ public class EntryPointPseudoStateSmClass extends AbstractPseudoStateSmClass {
     private SmDependency entryOfMachineDep;
 
     @objid ("46eb5515-26f5-4911-9717-759e585ed888")
-    public EntryPointPseudoStateSmClass(ISmMetamodelFragment origin) {
+    public  EntryPointPseudoStateSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -70,6 +65,7 @@ public class EntryPointPseudoStateSmClass extends AbstractPseudoStateSmClass {
     @Override
     public String getName() {
         return "EntryPointPseudoState";
+        
     }
 
     @objid ("39a56162-4e09-4371-988e-b72fb418c18b")
@@ -82,18 +78,21 @@ public class EntryPointPseudoStateSmClass extends AbstractPseudoStateSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return EntryPointPseudoState.class;
+        
     }
 
     @objid ("7bedfd24-60a2-44cd-9a37-bcc13dc2c695")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("b1f9e435-9577-4ca0-80ca-a3c61c91b43e")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("df8a0880-e9f6-439e-b449-ba6aee58b0c7")
@@ -117,6 +116,8 @@ public class EntryPointPseudoStateSmClass extends AbstractPseudoStateSmClass {
         this.entryOfMachineDep = new EntryOfMachineSmDependency();
         this.entryOfMachineDep.init("EntryOfMachine", this, metamodel.getMClass(StateMachine.MQNAME), 0, 1 );
         registerDependency(this.entryOfMachineDep);
+        
+        
     }
 
     @objid ("09babede-aefe-4ced-a792-7c37fb529279")
@@ -149,7 +150,7 @@ public class EntryPointPseudoStateSmClass extends AbstractPseudoStateSmClass {
         private EntryPointPseudoStateSmClass smClass;
 
         @objid ("e306b219-29d1-464e-b0c0-37de238ea708")
-        public EntryPointPseudoStateObjectFactory(EntryPointPseudoStateSmClass smClass) {
+        public  EntryPointPseudoStateObjectFactory(EntryPointPseudoStateSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -191,6 +192,7 @@ public class EntryPointPseudoStateSmClass extends AbstractPseudoStateSmClass {
             	this.symetricDep = ((StateSmClass)this.getTarget()).getEntryPointDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -210,6 +212,7 @@ public class EntryPointPseudoStateSmClass extends AbstractPseudoStateSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((EntryPointPseudoStateData) data).mConnection = values;
+            
         }
 
         @objid ("909b5d20-9923-4047-b939-669656412faa")
@@ -219,6 +222,7 @@ public class EntryPointPseudoStateSmClass extends AbstractPseudoStateSmClass {
             	this.symetricDep = ((ConnectionPointReferenceSmClass)this.getTarget()).getEntryDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -247,6 +251,7 @@ public class EntryPointPseudoStateSmClass extends AbstractPseudoStateSmClass {
             	this.symetricDep = ((StateMachineSmClass)this.getTarget()).getEntryPointDep();
             }
             return this.symetricDep;
+            
         }
 
     }

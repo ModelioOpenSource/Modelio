@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.collabuse;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -55,22 +54,22 @@ public class GmCollaborationUseFlatLabel extends GmDefaultModelElementLabel {
      * Empty constructor needed for deserialization.
      */
     @objid ("3476ca5c-55b7-11e2-877f-002564c97630")
-    public GmCollaborationUseFlatLabel() {
+    public  GmCollaborationUseFlatLabel() {
         // Empty constructor needed for (de-)serialization.
     }
 
     /**
      * Default constructor.
-     * 
      * @param diagram the diagram in which this node is unmasked.
      * @param el the represented element, may be <i>null</i>.
      * @param ref a reference to the represented element.
      */
     @objid ("3476ca5f-55b7-11e2-877f-002564c97630")
-    public GmCollaborationUseFlatLabel(IGmDiagram diagram, CollaborationUse el, MRef ref) {
+    public  GmCollaborationUseFlatLabel(IGmDiagram diagram, CollaborationUse el, MRef ref) {
         super(diagram, ref);
         this.element = el;
         setShowMetaclassIcon(true);
+        
     }
 
     @objid ("347850ee-55b7-11e2-877f-002564c97630")
@@ -117,6 +116,7 @@ public class GmCollaborationUseFlatLabel extends GmDefaultModelElementLabel {
                 break;
             }
         }
+        
     }
 
     @objid ("34785116-55b7-11e2-877f-002564c97630")
@@ -143,12 +143,14 @@ public class GmCollaborationUseFlatLabel extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmCollaborationUseFlatLabel.", MINOR_VERSION);
+        
     }
 
     @objid ("3479d783-55b7-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (CollaborationUse) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("3479d788-55b7-11e2-877f-002564c97630")

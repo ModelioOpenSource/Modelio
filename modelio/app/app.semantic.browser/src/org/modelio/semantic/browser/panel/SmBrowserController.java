@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.semantic.browser.panel;
 
 import java.util.List;
 import java.util.Objects;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.services.EMenuService;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
@@ -65,6 +64,7 @@ public class SmBrowserController {
             this.ui.setSelection(new StructuredSelection());
             this.ui.setInput(null);
         }
+        
     }
 
     @objid ("1f6b77ad-5297-4a6e-8429-94987ddb95d0")
@@ -73,6 +73,7 @@ public class SmBrowserController {
         if (!Objects.equals(this.ui.getSelection(), selection)) {
             this.ui.setSelection(selection);
         }
+        
     }
 
     /**
@@ -84,6 +85,7 @@ public class SmBrowserController {
         if (this.selectionService != null) {
             this.selectionService.setSelection(selection);
         }
+        
     }
 
 }

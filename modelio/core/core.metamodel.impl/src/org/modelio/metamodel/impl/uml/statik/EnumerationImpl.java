@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.uml.statik.EnumerationData;
 import org.modelio.metamodel.uml.statik.Enumeration;
 import org.modelio.metamodel.uml.statik.EnumerationLiteral;
 import org.modelio.metamodel.visitors.IModelVisitor;
@@ -63,6 +62,7 @@ public class EnumerationImpl extends GeneralClassImpl implements Enumeration {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("a297584c-669a-48ce-a3ca-5bebaeeb0b5f")

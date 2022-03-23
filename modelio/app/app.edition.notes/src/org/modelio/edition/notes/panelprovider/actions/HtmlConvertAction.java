@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.panelprovider.actions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,10 +30,11 @@ public class HtmlConvertAction extends Action {
     private NotesPanelController controller;
 
     @objid ("16d613da-1695-42ee-94c3-9e6f063fb617")
-    public HtmlConvertAction(NotesPanelController controller) {
+    public  HtmlConvertAction(NotesPanelController controller) {
         this.controller = controller;
         this.setText(EditionNotes.I18N.getString("HtmlType.label"));
         this.setImageDescriptor(EditionNotes.getImageDescriptor("icons/html.png"));
+        
     }
 
     @objid ("6688138d-c5ed-40f5-a0f0-0718f2bfb332")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.module.propertytab.ui.panel.treeview.editingsupport.checkbox;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,6 +42,7 @@ public class CheckboxLabelProvider extends ColumnLabelProvider {
         } else {
             return UIImages.UNCHECKED;
         }
+        
     }
 
     @objid ("c8923823-1eba-11e2-9382-bc305ba4815c")
@@ -58,6 +58,7 @@ public class CheckboxLabelProvider extends ColumnLabelProvider {
                 cell.setBackground(UIColor.TABLE_ODDROW_BG);
             }
         }
+        
     }
 
     @objid ("c8925f31-1eba-11e2-9382-bc305ba4815c")

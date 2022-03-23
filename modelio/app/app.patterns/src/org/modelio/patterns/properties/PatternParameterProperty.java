@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.properties;
 
 import java.util.ArrayList;
@@ -25,9 +24,9 @@ import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.module.propertiesPage.IModulePropertyTable;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
+import org.modelio.patterns.model.ProfileUtils;
 import org.modelio.patterns.model.ProfileUtils.PatternDesignerStereotypes;
 import org.modelio.patterns.model.ProfileUtils.PatternDesignerTagTypes;
-import org.modelio.patterns.model.ProfileUtils;
 import org.modelio.patterns.plugin.Patterns;
 
 @objid ("36879355-24bb-4646-8a86-64dcc3b7152f")
@@ -50,6 +49,7 @@ public class PatternParameterProperty implements IPropertyContent {
         } catch (Exception e) {
             Patterns.LOG.debug(e);
         }
+        
     }
 
     @objid ("6f0693b6-632a-4e40-bb9d-e7e5508520d9")
@@ -69,6 +69,7 @@ public class PatternParameterProperty implements IPropertyContent {
         }
         
         table.addProperty(Patterns.I18N.getString("PropertyDefinition.Label"), label);
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.figures;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,7 +36,7 @@ public class SendArrowShaper implements IShaper {
 
     @objid ("2a70adae-55b6-11e2-877f-002564c97630")
     @Override
-    public Path getShapePath(Rectangle rect) {
+    public Path createShapePath(Rectangle rect) {
         int x = rect.x;
         int y = rect.y;
         int w = rect.width;

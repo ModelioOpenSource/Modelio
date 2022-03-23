@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.fragment.migration;
 
 import java.io.BufferedWriter;
@@ -41,15 +40,17 @@ public class FileFlags {
     private AbstractFragment fragment;
 
     @objid ("91c3da8e-93ac-4dbf-8ddf-17fd680f7c6d")
-    public FileFlags(AbstractFragment fragment) {
+    public  FileFlags(AbstractFragment fragment) {
         super();
         this.fragment = fragment;
+        
     }
 
     @objid ("444666e1-25a8-41c1-b079-247db5c9bf34")
     public void removeMigrationFlag(String flag) throws IOException {
         Path f = this.fragment.getRuntimeDirectory().resolve(flag+".flag");
         Files.deleteIfExists(f);
+        
     }
 
     @objid ("4ed3ff2a-60d5-4f43-8dd3-8703c940318d")
@@ -66,6 +67,7 @@ public class FileFlags {
         } else {
             return null;
         }
+        
     }
 
     @objid ("694de16e-5289-47fa-9dc0-a3dbb1fba4e3")
@@ -76,6 +78,7 @@ public class FileFlags {
                 w.write(content);
             }
         }
+        
     }
 
 }

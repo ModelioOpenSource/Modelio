@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import java.util.List;
@@ -79,12 +78,14 @@ public class OOperation extends OFeature {
             }
             return UMLFactory.eINSTANCE.createOperation();
         }
+        
     }
 
     @objid ("d72b6f62-e293-4da1-a9fd-2f66b7e06721")
-    public OOperation(Operation element) {
+    public  OOperation(Operation element) {
         super(element);
         this.objingElement = element;
+        
     }
 
     @objid ("78642492-e39e-40ba-b293-04924640ed44")
@@ -99,6 +100,7 @@ public class OOperation extends OFeature {
                 attachTemplateSignature((org.eclipse.uml2.uml.TemplateSignature) ecoreElt);
             }
         }
+        
     }
 
     @objid ("b41dcffa-a5d5-4386-9958-c7869f7e35d6")
@@ -125,6 +127,7 @@ public class OOperation extends OFeature {
         if(ecoreElt instanceof org.eclipse.uml2.uml.RedefinableTemplateSignature) {
             setRedefinedSignature((org.eclipse.uml2.uml.RedefinableTemplateSignature) ecoreElt);
         }
+        
     }
 
     @objid ("71cee9c8-de1f-497c-940c-a0eb78f830fd")
@@ -156,6 +159,7 @@ public class OOperation extends OFeature {
         
         if (ecoreElt instanceof  org.eclipse.uml2.uml.Operation)
             ( (org.eclipse.uml2.uml.Operation)ecoreElt).setIsQuery(isQuery);
+        
     }
 
     @objid ("b8a36dac-82ea-4389-9d4f-6607ee6e1777")
@@ -167,6 +171,7 @@ public class OOperation extends OFeature {
             ecoreElt.setConcurrency(org.eclipse.uml2.uml.CallConcurrencyKind.CONCURRENT_LITERAL);
         else
             ecoreElt.setConcurrency(org.eclipse.uml2.uml.CallConcurrencyKind.SEQUENTIAL_LITERAL);
+        
     }
 
     @objid ("7a3ec367-89fc-4c51-adcc-2b19223fe02f")
@@ -179,6 +184,7 @@ public class OOperation extends OFeature {
                 }
             }
         }
+        
     }
 
     @objid ("92b8e080-75ed-4469-962b-bd5755dccf4f")
@@ -221,6 +227,7 @@ public class OOperation extends OFeature {
                     }
             }
         }
+        
     }
 
     @objid ("662cca46-ca10-47d9-a094-4539902becc5")
@@ -272,6 +279,7 @@ public class OOperation extends OFeature {
                     }
             }
         }
+        
     }
 
     @objid ("61c90c0c-4015-49cf-87e9-624b78bdf1b9")
@@ -282,6 +290,7 @@ public class OOperation extends OFeature {
             if (ecoreSignal instanceof  org.eclipse.uml2.uml.Signal)
                 ecoreElt.setSignal( (org.eclipse.uml2.uml.Signal) ecoreSignal);
         }
+        
     }
 
     @objid ("ad2867a4-3aad-483f-9d42-451068e9cf9a")
@@ -292,6 +301,7 @@ public class OOperation extends OFeature {
                 ecoreElt.getRedefinedOperations().add( (org.eclipse.uml2.uml.Operation)ecoreOperation);
             }
         }
+        
     }
 
     @objid ("5c78c6ea-fab2-4477-a4dd-4af33c3709c1")
@@ -303,6 +313,7 @@ public class OOperation extends OFeature {
             ecoreElt.setTemplate((org.eclipse.uml2.uml.TemplateableElement)ecoreOwner);
         else
             ecoreElt.destroy();
+        
     }
 
     @objid ("fbc4281b-1bea-46d6-a246-1175ddcf71c4")
@@ -312,6 +323,7 @@ public class OOperation extends OFeature {
         if (ecoreOperation instanceof  org.eclipse.uml2.uml.RedefinableTemplateSignature){
             ecoreElt.getExtendedSignatures().add((org.eclipse.uml2.uml.RedefinableTemplateSignature) ecoreOperation);
         }
+        
     }
 
 }

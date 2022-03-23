@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.model.core;
 
 import com.modeliosoft.modelio.javadesigner.annotations.mdl;
@@ -41,35 +40,37 @@ import org.modelio.metamodel.uml.infrastructure.Element;
  */
 @objid ("003b0830-0d4f-10c6-842f-001ec947cd2a")
 public abstract class VirtualFolder implements ITreeContentProvider {
+    
     @mdl.prop
     @objid ("003b7c7a-0d4f-10c6-842f-001ec947cd2a")
-    private Element representedElement;
+    public Element representedElement;
 
     @mdl.propgetter
     public Element getRepresentedElement() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.representedElement;
     }
 
     @mdl.propsetter
     public void setRepresentedElement(Element value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.representedElement = value;
     }
 
+    
     @mdl.prop
     @objid ("00734d80-0d6c-10c6-842f-001ec947cd2a")
-    private String name;
+    public String name;
 
     @mdl.propgetter
     public String getName() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.name;
     }
 
     @mdl.propsetter
     public void setName(String value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.name = value;
     }
 
@@ -77,7 +78,7 @@ public abstract class VirtualFolder implements ITreeContentProvider {
     private final Object delegate;
 
     @objid ("003c16d0-0d4f-10c6-842f-001ec947cd2a")
-    public VirtualFolder(Object delegate) {
+    public  VirtualFolder(Object delegate) {
         this.delegate = delegate;
     }
 

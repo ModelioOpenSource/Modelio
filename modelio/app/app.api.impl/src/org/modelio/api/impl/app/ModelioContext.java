@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.api.impl.app;
 
 import java.io.File;
@@ -38,7 +37,7 @@ public class ModelioContext implements IModelioContext {
     private IProjectService projectService;
 
     @objid ("043b6707-6d21-4449-9b07-032f9f3cc2e3")
-    public ModelioContext(final IProjectService projectService) {
+    public  ModelioContext(final IProjectService projectService) {
         this.projectService = projectService;
     }
 
@@ -53,7 +52,6 @@ public class ModelioContext implements IModelioContext {
      * <p>
      * The returned value is the value that Locale.getDefault().getLanguage()
      * returns if this value is supported by Modelio. Otherwise 'us' is returned.
-     * 
      * @return a String containing the language used for Modelio resources.
      */
     @objid ("8b3ba8b8-4d09-4d8e-9064-983191cc6b26")
@@ -79,7 +77,6 @@ public class ModelioContext implements IModelioContext {
 
     /**
      * Get the version of the current Modelio
-     * 
      * @return an object of the Version class that represents the version of the current Modelio.
      */
     @objid ("1fac425c-de46-4e1e-b4d3-45a97af65df0")

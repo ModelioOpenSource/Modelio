@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.umlcommon.diagramheader;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,21 +42,21 @@ public class GmDiagramHeader extends GmDefaultModelElementLabel {
 
     /**
      * Create an header label
-     * 
      * @param diagram the diagram.
      * @param relatedRef reference to the diagram.
      */
     @objid ("812e2810-1dec-11e2-8cad-001ec947c8cc")
-    public GmDiagramHeader(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmDiagramHeader(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
         setShowMetaclassIcon(true);
+        
     }
 
     /**
      * For deserialization.
      */
     @objid ("812e2817-1dec-11e2-8cad-001ec947c8cc")
-    public GmDiagramHeader() {
+    public  GmDiagramHeader() {
         super();
     }
 
@@ -78,6 +77,7 @@ public class GmDiagramHeader extends GmDefaultModelElementLabel {
                 break;
             }
         }
+        
     }
 
     @objid ("812e281e-1dec-11e2-8cad-001ec947c8cc")
@@ -87,6 +87,7 @@ public class GmDiagramHeader extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmDiagramHeader.", MINOR_VERSION);
+        
     }
 
     @objid ("812e2822-1dec-11e2-8cad-001ec947c8cc")

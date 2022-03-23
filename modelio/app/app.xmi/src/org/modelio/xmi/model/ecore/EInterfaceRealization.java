@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,12 +45,14 @@ public class EInterfaceRealization extends ENamedElement {
             return factory.createInterfaceRealization();
         else 
             return null;
+        
     }
 
     @objid ("266b5e3b-8a9a-492e-8b73-6acc8272ce7d")
-    public EInterfaceRealization(org.eclipse.uml2.uml.InterfaceRealization element) {
+    public  EInterfaceRealization(org.eclipse.uml2.uml.InterfaceRealization element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("4985b7f6-8122-451e-b72b-7308055900d9")
@@ -108,6 +109,7 @@ public class EInterfaceRealization extends ENamedElement {
                 objingRImport.setImplemented(objingContract);
             }
         }
+        
     }
 
 }

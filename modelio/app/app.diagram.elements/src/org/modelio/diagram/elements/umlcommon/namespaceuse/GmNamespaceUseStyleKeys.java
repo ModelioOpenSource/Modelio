@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.umlcommon.namespaceuse;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,7 +34,7 @@ public class GmNamespaceUseStyleKeys extends ElementsAbstractStyleKeyProvider {
      */
     @objid ("817cd5ce-1dec-11e2-8cad-001ec947c8cc")
     public static final StyleKey CONNECTIONROUTER = createStyleKey("NAMESPACEUSE_ROUTINGMODE",
-                                                                   MetaKey.CONNECTIONROUTER);
+                                                                       MetaKey.CONNECTIONROUTER);
 
     /**
      * Line color

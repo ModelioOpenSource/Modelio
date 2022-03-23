@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.ramcs.handlers;
 
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.commands.ParameterizedCommand;
 import org.eclipse.e4.core.commands.ECommandService;
 import org.eclipse.e4.core.commands.EHandlerService;
@@ -43,15 +42,15 @@ import org.modelio.platform.core.navigate.IModelioNavigationService;
 public class CreateRamcHandler {
     @objid ("bb168517-d91d-4666-b96a-37e4a57b6a50")
     @Inject
-     ECommandService commandService;
+    ECommandService commandService;
 
     @objid ("86e5b425-309e-41cf-bc67-42a1af768b98")
     @Inject
-     EHandlerService handlerService;
+    EHandlerService handlerService;
 
     @objid ("440fe48b-b04a-48e4-9120-8d8d608b90d7")
     @Inject
-     IModelioNavigationService navigationService;
+    IModelioNavigationService navigationService;
 
     @objid ("64bbbb08-d645-43dd-be50-2298aabe1c7b")
     @Execute
@@ -78,6 +77,7 @@ public class CreateRamcHandler {
         
             }
         }
+        
     }
 
     @objid ("86b64d81-b2d1-413f-bcfe-fadd767c5d6c")
@@ -88,6 +88,7 @@ public class CreateRamcHandler {
         } else {
             return false;
         }
+        
     }
 
 }

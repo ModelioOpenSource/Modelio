@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.modules.list;
 
 import java.io.IOException;
@@ -76,8 +75,8 @@ import org.modelio.gproject.module.IModuleStore;
 import org.modelio.gproject.module.ModuleSorter;
 import org.modelio.platform.mda.infra.service.CompatibilityHelper;
 import org.modelio.platform.mda.infra.service.IModuleManagementService;
-import org.modelio.platform.mda.infra.service.IRTModule.ModuleRuntimeState;
 import org.modelio.platform.mda.infra.service.IRTModule;
+import org.modelio.platform.mda.infra.service.IRTModule.ModuleRuntimeState;
 import org.modelio.platform.model.ui.swt.SelectionHelper;
 import org.modelio.platform.project.services.IProjectService;
 import org.modelio.platform.ui.UIImages;
@@ -123,11 +122,12 @@ public class ModulesSection {
      * @param application The Eclipse context
      */
     @objid ("b77b7e36-1e37-4f10-a8c0-73134b03c249")
-    public ModulesSection(final IEclipseContext applicationContext) {
+    public  ModulesSection(final IEclipseContext applicationContext) {
         this.moduleService = applicationContext.get(IModuleManagementService.class);
         this.progressService = applicationContext.get(IModelioProgressService.class);
         this.projectService = applicationContext.get(IProjectService.class);
         this.catalog = applicationContext.get(IModuleStore.class);
+        
     }
 
     /**
@@ -149,11 +149,11 @@ public class ModulesSection {
         for (final TableColumn col : this.modulesTable.getTable().getColumns()) {
             col.pack();
         }
+        
     }
 
     /**
      * Build the Eclipse form Section.
-     * 
      * @param toolkit the form toolkit
      * @param parent the parent composite
      * @return the built section.
@@ -441,7 +441,6 @@ public class ModulesSection {
 
     /**
      * Add a change listener to the modules table
-     * 
      * @param listener the listener.
      */
     @objid ("da615b84-d28c-4781-812b-160d96770d41")
@@ -502,6 +501,7 @@ public class ModulesSection {
         } catch (InvocationTargetException | InterruptedException e) {
             AppProjectConfExt.LOG.error(e);
         }
+        
     }
 
     /**
@@ -541,6 +541,7 @@ public class ModulesSection {
                 AppProjectConfExt.LOG.warning(e);
             }
         }
+        
     }
 
     @objid ("387905c9-f7e6-4156-9f31-6ea58770247b")
@@ -611,11 +612,11 @@ public class ModulesSection {
                 }
             }
             monitor.done();
+            
         }
 
         /**
          * get existing model fragment identifiers, excepted MDA ones.
-         * 
          * @param projectAdapter a project
          * @return existing model fragments identifiers
          */

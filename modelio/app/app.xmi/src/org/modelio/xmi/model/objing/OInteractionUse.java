@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import java.util.List;
@@ -38,7 +37,7 @@ public class OInteractionUse extends OInteractionFragment {
     }
 
     @objid ("3419fc25-70a0-427b-9d0a-26dba0f7c026")
-    public OInteractionUse(InteractionUse param) {
+    public  OInteractionUse(InteractionUse param) {
         super(param);
     }
 
@@ -55,6 +54,7 @@ public class OInteractionUse extends OInteractionFragment {
         setInteraction((org.eclipse.uml2.uml.InteractionUse) ecoreElt);
         setActualGates((org.eclipse.uml2.uml.InteractionUse) ecoreElt);
         setEndLineNumber(ecoreElt);
+        
     }
 
     @objid ("b2af6892-1ffb-4c40-b084-d50a2ce5ab96")
@@ -62,6 +62,7 @@ public class OInteractionUse extends OInteractionFragment {
         if (GenerationProperties.getInstance().isRoundtripEnabled()){
             ObjingEAnnotation.setEndLineNumber(ecoreElt, ((InteractionUse) getObjingElement()).getEndLineNumber());
         }
+        
     }
 
     @objid ("b4aacae1-2be0-4324-bf8d-d583546df113")
@@ -77,6 +78,7 @@ public class OInteractionUse extends OInteractionFragment {
             if (ecoreInteraction instanceof org.eclipse.uml2.uml.Interaction)
                 ecoreElt.setRefersTo((org.eclipse.uml2.uml.Interaction)ecoreInteraction);
         }
+        
     }
 
     @objid ("270073b2-23cd-4eb8-8985-96dd0405027b")
@@ -92,6 +94,7 @@ public class OInteractionUse extends OInteractionFragment {
             if (ecoreFormalGate instanceof org.eclipse.uml2.uml.Gate)
                 ecoreElt.getActualGates().add((org.eclipse.uml2.uml.Gate)ecoreFormalGate);
         }
+        
     }
 
 }

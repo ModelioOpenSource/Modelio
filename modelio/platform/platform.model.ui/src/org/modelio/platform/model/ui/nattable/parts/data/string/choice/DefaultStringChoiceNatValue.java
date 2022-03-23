@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.string.choice;
 
 import java.security.InvalidParameterException;
@@ -38,31 +37,31 @@ public class DefaultStringChoiceNatValue extends DefaultNatValue implements IStr
 
     /**
      * Creates a new instance.
-     * 
      * @param value the wrapped value.
      * @param acceptNullValue whether or not <code>null</code> is a valid value for this field.
      * @param valueChoices list of values to choose from.
      * @param editable whether or not the value choices can be extended with other values.
      */
     @objid ("a362cc98-ecf0-4ec0-985e-82327b341098")
-    public DefaultStringChoiceNatValue(String value, boolean acceptNullValue, List<String> valueChoices, boolean editable) {
+    public  DefaultStringChoiceNatValue(String value, boolean acceptNullValue, List<String> valueChoices, boolean editable) {
         super(value, acceptNullValue);
         if (acceptNullValue) {
             valueChoices.add(0, "");
         }
         this.valueChoices = valueChoices;
         this.editable = editable;
+        
     }
 
     /**
      * Copy constructor, creating a new instance with the same configuration as the other.
-     * 
      * @param anotherInstance the instance to copy.
      */
     @objid ("756fbc9c-fab9-49bb-bd0f-a47da55a69c8")
-    public DefaultStringChoiceNatValue(DefaultStringChoiceNatValue anotherInstance) {
+    public  DefaultStringChoiceNatValue(DefaultStringChoiceNatValue anotherInstance) {
         super(anotherInstance);
         this.valueChoices = anotherInstance.valueChoices;
+        
     }
 
     @objid ("310545c5-d008-4f2d-9a25-7efe56f0a948")
@@ -90,6 +89,7 @@ public class DefaultStringChoiceNatValue extends DefaultNatValue implements IStr
             throw new InvalidParameterException("Value must be a String.");
         }
         super.setValue(value);
+        
     }
 
 }

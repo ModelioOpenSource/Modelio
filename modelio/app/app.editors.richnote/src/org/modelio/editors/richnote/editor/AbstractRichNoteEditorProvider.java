@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.editor;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,6 @@ public abstract class AbstractRichNoteEditorProvider implements IRichNoteEditorP
      * <p>
      * It is assumed that the editor provider supports the given element.
      * In the other case the provider is allowed to throw an {@link IllegalArgumentException}.
-     * 
      * @param target the element to edit.
      * @return an editor ID.
      */

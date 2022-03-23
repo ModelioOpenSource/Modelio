@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.module.browser.commands;
 
 import java.nio.file.Files;
@@ -77,6 +76,7 @@ public class ModulePopupManager {
         
             item.setVisibleWhen(isVisibleWhenExpression);
         }
+        
     }
 
     @objid ("491beea2-12dd-11e2-8549-001ec947c8cc")
@@ -109,6 +109,7 @@ public class ModulePopupManager {
             handlerToRemove.setCommand(null);
             handlerToRemove.setObject(null);
         }
+        
     }
 
     @objid ("9a6323bb-12ea-11e2-8549-001ec947c8cc")
@@ -213,6 +214,7 @@ public class ModulePopupManager {
         for (IModuleAction action : module.getActions(ActionLocation.contextualpopup)) {
             deactivateAndRemoveHandler(ModuleCommandsRegistry.getCommand(module, action), view);
         }
+        
     }
 
 }

@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityData;
 import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.BehaviorImpl;
 import org.modelio.metamodel.uml.behavior.activityModel.Activity;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityGroup;
@@ -89,6 +88,7 @@ public class ActivityImpl extends BehaviorImpl implements Activity {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("9d5f4cff-3e76-405e-b25a-daec9144f344")
@@ -110,6 +110,7 @@ public class ActivityImpl extends BehaviorImpl implements Activity {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("f865726e-6a50-41df-800a-1668e6f2fab3")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta.descriptor;
 
 import java.util.ArrayList;
@@ -33,26 +32,28 @@ public class MLinkMetaclassDescriptor extends MClassDescriptor {
     /**
      * <p>Name of the dependencies that represent the link sources.</p>
      */
+    
     @mdl.prop
     @objid ("185e9a96-7319-4027-91c5-e486713e70e9")
-    private final List<String> sourceDepencencies = new ArrayList<> ();
+    public final List<String> sourceDepencencies = new ArrayList<> ();
 
     @mdl.propgetter
     public List<String> getSourceDepencencies() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.sourceDepencencies;
     }
 
     /**
      * <p>Name of the dependencies that represent the link targets.</p>
      */
+    
     @mdl.prop
     @objid ("e97a30bf-3482-4f52-8d3b-04a96c8631e6")
-    private final List<String> targetDepencencies = new ArrayList<> ();
+    public final List<String> targetDepencencies = new ArrayList<> ();
 
     @mdl.propgetter
     public List<String> getTargetDepencencies() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.targetDepencencies;
     }
 

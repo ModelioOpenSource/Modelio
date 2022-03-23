@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.migration;
 
 import java.io.IOException;
@@ -140,6 +139,7 @@ public class StandardMmMigrationProvider implements IMigrationProvider {
             Log.trace("No migrator to migrate from %s v%s to v%s ", StandardMetamodel.NAME, fromVersion, lastStandardVersion);
             return null;
         }
+        
     }
 
     @objid ("46379912-9c7d-458c-b35a-bece4192d919")
@@ -160,12 +160,13 @@ public class StandardMmMigrationProvider implements IMigrationProvider {
         } catch (IOException e) {
             throw new MofMigrationException(FileUtils.getLocalizedMessage(e), e);
         }
+        
     }
 
     @objid ("09d28a33-fe45-4750-ab4b-e226b68fc98b")
     private static class BasicMigrator extends AbstractMofRepositoryMigrator {
         @objid ("7a174947-d8eb-480d-810f-77283b909351")
-        public BasicMigrator(MetamodelVersionDescriptor fromMetamodel, MetamodelVersionDescriptor targetMetamodel) {
+        public  BasicMigrator(MetamodelVersionDescriptor fromMetamodel, MetamodelVersionDescriptor targetMetamodel) {
             super(fromMetamodel, targetMetamodel);
         }
 
@@ -178,11 +179,11 @@ public class StandardMmMigrationProvider implements IMigrationProvider {
             // loadCmsNodeChanges(metamodel, srcMmDesc);
             
             metamodel.merge(srcMmDesc);
+            
         }
 
         /**
          * Scan metamodel to look for CMS node metaclass differences.
-         * 
          * @param metamodel the prepared metamodel
          * @param srcMmDesc the source metamodel descriptor
          * @deprecated Experimental begin of implementation
@@ -207,6 +208,7 @@ public class StandardMmMigrationProvider implements IMigrationProvider {
                 }
             
             }
+            
         }
 
     }

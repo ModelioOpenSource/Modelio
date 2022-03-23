@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -25,7 +24,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 @objid ("86a2f2c0-c91b-4f42-931f-80fe85f9e3d8")
 public class EDurationConstraint extends ENamedElement {
     @objid ("d6234acd-521a-447d-aa2d-e382219e1560")
-    public EDurationConstraint(org.eclipse.uml2.uml.DurationConstraint element) {
+    public  EDurationConstraint(org.eclipse.uml2.uml.DurationConstraint element) {
         super(element);
     }
 

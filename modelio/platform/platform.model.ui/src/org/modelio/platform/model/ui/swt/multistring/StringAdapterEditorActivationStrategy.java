@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.multistring;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,13 +29,13 @@ import org.eclipse.swt.SWT;
 @objid ("8dca8c68-c068-11e1-8c0a-002564c97630")
 class StringAdapterEditorActivationStrategy extends ColumnViewerEditorActivationStrategy {
     @objid ("8dca8c69-c068-11e1-8c0a-002564c97630")
-     int time = 0;
+    int time = 0;
 
     @objid ("2a31f4a5-4744-4b7f-adbd-2f160a8c54af")
-     String selectedElement = null;
+    String selectedElement = null;
 
     @objid ("8dca8c6b-c068-11e1-8c0a-002564c97630")
-    public StringAdapterEditorActivationStrategy(ColumnViewer viewer) {
+    public  StringAdapterEditorActivationStrategy(ColumnViewer viewer) {
         super(viewer);
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.message;
 
 import java.util.List;
@@ -31,6 +30,7 @@ import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.view.ISymbolViewModel;
 import org.modelio.metamodel.uml.behavior.interactionModel.Message;
 import org.modelio.metamodel.uml.behavior.interactionModel.MessageKind;
 import org.modelio.metamodel.uml.behavior.interactionModel.MessageSort;
@@ -68,13 +68,12 @@ public class GmMessage extends GmLink {
 
     /**
      * Create a message link
-     * 
      * @param diagram The owning diagram
      * @param obMessage The represented message, may be null.
      * @param ref The represented message reference, may not be null.
      */
     @objid ("d9546847-55b6-11e2-877f-002564c97630")
-    public GmMessage(IGmDiagram diagram, Message obMessage, MRef ref) {
+    public  GmMessage(IGmDiagram diagram, Message obMessage, MRef ref) {
         super(diagram, ref);
         
         this.element = obMessage;
@@ -87,13 +86,14 @@ public class GmMessage extends GmLink {
         addExtension(new GmInformationFlowArrow(diagram, getRepresentedRef()), ROLE_INFOFLOW_ARROW, constraint);
         
         addExtension(ExtensionLocation.MiddleSE, ROLE_MAIN_LABEL, new GmMessageHeader(diagram, ref));
+        
     }
 
     /**
      * For deserialization only.
      */
     @objid ("d9546853-55b6-11e2-877f-002564c97630")
-    public GmMessage() {
+    public  GmMessage() {
         // Nothing to do.
     }
 
@@ -148,6 +148,7 @@ public class GmMessage extends GmLink {
     protected void readLink(IDiagramReader in) {
         super.readLink(in);
         this.element = (Message) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("d955eeed-55b6-11e2-877f-002564c97630")
@@ -157,6 +158,7 @@ public class GmMessage extends GmLink {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmMessage.", GmMessage.MINOR_VERSION);
+        
     }
 
     @objid ("d955eef3-55b6-11e2-877f-002564c97630")
@@ -177,6 +179,13 @@ public class GmMessage extends GmLink {
                 n.setRoleInComposition(ROLE_MAIN_LABEL);
             }
         }
+        
+    }
+
+    @objid ("e71e90d8-4bae-466d-8070-b7b57ed4aed3")
+    @Override
+    public ISymbolViewModel getSymbolViewModel() {
+        return GmMessageSymbolViewModel.create(getPersistedStyle(), this);
     }
 
 }

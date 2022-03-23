@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.viewer;
 
 import java.util.ArrayList;
@@ -42,23 +41,25 @@ public class StyleEditPanelUIData {
     @objid ("e3b28ae8-089e-4045-baa8-52a60bf0d07c")
     private boolean isEditable;
 
+    
     @mdl.prop
     @objid ("8d02287b-b7ad-4ffb-9e95-40b1d023cf60")
-    private IStyle styleData;
+    public IStyle styleData;
 
     @mdl.propgetter
     public IStyle getStyleData() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.styleData;
     }
 
+    
     @mdl.prop
     @objid ("11b2ff96-4f6d-46f2-8d19-199ba270864f")
-    private ISymbolViewModel styleTreeModel;
+    public ISymbolViewModel styleTreeModel;
 
     @mdl.propgetter
     public ISymbolViewModel getStyleTreeModel() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.styleTreeModel;
     }
 
@@ -71,15 +72,15 @@ public class StyleEditPanelUIData {
     /**
      * C'tor.
      * @param session the modeling session
-     * 
      * @param styleData the edited style data
      * @param isEditable whether or not this style can be edited
      */
     @objid ("f2c901f6-9f09-4bd6-80d9-f3c2b6ac6721")
-    public StyleEditPanelUIData(ISymbolViewModel styleTreeModel, IStyle styleData, boolean isEditable) {
+    public  StyleEditPanelUIData(ISymbolViewModel styleTreeModel, IStyle styleData, boolean isEditable) {
         this.styleTreeModel = styleTreeModel;
         this.styleData = styleData;
         this.isEditable = isEditable;
+        
     }
 
     /**
@@ -88,7 +89,7 @@ public class StyleEditPanelUIData {
      * @param editedStyle the edited style data
      */
     @objid ("fe83081b-115e-4745-863c-94bff8afc93c")
-    public StyleEditPanelUIData() {
+    public  StyleEditPanelUIData() {
         this(ISymbolViewModel.EMPTY, null, false);
     }
 
@@ -119,7 +120,7 @@ public class StyleEditPanelUIData {
         public final IStyle data;
 
         @objid ("e250687c-eaf2-40e9-978b-6bb7979cf8f4")
-        public CascadedData(IStyle data, String label) {
+        public  CascadedData(IStyle data, String label) {
             super();
             this.data = data;
             if (label != null) {
@@ -129,6 +130,7 @@ public class StyleEditPanelUIData {
             } else {
                 this.label = data.toString();
             }
+            
         }
 
     }

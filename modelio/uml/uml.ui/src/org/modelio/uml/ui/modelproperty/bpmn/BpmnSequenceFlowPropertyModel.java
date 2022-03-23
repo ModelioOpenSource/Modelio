@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import java.util.ArrayList;
@@ -66,21 +65,21 @@ public class BpmnSequenceFlowPropertyModel extends AbstractPropertyModel<BpmnSeq
      */
     @objid ("198b2626-cf9a-4b51-9b41-791edf63d615")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name", "Default Flow",
-            "Guard", "Immediate", "DataObject" };
+                "Guard", "Immediate", "DataObject" };
 
     @objid ("d9bea949-26da-4b29-b402-d656d28fd613")
     private IMModelServices modelService;
 
     /**
      * Create a new <i>BpmnSequenceFlow</i> data model from an <i>BpmnSequenceFlow</i>.
-     * 
      * @param theEditedElement the flow to edit.
      * @param modelService the model service needed to find elements.
      */
     @objid ("6fde7cdb-dfd4-4bcd-97d6-27e7d116b90f")
-    public BpmnSequenceFlowPropertyModel(BpmnSequenceFlow theEditedElement, IMModelServices modelService) {
+    public  BpmnSequenceFlowPropertyModel(BpmnSequenceFlow theEditedElement, IMModelServices modelService) {
         super(theEditedElement);
         this.modelService = modelService;
+        
     }
 
     @objid ("37eed1eb-b6cd-4f67-92a8-ad468a8a76af")
@@ -116,11 +115,11 @@ public class BpmnSequenceFlowPropertyModel extends AbstractPropertyModel<BpmnSeq
         sequenceFlowAssociation.setConnected(this.theEditedElement);
         sequenceFlowAssociation.getDataAssociation().add(sourceAssociation);
         sequenceFlowAssociation.getDataAssociation().add(targetAssociation);
+        
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("26822cc4-69a5-4719-b748-d2a1223c70bf")
@@ -131,7 +130,6 @@ public class BpmnSequenceFlowPropertyModel extends AbstractPropertyModel<BpmnSeq
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("fdd57a36-a89a-48c8-828c-971141147f6f")
@@ -144,7 +142,6 @@ public class BpmnSequenceFlowPropertyModel extends AbstractPropertyModel<BpmnSeq
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -186,6 +183,7 @@ public class BpmnSequenceFlowPropertyModel extends AbstractPropertyModel<BpmnSeq
         default:
             return null;
         }
+        
     }
 
     /**
@@ -194,7 +192,6 @@ public class BpmnSequenceFlowPropertyModel extends AbstractPropertyModel<BpmnSeq
      * This type will be used to choose an editor and a renderer for each cell of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -227,6 +224,7 @@ public class BpmnSequenceFlowPropertyModel extends AbstractPropertyModel<BpmnSeq
         default:
             return null;
         }
+        
     }
 
     @objid ("2af6d4fc-ed39-484a-a4ee-4a84a68f61d3")
@@ -251,13 +249,13 @@ public class BpmnSequenceFlowPropertyModel extends AbstractPropertyModel<BpmnSeq
         for (MObject mObject : toDelete) {
             mObject.delete();
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -336,6 +334,7 @@ public class BpmnSequenceFlowPropertyModel extends AbstractPropertyModel<BpmnSeq
         default:
             return;
         }
+        
     }
 
     @objid ("bf2703d6-0483-4080-827c-77eb5ad50a67")
@@ -352,6 +351,7 @@ public class BpmnSequenceFlowPropertyModel extends AbstractPropertyModel<BpmnSeq
         } else {
             return isEditable;
         }
+        
     }
 
 }

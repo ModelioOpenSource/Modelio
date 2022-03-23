@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl;
 
 import java.util.ArrayList;
@@ -57,10 +56,11 @@ public class Model implements IModel {
     private MMetamodel metamodel;
 
     @objid ("008c8f7a-5f00-10c8-842f-001ec947cd2a")
-    Model(CacheManager cacheManager, IRepositorySupport repositorySupport, MMetamodel metamodel) {
+     Model(CacheManager cacheManager, IRepositorySupport repositorySupport, MMetamodel metamodel) {
         this.cacheManager = cacheManager;
         this.repositorySupport = repositorySupport;
         this.metamodel = metamodel;
+        
     }
 
     @objid ("003a9062-61a6-10c8-842f-001ec947cd2a")
@@ -161,6 +161,7 @@ public class Model implements IModel {
         } else {
             return rawResults;
         }
+        
     }
 
     @objid ("b82ef254-b434-40a2-a065-444a89a3ee76")
@@ -178,6 +179,7 @@ public class Model implements IModel {
         } else {
             return rawResults;
         }
+        
     }
 
     @objid ("3f9628df-81bd-4c13-858f-b851846ffe91")
@@ -212,6 +214,7 @@ public class Model implements IModel {
         } else {
             return rawResults;
         }
+        
     }
 
     @objid ("6a8bfb6a-3ea1-4529-84d4-d905bffb07a9")
@@ -229,6 +232,7 @@ public class Model implements IModel {
         } else {
             return rawResults;
         }
+        
     }
 
     @objid ("9d88f704-17c0-4089-8c16-3c8b5a09e91c")

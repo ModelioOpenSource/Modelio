@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.commands;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,21 +28,21 @@ import org.modelio.diagram.elements.core.model.IEditableText;
 @objid ("7f4a2ad4-1dec-11e2-8cad-001ec947c8cc")
 public class TextEditCommand extends org.eclipse.gef.commands.Command {
     @objid ("8f025634-1e83-11e2-8cad-001ec947c8cc")
-     String newName;
+    String newName;
 
     @objid ("7f4a2ad9-1dec-11e2-8cad-001ec947c8cc")
-     IEditableText modelToRename;
+    IEditableText modelToRename;
 
     /**
      * Creates a rename command.
-     * 
      * @param modelToRename The editable element.
      * @param newName The new name.
      */
     @objid ("7f4a2ada-1dec-11e2-8cad-001ec947c8cc")
-    public TextEditCommand(IEditableText modelToRename, String newName) {
+    public  TextEditCommand(IEditableText modelToRename, String newName) {
         this.modelToRename = modelToRename;
         this.newName = newName;
+        
     }
 
     @objid ("7f4a2adf-1dec-11e2-8cad-001ec947c8cc")

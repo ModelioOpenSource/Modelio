@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ObjectNodeSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.CentralBufferNode;
 import org.modelio.metamodel.uml.behavior.activityModel.ObjectNode;
 import org.modelio.vbasic.version.Version;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("c1b2286d-e337-4b9b-b057-6319bed82980")
 public class CentralBufferNodeSmClass extends ObjectNodeSmClass {
     @objid ("e250f71c-6ab0-40cc-b271-c61952eebe34")
-    public CentralBufferNodeSmClass(ISmMetamodelFragment origin) {
+    public  CentralBufferNodeSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class CentralBufferNodeSmClass extends ObjectNodeSmClass {
     @Override
     public String getName() {
         return "CentralBufferNode";
+        
     }
 
     @objid ("a6a42ecd-c8fc-4cee-b329-7ed22280153e")
@@ -62,18 +62,21 @@ public class CentralBufferNodeSmClass extends ObjectNodeSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return CentralBufferNode.class;
+        
     }
 
     @objid ("838e4bbc-d73d-44d0-8cc0-d5ddc198fc91")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("07969b40-f081-4d94-9fe1-dadc2c3af7d0")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("53fe786a-8551-45d5-9cc3-fbf61bd39d36")
@@ -86,6 +89,7 @@ public class CentralBufferNodeSmClass extends ObjectNodeSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("f98b7244-88fb-405b-ab02-e77ae3931c55")
@@ -94,7 +98,7 @@ public class CentralBufferNodeSmClass extends ObjectNodeSmClass {
         private CentralBufferNodeSmClass smClass;
 
         @objid ("a287bb55-d545-4a83-989e-fc9b68f3f77f")
-        public CentralBufferNodeObjectFactory(CentralBufferNodeSmClass smClass) {
+        public  CentralBufferNodeObjectFactory(CentralBufferNodeSmClass smClass) {
             this.smClass = smClass;
         }
 

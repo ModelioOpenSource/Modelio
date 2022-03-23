@@ -17,19 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.diagrams;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.diagrams.BehaviorDiagram;
 import org.modelio.metamodel.diagrams.CommunicationDiagram;
-import org.modelio.metamodel.impl.diagrams.BehaviorDiagramSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("17789ac7-cdee-470b-bfec-fca419117bb1")
 public class CommunicationDiagramSmClass extends BehaviorDiagramSmClass {
     @objid ("57a503d7-439d-44cb-9d94-eb5535de0c58")
-    public CommunicationDiagramSmClass(ISmMetamodelFragment origin) {
+    public  CommunicationDiagramSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class CommunicationDiagramSmClass extends BehaviorDiagramSmClass {
     @Override
     public String getName() {
         return "CommunicationDiagram";
+        
     }
 
     @objid ("a2d40773-b8a7-4846-8454-9a5fe3c6dd4e")
@@ -62,18 +62,21 @@ public class CommunicationDiagramSmClass extends BehaviorDiagramSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return CommunicationDiagram.class;
+        
     }
 
     @objid ("c0f4db6f-da3c-41e3-b9db-9173f4cf7806")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("7d8b6220-3382-4696-b13d-8e3dfc1c0a00")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("9e5210c8-2f50-4ddb-bb18-bf382a3f2402")
@@ -86,6 +89,7 @@ public class CommunicationDiagramSmClass extends BehaviorDiagramSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("87964011-b5f5-4194-a4db-22d7f5a953ba")
@@ -94,7 +98,7 @@ public class CommunicationDiagramSmClass extends BehaviorDiagramSmClass {
         private CommunicationDiagramSmClass smClass;
 
         @objid ("a89f48d3-2475-47fa-95f0-17cde86d1355")
-        public CommunicationDiagramObjectFactory(CommunicationDiagramSmClass smClass) {
+        public  CommunicationDiagramObjectFactory(CommunicationDiagramSmClass smClass) {
             this.smClass = smClass;
         }
 

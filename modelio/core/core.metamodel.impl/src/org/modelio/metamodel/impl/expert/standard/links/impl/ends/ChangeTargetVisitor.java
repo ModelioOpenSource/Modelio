@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.expert.standard.links.impl.ends;
 
 import java.util.ArrayList;
@@ -118,7 +117,7 @@ public class ChangeTargetVisitor extends DefaultModelVisitor {
      * Constructor
      */
     @objid ("d1302ed9-a61a-4317-9946-29e8e5948925")
-    public ChangeTargetVisitor() {
+    public  ChangeTargetVisitor() {
         this(new InfraVisitor());
     }
 
@@ -141,6 +140,7 @@ public class ChangeTargetVisitor extends DefaultModelVisitor {
         } else {
             return visitAssociationEnd(ends.get(0));
         }
+        
     }
 
     @objid ("410de8f6-d373-4390-8382-cc8f9ff68007")
@@ -257,6 +257,7 @@ public class ChangeTargetVisitor extends DefaultModelVisitor {
         } else {
             return visitConnectorEnd((ConnectorEnd) ends.get(0));
         }
+        
     }
 
     @objid ("3901b594-be9c-4c16-b0fe-f59d4837672d")
@@ -347,6 +348,7 @@ public class ChangeTargetVisitor extends DefaultModelVisitor {
         } else {
             return visitLinkEnd(ends.get(0));
         }
+        
     }
 
     @objid ("cfd75ab0-26bb-46b5-a662-a277343c4660")
@@ -437,6 +439,7 @@ public class ChangeTargetVisitor extends DefaultModelVisitor {
             // Not supported
             throw new IllegalArgumentException(this.newTarget + " is not a supported target for " + theProvidedInterface + ". Use a NaryConnectorEnd.");
         }
+        
     }
 
     @objid ("d2e1a0ce-174f-47e0-9327-a7805a99c274")
@@ -460,6 +463,7 @@ public class ChangeTargetVisitor extends DefaultModelVisitor {
             // Not supported
             throw new IllegalArgumentException(this.newTarget + " is not a supported target for " + theRequiredInterface + ". Use a NaryConnectorEnd.");
         }
+        
     }
 
     @objid ("d8cbaa07-ae04-45c7-9633-3d9997e4302b")
@@ -521,6 +525,7 @@ public class ChangeTargetVisitor extends DefaultModelVisitor {
                 end.delete();
             }
         }
+        
     }
 
     @objid ("2c2b3a5a-d058-441d-a149-05f871190334")
@@ -542,6 +547,7 @@ public class ChangeTargetVisitor extends DefaultModelVisitor {
                 end.delete();
             }
         }
+        
     }
 
     @objid ("4d6ec699-7ae6-48fa-82ce-42141801f054")
@@ -555,6 +561,7 @@ public class ChangeTargetVisitor extends DefaultModelVisitor {
         if (target != null) {
             el.getNaryProvider().add(target);
         }
+        
     }
 
     @objid ("03589f43-a243-45db-adb1-25ad9920a016")
@@ -568,12 +575,14 @@ public class ChangeTargetVisitor extends DefaultModelVisitor {
         if (target != null) {
             el.getNaryConsumer().add(target);
         }
+        
     }
 
     @objid ("978c124e-bce6-4df8-966c-eb871adc26ec")
-    private ChangeTargetVisitor(InfraVisitor infraVisitor) {
+    private  ChangeTargetVisitor(InfraVisitor infraVisitor) {
         super(infraVisitor);
         infraVisitor.csv = this;
+        
     }
 
     @objid ("940afd42-7995-472b-9d12-6fcda6bf1dcc")

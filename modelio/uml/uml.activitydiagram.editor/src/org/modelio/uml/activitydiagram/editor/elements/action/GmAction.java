@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.action;
 
 import java.util.Collections;
@@ -32,8 +31,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityAction;
 import org.modelio.metamodel.uml.behavior.activityModel.InputPin;
 import org.modelio.metamodel.uml.behavior.activityModel.OpaqueAction;
@@ -68,26 +67,25 @@ public class GmAction extends GmPinContainer {
     private static final String IMAGE_LABEL_ROLE = "ImageLabel";
 
     @objid ("29811d98-55b6-11e2-877f-002564c97630")
-     static final GmActionSimpleStyleKeys SIMPLE_KEYS = new GmActionSimpleStyleKeys();
+    static final GmActionSimpleStyleKeys SIMPLE_KEYS = new GmActionSimpleStyleKeys();
 
     @objid ("2f43af53-58a2-11e2-9574-002564c97630")
-     static final GmActionStructuredStyleKeys STRUCTURED_KEYS = new GmActionStructuredStyleKeys();
+    static final GmActionStructuredStyleKeys STRUCTURED_KEYS = new GmActionStructuredStyleKeys();
 
     @objid ("2f43af55-58a2-11e2-9574-002564c97630")
-     static final GmActionImageStyleKeys IMAGE_KEYS = new GmActionImageStyleKeys();
+    static final GmActionImageStyleKeys IMAGE_KEYS = new GmActionImageStyleKeys();
 
     @objid ("9cc97483-88b7-4667-b9da-714db407613e")
-     static final GmActionUserImageStyleKeys USERIMAGE_KEYS = new GmActionUserImageStyleKeys();
+    static final GmActionUserImageStyleKeys USERIMAGE_KEYS = new GmActionUserImageStyleKeys();
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the action is unmasked.
      * @param el the unmasked action.
      * @param ref a reference to the unmasked action.
      */
     @objid ("29811da3-55b6-11e2-877f-002564c97630")
-    public GmAction(IGmDiagram diagram, OpaqueAction el, MRef ref) {
+    public  GmAction(IGmDiagram diagram, OpaqueAction el, MRef ref) {
         super(diagram, ref);
         this.element = el;
         
@@ -100,6 +98,7 @@ public class GmAction extends GmPinContainer {
         
         super.addChild(mainNode);
         super.addChild(imageModeHeader);
+        
     }
 
     @objid ("29811daf-55b6-11e2-877f-002564c97630")
@@ -114,6 +113,7 @@ public class GmAction extends GmPinContainer {
         return ((InputPin.class.isAssignableFrom(el.getClass()) ||
                         OutputPin.class.isAssignableFrom(el.getClass()) || ValuePin.class.isAssignableFrom(el.getClass())) &&
                         el.isValid() && el.getCompositionOwner().equals(this.element));
+        
     }
 
     @objid ("2982a421-55b6-11e2-877f-002564c97630")
@@ -160,7 +160,7 @@ public class GmAction extends GmPinContainer {
      * Empty constructor needed for deserialization.
      */
     @objid ("2982a434-55b6-11e2-877f-002564c97630")
-    public GmAction() {
+    public  GmAction() {
         // Nothing specific to do.
     }
 
@@ -185,6 +185,7 @@ public class GmAction extends GmPinContainer {
             break;
         }
         }
+        
     }
 
     @objid ("2982a43d-55b6-11e2-877f-002564c97630")
@@ -206,6 +207,7 @@ public class GmAction extends GmPinContainer {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmAction.", GmAction.MINOR_VERSION);
+        
     }
 
     @objid ("2982a451-55b6-11e2-877f-002564c97630")
@@ -218,6 +220,7 @@ public class GmAction extends GmPinContainer {
         imageModeHeader.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         
         super.addChild(imageModeHeader, 1);
+        
     }
 
     @objid ("2982a456-55b6-11e2-877f-002564c97630")
@@ -230,6 +233,7 @@ public class GmAction extends GmPinContainer {
     private void read_1(final IDiagramReader in) {
         super.read(in);
         this.element = (OpaqueAction) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("29842ac2-55b6-11e2-877f-002564c97630")
@@ -245,6 +249,7 @@ public class GmAction extends GmPinContainer {
                 ret.remove(imageModeHeader);
                 break;
             }
+            case USER_IMAGE:
             case IMAGE:
             default: {
                 break;
@@ -257,7 +262,6 @@ public class GmAction extends GmPinContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -267,11 +271,11 @@ public class GmAction extends GmPinContainer {
         String role = childNode.getRoleInComposition();
         return GmPortContainer.SATELLITE_ROLE.equals(role)
                         || GmAction.IMAGE_LABEL_ROLE.equals(role);
+        
     }
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */

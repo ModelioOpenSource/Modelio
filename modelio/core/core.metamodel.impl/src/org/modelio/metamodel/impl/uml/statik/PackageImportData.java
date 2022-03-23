@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,19 +33,19 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("00169568-c4bf-1fd8-97fe-001ec947cd2a")
 public class PackageImportData extends UmlModelElementData {
     @objid ("37e228aa-f768-4f1c-a143-251e9af10948")
-     Object mVisibility = VisibilityMode.PRIVATE;
+    Object mVisibility = VisibilityMode.PRIVATE;
 
     @objid ("c0cdc1de-32d6-4cc3-ab2c-320900920f91")
-     SmObjectImpl mImportingOperation;
+    SmObjectImpl mImportingOperation;
 
     @objid ("631c5fa4-3ffc-4d5b-a9fa-ed4c179f59dd")
-     SmObjectImpl mImportingNameSpace;
+    SmObjectImpl mImportingNameSpace;
 
     @objid ("13903c71-6ef7-4c70-af67-e1f63e01ef21")
-     SmObjectImpl mImportedPackage;
+    SmObjectImpl mImportedPackage;
 
     @objid ("175a4e04-31db-4fa0-98f4-5328afa8ea88")
-    public PackageImportData(PackageImportSmClass smClass) {
+    public  PackageImportData(PackageImportSmClass smClass) {
         super(smClass);
     }
 

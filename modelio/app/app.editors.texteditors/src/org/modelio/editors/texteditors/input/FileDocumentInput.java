@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.texteditors.input;
 
 import java.io.BufferedReader;
@@ -72,9 +71,10 @@ public class FileDocumentInput extends AbstractInput implements IDocumentInput {
      * @param file the file to edit.
      */
     @objid ("7b5333eb-2a77-11e2-9fb9-bc305ba4815c")
-    public FileDocumentInput(File file) {
+    public  FileDocumentInput(File file) {
         this.file = file;
         this.charsetName = DEFAULT_CHARSET_NAME;
+        
     }
 
     @objid ("7b5333ee-2a77-11e2-9fb9-bc305ba4815c")
@@ -150,6 +150,7 @@ public class FileDocumentInput extends AbstractInput implements IDocumentInput {
         if(this.saveListener != null){
             this.saveListener.documentSaved(this.file);
         }
+        
     }
 
     @objid ("7b53340c-2a77-11e2-9fb9-bc305ba4815c")
@@ -184,6 +185,7 @@ public class FileDocumentInput extends AbstractInput implements IDocumentInput {
         } catch (IOException x) {
             TextEditors.LOG.error(x);
         }
+        
     }
 
     @objid ("c1ea9a83-2e5d-11e2-a8ff-bc305ba4815c")
@@ -198,6 +200,7 @@ public class FileDocumentInput extends AbstractInput implements IDocumentInput {
         if(this.saveListener != null){
             this.saveListener.editorClosed();
         }
+        
     }
 
     @objid ("43af09fc-98e9-4d24-8c4d-969499cf9bd3")
@@ -214,12 +217,13 @@ public class FileDocumentInput extends AbstractInput implements IDocumentInput {
     public void setCharsetName(String charsetName) {
         this.charsetName = charsetName;
         doLoad();
+        
     }
 
     @objid ("108d1992-f6be-4702-b2e2-5bc167f3eaf3")
     private final class DocumentListener implements IDocumentListener {
         @objid ("f48b5239-68fa-4ca0-a3d7-59a99691f1bb")
-        public DocumentListener() {
+        public  DocumentListener() {
             // none
         }
 

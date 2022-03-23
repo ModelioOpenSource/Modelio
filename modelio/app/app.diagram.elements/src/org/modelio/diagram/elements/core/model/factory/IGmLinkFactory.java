@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.model.factory;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,6 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IGmLinkFactory {
     /**
      * Creates a graphic link representing the given link element.
-     * 
      * @param diagram the diagram in which the gm is to be created
      * @param linkElement The model element to display
      * @return the created graphic link
@@ -47,7 +45,6 @@ public interface IGmLinkFactory {
      * <p>
      * Implementers should use this method when a Gm class is moved or renamed in order for the diagram persistence to properly instantiate persisted objects.
      * </p>
-     * 
      * @param namespace The class name
      * @return The matching class or <i>null</i> if none was found.
      */
@@ -59,7 +56,6 @@ public interface IGmLinkFactory {
      * <p>
      * Implementers should use this method when a Gm class is moved or renamed in order for the diagram persistence to properly instantiate these objects.
      * </p>
-     * 
      * @param namespace The class name
      * @return The matching class or <i>null</i> if none was found.
      */
@@ -71,7 +67,6 @@ public interface IGmLinkFactory {
      * <p>
      * Implementers should use this method when an enumeration class is moved or renamed in order for the diagram persistence to properly instantiate these objects.
      * </p>
-     * 
      * @param namespace The class name
      * @return The matching class or <i>null</i> if none was found.
      */

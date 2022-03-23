@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.infrastructure.AbstractResourceSmClass;
 import org.modelio.metamodel.uml.infrastructure.AbstractResource;
 import org.modelio.metamodel.uml.infrastructure.Document;
 import org.modelio.vbasic.version.Version;
@@ -46,7 +45,7 @@ public class DocumentSmClass extends AbstractResourceSmClass {
     private SmAttribute abstractAtt;
 
     @objid ("0c28561f-d558-410c-a8ec-78ddd5f23e40")
-    public DocumentSmClass(ISmMetamodelFragment origin) {
+    public  DocumentSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -54,6 +53,7 @@ public class DocumentSmClass extends AbstractResourceSmClass {
     @Override
     public String getName() {
         return "Document";
+        
     }
 
     @objid ("c7117dcf-637a-42bc-84f0-8ed7b58e57ec")
@@ -66,18 +66,21 @@ public class DocumentSmClass extends AbstractResourceSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Document.class;
+        
     }
 
     @objid ("df9ce3f8-502f-4c02-8b66-7838ce06049c")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("fb9cc3b5-0a6a-45c6-b97c-57a78bf665e6")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("b3195a3e-f441-407e-b5f6-701923c58488")
@@ -94,6 +97,7 @@ public class DocumentSmClass extends AbstractResourceSmClass {
         
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("c2f17196-e8bf-4c2a-8258-7a7cbec7fd4c")
@@ -124,7 +128,7 @@ public class DocumentSmClass extends AbstractResourceSmClass {
         private DocumentSmClass smClass;
 
         @objid ("bb316e69-cfea-4115-8412-9b6b913958fa")
-        public DocumentObjectFactory(DocumentSmClass smClass) {
+        public  DocumentObjectFactory(DocumentSmClass smClass) {
             this.smClass = smClass;
         }
 

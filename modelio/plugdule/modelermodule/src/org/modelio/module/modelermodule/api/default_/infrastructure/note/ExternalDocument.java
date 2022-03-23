@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.infrastructure.note;
 
@@ -50,30 +49,29 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("7b670613-5bc2-4326-b6e3-1f8c5e4fe52e")
 public class ExternalDocument {
-    @objid ("c7166406-df32-47fd-85cf-cf57a49875ce")
+    @objid ("b21df0ab-4a5a-41bb-8a00-f0e6c985e18f")
     public static final String STEREOTYPE_NAME = "ExternalDocument";
 
-    @objid ("440ccbb8-f943-4930-aa44-314a9e6ef66a")
+    @objid ("bbf5b8b3-e14b-40c6-803a-824509c9c1db")
     public static final String LINKLABEL_TAGTYPE = "LinkLabel";
 
-    @objid ("f6363587-33e0-49d7-b39e-281c778dd6a4")
+    @objid ("b8a64f71-c3a7-4b96-85d3-090602f4f00b")
     public static final String ISLINK_TAGTYPE = "isLink";
 
     /**
      * The underlying {@link Note} represented by this proxy, never null.
      */
-    @objid ("6292058d-2129-49d1-b42f-ced175ec82c6")
+    @objid ("6a616c4a-0f70-43a0-8f9c-67cf8914e6e7")
     protected final Note elt;
 
     /**
      * Tells whether a {@link ExternalDocument proxy} can be instantiated from a {@link MObject} checking it is a {@link Note} stereotyped << ExternalDocument >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("5496a72f-f549-4b50-a8c2-3e2262cd9ac5")
+    @objid ("988201f1-4b76-4917-8226-196e42ecfa54")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Note) && ((Note) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, ExternalDocument.STEREOTYPE_NAME));
     }
@@ -83,9 +81,9 @@ public class ExternalDocument {
      * 
      * @return a {@link ExternalDocument} proxy on the created {@link Note}.
      */
-    @objid ("ba09bf3b-0489-42ac-ba02-6efdedfe2009")
+    @objid ("fe789440-ce84-48b3-a36a-3e9714287ca9")
     public static ExternalDocument create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Note");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Infrastructure.Note");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, ExternalDocument.STEREOTYPE_NAME);
         return ExternalDocument.instantiate((Note)e);
     }
@@ -97,7 +95,7 @@ public class ExternalDocument {
      * @param obj a Note
      * @return a {@link ExternalDocument} proxy or <i>null</i>.
      */
-    @objid ("bf9e07a0-1f52-4dd0-8656-08a6f7c59f48")
+    @objid ("958bbd28-c55b-4466-b5c8-45fa7b7e969f")
     public static ExternalDocument instantiate(Note obj) {
         return ExternalDocument.canInstantiate(obj) ? new ExternalDocument(obj) : null;
     }
@@ -110,7 +108,7 @@ public class ExternalDocument {
      * @return a {@link ExternalDocument} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("24688547-6f9d-43ad-9135-08b1cde7ade5")
+    @objid ("fabc773b-3f93-4a36-97d7-820468798dbc")
     public static ExternalDocument safeInstantiate(Note obj) throws IllegalArgumentException {
         if (ExternalDocument.canInstantiate(obj))
         	return new ExternalDocument(obj);
@@ -118,7 +116,7 @@ public class ExternalDocument {
         	throw new IllegalArgumentException("ExternalDocument: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("d6c27838-2394-4c66-916d-f007c8e70e47")
+    @objid ("9fb1077c-302e-4dd7-b581-bf1e2db9781f")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -138,7 +136,7 @@ public class ExternalDocument {
      * Get the underlying {@link Note}. 
      * @return the Note represented by this proxy, never null.
      */
-    @objid ("0d10c849-3991-44e4-98d4-46e04f5aab0c")
+    @objid ("757b4f5b-0f0d-4e1b-9b48-a35564d81d31")
     public Note getElement() {
         return this.elt;
     }
@@ -148,15 +146,16 @@ public class ExternalDocument {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("e5eb11e9-b4ae-47a5-b0cb-b5494f427a36")
+    @objid ("c1a7e94e-3783-43a6-bedf-a4eda25c1349")
     public String getLinkLabel() {
         return this.elt.getTagValue(ExternalDocument.MdaTypes.LINKLABEL_TAGTYPE_ELT);
     }
 
-    @objid ("50555489-8607-4fae-b265-15cab1875a62")
+    @objid ("d2e7a71a-9e19-4dfc-8c67-0b0631ccbf9f")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
     /**
@@ -164,7 +163,7 @@ public class ExternalDocument {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("748b6a5d-e29b-4ee5-adcf-bbd91f121c5e")
+    @objid ("61b96be8-da89-4c99-8d22-9f7eacd585bd")
     public boolean isIsLink() {
         return this.elt.isTagged(ExternalDocument.MdaTypes.ISLINK_TAGTYPE_ELT);
     }
@@ -174,7 +173,7 @@ public class ExternalDocument {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("716a64cf-85e0-4d73-8500-2a9d2972a5f7")
+    @objid ("9b084d61-5eeb-4e40-9f72-62bebc8a311d")
     public void setIsLink(boolean value) {
         if (value)
           ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createTaggedValue(ExternalDocument.MdaTypes.ISLINK_TAGTYPE_ELT, this.elt);
@@ -187,48 +186,48 @@ public class ExternalDocument {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("90d7dbac-db7e-4a18-96f7-b7cbfdf43215")
+    @objid ("dd9e2663-1a62-4627-a3c9-ba9fd5d7083c")
     public void setLinkLabel(String value) {
         this.elt.putTagValue(ExternalDocument.MdaTypes.LINKLABEL_TAGTYPE_ELT, value);
     }
 
-    @objid ("2942fbfb-3053-4a8a-9e51-f285dab4ee7e")
-    protected ExternalDocument(Note elt) {
+    @objid ("26fb636b-e7f3-4f9b-9b22-cbb151109a2c")
+    protected  ExternalDocument(Note elt) {
         this.elt = elt;
     }
 
     @objid ("8daed5a0-e2f1-4a7f-accc-c1b2e6b7509c")
     public static final class MdaTypes {
-        @objid ("3a5d6dc1-4ecc-4705-87a9-2463b875a8fa")
+        @objid ("002f40df-4269-4d8d-b7dd-5499b789af7d")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("9d86d7bc-6d06-479f-a979-9541c2020c6e")
+        @objid ("67da92f6-755a-4b97-badb-918ed5d2a2fb")
         public static TagType ISLINK_TAGTYPE_ELT;
 
-        @objid ("900bb8c4-4d8e-408f-a2f7-bdb5f6da15e1")
+        @objid ("f4bcbff9-c43d-4952-b021-48a02457649b")
         public static TagType LINKLABEL_TAGTYPE_ELT;
 
-        @objid ("b3cf6817-5333-4cc7-9338-5e50ab423f3a")
+        @objid ("8a285e9f-27f8-4b13-ba39-7e7312451420")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("8c564b48-5f8d-4e38-9606-624c776d3429")
+        @objid ("96d659ac-740e-4feb-99af-5772727f790b")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("a120dd4c-e523-4d50-bc1c-83c3be7d8d66")
+        @objid ("31540842-e8e6-4a31-acec-c38cae6da6e0")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "c2e23680-96f0-11de-a322-001fe2c988b8");
             ISLINK_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "0da68860-96f1-11de-a322-001fe2c988b8");
             LINKLABEL_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "4027c488-2b5c-11df-9426-00137279a5d1");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

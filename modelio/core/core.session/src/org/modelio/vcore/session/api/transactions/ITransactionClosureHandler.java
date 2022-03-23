@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.api.transactions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,7 +28,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface ITransactionClosureHandler {
     /**
      * Called during the transaction commit process.
-     * 
      * @param transaction the transaction
      */
     @objid ("bb9589d6-a5ba-418c-9a17-dd6b0ad73c41")

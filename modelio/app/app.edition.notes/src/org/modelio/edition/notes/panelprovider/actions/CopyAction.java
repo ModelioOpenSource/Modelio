@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.panelprovider.actions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,10 +31,11 @@ public class CopyAction extends Action {
     private NotesPanelController controller;
 
     @objid ("eea52e5b-bda0-4041-9c40-1a9a854cd48c")
-    public CopyAction(NotesPanelController controller) {
+    public  CopyAction(NotesPanelController controller) {
         this.controller = controller;
         this.setText(EditionNotes.I18N.getString("CopyAnnotation.label"));
         this.setImageDescriptor(UI.getImageDescriptor("icons/copy.png"));
+        
     }
 
     @objid ("072b6dd9-f5b5-4919-a936-c7ec4aacd9bf")

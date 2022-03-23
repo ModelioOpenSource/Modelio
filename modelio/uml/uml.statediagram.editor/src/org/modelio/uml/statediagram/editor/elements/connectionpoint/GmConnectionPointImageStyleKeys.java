@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.connectionpoint;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,22 +30,22 @@ import org.modelio.uml.statediagram.editor.style.StateAbstractStyleKeyProvider;
 @objid ("f4fdb4c7-55b6-11e2-877f-002564c97630")
 public class GmConnectionPointImageStyleKeys extends StateAbstractStyleKeyProvider {
     @objid ("814fca4c-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("CONNECTIONPOINT_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("CONNECTIONPOINT_REPMODE", MetaKey.REPMODE);
 
     @objid ("814fca4e-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("CONNECTIONPOINT_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("CONNECTIONPOINT_FONT", MetaKey.FONT);
 
     @objid ("814fca50-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("CONNECTIONPOINT_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("CONNECTIONPOINT_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("814fca52-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("CONNECTIONPOINT_SHOWSTEREOTYPES",
-                                                           MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("CONNECTIONPOINT_SHOWSTEREOTYPES",
+                                                                   MetaKey.SHOWSTEREOTYPES);
 
     @objid ("814fca54-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("CONNECTIONPOINT_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("CONNECTIONPOINT_SHOWTAGS", MetaKey.SHOWTAGS);
 
     @objid ("814fca56-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWLABEL = createStyleKey("CONNECTIONPOINT_SHOWLABEL", MetaKey.SHOWLABEL);
+    static final StyleKey SHOWLABEL = createStyleKey("CONNECTIONPOINT_SHOWLABEL", MetaKey.SHOWLABEL);
 
 }

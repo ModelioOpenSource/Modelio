@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.contributor;
 
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.modelio.api.ui.viewtemplate.IModelViewTemplate;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
@@ -49,7 +48,7 @@ public class SequenceDiagramTemplate implements IModelViewTemplate<AbstractDiagr
      * Mandatory default c'tor needed by eclipse when loading the extension point.
      */
     @objid ("533582a7-b421-49dd-85af-ee959697d4ad")
-    public SequenceDiagramTemplate() {
+    public  SequenceDiagramTemplate() {
         super();
     }
 

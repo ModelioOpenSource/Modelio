@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.util.ArrayList;
@@ -58,22 +57,20 @@ public class IOParameterPropertyModel extends AbstractPropertyModel<Parameter> {
      */
     @objid ("85b56464-abde-435f-b190-a5e16238c043")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name", "Type",
-			"MultiplicityMin", "MultiplicityMax", "ParameterPassing", "DefaultValue", "TypeConstraint", "Effect",
-			"IsException", "IsStream", "IsOrdered", "IsUnique" };
+    			"MultiplicityMin", "MultiplicityMax", "ParameterPassing", "DefaultValue", "TypeConstraint", "Effect",
+    			"IsException", "IsStream", "IsOrdered", "IsUnique" };
 
     /**
      * Create a new <i>Parameter</i> data model from an <i>Parameter</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("14e88586-a9f8-4286-b6de-de94ba6a3cae")
-    public IOParameterPropertyModel(Parameter theEditedElement) {
+    public  IOParameterPropertyModel(Parameter theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("faaef5c4-34e3-482c-83fe-ae2ebd794a0a")
@@ -84,7 +81,6 @@ public class IOParameterPropertyModel extends AbstractPropertyModel<Parameter> {
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("dc6e4208-bc4e-4675-b83c-df7c0c878eb1")
@@ -97,7 +93,6 @@ public class IOParameterPropertyModel extends AbstractPropertyModel<Parameter> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -141,6 +136,7 @@ public class IOParameterPropertyModel extends AbstractPropertyModel<Parameter> {
         default:
             return null;
         }
+        
     }
 
     /**
@@ -150,7 +146,6 @@ public class IOParameterPropertyModel extends AbstractPropertyModel<Parameter> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -202,13 +197,13 @@ public class IOParameterPropertyModel extends AbstractPropertyModel<Parameter> {
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -266,6 +261,7 @@ public class IOParameterPropertyModel extends AbstractPropertyModel<Parameter> {
         default:
             return;
         }
+        
     }
 
 }

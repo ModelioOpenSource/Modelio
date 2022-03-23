@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.modules.list;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,8 +30,8 @@ import org.modelio.api.module.lifecycle.ModuleException;
 import org.modelio.app.project.conf.plugin.AppProjectConfExt;
 import org.modelio.gproject.module.GModule;
 import org.modelio.platform.mda.infra.service.IModuleManagementService;
-import org.modelio.platform.mda.infra.service.IRTModule.ModuleRuntimeState;
 import org.modelio.platform.mda.infra.service.IRTModule;
+import org.modelio.platform.mda.infra.service.IRTModule.ModuleRuntimeState;
 
 /**
  * ModuleStateEditingSupport provides EditingSupport implementation for the module state.
@@ -48,14 +47,14 @@ class ModuleStateEditingSupport extends EditingSupport {
     /**
      * Initialize the ModuleStateEditingSupport.
      * @param applicationContext the Eclipse 4 context
-     * 
      * @param viewer The style viewer.
      */
     @objid ("38e961e8-a7e8-4620-9765-90e7c55f0303")
-    public ModuleStateEditingSupport(TableViewer viewer, IModuleManagementService moduleService) {
+    public  ModuleStateEditingSupport(TableViewer viewer, IModuleManagementService moduleService) {
         super(viewer);
         this.viewer = viewer;
         this.moduleService = moduleService;
+        
     }
 
     @objid ("8a4d7dba-f5a7-4448-ae51-70e543d42707")
@@ -105,6 +104,7 @@ class ModuleStateEditingSupport extends EditingSupport {
         }
         
         this.viewer.setSelection(new StructuredSelection(element));
+        
     }
 
 }

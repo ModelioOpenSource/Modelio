@@ -17,19 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
-import org.modelio.metamodel.impl.uml.statik.ArtifactSmClass;
-import org.modelio.metamodel.impl.uml.statik.ManifestationData;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.metamodel.uml.statik.Artifact;
 import org.modelio.metamodel.uml.statik.Manifestation;
@@ -53,7 +51,7 @@ public class ManifestationSmClass extends UmlModelElementSmClass {
     private SmDependency ownerDep;
 
     @objid ("f9a2d852-d7fe-49cc-846e-ffca4239085f")
-    public ManifestationSmClass(ISmMetamodelFragment origin) {
+    public  ManifestationSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -61,6 +59,7 @@ public class ManifestationSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "Manifestation";
+        
     }
 
     @objid ("521a61ee-ffa3-4c14-aa44-59b70d61b58c")
@@ -73,18 +72,21 @@ public class ManifestationSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Manifestation.class;
+        
     }
 
     @objid ("f2e4ea4f-b04e-481a-8038-340735aad5d7")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("1693d488-bc8c-4c26-9d01-38f6c1e98a63")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("a59fe9cb-1e3a-481a-9036-4bf226f09ebe")
@@ -104,6 +106,8 @@ public class ManifestationSmClass extends UmlModelElementSmClass {
         this.ownerDep = new OwnerSmDependency();
         this.ownerDep.init("Owner", this, metamodel.getMClass(Artifact.MQNAME), 1, 1 , SmDirective.SMCDLINKSOURCE);
         registerDependency(this.ownerDep);
+        
+        
     }
 
     @objid ("43541339-539f-4701-8ad9-e63baf6933b1")
@@ -126,6 +130,7 @@ public class ManifestationSmClass extends UmlModelElementSmClass {
     @Override
     public boolean isLinkMetaclass() {
         return true;
+        
     }
 
     @objid ("ec781bc6-b111-4eaa-bb35-03c5bfc49845")
@@ -134,7 +139,7 @@ public class ManifestationSmClass extends UmlModelElementSmClass {
         private ManifestationSmClass smClass;
 
         @objid ("8f8878d3-d3ce-4224-bc98-572af09f6f04")
-        public ManifestationObjectFactory(ManifestationSmClass smClass) {
+        public  ManifestationObjectFactory(ManifestationSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -176,6 +181,7 @@ public class ManifestationSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((UmlModelElementSmClass)this.getTarget()).getManifestingDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -204,6 +210,7 @@ public class ManifestationSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((ArtifactSmClass)this.getTarget()).getUtilizedDep();
             }
             return this.symetricDep;
+            
         }
 
     }

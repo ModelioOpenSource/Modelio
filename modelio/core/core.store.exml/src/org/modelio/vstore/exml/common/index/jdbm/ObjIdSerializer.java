@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common.index.jdbm;
 
 import java.io.IOException;
@@ -43,6 +42,7 @@ class ObjIdSerializer implements Serializer<ObjId> {
         
         out.writeUTF(obj.id);
         out.writeUTF(obj.classof.getQualifiedName());
+        
     }
 
     @objid ("82d690ee-5ca7-11e1-863f-001ec947ccaf")
@@ -59,9 +59,10 @@ class ObjIdSerializer implements Serializer<ObjId> {
     }
 
     @objid ("2dbb8cb6-68be-4077-bb6f-b4281bf44fb2")
-    public ObjIdSerializer(SmMetamodel metamodel) {
+    public  ObjIdSerializer(SmMetamodel metamodel) {
         assert (metamodel != null);
         this.metamodel = metamodel;
+        
     }
 
 }

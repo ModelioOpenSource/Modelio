@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.project.creation;
 
 import java.io.FileNotFoundException;
@@ -67,14 +66,14 @@ public class ProjectCreator implements IProjectCreator {
     @objid ("235c0e6a-5041-4823-a2f9-408010612d74")
     private List<MRef> diagrams = new ArrayList<>();
 
-/*
-     * (non-Javadoc)
-     * @see
-     * org.modelio.platform.project.creation.IProjectCreator#createProject(org
-     * .modelio.app.project.core.creation. ProjectCreationDataModel,
-     * org.modelio.gproject.module.IModuleCatalog,
-     * org.eclipse.core.runtime.IProgressMonitor)
-     */
+    /*
+         * (non-Javadoc)
+         * @see
+         * org.modelio.platform.project.creation.IProjectCreator#createProject(org
+         * .modelio.app.project.core.creation. ProjectCreationDataModel,
+         * org.modelio.gproject.module.IModuleCatalog,
+         * org.eclipse.core.runtime.IProgressMonitor)
+         */
     @objid ("007534b0-7310-10b7-9941-001ec947cd2a")
     @Override
     public void createProject(IProjectCreationData creationData, IGProjectEnv configuration, IModelioProgress monitor) throws IOException {
@@ -120,6 +119,7 @@ public class ProjectCreator implements IProjectCreator {
         
         project.save(mon); // _mon_ : give remaining of progress to save()
         project.close();
+        
     }
 
     @objid ("cde8bf09-9636-49a5-8113-d98f394c07c4")
@@ -138,11 +138,11 @@ public class ProjectCreator implements IProjectCreator {
         
             t.commit();
         }
+        
     }
 
     /**
      * Return the diagrams that ought to be opened when first opening the project right after its creation
-     * 
      * @return the diagrams to open.
      */
     @objid ("8716539d-59a0-4e88-8366-8d78d836652f")
@@ -152,12 +152,11 @@ public class ProjectCreator implements IProjectCreator {
 
     /**
      * Find the ModelerModule, if not found : abort as this module is mandatory.
-     * 
      * @param moduleCache the modules cache
      * @param monitor a progress monitor
      * @return the ModelerModule handle
-     * @throws java.io.IOException in case of failure
-     * @throws java.nio.file.FileSystemException in case of file system error
+     * @throws IOException in case of failure
+     * @throws FileSystemException in case of file system error
      */
     @objid ("3e9074cc-ba08-40be-ac20-9f2456c7e329")
     private IModuleHandle getModelerModule(IModuleRTCache moduleCache, IModelioProgress monitor) throws IOException, FileSystemException {

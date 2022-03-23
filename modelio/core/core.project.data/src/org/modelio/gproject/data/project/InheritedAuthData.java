@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.project;
 
 import java.util.Collections;
@@ -43,7 +42,8 @@ public class InheritedAuthData extends AuthData {
      * Initialize the authentication data.
      */
     @objid ("22153524-abd3-48ec-a8dd-ce218ea8c7c1")
-    public InheritedAuthData() {
+    public  InheritedAuthData() {
+        
     }
 
     @objid ("23c62957-9a34-41f2-9fa0-6864c9ebb2b1")
@@ -66,7 +66,6 @@ public class InheritedAuthData extends AuthData {
 
     /**
      * Convenience method to test whether an authentication data is inherited.
-     * 
      * @param d an authentication data
      * @return <i>true</i> if the data is inherited.
      */

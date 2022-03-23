@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.api.transactions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -76,7 +75,6 @@ public interface ITransaction extends AutoCloseable {
 
     /**
      * Get the transaction's name.
-     * 
      * @return the name of the transaction.
      */
     @objid ("75d0b810-1e9d-11e2-8009-002564c97630")

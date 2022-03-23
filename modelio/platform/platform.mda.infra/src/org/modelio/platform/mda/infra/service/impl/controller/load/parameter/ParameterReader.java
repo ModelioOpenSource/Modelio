@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.controller.load.parameter;
 
 import java.util.HashMap;
@@ -38,8 +37,8 @@ import org.modelio.api.module.parameter.impl.ParametersEditionModel;
 import org.modelio.api.module.parameter.impl.PasswordParameterModel;
 import org.modelio.api.module.parameter.impl.StringParameterModel;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Enumeration.Jxbv2Literal;
-import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Parameters.Jxbv2Parameter;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Parameters;
+import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Parameters.Jxbv2Parameter;
 import org.modelio.platform.mda.infra.service.IRTModule;
 
 @objid ("c1d7ad4d-e946-4b77-aff8-78fecaadb07b")
@@ -114,6 +113,7 @@ public class ParameterReader {
         
         // Init param edition model on module
         iModule.initParametersEditionModel(pem);
+        
     }
 
 }

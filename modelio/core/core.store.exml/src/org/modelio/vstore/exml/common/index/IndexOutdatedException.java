@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common.index;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,7 +45,7 @@ public class IndexOutdatedException extends Exception {
      * @since  1.4
      */
     @objid ("b06db4ac-cb1c-4fb2-bdcd-c8179781041f")
-    public IndexOutdatedException(String message, Throwable cause) {
+    public  IndexOutdatedException(String message, Throwable cause) {
         super(message, cause);
     }
 
@@ -58,7 +57,7 @@ public class IndexOutdatedException extends Exception {
      * later retrieval by the {@link #getMessage()} method.
      */
     @objid ("87d7c4ea-80ef-4299-997f-85e8268d406c")
-    public IndexOutdatedException(String message) {
+    public  IndexOutdatedException(String message) {
         super(message);
     }
 
@@ -76,7 +75,7 @@ public class IndexOutdatedException extends Exception {
      * @since  1.4
      */
     @objid ("c8936621-e08c-4bc6-a3a7-c169aad12fd0")
-    public IndexOutdatedException(Throwable cause) {
+    public  IndexOutdatedException(Throwable cause) {
         super(cause);
     }
 

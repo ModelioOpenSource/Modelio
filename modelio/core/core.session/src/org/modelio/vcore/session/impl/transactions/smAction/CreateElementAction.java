@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.transactions.smAction;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,6 +37,7 @@ public class CreateElementAction extends SimpleAction {
     public void undo(final boolean rollback) {
         // remove de l'objet
         (this.refered.getMetaOf()).silentActionRemove(this.refered);
+        
     }
 
     /**
@@ -49,17 +49,17 @@ public class CreateElementAction extends SimpleAction {
     public void redo() {
         //creation de l'objet
         this.refered.getMetaOf().objUndeleted(this.refered);
+        
     }
 
     /**
      * Constructeur de l'action qui permet de creer un element.
      * <p>
      * L'element cree sera sauvegarde dans l'association "refer".
-     * 
      * @param obj the created element.
      */
     @objid ("006af8a6-8b2d-1f1e-85a5-001ec947cd2a")
-    public CreateElementAction(final SmObjectImpl obj) {
+    public  CreateElementAction(final SmObjectImpl obj) {
         super(obj);
     }
 

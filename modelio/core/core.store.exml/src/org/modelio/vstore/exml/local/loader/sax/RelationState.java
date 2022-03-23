@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.local.loader.sax;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,6 +46,7 @@ class RelationState extends AbstractState {
         default:
             break;
         }
+        
     }
 
     @objid ("2afeb993-3faf-11e2-87cb-001ec947ccaf")
@@ -95,6 +95,7 @@ class RelationState extends AbstractState {
         } catch (IllegalReferenceException e) {
             rethrowException(e);
         }
+        
     }
 
     @objid ("6050a96f-dab6-4d6a-8eb8-9ac2ff410284")

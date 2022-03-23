@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.browser.view.handlers;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
@@ -50,7 +49,6 @@ public class RenameElementHandler {
 
     /**
      * Available only when the selected elements are modifiable.
-     * 
      * @param selection the current modelio selection.
      * @return true if the handler can be executed.
      */
@@ -78,7 +76,6 @@ public class RenameElementHandler {
 
     /**
      * Rename the currently selected elements.
-     * 
      * @param selection the current modelio selection.
      */
     @objid ("6c44a544-68f6-41d9-b438-b35b21f158df")
@@ -110,6 +107,7 @@ public class RenameElementHandler {
                 t.commit();
             }
         }
+        
     }
 
     @objid ("230e0de8-f50c-4903-a5be-d0b2482114e9")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,10 +44,11 @@ public class RectangularFigure extends GradientFigure {
      * Creates a new rectangular figure.
      */
     @objid ("7fa988f0-1dec-11e2-8cad-001ec947c8cc")
-    public RectangularFigure() {
+    public  RectangularFigure() {
         super();
         this.lineBorder = new TLBRBorder();
         this.setBorder(new CompoundBorder(this.lineBorder, new MarginBorder(MARGIN)));
+        
     }
 
     @objid ("7fa988f3-1dec-11e2-8cad-001ec947c8cc")
@@ -58,6 +58,7 @@ public class RectangularFigure extends GradientFigure {
             this.lineBorder.setColor(lineColor);
             super.setLineColor(lineColor);
         }
+        
     }
 
     @objid ("7fa988f7-1dec-11e2-8cad-001ec947c8cc")
@@ -67,6 +68,7 @@ public class RectangularFigure extends GradientFigure {
             this.lineBorder.setWidth(lineWidth);
             super.setLineWidth(lineWidth);
         }
+        
     }
 
     @objid ("7fa988fb-1dec-11e2-8cad-001ec947c8cc")
@@ -76,11 +78,11 @@ public class RectangularFigure extends GradientFigure {
             this.lineBorder.setStyle(linePattern.toSWTConstant());
             super.setLinePattern(linePattern);
         }
+        
     }
 
     /**
      * Changes whether the top side should be drawn or not.
-     * 
      * @param drawTop true if the top side should be drawn.
      */
     @objid ("7fa988ff-1dec-11e2-8cad-001ec947c8cc")
@@ -90,7 +92,6 @@ public class RectangularFigure extends GradientFigure {
 
     /**
      * Changes whether the left side should be drawn or not.
-     * 
      * @param drawLeft true if the left side should be drawn.
      */
     @objid ("7fa98904-1dec-11e2-8cad-001ec947c8cc")
@@ -100,7 +101,6 @@ public class RectangularFigure extends GradientFigure {
 
     /**
      * Changes whether the bottom side should be drawn or not.
-     * 
      * @param drawBottom true if the bottom side should be drawn.
      */
     @objid ("7fa98909-1dec-11e2-8cad-001ec947c8cc")
@@ -110,7 +110,6 @@ public class RectangularFigure extends GradientFigure {
 
     /**
      * Changes whether the right side should be drawn or not.
-     * 
      * @param drawRight true if the right side should be drawn.
      */
     @objid ("7fa9890e-1dec-11e2-8cad-001ec947c8cc")

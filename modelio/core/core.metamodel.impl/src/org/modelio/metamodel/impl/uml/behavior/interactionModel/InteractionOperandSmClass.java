@@ -17,20 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.interactionModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.CombinedFragmentSmClass;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.InteractionFragmentSmClass;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.InteractionOperandData;
 import org.modelio.metamodel.uml.behavior.interactionModel.CombinedFragment;
 import org.modelio.metamodel.uml.behavior.interactionModel.InteractionFragment;
 import org.modelio.metamodel.uml.behavior.interactionModel.InteractionOperand;
@@ -62,7 +59,7 @@ public class InteractionOperandSmClass extends InteractionFragmentSmClass {
     private SmDependency ownerFragmentDep;
 
     @objid ("76e94735-c76d-4b0c-a5f1-c0d54feba1dd")
-    public InteractionOperandSmClass(ISmMetamodelFragment origin) {
+    public  InteractionOperandSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -70,6 +67,7 @@ public class InteractionOperandSmClass extends InteractionFragmentSmClass {
     @Override
     public String getName() {
         return "InteractionOperand";
+        
     }
 
     @objid ("fc381694-ff18-4405-a3f7-ace838336d17")
@@ -82,18 +80,21 @@ public class InteractionOperandSmClass extends InteractionFragmentSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return InteractionOperand.class;
+        
     }
 
     @objid ("5e9e00cd-db70-4434-994f-17a2459dfd29")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("79f17705-67ef-4475-9bf4-c8e250a507db")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("67c079ac-0dd8-4c5d-a856-6cf664f3b99c")
@@ -121,6 +122,8 @@ public class InteractionOperandSmClass extends InteractionFragmentSmClass {
         this.ownerFragmentDep = new OwnerFragmentSmDependency();
         this.ownerFragmentDep.init("OwnerFragment", this, metamodel.getMClass(CombinedFragment.MQNAME), 0, 1 );
         registerDependency(this.ownerFragmentDep);
+        
+        
     }
 
     @objid ("3d5589e1-75eb-45d3-bb6e-fcb2981b96ac")
@@ -161,7 +164,7 @@ public class InteractionOperandSmClass extends InteractionFragmentSmClass {
         private InteractionOperandSmClass smClass;
 
         @objid ("3163c5aa-3ef4-4880-b1a1-c9b8c959053f")
-        public InteractionOperandObjectFactory(InteractionOperandSmClass smClass) {
+        public  InteractionOperandObjectFactory(InteractionOperandSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -222,6 +225,7 @@ public class InteractionOperandSmClass extends InteractionFragmentSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((InteractionOperandData) data).mFragment = values;
+            
         }
 
         @objid ("885187ca-5bdd-4c92-be75-9b109fae6966")
@@ -231,6 +235,7 @@ public class InteractionOperandSmClass extends InteractionFragmentSmClass {
             	this.symetricDep = ((InteractionFragmentSmClass)this.getTarget()).getEnclosingOperandDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -259,6 +264,7 @@ public class InteractionOperandSmClass extends InteractionFragmentSmClass {
             	this.symetricDep = ((CombinedFragmentSmClass)this.getTarget()).getOperandDep();
             }
             return this.symetricDep;
+            
         }
 
     }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
@@ -53,7 +52,6 @@ public interface PropertyDefinition extends ModelElement {
      * <p>
      * Used after reading a persisted string value in a property table.
      * </p>
-     * 
      * @param value the initial string value. Might be <code>null</code>.
      * @param object the element this conversion is done for.
      * @return the converted value. Might be <code>null</code>.
@@ -66,7 +64,6 @@ public interface PropertyDefinition extends ModelElement {
      * <p>
      * Used before writing a persisted string value in a property table.
      * </p>
-     * 
      * @param value a value. Might be <code>null</code>.
      * @param object the element this conversion is done for.
      * @return the value converted to string.
@@ -152,7 +149,6 @@ public interface PropertyDefinition extends ModelElement {
      * Used for displaying translated value (on diagrams for example).
      * </p>
      * @param value
-     * 
      * @return the translated string.
      */
     @objid ("ba7e86fd-d887-4038-aa44-38eafcb176bb")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.propertyview.fragment.model;
 
 import java.lang.reflect.Method;
@@ -40,11 +39,10 @@ public class SvnFragmentPropertyModel extends AbstractFragmentPropertyModel {
 
     /**
      * Create a new <i>SvnFragment</i> data model from an <i>SvnFragment</i>.
-     * 
      * @param fragment the fragment of which properties will be display
      */
     @objid ("bd2d0b6c-a562-424f-88d4-36da6aa07cbf")
-    public SvnFragmentPropertyModel(AbstractFragment fragment) {
+    public  SvnFragmentPropertyModel(AbstractFragment fragment) {
         super(fragment);
         IFragmentInfos infos;
         try {
@@ -56,11 +54,11 @@ public class SvnFragmentPropertyModel extends AbstractFragmentPropertyModel {
         } catch (Exception e) {
             PropertyViewPlugin.LOG.error(e);
         }
+        
     }
 
     /**
      * Get fragment revision
-     * 
      * @return the fragment revision
      */
     @objid ("15c18829-751d-4dfe-b29a-9777b33e8963")
@@ -70,7 +68,6 @@ public class SvnFragmentPropertyModel extends AbstractFragmentPropertyModel {
 
     /**
      * Set fragment revision
-     * 
      * @param revision the fragment revision
      */
     @objid ("3ff96878-3491-475c-8074-113c9ba3993b")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,7 @@ public class OFinalState extends OModelElement {
     }
 
     @objid ("fe515d20-7b06-4f2b-8ebb-0e42c402dedd")
-    public OFinalState(State param) {
+    public  OFinalState(State param) {
         super(param);
     }
 
@@ -47,6 +46,7 @@ public class OFinalState extends OModelElement {
         if (ecoreOwner instanceof  org.eclipse.uml2.uml.Region){
             ( (org.eclipse.uml2.uml.Region) ecoreOwner).getSubvertices().add((org.eclipse.uml2.uml.State) ecoreElt);
         }
+        
     }
 
     @objid ("23573c65-d6a6-4fa0-81ec-fb1fccf64be3")

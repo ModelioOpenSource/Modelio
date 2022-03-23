@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnsendtask;
 
 import java.util.Collections;
@@ -50,7 +49,7 @@ public class GmBpmnSendTaskTypeLabel extends GmDefaultModelElementHeader {
     private static final int MAJOR_VERSION = 0;
 
     @objid ("c5aa41a8-5eeb-4cac-80e7-3b49d5578f6d")
-    public GmBpmnSendTaskTypeLabel(IGmDiagram diagram, MRef relatedRef) {
+    public  GmBpmnSendTaskTypeLabel(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -58,7 +57,7 @@ public class GmBpmnSendTaskTypeLabel extends GmDefaultModelElementHeader {
      * Empty c'tor for deserialisation.
      */
     @objid ("51c011aa-134a-4596-aee3-96b2a11ea846")
-    public GmBpmnSendTaskTypeLabel() {
+    public  GmBpmnSendTaskTypeLabel() {
         // empty constructor for the serialization
     }
 
@@ -79,6 +78,7 @@ public class GmBpmnSendTaskTypeLabel extends GmDefaultModelElementHeader {
             break;
         }
         }
+        
     }
 
     @objid ("a2d15207-94cb-4bc7-8d45-fb8c417ee71f")
@@ -88,6 +88,7 @@ public class GmBpmnSendTaskTypeLabel extends GmDefaultModelElementHeader {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmBpmnTaskTypeLabel.", GmBpmnSendTaskTypeLabel.MINOR_VERSION);
+        
     }
 
     @objid ("5b4ad10f-907e-42d8-b486-53fb1d746c04")
@@ -129,6 +130,7 @@ public class GmBpmnSendTaskTypeLabel extends GmDefaultModelElementHeader {
         }
         
         super.styleChanged(property, newValue);
+        
     }
 
     @objid ("10f79f58-54f2-4ef7-96aa-c55da04731bd")
@@ -139,6 +141,7 @@ public class GmBpmnSendTaskTypeLabel extends GmDefaultModelElementHeader {
         }
         
         super.styleChanged(changedStyle);
+        
     }
 
     @objid ("4f6ee378-85bf-431c-8409-a62b92496fbc")

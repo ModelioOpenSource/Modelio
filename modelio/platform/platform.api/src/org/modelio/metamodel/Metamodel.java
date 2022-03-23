@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.metamodel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -55,11 +54,10 @@ public class OAttribute extends OStructuralFeature {
 
     /**
      * Constructor of OAttribute.
-     * 
      * @param element : the exported Attribute
      */
     @objid ("323c27ef-98e2-410d-b5c3-20d0306b8591")
-    public OAttribute(final Attribute element) {
+    public  OAttribute(final Attribute element) {
         super(element);
     }
 
@@ -125,6 +123,7 @@ public class OAttribute extends OStructuralFeature {
                 ecoreElt.destroy();
             }
         }
+        
     }
 
     @objid ("adba72d0-3e25-446e-b519-b55ff845a718")
@@ -143,12 +142,14 @@ public class OAttribute extends OStructuralFeature {
             setTargetIsClassEAnnotation((Property) ecoreElt);
             setDynamicDependencyEAnnotation((Property) ecoreElt);
         }
+        
     }
 
     @objid ("7db0eb51-34b7-4bdf-aad8-61175c36f4e1")
     private void setTypeConstraintEAnnotation(Property ecoreProp) {
         ObjingEAnnotation.setTypeConstraint(ecoreProp, getObjingElement()
                 .getTypeConstraint());
+        
     }
 
     @objid ("ac8d1111-1930-4c08-978e-fc635130fcf5")
@@ -259,6 +260,7 @@ public class OAttribute extends OStructuralFeature {
                 ecoreProp.setDefaultValue(value);
             }
         }
+        
     }
 
     @objid ("fbe7b79f-be43-4bfc-94bb-865cb4c747ad")
@@ -299,12 +301,14 @@ public class OAttribute extends OStructuralFeature {
         } else {
             ObjingEAnnotation.setIsNoType(ecoreElt);
         }
+        
     }
 
     @objid ("ab718013-6d03-4d80-bb30-27f2a3c8c661")
     private void setTargetIsClassEAnnotation(Property property) {
         ObjingEAnnotation.setIsTargetIsClass(property, getObjingElement()
                 .isTargetIsClass());
+        
     }
 
     @objid ("a7fe064f-d07c-4ff1-ab97-b4e0a60e02af")

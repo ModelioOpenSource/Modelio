@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.ui.audit;
 
 import java.util.ArrayList;
@@ -64,6 +63,7 @@ public class R3190 extends AbstractBpmnRule {
         plan.registerRule(BpmnDataAssociation.MQNAME, this, AuditTrigger.CREATE |
                 AuditTrigger.MOVE |
                 AuditTrigger.UPDATE);
+        
     }
 
     @objid ("09ee2398-5e67-4ece-8cc8-b6b1bb0193b3")
@@ -103,7 +103,7 @@ public class R3190 extends AbstractBpmnRule {
      * Default constructor for R3190
      */
     @objid ("c4e9a535-7b3b-4dbf-92c3-e9a0974c97c1")
-    public R3190() {
+    public  R3190() {
         this.checkerInstance = new CheckR3190(this);
     }
 
@@ -114,11 +114,10 @@ public class R3190 extends AbstractBpmnRule {
     private static class CheckR3190 extends AbstractControl {
         /**
          * C'tor.
-         * 
          * @param rule the rule to check.
          */
         @objid ("a0592a66-b45c-4108-899b-db4c6c6c61c8")
-        public CheckR3190(final IRule rule) {
+        public  CheckR3190(final IRule rule) {
             super(rule);
         }
 

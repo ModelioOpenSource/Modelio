@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.number.time;
 
 import java.util.Date;
@@ -51,6 +50,7 @@ public class TimeValueEditor extends AbstractCellEditor {
     public void close() {
         super.close();
         this.cdt = null;
+        
     }
 
     @objid ("1ed12159-f12c-4fe7-b32e-6b1de9c5453a")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.expert.standard.meta.impl;
 
 import java.util.HashSet;
@@ -271,6 +270,7 @@ public class DefaultMetaExpert implements IMetaExpert {
         } else {
             return DefaultMetaExpert.RULES.canCreate(composed, owner);
         }
+        
     }
 
     @objid ("0017ba88-e4d5-1097-bcec-001ec947cd2a")
@@ -315,7 +315,6 @@ public class DefaultMetaExpert implements IMetaExpert {
 
         /**
          * Returns whether the childMetaclass can be created as a child of the parentMetaclass.
-         * 
          * @param childMetaclass the child
          * @param parentMetaclass the parent
          * @return true if the creation is possible, false otherwise.
@@ -326,9 +325,10 @@ public class DefaultMetaExpert implements IMetaExpert {
         }
 
         @objid ("006c417a-e60a-1097-bcec-001ec947cd2a")
-        MetamodelRules() {
+         MetamodelRules() {
             registerUmlNodes();
             registerBpmnNodes();
+            
         }
 
         /**
@@ -1269,6 +1269,7 @@ public class DefaultMetaExpert implements IMetaExpert {
             
             // ValuePin
             addRule(ValuePin.MQNAME, Constraint.MQNAME);
+            
         }
 
         @objid ("006c472e-e60a-1097-bcec-001ec947cd2a")
@@ -1983,6 +1984,7 @@ public class DefaultMetaExpert implements IMetaExpert {
             
             // BpmnInterface
             addRule(BpmnInterface.MQNAME, BpmnOperation.MQNAME);
+            
         }
 
         @objid ("006c246a-e60a-1097-bcec-001ec947cd2a")

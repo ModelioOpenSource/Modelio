@@ -17,20 +17,19 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.panelprovider;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.script.ScriptException;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.script.ScriptException;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.ui.model.application.ui.MUIElement;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.model.application.ui.basic.MWindow;
 import org.eclipse.e4.ui.services.EContextService;
-import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
+import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -57,8 +56,8 @@ import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.Note;
 import org.modelio.platform.core.activation.IActivationService;
 import org.modelio.platform.model.ui.dialogs.elementChooser.ElementChooserDlg;
-import org.modelio.platform.model.ui.swt.copy.PasteElementObject.PasteType;
 import org.modelio.platform.model.ui.swt.copy.PasteElementObject;
+import org.modelio.platform.model.ui.swt.copy.PasteElementObject.PasteType;
 import org.modelio.platform.model.ui.swt.copy.PasteElementTransfer;
 import org.modelio.platform.model.ui.swt.copy.TransferItem;
 import org.modelio.platform.script.engine.core.engine.IScriptRunner;
@@ -105,7 +104,7 @@ public class NotesPanelController {
     @objid ("5e9d40c8-a46c-4700-8893-09e068daf384")
     private ICoreSession session;
 
-// // private final EContextService contextService;
+    // // private final EContextService contextService;
     @objid ("65a57137-17bb-4fe8-8339-8ad5b161bab6")
     private NotesPanelView view;
 
@@ -113,7 +112,7 @@ public class NotesPanelController {
      * Constructor.
      */
     @objid ("bf0c5ca6-f12e-4cf8-98ef-ef3d1dcf86e7")
-    public NotesPanelController(IEclipseContext context) {
+    public  NotesPanelController(IEclipseContext context) {
         this.eclipseContext = context;
     }
 
@@ -204,6 +203,7 @@ public class NotesPanelController {
                 return false;
             }
         }
+        
     }
 
     /**
@@ -227,6 +227,7 @@ public class NotesPanelController {
         } else {
             return false;
         }
+        
     }
 
     @objid ("582b3276-c5b0-4f98-89db-093afe12d0b1")
@@ -314,7 +315,6 @@ public class NotesPanelController {
 
     /**
      * Creates the views in the given composite
-     * 
      * @param parent a SWT Composite
      * @return the created panel view
      */
@@ -334,6 +334,7 @@ public class NotesPanelController {
         this.currentInput = null;
         this.currentSelection = null;
         this.view = null;
+        
     }
 
     /**
@@ -384,6 +385,7 @@ public class NotesPanelController {
         
         final Constraint constraint = driver.getCreatedConstraint();
         setInputs(this.currentInput, constraint);
+        
     }
 
     /**
@@ -408,6 +410,7 @@ public class NotesPanelController {
             // is not a RuntimeException.
             NotesPanelController.reportException(e);
         }
+        
     }
 
     /**
@@ -432,12 +435,14 @@ public class NotesPanelController {
             // is not a RuntimeException.
             NotesPanelController.reportException(e);
         }
+        
     }
 
     @objid ("b1b16c90-a49a-4a19-9ae2-7bbac4e55419")
     public void onAutomaticLayout() {
         this.view.enableAutoLayout();
         this.isAutoLayout = true;
+        
     }
 
     /**
@@ -458,6 +463,7 @@ public class NotesPanelController {
         } catch (final Exception e) {
             EditionNotes.LOG.error(EditionNotes.PLUGIN_ID, e);
         }
+        
     }
 
     @objid ("7fefaad1-03c3-4ab5-90d9-e77b3228443c")
@@ -472,6 +478,7 @@ public class NotesPanelController {
         
         Clipboard clipboard = new Clipboard(this.view.getComposite().getDisplay());
         clipboard.setContents(new Object[] { toCopy }, new Transfer[] { PasteElementTransfer.getInstance() });
+        
     }
 
     @objid ("4681f3be-8886-45bc-8d3e-2e280a8c779b")
@@ -483,6 +490,7 @@ public class NotesPanelController {
         }
         Clipboard clipboard = new Clipboard(this.view.getComposite().getDisplay());
         clipboard.setContents(new Object[] { toCopy }, new Transfer[] { PasteElementTransfer.getInstance() });
+        
     }
 
     @objid ("2dc8ac0f-8a13-491a-91c6-3e30f5a586a6")
@@ -490,6 +498,7 @@ public class NotesPanelController {
         this.view.setHorizontalLayout();
         this.view.disableAutoLayout();
         this.isAutoLayout = false;
+        
     }
 
     @objid ("2f0cd7b0-272e-40cb-8eff-3eba28443499")
@@ -507,11 +516,11 @@ public class NotesPanelController {
                 t.commit();
             }
         }
+        
     }
 
     /**
      * Called when the end-user double-clicks a Note or a Constraint in the tree
-     * 
      * @param selection the double clicked selection
      */
     @objid ("6366391a-5686-4c22-a3fa-75e965dc0393")
@@ -526,11 +535,11 @@ public class NotesPanelController {
                 }
             }
         }
+        
     }
 
     /**
      * Called when the end-user selects a Note or a Constraint in the tree
-     * 
      * @param selection the new selection
      */
     @objid ("32b038c3-5263-42ae-b6df-d71135247543")
@@ -551,6 +560,7 @@ public class NotesPanelController {
                 setInputs(this.currentInput, null);
             }
         }
+        
     }
 
     /**
@@ -594,6 +604,7 @@ public class NotesPanelController {
             EditionNotes.LOG.error("Execute Jython note failed");
             EditionNotes.LOG.debug(e);
         }
+        
     }
 
     /**
@@ -616,6 +627,7 @@ public class NotesPanelController {
             // is not a RuntimeException.
             NotesPanelController.reportException(e);
         }
+        
     }
 
     /**
@@ -638,6 +650,7 @@ public class NotesPanelController {
             // is not a RuntimeException.
             NotesPanelController.reportException(e);
         }
+        
     }
 
     @objid ("dae10c4c-ede8-4c79-b87f-812ea45ccb4b")
@@ -704,6 +717,7 @@ public class NotesPanelController {
                 NotesPanelController.reportException(e);
             }
         }
+        
     }
 
     /**
@@ -721,6 +735,7 @@ public class NotesPanelController {
             EditionNotes.LOG.error(EditionNotes.PLUGIN_ID, e);
         }
         setInputs(this.currentInput, null);
+        
     }
 
     @objid ("7992016b-84ab-4482-92d1-d08fabbe70a7")
@@ -728,11 +743,11 @@ public class NotesPanelController {
         this.view.setVerticalLayout();
         this.view.disableAutoLayout();
         this.isAutoLayout = false;
+        
     }
 
     /**
      * Set the activation service.
-     * 
      * @param activationService the activation service.
      */
     @objid ("0a377ddb-5843-4e2c-bcd4-62fcc9b153a2")
@@ -744,7 +759,6 @@ public class NotesPanelController {
      * The NotesPanelComposite has to be driven for two inputs:
      * <li>the edited element which is the element whose notes and constraints are currently being edited,
      * <li>and the current selection which is the note or constraint currently being displayed.
-     * 
      * @param elt the note item whose contents is to be displayed in the content panel. May be null Refresh the whole notes view. Clean up the content of the currently selected note Set the note item object (Note or Constraint) currently displayed in the
      * content panel.
      * @param select the currently selected notes/constraints in the view
@@ -808,6 +822,7 @@ public class NotesPanelController {
                 this.view.setSelected(select);
             }
         }
+        
     }
 
     @objid ("0cd4271f-ce9b-46dc-bb1c-7c26d91806f0")
@@ -816,6 +831,7 @@ public class NotesPanelController {
         final String title = EditionNotes.I18N.getMessage("CannotPasteClipboard");
         MessageDialog.openError(null, title, e.getLocalizedMessage());
         EditionNotes.LOG.error(e);
+        
     }
 
     /**
@@ -898,6 +914,7 @@ public class NotesPanelController {
     private void refreshInputs() {
         this.view.setInput(this.currentInput);
         this.view.setSelected(this.currentSelection);
+        
     }
 
     /**
@@ -921,6 +938,7 @@ public class NotesPanelController {
             // is not a RuntimeException.
             reportException(e);
         }
+        
     }
 
     @objid ("b8a8a38a-8664-4e38-9eb6-8fa9134edc6f")
@@ -934,6 +952,7 @@ public class NotesPanelController {
                 }
             }
         }
+        
     }
 
     /**
@@ -946,7 +965,7 @@ public class NotesPanelController {
         protected NotesPanelProvider notesView;
 
         @objid ("c551ab51-d847-46e3-8071-ca88f28a4a92")
-        public ModelChangeListener(final NotesPanelProvider notesView) {
+        public  ModelChangeListener(final NotesPanelProvider notesView) {
             this.notesView = notesView;
         }
 
@@ -963,6 +982,7 @@ public class NotesPanelController {
                     }
                 });
             }
+            
         }
 
         @objid ("eae571b9-3141-4573-8283-7cfce9349ec9")
@@ -978,6 +998,7 @@ public class NotesPanelController {
                     }
                 });
             }
+            
         }
 
     }

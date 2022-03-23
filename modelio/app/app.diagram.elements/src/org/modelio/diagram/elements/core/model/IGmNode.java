@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.model;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -28,7 +27,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * Changes : On Modelio 3.5 moved from org.modelio.diagram.elements.core .
  */
 @objid ("7fd6d59b-1dec-11e2-8cad-001ec947c8cc")
-public interface IGmNode extends IGmLinkable {
-
-// Nothing to do
+public interface IGmNode extends IGmLinkable {// Nothing to do
+    
 }

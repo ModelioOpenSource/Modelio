@@ -17,20 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
-import org.modelio.metamodel.impl.uml.statik.AttributeLinkData;
-import org.modelio.metamodel.impl.uml.statik.AttributeSmClass;
-import org.modelio.metamodel.impl.uml.statik.InstanceSmClass;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.metamodel.uml.statik.Attribute;
 import org.modelio.metamodel.uml.statik.AttributeLink;
@@ -59,7 +56,7 @@ public class AttributeLinkSmClass extends UmlModelElementSmClass {
     private SmDependency baseDep;
 
     @objid ("e57f6c21-ee1f-4e43-b54c-db669d6a9707")
-    public AttributeLinkSmClass(ISmMetamodelFragment origin) {
+    public  AttributeLinkSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -67,6 +64,7 @@ public class AttributeLinkSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "AttributeLink";
+        
     }
 
     @objid ("84528547-9b2a-4d0c-bbb6-21ccdda09351")
@@ -79,18 +77,21 @@ public class AttributeLinkSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return AttributeLink.class;
+        
     }
 
     @objid ("9234a473-4f3a-46a7-85b4-ba636b0835eb")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("e1f87012-6906-46d5-9d3d-891e79de7f2d")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("ae0a9a2c-38e1-4bd3-a44f-505ba2b75b51")
@@ -114,6 +115,8 @@ public class AttributeLinkSmClass extends UmlModelElementSmClass {
         this.baseDep = new BaseSmDependency();
         this.baseDep.init("Base", this, metamodel.getMClass(Attribute.MQNAME), 0, 1 , SmDirective.SMCDPARTOF);
         registerDependency(this.baseDep);
+        
+        
     }
 
     @objid ("71981701-4a3c-4584-988d-2367aff2d315")
@@ -146,7 +149,7 @@ public class AttributeLinkSmClass extends UmlModelElementSmClass {
         private AttributeLinkSmClass smClass;
 
         @objid ("a8a927b6-b7d2-45f4-b770-b6484dc70001")
-        public AttributeLinkObjectFactory(AttributeLinkSmClass smClass) {
+        public  AttributeLinkObjectFactory(AttributeLinkSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -202,6 +205,7 @@ public class AttributeLinkSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((InstanceSmClass)this.getTarget()).getSlotDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -230,6 +234,7 @@ public class AttributeLinkSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((AttributeSmClass)this.getTarget()).getOccurenceDep();
             }
             return this.symetricDep;
+            
         }
 
     }

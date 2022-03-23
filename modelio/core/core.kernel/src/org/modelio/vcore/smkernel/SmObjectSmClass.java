@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,11 +44,10 @@ public class SmObjectSmClass extends SmClass {
 
     /**
      * Default constructor.
-     * 
      * @param origin the owner metamodel fragment
      */
     @objid ("873f779f-a0f3-43b1-9e1a-f74b201574bf")
-    public SmObjectSmClass(ISmMetamodelFragment origin) {
+    public  SmObjectSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -79,6 +77,7 @@ public class SmObjectSmClass extends SmClass {
         
         registerAttribute(this.pstatusAtt);
         registerFactory(new ObjectFactory());
+        
     }
 
     /**
@@ -145,6 +144,7 @@ public class SmObjectSmClass extends SmClass {
             long longVal = (long) value;
             
             ((SmObjectData) object).status = SmStatus.setPersistentPart(object.getStatus(), longVal);
+            
         }
 
     }

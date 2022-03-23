@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.xml;
 
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.namespace.NamespaceContext;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
@@ -75,7 +74,7 @@ abstract class DelegatingXMLStreamWriter implements XMLStreamWriter {
     private final XMLStreamWriter writer;
 
     @objid ("7852086a-3010-11e2-8359-001ec947ccaf")
-    public DelegatingXMLStreamWriter(XMLStreamWriter writer) {
+    public  DelegatingXMLStreamWriter(XMLStreamWriter writer) {
         this.writer = writer;
     }
 

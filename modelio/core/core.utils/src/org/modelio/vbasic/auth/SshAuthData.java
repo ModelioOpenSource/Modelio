@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.auth;
 
 import java.util.HashMap;
@@ -52,7 +51,6 @@ public class SshAuthData extends AuthData {
 
     /**
      * Get the SSH server port to use.
-     * 
      * @return the SSH server port to use, -1 if not defined.
      */
     @objid ("e37e74a8-c51b-405a-8b9f-9a317f8b7644")
@@ -91,7 +89,6 @@ public class SshAuthData extends AuthData {
     /**
      * Get the SSH login on the remote machine.
      * @see #getSvnUserName()
-     * 
      * @return the SSH user on the remote machine.
      */
     @objid ("f33403ec-ce33-482a-810a-20268c5e6851")
@@ -104,7 +101,6 @@ public class SshAuthData extends AuthData {
      * <p>
      * Don't mix with the {@link #getSshUserName() SSH login}.
      * @see #getSshUserName()
-     * 
      * @return The SVN repository user.
      */
     @objid ("34a18363-e064-4e46-9d4b-38d33ccc4e57")
@@ -120,7 +116,6 @@ public class SshAuthData extends AuthData {
 
     /**
      * @see #serialize(boolean)
-     * 
      * @return <code>true</code> if the SSH key password must be saved.
      */
     @objid ("e50eb10e-66da-4338-b430-7d591cdfd8fd")
@@ -130,7 +125,6 @@ public class SshAuthData extends AuthData {
 
     /**
      * @see #serialize(boolean)
-     * 
      * @return <code>true</code> if the SSH key must be saved.
      */
     @objid ("01dce46f-74d9-49cd-8f91-fb143c07e7d2")
@@ -167,7 +161,6 @@ public class SshAuthData extends AuthData {
 
     /**
      * Set the SSH private key value.
-     * 
      * @param value the SSH private key
      * @return this instance
      */

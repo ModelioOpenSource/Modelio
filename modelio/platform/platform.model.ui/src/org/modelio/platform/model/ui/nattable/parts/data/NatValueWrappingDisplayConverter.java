@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,13 +39,13 @@ public class NatValueWrappingDisplayConverter extends DisplayConverter {
 
     /**
      * Build a new converter.
-     * 
      * @param wrappedConverter the converter to delegate the conversion to after unwrapping the value from the {@link INatValue}.
      */
     @objid ("fbc30964-de4b-4ac3-b951-4484e62a35fc")
-    public NatValueWrappingDisplayConverter(IDisplayConverter wrappedConverter) {
+    public  NatValueWrappingDisplayConverter(IDisplayConverter wrappedConverter) {
         super();
         this.wrappedConverter = wrappedConverter;
+        
     }
 
     /**

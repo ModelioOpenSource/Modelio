@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml.templateparameter;
 
 import java.util.Arrays;
@@ -53,22 +52,20 @@ class ElementTemplateParameterPropertyModel extends AbstractPropertyModel<Templa
      */
     @objid ("19d9d857-6300-4261-93b0-4108862be978")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name",
-	        "DefaultType" };
+    	        "DefaultType" };
 
     /**
      * Create a new <i>TemplateParameter</i> data model from an
      * <i>TemplateParameter</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("8bb21d67-191f-4545-8032-c3af50ecf2b7")
-    public ElementTemplateParameterPropertyModel(TemplateParameter theEditedElement) {
+    public  ElementTemplateParameterPropertyModel(TemplateParameter theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("298da478-98c8-4248-97fe-6149b0e7ee49")
@@ -79,7 +76,6 @@ class ElementTemplateParameterPropertyModel extends AbstractPropertyModel<Templa
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("48762b81-c22e-494c-8434-4b82901cf2bb")
@@ -92,7 +88,6 @@ class ElementTemplateParameterPropertyModel extends AbstractPropertyModel<Templa
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -121,6 +116,7 @@ class ElementTemplateParameterPropertyModel extends AbstractPropertyModel<Templa
         default:
             return null;
         }
+        
     }
 
     /**
@@ -130,7 +126,6 @@ class ElementTemplateParameterPropertyModel extends AbstractPropertyModel<Templa
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -155,13 +150,13 @@ class ElementTemplateParameterPropertyModel extends AbstractPropertyModel<Templa
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -215,6 +210,7 @@ class ElementTemplateParameterPropertyModel extends AbstractPropertyModel<Templa
         default:
             return;
         }
+        
     }
 
 }

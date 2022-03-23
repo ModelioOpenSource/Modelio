@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.editingsupport.combo;
 
 import java.util.Objects;
@@ -25,18 +24,18 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.ColumnLabelProvider;
 import org.eclipse.jface.viewers.ColumnViewer;
 import org.modelio.diagram.styles.core.IStyle;
-import org.modelio.diagram.styles.core.view.ISymbolViewItem.Choice;
 import org.modelio.diagram.styles.core.view.ISymbolViewItem;
+import org.modelio.diagram.styles.core.view.ISymbolViewItem.Choice;
 import org.modelio.diagram.styles.plugin.DiagramStyles;
 import org.modelio.diagram.styles.viewer.StyleEditPanelUIData;
 
 @objid ("859fd1d1-1926-11e2-92d2-001ec947c8cc")
 public class EnumComboBoxLabelProvider extends ColumnLabelProvider {
     @objid ("644d7afa-ef06-4136-a5fb-348afff06035")
-     ColumnViewer viewer;
+    ColumnViewer viewer;
 
     @objid ("859fd1d3-1926-11e2-92d2-001ec947c8cc")
-    public EnumComboBoxLabelProvider(ColumnViewer viewer) {
+    public  EnumComboBoxLabelProvider(ColumnViewer viewer) {
         this.viewer = viewer;
     }
 
@@ -58,6 +57,7 @@ public class EnumComboBoxLabelProvider extends ColumnLabelProvider {
         } else {
             return super.getText(element);
         }
+        
     }
 
     @objid ("4d92187c-6b88-4c57-8e6f-1d398844090e")

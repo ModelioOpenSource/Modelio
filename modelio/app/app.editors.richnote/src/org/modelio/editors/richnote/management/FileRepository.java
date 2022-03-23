@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.management;
 
 import java.io.IOException;
@@ -54,15 +53,15 @@ class FileRepository implements IRichNoteFileRepository {
 
     /**
      * Initialize
-     * 
      * @param project the project to handle
      * @param editorsRegistry the editors registry.
      */
     @objid ("4d46a9b7-81d1-4a24-8a24-83173f1d32d5")
-    public FileRepository(GProject project, EditorsRegistry editorsRegistry) {
+    public  FileRepository(GProject project, EditorsRegistry editorsRegistry) {
         this.session = project.getSession();
         this.geometry = new RichNoteFilesGeometry(project);
         this.editorsRegistry = editorsRegistry;
+        
     }
 
     @objid ("e3371f5e-234c-41b9-8014-34b334958e08")
@@ -118,6 +117,7 @@ class FileRepository implements IRichNoteFileRepository {
             t.disableUndo();
             t.commit();
         }
+        
     }
 
     @objid ("75e7a7c9-a8dd-4cd1-89cf-54a392892f43")
@@ -132,6 +132,7 @@ class FileRepository implements IRichNoteFileRepository {
         try (OutputStream blobStream = doc.createEmbeddedResource(fileToSave.getFileName().toString()).write();) {
             Files.copy(fileToSave, blobStream);
         }
+        
     }
 
 }

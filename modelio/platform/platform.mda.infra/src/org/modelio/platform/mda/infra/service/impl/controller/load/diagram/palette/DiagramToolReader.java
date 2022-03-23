@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.controller.load.diagram.palette;
 
 import java.io.IOException;
@@ -90,6 +89,7 @@ public class DiagramToolReader {
         } catch (IOException e) {
             MdaInfra.LOG.error(e);
         }
+        
     }
 
 }

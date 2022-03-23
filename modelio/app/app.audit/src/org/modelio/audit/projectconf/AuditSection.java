@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.projectconf;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,7 +46,7 @@ class AuditSection {
     private ProjectModel displayedProject;
 
     @objid ("a7334d82-33f6-11e2-a514-002564c97630")
-    public AuditSection(IAuditService auditService) {
+    public  AuditSection(IAuditService auditService) {
         this.auditService = auditService;
     }
 

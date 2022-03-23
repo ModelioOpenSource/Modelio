@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.interactionoperand;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,15 +32,15 @@ import org.modelio.uml.sequencediagram.editor.style.SequenceAbstractStyleKeyProv
 @objid ("d9069657-55b6-11e2-877f-002564c97630")
 public class GmInteractionOperandStyleKeys extends SequenceAbstractStyleKeyProvider {
     @objid ("4fb482ab-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("INTERACTIONOPERAND_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("INTERACTIONOPERAND_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("4fb482ad-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("INTERACTIONOPERAND_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("INTERACTIONOPERAND_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("4fb482af-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("INTERACTIONOPERAND_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("INTERACTIONOPERAND_FONT", MetaKey.FONT);
 
     @objid ("4fb482b1-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("INTERACTIONOPERAND_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("INTERACTIONOPERAND_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
 }

@@ -17,21 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.stateMachineModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.ConnectionPointReferenceData;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.EntryPointPseudoStateSmClass;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.ExitPointPseudoStateSmClass;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.StateSmClass;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.StateVertexSmClass;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.ConnectionPointReference;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.EntryPointPseudoState;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.ExitPointPseudoState;
@@ -60,7 +55,7 @@ public class ConnectionPointReferenceSmClass extends StateVertexSmClass {
     private SmDependency ownerStateDep;
 
     @objid ("3f85a370-6535-46df-8b1e-95fdbc4eff03")
-    public ConnectionPointReferenceSmClass(ISmMetamodelFragment origin) {
+    public  ConnectionPointReferenceSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -68,6 +63,7 @@ public class ConnectionPointReferenceSmClass extends StateVertexSmClass {
     @Override
     public String getName() {
         return "ConnectionPointReference";
+        
     }
 
     @objid ("083acfe1-644f-4b80-8e00-8f1fb1437079")
@@ -80,18 +76,21 @@ public class ConnectionPointReferenceSmClass extends StateVertexSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ConnectionPointReference.class;
+        
     }
 
     @objid ("6a89bff2-d2ed-4154-872c-336f0eb2fc5c")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("9fd0370b-1f45-497e-9d38-be5e040061dc")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("37870b6f-f881-45b7-b225-b3b88416b832")
@@ -115,6 +114,8 @@ public class ConnectionPointReferenceSmClass extends StateVertexSmClass {
         this.ownerStateDep = new OwnerStateSmDependency();
         this.ownerStateDep.init("OwnerState", this, metamodel.getMClass(State.MQNAME), 0, 1 );
         registerDependency(this.ownerStateDep);
+        
+        
     }
 
     @objid ("87949f38-41cc-48f8-85f3-3cf578117739")
@@ -147,7 +148,7 @@ public class ConnectionPointReferenceSmClass extends StateVertexSmClass {
         private ConnectionPointReferenceSmClass smClass;
 
         @objid ("a4d6831a-5a90-494a-92e6-a73bbdd085ac")
-        public ConnectionPointReferenceObjectFactory(ConnectionPointReferenceSmClass smClass) {
+        public  ConnectionPointReferenceObjectFactory(ConnectionPointReferenceSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -189,6 +190,7 @@ public class ConnectionPointReferenceSmClass extends StateVertexSmClass {
             	this.symetricDep = ((ExitPointPseudoStateSmClass)this.getTarget()).getConnectionDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -217,6 +219,7 @@ public class ConnectionPointReferenceSmClass extends StateVertexSmClass {
             	this.symetricDep = ((EntryPointPseudoStateSmClass)this.getTarget()).getConnectionDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -245,6 +248,7 @@ public class ConnectionPointReferenceSmClass extends StateVertexSmClass {
             	this.symetricDep = ((StateSmClass)this.getTarget()).getConnectionDep();
             }
             return this.symetricDep;
+            
         }
 
     }

@@ -17,19 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityEdgeSmClass;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityPartitionSmClass;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.MessageFlowData;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityEdge;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityPartition;
 import org.modelio.metamodel.uml.behavior.activityModel.MessageFlow;
@@ -53,7 +50,7 @@ public class MessageFlowSmClass extends ActivityEdgeSmClass {
     private SmDependency sourcePartitionDep;
 
     @objid ("5a596743-0e43-4fab-8f63-82370b0b80f0")
-    public MessageFlowSmClass(ISmMetamodelFragment origin) {
+    public  MessageFlowSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -61,6 +58,7 @@ public class MessageFlowSmClass extends ActivityEdgeSmClass {
     @Override
     public String getName() {
         return "MessageFlow";
+        
     }
 
     @objid ("5682b405-14ec-4595-8b2b-66f4ceb1013b")
@@ -73,18 +71,21 @@ public class MessageFlowSmClass extends ActivityEdgeSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return MessageFlow.class;
+        
     }
 
     @objid ("044cdff0-1635-42a7-af80-fe7ea85d0d0b")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("26a307cc-5dea-4a8f-8a84-b8a361ea1190")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("b4fe79bb-4126-4abb-ada5-d553b141b55d")
@@ -104,6 +105,8 @@ public class MessageFlowSmClass extends ActivityEdgeSmClass {
         this.sourcePartitionDep = new SourcePartitionSmDependency();
         this.sourcePartitionDep.init("SourcePartition", this, metamodel.getMClass(ActivityPartition.MQNAME), 0, 1 , SmDirective.SMCDLINKSOURCE);
         registerDependency(this.sourcePartitionDep);
+        
+        
     }
 
     @objid ("1fd43c4c-2f0e-4b25-a8b1-a47e974468f7")
@@ -126,6 +129,7 @@ public class MessageFlowSmClass extends ActivityEdgeSmClass {
     @Override
     public boolean isLinkMetaclass() {
         return true;
+        
     }
 
     @objid ("f46ca5ff-f9ee-45c3-922a-a93c5744c3e8")
@@ -134,7 +138,7 @@ public class MessageFlowSmClass extends ActivityEdgeSmClass {
         private MessageFlowSmClass smClass;
 
         @objid ("7b835d5a-8fe7-4d3f-8f53-8af5ea108cc9")
-        public MessageFlowObjectFactory(MessageFlowSmClass smClass) {
+        public  MessageFlowObjectFactory(MessageFlowSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -176,6 +180,7 @@ public class MessageFlowSmClass extends ActivityEdgeSmClass {
             	this.symetricDep = ((ActivityPartitionSmClass)this.getTarget()).getIncomingDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -204,6 +209,7 @@ public class MessageFlowSmClass extends ActivityEdgeSmClass {
             	this.symetricDep = ((ActivityPartitionSmClass)this.getTarget()).getOutgoingDep();
             }
             return this.symetricDep;
+            
         }
 
     }

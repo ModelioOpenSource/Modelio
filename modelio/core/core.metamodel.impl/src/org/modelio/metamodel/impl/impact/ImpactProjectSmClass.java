@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.impact;
 
 import java.util.ArrayList;
@@ -30,8 +30,6 @@ import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impact.ImpactModel;
 import org.modelio.metamodel.impact.ImpactProject;
-import org.modelio.metamodel.impl.impact.ImpactModelSmClass;
-import org.modelio.metamodel.impl.impact.ImpactProjectData;
 import org.modelio.metamodel.impl.uml.infrastructure.AbstractProjectSmClass;
 import org.modelio.metamodel.uml.infrastructure.AbstractProject;
 import org.modelio.vbasic.version.Version;
@@ -51,7 +49,7 @@ public class ImpactProjectSmClass extends AbstractProjectSmClass {
     private SmDependency modelDep;
 
     @objid ("7949905d-5446-4711-85a9-7b1eac281a13")
-    public ImpactProjectSmClass(ISmMetamodelFragment origin) {
+    public  ImpactProjectSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -59,6 +57,7 @@ public class ImpactProjectSmClass extends AbstractProjectSmClass {
     @Override
     public String getName() {
         return "ImpactProject";
+        
     }
 
     @objid ("a3f2c491-c779-4326-88a6-a74047133a81")
@@ -71,18 +70,21 @@ public class ImpactProjectSmClass extends AbstractProjectSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ImpactProject.class;
+        
     }
 
     @objid ("0a5adbe9-d09e-4bd9-968e-fe0a1cda6ee4")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("44faebff-1c25-4ad8-8ea9-9f063a04388f")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("d4a21cec-51c5-4389-9258-91246f2102ff")
@@ -98,6 +100,8 @@ public class ImpactProjectSmClass extends AbstractProjectSmClass {
         this.modelDep = new ModelSmDependency();
         this.modelDep.init("model", this, metamodel.getMClass(ImpactModel.MQNAME), 0, -1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.modelDep);
+        
+        
     }
 
     @objid ("04634412-1f27-4035-b202-4651746d44a9")
@@ -112,6 +116,7 @@ public class ImpactProjectSmClass extends AbstractProjectSmClass {
     @Override
     public boolean areOrphansAllowed() {
         return true;
+        
     }
 
     @objid ("69fdc5dd-733a-4fc8-ba42-f9540d8b3989")
@@ -120,7 +125,7 @@ public class ImpactProjectSmClass extends AbstractProjectSmClass {
         private ImpactProjectSmClass smClass;
 
         @objid ("ff5b1c53-be56-42bf-b200-aa4da2fe7687")
-        public ImpactProjectObjectFactory(ImpactProjectSmClass smClass) {
+        public  ImpactProjectObjectFactory(ImpactProjectSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -153,6 +158,7 @@ public class ImpactProjectSmClass extends AbstractProjectSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ImpactProjectData) data).mModel = values;
+            
         }
 
         @objid ("3240de08-87da-4eef-a6a7-ec3658d82264")
@@ -162,6 +168,7 @@ public class ImpactProjectSmClass extends AbstractProjectSmClass {
             	this.symetricDep = ((ImpactModelSmClass)this.getTarget()).getProjectDep();
             }
             return this.symetricDep;
+            
         }
 
     }

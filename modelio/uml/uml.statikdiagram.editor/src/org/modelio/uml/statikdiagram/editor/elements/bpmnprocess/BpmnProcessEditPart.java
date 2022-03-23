@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.bpmnprocess;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -64,6 +63,7 @@ public class BpmnProcessEditPart extends AbstractNodeEditPart {
             throw new IllegalArgumentException("CallBehaviorEditPart#addChildVisual: unknown index " + index);
         }
         getFigure().add(child, gmAbstractObject.getLayoutData(), index);
+        
     }
 
     @objid ("3424648a-55b7-11e2-877f-002564c97630")
@@ -74,6 +74,7 @@ public class BpmnProcessEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                           new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("3424648d-55b7-11e2-877f-002564c97630")
@@ -103,6 +104,7 @@ public class BpmnProcessEditPart extends AbstractNodeEditPart {
                 super.refreshFromStyle(aFigure, style);
             }
         }
+        
     }
 
     @objid ("3424649b-55b7-11e2-877f-002564c97630")
@@ -110,6 +112,7 @@ public class BpmnProcessEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         GmBpmnProcessPrimaryNode callBehaviorModel = (GmBpmnProcessPrimaryNode) getModel();
         getFigure().getParent().setConstraint(getFigure(), callBehaviorModel.getLayoutData());
+        
     }
 
 }

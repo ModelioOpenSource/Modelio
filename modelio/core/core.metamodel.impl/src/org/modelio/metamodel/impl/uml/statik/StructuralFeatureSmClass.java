@@ -17,20 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.informationFlow.InformationFlowSmClass;
-import org.modelio.metamodel.impl.uml.statik.FeatureSmClass;
-import org.modelio.metamodel.impl.uml.statik.StructuralFeatureData;
 import org.modelio.metamodel.uml.informationFlow.InformationFlow;
 import org.modelio.metamodel.uml.statik.Feature;
 import org.modelio.metamodel.uml.statik.KindOfAccess;
@@ -71,7 +69,7 @@ public class StructuralFeatureSmClass extends FeatureSmClass {
     private SmDependency realizedInformationFlowDep;
 
     @objid ("06ac5a57-4350-4196-bd5b-e91cfbdc961f")
-    public StructuralFeatureSmClass(ISmMetamodelFragment origin) {
+    public  StructuralFeatureSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -79,6 +77,7 @@ public class StructuralFeatureSmClass extends FeatureSmClass {
     @Override
     public String getName() {
         return "StructuralFeature";
+        
     }
 
     @objid ("68df3be7-59e9-49b2-8548-c6e83b4aa554")
@@ -91,18 +90,21 @@ public class StructuralFeatureSmClass extends FeatureSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return StructuralFeature.class;
+        
     }
 
     @objid ("eb0a2c13-2510-4b44-bae6-81c1eac131a4")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("2f92300e-29d6-485e-93ba-1c19ad7a0081")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("9a72c169-3435-4230-bd53-ba17665d5093")
@@ -142,6 +144,8 @@ public class StructuralFeatureSmClass extends FeatureSmClass {
         this.realizedInformationFlowDep = new RealizedInformationFlowSmDependency();
         this.realizedInformationFlowDep.init("RealizedInformationFlow", this, metamodel.getMClass(InformationFlow.MQNAME), 0, -1 );
         registerDependency(this.realizedInformationFlowDep);
+        
+        
     }
 
     @objid ("665dbb48-1ab6-4f75-8322-89133d022ae4")
@@ -206,7 +210,7 @@ public class StructuralFeatureSmClass extends FeatureSmClass {
         private StructuralFeatureSmClass smClass;
 
         @objid ("59379ea6-9365-4eb8-b966-dba1487ae9f2")
-        public StructuralFeatureObjectFactory(StructuralFeatureSmClass smClass) {
+        public  StructuralFeatureObjectFactory(StructuralFeatureSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -323,6 +327,7 @@ public class StructuralFeatureSmClass extends FeatureSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((StructuralFeatureData) data).mRealizedInformationFlow = values;
+            
         }
 
         @objid ("f2c073bc-9795-422b-95f8-d6262439004b")
@@ -332,6 +337,7 @@ public class StructuralFeatureSmClass extends FeatureSmClass {
             	this.symetricDep = ((InformationFlowSmClass)this.getTarget()).getRealizingFeatureDep();
             }
             return this.symetricDep;
+            
         }
 
     }

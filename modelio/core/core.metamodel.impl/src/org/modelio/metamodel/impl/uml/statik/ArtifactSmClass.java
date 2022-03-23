@@ -17,21 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.statik.ArtifactData;
-import org.modelio.metamodel.impl.uml.statik.ClassifierSmClass;
-import org.modelio.metamodel.impl.uml.statik.ManifestationSmClass;
-import org.modelio.metamodel.impl.uml.statik.NodeSmClass;
 import org.modelio.metamodel.uml.statik.Artifact;
 import org.modelio.metamodel.uml.statik.Classifier;
 import org.modelio.metamodel.uml.statik.Manifestation;
@@ -60,7 +56,7 @@ public class ArtifactSmClass extends ClassifierSmClass {
     private SmDependency deploymentLocationDep;
 
     @objid ("fc4c22f2-ff1e-41c8-a5a2-6734f54d728d")
-    public ArtifactSmClass(ISmMetamodelFragment origin) {
+    public  ArtifactSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -68,6 +64,7 @@ public class ArtifactSmClass extends ClassifierSmClass {
     @Override
     public String getName() {
         return "Artifact";
+        
     }
 
     @objid ("8e2a866c-bd24-459b-a4b2-027df2f8b94f")
@@ -80,18 +77,21 @@ public class ArtifactSmClass extends ClassifierSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Artifact.class;
+        
     }
 
     @objid ("48aa96cb-ac10-4a68-bbe8-15103226270b")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("1ab10964-70c8-4866-909e-6de38117b18f")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("264ce81f-719f-47c3-b507-16e60c9b94f3")
@@ -115,6 +115,8 @@ public class ArtifactSmClass extends ClassifierSmClass {
         this.deploymentLocationDep = new DeploymentLocationSmDependency();
         this.deploymentLocationDep.init("DeploymentLocation", this, metamodel.getMClass(Node.MQNAME), 0, -1 );
         registerDependency(this.deploymentLocationDep);
+        
+        
     }
 
     @objid ("ab8a03cb-fe3b-4d47-8d89-8d9df26d0885")
@@ -147,7 +149,7 @@ public class ArtifactSmClass extends ClassifierSmClass {
         private ArtifactSmClass smClass;
 
         @objid ("b7aac80b-d762-43ad-a646-50ad944786b2")
-        public ArtifactObjectFactory(ArtifactSmClass smClass) {
+        public  ArtifactObjectFactory(ArtifactSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -194,6 +196,7 @@ public class ArtifactSmClass extends ClassifierSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ArtifactData) data).mUtilized = values;
+            
         }
 
         @objid ("f004287c-3e6b-4d08-81fb-6c3a633d6188")
@@ -203,6 +206,7 @@ public class ArtifactSmClass extends ClassifierSmClass {
             	this.symetricDep = ((ManifestationSmClass)this.getTarget()).getOwnerDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -222,6 +226,7 @@ public class ArtifactSmClass extends ClassifierSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ArtifactData) data).mDeploymentLocation = values;
+            
         }
 
         @objid ("f256e143-2bf2-4fc8-8580-b95095228682")
@@ -231,6 +236,7 @@ public class ArtifactSmClass extends ClassifierSmClass {
             	this.symetricDep = ((NodeSmClass)this.getTarget()).getResidentDep();
             }
             return this.symetricDep;
+            
         }
 
     }

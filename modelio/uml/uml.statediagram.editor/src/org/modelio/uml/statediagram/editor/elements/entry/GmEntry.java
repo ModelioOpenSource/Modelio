@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.entry;
 
 import java.util.Collections;
@@ -31,8 +30,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.EntryPointPseudoState;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -44,9 +43,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("f50e7d9e-55b6-11e2-877f-002564c97630")
 public class GmEntry extends GmPortContainer {
-    @objid ("f50e7da2-55b6-11e2-877f-002564c97630")
-    private EntryPointPseudoState element;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -56,8 +52,11 @@ public class GmEntry extends GmPortContainer {
     @objid ("f50e7dae-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
 
+    @objid ("f50e7da2-55b6-11e2-877f-002564c97630")
+    private EntryPointPseudoState element;
+
     @objid ("fd042aef-5a5b-11e2-9e33-00137282c51b")
-     static final GmEntryStructuredStyleKeys STRUCTURED_KEYS = new GmEntryStructuredStyleKeys();
+    static final GmEntryStructuredStyleKeys STRUCTURED_KEYS = new GmEntryStructuredStyleKeys();
 
     @objid ("fd042af1-5a5b-11e2-9e33-00137282c51b")
     private static final GmEntrySimpleStyleKeys SIMPLE_KEYS = new GmEntrySimpleStyleKeys();
@@ -70,13 +69,12 @@ public class GmEntry extends GmPortContainer {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the element is unmasked.
      * @param el the unmasked element, can be <i>null</i>.
      * @param ref the unmasked element reference, must not be <i>null</i>..
      */
     @objid ("f50e7db0-55b6-11e2-877f-002564c97630")
-    public GmEntry(IGmDiagram diagram, EntryPointPseudoState el, MRef ref) {
+    public  GmEntry(IGmDiagram diagram, EntryPointPseudoState el, MRef ref) {
         super(diagram,ref);
         
         GmEntryPrimaryNode mainNode = new GmEntryPrimaryNode(diagram, ref);
@@ -89,6 +87,7 @@ public class GmEntry extends GmPortContainer {
             
         this.addChild(mainNode);
         this.addChild(label);
+        
     }
 
     @objid ("f50e7dbc-55b6-11e2-877f-002564c97630")
@@ -147,7 +146,7 @@ public class GmEntry extends GmPortContainer {
      * Empty constructor needed for deserialization.
      */
     @objid ("f5100434-55b6-11e2-877f-002564c97630")
-    public GmEntry() {
+    public  GmEntry() {
         // Nothing specific to do.
     }
 
@@ -168,6 +167,7 @@ public class GmEntry extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("f510043d-55b6-11e2-877f-002564c97630")
@@ -189,12 +189,14 @@ public class GmEntry extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmEntry.", GmEntry.MINOR_VERSION);
+        
     }
 
     @objid ("f5100451-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (EntryPointPseudoState) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("f5100456-55b6-11e2-877f-002564c97630")
@@ -205,7 +207,6 @@ public class GmEntry extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -217,7 +218,6 @@ public class GmEntry extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.gef.background;
 
 import java.beans.PropertyChangeEvent;
@@ -84,6 +83,7 @@ public class BackgroundEditPart extends AbstractGraphicalEditPart implements Pro
         super.activate();
         getModel().addPropertyChangeListener(this);
         getViewer().addPropertyChangeListener(this);
+        
     }
 
     @objid ("1b87bbfa-5e33-11e2-b81d-002564c97630")
@@ -92,6 +92,7 @@ public class BackgroundEditPart extends AbstractGraphicalEditPart implements Pro
         getModel().removePropertyChangeListener(this);
         getViewer().removePropertyChangeListener(this);
         super.deactivate();
+        
     }
 
     @objid ("1b87bbfd-5e33-11e2-b81d-002564c97630")
@@ -111,6 +112,7 @@ public class BackgroundEditPart extends AbstractGraphicalEditPart implements Pro
         } else {
             super.performRequest(req);
         }
+        
     }
 
     @objid ("1b87bc09-5e33-11e2-b81d-002564c97630")
@@ -133,6 +135,7 @@ public class BackgroundEditPart extends AbstractGraphicalEditPart implements Pro
         if (evt.getPropertyName().equals(EDIT_MODE)) {
             refreshVisuals();
         }
+        
     }
 
     @objid ("1b87bc0e-5e33-11e2-b81d-002564c97630")
@@ -141,6 +144,7 @@ public class BackgroundEditPart extends AbstractGraphicalEditPart implements Pro
         IFigure child = ((GraphicalEditPart) childEditPart).getFigure();
         Node model = (Node) childEditPart.getModel();
         getContentPane().add(child, new Rectangle(model.x, model.y, model.width, model.height), index);
+        
     }
 
     @objid ("1b87bc17-5e33-11e2-b81d-002564c97630")
@@ -226,13 +230,13 @@ public class BackgroundEditPart extends AbstractGraphicalEditPart implements Pro
                 }
             }
         }
+        
     }
 
     /**
      * Get the size of the control showing the viewer .
      * <p>
      * Scroll bars are deduced from the view size.
-     * 
      * @return the visible view size.
      */
     @objid ("1b87bc2e-5e33-11e2-b81d-002564c97630")
@@ -268,7 +272,6 @@ public class BackgroundEditPart extends AbstractGraphicalEditPart implements Pro
      * Layout a node, ie set its position.
      * @param goLeft
      * - the direction of the graph navigation.
-     * 
      * @param node - the node to layout
      * @param rank - the tree depth coordinate where to layout the node.<br/>
      * For vertical layout rank is the Y coordinate, for horizontal layout rank is the X coordinate.
@@ -327,7 +330,6 @@ public class BackgroundEditPart extends AbstractGraphicalEditPart implements Pro
 
     /**
      * Align the center node on the center of the view or one of its border depending on the edges existence.
-     * 
      * @param directedGraph the model graph
      */
     @objid ("1b87bc43-5e33-11e2-b81d-002564c97630")
@@ -356,10 +358,11 @@ public class BackgroundEditPart extends AbstractGraphicalEditPart implements Pro
             node.x += xDelta;
             node.y += yDelta;
         }
+        
     }
 
     @objid ("e5f57cc7-5efd-11e2-a8be-00137282c51b")
-    public BackgroundEditPart(IEclipseContext context) {
+    public  BackgroundEditPart(IEclipseContext context) {
         this.context = context;
     }
 
@@ -385,6 +388,7 @@ public class BackgroundEditPart extends AbstractGraphicalEditPart implements Pro
         
         Color swtColor = isEditMode() ? UIColor.TEXT_WRITABLE_BG : UIColor.POSTIT_YELLOW;
         getFigure().setBackgroundColor(swtColor);
+        
     }
 
 }

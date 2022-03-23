@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,7 +30,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 @objid ("00337692-c4bf-1fd8-97fe-001ec947cd2a")
 public class FlowFinalNodeData extends FinalNodeData {
     @objid ("45e1588e-69e1-4841-a6da-c2091f146cfa")
-    public FlowFinalNodeData(FlowFinalNodeSmClass smClass) {
+    public  FlowFinalNodeData(FlowFinalNodeSmClass smClass) {
         super(smClass);
     }
 

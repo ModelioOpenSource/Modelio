@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.production.eventdefinitions;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import javax.xml.bind.JAXBElement;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.xml.bind.JAXBElement;
 import org.modelio.bpmnxml.model.ObjectFactory;
 import org.modelio.bpmnxml.model.TCancelEventDefinition;
 import org.modelio.bpmnxml.model.TCatchEvent;
@@ -41,7 +40,7 @@ import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("b73b6e84-4bd5-4d31-8c95-721535256e4f")
-public class CancelEventDefinitionNode implements IProductionNode<BpmnCancelEventDefinition,TCancelEventDefinition> {
+public class CancelEventDefinitionNode implements IProductionNode<BpmnCancelEventDefinition, TCancelEventDefinition> {
     @objid ("0bc5a28f-3999-475c-94f0-a931d100b9ec")
     private Map<String, Object> elementsMap;
 
@@ -72,6 +71,7 @@ public class CancelEventDefinitionNode implements IProductionNode<BpmnCancelEven
         }else{
             return factory.create(BpmnCancelEventDefinition.class,context,"EventDefinitions");
         }
+        
     }
 
     @objid ("8c7dcd03-4c4e-4ebb-a6f2-3d9e88516d12")

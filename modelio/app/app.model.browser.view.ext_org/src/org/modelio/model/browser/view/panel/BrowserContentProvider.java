@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.browser.view.panel;
 
 import java.util.ArrayList;
@@ -71,7 +70,7 @@ public class BrowserContentProvider implements IModelChangeListener, IStatusChan
     private boolean showProjects = true;
 
     @objid ("eece2eec-d3d3-4fdd-a843-b854fe957d88")
-     volatile boolean isEditorActive = false;
+    volatile boolean isEditorActive = false;
 
     @objid ("dd25a781-9a09-44bd-9652-0fc21fbbf294")
     private static final String CLASS = "class";
@@ -132,6 +131,7 @@ public class BrowserContentProvider implements IModelChangeListener, IStatusChan
         for (ITreeContentProvider contentProvider : this.extensions.values()) {
             contentProvider.inputChanged(currentViewer, oldInput, newInput);
         }
+        
     }
 
     @objid ("a1b68b72-805e-4178-9036-92739784b671")
@@ -140,6 +140,7 @@ public class BrowserContentProvider implements IModelChangeListener, IStatusChan
         for (ITreeContentProvider contentProvider : this.extensions.values()) {
             contentProvider.dispose();
         }
+        
     }
 
     @objid ("0ade0bbe-2c18-463f-a215-0027baa332e7")
@@ -269,6 +270,7 @@ public class BrowserContentProvider implements IModelChangeListener, IStatusChan
         if (this.viewer != null && !this.viewer.getControl().isDisposed()) {
             this.viewer.refresh();
         }
+        
     }
 
     @objid ("dc85e8c3-5bcb-4c60-bcfa-73f06a077f3e")
@@ -282,6 +284,7 @@ public class BrowserContentProvider implements IModelChangeListener, IStatusChan
                 && !this.isEditorActive) {
             this.viewer.refresh();
         }
+        
     }
 
     @objid ("d50727aa-2e6b-4dae-9c5c-d5ca0d558d92")
@@ -290,6 +293,7 @@ public class BrowserContentProvider implements IModelChangeListener, IStatusChan
         if (this.viewRefresher.compareAndSet(null, newRefresher)) {
             this.viewer.getControl().getDisplay().asyncExec(newRefresher);
         }
+        
     }
 
     @objid ("9e6c3fff-b1b6-4d8e-8653-350e6bcd1c3e")
@@ -382,7 +386,7 @@ public class BrowserContentProvider implements IModelChangeListener, IStatusChan
     @objid ("3976546c-0369-4210-9227-2fcd043ed4e0")
     private class ViewRefresher implements Runnable {
         @objid ("a135a24b-5079-4418-80bd-260b1acfc3fe")
-        public ViewRefresher() {
+        public  ViewRefresher() {
             // nothing
         }
 
@@ -397,7 +401,7 @@ public class BrowserContentProvider implements IModelChangeListener, IStatusChan
     @objid ("b780e61b-8b01-4bc0-925d-f2bdabdd4a0d")
     private static class FragmentComparator implements Comparator<IProjectFragment> {
         @objid ("2403e2ad-9b9f-4ce9-a792-acc866bbe802")
-        public FragmentComparator() {
+        public  FragmentComparator() {
             // Empty constructor
         }
 
@@ -409,6 +413,7 @@ public class BrowserContentProvider implements IModelChangeListener, IStatusChan
             } else {
                 return FragmentComparator.getTypeWeight(f1.getType()) - FragmentComparator.getTypeWeight(f2.getType());
             }
+            
         }
 
         @objid ("0e80d258-ce9c-43b3-936d-13bfdd6b2d18")
@@ -427,6 +432,7 @@ public class BrowserContentProvider implements IModelChangeListener, IStatusChan
             default:
                 return 99;
             }
+            
         }
 
     }

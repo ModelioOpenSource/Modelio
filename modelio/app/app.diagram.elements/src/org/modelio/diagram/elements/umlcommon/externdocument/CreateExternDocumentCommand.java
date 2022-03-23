@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.umlcommon.externdocument;
 
 import java.io.IOException;
@@ -51,7 +50,7 @@ public class CreateExternDocumentCommand extends CreateLinkedNodeCommand {
      * @param context Modelio creation context
      */
     @objid ("814d26a0-1dec-11e2-8cad-001ec947c8cc")
-    public CreateExternDocumentCommand(final ModelioCreationContext context) {
+    public  CreateExternDocumentCommand(final ModelioCreationContext context) {
         super(context);
     }
 

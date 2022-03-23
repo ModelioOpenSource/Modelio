@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.connectionpoint;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,34 +31,34 @@ import org.modelio.uml.statediagram.editor.style.StateAbstractStyleKeyProvider;
 @objid ("f5024879-55b6-11e2-877f-002564c97630")
 public class GmConnectionPointStructuredStyleKeys extends StateAbstractStyleKeyProvider {
     @objid ("8152d78b-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("CONNECTIONPOINT_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("CONNECTIONPOINT_REPMODE", MetaKey.REPMODE);
 
     @objid ("8152d78d-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("CONNECTIONPOINT_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("CONNECTIONPOINT_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("8152d78f-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("CONNECTIONPOINT_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("CONNECTIONPOINT_FILLMODE", MetaKey.FILLMODE);
 
     @objid ("8152d791-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("CONNECTIONPOINT_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("CONNECTIONPOINT_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("8152d793-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("CONNECTIONPOINT_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("CONNECTIONPOINT_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("8152d795-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("CONNECTIONPOINT_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("CONNECTIONPOINT_FONT", MetaKey.FONT);
 
     @objid ("8152d797-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("CONNECTIONPOINT_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("CONNECTIONPOINT_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("8152d799-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("CONNECTIONPOINT_SHOWSTEREOTYPES",
-                                                           MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("CONNECTIONPOINT_SHOWSTEREOTYPES",
+                                                                   MetaKey.SHOWSTEREOTYPES);
 
     @objid ("8152d79b-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("CONNECTIONPOINT_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("CONNECTIONPOINT_SHOWTAGS", MetaKey.SHOWTAGS);
 
     @objid ("8152d79d-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWLABEL = createStyleKey("CONNECTIONPOINT_SHOWLABEL", MetaKey.SHOWLABEL);
+    static final StyleKey SHOWLABEL = createStyleKey("CONNECTIONPOINT_SHOWLABEL", MetaKey.SHOWLABEL);
 
 }

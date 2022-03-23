@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.ramcs.edition;
 
 import java.nio.file.Files;
@@ -114,15 +113,15 @@ public class ViewRamcDialog extends ModelioDialog {
 
     /**
      * C'tor.
-     * 
      * @param parentShell the parent shell, or <code>null</code> to create a top-level shell.
      * @param dataModel the data model of the ramc to be viewed.
      */
     @objid ("540085eb-beef-42b5-8535-e210066e2960")
-    public ViewRamcDialog(Shell parentShell, RamcModel dataModel) {
+    public  ViewRamcDialog(Shell parentShell, RamcModel dataModel) {
         super(parentShell);
         this.dataModel = dataModel;
         setShellStyle(SWT.MODELESS | SWT.DIALOG_TRIM | SWT.RESIZE);
+        
     }
 
     @objid ("d7b6c18a-196f-48bf-96cf-e27e18acdb1b")
@@ -176,6 +175,7 @@ public class ViewRamcDialog extends ModelioDialog {
         
         this.ramcDescriptionText.setEditable(false);
         this.ramcDescriptionText.setEnabled(false);
+        
     }
 
     @objid ("e4886bcd-fa2d-47f8-a0d4-86061afe19b8")
@@ -223,6 +223,7 @@ public class ViewRamcDialog extends ModelioDialog {
                 return model.getName() + model.getVersion().toString(" V.R.C");
             }
         });
+        
     }
 
     @objid ("0eeafa47-4cec-4c48-ab86-d2f2b5bd0d7e")
@@ -248,6 +249,7 @@ public class ViewRamcDialog extends ModelioDialog {
         gd.heightHint = 21;
         gd.widthHint = 21;
         emptyComposite.setLayoutData(gd);
+        
     }
 
     @objid ("68c34ec8-b347-4330-a9e2-1535ae4cbdec")
@@ -271,6 +273,7 @@ public class ViewRamcDialog extends ModelioDialog {
         gd.heightHint = 21;
         gd.widthHint = 21;
         emptyComposite.setLayoutData(gd);
+        
     }
 
     @objid ("76f0a7dd-8197-44a3-814c-d6e6964dbe8c")
@@ -293,6 +296,7 @@ public class ViewRamcDialog extends ModelioDialog {
         gd.heightHint = 21;
         gd.widthHint = 21;
         emptyComposite.setLayoutData(gd);
+        
     }
 
     @objid ("d498e17f-0729-4124-b739-b94eac03beca")
@@ -311,6 +315,7 @@ public class ViewRamcDialog extends ModelioDialog {
         this.manifestationsTable.setInput(this.dataModel.getExportedElements());
         this.ramcFilesList.setInput(this.dataModel.getExportedFiles());
         this.contributorsTable.setInput(this.dataModel.getContributorCandidates());
+        
     }
 
     @objid ("9e5730f4-2768-473d-8a15-a0737a481d78")
@@ -377,6 +382,7 @@ public class ViewRamcDialog extends ModelioDialog {
         
         this.manifestationsTable.getTable().setForeground(UIColor.EDITOR_ROTEXT_FG);
         this.manifestationsTable.getTable().setBackground(UIColor.TEXT_READONLY_BG);
+        
     }
 
     @objid ("d51f4ebc-3f62-422a-a203-668b96fc15b5")
@@ -505,6 +511,7 @@ public class ViewRamcDialog extends ModelioDialog {
         exportedFileDescription.setForeground(org.modelio.platform.ui.UIColor.LABEL_TIP_FG);
         final GridData gd_exportedFileDescription = new GridData(SWT.FILL, SWT.UP, true, false, 2, 1);
         exportedFileDescription.setLayoutData(gd_exportedFileDescription);
+        
     }
 
     @objid ("0a238302-c9b4-4e06-bea1-1e4d29c41788")
@@ -566,6 +573,7 @@ public class ViewRamcDialog extends ModelioDialog {
                 return ViewRamcDialog.this.dataModel.getContributingModules().containsKey(n);
             }
         });
+        
     }
 
     @objid ("2a6b9a8a-22f0-4fb2-bb70-67c62cbb04e8")
@@ -586,6 +594,7 @@ public class ViewRamcDialog extends ModelioDialog {
         super.configureShell(newShell);
         newShell.setMinimumSize(getInitialSize());
         newShell.setText(AppRamcs.I18N.getString("EditRamcDialog.ViewRamcDialogTitle"));
+        
     }
 
     @objid ("45588860-67fd-49e9-b8a2-d293844cee40")
@@ -609,6 +618,7 @@ public class ViewRamcDialog extends ModelioDialog {
         gd.heightHint = 21;
         gd.widthHint = 21;
         emptyComposite.setLayoutData(gd);
+        
     }
 
     @objid ("7be6fd67-016a-40e9-8761-5036ebea413c")

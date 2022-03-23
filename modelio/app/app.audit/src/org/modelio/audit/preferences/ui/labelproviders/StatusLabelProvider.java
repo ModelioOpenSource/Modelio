@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.preferences.ui.labelproviders;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,8 @@ import org.modelio.platform.ui.UIImages;
 @objid ("9c85767f-699d-4ca3-a309-5b4892c5df17")
 public class StatusLabelProvider extends ColumnLabelProvider {
     @objid ("bb80dc93-5169-4b45-89fe-4089d1a50e54")
-    public StatusLabelProvider() {
+    public  StatusLabelProvider() {
+        
     }
 
     @objid ("d8ea2074-df43-4b8d-8155-55928f5a58ca")

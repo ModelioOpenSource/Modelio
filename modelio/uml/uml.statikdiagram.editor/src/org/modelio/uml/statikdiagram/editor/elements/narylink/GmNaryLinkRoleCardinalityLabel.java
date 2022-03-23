@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.narylink;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -52,15 +51,15 @@ public class GmNaryLinkRoleCardinalityLabel extends GmElementLabel {
 
     /**
      * Creates a role cardinality label.
-     * 
      * @param diagram The diagram
      * @param role The represented role, may be null
      * @param roleRef The represented role reference, may not be null
      */
     @objid ("bd0509d9-510f-432d-9663-6ca54335b5d2")
-    public GmNaryLinkRoleCardinalityLabel(IGmDiagram diagram, NaryLinkEnd role, MRef roleRef) {
+    public  GmNaryLinkRoleCardinalityLabel(IGmDiagram diagram, NaryLinkEnd role, MRef roleRef) {
         super(diagram, roleRef);
         this.role = role;
+        
     }
 
     @objid ("864d4503-419e-4d00-968a-1bcab75cb305")
@@ -93,7 +92,8 @@ public class GmNaryLinkRoleCardinalityLabel extends GmElementLabel {
      * Constructor for deserialization only.
      */
     @objid ("55fea1f7-cb13-4cf3-b7dc-06df9ac87291")
-    public GmNaryLinkRoleCardinalityLabel() {
+    public  GmNaryLinkRoleCardinalityLabel() {
+        
     }
 
     @objid ("2be1a537-2614-4644-b11b-d2c21ad574ca")
@@ -125,6 +125,7 @@ public class GmNaryLinkRoleCardinalityLabel extends GmElementLabel {
             break;
         }
         }
+        
     }
 
     @objid ("1b37ae8d-d4dd-405e-8a99-2010a944c41d")
@@ -162,6 +163,7 @@ public class GmNaryLinkRoleCardinalityLabel extends GmElementLabel {
                         }
                     }
                 };
+        
     }
 
     @objid ("4a643c97-696c-4647-9d56-1b76a74ea9b9")
@@ -177,12 +179,14 @@ public class GmNaryLinkRoleCardinalityLabel extends GmElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmNaryLinkRoleCardinalityLabel.", GmNaryLinkRoleCardinalityLabel.MINOR_VERSION);
+        
     }
 
     @objid ("153ff232-49f2-4f36-9eb4-efe060f95b7c")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.role = (NaryLinkEnd) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("6b23fd1c-5bff-4dac-9cfa-7dcba337aa0d")

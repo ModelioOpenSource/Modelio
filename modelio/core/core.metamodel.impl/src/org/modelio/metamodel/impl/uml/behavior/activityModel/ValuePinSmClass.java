@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.InputPinSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.InputPin;
 import org.modelio.metamodel.uml.behavior.activityModel.ValuePin;
 import org.modelio.vbasic.version.Version;
@@ -46,7 +45,7 @@ public class ValuePinSmClass extends InputPinSmClass {
     private SmAttribute valueAtt;
 
     @objid ("ef5d2cbb-1d31-45bc-bda5-6d1057edea16")
-    public ValuePinSmClass(ISmMetamodelFragment origin) {
+    public  ValuePinSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -54,6 +53,7 @@ public class ValuePinSmClass extends InputPinSmClass {
     @Override
     public String getName() {
         return "ValuePin";
+        
     }
 
     @objid ("65a6ef8f-d8b3-4deb-a01a-a80adf812c86")
@@ -66,18 +66,21 @@ public class ValuePinSmClass extends InputPinSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ValuePin.class;
+        
     }
 
     @objid ("02d04c14-0143-495f-8ef3-4dad54eee99f")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("02d6776e-220e-4c09-a267-d076975d529d")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("a55e8318-e2d9-4828-b16a-d19af6c925b5")
@@ -94,6 +97,7 @@ public class ValuePinSmClass extends InputPinSmClass {
         
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("d2879e24-1509-4030-8839-f4a27020c36e")
@@ -110,7 +114,7 @@ public class ValuePinSmClass extends InputPinSmClass {
         private ValuePinSmClass smClass;
 
         @objid ("b68c11c0-bcc5-40c2-80c7-ee28adf87b05")
-        public ValuePinObjectFactory(ValuePinSmClass smClass) {
+        public  ValuePinObjectFactory(ValuePinSmClass smClass) {
             this.smClass = smClass;
         }
 

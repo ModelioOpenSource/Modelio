@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import java.util.ArrayList;
@@ -136,10 +135,11 @@ public class EElement implements IEElement {
                 }
             }
         }
+        
     }
 
     @objid ("71e3b440-e139-4e19-adca-689a8fc4ec0e")
-    public EElement(org.eclipse.uml2.uml.Element element) {
+    public  EElement(org.eclipse.uml2.uml.Element element) {
         this.ecoreElt = element;
     }
 
@@ -159,6 +159,7 @@ public class EElement implements IEElement {
         for (Property property : listStereotypeProperties) {
             setProperties(objElement, stereotype, property);
         }
+        
     }
 
     @objid ("2b1ba68d-c450-4c48-b96e-868c1ceb7051")
@@ -229,6 +230,7 @@ public class EElement implements IEElement {
             }
         
         }
+        
     }
 
     @objid ("3e3fd273-c599-4840-8309-a71216bf2f77")
@@ -284,64 +286,65 @@ public class EElement implements IEElement {
         
         listStereotypeProperties.removeAll(toBeRemoved);
         toBeRemoved.clear();
+        
     }
 
-// @objid ("08e39ae5-4583-11e0-b54c-00137279a832")
-// private void setStereotypesAnnotation(ModelElement modelElement) {
-//
-// String completeSter = ObjingEAnnotation.getStereotype(this.ecoreElt);
-//
-// if ((completeSter != null ) && (!completeSter.equals(""))){
-// int index = completeSter.lastIndexOf(":");
-// String profile = completeSter.substring(0, index);
-// String stereotype = completeSter.substring(index+1, completeSter.length());
-// List<Stereotype> objStereotypes = new ArrayList<Stereotype>();
-//
-//
-// for (IModule currentModule : ReverseProperties.getInstance().getMModelServices().getModelFactory().getProject().getInstalled()){
-// if (currentModule.getName().equals("LocalModule")){
-// for(org.eclipse.uml2.uml.Profile currentProfile : currentModule.getOwnedProfile()){
-// if (currentProfile.getName().equals(profile)){
-// for (Stereotype currentStereotype : currentProfile.getDefinedStereotype()){
-// if (currentStereotype.getName().equals(stereotype)){
-// objStereotypes.add(currentStereotype);
-// break;
-// }
-// }
-// }
-// }
-// }
-// }
-//
-// if (objStereotypes.size() != 0){
-//
-// List<Stereotype> objStereotypesClass = ReverseProperties.getInstance().getMModelServices().getStereotypes(modelElement.getClass());
-//
-// for(Stereotype objStereotype : objStereotypes){
-//
-// if (objStereotypesClass.contains(objStereotype)){
-// IUmlModel model = ReverseProperties.getInstance().getMModelServices().getModelFactory();
-// modelElement.getExtension().add(objStereotype);
-//
-// for (TagType tagType : objStereotype.getDefinedTagType()){
-// String value = ObjingEAnnotation.getObjingEAnnotation(this.ecoreElt, tagType.getName());
-//
-// if (!value.equals("")){
-//
-// TaggedValue taggedValue = createTaggedValue(tagType, modelElement);
-// if ((!tagType.getParamNumber().equals('0')) || (
-// tagType.getParamNumber().equals('0') && (value.equalsIgnoreCase("true")))){
-// model.createTagParameter(value, taggedValue);
-// }
-//
-// }
-// }
-// }
-// }
-// }
-//
-// }
-// }
+    // @objid ("08e39ae5-4583-11e0-b54c-00137279a832")
+    // private void setStereotypesAnnotation(ModelElement modelElement) {
+    //
+    // String completeSter = ObjingEAnnotation.getStereotype(this.ecoreElt);
+    //
+    // if ((completeSter != null ) && (!completeSter.equals(""))){
+    // int index = completeSter.lastIndexOf(":");
+    // String profile = completeSter.substring(0, index);
+    // String stereotype = completeSter.substring(index+1, completeSter.length());
+    // List<Stereotype> objStereotypes = new ArrayList<Stereotype>();
+    //
+    //
+    // for (IModule currentModule : ReverseProperties.getInstance().getMModelServices().getModelFactory().getProject().getInstalled()){
+    // if (currentModule.getName().equals("LocalModule")){
+    // for(org.eclipse.uml2.uml.Profile currentProfile : currentModule.getOwnedProfile()){
+    // if (currentProfile.getName().equals(profile)){
+    // for (Stereotype currentStereotype : currentProfile.getDefinedStereotype()){
+    // if (currentStereotype.getName().equals(stereotype)){
+    // objStereotypes.add(currentStereotype);
+    // break;
+    // }
+    // }
+    // }
+    // }
+    // }
+    // }
+    //
+    // if (objStereotypes.size() != 0){
+    //
+    // List<Stereotype> objStereotypesClass = ReverseProperties.getInstance().getMModelServices().getStereotypes(modelElement.getClass());
+    //
+    // for(Stereotype objStereotype : objStereotypes){
+    //
+    // if (objStereotypesClass.contains(objStereotype)){
+    // IUmlModel model = ReverseProperties.getInstance().getMModelServices().getModelFactory();
+    // modelElement.getExtension().add(objStereotype);
+    //
+    // for (TagType tagType : objStereotype.getDefinedTagType()){
+    // String value = ObjingEAnnotation.getObjingEAnnotation(this.ecoreElt, tagType.getName());
+    //
+    // if (!value.equals("")){
+    //
+    // TaggedValue taggedValue = createTaggedValue(tagType, modelElement);
+    // if ((!tagType.getParamNumber().equals('0')) || (
+    // tagType.getParamNumber().equals('0') && (value.equalsIgnoreCase("true")))){
+    // model.createTagParameter(value, taggedValue);
+    // }
+    //
+    // }
+    // }
+    // }
+    // }
+    // }
+    //
+    // }
+    // }
     @objid ("93c356ea-0c27-42ee-a222-63582ffc2f8a")
     private TaggedValue createTaggedValue(TagType tagType, ModelElement modelElt) {
         TaggedValue taggedValue = ReverseProperties.getInstance().getMModelServices().getModelFactory().getFactory(IStandardModelFactory.class).createTaggedValue();
@@ -359,11 +362,13 @@ public class EElement implements IEElement {
     @objid ("001dcc78-d8a8-43dc-8202-808a5a6da379")
     @Override
     public void attach(Element objingElt) {
+        
     }
 
     @objid ("331fe3b9-69cd-4c6e-a4e1-edc146b11e34")
     @Override
     public void setProperties(Element objingElt) {
+        
     }
 
     @objid ("b9a5b8d8-4849-48fc-807e-a05e994c4410")

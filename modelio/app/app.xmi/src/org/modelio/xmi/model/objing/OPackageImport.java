@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,9 +41,10 @@ public class OPackageImport extends OElement implements IOElement {
     }
 
     @objid ("8f0fd497-7b9e-4036-9df5-cccc72ec6b30")
-    public OPackageImport(PackageImport element) {
+    public  OPackageImport(PackageImport element) {
         super(element);
         this.objingElement = element;
+        
     }
 
     @objid ("47305cbc-383d-4ed9-bd42-d5085f145ebe")
@@ -82,6 +82,7 @@ public class OPackageImport extends OElement implements IOElement {
                 }
             }
         }
+        
     }
 
     @objid ("6aaf2418-0da6-40e2-b6f6-8c3ba7c6d417")
@@ -89,6 +90,7 @@ public class OPackageImport extends OElement implements IOElement {
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         setNameEAnnotation((org.eclipse.uml2.uml.PackageImport) ecoreElt);
         setVisibility((org.eclipse.uml2.uml.PackageImport) ecoreElt);
+        
     }
 
     @objid ("d1ba2792-2132-49f6-ba0a-9516ca4982f0")
@@ -119,6 +121,7 @@ public class OPackageImport extends OElement implements IOElement {
             // a visibility not setted corresponds to a PUBLIC visibility.
             break;
         }
+        
     }
 
 }

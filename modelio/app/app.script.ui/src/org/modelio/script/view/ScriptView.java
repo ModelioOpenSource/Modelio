@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.script.view;
 
 import java.io.BufferedWriter;
 import java.io.PrintWriter;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.core.di.extensions.EventTopic;
@@ -164,6 +163,7 @@ public class ScriptView {
             }
         
         });
+        
     }
 
     @objid ("007f795c-663d-105c-84ef-001ec947cd2a")
@@ -178,6 +178,7 @@ public class ScriptView {
         this.errorWriter = null;
         this.outputWriter = null;
         this.shform = null;
+        
     }
 
     @objid ("007f8f8c-663d-105c-84ef-001ec947cd2a")
@@ -210,7 +211,6 @@ public class ScriptView {
 
     /**
      * Get the script view.
-     * 
      * @return The script view
      */
     @objid ("0080721c-663d-105c-84ef-001ec947cd2a")
@@ -241,6 +241,7 @@ public class ScriptView {
     void onProjectOpened(@EventTopic(ModelioEventTopics.PROJECT_OPENED) final GProject openedProject) {
         bindJythonRunner(openedProject);
         configureOptions(getProjectPreferences());
+        
     }
 
     @objid ("0071aae8-572b-1064-a2b8-001ec947cd2a")
@@ -250,6 +251,7 @@ public class ScriptView {
     void onProjectClose(@EventTopic(ModelioEventTopics.PROJECT_CLOSED) GProject project) {
         unbindJythonRunner();
         configureOptions(null);
+        
     }
 
     @objid ("0039caba-d886-1065-a2b8-001ec947cd2a")
@@ -284,6 +286,7 @@ public class ScriptView {
         this.jythonRunner.bind("coreSession", (project != null) ? project.getSession() : null);
         this.jythonRunner.bind("modelingSession", Modelio.getInstance().getModelingSession());
         this.jythonRunner.bind("session", Modelio.getInstance().getModelingSession());
+        
     }
 
     @objid ("007c5f1a-52bf-106c-80fa-001ec947cd2a")
@@ -293,6 +296,7 @@ public class ScriptView {
             this.jythonRunner.bind("coreSession", null);
             this.jythonRunner.bind("modelingSession", null);
         }
+        
     }
 
     @objid ("007d2d1e-52bf-106c-80fa-001ec947cd2a")
@@ -301,12 +305,14 @@ public class ScriptView {
         if (this.shform != null) {
             this.shform.setFocus();
         }
+        
     }
 
     @objid ("88d0858e-e4aa-4d65-b420-4b119a9c9e0a")
     private void configureOptions(IPreferenceStore projectPreferences) {
         // Link options with the current preference store.
         this.options = new ScriptOptions(projectPreferences);
+        
     }
 
     @objid ("5ea6bce8-51b0-497a-bd60-814d81d77fa1")

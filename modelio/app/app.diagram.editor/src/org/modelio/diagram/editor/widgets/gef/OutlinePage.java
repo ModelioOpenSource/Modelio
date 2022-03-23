@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.widgets.gef;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,7 +39,7 @@ import org.eclipse.swt.widgets.Control;
 @objid ("fd14a2eb-1f61-48f3-ad43-f34b1e5847ca")
 public class OutlinePage extends org.eclipse.gef.ui.parts.ContentOutlinePage {
     @objid ("df24871c-f606-4aab-a0f7-87927f754550")
-     ScrollableThumbnail thumbnail;
+    ScrollableThumbnail thumbnail;
 
     @objid ("c331a7d6-4acd-4a58-b9bd-6991c8e6ad63")
     private Composite panel;
@@ -55,10 +54,11 @@ public class OutlinePage extends org.eclipse.gef.ui.parts.ContentOutlinePage {
     private GraphicalViewer graphicalViewer;
 
     @objid ("61b300a5-b7b9-4158-8d9e-29a0f1d49cc9")
-    public OutlinePage(GraphicalViewer graphicalViewer, SelectionSynchronizer synchronizer) {
+    public  OutlinePage(GraphicalViewer graphicalViewer, SelectionSynchronizer synchronizer) {
         super(new ScrollingGraphicalViewer());
         this.synchronizer = synchronizer;
         this.graphicalViewer = graphicalViewer;
+        
     }
 
     @objid ("8c6c1bfe-d97e-4115-a208-4c757bc267ff")
@@ -100,6 +100,7 @@ public class OutlinePage extends org.eclipse.gef.ui.parts.ContentOutlinePage {
             };
             viewer.getControl().addDisposeListener(this.disposeListener);
         }
+        
     }
 
     @objid ("1f2b0b41-d4fe-4d45-b3ee-18e8f5d2c58b")
@@ -110,6 +111,7 @@ public class OutlinePage extends org.eclipse.gef.ui.parts.ContentOutlinePage {
             this.graphicalViewer.getControl().removeDisposeListener(this.disposeListener);
         }
         super.dispose();
+        
     }
 
     @objid ("87653ec5-1358-4403-83d9-ea3050ec366a")

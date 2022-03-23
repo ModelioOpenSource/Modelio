@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.acceptsignal;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,33 +29,33 @@ import org.modelio.uml.activitydiagram.editor.style.ActivityAbstractStyleKeyProv
 @objid ("297c89b3-55b6-11e2-877f-002564c97630")
 public class GmAcceptSignalSimpleStyleKeys extends ActivityAbstractStyleKeyProvider {
     @objid ("d0e4f009-55c0-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmAcceptSignalStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmAcceptSignalStructuredStyleKeys.REPMODE;
 
     @objid ("d0e4f00b-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = GmAcceptSignalStructuredStyleKeys.FILLCOLOR;
+    static final StyleKey FILLCOLOR = GmAcceptSignalStructuredStyleKeys.FILLCOLOR;
 
     @objid ("d0e4f00d-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = GmAcceptSignalStructuredStyleKeys.FILLMODE;
+    static final StyleKey FILLMODE = GmAcceptSignalStructuredStyleKeys.FILLMODE;
 
     @objid ("d0e4f00f-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = GmAcceptSignalStructuredStyleKeys.LINECOLOR;
+    static final StyleKey LINECOLOR = GmAcceptSignalStructuredStyleKeys.LINECOLOR;
 
     @objid ("d0e4f011-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = GmAcceptSignalStructuredStyleKeys.LINEWIDTH;
+    static final StyleKey LINEWIDTH = GmAcceptSignalStructuredStyleKeys.LINEWIDTH;
 
     @objid ("d0e4f013-55c0-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmAcceptSignalStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmAcceptSignalStructuredStyleKeys.FONT;
 
     @objid ("d0e4f015-55c0-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmAcceptSignalStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmAcceptSignalStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("d0e4f017-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmAcceptSignalStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmAcceptSignalStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("d0e4f019-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmAcceptSignalStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmAcceptSignalStructuredStyleKeys.SHOWTAGS;
 
     @objid ("d0e4f01b-55c0-11e2-9337-002564c97630")
-     static final StyleKey AUTOSHOWPINS = GmAcceptSignalStructuredStyleKeys.AUTOSHOWPINS;
+    static final StyleKey AUTOSHOWPINS = GmAcceptSignalStructuredStyleKeys.AUTOSHOWPINS;
 
 }

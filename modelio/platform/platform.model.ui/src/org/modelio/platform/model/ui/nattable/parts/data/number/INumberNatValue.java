@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.number;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,7 +28,6 @@ import org.modelio.platform.model.ui.nattable.parts.data.ISingleNatValue;
  * See sub-interfaces.
  */
 @objid ("6772e122-8db8-42df-9559-999b68e48f46")
-public interface INumberNatValue extends ISingleNatValue {
-
-// Empty
+public interface INumberNatValue extends ISingleNatValue {// Empty
+    
 }

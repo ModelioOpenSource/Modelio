@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.communicationdiagram.editor.elements.communicationmessage;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.elements.core.commands.DefaultCreateElementCommand;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
 import org.modelio.metamodel.uml.behavior.communicationModel.CommunicationChannel;
@@ -40,13 +39,12 @@ import org.modelio.vcore.model.api.IElementNamer;
 class CreateCommunicationMessageCommand extends DefaultCreateElementCommand {
     /**
      * Creates the command
-     * 
      * @param gmGroup The group where the flow must be created
      * @param ctx The creation context
      * @param index an index in the group
      */
     @objid ("7a3d7365-55b6-11e2-877f-002564c97630")
-    public CreateCommunicationMessageCommand(final GmCompositeNode gmGroup, final ModelioCreationContext ctx, final Integer index) {
+    public  CreateCommunicationMessageCommand(final GmCompositeNode gmGroup, final ModelioCreationContext ctx, final Integer index) {
         super(gmGroup, ctx, index);
     }
 
@@ -87,6 +85,7 @@ class CreateCommunicationMessageCommand extends DefaultCreateElementCommand {
         
         // Show the new element in the diagram (ie create its Gm )
         diagram.unmask(getParentNode(), newElement, this.getConstraint());
+        
     }
 
 }

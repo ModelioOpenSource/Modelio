@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -56,11 +55,12 @@ public class EllipseFigure extends ShapedFigure {
      * Initialize the figure.
      */
     @objid ("7f777795-1dec-11e2-8cad-001ec947c8cc")
-    public EllipseFigure() {
+    public  EllipseFigure() {
         super(new EllipseShaper());
         this.shapedBorder = new ShapedBorder(this.penOptions.lineColor, this.penOptions.lineWidth, this.shaper);
         setBorder(this.shapedBorder);
         setOpaque(true);
+        
     }
 
     @objid ("7f777798-1dec-11e2-8cad-001ec947c8cc")
@@ -73,17 +73,18 @@ public class EllipseFigure extends ShapedFigure {
         } else {
             super.setBounds(rect);
         }
+        
     }
 
     /**
      * set the label displayed on the center of the circle.
-     * 
      * @param string the label.
      */
     @objid ("7f77779e-1dec-11e2-8cad-001ec947c8cc")
     public void setLabel(String string) {
         this.label = string;
         computeFont(getClientArea());
+        
     }
 
     @objid ("7f7777a2-1dec-11e2-8cad-001ec947c8cc")
@@ -91,6 +92,7 @@ public class EllipseFigure extends ShapedFigure {
     public void setLineColor(Color lineColor) {
         this.shapedBorder.setColor(lineColor);
         super.setLineColor(lineColor);
+        
     }
 
     @objid ("7f7777a6-1dec-11e2-8cad-001ec947c8cc")
@@ -98,6 +100,7 @@ public class EllipseFigure extends ShapedFigure {
     public void setLinePattern(LinePattern lineStyle) {
         this.shapedBorder.setStyle(lineStyle.toSWTConstant());
         super.setLinePattern(lineStyle);
+        
     }
 
     @objid ("7f7777aa-1dec-11e2-8cad-001ec947c8cc")
@@ -110,6 +113,7 @@ public class EllipseFigure extends ShapedFigure {
             this.shapedBorder.setWidth(lineWidth);
         }
         super.setLineWidth(lineWidth);
+        
     }
 
     @objid ("7f7777b2-1dec-11e2-8cad-001ec947c8cc")
@@ -130,6 +134,7 @@ public class EllipseFigure extends ShapedFigure {
             graphics.drawText(this.label, textLocation);
             graphics.restoreState();
         }
+        
     }
 
     @objid ("7f7777b8-1dec-11e2-8cad-001ec947c8cc")
@@ -164,15 +169,15 @@ public class EllipseFigure extends ShapedFigure {
         }
         
         this.textFont = CoreFontRegistry.getFont(fontData);
+        
     }
 
     /**
      * Copy constructor
-     * 
      * @param orig the original
      */
     @objid ("c7046cdc-de8d-4651-b32a-895345ba6315")
-    public EllipseFigure(EllipseFigure orig) {
+    public  EllipseFigure(EllipseFigure orig) {
         super(orig);
         
         this.shapedBorder = new ShapedBorder(this.penOptions.lineColor,
@@ -183,6 +188,7 @@ public class EllipseFigure extends ShapedFigure {
         
         setOpaque(true);
         setBorder(this.shapedBorder);
+        
     }
 
     @objid ("c7315533-d4ec-4ac6-a28b-c558f160088b")

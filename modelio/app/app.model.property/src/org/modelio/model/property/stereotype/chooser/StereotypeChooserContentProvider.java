@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.stereotype.chooser;
 
 import java.util.HashSet;
@@ -95,6 +94,7 @@ public class StereotypeChooserContentProvider implements ITreeContentProvider {
         } else {
             return null;
         }
+        
     }
 
     @objid ("a404dadb-2021-4911-8be2-de1e680c7555")
@@ -128,11 +128,10 @@ public class StereotypeChooserContentProvider implements ITreeContentProvider {
 
     /**
      * Constructor initializing the model service.
-     * 
      * @param modelService the model service needed to find elements.
      */
     @objid ("0dbdff71-379e-4cb2-bf4f-743bef84fd18")
-    public StereotypeChooserContentProvider(IMModelServices modelService) {
+    public  StereotypeChooserContentProvider(IMModelServices modelService) {
         this.modelService = modelService;
     }
 

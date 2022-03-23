@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.search;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.core.commands.ParameterizedCommand;
 import org.eclipse.e4.core.commands.ECommandService;
 import org.eclipse.e4.core.commands.EHandlerService;
@@ -93,7 +92,7 @@ public class QuickSearchCombo extends TrimBarComponent {
     private ToolBar searchToolbar;
 
     @objid ("9c6fb70b-d410-4d0a-ba14-df39a13ab157")
-    public QuickSearchCombo() {
+    public  QuickSearchCombo() {
         super(ModelSearch.I18N.getString("QuickSearchCombo.SearchZone.label"));
     }
 
@@ -108,6 +107,7 @@ public class QuickSearchCombo extends TrimBarComponent {
         }
         QuickSearchCombo.this.project = null;
         setVisible(false);
+        
     }
 
     @objid ("0010cade-c59e-10ab-8258-001ec947cd2a")
@@ -123,6 +123,7 @@ public class QuickSearchCombo extends TrimBarComponent {
         StatePersistenceHelper.restoreState(statePrefs, this);
         
         setVisible(true);
+        
     }
 
     @objid ("6d103eda-afcd-477d-afaf-bfbcec1615be")
@@ -183,7 +184,6 @@ public class QuickSearchCombo extends TrimBarComponent {
      * <li>includeRamc = true</li>
      * <li>no stereotype </li<
      * </ul>
-     * 
      * @param expression the search expression
      */
     @objid ("00102d0e-c59e-10ab-8258-001ec947cd2a")
@@ -223,6 +223,7 @@ public class QuickSearchCombo extends TrimBarComponent {
             dlg.setDisplayedContent(ModelSearchPanel.class, searchCriteria, found);
             break;
         }
+        
     }
 
     @objid ("0010400a-c59e-10ab-8258-001ec947cd2a")
@@ -252,6 +253,7 @@ public class QuickSearchCombo extends TrimBarComponent {
             dlg.setDisplayedContent(ModelSearchPanel.class, searchCriteria, found);
             break;
         }
+        
     }
 
     @objid ("f8221b89-cfbd-479e-99f9-b7a73aaf1730")
@@ -277,6 +279,7 @@ public class QuickSearchCombo extends TrimBarComponent {
         // Save search history
         IPreferenceStore statePrefs = projectService.getStatePreferences();
         StatePersistenceHelper.saveState(statePrefs, this);
+        
     }
 
     @objid ("eeab8a1b-3900-4557-a72c-6d2fcecc831a")
@@ -287,10 +290,10 @@ public class QuickSearchCombo extends TrimBarComponent {
     @objid ("00106d8c-c59e-10ab-8258-001ec947cd2a")
     private static final class SCWSelectionListener implements SelectionListener {
         @objid ("001075ca-c59e-10ab-8258-001ec947cd2a")
-         QuickSearchCombo scw;
+        QuickSearchCombo scw;
 
         @objid ("00107ce6-c59e-10ab-8258-001ec947cd2a")
-        public SCWSelectionListener(QuickSearchCombo scw) {
+        public  SCWSelectionListener(QuickSearchCombo scw) {
             this.scw = scw;
         }
 
@@ -300,6 +303,7 @@ public class QuickSearchCombo extends TrimBarComponent {
             final String expression = this.scw.searchCombo.getText();
             this.scw.searchCombo.setText(expression);
             this.scw.searchCombo.setSelection(new Point(expression.length(), expression.length()));
+            
         }
 
         @objid ("0010ad2e-c59e-10ab-8258-001ec947cd2a")
@@ -315,6 +319,7 @@ public class QuickSearchCombo extends TrimBarComponent {
             }
             this.scw.searchCombo.add(expression, 0);
             this.scw.searchCombo.setText("");
+            
         }
 
     }
@@ -342,6 +347,7 @@ public class QuickSearchCombo extends TrimBarComponent {
                     break;
                 }
             }
+            
         }
 
         @objid ("1680d533-9e27-4546-9767-ea8cf6e93d0d")
@@ -357,6 +363,7 @@ public class QuickSearchCombo extends TrimBarComponent {
                     break;
                 }
             }
+            
         }
 
         @objid ("7cd35eb1-5549-4f6d-9336-3e1eb7e947ba")
@@ -366,6 +373,7 @@ public class QuickSearchCombo extends TrimBarComponent {
                 String key = StatePersistenceHelper.SEARCH_HISTORY_CONFIG_KEY + i;
                 prefs.setToDefault(key);
             }
+            
         }
 
     }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.factories;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -123,6 +122,7 @@ public class ActivityGmNodeFactory implements IGmNodeFactory {
             }
             return child;
         }
+        
     }
 
     @objid ("2a90b8d1-55b6-11e2-877f-002564c97630")
@@ -192,7 +192,7 @@ public class ActivityGmNodeFactory implements IGmNodeFactory {
         private IGmDiagram diagram;
 
         @objid ("2a96d357-55b6-11e2-877f-002564c97630")
-        public GroupElementFactoryVisitor(IGmDiagram diagram) {
+        public  GroupElementFactoryVisitor(IGmDiagram diagram) {
             this.diagram = diagram;
         }
 
@@ -220,10 +220,11 @@ public class ActivityGmNodeFactory implements IGmNodeFactory {
         private GmCompositeNode parent;
 
         @objid ("2a90b8e6-55b6-11e2-877f-002564c97630")
-        public NodeFactoryVisitor(IGmDiagram diagram, GmCompositeNode parent, Object initialLayoutData) {
+        public  NodeFactoryVisitor(IGmDiagram diagram, GmCompositeNode parent, Object initialLayoutData) {
             this.diagram = diagram;
             this.parent = parent;
             this.initialLayoutData = initialLayoutData;
+            
         }
 
         @objid ("2bdc02bc-597f-11e2-8539-00137282c51b")
@@ -301,6 +302,7 @@ public class ActivityGmNodeFactory implements IGmNodeFactory {
             // Error case
             throw new IllegalArgumentException("Unhandled type of parent node while trying to create a Partition. Parent node must be GmaActivityDiagram or GmPartitionContainer. Given parent node is of type: " +
                     this.parent.getClass().getName());
+            
         }
 
         @objid ("41deba36-58d0-11e2-8539-00137282c51b")

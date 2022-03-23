@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.inputpin;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,30 +29,30 @@ import org.modelio.uml.activitydiagram.editor.style.ActivityAbstractStyleKeyProv
 @objid ("2aadb6b7-55b6-11e2-877f-002564c97630")
 public class GmInputPinSimpleStyleKeys extends ActivityAbstractStyleKeyProvider {
     @objid ("d22426ca-55c0-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmInputPinStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmInputPinStructuredStyleKeys.REPMODE;
 
     @objid ("d22426cc-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = GmInputPinStructuredStyleKeys.FILLCOLOR;
+    static final StyleKey FILLCOLOR = GmInputPinStructuredStyleKeys.FILLCOLOR;
 
     @objid ("d22426ce-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = GmInputPinStructuredStyleKeys.FILLMODE;
+    static final StyleKey FILLMODE = GmInputPinStructuredStyleKeys.FILLMODE;
 
     @objid ("d22426d0-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = GmInputPinStructuredStyleKeys.LINECOLOR;
+    static final StyleKey LINECOLOR = GmInputPinStructuredStyleKeys.LINECOLOR;
 
     @objid ("d22426d2-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = GmInputPinStructuredStyleKeys.LINEWIDTH;
+    static final StyleKey LINEWIDTH = GmInputPinStructuredStyleKeys.LINEWIDTH;
 
     @objid ("d22426d4-55c0-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmInputPinStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmInputPinStructuredStyleKeys.FONT;
 
     @objid ("d22426d6-55c0-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmInputPinStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmInputPinStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("d22426d8-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmInputPinStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmInputPinStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("d22426da-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmInputPinStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmInputPinStructuredStyleKeys.SHOWTAGS;
 
 }

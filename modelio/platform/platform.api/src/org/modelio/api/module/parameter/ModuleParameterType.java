@@ -14,18 +14,25 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.parameter;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 @objid ("813a10e0-8e2d-11dd-8928-001ec947ccaf")
 public enum ModuleParameterType {
+    @objid ("1ac93f7e-b807-11de-af68-001ec947cd2a")
     String,
+    @objid ("1ac93f7f-b807-11de-af68-001ec947cd2a")
     Integer,
+    @objid ("1ac93f80-b807-11de-af68-001ec947cd2a")
     Boolean,
+    @objid ("1ac93f81-b807-11de-af68-001ec947cd2a")
     File,
+    @objid ("1ac93f82-b807-11de-af68-001ec947cd2a")
     Directory,
+    @objid ("1acba1cf-b807-11de-af68-001ec947cd2a")
     Password,
+    @objid ("1acba1d0-b807-11de-af68-001ec947cd2a")
     Color;
+
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package com.sun.star.comp.beans;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,10 +45,11 @@ class Wrapper implements com.sun.star.lib.uno.Proxy, com.sun.star.uno.IQueryInte
     private com.sun.star.lang.XComponent xComponent;
 
     @objid ("25ac4214-7bfd-4051-bc9a-d200a002824a")
-    public Wrapper(final com.sun.star.uno.XInterface xProxy) {
+    public  Wrapper(final com.sun.star.uno.XInterface xProxy) {
         this.xQueryInterface = (com.sun.star.uno.IQueryInterface) xProxy;
         this.xComponent = UnoRuntime.queryInterface( 
                                                     com.sun.star.lang.XComponent.class, xProxy );
+        
     }
 
     /**

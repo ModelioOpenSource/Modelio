@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.node;
 
 import java.util.Collections;
@@ -30,8 +29,8 @@ import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.diagram.styles.core.ProxyStyle;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.vcore.smkernel.mapi.MRef;
 
 /**
@@ -53,12 +52,11 @@ public abstract class GmNoStyleCompositeNode extends GmCompositeNode {
 
     /**
      * Create a no style composite node.
-     * 
      * @param diagram The diagram.
      * @param relatedRef a reference to the element this GmModel is related to. Must not be <tt>null</tt>.
      */
     @objid ("809cb89a-1dec-11e2-8cad-001ec947c8cc")
-    public GmNoStyleCompositeNode(IGmDiagram diagram, MRef relatedRef) {
+    public  GmNoStyleCompositeNode(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -66,7 +64,7 @@ public abstract class GmNoStyleCompositeNode extends GmCompositeNode {
      * Constructor for deserialization only.
      */
     @objid ("809cb89f-1dec-11e2-8cad-001ec947c8cc")
-    public GmNoStyleCompositeNode() {
+    public  GmNoStyleCompositeNode() {
         super();
     }
 
@@ -107,6 +105,7 @@ public abstract class GmNoStyleCompositeNode extends GmCompositeNode {
                 getPersistedStyle().setCascadedStyle(parentLink.getPersistedStyle());
             }
         }
+        
     }
 
     @objid ("809cb8b9-1dec-11e2-8cad-001ec947c8cc")
@@ -125,6 +124,7 @@ public abstract class GmNoStyleCompositeNode extends GmCompositeNode {
                 getPersistedStyle().setCascadedStyle(parent.getPersistedStyle());
             }
         }
+        
     }
 
     @objid ("809cb8c4-1dec-11e2-8cad-001ec947c8cc")
@@ -144,6 +144,7 @@ public abstract class GmNoStyleCompositeNode extends GmCompositeNode {
                 break;
             }
         }
+        
     }
 
     @objid ("809cb8c8-1dec-11e2-8cad-001ec947c8cc")
@@ -153,6 +154,7 @@ public abstract class GmNoStyleCompositeNode extends GmCompositeNode {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmNoStyleCompositeNode.", MINOR_VERSION);
+        
     }
 
     @objid ("809cb8cc-1dec-11e2-8cad-001ec947c8cc")

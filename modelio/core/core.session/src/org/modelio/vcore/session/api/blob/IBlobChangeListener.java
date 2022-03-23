@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.api.blob;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,7 +35,6 @@ public interface IBlobChangeListener {
      * to the running Modelio instance, eg. when a Subversion update
      * modifies blobs. It may not be called if a Modelio plugin or module
      * modifies the blobs.
-     * 
      * @param ev a blob change event.
      */
     @objid ("9e15860a-7366-483b-8f26-2732d1fe658b")

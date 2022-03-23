@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.jdbm7.impl.migration.v4;
 
 import java.io.IOException;
@@ -43,6 +42,7 @@ final class V4UuidSerializer implements Serializer<UUID> {
     public void serialize(final SerializerOutput out, final UUID uuid) throws IOException {
         out.writeLong (uuid.getMostSignificantBits());
         out.writeLong (uuid.getLeastSignificantBits());
+        
     }
 
     @objid ("f8816777-e73c-42b1-a61c-14a63bd93bee")

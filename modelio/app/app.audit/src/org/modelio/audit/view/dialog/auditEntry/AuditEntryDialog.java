@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.view.dialog.auditEntry;
 
 import java.net.URL;
@@ -88,25 +87,24 @@ public class AuditEntryDialog extends ModelioDialog {
 
     /**
      * Create an AuditEntryDialog instance.
-     * 
      * @param parentShell The parent shell.
      * @param entry The audit entry that must be displayed.
      * @param modelingSession The modeling session.
      * @param navigationService the navigation service, to select elements in the model.
      */
     @objid ("ee8bda1c-0bd0-4a3d-ad46-1d04dbf089c2")
-    public AuditEntryDialog(Shell parentShell, IAuditEntry entry, ICoreSession modelingSession, IModelioNavigationService navigationService, IAuditConfigurationPlan auditConfigurationPlan) {
+    public  AuditEntryDialog(Shell parentShell, IAuditEntry entry, ICoreSession modelingSession, IModelioNavigationService navigationService, IAuditConfigurationPlan auditConfigurationPlan) {
         super(parentShell);
         this.entry = entry;
         this.navigationService = navigationService;
         this.auditConfigurationPlan = auditConfigurationPlan;
+        
     }
 
     /**
      * Add buttons to the buttons bar in the bottom of the dialog.
      * <p>
      * Here we just need to have a "close" button.
-     * 
      * @param parent the parent composite of the dialog.
      */
     @objid ("9e74a8b4-c643-493e-87c5-2e4dd72bfc17")
@@ -117,7 +115,6 @@ public class AuditEntryDialog extends ModelioDialog {
 
     /**
      * This is the main method that is called to construct the GUI content of the box.
-     * 
      * @param parent the parent composite of the dialog.
      */
     @objid ("41cec314-ccf4-4b15-9587-3ad91fcec70f")
@@ -155,6 +152,7 @@ public class AuditEntryDialog extends ModelioDialog {
         setTitle(Audit.I18N.getString("AuditEntryDialog.DialogTitle"));
         getShell().setSize(600, 700);
         getShell().setMinimumSize(600, 550);
+        
     }
 
     /**

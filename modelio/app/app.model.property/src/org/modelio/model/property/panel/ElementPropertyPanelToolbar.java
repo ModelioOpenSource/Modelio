@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -82,11 +81,10 @@ public class ElementPropertyPanelToolbar implements IPanelProvider {
 
     /**
      * C'Tor
-     * 
      * @param controller the toolbar's controller.
      */
     @objid ("54e6101d-c84c-4aac-9bf7-80791e5b9aa9")
-    public ElementPropertyPanelToolbar(ElementPropertyController controller) {
+    public  ElementPropertyPanelToolbar(ElementPropertyController controller) {
         this.controller = controller;
     }
 
@@ -236,11 +234,11 @@ public class ElementPropertyPanelToolbar implements IPanelProvider {
             }
             this.showHidden = null;
         }
+        
     }
 
     /**
      * Helper function to create tool item
-     * 
      * @param parent the parent toolbar
      * @param style the SWT style of tool item to create
      * @param iconDescriptor the image to display on the tool item
@@ -274,7 +272,6 @@ public class ElementPropertyPanelToolbar implements IPanelProvider {
 
     /**
      * Helper function to create tool item
-     * 
      * @param parent the parent toolbar
      * @param style the SWT style of tool item to create
      * @param iconDescriptor the image to display on the tool item

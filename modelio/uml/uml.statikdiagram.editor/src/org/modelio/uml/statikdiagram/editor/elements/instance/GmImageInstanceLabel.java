@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.instance;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,8 +28,8 @@ import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.ShowNameMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.ShowNameMode;
 import org.modelio.metamodel.uml.statik.Instance;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -58,21 +57,22 @@ public class GmImageInstanceLabel extends GmDefaultModelElementLabel {
      * constructor to be used only for deserialization
      */
     @objid ("352de55c-55b7-11e2-877f-002564c97630")
-    public GmImageInstanceLabel() {
+    public  GmImageInstanceLabel() {
+        
     }
 
     /**
      * Creates an instance label.
-     * 
      * @param diagram the owning graphic diagram, may not be <tt>null</tt>.
      * @param el the represented instance, may be <tt>null</tt>.
      * @param ref the represented instance reference, may not be <tt>null</tt>.
      */
     @objid ("352de55f-55b7-11e2-877f-002564c97630")
-    public GmImageInstanceLabel(final IGmDiagram diagram, final Instance el, final MRef ref) {
+    public  GmImageInstanceLabel(final IGmDiagram diagram, final Instance el, final MRef ref) {
         super(diagram, ref);
         
         this.element = el;
+        
     }
 
     @objid ("352de56e-55b7-11e2-877f-002564c97630")
@@ -94,6 +94,7 @@ public class GmImageInstanceLabel extends GmDefaultModelElementLabel {
                 return InstanceSymbolProvider.computeSimpleLabel(inst);
         
         }
+        
     }
 
     @objid ("352f6bf7-55b7-11e2-877f-002564c97630")
@@ -140,6 +141,7 @@ public class GmImageInstanceLabel extends GmDefaultModelElementLabel {
                 break;
             }
         }
+        
     }
 
     @objid ("3530f285-55b7-11e2-877f-002564c97630")
@@ -150,6 +152,7 @@ public class GmImageInstanceLabel extends GmDefaultModelElementLabel {
                 firePropertyChange(IGmObject.PROPERTY_LABEL, this, null);
         
         super.styleChanged(property, newValue);
+        
     }
 
     @objid ("3530f28e-55b7-11e2-877f-002564c97630")
@@ -159,6 +162,7 @@ public class GmImageInstanceLabel extends GmDefaultModelElementLabel {
             firePropertyChange(IGmObject.PROPERTY_LABEL, this, null);
         
         super.styleChanged(changedStyle);
+        
     }
 
     @objid ("3530f299-55b7-11e2-877f-002564c97630")
@@ -168,12 +172,14 @@ public class GmImageInstanceLabel extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmImageInstanceLabel.", GmImageInstanceLabel.MINOR_VERSION);
+        
     }
 
     @objid ("3530f29f-55b7-11e2-877f-002564c97630")
     private void read_0(final IDiagramReader in) {
         super.read(in);
         this.element = resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("3530f2a5-55b7-11e2-877f-002564c97630")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class EUnmarshallAction extends EActivityNode {
     }
 
     @objid ("58e6860d-e096-4e14-84d1-4886578048bd")
-    public EUnmarshallAction(org.eclipse.uml2.uml.UnmarshallAction element) {
+    public  EUnmarshallAction(org.eclipse.uml2.uml.UnmarshallAction element) {
         super(element);
     }
 

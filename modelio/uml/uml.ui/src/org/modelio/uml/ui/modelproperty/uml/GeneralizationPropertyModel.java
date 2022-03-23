@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.util.ArrayList;
@@ -55,22 +54,20 @@ public class GeneralizationPropertyModel extends AbstractPropertyModel<Generaliz
      */
     @objid ("d0521e71-8e69-4066-b051-9846881ff552")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "SuperType",
-			"Discriminator" };
+    			"Discriminator" };
 
     /**
      * Create a new <i>Generalization</i> data model from an
      * <i>Generalization</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("7e577159-a9d2-4ea9-92c1-67afeaa28367")
-    public GeneralizationPropertyModel(Generalization theEditedElement) {
+    public  GeneralizationPropertyModel(Generalization theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("938b77c6-e550-4f82-9f1f-f5872388b836")
@@ -81,7 +78,6 @@ public class GeneralizationPropertyModel extends AbstractPropertyModel<Generaliz
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("045acfcc-b117-4823-860a-970db0e15228")
@@ -94,7 +90,6 @@ public class GeneralizationPropertyModel extends AbstractPropertyModel<Generaliz
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -118,6 +113,7 @@ public class GeneralizationPropertyModel extends AbstractPropertyModel<Generaliz
         default:
             return null;
         }
+        
     }
 
     /**
@@ -127,7 +123,6 @@ public class GeneralizationPropertyModel extends AbstractPropertyModel<Generaliz
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -163,13 +158,13 @@ public class GeneralizationPropertyModel extends AbstractPropertyModel<Generaliz
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -197,6 +192,7 @@ public class GeneralizationPropertyModel extends AbstractPropertyModel<Generaliz
         default:
             return;
         }
+        
     }
 
 }

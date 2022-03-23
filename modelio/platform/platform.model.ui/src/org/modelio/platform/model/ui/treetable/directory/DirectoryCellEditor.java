@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.treetable.directory;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,7 +35,7 @@ import org.modelio.platform.ui.UIImages;
 @objid ("cd1551b4-db02-4d28-af82-8fecc86f1280")
 public class DirectoryCellEditor extends EditableDialogCellEditor {
     @objid ("0baaf198-4148-462b-b4a3-e4647b33368b")
-    public DirectoryCellEditor(Composite parent) {
+    public  DirectoryCellEditor(Composite parent) {
         super(parent);
     }
 
@@ -65,6 +64,7 @@ public class DirectoryCellEditor extends EditableDialogCellEditor {
     protected void configureText(Composite parent, Text text) {
         super.configureText(parent, text);
         text.setEditable(true);
+        
     }
 
 }

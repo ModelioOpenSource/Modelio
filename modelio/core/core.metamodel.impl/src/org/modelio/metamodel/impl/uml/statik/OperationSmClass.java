@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
@@ -36,17 +36,6 @@ import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.SignalSmClass;
 import org.modelio.metamodel.impl.uml.behavior.communicationModel.CommunicationMessageSmClass;
 import org.modelio.metamodel.impl.uml.behavior.interactionModel.MessageSmClass;
 import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.TransitionSmClass;
-import org.modelio.metamodel.impl.uml.statik.BehavioralFeatureSmClass;
-import org.modelio.metamodel.impl.uml.statik.ClassifierSmClass;
-import org.modelio.metamodel.impl.uml.statik.CollaborationSmClass;
-import org.modelio.metamodel.impl.uml.statik.CollaborationUseSmClass;
-import org.modelio.metamodel.impl.uml.statik.ElementImportSmClass;
-import org.modelio.metamodel.impl.uml.statik.OperationData;
-import org.modelio.metamodel.impl.uml.statik.PackageImportSmClass;
-import org.modelio.metamodel.impl.uml.statik.ParameterSmClass;
-import org.modelio.metamodel.impl.uml.statik.RaisedExceptionSmClass;
-import org.modelio.metamodel.impl.uml.statik.TemplateBindingSmClass;
-import org.modelio.metamodel.impl.uml.statik.TemplateParameterSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.AcceptCallEventAction;
 import org.modelio.metamodel.uml.behavior.activityModel.CallOperationAction;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
@@ -155,7 +144,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
     private SmDependency entryPointActionDep;
 
     @objid ("f8eb73f8-8467-41a8-8250-c712595d463f")
-    public OperationSmClass(ISmMetamodelFragment origin) {
+    public  OperationSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -163,6 +152,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
     @Override
     public String getName() {
         return "Operation";
+        
     }
 
     @objid ("2c92b149-d9e7-468e-b57d-b2c5a5452b44")
@@ -175,18 +165,21 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Operation.class;
+        
     }
 
     @objid ("7345ab64-4c1d-423c-b66e-0a6f11fcacac")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("c8ee96c2-f5aa-4d3a-9b2c-d721055d12b0")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("b38199f9-7c5d-475c-9b4c-3134f3cea766")
@@ -294,6 +287,8 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
         this.entryPointActionDep = new EntryPointActionSmDependency();
         this.entryPointActionDep.init("EntryPointAction", this, metamodel.getMClass(AcceptCallEventAction.MQNAME), 0, -1 );
         registerDependency(this.entryPointActionDep);
+        
+        
     }
 
     @objid ("a2380960-977e-45dd-aa80-61ea4eed9dcc")
@@ -494,7 +489,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
         private OperationSmClass smClass;
 
         @objid ("9ab1e764-a66a-4be8-9442-971ac37d1fab")
-        public OperationObjectFactory(OperationSmClass smClass) {
+        public  OperationObjectFactory(OperationSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -569,6 +564,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((OperationData) data).mOwnedImport = values;
+            
         }
 
         @objid ("1fb0cde3-2108-43a6-8e27-7f8e32a95908")
@@ -578,6 +574,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
             	this.symetricDep = ((ElementImportSmClass)this.getTarget()).getImportingOperationDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -597,6 +594,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((OperationData) data).mThrown = values;
+            
         }
 
         @objid ("8e100497-94c5-49f8-9967-4b0c59c585a0")
@@ -606,6 +604,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
             	this.symetricDep = ((RaisedExceptionSmClass)this.getTarget()).getThrowerDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -625,6 +624,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((OperationData) data).mRedefinition = values;
+            
         }
 
         @objid ("4a60fbb9-7815-470d-bbe7-b35e9fa2400f")
@@ -634,6 +634,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
             	this.symetricDep = ((OperationSmClass)this.getTarget()).getRedefinesDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -653,6 +654,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((OperationData) data).mExample = values;
+            
         }
 
         @objid ("df2fd59a-2e16-4505-8c22-d55946c57d58")
@@ -662,6 +664,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
             	this.symetricDep = ((CollaborationSmClass)this.getTarget()).getORepresentedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -681,6 +684,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((OperationData) data).mSRepresentation = values;
+            
         }
 
         @objid ("7e46a0b3-336a-47f0-8929-366c2d0fbfff")
@@ -690,6 +694,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
             	this.symetricDep = ((SignalSmClass)this.getTarget()).getOBaseDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -709,6 +714,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((OperationData) data).mOwnedBehavior = values;
+            
         }
 
         @objid ("96c190f7-71cc-4323-a83c-beb0fa7057de")
@@ -718,6 +724,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
             	this.symetricDep = ((BehaviorSmClass)this.getTarget()).getOwnerOperationDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -737,6 +744,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((OperationData) data).mIO = values;
+            
         }
 
         @objid ("bdb3c44a-7b3b-4744-bb85-8b6c4dcc40e2")
@@ -746,6 +754,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
             	this.symetricDep = ((ParameterSmClass)this.getTarget()).getComposedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -765,6 +774,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((OperationData) data).mTemplateInstanciation = values;
+            
         }
 
         @objid ("2aa73f51-6812-4805-b5c6-bc9a295db8bc")
@@ -774,6 +784,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
             	this.symetricDep = ((TemplateBindingSmClass)this.getTarget()).getBoundOperationDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -802,6 +813,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
             	this.symetricDep = ((ClassifierSmClass)this.getTarget()).getOwnedOperationDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -821,6 +833,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((OperationData) data).mOwnedPackageImport = values;
+            
         }
 
         @objid ("c75c6783-c957-488d-b6d0-e53c2fb6f623")
@@ -830,6 +843,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
             	this.symetricDep = ((PackageImportSmClass)this.getTarget()).getImportingOperationDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -858,6 +872,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
             	this.symetricDep = ((ParameterSmClass)this.getTarget()).getReturnedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -877,6 +892,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((OperationData) data).mInstanciatingBinding = values;
+            
         }
 
         @objid ("86fefea1-d52d-496c-b775-e577ee576fcd")
@@ -886,6 +902,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
             	this.symetricDep = ((TemplateBindingSmClass)this.getTarget()).getInstanciatedTemplateOperationDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -905,6 +922,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((OperationData) data).mUsage = values;
+            
         }
 
         @objid ("3ca36f3e-075e-493d-8a38-2f5966a297b0")
@@ -914,6 +932,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
             	this.symetricDep = ((MessageSmClass)this.getTarget()).getInvokedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -933,6 +952,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((OperationData) data).mTemplate = values;
+            
         }
 
         @objid ("3283748d-1289-465e-8a47-ea519879f621")
@@ -942,6 +962,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
             	this.symetricDep = ((TemplateParameterSmClass)this.getTarget()).getParameterizedOperationDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -961,6 +982,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((OperationData) data).mOccurence = values;
+            
         }
 
         @objid ("210d6f7a-4a54-486c-9ea4-f8aa531f7cab")
@@ -970,6 +992,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
             	this.symetricDep = ((EventSmClass)this.getTarget()).getCalledDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -989,6 +1012,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((OperationData) data).mInvoker = values;
+            
         }
 
         @objid ("7a102837-bcff-418d-9451-8cb586505680")
@@ -998,6 +1022,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
             	this.symetricDep = ((TransitionSmClass)this.getTarget()).getProcessedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -1017,6 +1042,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((OperationData) data).mCommunicationUsage = values;
+            
         }
 
         @objid ("11c0767d-c9a2-4363-b803-771244a5edf5")
@@ -1026,6 +1052,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
             	this.symetricDep = ((CommunicationMessageSmClass)this.getTarget()).getInvokedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -1045,6 +1072,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((OperationData) data).mOwnedCollaborationUse = values;
+            
         }
 
         @objid ("1048ec95-21d0-485e-b0b3-84a2d084b9ce")
@@ -1054,6 +1082,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
             	this.symetricDep = ((CollaborationUseSmClass)this.getTarget()).getORepresentedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -1082,6 +1111,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
             	this.symetricDep = ((OperationSmClass)this.getTarget()).getRedefinitionDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -1101,6 +1131,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((OperationData) data).mCallingAction = values;
+            
         }
 
         @objid ("022d38db-9cc3-4f80-b944-84bcd3a4510c")
@@ -1110,6 +1141,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
             	this.symetricDep = ((CallOperationActionSmClass)this.getTarget()).getCalledDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -1129,6 +1161,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((OperationData) data).mEntryPointAction = values;
+            
         }
 
         @objid ("a6e412cf-e3e0-4401-8980-7a90d0f62455")
@@ -1138,6 +1171,7 @@ public class OperationSmClass extends BehavioralFeatureSmClass {
             	this.symetricDep = ((AcceptCallEventActionSmClass)this.getTarget()).getCalledDep();
             }
             return this.symetricDep;
+            
         }
 
     }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnlanesetcontainer;
 
 import java.util.ArrayList;
@@ -25,6 +24,7 @@ import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.bpmn.diagram.editor.elements.bpmnlane.GmBpmnLane;
 import org.modelio.diagram.elements.core.model.GmAbstractObject;
+import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNoStyleCompositeNode;
@@ -49,12 +49,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
 @objid ("6143b668-55b6-11e2-877f-002564c97630")
 public class GmBpmnLaneSetContainer extends GmNoStyleCompositeNode {
     /**
-     * The orientation of this container. Constant used to describe role of subpartitions. * public static final String SUB_PARTITION = "Lane";
-     */
-    @objid ("6143b66c-55b6-11e2-877f-002564c97630")
-    private BpmnLaneSet element;
-
-    /**
      * Current version of this Gm. Defaults to 0.
      */
     @objid ("6143b670-55b6-11e2-877f-002564c97630")
@@ -62,6 +56,12 @@ public class GmBpmnLaneSetContainer extends GmNoStyleCompositeNode {
 
     @objid ("6143b673-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
+
+    /**
+     * The orientation of this container. Constant used to describe role of subpartitions. * public static final String SUB_PARTITION = "Lane";
+     */
+    @objid ("6143b66c-55b6-11e2-877f-002564c97630")
+    private BpmnLaneSet element;
 
     @objid ("6143b675-55b6-11e2-877f-002564c97630")
     @Override
@@ -102,16 +102,17 @@ public class GmBpmnLaneSetContainer extends GmNoStyleCompositeNode {
      * @param relatedRef the related element reference, must not be null.
      */
     @objid ("6143b69d-55b6-11e2-877f-002564c97630")
-    public GmBpmnLaneSetContainer(IGmDiagram diagram, BpmnLaneSet theLaneSet, MRef relatedRef) {
+    public  GmBpmnLaneSetContainer(IGmDiagram diagram, BpmnLaneSet theLaneSet, MRef relatedRef) {
         super(diagram, relatedRef);
         this.element = theLaneSet;
+        
     }
 
     /**
      * Empty constructor needed for serialization.
      */
     @objid ("61453cfc-55b6-11e2-877f-002564c97630")
-    public GmBpmnLaneSetContainer() {
+    public  GmBpmnLaneSetContainer() {
         // Nothing to do.
     }
 
@@ -132,6 +133,7 @@ public class GmBpmnLaneSetContainer extends GmNoStyleCompositeNode {
             break;
         }
         }
+        
     }
 
     @objid ("61453d05-55b6-11e2-877f-002564c97630")
@@ -140,11 +142,11 @@ public class GmBpmnLaneSetContainer extends GmNoStyleCompositeNode {
         super.write(out);
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmBpmnLaneSetContainer.", GmBpmnLaneSetContainer.MINOR_VERSION);
+        
     }
 
     /**
      * Get the contained {@link GmBpmnLane} nodes.
-     * 
      * @return a list of {@link GmBpmnLane} nodes.
      */
     @objid ("61453d0b-55b6-11e2-877f-002564c97630")
@@ -172,6 +174,7 @@ public class GmBpmnLaneSetContainer extends GmNoStyleCompositeNode {
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (BpmnLaneSet) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("61453d2b-55b6-11e2-877f-002564c97630")
@@ -180,27 +183,38 @@ public class GmBpmnLaneSetContainer extends GmNoStyleCompositeNode {
         return GmBpmnLaneSetContainer.MAJOR_VERSION;
     }
 
+    @objid ("0d651654-3fbc-4073-93af-b8e4c99abaa8")
+    @Override
+    protected void obChildDeleted(GmModel child) {
+        firePropertyChange(PROP_REFRESH_FROM_OBMODEL, null, this);
+    }
+
     @objid ("3b73d198-b28c-4768-99f5-466270709d8a")
     @Override
     public void refreshFromObModel() {
-        super.refreshFromObModel();
+        if (false) {
+            super.refreshFromObModel();
         
-        if (this.element == null || !this.element.isValid()) {
-            return;
-        }
+            if (this.element == null || !this.element.isValid()) {
+                return;
+            }
         
-        // If no children exist, delete self.
-        List<BpmnLane> lanes = this.element.getLane();
-        if (lanes.isEmpty()) {
-            delete();
-        } else {
-            // Auto unmask lanes
-            for (BpmnLane lane : lanes) {
-                if (getChild(new MRef(lane)) == null) {
-                    getDiagram().unmask(this, lane, -1);
+            // If no children exist, delete self.
+            List<BpmnLane> lanes = this.element.getLane();
+            if (lanes.isEmpty()) {
+                delete();
+            } else {
+                // Auto unmask lanes
+                for (BpmnLane lane : lanes) {
+                    if (getChild(new MRef(lane)) == null) {
+                        getDiagram().unmask(this, lane, -1);
+                    }
                 }
             }
+        } else {
+            firePropertyChange(PROP_REFRESH_FROM_OBMODEL, null, this);
         }
+        
     }
 
     @objid ("11933942-5a5b-41c1-920a-3bcd82ac6373")

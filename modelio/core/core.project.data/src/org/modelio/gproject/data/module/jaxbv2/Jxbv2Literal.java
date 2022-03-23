@@ -17,18 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.module.jaxbv2;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
  * <p>
@@ -90,7 +89,6 @@ public class Jxbv2Literal {
 
     /**
      * Gets the value of the value property.
-     * 
      * @return possible object is {@link String }
      */
     @objid ("780b1425-d12d-4e27-93b2-4a8f116dc764")
@@ -100,7 +98,6 @@ public class Jxbv2Literal {
 
     /**
      * Sets the value of the value property.
-     * 
      * @param value allowed object is {@link String }
      */
     @objid ("7ebcccd3-8324-4eaf-b9a7-2e25ef17d32f")
@@ -110,7 +107,6 @@ public class Jxbv2Literal {
 
     /**
      * Gets the value of the label property.
-     * 
      * @return possible object is {@link String }
      */
     @objid ("f753b2e2-2388-46f5-9532-4ea86726ad33")
@@ -120,7 +116,6 @@ public class Jxbv2Literal {
 
     /**
      * Sets the value of the label property.
-     * 
      * @param value allowed object is {@link String }
      */
     @objid ("e4419d10-16c1-4eb6-960f-259006463265")
@@ -130,7 +125,6 @@ public class Jxbv2Literal {
 
     /**
      * Gets the value of the description property.
-     * 
      * @return possible object is {@link String }
      */
     @objid ("cc43df48-3303-44fd-aaa8-ea32c15e423f")
@@ -140,7 +134,6 @@ public class Jxbv2Literal {
 
     /**
      * Sets the value of the description property.
-     * 
      * @param value allowed object is {@link String }
      */
     @objid ("212132f6-87ba-4efb-a1c9-7a23912d1806")
@@ -150,7 +143,6 @@ public class Jxbv2Literal {
 
     /**
      * Gets the value of the extensions property.
-     * 
      * @return possible object is {@link Jxbv2Literal.Jxbv2Extensions }
      */
     @objid ("6aabd36b-b204-4735-8bbe-bb0fc3d93600")
@@ -160,7 +152,6 @@ public class Jxbv2Literal {
 
     /**
      * Sets the value of the extensions property.
-     * 
      * @param value allowed object is {@link Jxbv2Literal.Jxbv2Extensions }
      */
     @objid ("0065d35d-a7cb-44fc-b4ec-e8cdcc6c72d2")
@@ -190,8 +181,8 @@ public class Jxbv2Literal {
     @objid ("0a27d1b6-085f-4fee-848f-bb9c1ef50004")
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "stereotypeRef"
-    })
+            "stereotypeRef"
+        })
     public static class Jxbv2Extensions {
         @objid ("f521a820-dd6a-434d-95d7-f915101bb9b6")
         @XmlElement (name = "StereotypeRef")

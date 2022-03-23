@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import java.util.List;
@@ -67,15 +66,17 @@ public class ODecisionMergeNode extends OModelElement {
             return UMLFactory.eINSTANCE.createDecisionNode();
         else
             return UMLFactory.eINSTANCE.createMergeNode();
+        
     }
 
     @objid ("7474c69b-7c57-474a-979f-c005090a1ff3")
-    public ODecisionMergeNode(DecisionMergeNode element) {
+    public  ODecisionMergeNode(DecisionMergeNode element) {
         super(element);
         if (AbstractObjingModelNavigation.isMergeNode(element))
             this.isMergeNode = true;
         else if (AbstractObjingModelNavigation.isDecisionNode(element))
             this.isDecisionNode = true;
+        
     }
 
     @objid ("2f6e38f0-95c6-4fc4-9316-220a8b5c7e67")
@@ -115,6 +116,7 @@ public class ODecisionMergeNode extends OModelElement {
                                    (Clause) objingOwner);
             }
         }
+        
     }
 
     @objid ("13965c1a-e244-47bf-b62e-fd4255421b3e")
@@ -129,6 +131,7 @@ public class ODecisionMergeNode extends OModelElement {
             super.setProperties(this.decisionNode);
             setDecisionInput(this.decisionNode);
         }
+        
     }
 
     @objid ("eb201c09-41ee-4fd5-9b11-cb677db3bd05")
@@ -165,6 +168,7 @@ public class ODecisionMergeNode extends OModelElement {
         
         ecoreFlow.setSource(mergeNode);
         ecoreFlow.setTarget(this.decisionNode);
+        
     }
 
     @objid ("76b17668-8895-47f9-bdfb-702363e0456f")
@@ -189,6 +193,7 @@ public class ODecisionMergeNode extends OModelElement {
             throw new NotFoundException("Owner Class ("
                     + ecoreOwner.getClass().getSimpleName() + ") Not Found");
         }
+        
     }
 
     @objid ("a46e3966-3705-4d9f-958b-9a985c5af311")
@@ -215,6 +220,7 @@ public class ODecisionMergeNode extends OModelElement {
             throw new NotFoundException("Owner Class ("
                     + ecoreOwner.getClass().getSimpleName() + ") Not Found");
         }
+        
     }
 
     @objid ("59a6ae32-b6e5-4460-9f46-3c95f83ee55c")
@@ -226,6 +232,7 @@ public class ODecisionMergeNode extends OModelElement {
             throw new NotFoundException("Owner Class ("
                     + ecoreOwner.getClass().getSimpleName() + ") Not Found");
         }
+        
     }
 
     @objid ("90931037-bd8c-4325-abbd-22140aaf9f71")
@@ -268,6 +275,7 @@ public class ODecisionMergeNode extends OModelElement {
                 }
             }
         }
+        
     }
 
     @objid ("47bc0b40-7bfe-451a-a88d-d7a87d9a5140")
@@ -298,6 +306,7 @@ public class ODecisionMergeNode extends OModelElement {
         
             node.setDecisionInput(behavior);
         }
+        
     }
 
     @objid ("de4d4ede-448c-40fb-9b4e-8e1a30ef77af")

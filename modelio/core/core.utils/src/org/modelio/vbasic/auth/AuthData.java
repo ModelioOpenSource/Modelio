@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.auth;
 
 import java.util.HashMap;
@@ -42,13 +41,12 @@ public abstract class AuthData implements IAuthData {
      * Initialize the data.
      */
     @objid ("4aca559a-67a1-45fd-adb0-74528a577462")
-    public AuthData() {
+    public  AuthData() {
         this.data = new HashMap<>(3);
     }
 
     /**
      * Get all authentication data fields
-     * 
      * @return all authentication data fields.
      */
     @objid ("748d888f-84d1-4ed8-b53d-63640d19dfd8")
@@ -60,7 +58,6 @@ public abstract class AuthData implements IAuthData {
     /**
      * Convenience method to get a property value and return a default value if
      * the property is not defined.
-     * 
      * @param prop a property key
      * @param defaultValue the default value
      * @return the property value or the default value.
@@ -73,6 +70,7 @@ public abstract class AuthData implements IAuthData {
             return defaultValue;
         else
             return ret;
+        
     }
 
     /**

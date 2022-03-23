@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.communicationinteraction;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,30 +30,30 @@ import org.modelio.uml.statikdiagram.editor.style.StaticAbstractStyleKeyProvider
 @objid ("349b694e-55b7-11e2-877f-002564c97630")
 public class GmCommunicationInteractionSimpleStyleKeys extends StaticAbstractStyleKeyProvider {
     @objid ("a64352ec-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmCommunicationInteractionStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmCommunicationInteractionStructuredStyleKeys.REPMODE;
 
     @objid ("a64352ee-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = GmCommunicationInteractionStructuredStyleKeys.FILLCOLOR;
+    static final StyleKey FILLCOLOR = GmCommunicationInteractionStructuredStyleKeys.FILLCOLOR;
 
     @objid ("a64352f0-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = GmCommunicationInteractionStructuredStyleKeys.FILLMODE;
+    static final StyleKey FILLMODE = GmCommunicationInteractionStructuredStyleKeys.FILLMODE;
 
     @objid ("a64352f2-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = GmCommunicationInteractionStructuredStyleKeys.LINECOLOR;
+    static final StyleKey LINECOLOR = GmCommunicationInteractionStructuredStyleKeys.LINECOLOR;
 
     @objid ("a64352f4-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = GmCommunicationInteractionStructuredStyleKeys.LINEWIDTH;
+    static final StyleKey LINEWIDTH = GmCommunicationInteractionStructuredStyleKeys.LINEWIDTH;
 
     @objid ("a64352f6-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmCommunicationInteractionStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmCommunicationInteractionStructuredStyleKeys.FONT;
 
     @objid ("a64352f8-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmCommunicationInteractionStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmCommunicationInteractionStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("a64352fa-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmCommunicationInteractionStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmCommunicationInteractionStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("a64352fc-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmCommunicationInteractionStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmCommunicationInteractionStructuredStyleKeys.SHOWTAGS;
 
 }

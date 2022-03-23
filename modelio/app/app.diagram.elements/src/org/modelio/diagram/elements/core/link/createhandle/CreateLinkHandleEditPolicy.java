@@ -17,23 +17,23 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.createhandle;
 
-import java.util.Collections;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.CompletableFuture;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.Connection;
 import org.eclipse.draw2d.ConnectionAnchor;
-import org.eclipse.draw2d.Figure;
+import org.eclipse.draw2d.Ellipse;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.ImageFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.Locator;
 import org.eclipse.draw2d.MouseEvent;
 import org.eclipse.draw2d.MouseMotionListener;
-import org.eclipse.draw2d.RelativeLocator;
 import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.TreeSearch;
 import org.eclipse.draw2d.geometry.Point;
@@ -43,30 +43,30 @@ import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gef.GraphicalEditPart;
-import org.eclipse.gef.NodeEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.SharedCursors;
 import org.eclipse.gef.editpolicies.SelectionHandlesEditPolicy;
 import org.eclipse.gef.handles.AbstractHandle;
-import org.eclipse.gef.requests.CreateConnectionRequest;
 import org.eclipse.gef.requests.SimpleFactory;
 import org.eclipse.gef.tools.AbstractTool;
-import org.eclipse.jface.resource.ImageDescriptor;
-import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.Display;
+import org.modelio.diagram.elements.core.figures.anchors.AnchorFigureFactory;
+import org.modelio.diagram.elements.core.figures.geometry.GeomUtils;
+import org.modelio.diagram.elements.core.link.anchors.fixed.IFixedConnectionAnchorFactory;
+import org.modelio.diagram.elements.core.link.anchors.fixed.VariableFixedAnchorProvider;
 import org.modelio.diagram.elements.core.link.extensions.FractionalConnectionLocator;
 import org.modelio.diagram.elements.core.model.IGmModelRelated;
 import org.modelio.diagram.elements.core.tools.BendedConnectionAndNodeCreationTool;
 import org.modelio.diagram.elements.plugin.DiagramElements;
 import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
 import org.modelio.platform.model.ui.swt.labelprovider.UniversalLabelProvider;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
  * Edit policy that add a "create link" drag handle on the middle of the node figure.
- * <p>
- * The "create link" handle is handled by {@link PopupMenuCreateLinkEditPolicy} , displaying a popup menu displaying all allowed links between the source and this node.
  * <p>
  * This edit policy should be installed with the {@link #ROLE} role.
  * 
@@ -79,7 +79,7 @@ public class CreateLinkHandleEditPolicy extends SelectionHandlesEditPolicy {
      * Don't display the smart link handle when the edit part is being moved
      */
     @objid ("15c2326e-e49e-48f4-a0e7-06d07e46516c")
-    private boolean moveInProgress;
+    private boolean dragInProgress;
 
     /**
      * The role this edit policy should be installed with.
@@ -88,48 +88,41 @@ public class CreateLinkHandleEditPolicy extends SelectionHandlesEditPolicy {
     public static final Object ROLE = CreateLinkHandleEditPolicy.class;
 
     @objid ("ccd80552-06cb-409e-ab76-d20c311c3b69")
-    private final GraphicalEditPart connSource;
-
-    /**
-     * Request used to update {@link NodeSourceAnchorLocator} location.
-     */
-    @objid ("cbaf2488-f0ee-4bbf-9fce-2f74952ecf83")
-    private CreateConnectionRequest feedBackReq;
-
-    @objid ("a918a051-e09e-4df1-a851-8b45590a6c9c")
-    private Locator handleLocator;
+    protected final GraphicalEditPart connSource;
 
     @objid ("0ba2f441-ad39-4ac1-9c51-f92ee734de79")
     private MouseMotionListener mouseMotionListener;
 
     /**
+     * Hold in static var the currently displayed create link handles policy.
+     */
+    @objid ("a0027512-98e4-4f82-be2b-151901d9d11c")
+    private static CreateLinkHandleEditPolicy currentDisplayed;
+
+    /**
+     * Trigger to Remove create handles 1 second after the mouse moves out of the node, unless the mouse comes back before.
+     */
+    @objid ("275c1ee3-79f0-4a3b-a01f-8ee587f3366c")
+    private CompletableFuture<Void> removeHandlesFuture;
+
+    @objid ("2dab6c0a-bc01-4577-8cc5-70bfcdafafb8")
+    private static IFixedConnectionAnchorFactory defaultAnchorProvider = new VariableFixedAnchorProvider();
+
+    /**
      * @param connsource the created connections source edit part.
      */
     @objid ("e012ca7c-2702-4d0a-9760-3884b03420be")
-    public CreateLinkHandleEditPolicy(GraphicalEditPart connsource) {
+    public  CreateLinkHandleEditPolicy(GraphicalEditPart connsource) {
         this.connSource = connsource;
-        if (connsource instanceof ConnectionEditPart) {
-            this.handleLocator = new FractionalConnectionLocator((Connection) connsource.getFigure(), 0.6, false);
-        } else if (connsource instanceof NodeEditPart) {
-            NodeEditPart nep = (NodeEditPart) connsource;
-            this.feedBackReq = new CreateConnectionRequest();
-            this.feedBackReq.setType(RequestConstants.REQ_CONNECTION_START);
-            this.feedBackReq.setSourceEditPart(connsource);
-            this.feedBackReq.setLocation(connsource.getFigure().getBounds().getCenter());
-            connsource.getFigure().translateToAbsolute(this.feedBackReq.getLocation());
-            this.handleLocator = new NodeSourceAnchorLocator(nep, this.feedBackReq);
-        } else {
-            this.handleLocator = new RelativeLocator(connsource.getFigure(), 0.5, 0.5);
-        
-        }
     }
 
     @objid ("19de9917-9808-46de-9173-ef92f8943706")
     @Override
     public void activate() {
-        this.moveInProgress = false;
+        this.dragInProgress = false;
         
         super.activate();
+        
     }
 
     @objid ("82cbfd28-d190-42cf-8d99-afd033f5d5a2")
@@ -138,6 +131,7 @@ public class CreateLinkHandleEditPolicy extends SelectionHandlesEditPolicy {
         // remove selection handles that have been added by showTargetFeedBack(...)
         removeSelectionHandles();
         super.deactivate();
+        
     }
 
     @objid ("30d50ce5-352b-44ae-8ef3-f258768178b1")
@@ -146,8 +140,9 @@ public class CreateLinkHandleEditPolicy extends SelectionHandlesEditPolicy {
         Object type = request.getType();
         if (RequestConstants.REQ_MOVE.equals(type)
                 || RequestConstants.REQ_MOVE_CHILDREN.equals(type)) {
-            this.moveInProgress = false;
+            this.dragInProgress = false;
         }
+        
     }
 
     @objid ("2e30ab5d-20e9-4cfb-9a24-0795a5e05c84")
@@ -155,9 +150,31 @@ public class CreateLinkHandleEditPolicy extends SelectionHandlesEditPolicy {
     public void eraseTargetFeedback(Request request) {
         // listen for REQ_SELECTION instead of REQ_SELECTION_HOVER.
         // in the other case the handle disappear when beginning dragging.
-        if (RequestConstants.REQ_SELECTION.equals(request.getType())) {
+        if (RequestConstants.REQ_SELECTION.equals(request.getType()) && this.handles != null) {
+            // done by mouse listener
+            //removeSelectionHandles();
+        
+            // Remove create handles 1 second after getting out of node, unless it comes back
+            if (this.removeHandlesFuture==null || this.removeHandlesFuture.isDone()) {
+                CompletableFuture<Void> f = new CompletableFuture<>();
+                Display.getCurrent().timerExec(500, () -> triggerRemoveHandles(f));
+                this.removeHandlesFuture = f;
+            }
+        }
+        
+    }
+
+    @objid ("1dff8e2f-2a01-4025-8998-c3f936a81ed1")
+    private void triggerRemoveHandles(CompletableFuture<Void> future) {
+        if (future.isCancelled())
+            return;
+        
+        if (getHost().isActive()) {
             removeSelectionHandles();
         }
+        
+        future.complete(null);
+        
     }
 
     @objid ("fc24a5df-99fa-43e5-b530-69239435cce5")
@@ -169,53 +186,111 @@ public class CreateLinkHandleEditPolicy extends SelectionHandlesEditPolicy {
         return null;
     }
 
-    /**
-     * Set the create link handle locator.
-     * 
-     * @param handleLocator the create link handle locator.
-     * @return this instance.
-     */
-    @objid ("55a773be-cc4b-4b28-bc6d-ce77b151ce56")
-    public CreateLinkHandleEditPolicy setHandleLocator(Locator handleLocator) {
-        this.handleLocator = handleLocator;
-        return this;
-    }
-
     @objid ("c69c40c5-16b4-425f-a1b6-39596a239b27")
     @Override
     public void showSourceFeedback(Request request) {
         Object type = request.getType();
         if (RequestConstants.REQ_MOVE.equals(type)
                 || RequestConstants.REQ_MOVE_CHILDREN.equals(type)) {
-            if (!this.moveInProgress) {
-                this.moveInProgress = true;
+            if (!this.dragInProgress) {
+                this.dragInProgress = true;
                 hideSelection();
             }
         }
+        
     }
 
     @objid ("7f839032-f4d1-4dee-a528-81e2fc9b0200")
     @Override
     public void showTargetFeedback(Request request) {
-        if (!this.moveInProgress) {
+        int hostSelected = getHost().getSelected();
+        if (!this.dragInProgress && hostSelected==0) {
             Object reqType = request.getType();
             if (RequestConstants.REQ_SELECTION_HOVER.equals(reqType)) {
                 if (this.handles == null && isHandleToDisplay()) {
                     addSelectionHandles();
                 }
-                refreshHandleLocation(request);
+            } else if (RequestConstants.REQ_SELECTION.equals(reqType)) {
+                if(this.removeHandlesFuture != null && !this.removeHandlesFuture.isDone()) {
+                    this.removeHandlesFuture.cancel(false);
+                    this.removeHandlesFuture = null;
+                }
             }
         }
+        
+    }
+
+    /**
+     * Redefined to ensure only one node display create link anchors,
+     * and to register created handles in the visual parts registry.
+     */
+    @objid ("c49df2b8-667c-4b3c-af90-d506609da581")
+    @Override
+    protected void addSelectionHandles() {
+        // Call inherited behavior
+        super.addSelectionHandles();
+        
+        // Without this the handle disappear when the mouse hovers it.
+        if (this.handles != null) {
+            setCurrentDisplayed(this);
+            for (Object handle : this.handles) {
+                getHost().getViewer().getVisualPartMap().put(handle, getHost());
+            }
+        }
+        
+    }
+
+    @objid ("9029ec39-b717-4f05-9186-b1cf163353b1")
+    private static void setCurrentDisplayed(CreateLinkHandleEditPolicy newDisplayed) {
+        if (CreateLinkHandleEditPolicy.currentDisplayed == newDisplayed)
+            return;
+        
+        if (CreateLinkHandleEditPolicy.currentDisplayed != null) {
+            // Only one node may display create link anchors
+            CreateLinkHandleEditPolicy.currentDisplayed.removeSelectionHandles();
+        }
+        
+        CreateLinkHandleEditPolicy.currentDisplayed = newDisplayed;
+        
     }
 
     @objid ("ba94eafa-834c-4030-957c-89a419af8a58")
     @Override
     protected List createSelectionHandles() {
-        CreateHandle handle = new CreateHandle(this.connSource, this.handleLocator);
+        IFigure srcFigure = this.connSource.getFigure();
+        if (this.connSource instanceof ConnectionEditPart) {
+            // source is a connection, return one handle at 2/3 of the connection and fast exit.
+            return Arrays.asList(new CreateHandle(
+                    this.connSource,
+                    new FractionalConnectionLocator((Connection) srcFigure, 0.6, false)));
+        }
         
-        // Without this the handle disappear when the mouse hovers it.
-        getHost().getViewer().getVisualPartMap().put(handle, getHost());
-        return Collections.singletonList(handle);
+        IFixedConnectionAnchorFactory anchorFactory = this.connSource.getAdapter(IFixedConnectionAnchorFactory.class);
+        if (anchorFactory == null)
+            anchorFactory = defaultAnchorProvider;
+        
+        List<CreateHandle> ret = new ArrayList<>();
+        for (ConnectionAnchor anchor : anchorFactory.getAllAnchors(srcFigure, ConnectionRouterId.ORTHOGONAL, null)) {
+            Locator loc =  (IFigure target) -> {
+                Point p = anchor.getReferencePoint();
+                if (true) {
+                    // move the handle ANCHOR_RADIUS px farther from the figure to avoid overriding resize handles
+                    Rectangle srcBounds = srcFigure.getBounds().getCopy();
+                    srcFigure.translateToAbsolute(srcBounds);
+        
+                    p = p.getCopy();
+                    GeomUtils.translate(p, GeomUtils.getDirection(p, srcBounds), IFixedConnectionAnchorFactory.ANCHOR_RADIUS);
+                }
+                Rectangle r = new Rectangle(p.x, p.y,1,1);
+                target.translateToRelative(r);
+                r.expand(IFixedConnectionAnchorFactory.ANCHOR_RADIUS, IFixedConnectionAnchorFactory.ANCHOR_RADIUS);
+                r.expand(target.getInsets());
+                target.setBounds(r);
+            };
+            CreateHandle handle = new CreateHandle(this.connSource, loc);
+            ret.add(handle);
+        }
+        return ret;
     }
 
     @objid ("c97bf344-ca13-4efd-a1e4-e7f1ed220320")
@@ -226,6 +301,7 @@ public class CreateLinkHandleEditPolicy extends SelectionHandlesEditPolicy {
             getHostFigure().removeMouseMotionListener(this.mouseMotionListener);
             this.mouseMotionListener = null;
         }
+        
     }
 
     @objid ("e5c11333-d76c-4997-8d54-f3f9ad835538")
@@ -241,45 +317,44 @@ public class CreateLinkHandleEditPolicy extends SelectionHandlesEditPolicy {
         return false;
     }
 
-    @objid ("c4ae565d-2334-4799-836e-4cc07a6ae84d")
-    protected void refreshHandleLocation(Request request) {
-        if (this.feedBackReq != null && this.handles != null) {
-            this.feedBackReq.setLocation(((org.eclipse.gef.requests.LocationRequest) request).getLocation());
-            for (Object object : this.handles) {
-                AbstractHandle h = (AbstractHandle) object;
-                h.revalidate();
-            }
-        }
-    }
-
     @objid ("124093e9-d42b-453d-b745-adfb04afa6e5")
     @Override
     protected void removeSelectionHandles() {
         if (this.handles != null) {
+            Map<?,EditPart> visualPartMap = getHost().getViewer().getVisualPartMap();
             for (Object h : this.handles) {
-                getHost().getViewer().getVisualPartMap().remove(h);
+                visualPartMap.remove(h);
             }
         }
         
         super.removeSelectionHandles();
+        
+        this.removeHandlesFuture = null;
+        
     }
 
     @objid ("9164bc3e-0d08-4f11-8665-543b54fa5241")
     @Override
     protected void showSelection() {
-        // Don't show drag handle immediately, do it only on "hover".
-        // Don't call: super.showSelection();
+        if (false) {
+            // Don't show drag handle immediately, do it only on "hover".
+            // Don't call: super.showSelection();
         
-        // REQ_SELECTION_HOVER are not received anymore when the node is selected,
-        // children nodes get it instead. We need our own hover listener.
-        if (isHandleToDisplay()) {
-            getHostFigure().addMouseMotionListener(getMouseMotionListener());
+            // REQ_SELECTION_HOVER requests are not received anymore when the node is selected,
+            // children nodes get it instead. We need our own hover listener.
+            if (isHandleToDisplay()) {
+                getHostFigure().addMouseMotionListener(getMouseMotionListener());
+            }
+        } else {
+            // remove "create link" handles once selected to avoid overriding resize anchors.
+            removeSelectionHandles();
         }
+        
     }
 
     /**
      * Lazy deferred instantiation of the mouse motion listener
-     * @return
+     * @return the mouse motion listener
      */
     @objid ("4d5be243-f4ac-41ab-9dea-5a68d94abb08")
     private MouseMotionListener getMouseMotionListener() {
@@ -305,30 +380,32 @@ public class CreateLinkHandleEditPolicy extends SelectionHandlesEditPolicy {
      * Drag handle that creates connections.
      */
     @objid ("f0779a3b-6456-4f5c-b211-5b89b448853d")
-    private static class CreateHandle extends AbstractHandle {
+    protected static class CreateHandle extends AbstractHandle {
+        @objid ("f86c7f45-75ce-43e6-9210-b51636f2ba74")
+        private static final UniversalLabelProvider labelProvider = new UniversalLabelProvider();
+
         @objid ("b01cb947-3ffc-4801-b782-180bac0ce931")
-        public CreateHandle(GraphicalEditPart owner, Locator locator) {
+        public  CreateHandle(GraphicalEditPart owner, Locator locator) {
             super(owner, locator);
             setLayoutManager(new StackLayout());
             
-            Figure child = new ImageFigure((Image) owner
-                    .getViewer()
-                    .getResourceManager()
-                    .get(ImageDescriptor.createFromFile(getClass(), "/icons/link-arrow.png")));
+            // Make a circle figure
+            Ellipse child = AnchorFigureFactory.createHandleFigure(owner);
+            
             add(child);
             
             setCursor(SharedCursors.CURSOR_PLUG);
             
+            // Setup handle tooltip
             IGmModelRelated model = (IGmModelRelated) owner.getModel();
-            UniversalLabelProvider labelProvider = new UniversalLabelProvider();
             
             String text = DiagramElements.I18N.getMessage("CreateLinkHandle.tooltip", Optional.ofNullable(model)
-                    .map(m -> m.getRelatedElement())
+                    .map(IGmModelRelated::getRelatedElement)
                     .map(el -> labelProvider.getText(el))
                     .orElse(""));
             
             setToolTip(new Label(text));
-            labelProvider.dispose();
+            
         }
 
         /**
@@ -345,7 +422,7 @@ public class CreateLinkHandleEditPolicy extends SelectionHandlesEditPolicy {
         @Override
         protected DragTracker createDragTracker() {
             // tracker to create connection by clicking
-            BendedConnectionAndNodeCreationDragTracker tool2 = new BendedConnectionAndNodeCreationDragTracker();
+            BendedConnectionAndNodeCreationDragTracker tool2 = new BendedConnectionAndNodeCreationDragTracker(getOwner());
             tool2.setFactory(new SimpleFactory(UserChoiceLinkCreationFactory.class));
             return tool2;
         }
@@ -357,20 +434,30 @@ public class CreateLinkHandleEditPolicy extends SelectionHandlesEditPolicy {
          * @since 3.7
          */
         @objid ("4b8eca77-59c5-405e-997c-f3322043babc")
-        private final class BendedConnectionAndNodeCreationDragTracker extends BendedConnectionAndNodeCreationTool implements DragTracker {
+        private static final class BendedConnectionAndNodeCreationDragTracker extends BendedConnectionAndNodeCreationTool implements DragTracker {
+            @objid ("7868727a-d343-4ddd-a701-f5f1a66c3486")
+            private final EditPart owner;
+
+            @objid ("38f7787a-2c9c-4d60-a40d-da54aad29d1a")
+            public  BendedConnectionAndNodeCreationDragTracker(EditPart owner) {
+                this.owner = owner;
+            }
+
             @objid ("9154ff9e-81b1-4246-9a9e-dbee046b289e")
             @Override
             protected boolean updateTargetUnderMouse() {
                 if (isInState(AbstractTool.STATE_INITIAL)) {
                     // Force the source to be the handle owner
-                    EditPart owner = getOwner().getTargetEditPart(getTargetRequest());
-                    if (getTargetEditPart() != owner) {
-                        return updateTargetEditPart(owner, RequestConstants.REQ_CONNECTION_START);
+                
+                    EditPart newTarget = this.owner.getTargetEditPart(getTargetRequest());
+                    if (getTargetEditPart() != newTarget) {
+                        return updateTargetEditPart(newTarget, RequestConstants.REQ_CONNECTION_START);
                     }
                     return false;
                 } else {
                     return super.updateTargetUnderMouse();
                 }
+                
             }
 
             @objid ("6590218c-cf22-495e-9ae7-8c372c3015c0")
@@ -385,44 +472,6 @@ public class CreateLinkHandleEditPolicy extends SelectionHandlesEditPolicy {
                 return super.handleButtonDown(button);
             }
 
-        }
-
-    }
-
-    /**
-     * Locator that calls {@link NodeEditPart#getSourceConnectionAnchor(Request)} to relocate the figure, using its preferred size.
-     * 
-     * @author cma
-     * @since 3.7
-     */
-    @objid ("60e5c055-aafb-49ff-8065-2e37ea6cef7f")
-    protected static final class NodeSourceAnchorLocator implements Locator {
-        @objid ("33e47ef6-8a60-488e-b8aa-dc00558d16a0")
-        private final NodeEditPart nep;
-
-        @objid ("82b1fb09-f14b-4685-a87f-27d0da3c55b3")
-        private final CreateConnectionRequest request;
-
-        @objid ("8e955509-f56e-4a51-a61c-be6d7a2df127")
-        public NodeSourceAnchorLocator(NodeEditPart nep, CreateConnectionRequest feedBackReq) {
-            this.nep = nep;
-            this.request = feedBackReq;
-        }
-
-        @objid ("e9a66abc-ce2b-4f8f-9327-f57d1eb3d80a")
-        @Override
-        public void relocate(IFigure target) {
-            if (this.request.getLocation() == null) {
-                return;
-            }
-            ConnectionAnchor anchor = this.nep.getSourceConnectionAnchor(this.request);
-            Point loc = anchor.getLocation(this.request.getLocation());
-            target.translateToRelative(loc);
-            
-            Rectangle b = new Rectangle(loc, target.getPreferredSize());
-            b.translate(-b.width() / 2, -b.height() / 2);
-            
-            target.setBounds(b);
         }
 
     }

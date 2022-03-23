@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.packaze;
 
 import java.util.Collections;
@@ -33,8 +32,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.statik.Package;
 import org.modelio.uml.statikdiagram.editor.elements.packaze.v0._GmPackage;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -60,7 +59,7 @@ public class GmPackage extends GmPortContainer {
     private static final String IMAGE_MODE_HEADER = "image mode header";
 
     @objid ("3618e1b5-55b7-11e2-877f-002564c97630")
-     static final String BODY_CONTENT_AS_SATELLITE = GmPortContainer.CONTENT_AS_SATELLITE_ROLE;
+    static final String BODY_CONTENT_AS_SATELLITE = GmPortContainer.CONTENT_AS_SATELLITE_ROLE;
 
     /**
      * Structured mode style keys.
@@ -91,13 +90,12 @@ public class GmPackage extends GmPortContainer {
 
     /**
      * Creates a GmPackage.
-     * 
      * @param diagram The diagram.
      * @param thePackage The represented package, may be <tt>null</tt>
      * @param ref The represented package reference, may not be <tt>null</tt>.
      */
     @objid ("3618e1b7-55b7-11e2-877f-002564c97630")
-    public GmPackage(IGmDiagram diagram, Package thePackage, MRef ref) {
+    public  GmPackage(IGmDiagram diagram, Package thePackage, MRef ref) {
         super(diagram, ref);
         this.element = thePackage;
         
@@ -108,13 +106,15 @@ public class GmPackage extends GmPortContainer {
         imageModeHeader.setRoleInComposition(IMAGE_MODE_HEADER);
         imageModeHeader.setLayoutData(PositionConstants.SOUTH);
         addChild(imageModeHeader);
+        
     }
 
     /**
      * For deserialization only.
      */
     @objid ("361a6819-55b7-11e2-877f-002564c97630")
-    public GmPackage() {
+    public  GmPackage() {
+        
     }
 
     @objid ("361a681c-55b7-11e2-877f-002564c97630")
@@ -165,6 +165,7 @@ public class GmPackage extends GmPortContainer {
         } else {
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("361a683e-55b7-11e2-877f-002564c97630")
@@ -184,6 +185,7 @@ public class GmPackage extends GmPortContainer {
                 break;
             }
         }
+        
     }
 
     @objid ("361a6844-55b7-11e2-877f-002564c97630")
@@ -211,6 +213,7 @@ public class GmPackage extends GmPortContainer {
                     ret.remove(imageModeHeader);
                     break;
                 }
+                case USER_IMAGE:
                 case IMAGE:
                 default: {
                     break;
@@ -228,6 +231,7 @@ public class GmPackage extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmPackage.", GmPackage.MINOR_VERSION);
+        
     }
 
     @objid ("361beec5-55b7-11e2-877f-002564c97630")
@@ -235,6 +239,7 @@ public class GmPackage extends GmPortContainer {
         super.read(in);
         
         this.element = (Package) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("361beeca-55b7-11e2-877f-002564c97630")
@@ -245,7 +250,6 @@ public class GmPackage extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -257,7 +261,6 @@ public class GmPackage extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -275,6 +278,7 @@ public class GmPackage extends GmPortContainer {
         } else {
             super.addStartingLink(link);
         }
+        
     }
 
     @objid ("361beef0-55b7-11e2-877f-002564c97630")
@@ -285,15 +289,15 @@ public class GmPackage extends GmPortContainer {
         } else {
             super.addEndingLink(link);
         }
+        
     }
 
     /**
      * Migration constructor from major version 0, should only be called by migrator.
-     * 
      * @param oldVersionGm the instance to migrate from.
      */
     @objid ("361d7559-55b7-11e2-877f-002564c97630")
-    GmPackage(final _GmPackage oldVersionGm) {
+     GmPackage(final _GmPackage oldVersionGm) {
         super(oldVersionGm.getDiagram(), oldVersionGm.getRepresentedRef());
         this.element = (Package) oldVersionGm.getRelatedElement();
         
@@ -305,6 +309,7 @@ public class GmPackage extends GmPortContainer {
         imageModeHeader.setRoleInComposition(IMAGE_MODE_HEADER);
         imageModeHeader.setLayoutData(PositionConstants.SOUTH);
         addChild(imageModeHeader);
+        
     }
 
     @objid ("361d755e-55b7-11e2-877f-002564c97630")
@@ -327,6 +332,7 @@ public class GmPackage extends GmPortContainer {
             child.setRoleInComposition(BODY_CONTENT_AS_SATELLITE);
         }
         super.addChild(child);
+        
     }
 
     @objid ("361d756e-55b7-11e2-877f-002564c97630")

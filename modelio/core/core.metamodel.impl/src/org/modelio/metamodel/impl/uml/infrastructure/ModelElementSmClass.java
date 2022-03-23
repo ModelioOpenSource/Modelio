@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.ArrayList;
@@ -32,13 +32,6 @@ import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.impact.ImpactLink;
 import org.modelio.metamodel.impl.diagrams.AbstractDiagramSmClass;
 import org.modelio.metamodel.impl.impact.ImpactLinkSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.AbstractResourceSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.DependencySmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.ElementSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.ModelElementData;
-import org.modelio.metamodel.impl.uml.infrastructure.NoteSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.StereotypeSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.TaggedValueSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.matrix.MatrixDefinitionSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.properties.LocalPropertyTableSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.properties.PropertyTableSmClass;
@@ -107,7 +100,7 @@ public class ModelElementSmClass extends ElementSmClass {
     private SmDependency attachedDep;
 
     @objid ("280da67b-d140-4337-a283-69d3988c0960")
-    public ModelElementSmClass(ISmMetamodelFragment origin) {
+    public  ModelElementSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -115,6 +108,7 @@ public class ModelElementSmClass extends ElementSmClass {
     @Override
     public String getName() {
         return "ModelElement";
+        
     }
 
     @objid ("ead878ca-13b0-4dc5-a011-b8e35519c0ed")
@@ -127,18 +121,21 @@ public class ModelElementSmClass extends ElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ModelElement.class;
+        
     }
 
     @objid ("72ab0841-007b-49b2-839c-1867c3eb7283")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("52a2b9bd-b745-4781-b4f8-179d5e2f44fe")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("413f5ec5-e7ef-4065-acf6-eb0713ffe716")
@@ -202,6 +199,8 @@ public class ModelElementSmClass extends ElementSmClass {
         this.attachedDep = new AttachedSmDependency();
         this.attachedDep.init("Attached", this, metamodel.getMClass(AbstractResource.MQNAME), 0, -1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.attachedDep);
+        
+        
     }
 
     @objid ("b0542c06-62d0-4139-a419-7103408cc951")
@@ -314,7 +313,7 @@ public class ModelElementSmClass extends ElementSmClass {
         private ModelElementSmClass smClass;
 
         @objid ("ac716c2f-11e0-4c23-8328-1d9c19cfb9bc")
-        public ModelElementObjectFactory(ModelElementSmClass smClass) {
+        public  ModelElementObjectFactory(ModelElementSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -370,6 +369,7 @@ public class ModelElementSmClass extends ElementSmClass {
             	this.symetricDep = ((LocalPropertyTableSmClass)this.getTarget()).getLocalAnnotedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -389,6 +389,7 @@ public class ModelElementSmClass extends ElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ModelElementData) data).mExtension = values;
+            
         }
 
         @objid ("d731d31b-1f6e-4e38-90e3-aa9aa3f68639")
@@ -398,6 +399,7 @@ public class ModelElementSmClass extends ElementSmClass {
             	this.symetricDep = ((StereotypeSmClass)this.getTarget()).getExtendedElementDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -417,6 +419,7 @@ public class ModelElementSmClass extends ElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ModelElementData) data).mDependsOnDependency = values;
+            
         }
 
         @objid ("58d36e25-a12d-47c8-83a7-8e99d0d6a3b0")
@@ -426,6 +429,7 @@ public class ModelElementSmClass extends ElementSmClass {
             	this.symetricDep = ((DependencySmClass)this.getTarget()).getImpactedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -445,6 +449,7 @@ public class ModelElementSmClass extends ElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ModelElementData) data).mTag = values;
+            
         }
 
         @objid ("eb04169c-9df7-4658-b124-753560fe85ee")
@@ -454,6 +459,7 @@ public class ModelElementSmClass extends ElementSmClass {
             	this.symetricDep = ((TaggedValueSmClass)this.getTarget()).getAnnotedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -473,6 +479,7 @@ public class ModelElementSmClass extends ElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ModelElementData) data).mImpactedDependency = values;
+            
         }
 
         @objid ("949a6624-7002-47b5-ba91-bd97949d4fd7")
@@ -482,6 +489,7 @@ public class ModelElementSmClass extends ElementSmClass {
             	this.symetricDep = ((DependencySmClass)this.getTarget()).getDependsOnDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -501,6 +509,7 @@ public class ModelElementSmClass extends ElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ModelElementData) data).mProperties = values;
+            
         }
 
         @objid ("78548680-a605-4799-a5f3-33c9b3564a59")
@@ -510,6 +519,7 @@ public class ModelElementSmClass extends ElementSmClass {
             	this.symetricDep = ((PropertyTableSmClass)this.getTarget()).getOwnerDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -529,6 +539,7 @@ public class ModelElementSmClass extends ElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ModelElementData) data).mProduct = values;
+            
         }
 
         @objid ("16f118d4-ce13-4013-8831-1410af5fd532")
@@ -538,6 +549,7 @@ public class ModelElementSmClass extends ElementSmClass {
             	this.symetricDep = ((AbstractDiagramSmClass)this.getTarget()).getOriginDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -557,6 +569,7 @@ public class ModelElementSmClass extends ElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ModelElementData) data).mDescriptor = values;
+            
         }
 
         @objid ("b83195a7-13c2-4849-a2a3-1d6128650f99")
@@ -566,6 +579,7 @@ public class ModelElementSmClass extends ElementSmClass {
             	this.symetricDep = ((NoteSmClass)this.getTarget()).getSubjectDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -585,6 +599,7 @@ public class ModelElementSmClass extends ElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ModelElementData) data).mMatrix = values;
+            
         }
 
         @objid ("042208c8-050f-40b6-9c60-5acfee010acf")
@@ -594,6 +609,7 @@ public class ModelElementSmClass extends ElementSmClass {
             	this.symetricDep = ((MatrixDefinitionSmClass)this.getTarget()).getOwnerDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -613,6 +629,7 @@ public class ModelElementSmClass extends ElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ModelElementData) data).mImpactImpacted = values;
+            
         }
 
         @objid ("88e023f8-4d36-4794-a1e6-96193aa6bdfa")
@@ -622,6 +639,7 @@ public class ModelElementSmClass extends ElementSmClass {
             	this.symetricDep = ((ImpactLinkSmClass)this.getTarget()).getDependsOnDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -641,6 +659,7 @@ public class ModelElementSmClass extends ElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ModelElementData) data).mImpactDependsOn = values;
+            
         }
 
         @objid ("1262086b-e405-4977-bb90-da038e312fd7")
@@ -650,6 +669,7 @@ public class ModelElementSmClass extends ElementSmClass {
             	this.symetricDep = ((ImpactLinkSmClass)this.getTarget()).getImpactedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -669,6 +689,7 @@ public class ModelElementSmClass extends ElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ModelElementData) data).mAttached = values;
+            
         }
 
         @objid ("3b40d5e0-705e-4ef2-ba83-6933243c02f6")
@@ -678,6 +699,7 @@ public class ModelElementSmClass extends ElementSmClass {
             	this.symetricDep = ((AbstractResourceSmClass)this.getTarget()).getSubjectDep();
             }
             return this.symetricDep;
+            
         }
 
     }

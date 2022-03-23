@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.ui.browser.handlers;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -55,6 +54,7 @@ public class CreateBpmnLaneHandler extends CreateElementHandler {
         } else {
             return super.doCanExecute(owner, metaclass, dependency, stereotype);
         }
+        
     }
 
     @objid ("0057d17c-cbbf-1006-9c1d-001ec947cd2a")

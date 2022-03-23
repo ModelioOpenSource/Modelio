@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,7 +39,7 @@ public class EExecutionEvent extends ENamedElement {
     }
 
     @objid ("212cc548-71d0-486d-a0a3-4fca09dfc83c")
-    public EExecutionEvent(org.eclipse.uml2.uml.ExecutionEvent element) {
+    public  EExecutionEvent(org.eclipse.uml2.uml.ExecutionEvent element) {
         super(element);
     }
 

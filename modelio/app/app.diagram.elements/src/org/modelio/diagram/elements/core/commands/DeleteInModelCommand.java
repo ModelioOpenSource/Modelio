@@ -17,15 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.commands;
 
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.gef.commands.Command;
 import org.modelio.metamodel.mda.Project;
 import org.modelio.metamodel.uml.statik.Package;
+import org.modelio.platform.model.ui.MetamodelLabels;
+import org.modelio.platform.model.ui.swt.labelprovider.UniversalLabelProvider;
 import org.modelio.vcore.model.api.MTools;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
@@ -43,17 +45,17 @@ public class DeleteInModelCommand extends Command {
      * Create a delete command.
      */
     @objid ("7f3e3f32-1dec-11e2-8cad-001ec947c8cc")
-    public DeleteInModelCommand() {
+    public  DeleteInModelCommand() {
+        
     }
 
     /**
      * Create a delete command.
-     * 
      * @param toDelete The element to delete.
      */
     @objid ("7f3e3f35-1dec-11e2-8cad-001ec947c8cc")
-    public DeleteInModelCommand(MObject toDelete) {
-        this.toDelete.add(toDelete);
+    public  DeleteInModelCommand(MObject toDelete) {
+        addElementToDelete(toDelete);
     }
 
     @objid ("7f3e3f39-1dec-11e2-8cad-001ec947c8cc")
@@ -64,16 +66,37 @@ public class DeleteInModelCommand extends Command {
                 el.delete();
             }
         }
+        
     }
 
     /**
      * Add an element to delete.
-     * 
      * @param el an element to delete.
+     * @return this instance to chain calls
      */
     @objid ("7f3e3f3c-1dec-11e2-8cad-001ec947c8cc")
-    public void addElementToDelete(MObject el) {
+    public DeleteInModelCommand addElementToDelete(MObject el) {
         this.toDelete.add(el);
+        setLabel(null);
+        return this;
+    }
+
+    @objid ("a45a18b5-df1f-4563-8ac3-2de30f07e1c5")
+    @Override
+    public String getLabel() {
+        String label = super.getLabel();
+        if (label==null || label.isEmpty()) {
+            if (this.toDelete.size()==1) {
+                MObject obj = this.toDelete.iterator().next();
+                setLabel(MessageFormat.format(
+                        "Delete ''{0}'' {1}",
+                        new UniversalLabelProvider().getText(obj),
+                        MetamodelLabels.getString(obj.getMClass().getName())));
+            } else {
+                setLabel(MessageFormat.format("Delete {0} elements", this.toDelete.size()));
+            }
+        }
+        return label;
     }
 
     /**

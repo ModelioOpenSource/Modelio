@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,7 +38,7 @@ public class ETemplateParameter extends EElement {
     }
 
     @objid ("baa07717-2a64-4b6e-af21-7752e7682074")
-    public ETemplateParameter(org.eclipse.uml2.uml.TemplateParameter element) {
+    public  ETemplateParameter(org.eclipse.uml2.uml.TemplateParameter element) {
         super(element);
     }
 
@@ -55,6 +54,7 @@ public class ETemplateParameter extends EElement {
         }else{
             objingElt.delete();
         }
+        
     }
 
     @objid ("18d244bf-1964-4cd8-b792-c94549987399")
@@ -64,6 +64,7 @@ public class ETemplateParameter extends EElement {
         setIsValueParameter(objingElt);
         setDefault(objingElt);
         setParameteredElement(objingElt);
+        
     }
 
     @objid ("eb8f5421-95a5-4e0e-af88-7eb0d3f7f442")
@@ -75,6 +76,7 @@ public class ETemplateParameter extends EElement {
                 ((TemplateParameter) objElement).setType((UmlModelElement) objType);
             }
         }
+        
     }
 
     @objid ("c93b411a-15a3-43e8-899d-703b73da80f7")
@@ -90,6 +92,7 @@ public class ETemplateParameter extends EElement {
                 }
             }
         }
+        
     }
 
     @objid ("9e6993f0-68e3-4fcb-81d0-56bed1505ab4")

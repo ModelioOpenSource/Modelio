@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.api.impl.model;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,11 +43,10 @@ public class ImageService implements IImageService {
 
     /**
      * C'tor
-     * 
      * @param metamodel the metamodel used in the open project.
      */
     @objid ("bceb9603-dd15-46a7-8e54-8188344546e4")
-    public ImageService(MMetamodel metamodel) {
+    public  ImageService(MMetamodel metamodel) {
         this.metamodel = metamodel;
     }
 
@@ -76,6 +74,7 @@ public class ImageService implements IImageService {
         } else {
             return ElementImageService.getIcon(element);
         }
+        
     }
 
     @objid ("9f4bb189-eac8-4b57-8ae0-6394318f7427")
@@ -108,6 +107,7 @@ public class ImageService implements IImageService {
         } else {
             return ElementImageService.getImage(element);
         }
+        
     }
 
     @objid ("c29a6704-09f0-4fad-aa80-4376ac708075")
@@ -128,6 +128,7 @@ public class ImageService implements IImageService {
         } else {
             return ElementImageService.getQualifiedIcon(element);
         }
+        
     }
 
     @objid ("11b0e67b-f0f8-4de4-9f46-9d7f1162e51d")
@@ -148,6 +149,7 @@ public class ImageService implements IImageService {
         } else {
             return ElementImageService.getQualifiedImage(element);
         }
+        
     }
 
     @objid ("c75c8dbe-f834-4fb5-8fed-da97e5c2fdc8")

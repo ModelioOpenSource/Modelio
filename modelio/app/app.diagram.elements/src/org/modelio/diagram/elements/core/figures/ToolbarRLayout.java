@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,13 +43,14 @@ public class ToolbarRLayout extends ToolbarLayout {
             final Rectangle aBounds = child.getBounds().getCopy();
             child.translate(Xr - (aBounds.x - Xl) - aBounds.x - aBounds.width, 0);
         }
+        
     }
 
     /**
      * C'tor.
      */
     @objid ("3086b4c1-fb72-41ec-ad42-228c32fd6e63")
-    public ToolbarRLayout() {
+    public  ToolbarRLayout() {
         super(true); // force horizontal
     }
 

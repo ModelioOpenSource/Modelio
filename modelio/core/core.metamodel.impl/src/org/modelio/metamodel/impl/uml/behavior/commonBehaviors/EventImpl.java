@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.commonBehaviors;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.EventData;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementImpl;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Event;
@@ -93,6 +92,7 @@ public class EventImpl extends UmlModelElementImpl implements Event {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("5dc4d5d6-b70a-4301-8867-cedb9bd3d42c")
@@ -127,6 +127,7 @@ public class EventImpl extends UmlModelElementImpl implements Event {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("3f6e7eaf-a165-4c29-9c0b-01dafbb344c2")

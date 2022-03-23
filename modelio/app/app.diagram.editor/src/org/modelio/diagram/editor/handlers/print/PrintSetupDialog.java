@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.handlers.print;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -63,16 +62,16 @@ import org.modelio.diagram.elements.common.abstractdiagram.ImageBuilder;
 @objid ("65b93f47-33f7-11e2-95fe-001ec947c8cc")
 public class PrintSetupDialog extends Dialog {
     @objid ("65b93f4e-33f7-11e2-95fe-001ec947c8cc")
-     int printMode = PrintFigureOperation.FIT_PAGE;
+    int printMode = PrintFigureOperation.FIT_PAGE;
 
     @objid ("91387739-edb1-427d-b56a-e370fd142df9")
     public RootEditPart rootEditPart;
 
     @objid ("65b93f4c-33f7-11e2-95fe-001ec947c8cc")
-     PrintMargin margin;
+    PrintMargin margin;
 
     @objid ("65bba186-33f7-11e2-95fe-001ec947c8cc")
-     PrintPageNavigation pageNavigation;
+    PrintPageNavigation pageNavigation;
 
     @objid ("98d94416-b55a-421c-af72-9d41c6e83f5e")
     public Shell shell;
@@ -96,11 +95,12 @@ public class PrintSetupDialog extends Dialog {
     public Label pagesLabel;
 
     @objid ("65bba188-33f7-11e2-95fe-001ec947c8cc")
-    public PrintSetupDialog(RootEditPart rootEditPart) {
+    public  PrintSetupDialog(RootEditPart rootEditPart) {
         super(Display.getCurrent().getActiveShell());
         this.rootEditPart = rootEditPart;
         ImageBuilder imageBuilder = new ImageBuilder();
         this.image = imageBuilder.makeImage(rootEditPart);
+        
     }
 
     @objid ("65bba18b-33f7-11e2-95fe-001ec947c8cc")
@@ -413,6 +413,7 @@ public class PrintSetupDialog extends Dialog {
         if (this.image != null) {
             this.image.dispose();
         }
+        
     }
 
     /**
@@ -436,6 +437,7 @@ public class PrintSetupDialog extends Dialog {
         }
         this.margin = PrintMargin.getPrintMargin(this.printer, marginSize);
         this.canvas.redraw();
+        
     }
 
     @objid ("65bba193-33f7-11e2-95fe-001ec947c8cc")
@@ -475,6 +477,7 @@ public class PrintSetupDialog extends Dialog {
         }
         
         updatePageCounter();
+        
     }
 
     @objid ("65bba197-33f7-11e2-95fe-001ec947c8cc")

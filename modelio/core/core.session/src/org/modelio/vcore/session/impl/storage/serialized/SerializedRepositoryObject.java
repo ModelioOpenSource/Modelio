@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.storage.serialized;
 
 import java.io.IOException;
@@ -38,7 +37,7 @@ class SerializedRepositoryObject implements IRepositoryObject {
     private SerializedRepository repository;
 
     @objid ("0071f9c6-fd1a-1f27-a7da-001ec947cd2a")
-    SerializedRepositoryObject(final SerializedRepository repository) {
+     SerializedRepositoryObject(final SerializedRepository repository) {
         this.repository = repository;
     }
 
@@ -102,6 +101,7 @@ class SerializedRepositoryObject implements IRepositoryObject {
                 this.repository.getErrorSupport().fireError(e);
             }
         }
+        
     }
 
     @objid ("00738156-fd1a-1f27-a7da-001ec947cd2a")
@@ -112,6 +112,7 @@ class SerializedRepositoryObject implements IRepositoryObject {
         } catch (IOException e) {
             this.repository.getErrorSupport().fireError(e);
         }
+        
     }
 
     @objid ("0073a1c2-fd1a-1f27-a7da-001ec947cd2a")

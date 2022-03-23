@@ -1,5 +1,7 @@
 // Disable all captions for figures.
 :!figure-caption:
+// Path to the stylesheet files
+:stylesdir: .
 
 [[La-vue-ldquoEspace-de-travailrdquo]]
 
@@ -16,7 +18,7 @@ image::images/Modeler-_modeler_interface_workspace_view_vue_espace_de_travail.pn
 3. Les informations sur le projet sélectionné.
 4. La description et le contact du projet sélectionné. Vous pouvez cliquer sur l'icône [image:images/Modeler-_modeler_interface_workspace_view_mail.png[19]] pour envoyer un courriel à l'auteur du projet.
 5. Les modèles de travail présents dans le projet sélectionné.
-6. Les librairies présentes dans le projet sélectionné.
+6. Les bibliothèques présentes dans le projet sélectionné.
 7. Les modules présents dans le projet sélectionné.
 
 [[Principales-commandes-disponibles-dans-la-vue-ldquoEspace-de-travailrdquo]]

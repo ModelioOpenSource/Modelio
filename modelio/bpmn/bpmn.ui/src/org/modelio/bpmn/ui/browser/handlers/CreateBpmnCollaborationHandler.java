@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.ui.browser.handlers;
 
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.swt.widgets.Display;
 import org.modelio.api.modelio.Modelio;
@@ -74,6 +73,7 @@ public class CreateBpmnCollaborationHandler extends CreateCmsElementHandler {
                 dh.save();
             }
         }
+        
     }
 
     /**
@@ -88,6 +88,7 @@ public class CreateBpmnCollaborationHandler extends CreateCmsElementHandler {
                         () -> "CreateBpmnCollaborationHandler.postCommit()",
                         ModelioEvent.EDIT_ELEMENT,
                         param));
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class EReadVariableAction extends EActivityNode {
     }
 
     @objid ("a206df6e-7969-426c-8146-18663508b993")
-    public EReadVariableAction(org.eclipse.uml2.uml.ReadVariableAction element) {
+    public  EReadVariableAction(org.eclipse.uml2.uml.ReadVariableAction element) {
         super(element);
     }
 

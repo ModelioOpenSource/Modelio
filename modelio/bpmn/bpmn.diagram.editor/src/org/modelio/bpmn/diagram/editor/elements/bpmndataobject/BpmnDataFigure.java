@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmndataobject;
 
 import java.util.List;
@@ -52,7 +51,7 @@ public class BpmnDataFigure extends ShapedFigure {
     private ImageFigure centerIcon = null;
 
     @objid ("60ae2d23-55b6-11e2-877f-002564c97630")
-    public BpmnDataFigure() {
+    public  BpmnDataFigure() {
         super();
         setShaper(new NoteFigure.NoteShaper());
         this.setLayoutManager(new BorderLayout());
@@ -64,6 +63,7 @@ public class BpmnDataFigure extends ShapedFigure {
         this.add(this.topContainer, BorderLayout.TOP);
         this.shapedBorder = new ShapedBorder(this.getLineColor(), this.getLineWidth(), new NoteFigure.NoteShaper());
         this.setBorder(this.shapedBorder);
+        
     }
 
     @objid ("60ae2d25-55b6-11e2-877f-002564c97630")
@@ -78,6 +78,7 @@ public class BpmnDataFigure extends ShapedFigure {
             this.centerIcon = new ImageFigure(icon);
             this.add(this.centerIcon, BorderLayout.CENTER);
         }
+        
     }
 
     @objid ("60ae2d2b-55b6-11e2-877f-002564c97630")
@@ -90,6 +91,7 @@ public class BpmnDataFigure extends ShapedFigure {
             imgFigure.setBorder(new MarginBorder(5, 5, 0, 0));
             this.topContainer.add(imgFigure, BorderLayout.LEFT);
         }
+        
     }
 
     @objid ("b3026e0f-853e-4425-8cc6-d8235c19e2bf")
@@ -97,6 +99,7 @@ public class BpmnDataFigure extends ShapedFigure {
     public void setLineColor(Color lineColor) {
         this.shapedBorder.setColor(lineColor);
         super.setLineColor(lineColor);
+        
     }
 
     @objid ("c454782a-233c-4e7a-ba7e-0f882677b537")
@@ -104,6 +107,7 @@ public class BpmnDataFigure extends ShapedFigure {
     public void setLineWidth(int lineWidth) {
         this.shapedBorder.setWidth(lineWidth);
         super.setLineWidth(lineWidth);
+        
     }
 
 }

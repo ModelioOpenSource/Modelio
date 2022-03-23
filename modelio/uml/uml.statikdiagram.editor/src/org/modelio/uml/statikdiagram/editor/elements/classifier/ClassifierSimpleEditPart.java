@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.classifier;
 
 import java.util.ArrayList;
@@ -52,10 +51,10 @@ import org.modelio.uml.statikdiagram.editor.elements.packaze.SimpleModeOwnedElem
 @objid ("3433a6d7-55b7-11e2-877f-002564c97630")
 public class ClassifierSimpleEditPart extends NonSelectableSimpleEditPart {
     @objid ("3433a6db-55b7-11e2-877f-002564c97630")
-     static final int DEFAULT_HEIGHT = 50;
+    static final int DEFAULT_HEIGHT = 50;
 
     @objid ("3433a6dd-55b7-11e2-877f-002564c97630")
-     static final int DEFAULT_WIDTH = 100;
+    static final int DEFAULT_WIDTH = 100;
 
     /**
      * Used in {@link #refreshFromStyle(IFigure, IStyle)} to avoid unnecessary nested calls.
@@ -121,6 +120,7 @@ public class ClassifierSimpleEditPart extends NonSelectableSimpleEditPart {
             }
             this.alreadyRefreshing = false;
         }
+        
     }
 
     @objid ("3433a6ea-55b7-11e2-877f-002564c97630")
@@ -138,6 +138,7 @@ public class ClassifierSimpleEditPart extends NonSelectableSimpleEditPart {
             installEditPolicy("N-ary assoc", new AcceptNAssocEditPolicy(true));
             installEditPolicy(ModelElementDropRequest.TYPE, new ClassifierElementDropEditPolicy());
         }
+        
     }
 
 }

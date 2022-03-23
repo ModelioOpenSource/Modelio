@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmndataobject;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.gef.commands.Command;
 import org.modelio.bpmn.diagram.editor.elements.bpmnsequenceflow.GmBpmnSequenceFlow;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.metamodel.bpmn.activities.BpmnActivity;
 import org.modelio.metamodel.bpmn.activities.BpmnSubProcess;
 import org.modelio.metamodel.bpmn.events.BpmnCatchEvent;
@@ -57,16 +56,16 @@ public class CreateBpmnDataObjectCommand extends Command {
 
     /**
      * Creates a node creation command.
-     * 
      * @param sequenceFlow the element that lead to this command.
      * @param gm The parent editPart
      * @param context Details on the MObject and/or the node to create
      */
     @objid ("60ae2d3c-55b6-11e2-877f-002564c97630")
-    public CreateBpmnDataObjectCommand(BpmnSequenceFlow sequenceFlow, GmBpmnSequenceFlow gm, ModelioCreationContext context) {
+    public  CreateBpmnDataObjectCommand(BpmnSequenceFlow sequenceFlow, GmBpmnSequenceFlow gm, ModelioCreationContext context) {
         this.parentNode = gm;
         this.parentElement = sequenceFlow;
         this.context = context;
+        
     }
 
     @objid ("60ae2d46-55b6-11e2-877f-002564c97630")
@@ -134,6 +133,7 @@ public class CreateBpmnDataObjectCommand extends Command {
         if (this.context.getStereotype() != null) {
             ((ModelElement) newElement).getExtension().add(this.context.getStereotype());
         }
+        
     }
 
     @objid ("60ae2d49-55b6-11e2-877f-002564c97630")

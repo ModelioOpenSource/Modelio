@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -53,7 +52,6 @@ import org.modelio.vbasic.version.Version;
 public interface IModule {
     /**
      * Used to return the module description.
-     * 
      * @return The module description
      */
     @objid ("01f40414-0000-32b2-0000-000000000000")
@@ -63,7 +61,6 @@ public interface IModule {
      * Get the image provided by the module for a given stereotype. The module
      * should return an image if the stereotype is provided by itself, null in
      * the other case. The image life cycle must be handled by the module.
-     * 
      * @param stereotype a stereotype
      * @param type the image type
      * @return the stereotype image, or null if the module provides none.
@@ -76,7 +73,6 @@ public interface IModule {
      * should return an image if the profile is provided by itself, null in
      * the other case. The image life cycle must be handled by the module.
      * @param type the image type
-     * 
      * @param profile a profile
      * @return the profile image, or null if the module provides none.
      * @since Modelio Valkyrie 3.8
@@ -105,7 +101,6 @@ public interface IModule {
     /**
      * Get an expert for a stereotype belonging to this module. <br/>
      * Might return <code>null</code>.
-     * 
      * @param st a stereotype owned by the current module.
      * @since 3.4
      */
@@ -117,7 +112,6 @@ public interface IModule {
     /**
      * Get the ModelComponent contributor associated to this module.
      * @see IModelComponentContributor
-     * 
      * @param mc the Model component being built.
      * @return the module configuration.
      */
@@ -135,7 +129,6 @@ public interface IModule {
 
     /**
      * Returns an Image for this module.
-     * 
      * @return an Image for this module. Might be <code>null</code>.
      */
     @objid ("9567ce16-8bc1-11dd-ad20-0014222a9f79")
@@ -143,7 +136,6 @@ public interface IModule {
 
     /**
      * Get the path to the image representing the module.
-     * 
      * @return a path relative to the module's resource path.
      */
     @objid ("0bf45a9b-8afe-42fd-b7d0-06cd1a0421d0")
@@ -155,7 +147,6 @@ public interface IModule {
      * <p>
      * The module name corresponds to the name of the module, as defined in the
      * <i>MDA Designer<i> tool.
-     * 
      * @return The module name
      */
     @objid ("01f40414-0000-32ae-0000-000000000000")
@@ -164,7 +155,6 @@ public interface IModule {
     /**
      * Get the parameters model as it must be shown in the module parameters
      * edition dialog.
-     * 
      * @return The parameters edition model.
      */
     @objid ("f8cddd33-8f94-11dd-bbe0-001ec947ccaf")
@@ -175,7 +165,6 @@ public interface IModule {
     /**
      * Define a custom panel for module parameter edition. Input will be an set
      * as an {@link IParameterEditionModel}.
-     * 
      * @return a {@link IPanelProvider}. Might be <code>null</code> to use the
      * standard Modelio implementation.
      */
@@ -189,7 +178,6 @@ public interface IModule {
      * <p>
      * The peer module represents the public services of this current module.
      * </p>
-     * 
      * @return The associated peer module
      */
     @objid ("01f40414-0000-32c3-0000-000000000000")
@@ -198,7 +186,6 @@ public interface IModule {
     /**
      * Returns the minimum Modelio version that authorize the Module to be
      * activated.
-     * 
      * @return The minimum Modelio version
      */
     @objid ("45f75358-65cd-11e0-b0ca-001ec947cd2a")
@@ -206,7 +193,6 @@ public interface IModule {
 
     /**
      * Used to return the module version.
-     * 
      * @return The module version
      */
     @objid ("01f40414-0000-32b6-0000-000000000000")
@@ -236,7 +222,6 @@ public interface IModule {
 
     /**
      * Reserved for compatibility M3.4 M3.5. Not intended for use.
-     * 
      * @param moduleContext the module's context.
      */
     @objid ("81a06395-bf2b-4ccc-9d9d-aeae3946cf1b")
@@ -248,7 +233,6 @@ public interface IModule {
      * <p>
      * It might be manually modified later.
      * </p>
-     * 
      * @param model The parameters edition model.
      */
     @objid ("8e427dd6-3cd8-4ce1-aacd-439bfa71bbbe")
@@ -275,9 +259,12 @@ public interface IModule {
     }
 
     @objid ("8e52ef63-72a1-11dd-a1d1-001ec947cd2a")
-    enum ImageType {
+    public enum ImageType {
+        @objid ("1af429aa-b807-11de-af68-001ec947cd2a")
         ICON,
+        @objid ("1af429ac-b807-11de-af68-001ec947cd2a")
         IMAGE;
+
     }
 
 }

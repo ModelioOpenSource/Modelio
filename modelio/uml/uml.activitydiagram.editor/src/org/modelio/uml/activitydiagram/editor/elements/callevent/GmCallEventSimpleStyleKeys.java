@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.callevent;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,33 +29,33 @@ import org.modelio.uml.activitydiagram.editor.style.ActivityAbstractStyleKeyProv
 @objid ("29cd68fe-55b6-11e2-877f-002564c97630")
 public class GmCallEventSimpleStyleKeys extends ActivityAbstractStyleKeyProvider {
     @objid ("d183a109-55c0-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmCallEventStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmCallEventStructuredStyleKeys.REPMODE;
 
     @objid ("d183a10b-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = GmCallEventStructuredStyleKeys.FILLCOLOR;
+    static final StyleKey FILLCOLOR = GmCallEventStructuredStyleKeys.FILLCOLOR;
 
     @objid ("d183a10d-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = GmCallEventStructuredStyleKeys.FILLMODE;
+    static final StyleKey FILLMODE = GmCallEventStructuredStyleKeys.FILLMODE;
 
     @objid ("d183a10f-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = GmCallEventStructuredStyleKeys.LINECOLOR;
+    static final StyleKey LINECOLOR = GmCallEventStructuredStyleKeys.LINECOLOR;
 
     @objid ("d183a111-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = GmCallEventStructuredStyleKeys.LINEWIDTH;
+    static final StyleKey LINEWIDTH = GmCallEventStructuredStyleKeys.LINEWIDTH;
 
     @objid ("d183a113-55c0-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmCallEventStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmCallEventStructuredStyleKeys.FONT;
 
     @objid ("d183a115-55c0-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmCallEventStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmCallEventStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("d183a117-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmCallEventStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmCallEventStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("d183a119-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmCallEventStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmCallEventStructuredStyleKeys.SHOWTAGS;
 
     @objid ("d183a11b-55c0-11e2-9337-002564c97630")
-     static final StyleKey AUTOSHOWPINS = GmCallEventStructuredStyleKeys.AUTOSHOWPINS;
+    static final StyleKey AUTOSHOWPINS = GmCallEventStructuredStyleKeys.AUTOSHOWPINS;
 
 }

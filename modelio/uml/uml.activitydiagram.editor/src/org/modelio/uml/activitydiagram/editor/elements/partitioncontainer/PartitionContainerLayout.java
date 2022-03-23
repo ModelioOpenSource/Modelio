@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.partitioncontainer;
 
 import java.util.HashMap;
@@ -74,6 +73,7 @@ public class PartitionContainerLayout extends ToolbarLayout {
         } else {
             return new Dimension(width, constraint.intValue());
         }
+        
     }
 
     @objid ("2b2ecd79-55b6-11e2-877f-002564c97630")
@@ -84,6 +84,7 @@ public class PartitionContainerLayout extends ToolbarLayout {
         if (constraint instanceof Integer) {
             this.constraints.put(child, (Integer) constraint);
         }
+        
     }
 
     /**
@@ -191,6 +192,7 @@ public class PartitionContainerLayout extends ToolbarLayout {
             prefMinSumHeight -= (prefHeight - minHeight);
             y += newBounds.height + getSpacing();
         }
+        
     }
 
 }

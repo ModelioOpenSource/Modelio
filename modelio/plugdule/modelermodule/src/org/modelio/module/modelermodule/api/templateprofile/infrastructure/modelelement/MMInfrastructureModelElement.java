@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.templateprofile.infrastructure.modelelement;
 
@@ -49,27 +48,26 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("44c66b89-768f-4d86-b19c-d73adf71771c")
 public class MMInfrastructureModelElement {
-    @objid ("1471b711-415e-4566-b731-d2e11f40b5b9")
+    @objid ("c93b83bb-0cb7-4699-895f-1b0630b02fdb")
     public static final String TEMPLATEPARAMETER_LABEL_TAGTYPE = "TemplateParameter.Label";
 
-    @objid ("e1c77b7f-c6f0-4b68-a72b-ec81237802ba")
+    @objid ("ed00c567-ff42-4ad0-ac91-0419ab782c64")
     public static final String TEMPLATEPARAMETER_NAME_TAGTYPE = "TemplateParameter.Name";
 
     /**
      * The underlying {@link ModelElement} represented by this proxy, never null.
      */
-    @objid ("5381e62b-2125-4870-883b-7f6a680c45a9")
+    @objid ("91eaeccb-a465-4bd3-98d9-801bd180d873")
     protected final ModelElement elt;
 
     /**
      * Tells whether a {@link MMInfrastructureModelElement proxy} can be instantiated from a {@link MObject} checking it is a {@link ModelElement}.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("4ee2ef1f-be40-496e-895b-19e9f3a61466")
+    @objid ("c0a70141-7f9a-4cfe-a070-67ab941788de")
     public static boolean canInstantiate(MObject elt) {
         return (elt instanceof ModelElement);
     }
@@ -81,12 +79,12 @@ public class MMInfrastructureModelElement {
      * @param obj a ModelElement
      * @return a {@link MMInfrastructureModelElement} proxy or <i>null</i>.
      */
-    @objid ("4bd67667-8695-4088-8e8d-774a2ca105ee")
+    @objid ("2fcc6855-f731-45f3-bd33-2c54acfa9c58")
     public static MMInfrastructureModelElement instantiate(ModelElement obj) {
         return MMInfrastructureModelElement.canInstantiate(obj) ? new MMInfrastructureModelElement(obj) : null;
     }
 
-    @objid ("008b9e22-382c-4784-8ae2-9c39f150ce49")
+    @objid ("0af828f4-7f5e-4f2b-9f3d-3802cc8b7d96")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -106,7 +104,7 @@ public class MMInfrastructureModelElement {
      * Get the underlying {@link ModelElement}. 
      * @return the ModelElement represented by this proxy, never null.
      */
-    @objid ("652101a0-b409-4a9b-a081-c97eea1b26a5")
+    @objid ("e4fa9d22-1996-4d74-8872-507244a97486")
     public ModelElement getElement() {
         return this.elt;
     }
@@ -116,7 +114,7 @@ public class MMInfrastructureModelElement {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("8654bc62-97d7-435d-b411-00613299d92a")
+    @objid ("cd4c4e96-7b5c-4d19-bf8b-8c43a9e8692c")
     public String getTemplateParameterLabel() {
         return this.elt.getTagValue(MMInfrastructureModelElement.MdaTypes.TEMPLATEPARAMETER_LABEL_TAGTYPE_ELT);
     }
@@ -126,15 +124,16 @@ public class MMInfrastructureModelElement {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("9ee8deea-c862-48f6-a191-454b58a9880a")
+    @objid ("ee01b4ae-916f-4630-9e88-799320926519")
     public String getTemplateParameterName() {
         return this.elt.getTagValue(MMInfrastructureModelElement.MdaTypes.TEMPLATEPARAMETER_NAME_TAGTYPE_ELT);
     }
 
-    @objid ("7eb626b6-bfed-499d-9ec7-e79ad9043138")
+    @objid ("1fb85dca-9fb1-4512-a116-0c6114bc664d")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
     /**
@@ -142,7 +141,7 @@ public class MMInfrastructureModelElement {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("0696fd9e-bfd8-4861-96c9-06efa2ad6669")
+    @objid ("1c5a84ca-820b-4bf4-8563-ba3cedb668e1")
     public void setTemplateParameterLabel(String value) {
         this.elt.putTagValue(MMInfrastructureModelElement.MdaTypes.TEMPLATEPARAMETER_LABEL_TAGTYPE_ELT, value);
     }
@@ -152,44 +151,44 @@ public class MMInfrastructureModelElement {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("e218529b-2ed7-4c2e-a129-e0e800b1a273")
+    @objid ("713acecd-cde1-4302-bf6a-6ccfb7c022dd")
     public void setTemplateParameterName(String value) {
         this.elt.putTagValue(MMInfrastructureModelElement.MdaTypes.TEMPLATEPARAMETER_NAME_TAGTYPE_ELT, value);
     }
 
-    @objid ("07d01ddc-2e6e-497f-86eb-d5fc272d2045")
-    protected MMInfrastructureModelElement(ModelElement elt) {
+    @objid ("81462161-aac2-49b1-b813-e9a65b0cc0ee")
+    protected  MMInfrastructureModelElement(ModelElement elt) {
         this.elt = elt;
     }
 
     @objid ("106438c1-03c7-4b60-adb3-0265b6d5db26")
     public static final class MdaTypes {
-        @objid ("a3e9735a-c33f-4149-9488-db0c9a3f6d87")
+        @objid ("6294e72c-12c7-47af-a631-faa2d20529ad")
         public static TagType TEMPLATEPARAMETER_NAME_TAGTYPE_ELT;
 
-        @objid ("0ab5e508-33ae-4739-a954-0b7f2f14ffc2")
+        @objid ("1e689428-f5fb-4ad1-a561-b5b1b171d182")
         public static TagType TEMPLATEPARAMETER_LABEL_TAGTYPE_ELT;
 
-        @objid ("9c6662a5-dbf6-43b6-9741-d6223241bee6")
+        @objid ("0f8e5b60-6133-4689-b0fe-a2354226cf30")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("c82d848b-c3b8-47d2-9be6-618bc2ed80e3")
+        @objid ("826e02aa-2f89-4487-92ec-d7362a2daf25")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("961e8cf9-123c-48f9-8b12-002f606cd8a7")
+        @objid ("2363835e-1294-48e1-8917-c2fb15d19344")
         public static void init(IModuleContext ctx) {
             TEMPLATEPARAMETER_NAME_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "072f1214-8a88-11df-9e1a-0014224f9977");
             TEMPLATEPARAMETER_LABEL_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "d7f8ca90-8d91-11df-98b9-0014224f9977");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

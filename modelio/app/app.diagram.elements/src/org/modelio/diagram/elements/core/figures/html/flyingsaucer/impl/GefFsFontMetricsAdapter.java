@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.html.flyingsaucer.impl;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,7 +39,7 @@ class GefFsFontMetricsAdapter implements FSFontMetrics {
      * @param font the font to measure
      */
     @objid ("46e303d5-d4ed-47d5-97b7-2f1b302632df")
-    public GefFsFontMetricsAdapter(SWTFSFont font) {
+    public  GefFsFontMetricsAdapter(SWTFSFont font) {
         this._fm = FigureUtilities.getFontMetrics(font.getSWTFont());
     }
 
@@ -56,7 +55,7 @@ class GefFsFontMetricsAdapter implements FSFontMetrics {
         return this._fm.getDescent();
     }
 
-// FIXME better metrics!
+    // FIXME better metrics!
     @objid ("7996e716-6a84-4acd-8f8a-d1e826463962")
     @Override
     public float getStrikethroughOffset() {

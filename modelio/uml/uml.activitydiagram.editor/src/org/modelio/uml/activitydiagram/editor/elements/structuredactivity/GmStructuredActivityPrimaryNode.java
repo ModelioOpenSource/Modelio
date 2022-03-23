@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.structuredactivity;
 
 import java.util.Collections;
@@ -34,8 +33,8 @@ import org.modelio.diagram.elements.core.node.IImageableNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityNode;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityParameterNode;
 import org.modelio.metamodel.uml.behavior.activityModel.Pin;
@@ -70,12 +69,11 @@ public class GmStructuredActivityPrimaryNode extends GmNoStyleCompositeNode impl
 
     /**
      * Default constructor.
-     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param relatedRef reference to the represented element.
      */
     @objid ("2b55dd8e-55b6-11e2-877f-002564c97630")
-    public GmStructuredActivityPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
+    public  GmStructuredActivityPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
         
         this.header = new GmActivityNodeHeader(diagram, relatedRef);
@@ -84,13 +82,14 @@ public class GmStructuredActivityPrimaryNode extends GmNoStyleCompositeNode impl
         
         super.addChild(this.header);
         super.addChild(this.innerZone);
+        
     }
 
     /**
      * Empty constructor needed for serialisation.
      */
     @objid ("2b55dd97-55b6-11e2-877f-002564c97630")
-    public GmStructuredActivityPrimaryNode() {
+    public  GmStructuredActivityPrimaryNode() {
         // constructor empty for the serialization
     }
 
@@ -102,6 +101,7 @@ public class GmStructuredActivityPrimaryNode extends GmNoStyleCompositeNode impl
             this.innerZone.addChild(child);
         } else
             super.addChild(child);
+        
     }
 
     @objid ("2b55dda0-55b6-11e2-877f-002564c97630")
@@ -110,6 +110,7 @@ public class GmStructuredActivityPrimaryNode extends GmNoStyleCompositeNode impl
         return ActivityNode.class.isAssignableFrom(type) &&
                         !Pin.class.isAssignableFrom(type) &&
                         !ActivityParameterNode.class.isAssignableFrom(type);
+        
     }
 
     @objid ("2b55dda8-55b6-11e2-877f-002564c97630")
@@ -121,6 +122,7 @@ public class GmStructuredActivityPrimaryNode extends GmNoStyleCompositeNode impl
                         !ActivityParameterNode.class.isAssignableFrom(type) &&
                         getRelatedElement() != null &&
                         getRelatedElement().equals(el.getCompositionOwner());
+        
     }
 
     @objid ("2b55ddb0-55b6-11e2-877f-002564c97630")
@@ -177,6 +179,7 @@ public class GmStructuredActivityPrimaryNode extends GmNoStyleCompositeNode impl
             break;
         }
         }
+        
     }
 
     @objid ("2b576435-55b6-11e2-877f-002564c97630")
@@ -188,6 +191,7 @@ public class GmStructuredActivityPrimaryNode extends GmNoStyleCompositeNode impl
         firePropertyChange(PROPERTY_LABEL, oldLabel, this.header.getMainLabel());
         // forcing visual refresh in case Image changed
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("2b576438-55b6-11e2-877f-002564c97630")
@@ -196,6 +200,7 @@ public class GmStructuredActivityPrimaryNode extends GmNoStyleCompositeNode impl
         // Returned result depends on current representation mode:
         List<GmNodeModel> ret;
         switch (this.getRepresentationMode()) {
+        case USER_IMAGE:
         case IMAGE: {
             ret = Collections.emptyList();
             break;
@@ -215,6 +220,7 @@ public class GmStructuredActivityPrimaryNode extends GmNoStyleCompositeNode impl
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmStructuredActivityPrimaryNode.", GmStructuredActivityPrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("2b576447-55b6-11e2-877f-002564c97630")
@@ -225,6 +231,7 @@ public class GmStructuredActivityPrimaryNode extends GmNoStyleCompositeNode impl
         
         GmDefaultModelElementLabel imageModeHeader = (GmDefaultModelElementLabel) this.getChildren().get(2);
         imageModeHeader.delete();
+        
     }
 
     @objid ("2b57644c-55b6-11e2-877f-002564c97630")
@@ -238,6 +245,7 @@ public class GmStructuredActivityPrimaryNode extends GmNoStyleCompositeNode impl
         super.read(in);
         this.header = (GmActivityNodeHeader) this.getChildren().get(0);
         this.innerZone = (GmBodyFreeZone) this.getChildren().get(1);
+        
     }
 
 }

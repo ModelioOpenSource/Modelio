@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.audit;
 
 import java.util.ArrayList;
@@ -68,6 +67,7 @@ public class R1750 extends AbstractUmlRule {
     public void autoRegister(UmlAuditPlan plan) {
         plan.registerRule(Instance.MQNAME, this, AuditTrigger.UPDATE);
         plan.registerRule(AttributeLink.MQNAME, this, AuditTrigger.UPDATE | AuditTrigger.MOVE);
+        
     }
 
     /**
@@ -101,14 +101,14 @@ public class R1750 extends AbstractUmlRule {
      * Default constructor for R1750
      */
     @objid ("df7d652e-672f-4786-81e7-b8c52aa9fb74")
-    public R1750() {
+    public  R1750() {
         this.checkerInstance = new CheckR1750(this);
     }
 
     @objid ("386c8db1-4f09-4744-b066-247821a97ba3")
     private static class CheckR1750 extends AbstractControl {
         @objid ("193998b4-4298-4aa7-b5ec-66dc919897a9")
-        public CheckR1750(IRule rule) {
+        public  CheckR1750(IRule rule) {
             super(rule);
         }
 

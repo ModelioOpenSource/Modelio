@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.partitioncontainer;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -82,6 +81,7 @@ public class PartitionContainerEditPart extends AbstractNodeEditPart {
         
         // Snap to Geometry feedback
         installEditPolicy("Snap Feedback", new SnapFeedbackPolicy()); //$NON-NLS-1$
+        
     }
 
     @objid ("2b2dbc0e-55b6-11e2-877f-002564c97630")
@@ -95,6 +95,7 @@ public class PartitionContainerEditPart extends AbstractNodeEditPart {
         // On the other hand, go read the "vertical" property to update the
         // layout.
         ((ToolbarLayout) fig.getLayoutManager()).setHorizontal(!partitionContainerModel.isVertical());
+        
     }
 
     @objid ("2b2de31b-55b6-11e2-877f-002564c97630")
@@ -114,6 +115,7 @@ public class PartitionContainerEditPart extends AbstractNodeEditPart {
             }
         }
         super.addChildVisual(childEditPart, index);
+        
     }
 
     /**

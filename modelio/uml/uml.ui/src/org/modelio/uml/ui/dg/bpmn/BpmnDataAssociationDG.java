@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.bpmn;
 
 import java.util.Collection;
@@ -37,7 +36,7 @@ public class BpmnDataAssociationDG extends DiagramLink {
      * @param link The graphic model link represented by this class.
      */
     @objid ("5d7d4aae-ecef-40db-ad40-4b7d2f3643eb")
-    public BpmnDataAssociationDG(DiagramHandle diagramHandle, IGmLink link) {
+    public  BpmnDataAssociationDG(DiagramHandle diagramHandle, IGmLink link) {
         super(diagramHandle, link);
     }
 

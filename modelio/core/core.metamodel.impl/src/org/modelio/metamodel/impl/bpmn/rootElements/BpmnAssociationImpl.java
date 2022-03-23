@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.rootElements;
 
 import java.util.ArrayList;
@@ -32,7 +32,6 @@ import org.eclipse.emf.common.util.EList;
 import org.modelio.metamodel.bpmn.rootElements.BpmnAssociation;
 import org.modelio.metamodel.bpmn.rootElements.BpmnAssociationDirection;
 import org.modelio.metamodel.bpmn.rootElements.BpmnBaseElement;
-import org.modelio.metamodel.impl.bpmn.rootElements.BpmnAssociationData;
 import org.modelio.metamodel.visitors.IModelVisitor;
 import org.modelio.vcore.smkernel.SmConstrainedList;
 import org.modelio.vcore.smkernel.SmDepVal;

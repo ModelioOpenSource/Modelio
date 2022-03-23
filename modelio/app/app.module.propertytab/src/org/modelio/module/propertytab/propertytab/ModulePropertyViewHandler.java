@@ -17,16 +17,15 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.module.propertytab.propertytab;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.expressions.EvaluationResult;
 import org.eclipse.core.expressions.Expression;
 import org.eclipse.core.expressions.ExpressionInfo;
@@ -136,6 +135,7 @@ public class ModulePropertyViewHandler {
     void execute(final IEclipseContext context) {
         // Create an instance and store it so it can listen to module events.
         ModulePropertyViewHandler.INSTANCE = this;
+        
     }
 
     /**
@@ -163,6 +163,7 @@ public class ModulePropertyViewHandler {
                 }
             }
         }
+        
     }
 
     /**
@@ -194,6 +195,7 @@ public class ModulePropertyViewHandler {
                 }
             }
         }
+        
     }
 
     /**
@@ -219,6 +221,7 @@ public class ModulePropertyViewHandler {
                 }
             }
         }
+        
     }
 
     /**
@@ -235,6 +238,7 @@ public class ModulePropertyViewHandler {
                 refreshToolbar(modelService, toolbar);
             }
         }
+        
     }
 
     @objid ("c886c673-1eba-11e2-9382-bc305ba4815c")
@@ -305,6 +309,7 @@ public class ModulePropertyViewHandler {
                 mPartStack.setToBeRendered(true);
             }
         }
+        
     }
 
     /**
@@ -424,6 +429,7 @@ public class ModulePropertyViewHandler {
                 }
             });
         }
+        
     }
 
     @objid ("71222a89-ccd7-43fb-a95a-0552a97c6eb1")
@@ -449,6 +455,7 @@ public class ModulePropertyViewHandler {
         }
         
         refreshLayoutHack(toolbar);
+        
     }
 
     /**
@@ -464,6 +471,7 @@ public class ModulePropertyViewHandler {
             } else {
                 return null;
             }
+            
         }
 
         @objid ("e56c0714-9245-4367-99e6-3d262f76564f")
@@ -471,6 +479,7 @@ public class ModulePropertyViewHandler {
             if (prefs != null) {
                 prefs.setValue(StatePersistenceHelper.computeKey(partId, perspectiveId), parentId);
             }
+            
         }
 
         @objid ("b69739f5-b1f5-4fd0-a19c-f6f42c9f8861")

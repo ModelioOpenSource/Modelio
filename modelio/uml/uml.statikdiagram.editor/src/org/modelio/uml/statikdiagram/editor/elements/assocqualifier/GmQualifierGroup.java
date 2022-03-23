@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.assocqualifier;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -67,20 +66,21 @@ public class GmQualifierGroup extends GmGroup {
      * Constructor for deserialization only.
      */
     @objid ("33f82468-55b7-11e2-877f-002564c97630")
-    public GmQualifierGroup() {
+    public  GmQualifierGroup() {
+        
     }
 
     /**
      * Creates a qualifier group.
-     * 
      * @param diagram The diagram.
      * @param relatedRef The related association role reference, must not be <code>null</code>.
      * @param role The represented association role, may be <code>null</code>.
      */
     @objid ("33f8246b-55b7-11e2-877f-002564c97630")
-    public GmQualifierGroup(IGmDiagram diagram, MRef relatedRef, final AssociationEnd role) {
+    public  GmQualifierGroup(IGmDiagram diagram, MRef relatedRef, final AssociationEnd role) {
         super(diagram, relatedRef);
         this.role = role;
+        
     }
 
     /**
@@ -135,6 +135,7 @@ public class GmQualifierGroup extends GmGroup {
             if (childAdded && !isVisible())
                 setVisible(true);
         }
+        
     }
 
     @objid ("33f9ab1e-55b7-11e2-877f-002564c97630")
@@ -147,7 +148,6 @@ public class GmQualifierGroup extends GmGroup {
      * Checks whether the given model element can be and still be displayed here.
      * <p>
      * Check all conditions except the case where it is already unmasked.
-     * 
      * @param el The element to unmask
      * @return true if it satisfies all conditions, else false.
      */
@@ -172,7 +172,6 @@ public class GmQualifierGroup extends GmGroup {
 
     /**
      * Update the cascaded style of the group.
-     * 
      * @param parentLink a link model
      */
     @objid ("33f9ab2f-55b7-11e2-877f-002564c97630")
@@ -182,11 +181,11 @@ public class GmQualifierGroup extends GmGroup {
             getPersistedStyle().setCascadedStyle(gmRef.getPersistedStyle());
         else
             getPersistedStyle().setCascadedStyle(getDiagram().getPersistedStyle());
+        
     }
 
     /**
      * Get the node on which this qualifier group is sticked.
-     * 
      * @return the reference node, or <code>null</code> if not yet initialized.
      */
     @objid ("33f9ab36-55b7-11e2-877f-002564c97630")
@@ -201,6 +200,7 @@ public class GmQualifierGroup extends GmGroup {
             // Target side
             return (gmAssoc.getTo());
         }
+        
     }
 
     /**
@@ -214,6 +214,7 @@ public class GmQualifierGroup extends GmGroup {
             return gmRef.getStyleKey(metaKey);
         else
             return null;
+        
     }
 
     @objid ("33fb31a6-55b7-11e2-877f-002564c97630")
@@ -233,6 +234,7 @@ public class GmQualifierGroup extends GmGroup {
                 break;
             }
         }
+        
     }
 
     @objid ("33fb31ad-55b7-11e2-877f-002564c97630")
@@ -242,6 +244,7 @@ public class GmQualifierGroup extends GmGroup {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmQualifierGroup.", GmQualifierGroup.MINOR_VERSION);
+        
     }
 
     @objid ("33fb31b3-55b7-11e2-877f-002564c97630")
@@ -250,6 +253,7 @@ public class GmQualifierGroup extends GmGroup {
                 
         this.role = (AssociationEnd) resolveRef(getRepresentedRef());
         this.visible = (!getChildren().isEmpty());
+        
     }
 
     @objid ("33fb31b9-55b7-11e2-877f-002564c97630")

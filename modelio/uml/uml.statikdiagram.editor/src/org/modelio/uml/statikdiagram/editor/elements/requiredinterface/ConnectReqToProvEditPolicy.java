@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.requiredinterface;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -66,6 +65,7 @@ public class ConnectReqToProvEditPolicy extends LinkToVoidFinishCreationEditPoli
         } else {
             return null;
         }
+        
     }
 
     @objid ("366fdb29-55b7-11e2-877f-002564c97630")
@@ -88,7 +88,6 @@ public class ConnectReqToProvEditPolicy extends LinkToVoidFinishCreationEditPoli
 
     /**
      * Return the lollipop edit part if the link is connected to one or the host.
-     * 
      * @return the lollipop edit part or the host edit part.
      */
     @objid ("366fdb30-55b7-11e2-877f-002564c97630")
@@ -99,6 +98,7 @@ public class ConnectReqToProvEditPolicy extends LinkToVoidFinishCreationEditPoli
         } else {
             return getHost();
         }
+        
     }
 
     @objid ("366fdb34-55b7-11e2-877f-002564c97630")
@@ -110,6 +110,7 @@ public class ConnectReqToProvEditPolicy extends LinkToVoidFinishCreationEditPoli
         } else {
             return false;
         }
+        
     }
 
     @objid ("366fdb3a-55b7-11e2-877f-002564c97630")

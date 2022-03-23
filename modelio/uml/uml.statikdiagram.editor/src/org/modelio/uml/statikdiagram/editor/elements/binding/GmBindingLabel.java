@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.binding;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -56,21 +55,22 @@ public class GmBindingLabel extends GmDefaultModelElementLabel {
      * Constructor for deserialization only.
      */
     @objid ("3408ed46-55b7-11e2-877f-002564c97630")
-    public GmBindingLabel() {
+    public  GmBindingLabel() {
+        
     }
 
     /**
      * Create an attribute representation.
-     * 
      * @param diagram The diagram
      * @param el The represented attribute, may be null.
      * @param ref The represented attribute reference, may not be null.
      */
     @objid ("3408ed49-55b7-11e2-877f-002564c97630")
-    public GmBindingLabel(IGmDiagram diagram, Binding el, MRef ref) {
+    public  GmBindingLabel(IGmDiagram diagram, Binding el, MRef ref) {
         super(diagram, ref);
         this.element = el;
         init();
+        
     }
 
     @objid ("3408ed71-55b7-11e2-877f-002564c97630")
@@ -123,6 +123,7 @@ public class GmBindingLabel extends GmDefaultModelElementLabel {
                 break;
             }
         }
+        
     }
 
     @objid ("340a73fb-55b7-11e2-877f-002564c97630")
@@ -150,7 +151,6 @@ public class GmBindingLabel extends GmDefaultModelElementLabel {
 
     /**
      * Get the collaboration role the given binding binds.
-     * 
      * @param el a collaboration use binding
      * @return The bound collaboration role.
      */
@@ -170,6 +170,7 @@ public class GmBindingLabel extends GmDefaultModelElementLabel {
     private void init() {
         setShowMetaclassKeyword(false);
         setShowMetaclassIcon(false);
+        
     }
 
     @objid ("340a741a-55b7-11e2-877f-002564c97630")
@@ -179,12 +180,14 @@ public class GmBindingLabel extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmBindingLabel.", GmBindingLabel.MINOR_VERSION);
+        
     }
 
     @objid ("340bfa7e-55b7-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (Binding) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("340bfa83-55b7-11e2-877f-002564c97630")

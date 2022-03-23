@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.freezone;
 
 import java.beans.PropertyChangeEvent;
@@ -31,12 +30,14 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.SnapToHelper;
+import org.eclipse.gef.editpolicies.ConstrainedLayoutEditPolicy;
 import org.eclipse.gef.editpolicies.SnapFeedbackPolicy;
 import org.eclipse.gef.requests.DropRequest;
 import org.modelio.diagram.elements.common.abstractdiagram.SnapEditPartAdapter;
 import org.modelio.diagram.elements.core.figures.anchors.PointAnchor;
 import org.modelio.diagram.elements.core.model.IGmObject;
 import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
+import org.modelio.diagram.elements.core.policies.LayoutConnectionsConstrainedLayoutEditPolicyDecorator;
 import org.modelio.diagram.styles.core.IStyle;
 
 /**
@@ -55,7 +56,7 @@ public class FreeZoneEditPart extends AbstractNodeEditPart {
      * c'tor.
      */
     @objid ("7e3f236a-1dec-11e2-8cad-001ec947c8cc")
-    public FreeZoneEditPart() {
+    public  FreeZoneEditPart() {
         super();
     }
 
@@ -69,6 +70,7 @@ public class FreeZoneEditPart extends AbstractNodeEditPart {
         }
         
         super.propertyChange(evt);
+        
     }
 
     @objid ("7e3f2371-1dec-11e2-8cad-001ec947c8cc")
@@ -81,6 +83,7 @@ public class FreeZoneEditPart extends AbstractNodeEditPart {
         
         // Call super
         super.addChildVisual(childEditPart, index);
+        
     }
 
     @objid ("7e3f2378-1dec-11e2-8cad-001ec947c8cc")
@@ -94,6 +97,21 @@ public class FreeZoneEditPart extends AbstractNodeEditPart {
         
         // Snap to Geometry feedback
         installEditPolicy("Snap Feedback", new SnapFeedbackPolicy()); //$NON-NLS-1$
+        
+    }
+
+    /**
+     * Encapsulate layout edit policies into {@link #createLayoutPolicyDecorator(EditPolicy)}.
+     * <p>
+     * May be redefined by sub classes.
+     * @param layoutPolicy the layout edit policy. expected to be a {@link ConstrainedLayoutEditPolicy} by default implementation.
+     * @return the created policy.
+     * @since 5.1.0
+     */
+    @objid ("9339d255-f515-48ff-a848-c89a5dc90fdc")
+    @Override
+    protected EditPolicy createLayoutPolicyDecorator(EditPolicy layoutPolicy) {
+        return new LayoutConnectionsConstrainedLayoutEditPolicyDecorator((ConstrainedLayoutEditPolicy) layoutPolicy);
     }
 
     @objid ("7e3f237b-1dec-11e2-8cad-001ec947c8cc")
@@ -136,7 +154,6 @@ public class FreeZoneEditPart extends AbstractNodeEditPart {
 
     /**
      * Get the GmFreeZone model.
-     * 
      * @return the GmFreeZone.
      */
     @objid ("7e3f2382-1dec-11e2-8cad-001ec947c8cc")
@@ -149,6 +166,7 @@ public class FreeZoneEditPart extends AbstractNodeEditPart {
     protected void refreshFromStyle(IFigure fig, IStyle style) {
         super.refreshFromStyle(fig, style);
         updateVisibility(fig);
+        
     }
 
     @objid ("7e3f238e-1dec-11e2-8cad-001ec947c8cc")
@@ -159,11 +177,11 @@ public class FreeZoneEditPart extends AbstractNodeEditPart {
         
         // update visibility
         updateVisibility(getFigure());
+        
     }
 
     /**
      * Updates the visibility of the zone's figure.
-     * 
      * @param aFigure the zone's figure.
      */
     @objid ("7e3f2394-1dec-11e2-8cad-001ec947c8cc")
@@ -177,6 +195,7 @@ public class FreeZoneEditPart extends AbstractNodeEditPart {
         }
         
         aFigure.setVisible(newVisible);
+        
     }
 
     @objid ("7e3f239a-1dec-11e2-8cad-001ec947c8cc")
@@ -200,7 +219,6 @@ public class FreeZoneEditPart extends AbstractNodeEditPart {
 
     /**
      * Create a {@link PointAnchor} anchor relative to free zone coordinates.
-     * 
      * @param absPoint an absolute point.
      * @return a XY anchor for the free zone figure
      */
@@ -223,6 +241,7 @@ public class FreeZoneEditPart extends AbstractNodeEditPart {
             return createAnchor(p);
         }
         throw new IllegalArgumentException(request + " not handled.");
+        
     }
 
     /**
@@ -236,6 +255,7 @@ public class FreeZoneEditPart extends AbstractNodeEditPart {
             return createAnchor(p);
         }
         throw new IllegalArgumentException(request + " not handled.");
+        
     }
 
 }

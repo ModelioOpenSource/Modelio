@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import java.util.ArrayList;
@@ -44,7 +43,7 @@ public class OGeneralOrdering extends OElement implements IOElement {
     }
 
     @objid ("a90b870a-18c1-46b4-8791-3f621a940fdb")
-    public OGeneralOrdering(GeneralOrdering param) {
+    public  OGeneralOrdering(GeneralOrdering param) {
         super(param);
     }
 

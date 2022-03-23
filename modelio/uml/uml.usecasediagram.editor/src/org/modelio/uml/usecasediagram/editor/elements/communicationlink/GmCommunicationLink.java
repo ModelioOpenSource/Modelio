@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.elements.communicationlink;
 
 import java.util.ArrayList;
@@ -40,12 +39,12 @@ public class GmCommunicationLink extends GmAssociation {
     private static final int MAJOR_VERSION = 0;
 
     @objid ("5e459c21-55b7-11e2-877f-002564c97630")
-    public GmCommunicationLink() {
+    public  GmCommunicationLink() {
         super();
     }
 
     @objid ("5e459c24-55b7-11e2-877f-002564c97630")
-    public GmCommunicationLink(IGmDiagram diagram, AssociationEnd role, MRef roleRef, MRef associationRef) {
+    public  GmCommunicationLink(IGmDiagram diagram, AssociationEnd role, MRef roleRef, MRef associationRef) {
         super(diagram, role, roleRef, associationRef);
         
         ArrayList<GmNodeModel> extensions = new ArrayList<>(getExtensions());
@@ -54,6 +53,7 @@ public class GmCommunicationLink extends GmAssociation {
         }
         
         getDisplayedStyle().setProperty(GmAssocStructuredStyleKeys.SHOWNAVIGABILITY, false);
+        
     }
 
     @objid ("5e459c33-55b7-11e2-877f-002564c97630")
@@ -72,6 +72,7 @@ public class GmCommunicationLink extends GmAssociation {
                 break;
             }
         }
+        
     }
 
     @objid ("5e459c39-55b7-11e2-877f-002564c97630")
@@ -81,6 +82,7 @@ public class GmCommunicationLink extends GmAssociation {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmCommunicationLink.", GmCommunicationLink.MINOR_VERSION);
+        
     }
 
     @objid ("5e459c3f-55b7-11e2-877f-002564c97630")

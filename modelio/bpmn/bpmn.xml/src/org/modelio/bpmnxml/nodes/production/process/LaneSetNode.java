@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.production.process;
 
 import java.util.Map;
@@ -38,7 +37,7 @@ import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("11128e24-b2c6-4f84-a8ff-9c439001e133")
-public class LaneSetNode implements IProductionNode<BpmnLaneSet,TLaneSet> {
+public class LaneSetNode implements IProductionNode<BpmnLaneSet, TLaneSet> {
     @objid ("bccb7395-a61c-4c21-be59-15ac79844684")
     private Map<String, Object> elementsMap;
 

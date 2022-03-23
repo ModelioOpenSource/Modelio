@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.interactionuse.gate;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.gef.commands.Command;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
@@ -62,7 +61,6 @@ public class CreateGateOnInteractionUseCommand extends Command {
 
     /**
      * Creates a node creation command.
-     * 
      * @param parentElement The parent InteractionUse of the Gate to create
      * @param parentNode The parent node
      * @param context Details on the MObject and/or the node to create
@@ -70,12 +68,13 @@ public class CreateGateOnInteractionUseCommand extends Command {
      * @param time the time of the gate.
      */
     @objid ("d91144a7-55b6-11e2-877f-002564c97630")
-    public CreateGateOnInteractionUseCommand(InteractionUse parentElement, GmCompositeNode parentNode, ModelioCreationContext context, Object constraint, final int time) {
+    public  CreateGateOnInteractionUseCommand(InteractionUse parentElement, GmCompositeNode parentNode, ModelioCreationContext context, Object constraint, final int time) {
         this.parentNode = parentNode;
         this.parentElement = parentElement;
         this.context = context;
         this.constraint = constraint;
         this.time = time;
+        
     }
 
     @objid ("d91144b6-55b6-11e2-877f-002564c97630")
@@ -122,11 +121,11 @@ public class CreateGateOnInteractionUseCommand extends Command {
         
         // Show the new element in the diagram (ie create its Gm )
         diagram.unmask(this.parentNode, newElement, this.constraint);
+        
     }
 
     /**
      * Get the initial layout constraint.
-     * 
      * @return the initial layout constraint.
      */
     @objid ("d91144b9-55b6-11e2-877f-002564c97630")
@@ -136,7 +135,6 @@ public class CreateGateOnInteractionUseCommand extends Command {
 
     /**
      * Get the creation context (parent element, parent dependency, stereotype).
-     * 
      * @return the creation context.
      */
     @objid ("d91144be-55b6-11e2-877f-002564c97630")
@@ -146,7 +144,6 @@ public class CreateGateOnInteractionUseCommand extends Command {
 
     /**
      * Get the parent model element.
-     * 
      * @return the parent model element.
      */
     @objid ("d91144c5-55b6-11e2-877f-002564c97630")
@@ -156,7 +153,6 @@ public class CreateGateOnInteractionUseCommand extends Command {
 
     /**
      * Get the parent graphic node.
-     * 
      * @return the parent graphic node.
      */
     @objid ("d91144cc-55b6-11e2-877f-002564c97630")

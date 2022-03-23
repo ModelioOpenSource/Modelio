@@ -17,21 +17,20 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.script.handlers;
 
 import java.nio.file.Paths;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Named;
 import javax.script.ScriptException;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.model.application.ui.MUIElement;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.model.application.ui.basic.MWindow;
-import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
+import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 import org.modelio.platform.script.engine.core.engine.IScriptRunner;
 import org.modelio.script.plugin.Script;
 import org.modelio.script.view.ScriptView;
@@ -50,7 +49,8 @@ public class RunMacroHandler {
 
     @objid ("98ec7b4f-cfc5-4e35-9daa-05fc96520fbb")
     @Execute
-    public void execute(EPartService partService, MWindow window, @Optional @Named(RUNMACRO_FILE) final String file) {
+    public void execute(EPartService partService, MWindow window, @Optional
+    @Named(RUNMACRO_FILE) final String file) {
         MPart part = partService.findPart(ScriptView.PARTID);
         //If the part is not found try to browse the shared elements to find the script part
         if (part == null && window != null) {
@@ -88,6 +88,7 @@ public class RunMacroHandler {
                 Script.LOG.debug(e);
             }
         }
+        
     }
 
     @objid ("69b79019-f73d-45ac-8d85-fed5b5cbd2ad")

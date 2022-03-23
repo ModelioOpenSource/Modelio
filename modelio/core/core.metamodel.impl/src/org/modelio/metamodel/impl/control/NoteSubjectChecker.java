@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.control;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,7 @@ public class NoteSubjectChecker extends AbstractDependencyTypeChecker {
      * C'tor
      */
     @objid ("b7f8235b-a3f8-4909-9076-77eba5f11770")
-    public NoteSubjectChecker(SmMetamodel mm) {
+    public  NoteSubjectChecker(SmMetamodel mm) {
         // Cached SmClass
         // none
         
@@ -48,6 +47,7 @@ public class NoteSubjectChecker extends AbstractDependencyTypeChecker {
         // Symetric checker
         ModelElementDescriptorChecker symetricChecker = new ModelElementDescriptorChecker(this);
         symetricChecker.register(mm.getMClass(ModelElement.class), "Descriptor");
+        
     }
 
     @objid ("02fcbaa8-f027-11e1-8bdc-002564c97630")
@@ -78,6 +78,7 @@ public class NoteSubjectChecker extends AbstractDependencyTypeChecker {
         } else {
             return null;
         }
+        
     }
 
     /**
@@ -86,10 +87,10 @@ public class NoteSubjectChecker extends AbstractDependencyTypeChecker {
     @objid ("02fcbac0-f027-11e1-8bdc-002564c97630")
     static class ModelElementDescriptorChecker extends AbstractDependencyTypeChecker {
         @objid ("02fcbac3-f027-11e1-8bdc-002564c97630")
-         NoteSubjectChecker symetricChecker;
+        NoteSubjectChecker symetricChecker;
 
         @objid ("02fcbac4-f027-11e1-8bdc-002564c97630")
-        public ModelElementDescriptorChecker(NoteSubjectChecker symetricChecker) {
+        public  ModelElementDescriptorChecker(NoteSubjectChecker symetricChecker) {
             this.symetricChecker = symetricChecker;
         }
 

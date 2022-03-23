@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.activity;
 
 import java.util.Collection;
 import java.util.Collections;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.modelio.api.modelio.diagram.IDiagramLink.ExtensionRole;
 import org.modelio.diagram.api.services.DiagramHandle;
 import org.modelio.diagram.api.services.DiagramLink;
 import org.modelio.diagram.elements.core.model.IGmLink;
@@ -39,7 +39,7 @@ public class ControlFlowDG extends DiagramLink {
      * @param link The gm link represented by this class.
      */
     @objid ("1d263529-ec8f-4a66-8b0a-2516fbcce169")
-    public ControlFlowDG(DiagramHandle diagramHandle, IGmLink link) {
+    public  ControlFlowDG(DiagramHandle diagramHandle, IGmLink link) {
         super(diagramHandle, link);
     }
 
@@ -63,6 +63,7 @@ public class ControlFlowDG extends DiagramLink {
             return Collections.emptyList();
         
         }
+        
     }
 
 }

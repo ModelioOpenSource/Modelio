@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.transactions.smAction;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -48,17 +47,17 @@ public class DeleteElementAction extends SimpleAction {
     public void redo() {
         // destruction de l'objet
         this.refered.getMetaOf().silentActionRemove(this.refered);
+        
     }
 
     /**
      * Constructeur de l'action des desctruction d'un objet,
      * 
      * sauvegarde l'objet detruit dans l'association "refered".
-     * 
      * @param obj the deleted object
      */
     @objid ("006d3382-0d1e-1f20-85a5-001ec947cd2a")
-    public DeleteElementAction(final SmObjectImpl obj) {
+    public  DeleteElementAction(final SmObjectImpl obj) {
         super(obj);
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.sequencediagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -65,6 +64,7 @@ public class SequenceDiagramEditPart extends AbstractDiagramEditPart {
         }
         IFigure child = ((GraphicalEditPart) childEditPart).getFigure();
         getContentPane().add(child, layoutData, index);
+        
     }
 
     @objid ("d97c1478-55b6-11e2-877f-002564c97630")
@@ -81,6 +81,7 @@ public class SequenceDiagramEditPart extends AbstractDiagramEditPart {
         // Policy to create Lost, Found and Creation messages.
         // installEditPolicy(EditPolicy.NODE_ROLE, new CreateLinkEditPolicy());
         installEditPolicy(ModelElementDropRequest.TYPE, new DiagramElementDropEditPolicy());
+        
     }
 
     @objid ("d97c147b-55b6-11e2-877f-002564c97630")
@@ -102,6 +103,18 @@ public class SequenceDiagramEditPart extends AbstractDiagramEditPart {
     public void activate() {
         super.activate();
         ((IGmDiagram) this.getModel()).refreshAllFromObModel();
+        
+    }
+
+    /**
+     * Disable inherited{@link #createLayoutPolicyDecorator(EditPolicy)} for sequence diagrams.
+     * @param layoutPolicy the layout edit policy. expected to be a {@link ConstrainedLayoutEditPolicy} by default implementation.
+     * @return the created policy.
+     * @since 5.1.0
+     */
+    @objid ("acb84eaa-6a8a-4cf4-8787-1fa934cd9cbe")
+    protected EditPolicy createLayoutPolicyDecorator(EditPolicy layoutPolicy) {
+        return layoutPolicy;
     }
 
 }

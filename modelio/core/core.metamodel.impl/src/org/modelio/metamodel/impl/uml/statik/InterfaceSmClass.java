@@ -17,22 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.statik.GeneralClassSmClass;
-import org.modelio.metamodel.impl.uml.statik.InterfaceData;
-import org.modelio.metamodel.impl.uml.statik.InterfaceRealizationSmClass;
-import org.modelio.metamodel.impl.uml.statik.ProvidedInterfaceSmClass;
-import org.modelio.metamodel.impl.uml.statik.RequiredInterfaceSmClass;
 import org.modelio.metamodel.uml.statik.GeneralClass;
 import org.modelio.metamodel.uml.statik.Interface;
 import org.modelio.metamodel.uml.statik.InterfaceRealization;
@@ -61,7 +56,7 @@ public class InterfaceSmClass extends GeneralClassSmClass {
     private SmDependency providingDep;
 
     @objid ("63148611-f909-443a-a411-6e0d55bc33bc")
-    public InterfaceSmClass(ISmMetamodelFragment origin) {
+    public  InterfaceSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -69,6 +64,7 @@ public class InterfaceSmClass extends GeneralClassSmClass {
     @Override
     public String getName() {
         return "Interface";
+        
     }
 
     @objid ("f1e66d04-b588-4e56-9232-67c6af75a6da")
@@ -81,18 +77,21 @@ public class InterfaceSmClass extends GeneralClassSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Interface.class;
+        
     }
 
     @objid ("a1a6209b-2d74-4453-99ab-a76b20235af1")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("3c47ff86-0d61-4ce6-8028-072c5f96bb8b")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("3d86bbab-13f3-4540-bd79-b82d169683f2")
@@ -116,6 +115,8 @@ public class InterfaceSmClass extends GeneralClassSmClass {
         this.providingDep = new ProvidingSmDependency();
         this.providingDep.init("Providing", this, metamodel.getMClass(ProvidedInterface.MQNAME), 0, -1 );
         registerDependency(this.providingDep);
+        
+        
     }
 
     @objid ("d23afdbb-f2c4-48c3-a576-f1f1d4c4f8c0")
@@ -148,7 +149,7 @@ public class InterfaceSmClass extends GeneralClassSmClass {
         private InterfaceSmClass smClass;
 
         @objid ("7c4597b8-35d5-4d81-863f-eb5f5fe1fcc2")
-        public InterfaceObjectFactory(InterfaceSmClass smClass) {
+        public  InterfaceObjectFactory(InterfaceSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -181,6 +182,7 @@ public class InterfaceSmClass extends GeneralClassSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((InterfaceData) data).mRequiring = values;
+            
         }
 
         @objid ("0d3b57f1-fbdf-4cda-ab76-c95462dcf323")
@@ -190,6 +192,7 @@ public class InterfaceSmClass extends GeneralClassSmClass {
             	this.symetricDep = ((RequiredInterfaceSmClass)this.getTarget()).getRequiredElementDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -209,6 +212,7 @@ public class InterfaceSmClass extends GeneralClassSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((InterfaceData) data).mImplementedLink = values;
+            
         }
 
         @objid ("a43f698e-703b-43bb-b1f3-6c621df47830")
@@ -218,6 +222,7 @@ public class InterfaceSmClass extends GeneralClassSmClass {
             	this.symetricDep = ((InterfaceRealizationSmClass)this.getTarget()).getImplementedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -237,6 +242,7 @@ public class InterfaceSmClass extends GeneralClassSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((InterfaceData) data).mProviding = values;
+            
         }
 
         @objid ("d537f25d-7356-4dfb-8087-846360584fad")
@@ -246,6 +252,7 @@ public class InterfaceSmClass extends GeneralClassSmClass {
             	this.symetricDep = ((ProvidedInterfaceSmClass)this.getTarget()).getProvidedElementDep();
             }
             return this.symetricDep;
+            
         }
 
     }

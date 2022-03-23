@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.modelshield.standardcheckers;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -73,10 +72,11 @@ public class E243Checker extends TypeChecker {
         plan.registerChecker(this, smMetamodel.getMClass(AssociationEnd.class), TriggerType.Update, "Opposite");
         
         plan.registerChecker(this, smMetamodel.getMClass(AssociationEnd.class), TriggerType.Create, null);
+        
     }
 
     @objid ("002ca718-38c1-1f6b-b3fb-001ec947cd2a")
-    public E243Checker() {
+    public  E243Checker() {
         super(ERRORID);
     }
 

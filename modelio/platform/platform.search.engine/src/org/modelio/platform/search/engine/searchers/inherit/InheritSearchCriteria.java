@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.search.engine.searchers.inherit;
 
 import com.modeliosoft.modelio.javadesigner.annotations.mdl;
@@ -32,19 +31,20 @@ public class InheritSearchCriteria implements ISearchCriteria {
      * This flag is only relevant when root is an interface.<br/>
      * If true the searcher will include the classes implementing the interface or any of its specialized sub-interfaces.
      */
+    
     @mdl.prop
     @objid ("3a24c245-e917-4aaf-b001-a69aa8e93873")
-    private boolean findImplementers = true;
+    public boolean findImplementers = true;
 
     @mdl.propgetter
     public boolean isFindImplementers() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.findImplementers;
     }
 
     @mdl.propsetter
     public void setFindImplementers(boolean value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.findImplementers = value;
     }
 
@@ -52,70 +52,74 @@ public class InheritSearchCriteria implements ISearchCriteria {
      * If true the searcher will include the NameSpace specializing 'root' (ie sub-classes if root is a Class, sub-interfaces if
      * root is an Interface)
      */
+    
     @mdl.prop
     @objid ("0720a2bd-a372-44b8-8a96-f74caf61e890")
-    private boolean findSpecializers = true;
+    public boolean findSpecializers = true;
 
     @mdl.propgetter
     public boolean isFindSpecializers() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.findSpecializers;
     }
 
     @mdl.propsetter
     public void setFindSpecializers(boolean value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.findSpecializers = value;
     }
 
     /**
      * If true the searcher will behave recursively in the inheritance tree.
      */
+    
     @mdl.prop
     @objid ("330bc98e-cb8b-4e8d-9c34-7172bea0bfcb")
-    private boolean recursive;
+    public boolean recursive;
 
     @mdl.propgetter
     public boolean isRecursive() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.recursive;
     }
 
     @mdl.propsetter
     public void setRecursive(boolean value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.recursive = value;
     }
 
+    
     @mdl.prop
     @objid ("36a8edf2-605f-4b6f-96b8-83d909804e89")
-    private IMObjectFilter filter;
+    public IMObjectFilter filter;
 
     @mdl.propgetter
     public IMObjectFilter getFilter() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.filter;
     }
 
     @mdl.propsetter
     public void setFilter(IMObjectFilter value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.filter = value;
     }
 
+    
     @mdl.prop
     @objid ("8487f4e9-e41e-4797-bb41-1cf02171b787")
-    private NameSpace root;
+    public NameSpace root;
 
     @mdl.propgetter
     public NameSpace getRoot() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.root;
     }
 
     @mdl.propsetter
     public void setRoot(NameSpace value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.root = value;
     }
 

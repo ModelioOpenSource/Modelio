@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.diagrams;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,7 +30,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 @objid ("00735334-c4bf-1fd8-97fe-001ec947cd2a")
 public class CompositeStructureDiagramData extends StaticDiagramData {
     @objid ("d5960c0b-b70f-4b2a-ab5f-589cae34b2f8")
-    public CompositeStructureDiagramData(CompositeStructureDiagramSmClass smClass) {
+    public  CompositeStructureDiagramData(CompositeStructureDiagramSmClass smClass) {
         super(smClass);
     }
 

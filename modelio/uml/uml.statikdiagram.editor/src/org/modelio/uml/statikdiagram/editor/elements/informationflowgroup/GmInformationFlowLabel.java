@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.informationflowgroup;
 
 import java.util.Collections;
@@ -60,21 +59,22 @@ public class GmInformationFlowLabel extends GmDefaultModelElementLabel {
      * Constructor for deserialization only.
      */
     @objid ("816c253c-1dec-11e2-8cad-001ec947c8cc")
-    public GmInformationFlowLabel() {
+    public  GmInformationFlowLabel() {
+        
     }
 
     /**
      * Constructor.
-     * 
      * @param diagram The diagram
      * @param el The represented element, may be null.
      * @param ref The represented element reference, may not be null.
      */
     @objid ("816c253f-1dec-11e2-8cad-001ec947c8cc")
-    public GmInformationFlowLabel(IGmDiagram diagram, InformationFlow el, MRef ref) {
+    public  GmInformationFlowLabel(IGmDiagram diagram, InformationFlow el, MRef ref) {
         super(diagram, ref);
         this.element = el;
         init();
+        
     }
 
     @objid ("816c255e-1dec-11e2-8cad-001ec947c8cc")
@@ -86,6 +86,7 @@ public class GmInformationFlowLabel extends GmDefaultModelElementLabel {
         } else {
             return null;
         }
+        
     }
 
     @objid ("816c2563-1dec-11e2-8cad-001ec947c8cc")
@@ -132,6 +133,7 @@ public class GmInformationFlowLabel extends GmDefaultModelElementLabel {
             break;
         }
         }
+        
     }
 
     @objid ("816e8796-1dec-11e2-8cad-001ec947c8cc")
@@ -150,6 +152,7 @@ public class GmInformationFlowLabel extends GmDefaultModelElementLabel {
                 getPersistedStyle().setCascadedStyle(parent.getPersistedStyle());
             }
         }
+        
     }
 
     @objid ("816e879f-1dec-11e2-8cad-001ec947c8cc")
@@ -174,6 +177,7 @@ public class GmInformationFlowLabel extends GmDefaultModelElementLabel {
     private void init() {
         setShowMetaclassKeyword(false);
         setShowMetaclassIcon(false);
+        
     }
 
     @objid ("816e87a6-1dec-11e2-8cad-001ec947c8cc")
@@ -183,12 +187,14 @@ public class GmInformationFlowLabel extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmInformationFlowLabel.", GmInformationFlowLabel.MINOR_VERSION);
+        
     }
 
     @objid ("816e87aa-1dec-11e2-8cad-001ec947c8cc")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (InformationFlow) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("816e87ad-1dec-11e2-8cad-001ec947c8cc")

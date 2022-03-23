@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.project.services;
 
 import java.util.Arrays;
@@ -85,13 +84,14 @@ public class CommandLineData {
     @objid ("58514b1f-a34a-4b60-8d66-133e0260509a")
     private boolean createProject = false;
 
+    
     @mdl.prop
     @objid ("92c45bac-a113-4a57-8392-439e30343384")
     private boolean debug;
 
     @mdl.propgetter
     public boolean isDebug() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.debug;
     }
 
@@ -104,89 +104,93 @@ public class CommandLineData {
     @objid ("7d4b6c76-d828-49eb-847c-5dbe0e050669")
     private boolean openProject = false;
 
+    
     @mdl.prop
     @objid ("46eb6b7a-dcfb-42f4-b316-991d6cf48e36")
-    private String password = null;
+    public String password = null;
 
     @mdl.propgetter
     public String getPassword() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.password;
     }
 
+    
     @mdl.prop
     @objid ("052ba9e3-ac78-4ffc-9e9d-57f28c31ba01")
-    private String projectName = null;
+    public String projectName = null;
 
     @mdl.propgetter
     public String getProjectName() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.projectName;
     }
 
+    
     @mdl.prop
     @objid ("bcf181a3-293e-4a63-9207-f2a3c7f49d95")
-    private String script = null;
+    public String script = null;
 
     @mdl.propgetter
     public String getScript() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.script;
     }
 
     /**
      * The template to use to create the project.
      */
+    
     @mdl.prop
     @objid ("358dac90-7485-452a-a734-daef72638ebe")
-    private String template = null;
+    public String template = null;
 
     @mdl.propgetter
     public String getTemplate() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.template;
     }
 
     /**
      * The user login
      */
+    
     @mdl.prop
     @objid ("585c1c1e-cee6-4223-964c-30cfb9b69477")
-    private String user = null;
+    public String user = null;
 
     @mdl.propgetter
     public String getUser() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.user;
     }
 
     /**
      * The workspace path
      */
+    
     @mdl.prop
     @objid ("4c6c622f-97ad-4012-b56a-b9c31a9cd6e4")
-    private String workspace = null;
+    public String workspace = null;
 
     @mdl.propgetter
     public String getWorkspace() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.workspace;
     }
 
     /**
      * C'tor
-     * 
      * @param args the command line arguments
-     * @throws java.lang.IllegalArgumentException if the command line is invalid
+     * @throws IllegalArgumentException if the command line is invalid
      */
     @objid ("df8b6edb-1fab-478f-a8ce-81850b7732e6")
-    public CommandLineData(String[] args) throws IllegalArgumentException {
+    public  CommandLineData(String[] args) throws IllegalArgumentException {
         parse(args);
     }
 
     /**
      * Get the batch parameters.
-     * 
      * @return batch parameters.
      */
     @objid ("4fdfb664-311b-4089-88bb-b90063c00be0")
@@ -242,7 +246,6 @@ public class CommandLineData {
 
     /**
      * Check the command line arguments contains <i>nbRequired</i> more arguments to match an argument parameter.
-     * 
      * @param args the command line arguments
      * @param index index of the parameterized argument
      * @param nbRequired count of required more arguments for the argument <i>args[index]</i>
@@ -256,6 +259,7 @@ public class CommandLineData {
                     nbRequired);
             throw new IllegalArgumentException(msg);
         }
+        
     }
 
     @objid ("118f3313-13e8-45d7-bae3-e63c3e13e4f8")
@@ -332,6 +336,7 @@ public class CommandLineData {
                 break;
             }
         }
+        
     }
 
 }

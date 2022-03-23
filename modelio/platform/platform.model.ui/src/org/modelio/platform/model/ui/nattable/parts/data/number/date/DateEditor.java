@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.number.date;
 
 import java.util.Date;
@@ -52,6 +51,7 @@ public class DateEditor extends AbstractCellEditor {
     public void close() {
         super.close();
         this.cdt = null;
+        
     }
 
     @objid ("49205602-eade-41d5-b126-2b6d2f7dcecd")
@@ -106,7 +106,7 @@ public class DateEditor extends AbstractCellEditor {
     }
 
     @objid ("258285ef-c056-4930-8914-dcaf4667102f")
-    public DateEditor() {
+    public  DateEditor() {
         super();
         this.focusListener = new FocusAdapter() {
             @Override
@@ -124,6 +124,7 @@ public class DateEditor extends AbstractCellEditor {
                 }
             }
         };
+        
     }
 
     @objid ("f9247120-3897-45e8-86bc-c3da4deeb717")

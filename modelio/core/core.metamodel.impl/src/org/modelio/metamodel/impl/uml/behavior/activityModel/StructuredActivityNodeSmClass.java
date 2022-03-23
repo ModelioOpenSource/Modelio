@@ -17,20 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityActionSmClass;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityNodeSmClass;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.StructuredActivityNodeData;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityAction;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityNode;
 import org.modelio.metamodel.uml.behavior.activityModel.StructuredActivityNode;
@@ -55,7 +52,7 @@ public class StructuredActivityNodeSmClass extends ActivityActionSmClass {
     private SmDependency bodyDep;
 
     @objid ("52fcee85-69aa-4407-921d-d5d6bde38801")
-    public StructuredActivityNodeSmClass(ISmMetamodelFragment origin) {
+    public  StructuredActivityNodeSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -63,6 +60,7 @@ public class StructuredActivityNodeSmClass extends ActivityActionSmClass {
     @Override
     public String getName() {
         return "StructuredActivityNode";
+        
     }
 
     @objid ("b8cb4b3e-1647-4f5d-9f15-cada2172c375")
@@ -75,18 +73,21 @@ public class StructuredActivityNodeSmClass extends ActivityActionSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return StructuredActivityNode.class;
+        
     }
 
     @objid ("649aa4cd-22e0-45f3-afdd-fc627a97f2f5")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("4c50c175-ab4f-46a5-b981-5f06ddca5947")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("26399ea6-823b-40bf-aae6-8e80c4eac7e1")
@@ -106,6 +107,8 @@ public class StructuredActivityNodeSmClass extends ActivityActionSmClass {
         this.bodyDep = new BodySmDependency();
         this.bodyDep.init("Body", this, metamodel.getMClass(ActivityNode.MQNAME), 0, -1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.bodyDep);
+        
+        
     }
 
     @objid ("37bbbbda-6a21-4b51-a364-64f5bc4415e4")
@@ -130,7 +133,7 @@ public class StructuredActivityNodeSmClass extends ActivityActionSmClass {
         private StructuredActivityNodeSmClass smClass;
 
         @objid ("2a731580-f4de-45a9-846d-2f8fbf5a86ca")
-        public StructuredActivityNodeObjectFactory(StructuredActivityNodeSmClass smClass) {
+        public  StructuredActivityNodeObjectFactory(StructuredActivityNodeSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -177,6 +180,7 @@ public class StructuredActivityNodeSmClass extends ActivityActionSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((StructuredActivityNodeData) data).mBody = values;
+            
         }
 
         @objid ("1154f2ec-d459-4546-8df5-56f9f90c47f8")
@@ -186,6 +190,7 @@ public class StructuredActivityNodeSmClass extends ActivityActionSmClass {
             	this.symetricDep = ((ActivityNodeSmClass)this.getTarget()).getOwnerNodeDep();
             }
             return this.symetricDep;
+            
         }
 
     }

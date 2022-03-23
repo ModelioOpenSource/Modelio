@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.commands;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -52,14 +51,14 @@ public class FitToContentCommand extends Command {
      * Initialize the command.
      * @param fitHorizontal
      * @param fitVertical
-     * 
      * @param editPart The graphic edit part to resize.
      */
     @objid ("7f40a179-1dec-11e2-8cad-001ec947c8cc")
-    public FitToContentCommand(final GraphicalEditPart editPart, boolean fitHorizontal, boolean fitVertical) {
+    public  FitToContentCommand(final GraphicalEditPart editPart, boolean fitHorizontal, boolean fitVertical) {
         this.editPart = editPart;
         this.fitHorizontal = fitHorizontal;
         this.fitVertical = fitVertical;
+        
     }
 
     @objid ("7f40a180-1dec-11e2-8cad-001ec947c8cc")
@@ -70,11 +69,11 @@ public class FitToContentCommand extends Command {
         if (resizeCommand != null && resizeCommand.canExecute()) {
             resizeCommand.execute();
         }
+        
     }
 
     /**
      * Ask for the command that will resize the node to its preferred size.
-     * 
      * @return The resize command. May return <tt>null</tt>.
      */
     @objid ("7f40a183-1dec-11e2-8cad-001ec947c8cc")

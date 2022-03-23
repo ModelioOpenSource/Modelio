@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.controller.remove;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,9 +36,8 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 public class ModuleRemover {
     /**
      * Delete all annotations using annotations types provided by the module .
-     * 
      * @param module the module to delete.
-     * @throws org.modelio.api.module.lifecycle.ModuleException on failure
+     * @throws ModuleException on failure
      */
     @objid ("dae2cb9b-c970-4bc5-827c-95e502aaa0ab")
     public static void remove(ModuleComponent module) throws ModuleException {
@@ -54,6 +52,7 @@ public class ModuleRemover {
                 throw new ModuleException(module.getName()+" module could not be deleted: "+e.toString(), e);
             }
         }
+        
     }
 
     @objid ("5555d3e9-5b4a-47df-986c-49c7123f6c57")
@@ -63,6 +62,7 @@ public class ModuleRemover {
             unlockRecursive((SmObjectImpl) module);
             module.delete();
         }
+        
     }
 
     @objid ("5e126601-0a08-4e77-b7d9-463fce4bd7cc")
@@ -72,6 +72,7 @@ public class ModuleRemover {
         }
         obj.setRStatus(IRStatus.RMASK_MODIFIABLE_REQUIRED &~ IRStatus.MASK_CMS, IRStatus.RMASK_MODIFIABLE_FORBIDDEN &~ IRStatus.MASK_CMS, 0);
         obj.setPStatus(IPStatus.PMASK_MODIFIABLE_REQUIRED, 0, 0);
+        
     }
 
 }

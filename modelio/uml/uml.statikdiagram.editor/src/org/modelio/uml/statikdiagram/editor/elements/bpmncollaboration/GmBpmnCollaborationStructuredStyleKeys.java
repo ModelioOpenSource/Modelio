@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.bpmncollaboration;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,31 +31,31 @@ import org.modelio.uml.statikdiagram.editor.style.StaticAbstractStyleKeyProvider
 @objid ("57806edd-d28c-4e74-839d-0f4d1a13ce03")
 public class GmBpmnCollaborationStructuredStyleKeys extends StaticAbstractStyleKeyProvider {
     @objid ("ca5ac254-a13c-415b-8349-bc2c6994b86b")
-     static final StyleKey REPMODE = createStyleKey("BPMNCOLLABORATION_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("BPMNCOLLABORATION_REPMODE", MetaKey.REPMODE);
 
     @objid ("a8166efc-b45b-4021-86b2-cd7be355014c")
-     static final StyleKey FILLCOLOR = createStyleKey("BPMNCOLLABORATION_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("BPMNCOLLABORATION_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("8414d8c2-03cb-4a3a-b79d-b49ab69dcc55")
-     static final StyleKey FILLMODE = createStyleKey("BPMNCOLLABORATION_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("BPMNCOLLABORATION_FILLMODE", MetaKey.FILLMODE);
 
     @objid ("c9ae1805-ffa9-4112-a00d-3c840d95a068")
-     static final StyleKey LINECOLOR = createStyleKey("BPMNCOLLABORATION_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("BPMNCOLLABORATION_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("d4e28fa8-0cf4-45e1-97b7-9efe421d20f8")
-     static final StyleKey LINEWIDTH = createStyleKey("BPMNCOLLABORATION_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("BPMNCOLLABORATION_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("53cff955-e6f2-4966-b9d5-b210ed419f4f")
-     static final StyleKey FONT = createStyleKey("BPMNCOLLABORATION_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("BPMNCOLLABORATION_FONT", MetaKey.FONT);
 
     @objid ("c874a63e-49a2-4caa-8660-17180705dac6")
-     static final StyleKey TEXTCOLOR = createStyleKey("BPMNCOLLABORATION_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("BPMNCOLLABORATION_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("2fd65f19-94ed-4209-afad-70a0acde7634")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("BPMNCOLLABORATION_SHOWSTEREOTYPES",
-                                                           MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("BPMNCOLLABORATION_SHOWSTEREOTYPES",
+                                                               MetaKey.SHOWSTEREOTYPES);
 
     @objid ("7bdfc09e-406e-4cd2-a6c7-6778441d4f22")
-     static final StyleKey SHOWTAGS = createStyleKey("BPMNCOLLABORATION_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("BPMNCOLLABORATION_SHOWTAGS", MetaKey.SHOWTAGS);
 
 }

@@ -17,22 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
-import org.modelio.metamodel.impl.uml.statik.BindableInstanceSmClass;
-import org.modelio.metamodel.impl.uml.statik.BindingData;
-import org.modelio.metamodel.impl.uml.statik.CollaborationUseSmClass;
-import org.modelio.metamodel.impl.uml.statik.ConnectorEndSmClass;
-import org.modelio.metamodel.impl.uml.statik.NaryConnectorSmClass;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.metamodel.uml.statik.BindableInstance;
 import org.modelio.metamodel.uml.statik.Binding;
@@ -68,7 +63,7 @@ public class BindingSmClass extends UmlModelElementSmClass {
     private SmDependency ownerDep;
 
     @objid ("72fc8162-1633-4ec8-880b-6d808c469851")
-    public BindingSmClass(ISmMetamodelFragment origin) {
+    public  BindingSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -76,6 +71,7 @@ public class BindingSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "Binding";
+        
     }
 
     @objid ("09a3dc4f-0683-4a09-acc8-8900b220a6ee")
@@ -88,18 +84,21 @@ public class BindingSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Binding.class;
+        
     }
 
     @objid ("029cedfb-6a4a-44d1-9ca6-f20ce30c4cff")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("153589a1-8fee-4b12-8a9e-6605a0cc9177")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("0fbd833c-f197-474e-b655-b231a11a5485")
@@ -131,6 +130,8 @@ public class BindingSmClass extends UmlModelElementSmClass {
         this.ownerDep = new OwnerSmDependency();
         this.ownerDep.init("Owner", this, metamodel.getMClass(CollaborationUse.MQNAME), 0, 1 );
         registerDependency(this.ownerDep);
+        
+        
     }
 
     @objid ("1648d93d-175d-4bd0-903b-6eeb2666654f")
@@ -179,7 +180,7 @@ public class BindingSmClass extends UmlModelElementSmClass {
         private BindingSmClass smClass;
 
         @objid ("7afc1b2e-5f63-402c-b4cb-ee4d0c3916a3")
-        public BindingObjectFactory(BindingSmClass smClass) {
+        public  BindingObjectFactory(BindingSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -221,6 +222,7 @@ public class BindingSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((ConnectorEndSmClass)this.getTarget()).getRepresentationDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -249,6 +251,7 @@ public class BindingSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((NaryConnectorSmClass)this.getTarget()).getRepresentationDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -277,6 +280,7 @@ public class BindingSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((BindableInstanceSmClass)this.getTarget()).getRepresentationDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -305,6 +309,7 @@ public class BindingSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((UmlModelElementSmClass)this.getTarget()).getRepresentsDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -333,6 +338,7 @@ public class BindingSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((CollaborationUseSmClass)this.getTarget()).getRoleBindingDep();
             }
             return this.symetricDep;
+            
         }
 
     }

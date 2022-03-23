@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta.descriptor;
 
 import java.io.Serializable;
@@ -33,29 +32,31 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  */
 @objid ("90afe5fc-ba42-450f-aa2b-21b56ac5df1e")
 public class MEnumDescriptor implements Serializable {
+    
     @mdl.prop
     @objid ("45b4ae73-27a8-4191-abc4-8dc9e90d8d42")
-    private final List<String> values = new ArrayList<> ();
+    public final List<String> values = new ArrayList<> ();
 
     @mdl.propgetter
     public List<String> getValues() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.values;
     }
 
+    
     @mdl.prop
     @objid ("94c63b4e-6c2d-41a1-9b67-1bc2a892c626")
-    private String name;
+    public String name;
 
     @mdl.propgetter
     public String getName() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.name;
     }
 
     @mdl.propsetter
     public void setName(String value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.name = value;
     }
 

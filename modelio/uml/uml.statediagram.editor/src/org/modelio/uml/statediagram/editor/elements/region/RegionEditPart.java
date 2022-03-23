@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.region;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -68,6 +67,7 @@ public class RegionEditPart extends FreeZoneEditPart {
         if (!switchRepresentationMode()) {
             super.refreshFromStyle(aFigure, style);
         }
+        
     }
 
     @objid ("f56b91d9-55b6-11e2-877f-002564c97630")
@@ -77,6 +77,7 @@ public class RegionEditPart extends FreeZoneEditPart {
         GmAbstractObject model = getModel();
         IFigure fig = getFigure();
         fig.getParent().setConstraint(fig, model.getLayoutData());
+        
     }
 
     @objid ("f56b91dc-55b6-11e2-877f-002564c97630")
@@ -85,6 +86,7 @@ public class RegionEditPart extends FreeZoneEditPart {
         super.createEditPolicies();
         // Unlike most nodes, the region is not meant to be masked: un-install the default masking policy.
         installEditPolicy(EditPolicy.COMPONENT_ROLE, null);
+        
     }
 
 }

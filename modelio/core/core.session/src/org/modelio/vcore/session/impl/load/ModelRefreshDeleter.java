@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.load;
 
 import java.util.Collection;
@@ -39,17 +38,15 @@ class ModelRefreshDeleter {
 
     /**
      * Initialize the deleter.
-     * 
      * @param loader the model refresher
      */
     @objid ("23849fba-2b5c-4985-bd30-3e9a7524e23a")
-    public ModelRefreshDeleter(ModelRefresher loader) {
+    public  ModelRefreshDeleter(ModelRefresher loader) {
         this.loader = loader;
     }
 
     /**
      * Delete the given model objects
-     * 
      * @param rootsToDelete the objects to delete.
      */
     @objid ("d54ae311-3237-40ee-afa6-db6a40bf0a76")
@@ -94,11 +91,11 @@ class ModelRefreshDeleter {
         for (SmObjectImpl obj : toDelete) {
             this.loader.doDeleteObject(obj);
         }
+        
     }
 
     /**
      * Get the already loaded composition tree.
-     * 
      * @param obj the root object
      * @param toDelete the collection where to add the composition tree
      */
@@ -117,6 +114,7 @@ class ModelRefreshDeleter {
                 }
             }
         }
+        
     }
 
     @objid ("7d4e6b67-a14a-4faa-a1eb-5b8b51bd8559")

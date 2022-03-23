@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.project.services;
 
 import java.io.File;
@@ -66,10 +65,11 @@ class BatchRunner implements Runnable {
     private final IModelioProgressService progressService;
 
     @objid ("004730a6-8d2e-10b4-9941-001ec947cd2a")
-    public BatchRunner(IModelioProgressService progressService, IProjectService projectService, CommandLineData batchData) {
+    public  BatchRunner(IModelioProgressService progressService, IProjectService projectService, CommandLineData batchData) {
         this.progressService = progressService;
         this.projectService = projectService;
         this.batchData = batchData;
+        
     }
 
     @objid ("00474a32-8d2e-10b4-9941-001ec947cd2a")
@@ -119,13 +119,13 @@ class BatchRunner implements Runnable {
                 System.exit(-1);
             }
         }
+        
     }
 
     /**
      * Creates a new project in the current workspace.
      * <p>
      * The nature and the properties of the project to create are passed in the <code>data</code> argument.
-     * 
      * @param data the nature, characteristics and properties of the project to create.
      */
     @objid ("f36e1685-dff9-4ea3-8349-308ec607c070")
@@ -157,6 +157,7 @@ class BatchRunner implements Runnable {
                 AppProjectCore.LOG.error(e);
             }
         }
+        
     }
 
     @objid ("f55a0aa2-25f6-4817-b782-f2b467359069")
@@ -224,6 +225,7 @@ class BatchRunner implements Runnable {
         
             this.projectService.changeWorkspace(wkdir);
         }
+        
     }
 
     @objid ("27271532-33cf-4a61-94c1-318ef3a2c210")
@@ -260,7 +262,6 @@ class BatchRunner implements Runnable {
 
     /**
      * Run the specified script.
-     * 
      * @param openedProject the project
      * @return the return code.
      */
@@ -399,7 +400,6 @@ class BatchRunner implements Runnable {
 
     /**
      * Checks that 'projectName' is a valid name for a project creation.
-     * 
      * @param projectName a project name candidate
      * @return true only if the name is a valid project name.
      */

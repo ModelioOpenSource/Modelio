@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.modules;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -56,7 +55,7 @@ public class ModulesPage implements IProjectConfPage {
     protected ParameterSection parameterSection;
 
     @objid ("e299385a-6208-4082-9d17-bdd80025043b")
-     ProjectModel projectAdapter;
+    ProjectModel projectAdapter;
 
     @objid ("39256e16-0353-4552-a5da-6b3c62fed0ba")
     private Composite mainComposite;
@@ -122,7 +121,6 @@ public class ModulesPage implements IProjectConfPage {
 
     /**
      * Set the data model.
-     * 
      * @param projectAdapter the project data model.
      */
     @objid ("c453de73-acd7-4147-b72f-bf91ce833a18")
@@ -131,6 +129,7 @@ public class ModulesPage implements IProjectConfPage {
         this.projectAdapter = projectAdapter;
         // update the different sections
         this.modulesSection.setInput(projectAdapter);
+        
     }
 
     @objid ("cefcbeca-7b38-4b76-a7d7-38bee254fd1f")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.enumliteral;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,6 +44,7 @@ public class EnumLitteralGroupEditPart extends GroupEditPart {
         if (model.getLayoutData() != null) {
             getFigure().getParent().setConstraint(getFigure(), model.getLayoutData());
         }
+        
     }
 
     @objid ("968d578d-30c5-4690-a59e-9133b86968a0")
@@ -79,6 +79,7 @@ public class EnumLitteralGroupEditPart extends GroupEditPart {
             border.setWidth(style.getInteger(gmModel.getStyleKey(MetaKey.LINEWIDTH)));
         }
         aFigure.setBorder(border);
+        
     }
 
 }

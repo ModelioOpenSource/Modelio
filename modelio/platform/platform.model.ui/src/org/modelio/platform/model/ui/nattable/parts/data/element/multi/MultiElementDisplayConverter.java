@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.element.multi;
 
 import java.util.ArrayList;
@@ -76,11 +75,10 @@ public class MultiElementDisplayConverter extends DisplayConverter {
 
     /**
      * Create a new MultiElementDisplayConverter.
-     * 
      * @param labelProvider the label provider to use when converting to display.
      */
     @objid ("cc2242af-4b79-4ee8-8094-c789a01b7b26")
-    public MultiElementDisplayConverter(ILabelProvider labelProvider) {
+    public  MultiElementDisplayConverter(ILabelProvider labelProvider) {
         this.labelProvider = Objects.requireNonNull(labelProvider);
     }
 

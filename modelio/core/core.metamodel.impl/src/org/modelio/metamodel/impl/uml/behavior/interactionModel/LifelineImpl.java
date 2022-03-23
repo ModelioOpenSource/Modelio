@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.interactionModel;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.LifelineData;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementImpl;
 import org.modelio.metamodel.uml.behavior.interactionModel.Interaction;
 import org.modelio.metamodel.uml.behavior.interactionModel.InteractionFragment;
@@ -79,6 +78,7 @@ public class LifelineImpl extends UmlModelElementImpl implements Lifeline {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("63a6ae8e-719f-412a-a8af-54a9944d2e48")

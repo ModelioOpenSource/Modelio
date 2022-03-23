@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,9 +31,12 @@ public enum ForkJoinOrientation {
     /**
      * The fork/join is horizontal.
      */
+    @objid ("f5393718-55b6-11e2-877f-002564c97630")
     HORIZONTAL,
     /**
      * The fork/join is vertical.
      */
+    @objid ("f539371a-55b6-11e2-877f-002564c97630")
     VERTICAL;
+
 }

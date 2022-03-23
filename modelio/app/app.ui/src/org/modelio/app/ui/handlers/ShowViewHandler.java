@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.ui.handlers;
 
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.core.di.annotations.Optional;
@@ -29,8 +28,8 @@ import org.eclipse.e4.ui.model.application.ui.MUIElement;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.model.application.ui.basic.MWindow;
 import org.eclipse.e4.ui.model.application.ui.menu.MMenuItem;
-import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
+import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 import org.modelio.app.ui.plugin.AppUi;
 import org.modelio.platform.project.services.IProjectService;
 
@@ -44,7 +43,8 @@ import org.modelio.platform.project.services.IProjectService;
 public class ShowViewHandler {
     @objid ("b78ed128-37cf-4e9c-b16d-81041639a420")
     @Execute
-    public void execute(EPartService partService, MMenuItem item, MWindow window, @Optional @Named("org.modelio.app.ui.command.showview.viewid") String viewid) {
+    public void execute(EPartService partService, MMenuItem item, MWindow window, @Optional
+    @Named("org.modelio.app.ui.command.showview.viewid") String viewid) {
         MPart part = null;
         
         // Get a shared part (if exists)
@@ -70,6 +70,7 @@ public class ShowViewHandler {
         } else {
             AppUi.LOG.debug("The view %s is null.", viewid);
         }
+        
     }
 
     @objid ("aeebd232-0bce-4556-894c-c65de976dfc7")

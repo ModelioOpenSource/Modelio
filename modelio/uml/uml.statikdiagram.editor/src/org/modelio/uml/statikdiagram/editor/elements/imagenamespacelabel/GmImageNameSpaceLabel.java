@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.imagenamespacelabel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,19 +40,18 @@ public class GmImageNameSpaceLabel extends GmNameSpaceLabel {
      * Empty constructor needed for (de-)serialization.
      */
     @objid ("34f0dc46-55b7-11e2-877f-002564c97630")
-    public GmImageNameSpaceLabel() {
+    public  GmImageNameSpaceLabel() {
         // Empty constructor needed for (de-)serialization.
     }
 
     /**
      * Default constructor.
-     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param el the represented element, may be <i>null</i>.
      * @param ref a reference to the represented element.
      */
     @objid ("34f0dc49-55b7-11e2-877f-002564c97630")
-    public GmImageNameSpaceLabel(final IGmDiagram diagram, final NameSpace el, final MRef ref) {
+    public  GmImageNameSpaceLabel(final IGmDiagram diagram, final NameSpace el, final MRef ref) {
         super(diagram, el, ref);
     }
 

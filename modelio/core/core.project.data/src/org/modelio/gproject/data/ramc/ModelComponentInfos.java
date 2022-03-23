@@ -17,13 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.ramc;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.modelio.gproject.data.ramc.IModelComponentInfos.ExportedFile;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vbasic.version.VersionedItem;
 
@@ -108,7 +108,8 @@ class ModelComponentInfos implements IModelComponentInfos {
     }
 
     @objid ("a01c03ad-cc36-11e1-87f1-001ec947ccaf")
-    ModelComponentInfos() {
+     ModelComponentInfos() {
+        
     }
 
     @objid ("740b57a5-cc3e-11e1-87f1-001ec947ccaf")

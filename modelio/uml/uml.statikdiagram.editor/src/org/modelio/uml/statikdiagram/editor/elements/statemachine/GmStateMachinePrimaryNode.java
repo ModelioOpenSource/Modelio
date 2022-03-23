@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.statemachine;
 
 import java.util.Collections;
@@ -35,8 +34,8 @@ import org.modelio.diagram.elements.core.node.IImageableNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.platform.model.ui.swt.images.ElementImageService;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -63,23 +62,23 @@ public class GmStateMachinePrimaryNode extends GmNoStyleCompositeNode implements
 
     /**
      * Default constructor.
-     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param relatedRef a reference to the represented CallBehaviorAction
      */
     @objid ("36a9d6ff-55b7-11e2-877f-002564c97630")
-    public GmStateMachinePrimaryNode(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmStateMachinePrimaryNode(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
         this.header = new GmDefaultModelElementHeader(diagram, relatedRef);
         this.header.setShowMetaclassIcon(true);
         addChild(this.header);
+        
     }
 
     /**
      * Empty constructor needed for the serialization.
      */
     @objid ("36a9d70a-55b7-11e2-877f-002564c97630")
-    public GmStateMachinePrimaryNode() {
+    public  GmStateMachinePrimaryNode() {
         // empty constructor for the serialization
     }
 
@@ -120,6 +119,7 @@ public class GmStateMachinePrimaryNode extends GmNoStyleCompositeNode implements
         // Returned result depends on current representation mode:
         List<GmNodeModel> ret;
         switch (getRepresentationMode()) {
+        case USER_IMAGE:
         case IMAGE: {
             ret = Collections.emptyList();
             break;
@@ -153,6 +153,7 @@ public class GmStateMachinePrimaryNode extends GmNoStyleCompositeNode implements
             break;
         }
         }
+        
     }
 
     @objid ("36ab5dae-55b7-11e2-877f-002564c97630")
@@ -160,6 +161,7 @@ public class GmStateMachinePrimaryNode extends GmNoStyleCompositeNode implements
     public void refreshFromObModel() {
         super.refreshFromObModel(); // forcing visual refresh in case Image changed
         firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("36ab5db1-55b7-11e2-877f-002564c97630")
@@ -169,6 +171,7 @@ public class GmStateMachinePrimaryNode extends GmNoStyleCompositeNode implements
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmStateMachinePrimaryNode.", GmStateMachinePrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("36ab5db7-55b7-11e2-877f-002564c97630")
@@ -180,6 +183,7 @@ public class GmStateMachinePrimaryNode extends GmNoStyleCompositeNode implements
         this.header = (GmDefaultModelElementHeader) this.getChildren().get(i++);
         GmNodeModel imageModeHeader = this.getChildren().get(i++);
         imageModeHeader.delete();
+        
     }
 
     @objid ("36ace41a-55b7-11e2-877f-002564c97630")
@@ -193,6 +197,7 @@ public class GmStateMachinePrimaryNode extends GmNoStyleCompositeNode implements
         super.read(in);
         
         this.header = (GmDefaultModelElementHeader) this.getChildren().get(0);
+        
     }
 
 }

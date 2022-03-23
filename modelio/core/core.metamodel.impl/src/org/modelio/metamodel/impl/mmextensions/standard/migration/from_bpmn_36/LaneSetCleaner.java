@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.migration.from_bpmn_36;
 
 import java.io.PrintWriter;
@@ -33,7 +32,6 @@ import org.modelio.vcore.smkernel.meta.mof.MofSmObjectImpl;
 class LaneSetCleaner {
     /**
      * Clean up empty LaneSets.
-     * 
      * @param process a BPMN Process
      * @param logger the logger
      */
@@ -49,6 +47,7 @@ class LaneSetCleaner {
         
             cleanupLaneSet(logger, origPool, process);
         }
+        
     }
 
     @objid ("4e11a529-554d-4e43-ae17-57acce17e994")
@@ -57,6 +56,7 @@ class LaneSetCleaner {
         for (MofSmObjectImpl laneSet : new ArrayList<>(childLaneSets)) {
             cleanupLaneSet(logger, laneSet, lane);
         }
+        
     }
 
     @objid ("60e8bccf-ec16-4fcc-8134-ab7f139d32b3")
@@ -71,6 +71,7 @@ class LaneSetCleaner {
         for (MofSmObjectImpl childLane : childLanes) {
             deleteLaneEmptyLaneSets(childLane, logger);
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.expert.standard.links.impl.creation;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,7 +39,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 @objid ("7e974158-1eb2-11e2-8009-002564c97630")
 public class BpmnDataAssociationCreationExpert extends DefaultDelegatingLinkExpert {
     @objid ("c019359c-883f-40eb-85ac-8406b8ac17f4")
-    public BpmnDataAssociationCreationExpert(ILinkExpert defaultExpert) {
+    public  BpmnDataAssociationCreationExpert(ILinkExpert defaultExpert) {
         super(defaultExpert);
     }
 
@@ -51,6 +50,7 @@ public class BpmnDataAssociationCreationExpert extends DefaultDelegatingLinkExpe
                 && canTarget(linkMetaclass, toMetaclass)
                 // Either the source or the target must be a BpmnItemAwareElement, but not both
                 && (BpmnItemAwareElement.class.isAssignableFrom(fromMetaclass.getJavaInterface()) ^ BpmnItemAwareElement.class.isAssignableFrom(toMetaclass.getJavaInterface()));
+        
     }
 
     @objid ("97d3a7a1-0bb7-4312-98c3-2c6c2a11133c")

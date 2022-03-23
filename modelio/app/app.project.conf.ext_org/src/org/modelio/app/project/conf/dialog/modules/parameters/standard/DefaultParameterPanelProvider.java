@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.modules.parameters.standard;
 
 import java.util.Collection;
@@ -128,6 +127,7 @@ public class DefaultParameterPanelProvider implements IPanelProvider {
             final IModule module = (IModule) ((Collection<?>) input).toArray()[0];
             this.descriptionLabel.setText(module.getDescription());
         }
+        
     }
 
     @objid ("273ef203-ac9d-4a8c-af80-a9e6b706e269")
@@ -137,6 +137,7 @@ public class DefaultParameterPanelProvider implements IPanelProvider {
         this.parameterViewer = null;
         this.compo.dispose();
         this.compo = null;
+        
     }
 
     /**
@@ -187,6 +188,7 @@ public class DefaultParameterPanelProvider implements IPanelProvider {
                 }
             }
         });
+        
     }
 
 }

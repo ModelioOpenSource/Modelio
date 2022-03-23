@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.engine.core;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -75,6 +74,7 @@ public abstract class AbstractRule implements IRule {
     public final void setSeverity(AuditSeverity value) {
         // Automatically generated method. Please delete this comment before entering specific code.
         this.severity = value;
+        
     }
 
     @objid ("2fc55880-af76-41ac-85e7-43fb87c38164")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,11 +40,13 @@ public abstract class RepositoryObjectStub implements IRepositoryObject {
     @objid ("2a677cae-f5d9-4fa5-a3fa-0e0b3f766bca")
     @Override
     public void attach(SmObjectImpl obj) {
+        
     }
 
     @objid ("22ce87dd-a170-4423-936b-a461b4ce6a9e")
     @Override
     public void attachCreatedObj(SmObjectImpl obj) {
+        
     }
 
     @objid ("be35afd5-c614-41e0-ae5c-4608521bc5f8")
@@ -110,6 +111,7 @@ public abstract class RepositoryObjectStub implements IRepositoryObject {
     public void loadAtt(SmObjectImpl obj, SmAttribute att) {
         // do nothing
         loadCalled(obj);
+        
     }
 
     @objid ("2186bb09-c1fc-4499-80dd-0237a4c79eac")
@@ -117,6 +119,7 @@ public abstract class RepositoryObjectStub implements IRepositoryObject {
     public void loadDep(SmObjectImpl obj, SmDependency dep) {
         // do nothing
         loadCalled(obj);
+        
     }
 
     @objid ("5f3dcd40-768b-447d-84f1-c2e2709cb3f8")
@@ -135,7 +138,6 @@ public abstract class RepositoryObjectStub implements IRepositoryObject {
      * Called by each loadXxxx(...) method.
      * <p>
      * Does nothing by default. May be redefined to do anything including throwing a runtime exception.
-     * 
      * @param obj the loaded object
      */
     @objid ("de7d5747-9da3-44b1-a74c-30f58ad74973")
@@ -147,7 +149,6 @@ public abstract class RepositoryObjectStub implements IRepositoryObject {
      * Called by each isXxxLoaded(...) method.
      * <p>
      * Does nothing by default. May be redefined to do anything including throwing a runtime exception.
-     * 
      * @param obj the loaded object
      */
     @objid ("f40d1eac-b67f-4f55-815c-ec8ad595b4db")

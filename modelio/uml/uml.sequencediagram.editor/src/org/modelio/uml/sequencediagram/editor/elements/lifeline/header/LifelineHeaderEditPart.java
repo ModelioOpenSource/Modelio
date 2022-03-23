@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.lifeline.header;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -57,6 +56,7 @@ public class LifelineHeaderEditPart extends ModelElementHeaderEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                 new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("d948333f-55b6-11e2-877f-002564c97630")
@@ -68,6 +68,7 @@ public class LifelineHeaderEditPart extends ModelElementHeaderEditPart {
         
         // Main label
         refreshMetaclassKeyword(headerFigure, headerModel);
+        
     }
 
     @objid ("d9483342-55b6-11e2-877f-002564c97630")
@@ -77,6 +78,7 @@ public class LifelineHeaderEditPart extends ModelElementHeaderEditPart {
         } else {
             headerFigure.setKeywordLabel(headerModel.computeSecondaryLabel());
         }
+        
     }
 
 }

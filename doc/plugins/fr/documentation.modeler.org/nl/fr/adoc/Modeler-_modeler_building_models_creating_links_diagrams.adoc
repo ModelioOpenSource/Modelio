@@ -1,5 +1,7 @@
 // Disable all captions for figures.
 :!figure-caption:
+// Path to the stylesheet files
+:stylesdir: .
 
 = Créer des liens dans un diagramme
 
@@ -28,7 +30,7 @@ Dans les diagrammes Modelio, il existe quatre façons de tracer un lien :
 * Le mode libre, qui permet de tracer les liens de la manière de votre choix,
 * Le mode cible partagée, qui permet de créer des liens sous forme de râteau.
 
-*Note :* Si vous souhaitez tracer un lien en mode libre, il suffit de maintenir enfoncée la touche "Maj" de votre clavier lors du traçage du lien.
+*Note :* Si vous souhaitez tracer un lien en mode libre, il suffit de maintenir enfoncée la touche "SHIFT" de votre clavier lors du traçage du lien.
 
 [[Loutil-Smart-links]]
 
@@ -52,17 +54,19 @@ image::images/Modeler-_modeler_building_models_creating_links_diagrams_creating_
 *Avec la souris*
 
 .Création d'une association entre deux classes à l'aide de l'outil Smart links
-image:images/Modeler-_modeler_building_models_creating_links_diagrams_creating_link-type_elements_in_diagrams_3.png[4]
+image::images/Modeler-_modeler_building_models_creating_links_diagrams_creating_link-type_elements_in_diagrams_3.png[4]
 
 *Étapes :*
 
 1. Placer le curseur de la souris sur la classe d'origine et attendre une seconde +
-2. Lorsque la poignée Smart links image:images/Modeler-_modeler_building_models_creating_links_diagrams_SmartLinks_handle.png[6] apparaît, cliquer dessus et maintenir enfoncé le bouton de la souris +
+2. Lorsque les ancres image:images/Modeler-_modeler_diagrams_drawing_links_SmartLinks_handle.png[8] apparaissent, cliquer sur l'une d'elle et maintenir enfoncé le bouton de la souris +
 3. Déplacer le curseur vers la classe de destination comme pour glisser-déposer le lien dessus +
 4. Relâcher le bouton lorsque le curseur est sur la classe de destination, puis choisir un type de lien dans la liste
 
-*Note :* Si vous ne voulez pas voir apparaître les poignées Smart links handles (flèches vertes) sur vos éléments, vous pouvez les désactiver dans la vue *Symbole* du diagramme:
+*Note :* Si vous ne voulez pas voir apparaître les ancres lors du survol des éléments, vous pouvez les désactiver dans la vue *Symbole* du diagramme : 
+image::images/Modeler-_modeler_diagrams_drawing_links_creating_link-type_elements_in_diagrams_4_FR.png[7]
 
-image::images/Modeler-_modeler_building_models_creating_links_diagrams_creating_link-type_elements_in_diagrams_4_FR.png[5]
+
+
 
 

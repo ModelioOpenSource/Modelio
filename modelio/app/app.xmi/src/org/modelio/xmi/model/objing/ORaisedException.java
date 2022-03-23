@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -65,9 +64,10 @@ public class ORaisedException extends OElement implements IOElement {
     }
 
     @objid ("7db31c13-fab9-4acb-925f-9ed4e37ceb60")
-    public ORaisedException(RaisedException element) {
+    public  ORaisedException(RaisedException element) {
         super(element);
         this.objingElement = element;
+        
     }
 
     @objid ("7502076a-afd5-484e-8398-adfd3e095e26")
@@ -75,6 +75,7 @@ public class ORaisedException extends OElement implements IOElement {
     public void attach(org.eclipse.uml2.uml.Element ecoreElt) {
         // Nothing to do: RaisedException is a property directly defined on
         //  org.eclipse.uml2.uml.Operation in UML2.
+        
     }
 
     @objid ("b5964ba5-2fda-4501-a2b0-7661a2c6fc3b")
@@ -82,6 +83,7 @@ public class ORaisedException extends OElement implements IOElement {
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         // Nothing to do: RaisedException is a property directly defined on
         //  org.eclipse.uml2.uml.Operation in UML2.
+        
     }
 
 }

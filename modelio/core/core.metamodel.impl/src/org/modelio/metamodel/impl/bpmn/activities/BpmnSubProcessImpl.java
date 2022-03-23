@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.activities;
 
 import java.util.ArrayList;
@@ -34,7 +34,6 @@ import org.modelio.metamodel.bpmn.activities.BpmnSubProcess;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnLaneSet;
 import org.modelio.metamodel.bpmn.rootElements.BpmnArtifact;
 import org.modelio.metamodel.bpmn.rootElements.BpmnFlowElement;
-import org.modelio.metamodel.impl.bpmn.activities.BpmnSubProcessData;
 import org.modelio.metamodel.visitors.IModelVisitor;
 import org.modelio.vcore.smkernel.SmConstrainedList;
 import org.modelio.vcore.smkernel.SmDepVal;
@@ -65,6 +64,7 @@ public class BpmnSubProcessImpl extends BpmnActivityImpl implements BpmnSubProce
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("5116bfa4-2fb4-4cbd-8552-a02a79b778ef")
@@ -86,6 +86,7 @@ public class BpmnSubProcessImpl extends BpmnActivityImpl implements BpmnSubProce
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("59ca1f4e-b7c6-40ab-95a0-284461a99cfc")

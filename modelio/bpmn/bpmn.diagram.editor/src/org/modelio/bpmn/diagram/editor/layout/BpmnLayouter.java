@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.layout;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,7 @@ public class BpmnLayouter {
     private AbstractDiagram diagram;
 
     @objid ("9efce84f-987f-4d17-9d42-e0b2c2e4e2eb")
-    public BpmnLayouter(AbstractDiagram diagram) {
+    public  BpmnLayouter(AbstractDiagram diagram) {
         this.diagram = diagram;
     }
 
@@ -59,6 +58,7 @@ public class BpmnLayouter {
         
             dh.save();
         }
+        
     }
 
 }

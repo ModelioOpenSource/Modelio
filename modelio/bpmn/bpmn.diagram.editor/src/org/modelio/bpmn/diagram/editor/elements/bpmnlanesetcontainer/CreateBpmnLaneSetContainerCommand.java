@@ -17,24 +17,34 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnlanesetcontainer;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.eclipse.draw2d.FigureUtilities;
+import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.commands.Command;
+import org.eclipse.swt.graphics.Font;
 import org.modelio.bpmn.diagram.editor.elements.bpmnlane.GmBpmnLane;
 import org.modelio.bpmn.diagram.editor.elements.diagrams.GmBpmnDiagramStyleKeys;
 import org.modelio.bpmn.diagram.editor.elements.workflow.GmWorkflow;
 import org.modelio.diagram.elements.common.resizablegroup.ReorderChildrenCommand;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
+import org.modelio.diagram.elements.core.link.GmPath;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
+import org.modelio.diagram.elements.core.model.IGmLinkable;
+import org.modelio.diagram.elements.core.model.IGmPath;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
+import org.modelio.diagram.styles.core.MetaKey;
+import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnLane;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnLaneSet;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnProcess;
@@ -68,7 +78,6 @@ public class CreateBpmnLaneSetContainerCommand extends Command {
 
     /**
      * Creates a node creation command.
-     * 
      * @param parentElement the element that lead to this command.
      * @param parentNode The parent editPart
      * @param context Details on the MObject and/or the node to create
@@ -76,13 +85,14 @@ public class CreateBpmnLaneSetContainerCommand extends Command {
      * @param afterEditPart <code>null</code> or a reference EditPart
      */
     @objid ("589d59ad-83b5-403a-8348-0941be0688f3")
-    public CreateBpmnLaneSetContainerCommand(MObject parentElement, GmCompositeNode parentNode, ModelioCreationContext context, Object requestConstraint, EditPart afterEditPart) {
+    public  CreateBpmnLaneSetContainerCommand(MObject parentElement, GmCompositeNode parentNode, ModelioCreationContext context, Object requestConstraint, EditPart afterEditPart) {
         this.parentNode = parentNode;
         this.parentElement = parentElement;
         this.context = context;
         this.newConstraint = requestConstraint;
         Object model = afterEditPart != null ? afterEditPart.getModel() : null;
         this.insertionReference = model instanceof GmNodeModel ? (GmNodeModel) model : null;
+        
     }
 
     @objid ("528c6f52-41eb-456f-a7bc-907f86bbbeef")
@@ -146,6 +156,7 @@ public class CreateBpmnLaneSetContainerCommand extends Command {
                 unmaskLane(diagram, lane, laneSet);
             }
         }
+        
     }
 
     @objid ("d1171505-6431-4008-88c5-a3727b28fe01")
@@ -204,6 +215,14 @@ public class CreateBpmnLaneSetContainerCommand extends Command {
             }
         }
         
+        Map<IGmLinkable, IGmPath> linksToRelocateInTheLane = new HashMap<>();
+        for (IGmLinkable gmLink : GmLinksFinder.computeAllLinksFor(nodesToRelocateInTheLane)) {
+            if (gmLink.getLayoutData() instanceof IGmPath) {
+                IGmPath layoutData = (IGmPath) gmLink.getLayoutData();
+                linksToRelocateInTheLane.put(gmLink, new GmPath(layoutData));
+            }
+        }
+        
         int laneLayoutConstraint = -1;
         if (laneConstraint != null) {
             laneConstraint.expand(10, 10);
@@ -240,6 +259,8 @@ public class CreateBpmnLaneSetContainerCommand extends Command {
         
         GmBpmnLane newLaneGm = (GmBpmnLane) diagram.unmask(gmLaneSet, lane, laneLayoutConstraint);
         
+        // Nodes coordinates must be relative to the lane's contents
+        Point nodeMoveDelta = laneConstraint.getTopLeft().getNegated();
         for (GmNodeModel n : nodesToRelocateInTheLane) {
             // Update the OB model
             if (n.getRelatedElement() instanceof BpmnFlowElement) {
@@ -253,16 +274,58 @@ public class CreateBpmnLaneSetContainerCommand extends Command {
             Rectangle r = (Rectangle) n.getLayoutData();
         
             Rectangle r2 = new Rectangle(r);
-            r2.translate(laneConstraint.getTopLeft().getNegated());
+            r2.translate(nodeMoveDelta);
             n.setLayoutData(r2);
         
             n.getParentNode().removeChild(n);
             newLaneGm.addChild(n);
         }
         
+        // Update bendpoints for gm links
+        // Coordinates are still absolute
+        if (false) {
+            // disabled : layout policy decorator handle this better
+            Point linkMoveDelta;
+            if (this.newConstraint instanceof Rectangle) {
+                linkMoveDelta = ((Rectangle) this.newConstraint).getTopLeft() // Start from the lane itself
+                        .getTranslated(computeHeaderSize(lane, newLaneGm)) // Skip the lane's header
+                        .getTranslated(10, 10) // Skip the lane's content margin
+                        .getTranslated(nodeMoveDelta); // Take the node move delta into account
+            } else {
+                linkMoveDelta = computeHeaderSize(lane, newLaneGm);
+            }
+            for (Entry<IGmLinkable, IGmPath> entry : linksToRelocateInTheLane.entrySet()) {
+                IGmLinkable gmLink = entry.getKey();
+                IGmPath layoutData = entry.getValue();
+                if (layoutData.getPathData() instanceof List) {
+                    List<Point> pathData = (List<Point>) layoutData.getPathData();
+                    for (Point p : pathData) {
+                        p.translate(linkMoveDelta);
+                    }
+                    gmLink.setLayoutData(layoutData);
+                }
+            }
+        }
+        
         if (this.insertionReference != null) {
             new ReorderChildrenCommand(gmLaneSet, newLaneGm, this.insertionReference).execute();
         }
+        
+    }
+
+    @objid ("4e56c58a-32fb-4313-b6ed-b6e2df8ce111")
+    private Point computeHeaderSize(final BpmnLane lane, GmBpmnLane newLaneGm) {
+        Point laneHeaderSize ;
+        StyleKey fontStyleKey = newLaneGm.getStyleKey(MetaKey.FONT);
+        if (fontStyleKey != null) {
+            // Take the lane's font size into account
+            Font baseFont = newLaneGm.getDisplayedStyle().getFont(fontStyleKey);
+            laneHeaderSize = new Point(7 + FigureUtilities.getTextExtents(lane.getName(), baseFont).height, 1);
+        } else {
+            // No StyleKey found, use a magic number for the default font...
+            laneHeaderSize = new Point(23, 1);
+        }
+        return laneHeaderSize;
     }
 
 }

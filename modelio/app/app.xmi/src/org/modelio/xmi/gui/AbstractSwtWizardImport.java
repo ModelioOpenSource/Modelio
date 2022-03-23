@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.gui;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,7 +43,7 @@ import org.modelio.xmi.reverse.ReverseProperties;
 @objid ("a0779b5c-777f-4f07-a80a-b6171f1c14fd")
 public abstract class AbstractSwtWizardImport extends AbstractSwtWizardWindow {
     @objid ("cd62fa67-6681-47d4-9ceb-870c4800254c")
-    public AbstractSwtWizardImport(final Shell parent, IProgressService progressService, IProjectService projectService) {
+    public  AbstractSwtWizardImport(final Shell parent, IProgressService progressService, IProjectService projectService) {
         super(parent, progressService, projectService);
     }
 
@@ -59,6 +58,7 @@ public abstract class AbstractSwtWizardImport extends AbstractSwtWizardWindow {
             
             this.validateComposite.getValidationButton().setEnabled(isEnable);        
         }
+        
     }
 
     @objid ("716fb0ec-adf1-483c-a9bc-f92d1ccfcdfe")
@@ -163,6 +163,7 @@ public abstract class AbstractSwtWizardImport extends AbstractSwtWizardWindow {
         }
         
         this.validateComposite.getValidationButton().setFocus();
+        
     }
 
     /**
@@ -175,6 +176,7 @@ public abstract class AbstractSwtWizardImport extends AbstractSwtWizardWindow {
         this.fileChooserComposite.getDialog().setFilterExtensions(new String[] { "*.xmi; *.uml; *.xml", "*.xmi", "*.uml", "*.xml" }); 
         
         setPath();
+        
     }
 
     /**
@@ -203,6 +205,7 @@ public abstract class AbstractSwtWizardImport extends AbstractSwtWizardWindow {
         this.fileChooserComposite.getDialog().setFilterPath(this.path);
         this.fileChooserComposite.getDialog().setFileName("");
         this.fileChooserComposite.setText(this.path);
+        
     }
 
     @objid ("ccdc1702-d2df-4730-a48b-005a6643d1d2")
@@ -216,6 +219,7 @@ public abstract class AbstractSwtWizardImport extends AbstractSwtWizardWindow {
                 messageBox.open();
             }
         });
+        
     }
 
 }

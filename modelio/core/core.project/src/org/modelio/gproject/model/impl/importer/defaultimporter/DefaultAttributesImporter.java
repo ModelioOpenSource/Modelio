@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.model.impl.importer.defaultimporter;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,7 +35,7 @@ public class DefaultAttributesImporter implements IAttributesImporter {
     private final IObjectFinder objectFinder;
 
     @objid ("cdc775da-8e61-45b8-b860-5f9e82d0cb54")
-    public DefaultAttributesImporter(IObjectFinder objectFinder) {
+    public  DefaultAttributesImporter(IObjectFinder objectFinder) {
         this.objectFinder = objectFinder;
     }
 
@@ -59,6 +58,7 @@ public class DefaultAttributesImporter implements IAttributesImporter {
                 }
             }
         }
+        
     }
 
 }

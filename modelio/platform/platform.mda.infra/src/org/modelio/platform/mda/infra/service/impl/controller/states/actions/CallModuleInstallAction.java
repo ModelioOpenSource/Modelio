@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.controller.states.actions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,7 +44,7 @@ public class CallModuleInstallAction implements IModuleStateAction {
      * @param module the module
      */
     @objid ("9a2e3b3d-3b4e-4d10-bea4-ee444f0eda44")
-    public CallModuleInstallAction(IRTModuleAccess module) {
+    public  CallModuleInstallAction(IRTModuleAccess module) {
         this.module = module;
     }
 

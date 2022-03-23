@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.gui;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -131,6 +130,7 @@ public abstract class AbstractSwtWizardWindow extends Dialog {
         if ((this.shell != null) && (!this.shell.isDisposed())) {
             this.shell.dispose();
         }
+        
     }
 
     @objid ("0a204520-e1a0-489b-8574-1ed74ef83707")
@@ -207,6 +207,7 @@ public abstract class AbstractSwtWizardWindow extends Dialog {
         MessageBox messageBox = new MessageBox(this.shell, SWT.ICON_WARNING);
         messageBox.setMessage(this.description);
         messageBox.open();
+        
     }
 
     /**
@@ -251,12 +252,14 @@ public abstract class AbstractSwtWizardWindow extends Dialog {
         MessageBox messageBox = new MessageBox(this.shell, SWT.ICON_WARNING);
         messageBox.setMessage(Xmi.I18N.getString("fileChooser.banner.import.dontexit"));
         messageBox.open();
+        
     }
 
     @objid ("9d8e8f80-a2aa-476c-b1c1-02a48afbf98d")
     void helpPressed() {
         String urlPath = "http://127.0.0.1:1697/help/index.jsp";
         BareBonesBrowserLaunch.openURL(urlPath, this.shell);
+        
     }
 
     /**
@@ -264,7 +267,7 @@ public abstract class AbstractSwtWizardWindow extends Dialog {
      * @param style : the swt style
      */
     @objid ("164d1dac-c354-4fe3-815c-089c11e9ab38")
-    public AbstractSwtWizardWindow(final Shell parent, final int style) {
+    public  AbstractSwtWizardWindow(final Shell parent, final int style) {
         super(parent, style);
     }
 
@@ -272,10 +275,11 @@ public abstract class AbstractSwtWizardWindow extends Dialog {
      * @param parent : the shell parent
      */
     @objid ("bd78756e-a049-4d5e-959f-1c5aa3d2512b")
-    public AbstractSwtWizardWindow(final Shell parent, IProgressService progressService, IProjectService projectService) {
+    public  AbstractSwtWizardWindow(final Shell parent, IProgressService progressService, IProjectService projectService) {
         this(parent, SWT.NONE);       
         this.progressService = progressService;
         this.projectService = projectService;
+        
     }
 
     @objid ("2cfa948f-4c41-4910-b2c0-4c8c66056485")
@@ -287,6 +291,7 @@ public abstract class AbstractSwtWizardWindow extends Dialog {
         int y = bounds.y + (bounds.height - rect.height) / 2;
         this.shell.setLocation(x, y);
         this.shell.open();
+        
     }
 
     @objid ("bca27331-7279-463e-997c-4a390ad546d9")
@@ -302,6 +307,7 @@ public abstract class AbstractSwtWizardWindow extends Dialog {
                 }
             });
         }
+        
     }
 
     @objid ("8c469992-8416-428d-849f-0ea9d7787942")
@@ -310,6 +316,7 @@ public abstract class AbstractSwtWizardWindow extends Dialog {
         messageBox.setMessage(this.description);
         messageBox.setText(this.title);
         messageBox.open();
+        
     }
 
     @objid ("961cfe93-8b83-472a-8209-8d3dcaea1a58")
@@ -327,6 +334,7 @@ public abstract class AbstractSwtWizardWindow extends Dialog {
                 }
             });
         }
+        
     }
 
     @objid ("6bb85ce3-50ed-4094-bb7f-f7801e8dd76b")
@@ -353,6 +361,7 @@ public abstract class AbstractSwtWizardWindow extends Dialog {
                 }
             }
         });
+        
     }
 
     @objid ("10ca822f-154a-4d7b-b1c0-5c17cb6ff800")
@@ -367,6 +376,7 @@ public abstract class AbstractSwtWizardWindow extends Dialog {
                 AbstractSwtWizardWindow.this.shell.dispose();
             }
         });
+        
     }
 
     /**

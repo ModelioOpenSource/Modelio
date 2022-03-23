@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.gateways;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.bpmn.gateways.BpmnEventBasedGateway;
 import org.modelio.metamodel.bpmn.gateways.BpmnEventBasedGatewayType;
 import org.modelio.metamodel.bpmn.gateways.BpmnGateway;
-import org.modelio.metamodel.impl.bpmn.gateways.BpmnGatewaySmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -50,7 +49,7 @@ public class BpmnEventBasedGatewaySmClass extends BpmnGatewaySmClass {
     private SmAttribute eventGatewayTypeAtt;
 
     @objid ("27ae8c3e-8358-4d42-bb0b-e5bc838ff3f1")
-    public BpmnEventBasedGatewaySmClass(ISmMetamodelFragment origin) {
+    public  BpmnEventBasedGatewaySmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -58,6 +57,7 @@ public class BpmnEventBasedGatewaySmClass extends BpmnGatewaySmClass {
     @Override
     public String getName() {
         return "BpmnEventBasedGateway";
+        
     }
 
     @objid ("05d7529e-09d7-4534-ae0d-423db16ee7d1")
@@ -70,18 +70,21 @@ public class BpmnEventBasedGatewaySmClass extends BpmnGatewaySmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnEventBasedGateway.class;
+        
     }
 
     @objid ("d6cd64c7-a47b-4c36-9b6f-65f366e6852b")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("98751b25-4d37-4b56-8dd9-155cf5ba83e9")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("02064120-4c1a-482b-966b-4698cbee9112")
@@ -102,6 +105,7 @@ public class BpmnEventBasedGatewaySmClass extends BpmnGatewaySmClass {
         
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("ccdb45af-c6fc-459d-9eeb-bc7262d4fcb0")
@@ -126,7 +130,7 @@ public class BpmnEventBasedGatewaySmClass extends BpmnGatewaySmClass {
         private BpmnEventBasedGatewaySmClass smClass;
 
         @objid ("fad5538a-c6f8-4d15-88dc-47d260173819")
-        public BpmnEventBasedGatewayObjectFactory(BpmnEventBasedGatewaySmClass smClass) {
+        public  BpmnEventBasedGatewayObjectFactory(BpmnEventBasedGatewaySmClass smClass) {
             this.smClass = smClass;
         }
 

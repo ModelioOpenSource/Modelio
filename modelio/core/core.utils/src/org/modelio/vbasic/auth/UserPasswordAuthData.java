@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.auth;
 
 import java.util.HashMap;
@@ -48,23 +47,23 @@ public class UserPasswordAuthData extends AuthData {
      * Initialize an empty user/password.
      */
     @objid ("b6460a3b-438b-44f0-909d-7d8164e072a2")
-    public UserPasswordAuthData() {
+    public  UserPasswordAuthData() {
         super();
     }
 
     /**
      * Initialize the authentication data.
-     * 
      * @param user login name
      * @param pass password
      * @param store <code>true</code> to serialize the password, <code>false</code> to skip it from serialization.
      */
     @objid ("f8627f53-c4d0-44b4-ada5-a2bfc90a1e89")
-    public UserPasswordAuthData(String user, String pass, boolean store) {
+    public  UserPasswordAuthData(String user, String pass, boolean store) {
         super();
         getData().put(NAME, user);
         getData().put(PASS, pass);
         getData().put(SAVE, String.valueOf(store));
+        
     }
 
     /**
@@ -115,7 +114,6 @@ public class UserPasswordAuthData extends AuthData {
 
     /**
      * Set the password.
-     * 
      * @param pass the password.
      */
     @objid ("ddcd95a8-4dde-4910-90c0-7726c1523d96")
@@ -125,7 +123,6 @@ public class UserPasswordAuthData extends AuthData {
 
     /**
      * Set whether the password will be serialized.
-     * 
      * @param store <code>true</code> to store the password.
      */
     @objid ("f1eae90e-0a4e-471d-b892-01bc9b2212dc")
@@ -135,7 +132,6 @@ public class UserPasswordAuthData extends AuthData {
 
     /**
      * Set the login name.
-     * 
      * @param name the login
      */
     @objid ("cb0c7254-56d9-428a-8b44-e67fad629ac2")

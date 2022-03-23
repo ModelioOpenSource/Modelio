@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.informationconveyed;
 
 import java.util.Collections;
@@ -59,21 +58,21 @@ public class GmConveyedClassifierLabel extends GmDefaultModelElementLabel {
      * Empty constructor needed for (de-)serialization.
      */
     @objid ("34fb8aae-55b7-11e2-877f-002564c97630")
-    public GmConveyedClassifierLabel() {
+    public  GmConveyedClassifierLabel() {
         // Empty constructor needed for (de-)serialization.
     }
 
     /**
      * Default constructor.
-     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param el the represented element, may be <i>null</i>.
      * @param ref a reference to the represented element.
      */
     @objid ("34fb8ab1-55b7-11e2-877f-002564c97630")
-    public GmConveyedClassifierLabel(IGmDiagram diagram, Classifier el, MRef ref) {
+    public  GmConveyedClassifierLabel(IGmDiagram diagram, Classifier el, MRef ref) {
         super(diagram, ref);
         this.element = el;
+        
     }
 
     @objid ("34fd113a-55b7-11e2-877f-002564c97630")
@@ -131,6 +130,7 @@ public class GmConveyedClassifierLabel extends GmDefaultModelElementLabel {
                 break;
             }
         }
+        
     }
 
     @objid ("34fd116e-55b7-11e2-877f-002564c97630")
@@ -140,12 +140,14 @@ public class GmConveyedClassifierLabel extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmConveyedClassifierLabel.", MINOR_VERSION);
+        
     }
 
     @objid ("34fd1174-55b7-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (Classifier) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("34fd1179-55b7-11e2-877f-002564c97630")

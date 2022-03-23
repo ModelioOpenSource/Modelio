@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import java.util.List;
@@ -45,9 +44,10 @@ public class EInformationFlow extends ENamedElement {
     }
 
     @objid ("6c900606-27bb-4eac-920b-1c28bc33ddd7")
-    public EInformationFlow(org.eclipse.uml2.uml.InformationFlow element) {
+    public  EInformationFlow(org.eclipse.uml2.uml.InformationFlow element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("dc56e541-3384-4d5c-890b-bd36c2e41b56")
@@ -94,6 +94,7 @@ public class EInformationFlow extends ENamedElement {
                 objingElt.delete();
             }
         }
+        
     }
 
     @objid ("f5019d08-1027-4dc9-a8ec-7246a30e6a79")
@@ -107,6 +108,7 @@ public class EInformationFlow extends ENamedElement {
         setConveyed((InformationFlow)objingElt);
         setRealizingAssociation((InformationFlow)objingElt);
         checkSourceAndTarget((InformationFlow)objingElt);
+        
     }
 
     @objid ("e0c2559f-f9f4-4891-8b57-cdc4bd761b59")
@@ -117,6 +119,7 @@ public class EInformationFlow extends ENamedElement {
                 objingElt.getInformationSource().add((UmlModelElement)objingSource);
             }
         }
+        
     }
 
     @objid ("e393bc19-fbd4-4b50-80ec-94e0199bd5b6")
@@ -127,6 +130,7 @@ public class EInformationFlow extends ENamedElement {
                 objingElt.getInformationTarget().add((UmlModelElement)objingTarget);
             }
         }
+        
     }
 
     @objid ("c2285117-5f08-4cbe-8e05-821ba83eb73e")
@@ -136,6 +140,7 @@ public class EInformationFlow extends ENamedElement {
             if (objingMsg instanceof Message)
                 objingElt.getRealizingMessage().add((Message) objingMsg);
         }
+        
     }
 
     @objid ("15e2d9dd-9226-4fb3-bc91-6fd0741d51b4")
@@ -145,6 +150,7 @@ public class EInformationFlow extends ENamedElement {
             if (objingEdge instanceof ActivityEdge)
                 objingElt.getRealizingActivityEdge().add((ActivityEdge)objingEdge);
         }
+        
     }
 
     @objid ("6bdfdc96-12db-45d1-9a0e-5448f008ad52")
@@ -154,6 +160,7 @@ public class EInformationFlow extends ENamedElement {
             if (objingConveyed instanceof Classifier)
                 objingElt.getConveyed().add((Classifier)objingConveyed);
         }
+        
     }
 
     @objid ("0d7b22de-f4ca-4847-b953-b3e8694c50c4")
@@ -163,6 +170,7 @@ public class EInformationFlow extends ENamedElement {
             if (realization instanceof Association)
                 objingElt.setChannel(((Association)realization).getEnd().get(0));
         }
+        
     }
 
     @objid ("57c9149e-c598-4f01-bb9b-e7fbc2f817e3")
@@ -171,6 +179,7 @@ public class EInformationFlow extends ENamedElement {
         List<UmlModelElement> targets = objingElt.getInformationSource();
         if ((sources.size() == 0) || (targets.size() == 0))
             objingElt.delete();
+        
     }
 
 }

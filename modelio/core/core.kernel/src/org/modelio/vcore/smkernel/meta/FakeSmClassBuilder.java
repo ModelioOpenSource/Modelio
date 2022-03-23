@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta;
 
 import java.util.Objects;
@@ -52,7 +51,7 @@ public class FakeSmClassBuilder {
     private SmMetamodel mm;
 
     @objid ("42205f37-32ed-4794-8b0a-2291682e12dd")
-    protected FakeSmClassBuilder(SmMetamodel mm) {
+    protected  FakeSmClassBuilder(SmMetamodel mm) {
         this.mm = mm;
     }
 
@@ -71,7 +70,6 @@ public class FakeSmClassBuilder {
      * <p>
      * The qualified name must have be formated like "mm.fragment.metaclass name"
      * with the dot as separator.
-     * 
      * @param qualifiedName the metaclass qualified name
      * @return the receiver for further invocations
      */
@@ -87,7 +85,6 @@ public class FakeSmClassBuilder {
      * Set whether the metaclass is a CMS node.
      * <p>
      * By default it is not a CMS node.
-     * 
      * @param val whether the metaclass is a CMS node.
      * @return the receiver for further invocations
      */
@@ -99,9 +96,8 @@ public class FakeSmClassBuilder {
 
     /**
      * Create and register the metaclass in the metamodel.
-     * 
      * @return the built fake metaclass.
-     * @throws org.modelio.vcore.smkernel.mapi.MetaclassAlreadyExistException if the metaclass already exists.
+     * @throws MetaclassAlreadyExistException if the metaclass already exists.
      */
     @objid ("bcea2c5d-5e1a-4bb1-a05d-6f5dcfb031f6")
     public SmClass build() throws MetaclassAlreadyExistException {

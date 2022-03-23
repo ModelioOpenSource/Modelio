@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.gui.nattable;
 
 import java.util.Collections;
@@ -36,26 +35,26 @@ public class DefaultDocumentNatValue extends DefaultElementNatValue implements I
 
     /**
      * Creates a new instance.
-     * 
      * @param owner the owner of the {@link Document}.
      * @param value the wrapped value.
      * @param acceptNullValue whether or not <code>null</code> is a valid value for this field.
      */
     @objid ("0cc9d55f-9032-4818-9b29-a8431889f774")
-    public DefaultDocumentNatValue(ModelElement owner, Document value, boolean acceptNullValue) {
+    public  DefaultDocumentNatValue(ModelElement owner, Document value, boolean acceptNullValue) {
         super(value, acceptNullValue, Collections.singletonList(Document.class));
         this.owner = owner;
+        
     }
 
     /**
      * Copy constructor, creating a new instance with the same configuration as the other.
-     * 
      * @param anotherInstance the instance to copy.
      */
     @objid ("24e93b21-d8c3-4a9f-8689-ec795eadc4e1")
-    public DefaultDocumentNatValue(DefaultDocumentNatValue anotherInstance) {
+    public  DefaultDocumentNatValue(DefaultDocumentNatValue anotherInstance) {
         super(anotherInstance);
         this.owner = anotherInstance.owner;
+        
     }
 
     @objid ("3a13cb2f-bf0e-413d-b7ff-f9250a56e881")

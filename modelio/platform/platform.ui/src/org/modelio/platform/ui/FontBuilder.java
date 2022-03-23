@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.ui;
 
 import java.util.Objects;
@@ -66,12 +65,12 @@ public class FontBuilder {
      * if you intend to call {@link #build()}.
      */
     @objid ("fe80cf73-b936-40a9-92ab-47c019b67dc2")
-    public FontBuilder() {
+    public  FontBuilder() {
+        
     }
 
     /**
      * Add style bits to the font.
-     * 
      * @param styleToAdd the given style flags added (use SWT.NONE for no flags change)
      * @return this builder to chain calls.
      */
@@ -87,9 +86,8 @@ public class FontBuilder {
      * Build the font.
      * <p>
      * {@link #withAllocator(ResourceManager)} must have been called in order to work.
-     * 
      * @return the built font.
-     * @throws java.lang.IllegalStateException if {@link #withAllocator(ResourceManager)} has not been called.
+     * @throws IllegalStateException if {@link #withAllocator(ResourceManager)} has not been called.
      */
     @objid ("a0bea3ee-0a07-4457-8e12-cf83a2011821")
     public Font build() throws IllegalStateException {
@@ -100,7 +98,6 @@ public class FontBuilder {
 
     /**
      * Build and return a {@link FontDescriptor}.
-     * 
      * @return a JFace font descriptor.
      */
     @objid ("d46cce48-7eb0-4be8-85af-7946c61ca8b1")
@@ -136,7 +133,6 @@ public class FontBuilder {
      * Increase the font height by the given delta.
      * <p>
      * a negative delta will decrease font height.
-     * 
      * @param delta the delta to apply .
      * @return this builder to chain calls.
      */
@@ -150,7 +146,6 @@ public class FontBuilder {
 
     /**
      * Apply a custom modification on the stored font datas.
-     * 
      * @param modifier the modifier to apply
      * @return this builder to chain calls.
      */
@@ -162,7 +157,6 @@ public class FontBuilder {
 
     /**
      * remove style bits from the font.
-     * 
      * @param styleToRemove the given style flags added (use SWT.NONE for no flags change)
      * @return this builder to chain calls.
      */
@@ -178,7 +172,6 @@ public class FontBuilder {
      * Scale the font by the given factor.
      * <p>
      * Use {@link UIFont} constants and {@link UIFont#NORMAL_SIZE} for no size change)
-     * 
      * @param scaleFactor the font height scale factor.
      * @return this builder to chain calls.
      */

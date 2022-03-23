@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.interfaze;
 
 import java.util.Collections;
@@ -31,8 +30,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.view.ISymbolViewModel;
 import org.modelio.metamodel.uml.statik.BindableInstance;
 import org.modelio.metamodel.uml.statik.Interface;
@@ -65,7 +64,7 @@ public class GmInterface extends GmTemplateContainer {
     private static final InterfaceSimpleStyleKeys SIMPLE_KEYS = new InterfaceSimpleStyleKeys();
 
     @objid ("5ea2fbfd-5bd5-11e2-9e33-00137282c51b")
-     static final InterfaceStructuredStyleKeys STRUCTURED_KEYS = new InterfaceStructuredStyleKeys();
+    static final InterfaceStructuredStyleKeys STRUCTURED_KEYS = new InterfaceStructuredStyleKeys();
 
     @objid ("8bfa4bf8-19d6-418c-bfc2-078906775eb1")
     private static final InterfaceUserImageStyleKeys USERIMAGE_KEYS = new InterfaceUserImageStyleKeys();
@@ -77,19 +76,18 @@ public class GmInterface extends GmTemplateContainer {
      * Empty constructor needed for deserialization.
      */
     @objid ("35728f6a-55b7-11e2-877f-002564c97630")
-    public GmInterface() {
+    public  GmInterface() {
         // Nothing specific to do.
     }
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the class is unmasked.
      * @param el the unmasked class.
      * @param ref a reference to the unmasked class.
      */
     @objid ("357415f9-55b7-11e2-877f-002564c97630")
-    public GmInterface(IGmDiagram diagram, Interface el, MRef ref) {
+    public  GmInterface(IGmDiagram diagram, Interface el, MRef ref) {
         super(diagram, new GmInterfacePrimaryNode(diagram, ref), ref);
         
         this.element = el;
@@ -101,6 +99,7 @@ public class GmInterface extends GmTemplateContainer {
         interfaceLabel.setLayoutData(Integer.valueOf(PositionConstants.EAST));
         
         addChild(interfaceLabel);
+        
     }
 
     @objid ("35741605-55b7-11e2-877f-002564c97630")
@@ -165,6 +164,7 @@ public class GmInterface extends GmTemplateContainer {
         default:
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("3574163b-55b7-11e2-877f-002564c97630")
@@ -181,11 +181,11 @@ public class GmInterface extends GmTemplateContainer {
             liste.removeAll(getChildren(SATELLITE_ROLE));
             return liste;
         }
+        
     }
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -197,7 +197,6 @@ public class GmInterface extends GmTemplateContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -206,6 +205,7 @@ public class GmInterface extends GmTemplateContainer {
     public boolean isSatellite(final GmNodeModel childNode) {
         return GmPortContainer.SATELLITE_ROLE.equals(childNode.getRoleInComposition()) ||
                                         GmPortContainer.CONTENT_AS_SATELLITE_ROLE.equals(childNode.getRoleInComposition());
+        
     }
 
     @objid ("3574162e-55b7-11e2-877f-002564c97630")
@@ -225,6 +225,7 @@ public class GmInterface extends GmTemplateContainer {
             break;
         
         }
+        
     }
 
     @objid ("35759c9f-55b7-11e2-877f-002564c97630")
@@ -233,6 +234,7 @@ public class GmInterface extends GmTemplateContainer {
         super.refreshFromObModel();
         
         refreshPortsFromObModel();
+        
     }
 
     @objid ("35759ca8-55b7-11e2-877f-002564c97630")
@@ -242,6 +244,7 @@ public class GmInterface extends GmTemplateContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmInterface.", MINOR_VERSION);
+        
     }
 
     /**
@@ -256,6 +259,7 @@ public class GmInterface extends GmTemplateContainer {
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (Interface) resolveRef(getRepresentedRef());
+        
     }
 
     /**
@@ -273,6 +277,7 @@ public class GmInterface extends GmTemplateContainer {
             }
         
         }
+        
     }
 
     @objid ("b4750d59-4239-4e16-8328-c6ac21e96f63")

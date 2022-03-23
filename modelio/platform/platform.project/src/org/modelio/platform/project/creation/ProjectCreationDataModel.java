@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.project.creation;
 
 import java.nio.file.Path;
@@ -89,7 +88,7 @@ public class ProjectCreationDataModel implements IProjectCreationData {
      * Constructor.
      */
     @objid ("0046e11e-cc35-1ff2-a7f4-001ec947cd2a")
-    public ProjectCreationDataModel(final Path workspace) {
+    public  ProjectCreationDataModel(final Path workspace) {
         this.workspace = workspace;
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.clazz;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,30 +31,30 @@ import org.modelio.uml.statikdiagram.editor.style.StaticAbstractStyleKeyProvider
 @objid ("85732868-4cb2-46a8-8ec4-8ed1335add2b")
 public class GmClassUserImageStyleKeys extends StaticAbstractStyleKeyProvider {
     @objid ("a39bd671-c6c1-4c1a-9701-bab643215869")
-     static final StyleKey REPMODE = GmClassStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmClassStructuredStyleKeys.REPMODE;
 
     @objid ("dac88316-efd1-40cc-88b1-a7f1682b9cc1")
-     static final StyleKey FONT = GmClassStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmClassStructuredStyleKeys.FONT;
 
     @objid ("9ecb82d7-0e04-4a14-be72-2bcc0184ea08")
-     static final StyleKey TEXTCOLOR = GmClassStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmClassStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("83719a0a-e6f0-42d3-835f-2ca94cf13e27")
-     static final StyleKey SHOWNAME = GmClassStructuredStyleKeys.SHOWNAME;
+    static final StyleKey SHOWNAME = GmClassStructuredStyleKeys.SHOWNAME;
 
     @objid ("01bfdf0b-3e45-4901-906e-919a5d5b9b5d")
-     static final StyleKey SHOWSTEREOTYPES = GmClassStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmClassStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("2e496845-f5c8-4653-83c0-2b96148e66fe")
-     static final StyleKey SHOWTAGS = GmClassStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmClassStructuredStyleKeys.SHOWTAGS;
 
     @objid ("5a9a391d-d43a-4df1-87ac-eb1536d4b611")
-     static final StyleKey SHOWVISIBILITY = GmClassStructuredStyleKeys.SHOWVISIBILITY;
+    static final StyleKey SHOWVISIBILITY = GmClassStructuredStyleKeys.SHOWVISIBILITY;
 
     @objid ("a1e51b2c-0967-4377-bafa-772384a59bbc")
-     static final StyleKey FILLCOLOR = GmClassStructuredStyleKeys.FILLCOLOR;
+    static final StyleKey FILLCOLOR = GmClassStructuredStyleKeys.FILLCOLOR;
 
     @objid ("01180a59-9ae4-47fe-a9fd-ec75e5f2274d")
-     static final StyleKey SHOWPORTS = GmClassStructuredStyleKeys.SHOWPORTS;
+    static final StyleKey SHOWPORTS = GmClassStructuredStyleKeys.SHOWPORTS;
 
 }

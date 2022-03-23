@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
@@ -31,10 +31,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.behavior.activityModel.ExceptionHandlerSmClass;
 import org.modelio.metamodel.impl.uml.behavior.activityModel.ObjectNodeSmClass;
 import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.SignalSmClass;
-import org.modelio.metamodel.impl.uml.statik.AttributeSmClass;
-import org.modelio.metamodel.impl.uml.statik.ClassifierSmClass;
-import org.modelio.metamodel.impl.uml.statik.GeneralClassData;
-import org.modelio.metamodel.impl.uml.statik.ParameterSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.ExceptionHandler;
 import org.modelio.metamodel.uml.behavior.activityModel.ObjectNode;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Signal;
@@ -76,7 +72,7 @@ public class GeneralClassSmClass extends ClassifierSmClass {
     private SmDependency occurenceObjectNodeDep;
 
     @objid ("2f91a452-f59a-4d19-8570-1f6031c83a33")
-    public GeneralClassSmClass(ISmMetamodelFragment origin) {
+    public  GeneralClassSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -84,6 +80,7 @@ public class GeneralClassSmClass extends ClassifierSmClass {
     @Override
     public String getName() {
         return "GeneralClass";
+        
     }
 
     @objid ("835fff8e-9175-4aef-a3e3-cc622a87c2f1")
@@ -96,18 +93,21 @@ public class GeneralClassSmClass extends ClassifierSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return GeneralClass.class;
+        
     }
 
     @objid ("f512fc9e-32a1-4cce-b348-e38250c04984")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("276630a7-0238-47c3-a1f6-4fedf7b460ed")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("88f7abdc-dd51-4162-8361-c0cf19e8d052")
@@ -143,6 +143,8 @@ public class GeneralClassSmClass extends ClassifierSmClass {
         this.occurenceObjectNodeDep = new OccurenceObjectNodeSmDependency();
         this.occurenceObjectNodeDep.init("OccurenceObjectNode", this, metamodel.getMClass(ObjectNode.MQNAME), 0, -1 , SmDirective.SMCDDYNAMIC);
         registerDependency(this.occurenceObjectNodeDep);
+        
+        
     }
 
     @objid ("4bf32001-aa23-4dde-8a8d-7444704e8de7")
@@ -199,7 +201,7 @@ public class GeneralClassSmClass extends ClassifierSmClass {
         private GeneralClassSmClass smClass;
 
         @objid ("d8b373b0-29f4-4437-8781-35ea09b234d5")
-        public GeneralClassObjectFactory(GeneralClassSmClass smClass) {
+        public  GeneralClassObjectFactory(GeneralClassSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -246,6 +248,7 @@ public class GeneralClassSmClass extends ClassifierSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((GeneralClassData) data).mOccurence = values;
+            
         }
 
         @objid ("23069d21-08b7-4c4a-b9c7-92d8bd3c8a4f")
@@ -255,6 +258,7 @@ public class GeneralClassSmClass extends ClassifierSmClass {
             	this.symetricDep = ((ParameterSmClass)this.getTarget()).getTypeDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -283,6 +287,7 @@ public class GeneralClassSmClass extends ClassifierSmClass {
             	this.symetricDep = ((ExceptionHandlerSmClass)this.getTarget()).getExceptionTypeDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -302,6 +307,7 @@ public class GeneralClassSmClass extends ClassifierSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((GeneralClassData) data).mObject = values;
+            
         }
 
         @objid ("ecf29a23-6a69-4393-bf4c-a22a0af1613c")
@@ -311,6 +317,7 @@ public class GeneralClassSmClass extends ClassifierSmClass {
             	this.symetricDep = ((AttributeSmClass)this.getTarget()).getTypeDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -330,6 +337,7 @@ public class GeneralClassSmClass extends ClassifierSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((GeneralClassData) data).mSRepresentation = values;
+            
         }
 
         @objid ("f1f85716-1c26-4ad2-bf02-a7dba1501d08")
@@ -339,6 +347,7 @@ public class GeneralClassSmClass extends ClassifierSmClass {
             	this.symetricDep = ((SignalSmClass)this.getTarget()).getBaseDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -358,6 +367,7 @@ public class GeneralClassSmClass extends ClassifierSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((GeneralClassData) data).mOccurenceObjectNode = values;
+            
         }
 
         @objid ("cf8e8f2f-1af9-4447-a2d3-fd8548f09e84")
@@ -367,6 +377,7 @@ public class GeneralClassSmClass extends ClassifierSmClass {
             	this.symetricDep = ((ObjectNodeSmClass)this.getTarget()).getTypeDep();
             }
             return this.symetricDep;
+            
         }
 
     }

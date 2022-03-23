@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.acceptsignal;
 
 import java.util.Collections;
@@ -32,8 +31,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.AcceptSignalAction;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityAction;
 import org.modelio.metamodel.uml.behavior.activityModel.InputPin;
@@ -64,26 +63,25 @@ public class GmAcceptSignal extends GmPinContainer {
     private static final String IMAGE_LABEL_ROLE = "ImageLabel";
 
     @objid ("2f2be162-58a2-11e2-9574-002564c97630")
-     static final GmAcceptSignalStructuredStyleKeys STRUCTURED_KEYS = new GmAcceptSignalStructuredStyleKeys();
+    static final GmAcceptSignalStructuredStyleKeys STRUCTURED_KEYS = new GmAcceptSignalStructuredStyleKeys();
 
     @objid ("2f2be164-58a2-11e2-9574-002564c97630")
-     static final GmAcceptSignalSimpleStyleKeys SIMPLE_KEYS = new GmAcceptSignalSimpleStyleKeys();
+    static final GmAcceptSignalSimpleStyleKeys SIMPLE_KEYS = new GmAcceptSignalSimpleStyleKeys();
 
     @objid ("2f2be166-58a2-11e2-9574-002564c97630")
-     static final GmAcceptSignalImageStyleKeys IMAGE_KEYS = new GmAcceptSignalImageStyleKeys();
+    static final GmAcceptSignalImageStyleKeys IMAGE_KEYS = new GmAcceptSignalImageStyleKeys();
 
     @objid ("552d51e1-e819-456a-9504-dedae1ba17d1")
-     static final GmAcceptSignalUserImageStyleKeys USERIMAGE_KEYS = new GmAcceptSignalUserImageStyleKeys();
+    static final GmAcceptSignalUserImageStyleKeys USERIMAGE_KEYS = new GmAcceptSignalUserImageStyleKeys();
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the acceptSignal is unmasked.
      * @param el the unmasked acceptSignal.
      * @param ref a reference to the unmasked acceptSignal.
      */
     @objid ("29736201-55b6-11e2-877f-002564c97630")
-    public GmAcceptSignal(IGmDiagram diagram, AcceptSignalAction el, MRef ref) {
+    public  GmAcceptSignal(IGmDiagram diagram, AcceptSignalAction el, MRef ref) {
         super(diagram, ref);
         this.element = el;
         
@@ -96,6 +94,7 @@ public class GmAcceptSignal extends GmPinContainer {
         
         super.addChild(mainNode);
         super.addChild(imageModeHeader);
+        
     }
 
     @objid ("2973620d-55b6-11e2-877f-002564c97630")
@@ -110,6 +109,7 @@ public class GmAcceptSignal extends GmPinContainer {
         return ((InputPin.class.isAssignableFrom(el.getClass()) ||
                         ValuePin.class.isAssignableFrom(el.getClass()) || OutputPin.class.isAssignableFrom(el.getClass())) && el.getCompositionOwner()
                                 .equals(this.element));
+        
     }
 
     @objid ("2974e87f-55b6-11e2-877f-002564c97630")
@@ -156,7 +156,7 @@ public class GmAcceptSignal extends GmPinContainer {
      * Empty constructor needed for deserialisation.
      */
     @objid ("2974e892-55b6-11e2-877f-002564c97630")
-    public GmAcceptSignal() {
+    public  GmAcceptSignal() {
         // Nothing specific to do.
     }
 
@@ -181,6 +181,7 @@ public class GmAcceptSignal extends GmPinContainer {
             break;
         }
         }
+        
     }
 
     @objid ("2974e89b-55b6-11e2-877f-002564c97630")
@@ -202,6 +203,7 @@ public class GmAcceptSignal extends GmPinContainer {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmAcceptSignal.", GmAcceptSignal.MINOR_VERSION);
+        
     }
 
     @objid ("2974e8af-55b6-11e2-877f-002564c97630")
@@ -214,6 +216,7 @@ public class GmAcceptSignal extends GmPinContainer {
         imageModeHeader.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         
         super.addChild(imageModeHeader, 1);
+        
     }
 
     @objid ("2974e8b4-55b6-11e2-877f-002564c97630")
@@ -226,6 +229,7 @@ public class GmAcceptSignal extends GmPinContainer {
     private void read_1(final IDiagramReader in) {
         super.read(in);
         this.element = (AcceptSignalAction) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("29766f20-55b6-11e2-877f-002564c97630")
@@ -241,6 +245,7 @@ public class GmAcceptSignal extends GmPinContainer {
                 ret.remove(imageModeHeader);
                 break;
             }
+            case USER_IMAGE:
             case IMAGE:
             default: {
                 break;
@@ -253,7 +258,6 @@ public class GmAcceptSignal extends GmPinContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -263,11 +267,11 @@ public class GmAcceptSignal extends GmPinContainer {
         String role = childNode.getRoleInComposition();
         return GmPortContainer.SATELLITE_ROLE.equals(role)
                         || GmAcceptSignal.IMAGE_LABEL_ROLE.equals(role);
+        
     }
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */

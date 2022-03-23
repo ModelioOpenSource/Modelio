@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.editor;
 
 import java.util.List;
@@ -159,7 +158,7 @@ public class BpmnSharedImages implements ISharedImages {
     private ImageRegistry imageRegistry;
 
     @objid ("6075b807-55b6-11e2-877f-002564c97630")
-    public BpmnSharedImages() {
+    public  BpmnSharedImages() {
         initializeImageRegistry();
     }
 
@@ -434,6 +433,7 @@ public class BpmnSharedImages implements ISharedImages {
         
         image = ImageDescriptor.createFromURL(FileLocator.find(bundle, new Path(BpmnSharedImages.SMALL_IMAGES_SUBDIR + "activity_compensation12x12.png"), null));
         declareImage(BpmnSharedImages.COMPENSATION, image);
+        
     }
 
     @objid ("dc19f6e0-19bb-4727-95d0-f46392e065aa")
@@ -567,6 +567,7 @@ public class BpmnSharedImages implements ISharedImages {
         } else {
             return "";
         }
+        
     }
 
     @objid ("65e4ade4-c61a-46e0-a621-caa3e277514e")
@@ -585,7 +586,6 @@ public class BpmnSharedImages implements ISharedImages {
         /**
          * Compute a new image ref for a {@link MObject}, and store it.
          * @param model a gm model.
-         * 
          * @return <code>true</code> if the ref changed.
          */
         @objid ("ebc15923-2da1-4b81-9941-5ce06b52ebcc")
@@ -597,6 +597,7 @@ public class BpmnSharedImages implements ISharedImages {
             } else {
                 return false;
             }
+            
         }
 
     }

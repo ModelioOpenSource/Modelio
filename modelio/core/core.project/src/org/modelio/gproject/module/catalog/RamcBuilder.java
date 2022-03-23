@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.module.catalog;
 
 import java.io.IOException;
@@ -34,15 +33,15 @@ import java.util.Set;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Enumeration.Jxbv2Literal;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2ExternDocumentType;
+import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module;
+import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Profiles.Jxbv2Profile;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Profiles.Jxbv2Profile.Jxbv2MetaclassReference;
+import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Profiles.Jxbv2Profile.Jxbv2Stereotype;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Profiles.Jxbv2Profile.Jxbv2Stereotype.Jxbv2Icon;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Profiles.Jxbv2Profile.Jxbv2Stereotype.Jxbv2Image;
-import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Profiles.Jxbv2Profile.Jxbv2Stereotype;
-import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Profiles.Jxbv2Profile;
-import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2NoteType;
-import org.modelio.gproject.data.module.jaxbv2.Jxbv2PropertyDefinition.Jxbv2Parameter;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2PropertyDefinition;
+import org.modelio.gproject.data.module.jaxbv2.Jxbv2PropertyDefinition.Jxbv2Parameter;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2PropertyTableDefinition;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2PropertyType;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2StereotypeRef;
@@ -53,6 +52,7 @@ import org.modelio.gproject.gproject.GProjectCreator;
 import org.modelio.gproject.gproject.GProjectFactory;
 import org.modelio.gproject.ramc.core.model.ModelComponent;
 import org.modelio.gproject.ramc.core.packaging.IModelComponentContributor;
+import org.modelio.gproject.ramc.core.packaging.IModelComponentContributor.ExportedFileEntry;
 import org.modelio.gproject.ramc.core.packaging.RamcPackager;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.mda.ModuleParameter;
@@ -113,9 +113,10 @@ class RamcBuilder {
      * @param loadedModule the module JAXB model
      */
     @objid ("8e8bdc7f-7d4f-4d31-a8a4-57292f9848e7")
-    RamcBuilder(Collection<IGMetamodelExtension> metamodelExtensions, Jxbv2Module loadedModule) {
+     RamcBuilder(Collection<IGMetamodelExtension> metamodelExtensions, Jxbv2Module loadedModule) {
         this.metamodelExtensions = metamodelExtensions;
         this.loadedModule = loadedModule;
+        
     }
 
     /**
@@ -126,11 +127,10 @@ class RamcBuilder {
      * <li>package the model component containing this module</li>
      * <li>close the temporary project and delete it.</li>
      * </ol>
-     * 
      * @param ramcPath the path to package the ramc into.
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be reported and that the
      * operation cannot be cancelled.
-     * @throws java.io.IOException in case of failure
+     * @throws IOException in case of failure
      */
     @objid ("2c95c269-f37d-11e1-a3c7-002564c97630")
     public void createRamc(Path ramcPath, IModelioProgress monitor) throws IOException {
@@ -168,6 +168,7 @@ class RamcBuilder {
         } catch (IOException e) {
             Log.warning(e);
         }
+        
     }
 
     @objid ("a2ff7b65-45ed-4732-ad44-ce82cb54afe2")
@@ -292,6 +293,7 @@ class RamcBuilder {
             return ramcArtifact;
         
         }
+        
     }
 
     @objid ("560948bf-7c0d-490c-a1d3-2fc8ec0456d8")
@@ -337,6 +339,7 @@ class RamcBuilder {
         
             modelfactory.createPropertyDefinition(loadedPropertyDefinition, tableType, pType);
         }
+        
     }
 
     /**
@@ -355,15 +358,15 @@ class RamcBuilder {
 
         /**
          * Constructor.
-         * 
          * @param session the core modeling session.
          * @param repo the repository where elements will be created.
          */
         @objid ("2c915573-f37d-11e1-a3c7-002564c97630")
-        public ModelFactory(final ICoreSession session, IRepository repo) {
+        public  ModelFactory(final ICoreSession session, IRepository repo) {
             this.model = ((CoreSession) session).getSmFactory();
             this.repo = repo;
             this.metamodel = session.getMetamodel();
+            
         }
 
         @objid ("2c917c83-f37d-11e1-a3c7-002564c97630")
@@ -486,7 +489,6 @@ class RamcBuilder {
 
         /**
          * Create a module.
-         * 
          * @param loadedModule entry in .xml file
          * @return the created module.
          */
@@ -748,6 +750,7 @@ class RamcBuilder {
             descriptionNote.setMimeType("text/plain");
             // ModelerModule might not be deployed, reference description NoteType from its UUID
             descriptionNote.setModel(getObjectReference(NoteType.class, "00000000-0000-3e81-0000-000000000000", "description"));
+            
         }
 
         @objid ("f8e1ceb9-6cfa-4ef7-9670-c691a0cf1d0e")
@@ -761,6 +764,7 @@ class RamcBuilder {
                     element.getExtension().add(getStereotype(session, uuid));
                 }
             }
+            
         }
 
         @objid ("40fe22a3-0225-4281-bdb8-e51d7f0229aa")
@@ -794,7 +798,7 @@ class RamcBuilder {
         private CoreSession session;
 
         @objid ("af520571-5d01-4c8b-a0e7-289ac09e2c62")
-        public DescriptionContributor(CoreSession session) {
+        public  DescriptionContributor(CoreSession session) {
             this.session = session;
         }
 

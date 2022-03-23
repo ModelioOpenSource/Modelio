@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package com.sun.star.comp.beans;
 
 import java.io.IOException;
@@ -40,13 +39,13 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * timeout values (milli secs)
      */
     @objid ("768169f5-c1cb-4a8a-9337-addd55f97ba4")
-     int nOOoStartTimeOut = 60000;
+    int nOOoStartTimeOut = 60000;
 
     @objid ("0dc5e8c8-e7db-4da1-9bd6-9629219630f2")
-     int nOOoCallTimeOut = 3000;
+    int nOOoCallTimeOut = 3000;
 
     @objid ("8552a2a4-65c0-4d0e-91fa-df21c7ec9e78")
-     int nOOoCheckCycle = 1000;
+    int nOOoCheckCycle = 1000;
 
     /**
      * properties
@@ -117,7 +116,6 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
 
     /**
      * debugging method
-     * 
      * @param aMessage message to print
      */
     @objid ("e8e76374-865f-4d90-a44f-b6edc0a33aeb")
@@ -155,7 +153,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * Neither a connection is established nor any document loaded.
      */
     @objid ("1c00784c-5089-4b85-b7a8-905ece88b02f")
-    public AwtOOoBean() {
+    public  AwtOOoBean() {
         String libFileName = System.mapLibraryName("officebean");
         URL url = getClass().getClassLoader().getResource(libFileName);
         if (url == null) {
@@ -169,6 +167,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
             e2.initCause(e);
             throw e2;
         }
+        
     }
 
     /**
@@ -176,27 +175,26 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * Constructor for an OOoBean which uses a specific office connection.
      * 
      * The connection must be established but no document is loaded.
-     * 
      * @param iConnection a specific office connection.
-     * @throws com.sun.star.comp.beans.NoConnectionException if the connection is not established.
+     * @throws NoConnectionException if the connection is not established.
      * @deprecated Clients could use the getOOoConnection to obtain an OfficeConnection and use it as argument in a
      * constructor for another OOoBean instance. Calling the dispose method of the OfficeConnection or the
      * OOoBean's stopOOoConnection method would make all instances of OOoBean stop working.
      */
     @objid ("e04bcca3-1a70-4555-9f34-2b2c79fff2e8")
     @Deprecated
-    public AwtOOoBean(final OfficeConnection iConnection) throws NoConnectionException {
+    public  AwtOOoBean(final OfficeConnection iConnection) throws NoConnectionException {
         try {
             setOOoConnection(iConnection);
         } catch (HasConnectionException aExc) { /* impossible here */
         }
+        
     }
 
     /**
      * Sets the timeout for methods which launch OOo in milli seconds.
      * 
      * This method does not need a connection to an OOo instance.
-     * 
      * @param nMilliSecs the timeout
      */
     @objid ("d926496b-108b-4489-9af5-5bba0e788d4b")
@@ -208,7 +206,6 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * Sets the timeout for normal OOO methods calls in milli seconds.
      * 
      * This method does not need a connection to an OOo instance.
-     * 
      * @param nMilliSecs the timeout
      */
     @objid ("ccaca015-5883-4dc6-ba88-eadd5cf38171")
@@ -220,7 +217,6 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * Sets the period length in milli seconds to check the OOo connection.
      * 
      * This method does not need a connection to an OOo instance.
-     * 
      * @param nMilliSecs the timeout
      */
     @objid ("8d851c33-9e42-4847-bd11-fed11ecfaca8")
@@ -258,16 +254,16 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
             this.xConnectionListener.end();
         }
         this.xConnectionListener = this.new EventListener("setOOoConnection");
+        
     }
 
     /**
      * @requirement FUNC.CON.STRT/0.4
      * Starts a connection to an OOo instance which is launched if not running.
-     * 
      * @param aConnectionURL a connection URL
-     * @throws java.net.MalformedURLException if the URL is invalid.
-     * @throws com.sun.star.comp.beans.HasConnectionException if a connection was already established.
-     * @throws com.sun.star.comp.beans.NoConnectionException if the specified connection cannot be established
+     * @throws MalformedURLException if the URL is invalid.
+     * @throws HasConnectionException if a connection was already established.
+     * @throws NoConnectionException if the specified connection cannot be established
      */
     @objid ("ece2aa10-4ccb-403d-ab57-7c525189e171")
     public void startOOoConnection(final String aConnectionURL) throws MalformedURLException, HasConnectionException, NoConnectionException {
@@ -275,12 +271,12 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
         LocalOfficeConnection aConnection = new LocalOfficeConnection();
         aConnection.setUnoUrl(aConnectionURL);
         setOOoConnection(aConnection);
+        
     }
 
     /**
      * Returns true if this OOoBean is connected to an OOo instance, false otherwise.
      * @requirement FUNC.CON.CHK/0.7
-     * 
      * @return <code>true</code> if this OOoBean is connected to an OOo instance, false otherwise
      * @deprecated This method is not useful in a multithreaded environment. Then all threads accessing the instance
      * would have to be synchronized in order to make is method work. It is better to call OOoBean's methods
@@ -315,6 +311,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
             this.iConnection = null;
             iExConnection.dispose();
         }
+        
     }
 
     /**
@@ -328,9 +325,8 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * when calling {@link #stopOOoConnection()} or other API methods. If other instances share the same
      * connection then they will stop function properly, because they loose their connection as well. <br/>
      * The recommended way to end the connection is calling {@link #stopOOoConnection()}.
-     * 
      * @return a connection to an OOo instance.
-     * @throws com.sun.star.comp.beans.NoConnectionException if no connection can be established
+     * @throws NoConnectionException if no connection can be established
      * @requirement FUNC.CON.STOP/0.4 (via XComponent.dispose())
      * @requirement FUNC.CON.NTFY/0.4 (via XComponent.addEventListener())
      */
@@ -350,9 +346,8 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
 
     /**
      * Returns the service factory used by this OOoBean instance.
-     * 
      * @return the service factory used by this OOoBean instance.
-     * @throws com.sun.star.comp.beans.NoConnectionException if no connection is established and no default connection can be established.
+     * @throws NoConnectionException if no connection is established and no default connection can be established.
      */
     @objid ("3731d64f-7878-4a79-b912-a716297bb577")
     public synchronized com.sun.star.lang.XMultiServiceFactory getMultiServiceFactory() throws NoConnectionException {
@@ -386,9 +381,8 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
 
     /**
      * Returns the XDesktop interface of the OOo instance used by this OOoBean.
-     * 
      * @return the XDesktop interface
-     * @throws com.sun.star.comp.beans.NoConnectionException if no connection is established and no default connection can be established.
+     * @throws NoConnectionException if no connection is established and no default connection can be established.
      */
     @objid ("585ed468-b401-462e-8eae-c99a0abaedd4")
     public synchronized com.sun.star.frame.XDesktop getOOoDesktop() throws NoConnectionException {
@@ -408,7 +402,6 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * If a document is loaded and the content modified, the changes are dismissed. Otherwise nothing happens.
      * 
      * This method is intended to be overridden in derived classes. This implementation simply calls clear.
-     * 
      * @param bClearStateToo Not only the document content but also the state of the bean, like visibility of child components is
      * cleared.
      * @deprecated There is currently no way to dismiss changes, except for loading of the unchanged initial document.
@@ -423,6 +416,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
     public synchronized void clearDocument(final boolean bClearStateToo) {
         // TBD
         clear();
+        
     }
 
     /**
@@ -484,6 +478,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
         } finally {
             aCallWatchThread.cancel();
         }
+        
     }
 
     /**
@@ -500,9 +495,8 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * <p>
      * Another scenario is that a OOoBean contains a document and is removed from a Java container and later added
      * again. Then aquireSystemWindow needs to be called after the container window is displayed.
-     * 
-     * @throws com.sun.star.comp.beans.SystemWindowException if no system window can be aquired.
-     * @throws com.sun.star.comp.beans.NoConnectionException if the connection is not established.
+     * @throws SystemWindowException if no system window can be aquired.
+     * @throws NoConnectionException if the connection is not established.
      */
     @objid ("d9ec8b8c-77f9-4279-9f3d-c972dea9d146")
     public synchronized void aquireSystemWindow() throws SystemWindowException, NoConnectionException {
@@ -517,6 +511,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
             this.xFrameWindow.getAWTComponent().setVisible(true);
         }
         doLayout();
+        
     }
 
     /**
@@ -527,9 +522,8 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * OOoBean is removed from it's parent container.
      * @requirement FUNC.PAR.RWL/0.4
      * @estimation 16h
-     * 
-     * @throws com.sun.star.comp.beans.SystemWindowException if system window is not acquired.
-     * @throws com.sun.star.comp.beans.NoConnectionException if the connection is not established.
+     * @throws SystemWindowException if system window is not acquired.
+     * @throws NoConnectionException if the connection is not established.
      * @deprecated When {@link java.awt.Component#removeNotify() Component.removeNotify()} of the parent window of the actual office window is called, then the
      * actions are performed for which this method needed to be called previously.
      */
@@ -545,6 +539,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
         } catch (com.sun.star.lang.DisposedException aExc) {
             throw new NoConnectionException();
         }
+        
     }
 
     /**
@@ -556,16 +551,15 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * @throws com.sun.star.util.CloseVetoException
      * if the currently displayed document cannot be closed because it is still be used, for example it is
      * printed.
-     * 
      * @param aURL document URL
      * @param aArguments loading arguments
-     * @throws java.io.IOException if an IO error occurs reading the resource specified by the URL.
+     * @throws IOException if an IO error occurs reading the resource specified by the URL.
      * @requirement FUNC.BEAN.LOAD/0.4
      * @requirement FUNC.CON.AUTO/0.3
-     * @throws com.sun.star.comp.beans.NoConnectionException if no connection can be established.
+     * @throws NoConnectionException if no connection can be established.
      */
     @objid ("b47c3b76-fc91-44ed-a32b-4bcf8bdd7735")
-    public void loadFromURL(final String aURL, final com.sun.star.beans.PropertyValue[] aArguments) throws com.sun.star.util.CloseVetoException, IOException, NoConnectionException {
+    public void loadFromURL(final String aURL, final com.sun.star.beans.PropertyValue[] aArguments) throws IOException, NoConnectionException, com.sun.star.util.CloseVetoException {
         dbgPrint("loadFromURL()");
         // try loading
         try {
@@ -718,6 +712,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
         } catch (java.lang.InterruptedException aExc) {
             throw new NoConnectionException();
         }
+        
     }
 
     /**
@@ -725,14 +720,13 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * 
      * See loadFromURL() for further information.
      * @throws com.sun.star.util.CloseVetoException if the open document refused to close.
-     * 
      * @param iInStream input stream containing the document.
      * @param aArguments MediaDescriptor properties. see <a href="http://api.openoffice.org/docs/common/ref/com/sun/star/document/MediaDescriptor.html#CharacterSet">MediaDescriptor documentation</a>
-     * @throws java.io.IOException if an IO error occurs reading the resource.
-     * @throws com.sun.star.comp.beans.NoConnectionException if no connection is established.
+     * @throws IOException if an IO error occurs reading the resource.
+     * @throws NoConnectionException if no connection is established.
      */
     @objid ("bac526fd-75a4-4110-8a9f-372d4f82aa84")
-    public void loadFromStream(final java.io.InputStream iInStream, final com.sun.star.beans.PropertyValue[] aArguments) throws com.sun.star.util.CloseVetoException, IOException, NoConnectionException {
+    public void loadFromStream(final java.io.InputStream iInStream, final com.sun.star.beans.PropertyValue[] aArguments) throws IOException, NoConnectionException, com.sun.star.util.CloseVetoException {
         // wrap Java stream into UNO stream
         /*
          * com.sun.star.io.XInputStream xStream =
@@ -769,6 +763,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
         
         // call normal load method
         loadFromURL("private:stream", aExtendedArguments);
+        
     }
 
     /**
@@ -776,14 +771,13 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * 
      * See loadFromURL() for further information.
      * @throws com.sun.star.util.CloseVetoException if the open document refused to close.
-     * 
      * @param aInBuffer the buffer containing the document.
      * @param aArguments MediaDescriptor properties. see <a href="http://api.openoffice.org/docs/common/ref/com/sun/star/document/MediaDescriptor.html#CharacterSet">MediaDescriptor documentation</a>
-     * @throws java.io.IOException if an IO error occurs reading the resource.
-     * @throws com.sun.star.comp.beans.NoConnectionException if no connection is established.
+     * @throws IOException if an IO error occurs reading the resource.
+     * @throws NoConnectionException if no connection is established.
      */
     @objid ("0e039bfe-ecb2-435a-adc6-544ceeda26c0")
-    public void loadFromByteArray(final byte[] aInBuffer, final com.sun.star.beans.PropertyValue[] aArguments) throws com.sun.star.util.CloseVetoException, IOException, NoConnectionException {
+    public void loadFromByteArray(final byte[] aInBuffer, final com.sun.star.beans.PropertyValue[] aArguments) throws IOException, NoConnectionException, com.sun.star.util.CloseVetoException {
         // wrap byte arrray into UNO stream
         com.sun.star.io.XInputStream xStream = new com.sun.star.lib.uno.adapter.ByteArrayToXInputStreamAdapter(aInBuffer);
         
@@ -796,6 +790,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
         
         // call normal load method
         loadFromURL("private:stream", aExtendedArguments);
+        
     }
 
     /**
@@ -814,13 +809,12 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * 
      * It is planned to offer a way of specifying startup options in a future version. The property can be used until
      * then. When using this property only one option can be provided.
-     * 
      * @param aURL the destination
      * @param aArguments MediaDescriptor properties. see <a href="http://api.openoffice.org/docs/common/ref/com/sun/star/document/MediaDescriptor.html#CharacterSet">MediaDescriptor documentation</a>
-     * @throws java.lang.IllegalArgumentException if either of the arguments is out of the specified range.
-     * @throws java.io.IOException if an IO error occurs reading the resource specified by the URL.
-     * @throws com.sun.star.comp.beans.NoConnectionException if no connection is established.
-     * @throws com.sun.star.comp.beans.NoDocumentException if no document is loaded
+     * @throws IllegalArgumentException if either of the arguments is out of the specified range.
+     * @throws IOException if an IO error occurs reading the resource specified by the URL.
+     * @throws NoConnectionException if no connection is established.
+     * @throws NoDocumentException if no document is loaded
      */
     @objid ("9cd020f9-c18a-41d5-bc88-b7d6492bba0f")
     public void storeToURL(final String aURL, final com.sun.star.beans.PropertyValue[] aArguments) throws IllegalArgumentException, IOException, NoConnectionException, NoDocumentException {
@@ -845,6 +839,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
             // end runtime timeout
             aCallWatchThread.cancel();
         }
+        
     }
 
     /**
@@ -852,14 +847,13 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * 
      * See {@link #storeToURL storeToURL} for further information.
      * @see #storeToURL storeToURL
-     * 
      * @param aOutStream the destination stream.
      * @param aArguments arguments
      * @return the same output stream.
-     * @throws java.lang.IllegalArgumentException if either of the arguments is out of the specified range.
-     * @throws java.io.IOException if an IO error occurs reading the resource specified by the URL.
-     * @throws com.sun.star.comp.beans.NoConnectionException if no connection is established.
-     * @throws com.sun.star.comp.beans.NoDocumentException if no document is loaded
+     * @throws IllegalArgumentException if either of the arguments is out of the specified range.
+     * @throws IOException if an IO error occurs reading the resource specified by the URL.
+     * @throws NoConnectionException if no connection is established.
+     * @throws NoDocumentException if no document is loaded
      */
     @objid ("ab9755e8-59bd-47aa-b3fb-fcc08bd749c4")
     public java.io.OutputStream storeToStream(final java.io.OutputStream aOutStream, final com.sun.star.beans.PropertyValue[] aArguments) throws IllegalArgumentException, IOException, NoConnectionException, NoDocumentException {
@@ -892,14 +886,13 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * 
      * See {@link #storeToURL storeToURL} for further information.
      * @see #storeToURL storeToURL
-     * 
      * @param aOutBuffer the byte array.
      * @param aArguments some arguments
      * @return the buffer containing the saved document, should be 'aOutBuffer'.
-     * @throws java.lang.IllegalArgumentException if either of the arguments is out of the specified range.
-     * @throws java.io.IOException if an IO error occurs reading the resource specified by the URL.
-     * @throws com.sun.star.comp.beans.NoConnectionException if no connection is established.
-     * @throws com.sun.star.comp.beans.NoDocumentException if no document is loaded
+     * @throws IllegalArgumentException if either of the arguments is out of the specified range.
+     * @throws IOException if an IO error occurs reading the resource specified by the URL.
+     * @throws NoConnectionException if no connection is established.
+     * @throws NoDocumentException if no document is loaded
      */
     @objid ("33b0a3dc-b3a7-4387-b239-6fb79ad2d36d")
     public byte[] storeToByteArray(final byte[] aOutBuffer, final com.sun.star.beans.PropertyValue[] aArguments) throws IllegalArgumentException, IOException, NoConnectionException, NoDocumentException {
@@ -931,11 +924,10 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * @requirement FUNC.BEAN.PROG/0.5
      * @requirement API.SIM.SEAP/0.2
      * returns the <type scope="com::sun::star::frame">Frame</a> of the bean.
-     * 
      * @return a Java class which implements all interfaces which the service <type
      * scope="com::sun::star::frame">Frame</a> implements. Thus, methods can be called directly without
      * queryInterface. This feature might be implemented by UNO or explicitely coded.
-     * @throws com.sun.star.comp.beans.NoConnectionException if the connection is not established.
+     * @throws NoConnectionException if the connection is not established.
      */
     @objid ("b040f1be-d7ac-4816-909b-177a3bc5ad35")
     public Frame getFrame() throws NoConnectionException {
@@ -949,11 +941,10 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * @requirement FUNC.BEAN.PROG/0.5
      * @requirement API.SIM.SEAP/0.2
      * returns the <type scope="com::sun::star::frame::Controller"> of the bean.
-     * 
      * @return a Java class which implements all interfaces which the service &lt;type
      * scope="com::sun::star::frame">Controller&lt;/a> implements. Thus, methods can be called directly without
      * queryInterface. This feature might be implemented by UNO or explicitly coded.
-     * @throws com.sun.star.comp.beans.NoConnectionException if the connection is not established.
+     * @throws NoConnectionException if the connection is not established.
      */
     @objid ("659a991b-16df-4cd1-b4ec-39f1d070b7cd")
     public Controller getController() throws NoConnectionException {
@@ -972,11 +963,10 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * @requirement FUNC.BEAN.PRNT/0.4
      * @requirement API.SIM.SEAP/0.2
      * returns the <type scope="com::sun::star::document::OfficeDocument"> of the bean.
-     * 
      * @return a Java class which implements all interfaces which the service <type
      * scope="com::sun::star::document">OfficeDocument</a> implements. Thus, methods can be called directly
      * without queryInterface. This feature might be implemented by UNO or explicitely coded.
-     * @throws com.sun.star.comp.beans.NoConnectionException if the connection is not established.
+     * @throws NoConnectionException if the connection is not established.
      */
     @objid ("49f1156c-8573-44a9-8610-56e0e2529813")
     public OfficeDocument getDocument() throws NoConnectionException {
@@ -997,7 +987,6 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * <p>
      * If no connection is established or no document is loaded, the setting is memorized until a document is loaded.
      * Same is valid when the connection dies within this function call.
-     * 
      * @param bVisible the toolbars visibility
      * 
      * @deprecated Clients should use the service com.sun.star.frame.LayoutManager, which can be obtained from a frame,
@@ -1020,6 +1009,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
         setToolBarVisible(bVisible);
         setStatusBarVisible(bVisible);
         this.bIgnoreVisibility = false;
+        
     }
 
     /**
@@ -1037,6 +1027,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
         setToolBarVisible(this.bToolBarVisible);
         setStatusBarVisible(this.bStatusBarVisible);
         this.bIgnoreVisibility = false;
+        
     }
 
     /**
@@ -1044,10 +1035,9 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * @param aProperty
      * @param aResourceURL
      * @param bOldValue
-     * 
      * @param bNewValue If false, the tool bar is disabled, If true, the tool bar is visible.
      * @return
-     * @throws java.lang.InterruptedException @deprecated Clients should use the service com.sun.star.frame.LayoutManager, which can be obtained from a frame,
+     * @throws InterruptedException @deprecated Clients should use the service com.sun.star.frame.LayoutManager, which can be obtained from a frame,
      * to control toolbars. See also {@link #setAllBarsVisible}.
      */
     @objid ("abeada57-3942-4365-948e-244888aeb76d")
@@ -1094,7 +1084,6 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * <p>
      * If not connected or no document loaded, the value is stored and automatically applied to the document after it is
      * loaded. Same is valid when the connection dies within this function call.
-     * 
      * @param bVisible If false, the menu bar is disabled, If true, the menu bar is visible.
      * @deprecated Clients should use the service com.sun.star.frame.LayoutManager, which can be obtained from a frame,
      * to control toolbars. See also {@link #setAllBarsVisible}.
@@ -1110,6 +1099,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
         } catch (java.lang.InterruptedException aExc) {
             this.bMenuBarVisible = bVisible;
         }
+        
     }
 
     /**
@@ -1117,7 +1107,6 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * 
      * This method works independently from a connetion or loaded document. If no connection is established or no
      * document is loaded, this method just returns a memorized status.
-     * 
      * @return True if the menu bar is visible, false if the menu bar is hidden.
      * @deprecated Clients should use the service com.sun.star.frame.LayoutManager, which can be obtained from a frame,
      * to control toolbars. See also {@link #setAllBarsVisible}.
@@ -1135,7 +1124,6 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * 
      * If not connected or no document loaded, the value is stored and automatically applied to the document after it is
      * loaded. Same is valid when the connection dies within this function call.
-     * 
      * @param bVisible If false, the main function bar is disabled, If true, the main function bar is visible.
      * @deprecated Clients should use the service com.sun.star.frame.LayoutManager, which can be obtained from a frame,
      * to control toolbars. See also {@link #setAllBarsVisible}.
@@ -1151,6 +1139,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
         } catch (java.lang.InterruptedException aExc) {
             this.bMenuBarVisible = bVisible;
         }
+        
     }
 
     /**
@@ -1158,7 +1147,6 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * 
      * This method works independently from a connetion or loaded document. If no connection is established or no
      * document is loaded, this method just returns a memorized status.
-     * 
      * @return True if the main function bar is visible, false if the main function bar is hidden.
      * @deprecated Clients should use the service com.sun.star.frame.LayoutManager, which can be obtained from a frame,
      * to control toolbars. See also {@link #setAllBarsVisible}.
@@ -1176,7 +1164,6 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * 
      * If not connected or no document loaded, the value is stored and automatically applied to the document after it is
      * loaded. Same is valid when the connection dies within this function call.
-     * 
      * @param bVisible If false, the tool function bar is disabled, If true, the tool function bar is visible.
      * @deprecated Clients should use the service com.sun.star.frame.LayoutManager, which can be obtained from a frame,
      * to control toolbars. See also {@link #setAllBarsVisible}.
@@ -1192,6 +1179,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
         } catch (java.lang.InterruptedException aExc) {
             this.bMenuBarVisible = bVisible;
         }
+        
     }
 
     /**
@@ -1199,7 +1187,6 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * 
      * This method works independently from a connetion or loaded document. If no connection is established or no
      * document is loaded, this method just returns a memorized status.
-     * 
      * @return True if the tool function bar is visible, false if the tool function bar is hidden.
      * @deprecated Clients should use the service com.sun.star.frame.LayoutManager, which can be obtained from a frame,
      * to control toolbars. See also {@link #setAllBarsVisible}.
@@ -1217,7 +1204,6 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * 
      * If not connected or no document loaded, the value is stored and automatically applied to the document after it is
      * loaded. Same is valid when the connection dies within this function call.
-     * 
      * @param bVisible If false, the status function bar is disabled, If true, the status function bar is visible.
      * @deprecated Clients should use the service com.sun.star.frame.LayoutManager, which can be obtained from a frame,
      * to control toolbars. See also {@link #setAllBarsVisible}.
@@ -1233,6 +1219,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
         } catch (java.lang.InterruptedException aExc) {
             this.bMenuBarVisible = bVisible;
         }
+        
     }
 
     /**
@@ -1240,7 +1227,6 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * 
      * This method works independently from a connetion or loaded document. If no connection is established or no
      * document is loaded, this method just returns a memorized status.
-     * 
      * @return True if the status function bar is visible, false if the status function bar is hidden.
      * @deprecated Clients should use the service com.sun.star.frame.LayoutManager, which can be obtained from a frame,
      * to control toolbars. See also {@link #setAllBarsVisible}.
@@ -1254,6 +1240,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
     @objid ("465bb2b8-21f2-4cde-a614-aba0fea6e39f")
     @Override
     public void paint(final java.awt.Graphics aGraphics) {
+        
     }
 
     /**
@@ -1302,10 +1289,9 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
     /**
      * Creating a correct File URL that OpenOffice can handle. This is
      * necessary to be platform independent.
-     * 
      * @param newfile a file path
      * @return the OpenOffice compatible URL.
-     * @throws com.sun.star.comp.beans.NoConnectionException if not connected to OpenOffice
+     * @throws NoConnectionException if not connected to OpenOffice
      */
     @objid ("c98dfa1e-8694-4306-bf64-cbfa13bc2a18")
     public String createUNOFileURL(final java.io.File newfile) throws NoConnectionException {
@@ -1354,13 +1340,12 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
      * 
      * It is planned to offer a way of specifying startup options in a future version. The property can be used until
      * then. When using this property only one option can be provided.
-     * 
      * @param aURL the destination
      * @param aArguments MediaDescriptor properties. see <a href="http://api.openoffice.org/docs/common/ref/com/sun/star/document/MediaDescriptor.html#CharacterSet">MediaDescriptor documentation</a>
-     * @throws java.lang.IllegalArgumentException if either of the arguments is out of the specified range.
-     * @throws java.io.IOException if an IO error occurs reading the resource specified by the URL.
-     * @throws com.sun.star.comp.beans.NoConnectionException if no connection is established.
-     * @throws com.sun.star.comp.beans.NoDocumentException if no document is loaded
+     * @throws IllegalArgumentException if either of the arguments is out of the specified range.
+     * @throws IOException if an IO error occurs reading the resource specified by the URL.
+     * @throws NoConnectionException if no connection is established.
+     * @throws NoDocumentException if no document is loaded
      */
     @objid ("d18eb12c-7cfe-4c61-9896-fe5f00b7dc46")
     public void storeAsURL(final String aURL, final com.sun.star.beans.PropertyValue[] aArguments) throws IllegalArgumentException, IOException, NoConnectionException, NoDocumentException {
@@ -1387,13 +1372,13 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
             // end runtime timeout
             aCallWatchThread.cancel();
         }
+        
     }
 
     /**
      * Get the interaction handler able to handle some problems.
-     * 
      * @return the interaction handler
-     * @throws com.sun.star.comp.beans.NoConnectionException if the specified connection cannot be established
+     * @throws NoConnectionException if the specified connection cannot be established
      */
     @objid ("8ae53f38-8988-4d56-9e99-649bf8843ecf")
     public XInteractionHandler getInteractionHandler() throws NoConnectionException {
@@ -1418,11 +1403,10 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
 
     /**
      * Store the currently edited document.
-     * 
-     * @throws java.lang.IllegalArgumentException if either of the arguments is out of the specified range.
-     * @throws java.io.IOException if an IO error occurs reading the resource specified by the URL.
-     * @throws com.sun.star.comp.beans.NoConnectionException if no connection is established.
-     * @throws com.sun.star.comp.beans.NoDocumentException if no document is loaded
+     * @throws IllegalArgumentException if either of the arguments is out of the specified range.
+     * @throws IOException if an IO error occurs reading the resource specified by the URL.
+     * @throws NoConnectionException if no connection is established.
+     * @throws NoDocumentException if no document is loaded
      */
     @objid ("f1f04e9e-d6f7-4760-a14c-c87bba5e1cfc")
     public void store() throws IllegalArgumentException, IOException, NoConnectionException, NoDocumentException {
@@ -1445,12 +1429,12 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
             // end runtime timeout
             aCallWatchThread.cancel();
         }
+        
     }
-
-
 {
-        setLayout(new java.awt.BorderLayout());
-    }
+            setLayout(new java.awt.BorderLayout());
+        }
+    
     /**
      * ===========================================================================
      * Helper Classes
@@ -1462,11 +1446,11 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
     @objid ("7e34e713-be79-4bf8-971f-9d7db93e70d3")
     private class EventListener extends Thread implements com.sun.star.frame.XTerminateListener {
         @objid ("043ed3c0-5ba5-4876-8869-9e69b6837fe8")
-         String aTag;
+        String aTag;
 
         @objid ("2be0e0b6-aa4b-4e38-9c70-11fba8ae7603")
         @SuppressWarnings ("synthetic-access")
-        EventListener(final String aTag) throws NoConnectionException {
+         EventListener(final String aTag) throws NoConnectionException {
             // init members
             this.aTag = aTag;
             
@@ -1479,6 +1463,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
             // start this thread as a daemon
             setDaemon(true);
             start();
+            
         }
 
         @objid ("47ded82b-ddb7-4157-987b-b4443759d2d8")
@@ -1498,6 +1483,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
             
             // stop thread
             this.interrupt();
+            
         }
 
         /**
@@ -1508,6 +1494,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
         public void disposing(final com.sun.star.lang.EventObject Source) {
             // empty the OOoBean and cut the connection
             stopOOoConnection();
+            
         }
 
         /**
@@ -1518,6 +1505,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
         public void queryTermination(final com.sun.star.lang.EventObject Event) throws com.sun.star.frame.TerminationVetoException {
             // disallow termination of OOo while a OOoBean exists
             throw new com.sun.star.frame.TerminationVetoException();
+            
         }
 
         /**
@@ -1528,6 +1516,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
         public void notifyTermination(final com.sun.star.lang.EventObject Event) {
             // empty the OOoBean and cut the connection
             stopOOoConnection();
+            
         }
 
         /**
@@ -1578,6 +1567,7 @@ public class AwtOOoBean extends java.awt.Container implements java.io.Externaliz
                     break;
                 }
             }
+            
         }
 
     }

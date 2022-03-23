@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.editingsupport.text;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,7 @@ public class TextLabelProvider extends ColumnLabelProvider {
     private ColumnViewer viewer;
 
     @objid ("85b7a95f-1926-11e2-92d2-001ec947c8cc")
-    public TextLabelProvider(ColumnViewer viewer) {
+    public  TextLabelProvider(ColumnViewer viewer) {
         this.viewer = viewer;
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.control;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -60,7 +59,7 @@ public class RaisedExceptionThrownTypeChecker extends AbstractDependencyTypeChec
      * C'tor
      */
     @objid ("bf20913b-3d79-4983-8da7-7a0f5a9716fb")
-    public RaisedExceptionThrownTypeChecker(SmMetamodel mm) {
+    public  RaisedExceptionThrownTypeChecker(SmMetamodel mm) {
         // Cached SmClass
         this.enumerationID = mm.getMClass(Enumeration.class);
         this.templateParameterID = mm.getMClass(TemplateParameter.class);
@@ -75,6 +74,7 @@ public class RaisedExceptionThrownTypeChecker extends AbstractDependencyTypeChec
         // Symetric checker
         ClassifierThrowingChecker symetricChecker = new ClassifierThrowingChecker(this);
         symetricChecker.register(mm.getMClass(Classifier.class), "Throwing");
+        
     }
 
     @objid ("b3b12278-ec6f-11e1-91c5-002564c97630")
@@ -99,10 +99,10 @@ public class RaisedExceptionThrownTypeChecker extends AbstractDependencyTypeChec
     @objid ("b3b12284-ec6f-11e1-91c5-002564c97630")
     static class ClassifierThrowingChecker extends AbstractDependencyTypeChecker {
         @objid ("b3b12287-ec6f-11e1-91c5-002564c97630")
-         RaisedExceptionThrownTypeChecker symetricChecker;
+        RaisedExceptionThrownTypeChecker symetricChecker;
 
         @objid ("b3b2a898-ec6f-11e1-91c5-002564c97630")
-        public ClassifierThrowingChecker(RaisedExceptionThrownTypeChecker symetricChecker) {
+        public  ClassifierThrowingChecker(RaisedExceptionThrownTypeChecker symetricChecker) {
             this.symetricChecker = symetricChecker;
         }
 

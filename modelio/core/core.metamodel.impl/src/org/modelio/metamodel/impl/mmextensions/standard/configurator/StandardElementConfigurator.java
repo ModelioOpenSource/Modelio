@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.configurator;
 
 import java.util.ArrayList;
@@ -99,6 +98,7 @@ public class StandardElementConfigurator implements IElementConfigurator {
                 properties);
         
         element.accept(visitor);
+        
     }
 
     @objid ("c745700e-ddc0-4084-bc51-3a266176de0c")
@@ -110,9 +110,10 @@ public class StandardElementConfigurator implements IElementConfigurator {
         private Map<String, Object> properties;
 
         @objid ("79aec992-f3d8-4e18-8563-f55286b8601b")
-        public ElementConfiguratorVisitor(IStandardModelFactory modelFactory, Map<String, Object> properties) {
+        public  ElementConfiguratorVisitor(IStandardModelFactory modelFactory, Map<String, Object> properties) {
             this.modelFactory = modelFactory;
             this.properties = properties;
+            
         }
 
         @objid ("ba64da7f-0cf7-4000-b81d-b77c589b47e1")
@@ -291,6 +292,7 @@ public class StandardElementConfigurator implements IElementConfigurator {
         private void createEventType(BpmnEvent event, Class<? extends BpmnEventDefinition> eventType) {
             BpmnEventDefinition event_definition = this.modelFactory.createElement(eventType);
             event_definition.setDefined(event);
+            
         }
 
         @objid ("158e0a17-6309-4044-9fab-13a1adc3f8cf")
@@ -298,6 +300,7 @@ public class StandardElementConfigurator implements IElementConfigurator {
             for (BpmnEventDefinition definition : new ArrayList<>(event.getEventDefinitions())) {
                 definition.delete();
             }
+            
         }
 
         /**

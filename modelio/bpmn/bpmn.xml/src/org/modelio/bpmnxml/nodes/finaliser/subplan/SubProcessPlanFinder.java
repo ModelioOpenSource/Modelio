@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.finaliser.subplan;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import javax.xml.bind.JAXBElement;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.xml.bind.JAXBElement;
 import org.modelio.bpmnxml.model.BPMNEdge;
 import org.modelio.bpmnxml.model.BPMNPlane;
 import org.modelio.bpmnxml.model.BPMNShape;
@@ -48,7 +47,7 @@ public class SubProcessPlanFinder {
     private Map<String, Object> elementsMap;
 
     @objid ("3cf91bb9-2a53-490c-a4b0-b1aab8e83e28")
-    public SubProcessPlanFinder(Map<String, Object> elementsMap) {
+    public  SubProcessPlanFinder(Map<String, Object> elementsMap) {
         this.elementsMap = elementsMap;
     }
 
@@ -59,15 +58,17 @@ public class SubProcessPlanFinder {
         for (JAXBElement<? extends DiagramElement> jaxDiag : new ArrayList<>(plane.getDiagramElement())) {
             if (jaxDiag.getValue() instanceof BPMNShape) {
                 BPMNShape jaxShape = (BPMNShape) jaxDiag.getValue();
-                MObject modelioNode = (MObject) this.elementsMap.get(jaxShape.getBpmnElement().getLocalPart());
-                if (modelioNode instanceof BpmnCallActivity && (Called.getTarget((BpmnCallActivity) modelioNode) != null) || modelioNode instanceof BpmnSubProcess) {
+                if(jaxShape.getBpmnElement() != null) {
+                    MObject modelioNode = (MObject) this.elementsMap.get(jaxShape.getBpmnElement().getLocalPart());
+                    if (modelioNode instanceof BpmnCallActivity && (Called.getTarget((BpmnCallActivity) modelioNode) != null) || modelioNode instanceof BpmnSubProcess) {
         
-                    // Find Diagram
-                    SubProcessActivityPlan ct = new SubProcessActivityPlan(findDiagram((ModelElement) modelioNode), jaxShape.getBounds());
+                        // Find Diagram
+                        SubProcessActivityPlan ct = new SubProcessActivityPlan(findDiagram((ModelElement) modelioNode), jaxShape.getBounds());
         
-                    // Find Node contained in Call activity and add it into the CallActivity plan
-                    extractNodesFromPlan(jaxShape.getBounds(), plane, ct);
-                    callActivities.add(ct);
+                        // Find Node contained in Call activity and add it into the CallActivity plan
+                        extractNodesFromPlan(jaxShape.getBounds(), plane, ct);
+                        callActivities.add(ct);
+                    }
                 }
             }
         }
@@ -116,6 +117,7 @@ public class SubProcessPlanFinder {
                 }
             }
         }
+        
     }
 
     @objid ("4e7b6ece-5539-4851-9796-ba8ffb2b1799")

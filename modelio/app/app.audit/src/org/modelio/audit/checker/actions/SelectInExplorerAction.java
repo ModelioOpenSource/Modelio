@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.checker.actions;
 
 import java.util.List;
@@ -44,11 +43,12 @@ public class SelectInExplorerAction extends Action {
     private IModelioNavigationService navigationService;
 
     @objid ("56f082dd-d319-48b7-a644-5f17d8ffc582")
-    public SelectInExplorerAction(IModelioNavigationService navigationService, TreeViewer tree) {
+    public  SelectInExplorerAction(IModelioNavigationService navigationService, TreeViewer tree) {
         this.tree = tree;
         this.navigationService = navigationService;
         setText(Audit.I18N.getString("Audit.CheckerView.Contextual.Select"));
         setImageDescriptor(UI.getImageDescriptor("icons/selectinbrowser.png"));
+        
     }
 
     @objid ("311ea849-b554-4e21-97fa-4d565a3f239e")
@@ -59,6 +59,7 @@ public class SelectInExplorerAction extends Action {
         if (!elements.isEmpty()) {
             this.navigationService.fireNavigate(elements);
         }
+        
     }
 
     @objid ("c843b139-b3b4-45f0-b152-2da7f03e0a36")

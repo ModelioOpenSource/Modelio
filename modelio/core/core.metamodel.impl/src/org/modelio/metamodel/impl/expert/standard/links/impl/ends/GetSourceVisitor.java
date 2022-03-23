@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.expert.standard.links.impl.ends;
 
 import java.util.List;
@@ -71,13 +70,14 @@ public class GetSourceVisitor extends DefaultModelVisitor {
      * Constructor
      */
     @objid ("5971b6f6-8c09-4667-a999-39fb59f16ac8")
-    public GetSourceVisitor() {
+    public  GetSourceVisitor() {
         super(new DefaultInfrastructureVisitor() {
             @Override
             public Object visitDependency(Dependency theDependency) {
                 return theDependency.getImpacted();
             }
         });
+        
     }
 
     @objid ("b156ccf1-398e-4a20-9ff1-0273576a5ddf")
@@ -95,6 +95,7 @@ public class GetSourceVisitor extends DefaultModelVisitor {
         } else {
             return visitAssociationEnd(ends.get(0));
         }
+        
     }
 
     @objid ("c518cd1b-9d65-4c16-b940-459d28db1777")
@@ -105,6 +106,7 @@ public class GetSourceVisitor extends DefaultModelVisitor {
         } else {
             return theAssociationEnd.getOpposite().getTarget();
         }
+        
     }
 
     @objid ("98c1c3e9-bc60-4cbd-abaa-f194cb2d514b")
@@ -132,6 +134,7 @@ public class GetSourceVisitor extends DefaultModelVisitor {
         } else {
             return null;
         }
+        
     }
 
     @objid ("ba8541d5-3d84-42ba-bb81-bebf05276b5f")
@@ -173,6 +176,7 @@ public class GetSourceVisitor extends DefaultModelVisitor {
         } else {
             return visitConnectorEnd((ConnectorEnd) ends.get(0));
         }
+        
     }
 
     @objid ("0bc5758a-6107-443f-85df-62836f6ef6ad")
@@ -220,6 +224,7 @@ public class GetSourceVisitor extends DefaultModelVisitor {
         } else {
             throw new UnsupportedOperationException(theInformationFlow + " has " + ret.size() + " sources.");
         }
+        
     }
 
     @objid ("2fef2ca6-c8a6-4fc9-acba-237f581b6c30")
@@ -237,6 +242,7 @@ public class GetSourceVisitor extends DefaultModelVisitor {
         } else {
             return visitLinkEnd(ends.get(0));
         }
+        
     }
 
     @objid ("fb672aa8-ea60-43b9-a3de-392b066012cd")
@@ -247,6 +253,7 @@ public class GetSourceVisitor extends DefaultModelVisitor {
         } else {
             return theLinkEnd.getOpposite().getTarget();
         }
+        
     }
 
     @objid ("88f642fe-5fe4-4caf-b4a7-c3ab0b4eef60")

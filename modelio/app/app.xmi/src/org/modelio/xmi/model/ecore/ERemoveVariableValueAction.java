@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class ERemoveVariableValueAction extends EActivityNode {
     }
 
     @objid ("bd4146b6-3877-4ae0-b866-bd6c0029c05e")
-    public ERemoveVariableValueAction(org.eclipse.uml2.uml.RemoveVariableValueAction element) {
+    public  ERemoveVariableValueAction(org.eclipse.uml2.uml.RemoveVariableValueAction element) {
         super(element);
     }
 

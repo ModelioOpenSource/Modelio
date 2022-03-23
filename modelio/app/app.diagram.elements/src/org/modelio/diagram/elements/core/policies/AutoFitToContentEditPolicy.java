@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.policies;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -26,6 +25,7 @@ import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.GraphicalEditPolicy;
 import org.modelio.diagram.elements.core.commands.FitToContentCommand;
+import org.modelio.diagram.elements.core.requests.RequestTypes;
 
 /**
  * The host will try to resizes itself to fits its content when a child node is added, removed or changed.
@@ -53,24 +53,17 @@ public class AutoFitToContentEditPolicy extends GraphicalEditPolicy {
     public Command getCommand(final Request request) {
         final Object reqType = request.getType();
         
-        if (REQ_ADD.equals(reqType)) {
-            return getFitCommand();
-        }
-        
-        if (REQ_ORPHAN_CHILDREN.equals(reqType)) {
-            return getFitCommand();
-        }
-        
-        if (REQ_MOVE_CHILDREN.equals(reqType)) {
-            return getFitCommand();
-        }
-        
-        if (REQ_RESIZE_CHILDREN.equals(reqType)) {
-            return getFitCommand();
-        }
-        
-        if (REQ_CREATE.equals(reqType)) {
-            return getFitCommand();
+        if (reqType instanceof String) {
+            switch ((String)reqType) {
+            case REQ_ADD:
+            case REQ_ORPHAN_CHILDREN:
+            case RequestTypes.REQ_DELETING_CHILDREN:
+            case REQ_MOVE_CHILDREN:
+            case REQ_RESIZE_CHILDREN:
+            case REQ_CREATE:
+                return getFitCommand();
+            default:
+            }
         }
         return null;
     }
@@ -85,9 +78,10 @@ public class AutoFitToContentEditPolicy extends GraphicalEditPolicy {
      * @param fitVertical whether to fit vertically
      */
     @objid ("8a371f8b-c41a-45d0-a97e-2a7ed48541c3")
-    public AutoFitToContentEditPolicy(boolean fitHorizontal, boolean fitVertical) {
+    public  AutoFitToContentEditPolicy(boolean fitHorizontal, boolean fitVertical) {
         this.fitHorizontal = fitHorizontal;
         this.fitVertical = fitVertical;
+        
     }
 
 }

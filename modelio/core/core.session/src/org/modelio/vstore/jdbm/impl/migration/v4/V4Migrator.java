@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.jdbm.impl.migration.v4;
 
 import java.io.ByteArrayOutputStream;
@@ -79,11 +78,12 @@ public class V4Migrator {
      * @param metamodel the metamodel to use for migration. Must match the old database format.
      */
     @objid ("e71e343d-afe8-4a8e-ab14-7de82e1e092b")
-    public V4Migrator(File dbPath, String dbName, SmMetamodel metamodel) {
+    public  V4Migrator(File dbPath, String dbName, SmMetamodel metamodel) {
         this.oldDbPath = dbPath;
         this.dbName = dbName;
         this.metamodel = metamodel;
         this.newDbTempPath = new File (dbPath.getParentFile(), "tmp_new");
+        
     }
 
     @objid ("44aae9a5-3d46-40b3-8b16-5ba4e21c6042")
@@ -100,6 +100,7 @@ public class V4Migrator {
             monitor.subTask(VCoreSession.I18N.getMessage("jdbm.V4Migrator.ResetAbortedMigration", this.dbName));
             FileUtils.delete(this.newDbTempPath);
         }
+        
     }
 
     @objid ("4de59346-b039-4855-8df4-66ded85344d2")
@@ -112,6 +113,7 @@ public class V4Migrator {
         StringTable stringTable = new StringTable(this.newDb, "table_String");
         JdbmIndex indexes = new JdbmIndex(this.newDb, stringTable);
         this.v4Transcoder = new V4Transcoder(this.metamodel, indexes);
+        
     }
 
     @objid ("7c6f7297-4bb8-4022-8982-a4108a914138")
@@ -131,6 +133,7 @@ public class V4Migrator {
         
         Log.trace("JDBM migration successful.");
         monitor.done();
+        
     }
 
     /**
@@ -164,6 +167,7 @@ public class V4Migrator {
             Log.trace(" JDBM migration: delete old database in '%s' temp place...", oldDbTmpPath);
             FileUtils.delete(oldDbTmpPath);
         }
+        
     }
 
     @objid ("8e52353b-bf5b-4b05-b820-385e20587e5b")
@@ -230,6 +234,7 @@ public class V4Migrator {
         mon.subTask(VCoreSession.I18N.getMessage("jdbm.V4Migrator.Converting.finish", this.dbName, i));
         this.newDb.commit();
         mon.worked(1);
+        
     }
 
     /**
@@ -266,6 +271,7 @@ public class V4Migrator {
             if (err != null) {
                 throw err;
             }
+            
         }
 
     }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.lifeline;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,19 +30,19 @@ import org.modelio.uml.sequencediagram.editor.style.SequenceAbstractStyleKeyProv
 @objid ("d93d84ed-55b6-11e2-877f-002564c97630")
 public class GmLifelineImageStyleKeys extends SequenceAbstractStyleKeyProvider {
     @objid ("4f92f0ec-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("LIFELINE_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("LIFELINE_REPMODE", MetaKey.REPMODE);
 
     @objid ("4f92f0ee-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("LIFELINE_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("LIFELINE_FONT", MetaKey.FONT);
 
     @objid ("4f92f0f0-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("LIFELINE_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("LIFELINE_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("4f92f0f2-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("LIFELINE_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("LIFELINE_SHOWSTEREOTYPES",
+                MetaKey.SHOWSTEREOTYPES);
 
     @objid ("4f92f0f4-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("LIFELINE_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("LIFELINE_SHOWTAGS", MetaKey.SHOWTAGS);
 
 }

@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
 
 import java.util.List;
@@ -32,13 +32,13 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("00718aa4-ec87-1098-b22e-001ec947cd2a")
 public class EnumeratedPropertyTypeData extends PropertyTypeData {
     @objid ("5584ea93-b9cd-481c-9689-e63031b41e3c")
-     List<SmObjectImpl> mLitteral = null;
+    List<SmObjectImpl> mLitteral = null;
 
     @objid ("4318f5f2-bbd4-449c-9f53-2a2d34974bf0")
-     List<SmObjectImpl> mOccurenceConfigParam = null;
+    List<SmObjectImpl> mOccurenceConfigParam = null;
 
     @objid ("be006dda-2a8e-4208-aa4d-055dbfdc842b")
-    public EnumeratedPropertyTypeData(EnumeratedPropertyTypeSmClass smClass) {
+    public  EnumeratedPropertyTypeData(EnumeratedPropertyTypeSmClass smClass) {
         super(smClass);
     }
 

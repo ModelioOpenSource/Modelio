@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.treetable.file;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,10 +42,11 @@ public class FileCellEditor extends EditableDialogCellEditor {
     private String[] filterExtensions;
 
     @objid ("e061b9b3-8dd1-42f2-bdf1-661b95299d7b")
-    public FileCellEditor(Composite parent, String[] filterNames, String[] filterExtensions) {
+    public  FileCellEditor(Composite parent, String[] filterNames, String[] filterExtensions) {
         super(parent);
         this.filterNames = filterNames;
         this.filterExtensions = filterExtensions;
+        
     }
 
     @objid ("70d2adc3-04bb-43a6-ae38-1f25b42409aa")
@@ -78,6 +78,7 @@ public class FileCellEditor extends EditableDialogCellEditor {
     protected void configureText(Composite parent, Text text) {
         super.configureText(parent, text);
         text.setEditable(true);
+        
     }
 
 }

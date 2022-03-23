@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.objectnode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -69,6 +68,7 @@ public class ObjectNodeEditPart extends AbstractNodeEditPart {
         if (!switchRepresentationMode()) {
             super.refreshFromStyle(aFigure, style);
         }
+        
     }
 
     @objid ("2add0432-55b6-11e2-877f-002564c97630")
@@ -79,6 +79,7 @@ public class ObjectNodeEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                 new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     /**
@@ -91,6 +92,7 @@ public class ObjectNodeEditPart extends AbstractNodeEditPart {
         IFigure fig = getFigure();
         GmAbstractObject objectNodeModel = getModel();
         fig.getParent().setConstraint(fig, objectNodeModel.getLayoutData());
+        
     }
 
     @objid ("2ade8a9b-55b6-11e2-877f-002564c97630")
@@ -106,6 +108,7 @@ public class ObjectNodeEditPart extends AbstractNodeEditPart {
         }
         
         getFigure().add(child, gmAbstractObject.getLayoutData(), index);
+        
     }
 
     @objid ("2ade8aa0-55b6-11e2-877f-002564c97630")

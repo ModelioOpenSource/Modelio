@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.partition;
 
 import java.util.List;
@@ -28,8 +27,8 @@ import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityEdge;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityNode;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityPartition;
@@ -49,7 +48,7 @@ public class GmPartition extends GmCompositeNode {
      * The represented partition.
      */
     @objid ("2afd844d-55b6-11e2-877f-002564c97630")
-     ActivityPartition element;
+    ActivityPartition element;
 
     /**
      * The orientation of this container.
@@ -83,19 +82,19 @@ public class GmPartition extends GmCompositeNode {
 
     /**
      * Default constructor.
-     * 
      * @param diagram the diagram in which this partition will be unmasked.
      * @param thePartition the unmasked partition (can be null).
      * @param ref a reference to the unmasked partition (cannot be null).
      */
     @objid ("2afdf97d-55b6-11e2-877f-002564c97630")
-    public GmPartition(IGmDiagram diagram, ActivityPartition thePartition, MRef ref) {
+    public  GmPartition(IGmDiagram diagram, ActivityPartition thePartition, MRef ref) {
         super(diagram, ref);
         this.element = thePartition;
         this.header = new GmPartitionHeader(diagram, ref);
         this.body = new GmBodyHybridContainer(diagram, ref);
         super.addChild(this.header);
         super.addChild(this.body);
+        
     }
 
     @objid ("2afe479c-55b6-11e2-877f-002564c97630")
@@ -142,7 +141,7 @@ public class GmPartition extends GmCompositeNode {
      * Empty constructor needed for serialisation.
      */
     @objid ("2aff8019-55b6-11e2-877f-002564c97630")
-    public GmPartition() {
+    public  GmPartition() {
         // Nothing to do.
     }
 
@@ -163,6 +162,7 @@ public class GmPartition extends GmCompositeNode {
             break;
         }
         }
+        
     }
 
     /**
@@ -179,7 +179,6 @@ public class GmPartition extends GmCompositeNode {
      * This method should return true only if it is consistent to display the given metaclass elements inside this graphic element.
      * <p>
      * <b>eg:</b> IAttributes can be displayed in a GmClass .
-     * 
      * @param type The metaclass to unmask.
      * @return true only if it is consistent to display elements of the given metaclass inside this graphic element, false in the other cases.
      */
@@ -207,11 +206,11 @@ public class GmPartition extends GmCompositeNode {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmPartition.", GmPartition.MINOR_VERSION);
+        
     }
 
     /**
      * Return whether this partition is vertical (header above body) or horizontal (header left of body).
-     * 
      * @return whether this partition is vertical (header above body) or horizontal (header left of body).
      */
     @objid ("2b00dfae-55b6-11e2-877f-002564c97630")
@@ -221,7 +220,6 @@ public class GmPartition extends GmCompositeNode {
 
     /**
      * Sets whether this partition is vertical (header above body) or horizontal (header left of body).
-     * 
      * @param vertical true if this partition must be vertical (header above body), false if it must be horizontal (header left of body).
      */
     @objid ("2b0106bc-55b6-11e2-877f-002564c97630")
@@ -234,6 +232,7 @@ public class GmPartition extends GmCompositeNode {
         super.removeChild(this.body);
         super.addChild(this.header);
         super.addChild(this.body);
+        
     }
 
     @objid ("2b012dca-55b6-11e2-877f-002564c97630")
@@ -255,6 +254,7 @@ public class GmPartition extends GmCompositeNode {
         this.body = (GmPartitionContainer) this.getChildren().get(1);
         this.element = (ActivityPartition) resolveRef(this.getRepresentedRef());
         this.vertical = ((Boolean) in.readProperty("isVertical")).booleanValue();
+        
     }
 
     @objid ("2b01a2fb-55b6-11e2-877f-002564c97630")

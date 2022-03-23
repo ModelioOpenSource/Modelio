@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.module.commands;
 
 import java.util.HashMap;
 import java.util.Map;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.commands.EHandlerService;
 import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
@@ -68,11 +67,11 @@ public class ModuleCommandsRegistry {
     static void execute(IEclipseContext context) {
         // Create instance and put it in the context.
         context.set(ModuleCommandsRegistry.class, ContextInjectionFactory.make(ModuleCommandsRegistry.class, context));
+        
     }
 
     /**
      * Returns the {@link MCommand} with the given ID, creating it in not found in the application.
-     * 
      * @param commandId ID of the requested command.
      * @return the MCommand with the given ID.
      */
@@ -119,7 +118,6 @@ public class ModuleCommandsRegistry {
      * Returns the {@link MCommand} corresponding to the given module/action pair, creating it in not found in the application.
      * @param commandId
      * ID of the requested command.
-     * 
      * @return the MCommand corresponding to the given module/action pair.
      */
     @objid ("4f5c55e8-1449-11e2-a678-001ec947c8cc")
@@ -142,6 +140,7 @@ public class ModuleCommandsRegistry {
                 createAndActivateHandler(command, module, action);
             }
         }
+        
     }
 
     @objid ("4f5eb83a-1449-11e2-a678-001ec947c8cc")
@@ -159,6 +158,7 @@ public class ModuleCommandsRegistry {
                 removeCommand(command);
             }
         }
+        
     }
 
     @objid ("4f5eb83f-1449-11e2-a678-001ec947c8cc")
@@ -194,6 +194,7 @@ public class ModuleCommandsRegistry {
             handlerToRemove.setCommand(null);
             handlerToRemove.setObject(null);
         }
+        
     }
 
     @objid ("6446ee97-144c-11e2-a678-001ec947c8cc")
@@ -205,6 +206,7 @@ public class ModuleCommandsRegistry {
         if (command.getTags().contains(MODULE_COMMAND_TAG)) {
             application.getCommands().remove(command);
         }
+        
     }
 
 }

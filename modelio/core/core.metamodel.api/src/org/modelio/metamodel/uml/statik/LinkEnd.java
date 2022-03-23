@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.uml.statik;
 
 import java.util.List;
@@ -30,11 +30,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
 import org.modelio.metamodel.uml.informationFlow.InformationFlow;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
-import org.modelio.metamodel.uml.statik.AssociationEnd;
-import org.modelio.metamodel.uml.statik.Instance;
-import org.modelio.metamodel.uml.statik.Link;
-import org.modelio.metamodel.uml.statik.ProvidedInterface;
-import org.modelio.metamodel.uml.statik.RequiredInterface;
 
 /**
  * LinkEnd v0.0.9054
@@ -81,7 +76,6 @@ public interface LinkEnd extends UmlModelElement {
      * <li>BOTHSIDES: current source must be equals to opposite target as well as current target and opposite source.</li>
      * <li>NONE: both sources must be filled, but no target</li>
      * </ul>
-     * 
      * @param value whether or not to synchronize the other end and both source/target values. This end will be made navigable whatever the current navigability is.
      */
     @objid ("50d3075c-1fcb-4a03-a648-16729171986f")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.ghostnode;
 
 import java.util.ArrayList;
@@ -72,6 +71,7 @@ public class GhostNodeEditPart extends AbstractNodeEditPart {
     protected void createEditPolicies() {
         installEditPolicy(EditPolicy.COMPONENT_ROLE, new DefaultDeleteNodeEditPolicy());
         installEditPolicy(EditPolicy.NODE_ROLE, new DefaultCreateLinkEditPolicy());
+        
     }
 
     @objid ("7e48acc9-1dec-11e2-8cad-001ec947c8cc")
@@ -106,6 +106,7 @@ public class GhostNodeEditPart extends AbstractNodeEditPart {
         aFigure.setMetaclassName("<<" + cause + model.getGhostMetaclass() + ">>");
         aFigure.setName(model.getGhostLabel());
         aFigure.setId(model.getGhostId());
+        
     }
 
     @objid ("7e4b0f0f-1dec-11e2-8cad-001ec947c8cc")
@@ -166,6 +167,7 @@ public class GhostNodeEditPart extends AbstractNodeEditPart {
                 registerAsPropertyChangeListenerOf(child);
             }
         }
+        
     }
 
     @objid ("7e4b0f3c-1dec-11e2-8cad-001ec947c8cc")
@@ -176,6 +178,7 @@ public class GhostNodeEditPart extends AbstractNodeEditPart {
                 registerAsPropertyChangeListenerOf(child);
             }
         }
+        
     }
 
     @objid ("7e4b0f3f-1dec-11e2-8cad-001ec947c8cc")
@@ -187,6 +190,7 @@ public class GhostNodeEditPart extends AbstractNodeEditPart {
                 unregisterAsPropertyChangeListenerOf(child);
             }
         }
+        
     }
 
     @objid ("7e4b0f42-1dec-11e2-8cad-001ec947c8cc")
@@ -197,6 +201,7 @@ public class GhostNodeEditPart extends AbstractNodeEditPart {
                 unregisterAsPropertyChangeListenerOf(child);
             }
         }
+        
     }
 
     /**

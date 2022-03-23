@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.gmdbg;
 
 import java.util.Map.Entry;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 @objid ("ae0b204d-5a0c-472a-9a97-f38b443670dd")
-class XEntry implements Entry<String,String> {
+class XEntry implements Entry<String, String> {
     @objid ("ca452d16-c226-44ee-b79e-8d4a7f857ab5")
     private String k;
 
@@ -32,9 +31,10 @@ class XEntry implements Entry<String,String> {
     private String v;
 
     @objid ("02af05cd-3858-46d6-a594-3ede48341f56")
-    public XEntry(String k, String v) {
+    public  XEntry(String k, String v) {
         this.k = k;
         this.v = v;
+        
     }
 
     @objid ("f1cd59d9-3aa8-4777-aece-3fa3a4fa44d8")

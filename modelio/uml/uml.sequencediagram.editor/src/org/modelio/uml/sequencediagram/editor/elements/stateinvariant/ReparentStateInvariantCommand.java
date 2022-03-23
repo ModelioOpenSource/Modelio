@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.stateinvariant;
 
 import java.util.List;
@@ -57,19 +56,19 @@ public class ReparentStateInvariantCommand extends Command {
 
     /**
      * Default C'tor.
-     * 
      * @param newParent the composite node that will be the new parent of the reparented node.
      * @param reparentedChild the reparented node.
      * @param startTime the new "time" of the StateInvariant.
      * @param finishTime the new "end time" of the StateInvariant
      */
     @objid ("d99a98fd-55b6-11e2-877f-002564c97630")
-    public ReparentStateInvariantCommand(GmCompositeNode newParent, GmStateInvariant reparentedChild, final int startTime, final int finishTime) {
+    public  ReparentStateInvariantCommand(GmCompositeNode newParent, GmStateInvariant reparentedChild, final int startTime, final int finishTime) {
         super();
         this.newParentNode = newParent;
         this.reparentedChild = reparentedChild;
         this.startTime = startTime;
         this.finishTime = finishTime;
+        
     }
 
     @objid ("d99a9908-55b6-11e2-877f-002564c97630")
@@ -92,6 +91,7 @@ public class ReparentStateInvariantCommand extends Command {
         return sameParentInObModel
                         || (newParent.getStatus().isModifiable() && mm.getMExpert().canCompose(newParent, childElement,
                                 ((SmObjectImpl) childElement).getCompositionRelation().dep.getName()));
+        
     }
 
     @objid ("d99a990d-55b6-11e2-877f-002564c97630")
@@ -137,6 +137,7 @@ public class ReparentStateInvariantCommand extends Command {
         StateInvariant stateInvariant = this.reparentedChild.getRelatedElement();
         stateInvariant.setLineNumber(this.startTime);
         stateInvariant.setEndLineNumber(this.finishTime);
+        
     }
 
 }

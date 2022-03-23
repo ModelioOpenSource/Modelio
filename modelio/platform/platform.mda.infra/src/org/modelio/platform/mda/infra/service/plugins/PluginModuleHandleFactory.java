@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.plugins;
 
 import java.io.IOException;
@@ -43,7 +42,7 @@ public class PluginModuleHandleFactory {
     private final Collection<IGMetamodelExtension> metamodelFragments;
 
     @objid ("dbe7b448-3536-4074-88f8-c35baca0248b")
-    public PluginModuleHandleFactory(Collection<IGMetamodelExtension> metamodelFragments) {
+    public  PluginModuleHandleFactory(Collection<IGMetamodelExtension> metamodelFragments) {
         this.metamodelFragments = metamodelFragments;
     }
 

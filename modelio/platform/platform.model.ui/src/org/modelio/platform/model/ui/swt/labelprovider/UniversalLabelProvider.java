@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.labelprovider;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,7 +45,7 @@ public class UniversalLabelProvider extends BrowserLabelProvider {
      * Default c'tor.
      */
     @objid ("a41fd1d2-305e-47b4-9c70-6369e61d3a41")
-    public UniversalLabelProvider() {
+    public  UniversalLabelProvider() {
         super();
         
         IExtensionRegistry registry = RegistryFactory.getRegistry();
@@ -56,6 +55,7 @@ public class UniversalLabelProvider extends BrowserLabelProvider {
         
         IConfigurationElement[] cfels = registry.getConfigurationElementsFor(LABEL_PROVIDER_EXTENSION_POINT);
         addExtensionElements(cfels);
+        
     }
 
     /**
@@ -65,7 +65,6 @@ public class UniversalLabelProvider extends BrowserLabelProvider {
      * <li>a "metamodel" string attribute
      * <li>a "implementation" string attribute representing a java class accessible by the declaring plugin.
      * </ul>
-     * 
      * @param configurationElements the {@link IConfigurationElement} at the root of the matched plugin extensions.
      */
     @objid ("44d3d12b-1757-4282-afba-e323d233f90e")
@@ -86,12 +85,12 @@ public class UniversalLabelProvider extends BrowserLabelProvider {
                 CoreUi.LOG.error(e);
             }
         }
+        
     }
 
     /**
      * Unregister the services that were registered with {@link #addExtensionElements(IConfigurationElement[])}.
      * @see #addExtensionElements(IConfigurationElement[])
-     * 
      * @param configurationElements the configuration elements to remove.
      */
     @objid ("477bf3d3-fc26-411c-8242-e6d96c4abc6d")
@@ -104,6 +103,7 @@ public class UniversalLabelProvider extends BrowserLabelProvider {
                 }
             }
         }
+        
     }
 
     @objid ("8aaa7301-7192-4138-b37b-7a53fd4206df")
@@ -113,12 +113,13 @@ public class UniversalLabelProvider extends BrowserLabelProvider {
         if (registry != null) {
             registry.removeListener(this.listener);
         }
+        
     }
 
     @objid ("d3126c96-94eb-4dd6-a935-ee400c3a2783")
     private class MmServicesListener implements IRegistryEventListener {
         @objid ("2827cae4-cf6c-4aeb-94ab-b4479e54cba8")
-        public MmServicesListener() {
+        public  MmServicesListener() {
             // Empty
         }
 
@@ -129,6 +130,7 @@ public class UniversalLabelProvider extends BrowserLabelProvider {
                 IConfigurationElement[] configurationElements = extension.getConfigurationElements();
                 addExtensionElements(configurationElements);
             }
+            
         }
 
         @objid ("47038afb-4bba-4fdf-b41d-db4a156a2f81")
@@ -138,6 +140,7 @@ public class UniversalLabelProvider extends BrowserLabelProvider {
                 IConfigurationElement[] configurationElements = extension.getConfigurationElements();
                 removeExtensionElements(configurationElements);
             }
+            
         }
 
         @objid ("d566e4b8-79ac-4bcc-b6ee-71dee5152367")

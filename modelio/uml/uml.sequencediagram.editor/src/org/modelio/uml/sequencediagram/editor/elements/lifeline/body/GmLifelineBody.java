@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.lifeline.body;
 
 import java.util.ArrayList;
@@ -58,20 +57,20 @@ public class GmLifelineBody extends GmNoStyleCompositeNode {
      * Empty c'tor for deserialisation.
      */
     @objid ("d92cbbe3-55b6-11e2-877f-002564c97630")
-    public GmLifelineBody() {
+    public  GmLifelineBody() {
         super();
     }
 
     /**
      * Default c'tor.
-     * 
      * @param diagram the diagram into which this gm is created.
      * @param relatedRef a reference to the element this gm is related to.
      */
     @objid ("d92cbbe6-55b6-11e2-877f-002564c97630")
-    public GmLifelineBody(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmLifelineBody(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
         // refreshFromObModel();
+        
     }
 
     @objid ("d92cbbf1-55b6-11e2-877f-002564c97630")
@@ -96,6 +95,7 @@ public class GmLifelineBody extends GmNoStyleCompositeNode {
         } else {
             return null;
         }
+        
     }
 
     @objid ("d92cbc0d-55b6-11e2-877f-002564c97630")
@@ -153,6 +153,7 @@ public class GmLifelineBody extends GmNoStyleCompositeNode {
                 getDiagram().refreshAllFromObModel();
             }
         }
+        
     }
 
     @objid ("d92e4279-55b6-11e2-877f-002564c97630")
@@ -195,6 +196,7 @@ public class GmLifelineBody extends GmNoStyleCompositeNode {
             break;
         }
         }
+        
     }
 
     @objid ("d92e4292-55b6-11e2-877f-002564c97630")
@@ -204,6 +206,7 @@ public class GmLifelineBody extends GmNoStyleCompositeNode {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmLifelineBody.", GmLifelineBody.MINOR_VERSION);
+        
     }
 
     @objid ("d92e4298-55b6-11e2-877f-002564c97630")

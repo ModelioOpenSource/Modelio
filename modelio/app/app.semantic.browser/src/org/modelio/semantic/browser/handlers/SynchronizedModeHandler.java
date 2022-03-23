@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.semantic.browser.handlers;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,6 +34,7 @@ public class SynchronizedModeHandler {
     public void execute(MPart part, MHandledToolItem item) {
         SemanticBrowserView view = (SemanticBrowserView)part.getObject();
         view.getSemanticBrowser().setSynchronizedSelectionMode(item.isSelected());
+        
     }
 
     @objid ("50450bb2-a340-40ef-a1f0-bc36e248ab0b")

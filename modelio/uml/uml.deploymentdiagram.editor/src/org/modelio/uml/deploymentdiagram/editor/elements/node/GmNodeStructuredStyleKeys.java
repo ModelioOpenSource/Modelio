@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.deploymentdiagram.editor.elements.node;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,76 +39,76 @@ public class GmNodeStructuredStyleKeys extends DeploymentAbstractStyleKeyProvide
      * Representation mode.
      */
     @objid ("1cd60ccb-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("NODE_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("NODE_REPMODE", MetaKey.REPMODE);
 
     /**
      * Fill color.
      */
     @objid ("1cd60cce-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("NODE_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("NODE_FILLCOLOR", MetaKey.FILLCOLOR);
 
     /**
      * Fill mode.
      */
     @objid ("1cd60cd1-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("NODE_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("NODE_FILLMODE", MetaKey.FILLMODE);
 
     /**
      * Line color.
      */
     @objid ("1cd60cd4-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("NODE_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("NODE_LINECOLOR", MetaKey.LINECOLOR);
 
     /**
      * Line width.
      */
     @objid ("1cd7934b-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("NODE_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("NODE_LINEWIDTH", MetaKey.LINEWIDTH);
 
     /**
      * Text font.
      */
     @objid ("1cd7934e-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("NODE_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("NODE_FONT", MetaKey.FONT);
 
     /**
      * Text color.
      */
     @objid ("1cd79351-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("NODE_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("NODE_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     /**
      * Name display mode : {@link MetaKey#SHOWNAME}.
      */
     @objid ("1cd79354-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWNAME = createStyleKey("NODE_SHOWNAME", MetaKey.SHOWNAME);
+    static final StyleKey SHOWNAME = createStyleKey("NODE_SHOWNAME", MetaKey.SHOWNAME);
 
     /**
      * Display stereotypes.
      */
     @objid ("1cd79357-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("NODE_SHOWSTEREOTYPES", MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("NODE_SHOWSTEREOTYPES", MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Display tagged values.
      */
     @objid ("1cd7935a-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("NODE_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("NODE_SHOWTAGS", MetaKey.SHOWTAGS);
 
     /**
      * Filter on features
      */
     @objid ("1cd79363-55c2-11e2-9337-002564c97630")
-     static final StyleKey FEATURES = createStyleKey("NODE_FEATURES", MetaKey.VISIBILITYFILTER);
+    static final StyleKey FEATURES = createStyleKey("NODE_FEATURES", MetaKey.VISIBILITYFILTER);
 
     @objid ("1cd79369-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWPORTS = createStyleKey("NODE_SHOWPORTS", MetaKey.AUTOSHOWPORTS);
+    static final StyleKey SHOWPORTS = createStyleKey("NODE_SHOWPORTS", MetaKey.AUTOSHOWPORTS);
 
     /**
      * Display visibility : {@link MetaKey#SHOWVISIBILITY}.
      */
     @objid ("3ec9fcf7-6c3b-4564-888b-12fe4caa001a")
-     static final StyleKey SHOWVISIBILITY = createStyleKey("NODE_SHOWVISIBILITY", MetaKey.SHOWVISIBILITY);
+    static final StyleKey SHOWVISIBILITY = createStyleKey("NODE_SHOWVISIBILITY", MetaKey.SHOWVISIBILITY);
 
     @objid ("c83a426b-573c-4c09-bcd3-121686c431bf")
     public static final ClassifierInnerGroupKeys Inner = new ClassifierInnerGroupKeys("NODE");

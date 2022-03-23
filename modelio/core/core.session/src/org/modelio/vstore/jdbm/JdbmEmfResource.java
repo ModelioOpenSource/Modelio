@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.jdbm;
 
 import java.io.IOException;
@@ -44,7 +43,7 @@ class JdbmEmfResource implements Resource {
     private JdbmRepository repo;
 
     @objid ("54ec8e31-da47-413e-ab14-ba71865c83f5")
-    public JdbmEmfResource(JdbmRepository repository) {
+    public  JdbmEmfResource(JdbmRepository repository) {
         this.repo = repository;
     }
 
@@ -66,6 +65,7 @@ class JdbmEmfResource implements Resource {
         if (deliver == true) {
             throw new UnsupportedOperationException();
         }
+        
     }
 
     @objid ("e986bc6c-0d18-4c17-bae3-3d88de1f947e")
@@ -145,25 +145,25 @@ class JdbmEmfResource implements Resource {
 
     @objid ("5e180217-a13c-4283-be31-ed8963d3919d")
     @Override
-    public void save(Map<?,?> options) throws IOException {
+    public void save(Map<?, ?> options) throws IOException {
         this.repo.save((IModelioProgress) options.get(IModelioProgress.class));
     }
 
     @objid ("f713b457-0164-439b-8480-d88b1c967462")
     @Override
-    public void load(Map<?,?> options) throws IOException {
+    public void load(Map<?, ?> options) throws IOException {
         // Do nothing, loading is automatic.
     }
 
     @objid ("c99b290e-07e1-4d79-85cf-6b96ae267fd7")
     @Override
-    public void save(OutputStream outputStream, Map<?,?> options) throws IOException {
+    public void save(OutputStream outputStream, Map<?, ?> options) throws IOException {
         throw new UnsupportedOperationException("'Save as' is not supported.");
     }
 
     @objid ("00c99b2b-a587-4c27-819e-741a315661ba")
     @Override
-    public void load(InputStream inputStream, Map<?,?> options) throws IOException {
+    public void load(InputStream inputStream, Map<?, ?> options) throws IOException {
         throw new UnsupportedOperationException("'Load from' is not supported.");
     }
 
@@ -206,7 +206,7 @@ class JdbmEmfResource implements Resource {
 
     @objid ("01d9376e-b8b5-4f2c-9073-fa23bdba8c4f")
     @Override
-    public void delete(Map<?,?> options) throws IOException {
+    public void delete(Map<?, ?> options) throws IOException {
         // nothing to do
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.viewer.model;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -74,13 +73,13 @@ public class NatTableViewerCompleteContext implements INatTableViewerContext {
 
     /**
      * Initialize with an eclipse context.
-     * 
      * @param context an eclipse context to get Modelio services from.
      */
     @objid ("a3696daa-3790-4a00-8ab4-2867afd5473c")
-    public NatTableViewerCompleteContext(IEclipseContext context) {
+    public  NatTableViewerCompleteContext(IEclipseContext context) {
         super();
         this.context = context;
+        
     }
 
     @objid ("25a62bec-23f7-41a8-8b93-9ec39b932ea7")

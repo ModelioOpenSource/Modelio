@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.model.factory;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,7 +38,6 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IGmNodeFactory {
     /**
      * Unmask an element under a composite graphic node.
-     * 
      * @param diagram the diagram the gm node is created into.
      * @param parentNode the graphic node in which the element must be displayed
      * @param elementToUnmask The element to unmask
@@ -54,7 +52,6 @@ public interface IGmNodeFactory {
      * <p>
      * Implementers should use this method when a Gm class is moved or renamed in order for the diagram persistence to properly instantiate persisted objects.
      * </p>
-     * 
      * @param namespace The class name
      * @return The matching class or <i>null</i> if none was found.
      */
@@ -66,7 +63,6 @@ public interface IGmNodeFactory {
      * <p>
      * Implementers should use this method when a Gm class is moved or renamed in order for the diagram persistence to properly instantiate these objects.
      * </p>
-     * 
      * @param namespace The class name
      * @return The matching class or <i>null</i> if none was found.
      */
@@ -78,7 +74,6 @@ public interface IGmNodeFactory {
      * <p>
      * Implementers should use this method when an enumeration class is moved or renamed in order for the diagram persistence to properly instantiate these objects.
      * </p>
-     * 
      * @param namespace The class name
      * @return The matching class or <i>null</i> if none was found.
      */

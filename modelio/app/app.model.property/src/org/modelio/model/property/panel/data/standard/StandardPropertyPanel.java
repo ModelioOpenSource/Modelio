@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel.data.standard;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -60,14 +59,14 @@ public class StandardPropertyPanel implements IPropertyPanel {
 
     /**
      * Create a new instance of the standard property panel.
-     * 
      * @param parent the SWT parent.
      * @param editedElement the element currently edited.
      */
     @objid ("163c9216-6cca-436d-adf1-96a144243fb3")
-    public StandardPropertyPanel(final Composite parent, final MObject editedElement) {
+    public  StandardPropertyPanel(final Composite parent, final MObject editedElement) {
         this.editedElement = editedElement;
         createGUI(parent);
+        
     }
 
     @objid ("2d7ca699-50d9-4e5d-8299-1f8f22258e34")
@@ -79,6 +78,7 @@ public class StandardPropertyPanel implements IPropertyPanel {
         
         // Create the nattable
         this.tableViewer = new PropertyNatTableViewer(this.comp);
+        
     }
 
     @objid ("531a5b33-3f05-47d9-a804-845a3c3a7782")
@@ -109,6 +109,7 @@ public class StandardPropertyPanel implements IPropertyPanel {
             this.tableViewer.refresh();
             this.comp.redraw();
         }
+        
     }
 
     @objid ("60319d83-3bd1-45cc-abd6-3fccdd318679")
@@ -126,6 +127,7 @@ public class StandardPropertyPanel implements IPropertyPanel {
         
         this.tableViewer.setContext(newInput.getContext());
         this.tableViewer.setInput(dataModel);
+        
     }
 
     @objid ("d0a31828-b317-4116-9245-791ff701dd88")
@@ -139,6 +141,7 @@ public class StandardPropertyPanel implements IPropertyPanel {
     public void stop() {
         setInput(null);
         disableGUI();
+        
     }
 
     /**
@@ -146,7 +149,6 @@ public class StandardPropertyPanel implements IPropertyPanel {
      * <p>
      * Asks property model providers defined in the extension point, according to the element's metaclass fragment.
      * </p>
-     * 
      * @param element The element to display in the property view.
      * @param context The project context
      * @return The matching property model.

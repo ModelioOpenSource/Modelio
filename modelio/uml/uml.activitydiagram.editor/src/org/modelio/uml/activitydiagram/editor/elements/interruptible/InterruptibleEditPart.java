@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.interruptible;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,6 +50,7 @@ public class InterruptibleEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                 new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("2ab557fc-55b6-11e2-877f-002564c97630")
@@ -78,6 +78,7 @@ public class InterruptibleEditPart extends AbstractNodeEditPart {
         if (!switchRepresentationMode()) {
             super.refreshFromStyle(aFigure, style);
         }
+        
     }
 
     @objid ("2ab6de60-55b6-11e2-877f-002564c97630")
@@ -85,6 +86,7 @@ public class InterruptibleEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         GmAbstractObject interruptibleModel = getModel();
         getFigure().getParent().setConstraint(getFigure(), interruptibleModel.getLayoutData());
+        
     }
 
 }

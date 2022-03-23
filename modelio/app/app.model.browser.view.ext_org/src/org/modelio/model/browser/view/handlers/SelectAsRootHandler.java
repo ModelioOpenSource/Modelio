@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.browser.view.handlers;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
@@ -67,7 +66,6 @@ public class SelectAsRootHandler {
 
     /**
      * Set the selected notes as the roots for the BrowserView's tree.
-     * 
      * @param part a {@link BrowserView} part.
      * @param selection the current application selection.
      */
@@ -84,6 +82,7 @@ public class SelectAsRootHandler {
         } else {
             ((ModelBrowserPanelProvider) view.getContributedPanel()).setLocalRoots(Collections.emptyList());
         }
+        
     }
 
     @objid ("1c35537f-452e-11e2-aeb7-002564c97630")

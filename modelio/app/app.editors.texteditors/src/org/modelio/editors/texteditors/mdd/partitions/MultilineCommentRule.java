@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.texteditors.mdd.partitions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,10 +34,11 @@ public class MultilineCommentRule extends MultiLineRule {
     private IToken roToken;
 
     @objid ("7b60ef88-2a77-11e2-9fb9-bc305ba4815c")
-    public MultilineCommentRule(String startSequence, String endSequence, IToken commentToken, IToken roToken, MDDPartitionScanner scanner) {
+    public  MultilineCommentRule(String startSequence, String endSequence, IToken commentToken, IToken roToken, MDDPartitionScanner scanner) {
         super(startSequence, endSequence, commentToken);
         this._scanner = scanner;
         this.roToken = roToken;
+        
     }
 
     @objid ("7b60ef8f-2a77-11e2-9fb9-bc305ba4815c")

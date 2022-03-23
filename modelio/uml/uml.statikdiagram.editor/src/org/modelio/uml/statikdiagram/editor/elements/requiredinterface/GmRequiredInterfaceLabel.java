@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.requiredinterface;
 
 import java.util.List;
@@ -54,23 +53,24 @@ public class GmRequiredInterfaceLabel extends GmDefaultModelElementLabel {
 
     /**
      * Constructor.
-     * 
      * @param diagram The diagram
      * @param el The represented element, may be null.
      * @param ref The represented element reference, may not be null.
      */
     @objid ("36746f36-55b7-11e2-877f-002564c97630")
-    public GmRequiredInterfaceLabel(IGmDiagram diagram, RequiredInterface el, MRef ref) {
+    public  GmRequiredInterfaceLabel(IGmDiagram diagram, RequiredInterface el, MRef ref) {
         super(diagram, ref);
         this.element = el;
         init();
+        
     }
 
     /**
      * Constructor for deserialization only.
      */
     @objid ("3675f599-55b7-11e2-877f-002564c97630")
-    public GmRequiredInterfaceLabel() {
+    public  GmRequiredInterfaceLabel() {
+        
     }
 
     @objid ("3675f5b8-55b7-11e2-877f-002564c97630")
@@ -108,6 +108,7 @@ public class GmRequiredInterfaceLabel extends GmDefaultModelElementLabel {
                 break;
             }
         }
+        
     }
 
     @objid ("36777c3d-55b7-11e2-877f-002564c97630")
@@ -125,6 +126,7 @@ public class GmRequiredInterfaceLabel extends GmDefaultModelElementLabel {
             if (parent != null)
                 getPersistedStyle().setCascadedStyle(parent.getPersistedStyle());
         }
+        
     }
 
     @objid ("36777c48-55b7-11e2-877f-002564c97630")
@@ -149,6 +151,7 @@ public class GmRequiredInterfaceLabel extends GmDefaultModelElementLabel {
     private void init() {
         setShowMetaclassKeyword(false);
         setShowMetaclassIcon(false);
+        
     }
 
     @objid ("36777c51-55b7-11e2-877f-002564c97630")
@@ -158,12 +161,14 @@ public class GmRequiredInterfaceLabel extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmRequiredInterfaceLabel.", GmRequiredInterfaceLabel.MINOR_VERSION);
+        
     }
 
     @objid ("36777c57-55b7-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (RequiredInterface) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("36777c5c-55b7-11e2-877f-002564c97630")

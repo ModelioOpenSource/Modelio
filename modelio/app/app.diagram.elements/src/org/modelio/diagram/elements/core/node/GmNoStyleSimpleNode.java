@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.node;
 
 import java.util.Collections;
@@ -30,8 +29,8 @@ import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.diagram.styles.core.ProxyStyle;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.vcore.smkernel.mapi.MRef;
 
 /**
@@ -53,12 +52,11 @@ public abstract class GmNoStyleSimpleNode extends GmSimpleNode {
 
     /**
      * Create a no style composite node.
-     * 
      * @param diagram The diagram.
      * @param relatedRef a reference to the element this GmModel is related to.
      */
     @objid ("809f1afa-1dec-11e2-8cad-001ec947c8cc")
-    public GmNoStyleSimpleNode(IGmDiagram diagram, MRef relatedRef) {
+    public  GmNoStyleSimpleNode(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -66,7 +64,7 @@ public abstract class GmNoStyleSimpleNode extends GmSimpleNode {
      * Constructor for deserialization only.
      */
     @objid ("809f1aff-1dec-11e2-8cad-001ec947c8cc")
-    public GmNoStyleSimpleNode() {
+    public  GmNoStyleSimpleNode() {
         super();
     }
 
@@ -95,6 +93,7 @@ public abstract class GmNoStyleSimpleNode extends GmSimpleNode {
                 getPersistedStyle().setCascadedStyle(parentLink.getPersistedStyle());
             }
         }
+        
     }
 
     @objid ("809f1b14-1dec-11e2-8cad-001ec947c8cc")
@@ -113,6 +112,7 @@ public abstract class GmNoStyleSimpleNode extends GmSimpleNode {
                 getPersistedStyle().setCascadedStyle(parent.getPersistedStyle());
             }
         }
+        
     }
 
     @objid ("809f1b1f-1dec-11e2-8cad-001ec947c8cc")
@@ -132,6 +132,7 @@ public abstract class GmNoStyleSimpleNode extends GmSimpleNode {
                 break;
             }
         }
+        
     }
 
     @objid ("809f1b23-1dec-11e2-8cad-001ec947c8cc")
@@ -141,6 +142,7 @@ public abstract class GmNoStyleSimpleNode extends GmSimpleNode {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmNoStyleSimpleNode.", MINOR_VERSION);
+        
     }
 
     @objid ("809f1b27-1dec-11e2-8cad-001ec947c8cc")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.model;
 
 import java.beans.PropertyChangeListener;
@@ -49,7 +48,6 @@ public interface IGmReference<T extends IGmObject> extends IPersistent {
      * <p>
      * Returns <i>null</i> if the reference is not valid: the target diagram does not exist or
      * the referenced graphic model does not exist anymore.
-     * 
      * @return the referenced graphic model or <i>null</i>.
      */
     @objid ("6aa722cf-e095-4339-b7f2-4ca258875183")
@@ -77,11 +75,11 @@ public interface IGmReference<T extends IGmObject> extends IPersistent {
             t.delete();
         }
         releaseGmReference();
+        
     }
 
     /**
      * Shortcut for {@link IGmReference#getReferencedModel()} that avoids having to test <i>ref</i> for <i>null</i>.
-     * 
      * @param ref a reference, may be null.
      * @return the referenced element or <i>null</i>.
      */
@@ -92,13 +90,13 @@ public interface IGmReference<T extends IGmObject> extends IPersistent {
         } else {
             return ref.getReferencedModel();
         }
+        
     }
 
     /**
      * Add a listener that is fired when the reference is resolved.
      * @see #PROP_REFERENCE_RESOLVED
      * @see #PROP_REFERENCE_BROKEN
-     * 
      * @param listener a property change listener.
      */
     @objid ("96bcc603-659d-4908-9c9e-f3de1638bd1d")
@@ -108,7 +106,6 @@ public interface IGmReference<T extends IGmObject> extends IPersistent {
      * Remove a reference change listener.
      * @see #PROP_REFERENCE_RESOLVED
      * @see #PROP_REFERENCE_BROKEN
-     * 
      * @param listener a property change listener.
      */
     @objid ("dcdfd540-0770-4052-89d1-871dcc3af605")
@@ -126,7 +123,6 @@ public interface IGmReference<T extends IGmObject> extends IPersistent {
      * Add a listener that is fired when the reference is broken.
      * @see #PROP_REFERENCE_RESOLVED
      * @see #PROP_REFERENCE_BROKEN
-     * 
      * @param listener a property change listener.
      */
     @objid ("cd8c9d0e-5170-4620-a5ea-58884710a802")

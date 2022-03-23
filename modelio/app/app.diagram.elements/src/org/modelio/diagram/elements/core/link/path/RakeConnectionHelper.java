@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.path;
 
 import java.util.ArrayList;
@@ -68,7 +67,6 @@ public final class RakeConnectionHelper implements IConnectionHelper {
 
     /**
      * Updates this path from the given connection creation raw data.
-     * 
      * @param req The connection creation raw data.
      */
     @objid ("80506d80-1dec-11e2-8cad-001ec947c8cc")
@@ -95,11 +93,17 @@ public final class RakeConnectionHelper implements IConnectionHelper {
         } else {
             // TODO to be done
         }
+        
+    }
+
+    @objid ("82b4ab5f-da58-4173-af10-20021bb10dfb")
+    @Override
+    public boolean isUsable() {
+        return this.connection != null && this.connection.getParent() != null;
     }
 
     /**
      * Get the path routing mode.
-     * 
      * @return the path routing mode.
      */
     @objid ("80506d86-1dec-11e2-8cad-001ec947c8cc")
@@ -110,39 +114,37 @@ public final class RakeConnectionHelper implements IConnectionHelper {
 
     /**
      * constructor from serialized data
-     * 
      * @param serializedData serialized data.
      * @param connection the routed connection
      */
     @objid ("80506d8c-1dec-11e2-8cad-001ec947c8cc")
-    public RakeConnectionHelper(final RakeConstraint serializedData, final Connection connection) {
+    public  RakeConnectionHelper(final RakeConstraint serializedData, final Connection connection) {
         this.constraint = serializedData;
         this.connection = connection;
+        
     }
 
     /**
      * Creates a rake helper from a raw path data.
-     * 
      * @param req a raw path data.
      * @param connection the routed connection
      */
     @objid ("80506d95-1dec-11e2-8cad-001ec947c8cc")
-    public RakeConnectionHelper(final RawPathData req, final Connection connection) {
+    public  RakeConnectionHelper(final RawPathData req, final Connection connection) {
         this.connection = connection;
         updateFrom(req);
+        
     }
 
     @objid ("80506d9e-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public Object getRoutingConstraint() {
-        // TODO convert from model to draw2d
         return this.constraint;
     }
 
     @objid ("b9044736-d480-4437-a834-8e6d92d60912")
     @Override
     public Object getModelPathData() {
-        // TODO Auto-generated method stub
         return this.constraint;
     }
 

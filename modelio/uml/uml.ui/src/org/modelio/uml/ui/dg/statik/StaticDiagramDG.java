@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.statik;
 
 import java.util.Collections;
@@ -36,12 +35,11 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 public class StaticDiagramDG extends DiagramDG {
     /**
      * Initialize the activity diagram graphic element.
-     * 
      * @param diagramHandle The diagram handle
      * @param node The internal graphic node representing the diagram.
      */
     @objid ("1f43aaed-4a4a-404b-b876-6f6426d7ec82")
-    public StaticDiagramDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  StaticDiagramDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 

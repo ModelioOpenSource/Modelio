@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.handlers;
 
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
@@ -46,6 +45,7 @@ public class AddStereotypeHandler {
     public void execute(Shell parentShell, IProjectService projectService, IMModelServices modelServices, @Named(IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
         ICoreSession session = projectService.getSession();
         createStereotype(parentShell, getSelectedElement(selection), session, modelServices);
+        
     }
 
     @objid ("f829db0f-b563-4d08-93bf-65df0d2a0eec")

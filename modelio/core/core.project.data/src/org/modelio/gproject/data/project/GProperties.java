@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.project;
 
 import java.io.Serializable;
@@ -44,17 +43,16 @@ public class GProperties implements Serializable {
      * Initialize an empty table.
      */
     @objid ("63875966-3004-11e2-8f81-001ec947ccaf")
-    public GProperties() {
+    public  GProperties() {
         // nothing
     }
 
     /**
      * Copy constructor.
-     * 
      * @param properties the table to copy.
      */
     @objid ("63875962-3004-11e2-8f81-001ec947ccaf")
-    public GProperties(GProperties properties) {
+    public  GProperties(GProperties properties) {
         this.table.putAll(properties.table);
     }
 
@@ -71,7 +69,6 @@ public class GProperties implements Serializable {
      * <tt>Collection.remove</tt>, <tt>removeAll</tt>,
      * <tt>retainAll</tt> and <tt>clear</tt> operations.  It does not
      * support the <tt>add</tt> or <tt>addAll</tt> operations.
-     * 
      * @return the table content.
      */
     @objid ("6387597a-3004-11e2-8f81-001ec947ccaf")
@@ -81,7 +78,6 @@ public class GProperties implements Serializable {
 
     /**
      * Get a property.
-     * 
      * @param name the property name.
      * @return the property entry or <code>null</code>.
      */
@@ -94,7 +90,6 @@ public class GProperties implements Serializable {
      * Get a property value.
      * <p>
      * Return <code>null</code> if no value is defined.
-     * 
      * @param name a property name.
      * @return its value or <code>null</code>
      */
@@ -105,13 +100,13 @@ public class GProperties implements Serializable {
             return null;
         else
             return p.getValue();
+        
     }
 
     /**
      * Get a property value.
      * <p>
      * Return the given <i>defaultValue</i> if no value is defined.
-     * 
      * @param name a property name.
      * @param defaultValue the value to return if not defined
      * @return its value or the <i>defaultValue</i>
@@ -123,11 +118,11 @@ public class GProperties implements Serializable {
             return defaultValue;
         else
             return p.getValue();
+        
     }
 
     /**
      * Merge the other properties into this one.
-     * 
      * @param other the properties to merge from.
      */
     @objid ("0463309c-3019-11e2-8f81-001ec947ccaf")
@@ -135,11 +130,11 @@ public class GProperties implements Serializable {
         for (Entry e : other.entries()) {
             setProperty(e.getName(), e.getValue(), e.getScope());
         }
+        
     }
 
     /**
      * Remove a property
-     * 
      * @param name the property name.
      */
     @objid ("40ab4341-322d-11e2-9905-001ec947ccaf")
@@ -149,7 +144,6 @@ public class GProperties implements Serializable {
 
     /**
      * Set a property.
-     * 
      * @param name the property name.
      * @param value the property value.
      * @param scope the property scope
@@ -164,6 +158,7 @@ public class GProperties implements Serializable {
             p = new Entry(name, value, scope);
             this.table.put(name, p);
         }
+        
     }
 
     @objid ("48499369-cc32-47a9-bd0b-839dc70b7068")
@@ -224,7 +219,6 @@ public class GProperties implements Serializable {
 
     /**
      * Get all defined property keys in a {@link Set}.
-     * 
      * @return defined property keys.
      */
     @objid ("0a5a316f-a941-40c9-b907-ca16c007247f")
@@ -248,16 +242,16 @@ public class GProperties implements Serializable {
 
         /**
          * Initialize the property.
-         * 
          * @param name the name
          * @param value the initial value, may be <code>null</code>.
          * @param scope the definition scope.
          */
         @objid ("6384f715-3004-11e2-8f81-001ec947ccaf")
-        public Entry(String name, String value, DefinitionScope scope) {
+        public  Entry(String name, String value, DefinitionScope scope) {
             this.name = name;
             this.value = value;
             this.scope = scope;
+            
         }
 
         /**
@@ -278,7 +272,6 @@ public class GProperties implements Serializable {
 
         /**
          * Set the value.
-         * 
          * @param value the value.
          */
         @objid ("63875951-3004-11e2-8f81-001ec947ccaf")
@@ -296,7 +289,6 @@ public class GProperties implements Serializable {
 
         /**
          * Set the definition scope.
-         * 
          * @param scope the definition scope.
          */
         @objid ("6387595a-3004-11e2-8f81-001ec947ccaf")

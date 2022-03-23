@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.editingsupport.color;
 
 import java.util.Objects;
@@ -77,29 +76,29 @@ public class ColorCellEditor3 extends CellEditor {
             fireApplyEditorValue();
         }
         deactivate();
+        
     }
 
     /**
      * Creates a new color cell editor parented under the given control. The cell editor value is black ( <code>RGB(0,0,0)</code>) initially, and has no validator.
-     * 
      * @param parent the parent control
      */
     @objid ("71673ab3-1aec-4cec-97e3-5d8894845c93")
-    public ColorCellEditor3(final Composite parent) {
+    public  ColorCellEditor3(final Composite parent) {
         this(parent, SWT.NONE);
     }
 
     /**
      * Creates a new color cell editor parented under the given control. The cell editor value is black ( <code>RGB(0,0,0)</code>) initially, and has no validator.
-     * 
      * @param parent the parent control
      * @param style the style bits
      * @since 2.1
      */
     @objid ("5ad3fa83-612a-4ab9-bc78-3430a2833a9c")
-    public ColorCellEditor3(final Composite parent, final int style) {
+    public  ColorCellEditor3(final Composite parent, final int style) {
         super(parent, style);
         doSetValue(new RGB(0, 0, 0));
+        
     }
 
     @objid ("9d50cfef-b888-46a4-b262-41a8f027c258")
@@ -133,6 +132,7 @@ public class ColorCellEditor3 extends CellEditor {
         if (activationEvent.eventType != ColumnViewerEditorActivationEvent.TRAVERSAL) {
             super.activate(activationEvent);
         }
+        
     }
 
 }

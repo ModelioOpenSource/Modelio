@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.informationitem;
 
 import java.util.List;
@@ -28,8 +27,8 @@ import org.modelio.diagram.elements.core.model.IGmObject;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
-import org.modelio.diagram.styles.core.StyleKey.ShowNameMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.ShowNameMode;
 import org.modelio.metamodel.mda.Project;
 import org.modelio.metamodel.uml.informationFlow.InformationItem;
 import org.modelio.metamodel.uml.infrastructure.ModelTree;
@@ -62,20 +61,20 @@ public class GmInformationItemHeader extends GmDefaultModelElementHeader {
      * Constructor for deserialization only.
      */
     @objid ("35126dfb-55b7-11e2-877f-002564c97630")
-    public GmInformationItemHeader() {
+    public  GmInformationItemHeader() {
         init();
     }
 
     /**
      * Initialize a classifier header
-     * 
      * @param diagram the owning diagram.
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
     @objid ("35126dfe-55b7-11e2-877f-002564c97630")
-    public GmInformationItemHeader(IGmDiagram diagram, MRef relatedRef) {
+    public  GmInformationItemHeader(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
         init();
+        
     }
 
     @objid ("35126e23-55b7-11e2-877f-002564c97630")
@@ -92,6 +91,7 @@ public class GmInformationItemHeader extends GmDefaultModelElementHeader {
                 firePropertyChange(IGmObject.PROPERTY_LABEL, this, null);
         
         super.styleChanged(property, newValue);
+        
     }
 
     @objid ("3513f4a9-55b7-11e2-877f-002564c97630")
@@ -101,6 +101,7 @@ public class GmInformationItemHeader extends GmDefaultModelElementHeader {
             firePropertyChange(IGmObject.PROPERTY_LABEL, this, null);
         
         super.styleChanged(changedStyle);
+        
     }
 
     @objid ("3513f4af-55b7-11e2-877f-002564c97630")
@@ -119,6 +120,7 @@ public class GmInformationItemHeader extends GmDefaultModelElementHeader {
                 return computeSimpleLabel();
         
         }
+        
     }
 
     @objid ("3513f4ba-55b7-11e2-877f-002564c97630")
@@ -146,6 +148,7 @@ public class GmInformationItemHeader extends GmDefaultModelElementHeader {
             return c.getName();
         else
             return parent.getName() + "." + c.getName() + computeType(c);
+        
     }
 
     @objid ("3513f4c1-55b7-11e2-877f-002564c97630")
@@ -155,7 +158,6 @@ public class GmInformationItemHeader extends GmDefaultModelElementHeader {
 
     /**
      * Tells whether the given element is the root package a the project.
-     * 
      * @param el the element to test
      * @return true if the given element is the root package a the project, else false.
      */
@@ -213,6 +215,7 @@ public class GmInformationItemHeader extends GmDefaultModelElementHeader {
                 break;
             }
         }
+        
     }
 
     @objid ("35157b3c-55b7-11e2-877f-002564c97630")
@@ -222,6 +225,7 @@ public class GmInformationItemHeader extends GmDefaultModelElementHeader {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmInformationItemHeader.", GmInformationItemHeader.MINOR_VERSION);
+        
     }
 
     @objid ("35157b42-55b7-11e2-877f-002564c97630")

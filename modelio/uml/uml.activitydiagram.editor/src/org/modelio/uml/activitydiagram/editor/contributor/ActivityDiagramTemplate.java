@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.contributor;
 
 import java.util.List;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.modelio.api.ui.viewtemplate.IModelViewTemplate;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
@@ -53,7 +52,7 @@ public class ActivityDiagramTemplate implements IModelViewTemplate<AbstractDiagr
      * Mandatory default c'tor needed by eclipse when loading the extension point.
      */
     @objid ("e1d68c7a-600a-4f32-8f58-d1ee1f31c041")
-    public ActivityDiagramTemplate() {
+    public  ActivityDiagramTemplate() {
         super();
     }
 
@@ -110,7 +109,6 @@ public class ActivityDiagramTemplate implements IModelViewTemplate<AbstractDiagr
 
     /**
      * Create an activity diagram under 'activity' and sets its default name.
-     * 
      * @return the created activity diagram or null in case of problems.
      */
     @objid ("ba01baf3-5d78-4ecf-831c-fb90ffbe574c")
@@ -145,9 +143,9 @@ public class ActivityDiagramTemplate implements IModelViewTemplate<AbstractDiagr
         return locals;
     }
 
-/*
-     * {@link #createView(ModelElement)} delegated implementation when base element is an existing Activity.
-     */
+    /*
+         * {@link #createView(ModelElement)} delegated implementation when base element is an existing Activity.
+         */
     @objid ("f6153029-8346-4f91-af63-cd4ee3f3536c")
     private ActivityDiagram smartCreateForActivity(IStandardModelFactory modelFactory, final Activity parentActivity) {
         ActivityDiagram diagram = createActivityDiagram(modelFactory, parentActivity);
@@ -157,9 +155,9 @@ public class ActivityDiagramTemplate implements IModelViewTemplate<AbstractDiagr
         return diagram;
     }
 
-/*
-     * {@link #createView(ModelElement)} delegated implementation when base element is a NameSpace.
-     */
+    /*
+         * {@link #createView(ModelElement)} delegated implementation when base element is a NameSpace.
+         */
     @objid ("f9d2250f-3d68-4ff2-8bff-3cb2dba93a62")
     private ActivityDiagram smartCreateForNameSpace(IStandardModelFactory modelFactory, final NameSpace parentNameSpace) {
         Activity activity = modelFactory.createActivity();
@@ -173,9 +171,9 @@ public class ActivityDiagramTemplate implements IModelViewTemplate<AbstractDiagr
         return diagram;
     }
 
-/*
-     * {@link #createView(ModelElement)} delegated implementation when base element is a Classifier.
-     */
+    /*
+         * {@link #createView(ModelElement)} delegated implementation when base element is a Classifier.
+         */
     @objid ("c1c64c43-1d2d-4b55-bd99-73970644f478")
     private ActivityDiagram smartCreateForClassifier(IStandardModelFactory modelFactory, final Classifier parentClassifier) {
         Activity activity = modelFactory.createActivity();

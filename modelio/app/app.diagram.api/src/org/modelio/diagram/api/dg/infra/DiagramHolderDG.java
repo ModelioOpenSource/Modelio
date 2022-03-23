@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.api.dg.infra;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,7 +34,7 @@ public class DiagramHolderDG extends LeafNodeDG {
      * @param node The gm node represented by this class.
      */
     @objid ("69febfac-74f5-456f-b120-df6a5e471362")
-    public DiagramHolderDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  DiagramHolderDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 

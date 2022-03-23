@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.audit;
 
 import java.util.ArrayList;
@@ -81,6 +80,7 @@ public class R1140 extends AbstractUmlRule {
         // Pin
         plan.registerRule(OutputPin.MQNAME, this, AuditTrigger.UPDATE | AuditTrigger.CREATE | AuditTrigger.MOVE);
         plan.registerRule(InputPin.MQNAME, this, AuditTrigger.UPDATE | AuditTrigger.CREATE | AuditTrigger.MOVE);
+        
     }
 
     /**
@@ -114,14 +114,14 @@ public class R1140 extends AbstractUmlRule {
      * Default constructor for R1140
      */
     @objid ("d4284122-d10a-4d0b-952c-e259aa33a4e9")
-    public R1140() {
+    public  R1140() {
         this.checkerInstance = new CheckR1140(this);
     }
 
     @objid ("9acc077e-f1ed-4eed-9fbd-165eb2d69af3")
     private static class CheckR1140 extends AbstractControl {
         @objid ("91c7e60c-087a-4255-b58e-74986ec7e413")
-        public CheckR1140(IRule rule) {
+        public  CheckR1140(IRule rule) {
             super(rule);
         }
 
@@ -152,7 +152,6 @@ public class R1140 extends AbstractUmlRule {
         /**
          * Checks if all the pins of a CallOperationAction are matched to all the BehaviorParameters of the called Operation.
          * @param callBehaviorAction The CallOperationAction to check.
-         * 
          * @return An audit entry.
          */
         @objid ("b6a350bf-c2c8-42b7-bf92-1d05fc228b72")
@@ -254,7 +253,6 @@ public class R1140 extends AbstractUmlRule {
 
         /**
          * A Pin was either created, moved or updated, we need to check if this Pin belong to a CallOperationAction and check it if it does.
-         * 
          * @param pin The Pin to check.
          * @return An audit entry.
          */
@@ -269,7 +267,6 @@ public class R1140 extends AbstractUmlRule {
         /**
          * An Operation was updated, we need to check if it has registered callers and check the rule on these CallOperationAction.
          * @param behavior The Operation to check.
-         * 
          * @return A list of audit entries.
          */
         @objid ("aedc07fb-c475-4cd3-a912-e250f1924fd4")

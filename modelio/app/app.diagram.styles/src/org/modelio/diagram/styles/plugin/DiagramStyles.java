@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.plugin;
 
 import java.util.ResourceBundle;
@@ -87,6 +86,7 @@ public class DiagramStyles implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         DiagramStyles.LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), DiagramStyles.PLUGIN_ID));
         DiagramStyles.I18N = new BundledMessages(DiagramStyles.LOG, ResourceBundle.getBundle("diagramstyles"));
+        
     }
 
     @objid ("a67cb954-18fe-11e2-92d2-001ec947c8cc")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,7 +30,6 @@ import org.modelio.vcore.smkernel.meta.SmClass;
 public interface ISmObjectFactory {
     /**
      * Create the data object
-     * 
      * @return a data object
      */
     @objid ("0048e95a-fd1a-1f27-a7da-001ec947cd2a")
@@ -39,7 +37,6 @@ public interface ISmObjectFactory {
 
     /**
      * Create the implementation object.
-     * 
      * @return the implementation object.
      */
     @objid ("0048f2ce-fd1a-1f27-a7da-001ec947cd2a")

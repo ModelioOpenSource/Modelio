@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,7 +29,6 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 public class GetAbsoluteSymbol {
     /**
      * Get the absolute name of an element.
-     * 
      * @param obj an element
      * @return the absolute name .
      */
@@ -49,6 +47,7 @@ public class GetAbsoluteSymbol {
             s.append('.');
         }
         s.append(obj.getName());
+        
     }
 
 }

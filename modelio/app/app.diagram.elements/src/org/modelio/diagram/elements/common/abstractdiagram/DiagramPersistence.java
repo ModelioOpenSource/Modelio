@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.abstractdiagram;
 
 import java.util.Collection;
@@ -54,11 +53,10 @@ public class DiagramPersistence implements IDiagramPersister {
 
     /**
      * C'tor.
-     * 
      * @param gmDiagram the diagram to manage persistence for.
      */
     @objid ("c893559b-26fc-40c7-a044-f72a5f7c5662")
-    public DiagramPersistence(GmAbstractDiagram gmDiagram) {
+    public  DiagramPersistence(GmAbstractDiagram gmDiagram) {
         this.gmDiagram = gmDiagram;
     }
 
@@ -67,8 +65,7 @@ public class DiagramPersistence implements IDiagramPersister {
      * <p>
      * Resets the diagram before (re)loading it.
      * </p>
-     * 
-     * @throws org.modelio.diagram.persistence.PersistenceException on load failure
+     * @throws PersistenceException on load failure
      */
     @objid ("613b9470-edbd-4d30-90ba-57415ce7b42c")
     @Override
@@ -92,15 +89,15 @@ public class DiagramPersistence implements IDiagramPersister {
         this.gmDiagram.updateLastSaveDate();
         this.gmDiagram.refreshAllFromObModel();
         this.gmDiagram.refreshFromObModel();
+        
     }
 
     /**
      * Save the {@link GmAbstractDiagram} content in the {@link AbstractDiagram}.
      * <p>
      * A transaction must already be open.
-     * 
      * @param withEmbeddeddiagrams whether or not embedded diagrams should also be saved.
-     * @throws org.modelio.diagram.persistence.PersistenceException on save failure
+     * @throws PersistenceException on save failure
      */
     @objid ("36e1ff90-cbe4-496a-8cc5-5f9a41b6d96f")
     public void save(boolean withEmbeddeddiagrams) throws PersistenceException {
@@ -126,12 +123,12 @@ public class DiagramPersistence implements IDiagramPersister {
                 }
             }
         }
+        
     }
 
     /**
      * Update the {@link AbstractDiagram#getRepresented()} relation from the diagram graphic model.
      * @param gmDiagram the graphic model
-     * 
      * @param obDiagram the model element
      */
     @objid ("c091670c-4b2e-4a7a-978d-0ae199225bb9")
@@ -161,6 +158,7 @@ public class DiagramPersistence implements IDiagramPersister {
                 dgRepresented.add(el);
             }
         }
+        
     }
 
 }

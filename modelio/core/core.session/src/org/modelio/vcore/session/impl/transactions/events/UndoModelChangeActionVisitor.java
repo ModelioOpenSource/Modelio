@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.transactions.events;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,9 +42,10 @@ class UndoModelChangeActionVisitor implements IActionVisitor {
     private StatusChangeEvent statusEvent;
 
     @objid ("01f42120-0000-014a-0000-000000000000")
-    public UndoModelChangeActionVisitor(ModelChangeEvent event, StatusChangeEvent statusEvent) {
+    public  UndoModelChangeActionVisitor(ModelChangeEvent event, StatusChangeEvent statusEvent) {
         this.event = event;
         this.statusEvent = statusEvent;
+        
     }
 
     @objid ("01f42120-0000-0154-0000-000000000000")
@@ -55,6 +55,7 @@ class UndoModelChangeActionVisitor implements IActionVisitor {
         for (IAction a : tr.getActions()) {
             a.accept(this);
         }
+        
     }
 
     @objid ("01f42120-0000-015d-0000-000000000000")
@@ -81,6 +82,7 @@ class UndoModelChangeActionVisitor implements IActionVisitor {
         // // Remove the now useless erase event
         // event.erasedElements.erase(found);
         // }
+        
     }
 
     @objid ("01f42120-0000-0166-0000-000000000000")
@@ -95,6 +97,7 @@ class UndoModelChangeActionVisitor implements IActionVisitor {
         // permitting the new object
         // to be stored without test
         this.event.createdElements.add(created);
+        
     }
 
     @objid ("01f42120-0000-016f-0000-000000000000")
@@ -128,6 +131,7 @@ class UndoModelChangeActionVisitor implements IActionVisitor {
                     this.event.updatedElements.add(refered);
             }
         }
+        
     }
 
     @objid ("01f42120-0000-0178-0000-000000000000")
@@ -151,6 +155,7 @@ class UndoModelChangeActionVisitor implements IActionVisitor {
                 this.event.updatedElements.add(refered);
             }
         }
+        
     }
 
     @objid ("01f42120-0000-0181-0000-000000000000")
@@ -206,6 +211,7 @@ class UndoModelChangeActionVisitor implements IActionVisitor {
                 this.event.updatedElements.add(src);
             }
         }
+        
     }
 
     @objid ("01f42120-0000-018a-0000-000000000000")
@@ -230,6 +236,7 @@ class UndoModelChangeActionVisitor implements IActionVisitor {
             if (this.event.createdElements.contains(refered) == false)
                 this.event.updatedElements.add(refered);
         }
+        
     }
 
     @objid ("01f42120-0000-2182-0000-000000000000")

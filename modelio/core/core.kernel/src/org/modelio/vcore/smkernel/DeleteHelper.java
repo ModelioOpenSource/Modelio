@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel;
 
 import java.util.Collection;
@@ -36,12 +35,12 @@ class DeleteHelper {
      * Initialize the deleter.
      */
     @objid ("bdae8004-cb6b-11e1-87f1-001ec947ccaf")
-    public DeleteHelper() {
+    public  DeleteHelper() {
+        
     }
 
     /**
      * Delete the given model object
-     * 
      * @param objToDelete the object to delete.
      */
     @objid ("bdae8007-cb6b-11e1-87f1-001ec947ccaf")
@@ -92,6 +91,7 @@ class DeleteHelper {
                 }
             }
         }
+        
     }
 
     @objid ("00396a66-1199-1f35-b94f-001ec947cd2a")
@@ -112,6 +112,7 @@ class DeleteHelper {
                 }
             }
         }
+        
     }
 
     @objid ("bc547458-54d1-4d68-b6bb-ccf4510fdd1b")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.browser.view.plugin;
 
 import java.util.ResourceBundle;
@@ -54,6 +53,7 @@ public class BrowserViewActivator extends AbstractUIPlugin {
         ExtendedLogService service = bundleContext.getService(ref);
         BrowserViewActivator.LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), BrowserViewActivator.PLUGIN_ID));
         BrowserViewActivator.I18N = new BundledMessages(BrowserViewActivator.LOG, ResourceBundle.getBundle("browserview"));
+        
     }
 
     @objid ("d808f0e7-f68e-46a0-9c38-1163c8f6a8b0")

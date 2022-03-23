@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.exporter;
 
 import java.util.List;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
@@ -31,8 +30,8 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Shell;
 import org.modelio.metamodel.uml.statik.Package;
 import org.modelio.patterns.api.IPatternService;
-import org.modelio.patterns.model.ProfileUtils.PatternDesignerStereotypes;
 import org.modelio.patterns.model.ProfileUtils;
+import org.modelio.patterns.model.ProfileUtils.PatternDesignerStereotypes;
 import org.modelio.patterns.model.RuntimePattern;
 import org.modelio.patterns.plugin.Patterns;
 import org.modelio.platform.model.ui.swt.SelectionHelper;
@@ -47,7 +46,6 @@ import org.modelio.vcore.session.impl.CoreSession;
 public class ExportPatternHandler {
     /**
      * Export a jar from an existing pattern.
-     * 
      * @param selection the current modelio selection.
      * @param patternService the pattern service.
      */
@@ -73,11 +71,11 @@ public class ExportPatternHandler {
             Patterns.LOG.debug(e);
             MessageDialog.openError(activeShell, Patterns.I18N.getString("ExportPattern.PackagingError"), e.toString());
         }
+        
     }
 
     /**
      * Available only when the selection is a <<Pattern>> Package.
-     * 
      * @param selection the current modelio selection.
      * @return true if the handler can be executed.
      */

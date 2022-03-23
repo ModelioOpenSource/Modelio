@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,10 +35,11 @@ public class OStructuredActivityNode extends OActivityNode {
             return UMLFactory.eINSTANCE.createSequenceNode();
         else
             return UMLFactory.eINSTANCE.createStructuredActivityNode();
+        
     }
 
     @objid ("e11526d0-f90f-40cf-b529-2d26f1212ad7")
-    public OStructuredActivityNode(StructuredActivityNode element) {
+    public  OStructuredActivityNode(StructuredActivityNode element) {
         super(element);
     }
 
@@ -54,6 +54,7 @@ public class OStructuredActivityNode extends OActivityNode {
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         super.setProperties(ecoreElt);
         setMustIsolate((org.eclipse.uml2.uml.StructuredActivityNode) ecoreElt);
+        
     }
 
     @objid ("f6d1fb15-a574-4d7e-97c3-11f718df0859")

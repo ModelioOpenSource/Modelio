@@ -17,19 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.events;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.bpmn.events.BpmnEscalationEventDefinition;
 import org.modelio.metamodel.bpmn.events.BpmnEventDefinition;
-import org.modelio.metamodel.impl.bpmn.events.BpmnEventDefinitionSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -46,7 +45,7 @@ public class BpmnEscalationEventDefinitionSmClass extends BpmnEventDefinitionSmC
     private SmAttribute escalationCodeAtt;
 
     @objid ("5378a601-14d4-4c11-9147-f33ce391e532")
-    public BpmnEscalationEventDefinitionSmClass(ISmMetamodelFragment origin) {
+    public  BpmnEscalationEventDefinitionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -54,6 +53,7 @@ public class BpmnEscalationEventDefinitionSmClass extends BpmnEventDefinitionSmC
     @Override
     public String getName() {
         return "BpmnEscalationEventDefinition";
+        
     }
 
     @objid ("35f6586b-357c-43a3-a8fa-494d5fcac522")
@@ -66,18 +66,21 @@ public class BpmnEscalationEventDefinitionSmClass extends BpmnEventDefinitionSmC
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnEscalationEventDefinition.class;
+        
     }
 
     @objid ("646c592a-89e8-4c51-b65e-82443cb7ae2f")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("3e94ed30-7ade-44ac-8d63-a4926840542c")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("96b1dcac-111f-4bdd-97e2-6a6945e08c14")
@@ -94,6 +97,7 @@ public class BpmnEscalationEventDefinitionSmClass extends BpmnEventDefinitionSmC
         
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("5713cbf3-598e-4451-b6fe-f8dc53e0a5c1")
@@ -110,7 +114,7 @@ public class BpmnEscalationEventDefinitionSmClass extends BpmnEventDefinitionSmC
         private BpmnEscalationEventDefinitionSmClass smClass;
 
         @objid ("f0bc3753-ccab-4539-9142-23e4430f75bf")
-        public BpmnEscalationEventDefinitionObjectFactory(BpmnEscalationEventDefinitionSmClass smClass) {
+        public  BpmnEscalationEventDefinitionObjectFactory(BpmnEscalationEventDefinitionSmClass smClass) {
             this.smClass = smClass;
         }
 

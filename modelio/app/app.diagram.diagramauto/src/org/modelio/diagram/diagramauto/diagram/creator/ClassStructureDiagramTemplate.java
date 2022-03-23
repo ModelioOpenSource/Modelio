@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.diagramauto.diagram.creator;
 
 import java.util.ArrayList;
@@ -74,13 +73,14 @@ public class ClassStructureDiagramTemplate extends AbstractDiagramTemplate {
      * Mandatory default c'tor needed by eclipse when loading the extension point.
      */
     @objid ("bb8cc562-0dc4-4705-9397-26f54eeac028")
-    public ClassStructureDiagramTemplate() {
+    public  ClassStructureDiagramTemplate() {
         super();
         this._topDgs = new ArrayList<>();
         this._bottomDgs = new ArrayList<>();
         this._leftDgs = new ArrayList<>();
         this._rightDgs = new ArrayList<>();
         this._reflexiveLinksDgs = new ArrayList<>();
+        
     }
 
     @objid ("98fb4d8c-f14d-42fa-b81c-ce34186320dd")
@@ -97,6 +97,7 @@ public class ClassStructureDiagramTemplate extends AbstractDiagramTemplate {
         } else {
             return null;
         }
+        
     }
 
     @objid ("b2403289-0ed1-492b-870e-e7fb7c4836ec")
@@ -105,6 +106,7 @@ public class ClassStructureDiagramTemplate extends AbstractDiagramTemplate {
         if (main instanceof Classifier) {
             generateContent(dh, (Classifier) main);
         }
+        
     }
 
     @objid ("ab0e607b-d810-4a62-9947-f7125d99e1f2")
@@ -245,6 +247,7 @@ public class ClassStructureDiagramTemplate extends AbstractDiagramTemplate {
                 dh.unmask(att, 0, 0);
             }
         }
+        
     }
 
     @objid ("1f13dec7-1609-49e7-9ce0-8599f7df529e")
@@ -258,6 +261,7 @@ public class ClassStructureDiagramTemplate extends AbstractDiagramTemplate {
         } else {
             node.setStyle(new DiagramStyleHandle(DiagramStyles.getStyleManager().getStyle(DiagramStyles.EXTERN_STYLE_NAME)));
         }
+        
     }
 
     @objid ("fa5e18d9-ed2a-44dc-855a-d451673e9e8b")
@@ -294,6 +298,7 @@ public class ClassStructureDiagramTemplate extends AbstractDiagramTemplate {
                 DiagramAuto.LOG.debug(e);
             }
         }
+        
     }
 
     @objid ("27b7e869-5880-4944-b212-6d35aa3c9008")
@@ -321,6 +326,7 @@ public class ClassStructureDiagramTemplate extends AbstractDiagramTemplate {
         this._leftDgs.clear();
         this._rightDgs.clear();
         this._reflexiveLinksDgs.clear();
+        
     }
 
 }

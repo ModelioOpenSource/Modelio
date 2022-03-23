@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.infrastructure.modelshield;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -62,6 +61,7 @@ final class E297Checker implements IChecker {
                 report.addEntry(new ModelError(ruleId, el, stereotype));
             }
         }
+        
     }
 
 }

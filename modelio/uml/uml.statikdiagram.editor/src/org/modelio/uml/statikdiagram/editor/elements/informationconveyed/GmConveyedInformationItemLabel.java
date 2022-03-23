@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.informationconveyed;
 
 import java.util.List;
@@ -26,8 +25,8 @@ import org.modelio.diagram.elements.core.model.IGmDiagram;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.ShowNameMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.ShowNameMode;
 import org.modelio.metamodel.uml.informationFlow.InformationItem;
 import org.modelio.metamodel.uml.statik.Classifier;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -52,22 +51,23 @@ public class GmConveyedInformationItemLabel extends GmConveyedClassifierLabel {
      * Constructor for deserialization only.
      */
     @objid ("3501a51f-55b7-11e2-877f-002564c97630")
-    public GmConveyedInformationItemLabel() {
+    public  GmConveyedInformationItemLabel() {
+        
     }
 
     /**
      * Create an attribute representation.
-     * 
      * @param diagram The diagram
      * @param el The represented InformationItem, may be null.
      * @param ref The represented InformationItem reference, may not be null.
      */
     @objid ("3501a522-55b7-11e2-877f-002564c97630")
-    public GmConveyedInformationItemLabel(IGmDiagram diagram, InformationItem el, MRef ref) {
+    public  GmConveyedInformationItemLabel(IGmDiagram diagram, InformationItem el, MRef ref) {
         super(diagram, el, ref);
         
         setShowMetaclassKeyword(false);
         setShowMetaclassIcon(true);
+        
     }
 
     @objid ("3501a52e-55b7-11e2-877f-002564c97630")
@@ -102,6 +102,7 @@ public class GmConveyedInformationItemLabel extends GmConveyedClassifierLabel {
                 }
                 return s.toString();
         }
+        
     }
 
     @objid ("3501a539-55b7-11e2-877f-002564c97630")
@@ -112,6 +113,7 @@ public class GmConveyedInformationItemLabel extends GmConveyedClassifierLabel {
             return ShowNameMode.QUALIFIED;
         else
             return getDisplayedStyle().getProperty(nameKey);
+        
     }
 
     @objid ("3501a53e-55b7-11e2-877f-002564c97630")
@@ -131,6 +133,7 @@ public class GmConveyedInformationItemLabel extends GmConveyedClassifierLabel {
                 break;
             }
         }
+        
     }
 
     @objid ("3501a544-55b7-11e2-877f-002564c97630")
@@ -140,6 +143,7 @@ public class GmConveyedInformationItemLabel extends GmConveyedClassifierLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmConveyedInformationItemLabel.", GmConveyedInformationItemLabel.MINOR_VERSION);
+        
     }
 
     @objid ("3501a54a-55b7-11e2-877f-002564c97630")

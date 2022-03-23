@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.diagramauto.handlers.properties;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,7 +39,7 @@ public class CommandVisiblePropertyTester extends PropertyTester {
      * Default constructor.
      */
     @objid ("d9a7dae2-bc44-4f20-aa1b-fe7f26a58307")
-    public CommandVisiblePropertyTester() {
+    public  CommandVisiblePropertyTester() {
         // nothing
     }
 
@@ -73,6 +72,7 @@ public class CommandVisiblePropertyTester extends PropertyTester {
         default:
             throw new IllegalArgumentException(property + " property not supported by " + getClass().getSimpleName());
         }
+        
     }
 
 }

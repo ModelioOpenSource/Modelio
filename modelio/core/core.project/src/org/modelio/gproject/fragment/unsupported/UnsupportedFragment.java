@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.fragment.unsupported;
 
 import java.io.IOException;
@@ -83,15 +82,15 @@ public class UnsupportedFragment implements IProjectFragment {
 
     /**
      * Instantiate an unsupported fragment.
-     * 
      * @param fd the descriptor.
      */
     @objid ("858195ae-0749-4d16-b8f7-dbcb6eb8153a")
-    public UnsupportedFragment(final FragmentDescriptor fd) {
+    public  UnsupportedFragment(final FragmentDescriptor fd) {
         this.desc = fd;
         this.authConf = GAuthConf.from(fd.getAuthDescriptor());
         final String msg = CoreProject.I18N.getMessage("UnsupportedFragment.DownCause", fd.getType().toString(), fd.getId());
         this.downCause = new UnsupportedOperationException(msg);
+        
     }
 
     @objid ("1695d1f8-3a66-4261-abce-4bf4934878bf")
@@ -119,6 +118,7 @@ public class UnsupportedFragment implements IProjectFragment {
                 }
             }
         }
+        
     }
 
     @objid ("d0bf7248-4ffe-46a6-826c-c5cec2b6779b")
@@ -192,6 +192,7 @@ public class UnsupportedFragment implements IProjectFragment {
             // fires a GProjectEvent
             this.project.getMonitorSupport().fireMonitors(GProjectEvent.FragmentDownEvent(this));
         }
+        
     }
 
     @objid ("28b1d530-b1bf-4a0d-b5e8-2d1e9a4b2c1f")

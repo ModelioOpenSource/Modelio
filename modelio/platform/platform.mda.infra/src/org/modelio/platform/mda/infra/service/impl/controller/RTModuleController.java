@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.controller;
 
 import java.net.URI;
@@ -61,10 +60,11 @@ public class RTModuleController implements IRTModuleController {
      * @param moduleRegistry the module registry
      */
     @objid ("b56c08a9-5edd-4da4-9b0a-619c183376dd")
-    public RTModuleController(IRTModuleAccess rtModule, IModuleRegistryAccess moduleRegistry) {
+    public  RTModuleController(IRTModuleAccess rtModule, IModuleRegistryAccess moduleRegistry) {
         this.rtModule = rtModule;
         this.moduleRegistry = moduleRegistry;
         this.states = new States(this.rtModule);
+        
     }
 
     @objid ("3d7091f9-dfbb-40ff-aa96-ac68d88046cb")
@@ -77,6 +77,7 @@ public class RTModuleController implements IRTModuleController {
         } finally {
             MdaInfra.LOG.dedent();
         }
+        
     }
 
     @objid ("1432006a-55c0-4133-8034-ff515c97b371")
@@ -86,6 +87,7 @@ public class RTModuleController implements IRTModuleController {
         
         this.rtModule.setIModule(new ModuleLoader(this.rtModule).createBrokenModule());
         this.rtModule.setDownError(e);
+        
     }
 
     @objid ("0734d6ea-1ef1-455d-9ddf-c01c70616056")
@@ -99,6 +101,7 @@ public class RTModuleController implements IRTModuleController {
         } finally {
             MdaInfra.LOG.dedent();
         }
+        
     }
 
     @objid ("14198a51-f76d-43ab-b145-b4014df63454")
@@ -124,6 +127,7 @@ public class RTModuleController implements IRTModuleController {
         } finally {
             MdaInfra.LOG.dedent();
         }
+        
     }
 
     @objid ("891a1a8d-f7f9-47e3-86bd-a9fd6740e330")
@@ -141,6 +145,7 @@ public class RTModuleController implements IRTModuleController {
         } finally {
             MdaInfra.LOG.dedent();
         }
+        
     }
 
     @objid ("d8a323b7-61a5-4b9d-a07e-5ce622a8a0d6")
@@ -169,6 +174,7 @@ public class RTModuleController implements IRTModuleController {
         } finally {
             MdaInfra.LOG.dedent();
         }
+        
     }
 
     @objid ("b77dab9f-6ff8-40e7-a5d7-c9f81a167c7a")
@@ -180,6 +186,7 @@ public class RTModuleController implements IRTModuleController {
         } finally {
             MdaInfra.LOG.dedent();
         }
+        
     }
 
     @objid ("ba6872ac-bd82-4638-8ef2-903923b7f8ff")
@@ -191,6 +198,7 @@ public class RTModuleController implements IRTModuleController {
         } finally {
             MdaInfra.LOG.dedent();
         }
+        
     }
 
     @objid ("1983f9d4-528c-4162-8639-4893397bd24e")
@@ -202,6 +210,7 @@ public class RTModuleController implements IRTModuleController {
         } finally {
             MdaInfra.LOG.dedent();
         }
+        
     }
 
     @objid ("8461ad07-2405-4906-a825-8e8a1390a0da")
@@ -214,6 +223,7 @@ public class RTModuleController implements IRTModuleController {
         } finally {
             MdaInfra.LOG.dedent();
         }
+        
     }
 
     @objid ("76096005-e055-440e-bc81-d413fe248f48")
@@ -225,6 +235,7 @@ public class RTModuleController implements IRTModuleController {
         } finally {
             MdaInfra.LOG.dedent();
         }
+        
     }
 
     @objid ("2c8cde5e-2bfd-469d-9f2f-b408b8671bf0")
@@ -237,6 +248,7 @@ public class RTModuleController implements IRTModuleController {
         } finally {
             MdaInfra.LOG.dedent();
         }
+        
     }
 
 }

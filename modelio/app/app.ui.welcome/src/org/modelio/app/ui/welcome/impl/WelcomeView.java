@@ -17,16 +17,15 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.ui.welcome.impl;
 
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Objects;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.help.internal.base.BaseHelpSystem;
 import org.eclipse.swt.SWT;
@@ -66,6 +65,7 @@ public class WelcomeView {
         
         URL url = BaseHelpSystem.resolve(WelcomeView.WELCOME_HREF, true);
         this.browser.setUrl(url.toString());
+        
     }
 
     @objid ("6c6f0cc8-2e65-4b05-961d-684793abfcb6")
@@ -73,6 +73,7 @@ public class WelcomeView {
     public void onFocus() {
         URL url = BaseHelpSystem.resolve(WelcomeView.WELCOME_HREF, true);
         this.browser.setUrl(url.toString());
+        
     }
 
     @objid ("7cf6fc1f-7918-44a6-8be1-170c05f9b51e")
@@ -89,6 +90,7 @@ public class WelcomeView {
                 pm.switchToPerspective(null);
             }
         });
+        
     }
 
     @objid ("32ad12ce-a2f0-4a45-af71-59a6441d1234")
@@ -118,6 +120,7 @@ public class WelcomeView {
             } catch (URISyntaxException e) {
                 AppUiWelcome.LOG.error(e);
             }
+            
         }
 
         @objid ("2a92dd1e-d59e-4510-ba6b-60a3aa1d22bf")
@@ -126,7 +129,7 @@ public class WelcomeView {
         }
 
         @objid ("ba3055e6-2a9a-4328-8709-954b65829aaf")
-        public InstallExampleLocationListener(WelcomeViewController controller) {
+        public  InstallExampleLocationListener(WelcomeViewController controller) {
             this.controller = controller;
         }
 

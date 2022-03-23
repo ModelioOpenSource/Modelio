@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.wizard;
 
 import java.util.ArrayList;
@@ -55,7 +54,7 @@ public class TransformerRegistry {
     private static TransformerRegistry INSTANCE;
 
     @objid ("08b84b6a-4ed8-433d-ab45-3f6626a774b7")
-    private TransformerRegistry(IEclipseContext context) {
+    private  TransformerRegistry(IEclipseContext context) {
         int index = 0;
         this.transformers.add(new ModelTransformerCommand(index++, "$GroupAsSubProcessTransformer", "org.modelio.ModelTransformCommand", new GroupAsSubProcessTransformer()));
         
@@ -90,6 +89,7 @@ public class TransformerRegistry {
         for (ModelTransformerCommand mt : this.transformers) {
             ContextInjectionFactory.inject(mt.transformer, context);
         }
+        
     }
 
     @objid ("836a8379-6d51-4ac3-83c5-1a8f99ab6254")
@@ -105,6 +105,7 @@ public class TransformerRegistry {
         return this.transformers.stream()
                 .filter(mt -> mt.transformer.isAvailable(diagram, selection))
                 .collect(Collectors.toList());
+        
     }
 
     @objid ("11ae59a5-61f5-42be-b9d6-3fdd94635dbf")
@@ -127,11 +128,12 @@ public class TransformerRegistry {
         public IModelTransformer transformer;
 
         @objid ("dda90302-c677-4958-9525-354f248dade3")
-        public ModelTransformerCommand(int index, String i18nKey, String e4CmdId, IModelTransformer transformer) {
+        public  ModelTransformerCommand(int index, String i18nKey, String e4CmdId, IModelTransformer transformer) {
             this.index = index;
             this.transformer = transformer;
             this.i18nKey = i18nKey;
             this.e4CmdId = e4CmdId;
+            
         }
 
     }

@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.activities;
 
 import java.util.ArrayList;
@@ -30,8 +30,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.bpmn.activities.BpmnActivity;
 import org.modelio.metamodel.bpmn.activities.BpmnLoopCharacteristics;
 import org.modelio.metamodel.bpmn.rootElements.BpmnBaseElement;
-import org.modelio.metamodel.impl.bpmn.activities.BpmnActivitySmClass;
-import org.modelio.metamodel.impl.bpmn.activities.BpmnLoopCharacteristicsData;
 import org.modelio.metamodel.impl.bpmn.rootElements.BpmnBaseElementSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
@@ -50,7 +48,7 @@ public class BpmnLoopCharacteristicsSmClass extends BpmnBaseElementSmClass {
     private SmDependency ownerActivityDep;
 
     @objid ("a60ee420-9619-4f8b-80e5-e49a0b5ef329")
-    public BpmnLoopCharacteristicsSmClass(ISmMetamodelFragment origin) {
+    public  BpmnLoopCharacteristicsSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -58,6 +56,7 @@ public class BpmnLoopCharacteristicsSmClass extends BpmnBaseElementSmClass {
     @Override
     public String getName() {
         return "BpmnLoopCharacteristics";
+        
     }
 
     @objid ("3f02d20e-73af-4b9f-873d-58996bf3f6dd")
@@ -70,18 +69,21 @@ public class BpmnLoopCharacteristicsSmClass extends BpmnBaseElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnLoopCharacteristics.class;
+        
     }
 
     @objid ("7fc2f4de-f814-435c-9b8c-2d50ae7659cb")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("9e0938fc-e209-4df3-9f33-1c5f55d22de1")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("2c884288-e0a0-422a-b396-254060ddb40a")
@@ -97,6 +99,8 @@ public class BpmnLoopCharacteristicsSmClass extends BpmnBaseElementSmClass {
         this.ownerActivityDep = new OwnerActivitySmDependency();
         this.ownerActivityDep.init("OwnerActivity", this, metamodel.getMClass(BpmnActivity.MQNAME), 1, 1 );
         registerDependency(this.ownerActivityDep);
+        
+        
     }
 
     @objid ("1202964a-e5ba-4814-abfe-052314a40d91")
@@ -113,7 +117,7 @@ public class BpmnLoopCharacteristicsSmClass extends BpmnBaseElementSmClass {
         private BpmnLoopCharacteristicsSmClass smClass;
 
         @objid ("b4a5b373-1b72-400b-90c9-175bd6eceeeb")
-        public BpmnLoopCharacteristicsObjectFactory(BpmnLoopCharacteristicsSmClass smClass) {
+        public  BpmnLoopCharacteristicsObjectFactory(BpmnLoopCharacteristicsSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -155,6 +159,7 @@ public class BpmnLoopCharacteristicsSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnActivitySmClass)this.getTarget()).getLoopCharacteristicsDep();
             }
             return this.symetricDep;
+            
         }
 
     }

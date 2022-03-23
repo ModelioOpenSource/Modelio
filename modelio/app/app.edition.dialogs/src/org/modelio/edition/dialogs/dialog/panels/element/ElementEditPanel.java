@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.dialogs.dialog.panels.element;
 
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Creatable;
 import org.eclipse.e4.core.di.annotations.Optional;
@@ -134,6 +133,7 @@ public class ElementEditPanel implements IPanelProvider {
         } else {
             return obj instanceof ModelElement;
         }
+        
     }
 
     @objid ("afbda4f7-6844-47a1-a951-daf8df7093e0")
@@ -144,6 +144,7 @@ public class ElementEditPanel implements IPanelProvider {
         this.editedElement = me;
         this.descriptionPanel.setInput(me);
         this.propertyPanel.setInput(me);
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.freezone;
 
 import java.util.Collection;
@@ -91,11 +90,11 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
      */
     @objid ("459ba26d-b74f-4506-a2a1-61d0ed308424")
     private Object intersectionsRemoverKey = new Object() {
-        @Override
-        public String toString() {
-            return "Intersection remover for " + BaseFreeZoneLayoutEditPolicy.this.toString();
-        }
-    };
+                            @Override
+                            public String toString() {
+                                return "Intersection remover for " + BaseFreeZoneLayoutEditPolicy.this.toString();
+                            }
+                        };
 
     @objid ("7e333790-1dec-11e2-8cad-001ec947c8cc")
     @Override
@@ -114,6 +113,7 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
         }
         
         super.eraseTargetFeedback(request);
+        
     }
 
     @objid ("7e333796-1dec-11e2-8cad-001ec947c8cc")
@@ -173,12 +173,12 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
         }
         
         super.showTargetFeedback(request);
+        
     }
 
     /**
      * Returns whether this edit policy can handle this metaclass (either through simple or smart behavior). Default behavior is to accept any metaclass that can be child (in the CreationExpert's understanding) of the host's metaclass This method should be
      * overridden by subclasses to add specific the behavior.
-     * 
      * @param metaclass the metaclass to handle.
      * @return true if this policy can handle the metaclass.
      */
@@ -233,17 +233,15 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
      */
     @objid ("7e37fc45-1dec-11e2-8cad-001ec947c8cc")
     @Override
-    protected Command getAddCommand(final Request generic) {
-        ChangeBoundsRequest request = (ChangeBoundsRequest) generic;
-        List<?> editParts = request.getEditParts();
+    protected Command getAddCommand(final Request genericReq) {
+        ChangeBoundsRequest request = (ChangeBoundsRequest) genericReq;
+        List<GraphicalEditPart> editParts = request.getEditParts();
         CompoundCommand command = new CompoundCommand();
-        command.setDebugLabel("Add in ConstrainedLayoutEditPolicy");//$NON-NLS-1$
-        GraphicalEditPart child;
+        command.setDebugLabel("Add in "+getClass().getSimpleName());//$NON-NLS-1$
         
-        for (int i = 0; i < editParts.size(); i++) {
-            child = (GraphicalEditPart) editParts.get(i);
+        for (GraphicalEditPart child : editParts) {
             if (child instanceof ConnectionEditPart) {
-                command.add(child.getCommand(generic));
+                command.add(child.getCommand(genericReq));
             } else {
                 command.add(createAddCommand(request, child, translateToModelConstraint(getConstraintFor(request, child))));
             }
@@ -265,18 +263,38 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
                 if (copiedEPart.getModel() instanceof GmModel) {
                     final GmModel copiedGmModel = (GmModel) copiedEPart.getModel();
                     final MObject copiedElement = copiedGmModel.getRelatedElement();
-                    if (targetElement instanceof BpmnLane && copiedElement instanceof BpmnFlowElement) {
-                        final Object requestConstraint = translateToModelConstraint(getConstraintFor(request, copiedEPart));
-                        command.add(new BpmnCloneFlowElementCommand(hostModel, (BpmnLane) targetElement, (BpmnFlowElement) copiedElement,
-                                requestConstraint));
-                    } else if (metaUtils.canCompose(targetElement, copiedElement, null)) {
-                        final Object requestConstraint = translateToModelConstraint(getConstraintFor(request, copiedEPart));
-                        command.add(new DefaultCloneElementCommand(hostModel, targetElement, copiedElement,
-                                requestConstraint));
-                    }
+                    command.add(createCloneChildCommand(request, metaUtils, targetElement, hostModel, copiedEPart, copiedElement));
                 }
             }
             return command.unwrap();
+        }
+        return null;
+    }
+
+    /**
+     * Called by {@link #getCloneCommand(ChangeBoundsRequest)} to create a command for a edit part to clone.
+     * <p>
+     * May be redefined by sub classes to make a special command.
+     * @param request the {@link RequestConstants#REQ_CLONE} request
+     * @param metaUtils the metamodel expert for the host element
+     * @param hostElement the host model element
+     * @param hostModel the host graphic model
+     * @param copiedEPart the copied edit part
+     * @param copiedElement the copied related model element
+     * @return the created command or null.
+     * @since 5.1.0
+     */
+    @objid ("ecde8689-6412-467c-a82a-f3d2fdee5797")
+    protected Command createCloneChildCommand(ChangeBoundsRequest request, MExpert metaUtils, MObject hostElement, final GmCompositeNode hostModel, final GraphicalEditPart copiedEPart, final MObject copiedElement) {
+        if (hostElement instanceof BpmnLane && copiedElement instanceof BpmnFlowElement) {
+            // TODO : move this in a sub class
+            final Object requestConstraint = translateToModelConstraint(getConstraintFor(request, copiedEPart));
+            return new BpmnCloneFlowElementCommand(hostModel, (BpmnLane) hostElement, (BpmnFlowElement) copiedElement,
+                    requestConstraint);
+        } else if (metaUtils.canCompose(hostElement, copiedElement, null)) {
+            final Object requestConstraint = translateToModelConstraint(getConstraintFor(request, copiedEPart));
+            return new DefaultCloneElementCommand(hostModel, hostElement, copiedElement,
+                    requestConstraint);
         }
         return null;
     }
@@ -308,7 +326,7 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
     @Override
     protected Command getCreateCommand(CreateRequest request) {
         final MObject hostElement = getHostElement();
-        final ModelioCreationContext ctx = (ModelioCreationContext.lookRequest(request));
+        final ModelioCreationContext ctx = ModelioCreationContext.lookRequest(request);
         if (ctx != null) {
             final MObject elementToUnmask = ctx.getElementToUnmask();
             final GmCompositeNode gmParentNode = getHostCompositeNode();
@@ -338,7 +356,6 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
      * Retrieves the child's current constraint from the {@link #getLayoutContainer() layout container} <code>LayoutManager</code>.
      * <p>
      * The returned constraint may be a reference and must not be modified.
-     * 
      * @param child the child
      * @return the current constraint by reference.
      */
@@ -388,7 +405,6 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
 
     /**
      * Return the host edit part if this policy can handle the metaclass involved in the request.
-     * 
      * @param createRequest the request.
      * @return the host editpart if the metaclass involved in the request can be handled by this policy, <code>null</code> otherwise.
      */
@@ -413,7 +429,6 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
 
     /**
      * Return the host edit part if this policy can handle all edit parts involved in the request.
-     * 
      * @param changeBoundsRequest the request, can be CLONE or ADD.
      * @return the host edit part if all edit parts involved in the request can be handled by this policy, <code>null</code> otherwise.
      */
@@ -462,7 +477,6 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
 
     /**
      * Build the commands to avoid new nodes and links intersections based on the intersections remover.
-     * 
      * @param helper the intersections remover.
      * @param finalCommand the compound command the built ones will be added to.
      */
@@ -486,6 +500,7 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
         }
         
         finalCommand.add(helper.createExecuteCommand());
+        
     }
 
     /**
@@ -495,7 +510,6 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
      * <p>
      * The NewIntersectionsRemover is put in requests extended data and passed to request created from initial requests. Each container having a BaseFreeZoneLayoutEditPolicy may have its own NewIntersectionsRemover in the request. This allows using the
      * same remover for all moved elements edit part on multiple selection moves.
-     * 
      * @param request the request to parse.
      * @return the host intersection remover.
      */
@@ -540,7 +554,6 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
 
     /**
      * Compute the bounds of the given edit part after having applied the request.
-     * 
      * @param request the request to apply
      * @param layoutOrigin the container layout origin. see {@link #getLayoutOrigin()}
      * @param child the moved/resized edit part
@@ -570,7 +583,6 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
 
     /**
      * Redefined to handle {@link ChainedLayout} layout managers.
-     * 
      * @return the {@link XYLayout} layout manager set on the {@link LayoutEditPolicy#getLayoutContainer() container}
      */
     @objid ("54dcf5ad-90db-45e0-8558-c1e4917cad1c")
@@ -585,7 +597,6 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
 
     /**
      * Used by {@link #showTargetFeedback(Request)} to know which figure must be highlighted.
-     * 
      * @param request the request sent to {@link #showTargetFeedback(Request)}
      * @return the figure to highlight.
      */
@@ -602,16 +613,21 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
         } else {
             return null;
         }
+        
     }
 
     @objid ("ae931583-dba3-4778-aad1-9399f482e27b")
     @Override
-    protected Command createChangeConstraintCommand(ChangeBoundsRequest request, EditPart child, Object constraint) {
+    protected Command createChangeConstraintCommand(ChangeBoundsRequest request, EditPart movedEditPart, Object constraint) {
         // if child is a 'node' it usually can be resized and/or moved
-        if (child instanceof AbstractNodeEditPart || child.getModel() instanceof GmDrawing) {
-            final NodeChangeLayoutCommand command = new NodeChangeLayoutCommand();
-            command.setModel(child.getModel());
-            command.setConstraint(constraint);
+        if (movedEditPart instanceof AbstractNodeEditPart || movedEditPart.getModel() instanceof GmDrawing) {
+            final CompoundCommand command = new CompoundCommand();
+        
+            final NodeChangeLayoutCommand layoutCommand = new NodeChangeLayoutCommand();
+            layoutCommand.setModel(movedEditPart.getModel());
+            layoutCommand.setConstraint(constraint);
+            command.add(layoutCommand);
+        
         
             return new PostLayoutCommand(command, request);
         }
@@ -621,7 +637,6 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
     /**
      * Compute the trimmed bounds of the given edit part after having applied the request.
      * @see AbstractNodeEditPart#getTrimmedBounds()
-     * 
      * @param request the request to apply
      * @param layoutOrigin the container layout origin. see {@link #getLayoutOrigin()}
      * @param child the moved/resized edit part
@@ -658,6 +673,7 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
             childFigure.translateToAbsolute(ret);
             return ret;
         }
+        
     }
 
     @objid ("5be2830f-6ab7-4108-ac90-f937b30d92a6")
@@ -701,13 +717,13 @@ public class BaseFreeZoneLayoutEditPolicy extends XYLayoutEditPolicy {
             }
             return helper;
         }
+        
     }
 
     /**
      * Tells whether the layout assistant is disabled in the viewer properties.
      * <p>
      * The layout assistant may be disabled temporarily (without modifying the model) by setting {@link ILayoutAssistant#VIEWPROP_ENABLED} property id to <i>false</i>.
-     * 
      * @return whether the layout assistant is disabled in the viewer properties.
      */
     @objid ("3747901a-8367-4ae2-8517-fdef8c35365c")

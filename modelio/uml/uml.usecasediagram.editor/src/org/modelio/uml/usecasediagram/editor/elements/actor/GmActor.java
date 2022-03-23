@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.elements.actor;
 
 import java.util.ArrayList;
@@ -33,8 +32,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.usecaseModel.Actor;
 import org.modelio.metamodel.uml.statik.Port;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -55,7 +54,7 @@ public class GmActor extends GmPortContainer {
     private Actor element;
 
     @objid ("7b7f2482-5eff-11e2-b9cc-001ec947c8cc")
-     static final GmActorStructuredStyleKeys STRUCTURED_KEYS = new GmActorStructuredStyleKeys();
+    static final GmActorStructuredStyleKeys STRUCTURED_KEYS = new GmActorStructuredStyleKeys();
 
     @objid ("7b7f2484-5eff-11e2-b9cc-001ec947c8cc")
     private static final GmActorImageStyleKeys IMAGE_KEYS = new GmActorImageStyleKeys();
@@ -64,12 +63,12 @@ public class GmActor extends GmPortContainer {
     private static final GmActorUserImageStyleKeys USERIMAGE_KEYS = new GmActorUserImageStyleKeys();
 
     @objid ("5e3659e6-55b7-11e2-877f-002564c97630")
-    public GmActor() {
+    public  GmActor() {
         // Nothing specific to do.
     }
 
     @objid ("5e3659e9-55b7-11e2-877f-002564c97630")
-    public GmActor(IGmDiagram diagram, Actor el, MRef ref) {
+    public  GmActor(IGmDiagram diagram, Actor el, MRef ref) {
         super(diagram, ref);
         
         GmActorPrimaryNode mainNode = new GmActorPrimaryNode(diagram, ref);
@@ -83,6 +82,7 @@ public class GmActor extends GmPortContainer {
         actorLabel.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         
         addChild(actorLabel);
+        
     }
 
     @objid ("5e3659f5-55b7-11e2-877f-002564c97630")
@@ -135,6 +135,7 @@ public class GmActor extends GmPortContainer {
             default:
                 return Collections.emptyList();
         }
+        
     }
 
     @objid ("5e365a1e-55b7-11e2-877f-002564c97630")
@@ -154,6 +155,7 @@ public class GmActor extends GmPortContainer {
                 break;
             }
         }
+        
     }
 
     @objid ("5e37e07e-55b7-11e2-877f-002564c97630")
@@ -182,12 +184,14 @@ public class GmActor extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmActor.", GmActor.MINOR_VERSION);
+        
     }
 
     @objid ("5e37e094-55b7-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (Actor) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("5e37e099-55b7-11e2-877f-002564c97630")
@@ -216,6 +220,7 @@ public class GmActor extends GmPortContainer {
         } else {
             super.addStartingLink(link);
         }
+        
     }
 
     @objid ("5e396720-55b7-11e2-877f-002564c97630")
@@ -226,6 +231,7 @@ public class GmActor extends GmPortContainer {
         } else {
             super.addEndingLink(link);
         }
+        
     }
 
     @objid ("7ef0a52b-13ba-44ba-a5e4-c8d067c83039")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link;
 
 import java.util.Objects;
@@ -38,6 +37,9 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("7feead19-1dec-11e2-8cad-001ec947c8cc")
 public class DefaultReconnectSourceCommand extends Command {
+    @objid ("c3be2a17-f194-4929-900d-7b7199450f11")
+    private boolean gmModelOnly;
+
     @objid ("7feead1d-1dec-11e2-8cad-001ec947c8cc")
     private final GmLink gmLink;
 
@@ -49,14 +51,16 @@ public class DefaultReconnectSourceCommand extends Command {
 
     /**
      * Create the command.
-     * 
      * @param gmLink The link to move.
      * @param dest The new source node.
+     * @param gmModelOnly if <code>true</code>, only the Gm model changes after executing the command.
      */
     @objid ("7feead22-1dec-11e2-8cad-001ec947c8cc")
-    public DefaultReconnectSourceCommand(GmLink gmLink, IGmLinkable dest) {
+    public  DefaultReconnectSourceCommand(GmLink gmLink, IGmLinkable dest, Boolean gmModelOnly) {
         this.gmLink = gmLink;
         this.newSrcNode = dest;
+        this.gmModelOnly = Boolean.TRUE.equals(gmModelOnly);
+        
     }
 
     @objid ("7feead27-1dec-11e2-8cad-001ec947c8cc")
@@ -96,6 +100,7 @@ public class DefaultReconnectSourceCommand extends Command {
             // The old and new source and the link elements must be modifiable
             return isModifableElement(oldSrcNode) && isModifableElement(this.newSrcNode) && isModifableElement(this.gmLink) && expert.canSource(link, newSrc);
         }
+        
     }
 
     @objid ("7feead2b-1dec-11e2-8cad-001ec947c8cc")
@@ -104,14 +109,16 @@ public class DefaultReconnectSourceCommand extends Command {
         updateLinkSource();
         
         if (this.anchorModel != null) {
-            this.gmLink.getPath().setSourceAnchor(this.anchorModel);
-            this.gmLink.setLayoutData(new GmPath(this.gmLink.getPath()));
+            GmPath newPath = new GmPath(this.gmLink.getPath());
+            newPath.setSourceAnchor(this.anchorModel);
+            newPath.setSourceRake(null); // unrake from source
+            this.gmLink.setLayoutData(newPath);
         }
+        
     }
 
     /**
      * Set the model of the source anchor of the link.
-     * 
      * @param anchorModel the model of the source anchor of the link
      */
     @objid ("7ff10f4b-1dec-11e2-8cad-001ec947c8cc")
@@ -126,20 +133,31 @@ public class DefaultReconnectSourceCommand extends Command {
             final MObject link = this.gmLink.getRelatedElement();
             final MObject newSource = this.newSrcNode.getRelatedElement();
             final MExpert expert = link.getMClass().getMetamodel().getMExpert();
+        
             if (oldSourceNode != null) {
                 final MObject oldSource = oldSourceNode.getRelatedElement();
                 if (!newSource.equals(oldSource)) {
-                    // Update Ob model
-                    expert.setSource(link, oldSource, newSource);
+                    updateObModel(expert, link, oldSource, newSource);
                 }
         
                 // Update gm model
                 oldSourceNode.removeStartingLink(this.gmLink);
             } else {
-                expert.setSource(link, null, newSource);
+                updateObModel(expert, link, null, newSource);
             }
+        
+            // Update gm model
             this.newSrcNode.addStartingLink(this.gmLink);
         }
+        
+    }
+
+    @objid ("6223f073-b10a-4ade-93ef-d75c136cda13")
+    private void updateObModel(final MExpert expert, final MObject link, final MObject oldSource, final MObject newSource) {
+        if (!this.gmModelOnly) {
+            expert.setSource(link, oldSource, newSource);
+        }
+        
     }
 
     @objid ("7ff10f52-1dec-11e2-8cad-001ec947c8cc")

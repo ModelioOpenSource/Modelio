@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.elements.usecasedependency;
 
 import java.util.List;
@@ -39,12 +38,12 @@ public class GmExtensionPointLabel extends GmElementLabel {
     private static final int MAJOR_VERSION = 0;
 
     @objid ("5e7c8aa3-55b7-11e2-877f-002564c97630")
-    public GmExtensionPointLabel() {
+    public  GmExtensionPointLabel() {
         // serialization
     }
 
     @objid ("5e7c8aa6-55b7-11e2-877f-002564c97630")
-    public GmExtensionPointLabel(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmExtensionPointLabel(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -81,6 +80,7 @@ public class GmExtensionPointLabel extends GmElementLabel {
                 break;
             }
         }
+        
     }
 
     @objid ("5e7c8abc-55b7-11e2-877f-002564c97630")
@@ -90,6 +90,7 @@ public class GmExtensionPointLabel extends GmElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmExtensionPointLabel.", GmExtensionPointLabel.MINOR_VERSION);
+        
     }
 
     @objid ("5e7c8ac2-55b7-11e2-877f-002564c97630")

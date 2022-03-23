@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.elements.actor;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,7 +40,7 @@ public class GmActorImageStyleKeys extends UseCaseAbstractStyleKeyProvider {
 
     @objid ("d9aa32d5-55c2-11e2-9337-002564c97630")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("ACTOR_SHOWSTEREOTYPES",
-                                                                  MetaKey.SHOWSTEREOTYPES);
+                                                                      MetaKey.SHOWSTEREOTYPES);
 
     @objid ("d9aa32d8-55c2-11e2-9337-002564c97630")
     public static final StyleKey SHOWTAGS = createStyleKey("ACTOR_SHOWTAGS", MetaKey.SHOWTAGS);

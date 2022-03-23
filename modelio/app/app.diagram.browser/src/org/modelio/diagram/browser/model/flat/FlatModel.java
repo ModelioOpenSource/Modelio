@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.model.flat;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,12 +32,11 @@ public class FlatModel extends AbstractModel {
     @objid ("0026e490-0d4f-10c6-842f-001ec947cd2a")
     @Override
     public ITreeContentProvider getContentProvider() {
-        
         return this.contentProvider;
     }
 
     @objid ("7229b289-b3c6-477e-a30b-263d06a427aa")
-    public FlatModel(GProject project) {
+    public  FlatModel(GProject project) {
         this.contentProvider = new FlatContentProvider(project);
     }
 

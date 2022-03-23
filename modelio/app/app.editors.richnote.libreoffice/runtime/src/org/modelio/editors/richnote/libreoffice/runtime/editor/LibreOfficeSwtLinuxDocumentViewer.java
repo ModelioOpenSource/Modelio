@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.libreoffice.runtime.editor;
 
 import java.io.ByteArrayOutputStream;
@@ -66,13 +65,14 @@ public class LibreOfficeSwtLinuxDocumentViewer implements IEditedDocumentViewer 
      * Constructor.
      */
     @objid ("dc1c5e59-ddd6-4f8a-972e-1a227cf67403")
-    public LibreOfficeSwtLinuxDocumentViewer() {
+    public  LibreOfficeSwtLinuxDocumentViewer() {
         try {
             System.setProperty("sun.awt.noerasebackground", "true");
             System.setProperty("sun.awt.xembedserver", "true");
         } catch (NoSuchMethodError error) {
             // ignore
         }
+        
     }
 
     @objid ("a6fd78d0-25df-4856-8f94-0b6aba66d36b")
@@ -129,6 +129,7 @@ public class LibreOfficeSwtLinuxDocumentViewer implements IEditedDocumentViewer 
         } catch (NoConnectionException e) {
             throw new IOException(e);
         }
+        
     }
 
     @objid ("25d3f092-26fd-4d23-8943-2074dc09ca44")
@@ -136,6 +137,7 @@ public class LibreOfficeSwtLinuxDocumentViewer implements IEditedDocumentViewer 
     public void createPartControl(final Composite parent) {
         /* Create and setting up frame */
         this.aBean = new SwtLinuxOOoBean(parent, SWT.NONE);
+        
     }
 
     @objid ("9a417d47-f45e-4fd0-a47e-ae32daef6b04")
@@ -176,6 +178,7 @@ public class LibreOfficeSwtLinuxDocumentViewer implements IEditedDocumentViewer 
         } catch (NoDocumentException e) {
             throw new IOException(e);
         }
+        
     }
 
     @objid ("eec840a9-8899-4095-b626-df1a0298d759")
@@ -189,11 +192,11 @@ public class LibreOfficeSwtLinuxDocumentViewer implements IEditedDocumentViewer 
         } catch (NoConnectionException e) {
             throw new IOException(e);
         }
+        
     }
 
     /**
      * Get the OpenOffice control.
-     * 
      * @return the OpenOffice control.
      */
     @objid ("fd2d7f2b-5927-4fcd-bc54-17a488fa889c")
@@ -228,6 +231,7 @@ public class LibreOfficeSwtLinuxDocumentViewer implements IEditedDocumentViewer 
         } finally {
             watchDog.cancel();
         }
+        
     }
 
     @objid ("6bf8141b-2237-45f5-9c7e-b5b81a6f60e4")
@@ -252,6 +256,7 @@ public class LibreOfficeSwtLinuxDocumentViewer implements IEditedDocumentViewer 
         } catch (SystemWindowException e) {
             throw new IOException(e);
         }
+        
     }
 
     @objid ("323b3e7d-4069-4f3a-8348-adbfd1445820")
@@ -285,6 +290,7 @@ public class LibreOfficeSwtLinuxDocumentViewer implements IEditedDocumentViewer 
         } catch (UnsatisfiedLinkError e) {
             throw new IOException(e);
         }
+        
     }
 
     @objid ("ee71b2ef-5408-4531-9067-d8e4806631ba")
@@ -297,6 +303,7 @@ public class LibreOfficeSwtLinuxDocumentViewer implements IEditedDocumentViewer 
         } catch (NoDocumentException e) {
             throw new IOException(e);
         }
+        
     }
 
     @objid ("26f4b3f5-48bd-4d17-af0b-26860ce771e9")
@@ -340,6 +347,7 @@ public class LibreOfficeSwtLinuxDocumentViewer implements IEditedDocumentViewer 
         } catch (NoDocumentException e) {
             throw new IOException(e);
         }
+        
     }
 
     @objid ("509fca64-fb3c-44b9-8fbb-14b0d18279c9")
@@ -348,12 +356,12 @@ public class LibreOfficeSwtLinuxDocumentViewer implements IEditedDocumentViewer 
         if (this.aBean != null && !this.aBean.isDisposed()) {
             this.aBean.setFocus();
         }
+        
     }
 
     /**
      * closes the bean viewer and tries to terminate OOo.
-     * 
-     * @throws com.sun.star.comp.beans.NoConnectionException if no connection is established.
+     * @throws NoConnectionException if no connection is established.
      */
     @objid ("55c7e8e2-65b9-402e-83e5-bcdadbaca812")
     public void terminate() throws NoConnectionException {
@@ -364,15 +372,15 @@ public class LibreOfficeSwtLinuxDocumentViewer implements IEditedDocumentViewer 
         if (xDesktop != null) {
             xDesktop.terminate();
         }
+        
     }
 
     /**
      * Creating a correct File URL that OpenOffice can handle. This is
      * necessary to be platform independent.
-     * 
      * @param newfile a file path
      * @return the OpenOffice compatible URL.
-     * @throws com.sun.star.comp.beans.NoConnectionException if not connected to OpenOffice
+     * @throws NoConnectionException if not connected to OpenOffice
      */
     @objid ("542b563b-52a0-4924-8fca-f25fee7d0187")
     private String createUNOFileURL(final Path newfile) throws NoConnectionException {
@@ -413,9 +421,8 @@ public class LibreOfficeSwtLinuxDocumentViewer implements IEditedDocumentViewer 
      * <p>
      * The filter name depends on the document type.
      * Returns <code>null</code> if the document cannot be exported to HTML.
-     * 
      * @return the HTML export filter name, or <code>null</code>.
-     * @throws com.sun.star.comp.beans.NoConnectionException if no connection to LibreOffice is established.
+     * @throws NoConnectionException if no connection to LibreOffice is established.
      */
     @objid ("36b76489-ccc8-46a2-b94c-fe71ab008ec4")
     private String getHtmlExportFilterName() throws NoConnectionException {

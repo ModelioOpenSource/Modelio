@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.model.impl.importer.defaultimporter;
 
 import java.util.ArrayList;
@@ -53,11 +52,12 @@ public class DefaultReferenceDependencyUpdater implements IDependencyUpdater {
      * @param localSession the local session
      */
     @objid ("008c9128-e7d6-1090-8d81-001ec947cd2a")
-    public DefaultReferenceDependencyUpdater(IBrokenDependencyHandler brokenDependencyHandler, IObjectFinder objectFinder, ICoreSession localSession) {
+    public  DefaultReferenceDependencyUpdater(IBrokenDependencyHandler brokenDependencyHandler, IObjectFinder objectFinder, ICoreSession localSession) {
         super();
         this.brokenDependencyHandler = brokenDependencyHandler;
         this.objectFinder = objectFinder;
         this.localSession = localSession;
+        
     }
 
     @objid ("007be2b0-d3aa-108f-8d81-001ec947cd2a")
@@ -120,6 +120,7 @@ public class DefaultReferenceDependencyUpdater implements IDependencyUpdater {
                 localObject.appendDepVal(localDep, obj);
             }
         }
+        
     }
 
     @objid ("008cfec4-e7d6-1090-8d81-001ec947cd2a")
@@ -133,6 +134,7 @@ public class DefaultReferenceDependencyUpdater implements IDependencyUpdater {
         
             }
         }
+        
     }
 
     @objid ("007c2e50-d3aa-108f-8d81-001ec947cd2a")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.collab.v0;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -84,7 +83,7 @@ class CollaborationStructuredStyleKeys extends StaticAbstractStyleKeyProvider {
      */
     @objid ("a618996c-55c2-11e2-9337-002564c97630")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("COLLABORATION_SHOWSTEREOTYPES",
-                                                                  MetaKey.SHOWSTEREOTYPES);
+                                                                      MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Display tagged values.
@@ -97,7 +96,7 @@ class CollaborationStructuredStyleKeys extends StaticAbstractStyleKeyProvider {
      */
     @objid ("a6189972-55c2-11e2-9337-002564c97630")
     public static final StyleKey SHOWVISIBILITY = createStyleKey("COLLABORATION_SHOWVISIBILITY",
-                                                                 MetaKey.SHOWVISIBILITY);
+                                                                     MetaKey.SHOWVISIBILITY);
 
     /**
      * Filter on features
@@ -110,7 +109,7 @@ class CollaborationStructuredStyleKeys extends StaticAbstractStyleKeyProvider {
      */
     @objid ("a6189978-55c2-11e2-9337-002564c97630")
     public static final StyleKey INNERVIEWMODE = createStyleKey("COLLABORATION_INNERVIEWMODE",
-                                                                MetaKey.InnerGroup.INNERVIEWMODE);
+                                                                    MetaKey.InnerGroup.INNERVIEWMODE);
 
     /**
      * Style keys for all internal structure group members.
@@ -126,43 +125,43 @@ class CollaborationStructuredStyleKeys extends StaticAbstractStyleKeyProvider {
          * Internal structure visualization mode: labels, diagram or none.
          */
         @objid ("a618997b-55c2-11e2-9337-002564c97630")
-         static final StyleKey INTERNALSVIEWMODE = createStyleKey("COLLABORATION_INTERNALSVIEWMODE",
-                                                                 MetaKey.InternalGroup.INTVIEWMODE);
+        static final StyleKey INTERNALSVIEWMODE = createStyleKey("COLLABORATION_INTERNALSVIEWMODE",
+                                                                         MetaKey.InternalGroup.INTVIEWMODE);
 
         /**
          * Text color.
          */
         @objid ("a618997e-55c2-11e2-9337-002564c97630")
-         static final StyleKey TEXTCOLOR = createStyleKey("COLLABORATION_INTERNAL_TEXTCOLOR",
-                                                         MetaKey.InternalGroup.INTTEXTCOLOR);
+        static final StyleKey TEXTCOLOR = createStyleKey("COLLABORATION_INTERNAL_TEXTCOLOR",
+                                                                 MetaKey.InternalGroup.INTTEXTCOLOR);
 
         /**
          * Font
          */
         @objid ("a6189981-55c2-11e2-9337-002564c97630")
-         static final StyleKey FONT = createStyleKey("COLLABORATION_INTERNAL_FONT",
-                                                    MetaKey.InternalGroup.INTFONT);
+        static final StyleKey FONT = createStyleKey("COLLABORATION_INTERNAL_FONT",
+                                                            MetaKey.InternalGroup.INTFONT);
 
         /**
          * Stereotype display mode.
          */
         @objid ("a6189984-55c2-11e2-9337-002564c97630")
-         static final StyleKey SHOWSTEREOTYPES = createStyleKey("COLLABORATION_INTERNAL_SHOWSTEREOTYPES",
-                                                               MetaKey.InternalGroup.INTSHOWSTEREOTYPES);
+        static final StyleKey SHOWSTEREOTYPES = createStyleKey("COLLABORATION_INTERNAL_SHOWSTEREOTYPES",
+                                                                       MetaKey.InternalGroup.INTSHOWSTEREOTYPES);
 
         /**
          * Display tagged values.
          */
         @objid ("a6189987-55c2-11e2-9337-002564c97630")
-         static final StyleKey SHOWTAGS = createStyleKey("COLLABORATION_INTERNAL_SHOWTAGS",
-                                                        MetaKey.InternalGroup.INTSHOWTAGS);
+        static final StyleKey SHOWTAGS = createStyleKey("COLLABORATION_INTERNAL_SHOWTAGS",
+                                                                MetaKey.InternalGroup.INTSHOWTAGS);
 
         /**
          * Auto unmask internal structure content. Boolean type.
          */
         @objid ("a618998a-55c2-11e2-9337-002564c97630")
-         static final StyleKey AUTOUNMASK = createStyleKey("COLLABORATION_INTERNAL_AUTOUNMASK",
-                                                          MetaKey.InternalGroup.INTAUTOUNMASK);
+        static final StyleKey AUTOUNMASK = createStyleKey("COLLABORATION_INTERNAL_AUTOUNMASK",
+                                                                  MetaKey.InternalGroup.INTAUTOUNMASK);
 
     }
 
@@ -179,28 +178,28 @@ class CollaborationStructuredStyleKeys extends StaticAbstractStyleKeyProvider {
          */
         @objid ("a618998f-55c2-11e2-9337-002564c97630")
         public static final StyleKey TEXTCOLOR = createStyleKey("COLLABORATION_INNER_TEXTCOLOR",
-                                                                MetaKey.InnerGroup.INNERTEXTCOLOR);
+                                                                        MetaKey.InnerGroup.INNERTEXTCOLOR);
 
         /**
          * Font
          */
         @objid ("a6189992-55c2-11e2-9337-002564c97630")
         public static final StyleKey FONT = createStyleKey("COLLABORATION_INNER_FONT",
-                                                           MetaKey.InnerGroup.INNERFONT);
+                                                                   MetaKey.InnerGroup.INNERFONT);
 
         /**
          * Stereotype display mode.
          */
         @objid ("a61a2009-55c2-11e2-9337-002564c97630")
         public static final StyleKey SHOWSTEREOTYPES = createStyleKey("COLLABORATION_INNER_SHOWSTEREOTYPES",
-                                                                      MetaKey.InnerGroup.INNERSHOWSTEREOTYPES);
+                                                                              MetaKey.InnerGroup.INNERSHOWSTEREOTYPES);
 
         /**
          * Display tagged values.
          */
         @objid ("a61a200c-55c2-11e2-9337-002564c97630")
         public static final StyleKey SHOWTAGS = createStyleKey("COLLABORATION_INNER_SHOWTAGS",
-                                                               MetaKey.InnerGroup.INNERSHOWTAGS);
+                                                                       MetaKey.InnerGroup.INNERSHOWTAGS);
 
     }
 

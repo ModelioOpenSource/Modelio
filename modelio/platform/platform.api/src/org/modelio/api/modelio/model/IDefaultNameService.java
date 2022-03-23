@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.model;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,7 +46,6 @@ public interface IDefaultNameService {
      * (mostly based on the metaclass of the element) optionally followed by an
      * integer counter to distinguish from other elements of the same type in
      * the same container.
-     * 
      * @param element an element
      */
     @objid ("a4306d43-0ecc-11e2-96c4-002564c97630")
@@ -57,7 +55,6 @@ public interface IDefaultNameService {
      * Set an element default name. The name is composed of the given baseName
      * as radical, optionally followed by an integer counter to distinguish from
      * other elements of the same type in the same container.
-     * 
      * @param element an element
      * @param baseName the radical to use.
      */

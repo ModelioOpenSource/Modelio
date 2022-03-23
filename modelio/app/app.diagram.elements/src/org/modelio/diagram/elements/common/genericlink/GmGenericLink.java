@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.genericlink;
 
 import java.util.List;
@@ -61,24 +60,24 @@ public class GmGenericLink extends GmLink {
 
     /**
      * Initialize a link graphic model.
-     * 
      * @param diagram The owning diagram
      * @param link The reference link, may be <code>null</code>.
      * @param ref The reference link, may not be <code>null</code>
      */
     @objid ("6001de5f-3a7d-49e9-ba0c-d7a169b44eff")
-    public GmGenericLink(IGmDiagram diagram, ModelElement link, MRef ref) {
+    public  GmGenericLink(IGmDiagram diagram, ModelElement link, MRef ref) {
         super(diagram, ref);
         this.link = link;
         
         addExtension(ExtensionLocation.MiddleNW, IGmLink.ROLE_MAIN_LABEL, new GmDefaultModelElementLabel(diagram, ref));
+        
     }
 
     /**
      * For deserialization only.
      */
     @objid ("5b156941-8041-43db-b6c3-86643f52eff4")
-    public GmGenericLink() {
+    public  GmGenericLink() {
         super();
     }
 
@@ -112,6 +111,7 @@ public class GmGenericLink extends GmLink {
         break;
         }
         }
+        
     }
 
     @objid ("457f7ad7-404c-4d6d-bb2f-32558fd93e12")
@@ -140,6 +140,7 @@ public class GmGenericLink extends GmLink {
         super.write(out);
         
         writeMinorVersion(out, "GmGenericLink.", GmGenericLink.MINOR_VERSION);
+        
     }
 
     @objid ("5273b8d1-209d-47d7-8f87-d9609a14b4fc")

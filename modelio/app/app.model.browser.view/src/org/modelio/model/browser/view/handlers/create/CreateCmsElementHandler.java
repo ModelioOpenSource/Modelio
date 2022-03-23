@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.browser.view.handlers.create;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,6 +37,7 @@ public class CreateCmsElementHandler extends CreateElementHandler {
         } else {
             return super.doCanExecute(owner, metaclass, dependency, stereotype);
         }
+        
     }
 
 }

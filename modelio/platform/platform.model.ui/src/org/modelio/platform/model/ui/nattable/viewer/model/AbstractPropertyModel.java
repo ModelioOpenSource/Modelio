@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.viewer.model;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,7 +44,7 @@ public abstract class AbstractPropertyModel<T extends MObject> implements IPrope
     protected static final String VALUE_ID = "Value";
 
     @objid ("0ab7cdfa-429f-4f2e-97dd-bda7caddf02b")
-    protected AbstractPropertyModel(T editedElement) {
+    protected  AbstractPropertyModel(T editedElement) {
         this.theEditedElement = editedElement;
     }
 
@@ -57,7 +56,6 @@ public abstract class AbstractPropertyModel<T extends MObject> implements IPrope
 
     /**
      * Basic implementation of isEditable.
-     * 
      * @param row the row index from the table.
      * @param col the column index from the table.
      * @return <code>false</code> when col = 0 or the edited element is not modifiable.

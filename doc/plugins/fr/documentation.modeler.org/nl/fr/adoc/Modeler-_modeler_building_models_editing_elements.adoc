@@ -1,5 +1,7 @@
 // Disable all captions for figures.
 :!figure-caption:
+// Path to the stylesheet files
+:stylesdir: .
 
 [[Editer-des-éléments-via-les-boites-dédition]]
 

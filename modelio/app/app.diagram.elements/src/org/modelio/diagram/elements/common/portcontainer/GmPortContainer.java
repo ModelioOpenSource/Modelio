@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.portcontainer;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -79,18 +78,17 @@ public abstract class GmPortContainer extends GmCompositeNode {
      * Empty constructor for deserialization.
      */
     @objid ("7ee86a69-1dec-11e2-8cad-001ec947c8cc")
-    public GmPortContainer() {
+    public  GmPortContainer() {
         super();
     }
 
     /**
      * Constructor.
-     * 
      * @param diagram The diagram in which this port container will be unmasked.
      * @param relatedRef a reference to the element this GmModel is related to.
      */
     @objid ("7ee86a6c-1dec-11e2-8cad-001ec947c8cc")
-    public GmPortContainer(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmPortContainer(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -108,6 +106,7 @@ public abstract class GmPortContainer extends GmCompositeNode {
             child.getPersistedStyle().setCascadedStyle(getPersistedStyle());
         }
         super.addChild(child);
+        
     }
 
     @objid ("7ee86a78-1dec-11e2-8cad-001ec947c8cc")
@@ -137,7 +136,6 @@ public abstract class GmPortContainer extends GmCompositeNode {
 
     /**
      * Get the main node that is decorated with ports and satellites.
-     * 
      * @return a GmNodeModel, can't be <code>null</code>.
      */
     @objid ("7eeacc9d-1dec-11e2-8cad-001ec947c8cc")
@@ -150,7 +148,6 @@ public abstract class GmPortContainer extends GmCompositeNode {
      * Get the port container main node representation mode.
      * <p>
      * If the container has no main node, returns {@link #getRepresentationMode()}.
-     * 
      * @return the main node representation mode.
      */
     @objid ("c75f8ee0-56eb-45a9-a8fe-1bd4448e6874")
@@ -161,6 +158,7 @@ public abstract class GmPortContainer extends GmCompositeNode {
         } else {
             return getRepresentationMode();
         }
+        
     }
 
     @objid ("7eeacca0-1dec-11e2-8cad-001ec947c8cc")
@@ -182,7 +180,6 @@ public abstract class GmPortContainer extends GmCompositeNode {
      * Tells whether the given child node is the main satellite label of this port container node.
      * <p>
      * The default implementation return the first satellite node. Sub classes are strongly encouraged to subclass this method when they may have more than one satellite node..
-     * 
      * @param childNode the node to check.
      * @return the main satellite label of this node.
      */
@@ -193,7 +190,6 @@ public abstract class GmPortContainer extends GmCompositeNode {
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
      * <p>
      * See {@link #defaultIsPort(GmNodeModel)} for a recommended implementation.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -204,7 +200,6 @@ public abstract class GmPortContainer extends GmCompositeNode {
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
      * <p>
      * See {@link #defaultIsSatellite(GmNodeModel)} for a recommended implementation.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -228,6 +223,7 @@ public abstract class GmPortContainer extends GmCompositeNode {
             break;
         }
         }
+        
     }
 
     @objid ("7eeaccb9-1dec-11e2-8cad-001ec947c8cc")
@@ -237,13 +233,13 @@ public abstract class GmPortContainer extends GmCompositeNode {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmPortContainer.", GmPortContainer.MINOR_VERSION);
+        
     }
 
     /**
      * Tells whether the given child node is the main satellite label of this port container node.
      * <p>
      * The default implementation return the first satellite node. Sub classes are strongly encouraged to subclass this method when they may have more than one satellite node..
-     * 
      * @param childNode the node to check.
      * @return the main satellite label of this node.
      */
@@ -254,7 +250,6 @@ public abstract class GmPortContainer extends GmCompositeNode {
 
     /**
      * Default and recommended implementation for {@link #isPort(GmNodeModel)}
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -266,7 +261,6 @@ public abstract class GmPortContainer extends GmCompositeNode {
 
     /**
      * Default implementation for {@link #isSatellite(GmNodeModel)}.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -305,6 +299,7 @@ public abstract class GmPortContainer extends GmCompositeNode {
         } else {
             return null;
         }
+        
     }
 
 }

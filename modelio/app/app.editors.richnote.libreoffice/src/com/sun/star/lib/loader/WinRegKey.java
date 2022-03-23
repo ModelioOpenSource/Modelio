@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package com.sun.star.lib.loader;
 
 import java.io.BufferedInputStream;
@@ -71,22 +70,21 @@ final class WinRegKey {
 
     /**
      * Constructs a <code>WinRegKey</code>.
-     * 
      * @param rootKeyName The root key name.
      * @param subKeyName The key path.
      */
     @objid ("e2dd20dd-d65e-42cb-8025-fd93d8782a7f")
-    public WinRegKey(final String rootKeyName, final String subKeyName) {
+    public  WinRegKey(final String rootKeyName, final String subKeyName) {
         this.m_rootKeyName = rootKeyName;
         this.m_subKeyName = subKeyName;
+        
     }
 
     /**
      * Reads a string value for the specified value name.
-     * 
      * @param valueName the value name to read
      * @return the value
-     * @throws com.sun.star.lib.loader.WinRegKeyException in case of failure.
+     * @throws WinRegKeyException in case of failure.
      */
     @objid ("d7f42f22-1b50-41d6-bc65-d4d329afdb6c")
     public String getStringValue(final String valueName) throws WinRegKeyException {
@@ -179,38 +177,37 @@ final class WinRegKey {
         System.arraycopy( buffer, 0, result, 0, (int)size[0] );
         return result;
     }
-
-
 static {        
-        try {
-            ClassLoader cl = WinRegKey.class.getClassLoader();            
-            InputStream is = cl.getResourceAsStream( "win/unowinreg.dll" );
-            if ( is != null ) {                
-                // generate a temporary name for lib file and write to temp
-                // location
-                BufferedInputStream istream = new BufferedInputStream( is );
-                File libfile = File.createTempFile( "unowinreg", ".dll" );
-                libfile.deleteOnExit(); // ensure deletion
-                BufferedOutputStream ostream = new BufferedOutputStream(
-                    new FileOutputStream( libfile ) );
-                int bsize = 2048; int n = 0;
-                byte[] buffer = new byte[bsize];
-                while ( ( n = istream.read( buffer, 0, bsize ) ) != -1 ) {
-                    ostream.write( buffer, 0, n );
-                }        
-                istream.close();
-                ostream.close();            
-                // load library
-                System.load( libfile.getPath() );
-            } else {
-                // If the library cannot be found as a class loader resource,
-                // try the global System.loadLibrary(). The JVM will look for
-                // it in the java.library.path.            
-                System.loadLibrary( "unowinreg" );
-            }            
-        } catch ( java.lang.Exception e ) {
-            System.err.println( "com.sun.star.lib.loader.WinRegKey: " +
-                "loading of native library failed!" + e );
+            try {
+                ClassLoader cl = WinRegKey.class.getClassLoader();            
+                InputStream is = cl.getResourceAsStream( "win/unowinreg.dll" );
+                if ( is != null ) {                
+                    // generate a temporary name for lib file and write to temp
+                    // location
+                    BufferedInputStream istream = new BufferedInputStream( is );
+                    File libfile = File.createTempFile( "unowinreg", ".dll" );
+                    libfile.deleteOnExit(); // ensure deletion
+                    BufferedOutputStream ostream = new BufferedOutputStream(
+                        new FileOutputStream( libfile ) );
+                    int bsize = 2048; int n = 0;
+                    byte[] buffer = new byte[bsize];
+                    while ( ( n = istream.read( buffer, 0, bsize ) ) != -1 ) {
+                        ostream.write( buffer, 0, n );
+                    }        
+                    istream.close();
+                    ostream.close();            
+                    // load library
+                    System.load( libfile.getPath() );
+                } else {
+                    // If the library cannot be found as a class loader resource,
+                    // try the global System.loadLibrary(). The JVM will look for
+                    // it in the java.library.path.            
+                    System.loadLibrary( "unowinreg" );
+                }            
+            } catch ( java.lang.Exception e ) {
+                System.err.println( "com.sun.star.lib.loader.WinRegKey: " +
+                    "loading of native library failed!" + e );
+            }
         }
-    }
+    
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.management;
 
 import java.util.HashMap;
@@ -56,11 +55,10 @@ public class RichNotesSession implements IBlobChangeListener {
      * Initialize a new rich note modeling session.
      * <p>
      * Called by {@link RichNoteEditorsManager#onProjectOpen(GProject)}.
-     * 
      * @param project the project to handle.
      */
     @objid ("a491b067-18bd-4f2a-88a3-252b110a3fde")
-    RichNotesSession(GProject project) {
+     RichNotesSession(GProject project) {
         assert (project != null);
         assert (sessions.get(project) == null) : project;
         
@@ -75,6 +73,7 @@ public class RichNotesSession implements IBlobChangeListener {
         // Add the model change handler
         IModelChangeListener aHandler = new RichNoteChangeHandler(project);
         project.getSession().getModelChangeSupport().addModelChangeListener(aHandler);
+        
     }
 
     @objid ("3b107441-ca78-47fc-8280-9ee53cb3326d")
@@ -95,6 +94,7 @@ public class RichNotesSession implements IBlobChangeListener {
                 token.editor.onOriginalModified(token.model);
             }
         }
+        
     }
 
     /**
@@ -125,7 +125,6 @@ public class RichNotesSession implements IBlobChangeListener {
 
     /**
      * Get the rich note session matching a project.
-     * 
      * @param openedProject a registered project.
      * @return the matching rich note session.
      */
@@ -136,7 +135,6 @@ public class RichNotesSession implements IBlobChangeListener {
 
     /**
      * Get the rich note session handling a model object.
-     * 
      * @param obj a model object.
      * @return the matching rich note session.
      */

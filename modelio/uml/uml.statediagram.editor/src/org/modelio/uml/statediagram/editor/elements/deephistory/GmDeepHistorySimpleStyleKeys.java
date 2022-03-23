@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.deephistory;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,33 +31,33 @@ import org.modelio.uml.statediagram.editor.style.StateAbstractStyleKeyProvider;
 @objid ("f509e9d8-55b6-11e2-877f-002564c97630")
 public class GmDeepHistorySimpleStyleKeys extends StateAbstractStyleKeyProvider {
     @objid ("8112c14c-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmDeepHistoryStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmDeepHistoryStructuredStyleKeys.REPMODE;
 
     @objid ("8112c14e-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = GmDeepHistoryStructuredStyleKeys.FILLCOLOR;
+    static final StyleKey FILLCOLOR = GmDeepHistoryStructuredStyleKeys.FILLCOLOR;
 
     @objid ("8112c150-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = GmDeepHistoryStructuredStyleKeys.FILLMODE;
+    static final StyleKey FILLMODE = GmDeepHistoryStructuredStyleKeys.FILLMODE;
 
     @objid ("811447ea-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = GmDeepHistoryStructuredStyleKeys.LINECOLOR;
+    static final StyleKey LINECOLOR = GmDeepHistoryStructuredStyleKeys.LINECOLOR;
 
     @objid ("811447ec-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = GmDeepHistoryStructuredStyleKeys.LINEWIDTH;
+    static final StyleKey LINEWIDTH = GmDeepHistoryStructuredStyleKeys.LINEWIDTH;
 
     @objid ("811447ee-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmDeepHistoryStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmDeepHistoryStructuredStyleKeys.FONT;
 
     @objid ("811447f0-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmDeepHistoryStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmDeepHistoryStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("811447f2-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmDeepHistoryStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmDeepHistoryStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("811447f4-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmDeepHistoryStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmDeepHistoryStructuredStyleKeys.SHOWTAGS;
 
     @objid ("811447f6-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWLABEL = createStyleKey("DEEPHISTORY_SHOWLABEL", MetaKey.SHOWLABEL);
+    static final StyleKey SHOWLABEL = createStyleKey("DEEPHISTORY_SHOWLABEL", MetaKey.SHOWLABEL);
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.audit;
 
 import java.util.ArrayList;
@@ -102,6 +101,7 @@ public class R1090 extends AbstractUmlRule {
         plan.registerRule(UseCase.MQNAME, this, AuditTrigger.MOVE);
         plan.registerRule(Artifact.MQNAME, this, AuditTrigger.MOVE);
         plan.registerRule(Node.MQNAME, this, AuditTrigger.MOVE);
+        
     }
 
     /**
@@ -135,14 +135,14 @@ public class R1090 extends AbstractUmlRule {
      * Default constructor for R1090
      */
     @objid ("81c0e61b-9e6b-4be4-8200-c209366a9624")
-    public R1090() {
+    public  R1090() {
         this.checkerInstance = new CheckR1090(this);
     }
 
     @objid ("077bccd0-618b-46e1-aacf-093f54ce132a")
     private static class CheckR1090 extends AbstractControl {
         @objid ("4ac3a25b-32e7-405c-8d43-48003938e3c7")
-        public CheckR1090(IRule rule) {
+        public  CheckR1090(IRule rule) {
             super(rule);
         }
 
@@ -162,7 +162,6 @@ public class R1090 extends AbstractUmlRule {
 
         /**
          * UML2.3, ActivityPartition, Constraints [3]
-         * 
          * @param partition The partition to check.
          * @return The audit entry result.
          */
@@ -215,7 +214,6 @@ public class R1090 extends AbstractUmlRule {
 
         /**
          * If a Classifier was updated, wee need to check if it is represented in any Partition. If it is, we check the rule on this partition.
-         * 
          * @param classifier The updated Classifier.
          * @return A list of audit entry for each partition that was checked.
          */
@@ -232,7 +230,6 @@ public class R1090 extends AbstractUmlRule {
 
         /**
          * When a partition is updated or moved, we need to check if it satisfies the rule, but in the case it is updated, we also need to check if its sub partitions, if any, satisfy the rule or not.
-         * 
          * @param partition The updated partition.
          * @return A list of audit entry for each concerned partition.
          */

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.handlers;
 
 import java.util.ArrayList;
@@ -37,13 +36,12 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 @objid ("d6892701-516d-4773-a78d-0b9750061881")
 public class SelectionHelper {
     @objid ("f54de13d-12c8-411d-a0f9-2eec776f272b")
-    private SelectionHelper() {
+    private  SelectionHelper() {
         // no instance
     }
 
     /**
      * transform {@link ISelection} to list of {@link MObject}.
-     * 
      * @param selection a selection
      * @return a list of MObject.
      */
@@ -70,7 +68,6 @@ public class SelectionHelper {
 
     /**
      * Transform {@link IStructuredSelection} to list of {@link Object}.
-     * 
      * @param selection a selection
      * @return a list of Object, empty if the selection is not a IStructuredSelection.
      */
@@ -86,7 +83,6 @@ public class SelectionHelper {
     /**
      * Transform {@link IStructuredSelection} to list of T.
      * @param <T> the type of elements to find in the Eclipse selection.
-     * 
      * @param selection a selection
      * @param adapterType the type of adapter to look up
      * @return a list of T, empty if the selection is not a IStructuredSelection.

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.controller.states;
 
 import java.util.ArrayList;
@@ -47,12 +46,13 @@ public class Transition {
     private final List<IModuleStateAction> actions;
 
     @objid ("14b27081-ae42-479c-974d-26a6f6c963a1")
-    protected Transition(AbstractModuleState srcState, AbstractModuleState targetState, Object message, Object postTransitionMessage, List<IModuleStateAction> actions) {
+    protected  Transition(AbstractModuleState srcState, AbstractModuleState targetState, Object message, Object postTransitionMessage, List<IModuleStateAction> actions) {
         this.srcState = srcState;
         this.targetState = targetState;
         this.message = message;
         this.postTransitionMessage = postTransitionMessage;
         this.actions = actions;
+        
     }
 
     /**
@@ -89,7 +89,6 @@ public class Transition {
 
     /**
      * Get a transition builder object.
-     * 
      * @return a transition builder.
      */
     @objid ("caad743f-aa19-44e7-a042-22c9daf561ab")
@@ -99,7 +98,6 @@ public class Transition {
 
     /**
      * Get actions to execute before switching to the target state.
-     * 
      * @return the transition actions
      */
     @objid ("5fd46033-08ef-447c-9aa2-586137792355")
@@ -132,7 +130,6 @@ public class Transition {
 
         /**
          * Set the origin state.
-         * 
          * @param srcState the origin state
          * @return this
          */
@@ -144,7 +141,6 @@ public class Transition {
 
         /**
          * Set the target state.
-         * 
          * @param targetState the target state
          * @return this
          */
@@ -158,7 +154,6 @@ public class Transition {
          * Create the transition.
          * <p>
          * The builder can still be used with the configuration already set.
-         * 
          * @return the created transition.
          */
         @objid ("f215ccae-927f-4857-985c-85812ab9d464")
@@ -170,7 +165,6 @@ public class Transition {
 
         /**
          * Set the message that triggers the transition.
-         * 
          * @param message the trigger message.
          * @return this
          */
@@ -182,7 +176,6 @@ public class Transition {
 
         /**
          * Set a new message to send once the transition is complete.
-         * 
          * @param postTransitionMessage the post transition message to send
          * @return this
          */
@@ -194,7 +187,6 @@ public class Transition {
 
         /**
          * Add an action to execute before switching to the target state.
-         * 
          * @param action an action to execute.
          * @return this builder for convenience.
          */

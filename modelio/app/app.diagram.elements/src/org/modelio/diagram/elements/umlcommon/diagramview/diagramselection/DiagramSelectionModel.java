@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.umlcommon.diagramview.diagramselection;
 
 import java.util.Collection;
@@ -43,11 +42,10 @@ public class DiagramSelectionModel {
 
     /**
      * C'tor initializing the diagram list.
-     * 
      * @param selectableDiagrams all the diagrams that can be selected.
      */
     @objid ("ce6a6e04-ef70-4b23-89f5-4274019ab363")
-    public DiagramSelectionModel(final Collection<AbstractDiagram> selectableDiagrams) {
+    public  DiagramSelectionModel(final Collection<AbstractDiagram> selectableDiagrams) {
         this.selectableDiagrams = selectableDiagrams;
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.engine.impl;
 
 import java.util.ArrayList;
@@ -102,13 +101,15 @@ public class AuditRunner implements Runnable {
                 Audit.LOG.debug(e);
             }
         }
+        
     }
 
     @objid ("b676d93b-94a6-45e3-859d-1a1f1ceb63d5")
-    public AuditRunner(CheckProgram checkProgram, AuditDiagnostic auditDiagnostic) {
+    public  AuditRunner(CheckProgram checkProgram, AuditDiagnostic auditDiagnostic) {
         this.checkProgram = checkProgram;
         this.auditDiagnostic = auditDiagnostic;
         this.loopControl = LoopControlCommand.SUSPEND; // paused loop
+        
     }
 
     @objid ("bfa118d1-b0b0-4952-ba2f-2f853654e7f4")
@@ -122,6 +123,7 @@ public class AuditRunner implements Runnable {
             }
         }
         postDiagnostic(diagnostic);
+        
     }
 
     @objid ("04ae3093-b587-4307-927f-6f732ac47e6d")
@@ -143,6 +145,7 @@ public class AuditRunner implements Runnable {
     public void start(ICoreSession session) {
         this.session = session;
         this.loopControl = LoopControlCommand.RUN;
+        
     }
 
     @objid ("3c5ce431-58bd-44e8-a638-50f23d559eb6")
@@ -161,6 +164,7 @@ public class AuditRunner implements Runnable {
             this.status = newStatus;
             fireStatus();
         }
+        
     }
 
     @objid ("39fa48f1-af06-4d9a-8eff-cdcf7aaff673")
@@ -186,6 +190,7 @@ public class AuditRunner implements Runnable {
                 monitor.status(this.status, this.checkProgram.size());
             }
         }
+        
     }
 
     @objid ("f1708dbb-a22a-48c3-a924-6b7096b9eae5")
@@ -195,9 +200,13 @@ public class AuditRunner implements Runnable {
 
     @objid ("b985a442-2679-4df9-8cc2-587a1504ed37")
     private enum LoopControlCommand {
+        @objid ("c33966ae-f582-4a7d-9880-2e5c59de97da")
         TERMINATE,
+        @objid ("7ba34da3-a3a4-4a5d-befb-0c1fff3e91c2")
         SUSPEND,
+        @objid ("c1d964cc-785c-4141-af2e-d25d0e8c7963")
         RUN;
+
     }
 
 }

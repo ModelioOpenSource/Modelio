@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.api.services;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,13 +50,12 @@ import org.modelio.platform.ui.CoreFontRegistry;
 @objid ("3665adf2-a604-4688-99ed-6d2b625dea08")
 public class StyleKeyTypeConverter {
     @objid ("7ef59774-cc7e-4cf0-83ed-8ee6b4545ba1")
-    private StyleKeyTypeConverter() {
+    private  StyleKeyTypeConverter() {
         // Nothing to do
     }
 
     /**
      * Convert a value to a String.
-     * 
      * @param key a style key
      * @param value its value
      * @return its value converted to string
@@ -101,7 +99,6 @@ public class StyleKeyTypeConverter {
 
     /**
      * Convert stringValue to the type of the StyleKey.
-     * 
      * @param key a style key
      * @param stringValue a style key value as a string
      * @return the same value converted to the style key type

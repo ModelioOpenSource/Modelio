@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,7 +30,7 @@ import org.modelio.xmi.util.ObjingEAnnotation;
 @objid ("e53c1c8e-1d0a-472e-aa0c-f3ca1ffc6ed8")
 public class ENamedElement extends EElement {
     @objid ("7372b2aa-5506-4be0-821f-e6c23b2b9fda")
-    public ENamedElement(org.eclipse.uml2.uml.NamedElement element) {
+    public  ENamedElement(org.eclipse.uml2.uml.NamedElement element) {
         super(element);
     }
 
@@ -56,6 +55,7 @@ public class ENamedElement extends EElement {
         
         if (ObjingEAnnotation.isUndefined(ecoreNamedElt))
             objingElt.setVisibility(VisibilityMode.VISIBILITYUNDEFINED);
+        
     }
 
     @objid ("ab923ca8-9674-4783-a7fe-a24b1904ce7d")
@@ -66,6 +66,7 @@ public class ENamedElement extends EElement {
             objingElt.setName(name);
         else 
             objingElt.setName("");
+        
     }
 
     @objid ("58ed30e2-e564-4b73-8822-a82c01fc6d1d")
@@ -80,6 +81,7 @@ public class ENamedElement extends EElement {
             if (objingElement instanceof NameSpace)
                 setVisibility((NameSpace)objingElement);
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.drawings.layer;
 
 import java.util.ArrayList;
@@ -39,6 +38,7 @@ import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.diagram.styles.core.Style;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
 
@@ -75,18 +75,6 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
     private static final String W_DRAWING_ID = "id";
 
     /**
-     * Identifier of the layer.
-     * <p>
-     * Some special layer identifiers:<ul>
-     * <li>{@link #LAYER_ID_MAIN} : the main element layers, there is currently no GmGraphic for it
-     * <li>{@link #LAYER_ID_BACKGROUND} : the background layer
-     * <li>{@link #LAYER_ID_TOP} : the currently only foreground layer
-     * </ul>
-     */
-    @objid ("c4f04f50-f349-48ef-a3ae-9f8eeb133e91")
-    private String identifier;
-
-    /**
      * Identifier of the main layer
      */
     @objid ("26386191-8b2c-43cc-8151-635617b877e4")
@@ -105,6 +93,18 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
      */
     @objid ("661e84a7-0183-46fc-8717-1b95ec72e1c3")
     public static final String LAYER_ID_TOP = "DG.LAYER_TOP";
+
+    /**
+     * Identifier of the layer.
+     * <p>
+     * Some special layer identifiers:<ul>
+     * <li>{@link #LAYER_ID_MAIN} : the main element layers, there is currently no GmGraphic for it
+     * <li>{@link #LAYER_ID_BACKGROUND} : the background layer
+     * <li>{@link #LAYER_ID_TOP} : the currently only foreground layer
+     * </ul>
+     */
+    @objid ("c4f04f50-f349-48ef-a3ae-9f8eeb133e91")
+    private String identifier;
 
     @objid ("cc42a926-c1f8-47bf-82f7-eccdfa01b22c")
     private final List<IGmNodeDrawing> nodes = new ArrayList<>();
@@ -125,7 +125,7 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
      * Deserialization only constructor.
      */
     @objid ("70d909bd-f7e4-48fa-b14f-c5c3d91f0126")
-    public GmDrawingLayer() {
+    public  GmDrawingLayer() {
         super();
     }
 
@@ -133,18 +133,18 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
      * Default constructor.
      * @see #LAYER_ID_BACKGROUND
      * @see #LAYER_ID_TOP
-     * 
      * @param diagram the parent diagram
      * @param relatedRef model object where the drawings will be saved in the future.
      * @param layerIdent the layer identifier.
      */
     @objid ("18b95a3b-54d8-42eb-9257-6b9b72fe54b5")
-    public GmDrawingLayer(IGmDiagram diagram, MRef relatedRef, String layerIdent) {
+    public  GmDrawingLayer(IGmDiagram diagram, MRef relatedRef, String layerIdent) {
         super(diagram);
         this.relatedRef = relatedRef;
         this.identifier = layerIdent;
         
         init();
+        
     }
 
     @objid ("f474430f-88dd-4dbb-8ce1-be34ea733204")
@@ -161,7 +161,6 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
 
     /**
      * Add a child to the children list and fires a {@link IGmObject#PROPERTY_CHILDREN} property change event.
-     * 
      * @param child The node to add
      */
     @objid ("feea2aa4-42f5-4fda-aa5e-c06517299a37")
@@ -171,11 +170,11 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
         child.setParent(this);
         
         firePropertyChange(IGmObject.PROPERTY_CHILDREN, null, child);
+        
     }
 
     /**
      * Add a child to the children list at the given index and fires a {@link IGmObject#PROPERTY_CHILDREN} property change event.
-     * 
      * @param child The node to add
      * @param index the index where the child will be added.
      */
@@ -186,11 +185,11 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
         child.setParent(this);
         
         firePropertyChange(IGmObject.PROPERTY_CHILDREN, null, child);
+        
     }
 
     /**
      * Remove a child from the children list and fires a {@link IGmObject#PROPERTY_CHILDREN} property change event.
-     * 
      * @param child The node to remove
      */
     @objid ("f5de75c2-3c4f-448e-9ec5-9cacbf236e44")
@@ -203,6 +202,7 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
         } else {
             assert (false) : child + " is not owned by this layer";
         }
+        
     }
 
     @objid ("ac5d6c12-5ffa-453e-a896-c645890378e0")
@@ -225,6 +225,7 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
         }
         
         firePropertyChange(IGmObject.PROPERTY_CHILDREN, null, this.nodes);
+        
     }
 
     @objid ("1740fe3a-a4e6-4ed3-9578-3c21bd4b356d")
@@ -252,6 +253,7 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmDrawingLayer.", MINOR_VERSION);
+        
     }
 
     @objid ("52778f17-d38f-4612-a7c7-2756cdbedbf4")
@@ -270,13 +272,13 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
             read_0(in);
             break;
         }
+        
     }
 
     /**
      * Move the given child element to the given position.
      * <p>
      * The element at the given position and all subsequent elements are shifted after the moved element.
-     * 
      * @param child the child node to move
      * @param index the new index. If -1 the element is placed at the end.
      */
@@ -313,6 +315,7 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
         }
         
         firePropertyChange(IGmObject.PROPERTY_CHILDREN, null, child);
+        
     }
 
     /**
@@ -354,11 +357,11 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
         diagram.removeGraphicModel(this);
         
         super.delete();
+        
     }
 
     /**
      * Add a link going to this element.
-     * 
      * @param link the ongoing link.
      */
     @objid ("d61c88c9-3675-4f8f-9d88-674041fa3d8b")
@@ -367,11 +370,11 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
         this.endingLinks.add(link);
         link.setTo(this);
         firePropertyChange(IGmObject.PROPERTY_LINK_TARGET, null, link);
+        
     }
 
     /**
      * Add a link starting from this node.
-     * 
      * @param link The starting link.
      */
     @objid ("9733b2dc-1b33-4263-a3ab-625863d9ea1d")
@@ -380,11 +383,11 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
         this.startingLinks.add(link);
         link.setFrom(this);
         firePropertyChange(IGmObject.PROPERTY_LINK_SOURCE, null, link);
+        
     }
 
     /**
      * Get the links going to this node.
-     * 
      * @return the ongoing links.
      */
     @objid ("721d725f-d3a9-440a-9a72-b30d57d1a398")
@@ -397,7 +400,6 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
 
     /**
      * Remove a link going to this node.
-     * 
      * @param gmLink the link to remove.
      */
     @objid ("f3033955-fe45-4af3-8973-36c120cb0f54")
@@ -406,11 +408,11 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
         this.endingLinks.remove(gmLink);
         gmLink.setTo(null);
         firePropertyChange(IGmObject.PROPERTY_LINK_TARGET, gmLink, null);
+        
     }
 
     /**
      * Remove a link starting from this node.
-     * 
      * @param gmLink the link to remove.
      */
     @objid ("3a6b12e0-614c-4111-8696-8ae099042c1f")
@@ -419,6 +421,7 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
         this.startingLinks.remove(gmLink);
         gmLink.setFrom(null);
         firePropertyChange(IGmObject.PROPERTY_LINK_SOURCE, gmLink, null);
+        
     }
 
     @objid ("baa7fb81-6673-4d9b-b5a3-8bda93419609")
@@ -461,6 +464,7 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
         if (getDiagram() != null) {
             getDiagram().addGraphicModel(this);
         }
+        
     }
 
     @objid ("eb0b4448-124c-4a70-82b2-6ad54937c15b")
@@ -534,6 +538,27 @@ public class GmDrawingLayer extends GmAbstractObject implements IGmDrawingLayer 
     @Override
     public void setHyperLink(MRef ref) {
         throw new UnsupportedOperationException();
+    }
+
+    /**
+     * <p>
+     * Get the metaclass of the element this {@link GmModel} is related to.
+     * </p>
+     * <p>
+     * <strong>Note:</strong> This method should never return <code>null</code> and is not intended to be overridden.
+     * </p>
+     * @return the metaclass this GmModel is in charge of relating.
+     */
+    @objid ("28d03b11-86e9-48fd-ad22-dab43f8b096d")
+    public final MClass getRelatedMClass() {
+        MObject el = getRelatedElement();
+        if (el != null) {
+            return el.getMClass();
+        } else {
+            MRef ref = getRepresentedRef();
+            return getDiagram().getModelManager().getMetamodel().getMClass(ref.mc);
+        }
+        
     }
 
 }

@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.module.jaxbv2;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
  * <p>Java class for _MultiPathes complex type.
@@ -128,7 +127,6 @@ public class Jxbv2MultiPathes {
 
         /**
          * Sets the value of the path property.
-         * 
          * @param value allowed object is
          * {@link String }
          */

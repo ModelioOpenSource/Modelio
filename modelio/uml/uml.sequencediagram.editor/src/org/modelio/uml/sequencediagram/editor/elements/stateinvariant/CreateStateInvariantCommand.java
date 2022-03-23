@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.stateinvariant;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.commands.Command;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
 import org.modelio.metamodel.uml.behavior.interactionModel.Interaction;
@@ -45,14 +44,14 @@ public class CreateStateInvariantCommand extends Command {
 
     /**
      * C'tor.
-     * 
      * @param parentNode the node into which the created execution should be unmasked.
      * @param initialLayoutData the initial layout data to use. X coordinate will be ignored, since it will be updated in the container's layout.
      */
     @objid ("d9947e60-55b6-11e2-877f-002564c97630")
-    public CreateStateInvariantCommand(final GmCompositeNode parentNode, final Rectangle initialLayoutData) {
+    public  CreateStateInvariantCommand(final GmCompositeNode parentNode, final Rectangle initialLayoutData) {
         this.initialLayoutData = initialLayoutData;
         this.parentNode = parentNode;
+        
     }
 
     @objid ("d9947e69-55b6-11e2-877f-002564c97630")
@@ -82,6 +81,7 @@ public class CreateStateInvariantCommand extends Command {
         
         // Show the new element in the diagram (ie create its Gm )
         diagram.unmask(this.parentNode, newStateInvariant, this.initialLayoutData);
+        
     }
 
 }

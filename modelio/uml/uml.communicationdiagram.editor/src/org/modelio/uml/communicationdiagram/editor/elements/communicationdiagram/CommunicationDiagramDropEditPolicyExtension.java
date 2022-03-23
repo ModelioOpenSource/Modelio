@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.communicationdiagram.editor.elements.communicationdiagram;
 
 import java.util.ArrayList;
@@ -36,8 +35,8 @@ import org.modelio.diagram.elements.common.abstractdiagram.DiagramElementDropEdi
 import org.modelio.diagram.elements.common.abstractdiagram.UnmaskConstraintCommand;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
 import org.modelio.diagram.elements.core.model.GmModel;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.metamodel.StandardMetamodel;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.diagrams.CommunicationDiagram;
@@ -157,11 +156,12 @@ public class CommunicationDiagramDropEditPolicyExtension extends AbstractDiagram
          * @param parentElement the element that will own the new {@link CommunicationNode}
          */
         @objid ("7a2e3109-55b6-11e2-877f-002564c97630")
-        public SmartCreateCommunicationNodeCommand(final Point dropLocation, final MObject toUnmask, final EditPart parentEditPart, final CommunicationInteraction parentElement) {
+        public  SmartCreateCommunicationNodeCommand(final Point dropLocation, final MObject toUnmask, final EditPart parentEditPart, final CommunicationInteraction parentElement) {
             this.location = dropLocation;
             this.toUnmask = toUnmask;
             this.parentEditPart = parentEditPart;
             this.parentElement = parentElement;
+            
         }
 
         @objid ("7a2e3118-55b6-11e2-877f-002564c97630")
@@ -203,6 +203,7 @@ public class CommunicationDiagramDropEditPolicyExtension extends AbstractDiagram
             
             // Unmask the node
             unmaskElement(commNode);
+            
         }
 
         @objid ("7a2e3120-55b6-11e2-877f-002564c97630")
@@ -256,7 +257,6 @@ public class CommunicationDiagramDropEditPolicyExtension extends AbstractDiagram
 
         /**
          * Copy the Ports of the base class to the instance.
-         * 
          * @param part the part where Ports are to be added.
          * @return the created ports.
          */
@@ -293,6 +293,7 @@ public class CommunicationDiagramDropEditPolicyExtension extends AbstractDiagram
             if (cmd != null && cmd.canExecute()) {
                 cmd.execute();
             }
+            
         }
 
     }
@@ -306,9 +307,10 @@ public class CommunicationDiagramDropEditPolicyExtension extends AbstractDiagram
         private DiagramElementDropEditPolicy dropPolicy;
 
         @objid ("598a770e-d85f-4a69-ab1b-ed12158e5fef")
-        public StandardVisitorImpl(DiagramElementDropEditPolicy dropPolicy, Point dropLocation) {
+        public  StandardVisitorImpl(DiagramElementDropEditPolicy dropPolicy, Point dropLocation) {
             this.dropPolicy = dropPolicy;
             this.dropLocation = dropLocation;
+            
         }
 
         @objid ("a0de39a1-8c6e-43f1-8344-a2a26df7fa28")

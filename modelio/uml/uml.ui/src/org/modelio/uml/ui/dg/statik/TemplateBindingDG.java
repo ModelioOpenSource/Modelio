@@ -17,11 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.statik;
 
 import java.util.Collection;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.modelio.api.modelio.diagram.IDiagramLink.ExtensionRole;
 import org.modelio.diagram.api.services.DiagramHandle;
 import org.modelio.diagram.api.services.DiagramLink;
 import org.modelio.diagram.elements.core.model.IGmLink;
@@ -37,7 +37,7 @@ public class TemplateBindingDG extends DiagramLink {
      * @param link The gm link represented by this class.
      */
     @objid ("b0300d91-33b9-40df-ad5e-a4ef6aecc55d")
-    public TemplateBindingDG(DiagramHandle diagramHandle, IGmLink link) {
+    public  TemplateBindingDG(DiagramHandle diagramHandle, IGmLink link) {
         super(diagramHandle, link);
     }
 

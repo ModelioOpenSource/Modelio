@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.message;
 
 import java.beans.PropertyChangeEvent;
@@ -61,7 +60,6 @@ import org.modelio.diagram.elements.core.figures.LinkFigure;
 import org.modelio.diagram.elements.core.figures.RoundedLinkFigure;
 import org.modelio.diagram.elements.core.figures.anchors.LinkAnchor;
 import org.modelio.diagram.elements.core.figures.anchors.SatelliteAnchor;
-import org.modelio.diagram.elements.core.link.ConnectionRouterRegistry;
 import org.modelio.diagram.elements.core.link.DefaultCreateLinkEditPolicy;
 import org.modelio.diagram.elements.core.link.GmLink;
 import org.modelio.diagram.elements.core.link.GmLinkLayoutEditPolicy;
@@ -69,6 +67,7 @@ import org.modelio.diagram.elements.core.link.anchors.GmSourceSatelliteAnchor;
 import org.modelio.diagram.elements.core.link.extensions.GmFractionalConnectionLocator;
 import org.modelio.diagram.elements.core.link.extensions.IGmLocator;
 import org.modelio.diagram.elements.core.link.extensions.LocatorFactory;
+import org.modelio.diagram.elements.core.link.path.ConnectionPolicyUtils;
 import org.modelio.diagram.elements.core.model.GmAbstractObject;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.model.IGmLink;
@@ -83,9 +82,9 @@ import org.modelio.diagram.elements.umlcommon.constraint.ConstraintLinkEditPolic
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.IStyleProvider;
 import org.modelio.diagram.styles.core.MetaKey;
+import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
 import org.modelio.diagram.styles.core.StyleKey.LinePattern;
-import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.metamodel.uml.behavior.interactionModel.MessageEnd;
 import org.modelio.metamodel.uml.behavior.interactionModel.MessageSort;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -121,6 +120,7 @@ public class MessageEditPart extends AbstractConnectionEditPart implements Prope
         installEditPolicy("MessageTranslationRole", new MessageTranslationEditPolicy());
         installEditPolicy("CreateInfoFlow", new CreateInfoFlowEditPolicy());
         installEditPolicy(ModelElementDropRequest.class, new MessageElementDropEditPolicy());
+        
     }
 
     @objid ("d95f16a0-55b6-11e2-877f-002564c97630")
@@ -174,6 +174,7 @@ public class MessageEditPart extends AbstractConnectionEditPart implements Prope
         
         final GmAbstractObject gmLink = getLinkModel();
         gmLink.addPropertyChangeListener(this);
+        
     }
 
     /**
@@ -181,7 +182,6 @@ public class MessageEditPart extends AbstractConnectionEditPart implements Prope
      * <p>
      * Extends {@link AbstractConnectionEditPart#getAdapter(Class)} to support {@link MObject}, {@link IGmObject}, {@link GmModel} and their subclasses.
      * @see IAdaptable#getAdapter(Class)
-     * 
      * @param adapter the adapter class to look up
      * @return a object castable to the given class, or <code>null</code> if this object does not have an adapter for the given class
      */
@@ -259,6 +259,7 @@ public class MessageEditPart extends AbstractConnectionEditPart implements Prope
                 swapEnd((MObject) evt.getNewValue(), request);
             }
         }
+        
     }
 
     @objid ("d9609d23-55b6-11e2-877f-002564c97630")
@@ -279,16 +280,7 @@ public class MessageEditPart extends AbstractConnectionEditPart implements Prope
                         gmlink.getLayoutContraint(childModel));
         
         this.figure.setConstraint(childFigure, constraint);
-    }
-
-    /**
-     * Get the connection router registry.
-     * 
-     * @return the connection router registry.
-     */
-    @objid ("d9609d2a-55b6-11e2-877f-002564c97630")
-    protected ConnectionRouterRegistry getConnectionRouterRegistry() {
-        return (ConnectionRouterRegistry) getViewer().getProperty(ConnectionRouterRegistry.ID);
+        
     }
 
     /**
@@ -313,6 +305,7 @@ public class MessageEditPart extends AbstractConnectionEditPart implements Prope
         } else {
             return super.getSourceConnectionAnchor();
         }
+        
     }
 
     /**
@@ -329,11 +322,11 @@ public class MessageEditPart extends AbstractConnectionEditPart implements Prope
         } else {
             return super.getTargetConnectionAnchor();
         }
+        
     }
 
     /**
      * Refresh source and target decoration line color, width and pattern from the style
-     * 
      * @param connection The figure to update, should be {@link #getFigure()}.
      * @param style The style to update from, usually {@link #getModelStyle()}
      */
@@ -360,13 +353,13 @@ public class MessageEditPart extends AbstractConnectionEditPart implements Prope
             pennable.setLineWidth(lineWidth);
             pennable.setScale(9 * lineWidth, 4 * lineWidth);
         }
+        
     }
 
     /**
      * Refresh the figure from the given style. This implementation updates pen and brush properties if applicable. StyleKey are looked up by MetaKey.
      * <p>
      * Often called in {@link #createFigure()} and after a style change.
-     * 
      * @param aFigure The figure to update, should be {@link #getFigure()}.
      * @param style The style to update from, usually {@link #getModelStyle()}
      */
@@ -416,6 +409,7 @@ public class MessageEditPart extends AbstractConnectionEditPart implements Prope
                 }
             }
         }
+        
     }
 
     @objid ("d9609d56-55b6-11e2-877f-002564c97630")
@@ -437,6 +431,7 @@ public class MessageEditPart extends AbstractConnectionEditPart implements Prope
             final Locator loc = LocatorFactory.getInstance().getLocator(conn, gmLoc);
             conn.setConstraint(childPart.getFigure(), loc);
         }
+        
     }
 
     @objid ("d96223b9-55b6-11e2-877f-002564c97630")
@@ -448,7 +443,6 @@ public class MessageEditPart extends AbstractConnectionEditPart implements Prope
      * Change the source or destination of the link given by the request.
      * <p>
      * Unmask the element if it is not displayed in the diagram. Updates the model, the graphic model and the view.
-     * 
      * @param newEndElement the new source/destination
      * @param request The reconnect request.
      */
@@ -536,11 +530,11 @@ public class MessageEditPart extends AbstractConnectionEditPart implements Prope
                 }
             }
         }
+        
     }
 
     /**
      * Update the connection router, the edit policies and the drag tracker from the model routing style.
-     * 
      * @param cnx The connection figure
      */
     @objid ("d96223c6-55b6-11e2-877f-002564c97630")
@@ -552,15 +546,15 @@ public class MessageEditPart extends AbstractConnectionEditPart implements Prope
         // Change connection router
         MessageEnd sourceElement = (MessageEnd) ((GmMessage) getModel()).getFromElement();
         MessageEnd targetElement = (MessageEnd) ((GmMessage) getModel()).getToElement();
-        if (sourceElement.getCovered().size() > 0 &&
-                targetElement.getCovered().size() > 0 &&
+        if (!sourceElement.getCovered().isEmpty() &&
+                !targetElement.getCovered().isEmpty()  &&
                 sourceElement.getCovered().get(0).equals(targetElement.getCovered().get(0))) {
             cnx.setConnectionRouter(RecursiveMessageRouter.getInstance());
-        
         } else {
-            final ConnectionRouter newRouter = getConnectionRouterRegistry().get(ConnectionRouterId.DIRECT);
+            final ConnectionRouter newRouter = ConnectionPolicyUtils.getRoutingServices(this).getDisplayRouter(ConnectionRouterId.DIRECT);
             cnx.setConnectionRouter(newRouter);
         }
+        
     }
 
     /**
@@ -596,6 +590,7 @@ public class MessageEditPart extends AbstractConnectionEditPart implements Prope
             }
         }
         super.performRequest(req);
+        
     }
 
     @objid ("d96223d1-55b6-11e2-877f-002564c97630")
@@ -610,7 +605,6 @@ public class MessageEditPart extends AbstractConnectionEditPart implements Prope
      * Returns the <code>ConnectionAnchor</code> for the specified <i>source</i> connection. This NodeEditPart is the {@link ConnectionEditPart#getSource() source} EditPart for the given connection.
      * <P>
      * The anchor may be a function of the connection's model, the node's model, a combination of both, or it may not depend on anything all.
-     * 
      * @param connection the ConnectionEditPart
      * @return the ConnectionAnchor for the given ConnectionEditPart
      */
@@ -625,7 +619,6 @@ public class MessageEditPart extends AbstractConnectionEditPart implements Prope
     /**
      * Returns the <i>source</i> <code>ConnectionAnchor</code> for the specified Request. The returned ConnectionAnchor is used only when displaying <i>feedback</i>. The Request is usually a {@link org.eclipse.gef.requests.LocationRequest}, which provides
      * the current mouse location.
-     * 
      * @param request a Request describing the current interaction
      * @return the ConnectionAnchor to use during feedback
      */
@@ -642,7 +635,6 @@ public class MessageEditPart extends AbstractConnectionEditPart implements Prope
      * Returns the <code>ConnectionAnchor</code> for the specified <i>target</i> connection. This NodeEditPart is the {@link ConnectionEditPart#getTarget() target} EditPart for the given connection.
      * <P>
      * The anchor may be a function of the connection's model, the node's model, a combination of both, or it may not depend on anything all.
-     * 
      * @param connection the ConnectionEditPart
      * @return the ConnectionAnchor for the given ConnectionEditPart
      */
@@ -657,7 +649,6 @@ public class MessageEditPart extends AbstractConnectionEditPart implements Prope
     /**
      * Returns the <i>target</i> <code>ConnectionAnchor</code> for the specified Request. The returned ConnectionAnchor is used only when displaying <i>feedback</i>. The Request is usually a {@link org.eclipse.gef.requests.LocationRequest}, which provides
      * the current mouse location.
-     * 
      * @param request a Request describing the current interaction
      * @return the ConnectionAnchor to use during feedback
      */
@@ -688,6 +679,7 @@ public class MessageEditPart extends AbstractConnectionEditPart implements Prope
         
         final GmAbstractObject gmLink = getLinkModel();
         gmLink.removePropertyChangeListener(this);
+        
     }
 
 }

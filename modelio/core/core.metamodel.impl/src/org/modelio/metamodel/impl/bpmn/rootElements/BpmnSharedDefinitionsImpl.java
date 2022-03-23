@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.rootElements;
 
 import java.util.ArrayList;
@@ -32,7 +32,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
 import org.modelio.metamodel.bpmn.rootElements.BpmnSharedDefinitions;
 import org.modelio.metamodel.bpmn.rootElements.BpmnSharedElement;
-import org.modelio.metamodel.impl.bpmn.rootElements.BpmnSharedDefinitionsData;
 import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.BehaviorImpl;
 import org.modelio.metamodel.visitors.IModelVisitor;
 import org.modelio.vcore.smkernel.SmConstrainedList;
@@ -64,6 +63,7 @@ public class BpmnSharedDefinitionsImpl extends BehaviorImpl implements BpmnShare
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("46c0173e-bbf0-4ea3-b55e-1d5ab1393caa")

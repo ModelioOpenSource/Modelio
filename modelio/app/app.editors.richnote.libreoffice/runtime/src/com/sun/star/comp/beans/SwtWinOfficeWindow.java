@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package com.sun.star.comp.beans;
 
 import java.io.IOException;
@@ -68,13 +67,12 @@ public class SwtWinOfficeWindow extends Composite implements XEventListener {
     /**
      * Constructor.
      * @param unoCaller
-     * 
      * @param connection The office connection object the window
      * belongs to.
      * @param parent a widget which will be the parent of the new instance (cannot be null)
      */
     @objid ("05b936b8-4599-43ae-9e96-7e9fbe39045a")
-    protected SwtWinOfficeWindow(final OfficeConnection connection, final Composite parent, UnoCaller unoCaller) {
+    protected  SwtWinOfficeWindow(final OfficeConnection connection, final Composite parent, UnoCaller unoCaller) {
         super(parent, SWT.EMBEDDED | SWT.NO_BACKGROUND | SWT.NO_REDRAW_RESIZE | SWT.NO_MERGE_PAINTS);
         
         this.mConnection = connection;
@@ -110,6 +108,7 @@ public class SwtWinOfficeWindow extends Composite implements XEventListener {
                 // LibreOfficeEditors.LOG.debug("SwtWinOfficeWindow.FocusListener.focusGained: %s", e);
             }
         });
+        
     }
 
     /**
@@ -128,11 +127,11 @@ public class SwtWinOfficeWindow extends Composite implements XEventListener {
             e.printStackTrace(System.err);
         }
         super.dispose();
+        
     }
 
     /**
      * Retrieves an UNO XWindowPeer object associated with the OfficeWindow.
-     * 
      * @return The UNO XWindowPeer object associated with the OfficeWindow.
      */
     @objid ("6dcab69f-2fbc-43cf-87d1-da296e88116f")
@@ -182,6 +181,7 @@ public class SwtWinOfficeWindow extends Composite implements XEventListener {
         this.xWindowPeer = null;
         this.xWindow = null;
         this.mConnection = null;
+        
     }
 
     /**
@@ -204,6 +204,7 @@ public class SwtWinOfficeWindow extends Composite implements XEventListener {
         } else {
             return null;
         }
+        
     }
 
     /**
@@ -231,6 +232,7 @@ public class SwtWinOfficeWindow extends Composite implements XEventListener {
                 LibreOfficeEditors.LOG.warning(e);
             }
         }
+        
     }
 
     /**
@@ -250,6 +252,7 @@ public class SwtWinOfficeWindow extends Composite implements XEventListener {
                 throw new RuntimeException(e.getCause());
             }
         }
+        
     }
 
     /**
@@ -267,6 +270,7 @@ public class SwtWinOfficeWindow extends Composite implements XEventListener {
             releaseSystemWindow();
             getDisplay().syncExec(() -> super.setVisible(b));
         }
+        
     }
 
     /**
@@ -308,6 +312,7 @@ public class SwtWinOfficeWindow extends Composite implements XEventListener {
         }
         
         this.bPeer = false;
+        
     }
 
 }

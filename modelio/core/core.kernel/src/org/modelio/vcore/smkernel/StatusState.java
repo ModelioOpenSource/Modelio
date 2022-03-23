@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,13 +29,17 @@ public enum StatusState {
     /**
      * The flag is defined and set.
      */
+    @objid ("0c71d91a-d4cd-11e1-b069-001ec947ccaf")
     TRUE,
     /**
      * The flag is defined and not set.
      */
+    @objid ("0c743b6f-d4cd-11e1-b069-001ec947ccaf")
     FALSE,
     /**
      * The flag is not defined.
      */
+    @objid ("0c743b71-d4cd-11e1-b069-001ec947ccaf")
     UNDEFINED;
+
 }

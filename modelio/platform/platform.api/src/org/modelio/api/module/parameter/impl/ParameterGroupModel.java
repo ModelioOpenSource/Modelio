@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.parameter.impl;
 
 import java.util.ArrayList;
@@ -35,10 +34,11 @@ public class ParameterGroupModel implements IParameterGroupModel {
     private List<IParameterModel> parameters = null;
 
     @objid ("c276dc5e-8f9f-11dd-bbe0-001ec947ccaf")
-    public ParameterGroupModel(String name, String label) {
+    public  ParameterGroupModel(String name, String label) {
         this.name = name;
         this.label = label;
         this.parameters = new ArrayList<>();
+        
     }
 
     @objid ("c2793eb5-8f9f-11dd-bbe0-001ec947ccaf")

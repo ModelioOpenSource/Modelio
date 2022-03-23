@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.requests;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,7 @@ public class NavigationRequest extends SelectionRequest {
      * Initialize the request
      */
     @objid ("c53e9ea5-1429-4d6e-9e91-069f546ff762")
-    public NavigationRequest() {
+    public  NavigationRequest() {
         setType(TYPE);
     }
 

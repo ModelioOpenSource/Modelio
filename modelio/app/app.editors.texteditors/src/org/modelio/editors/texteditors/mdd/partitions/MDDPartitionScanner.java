@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.texteditors.mdd.partitions;
 
 import java.util.Vector;
@@ -34,9 +33,9 @@ public class MDDPartitionScanner extends RuleBasedPartitionScanner {
 
     @objid ("ab4be9e9-2a77-11e2-9fb9-bc305ba4815c")
     public static final String[] keywords = { "asm", "do", "if", "return", "typedef", "auto", "double", "inline", "short", "typeid", "bool", "dynamic_cast", "int", "signed", "typename", "break", "else", "long", "sizeof", "union", "case", "enum",
-	    "mutable", "static", "unsigned", "catch", "explicit", "namespace", "static_cast", "using", "char", "export", "new", "struct", "virtual", "class", "extern", "operator", "switch", "void", "const", "false", "private", "template", "volatile",
-	    "const_cast", "float", "protected", "this", "wchar_t", "continue", "for", "public", "throw", "while", "default", "friend", "register", "true", "delete", "goto", "reinterpret_cast", "try", 
-	    "ifdef", "ifndef", "endif", "include", "define"};
+    	    "mutable", "static", "unsigned", "catch", "explicit", "namespace", "static_cast", "using", "char", "export", "new", "struct", "virtual", "class", "extern", "operator", "switch", "void", "const", "false", "private", "template", "volatile",
+    	    "const_cast", "float", "protected", "this", "wchar_t", "continue", "for", "public", "throw", "while", "default", "friend", "register", "true", "delete", "goto", "reinterpret_cast", "try", 
+    	    "ifdef", "ifndef", "endif", "include", "define"};
 
     @objid ("7b5de24b-2a77-11e2-9fb9-bc305ba4815c")
     private IToken roToken;
@@ -63,7 +62,7 @@ public class MDDPartitionScanner extends RuleBasedPartitionScanner {
     private Token commentToken;
 
     @objid ("7b5de25a-2a77-11e2-9fb9-bc305ba4815c")
-    public MDDPartitionScanner() {
+    public  MDDPartitionScanner() {
         this.roToken = new Token(MDDPartitionTypes.RO_PARTITION);
         this.rwToken = new Token(MDDPartitionTypes.RW_PARTITION);
         this.tagToken = new Token(MDDPartitionTypes.TAG_PARTITION);
@@ -97,6 +96,7 @@ public class MDDPartitionScanner extends RuleBasedPartitionScanner {
         setPredicateRules(this.rules);
                 
         setDefaultReturnToken(this.roToken);
+        
     }
 
     @objid ("7b5de25c-2a77-11e2-9fb9-bc305ba4815c")
@@ -110,6 +110,7 @@ public class MDDPartitionScanner extends RuleBasedPartitionScanner {
             setDefaultReturnToken(this.roToken);
         }
         // System.out.println("Toggle edit mode " + editableArea);
+        
     }
 
     @objid ("7b5de25f-2a77-11e2-9fb9-bc305ba4815c")

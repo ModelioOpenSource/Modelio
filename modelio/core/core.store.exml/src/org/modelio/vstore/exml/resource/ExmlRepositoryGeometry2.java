@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.resource;
 
 import java.util.ArrayList;
@@ -38,7 +37,7 @@ public class ExmlRepositoryGeometry2 implements IExmlRepositoryGeometry {
      * EXML files storage directory path relative to the project space path.
      */
     @objid ("c4308f0f-4f53-4fd3-b3e8-c0134cfc42e4")
-     static final String MODEL_STORAGE_PATH = MODEL_DIRNAME;
+    static final String MODEL_STORAGE_PATH = MODEL_DIRNAME;
 
     @objid ("7b98d153-4c83-4cc6-9867-ae77f9b42e1f")
     @Override
@@ -59,7 +58,6 @@ public class ExmlRepositoryGeometry2 implements IExmlRepositoryGeometry {
      * <p>
      * The answer is based on the file extension.
      * Returns <i>false</i> if it is a {@link IExmlRepositoryGeometry#EXT_LOCAL_EXML ".local.exml"} file.
-     * 
      * @param relativePath a file path relative to the repository root.
      * @return <i>true</i> if it is an EXML file, else <i>false</i>.
      */

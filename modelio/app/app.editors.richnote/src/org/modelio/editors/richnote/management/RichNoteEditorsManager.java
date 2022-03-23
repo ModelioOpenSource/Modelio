@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.management;
 
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.e4.core.contexts.ContextInjectionFactory;
@@ -34,8 +33,8 @@ import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.core.di.extensions.EventTopic;
 import org.eclipse.e4.ui.di.UIEventTopic;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
-import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
+import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 import org.eclipse.swt.program.Program;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.statushandlers.StatusManager;
@@ -79,6 +78,7 @@ public class RichNoteEditorsManager {
         } else {
             return editEmbeddedResource(resource, inputPartService, partService);
         }
+        
     }
 
     @objid ("9f0f33d4-5603-41b5-b4a4-3047b673823a")
@@ -86,6 +86,7 @@ public class RichNoteEditorsManager {
         Status status = new Status(IStatus.INFO, EditorsRichNote.PLUGIN_ID, message);
         
         StatusManager.getManager().handle(status, StatusManager.SHOW);
+        
     }
 
     @objid ("4eb06743-fa89-49f9-bc68-d645e3ba8dd9")
@@ -96,7 +97,6 @@ public class RichNoteEditorsManager {
 
     /**
      * Close all editors
-     * 
      * @param project the closed project
      * @param partService Eclipse parts service
      */
@@ -121,6 +121,7 @@ public class RichNoteEditorsManager {
         }
         
         richNotesSession.closeSession();
+        
     }
 
     @objid ("b00da0fc-bce8-4481-abaf-822606c57aef")
@@ -129,6 +130,7 @@ public class RichNoteEditorsManager {
     void onProjectClosed(@UIEventTopic (ModelioEventTopics.PROJECT_CLOSING) final GProject project, final EPartService partService) {
         // close all diagram editors when closing the project
         closeAll(project, partService);
+        
     }
 
     @objid ("4408ac9a-bd17-4985-b950-42c08044997b")
@@ -138,10 +140,11 @@ public class RichNoteEditorsManager {
         // Instantiate a new rich note modeling session
         @SuppressWarnings ("unused")
         RichNotesSession richNotesSession = new RichNotesSession(project);
+        
     }
 
     @objid ("67cff99c-e23b-439a-a5a6-fd5ceab5ca66")
-    public RichNoteEditorsManager() {
+    public  RichNoteEditorsManager() {
         RichNoteEditorsManager.instance = this;
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnsubprocess;
 
 import java.util.ArrayList;
@@ -26,7 +25,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.RequestConstants;
-import org.modelio.bpmn.diagram.editor.elements.policies.BpmnCreateLinkEditPolicy;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnCreateLinkEditPolicy;
 import org.modelio.diagram.elements.core.link.CreateBendedConnectionRequest;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.metamodel.bpmn.activities.BpmnSubProcess;
@@ -87,6 +86,7 @@ public class BpmnSubProcessLinkEditPolicy extends BpmnCreateLinkEditPolicy {
         } else {
             return new ArrayList<>();
         }
+        
     }
 
 }

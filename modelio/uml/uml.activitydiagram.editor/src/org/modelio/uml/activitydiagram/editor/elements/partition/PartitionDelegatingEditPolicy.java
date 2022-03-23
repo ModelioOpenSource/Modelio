@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.partition;
 
 import java.util.Collection;
@@ -112,6 +111,7 @@ public class PartitionDelegatingEditPolicy extends DelegatingEditPolicy {
         default:
             return null;
         }
+        
     }
 
     @objid ("b71072fd-a872-455d-87a3-60a56ebb625a")

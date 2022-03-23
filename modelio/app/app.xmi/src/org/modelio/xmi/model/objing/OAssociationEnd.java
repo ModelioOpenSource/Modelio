@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -77,17 +76,17 @@ public class OAssociationEnd extends OStructuralFeature {
     /**
      * Constructor of OAssociationEnd.
      * It takes the exported Modelio AssociationEnd as parameter
-     * 
      * @param element : the exported AssociationEnd
      */
     @objid ("d1d36f06-cad9-4a90-9e14-bec68e3cd9f7")
-    public OAssociationEnd(final AssociationEnd element) {
+    public  OAssociationEnd(final AssociationEnd element) {
         super(element);
         if (AbstractObjingModelNavigation.isIsClassAssociation(element)) {
             this.isLinkedToClassAssociation = true;
         } else {
             this.isLinkedToClassAssociation = false;
         }
+        
     }
 
     @objid ("547d5682-c42f-42ff-a72c-895206773f60")
@@ -109,6 +108,7 @@ public class OAssociationEnd extends OStructuralFeature {
         }else {
             attachAttribut((Property) ecoreElt);
         }
+        
     }
 
     @objid ("98756edd-9b90-473a-8bfc-bb6771d35f6a")
@@ -138,6 +138,7 @@ public class OAssociationEnd extends OStructuralFeature {
             // attribute of the associated classifier. Only binary associations may
             // have navigable ends.
         }
+        
     }
 
     @objid ("1b5a59aa-50a7-4016-8046-3f542e1798d3")
@@ -155,6 +156,7 @@ public class OAssociationEnd extends OStructuralFeature {
         default:
             break;
         }
+        
     }
 
     @objid ("5cb8f4ed-17c9-4e3d-922a-a3ee93dcb160")
@@ -192,6 +194,7 @@ public class OAssociationEnd extends OStructuralFeature {
                 }
             }
         }
+        
     }
 
     @objid ("623bbce6-8454-4b8c-8a1e-c2c5cd9eb6ef")
@@ -224,6 +227,7 @@ public class OAssociationEnd extends OStructuralFeature {
         
             }
         }
+        
     }
 
     @objid ("20687905-bdcf-45bc-a633-7cb70318c44a")
@@ -259,6 +263,7 @@ public class OAssociationEnd extends OStructuralFeature {
                 ecoreProperty.setType(ecorePropertyType);
             }
         }
+        
     }
 
     @objid ("d3a2ec24-1ebc-4d69-9485-674bb55e2ac5")
@@ -315,6 +320,7 @@ public class OAssociationEnd extends OStructuralFeature {
                 throw new NotFoundException("Owner Class (" + ecoreOwner.getClass().getSimpleName() + ") Not Found");
             }
         }
+        
     }
 
     @objid ("b325ae57-f51b-4208-a958-c2a53f856092")
@@ -346,6 +352,7 @@ public class OAssociationEnd extends OStructuralFeature {
                         + ecoreOwner.getClass().getSimpleName() + ") Not Found");
             }
         }
+        
     }
 
     @objid ("e16b6500-5983-4dad-bf34-0ac829c248cc")
@@ -359,6 +366,7 @@ public class OAssociationEnd extends OStructuralFeature {
         if ((association != null) && (ecoreProp.getOwner().equals(association)) && (getObjingElement().isNavigable())) {
             association.getNavigableOwnedEnds().add(ecoreProp);
         }
+        
     }
 
     @objid ("18a2018f-6f3e-42b3-a36a-3ce4becbc823")
@@ -414,6 +422,7 @@ public class OAssociationEnd extends OStructuralFeature {
                         + ecoreOwner.getClass().getSimpleName() + ") Not Found");
             }
         }
+        
     }
 
     @objid ("71f9573a-0e0c-4a8e-aae1-52c769d2912f")
@@ -488,6 +497,7 @@ public class OAssociationEnd extends OStructuralFeature {
         }else {
             ecoreElt.destroy();
         }
+        
     }
 
 }

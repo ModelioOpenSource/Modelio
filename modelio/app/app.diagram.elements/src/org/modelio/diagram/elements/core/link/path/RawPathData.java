@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.path;
 
 import java.util.ArrayList;
@@ -74,7 +73,6 @@ public class RawPathData {
 
     /**
      * Set the routing mode.
-     * 
      * @param routingMode the routing mode
      */
     @objid ("8052cfd3-1dec-11e2-8cad-001ec947c8cc")
@@ -84,7 +82,6 @@ public class RawPathData {
 
     /**
      * Set the point in the source figure.
-     * 
      * @param srcPoint the source point.
      */
     @objid ("8052cfd8-1dec-11e2-8cad-001ec947c8cc")
@@ -94,7 +91,6 @@ public class RawPathData {
 
     /**
      * Get the point in the source figure.
-     * 
      * @return the source point.
      */
     @objid ("8052cfdf-1dec-11e2-8cad-001ec947c8cc")
@@ -104,7 +100,6 @@ public class RawPathData {
 
     /**
      * Set the last point
-     * 
      * @param lastPoint the last point.
      */
     @objid ("8052cfe6-1dec-11e2-8cad-001ec947c8cc")
@@ -114,7 +109,6 @@ public class RawPathData {
 
     /**
      * Returns the last point
-     * 
      * @return the last point.
      */
     @objid ("8052cfed-1dec-11e2-8cad-001ec947c8cc")
@@ -131,6 +125,7 @@ public class RawPathData {
         } else {
             return super.toString();
         }
+        
     }
 
 }

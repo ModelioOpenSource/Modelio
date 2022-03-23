@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.executionspecification;
 
 import java.util.List;
@@ -61,19 +60,19 @@ public class ReparentExecutionSpecificationCommand extends Command {
 
     /**
      * Default C'tor.
-     * 
      * @param newParent the composite node that will be the new parent of the reparented node.
      * @param reparentedChild the reparented node.
      * @param startTime the new "time" of the ExecutionOccurenceSpecification that starts the execution.
      * @param finishTime the new "time" of the ExecutionOccurenceSpecification that finishes the execution.
      */
     @objid ("d8f13988-55b6-11e2-877f-002564c97630")
-    public ReparentExecutionSpecificationCommand(GmCompositeNode newParent, GmExecutionSpecification reparentedChild, final int startTime, final int finishTime) {
+    public  ReparentExecutionSpecificationCommand(GmCompositeNode newParent, GmExecutionSpecification reparentedChild, final int startTime, final int finishTime) {
         super();
         this.newParentNode = newParent;
         this.reparentedChild = reparentedChild;
         this.startTime = startTime;
         this.finishTime = finishTime;
+        
     }
 
     @objid ("d8f13993-55b6-11e2-877f-002564c97630")
@@ -105,6 +104,7 @@ public class ReparentExecutionSpecificationCommand extends Command {
         return sameParentInObModel
                         || (oldParent.getStatus().isModifiable() && newParent.getStatus().isModifiable() && mm.getMExpert().canCompose(
                                 newParent, childElement, ((SmObjectImpl) childElement).getCompositionRelation().dep.getName()));
+        
     }
 
     @objid ("d8f13998-55b6-11e2-877f-002564c97630")
@@ -172,6 +172,7 @@ public class ReparentExecutionSpecificationCommand extends Command {
         execution.getStart().setLineNumber(this.startTime);
         execution.setLineNumber(this.startTime);
         execution.getFinish().setLineNumber(this.finishTime);
+        
     }
 
     @objid ("d8f1399b-55b6-11e2-877f-002564c97630")
@@ -184,6 +185,7 @@ public class ReparentExecutionSpecificationCommand extends Command {
         } else {
             return null;
         }
+        
     }
 
     @objid ("d8f139a0-55b6-11e2-877f-002564c97630")
@@ -196,6 +198,7 @@ public class ReparentExecutionSpecificationCommand extends Command {
         } else {
             return null;
         }
+        
     }
 
 }

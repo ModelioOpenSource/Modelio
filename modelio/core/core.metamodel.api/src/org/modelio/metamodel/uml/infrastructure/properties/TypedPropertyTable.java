@@ -17,16 +17,15 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.uml.infrastructure.properties;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.uml.infrastructure.properties.PropertyTableDefinition;
 
 /**
  * TypedPropertyTable v0.0.9054
@@ -53,7 +52,6 @@ public interface TypedPropertyTable extends PropertyTable {
      * <p>
      * It is the responsibility of the called to convert it to the appropriate class according to the property's base class.
      * </p>
-     * 
      * @param pdef a property.
      * @return its value
      */
@@ -62,7 +60,6 @@ public interface TypedPropertyTable extends PropertyTable {
 
     /**
      * Set a property value.
-     * 
      * @param pdef a property.
      * @param value its value.
      */
@@ -71,7 +68,6 @@ public interface TypedPropertyTable extends PropertyTable {
 
     /**
      * Get a property value, converted to the appropriate class according to the definition's base class.
-     * 
      * @param pdef a property.
      * @return its value
      */
@@ -80,7 +76,6 @@ public interface TypedPropertyTable extends PropertyTable {
 
     /**
      * Set a property value.
-     * 
      * @param pdef a property.
      * @param value its value.
      */

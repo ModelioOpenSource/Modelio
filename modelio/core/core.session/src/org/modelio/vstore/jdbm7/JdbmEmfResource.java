@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.jdbm7;
 
 import java.io.IOException;
@@ -44,7 +43,7 @@ class JdbmEmfResource implements Resource {
     private JdbmRepository repo;
 
     @objid ("6de56417-f7bb-47ce-921a-3b2fbc9c457c")
-    public JdbmEmfResource(JdbmRepository repository) {
+    public  JdbmEmfResource(JdbmRepository repository) {
         this.repo = repository;
     }
 
@@ -66,6 +65,7 @@ class JdbmEmfResource implements Resource {
         if (deliver == true) {
             throw new UnsupportedOperationException();
         }
+        
     }
 
     @objid ("1d4bb515-dda4-4057-8fb7-d71881663567")
@@ -130,6 +130,7 @@ class JdbmEmfResource implements Resource {
         }
         
         throw new IllegalArgumentException(eObject+" is not a SmObjectImpl");
+        
     }
 
     /**
@@ -149,25 +150,25 @@ class JdbmEmfResource implements Resource {
 
     @objid ("fe69282b-6d16-4f94-a0f6-b41262782e48")
     @Override
-    public void save(Map<?,?> options) throws IOException {
+    public void save(Map<?, ?> options) throws IOException {
         this.repo.save((IModelioProgress) options.get(IModelioProgress.class));
     }
 
     @objid ("80c67326-8864-4a76-aad9-5c3f66376bcf")
     @Override
-    public void load(Map<?,?> options) throws IOException {
+    public void load(Map<?, ?> options) throws IOException {
         // Do nothing, loading is automatic.
     }
 
     @objid ("2d8a0603-1437-4bb6-861f-ddab8bcd9e56")
     @Override
-    public void save(OutputStream outputStream, Map<?,?> options) throws IOException {
+    public void save(OutputStream outputStream, Map<?, ?> options) throws IOException {
         throw new UnsupportedOperationException("'Save as' is not supported.");
     }
 
     @objid ("9fcb34a4-326f-4b94-aa77-88e94720d329")
     @Override
-    public void load(InputStream inputStream, Map<?,?> options) throws IOException {
+    public void load(InputStream inputStream, Map<?, ?> options) throws IOException {
         throw new UnsupportedOperationException("'Load from' is not supported.");
     }
 
@@ -210,7 +211,7 @@ class JdbmEmfResource implements Resource {
 
     @objid ("a080007c-d8c3-48d9-b10b-bf02ae2f11e2")
     @Override
-    public void delete(Map<?,?> options) throws IOException {
+    public void delete(Map<?, ?> options) throws IOException {
         // nothing to do
     }
 

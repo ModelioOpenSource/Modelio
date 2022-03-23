@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.bpmnService;
 
 import java.util.ArrayList;
@@ -39,8 +39,6 @@ import org.modelio.metamodel.bpmn.rootElements.BpmnBaseElement;
 import org.modelio.metamodel.impl.bpmn.activities.BpmnReceiveTaskSmClass;
 import org.modelio.metamodel.impl.bpmn.activities.BpmnSendTaskSmClass;
 import org.modelio.metamodel.impl.bpmn.activities.BpmnServiceTaskSmClass;
-import org.modelio.metamodel.impl.bpmn.bpmnService.BpmnInterfaceSmClass;
-import org.modelio.metamodel.impl.bpmn.bpmnService.BpmnOperationData;
 import org.modelio.metamodel.impl.bpmn.events.BpmnMessageEventDefinitionSmClass;
 import org.modelio.metamodel.impl.bpmn.flows.BpmnMessageSmClass;
 import org.modelio.metamodel.impl.bpmn.rootElements.BpmnBaseElementSmClass;
@@ -80,7 +78,7 @@ public class BpmnOperationSmClass extends BpmnBaseElementSmClass {
     private SmDependency receiverDep;
 
     @objid ("163e8115-b2b5-498c-9803-14d9338eebee")
-    public BpmnOperationSmClass(ISmMetamodelFragment origin) {
+    public  BpmnOperationSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -88,6 +86,7 @@ public class BpmnOperationSmClass extends BpmnBaseElementSmClass {
     @Override
     public String getName() {
         return "BpmnOperation";
+        
     }
 
     @objid ("ed08d754-6985-4869-9611-efa3c71051b8")
@@ -100,18 +99,21 @@ public class BpmnOperationSmClass extends BpmnBaseElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnOperation.class;
+        
     }
 
     @objid ("06291c7d-b318-4a6e-bb47-f49050a7a908")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("3496fa02-6949-4907-8bf9-a73d0ec19233")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("0b7024b5-6c91-439c-9589-52473405663c")
@@ -151,6 +153,8 @@ public class BpmnOperationSmClass extends BpmnBaseElementSmClass {
         this.receiverDep = new ReceiverSmDependency();
         this.receiverDep.init("Receiver", this, metamodel.getMClass(BpmnReceiveTask.MQNAME), 0, -1 );
         registerDependency(this.receiverDep);
+        
+        
     }
 
     @objid ("1cbec494-044c-4854-ade1-869e9996c165")
@@ -215,7 +219,7 @@ public class BpmnOperationSmClass extends BpmnBaseElementSmClass {
         private BpmnOperationSmClass smClass;
 
         @objid ("4c83d50d-1dff-439a-b44b-7692a7907acf")
-        public BpmnOperationObjectFactory(BpmnOperationSmClass smClass) {
+        public  BpmnOperationObjectFactory(BpmnOperationSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -248,6 +252,7 @@ public class BpmnOperationSmClass extends BpmnBaseElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnOperationData) data).mSender = values;
+            
         }
 
         @objid ("357ab883-6297-4d4a-8052-532f962d6336")
@@ -257,6 +262,7 @@ public class BpmnOperationSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnSendTaskSmClass)this.getTarget()).getOperationRefDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -285,6 +291,7 @@ public class BpmnOperationSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnMessageSmClass)this.getTarget()).getInputMessageDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -304,6 +311,7 @@ public class BpmnOperationSmClass extends BpmnBaseElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnOperationData) data).mCaller = values;
+            
         }
 
         @objid ("98bb676e-8589-4704-b3af-8ca34c7b0f21")
@@ -313,6 +321,7 @@ public class BpmnOperationSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnServiceTaskSmClass)this.getTarget()).getOperationRefDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -341,6 +350,7 @@ public class BpmnOperationSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnMessageSmClass)this.getTarget()).getOutputMessageDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -360,6 +370,7 @@ public class BpmnOperationSmClass extends BpmnBaseElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnOperationData) data).mEventDefinition = values;
+            
         }
 
         @objid ("903f3712-ef20-4277-93da-c8ec11f907c4")
@@ -369,6 +380,7 @@ public class BpmnOperationSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnMessageEventDefinitionSmClass)this.getTarget()).getOperationRefDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -397,6 +409,7 @@ public class BpmnOperationSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnInterfaceSmClass)this.getTarget()).getOperationDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -416,6 +429,7 @@ public class BpmnOperationSmClass extends BpmnBaseElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnOperationData) data).mReceiver = values;
+            
         }
 
         @objid ("e948bb75-5438-4cf9-b9b4-c5a0e99683a8")
@@ -425,6 +439,7 @@ public class BpmnOperationSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnReceiveTaskSmClass)this.getTarget()).getOperationRefDep();
             }
             return this.symetricDep;
+            
         }
 
     }

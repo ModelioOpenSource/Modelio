@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import java.util.ArrayList;
@@ -97,9 +96,10 @@ public class EInstanceSpecification extends ENamedElement {
     }
 
     @objid ("4e7bccd1-e03d-4393-8065-d243a4a3df44")
-    public EInstanceSpecification(InstanceSpecification element) {
+    public  EInstanceSpecification(InstanceSpecification element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("6689de36-87c9-4300-8cfb-0cdecc634a02")
@@ -107,6 +107,7 @@ public class EInstanceSpecification extends ENamedElement {
     public void attach(Element objingElt) {
         if (!(this.isConnector) && !(this.isLink) && !(this.isNaryLink))
             attachInstance(objingElt);
+        
     }
 
     @objid ("6fabeef9-4702-4477-98f2-5f6465a0a3aa")
@@ -122,6 +123,7 @@ public class EInstanceSpecification extends ENamedElement {
                 ((Instance) objingElt).setOwner((NameSpace)owner);
         
         }
+        
     }
 
     @objid ("5c1b149e-d18c-4e04-9d7c-bfcc6c223754")
@@ -135,6 +137,7 @@ public class EInstanceSpecification extends ENamedElement {
         }else if(objingElt instanceof NaryLink){
             setNaryEnd((NaryLink) objingElt);  
         }
+        
     }
 
     @objid ("b8423da9-6d78-49b0-90f7-631b0a5e6793")
@@ -144,6 +147,7 @@ public class EInstanceSpecification extends ENamedElement {
             NameSpace objType = AbstractObjingModelNavigation.getPrimitiveType(typeName);
             objingElt.setBase(objType);
         }
+        
     }
 
     @objid ("b1e8ec48-a309-4132-885b-9f0bd4ef6b7a")
@@ -156,6 +160,7 @@ public class EInstanceSpecification extends ENamedElement {
             setMultiMin( objingElt);
             setAnnotationType(objingElt);
         }
+        
     }
 
     @objid ("a35931c5-8e3a-4ed6-b0ef-f9fdbf8e6f97")
@@ -171,6 +176,7 @@ public class EInstanceSpecification extends ENamedElement {
             }
         
         }
+        
     }
 
     @objid ("cd6e12c7-3271-4001-82cb-c207882df3e7")
@@ -183,6 +189,7 @@ public class EInstanceSpecification extends ENamedElement {
         String max =  ObjingEAnnotation.getMultiMax(this.ecoreElement);
         if (max != null)
             objingElt.setMultiplicityMax(max);
+        
     }
 
     @objid ("4385ea91-8ac9-44d9-85f7-30aa64432ef1")
@@ -206,6 +213,7 @@ public class EInstanceSpecification extends ENamedElement {
             if (value != null)
                 objingElt.setValue(value);
         }
+        
     }
 
     @objid ("cac906db-f748-4dde-b47c-710e77d6ee64")
@@ -213,6 +221,7 @@ public class EInstanceSpecification extends ENamedElement {
         String min =  ObjingEAnnotation.getMultiMin(this.ecoreElement);
         if (min != null)
             objingElt.setMultiplicityMin(min);
+        
     }
 
     @objid ("fb7b564d-2c15-4304-9dbc-55f0d34686b3")
@@ -230,6 +239,7 @@ public class EInstanceSpecification extends ENamedElement {
             ((LinkEnd)objEnds.get(0)).setOpposite((LinkEnd)objEnds.get(1));
             ((LinkEnd)objEnds.get(1)).setOpposite((LinkEnd)objEnds.get(0));
         }
+        
     }
 
     @objid ("6df39df1-bec8-45f3-8899-fe01923f80a7")
@@ -240,6 +250,7 @@ public class EInstanceSpecification extends ENamedElement {
             NaryLinkEnd objEnds = (NaryLinkEnd) revProp.getMappedElement(slot);
             objEnds.setNaryLink(link);
         }
+        
     }
 
 }

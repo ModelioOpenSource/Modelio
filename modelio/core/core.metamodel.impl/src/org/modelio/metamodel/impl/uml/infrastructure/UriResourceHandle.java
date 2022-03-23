@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.io.IOException;
@@ -51,10 +50,11 @@ public class UriResourceHandle implements IResourceHandle {
     private IAuthData auth;
 
     @objid ("49750218-10c7-4173-bfc2-390adeddb59f")
-    public UriResourceHandle(AbstractResource modelEl) {
+    public  UriResourceHandle(AbstractResource modelEl) {
         String loc = modelEl.getStorageInfo();
         
         this.uri = URI.create(loc);
+        
     }
 
     @objid ("df7f29ff-975d-4bd5-9c62-97118b3caeaa")
@@ -71,7 +71,6 @@ public class UriResourceHandle implements IResourceHandle {
 
     /**
      * Set the authentication data that may be needed to access the resource.
-     * 
      * @param auth the authentication data.
      */
     @objid ("0d03d524-6f8f-44ee-9066-be5eaa13eb58")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,17 +50,15 @@ public class ExecutionOccurenceSpecificationPropertyModel extends AbstractProper
     /**
      * Create a new <i>ExecutionOccurenceSpecification</i> data model from an
      * <i>ExecutionOccurenceSpecification</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("b729345e-cd3c-4a0e-9057-a043633b2bf7")
-    public ExecutionOccurenceSpecificationPropertyModel(ExecutionOccurenceSpecification theEditedElement) {
+    public  ExecutionOccurenceSpecificationPropertyModel(ExecutionOccurenceSpecification theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("35231a4f-513d-472a-80d9-0b82f8a90bc6")
@@ -72,7 +69,6 @@ public class ExecutionOccurenceSpecificationPropertyModel extends AbstractProper
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("ced75b4a-b3a5-4112-ad02-a650ce099e72")
@@ -85,7 +81,6 @@ public class ExecutionOccurenceSpecificationPropertyModel extends AbstractProper
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -107,6 +102,7 @@ public class ExecutionOccurenceSpecificationPropertyModel extends AbstractProper
         default:
             return null;
         }
+        
     }
 
     /**
@@ -116,7 +112,6 @@ public class ExecutionOccurenceSpecificationPropertyModel extends AbstractProper
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -139,13 +134,13 @@ public class ExecutionOccurenceSpecificationPropertyModel extends AbstractProper
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -170,6 +165,7 @@ public class ExecutionOccurenceSpecificationPropertyModel extends AbstractProper
         default:
             return;
         }
+        
     }
 
 }

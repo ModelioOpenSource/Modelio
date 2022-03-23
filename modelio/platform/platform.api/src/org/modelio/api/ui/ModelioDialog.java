@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -88,7 +87,7 @@ import org.eclipse.swt.widgets.Shell;
 @objid ("7c12d54a-704b-11dd-933a-001ec947cd2a")
 public abstract class ModelioDialog extends org.modelio.platform.ui.dialog.ModelioDialog {
     @objid ("bc2b30ad-120f-11e2-b5c6-002564c97630")
-    protected ModelioDialog(final Shell parentShell) {
+    protected  ModelioDialog(final Shell parentShell) {
         super(parentShell);
     }
 

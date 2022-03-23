@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.abstractdiagram;
 
 import java.util.Collection;
@@ -63,19 +62,19 @@ public class UnmaskDocumentCommand extends Command {
 
     /**
      * C'tor.
-     * 
      * @param theExternDocument the extern document to unmask.
      * @param host the edit part of the diagram in which to unmask it.
      * @param initialLayoutData the initial layout data for the node part
      * @param dropLocation the drop location retreived from the request.
      */
     @objid ("7e228716-1dec-11e2-8cad-001ec947c8cc")
-    public UnmaskDocumentCommand(final Document theExternDocument, final AbstractDiagramEditPart host, final Object initialLayoutData, final Point dropLocation) {
+    public  UnmaskDocumentCommand(final Document theExternDocument, final AbstractDiagramEditPart host, final Object initialLayoutData, final Point dropLocation) {
         this.theDocument = theExternDocument;
         this.host = host;
         this.diagram = (IGmDiagram) host.getModel();
         this.constraint = initialLayoutData;
         this.dropLocation = dropLocation;
+        
     }
 
     @objid ("7e228723-1dec-11e2-8cad-001ec947c8cc")
@@ -108,6 +107,7 @@ public class UnmaskDocumentCommand extends Command {
         IGmLink link = this.diagram.unmaskLink(this.theDocument);
         targetModel.addEndingLink(link);
         sourceModel.addStartingLink(link);
+        
     }
 
     @objid ("7e228726-1dec-11e2-8cad-001ec947c8cc")
@@ -140,6 +140,7 @@ public class UnmaskDocumentCommand extends Command {
         if (command != null && command.canExecute()) {
             command.execute();
         }
+        
     }
 
     @objid ("7e22873a-1dec-11e2-8cad-001ec947c8cc")

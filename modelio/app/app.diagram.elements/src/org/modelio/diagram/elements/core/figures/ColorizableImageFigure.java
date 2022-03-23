@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -49,26 +48,25 @@ public class ColorizableImageFigure extends Figure {
 
     /**
      * Creates an image colored in black.
-     * 
      * @param image the image
      */
     @objid ("7f6b8bc7-1dec-11e2-8cad-001ec947c8cc")
-    public ColorizableImageFigure(Image image) {
+    public  ColorizableImageFigure(Image image) {
         this(image, Display.getCurrent().getSystemColor(SWT.COLOR_BLACK));
     }
 
     /**
      * Constructor.
-     * 
      * @param image the image
      * @param color the color to apply
      */
     @objid ("7f6b8bca-1dec-11e2-8cad-001ec947c8cc")
-    public ColorizableImageFigure(Image image, Color color) {
+    public  ColorizableImageFigure(Image image, Color color) {
         assert (image != null);
         assert (color != null);
         this.setColor(color);
         this.originalImage = image;
+        
     }
 
     @objid ("7f6b8bce-1dec-11e2-8cad-001ec947c8cc")
@@ -80,6 +78,7 @@ public class ColorizableImageFigure extends Figure {
         Rectangle area = this.getClientArea();
         gc.drawImage(colorizedImage, rect.x, rect.y, rect.width, rect.height, area.x, area.y, area.width, area.height);
         colorizedImage.dispose();
+        
     }
 
     @objid ("7f6b8bd4-1dec-11e2-8cad-001ec947c8cc")
@@ -89,6 +88,7 @@ public class ColorizableImageFigure extends Figure {
         this.color = null;
         
         super.finalize();
+        
     }
 
     @objid ("7f6b8bd7-1dec-11e2-8cad-001ec947c8cc")
@@ -115,6 +115,7 @@ public class ColorizableImageFigure extends Figure {
             gc.dispose();
             return image;
         }
+        
     }
 
     /**
@@ -136,6 +137,7 @@ public class ColorizableImageFigure extends Figure {
         this.pixelColor = (color.getRed() << 16) + (color.getGreen() << 8) + color.getBlue();
         // System.out.println("color = " + color);
         // System.out.printf("pixelcolor = %x \n", pixelColor);
+        
     }
 
     @objid ("d4eee5b8-51f3-400e-93d5-03194782aff5")
@@ -159,6 +161,7 @@ public class ColorizableImageFigure extends Figure {
         System.out.printf(" palette: %s\n", data.palette);
         
         System.out.println();
+        
     }
 
     @objid ("0979be81-578d-496b-9b3e-39b6b32ec394")

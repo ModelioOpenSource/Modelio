@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.expert.standard.meta.impl;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -55,7 +54,7 @@ public class PartDecompositionCreationExpert extends DefaultMetaExpert {
     }
 
     @objid ("30bd2f29-d133-4cb9-b25d-5ace6efd0297")
-    public PartDecompositionCreationExpert(SmClass partDecompositionSmClass) {
+    public  PartDecompositionCreationExpert(SmClass partDecompositionSmClass) {
         this.partDecompositionSmClass = partDecompositionSmClass;
     }
 

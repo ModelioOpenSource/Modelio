@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.contributions;
 
 import java.io.IOException;
@@ -34,17 +33,15 @@ import org.modelio.platform.mda.infra.service.IRTModule;
 public interface IDynamicModelLoader {
     /**
      * Load the dynamic model part.
-     * 
      * @param module the loading module
      * @param model the dynamic model JAXB model
-     * @throws java.io.IOException to abort loading.
+     * @throws IOException to abort loading.
      */
     @objid ("c44a1466-dbd6-4619-8c21-004ad8d41731")
     void loadDynamicModel(IRTModule module, Jxbv2Gui model) throws IOException;
 
     /**
      * Unload the loaded dynamic model.
-     * 
      * @param module the unloaded module.
      */
     @objid ("89ff9c7a-ccd1-4d92-91e7-07ba8e553669")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing.profile;
 
 import java.util.ArrayList;
@@ -42,7 +41,7 @@ public class PExportProfile implements IExportProfileElement {
     private TotalExportMap totalMap = TotalExportMap.getInstance();
 
     @objid ("7fa1f8b4-9c22-4a93-a054-30137618799b")
-    public PExportProfile(Profile profile) {
+    public  PExportProfile(Profile profile) {
         this.objingElt = profile;
     }
 
@@ -63,6 +62,7 @@ public class PExportProfile implements IExportProfileElement {
         
         setProperties(ecoreElt);
         attach(ecoreElt);
+        
     }
 
     @objid ("e7b43230-e473-4251-b7ad-25eb6affd2c1")
@@ -71,6 +71,7 @@ public class PExportProfile implements IExportProfileElement {
         ObjingEAnnotation.addObjingID(ecoreElt, this.objingElt.getUuid().toString());
         String name = ProfileUtils.getName(this.objingElt);
         ecoreElt.setName(name);
+        
     }
 
     @objid ("d24f3069-05b5-42b5-8877-a31f8ea480a1")
@@ -128,6 +129,7 @@ public class PExportProfile implements IExportProfileElement {
             if  ((ecoreOwner != null) && (!(ecoreOwner.equals(ecoreElt))))
                 ecoreOwner.getPackagedElements().add(ecoreElt);
         }
+        
     }
 
 }

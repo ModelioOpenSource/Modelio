@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.association;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,7 +43,6 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class CreateQualifierEditPolicy extends DeferringCreateNodeOnLinkEditPolicy {
     /**
      * Redefined to return the {@link GmQualifierGroup} for the nearest association role from the mouse.
-     * 
      * @param gmLink The association model
      * @param location The mouse location
      * @return The nearest {@link GmQualifierGroup} from the mouse.

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.expert.standard.links.impl.creation;
 
 import java.util.Collection;
@@ -96,6 +95,7 @@ public class BindingCreationExpert extends DefaultDelegatingLinkExpert {
         
             return (fromOwner != null && collabUseOwner != null && fromOwner.equals(collabUseOwner));
         }
+        
     }
 
     @objid ("7e94dfea-1eb2-11e2-8009-002564c97630")
@@ -151,11 +151,11 @@ public class BindingCreationExpert extends DefaultDelegatingLinkExpert {
         } else {
             return false;
         }
+        
     }
 
     /**
      * Get the Classifier owning the given element
-     * 
      * @param e an element
      * @return The classifier owner or null.
      */
@@ -173,7 +173,6 @@ public class BindingCreationExpert extends DefaultDelegatingLinkExpert {
      * Get the collaboration owning the given element, or null if the element is not owned by a collaboration.
      * @param e
      * an element
-     * 
      * @return The owning collaboration or null.
      */
     @objid ("7e97413f-1eb2-11e2-8009-002564c97630")
@@ -193,7 +192,6 @@ public class BindingCreationExpert extends DefaultDelegatingLinkExpert {
 
     /**
      * Guess the collaboration use from the represented feature and the role.
-     * 
      * @param feature the represented feature
      * @param role the role
      * @return the found collaboration use or null if none.
@@ -220,7 +218,6 @@ public class BindingCreationExpert extends DefaultDelegatingLinkExpert {
 
     /**
      * Get the collaboration uses accessible from the given represented feature.
-     * 
      * @param feature a represented feature
      * @return accessible collaboration uses
      */
@@ -240,7 +237,7 @@ public class BindingCreationExpert extends DefaultDelegatingLinkExpert {
     }
 
     @objid ("b40d3b76-ded4-4f93-971c-80a43c29f0cb")
-    public BindingCreationExpert(ILinkExpert defaultExpert) {
+    public  BindingCreationExpert(ILinkExpert defaultExpert) {
         super(defaultExpert);
     }
 

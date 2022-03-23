@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.util.ArrayList;
@@ -57,16 +56,15 @@ public class UseCaseDependencyPropertyModel extends AbstractPropertyModel<UseCas
      */
     @objid ("3085eae0-76d0-4cd7-bed4-391cfca5798b")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Target",
-			"ExtensionLocation" };
+    			"ExtensionLocation" };
 
     /**
      * Create a new <i>UseCaseDependency</i> data model from an
      * <i>UseCaseDependency</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("0913b8f8-3c23-441f-a45b-e7c483036965")
-    public UseCaseDependencyPropertyModel(UseCaseDependency theEditedElement) {
+    public  UseCaseDependencyPropertyModel(UseCaseDependency theEditedElement) {
         super(theEditedElement);
     }
 
@@ -117,6 +115,7 @@ public class UseCaseDependencyPropertyModel extends AbstractPropertyModel<UseCas
         default:
             return null;
         }
+        
     }
 
     /**
@@ -150,6 +149,7 @@ public class UseCaseDependencyPropertyModel extends AbstractPropertyModel<UseCas
         default:
             return null;
         }
+        
     }
 
     /**
@@ -188,6 +188,7 @@ public class UseCaseDependencyPropertyModel extends AbstractPropertyModel<UseCas
         default:
             return;
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.exporter.impl;
 
 import java.util.ArrayList;
@@ -39,8 +38,8 @@ import org.modelio.metamodel.uml.statik.AssociationEnd;
 import org.modelio.metamodel.uml.statik.ConnectorEnd;
 import org.modelio.metamodel.uml.statik.DataType;
 import org.modelio.patterns.exporter.PatternModelAnalysis;
-import org.modelio.patterns.model.ProfileUtils.PatternDesignerStereotypes;
 import org.modelio.patterns.model.ProfileUtils;
+import org.modelio.patterns.model.ProfileUtils.PatternDesignerStereotypes;
 import org.modelio.vcore.smkernel.mapi.MDependency;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
@@ -62,10 +61,11 @@ class RelationGenerator {
     private PatternModelAnalysis report;
 
     @objid ("c5daf89e-dba1-4347-91b4-ca708c32363c")
-    public RelationGenerator(PatternModelAnalysis report, ParameterManager paramManager) {
+    public  RelationGenerator(PatternModelAnalysis report, ParameterManager paramManager) {
         this.report = report;
         this.paramManager = paramManager;
         this.relations = new ArrayList<>();
+        
     }
 
     @objid ("daac3d35-682a-415b-95a5-3d07cf1e711c")
@@ -73,6 +73,7 @@ class RelationGenerator {
         for (MObject destination : source.mGet(dependency)) {
             this.relations.add(new Relation(source, destination, dependency));
         }
+        
     }
 
     @objid ("dea57eb1-66c0-4779-aa98-eb374eeb39e4")
@@ -95,6 +96,7 @@ class RelationGenerator {
                 }
             }
         }
+        
     }
 
     /**
@@ -234,10 +236,11 @@ class RelationGenerator {
         public MObject destination;
 
         @objid ("678ebde6-cc57-4f14-a85a-9a76e3467e4f")
-        public Relation(MObject source, MObject destination, MDependency relationType) {
+        public  Relation(MObject source, MObject destination, MDependency relationType) {
             this.source = source;
             this.relationType = relationType;
             this.destination = destination;
+            
         }
 
     }

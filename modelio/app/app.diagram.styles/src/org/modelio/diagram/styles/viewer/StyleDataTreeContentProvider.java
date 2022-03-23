@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.viewer;
 
 import java.util.List;
@@ -37,7 +36,7 @@ class StyleDataTreeContentProvider implements ITreeContentProvider {
     private static final Object[] NO_OBJECTS = new Object[0];
 
     @objid ("4afa955e-0a95-4985-aa4d-a97441d741dd")
-    public StyleDataTreeContentProvider(StyleEditPanelUIData data) {
+    public  StyleDataTreeContentProvider(StyleEditPanelUIData data) {
         this.data = data;
     }
 

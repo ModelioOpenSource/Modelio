@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.expansionregion;
 
 import java.util.Collections;
@@ -34,8 +33,8 @@ import org.modelio.diagram.elements.core.node.IImageableNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityNode;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityParameterNode;
 import org.modelio.metamodel.uml.behavior.activityModel.ExpansionNode;
@@ -67,12 +66,11 @@ public class GmExpansionRegionPrimaryNode extends GmNoStyleCompositeNode impleme
 
     /**
      * Default constructor.
-     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param relatedRef reference to the represented element.
      */
     @objid ("2a62f22d-55b6-11e2-877f-002564c97630")
-    public GmExpansionRegionPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
+    public  GmExpansionRegionPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
         
         this.header = new GmActivityNodeHeader(diagram, relatedRef);
@@ -80,13 +78,14 @@ public class GmExpansionRegionPrimaryNode extends GmNoStyleCompositeNode impleme
         
         super.addChild(this.header);
         super.addChild(this.innerZone);
+        
     }
 
     /**
      * Empty constructor needed for serialisation.
      */
     @objid ("2a62f236-55b6-11e2-877f-002564c97630")
-    public GmExpansionRegionPrimaryNode() {
+    public  GmExpansionRegionPrimaryNode() {
         // constructor empty for the serialization
     }
 
@@ -99,6 +98,7 @@ public class GmExpansionRegionPrimaryNode extends GmNoStyleCompositeNode impleme
             this.innerZone.addChild(child);
         } else
             super.addChild(child);
+        
     }
 
     @objid ("2a64789f-55b6-11e2-877f-002564c97630")
@@ -108,6 +108,7 @@ public class GmExpansionRegionPrimaryNode extends GmNoStyleCompositeNode impleme
                         !ExpansionNode.class.isAssignableFrom(type) &&
                         !Pin.class.isAssignableFrom(type) &&
                         !ActivityParameterNode.class.isAssignableFrom(type);
+        
     }
 
     @objid ("2a6478a7-55b6-11e2-877f-002564c97630")
@@ -120,6 +121,7 @@ public class GmExpansionRegionPrimaryNode extends GmNoStyleCompositeNode impleme
                         !ActivityParameterNode.class.isAssignableFrom(type) &&
                         this.getRelatedElement() != null &&
                         this.getRelatedElement().equals(el.getCompositionOwner());
+        
     }
 
     @objid ("2a6478af-55b6-11e2-877f-002564c97630")
@@ -130,7 +132,6 @@ public class GmExpansionRegionPrimaryNode extends GmNoStyleCompositeNode impleme
 
     /**
      * Get the stereotype image to display.
-     * 
      * @return the stereotype image to display. Must not be <i>null</i>.
      */
     @objid ("2a6478b9-55b6-11e2-877f-002564c97630")
@@ -175,6 +176,7 @@ public class GmExpansionRegionPrimaryNode extends GmNoStyleCompositeNode impleme
             break;
         }
         }
+        
     }
 
     @objid ("2a6478d3-55b6-11e2-877f-002564c97630")
@@ -186,6 +188,7 @@ public class GmExpansionRegionPrimaryNode extends GmNoStyleCompositeNode impleme
         firePropertyChange(PROPERTY_LABEL, oldLabel, this.header.getMainLabel());
         // forcing visual refresh in case Image changed
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("2a6478d6-55b6-11e2-877f-002564c97630")
@@ -194,6 +197,7 @@ public class GmExpansionRegionPrimaryNode extends GmNoStyleCompositeNode impleme
         // Returned result depends on current representation mode:
         List<GmNodeModel> ret;
         switch (this.getRepresentationMode()) {
+        case USER_IMAGE:
         case IMAGE: {
             ret = Collections.emptyList();
             break;
@@ -213,6 +217,7 @@ public class GmExpansionRegionPrimaryNode extends GmNoStyleCompositeNode impleme
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmExpansionRegionPrimaryNode.", GmExpansionRegionPrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("2a65ff43-55b6-11e2-877f-002564c97630")
@@ -223,6 +228,7 @@ public class GmExpansionRegionPrimaryNode extends GmNoStyleCompositeNode impleme
         
         GmDefaultModelElementLabel imageModeHeader = (GmDefaultModelElementLabel) this.getChildren().get(2);
         imageModeHeader.delete();
+        
     }
 
     @objid ("2a65ff48-55b6-11e2-877f-002564c97630")
@@ -236,6 +242,7 @@ public class GmExpansionRegionPrimaryNode extends GmNoStyleCompositeNode impleme
         super.read(in);
         this.header = (GmActivityNodeHeader) this.getChildren().get(0);
         this.innerZone = (GmBodyFreeZone) this.getChildren().get(1);
+        
     }
 
 }

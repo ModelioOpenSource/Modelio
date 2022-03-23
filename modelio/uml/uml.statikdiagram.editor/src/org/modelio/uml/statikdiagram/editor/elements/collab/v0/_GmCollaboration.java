@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.collab.v0;
 
 import java.util.ArrayList;
@@ -36,8 +35,8 @@ import org.modelio.diagram.elements.core.node.IImageableNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.informationFlow.InformationItem;
 import org.modelio.metamodel.uml.statik.Collaboration;
 import org.modelio.metamodel.uml.statik.CollaborationUse;
@@ -128,13 +127,12 @@ public class _GmCollaboration extends GmCompositeNode implements IImageableNode 
 
     /**
      * Default constructor.
-     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param theCollaboration the represented object node, may be null.
      * @param ref a reference to the represented object node.
      */
     @objid ("34678833-55b7-11e2-877f-002564c97630")
-    public _GmCollaboration(IGmDiagram diagram, final Collaboration theCollaboration, MRef ref) {
+    public  _GmCollaboration(IGmDiagram diagram, final Collaboration theCollaboration, MRef ref) {
         super(diagram, ref);
         this.collaboration = theCollaboration;
         
@@ -158,13 +156,14 @@ public class _GmCollaboration extends GmCompositeNode implements IImageableNode 
         super.addChild(this.internalStructureZone);
         super.addChild(this.innerElements);
         super.addChild(this.imageModeHeader);
+        
     }
 
     /**
      * Empty constructor, needed for serialization.
      */
     @objid ("34690ea0-55b7-11e2-877f-002564c97630")
-    public _GmCollaboration() {
+    public  _GmCollaboration() {
         // empty constructor for the serialization
     }
 
@@ -200,7 +199,6 @@ public class _GmCollaboration extends GmCompositeNode implements IImageableNode 
 
     /**
      * Get the stereotype image to display.
-     * 
      * @return the stereotype image to display. Must not be <i>null</i>.
      */
     @objid ("34690ebd-55b7-11e2-877f-002564c97630")
@@ -266,6 +264,7 @@ public class _GmCollaboration extends GmCompositeNode implements IImageableNode 
         default:
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("346a954f-55b7-11e2-877f-002564c97630")
@@ -289,6 +288,7 @@ public class _GmCollaboration extends GmCompositeNode implements IImageableNode 
             break;
         }
         }
+        
     }
 
     @objid ("346a9555-55b7-11e2-877f-002564c97630")
@@ -296,6 +296,7 @@ public class _GmCollaboration extends GmCompositeNode implements IImageableNode 
     public void refreshFromObModel() {
         // forcing visual refresh in case Image changed
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("346a9558-55b7-11e2-877f-002564c97630")
@@ -310,6 +311,7 @@ public class _GmCollaboration extends GmCompositeNode implements IImageableNode 
         // Returned result depends on current representation mode:
         List<GmNodeModel> ret;
         switch (this.getRepresentationMode()) {
+        case USER_IMAGE:
         case IMAGE: {
             ret = new ArrayList<>(1);
             ret.add(this.imageModeHeader);
@@ -332,6 +334,7 @@ public class _GmCollaboration extends GmCompositeNode implements IImageableNode 
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmCollaboration.", _GmCollaboration.MINOR_VERSION);
+        
     }
 
     @objid ("346a956e-55b7-11e2-877f-002564c97630")
@@ -362,6 +365,7 @@ public class _GmCollaboration extends GmCompositeNode implements IImageableNode 
         this.internalStructureZone.setRoleInComposition(INTERNAL_ZONE);
         this.innerElements.setRoleInComposition(INNER);
         this.imageModeHeader.setRoleInComposition(IMAGE_HEADER);
+        
     }
 
     @objid ("346a9573-55b7-11e2-877f-002564c97630")
@@ -386,6 +390,7 @@ public class _GmCollaboration extends GmCompositeNode implements IImageableNode 
         this.internalStructureZone = (GmFreeZone) getFirstChild(INTERNAL_ZONE);
         this.innerElements = (GmInnerClass) getFirstChild(INNER);
         this.imageModeHeader = (GmDefaultModelElementLabel) getFirstChild(IMAGE_HEADER);
+        
     }
 
     @objid ("346c1bdf-55b7-11e2-877f-002564c97630")

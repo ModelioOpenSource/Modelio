@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.providedinterface;
 
 import java.util.List;
@@ -56,21 +55,22 @@ public class GmProvidedInterfaceLabel extends GmDefaultModelElementLabel {
      * Constructor for deserialization only.
      */
     @objid ("365156a6-55b7-11e2-877f-002564c97630")
-    public GmProvidedInterfaceLabel() {
+    public  GmProvidedInterfaceLabel() {
+        
     }
 
     /**
      * Constructor.
-     * 
      * @param diagram The diagram
      * @param el The represented element, may be null.
      * @param ref The represented element reference, may not be null.
      */
     @objid ("365156a9-55b7-11e2-877f-002564c97630")
-    public GmProvidedInterfaceLabel(IGmDiagram diagram, ProvidedInterface el, MRef ref) {
+    public  GmProvidedInterfaceLabel(IGmDiagram diagram, ProvidedInterface el, MRef ref) {
         super(diagram, ref);
         this.element = el;
         init();
+        
     }
 
     @objid ("3652dd58-55b7-11e2-877f-002564c97630")
@@ -102,6 +102,7 @@ public class GmProvidedInterfaceLabel extends GmDefaultModelElementLabel {
                 break;
             }
         }
+        
     }
 
     @objid ("3652dd7e-55b7-11e2-877f-002564c97630")
@@ -113,6 +114,7 @@ public class GmProvidedInterfaceLabel extends GmDefaultModelElementLabel {
             if (parent != null)
                 getPersistedStyle().setCascadedStyle(parent.getPersistedStyle());
         }
+        
     }
 
     @objid ("365463dc-55b7-11e2-877f-002564c97630")
@@ -137,6 +139,7 @@ public class GmProvidedInterfaceLabel extends GmDefaultModelElementLabel {
     private void init() {
         setShowMetaclassKeyword(false);
         setShowMetaclassIcon(false);
+        
     }
 
     @objid ("365463e5-55b7-11e2-877f-002564c97630")
@@ -158,12 +161,14 @@ public class GmProvidedInterfaceLabel extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmProvidedInterfaceLabel.", GmProvidedInterfaceLabel.MINOR_VERSION);
+        
     }
 
     @objid ("365463f7-55b7-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (ProvidedInterface) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("365463fc-55b7-11e2-877f-002564c97630")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.rotated;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -72,21 +71,21 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
      * Creates an empty label figure oriented horizontally.
      */
     @objid ("9b375609-3d5a-49f2-bb37-d339fcd22016")
-    public RotatedFigureContainer() {
+    public  RotatedFigureContainer() {
         init();
     }
 
     /**
      * initialize the figure with a child and a rotation angle.
-     * 
      * @param f the contained figure
      * @param angle the rotation angle in counter clockwise degrees.
      */
     @objid ("85526176-07d1-4a28-ad9f-859c4755982a")
-    public RotatedFigureContainer(IFigure f, int angle) {
+    public  RotatedFigureContainer(IFigure f, int angle) {
         add(f);
         setOrientationAngle(angle);
         init();
+        
     }
 
     @objid ("fa506e9b-bfa8-480f-a5c1-99b4c4e7688f")
@@ -97,11 +96,11 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
         }
         
         super.add(figure, constraint, index);
+        
     }
 
     /**
      * Get the contained figure.
-     * 
      * @return the contained figure.
      */
     @objid ("ae659e59-00d6-48bc-a9af-3de7e9fc79ab")
@@ -111,11 +110,11 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
         } else {
             return (IFigure) getChildren().get(0);
         }
+        
     }
 
     /**
      * Get the orientation angle in counter-clockwise degrees.
-     * 
      * @return the orientation angle in degrees. 0 means horizontal.
      */
     @objid ("ba1fde2d-8ea7-4a89-8f72-bd2ae1d98900")
@@ -129,6 +128,7 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
         super.invalidate();
         
         this.innerRectangle = null;
+        
     }
 
     @objid ("d441080e-1677-47eb-b09a-9803e4f9ebea")
@@ -137,6 +137,7 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
         assert (checkLayoutManager(manager));
         
         super.setLayoutManager(manager);
+        
     }
 
     /**
@@ -147,7 +148,6 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
      * A positive value indicates a counter-clockwise rotation while a negative value
      * indicates a clockwise rotation.
      * </p>
-     * 
      * @param orientation the orientation in degrees.
      */
     @objid ("9c9f7fcc-e63d-49c8-9a35-f90cb79ee048")
@@ -158,6 +158,7 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
         }
         
         revalidate();
+        
     }
 
     /**
@@ -166,7 +167,6 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
      * {@link PositionConstants#EAST} is the default horizontal direction,
      * {@link PositionConstants#NORTH} is the default vertical direction.
      * </p>
-     * 
      * @param orientation the label orientation
      */
     @objid ("51a16d0a-0c17-43e9-ad64-afac60677a03")
@@ -199,6 +199,7 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
         default:
             throw new IllegalArgumentException(String.valueOf(orientation));
         }
+        
     }
 
     @objid ("ca773a5c-6341-47a4-8a0a-15f3d57f159e")
@@ -245,6 +246,7 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
             Dimension d = (Dimension) t;
             d.setSize(calculateRotatedRectangleBounds(d));
         }
+        
     }
 
     @objid ("a2ca1a65-61b6-4553-b51f-05763fcbf4bf")
@@ -294,11 +296,11 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
             d.setSize(calculateRotatedRectangleBounds(d));
             this.orientation = -this.orientation;
         }
+        
     }
 
     /**
      * Called by the layout manager.
-     * 
      * @param w The width hint
      * @param h The height hint
      * @return The minimum size
@@ -326,7 +328,6 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
 
     /**
      * Called by the layout manager.
-     * 
      * @param wHint The width hint
      * @param hHint The height hint
      * @return The preferred size
@@ -368,6 +369,7 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
         } else {
             return child.getMinimumSize(wHint, hHint);
         }
+        
     }
 
     /**
@@ -375,7 +377,6 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
      * <p>
      * The returned dimension may be by <i>reference</i>, and it must not be modified by the caller.
      * A hint value of -1 indicates that there is no constraint in that direction.
-     * 
      * @param wHint a width hint
      * @param hHint a height hint
      * @return The preferred size
@@ -389,6 +390,7 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
         } else {
             return child.getPreferredSize(wHint, hHint);
         }
+        
     }
 
     /**
@@ -403,6 +405,7 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
         } else {
             return child.getSize();
         }
+        
     }
 
     @objid ("ec257de0-b173-4297-99fb-55e8fb5179c7")
@@ -451,6 +454,7 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
             IFigure f = (IFigure) o;
             f.setBounds(b);
         }
+        
     }
 
     @objid ("4f2a3a68-872c-4957-9391-829b434ec20f")
@@ -499,12 +503,12 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
         if (this.orientation != 0) {
             childGraphics.dispose();
         }
+        
     }
 
     /**
      * Calculate the max size of a rectangle inside the given rectangle size rotated by the labelum angle .
      * <p>
-     * 
      * @param w rectangle width
      * @param h rectangle height
      * @return the inner rotated rectangle dimension
@@ -520,13 +524,13 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
         } else {
             return guessLargestRotatedTextSize(this.orientation, w, h);
         }
+        
     }
 
     /**
      * Get the size of the given rectangle after rotation.
      * <p>
      * The returned dimension is always a copy and may be freely modified.
-     * 
      * @param d the initial size. the size won't be modified.
      * @return the bounds of the rotated dimension
      */
@@ -547,11 +551,11 @@ public class RotatedFigureContainer extends Figure implements PositionConstants 
         
             return new Dimension((int) Math.ceil(a), (int) Math.ceil(b));
         }
+        
     }
 
     /**
      * Guess the ideal child width for the given bounds dimensions.
-     * 
      * @param angle the rotation angle in degrees
      * @param boundsWidth the constrained bounds width.
      * @param boundsHeight the constrained bounds height

@@ -17,19 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.uml.infrastructure.properties;
 
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
 import org.modelio.metamodel.mda.ModuleParameter;
-import org.modelio.metamodel.uml.infrastructure.properties.PropertyEnumerationLitteral;
 
 /**
  * EnumeratedPropertyType v0.0.9054
@@ -53,7 +52,6 @@ public interface EnumeratedPropertyType extends PropertyType {
 
     /**
      * Returns the literal represented by 's' or null if not found
-     * 
      * @param s @return
      */
     @objid ("980fb52a-eaee-4290-b6b6-bde39e3d8dc7")

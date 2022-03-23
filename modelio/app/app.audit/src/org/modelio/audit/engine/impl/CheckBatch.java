@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.engine.impl;
 
 import java.util.Collection;
@@ -45,9 +44,10 @@ public class CheckBatch {
     }
 
     @objid ("935f03b7-3524-491c-9d75-807e6d79ca74")
-    public CheckBatch(MObject element, String jobId) {
+    public  CheckBatch(MObject element, String jobId) {
         this.element = element;
         this.jobId = jobId;
+        
     }
 
     @objid ("f2057dd8-859c-4a67-994f-edba56158d90")

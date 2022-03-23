@@ -17,18 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.infrastructure.ExternProcessorData;
-import org.modelio.metamodel.impl.uml.infrastructure.ModelElementSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.matrix.MatrixValueDefinitionSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.matrix.QueryDefinitionSmClass;
 import org.modelio.metamodel.uml.infrastructure.ExternProcessor;
@@ -59,7 +57,7 @@ public class ExternProcessorSmClass extends ModelElementSmClass {
     private SmDependency ownerValDefDep;
 
     @objid ("cd5a906d-43d4-4e5a-84bf-4b1236c78915")
-    public ExternProcessorSmClass(ISmMetamodelFragment origin) {
+    public  ExternProcessorSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -67,6 +65,7 @@ public class ExternProcessorSmClass extends ModelElementSmClass {
     @Override
     public String getName() {
         return "ExternProcessor";
+        
     }
 
     @objid ("bbb0a678-0486-4704-82e4-79cbd818ae2a")
@@ -79,18 +78,21 @@ public class ExternProcessorSmClass extends ModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ExternProcessor.class;
+        
     }
 
     @objid ("d2b4a903-1588-4b98-ae6a-b165105e84be")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("a0469a48-d8e6-48bc-aaab-0a14c1d01eb5")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("b4ba9efd-35fa-40b8-913c-242753273776")
@@ -114,6 +116,8 @@ public class ExternProcessorSmClass extends ModelElementSmClass {
         this.ownerValDefDep = new OwnerValDefSmDependency();
         this.ownerValDefDep.init("OwnerValDef", this, metamodel.getMClass(MatrixValueDefinition.MQNAME), 0, 1 );
         registerDependency(this.ownerValDefDep);
+        
+        
     }
 
     @objid ("8b746631-8596-422f-818a-d61e4f505d17")
@@ -146,7 +150,7 @@ public class ExternProcessorSmClass extends ModelElementSmClass {
         private ExternProcessorSmClass smClass;
 
         @objid ("cb69b63a-2e5f-44d9-8e25-e8898b8e5d9c")
-        public ExternProcessorObjectFactory(ExternProcessorSmClass smClass) {
+        public  ExternProcessorObjectFactory(ExternProcessorSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -202,6 +206,7 @@ public class ExternProcessorSmClass extends ModelElementSmClass {
             	this.symetricDep = ((QueryDefinitionSmClass)this.getTarget()).getProcessorDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -230,6 +235,7 @@ public class ExternProcessorSmClass extends ModelElementSmClass {
             	this.symetricDep = ((MatrixValueDefinitionSmClass)this.getTarget()).getProcessorDep();
             }
             return this.symetricDep;
+            
         }
 
     }

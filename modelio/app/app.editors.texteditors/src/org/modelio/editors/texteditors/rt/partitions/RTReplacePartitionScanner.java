@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.texteditors.rt.partitions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,25 +34,26 @@ public class RTReplacePartitionScanner extends RuleBasedPartitionScanner {
     public static final String RW_PARTITION = "_RW";
 
     @objid ("7b65836b-2a77-11e2-9fb9-bc305ba4815c")
-     IToken roToken;
+    IToken roToken;
 
     @objid ("7b65aa78-2a77-11e2-9fb9-bc305ba4815c")
-     IToken rwToken;
+    IToken rwToken;
 
     @objid ("7b65aa79-2a77-11e2-9fb9-bc305ba4815c")
-     IToken tagToken;
+    IToken tagToken;
 
     @objid ("7b65aa7a-2a77-11e2-9fb9-bc305ba4815c")
-     IPredicateRule[] rules = null;
+    IPredicateRule[] rules = null;
 
     @objid ("7b65aa7d-2a77-11e2-9fb9-bc305ba4815c")
-    public RTReplacePartitionScanner() {
+    public  RTReplacePartitionScanner() {
         this.rwToken  = new Token(RW_PARTITION);
         this.rules = new IPredicateRule[1];
         //rules[0] = new AnyTextRule2(rwToken, rwToken, this);
         
         setPredicateRules(this.rules);
         setDefaultReturnToken(this.rwToken);
+        
     }
 
 }

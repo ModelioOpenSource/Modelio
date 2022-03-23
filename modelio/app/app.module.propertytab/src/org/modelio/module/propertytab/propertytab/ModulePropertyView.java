@@ -17,15 +17,15 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.module.propertytab.propertytab;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
@@ -47,14 +47,33 @@ import org.modelio.platform.project.services.IProjectService;
 import org.modelio.platform.ui.panel.IPanelProvider;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
+/**
+ * "Part" implementation class of the generic module property view.
+ * <br/>
+ * This class is responsible for the actual creation of the graphical components ({@link #createPartControl} method).
+ */
 @objid ("c884caa2-1eba-11e2-9382-bc305ba4815c")
 public class ModulePropertyView {
     @objid ("c884f1b0-1eba-11e2-9382-bc305ba4815c")
     private IPanelProvider modulePanel;
 
+    /**
+     * This method is called when the part is created, ie the view is being opened.
+     * <p>
+     * Initializes the module panel.
+     * </p>
+     * @param part the part itself.
+     * @param parentComposite the main composite of the view.
+     * @param eclipseContext the eclipse context.
+     * @param project the project service.
+     * @param modules the module service.
+     * @param pickingService the picking service.
+     * @param selection the current selection.
+     */
     @objid ("c884f1b1-1eba-11e2-9382-bc305ba4815c")
     @PostConstruct
-    public void createControls(final Composite parentComposite, IProjectService project, IModuleService modules, MPart part, IEclipseContext eclipseContext, @Optional IModelioPickingService pickingService, @Optional @Named(IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
+    public void createPartControl(MPart part, Composite parentComposite, IEclipseContext eclipseContext, IProjectService project, IModuleService modules, @Optional IModelioPickingService pickingService, @Optional
+    @Named(IServiceConstants.ACTIVE_SELECTION) IStructuredSelection selection) {
         // Create the view content
         // Two cases: either the module provided
         // - a table-based page as an IModulePropertyPage instance
@@ -78,6 +97,7 @@ public class ModulePropertyView {
         if (selection != null) {
             update(selection);
         }
+        
     }
 
     @objid ("c8853fd3-1eba-11e2-9382-bc305ba4815c")
@@ -86,12 +106,12 @@ public class ModulePropertyView {
         if (this.modulePanel != null) {
             ((Control) this.modulePanel.getPanel()).setFocus();
         }
+        
     }
 
     /**
      * This listener is activated when the selection changes in the workbench.<br>
      * Its responsibility is to set the NotesView's current element.
-     * 
      * @param selection the current modelio selection.
      */
     @objid ("c88566e1-1eba-11e2-9382-bc305ba4815c")
@@ -118,9 +138,10 @@ public class ModulePropertyView {
             // avoid runtime exceptions to go propagate, preventing other tabs to refresh
             ModulePropertyTab.LOG.error(e);
         }
+        
     }
 
-/*
+    /**
      * Find IModulePropertyPage from Module and PropertyPage name MPart tags contains the Name of Module an index 1 and Name of
      * PropertyPage at index 2
      */
@@ -136,6 +157,22 @@ public class ModulePropertyView {
             }
         }
         return null;
+    }
+
+    /**
+     * This method is called when the part is disposed, ie the view is being closed.
+     * <p>
+     * Simply dispose the module panel.
+     * </p>
+     */
+    @objid ("4e623901-366b-40dd-85ac-998257d2c397")
+    @PreDestroy
+    public void dispose() {
+        if (this.modulePanel != null) {
+            this.modulePanel.dispose();
+            this.modulePanel = null;
+        }
+        
     }
 
 }

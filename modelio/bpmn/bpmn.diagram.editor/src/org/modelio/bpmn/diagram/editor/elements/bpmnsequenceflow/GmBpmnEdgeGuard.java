@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnsequenceflow;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,18 +46,17 @@ public class GmBpmnEdgeGuard extends GmElementLabel {
      * For deserialization only.
      */
     @objid ("619dbd6f-55b6-11e2-877f-002564c97630")
-    public GmBpmnEdgeGuard() {
+    public  GmBpmnEdgeGuard() {
         // serialization
     }
 
     /**
      * Creates an activity edge guard label.
-     * 
      * @param diagram The diagram.
      * @param relatedRef ref
      */
     @objid ("619dbd72-55b6-11e2-877f-002564c97630")
-    public GmBpmnEdgeGuard(IGmDiagram diagram, MRef relatedRef) {
+    public  GmBpmnEdgeGuard(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -79,6 +77,7 @@ public class GmBpmnEdgeGuard extends GmElementLabel {
                                 iActivityEdge.setConditionExpression(text);
                             }
                         };
+        
     }
 
     @objid ("619dbd82-55b6-11e2-877f-002564c97630")
@@ -88,6 +87,7 @@ public class GmBpmnEdgeGuard extends GmElementLabel {
             return getDisplayedStyle().getProperty(GmBpmnSequenceFlowStyleKeys.GUARDVISIBLE);
         else
             return getDisplayedStyle().getProperty(GmBpmnSequenceFlowStyleKeys.GUARDVISIBLE);
+        
     }
 
     @objid ("619f43db-55b6-11e2-877f-002564c97630")
@@ -122,6 +122,7 @@ public class GmBpmnEdgeGuard extends GmElementLabel {
             break;
         }
         }
+        
     }
 
     @objid ("619f43e6-55b6-11e2-877f-002564c97630")
@@ -131,6 +132,7 @@ public class GmBpmnEdgeGuard extends GmElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmBpmnEdgeGuard.", MINOR_VERSION);
+        
     }
 
     @objid ("619f43ec-55b6-11e2-877f-002564c97630")

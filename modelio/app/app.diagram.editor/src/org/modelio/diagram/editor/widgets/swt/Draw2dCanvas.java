@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.widgets.swt;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,9 +41,10 @@ public class Draw2dCanvas extends Canvas {
     private LightweightSystem lws;
 
     @objid ("af4cbe36-c70f-48fb-8131-222828b00203")
-    public Draw2dCanvas(Composite parent) {
+    public  Draw2dCanvas(Composite parent) {
         super(parent, SWT.NO_REDRAW_RESIZE | SWT.NO_BACKGROUND);
         init();
+        
     }
 
     @objid ("a8b39e35-2093-48ca-92aa-412224967cb2")
@@ -60,6 +60,7 @@ public class Draw2dCanvas extends Canvas {
         setCursor(Cursors.ARROW);
         this.lws = new LightweightSystem();
         this.lws.setControl(this);
+        
     }
 
     @objid ("8647feb1-561e-4a6d-92b8-413018100a62")

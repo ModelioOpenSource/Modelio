@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.view.providers.flat;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,7 +30,7 @@ public class FlatContentProvider implements ITreeContentProvider {
     private String jobId;
 
     @objid ("481042a7-2d03-4750-a53c-3a05f01e0b8a")
-    public FlatContentProvider(String jobId) {
+    public  FlatContentProvider(String jobId) {
         this.jobId = jobId;
     }
 

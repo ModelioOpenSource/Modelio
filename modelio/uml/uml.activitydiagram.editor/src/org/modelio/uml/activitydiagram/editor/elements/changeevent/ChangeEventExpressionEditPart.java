@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.changeevent;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,6 +39,7 @@ public class ChangeEventExpressionEditPart extends ElementTextEditPart {
     protected void refreshFromStyle(final IFigure aFigure, final IStyle style) {
         super.refreshFromStyle(aFigure, style);
         aFigure.setFont(style.getFont(GmChangeEventStructuredStyleKeys.EXPRESSIONFONT));
+        
     }
 
 }

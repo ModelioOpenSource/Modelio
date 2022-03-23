@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.ui.prefs;
 
 import java.io.IOException;
@@ -28,8 +27,8 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.jface.preference.ComboFieldEditor;
 import org.eclipse.jface.preference.IPreferenceStore;
@@ -102,9 +101,10 @@ class ProjectPreferencesPage extends PreferencePage {
 
     @objid ("4732c860-11df-4aff-812b-e8574636748c")
     @Inject
-    public ProjectPreferencesPage(IProjectService projectService) {
+    public  ProjectPreferencesPage(IProjectService projectService) {
         super();
         init(projectService);
+        
     }
 
     @objid ("9681f02d-e716-4e99-9b89-4acbf4197d7c")
@@ -127,6 +127,7 @@ class ProjectPreferencesPage extends PreferencePage {
         this.attdefaultVisibility.setPage(this);
         this.attdefaultVisibility.setPreferenceStore(getPreferenceStore());
         this.attdefaultVisibility.load();
+        
     }
 
     @objid ("fb72b346-e347-43de-af9c-62eb55711807")
@@ -170,6 +171,7 @@ class ProjectPreferencesPage extends PreferencePage {
         this.diagramDefaultTheme.setPage(this);
         this.diagramDefaultTheme.setPreferenceStore(getPreferenceStore());
         this.diagramDefaultTheme.load();
+        
     }
 
     @objid ("882e45e4-6df7-41a8-8330-e7e94e3657a9")
@@ -179,6 +181,7 @@ class ProjectPreferencesPage extends PreferencePage {
         this.noteDefaultMimeType.setPage(this);
         this.noteDefaultMimeType.setPreferenceStore(getPreferenceStore());
         this.noteDefaultMimeType.load();
+        
     }
 
     @objid ("b534facc-1df3-48ed-a946-049d733b4ca2")
@@ -199,6 +202,7 @@ class ProjectPreferencesPage extends PreferencePage {
         this.returnDefaultType.setPage(this);
         this.returnDefaultType.setPreferenceStore(getPreferenceStore());
         this.returnDefaultType.load();
+        
     }
 
     @objid ("09ec982c-cd65-4855-9d6a-79a60be79484")
@@ -214,12 +218,14 @@ class ProjectPreferencesPage extends PreferencePage {
         this.richNoteDefaultType.setPage(this);
         this.richNoteDefaultType.setPreferenceStore(getPreferenceStore());
         this.richNoteDefaultType.load();
+        
     }
 
     @objid ("93d67092-2de9-417e-9336-b30062165ded")
     public void createSpacer(Composite parent) {
         Label spacer = new Label(parent, SWT.NONE);
         GridDataFactory.defaultsFor(spacer).span(2, 1).applyTo(spacer);
+        
     }
 
     @objid ("398fed0c-8b5d-4429-a222-7da0bf4591a6")
@@ -230,6 +236,7 @@ class ProjectPreferencesPage extends PreferencePage {
         
         Label sep = new Label(parent, SWT.SEPARATOR | SWT.HORIZONTAL);
         GridDataFactory.defaultsFor(sep).span(2, 1).applyTo(sep);
+        
     }
 
     @objid ("4fa6dc25-455e-484b-bdba-64adf851d816")
@@ -298,6 +305,7 @@ class ProjectPreferencesPage extends PreferencePage {
         if (this.diagramDefaultTheme != null) {
             this.diagramDefaultTheme.loadDefault();
         }
+        
     }
 
     @objid ("8e659095-8d5f-4d20-90de-4d8c56eed2c4")
@@ -309,6 +317,7 @@ class ProjectPreferencesPage extends PreferencePage {
             // no currently opened project => no store, page not visible
             setVisible(false);
         }
+        
     }
 
     @objid ("d98d8707-e819-43ce-8348-ef450f72250c")
@@ -321,6 +330,7 @@ class ProjectPreferencesPage extends PreferencePage {
             AppProjectUi.LOG.warning("no predefined types found");
             return new ArrayList<>();
         }
+        
     }
 
     @objid ("1e1fcc4d-d6a8-4915-b0d8-add063bf705d")
@@ -391,6 +401,7 @@ class ProjectPreferencesPage extends PreferencePage {
         } finally {
             this.diagramThemeValues = themes.toArray(new String[0][0]);
         }
+        
     }
 
 }

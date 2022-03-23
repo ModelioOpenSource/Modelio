@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.api.dg.common;
 
 import java.util.ArrayList;
@@ -31,6 +30,7 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.GraphicalEditPart;
 import org.modelio.api.modelio.diagram.IDiagramLink;
 import org.modelio.api.modelio.diagram.IDiagramNode;
+import org.modelio.api.modelio.diagram.IDiagramNode.Role;
 import org.modelio.diagram.api.dg.DGFactory;
 import org.modelio.diagram.api.services.DiagramHandle;
 import org.modelio.diagram.api.services.DiagramNode;
@@ -48,12 +48,11 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 public abstract class PortContainerDG extends DiagramNode {
     /**
      * Creates a PortContainerDG.
-     * 
      * @param diagramHandle The diagram manipulation class.
      * @param gmNode The gm node represented by this class.
      */
     @objid ("5812cc18-3b98-45fa-9392-c30a15ae9f48")
-    public PortContainerDG(DiagramHandle diagramHandle, final GmNodeModel gmNode) {
+    public  PortContainerDG(DiagramHandle diagramHandle, final GmNodeModel gmNode) {
         super(diagramHandle, gmNode);
     }
 
@@ -117,7 +116,6 @@ public abstract class PortContainerDG extends DiagramNode {
      * <p>
      * E.g for a model class, returns the represented attributes, operations, instances
      * and inner classes.
-     * 
      * @return the represented elements diagram nodes in this node.
      */
     @objid ("c928f5d8-5493-4f17-9df3-aac9cad80df6")
@@ -157,7 +155,6 @@ public abstract class PortContainerDG extends DiagramNode {
 
     /**
      * Get the satellite nodes.
-     * 
      * @return the satellite nodes.
      */
     @objid ("23b3b18b-9c0f-48ba-a5e6-a04911b9de02")
@@ -174,7 +171,6 @@ public abstract class PortContainerDG extends DiagramNode {
 
     /**
      * Get the child nodes layouted as port.
-     * 
      * @return the port nodes.
      */
     @objid ("50573743-95c2-4c14-8051-6de0609b49dd")
@@ -221,6 +217,7 @@ public abstract class PortContainerDG extends DiagramNode {
         default:
             throw new IllegalArgumentException(String.valueOf(role));
         }
+        
     }
 
 }

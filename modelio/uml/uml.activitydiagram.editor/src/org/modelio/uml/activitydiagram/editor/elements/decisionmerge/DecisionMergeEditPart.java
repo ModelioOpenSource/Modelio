@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.decisionmerge;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -61,6 +60,7 @@ public class DecisionMergeEditPart extends PortContainerEditPart {
             DecisionMergePortContainerFigure fig = (DecisionMergePortContainerFigure) getFigure();
             fig.setInputBehaviourFigure(((AbstractGraphicalEditPart) childEditPart).getFigure());
         }
+        
     }
 
     @objid ("2a39bf28-55b6-11e2-877f-002564c97630")
@@ -75,6 +75,7 @@ public class DecisionMergeEditPart extends PortContainerEditPart {
             fig.setInputBehaviourFigure(null);
         
         }
+        
     }
 
 }

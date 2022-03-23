@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.ArrayList;
@@ -42,7 +42,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("902edc6d-6529-4c52-936a-32642a134d20")
 public class UsageSmClass extends DependencySmClass {
     @objid ("4685e497-e51c-4d64-af72-61b9682ade5d")
-    public UsageSmClass(ISmMetamodelFragment origin) {
+    public  UsageSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +50,7 @@ public class UsageSmClass extends DependencySmClass {
     @Override
     public String getName() {
         return "Usage";
+        
     }
 
     @objid ("20d763ca-0832-48f4-b604-6e258b17e5d1")
@@ -62,18 +63,21 @@ public class UsageSmClass extends DependencySmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Usage.class;
+        
     }
 
     @objid ("45f8559a-c515-4c83-96b7-d51955b210e4")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("5e4634c4-43b6-41cb-8ec2-b40d1563fe08")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("0e00d427-570a-4807-8672-9826b1d48758")
@@ -86,12 +90,14 @@ public class UsageSmClass extends DependencySmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("acd4ea6f-4b9d-47af-8421-c9486900a632")
     @Override
     public boolean isLinkMetaclass() {
         return true;
+        
     }
 
     @objid ("182c8855-4230-4580-80e3-51d3dda86b87")
@@ -100,7 +106,7 @@ public class UsageSmClass extends DependencySmClass {
         private UsageSmClass smClass;
 
         @objid ("2f1fbce2-32f5-4cb2-80b1-abc86a9c08d1")
-        public UsageObjectFactory(UsageSmClass smClass) {
+        public  UsageObjectFactory(UsageSmClass smClass) {
             this.smClass = smClass;
         }
 

@@ -17,21 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityGroupSmClass;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityNodeSmClass;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityPartitionData;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.MessageFlowSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityGroup;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityNode;
@@ -78,7 +74,7 @@ public class ActivityPartitionSmClass extends ActivityGroupSmClass {
     private SmDependency incomingDep;
 
     @objid ("eb355345-95dc-4839-8dc9-77e1b5ffb802")
-    public ActivityPartitionSmClass(ISmMetamodelFragment origin) {
+    public  ActivityPartitionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -86,6 +82,7 @@ public class ActivityPartitionSmClass extends ActivityGroupSmClass {
     @Override
     public String getName() {
         return "ActivityPartition";
+        
     }
 
     @objid ("4a89855b-5472-45c6-9b95-73d0f7bcd308")
@@ -98,18 +95,21 @@ public class ActivityPartitionSmClass extends ActivityGroupSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ActivityPartition.class;
+        
     }
 
     @objid ("23704778-aad8-49d1-be96-37e8937ae770")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("4d9505f0-5786-45aa-9b9a-41dc4f8eee04")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("118b9a8d-5968-4eba-9f77-adf9f8ee6ebb")
@@ -153,6 +153,8 @@ public class ActivityPartitionSmClass extends ActivityGroupSmClass {
         this.incomingDep = new IncomingSmDependency();
         this.incomingDep.init("Incoming", this, metamodel.getMClass(MessageFlow.MQNAME), 0, -1 , SmDirective.SMCDTODELETE);
         registerDependency(this.incomingDep);
+        
+        
     }
 
     @objid ("98fe2fe6-bf84-41b0-b1dc-defc09c73f64")
@@ -225,7 +227,7 @@ public class ActivityPartitionSmClass extends ActivityGroupSmClass {
         private ActivityPartitionSmClass smClass;
 
         @objid ("ea07c091-cc53-4358-bb6f-14b35f0ae265")
-        public ActivityPartitionObjectFactory(ActivityPartitionSmClass smClass) {
+        public  ActivityPartitionObjectFactory(ActivityPartitionSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -295,6 +297,7 @@ public class ActivityPartitionSmClass extends ActivityGroupSmClass {
             	this.symetricDep = ((UmlModelElementSmClass)this.getTarget()).getRepresentingPartitionDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -314,6 +317,7 @@ public class ActivityPartitionSmClass extends ActivityGroupSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ActivityPartitionData) data).mContainedNode = values;
+            
         }
 
         @objid ("8b3c59b9-6a38-4144-90e1-59d63417f13a")
@@ -323,6 +327,7 @@ public class ActivityPartitionSmClass extends ActivityGroupSmClass {
             	this.symetricDep = ((ActivityNodeSmClass)this.getTarget()).getOwnerPartitionDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -342,6 +347,7 @@ public class ActivityPartitionSmClass extends ActivityGroupSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ActivityPartitionData) data).mOutgoing = values;
+            
         }
 
         @objid ("2553035a-ab6d-4cb0-97dc-a469f1747804")
@@ -351,6 +357,7 @@ public class ActivityPartitionSmClass extends ActivityGroupSmClass {
             	this.symetricDep = ((MessageFlowSmClass)this.getTarget()).getSourcePartitionDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -379,6 +386,7 @@ public class ActivityPartitionSmClass extends ActivityGroupSmClass {
             	this.symetricDep = ((ActivityPartitionSmClass)this.getTarget()).getSubPartitionDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -398,6 +406,7 @@ public class ActivityPartitionSmClass extends ActivityGroupSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ActivityPartitionData) data).mSubPartition = values;
+            
         }
 
         @objid ("e529e0e5-f7fa-404a-91c9-609ca7efa0fb")
@@ -407,6 +416,7 @@ public class ActivityPartitionSmClass extends ActivityGroupSmClass {
             	this.symetricDep = ((ActivityPartitionSmClass)this.getTarget()).getSuperPartitionDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -426,6 +436,7 @@ public class ActivityPartitionSmClass extends ActivityGroupSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ActivityPartitionData) data).mIncoming = values;
+            
         }
 
         @objid ("5d3cd5cb-a907-49eb-a358-47d4d8ae2d3d")
@@ -435,6 +446,7 @@ public class ActivityPartitionSmClass extends ActivityGroupSmClass {
             	this.symetricDep = ((MessageFlowSmClass)this.getTarget()).getTargetPartitionDep();
             }
             return this.symetricDep;
+            
         }
 
     }

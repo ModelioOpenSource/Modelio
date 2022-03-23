@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta;
 
 import java.util.ArrayList;
@@ -47,17 +46,16 @@ public class MObjectList extends ArrayList<SmObjectImpl> {
      * Constructs an empty list with an initial capacity of ten.
      */
     @objid ("68556d69-56ba-47c2-b00e-2ca9662cf3db")
-    public MObjectList() {
+    public  MObjectList() {
         super();
     }
 
     /**
      * Constructs an empty list with the specified initial capacity.
-     * 
      * @param initialCapacity the initial capacity of the list
      */
     @objid ("d10b0263-eb17-41ee-92f6-409aec61f627")
-    public MObjectList(int initialCapacity) {
+    public  MObjectList(int initialCapacity) {
         super(initialCapacity);
     }
 
@@ -66,6 +64,7 @@ public class MObjectList extends ArrayList<SmObjectImpl> {
     public void add(int index, SmObjectImpl element) {
         this.nbFakes += countFakes(element);
         super.add(index, element);
+        
     }
 
     @objid ("c77bd2b3-0c7b-4276-8174-1091df57d8aa")
@@ -159,6 +158,7 @@ public class MObjectList extends ArrayList<SmObjectImpl> {
         } else {
             return 0;
         }
+        
     }
 
     @objid ("c703cf05-32e0-4097-9bc7-1b76abb84eae")

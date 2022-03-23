@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.partition;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -99,6 +98,7 @@ public class PartitionEditPart extends AbstractNodeEditPart {
         });
         
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     /**
@@ -110,6 +110,7 @@ public class PartitionEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         GmPartition partitionModel = (GmPartition) getModel();
         getFigure().getParent().setConstraint(getFigure(), partitionModel.getLayoutData());
+        
     }
 
     @objid ("2b19229a-55b6-11e2-877f-002564c97630")
@@ -136,6 +137,7 @@ public class PartitionEditPart extends AbstractNodeEditPart {
         } else {
             throw new IllegalArgumentException("Unexpected child");
         }
+        
     }
 
     @objid ("2b1949a9-55b6-11e2-877f-002564c97630")
@@ -154,6 +156,7 @@ public class PartitionEditPart extends AbstractNodeEditPart {
         } else {
             super.refreshFromStyle(aFigure, style);
         }
+        
     }
 
 }

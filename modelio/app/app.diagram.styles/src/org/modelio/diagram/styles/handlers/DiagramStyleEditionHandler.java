@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /**
  *
  */
 package org.modelio.diagram.styles.handlers;
 
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
@@ -41,6 +40,7 @@ public class DiagramStyleEditionHandler {
     public static void execute(@Named(IServiceConstants.ACTIVE_SHELL) Shell activeShell, IModelioPickingService pickingService) {
         StyleEditorDialog dlg = new StyleEditorDialog(activeShell, pickingService);
         dlg.open();
+        
     }
 
     @objid ("85ba0bb9-1926-11e2-92d2-001ec947c8cc")

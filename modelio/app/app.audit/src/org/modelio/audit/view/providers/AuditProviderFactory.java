@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.view.providers;
 
 import java.util.HashMap;
@@ -49,7 +48,7 @@ public class AuditProviderFactory {
     private Map<AuditViewMode, ViewModeImpl> modeMap;
 
     @objid ("485a6140-5f6b-412c-94b4-6b0b541ae580")
-    public AuditProviderFactory(String jobId, IAuditConfigurationPlan auditConfigurationPlan) {
+    public  AuditProviderFactory(String jobId, IAuditConfigurationPlan auditConfigurationPlan) {
         this.viewMode = AuditViewMode.BYTYPE;
         this.modeMap = new HashMap<>();
         
@@ -104,6 +103,7 @@ public class AuditProviderFactory {
         this.modeMap.put(AuditViewMode.BYRULE, byrule);
         
         setJobId(jobId);
+        
     }
 
     @objid ("f280c61d-3fdf-48fa-904b-a5dbc69f2b3b")
@@ -143,7 +143,6 @@ public class AuditProviderFactory {
 
     /**
      * Reconfigure the content providers to filter contents by 'jobId'
-     * 
      * @param jobId if null all audit contents are returned by providers otherwise filtered contents is returned.
      */
     @objid ("d378cee1-7672-44fa-b9cc-ac2f1c19ecfc")
@@ -152,6 +151,20 @@ public class AuditProviderFactory {
         this.modeMap.get(AuditViewMode.BYTYPE).contentProvider = new ByTypeContentProvider(jobId!=null ? jobId : "");
         this.modeMap.get(AuditViewMode.BYELEMENT).contentProvider = new ByElementContentProvider(jobId!=null ? jobId : "");
         this.modeMap.get(AuditViewMode.BYRULE).contentProvider = new ByRuleContentProvider(jobId!=null ? jobId : "");
+        
+    }
+
+    @objid ("61a16928-906a-4cf2-b5a3-c3795689d9c9")
+    public enum AuditViewMode {
+        @objid ("b64efd62-4f55-421b-8d17-819554653ac5")
+        FLAT,
+        @objid ("c10b8202-5d4e-414c-8ba0-c7fcc841fe6e")
+        BYTYPE,
+        @objid ("c7e13e97-e48a-4cc1-bdd4-1299ece98b8b")
+        BYELEMENT,
+        @objid ("ff32d204-e8a9-44b1-8661-a65969b13a8f")
+        BYRULE;
+
     }
 
     @objid ("4267c2ad-6430-4954-8781-3e33e317850d")
@@ -168,14 +181,6 @@ public class AuditProviderFactory {
         @objid ("21e8db77-a8b9-4913-857e-fcbb2670fb0d")
         public CellLabelProvider[] labelsProviders;
 
-    }
-
-    @objid ("61a16928-906a-4cf2-b5a3-c3795689d9c9")
-    public enum AuditViewMode {
-        FLAT,
-        BYTYPE,
-        BYELEMENT,
-        BYRULE;
     }
 
 }

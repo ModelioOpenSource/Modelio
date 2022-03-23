@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.extensions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -86,7 +85,6 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
 
     /**
      * Construct a locator with U and V computed from the given point.
-     * 
      * @param c The Connection
      * @param fraction distance from the starting point of the line as a fraction of the line length.
      * @param figLocation The figure location, in the connection coordinates
@@ -110,13 +108,12 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
 
     /**
      * Constructs a locator.
-     * 
      * @param c The Connection
      * @param fraction distance from the starting point of the line as a fraction of the line length.
      * @param towardTarget <code>true</code> to orient toward the target, <code>false</code> for the source
      */
     @objid ("7ffa98c7-1dec-11e2-8cad-001ec947c8cc")
-    public FractionalConnectionLocator(Connection c, final double fraction, final boolean towardTarget) {
+    public  FractionalConnectionLocator(Connection c, final double fraction, final boolean towardTarget) {
         this.connection = c;
         this.towardTarget = towardTarget;
         
@@ -124,11 +121,11 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
             throw new IllegalArgumentException("fraction must be 0.0 < f < 1.0");
         }
         this.fraction = fraction;
+        
     }
 
     /**
      * Get the distance from the starting point of the line as a fraction of the line length.
-     * 
      * @return The fractional distance.
      */
     @objid ("7ffa98cf-1dec-11e2-8cad-001ec947c8cc")
@@ -138,7 +135,6 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
 
     /**
      * Get the position where the given figure center would be located if {@link #relocate(IFigure)} was called.
-     * 
      * @param target The figure to relocate
      * @return The figure center location in the figure coordinates
      */
@@ -159,7 +155,6 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
 
     /**
      * Returns how/where to anchor the label to the connection
-     * 
      * @param points The points in the Connection
      * @param referencePoint Will contain the reference point location, in the connection coordinates.
      * @param orientationPoint Will contain a point used in association with referencePoint above to define the label orientation
@@ -193,6 +188,7 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
         }
         
         throw new IllegalStateException("Failed to compute location");
+        
     }
 
     /**
@@ -213,7 +209,6 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
 
     /**
      * Get the figures orientation.
-     * 
      * @return true : toward the link target anchor, false: toward the link source anchor
      */
     @objid ("7ffcfb0e-1dec-11e2-8cad-001ec947c8cc")
@@ -257,11 +252,11 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
         
             target.setBounds(computeNewBounds(prefSize, referencePoint));
         }
+        
     }
 
     /**
      * Distance from the reference point towards the target
-     * 
      * @param uDistance The distance from the reference point towards the target
      */
     @objid ("7ffcfb1f-1dec-11e2-8cad-001ec947c8cc")
@@ -271,7 +266,6 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
 
     /**
      * Distance from the connection.
-     * 
      * @param vDistance The distance from the connection
      */
     @objid ("7ffcfb24-1dec-11e2-8cad-001ec947c8cc")
@@ -281,7 +275,6 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
 
     /**
      * Calculates the slope of the line segment (y=ax+b)
-     * 
      * @param start start of segment
      * @param end end of segment
      * @return <code>float</code> the slope of the segment. If the slope is not defined such as when the line segment is vertical, then the constant <code>BIGSLOPE</code> is returned to avoid divide by zero errors.
@@ -296,7 +289,6 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
 
     /**
      * Recalculate the location of the figure according to its desired position relative to the center point.
-     * 
      * @param size The size of the figure
      * @param center The center point
      * @return The new bounds
@@ -312,7 +304,6 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
 
     /**
      * Returns Locator's reference point in absolute coordinates.
-     * 
      * @return The reference point
      */
     @objid ("7ffcfb45-1dec-11e2-8cad-001ec947c8cc")
@@ -339,7 +330,6 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
 
     /**
      * Get the length of the given point list.
-     * 
      * @param points The point list
      * @return the length
      */
@@ -361,7 +351,6 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
 
     /**
      * Gets the point on the line segment at the given distance away from the key point.
-     * 
      * @param theDistance <code>long</code> distance along the line
      * @param start start of the segment
      * @param end end of the segment
@@ -424,7 +413,6 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
 
     /**
      * Calculate the figure size from this locator
-     * 
      * @param target the figure to relocate.
      * @return the figure size to set.
      */
@@ -437,7 +425,6 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
      * Get the width constraint.
      * <p>
      * -1 means no constraint.
-     * 
      * @return the width constraint.
      */
     @objid ("8248410c-a9b7-40df-b4c1-ea0f289561ce")
@@ -450,7 +437,6 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
      * Set the width constraint.
      * <p>
      * -1 means no constraint.
-     * 
      * @param fixedWidth the width constraint.
      */
     @objid ("772ac200-1d89-4269-b999-19f0642351fd")
@@ -463,7 +449,6 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
      * Get the height constraint.
      * <p>
      * -1 means no constraint.
-     * 
      * @return the height constraint.
      */
     @objid ("9c1fb88e-f941-474d-8035-924f514299d9")
@@ -476,7 +461,6 @@ public class FractionalConnectionLocator implements IResizableFigureLocator {
      * Set the height constraint.
      * <p>
      * -1 means no constraint.
-     * 
      * @param fixedHeight the height constraint.
      */
     @objid ("a984229c-c551-499f-94ea-1c7480f770b7")

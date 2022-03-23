@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.ui.htmleditor.commands;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -25,7 +24,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 @objid ("9af47e18-04a7-49b0-85d9-e2c031582f21")
 public class GetHtmlCommand extends Command {
     @objid ("d6a9808e-9846-44ff-ac54-becf4070486e")
-    public GetHtmlCommand() {
+    public  GetHtmlCommand() {
         super("GetHTML");
     }
 

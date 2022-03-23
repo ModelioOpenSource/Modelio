@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.net;
 
 import java.io.IOException;
@@ -45,9 +44,8 @@ public abstract class UriConnection {
     /**
      * Same as {@link java.net.URLConnection#getInputStream()}.
      * @throws UnknownServiceException  if the protocol does not support input.
-     * 
      * @return an input stream that writes to this connection.
-     * @throws java.io.IOException if an I/O error occurs while creating the input stream.
+     * @throws IOException if an I/O error occurs while creating the input stream.
      */
     @objid ("ec047508-b1cd-4cf8-bf82-6720d1b4a9f7")
     public abstract InputStream getInputStream() throws IOException;
@@ -56,9 +54,8 @@ public abstract class UriConnection {
      * Same as {@link java.net.URLConnection#getOutputStream()}.
      * @throws UnknownServiceException  if the protocol does not support
      * output.
-     * 
      * @return an output stream that writes to this connection.
-     * @throws java.io.IOException if an I/O error occurs while creating the output stream.
+     * @throws IOException if an I/O error occurs while creating the output stream.
      */
     @objid ("4d6c68da-97c7-4400-91ae-883efc9234aa")
     public abstract OutputStream getOutputStream() throws IOException;
@@ -116,10 +113,9 @@ public abstract class UriConnection {
      * the specified timeout. To see the connect timeout set, please
      * call getConnectTimeout().
      * @see #getConnectTimeout()
-     * 
      * @param timeout an <code>int</code> that specifies the connect
      * timeout value in milliseconds
-     * @throws java.lang.IllegalArgumentException if the timeout parameter is negative
+     * @throws IllegalArgumentException if the timeout parameter is negative
      */
     @objid ("1d3bfb36-becf-4e77-b0b2-78de276dbfd1")
     public abstract void setConnectTimeout(int timeout) throws IllegalArgumentException;
@@ -130,7 +126,6 @@ public abstract class UriConnection {
      * 0 return implies that the option is disabled
      * (i.e., timeout of infinity).
      * @see #setConnectTimeout(int)
-     * 
      * @return an <code>int</code> that indicates the connect timeout
      * value in milliseconds
      */
@@ -140,7 +135,6 @@ public abstract class UriConnection {
     /**
      * Tells to skip connection if the remote file stamp is the given one.
      * @see URLConnection#setIfModifiedSince(long)
-     * 
      * @param stamp the file stamp
      */
     @objid ("5bfc8e7c-45e8-4c92-b1cb-51aa3d1290ec")
@@ -154,7 +148,6 @@ public abstract class UriConnection {
 
     /**
      * Set the authentication data.
-     * 
      * @param auth the authentication data.
      */
     @objid ("25f65fc8-f013-4193-b9ec-658bcf163d34")
@@ -163,9 +156,8 @@ public abstract class UriConnection {
     /**
      * Same as {@link java.net.URLConnection#getContentType()}.
      * @throws UnknownServiceException  if the protocol does not support input.
-     * 
      * @return the content type of the resource that the URI references, or <i>null</i> if not known..
-     * @throws java.io.IOException if an I/O error occurs while creating the input stream.
+     * @throws IOException if an I/O error occurs while creating the input stream.
      */
     @objid ("9d39f515-e509-4ea5-a224-cc69c49af322")
     public abstract String getContentType() throws IOException;

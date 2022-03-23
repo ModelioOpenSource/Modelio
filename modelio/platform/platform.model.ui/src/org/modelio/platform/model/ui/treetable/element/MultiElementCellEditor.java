@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.treetable.element;
 
 import java.util.ArrayList;
@@ -60,7 +59,7 @@ public class MultiElementCellEditor extends EditableDialogCellEditor {
     private ISearchCriteria searchCriteria;
 
     @objid ("df6f4d81-2964-4c12-9203-d6e6526ae8e1")
-    public MultiElementCellEditor(Composite parent) {
+    public  MultiElementCellEditor(Composite parent) {
         super(parent);
     }
 
@@ -70,6 +69,7 @@ public class MultiElementCellEditor extends EditableDialogCellEditor {
         this.searcher = searcher;
         this.searchCriteria = searchCriteria;
         this.title = titleKey;
+        
     }
 
     @objid ("9f9d0871-bc32-4411-a9eb-f1eef4c9caa4")

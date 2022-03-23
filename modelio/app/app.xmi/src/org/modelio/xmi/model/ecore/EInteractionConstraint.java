@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,7 @@ public class EInteractionConstraint extends ENamedElement {
     }
 
     @objid ("58028c98-f69c-47d7-a987-1d32273549b1")
-    public EInteractionConstraint(org.eclipse.uml2.uml.InteractionConstraint element) {
+    public  EInteractionConstraint(org.eclipse.uml2.uml.InteractionConstraint element) {
         super(element);
     }
 

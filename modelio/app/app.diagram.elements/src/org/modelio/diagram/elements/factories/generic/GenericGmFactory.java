@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.factories.generic;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,6 +28,7 @@ import org.modelio.diagram.elements.core.model.factory.IGmNodeFactory;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.persistence.IPersistent;
 import org.modelio.diagram.persistence.IPersistentMigrator;
+import org.modelio.metamodel.bpmn.objects.BpmnDataAssociation;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -41,13 +41,12 @@ import org.modelio.vcore.smkernel.mapi.MRef;
 public class GenericGmFactory implements IGmNodeFactory, IGmLinkFactory {
     /**
      * @see MClass#isLinkMetaclass()
-     * 
      * @return a {@link GmGenericNode} for any {@link ModelElement} which metaclass is tagged as a node.
      */
     @objid ("dacefe91-521d-4a92-a593-3a58869381b1")
     @Override
     public GmGenericNode create(IGmDiagram diagram, GmCompositeNode parentNode, MObject elementToUnmask, Object initialLayoutData) {
-        if (!elementToUnmask.getMClass().isLinkMetaclass() && elementToUnmask instanceof ModelElement) {
+        if (!isLinkMetaclass(elementToUnmask) && elementToUnmask instanceof ModelElement) {
             GmGenericNode node = new GmGenericNode(diagram, (ModelElement) elementToUnmask, new MRef(elementToUnmask));
             node.setLayoutData(initialLayoutData);
             parentNode.addChild(node);
@@ -55,11 +54,18 @@ public class GenericGmFactory implements IGmNodeFactory, IGmLinkFactory {
         } else {
             return null;
         }
+        
+    }
+
+    @objid ("bcbea324-90d9-4a21-bbe3-6151326f73ed")
+    private boolean isLinkMetaclass(final MObject toUnmask) {
+        return toUnmask.getMClass().isLinkMetaclass()
+                || toUnmask instanceof BpmnDataAssociation; // BpmnDataAssociation is a mess: it is considered as a link in diagrams despite the metaclass not being tagged as a link
+        
     }
 
     /**
      * @see MClass#isLinkMetaclass()
-     * 
      * @return a {@link GmGenericLink} for any {@link ModelElement} which metaclass is tagged as a node.
      */
     @objid ("e78da893-6d3b-46b0-8878-d1e0529c13e7")
@@ -70,6 +76,7 @@ public class GenericGmFactory implements IGmNodeFactory, IGmLinkFactory {
         } else {
             return null;
         }
+        
     }
 
     @objid ("4faf68ab-11c7-4a25-9dd7-d9cbd40241f8")

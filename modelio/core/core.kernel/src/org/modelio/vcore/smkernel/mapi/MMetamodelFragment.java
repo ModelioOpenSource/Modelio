@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.mapi;
 
 import java.util.Collection;
@@ -71,7 +70,6 @@ public interface MMetamodelFragment {
      * The mandatory name of this metamodel fragment. Must be distinct from any other loaded metamodel fragment.
      * 
      * Examples: org.modelio.metamodel.standard
-     * 
      * @return name of this metamodel fragment.
      */
     @objid ("f0b4c213-1683-4e2d-9d38-a56891e75910")
@@ -86,7 +84,6 @@ public interface MMetamodelFragment {
      * <li> minor different : migration needed
      * <li> release different : can be opened by newer metamodel
      * </ul>
-     * 
      * @return The version identifier.
      */
     @objid ("5d853a4a-489a-4c47-afac-9b6eeac8894b")
@@ -96,7 +93,6 @@ public interface MMetamodelFragment {
      * The optional name of the provider of this metamodel fragment, typically the vendor.
      * 
      * Example: Modeliosoft
-     * 
      * @return name of the provider
      */
     @objid ("d73febc3-e78f-4e9a-b3f6-3b3e7902c537")
@@ -113,7 +109,6 @@ public interface MMetamodelFragment {
      * Each porting should result in an increase of the Modelio version.
      * When the source tool metamodel changes, the Modelio version should be modified
      * and the provider version should reflect the new metamodel version from the provider tool.
-     * 
      * @return The metamodel version for/from the provider.
      */
     @objid ("a2414efd-daed-48dd-b5bb-3cd91bb97783")
@@ -126,7 +121,6 @@ public interface MMetamodelFragment {
      * By default all metamodel fragments are extension fragments.
      * <p>
      * Standard Modelio metamodel fragments are guaranteed to have no metaclass name collisions.
-     * 
      * @return <i>true</i> if the fragment is an extension, <i>false</i> if it is a Modelio standard fragment.
      */
     @objid ("4bac70a9-db57-4e90-acb9-f55c703d1514")
@@ -143,7 +137,6 @@ public interface MMetamodelFragment {
      * Tells whether this metamodel fragment is a fake metamodel fragment.
      * 
      * A fake metamodel fragment represents a missing metamodel fragment. Fake metamodel model metaclasses are all fake metaclasses.
-     * 
      * @return true if this metamodel fragment is fake.
      */
     @objid ("7d9391b5-84a2-49d5-99bb-c969ed8368f9")
@@ -153,7 +146,6 @@ public interface MMetamodelFragment {
      * Returns the dynamic behavior to which the specified key is mapped, or {@code null} if this key has no mapping.
      * @throws ClassCastException if the mapped behavior does not match the given type
      * @since 3.8
-     * 
      * @param key the key whose associated behavior is to be returned
      * @param type the class of the dynamic behavior to get
      * @return the dynamic behavior to which the specified key is mapped, or {@code null} if key has no mapping
@@ -165,7 +157,6 @@ public interface MMetamodelFragment {
 
     /**
      * Add a dynamic behavior for the specified key.
-     * 
      * @param key key with which the specified behavior is to be associated
      * @param value behavior to be associated with the specified key
      * @since 3.8
@@ -177,7 +168,6 @@ public interface MMetamodelFragment {
 
     /**
      * Removes the dynamic behavior for the specified key only if it is currently mapped to the specified value.
-     * 
      * @param key key with which the specified behavior is associated
      * @param value behavior expected to be associated with the specified key
      * @since 3.8

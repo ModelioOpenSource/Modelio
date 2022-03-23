@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common.index.jdbm15;
 
 import java.io.IOError;
@@ -32,7 +31,7 @@ class JdbmIndexException extends IndexException {
     private static final long serialVersionUID = 1L;
 
     @objid ("8612751e-e49c-4d8d-9715-281388143075")
-    public JdbmIndexException(String message, Throwable cause) {
+    public  JdbmIndexException(String message, Throwable cause) {
         super(message, cause);
     }
 

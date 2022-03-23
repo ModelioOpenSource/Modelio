@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.signal;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,24 +30,24 @@ import org.modelio.uml.statikdiagram.editor.style.StaticAbstractStyleKeyProvider
 @objid ("368e5fbf-55b7-11e2-877f-002564c97630")
 public class GmSignalImageStyleKeys extends StaticAbstractStyleKeyProvider {
     @objid ("a79e00ec-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmSignalStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmSignalStructuredStyleKeys.REPMODE;
 
     @objid ("a79e00ee-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmSignalStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmSignalStructuredStyleKeys.FONT;
 
     @objid ("a79e00f0-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmSignalStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmSignalStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("a79e00f2-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWNAME = GmSignalStructuredStyleKeys.SHOWNAME;
+    static final StyleKey SHOWNAME = GmSignalStructuredStyleKeys.SHOWNAME;
 
     @objid ("a79e00f4-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmSignalStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmSignalStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("a79e00f6-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmSignalStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmSignalStructuredStyleKeys.SHOWTAGS;
 
     @objid ("a79e00f8-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWVISIBILITY = GmSignalStructuredStyleKeys.SHOWVISIBILITY;
+    static final StyleKey SHOWVISIBILITY = GmSignalStructuredStyleKeys.SHOWVISIBILITY;
 
 }

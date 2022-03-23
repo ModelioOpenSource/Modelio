@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.activities;
 
 import java.util.ArrayList;
@@ -33,8 +33,6 @@ import org.modelio.metamodel.bpmn.activities.BpmnSubProcess;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnLaneSet;
 import org.modelio.metamodel.bpmn.rootElements.BpmnArtifact;
 import org.modelio.metamodel.bpmn.rootElements.BpmnFlowElement;
-import org.modelio.metamodel.impl.bpmn.activities.BpmnActivitySmClass;
-import org.modelio.metamodel.impl.bpmn.activities.BpmnSubProcessData;
 import org.modelio.metamodel.impl.bpmn.processCollaboration.BpmnLaneSetSmClass;
 import org.modelio.metamodel.impl.bpmn.rootElements.BpmnArtifactSmClass;
 import org.modelio.metamodel.impl.bpmn.rootElements.BpmnFlowElementSmClass;
@@ -62,7 +60,7 @@ public class BpmnSubProcessSmClass extends BpmnActivitySmClass {
     private SmDependency laneSetDep;
 
     @objid ("65efb0f5-5892-48d0-96b2-fa2014b420ec")
-    public BpmnSubProcessSmClass(ISmMetamodelFragment origin) {
+    public  BpmnSubProcessSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -70,6 +68,7 @@ public class BpmnSubProcessSmClass extends BpmnActivitySmClass {
     @Override
     public String getName() {
         return "BpmnSubProcess";
+        
     }
 
     @objid ("53a72831-6a45-4b46-9ce4-94e14f93bdf0")
@@ -82,18 +81,21 @@ public class BpmnSubProcessSmClass extends BpmnActivitySmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnSubProcess.class;
+        
     }
 
     @objid ("fd7f003c-cd1c-424a-bf45-e0751a0f0e93")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("1321d19c-d9d2-4b79-a980-a1c1bc628877")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("75bcc749-92aa-4894-b520-cb938c7e5d20")
@@ -117,6 +119,8 @@ public class BpmnSubProcessSmClass extends BpmnActivitySmClass {
         this.laneSetDep = new LaneSetSmDependency();
         this.laneSetDep.init("LaneSet", this, metamodel.getMClass(BpmnLaneSet.MQNAME), 0, 1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.laneSetDep);
+        
+        
     }
 
     @objid ("ff6848b6-160c-48ff-8559-e362b40f32c1")
@@ -149,7 +153,7 @@ public class BpmnSubProcessSmClass extends BpmnActivitySmClass {
         private BpmnSubProcessSmClass smClass;
 
         @objid ("fa878b39-5267-4036-99d8-9e70e0e1a774")
-        public BpmnSubProcessObjectFactory(BpmnSubProcessSmClass smClass) {
+        public  BpmnSubProcessObjectFactory(BpmnSubProcessSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -182,6 +186,7 @@ public class BpmnSubProcessSmClass extends BpmnActivitySmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnSubProcessData) data).mArtifact = values;
+            
         }
 
         @objid ("380aaaee-42fc-451e-bcbd-bf028b0e1806")
@@ -191,6 +196,7 @@ public class BpmnSubProcessSmClass extends BpmnActivitySmClass {
             	this.symetricDep = ((BpmnArtifactSmClass)this.getTarget()).getSubProcessDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -210,6 +216,7 @@ public class BpmnSubProcessSmClass extends BpmnActivitySmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnSubProcessData) data).mFlowElement = values;
+            
         }
 
         @objid ("8477022a-dd11-4c86-87b8-9fdc1719dbd1")
@@ -219,6 +226,7 @@ public class BpmnSubProcessSmClass extends BpmnActivitySmClass {
             	this.symetricDep = ((BpmnFlowElementSmClass)this.getTarget()).getSubProcessDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -247,6 +255,7 @@ public class BpmnSubProcessSmClass extends BpmnActivitySmClass {
             	this.symetricDep = ((BpmnLaneSetSmClass)this.getTarget()).getSubProcessDep();
             }
             return this.symetricDep;
+            
         }
 
     }

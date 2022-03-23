@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.stateMachineModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.StateSmClass;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.FinalState;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.State;
 import org.modelio.vbasic.version.Version;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("33cd240c-7179-433e-8497-c01cf1563bf1")
 public class FinalStateSmClass extends StateSmClass {
     @objid ("93a3bd1f-7c79-4a35-8560-883a9de8c343")
-    public FinalStateSmClass(ISmMetamodelFragment origin) {
+    public  FinalStateSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class FinalStateSmClass extends StateSmClass {
     @Override
     public String getName() {
         return "FinalState";
+        
     }
 
     @objid ("5de3547e-b17d-467d-8dc9-179c7adcad0d")
@@ -62,18 +62,21 @@ public class FinalStateSmClass extends StateSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return FinalState.class;
+        
     }
 
     @objid ("1d5e2fdc-183e-44d8-ad8d-2af095c0c4d7")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("d5366351-95ca-4b72-b193-fb32973ab01d")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("cd7aef75-6976-43c1-95be-3a884342cbd6")
@@ -86,6 +89,7 @@ public class FinalStateSmClass extends StateSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("437f4304-39aa-43ce-ba1b-70ef405e4e46")
@@ -94,7 +98,7 @@ public class FinalStateSmClass extends StateSmClass {
         private FinalStateSmClass smClass;
 
         @objid ("3a7d9889-eff4-434b-a644-3b595afe1a3a")
-        public FinalStateObjectFactory(FinalStateSmClass smClass) {
+        public  FinalStateObjectFactory(FinalStateSmClass smClass) {
             this.smClass = smClass;
         }
 

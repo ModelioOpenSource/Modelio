@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.elementimport;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -26,8 +25,8 @@ import org.modelio.diagram.elements.core.model.IGmDiagram;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.statik.ElementImport;
 import org.modelio.metamodel.uml.statik.VisibilityMode;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -50,12 +49,11 @@ public class GmElementImportHeader extends GmDefaultModelElementLabel {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
     @objid ("34cab6c3-55b7-11e2-877f-002564c97630")
-    public GmElementImportHeader(IGmDiagram diagram, MRef relatedRef) {
+    public  GmElementImportHeader(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -63,7 +61,8 @@ public class GmElementImportHeader extends GmDefaultModelElementLabel {
      * For deserialization only.
      */
     @objid ("34cab6cc-55b7-11e2-877f-002564c97630")
-    public GmElementImportHeader() {
+    public  GmElementImportHeader() {
+        
     }
 
     @objid ("34cab6cf-55b7-11e2-877f-002564c97630")
@@ -75,6 +74,7 @@ public class GmElementImportHeader extends GmDefaultModelElementLabel {
             return "<<import>>";
         else
             return "<<access>>";
+        
     }
 
     @objid ("34cc3d50-55b7-11e2-877f-002564c97630")
@@ -90,6 +90,7 @@ public class GmElementImportHeader extends GmDefaultModelElementLabel {
             return getParent().getStyleKey(metakey);
         else
             return null;
+        
     }
 
     @objid ("34cc3d69-55b7-11e2-877f-002564c97630")
@@ -109,6 +110,7 @@ public class GmElementImportHeader extends GmDefaultModelElementLabel {
                 break;
             }
         }
+        
     }
 
     @objid ("34cc3d6f-55b7-11e2-877f-002564c97630")
@@ -118,6 +120,7 @@ public class GmElementImportHeader extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmElementImportHeader.", GmElementImportHeader.MINOR_VERSION);
+        
     }
 
     @objid ("34cc3d75-55b7-11e2-877f-002564c97630")

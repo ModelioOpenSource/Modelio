@@ -17,19 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.events;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.bpmn.events.BpmnCatchEvent;
 import org.modelio.metamodel.bpmn.events.BpmnIntermediateCatchEvent;
-import org.modelio.metamodel.impl.bpmn.events.BpmnCatchEventSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("98fae2f8-e4cc-4296-8be0-a8346788e6bd")
 public class BpmnIntermediateCatchEventSmClass extends BpmnCatchEventSmClass {
     @objid ("b8ca1690-811b-4370-af63-113efdd1cd0f")
-    public BpmnIntermediateCatchEventSmClass(ISmMetamodelFragment origin) {
+    public  BpmnIntermediateCatchEventSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class BpmnIntermediateCatchEventSmClass extends BpmnCatchEventSmClass {
     @Override
     public String getName() {
         return "BpmnIntermediateCatchEvent";
+        
     }
 
     @objid ("b46c1598-db03-4d87-82fa-8deef8664ade")
@@ -62,18 +62,21 @@ public class BpmnIntermediateCatchEventSmClass extends BpmnCatchEventSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnIntermediateCatchEvent.class;
+        
     }
 
     @objid ("ab5b7b6f-8e1c-440d-b76b-c8080e381c40")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("dbbe7f39-64e1-48e3-9bab-a2fcf418e0fc")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("6e17d7b6-08d1-410c-93f1-c1b482b14ec3")
@@ -86,6 +89,7 @@ public class BpmnIntermediateCatchEventSmClass extends BpmnCatchEventSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("faf2d465-3ce2-45fb-b523-b13488382e11")
@@ -94,7 +98,7 @@ public class BpmnIntermediateCatchEventSmClass extends BpmnCatchEventSmClass {
         private BpmnIntermediateCatchEventSmClass smClass;
 
         @objid ("2a088275-b618-4a03-b33a-98721f41e8e0")
-        public BpmnIntermediateCatchEventObjectFactory(BpmnIntermediateCatchEventSmClass smClass) {
+        public  BpmnIntermediateCatchEventObjectFactory(BpmnIntermediateCatchEventSmClass smClass) {
             this.smClass = smClass;
         }
 

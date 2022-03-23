@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.classifier;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -59,13 +58,13 @@ import org.modelio.uml.statikdiagram.editor.elements.policies.SmartGeneralizatio
 @objid ("34309979-55b7-11e2-877f-002564c97630")
 public class ClassifierEditPart extends AbstractNodeEditPart {
     @objid ("3430997d-55b7-11e2-877f-002564c97630")
-     static final int DEFAULT_HEIGHT = 50;
+    static final int DEFAULT_HEIGHT = 50;
 
     @objid ("3430997f-55b7-11e2-877f-002564c97630")
-     static final int DEFAULT_WIDTH = 100;
+    static final int DEFAULT_WIDTH = 100;
 
     @objid ("34309981-55b7-11e2-877f-002564c97630")
-     static final int MARGIN = 20;
+    static final int MARGIN = 20;
 
     @objid ("34309983-55b7-11e2-877f-002564c97630")
     @Override
@@ -96,6 +95,7 @@ public class ClassifierEditPart extends AbstractNodeEditPart {
         
         // Add specific policy to handle requests to redraw composition links.
         installEditPolicy("RedrawCompositionLinkEditPolicy", new RedrawCompositionLinkEditPolicy());
+        
     }
 
     @objid ("3430998b-55b7-11e2-877f-002564c97630")
@@ -159,6 +159,7 @@ public class ClassifierEditPart extends AbstractNodeEditPart {
                 updateFigureBorder((GradientFigure) aFigure);
             }
         }
+        
     }
 
     @objid ("34322019-55b7-11e2-877f-002564c97630")
@@ -168,6 +169,7 @@ public class ClassifierEditPart extends AbstractNodeEditPart {
         final GmNodeModel gm = getModel();
         
         fig.getParent().setConstraint(fig, gm.getLayoutData());
+        
     }
 
     @objid ("3432201c-55b7-11e2-877f-002564c97630")
@@ -177,6 +179,7 @@ public class ClassifierEditPart extends AbstractNodeEditPart {
         final CompoundBorder b = new CompoundBorder(outer, inner);
         
         classFig.setBorder(b);
+        
     }
 
 }

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Audit
 Bundle-SymbolicName: org.modelio.app.audit.ext_org;singleton:=true
-Bundle-Version: 4.1.0.qualifier
+Bundle-Version: 5.1.0.qualifier
 Bundle-Activator: org.modelio.audit.plugin.AuditOrg
 Bundle-Localization: plugin
 Bundle-ActivationPolicy: lazy

@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.production.process;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import javax.xml.bind.JAXBElement;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.xml.bind.JAXBElement;
 import org.modelio.bpmnxml.model.ObjectFactory;
 import org.modelio.bpmnxml.model.TCollaboration;
 import org.modelio.bpmnxml.model.TDefinitions;
@@ -42,7 +41,7 @@ import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("063470ec-7cab-426d-adec-68d9f710ac42")
-public class CollaborationNode implements IProductionNode<BpmnCollaboration,TCollaboration> {
+public class CollaborationNode implements IProductionNode<BpmnCollaboration, TCollaboration> {
     @objid ("e0cc8ad9-7bc7-4a8c-b1df-ea5bcdff4687")
     private Map<String, Object> elementsMap;
 
@@ -69,6 +68,7 @@ public class CollaborationNode implements IProductionNode<BpmnCollaboration,TCol
         } else {
             return factory.create(BpmnCollaboration.class, context);
         }
+        
     }
 
     @objid ("ef59f647-3523-4719-b215-213318cd0be3")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.enumeration;
 
 import java.util.ArrayList;
@@ -37,9 +36,9 @@ import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
+import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey.ShowStereotypeMode;
-import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Signal;
 import org.modelio.metamodel.uml.statik.Attribute;
 import org.modelio.metamodel.uml.statik.Classifier;
@@ -123,18 +122,17 @@ public class GmEnumPrimaryNode extends GmNoStyleCompositeNode implements IImagea
      * Constructor for deserialization only.
      */
     @objid ("34dd062b-55b7-11e2-877f-002564c97630")
-    public GmEnumPrimaryNode() {
+    public  GmEnumPrimaryNode() {
         // Nothing to do.
     }
 
     /**
      * Creates a GmClass.
-     * 
      * @param diagram The owner diagram.
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
     @objid ("34dd062e-55b7-11e2-877f-002564c97630")
-    public GmEnumPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
+    public  GmEnumPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
         
         this.header = new GmNamespaceHeader(diagram, relatedRef);
@@ -163,6 +161,7 @@ public class GmEnumPrimaryNode extends GmNoStyleCompositeNode implements IImagea
         group.addChild(this.innerElements);
         
         styleChanged(getDisplayedStyle());
+        
     }
 
     @objid ("34dd0637-55b7-11e2-877f-002564c97630")
@@ -182,7 +181,6 @@ public class GmEnumPrimaryNode extends GmNoStyleCompositeNode implements IImagea
 
     /**
      * Get the group where <tt>GmEnumLiterals</tt> are unmasked.
-     * 
      * @return the enum group.
      */
     @objid ("34dd0647-55b7-11e2-877f-002564c97630")
@@ -220,7 +218,6 @@ public class GmEnumPrimaryNode extends GmNoStyleCompositeNode implements IImagea
 
     /**
      * Get the group where {@link Operation} are unmasked.
-     * 
      * @return the operations group.
      */
     @objid ("34de8cc3-55b7-11e2-877f-002564c97630")
@@ -246,29 +243,30 @@ public class GmEnumPrimaryNode extends GmNoStyleCompositeNode implements IImagea
         // Read version, defaults to 0 if not found
         int readVersion = readMinorVersion(in, "GmEnumPrimaryNode.");
         switch (readVersion) {
-            case 0: {
-                read_0(in);
-                break;
-            }
-            case 1: {
-                read_1(in);
-                break;
-            }
-            case 2: {
-                read_2(in);
-                break;
-            }
-            case 3: {
-                read_3(in);
-                break;
-            }
-            default: {
-                assert (false) : "version number not covered!";
-                // reading as last handled version: 3
-                read_3(in);
-                break;
-            }
+        case 0: {
+            read_0(in);
+            break;
         }
+        case 1: {
+            read_1(in);
+            break;
+        }
+        case 2: {
+            read_2(in);
+            break;
+        }
+        case 3: {
+            read_3(in);
+            break;
+        }
+        default: {
+            assert (false) : "version number not covered!";
+            // reading as last handled version: 3
+            read_3(in);
+            break;
+        }
+        }
+        
     }
 
     @objid ("34de8cde-55b7-11e2-877f-002564c97630")
@@ -280,6 +278,7 @@ public class GmEnumPrimaryNode extends GmNoStyleCompositeNode implements IImagea
         firePropertyChange(PROPERTY_LABEL, oldLabel, this.header.getMainLabel());
         // forcing visual refresh in case Image changed
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("34de8ce1-55b7-11e2-877f-002564c97630")
@@ -288,18 +287,19 @@ public class GmEnumPrimaryNode extends GmNoStyleCompositeNode implements IImagea
         // Returned result depends on current representation mode:
         List<GmNodeModel> ret;
         switch (this.getRepresentationMode()) {
-            case IMAGE:
-                ret = Collections.emptyList();
-                break;
+        case USER_IMAGE:
+        case IMAGE:
+            ret = Collections.emptyList();
+            break;
         
-            case SIMPLE:
-                ret = new ArrayList<>(1);
-                ret.add(this.header);
-                break;
+        case SIMPLE:
+            ret = new ArrayList<>(1);
+            ret.add(this.header);
+            break;
         
-            default:
-                ret = super.getVisibleChildren();
-                break;
+        default:
+            ret = super.getVisibleChildren();
+            break;
         }
         return ret;
     }
@@ -310,6 +310,7 @@ public class GmEnumPrimaryNode extends GmNoStyleCompositeNode implements IImagea
         super.styleChanged(changedStyle);
         
         refreshHeaderFromStyle(changedStyle);
+        
     }
 
     @objid ("34de8cf1-55b7-11e2-877f-002564c97630")
@@ -320,6 +321,7 @@ public class GmEnumPrimaryNode extends GmNoStyleCompositeNode implements IImagea
         if (property.equals(EnumStructuredStyleKeys.SHOWSTEREOTYPES)) {
             refreshHeaderFromStyle(getDisplayedStyle());
         }
+        
     }
 
     /**
@@ -329,22 +331,23 @@ public class GmEnumPrimaryNode extends GmNoStyleCompositeNode implements IImagea
     private void refreshHeaderFromStyle(final IStyle changedStyle) {
         final ShowStereotypeMode mode = changedStyle.getProperty(EnumStructuredStyleKeys.SHOWSTEREOTYPES);
         switch (mode) {
-            case NONE:
-                this.header.setShowMetaclassKeyword(false);
-                this.header.setShowMetaclassIcon(true);
-                break;
-            case ICON:
-                this.header.setShowMetaclassKeyword(false);
-                this.header.setShowMetaclassIcon(true);
-                break;
-            case TEXT:
-                this.header.setShowMetaclassKeyword(true);
-                this.header.setShowMetaclassIcon(false);
-                break;
-            case TEXTICON:
-                this.header.setShowMetaclassKeyword(true);
-                this.header.setShowMetaclassIcon(true);
+        case NONE:
+            this.header.setShowMetaclassKeyword(false);
+            this.header.setShowMetaclassIcon(true);
+            break;
+        case ICON:
+            this.header.setShowMetaclassKeyword(false);
+            this.header.setShowMetaclassIcon(true);
+            break;
+        case TEXT:
+            this.header.setShowMetaclassKeyword(true);
+            this.header.setShowMetaclassIcon(false);
+            break;
+        case TEXTICON:
+            this.header.setShowMetaclassKeyword(true);
+            this.header.setShowMetaclassIcon(true);
         }
+        
     }
 
     @objid ("34e01366-55b7-11e2-877f-002564c97630")
@@ -354,6 +357,7 @@ public class GmEnumPrimaryNode extends GmNoStyleCompositeNode implements IImagea
         
         // Write version of this Gm if different of 0.
         writeMinorVersion(out, "GmEnumPrimaryNode.", Integer.valueOf(GmEnumPrimaryNode.MINOR_VERSION));
+        
     }
 
     @objid ("34e0136c-55b7-11e2-877f-002564c97630")
@@ -389,6 +393,7 @@ public class GmEnumPrimaryNode extends GmNoStyleCompositeNode implements IImagea
         group.addChild(this.methodGroup);
         group.addChild(this.innerElements);
         super.addChild(group, 1);
+        
     }
 
     @objid ("34e01371-55b7-11e2-877f-002564c97630")
@@ -427,6 +432,7 @@ public class GmEnumPrimaryNode extends GmNoStyleCompositeNode implements IImagea
         group.addChild(this.methodGroup);
         group.addChild(this.innerElements);
         super.addChild(group, 1);
+        
     }
 
     @objid ("34e0137c-55b7-11e2-877f-002564c97630")
@@ -454,6 +460,7 @@ public class GmEnumPrimaryNode extends GmNoStyleCompositeNode implements IImagea
         removeChild(this.methodGroup);
         group.addChild(this.methodGroup);
         group.addChild(this.innerElements);
+        
     }
 
     @objid ("34e01382-55b7-11e2-877f-002564c97630")
@@ -463,7 +470,6 @@ public class GmEnumPrimaryNode extends GmNoStyleCompositeNode implements IImagea
 
     /**
      * Get the group where <tt>GmAttributes</tt> are unmasked.
-     * 
      * @return the attributes group.
      */
     @objid ("34e01386-55b7-11e2-877f-002564c97630")
@@ -481,6 +487,7 @@ public class GmEnumPrimaryNode extends GmNoStyleCompositeNode implements IImagea
         this.attributeGroup = (GmGroup) group.getFirstChild(ATTRIBUTE_GROUP);
         this.methodGroup = (GmGroup) group.getFirstChild(METHOD_GROUP);
         this.innerElements = (GmInnerClass) group.getFirstChild(INNER);
+        
     }
 
 }

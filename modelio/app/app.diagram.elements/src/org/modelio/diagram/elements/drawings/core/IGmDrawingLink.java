@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.drawings.core;
 
 import java.util.Collection;
@@ -55,7 +54,6 @@ public interface IGmDrawingLink extends IGmDrawingLinkable, IGmLinkObject {
      * <p>
      * This method is intended to be called only by {@link IGmDrawingLinkable#addEndingDrawingLink(IGmDrawingLink)}. It does not fire change
      * event.
-     * 
      * @param from The new link origin
      */
     @objid ("a957d273-b074-410e-b541-b4ec879a4a47")
@@ -72,7 +70,6 @@ public interface IGmDrawingLink extends IGmDrawingLinkable, IGmLinkObject {
      * <p>
      * This method is intended to be called only by {@link IGmDrawingLinkable#addEndingDrawingLink(IGmDrawingLink)}. It does not fire change
      * event.
-     * 
      * @param to The new destination
      */
     @objid ("6c0b2865-f77f-4104-b884-e164616ed32b")
@@ -80,7 +77,6 @@ public interface IGmDrawingLink extends IGmDrawingLinkable, IGmLinkObject {
 
     /**
      * Tells listeners the path changed.
-     * 
      * @param path the new path
      */
     @objid ("4e0dc836-97fe-431d-aef7-492983de5629")
@@ -88,7 +84,6 @@ public interface IGmDrawingLink extends IGmDrawingLinkable, IGmLinkObject {
 
     /**
      * Get the locator model used to layout the given extension.
-     * 
      * @param extension A link extension.
      * @return The locator model.
      */
@@ -102,7 +97,6 @@ public interface IGmDrawingLink extends IGmDrawingLinkable, IGmLinkObject {
      * <p>
      * The returned list is a copy and may be freely modified.
      * </p>
-     * 
      * @return The visible link extension nodes.
      */
     @objid ("00a4b62c-7079-4079-8410-339983a833b0")

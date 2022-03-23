@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.gproject;
 
 import java.io.IOException;
@@ -39,33 +38,38 @@ public class GProblem {
     private final Throwable cause;
 
     @objid ("435e9b91-3471-456e-aefa-9d5b317ac337")
-    public GProblem(ModuleDescriptor moduleDescriptor, GModule module, Throwable cause) {
+    public  GProblem(ModuleDescriptor moduleDescriptor, GModule module, Throwable cause) {
         this.subject = computeSourceIdentifier(moduleDescriptor, module, null, null);
         this.cause = cause;
+        
     }
 
     @objid ("40901113-f593-4706-8c98-359e9ca12579")
-    public GProblem(FragmentDescriptor fd, IProjectFragment f, Throwable cause) {
+    public  GProblem(FragmentDescriptor fd, IProjectFragment f, Throwable cause) {
         this.subject = computeSourceIdentifier(null, null, fd, f);
         this.cause = cause;
+        
     }
 
     @objid ("db61f40b-1a8c-4718-b31c-2282c016e92e")
-    public GProblem(ResourceDescriptor rd, Throwable cause) {
+    public  GProblem(ResourceDescriptor rd, Throwable cause) {
         this.subject = rd.getTargetLocation() + "(" + rd.getId() + ")";
         this.cause = cause;
+        
     }
 
     @objid ("c58dcbc4-b4f2-4087-98da-695766eb5bf2")
-    public GProblem(String source, Throwable cause) {
+    public  GProblem(String source, Throwable cause) {
         this.subject = source;
         this.cause = cause;
+        
     }
 
     @objid ("cce8794d-0422-4af5-b963-f1d3711a1e25")
-    public GProblem(Throwable cause) {
+    public  GProblem(Throwable cause) {
         this.subject = null;
         this.cause = cause;
+        
     }
 
     @objid ("1aec99e9-98a5-45cb-9398-f793ca52863a")
@@ -84,6 +88,7 @@ public class GProblem {
         } else {
             return (this.cause.getLocalizedMessage());
         }
+        
     }
 
     @objid ("2db91402-6d03-4768-96bf-43691b6e3bdc")

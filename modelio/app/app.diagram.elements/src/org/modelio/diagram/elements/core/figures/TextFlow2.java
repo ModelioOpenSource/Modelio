@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,7 +46,6 @@ public class TextFlow2 extends TextFlow {
     /**
      * Provides a TextLayout that can be used by the Draw2d text package for Bidi. This TextLayout should not be
      * disposed by clients. The provided TextLayout's orientation will be LTR.
-     * 
      * @return an SWT TextLayout that can be used for Bidi
      */
     @objid ("7e7134b6-1dec-11e2-8cad-001ec947c8cc")
@@ -81,11 +79,11 @@ public class TextFlow2 extends TextFlow {
         
         tl.setStyle(ts, 0, draw.length());
         g.drawTextLayout(tl, x, y);
+        
     }
 
     /**
      * Set whether the label is underlined.
-     * 
      * @param val true to underline the label
      */
     @objid ("7e7134ca-1dec-11e2-8cad-001ec947c8cc")
@@ -94,11 +92,11 @@ public class TextFlow2 extends TextFlow {
             this.underline = val;
             repaint();
         }
+        
     }
 
     /**
      * Set whether the label is underlined.
-     * 
      * @param strikeThrough true to strike the label
      */
     @objid ("7e7134cf-1dec-11e2-8cad-001ec947c8cc")
@@ -107,6 +105,7 @@ public class TextFlow2 extends TextFlow {
             this.strikeThrough = strikeThrough;
             repaint();
         }
+        
     }
 
 }

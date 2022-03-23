@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.ui;
 
 import java.lang.management.MemoryUsage;
@@ -35,6 +34,7 @@ public class SwapLogMonitor implements IMemoryEventListener {
     public void onFreeMemoryStart(MemoryUsage memState) {
         AppUi.LOG.debug("SWAP BEGIN: used=%dK committed=%dK max=%dK ", memState.getUsed()/1000, memState.getCommitted()/1000, memState.getMax()/1000); 
         this.begin = System.currentTimeMillis();
+        
     }
 
     @objid ("aed78bf8-2ff3-430d-ba2a-de94f62e3568")
@@ -43,6 +43,7 @@ public class SwapLogMonitor implements IMemoryEventListener {
         long end = System.currentTimeMillis();
         AppUi.LOG.debug("SWAP: %d swapped objects in %d ms, (%d objects/s)", swappedObjects, (end-this.begin), (swappedObjects *1000)/(end-this.begin+1));
         AppUi.LOG.debug("SWAP END: memory usage used=%dK committed=%dK max=%dK ", memState.getUsed()/1000, memState.getCommitted()/1000, memState.getMax()/1000);
+        
     }
 
 }

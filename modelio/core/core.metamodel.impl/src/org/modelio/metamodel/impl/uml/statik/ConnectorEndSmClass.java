@@ -17,21 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
-import org.modelio.metamodel.impl.uml.statik.BindingSmClass;
-import org.modelio.metamodel.impl.uml.statik.ConnectorEndData;
-import org.modelio.metamodel.impl.uml.statik.LinkEndSmClass;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.metamodel.uml.statik.Binding;
 import org.modelio.metamodel.uml.statik.ConnectorEnd;
@@ -57,7 +54,7 @@ public class ConnectorEndSmClass extends LinkEndSmClass {
     private SmDependency representedFeatureDep;
 
     @objid ("60d79536-d3d0-4107-b8f1-e3cf4f694b89")
-    public ConnectorEndSmClass(ISmMetamodelFragment origin) {
+    public  ConnectorEndSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -65,6 +62,7 @@ public class ConnectorEndSmClass extends LinkEndSmClass {
     @Override
     public String getName() {
         return "ConnectorEnd";
+        
     }
 
     @objid ("1bd94f08-d7d1-44b5-ac93-c78e91f3d29e")
@@ -77,18 +75,21 @@ public class ConnectorEndSmClass extends LinkEndSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ConnectorEnd.class;
+        
     }
 
     @objid ("315861da-c9c0-4fa7-93da-d4ce1ed95dc1")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("0c9eebfc-2749-44a2-a929-e945323f9100")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("7cb8d2c4-6172-43bf-a81e-04aefcf3c2bb")
@@ -108,6 +109,8 @@ public class ConnectorEndSmClass extends LinkEndSmClass {
         this.representedFeatureDep = new RepresentedFeatureSmDependency();
         this.representedFeatureDep.init("RepresentedFeature", this, metamodel.getMClass(UmlModelElement.MQNAME), 0, 1 , SmDirective.SMCDPARTOF);
         registerDependency(this.representedFeatureDep);
+        
+        
     }
 
     @objid ("9c897b94-7edb-4b96-ace1-617046d3b70e")
@@ -130,6 +133,7 @@ public class ConnectorEndSmClass extends LinkEndSmClass {
     @Override
     public boolean isLinkMetaclass() {
         return true;
+        
     }
 
     @objid ("5908bc43-89a0-4325-8a8e-75366d61fcba")
@@ -138,7 +142,7 @@ public class ConnectorEndSmClass extends LinkEndSmClass {
         private ConnectorEndSmClass smClass;
 
         @objid ("8a3e758d-2114-4b11-9642-d0472c57c1f8")
-        public ConnectorEndObjectFactory(ConnectorEndSmClass smClass) {
+        public  ConnectorEndObjectFactory(ConnectorEndSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -171,6 +175,7 @@ public class ConnectorEndSmClass extends LinkEndSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ConnectorEndData) data).mRepresentation = values;
+            
         }
 
         @objid ("93b3bc71-fa58-44a2-8c46-4f74002d6f90")
@@ -180,6 +185,7 @@ public class ConnectorEndSmClass extends LinkEndSmClass {
             	this.symetricDep = ((BindingSmClass)this.getTarget()).getConnectorEndRoleDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -208,6 +214,7 @@ public class ConnectorEndSmClass extends LinkEndSmClass {
             	this.symetricDep = ((UmlModelElementSmClass)this.getTarget()).getRepresentingEndDep();
             }
             return this.symetricDep;
+            
         }
 
     }

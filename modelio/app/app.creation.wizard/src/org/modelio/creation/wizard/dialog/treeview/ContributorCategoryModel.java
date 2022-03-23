@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.creation.wizard.dialog.treeview;
 
 import java.net.URL;
@@ -51,9 +50,10 @@ public class ContributorCategoryModel {
     private static final Image DEFAULT_MATRIX_IMAGE = ContributorCategoryModel.getCategoryIcon("icons/matrix.png");
 
     @objid ("d151760b-f7b5-4c6b-accf-971100c3416b")
-    public ContributorCategoryModel(Map<ContributorCategory, List<IWizardContributor>> contributorsMap) {
+    public  ContributorCategoryModel(Map<ContributorCategory, List<IWizardContributor>> contributorsMap) {
         super();
         this.categories = createCategories(contributorsMap);
+        
     }
 
     @objid ("3a322dc8-4d3d-4531-8376-3e57387ffa17")

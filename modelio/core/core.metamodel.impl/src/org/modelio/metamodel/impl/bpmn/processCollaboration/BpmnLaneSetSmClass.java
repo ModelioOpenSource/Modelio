@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.processCollaboration;
 
 import java.util.ArrayList;
@@ -34,9 +34,6 @@ import org.modelio.metamodel.bpmn.processCollaboration.BpmnLaneSet;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnProcess;
 import org.modelio.metamodel.bpmn.rootElements.BpmnBaseElement;
 import org.modelio.metamodel.impl.bpmn.activities.BpmnSubProcessSmClass;
-import org.modelio.metamodel.impl.bpmn.processCollaboration.BpmnLaneSetData;
-import org.modelio.metamodel.impl.bpmn.processCollaboration.BpmnLaneSmClass;
-import org.modelio.metamodel.impl.bpmn.processCollaboration.BpmnProcessSmClass;
 import org.modelio.metamodel.impl.bpmn.rootElements.BpmnBaseElementSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
@@ -65,7 +62,7 @@ public class BpmnLaneSetSmClass extends BpmnBaseElementSmClass {
     private SmDependency subProcessDep;
 
     @objid ("794005ce-e8c3-4969-8b12-ac82ca35ab4f")
-    public BpmnLaneSetSmClass(ISmMetamodelFragment origin) {
+    public  BpmnLaneSetSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -73,6 +70,7 @@ public class BpmnLaneSetSmClass extends BpmnBaseElementSmClass {
     @Override
     public String getName() {
         return "BpmnLaneSet";
+        
     }
 
     @objid ("d6e393ad-ccbc-45d0-9012-cb7f22e29cc6")
@@ -85,18 +83,21 @@ public class BpmnLaneSetSmClass extends BpmnBaseElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnLaneSet.class;
+        
     }
 
     @objid ("0dfe1313-e3a1-4bd1-b7b7-d98a94610345")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("e44aa900-c9eb-4ae6-9b7e-af405c65391c")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("e4714604-eb03-4db8-85f7-d7617172f357")
@@ -124,6 +125,8 @@ public class BpmnLaneSetSmClass extends BpmnBaseElementSmClass {
         this.subProcessDep = new SubProcessSmDependency();
         this.subProcessDep.init("SubProcess", this, metamodel.getMClass(BpmnSubProcess.MQNAME), 0, 1 );
         registerDependency(this.subProcessDep);
+        
+        
     }
 
     @objid ("bddfc055-11d1-45b9-878c-521a44498ecb")
@@ -164,7 +167,7 @@ public class BpmnLaneSetSmClass extends BpmnBaseElementSmClass {
         private BpmnLaneSetSmClass smClass;
 
         @objid ("798c2a8c-58b4-4c6c-a605-4cfc8845453e")
-        public BpmnLaneSetObjectFactory(BpmnLaneSetSmClass smClass) {
+        public  BpmnLaneSetObjectFactory(BpmnLaneSetSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -197,6 +200,7 @@ public class BpmnLaneSetSmClass extends BpmnBaseElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnLaneSetData) data).mLane = values;
+            
         }
 
         @objid ("4873e0a1-12bb-461e-864b-c1df6ad6582a")
@@ -206,6 +210,7 @@ public class BpmnLaneSetSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnLaneSmClass)this.getTarget()).getLaneSetDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -234,6 +239,7 @@ public class BpmnLaneSetSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnProcessSmClass)this.getTarget()).getLaneSetDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -262,6 +268,7 @@ public class BpmnLaneSetSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnLaneSmClass)this.getTarget()).getChildLaneSetDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -290,6 +297,7 @@ public class BpmnLaneSetSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnSubProcessSmClass)this.getTarget()).getLaneSetDep();
             }
             return this.symetricDep;
+            
         }
 
     }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.sequencediagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,6 +39,7 @@ class SequenceDiagramSymbolViewModelProvider extends DiagramSymbolViewModelProvi
     protected void addMoreItems(SymbolViewContentBuilder b, IStyle editedStyle, IGmDiagram input) {
         b.add(b.createLabelItem(GmSequenceDiagramStyleKeys.SHOWSEQUENCE.getCategory())
                 .add(b.createStyleItem(GmSequenceDiagramStyleKeys.SHOWSEQUENCE)));
+        
     }
 
 }

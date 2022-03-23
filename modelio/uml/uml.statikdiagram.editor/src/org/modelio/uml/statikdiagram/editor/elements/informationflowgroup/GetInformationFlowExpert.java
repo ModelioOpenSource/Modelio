@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.informationflowgroup;
 
 import java.util.ArrayList;
@@ -53,10 +52,9 @@ public class GetInformationFlowExpert {
     /**
      * Get the information flows realized by the given element.
      * <p>
-     * 
      * @param el a model link or a link end model.
      * @return The realized information flows.
-     * @throws java.lang.IllegalArgumentException if the given element cannot realize information flows.
+     * @throws IllegalArgumentException if the given element cannot realize information flows.
      */
     @objid ("81629be4-1dec-11e2-8cad-001ec947c8cc")
     @SuppressWarnings("unchecked")
@@ -72,13 +70,15 @@ public class GetInformationFlowExpert {
      * Forbid instance creation.
      */
     @objid ("81629bee-1dec-11e2-8cad-001ec947c8cc")
-    private GetInformationFlowExpert() {
+    private  GetInformationFlowExpert() {
+        
     }
 
     @objid ("81629bf1-1dec-11e2-8cad-001ec947c8cc")
     private static class V extends DefaultModelVisitor {
         @objid ("81629bf3-1dec-11e2-8cad-001ec947c8cc")
-        V() {
+         V() {
+            
         }
 
         @objid ("81629bf5-1dec-11e2-8cad-001ec947c8cc")

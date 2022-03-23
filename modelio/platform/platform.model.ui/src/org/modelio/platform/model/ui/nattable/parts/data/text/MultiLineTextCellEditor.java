@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.text;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -57,21 +56,21 @@ class MultiLineTextCellEditor extends TextCellEditor {
      * Create a new multi line text editor that ensures to not commit the editor value in case enter is typed. The text control will support automatic line wrapping.
      */
     @objid ("b3953f3b-b8b0-463c-985d-31120a0cfa94")
-    public MultiLineTextCellEditor() {
+    public  MultiLineTextCellEditor() {
         this(true, true);
     }
 
     /**
      * Create a new multi line text editor that ensures to not commit the editor value in case enter is typed.
-     * 
      * @param lineWrap Flag to configure whether the text control should enable automatic line wrap behaviour or not.
      * @param moveSelectionOnEnter Flag to configure whether the selection should move after a value was committed after pressing enter.
      */
     @objid ("f2cc6405-9229-4f60-b236-d579d8218d39")
-    public MultiLineTextCellEditor(boolean lineWrap, boolean moveSelectionOnEnter) {
+    public  MultiLineTextCellEditor(boolean lineWrap, boolean moveSelectionOnEnter) {
         super(false, moveSelectionOnEnter, false);
         this.commitOnEnter = false;
         this.lineWrap = lineWrap;
+        
     }
 
     @objid ("66ddc642-ee3b-49fb-8321-c3124d4cf51d")
@@ -165,6 +164,7 @@ class MultiLineTextCellEditor extends TextCellEditor {
                 cellBounds.y,
                 this.lineWrap ? cellBounds.width : Math.max(size.x, cellBounds.width),
                 Math.max(size.y, cellBounds.height));
+        
     }
 
     /**

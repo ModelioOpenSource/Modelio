@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.module.modelermodule.command;
 
 import java.util.List;
@@ -61,6 +60,7 @@ public class UpdateFromClassifierByLifeline extends DefaultModuleCommandHandler 
                     I18nMessageService.getString ("Ui.Error.Title"),
                     e.getMessage());
         }
+        
     }
 
     /**

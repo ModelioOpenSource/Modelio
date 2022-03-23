@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnlane.v0;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.bpmn.diagram.editor.elements.style.BpmnAbstractStyleKeyProvider;
+import org.modelio.bpmn.diagram.editor.elements.common.style.BpmnAbstractStyleKeyProvider;
 import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.diagram.styles.core.StyleKey;
 
@@ -50,7 +49,7 @@ public class GmBpmnLaneStructuredStyleKeysV0 extends BpmnAbstractStyleKeyProvide
 
     @objid ("c9effc2a-9407-4b26-9afd-31d23e6e1c43")
     public static final StyleKey SHOWSTEREOTYPES = BpmnAbstractStyleKeyProvider.createStyleKey("BPMNLANE_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+                MetaKey.SHOWSTEREOTYPES);
 
     @objid ("e0218b65-0fda-45cd-b440-9464594e8845")
     public static final StyleKey SHOWTAGS = BpmnAbstractStyleKeyProvider.createStyleKey("BPMNLANE_SHOWTAGS", MetaKey.SHOWTAGS);

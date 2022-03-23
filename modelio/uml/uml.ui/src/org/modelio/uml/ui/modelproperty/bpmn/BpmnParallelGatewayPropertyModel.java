@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -49,22 +48,20 @@ public class BpmnParallelGatewayPropertyModel extends AbstractPropertyModel<Bpmn
      */
     @objid ("ce0a7524-b89d-45d1-aa17-eaf945b66a17")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name",
-			"GatewayDirection" };
+    			"GatewayDirection" };
 
     /**
      * Create a new <i>BpmnParallelGateway</i> data model from an
      * <i>BpmnParallelGateway</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("beae3bbc-16c8-44b2-bffe-3843f9c4084d")
-    public BpmnParallelGatewayPropertyModel(BpmnParallelGateway theEditedElement) {
+    public  BpmnParallelGatewayPropertyModel(BpmnParallelGateway theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("e0f3b4ca-5e2f-4b23-869e-dd154f54a01f")
@@ -75,7 +72,6 @@ public class BpmnParallelGatewayPropertyModel extends AbstractPropertyModel<Bpmn
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("1b5d9e10-bba0-45cc-950a-dff44257f38d")
@@ -88,7 +84,6 @@ public class BpmnParallelGatewayPropertyModel extends AbstractPropertyModel<Bpmn
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -112,6 +107,7 @@ public class BpmnParallelGatewayPropertyModel extends AbstractPropertyModel<Bpmn
         default:
             return null;
         }
+        
     }
 
     /**
@@ -121,7 +117,6 @@ public class BpmnParallelGatewayPropertyModel extends AbstractPropertyModel<Bpmn
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -146,13 +141,13 @@ public class BpmnParallelGatewayPropertyModel extends AbstractPropertyModel<Bpmn
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -180,6 +175,7 @@ public class BpmnParallelGatewayPropertyModel extends AbstractPropertyModel<Bpmn
         default:
             return;
         }
+        
     }
 
 }

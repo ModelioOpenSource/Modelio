@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.extensions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,7 +42,6 @@ public class LocatorFactory {
 
     /**
      * Get the singleton.
-     * 
      * @return The singleton.
      */
     @objid ("8008e6d3-1dec-11e2-8cad-001ec947c8cc")
@@ -55,7 +53,6 @@ public class LocatorFactory {
      * Create a {@link SidedConnectionEndpointLocator} from the given parameters.
      * <p>
      * Compute a new uDistance and vDistance depending on the move delta and the edge object figure.
-     * 
      * @param conn The connection figure
      * @param extension The extension figure to move
      * @param moveDelta the current move delta
@@ -69,7 +66,6 @@ public class LocatorFactory {
 
     /**
      * Create a figure Locator from the given locator model.
-     * 
      * @param connection A connection figure.
      * @param layoutContraint a locator model.
      * @return a Locator.
@@ -88,11 +84,11 @@ public class LocatorFactory {
         } else {
             throw new IllegalArgumentException(layoutContraint.toString() + " not supported.");
         }
+        
     }
 
     /**
      * Create a ConnectionLocator from a GmFractionalConnectionLocator.
-     * 
      * @param conn The Connection the locator must be relative to.
      * @param gmLoc The locator model.
      * @return The created Locator
@@ -115,7 +111,6 @@ public class LocatorFactory {
 
     /**
      * Create a ConnectionEndpointLocator from a GmConnectionEndpoinLocator.
-     * 
      * @param conn The Connection the locator must be relative to.
      * @param gmLoc The locator model.
      * @return The created ConnectionEndpointLocator
@@ -132,7 +127,6 @@ public class LocatorFactory {
 
     /**
      * Create a ConnectionLocator from a GmConnectionLocator.
-     * 
      * @param conn The Connection the locator must be relative to.
      * @param gmLoc The locator model.
      * @return The created ConnectionLocator

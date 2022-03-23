@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.objectnode.v0;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,31 +30,31 @@ import org.modelio.uml.activitydiagram.editor.style.ActivityAbstractStyleKeyProv
 @objid ("2ae1980d-55b6-11e2-877f-002564c97630")
 class GmObjectNodeStructuredStyleKeys extends ActivityAbstractStyleKeyProvider {
     @objid ("d24d59c5-55c0-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("OBJECTNODE_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("OBJECTNODE_REPMODE", MetaKey.REPMODE);
 
     @objid ("d24d59c7-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("OBJECTNODE_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("OBJECTNODE_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("d24d59c9-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("OBJECTNODE_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("OBJECTNODE_FILLMODE", MetaKey.FILLMODE);
 
     @objid ("d24d59cb-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("OBJECTNODE_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("OBJECTNODE_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("d24d59cd-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("OBJECTNODE_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("OBJECTNODE_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("d24d59cf-55c0-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("OBJECTNODE_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("OBJECTNODE_FONT", MetaKey.FONT);
 
     @objid ("d24d59d1-55c0-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("OBJECTNODE_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("OBJECTNODE_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("d24d59d3-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("OBJECTNODE_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("OBJECTNODE_SHOWSTEREOTYPES",
+                MetaKey.SHOWSTEREOTYPES);
 
     @objid ("d24d59d5-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("OBJECTNODE_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("OBJECTNODE_SHOWTAGS", MetaKey.SHOWTAGS);
 
 }

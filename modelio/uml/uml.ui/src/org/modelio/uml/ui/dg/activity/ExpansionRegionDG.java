@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.activity;
 
 import java.util.Collections;
@@ -40,7 +39,7 @@ public class ExpansionRegionDG extends PortContainerDG {
      * @param node The gm node represented by this class.
      */
     @objid ("de3ca55b-7d08-4007-b7ca-cc28b75a6c1b")
-    public ExpansionRegionDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  ExpansionRegionDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 
@@ -53,6 +52,7 @@ public class ExpansionRegionDG extends PortContainerDG {
             return DGFactory.getInstance().getDiagramNodes(this.diagramHandle, mainNode.getInnerZone().getVisibleChildren());
         } else
             return Collections.emptyList();
+        
     }
 
 }

@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.exchange;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,7 +40,7 @@ public class XmiException extends Exception {
      * unknown.)
      */
     @objid ("1478abed-9516-11e1-a83f-002564c97630")
-    public XmiException(final Exception cause) {
+    public  XmiException(final Exception cause) {
         super(cause);
     }
 
@@ -53,7 +52,7 @@ public class XmiException extends Exception {
      * later retrieval by the {@link #getMessage()} method.
      */
     @objid ("1478d2fe-9516-11e1-a83f-002564c97630")
-    public XmiException(final String message) {
+    public  XmiException(final String message) {
         super(message);
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.module.catalog.catalog;
 
 import java.io.IOException;
@@ -53,8 +52,8 @@ import org.modelio.app.module.catalog.catalog.update.CatalogUpdatePreferencesPag
 import org.modelio.app.module.catalog.plugin.AppModules;
 import org.modelio.gproject.module.IModuleHandle;
 import org.modelio.gproject.module.IModuleStore;
-import org.modelio.platform.mda.infra.service.CompatibilityHelper.CompatibilityLevel;
 import org.modelio.platform.mda.infra.service.CompatibilityHelper;
+import org.modelio.platform.mda.infra.service.CompatibilityHelper.CompatibilityLevel;
 import org.modelio.platform.preferences.plugin.Preferences;
 import org.modelio.platform.ui.panel.IPanelProvider;
 import org.modelio.vbasic.version.Version;
@@ -68,16 +67,16 @@ import org.modelio.version.ModelioVersion;
 @objid ("ec2b1457-8850-4ced-832a-f00a45fa18bc")
 public class ModuleCatalogPanel implements IPanelProvider {
     @objid ("ddee6091-d8e8-4975-aeca-9c682c5ffa33")
-     ModuleCatalogPanelController controller;
+    ModuleCatalogPanelController controller;
 
     @objid ("5eaa56a1-68f8-45c7-b099-f396707933d0")
-     Composite top;
+    Composite top;
 
     @objid ("2516ebc7-7c79-4b3d-8f81-2707722db7b0")
-     TreeViewer treeViewer;
+    TreeViewer treeViewer;
 
     @objid ("6f2bb4ee-bb87-43ab-aa10-a53da5638b22")
-     Label loading;
+    Label loading;
 
     @objid ("26aca1b1-875e-45a3-9989-bbdaaa111d1b")
     private static final Image MODULE_LIST_IMAGE = AppModules.getImageDescriptor("icons/modulelist.png").createImage();
@@ -92,9 +91,10 @@ public class ModuleCatalogPanel implements IPanelProvider {
     private IModuleStore catalog;
 
     @objid ("e44ca7fd-7522-4921-86b4-bc5b1c9e8c0e")
-    public ModuleCatalogPanel(IModuleStore catalog) {
+    public  ModuleCatalogPanel(IModuleStore catalog) {
         super();
         this.catalog = catalog;
+        
     }
 
     @objid ("e53a50b6-ab02-4300-b9f6-0b2e2a199ad6")
@@ -289,6 +289,7 @@ public class ModuleCatalogPanel implements IPanelProvider {
             this.controller.setInput((IModuleStore) input);
             refresh(true, true);
         }
+        
     }
 
     @objid ("7b9e08c6-1668-4575-9c13-cfca5667a2a7")
@@ -312,6 +313,7 @@ public class ModuleCatalogPanel implements IPanelProvider {
                 tc.pack();
             }
         }
+        
     }
 
     @objid ("836654f7-dbf0-4443-a99f-be30bb413ea0")
@@ -350,13 +352,13 @@ public class ModuleCatalogPanel implements IPanelProvider {
     @objid ("231b1002-7740-4497-a09c-0241aa9d061e")
     private static class ModuleCatalogPanelController {
         @objid ("c4a4466f-f357-4694-893b-365bbe5413ed")
-         boolean compatibleOnly;
+        boolean compatibleOnly;
 
         @objid ("9177f67b-b387-458a-bbec-5110fc2c4617")
-         boolean lastestOnly;
+        boolean lastestOnly;
 
         @objid ("56905826-bb0d-4247-9f2d-bd3f4ecf3510")
-         ModuleCatalogPanel dialog;
+        ModuleCatalogPanel dialog;
 
         @objid ("d0f8aa95-371d-4ad4-b291-ab6a262b278c")
         private IModuleStore catalog;
@@ -368,9 +370,10 @@ public class ModuleCatalogPanel implements IPanelProvider {
         private IPreferenceStore prefs;
 
         @objid ("2a400064-6431-4df7-bbe3-83b42bc05628")
-        public ModuleCatalogPanelController(ModuleCatalogPanel dialog, IModuleStore catalog) {
+        public  ModuleCatalogPanelController(ModuleCatalogPanel dialog, IModuleStore catalog) {
             this.dialog = dialog;
             this.catalog = catalog;
+            
         }
 
         @objid ("6ff78e30-b221-4b3a-8001-18be25212587")
@@ -383,6 +386,7 @@ public class ModuleCatalogPanel implements IPanelProvider {
             this.catalog = input;
             this.dialog.treeViewer.setInput(this.catalog);
             this.dialog.refresh(true, true);
+            
         }
 
         @objid ("b127bf2b-afed-4911-a4f4-67592d1a2bf4")
@@ -397,6 +401,7 @@ public class ModuleCatalogPanel implements IPanelProvider {
             this.dialog.treeViewer.setInput(this.catalog);
             
             this.dialog.refresh(true, true);
+            
         }
 
         @objid ("398a0633-5204-448d-906e-21b5ec0987f2")
@@ -405,6 +410,7 @@ public class ModuleCatalogPanel implements IPanelProvider {
             this.compatibleOnly = onOff;
             this.contentProvider.refreshModules();
             this.dialog.refresh(true, true);
+            
         }
 
         @objid ("f9d43c33-aa63-498b-9a01-b73308a4322c")
@@ -412,6 +418,7 @@ public class ModuleCatalogPanel implements IPanelProvider {
             this.prefs.setValue(CatalogUpdatePreferencesPage.CATALOG_SHOW_LATEST, onOff);
             this.lastestOnly = onOff;
             this.dialog.refresh(true, true);
+            
         }
 
         @objid ("92fd0ab2-5ed2-40a3-a347-9485099f40db")
@@ -448,21 +455,22 @@ public class ModuleCatalogPanel implements IPanelProvider {
     @objid ("6e22d92e-589f-4b9d-8e21-c4189d9a91da")
     private static class CatalogModulesProvider implements ITreeContentProvider {
         @objid ("00985aae-7abe-4c61-b9f5-affa8791434b")
-         List<IModuleHandle> allModules = new ArrayList<>();
+        List<IModuleHandle> allModules = new ArrayList<>();
 
         @objid ("02a749c5-5f20-454f-88e7-2468accf0a47")
         private Version modelioVersion;
 
         @objid ("2cfab431-8ea4-46b0-a974-0913b57ff2c1")
-         ModuleCatalogPanel panel;
+        ModuleCatalogPanel panel;
 
         @objid ("101e6f84-3307-46b9-bac2-0cc64bb3f500")
-         TreeMap<String, List<IModuleHandle>> modules = new TreeMap<>();
+        TreeMap<String, List<IModuleHandle>> modules = new TreeMap<>();
 
         @objid ("3eeb6ede-175d-476f-97f2-13f986d45b1a")
-        public CatalogModulesProvider(ModuleCatalogPanel panel, Version modelioVersion) {
+        public  CatalogModulesProvider(ModuleCatalogPanel panel, Version modelioVersion) {
             this.panel = panel;
             this.modelioVersion = modelioVersion;
+            
         }
 
         @objid ("2057f28a-700b-4e17-aa86-8497379c2cae")
@@ -472,6 +480,7 @@ public class ModuleCatalogPanel implements IPanelProvider {
             } else {
                 return new ArrayList<>();
             }
+            
         }
 
         @objid ("0472384f-6821-419e-8b28-9e1954cfc6cd")
@@ -518,6 +527,7 @@ public class ModuleCatalogPanel implements IPanelProvider {
                 loadingThread.setPriority(Thread.MAX_PRIORITY);
                 loadingThread.start();
             }
+            
         }
 
         @objid ("413a2bd2-83c3-44e8-93e9-b86cc031cc2e")
@@ -563,6 +573,7 @@ public class ModuleCatalogPanel implements IPanelProvider {
                 // return categories => the keys
                 return this.modules.keySet().toArray();
             }
+            
         }
 
         @objid ("df580f3b-1ac0-47d3-b562-169a4501763e")
@@ -612,10 +623,11 @@ public class ModuleCatalogPanel implements IPanelProvider {
             } else {
                 return 0;
             }
+            
         }
 
         @objid ("854c7c0e-45d3-4f2b-b468-7cb9a2c78aac")
-        public ModuleComparator() {
+        public  ModuleComparator() {
             // Empty constructor
         }
 

@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.module.modelermodule.impl;
 
 import java.util.Collections;
@@ -25,6 +24,7 @@ import org.modelio.api.modelio.mc.AbstractModelComponentContributor;
 import org.modelio.api.modelio.model.IMetamodelExtensions;
 import org.modelio.api.modelio.model.IModelingSession;
 import org.modelio.api.module.IModule;
+import org.modelio.gproject.ramc.core.packaging.IModelComponentContributor.ExportedFileEntry;
 import org.modelio.metamodel.mmextensions.infrastructure.ExtensionNotFoundException;
 import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
@@ -47,9 +47,10 @@ public class ModelComponentRamcContributor extends AbstractModelComponentContrib
     private IModelingSession session;
 
     @objid ("01447961-7687-4321-82b0-9ca8ac5548c1")
-    public ModelComponentRamcContributor(final IModule module) {
+    public  ModelComponentRamcContributor(final IModule module) {
         super(module);
         this.session = module.getModuleContext().getModelingSession();
+        
     }
 
     @objid ("6cb304c4-1f2f-41c3-8806-d0ca81c271a6")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.ramcs.edition;
 
 import java.io.File;
@@ -55,9 +54,10 @@ class Controller {
     private RamcModel model;
 
     @objid ("75d8f3d8-6190-4c00-af79-46446fc6e72f")
-    public Controller(EditRamcDialog dialog, RamcModel model) {
+    public  Controller(EditRamcDialog dialog, RamcModel model) {
         this.dialog = dialog;
         this.model = model;
+        
     }
 
     @objid ("31e1acd2-d7d2-4659-8183-376e0535be18")
@@ -67,6 +67,7 @@ class Controller {
             this.model.setRamcName(value);
         }
         this.dialog.invalidateRamcName(!valid);
+        
     }
 
     @objid ("b7432b87-8c7a-4dd1-bf68-6e8b50c7a3b7")
@@ -76,6 +77,7 @@ class Controller {
             this.model.setRamcVersion(new Version(value));
         }
         this.dialog.invalidateRamcVersion(!valid);
+        
     }
 
     @objid ("5a896a06-8a07-44b4-9c5a-55ce5a382514")
@@ -97,6 +99,7 @@ class Controller {
         } catch (NumberFormatException e) {
             return false;
         }
+        
     }
 
     @objid ("b06f3bf7-d017-463c-aa12-9dc86aa2a345")
@@ -118,6 +121,7 @@ class Controller {
         } else {
             return false;
         }
+        
     }
 
     @objid ("1d55f0ab-9ff4-40db-b5fe-e7da7a35d78d")
@@ -132,6 +136,7 @@ class Controller {
             this.model.updateArtifact();
             t.commit();
         }
+        
     }
 
     @objid ("c08a3bcb-8271-4f36-98b7-8a1c321eb6c1")
@@ -157,6 +162,7 @@ class Controller {
         
             }
         }
+        
     }
 
     @objid ("9045efc4-e5af-46f1-b5c5-b3c4c0cf77fc")
@@ -169,6 +175,7 @@ class Controller {
         return (e.isValid()
                 && ModelComponentArchive.canInstantiate(e)
                 && !causeCycle((Artifact) e));
+        
     }
 
     @objid ("f44df655-1e0c-494d-a51c-dbd66535d9be")
@@ -176,6 +183,7 @@ class Controller {
         return (e.isValid()
                 && (ModelComponentArchive.canInstantiate(e))
                 && ((Artifact) e).isStereotyped(ModelComponentArchive.MdaTypes.STEREOTYPE_ELT));
+        
     }
 
     @objid ("34d1d26a-e95d-4f1e-87b1-603c5004d06a")
@@ -218,6 +226,7 @@ class Controller {
                 contributingModules.remove(moduleName);
             }
         }
+        
     }
 
     @objid ("f3f6fe93-b854-4d81-a18c-343e2883ebff")

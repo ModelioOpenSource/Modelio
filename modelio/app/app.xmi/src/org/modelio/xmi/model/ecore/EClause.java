@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,9 +41,10 @@ public class EClause extends EElement {
     }
 
     @objid ("91c20ce3-1463-47b8-be92-ed9b046244fd")
-    public EClause(org.eclipse.uml2.uml.Clause element) {
+    public  EClause(org.eclipse.uml2.uml.Clause element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("6a1fc42b-21a1-4f60-b0c4-1b12ba003e9b")
@@ -58,6 +58,7 @@ public class EClause extends EElement {
                 ((Clause) objingElt)
                         .setOwner((ConditionalNode) objingOwner);
         }
+        
     }
 
     @objid ("d7afe647-7ccf-48e4-9bb7-92cd3876e6f0")
@@ -68,6 +69,7 @@ public class EClause extends EElement {
         setBody((Clause) objingElt);
         setTest((Clause) objingElt);
         setName((Clause) objingElt);
+        
     }
 
     @objid ("973ce1fc-7640-4643-b578-c806dc8e305b")
@@ -78,6 +80,7 @@ public class EClause extends EElement {
             if (objingBody instanceof ActivityNode)
                 ((ActivityNode) objingBody).setOwnerClause(clause);
         }
+        
     }
 
     @objid ("994781c5-b0ca-462e-881c-ed45dbf806cc")
@@ -101,12 +104,14 @@ public class EClause extends EElement {
             }
         }
         clause.setTest(objingTest);
+        
     }
 
     @objid ("f70cb271-6812-4f2f-a694-28a96797e3e8")
     private void setName(Clause clause) {
         if ( ReverseProperties.getInstance().isRoundtripEnabled())
             clause.setName(ObjingEAnnotation.getName(this.ecoreElement));
+        
     }
 
 }

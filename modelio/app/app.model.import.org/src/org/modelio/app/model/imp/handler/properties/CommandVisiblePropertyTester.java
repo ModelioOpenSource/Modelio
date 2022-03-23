@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.model.imp.handler.properties;
 
 import java.util.List;
@@ -38,7 +37,7 @@ public class CommandVisiblePropertyTester extends PropertyTester {
      * Default constructor.
      */
     @objid ("22f03899-1ce7-4615-9055-3f3b414286dd")
-    public CommandVisiblePropertyTester() {
+    public  CommandVisiblePropertyTester() {
         // nothing
     }
 
@@ -75,6 +74,7 @@ public class CommandVisiblePropertyTester extends PropertyTester {
             default:
                 throw new IllegalArgumentException(property + " property not supported by " + getClass().getSimpleName());
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnsequenceflow;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -83,6 +82,7 @@ public class SequenceFlowLinkLayoutEditPolicy extends GmLinkLayoutEditPolicy {
             }
             this.feedback.show(getHostFigure(), createRequest.getLocation());
         }
+        
     }
 
     @objid ("19e05681-f361-4b18-8e13-1840abeedc68")
@@ -92,6 +92,7 @@ public class SequenceFlowLinkLayoutEditPolicy extends GmLinkLayoutEditPolicy {
             this.feedback.hide();
             this.feedback = null;
         }
+        
     }
 
 }

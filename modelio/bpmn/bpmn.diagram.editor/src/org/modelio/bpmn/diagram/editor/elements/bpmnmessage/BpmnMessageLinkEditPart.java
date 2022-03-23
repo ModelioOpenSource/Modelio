@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnmessage;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,6 +37,7 @@ public class BpmnMessageLinkEditPart extends LinkEditPart {
         super.createEditPolicies();
         
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START, null);
+        
     }
 
 }

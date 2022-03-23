@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.project;
 
 import java.io.IOException;
@@ -74,17 +73,16 @@ public class ProjectFileStructure {
     private final Path projectPath;
 
     @objid ("4010eea1-f4dc-446a-b349-774442a8817f")
-    public ProjectFileStructure(Path path) {
+    public  ProjectFileStructure(Path path) {
         this.projectPath = path;
     }
 
     /**
      * Get the path to a .jmdac file stored locally in the project.
-     * 
      * @param moduleName the module name.
      * @param version the module version.
      * @return the module .jmdac file path
-     * @throws java.io.IOException the the file couldn't be retrieved.
+     * @throws IOException the the file couldn't be retrieved.
      */
     @objid ("d9ff18e3-11d1-4ca9-811d-07f691ef3fd0")
     public Path getModuleBackupArchivePath(String moduleName, Version version) throws IOException {
@@ -93,10 +91,9 @@ public class ProjectFileStructure {
 
     /**
      * Get the path where a .jmdac file is stored locally in the project for a module.
-     * 
      * @param moduleName the module name.
      * @return a directory containing .jmdac files
-     * @throws java.io.IOException the the file couldn't be retrieved.
+     * @throws IOException the the file couldn't be retrieved.
      */
     @objid ("c501fc39-9b97-458f-83ff-28837d210627")
     public Path getModuleBackupDir(String moduleName) throws IOException {
@@ -122,7 +119,6 @@ public class ProjectFileStructure {
      * Get the directory where the project data are managed by Modelio (model, fragments modules and so on). The internal structure
      * of this directory is left to its users (fragments, modules, CMS tools ...) User generated data like source code,
      * documentation are never stored there.
-     * 
      * @return the path where the 'data' directory resides.
      */
     @objid ("fabd4f37-0593-4a7b-aa15-604c6417251e")

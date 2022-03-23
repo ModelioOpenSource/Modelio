@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.enumeration;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,24 +31,24 @@ import org.modelio.uml.statikdiagram.editor.style.StaticAbstractStyleKeyProvider
 @objid ("122b486b-413d-43ce-a528-539f1dcce422")
 public class EnumUserImageStyleKeys extends StaticAbstractStyleKeyProvider {
     @objid ("1d23f252-92f3-4f6b-ad82-352ea524ca27")
-     static final StyleKey REPMODE = EnumStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = EnumStructuredStyleKeys.REPMODE;
 
     @objid ("aea0d3c4-c956-47a7-919b-018f7003c6b4")
-     static final StyleKey FONT = EnumStructuredStyleKeys.FONT;
+    static final StyleKey FONT = EnumStructuredStyleKeys.FONT;
 
     @objid ("3a512db0-d83b-4892-b761-b56e169c7640")
-     static final StyleKey TEXTCOLOR = EnumStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = EnumStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("c19b8106-8213-4ecd-9602-49f189533404")
-     static final StyleKey SHOWNAME = EnumStructuredStyleKeys.SHOWNAME;
+    static final StyleKey SHOWNAME = EnumStructuredStyleKeys.SHOWNAME;
 
     @objid ("8c4ab618-e218-4f42-b843-bd238ba91abd")
-     static final StyleKey SHOWSTEREOTYPES = EnumStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = EnumStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("a5bc9019-8233-4ec1-9785-4405771c6d0c")
-     static final StyleKey SHOWTAGS = EnumStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = EnumStructuredStyleKeys.SHOWTAGS;
 
     @objid ("cccb434a-7da7-446c-aaf9-4c3eced5ad9a")
-     static final StyleKey SHOWVISIBILITY = EnumStructuredStyleKeys.SHOWVISIBILITY;
+    static final StyleKey SHOWVISIBILITY = EnumStructuredStyleKeys.SHOWVISIBILITY;
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.texteditors.rt.partitions;
 
 import java.util.Vector;
@@ -31,10 +30,10 @@ import org.eclipse.jface.text.rules.Token;
 public class RTPartitionScanner extends RuleBasedPartitionScanner {
     @objid ("abfe717c-2a77-11e2-9fb9-bc305ba4815c")
     public static final String[] keywords = {
-					  "abstract", "continue", "for", "new", "switch", "assert", "default", "goto", "package", "synchronized", "boolean", "do", "if", "private", "this", "break", "double", "implements", "protected", "throw", "byte",
-	    "else", "import", "public", "throws", "case", "enum", "instanceof", "return", "transient", "catch", "extends", "int", "short", "try", "char", "final", "interface", "static", "void", "class", "finally", "long", "strictfp", "volatile", "const",
-	    "float", "native", "super", "while",
-					  };
+    					  "abstract", "continue", "for", "new", "switch", "assert", "default", "goto", "package", "synchronized", "boolean", "do", "if", "private", "this", "break", "double", "implements", "protected", "throw", "byte",
+    	    "else", "import", "public", "throws", "case", "enum", "instanceof", "return", "transient", "catch", "extends", "int", "short", "try", "char", "final", "interface", "static", "void", "class", "finally", "long", "strictfp", "volatile", "const",
+    	    "float", "native", "super", "while",
+    					  };
 
     @objid ("7b64c013-2a77-11e2-9fb9-bc305ba4815c")
     private IToken tagToken;
@@ -52,7 +51,7 @@ public class RTPartitionScanner extends RuleBasedPartitionScanner {
     private Token commentToken;
 
     @objid ("7b650e36-2a77-11e2-9fb9-bc305ba4815c")
-    public RTPartitionScanner() {
+    public  RTPartitionScanner() {
         this.tagToken = new Token(RTPartitionTypes.OBJINGID_PARTITION);
         this.keywordToken = new Token(RTPartitionTypes.KEYWORD_PARTITION);
         this.commentToken = new Token(RTPartitionTypes.COMMENT_PARTITION);
@@ -79,6 +78,7 @@ public class RTPartitionScanner extends RuleBasedPartitionScanner {
             this.rules[i] = therules.get(i);
                 
         setPredicateRules(this.rules);
+        
     }
 
 }

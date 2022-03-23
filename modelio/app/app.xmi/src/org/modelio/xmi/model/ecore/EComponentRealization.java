@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import java.util.ArrayList;
@@ -66,7 +65,7 @@ public class EComponentRealization extends ENamedElement {
     }
 
     @objid ("54c7a273-ec75-4b6c-bc50-5c14b5df785e")
-    public EComponentRealization(org.eclipse.uml2.uml.ComponentRealization element) {
+    public  EComponentRealization(org.eclipse.uml2.uml.ComponentRealization element) {
         super(element);
     }
 

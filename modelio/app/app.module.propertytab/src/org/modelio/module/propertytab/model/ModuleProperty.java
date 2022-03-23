@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.module.propertytab.model;
 
 import java.util.Collection;
@@ -63,7 +62,7 @@ public class ModuleProperty {
     }
 
     @objid ("c87b2db4-1eba-11e2-9382-bc305ba4815c")
-    public ModuleProperty(String name, Class<?> type, Object value, String[] choices, Collection<? extends MClass> acceptedMetaclasses, IMObjectFilter mobjectFilter, boolean readOnly) {
+    public  ModuleProperty(String name, Class<?> type, Object value, String[] choices, Collection<? extends MClass> acceptedMetaclasses, IMObjectFilter mobjectFilter, boolean readOnly) {
         super();
         this.name = name;
         this.label = name;
@@ -80,6 +79,7 @@ public class ModuleProperty {
         } else {
             this.category = null;
         }
+        
     }
 
     @objid ("c87bc9f3-1eba-11e2-9382-bc305ba4815c")

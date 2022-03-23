@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.header;
 
 import java.util.List;
@@ -88,7 +87,7 @@ public class WrappedHeaderFigure extends GradientFigure implements IHeaderFigure
      * Constructor.
      */
     @objid ("7e7abe1a-1dec-11e2-8cad-001ec947c8cc")
-    public WrappedHeaderFigure() {
+    public  WrappedHeaderFigure() {
         // The header figure is a 'BorderLayout' container.
         // Children layout:
         // - TOP : topArea - figure with 2 LabelumFigure (keyword and stereotypes labels)
@@ -120,11 +119,11 @@ public class WrappedHeaderFigure extends GradientFigure implements IHeaderFigure
         // -- CENTER Area --
         // a Labelum
         this.mainLabel = createCenterFigures();
+        
     }
 
     /**
      * Set the icons displayed on the upper left corner.
-     * 
      * @param icons The left icons
      */
     @objid ("7e7abe1d-1dec-11e2-8cad-001ec947c8cc")
@@ -139,11 +138,11 @@ public class WrappedHeaderFigure extends GradientFigure implements IHeaderFigure
         }
         
         this.leftArea.setVisible(!icons.isEmpty());
+        
     }
 
     /**
      * Set the icons displayed on the upper right corner.
-     * 
      * @param icons The right icons
      */
     @objid ("7e7abe23-1dec-11e2-8cad-001ec947c8cc")
@@ -158,11 +157,11 @@ public class WrappedHeaderFigure extends GradientFigure implements IHeaderFigure
         }
         
         this.rightArea.setVisible(!icons.isEmpty());
+        
     }
 
     /**
      * Set the keyword label.
-     * 
      * @param text the keyword label.
      */
     @objid ("7e7abe29-1dec-11e2-8cad-001ec947c8cc")
@@ -174,11 +173,11 @@ public class WrappedHeaderFigure extends GradientFigure implements IHeaderFigure
             this.keywordLabel.setText(text);
             this.keywordLabel.setVisible(true);
         }
+        
     }
 
     /**
      * Set the labels displayed on top of the main label.
-     * 
      * @param text the top labels.
      */
     @objid ("7e7abe2d-1dec-11e2-8cad-001ec947c8cc")
@@ -186,11 +185,11 @@ public class WrappedHeaderFigure extends GradientFigure implements IHeaderFigure
     public void setTopLabel(String text) {
         this.topLabels.setVisible(text != null && !text.isEmpty());
         this.topLabels.setText(text);
+        
     }
 
     /**
      * Set the main label.
-     * 
      * @param s the main label.
      */
     @objid ("7e7abe33-1dec-11e2-8cad-001ec947c8cc")
@@ -207,11 +206,11 @@ public class WrappedHeaderFigure extends GradientFigure implements IHeaderFigure
         }
         
         revalidate();
+        
     }
 
     /**
      * Set the labels displayed below the main label.
-     * 
      * @param bottomLabels the bottom labels.
      */
     @objid ("7e7abe37-1dec-11e2-8cad-001ec947c8cc")
@@ -236,18 +235,19 @@ public class WrappedHeaderFigure extends GradientFigure implements IHeaderFigure
                 this.bottomLabel.setText(bottomLabels);
             }
         }
+        
     }
 
-// @objid ("7e7abe44-1dec-11e2-8cad-001ec947c8cc")
-// @Override
-// public Color getTextColor() {
-// return this.mainLabel.getForegroundColor();
-// }
-// @objid ("7e7abe49-1dec-11e2-8cad-001ec947c8cc")
-// @Override
-// public Font getTextFont() {
-// return this.mainLabel.getFont();
-// }
+    // @objid ("7e7abe44-1dec-11e2-8cad-001ec947c8cc")
+    // @Override
+    // public Color getTextColor() {
+    // return this.mainLabel.getForegroundColor();
+    // }
+    // @objid ("7e7abe49-1dec-11e2-8cad-001ec947c8cc")
+    // @Override
+    // public Font getTextFont() {
+    // return this.mainLabel.getFont();
+    // }
     @objid ("7e7abe4e-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public void setTextColor(Color textColor) {
@@ -260,6 +260,7 @@ public class WrappedHeaderFigure extends GradientFigure implements IHeaderFigure
             this.bottomLabel.setTextColor(textColor);
         }
         super.setTextColor(textColor);
+        
     }
 
     @objid ("7e7abe52-1dec-11e2-8cad-001ec947c8cc")
@@ -276,32 +277,33 @@ public class WrappedHeaderFigure extends GradientFigure implements IHeaderFigure
             this.bottomLabel.setTextFont(this.tagFont);
         }
         super.setTextFont(textFont);
+        
     }
 
-// @objid ("7e7abe59-1dec-11e2-8cad-001ec947c8cc")
-// @Override
-// public Color getLineColor() {
-// // return null;
-// return super.getLineColor();
-// }
-// @objid ("7e7abe5e-1dec-11e2-8cad-001ec947c8cc")
-// @Override
-// public int getLineWidth() {
-// return super.getLineWidth(); // WAS return 0;
-// }
-// @objid ("7e7abe63-1dec-11e2-8cad-001ec947c8cc")
-// @Override
-// public void setLineColor(Color lineColor) {
-//
-// super.setLineColor(lineColor);
-// }
-//
-// @objid ("7e7d2071-1dec-11e2-8cad-001ec947c8cc")
-// @Override
-// public void setLineWidth(int lineWidth) {
-//
-// super.setLineWidth(lineWidth);
-// }
+    // @objid ("7e7abe59-1dec-11e2-8cad-001ec947c8cc")
+    // @Override
+    // public Color getLineColor() {
+    // // return null;
+    // return super.getLineColor();
+    // }
+    // @objid ("7e7abe5e-1dec-11e2-8cad-001ec947c8cc")
+    // @Override
+    // public int getLineWidth() {
+    // return super.getLineWidth(); // WAS return 0;
+    // }
+    // @objid ("7e7abe63-1dec-11e2-8cad-001ec947c8cc")
+    // @Override
+    // public void setLineColor(Color lineColor) {
+    //
+    // super.setLineColor(lineColor);
+    // }
+    //
+    // @objid ("7e7d2071-1dec-11e2-8cad-001ec947c8cc")
+    // @Override
+    // public void setLineWidth(int lineWidth) {
+    //
+    // super.setLineWidth(lineWidth);
+    // }
     @objid ("7e7d2079-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public Dimension getMinimumSize(int wHint, int hHint) {
@@ -311,7 +313,6 @@ public class WrappedHeaderFigure extends GradientFigure implements IHeaderFigure
 
     /**
      * Set whether the main label is underlined.
-     * 
      * @param underline true to underline the main label
      */
     @objid ("7e7d2082-1dec-11e2-8cad-001ec947c8cc")
@@ -322,7 +323,6 @@ public class WrappedHeaderFigure extends GradientFigure implements IHeaderFigure
 
     /**
      * Set whether the main label is stroked through.
-     * 
      * @param strikeThrough true to strike the label
      */
     @objid ("7e7d2087-1dec-11e2-8cad-001ec947c8cc")
@@ -333,7 +333,6 @@ public class WrappedHeaderFigure extends GradientFigure implements IHeaderFigure
 
     /**
      * Get the main label figure.
-     * 
      * @return the main label figure.
      */
     @objid ("7e7abe3d-1dec-11e2-8cad-001ec947c8cc")
@@ -350,6 +349,7 @@ public class WrappedHeaderFigure extends GradientFigure implements IHeaderFigure
         
         this.stereotypeFont = FigureUtilities2.getSmallerFont(baseFont);
         this.tagFont = CoreFontRegistry.getModifiedFont(this.stereotypeFont, SWT.ITALIC, 1);
+        
     }
 
     @objid ("aae63863-c1fa-497f-8254-c7ede775788e")
@@ -432,7 +432,6 @@ public class WrappedHeaderFigure extends GradientFigure implements IHeaderFigure
      * <LI>{@link PositionConstants#ALWAYS_RIGHT} - Right, irrespective of
      * orientation</LI>
      * </UL>
-     * 
      * @param value the alignment
      */
     @objid ("0f194a3d-86e7-492a-9811-d1928c2bf940")
@@ -446,7 +445,6 @@ public class WrappedHeaderFigure extends GradientFigure implements IHeaderFigure
      * This method will never return {@link PositionConstants#NONE}. If the value is none, it will return the
      * inherited alignment. If no alignment was inherited, it will return the
      * default alignment ({@link PositionConstants#LEFT}).
-     * 
      * @return the effective alignment
      */
     @objid ("7c2231e4-9c9b-4dd6-8bfb-b6bf1cf05d9f")
@@ -474,6 +472,7 @@ public class WrappedHeaderFigure extends GradientFigure implements IHeaderFigure
     protected void layout() {
         // Standard behavior
         super.layout();
+        
     }
 
 }

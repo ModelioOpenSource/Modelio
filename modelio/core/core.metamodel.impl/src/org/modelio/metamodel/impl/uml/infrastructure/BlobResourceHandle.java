@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.io.IOException;
@@ -70,7 +69,7 @@ public class BlobResourceHandle implements IResourceHandle {
     private static final Pattern STORAGE_INFO_PATTERN = Pattern.compile("blob:(.*)");
 
     @objid ("aef6d486-e852-485b-929f-9357f8ab268e")
-    public BlobResourceHandle(AbstractResource modelEl) {
+    public  BlobResourceHandle(AbstractResource modelEl) {
         this.modelEl = modelEl;
         String info = modelEl.getStorageInfo();
         Matcher matcher = STORAGE_INFO_PATTERN.matcher(info);
@@ -82,6 +81,7 @@ public class BlobResourceHandle implements IResourceHandle {
         this.fileName = matcher.group(1).replaceAll("[\\/:\\*\\?\"<>`|]", "");
         this.repository = CoreSession.getSession(modelEl).getRepository(modelEl);
         this.blobInfo = new BlobInfo(new MRef(modelEl), IResourceHandle.BLOB_LOCAL_KEY);
+        
     }
 
     @objid ("6f412bd0-73ad-4b94-9e38-7865c2a3bda5")
@@ -114,8 +114,7 @@ public class BlobResourceHandle implements IResourceHandle {
 
     /**
      * Delete the attached resource.
-     * 
-     * @throws java.io.IOException on I/O failure.
+     * @throws IOException on I/O failure.
      */
     @objid ("2dd0f4e6-1a39-4ba4-ba2d-f2d0c749f4cc")
     public void delete() throws IOException {
@@ -130,6 +129,7 @@ public class BlobResourceHandle implements IResourceHandle {
                 this.modelEl.setStorageInfo(oldStorage);
             }
         }
+        
     }
 
     @objid ("2158a535-5c48-44d1-96cd-5c0732410015")

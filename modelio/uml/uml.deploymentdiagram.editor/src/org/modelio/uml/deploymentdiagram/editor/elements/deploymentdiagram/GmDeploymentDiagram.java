@@ -17,18 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.deploymentdiagram.editor.elements.deploymentdiagram;
 
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.elements.common.abstractdiagram.GmAbstractDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.diagrams.DeploymentDiagram;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -55,15 +55,15 @@ public class GmDeploymentDiagram extends GmAbstractDiagram {
 
     /**
      * Initialize the diagram.
-     * 
      * @param manager The model manager
      * @param theDeploymentDiagram the displayed diagram.
      * @param diagramRef the reference of the displayed diagram. Must reference a {@link IStaticDiagram}.
      */
     @objid ("972692c0-55b6-11e2-877f-002564c97630")
-    public GmDeploymentDiagram(IModelManager manager, DeploymentDiagram theDeploymentDiagram, MRef diagramRef) {
+    public  GmDeploymentDiagram(IModelManager manager, DeploymentDiagram theDeploymentDiagram, MRef diagramRef) {
         super(manager, diagramRef);
         this.element = theDeploymentDiagram;
+        
     }
 
     @objid ("972692cf-55b6-11e2-877f-002564c97630")
@@ -123,6 +123,7 @@ public class GmDeploymentDiagram extends GmAbstractDiagram {
             break;
         }
         }
+        
     }
 
     @objid ("97281960-55b6-11e2-877f-002564c97630")
@@ -150,12 +151,14 @@ public class GmDeploymentDiagram extends GmAbstractDiagram {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmDeploymentDiagram.", GmDeploymentDiagram.MINOR_VERSION);
+        
     }
 
     @objid ("97281977-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (DeploymentDiagram) this.resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("9728197c-55b6-11e2-877f-002564c97630")

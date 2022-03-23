@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition;
 
@@ -49,24 +48,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("d01ebb18-da75-4ebb-96d8-94d22c850452")
 public class GoalPropertyset {
-    @objid ("5cae09b7-4c95-40aa-9490-fc91bb806ba0")
+    @objid ("5eeaa652-e0cf-4dfc-99bb-736359424f44")
     public static final String STEREOTYPE_NAME = "goal_propertyset";
 
     /**
      * The underlying {@link PropertyTableDefinition} represented by this proxy, never null.
      */
-    @objid ("9b844239-c112-413d-9453-25579eb13e2b")
+    @objid ("102c45c6-b05a-4abc-a73d-cd1ba1c79083")
     protected final PropertyTableDefinition elt;
 
     /**
      * Tells whether a {@link GoalPropertyset proxy} can be instantiated from a {@link MObject} checking it is a {@link PropertyTableDefinition} stereotyped << goal_propertyset >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("9a48ea58-8550-48fb-931c-8971e276a52e")
+    @objid ("8886b1f1-29e7-44c1-a111-46967c3c04f8")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof PropertyTableDefinition) && ((PropertyTableDefinition) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, GoalPropertyset.STEREOTYPE_NAME));
     }
@@ -76,9 +74,9 @@ public class GoalPropertyset {
      * 
      * @return a {@link GoalPropertyset} proxy on the created {@link PropertyTableDefinition}.
      */
-    @objid ("2f646299-fe4e-4b8e-958b-30d429367dd8")
+    @objid ("f22028e0-e98a-49d6-aa91-c9005462e77f")
     public static GoalPropertyset create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("PropertyTableDefinition");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Infrastructure.PropertyTableDefinition");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, GoalPropertyset.STEREOTYPE_NAME);
         return GoalPropertyset.instantiate((PropertyTableDefinition)e);
     }
@@ -90,7 +88,7 @@ public class GoalPropertyset {
      * @param obj a PropertyTableDefinition
      * @return a {@link GoalPropertyset} proxy or <i>null</i>.
      */
-    @objid ("d912ea94-43b2-4f85-8d4d-b41c1f78939d")
+    @objid ("2774bb37-1c5d-4e47-b3cb-ee0bb762c07c")
     public static GoalPropertyset instantiate(PropertyTableDefinition obj) {
         return GoalPropertyset.canInstantiate(obj) ? new GoalPropertyset(obj) : null;
     }
@@ -103,7 +101,7 @@ public class GoalPropertyset {
      * @return a {@link GoalPropertyset} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("af94d723-12af-477d-8cdc-ddda64a8d2ef")
+    @objid ("73e0c3f9-3054-4741-85fc-79f5d7d10307")
     public static GoalPropertyset safeInstantiate(PropertyTableDefinition obj) throws IllegalArgumentException {
         if (GoalPropertyset.canInstantiate(obj))
         	return new GoalPropertyset(obj);
@@ -111,7 +109,7 @@ public class GoalPropertyset {
         	throw new IllegalArgumentException("GoalPropertyset: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("b9876c01-ea79-4f92-bc25-a157e90d2995")
+    @objid ("e8e9fa69-88f5-46eb-82db-ebf947d8a89a")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -131,46 +129,47 @@ public class GoalPropertyset {
      * Get the underlying {@link PropertyTableDefinition}. 
      * @return the PropertyTableDefinition represented by this proxy, never null.
      */
-    @objid ("c5ba8cb2-f919-49f7-9bc4-b3db5c7929f7")
+    @objid ("44280dd3-3e6b-4f77-a081-28af3b0c12e4")
     public PropertyTableDefinition getElement() {
         return this.elt;
     }
 
-    @objid ("c18f1b73-dc65-4426-84ec-0b783205b21c")
+    @objid ("ac7515f1-65f1-4de5-8ef8-a9b8cab61396")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("b92fe63b-2d50-4611-8ee8-4b80e46b152c")
-    protected GoalPropertyset(PropertyTableDefinition elt) {
+    @objid ("6591371b-70ec-429d-9a75-0fe94dd770d9")
+    protected  GoalPropertyset(PropertyTableDefinition elt) {
         this.elt = elt;
     }
 
     @objid ("af94a5ac-43a2-4dea-868e-bb40136af1d6")
     public static final class MdaTypes {
-        @objid ("5bd8ad07-28fb-4101-9ae9-0ce4ff948f2c")
+        @objid ("ee6eee25-4110-42f8-b74a-692cc2cfde40")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("85e9a103-32ac-4042-9c8d-e5c7a0230b0d")
+        @objid ("6c050394-f547-4e92-b5a5-0bf7e02e338f")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("09ce88ea-1cbb-4384-a9fb-3b3c8832d732")
+        @objid ("7b56bda7-e0d9-4bd3-a3c2-4a80383f1e2f")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("c1a3cc6e-5af0-4d52-ab40-c5bed03ca66f")
+        @objid ("02d3bfa4-59ea-44a9-ac39-40aca7a64ed1")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "01ec141c-0000-12f2-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

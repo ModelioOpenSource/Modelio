@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.naryconnector;
 
 import java.util.ArrayList;
@@ -46,7 +45,7 @@ public class NConnectorFinalizationEditPolicy extends NLinkFinalizationEditPolic
      * C'tor.
      */
     @objid ("35dbd8a1-55b7-11e2-877f-002564c97630")
-    public NConnectorFinalizationEditPolicy() {
+    public  NConnectorFinalizationEditPolicy() {
         super();
     }
 
@@ -80,6 +79,7 @@ public class NConnectorFinalizationEditPolicy extends NLinkFinalizationEditPolic
         } else {
             return null;
         }
+        
     }
 
     @objid ("35dd5f19-55b7-11e2-877f-002564c97630")
@@ -90,6 +90,7 @@ public class NConnectorFinalizationEditPolicy extends NLinkFinalizationEditPolic
             return super.getTargetEditPartLast(request);
         else
             return null;
+        
     }
 
 }

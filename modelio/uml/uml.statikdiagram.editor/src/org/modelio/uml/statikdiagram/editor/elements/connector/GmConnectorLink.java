@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.connector;
 
 import java.util.List;
@@ -52,20 +51,19 @@ public class GmConnectorLink extends GmInstanceLink {
      * Constructor for deserialization.
      */
     @objid ("34b3d350-55b7-11e2-877f-002564c97630")
-    public GmConnectorLink() {
+    public  GmConnectorLink() {
         // Nothing to do.
     }
 
     /**
      * Creates a GmConnectorLink.
-     * 
      * @param diagram The diagram containing the connector.
      * @param role The represented connector role, may be <code>null</code>.
      * @param roleRef The represented connector role reference. Must not be <code>null</code>.
      * @param connectorRef The represented connector reference. Must not be <code>null</code>.
      */
     @objid ("34b3d353-55b7-11e2-877f-002564c97630")
-    public GmConnectorLink(IGmDiagram diagram, ConnectorEnd role, MRef roleRef, final MRef connectorRef) {
+    public  GmConnectorLink(IGmDiagram diagram, ConnectorEnd role, MRef roleRef, final MRef connectorRef) {
         super(diagram, role, roleRef, connectorRef);
     }
 
@@ -97,6 +95,7 @@ public class GmConnectorLink extends GmInstanceLink {
                 break;
             }
         }
+        
     }
 
     @objid ("34b559dd-55b7-11e2-877f-002564c97630")
@@ -106,6 +105,7 @@ public class GmConnectorLink extends GmInstanceLink {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmConnectorLink.", GmConnectorLink.MINOR_VERSION);
+        
     }
 
     @objid ("34b559e3-55b7-11e2-877f-002564c97630")

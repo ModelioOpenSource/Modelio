@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.rake;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,22 +35,21 @@ public class BendpointCreationInvisibleHandle extends BendpointCreationHandle {
     /**
      * Creates a new BendpointCreationHandle, sets its owner to <code>owner</code> and its index to <code>index</code>,
      * and sets its locator to a new {@link org.eclipse.draw2d.MidpointLocator}.
-     * 
      * @param owner a connection edit part
      * @param index the index of the segment to make moveable.
      */
     @objid ("80553212-1dec-11e2-8cad-001ec947c8cc")
-    public BendpointCreationInvisibleHandle(ConnectionEditPart owner, int index) {
+    public  BendpointCreationInvisibleHandle(ConnectionEditPart owner, int index) {
         super(owner, index);
         setCursor(SharedCursors.CURSOR_TREE_ADD);
         // TODO: look at this
         //setCursor(Cursors.CURSOR_SEG_ADD);
+        
     }
 
     /**
      * Draws the handle with fill color and outline color dependent on the primary selection status of the owner edit
      * part.
-     * 
      * @param g The graphics used to paint the figure.
      */
     @objid ("80579467-1dec-11e2-8cad-001ec947c8cc")

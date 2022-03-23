@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.combinedfragment.primarynode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,6 +39,7 @@ public class InteractionOperandContainerEditPart extends ResizableGroupEditPart 
         super.createEditPolicies();
         // Override layout policy to handle ObModel in addition to simply handling the graphical properties.
         installEditPolicy(EditPolicy.LAYOUT_ROLE, new InteractionOperandContainerLayoutEditPolicy());
+        
     }
 
     @objid ("d8cfa7f5-55b6-11e2-877f-002564c97630")

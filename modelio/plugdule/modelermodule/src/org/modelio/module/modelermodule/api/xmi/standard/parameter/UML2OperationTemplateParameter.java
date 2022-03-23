@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.parameter;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("d3e40d9b-99b6-479e-872c-bab0545bb6db")
 public class UML2OperationTemplateParameter {
-    @objid ("73a5a882-6bf0-4e26-96d8-185dbec1e746")
+    @objid ("66232745-197b-447c-b251-7beeeb977a80")
     public static final String STEREOTYPE_NAME = "UML2OperationTemplateParameter";
 
     /**
      * The underlying {@link Parameter} represented by this proxy, never null.
      */
-    @objid ("ed1a65cf-40ec-4f6b-ba43-84d1f25f10c5")
+    @objid ("8389f4f8-c866-486e-a62f-0b815e8d7dad")
     protected final Parameter elt;
 
     /**
      * Tells whether a {@link UML2OperationTemplateParameter proxy} can be instantiated from a {@link MObject} checking it is a {@link Parameter} stereotyped << UML2OperationTemplateParameter >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("55ef2bb4-5486-40b2-abf2-c53b8b2c3763")
+    @objid ("b73a94fe-1387-428c-92d5-762752d56187")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Parameter) && ((Parameter) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2OperationTemplateParameter.STEREOTYPE_NAME));
     }
@@ -77,9 +75,9 @@ public class UML2OperationTemplateParameter {
      * 
      * @return a {@link UML2OperationTemplateParameter} proxy on the created {@link Parameter}.
      */
-    @objid ("cb688129-a91f-4f28-84c8-b1a7d25fa27e")
+    @objid ("6c7d9758-1dfe-40ef-8ca3-d87df207ab14")
     public static UML2OperationTemplateParameter create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Parameter");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.Parameter");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2OperationTemplateParameter.STEREOTYPE_NAME);
         return UML2OperationTemplateParameter.instantiate((Parameter)e);
     }
@@ -91,7 +89,7 @@ public class UML2OperationTemplateParameter {
      * @param obj a Parameter
      * @return a {@link UML2OperationTemplateParameter} proxy or <i>null</i>.
      */
-    @objid ("1f53da16-3fa2-467b-98d8-2efe2b29ec4f")
+    @objid ("3d2d7934-70fa-4b8b-a51e-5382f564d3f0")
     public static UML2OperationTemplateParameter instantiate(Parameter obj) {
         return UML2OperationTemplateParameter.canInstantiate(obj) ? new UML2OperationTemplateParameter(obj) : null;
     }
@@ -104,7 +102,7 @@ public class UML2OperationTemplateParameter {
      * @return a {@link UML2OperationTemplateParameter} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("36dd3d3a-2c95-4dbd-a2c7-dab69c6cf7f5")
+    @objid ("369d8e48-68a1-4ee5-b127-ad4181a16dc5")
     public static UML2OperationTemplateParameter safeInstantiate(Parameter obj) throws IllegalArgumentException {
         if (UML2OperationTemplateParameter.canInstantiate(obj))
         	return new UML2OperationTemplateParameter(obj);
@@ -112,7 +110,7 @@ public class UML2OperationTemplateParameter {
         	throw new IllegalArgumentException("UML2OperationTemplateParameter: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("a992ebb0-b5c1-4dfe-a477-2b76b19c554b")
+    @objid ("685126a2-2f70-482b-bb0c-9ed44eed8259")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,46 +130,47 @@ public class UML2OperationTemplateParameter {
      * Get the underlying {@link Parameter}. 
      * @return the Parameter represented by this proxy, never null.
      */
-    @objid ("7ff98d94-88bf-4281-8cd5-a39c5eb6dd06")
+    @objid ("3a0bcf01-b312-4345-938e-19406deae956")
     public Parameter getElement() {
         return this.elt;
     }
 
-    @objid ("4ffa4998-2710-4036-a5f5-10857877c4ad")
+    @objid ("b1fb53dd-1bf1-4c1f-b9d7-f97db3cfccf0")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("5e7e0bb9-7263-4235-8880-86394c96d99b")
-    protected UML2OperationTemplateParameter(Parameter elt) {
+    @objid ("9f48920b-0d93-41ac-ae8b-643697a7ac3f")
+    protected  UML2OperationTemplateParameter(Parameter elt) {
         this.elt = elt;
     }
 
     @objid ("f0c89734-17df-443d-90e3-d99c1720d92b")
     public static final class MdaTypes {
-        @objid ("a38d235b-7502-4394-bed6-b719eaa6801b")
+        @objid ("0a5b4720-ff17-4871-9a1c-c63a7f87c654")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("274af908-7586-4fc8-b1c5-2d45d14afc5f")
+        @objid ("8de63277-cd2f-4fb4-9b0a-97707fd2c660")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("8722a715-8ad7-44e1-9741-5a9bea796010")
+        @objid ("08140964-27f2-4612-9ce8-28b98a239ea5")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("65da5ae9-907d-4672-9ba5-72796cbfdc25")
+        @objid ("3e714969-b44e-4814-a5a8-be7aa7627efa")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "07ba6521-5d0d-11df-a996-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

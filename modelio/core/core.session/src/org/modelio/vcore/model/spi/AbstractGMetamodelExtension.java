@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model.spi;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -68,6 +67,7 @@ public abstract class AbstractGMetamodelExtension implements IGMetamodelExtensio
         registerProvider(tools.getNamer().getMetamodelExtensionPoint(), getNamer(session));
         registerProvider(tools.getPopulator().getMetamodelExtensionPoint(), getPopulator(session));
         registerProvider(tools.getRootGetter().getMetamodelExtensionPoint(), getRootGetter(session));
+        
     }
 
     @objid ("1eb280ca-367e-4cbf-9f46-067c16ad2b64")
@@ -75,6 +75,7 @@ public abstract class AbstractGMetamodelExtension implements IGMetamodelExtensio
         if (service != null) {
             registry.registerExtension(service, getMmFragment().getClass());
         }
+        
     }
 
     @objid ("7d90d164-6d74-4253-8927-c927bced9a95")
@@ -96,7 +97,7 @@ public abstract class AbstractGMetamodelExtension implements IGMetamodelExtensio
     }
 
     @objid ("166080c0-d3f8-4045-a605-16b0011b15b5")
-    protected AbstractGMetamodelExtension(ISmMetamodelFragment mmFragment) {
+    protected  AbstractGMetamodelExtension(ISmMetamodelFragment mmFragment) {
         this.mmFragment = mmFragment;
     }
 

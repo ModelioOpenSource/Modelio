@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.abstractdiagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -63,17 +62,17 @@ public class ImageBuilder {
     private int format;
 
     @objid ("c2af8b06-cfc7-4d8a-b4a8-3583ccb8f5b4")
-    public ImageBuilder() {
+    public  ImageBuilder() {
         this(SWT.IMAGE_PNG);
     }
 
     @objid ("f00a3b84-d007-47e8-9c65-4d126d46ce41")
-    public ImageBuilder(int format) {
+    public  ImageBuilder(int format) {
         this(ImageBuilder.MARGIN, format);
     }
 
     @objid ("47b49445-29c8-49c8-b4b6-ba095a1bf39d")
-    public ImageBuilder(int margin, int format) {
+    public  ImageBuilder(int margin, int format) {
         switch (format) {
         case SWT.IMAGE_PNG:
         case SWT.IMAGE_JPEG:
@@ -89,6 +88,7 @@ public class ImageBuilder {
         }
         this.margin = margin;
         this.format = format;
+        
     }
 
     @objid ("d3118d79-4e32-4601-a1d4-7b54d98f1460")
@@ -175,11 +175,11 @@ public class ImageBuilder {
         scalableLayers.add(backgroundLayer, "BACKGROUND_LAYER", 0);
         return img; // the caller is responsible for disposing the returned
         // image
+        
     }
 
     /**
      * Recurse through layers in order to find the DiagramFigure
-     * 
      * @param layer @return
      */
     @objid ("65b21831-33f7-11e2-95fe-001ec947c8cc")
@@ -203,7 +203,6 @@ public class ImageBuilder {
      * Compute the minimum contents size of the diagram. This size is defined as
      * the union of the smallest bounding rectangle that encloses both all the
      * nodes and all the links
-     * 
      * @param diagramFigure the diagram figure
      * @param connectionLayer the connection layer
      * @param drawingLayers the drawing layers pane
@@ -265,7 +264,6 @@ public class ImageBuilder {
      * is the smallest rectangle enclosing all the diagram nodes (note: the
      * computation does not take links into account which are laid in the
      * Connection layer)
-     * 
      * @param figure @return
      */
     @objid ("65b21844-33f7-11e2-95fe-001ec947c8cc")

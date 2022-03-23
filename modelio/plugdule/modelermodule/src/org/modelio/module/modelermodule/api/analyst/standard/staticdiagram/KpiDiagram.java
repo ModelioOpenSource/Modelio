@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.analyst.standard.staticdiagram;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("ca735868-68ed-46f2-b748-17695c64b56f")
 public class KpiDiagram {
-    @objid ("20a0a9aa-b489-44de-a47c-9f2953149712")
+    @objid ("b4066b3f-89a5-41e3-82ce-7e2e64dfb3c4")
     public static final String STEREOTYPE_NAME = "kpi_diagram";
 
     /**
      * The underlying {@link StaticDiagram} represented by this proxy, never null.
      */
-    @objid ("a3bf244a-588b-4e73-9406-4f62e6a24059")
+    @objid ("17ccfd50-ffe4-4821-9fed-100571d0127d")
     protected final StaticDiagram elt;
 
     /**
      * Tells whether a {@link KpiDiagram proxy} can be instantiated from a {@link MObject} checking it is a {@link StaticDiagram} stereotyped << kpi_diagram >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("575927cb-9fce-40ea-9af9-e80cfbfaa00c")
+    @objid ("447810cd-c84f-4b26-8814-a6b9035b481e")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof StaticDiagram) && ((StaticDiagram) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, KpiDiagram.STEREOTYPE_NAME));
     }
@@ -77,9 +75,9 @@ public class KpiDiagram {
      * 
      * @return a {@link KpiDiagram} proxy on the created {@link StaticDiagram}.
      */
-    @objid ("7d8e4b99-1235-441e-aeb8-b8539b681853")
+    @objid ("02b30ba2-6529-400f-8a2b-5bab54e9d1c6")
     public static KpiDiagram create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("StaticDiagram");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.StaticDiagram");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, KpiDiagram.STEREOTYPE_NAME);
         return KpiDiagram.instantiate((StaticDiagram)e);
     }
@@ -91,7 +89,7 @@ public class KpiDiagram {
      * @param obj a StaticDiagram
      * @return a {@link KpiDiagram} proxy or <i>null</i>.
      */
-    @objid ("9dbb305d-cbc3-40a4-8dda-8e437bc4b84e")
+    @objid ("184c7b76-4113-459e-a8a2-eef0d38ee17b")
     public static KpiDiagram instantiate(StaticDiagram obj) {
         return KpiDiagram.canInstantiate(obj) ? new KpiDiagram(obj) : null;
     }
@@ -104,7 +102,7 @@ public class KpiDiagram {
      * @return a {@link KpiDiagram} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("3e238df4-022b-494f-98d1-78816536647a")
+    @objid ("26cc0a1c-56e0-4c41-83c6-f06396054004")
     public static KpiDiagram safeInstantiate(StaticDiagram obj) throws IllegalArgumentException {
         if (KpiDiagram.canInstantiate(obj))
         	return new KpiDiagram(obj);
@@ -112,7 +110,7 @@ public class KpiDiagram {
         	throw new IllegalArgumentException("KpiDiagram: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("c5437084-551d-4df5-adfd-229e5c7a39d9")
+    @objid ("c960aa5a-3a58-4d2c-8dd3-c2073086c930")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,46 +130,47 @@ public class KpiDiagram {
      * Get the underlying {@link StaticDiagram}. 
      * @return the StaticDiagram represented by this proxy, never null.
      */
-    @objid ("ab28e51c-c878-4043-9564-79d7da49aadc")
+    @objid ("ec3249ca-aa98-4ffc-9643-a2313a5b20e0")
     public StaticDiagram getElement() {
         return this.elt;
     }
 
-    @objid ("c9d4f641-579a-4f2f-b9f1-4f069fa65544")
+    @objid ("47be6543-7283-4683-b67a-90c526e42c1a")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("4dbd60e8-ba7f-47ef-b476-4533285cc769")
-    protected KpiDiagram(StaticDiagram elt) {
+    @objid ("1b37c0e8-4851-4a4a-ad54-70c66a3b46f5")
+    protected  KpiDiagram(StaticDiagram elt) {
         this.elt = elt;
     }
 
     @objid ("14383e01-4c20-4ad8-b7c9-1c85c97c4c2e")
     public static final class MdaTypes {
-        @objid ("98f7029c-004a-4cc9-aeb0-c9e90c5ddc54")
+        @objid ("b21c6690-e723-495e-a3b2-97776dc4b32f")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("29554848-45f2-4ef0-895c-9174fd1ef9b3")
+        @objid ("702014ba-285d-4c4e-aad3-20dbb87ac5f6")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("56565061-776a-4ae0-8a62-3e5a13ccdb1c")
+        @objid ("2a787493-155d-4771-ad88-c0cd2e480765")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("3ba71751-30ab-494a-8287-ea86cd3985d3")
+        @objid ("e8a7118e-0762-4b47-bbec-fd5297edee0a")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "19d2deba-a7b7-4818-8d19-aa8b2d63dba1");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

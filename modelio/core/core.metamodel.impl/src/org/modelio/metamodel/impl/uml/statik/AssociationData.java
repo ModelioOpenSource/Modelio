@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.List;
@@ -33,16 +33,16 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("60b053d8-9a17-42c3-83bc-888ce3e68a7d")
 public class AssociationData extends UmlModelElementData {
     @objid ("c9583c98-a0b1-42cf-8dc0-8ae846cdbc28")
-     List<SmObjectImpl> mOccurence = null;
+    List<SmObjectImpl> mOccurence = null;
 
     @objid ("3397cca3-fc0e-49a1-80a4-3208090d3dad")
-     List<SmObjectImpl> mEnd = null;
+    List<SmObjectImpl> mEnd = null;
 
     @objid ("66916f03-cfb0-409d-a5be-5fda040ccf0c")
-     SmObjectImpl mLinkToClass;
+    SmObjectImpl mLinkToClass;
 
     @objid ("552465d2-bbd8-4f6d-97e8-c8b5125ffd18")
-    public AssociationData(AssociationSmClass smClass) {
+    public  AssociationData(AssociationSmClass smClass) {
         super(smClass);
     }
 

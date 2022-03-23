@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.catalog;
 
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
@@ -55,7 +54,6 @@ public class OpenCatalogHandler {
     /**
      * Apply a pattern chosen in the pattern catalog.
      * @param selection the current modelio selection.
-     * 
      * @param patternService the pattern service.
      */
     @objid ("72af4657-4926-4360-a894-e510954c3765")
@@ -71,6 +69,7 @@ public class OpenCatalogHandler {
                 applyPattern(selectedPattern, activeShell, pickingService, projectService);
             }
         }
+        
     }
 
     @objid ("1269db7c-59b8-4500-bad8-936bd6f92d48")
@@ -89,6 +88,7 @@ public class OpenCatalogHandler {
             Patterns.LOG.debug(e);
             MessageDialog.openError(activeShell, Patterns.I18N.getString("Gui.ErrorTitle"), e.getMessage());
         }
+        
     }
 
     @objid ("b28e7ccd-4760-465e-9adc-9882debbae5e")

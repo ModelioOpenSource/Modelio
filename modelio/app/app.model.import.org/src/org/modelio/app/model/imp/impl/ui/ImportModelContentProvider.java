@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.model.imp.impl.ui;
 
 import java.util.ArrayList;
@@ -44,9 +43,10 @@ class ImportModelContentProvider extends BrowserContentProvider {
     private final MetamodelExtensionPoint<ITreeContentProvider> contentProviderExtensions = new MetamodelExtensionPoint<>(BrowserView.CONTENTPROVIDER_EXTENSION_POINT_ID);
 
     @objid ("2481bf13-8cb6-4f7c-8a2d-9c94d0f5a844")
-    public ImportModelContentProvider() {
+    public  ImportModelContentProvider() {
         super();
         setShowModuleFragments(true);
+        
     }
 
     @objid ("acdf23f9-a63f-45cf-8403-795345d9f331")
@@ -65,6 +65,7 @@ class ImportModelContentProvider extends BrowserContentProvider {
         }
         
         super.inputChanged(currentViewer, oldInput, newInput);
+        
     }
 
     @objid ("24a2ad74-b9c4-4858-bf38-b3b9cdfa7706")

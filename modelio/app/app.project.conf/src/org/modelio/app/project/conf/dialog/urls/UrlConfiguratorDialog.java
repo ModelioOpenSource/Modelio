@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.urls;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -54,16 +53,17 @@ public class UrlConfiguratorDialog extends ModelioDialog {
     private Text urlText;
 
     @objid ("33548ca5-3e39-4e77-9406-7ce75ef70ee3")
-     Button addBtn = null;
+    Button addBtn = null;
 
     @objid ("625c7be5-af92-4a08-a4a0-85bf9d67ff80")
-     Button editBtn = null;
+    Button editBtn = null;
 
     @objid ("1b6f4b05-2a05-4a8b-93c2-1635a3df56ab")
-    public UrlConfiguratorDialog(Shell shell, UrlEntry entry, boolean isLocalProject) {
+    public  UrlConfiguratorDialog(Shell shell, UrlEntry entry, boolean isLocalProject) {
         super(shell);
         this.entry = entry;
         this.isLocalProject = isLocalProject;
+        
     }
 
     @objid ("d4c3aec5-1dd5-436a-a91e-cca0c3c05554")
@@ -143,6 +143,7 @@ public class UrlConfiguratorDialog extends ModelioDialog {
             this.editBtn = createButton(parent, IDialogConstants.OK_ID, AppProjectConf.I18N.getString("UrlConfiguratorDialog.EditUrl"), true); //$NON-NLS-1$
             this.editBtn.setEnabled(this.isLocalProject);
         }
+        
     }
 
     @objid ("529118d1-9105-4767-bb0b-8206edacbfa1")
@@ -160,6 +161,7 @@ public class UrlConfiguratorDialog extends ModelioDialog {
             setTitle(AppProjectConf.I18N.getString("UrlConfiguratorDialog.EditTitle")); //$NON-NLS-1$
             setMessage(AppProjectConf.I18N.getString("UrlConfiguratorDialog.EditMessage")); //$NON-NLS-1$
         }
+        
     }
 
     @objid ("79eaaa7c-5921-48b9-a6fc-a1494e0a8894")
@@ -173,6 +175,7 @@ public class UrlConfiguratorDialog extends ModelioDialog {
         this.entry.url = UrlConfiguratorDialog.this.urlText.getText();
         close();
         super.okPressed();
+        
     }
 
     @objid ("d8c766e2-3ae6-403e-a9f0-3515de9c2370")
@@ -180,6 +183,7 @@ public class UrlConfiguratorDialog extends ModelioDialog {
     protected void cancelPressed() {
         this.entry = null;
         super.cancelPressed();
+        
     }
 
     @objid ("170179a7-232b-4961-9e0b-b594f0c6594d")

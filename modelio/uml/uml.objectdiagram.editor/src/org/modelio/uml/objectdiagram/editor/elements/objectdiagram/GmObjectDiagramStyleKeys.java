@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.objectdiagram.editor.elements.objectdiagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,7 +34,7 @@ public class GmObjectDiagramStyleKeys extends ObjectAbstractStyleKeyProvider {
      * Snap to geometry.
      */
     @objid ("2f8b97ee-7477-4539-b75f-d81b9957b998")
-     static final StyleKey SNAPTOGEOMETRY = GmAbstractDiagramStyleKeys.SNAPTOGEOMETRY;
+    static final StyleKey SNAPTOGEOMETRY = GmAbstractDiagramStyleKeys.SNAPTOGEOMETRY;
 
     /**
      * View grid.
@@ -101,9 +100,9 @@ public class GmObjectDiagramStyleKeys extends ObjectAbstractStyleKeyProvider {
     public static final StyleKey PAGE_SIZE = GmAbstractDiagramStyleKeys.PAGE_SIZE;
 
     @objid ("13ca07ed-64c2-45da-b587-a78ab00fe3a0")
-     static final LayoutAssistantStyleKeys autoLayoutStyle = GmAbstractDiagramStyleKeys.autoLayoutStyle;
+    static final LayoutAssistantStyleKeys autoLayoutStyle = GmAbstractDiagramStyleKeys.autoLayoutStyle;
 
     @objid ("2dab14ee-05f5-4df7-92f3-aefa722ae756")
-     static final StyleKey SHOW_SMARTLINK_HANDLE = GmAbstractDiagramStyleKeys.SHOW_SMARTLINK_HANDLE;
+    static final StyleKey SHOW_SMARTLINK_HANDLE = GmAbstractDiagramStyleKeys.SHOW_SMARTLINK_HANDLE;
 
 }

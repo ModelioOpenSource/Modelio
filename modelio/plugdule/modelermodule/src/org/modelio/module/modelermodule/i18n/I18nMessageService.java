@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.module.modelermodule.i18n;
 
 import java.text.MessageFormat;
@@ -42,9 +41,10 @@ public class I18nMessageService {
      * Constructor.
      */
     @objid ("07afc650-a6d6-49a3-b4ac-177cfb5b7ae4")
-    private I18nMessageService() {
+    private  I18nMessageService() {
         Locale locale = Locale.getDefault();
         this.messageResource = ResourceBundle.getBundle(FILE_NAME_MESSAGES, locale);
+        
     }
 
     /**
@@ -68,7 +68,6 @@ public class I18nMessageService {
 
     /**
      * Get message value from key.
-     * 
      * @param key the key for the desired string.
      * @return the string for the given key.
      */
@@ -79,7 +78,6 @@ public class I18nMessageService {
 
     /**
      * Get list of messages values from key with parameters.
-     * 
      * @param key the key for the desired string.
      * @param params an array of objects to be formatted and substituted.
      * @return the string for the given key.

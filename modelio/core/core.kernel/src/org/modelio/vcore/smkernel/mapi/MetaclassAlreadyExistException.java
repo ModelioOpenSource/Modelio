@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.mapi;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,7 +38,7 @@ public class MetaclassAlreadyExistException extends RuntimeException {
      * @param existingClass the existing metaclass
      */
     @objid ("bbebedd9-c02e-4d64-b27d-e7723472dc64")
-    public MetaclassAlreadyExistException(MClass existingClass) {
+    public  MetaclassAlreadyExistException(MClass existingClass) {
         this.existingClass = existingClass;
     }
 

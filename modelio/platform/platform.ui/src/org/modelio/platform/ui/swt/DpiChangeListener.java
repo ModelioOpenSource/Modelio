@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.ui.swt;
 
 import java.lang.reflect.InvocationTargetException;
@@ -47,6 +46,7 @@ public final class DpiChangeListener {
     public static void listenDpiChanges() {
         Display display = Display.getDefault();
         listenDpiChanges(display);
+        
     }
 
     @objid ("3c6a511b-1eea-461d-b4f0-6b711d0ab784")
@@ -94,6 +94,7 @@ public final class DpiChangeListener {
         } catch (NoSuchMethodException | SecurityException e) {
             UI.LOG.info(e);
         }
+        
     }
 
 }

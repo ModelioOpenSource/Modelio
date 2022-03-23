@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.interactionuse.primarynode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -48,20 +47,20 @@ public class GmInteractionUseHeader extends GmDefaultModelElementHeader {
      * For deserialization only.
      */
     @objid ("d9251acc-55b6-11e2-877f-002564c97630")
-    public GmInteractionUseHeader() {
+    public  GmInteractionUseHeader() {
         // Empty c'tor for deserialization only.
     }
 
     /**
      * Initializes a model element header.
-     * 
      * @param diagram the owning diagram.
      * @param relatedRef the element reference.
      */
     @objid ("d9251acf-55b6-11e2-877f-002564c97630")
-    public GmInteractionUseHeader(IGmDiagram diagram, MRef relatedRef) {
+    public  GmInteractionUseHeader(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
         this.setStackedStereotypes(true);
+        
     }
 
     @objid ("d9251ad8-55b6-11e2-877f-002564c97630")
@@ -73,6 +72,7 @@ public class GmInteractionUseHeader extends GmDefaultModelElementHeader {
         } else {
             return super.computeMainLabel();
         }
+        
     }
 
     @objid ("d9251adc-55b6-11e2-877f-002564c97630")
@@ -92,6 +92,7 @@ public class GmInteractionUseHeader extends GmDefaultModelElementHeader {
             break;
         }
         }
+        
     }
 
     @objid ("d9251ae2-55b6-11e2-877f-002564c97630")
@@ -101,6 +102,7 @@ public class GmInteractionUseHeader extends GmDefaultModelElementHeader {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmInteractionUseHeader.", GmInteractionUseHeader.MINOR_VERSION);
+        
     }
 
     @objid ("d9251ae8-55b6-11e2-877f-002564c97630")

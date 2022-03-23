@@ -17,22 +17,33 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.message;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 @objid ("d969c4f2-55b6-11e2-877f-002564c97630")
 public enum MessageType {
+    @objid ("d969c4f3-55b6-11e2-877f-002564c97630")
     SimpleSynchronous,
+    @objid ("d969c4f4-55b6-11e2-877f-002564c97630")
     SimpleAsynchronous,
+    @objid ("d969c4f5-55b6-11e2-877f-002564c97630")
     Reply,
+    @objid ("d969c4f6-55b6-11e2-877f-002564c97630")
     ToSelf,
+    @objid ("d969c4f7-55b6-11e2-877f-002564c97630")
     InnerExecutionSynchronous,
+    @objid ("d969c4f8-55b6-11e2-877f-002564c97630")
     InnerExecutionAsynchronous,
+    @objid ("d969c4f9-55b6-11e2-877f-002564c97630")
     InnerExecutionToSelf,
+    @objid ("d969c4fa-55b6-11e2-877f-002564c97630")
     Lost,
+    @objid ("d969c4fb-55b6-11e2-877f-002564c97630")
     Found,
+    @objid ("d969c4fc-55b6-11e2-877f-002564c97630")
     Creation,
+    @objid ("d969c4fd-55b6-11e2-877f-002564c97630")
     Destruction;
+
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,11 +34,10 @@ public final class MarginFlowBorder extends AbstractFlowBorder {
 
     /**
      * Constructor.
-     * 
      * @param inset the insets.
      */
     @objid ("c39432a8-08eb-414a-9537-e4e7d2aa0bae")
-    public MarginFlowBorder(final Insets inset) {
+    public  MarginFlowBorder(final Insets inset) {
         this.inset = inset;
     }
 

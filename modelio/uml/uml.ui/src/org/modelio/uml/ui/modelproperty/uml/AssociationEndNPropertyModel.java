@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.text.MessageFormat;
@@ -51,8 +50,8 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class AssociationEndNPropertyModel extends AbstractPropertyModel<NaryAssociationEnd> {
     @objid ("abab16e5-93a5-4d33-8ef4-d1523fdfe921")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "AssociationName",
-			"Class", "Role", "Visibility", "MultiplicityMin", "MultiplicityMax", "AccessMode", "IsAbstract", "IsClass",
-			"IsOrdered", "IsUnique" };
+    			"Class", "Role", "Visibility", "MultiplicityMin", "MultiplicityMax", "AccessMode", "IsAbstract", "IsClass",
+    			"IsOrdered", "IsUnique" };
 
     @objid ("d4df533e-f3c8-4916-936f-2c4c5df73b56")
     private List<NaryAssociationEnd> displayedRoles;
@@ -63,11 +62,10 @@ public class AssociationEndNPropertyModel extends AbstractPropertyModel<NaryAsso
     /**
      * Create a new <i>NaryAssociationEnd</i> data model from an
      * <i>NaryAssociationEnd</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("0862cce7-d0fc-4d21-9d8e-ffe3bce0f0c1")
-    public AssociationEndNPropertyModel(NaryAssociationEnd theEditedElement) {
+    public  AssociationEndNPropertyModel(NaryAssociationEnd theEditedElement) {
         super(theEditedElement);
         
         // Order the displayed roles as following:
@@ -83,6 +81,7 @@ public class AssociationEndNPropertyModel extends AbstractPropertyModel<NaryAsso
                 }
             }
         }
+        
     }
 
     @objid ("d3d71681-ae4e-42e3-adf2-0afd743c9e38")
@@ -128,6 +127,7 @@ public class AssociationEndNPropertyModel extends AbstractPropertyModel<NaryAsso
         default:
             return null;
         }
+        
     }
 
     @objid ("3cb01e37-f79f-4e5e-a892-af4cad0d09c8")
@@ -155,6 +155,7 @@ public class AssociationEndNPropertyModel extends AbstractPropertyModel<NaryAsso
         default:
             return getPropertyValue(row, this.displayedRoles.get(col - 1));
         }
+        
     }
 
     @objid ("ae3059de-c4b9-4093-a55a-400d072bb7b2")
@@ -204,6 +205,7 @@ public class AssociationEndNPropertyModel extends AbstractPropertyModel<NaryAsso
                 return null;
             }
         }
+        
     }
 
     @objid ("c7ece5e2-801f-4e9c-912c-beaa8ed8547f")
@@ -272,6 +274,7 @@ public class AssociationEndNPropertyModel extends AbstractPropertyModel<NaryAsso
         default:
             return;
         }
+        
     }
 
     @objid ("40419e03-2f73-41cb-8d66-a80f4435bbdf")
@@ -285,6 +288,7 @@ public class AssociationEndNPropertyModel extends AbstractPropertyModel<NaryAsso
             setPropertyValue(row, this.displayedRoles.get(col - 1), value);
             return;
         }
+        
     }
 
     @objid ("15d28cf9-0b4f-4093-8f4f-72653fe512f6")
@@ -301,6 +305,7 @@ public class AssociationEndNPropertyModel extends AbstractPropertyModel<NaryAsso
             } else {
                 return true;
             }
+            
         }
 
     }

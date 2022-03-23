@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.activity;
 
 import java.util.Collections;
@@ -42,7 +41,7 @@ public class ConditionalNodeDG extends PortContainerDG {
      * @param node The gm node represented by this class.
      */
     @objid ("a8164150-31bd-472a-b401-cd46607245db")
-    public ConditionalNodeDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  ConditionalNodeDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 

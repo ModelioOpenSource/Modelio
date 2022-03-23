@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.expert.standard.links.impl.creation;
 
 import java.util.HashSet;
@@ -211,7 +210,7 @@ public class DefaultLinkExpert implements ILinkExpert {
     }
 
     @objid ("b703336c-beb4-4120-89be-3a6eab130e7e")
-    public DefaultLinkExpert(MMetamodel mm) {
+    public  DefaultLinkExpert(MMetamodel mm) {
         this.RULES = new MetamodelRules(mm);
     }
 
@@ -247,7 +246,6 @@ public class DefaultLinkExpert implements ILinkExpert {
 
         /**
          * Tells whether a link of the given metaclass can have another metaclass as source.
-         * 
          * @param linkMetaclass The link metaclass
          * @param fromMetaclass The source metaclass
          * @return true if the creation is possible, false otherwise.
@@ -267,7 +265,6 @@ public class DefaultLinkExpert implements ILinkExpert {
 
         /**
          * Tells whether a link of the given metaclass can be created between the 2 other metaclasses.
-         * 
          * @param linkMetaclass The link metaclass
          * @param fromMetaclass The Source metaclass
          * @param toMetaclass The destination metaclass
@@ -290,7 +287,7 @@ public class DefaultLinkExpert implements ILinkExpert {
         }
 
         @objid ("65067ea0-1f4f-11e2-8009-002564c97630")
-        public MetamodelRules(MMetamodel mm) {
+        public  MetamodelRules(MMetamodel mm) {
             this.mm = mm;
             
             // Use several methods to avoid the java length limit
@@ -300,6 +297,7 @@ public class DefaultLinkExpert implements ILinkExpert {
             
             registerBpmnLinks1();
             registerBpmnLinks2();
+            
         }
 
         /**
@@ -1121,6 +1119,7 @@ public class DefaultLinkExpert implements ILinkExpert {
             addRule(Generalization.MQNAME, Signal.MQNAME, Class.MQNAME);
             addRule(Generalization.MQNAME, Signal.MQNAME, Signal.MQNAME);
             addRule(Generalization.MQNAME, UseCase.MQNAME, UseCase.MQNAME);
+            
         }
 
         @objid ("65067ea8-1f4f-11e2-8009-002564c97630")
@@ -1639,6 +1638,7 @@ public class DefaultLinkExpert implements ILinkExpert {
             addRule(ObjectFlow.MQNAME, StructuredActivityNode.MQNAME, ObjectNode.MQNAME);
             addRule(ObjectFlow.MQNAME, StructuredActivityNode.MQNAME, OutputPin.MQNAME);
             addRule(ObjectFlow.MQNAME, StructuredActivityNode.MQNAME, ValuePin.MQNAME);
+            
         }
 
         @objid ("65067eaa-1f4f-11e2-8009-002564c97630")
@@ -1843,6 +1843,7 @@ public class DefaultLinkExpert implements ILinkExpert {
             
             // UseCaseDependency
             addRule(UseCaseDependency.MQNAME, UseCase.MQNAME, UseCase.MQNAME);
+            
         }
 
         @objid ("65067eae-1f4f-11e2-8009-002564c97630")
@@ -2272,6 +2273,7 @@ public class DefaultLinkExpert implements ILinkExpert {
             addRule(BpmnMessageFlow.MQNAME, BpmnParticipant.MQNAME, BpmnThrowEvent.MQNAME);
             addRule(BpmnMessageFlow.MQNAME, BpmnParticipant.MQNAME, BpmnTransaction.MQNAME);
             addRule(BpmnMessageFlow.MQNAME, BpmnParticipant.MQNAME, BpmnUserTask.MQNAME);
+            
         }
 
         @objid ("65067eb2-1f4f-11e2-8009-002564c97630")
@@ -3115,6 +3117,7 @@ public class DefaultLinkExpert implements ILinkExpert {
             addRule(BpmnDataAssociation.MQNAME, BpmnUserTask.MQNAME, BpmnDataObject.MQNAME);
             addRule(BpmnDataAssociation.MQNAME, BpmnUserTask.MQNAME, BpmnDataOutput.MQNAME);
             addRule(BpmnDataAssociation.MQNAME, BpmnUserTask.MQNAME, BpmnDataStore.MQNAME);
+            
         }
 
         @objid ("65067eb8-1f4f-11e2-8009-002564c97630")
@@ -3125,13 +3128,13 @@ public class DefaultLinkExpert implements ILinkExpert {
             
             // Add 'canTarget' rules in a different set to avoid collisions
             this.reversedRules.add(mcD + mcY);
+            
         }
 
         /**
          * Returns whether this metaclass is known or not.
          * @param metaclass
          * the sought metaclass.
-         * 
          * @param linkMetaclass The link metaclass
          * @param toMetaclass The target metaclass
          * @return true if the creation is possible, false otherwise.
@@ -3171,6 +3174,7 @@ public class DefaultLinkExpert implements ILinkExpert {
                     addRule(mcD, mcX, xRec, ysub.getQualifiedName(), true);
                 }
             }
+            
         }
 
     }

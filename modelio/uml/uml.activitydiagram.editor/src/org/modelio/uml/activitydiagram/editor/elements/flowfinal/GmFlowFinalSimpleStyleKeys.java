@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.flowfinal;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,36 +29,36 @@ import org.modelio.uml.activitydiagram.editor.style.ActivityAbstractStyleKeyProv
 @objid ("2a7b5c21-55b6-11e2-877f-002564c97630")
 public class GmFlowFinalSimpleStyleKeys extends ActivityAbstractStyleKeyProvider {
     @objid ("d202950f-55c0-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmFlowFinalStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmFlowFinalStructuredStyleKeys.REPMODE;
 
     @objid ("d2029511-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = GmFlowFinalStructuredStyleKeys.FILLCOLOR;
+    static final StyleKey FILLCOLOR = GmFlowFinalStructuredStyleKeys.FILLCOLOR;
 
     @objid ("d2029513-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = GmFlowFinalStructuredStyleKeys.FILLMODE;
+    static final StyleKey FILLMODE = GmFlowFinalStructuredStyleKeys.FILLMODE;
 
     @objid ("d2029515-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = GmFlowFinalStructuredStyleKeys.LINECOLOR;
+    static final StyleKey LINECOLOR = GmFlowFinalStructuredStyleKeys.LINECOLOR;
 
     @objid ("d2029517-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = GmFlowFinalStructuredStyleKeys.LINEWIDTH;
+    static final StyleKey LINEWIDTH = GmFlowFinalStructuredStyleKeys.LINEWIDTH;
 
     @objid ("d2029519-55c0-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmFlowFinalStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmFlowFinalStructuredStyleKeys.FONT;
 
     @objid ("d202951b-55c0-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmFlowFinalStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmFlowFinalStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("d202951d-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmFlowFinalStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmFlowFinalStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("d202951f-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmFlowFinalStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmFlowFinalStructuredStyleKeys.SHOWTAGS;
 
     /**
      * Show the label.
      */
     @objid ("d2029521-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWLABEL = GmFlowFinalStructuredStyleKeys.SHOWLABEL;
+    static final StyleKey SHOWLABEL = GmFlowFinalStructuredStyleKeys.SHOWLABEL;
 
 }

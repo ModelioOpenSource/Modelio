@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel.data.standard.infrastructure;
 
 import java.util.Arrays;
@@ -39,15 +38,14 @@ import org.modelio.platform.model.ui.nattable.viewer.model.IPropertyModel;
 public class NoteTypePropertyModel extends AbstractPropertyModel<NoteType> {
     @objid ("2cd8f78f-26c5-459d-86a8-c69f1b4dd4fc")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name", "Label",
-	        "IsHidden", "MimeType" };
+    	        "IsHidden", "MimeType" };
 
     /**
      * Instantiate the note type properties view.
-     * 
      * @param theEditedElement the current note type.
      */
     @objid ("265e2693-abcc-4d5d-ba7a-31663dcc3eac")
-    public NoteTypePropertyModel(NoteType theEditedElement) {
+    public  NoteTypePropertyModel(NoteType theEditedElement) {
         super(theEditedElement);
     }
 
@@ -99,6 +97,7 @@ public class NoteTypePropertyModel extends AbstractPropertyModel<NoteType> {
         default:
             return null;
         }
+        
     }
 
     /**
@@ -131,6 +130,7 @@ public class NoteTypePropertyModel extends AbstractPropertyModel<NoteType> {
         default:
             return null;
         }
+        
     }
 
     /**
@@ -166,6 +166,7 @@ public class NoteTypePropertyModel extends AbstractPropertyModel<NoteType> {
         default:
             return;
         }
+        
     }
 
 }

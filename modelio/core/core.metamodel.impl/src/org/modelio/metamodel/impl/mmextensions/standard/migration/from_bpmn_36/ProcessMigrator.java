@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.migration.from_bpmn_36;
 
 import java.io.PrintWriter;
@@ -56,10 +55,11 @@ class ProcessMigrator {
     private final IMofSession mofSession;
 
     @objid ("72710a26-967f-463b-99e6-c905619fbaee")
-    public ProcessMigrator(IMofSession mofSession, MM mm) {
+    public  ProcessMigrator(IMofSession mofSession, MM mm) {
         this.mofSession = mofSession;
         this.mm = mm;
         this.laneSetDep = (MofSmDependency) this.mm.processMclass.getDependency("LaneSet");
+        
     }
 
     @objid ("0251d0f7-fbbb-4963-8c11-dc191bb72a59")
@@ -71,6 +71,7 @@ class ProcessMigrator {
             // Transmute all BpmnProcessCollaborationDiagram to BpmnProcessDesignDiagram
             transmuteAll(process.getDep("Product"), this.mm.bpmnProcessCollaborationDiagramMC, this.mm.bpmnProcessDesignDiagramMC);
         }
+        
     }
 
     /**
@@ -88,7 +89,6 @@ class ProcessMigrator {
 
     /**
      * Get FlowElement referenced by the Lane and all its sub lanes hierarchy.
-     * 
      * @param lane a BPMN Lane
      * @return all referenced flow elements
      */
@@ -106,7 +106,6 @@ class ProcessMigrator {
 
     /**
      * Get a MDependency content then empty it.
-     * 
      * @param obj the dep source
      * @param depName the dep name
      * @return the dependency content.
@@ -123,7 +122,6 @@ class ProcessMigrator {
      * Get a BpmnLaneSet different than the given one.
      * <p>
      * Create a new BpmnLaneSet if no satisfying one found.
-     * 
      * @param aProcess a BPMN Process
      * @param origRootPools BpmnLaneSets to avoid
      * @return the found or created BpmnLaneSet
@@ -186,7 +184,6 @@ class ProcessMigrator {
     /**
      * Move child LaneSet into the owning Process.
      * @param collaboration the BPMN Collaboration. If not null, a Participant for the Process should be created.
-     * 
      * @param logger the log reporter
      * @param origPool the pool to move, is a LaneSet
      * @param process the BPMN Process
@@ -247,11 +244,11 @@ class ProcessMigrator {
         origPool.delete();
         
         assert (debugProcessNodes.stream().allMatch(o -> o.isValid())) : "Lost BPMN nodes: "+debugProcessNodes.stream().filter(o -> !o.isValid()).collect(Collectors.toList());
+        
     }
 
     /**
      * Move child LaneSet into the owning Process.
-     * 
      * @param logger the log reporter
      * @param origPool the pool to move, is a LaneSet
      * @param process the BPMN Process
@@ -340,6 +337,7 @@ class ProcessMigrator {
         origPool.delete();
         
         assert (debugProcessNodes.stream().allMatch(o -> o.isValid())) : "Lost BPMN nodes: "+debugProcessNodes.stream().filter(o -> !o.isValid()).collect(Collectors.toList());
+        
     }
 
     @objid ("5aac3efc-0c5b-4e77-a6cb-18f308cc07e2")
@@ -357,6 +355,7 @@ class ProcessMigrator {
                 onlyType.add(laneRepresented);
             }
         }
+        
     }
 
     @objid ("9da81589-b64d-4e21-88fb-cc1c5cbdc22b")
@@ -469,6 +468,7 @@ class ProcessMigrator {
         }
         
         logger.format("-- end of %s migration.\n\n", process);
+        
     }
 
     /**
@@ -476,7 +476,6 @@ class ProcessMigrator {
      * <p>
      * When this method returns 'lane' is empty.
      * @param targetProcess the Process to move things into
-     * 
      * @param lane the Pool/Lane to migrate
      */
     @objid ("2d364ff8-acaf-4d7e-9655-ab05c4519d17")
@@ -510,11 +509,11 @@ class ProcessMigrator {
         assert (lane.getDep("FlowElementRef").isEmpty()) : String.format("%s.FlowElementRef still contains %s", lane, lane.getDep("FlowElementRef"));
         assert (laneSubLaneSet.isEmpty() || laneSubLaneSet.get(0).getSingleDep("ParentLane") == newLane) : String.format("%s.parent = %s instead of %s", laneSubLaneSet.get(0), laneSubLaneSet.get(0).getDep("ParentLane"), newLane);
         assert (newLane.getDep("LaneSet").contains(targetLaneSet)) : String.format("%s.LaneSet contains %s instead of %s", newLane, newLane.getDep("LaneSet"), targetLaneSet);
+        
     }
 
     /**
      * Move the Pool content to a new Process.
-     * 
      * @param logger the logger
      * @param origPool the Pool (BpmnLaneSet) to migrate
      * @param process the origin BPMN Process
@@ -600,6 +599,7 @@ class ProcessMigrator {
         }
         
         origPool.delete();
+        
     }
 
     /**
@@ -625,6 +625,7 @@ class ProcessMigrator {
                 }
             }
         }
+        
     }
 
     @objid ("242f4d31-00f6-4d81-8fc0-4eeb9ac2cf7e")
@@ -634,7 +635,6 @@ class ProcessMigrator {
 
     /**
      * Tells whether BpmnMessageFlows go from or to one of the BPMN Process nodes.
-     * 
      * @param process a BPMN Process
      * @return true if the Process / sub Process has message flows
      */
@@ -662,7 +662,6 @@ class ProcessMigrator {
 
     /**
      * Tells whether a BPMN Process has BPMN nodes at root, eg not in a Lane.
-     * 
      * @param process a BPMN Process
      * @return whether the BPMN Process has BPMN nodes at root.
      */
@@ -682,7 +681,6 @@ class ProcessMigrator {
 
     /**
      * Transmute all elements in the list whose metaclass is exactly the given one.
-     * 
      * @param dep the elements to transmute
      * @param srcClass the metaclass the element must have to be transmuted
      * @param targetClass the target metaclass
@@ -694,6 +692,7 @@ class ProcessMigrator {
                 this.mofSession.transmute(obj, targetClass);
             }
         }
+        
     }
 
 }

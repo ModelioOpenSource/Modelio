@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.ext.depfilter;
 
 import java.util.List;
@@ -35,9 +34,10 @@ final class RemoveButtonSelectionListener extends SelectionAdapter {
     private final DialogView dialogView;
 
     @objid ("1b6b2b82-5e33-11e2-b81d-002564c97630")
-    public RemoveButtonSelectionListener(final DialogView dialogView) {
+    public  RemoveButtonSelectionListener(final DialogView dialogView) {
         super();
         this.dialogView = dialogView;
+        
     }
 
     @objid ("1b6b2b86-5e33-11e2-b81d-002564c97630")
@@ -54,6 +54,7 @@ final class RemoveButtonSelectionListener extends SelectionAdapter {
                 }
             }
         }
+        
     }
 
 }

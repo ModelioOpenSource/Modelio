@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.progress;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,7 +41,7 @@ public class NullProgress implements IModelioProgress {
      * Constructs a new progress monitor.
      */
     @objid ("c98cef5e-a5a3-11e1-aa98-001ec947ccaf")
-    public NullProgress() {
+    public  NullProgress() {
         super();
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.view.providers.commons;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,6 +40,7 @@ public class RuleLabelProvider extends StyledCellLabelProvider {
         
         cell.setText(text.toString());
         super.update(cell);
+        
     }
 
 }

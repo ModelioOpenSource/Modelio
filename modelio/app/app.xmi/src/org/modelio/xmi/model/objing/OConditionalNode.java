@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class OConditionalNode extends OElement implements IOElement {
     }
 
     @objid ("7d6848ec-cbe7-4724-a0b3-6f44651ebd07")
-    public OConditionalNode(ConditionalNode element) {
+    public  OConditionalNode(ConditionalNode element) {
         super(element);
     }
 
@@ -48,6 +47,7 @@ public class OConditionalNode extends OElement implements IOElement {
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         setIsAssured((org.eclipse.uml2.uml.ConditionalNode) ecoreElt);
         setDeterminate((org.eclipse.uml2.uml.ConditionalNode) ecoreElt);
+        
     }
 
     @objid ("4fb63d44-4343-4cae-ad04-a1fe2968a1f5")

@@ -17,12 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.editor;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.editor.AbstractDiagramEditor;
 import org.modelio.diagram.elements.common.abstractdiagram.GmAbstractDiagram;
+import org.modelio.diagram.elements.core.figures.routers.AutoOrthogonalRouter;
+import org.modelio.diagram.elements.core.link.ConnectionRoutingServices;
 
 /**
  * Graphical Editor for Diagrams.
@@ -42,7 +43,7 @@ public class BpmnDiagramEditor extends AbstractDiagramEditor {
      * C'tor.
      */
     @objid ("6072aac3-55b6-11e2-877f-002564c97630")
-    public BpmnDiagramEditor() {
+    public  BpmnDiagramEditor() {
         super();
     }
 
@@ -59,6 +60,20 @@ public class BpmnDiagramEditor extends AbstractDiagramEditor {
         
         // Force refresh to trigger Auto Unmask
         ((GmAbstractDiagram) getEditorInput().getGmDiagram()).refreshFromObModel();
+        
+    }
+
+    /**
+     * Change orthogonal router to new {@link AutoOrthogonalRouter}.
+     * @since 5.0.2
+     */
+    @objid ("d25669b6-229e-48d3-9eef-fd4e20bf2ad3")
+    @Override
+    protected ConnectionRoutingServices initializeConnectionRoutingServices() {
+        return ConnectionRoutingServices.builder()
+                .withAutoOrthogonalDefaults()
+                .build();
+        
     }
 
 }

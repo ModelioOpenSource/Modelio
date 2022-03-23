@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.valuepin;
 
 import java.util.Collections;
@@ -31,8 +30,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.ValuePin;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -57,7 +56,7 @@ public class GmValuePin extends GmPortContainer {
     private static final int MAJOR_VERSION = 0;
 
     @objid ("31b81f7b-58a2-11e2-9574-002564c97630")
-     static final GmValuePinStructuredStyleKeys STRUCTURED_KEYS = new GmValuePinStructuredStyleKeys();
+    static final GmValuePinStructuredStyleKeys STRUCTURED_KEYS = new GmValuePinStructuredStyleKeys();
 
     @objid ("31b81f7d-58a2-11e2-9574-002564c97630")
     private static final GmValuePinSimpleStyleKeys SIMPLE_KEYS = new GmValuePinSimpleStyleKeys();
@@ -70,13 +69,12 @@ public class GmValuePin extends GmPortContainer {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the valuePin is unmasked.
      * @param el the unmasked valuePin.
      * @param ref a reference to the unmasked valuePin.
      */
     @objid ("2b69b399-55b6-11e2-877f-002564c97630")
-    public GmValuePin(IGmDiagram diagram, ValuePin el, MRef ref) {
+    public  GmValuePin(IGmDiagram diagram, ValuePin el, MRef ref) {
         super(diagram, ref);
         
         GmValuePinPrimaryNode mainNode = new GmValuePinPrimaryNode(diagram, ref);
@@ -88,6 +86,7 @@ public class GmValuePin extends GmPortContainer {
         label.setRoleInComposition(GmPortContainer.SATELLITE_ROLE);
         label.setLayoutData(Integer.valueOf(PositionConstants.EAST));
         this.addChild(label);
+        
     }
 
     @objid ("2b69b3a5-55b6-11e2-877f-002564c97630")
@@ -146,7 +145,7 @@ public class GmValuePin extends GmPortContainer {
      * Empty constructor needed for deserialisation.
      */
     @objid ("2b69b3c8-55b6-11e2-877f-002564c97630")
-    public GmValuePin() {
+    public  GmValuePin() {
         // Nothing specific to do.
     }
 
@@ -167,6 +166,7 @@ public class GmValuePin extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("2b69b3d1-55b6-11e2-877f-002564c97630")
@@ -188,12 +188,14 @@ public class GmValuePin extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmValuePin.", GmValuePin.MINOR_VERSION);
+        
     }
 
     @objid ("2b6b3a40-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (ValuePin) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("2b6b3a45-55b6-11e2-877f-002564c97630")
@@ -204,7 +206,6 @@ public class GmValuePin extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -216,7 +217,6 @@ public class GmValuePin extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

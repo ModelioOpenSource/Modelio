@@ -17,9 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta.smannotations;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -38,31 +39,31 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("000922c0-f99c-1f1f-85a5-001ec947cd2a")
 @Deprecated
-@java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
-public @interface SmaMetaClass  {
+@Retention(RetentionPolicy.RUNTIME)
+public @interface SmaMetaClass {
     /**
      * Indicates that the meta class represents a CMS node.
      */
     @objid ("0009259a-f99c-1f1f-85a5-001ec947cd2a")
-    boolean cmsnode() default false;
+    boolean cmsnode();
 
     /**
      * Special behavior on import/export.
      */
     @objid ("00092770-f99c-1f1f-85a5-001ec947cd2a")
-    boolean eispecial() default false;
+    boolean eispecial();
 
     /**
      * All metaclass instances should be loaded.
      */
     @objid ("000928f6-f99c-1f1f-85a5-001ec947cd2a")
-    boolean loadallinstance() default false;
+    boolean loadallinstance();
 
     /**
      * No read only check.
      */
     @objid ("00093094-f99c-1f1f-85a5-001ec947cd2a")
-    boolean noreadonly() default false;
+    boolean noreadonly();
 
     /**
      * The interface implemented by all elements of this metaclass.

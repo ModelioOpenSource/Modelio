@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,13 +31,13 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("00318170-c4bf-1fd8-97fe-001ec947cd2a")
 public class ExpansionNodeData extends ObjectNodeData {
     @objid ("b976b84c-c3db-4797-84f2-3745e4ca165b")
-     SmObjectImpl mRegionAsOutput;
+    SmObjectImpl mRegionAsOutput;
 
     @objid ("3ee44b2f-8aa6-4c90-9496-fea7f2e4d4e5")
-     SmObjectImpl mRegionAsInput;
+    SmObjectImpl mRegionAsInput;
 
     @objid ("460bfa99-b27d-4952-842e-2bc57d0b049b")
-    public ExpansionNodeData(ExpansionNodeSmClass smClass) {
+    public  ExpansionNodeData(ExpansionNodeSmClass smClass) {
         super(smClass);
     }
 

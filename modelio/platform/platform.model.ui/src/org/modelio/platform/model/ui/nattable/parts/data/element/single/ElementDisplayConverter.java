@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.element.single;
 
 import java.util.Objects;
@@ -49,6 +48,7 @@ public class ElementDisplayConverter extends DisplayConverter {
         } else {
             return "";
         }
+        
     }
 
     @objid ("c399e14f-6955-40a6-ac07-79e151b599d3")
@@ -58,7 +58,7 @@ public class ElementDisplayConverter extends DisplayConverter {
     }
 
     @objid ("64988d6b-48c7-4aac-afa7-ed4d05d911e3")
-    public ElementDisplayConverter(ILabelProvider labelProvider) {
+    public  ElementDisplayConverter(ILabelProvider labelProvider) {
         this.labelProvider = Objects.requireNonNull(labelProvider);
     }
 

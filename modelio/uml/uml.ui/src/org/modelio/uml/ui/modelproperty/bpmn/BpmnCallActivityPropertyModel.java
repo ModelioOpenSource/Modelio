@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import java.util.ArrayList;
@@ -64,22 +63,21 @@ public class BpmnCallActivityPropertyModel extends AbstractPropertyModel<BpmnCal
 
     /**
      * Create a new <i>BpmnCallActivity</i> data model from an <i>BpmnCallActivity</i>.
-     * 
      * @param theEditedElement the model to edit.
      * @param modelService the model service needed to find elements.
      * @param mdaExpert the MDA expert to handle Methodological links.
      */
     @objid ("860449a8-dafc-4320-bf44-8dcd3492a2ec")
-    public BpmnCallActivityPropertyModel(BpmnCallActivity theEditedElement, IMModelServices modelService, IMdaExpert mdaExpert) {
+    public  BpmnCallActivityPropertyModel(BpmnCallActivity theEditedElement, IMModelServices modelService, IMdaExpert mdaExpert) {
         super(theEditedElement);
         this.modelService = modelService;
         this.mdaExpert = mdaExpert;
         initPropertyModel();
+        
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("be69a53f-6382-4426-ba3e-78a7f0821f7f")
@@ -90,7 +88,6 @@ public class BpmnCallActivityPropertyModel extends AbstractPropertyModel<BpmnCal
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("618869a4-6868-4a62-a8e3-ff795fe28672")
@@ -105,7 +102,6 @@ public class BpmnCallActivityPropertyModel extends AbstractPropertyModel<BpmnCal
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -169,7 +165,6 @@ public class BpmnCallActivityPropertyModel extends AbstractPropertyModel<BpmnCal
      * This type will be used to choose an editor and a renderer for each cell of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -260,13 +255,13 @@ public class BpmnCallActivityPropertyModel extends AbstractPropertyModel<BpmnCal
             this.properties.add("CompletionCondition");
             this.properties.add("EventDefinition");
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -320,6 +315,7 @@ public class BpmnCallActivityPropertyModel extends AbstractPropertyModel<BpmnCal
                 }
             }
         }
+        
     }
 
 }

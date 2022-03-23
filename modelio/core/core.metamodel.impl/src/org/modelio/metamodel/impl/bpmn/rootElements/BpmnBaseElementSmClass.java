@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.rootElements;
 
 import java.util.ArrayList;
@@ -34,8 +34,6 @@ import org.modelio.metamodel.bpmn.rootElements.BpmnAssociation;
 import org.modelio.metamodel.bpmn.rootElements.BpmnBaseElement;
 import org.modelio.metamodel.impl.bpmn.flows.BpmnMessageFlowSmClass;
 import org.modelio.metamodel.impl.bpmn.processCollaboration.BpmnLaneSmClass;
-import org.modelio.metamodel.impl.bpmn.rootElements.BpmnAssociationSmClass;
-import org.modelio.metamodel.impl.bpmn.rootElements.BpmnBaseElementData;
 import org.modelio.metamodel.impl.uml.infrastructure.ModelElementSmClass;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.vbasic.version.Version;
@@ -67,7 +65,7 @@ public class BpmnBaseElementSmClass extends ModelElementSmClass {
     private SmDependency partitionedLaneRefsDep;
 
     @objid ("c86b7bb3-a759-4856-a24c-529a69a9c60b")
-    public BpmnBaseElementSmClass(ISmMetamodelFragment origin) {
+    public  BpmnBaseElementSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -75,6 +73,7 @@ public class BpmnBaseElementSmClass extends ModelElementSmClass {
     @Override
     public String getName() {
         return "BpmnBaseElement";
+        
     }
 
     @objid ("87f8e346-461e-40d3-9019-a690f93af986")
@@ -87,18 +86,21 @@ public class BpmnBaseElementSmClass extends ModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnBaseElement.class;
+        
     }
 
     @objid ("223c87c6-a280-4d17-bda1-b0c4b927d42f")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("8931a60e-8d06-440e-bd0e-e13eab903ed2")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("03d78da4-5aac-45c6-bd47-47029038ad7e")
@@ -130,6 +132,8 @@ public class BpmnBaseElementSmClass extends ModelElementSmClass {
         this.partitionedLaneRefsDep = new PartitionedLaneRefsSmDependency();
         this.partitionedLaneRefsDep.init("PartitionedLaneRefs", this, metamodel.getMClass(BpmnLane.MQNAME), 0, -1 );
         registerDependency(this.partitionedLaneRefsDep);
+        
+        
     }
 
     @objid ("a3b4ff95-12ba-41c2-aa44-f94730922bf5")
@@ -178,7 +182,7 @@ public class BpmnBaseElementSmClass extends ModelElementSmClass {
         private BpmnBaseElementSmClass smClass;
 
         @objid ("c2bb5aa5-090f-4868-b82b-54be72d48361")
-        public BpmnBaseElementObjectFactory(BpmnBaseElementSmClass smClass) {
+        public  BpmnBaseElementObjectFactory(BpmnBaseElementSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -211,6 +215,7 @@ public class BpmnBaseElementSmClass extends ModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnBaseElementData) data).mOutgoingAssoc = values;
+            
         }
 
         @objid ("b0fe7d92-eaf7-476d-905e-03e5a3f6d6b2")
@@ -220,6 +225,7 @@ public class BpmnBaseElementSmClass extends ModelElementSmClass {
             	this.symetricDep = ((BpmnAssociationSmClass)this.getTarget()).getSourceRefDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -239,6 +245,7 @@ public class BpmnBaseElementSmClass extends ModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnBaseElementData) data).mIncomingAssoc = values;
+            
         }
 
         @objid ("44b0a56a-5bd3-499e-ab7d-b2d2caec7e76")
@@ -248,6 +255,7 @@ public class BpmnBaseElementSmClass extends ModelElementSmClass {
             	this.symetricDep = ((BpmnAssociationSmClass)this.getTarget()).getTargetRefDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -267,6 +275,7 @@ public class BpmnBaseElementSmClass extends ModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnBaseElementData) data).mIncomingFlow = values;
+            
         }
 
         @objid ("2c6c8956-3ece-471f-a640-9088ea1ba627")
@@ -276,6 +285,7 @@ public class BpmnBaseElementSmClass extends ModelElementSmClass {
             	this.symetricDep = ((BpmnMessageFlowSmClass)this.getTarget()).getTargetRefDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -295,6 +305,7 @@ public class BpmnBaseElementSmClass extends ModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnBaseElementData) data).mOutgoingFlow = values;
+            
         }
 
         @objid ("1ae6dd6a-44ff-44ee-9215-bb50b7ef162f")
@@ -304,6 +315,7 @@ public class BpmnBaseElementSmClass extends ModelElementSmClass {
             	this.symetricDep = ((BpmnMessageFlowSmClass)this.getTarget()).getSourceRefDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -323,6 +335,7 @@ public class BpmnBaseElementSmClass extends ModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnBaseElementData) data).mPartitionedLaneRefs = values;
+            
         }
 
         @objid ("dfb820bb-ede1-4ca0-8c5c-6b70827344e1")
@@ -332,6 +345,7 @@ public class BpmnBaseElementSmClass extends ModelElementSmClass {
             	this.symetricDep = ((BpmnLaneSmClass)this.getTarget()).getBpmnPartitionElementRefDep();
             }
             return this.symetricDep;
+            
         }
 
     }

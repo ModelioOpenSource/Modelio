@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.modelmanipulation;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,13 +36,14 @@ public class TimeReference {
     private MObject modelElement;
 
     @objid ("d96fdf5c-55b6-11e2-877f-002564c97630")
-    public TimeReference(final MObject modelElement, final Discriminant discriminant) {
+    public  TimeReference(final MObject modelElement, final Discriminant discriminant) {
         this.modelElement = modelElement;
         this.discriminant = discriminant;
+        
     }
 
     @objid ("d96fdf64-55b6-11e2-877f-002564c97630")
-    public TimeReference(final MObject modelElement) {
+    public  TimeReference(final MObject modelElement) {
         this.modelElement = modelElement;
     }
 
@@ -110,8 +110,11 @@ public class TimeReference {
      */
     @objid ("d96fdf76-55b6-11e2-877f-002564c97630")
     public enum Discriminant {
+        @objid ("d96fdf78-55b6-11e2-877f-002564c97630")
         BEGINNING,
+        @objid ("d96fdf79-55b6-11e2-877f-002564c97630")
         END;
+
     }
 
 }

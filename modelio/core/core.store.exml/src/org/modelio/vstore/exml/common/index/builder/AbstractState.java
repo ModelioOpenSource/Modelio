@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common.index.builder;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,7 +35,8 @@ class AbstractState {
     }
 
     @objid ("fd21f6cd-5986-11e1-991a-001ec947ccaf")
-    public AbstractState() {
+    public  AbstractState() {
+        
     }
 
     @objid ("fd21f6cc-5986-11e1-991a-001ec947ccaf")

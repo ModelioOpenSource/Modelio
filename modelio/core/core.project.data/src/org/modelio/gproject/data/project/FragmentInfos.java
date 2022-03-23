@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.project;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,12 +37,13 @@ public class FragmentInfos implements IFragmentInfos {
     private final Version modelioVersion;
 
     @objid ("8a1661ce-6359-478f-97b0-42e3549c8294")
-    public FragmentInfos(final String name, final String description, final Version version, final Version modelioVersion) {
+    public  FragmentInfos(final String name, final String description, final Version version, final Version modelioVersion) {
         super();
         this.description = description;
         this.name = name;
         this.version = version;
         this.modelioVersion = modelioVersion;
+        
     }
 
     @objid ("a9bccf84-7685-4b33-85f6-f33f89d5bea4")

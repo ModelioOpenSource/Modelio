@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.control;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,6 +45,7 @@ public abstract class AbstractDependencyTypeChecker implements SmDependencyTypeC
         } else {
             throw new IllegalModelManipulationException(9, obj, value);
         }
+        
     }
 
     @objid ("0062acdc-5404-1fdf-a6ee-001ec947cd2a")
@@ -67,6 +67,7 @@ public abstract class AbstractDependencyTypeChecker implements SmDependencyTypeC
             dep.setChecker(this);
         else
             throw new IllegalArgumentException(mc.getQualifiedName()+"."+feature);
+        
     }
 
 }

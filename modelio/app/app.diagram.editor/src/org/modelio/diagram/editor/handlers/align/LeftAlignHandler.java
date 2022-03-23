@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.handlers.align;
 
 import java.util.List;
@@ -30,6 +29,7 @@ import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
+import org.modelio.diagram.elements.core.helpers.RequestHelper;
 
 @objid ("65b2185a-33f7-11e2-95fe-001ec947c8cc")
 public class LeftAlignHandler extends AbstractAlignHandler {
@@ -40,21 +40,29 @@ public class LeftAlignHandler extends AbstractAlignHandler {
         Rectangle primaryBounds = getEffectiveBounds(primaryFigure);
         primaryFigure.translateToAbsolute(primaryBounds);
         
+        ChangeBoundsRequest parentRequest = new ChangeBoundsRequest(RequestConstants.REQ_MOVE);
+        parentRequest.setEditParts(otherSelections);
+        
         CompoundCommand compound = new CompoundCommand("Align left");
         for (GraphicalEditPart editPart : otherSelections) {
             IFigure figure = editPart.getFigure();
             Rectangle bounds = getEffectiveBounds(figure);
             figure.translateToAbsolute(bounds);
+        
             Point moveDelta = new Point(primaryBounds.x - bounds.x, 0);
+        
             ChangeBoundsRequest req = new ChangeBoundsRequest(RequestConstants.REQ_MOVE);
             req.setEditParts(editPart);
             req.setMoveDelta(moveDelta);
             req.setSizeDelta(new Dimension(0, 0));
+            RequestHelper.addSharedEditParts(req, parentRequest);
+        
             compound.add(editPart.getCommand(req));
         }
         if (compound.canExecute()) {
             primarySelection.getViewer().getEditDomain().getCommandStack().execute(compound);
         }
+        
     }
 
 }

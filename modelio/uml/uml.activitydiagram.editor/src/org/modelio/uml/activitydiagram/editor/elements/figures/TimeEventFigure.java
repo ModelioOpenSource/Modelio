@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.figures;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -28,10 +27,10 @@ import org.modelio.diagram.elements.core.figures.borders.ShapedBorder;
 @objid ("2a70adbb-55b6-11e2-877f-002564c97630")
 public class TimeEventFigure extends ShapedFigure {
     @objid ("d0638b09-55c0-11e2-9337-002564c97630")
-     ShapedBorder shapedBorder;
+    ShapedBorder shapedBorder;
 
     @objid ("2a70adc1-55b6-11e2-877f-002564c97630")
-    public TimeEventFigure() {
+    public  TimeEventFigure() {
         super(new TimeEventShaper());
         setSize(30, 30);
         setOpaque(true);
@@ -39,6 +38,7 @@ public class TimeEventFigure extends ShapedFigure {
                 this.penOptions.lineWidth,
                 this.shaper);
         setBorder(this.shapedBorder);
+        
     }
 
     @objid ("2a70adc3-55b6-11e2-877f-002564c97630")
@@ -48,6 +48,7 @@ public class TimeEventFigure extends ShapedFigure {
             this.shapedBorder.setColor(lineColor);
             super.setLineColor(lineColor);
         }
+        
     }
 
     @objid ("2a70adc7-55b6-11e2-877f-002564c97630")
@@ -57,6 +58,7 @@ public class TimeEventFigure extends ShapedFigure {
             this.shapedBorder.setWidth(lineWidth);
             super.setLineWidth(lineWidth);
         }
+        
     }
 
 }

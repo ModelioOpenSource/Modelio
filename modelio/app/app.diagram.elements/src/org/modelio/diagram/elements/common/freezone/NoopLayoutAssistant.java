@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.freezone;
 
 import java.util.Collection;
@@ -71,7 +70,7 @@ public class NoopLayoutAssistant implements ILayoutAssistant {
      * Use the singleton {@link #instance}.
      */
     @objid ("4929274d-c9f6-450e-8f51-f18cad1bc231")
-    protected NoopLayoutAssistant() {
+    protected  NoopLayoutAssistant() {
         super();
     }
 

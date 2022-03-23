@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.bpmn;
 
 import java.util.Collections;
@@ -38,7 +37,7 @@ public class BpmnBoundaryEventDG extends PortContainerDG {
      * @param node The gm node represented by this class.
      */
     @objid ("52ac42bb-ffb5-4bc4-9315-d8436d035f96")
-    public BpmnBoundaryEventDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  BpmnBoundaryEventDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 

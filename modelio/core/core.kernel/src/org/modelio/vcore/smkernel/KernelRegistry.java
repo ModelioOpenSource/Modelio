@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel;
 
 import java.util.ArrayList;
@@ -35,10 +34,9 @@ public class KernelRegistry {
 
     /**
      * Get the kernel provider service for a live id.
-     * 
      * @param liveId a live id
      * @return the kernel provider service
-     * @throws org.modelio.vcore.smkernel.KernelRegistry.NoSuchKernelException if the live id does not match a current or previous service, or the found service is no longer active. (The project is closed)
+     * @throws NoSuchKernelException if the live id does not match a current or previous service, or the found service is no longer active. (The project is closed)
      */
     @objid ("00415924-8b3b-1f21-85a5-001ec947cd2a")
     public static IKernelServiceProvider getService(final long liveId) throws NoSuchKernelException {
@@ -58,7 +56,6 @@ public class KernelRegistry {
      * Register the kernel provider service.
      * <p>
      * Calls {@link IKernelServiceProvider#setId(short)} with its identifier.
-     * 
      * @param service the kernel provider service to register.
      */
     @objid ("00416e78-8b3b-1f21-85a5-001ec947cd2a")
@@ -70,6 +67,7 @@ public class KernelRegistry {
         if (Log.ENABLED) {
             Log.trace("KernelRegistry - registered provider '%s', id=%d ", service.getName(), newId);
         }
+        
     }
 
     /**
@@ -82,16 +80,16 @@ public class KernelRegistry {
             Log.trace("KernelRegistry - removed provider id=%d ", kid);
         }
         registry.set(kid, null);
+        
     }
 
     /**
      * Get the kernel provider service for a live id.
      * <p>
      * Returns <code>null</code> if the service provider is no longer registered.
-     * 
      * @param liveId a live id
      * @return the kernel provider service or <code>null</code> if the service has been unregistered.
-     * @throws org.modelio.vcore.smkernel.KernelRegistry.NoSuchKernelException if the live id does not match a current or previous service.
+     * @throws NoSuchKernelException if the live id does not match a current or previous service.
      */
     @objid ("b9f44d70-7a74-11e1-9633-001ec947ccaf")
     public static IKernelServiceProvider getService0(final long liveId) throws NoSuchKernelException {
@@ -112,6 +110,7 @@ public class KernelRegistry {
             }
             throw ex;
         }
+        
     }
 
     /**
@@ -123,7 +122,7 @@ public class KernelRegistry {
         private static final long serialVersionUID = 1L;
 
         @objid ("21b272c0-59ab-4cf9-a99c-20e154426db7")
-        public NoSuchKernelException(String message, Throwable cause) {
+        public  NoSuchKernelException(String message, Throwable cause) {
             super(message, cause);
         }
 

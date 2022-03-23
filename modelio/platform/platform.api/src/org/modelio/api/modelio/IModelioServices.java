@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,7 +41,6 @@ import org.modelio.api.ui.swt.IUiToolkit;
 public interface IModelioServices {
     /**
      * Get the audit service.
-     * 
      * @return the audit service.
      * @since 3.5
      */
@@ -51,7 +49,6 @@ public interface IModelioServices {
 
     /**
      * Get the context of the Modelio application.
-     * 
      * @return the Modelio context.
      * @since 3.5
      */
@@ -60,7 +57,6 @@ public interface IModelioServices {
 
     /**
      * Get the text editor management service.
-     * 
      * @return the edition service.
      * @since 3.5
      */
@@ -69,7 +65,6 @@ public interface IModelioServices {
 
     /**
      * Get the service to import/export model elements.
-     * 
      * @return the exchange service.
      * @since 3.5
      */
@@ -78,7 +73,6 @@ public interface IModelioServices {
 
     /**
      * Get the service to get the image of an element.
-     * 
      * @return the image service.
      * @since 3.5
      */
@@ -87,7 +81,6 @@ public interface IModelioServices {
 
     /**
      * Get the log service for modules.
-     * 
      * @return the log service.
      * @since 3.5
      */
@@ -96,7 +89,6 @@ public interface IModelioServices {
 
     /**
      * Get the metamodel management service.
-     * 
      * @return the metamodel service.
      * @since 3.5
      */
@@ -105,7 +97,6 @@ public interface IModelioServices {
 
     /**
      * Get the model component management service.
-     * 
      * @return the model component service.
      * @since 3.5
      */
@@ -114,7 +105,6 @@ public interface IModelioServices {
 
     /**
      * Get the model manipulation service.
-     * 
      * @return the model manipulation service.
      * @since 3.5
      */
@@ -123,7 +113,6 @@ public interface IModelioServices {
 
     /**
      * Get the module management service.
-     * 
      * @return the module management service.
      * @since 3.5
      */
@@ -135,7 +124,6 @@ public interface IModelioServices {
      * <p>
      * The navigation service allow to force selection in all the view/dialog
      * that are registered as NavigationListener.
-     * 
      * @return the navigation service.
      * @since 3.5
      */
@@ -144,7 +132,6 @@ public interface IModelioServices {
 
     /**
      * Get the service to export/apply patterns.
-     * 
      * @return the pattern service
      * @since 3.5
      */
@@ -153,7 +140,6 @@ public interface IModelioServices {
 
     /**
      * Get the element picking service.
-     * 
      * @return the element picking service.
      * @since 3.5
      */
@@ -166,7 +152,6 @@ public interface IModelioServices {
     /**
      * Get the GUI toolkit modules can use to create model or metamodel related widgets.
      * <p>
-     * 
      * @return the GUI toolkit.
      * @since 3.7.1
      */

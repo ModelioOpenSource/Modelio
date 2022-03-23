@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.utils.metamodel.experts.links;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,7 +41,7 @@ public class WrappedLinkExpertHelper implements ILinkExpertHelper {
      * @param defaultExpert the expert to delegate to by default.
      */
     @objid ("c11da907-9fec-4cec-9ff2-098f939740cc")
-    public WrappedLinkExpertHelper(ILinkExpertHelper defaultExpert) {
+    public  WrappedLinkExpertHelper(ILinkExpertHelper defaultExpert) {
         this.defaultExpert = defaultExpert;
     }
 

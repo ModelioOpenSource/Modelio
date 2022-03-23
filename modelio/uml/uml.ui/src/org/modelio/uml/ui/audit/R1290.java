@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.audit;
 
 import java.util.ArrayList;
@@ -76,6 +75,7 @@ public class R1290 extends AbstractUmlRule {
     public void autoRegister(UmlAuditPlan plan) {
         plan.registerRule(InstanceNode.MQNAME, this, AuditTrigger.UPDATE);
         plan.registerRule(ObjectFlow.MQNAME, this, AuditTrigger.CREATE | AuditTrigger.MOVE | AuditTrigger.UPDATE);
+        
     }
 
     /**
@@ -109,14 +109,14 @@ public class R1290 extends AbstractUmlRule {
      * Default constructor for R1290
      */
     @objid ("0456e323-dd1a-41d1-8ebd-64573fad1b47")
-    public R1290() {
+    public  R1290() {
         this.checkerInstance = new CheckR1290(this);
     }
 
     @objid ("cb695c59-9c2b-427d-9ebe-986b6e40fdb4")
     private static class CheckR1290 extends AbstractControl {
         @objid ("7ddc2e71-d3f1-4cce-8eab-0ea17d613b8e")
-        public CheckR1290(IRule rule) {
+        public  CheckR1290(IRule rule) {
             super(rule);
         }
 
@@ -228,7 +228,6 @@ public class R1290 extends AbstractUmlRule {
 
         /**
          * Find if there are types that are super types of all the given classes.
-         * 
          * @param sourceClasses The source Classes.
          * @return The list of the super Classes or an empty list is no such Classes are found.
          */
@@ -268,7 +267,6 @@ public class R1290 extends AbstractUmlRule {
 
         /**
          * Check the type of source and target classes and return it.
-         * 
          * @param sourceClasses The source Classes
          * @param targetClasses The target Classes
          * @return The KinfOfType of source and target Classes.
@@ -302,7 +300,6 @@ public class R1290 extends AbstractUmlRule {
 
         /**
          * Gets All the super types of a type.
-         * 
          * @param type The class to start from.
          * @param superTypes The list of found super types.
          */
@@ -324,11 +321,11 @@ public class R1290 extends AbstractUmlRule {
                     }
                 }
             }
+            
         }
 
         /**
          * Finds all the object nodes that are connected to the given object node, except for object nodes that are controls.
-         * 
          * @param node The ObjectNode to start from.
          * @param sourceClasses The list of found Classes
          * @param visitedNodes A list of visited nodes to avoid cycling
@@ -354,11 +351,11 @@ public class R1290 extends AbstractUmlRule {
                     }
                 }
             }
+            
         }
 
         /**
          * Finds all the object nodes that are connected to the given object node, except for object nodes that are controls.
-         * 
          * @param node The ObjectNode to start from.
          * @param targetClasses The list of found Classes
          * @param visitedNodes A list of visited nodes to avoid cycling
@@ -384,11 +381,11 @@ public class R1290 extends AbstractUmlRule {
                     }
                 }
             }
+            
         }
 
         /**
          * Finds all the ObjectFlows connecting the given ObjectNode to another ObjectNode, except for ObjectNodes that are controls.
-         * 
          * @param node The Object node to search from
          * @param objectFlows The list of found ObjectFlow
          * @param visitedFlows The list of visited ObjectFlows
@@ -415,11 +412,11 @@ public class R1290 extends AbstractUmlRule {
                     findSourceFlows(sourceNode, objectFlows, visitedFlows);
                 }
             }
+            
         }
 
         /**
          * Finds all the ObjectFlows connecting the given ObjectNode to another ObjectNode, except for ObjectNodes that are controls.
-         * 
          * @param node The Object node to search from
          * @param objectFlows The list of found ObjectFlow
          * @param visitedFlows The list of visited ObjectFlows
@@ -446,15 +443,20 @@ public class R1290 extends AbstractUmlRule {
                     findTargetFlows(targetNode, objectFlows, visitedFlows);
                 }
             }
+            
         }
 
     }
 
     @objid ("4f7f81af-2575-42ae-8cd6-a9630b0b976c")
     private enum KindOfType {
+        @objid ("aaf428cc-b965-47ab-a198-3f6316aaa9b6")
         MIX,
+        @objid ("90ed90a8-7ef5-420e-9a8c-ae9f9d9f3393")
         NULL,
+        @objid ("4c9e59af-6395-45fb-a279-b248bf96325d")
         NOTNULL;
+
     }
 
 }

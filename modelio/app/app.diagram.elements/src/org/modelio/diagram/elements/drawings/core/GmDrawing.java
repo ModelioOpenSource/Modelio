@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.drawings.core;
 
 import java.util.Map;
@@ -61,22 +60,22 @@ public abstract class GmDrawing extends GmAbstractObject implements IGmDrawing {
 
     /**
      * Default constructor.
-     * 
      * @param diagram the owner diagram.
      * @param identifier the drawing identifier.
      */
     @objid ("110d2aa1-cc0b-46f6-8214-0704c4106da7")
-    public GmDrawing(IGmDiagram diagram, String identifier) {
+    public  GmDrawing(IGmDiagram diagram, String identifier) {
         super(diagram);
         this.identifier = identifier;
         init();
+        
     }
 
     /**
      * Deserialization only constructor.
      */
     @objid ("359942d3-e6ed-4612-ab94-06b04ca2c05e")
-    public GmDrawing() {
+    public  GmDrawing() {
         super();
     }
 
@@ -88,6 +87,7 @@ public abstract class GmDrawing extends GmAbstractObject implements IGmDrawing {
         }
         
         super.delete();
+        
     }
 
     @objid ("c12dceea-5ecb-4074-9855-47c13e2fdd12")
@@ -123,6 +123,7 @@ public abstract class GmDrawing extends GmAbstractObject implements IGmDrawing {
                 break;
             
         }
+        
     }
 
     @objid ("807430b2-1dec-11e2-8cad-001ec947c8cc")
@@ -138,6 +139,7 @@ public abstract class GmDrawing extends GmAbstractObject implements IGmDrawing {
         if (this.hyperlink != null) {
             out.writeProperty("hyperlink", this.hyperlink);
         }
+        
     }
 
     /**
@@ -150,7 +152,6 @@ public abstract class GmDrawing extends GmAbstractObject implements IGmDrawing {
      * <p>
      * Can be redefined to create another style or to return <tt>null<tt/> if
      * {@link #getStyle()} is redefined to return another style.
-     * 
      * @param aDiagram the diagram where the object will be
      * @return the created style or <tt>null</tt> if the creation is postponed
      */
@@ -187,6 +188,7 @@ public abstract class GmDrawing extends GmAbstractObject implements IGmDrawing {
             // Register element in the diagram
             getDiagram().addGraphicModel(this);
         }
+        
     }
 
     @objid ("807430b6-1dec-11e2-8cad-001ec947c8cc")
@@ -202,6 +204,7 @@ public abstract class GmDrawing extends GmAbstractObject implements IGmDrawing {
         
         
         init();
+        
     }
 
     @objid ("fd7e5c7e-248f-41e5-99e8-3edf5138b27d")
@@ -223,11 +226,11 @@ public abstract class GmDrawing extends GmAbstractObject implements IGmDrawing {
         if(! obsoleteProps.isEmpty()) {
             this.hyperlink = (MRef) obsoleteProps.get(getObsoleteHyperLinkStyleKey());
         }
+        
     }
 
     /**
      * To be redefined by sub classes that used hyper link stored in style keys.
-     * 
      * @return the style key name where hyper link was stored.
      * @since 3.7
      */

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.ramc;
 
 import java.io.Closeable;
@@ -37,14 +36,13 @@ import java.nio.file.ProviderNotFoundException;
 import java.nio.file.attribute.FileTime;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.gproject.data.plugin.GProjectData;
 import org.modelio.gproject.data.project.DefinitionScope;
 import org.modelio.gproject.data.project.FragmentDescriptor;
@@ -88,25 +86,24 @@ public class ModelComponentArchive {
     /**
      * Initialize the RAMC from a path that may represent a .ramc archive or an extracted
      * RAMC directory.
-     * 
      * @param path a file system path
      * @param isArchive <code>true</code> if the path is a .ramc file, <code>false</code> if the
      * path is a directory.
      */
     @objid ("6ac583a6-47e2-4b4c-a723-1c5c871a22f7")
-    public ModelComponentArchive(Path path, boolean isArchive) {
+    public  ModelComponentArchive(Path path, boolean isArchive) {
         if (isArchive) {
             this.archive = path;
         } else {
             this.dir = path;
         }
+        
     }
 
     /**
      * Build a fragment descriptor.
-     * 
      * @return the RAMC fragment descriptor.
-     * @throws java.io.IOException in case of I/O error
+     * @throws IOException in case of I/O error
      */
     @objid ("0c209457-80d5-4514-8f81-d0758e15372c")
     public FragmentDescriptor getFragmentDescriptor() throws IOException {
@@ -131,9 +128,8 @@ public class ModelComponentArchive {
 
     /**
      * Get the RAMC informations.
-     * 
      * @return the informations.
-     * @throws java.io.IOException in case of I/O error.
+     * @throws IOException in case of I/O error.
      */
     @objid ("20253825-c258-4295-8cbb-a32fd82dabeb")
     public IModelComponentInfos getInfos() throws IOException {
@@ -149,10 +145,9 @@ public class ModelComponentArchive {
 
     /**
      * Get the RAMC informations from a file system mounted on the RAMC archive
-     * 
      * @param fs a file system mounted on the RAMC archive.
      * @return the RAMc informations.
-     * @throws java.io.IOException in case of I/O failure.
+     * @throws IOException in case of I/O failure.
      */
     @objid ("4867d0ee-d7d1-439b-b71d-3f99148e0fb7")
     public static IModelComponentInfos getInfos(FileSystem fs) throws IOException {
@@ -162,10 +157,9 @@ public class ModelComponentArchive {
 
     /**
      * Get the RAMC information from a RAMC extracted to the given directory.
-     * 
      * @param ramcDir the directory here the RAMC is extracted.
      * @return the RAMC informations
-     * @throws java.io.IOException in case of I/O failure.
+     * @throws IOException in case of I/O failure.
      */
     @objid ("d299b8ce-49af-4865-bcb7-87679da892a7")
     public static IModelComponentInfos getRamcDirectoryInfos(Path ramcDir) throws IOException {
@@ -174,10 +168,9 @@ public class ModelComponentArchive {
 
     /**
      * Deploy the RAMC external files to the deployment directory.
-     * 
      * @param deploymentPath the deployment directory
      * @param monitor a progress monitor
-     * @throws java.io.IOException in case of I/O failure.
+     * @throws IOException in case of I/O failure.
      */
     @objid ("8feb26cf-8636-4145-9ac7-052ac70b09d8")
     public void installExportedFiles(Path deploymentPath, IModelioProgress monitor) throws IOException {
@@ -186,14 +179,14 @@ public class ModelComponentArchive {
         } else {
             new ExportedFilesDeployer().deployFromDirectory(this.dir, deploymentPath, monitor);
         }
+        
     }
 
     /**
      * Delete deployment files from the deployment directory.
-     * 
      * @param deploymentPath the deployment directory to clean
      * @param monitor a progress monitor
-     * @throws java.io.IOException in case of I/O failure.
+     * @throws IOException in case of I/O failure.
      */
     @objid ("97ed85b5-a230-4531-8aac-252c8fd81249")
     public void removeExportedFiles(Path deploymentPath, IModelioProgress monitor) throws IOException {
@@ -214,8 +207,7 @@ public class ModelComponentArchive {
             for (ExportedFile f : manifest.getExportedFiles()) {
                 Path fileToDelete = deploymentPath.resolve(f.getPath());
                 progress.subTask("Deleting file " + fileToDelete.toString());
-                // System.out.printf(" - delete file %s\n",
-                // fileToDelete.toString());
+                // System.out.printf(" - delete file %s\n", fileToDelete.toString());
             
                 if (fileToDelete.startsWith(deploymentPath)) {
                     dirToClean.add(fileToDelete.getParent());
@@ -230,18 +222,13 @@ public class ModelComponentArchive {
             progress.worked(10);
             
             // Sort by path length, longer first
-            Collections.sort(dirToClean, new Comparator<Path>() {
-                @Override
-                public int compare(Path o1, Path o2) {
-                    return Integer.compare(o2.getNameCount(), o1.getNameCount());
-                }
-            
-            });
+            Collections.sort(dirToClean, (o1, o2) -> Integer.compare(o2.getNameCount(), o1.getNameCount()));
             progress.worked(5);
             
             for (Path dir : dirToClean) {
                 cleanDirectory(deploymentPath, dir.toFile());
             }
+            
         }
 
         @objid ("866a0dad-6662-44e5-ad2d-357ac35b0362")
@@ -255,10 +242,11 @@ public class ModelComponentArchive {
                     cleanDirectory(root, parent);
                 }
             }
+            
         }
 
         @objid ("9824bac3-420e-446f-8627-9c2595301117")
-        public ExportedFilesCleaner() {
+        public  ExportedFilesCleaner() {
             // nothing
         }
 
@@ -277,6 +265,7 @@ public class ModelComponentArchive {
             
                 deployFromDirectory(tmpDirectory.path, deploymentPath, subMonitor);
             }
+            
         }
 
         @objid ("a020c854-cc36-11e1-87f1-001ec947ccaf")
@@ -285,6 +274,7 @@ public class ModelComponentArchive {
             Unzipper unzipper = new Unzipper();
             unzipper.setProgressLabelPrefix(GProjectData.I18N.getMessage("MC.Archive.ExtractModelComponent", ramcFile.getFileName()));
             unzipper.unzip(ramcFile, ramcDirectory, subMonitor);
+            
         }
 
         @objid ("a020c859-cc36-11e1-87f1-001ec947ccaf")
@@ -310,50 +300,50 @@ public class ModelComponentArchive {
             
                 return xmlDoc.getDocumentElement();
             } catch (ParserConfigurationException e) {
-                throw new IOException("Cannot init Xml parser", e); //$NON-NLS-1$
+                throw new IOException("Cannot initialize XML parser:"+e.getLocalizedMessage(), e); //$NON-NLS-1$
             } catch (SAXException e) {
-                throw new IOException("Sax parsing exception", e); //$NON-NLS-1$
-            } catch (FileSystemException e) {
-                throw new IOException(GProjectData.I18N.getMessage("MC.Archive.ManifestParsingIOException", FileUtils.getLocalizedMessage(e))); //$NON-NLS-1$
+                throw new IOException("SAX parsing exception: "+e.getMessage(), e); //$NON-NLS-1$
             } catch (IOException e) {
-                throw new IOException("MC.Archive.ManifestParsingIOException", e); //$NON-NLS-1$
+                throw new IOException(GProjectData.I18N.getMessage("MC.Archive.ManifestParsingIOException", FileUtils.getLocalizedMessage(e)), e); //$NON-NLS-1$
             }
+            
         }
 
         @objid ("a020c85d-cc36-11e1-87f1-001ec947ccaf")
         private void installFiles(Path ramcDirectory, Path projectPath, Element metadataElement) throws IOException {
-            try {
-                NodeList childNodes = metadataElement.getChildNodes();
+            NodeList childNodes = metadataElement.getChildNodes();
             
-                Path currentFile = null;
-                Path destinationFile = null;
-                long date = 0;
+            Path currentFile = null;
+            Path destinationFile = null;
+            long date = 0;
             
-                for (int i = 0; i < childNodes.getLength(); i++) {
-                    Node n = childNodes.item(i);
-                    if (n instanceof Element) {
-                        Element el = (Element) n;
+            for (int i = 0; i < childNodes.getLength(); i++) {
+                Node n = childNodes.item(i);
+                if (n instanceof Element) {
+                    Element el = (Element) n;
             
-                        if ("file".equals(el.getNodeName())) {
-                            currentFile = ramcDirectory.resolve(el.getAttribute("archive-name"));
-                            destinationFile = Paths.get(projectPath.toString(), el.getAttribute("destination-path"));
-                            date = Long.parseLong(el.getAttribute("mtime"));
+                    if ("file".equals(el.getNodeName())) {
+                        currentFile = ramcDirectory.resolve(el.getAttribute("archive-name"));
+                        destinationFile = Paths.get(projectPath.toString(), el.getAttribute("destination-path"));
+                        date = Long.parseLong(el.getAttribute("mtime"));
+                        try {
                             Files.createDirectories(destinationFile.getParent());
                             Files.deleteIfExists(destinationFile);
                             Files.copy(currentFile, destinationFile);
                             Files.setLastModifiedTime(destinationFile, FileTime.from(date, TimeUnit.SECONDS));
+                        } catch (IOException e) {
+                            String msg = GProjectData.I18N.getMessage("MC.Archive.install.IOException", currentFile, destinationFile, FileUtils.getLocalizedMessage(e));
+                            //String msg = MessageFormat.format("Cannot extract ''{0}'' to ''{1}'': {2}", currentFile, destinationFile, FileUtils.getLocalizedMessage(e) );
+                            throw new IOException(msg, e);
                         }
                     }
                 }
-            } catch (FileSystemException e) {
-                throw new IOException(GProjectData.I18N.getMessage("MC.Archive.ManifestParsingIOException", FileUtils.getLocalizedMessage(e))); //$NON-NLS-1$
-            } catch (IOException e) {
-                throw new IOException(GProjectData.I18N.getMessage("MC.Archive.ManifestParsingIOException", e.getMessage())); //$NON-NLS-1$
             }
+            
         }
 
         @objid ("75ac0112-5d04-4942-b8d1-bd15aef226fb")
-        public ExportedFilesDeployer() {
+        public  ExportedFilesDeployer() {
             // nothing
         }
 
@@ -368,6 +358,7 @@ public class ModelComponentArchive {
             monitor.subTask(GProjectData.I18N.getString("MC.Archive.ImportFiles"));
             installFiles(fromDirectory, deploymentPath, metadataElement);
             monitor.worked(10);
+            
         }
 
     }
@@ -390,6 +381,7 @@ public class ModelComponentArchive {
                 Path metaPath = fs.getPath(ModelComponentArchive.METADATAS_XML);
                 return ManifestReader.readMetadataFile(metaPath);
             }
+            
         }
 
         @objid ("57b5e752-434a-44f9-952d-60bf468a4ad0")
@@ -433,8 +425,8 @@ public class ModelComponentArchive {
                     int version = ManifestReader.parseInt(ramcElement, "version");
                     int release = ManifestReader.parseInt(ramcElement, "release");
                     int clevel = ManifestReader.parseInt(ramcElement, "clevel");
-                   
-                    
+            
+            
                     ManifestReader.updateRequiredModelioMmVersion(ramcElement, modelComponentInfos);
             
                     modelComponentInfos.setVersion(new Version(version, release, clevel));
@@ -484,6 +476,7 @@ public class ModelComponentArchive {
             } catch (SAXException e) {
                 throw new IOException("Invalid manifest: " + e.getLocalizedMessage(), e);
             }
+            
         }
 
         @objid ("a01e661c-cc36-11e1-87f1-001ec947ccaf")
@@ -500,6 +493,7 @@ public class ModelComponentArchive {
             } catch (NumberFormatException e) {
                 return false;
             }
+            
         }
 
         @objid ("7414e0e7-cc3e-11e1-87f1-001ec947ccaf")
@@ -515,6 +509,7 @@ public class ModelComponentArchive {
                 e2.initCause(e);
                 throw e2;
             }
+            
         }
 
         @objid ("e3a9e394-9761-4112-913e-ce420362d3cb")
@@ -526,6 +521,7 @@ public class ModelComponentArchive {
             } catch (UnsupportedOperationException e) {
                 return new Version(999, 999, 99);
             }
+            
         }
 
         @objid ("0aebd321-6b31-42f5-85cf-96f358e1d64b")
@@ -536,6 +532,7 @@ public class ModelComponentArchive {
             } catch (NumberFormatException e) {
                 throw new SAXException(String.format("'%s' node '%s' attribute has invalid '%s' value.", domElement.getNodeName(), attName, attVal), e);
             }
+            
         }
 
         @objid ("7b845138-85e8-4b2e-8b06-c5b531eb79c9")
@@ -546,6 +543,7 @@ public class ModelComponentArchive {
             } catch (NumberFormatException e) {
                 throw new SAXException(String.format("'%s' node '%s' Version attribute has invalid '%s' value.", domElement.getNodeName(), attName, attVal), e);
             }
+            
         }
 
         @objid ("7414e0f3-cc3e-11e1-87f1-001ec947ccaf")
@@ -554,6 +552,7 @@ public class ModelComponentArchive {
             final Path path = Paths.get(el.getAttribute("destination-path"));
             final FileTime date = FileTime.fromMillis(Long.parseLong(el.getAttribute("mtime")));
             ret.addFile(new ExportedFile(archiveName, path, date));
+            
         }
 
         @objid ("a01e6618-cc36-11e1-87f1-001ec947ccaf")
@@ -573,6 +572,7 @@ public class ModelComponentArchive {
                     ret.addModule(adapter);
                 }
             }
+            
         }
 
         @objid ("d1fde1c4-fcf4-4e6e-b5fe-26c73e4012d9")
@@ -591,6 +591,7 @@ public class ModelComponentArchive {
                     ret.addRequiredMetamodelFragment(adapter);
                 }
             }
+            
         }
 
         @objid ("59aa0afe-7335-4d14-8098-152f89837ad3")
@@ -608,6 +609,7 @@ public class ModelComponentArchive {
                         .orElse(new Version(1, 0, 0));
                 modelComponentInfos.setModelioVersion(modelioVersion);
             }
+            
         }
 
         @objid ("a01e6614-cc36-11e1-87f1-001ec947ccaf")
@@ -627,13 +629,11 @@ public class ModelComponentArchive {
                     ret.addRequiredRamc(adapter);
                 }
             }
+            
         }
 
         /**
          * Convert from old way to specify metamodel version to new one
-         * @param ramcElement
-         * @param ret
-         * @throws SAXException
          */
         @objid ("f870bdd5-862a-4cc8-931b-b686be230954")
         private static void updateRequiredModelioMmVersion(Element ramcElement, ModelComponentInfos ret) throws SAXException {
@@ -645,6 +645,7 @@ public class ModelComponentArchive {
                 VersionedItem<Void> adapter = new VersionedItem<>(ManifestReader.STD_METAMODEL, stdMmVersion);
                 ret.addRequiredMetamodelFragment(adapter);
             }
+            
         }
 
         @objid ("30dcb793-a4c2-4f81-a6d5-f40ee63f17c0")
@@ -662,6 +663,7 @@ public class ModelComponentArchive {
                     infos.addRoot(new ModelRef(metaclass, uuid, name));
                 }
             }
+            
         }
 
     }
@@ -672,10 +674,10 @@ public class ModelComponentArchive {
     @objid ("ebc9aad3-0314-4456-a933-05f9f992c6d6")
     private static class TmpDir implements Closeable {
         @objid ("4dd06cf1-24f5-4ee9-9bd4-dfa2e2f23ce1")
-         final Path path;
+        final Path path;
 
         @objid ("71de2a7d-9ff8-4c54-9549-c24d09063055")
-        public TmpDir(Path deploymentPath) throws IOException {
+        public  TmpDir(Path deploymentPath) throws IOException {
             this.path = Files.createTempDirectory(deploymentPath, ".tmp-deployment");
         }
 
@@ -685,6 +687,7 @@ public class ModelComponentArchive {
             if (this.path != null) {
                 FileUtils.delete(this.path);
             }
+            
         }
 
     }

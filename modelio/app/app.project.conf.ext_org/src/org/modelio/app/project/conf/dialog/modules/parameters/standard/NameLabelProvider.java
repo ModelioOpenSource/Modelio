@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.modules.parameters.standard;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -49,6 +48,7 @@ class NameLabelProvider extends ColumnLabelProvider {
         } else {
             return super.getText(element);
         }
+        
     }
 
     @objid ("fc176d88-c2cf-46f8-9da2-08f2292a9654")
@@ -60,6 +60,7 @@ class NameLabelProvider extends ColumnLabelProvider {
         } else {
             return super.getImage(element);
         }
+        
     }
 
     @objid ("485afb4d-8c16-47af-b5cb-59bbb4b3e7aa")

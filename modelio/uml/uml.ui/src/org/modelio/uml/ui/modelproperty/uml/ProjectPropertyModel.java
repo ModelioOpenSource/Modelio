@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,11 +37,10 @@ public class ProjectPropertyModel extends AbstractPropertyModel<Project> {
 
     /**
      * Instantiate the project properties view.
-     * 
      * @param theEditedElement the current project.
      */
     @objid ("b21d763a-bf3e-4c24-9cd1-f58a26768ec2")
-    public ProjectPropertyModel(Project theEditedElement) {
+    public  ProjectPropertyModel(Project theEditedElement) {
         super(theEditedElement);
     }
 
@@ -88,6 +86,7 @@ public class ProjectPropertyModel extends AbstractPropertyModel<Project> {
         default:
             return null;
         }
+        
     }
 
     /**
@@ -113,6 +112,7 @@ public class ProjectPropertyModel extends AbstractPropertyModel<Project> {
         default:
             return null;
         }
+        
     }
 
     /**
@@ -149,6 +149,7 @@ public class ProjectPropertyModel extends AbstractPropertyModel<Project> {
         default:
             return;
         }
+        
     }
 
 }

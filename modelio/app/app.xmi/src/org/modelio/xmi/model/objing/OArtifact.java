@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import java.util.ArrayList;
@@ -42,10 +41,11 @@ public class OArtifact extends ONameSpace {
         }else{
             return UMLFactory.eINSTANCE.createArtifact();
         }
+        
     }
 
     @objid ("51c0fa88-14bd-4205-9620-abc5c6322239")
-    public OArtifact(Artifact param) {
+    public  OArtifact(Artifact param) {
         super(param);
     }
 
@@ -80,6 +80,7 @@ public class OArtifact extends ONameSpace {
                         + ecoreOwner.getClass().getSimpleName() + ") Not Found");
             }
         }
+        
     }
 
     @objid ("0fa2579b-5027-48bf-83ea-f32a30434959")
@@ -88,6 +89,7 @@ public class OArtifact extends ONameSpace {
         super.setProperties(ecoreElt);
         setFileName((org.eclipse.uml2.uml.Artifact) ecoreElt);
         setUtilized((org.eclipse.uml2.uml.Artifact) ecoreElt);
+        
     }
 
     @objid ("bc03b1e8-8b55-4a65-8f1e-3cc813b9ecdc")
@@ -95,6 +97,7 @@ public class OArtifact extends ONameSpace {
         String fileName = getObjingElement().getFileName();
         if (!"".equals(fileName))
             artifact.setFileName(fileName);
+        
     }
 
     @objid ("d09810c6-7d0d-4141-80fa-3d93a32f477e")
@@ -114,6 +117,7 @@ public class OArtifact extends ONameSpace {
         
         if (ecoreManifList.size() > 0)
             artifact.getManifestations().addAll(ecoreManifList);
+        
     }
 
     @objid ("841d4c93-031c-46f1-b6a1-eff768ad52aa")

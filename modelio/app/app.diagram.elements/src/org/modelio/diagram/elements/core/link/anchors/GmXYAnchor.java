@@ -17,9 +17,9 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.anchors;
 
+import java.util.Objects;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.geometry.Point;
 import org.modelio.diagram.persistence.IDiagramReader;
@@ -41,11 +41,10 @@ public class GmXYAnchor implements IPersistent {
 
     /**
      * Constructor
-     * 
      * @param ref the position of the reference point in absolute coordinates.
      */
     @objid ("7fe2c167-1dec-11e2-8cad-001ec947c8cc")
-    public GmXYAnchor(final Point ref) {
+    public  GmXYAnchor(final Point ref) {
         this.ref = ref;
     }
 
@@ -53,12 +52,12 @@ public class GmXYAnchor implements IPersistent {
      * For deserialization.
      */
     @objid ("7fe2c16e-1dec-11e2-8cad-001ec947c8cc")
-    public GmXYAnchor() {
+    public  GmXYAnchor() {
+        
     }
 
     /**
      * Get the anchor location.
-     * 
      * @return the position of the anchor in absolute coordinates.
      */
     @objid ("7fe2c171-1dec-11e2-8cad-001ec947c8cc")
@@ -80,7 +79,6 @@ public class GmXYAnchor implements IPersistent {
 
     /**
      * Set the anchor location.
-     * 
      * @param ref the position of the anchor in absolute coordinates.
      */
     @objid ("7fe2c180-1dec-11e2-8cad-001ec947c8cc")
@@ -104,6 +102,29 @@ public class GmXYAnchor implements IPersistent {
     @Override
     public String toString() {
         return getClass().getSimpleName()+"[reference="+getReferencePoint()+"]";
+    }
+
+    @objid ("9a9e52dd-f17e-4d91-a102-c38f5e4d20fd")
+    @Override
+    public boolean equals(Object obj) {
+        // Automatically generated method.Please delete this comment before entering specific code.
+        
+        if (this == obj) return true;
+        if (this.getClass() != obj.getClass()) return false;
+        
+        GmXYAnchor other = (GmXYAnchor)obj;
+        if (!Objects.equals(this.ref, other.ref)) return false;
+        return true;
+        
+    }
+
+    @objid ("8af82f6b-4bff-42ee-90c2-c3a9055f29e3")
+    @Override
+    public int hashCode() {
+        // Automatically generated method.Please delete this comment before entering specific code.
+        int result = super.hashCode();
+        result = 31 * result + (this.ref != null ? this.ref.hashCode() : 0);
+        return result;
     }
 
 }

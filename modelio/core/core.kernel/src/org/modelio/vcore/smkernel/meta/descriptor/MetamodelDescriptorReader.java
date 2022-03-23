@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta.descriptor;
 
 import java.io.FileNotFoundException;
@@ -28,9 +27,10 @@ import java.nio.file.FileSystemException;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.vbasic.files.FileUtils;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vbasic.version.VersionedItem;
@@ -53,11 +53,10 @@ public class MetamodelDescriptorReader {
 
     /**
      * Read a project descriptor from an XML input source.
-     * 
      * @param in an input stream.
      * @param location The XML source {@link InputSource#getSystemId() system id}
      * @return the read descriptor.
-     * @throws java.io.IOException in case of failure
+     * @throws IOException in case of failure
      */
     @objid ("5454bc4f-2ace-4a51-ba57-10e810c3c383")
     public static MetamodelDescriptor readFrom(InputStream in, String location) throws IOException {
@@ -68,10 +67,9 @@ public class MetamodelDescriptorReader {
 
     /**
      * Read a project descriptor from an XML input source.
-     * 
      * @param src the XML input source.
      * @return the read descriptor.
-     * @throws java.io.IOException in case of failure
+     * @throws IOException in case of failure
      */
     @objid ("435ad7ec-4665-41b8-948f-227e6c31cb57")
     public static MetamodelDescriptor readFrom(InputSource src) throws IOException {
@@ -80,10 +78,9 @@ public class MetamodelDescriptorReader {
 
     /**
      * Read a project descriptor from an XML input source.
-     * 
      * @param is the XML input source.
      * @return the read descriptor.
-     * @throws java.io.IOException in case of failure
+     * @throws IOException in case of failure
      */
     @objid ("b332bb6b-0cc6-4753-afe7-8ebb96e3e5fc")
     private MetamodelDescriptor read(final InputSource is) throws IOException {
@@ -91,8 +88,12 @@ public class MetamodelDescriptorReader {
         
         String confLocation = is.getSystemId();
         try  {
-            
-            Document dom = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(is);
+        
+            DocumentBuilderFactory domFact = DocumentBuilderFactory.newInstance();
+            // XML parsers should not be vulnerable to XXE attacks (java:S2755)
+            domFact.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "");
+            domFact.setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, "");
+            Document dom = domFact.newDocumentBuilder().parse(is);
         
             decodeMetamodel(dom.getDocumentElement());
         
@@ -135,7 +136,7 @@ public class MetamodelDescriptorReader {
             for (Element mel : getChildren(section, "metaclass")) {
                 fd.getMetaclasses().add(decodeMetaclass(mel));
             }
-            
+        
             for (Element mel : getChildren(section, "link_metaclass")) {
                 fd.getMetaclasses().add(decodeLinkMetaclass(mel));
             }
@@ -192,6 +193,7 @@ public class MetamodelDescriptorReader {
         for (Element depEl : getChildren(domEl, "dependency")) {
             mc.getDependencies().add(decodeDepencency(depEl));
         }
+        
     }
 
     @objid ("7eaf933b-aba6-44d2-8ee5-1f0afacb0591")
@@ -241,6 +243,7 @@ public class MetamodelDescriptorReader {
         } else {
             return Boolean.parseBoolean(attVal);
         }
+        
     }
 
     @objid ("648e0c28-a7c9-423a-9e57-8a75ee1e0453")
@@ -255,6 +258,7 @@ public class MetamodelDescriptorReader {
         } else {
             return MAggregation.valueOf(val);
         }
+        
     }
 
     @objid ("6516747d-5987-4931-a5fb-27427421738b")
@@ -300,14 +304,14 @@ public class MetamodelDescriptorReader {
         for (Element f : getChildren(p, "fragment")) {
             this.mmDesc.addFragment(decodeFragment(f));
         }
+        
     }
 
     /**
      * Read a project descriptor from an XML string.
-     * 
      * @param str XML in a string.
      * @return the read descriptor.
-     * @throws java.io.IOException in case of failure
+     * @throws IOException in case of failure
      */
     @objid ("d3e1dd91-4f4b-45bf-8e9d-7465ad29f2d5")
     public static MetamodelDescriptor readFrom(String str) throws IOException {
@@ -319,8 +323,9 @@ public class MetamodelDescriptorReader {
     @objid ("4e997bed-fb22-49c2-96ee-90bd33d8cab4")
     private VersionedItem<?> decodeVersionedItem(Element el) {
         return new VersionedItem<>(
-                                                                el.getAttribute("name"), 
+                                                                el.getAttribute("name"),
                                                                 new Version(el.getAttribute("version")));
+        
     }
 
     @objid ("68599bf3-3e42-4ceb-967d-2defcc303867")
@@ -339,6 +344,7 @@ public class MetamodelDescriptorReader {
         if (!p.getNodeName().equals(expectedName)) {
             throw new SAXException(String.format("XML node is '%s' instead of '%s'", p.getNodeName(), expectedName));
         }
+        
     }
 
     @objid ("d19c7e1c-008f-4a47-8702-ce527cd9c975")
@@ -350,9 +356,10 @@ public class MetamodelDescriptorReader {
         private Element el;
 
         @objid ("2e3c9908-97e6-4b67-a348-d41cf1009af1")
-        public NamedChildrenIterable(Element el, String name) {
+        public  NamedChildrenIterable(Element el, String name) {
             this.el = el;
             this.name = name;
+            
         }
 
         @objid ("450ba4ec-d48b-4f4f-94bf-e58eb830e533")
@@ -372,11 +379,12 @@ public class MetamodelDescriptorReader {
         private Node current;
 
         @objid ("9bd76899-ea3a-4318-a7ce-9243409b613b")
-        public NamedChildrenIterator(Element el, String name) {
+        public  NamedChildrenIterator(Element el, String name) {
             this.name = name;
             this.current = el.getFirstChild();
             
             lookForValid();
+            
         }
 
         @objid ("54dd68d2-e7db-4486-b0c7-3d348565358c")
@@ -403,12 +411,14 @@ public class MetamodelDescriptorReader {
             while (this.current != null && ! isValid()) {
                 this.current = this.current.getNextSibling();
             }
+            
         }
 
         @objid ("9fdd8b5a-279c-4bde-9d0e-da37fb6b6ccc")
         private boolean isValid() {
             return this.current != null && this.current.getNodeType() == Node.ELEMENT_NODE
-                                                                                                                    && this.current.getNodeName().equals(this.name);
+                    && this.current.getNodeName().equals(this.name);
+            
         }
 
         @objid ("4c6fd4b4-d5c1-4fd8-a9b8-3fb29c0574d5")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.combinedfragment.primarynode;
 
 import java.util.ArrayList;
@@ -37,6 +36,7 @@ import org.modelio.diagram.elements.common.resizablegroup.GmResizableGroup;
 import org.modelio.diagram.elements.common.resizablegroup.ResizableGroupLayoutEditPolicy;
 import org.modelio.diagram.elements.common.resizablegroup.ResizeChildrenCommand;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
+import org.modelio.diagram.elements.core.helpers.RequestHelper;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.uml.sequencediagram.editor.elements.interactionoperand.CreateInteractionOperandCommand;
 
@@ -53,13 +53,14 @@ public class InteractionOperandContainerLayoutEditPolicy extends ResizableGroupL
         ModelioCreationContext ctx = ModelioCreationContext.lookRequest(request);
         if (ctx != null) {
             EditPart insertAfter = getInsertionReference(request);
-            GmNodeModel insertAfterModel = (insertAfter == null ? null : (GmNodeModel) insertAfter.getModel());
+            GmNodeModel insertAfterModel = insertAfter == null ? null : (GmNodeModel) insertAfter.getModel();
             getHostFigure().revalidate();
             int constraint = 50;
             return new CreateInteractionOperandCommand(getHost(), ctx, insertAfterModel, constraint);
         } else {
             return null;
         }
+        
     }
 
     @objid ("d8d12e73-55b6-11e2-877f-002564c97630")
@@ -109,6 +110,7 @@ public class InteractionOperandContainerLayoutEditPolicy extends ResizableGroupL
                 inverseRequest.setLocation(request.getLocation());
                 inverseRequest.setSizeDelta(request.getSizeDelta().getNegated());
                 inverseRequest.setResizeDirection(request.getResizeDirection());
+                RequestHelper.addSharedEditParts(inverseRequest, request);
                 Dimension neighbourConstraint = getConstraintFor(inverseRequest, impactedNeighbour).getSize();
                 newConstraints.put((GmNodeModel) impactedNeighbour.getModel(),
                         isHorizontal() ? Integer.valueOf(neighbourConstraint.width)
@@ -122,6 +124,7 @@ public class InteractionOperandContainerLayoutEditPolicy extends ResizableGroupL
                 resizeContainerRequest.setEditParts(getHost().getParent());
                 resizeContainerRequest.setLocation(request.getLocation());
                 resizeContainerRequest.setResizeDirection(request.getResizeDirection());
+                RequestHelper.addSharedEditParts(resizeContainerRequest, request);
                 Dimension sizeDelta = request.getSizeDelta().getCopy();
                 // Only ask to be resized in the "major" axis.
                 if (isHorizontal()) {
@@ -161,7 +164,7 @@ public class InteractionOperandContainerLayoutEditPolicy extends ResizableGroupL
                 // Depending on the resize direction, return either previous or
                 // next child, or null.
                 // If movement to the south, return next child
-                if ((request.getSizeDelta().height - request.getMoveDelta().y != 0)) {
+                if (request.getSizeDelta().height - request.getMoveDelta().y != 0) {
                     // Watch out: first element if the nextChildren list might
                     // be the current child, in which case just skip over it.
                     if (child.equals(nextChildren.get(0))) {
@@ -190,6 +193,7 @@ public class InteractionOperandContainerLayoutEditPolicy extends ResizableGroupL
         }
         // Not found, something is wrong here
         throw new IllegalArgumentException(resizedChild + " edit part is not a child of current container " + getHost());
+        
     }
 
 }

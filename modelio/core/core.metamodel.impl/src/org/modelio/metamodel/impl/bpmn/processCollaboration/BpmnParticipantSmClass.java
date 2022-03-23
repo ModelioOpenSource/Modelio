@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.processCollaboration;
 
 import java.util.ArrayList;
@@ -36,9 +36,6 @@ import org.modelio.metamodel.bpmn.processCollaboration.BpmnProcess;
 import org.modelio.metamodel.bpmn.rootElements.BpmnBaseElement;
 import org.modelio.metamodel.impl.bpmn.bpmnService.BpmnEndPointSmClass;
 import org.modelio.metamodel.impl.bpmn.bpmnService.BpmnInterfaceSmClass;
-import org.modelio.metamodel.impl.bpmn.processCollaboration.BpmnCollaborationSmClass;
-import org.modelio.metamodel.impl.bpmn.processCollaboration.BpmnParticipantData;
-import org.modelio.metamodel.impl.bpmn.processCollaboration.BpmnProcessSmClass;
 import org.modelio.metamodel.impl.bpmn.rootElements.BpmnBaseElementSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
@@ -74,7 +71,7 @@ public class BpmnParticipantSmClass extends BpmnBaseElementSmClass {
     private SmDependency interfaceRefsDep;
 
     @objid ("95d7ab9c-c28e-4813-a356-8669edfc6ae8")
-    public BpmnParticipantSmClass(ISmMetamodelFragment origin) {
+    public  BpmnParticipantSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -82,6 +79,7 @@ public class BpmnParticipantSmClass extends BpmnBaseElementSmClass {
     @Override
     public String getName() {
         return "BpmnParticipant";
+        
     }
 
     @objid ("864ec19f-6eb0-4701-b5e7-771e64c09f9c")
@@ -94,18 +92,21 @@ public class BpmnParticipantSmClass extends BpmnBaseElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnParticipant.class;
+        
     }
 
     @objid ("7b5e3233-e9b5-4eec-8c11-0aaa784da4a6")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("6fbc3920-9abe-4241-ba72-65847b8b48d2")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("fb7a0296-341c-4511-9fc0-ed3d09101c7b")
@@ -141,6 +142,8 @@ public class BpmnParticipantSmClass extends BpmnBaseElementSmClass {
         this.interfaceRefsDep = new InterfaceRefsSmDependency();
         this.interfaceRefsDep.init("InterfaceRefs", this, metamodel.getMClass(BpmnInterface.MQNAME), 0, -1 , SmDirective.SMCDPARTOF);
         registerDependency(this.interfaceRefsDep);
+        
+        
     }
 
     @objid ("2e6e51a0-ff51-4a74-a020-a2dfc5f4af5e")
@@ -197,7 +200,7 @@ public class BpmnParticipantSmClass extends BpmnBaseElementSmClass {
         private BpmnParticipantSmClass smClass;
 
         @objid ("b2e35aeb-b2d1-4f32-8218-25f3f11740d9")
-        public BpmnParticipantObjectFactory(BpmnParticipantSmClass smClass) {
+        public  BpmnParticipantObjectFactory(BpmnParticipantSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -267,6 +270,7 @@ public class BpmnParticipantSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnProcessSmClass)this.getTarget()).getParticipantDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -295,6 +299,7 @@ public class BpmnParticipantSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnCollaborationSmClass)this.getTarget()).getParticipantsDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -314,6 +319,7 @@ public class BpmnParticipantSmClass extends BpmnBaseElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnParticipantData) data).mEndPointRefs = values;
+            
         }
 
         @objid ("126161b4-a999-4a87-8aa1-36bf029dcf34")
@@ -323,6 +329,7 @@ public class BpmnParticipantSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnEndPointSmClass)this.getTarget()).getParticipantRefsDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -342,6 +349,7 @@ public class BpmnParticipantSmClass extends BpmnBaseElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnParticipantData) data).mInterfaceRefs = values;
+            
         }
 
         @objid ("8189f228-fcaf-459a-9591-bac06a9347e8")
@@ -351,6 +359,7 @@ public class BpmnParticipantSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnInterfaceSmClass)this.getTarget()).getParticipantRefDep();
             }
             return this.symetricDep;
+            
         }
 
     }

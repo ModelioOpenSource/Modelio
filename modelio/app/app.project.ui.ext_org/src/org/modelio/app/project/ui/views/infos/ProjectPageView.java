@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.ui.views.infos;
 
 import java.beans.EventHandler;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.browser.Browser;
@@ -54,14 +53,14 @@ public class ProjectPageView {
      * C'tor
      */
     @objid ("e5d7f486-50cd-4cb2-bfff-c46ba25dc4c6")
-    public ProjectPageView() {
+    public  ProjectPageView() {
+        
     }
 
     /**
      * initialize the view.
      * <p>
      * Called by the E4 model.
-     * 
      * @param parent the parent composite
      */
     @objid ("7290565c-fe42-4282-8fbf-52a69c798f7a")
@@ -73,11 +72,11 @@ public class ProjectPageView {
         Listener listener = EventHandler.create(Listener.class, this, "onBrowserActivated");
         this.browser.addListener(SWT.Show , listener);
         //this.browser.addListener(SWT.Activate, listener);
+        
     }
 
     /**
      * Test method.
-     * 
      * @param args command line arguments
      */
     @objid ("239ea6af-a38c-4693-b046-44ff200d9bb3")
@@ -96,6 +95,7 @@ public class ProjectPageView {
             }
         }
         d.dispose();
+        
     }
 
     @objid ("96b90d3a-3e3d-4e7b-ac85-da96b5005a93")
@@ -103,6 +103,7 @@ public class ProjectPageView {
     private void dispose() {
         this.browser.dispose();
         this.browser = null;
+        
     }
 
     @objid ("95cdf026-4383-4136-ba9e-840b7b80db01")
@@ -113,7 +114,6 @@ public class ProjectPageView {
 
     /**
      * Set the HTML browser URL.
-     * 
      * @param viewUrl the URL to view.
      */
     @objid ("e19d9580-31eb-49f7-a1e7-aa39b114e639")
@@ -122,6 +122,7 @@ public class ProjectPageView {
         
         if (this.browser!=null && !this.browser.isDisposed() && this.browser.isVisible())
             onBrowserActivated();
+        
     }
 
     @objid ("22707d76-ad0e-48d2-a74f-da6fbb6fa7fe")
@@ -143,42 +144,42 @@ public class ProjectPageView {
             this.browser.setUrl(this.url);
         else
             this.browser.setText("");
+        
     }
-
-
 // @Optional
-// @Inject
-//
-// public void update(final @Named(IServiceConstants.ACTIVE_SELECTION)
-// GProject project) {
-// if (browser == null)
-// return;
-//
-// if (project == null) {
-// this.browser.setText("");
-// return;
-// }
-//
-// String url = project.getProperties().getProperty("url");
-// if (url != null) {
-// this.browser.setUrl(url);
-// } else {
-// this.browser.setText("");
-// }
-// }
-// @Optional
-// @Inject
-//
-// public void update(final @Named(IServiceConstants.ACTIVE_SELECTION)
-// IModelFragment fragment) {
-// if (browser == null || fragment == null)
-// return;
-//
-// String url = fragment.getProperties().getProperty("url",
-// "http://www.modelio.org/forum/index.html");
-// if (url != null)
-// this.browser.setUrl(url);
-// else
-// this.browser.setText("");
-// }
+    // @Inject
+    //
+    // public void update(final @Named(IServiceConstants.ACTIVE_SELECTION)
+    // GProject project) {
+    // if (browser == null)
+    // return;
+    //
+    // if (project == null) {
+    // this.browser.setText("");
+    // return;
+    // }
+    //
+    // String url = project.getProperties().getProperty("url");
+    // if (url != null) {
+    // this.browser.setUrl(url);
+    // } else {
+    // this.browser.setText("");
+    // }
+    // }
+    // @Optional
+    // @Inject
+    //
+    // public void update(final @Named(IServiceConstants.ACTIVE_SELECTION)
+    // IModelFragment fragment) {
+    // if (browser == null || fragment == null)
+    // return;
+    //
+    // String url = fragment.getProperties().getProperty("url",
+    // "http://www.modelio.org/forum/index.html");
+    // if (url != null)
+    // this.browser.setUrl(url);
+    // else
+    // this.browser.setText("");
+    // }
+    
 }

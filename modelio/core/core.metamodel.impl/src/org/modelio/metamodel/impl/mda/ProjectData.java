@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.mda;
 
 import java.util.List;
@@ -33,16 +33,16 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("0066673c-c4bf-1fd8-97fe-001ec947cd2a")
 public class ProjectData extends AbstractProjectData {
     @objid ("4ea4883f-7060-47ff-80af-8c342805513f")
-     Object mProjectContext = "";
+    Object mProjectContext = "";
 
     @objid ("c32bc505-f179-4516-b914-d75b6ca72bb7")
-     Object mProjectDescr = "";
+    Object mProjectDescr = "";
 
     @objid ("b299b93b-2122-4b36-8446-3d078c866bfc")
-     List<SmObjectImpl> mModel = null;
+    List<SmObjectImpl> mModel = null;
 
     @objid ("5a7dee31-aea0-47e7-a99e-4842ffef35fa")
-    public ProjectData(ProjectSmClass smClass) {
+    public  ProjectData(ProjectSmClass smClass) {
         super(smClass);
     }
 

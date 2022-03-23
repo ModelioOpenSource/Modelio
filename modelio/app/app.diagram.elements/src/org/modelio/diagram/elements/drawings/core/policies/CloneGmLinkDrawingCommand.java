@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.drawings.core.policies;
 
 import java.lang.reflect.InvocationTargetException;
@@ -51,14 +50,14 @@ public class CloneGmLinkDrawingCommand extends Command implements RequestConstan
 
     /**
      * Initialize the command
-     * 
      * @param editPartToClone the connection edit part to move
      * @param moveDelta the move delta in absolute coordinates
      */
     @objid ("c372e6cf-0b1d-4d46-af3e-fba84359d7b0")
-    public CloneGmLinkDrawingCommand(ConnectionEditPart editPartToClone, Point moveDelta) {
+    public  CloneGmLinkDrawingCommand(ConnectionEditPart editPartToClone, Point moveDelta) {
         this.editPartToClone = editPartToClone;
         this.moveDelta = moveDelta;
+        
     }
 
     @objid ("8d3876ad-23b6-4475-867d-580b51b37a48")
@@ -117,6 +116,7 @@ public class CloneGmLinkDrawingCommand extends Command implements RequestConstan
         r3.setConnectionEditPart(clonedPart);
         
         runRequest(r3);
+        
     }
 
     @objid ("a980c18f-c3ea-4496-aa91-4c3a9a8930f4")
@@ -130,6 +130,7 @@ public class CloneGmLinkDrawingCommand extends Command implements RequestConstan
         }
         
         c.execute();
+        
     }
 
     @objid ("33298b95-8460-429b-bd43-02a251caaa4e")
@@ -159,6 +160,7 @@ public class CloneGmLinkDrawingCommand extends Command implements RequestConstan
             // TODO : report in another way ?
             throw new RuntimeException(e.toString(), e);
         }
+        
     }
 
 }

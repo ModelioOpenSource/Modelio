@@ -17,19 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.events;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.bpmn.events.BpmnErrorEventDefinition;
 import org.modelio.metamodel.bpmn.events.BpmnEventDefinition;
-import org.modelio.metamodel.impl.bpmn.events.BpmnEventDefinitionSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -46,7 +45,7 @@ public class BpmnErrorEventDefinitionSmClass extends BpmnEventDefinitionSmClass 
     private SmAttribute errorCodeAtt;
 
     @objid ("960e98d2-2e3f-41a8-b49f-f890e39a3762")
-    public BpmnErrorEventDefinitionSmClass(ISmMetamodelFragment origin) {
+    public  BpmnErrorEventDefinitionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -54,6 +53,7 @@ public class BpmnErrorEventDefinitionSmClass extends BpmnEventDefinitionSmClass 
     @Override
     public String getName() {
         return "BpmnErrorEventDefinition";
+        
     }
 
     @objid ("e46a8752-a057-464f-96f1-ff4676e91f1c")
@@ -66,18 +66,21 @@ public class BpmnErrorEventDefinitionSmClass extends BpmnEventDefinitionSmClass 
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnErrorEventDefinition.class;
+        
     }
 
     @objid ("2f75ea81-6565-44fd-9528-d362e897769b")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("95b37329-9ed1-4d37-8443-34e97eafc97a")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("de14afcf-e0fb-41a4-a6e0-b6fb04ece513")
@@ -94,6 +97,7 @@ public class BpmnErrorEventDefinitionSmClass extends BpmnEventDefinitionSmClass 
         
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("405dba4b-555f-4934-a6bf-6b7a4f71283f")
@@ -110,7 +114,7 @@ public class BpmnErrorEventDefinitionSmClass extends BpmnEventDefinitionSmClass 
         private BpmnErrorEventDefinitionSmClass smClass;
 
         @objid ("252e141a-bf77-477e-b1dd-6c82aa9fe0f5")
-        public BpmnErrorEventDefinitionObjectFactory(BpmnErrorEventDefinitionSmClass smClass) {
+        public  BpmnErrorEventDefinitionObjectFactory(BpmnErrorEventDefinitionSmClass smClass) {
             this.smClass = smClass;
         }
 

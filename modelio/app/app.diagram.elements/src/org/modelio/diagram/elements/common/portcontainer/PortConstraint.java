@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.portcontainer;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -61,7 +60,6 @@ public class PortConstraint implements IPersistent {
 
     /**
      * Sets the requested bounds.
-     * 
      * @param requestedBounds the requested bounds.
      */
     @objid ("7eed2f09-1dec-11e2-8cad-001ec947c8cc")
@@ -79,7 +77,6 @@ public class PortConstraint implements IPersistent {
 
     /**
      * Sets the reference border.
-     * 
      * @param referenceBorder the reference border.
      */
     @objid ("7eed2f14-1dec-11e2-8cad-001ec947c8cc")
@@ -99,6 +96,7 @@ public class PortConstraint implements IPersistent {
         this.requestedBounds = (Rectangle) in.readProperty("requestedBounds");
         this.referenceBorder = (Border) in.readProperty("referenceBorder");
         this.requestedCenter = (Point) in.readProperty("requestedCenter");
+        
     }
 
     @objid ("7eed2f22-1dec-11e2-8cad-001ec947c8cc")
@@ -121,6 +119,7 @@ public class PortConstraint implements IPersistent {
         } else {
             out.writeProperty("requestedCenter", this.requestedCenter);
         }
+        
     }
 
     /**
@@ -133,7 +132,6 @@ public class PortConstraint implements IPersistent {
 
     /**
      * Sets the requested centre.
-     * 
      * @param requestedCenter the requested centre.
      */
     @objid ("7eef9154-1dec-11e2-8cad-001ec947c8cc")
@@ -178,39 +176,49 @@ public class PortConstraint implements IPersistent {
         /**
          * Do not stick to any specific border.
          */
+        @objid ("7eef9161-1dec-11e2-8cad-001ec947c8cc")
         Undefined,
         /**
          * The top border.
          */
+        @objid ("7eef9163-1dec-11e2-8cad-001ec947c8cc")
         North,
         /**
          * Top right corner.
          */
+        @objid ("7eef9165-1dec-11e2-8cad-001ec947c8cc")
         NorthEast,
         /**
          * the right border.
          */
+        @objid ("7eef9167-1dec-11e2-8cad-001ec947c8cc")
         East,
         /**
          * Bottom right corner.
          */
+        @objid ("7eef9169-1dec-11e2-8cad-001ec947c8cc")
         SouthEast,
         /**
          * The bottom border.
          */
+        @objid ("7eef916b-1dec-11e2-8cad-001ec947c8cc")
         South,
         /**
          * Bottom left corner.
          */
+        @objid ("7eef916d-1dec-11e2-8cad-001ec947c8cc")
         SouthWest,
         /**
          * The left border.
          */
+        @objid ("7eef916f-1dec-11e2-8cad-001ec947c8cc")
         West,
         /**
          * Top left corner.
          */
+        @objid ("7eef9171-1dec-11e2-8cad-001ec947c8cc")
         NorthWest;
+
     }
 
 }

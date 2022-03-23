@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.texticon;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,14 +35,14 @@ public class TextIcon {
 
     /**
      * Create a new TextIcon instance.
-     * 
      * @param text a text.
      * @param icon an optional icon. Might be <code>null</code>.
      */
     @objid ("72810016-7d1d-4a2e-ac38-6f3b513bf686")
-    public TextIcon(String text, Image icon) {
+    public  TextIcon(String text, Image icon) {
         this.text = text;
         this.icon = icon;
+        
     }
 
     /**

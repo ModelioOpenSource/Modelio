@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.control;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,7 +43,7 @@ public class InstanceOwnerChecker extends AbstractDependencyTypeChecker {
      * C'tor
      */
     @objid ("b38cfc59-8fff-4ec4-9fcc-045c3d66bfdc")
-    public InstanceOwnerChecker(SmMetamodel mm) {
+    public  InstanceOwnerChecker(SmMetamodel mm) {
         // Cached SmClass
         this.bindableInstanceID = mm.getMClass(BindableInstance.class);
         this.collaborationID = mm.getMClass(Collaboration.class);
@@ -55,6 +54,7 @@ public class InstanceOwnerChecker extends AbstractDependencyTypeChecker {
         // Symetric checker
         NameSpaceDeclaredChecker symetricChecker = new NameSpaceDeclaredChecker(this);
         symetricChecker.register(mm.getMClass(NameSpace.class), "Declared");
+        
     }
 
     @objid ("cac56259-ec4a-11e1-91c5-002564c97630")
@@ -79,10 +79,10 @@ public class InstanceOwnerChecker extends AbstractDependencyTypeChecker {
     @objid ("cac56265-ec4a-11e1-91c5-002564c97630")
     static class NameSpaceDeclaredChecker extends AbstractDependencyTypeChecker {
         @objid ("cac56268-ec4a-11e1-91c5-002564c97630")
-         InstanceOwnerChecker symetricChecker;
+        InstanceOwnerChecker symetricChecker;
 
         @objid ("cac56269-ec4a-11e1-91c5-002564c97630")
-        public NameSpaceDeclaredChecker(InstanceOwnerChecker symetricChecker) {
+        public  NameSpaceDeclaredChecker(InstanceOwnerChecker symetricChecker) {
             this.symetricChecker = symetricChecker;
         }
 

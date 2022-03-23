@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.terminal;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,28 +31,28 @@ import org.modelio.uml.statediagram.editor.style.StateAbstractStyleKeyProvider;
 @objid ("f5a58d66-55b6-11e2-877f-002564c97630")
 public class GmTerminalStructuredStyleKeys extends StateAbstractStyleKeyProvider {
     @objid ("81b3471e-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("TERMINAL_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("TERMINAL_REPMODE", MetaKey.REPMODE);
 
     @objid ("81b34720-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("TERMINAL_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("TERMINAL_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("81b34722-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("TERMINAL_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("TERMINAL_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("81b34724-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("TERMINAL_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("TERMINAL_FONT", MetaKey.FONT);
 
     @objid ("81b4cda9-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("TERMINAL_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("TERMINAL_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("81b4cdab-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("TERMINAL_SHOWSTEREOTYPES",
-                                                           MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("TERMINAL_SHOWSTEREOTYPES",
+                                                                   MetaKey.SHOWSTEREOTYPES);
 
     @objid ("81b4cdad-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("TERMINAL_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("TERMINAL_SHOWTAGS", MetaKey.SHOWTAGS);
 
     @objid ("81b4cdaf-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWLABEL = createStyleKey("TERMINAL_SHOWLABEL", MetaKey.SHOWLABEL);
+    static final StyleKey SHOWLABEL = createStyleKey("TERMINAL_SHOWLABEL", MetaKey.SHOWLABEL);
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.view.statusbar;
 
 import java.net.URL;
@@ -116,12 +115,11 @@ public class StatusBar {
 
     /**
      * Initialize the status bar.
-     * 
      * @param parent The parent composite.
      * @param style not used.
      */
     @objid ("860b222d-5fd2-4138-bd16-d12002c5d836")
-    public StatusBar(Composite parent, int style) {
+    public  StatusBar(Composite parent, int style) {
         allocateResources();
         
         this.container = new Composite(parent, style);
@@ -170,13 +168,13 @@ public class StatusBar {
         // TODO : This method shouldn't have to be called here:
         // Adding this status bar as listener should fire its status(...) method.
         doRefreshStatus(AuditRunnerStatus.IDLE, 0);
+        
     }
 
     /**
      * Get the status bar SWT Composite.
      * <p>
      * The returned Composite is a child of the composite given to the constructor.
-     * 
      * @return the status bar composite.
      */
     @objid ("024af934-42cc-49e8-b83a-422f58a36662")
@@ -186,7 +184,6 @@ public class StatusBar {
 
     /**
      * Update the status bar from last audit diagnostic. MUST BE CALLED from the UI Thread
-     * 
      * @param auditDiagnostic the last audit diagnostic.
      */
     @objid ("8c4a37ba-abe8-4a2f-ac2f-cdd90b385018")
@@ -217,11 +214,11 @@ public class StatusBar {
         }
         
         this.scopeLabel.setText(scope);
+        
     }
 
     /**
      * Update the status view from the given parameters. MUST BE CALLED from the UI Thread
-     * 
      * @param status The audit status
      * @param queueSize The queue size
      */
@@ -255,6 +252,7 @@ public class StatusBar {
         
             this.lastRefreshedstatus = status;
         }
+        
     }
 
     @objid ("1ed3255c-1647-4be2-9b9c-9749a0d96813")
@@ -274,11 +272,11 @@ public class StatusBar {
         this.errorColor = Display.getCurrent().getSystemColor(SWT.COLOR_RED);
         this.warningColor = Display.getCurrent().getSystemColor(SWT.COLOR_BLUE);
         this.adviceColor = Display.getCurrent().getSystemColor(SWT.COLOR_BLACK);
+        
     }
 
     /**
      * Create an image descriptor from a path relative to the Audit plugin.
-     * 
      * @param path a relative path.
      * @return the image descriptor.
      */
@@ -306,6 +304,7 @@ public class StatusBar {
             this.idleStatusIcon.dispose();
             this.idleStatusIcon = null;
         }
+        
     }
 
 }

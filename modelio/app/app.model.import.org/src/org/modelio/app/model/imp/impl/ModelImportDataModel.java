@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.model.imp.impl;
 
 import java.nio.file.Path;
@@ -47,7 +46,6 @@ public class ModelImportDataModel implements AutoCloseable {
 
     /**
      * Get the actual list of all elements to import.
-     * 
      * @return all elements to import.
      */
     @objid ("c1c50a4f-91f2-46a8-aa75-0905b4176ecc")
@@ -57,7 +55,6 @@ public class ModelImportDataModel implements AutoCloseable {
 
     /**
      * Get the current imported project.
-     * 
      * @return the imported project. Might be <code>null</code> if {@link #setImportedProject(Path)} has not been called.
      */
     @objid ("329e3d58-6ebc-4bdb-9060-2ee164eeba87")
@@ -77,6 +74,7 @@ public class ModelImportDataModel implements AutoCloseable {
         this.elementsToImport.clear();
         
         this.importedProject = importedProject;
+        
     }
 
     @objid ("2eab097b-13d6-4dfd-a427-2ebd9acb0532")
@@ -86,6 +84,7 @@ public class ModelImportDataModel implements AutoCloseable {
             this.importedProject.close();
             this.importedProject = null;
         }
+        
     }
 
 }

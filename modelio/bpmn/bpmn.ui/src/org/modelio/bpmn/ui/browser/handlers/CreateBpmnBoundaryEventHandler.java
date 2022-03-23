@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.ui.browser.handlers;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,6 +50,7 @@ public class CreateBpmnBoundaryEventHandler extends CreateElementHandler {
         } else {
             return getEffectiveOwner(element.getCompositionOwner());
         }
+        
     }
 
     @objid ("730daf39-ae04-4f55-bc92-ebef10ce5c3b")

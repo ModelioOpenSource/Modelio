@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.ui.about;
 
 import java.net.URL;
@@ -60,14 +59,14 @@ public class AboutDialog extends TrayDialog {
     /**
      * Creates the dialog.
      * @param modelioEnv
-     * 
      * @param parentShell the parent window shell.
      */
     @objid ("0047078e-cc35-1ff2-a7f4-001ec947cd2a")
-    public AboutDialog(final Shell parentShell, ModelioEnv modelioEnv) {
+    public  AboutDialog(final Shell parentShell, ModelioEnv modelioEnv) {
         super(parentShell);
         this.modelioEnv = modelioEnv;
         this.aboutI18N = new BundledMessages(AppUi.LOG, ResourceBundle.getBundle("appui-about"));
+        
     }
 
     @objid ("0047082e-cc35-1ff2-a7f4-001ec947cd2a")
@@ -75,6 +74,7 @@ public class AboutDialog extends TrayDialog {
     protected void configureShell(final Shell newShell) {
         super.configureShell(newShell);
         newShell.setText(this.aboutI18N.getString("About.Title"));
+        
     }
 
     @objid ("00498e78-cc35-1ff2-a7f4-001ec947cd2a")
@@ -182,6 +182,7 @@ public class AboutDialog extends TrayDialog {
     protected void createButtonsForButtonBar(final Composite parent) {
         final Button b = createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL, true);
         b.setFocus();
+        
     }
 
     @objid ("00499076-cc35-1ff2-a7f4-001ec947cd2a")

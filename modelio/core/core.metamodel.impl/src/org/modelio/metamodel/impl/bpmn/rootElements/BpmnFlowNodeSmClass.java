@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.rootElements;
 
 import java.util.ArrayList;
@@ -34,8 +34,6 @@ import org.modelio.metamodel.bpmn.rootElements.BpmnFlowElement;
 import org.modelio.metamodel.bpmn.rootElements.BpmnFlowNode;
 import org.modelio.metamodel.impl.bpmn.flows.BpmnSequenceFlowSmClass;
 import org.modelio.metamodel.impl.bpmn.resources.BpmnResourceRoleSmClass;
-import org.modelio.metamodel.impl.bpmn.rootElements.BpmnFlowElementSmClass;
-import org.modelio.metamodel.impl.bpmn.rootElements.BpmnFlowNodeData;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -59,7 +57,7 @@ public class BpmnFlowNodeSmClass extends BpmnFlowElementSmClass {
     private SmDependency incomingDep;
 
     @objid ("0fa75122-9103-4f7b-8653-9fb75173dca7")
-    public BpmnFlowNodeSmClass(ISmMetamodelFragment origin) {
+    public  BpmnFlowNodeSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -67,6 +65,7 @@ public class BpmnFlowNodeSmClass extends BpmnFlowElementSmClass {
     @Override
     public String getName() {
         return "BpmnFlowNode";
+        
     }
 
     @objid ("72df2d02-074a-45ad-801c-64168414e5b7")
@@ -79,18 +78,21 @@ public class BpmnFlowNodeSmClass extends BpmnFlowElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnFlowNode.class;
+        
     }
 
     @objid ("81d1d7f8-5d8c-4a7a-8f70-71ad3cb8cfeb")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("b35424c0-d4ff-4794-977c-651285ea1df1")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("5d96c582-0a0b-40be-9329-9a564f23b7f1")
@@ -114,6 +116,8 @@ public class BpmnFlowNodeSmClass extends BpmnFlowElementSmClass {
         this.incomingDep = new IncomingSmDependency();
         this.incomingDep.init("Incoming", this, metamodel.getMClass(BpmnSequenceFlow.MQNAME), 0, -1 , SmDirective.SMCDTODELETE);
         registerDependency(this.incomingDep);
+        
+        
     }
 
     @objid ("3ebfd166-01c8-4fc3-a300-959d5a5f3dd7")
@@ -146,7 +150,7 @@ public class BpmnFlowNodeSmClass extends BpmnFlowElementSmClass {
         private BpmnFlowNodeSmClass smClass;
 
         @objid ("a438b4f5-f554-4477-b23a-5181cbbdff8f")
-        public BpmnFlowNodeObjectFactory(BpmnFlowNodeSmClass smClass) {
+        public  BpmnFlowNodeObjectFactory(BpmnFlowNodeSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -179,6 +183,7 @@ public class BpmnFlowNodeSmClass extends BpmnFlowElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnFlowNodeData) data).mOutgoing = values;
+            
         }
 
         @objid ("c40a1ba3-b8a9-4112-a625-18a279572828")
@@ -188,6 +193,7 @@ public class BpmnFlowNodeSmClass extends BpmnFlowElementSmClass {
             	this.symetricDep = ((BpmnSequenceFlowSmClass)this.getTarget()).getSourceRefDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -207,6 +213,7 @@ public class BpmnFlowNodeSmClass extends BpmnFlowElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnFlowNodeData) data).mResource = values;
+            
         }
 
         @objid ("0085b57b-04d7-4471-b342-733a2ae5da7d")
@@ -216,6 +223,7 @@ public class BpmnFlowNodeSmClass extends BpmnFlowElementSmClass {
             	this.symetricDep = ((BpmnResourceRoleSmClass)this.getTarget()).getAnnotatedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -235,6 +243,7 @@ public class BpmnFlowNodeSmClass extends BpmnFlowElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnFlowNodeData) data).mIncoming = values;
+            
         }
 
         @objid ("dce68c8c-9e6a-4bf1-9337-db0e184278f9")
@@ -244,6 +253,7 @@ public class BpmnFlowNodeSmClass extends BpmnFlowElementSmClass {
             	this.symetricDep = ((BpmnSequenceFlowSmClass)this.getTarget()).getTargetRefDep();
             }
             return this.symetricDep;
+            
         }
 
     }

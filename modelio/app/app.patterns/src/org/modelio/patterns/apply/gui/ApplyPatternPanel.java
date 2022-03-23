@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.apply.gui;
 
 import java.security.InvalidParameterException;
@@ -105,6 +104,7 @@ public class ApplyPatternPanel implements IPanelProvider {
         } else {
             this.controller.setData(null);
         }
+        
     }
 
     @objid ("fbeae370-f26c-4d6e-b9f8-3b0bb27decf1")
@@ -126,7 +126,7 @@ public class ApplyPatternPanel implements IPanelProvider {
     }
 
     @objid ("d6941e40-aa7d-4c78-b1ab-1083bf84ceb9")
-    public ApplyPatternPanel() {
+    public  ApplyPatternPanel() {
         this.controller = new ApplyPatternController();
     }
 
@@ -145,7 +145,7 @@ public class ApplyPatternPanel implements IPanelProvider {
         private TableViewer constantParameters;
 
         @objid ("e84bf18b-ce86-46c4-b615-ce889c62f913")
-        public ApplyPatternPanelUI(ApplyPatternController controller) {
+        public  ApplyPatternPanelUI(ApplyPatternController controller) {
             this.controller = controller;
         }
 
@@ -194,6 +194,7 @@ public class ApplyPatternPanel implements IPanelProvider {
                 this.editableParameters.setInput(Collections.emptyList());
                 this.constantParameters.setInput(Collections.emptyList());
             }
+            
         }
 
         @objid ("b6a844be-0083-40ae-b207-65064587e6d1")
@@ -467,6 +468,7 @@ public class ApplyPatternPanel implements IPanelProvider {
             if (this.ui != null) {
                 this.ui.update(this.data);
             }
+            
         }
 
         @objid ("d96cb856-3d28-4018-8284-17d497a659a3")
@@ -486,6 +488,7 @@ public class ApplyPatternPanel implements IPanelProvider {
         public void dispose() {
             this.ui.dispose();
             this.ui = null;
+            
         }
 
         @objid ("2dbf76e9-dd50-4b65-8465-2dd404e77073")
@@ -504,6 +507,7 @@ public class ApplyPatternPanel implements IPanelProvider {
                 throw new InvalidParameterException("Listener already registered");
             }
             this.listeners.add(l);
+            
         }
 
         @objid ("e6af107a-e56c-4254-bc1f-d42f8e758ea1")
@@ -514,6 +518,7 @@ public class ApplyPatternPanel implements IPanelProvider {
                 this.ui.update(this.data);
                 fireListeners(this.data, true);
             }
+            
         }
 
     }
@@ -524,9 +529,10 @@ public class ApplyPatternPanel implements IPanelProvider {
         private final ApplyPatternController controller;
 
         @objid ("b70bb663-0c3a-4c3a-ab25-50268c93ae99")
-        public ParameterValueEditingSupport(TableViewer viewer, ApplyPatternController controller) {
+        public  ParameterValueEditingSupport(TableViewer viewer, ApplyPatternController controller) {
             super(viewer);
             this.controller = controller;
+            
         }
 
         @objid ("672f2a7d-f09e-4a96-a403-cbba7054645a")
@@ -588,6 +594,7 @@ public class ApplyPatternPanel implements IPanelProvider {
                     }
                 };
             }
+            
         }
 
         @objid ("d175240d-c331-45f3-9a4b-28608f73e560")

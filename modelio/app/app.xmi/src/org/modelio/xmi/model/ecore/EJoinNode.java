@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,9 +37,10 @@ public class EJoinNode extends EActivityNode {
     }
 
     @objid ("0c805ee0-f75c-46d2-af17-80750ef4fd7b")
-    public EJoinNode(org.eclipse.uml2.uml.JoinNode element) {
+    public  EJoinNode(org.eclipse.uml2.uml.JoinNode element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("2d8511d6-5ae5-4758-ad9a-d86ac966e2bf")
@@ -50,6 +50,7 @@ public class EJoinNode extends EActivityNode {
         
         setJoinSpec((ForkJoinNode) objingElt);
         setCombineDuplicate((ForkJoinNode) objingElt);
+        
     }
 
     @objid ("235160bb-c28a-41bb-87e3-8e574fbcaeb4")
@@ -60,6 +61,7 @@ public class EJoinNode extends EActivityNode {
             if (value != null)
                 node.setJoinSpec(value);
         }
+        
     }
 
     @objid ("336e46a3-3665-4846-94b7-26b317c97dc2")

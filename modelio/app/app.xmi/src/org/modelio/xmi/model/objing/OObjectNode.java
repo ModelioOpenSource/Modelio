@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,7 +36,7 @@ import org.modelio.xmi.util.NotFoundException;
 @objid ("87ba85d7-ef0e-48f9-afa1-ea5183737d13")
 public class OObjectNode extends OActivityNode {
     @objid ("c43fe3c6-13cd-40fe-aab2-a7bb45058fb1")
-    public OObjectNode(ObjectNode element) {
+    public  OObjectNode(ObjectNode element) {
         super(element);
     }
 
@@ -57,6 +56,7 @@ public class OObjectNode extends OActivityNode {
         setUpperBound((org.eclipse.uml2.uml.ObjectNode) ecoreElt);
         setType((org.eclipse.uml2.uml.ObjectNode) ecoreElt);
         setState((org.eclipse.uml2.uml.ObjectNode) ecoreElt);
+        
     }
 
     @objid ("395d6f5a-3506-4897-ab0d-89b349120d39")
@@ -94,6 +94,7 @@ public class OObjectNode extends OActivityNode {
         default:
             node.setOrdering(ObjectNodeOrderingKind.FIFO_LITERAL);
         }
+        
     }
 
     @objid ("f65fe0c6-d61c-42dd-b65b-8dd3c3d8d5bf")
@@ -124,6 +125,7 @@ public class OObjectNode extends OActivityNode {
                 }
             }
         }
+        
     }
 
     @objid ("7e54d598-bdd4-46cd-a5ed-bf2349c50a3b")
@@ -135,6 +137,7 @@ public class OObjectNode extends OActivityNode {
             literal.setValue(upperBound);
             node.setUpperBound(literal);
         }
+        
     }
 
     @objid ("9700bfc1-7992-4bfd-81e0-b7dd73dc72c6")
@@ -152,6 +155,7 @@ public class OObjectNode extends OActivityNode {
         
         
         }
+        
     }
 
     @objid ("8dd8b110-8b36-4160-8d7f-4d983297755b")
@@ -162,6 +166,7 @@ public class OObjectNode extends OActivityNode {
             if (ecoreState instanceof org.eclipse.uml2.uml.State)
                 node.getInStates().add((org.eclipse.uml2.uml.State) ecoreState);
         }
+        
     }
 
 }

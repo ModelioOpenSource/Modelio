@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.gui.creation.file;
 
 import java.util.Collection;
@@ -44,8 +43,8 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.modelio.editors.richnote.api.RichNoteFormat;
-import org.modelio.editors.richnote.gui.creation.RichNoteDescriptor.CreationMode;
 import org.modelio.editors.richnote.gui.creation.RichNoteDescriptor;
+import org.modelio.editors.richnote.gui.creation.RichNoteDescriptor.CreationMode;
 import org.modelio.editors.richnote.gui.creation.mimetype.MimeTypeContentProvider;
 import org.modelio.editors.richnote.gui.creation.mimetype.MimeTypeLabelProvider;
 import org.modelio.editors.richnote.plugin.EditorsRichNote;
@@ -94,13 +93,13 @@ class FilePanelUI {
     private Button isImportButton;
 
     @objid ("5d419857-eeeb-4898-a9f6-c8f5ea4b8c25")
-     Composite top = null;
+    Composite top = null;
 
     @objid ("d793403d-022c-447d-aad4-e6d4a321bbc3")
     private Label errorLabel;
 
     @objid ("1c187075-c33b-4ba2-8122-087e3eacc82e")
-    public FilePanelUI(FilePanelController controller) {
+    public  FilePanelUI(FilePanelController controller) {
         this.controller = controller;
     }
 
@@ -226,6 +225,7 @@ class FilePanelUI {
         
             this.top.layout(true);
         }
+        
     }
 
     @objid ("9809e1e6-e89f-450b-86b3-efc28aeac18e")
@@ -235,14 +235,17 @@ class FilePanelUI {
 
     @objid ("d2c21cd0-0941-47b6-a2a2-be1803d79465")
     private void createEmbeddedWidgets(Composite parent) {
+        
     }
 
     @objid ("a171f639-9214-452f-9fee-2caba63cb5c8")
     private void createExternalWidgets(Composite parent) {
+        
     }
 
     @objid ("fa4a898f-7000-4ef2-9ba3-b411ae8b2150")
     private void createImportWidgets(Composite parent) {
+        
     }
 
     @objid ("f5f8aed7-da1d-48cf-89c8-b2be34aabfdd")
@@ -328,6 +331,7 @@ class FilePanelUI {
             // no error
             this.errorLabel.setText("");
         }
+        
     }
 
     @objid ("019a10a9-cc1f-485a-a0a1-41f5fd3f8a14")

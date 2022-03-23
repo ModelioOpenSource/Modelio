@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.persistence;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,6 +50,7 @@ public class ExtReferenceResolver implements IExtReferenceResolver {
             }
             throw new PersistenceException(e);
         }
+        
     }
 
     @objid ("810a64c5-1dec-11e2-8cad-001ec947c8cc")
@@ -64,6 +64,7 @@ public class ExtReferenceResolver implements IExtReferenceResolver {
                     clazz.getSimpleName() +
                     "' not handled");
         }
+        
     }
 
 }

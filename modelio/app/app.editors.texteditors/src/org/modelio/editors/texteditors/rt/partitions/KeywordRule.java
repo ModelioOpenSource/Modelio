@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.texteditors.rt.partitions;
 
 import java.util.HashMap;
@@ -30,19 +29,20 @@ import org.eclipse.jface.text.rules.Token;
 @objid ("7b6423e3-2a77-11e2-9fb9-bc305ba4815c")
 public class KeywordRule implements IPredicateRule {
     @objid ("7b6423e4-2a77-11e2-9fb9-bc305ba4815c")
-     IToken keywordToken;
+    IToken keywordToken;
 
     @objid ("7b6423e5-2a77-11e2-9fb9-bc305ba4815c")
-     HashMap<String, IToken> keywords;
+    HashMap<String, IToken> keywords;
 
     @objid ("7b6423e9-2a77-11e2-9fb9-bc305ba4815c")
     private StringBuffer buffer;
 
     @objid ("7b6423ea-2a77-11e2-9fb9-bc305ba4815c")
-    public KeywordRule(IToken keywordToken) {
+    public  KeywordRule(IToken keywordToken) {
         this.keywordToken = keywordToken;
         this.buffer = new StringBuffer();
         this.keywords = new HashMap<>();
+        
     }
 
     @objid ("7b6423ed-2a77-11e2-9fb9-bc305ba4815c")
@@ -96,6 +96,7 @@ public class KeywordRule implements IPredicateRule {
         
         } else
             return this.keywordToken;
+        
     }
 
 }

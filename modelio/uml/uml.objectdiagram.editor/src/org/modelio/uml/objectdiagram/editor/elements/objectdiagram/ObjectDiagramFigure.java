@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.objectdiagram.editor.elements.objectdiagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,8 @@ public class ObjectDiagramFigure extends AbstractDiagramFigure {
      * Constructor.
      */
     @objid ("9d664e0e-55b6-11e2-877f-002564c97630")
-    public ObjectDiagramFigure() {
+    public  ObjectDiagramFigure() {
+        
     }
 
 }

@@ -17,22 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
-import org.modelio.metamodel.impl.uml.statik.ClassAssociationSmClass;
-import org.modelio.metamodel.impl.uml.statik.NaryAssociationData;
-import org.modelio.metamodel.impl.uml.statik.NaryAssociationEndSmClass;
-import org.modelio.metamodel.impl.uml.statik.NaryLinkSmClass;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.metamodel.uml.statik.ClassAssociation;
 import org.modelio.metamodel.uml.statik.NaryAssociation;
@@ -62,7 +58,7 @@ public class NaryAssociationSmClass extends UmlModelElementSmClass {
     private SmDependency linkToClassDep;
 
     @objid ("80c2a932-9358-4a79-ac7b-d94ba6c7ee29")
-    public NaryAssociationSmClass(ISmMetamodelFragment origin) {
+    public  NaryAssociationSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -70,6 +66,7 @@ public class NaryAssociationSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "NaryAssociation";
+        
     }
 
     @objid ("824dc38a-bd6f-4896-9a70-ee7d146c05a9")
@@ -82,18 +79,21 @@ public class NaryAssociationSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return NaryAssociation.class;
+        
     }
 
     @objid ("d75a5545-4313-438f-b8c8-cc5611384339")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("e53f2ea7-9b26-4d2d-bff5-fd759b713752")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("e8260563-481e-4af6-b761-e961a1983ace")
@@ -117,6 +117,8 @@ public class NaryAssociationSmClass extends UmlModelElementSmClass {
         this.linkToClassDep = new LinkToClassSmDependency();
         this.linkToClassDep.init("LinkToClass", this, metamodel.getMClass(ClassAssociation.MQNAME), 0, 1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.linkToClassDep);
+        
+        
     }
 
     @objid ("3e156cb9-8d97-4113-9e14-4ab9dcbe13f8")
@@ -149,7 +151,7 @@ public class NaryAssociationSmClass extends UmlModelElementSmClass {
         private NaryAssociationSmClass smClass;
 
         @objid ("74d954d3-cc8e-4b42-afd2-2be01a54c535")
-        public NaryAssociationObjectFactory(NaryAssociationSmClass smClass) {
+        public  NaryAssociationObjectFactory(NaryAssociationSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -182,6 +184,7 @@ public class NaryAssociationSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((NaryAssociationData) data).mOccurence = values;
+            
         }
 
         @objid ("a8badf9b-9ed8-43a6-b8fd-ca236cdcd799")
@@ -191,6 +194,7 @@ public class NaryAssociationSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((NaryLinkSmClass)this.getTarget()).getModelDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -210,6 +214,7 @@ public class NaryAssociationSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((NaryAssociationData) data).mNaryEnd = values;
+            
         }
 
         @objid ("66cb3d5d-5012-4bb7-8fde-a840e88a4d5f")
@@ -219,6 +224,7 @@ public class NaryAssociationSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((NaryAssociationEndSmClass)this.getTarget()).getNaryAssociationDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -247,6 +253,7 @@ public class NaryAssociationSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((ClassAssociationSmClass)this.getTarget()).getNaryAssociationPartDep();
             }
             return this.symetricDep;
+            
         }
 
     }

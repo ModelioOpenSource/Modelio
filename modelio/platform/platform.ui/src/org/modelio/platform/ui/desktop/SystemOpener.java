@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.ui.desktop;
 
 import java.awt.Desktop;
@@ -43,9 +42,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public class SystemOpener {
     /**
      * Open the file with the system configured editor.
-     * 
      * @param file the file or directory to open
-     * @throws java.io.IOException If an I/O error occurs
+     * @throws IOException If an I/O error occurs
      */
     @objid ("4531a85b-9648-4652-b178-024ffece83f1")
     public static void open(Path file) throws IOException {
@@ -61,13 +59,13 @@ public class SystemOpener {
         } else {
             desktopOpen(file.toFile());
         }
+        
     }
 
     /**
      * Open the system default browser on the given URI.
-     * 
      * @param uri the URI to browse
-     * @throws java.io.IOException If an I/O error occurs
+     * @throws IOException If an I/O error occurs
      */
     @objid ("f932aa53-8032-4026-ae02-108b33ab061e")
     public static void browse(URI uri) throws IOException {
@@ -80,6 +78,7 @@ public class SystemOpener {
         } else {
             desktopBrowse(uri);
         }
+        
     }
 
     /**
@@ -89,9 +88,8 @@ public class SystemOpener {
      * A mailto: URI can specify message fields including "to", "cc", "subject", "body", etc.
      * See The mailto URL scheme (RFC 2368) for the mailto: URI specification details.
      * @see Desktop#mail(URI)
-     * 
      * @param mailUri the specified mailto: URI
-     * @throws java.io.IOException If an I/O error occurs
+     * @throws IOException If an I/O error occurs
      */
     @objid ("251a7ea5-da91-4290-9bf5-9aa891a471a2")
     public static void mailto(URI mailUri) throws IOException {
@@ -103,18 +101,21 @@ public class SystemOpener {
         } else {
             desktopMailto(mailUri);
         }
+        
     }
 
     @objid ("9f7f6081-c614-4792-99b0-e6ff1ce502ca")
     private static void xdgOpen(String toOpen) throws IOException {
         Runtime runtime = Runtime.getRuntime();
         runtime.exec(new String[]{"xdg-open" , toOpen});
+        
     }
 
     @objid ("e316441e-31da-4ac1-a840-04b0ea801f0d")
     private static void macOpen(String toOpen) throws IOException {
         Runtime runtime = Runtime.getRuntime();
         runtime.exec(new String[]{"open", toOpen});
+        
     }
 
     @objid ("d1ed3c4c-dacb-444f-a14b-d9dacfecfda9")
@@ -123,6 +124,7 @@ public class SystemOpener {
         if (desktop.isSupported(Desktop.Action.OPEN)) {
             desktop.open(file);
         }
+        
     }
 
     @objid ("2baa8794-07d7-48ed-9df2-c686802ef4f8")
@@ -133,6 +135,7 @@ public class SystemOpener {
                 desktop.browse(uri);
             }
         }
+        
     }
 
     @objid ("dac97154-d430-40d8-ae23-ef2c61dc105e")
@@ -143,6 +146,7 @@ public class SystemOpener {
                 desktop.mail(mailUri);
             }
         }
+        
     }
 
 }

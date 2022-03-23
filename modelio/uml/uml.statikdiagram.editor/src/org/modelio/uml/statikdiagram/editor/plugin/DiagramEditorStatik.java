@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.plugin;
 
 import java.util.ResourceBundle;
@@ -63,6 +62,7 @@ public class DiagramEditorStatik implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), PLUGIN_ID));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("diagrameditorstatik"));
+        
     }
 
     @objid ("657b5c62-5bd5-11e2-9e33-00137282c51b")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.statik;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,7 @@ public class ConnectorDG extends LinkDG {
      * @param link The gm link represented by this class.
      */
     @objid ("1bce64fc-6889-4880-ae9c-bcbd9ce37a27")
-    public ConnectorDG(DiagramHandle diagramHandle, IGmLink link) {
+    public  ConnectorDG(DiagramHandle diagramHandle, IGmLink link) {
         super(diagramHandle, link);
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.naryassoc;
 
 import java.util.ArrayList;
@@ -46,7 +45,7 @@ public class NAssocFinalizationEditPolicy extends MultiPointCreationEditPolicy {
      * C'tor.
      */
     @objid ("35cb0fb7-55b7-11e2-877f-002564c97630")
-    public NAssocFinalizationEditPolicy() {
+    public  NAssocFinalizationEditPolicy() {
         super(false);
     }
 
@@ -80,6 +79,7 @@ public class NAssocFinalizationEditPolicy extends MultiPointCreationEditPolicy {
         } else {
             return null;
         }
+        
     }
 
     @objid ("35cb0fcb-55b7-11e2-877f-002564c97630")
@@ -112,6 +112,7 @@ public class NAssocFinalizationEditPolicy extends MultiPointCreationEditPolicy {
         } else {
             return null;
         }
+        
     }
 
     @objid ("35cc9642-55b7-11e2-877f-002564c97630")
@@ -119,6 +120,7 @@ public class NAssocFinalizationEditPolicy extends MultiPointCreationEditPolicy {
     protected void showTargetConnectionFeedback(final CreateMultiPointRequest request) {
         // do NOT use the default highlight for diagram background, this is ugly!
         // TODO: define a better highlight
+        
     }
 
 }

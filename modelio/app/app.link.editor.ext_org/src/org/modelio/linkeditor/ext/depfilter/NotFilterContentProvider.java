@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.ext.depfilter;
 
 import java.beans.PropertyChangeEvent;
@@ -58,6 +57,7 @@ class NotFilterContentProvider implements PropertyChangeListener, ITreeContentPr
             dialogModel.addPropertyChangeListener(this);
         }
         this.treeViewer = (TreeViewer) viewer;
+        
     }
 
     @objid ("1b66690a-5e33-11e2-b81d-002564c97630")
@@ -76,6 +76,7 @@ class NotFilterContentProvider implements PropertyChangeListener, ITreeContentPr
         } else {
             return null;
         }
+        
     }
 
     @objid ("1b66691b-5e33-11e2-b81d-002564c97630")
@@ -101,6 +102,7 @@ class NotFilterContentProvider implements PropertyChangeListener, ITreeContentPr
             this.treeViewer.refresh();
             this.treeViewer.expandAll();
         }
+        
     }
 
 }

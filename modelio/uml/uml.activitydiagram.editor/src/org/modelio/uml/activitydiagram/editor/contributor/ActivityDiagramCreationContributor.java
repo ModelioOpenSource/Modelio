@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.contributor;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.swt.graphics.Image;
 import org.modelio.api.modelio.model.scope.ElementScope;
@@ -93,6 +92,7 @@ public class ActivityDiagramCreationContributor extends AbstractDiagramWizardCon
         } else {
             return null;
         }
+        
     }
 
     @objid ("f360aa85-dec6-4103-985d-a425c7240d5c")
@@ -128,6 +128,7 @@ public class ActivityDiagramCreationContributor extends AbstractDiagramWizardCon
         } else {
             return this.mmServices.getMetamodel();
         }
+        
     }
 
     @objid ("6b4e0b05-544e-4a8a-b964-86c88e401a57")

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature id="org.modelio.platform.libraries"
          label="Platform libraries"
-         version="4.1.0.qualifier"
+         version="5.1.0.qualifier"
          provider-name="modelio.org">
 
 <copyright>
@@ -115,6 +115,12 @@ GPL
         fragment="false"
         unpack="false"/>
 <plugin id="org.eclipse.nebula.widgets.formattedtext"
+        download-size="0"
+        install-size="0"
+        version="0.0.0"
+        fragment="false"
+        unpack="false"/>
+<plugin id="org.eclipse.nebula.widgets.gallery"
         download-size="0"
         install-size="0"
         version="0.0.0"

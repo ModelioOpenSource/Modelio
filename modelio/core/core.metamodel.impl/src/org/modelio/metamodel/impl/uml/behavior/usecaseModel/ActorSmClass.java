@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.usecaseModel;
 
 import java.util.ArrayList;
@@ -42,7 +42,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("75ac7365-5024-4e1f-a996-4d7ea2b787c3")
 public class ActorSmClass extends GeneralClassSmClass {
     @objid ("e80dcf60-c526-49d5-ae91-3d63cfc21dfc")
-    public ActorSmClass(ISmMetamodelFragment origin) {
+    public  ActorSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +50,7 @@ public class ActorSmClass extends GeneralClassSmClass {
     @Override
     public String getName() {
         return "Actor";
+        
     }
 
     @objid ("dd604fe1-7fde-42f6-8374-6f1fba6f09c9")
@@ -62,18 +63,21 @@ public class ActorSmClass extends GeneralClassSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Actor.class;
+        
     }
 
     @objid ("12ed3a73-08b5-4636-a489-e5e0863f78ba")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("71038c6d-80a5-4f17-8c78-f36f63563bbd")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("11d388cb-e58c-4717-b608-13037260b690")
@@ -86,6 +90,7 @@ public class ActorSmClass extends GeneralClassSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("78e4c876-bf88-47ec-8145-c5d5111b3b6b")
@@ -94,7 +99,7 @@ public class ActorSmClass extends GeneralClassSmClass {
         private ActorSmClass smClass;
 
         @objid ("fd5fcf80-6cc3-4c28-95c8-7fed96d1221b")
-        public ActorObjectFactory(ActorSmClass smClass) {
+        public  ActorObjectFactory(ActorSmClass smClass) {
             this.smClass = smClass;
         }
 

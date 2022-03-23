@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.policies;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,6 +39,7 @@ import org.eclipse.gef.editpolicies.ResizableEditPolicy;
 import org.eclipse.gef.handles.HandleBounds;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.eclipse.gef.requests.CreateRequest;
+import org.modelio.diagram.elements.core.helpers.RequestHelper;
 import org.modelio.diagram.elements.plugin.DiagramElements;
 
 /**
@@ -101,8 +101,6 @@ public class AutoExpandLayoutEditPolicy extends LayoutEditPolicy {
      * Creates the EditPartListener for observing when children are added to the host.
      * <p>
      * Redefined to auto expand on child edit part addition.
-     * 
-     * @return EditPartListener
      */
     @objid ("6c826906-5479-409c-b908-6691f75a1d03")
     @Override
@@ -113,6 +111,7 @@ public class AutoExpandLayoutEditPolicy extends LayoutEditPolicy {
                                                 onChildAdded(child);
                                             }
                                         };
+        
     }
 
     /**
@@ -128,7 +127,6 @@ public class AutoExpandLayoutEditPolicy extends LayoutEditPolicy {
      * Called by an edit part listener when a child edit part is added.
      * <p>
      * Try to expand the container to fit all children.
-     * 
      * @param child the added edit part
      */
     @objid ("06887af0-3393-49bd-a38c-337e4b067da7")
@@ -150,6 +148,7 @@ public class AutoExpandLayoutEditPolicy extends LayoutEditPolicy {
             DiagramElements.LOG.debug("AutoExpandLayoutEditPolicy.onChildAdded(%s) : unable to expand <%s>. Command = <%s>",
                     child.toString(), getHost().toString(), cmd);
         }
+        
     }
 
     /**
@@ -178,6 +177,7 @@ public class AutoExpandLayoutEditPolicy extends LayoutEditPolicy {
             } else {
                 return null;
             }
+            
         }
 
         /**
@@ -186,7 +186,6 @@ public class AutoExpandLayoutEditPolicy extends LayoutEditPolicy {
          * {@link org.eclipse.gef.RequestConstants#REQ_RESIZE_CHILDREN}. The
          * parent's edit policies determine how to perform the resize based on the
          * layout manager in use.
-         * 
          * @param request the resize request
          * @return the command contribution obtained from the parent
          */
@@ -209,7 +208,6 @@ public class AutoExpandLayoutEditPolicy extends LayoutEditPolicy {
          * {@link org.eclipse.gef.RequestConstants#REQ_RESIZE_CHILDREN}. The
          * parent's edit policies determine how to perform the resize based on the
          * layout manager in use.
-         * 
          * @param request the resize request
          * @return the request to send to the parent edit part.
          */
@@ -226,6 +224,7 @@ public class AutoExpandLayoutEditPolicy extends LayoutEditPolicy {
             req.setLocation(request.getLocation());
             req.setExtendedData(request.getExtendedData());
             req.setResizeDirection(request.getResizeDirection());
+            RequestHelper.addSharedEditParts(req, request);
             return req;
         }
 
@@ -244,7 +243,6 @@ public class AutoExpandLayoutEditPolicy extends LayoutEditPolicy {
          * Returns the bounds of the host's figure by reference to be used to
          * calculate the initial location of the feedback. The returned Rectangle
          * should not be modified. Uses handle bounds if available.
-         * 
          * @return the host figure's bounding Rectangle
          */
         @objid ("faf00065-d8eb-468c-a3cc-72bc2cc1eb8e")
@@ -258,7 +256,6 @@ public class AutoExpandLayoutEditPolicy extends LayoutEditPolicy {
 
         /**
          * Creates the figure used for feedback.
-         * 
          * @return the new feedback figure
          */
         @objid ("9f69c019-09f1-4e10-b173-1d8a9d752f15")
@@ -287,6 +284,7 @@ public class AutoExpandLayoutEditPolicy extends LayoutEditPolicy {
                     || REQ_CLONE.equals(request.getType())) {
                 showChangeBoundsFeedback((ChangeBoundsRequest) request);
             }
+            
         }
 
         @objid ("c100a9bd-4fab-4b18-8e29-6f79243faba5")
@@ -296,7 +294,6 @@ public class AutoExpandLayoutEditPolicy extends LayoutEditPolicy {
 
         /**
          * Shows or updates feedback for a change bounds request.
-         * 
          * @param request the request
          */
         @objid ("2dba5f45-d615-4417-958f-8dc7c39b5782")
@@ -312,11 +309,11 @@ public class AutoExpandLayoutEditPolicy extends LayoutEditPolicy {
             fbFig.translateToRelative(rect);
             fbFig.setBounds(rect);
             fbFig.validate();
+            
         }
 
         /**
          * Lazily creates and returns the feedback figure used during drags.
-         * 
          * @return the feedback figure
          */
         @objid ("a1fe372b-ae34-4f22-8e30-4c3645dbe433")
@@ -336,12 +333,12 @@ public class AutoExpandLayoutEditPolicy extends LayoutEditPolicy {
                     || REQ_ADD.equals(request.getType())) {
                 eraseChangeBoundsFeedback((ChangeBoundsRequest) request);
             }
+            
         }
 
         /**
          * Erases drag feedback. This method called whenever an erase feedback
          * request is received of the appropriate type.
-         * 
          * @param request the request
          */
         @objid ("6ed19af0-39c5-43cf-9f51-648fdc0aceb9")
@@ -350,6 +347,7 @@ public class AutoExpandLayoutEditPolicy extends LayoutEditPolicy {
                 removeFeedback(this.feedback);
             }
             this.feedback = null;
+            
         }
 
     }

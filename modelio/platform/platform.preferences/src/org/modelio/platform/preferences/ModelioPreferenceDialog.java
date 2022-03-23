@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.preferences;
 
 import java.util.ArrayList;
@@ -140,17 +139,17 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
 
     /**
      * Initialize the preferences dialog.
-     * 
      * @param parentShell a shell.
      * @param context the eclipse context.
      */
     @objid ("a692a03a-0d5e-4be5-aa99-36fc0fffa1ed")
-    public ModelioPreferenceDialog(final Shell parentShell, final IEclipseContext context) {
+    public  ModelioPreferenceDialog(final Shell parentShell, final IEclipseContext context) {
         super(parentShell, configurePreferences(context));
         
         this._message = "";
         
         this.nodes = new ArrayList<>();
+        
     }
 
     @objid ("e9a249e2-079a-4985-ba23-18adc676fd90")
@@ -188,6 +187,7 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
             this._titleLeftImageLabel.setImage(newTitleImage);
             this._titleLeftImageLabel.setVisible(newTitleImage != null);
         }
+        
     }
 
     @objid ("41338c48-dbbd-4a05-9db5-aed3b9cc7b9e")
@@ -213,6 +213,7 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
         data.left = new FormAttachment(this._titleLeftImageLabel);
         data.bottom = new FormAttachment(this._messageLabel, 0, SWT.BOTTOM);
         this._leftFillerLabel.setLayoutData(data);
+        
     }
 
     @objid ("34033251-be5a-463e-9c7b-3fa486ef059b")
@@ -224,6 +225,7 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
         labelY += this._messageLabelHeight;
         labelY += verticalSpacing;
         this._titleImageLargest = titleY > labelY;
+        
     }
 
     @objid ("30b98bd5-cab0-4393-b635-b2702b1f80ed")
@@ -312,6 +314,7 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
         final Label titleBarSeparator = new Label(parent, SWT.SEPARATOR | SWT.HORIZONTAL);
         final GridData barData = new GridData(768);
         titleBarSeparator.setLayoutData(barData);
+        
     }
 
     @objid ("d8090ce1-9d85-474f-9c3d-6b5050e32882")
@@ -324,6 +327,7 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
             title = "";
         }
         this._titleLabel.setText(title);
+        
     }
 
     @objid ("778403ee-9dfc-4c1d-ae1b-f35f23ef3be8")
@@ -340,6 +344,7 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
         
         this._messageLabel.setText(newMessage);
         layoutForNewMessage();
+        
     }
 
     @objid ("23f098ef-af6e-4ad5-af83-97eab92e773c")
@@ -350,6 +355,7 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
         if (this.dialogArea != null) {
             this._titleArea.layout(true);
         }
+        
     }
 
     @objid ("70ca0447-23a9-4e48-a547-7763389cb376")
@@ -455,6 +461,7 @@ public class ModelioPreferenceDialog extends PreferenceDialog {
     protected void configureShell(final Shell newShell) {
         super.configureShell(newShell);
         newShell.setMinimumSize(860, 540);
+        
     }
 
 }

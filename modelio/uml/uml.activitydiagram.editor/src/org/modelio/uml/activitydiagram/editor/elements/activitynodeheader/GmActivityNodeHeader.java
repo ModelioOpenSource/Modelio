@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.activitynodeheader;
 
 import java.util.Collections;
@@ -29,8 +28,8 @@ import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.metamodel.uml.infrastructure.TaggedValue;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -55,14 +54,14 @@ public class GmActivityNodeHeader extends GmModelElementHeader {
 
     /**
      * Creates a classifier header
-     * 
      * @param diagram the owning diagram.
      * @param relatedRef related element reference, must not be <code>null</code>.
      */
     @objid ("29b06aee-55b6-11e2-877f-002564c97630")
-    public GmActivityNodeHeader(IGmDiagram diagram, MRef relatedRef) {
+    public  GmActivityNodeHeader(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
         setStackedStereotypes(true);
+        
     }
 
     /**
@@ -76,6 +75,7 @@ public class GmActivityNodeHeader extends GmModelElementHeader {
         }
         
         super.setParent(parent);
+        
     }
 
     @objid ("29b06afe-55b6-11e2-877f-002564c97630")
@@ -145,7 +145,7 @@ public class GmActivityNodeHeader extends GmModelElementHeader {
      * Empty c'tor for deserialisation.
      */
     @objid ("29b1f1b3-55b6-11e2-877f-002564c97630")
-    public GmActivityNodeHeader() {
+    public  GmActivityNodeHeader() {
         // empty constructor for the serialization
     }
 
@@ -166,6 +166,7 @@ public class GmActivityNodeHeader extends GmModelElementHeader {
             break;
         }
         }
+        
     }
 
     @objid ("29b3781f-55b6-11e2-877f-002564c97630")
@@ -175,6 +176,7 @@ public class GmActivityNodeHeader extends GmModelElementHeader {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmActivityNodeHeader.", GmActivityNodeHeader.MINOR_VERSION);
+        
     }
 
     @objid ("29b37825-55b6-11e2-877f-002564c97630")

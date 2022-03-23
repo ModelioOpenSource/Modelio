@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,9 +38,10 @@ public class EBroadcastSignalAction extends EActivityNode {
     }
 
     @objid ("85e78ffa-c7a3-47d3-8922-bae09f47bd3d")
-    public EBroadcastSignalAction(org.eclipse.uml2.uml.BroadcastSignalAction element) {
+    public  EBroadcastSignalAction(org.eclipse.uml2.uml.BroadcastSignalAction element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("39d455db-93ae-4543-8ac5-1c3eec6b6dcf")
@@ -49,6 +49,7 @@ public class EBroadcastSignalAction extends EActivityNode {
     public void setProperties(Element objingElt) {
         super.setProperties(objingElt);
         setSignal((SendSignalAction) objingElt);
+        
     }
 
     @objid ("03abb2bd-286b-44de-a7d7-747a0b4afe00")
@@ -60,6 +61,7 @@ public class EBroadcastSignalAction extends EActivityNode {
             if (objingSignal instanceof Signal)
                 action.setSent((Signal) objingSignal);
         }
+        
     }
 
 }

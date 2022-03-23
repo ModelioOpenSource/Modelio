@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.load;
 
 import java.util.ArrayList;
@@ -101,7 +100,7 @@ class ModelLoader implements IModelLoader {
     private Collection<SmObjectImpl> toInitialize = new HashSet<>();
 
     @objid ("00483fd2-4fda-1f32-b43f-001ec947cd2a")
-    public ModelLoader(ModelLoaderConfiguration loaderConfig, Collection<IModelLoader> pool) {
+    public  ModelLoader(ModelLoaderConfiguration loaderConfig, Collection<IModelLoader> pool) {
         this.pool = pool;
         this.kid = loaderConfig.getKid();
         this.rid = loaderConfig.getRid();
@@ -112,6 +111,7 @@ class ModelLoader implements IModelLoader {
         this.accessManager = loaderConfig.getAccessManager();
         this.loadingMetaOf = new ModelLoaderMetaObject();
         this.accessManagerModelLoader = new AccessManagerModelLoader(this);
+        
     }
 
     @objid ("e857c9bf-d56e-4f72-bdd4-7e3dad3e82b0")
@@ -127,6 +127,7 @@ class ModelLoader implements IModelLoader {
         
         this.loadingMetaOf.endLoading();
         this.pool.add(this);
+        
     }
 
     @objid ("00488578-4fda-1f32-b43f-001ec947cd2a")
@@ -300,6 +301,7 @@ class ModelLoader implements IModelLoader {
         if (att == obj.getClassOf().statusAtt()) {
             addObjToInitialize(obj);
         }
+        
     }
 
     @objid ("524ee4e9-064d-11e2-9eb7-001ec947ccaf")
@@ -312,6 +314,7 @@ class ModelLoader implements IModelLoader {
             setRStatus(obj, IRStatus.SHELL, 0, 0);
             throw e;
         }
+        
     }
 
     @objid ("bda29931-92d7-11e1-81e9-001ec947ccaf")
@@ -380,6 +383,7 @@ class ModelLoader implements IModelLoader {
         
         
         }
+        
     }
 
     @objid ("98353c81-1f8d-4807-a978-e02590582d1e")
@@ -391,6 +395,7 @@ class ModelLoader implements IModelLoader {
         addLoadedData(data);
         // 26/06/2015: commented to fix the access right exceptions when removing a module
         //addObjToInitialize(obj);
+        
     }
 
     @objid ("9420091e-1732-453c-a7bc-14d06e0c2e52")
@@ -402,6 +407,7 @@ class ModelLoader implements IModelLoader {
         addLoadedData(data);
         // 26/06/2015: commented to fix the access right exceptions when removing a module
         //addObjToInitialize(obj);
+        
     }
 
     @objid ("d7ed84ef-e8f1-4b4e-896a-a910c4f83cb2")
@@ -416,6 +422,7 @@ class ModelLoader implements IModelLoader {
         if (obj.getMClass().isFake()) {
             obj.getData().setRFlags(IRStatus.SHELL, StatusState.TRUE);
         }
+        
     }
 
     /**
@@ -424,7 +431,6 @@ class ModelLoader implements IModelLoader {
      * Ensure the data won't be garbaged until the end of loading.
      * <p>
      * This method must be called for each ISmObjectData modified by a loading method.
-     * 
      * @param data the data being loaded.
      */
     @objid ("3fe3101f-1661-4863-8df8-e001452f72b8")
@@ -448,6 +454,7 @@ class ModelLoader implements IModelLoader {
             data.setRFlags(IRStatus.LOADING, IRStatus.SHELL | IRStatus.DELETED | IRStatus.BEINGDELETED, 0);
             data.setMetaOf(this.loadingMetaOf);
         }
+        
     }
 
     @objid ("ddde6f85-63af-497e-9ac6-9bf59a7ab025")
@@ -478,6 +485,7 @@ class ModelLoader implements IModelLoader {
         releaseLoadedData();
         
         this.depLoader.close();
+        
     }
 
     /**
@@ -492,7 +500,6 @@ class ModelLoader implements IModelLoader {
      * Schedule for status initialization the given object.
      * <p>
      * The object status will be initialized in {@link #doClose()}.
-     * 
      * @param obj the object for which the status must be initialized.
      */
     @objid ("33430ab9-4097-11e2-87cb-001ec947ccaf")
@@ -507,6 +514,7 @@ class ModelLoader implements IModelLoader {
         
         addLoadedData(data);
         addObjToInitialize(obj);
+        
     }
 
     /**
@@ -515,7 +523,6 @@ class ModelLoader implements IModelLoader {
      * Ensure the data won't be garbaged until the end of loading.
      * <p>
      * This method must be called for each already loaded ISmObjectData modified by a loading method.
-     * 
      * @param data the data being loaded.
      */
     @objid ("efd191fc-d716-4685-8cad-cc19761a00b4")
@@ -528,6 +535,7 @@ class ModelLoader implements IModelLoader {
             data.setRFlags(IRStatus.LOADING, 0, 0);
             data.setMetaOf(this.loadingMetaOf);
         }
+        
     }
 
     /**
@@ -565,6 +573,7 @@ class ModelLoader implements IModelLoader {
                 this.loadedData = new ArrayList<>(10);
             }
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.communicationdiagram.editor.plugin;
 
 import java.util.ResourceBundle;
@@ -59,6 +58,7 @@ public final class DiagramEditorCommunication implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), PLUGIN_ID));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("diagrameditorcommunication"));
+        
     }
 
     @objid ("0598b91f-599a-11e2-ae45-002564c97630")
@@ -74,7 +74,6 @@ public final class DiagramEditorCommunication implements BundleActivator {
 
     /**
      * Returns an image descriptor for the image file at the given plug-in relative path
-     * 
      * @param path the path
      * @return the image descriptor
      */

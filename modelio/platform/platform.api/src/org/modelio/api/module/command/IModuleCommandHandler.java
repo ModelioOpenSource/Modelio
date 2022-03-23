@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.command;
 
 import java.util.List;
@@ -46,7 +45,6 @@ public interface IModuleCommandHandler {
      * <p>
      * 
      * The module that is passed as parameter corresponds to the owner of the command.
-     * 
      * @param selectedElements Current selection
      * @param module Owner of the command
      */
@@ -65,7 +63,6 @@ public interface IModuleCommandHandler {
      * <p>
      * 
      * This method is invoked only if all the default filters are passed (if the kind of metaclass is valid)
-     * 
      * @param selectedElements Current selection
      * @param module Owner of the command
      * @return true if the command is valid for all the elements, false otherwise.
@@ -85,7 +82,6 @@ public interface IModuleCommandHandler {
      * 
      * This method is invoked only if all the default filters are passed (depending on the read only status of the tool and the
      * objects)
-     * 
      * @param selectedElements Current selection
      * @param module Owner of the command
      * @return false if the command has to be grayed, false otherwise.

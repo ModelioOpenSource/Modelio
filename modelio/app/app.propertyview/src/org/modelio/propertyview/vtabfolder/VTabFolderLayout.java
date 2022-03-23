@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.propertyview.vtabfolder;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -143,6 +142,7 @@ public class VTabFolderLayout extends Layout {
                 control.setBounds(folder.getClientArea());
             }
         }
+        
     }
 
     @objid ("dc184cf5-00d3-4d64-bd80-e4225d5818bc")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.gproject;
 
 import java.io.IOException;
@@ -42,7 +41,6 @@ public class GProjectLockedException extends IOException {
      * <p> Note that the detail message associated with {@code cause} is
      * <i>not</i> automatically incorporated into this exception's detail
      * message.
-     * 
      * @param message The detail message (which is saved for later retrieval
      * by the {@link #getMessage()} method)
      * @param cause The cause (which is saved for later retrieval by the
@@ -50,27 +48,26 @@ public class GProjectLockedException extends IOException {
      * and indicates that the cause is nonexistent or unknown.)
      */
     @objid ("2b277550-6b2b-435e-b4aa-dab4caa6cdb0")
-    public GProjectLockedException(String message, Throwable cause) {
+    public  GProjectLockedException(String message, Throwable cause) {
         super(message, cause);
     }
 
     /**
      * Constructs an {@code GProjectLockedException} with the specified detail message
      * and loack informations.
-     * 
      * @param message The detail message (which is saved for later retrieval
      * by the {@link #getMessage()} method)
      * @param info lock informations
      */
     @objid ("ea5d686d-f998-47e7-8989-663170d21f62")
-    public GProjectLockedException(String message, ILockInfo info) {
+    public  GProjectLockedException(String message, ILockInfo info) {
         super(message);
         this.info = info;
+        
     }
 
     /**
      * Get informations on the project lock, if available.
-     * 
      * @return the lock informations or <i>null</i>.
      */
     @objid ("6088adc5-6137-420e-b769-b3c50b1c848a")

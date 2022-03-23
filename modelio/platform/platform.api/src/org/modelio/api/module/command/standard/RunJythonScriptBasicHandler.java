@@ -14,17 +14,16 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.command.standard;
 
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.script.Bindings;
 import javax.script.ScriptEngine;
 import javax.script.ScriptException;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
@@ -72,6 +71,7 @@ public class RunJythonScriptBasicHandler extends DefaultModuleCommandHandler {
         
             MessageDialog.openError(parent, module.getLabel(), e.getLocalizedMessage());
         }
+        
     }
 
     /**
@@ -83,7 +83,6 @@ public class RunJythonScriptBasicHandler extends DefaultModuleCommandHandler {
      * <li> modelingSession : the modeling session.
      * <li> and all command parameters.
      * </ul>
-     * 
      * @param engine the script engine that will be used.
      * @param selectedElements the Modelio selection.
      * @param module the module owning the command
@@ -107,7 +106,6 @@ public class RunJythonScriptBasicHandler extends DefaultModuleCommandHandler {
      * Returns false if the script does not return a boolean or fails.
      * <p>
      * Does nothing and returns true if no script is present for the given command parameter.
-     * 
      * @param scriptParamName the command parameter where the script is stored.
      * @param selectedElements the current Modelio selection
      * @param module the module owing the command
@@ -135,6 +133,7 @@ public class RunJythonScriptBasicHandler extends DefaultModuleCommandHandler {
         } else {
             return true;
         }
+        
     }
 
 }

@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ControlNodeSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.ControlNode;
 import org.modelio.metamodel.uml.behavior.activityModel.DecisionMergeNode;
 import org.modelio.metamodel.uml.behavior.activityModel.DecisionNodeKind;
@@ -50,7 +49,7 @@ public class DecisionMergeNodeSmClass extends ControlNodeSmClass {
     private SmAttribute decisionInputBehaviorAtt;
 
     @objid ("8beae383-1b89-4528-970c-74b43d1118ab")
-    public DecisionMergeNodeSmClass(ISmMetamodelFragment origin) {
+    public  DecisionMergeNodeSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -58,6 +57,7 @@ public class DecisionMergeNodeSmClass extends ControlNodeSmClass {
     @Override
     public String getName() {
         return "DecisionMergeNode";
+        
     }
 
     @objid ("d51f8f98-09d8-4e92-86eb-c6599d1fa277")
@@ -70,18 +70,21 @@ public class DecisionMergeNodeSmClass extends ControlNodeSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return DecisionMergeNode.class;
+        
     }
 
     @objid ("a1cec106-2d8c-44f9-99de-c273d6f5310e")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("a45075fb-b31a-4999-9af8-291fe1615aa8")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("3791af5a-dd25-4049-8e6b-cf42d864995c")
@@ -102,6 +105,7 @@ public class DecisionMergeNodeSmClass extends ControlNodeSmClass {
         
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("6fb43521-ff50-4a66-b86c-f3f5962c14c6")
@@ -126,7 +130,7 @@ public class DecisionMergeNodeSmClass extends ControlNodeSmClass {
         private DecisionMergeNodeSmClass smClass;
 
         @objid ("e30cc8eb-adf7-41c4-979a-ad5f577270a3")
-        public DecisionMergeNodeObjectFactory(DecisionMergeNodeSmClass smClass) {
+        public  DecisionMergeNodeObjectFactory(DecisionMergeNodeSmClass smClass) {
             this.smClass = smClass;
         }
 

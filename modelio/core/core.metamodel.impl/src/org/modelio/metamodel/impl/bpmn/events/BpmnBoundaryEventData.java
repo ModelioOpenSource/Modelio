@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.events;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,13 +31,13 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("0087c49a-c4bf-1fd8-97fe-001ec947cd2a")
 public class BpmnBoundaryEventData extends BpmnCatchEventData {
     @objid ("03d5e7db-b39b-4d6f-ae3d-fda664af4910")
-     Object mCancelActivity = false;
+    Object mCancelActivity = false;
 
     @objid ("5c0f402e-673c-4a8b-822f-0a0c0b986224")
-     SmObjectImpl mAttachedToRef;
+    SmObjectImpl mAttachedToRef;
 
     @objid ("73edf68e-c10e-4dad-b6d9-23be16971cac")
-    public BpmnBoundaryEventData(BpmnBoundaryEventSmClass smClass) {
+    public  BpmnBoundaryEventData(BpmnBoundaryEventSmClass smClass) {
         super(smClass);
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.figures;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,7 +40,7 @@ public class DiamondFigure extends ShapedFigure {
      * Creates the figure.
      */
     @objid ("f52253a1-55b6-11e2-877f-002564c97630")
-    public DiamondFigure() {
+    public  DiamondFigure() {
         super();
         setSize(30, 40);
         setShaper(new DiamondShaper());
@@ -51,6 +50,7 @@ public class DiamondFigure extends ShapedFigure {
                                              this.shaper);
         
         setBorder(new CompoundBorder(this.shapedBorder, new MarginBorder(2)));
+        
     }
 
     @objid ("f52253a4-55b6-11e2-877f-002564c97630")
@@ -60,6 +60,7 @@ public class DiamondFigure extends ShapedFigure {
             super.setLineColor(lineColor);
             this.shapedBorder.setColor(lineColor);
         }
+        
     }
 
     @objid ("f52253a8-55b6-11e2-877f-002564c97630")
@@ -69,6 +70,7 @@ public class DiamondFigure extends ShapedFigure {
             super.setLineWidth(lineWidth);
             this.shapedBorder.setWidth(lineWidth);
         }
+        
     }
 
 }

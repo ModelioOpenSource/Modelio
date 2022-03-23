@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.infrastructure.dependency;
 
@@ -49,27 +48,26 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("13fa7cda-1af5-453f-b5a9-6961ffafa991")
 public class UML2EndDestructionDataReference {
-    @objid ("03b6955d-21a3-4b14-932a-da01335f4985")
+    @objid ("fc45ab5d-3d49-4f7d-a0de-7410acfe4d6a")
     public static final String STEREOTYPE_NAME = "UML2EndDestructionDataReference";
 
-    @objid ("f223435f-9f8e-48ff-93eb-04b2746063b0")
+    @objid ("bb0904d9-7d8c-4988-812b-2df1cdfe9e7a")
     public static final String ISDESTROYDUPLICATES_TAGTYPE = "IsDestroyDuplicates";
 
     /**
      * The underlying {@link Dependency} represented by this proxy, never null.
      */
-    @objid ("9e554011-b6e4-4ea7-980b-3ac0a7f27cad")
+    @objid ("d4d6c38c-69c1-440e-bf11-83cb7052b9cd")
     protected final Dependency elt;
 
     /**
      * Tells whether a {@link UML2EndDestructionDataReference proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << UML2EndDestructionDataReference >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("30df7df6-34c3-45bb-bbe9-712b3056a8cd")
+    @objid ("3da74f83-4b44-4baf-827b-4bd71e562e3b")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Dependency) && ((Dependency) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2EndDestructionDataReference.STEREOTYPE_NAME));
     }
@@ -79,9 +77,9 @@ public class UML2EndDestructionDataReference {
      * 
      * @return a {@link UML2EndDestructionDataReference} proxy on the created {@link Dependency}.
      */
-    @objid ("3ab65823-9882-42df-944e-ccb38817e7ad")
+    @objid ("093d4b3a-7d19-46a8-894f-4d2cf3b36759")
     public static UML2EndDestructionDataReference create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Dependency");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Infrastructure.Dependency");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2EndDestructionDataReference.STEREOTYPE_NAME);
         return UML2EndDestructionDataReference.instantiate((Dependency)e);
     }
@@ -93,7 +91,7 @@ public class UML2EndDestructionDataReference {
      * @param obj a Dependency
      * @return a {@link UML2EndDestructionDataReference} proxy or <i>null</i>.
      */
-    @objid ("2ae6410f-f2b8-49e4-8899-3fbd9c98c335")
+    @objid ("b301742b-b005-48d7-ac3d-0210c071755a")
     public static UML2EndDestructionDataReference instantiate(Dependency obj) {
         return UML2EndDestructionDataReference.canInstantiate(obj) ? new UML2EndDestructionDataReference(obj) : null;
     }
@@ -106,7 +104,7 @@ public class UML2EndDestructionDataReference {
      * @return a {@link UML2EndDestructionDataReference} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("0285efed-bf62-49f8-b67f-193765851d58")
+    @objid ("37ddb0dc-f451-47a5-9ab7-c0d6c4256003")
     public static UML2EndDestructionDataReference safeInstantiate(Dependency obj) throws IllegalArgumentException {
         if (UML2EndDestructionDataReference.canInstantiate(obj))
         	return new UML2EndDestructionDataReference(obj);
@@ -114,7 +112,7 @@ public class UML2EndDestructionDataReference {
         	throw new IllegalArgumentException("UML2EndDestructionDataReference: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("399bb5e2-c3ff-4fec-ae14-aac7c76ea4ff")
+    @objid ("d71c2e37-8f94-4d4d-a223-043052945ad2")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -134,15 +132,16 @@ public class UML2EndDestructionDataReference {
      * Get the underlying {@link Dependency}. 
      * @return the Dependency represented by this proxy, never null.
      */
-    @objid ("897f4904-67cd-4e40-a02b-cdbd664c8b1d")
+    @objid ("6386e147-3e6d-4ef1-95c4-34f75a7afce3")
     public Dependency getElement() {
         return this.elt;
     }
 
-    @objid ("fbd97a10-928f-44de-8b9b-c531b3b4c67d")
+    @objid ("eea1f7ba-b1a0-4d1c-9663-49980001533d")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
     /**
@@ -150,7 +149,7 @@ public class UML2EndDestructionDataReference {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("6ba0844a-7a7c-44eb-b2c1-77338dd3849f")
+    @objid ("120aa0a9-e6d5-4268-8cbf-718b5b53f126")
     public boolean isIsDestroyDuplicates() {
         return this.elt.isTagged(UML2EndDestructionDataReference.MdaTypes.ISDESTROYDUPLICATES_TAGTYPE_ELT);
     }
@@ -160,7 +159,7 @@ public class UML2EndDestructionDataReference {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("945968a2-f7cb-4e5b-a1a9-3b33422adc80")
+    @objid ("95070ab4-fb5e-482d-95f7-03a92e737445")
     public void setIsDestroyDuplicates(boolean value) {
         if (value)
           ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createTaggedValue(UML2EndDestructionDataReference.MdaTypes.ISDESTROYDUPLICATES_TAGTYPE_ELT, this.elt);
@@ -168,39 +167,39 @@ public class UML2EndDestructionDataReference {
           this.elt.removeTags(UML2EndDestructionDataReference.MdaTypes.ISDESTROYDUPLICATES_TAGTYPE_ELT);
     }
 
-    @objid ("90959f2c-7e5e-48d6-9a87-a3595d8b9502")
-    protected UML2EndDestructionDataReference(Dependency elt) {
+    @objid ("16a9a864-3005-4023-9732-23e432908662")
+    protected  UML2EndDestructionDataReference(Dependency elt) {
         this.elt = elt;
     }
 
     @objid ("8989eec9-3340-47a9-97c9-74399b71b10e")
     public static final class MdaTypes {
-        @objid ("706660a3-118b-44b4-ba4e-19b209b36d68")
+        @objid ("60c112c9-4de2-4798-9577-73c2fef56cd4")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("2d97c513-412e-40ab-ad2c-47891dc064d1")
+        @objid ("db48c203-631a-46d7-930d-215108fd7dcc")
         public static TagType ISDESTROYDUPLICATES_TAGTYPE_ELT;
 
-        @objid ("81e2d97d-0279-4549-846b-5627b49a61e7")
+        @objid ("324eed58-8913-428d-b4e5-8df513b9fe69")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("4eec3a43-157f-4103-abf6-15080cac9a1f")
+        @objid ("a7c94102-ba01-4035-9159-eaad0ff23614")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("aac918d6-f639-4eef-80fb-f1095addd22f")
+        @objid ("11f58b67-ac2b-4971-9076-69f892feff52")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "a74178fb-df2b-11de-905b-001302895b2b");
             ISDESTROYDUPLICATES_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "6f99afff-df2d-11de-905b-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

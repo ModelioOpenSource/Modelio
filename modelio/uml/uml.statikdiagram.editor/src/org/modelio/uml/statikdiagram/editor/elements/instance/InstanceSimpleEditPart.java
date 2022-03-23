@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.instance;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -64,6 +63,7 @@ public class InstanceSimpleEditPart extends AbstractNodeEditPart {
         }
         
         installEditPolicy(ModelElementDropRequest.TYPE, new InstanceElementDropEditPolicy());
+        
     }
 
     @objid ("35434218-55b7-11e2-877f-002564c97630")
@@ -101,6 +101,7 @@ public class InstanceSimpleEditPart extends AbstractNodeEditPart {
         final CompoundBorder b = new CompoundBorder(outer, inner);
         
         aFigure.setBorder(b);
+        
     }
 
     @objid ("35434225-55b7-11e2-877f-002564c97630")
@@ -110,6 +111,7 @@ public class InstanceSimpleEditPart extends AbstractNodeEditPart {
             super.refreshFromStyle(aFigure, style);
             updateFigureBorder((GradientFigure) aFigure);
         }
+        
     }
 
     @objid ("3543422c-55b7-11e2-877f-002564c97630")
@@ -119,6 +121,7 @@ public class InstanceSimpleEditPart extends AbstractNodeEditPart {
         final GmNodeModel gm = getModel();
         
         fig.getParent().setConstraint(fig, gm.getLayoutData());
+        
     }
 
     @objid ("72b82d94-52fc-410d-b518-b5fb1d064182")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.catalog.gui;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,10 +32,11 @@ public class PatternCatalogData {
     private IPatternRepository repository;
 
     @objid ("5f4aab61-49d8-4ea1-979f-58741f06604b")
-    public PatternCatalogData(IPatternRepository repository) {
+    public  PatternCatalogData(IPatternRepository repository) {
         this.selectedPattern = null;
         
         this.repository = repository;
+        
     }
 
     @objid ("3cb242a3-e755-4322-bcf2-bc91848cb375")

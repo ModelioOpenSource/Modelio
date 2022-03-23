@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.module.propertytab.ui.panel.treeview;
 
 import java.util.HashMap;
@@ -41,13 +40,14 @@ public class ModulePropertyCellLabelProvider extends ColumnLabelProvider {
     private EmptyLabelProvider emptyProvider;
 
     @objid ("c89915f3-1eba-11e2-9382-bc305ba4815c")
-    public ModulePropertyCellLabelProvider() {
+    public  ModulePropertyCellLabelProvider() {
         this.providers.put(Boolean.class, new CheckboxLabelProvider());
         this.providers.put(String.class, new TextLabelProvider());
         this.providers.put(Integer.class, new TextLabelProvider());
         this.providers.put(Enum.class, new TextLabelProvider());
         this.providers.put(MObject.class, new ElementLabelProvider());
         this.emptyProvider = new EmptyLabelProvider();
+        
     }
 
     @objid ("c89915f5-1eba-11e2-9382-bc305ba4815c")
@@ -66,6 +66,7 @@ public class ModulePropertyCellLabelProvider extends ColumnLabelProvider {
         } else {
             this.emptyProvider.update(cell);
         }
+        
     }
 
     @objid ("c8993d02-1eba-11e2-9382-bc305ba4815c")

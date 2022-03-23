@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.image;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -90,7 +89,6 @@ public class ImageFigure extends Label implements IPenOptionsSupport {
 
     /**
      * Set the image.
-     * 
      * @param img the image.
      */
     @objid ("7e86aa13-1dec-11e2-8cad-001ec947c8cc")
@@ -131,10 +129,11 @@ public class ImageFigure extends Label implements IPenOptionsSupport {
         if (isOpaque()) {
             super.paintFigure(graphics);
         }
+        
         Rectangle figureBounds = getBounds();
         graphics.translate(figureBounds.x, figureBounds.y);
         Image icon = getIcon();
-        if (icon != null) {
+        if (icon != null && !icon.isDisposed()) {
             if (icon.getImageData().width > figureBounds.width || icon.getImageData().height > figureBounds.height) {
                 // Resize the image to fit the figure
                 double wRatio = (double) icon.getImageData().width / figureBounds.width;
@@ -153,8 +152,8 @@ public class ImageFigure extends Label implements IPenOptionsSupport {
             } else {
                 graphics.drawImage(icon, getIconLocation());
             }
-        
         }
+        
         if (!isEnabled()) {
             graphics.translate(1, 1);
             graphics.setForegroundColor(ColorConstants.buttonLightest);
@@ -164,6 +163,7 @@ public class ImageFigure extends Label implements IPenOptionsSupport {
         }
         graphics.drawText(getSubStringText(), getTextLocation());
         graphics.translate(-figureBounds.x, -figureBounds.y);
+        
     }
 
 }

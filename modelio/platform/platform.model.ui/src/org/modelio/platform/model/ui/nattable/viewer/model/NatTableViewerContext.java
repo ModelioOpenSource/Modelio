@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.viewer.model;
 
 import java.nio.file.Path;
@@ -45,63 +44,68 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("f578bd0e-e346-4e65-97ab-5fe6232b1628")
 public class NatTableViewerContext implements INatTableViewerContext {
+    
     @mdl.prop
     @objid ("3d6be7de-2fb1-4d99-8cd5-f0ab409da154")
-    private final IActivationService activationService;
+    public final IActivationService activationService;
 
     @mdl.propgetter
     public IActivationService getActivationService() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.activationService;
     }
 
+    
     @mdl.prop
     @objid ("bfeeea0c-17d5-4052-9b29-532d52276722")
-    private final IMModelServices modelService;
+    public final IMModelServices modelService;
 
     @mdl.propgetter
     public IMModelServices getModelService() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.modelService;
     }
 
+    
     @mdl.prop
     @objid ("d7882aa3-ee09-40b2-9c82-6d89912eebb5")
-    private final IModelioNavigationService navigationService;
+    public final IModelioNavigationService navigationService;
 
     @mdl.propgetter
     public IModelioNavigationService getNavigationService() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.navigationService;
     }
 
+    
     @mdl.prop
     @objid ("3c9f7766-d3f6-4021-82c1-f81c2a499068")
-    private final IModelioPickingService pickingService;
+    public final IModelioPickingService pickingService;
 
     @mdl.propgetter
     public IModelioPickingService getPickingService() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.pickingService;
     }
 
+    
     @mdl.prop
     @objid ("216d4e56-4a25-40fa-86f1-6120e6fcc633")
-    private final ICurrentProjectService projectService;
+    public final ICurrentProjectService projectService;
 
+    
     @mdl.prop
     @objid ("bbad667c-0671-4a77-ae8f-d58925f71184")
-    private IMdaExpert mdaExpert;
+    public IMdaExpert mdaExpert;
 
     @mdl.propgetter
     public IMdaExpert getMdaExpert() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.mdaExpert;
     }
 
     /**
      * Constructor to use only if you have no {@link ICurrentProjectService} at hand (eg. the diff/merge dialog).
-     * 
      * @param session the core session
      * @param modelService the model service
      * @param activationService the activation service to open the edition dialog
@@ -109,7 +113,7 @@ public class NatTableViewerContext implements INatTableViewerContext {
      * @param pickingService the picking service
      */
     @objid ("cd8c4245-bc68-4aa4-9ea7-2d2abb19cf13")
-    public NatTableViewerContext(ICoreSession session, IMModelServices modelService, IActivationService activationService, IModelioNavigationService navigationService, IModelioPickingService pickingService) {
+    public  NatTableViewerContext(ICoreSession session, IMModelServices modelService, IActivationService activationService, IModelioNavigationService navigationService, IModelioPickingService pickingService) {
         super();
         
         this.projectService = new StubProjectService(session);
@@ -118,6 +122,7 @@ public class NatTableViewerContext implements INatTableViewerContext {
         this.navigationService = navigationService;
         this.pickingService = pickingService;
         this.mdaExpert = YesMdaExpert.INSTANCE;
+        
     }
 
     @objid ("53251e82-ec3e-43d1-9817-accbb1cf6f87")
@@ -155,9 +160,10 @@ public class NatTableViewerContext implements INatTableViewerContext {
         private final PreferenceStore preferenceStore;
 
         @objid ("c72a0611-d3b4-4aee-9c50-35acf7aa885c")
-        public StubProjectService(ICoreSession session) {
+        public  StubProjectService(ICoreSession session) {
             this.coreSession = session;
             this.preferenceStore = new PreferenceStore();
+            
         }
 
         @objid ("c76a9965-4501-41fc-953b-280763cff8bf")

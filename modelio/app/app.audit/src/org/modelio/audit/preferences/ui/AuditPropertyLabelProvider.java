@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.preferences.ui;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,7 +34,7 @@ public class AuditPropertyLabelProvider extends ColumnLabelProvider {
     private ColumnLabelProvider[] providers;
 
     @objid ("767289e3-e0dc-4edd-b1c4-376aa353b754")
-    public AuditPropertyLabelProvider(IAuditConfigurationPlan configurationPlan) {
+    public  AuditPropertyLabelProvider(IAuditConfigurationPlan configurationPlan) {
         this.providers = new ColumnLabelProvider[] { new FirstLabelProvider(configurationPlan), new SeverityLabelProvider(), new StatusLabelProvider(), new SummaryLabelProvider(configurationPlan) };
     }
 

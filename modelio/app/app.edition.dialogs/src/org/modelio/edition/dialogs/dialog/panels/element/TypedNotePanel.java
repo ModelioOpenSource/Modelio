@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.dialogs.dialog.panels.element;
 
 import java.security.InvalidParameterException;
@@ -75,12 +74,11 @@ public class TypedNotePanel implements IPanelProvider {
 
     /**
      * C'tor.
-     * 
      * @param moduleName name of the module providing the note type. Might be <code>null</code>.
      * @param noteTypeName a note type name. Might be <code>null</code>.
      */
     @objid ("1c3c0099-444d-4efb-a61a-bc67eaab6dc6")
-    public TypedNotePanel(String moduleName, String noteTypeName) {
+    public  TypedNotePanel(String moduleName, String noteTypeName) {
         this.controller = new NoteEditController(moduleName, noteTypeName);
     }
 
@@ -98,6 +96,7 @@ public class TypedNotePanel implements IPanelProvider {
         this.view.dispose();
         this.view = null;
         this.controller = null;
+        
     }
 
     @objid ("55cc0187-a18f-4eae-a39e-bbe89417ea60")
@@ -143,6 +142,7 @@ public class TypedNotePanel implements IPanelProvider {
         
         // Input is a valid Note
         this.controller.setModelElement((ModelElement) input);
+        
     }
 
     @objid ("61b8e22b-cd0d-467e-8e46-b9e7afbb9b05")
@@ -177,12 +177,11 @@ public class TypedNotePanel implements IPanelProvider {
 
         /**
          * Widget structure: container=[label, mime mode selector, stack=[plain text,html text]]
-         * 
          * @param parent the parent SWT composite
          * @param controller the view controller
          */
         @objid ("1b906def-0ba0-4ff2-8bb9-92e092caf353")
-        public NoteEditView(Composite parent, NoteEditController controller) {
+        public  NoteEditView(Composite parent, NoteEditController controller) {
             this.controller = controller;
             
             // The top level container
@@ -257,6 +256,7 @@ public class TypedNotePanel implements IPanelProvider {
                 }
             
             });
+            
         }
 
         @objid ("aa6060ac-be66-4185-819a-1ab94b7219f7")
@@ -280,6 +280,7 @@ public class TypedNotePanel implements IPanelProvider {
                 this.text.setText(s);
                 break;
             }
+            
         }
 
         @objid ("15306d32-ddd9-4f7a-aad0-fd7bc29dfe2b")
@@ -311,6 +312,7 @@ public class TypedNotePanel implements IPanelProvider {
             
                 }
             }
+            
         }
 
         @objid ("196b4503-48a6-49b9-abf6-9522db903012")
@@ -319,6 +321,7 @@ public class TypedNotePanel implements IPanelProvider {
             this.text.setBackground(modifiable ? UIColor.TEXT_WRITABLE_BG : UIColor.TEXT_READONLY_BG);
             this.htmlText.setEditable(modifiable);
             // this.htmlText.setBackground(modifiable ? UIColor.TEXT_WRITABLE_BG : UIColor.TEXT_READONLY_BG);
+            
         }
 
     }
@@ -356,14 +359,14 @@ public class TypedNotePanel implements IPanelProvider {
         private NoteEditModel noteModel;
 
         @objid ("332db36d-aeb6-4493-9e9c-9599b0f322eb")
-        public NoteEditController(String moduleName, String noteTypeName) {
+        public  NoteEditController(String moduleName, String noteTypeName) {
             this.moduleName = moduleName;
             this.noteTypeName = noteTypeName;
+            
         }
 
         /**
          * Get the ModelElement whose note is being edited
-         * 
          * @return the edited element
          */
         @objid ("7de0a6f7-d232-4874-b36b-91bfd40feee8")
@@ -373,7 +376,6 @@ public class TypedNotePanel implements IPanelProvider {
 
         /**
          * Set the view controlled by this controller
-         * 
          * @param view the view
          */
         @objid ("69a29631-e94b-44af-9e46-8484834bc204")
@@ -385,7 +387,6 @@ public class TypedNotePanel implements IPanelProvider {
          * Set the ModelElemen whose note is being edited.
          * <p>
          * This method also refreshes the view contents.
-         * 
          * @param aModelElement the edited element
          */
         @objid ("e4df6d61-dccb-4c12-87bc-026ba7306348")
@@ -433,11 +434,11 @@ public class TypedNotePanel implements IPanelProvider {
                     this.view.enableModeSwitcher(this.noteModel.getModelMimeType() == MimeType.HTML);
                 }
             }
+            
         }
 
         /**
          * Called by the GUI to change the effective mime type of the note
-         * 
          * @param mode the edition mode to use for the note. Can be either {@link MimeType#HTML} or {@link MimeType#PLAIN}.
          */
         @objid ("24db9c6d-ab16-41f9-b3dd-8b62755895a2")
@@ -471,6 +472,7 @@ public class TypedNotePanel implements IPanelProvider {
                 // Refresh the view
                 setModelElement(this.me);
             }
+            
         }
 
         @objid ("21a734c5-51d3-45b4-ba5c-361fbd507bd3")
@@ -482,6 +484,7 @@ public class TypedNotePanel implements IPanelProvider {
                     this.noteModel.createNote(value);
                 }
             }
+            
         }
 
     }
@@ -499,19 +502,19 @@ public class TypedNotePanel implements IPanelProvider {
 
         /**
          * C'tor
-         * 
          * @param owner MUST not be null
          * @param moduleName name of the module providing the note type. Might be <code>null</code>.
          * @param noteTypeName a note type name. Might be <code>null</code>.
          */
         @objid ("5b2931bd-1ed4-4e19-8731-c6911f493113")
-        public NoteEditModel(ModelElement owner, String moduleName, String noteTypeName) {
+        public  NoteEditModel(ModelElement owner, String moduleName, String noteTypeName) {
             if (owner == null) {
                 throw new InvalidParameterException();
             }
             
             this.owner = owner;
             init(moduleName, noteTypeName);
+            
         }
 
         @objid ("32ac76fe-4d1d-4b3c-8d57-a1e41b0e529a")
@@ -536,6 +539,7 @@ public class TypedNotePanel implements IPanelProvider {
                     EditionDialogs.LOG.error(e);
                 }
             }
+            
         }
 
         @objid ("be2925b7-b34c-4ad1-843a-961e13051c98")
@@ -563,11 +567,11 @@ public class TypedNotePanel implements IPanelProvider {
             } catch (final Exception e) {
                 EditionDialogs.LOG.error(e);
             }
+            
         }
 
         /**
          * Change a Note content in the model within a Transaction. Called by the view.
-         * 
          * @param value the new content for the edited note.
          */
         @objid ("877f171b-ad60-4e2e-8cbd-80d21efba5cc")
@@ -596,6 +600,7 @@ public class TypedNotePanel implements IPanelProvider {
                     }
                 }
             }
+            
         }
 
         @objid ("a87c9da7-462f-4089-85f5-54274050fff0")
@@ -604,12 +609,12 @@ public class TypedNotePanel implements IPanelProvider {
             if (this.noteType != null) {
                 this.note = getNote(this.owner, this.noteType);
             }
+            
         }
 
         /**
          * Find the note of given type on modelElement.
          * @param modelElement
-         * 
          * @param type a note type.
          * @return null if no note could be found
          */
@@ -632,7 +637,6 @@ public class TypedNotePanel implements IPanelProvider {
          * @param me
          * @param moduleName
          * @param noteTypeName
-         * 
          * @return null if no matching NoteType could be found
          */
         @objid ("53596f0d-cf36-4586-abb6-df75e8156ba7")

@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.exporter.service;
 
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.modelio.api.modelio.diagram.IDiagramService;
 import org.modelio.bpmnxml.exporter.service.processor.export.CreateExportProcessor;
@@ -51,9 +50,10 @@ public class BPMNExportService {
     private ICoreSession session;
 
     @objid ("ba9e1948-f01c-4ae9-a6ad-31aaa9adacfb")
-    public BPMNExportService(IDiagramService diagramService, ICoreSession session) {
+    public  BPMNExportService(IDiagramService diagramService, ICoreSession session) {
         this.diagramService = diagramService;
         this.session  = session;
+        
     }
 
     @objid ("581cc75f-698e-4fc1-910e-72a2b9f5d839")
@@ -88,6 +88,7 @@ public class BPMNExportService {
         }
         
         writeXPDLFile(xpdlFile, jaxFactory.createDefinitions(jaxDefinition));
+        
     }
 
     @objid ("395084fa-0eb5-46f0-bb7e-bed4775f8579")
@@ -103,6 +104,7 @@ public class BPMNExportService {
         
         marchaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         marchaller.marshal(packageType, xpdlFile.toFile());
+        
     }
 
 }

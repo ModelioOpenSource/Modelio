@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmncallactivity;
 
 import java.util.Collections;
@@ -25,9 +24,9 @@ import java.util.List;
 import java.util.Objects;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.PositionConstants;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnSubProcessImageStyleKeys;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnSubProcessSimpleStyleKeys;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnSubProcessUserImageStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnSubProcessImageStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnSubProcessSimpleStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnSubProcessUserImageStyleKeys;
 import org.modelio.diagram.elements.common.label.modelelement.GmDefaultModelElementLabel;
 import org.modelio.diagram.elements.common.portcontainer.GmPortContainer;
 import org.modelio.diagram.elements.core.model.GmAbstractObject;
@@ -47,9 +46,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("609749b9-55b6-11e2-877f-002564c97630")
 public class GmBpmnCallActivity extends GmPortContainer {
-    @objid ("609749c3-55b6-11e2-877f-002564c97630")
-    private BpmnCallActivity element;
-
     /**
      * Current version of this Gm.
      */
@@ -62,27 +58,29 @@ public class GmBpmnCallActivity extends GmPortContainer {
     @objid ("609749cb-55b6-11e2-877f-002564c97630")
     private static final String IMAGE_LABEL_ROLE = "ImageLabel";
 
+    @objid ("609749c3-55b6-11e2-877f-002564c97630")
+    private BpmnCallActivity element;
+
     @objid ("c528910d-59a6-11e2-ae45-002564c97630")
-     static final GmBpmnCallActivityStructuredStyleKeys STRUCTURED_KEYS = new GmBpmnCallActivityStructuredStyleKeys();
+    static final GmBpmnCallActivityStructuredStyleKeys STRUCTURED_KEYS = new GmBpmnCallActivityStructuredStyleKeys();
 
     @objid ("c528910f-59a6-11e2-ae45-002564c97630")
-     static final GmBpmnSubProcessSimpleStyleKeys SIMPLE_KEYS = new GmBpmnSubProcessSimpleStyleKeys();
+    static final GmBpmnSubProcessSimpleStyleKeys SIMPLE_KEYS = new GmBpmnSubProcessSimpleStyleKeys();
 
     @objid ("c5289111-59a6-11e2-ae45-002564c97630")
-     static final GmBpmnSubProcessImageStyleKeys IMAGE_KEYS = new GmBpmnSubProcessImageStyleKeys();
+    static final GmBpmnSubProcessImageStyleKeys IMAGE_KEYS = new GmBpmnSubProcessImageStyleKeys();
 
     @objid ("89dc2657-220f-4311-8137-16c98b9dff14")
-     static final GmBpmnSubProcessUserImageStyleKeys USERIMAGE_KEYS = new GmBpmnSubProcessUserImageStyleKeys();
+    static final GmBpmnSubProcessUserImageStyleKeys USERIMAGE_KEYS = new GmBpmnSubProcessUserImageStyleKeys();
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the BpmnReceiveTask is unmasked.
      * @param element the unmasked BpmnReceiveTask.
      * @param ref a reference to the unmasked callOperation.
      */
     @objid ("609749cd-55b6-11e2-877f-002564c97630")
-    public GmBpmnCallActivity(IGmDiagram diagram, BpmnCallActivity element, MRef ref) {
+    public  GmBpmnCallActivity(IGmDiagram diagram, BpmnCallActivity element, MRef ref) {
         super(diagram, ref);
         this.element = element;
         
@@ -95,6 +93,7 @@ public class GmBpmnCallActivity extends GmPortContainer {
         
         super.addChild(mainNode);
         super.addChild(imageModeHeader);
+        
     }
 
     @objid ("609749d9-55b6-11e2-877f-002564c97630")
@@ -133,6 +132,7 @@ public class GmBpmnCallActivity extends GmPortContainer {
         default:
             return null;
         }
+        
     }
 
     @objid ("609749f2-55b6-11e2-877f-002564c97630")
@@ -150,13 +150,14 @@ public class GmBpmnCallActivity extends GmPortContainer {
         default:
             return Collections.emptyList();
         }
+        
     }
 
     /**
      * Empty constructor needed for deserialisation.
      */
     @objid ("609749fa-55b6-11e2-877f-002564c97630")
-    public GmBpmnCallActivity() {
+    public  GmBpmnCallActivity() {
         // Nothing specific to do.
     }
 
@@ -181,6 +182,7 @@ public class GmBpmnCallActivity extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("6098d05f-55b6-11e2-877f-002564c97630")
@@ -202,6 +204,7 @@ public class GmBpmnCallActivity extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmBpmnCallActivity.", GmBpmnCallActivity.MINOR_VERSION);
+        
     }
 
     @objid ("6098d073-55b6-11e2-877f-002564c97630")
@@ -214,6 +217,7 @@ public class GmBpmnCallActivity extends GmPortContainer {
         imageModeHeader.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         
         super.addChild(imageModeHeader, 1);
+        
     }
 
     @objid ("6098d078-55b6-11e2-877f-002564c97630")
@@ -226,6 +230,7 @@ public class GmBpmnCallActivity extends GmPortContainer {
     private void read_1(final IDiagramReader in) {
         super.read(in);
         this.element = (BpmnCallActivity) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("6098d083-55b6-11e2-877f-002564c97630")
@@ -241,6 +246,7 @@ public class GmBpmnCallActivity extends GmPortContainer {
                 ret.remove(imageModeHeader);
                 break;
             }
+            case USER_IMAGE:
             case IMAGE:
             default: {
                 break;
@@ -253,7 +259,6 @@ public class GmBpmnCallActivity extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -263,11 +268,11 @@ public class GmBpmnCallActivity extends GmPortContainer {
         String role = childNode.getRoleInComposition();
         return GmPortContainer.SATELLITE_ROLE.equals(role)
                         || GmBpmnCallActivity.IMAGE_LABEL_ROLE.equals(role);
+        
     }
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */

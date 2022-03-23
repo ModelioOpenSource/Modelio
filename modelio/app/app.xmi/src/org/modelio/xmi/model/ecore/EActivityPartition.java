@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,7 +36,7 @@ public class EActivityPartition extends ENamedElement {
     }
 
     @objid ("844d836c-2035-45a3-b275-ba7525d05e11")
-    public EActivityPartition(org.eclipse.uml2.uml.ActivityPartition element) {
+    public  EActivityPartition(org.eclipse.uml2.uml.ActivityPartition element) {
         super(element);
     }
 
@@ -66,6 +65,7 @@ public class EActivityPartition extends ENamedElement {
                 objingElt.delete();
             }
         }
+        
     }
 
     @objid ("8f05f320-a599-42a4-8f30-ecde2caa2abe")
@@ -75,6 +75,7 @@ public class EActivityPartition extends ENamedElement {
         setDimension((ActivityPartition) objingElt);
         setExternal((ActivityPartition) objingElt);
         setRepresented((ActivityPartition) objingElt);
+        
     }
 
     @objid ("f79d40e3-3d7b-4159-b471-d2b11d75465b")
@@ -96,6 +97,7 @@ public class EActivityPartition extends ENamedElement {
                 partition.setRepresented((UmlModelElement) representation);
             }
         }
+        
     }
 
 }

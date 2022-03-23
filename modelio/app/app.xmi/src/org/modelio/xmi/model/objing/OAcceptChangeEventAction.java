@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,9 +37,10 @@ public class OAcceptChangeEventAction extends OActivityNode {
     }
 
     @objid ("f57ff107-c263-4f70-a698-74e6d84495fd")
-    public OAcceptChangeEventAction(AcceptChangeEventAction element) {
+    public  OAcceptChangeEventAction(AcceptChangeEventAction element) {
         super(element);
         this.objingElement = element;
+        
     }
 
     @objid ("a6e0d360-0329-407f-95f1-b473dc9f1cfa")
@@ -55,6 +55,7 @@ public class OAcceptChangeEventAction extends OActivityNode {
         super.setProperties(ecoreElt);
         setChangeExpression( (org.eclipse.uml2.uml.AcceptEventAction) ecoreElt);
         setChange( (org.eclipse.uml2.uml.AcceptEventAction) ecoreElt);
+        
     }
 
     @objid ("b1536b4e-c1ec-4f3b-8a09-25153cf062de")
@@ -77,6 +78,7 @@ public class OAcceptChangeEventAction extends OActivityNode {
             org.eclipse.uml2.uml.Package nearestPkg = action.getNearestPackage();
             nearestPkg.getPackagedElements().add(changeEvent);
         }
+        
     }
 
     @objid ("506aa8a4-4ff7-4dad-afb6-832dbb39a1de")
@@ -84,6 +86,7 @@ public class OAcceptChangeEventAction extends OActivityNode {
         if (GenerationProperties.getInstance().isRoundtripEnabled()){
             ObjingEAnnotation.setSignal(ecoreElt, "change");
         }
+        
     }
 
 }

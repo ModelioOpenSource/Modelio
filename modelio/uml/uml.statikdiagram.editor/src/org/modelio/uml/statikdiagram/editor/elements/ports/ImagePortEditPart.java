@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.ports;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,6 +46,7 @@ public class ImagePortEditPart extends NonSelectableImageEditPart {
         
         installEditPolicy("constraint", new ConstraintLinkEditPolicy(false));
         installEditPolicy("nary-connector", new AcceptNConnectorEditPolicy(true));
+        
     }
 
     @objid ("3649b59f-55b7-11e2-877f-002564c97630")

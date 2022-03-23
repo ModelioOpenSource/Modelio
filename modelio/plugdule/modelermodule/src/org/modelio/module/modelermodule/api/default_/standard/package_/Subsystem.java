@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.package_;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("3f47f0f0-13fa-439b-be6a-0d13d837f14c")
 public class Subsystem {
-    @objid ("6f52d499-1bbb-41a5-81dc-d43251f4b2ef")
+    @objid ("297ee5e3-b8fe-4ae9-93e3-ffa1d85b5373")
     public static final String STEREOTYPE_NAME = "subsystem";
 
     /**
      * The underlying {@link Package} represented by this proxy, never null.
      */
-    @objid ("fca13b54-ea29-4416-9617-47d8bdb389b3")
+    @objid ("8cb72c96-be80-4dfc-91ff-36d60d906314")
     protected final Package elt;
 
     /**
      * Tells whether a {@link Subsystem proxy} can be instantiated from a {@link MObject} checking it is a {@link Package} stereotyped << subsystem >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("99333b6d-891b-4d80-9a89-ba71058beaf2")
+    @objid ("8bc04a05-786c-411f-9d9d-3e6cf187ceeb")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Package) && ((Package) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Subsystem.STEREOTYPE_NAME));
     }
@@ -77,9 +75,9 @@ public class Subsystem {
      * 
      * @return a {@link Subsystem} proxy on the created {@link Package}.
      */
-    @objid ("b9202b82-af32-4481-b694-c770fcea1104")
+    @objid ("78965c51-e6ce-404b-a3ec-6805c4ee87d7")
     public static Subsystem create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Package");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.Package");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Subsystem.STEREOTYPE_NAME);
         return Subsystem.instantiate((Package)e);
     }
@@ -91,7 +89,7 @@ public class Subsystem {
      * @param obj a Package
      * @return a {@link Subsystem} proxy or <i>null</i>.
      */
-    @objid ("16246b9e-10c7-433a-90ad-3f024bcc0868")
+    @objid ("ba8a92f8-3a94-41cb-8d98-8a7e40e290a2")
     public static Subsystem instantiate(Package obj) {
         return Subsystem.canInstantiate(obj) ? new Subsystem(obj) : null;
     }
@@ -104,7 +102,7 @@ public class Subsystem {
      * @return a {@link Subsystem} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("3a377a06-73d3-4d52-b4d6-4d733040d02f")
+    @objid ("c24173a5-2ebc-4b7d-a339-7bc9d585cbcd")
     public static Subsystem safeInstantiate(Package obj) throws IllegalArgumentException {
         if (Subsystem.canInstantiate(obj))
         	return new Subsystem(obj);
@@ -112,7 +110,7 @@ public class Subsystem {
         	throw new IllegalArgumentException("Subsystem: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("3e9d7d35-ce23-450d-bb19-781e761fcca9")
+    @objid ("c7260c05-cfad-4f29-97b7-28e73190ec77")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,46 +130,47 @@ public class Subsystem {
      * Get the underlying {@link Package}. 
      * @return the Package represented by this proxy, never null.
      */
-    @objid ("8811987b-4c1c-4181-bebb-b14accbdf54b")
+    @objid ("2299c823-e132-4bc5-a94e-0fa14dca4e3d")
     public Package getElement() {
         return this.elt;
     }
 
-    @objid ("051d521e-f0fb-40ab-9bed-937fde76ba42")
+    @objid ("fde6e8ff-2b0c-4035-84ab-c6c28bef6384")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("99c358ac-6d01-4418-9ba6-b71c507a4b53")
-    protected Subsystem(Package elt) {
+    @objid ("aa671f96-868e-4946-851c-2aaea6250bf4")
+    protected  Subsystem(Package elt) {
         this.elt = elt;
     }
 
     @objid ("ce7bd25b-0a68-466f-8b35-0426dcef43a4")
     public static final class MdaTypes {
-        @objid ("a7c2bbc7-e671-4ea6-b184-f5f8e57b422c")
+        @objid ("03da216d-cdc3-48dd-998b-5e412c1051d9")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("b9fa7fda-8ab8-4f89-bcc9-fdd72b4ebcf3")
+        @objid ("3cbe2c79-1dfd-40e8-81c2-858e33673d08")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("9a099348-6f11-477d-bc68-8a65c6f6ffd1")
+        @objid ("14a03cb0-c89b-408f-ab8a-0fb0147e02c5")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("ff1eb207-8f8d-4e5d-8b25-1d47ddd0dcc3")
+        @objid ("95b47dc4-1d3b-43c9-9480-d284610176cf")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "00700680-0000-01d3-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.production.eventdefinitions;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import javax.xml.bind.JAXBElement;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.xml.bind.JAXBElement;
 import org.modelio.bpmnxml.model.ObjectFactory;
 import org.modelio.bpmnxml.model.TCatchEvent;
 import org.modelio.bpmnxml.model.TEvent;
@@ -42,7 +41,7 @@ import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("b5e85c07-49c8-4d60-893a-2b67acd66f1d")
-public class TimerEventDefinitionNode implements IProductionNode<BpmnTimerEventDefinition,TTimerEventDefinition> {
+public class TimerEventDefinitionNode implements IProductionNode<BpmnTimerEventDefinition, TTimerEventDefinition> {
     @objid ("5d1b95bc-bfa7-4c15-8a09-ba27dbd3063b")
     private Map<String, Object> elementsMap;
 
@@ -73,6 +72,7 @@ public class TimerEventDefinitionNode implements IProductionNode<BpmnTimerEventD
         } else {
             return factory.create(BpmnTimerEventDefinition.class, context, "EventDefinitions");
         }
+        
     }
 
     @objid ("75ed98cf-df7e-4e1f-9ed2-a4ecef67bab0")

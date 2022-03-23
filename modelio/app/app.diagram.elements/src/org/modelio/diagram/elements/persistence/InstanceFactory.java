@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.persistence;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,13 +46,13 @@ public class InstanceFactory implements IInstanceFactory {
 
     /**
      * Instantiate the {@link InstanceFactory} for a diagram.
-     * 
      * @param gmDiagram a gm diagram to get the gm node/link factories from.
      */
     @objid ("a89df6fd-22d7-4a23-bd93-dfd5fda8c2af")
-    public InstanceFactory(IGmDiagram gmDiagram) {
+    public  InstanceFactory(IGmDiagram gmDiagram) {
         this.nodeFactory = gmDiagram.getGmNodeFactory();
         this.linkFactory = gmDiagram.getGmLinkFactory();
+        
     }
 
     @objid ("810a64d0-1dec-11e2-8cad-001ec947c8cc")
@@ -82,6 +81,7 @@ public class InstanceFactory implements IInstanceFactory {
         
             throw new PersistenceException(classNamespace + " class cannot be found.", e);
         }
+        
     }
 
     @objid ("810a64d7-1dec-11e2-8cad-001ec947c8cc")
@@ -103,12 +103,13 @@ public class InstanceFactory implements IInstanceFactory {
                 throw new PersistenceException(e);
             }
         }
+        
     }
 
     @objid ("810a64dd-1dec-11e2-8cad-001ec947c8cc")
     @SuppressWarnings ("unchecked")
     @Override
-    public <T extends  Enum<T>> Class<T> getEnumClass(String enumNamespace) {
+    public <T extends Enum<T>> Class<T> getEnumClass(String enumNamespace) {
         // Get the java class
         try {
             return (Class<T>) Class.forName(enumNamespace);
@@ -132,6 +133,7 @@ public class InstanceFactory implements IInstanceFactory {
         
             throw new PersistenceException(enumNamespace + " enum cannot be found.", e);
         }
+        
     }
 
     @objid ("52f01427-49b7-4722-be58-8fc95a14bd3e")
@@ -160,6 +162,7 @@ public class InstanceFactory implements IInstanceFactory {
         
             throw new PersistenceException(classNamespace + " class cannot be found.", e);
         }
+        
     }
 
     @objid ("748335ee-2a34-49cd-9808-a30e49f3b715")
@@ -173,6 +176,7 @@ public class InstanceFactory implements IInstanceFactory {
         } catch (IllegalAccessException e) {
             throw new PersistenceException(e);
         }
+        
     }
 
 }

@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.exchange;
 
 import java.io.File;
@@ -58,15 +57,15 @@ public class XmiExportConfiguration {
      * - annotations are not exported.
      * - file is "$ProjectSpace/XMI/rootPackageName.xmi"
      * - version is EMF 3.0.0
-     * 
      * @param packageToExport the export root.
      */
     @objid ("1479211b-9516-11e1-a83f-002564c97630")
-    public XmiExportConfiguration(Package packageToExport) {
+    public  XmiExportConfiguration(Package packageToExport) {
         this.entryPoint = packageToExport;
         this.exportAnnotations = false;
         this.versionExport = VersionExport.EMF300;
         this.xmiFile = GProject.getProject(packageToExport).getProjectFileStructure().getProjectPath().resolve("XMI").resolve(this.entryPoint.getName() + ".xmi").toFile();
+        
     }
 
     @objid ("1479bd61-9516-11e1-a83f-002564c97630")
@@ -115,6 +114,7 @@ public class XmiExportConfiguration {
         if (file.exists()) {
             this.xmiFile = file;
         }
+        
     }
 
     /**
@@ -125,23 +125,29 @@ public class XmiExportConfiguration {
         /**
          * OMG UML2.1.1
          */
+        @objid ("1479964c-9516-11e1-a83f-002564c97630")
         UML211,
         /**
          * OMG UML2.2
          */
+        @objid ("1479964e-9516-11e1-a83f-002564c97630")
         UML22,
         /**
          * OMG UML2.3
          */
+        @objid ("1479bd5b-9516-11e1-a83f-002564c97630")
         UML23,
         /**
          * OMG UML2.4.1
          */
+        @objid ("1479bd5d-9516-11e1-a83f-002564c97630")
         UML241,
         /**
          * EMF UML2
          */
+        @objid ("1479bd5f-9516-11e1-a83f-002564c97630")
         EMF300;
+
     }
 
 }

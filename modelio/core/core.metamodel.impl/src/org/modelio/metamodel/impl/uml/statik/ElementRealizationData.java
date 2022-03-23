@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,7 +31,7 @@ import org.modelio.metamodel.impl.uml.infrastructure.AbstractionData;
 @objid ("00093b2a-c4bf-1fd8-97fe-001ec947cd2a")
 public class ElementRealizationData extends AbstractionData {
     @objid ("a010db3e-249c-4438-b37a-2dd127510112")
-    public ElementRealizationData(ElementRealizationSmClass smClass) {
+    public  ElementRealizationData(ElementRealizationSmClass smClass) {
         super(smClass);
     }
 

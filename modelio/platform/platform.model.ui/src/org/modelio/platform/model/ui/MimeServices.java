@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui;
 
 import java.io.StringReader;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.swing.text.Document;
 import javax.swing.text.html.HTMLEditorKit;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.platform.model.ui.plugin.CoreUi;
 
 @objid ("8046caaa-315d-41c5-aad6-63ae6c8023ca")
@@ -39,6 +38,7 @@ public class MimeServices {
             // Any other case do nothing
             return s;
         }
+        
     }
 
     @objid ("c89eb0a8-6850-4d5c-b332-29ded6f34b5f")
@@ -52,11 +52,14 @@ public class MimeServices {
             CoreUi.LOG.debug("'" + html + "' convertion failed.", e);
             return html;
         }
+        
     }
 
     @objid ("c7fac915-20f8-4485-a2d8-667373fe12ef")
     public enum MimeType {
+        @objid ("9ea2543b-fe31-424d-8ceb-3a148d98d187")
         PLAIN,
+        @objid ("07005868-6fa5-4047-bbb0-c42709072b73")
         HTML;
 
         @objid ("5e72df72-b33a-43b5-9a26-5bd094c6fb6d")
@@ -68,6 +71,7 @@ public class MimeServices {
             default:
                 return "text/plain";
             }
+            
         }
 
     }

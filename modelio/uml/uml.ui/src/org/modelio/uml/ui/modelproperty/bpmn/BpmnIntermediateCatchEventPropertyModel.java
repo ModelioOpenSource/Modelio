@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import java.util.ArrayList;
@@ -66,21 +65,20 @@ public class BpmnIntermediateCatchEventPropertyModel extends AbstractPropertyMod
     /**
      * Create a new <i>BpmnIntermediateCatchEvent</i> data model from an <i>BpmnIntermediateCatchEvent</i>.
      * @param delegatedPropertyModel
-     * 
      * @param theEditedElement the model to edit.
      * @param modelService the model service needed to find elements.
      */
     @objid ("3f603c8e-d12b-4e83-930a-780cb0209bc7")
-    public BpmnIntermediateCatchEventPropertyModel(BpmnIntermediateCatchEvent theEditedElement, IMModelServices modelService, UmlPropertyModelVisitor umlPropertyModelVisitor) {
+    public  BpmnIntermediateCatchEventPropertyModel(BpmnIntermediateCatchEvent theEditedElement, IMModelServices modelService, UmlPropertyModelVisitor umlPropertyModelVisitor) {
         super(theEditedElement);
         this.modelService = modelService;
         this.umlPropertyModelVisitor = umlPropertyModelVisitor;
         updateFieldsLists();
+        
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("24f0b245-a22f-4f3e-89d2-de33fdc93195")
@@ -91,7 +89,6 @@ public class BpmnIntermediateCatchEventPropertyModel extends AbstractPropertyMod
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("3fe59083-5e0a-4ecc-90c9-adc4f7e5e750")
@@ -107,7 +104,6 @@ public class BpmnIntermediateCatchEventPropertyModel extends AbstractPropertyMod
      * This type will be used to choose an editor and a renderer for each cell of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -120,13 +116,13 @@ public class BpmnIntermediateCatchEventPropertyModel extends AbstractPropertyMod
         } else {
             return this.fieldList.get(row);
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -170,6 +166,7 @@ public class BpmnIntermediateCatchEventPropertyModel extends AbstractPropertyMod
             // Row not found in event types, update ParallelMultiple
             this.theEditedElement.setParallelMultiple(Boolean.parseBoolean(Objects.toString(value)));
         }
+        
     }
 
     @objid ("ee655706-7b05-40ab-972b-d61875e6c7e8")
@@ -213,6 +210,7 @@ public class BpmnIntermediateCatchEventPropertyModel extends AbstractPropertyMod
             this.labelList.add(new DefaultStringNatValue(getPropertyI18n("ParallelMultiple"), false)); // ParallelMultiple
             this.fieldList.add(new DefaultBooleanNatValue(this.theEditedElement.isParallelMultiple()));
         }
+        
     }
 
     @objid ("5b9c3c25-b4c2-4a2e-8bb9-a661c16dec05")
@@ -221,6 +219,7 @@ public class BpmnIntermediateCatchEventPropertyModel extends AbstractPropertyMod
         BpmnEventDefinition event_definition = (BpmnEventDefinition) modelFactory.createElement(EventType.getMetaclass(evt));
         event_definition.setName(this.modelService.getElementNamer().getBaseName(event_definition.getMClass()));
         event_definition.setDefined(this.theEditedElement);
+        
     }
 
     /**
@@ -236,10 +235,15 @@ public class BpmnIntermediateCatchEventPropertyModel extends AbstractPropertyMod
      */
     @objid ("3eab2911-550a-419b-992a-7d88279a42ab")
     private enum EventType {
+        @objid ("9a9041e0-4c0f-45fa-931f-ba2d59b48dc1")
         Conditional,
+        @objid ("eaf2a000-e5e2-472f-9e52-b0724da3cf57")
         Link,
+        @objid ("cf820ba2-7d23-4213-85be-a32bde2f78dd")
         Message,
+        @objid ("b541544b-863b-4106-be11-8571960e8cf6")
         Signal,
+        @objid ("ffffd567-6f7f-47f9-bfa3-91da2dcc8e78")
         Timer;
 
         @objid ("bad3ed40-9d5d-43d5-aa1f-850a73187e0e")

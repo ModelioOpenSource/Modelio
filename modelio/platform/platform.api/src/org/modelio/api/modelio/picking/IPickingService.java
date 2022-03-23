@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.picking;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -57,7 +56,6 @@ public interface IPickingService {
      * 
      * The provider will be called each time a picking session is
      * opened or closed by a IPickingClient.
-     * 
      * @param pickingProvider The provider to add.
      */
     @objid ("8953f5ea-7585-11e0-8651-001ec947cd2a")
@@ -65,7 +63,6 @@ public interface IPickingService {
 
     /**
      * Remove an element picking provider.
-     * 
      * @param pickingProvider The provider to remove.
      */
     @objid ("89565844-7585-11e0-8651-001ec947cd2a")
@@ -73,7 +70,6 @@ public interface IPickingService {
 
     /**
      * Begin a picking session. <p>
-     * 
      * @param client The client that begins the picking session.
      */
     @objid ("8956584c-7585-11e0-8651-001ec947cd2a")

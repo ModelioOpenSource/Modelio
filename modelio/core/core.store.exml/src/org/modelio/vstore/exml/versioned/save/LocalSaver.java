@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.versioned.save;
 
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.vbasic.files.FileUtils;
 import org.modelio.vbasic.xml.CloseableXMLStreamWriter;
 import org.modelio.vcore.smkernel.SmObjectImpl;
@@ -58,7 +57,7 @@ class LocalSaver implements AutoCloseable, ExmlTags {
     private OutputStream localOs;
 
     @objid ("4c07a269-1224-11e2-816a-001ec947ccaf")
-    public LocalSaver(ExmlResource localResource) {
+    public  LocalSaver(ExmlResource localResource) {
         this.localResource = localResource;
     }
 
@@ -77,6 +76,7 @@ class LocalSaver implements AutoCloseable, ExmlTags {
             // Delete any existing local file
             this.localResource.delete();
         }
+        
     }
 
     @objid ("4c07a270-1224-11e2-816a-001ec947ccaf")
@@ -104,6 +104,7 @@ class LocalSaver implements AutoCloseable, ExmlTags {
         }
         
         this.out.writeEndElement();
+        
     }
 
     @objid ("4c07a277-1224-11e2-816a-001ec947ccaf")
@@ -112,18 +113,19 @@ class LocalSaver implements AutoCloseable, ExmlTags {
         this.out.writeAttribute(ATT_ID_NAME, object.getName());
         this.out.writeAttribute(ATT_ID_MC, object.getMClass().getQualifiedName());
         this.out.writeAttribute(ATT_ID_UID, object.getUuid());
+        
     }
 
     @objid ("4c07a27d-1224-11e2-816a-001ec947ccaf")
     public void begin(final SmObjectImpl theCmsNode) {
         this.cmsNode = theCmsNode;
         this.currentObj = null;
+        
     }
 
     /**
      * Open the file and write the document begin if not already done.
-     * 
-     * @throws javax.xml.stream.XMLStreamException on I/O failure
+     * @throws XMLStreamException on I/O failure
      */
     @objid ("9385803c-310f-46ce-802c-c6f5a2457a5b")
     private void writeProlog() throws XMLStreamException {
@@ -143,6 +145,7 @@ class LocalSaver implements AutoCloseable, ExmlTags {
             this.out.writeAttribute(ATT_EXT_OBJECT, this.cmsNode.getName());
             this.out.writeAttribute(ATT_EXT_VERSION, Integer.toString(FORMAT_VERSION));
         }
+        
     }
 
 }

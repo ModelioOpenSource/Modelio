@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.net;
 
 import java.net.URI;
@@ -31,7 +30,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public class UriUtils {
     /**
      * Ensure the given URI ends with '/'.
-     * 
      * @param uri an URI
      * @return the same URI with a trailing '/' if there wasn't one
      */
@@ -50,7 +48,6 @@ public class UriUtils {
 
     /**
      * Same as {@link java.nio.file.Path#getFileName()} for an URI.
-     * 
      * @param uri an URI
      * @return a string representing the name of the file or directory or an empty string.
      */
@@ -64,6 +61,7 @@ public class UriUtils {
             return p;
         else
             return p.substring(idx+1, endidx+1);
+        
     }
 
 }

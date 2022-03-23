@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.diagrams;
 
 import java.util.Collection;
@@ -40,8 +39,8 @@ import org.modelio.diagram.elements.common.abstractdiagram.DiagramElementDropEdi
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
 import org.modelio.diagram.elements.core.link.ModelioLinkCreationContext;
 import org.modelio.diagram.elements.core.model.GmModel;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.elements.core.requests.ModelElementDropRequest;
 import org.modelio.metamodel.StandardMetamodel;
@@ -220,6 +219,7 @@ public class BpmnDiagramDropEditPolicyExtension extends AbstractDiagramElementDr
         } else {
             return findParentCollaboration(owner);
         }
+        
     }
 
     /**
@@ -264,6 +264,7 @@ public class BpmnDiagramDropEditPolicyExtension extends AbstractDiagramElementDr
         IMdaExpert mdaExpert = modelManager.getMdaExpert();
         return mdaExpert.canLink(Represents.MdaTypes.STEREOTYPE_ELT, linkMetaclass, metamodel.getMClass(BpmnParticipant.MQNAME), droppedElement.getMClass())
                 || mdaExpert.canLink(Process.MdaTypes.STEREOTYPE_ELT, linkMetaclass, metamodel.getMClass(BpmnProcess.MQNAME), droppedElement.getMClass());
+        
     }
 
     /**
@@ -288,19 +289,19 @@ public class BpmnDiagramDropEditPolicyExtension extends AbstractDiagramElementDr
 
         /**
          * C'tor.
-         * 
          * @param theBpmnMessage the message to unmask.
          * @param host the edit part of the diagram in which to unmask it.
          * @param initialLayoutData the initial layout data for the node part
          * @param dropLocation the drop location retrieved from the request.
          */
         @objid ("6169dc12-55b6-11e2-877f-002564c97630")
-        public UnmaskBpmnMessageCommand(final BpmnMessage theBpmnMessage, final AbstractDiagramEditPart host, final Object initialLayoutData, final Point dropLocation) {
+        public  UnmaskBpmnMessageCommand(final BpmnMessage theBpmnMessage, final AbstractDiagramEditPart host, final Object initialLayoutData, final Point dropLocation) {
             this.theBpmnMessage = theBpmnMessage;
             this.host = host;
             this.diagram = (IGmDiagram) host.getModel();
             this.constraint = initialLayoutData;
             this.dropLocation = dropLocation;
+            
         }
 
         @objid ("6169dc21-55b6-11e2-877f-002564c97630")
@@ -331,6 +332,7 @@ public class BpmnDiagramDropEditPolicyExtension extends AbstractDiagramElementDr
                     }
                 }
             }
+            
         }
 
         @objid ("6169dc24-55b6-11e2-877f-002564c97630")
@@ -363,6 +365,7 @@ public class BpmnDiagramDropEditPolicyExtension extends AbstractDiagramElementDr
             if (command != null && command.canExecute()) {
                 command.execute();
             }
+            
         }
 
     }
@@ -389,18 +392,18 @@ public class BpmnDiagramDropEditPolicyExtension extends AbstractDiagramElementDr
 
         /**
          * Initialize the command.
-         * 
          * @param dropLocation The location of the element in the diagram
          * @param type The type to unmask
          * @param editPart The destination edit part that will own the participant.
          * @param parentElement The element that will own the participant.
          */
         @objid ("922313b9-5316-41b0-8cb2-d8b8e2d110fe")
-        public CreateParticipantCommand(final Point dropLocation, final ModelElement type, final EditPart editPart, final BpmnCollaboration parentElement) {
+        public  CreateParticipantCommand(final Point dropLocation, final ModelElement type, final EditPart editPart, final BpmnCollaboration parentElement) {
             this.type = type;
             this.dropLocation = dropLocation;
             this.editPart = editPart;
             this.parentElement = parentElement;
+            
         }
 
         @objid ("33eae2eb-7c51-458b-a417-5a16ff81883b")
@@ -433,6 +436,7 @@ public class BpmnDiagramDropEditPolicyExtension extends AbstractDiagramElementDr
             }
             
             unmaskElement(newParticipant);
+            
         }
 
         @objid ("89d2061a-06db-41b4-9f77-f12d4bbe73d5")
@@ -448,6 +452,7 @@ public class BpmnDiagramDropEditPolicyExtension extends AbstractDiagramElementDr
             if (cmd != null && cmd.canExecute()) {
                 cmd.execute();
             }
+            
         }
 
         @objid ("73b68c2c-bcdb-4b9a-9995-9bff0dd7cb78")
@@ -457,6 +462,7 @@ public class BpmnDiagramDropEditPolicyExtension extends AbstractDiagramElementDr
                     this.parentElement != null &&
                     this.parentElement.isValid() &&
                     this.parentElement.getStatus().isModifiable();
+            
         }
 
     }

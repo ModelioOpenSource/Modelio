@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.update.checker.dialog;
 
 import java.util.Collection;
@@ -35,9 +34,10 @@ public class UpdatePanelDataModel {
     private Set<UpdateDescriptor> selectedUpdates;
 
     @objid ("5cd86339-2565-458d-89f8-700e8a4a3321")
-    public UpdatePanelDataModel(Collection<UpdateDescriptor> availableUpdates) {
+    public  UpdatePanelDataModel(Collection<UpdateDescriptor> availableUpdates) {
         this.availableUpdates = availableUpdates;
         this.selectedUpdates = new HashSet<>();
+        
     }
 
     @objid ("1aec3e19-812e-4ba9-8af2-7280782a7c38")

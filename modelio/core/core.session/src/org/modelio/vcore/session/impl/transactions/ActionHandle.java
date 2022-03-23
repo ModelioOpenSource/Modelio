@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.transactions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,7 +46,7 @@ public class ActionHandle {
      * @param actionManager the transaction recorder
      */
     @objid ("006efee2-0d1e-1f20-85a5-001ec947cd2a")
-    public ActionHandle(final IActionManager actionManager) {
+    public  ActionHandle(final IActionManager actionManager) {
         this.actionManager = actionManager;
     }
 
@@ -57,6 +56,7 @@ public class ActionHandle {
         if (this.enabled) {
             this.actionManager.addAction(new AppendDependencyAction(obj, dep, dep_val));
         }
+        
     }
 
     @objid ("006f000e-0d1e-1f20-85a5-001ec947cd2a")
@@ -65,6 +65,7 @@ public class ActionHandle {
         if (this.enabled) {
             this.actionManager.addAction(new AppendDependencyAction(obj, dep, dep_val, index));
         }
+        
     }
 
     @objid ("006f00a4-0d1e-1f20-85a5-001ec947cd2a")
@@ -73,6 +74,7 @@ public class ActionHandle {
         if (this.enabled) {
             this.actionManager.addAction(new CreateElementAction(obj));
         }
+        
     }
 
     @objid ("006f0144-0d1e-1f20-85a5-001ec947cd2a")
@@ -81,6 +83,7 @@ public class ActionHandle {
         if (this.enabled) {
             this.actionManager.addAction(new DeleteElementAction(obj));
         }
+        
     }
 
     @objid ("006f01d0-0d1e-1f20-85a5-001ec947cd2a")
@@ -89,6 +92,7 @@ public class ActionHandle {
         if (this.enabled) {
             this.actionManager.addAction(new EraseDependencyAction(obj, dep, dep_val, index));
         }
+        
     }
 
     @objid ("006f0266-0d1e-1f20-85a5-001ec947cd2a")
@@ -97,11 +101,11 @@ public class ActionHandle {
         if (this.enabled) {
             this.actionManager.addAction(new MoveDependencyAction(obj, dep, moving_ref, offset));
         }
+        
     }
 
     /**
      * Set whether action recording is enabled.
-     * 
      * @param val whether action recording is enabled.
      */
     @objid ("006f02fc-0d1e-1f20-85a5-001ec947cd2a")
@@ -120,6 +124,7 @@ public class ActionHandle {
         
             this.actionManager.addAction(new SetAttributeAction(obj, att, oldVal, newVal));
         }
+        
     }
 
 }

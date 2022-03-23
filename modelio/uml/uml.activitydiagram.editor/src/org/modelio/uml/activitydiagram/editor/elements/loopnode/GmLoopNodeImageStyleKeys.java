@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.loopnode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,33 +32,33 @@ public class GmLoopNodeImageStyleKeys extends ActivityAbstractStyleKeyProvider {
      * Representation mode.
      */
     @objid ("d22a414b-55c0-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmLoopNodeStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmLoopNodeStructuredStyleKeys.REPMODE;
 
     /**
      * Text font.
      */
     @objid ("d22a414e-55c0-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmLoopNodeStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmLoopNodeStructuredStyleKeys.FONT;
 
     /**
      * Text color.
      */
     @objid ("d22a4151-55c0-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmLoopNodeStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmLoopNodeStructuredStyleKeys.TEXTCOLOR;
 
     /**
      * Show stereotypes.
      */
     @objid ("d22a4154-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmLoopNodeStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmLoopNodeStructuredStyleKeys.SHOWSTEREOTYPES;
 
     /**
      * Show tagged values
      */
     @objid ("d22a4157-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmLoopNodeStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmLoopNodeStructuredStyleKeys.SHOWTAGS;
 
     @objid ("d22a415a-55c0-11e2-9337-002564c97630")
-     static final StyleKey AUTOSHOWPINS = GmLoopNodeStructuredStyleKeys.AUTOSHOWPINS;
+    static final StyleKey AUTOSHOWPINS = GmLoopNodeStructuredStyleKeys.AUTOSHOWPINS;
 
 }

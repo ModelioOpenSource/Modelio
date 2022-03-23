@@ -568,6 +568,12 @@ from org.modelio.api.modelio.diagram.tools.standard import GenericLinkTool
 from org.modelio.api.modelio.diagram.tools.standard import GenericMultiLinkTool
 from org.modelio.api.modelio.diagram import IDiagramDrawingNode
 from org.modelio.api.modelio.diagram import IDiagramDrawingLink
+from org.modelio.api.modelio.diagram import ILinkPoint
+from org.modelio.api.modelio.diagram import InvalidLinkPathException
+from org.modelio.api.modelio.diagram import ILinkRoute
+from org.modelio.api.modelio.diagram import LinkPointKind
+from org.modelio.api.modelio.diagram import LinkAnchorFace
+from org.modelio.api.modelio.diagram import ILinkRouteBuilder
 from org.modelio.api.modelio.editor import EditorType
 from org.modelio.api.modelio.editor import IEditionService
 from org.modelio.api.modelio.editor import IExternDocumentChangeListener

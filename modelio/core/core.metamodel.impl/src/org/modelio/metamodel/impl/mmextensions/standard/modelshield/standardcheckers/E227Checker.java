@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.modelshield.standardcheckers;
 
 import java.util.ArrayList;
@@ -55,10 +54,11 @@ public class E227Checker extends DepCardinalityChecker {
         
         // trigger=create, metaclass=PackageMerge, feature=MergedPackage
         plan.registerChecker(this, smMetamodel.getMClass(PackageMerge.class), TriggerType.Update, DEPNAME);
+        
     }
 
     @objid ("005d30ae-9e33-1f6c-bf9a-001ec947cd2a")
-    public E227Checker() {
+    public  E227Checker() {
         super(ERRORID, DEPNAME);
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.instance;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,7 +34,7 @@ import org.modelio.metamodel.uml.statik.Instance;
 @objid ("35434240-55b7-11e2-877f-002564c97630")
 class InstanceSmartCreateNodeEditPolicy extends DeferringCreateNodePolicy {
     @objid ("35434244-55b7-11e2-877f-002564c97630")
-    public InstanceSmartCreateNodeEditPolicy() {
+    public  InstanceSmartCreateNodeEditPolicy() {
         super();
     }
 
@@ -50,6 +49,7 @@ class InstanceSmartCreateNodeEditPolicy extends DeferringCreateNodePolicy {
         } else {
             return super.getCreateTargetEditPart(createRequest);
         }
+        
     }
 
     @objid ("3543424c-55b7-11e2-877f-002564c97630")
@@ -63,6 +63,7 @@ class InstanceSmartCreateNodeEditPolicy extends DeferringCreateNodePolicy {
         } else {
             return super.getCreateCommand(createRequest);
         }
+        
     }
 
 }

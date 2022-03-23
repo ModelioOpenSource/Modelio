@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.executionoccurencespecification;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,7 +43,6 @@ public class ExecutionOccurenceSpecificationFigure extends Figure implements IBr
 
     /**
      * Sets wether this figure shoud draw an 'X' or not. Used for destruction events.
-     * 
      * @param drawX the new value.
      */
     @objid ("d8da5620-55b6-11e2-877f-002564c97630")
@@ -71,11 +69,11 @@ public class ExecutionOccurenceSpecificationFigure extends Figure implements IBr
         }
         
         graphics.restoreState();
+        
     }
 
     /**
      * Returns the Rectangle around which handles are to be placed. The Rectangle should be in the same coordinate system as the figure itself.
-     * 
      * @return The rectangle used for handles
      */
     @objid ("d8da562a-55b6-11e2-877f-002564c97630")
@@ -88,13 +86,12 @@ public class ExecutionOccurenceSpecificationFigure extends Figure implements IBr
      * Creates a figure.
      */
     @objid ("d8da5630-55b6-11e2-877f-002564c97630")
-    public ExecutionOccurenceSpecificationFigure() {
+    public  ExecutionOccurenceSpecificationFigure() {
         this.brushOptions = new BrushOptions();
     }
 
     /**
      * Set the fill color.
-     * 
      * @param fillColor the fill color.
      */
     @objid ("d8da5633-55b6-11e2-877f-002564c97630")
@@ -105,11 +102,11 @@ public class ExecutionOccurenceSpecificationFigure extends Figure implements IBr
             this.brushOptions.fillColor = fillColor;
             this.repaint();
         }
+        
     }
 
     /**
      * Get the fill color.
-     * 
      * @return the fill color.
      */
     @objid ("d8da5638-55b6-11e2-877f-002564c97630")
@@ -120,7 +117,6 @@ public class ExecutionOccurenceSpecificationFigure extends Figure implements IBr
 
     /**
      * Tells whether the background is filled with a gradient.
-     * 
      * @return true if the background is filled with a gradient, false in the other case.
      */
     @objid ("d8da563e-55b6-11e2-877f-002564c97630")
@@ -131,7 +127,6 @@ public class ExecutionOccurenceSpecificationFigure extends Figure implements IBr
 
     /**
      * Set whether the background is filled with a gradient.
-     * 
      * @param useGradient true to fill with a gradient, false to fill only with the fill color.
      */
     @objid ("d8da5644-55b6-11e2-877f-002564c97630")
@@ -141,6 +136,7 @@ public class ExecutionOccurenceSpecificationFigure extends Figure implements IBr
             this.brushOptions.useGradient = useGradient;
             this.repaint();
         }
+        
     }
 
     @objid ("fe408b64-95d0-4591-834d-7c1c7c09f384")

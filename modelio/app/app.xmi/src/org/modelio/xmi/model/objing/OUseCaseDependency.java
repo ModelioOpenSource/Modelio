@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -55,15 +54,15 @@ public class OUseCaseDependency extends OModelElement {
         } else {            
             throw new NotFoundException("UseCaseDependency type not found");
         }
+        
     }
 
     /**
      * Constructor
-     * 
      * @param param : the exported Modelio UseCaseDependency
      */
     @objid ("66d8233c-78cd-4b16-ae41-762316848c7e")
-    public OUseCaseDependency(final UseCaseDependency param) {
+    public  OUseCaseDependency(final UseCaseDependency param) {
         super(param);
         this.objingElement = param;
         if (AbstractObjingModelNavigation.isStereotyped(this.objingElement, Xmi.I18N
@@ -75,6 +74,7 @@ public class OUseCaseDependency extends OModelElement {
         else{
             throw new NotFoundException("UseCaseDependency type not found");
         }
+        
     }
 
     @objid ("5a0e3baf-25b0-43d8-ab7d-49aded4bc5fb")
@@ -99,6 +99,7 @@ public class OUseCaseDependency extends OModelElement {
                 ecoreElementInclude.setIncludingCase(ecoreOrigin);
             }
         }
+        
     }
 
     @objid ("249cf2eb-8d1c-4003-9be1-aa4beac3f089")
@@ -109,6 +110,7 @@ public class OUseCaseDependency extends OModelElement {
            setExtensionLocation((org.eclipse.uml2.uml.Extend) ecoreElt);
            setExtendedCase((org.eclipse.uml2.uml.Extend) ecoreElt);
                 }
+        
     }
 
     @objid ("b09a64bd-3db5-485e-920c-ccf408e0950e")
@@ -117,6 +119,7 @@ public class OUseCaseDependency extends OModelElement {
         
         if (ecoreUseCase instanceof org.eclipse.uml2.uml.UseCase)
             ecoreElt.setExtendedCase((org.eclipse.uml2.uml.UseCase) ecoreUseCase);
+        
     }
 
     @objid ("988fb411-f8de-42f0-b195-33723f19046c")
@@ -127,6 +130,7 @@ public class OUseCaseDependency extends OModelElement {
         if (ecoreExtPoint instanceof org.eclipse.uml2.uml.ExtensionPoint)
             ecoreElt.getExtensionLocations().add((org.eclipse.uml2.uml.ExtensionPoint) ecoreExtPoint);
         }
+        
     }
 
 }

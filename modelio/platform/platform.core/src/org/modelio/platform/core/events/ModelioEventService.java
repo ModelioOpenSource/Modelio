@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.core.events;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class ModelioEventService implements IModelioEventService {
     private final IEclipseContext context;
 
     @objid ("00499ed6-cc35-1ff2-a7f4-001ec947cd2a")
-    public ModelioEventService(final IEclipseContext context) {
+    public  ModelioEventService(final IEclipseContext context) {
         this.context = context;
     }
 
@@ -64,6 +63,7 @@ public class ModelioEventService implements IModelioEventService {
                 AppCore.LOG.debug("postAsyncEvent - emitter='%s' cannot send event, event broker is null.", emitter.getName());
             }
         }
+        
     }
 
     @objid ("d4f8289c-2601-4526-8d4b-6a60bfb962c1")
@@ -81,6 +81,7 @@ public class ModelioEventService implements IModelioEventService {
                 AppCore.LOG.debug("postSyncEvent - emitter='%s' cannot send event, event broker is null.", emitter.getName());
             }
         }
+        
     }
 
 }

@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.rootElements;
 
 import java.util.ArrayList;
@@ -30,9 +30,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.bpmn.rootElements.BpmnBaseElement;
 import org.modelio.metamodel.bpmn.rootElements.BpmnSharedDefinitions;
 import org.modelio.metamodel.bpmn.rootElements.BpmnSharedElement;
-import org.modelio.metamodel.impl.bpmn.rootElements.BpmnBaseElementSmClass;
-import org.modelio.metamodel.impl.bpmn.rootElements.BpmnSharedDefinitionsSmClass;
-import org.modelio.metamodel.impl.bpmn.rootElements.BpmnSharedElementData;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -50,7 +47,7 @@ public class BpmnSharedElementSmClass extends BpmnBaseElementSmClass {
     private SmDependency ownerDep;
 
     @objid ("02b62fad-fa7a-45a2-8df1-00e66f090d2e")
-    public BpmnSharedElementSmClass(ISmMetamodelFragment origin) {
+    public  BpmnSharedElementSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -58,6 +55,7 @@ public class BpmnSharedElementSmClass extends BpmnBaseElementSmClass {
     @Override
     public String getName() {
         return "BpmnSharedElement";
+        
     }
 
     @objid ("aaf04eaf-8c33-4b0b-80a7-17b95bef4de5")
@@ -70,18 +68,21 @@ public class BpmnSharedElementSmClass extends BpmnBaseElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnSharedElement.class;
+        
     }
 
     @objid ("3282c774-2452-4d87-8ce4-08df8de993d2")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("5ffe9df8-4407-4c07-997a-e2f4718b38da")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("0360490b-a9c4-40b9-a886-a510cdc1e452")
@@ -97,6 +98,8 @@ public class BpmnSharedElementSmClass extends BpmnBaseElementSmClass {
         this.ownerDep = new OwnerSmDependency();
         this.ownerDep.init("Owner", this, metamodel.getMClass(BpmnSharedDefinitions.MQNAME), 0, 1 );
         registerDependency(this.ownerDep);
+        
+        
     }
 
     @objid ("6736667b-d86e-4022-840f-280eef88be69")
@@ -113,7 +116,7 @@ public class BpmnSharedElementSmClass extends BpmnBaseElementSmClass {
         private BpmnSharedElementSmClass smClass;
 
         @objid ("17008dcc-311a-44f9-b829-795d6a2dcc6c")
-        public BpmnSharedElementObjectFactory(BpmnSharedElementSmClass smClass) {
+        public  BpmnSharedElementObjectFactory(BpmnSharedElementSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -155,6 +158,7 @@ public class BpmnSharedElementSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnSharedDefinitionsSmClass)this.getTarget()).getRootElementDep();
             }
             return this.symetricDep;
+            
         }
 
     }

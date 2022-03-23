@@ -17,19 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.bpmnDiagrams;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.bpmn.bpmnDiagrams.BpmnCollaborationDiagram;
 import org.modelio.metamodel.bpmn.bpmnDiagrams.BpmnProcessCollaborationDiagram;
-import org.modelio.metamodel.impl.bpmn.bpmnDiagrams.BpmnProcessCollaborationDiagramSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("32f2f9cc-ecfb-41bc-a91c-4765f601994c")
 public class BpmnCollaborationDiagramSmClass extends BpmnProcessCollaborationDiagramSmClass {
     @objid ("059ac4e8-0854-47ec-a291-70ac6820206e")
-    public BpmnCollaborationDiagramSmClass(ISmMetamodelFragment origin) {
+    public  BpmnCollaborationDiagramSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class BpmnCollaborationDiagramSmClass extends BpmnProcessCollaborationDia
     @Override
     public String getName() {
         return "BpmnCollaborationDiagram";
+        
     }
 
     @objid ("74f3b8ce-9333-4f82-8894-18207d547565")
@@ -62,18 +62,21 @@ public class BpmnCollaborationDiagramSmClass extends BpmnProcessCollaborationDia
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnCollaborationDiagram.class;
+        
     }
 
     @objid ("4b705c02-6cac-4ec3-9a7d-f4c5fefc539e")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("b73dbb8f-a362-4a66-8b54-983f73b3bbae")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("f6c60a8c-3985-4a76-8010-b82a7ae507db")
@@ -86,6 +89,7 @@ public class BpmnCollaborationDiagramSmClass extends BpmnProcessCollaborationDia
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("bb6b345c-893a-4c6e-ac5c-9cf039e8871c")
@@ -94,7 +98,7 @@ public class BpmnCollaborationDiagramSmClass extends BpmnProcessCollaborationDia
         private BpmnCollaborationDiagramSmClass smClass;
 
         @objid ("d17c4c28-eb75-458f-a471-dd32ef9ddb59")
-        public BpmnCollaborationDiagramObjectFactory(BpmnCollaborationDiagramSmClass smClass) {
+        public  BpmnCollaborationDiagramObjectFactory(BpmnCollaborationDiagramSmClass smClass) {
             this.smClass = smClass;
         }
 

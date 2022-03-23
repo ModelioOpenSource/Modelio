@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.interactionuse;
 
 import java.util.ArrayList;
@@ -66,19 +65,18 @@ public class GmInteractionUse extends GmPortContainer {
      * Empty c'tor for deserialisation.
      */
     @objid ("d91bf335-55b6-11e2-877f-002564c97630")
-    public GmInteractionUse() {
+    public  GmInteractionUse() {
         super();
     }
 
     /**
      * C'tor.
-     * 
      * @param diagram diagram in which this gm is created.
      * @param interactionUse the represented interactionuse
      * @param relatedRef a reference to the represented element.
      */
     @objid ("d91d799a-55b6-11e2-877f-002564c97630")
-    public GmInteractionUse(final IGmDiagram diagram, final InteractionUse interactionUse, final MRef relatedRef) {
+    public  GmInteractionUse(final IGmDiagram diagram, final InteractionUse interactionUse, final MRef relatedRef) {
         super(diagram, relatedRef);
         
         GmInteractionUsePrimaryNode mainNode = new GmInteractionUsePrimaryNode(diagram, relatedRef);
@@ -86,6 +84,7 @@ public class GmInteractionUse extends GmPortContainer {
         addChild(mainNode);
         
         this.interactionUse = interactionUse;
+        
     }
 
     @objid ("d91d79a9-55b6-11e2-877f-002564c97630")
@@ -135,6 +134,7 @@ public class GmInteractionUse extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("d91d79db-55b6-11e2-877f-002564c97630")
@@ -173,6 +173,7 @@ public class GmInteractionUse extends GmPortContainer {
                 getDiagram().refreshAllFromObModel();
             }
         }
+        
     }
 
     @objid ("d91f003b-55b6-11e2-877f-002564c97630")
@@ -197,12 +198,14 @@ public class GmInteractionUse extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmInteractionUse.", GmInteractionUse.MINOR_VERSION);
+        
     }
 
     @objid ("d91f004b-55b6-11e2-877f-002564c97630")
     private void read_0(final IDiagramReader in) {
         super.read(in);
         this.interactionUse = (InteractionUse) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("d91f0051-55b6-11e2-877f-002564c97630")
@@ -213,7 +216,6 @@ public class GmInteractionUse extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -225,7 +227,6 @@ public class GmInteractionUse extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

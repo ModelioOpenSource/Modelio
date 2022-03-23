@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.diagramauto.handlers;
 
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
@@ -57,6 +56,7 @@ public class UpdateAutomaticDiagram {
             }
             transaction.commit();
         }
+        
     }
 
     @objid ("1b66dafc-9118-4b7e-ac5b-1e133e8528d0")

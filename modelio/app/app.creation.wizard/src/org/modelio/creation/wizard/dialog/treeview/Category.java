@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.creation.wizard.dialog.treeview;
 
 import java.util.ArrayList;
@@ -45,9 +44,10 @@ public class Category {
     private Image icon;
 
     @objid ("738e2616-2783-42cd-909a-3554975497dc")
-    public Category(String label, Image icon) {
+    public  Category(String label, Image icon) {
         this.label = label;
         this.icon = icon;
+        
     }
 
     @objid ("e270e213-d9ad-4ed8-a125-5d3448acf90c")

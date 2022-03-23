@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.participant;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -27,11 +26,13 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.GraphicalEditPart;
 import org.modelio.bpmn.diagram.editor.elements.bpmnlane.BpmnLaneFigure;
-import org.modelio.bpmn.diagram.editor.elements.policies.BpmnCreateLinkEditPolicy;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnCreateLinkEditPolicy;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeRequestConstants;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeStartCreationEditPolicy;
 import org.modelio.diagram.elements.core.figures.MinimumSizeLayout;
 import org.modelio.diagram.elements.core.figures.borders.TLBRBorder;
+import org.modelio.diagram.elements.core.link.anchors.INodeAnchorProvider;
+import org.modelio.diagram.elements.core.link.anchors.RectangleNodeAnchorProvider;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
 import org.modelio.diagram.elements.core.requests.ModelElementDropRequest;
@@ -49,6 +50,12 @@ public class ParticipantPrimarySimpleEditPart extends AbstractNodeEditPart {
     @Override
     public boolean isSelectable() {
         return false;
+    }
+
+    @objid ("c5ac54c6-49d3-4a81-bb69-31db305762c2")
+    @Override
+    protected INodeAnchorProvider getNodeAnchorProvider() {
+        return RectangleNodeAnchorProvider.getNonSlidable();
     }
 
     @objid ("631cb44e-b541-4173-ae09-e007a075cdfa")
@@ -69,6 +76,7 @@ public class ParticipantPrimarySimpleEditPart extends AbstractNodeEditPart {
         } else {
             throw new IllegalArgumentException(String.format("Unexpected '%s' child at index %d.", childEditPart, index));
         }
+        
     }
 
     @objid ("14bc32cd-84e6-4a73-a6cc-acecb444383d")
@@ -79,6 +87,7 @@ public class ParticipantPrimarySimpleEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START, new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
         installEditPolicy(ModelElementDropRequest.TYPE, new BpmnParticipantElementDropEditPolicy());
+        
     }
 
     @objid ("7e1a4abd-8c90-45ac-af6b-283cea2c3ee9")
@@ -114,6 +123,7 @@ public class ParticipantPrimarySimpleEditPart extends AbstractNodeEditPart {
         } else {
             super.refreshFromStyle(aFigure, style);
         }
+        
     }
 
     @objid ("455aa655-3f9a-4a36-95b3-222730215ed3")
@@ -121,6 +131,7 @@ public class ParticipantPrimarySimpleEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         GmBpmnParticipantPrimaryNode model = (GmBpmnParticipantPrimaryNode) getModel();
         getFigure().getParent().setConstraint(getFigure(), model.getLayoutData());
+        
     }
 
 }

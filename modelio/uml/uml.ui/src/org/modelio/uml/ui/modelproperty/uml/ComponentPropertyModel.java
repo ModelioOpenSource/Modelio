@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,21 +49,19 @@ public class ComponentPropertyModel extends AbstractPropertyModel<Component> {
      */
     @objid ("d28b4ab6-80dc-4a7d-8fe0-d35f89823a21")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name", "Visibility",
-			"IsAbstract", "IsElementary", "IsActive", "IsLeaf", "IsRoot", "IsMain" };
+    			"IsAbstract", "IsElementary", "IsActive", "IsLeaf", "IsRoot", "IsMain" };
 
     /**
      * Create a new <i>Component</i> data model from an <i>Component</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("2265c2bb-9042-4b17-88ce-33ec11e04f1e")
-    public ComponentPropertyModel(Component theEditedElement) {
+    public  ComponentPropertyModel(Component theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("3295768c-16e2-419d-97bc-918f073236c0")
@@ -75,7 +72,6 @@ public class ComponentPropertyModel extends AbstractPropertyModel<Component> {
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("4e05bcef-d67d-4ca6-a052-75927279951e")
@@ -88,7 +84,6 @@ public class ComponentPropertyModel extends AbstractPropertyModel<Component> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -126,6 +121,7 @@ public class ComponentPropertyModel extends AbstractPropertyModel<Component> {
         default:
             return null;
         }
+        
     }
 
     /**
@@ -135,7 +131,6 @@ public class ComponentPropertyModel extends AbstractPropertyModel<Component> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -172,13 +167,13 @@ public class ComponentPropertyModel extends AbstractPropertyModel<Component> {
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -232,6 +227,7 @@ public class ComponentPropertyModel extends AbstractPropertyModel<Component> {
         default:
             return;
         }
+        
     }
 
 }

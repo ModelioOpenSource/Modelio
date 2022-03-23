@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.umlcommon.externdocument;
 
 import java.util.List;
@@ -56,18 +55,17 @@ public class GmExternDocumentLink extends GmLink {
      * Constructor that must be used for deserialization only.
      */
     @objid ("8159126f-1dec-11e2-8cad-001ec947c8cc")
-    public GmExternDocumentLink() {
+    public  GmExternDocumentLink() {
         // Nothing to do.
     }
 
     /**
      * Creates a new GmExternDocumentLink
-     * 
      * @param diagram The diagram containing the link.
      * @param relatedRef a reference to the represented {@link Document}.
      */
     @objid ("81591272-1dec-11e2-8cad-001ec947c8cc")
-    public GmExternDocumentLink(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmExternDocumentLink(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -79,6 +77,7 @@ public class GmExternDocumentLink extends GmLink {
         } else {
             return null;
         }
+        
     }
 
     @objid ("8159127d-1dec-11e2-8cad-001ec947c8cc")
@@ -113,7 +112,6 @@ public class GmExternDocumentLink extends GmLink {
 
     /**
      * Updates the proxy style to point to the given node style.
-     * 
      * @param ref the reference node, may be null.
      */
     @objid ("8159129c-1dec-11e2-8cad-001ec947c8cc")
@@ -124,6 +122,7 @@ public class GmExternDocumentLink extends GmLink {
         } else {
             getPersistedStyle().setCascadedStyle(getDiagram().getPersistedStyle());
         }
+        
     }
 
     @objid ("815b74bd-1dec-11e2-8cad-001ec947c8cc")
@@ -133,6 +132,7 @@ public class GmExternDocumentLink extends GmLink {
         if (to instanceof GmAbstractObject) {
             refreshStyle((GmAbstractObject) to);
         }
+        
     }
 
     @objid ("815b74c2-1dec-11e2-8cad-001ec947c8cc")
@@ -142,6 +142,7 @@ public class GmExternDocumentLink extends GmLink {
         if (getTo() instanceof GmAbstractObject) {
             refreshStyle((GmAbstractObject) getTo());
         }
+        
     }
 
     @objid ("815b74c7-1dec-11e2-8cad-001ec947c8cc")
@@ -151,6 +152,7 @@ public class GmExternDocumentLink extends GmLink {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmExternDocumentLink.", GmExternDocumentLink.MINOR_VERSION);
+        
     }
 
     @objid ("815b74cb-1dec-11e2-8cad-001ec947c8cc")

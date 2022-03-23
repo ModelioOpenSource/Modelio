@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.FinalNodeSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.FinalNode;
 import org.modelio.metamodel.uml.behavior.activityModel.FlowFinalNode;
 import org.modelio.vbasic.version.Version;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("245b4da0-6037-452b-8cc7-3a353155b4f3")
 public class FlowFinalNodeSmClass extends FinalNodeSmClass {
     @objid ("03bc6afb-1d0e-4be7-a70e-b706ecf57456")
-    public FlowFinalNodeSmClass(ISmMetamodelFragment origin) {
+    public  FlowFinalNodeSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class FlowFinalNodeSmClass extends FinalNodeSmClass {
     @Override
     public String getName() {
         return "FlowFinalNode";
+        
     }
 
     @objid ("12e5b748-c585-4c40-b6d1-93d12432f8d2")
@@ -62,18 +62,21 @@ public class FlowFinalNodeSmClass extends FinalNodeSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return FlowFinalNode.class;
+        
     }
 
     @objid ("311c8d69-ae71-447f-9b66-03c99d4ac8b2")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("84da6da8-9b70-46d9-ad1e-bb48ac96e776")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("78a5c850-5d82-4c48-8d3c-7c38e89bb16d")
@@ -86,6 +89,7 @@ public class FlowFinalNodeSmClass extends FinalNodeSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("d5afa96e-6488-4ff7-a60d-2afc0630bec1")
@@ -94,7 +98,7 @@ public class FlowFinalNodeSmClass extends FinalNodeSmClass {
         private FlowFinalNodeSmClass smClass;
 
         @objid ("84cd0326-823a-4fd4-8c46-728877e34ff3")
-        public FlowFinalNodeObjectFactory(FlowFinalNodeSmClass smClass) {
+        public  FlowFinalNodeObjectFactory(FlowFinalNodeSmClass smClass) {
             this.smClass = smClass;
         }
 

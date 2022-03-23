@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.expansionnode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,8 +28,8 @@ import org.modelio.diagram.elements.core.node.IImageableNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.ExpansionNode;
 import org.modelio.platform.model.ui.swt.images.ElementImageService;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -55,22 +54,22 @@ public class GmExpansionNodePrimaryNode extends GmNoStyleSimpleNode implements I
 
     /**
      * Default C'tor.
-     * 
      * @param diagram the diagram in which this Gm is created.
      * @param el the expansion node represented.
      * @param ref a reference to the represented expansion node.
      */
     @objid ("2a56bd1e-55b6-11e2-877f-002564c97630")
-    public GmExpansionNodePrimaryNode(IGmDiagram diagram, ExpansionNode el, MRef ref) {
+    public  GmExpansionNodePrimaryNode(IGmDiagram diagram, ExpansionNode el, MRef ref) {
         super(diagram, ref);
         this.element = el;
+        
     }
 
     /**
      * Empty c'tor for deserialisation.
      */
     @objid ("2a56bd2a-55b6-11e2-877f-002564c97630")
-    public GmExpansionNodePrimaryNode() {
+    public  GmExpansionNodePrimaryNode() {
         // empty for the serialization
     }
 
@@ -102,11 +101,11 @@ public class GmExpansionNodePrimaryNode extends GmNoStyleSimpleNode implements I
                     }
         
                 };
+        
     }
 
     /**
      * Get the stereotype image to display.
-     * 
      * @return the stereotype image to display. Must not be <i>null</i>.
      */
     @objid ("2a5843a1-55b6-11e2-877f-002564c97630")
@@ -159,6 +158,7 @@ public class GmExpansionNodePrimaryNode extends GmNoStyleSimpleNode implements I
             break;
         }
         }
+        
     }
 
     @objid ("2a5843ce-55b6-11e2-877f-002564c97630")
@@ -168,6 +168,7 @@ public class GmExpansionNodePrimaryNode extends GmNoStyleSimpleNode implements I
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmExpansionNodePrimaryNode.", GmExpansionNodePrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("2a5843d5-55b6-11e2-877f-002564c97630")
@@ -178,12 +179,14 @@ public class GmExpansionNodePrimaryNode extends GmNoStyleSimpleNode implements I
         }
         // forcing visual refresh in case Image changed
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("2a59ca40-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("2a59ca45-55b6-11e2-877f-002564c97630")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.elements.usecasediagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,7 +40,7 @@ public class GmUseCaseDiagramStyleKeys extends UseCaseAbstractStyleKeyProvider {
      * Snap to geometry.
      */
     @objid ("a19699d1-d9f3-461f-b4d9-7e267577f881")
-     static final StyleKey SNAPTOGEOMETRY = GmAbstractDiagramStyleKeys.SNAPTOGEOMETRY;
+    static final StyleKey SNAPTOGEOMETRY = GmAbstractDiagramStyleKeys.SNAPTOGEOMETRY;
 
     /**
      * StyleKey defining the visibility of the grid. Boolean value.
@@ -122,6 +121,6 @@ public class GmUseCaseDiagramStyleKeys extends UseCaseAbstractStyleKeyProvider {
      * Display or not "smart link" handle on hover. Boolean value.
      */
     @objid ("8754bb8e-422d-46bb-be0b-0b93ca125032")
-     static final StyleKey SHOW_SMARTLINK_HANDLE = GmAbstractDiagramStyleKeys.SHOW_SMARTLINK_HANDLE;
+    static final StyleKey SHOW_SMARTLINK_HANDLE = GmAbstractDiagramStyleKeys.SHOW_SMARTLINK_HANDLE;
 
 }

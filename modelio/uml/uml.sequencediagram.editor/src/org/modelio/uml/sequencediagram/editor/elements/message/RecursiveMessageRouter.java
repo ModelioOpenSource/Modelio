@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.message;
 
 import java.util.ArrayList;
@@ -52,12 +51,12 @@ public class RecursiveMessageRouter extends BendpointConnectionRouter {
      * Private constructor to avoid unnecessary c'tor.
      */
     @objid ("d96b4b8c-55b6-11e2-877f-002564c97630")
-    private RecursiveMessageRouter() {
+    private  RecursiveMessageRouter() {
+        
     }
 
     /**
      * Returns the instance of this router.
-     * 
      * @return the instance of this router.
      */
     @objid ("d96b4b8f-55b6-11e2-877f-002564c97630")
@@ -134,6 +133,7 @@ public class RecursiveMessageRouter extends BendpointConnectionRouter {
         }
         
         conn.setPoints(points);
+        
     }
 
 }

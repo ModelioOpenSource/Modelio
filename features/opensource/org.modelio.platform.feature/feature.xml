@@ -552,4 +552,18 @@
          version="1.0.0.v20180828-1120"
          unpack="false"/>
 
+   <!--   French Eclipse plugins  -->
+   <plugin id="org.eclipse.jface.nl_fr"               download-size="0" install-size="0" version="0.0.0" unpack="false"/>
+   <plugin id="org.eclipse.ui.net.nl_fr"              download-size="0" install-size="0" version="0.0.0" unpack="false"/>
+   <plugin id="org.eclipse.core.net.nl_fr"            download-size="0" install-size="0" version="0.0.0" unpack="false"/>
+   <plugin id="org.eclipse.ui.nl_fr"                  download-size="0" install-size="0" version="0.0.0" unpack="false"/>
+   <plugin id="org.eclipse.ui.ide.nl_fr"              download-size="0" install-size="0" version="0.0.0" unpack="false"/>
+   <plugin id="org.eclipse.ui.ide.application.nl_fr"  download-size="0" install-size="0" version="0.0.0" unpack="false"/>
+   <plugin id="org.eclipse.ui.forms.nl_fr"            download-size="0" install-size="0" version="0.0.0" unpack="false"/>
+   <plugin id="org.eclipse.ui.intro.nl_fr"            download-size="0" install-size="0" version="0.0.0" unpack="false"/>
+   <plugin id="org.eclipse.ui.intro.quicklinks.nl_fr" download-size="0" install-size="0" version="0.0.0" unpack="false"/>
+   <plugin id="org.eclipse.ui.browser.nl_fr"          download-size="0" install-size="0" version="0.0.0" unpack="false"/>
+   <plugin id="org.eclipse.ui.editors.nl_fr"          download-size="0" install-size="0" version="0.0.0" unpack="false"/>
+   <plugin id="org.eclipse.ui.workbench.nl_fr"        download-size="0" install-size="0" version="0.0.0" unpack="false"/>
+
 </feature>

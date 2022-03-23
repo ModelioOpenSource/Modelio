@@ -17,19 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.activities;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.bpmn.activities.BpmnTask;
 import org.modelio.metamodel.bpmn.activities.BpmnUserTask;
-import org.modelio.metamodel.impl.bpmn.activities.BpmnTaskSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -46,7 +45,7 @@ public class BpmnUserTaskSmClass extends BpmnTaskSmClass {
     private SmAttribute implementationAtt;
 
     @objid ("7cea262b-8149-4176-9c2d-4f1a5e22b769")
-    public BpmnUserTaskSmClass(ISmMetamodelFragment origin) {
+    public  BpmnUserTaskSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -54,6 +53,7 @@ public class BpmnUserTaskSmClass extends BpmnTaskSmClass {
     @Override
     public String getName() {
         return "BpmnUserTask";
+        
     }
 
     @objid ("11b7ce25-5782-4298-b9e6-0c013ad20d39")
@@ -66,18 +66,21 @@ public class BpmnUserTaskSmClass extends BpmnTaskSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnUserTask.class;
+        
     }
 
     @objid ("440714f0-e80e-46a4-8a29-6bb0da9a7e18")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("407a1d4b-3560-48b9-bfc7-665639d174bc")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("c10ecfb5-dd15-48a9-90b5-40b438306105")
@@ -94,6 +97,7 @@ public class BpmnUserTaskSmClass extends BpmnTaskSmClass {
         
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("ac72bda8-592b-47db-a35a-427202a8c176")
@@ -110,7 +114,7 @@ public class BpmnUserTaskSmClass extends BpmnTaskSmClass {
         private BpmnUserTaskSmClass smClass;
 
         @objid ("5a64d4b2-0f32-4e86-9608-8fbf4095324f")
-        public BpmnUserTaskObjectFactory(BpmnUserTaskSmClass smClass) {
+        public  BpmnUserTaskObjectFactory(BpmnUserTaskSmClass smClass) {
             this.smClass = smClass;
         }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.packaze;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,11 +36,11 @@ import org.modelio.diagram.elements.core.figures.borders.ShapedBorder;
  */
 @objid ("362b3109-55b7-11e2-877f-002564c97630")
 public class PackageSimpleFigure extends ShapedFigure {
-    @objid ("362b310d-55b7-11e2-877f-002564c97630")
-    private static final IShaper shaper = new PackageShaper();
-
     @objid ("362b3113-55b7-11e2-877f-002564c97630")
     private static final int MARGIN = 2;
+
+    @objid ("362b310d-55b7-11e2-877f-002564c97630")
+    private static final IShaper packageShaper = new PackageShaper();
 
     @objid ("a4f96dcb-55c2-11e2-9337-002564c97630")
     private ShapedBorder shapedBorder;
@@ -50,13 +49,14 @@ public class PackageSimpleFigure extends ShapedFigure {
      * C'tor.
      */
     @objid ("362b3115-55b7-11e2-877f-002564c97630")
-    public PackageSimpleFigure() {
-        super(shaper);
+    public  PackageSimpleFigure() {
+        super(packageShaper);
         
-        this.shapedBorder = new ShapedBorder(getLineColor(), getLineWidth(), shaper);
+        this.shapedBorder = new ShapedBorder(getLineColor(), getLineWidth(), packageShaper);
         this.shapedBorder.setStyle(getLinePattern().toSWTConstant());
         
         setBorder(new CompoundBorder(this.shapedBorder, new MarginBorder(PackageSimpleFigure.MARGIN)));
+        
     }
 
     @objid ("9ef49249-63eb-42e0-a0d0-b2575ebfc301")
@@ -64,6 +64,7 @@ public class PackageSimpleFigure extends ShapedFigure {
     public void setLineColor(Color lineColor) {
         this.shapedBorder.setColor(lineColor);
         super.setLineColor(lineColor);
+        
     }
 
     @objid ("0ff7d9bf-d6f4-478a-abff-81230f0d90b3")
@@ -71,6 +72,7 @@ public class PackageSimpleFigure extends ShapedFigure {
     public void setLineWidth(int lineWidth) {
         this.shapedBorder.setWidth(lineWidth);
         super.setLineWidth(lineWidth);
+        
     }
 
     @objid ("e5d8d77a-01c6-4fe1-ab25-704c1efae613")
@@ -81,13 +83,9 @@ public class PackageSimpleFigure extends ShapedFigure {
 
     @objid ("362b3120-55b7-11e2-877f-002564c97630")
     private static final class PackageShaper implements IShaper {
-        @objid ("362b3124-55b7-11e2-877f-002564c97630")
-        public PackageShaper() {
-        }
-
         @objid ("362b3126-55b7-11e2-877f-002564c97630")
         @Override
-        public Path getShapePath(final Rectangle rect) {
+        public Path createShapePath(final Rectangle rect) {
             int x = rect.x;
             int y = rect.y;
             int w = rect.width;

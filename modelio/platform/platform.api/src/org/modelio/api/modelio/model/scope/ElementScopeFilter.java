@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.model.scope;
 
 import java.util.ArrayList;
@@ -26,21 +25,22 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 @objid ("a028491c-f28f-4056-b6ec-abb55ef98008")
 public class ElementScopeFilter implements IElementFilter {
     @objid ("a3bf973e-71c0-4fb9-98d1-dbccf61e7ba5")
-     List<ElementScope> scopes;
+    List<ElementScope> scopes;
 
     @objid ("611d977b-9c72-4e02-9aff-c5e9e350ea7d")
-    public ElementScopeFilter(ElementScope scope) {
+    public  ElementScopeFilter(ElementScope scope) {
         this.scopes = new ArrayList();
         this.scopes.add(scope);
+        
     }
 
     @objid ("472a04c8-f65a-41b0-8eaa-b08a64b4148c")
-    public ElementScopeFilter(List<ElementScope> scopes) {
+    public  ElementScopeFilter(List<ElementScope> scopes) {
         scopes = new ArrayList<>(scopes);
     }
 
     @objid ("8524c65c-c3cd-4460-8fa3-9e8de3ad4a20")
-    public ElementScopeFilter() {
+    public  ElementScopeFilter() {
         this.scopes = new ArrayList();
     }
 

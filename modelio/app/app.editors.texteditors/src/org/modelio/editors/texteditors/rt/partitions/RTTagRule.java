@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.texteditors.rt.partitions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,7 +28,7 @@ import org.eclipse.jface.text.rules.Token;
 @objid ("7b65d189-2a77-11e2-9fb9-bc305ba4815c")
 public class RTTagRule extends EndOfLineRule {
     @objid ("7b65d18a-2a77-11e2-9fb9-bc305ba4815c")
-    public RTTagRule(String startSequence, IToken token) {
+    public  RTTagRule(String startSequence, IToken token) {
         super(startSequence, token);
     }
 

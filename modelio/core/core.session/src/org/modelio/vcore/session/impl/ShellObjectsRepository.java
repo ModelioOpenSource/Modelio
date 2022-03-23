@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,6 +45,7 @@ class ShellObjectsRepository extends MemoryRepository {
         //            super.attModified(obj, att);
         //        else
                     throw new ShellObjectException(obj);
+        
     }
 
     @objid ("be091df0-92d7-11e1-81e9-001ec947ccaf")
@@ -62,6 +62,7 @@ class ShellObjectsRepository extends MemoryRepository {
             // Add shell flag
             loader.setRStatus(obj, IRStatus.SHELL, 0, 0);
         }
+        
     }
 
     @objid ("f5260e8b-08b1-11e2-b33c-001ec947ccaf")
@@ -72,6 +73,7 @@ class ShellObjectsRepository extends MemoryRepository {
             loader.setRStatus(obj, 0,  IRStatus.SHELL, 0);
         }
         super.detach(obj);
+        
     }
 
     @objid ("26a2568f-3579-11e2-a87b-001ec947ccaf")
@@ -82,6 +84,7 @@ class ShellObjectsRepository extends MemoryRepository {
             // Add shell flag
             loader.setRStatus(obj, IRStatus.SHELL, 0, 0);
         }
+        
     }
 
 }

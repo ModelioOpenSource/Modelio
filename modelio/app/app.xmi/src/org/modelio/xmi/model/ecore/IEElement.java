@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,8 +38,7 @@ public interface IEElement {
 
     @objid ("0b48a653-8cfe-4d0e-9331-4784f17d48b3")
     void setStereotypes();
-
-
 //    @objid ("47434085-dda3-443b-bede-510a3498c9a3")
-//    void attach(final List<Object> objingElts);
+    //    void attach(final List<Object> objingElts);
+    
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /*
  *
  * This file is part of Modelio.
@@ -56,7 +55,7 @@ public class PExportAttribut implements IExportProfileElement {
     private TagType objingElt = null;
 
     @objid ("781fa152-4f0b-40c3-82b4-0dfc5f90a5c6")
-    public PExportAttribut(TagType attribut) {
+    public  PExportAttribut(TagType attribut) {
         this.objingElt = attribut;
     }
 
@@ -114,6 +113,7 @@ public class PExportAttribut implements IExportProfileElement {
         }
         
         ObjingEAnnotation.addObjingID(attr, this.objingElt.getUuid().toString());
+        
     }
 
     @objid ("ae65ef18-8569-4647-808d-03b304384f87")

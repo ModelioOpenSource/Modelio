@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnsubprocess.content.v0;
 
 import java.util.List;
@@ -55,6 +54,7 @@ public class GmBpmnBodyFreeZoneMigrator implements IPersistentMigrator {
             return null;
         }
         }
+        
     }
 
     @objid ("24b9b23e-f968-4da3-af94-9160ece4da55")
@@ -76,7 +76,6 @@ public class GmBpmnBodyFreeZoneMigrator implements IPersistentMigrator {
      * Else, if the migration takes place in a sub process diagram "X" and the sub process being migrated is X's owner,<br/>
      * said sub process is masked and its contents transfered into the diagram itself, therefore avoiding potential infinite loops.
      * </p>
-     * 
      * @param oldGmBody the gm being migrated.
      * @return the migrated gm, replacing the given one. Might be <code>null</code>.
      */
@@ -91,6 +90,7 @@ public class GmBpmnBodyFreeZoneMigrator implements IPersistentMigrator {
         } else {
             return migrateToSubProcessContent(oldGmBody, diagram, subProcess);
         }
+        
     }
 
     /**
@@ -113,6 +113,7 @@ public class GmBpmnBodyFreeZoneMigrator implements IPersistentMigrator {
         
         // Migration is done, delete old gm
         oldGmBody.delete();
+        
     }
 
     /**
@@ -154,6 +155,7 @@ public class GmBpmnBodyFreeZoneMigrator implements IPersistentMigrator {
             oldGmBody.delete();
             return null;
         }
+        
     }
 
 }

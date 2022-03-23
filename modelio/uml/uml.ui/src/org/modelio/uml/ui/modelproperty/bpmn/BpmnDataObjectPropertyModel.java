@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import java.util.ArrayList;
@@ -71,14 +70,14 @@ public class BpmnDataObjectPropertyModel extends AbstractPropertyModel<BpmnDataO
 
     /**
      * Create a new <i>BpmnDataObject</i> data model from an <i>BpmnDataObject</i>.
-     * 
      * @param theEditedElement the model to edit.
      * @param mdaExpert the MDA expert to handle Methodological links.
      */
     @objid ("d06c5b30-e5c6-42d1-963e-fdc9b17f45b5")
-    public BpmnDataObjectPropertyModel(BpmnDataObject theEditedElement, IMdaExpert mdaExpert) {
+    public  BpmnDataObjectPropertyModel(BpmnDataObject theEditedElement, IMdaExpert mdaExpert) {
         super(theEditedElement);
         this.mdaExpert = mdaExpert;
+        
     }
 
     /**
@@ -131,7 +130,6 @@ public class BpmnDataObjectPropertyModel extends AbstractPropertyModel<BpmnDataO
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("36ee791b-ed24-4873-9043-8c4249d7794c")
@@ -148,11 +146,11 @@ public class BpmnDataObjectPropertyModel extends AbstractPropertyModel<BpmnDataO
         } else {
             return new DefaultElementChoiceNatValue(value, true, Collections.singletonList(org.modelio.metamodel.uml.behavior.stateMachineModel.State.class), availableStates);
         }
+        
     }
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("10ea74ed-f6ee-4128-857a-d5db492beb73")
@@ -165,7 +163,6 @@ public class BpmnDataObjectPropertyModel extends AbstractPropertyModel<BpmnDataO
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -193,6 +190,7 @@ public class BpmnDataObjectPropertyModel extends AbstractPropertyModel<BpmnDataO
         default:
             return null;
         }
+        
     }
 
     /**
@@ -201,7 +199,6 @@ public class BpmnDataObjectPropertyModel extends AbstractPropertyModel<BpmnDataO
      * This type will be used to choose an editor and a renderer for each cell of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -242,13 +239,13 @@ public class BpmnDataObjectPropertyModel extends AbstractPropertyModel<BpmnDataO
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -289,6 +286,7 @@ public class BpmnDataObjectPropertyModel extends AbstractPropertyModel<BpmnDataO
         default:
             return;
         }
+        
     }
 
 }

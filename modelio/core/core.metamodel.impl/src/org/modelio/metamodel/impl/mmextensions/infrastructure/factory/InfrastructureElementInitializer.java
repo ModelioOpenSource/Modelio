@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.infrastructure.factory;
 
 import java.util.List;
@@ -50,10 +49,11 @@ class InfrastructureElementInitializer implements IInfrastructureElementInitiali
     private ElementInitializerVisitor visitor;
 
     @objid ("a2f36b18-9d4e-408c-9177-da0b1ed37995")
-    public InfrastructureElementInitializer(IInfrastructureModelFactory modelFactory) {
+    public  InfrastructureElementInitializer(IInfrastructureModelFactory modelFactory) {
         Geometry geometry = new Geometry();
         
         this.visitor = new ElementInitializerVisitor(modelFactory, geometry);
+        
     }
 
     @objid ("0c244183-e94e-47e8-a925-c87cad9a0024")
@@ -72,6 +72,7 @@ class InfrastructureElementInitializer implements IInfrastructureElementInitiali
         default:
             // unknown key
         }
+        
     }
 
     @objid ("ac1bad52-817e-47ba-b9de-1847830aac58")
@@ -86,9 +87,10 @@ class InfrastructureElementInitializer implements IInfrastructureElementInitiali
         private IInfrastructureModelFactory modelFactory;
 
         @objid ("8c2cbc73-3cc7-4e59-9542-d2dea6cbea74")
-        public ElementInitializerVisitor(final IInfrastructureModelFactory modelFactory, Geometry geometry) {
+        public  ElementInitializerVisitor(final IInfrastructureModelFactory modelFactory, Geometry geometry) {
             this.modelFactory = modelFactory;
             this.geometry = geometry;
+            
         }
 
         @objid ("bf0571c4-7225-480c-b6f8-6142191d1bd8")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.ui.htmleditor.commands;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,9 +30,10 @@ public class SetHtmlCommand extends Command {
     private final String html;
 
     @objid ("2e5f9278-4387-412c-b352-93f6b5db3bfb")
-    public SetHtmlCommand(String html) {
+    public  SetHtmlCommand(String html) {
         super("SetHTML");
         this.html = html.replaceAll("\\'", "\\\\'").replaceAll("\\s", " ");
+        
     }
 
     @objid ("3c6ddc2d-e687-46b9-8863-d032c47c8f86")
@@ -55,6 +55,7 @@ public class SetHtmlCommand extends Command {
         } else {
             return "integration.editor.setData('" + this.html + "');";
         }
+        
     }
 
 }

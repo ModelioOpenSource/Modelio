@@ -17,18 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.mda;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.mda.ModuleComponentSmClass;
-import org.modelio.metamodel.impl.mda.ModuleParameterData;
 import org.modelio.metamodel.impl.uml.infrastructure.ModelElementSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.properties.EnumeratedPropertyTypeSmClass;
 import org.modelio.metamodel.mda.ModuleComponent;
@@ -78,7 +76,7 @@ public class ModuleParameterSmClass extends ModelElementSmClass {
     private SmDependency enumTypeDep;
 
     @objid ("840d4acf-573c-442c-b4b2-45ab8e0717d3")
-    public ModuleParameterSmClass(ISmMetamodelFragment origin) {
+    public  ModuleParameterSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -86,6 +84,7 @@ public class ModuleParameterSmClass extends ModelElementSmClass {
     @Override
     public String getName() {
         return "ModuleParameter";
+        
     }
 
     @objid ("f60f27dc-8d88-4007-a82f-55434c4ab5b1")
@@ -98,18 +97,21 @@ public class ModuleParameterSmClass extends ModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ModuleParameter.class;
+        
     }
 
     @objid ("45193d48-ee9e-44a8-ae94-bae897fb1f2b")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("5a8c8be9-d6ca-4aa3-9371-630cf7304535")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("3cf8b09b-0ac6-4967-9677-aefefcd42976")
@@ -157,6 +159,8 @@ public class ModuleParameterSmClass extends ModelElementSmClass {
         this.enumTypeDep = new EnumTypeSmDependency();
         this.enumTypeDep.init("EnumType", this, metamodel.getMClass(EnumeratedPropertyType.MQNAME), 0, 1 , SmDirective.SMCDPARTOF);
         registerDependency(this.enumTypeDep);
+        
+        
     }
 
     @objid ("39600bb9-5cb8-4fcc-bae0-8e9f7197f6a3")
@@ -237,7 +241,7 @@ public class ModuleParameterSmClass extends ModelElementSmClass {
         private ModuleParameterSmClass smClass;
 
         @objid ("47a3e654-ce29-455d-8601-297ee76344ed")
-        public ModuleParameterObjectFactory(ModuleParameterSmClass smClass) {
+        public  ModuleParameterObjectFactory(ModuleParameterSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -377,6 +381,7 @@ public class ModuleParameterSmClass extends ModelElementSmClass {
             	this.symetricDep = ((ModuleComponentSmClass)this.getTarget()).getModuleParameterDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -405,6 +410,7 @@ public class ModuleParameterSmClass extends ModelElementSmClass {
             	this.symetricDep = ((EnumeratedPropertyTypeSmClass)this.getTarget()).getOccurenceConfigParamDep();
             }
             return this.symetricDep;
+            
         }
 
     }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.informationflowgroup;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -74,6 +73,7 @@ public class InformationArrowEditPart extends AbstractNodeEditPart {
         
         if (gmModel.getStyleKey(MetaKey.LINECOLOR) != null)
             pen.setFillColor(style.getColor(gmModel.getStyleKey(MetaKey.LINECOLOR)));
+        
     }
 
 }

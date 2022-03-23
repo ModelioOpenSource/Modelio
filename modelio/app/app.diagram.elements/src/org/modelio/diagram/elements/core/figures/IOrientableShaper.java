@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,27 +36,33 @@ public interface IOrientableShaper extends IShaper {
      * Orientation
      */
     @objid ("7fa4c435-1dec-11e2-8cad-001ec947c8cc")
-    enum Orientation {
+    public enum Orientation {
         /**
          * Do not stick to any specific direction.
          */
+        @objid ("7fa4c436-1dec-11e2-8cad-001ec947c8cc")
         Undefined,
         /**
          * The top border.
          */
+        @objid ("7fa4c438-1dec-11e2-8cad-001ec947c8cc")
         NorthSouth,
         /**
          * The bottom border.
          */
+        @objid ("7fa4c43a-1dec-11e2-8cad-001ec947c8cc")
         SouthNorth,
         /**
          * the right border.
          */
+        @objid ("7fa4c43c-1dec-11e2-8cad-001ec947c8cc")
         EastWest,
         /**
          * The left border.
          */
+        @objid ("7fa4c43e-1dec-11e2-8cad-001ec947c8cc")
         WestEast;
+
     }
 
 }

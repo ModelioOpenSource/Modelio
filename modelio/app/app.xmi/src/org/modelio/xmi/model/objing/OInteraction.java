@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,11 +45,10 @@ public class OInteraction extends OModelElement {
 
     /**
      * Constructor
-     * 
      * @param element : the exported Modelio Interaction
      */
     @objid ("24b33337-f5d2-4e64-82d1-7b0783ff0d83")
-    public OInteraction(final Interaction element) {
+    public  OInteraction(final Interaction element) {
         super(element);
     }
 
@@ -91,6 +89,7 @@ public class OInteraction extends OModelElement {
                         + ecoreOwner.getClass().getSimpleName() + ") Not Found");
             }
         }
+        
     }
 
     @objid ("c335ccb9-588c-42a4-a4bd-3f8e3920a41e")
@@ -101,6 +100,7 @@ public class OInteraction extends OModelElement {
         
         if (GenerationProperties.getInstance().isRoundtripEnabled())
             setDiagramName(ecoreElt);
+        
     }
 
     @objid ("a6771db5-d380-4ed4-a34c-294518381aa4")
@@ -122,6 +122,7 @@ public class OInteraction extends OModelElement {
         if (!diagramName.equals("")){
             ObjingEAnnotation.setDiagramName(ecoreElt, diagramName);
         }
+        
     }
 
     @objid ("89b10c38-64b2-41fc-a182-c716d337f57b")

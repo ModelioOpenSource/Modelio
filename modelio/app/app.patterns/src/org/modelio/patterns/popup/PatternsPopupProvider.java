@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.popup;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.e4.ui.di.AboutToHide;
 import org.eclipse.e4.ui.di.AboutToShow;
@@ -71,7 +70,6 @@ public class PatternsPopupProvider {
     /**
      * Fills a dynamic creation menu with selection-compatible contributions before display. <br/>
      * Called by the rcp platform through injection.
-     * 
      * @param items the item list to fill.
      */
     @objid ("e7b6b372-e14b-41f0-8430-16fecb137cc1")
@@ -86,6 +84,7 @@ public class PatternsPopupProvider {
             separator.setContributorURI(contributorId);
             items.add(separator);
         }
+        
     }
 
     /**
@@ -103,11 +102,11 @@ public class PatternsPopupProvider {
                 }
             }
         }
+        
     }
 
     /**
      * Compute a contributor id from a bundle.
-     * 
      * @return a contributor id.
      */
     @objid ("1e4a5d82-e5d7-4117-a29c-f7775e7c5f00")
@@ -122,7 +121,6 @@ public class PatternsPopupProvider {
      * </p>
      * @param entries
      * the category to build menu elements from.
-     * 
      * @return a list of menu elements.
      */
     @objid ("48ec3068-f416-48af-83a6-aae49efcb9b2")
@@ -138,7 +136,6 @@ public class PatternsPopupProvider {
      * Create a new handled menu item from a pattern.
      * @param entry
      * the pattern to create the menu item from.
-     * 
      * @return a new menu element.
      */
     @objid ("0fb9d932-3195-4b50-9e5d-e7a0b6996294")
@@ -181,7 +178,6 @@ public class PatternsPopupProvider {
      * Get the MCommand defined in the application having a specific id.
      * @param commandId
      * the element id of the MCommand to find.
-     * 
      * @return a MCommand, or <code>null</code> if the id is not found.
      */
     @objid ("926b9c84-18ca-4c2a-be4c-63f7586bb9aa")
@@ -197,7 +193,6 @@ public class PatternsPopupProvider {
 
     /**
      * Get the currently selected elements, or an empty collection.
-     * 
      * @return the selected elements.
      */
     @objid ("b551c786-e666-498b-bff0-81cb00778897")
@@ -229,7 +224,6 @@ public class PatternsPopupProvider {
      * <p>
      * Only categories containing at least one pattern shown in the contextual menu are inserted in the menu.
      * </p>
-     * 
      * @param categories the categories to build menu elements from.
      * @return a list of menu elements.
      */
@@ -260,7 +254,6 @@ public class PatternsPopupProvider {
      * Create a new menu item from a category.
      * @param entry
      * the pattern to create the menu item from.
-     * 
      * @return a new menu element.
      */
     @objid ("dc954bd1-7149-4e70-a508-5efa871409ab")

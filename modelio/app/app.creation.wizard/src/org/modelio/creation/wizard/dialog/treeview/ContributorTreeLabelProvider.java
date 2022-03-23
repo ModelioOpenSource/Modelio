@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.creation.wizard.dialog.treeview;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.viewers.StyledCellLabelProvider;
-import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.jface.viewers.StyledString;
+import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.TextStyle;
@@ -39,19 +38,19 @@ import org.modelio.platform.ui.UIColor;
 public class ContributorTreeLabelProvider extends StyledCellLabelProvider {
     @objid ("2ce81c51-8584-469e-8642-7c0d6aa294dc")
     public static final Styler VALID = new Styler() {
-        @Override
-        public void applyStyles(TextStyle textStyle) {
-            // Nothing to do
-        }
-    };
+            @Override
+            public void applyStyles(TextStyle textStyle) {
+                // Nothing to do
+            }
+        };
 
     @objid ("c3ec3538-ad11-41a9-8602-4edd8a3171cd")
     public static final Styler INVALID = new Styler() {
-        @Override
-        public void applyStyles(TextStyle textStyle) {
-            textStyle.foreground = UIColor.NONMODIFIABLE_ELEMENT_FG;
-        }
-    };
+            @Override
+            public void applyStyles(TextStyle textStyle) {
+                textStyle.foreground = UIColor.NONMODIFIABLE_ELEMENT_FG;
+            }
+        };
 
     @objid ("789ef5e5-3061-45f9-b188-273724620f8d")
     private ModelElement context;
@@ -60,7 +59,7 @@ public class ContributorTreeLabelProvider extends StyledCellLabelProvider {
     private ImageRegistry registry = new ImageRegistry();
 
     @objid ("1932b109-fe4c-4b87-b378-909aa84cb76d")
-    public ContributorTreeLabelProvider(ModelElement context) {
+    public  ContributorTreeLabelProvider(ModelElement context) {
         this.context = context;
     }
 
@@ -89,6 +88,7 @@ public class ContributorTreeLabelProvider extends StyledCellLabelProvider {
         cell.setText(text.getString());
         cell.setStyleRanges(text.getStyleRanges());
         super.update(cell);
+        
     }
 
     @objid ("502f648a-1d17-4602-af18-049e1dc7d80f")
@@ -119,6 +119,7 @@ public class ContributorTreeLabelProvider extends StyledCellLabelProvider {
         }
         
         super.dispose();
+        
     }
 
 }

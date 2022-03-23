@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.usecase;
 
 import java.util.Collection;
 import java.util.Collections;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.modelio.api.modelio.diagram.IDiagramLink.ExtensionRole;
 import org.modelio.diagram.api.services.DiagramHandle;
 import org.modelio.diagram.api.services.DiagramLink;
 import org.modelio.diagram.elements.core.model.IGmLink;
@@ -39,7 +39,7 @@ public class UseCaseDependencyDG extends DiagramLink {
      * @param link The graphic model link represented by this class.
      */
     @objid ("ff3186dc-c7ce-49bb-bfad-66b5deb774c4")
-    public UseCaseDependencyDG(DiagramHandle diagramHandle, IGmLink link) {
+    public  UseCaseDependencyDG(DiagramHandle diagramHandle, IGmLink link) {
         super(diagramHandle, link);
     }
 
@@ -56,6 +56,7 @@ public class UseCaseDependencyDG extends DiagramLink {
             return Collections.emptyList();
         
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.copy;
 
 import java.io.Serializable;
@@ -40,10 +39,11 @@ public class TransferItem implements Serializable {
     private MRef oldParent;
 
     @objid ("dd086b41-0d8f-4347-92b0-48759fa19bb6")
-    public TransferItem(MObject transferedElement, MObject oldParent) {
+    public  TransferItem(MObject transferedElement, MObject oldParent) {
         super();
         this.transferedElement = new MRef(transferedElement);
         this.oldParent = new MRef(oldParent);
+        
     }
 
     @objid ("53e009c6-340c-4c6e-b405-3b10b4b30f22")

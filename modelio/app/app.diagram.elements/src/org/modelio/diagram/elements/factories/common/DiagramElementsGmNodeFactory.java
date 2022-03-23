@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.factories.common;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -62,6 +61,7 @@ public class DiagramElementsGmNodeFactory implements IGmNodeFactory {
             }
             return child;
         }
+        
     }
 
     @objid ("599f034d-2e99-407b-8d16-649ccf13097c")
@@ -141,16 +141,16 @@ public class DiagramElementsGmNodeFactory implements IGmNodeFactory {
 
         /**
          * Creates the visitor.
-         * 
          * @param diagram The diagram
          * @param parent The parent node
          * @param initialLayoutData The initial layout data.
          */
         @objid ("66a3b242-1b5f-44fc-8c8e-c61d2e087957")
-        public NodeFactoryVisitor(IGmDiagram diagram, GmCompositeNode parent, Object initialLayoutData) {
+        public  NodeFactoryVisitor(IGmDiagram diagram, GmCompositeNode parent, Object initialLayoutData) {
             this.diagram = diagram;
             this.parent = parent;
             this.initialLayoutData = initialLayoutData;
+            
         }
 
         @objid ("3978b383-6301-4253-95a5-62636b9fdb5b")

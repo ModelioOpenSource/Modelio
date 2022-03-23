@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.html.flyingsaucer.impl;
 
 import java.awt.Rectangle;
@@ -58,10 +57,11 @@ class GefFsTextRenderer implements TextRenderer {
      * C'tor
      */
     @objid ("5aee975d-9398-4dca-b5e4-f36590ec5b0c")
-    public GefFsTextRenderer() {
+    public  GefFsTextRenderer() {
         this._scale = Configuration.valueAsFloat("xr.text.scale", 1.0f);
         setSmoothingThreshold(Configuration.valueAsInt(
                 "xr.text.aa-fontsize-threshhold", 0));
+        
     }
 
     @objid ("9e14c8a2-1b8c-469f-a5d4-e9d7c3c7bba4")
@@ -70,6 +70,7 @@ class GefFsTextRenderer implements TextRenderer {
             gc.setTextAntialias(this._antialiasing ? SWT.ON : SWT.OFF);
             this.antialiasApplied = true;
         }
+        
     }
 
     @objid ("59024741-f81e-4fd9-9644-d74a12f491f3")
@@ -87,6 +88,7 @@ class GefFsTextRenderer implements TextRenderer {
         FontMetrics metrics = gc.getFontMetrics();
         float y2 = y - (metrics.getAscent() + metrics.getLeading());
         gc.drawText(string, (int) x, (int) y2);
+        
     }
 
     @objid ("ba1b4889-b631-4990-b1cf-07c622429992")
@@ -178,6 +180,7 @@ class GefFsTextRenderer implements TextRenderer {
         
         // draw debug rectangle
         // gc.drawRectangle((int)x, (int)y, (int)(x2-x), extent.height);
+        
     }
 
     @objid ("3d0a2f0a-c97c-41fa-9849-c3d5a37683eb")

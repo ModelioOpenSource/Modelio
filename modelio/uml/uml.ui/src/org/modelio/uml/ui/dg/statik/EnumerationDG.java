@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.statik;
 
 import java.util.ArrayList;
@@ -43,7 +42,7 @@ public class EnumerationDG extends PortContainerDG {
      * @param node The gm node represented by this class.
      */
     @objid ("a0f86604-9017-44aa-b836-c9ad276f55b5")
-    public EnumerationDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  EnumerationDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.innerclass;
 
 import java.beans.PropertyChangeEvent;
@@ -37,9 +36,9 @@ import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
+import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.diagram.styles.core.StyleKey.InternalsViewMode;
 import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
-import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
 
@@ -77,12 +76,11 @@ public final class GmInnerClass extends GmNoStyleCompositeNode implements Proper
 
     /**
      * Creates an inner classes group.
-     * 
      * @param gmDiagram The diagram.
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
     @objid ("352029ad-55b7-11e2-877f-002564c97630")
-    public GmInnerClass(final IGmDiagram gmDiagram, final MRef relatedRef) {
+    public  GmInnerClass(final IGmDiagram gmDiagram, final MRef relatedRef) {
         super(gmDiagram, relatedRef);
         
         this.innerZone = new GmInnerClassesZone(gmDiagram, relatedRef);
@@ -97,18 +95,18 @@ public final class GmInnerClass extends GmNoStyleCompositeNode implements Proper
         
         super.addChild(this.innerGroup);
         super.addChild(this.innerZone);
+        
     }
 
     /**
      * Creates an inner classes group from existing zone & group.
-     * 
      * @param diagram The diagram.
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      * @param zone an existing InnerClass zone.
      * @param group an existing InnerClass group.
      */
     @objid ("3521b042-55b7-11e2-877f-002564c97630")
-    public GmInnerClass(final IGmDiagram diagram, final MRef relatedRef, final GmFreeZone zone, final GmGroup group) {
+    public  GmInnerClass(final IGmDiagram diagram, final MRef relatedRef, final GmFreeZone zone, final GmGroup group) {
         super(diagram, relatedRef);
         
         this.innerZone = zone;
@@ -123,6 +121,7 @@ public final class GmInnerClass extends GmNoStyleCompositeNode implements Proper
         // Register as a property change listener for content synchronization.
         this.innerZone.addPropertyChangeListener(this);
         this.innerGroup.addPropertyChangeListener(this);
+        
     }
 
     /**
@@ -157,6 +156,7 @@ public final class GmInnerClass extends GmNoStyleCompositeNode implements Proper
                 break;
             }
         }
+        
     }
 
     @objid ("3521b06f-55b7-11e2-877f-002564c97630")
@@ -166,6 +166,7 @@ public final class GmInnerClass extends GmNoStyleCompositeNode implements Proper
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmInnerClass.", GmInnerClass.MINOR_VERSION);
+        
     }
 
     @objid ("3521b076-55b7-11e2-877f-002564c97630")
@@ -177,6 +178,7 @@ public final class GmInnerClass extends GmNoStyleCompositeNode implements Proper
         
         this.innerGroup = (GmGroup) getFirstChild(GROUP);
         this.innerGroup.addPropertyChangeListener(this);
+        
     }
 
     @objid ("352336d9-55b7-11e2-877f-002564c97630")
@@ -187,6 +189,7 @@ public final class GmInnerClass extends GmNoStyleCompositeNode implements Proper
         } else {
             return this.innerGroup;
         }
+        
     }
 
     @objid ("352336e3-55b7-11e2-877f-002564c97630")
@@ -197,6 +200,7 @@ public final class GmInnerClass extends GmNoStyleCompositeNode implements Proper
         } else {
             return this.innerGroup.canUnmask(el);
         }
+        
     }
 
     @objid ("352336eb-55b7-11e2-877f-002564c97630")
@@ -212,6 +216,7 @@ public final class GmInnerClass extends GmNoStyleCompositeNode implements Proper
         if (child == this.innerGroup || child == this.innerZone) {
             child.removePropertyChangeListener(this);
         }
+        
     }
 
     /**
@@ -233,13 +238,13 @@ public final class GmInnerClass extends GmNoStyleCompositeNode implements Proper
                 return;
             }
         }
+        
     }
 
     /**
      * Synchronize target's children according to the source's children.
      * Unwanted children are all masked.
      * Missing children are unmasked.
-     * 
      * @param source the gm having the right children.
      * @param target the gm that might have unwanted/missing children.
      */
@@ -282,6 +287,7 @@ public final class GmInnerClass extends GmNoStyleCompositeNode implements Proper
             getDiagram().unmask(target, elt, constraint.getCopy());
             constraint.translate(10, 10);
         }
+        
     }
 
     /**
@@ -296,6 +302,7 @@ public final class GmInnerClass extends GmNoStyleCompositeNode implements Proper
         } else {
             return true;
         }
+        
     }
 
     @objid ("3523370e-55b7-11e2-877f-002564c97630")
@@ -308,7 +315,8 @@ public final class GmInnerClass extends GmNoStyleCompositeNode implements Proper
      * Constructor for deserialization only.
      */
     @objid ("35233713-55b7-11e2-877f-002564c97630")
-    public GmInnerClass() {
+    public  GmInnerClass() {
+        
     }
 
     /**
@@ -345,6 +353,7 @@ public final class GmInnerClass extends GmNoStyleCompositeNode implements Proper
         if (visible) {
             getParent().getDisplayedStyle().setProperty(getStyleKey(MetaKey.REPMODE), RepresentationMode.STRUCTURED);
         }
+        
     }
 
     @objid ("3524bd8a-55b7-11e2-877f-002564c97630")
@@ -353,6 +362,7 @@ public final class GmInnerClass extends GmNoStyleCompositeNode implements Proper
         // The visibility may have changed so fires a notification.
         fireVisibilityChanged();
         super.styleChanged(style);
+        
     }
 
     @objid ("3524bd90-55b7-11e2-877f-002564c97630")
@@ -363,6 +373,7 @@ public final class GmInnerClass extends GmNoStyleCompositeNode implements Proper
         } else {
             super.styleChanged(property, newValue);
         }
+        
     }
 
 }

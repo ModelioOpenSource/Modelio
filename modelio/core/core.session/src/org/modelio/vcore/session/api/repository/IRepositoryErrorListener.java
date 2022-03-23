@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.api.repository;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,7 +28,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IRepositoryErrorListener {
     /**
      * Called when a recoverable error occurs.
-     * 
      * @param repository the repository where the error occured
      * @param e the error
      */
@@ -38,7 +36,6 @@ public interface IRepositoryErrorListener {
 
     /**
      * Called when an error prevents the repository from working.
-     * 
      * @param repository the repository where the error occured
      * @param e the error
      */

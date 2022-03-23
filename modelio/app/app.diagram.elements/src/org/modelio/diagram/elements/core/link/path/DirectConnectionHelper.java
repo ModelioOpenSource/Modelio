@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.path;
 
 import java.util.Collections;
@@ -37,13 +36,18 @@ import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
 public class DirectConnectionHelper implements IConnectionHelper {
     /**
      * Get all bend points without extremity points.
-     * 
      * @return the bend points.
      */
     @objid ("8046e41e-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public List<Point> getModelBendPoints() {
         return Collections.emptyList();
+    }
+
+    @objid ("84804562-3b48-4724-84aa-916947fdac44")
+    @Override
+    public boolean isUsable() {
+        return true;
     }
 
     @objid ("8046e428-1dec-11e2-8cad-001ec947c8cc")
@@ -54,7 +58,6 @@ public class DirectConnectionHelper implements IConnectionHelper {
 
     /**
      * Get the path routing mode.
-     * 
      * @return the path routing mode.
      */
     @objid ("8046e42d-1dec-11e2-8cad-001ec947c8cc")
@@ -67,12 +70,12 @@ public class DirectConnectionHelper implements IConnectionHelper {
      * constructor from serialized data
      */
     @objid ("8046e433-1dec-11e2-8cad-001ec947c8cc")
-    public DirectConnectionHelper() {
+    public  DirectConnectionHelper() {
+        
     }
 
     /**
      * Get the draw2d routing constraint to apply to the connection figure.
-     * 
      * @return the draw2d routing constraint.
      */
     @objid ("8049464b-1dec-11e2-8cad-001ec947c8cc")

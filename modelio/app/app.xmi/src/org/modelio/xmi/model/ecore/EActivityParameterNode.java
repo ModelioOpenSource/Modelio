@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,7 +42,7 @@ public class EActivityParameterNode extends EActivityNode {
     }
 
     @objid ("fadd7ee0-e83f-4fa9-9b21-9e60c856debe")
-    public EActivityParameterNode(org.eclipse.uml2.uml.ActivityParameterNode element) {
+    public  EActivityParameterNode(org.eclipse.uml2.uml.ActivityParameterNode element) {
         super(element);
     }
 
@@ -59,6 +58,7 @@ public class EActivityParameterNode extends EActivityNode {
         setType((ActivityParameterNode) objingElt);
         setRepresentedRealParameter((ActivityParameterNode) objingElt);
         setState((ActivityParameterNode) objingElt);
+        
     }
 
     @objid ("b5173f45-9e48-44ad-b406-351d5dc0ce46")
@@ -84,6 +84,7 @@ public class EActivityParameterNode extends EActivityNode {
            default:
                node.setOrdering(org.modelio.metamodel.uml.behavior.activityModel.ObjectNodeOrderingKind.FIFO);
            }
+        
     }
 
     @objid ("f8667b90-8f06-464f-83cc-99f38262a958")
@@ -100,6 +101,7 @@ public class EActivityParameterNode extends EActivityNode {
             if (behaviorName != null)
                 node.setSelectionBehavior(behaviorName);
         }
+        
     }
 
     @objid ("e6343791-d0e5-4986-92a8-36bf76946b07")
@@ -110,6 +112,7 @@ public class EActivityParameterNode extends EActivityNode {
            if (stringValue != null)
                node.setUpperBound(stringValue);
                 }
+        
     }
 
     @objid ("15f77a08-d749-4f20-b902-025225ccdb3f")
@@ -118,6 +121,7 @@ public class EActivityParameterNode extends EActivityNode {
         if (ecoreType != null) {
             node.setType((GeneralClass) ReverseProperties.getInstance().getMappedElement(ecoreType)); 
         }
+        
     }
 
     @objid ("5dac0ad1-4f33-4597-8b2e-123190e1e303")
@@ -163,6 +167,7 @@ public class EActivityParameterNode extends EActivityNode {
                 }
             }
         }
+        
     }
 
     @objid ("394b8d1d-0cc6-4571-b9a5-9fb4b9c753d2")
@@ -176,6 +181,7 @@ public class EActivityParameterNode extends EActivityNode {
                     node.setInState((State) objingState);
             }
         }
+        
     }
 
 }

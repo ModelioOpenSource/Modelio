@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ClauseData;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementImpl;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityNode;
 import org.modelio.metamodel.uml.behavior.activityModel.Clause;
@@ -77,6 +76,7 @@ public class ClauseImpl extends UmlModelElementImpl implements Clause {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("f1ecde1b-30ee-4595-9979-ee1b81e1fc43")

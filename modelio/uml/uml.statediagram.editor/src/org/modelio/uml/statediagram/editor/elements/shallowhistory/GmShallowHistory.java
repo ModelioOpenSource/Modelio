@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.shallowhistory;
 
 import java.util.Collections;
@@ -31,8 +30,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.ShallowHistoryPseudoState;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -44,9 +43,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("f56d183a-55b6-11e2-877f-002564c97630")
 public class GmShallowHistory extends GmPortContainer {
-    @objid ("f56d183e-55b6-11e2-877f-002564c97630")
-    private ShallowHistoryPseudoState element;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -56,11 +52,14 @@ public class GmShallowHistory extends GmPortContainer {
     @objid ("f56e9edf-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
 
+    @objid ("f56d183e-55b6-11e2-877f-002564c97630")
+    private ShallowHistoryPseudoState element;
+
     @objid ("f56e9eda-55b6-11e2-877f-002564c97630")
     private static final GmShallowHistoryImageStyleKeys IMAGE_KEYS = new GmShallowHistoryImageStyleKeys();
 
     @objid ("fcd9409b-5a5b-11e2-9e33-00137282c51b")
-     static final GmShallowHistoryStructuredStyleKeys STRUCTURED_KEYS = new GmShallowHistoryStructuredStyleKeys();
+    static final GmShallowHistoryStructuredStyleKeys STRUCTURED_KEYS = new GmShallowHistoryStructuredStyleKeys();
 
     @objid ("fcd9409d-5a5b-11e2-9e33-00137282c51b")
     private static final GmShallowHistorySimpleStyleKeys SIMPLE_KEYS = new GmShallowHistorySimpleStyleKeys();
@@ -70,13 +69,12 @@ public class GmShallowHistory extends GmPortContainer {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the timeEvent is unmasked.
      * @param el the unmasked timeEvent.
      * @param ref a reference to the unmasked timeEvent.
      */
     @objid ("f56e9ee1-55b6-11e2-877f-002564c97630")
-    public GmShallowHistory(IGmDiagram diagram, ShallowHistoryPseudoState el, MRef ref) {
+    public  GmShallowHistory(IGmDiagram diagram, ShallowHistoryPseudoState el, MRef ref) {
         super(diagram, ref);
         
         GmShallowHistoryPrimaryNode mainNode = new GmShallowHistoryPrimaryNode(diagram, ref);
@@ -89,6 +87,7 @@ public class GmShallowHistory extends GmPortContainer {
         
         this.addChild(mainNode);
         this.addChild(label);
+        
     }
 
     @objid ("f56e9eed-55b6-11e2-877f-002564c97630")
@@ -147,7 +146,7 @@ public class GmShallowHistory extends GmPortContainer {
      * Empty constructor needed for deserialisation.
      */
     @objid ("f56e9f10-55b6-11e2-877f-002564c97630")
-    public GmShallowHistory() {
+    public  GmShallowHistory() {
         // Nothing specific to do.
     }
 
@@ -168,6 +167,7 @@ public class GmShallowHistory extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("f56e9f19-55b6-11e2-877f-002564c97630")
@@ -189,12 +189,14 @@ public class GmShallowHistory extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmShallowHistory.", GmShallowHistory.MINOR_VERSION);
+        
     }
 
     @objid ("f5702587-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (ShallowHistoryPseudoState) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("f570258c-55b6-11e2-877f-002564c97630")
@@ -205,7 +207,6 @@ public class GmShallowHistory extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -217,7 +218,6 @@ public class GmShallowHistory extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.manager;
 
 import java.io.IOException;
@@ -28,8 +27,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -64,7 +63,6 @@ public final class StyleManager {
      * <p>
      * Includes element styles and diagram themes.
      * </p>
-     * 
      * @return the names of the available named styles
      */
     @objid ("85cabc41-1926-11e2-92d2-001ec947c8cc")
@@ -74,11 +72,11 @@ public final class StyleManager {
                         .filter(s -> !isMissingStyle(s.getValue()))
                         .map(en -> en.getKey())
                         .collect(Collectors.toList());
+        
     }
 
     /**
      * Get a style or theme by name.
-     * 
      * @param name the name of the named style to get
      * @return the 'name' NamedStyle or null if not found
      */
@@ -97,7 +95,6 @@ public final class StyleManager {
      * Create a new named style along with its persistence file.<br>
      * The new file is placed in $PROJECTSPACE/.config/styles directory and named 'name'.style or 'name'.theme.<br>
      * The cascaded style is FactoryStyle.
-     * 
      * @param name then name of the style to create
      * @param isTheme whether or not the created {@link NamedStyle} should be flagged as a diagram theme.
      * @return then newly created NamedStyle or null if the style could not be created. When the style already exists it is simply returned.
@@ -136,11 +133,11 @@ public final class StyleManager {
     protected void registerStyle(String name, NamedStyle style, Path storage) {
         this.styles.put(name, style);
         this.files.put(name, storage);
+        
     }
 
     /**
      * Loads the styles found in the specified directories. The style cache is cleared each time this method is called (ie no accumulation)
-     * 
      * @param stylesDir the directories where to fetch the style files from.
      */
     @objid ("85cabc5b-1926-11e2-92d2-001ec947c8cc")
@@ -157,20 +154,21 @@ public final class StyleManager {
         
         // process the deferred cascade bindings
         resolveDeferredBindings(deferredBindings);
+        
     }
 
     /**
      * Default c'tor.
      */
     @objid ("85cabc61-1926-11e2-92d2-001ec947c8cc")
-    public StyleManager() {
+    public  StyleManager() {
         this.styles = new HashMap<>();
         this.files = new HashMap<>();
+        
     }
 
     /**
      * Write the current named style contents to the disk.
-     * 
      * @param style the style to be saved.
      */
     @objid ("85cabc63-1926-11e2-92d2-001ec947c8cc")
@@ -182,11 +180,11 @@ public final class StyleManager {
             final StyleWriter sw = new StyleWriter();
             sw.saveAsFile(namedStyle, file);
         }
+        
     }
 
     /**
      * Normalizing a style consists in removing from its local definitions the values that are currently the same as the value in cascaded style.
-     * 
      * @param editedStyle the style to normalize.
      */
     @objid ("85cabc67-1926-11e2-92d2-001ec947c8cc")
@@ -203,6 +201,7 @@ public final class StyleManager {
         
             }
         }
+        
     }
 
     /**
@@ -217,7 +216,6 @@ public final class StyleManager {
      * Create a new named style along with its persistence file.<br>
      * The new file is placed in $PROJECTSPACE/.config/styles directory and named 'name'.style.<br>
      * The cascaded style is the named style "parentStyleName" or default style if "parentStyleName" cannot be resolved.
-     * 
      * @param name then name of the style to create
      * @param parentStyleName then name of the parent style of the created style. May be null, in which case 'default' style is used as parent for the newly created style.
      * @param isTheme whether or not the created {@link NamedStyle} should be flagged as a diagram theme.
@@ -238,7 +236,6 @@ public final class StyleManager {
      * Create a new named style along with its persistence file.<br>
      * The new file is placed in $PROJECTSPACE/.config/styles directory and named 'name'.style.<br>
      * The cascaded style is the named style "parentStyleName" or default style if "parentStyleName" cannot be resolved.
-     * 
      * @param name then name of the style to create
      * @param parentStyleName then name of the parent style of the created style. May be null, in which case 'default' style is used as parent for the newly created style.
      * @param styleData the url of the file to initialize the style from.
@@ -284,11 +281,11 @@ public final class StyleManager {
         } catch (IOException e) {
             DiagramStyles.LOG.error(e);
         }
+        
     }
 
     /**
      * Set the default theme to be used for diagrams.
-     * 
      * @param themeName a style name.
      */
     @objid ("dd6d507b-5e14-443c-b6ec-6a1cfb8f6124")
@@ -316,7 +313,6 @@ public final class StyleManager {
      * Process the deferred cascade bindings.
      * <p>
      * The rule is to create stub styles if the parent style does not exist.
-     * 
      * @param deferredBindings a map with 'child'/'parent' style names as 'key'/'value' entries.
      */
     @objid ("c6dbe853-5d1c-485a-9cd9-a2104c7fc445")
@@ -329,6 +325,7 @@ public final class StyleManager {
                 style.setCascadedStyle(cascadeStyle);
             }
         }
+        
     }
 
     @objid ("989169ce-43eb-42da-8658-da2b82ba138a")
@@ -365,10 +362,9 @@ public final class StyleManager {
 
     /**
      * Import a style in the current style directory.
-     * 
      * @param styleFile the style's persistence file, to be copied in the current style directory. Musn't be <code>null</code>.
      * @return a {@link NamedStyle} instanciated from the style file.
-     * @throws java.io.IOException if an I/O error occurs.
+     * @throws IOException if an I/O error occurs.
      */
     @objid ("1e94bb7d-2543-4fe7-830c-fc4712578dcb")
     NamedStyle importStyle(Path styleFile) throws IOException {
@@ -383,14 +379,17 @@ public final class StyleManager {
         return importedStyle;
     }
 
+    /**
+     * @param s a named style.
+     * @return <code>true</code> if this style is missing, i.e. has no corresponding file.
+     */
     @objid ("5058a042-6018-43e7-9231-695da0d833e3")
-    private static boolean isMissingStyle(NamedStyle s) {
+    public static boolean isMissingStyle(NamedStyle s) {
         return s instanceof MissingNamedStyle;
     }
 
     /**
      * Get a style by name.
-     * 
      * @param name the name of the named style to get
      * @return the 'name' NamedStyle or null if not found
      */
@@ -418,6 +417,7 @@ public final class StyleManager {
     public Stream<NamedStyle> elementStyles() {
         return this.styles.values().stream()
                         .filter(s -> !s.isTheme());
+        
     }
 
 }

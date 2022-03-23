@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnintermediatecatchevent;
 
 import java.util.Collections;
@@ -43,9 +42,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("610092eb-55b6-11e2-877f-002564c97630")
 public class GmBpmnIntermediateCatchEvent extends GmPortContainer {
-    @objid ("610092f5-55b6-11e2-877f-002564c97630")
-    private BpmnIntermediateCatchEvent element;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -55,8 +51,11 @@ public class GmBpmnIntermediateCatchEvent extends GmPortContainer {
     @objid ("610092fb-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
 
+    @objid ("610092f5-55b6-11e2-877f-002564c97630")
+    private BpmnIntermediateCatchEvent element;
+
     @objid ("c5797fcd-59a6-11e2-ae45-002564c97630")
-     static final GmBpmnIntermediateCatchEventStructuredStyleKeys STRUCTURED_KEYS = new GmBpmnIntermediateCatchEventStructuredStyleKeys();
+    static final GmBpmnIntermediateCatchEventStructuredStyleKeys STRUCTURED_KEYS = new GmBpmnIntermediateCatchEventStructuredStyleKeys();
 
     @objid ("c5797fcf-59a6-11e2-ae45-002564c97630")
     private static final GmBpmnIntermediateCatchEventSimpleStyleKeys SIMPLE_KEYS = new GmBpmnIntermediateCatchEventSimpleStyleKeys();
@@ -69,13 +68,12 @@ public class GmBpmnIntermediateCatchEvent extends GmPortContainer {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the timeEvent is unmasked.
      * @param el the unmasked timeEvent.
      * @param ref a reference to the unmasked timeEvent.
      */
     @objid ("610092fd-55b6-11e2-877f-002564c97630")
-    public GmBpmnIntermediateCatchEvent(IGmDiagram diagram, BpmnIntermediateCatchEvent el, MRef ref) {
+    public  GmBpmnIntermediateCatchEvent(IGmDiagram diagram, BpmnIntermediateCatchEvent el, MRef ref) {
         super(diagram, ref);
         
         GmBpmnIntermediateCatchEventPrimaryNode mainNode = new GmBpmnIntermediateCatchEventPrimaryNode(diagram, ref);
@@ -87,6 +85,7 @@ public class GmBpmnIntermediateCatchEvent extends GmPortContainer {
         label.setRoleInComposition(GmPortContainer.SATELLITE_ROLE);
         label.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         this.addChild(label);
+        
     }
 
     @objid ("61009309-55b6-11e2-877f-002564c97630")
@@ -116,6 +115,7 @@ public class GmBpmnIntermediateCatchEvent extends GmPortContainer {
         default:
             return null;
         }
+        
     }
 
     @objid ("6102197b-55b6-11e2-877f-002564c97630")
@@ -133,13 +133,14 @@ public class GmBpmnIntermediateCatchEvent extends GmPortContainer {
         default:
             return Collections.emptyList();
         }
+        
     }
 
     /**
      * Empty constructor needed for deserialisation.
      */
     @objid ("61021983-55b6-11e2-877f-002564c97630")
-    public GmBpmnIntermediateCatchEvent() {
+    public  GmBpmnIntermediateCatchEvent() {
         // Nothing specific to do.
     }
 
@@ -160,6 +161,7 @@ public class GmBpmnIntermediateCatchEvent extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("6102198c-55b6-11e2-877f-002564c97630")
@@ -181,12 +183,14 @@ public class GmBpmnIntermediateCatchEvent extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmBpmnIntermediateCatchEvent.", MINOR_VERSION);
+        
     }
 
     @objid ("610219ae-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (BpmnIntermediateCatchEvent) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("610219b3-55b6-11e2-877f-002564c97630")
@@ -197,7 +201,6 @@ public class GmBpmnIntermediateCatchEvent extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -209,7 +212,6 @@ public class GmBpmnIntermediateCatchEvent extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

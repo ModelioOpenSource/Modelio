@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.ramc;
 
 import java.nio.file.Path;
@@ -66,7 +65,6 @@ public interface IModelComponentInfos extends IFragmentInfos {
 
     /**
      * Get the version of Modelio used to package this RAMC.
-     * 
      * @return the Modelio version.
      */
     @objid ("5b2a2002-09a6-4655-9848-f9385ae1f64c")
@@ -115,7 +113,7 @@ public interface IModelComponentInfos extends IFragmentInfos {
      * File exported by the RAMC
      */
     @objid ("4fbf6c11-c9b2-42b7-a1d2-3d04a0617b6b")
-    static class ExportedFile {
+    public static class ExportedFile {
         /**
          * The file name in the RAMC archive
          * @since 3.6
@@ -135,17 +133,17 @@ public interface IModelComponentInfos extends IFragmentInfos {
          * @param date the date/time to set as the file modification time.
          */
         @objid ("1eb8fd9b-c40b-4494-997d-550c4e8687ce")
-        public ExportedFile(final String nameInArchive, final Path path, final FileTime date) {
+        public  ExportedFile(final String nameInArchive, final Path path, final FileTime date) {
             this.nameInArchive = nameInArchive;
             this.path = path;
             this.date = date;
+            
         }
 
         /**
          * Get the destination path.
          * <p>
          * This path is a relative path from the project directory.
-         * 
          * @return the destination path.
          */
         @objid ("f298608a-5f1d-4692-aea2-934bdcb40caf")

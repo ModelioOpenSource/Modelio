@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.migration.from_bpmn_36;
 
 import java.io.PrintWriter;
@@ -42,7 +41,7 @@ class OwnedDiagramsMigrator {
     private final MM mm;
 
     @objid ("bca8ccdf-d277-49c7-9310-c3ccceee71d0")
-    public OwnedDiagramsMigrator(MM mm) {
+    public  OwnedDiagramsMigrator(MM mm) {
         this.mm = mm;
     }
 
@@ -97,6 +96,7 @@ class OwnedDiagramsMigrator {
                 }
             }
         }
+        
     }
 
     @objid ("b5dd4af0-7856-4855-b12d-33ec37f10663")
@@ -126,6 +126,7 @@ class OwnedDiagramsMigrator {
         } else {
             throw new IllegalArgumentException("Cycle in ownership tree of " + bpmnEl);
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.modelshield;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -108,7 +107,6 @@ import org.modelio.vcore.smkernel.mapi.modelshield.spi.ICheckerFactory;
 public class StandardCheckerFactory implements ICheckerFactory {
     /**
      * Create and register the model shield checkers.
-     * 
      * @param plan the model shield registry where checkers must be registered.
      * @param metamodel the current metamodel.
      */
@@ -194,6 +192,7 @@ public class StandardCheckerFactory implements ICheckerFactory {
         new E294Checker().register(plan,metamodel);
         new E295Checker().register(plan,metamodel);
         new E296Checker().register(plan,metamodel);
+        
     }
 
 }

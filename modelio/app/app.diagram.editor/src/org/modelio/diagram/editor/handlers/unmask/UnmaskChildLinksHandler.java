@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.handlers.unmask;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.gef.GraphicalEditPart;
@@ -58,6 +57,7 @@ public class UnmaskChildLinksHandler extends AbstractUnmaskHandler {
         } catch (Exception e) {
             DiagramEditor.LOG.error(e);
         }
+        
     }
 
     /**

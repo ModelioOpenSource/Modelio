@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.requiredinterface;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -57,16 +56,16 @@ public class ConnectLollipopsCommand extends Command {
 
     /**
      * Initialize the command.
-     * 
      * @param reqEditPart the required interface
      * @param provEditPart the provided interface
      * @param location the junction location
      */
     @objid ("366ccddf-55b7-11e2-877f-002564c97630")
-    public ConnectLollipopsCommand(final RequiredInterfaceLinkEditPart reqEditPart, final ProvidedInterfaceLinkEditPart provEditPart, final Point location) {
+    public  ConnectLollipopsCommand(final RequiredInterfaceLinkEditPart reqEditPart, final ProvidedInterfaceLinkEditPart provEditPart, final Point location) {
         this.reqEditPart = reqEditPart;
         this.provEditPart = provEditPart;
         this.location = location;
+        
     }
 
     @objid ("366ccde8-55b7-11e2-877f-002564c97630")
@@ -114,6 +113,7 @@ public class ConnectLollipopsCommand extends Command {
         targetFig.translateToRelative(pt);
         
         cnx.setLayoutData(new Rectangle(pt.x, pt.y, -1, -1));
+        
     }
 
     @objid ("366e547a-55b7-11e2-877f-002564c97630")

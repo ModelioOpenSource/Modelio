@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio;
 
 import java.io.File;
@@ -31,7 +30,6 @@ public interface IModelioContext {
     /**
      * Get the language defined for resources. The returned value is the value that Locale.getDefault().getLanguage()
      * returns if this value is supported by Modelio. Otherwise 'us' is returned.
-     * 
      * @return a String containing the language used for Modelio resources.
      */
     @objid ("2f09bbda-ebb7-11dd-aa31-0014222a9f79")
@@ -43,7 +41,6 @@ public interface IModelioContext {
      * directories and the module deployment paths. If no project is currently opened, returns null;
      * @see IModuleUserConfiguration#getProjectSpacePath() : You also can use
      * <code>getConfiguration().getProjectSpacePath()</code> on the module.
-     * 
      * @return the project space path or <code>null</code> if no project is currently opened
      * @deprecated use {@link IProjectStructure#getPath()} instead.
      */
@@ -53,7 +50,6 @@ public interface IModelioContext {
 
     /**
      * Get the version of the current Modelio
-     * 
      * @return an object of the Version class that represent the version of the current Modelio.
      */
     @objid ("2f0e8088-ebb7-11dd-aa31-0014222a9f79")
@@ -61,7 +57,6 @@ public interface IModelioContext {
 
     /**
      * Get the current workspace path of Modelio.
-     * 
      * @return the current workspace path of Modelio.
      */
     @objid ("9b1d0290-757c-11e0-8651-001ec947cd2a")
@@ -69,7 +64,6 @@ public interface IModelioContext {
 
     /**
      * Get the current installation directory of Modelio.
-     * 
      * @return the current installation directory of Modelio.
      */
     @objid ("6c3c5a2f-cd3b-4242-8c68-99e433983f44")

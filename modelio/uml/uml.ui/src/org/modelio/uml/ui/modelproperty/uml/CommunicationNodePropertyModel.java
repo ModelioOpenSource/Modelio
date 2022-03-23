@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.util.Collections;
@@ -51,22 +50,20 @@ public class CommunicationNodePropertyModel extends AbstractPropertyModel<Commun
      */
     @objid ("a84e65bb-90b6-4d42-8aa1-651abd78ee32")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name", "Represented",
-			"Selector" };
+    			"Selector" };
 
     /**
      * Create a new <i>CommunicationNode</i> data model from an
      * <i>CommunicationNode</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("268493e4-520e-44e8-95b9-41f0f106d94c")
-    public CommunicationNodePropertyModel(CommunicationNode theEditedElement) {
+    public  CommunicationNodePropertyModel(CommunicationNode theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("f52419ab-cc57-41d4-aa7b-99af9e59ab8c")
@@ -77,7 +74,6 @@ public class CommunicationNodePropertyModel extends AbstractPropertyModel<Commun
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("9c747e67-d6bb-4fec-b6f9-709f15a15120")
@@ -90,7 +86,6 @@ public class CommunicationNodePropertyModel extends AbstractPropertyModel<Commun
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -116,6 +111,7 @@ public class CommunicationNodePropertyModel extends AbstractPropertyModel<Commun
         default:
             return null;
         }
+        
     }
 
     /**
@@ -125,7 +121,6 @@ public class CommunicationNodePropertyModel extends AbstractPropertyModel<Commun
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -153,13 +148,13 @@ public class CommunicationNodePropertyModel extends AbstractPropertyModel<Commun
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -190,6 +185,7 @@ public class CommunicationNodePropertyModel extends AbstractPropertyModel<Commun
         default:
             return;
         }
+        
     }
 
 }

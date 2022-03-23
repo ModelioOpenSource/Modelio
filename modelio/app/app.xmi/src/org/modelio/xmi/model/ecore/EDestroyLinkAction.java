@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class EDestroyLinkAction extends EActivityNode {
     }
 
     @objid ("ce646271-847e-4326-acd9-60540199f4af")
-    public EDestroyLinkAction(org.eclipse.uml2.uml.DestroyLinkAction element) {
+    public  EDestroyLinkAction(org.eclipse.uml2.uml.DestroyLinkAction element) {
         super(element);
     }
 

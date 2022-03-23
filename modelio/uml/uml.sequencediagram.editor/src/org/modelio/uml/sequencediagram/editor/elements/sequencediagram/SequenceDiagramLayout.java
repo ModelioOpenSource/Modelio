@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.sequencediagram;
 
 import java.util.HashMap;
@@ -55,6 +54,7 @@ public class SequenceDiagramLayout extends AbstractLayout {
     public Object getConstraint(final IFigure child) {
         return this.selfLocatingConstraints.get(child) != null ? this.selfLocatingConstraints.get(child)
                         : this.simpleConstraints.get(child);
+        
     }
 
     @objid ("d97d9b03-55b6-11e2-877f-002564c97630")
@@ -85,6 +85,7 @@ public class SequenceDiagramLayout extends AbstractLayout {
                 }
             }
         }
+        
     }
 
     @objid ("d97d9b08-55b6-11e2-877f-002564c97630")
@@ -92,6 +93,7 @@ public class SequenceDiagramLayout extends AbstractLayout {
     public void remove(final IFigure child) {
         this.selfLocatingConstraints.remove(child);
         this.simpleConstraints.remove(child);
+        
     }
 
     @objid ("d97d9b0d-55b6-11e2-877f-002564c97630")
@@ -103,6 +105,7 @@ public class SequenceDiagramLayout extends AbstractLayout {
         } else if (constraint instanceof Rectangle) {
             this.simpleConstraints.put(figure, (Rectangle) constraint);
         }
+        
     }
 
     @objid ("d97d9b14-55b6-11e2-877f-002564c97630")

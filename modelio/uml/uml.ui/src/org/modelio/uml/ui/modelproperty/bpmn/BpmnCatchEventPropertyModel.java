@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -48,22 +47,20 @@ public class BpmnCatchEventPropertyModel extends AbstractPropertyModel<BpmnCatch
      */
     @objid ("a39de9f6-3803-4099-9bca-bda7958e5d91")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name",
-			"ParallelMultiple" };
+    			"ParallelMultiple" };
 
     /**
      * Create a new <i>BpmnCatchEvent</i> data model from an
      * <i>BpmnCatchEvent</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("d43459af-8087-469b-b58f-1eb29a891c65")
-    public BpmnCatchEventPropertyModel(BpmnCatchEvent theEditedElement) {
+    public  BpmnCatchEventPropertyModel(BpmnCatchEvent theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("6745749b-79ca-46d5-a3cd-a6d76166d56b")
@@ -74,7 +71,6 @@ public class BpmnCatchEventPropertyModel extends AbstractPropertyModel<BpmnCatch
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("0330039d-b276-407b-99f1-03014a074bd4")
@@ -87,7 +83,6 @@ public class BpmnCatchEventPropertyModel extends AbstractPropertyModel<BpmnCatch
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -111,6 +106,7 @@ public class BpmnCatchEventPropertyModel extends AbstractPropertyModel<BpmnCatch
         default:
             return null;
         }
+        
     }
 
     /**
@@ -120,7 +116,6 @@ public class BpmnCatchEventPropertyModel extends AbstractPropertyModel<BpmnCatch
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -145,13 +140,13 @@ public class BpmnCatchEventPropertyModel extends AbstractPropertyModel<BpmnCatch
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -179,6 +174,7 @@ public class BpmnCatchEventPropertyModel extends AbstractPropertyModel<BpmnCatch
         default:
             return;
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.gmdbg;
 
 import java.util.ArrayList;
@@ -51,7 +50,7 @@ public class GmPropView {
     private Font boldFont;
 
     @objid ("a877daa3-89c7-4019-8e78-5382cb8ab70b")
-    public GmPropView(Composite parent) {
+    public  GmPropView(Composite parent) {
         this.gmProps = new TableViewer(parent, SWT.V_SCROLL);
         
         final Table table = this.gmProps.getTable();
@@ -93,6 +92,7 @@ public class GmPropView {
         });
         
         this.gmProps.setContentProvider(new GmPropsContentProvider());
+        
     }
 
     @objid ("1f07d5bb-a711-4cd1-9e93-b9720f3d02a8")
@@ -108,7 +108,7 @@ public class GmPropView {
     @objid ("d8f24c52-a119-42f7-99a1-65ba30fde2c5")
     private static class GmPropsContentProvider implements IStructuredContentProvider {
         @objid ("63f61dee-38b0-435a-bdc4-90a5a84aa00a")
-         List<Entry<String,String>> properties;
+        List<Entry<String, String>> properties;
 
         @objid ("232c561c-d340-402d-887c-cdf8e779b4f3")
         @Override
@@ -210,6 +210,7 @@ public class GmPropView {
                 this.properties.add(new XEntry("    Editable", Formatter.toString(gm.isUserEditable())));
                 this.properties.add(new XEntry("    Major version", Formatter.toString(gm.getMajorVersion())));
             }
+            
         }
 
         @objid ("5b124c9f-ebeb-424b-930d-f6b30be6bd15")

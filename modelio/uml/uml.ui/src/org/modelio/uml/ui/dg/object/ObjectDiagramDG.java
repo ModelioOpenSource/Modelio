@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.object;
 
 import java.util.Collections;
@@ -36,12 +35,11 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 public class ObjectDiagramDG extends DiagramDG {
     /**
      * Initialize the activity diagram graphic element.
-     * 
      * @param diagramHandle The diagram handle
      * @param node The internal graphic node representing the diagram.
      */
     @objid ("7f1270e8-518f-4f4c-9920-dfb9c44a8308")
-    public ObjectDiagramDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  ObjectDiagramDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 

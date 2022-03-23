@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.ramc.core.packaging.filters;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,12 +33,13 @@ class LinkTargetFilter implements IObjectFilter {
     private IObjectFilter targetFilter;
 
     @objid ("803b7536-09f5-47c0-8b33-9c5b3a7ec86e")
-    private MExpert expert;
+    protected final MExpert expert;
 
     @objid ("7158c7a8-b7bd-4d2f-88a3-3cb5610bbe9b")
-    public LinkTargetFilter(MExpert expert, IObjectFilter targetFilter) {
+    public  LinkTargetFilter(MExpert expert, IObjectFilter targetFilter) {
         this.expert = expert;
         this.targetFilter = targetFilter;
+        
     }
 
     @objid ("ba5cdd20-a3e3-42b1-906a-eddf36c8f474")

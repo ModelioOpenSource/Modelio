@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.naryassoc;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,6 +40,7 @@ public class NaryRoleNameEditPart extends ModelElementLabelEditPart {
         super.refreshVisuals();
         
         refreshFromStyle(getFigure(), getModelStyle());
+        
     }
 
     @objid ("20a2dbd3-a336-42c6-a217-714a4da034cf")
@@ -48,6 +48,7 @@ public class NaryRoleNameEditPart extends ModelElementLabelEditPart {
     protected void refreshFromStyle(final IFigure fig, final IStyle style) {
         super.refreshFromStyle(fig, style);
         refreshStaticAbstract((WrappedHeaderFigure) fig);
+        
     }
 
     @objid ("7b4a2e76-5ce7-421f-9284-1f06fad9bfa0")
@@ -65,6 +66,7 @@ public class NaryRoleNameEditPart extends ModelElementLabelEditPart {
             // restore default font from style
             fig.setTextFont(gm.getDisplayedStyle().getFont(gm.getStyleKey(MetaKey.FONT)));
         }
+        
     }
 
 }

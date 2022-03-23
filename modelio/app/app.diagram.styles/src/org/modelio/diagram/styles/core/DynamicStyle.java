@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.core;
 
 import java.util.Set;
@@ -38,7 +37,7 @@ import org.modelio.diagram.persistence.IDiagramWriter;
 @objid ("8a3a38a6-a61e-44c5-831d-64d32a045945")
 public class DynamicStyle extends Style {
     @objid ("0e3cb4ca-419d-4cb2-ad09-9a30e3d7a145")
-    public DynamicStyle(IStyle cascadedStyle) {
+    public  DynamicStyle(IStyle cascadedStyle) {
         super(cascadedStyle);
     }
 
@@ -52,7 +51,6 @@ public class DynamicStyle extends Style {
      * Get all style keys for which a value has been locally set.
      * <p>
      * Overriden style keys are ignored.
-     * 
      * @return locally defined style keys.
      */
     @objid ("2c2c390d-5770-43db-ba06-f46875c4a29b")
@@ -116,7 +114,6 @@ public class DynamicStyle extends Style {
 
     /**
      * Override a style property.
-     * 
      * @param key a style key
      * @param value the forced value.
      */

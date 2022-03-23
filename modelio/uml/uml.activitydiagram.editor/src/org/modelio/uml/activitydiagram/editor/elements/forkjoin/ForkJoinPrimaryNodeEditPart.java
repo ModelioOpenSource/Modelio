@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.forkjoin;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -84,6 +83,7 @@ public class ForkJoinPrimaryNodeEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                 new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("2a7fefe9-55b6-11e2-877f-002564c97630")
@@ -91,6 +91,7 @@ public class ForkJoinPrimaryNodeEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         GmForkJoinPrimaryNode forkJoinModel = (GmForkJoinPrimaryNode) getModel();
         getFigure().getParent().setConstraint(getFigure(), forkJoinModel.getLayoutData());
+        
     }
 
     @objid ("2a7fefec-55b6-11e2-877f-002564c97630")
@@ -115,6 +116,7 @@ public class ForkJoinPrimaryNodeEditPart extends AbstractNodeEditPart {
                 }
             }
         }
+        
     }
 
     @objid ("2a7feff8-55b6-11e2-877f-002564c97630")
@@ -140,6 +142,7 @@ public class ForkJoinPrimaryNodeEditPart extends AbstractNodeEditPart {
         
             this.currentOrientation = orientation;
         }
+        
     }
 
     @objid ("2a7feffc-55b6-11e2-877f-002564c97630")
@@ -160,6 +163,7 @@ public class ForkJoinPrimaryNodeEditPart extends AbstractNodeEditPart {
         } else {
             aFigure.setBounds(newBounds);
         }
+        
     }
 
 }

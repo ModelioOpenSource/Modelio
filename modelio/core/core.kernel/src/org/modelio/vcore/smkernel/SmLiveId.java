@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -86,7 +85,6 @@ public final class SmLiveId {
 
     /**
      * Build a live identifier.
-     * 
      * @param kid a kernel id.
      * @param rid a repository id.
      * @param classid a metaclass id.
@@ -99,7 +97,6 @@ public final class SmLiveId {
 
     /**
      * Dumps a live identifier.
-     * 
      * @param liveId a live id.
      * @return its dump.
      */
@@ -109,7 +106,7 @@ public final class SmLiveId {
     }
 
     @objid ("540bd860-e3a8-4f36-8d67-49326b57968a")
-    private SmLiveId() {
+    private  SmLiveId() {
         // no instance
     }
 

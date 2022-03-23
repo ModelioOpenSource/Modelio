@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.callbehavior;
 
 import java.util.Collections;
@@ -31,8 +30,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityAction;
 import org.modelio.metamodel.uml.behavior.activityModel.CallBehaviorAction;
 import org.modelio.metamodel.uml.behavior.activityModel.InputPin;
@@ -65,26 +64,25 @@ public class GmCallBehavior extends GmPinContainer {
     private static final String IMAGE_LABEL_ROLE = "ImageLabel";
 
     @objid ("29b80c35-55b6-11e2-877f-002564c97630")
-     static final GmCallBehaviorSimpleStyleKeys SIMPLE_KEYS = new GmCallBehaviorSimpleStyleKeys();
+    static final GmCallBehaviorSimpleStyleKeys SIMPLE_KEYS = new GmCallBehaviorSimpleStyleKeys();
 
     @objid ("2faece15-58a2-11e2-9574-002564c97630")
-     static final GmCallBehaviorStructuredStyleKeys STRUCTURED_KEYS = new GmCallBehaviorStructuredStyleKeys();
+    static final GmCallBehaviorStructuredStyleKeys STRUCTURED_KEYS = new GmCallBehaviorStructuredStyleKeys();
 
     @objid ("2faece17-58a2-11e2-9574-002564c97630")
-     static final GmCallBehaviorImageStyleKeys IMAGE_KEYS = new GmCallBehaviorImageStyleKeys();
+    static final GmCallBehaviorImageStyleKeys IMAGE_KEYS = new GmCallBehaviorImageStyleKeys();
 
     @objid ("26a4a9bd-cb63-44ee-8510-d78e06ee52e7")
-     static final GmCallBehaviorUserImageStyleKeys USERIMAGE_KEYS = new GmCallBehaviorUserImageStyleKeys();
+    static final GmCallBehaviorUserImageStyleKeys USERIMAGE_KEYS = new GmCallBehaviorUserImageStyleKeys();
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the callBehavior is unmasked.
      * @param el the unmasked callBehavior.
      * @param ref a reference to the unmasked callBehavior.
      */
     @objid ("29b9929f-55b6-11e2-877f-002564c97630")
-    public GmCallBehavior(IGmDiagram diagram, CallBehaviorAction el, MRef ref) {
+    public  GmCallBehavior(IGmDiagram diagram, CallBehaviorAction el, MRef ref) {
         super(diagram, ref);
         this.element = el;
         
@@ -97,13 +95,14 @@ public class GmCallBehavior extends GmPinContainer {
         
         super.addChild(mainNode);
         super.addChild(imageModeHeader);
+        
     }
 
     /**
      * Empty constructor needed for deserialisation.
      */
     @objid ("29b992ab-55b6-11e2-877f-002564c97630")
-    public GmCallBehavior() {
+    public  GmCallBehavior() {
         // Nothing specific to do.
     }
 
@@ -119,6 +118,7 @@ public class GmCallBehavior extends GmPinContainer {
         return ((InputPin.class.isAssignableFrom(el.getClass()) ||
                         ValuePin.class.isAssignableFrom(el.getClass()) || OutputPin.class.isAssignableFrom(el.getClass())) && el.getCompositionOwner()
                                 .equals(this.element));
+        
     }
 
     @objid ("29b992be-55b6-11e2-877f-002564c97630")
@@ -194,6 +194,7 @@ public class GmCallBehavior extends GmPinContainer {
             break;
         }
         }
+        
     }
 
     @objid ("29bb1943-55b6-11e2-877f-002564c97630")
@@ -203,6 +204,7 @@ public class GmCallBehavior extends GmPinContainer {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmCallBehavior.", GmCallBehavior.MINOR_VERSION);
+        
     }
 
     @objid ("29bb1949-55b6-11e2-877f-002564c97630")
@@ -215,6 +217,7 @@ public class GmCallBehavior extends GmPinContainer {
         imageModeHeader.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         
         super.addChild(imageModeHeader, 1);
+        
     }
 
     @objid ("29bb194e-55b6-11e2-877f-002564c97630")
@@ -227,6 +230,7 @@ public class GmCallBehavior extends GmPinContainer {
     private void read_1(final IDiagramReader in) {
         super.read(in);
         this.element = (CallBehaviorAction) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("29bb1959-55b6-11e2-877f-002564c97630")
@@ -242,6 +246,7 @@ public class GmCallBehavior extends GmPinContainer {
                 ret.remove(imageModeHeader);
                 break;
             }
+            case USER_IMAGE:
             case IMAGE:
             default: {
                 break;
@@ -254,7 +259,6 @@ public class GmCallBehavior extends GmPinContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -264,11 +268,11 @@ public class GmCallBehavior extends GmPinContainer {
         String role = childNode.getRoleInComposition();
         return GmPortContainer.SATELLITE_ROLE.equals(role)
                         || GmCallBehavior.IMAGE_LABEL_ROLE.equals(role);
+        
     }
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */

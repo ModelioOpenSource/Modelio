@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.preferences;
 
 import java.io.IOException;
@@ -30,8 +29,8 @@ import org.eclipse.jface.util.IPropertyChangeListener;
 import org.eclipse.jface.util.PropertyChangeEvent;
 import org.eclipse.jface.util.SafeRunnable;
 import org.modelio.gproject.data.project.DefinitionScope;
-import org.modelio.gproject.data.project.GProperties.Entry;
 import org.modelio.gproject.data.project.GProperties;
+import org.modelio.gproject.data.project.GProperties.Entry;
 import org.modelio.gproject.gproject.GProject;
 
 /**
@@ -54,14 +53,15 @@ public class GProjectPreferenceStore extends EventManager implements IGProjectPr
     private GProject project;
 
     @objid ("b870b159-1dc7-4e79-a3fb-9748ae7b43fe")
-     List<IPropertyChangeListener> listeners = new ArrayList<>();
+    List<IPropertyChangeListener> listeners = new ArrayList<>();
 
     @objid ("72a2fec7-bb26-4608-80c4-e0989af69dc6")
-    public GProjectPreferenceStore(GProject gProject) {
+    public  GProjectPreferenceStore(GProject gProject) {
         assert (gProject != null);
         
         this.project = gProject;
         this.subSet = "";
+        
     }
 
     @objid ("cac3ea84-fe37-45a0-9b64-5c05e02fe9eb")
@@ -92,6 +92,7 @@ public class GProjectPreferenceStore extends EventManager implements IGProjectPr
                 });
             }
         }
+        
     }
 
     @objid ("702af4bf-36f8-41d3-9942-84676595a0eb")
@@ -112,6 +113,7 @@ public class GProjectPreferenceStore extends EventManager implements IGProjectPr
         } else {
             return Boolean.parseBoolean(v);
         }
+        
     }
 
     @objid ("e3f65795-9c79-4bae-9c75-8a93476b6611")
@@ -176,6 +178,7 @@ public class GProjectPreferenceStore extends EventManager implements IGProjectPr
                 return DOUBLE_DEFAULT_DEFAULT;
             }
         }
+        
     }
 
     @objid ("c41545cb-b5f2-476f-9a55-c321c930b4e3")
@@ -204,6 +207,7 @@ public class GProjectPreferenceStore extends EventManager implements IGProjectPr
                 return FLOAT_DEFAULT_DEFAULT;
             }
         }
+        
     }
 
     @objid ("1e6b4ddb-c747-4429-8de7-3b0ca3fad8c1")
@@ -232,6 +236,7 @@ public class GProjectPreferenceStore extends EventManager implements IGProjectPr
                 return INT_DEFAULT_DEFAULT;
             }
         }
+        
     }
 
     @objid ("17d974d2-c9f3-41d8-82b9-c17ada711e98")
@@ -260,6 +265,7 @@ public class GProjectPreferenceStore extends EventManager implements IGProjectPr
                 return LONG_DEFAULT_DEFAULT;
             }
         }
+        
     }
 
     @objid ("52cc6607-544b-4a89-8629-4652e93078d6")
@@ -307,6 +313,7 @@ public class GProjectPreferenceStore extends EventManager implements IGProjectPr
             this.dirty = true;
             firePropertyChangeEvent(name, oldValue, value);
         }
+        
     }
 
     @objid ("18427025-4060-4815-a3fe-2971511e6a99")
@@ -366,6 +373,7 @@ public class GProjectPreferenceStore extends EventManager implements IGProjectPr
         
             firePropertyChangeEvent(name, oldValue, defaultValue);
         }
+        
     }
 
     @objid ("11e7e77f-b6f3-41d3-85a1-8096cd821c70")
@@ -409,6 +417,7 @@ public class GProjectPreferenceStore extends EventManager implements IGProjectPr
     public void save() throws IOException {
         // not supported . Effective persistence  in under the responsibility of the project/project service
         // so do not call super and do NOT set this.dirty to false here !
+        
     }
 
     @objid ("e49b5f1a-73f4-436a-ab7a-007aa6b55f2b")

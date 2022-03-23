@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -57,9 +56,10 @@ public class GradientFigure extends Figure implements IBrushOptionsSupport, IPen
      * Creates a gradient figure.
      */
     @objid ("7fa261c1-1dec-11e2-8cad-001ec947c8cc")
-    public GradientFigure() {
+    public  GradientFigure() {
         this.brushOptions = new BrushOptions();
         this.penOptions = new PenOptions();
+        
     }
 
     @objid ("7fa261c4-1dec-11e2-8cad-001ec947c8cc")
@@ -83,6 +83,7 @@ public class GradientFigure extends Figure implements IBrushOptionsSupport, IPen
         }
         
         graphics.restoreState();
+        
     }
 
     @objid ("7fa261ca-1dec-11e2-8cad-001ec947c8cc")
@@ -101,6 +102,7 @@ public class GradientFigure extends Figure implements IBrushOptionsSupport, IPen
             this.brushOptions.fillColor = fillColor;
             this.repaint();
         }
+        
     }
 
     @objid ("7fa261d3-1dec-11e2-8cad-001ec947c8cc")
@@ -122,6 +124,7 @@ public class GradientFigure extends Figure implements IBrushOptionsSupport, IPen
             this.brushOptions.useGradient = useGradient;
             this.repaint();
         }
+        
     }
 
     @objid ("7fa261e1-1dec-11e2-8cad-001ec947c8cc")
@@ -155,6 +158,7 @@ public class GradientFigure extends Figure implements IBrushOptionsSupport, IPen
             this.penOptions.lineColor = lineColor;
             this.repaint();
         }
+        
     }
 
     @objid ("7fa4c40a-1dec-11e2-8cad-001ec947c8cc")
@@ -164,6 +168,7 @@ public class GradientFigure extends Figure implements IBrushOptionsSupport, IPen
             this.penOptions.lineWidth = lineWidth;
             this.repaint();
         }
+        
     }
 
     @objid ("7fa4c40e-1dec-11e2-8cad-001ec947c8cc")
@@ -173,6 +178,7 @@ public class GradientFigure extends Figure implements IBrushOptionsSupport, IPen
             this.penOptions.textColor = textColor;
             this.repaint();
         }
+        
     }
 
     @objid ("7fa4c412-1dec-11e2-8cad-001ec947c8cc")
@@ -182,6 +188,7 @@ public class GradientFigure extends Figure implements IBrushOptionsSupport, IPen
             this.penOptions.textFont = textFont;
             this.repaint();
         }
+        
     }
 
     @objid ("7fa4c416-1dec-11e2-8cad-001ec947c8cc")
@@ -197,6 +204,7 @@ public class GradientFigure extends Figure implements IBrushOptionsSupport, IPen
             this.penOptions.linePattern = lineStyle;
             this.repaint();
         }
+        
     }
 
     @objid ("8e1447f4-a6ee-4e12-a9b2-70b54a996a7f")
@@ -206,6 +214,7 @@ public class GradientFigure extends Figure implements IBrushOptionsSupport, IPen
             this.brushOptions.alpha = alpha;
             this.repaint();
         }
+        
     }
 
     @objid ("d12ba4b3-4884-4030-8eeb-0a91ef43bbc8")
@@ -218,11 +227,10 @@ public class GradientFigure extends Figure implements IBrushOptionsSupport, IPen
      * Copy constructor.
      * <p>
      * Copy only what can be safely be copied, skip layout manager, Border and composition hierarchy.
-     * 
      * @param orig the original figure.
      */
     @objid ("e98df5b2-c891-4034-a851-af50e389a784")
-    public GradientFigure(GradientFigure orig) {
+    public  GradientFigure(GradientFigure orig) {
         // No copy constructor on Figure ;-(
         super();
         
@@ -233,6 +241,7 @@ public class GradientFigure extends Figure implements IBrushOptionsSupport, IPen
         // GradientFigure specific
         this.brushOptions = new BrushOptions(orig.brushOptions);
         this.penOptions = new PenOptions(orig.penOptions);
+        
     }
 
     @objid ("e6b25987-b256-454b-bbde-79316a90607e")
@@ -244,6 +253,7 @@ public class GradientFigure extends Figure implements IBrushOptionsSupport, IPen
                 getParent() == null ? "orphan, " : "",
                 getBounds(),
                 java.lang.System.identityHashCode(this));
+        
     }
 
     /**
@@ -252,7 +262,6 @@ public class GradientFigure extends Figure implements IBrushOptionsSupport, IPen
      * This method might require re-definition in sub-classes, should these subclasses use a different approach to draw the gradient background.
      * 
      * Typically {@link ShapedFigure} uses a clippath to limit the gradient drawing instead of relying on their shaped border.
-     * 
      * @return the static tempRect is returned to avoid expensive rectangle allocations.
      */
     @objid ("3217fcd8-e156-4637-b4d3-509eb98e73f7")

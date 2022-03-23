@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,7 +29,7 @@ import org.modelio.xmi.reverse.ReverseProperties;
 @objid ("b10d3d1c-c140-474b-bede-35fac0ab9fe3")
 public class EActivityEdge extends ENamedElement {
     @objid ("464784e9-6969-468e-89a8-6696df37c0db")
-    public EActivityEdge(org.eclipse.uml2.uml.ActivityEdge element) {
+    public  EActivityEdge(org.eclipse.uml2.uml.ActivityEdge element) {
         super(element);
     }
 
@@ -43,6 +42,7 @@ public class EActivityEdge extends ENamedElement {
         setSource((ActivityEdge) objingElt);
         setTarget((ActivityEdge) objingElt);
         setInterrupts((ActivityEdge) objingElt);
+        
     }
 
     @objid ("aeb03c4e-14d3-468e-b633-cb7293be08c7")
@@ -58,6 +58,7 @@ public class EActivityEdge extends ENamedElement {
         
         }else
             flow.setGuard("");
+        
     }
 
     @objid ("a72f0e58-5014-4e90-bd85-98679f5a148a")
@@ -74,6 +75,7 @@ public class EActivityEdge extends ENamedElement {
         
         if (!isSet)
             flow.setWeight("1");
+        
     }
 
     @objid ("0c75dd05-7cfd-4316-b23d-87cbd460319e")
@@ -84,6 +86,7 @@ public class EActivityEdge extends ENamedElement {
             if (objingTarget instanceof ActivityNode)
                 flow.setTarget((ActivityNode) objingTarget);
         }
+        
     }
 
     @objid ("74cc6e42-748e-4dca-8980-73361b3316b0")
@@ -100,6 +103,7 @@ public class EActivityEdge extends ENamedElement {
         }else{
             flow.delete();
         }
+        
     }
 
     @objid ("7f09a941-96fd-46b8-a233-8930ef1b6ba9")
@@ -110,6 +114,7 @@ public class EActivityEdge extends ENamedElement {
             if (objingRegion instanceof InterruptibleActivityRegion)
                 flow.setInterrupts((InterruptibleActivityRegion) objingRegion);
         }
+        
     }
 
 }

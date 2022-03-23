@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.namespaceheader;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,9 +28,9 @@ import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
+import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey.ShowNameMode;
-import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.metamodel.uml.statik.NameSpace;
 import org.modelio.vcore.smkernel.mapi.MRef;
 
@@ -58,20 +57,20 @@ public class GmNamespaceHeader extends GmDefaultModelElementHeader {
      * Constructor for deserialization only.
      */
     @objid ("3598b502-55b7-11e2-877f-002564c97630")
-    public GmNamespaceHeader() {
+    public  GmNamespaceHeader() {
         init();
     }
 
     /**
      * Initialize a classifier header
-     * 
      * @param diagram the owning diagram.
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
     @objid ("3598b505-55b7-11e2-877f-002564c97630")
-    public GmNamespaceHeader(IGmDiagram diagram, MRef relatedRef) {
+    public  GmNamespaceHeader(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
         init();
+        
     }
 
     @objid ("359a3baf-55b7-11e2-877f-002564c97630")
@@ -97,6 +96,7 @@ public class GmNamespaceHeader extends GmDefaultModelElementHeader {
                 firePropertyChange(IGmObject.PROPERTY_LABEL, this, null);
         
         super.styleChanged(property, newValue);
+        
     }
 
     @objid ("359bc239-55b7-11e2-877f-002564c97630")
@@ -106,6 +106,7 @@ public class GmNamespaceHeader extends GmDefaultModelElementHeader {
             firePropertyChange(IGmObject.PROPERTY_LABEL, this, null);
         
         super.styleChanged(changedStyle);
+        
     }
 
     @objid ("359bc23f-55b7-11e2-877f-002564c97630")
@@ -128,6 +129,7 @@ public class GmNamespaceHeader extends GmDefaultModelElementHeader {
                 return NamespaceSymbolProvider.computeSimpleLabel(getRelatedElement(), showVisibility());
         
         }
+        
     }
 
     @objid ("359bc24a-55b7-11e2-877f-002564c97630")
@@ -150,6 +152,7 @@ public class GmNamespaceHeader extends GmDefaultModelElementHeader {
         if (el != null && el.isValid()) {
             setAbstract(el.isIsAbstract());
         }
+        
     }
 
     /**
@@ -161,6 +164,7 @@ public class GmNamespaceHeader extends GmDefaultModelElementHeader {
             this.isAbstract = isAbstract;
             firePropertyChange(PROPERTY_STYLE, null, getDisplayedStyle());
         }
+        
     }
 
     /**
@@ -180,6 +184,7 @@ public class GmNamespaceHeader extends GmDefaultModelElementHeader {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmNamespaceHeader.", GmNamespaceHeader.MINOR_VERSION);
+        
     }
 
     @objid ("359bc264-55b7-11e2-877f-002564c97630")
@@ -199,6 +204,7 @@ public class GmNamespaceHeader extends GmDefaultModelElementHeader {
                 break;
             }
         }
+        
     }
 
     @objid ("359bc26b-55b7-11e2-877f-002564c97630")
@@ -208,6 +214,7 @@ public class GmNamespaceHeader extends GmDefaultModelElementHeader {
         final Boolean readAbs = (Boolean) in.readProperty("abstract");
         if (readAbs != null)
             this.isAbstract = readAbs;
+        
     }
 
     @objid ("359bc271-55b7-11e2-877f-002564c97630")

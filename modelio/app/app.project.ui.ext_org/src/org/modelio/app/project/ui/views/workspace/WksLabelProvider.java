@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.ui.views.workspace;
 
 import java.net.MalformedURLException;
@@ -96,12 +95,11 @@ public class WksLabelProvider extends StyledCellLabelProvider {
 
     /**
      * Constructor.
-     * 
      * @param projectService the project service
      * @param font the font to use.
      */
     @objid ("1f37646e-9e61-4093-a9fc-68b1cae470db")
-    public WksLabelProvider(IProjectService projectService, final Font font) {
+    public  WksLabelProvider(IProjectService projectService, final Font font) {
         FontData[] selectedFontData = WksLabelProvider.getModifiedFontData(font.getFontData(), SWT.BOLD);
         this.selectedFont = new Font(Display.getCurrent(), selectedFontData);
         this.normalFont = font;
@@ -130,6 +128,7 @@ public class WksLabelProvider extends StyledCellLabelProvider {
         }
         
         this.projectService = projectService;
+        
     }
 
     @objid ("4998475a-7209-4ebd-933b-d8ad4c0990ff")
@@ -149,6 +148,7 @@ public class WksLabelProvider extends StyledCellLabelProvider {
         } else {
             cell.setText(obj.toString());
         }
+        
     }
 
     @objid ("21edb116-b51b-4ddc-9f6b-97e7f4730016")
@@ -181,6 +181,7 @@ public class WksLabelProvider extends StyledCellLabelProvider {
             }
         }
         cell.setImage(icon);
+        
     }
 
     @objid ("e56fb3bb-8c37-407a-acef-68957789f598")
@@ -203,6 +204,7 @@ public class WksLabelProvider extends StyledCellLabelProvider {
             }
         }
         cell.setImage(icon);
+        
     }
 
     @objid ("1909ecd6-c2de-4419-abf2-30139293df17")
@@ -215,6 +217,7 @@ public class WksLabelProvider extends StyledCellLabelProvider {
         
         this.icons.dispose();
         this.icons = null;
+        
     }
 
     @objid ("f2fb3f5f-71e3-4e4d-bf1b-8057d9820aa1")
@@ -294,6 +297,7 @@ public class WksLabelProvider extends StyledCellLabelProvider {
                 originalImage.dispose();
             }
         }
+        
     }
 
     @objid ("e610a03c-8d1d-4080-a9c8-020e45780f27")
@@ -313,6 +317,7 @@ public class WksLabelProvider extends StyledCellLabelProvider {
                 }
             }
         }
+        
     }
 
     @objid ("e51fc0fd-57bd-4e70-80b3-0b8d05c572c3")
@@ -337,8 +342,11 @@ public class WksLabelProvider extends StyledCellLabelProvider {
 
     @objid ("7a6f533f-f49f-47d4-9786-3c6367241c74")
     private enum ProjectType {
+        @objid ("e35ee64d-cd85-47e7-9b8a-acb93f5f867b")
         LOCAL,
+        @objid ("b13e6dd2-de83-4f75-ad43-622cc3ff06af")
         SERVER,
+        @objid ("f8be382b-49ef-4077-96f8-63473635923f")
         CONSTELLATION;
 
         @objid ("f8761708-781a-4ddc-92b2-8015fc30d851")
@@ -353,6 +361,7 @@ public class WksLabelProvider extends StyledCellLabelProvider {
             } else {
                 return SERVER;
             }
+            
         }
 
     }

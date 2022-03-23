@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,7 @@ public class EFlowFinalNode extends EActivityNode {
     }
 
     @objid ("2ef93a87-a0f9-4940-b0ad-cbb05dc330e2")
-    public EFlowFinalNode(org.eclipse.uml2.uml.FlowFinalNode element) {
+    public  EFlowFinalNode(org.eclipse.uml2.uml.FlowFinalNode element) {
         super(element);
     }
 

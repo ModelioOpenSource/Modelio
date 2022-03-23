@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.ArrayList;
@@ -31,7 +31,6 @@ import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
 import org.modelio.metamodel.impl.uml.infrastructure.ModelElementImpl;
-import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementData;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityPartition;
 import org.modelio.metamodel.uml.informationFlow.InformationFlow;
 import org.modelio.metamodel.uml.infrastructure.Constraint;
@@ -74,6 +73,7 @@ public class UmlModelElementImpl extends ModelElementImpl implements UmlModelEle
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("4ecb219e-780c-433d-a278-bab49545faad")
@@ -95,6 +95,7 @@ public class UmlModelElementImpl extends ModelElementImpl implements UmlModelEle
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("ea561c6d-adc9-4725-9c62-c549da09af09")
@@ -116,6 +117,7 @@ public class UmlModelElementImpl extends ModelElementImpl implements UmlModelEle
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("a2c2a9d0-db2b-49fd-a946-67cc6ee0e225")
@@ -150,6 +152,7 @@ public class UmlModelElementImpl extends ModelElementImpl implements UmlModelEle
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("5e27de32-53f8-4890-9f12-fe80df274b79")
@@ -171,6 +174,7 @@ public class UmlModelElementImpl extends ModelElementImpl implements UmlModelEle
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("f395e0ce-e779-4d47-9b88-aac0535dc764")
@@ -192,6 +196,7 @@ public class UmlModelElementImpl extends ModelElementImpl implements UmlModelEle
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("21dd3a1e-da68-4e2c-ab16-e66bbe1a72c0")
@@ -213,6 +218,7 @@ public class UmlModelElementImpl extends ModelElementImpl implements UmlModelEle
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("363b8f85-d358-489d-9963-1c566a08257d")
@@ -234,6 +240,7 @@ public class UmlModelElementImpl extends ModelElementImpl implements UmlModelEle
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("275846d8-0758-482d-90ad-9f122a19f5b1")
@@ -255,6 +262,7 @@ public class UmlModelElementImpl extends ModelElementImpl implements UmlModelEle
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("dcbb1163-9fc2-4273-ad4d-0ca83a44b04b")
@@ -276,6 +284,7 @@ public class UmlModelElementImpl extends ModelElementImpl implements UmlModelEle
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("96a4682e-b615-4503-8548-d6f209d32bf1")
@@ -297,6 +306,7 @@ public class UmlModelElementImpl extends ModelElementImpl implements UmlModelEle
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("03a6c570-2fcf-46ff-aaaf-5b494f465bfa")
@@ -318,6 +328,7 @@ public class UmlModelElementImpl extends ModelElementImpl implements UmlModelEle
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("170a7d36-33e9-4f61-9c59-9d8c47c4238e")

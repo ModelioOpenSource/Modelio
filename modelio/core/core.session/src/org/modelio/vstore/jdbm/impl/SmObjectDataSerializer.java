@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.jdbm.impl;
 
 import java.io.IOException;
@@ -55,7 +54,7 @@ public class SmObjectDataSerializer {
     private final byte rid;
 
     @objid ("c556c337-088e-4bbd-b251-c3e5f4e0d0d1")
-    private static final Map<Class<?>,Object[]> enumContent = new HashMap<>();
+    private static final Map<Class<?>, Object[]> enumContent = new HashMap<>();
 
     @objid ("a7c44e99-272c-4e12-ae66-6f90a53204d2")
     private final ILoadHelper loadHelper;
@@ -64,7 +63,7 @@ public class SmObjectDataSerializer {
     private final StringTable stringTable;
 
     @objid ("6d6984d5-1dd6-4555-b2dd-eeab6bb7ca25")
-    public SmObjectDataSerializer(byte rid, ILoadHelper loadHelper, StringTable depTable) {
+    public  SmObjectDataSerializer(byte rid, ILoadHelper loadHelper, StringTable depTable) {
         assert (rid >= 0);
         assert (depTable != null);
         assert (loadHelper != null);
@@ -72,6 +71,7 @@ public class SmObjectDataSerializer {
         this.stringTable = depTable;
         this.rid = rid;
         this.loadHelper = loadHelper;
+        
     }
 
     @objid ("6cb7b562-1f6f-4967-a4ae-88db5d9eb810")
@@ -98,16 +98,16 @@ public class SmObjectDataSerializer {
         
         // end of SmDependencies marker.
         out.writePackedLong(0);
+        
     }
 
     /**
      * Read the SmObjectImpl content from the stream.
-     * 
      * @param in the stream
      * @param obj the model object to populate
      * @param loader the model loader
-     * @throws java.io.IOException on JDBM I/O failure
-     * @throws org.modelio.vcore.model.DuplicateObjectException on duplicate identifier
+     * @throws IOException on JDBM I/O failure
+     * @throws DuplicateObjectException on duplicate identifier
      */
     @objid ("5ff47953-2f25-4c9a-830b-78adb504ee80")
     public void deserialize(SerializerInput in, SmObjectImpl obj, IModelLoader loader) throws IOException, DuplicateObjectException {
@@ -145,6 +145,7 @@ public class SmObjectDataSerializer {
                 // empty
             }
         }
+        
     }
 
     @objid ("73db7707-71b7-4b3d-b80c-662ac38d1eb0")
@@ -182,6 +183,7 @@ public class SmObjectDataSerializer {
                 loader.loadAttribute(obj, att, val);
             }
         }
+        
     }
 
     @objid ("2d6f8054-b226-44b3-8853-a88b28b824a9")
@@ -211,6 +213,7 @@ public class SmObjectDataSerializer {
         } else {
             throw new UnsupportedOperationException(type+" "+val+" "+att+" attribute not supported.");
         }
+        
     }
 
     @objid ("1d8b4d73-b9c1-4258-9f98-b9a5e11166cc")
@@ -225,6 +228,7 @@ public class SmObjectDataSerializer {
                 writeRef(out, val);
             }
         }
+        
     }
 
     @objid ("3c978ea8-de8f-4528-9ac6-447b1e65baaa")
@@ -257,6 +261,7 @@ public class SmObjectDataSerializer {
             
             return d;
         }
+        
     }
 
     @objid ("b7c5f0bd-fa9e-4e1c-bcd9-595076a80f00")
@@ -270,6 +275,7 @@ public class SmObjectDataSerializer {
         } else {
             return null;
         }
+        
     }
 
     @objid ("50e49ea1-6a0e-495c-af64-6ba04ab0a5f4")
@@ -292,11 +298,11 @@ public class SmObjectDataSerializer {
         // Don't put the name in the MRef to save space and spare potential loading 
         MRef ref = new MRef(val.getMClass().getQualifiedName(), val.getUuid(), "");
         MRefSerializer.instance.serialize(out, ref);
+        
     }
 
     /**
      * Get all possible enumeration values of an enumerate type.
-     * 
      * @param type a enumerate class.
      * @return all possible values, ordered.
      */
@@ -319,14 +325,14 @@ public class SmObjectDataSerializer {
     private void writeStringSymbol(SerializerOutput out, String symbol) throws IOException {
         long symbolLid = this.stringTable.getOrAddKey(symbol);
         out.writePackedLong(symbolLid);
+        
     }
 
     /**
      * Parse the input stream and call the consumer of each found dependency reference.
-     * 
      * @param in input stream
      * @param refConsumer reference consumer
-     * @throws java.io.IOException on I/O failure
+     * @throws IOException on I/O failure
      */
     @objid ("7a32bf96-df88-48a7-9dba-2d7e5e662f3e")
     public void parseCrossRefs(final SerializerInput in, RefConsumer refConsumer) throws IOException {
@@ -342,6 +348,7 @@ public class SmObjectDataSerializer {
         while (parseDep(in, refConsumer)) {
             // empty
         }
+        
     }
 
     @objid ("a9e55ed4-73d7-4be2-8b82-0f794d1965ee")
@@ -363,6 +370,7 @@ public class SmObjectDataSerializer {
         
             return true;
         }
+        
     }
 
     /**
@@ -373,7 +381,7 @@ public class SmObjectDataSerializer {
         /**
          * @param depName the dependency name
          * @param ref one dependency target
-         * @throws java.io.IOException on I/O failure
+         * @throws IOException on I/O failure
          */
         @objid ("c7bc2dcf-87fb-4a2a-a955-d233ce1614d6")
         void accept(String depName, MRef ref) throws IOException;

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,9 +43,10 @@ public class EStateMachine extends ENamedElement {
     }
 
     @objid ("cf4053f0-7a12-4805-b119-262fc2dd62eb")
-    public EStateMachine(org.eclipse.uml2.uml.StateMachine element) {
+    public  EStateMachine(org.eclipse.uml2.uml.StateMachine element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("b2f936ab-07a0-4d32-8f4d-27f0ff1f757c")
@@ -72,6 +72,7 @@ public class EStateMachine extends ENamedElement {
         
             }
         }
+        
     }
 
     @objid ("cb08ebb3-f8b6-4316-a078-21646403330c")
@@ -81,6 +82,7 @@ public class EStateMachine extends ENamedElement {
         setKind((StateMachine) objingElt);
         if (ReverseProperties.getInstance().isRoundtripEnabled())
             setReentrant((StateMachine) objingElt);
+        
     }
 
     @objid ("9f91b136-a542-4e34-98ab-61905eec13f0")
@@ -94,6 +96,7 @@ public class EStateMachine extends ENamedElement {
             machine.setKind(KindOfStateMachine.PROTOCOL);
         else
             machine.setKind(KindOfStateMachine.DYNAMIC);
+        
     }
 
 }

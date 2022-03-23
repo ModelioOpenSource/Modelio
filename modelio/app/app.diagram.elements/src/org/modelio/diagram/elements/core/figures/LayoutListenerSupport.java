@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures;
 
 import java.util.List;
@@ -63,7 +62,6 @@ public class LayoutListenerSupport extends ChainedLayout {
 
     /**
      * Add a layout listener to the figure.
-     * 
      * @param container the figure to listen for
      * @param listener the layout listener
      */
@@ -76,11 +74,11 @@ public class LayoutListenerSupport extends ChainedLayout {
             LayoutListenerSupport layoutManager2 = new LayoutListenerSupport(container, container.getLayoutManager(), listener);
             container.setLayoutManager(layoutManager2);
         }
+        
     }
 
     /**
      * Remove a layout listener.
-     * 
      * @param container the figure owning the listener
      * @param listener the listener to remove
      */
@@ -94,6 +92,7 @@ public class LayoutListenerSupport extends ChainedLayout {
                 //container.setLayoutManager(notifier.getChained());
             }
         }
+        
     }
 
     /**
@@ -111,7 +110,6 @@ public class LayoutListenerSupport extends ChainedLayout {
      * super.setLayoutManager(LayoutListenerSupport.newLayoutManager(l));
      * }
      * </code></pre>
-     * 
      * @param container the figure
      * @param newLayoutManager the requested new layout manager
      * @return <i>true</i> if the current layout manager was a <code>LayoutListenerSupport</code> else <i>false</i>.
@@ -141,23 +139,24 @@ public class LayoutListenerSupport extends ChainedLayout {
         } else {
             return newLayoutManager;
         }
+        
     }
 
     /**
      * Protected constructor.
      * <p>
      * Call {@link #addLayoutListener(IFigure, LayoutListener)} to add a layout listener.
-     * 
      * @param container the container figure
      * @param layout the initial layout manager
      * @param listener a listener to add
      */
     @objid ("26e19156-f731-480b-9281-0ad13c7ca9f8")
-    protected LayoutListenerSupport(IFigure container, LayoutManager layout, LayoutListener listener) {
+    protected  LayoutListenerSupport(IFigure container, LayoutManager layout, LayoutListener listener) {
         super(layout);
         this.container = container;
         this.listeners = new CopyOnWriteArrayList<>();
         this.listeners.add(listener);
+        
     }
 
     @objid ("5b92e191-7931-4b0f-b97f-67386d7ff245")
@@ -168,6 +167,7 @@ public class LayoutListenerSupport extends ChainedLayout {
         }
         
         super.invalidate();
+        
     }
 
     @objid ("fb004e02-a6e0-46ca-b3ac-b136a9a800c2")
@@ -185,6 +185,7 @@ public class LayoutListenerSupport extends ChainedLayout {
         for (LayoutListener layoutListener : this.listeners) {
             layoutListener.postLayout(acontainer);
         }
+        
     }
 
     @objid ("68a8c6ce-7c47-4874-8915-7f8d8e9f42f3")
@@ -195,6 +196,7 @@ public class LayoutListenerSupport extends ChainedLayout {
         }
         
         super.remove(child);
+        
     }
 
     @objid ("911bdab3-ea88-4094-8539-2f44a8b46e2e")
@@ -205,19 +207,20 @@ public class LayoutListenerSupport extends ChainedLayout {
         }
         
         super.setConstraint(child, constraint);
+        
     }
 
     /**
      * Shallow copy constructor.
-     * 
      * @param orig the layout listener support to copy
      * @param layout the real layout manager to chain
      */
     @objid ("e16e47ce-c92d-41f2-b9f7-971219e1fa29")
-    protected LayoutListenerSupport(LayoutListenerSupport orig, LayoutManager layout) {
+    protected  LayoutListenerSupport(LayoutListenerSupport orig, LayoutManager layout) {
         super(layout);
         this.container = orig.container;
         this.listeners = orig.listeners;
+        
     }
 
 }

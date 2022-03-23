@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.diagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,7 +35,6 @@ public interface IDiagramDrawingNode extends IDiagramDrawing, IDiagramNode {
 
     /**
      * Change the label displayed by the drawing.
-     * 
      * @param label the new drawing's label.
      */
     @objid ("7ce1e4d3-c7cb-4023-a5f4-74d477e8ee8f")

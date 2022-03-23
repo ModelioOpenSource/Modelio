@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.panelprovider.tree;
 
 import java.util.ArrayList;
@@ -108,6 +107,7 @@ public class NoteViewTreeContentProvider implements ITreeContentProvider {
         } else {
             return null;
         }
+        
     }
 
     @objid ("69ed0706-5bad-46c4-9b98-2740f5be9b93")

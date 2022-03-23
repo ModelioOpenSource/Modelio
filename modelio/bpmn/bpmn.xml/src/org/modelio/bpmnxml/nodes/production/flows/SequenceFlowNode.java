@@ -17,16 +17,15 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.production.flows;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.bind.JAXBElement;
 import javax.xml.namespace.QName;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.bpmnxml.model.ObjectFactory;
 import org.modelio.bpmnxml.model.TBaseElement;
 import org.modelio.bpmnxml.model.TExpression;
@@ -45,7 +44,7 @@ import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("e670c6bd-cddb-4879-b2af-172437fa69e0")
-public class SequenceFlowNode implements IProductionNode<BpmnSequenceFlow,TSequenceFlow> {
+public class SequenceFlowNode implements IProductionNode<BpmnSequenceFlow, TSequenceFlow> {
     @objid ("92bccb3c-77a3-4754-ad05-b38158567d47")
     private Map<String, Object> elementsMap;
 
@@ -81,6 +80,7 @@ public class SequenceFlowNode implements IProductionNode<BpmnSequenceFlow,TSeque
         } else {
             return factory.create(BpmnSequenceFlow.class, context, "FlowElement");
         }
+        
     }
 
     @objid ("e3c7371c-8da1-4bf7-a0bf-c24f61af389d")

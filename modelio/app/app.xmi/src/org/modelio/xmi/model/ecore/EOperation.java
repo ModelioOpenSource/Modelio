@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,7 +36,7 @@ public class EOperation extends EBehavioralFeature {
     }
 
     @objid ("dfd8c873-1067-4802-9eba-3682a0f182be")
-    public EOperation(org.eclipse.uml2.uml.Operation element) {
+    public  EOperation(org.eclipse.uml2.uml.Operation element) {
         super(element);
     }
 
@@ -55,6 +54,7 @@ public class EOperation extends EBehavioralFeature {
         }else {
             objingElt.delete();
         }
+        
     }
 
     @objid ("4cf462dc-71c7-4903-bff5-f5ea644df464")
@@ -63,6 +63,7 @@ public class EOperation extends EBehavioralFeature {
         super.setProperties(objingElt);        
         setRedefines((Operation) objingElt);
         setPassingMode((Operation) objingElt);
+        
     }
 
     @objid ("9ff7f12a-9d07-4d0c-a5e0-3ce950cc526d")
@@ -73,6 +74,7 @@ public class EOperation extends EBehavioralFeature {
                 objingElt.setRedefines((Operation) objOperation);
             }
         }
+        
     }
 
     @objid ("ba81ad7a-abc3-4a03-aefb-1fb14f53649d")
@@ -81,6 +83,7 @@ public class EOperation extends EBehavioralFeature {
             objingElt.setPassing(MethodPassingMode.METHODIN);
         else
             objingElt.setPassing(MethodPassingMode.METHODOUT);
+        
     }
 
 }

@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.wizard;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnSubProcessStructuredStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnSubProcessStructuredStyleKeys;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.metamodel.bpmn.activities.BpmnAdHocSubProcess;
@@ -40,11 +39,10 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class BpmnSubProcessTransmuter extends BpmnActivityTransmuter {
     /**
      * Public constructor required by the {@link TransformerRegistry}.
-     * 
      * @param targetMetaclass target metaclass of the transmutation
      */
     @objid ("9f1752da-2de5-475b-94e3-c77156f16316")
-    public BpmnSubProcessTransmuter(String targetMetaclass) {
+    public  BpmnSubProcessTransmuter(String targetMetaclass) {
         super(targetMetaclass);
     }
 

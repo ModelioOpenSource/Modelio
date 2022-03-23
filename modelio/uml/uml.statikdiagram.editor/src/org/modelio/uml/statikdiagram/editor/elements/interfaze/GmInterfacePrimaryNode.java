@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.interfaze;
 
 import java.util.ArrayList;
@@ -37,9 +36,9 @@ import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
+import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey.ShowStereotypeMode;
-import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
 import org.modelio.metamodel.uml.statik.Attribute;
 import org.modelio.metamodel.uml.statik.Instance;
@@ -133,18 +132,17 @@ public class GmInterfacePrimaryNode extends GmNoStyleCompositeNode implements II
      * Constructor for deserialization only.
      */
     @objid ("35772366-55b7-11e2-877f-002564c97630")
-    public GmInterfacePrimaryNode() {
+    public  GmInterfacePrimaryNode() {
         // Nothing to do.
     }
 
     /**
      * Creates a GmClass.
-     * 
      * @param diagram The owner diagram.
      * @param ref a reference to the element this GmModel is related to, must not be null.
      */
     @objid ("35772369-55b7-11e2-877f-002564c97630")
-    public GmInterfacePrimaryNode(IGmDiagram diagram, final MRef ref) {
+    public  GmInterfacePrimaryNode(IGmDiagram diagram, final MRef ref) {
         super(diagram, ref);
         
         this.header = new GmNamespaceHeader(diagram, ref);
@@ -171,6 +169,7 @@ public class GmInterfacePrimaryNode extends GmNoStyleCompositeNode implements II
         group.addChild(this.methodGroup);
         group.addChild(this.internalStructure);
         group.addChild(this.innerElements);
+        
     }
 
     @objid ("35772373-55b7-11e2-877f-002564c97630")
@@ -178,9 +177,9 @@ public class GmInterfacePrimaryNode extends GmNoStyleCompositeNode implements II
     public boolean canCreate(Class<? extends MObject> type) {
         // Must be of the proper metaclass
         // 'ret' is just for Java reverse indentation bug
-        boolean ret = 
-                (NameSpace.class.isAssignableFrom(type) 
-                        && !TemplateParameter.class.isAssignableFrom(type)) 
+        boolean ret =
+                (NameSpace.class.isAssignableFrom(type)
+                        && !TemplateParameter.class.isAssignableFrom(type))
                 || (Behavior.class.isAssignableFrom(type));
         return ret;
     }
@@ -193,7 +192,6 @@ public class GmInterfacePrimaryNode extends GmNoStyleCompositeNode implements II
 
     /**
      * Get the group where <tt>GmAttributes</tt> are unmasked.
-     * 
      * @return the attributes group.
      */
     @objid ("3578a9e7-55b7-11e2-877f-002564c97630")
@@ -231,7 +229,6 @@ public class GmInterfacePrimaryNode extends GmNoStyleCompositeNode implements II
 
     /**
      * Get the internal structure.
-     * 
      * @return the internal structure.
      */
     @objid ("3578a9fd-55b7-11e2-877f-002564c97630")
@@ -241,7 +238,6 @@ public class GmInterfacePrimaryNode extends GmNoStyleCompositeNode implements II
 
     /**
      * Get the group where {@link Operation} are unmasked.
-     * 
      * @return the operations group.
      */
     @objid ("3578aa02-55b7-11e2-877f-002564c97630")
@@ -267,29 +263,30 @@ public class GmInterfacePrimaryNode extends GmNoStyleCompositeNode implements II
         // Read version, defaults to 0 if not found
         int readVersion = readMinorVersion(in, "GmInterfacePrimaryNode.");
         switch (readVersion) {
-            case 0: {
-                read_0(in);
-                break;
-            }
-            case 1: {
-                read_1(in);
-                break;
-            }
-            case 2: {
-                read_2(in);
-                break;
-            }
-            case 3: {
-                read_3(in);
-                break;
-            }
-            default: {
-                assert (false) : "version number not covered!";
-                // reading as last handled version: 3
-                read_3(in);
-                break;
-            }
+        case 0: {
+            read_0(in);
+            break;
         }
+        case 1: {
+            read_1(in);
+            break;
+        }
+        case 2: {
+            read_2(in);
+            break;
+        }
+        case 3: {
+            read_3(in);
+            break;
+        }
+        default: {
+            assert (false) : "version number not covered!";
+            // reading as last handled version: 3
+            read_3(in);
+            break;
+        }
+        }
+        
     }
 
     @objid ("357a307c-55b7-11e2-877f-002564c97630")
@@ -299,8 +296,9 @@ public class GmInterfacePrimaryNode extends GmNoStyleCompositeNode implements II
         String oldLabel = this.header.getMainLabel();
         this.header.refreshFromObModel();
         firePropertyChange(PROPERTY_LABEL, oldLabel, this.header.getMainLabel());
-        // forcing visual refresh in case Image changed 
+        // forcing visual refresh in case Image changed
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("357a307f-55b7-11e2-877f-002564c97630")
@@ -309,15 +307,16 @@ public class GmInterfacePrimaryNode extends GmNoStyleCompositeNode implements II
         // Returned result depends on current representation mode:
         List<GmNodeModel> ret;
         switch (getRepresentationMode()) {
-            case IMAGE:
-                return Collections.emptyList();
-            case SIMPLE:
-                ret = new ArrayList<>(1);
-                ret.add(this.header);
-                break;
-            default:
-                ret = super.getVisibleChildren();
-                break;
+        case USER_IMAGE:
+        case IMAGE:
+            return Collections.emptyList();
+        case SIMPLE:
+            ret = new ArrayList<>(1);
+            ret.add(this.header);
+            break;
+        default:
+            ret = super.getVisibleChildren();
+            break;
         
         }
         return ret;
@@ -329,6 +328,7 @@ public class GmInterfacePrimaryNode extends GmNoStyleCompositeNode implements II
         super.styleChanged(changedStyle);
         
         refreshHeaderFromStyle(changedStyle);
+        
     }
 
     @objid ("357a308f-55b7-11e2-877f-002564c97630")
@@ -339,6 +339,7 @@ public class GmInterfacePrimaryNode extends GmNoStyleCompositeNode implements II
         if (property.equals(InterfaceStructuredStyleKeys.SHOWSTEREOTYPES)) {
             refreshHeaderFromStyle(getDisplayedStyle());
         }
+        
     }
 
     /**
@@ -348,24 +349,25 @@ public class GmInterfacePrimaryNode extends GmNoStyleCompositeNode implements II
     private void refreshHeaderFromStyle(final IStyle changedStyle) {
         final ShowStereotypeMode mode = changedStyle.getProperty(InterfaceStructuredStyleKeys.SHOWSTEREOTYPES);
         switch (mode) {
-            case NONE:
-                this.header.setShowMetaclassKeyword(false);
-                this.header.setShowMetaclassIcon(true);
-                break;
-            case ICON:
-            default:
-                this.header.setShowMetaclassKeyword(false);
-                this.header.setShowMetaclassIcon(true);
-                break;
-            case TEXT:
-                this.header.setShowMetaclassKeyword(true);
-                this.header.setShowMetaclassIcon(false);
-                break;
-            case TEXTICON:
-                this.header.setShowMetaclassKeyword(true);
-                this.header.setShowMetaclassIcon(true);
-                break;
+        case NONE:
+            this.header.setShowMetaclassKeyword(false);
+            this.header.setShowMetaclassIcon(true);
+            break;
+        case ICON:
+        default:
+            this.header.setShowMetaclassKeyword(false);
+            this.header.setShowMetaclassIcon(true);
+            break;
+        case TEXT:
+            this.header.setShowMetaclassKeyword(true);
+            this.header.setShowMetaclassIcon(false);
+            break;
+        case TEXTICON:
+            this.header.setShowMetaclassKeyword(true);
+            this.header.setShowMetaclassIcon(true);
+            break;
         }
+        
     }
 
     @objid ("357a309f-55b7-11e2-877f-002564c97630")
@@ -375,6 +377,7 @@ public class GmInterfacePrimaryNode extends GmNoStyleCompositeNode implements II
         
         // Write version of this Gm if different of 0.
         writeMinorVersion(out, "GmInterfacePrimaryNode.", GmInterfacePrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("357a30a5-55b7-11e2-877f-002564c97630")
@@ -417,6 +420,7 @@ public class GmInterfacePrimaryNode extends GmNoStyleCompositeNode implements II
         group.addChild(this.internalStructure);
         group.addChild(this.innerElements);
         super.addChild(group, 1);
+        
     }
 
     @objid ("357a30aa-55b7-11e2-877f-002564c97630")
@@ -458,6 +462,7 @@ public class GmInterfacePrimaryNode extends GmNoStyleCompositeNode implements II
         removeChild(this.innerElements);
         group.addChild(this.innerElements);
         super.addChild(group, 1);
+        
     }
 
     @objid ("357bb71e-55b7-11e2-877f-002564c97630")
@@ -490,6 +495,7 @@ public class GmInterfacePrimaryNode extends GmNoStyleCompositeNode implements II
         this.internalStructure = new GmInternalStructure(getDiagram(), getRepresentedRef(), internalStructureZone, internalStructureGroup);
         this.internalStructure.setRoleInComposition(INTERNAL);
         group.addChild(this.internalStructure);
+        
     }
 
     @objid ("357bb728-55b7-11e2-877f-002564c97630")
@@ -502,6 +508,7 @@ public class GmInterfacePrimaryNode extends GmNoStyleCompositeNode implements II
         this.methodGroup = (GmGroup) group.getFirstChild(METHOD_GROUP);
         this.internalStructure = (GmInternalStructure) group.getFirstChild(INTERNAL);
         this.innerElements = (GmInnerClass) group.getFirstChild(INNER);
+        
     }
 
 }

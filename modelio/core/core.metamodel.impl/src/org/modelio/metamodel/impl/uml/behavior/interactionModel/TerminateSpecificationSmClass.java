@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.interactionModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.ExecutionOccurenceSpecificationSmClass;
 import org.modelio.metamodel.uml.behavior.interactionModel.ExecutionOccurenceSpecification;
 import org.modelio.metamodel.uml.behavior.interactionModel.TerminateSpecification;
 import org.modelio.vbasic.version.Version;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("1015805d-ba8d-4d95-aaeb-7b62d62c50e9")
 public class TerminateSpecificationSmClass extends ExecutionOccurenceSpecificationSmClass {
     @objid ("060c060e-f22c-41ab-a1e9-5ba9a3f60c18")
-    public TerminateSpecificationSmClass(ISmMetamodelFragment origin) {
+    public  TerminateSpecificationSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class TerminateSpecificationSmClass extends ExecutionOccurenceSpecificati
     @Override
     public String getName() {
         return "TerminateSpecification";
+        
     }
 
     @objid ("79ec41f7-d487-4af2-97e9-9ed7e4d2c77e")
@@ -62,18 +62,21 @@ public class TerminateSpecificationSmClass extends ExecutionOccurenceSpecificati
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return TerminateSpecification.class;
+        
     }
 
     @objid ("e82e39b1-e594-4f1f-b23b-da5dcbd6ac4f")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("51c4b022-c63c-4e66-aead-e5f8d8dbd467")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("c8cbeb4a-7083-41b8-89c1-326db60f14ab")
@@ -86,6 +89,7 @@ public class TerminateSpecificationSmClass extends ExecutionOccurenceSpecificati
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("27ccbb0f-6986-4aef-8c5a-de837db64da7")
@@ -94,7 +98,7 @@ public class TerminateSpecificationSmClass extends ExecutionOccurenceSpecificati
         private TerminateSpecificationSmClass smClass;
 
         @objid ("ae2fa340-5400-49fe-a076-1a019e28a2e3")
-        public TerminateSpecificationObjectFactory(TerminateSpecificationSmClass smClass) {
+        public  TerminateSpecificationObjectFactory(TerminateSpecificationSmClass smClass) {
             this.smClass = smClass;
         }
 

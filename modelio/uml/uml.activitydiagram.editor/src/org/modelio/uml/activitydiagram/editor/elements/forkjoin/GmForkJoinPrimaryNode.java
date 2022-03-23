@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.forkjoin;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,8 +28,8 @@ import org.modelio.diagram.elements.core.node.IImageableNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.ForkJoinNode;
 import org.modelio.platform.model.ui.swt.images.ElementImageService;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -52,12 +51,11 @@ public class GmForkJoinPrimaryNode extends GmNoStyleSimpleNode implements IImage
 
     /**
      * Create a fork/join graphic node.
-     * 
      * @param diagram The diagram
      * @param relatedRef related element reference, must not be <code>null</code>.
      */
     @objid ("2a860a6e-55b6-11e2-877f-002564c97630")
-    public GmForkJoinPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
+    public  GmForkJoinPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -65,7 +63,7 @@ public class GmForkJoinPrimaryNode extends GmNoStyleSimpleNode implements IImage
      * Constructor for deserialization only.
      */
     @objid ("2a860a77-55b6-11e2-877f-002564c97630")
-    public GmForkJoinPrimaryNode() {
+    public  GmForkJoinPrimaryNode() {
         // empty for the deserialization
     }
 
@@ -97,6 +95,7 @@ public class GmForkJoinPrimaryNode extends GmNoStyleSimpleNode implements IImage
                     }
         
                 };
+        
     }
 
     @objid ("2a860a91-55b6-11e2-877f-002564c97630")
@@ -113,7 +112,6 @@ public class GmForkJoinPrimaryNode extends GmNoStyleSimpleNode implements IImage
 
     /**
      * Get the parent model representation mode.
-     * 
      * @return the parent representation mode or null if the node has still no parent.
      */
     @objid ("2a8790fa-55b6-11e2-877f-002564c97630")
@@ -131,6 +129,7 @@ public class GmForkJoinPrimaryNode extends GmNoStyleSimpleNode implements IImage
         }
         // forcing visual refresh in case Image changed
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("2a879105-55b6-11e2-877f-002564c97630")
@@ -150,6 +149,7 @@ public class GmForkJoinPrimaryNode extends GmNoStyleSimpleNode implements IImage
             break;
         }
         }
+        
     }
 
     @objid ("2a87910b-55b6-11e2-877f-002564c97630")
@@ -159,6 +159,7 @@ public class GmForkJoinPrimaryNode extends GmNoStyleSimpleNode implements IImage
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmForkJoinPrimaryNode.", GmForkJoinPrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("2a879111-55b6-11e2-877f-002564c97630")

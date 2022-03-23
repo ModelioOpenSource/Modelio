@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.production.eventdefinitions;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import javax.xml.bind.JAXBElement;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.xml.bind.JAXBElement;
 import org.modelio.bpmnxml.model.ObjectFactory;
 import org.modelio.bpmnxml.model.TCatchEvent;
 import org.modelio.bpmnxml.model.TEscalationEventDefinition;
@@ -41,7 +40,7 @@ import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("1a15bd75-f2ed-4dc0-9fa8-005524847b32")
-public class EscalationEventDefinitionNode implements IProductionNode<BpmnEscalationEventDefinition,TEscalationEventDefinition> {
+public class EscalationEventDefinitionNode implements IProductionNode<BpmnEscalationEventDefinition, TEscalationEventDefinition> {
     @objid ("5a62e71f-6ed4-41c9-a69b-6c2d55399085")
     private Map<String, Object> elementsMap;
 
@@ -72,6 +71,7 @@ public class EscalationEventDefinitionNode implements IProductionNode<BpmnEscala
         } else {
             return factory.create(BpmnEscalationEventDefinition.class, context, "EventDefinitions");
         }
+        
     }
 
     @objid ("d1dafc45-3b10-4b74-9ca1-3c304d953ad3")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.storage.memory;
 
 import java.io.ByteArrayInputStream;
@@ -76,7 +75,7 @@ public class MemoryRepository implements IRepository, IRepositoryObject {
      * Create a new memory repository.
      */
     @objid ("c0c04c0f-2d9b-11e2-8aaa-001ec947ccaf")
-    public MemoryRepository() {
+    public  MemoryRepository() {
         this.emfResource = new MemoryEmfResource(this);
     }
 
@@ -85,6 +84,7 @@ public class MemoryRepository implements IRepository, IRepositoryObject {
     public void addObject(final SmObjectImpl newObject) {
         this.cache.putToCache(newObject);
         newObject.setRepositoryObject(this);
+        
     }
 
     @objid ("bd813876-92d7-11e1-81e9-001ec947ccaf")
@@ -98,6 +98,7 @@ public class MemoryRepository implements IRepository, IRepositoryObject {
     public void attach(final SmObjectImpl obj) {
         this.cache.putToCache(obj);
         obj.setRepositoryObject(this);
+        
     }
 
     @objid ("bd85fd39-92d7-11e1-81e9-001ec947ccaf")
@@ -256,6 +257,7 @@ public class MemoryRepository implements IRepository, IRepositoryObject {
     public void open(final IModelLoaderProvider aModelLoader, IModelioProgress monitor) {
         this.modelLoaderProvider = aModelLoader;
         this.cache = new MObjectCache(this.modelLoaderProvider.getMetamodel());
+        
     }
 
     @objid ("bd839b0a-92d7-11e1-81e9-001ec947ccaf")
@@ -295,6 +297,7 @@ public class MemoryRepository implements IRepository, IRepositoryObject {
         } else {
             return new ByteArrayInputStream(entry.content);
         }
+        
     }
 
     @objid ("9c1bc37b-ea33-45c8-8eac-3e171e55475b")
@@ -332,11 +335,11 @@ public class MemoryRepository implements IRepository, IRepositoryObject {
         } else {
             return entry.info;
         }
+        
     }
 
     /**
      * Get a metaclass from its name.
-     * 
      * @param name a metaclass name.
      * @return the metaclass.
      */
@@ -372,13 +375,13 @@ public class MemoryRepository implements IRepository, IRepositoryObject {
     @objid ("4003ed8a-815e-45c3-88ec-f10cedb3ea98")
     private static class BlobEntry {
         @objid ("6adf73cd-d354-4fe7-a6bf-eb2d274d47a0")
-         byte[] content;
+        byte[] content;
 
         @objid ("e1ea0ac7-0253-4af6-a3ab-ddceefc33146")
-         IBlobInfo info;
+        IBlobInfo info;
 
         @objid ("df6d6b7f-02d2-436f-87d7-4c7c5a09465a")
-        public BlobEntry() {
+        public  BlobEntry() {
             // TODO Auto-generated constructor stub
         }
 

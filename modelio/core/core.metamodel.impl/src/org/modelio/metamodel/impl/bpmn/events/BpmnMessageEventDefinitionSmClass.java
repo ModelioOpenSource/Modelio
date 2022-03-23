@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.events;
 
 import java.util.ArrayList;
@@ -33,8 +33,6 @@ import org.modelio.metamodel.bpmn.events.BpmnEventDefinition;
 import org.modelio.metamodel.bpmn.events.BpmnMessageEventDefinition;
 import org.modelio.metamodel.bpmn.flows.BpmnMessage;
 import org.modelio.metamodel.impl.bpmn.bpmnService.BpmnOperationSmClass;
-import org.modelio.metamodel.impl.bpmn.events.BpmnEventDefinitionSmClass;
-import org.modelio.metamodel.impl.bpmn.events.BpmnMessageEventDefinitionData;
 import org.modelio.metamodel.impl.bpmn.flows.BpmnMessageSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
@@ -57,7 +55,7 @@ public class BpmnMessageEventDefinitionSmClass extends BpmnEventDefinitionSmClas
     private SmDependency operationRefDep;
 
     @objid ("2eaca350-f009-4694-af2a-092468f2e77b")
-    public BpmnMessageEventDefinitionSmClass(ISmMetamodelFragment origin) {
+    public  BpmnMessageEventDefinitionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -65,6 +63,7 @@ public class BpmnMessageEventDefinitionSmClass extends BpmnEventDefinitionSmClas
     @Override
     public String getName() {
         return "BpmnMessageEventDefinition";
+        
     }
 
     @objid ("a69ac9d5-39d3-47f9-94b6-2b4d4e23df64")
@@ -77,18 +76,21 @@ public class BpmnMessageEventDefinitionSmClass extends BpmnEventDefinitionSmClas
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnMessageEventDefinition.class;
+        
     }
 
     @objid ("487adef6-4068-446d-ad8e-77964fbca726")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("99f2ce73-0787-4aa8-91bb-1a54e290d4ec")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("a97038b0-d3de-4399-8c03-a2625bb8dfde")
@@ -108,6 +110,8 @@ public class BpmnMessageEventDefinitionSmClass extends BpmnEventDefinitionSmClas
         this.operationRefDep = new OperationRefSmDependency();
         this.operationRefDep.init("OperationRef", this, metamodel.getMClass(BpmnOperation.MQNAME), 0, -1 , SmDirective.SMCDPARTOF);
         registerDependency(this.operationRefDep);
+        
+        
     }
 
     @objid ("21728570-5f99-4000-a54a-2e544af83ff5")
@@ -132,7 +136,7 @@ public class BpmnMessageEventDefinitionSmClass extends BpmnEventDefinitionSmClas
         private BpmnMessageEventDefinitionSmClass smClass;
 
         @objid ("6d8578a6-97f9-4a3b-8589-41467a82c4e2")
-        public BpmnMessageEventDefinitionObjectFactory(BpmnMessageEventDefinitionSmClass smClass) {
+        public  BpmnMessageEventDefinitionObjectFactory(BpmnMessageEventDefinitionSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -174,6 +178,7 @@ public class BpmnMessageEventDefinitionSmClass extends BpmnEventDefinitionSmClas
             	this.symetricDep = ((BpmnMessageSmClass)this.getTarget()).getEventDefinitionDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -193,6 +198,7 @@ public class BpmnMessageEventDefinitionSmClass extends BpmnEventDefinitionSmClas
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnMessageEventDefinitionData) data).mOperationRef = values;
+            
         }
 
         @objid ("71f53031-20e1-4d84-adae-9ec50fa1852f")
@@ -202,6 +208,7 @@ public class BpmnMessageEventDefinitionSmClass extends BpmnEventDefinitionSmClas
             	this.symetricDep = ((BpmnOperationSmClass)this.getTarget()).getEventDefinitionDep();
             }
             return this.symetricDep;
+            
         }
 
     }

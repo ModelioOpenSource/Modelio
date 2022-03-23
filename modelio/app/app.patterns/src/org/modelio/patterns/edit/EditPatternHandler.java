@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.edit;
 
 import java.util.List;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
@@ -31,8 +30,8 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Shell;
 import org.modelio.metamodel.uml.statik.Package;
 import org.modelio.patterns.edit.gui.PatternEditDialog;
-import org.modelio.patterns.model.ProfileUtils.PatternDesignerStereotypes;
 import org.modelio.patterns.model.ProfileUtils;
+import org.modelio.patterns.model.ProfileUtils.PatternDesignerStereotypes;
 import org.modelio.patterns.model.RuntimePattern;
 import org.modelio.patterns.plugin.Patterns;
 import org.modelio.platform.model.ui.swt.SelectionHelper;
@@ -47,7 +46,6 @@ import org.modelio.vcore.session.impl.CoreSession;
 public class EditPatternHandler {
     /**
      * Edit an existing pattern model.
-     * 
      * @param selection the current modelio selection.
      */
     @objid ("c7fb719b-87f3-43a9-b952-7bc8a0af0a8b")
@@ -70,11 +68,11 @@ public class EditPatternHandler {
                 Patterns.LOG.debug(e);
             }
         }
+        
     }
 
     /**
      * Available only when the selection contains only a pattern.
-     * 
      * @param selection the current modelio selection.
      * @return true if the handler can be executed.
      */

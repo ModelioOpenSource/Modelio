@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -63,17 +62,18 @@ public class ODataType extends ONameSpace {
             return UMLFactory.eINSTANCE.createPrimitiveType();
         else
             return UMLFactory.eINSTANCE.createDataType();
+        
     }
 
     /**
      * Constructor with an the exported DataType
-     * 
      * @param element : the exported DataType
      */
     @objid ("74af972b-798c-429f-8449-242386243434")
-    public ODataType(DataType element) {
+    public  ODataType(DataType element) {
         super(element);
         this.objingElement = element;
+        
     }
 
     @objid ("809e828a-b8dd-4629-a358-501b40444a7a")
@@ -116,6 +116,7 @@ public class ODataType extends ONameSpace {
                         + ecoreOwner.getClass().getSimpleName() + ") Not Found");
             }
         }
+        
     }
 
     @objid ("de7ef657-9769-47cb-a0f8-6ca975163441")
@@ -132,6 +133,7 @@ public class ODataType extends ONameSpace {
             setRootEAnnotation( ecoreElt);
             setPrimitiveEAnnotation(ecoreElt, this.objingElement.isIsElementary());
         }
+        
     }
 
     @objid ("4df192dc-fb7b-4077-8b74-b6f2dea6428f")

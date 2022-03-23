@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,11 +49,10 @@ public class OBehaviorParameter extends OElement implements IOElement {
 
     /**
      * OBehaviorParameter constructor
-     * 
      * @param element : the exported Modelio BehaviorParameter
      */
     @objid ("ead147ad-15d4-4f7b-aa27-910f34ebaa1b")
-    public OBehaviorParameter(final BehaviorParameter element) {
+    public  OBehaviorParameter(final BehaviorParameter element) {
         super(element);
     }
 
@@ -67,6 +65,7 @@ public class OBehaviorParameter extends OElement implements IOElement {
         if ((ecoreParent != null) && (ecoreParent instanceof org.eclipse.uml2.uml.Behavior)) {
             ((org.eclipse.uml2.uml.Behavior) ecoreParent).getOwnedParameters().add((org.eclipse.uml2.uml.Parameter) ecoreElt);
         }
+        
     }
 
     @objid ("c64e42a7-4d22-48cc-a37f-5fb3e5edfa23")
@@ -78,6 +77,7 @@ public class OBehaviorParameter extends OElement implements IOElement {
         setMax((org.eclipse.uml2.uml.Parameter) ecoreElt);
         setMin((org.eclipse.uml2.uml.Parameter) ecoreElt);
         setClass((org.eclipse.uml2.uml.Parameter) ecoreElt);
+        
     }
 
     @objid ("1c18dd74-49f6-4318-b09f-90f1d6c87724")
@@ -98,6 +98,7 @@ public class OBehaviorParameter extends OElement implements IOElement {
         default:
             ecoreElt.setEffect(org.eclipse.uml2.uml.ParameterEffectKind.CREATE_LITERAL);
         }
+        
     }
 
     @objid ("dd0b3c7c-4d5e-47bc-aef6-fcbaf9a0a997")
@@ -132,6 +133,7 @@ public class OBehaviorParameter extends OElement implements IOElement {
                 }
             }
         }
+        
     }
 
     @objid ("c3dad748-2c43-4553-b0cf-c108a0ac25d8")
@@ -156,6 +158,7 @@ public class OBehaviorParameter extends OElement implements IOElement {
                 }
             }
         }
+        
     }
 
     @objid ("b801ac4c-4ec3-4033-8044-f509654445d3")
@@ -183,6 +186,7 @@ public class OBehaviorParameter extends OElement implements IOElement {
         } else {
             ObjingEAnnotation.setIsNoType(ecoreElt);
         }
+        
     }
 
     @objid ("bcb46fac-b71f-48fb-83b1-1165afb33c5c")

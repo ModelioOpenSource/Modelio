@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmninclusivegateway;
 
 import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.PositionConstants;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnGatewayImageStyleKeys;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnGatewaySimpleStyleKeys;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnGatewayStructuredStyleKeys;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnGatewayUserImageStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnGatewayImageStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnGatewaySimpleStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnGatewayStructuredStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnGatewayUserImageStyleKeys;
 import org.modelio.diagram.elements.common.label.name.GmNameLabel;
 import org.modelio.diagram.elements.common.portcontainer.GmPortContainer;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
@@ -47,9 +46,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("60f76b4a-55b6-11e2-877f-002564c97630")
 public class GmBpmnInclusiveGateway extends GmPortContainer {
-    @objid ("60f8f1bc-55b6-11e2-877f-002564c97630")
-    private BpmnInclusiveGateway element;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -58,6 +54,9 @@ public class GmBpmnInclusiveGateway extends GmPortContainer {
 
     @objid ("60f8f1c2-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
+
+    @objid ("60f8f1bc-55b6-11e2-877f-002564c97630")
+    private BpmnInclusiveGateway element;
 
     @objid ("c4975d2d-59a6-11e2-ae45-002564c97630")
     public static final GmBpmnGatewayStructuredStyleKeys STRUCTURED_KEYS = new GmBpmnGatewayStructuredStyleKeys();
@@ -73,13 +72,12 @@ public class GmBpmnInclusiveGateway extends GmPortContainer {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the timeEvent is unmasked.
      * @param el the unmasked timeEvent.
      * @param ref a reference to the unmasked timeEvent.
      */
     @objid ("60f8f1c4-55b6-11e2-877f-002564c97630")
-    public GmBpmnInclusiveGateway(IGmDiagram diagram, BpmnInclusiveGateway el, MRef ref) {
+    public  GmBpmnInclusiveGateway(IGmDiagram diagram, BpmnInclusiveGateway el, MRef ref) {
         super(diagram, ref);
         
         GmBpmnInclusiveGatewayPrimaryNode mainNode = new GmBpmnInclusiveGatewayPrimaryNode(diagram, ref);
@@ -91,6 +89,7 @@ public class GmBpmnInclusiveGateway extends GmPortContainer {
         label.setRoleInComposition(GmPortContainer.SATELLITE_ROLE);
         label.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         this.addChild(label);
+        
     }
 
     @objid ("60f8f1d0-55b6-11e2-877f-002564c97630")
@@ -120,6 +119,7 @@ public class GmBpmnInclusiveGateway extends GmPortContainer {
         default:
             return null;
         }
+        
     }
 
     @objid ("60f8f1e9-55b6-11e2-877f-002564c97630")
@@ -137,13 +137,14 @@ public class GmBpmnInclusiveGateway extends GmPortContainer {
         default:
             return Collections.emptyList();
         }
+        
     }
 
     /**
      * Empty constructor needed for deserialisation.
      */
     @objid ("60f8f1f1-55b6-11e2-877f-002564c97630")
-    public GmBpmnInclusiveGateway() {
+    public  GmBpmnInclusiveGateway() {
         // Nothing specific to do.
     }
 
@@ -164,6 +165,7 @@ public class GmBpmnInclusiveGateway extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("60f8f1fa-55b6-11e2-877f-002564c97630")
@@ -185,12 +187,14 @@ public class GmBpmnInclusiveGateway extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmBpmnInclusiveGateway.", MINOR_VERSION);
+        
     }
 
     @objid ("60fa7879-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (BpmnInclusiveGateway) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("60fa787e-55b6-11e2-877f-002564c97630")
@@ -201,7 +205,6 @@ public class GmBpmnInclusiveGateway extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -213,7 +216,6 @@ public class GmBpmnInclusiveGateway extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

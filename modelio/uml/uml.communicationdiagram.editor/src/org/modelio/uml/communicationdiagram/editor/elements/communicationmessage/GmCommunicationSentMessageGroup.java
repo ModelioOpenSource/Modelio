@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.communicationdiagram.editor.elements.communicationmessage;
 
 import java.util.List;
@@ -53,21 +52,22 @@ public final class GmCommunicationSentMessageGroup extends GmGroup {
 
     /**
      * Creates a group.
-     * 
      * @param diagram The diagram.
      * @param relatedRef The related element reference, may not be null.
      */
     @objid ("7a4cb5ac-55b6-11e2-877f-002564c97630")
-    public GmCommunicationSentMessageGroup(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmCommunicationSentMessageGroup(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
         this.relatedEl = (CommunicationChannel) resolveRef(relatedRef);
+        
     }
 
     /**
      * Constructor for deserialization only.
      */
     @objid ("7a4cb5b7-55b6-11e2-877f-002564c97630")
-    public GmCommunicationSentMessageGroup() {
+    public  GmCommunicationSentMessageGroup() {
+        
     }
 
     @objid ("7a4cb5ba-55b6-11e2-877f-002564c97630")
@@ -117,6 +117,7 @@ public final class GmCommunicationSentMessageGroup extends GmGroup {
             break;
         }
         }
+        
     }
 
     @objid ("7a4e3c3a-55b6-11e2-877f-002564c97630")
@@ -149,6 +150,7 @@ public final class GmCommunicationSentMessageGroup extends GmGroup {
             }
         
         }
+        
     }
 
     @objid ("7a4e3c3d-55b6-11e2-877f-002564c97630")
@@ -157,6 +159,7 @@ public final class GmCommunicationSentMessageGroup extends GmGroup {
         refreshFromObModel();
         fireVisibilityChanged();
         super.styleChanged(style);
+        
     }
 
     @objid ("7a4e3c44-55b6-11e2-877f-002564c97630")
@@ -196,6 +199,7 @@ public final class GmCommunicationSentMessageGroup extends GmGroup {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmCommunicationSentMessageGroup.", GmCommunicationSentMessageGroup.MINOR_VERSION);
+        
     }
 
     @objid ("7a4fc2cf-55b6-11e2-877f-002564c97630")
@@ -203,6 +207,7 @@ public final class GmCommunicationSentMessageGroup extends GmGroup {
         super.read(in);
         
         this.relatedEl = (CommunicationChannel) resolveRef((MRef) in.readProperty("relatedRef"));
+        
     }
 
     @objid ("7a4fc2d5-55b6-11e2-877f-002564c97630")

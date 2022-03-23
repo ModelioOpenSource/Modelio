@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnbusinessruletask;
 
 import java.util.Collections;
@@ -25,10 +24,10 @@ import java.util.List;
 import java.util.Objects;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.PositionConstants;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnTaskImageStyleKeys;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnTaskSimpleStyleKeys;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnTaskStructuredStyleKeys;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnTaskUserImageStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnTaskImageStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnTaskSimpleStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnTaskStructuredStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnTaskUserImageStyleKeys;
 import org.modelio.diagram.elements.common.label.modelelement.GmDefaultModelElementLabel;
 import org.modelio.diagram.elements.common.portcontainer.GmPortContainer;
 import org.modelio.diagram.elements.core.model.GmAbstractObject;
@@ -48,9 +47,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("608e2223-55b6-11e2-877f-002564c97630")
 public class GmBpmnBusinessRuleTask extends GmPortContainer {
-    @objid ("608e222d-55b6-11e2-877f-002564c97630")
-    private BpmnBusinessRuleTask element;
-
     /**
      * Current version of this Gm.
      */
@@ -63,27 +59,29 @@ public class GmBpmnBusinessRuleTask extends GmPortContainer {
     @objid ("608e2235-55b6-11e2-877f-002564c97630")
     private static final String IMAGE_LABEL_ROLE = "ImageLabel";
 
+    @objid ("608e222d-55b6-11e2-877f-002564c97630")
+    private BpmnBusinessRuleTask element;
+
     @objid ("c4ed0eae-59a6-11e2-ae45-002564c97630")
-     static final GmBpmnTaskStructuredStyleKeys STRUCTURED_KEYS = new GmBpmnTaskStructuredStyleKeys();
+    static final GmBpmnTaskStructuredStyleKeys STRUCTURED_KEYS = new GmBpmnTaskStructuredStyleKeys();
 
     @objid ("c4ed0eb0-59a6-11e2-ae45-002564c97630")
-     static final GmBpmnTaskSimpleStyleKeys SIMPLE_KEYS = new GmBpmnTaskSimpleStyleKeys();
+    static final GmBpmnTaskSimpleStyleKeys SIMPLE_KEYS = new GmBpmnTaskSimpleStyleKeys();
 
     @objid ("c4ed0eb2-59a6-11e2-ae45-002564c97630")
-     static final GmBpmnTaskImageStyleKeys IMAGE_KEYS = new GmBpmnTaskImageStyleKeys();
+    static final GmBpmnTaskImageStyleKeys IMAGE_KEYS = new GmBpmnTaskImageStyleKeys();
 
     @objid ("d0efc201-7820-432b-827e-842c1624d27f")
-     static final GmBpmnTaskUserImageStyleKeys USERIMAGE_KEYS = new GmBpmnTaskUserImageStyleKeys();
+    static final GmBpmnTaskUserImageStyleKeys USERIMAGE_KEYS = new GmBpmnTaskUserImageStyleKeys();
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the BpmnBusinessRuleTask is unmasked.
      * @param element the unmasked BpmnBusinessRuleTask.
      * @param ref a reference to the unmasked callOperation.
      */
     @objid ("608e2237-55b6-11e2-877f-002564c97630")
-    public GmBpmnBusinessRuleTask(IGmDiagram diagram, BpmnBusinessRuleTask element, MRef ref) {
+    public  GmBpmnBusinessRuleTask(IGmDiagram diagram, BpmnBusinessRuleTask element, MRef ref) {
         super(diagram, ref);
         this.element = element;
         
@@ -96,6 +94,7 @@ public class GmBpmnBusinessRuleTask extends GmPortContainer {
         
         super.addChild(mainNode);
         super.addChild(imageModeHeader);
+        
     }
 
     @objid ("608fa89f-55b6-11e2-877f-002564c97630")
@@ -134,6 +133,7 @@ public class GmBpmnBusinessRuleTask extends GmPortContainer {
         default:
             return null;
         }
+        
     }
 
     @objid ("608fa8b8-55b6-11e2-877f-002564c97630")
@@ -151,13 +151,14 @@ public class GmBpmnBusinessRuleTask extends GmPortContainer {
         default:
             return Collections.emptyList();
         }
+        
     }
 
     /**
      * Empty constructor needed for deserialisation.
      */
     @objid ("608fa8c0-55b6-11e2-877f-002564c97630")
-    public GmBpmnBusinessRuleTask() {
+    public  GmBpmnBusinessRuleTask() {
         // Nothing specific to do.
     }
 
@@ -182,6 +183,7 @@ public class GmBpmnBusinessRuleTask extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("608fa8c9-55b6-11e2-877f-002564c97630")
@@ -203,6 +205,7 @@ public class GmBpmnBusinessRuleTask extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmBpmnBusinessRuleTask.", GmBpmnBusinessRuleTask.MINOR_VERSION);
+        
     }
 
     @objid ("608fa8dd-55b6-11e2-877f-002564c97630")
@@ -215,6 +218,7 @@ public class GmBpmnBusinessRuleTask extends GmPortContainer {
         imageModeHeader.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         
         super.addChild(imageModeHeader, 1);
+        
     }
 
     @objid ("60912f3c-55b6-11e2-877f-002564c97630")
@@ -227,6 +231,7 @@ public class GmBpmnBusinessRuleTask extends GmPortContainer {
     private void read_1(final IDiagramReader in) {
         super.read(in);
         this.element = (BpmnBusinessRuleTask) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("60912f47-55b6-11e2-877f-002564c97630")
@@ -242,6 +247,7 @@ public class GmBpmnBusinessRuleTask extends GmPortContainer {
                 ret.remove(imageModeHeader);
                 break;
             }
+            case USER_IMAGE:
             case IMAGE:
             default: {
                 break;
@@ -254,7 +260,6 @@ public class GmBpmnBusinessRuleTask extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -264,11 +269,11 @@ public class GmBpmnBusinessRuleTask extends GmPortContainer {
         String role = childNode.getRoleInComposition();
         return GmPortContainer.SATELLITE_ROLE.equals(role)
                         || GmBpmnBusinessRuleTask.IMAGE_LABEL_ROLE.equals(role);
+        
     }
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */

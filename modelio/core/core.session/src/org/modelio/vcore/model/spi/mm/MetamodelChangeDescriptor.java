@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model.spi.mm;
 
 import java.util.Collection;
@@ -46,7 +45,6 @@ public class MetamodelChangeDescriptor {
 
     /**
      * Add a new CMS node
-     * 
      * @param mmFragName the metamodel fragment name
      * @param mClassName the metaclass name
      * @return this instance.
@@ -59,7 +57,6 @@ public class MetamodelChangeDescriptor {
 
     /**
      * Add a new CMS node
-     * 
      * @param mmFragName the metamodel fragment name
      * @param mClassName the metaclass name
      * @return this instance.
@@ -72,7 +69,6 @@ public class MetamodelChangeDescriptor {
 
     /**
      * Add a new metaclass.
-     * 
      * @param mmFragName the metamodel fragment name
      * @param mClassName the metaclass name
      * @return this instance.
@@ -85,7 +81,6 @@ public class MetamodelChangeDescriptor {
 
     /**
      * Register a deleted metaclass.
-     * 
      * @param mmFragName the metamodel fragment name
      * @param mClassName the metaclass name
      * @return this instance.

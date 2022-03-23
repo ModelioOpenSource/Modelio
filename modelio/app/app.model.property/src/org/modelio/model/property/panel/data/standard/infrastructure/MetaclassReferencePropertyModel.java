@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel.data.standard.infrastructure;
 
 import java.util.ArrayList;
@@ -45,11 +44,10 @@ public class MetaclassReferencePropertyModel extends AbstractPropertyModel<Metac
 
     /**
      * Instantiate the profile properties view.
-     * 
      * @param theEditedElement the current profile.
      */
     @objid ("4726e9e1-e1d5-41e9-b74a-0f28bedee2fc")
-    public MetaclassReferencePropertyModel(MetaclassReference theEditedElement) {
+    public  MetaclassReferencePropertyModel(MetaclassReference theEditedElement) {
         super(theEditedElement);
     }
 
@@ -82,6 +80,7 @@ public class MetaclassReferencePropertyModel extends AbstractPropertyModel<Metac
         default:
             return null;
         }
+        
     }
 
     @objid ("6720fe7f-5268-4d6d-b531-8088bb99129b")
@@ -111,6 +110,7 @@ public class MetaclassReferencePropertyModel extends AbstractPropertyModel<Metac
         default:
             return null;
         }
+        
     }
 
     @objid ("ebe8e341-aa0b-4030-b84f-933b53660599")
@@ -138,6 +138,7 @@ public class MetaclassReferencePropertyModel extends AbstractPropertyModel<Metac
         default:
             return;
         }
+        
     }
 
 }

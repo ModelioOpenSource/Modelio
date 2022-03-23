@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common.index.builder;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,7 +44,7 @@ public class InvalidExmlException extends Exception {
      * @since  1.4
      */
     @objid ("4c9350fc-d1dd-4dfa-8e1f-1f0c96973eb5")
-    public InvalidExmlException(String message, Throwable cause) {
+    public  InvalidExmlException(String message, Throwable cause) {
         super(message, cause);
     }
 
@@ -63,7 +62,7 @@ public class InvalidExmlException extends Exception {
      * @since  1.4
      */
     @objid ("1e87f7f9-b724-4021-9ffb-fd5d646877bc")
-    public InvalidExmlException(Throwable cause) {
+    public  InvalidExmlException(Throwable cause) {
         super(cause);
     }
 

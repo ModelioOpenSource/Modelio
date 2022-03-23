@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.ramcs.handlers;
 
 import java.io.IOException;
@@ -27,8 +26,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
@@ -111,6 +110,7 @@ public class PackageRamcHandler {
                 new ViewRamcDialog(shell, model).open();
             }
         }
+        
     }
 
     @objid ("b56ca33d-98d1-4c99-b7cd-5d55495d62bb")
@@ -121,6 +121,7 @@ public class PackageRamcHandler {
         } else {
             return false;
         }
+        
     }
 
     @objid ("28c6061b-073e-4337-86d8-178f3550b2d7")
@@ -155,6 +156,7 @@ public class PackageRamcHandler {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
+        
     }
 
     @objid ("951b1841-6663-4273-a472-78aeb274c344")
@@ -198,6 +200,7 @@ public class PackageRamcHandler {
                 return choosenPath;
             }
         }
+        
     }
 
 }

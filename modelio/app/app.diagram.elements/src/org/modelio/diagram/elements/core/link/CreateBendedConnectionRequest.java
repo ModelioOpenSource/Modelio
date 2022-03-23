@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link;
 
 import java.util.ArrayList;
@@ -48,7 +47,6 @@ public class CreateBendedConnectionRequest extends CreateConnectionRequest {
 
     /**
      * Get the raw path data.
-     * 
      * @return the raw data.
      */
     @objid ("7fe523b1-1dec-11e2-8cad-001ec947c8cc")
@@ -61,7 +59,6 @@ public class CreateBendedConnectionRequest extends CreateConnectionRequest {
      * selected.
      * 
      * This list should only be filled by a creation command's execute method and read by the emitting tool.
-     * 
      * @return the list of objects that should be created.
      */
     @objid ("7fe523c0-1dec-11e2-8cad-001ec947c8cc")
@@ -73,14 +70,16 @@ public class CreateBendedConnectionRequest extends CreateConnectionRequest {
     @Override
     public String toString() {
         if (DiagramElements.LOG.isDebugEnabled()) {
-            return String.format("CreateBendedConnectionRequest:\n\tsource=%s\n\ttarget=%s\n\tlocation=%s\n\traw path data=%s\n", 
-                    this.getSourceEditPart(), 
+            return String.format("%s[%n\tsource=%s%n\ttarget=%s%n\tlocation=%s%n\traw path data=%s%n]",
+                    getClass().getSimpleName(),
+                    this.getSourceEditPart(),
                     this.getTargetEditPart(),
                     this.getLocation(),
                     this.data);
         } else {
             return super.toString();
         }
+        
     }
 
 }

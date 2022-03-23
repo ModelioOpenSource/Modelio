@@ -17,21 +17,21 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.uml.infrastructure.properties.DynamicPropertyDefinitionData;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.properties.DynamicPropertyDefinition;
+import org.modelio.metamodel.uml.infrastructure.properties.DynamicPropertyDefinition.IDynamicPropertyResolver;
 import org.modelio.metamodel.visitors.IInfrastructureVisitor;
 import org.modelio.vcore.smkernel.SmConstrainedList;
 import org.modelio.vcore.smkernel.SmDepVal;
@@ -57,6 +57,7 @@ public class DynamicPropertyDefinitionImpl extends PropertyDefinitionImpl implem
         } else {
             throw new UnsupportedOperationException("No DynamicBehavior found for the " + this.toString() + " property.");
         }
+        
     }
 
     @objid ("0b651b9e-97a7-4ce8-8e1f-e15f15e9807b")
@@ -68,6 +69,7 @@ public class DynamicPropertyDefinitionImpl extends PropertyDefinitionImpl implem
         } else {
             throw new UnsupportedOperationException("No DynamicBehavior found for the " + this.toString() + " property.");
         }
+        
     }
 
     @objid ("6b0eecda-d721-4335-9cd4-cd403584761d")

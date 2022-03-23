@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,9 +50,10 @@ public class EInteraction extends ENamedElement {
     }
 
     @objid ("ddac9a35-3dac-400d-9e10-f40d5f123597")
-    public EInteraction(org.eclipse.uml2.uml.Interaction element) {
+    public  EInteraction(org.eclipse.uml2.uml.Interaction element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("4b249249-4322-4651-a010-b5663d4bc8c3")
@@ -105,6 +105,7 @@ public class EInteraction extends ENamedElement {
                 objingElt.delete();
             }
         }
+        
     }
 
     @objid ("c2b58f6c-d27f-415f-96ea-1d98038e0764")
@@ -113,6 +114,7 @@ public class EInteraction extends ENamedElement {
         super.setProperties(objingElt);
         setReentrant((Interaction) objingElt);
         setDiagram((Interaction) objingElt);
+        
     }
 
     @objid ("31e6fd0c-b247-446c-89ad-1ad0ae27c011")
@@ -134,6 +136,7 @@ public class EInteraction extends ENamedElement {
         if (this.ecoreElement.getFormalGates().contains(ecoreGate)){
             interaction.getFormalGate().add(objingGate);
         }
+        
     }
 
     @objid ("3f092a4e-4784-4d44-a45d-7c14d41f9eb6")
@@ -153,6 +156,7 @@ public class EInteraction extends ENamedElement {
         }
         
         diagram.setName(name);
+        
     }
 
 }

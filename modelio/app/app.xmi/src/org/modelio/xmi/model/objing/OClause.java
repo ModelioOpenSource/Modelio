@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,7 +42,7 @@ public class OClause extends OElement implements IOElement {
     }
 
     @objid ("3431203f-0cc1-4197-a48f-2df7a2d5d063")
-    public OClause(Clause element) {
+    public  OClause(Clause element) {
         super(element);
     }
 
@@ -65,6 +64,7 @@ public class OClause extends OElement implements IOElement {
                         + ecoreOwner.getClass().getSimpleName() + ") Not Found";
             throw new NotFoundException(errorMsg);
         }
+        
     }
 
     @objid ("3c1016ae-113d-4a7b-8749-28a64d38ff2c")
@@ -73,6 +73,7 @@ public class OClause extends OElement implements IOElement {
         setBody( (org.eclipse.uml2.uml.Clause) ecoreElt);
         setTest( (org.eclipse.uml2.uml.Clause) ecoreElt);
         setName( (org.eclipse.uml2.uml.Clause) ecoreElt);
+        
     }
 
     @objid ("7431f330-8663-450e-8de1-eaa48b141ce8")
@@ -83,6 +84,7 @@ public class OClause extends OElement implements IOElement {
             if (ecoreBody instanceof org.eclipse.uml2.uml.ExecutableNode)
                 clause.getBodies().add( (org.eclipse.uml2.uml.ExecutableNode)ecoreBody);
         }
+        
     }
 
     @objid ("ae5dd2c8-53f0-46a9-a29d-4bdc8285ddd0")
@@ -99,6 +101,7 @@ public class OClause extends OElement implements IOElement {
             attachActionToActivity(ecoreTestAction);
             ObjingEAnnotation.setIsDeleted(ecoreTestAction);
         }
+        
     }
 
     @objid ("7d27bf41-983a-430e-96b9-66ff79d7a586")
@@ -117,6 +120,7 @@ public class OClause extends OElement implements IOElement {
                 ((org.eclipse.uml2.uml.Activity) ecoreActivity).getNodes().add(action);
             }
         }
+        
     }
 
 }

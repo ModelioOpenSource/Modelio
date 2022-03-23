@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,11 +31,10 @@ public class UnknownModuleException extends Exception {
 
     /**
      * Constructs a new exception with the specified detail message.
-     * 
      * @param msg the message.
      */
     @objid ("efa529d9-9a11-4540-b0a6-0cd0a891ed96")
-    public UnknownModuleException(String msg) {
+    public  UnknownModuleException(String msg) {
         super(msg);
     }
 

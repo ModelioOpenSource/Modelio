@@ -17,18 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.infrastructure.DependencyData;
-import org.modelio.metamodel.impl.uml.infrastructure.ModelElementSmClass;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.vbasic.version.Version;
@@ -51,7 +49,7 @@ public class DependencySmClass extends ModelElementSmClass {
     private SmDependency dependsOnDep;
 
     @objid ("ef8ac736-3e46-4e90-b1e5-6053e00f6c8e")
-    public DependencySmClass(ISmMetamodelFragment origin) {
+    public  DependencySmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -59,6 +57,7 @@ public class DependencySmClass extends ModelElementSmClass {
     @Override
     public String getName() {
         return "Dependency";
+        
     }
 
     @objid ("45b1a1f1-e0eb-4cb2-a942-6a1d89807bbc")
@@ -71,18 +70,21 @@ public class DependencySmClass extends ModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Dependency.class;
+        
     }
 
     @objid ("f38c7348-7beb-4435-a9c5-685b5526c19d")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("6f511881-d4d2-441a-b75f-34baf963a3d8")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("ad6c6acf-312b-4f12-ab4b-4e051f22e151")
@@ -102,6 +104,8 @@ public class DependencySmClass extends ModelElementSmClass {
         this.dependsOnDep = new DependsOnSmDependency();
         this.dependsOnDep.init("DependsOn", this, metamodel.getMClass(ModelElement.MQNAME), 0, 1 , SmDirective.SMCDLINKTARGET, SmDirective.SMCDPARTOF);
         registerDependency(this.dependsOnDep);
+        
+        
     }
 
     @objid ("6d436f53-a07a-454d-b525-43b05ade843b")
@@ -124,6 +128,7 @@ public class DependencySmClass extends ModelElementSmClass {
     @Override
     public boolean isLinkMetaclass() {
         return true;
+        
     }
 
     @objid ("c16fdd68-3545-4462-a32f-ae7657f7c6d5")
@@ -132,7 +137,7 @@ public class DependencySmClass extends ModelElementSmClass {
         private DependencySmClass smClass;
 
         @objid ("9daf02e7-cbb0-4a31-a5f9-544e144b538a")
-        public DependencyObjectFactory(DependencySmClass smClass) {
+        public  DependencyObjectFactory(DependencySmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -174,6 +179,7 @@ public class DependencySmClass extends ModelElementSmClass {
             	this.symetricDep = ((ModelElementSmClass)this.getTarget()).getImpactedDependencyDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -202,6 +208,7 @@ public class DependencySmClass extends ModelElementSmClass {
             	this.symetricDep = ((ModelElementSmClass)this.getTarget()).getDependsOnDependencyDep();
             }
             return this.symetricDep;
+            
         }
 
     }

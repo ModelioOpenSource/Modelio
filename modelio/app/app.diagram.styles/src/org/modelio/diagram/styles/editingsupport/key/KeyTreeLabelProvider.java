@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.editingsupport.key;
 
 import java.util.List;
@@ -72,9 +71,10 @@ public class KeyTreeLabelProvider extends StyledCellLabelProvider {
     private final Supplier<ISymbolViewModel> modelSupplier;
 
     @objid ("ce285b96-845c-4d96-9e3e-b24f90915575")
-    public KeyTreeLabelProvider(Supplier<ISymbolViewModel> modelSupplier, Supplier<IStyle> inputSupplier) {
+    public  KeyTreeLabelProvider(Supplier<ISymbolViewModel> modelSupplier, Supplier<IStyle> inputSupplier) {
         this.modelSupplier = modelSupplier;
         this.inputSupplier = inputSupplier;
+        
     }
 
     @objid ("d2da10c6-627c-4d64-9600-dfa8cea4c38e")
@@ -82,6 +82,7 @@ public class KeyTreeLabelProvider extends StyledCellLabelProvider {
     public void dispose() {
         this.localFont = null;
         super.dispose();
+        
     }
 
     @objid ("4cf0f300-c7ad-43dc-a7aa-e274649b3292")
@@ -100,6 +101,7 @@ public class KeyTreeLabelProvider extends StyledCellLabelProvider {
         } else {
             return null;
         }
+        
     }
 
     @objid ("7a990fd7-7eb4-40fa-a04f-1aef62fb6353")
@@ -206,6 +208,7 @@ public class KeyTreeLabelProvider extends StyledCellLabelProvider {
         } finally {
             gc.dispose();
         }
+        
     }
 
     @objid ("14a64028-8935-4bc7-8043-47df9ee10b42")
@@ -215,6 +218,7 @@ public class KeyTreeLabelProvider extends StyledCellLabelProvider {
         if (event.height < 24) {
             event.height = 24;
         }
+        
     }
 
 }

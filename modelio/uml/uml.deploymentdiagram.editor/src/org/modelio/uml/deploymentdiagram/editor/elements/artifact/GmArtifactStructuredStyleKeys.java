@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.deploymentdiagram.editor.elements.artifact;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,77 +39,77 @@ public class GmArtifactStructuredStyleKeys extends DeploymentAbstractStyleKeyPro
      * Representation mode.
      */
     @objid ("1ce0bb1b-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("ARTIFACT_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("ARTIFACT_REPMODE", MetaKey.REPMODE);
 
     /**
      * Fill color.
      */
     @objid ("1ce0bb1e-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("ARTIFACT_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("ARTIFACT_FILLCOLOR", MetaKey.FILLCOLOR);
 
     /**
      * Fill mode.
      */
     @objid ("1ce0bb21-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("ARTIFACT_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("ARTIFACT_FILLMODE", MetaKey.FILLMODE);
 
     /**
      * Line color.
      */
     @objid ("1ce0bb24-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("ARTIFACT_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("ARTIFACT_LINECOLOR", MetaKey.LINECOLOR);
 
     /**
      * Line width.
      */
     @objid ("1ce0bb27-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("ARTIFACT_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("ARTIFACT_LINEWIDTH", MetaKey.LINEWIDTH);
 
     /**
      * Text font.
      */
     @objid ("1ce0bb2a-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("ARTIFACT_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("ARTIFACT_FONT", MetaKey.FONT);
 
     /**
      * Text color.
      */
     @objid ("1ce0bb2d-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("ARTIFACT_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("ARTIFACT_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     /**
      * Display name.
      */
     @objid ("1ce0bb30-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWNAME = createStyleKey("ARTIFACT_SHOWNAME", MetaKey.SHOWNAME);
+    static final StyleKey SHOWNAME = createStyleKey("ARTIFACT_SHOWNAME", MetaKey.SHOWNAME);
 
     /**
      * Display stereotypes.
      */
     @objid ("1ce0bb33-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("ARTIFACT_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("ARTIFACT_SHOWSTEREOTYPES",
+                MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Display tagged values.
      */
     @objid ("1ce0bb36-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("ARTIFACT_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("ARTIFACT_SHOWTAGS", MetaKey.SHOWTAGS);
 
     /**
      * Filter on features
      */
     @objid ("1ce241ac-55c2-11e2-9337-002564c97630")
-     static final StyleKey FEATURES = createStyleKey("ARTIFACT_FEATURES", MetaKey.VISIBILITYFILTER);
+    static final StyleKey FEATURES = createStyleKey("ARTIFACT_FEATURES", MetaKey.VISIBILITYFILTER);
 
     @objid ("1ce241b2-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWPORTS = createStyleKey("ARTIFACT_SHOWPORTS", MetaKey.AUTOSHOWPORTS);
+    static final StyleKey SHOWPORTS = createStyleKey("ARTIFACT_SHOWPORTS", MetaKey.AUTOSHOWPORTS);
 
     /**
      * Display visibility.
      */
     @objid ("792c2917-ad2f-4863-bd74-c53df05695b8")
-     static final StyleKey SHOWVISIBILITY = createStyleKey("ARTIFACT_SHOWVISIBILITY", MetaKey.SHOWVISIBILITY);
+    static final StyleKey SHOWVISIBILITY = createStyleKey("ARTIFACT_SHOWVISIBILITY", MetaKey.SHOWVISIBILITY);
 
     @objid ("0e7de8a2-6e4a-4bb1-ab64-104a9b69557e")
     public static final ClassifierAttributeKeys Attribute = new ClassifierAttributeKeys("ARTIFACT");

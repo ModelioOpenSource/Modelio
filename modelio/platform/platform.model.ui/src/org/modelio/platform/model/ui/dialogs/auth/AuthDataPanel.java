@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.dialogs.auth;
 
 import java.util.HashMap;
@@ -181,6 +180,7 @@ public class AuthDataPanel implements IPanelProvider {
         this.authData = (IAuthData) input;
         if (this.authData != null)
             this.schemeSelector.setSelection(new StructuredSelection(this.authData.getClass()));
+        
     }
 
     @objid ("3d941b3a-7bc8-45db-9eba-a44a48a7eb9f")
@@ -204,6 +204,7 @@ public class AuthDataPanel implements IPanelProvider {
             }
             this.currentUi = ui;
         }
+        
     }
 
     @objid ("bae44df8-81ad-4ba6-a04c-1c53bb339117")
@@ -254,13 +255,12 @@ public class AuthDataPanel implements IPanelProvider {
         private AuthDataPanel panel;
 
         @objid ("9027602d-8e71-4383-b347-98e540074f35")
-        public AuthDataPanelController(AuthDataPanel authDataPanel) {
+        public  AuthDataPanelController(AuthDataPanel authDataPanel) {
             this.panel = authDataPanel;
         }
 
         /**
          * Called when the user selects another scheme
-         * 
          * @param selection selected scheme
          */
         @objid ("f33eb41e-6157-423d-9ec6-e5f38e9abb96")
@@ -271,6 +271,7 @@ public class AuthDataPanel implements IPanelProvider {
                         .getFirstElement();
                 this.panel.selectScheme(scheme);
             }
+            
         }
 
     }

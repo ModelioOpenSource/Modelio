@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.versioned.load.sax;
 
 import java.io.IOException;
@@ -43,26 +42,25 @@ public class SaxVersionedExmlLoader extends SaxExmlLoader implements IVersionedE
 
     /**
      * Initialize the SAX loader.
-     * 
      * @param loadHelper a load helper
      */
     @objid ("c7fa47e0-3fbb-11e2-87cb-001ec947ccaf")
-    public SaxVersionedExmlLoader(ILoadHelper loadHelper) {
+    public  SaxVersionedExmlLoader(ILoadHelper loadHelper) {
         super(loadHelper);
         
         this.localFileLoader = new SaxLocalExmlLoader(loadHelper);
         setDependencyContentHook(this.localFileLoader);
+        
     }
 
     /**
      * Load an EXML resource from an XML {@link InputSource}.
-     * 
      * @param is the EXML source.
      * @param localIs the EXML local data resource
      * @param loader the API to use to load the content.
      * @return the loaded CMS node.
-     * @throws java.io.IOException in case of failure
-     * @throws org.modelio.vcore.model.DuplicateObjectException if another object with the same identifier as a loaded object already exists in another repository.
+     * @throws IOException in case of failure
+     * @throws DuplicateObjectException if another object with the same identifier as a loaded object already exists in another repository.
      */
     @objid ("c7fa47e5-3fbb-11e2-87cb-001ec947ccaf")
     @Override

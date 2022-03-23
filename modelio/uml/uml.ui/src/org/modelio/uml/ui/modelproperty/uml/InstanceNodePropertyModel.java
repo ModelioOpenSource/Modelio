@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.util.ArrayList;
@@ -65,21 +64,19 @@ public class InstanceNodePropertyModel extends AbstractPropertyModel<InstanceNod
      */
     @objid ("66089b1a-33cd-4421-b846-3f6fd2811b42")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name",
-			"TypeRepresented", "UpperBound", "IsControlType", "Ordering", "SelectionBehavior", "InState" };
+    			"TypeRepresented", "UpperBound", "IsControlType", "Ordering", "SelectionBehavior", "InState" };
 
     /**
      * Create a new <i>InstanceNode</i> data model from an <i>InstanceNode</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("d3b39468-9cfd-46cf-9e6d-83b3699b1a52")
-    public InstanceNodePropertyModel(InstanceNode theEditedElement) {
+    public  InstanceNodePropertyModel(InstanceNode theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("26d368be-0905-4f2e-8261-8c2d37c65998")
@@ -90,7 +87,6 @@ public class InstanceNodePropertyModel extends AbstractPropertyModel<InstanceNod
 
     /**
      * Returns the element represented by the given instance node.
-     * 
      * @return the represented element
      */
     @objid ("8fcf0890-7b86-447f-bf47-c86c4d032a86")
@@ -117,7 +113,6 @@ public class InstanceNodePropertyModel extends AbstractPropertyModel<InstanceNod
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("2b3c55f6-53d7-4858-bc47-0f2db1d3807d")
@@ -130,7 +125,6 @@ public class InstanceNodePropertyModel extends AbstractPropertyModel<InstanceNod
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -164,6 +158,7 @@ public class InstanceNodePropertyModel extends AbstractPropertyModel<InstanceNod
         default:
             return null;
         }
+        
     }
 
     /**
@@ -173,7 +168,6 @@ public class InstanceNodePropertyModel extends AbstractPropertyModel<InstanceNod
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -212,12 +206,12 @@ public class InstanceNodePropertyModel extends AbstractPropertyModel<InstanceNod
         default:
             return null;
         }
+        
     }
 
     /**
      * Set the InstanceNode represented elements. This method set the right
      * dependency and clears the otheEditedElement.
-     * 
      * @param theEditedElement the instance node
      * @param value the new represented element
      */
@@ -278,13 +272,13 @@ public class InstanceNodePropertyModel extends AbstractPropertyModel<InstanceNod
                 theEditedElement.setType((GeneralClass) value);
             }
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -327,6 +321,7 @@ public class InstanceNodePropertyModel extends AbstractPropertyModel<InstanceNod
         default:
             return;
         }
+        
     }
 
 }

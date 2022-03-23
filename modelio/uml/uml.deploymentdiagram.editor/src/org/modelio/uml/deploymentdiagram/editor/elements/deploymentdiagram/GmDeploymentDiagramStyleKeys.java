@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.deploymentdiagram.editor.elements.deploymentdiagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,7 +34,7 @@ public class GmDeploymentDiagramStyleKeys extends DeploymentAbstractStyleKeyProv
      * Snap to geometry.
      */
     @objid ("ec8ad2c2-484c-46f9-a1ae-9e0e8e3c229f")
-     static final StyleKey SNAPTOGEOMETRY = GmAbstractDiagramStyleKeys.SNAPTOGEOMETRY;
+    static final StyleKey SNAPTOGEOMETRY = GmAbstractDiagramStyleKeys.SNAPTOGEOMETRY;
 
     /**
      * View grid.
@@ -104,6 +103,6 @@ public class GmDeploymentDiagramStyleKeys extends DeploymentAbstractStyleKeyProv
     public static final LayoutAssistantStyleKeys autoLayoutStyle = GmAbstractDiagramStyleKeys.autoLayoutStyle;
 
     @objid ("00dc1552-57c1-4552-9778-1890779b8b23")
-     static final StyleKey SHOW_SMARTLINK_HANDLE = GmAbstractDiagramStyleKeys.SHOW_SMARTLINK_HANDLE;
+    static final StyleKey SHOW_SMARTLINK_HANDLE = GmAbstractDiagramStyleKeys.SHOW_SMARTLINK_HANDLE;
 
 }

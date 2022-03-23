@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.uml.statik.AssociationEndData;
 import org.modelio.metamodel.uml.behavior.activityModel.ObjectNode;
 import org.modelio.metamodel.uml.informationFlow.InformationFlow;
 import org.modelio.metamodel.uml.statik.AggregationKind;
@@ -52,7 +51,6 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 public class AssociationEndImpl extends StructuralFeatureImpl implements AssociationEnd {
     /**
      * Compute the association navigability from all roles construction.
-     * 
      * @return the association navigability.
      */
     @objid ("779babaf-b95e-442f-9c0d-af9c01f610c7")
@@ -99,6 +97,7 @@ public class AssociationEndImpl extends StructuralFeatureImpl implements Associa
             opposite.setTarget(null);
         
         }
+        
     }
 
     @objid ("0019e09c-22ac-1080-943a-001ec947cd2a")
@@ -143,6 +142,7 @@ public class AssociationEndImpl extends StructuralFeatureImpl implements Associa
         } else {
             setSource(value);
         }
+        
     }
 
     @objid ("001b2470-22ac-1080-943a-001ec947cd2a")
@@ -187,6 +187,7 @@ public class AssociationEndImpl extends StructuralFeatureImpl implements Associa
         } else {
             setTarget(value);
         }
+        
     }
 
     @objid ("007041ee-1a19-10a1-88a0-001ec947cd2a")
@@ -208,6 +209,7 @@ public class AssociationEndImpl extends StructuralFeatureImpl implements Associa
                 return null;
             }
         }
+        
     }
 
     @objid ("6f0ba97d-5b41-11e2-90ce-002564c97630")
@@ -246,6 +248,7 @@ public class AssociationEndImpl extends StructuralFeatureImpl implements Associa
         } else {
             return null;
         }
+        
     }
 
     @objid ("7d321404-ca63-4d7b-93d6-9eeaed9fe01f")
@@ -258,6 +261,7 @@ public class AssociationEndImpl extends StructuralFeatureImpl implements Associa
             AssociationEnd opposite = getOpposite();
             return opposite != null ? opposite.getTarget() : null;
         }
+        
     }
 
     @objid ("de5ce14b-fc8c-4ab5-a0b9-2b41683ce4db")
@@ -280,6 +284,7 @@ public class AssociationEndImpl extends StructuralFeatureImpl implements Associa
             }
         
         }
+        
     }
 
     @objid ("5695fde3-3d4a-426b-9260-1a82a3ff91cd")
@@ -364,6 +369,7 @@ public class AssociationEndImpl extends StructuralFeatureImpl implements Associa
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("339a1888-3c60-4558-8579-0d81fba26db8")
@@ -385,6 +391,7 @@ public class AssociationEndImpl extends StructuralFeatureImpl implements Associa
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("6be33a45-a359-4549-a0f8-8286f4f975f9")
@@ -406,6 +413,7 @@ public class AssociationEndImpl extends StructuralFeatureImpl implements Associa
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("098d56cf-660b-4d11-971f-28d7d92c9a0f")
@@ -440,6 +448,7 @@ public class AssociationEndImpl extends StructuralFeatureImpl implements Associa
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("c9e63e4e-7f4e-49ec-bf0d-61d8b6ca6d3d")

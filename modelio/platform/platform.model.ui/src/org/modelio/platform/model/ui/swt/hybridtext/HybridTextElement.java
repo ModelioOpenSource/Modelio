@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.hybridtext;
 
 import java.util.ArrayList;
@@ -100,19 +99,20 @@ public class HybridTextElement {
     /**
      * Indicates that this TextElement should accept and propose null value
      */
+    
     @mdl.prop
     @objid ("9e3e5488-78b8-4047-a758-a47f849fb216")
-    private boolean acceptNullValue;
+    public boolean acceptNullValue;
 
     @mdl.propgetter
     public boolean isAcceptNullValue() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.acceptNullValue;
     }
 
     @mdl.propsetter
     public void setAcceptNullValue(boolean value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.acceptNullValue = value;
     }
 
@@ -188,9 +188,10 @@ public class HybridTextElement {
      * @param style
      */
     @objid ("a9c26260-49a6-4087-bbf4-ad2371ed002a")
-    public HybridTextElement(Composite parent, int style) {
+    public  HybridTextElement(Composite parent, int style) {
         this.text = createControl(parent, style);
         this.acceptNullValue = true;
+        
     }
 
     /**
@@ -232,6 +233,7 @@ public class HybridTextElement {
                 this.completionDriver = null;
             }
         }
+        
     }
 
     /**
@@ -248,6 +250,7 @@ public class HybridTextElement {
                 this.pickingDriver = null;
             }
         }
+        
     }
 
     /**
@@ -262,6 +265,7 @@ public class HybridTextElement {
         DropTarget target = new DropTarget(this.text, operations);
         target.setTransfer(types);
         target.addDropListener(dropListener);
+        
     }
 
     @objid ("d0841f11-82de-4267-b3f6-adad8dcf6e44")
@@ -279,6 +283,7 @@ public class HybridTextElement {
         } else {
             this.text.setText(value.toString());
         }
+        
     }
 
     @objid ("4b7ef2df-e5a0-4926-978e-4a45bd62a8c3")
@@ -304,7 +309,6 @@ public class HybridTextElement {
      * Create and configure the wrapped text control
      * @param parent
      * @param style
-     * 
      * @return the configured Text control
      */
     @objid ("a029aab4-253d-44ce-a3f8-3818cbd9ebdc")
@@ -326,6 +330,7 @@ public class HybridTextElement {
         for (final IHybridTextElementSelectionListener listener : this.listeners) {
             listener.selectedElementChanged(oldElement, newElement);
         }
+        
     }
 
     /**
@@ -375,6 +380,7 @@ public class HybridTextElement {
             return;
         }
         validate(true);
+        
     }
 
     @objid ("90bbe68a-a373-4e4a-add2-ab921fab7589")
@@ -391,6 +397,7 @@ public class HybridTextElement {
             this.tooltip.hide();
             this.tooltip = null;
         }
+        
     }
 
     @objid ("997793ce-91ed-4294-8e43-e51fa9abb834")
@@ -439,10 +446,11 @@ public class HybridTextElement {
             
             final Rectangle imageRect = UIImages.ASSIST.getBounds();
             gc.drawImage(UIImages.ASSIST, textBounds.x + textBounds.width - imageRect.width, textBounds.y);
+            
         }
 
         @objid ("797dd9cc-a936-4d66-a234-d55ffd603a43")
-        public HybridTextElementPaintListener() {
+        public  HybridTextElementPaintListener() {
             // nothing to do
         }
 
@@ -472,11 +480,12 @@ public class HybridTextElement {
         private KeyListener keyListener;
 
         @objid ("02a1e894-6ef7-4ba1-8b1e-2ca69530aa37")
-        public HybridCompletionDriver(final HybridTextElement textElement, CoreSession session) {
+        public  HybridCompletionDriver(final HybridTextElement textElement, CoreSession session) {
             this.searchCriteria = new ModelSearchCriteria();
             this.searcher = new ModelSearchEngine();
             this.textElement = textElement;
             connect(session);
+            
         }
 
         @objid ("381e74a7-a8c6-4572-bfe4-3bed7090b326")
@@ -520,6 +529,7 @@ public class HybridTextElement {
             
                 this.textElement.setSelectedElement(rp.getChoice(getMObjectValue()));
             }
+            
         }
 
         @objid ("bb5b1de0-f110-4667-b396-0df42c6cd814")
@@ -608,12 +618,14 @@ public class HybridTextElement {
             } else if (e.character == SWT.ESC) {
                 this.textElement.validate(false);
             }
+            
         }
 
         @objid ("5f6960d0-4671-4ab5-8af6-857c9732de89")
         public void terminate() {
             disconnect();
             this.textElement = null;
+            
         }
 
         @objid ("ebe10b75-ac2a-46d1-82cf-89d2f11ce2a3")
@@ -631,6 +643,7 @@ public class HybridTextElement {
             });
             
             this.textElement.getTextControl().addKeyListener(this.keyListener);
+            
         }
 
         @objid ("738a3740-f90c-4d1e-86e5-c6445c98b792")
@@ -640,6 +653,7 @@ public class HybridTextElement {
             }
             this.keyListener = null;
             this.session = null;
+            
         }
 
         @objid ("935f8b3f-b5f4-4edf-ba17-f61aa9a22088")
@@ -670,10 +684,11 @@ public class HybridTextElement {
         private DisposeListener disposeListener;
 
         @objid ("63e871c1-570d-4928-b7b0-4b3358318111")
-        public HybridPickingDriver(HybridTextElement textElement, IModelioPickingService pickingService) {
+        public  HybridPickingDriver(HybridTextElement textElement, IModelioPickingService pickingService) {
             this.textElement = textElement;
             this.pickingService = pickingService;
             connect();
+            
         }
 
         @objid ("3735e5b4-3909-4ae6-96ed-200d9ac2f8f4")
@@ -681,6 +696,7 @@ public class HybridTextElement {
             if (this.pickingSession == null) {
                 this.pickingSession = this.pickingService.startPicking(this);
             }
+            
         }
 
         @objid ("84e6300c-6f54-4a5e-ac06-b1117b4dd885")
@@ -689,6 +705,7 @@ public class HybridTextElement {
                 this.pickingService.stopPicking(this.pickingSession);
                 this.pickingSession = null;
             }
+            
         }
 
         @objid ("8e85845b-eb87-40eb-ab7f-ffec217e46c2")
@@ -715,6 +732,7 @@ public class HybridTextElement {
                 }
             };
             this.textElement.getTextControl().addDisposeListener(this.disposeListener);
+            
         }
 
         @objid ("2a880c4e-1f58-4d05-a05e-29c71c65733f")
@@ -728,6 +746,7 @@ public class HybridTextElement {
             if (this.pickingSession != null) {
                 this.pickingSession.abort();
             }
+            
         }
 
         /**
@@ -738,6 +757,7 @@ public class HybridTextElement {
         void terminate() {
             disconnect();
             this.pickingService = null;
+            
         }
 
         @objid ("59318994-dcb2-44d8-962f-10496d20267c")
@@ -776,6 +796,7 @@ public class HybridTextElement {
                 this.pickingSession = null;
             }
             this.textElement.validate(false);
+            
         }
 
     }
@@ -789,9 +810,10 @@ public class HybridTextElement {
         private ICoreSession session;
 
         @objid ("ccb62b4c-9630-426d-95bc-bbf8626a9aa3")
-        public HybridDropListener(HybridTextElement textElement, ICoreSession session) {
+        public  HybridDropListener(HybridTextElement textElement, ICoreSession session) {
             this.textElement = textElement;
             this.session = session;
+            
         }
 
         @objid ("d9d2642f-079e-4915-ad62-6d640caddd09")
@@ -802,6 +824,7 @@ public class HybridTextElement {
             if (!validateDroppedObjects(droppedObjects)) {
                 event.detail = DND.DROP_NONE;
             }
+            
         }
 
         @objid ("d99ac7d3-1a14-41d7-baba-7ca8cac4880c")
@@ -812,6 +835,7 @@ public class HybridTextElement {
             if (validateDroppedObjects(droppedObjects)) {
                 this.textElement.setSelectedElement(droppedObjects.get(0));
             }
+            
         }
 
         @objid ("b441e6ac-a3fd-44d4-bcf7-e257e2ba8dcb")
@@ -830,6 +854,7 @@ public class HybridTextElement {
                 event.feedback = DND.FEEDBACK_NONE;
                 return;
             }
+            
         }
 
         @objid ("bde18faa-6060-43e1-b933-19186c6aabbf")
@@ -855,7 +880,6 @@ public class HybridTextElement {
         /**
          * Extract the list of MObject being dropped, excluding 'deleted'
          * objects.
-         * 
          * @param event @return
          */
         @objid ("56de3403-dc04-4318-9135-fe39f8df5cfc")
@@ -876,6 +900,7 @@ public class HybridTextElement {
                 // getting the selection from LocalSelectionTransfer.
                 return getLocalDraggedElements();
             }
+            
         }
 
         /**

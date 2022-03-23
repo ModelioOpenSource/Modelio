@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.preferences.ui.editingsupports;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,13 +40,13 @@ public class AuditActivationEditingSupport extends EditingSupport {
 
     /**
      * Initialize the StylePropertyEditingSupport.
-     * 
      * @param viewer The style viewer.
      */
     @objid ("ab284d50-5496-4420-9574-e6f975e2108f")
-    public AuditActivationEditingSupport(TreeViewer viewer) {
+    public  AuditActivationEditingSupport(TreeViewer viewer) {
         super(viewer);
         this.viewer = viewer;
+        
     }
 
     @objid ("98817efe-9072-4521-93e5-7aa0c5711f70")
@@ -79,6 +78,7 @@ public class AuditActivationEditingSupport extends EditingSupport {
         newRule.setEnabled((Boolean) value);
         
         this.viewer.refresh();
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import java.util.ArrayList;
@@ -43,7 +42,7 @@ public class ODurationConstraint extends OElement implements IOElement {
     }
 
     @objid ("df6f9067-ecee-4de0-bf45-c0685a9e2930")
-    public ODurationConstraint(DurationConstraint param) {
+    public  ODurationConstraint(DurationConstraint param) {
         super(param);
     }
 

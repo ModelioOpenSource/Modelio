@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.module.modelermodule.api;
 
 import java.nio.file.Path;
@@ -44,10 +43,9 @@ public interface IModelerModulePeerModule extends IPeerModule {
 
     /**
      * Create an attribute from an attribute link. If the class doesn't exists, it is also created.
-     * 
      * @param attr The attribute link to create a new attribute from.
      * @return <code>true</code> when an attribute is created.
-     * @throws org.modelio.module.modelermodule.api.ModelerModuleException when the attribute already exists, or when the base of the instance isn't a classifier.
+     * @throws ModelerModuleException when the attribute already exists, or when the base of the instance isn't a classifier.
      */
     @objid ("1ef5d499-133a-4227-b84e-587708ae972f")
     boolean createAttribute(final AttributeLink attr) throws ModelerModuleException;
@@ -58,10 +56,9 @@ public interface IModelerModulePeerModule extends IPeerModule {
      * - ports from the instance ports.
      * - attributes from attribute links.
      * - operations from incoming messages.
-     * 
      * @param inst The instance to create the classifier from.
      * @return <code>true</code> when a new classifier is created.
-     * @throws org.modelio.module.modelermodule.api.ModelerModuleException When an error happens during creation.
+     * @throws ModelerModuleException When an error happens during creation.
      */
     @objid ("82aed8f5-f20f-4c91-bac8-4ac8a65c4327")
     boolean createClassifier(final Instance inst) throws ModelerModuleException;
@@ -73,10 +70,9 @@ public interface IModelerModulePeerModule extends IPeerModule {
      * - ports from the instance ports.
      * - attributes from attribute links.
      * - operations from incoming messages.
-     * 
      * @param ll The lifeline to create the classifier from.
      * @return <code>true</code> when a new classifier is created.
-     * @throws org.modelio.module.modelermodule.api.ModelerModuleException When an error happens during creation.
+     * @throws ModelerModuleException When an error happens during creation.
      */
     @objid ("2e2d7c4f-6806-47f4-9875-20ef1e778f7f")
     boolean createClassifierByLifeline(final Lifeline ll) throws ModelerModuleException;
@@ -84,10 +80,9 @@ public interface IModelerModulePeerModule extends IPeerModule {
     /**
      * Create an operation from a message.
      * An Instance might be created in the process, or a Classifier.
-     * 
      * @param message The message to create the operation from.
      * @return <code>true</code> if a new operation is created.
-     * @throws org.modelio.module.modelermodule.api.ModelerModuleException When an error happens during the creation.
+     * @throws ModelerModuleException When an error happens during the creation.
      */
     @objid ("0f897680-5ea7-45d4-aa82-8e4c2df836cd")
     boolean createOperationFromMessage(final Message message) throws ModelerModuleException;
@@ -95,17 +90,15 @@ public interface IModelerModulePeerModule extends IPeerModule {
     /**
      * Create an operation from a transition.
      * An Instance might be created in the process, or a Classifier.
-     * 
      * @param transition The transition to create the operation from.
      * @return <code>true</code> if a new transition is created.
-     * @throws org.modelio.module.modelermodule.api.ModelerModuleException When an error happens during the creation.
+     * @throws ModelerModuleException When an error happens during the creation.
      */
     @objid ("5a889cba-ccc6-42c4-9369-c9957b093586")
     boolean createOperationFromTransition(final Transition transition) throws ModelerModuleException;
 
     /**
      * Create Operations in those Classifiers from those defined in their implemented Interfaces.
-     * 
      * @param classifiers The Classifiers to create the Operations in.
      */
     @objid ("d30dd53a-79f5-4a75-b7a1-052c50fd56aa")
@@ -113,7 +106,6 @@ public interface IModelerModulePeerModule extends IPeerModule {
 
     /**
      * Delete Operations in Classifiers from those defined in their implemented Interfaces.
-     * 
      * @param classifiers The Classifiers to remove the Operations from.
      */
     @objid ("f759f7bd-ee15-40c3-a507-ce0b090c98e5")
@@ -122,7 +114,6 @@ public interface IModelerModulePeerModule extends IPeerModule {
     /**
      * For all classifiers implementing those interfaces, synchronize all operation signatures.
      * Missing operations are created.
-     * 
      * @param interfaces the interfaces to update operations from.
      */
     @objid ("651d2c3e-2634-44f0-8dcc-fda73057c3a5")
@@ -131,9 +122,8 @@ public interface IModelerModulePeerModule extends IPeerModule {
     /**
      * Update a part contents from its base classifier.
      * Allows creation of a new classifier if no base exists, or referencing an existing classifier.
-     * 
      * @param inst the instance to update.
-     * @throws org.modelio.module.modelermodule.api.ModelerModuleException when an error occurs during the update.
+     * @throws ModelerModuleException when an error occurs during the update.
      */
     @objid ("2f9bc9c1-5acc-4b18-b00b-c939cf996527")
     void updateInstanceFromClassifier(final Instance inst) throws ModelerModuleException;
@@ -141,9 +131,8 @@ public interface IModelerModulePeerModule extends IPeerModule {
     /**
      * Update a lifeline's represented instance contents from its base classifier.
      * Allows creation of the instance, and of a new classifier if no base exists, or referencing an existing classifier.
-     * 
      * @param ll the lifeline to update.
-     * @throws org.modelio.module.modelermodule.api.ModelerModuleException when an error occurs during the update.
+     * @throws ModelerModuleException when an error occurs during the update.
      */
     @objid ("56389721-7ce9-4be6-9731-2089605bfebf")
     void updateFromClassifierByLifeline(final Lifeline ll) throws ModelerModuleException;
@@ -152,16 +141,14 @@ public interface IModelerModulePeerModule extends IPeerModule {
      * Update the internal structure of a class.
      * Updates all parts from their base classifiers, and allows creation of all missing bases.
      * It is also possible to reference an existing classifier.
-     * 
      * @param classToUpdate The class to update.
-     * @throws org.modelio.module.modelermodule.api.ModelerModuleException When an error happens during the update.
+     * @throws ModelerModuleException When an error happens during the update.
      */
     @objid ("ce238806-4320-468c-9c99-04a7bc9f06cc")
     void updateInternalStructure(final Class classToUpdate) throws ModelerModuleException;
 
     /**
      * Create a sub state machine from a state having entry and exit points.
-     * 
      * @param state the state to create the sub state machine from.
      * @return the create sub state machine.
      */
@@ -170,7 +157,6 @@ public interface IModelerModulePeerModule extends IPeerModule {
 
     /**
      * Updates a state machine from a sub state machine. (entry, exit points)
-     * 
      * @param state the state to update.
      */
     @objid ("eabbafc2-81a9-448f-bb95-434f8c5ac5b0")

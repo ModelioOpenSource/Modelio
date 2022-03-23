@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.engine;
 
 import java.io.IOException;
@@ -203,6 +202,7 @@ class PatternRepository implements IPatternRepository {
             Patterns.LOG.error("Unable to load pattern catalog from '%s': %s" , this.repositoryPath, FileUtils.getLocalizedMessage(e1));
             Patterns.LOG.debug(e1);
         }
+        
     }
 
     @objid ("934f5482-9a41-457f-becf-4e7cdf37912b")
@@ -218,10 +218,11 @@ class PatternRepository implements IPatternRepository {
             Patterns.LOG.error("Unable to delete '%s' pattern : %s" , patternPath, FileUtils.getLocalizedMessage(e));
             Patterns.LOG.debug(e);
         }
+        
     }
 
     @objid ("6abce19e-4353-47a6-bbd3-c38a84507ac9")
-    PatternRepository(String catalogName, Path aPath, Boolean isReadOnly) {
+     PatternRepository(String catalogName, Path aPath, Boolean isReadOnly) {
         this.catalogName = catalogName;
         this.isReadOnly = isReadOnly;
         
@@ -229,6 +230,7 @@ class PatternRepository implements IPatternRepository {
         this.repositoryPath.toFile().mkdirs();
         
         reloadPatterns();
+        
     }
 
     @objid ("89fdb0fc-2055-4be4-b9c2-bdc1eda9c4af")
@@ -259,6 +261,7 @@ class PatternRepository implements IPatternRepository {
                 category.addPattern(pattern);
             }
         }
+        
     }
 
     @objid ("83ff1338-806a-48eb-9094-19041f5070a5")

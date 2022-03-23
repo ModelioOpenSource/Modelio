@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.providedinterface;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,62 +35,62 @@ public class ProvidedInterfaceStyleKeys extends StaticAbstractStyleKeyProvider {
      * Lines color.
      */
     @objid ("a76a1fab-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("PROVIDEDINTERFACE_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("PROVIDEDINTERFACE_LINECOLOR", MetaKey.LINECOLOR);
 
     /**
      * Lines width.
      */
     @objid ("a76a1fae-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("PROVIDEDINTERFACE_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("PROVIDEDINTERFACE_LINEWIDTH", MetaKey.LINEWIDTH);
 
     /**
      * Line corners radius
      */
     @objid ("a76a1fb1-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINERADIUS = createStyleKey("PROVIDEDINTERFACE_LINERADIUS", MetaKey.LINERADIUS);
+    static final StyleKey LINERADIUS = createStyleKey("PROVIDEDINTERFACE_LINERADIUS", MetaKey.LINERADIUS);
 
     /**
      * Draw bridge where vertical segments cross horizontal ones.
      */
     @objid ("a76a1fb4-55c2-11e2-9337-002564c97630")
-     static final StyleKey DRAWLINEBRIDGES = createStyleKey("PROVIDEDINTERFACE_DRAWLINEBRIDGES",
-                                                           MetaKey.DRAWLINEBRIDGES);
+    static final StyleKey DRAWLINEBRIDGES = createStyleKey("PROVIDEDINTERFACE_DRAWLINEBRIDGES",
+                                                               MetaKey.DRAWLINEBRIDGES);
 
     /**
      * Text font.
      */
     @objid ("a76a1fb7-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("PROVIDEDINTERFACE_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("PROVIDEDINTERFACE_FONT", MetaKey.FONT);
 
     /**
      * Text color.
      */
     @objid ("a76a1fba-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("PROVIDEDINTERFACE_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("PROVIDEDINTERFACE_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     /**
      * Name display mode: none, simple, qualified, ...
      */
     @objid ("a76a1fbd-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWNAME = createStyleKey("PROVIDEDINTERFACE_SHOWNAME", MetaKey.SHOWNAME);
+    static final StyleKey SHOWNAME = createStyleKey("PROVIDEDINTERFACE_SHOWNAME", MetaKey.SHOWNAME);
 
     /**
      * Stereotype display mode.
      */
     @objid ("a76a1fc0-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("PROVIDEDINTERFACE_SHOWSTEREOTYPES",
-                                                           MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("PROVIDEDINTERFACE_SHOWSTEREOTYPES",
+                                                               MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Show tagged values.
      */
     @objid ("a76a1fc3-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("PROVIDEDINTERFACE_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("PROVIDEDINTERFACE_SHOWTAGS", MetaKey.SHOWTAGS);
 
     /**
      * Fill color.
      */
     @objid ("a76a1fc6-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("PROVIDEDINTERFACE_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("PROVIDEDINTERFACE_FILLCOLOR", MetaKey.FILLCOLOR);
 
 }

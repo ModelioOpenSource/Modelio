@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.images;
 
 import java.io.IOException;
@@ -39,9 +38,10 @@ public class ModelResourceImageDescriptor extends ImageDescriptor {
     private final AbstractResource resource;
 
     @objid ("8e025016-7afb-495c-92e3-c3a5235beb58")
-    public ModelResourceImageDescriptor(AbstractResource resource) {
+    public  ModelResourceImageDescriptor(AbstractResource resource) {
         super();
         this.resource = Objects.requireNonNull(resource);
+        
     }
 
     @objid ("1652fec5-70be-493d-96bc-d286ab8a29d1")
@@ -80,6 +80,7 @@ public class ModelResourceImageDescriptor extends ImageDescriptor {
         } catch (IOException e) {
             return null;
         }
+        
     }
 
     @objid ("953732a0-43a2-4834-9b8a-3c970995e706")

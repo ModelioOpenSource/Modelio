@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.centralbuffer.v0;
 
 import java.util.ArrayList;
@@ -34,8 +33,8 @@ import org.modelio.diagram.elements.core.node.IImageableNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.CentralBufferNode;
 import org.modelio.platform.model.ui.swt.images.ElementImageService;
 import org.modelio.uml.activitydiagram.editor.elements.activitynodeheader.GmActivityNodeHeader;
@@ -90,13 +89,12 @@ public class _GmCentralBuffer extends GmCompositeNode implements IImageableNode 
 
     /**
      * Default constructor.
-     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param theCentralBuffer the represented central buffer, may be null.
      * @param ref a reference to the represented central buffer.
      */
     @objid ("29f0813b-55b6-11e2-877f-002564c97630")
-    public _GmCentralBuffer(IGmDiagram diagram, CentralBufferNode theCentralBuffer, MRef ref) {
+    public  _GmCentralBuffer(IGmDiagram diagram, CentralBufferNode theCentralBuffer, MRef ref) {
         super(diagram, ref);
         this.element = theCentralBuffer;
         this.header = new GmActivityNodeHeader(diagram, ref);
@@ -106,13 +104,14 @@ public class _GmCentralBuffer extends GmCompositeNode implements IImageableNode 
         addChild(this.imageModeHeader);
         this.objectNodeStateLabel = new GmObjectNodeStateLabel(diagram, ref);
         addChild(this.objectNodeStateLabel);
+        
     }
 
     /**
      * Empty constructor, needed for serialisation.
      */
     @objid ("29f08147-55b6-11e2-877f-002564c97630")
-    public _GmCentralBuffer() {
+    public  _GmCentralBuffer() {
         // empty constructor for the serialization
     }
 
@@ -140,7 +139,6 @@ public class _GmCentralBuffer extends GmCompositeNode implements IImageableNode 
 
     /**
      * Get the stereotype image to display.
-     * 
      * @return the stereotype image to display. Must not be <i>null</i>.
      */
     @objid ("29f207cb-55b6-11e2-877f-002564c97630")
@@ -188,6 +186,7 @@ public class _GmCentralBuffer extends GmCompositeNode implements IImageableNode 
         default:
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("29f207ea-55b6-11e2-877f-002564c97630")
@@ -211,6 +210,7 @@ public class _GmCentralBuffer extends GmCompositeNode implements IImageableNode 
             break;
         }
         }
+        
     }
 
     @objid ("29f207f0-55b6-11e2-877f-002564c97630")
@@ -222,6 +222,7 @@ public class _GmCentralBuffer extends GmCompositeNode implements IImageableNode 
         firePropertyChange(PROPERTY_LABEL, oldLabel, this.header.getMainLabel());
         // forcing visual refresh in case Image changed
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("29f207f3-55b6-11e2-877f-002564c97630")
@@ -236,6 +237,7 @@ public class _GmCentralBuffer extends GmCompositeNode implements IImageableNode 
         // Returned result depends on current representation mode:
         List<GmNodeModel> ret;
         switch (getRepresentationMode()) {
+        case USER_IMAGE:
         case IMAGE: {
             ret = new ArrayList<>(1);
             ret.add(this.imageModeHeader);
@@ -264,6 +266,7 @@ public class _GmCentralBuffer extends GmCompositeNode implements IImageableNode 
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmCentralBuffer.", _GmCentralBuffer.MINOR_VERSION);
+        
     }
 
     @objid ("29f38e6e-55b6-11e2-877f-002564c97630")
@@ -274,6 +277,7 @@ public class _GmCentralBuffer extends GmCompositeNode implements IImageableNode 
         
         this.imageModeHeader = (GmDefaultModelElementLabel) this.getChildren().get(1);
         this.objectNodeStateLabel = (GmElementLabel) this.getChildren().get(2);
+        
     }
 
     @objid ("29f38e73-55b6-11e2-877f-002564c97630")
@@ -287,6 +291,7 @@ public class _GmCentralBuffer extends GmCompositeNode implements IImageableNode 
         this.imageModeHeader = (GmDefaultModelElementLabel) this.getChildren().get(1);
         this.objectNodeStateLabel = new GmObjectNodeStateLabel(getDiagram(), getRepresentedRef());
         addChild(this.objectNodeStateLabel);
+        
     }
 
     @objid ("29f38e78-55b6-11e2-877f-002564c97630")

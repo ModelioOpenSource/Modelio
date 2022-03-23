@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.view.providers.byelement;
 
 import java.text.SimpleDateFormat;
@@ -56,6 +55,7 @@ public class NumberedElementLabelProvider extends StyledCellLabelProvider {
         cell.setText(text.toString());
         cell.setStyleRanges(text.getStyleRanges());
         super.update(cell);
+        
     }
 
 }

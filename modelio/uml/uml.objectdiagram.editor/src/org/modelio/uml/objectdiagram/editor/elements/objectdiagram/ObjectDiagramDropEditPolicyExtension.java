@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.objectdiagram.editor.elements.objectdiagram;
 
 import java.util.ArrayList;
@@ -155,12 +154,13 @@ public class ObjectDiagramDropEditPolicyExtension extends AbstractDiagramElement
          * @param parentElement the element that will own the new ObjectNode
          */
         @objid ("fa8f54ba-704a-481a-a102-0d6876d80782")
-        public SmartCreateInstanceCommand(final Point dropLocation, final NameSpace toUnmask, final EditPart parentEditPart, final MObject parentElement) {
+        public  SmartCreateInstanceCommand(final Point dropLocation, final NameSpace toUnmask, final EditPart parentEditPart, final MObject parentElement) {
             this.location = dropLocation;
             this.toUnmask = toUnmask;
             this.parentEditPart = parentEditPart;
             this.parentElement = parentElement;
             this.viewer = parentEditPart.getViewer();
+            
         }
 
         @objid ("2b9d4259-07e9-498a-87e1-8f9065947d9c")
@@ -231,11 +231,11 @@ public class ObjectDiagramDropEditPolicyExtension extends AbstractDiagramElement
                     }
                 }
             }
+            
         }
 
         /**
          * Copy the Ports of the base class to the instance.
-         * 
          * @param part the part where Ports are to be added.
          * @return the created ports.
          */
@@ -270,6 +270,7 @@ public class ObjectDiagramDropEditPolicyExtension extends AbstractDiagramElement
             if (cmd != null && cmd.canExecute()) {
                 cmd.execute();
             }
+            
         }
 
     }
@@ -283,9 +284,10 @@ public class ObjectDiagramDropEditPolicyExtension extends AbstractDiagramElement
         private DiagramElementDropEditPolicy dropPolicy;
 
         @objid ("b1e48ca2-014c-4741-adda-f75c331b4493")
-        public StandardVisitorImpl(DiagramElementDropEditPolicy dropPolicy, Point dropLocation) {
+        public  StandardVisitorImpl(DiagramElementDropEditPolicy dropPolicy, Point dropLocation) {
             this.dropPolicy = dropPolicy;
             this.dropLocation = dropLocation;
+            
         }
 
         @objid ("3f9c6f63-7dc4-4a83-9b36-21992ea8405f")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnlane.hibridcontainer;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -59,6 +58,16 @@ public class BodyHybridContainerEditPart extends FreeZoneEditPart {
         installEditPolicy(ModelElementDropRequest.TYPE, new BodyHybridContainerDropEditPolicy());
         
         installEditPolicy("ProgrammaticOnlyDragPolicy", new ProgrammaticOnlyDragPolicy());
+        
+    }
+
+    /**
+     * Disable layout policy decoration : {@link BodyHybridContainerLayoutEditPolicy} does it itself.
+     */
+    @objid ("a725efe1-e1fb-4e1b-8424-69c196a87641")
+    @Override
+    protected EditPolicy createLayoutPolicyDecorator(EditPolicy layoutPolicy) {
+        return layoutPolicy;
     }
 
     @objid ("612fe064-55b6-11e2-877f-002564c97630")
@@ -74,6 +83,7 @@ public class BodyHybridContainerEditPart extends FreeZoneEditPart {
             }
         }
         super.refreshChildren();
+        
     }
 
     @objid ("612fe067-55b6-11e2-877f-002564c97630")
@@ -100,7 +110,6 @@ public class BodyHybridContainerEditPart extends FreeZoneEditPart {
 
     /**
      * Updates both the LayoutManager of the Figure and the behavior state of the LayoutEditPolicy.
-     * 
      * @param newBehaviour the new behavior to adopt.
      */
     @objid ("612fe072-55b6-11e2-877f-002564c97630")
@@ -129,7 +138,7 @@ public class BodyHybridContainerEditPart extends FreeZoneEditPart {
             fig.setLayoutManager(new StackLayout());
             fig.setBorder(null);
             refreshFromStyle(fig, getModelStyle());
-            
+        
             break;
         }
         }
@@ -138,11 +147,11 @@ public class BodyHybridContainerEditPart extends FreeZoneEditPart {
         // Update state of hybrid policies
         ((BodyHybridContainerLayoutEditPolicy) getEditPolicy(EditPolicy.LAYOUT_ROLE)).setBehaviour(newBehaviour);
         // ((BodyHybridContainerDropEditPolicy) this.getEditPolicy(ModelElementDropRequest.TYPE)).setBehaviour(newBehaviour);
+        
     }
 
     /**
      * Computes the behaviour to have based on the model.
-     * 
      * @return the behaviour to adopt.
      */
     @objid ("612fe076-55b6-11e2-877f-002564c97630")
@@ -157,6 +166,7 @@ public class BodyHybridContainerEditPart extends FreeZoneEditPart {
             // container only (do not accept inner nodes anymore).
             return Behaviour.LANE_CONTAINER;
         }
+        
     }
 
     @objid ("613166e0-55b6-11e2-877f-002564c97630")
@@ -168,6 +178,7 @@ public class BodyHybridContainerEditPart extends FreeZoneEditPart {
         } else {
             super.addChildVisual(childEditPart, index);
         }
+        
     }
 
     @objid ("613166e5-55b6-11e2-877f-002564c97630")
@@ -197,15 +208,19 @@ public class BodyHybridContainerEditPart extends FreeZoneEditPart {
         /**
          * The behaviour to use is an hybrid (or more usually a combination) of both free zone and lane container behaviours.
          */
+        @objid ("613166ee-55b6-11e2-877f-002564c97630")
         HYBRID,
         /**
          * The behaviour to use is the one of a "regular" free zone.
          */
+        @objid ("613166f0-55b6-11e2-877f-002564c97630")
         FREE_ZONE,
         /**
          * The behaviour to use is the one of a "regular" lane container.
          */
+        @objid ("ebf82db0-ffc8-4866-8dd7-000c9ba00e94")
         LANE_CONTAINER;
+
     }
 
 }

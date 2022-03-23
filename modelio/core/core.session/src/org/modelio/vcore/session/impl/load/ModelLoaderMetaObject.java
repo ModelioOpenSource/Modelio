@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.load;
 
 import java.util.ConcurrentModificationException;
@@ -50,7 +49,8 @@ class ModelLoaderMetaObject implements IMetaOf {
      * Initialize the metaobject.
      */
     @objid ("bd3fe0b2-2d9b-11e2-8aaa-001ec947ccaf")
-    public ModelLoaderMetaObject() {
+    public  ModelLoaderMetaObject() {
+        
     }
 
     @objid ("bd3fe0be-2d9b-11e2-8aaa-001ec947ccaf")
@@ -131,6 +131,7 @@ class ModelLoaderMetaObject implements IMetaOf {
         } else {
             throw new IllegalArgumentException(dep + " is a simple dependency.");
         }
+        
     }
 
     @objid ("bd3fe0ee-2d9b-11e2-8aaa-001ec947ccaf")
@@ -173,6 +174,7 @@ class ModelLoaderMetaObject implements IMetaOf {
         }
         
         throw new UnsupportedOperationException();
+        
     }
 
     @objid ("bd424310-2d9b-11e2-8aaa-001ec947ccaf")
@@ -185,6 +187,7 @@ class ModelLoaderMetaObject implements IMetaOf {
         }
         
         throw new UnsupportedOperationException();
+        
     }
 
     @objid ("bd424314-2d9b-11e2-8aaa-001ec947ccaf")
@@ -203,6 +206,7 @@ class ModelLoaderMetaObject implements IMetaOf {
         }
         
         throw new UnsupportedOperationException();
+        
     }
 
     @objid ("18948f56-af8d-428d-98fb-e91d0bfbaa0d")
@@ -216,6 +220,7 @@ class ModelLoaderMetaObject implements IMetaOf {
         }
         
         // ignore
+        
     }
 
     /**
@@ -241,10 +246,9 @@ class ModelLoaderMetaObject implements IMetaOf {
      * <p>
      * Tests whether the current thread is the one using this meta object.
      * In the other case waits for the other thread to finish loading for 10 seconds.
-     * 
      * @param obj the object to access
      * @return <i>true</i> if the object was concurrently being loaded.
-     * @throws java.util.ConcurrentModificationException if after 10 seconds the object is still being loaded.
+     * @throws ConcurrentModificationException if after 10 seconds the object is still being loaded.
      */
     @objid ("6bb8dddc-c205-4cc4-a84a-11a877385dd6")
     private boolean concurrentLoading(SmObjectImpl obj) throws ConcurrentModificationException {
@@ -279,6 +283,7 @@ class ModelLoaderMetaObject implements IMetaOf {
         
             return true;
         }
+        
     }
 
     @objid ("a815e54d-f49b-4dea-9187-2e2a064ac056")
@@ -316,15 +321,16 @@ class ModelLoaderMetaObject implements IMetaOf {
     @objid ("27899ef5-2a68-47c6-b7c4-f6fe5fc6a97f")
     private static final class Lock {
         @objid ("7c4874a4-3f79-439e-ae44-3ad0171bf2ec")
-         final Thread loadingThread;
+        final Thread loadingThread;
 
         @objid ("21079fbe-6199-4dd5-9aa6-678f6b98f75d")
-         final CountDownLatch sync;
+        final CountDownLatch sync;
 
         @objid ("74478a52-da06-4626-80da-0711ff65de83")
-        public Lock() {
+        public  Lock() {
             this.loadingThread = Thread.currentThread();
             this.sync = new CountDownLatch(1);
+            
         }
 
     }

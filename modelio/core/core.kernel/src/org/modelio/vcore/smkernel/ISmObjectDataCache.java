@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,7 +28,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface ISmObjectDataCache {
     /**
      * Get the cached data for the given UUID.
-     * 
      * @param uid the identifier.
      * @return the cached data or <code>null</code>.
      */
@@ -38,7 +36,6 @@ public interface ISmObjectDataCache {
 
     /**
      * Put the given data to cache.
-     * 
      * @param data the data to cache.
      */
     @objid ("02128311-8585-11e1-bb11-001ec947ccaf")

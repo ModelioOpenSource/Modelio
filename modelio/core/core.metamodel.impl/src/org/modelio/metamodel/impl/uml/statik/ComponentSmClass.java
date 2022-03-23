@@ -17,20 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.statik.ClassSmClass;
-import org.modelio.metamodel.impl.uml.statik.ComponentData;
-import org.modelio.metamodel.impl.uml.statik.ComponentRealizationSmClass;
 import org.modelio.metamodel.uml.statik.Class;
 import org.modelio.metamodel.uml.statik.Component;
 import org.modelio.metamodel.uml.statik.ComponentRealization;
@@ -51,7 +48,7 @@ public class ComponentSmClass extends ClassSmClass {
     private SmDependency realizationDep;
 
     @objid ("f54a2083-318b-47da-90e0-e1adb5fe647a")
-    public ComponentSmClass(ISmMetamodelFragment origin) {
+    public  ComponentSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -59,6 +56,7 @@ public class ComponentSmClass extends ClassSmClass {
     @Override
     public String getName() {
         return "Component";
+        
     }
 
     @objid ("0976e137-0aa2-4223-95ed-325e01b80ccc")
@@ -71,18 +69,21 @@ public class ComponentSmClass extends ClassSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Component.class;
+        
     }
 
     @objid ("144fed02-7256-409d-8cf3-b082059a8d1b")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("afed991e-45fc-4e4a-902f-ee08d9781610")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("9d6d0637-e4c7-4627-8b27-e1c18bedcc5a")
@@ -98,6 +99,8 @@ public class ComponentSmClass extends ClassSmClass {
         this.realizationDep = new RealizationSmDependency();
         this.realizationDep.init("Realization", this, metamodel.getMClass(ComponentRealization.MQNAME), 0, -1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.realizationDep);
+        
+        
     }
 
     @objid ("48de55f7-b18f-434c-90a6-ed9e635682b7")
@@ -114,7 +117,7 @@ public class ComponentSmClass extends ClassSmClass {
         private ComponentSmClass smClass;
 
         @objid ("dea14be0-e443-458a-b29f-9728a54050fd")
-        public ComponentObjectFactory(ComponentSmClass smClass) {
+        public  ComponentObjectFactory(ComponentSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -147,6 +150,7 @@ public class ComponentSmClass extends ClassSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ComponentData) data).mRealization = values;
+            
         }
 
         @objid ("e6e4b063-bef5-44f7-a541-449bd6e66364")
@@ -156,6 +160,7 @@ public class ComponentSmClass extends ClassSmClass {
             	this.symetricDep = ((ComponentRealizationSmClass)this.getTarget()).getAbstractionDep();
             }
             return this.symetricDep;
+            
         }
 
     }

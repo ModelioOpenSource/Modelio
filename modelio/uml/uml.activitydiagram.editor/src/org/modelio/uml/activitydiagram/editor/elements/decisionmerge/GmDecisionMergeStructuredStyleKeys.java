@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.decisionmerge;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -80,7 +79,7 @@ public class GmDecisionMergeStructuredStyleKeys extends ActivityAbstractStyleKey
      */
     @objid ("d1d606ef-55c0-11e2-9337-002564c97630")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("DECISIONMERGE_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+                MetaKey.SHOWSTEREOTYPES);
 
     /**
      * show tagged values in the label.

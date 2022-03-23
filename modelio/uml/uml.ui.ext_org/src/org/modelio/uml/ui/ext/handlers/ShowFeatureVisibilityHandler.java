@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.ext.handlers;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,6 +49,7 @@ public class ShowFeatureVisibilityHandler {
                 }
             }
         }
+        
     }
 
 }

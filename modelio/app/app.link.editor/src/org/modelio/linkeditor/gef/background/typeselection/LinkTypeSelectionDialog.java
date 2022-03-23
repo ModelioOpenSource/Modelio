@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.gef.background.typeselection;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,7 +49,7 @@ import org.modelio.platform.ui.dialog.ModelioDialog;
 @objid ("1b9865cd-5e33-11e2-b81d-002564c97630")
 public class LinkTypeSelectionDialog extends ModelioDialog {
     @objid ("1b9865cf-5e33-11e2-b81d-002564c97630")
-     TypeSelectionModel model;
+    TypeSelectionModel model;
 
     @objid ("a35a9ee8-3679-4649-a69e-e089eccebeb4")
     private Composite composite;
@@ -60,12 +59,11 @@ public class LinkTypeSelectionDialog extends ModelioDialog {
 
     /**
      * C'tor.
-     * 
      * @param shell The shell to use to create this dialog.
      * @param model The model to use for this popup.
      */
     @objid ("1b9865d2-5e33-11e2-b81d-002564c97630")
-    public LinkTypeSelectionDialog(final Shell shell, final TypeSelectionModel model) {
+    public  LinkTypeSelectionDialog(final Shell shell, final TypeSelectionModel model) {
         super(shell);
         this.model = model;
         setShellStyle(SWT.CLOSE |
@@ -76,6 +74,7 @@ public class LinkTypeSelectionDialog extends ModelioDialog {
                 SWT.BORDER |
                 SWT.APPLICATION_MODAL |
                 Window.getDefaultOrientation());
+        
     }
 
     @objid ("1b9865d9-5e33-11e2-b81d-002564c97630")
@@ -124,6 +123,7 @@ public class LinkTypeSelectionDialog extends ModelioDialog {
     public void addButtonsInButtonBar(final Composite parent) {
         this.okButton = createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL, true);
         createButton(parent, IDialogConstants.CANCEL_ID, IDialogConstants.CANCEL_LABEL, false);
+        
     }
 
     @objid ("1b9865e5-5e33-11e2-b81d-002564c97630")
@@ -136,6 +136,7 @@ public class LinkTypeSelectionDialog extends ModelioDialog {
         
         // Set minimum size
         getShell().setMinimumSize(400, 300);
+        
     }
 
     @objid ("1b9865e8-5e33-11e2-b81d-002564c97630")
@@ -151,6 +152,7 @@ public class LinkTypeSelectionDialog extends ModelioDialog {
         } else {
             this.okButton.setEnabled(false);
         }
+        
     }
 
 }

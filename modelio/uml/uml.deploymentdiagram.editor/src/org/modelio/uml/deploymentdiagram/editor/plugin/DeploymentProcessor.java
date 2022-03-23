@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.deploymentdiagram.editor.plugin;
 
 import java.net.URL;
@@ -62,6 +61,7 @@ public class DeploymentProcessor extends AbstractDiagramInitializationProcessor 
         
         // Deployment elements should be usable in every Static diagram
         factoryRegistry.registerExtensions(StaticDiagram.MNAME, DeploymentDiagram.MNAME);
+        
     }
 
     @objid ("ec00b501-5bf2-11e2-a156-00137282c51b")
@@ -86,6 +86,7 @@ public class DeploymentProcessor extends AbstractDiagramInitializationProcessor 
         
         // Deployment Diagram
         factoryStyle.declareProvider(GmDeploymentDiagramStyleKeys.class);
+        
     }
 
     @objid ("ec00b503-5bf2-11e2-a156-00137282c51b")
@@ -99,6 +100,7 @@ public class DeploymentProcessor extends AbstractDiagramInitializationProcessor 
         loader.load(url);
         
         factoryStyle.injectDefaultValues(loader.getStyleProperties());
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.packaze;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,6 @@ import org.modelio.metamodel.uml.statik.Instance;
 import org.modelio.metamodel.uml.statik.NameSpace;
 import org.modelio.metamodel.uml.statik.Package;
 import org.modelio.metamodel.uml.statik.VisibilityMode;
-import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
 
 /**
@@ -57,24 +55,18 @@ public class GmPackageBody extends GmBodyFreeZone {
      * Constructor for deserialization only.
      */
     @objid ("361d758f-55b7-11e2-877f-002564c97630")
-    public GmPackageBody() {
+    public  GmPackageBody() {
+        
     }
 
     /**
      * Creates the package body.
-     * 
      * @param diagram The diagram
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
     @objid ("361efbf9-55b7-11e2-877f-002564c97630")
-    public GmPackageBody(IGmDiagram diagram, MRef relatedRef) {
+    public  GmPackageBody(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
-    }
-
-    @objid ("361efc02-55b7-11e2-877f-002564c97630")
-    @Override
-    public void obElementAdded(MObject movedEl) {
-        refreshFromObModel();
     }
 
     @objid ("361efc08-55b7-11e2-877f-002564c97630")
@@ -143,6 +135,7 @@ public class GmPackageBody extends GmBodyFreeZone {
                 }
             }
         }
+        
     }
 
     @objid ("361efc0b-55b7-11e2-877f-002564c97630")
@@ -153,6 +146,7 @@ public class GmPackageBody extends GmBodyFreeZone {
         } else {
             super.styleChanged(property, newValue);
         }
+        
     }
 
     @objid ("361efc12-55b7-11e2-877f-002564c97630")
@@ -161,6 +155,7 @@ public class GmPackageBody extends GmBodyFreeZone {
         refreshFromObModel();
         fireVisibilityChanged();
         super.styleChanged(style);
+        
     }
 
     @objid ("361efc18-55b7-11e2-877f-002564c97630")
@@ -180,6 +175,7 @@ public class GmPackageBody extends GmBodyFreeZone {
             break;
         }
         }
+        
     }
 
     @objid ("361efc1e-55b7-11e2-877f-002564c97630")
@@ -189,6 +185,7 @@ public class GmPackageBody extends GmBodyFreeZone {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmPackageBody.", GmPackageBody.MINOR_VERSION);
+        
     }
 
     @objid ("361efc24-55b7-11e2-877f-002564c97630")

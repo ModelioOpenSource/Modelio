@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.swap;
 
 import java.io.DataInput;
@@ -50,7 +49,7 @@ import org.modelio.vcore.smkernel.meta.SmSingleDependency;
 @objid ("dcbe877f-493b-11e2-91c9-001ec947ccaf")
 class CacheEntrySerializer implements Serializer<JdbmSwap.CacheEntry> {
     @objid ("7e405960-4a00-11e2-91c9-001ec947ccaf")
-    private static Map<Class<?>,Object[]> enumContent = new HashMap<>();
+    private static Map<Class<?>, Object[]> enumContent = new HashMap<>();
 
     @objid ("c108316e-4137-424c-be29-76e07e7d46d5")
     private SmMetamodel metamodel;
@@ -79,6 +78,7 @@ class CacheEntrySerializer implements Serializer<JdbmSwap.CacheEntry> {
                 writeSimpleDep(out, obj, (SmSingleDependency)d);
             }
         }
+        
     }
 
     @objid ("dcbe878b-493b-11e2-91c9-001ec947ccaf")
@@ -144,6 +144,7 @@ class CacheEntrySerializer implements Serializer<JdbmSwap.CacheEntry> {
         } else {
             throw new UnsupportedOperationException(type+" "+att+" attribute not supported.");
         }
+        
     }
 
     @objid ("dcc0e9a7-493b-11e2-91c9-001ec947ccaf")
@@ -171,6 +172,7 @@ class CacheEntrySerializer implements Serializer<JdbmSwap.CacheEntry> {
         } else {
             throw new UnsupportedOperationException(type+" "+val+" "+att+" attribute not supported.");
         }
+        
     }
 
     @objid ("dcc0e9ae-493b-11e2-91c9-001ec947ccaf")
@@ -182,6 +184,7 @@ class CacheEntrySerializer implements Serializer<JdbmSwap.CacheEntry> {
             out.writeByte(1);
             writeRef(out, content);
         }
+        
     }
 
     @objid ("dcc0e9b5-493b-11e2-91c9-001ec947ccaf")
@@ -192,6 +195,7 @@ class CacheEntrySerializer implements Serializer<JdbmSwap.CacheEntry> {
         } else {
             assert (flag == 0) : (d.getName()+" flag is " + flag);
         }
+        
     }
 
     @objid ("dcc0e9bc-493b-11e2-91c9-001ec947ccaf")
@@ -203,6 +207,7 @@ class CacheEntrySerializer implements Serializer<JdbmSwap.CacheEntry> {
         for (SmObjectImpl val : content) {
             writeRef(out, val);
         }
+        
     }
 
     @objid ("dcc0e9c3-493b-11e2-91c9-001ec947ccaf")
@@ -213,6 +218,7 @@ class CacheEntrySerializer implements Serializer<JdbmSwap.CacheEntry> {
             final SmObjectImpl depVal = readRef(in);
             d.add(obj, depVal);
         }
+        
     }
 
     @objid ("dcc0e9ca-493b-11e2-91c9-001ec947ccaf")
@@ -234,11 +240,11 @@ class CacheEntrySerializer implements Serializer<JdbmSwap.CacheEntry> {
         
         final String uuid = val.getUuid();
         writeUuid(out, uuid);
+        
     }
 
     /**
      * Get all possible enumeration values of an enumerate type.
-     * 
      * @param type a enumerate class.
      * @return all possible values, ordered.
      */
@@ -266,10 +272,11 @@ class CacheEntrySerializer implements Serializer<JdbmSwap.CacheEntry> {
         out.writeUTF(uuid);
         //        out.writeLong(uuid.getMostSignificantBits());
         //        out.writeLong(uuid.getLeastSignificantBits());
+        
     }
 
     @objid ("7e212a92-3f65-41ef-b379-68dd4d8670f8")
-    public CacheEntrySerializer(SmMetamodel metamodel) {
+    public  CacheEntrySerializer(SmMetamodel metamodel) {
         this.metamodel = metamodel;
     }
 

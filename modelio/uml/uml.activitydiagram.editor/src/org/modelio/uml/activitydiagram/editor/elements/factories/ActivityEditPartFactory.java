@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.factories;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -28,6 +27,7 @@ import org.modelio.diagram.elements.common.label.base.ElementLabelEditPart;
 import org.modelio.diagram.elements.common.label.base.NonEditableItalicLabelEditPart;
 import org.modelio.diagram.elements.common.portcontainer.PortContainerEditPart;
 import org.modelio.diagram.elements.common.resizablegroup.ResizableGroupEditPart;
+import org.modelio.diagram.elements.core.model.factory.GenericUserImageModeEditPartFactory;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.uml.activitydiagram.editor.elements.acceptsignal.AcceptSignalEditPart;
 import org.modelio.uml.activitydiagram.editor.elements.acceptsignal.GmAcceptSignal;
@@ -110,9 +110,9 @@ import org.modelio.uml.activitydiagram.editor.elements.inputpin.InputPinEditPart
 import org.modelio.uml.activitydiagram.editor.elements.interruptible.GmInterruptible;
 import org.modelio.uml.activitydiagram.editor.elements.interruptible.InterruptibleEditPart;
 import org.modelio.uml.activitydiagram.editor.elements.loopnode.GmLoopNode;
+import org.modelio.uml.activitydiagram.editor.elements.loopnode.GmLoopNodePrimaryNode;
 import org.modelio.uml.activitydiagram.editor.elements.loopnode.GmLoopNodePrimaryNode.GmSetup;
 import org.modelio.uml.activitydiagram.editor.elements.loopnode.GmLoopNodePrimaryNode.GmTest;
-import org.modelio.uml.activitydiagram.editor.elements.loopnode.GmLoopNodePrimaryNode;
 import org.modelio.uml.activitydiagram.editor.elements.loopnode.LoopNodeEditPart;
 import org.modelio.uml.activitydiagram.editor.elements.objectflow.GmObjectFlow;
 import org.modelio.uml.activitydiagram.editor.elements.objectflow.ObjectFlowEditPart;
@@ -161,19 +161,25 @@ public class ActivityEditPartFactory implements EditPartFactory {
      * the default factory to use when image mode is requested.
      */
     @objid ("29980115-55b6-11e2-877f-002564c97630")
-    private static final EditPartFactory imageModeEditPartFactory = new ImageModeEditPartFactory();
+    private final EditPartFactory imageModeEditPartFactory = new ImageModeEditPartFactory();
 
     /**
      * the default factory to use when structured mode is requested.
      */
     @objid ("29980117-55b6-11e2-877f-002564c97630")
-    private static final StructuredModeEditPartFactory structuredModeEditPartFactory = new StructuredModeEditPartFactory();
+    private final EditPartFactory structuredModeEditPartFactory = new StructuredModeEditPartFactory();
 
     /**
      * the default factory to use when the simple mode is requested.
      */
     @objid ("29980119-55b6-11e2-877f-002564c97630")
-    private static final EditPartFactory simpleModeEditPartFactory = new SimpleModeEditPartFactory();
+    private final EditPartFactory simpleModeEditPartFactory = new SimpleModeEditPartFactory();
+
+    /**
+     * the default factory to use when user image mode is requested.
+     */
+    @objid ("a1d23492-1e97-427e-a235-d946f4caf2e0")
+    private final EditPartFactory userImageModeEditPartFactory = new GenericUserImageModeEditPartFactory(this.imageModeEditPartFactory);
 
     @objid ("2998011b-55b6-11e2-877f-002564c97630")
     @Override
@@ -183,14 +189,17 @@ public class ActivityEditPartFactory implements EditPartFactory {
             // For node models, delegates according the representation model.
             GmNodeModel node = (GmNodeModel) model;
             switch (node.getRepresentationMode()) {
+            case USER_IMAGE:
+                editPart = this.userImageModeEditPartFactory.createEditPart(context, model);
+                break;
             case IMAGE:
-                editPart = ActivityEditPartFactory.imageModeEditPartFactory.createEditPart(context, model);
+                editPart = this.imageModeEditPartFactory.createEditPart(context, model);
                 break;
             case SIMPLE:
-                editPart = ActivityEditPartFactory.simpleModeEditPartFactory.createEditPart(context, model);
+                editPart = this.simpleModeEditPartFactory.createEditPart(context, model);
                 break;
             case STRUCTURED:
-                editPart = ActivityEditPartFactory.structuredModeEditPartFactory.createEditPart(context, model);
+                editPart = this.structuredModeEditPartFactory.createEditPart(context, model);
                 break;
             default:
                 editPart = null;
@@ -199,9 +208,10 @@ public class ActivityEditPartFactory implements EditPartFactory {
             return editPart;
         } else {
             // Link models are always in structured mode.
-            editPart = ActivityEditPartFactory.structuredModeEditPartFactory.createEditPart(context, model);
+            editPart = this.structuredModeEditPartFactory.createEditPart(context, model);
             return editPart;
         }
+        
     }
 
     /**

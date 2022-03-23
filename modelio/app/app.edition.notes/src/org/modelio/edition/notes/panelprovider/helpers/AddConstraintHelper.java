@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.panelprovider.helpers;
 
 import java.util.List;
@@ -39,9 +38,10 @@ public class AddConstraintHelper extends AbstractHelper {
     private IMModelServices modelServices;
 
     @objid ("ec5bb39c-6e2a-4dec-b901-1105651cd7bb")
-    public AddConstraintHelper(ICoreSession session, IMModelServices modelServices) {
+    public  AddConstraintHelper(ICoreSession session, IMModelServices modelServices) {
         this.session = session;
         this.modelServices = modelServices;
+        
     }
 
     @objid ("258f3d3b-e6ca-464c-b62d-685161145bfd")

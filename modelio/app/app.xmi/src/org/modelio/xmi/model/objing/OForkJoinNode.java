@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import java.util.List;
@@ -66,13 +65,15 @@ public class OForkJoinNode extends OActivityNode {
             return UMLFactory.eINSTANCE.createForkNode();
         else
             return UMLFactory.eINSTANCE.createJoinNode();
+        
     }
 
     @objid ("eaefdaa8-32b5-4530-a5e5-ffac099480dc")
-    public OForkJoinNode(ForkJoinNode element) {
+    public  OForkJoinNode(ForkJoinNode element) {
         super(element);
         this.isJoinNode = (AbstractObjingModelNavigation.isJoinNode(element));
         this.isForkNode = (AbstractObjingModelNavigation.isForkNode(element));
+        
     }
 
     @objid ("61ccf939-9d03-4dc9-84a5-ab9d5d90976d")
@@ -111,6 +112,7 @@ public class OForkJoinNode extends OActivityNode {
                     attachToClause(this.forkNode, ecoreOwner, (Clause) objingOwner);
             }
         }
+        
     }
 
     @objid ("82f06cbb-b7fa-4d25-90ca-a02cbf78cae6")
@@ -129,6 +131,7 @@ public class OForkJoinNode extends OActivityNode {
         if (!this.isJoinNode && !this.isForkNode) {
             setName(this.forkNode);
         }
+        
     }
 
     @objid ("4dffc681-6df4-49d2-976e-1fe0d5d3cc30")
@@ -165,6 +168,7 @@ public class OForkJoinNode extends OActivityNode {
         
         ecoreFlow.setSource(joinNode);
         ecoreFlow.setTarget(this.forkNode);
+        
     }
 
     @objid ("93b9ddb4-8b2e-48b1-89cc-f25c9c12a7f4")
@@ -189,6 +193,7 @@ public class OForkJoinNode extends OActivityNode {
             throw new NotFoundException("Owner Class ("
                     + ecoreOwner.getClass().getSimpleName() + ") Not Found");
         }
+        
     }
 
     @objid ("e4dbb38f-1fbe-4814-97f1-bb304cd7c674")
@@ -215,6 +220,7 @@ public class OForkJoinNode extends OActivityNode {
             throw new NotFoundException("Owner Class ("
                     + ecoreOwner.getClass().getSimpleName() + ") Not Found");
         }
+        
     }
 
     @objid ("2fc67986-6cb1-46af-af20-bdd936162799")
@@ -227,6 +233,7 @@ public class OForkJoinNode extends OActivityNode {
             throw new NotFoundException("Owner Class ("
                     + ecoreOwner.getClass().getSimpleName() + ") Not Found");
         }
+        
     }
 
     @objid ("ce794c6b-5782-4922-830b-440c91ac93f3")
@@ -269,12 +276,14 @@ public class OForkJoinNode extends OActivityNode {
                 }
             }
         }
+        
     }
 
     @objid ("c9538739-e0d4-4949-9173-56983457980a")
     private void setName(org.eclipse.uml2.uml.ControlNode node) {
         if (AbstractObjingModelNavigation.isNotNullOrEmpty(getObjingElement().getName()))
             node.setName(getObjingElement().getName());
+        
     }
 
     @objid ("7921b9c4-ae5d-4270-b9cb-b161af49dcad")
@@ -285,6 +294,7 @@ public class OForkJoinNode extends OActivityNode {
             joinSpec.setValue(value);
             node.setJoinSpec(joinSpec);
         }
+        
     }
 
     @objid ("33d23768-b0ab-4a29-a8bf-b3ec14b9fa10")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,7 +41,7 @@ public class OPropertyEnumerationLitteral extends OElement implements IOElement 
     }
 
     @objid ("db3dcb2c-0cd6-4fa6-a94b-09c9efbcc54a")
-    public OPropertyEnumerationLitteral(PropertyEnumerationLitteral param) {
+    public  OPropertyEnumerationLitteral(PropertyEnumerationLitteral param) {
         super(param);
     }
 

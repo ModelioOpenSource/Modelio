@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.stateMachineModel;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.StateData;
 import org.modelio.metamodel.uml.behavior.activityModel.ObjectNode;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Event;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.ConnectionPointReference;
@@ -70,6 +69,7 @@ public class StateImpl extends StateVertexImpl implements State {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("dd2992ca-8118-425c-aa07-ae7171fe187e")
@@ -91,6 +91,7 @@ public class StateImpl extends StateVertexImpl implements State {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("e43b9f19-f448-452d-b6bd-c1bc23a6995c")
@@ -112,6 +113,7 @@ public class StateImpl extends StateVertexImpl implements State {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("1bf5df5a-281b-453b-bb43-96a6e1cbc7d6")
@@ -133,6 +135,7 @@ public class StateImpl extends StateVertexImpl implements State {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("383a0726-46f1-4fe2-908c-c1796d4fa752")
@@ -154,6 +157,7 @@ public class StateImpl extends StateVertexImpl implements State {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("981d3770-51f5-4fcb-81f9-d3120cd4bece")
@@ -175,6 +179,7 @@ public class StateImpl extends StateVertexImpl implements State {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("523a1317-54df-462d-911c-75992f84842b")
@@ -196,6 +201,7 @@ public class StateImpl extends StateVertexImpl implements State {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("63071d23-c281-412b-b80f-4b0b48eaaafb")

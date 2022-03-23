@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.viewer.config.body;
 
 import java.util.ArrayList;
@@ -57,7 +56,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
 public class PropertyAdapter {
     /**
      * Get the property type as a java class.
-     * 
      * @param pdef the property definition.
      * @param value the value to get the type of.
      * @return the property type as a java class.
@@ -160,6 +158,7 @@ public class PropertyAdapter {
         default:
             return new DefaultStringNatValue((String) value, false);
         }
+        
     }
 
     @objid ("bd98e95b-d5d5-4051-8255-05c8f4799b36")
@@ -194,7 +193,7 @@ public class PropertyAdapter {
         private Stereotype stereotype;
 
         @objid ("0b1491ee-de0f-4e00-9042-796da5a1feb2")
-        public StereotypeFilter(Stereotype stereotype) {
+        public  StereotypeFilter(Stereotype stereotype) {
             this.stereotype = stereotype;
         }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common;
 
 import java.io.IOException;
@@ -39,11 +38,10 @@ public class MaintenanceOperations implements IMaintenanceOperations {
 
     /**
      * Initialize the maintenance.
-     * 
      * @param repo the EXML repository.
      */
     @objid ("7ce77667-441c-4ac0-b3f9-6eeac37350bc")
-    public MaintenanceOperations(AbstractExmlRepository repo) {
+    public  MaintenanceOperations(AbstractExmlRepository repo) {
         this.repo = repo;
     }
 
@@ -64,6 +62,7 @@ public class MaintenanceOperations implements IMaintenanceOperations {
         } catch (IndexException | CannotOpenIndexException e) {
             throw new IOException(e.getLocalizedMessage(), e);
         }
+        
     }
 
     @objid ("a7b8b3fd-fe1a-4007-a2d6-ca03723c8bed")
@@ -79,6 +78,7 @@ public class MaintenanceOperations implements IMaintenanceOperations {
         } catch (IndexException | CannotOpenIndexException e) {
             throw new IOException(e.getLocalizedMessage(), e);
         }
+        
     }
 
     @objid ("a7f3ee50-7301-42c9-b184-1d4096c12f1e")
@@ -92,6 +92,7 @@ public class MaintenanceOperations implements IMaintenanceOperations {
         } catch (IndexException | CannotOpenIndexException e) {
             throw new IOException(e.getLocalizedMessage(), e);
         }
+        
     }
 
     @objid ("c6a635c3-97a3-4bba-ba9a-1f04c119d974")

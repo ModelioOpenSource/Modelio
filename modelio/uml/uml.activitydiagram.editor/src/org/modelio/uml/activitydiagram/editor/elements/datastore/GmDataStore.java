@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.datastore;
 
 import java.util.Collections;
@@ -32,8 +31,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.DataStoreNode;
 import org.modelio.uml.activitydiagram.editor.elements.datastore.v0._GmDataStore;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -60,26 +59,25 @@ public class GmDataStore extends GmPortContainer {
     private static final String IMAGE_MODE_HEADER = "image mode header";
 
     @objid ("305c93e2-58a2-11e2-9574-002564c97630")
-     static GmDataStoreSimpleStyleKeys SIMPLEKEYS = new GmDataStoreSimpleStyleKeys();
+    static GmDataStoreSimpleStyleKeys SIMPLEKEYS = new GmDataStoreSimpleStyleKeys();
 
     @objid ("305c93e3-58a2-11e2-9574-002564c97630")
-     static GmDataStoreStructuredStyleKeys STRUCTKEYS = new GmDataStoreStructuredStyleKeys();
+    static GmDataStoreStructuredStyleKeys STRUCTKEYS = new GmDataStoreStructuredStyleKeys();
 
     @objid ("305c93e4-58a2-11e2-9574-002564c97630")
-     static GmDataStoreImageStyleKeys IMAGEKEYS = new GmDataStoreImageStyleKeys();
+    static GmDataStoreImageStyleKeys IMAGEKEYS = new GmDataStoreImageStyleKeys();
 
     @objid ("3c1c799a-d2f4-40f8-85c9-eb5c9dd12571")
-     static GmDataStoreUserImageStyleKeys USERIMAGE_KEYS = new GmDataStoreUserImageStyleKeys();
+    static GmDataStoreUserImageStyleKeys USERIMAGE_KEYS = new GmDataStoreUserImageStyleKeys();
 
     /**
      * Default constructor.
-     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param theDataStore the represented data store, may be null.
      * @param ref a reference to the represented data store.
      */
     @objid ("2a25e921-55b6-11e2-877f-002564c97630")
-    public GmDataStore(IGmDiagram diagram, DataStoreNode theDataStore, MRef ref) {
+    public  GmDataStore(IGmDiagram diagram, DataStoreNode theDataStore, MRef ref) {
         super(diagram, ref);
         this.element = theDataStore;
         
@@ -90,13 +88,14 @@ public class GmDataStore extends GmPortContainer {
         imageModeHeader.setRoleInComposition(IMAGE_MODE_HEADER);
         imageModeHeader.setLayoutData(PositionConstants.SOUTH);
         addChild(imageModeHeader);
+        
     }
 
     /**
      * Empty constructor, needed for serialisation.
      */
     @objid ("2a25e92d-55b6-11e2-877f-002564c97630")
-    public GmDataStore() {
+    public  GmDataStore() {
         // empty constructor for the serialization
     }
 
@@ -143,6 +142,7 @@ public class GmDataStore extends GmPortContainer {
         } else {
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("2a276fac-55b6-11e2-877f-002564c97630")
@@ -162,6 +162,7 @@ public class GmDataStore extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("2a276fb2-55b6-11e2-877f-002564c97630")
@@ -205,12 +206,14 @@ public class GmDataStore extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmDataStore.", GmDataStore.MINOR_VERSION);
+        
     }
 
     @objid ("2a276fcf-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (DataStoreNode) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("2a276fd4-55b6-11e2-877f-002564c97630")
@@ -221,7 +224,6 @@ public class GmDataStore extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -233,7 +235,6 @@ public class GmDataStore extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -251,6 +252,7 @@ public class GmDataStore extends GmPortContainer {
         } else {
             super.addStartingLink(link);
         }
+        
     }
 
     @objid ("2a28f655-55b6-11e2-877f-002564c97630")
@@ -261,15 +263,15 @@ public class GmDataStore extends GmPortContainer {
         } else {
             super.addEndingLink(link);
         }
+        
     }
 
     /**
      * Migration constructor from major version 0, should only be called by migrator.
-     * 
      * @param oldVersionGm the instance to migrate from.
      */
     @objid ("2a28f65c-55b6-11e2-877f-002564c97630")
-    GmDataStore(final _GmDataStore oldVersionGm) {
+     GmDataStore(final _GmDataStore oldVersionGm) {
         super(oldVersionGm.getDiagram(), oldVersionGm.getRepresentedRef());
         this.element = (DataStoreNode) oldVersionGm.getRelatedElement();
         
@@ -281,6 +283,7 @@ public class GmDataStore extends GmPortContainer {
         imageModeHeader.setRoleInComposition(IMAGE_MODE_HEADER);
         imageModeHeader.setLayoutData(PositionConstants.SOUTH);
         addChild(imageModeHeader);
+        
     }
 
     @objid ("3a282ce3-a77e-4ed8-bf6a-38e04352200e")

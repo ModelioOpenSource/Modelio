@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.extensions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,20 +37,20 @@ public abstract class GmAbstractLocator implements IGmLocator {
 
     /**
      * Copy constructor.
-     * 
      * @param source the object to copy.
      */
     @objid ("5051907a-8432-413d-a6ed-953bed1eceff")
-    public GmAbstractLocator(GmAbstractLocator source) {
+    public  GmAbstractLocator(GmAbstractLocator source) {
         this.heightConstraint = source.heightConstraint;
         this.widthConstraint = source.widthConstraint;
+        
     }
 
     /**
      * Default constructor.
      */
     @objid ("ab80f7e1-2210-4f0f-976d-b94f41902850")
-    public GmAbstractLocator() {
+    public  GmAbstractLocator() {
         super();
     }
 
@@ -64,6 +63,7 @@ public abstract class GmAbstractLocator implements IGmLocator {
         
         i = (Integer) in.readProperty("height");
         this.heightConstraint = i != null ? i : -1;
+        
     }
 
     @objid ("8ad6f4b7-e4f8-40ca-b1f5-344d71548e58")
@@ -76,6 +76,7 @@ public abstract class GmAbstractLocator implements IGmLocator {
         if (this.heightConstraint != -1) {
             out.writeProperty("height", this.heightConstraint);
         }
+        
     }
 
     @objid ("c043f9a6-7841-441a-ba3f-0f5a6584bd89")

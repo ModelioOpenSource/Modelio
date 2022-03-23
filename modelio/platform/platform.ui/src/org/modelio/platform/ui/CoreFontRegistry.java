@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.ui;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,7 +40,6 @@ public class CoreFontRegistry {
      * Get a font given a device and font data which describes the desired font's appearance.
      * <p>
      * {@link #getFont(FontData[])} should better be used to be fully compatible on Unix.
-     * 
      * @param fontdata describes the desired font (must not be null)
      * @return the matching font
      * @deprecated Consider using {@link LocalFontRegistry}, or call {@link #getGlobal()} than this same method on the returned registry.
@@ -54,7 +52,6 @@ public class CoreFontRegistry {
 
     /**
      * Get a font given an array of font data which describes the desired font's appearance.
-     * 
      * @param fontdatas the array of FontData that describes the desired font (must not be null)
      * @return the matching font
      * @deprecated Consider using {@link LocalFontRegistry}, or call {@link #getGlobal()} than this same method on the returned registry.
@@ -72,7 +69,6 @@ public class CoreFontRegistry {
      * It should be used only to allocate fonts used in the whole application.
      * <p>
      * You are encouraged to use {@link LocalFontRegistry} instead
-     * 
      * @return the global font registry.
      */
     @objid ("d73cb578-4ad7-4e06-99b5-a6174c383ceb")

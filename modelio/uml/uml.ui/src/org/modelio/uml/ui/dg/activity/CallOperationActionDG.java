@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.activity;
 
 import java.util.Collections;
@@ -38,7 +37,7 @@ public class CallOperationActionDG extends PortContainerDG {
      * @param node The gm node represented by this class.
      */
     @objid ("ef415223-88a7-4628-82b0-0b9e76ff6c4d")
-    public CallOperationActionDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  CallOperationActionDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 

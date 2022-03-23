@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.umlcommon.diagramview;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -70,6 +69,7 @@ public class DiagramViewEditPart extends AbstractNodeEditPart {
         }
         
         updateFigureBorder(getFigure());
+        
     }
 
     @objid ("81439d4e-1dec-11e2-8cad-001ec947c8cc")
@@ -89,6 +89,7 @@ public class DiagramViewEditPart extends AbstractNodeEditPart {
         
         // Do not show the smart link creation handle on related diagrams.
         installEditPolicy(UserChoiceCreateLinkEditPolicy.class, new UserChoiceCreateLinkEditPolicy(new PaletteActionProvider(this, PaletteActionProvider.IS_LINK_TOOL), false));
+        
     }
 
     @objid ("81439d51-1dec-11e2-8cad-001ec947c8cc")
@@ -120,6 +121,7 @@ public class DiagramViewEditPart extends AbstractNodeEditPart {
                 updateFigureBorder((GradientFigure) aFigure);
             }
         }
+        
     }
 
     @objid ("81439d61-1dec-11e2-8cad-001ec947c8cc")
@@ -132,6 +134,7 @@ public class DiagramViewEditPart extends AbstractNodeEditPart {
         if (layoutData != null) {
             fig.getParent().setConstraint(fig, layoutData);
         }
+        
     }
 
     @objid ("81439d64-1dec-11e2-8cad-001ec947c8cc")
@@ -139,6 +142,7 @@ public class DiagramViewEditPart extends AbstractNodeEditPart {
     protected void removeChildVisual(final EditPart childEditPart) {
         super.removeChildVisual(childEditPart);
         updateFigureBorder(getFigure());
+        
     }
 
     @objid ("8145ff94-1dec-11e2-8cad-001ec947c8cc")
@@ -146,6 +150,7 @@ public class DiagramViewEditPart extends AbstractNodeEditPart {
         final Border border = new CompoundBorder(new ShadowBorder(aFigure.getLineColor(), aFigure.getLineWidth()),
                 new LineBorder(aFigure.getLineColor(), aFigure.getLineWidth()));
         aFigure.setBorder(border);
+        
     }
 
     @objid ("e2c4f3b4-dc7c-405f-9545-7585126d14bc")

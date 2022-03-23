@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model.spi.mm;
 
 import java.util.Collection;
@@ -45,11 +44,10 @@ public class MetaclassRenamer {
     private IMofSession mofSession;
 
     @objid ("4c95c212-d422-485c-801b-e633d8d8e5ca")
-    private final Map<String,MofSmClass[]> mcToTransmute = new HashMap<>();
+    private final Map<String, MofSmClass[]> mcToTransmute = new HashMap<>();
 
     /**
      * Register a metaclass renaming.
-     * 
      * @param oldMetaclass the old metaclass
      * @param newMetaclass the new metaclass.
      */
@@ -60,7 +58,6 @@ public class MetaclassRenamer {
 
     /**
      * Transmute all elements whose metaclass is renamed.
-     * 
      * @param monitor a progress monitor
      * @param aMofSession the MOF session to use.
      */
@@ -80,6 +77,7 @@ public class MetaclassRenamer {
             }
             mon.worked(1);
         }
+        
     }
 
     /**
@@ -89,7 +87,6 @@ public class MetaclassRenamer {
      * Allows to get model objects not stored in the repository to migrate. Most of them are
      * unresolved references. Unresolved references must be transmuted too when metaclasses names change.
      * @param withSubClasses true to look for sub metaclasses hierarchy.
-     * 
      * @param metaclass the metaclass to look for
      * @return the found references.
      */
@@ -130,11 +127,11 @@ public class MetaclassRenamer {
                 }
             }
         }
+        
     }
 
     /**
      * Look for the new metaclass from the old qualified name.
-     * 
      * @param oldQualifiedName the old metaclass qualified name
      * @return the new metaclass or null.
      */
@@ -146,6 +143,7 @@ public class MetaclassRenamer {
         } else {
             return null;
         }
+        
     }
 
 }

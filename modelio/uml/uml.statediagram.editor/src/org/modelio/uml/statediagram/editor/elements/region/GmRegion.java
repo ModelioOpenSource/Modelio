@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.region;
 
 import java.util.List;
@@ -32,8 +31,8 @@ import org.modelio.diagram.styles.core.FactoryStyle;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.diagram.styles.core.Style;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.view.ISymbolViewModel;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.Region;
 import org.modelio.platform.model.ui.MetamodelLabels;
@@ -47,9 +46,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("f568845a-55b6-11e2-877f-002564c97630")
 public class GmRegion extends GmFreeZone {
-    @objid ("f568845e-55b6-11e2-877f-002564c97630")
-    private Region element;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -59,6 +55,9 @@ public class GmRegion extends GmFreeZone {
     @objid ("f5688465-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
 
+    @objid ("f568845e-55b6-11e2-877f-002564c97630")
+    private Region element;
+
     @objid ("fdfe81d9-5a5b-11e2-9e33-00137282c51b")
     private static GmRegionStructuredStyleKeys STRUCTKEYS = new GmRegionStructuredStyleKeys();
 
@@ -66,21 +65,21 @@ public class GmRegion extends GmFreeZone {
      * Empty constructor, needed for serialization.
      */
     @objid ("f5688467-55b6-11e2-877f-002564c97630")
-    public GmRegion() {
+    public  GmRegion() {
         // constructor empty for the serialization
     }
 
     /**
      * Default constructor.
-     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param theRegion the represented region, may be null.
      * @param ref a reference to the represented clause.
      */
     @objid ("f568846a-55b6-11e2-877f-002564c97630")
-    public GmRegion(IGmDiagram diagram, final Region theRegion, MRef ref) {
+    public  GmRegion(IGmDiagram diagram, final Region theRegion, MRef ref) {
         super(diagram, ref);
         this.element = theRegion;
+        
     }
 
     @objid ("f5688477-55b6-11e2-877f-002564c97630")
@@ -135,6 +134,7 @@ public class GmRegion extends GmFreeZone {
             break;
         }
         }
+        
     }
 
     @objid ("f56a0b12-55b6-11e2-877f-002564c97630")
@@ -146,6 +146,7 @@ public class GmRegion extends GmFreeZone {
                 getParent().getDisplayedStyle().setProperty(key, RepresentationMode.STRUCTURED);
             }
         }
+        
     }
 
     @objid ("f56a0b16-55b6-11e2-877f-002564c97630")
@@ -155,6 +156,7 @@ public class GmRegion extends GmFreeZone {
         return (childEl == null
                 || (!childEl.isValid() && canCreate(node.getRelatedMClass().getJavaInterface()))
                 || canUnmask(childEl));
+        
     }
 
     @objid ("f56a0b1e-55b6-11e2-877f-002564c97630")
@@ -183,12 +185,14 @@ public class GmRegion extends GmFreeZone {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmRegion.", GmRegion.MINOR_VERSION);
+        
     }
 
     @objid ("f56b919d-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (Region) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("f56b91a2-55b6-11e2-877f-002564c97630")

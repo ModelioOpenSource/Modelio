@@ -17,18 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.module.jaxbv2;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
  * <p>Java class for _PropertyType complex type.
@@ -130,7 +129,6 @@ public class Jxbv2PropertyType {
 
     /**
      * Sets the value of the enumeration property.
-     * 
      * @param value allowed object is
      * {@link Enumeration }
      */
@@ -152,7 +150,6 @@ public class Jxbv2PropertyType {
 
     /**
      * Sets the value of the description property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -174,7 +171,6 @@ public class Jxbv2PropertyType {
 
     /**
      * Sets the value of the id property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -196,7 +192,6 @@ public class Jxbv2PropertyType {
 
     /**
      * Sets the value of the type property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -218,7 +213,6 @@ public class Jxbv2PropertyType {
 
     /**
      * Sets the value of the uid property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -240,7 +234,6 @@ public class Jxbv2PropertyType {
 
     /**
      * Sets the value of the ishidden property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -262,7 +255,6 @@ public class Jxbv2PropertyType {
 
     /**
      * Sets the value of the extensions property.
-     * 
      * @param value allowed object is
      * {@link PropertyType.Extensions }
      */
@@ -291,8 +283,8 @@ public class Jxbv2PropertyType {
     @objid ("225422bc-33c6-4cc5-82cb-2f2766971b0e")
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "stereotypeRef"
-    })
+            "stereotypeRef"
+        })
     public static class Jxbv2Extensions {
         @objid ("0d08e250-06da-4ef8-a10f-d6a0ebe54ed1")
         @XmlElement(name = "StereotypeRef")

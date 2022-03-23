@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.panel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -87,7 +86,7 @@ class LinkEditorPanelUi {
     private ISelectionChangedListener viewerSelectionListener;
 
     @objid ("07b83df0-febf-4dc8-a061-bbdc63818c26")
-    LinkEditorPanelUi(Composite parent, LinkEditorPanelController controller) {
+     LinkEditorPanelUi(Composite parent, LinkEditorPanelController controller) {
         this.controller = controller;
         
         this.composite = new Composite(parent, SWT.NONE);
@@ -116,6 +115,7 @@ class LinkEditorPanelUi {
         org.eclipse.swt.graphics.Rectangle iconSize = UIImages.PLACEHOLDER.getBounds();
         GraphNode.WIDTH = GraphNode.MARGIN_WIDTH + iconSize.width + GraphNode.MARGIN_WIDTH + FigureUtilities.getStringExtents("abcdefghijklmnop...", systemFont).width() + GraphNode.MARGIN_WIDTH;
         GraphNode.HEIGHT = GraphNode.MARGIN_HEIGHT + Math.max(iconSize.height, systemFont.getFontData()[0].getHeight()) + GraphNode.MARGIN_HEIGHT + 2;
+        
     }
 
     @objid ("f551b973-c020-46b9-a640-6df2f17415ed")
@@ -130,12 +130,12 @@ class LinkEditorPanelUi {
         if (model.getCenter() != null) {
             this.graphicalViewer.setSelection(new StructuredSelection(this.graphicalViewer.getEditPartRegistry().get(model.getCenter())));
         }
+        
     }
 
     /**
      * Creates the GraphicalViewer on the specified <code>Composite</code>.
      * @param ctx
-     * 
      * @param parent the parent composite
      */
     @objid ("e62beecb-bd97-45fa-b0fd-fb15849ba901")
@@ -215,13 +215,13 @@ class LinkEditorPanelUi {
         
         // Add the contextual menu
         this.controller.getMenuService().registerContextMenu(viewer.getControl(), ILinkEditorView.POPUPID);
+        
     }
 
     /**
      * Hooks the GraphicalViewer to the rest of the Editor.
      * <p>
      * By default, the viewer is added to the SelectionSynchronizer, which can be used to keep 2 or more EditPartViewers in sync.
-     * 
      * @param viewer the GraphicalViewer
      */
     @objid ("5a77fee9-006e-4ca7-86f1-c94c1f4b0d24")
@@ -231,12 +231,12 @@ class LinkEditorPanelUi {
         
         this.viewerSelectionListener = event -> this.controller.onEditorSelectionChanged(event.getSelection());
         viewer.addSelectionChangedListener(this.viewerSelectionListener);
+        
     }
 
     /**
      * Set the contents of the GraphicalViewer after it has been created.
      * @see #createGraphicalViewer(Composite)
-     * 
      * @param viewer the GraphicalViewer
      */
     @objid ("6bbe997a-9b71-4528-8a30-02e2b4565c9e")
@@ -244,6 +244,7 @@ class LinkEditorPanelUi {
         // Set the viewer content
         BackgroundModel backgroundModel = new BackgroundModel();
         viewer.setContents(backgroundModel);
+        
     }
 
     @objid ("efd5cf63-00bc-49cd-9844-7b4019ae6ab1")
@@ -260,12 +261,14 @@ class LinkEditorPanelUi {
     public void refresh() {
         this.graphicalViewer.getRootEditPart().getContents().refresh();
         this.graphicalViewer.getRootEditPart().refresh();
+        
     }
 
     @objid ("e5aa3a30-1833-4fbc-9511-330f24f99942")
     void setDoubleClickListener(Runnable listener) {
         this.doubleClickListener = listener;
         getGraphicalViewer().setProperty(BackgroundEditPart.VIEWERPROP_SWITCH_EDIT_MODE, this.doubleClickListener);
+        
     }
 
     /**

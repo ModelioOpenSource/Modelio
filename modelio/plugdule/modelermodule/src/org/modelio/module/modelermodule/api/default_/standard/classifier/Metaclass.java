@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.classifier;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("0317e1ea-1cf1-4651-8c3e-910f2777fdd0")
 public class Metaclass {
-    @objid ("62a66fca-d87e-4c87-8e6e-1ea3172a6ad8")
+    @objid ("b56e9683-3d7a-4b54-98fc-2d3a49ed8b3b")
     public static final String STEREOTYPE_NAME = "metaclass";
 
     /**
      * The underlying {@link Classifier} represented by this proxy, never null.
      */
-    @objid ("07fc8326-29c8-4213-acb6-f0b7ce5d476b")
+    @objid ("17750b58-77ec-44ef-803e-45109628df66")
     protected final Classifier elt;
 
     /**
      * Tells whether a {@link Metaclass proxy} can be instantiated from a {@link MObject} checking it is a {@link Classifier} stereotyped << metaclass >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("209d0067-4424-47f1-ab23-556c07e9f799")
+    @objid ("402ecde3-ee5a-4fb0-9e4d-a20da32f3843")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Classifier) && ((Classifier) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Metaclass.STEREOTYPE_NAME));
     }
@@ -77,9 +75,9 @@ public class Metaclass {
      * 
      * @return a {@link Metaclass} proxy on the created {@link Classifier}.
      */
-    @objid ("5dbcb30b-ce38-40f9-9699-828dc78e5143")
+    @objid ("d79751d2-1fa0-4d46-9f8a-e5089d34581e")
     public static Metaclass create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Classifier");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.Classifier");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Metaclass.STEREOTYPE_NAME);
         return Metaclass.instantiate((Classifier)e);
     }
@@ -91,7 +89,7 @@ public class Metaclass {
      * @param obj a Classifier
      * @return a {@link Metaclass} proxy or <i>null</i>.
      */
-    @objid ("3f401114-7c31-40ba-bf82-24475bf8de0b")
+    @objid ("d5577480-df24-453a-a6c1-3a83f05f4a19")
     public static Metaclass instantiate(Classifier obj) {
         return Metaclass.canInstantiate(obj) ? new Metaclass(obj) : null;
     }
@@ -104,7 +102,7 @@ public class Metaclass {
      * @return a {@link Metaclass} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("2f67ac63-ad52-4904-93d6-c872c53048f4")
+    @objid ("ff10751f-03f4-4fca-b7ae-739f2c144a2e")
     public static Metaclass safeInstantiate(Classifier obj) throws IllegalArgumentException {
         if (Metaclass.canInstantiate(obj))
         	return new Metaclass(obj);
@@ -112,7 +110,7 @@ public class Metaclass {
         	throw new IllegalArgumentException("Metaclass: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("5f1301d7-0324-46b0-8048-bc2514554e90")
+    @objid ("d7d60dda-d5b8-4c5c-a582-1672160cad24")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,46 +130,47 @@ public class Metaclass {
      * Get the underlying {@link Classifier}. 
      * @return the Classifier represented by this proxy, never null.
      */
-    @objid ("f0ff3fd3-7093-4862-84ce-fa9bba1bbaa5")
+    @objid ("b9a526a5-8802-4b24-aada-5c53d82bcb04")
     public Classifier getElement() {
         return this.elt;
     }
 
-    @objid ("46dd1078-b927-4e21-be39-29ad3b89bdfe")
+    @objid ("1ede2c62-2622-4f06-9b15-65f0a882ee9d")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("99c8de99-e326-4a5d-8265-505d2afa2965")
-    protected Metaclass(Classifier elt) {
+    @objid ("bcb2dfb0-4e30-4adf-b51f-a6bbc79a3f82")
+    protected  Metaclass(Classifier elt) {
         this.elt = elt;
     }
 
     @objid ("849c2bbc-c1c1-4711-a8fa-6b1c9f242228")
     public static final class MdaTypes {
-        @objid ("f9f2412c-762c-466d-ac02-a409238387dc")
+        @objid ("aa4ca104-5051-4615-be65-1aa5606154b7")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("3c6d30f0-6bab-4354-bbc8-9efc86a74839")
+        @objid ("1e111c16-a053-4b0c-9cf1-08a3e14a73cb")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("855b0ebf-cb73-424d-a16b-e7fcacf52f15")
+        @objid ("57f40349-ee4a-4016-ad63-e517f54940c7")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("ec3624ed-7a84-48bc-a4ed-c8cc37562fd5")
+        @objid ("1c6f3c9c-a31a-433c-8b8c-42d5951fdb78")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "00700680-0000-01bd-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

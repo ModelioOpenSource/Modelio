@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl;
 
 import java.util.UUID;
@@ -58,23 +57,22 @@ public class SmFactory {
      * Package private constructor.
      * <p>
      * <code>SmFactory</code> is built by the {@link CoreSession} only.
-     * 
      * @param kid the kernel id
      * @param metaObject the default meta object for new model objects.
      * @param modelFinder a model object finder.
      */
     @objid ("0054e2dc-6f75-1f22-8c06-001ec947cd2a")
-    SmFactory(final short kid, final IMetaOf metaObject, final IModel modelFinder, ISmObjectDataCache dataCache, IRepository shellRepository) {
+     SmFactory(final short kid, final IMetaOf metaObject, final IModel modelFinder, ISmObjectDataCache dataCache, IRepository shellRepository) {
         this.kid = kid;
         this.metaObject = metaObject;
         this.modelFinder = modelFinder;
         this.dataCache = dataCache;
         this.shellRepository = shellRepository;
+        
     }
 
     /**
      * Create a new model object.
-     * 
      * @param metaclass the model class .
      * @param repository the repository to attach the object
      * @return the new object
@@ -88,7 +86,6 @@ public class SmFactory {
      * Create a model object with a given String.
      * <p>
      * To be used by the model import.
-     * 
      * @param metaclass the model class .
      * @param repository the repository to attach the object
      * @param forcedUuid the object identifier. If null an object identifier will be allocated and the object will be considered as new in
@@ -165,6 +162,7 @@ public class SmFactory {
         
             return newObject;
         }
+        
     }
 
     /**
@@ -174,7 +172,6 @@ public class SmFactory {
      * returned.
      * <p>
      * To be used by the model import.
-     * 
      * @param metaclass The object metaclass
      * @param uuid the object identifier
      * @param name the object name, may be <code>null</code>
@@ -191,7 +188,6 @@ public class SmFactory {
 
     /**
      * Create a shell object.
-     * 
      * @param metaclass The object metaclass
      * @param repository The repository containing the object
      * @param uuid the object identifier

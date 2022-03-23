@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.controller.update;
 
 import java.io.IOException;
@@ -57,18 +56,18 @@ public class ModuleUpdater {
      * @param moduleRegistry the module registry
      */
     @objid ("a9653cb9-9432-43db-b7b3-5c63afda0241")
-    public ModuleUpdater(GProject gProject, IModuleRegistryAccess moduleRegistry) {
+    public  ModuleUpdater(GProject gProject, IModuleRegistryAccess moduleRegistry) {
         this.gProject = gProject;
         this.moduleRegistry = moduleRegistry;
+        
     }
 
     /**
      * Update an already installed module
-     * 
      * @param rtModuleToUpdate the existing module
      * @param rtModuleHandle the module handle to install
      * @param moduleUri the module file path
-     * @throws org.modelio.api.module.lifecycle.ModuleException on failure.
+     * @throws ModuleException on failure.
      */
     @objid ("44326855-0324-11e2-9fca-001ec947c8cc")
     public void moduleUpdateInstall(IRTModuleAccess rtModuleToUpdate, IModuleHandle rtModuleHandle, URI moduleUri) throws ModuleException {
@@ -142,6 +141,7 @@ public class ModuleUpdater {
         } finally {
             MdaInfra.LOG.dedent();
         }
+        
     }
 
     @objid ("3c84a21f-4a94-4717-97a5-debd8bbfd170")
@@ -151,14 +151,14 @@ public class ModuleUpdater {
         } catch (IOException e) {
             throw new ModuleException(FileUtils.getLocalizedMessage(e), e);
         }
+        
     }
 
     /**
      * Run the module update process from its already updated GModule.
-     * 
      * @param rtModule the module to update
      * @param oldVersion the old module version
-     * @throws org.modelio.api.module.lifecycle.ModuleException on failure
+     * @throws ModuleException on failure
      */
     @objid ("9187234d-a4df-4754-925b-27ca692c9e4a")
     public void moduleUpdateFromGProject(IRTModuleAccess rtModule, Version oldVersion) throws ModuleException {
@@ -204,6 +204,7 @@ public class ModuleUpdater {
         
             throw e2;
         }
+        
     }
 
 }

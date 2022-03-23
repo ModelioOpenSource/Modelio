@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.gui;
 
 import java.io.File;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseEvent;
@@ -52,7 +51,7 @@ public abstract class AbstractSwtWizardExport extends AbstractSwtWizardWindow {
     protected OptionComposite optionComposite = null;
 
     @objid ("38d96d87-c247-49ac-98a9-4e3cb0c2ae69")
-    public AbstractSwtWizardExport(final Shell parent, IProgressService progressService, IProjectService projectService) {
+    public  AbstractSwtWizardExport(final Shell parent, IProgressService progressService, IProjectService projectService) {
         super(parent, progressService, projectService);
     }
 
@@ -72,6 +71,7 @@ public abstract class AbstractSwtWizardExport extends AbstractSwtWizardWindow {
             this.validateComposite.getValidationButton().setEnabled(isEnable);
         
         }
+        
     }
 
     /**
@@ -227,6 +227,7 @@ public abstract class AbstractSwtWizardExport extends AbstractSwtWizardWindow {
         }
         
         this.validateComposite.getValidationButton().setFocus();
+        
     }
 
     /**
@@ -253,6 +254,7 @@ public abstract class AbstractSwtWizardExport extends AbstractSwtWizardWindow {
             this.fileChooserComposite.getDialog().setFilterIndex(1);
                   
         setPath();
+        
     }
 
     /**
@@ -294,6 +296,7 @@ public abstract class AbstractSwtWizardExport extends AbstractSwtWizardWindow {
         this.fileChooserComposite.getDialog().setFileName(this.selectedElt.getName() + extension);
         this.path = checkAndReplaceEndPath(this.path);
         this.fileChooserComposite.setText(this.path + java.io.File.separator + this.selectedElt.getName() + extension);
+        
     }
 
     /**
@@ -321,6 +324,7 @@ public abstract class AbstractSwtWizardExport extends AbstractSwtWizardWindow {
                 }
             }
         }
+        
     }
 
     @objid ("6b229e8b-b06c-4f69-bfb0-5a292fc94192")
@@ -335,6 +339,7 @@ public abstract class AbstractSwtWizardExport extends AbstractSwtWizardWindow {
             }
             this.fileChooserComposite.setText(filePath);
         }
+        
     }
 
     @objid ("a69560cc-5a89-4c1a-a332-f110797bae41")
@@ -349,6 +354,7 @@ public abstract class AbstractSwtWizardExport extends AbstractSwtWizardWindow {
             }
             this.fileChooserComposite.setText(filePath);
         }
+        
     }
 
     @objid ("2b191f9f-21c4-44cc-9fc4-6f0a816e888f")
@@ -357,6 +363,7 @@ public abstract class AbstractSwtWizardExport extends AbstractSwtWizardWindow {
         messageBox.setMessage(Xmi.I18N.getMessage("fileChooser.dialog.confirm.canNotCreateFile.label", file.getName()));
         messageBox.setText(Xmi.I18N.getString("fileChooser.dialog.confirm.canNotCreateFile.title"));
         messageBox.open();
+        
     }
 
     @objid ("0ec9e459-a492-4ea8-a221-1c6e55a442ac")

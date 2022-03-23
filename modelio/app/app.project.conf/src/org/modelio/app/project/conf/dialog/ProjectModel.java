@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog;
 
 import java.io.IOException;
@@ -47,7 +46,7 @@ public class ProjectModel {
     private PropertiesUrlAdapter propertiesUrlAdapter;
 
     @objid ("a7477205-33f6-11e2-a514-002564c97630")
-    public ProjectModel(GProject gProject) {
+    public  ProjectModel(GProject gProject) {
         this.gProject = gProject;
         
         if (gProject != null) {
@@ -55,6 +54,7 @@ public class ProjectModel {
         } else {
             this.propertiesUrlAdapter = new PropertiesUrlAdapter(new GProperties());
         }
+        
     }
 
     @objid ("a7477208-33f6-11e2-a514-002564c97630")
@@ -166,6 +166,7 @@ public class ProjectModel {
                 AppProjectConf.LOG.error(e);
             }
         }
+        
     }
 
     @objid ("cfc16cbc-eb8d-41c9-bcf0-f00f67f09d0e")
@@ -178,6 +179,7 @@ public class ProjectModel {
                 AppProjectConf.LOG.error(e);
             }
         }
+        
     }
 
     @objid ("242c69dd-5b9a-4553-8ccb-388352cf6271")

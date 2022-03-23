@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ExpansionRegionData;
 import org.modelio.metamodel.uml.behavior.activityModel.ExpansionKind;
 import org.modelio.metamodel.uml.behavior.activityModel.ExpansionNode;
 import org.modelio.metamodel.uml.behavior.activityModel.ExpansionRegion;
@@ -76,6 +75,7 @@ public class ExpansionRegionImpl extends StructuredActivityNodeImpl implements E
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("c55d7eb3-079e-487a-a661-16acac9dafe0")
@@ -97,6 +97,7 @@ public class ExpansionRegionImpl extends StructuredActivityNodeImpl implements E
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("56ba2ae9-7637-4534-bfbe-581abce10429")

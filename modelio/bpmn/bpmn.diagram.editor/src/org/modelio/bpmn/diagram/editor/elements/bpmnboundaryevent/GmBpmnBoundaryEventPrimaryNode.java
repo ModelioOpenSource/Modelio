@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnboundaryevent;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,8 +33,8 @@ import org.modelio.diagram.elements.core.node.IImageableNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.bpmn.events.BpmnBoundaryEvent;
 import org.modelio.platform.model.ui.swt.images.ElementImageService;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -46,14 +45,14 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("608807a4-55b6-11e2-877f-002564c97630")
 public final class GmBpmnBoundaryEventPrimaryNode extends GmNoStyleSimpleNode implements IImageableNode {
+    @objid ("608807af-55b6-11e2-877f-002564c97630")
+    private static final int MAJOR_VERSION = 0;
+
     /**
      * Current version of this Gm. Defaults to 0.
      */
     @objid ("608807ac-55b6-11e2-877f-002564c97630")
     private static final int MINOR_VERSION = 0;
-
-    @objid ("608807af-55b6-11e2-877f-002564c97630")
-    private static final int MAJOR_VERSION = 0;
 
     /**
      * Image Reference
@@ -63,44 +62,20 @@ public final class GmBpmnBoundaryEventPrimaryNode extends GmNoStyleSimpleNode im
 
     /**
      * Create a initial graphic node.
-     * 
      * @param diagram The diagram
      * @param relatedRef The related element reference, may not be null.
      */
     @objid ("608807b1-55b6-11e2-877f-002564c97630")
-    public GmBpmnBoundaryEventPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
+    public  GmBpmnBoundaryEventPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
-    @objid ("608807ba-55b6-11e2-877f-002564c97630")
-    @Override
-    public BpmnBoundaryEvent getRelatedElement() {
-        return (BpmnBoundaryEvent) super.getRelatedElement();
-    }
-
-    @objid ("608807c1-55b6-11e2-877f-002564c97630")
-    @Override
-    public void refreshFromObModel() {
-        if (getRelatedElement() != null) {
-            firePropertyChange(IGmObject.PROPERTY_LABEL, null, getRelatedElement().getName());
-        }
-        
-        if (this.imageHolder.updateImageRef(getRelatedElement())) {
-            GmCompositeNode gm_parent = getParentNode();
-            if (gm_parent != null) {
-                gm_parent.removeChild(this);
-                gm_parent.addChild(this);
-            }
-        }
-        // forcing visual refresh in case Image changed
-        firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, null, getLayoutData());
-    }
-
-    @objid ("60898e1a-55b6-11e2-877f-002564c97630")
-    @Override
-    public void obElementAdded(MObject movedEl) {
-        super.obElementAdded(movedEl);
-        refreshFromObModel();
+    /**
+     * Constructor for deserialization only.
+     */
+    @objid ("60898e44-55b6-11e2-877f-002564c97630")
+    public  GmBpmnBoundaryEventPrimaryNode() {
+        // for the serialization
     }
 
     @objid ("60898e20-55b6-11e2-877f-002564c97630")
@@ -113,24 +88,6 @@ public final class GmBpmnBoundaryEventPrimaryNode extends GmNoStyleSimpleNode im
     @Override
     public boolean canUnmask(MObject el) {
         return false;
-    }
-
-    /**
-     * Get the parent model representation mode.
-     * 
-     * @return the parent representation mode or null if the node has still no parent.
-     */
-    @objid ("60898e30-55b6-11e2-877f-002564c97630")
-    @Override
-    public RepresentationMode getRepresentationMode() {
-        final StyleKey repModeKey = GmBpmnBoundaryEvent.STRUCTURED_KEYS.getStyleKey(MetaKey.REPMODE);
-        return getDisplayedStyle().getProperty(repModeKey);
-    }
-
-    @objid ("60898e38-55b6-11e2-877f-002564c97630")
-    @Override
-    public Image getImage() {
-        return ElementImageService.getImage(getRelatedElement());
     }
 
     @objid ("60898e3d-55b6-11e2-877f-002564c97630")
@@ -149,21 +106,45 @@ public final class GmBpmnBoundaryEventPrimaryNode extends GmNoStyleSimpleNode im
                             }
                 
                         };
+        
+    }
+
+    @objid ("4553c929-1fe4-4101-b438-4e97c055b182")
+    public Image getEventImage() {
+        Image image = DiagramEditorBpmn.getImageRegistry().getImage(this.imageHolder.getImageRef(getRelatedElement()));
+        if (image == null) {
+            image = DiagramEditorBpmn.getImageRegistry().getImage(BpmnBoundaryEvent.MNAME);
+        }
+        return image;
+    }
+
+    @objid ("60898e38-55b6-11e2-877f-002564c97630")
+    @Override
+    public Image getImage() {
+        return ElementImageService.getImage(getRelatedElement());
+    }
+
+    @objid ("608b14b9-55b6-11e2-877f-002564c97630")
+    @Override
+    public int getMajorVersion() {
+        return GmBpmnBoundaryEventPrimaryNode.MAJOR_VERSION;
+    }
+
+    @objid ("608807ba-55b6-11e2-877f-002564c97630")
+    @Override
+    public BpmnBoundaryEvent getRelatedElement() {
+        return (BpmnBoundaryEvent) super.getRelatedElement();
     }
 
     /**
-     * Constructor for deserialization only.
+     * Get the parent model representation mode.
+     * @return the parent representation mode or null if the node has still no parent.
      */
-    @objid ("60898e44-55b6-11e2-877f-002564c97630")
-    public GmBpmnBoundaryEventPrimaryNode() {
-        // for the serialization
-    }
-
-    @objid ("60898e47-55b6-11e2-877f-002564c97630")
+    @objid ("60898e30-55b6-11e2-877f-002564c97630")
     @Override
-    public void obElementsUpdated() {
-        super.obElementsUpdated();
-        refreshFromObModel();
+    public RepresentationMode getRepresentationMode() {
+        final StyleKey repModeKey = GmBpmnBoundaryEvent.STRUCTURED_KEYS.getStyleKey(MetaKey.REPMODE);
+        return getDisplayedStyle().getProperty(repModeKey);
     }
 
     @objid ("60898e4a-55b6-11e2-877f-002564c97630")
@@ -183,6 +164,26 @@ public final class GmBpmnBoundaryEventPrimaryNode extends GmNoStyleSimpleNode im
             break;
         }
         }
+        
+    }
+
+    @objid ("608807c1-55b6-11e2-877f-002564c97630")
+    @Override
+    public void refreshFromObModel() {
+        if (getRelatedElement() != null) {
+            firePropertyChange(IGmObject.PROPERTY_LABEL, null, getRelatedElement().getName());
+        }
+        
+        if (this.imageHolder.updateImageRef(getRelatedElement())) {
+            GmCompositeNode gm_parent = getParentNode();
+            if (gm_parent != null) {
+                gm_parent.removeChild(this);
+                gm_parent.addChild(this);
+            }
+        }
+        // forcing visual refresh in case Image changed
+        firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("60898e50-55b6-11e2-877f-002564c97630")
@@ -192,26 +193,12 @@ public final class GmBpmnBoundaryEventPrimaryNode extends GmNoStyleSimpleNode im
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmBpmnBoundaryEventPrimaryNode.", GmBpmnBoundaryEventPrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("60898e56-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
-    }
-
-    @objid ("608b14b9-55b6-11e2-877f-002564c97630")
-    @Override
-    public int getMajorVersion() {
-        return GmBpmnBoundaryEventPrimaryNode.MAJOR_VERSION;
-    }
-
-    @objid ("4553c929-1fe4-4101-b438-4e97c055b182")
-    public Image getEventImage() {
-        Image image = DiagramEditorBpmn.getImageRegistry().getImage(this.imageHolder.getImageRef(getRelatedElement()));
-        if (image == null) {
-            image = DiagramEditorBpmn.getImageRegistry().getImage(BpmnBoundaryEvent.MNAME);
-        }
-        return image;
     }
 
 }

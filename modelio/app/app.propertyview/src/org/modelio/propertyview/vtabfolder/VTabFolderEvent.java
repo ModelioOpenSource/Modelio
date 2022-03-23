@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.propertyview.vtabfolder;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -71,7 +70,7 @@ public class VTabFolderEvent extends TypedEvent {
     public int height;
 
     @objid ("f3d0a553-dd04-416e-9b40-2b2339ff431a")
-     static final long serialVersionUID = 3760566386225066807L;
+    static final long serialVersionUID = 3760566386225066807L;
 
     /**
      * The tab item for the operation.
@@ -81,18 +80,16 @@ public class VTabFolderEvent extends TypedEvent {
 
     /**
      * Constructs a new instance of this class.
-     * 
      * @param w the widget that fired the event
      */
     @objid ("d162b4c0-8bfa-42ab-83ce-ce16ffde5f61")
-    VTabFolderEvent(Widget w) {
+     VTabFolderEvent(Widget w) {
         super(w);
     }
 
     /**
      * Returns a string containing a concise, human-readable
      * description of the receiver.
-     * 
      * @return a string representation of the event
      */
     @objid ("add093f8-05a9-4f5d-9805-5f1038bbc199")

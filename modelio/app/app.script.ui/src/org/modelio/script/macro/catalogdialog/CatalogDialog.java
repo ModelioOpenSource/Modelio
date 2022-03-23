@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.script.macro.catalogdialog;
 
 import java.util.List;
@@ -41,8 +40,8 @@ import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Shell;
 import org.modelio.platform.ui.dialog.ModelioDialog;
-import org.modelio.script.macro.IMacroService.Scope;
 import org.modelio.script.macro.IMacroService;
+import org.modelio.script.macro.IMacroService.Scope;
 import org.modelio.script.macro.catalog.Catalog;
 import org.modelio.script.macro.catalog.Macro;
 import org.modelio.script.plugin.Script;
@@ -84,13 +83,12 @@ public class CatalogDialog extends ModelioDialog {
 
     /**
      * C'tor initializing the dialog.
-     * 
      * @param parentShell the parent shell to attach the dialog to.
      * @param macroService the macro service, to execute macros.
      * @param selectedElements the current selection.
      */
     @objid ("00697af8-c497-106a-bf4f-001ec947cd2a")
-    public CatalogDialog(Shell parentShell, IMacroService macroService, List<MObject> selectedElements) {
+    public  CatalogDialog(Shell parentShell, IMacroService macroService, List<MObject> selectedElements) {
         super(parentShell);
         this.selectedElements = selectedElements;
         this.macroService = macroService;
@@ -102,6 +100,7 @@ public class CatalogDialog extends ModelioDialog {
         if (projectCatalog != null) {
             this.provider.addCatalog((projectCatalog));
         }
+        
     }
 
     @objid ("006a9da2-c497-106a-bf4f-001ec947cd2a")
@@ -172,6 +171,7 @@ public class CatalogDialog extends ModelioDialog {
         setTitle(Script.I18N.getString("CatalogDialog.Title"));
         setMessage(Script.I18N.getString("CatalogDialog.Description"));
         getShell().setMinimumSize(400, 400);
+        
     }
 
     /**
@@ -183,6 +183,7 @@ public class CatalogDialog extends ModelioDialog {
         this.provider.dispose();
         this.provider = null;
         super.cancelPressed();
+        
     }
 
     /**
@@ -199,6 +200,7 @@ public class CatalogDialog extends ModelioDialog {
         this.provider.dispose();
         this.provider = null;
         super.okPressed();
+        
     }
 
     /**
@@ -244,10 +246,11 @@ public class CatalogDialog extends ModelioDialog {
             CatalogDialog.this.editMacroButton.setEnabled(false);
             CatalogDialog.this.removeMacroButton.setEnabled(false);
             CatalogDialog.this.runMacroButton.setEnabled(false);
+            
         }
 
         @objid ("5983ac16-b8dd-4593-972a-5545293746e6")
-        public TreeSelectionChangedListener() {
+        public  TreeSelectionChangedListener() {
             //
         }
 
@@ -304,10 +307,11 @@ public class CatalogDialog extends ModelioDialog {
                 dlg.open();
                 CatalogDialog.this.treeviewer.refresh(true);
             }
+            
         }
 
         @objid ("cd90c4cc-46fd-4ebc-b422-c073af8bf373")
-        public NewMacroFromFileButtonListener() {
+        public  NewMacroFromFileButtonListener() {
             //
         }
 
@@ -339,10 +343,11 @@ public class CatalogDialog extends ModelioDialog {
                 CatalogDialog.this.treeviewer.refresh(false);
                 CatalogDialog.this.treeviewer.setSelection(new StructuredSelection(cat));
             }
+            
         }
 
         @objid ("a3a96500-bb2d-4715-ad78-03156abfc084")
-        public DeleteMacroButtonListener() {
+        public  DeleteMacroButtonListener() {
             //
         }
 
@@ -373,10 +378,11 @@ public class CatalogDialog extends ModelioDialog {
                 // Whatever the result, refresh the view
                 CatalogDialog.this.treeviewer.refresh(true);
             }
+            
         }
 
         @objid ("b1645ea9-53b6-437b-8627-baf57895e101")
-        public EditMacroButtonListener() {
+        public  EditMacroButtonListener() {
             // Empty
         }
 

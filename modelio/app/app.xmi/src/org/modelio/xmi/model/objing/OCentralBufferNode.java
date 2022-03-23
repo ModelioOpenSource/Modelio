@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class OCentralBufferNode extends OObjectNode {
     }
 
     @objid ("e807f5f0-9e93-44bf-9fe7-6e0d1033721f")
-    public OCentralBufferNode(CentralBufferNode element) {
+    public  OCentralBufferNode(CentralBufferNode element) {
         super(element);
     }
 

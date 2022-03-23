@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.generalization;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,7 +36,7 @@ public class GmGeneralizationStyleKeys extends StaticAbstractStyleKeyProvider {
      */
     @objid ("a66b4d4a-55c2-11e2-9337-002564c97630")
     public static final StyleKey CONNECTIONROUTER = createStyleKey("GENZ_CONNECTIONROUTER",
-                                                                   MetaKey.CONNECTIONROUTER);
+                                                                       MetaKey.CONNECTIONROUTER);
 
     /**
      * Fill color.
@@ -68,7 +67,7 @@ public class GmGeneralizationStyleKeys extends StaticAbstractStyleKeyProvider {
      */
     @objid ("a66b4d59-55c2-11e2-9337-002564c97630")
     public static final StyleKey DRAWLINEBRIDGES = createStyleKey("GENZ_DRAWLINEBRIDGES",
-                                                                  MetaKey.DRAWLINEBRIDGES);
+                                                                      MetaKey.DRAWLINEBRIDGES);
 
     /**
      * Text font.
@@ -87,7 +86,7 @@ public class GmGeneralizationStyleKeys extends StaticAbstractStyleKeyProvider {
      */
     @objid ("a66b4d62-55c2-11e2-9337-002564c97630")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("GENZ_SHOWSTEREOTYPES",
-                                                                  MetaKey.SHOWSTEREOTYPES);
+                                                                      MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Show tags: {@link Boolean}.

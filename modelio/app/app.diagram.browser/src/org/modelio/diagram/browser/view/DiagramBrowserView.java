@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.view;
 
 import java.util.List;
 import java.util.Objects;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.Focus;
@@ -97,7 +96,7 @@ public class DiagramBrowserView {
 
     @objid ("331faaf6-b80f-48c9-b190-5efcd7500c19")
     @Inject
-     static EContextService contextService;
+    static EContextService contextService;
 
     @objid ("000ccc86-0d4f-10c6-842f-001ec947cd2a")
     @PostConstruct
@@ -108,11 +107,11 @@ public class DiagramBrowserView {
         if ((this.projectService != null) && (this.projectService.getOpenedProject() != null)) {
             onProjectOpened(this.projectService.getOpenedProject(), part, menuService, navigationService);
         }
+        
     }
 
     /**
      * Get the modeling session.
-     * 
      * @return the modeling session.
      */
     @objid ("000d345a-0d4f-10c6-842f-001ec947cd2a")
@@ -122,7 +121,6 @@ public class DiagramBrowserView {
 
     /**
      * Select and reveal the given model element in the browser.
-     * 
      * @param element the element to select.
      */
     @objid ("000d76e0-0d4f-10c6-842f-001ec947cd2a")
@@ -158,6 +156,7 @@ public class DiagramBrowserView {
         }
         
         DiagramBrowserView.this.parent.layout();
+        
     }
 
     @objid ("0012503e-43b1-10c7-842f-001ec947cd2a")
@@ -166,6 +165,7 @@ public class DiagramBrowserView {
         if (this.diagramBrowserPanelProvider != null) {
             this.diagramBrowserPanelProvider.getPanel().getTree().setFocus();
         }
+        
     }
 
     /**
@@ -192,6 +192,7 @@ public class DiagramBrowserView {
                     DiagramBrowserView.this.diagramBrowserPanelProvider.getPanel(), session);
             DiagramBrowserView.this.pickingManager.beginPicking();
         }
+        
     }
 
     @objid ("2869edf0-4ab5-11e2-a4d3-002564c97630")
@@ -203,6 +204,7 @@ public class DiagramBrowserView {
             DiagramBrowserView.this.pickingManager.endPicking();
             DiagramBrowserView.this.pickingManager = null;
         }
+        
     }
 
     @objid ("2869edf6-4ab5-11e2-a4d3-002564c97630")
@@ -212,7 +214,6 @@ public class DiagramBrowserView {
 
     /**
      * Selects and edits the given element in the tree if possible.
-     * 
      * @param elementToEdit the element to select and edit.
      */
     @objid ("cd493808-54c7-11e2-ae63-002564c97630")
@@ -222,6 +223,7 @@ public class DiagramBrowserView {
             DiagramBrowserView.this.diagramBrowserPanelProvider.getPanel().expandToLevel(elementToEdit, 0);
             DiagramBrowserView.this.diagramBrowserPanelProvider.getPanel().editElement(elementToEdit, 0);
         });
+        
     }
 
     @objid ("cd49380d-54c7-11e2-ae63-002564c97630")
@@ -229,6 +231,7 @@ public class DiagramBrowserView {
         if (this.diagramBrowserPanelProvider != null) {
             this.diagramBrowserPanelProvider.getPanel().collapseAll();
         }
+        
     }
 
     @objid ("fc05adf8-2a43-402f-8e86-0018f85d2c90")
@@ -269,11 +272,11 @@ public class DiagramBrowserView {
         
         // Add the contextual menu
         menuService.registerContextMenu(this.diagramBrowserPanelProvider.getPanel().getTree(), DiagramBrowserView.POPUPID);
+        
     }
 
     /**
      * Get selected content model in the toolbar
-     * 
      * @param part @return
      */
     @objid ("756fe621-4b86-442a-9f1d-5530556c46a7")
@@ -302,7 +305,6 @@ public class DiagramBrowserView {
 
     /**
      * This listener is activated when the selection changes in the workbench.<br>
-     * 
      * @param selection the current modelio selection.
      */
     @objid ("ac1b12ab-a34a-4c6a-8791-66e0a2555261")
@@ -322,6 +324,7 @@ public class DiagramBrowserView {
                 getComposite().setInput(e);
             }
         }
+        
     }
 
     /**
@@ -344,6 +347,7 @@ public class DiagramBrowserView {
         DiagramBrowserView.this.diagramBrowserPanelProvider.setInput(null);
         DiagramBrowserView.this.diagramBrowserPanelProvider.getPanel().getTree().dispose();
         DiagramBrowserView.this.diagramBrowserPanelProvider = null;
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.narylink;
 
 import java.util.List;
@@ -52,7 +51,7 @@ public class GmNLinkNode extends GmPortContainer {
     private static final int MAJOR_VERSION = 0;
 
     @objid ("616bdb1c-5bd5-11e2-9e33-00137282c51b")
-     static final NLinkStructuredStyleKeys KEYS = GmNLinkEndLink.STRUCTURED_KEYS;
+    static final NLinkStructuredStyleKeys KEYS = GmNLinkEndLink.STRUCTURED_KEYS;
 
     @objid ("4d353ef7-ad44-41bd-8e0e-10a6c8a0d4ac")
     private NaryLink element;
@@ -61,19 +60,18 @@ public class GmNLinkNode extends GmPortContainer {
      * Empty constructor needed for deserialization.
      */
     @objid ("35e80d87-55b7-11e2-877f-002564c97630")
-    public GmNLinkNode() {
+    public  GmNLinkNode() {
         // Nothing specific to do.
     }
 
     /**
      * Initialize the n-ary link node.
-     * 
      * @param diagram the diagram in which the n-ary link is unmasked.
      * @param el the unmasked n-ary link.
      * @param ref a reference to the unmasked class.
      */
     @objid ("35e80d8a-55b7-11e2-877f-002564c97630")
-    public GmNLinkNode(IGmDiagram diagram, NaryLink el, MRef ref) {
+    public  GmNLinkNode(IGmDiagram diagram, NaryLink el, MRef ref) {
         super(diagram, ref);
         GmNLinkPrimaryNode mainNode = new GmNLinkPrimaryNode(diagram, el, ref);
         mainNode.setRoleInComposition(MAIN_NODE_ROLE);
@@ -86,6 +84,7 @@ public class GmNLinkNode extends GmPortContainer {
         label.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         
         addChild(label);
+        
     }
 
     @objid ("35e80d96-55b7-11e2-877f-002564c97630")
@@ -117,6 +116,7 @@ public class GmNLinkNode extends GmPortContainer {
                 break;
             }
         }
+        
     }
 
     @objid ("35e80dac-55b7-11e2-877f-002564c97630")
@@ -150,12 +150,14 @@ public class GmNLinkNode extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmNLinkNode.", GmNLinkNode.MINOR_VERSION);
+        
     }
 
     @objid ("35e99433-55b7-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (NaryLink) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("35e99438-55b7-11e2-877f-002564c97630")
@@ -166,7 +168,6 @@ public class GmNLinkNode extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -178,7 +179,6 @@ public class GmNLinkNode extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

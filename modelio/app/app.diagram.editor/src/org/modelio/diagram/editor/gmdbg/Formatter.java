@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.gmdbg;
 
 import java.util.List;
@@ -25,6 +24,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.modelio.diagram.elements.core.figures.routers.RakeConstraint;
 import org.modelio.diagram.elements.core.link.GmPath;
 import org.modelio.diagram.elements.core.link.anchors.GmRaySlidableAnchor;
 import org.modelio.diagram.elements.core.model.GmModel;
@@ -43,6 +43,9 @@ class Formatter {
             return convertRectangle((Rectangle) o);
         } else if (o instanceof GmPath) {
             return convertGmPath((IGmPath) o);
+        } else if (o instanceof RakeConstraint) {
+            RakeConstraint c = (RakeConstraint) o;
+            return String.format("rake( source=%s, target=%s), ", c.getSourceRakeLocation(), c.getTargetRakeLocation());
         } else if (o instanceof GmRaySlidableAnchor) {
             return convertRaySlidableAnchor((GmRaySlidableAnchor) o);
         }
@@ -71,11 +74,20 @@ class Formatter {
     @SuppressWarnings ("unchecked")
     private static String convertGmPath(IGmPath p) {
         StringBuilder sb = new StringBuilder();
+        
         sb.append(Formatter.toString(p.getSourceAnchor()));
         sb.append(", ");
         
-        for (Point pt : (List<Point>) p.getPathData()) {
-            sb.append(String.format("(%d, %d), ", pt.x, pt.y));
+        Object pathData = p.getPathData();
+        if (pathData instanceof List) {
+            for (Point pt : (List<Point>) pathData) {
+                sb.append(String.format("(%d, %d), ", pt.x, pt.y));
+            }
+        } else if (pathData instanceof RakeConstraint) {
+            RakeConstraint c = (RakeConstraint) pathData;
+            sb.append(String.format("rake( source=%s, target=%s), ", c.getSourceRakeLocation(), c.getTargetRakeLocation()));
+        } else {
+            sb.append(String.valueOf(pathData)).append(", ");
         }
         
         sb.append(Formatter.toString(p.getTargetAnchor()));

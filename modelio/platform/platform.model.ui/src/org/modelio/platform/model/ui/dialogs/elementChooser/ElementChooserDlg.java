@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.dialogs.elementChooser;
 
 import java.util.List;
@@ -58,10 +57,11 @@ public class ElementChooserDlg extends ModelioDialog {
     private IElementChooserDriver driver;
 
     @objid ("26c956bc-186f-11e2-bc4e-002564c97630")
-    public ElementChooserDlg(Shell parentShell, IElementChooserDriver chooserDriver, ModelElement input) {
+    public  ElementChooserDlg(Shell parentShell, IElementChooserDriver chooserDriver, ModelElement input) {
         super(parentShell);
         this.driver = chooserDriver;
         this.input = input;
+        
     }
 
     @objid ("26c956c1-186f-11e2-bc4e-002564c97630")
@@ -69,6 +69,7 @@ public class ElementChooserDlg extends ModelioDialog {
     public void addButtonsInButtonBar(Composite parent) {
         createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL, true);
         createButton(parent, IDialogConstants.CANCEL_ID, IDialogConstants.CANCEL_LABEL, false);
+        
     }
 
     @objid ("26cbb80f-186f-11e2-bc4e-002564c97630")
@@ -129,6 +130,7 @@ public class ElementChooserDlg extends ModelioDialog {
         setLogoImage(null);
         
         this.driver.init(this.input);
+        
     }
 
     @objid ("26cbb818-186f-11e2-bc4e-002564c97630")
@@ -141,6 +143,7 @@ public class ElementChooserDlg extends ModelioDialog {
     protected void cancelPressed() {
         this.driver.performCancel();
         super.cancelPressed();
+        
     }
 
     @objid ("26cbb81e-186f-11e2-bc4e-002564c97630")
@@ -157,6 +160,7 @@ public class ElementChooserDlg extends ModelioDialog {
         
         this.driver.performFinish(this.leftViewer, selectedElements);
         super.okPressed();
+        
     }
 
     @objid ("26cbb821-186f-11e2-bc4e-002564c97630")

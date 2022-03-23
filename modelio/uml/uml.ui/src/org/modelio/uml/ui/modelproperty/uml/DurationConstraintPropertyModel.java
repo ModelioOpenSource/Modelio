@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,22 +46,20 @@ public class DurationConstraintPropertyModel extends AbstractPropertyModel<Durat
      */
     @objid ("b7a755d1-6750-4d28-9346-d031bd26103b")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name", "Body",
-			"DurationMin", "DurationMax" };
+    			"DurationMin", "DurationMax" };
 
     /**
      * Create a new <i>DurationConstraint</i> data model from an
      * <i>DurationConstraint</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("27712389-5ad1-483b-bc76-ba49e032b3fc")
-    public DurationConstraintPropertyModel(DurationConstraint theEditedElement) {
+    public  DurationConstraintPropertyModel(DurationConstraint theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("4867b9cd-22b9-4dd2-9f7f-e3369032b292")
@@ -73,7 +70,6 @@ public class DurationConstraintPropertyModel extends AbstractPropertyModel<Durat
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("3d2e64ea-64ee-4ce1-85a8-bd4a0b5ea302")
@@ -86,7 +82,6 @@ public class DurationConstraintPropertyModel extends AbstractPropertyModel<Durat
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -114,6 +109,7 @@ public class DurationConstraintPropertyModel extends AbstractPropertyModel<Durat
         default:
             return null;
         }
+        
     }
 
     /**
@@ -123,7 +119,6 @@ public class DurationConstraintPropertyModel extends AbstractPropertyModel<Durat
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -152,13 +147,13 @@ public class DurationConstraintPropertyModel extends AbstractPropertyModel<Durat
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -192,6 +187,7 @@ public class DurationConstraintPropertyModel extends AbstractPropertyModel<Durat
         default:
             return;
         }
+        
     }
 
 }

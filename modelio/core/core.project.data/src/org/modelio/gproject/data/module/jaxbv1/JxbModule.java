@@ -17,11 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.module.jaxbv1;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -33,7 +33,6 @@ import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
  * <p>Java class for anonymous complex type.
@@ -355,13 +354,13 @@ public class JxbModule {
 
     @objid ("cae74ec9-d6ff-11e1-9f03-001ec947ccaf")
     @XmlElements({
-        @XmlElement(name = "docpath", type = JxbDocpath.class),
-        @XmlElement(name = "classpath", type = JxbClasspath.class),
-        @XmlElement(name = "gui", type = JxbModule.Gui.class),
-        @XmlElement(name = "parameter", type = JxbModule.JxbParameter.class),
-        @XmlElement(name = "profile", type = JxbModule.JxbProfile.class),
-        @XmlElement(name = "dependencies", type = JxbModule.Dependencies.class)
-    })
+            @XmlElement(name = "docpath", type = JxbDocpath.class),
+            @XmlElement(name = "classpath", type = JxbClasspath.class),
+            @XmlElement(name = "gui", type = JxbModule.Gui.class),
+            @XmlElement(name = "parameter", type = JxbModule.JxbParameter.class),
+            @XmlElement(name = "profile", type = JxbModule.JxbProfile.class),
+            @XmlElement(name = "dependencies", type = JxbModule.Dependencies.class)
+        })
     protected List<Object> parameterOrProfileOrGui;
 
     /**
@@ -377,7 +376,6 @@ public class JxbModule {
 
     /**
      * Sets the value of the uid property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -399,7 +397,6 @@ public class JxbModule {
 
     /**
      * Sets the value of the name property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -421,7 +418,6 @@ public class JxbModule {
 
     /**
      * Sets the value of the image property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -443,7 +439,6 @@ public class JxbModule {
 
     /**
      * Sets the value of the author property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -465,7 +460,6 @@ public class JxbModule {
 
     /**
      * Sets the value of the description property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -487,7 +481,6 @@ public class JxbModule {
 
     /**
      * Sets the value of the version property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -509,7 +502,6 @@ public class JxbModule {
 
     /**
      * Sets the value of the clazz property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -531,7 +523,6 @@ public class JxbModule {
 
     /**
      * Sets the value of the licenseRequired property.
-     * 
      * @param value allowed object is
      * {@link Boolean }
      */
@@ -553,7 +544,6 @@ public class JxbModule {
 
     /**
      * Sets the value of the binaryversion property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -644,15 +634,15 @@ public class JxbModule {
     @objid ("caec13be-d6ff-11e1-9f03-001ec947ccaf")
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "requiredOrOptionalOrRamc"
-    })
+            "requiredOrOptionalOrRamc"
+        })
     public static class Dependencies {
         @objid ("cae9b0c7-d6ff-11e1-9f03-001ec947ccaf")
         @XmlElements({
-            @XmlElement(name = "optional", type = JxbModule.Dependencies.Optional.class),
-            @XmlElement(name = "ramc", type = JxbModule.Dependencies.Ramc.class),
-            @XmlElement(name = "required", type = JxbModule.Dependencies.Required.class)
-        })
+                    @XmlElement(name = "optional", type = JxbModule.Dependencies.Optional.class),
+                    @XmlElement(name = "ramc", type = JxbModule.Dependencies.Ramc.class),
+                    @XmlElement(name = "required", type = JxbModule.Dependencies.Required.class)
+                })
         protected List<Object> requiredOrOptionalOrRamc;
 
         /**
@@ -726,7 +716,6 @@ public class JxbModule {
 
             /**
              * Sets the value of the name property.
-             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -748,7 +737,6 @@ public class JxbModule {
 
             /**
              * Sets the value of the version property.
-             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -800,7 +788,6 @@ public class JxbModule {
 
             /**
              * Sets the value of the name property.
-             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -822,7 +809,6 @@ public class JxbModule {
 
             /**
              * Sets the value of the version property.
-             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -874,7 +860,6 @@ public class JxbModule {
 
             /**
              * Sets the value of the name property.
-             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -896,7 +881,6 @@ public class JxbModule {
 
             /**
              * Sets the value of the version property.
-             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -1006,16 +990,16 @@ public class JxbModule {
     @objid ("caee75b8-d6ff-11e1-9f03-001ec947ccaf")
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "propertyPageOrCommandOrElementCreationCommand"
-    })
+            "propertyPageOrCommandOrElementCreationCommand"
+        })
     public static class Gui {
         @objid ("cae9b0de-d6ff-11e1-9f03-001ec947ccaf")
         @XmlElements({
-            @XmlElement(name = "property-page", type = JxbModule.Gui.PropertyPage.class),
-            @XmlElement(name = "element-creation-command", type = JxbModule.Gui.ElementCreationCommand.class),
-            @XmlElement(name = "customized-diagram", type = JxbModule.Gui.CustomizedDiagram.class),
-            @XmlElement(name = "command", type = JxbModule.Gui.Command.class)
-        })
+                    @XmlElement(name = "property-page", type = JxbModule.Gui.PropertyPage.class),
+                    @XmlElement(name = "element-creation-command", type = JxbModule.Gui.ElementCreationCommand.class),
+                    @XmlElement(name = "customized-diagram", type = JxbModule.Gui.CustomizedDiagram.class),
+                    @XmlElement(name = "command", type = JxbModule.Gui.Command.class)
+                })
         protected List<Object> propertyPageOrCommandOrElementCreationCommand;
 
         /**
@@ -1066,9 +1050,8 @@ public class JxbModule {
         @objid ("cae74f7f-d6ff-11e1-9f03-001ec947ccaf")
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "")
-        public static class Command extends JxbContextualCommand {
-
-// empty
+        public static class Command extends JxbContextualCommand {// empty
+            
         }
 
         /**
@@ -1130,8 +1113,8 @@ public class JxbModule {
         @objid ("cae74f80-d6ff-11e1-9f03-001ec947ccaf")
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "paletteOrStyle"
-        })
+                    "paletteOrStyle"
+                })
         public static class CustomizedDiagram {
             @objid ("cae9b305-d6ff-11e1-9f03-001ec947ccaf")
             @XmlAttribute
@@ -1147,9 +1130,9 @@ public class JxbModule {
 
             @objid ("cae74f3d-d6ff-11e1-9f03-001ec947ccaf")
             @XmlElements({
-                @XmlElement(name = "palette", type = JxbModule.Gui.CustomizedDiagram.Palette.class),
-                @XmlElement(name = "style", type = JxbModule.Gui.CustomizedDiagram.Style.class)
-            })
+                            @XmlElement(name = "palette", type = JxbModule.Gui.CustomizedDiagram.Palette.class),
+                            @XmlElement(name = "style", type = JxbModule.Gui.CustomizedDiagram.Style.class)
+                        })
             protected List<Object> paletteOrStyle;
 
             /**
@@ -1165,7 +1148,6 @@ public class JxbModule {
 
             /**
              * Sets the value of the baseDiagram property.
-             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -1187,7 +1169,6 @@ public class JxbModule {
 
             /**
              * Sets the value of the stereotype property.
-             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -1209,7 +1190,6 @@ public class JxbModule {
 
             /**
              * Sets the value of the keepBasePalette property.
-             * 
              * @param value allowed object is
              * {@link Boolean }
              */
@@ -1270,16 +1250,16 @@ public class JxbModule {
             @objid ("cae9b2fa-d6ff-11e1-9f03-001ec947ccaf")
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "diagramCommandOrDiagramCommandBoxOrDiagramCommandLink"
-            })
+                            "diagramCommandOrDiagramCommandBoxOrDiagramCommandLink"
+                        })
             public static class Palette {
                 @objid ("caec1450-d6ff-11e1-9f03-001ec947ccaf")
                 @XmlElementRefs({
-                    @XmlElementRef(name = "diagram-command-link", type = JAXBElement.class),
-                    @XmlElementRef(name = "diagram-command-box", type = JAXBElement.class),
-                    @XmlElementRef(name = "diagram-command", type = JAXBElement.class),
-                    @XmlElementRef(name = "diagram-command-attachedbox", type = JAXBElement.class)
-                })
+                                    @XmlElementRef(name = "diagram-command-link", type = JAXBElement.class),
+                                    @XmlElementRef(name = "diagram-command-box", type = JAXBElement.class),
+                                    @XmlElementRef(name = "diagram-command", type = JAXBElement.class),
+                                    @XmlElementRef(name = "diagram-command-attachedbox", type = JAXBElement.class)
+                                })
                 protected List<JAXBElement<?>> diagramCommandOrDiagramCommandBoxOrDiagramCommandLink;
 
                 /**
@@ -1347,8 +1327,8 @@ public class JxbModule {
             @objid ("cae9b2fc-d6ff-11e1-9f03-001ec947ccaf")
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "styleProperty"
-            })
+                            "styleProperty"
+                        })
             public static class Style {
                 @objid ("caec145a-d6ff-11e1-9f03-001ec947ccaf")
                 @XmlAttribute(name = "base-style")
@@ -1399,7 +1379,6 @@ public class JxbModule {
 
                 /**
                  * Sets the value of the baseStyle property.
-                 * 
                  * @param value allowed object is
                  * {@link String }
                  */
@@ -1459,7 +1438,6 @@ public class JxbModule {
 
                     /**
                      * Sets the value of the metaclass property.
-                     * 
                      * @param value allowed object is
                      * {@link String }
                      */
@@ -1481,7 +1459,6 @@ public class JxbModule {
 
                     /**
                      * Sets the value of the stereotype property.
-                     * 
                      * @param value allowed object is
                      * {@link String }
                      */
@@ -1503,7 +1480,6 @@ public class JxbModule {
 
                     /**
                      * Sets the value of the key property.
-                     * 
                      * @param value allowed object is
                      * {@link String }
                      */
@@ -1525,7 +1501,6 @@ public class JxbModule {
 
                     /**
                      * Sets the value of the value property.
-                     * 
                      * @param value allowed object is
                      * {@link String }
                      */
@@ -1557,9 +1532,8 @@ public class JxbModule {
         @objid ("cae74f81-d6ff-11e1-9f03-001ec947ccaf")
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "")
-        public static class ElementCreationCommand extends JxbContextualCommand {
-
-//          empty
+        public static class ElementCreationCommand extends JxbContextualCommand {//          empty
+            
         }
 
         /**
@@ -1583,8 +1557,8 @@ public class JxbModule {
         @objid ("cae9b0dd-d6ff-11e1-9f03-001ec947ccaf")
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "value"
-        })
+                    "value"
+                })
         public static class PropertyPage {
             @objid ("cae9b321-d6ff-11e1-9f03-001ec947ccaf")
             @XmlValue
@@ -1619,7 +1593,6 @@ public class JxbModule {
 
             /**
              * Sets the value of the value property.
-             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -1641,7 +1614,6 @@ public class JxbModule {
 
             /**
              * Sets the value of the name property.
-             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -1663,7 +1635,6 @@ public class JxbModule {
 
             /**
              * Sets the value of the clazz property.
-             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -1685,7 +1656,6 @@ public class JxbModule {
 
             /**
              * Sets the value of the label property.
-             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -1707,7 +1677,6 @@ public class JxbModule {
 
             /**
              * Sets the value of the image property.
-             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -1766,8 +1735,8 @@ public class JxbModule {
     @objid ("caee75b9-d6ff-11e1-9f03-001ec947ccaf")
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "enumerationOrDescription"
-    })
+            "enumerationOrDescription"
+        })
     public static class JxbParameter {
         @objid ("cae9b0f3-d6ff-11e1-9f03-001ec947ccaf")
         @XmlAttribute
@@ -1795,9 +1764,9 @@ public class JxbModule {
 
         @objid ("cae9b0f2-d6ff-11e1-9f03-001ec947ccaf")
         @XmlElements({
-            @XmlElement(name = "enumeration", type = JxbModule.JxbParameter.JxbEnumeration.class),
-            @XmlElement(name = "description", type = String.class)
-        })
+                    @XmlElement(name = "enumeration", type = JxbModule.JxbParameter.JxbEnumeration.class),
+                    @XmlElement(name = "description", type = String.class)
+                })
         protected List<Object> enumerationOrDescription;
 
         /**
@@ -1813,7 +1782,6 @@ public class JxbModule {
 
         /**
          * Sets the value of the name property.
-         * 
          * @param value allowed object is
          * {@link String }
          */
@@ -1835,7 +1803,6 @@ public class JxbModule {
 
         /**
          * Sets the value of the label property.
-         * 
          * @param value allowed object is
          * {@link String }
          */
@@ -1857,7 +1824,6 @@ public class JxbModule {
 
         /**
          * Sets the value of the group property.
-         * 
          * @param value allowed object is
          * {@link String }
          */
@@ -1879,7 +1845,6 @@ public class JxbModule {
 
         /**
          * Sets the value of the defaultValue property.
-         * 
          * @param value allowed object is
          * {@link String }
          */
@@ -1901,7 +1866,6 @@ public class JxbModule {
 
         /**
          * Sets the value of the type property.
-         * 
          * @param value allowed object is
          * {@link String }
          */
@@ -1923,7 +1887,6 @@ public class JxbModule {
 
         /**
          * Sets the value of the uid property.
-         * 
          * @param value allowed object is
          * {@link String }
          */
@@ -1990,8 +1953,8 @@ public class JxbModule {
         @objid ("cae9b0e5-d6ff-11e1-9f03-001ec947ccaf")
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "literal"
-        })
+                    "literal"
+                })
         public static class JxbEnumeration {
             @objid ("caec1308-d6ff-11e1-9f03-001ec947ccaf")
             protected List<org.modelio.gproject.data.module.jaxbv1.JxbModule.JxbParameter.JxbEnumeration.Literal> literal;
@@ -2065,7 +2028,6 @@ public class JxbModule {
 
                 /**
                  * Sets the value of the name property.
-                 * 
                  * @param value allowed object is
                  * {@link String }
                  */
@@ -2087,7 +2049,6 @@ public class JxbModule {
 
                 /**
                  * Sets the value of the label property.
-                 * 
                  * @param value allowed object is
                  * {@link String }
                  */
@@ -2194,8 +2155,8 @@ public class JxbModule {
     @objid ("caee75c4-d6ff-11e1-9f03-001ec947ccaf")
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "stereotypeOrAnonymousStereotype"
-    })
+            "stereotypeOrAnonymousStereotype"
+        })
     public static class JxbProfile {
         @objid ("cae9b102-d6ff-11e1-9f03-001ec947ccaf")
         @XmlAttribute
@@ -2207,9 +2168,9 @@ public class JxbModule {
 
         @objid ("cae9b101-d6ff-11e1-9f03-001ec947ccaf")
         @XmlElements({
-            @XmlElement(name = "stereotype", type = JxbModule.JxbProfile.JxbStereotype.class),
-            @XmlElement(name = "anonymous-stereotype", type = JxbModule.JxbProfile.JxbAnonymousStereotype.class)
-        })
+                    @XmlElement(name = "stereotype", type = JxbModule.JxbProfile.JxbStereotype.class),
+                    @XmlElement(name = "anonymous-stereotype", type = JxbModule.JxbProfile.JxbAnonymousStereotype.class)
+                })
         protected List<Object> stereotypeOrAnonymousStereotype;
 
         /**
@@ -2225,7 +2186,6 @@ public class JxbModule {
 
         /**
          * Sets the value of the uid property.
-         * 
          * @param value allowed object is
          * {@link String }
          */
@@ -2247,7 +2207,6 @@ public class JxbModule {
 
         /**
          * Sets the value of the name property.
-         * 
          * @param value allowed object is
          * {@link String }
          */
@@ -2309,8 +2268,8 @@ public class JxbModule {
         @objid ("cae9b0fa-d6ff-11e1-9f03-001ec947ccaf")
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "taggedvaluesOrNotetypeOrExterndocumenttype"
-        })
+                    "taggedvaluesOrNotetypeOrExterndocumenttype"
+                })
         public static class JxbAnonymousStereotype {
             @objid ("caec134a-d6ff-11e1-9f03-001ec947ccaf")
             @XmlAttribute
@@ -2322,10 +2281,10 @@ public class JxbModule {
 
             @objid ("caec1349-d6ff-11e1-9f03-001ec947ccaf")
             @XmlElements({
-                @XmlElement(name = "taggedvalues", type = JxbTaggedvalues.class),
-                @XmlElement(name = "externdocumenttype", type = JxbExterndocumenttype.class),
-                @XmlElement(name = "notetype", type = JxbNotetype.class)
-            })
+                            @XmlElement(name = "taggedvalues", type = JxbTaggedvalues.class),
+                            @XmlElement(name = "externdocumenttype", type = JxbExterndocumenttype.class),
+                            @XmlElement(name = "notetype", type = JxbNotetype.class)
+                        })
             protected List<Object> taggedvaluesOrNotetypeOrExterndocumenttype;
 
             /**
@@ -2341,7 +2300,6 @@ public class JxbModule {
 
             /**
              * Sets the value of the uid property.
-             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -2363,7 +2321,6 @@ public class JxbModule {
 
             /**
              * Sets the value of the metaclass property.
-             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -2469,8 +2426,8 @@ public class JxbModule {
         @objid ("cae9b0fb-d6ff-11e1-9f03-001ec947ccaf")
         @XmlAccessorType(XmlAccessType.FIELD)
         @XmlType(name = "", propOrder = {
-            "iconsOrTaggedvaluesOrNotetype"
-        })
+                    "iconsOrTaggedvaluesOrNotetype"
+                })
         public static class JxbStereotype {
             @objid ("caec135e-d6ff-11e1-9f03-001ec947ccaf")
             @XmlAttribute
@@ -2498,11 +2455,11 @@ public class JxbModule {
 
             @objid ("caec135d-d6ff-11e1-9f03-001ec947ccaf")
             @XmlElements({
-                @XmlElement(name = "icons", type = JxbModule.JxbProfile.JxbStereotype.Icons.class),
-                @XmlElement(name = "taggedvalues", type = JxbTaggedvalues.class),
-                @XmlElement(name = "externdocumenttype", type = JxbExterndocumenttype.class),
-                @XmlElement(name = "notetype", type = JxbNotetype.class)
-            })
+                            @XmlElement(name = "icons", type = JxbModule.JxbProfile.JxbStereotype.Icons.class),
+                            @XmlElement(name = "taggedvalues", type = JxbTaggedvalues.class),
+                            @XmlElement(name = "externdocumenttype", type = JxbExterndocumenttype.class),
+                            @XmlElement(name = "notetype", type = JxbNotetype.class)
+                        })
             protected List<Object> iconsOrTaggedvaluesOrNotetype;
 
             /**
@@ -2518,7 +2475,6 @@ public class JxbModule {
 
             /**
              * Sets the value of the uid property.
-             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -2540,7 +2496,6 @@ public class JxbModule {
 
             /**
              * Sets the value of the name property.
-             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -2562,7 +2517,6 @@ public class JxbModule {
 
             /**
              * Sets the value of the label property.
-             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -2584,7 +2538,6 @@ public class JxbModule {
 
             /**
              * Sets the value of the metaclass property.
-             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -2606,7 +2559,6 @@ public class JxbModule {
 
             /**
              * Sets the value of the ownerStereotype property.
-             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -2628,7 +2580,6 @@ public class JxbModule {
 
             /**
              * Sets the value of the isHidden property.
-             * 
              * @param value allowed object is
              * {@link String }
              */
@@ -2714,15 +2665,15 @@ public class JxbModule {
             @objid ("caec134e-d6ff-11e1-9f03-001ec947ccaf")
             @XmlAccessorType(XmlAccessType.FIELD)
             @XmlType(name = "", propOrder = {
-                "smallOrExplorerOrDiagram"
-            })
+                            "smallOrExplorerOrDiagram"
+                        })
             public static class Icons {
                 @objid ("caec14de-d6ff-11e1-9f03-001ec947ccaf")
                 @XmlElements({
-                    @XmlElement(name = "small", type = JxbModule.JxbProfile.JxbStereotype.Icons.Small.class),
-                    @XmlElement(name = "explorer", type = JxbModule.JxbProfile.JxbStereotype.Icons.Explorer.class),
-                    @XmlElement(name = "diagram", type = JxbModule.JxbProfile.JxbStereotype.Icons.Diagram.class)
-                })
+                                    @XmlElement(name = "small", type = JxbModule.JxbProfile.JxbStereotype.Icons.Small.class),
+                                    @XmlElement(name = "explorer", type = JxbModule.JxbProfile.JxbStereotype.Icons.Explorer.class),
+                                    @XmlElement(name = "diagram", type = JxbModule.JxbProfile.JxbStereotype.Icons.Diagram.class)
+                                })
                 protected List<Object> smallOrExplorerOrDiagram;
 
                 /**
@@ -2791,7 +2742,6 @@ public class JxbModule {
 
                     /**
                      * Sets the value of the path property.
-                     * 
                      * @param value allowed object is
                      * {@link String }
                      */
@@ -2838,7 +2788,6 @@ public class JxbModule {
 
                     /**
                      * Sets the value of the path property.
-                     * 
                      * @param value allowed object is
                      * {@link String }
                      */
@@ -2885,7 +2834,6 @@ public class JxbModule {
 
                     /**
                      * Sets the value of the path property.
-                     * 
                      * @param value allowed object is
                      * {@link String }
                      */

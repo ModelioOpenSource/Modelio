@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.microsoft.plugin;
 
 import java.lang.reflect.InvocationTargetException;
@@ -86,7 +85,6 @@ public class MicrosoftRtfHtmlEditorProvider extends MicrosoftEditorProvider {
 
     /**
      * Create a Word.Application OLE client.
-     * 
      * @param monitor a progress monitor.
      * @return true if Word found else false.
      */

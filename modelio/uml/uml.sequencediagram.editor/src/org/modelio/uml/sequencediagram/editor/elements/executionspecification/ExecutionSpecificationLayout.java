@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.executionspecification;
 
 import java.util.HashMap;
@@ -75,6 +74,7 @@ public class ExecutionSpecificationLayout extends AbstractLayout {
                 locator.relocate(child);
             }
         }
+        
     }
 
     @objid ("d8e99878-55b6-11e2-877f-002564c97630")
@@ -90,6 +90,7 @@ public class ExecutionSpecificationLayout extends AbstractLayout {
         if (constraint instanceof PlacementConstraint) {
             this.constraints.put(figure, (PlacementConstraint) constraint);
         }
+        
     }
 
     @objid ("d8e99884-55b6-11e2-877f-002564c97630")

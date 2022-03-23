@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service;
 
 import java.util.Collection;
@@ -57,7 +56,6 @@ import org.modelio.vcore.smkernel.meta.ISmMetamodelFragment;
 public interface IRTModule {
     /**
      * Returns the collection of {@link IModuleAction} associated with passed location.
-     * 
      * @param location the location for which actions are to be returned.
      * @return the collection of {@link IModuleAction} associated with passed location.
      */
@@ -67,7 +65,6 @@ public interface IRTModule {
     /**
      * Get the configuration associated to this module.
      * @see IModuleUserConfiguration
-     * 
      * @return the module configuration.
      */
     @objid ("287cc5f6-be23-48cf-96f2-bdb2dd36c745")
@@ -75,7 +72,6 @@ public interface IRTModule {
 
     /**
      * Used to return the module description.
-     * 
      * @return The module description
      */
     @objid ("b397dcbe-a57c-4095-94d7-2b9b613d8c72")
@@ -83,7 +79,6 @@ public interface IRTModule {
 
     /**
      * Get all defined diagram custommizations.
-     * 
      * @return the toolIds.
      * @since 2.2.1
      */
@@ -92,7 +87,6 @@ public interface IRTModule {
 
     /**
      * Get all defined diagram tools.
-     * 
      * @return the toolIds.
      * @since 2.2.1
      */
@@ -110,7 +104,6 @@ public interface IRTModule {
      * <p>
      * The exception message is expected to be directly displayed to the user.
      * So the message has to be translated and as user friendly as possible
-     * 
      * @return the break cause or null if the module is not broken.
      */
     @objid ("3f78af6e-4413-4c46-a57c-405019f10862")
@@ -118,7 +111,6 @@ public interface IRTModule {
 
     /**
      * Get the low level module.
-     * 
      * @return the GModule
      */
     @objid ("c95df398-87c6-43b6-afcf-8243bf63092e")
@@ -132,7 +124,6 @@ public interface IRTModule {
 
     /**
      * Get the module label that is displayed in dialog boxes and other GUIU parts.
-     * 
      * @return The module label.
      */
     @objid ("8f4d773e-0420-400a-bb63-880b45b3960e")
@@ -140,7 +131,6 @@ public interface IRTModule {
 
     /**
      * Get the translated label for a label key.
-     * 
      * @param id a label key
      * @return the translated label
      */
@@ -176,7 +166,6 @@ public interface IRTModule {
      * <p>
      * <p>
      * The module name corresponds to the name of the module, as defined in the <i>MDA Designer<i> tool.
-     * 
      * @return The module name
      */
     @objid ("7d59d674-06e9-406c-8f08-77593db693ac")
@@ -190,7 +179,6 @@ public interface IRTModule {
 
     /**
      * Return the defined property panels
-     * 
      * @return The collection of property panels
      */
     @objid ("a2f280ad-c994-4ef4-9234-81df89611597")
@@ -198,7 +186,6 @@ public interface IRTModule {
 
     /**
      * Returns current runtime state of this module.
-     * 
      * @return the current runtime state of this module.
      */
     @objid ("0cf32e9f-99de-11e1-b1e0-001ec947c8cc")
@@ -206,7 +193,6 @@ public interface IRTModule {
 
     /**
      * Used to return the module version.
-     * 
      * @return The module version
      */
     @objid ("702796b6-c0a8-48da-922a-4ae0f2eddf24")
@@ -215,7 +201,6 @@ public interface IRTModule {
     /**
      * Instantiate a matrix external processor.
      * @param <I> the required type
-     * 
      * @param className the full class name
      * @param clazz the required type ?
      * @param initargs the constructor arguments
@@ -259,7 +244,6 @@ public interface IRTModule {
      * <p>
      * Returns a direct reference to the actual list.
      * The list may be modified to add or remove listeners.
-     * 
      * @return the module listeners.
      */
     @objid ("dda8c406-3b44-4267-aa9a-1418d3c0b10c")
@@ -267,7 +251,6 @@ public interface IRTModule {
 
     /**
      * The module configuration for API use.
-     * 
      * @return The module configuration for API use.
      */
     @objid ("4b5b2e2b-1031-4dc0-975e-1c870d3d1c25")
@@ -310,7 +293,6 @@ public interface IRTModule {
      * The priority values define an ordering of the modules that allows Modelio to give more importance to some of them, for example to propose their commands or extensions in first positions in the GUI...
      * 
      * Values: 0 is understood as the highest priority
-     * 
      * @return the current functional priority level of the module
      */
     @objid ("32cf887b-2160-4e62-ab2c-1ae7a28bcb01")
@@ -327,7 +309,7 @@ public interface IRTModule {
      * @since 2.2.1
      */
     @objid ("dc8f2fa1-8c0a-4a86-a7ed-433a83ff72cc")
-    class DiagramCustomizationDescriptor {
+    public class DiagramCustomizationDescriptor {
         @objid ("e6db5ef7-58f9-434c-a6a1-c33f2eef55ef")
         private Stereotype stereotype;
 
@@ -339,16 +321,16 @@ public interface IRTModule {
 
         /**
          * Default constructor initializing fields.
-         * 
          * @param stereotype a stereotype.
          * @param baseDiagramClass a diagram metaclass.
          * @param customizer a diagram customizer.
          */
         @objid ("7d6b76e0-3a4c-4c40-b534-22b4275b2a9a")
-        public DiagramCustomizationDescriptor(Stereotype stereotype, Class<? extends AbstractDiagram> baseDiagramClass, IDiagramCustomizer customizer) {
+        public  DiagramCustomizationDescriptor(Stereotype stereotype, Class<? extends AbstractDiagram> baseDiagramClass, IDiagramCustomizer customizer) {
             this.stereotype = stereotype;
             this.baseDiagramClass = baseDiagramClass;
             this.customizer = customizer;
+            
         }
 
         /**
@@ -383,7 +365,7 @@ public interface IRTModule {
      * @since 2.2.1
      */
     @objid ("df460e76-0480-42c5-b69e-115ca9e1bfa5")
-    class DiagramToolDescriptor {
+    public class DiagramToolDescriptor {
         @objid ("44d65cf5-4745-4072-a4a3-437a4c4c7112")
         private String id;
 
@@ -424,6 +406,7 @@ public interface IRTModule {
             String st = this.handler.getParameters().get("stereotype");
             return (st != null && !st.isEmpty()) ? this.handler.getModule().getModuleContext().getModelingSession().getMetamodelExtensions()
                                                                                                                                                                                                                         .getStereotype(st, mClass) : null;
+            
         }
 
         /**
@@ -447,9 +430,10 @@ public interface IRTModule {
          * @param handler the tool handler
          */
         @objid ("8d117a34-d8d5-49e3-bc7f-9129bc81dfe1")
-        public DiagramToolDescriptor(String id, IDiagramTool handler) {
+        public  DiagramToolDescriptor(String id, IDiagramTool handler) {
             this.id = id;
             this.handler = handler;
+            
         }
 
     }
@@ -458,19 +442,23 @@ public interface IRTModule {
      * Enumeration of the states a module can have at runtime.
      */
     @objid ("4d148035-99dd-11e1-b1e0-001ec947c8cc")
-    enum ModuleRuntimeState {
+    public enum ModuleRuntimeState {
         /**
          * This state indicates the module is loaded but not started.
          */
+        @objid ("5953af60-99dd-11e1-b1e0-001ec947c8cc")
         Loaded,
         /**
          * This states indicates the module is loaded and started.
          */
+        @objid ("559ec902-99dd-11e1-b1e0-001ec947c8cc")
         Started,
         /**
          * This state indicates the module could not be loaded at all.
          */
+        @objid ("5c3dee31-99dd-11e1-b1e0-001ec947c8cc")
         Incompatible;
+
     }
 
 }

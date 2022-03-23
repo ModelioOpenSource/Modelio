@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /**
  *
  */
@@ -37,8 +36,8 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.modelio.app.project.conf.dialog.ProjectModel;
 import org.modelio.app.project.conf.plugin.AppProjectConfExt;
-import org.modelio.gproject.data.ramc.IModelComponentInfos.ExportedFile;
 import org.modelio.gproject.data.ramc.IModelComponentInfos;
+import org.modelio.gproject.data.ramc.IModelComponentInfos.ExportedFile;
 import org.modelio.platform.ui.UIColor;
 import org.modelio.platform.ui.htmleditor.HtmlComposer;
 import org.modelio.vbasic.version.Version;
@@ -107,7 +106,7 @@ public class RamcPropertyComposite extends Composite {
      * @param projectAdapter
      */
     @objid ("f8934f5a-f189-499d-8cd3-5722773ba2e0")
-    public RamcPropertyComposite(final Composite parent, final int style, final IModelComponentInfos fragmentInfos, final ProjectModel projectAdapter) {
+    public  RamcPropertyComposite(final Composite parent, final int style, final IModelComponentInfos fragmentInfos, final ProjectModel projectAdapter) {
         super(parent, style);
         this.fragmentInfos = fragmentInfos;
         this.projectAdapter = projectAdapter;
@@ -118,6 +117,7 @@ public class RamcPropertyComposite extends Composite {
         if (this.fragmentInfos != null) {
             refresh();
         }
+        
     }
 
     @objid ("7710d5ba-8ca0-4b8c-85f6-56c2cc761612")
@@ -129,6 +129,7 @@ public class RamcPropertyComposite extends Composite {
         createDependenciesField(this);
         createContributingModulesField(this);
         createFilesField(this);
+        
     }
 
     @objid ("7770dc89-5b15-4a29-b8df-ced143abc47b")
@@ -148,6 +149,7 @@ public class RamcPropertyComposite extends Composite {
         
         final GridData gd_ramcNameText = new GridData(SWT.FILL, SWT.UP, true, false, 1, 1);
         this.ramcNameText.setLayoutData(gd_ramcNameText);
+        
     }
 
     @objid ("d41bade6-2694-4025-a4fb-7de0df02f6dc")
@@ -167,6 +169,7 @@ public class RamcPropertyComposite extends Composite {
         
         final GridData gd_ramcVersionText = new GridData(SWT.FILL, SWT.UP, true, false, 1, 1);
         this.ramcVersionText.setLayoutData(gd_ramcVersionText);
+        
     }
 
     @objid ("d4ec6f14-896e-44a3-8729-4de3127b0fcf")
@@ -187,6 +190,7 @@ public class RamcPropertyComposite extends Composite {
         final GridData gd_ramcDescriptionText = new GridData(SWT.FILL, SWT.FILL, true, true);
         this.ramcVersionHistoryText.setLayoutData(gd_ramcDescriptionText);
         gd_ramcDescriptionText.heightHint = 80;
+        
     }
 
     @objid ("f54f4f90-35ee-46fe-b644-efb1f6bccc8a")
@@ -199,6 +203,7 @@ public class RamcPropertyComposite extends Composite {
         
         final GridData gd_ramcDependenciesLabel = new GridData(SWT.LEFT, SWT.UP, false, false, 1, 1);
         this.ramcDependenciesLabel.setLayoutData(gd_ramcDependenciesLabel);
+        
     }
 
     @objid ("73b873d8-79fd-4435-a5e5-b53d85b90891")
@@ -210,6 +215,7 @@ public class RamcPropertyComposite extends Composite {
         initFilesListViewer(area);
         final GridData gd_ramcFilesLabel = new GridData(SWT.LEFT, SWT.UP, false, false, 1, 1);
         this.ramcFilesLabel.setLayoutData(gd_ramcFilesLabel);
+        
     }
 
     @objid ("2602088e-7cf4-44dd-be05-77cf60faa853")
@@ -225,6 +231,7 @@ public class RamcPropertyComposite extends Composite {
         final GridData gd_ramcDependenciesList = new GridData(SWT.FILL, SWT.FILL, true, false);
         gd_ramcDependenciesList.heightHint = 60;
         this.ramcDependenciesList.getTable().setLayoutData(gd_ramcDependenciesList);
+        
     }
 
     @objid ("e610daa5-9072-4796-ad7f-c909173e7e1f")
@@ -240,6 +247,7 @@ public class RamcPropertyComposite extends Composite {
         final GridData gd_ramcFilesList = new GridData(SWT.FILL, SWT.FILL, true, true);
         gd_ramcFilesList.heightHint = 50;
         this.ramcFilesList.getTable().setLayoutData(gd_ramcFilesList);
+        
     }
 
     @objid ("1f7a0917-e653-4e24-85f9-a027c54e259d")
@@ -265,6 +273,7 @@ public class RamcPropertyComposite extends Composite {
         this.ramcDependenciesList.setInput(this.fragmentInfos.getRequiredModelComponents());
         this.ramcContributingModulesList.setInput(this.fragmentInfos.getContributingModules());
         this.ramcFilesList.setInput(getRamcExportedFiles());
+        
     }
 
     @objid ("91918d06-28cb-4f2d-9896-cf0a13567bd8")
@@ -291,6 +300,7 @@ public class RamcPropertyComposite extends Composite {
         
         final GridData gd_ramcContributingModulesLabel = new GridData(SWT.LEFT, SWT.UP, false, false, 1, 1);
         this.ramcContributingModulesLabel.setLayoutData(gd_ramcContributingModulesLabel);
+        
     }
 
     @objid ("8bd431ac-9e32-42d4-b216-3364e7d59b2a")
@@ -306,6 +316,7 @@ public class RamcPropertyComposite extends Composite {
         final GridData gd_ramcContributingModulesList = new GridData(SWT.FILL, SWT.FILL, true, false);
         gd_ramcContributingModulesList.heightHint = 60;
         this.ramcContributingModulesList.getTable().setLayoutData(gd_ramcContributingModulesList);
+        
     }
 
     @objid ("9359a3ed-3ee8-453c-bd4e-a3c8f7c84e82")
@@ -322,6 +333,7 @@ public class RamcPropertyComposite extends Composite {
         
         this.ramcProviderLabel.setLayoutData(new GridData(SWT.LEFT, SWT.UP, false, false, 1, 1));
         this.ramcProviderText.setLayoutData(new GridData(SWT.FILL, SWT.UP, true, false, 1, 1));
+        
     }
 
 }

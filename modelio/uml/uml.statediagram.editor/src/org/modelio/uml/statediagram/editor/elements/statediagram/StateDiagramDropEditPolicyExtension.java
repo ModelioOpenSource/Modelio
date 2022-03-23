@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.statediagram;
 
 import java.util.Deque;
@@ -130,18 +129,18 @@ public class StateDiagramDropEditPolicyExtension extends AbstractDiagramElementD
 
         /**
          * Initialize the command.
-         * 
          * @param dropLocation The location of the element in the diagram
          * @param toUnmask The operation to unmask
          * @param editPart The destination edit part that will own the call operation.
          * @param parentElement The element that will own the call operation action.
          */
         @objid ("f58b9cc4-55b6-11e2-877f-002564c97630")
-        public CreateStateMachineStateCommand(final Point dropLocation, final StateMachine toUnmask, final EditPart editPart, final StateMachine parentElement) {
+        public  CreateStateMachineStateCommand(final Point dropLocation, final StateMachine toUnmask, final EditPart editPart, final StateMachine parentElement) {
             this.stateMachine = toUnmask;
             this.dropLocation = dropLocation;
             this.editPart = editPart;
             this.parentElement = parentElement;
+            
         }
 
         @objid ("f58d235f-55b6-11e2-877f-002564c97630")
@@ -179,11 +178,11 @@ public class StateDiagramDropEditPolicyExtension extends AbstractDiagramElementD
             
             // Unmask the created node
             unmaskElement(el);
+            
         }
 
         /**
          * Unmask the given element in the destination edit part.
-         * 
          * @param el The element to unmask
          */
         @objid ("f58d2362-55b6-11e2-877f-002564c97630")
@@ -199,6 +198,7 @@ public class StateDiagramDropEditPolicyExtension extends AbstractDiagramElementD
             if (cmd != null && cmd.canExecute()) {
                 cmd.execute();
             }
+            
         }
 
         @objid ("f58d2369-55b6-11e2-877f-002564c97630")
@@ -218,9 +218,10 @@ public class StateDiagramDropEditPolicyExtension extends AbstractDiagramElementD
         private DiagramElementDropEditPolicy dropPolicy;
 
         @objid ("290576bd-624f-4179-b503-f2ae9c37381f")
-        public StandardVisitorImpl(DiagramElementDropEditPolicy dropPolicy, Point dropLocation) {
+        public  StandardVisitorImpl(DiagramElementDropEditPolicy dropPolicy, Point dropLocation) {
             this.dropPolicy = dropPolicy;
             this.dropLocation = dropLocation;
+            
         }
 
         @objid ("902b8fb6-a3ed-4e1b-9320-69c52d16b2ac")

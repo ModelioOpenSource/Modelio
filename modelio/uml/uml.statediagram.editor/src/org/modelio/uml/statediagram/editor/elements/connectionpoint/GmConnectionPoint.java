@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.connectionpoint;
 
 import java.util.Collections;
@@ -31,8 +30,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.ConnectionPointReference;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -44,9 +43,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("f4faa789-55b6-11e2-877f-002564c97630")
 public class GmConnectionPoint extends GmPortContainer {
-    @objid ("f4faa790-55b6-11e2-877f-002564c97630")
-     ConnectionPointReference element;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -56,6 +52,9 @@ public class GmConnectionPoint extends GmPortContainer {
     @objid ("f4faa796-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
 
+    @objid ("f4faa790-55b6-11e2-877f-002564c97630")
+    ConnectionPointReference element;
+
     @objid ("fcff663a-5a5b-11e2-9e33-00137282c51b")
     private static GmConnectionPointImageStyleKeys IMAGE_KEYS = new GmConnectionPointImageStyleKeys();
 
@@ -63,20 +62,19 @@ public class GmConnectionPoint extends GmPortContainer {
     private static GmConnectionPointSimpleStyleKeys SIMPLE_KEYS = new GmConnectionPointSimpleStyleKeys();
 
     @objid ("fcff663c-5a5b-11e2-9e33-00137282c51b")
-     static GmConnectionPointStructuredStyleKeys STRUCTURED_KEYS = new GmConnectionPointStructuredStyleKeys();
+    static GmConnectionPointStructuredStyleKeys STRUCTURED_KEYS = new GmConnectionPointStructuredStyleKeys();
 
     @objid ("9db1e2ca-c6f9-466b-82a7-c751fd8988cf")
     private static GmConnectionPointUserImageStyleKeys USERIMAGE_KEYS = new GmConnectionPointUserImageStyleKeys();
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the connection point is unmasked.
      * @param el the unmasked connection point.
      * @param ref a reference to the unmasked connection point.
      */
     @objid ("f4faa798-55b6-11e2-877f-002564c97630")
-    public GmConnectionPoint(IGmDiagram diagram, ConnectionPointReference el, MRef ref) {
+    public  GmConnectionPoint(IGmDiagram diagram, ConnectionPointReference el, MRef ref) {
         super(diagram, ref);
         
         GmConnectionPointPrimaryNode mainNode = new GmConnectionPointPrimaryNode(diagram, ref);
@@ -89,13 +87,14 @@ public class GmConnectionPoint extends GmPortContainer {
         
         this.addChild(mainNode);
         this.addChild(label);
+        
     }
 
     /**
      * Empty constructor needed for deserialisation.
      */
     @objid ("f4fc2dfb-55b6-11e2-877f-002564c97630")
-    public GmConnectionPoint() {
+    public  GmConnectionPoint() {
         // Nothing specific to do.
     }
 
@@ -180,6 +179,7 @@ public class GmConnectionPoint extends GmPortContainer {
                 break;
             }
         }
+        
     }
 
     @objid ("f4fc2e35-55b6-11e2-877f-002564c97630")
@@ -189,12 +189,14 @@ public class GmConnectionPoint extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmConnectionPoint.", GmConnectionPoint.MINOR_VERSION);
+        
     }
 
     @objid ("f4fc2e3b-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (ConnectionPointReference) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("f4fdb499-55b6-11e2-877f-002564c97630")
@@ -205,7 +207,6 @@ public class GmConnectionPoint extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -217,7 +218,6 @@ public class GmConnectionPoint extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

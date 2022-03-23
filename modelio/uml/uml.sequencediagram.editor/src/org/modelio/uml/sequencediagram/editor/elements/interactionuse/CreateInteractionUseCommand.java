@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.interactionuse;
 
 import java.util.List;
@@ -60,18 +59,18 @@ public class CreateInteractionUseCommand extends Command {
 
     /**
      * Creates a node creation command.
-     * 
      * @param diagram The sequence diagram in which the interaction use is to be created.
      * @param context Details on the MObject and/or the node to create.
      * @param constraint The initial constraint of the created node.
      * @param coveredLifelines The list of lifelines covered at creation time. May be empty but not <code>null</code>!
      */
     @objid ("d90fbe00-55b6-11e2-877f-002564c97630")
-    public CreateInteractionUseCommand(final GmSequenceDiagram diagram, final ModelioCreationContext context, final Rectangle constraint, final List<GmLifeline> coveredLifelines) {
+    public  CreateInteractionUseCommand(final GmSequenceDiagram diagram, final ModelioCreationContext context, final Rectangle constraint, final List<GmLifeline> coveredLifelines) {
         this.diagram = diagram;
         this.context = context;
         this.constraint = constraint;
         this.coveredLifelines = coveredLifelines;
+        
     }
 
     @objid ("d90fbe0f-55b6-11e2-877f-002564c97630")
@@ -135,6 +134,7 @@ public class CreateInteractionUseCommand extends Command {
         
         // Show the new element in the diagram (ie create its Gm )
         this.diagram.unmask(this.diagram, newElement, this.constraint);
+        
     }
 
 }

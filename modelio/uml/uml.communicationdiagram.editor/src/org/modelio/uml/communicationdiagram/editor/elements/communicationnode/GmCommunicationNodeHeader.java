@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.communicationdiagram.editor.elements.communicationnode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,12 +50,11 @@ public class GmCommunicationNodeHeader extends GmDefaultModelElementHeader {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
     @objid ("7a58ea7b-55b6-11e2-877f-002564c97630")
-    public GmCommunicationNodeHeader(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmCommunicationNodeHeader(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -64,7 +62,8 @@ public class GmCommunicationNodeHeader extends GmDefaultModelElementHeader {
      * For deserialization only.
      */
     @objid ("7a58ea86-55b6-11e2-877f-002564c97630")
-    public GmCommunicationNodeHeader() {
+    public  GmCommunicationNodeHeader() {
+        
     }
 
     @objid ("7a58ea89-55b6-11e2-877f-002564c97630")
@@ -86,6 +85,7 @@ public class GmCommunicationNodeHeader extends GmDefaultModelElementHeader {
             setShowMetaclassIcon(false);
         }
         super.refreshFromObModel();
+        
     }
 
     @objid ("7a58ea91-55b6-11e2-877f-002564c97630")
@@ -118,6 +118,7 @@ public class GmCommunicationNodeHeader extends GmDefaultModelElementHeader {
             break;
         }
         }
+        
     }
 
     @objid ("7a58ea9c-55b6-11e2-877f-002564c97630")
@@ -127,6 +128,7 @@ public class GmCommunicationNodeHeader extends GmDefaultModelElementHeader {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmCommunicationNodeHeader.", GmCommunicationNodeHeader.MINOR_VERSION);
+        
     }
 
     @objid ("7a58eaa2-55b6-11e2-877f-002564c97630")
@@ -170,6 +172,7 @@ public class GmCommunicationNodeHeader extends GmDefaultModelElementHeader {
                         }
                     }
                 };
+        
     }
 
 }

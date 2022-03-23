@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.stateMachineModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.AbstractPseudoStateSmClass;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.AbstractPseudoState;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.ChoicePseudoState;
 import org.modelio.vbasic.version.Version;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("f0a2a591-fb0e-43e8-b25c-f742e385444c")
 public class ChoicePseudoStateSmClass extends AbstractPseudoStateSmClass {
     @objid ("dd608142-c41d-4a9e-8c7d-67d9fb4f7a62")
-    public ChoicePseudoStateSmClass(ISmMetamodelFragment origin) {
+    public  ChoicePseudoStateSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class ChoicePseudoStateSmClass extends AbstractPseudoStateSmClass {
     @Override
     public String getName() {
         return "ChoicePseudoState";
+        
     }
 
     @objid ("247757ee-0f00-4cbb-b2d2-6e30de526038")
@@ -62,18 +62,21 @@ public class ChoicePseudoStateSmClass extends AbstractPseudoStateSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ChoicePseudoState.class;
+        
     }
 
     @objid ("d2b534a6-288d-42bf-adee-3747e27e246e")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("fe6e007c-1c10-449d-859d-c5ed214be19b")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("ac338dca-33d9-4a26-8e1c-ca23f3dff0f1")
@@ -86,6 +89,7 @@ public class ChoicePseudoStateSmClass extends AbstractPseudoStateSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("55cdc34f-c062-4bb0-aefa-f9872760093e")
@@ -94,7 +98,7 @@ public class ChoicePseudoStateSmClass extends AbstractPseudoStateSmClass {
         private ChoicePseudoStateSmClass smClass;
 
         @objid ("ba662c5b-2be9-46d6-a135-e51a72521961")
-        public ChoicePseudoStateObjectFactory(ChoicePseudoStateSmClass smClass) {
+        public  ChoicePseudoStateObjectFactory(ChoicePseudoStateSmClass smClass) {
             this.smClass = smClass;
         }
 

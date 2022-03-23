@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
@@ -142,6 +141,7 @@ public class PropertyDefinitionImpl extends ModelElementImpl implements Property
             // Return value as it is
             return value;
         }
+        
     }
 
     @objid ("0698d3b7-30c2-403a-b040-c601503f3655")
@@ -198,6 +198,7 @@ public class PropertyDefinitionImpl extends ModelElementImpl implements Property
         default:
             return "?" + value.getClass().getSimpleName() + "?";
         }
+        
     }
 
     @objid ("9ddc4236-4b88-4c6a-9e75-c547d6441c2b")
@@ -208,6 +209,7 @@ public class PropertyDefinitionImpl extends ModelElementImpl implements Property
         } catch (@SuppressWarnings ("unused") final IllegalArgumentException e) {
             return null;
         }
+        
     }
 
     @objid ("05cacdc4-5596-4c06-b552-c6df6728f2e4")
@@ -324,6 +326,7 @@ public class PropertyDefinitionImpl extends ModelElementImpl implements Property
         default:
             return value;
         }
+        
     }
 
 }

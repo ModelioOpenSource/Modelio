@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.message.label;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,18 +45,17 @@ public class GmMessageHeader extends GmDefaultModelElementLabel {
      * Empty c'tor for deserialisation.
      */
     @objid ("d958fc02-55b6-11e2-877f-002564c97630")
-    public GmMessageHeader() {
+    public  GmMessageHeader() {
         super();
     }
 
     /**
      * Default c'tor.
-     * 
      * @param diagram the diagram in which this Gm is created.
      * @param ref a reference to the related element.
      */
     @objid ("d958fc05-55b6-11e2-877f-002564c97630")
-    public GmMessageHeader(final IGmDiagram diagram, final MRef ref) {
+    public  GmMessageHeader(final IGmDiagram diagram, final MRef ref) {
         super(diagram, ref);
     }
 
@@ -79,6 +77,7 @@ public class GmMessageHeader extends GmDefaultModelElementLabel {
         }
         
         super.refreshFromObModel();
+        
     }
 
     /**
@@ -113,6 +112,7 @@ public class GmMessageHeader extends GmDefaultModelElementLabel {
             break;
         }
         }
+        
     }
 
     @objid ("d95a82b2-55b6-11e2-877f-002564c97630")
@@ -122,6 +122,7 @@ public class GmMessageHeader extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmMessageHeader.", GmMessageHeader.MINOR_VERSION);
+        
     }
 
     @objid ("d95a82b8-55b6-11e2-877f-002564c97630")

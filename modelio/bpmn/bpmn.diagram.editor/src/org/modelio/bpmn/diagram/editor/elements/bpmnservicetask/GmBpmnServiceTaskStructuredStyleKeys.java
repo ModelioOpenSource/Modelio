@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnservicetask;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.bpmn.diagram.editor.elements.style.BpmnAbstractStyleKeyProvider;
+import org.modelio.bpmn.diagram.editor.elements.common.style.BpmnAbstractStyleKeyProvider;
 import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.diagram.styles.core.StyleKey;
 
@@ -50,7 +49,7 @@ public class GmBpmnServiceTaskStructuredStyleKeys extends BpmnAbstractStyleKeyPr
 
     @objid ("c762df46-451c-4af3-be7d-1c2c999209d4")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("TASK_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+                MetaKey.SHOWSTEREOTYPES);
 
     @objid ("139f0382-6596-45ae-b73d-c5e60a011c7a")
     public static final StyleKey SHOWTAGS = createStyleKey("TASK_SHOWTAGS", MetaKey.SHOWTAGS);

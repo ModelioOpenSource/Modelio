@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.mmextensions.standard.facilities;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -73,6 +72,7 @@ public class BrokenElementTester {
             } else {
                 return visitModelElement(theElement);
             }
+            
         }
 
         @objid ("2542c06e-0d7a-11de-bb0e-001ec947ccaf")
@@ -111,6 +111,7 @@ public class BrokenElementTester {
             } else {
                 return true;
             }
+            
         }
 
         @objid ("2542c06f-0d7a-11de-bb0e-001ec947ccaf")
@@ -133,6 +134,7 @@ public class BrokenElementTester {
             } else {
                 return false;
             }
+            
         }
 
         @objid ("2542c073-0d7a-11de-bb0e-001ec947ccaf")
@@ -143,6 +145,7 @@ public class BrokenElementTester {
             } else {
                 return visitModelElement(theElement);
             }
+            
         }
 
         @objid ("2542c074-0d7a-11de-bb0e-001ec947ccaf")
@@ -159,6 +162,7 @@ public class BrokenElementTester {
             } else {
                 return visitModelElement(theElement);
             }
+            
         }
 
         @objid ("2542c075-0d7a-11de-bb0e-001ec947ccaf")
@@ -169,6 +173,7 @@ public class BrokenElementTester {
             } else {
                 return visitModelElement(theElement);
             }
+            
         }
 
         @objid ("2542c077-0d7a-11de-bb0e-001ec947ccaf")
@@ -207,6 +212,7 @@ public class BrokenElementTester {
             } else {
                 return true;
             }
+            
         }
 
         @objid ("8a70b8e3-1303-11de-9ac2-001ec947ccaf")
@@ -217,6 +223,7 @@ public class BrokenElementTester {
             } else {
                 return visitModelElement(theElement);
             }
+            
         }
 
         @objid ("e9ab8783-4b90-11de-884f-001ec947ccaf")
@@ -227,6 +234,7 @@ public class BrokenElementTester {
             } else {
                 return visitElement(theElement);
             }
+            
         }
 
         @objid ("2542c07a-0d7a-11de-bb0e-001ec947ccaf")
@@ -237,6 +245,7 @@ public class BrokenElementTester {
             } else {
                 return visitModelElement(theElement);
             }
+            
         }
 
         @objid ("2542c07b-0d7a-11de-bb0e-001ec947ccaf")
@@ -247,6 +256,7 @@ public class BrokenElementTester {
             } else {
                 return visitModelElement(theElement);
             }
+            
         }
 
         @objid ("2542c07c-0d7a-11de-bb0e-001ec947ccaf")
@@ -257,6 +267,7 @@ public class BrokenElementTester {
             } else {
                 return visitModelElement(theElement);
             }
+            
         }
 
         @objid ("12033970-9de9-11de-b490-001ec947ccaf")
@@ -267,6 +278,7 @@ public class BrokenElementTester {
             } else {
                 return visitElement(theElement);
             }
+            
         }
 
         @objid ("2542c07d-0d7a-11de-bb0e-001ec947ccaf")
@@ -277,6 +289,7 @@ public class BrokenElementTester {
             } else {
                 return visitModelElement(theElement);
             }
+            
         }
 
         @objid ("2542c07e-0d7a-11de-bb0e-001ec947ccaf")
@@ -287,6 +300,7 @@ public class BrokenElementTester {
             } else {
                 return visitModelElement(theElement);
             }
+            
         }
 
         @objid ("1f3f4fb2-4b91-11de-884f-001ec947ccaf")
@@ -297,6 +311,7 @@ public class BrokenElementTester {
             } else {
                 return visitModelElement(theElement);
             }
+            
         }
 
         @objid ("2542c07f-0d7a-11de-bb0e-001ec947ccaf")
@@ -307,6 +322,7 @@ public class BrokenElementTester {
             } else {
                 return visitModelElement(theElement);
             }
+            
         }
 
         @objid ("38dc0cbb-12f7-11de-831d-001ec947ccaf")
@@ -317,6 +333,7 @@ public class BrokenElementTester {
             } else {
                 return visitDependency(theElement);
             }
+            
         }
 
         @objid ("002a6a16-f750-1090-8d81-001ec947cd2a")
@@ -338,9 +355,10 @@ public class BrokenElementTester {
         }
 
         @objid ("3a2a06b5-8bfe-419a-91a8-ea7ce70c0d4a")
-        public BrokenVisitor() {
+        public  BrokenVisitor() {
             super();
             this.infrastructureVisitor = this;
+            
         }
 
     }

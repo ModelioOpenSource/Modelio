@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.infrastructure.dependency;
 
@@ -49,27 +48,26 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("22a9f638-1054-46a9-bc97-bf8c9c1092de")
 public class MMInfrastructureDependency {
-    @objid ("7dbbaba2-3d78-4804-845f-312814c279e1")
+    @objid ("c6c08dc7-a624-48c9-ab3f-588c829fc4e7")
     public static final String CAUSE_DEPTH_TAGTYPE = "cause_depth";
 
-    @objid ("8ee06f36-f780-4900-9e4c-0504bb42a788")
+    @objid ("fb9c9283-8985-4e3d-befc-85ff71abfe03")
     public static final String CONSEQUENCE_DEPTH_TAGTYPE = "consequence_depth";
 
     /**
      * The underlying {@link Dependency} represented by this proxy, never null.
      */
-    @objid ("6c5d1bac-eecb-4c4e-a9fb-cbdab52263a3")
+    @objid ("76b0d2a4-c10a-42f9-857a-b3d63c95f93d")
     protected final Dependency elt;
 
     /**
      * Tells whether a {@link MMInfrastructureDependency proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency}.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("b7ed2bd2-0d72-4908-af39-713e94193aa3")
+    @objid ("d2921539-8742-4ad7-8cce-6417552b7c64")
     public static boolean canInstantiate(MObject elt) {
         return (elt instanceof Dependency);
     }
@@ -81,12 +79,12 @@ public class MMInfrastructureDependency {
      * @param obj a Dependency
      * @return a {@link MMInfrastructureDependency} proxy or <i>null</i>.
      */
-    @objid ("26e61065-5328-403a-a764-921325153d7e")
+    @objid ("74da1b3c-7182-470f-9562-cb85826170c3")
     public static MMInfrastructureDependency instantiate(Dependency obj) {
         return MMInfrastructureDependency.canInstantiate(obj) ? new MMInfrastructureDependency(obj) : null;
     }
 
-    @objid ("c87582df-5fac-4240-a05f-7ab7348bd4ba")
+    @objid ("02624e7f-ea45-4dec-961e-71fb2f5767a6")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -107,7 +105,7 @@ public class MMInfrastructureDependency {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("7d6726fe-a94e-44af-a5e0-7d630db42b1e")
+    @objid ("d5ba7ea0-e7b4-4f4c-bcbb-3d1a4b329f67")
     public String getCause_depth() {
         return this.elt.getTagValue(MMInfrastructureDependency.MdaTypes.CAUSE_DEPTH_TAGTYPE_ELT);
     }
@@ -117,7 +115,7 @@ public class MMInfrastructureDependency {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("6151397e-bd66-4d53-8328-cd73d8af683b")
+    @objid ("e6779617-f93b-46a8-ab7a-e446324bc649")
     public String getConsequence_depth() {
         return this.elt.getTagValue(MMInfrastructureDependency.MdaTypes.CONSEQUENCE_DEPTH_TAGTYPE_ELT);
     }
@@ -126,15 +124,16 @@ public class MMInfrastructureDependency {
      * Get the underlying {@link Dependency}. 
      * @return the Dependency represented by this proxy, never null.
      */
-    @objid ("6430bdf6-e260-4b0d-9523-769c272d20ae")
+    @objid ("fc61a553-63c1-4426-87e1-3daccc388d9c")
     public Dependency getElement() {
         return this.elt;
     }
 
-    @objid ("fc533b25-e653-48ec-b0b1-d82d85550262")
+    @objid ("d607dc8a-ddde-42c0-86eb-906b44623aed")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
     /**
@@ -142,7 +141,7 @@ public class MMInfrastructureDependency {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("6300f204-d488-4a80-97ce-613fc502c31e")
+    @objid ("de60f1ac-e60c-430e-ba68-303bf0c7a3ce")
     public void setCause_depth(String value) {
         this.elt.putTagValue(MMInfrastructureDependency.MdaTypes.CAUSE_DEPTH_TAGTYPE_ELT, value);
     }
@@ -152,44 +151,44 @@ public class MMInfrastructureDependency {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("470d596c-3887-4fad-9d1a-ef4a8795390f")
+    @objid ("45bde2d5-7b6a-40cd-b82c-69862703cb8b")
     public void setConsequence_depth(String value) {
         this.elt.putTagValue(MMInfrastructureDependency.MdaTypes.CONSEQUENCE_DEPTH_TAGTYPE_ELT, value);
     }
 
-    @objid ("6d1d2074-c2b1-42e3-bb49-a83df8a6cf34")
-    protected MMInfrastructureDependency(Dependency elt) {
+    @objid ("b5397608-ac8c-4c2e-8dec-46c8bcb21938")
+    protected  MMInfrastructureDependency(Dependency elt) {
         this.elt = elt;
     }
 
     @objid ("d5e43762-4cac-4fda-a3d6-c611ca0ac6ea")
     public static final class MdaTypes {
-        @objid ("5112815e-f5ea-4000-beb3-57eac263850f")
+        @objid ("86eabec8-122e-44fd-9216-bfaa0d2ebb6c")
         public static TagType CAUSE_DEPTH_TAGTYPE_ELT;
 
-        @objid ("3c6efc23-d49b-4a81-9f42-b7f015048e71")
+        @objid ("31d02ce4-d03c-418b-90e2-5be87940d28e")
         public static TagType CONSEQUENCE_DEPTH_TAGTYPE_ELT;
 
-        @objid ("040b6f5f-f0f3-4bac-8aa5-3ffb11f22625")
+        @objid ("e971a650-a3aa-4be4-8cd0-5cf8622633a3")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("23b7aa2e-e4e9-4596-98bd-05599fba4be8")
+        @objid ("b8224422-4e59-4f5c-86da-128e6c4b0b79")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("67171e63-354a-40f8-8d69-965e1b4a0c04")
+        @objid ("c9242e24-73a7-4b42-abfa-8581fadde744")
         public static void init(IModuleContext ctx) {
             CAUSE_DEPTH_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "01ec2468-0000-0aba-0000-000000000000");
             CONSEQUENCE_DEPTH_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "01ec2468-0000-0abf-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

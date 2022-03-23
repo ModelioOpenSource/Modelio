@@ -17,21 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.interactionModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.InteractionFragmentData;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.InteractionOperandSmClass;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.InteractionSmClass;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.LifelineSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
 import org.modelio.metamodel.uml.behavior.interactionModel.Interaction;
 import org.modelio.metamodel.uml.behavior.interactionModel.InteractionFragment;
@@ -66,7 +62,7 @@ public class InteractionFragmentSmClass extends UmlModelElementSmClass {
     private SmDependency coveredDep;
 
     @objid ("2bc303a7-1a74-43bc-aa3e-ed6e70af37a3")
-    public InteractionFragmentSmClass(ISmMetamodelFragment origin) {
+    public  InteractionFragmentSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -74,6 +70,7 @@ public class InteractionFragmentSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "InteractionFragment";
+        
     }
 
     @objid ("3ceec12f-3cc3-44f3-856e-c90867d66846")
@@ -86,18 +83,21 @@ public class InteractionFragmentSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return InteractionFragment.class;
+        
     }
 
     @objid ("253fb8a8-79a4-4b14-bd6e-a6eefee1768f")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("afa47490-cfbf-4e46-9465-e81c43fecbf2")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("37c910f3-c287-4163-a592-e5ce162252ce")
@@ -125,6 +125,8 @@ public class InteractionFragmentSmClass extends UmlModelElementSmClass {
         this.coveredDep = new CoveredSmDependency();
         this.coveredDep.init("Covered", this, metamodel.getMClass(Lifeline.MQNAME), 0, -1 , SmDirective.SMCDPARTOF);
         registerDependency(this.coveredDep);
+        
+        
     }
 
     @objid ("94049e6c-c500-4e3e-834c-4b51a2290110")
@@ -165,7 +167,7 @@ public class InteractionFragmentSmClass extends UmlModelElementSmClass {
         private InteractionFragmentSmClass smClass;
 
         @objid ("0fe2780a-54f7-48a1-af32-861b2f8024ae")
-        public InteractionFragmentObjectFactory(InteractionFragmentSmClass smClass) {
+        public  InteractionFragmentObjectFactory(InteractionFragmentSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -221,6 +223,7 @@ public class InteractionFragmentSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((InteractionOperandSmClass)this.getTarget()).getFragmentDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -249,6 +252,7 @@ public class InteractionFragmentSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((InteractionSmClass)this.getTarget()).getFragmentDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -268,6 +272,7 @@ public class InteractionFragmentSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((InteractionFragmentData) data).mCovered = values;
+            
         }
 
         @objid ("38756a58-8efb-4f11-9be6-fdeab3aa462d")
@@ -277,6 +282,7 @@ public class InteractionFragmentSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((LifelineSmClass)this.getTarget()).getCoveredByDep();
             }
             return this.symetricDep;
+            
         }
 
     }

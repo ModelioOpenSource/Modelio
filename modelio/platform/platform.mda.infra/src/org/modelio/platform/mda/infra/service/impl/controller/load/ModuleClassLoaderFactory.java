@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.controller.load;
 
 import java.io.IOException;
@@ -60,16 +59,15 @@ public class ModuleClassLoaderFactory {
     private static final String MODULE_API_PROVIDER = "module-api-provider";
 
     @objid ("063e1289-b5cc-4499-9374-7df5ef92a9b5")
-    private ModuleClassLoaderFactory() {
+    private  ModuleClassLoaderFactory() {
         // no instance
     }
 
     /**
      * Creates a ClassLoader for the given module and local class path.
-     * 
      * @param rtModule a module
      * @return a class loader
-     * @throws org.modelio.api.module.lifecycle.ModuleException in case of error
+     * @throws ModuleException in case of error
      */
     @objid ("fe34fc41-9d66-445e-92d6-f0d40c8aac36")
     public static ClassLoader setupClassLoader(final IRTModule rtModule) throws ModuleException {
@@ -94,12 +92,11 @@ public class ModuleClassLoaderFactory {
 
     /**
      * Creates a ClassLoader for the given module and local class path.
-     * 
      * @param gModule The module
      * @param loadedDependencies the list of all loaded IModules the current module depends on
      * (either strongly or weakly)
      * @return a class loader
-     * @throws org.modelio.api.module.lifecycle.ModuleException in case of error
+     * @throws ModuleException in case of error
      */
     @objid ("60e506f2-e046-4264-95f9-800ac4a8fae7")
     private static URLClassLoader setupClassLoader(final GModule gModule, final List<IRTModule> loadedDependencies) throws ModuleException {
@@ -195,6 +192,7 @@ public class ModuleClassLoaderFactory {
             e2.initCause(e);
             throw e2;
         }
+        
     }
 
     /**
@@ -215,6 +213,7 @@ public class ModuleClassLoaderFactory {
                 MdaInfra.LOG.error(e);
             }
         }
+        
     }
 
     /**
@@ -237,10 +236,11 @@ public class ModuleClassLoaderFactory {
         private final Collection<ClassLoader> parents;
 
         @objid ("8a842ca6-f34b-11e1-9458-001ec947c8cc")
-        public ModuleClassLoader(final String name, final URL[] classpath, final Collection<ClassLoader> pParents) {
+        public  ModuleClassLoader(final String name, final URL[] classpath, final Collection<ClassLoader> pParents) {
             super(classpath);
             this.moduleName = name;
             this.parents = pParents;
+            
         }
 
         @objid ("8a842c56-f34b-11e1-9458-001ec947c8cc")
@@ -279,7 +279,6 @@ public class ModuleClassLoaderFactory {
          * <li>the original list of URLs specified to the constructor,
          * <li>along with any URLs subsequently appended by the addURL() method.
          * </ul>
-         * 
          * @return the search path of URLs for loading classes and resources.
          */
         @objid ("8a842c6e-f34b-11e1-9458-001ec947c8cc")
@@ -324,6 +323,7 @@ public class ModuleClassLoaderFactory {
                 }
                 throw e;
             }
+            
         }
 
         /**
@@ -342,7 +342,7 @@ public class ModuleClassLoaderFactory {
             private final Enumeration<E>[] enums;
 
             @objid ("8a842ca7-f34b-11e1-9458-001ec947c8cc")
-            public CompoundEnumeration(final Enumeration<E>[] enums) {
+            public  CompoundEnumeration(final Enumeration<E>[] enums) {
                 this.enums = enums;
             }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.project.services;
 
 import java.io.File;
@@ -25,11 +24,11 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.jar.JarFile;
-import javax.annotation.PreDestroy;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.annotation.PreDestroy;
 import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.EclipseContextFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
@@ -57,7 +56,7 @@ import org.modelio.platform.script.engine.core.engine.ScriptRunnerFactory;
 @objid ("f1d8087d-48cf-4072-8ccf-6ab2489a01f9")
 class JarRunner {
     @objid ("682328af-8225-4ffa-b777-d9135863e77d")
-    public JarRunner() {
+    public  JarRunner() {
         super();
     }
 
@@ -109,6 +108,7 @@ class JarRunner {
             AppProjectCore.LOG.error("Couldn't load '"+mainClassName+"' class from '"+scriptFile+"' : "+e.getLocalizedMessage());
             System.exit(-1);
         }
+        
     }
 
 }

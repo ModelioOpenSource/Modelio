@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.plugins;
 
 import java.io.IOException;
@@ -47,9 +46,10 @@ public class AggregatedModuleStore implements IModuleStore {
     private final IModuleStore modulesStore;
 
     @objid ("034574ae-283a-47f6-95a6-19f13aae9668")
-    public AggregatedModuleStore(IModuleStore pluginStore, IModuleStore modulesStore) {
+    public  AggregatedModuleStore(IModuleStore pluginStore, IModuleStore modulesStore) {
         this.pluginStore = Objects.requireNonNull(pluginStore);
         this.modulesStore = Objects.requireNonNull(modulesStore);
+        
     }
 
     @objid ("a456d840-8d00-438e-8f62-3468e99a519e")

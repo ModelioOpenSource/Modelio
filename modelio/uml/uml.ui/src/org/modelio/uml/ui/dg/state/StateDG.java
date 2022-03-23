@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.state;
 
 import java.util.ArrayList;
@@ -44,7 +43,7 @@ public class StateDG extends PortContainerDG {
      * @param node The gm node represented by this class.
      */
     @objid ("bc6af573-a6ab-4dfd-88f7-fdc4d59f5f0f")
-    public StateDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  StateDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 

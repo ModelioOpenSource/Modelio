@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.model;
 
 import java.beans.PropertyChangeListener;
@@ -88,29 +87,30 @@ public abstract class GmAbstractObject implements IGmObject, IStyleChangeListene
 
     /**
      * Creates an instance ready to be used.
-     * 
      * @param diagram the diagram where the object will be.
      */
     @objid ("8078f568-1dec-11e2-8cad-001ec947c8cc")
-    public GmAbstractObject(IGmDiagram diagram) {
+    public  GmAbstractObject(IGmDiagram diagram) {
         this.diagram = diagram;
         this.listeners = new PropertyChangeSupport(this);
+        
     }
 
     /**
      * Creates an empty {@link GmAbstractObject} that will be deserialized.
      */
     @objid ("8078f56c-1dec-11e2-8cad-001ec947c8cc")
-    public GmAbstractObject() {
+    public  GmAbstractObject() {
         this.listeners = new PropertyChangeSupport(this);
     }
 
     @objid ("8078f56f-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public void addPropertyChangeListener(PropertyChangeListener listener) {
-        assert (!Arrays.asList(this.listeners.getPropertyChangeListeners()).contains(listener)) : this + " contains " + Arrays.toString(this.listeners.getPropertyChangeListeners());
+        assert !Arrays.asList(this.listeners.getPropertyChangeListeners()).contains(listener) : this + " contains " + Arrays.toString(this.listeners.getPropertyChangeListeners());
         
         this.listeners.addPropertyChangeListener(listener);
+        
     }
 
     /**
@@ -124,6 +124,8 @@ public abstract class GmAbstractObject implements IGmObject, IStyleChangeListene
         firePropertyChange(IGmObject.PROPERTY_DELETE, null, null);
         if (this.style != null) {
             this.style.removeListener(this);
+            this.style.dispose();
+            this.style = null;
         }
         
         if (this.diagram != null) {
@@ -131,13 +133,13 @@ public abstract class GmAbstractObject implements IGmObject, IStyleChangeListene
             // since 3.7, nullify the diagram to invalidate the model
             removedFromDiagram();
         }
+        
     }
 
     /**
      * Get the diagram containing this element.
      * <p>
      * May return <i>null</i> if the graphic model is not valid anymore.
-     * 
      * @return the diagram.
      */
     @objid ("8078f577-1dec-11e2-8cad-001ec947c8cc")
@@ -186,12 +188,13 @@ public abstract class GmAbstractObject implements IGmObject, IStyleChangeListene
             break;
         }
         default: {
-            assert (false) : "version number not covered!";
+            assert false : "version number not covered!";
             // reading as last handled version: 0
             read_0(in);
             break;
         }
         }
+        
     }
 
     @objid ("8078f593-1dec-11e2-8cad-001ec947c8cc")
@@ -206,6 +209,7 @@ public abstract class GmAbstractObject implements IGmObject, IStyleChangeListene
         Object oldData = this.layoutData;
         this.layoutData = layoutData;
         firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, oldData, layoutData);
+        
     }
 
     /**
@@ -243,6 +247,7 @@ public abstract class GmAbstractObject implements IGmObject, IStyleChangeListene
         out.writeProperty("Style", this.style);
         
         writeMinorVersion(out, "GmAbstractObject.", GmAbstractObject.MINOR_VERSION);
+        
     }
 
     /**
@@ -253,8 +258,7 @@ public abstract class GmAbstractObject implements IGmObject, IStyleChangeListene
      * Must be redefined to create a style or to return <tt>null<tt/> if
      * {@link #getPersistedStyle()} is redefined to return another style.
      * &#64;param aDiagram the diagram where the object will be
-     * 
-     * @return the created style or <tt>null</tt> if the creation is postponed
+     * &#64;return the created style or <tt>null</tt> if the creation is postponed
      */
     @objid ("807b57c0-1dec-11e2-8cad-001ec947c8cc")
     protected abstract IStyle createStyle(IGmDiagram aDiagram);
@@ -266,7 +270,6 @@ public abstract class GmAbstractObject implements IGmObject, IStyleChangeListene
 
     /**
      * Helper to read the graphic model minor version from the {@value #MINOR_VERSION_PROPERTY} property.
-     * 
      * @param in a reader to read the version from.
      * @param prefix the prefix : usually the simple name of java class calling this method + ".".
      * @return the read version, defaults to 0 if not found
@@ -281,7 +284,6 @@ public abstract class GmAbstractObject implements IGmObject, IStyleChangeListene
 
     /**
      * Helper method to write the graphic model minor version.
-     * 
      * @param out the writer to use
      * @param prefix the prefix to use. Usually the java simple name of the class calling this method. Use the same as the matching {@link #readMinorVersion(IDiagramReader, String)}.
      * @param theMinorVersion the minor version to write
@@ -292,6 +294,7 @@ public abstract class GmAbstractObject implements IGmObject, IStyleChangeListene
         if (theMinorVersion != 0) {
             out.writeProperty(prefix + GmAbstractObject.MINOR_VERSION_PROPERTY, Integer.valueOf(theMinorVersion));
         }
+        
     }
 
     @objid ("807b57ce-1dec-11e2-8cad-001ec947c8cc")
@@ -303,6 +306,7 @@ public abstract class GmAbstractObject implements IGmObject, IStyleChangeListene
         if (this.style != null) {
             this.style.addListener(this);
         }
+        
     }
 
     /**
@@ -313,7 +317,6 @@ public abstract class GmAbstractObject implements IGmObject, IStyleChangeListene
      * <p>
      * Defined final to make sure that lazy initialization is used.
      * </p>
-     * 
      * @return the graphical element style.
      */
     @objid ("599433eb-53d0-4c57-8474-9a84537c38c1")
@@ -362,7 +365,6 @@ public abstract class GmAbstractObject implements IGmObject, IStyleChangeListene
      * Look by reflection for a java field with the given name typed {@link AbstractStyleKeyProvider}
      * <p>
      * If no field with the given name is found, look for any field typed {@link AbstractStyleKeyProvider}.
-     * 
      * @param name the field name
      * @return the found field value , or any {@link AbstractStyleKeyProvider} field value.
      * @deprecated for 3.6- compatibility only
@@ -397,7 +399,6 @@ public abstract class GmAbstractObject implements IGmObject, IStyleChangeListene
      * <p>
      * A graphic model is usable if its diagram field has not been nullified.
      * </p>
-     * 
      * @return <code>true</code> if the graphic model is valid, <code>false</code> otherwise.
      * @since Modelio 3.7
      */
@@ -411,7 +412,6 @@ public abstract class GmAbstractObject implements IGmObject, IStyleChangeListene
      * <p>
      * This method should be called only when this graphic model is moved in another diagram. In this case the caller must ensure owned graphic model are moved too.
      * @see #updateDiagram()
-     * 
      * @param newDiagram the diagram.
      */
     @objid ("a8abb3cf-11bf-4538-9f73-456ae00e8a53")
@@ -433,6 +433,7 @@ public abstract class GmAbstractObject implements IGmObject, IStyleChangeListene
         if (newRoot != oldRoot) {
             newRoot.refreshAllGmReferences();
         }
+        
     }
 
     @objid ("8fa7846b-2ce8-4f91-8d2f-6704ee084c28")

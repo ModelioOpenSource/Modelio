@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature id="org.modelio.documentation.modeler"
          label="Documentation Modeler"
-         version="4.1.0.qualifier"
+         version="5.1.0.qualifier"
          provider-name="modelio.org">
 
 <copyright>
@@ -56,12 +56,6 @@ GPL
         version="0.0.0"
         fragment="false"
         unpack="false"/>
-<plugin id="org.modelio.documentation.modeliomodeler"
-        download-size="0"
-        install-size="0"
-        version="0.0.0"
-        fragment="true"
-        unpack="false"/>
 <plugin id="org.modelio.documentation.modeliomodeler.toc"
         download-size="0"
         install-size="0"
@@ -75,12 +69,6 @@ GPL
         fragment="false"
         unpack="false"/>
 <plugin id="org.modelio.documentation.welcome"
-        download-size="0"
-        install-size="0"
-        version="0.0.0"
-        fragment="false"
-        unpack="false"/>
-<plugin id="org.modelio.documentation.modeliomodeler"
         download-size="0"
         install-size="0"
         version="0.0.0"

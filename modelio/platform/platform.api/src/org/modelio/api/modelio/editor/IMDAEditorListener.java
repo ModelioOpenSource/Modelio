@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.editor;
 
 import java.io.File;
@@ -34,7 +33,6 @@ import org.modelio.metamodel.uml.infrastructure.ModelElement;
 public interface IMDAEditorListener {
     /**
      * This method is called after an editor is closed.
-     * 
      * @param editor the listened editor.
      */
     @objid ("01f41744-0000-0008-0000-000000000000")
@@ -42,7 +40,6 @@ public interface IMDAEditorListener {
 
     /**
      * This method is called after an editor is saved.
-     * 
      * @param editor the listened editor.
      * @param modelElement the edited model element.
      * @param file the edited file.

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.corner;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -49,14 +48,14 @@ public class SplittedCornerPainter extends BackgroundPainter {
 
     /**
      * Build a new corner painter.
-     * 
      * @param showBottomImage Flag to configure whether the image on the bottom should be shown or not.
      * @param showRightImage Flag to configure whether the image on the right should be shown or not.
      */
     @objid ("4058875b-6fff-4967-87ad-e27527dbc5d1")
-    public SplittedCornerPainter(boolean showBottomImage, boolean showRightImage) {
+    public  SplittedCornerPainter(boolean showBottomImage, boolean showRightImage) {
         this.showBottomImage = showBottomImage;
         this.showRightImage = showRightImage;
+        
     }
 
     @objid ("b96ad195-8e79-45bf-9090-e7da250852ba")
@@ -81,6 +80,7 @@ public class SplittedCornerPainter extends BackgroundPainter {
         }
         
         gc.drawLine(bounds.x, bounds.y, bounds.x + bounds.width, bounds.y + bounds.height);
+        
     }
 
 }

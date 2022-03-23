@@ -17,11 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.editor;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.editor.AbstractDiagramEditor;
+import org.modelio.diagram.elements.core.figures.routers.AutoOrthogonalRouter;
+import org.modelio.diagram.elements.core.link.ConnectionRoutingServices;
 
 /**
  * Graphical Editor for Diagrams.
@@ -41,6 +42,19 @@ public class StateDiagramEditor extends AbstractDiagramEditor {
     @Override
     protected String getPopupId() {
         return StateDiagramEditor.POPUP_ID;
+    }
+
+    /**
+     * Change orthogonal router to new {@link AutoOrthogonalRouter}.
+     * @since 5.0.2
+     */
+    @objid ("edb0bdce-dffc-4f3a-9052-02bcc849ac07")
+    @Override
+    protected ConnectionRoutingServices initializeConnectionRoutingServices() {
+        return ConnectionRoutingServices.builder()
+                .withAutoOrthogonalDefaults()
+                .build();
+        
     }
 
 }

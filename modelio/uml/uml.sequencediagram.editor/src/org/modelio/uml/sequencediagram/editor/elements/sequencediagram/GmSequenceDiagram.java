@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.sequencediagram;
 
 import java.util.Collection;
@@ -28,13 +27,14 @@ import org.modelio.diagram.elements.common.abstractdiagram.GmAbstractDiagram;
 import org.modelio.diagram.elements.common.abstractdiagram.IDiagramRefresher;
 import org.modelio.diagram.elements.core.model.GmAbstractObject;
 import org.modelio.diagram.elements.core.model.GmModel;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.persistence.PersistenceException;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.view.ISymbolViewModel;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.diagrams.SequenceDiagram;
@@ -75,15 +75,15 @@ public class GmSequenceDiagram extends GmAbstractDiagram {
 
     /**
      * Default constructor.
-     * 
      * @param manager the model manager for this diagram.
      * @param theSequenceDiagram the represented sequence diagram.
      * @param diagramRef a reference to the represented diagram.
      */
     @objid ("d9747339-55b6-11e2-877f-002564c97630")
-    public GmSequenceDiagram(IModelManager manager, SequenceDiagram theSequenceDiagram, MRef diagramRef) {
+    public  GmSequenceDiagram(IModelManager manager, SequenceDiagram theSequenceDiagram, MRef diagramRef) {
         super(manager, diagramRef);
         this.obDiagram = theSequenceDiagram;
+        
     }
 
     @objid ("d9747345-55b6-11e2-877f-002564c97630")
@@ -98,6 +98,7 @@ public class GmSequenceDiagram extends GmAbstractDiagram {
                 || Note.class.isAssignableFrom(type)
                 || Constraint.class.isAssignableFrom(type)
                 || Document.class.isAssignableFrom(type);
+        
     }
 
     @objid ("d974734d-55b6-11e2-877f-002564c97630")
@@ -123,6 +124,7 @@ public class GmSequenceDiagram extends GmAbstractDiagram {
         } else {
             return null;
         }
+        
     }
 
     @objid ("d974735e-55b6-11e2-877f-002564c97630")
@@ -172,6 +174,7 @@ public class GmSequenceDiagram extends GmAbstractDiagram {
             break;
         }
         }
+        
     }
 
     @objid ("d975f9e3-55b6-11e2-877f-002564c97630")
@@ -216,6 +219,7 @@ public class GmSequenceDiagram extends GmAbstractDiagram {
                 refreshAllFromObModel();
             }
         }
+        
     }
 
     @objid ("d975f9e6-55b6-11e2-877f-002564c97630")
@@ -225,12 +229,14 @@ public class GmSequenceDiagram extends GmAbstractDiagram {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmSequenceDiagram.", GmSequenceDiagram.MINOR_VERSION);
+        
     }
 
     @objid ("d975f9ec-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.obDiagram = (SequenceDiagram) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("d975f9f1-55b6-11e2-877f-002564c97630")
@@ -294,11 +300,11 @@ public class GmSequenceDiagram extends GmAbstractDiagram {
                     refreshAllDiagram();
                 }
             });
+            
         }
 
         /**
          * Reload the diagram if it has been modified outside.
-         * 
          * @param event The change event.
          */
         @objid ("d975fa03-55b6-11e2-877f-002564c97630")
@@ -327,6 +333,7 @@ public class GmSequenceDiagram extends GmAbstractDiagram {
                 });
             
             }
+            
         }
 
         @objid ("d975fa0d-55b6-11e2-877f-002564c97630")
@@ -348,12 +355,14 @@ public class GmSequenceDiagram extends GmAbstractDiagram {
             
             // Save the refreshed diagram
             this.gmSequenceDiagram.save(false);
+            
         }
 
         @objid ("443a0a9d-e2b8-4a21-9f67-acf426b7e99a")
-        public SequenceDiagramRefresher(GmSequenceDiagram gmSequenceDiagram, IDiagramRefresher originalHandler) {
+        public  SequenceDiagramRefresher(GmSequenceDiagram gmSequenceDiagram, IDiagramRefresher originalHandler) {
             this.gmSequenceDiagram = gmSequenceDiagram;
             this.originalHandler = originalHandler;
+            
         }
 
         @objid ("10e43b29-5140-41d1-9a8a-ccc19e93cd83")

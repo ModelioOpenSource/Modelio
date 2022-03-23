@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.resizablegroup;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -26,9 +25,11 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.ToolbarLayout;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.editpolicies.OrderedLayoutEditPolicy;
 import org.modelio.diagram.elements.core.figures.GradientFigure;
 import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
+import org.modelio.diagram.elements.core.policies.LayoutConnectionsOrderedLayoutEditPolicyDecorator;
 
 /**
  * Base class for edit part of {@link GmResizableGroup}.
@@ -37,47 +38,6 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
  */
 @objid ("7f0c2da4-1dec-11e2-8cad-001ec947c8cc")
 public class ResizableGroupEditPart extends AbstractNodeEditPart {
-    @objid ("7f0c2da6-1dec-11e2-8cad-001ec947c8cc")
-    @Override
-    protected IFigure createFigure() {
-        Figure fig = new GradientFigure();
-        fig.setOpaque(false);
-        // Define properties not specific to style.
-        ResizableGroupLayout layoutManager = new ResizableGroupLayout();
-        layoutManager.setStretchMinorAxis(true);
-        fig.setLayoutManager(layoutManager);
-        
-        // Define properties specific to style
-        refreshFromStyle(fig, getModelStyle());
-        return fig;
-    }
-
-    @objid ("7f0e8fe7-1dec-11e2-8cad-001ec947c8cc")
-    @Override
-    protected void createEditPolicies() {
-        super.createEditPolicies();
-        installEditPolicy(EditPolicy.LAYOUT_ROLE, new ResizableGroupLayoutEditPolicy());
-        
-        // Remove the default DIRECT_EDIT policy: we don't want the container to
-        // delegate direct edit requests.
-        removeEditPolicy(EditPolicy.DIRECT_EDIT_ROLE);
-    }
-
-    @objid ("7f0e8fea-1dec-11e2-8cad-001ec947c8cc")
-    @Override
-    protected void refreshVisuals() {
-        // Update figure constraint in parent from model
-        final IFigure fig = getFigure();
-        final GmResizableGroup groupModel = (GmResizableGroup) getModel();
-        if (groupModel.getLayoutData() != null) {
-            fig.getParent().setConstraint(getFigure(), groupModel.getLayoutData());
-        }
-        
-        // On the other hand, go read the "vertical" property to update the
-        // layout.
-        ((ToolbarLayout) fig.getLayoutManager()).setHorizontal(!groupModel.isVertical());
-    }
-
     /**
      * This element is not meant to be an independent select-able node, but rather a child of a main node.
      */
@@ -97,6 +57,56 @@ public class ResizableGroupEditPart extends AbstractNodeEditPart {
             childModel.setLayoutData(Integer.valueOf(-1));
         }
         super.addChildVisual(childEditPart, index);
+        
+    }
+
+    @objid ("7f0e8fe7-1dec-11e2-8cad-001ec947c8cc")
+    @Override
+    protected void createEditPolicies() {
+        super.createEditPolicies();
+        installEditPolicy(EditPolicy.LAYOUT_ROLE, new ResizableGroupLayoutEditPolicy());
+        
+        // Remove the default DIRECT_EDIT policy: we don't want the container to
+        // delegate direct edit requests.
+        removeEditPolicy(EditPolicy.DIRECT_EDIT_ROLE);
+        
+    }
+
+    @objid ("7f0c2da6-1dec-11e2-8cad-001ec947c8cc")
+    @Override
+    protected IFigure createFigure() {
+        Figure fig = new GradientFigure();
+        fig.setOpaque(false);
+        // Define properties not specific to style.
+        ResizableGroupLayout layoutManager = new ResizableGroupLayout();
+        layoutManager.setStretchMinorAxis(true);
+        fig.setLayoutManager(layoutManager);
+        
+        // Define properties specific to style
+        refreshFromStyle(fig, getModelStyle());
+        return fig;
+    }
+
+    @objid ("13eb3269-fdbb-40d1-98c4-2aed17d4d6ed")
+    @Override
+    protected EditPolicy createLayoutPolicyDecorator(EditPolicy layoutPolicy) {
+        return new LayoutConnectionsOrderedLayoutEditPolicyDecorator((OrderedLayoutEditPolicy) layoutPolicy);
+    }
+
+    @objid ("7f0e8fea-1dec-11e2-8cad-001ec947c8cc")
+    @Override
+    protected void refreshVisuals() {
+        // Update figure constraint in parent from model
+        final IFigure fig = getFigure();
+        final GmResizableGroup groupModel = (GmResizableGroup) getModel();
+        if (groupModel.getLayoutData() != null) {
+            fig.getParent().setConstraint(getFigure(), groupModel.getLayoutData());
+        }
+        
+        // On the other hand, go read the "vertical" property to update the
+        // layout.
+        ((ToolbarLayout) fig.getLayoutManager()).setHorizontal(!groupModel.isVertical());
+        
     }
 
 }

@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.CentralBufferNodeSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.CentralBufferNode;
 import org.modelio.metamodel.uml.behavior.activityModel.DataStoreNode;
 import org.modelio.vbasic.version.Version;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("be9410e9-9e10-4db8-b745-4ffd5e050416")
 public class DataStoreNodeSmClass extends CentralBufferNodeSmClass {
     @objid ("5b0fd61a-eb8a-4d7a-ae4e-1ca69ddf0d27")
-    public DataStoreNodeSmClass(ISmMetamodelFragment origin) {
+    public  DataStoreNodeSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class DataStoreNodeSmClass extends CentralBufferNodeSmClass {
     @Override
     public String getName() {
         return "DataStoreNode";
+        
     }
 
     @objid ("643e7c02-fb7b-4225-86b3-398506babd8d")
@@ -62,18 +62,21 @@ public class DataStoreNodeSmClass extends CentralBufferNodeSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return DataStoreNode.class;
+        
     }
 
     @objid ("0adff813-5d72-4893-9979-6166e8f0700e")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("080228ce-bf68-4723-b8cd-396375a605d4")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("f9b1ebb8-fce1-4f59-940a-afc3c66180bd")
@@ -86,6 +89,7 @@ public class DataStoreNodeSmClass extends CentralBufferNodeSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("5cb68af6-7da1-445f-bb41-2a46f32ee128")
@@ -94,7 +98,7 @@ public class DataStoreNodeSmClass extends CentralBufferNodeSmClass {
         private DataStoreNodeSmClass smClass;
 
         @objid ("977e3397-a114-480a-a738-d34a14262850")
-        public DataStoreNodeObjectFactory(DataStoreNodeSmClass smClass) {
+        public  DataStoreNodeObjectFactory(DataStoreNodeSmClass smClass) {
             this.smClass = smClass;
         }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.net;
 
 import java.io.Closeable;
@@ -67,7 +66,7 @@ public class CachedUriFile {
      * @param authData authentication data, may be <code>null</code>.
      */
     @objid ("706c2052-0a4e-49da-99a6-1d681c904991")
-    public CachedUriFile(URI uri, Path destDirectory, IAuthData authData) {
+    public  CachedUriFile(URI uri, Path destDirectory, IAuthData authData) {
         this.uri = uri;
         
         String name = UriUtils.getFileName(uri);
@@ -75,6 +74,7 @@ public class CachedUriFile {
         this.destFile = destDirectory.resolve(name);
         this.stampFile = destDirectory.resolve(name+".stamp");
         this.authData = authData;
+        
     }
 
     /**
@@ -83,7 +83,6 @@ public class CachedUriFile {
      * If the timeout expires before the connection can be established,
      * a java.net.SocketTimeoutException is raised.
      * A timeout of zero is interpreted as an infinite timeout.
-     * 
      * @param timeout the time out
      */
     @objid ("4f6a159f-591d-4239-8532-8adb704a0197")
@@ -95,11 +94,10 @@ public class CachedUriFile {
      * Get a path to the up to date file.
      * <p>
      * Download the file from the remote location if needed.
-     * 
      * @return the cached file path.
-     * @throws java.nio.file.FileSystemException in case of file system exception.
+     * @throws FileSystemException in case of file system exception.
      * Use {@link FileUtils#getLocalizedMessage(FileSystemException)} to get an error message.
-     * @throws java.io.IOException in case of other I/O errors.
+     * @throws IOException in case of other I/O errors.
      */
     @objid ("6109fe2a-b2d4-4a63-ba5d-3dd5de305fa0")
     public Path getFile() throws FileSystemException, IOException {
@@ -128,11 +126,10 @@ public class CachedUriFile {
      * Read the local stamp.
      * <p>
      * Returns <code>null</code> if the file has never been downloaded.
-     * 
      * @return the local stamp.
-     * @throws java.nio.file.FileSystemException in case of file system exception.
+     * @throws FileSystemException in case of file system exception.
      * Use {@link FileUtils#getLocalizedMessage(FileSystemException)} to get an error message.
-     * @throws java.io.IOException in case of other I/O errors.
+     * @throws IOException in case of other I/O errors.
      */
     @objid ("0ea06b7d-32d8-40cc-a100-2b0502fc1312")
     private String readLocalStamp() throws FileSystemException, IOException {
@@ -144,11 +141,11 @@ public class CachedUriFile {
         } catch (NoSuchFileException e) {
             return null;
         }
+        
     }
 
     /**
      * Tells whether last call to {@link #getFile()} changed the cached file.
-     * 
      * @return <code>true</code> if the cached file has been modified, else <code>false</code>.
      */
     @objid ("d0a8f416-2424-4b42-88ab-0cc518f61205")
@@ -161,7 +158,6 @@ public class CachedUriFile {
      * <p>
      * This method does not access the network and the file may
      * not exist.
-     * 
      * @return the path where the cached file is downloaded.
      */
     @objid ("97419864-df5f-4757-8380-5dfdd76df02c")
@@ -179,9 +175,10 @@ public class CachedUriFile {
         private Path backFile;
 
         @objid ("258d7a64-c8f3-4ad9-a122-7d0b78c17fca")
-        public Backup() throws IOException {
+        public  Backup() throws IOException {
             this.backFile = getCachedFileLocation().resolveSibling(getCachedFileLocation().getFileName().toString()+".old");
             Files.move(getCachedFileLocation(), this.backFile, StandardCopyOption.REPLACE_EXISTING);
+            
         }
 
         @objid ("414669e5-18e6-4551-a79c-67f21507d75b")
@@ -190,6 +187,7 @@ public class CachedUriFile {
             if (!hasChanged()) {
                 Files.move(this.backFile, getCachedFileLocation() , StandardCopyOption.REPLACE_EXISTING);
             }
+            
         }
 
     }

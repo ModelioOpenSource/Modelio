@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.plugin;
 
 import java.io.FileNotFoundException;
@@ -27,8 +26,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IPath;
@@ -127,12 +126,12 @@ public class ToolRegistry {
      * Initialize the tool registry.
      */
     @objid ("6677fb5e-33f7-11e2-95fe-001ec947c8cc")
-    public ToolRegistry() {
+    public  ToolRegistry() {
+        
     }
 
     /**
      * Get the palette tool from the given id.
-     * 
      * @param toolId An id.
      * @return the found palette tool or <i>null</i> if none found.
      */
@@ -146,7 +145,6 @@ public class ToolRegistry {
 
     /**
      * Return a non modifiable view of all registered tools.
-     * 
      * @return all registered tools.
      */
     @objid ("51c1b91b-f952-46ec-bbe7-579df85e1d67")
@@ -156,7 +154,6 @@ public class ToolRegistry {
 
     /**
      * Register a new palette Tool.
-     * 
      * @param toolId The new tool id.
      * @param tool The new tool.
      */
@@ -166,11 +163,11 @@ public class ToolRegistry {
             DiagramEditor.LOG.error("WARNING: redefining tool entry '%s'" + toolId);
         }
         getToolMap().put(toolId, tool);
+        
     }
 
     /**
      * Remove a tool from the palette.
-     * 
      * @param toolId The id of the tool to remove.
      */
     @objid ("6677fb54-33f7-11e2-95fe-001ec947c8cc")
@@ -178,22 +175,27 @@ public class ToolRegistry {
         if (this.toolMap != null) {
             this.toolMap.remove(toolId);
         }
+        
     }
 
     @objid ("5cc45a36-a84c-4168-85f1-27a60ebd0554")
     @Inject
     @Optional
-    void onProjectClose(@SuppressWarnings ("unused") @UIEventTopic (ModelioEventTopics.PROJECT_CLOSING) final GProject project) {
+    void onProjectClose(@SuppressWarnings ("unused")
+    @UIEventTopic (ModelioEventTopics.PROJECT_CLOSING) final GProject project) {
         // Empty the tool registry
         this.toolMap = null;
+        
     }
 
     @objid ("667f2268-33f7-11e2-95fe-001ec947c8cc")
     @Inject
     @Optional
-    void onProjectOpening(@SuppressWarnings ("unused") @UIEventTopic (ModelioEventTopics.PROJECT_OPENING) final GProject project, final IMModelServices modelServices) {
+    void onProjectOpening(@SuppressWarnings ("unused")
+    @UIEventTopic (ModelioEventTopics.PROJECT_OPENING) final GProject project, final IMModelServices modelServices) {
         this.mModelServices = modelServices;
         // tool registry initialization must be delayed until ModelerModule is ready, first module to register a tool will trigger it automatically
+        
     }
 
     @objid ("6677fb64-33f7-11e2-95fe-001ec947c8cc")
@@ -208,6 +210,7 @@ public class ToolRegistry {
         } catch (final FileNotFoundException e) {
             DiagramEditor.LOG.error(e);
         }
+        
     }
 
     @objid ("6677fb67-33f7-11e2-95fe-001ec947c8cc")
@@ -256,6 +259,7 @@ public class ToolRegistry {
                     + "'. Entry has been ignored.");
             break;
         }
+        
     }
 
     @objid ("7e6bc821-cb11-4a46-8fa0-9f1195226be4")
@@ -272,6 +276,7 @@ public class ToolRegistry {
         // Return to default selection tool after finished
         toolEntry.setToolProperty(AbstractTool.PROPERTY_UNLOAD_WHEN_FINISHED, Boolean.TRUE);
         registerTool(toolName, toolEntry);
+        
     }
 
     @objid ("b5f2305c-c915-4cc8-91ff-9610883abe6f")
@@ -286,6 +291,7 @@ public class ToolRegistry {
         // DrawingObjectFactory(GmEllipseDrawing.class));
         
         createDrawingTool(ToolRegistry.TOOL_CREATE_DRAWING_LINE, ConnectionCreationTool.class, new DrawingObjectFactory(GmLineDrawing.class));
+        
     }
 
     @objid ("b2ac7d74-58ab-11e2-9574-002564c97630")
@@ -312,6 +318,7 @@ public class ToolRegistry {
         // Return to default selection tool after finished
         toolEntry.setToolProperty(AbstractTool.PROPERTY_UNLOAD_WHEN_FINISHED, Boolean.TRUE);
         registerTool(toolName, toolEntry);
+        
     }
 
     @objid ("667cc00b-33f7-11e2-95fe-001ec947c8cc")
@@ -341,6 +348,7 @@ public class ToolRegistry {
         } else {
             return null;
         }
+        
     }
 
     @objid ("667cc005-33f7-11e2-95fe-001ec947c8cc")
@@ -369,6 +377,7 @@ public class ToolRegistry {
         
         createDrawingTools();
         createPopupMenuLinkCreationTool();
+        
     }
 
     /**
@@ -377,7 +386,6 @@ public class ToolRegistry {
      * The specification is expected to have the format "maybe.qualifed.metaclass.dependencyName".
      * <p>
      * Bad specifications are reported to log.
-     * 
      * @param id the tool id
      * @param contextElement the tool configuration
      * @param metamodel the metamodel
@@ -453,6 +461,7 @@ public class ToolRegistry {
         toolEntry.setToolProperty(AbstractTool.PROPERTY_UNLOAD_WHEN_FINISHED, Boolean.TRUE);
         
         registerTool(id, toolEntry);
+        
     }
 
     @objid ("667a5dac-33f7-11e2-95fe-001ec947c8cc")
@@ -495,6 +504,7 @@ public class ToolRegistry {
         toolEntry.setToolProperty(AbstractTool.PROPERTY_UNLOAD_WHEN_FINISHED, Boolean.TRUE);
         
         registerTool(id, toolEntry);
+        
     }
 
     @objid ("667cc011-33f7-11e2-95fe-001ec947c8cc")
@@ -538,6 +548,7 @@ public class ToolRegistry {
         toolEntry.setToolProperty(AbstractTool.PROPERTY_UNLOAD_WHEN_FINISHED, Boolean.TRUE);
         
         registerTool(id, toolEntry);
+        
     }
 
     @objid ("667a5db7-33f7-11e2-95fe-001ec947c8cc")
@@ -580,6 +591,7 @@ public class ToolRegistry {
         toolEntry.setToolProperty(AbstractTool.PROPERTY_UNLOAD_WHEN_FINISHED, Boolean.TRUE);
         
         registerTool(id, toolEntry);
+        
     }
 
     @objid ("667cc022-33f7-11e2-95fe-001ec947c8cc")
@@ -619,6 +631,7 @@ public class ToolRegistry {
         toolEntry.setToolProperty(AbstractTool.PROPERTY_UNLOAD_WHEN_FINISHED, Boolean.TRUE);
         
         registerTool(id, toolEntry);
+        
     }
 
     @objid ("6677fb6a-33f7-11e2-95fe-001ec947c8cc")
@@ -654,6 +667,7 @@ public class ToolRegistry {
         toolEntry.setToolProperty(AbstractTool.PROPERTY_UNLOAD_WHEN_FINISHED, Boolean.TRUE);
         
         registerTool(id, toolEntry);
+        
     }
 
     @objid ("667a5dc2-33f7-11e2-95fe-001ec947c8cc")
@@ -691,6 +705,7 @@ public class ToolRegistry {
         toolEntry.setToolProperty(AbstractTool.PROPERTY_UNLOAD_WHEN_FINISHED, Boolean.TRUE);
         
         registerTool(id, toolEntry);
+        
     }
 
     @objid ("73716411-7fcf-429e-84e4-607e52b6742a")
@@ -734,6 +749,7 @@ public class ToolRegistry {
         toolEntry.setToolProperty(AbstractTool.PROPERTY_UNLOAD_WHEN_FINISHED, Boolean.TRUE);
         
         registerTool(id, toolEntry);
+        
     }
 
     @objid ("e3bfdb2f-9821-44f6-80fd-7dde83428061")
@@ -754,39 +770,49 @@ public class ToolRegistry {
         /**
          * box by simple click
          */
+        @objid ("667f225a-33f7-11e2-95fe-001ec947c8cc")
         point,
         /**
          * box by click + drag a rectangle
          */
+        @objid ("667f225c-33f7-11e2-95fe-001ec947c8cc")
         node,
         /**
          * box by click + drag a rectangle to create a drawing node
          */
+        @objid ("7061bb91-994a-4b05-ad2b-100c693263ef")
         drawingNode,
         /**
          * simple link
          */
+        @objid ("667f225e-33f7-11e2-95fe-001ec947c8cc")
         link,
         /**
          * link + optional node creation
          */
+        @objid ("61986351-816f-437b-8d6d-c4e761cd3fd3")
         linkAndNode,
         /**
          * Combination of a box with a link (e.g.: Note)
          */
+        @objid ("667f2260-33f7-11e2-95fe-001ec947c8cc")
         linkedNode,
         /**
          * simple link
          */
+        @objid ("667f2262-33f7-11e2-95fe-001ec947c8cc")
         linkToVoid,
         /**
          * multiple selection interaction (e.g.: constraints, n-ary associations).
          */
+        @objid ("667f2264-33f7-11e2-95fe-001ec947c8cc")
         multipoint,
         /**
          * Specific for links in Sequence Diagrams.
          */
+        @objid ("667f2266-33f7-11e2-95fe-001ec947c8cc")
         sequenceLink;
+
     }
 
 }

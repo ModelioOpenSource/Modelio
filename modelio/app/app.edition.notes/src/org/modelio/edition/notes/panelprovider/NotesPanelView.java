@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.panelprovider;
 
 import java.util.Collections;
@@ -125,17 +124,15 @@ public class NotesPanelView {
 
     /**
      * C'tor
-     * 
      * @param controller the controller
      */
     @objid ("066e8175-289d-4376-9f2b-b91b7d07c642")
-    public NotesPanelView(NotesPanelController controller) {
+    public  NotesPanelView(NotesPanelController controller) {
         this.controller = controller;
     }
 
     /**
      * Build the view GUI.
-     * 
      * @param parent the parent SWt Composite
      * @return the created GUI
      */
@@ -176,7 +173,6 @@ public class NotesPanelView {
 
     /**
      * Get the top level container of the view.
-     * 
      * @return the top level container of the view.
      */
     @objid ("c4b5e473-444d-49c1-a826-5be9028ba4c4")
@@ -209,6 +205,7 @@ public class NotesPanelView {
         this.layoutChangeListener = new LayoutChangeListener(this);
         this.parentComposite.addControlListener(this.layoutChangeListener);
         autoLayout();
+        
     }
 
     /**
@@ -221,6 +218,7 @@ public class NotesPanelView {
             this.parentComposite.removeControlListener(this.layoutChangeListener);
             this.layoutChangeListener = null;
         }
+        
     }
 
     /**
@@ -235,22 +233,22 @@ public class NotesPanelView {
         } else if (ratio > NotesPanelView.HWMAX) {
             setVerticalLayout();
         }
+        
     }
 
     /**
      * Set the edited model element.
-     * 
      * @param e the element to edit.
      */
     @objid ("e5f119eb-12e4-4719-a6f6-4f6f573b240a")
     public void setInput(ModelElement e) {
         this.tree.setInput(e);
         this.toolBar.setInput(e);
+        
     }
 
     /**
      * Set the selected annotation on the edited element.
-     * 
      * @param select the annotation to select
      */
     @objid ("cc0bdef9-1f59-4609-bce7-0470e047471a")
@@ -268,6 +266,7 @@ public class NotesPanelView {
             this.tree.setSelection(new StructuredSelection(select), true);
             this.lastSelectedItemKey = getItemName(select);
         }
+        
     }
 
     @objid ("6e6f92b9-da2c-47a8-bcc4-7bbdc6c4fa63")
@@ -280,7 +279,6 @@ public class NotesPanelView {
 
     /**
      * Create the notes tree
-     * 
      * @param parent @return
      */
     @objid ("eab700c2-7e45-4eea-a9ec-153e1a20b85b")
@@ -406,7 +404,6 @@ public class NotesPanelView {
     /**
      * This method tries to guess the smartest possible item selection for the
      * current element.
-     * 
      * @return the annotation to select.
      */
     @objid ("7667946d-9895-4a54-8074-2fa80a8365f9")
@@ -435,6 +432,7 @@ public class NotesPanelView {
         } else {
             return mc;
         }
+        
     }
 
     /**
@@ -444,6 +442,7 @@ public class NotesPanelView {
     public void dispose() {
         this.toolBar.dispose();
         this.data.dispose();
+        
     }
 
     @objid ("8faaa82a-4516-4f03-9870-8eb93bc1bc4a")
@@ -471,6 +470,7 @@ public class NotesPanelView {
         });
         Menu menu = menuMgr.createContextMenu(treeViewer.getTree());
         treeViewer.getTree().setMenu(menu);
+        
     }
 
     @objid ("f949d79a-2c0d-4a73-bf12-b7ac9a2ee006")
@@ -492,13 +492,13 @@ public class NotesPanelView {
 
         /**
          * C'tor
-         * 
          * @param view the notes panel view
          */
         @objid ("7fe32178-a8d0-44c6-9b82-6ff8fbcd88e0")
-        public LayoutChangeListener(final NotesPanelView view) {
+        public  LayoutChangeListener(final NotesPanelView view) {
             super();
             this.view = view;
+            
         }
 
         @objid ("c242c610-ada3-48ea-a47a-64e6ebb45a07")
@@ -506,6 +506,7 @@ public class NotesPanelView {
             final Composite comp = (Composite) theEvent.widget;
             comp.layout();
             this.view.autoLayout();
+            
         }
 
     }

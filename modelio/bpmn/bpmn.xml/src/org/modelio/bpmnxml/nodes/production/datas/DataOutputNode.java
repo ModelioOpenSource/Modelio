@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.production.datas;
 
 import java.util.Map;
@@ -36,7 +35,7 @@ import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("fc361464-3075-4667-b77f-9ac54e310d3c")
-public class DataOutputNode implements IProductionNode<BpmnDataOutput,TDataOutput> {
+public class DataOutputNode implements IProductionNode<BpmnDataOutput, TDataOutput> {
     @objid ("92676958-b921-4147-8caf-7a4cdbbccd95")
     private Map<String, Object> elementsMap;
 
@@ -67,6 +66,7 @@ public class DataOutputNode implements IProductionNode<BpmnDataOutput,TDataOutpu
         }else{
             return factory.create(BpmnDataOutput.class,context);
         }
+        
     }
 
     @objid ("9c4b7a0f-7bf5-472f-bda6-ed3c97b3707e")

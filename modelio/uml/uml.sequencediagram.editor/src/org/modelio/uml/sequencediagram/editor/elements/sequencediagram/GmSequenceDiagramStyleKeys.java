@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.sequencediagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,45 +35,45 @@ public class GmSequenceDiagramStyleKeys extends GmAbstractDiagramStyleKeys {
      * Snap to geometry.
      */
     @objid ("a0214990-5d68-443f-a94b-a4468d0a8d72")
-     static final StyleKey SNAPTOGEOMETRY = GmAbstractDiagramStyleKeys.SNAPTOGEOMETRY;
+    static final StyleKey SNAPTOGEOMETRY = GmAbstractDiagramStyleKeys.SNAPTOGEOMETRY;
 
     @objid ("4fc54b8a-55c2-11e2-9337-002564c97630")
-     static final StyleKey VIEWGRID = GmAbstractDiagramStyleKeys.VIEWGRID;
+    static final StyleKey VIEWGRID = GmAbstractDiagramStyleKeys.VIEWGRID;
 
     @objid ("4fc54b8c-55c2-11e2-9337-002564c97630")
-     static final StyleKey SNAPTOGRID = GmAbstractDiagramStyleKeys.SNAPTOGRID;
+    static final StyleKey SNAPTOGRID = GmAbstractDiagramStyleKeys.SNAPTOGRID;
 
     @objid ("4fc54b8e-55c2-11e2-9337-002564c97630")
-     static final StyleKey GRIDSPACING = GmAbstractDiagramStyleKeys.GRIDSPACING;
+    static final StyleKey GRIDSPACING = GmAbstractDiagramStyleKeys.GRIDSPACING;
 
     @objid ("4fc54b90-55c2-11e2-9337-002564c97630")
-     static final StyleKey GRIDCOLOR = GmAbstractDiagramStyleKeys.GRIDCOLOR;
+    static final StyleKey GRIDCOLOR = GmAbstractDiagramStyleKeys.GRIDCOLOR;
 
     @objid ("4fc54b92-55c2-11e2-9337-002564c97630")
-     static final StyleKey GRIDALPHA = GmAbstractDiagramStyleKeys.GRIDALPHA;
+    static final StyleKey GRIDALPHA = GmAbstractDiagramStyleKeys.GRIDALPHA;
 
     @objid ("4fc54b94-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = GmAbstractDiagramStyleKeys.FILLCOLOR;
+    static final StyleKey FILLCOLOR = GmAbstractDiagramStyleKeys.FILLCOLOR;
 
     @objid ("4fc54b96-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLIMAGE = GmAbstractDiagramStyleKeys.FILLIMAGE;
+    static final StyleKey FILLIMAGE = GmAbstractDiagramStyleKeys.FILLIMAGE;
 
     @objid ("4fc54b98-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLALPHA = GmAbstractDiagramStyleKeys.FILLALPHA;
+    static final StyleKey FILLALPHA = GmAbstractDiagramStyleKeys.FILLALPHA;
 
     @objid ("4fc54b9a-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOW_PAGES = GmAbstractDiagramStyleKeys.SHOW_PAGES;
+    static final StyleKey SHOW_PAGES = GmAbstractDiagramStyleKeys.SHOW_PAGES;
 
     @objid ("4fc54b9c-55c2-11e2-9337-002564c97630")
-     static final StyleKey PAGE_SIZE = GmAbstractDiagramStyleKeys.PAGE_SIZE;
+    static final StyleKey PAGE_SIZE = GmAbstractDiagramStyleKeys.PAGE_SIZE;
 
     @objid ("d65dcc86-d736-4204-a22f-9b12011238f6")
-     static final LayoutAssistantStyleKeys layoutAssistantStyle = GmAbstractDiagramStyleKeys.autoLayoutStyle;
+    static final LayoutAssistantStyleKeys layoutAssistantStyle = GmAbstractDiagramStyleKeys.autoLayoutStyle;
 
     /**
      * Show message sequence. Links to {@link GmMessageStyleKeys#SHOWSEQUENCE}.
      */
     @objid ("d8c65fb8-6aee-403d-b69b-92b922ccbe57")
-     static final StyleKey SHOWSEQUENCE = GmMessageStyleKeys.SHOWSEQUENCE;
+    static final StyleKey SHOWSEQUENCE = GmMessageStyleKeys.SHOWSEQUENCE;
 
 }

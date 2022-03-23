@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.executionoccurencespecification;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,11 +32,11 @@ import org.modelio.uml.sequencediagram.editor.style.SequenceAbstractStyleKeyProv
 @objid ("d8deea25-55b6-11e2-877f-002564c97630")
 public class GmExecutionOccurenceSpecificationStyleKeys extends SequenceAbstractStyleKeyProvider {
     @objid ("5006e869-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("EXECUTIONOCCURENCESPECIFICATION_FILLCOLOR",
-            MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("EXECUTIONOCCURENCESPECIFICATION_FILLCOLOR",
+                MetaKey.FILLCOLOR);
 
     @objid ("5006e86b-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("EXECUTIONOCCURENCESPECIFICATION_FILLMODE",
-            MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("EXECUTIONOCCURENCESPECIFICATION_FILLMODE",
+                MetaKey.FILLMODE);
 
 }

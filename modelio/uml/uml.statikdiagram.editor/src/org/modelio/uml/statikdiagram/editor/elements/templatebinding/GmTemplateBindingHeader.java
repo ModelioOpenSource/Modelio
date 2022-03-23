@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.templatebinding;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,12 +46,11 @@ public class GmTemplateBindingHeader extends GmDefaultModelElementLabel {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
     @objid ("36d79dcb-55b7-11e2-877f-002564c97630")
-    public GmTemplateBindingHeader(IGmDiagram diagram, MRef relatedRef) {
+    public  GmTemplateBindingHeader(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -60,7 +58,8 @@ public class GmTemplateBindingHeader extends GmDefaultModelElementLabel {
      * For deserialization only.
      */
     @objid ("36d79dd4-55b7-11e2-877f-002564c97630")
-    public GmTemplateBindingHeader() {
+    public  GmTemplateBindingHeader() {
+        
     }
 
     @objid ("36d79dd7-55b7-11e2-877f-002564c97630")
@@ -93,6 +92,7 @@ public class GmTemplateBindingHeader extends GmDefaultModelElementLabel {
                 break;
             }
         }
+        
     }
 
     @objid ("36d92477-55b7-11e2-877f-002564c97630")
@@ -102,6 +102,7 @@ public class GmTemplateBindingHeader extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmTemplateBindingHeader.", GmTemplateBindingHeader.MINOR_VERSION);
+        
     }
 
     @objid ("36d9247d-55b7-11e2-877f-002564c97630")

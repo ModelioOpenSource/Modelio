@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.templatebinding;
 
 import java.util.List;
@@ -57,19 +56,18 @@ public final class GmTemplateBinding extends GmLink {
      * Constructor for deserialization.
      */
     @objid ("36d61708-55b7-11e2-877f-002564c97630")
-    public GmTemplateBinding() {
+    public  GmTemplateBinding() {
         // Nothing to do.
     }
 
     /**
      * Creates a GmElementImport.
-     * 
      * @param diagram The diagram containing the link.
      * @param role The represented element.
      * @param ref The represented element reference. May not be null.
      */
     @objid ("36d6170b-55b7-11e2-877f-002564c97630")
-    public GmTemplateBinding(IGmDiagram diagram, TemplateBinding role, MRef ref) {
+    public  GmTemplateBinding(IGmDiagram diagram, TemplateBinding role, MRef ref) {
         super(diagram, ref);
         
         this.element = role;
@@ -78,6 +76,7 @@ public final class GmTemplateBinding extends GmLink {
             // Create extensions
             addExtension(ExtensionLocation.MiddleSE, ROLE_MAIN_LABEL, new GmTemplateBindingHeader(diagram, ref));
         }
+        
     }
 
     @objid ("36d61717-55b7-11e2-877f-002564c97630")
@@ -97,6 +96,7 @@ public final class GmTemplateBinding extends GmLink {
     protected void readLink(IDiagramReader in) {
         super.readLink(in);
         this.element = (TemplateBinding) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("36d61730-55b7-11e2-877f-002564c97630")
@@ -138,6 +138,7 @@ public final class GmTemplateBinding extends GmLink {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmTemplateBinding.", GmTemplateBinding.MINOR_VERSION);
+        
     }
 
     @objid ("36d79db2-55b7-11e2-877f-002564c97630")

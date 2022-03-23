@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.core.modelshield.engine;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -55,9 +54,10 @@ public class CoreProtectionAgent implements IProtectionAgent {
      * @param session the core session
      */
     @objid ("0008c9ec-09c6-1f4d-b2b8-001ec947cd2a")
-    public CoreProtectionAgent(ICoreSession session) {
+    public  CoreProtectionAgent(ICoreSession session) {
         this.plan = new CompositePlan();
         initCheckers( session);
+        
     }
 
     @objid ("0008e1a2-09c6-1f4d-b2b8-001ec947cd2a")
@@ -107,6 +107,7 @@ public class CoreProtectionAgent implements IProtectionAgent {
         }
         
         session.getMetamodelSupport().addMetamodelListener(new MmListener());
+        
     }
 
     @objid ("1a56e35d-1d48-460c-9235-c648c967e5b2")
@@ -124,6 +125,7 @@ public class CoreProtectionAgent implements IProtectionAgent {
             integratedCheckers.createCheckers(fragPlan, mm);
         
         }
+        
     }
 
     /**

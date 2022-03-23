@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.gproject;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,7 +28,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IProjectMonitor {
     /**
      * Handle a project event.
-     * 
      * @param ev a project event.
      */
     @objid ("6181ee62-08b6-11e2-b193-001ec947ccaf")

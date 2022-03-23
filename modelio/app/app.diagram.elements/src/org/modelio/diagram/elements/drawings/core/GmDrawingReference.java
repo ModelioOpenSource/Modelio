@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.drawings.core;
 
 import java.beans.PropertyChangeListener;
@@ -77,19 +76,19 @@ public class GmDrawingReference<T extends IGmDrawing> implements IGmReference<T>
      * For deserialization only
      */
     @objid ("f3d0603a-46cc-423c-a622-fc75a1adbd48")
-    public GmDrawingReference() {
+    public  GmDrawingReference() {
         // so that delegate is never null
         this.delegate = new WeakReference<>(null);
+        
     }
 
     /**
      * Constructor
-     * 
      * @param ownerDiagram the diagram owning this reference, the diagram who needs a reference toward <i>delegate</i>.
      * @param target the target graphic model
      */
     @objid ("52e88803-fd0e-4780-84bf-a3ce9d9a592f")
-    public GmDrawingReference(IGmDiagram ownerDiagram, T target) {
+    public  GmDrawingReference(IGmDiagram ownerDiagram, T target) {
         this.ownerDiagram = ownerDiagram;
         this.targetDiagram = target.getDiagram();
         
@@ -101,10 +100,11 @@ public class GmDrawingReference<T extends IGmDrawing> implements IGmReference<T>
         if (this.ownerDiagram != null) {
             this.ownerDiagram.addGraphicReference(this);
         }
+        
     }
 
     @objid ("14a7ccc8-899e-4879-9c12-c4cf3232dce4")
-    public GmDrawingReference(IGmObject owner, T target) {
+    public  GmDrawingReference(IGmObject owner, T target) {
         this(owner.getDiagram(), target);
     }
 
@@ -190,6 +190,7 @@ public class GmDrawingReference<T extends IGmDrawing> implements IGmReference<T>
             break;
         
         }
+        
     }
 
     @objid ("ebdc1e25-e2f7-42f7-a836-3ce0aa5db04b")
@@ -214,6 +215,7 @@ public class GmDrawingReference<T extends IGmDrawing> implements IGmReference<T>
             // try to resolve the reference
             getReferencedModel();
         }
+        
     }
 
     /**
@@ -227,7 +229,6 @@ public class GmDrawingReference<T extends IGmDrawing> implements IGmReference<T>
 
     /**
      * Remove the element from a collection of GmReferences.
-     * 
      * @param coll the collection to modify
      * @param toRemove the element to remove.
      */
@@ -244,6 +245,7 @@ public class GmDrawingReference<T extends IGmDrawing> implements IGmReference<T>
                 it.remove();
             }
         }
+        
     }
 
     @objid ("f8b8aada-e416-4865-a8be-805b58d42ea5")
@@ -252,6 +254,7 @@ public class GmDrawingReference<T extends IGmDrawing> implements IGmReference<T>
         if (this.listeners != null) {
             this.listeners.removePropertyChangeListener(listener);
         }
+        
     }
 
     @objid ("12af4b74-08b4-4eb6-9960-36ac02d7d333")
@@ -261,6 +264,7 @@ public class GmDrawingReference<T extends IGmDrawing> implements IGmReference<T>
             this.ownerDiagram = newOwnerDiagram;
             this.ownerDiagram.addGraphicReference(this);
         }
+        
     }
 
     @objid ("d2da0d9c-ba40-4bae-b35e-69cb723d4d5a")
@@ -274,6 +278,7 @@ public class GmDrawingReference<T extends IGmDrawing> implements IGmReference<T>
             // resolved
             return String.format("GmReference [%s]", target);
         }
+        
     }
 
     @objid ("5a990b5d-ebb5-4dad-9b15-4823ab61f301")
@@ -283,6 +288,7 @@ public class GmDrawingReference<T extends IGmDrawing> implements IGmReference<T>
         out.writeProperty("targetDiagram", this.targetDiagramRef);
         out.writeProperty("targetElement", this.targetElementRef);
         out.writeProperty("targetGraphicClass", this.targetGraphicClass);
+        
     }
 
     @objid ("a7521e5d-7b66-43cf-bb7d-e9c636dfd5a0")
@@ -313,7 +319,6 @@ public class GmDrawingReference<T extends IGmDrawing> implements IGmReference<T>
 
     /**
      * Helper to read the graphic model minor version from the {@value #MINOR_VERSION_PROPERTY} property.
-     * 
      * @param in a reader to read the version from.
      * @param prefix the prefix : usually the simple name of java class calling this method + ".".
      * @return the read version, defaults to 0 if not found
@@ -328,7 +333,6 @@ public class GmDrawingReference<T extends IGmDrawing> implements IGmReference<T>
 
     /**
      * Helper method to write the graphic model minor version.
-     * 
      * @param out the writer to use
      * @param prefix the prefix to use. Usually the java simple name of the class calling this method. Use the same as the matching {@link #readMinorVersion(String, IDiagramReader)}.
      * @param theMinorVersion the minor version to write
@@ -339,6 +343,7 @@ public class GmDrawingReference<T extends IGmDrawing> implements IGmReference<T>
         if (theMinorVersion != 0) {
             out.writeProperty(prefix + GmDrawingReference.MINOR_VERSION_PROPERTY, Integer.valueOf(theMinorVersion));
         }
+        
     }
 
     @objid ("7717e440-7616-4ceb-bf50-2d1e07a2777f")
@@ -373,6 +378,7 @@ public class GmDrawingReference<T extends IGmDrawing> implements IGmReference<T>
         if (this.ownerDiagram != null) {
             this.ownerDiagram.addGraphicReference(this);
         }
+        
     }
 
 }

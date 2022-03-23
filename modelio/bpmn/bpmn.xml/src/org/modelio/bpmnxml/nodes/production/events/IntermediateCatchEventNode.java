@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.production.events;
 
 import java.util.List;
 import java.util.Map;
-import javax.xml.bind.JAXBElement;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.xml.bind.JAXBElement;
 import org.modelio.bpmnxml.model.ObjectFactory;
 import org.modelio.bpmnxml.model.TFlowElement;
 import org.modelio.bpmnxml.model.TIntermediateCatchEvent;
@@ -41,7 +40,7 @@ import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("d1249c36-110d-4517-aeac-e36c5ac92a21")
-public class IntermediateCatchEventNode implements IProductionNode<BpmnIntermediateCatchEvent,TIntermediateCatchEvent> {
+public class IntermediateCatchEventNode implements IProductionNode<BpmnIntermediateCatchEvent, TIntermediateCatchEvent> {
     @objid ("71b6f760-57d2-48ef-bd60-495862b98c10")
     private Map<String, Object> elementsMap;
 
@@ -78,6 +77,7 @@ public class IntermediateCatchEventNode implements IProductionNode<BpmnIntermedi
         } else {
             return factory.create(BpmnIntermediateCatchEvent.class, context);
         }
+        
     }
 
     @objid ("05900787-9767-4f26-a192-d02e1f691480")

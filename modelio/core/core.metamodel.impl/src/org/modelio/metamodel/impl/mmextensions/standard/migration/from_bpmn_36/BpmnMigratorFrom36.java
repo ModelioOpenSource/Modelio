@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.migration.from_bpmn_36;
 
 import java.util.ArrayList;
@@ -35,8 +34,8 @@ import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException;
 import org.modelio.vcore.smkernel.mapi.MetamodelVersionDescriptor;
 import org.modelio.vcore.smkernel.meta.SmClass;
-import org.modelio.vcore.smkernel.meta.mof.MofMetamodel.MofBuilder;
 import org.modelio.vcore.smkernel.meta.mof.MofMetamodel;
+import org.modelio.vcore.smkernel.meta.mof.MofMetamodel.MofBuilder;
 import org.modelio.vcore.smkernel.meta.mof.MofSmClass;
 import org.modelio.vcore.smkernel.meta.mof.MofSmDependency;
 import org.modelio.vcore.smkernel.meta.mof.MofSmObjectImpl;
@@ -79,9 +78,10 @@ public class BpmnMigratorFrom36 implements IMofRepositoryMigrator {
     private MM mm;
 
     @objid ("323c3e28-d377-46f7-b8ab-c85d608e8d7b")
-    public BpmnMigratorFrom36(MetamodelVersionDescriptor sourceMetamodel, MetamodelVersionDescriptor targetMetamodel) {
+    public  BpmnMigratorFrom36(MetamodelVersionDescriptor sourceMetamodel, MetamodelVersionDescriptor targetMetamodel) {
         this.sourceMetamodel = sourceMetamodel;
         this.targetMetamodel = targetMetamodel;
+        
     }
 
     @objid ("8fedbe21-5c38-4a9e-9028-e28d820f8bfd")
@@ -104,9 +104,8 @@ public class BpmnMigratorFrom36 implements IMofRepositoryMigrator {
 
     /**
      * Modify the metamodel so that it can read the source repository.
-     * 
      * @param metamodel the metamodel at the final state
-     * @throws org.modelio.vcore.model.spi.mm.MofMigrationException on fatal failure preventing migration
+     * @throws MofMigrationException on fatal failure preventing migration
      */
     @objid ("a6fe329b-0fd3-4664-8cff-8cafbf3643b3")
     @Override
@@ -122,6 +121,7 @@ public class BpmnMigratorFrom36 implements IMofRepositoryMigrator {
             // Make BpmnProcessCollaborationDiagram concrete again
             this.mm.bpmnProcessCollaborationDiagramMC.setAbstract(false);
         }
+        
     }
 
     @objid ("6adf9533-e227-431f-8243-b1aed06deed6")
@@ -149,6 +149,7 @@ public class BpmnMigratorFrom36 implements IMofRepositoryMigrator {
         } catch (MetaclassNotFoundException e) {
             throw new MofMigrationException(e.getLocalizedMessage(), e);
         }
+        
     }
 
     @objid ("0af1cc3c-774f-4a41-8b87-760bfa75e514")
@@ -159,7 +160,6 @@ public class BpmnMigratorFrom36 implements IMofRepositoryMigrator {
 
     /**
      * Get a MDependency content then empty it.
-     * 
      * @param obj the dep source
      * @param depName the dep name
      * @return the dependency content.
@@ -174,7 +174,6 @@ public class BpmnMigratorFrom36 implements IMofRepositoryMigrator {
 
     /**
      * Transmute all elements in the list whose metaclass is exactly the given one.
-     * 
      * @param mofSession a MOF session
      * @param dep the elements to transmute
      * @param srcClass the metaclass the element must have to be transmuted
@@ -187,6 +186,7 @@ public class BpmnMigratorFrom36 implements IMofRepositoryMigrator {
                 mofSession.transmute(obj, targetClass);
             }
         }
+        
     }
 
     @objid ("83ecd9a4-4003-4fa3-a406-91440696ef6c")
@@ -268,6 +268,7 @@ public class BpmnMigratorFrom36 implements IMofRepositoryMigrator {
         
         // Migrates owned diagrams.
         new OwnedDiagramsMigrator(this.mm).run(mofSession, bpmnBehavior, firstCollab);
+        
     }
 
 }

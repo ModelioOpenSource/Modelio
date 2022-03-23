@@ -17,16 +17,15 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.local.loader.sax;
 
 import java.io.IOException;
 import java.util.ServiceConfigurationError;
 import java.util.concurrent.atomic.AtomicBoolean;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.vbasic.files.FileUtils;
 import org.modelio.vcore.model.DuplicateObjectException;
 import org.modelio.vcore.session.impl.storage.IModelLoader;
@@ -61,11 +60,10 @@ public class SaxExmlLoader implements IExmlLoader {
 
     /**
      * Initialize the SAX loader.
-     * 
      * @param loadHelper a load helper
      */
     @objid ("2b011b9f-3faf-11e2-87cb-001ec947ccaf")
-    public SaxExmlLoader(ILoadHelper loadHelper) {
+    public  SaxExmlLoader(ILoadHelper loadHelper) {
         this.dataModel = new DataModel(loadHelper);
         this.defaultHandler = new DocumentContentHandler(this.dataModel);
         
@@ -85,16 +83,16 @@ public class SaxExmlLoader implements IExmlLoader {
             // should never happen
             throw new ServiceConfigurationError(e.getLocalizedMessage(), e);
         }
+        
     }
 
     /**
      * Load an EXML resource from an XML {@link InputSource}.
-     * 
      * @param is the EXML source.
      * @param loader the API to use to load the content.
      * @return the loaded CMS node.
-     * @throws java.io.IOException in case of failure
-     * @throws org.modelio.vcore.model.DuplicateObjectException if another object with the same identifier as a loaded object already exists in another repository.
+     * @throws IOException in case of failure
+     * @throws DuplicateObjectException if another object with the same identifier as a loaded object already exists in another repository.
      */
     @objid ("2b011ba4-3faf-11e2-87cb-001ec947ccaf")
     @Override
@@ -131,6 +129,7 @@ public class SaxExmlLoader implements IExmlLoader {
             this.loadInProgress.set(false);
             this.dataModel.setModelLoader (null);
         }
+        
     }
 
     @objid ("ddef07b7-407a-11e2-87cb-001ec947ccaf")

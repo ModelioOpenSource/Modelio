@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.api.impl.audit;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -54,9 +53,10 @@ public class AuditService implements IAuditService {
     }
 
     @objid ("732628f3-862b-434a-9b41-2a332dd80e3c")
-    public AuditService(ModelShield modelShield, org.modelio.audit.service.IAuditService auditService) {
+    public  AuditService(ModelShield modelShield, org.modelio.audit.service.IAuditService auditService) {
         this.modelShield = modelShield;
         this.auditService = auditService;
+        
     }
 
     @objid ("437aa1a9-3057-4cae-a946-758c8aa30e7f")

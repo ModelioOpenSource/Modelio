@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.node;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,18 +46,17 @@ public abstract class GmSimpleNode extends GmNodeModel {
      * Constructor for deserialization only.
      */
     @objid ("80a17d50-1dec-11e2-8cad-001ec947c8cc")
-    public GmSimpleNode() {
+    public  GmSimpleNode() {
         super();
     }
 
     /**
      * Initializes a simple node.
-     * 
      * @param diagram The diagram owning the node.
      * @param relatedRef a reference to the element this GmModel is related to.
      */
     @objid ("80a17d53-1dec-11e2-8cad-001ec947c8cc")
-    public GmSimpleNode(IGmDiagram diagram, MRef relatedRef) {
+    public  GmSimpleNode(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -93,6 +91,7 @@ public abstract class GmSimpleNode extends GmNodeModel {
                 break;
             }
         }
+        
     }
 
     @objid ("80a17d6a-1dec-11e2-8cad-001ec947c8cc")
@@ -102,6 +101,7 @@ public abstract class GmSimpleNode extends GmNodeModel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmSimpleNode.", MINOR_VERSION);
+        
     }
 
     @objid ("80a17d6e-1dec-11e2-8cad-001ec947c8cc")

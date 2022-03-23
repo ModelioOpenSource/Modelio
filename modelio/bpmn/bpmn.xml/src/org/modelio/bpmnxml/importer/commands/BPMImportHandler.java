@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.importer.commands;
 
 import java.io.File;
 import java.nio.file.Path;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
@@ -79,6 +78,7 @@ public class BPMImportHandler {
             File bpmnFile =    new File(model.getFilePath()); 
             importBpmn(bpmnFile.toPath(), context,model.isKeeyId());       
         }
+        
     }
 
     @objid ("164220ba-9edc-4f97-8eb6-365dbdbfac1e")
@@ -101,6 +101,7 @@ public class BPMImportHandler {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
     }
 
     @objid ("57edff91-22d8-4610-8740-58d188cf143f")

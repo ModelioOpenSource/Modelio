@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.ramc.core.packaging.filters;
 
 import java.util.Collection;
@@ -53,7 +52,7 @@ class TaggedValueFilter implements IObjectFilter {
     }
 
     @objid ("0cf24452-be57-4f76-be75-528b37dbb865")
-    public TaggedValueFilter(Artifact artifact) {
+    public  TaggedValueFilter(Artifact artifact) {
         this.artifact = artifact;
     }
 

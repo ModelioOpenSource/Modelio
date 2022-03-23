@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.infrastructure;
 
 import java.net.URL;
@@ -44,11 +43,12 @@ public class InfrastructureAuditExtension implements IAuditExtension {
     private InfrastructureAuditPlan infrastructureAuditPlan;
 
     @objid ("250167ea-43b3-4283-814a-e24ba1d24fff")
-    public InfrastructureAuditExtension() {
+    public  InfrastructureAuditExtension() {
         List<AuditCategory> categories = loadCategories();
         
         this.infrastructureConfigurationPlan = new InfrastructureConfigurationPlan(categories);
         this.infrastructureAuditPlan = new InfrastructureAuditPlan(categories);
+        
     }
 
     @objid ("5614e92f-29a0-4baa-8bcf-ff1cb681ae7c")

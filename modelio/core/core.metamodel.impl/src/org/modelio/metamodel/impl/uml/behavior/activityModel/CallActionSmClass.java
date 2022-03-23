@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityActionSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityAction;
 import org.modelio.metamodel.uml.behavior.activityModel.CallAction;
 import org.modelio.vbasic.version.Version;
@@ -46,7 +45,7 @@ public class CallActionSmClass extends ActivityActionSmClass {
     private SmAttribute isSynchronousAtt;
 
     @objid ("7add2080-5e19-4db3-b914-29b49bdd7359")
-    public CallActionSmClass(ISmMetamodelFragment origin) {
+    public  CallActionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -54,6 +53,7 @@ public class CallActionSmClass extends ActivityActionSmClass {
     @Override
     public String getName() {
         return "CallAction";
+        
     }
 
     @objid ("cbbda484-f6a0-4c6f-8c24-e7c80205fa20")
@@ -66,18 +66,21 @@ public class CallActionSmClass extends ActivityActionSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return CallAction.class;
+        
     }
 
     @objid ("36c99aba-2249-42e5-848e-4c1ebad9ea32")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("8a4c5954-dc8a-46ff-bb20-954199792733")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("b238f22d-41dd-4abe-8db1-0cc37177a547")
@@ -94,6 +97,7 @@ public class CallActionSmClass extends ActivityActionSmClass {
         
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("65e6ea7e-f2b5-4781-9c5f-1b4976910b27")
@@ -110,7 +114,7 @@ public class CallActionSmClass extends ActivityActionSmClass {
         private CallActionSmClass smClass;
 
         @objid ("06f96a96-0d48-48a8-8ab2-927181c19080")
-        public CallActionObjectFactory(CallActionSmClass smClass) {
+        public  CallActionObjectFactory(CallActionSmClass smClass) {
             this.smClass = smClass;
         }
 

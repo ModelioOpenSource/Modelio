@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.combinedfragment.primarynode;
 
 import java.beans.PropertyChangeEvent;
@@ -131,6 +130,7 @@ public class CombinedFragmentPrimaryNodeEditPart extends AbstractNodeEditPart {
             getFigure().invalidate();
         }
         super.propertyChange(evt);
+        
     }
 
     @objid ("d8c98d50-55b6-11e2-877f-002564c97630")
@@ -153,6 +153,7 @@ public class CombinedFragmentPrimaryNodeEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         super.refreshVisuals();
         getFigure().getParent().setConstraint(getFigure(), ((GmAbstractObject) getModel()).getLayoutData());
+        
     }
 
     @objid ("d8c98d58-55b6-11e2-877f-002564c97630")
@@ -165,6 +166,7 @@ public class CombinedFragmentPrimaryNodeEditPart extends AbstractNodeEditPart {
             IFigure child = ((GraphicalEditPart) childEditPart).getFigure();
             getContentPane().add(child, BorderLayout.CENTER, index);
         }
+        
     }
 
     @objid ("d8c98d5f-55b6-11e2-877f-002564c97630")
@@ -176,6 +178,7 @@ public class CombinedFragmentPrimaryNodeEditPart extends AbstractNodeEditPart {
                 new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
         installEditPolicy(EditPolicy.LAYOUT_ROLE, new AutoFitToContentEditPolicy(true, true));
+        
     }
 
 }

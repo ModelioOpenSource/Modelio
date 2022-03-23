@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.lifeline.body;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -93,6 +92,7 @@ public class LifelineBodyLayoutEditPolicy extends DefaultFreeZoneLayoutEditPolic
         } else {
             return super.createAddCommand(request, child, constraint);
         }
+        
     }
 
     @objid ("d9345d12-55b6-11e2-877f-002564c97630")
@@ -109,6 +109,7 @@ public class LifelineBodyLayoutEditPolicy extends DefaultFreeZoneLayoutEditPolic
         } else {
             return super.createChangeConstraintCommand(request, child, constraint);
         }
+        
     }
 
     @objid ("d9345d1c-55b6-11e2-877f-002564c97630")
@@ -127,6 +128,7 @@ public class LifelineBodyLayoutEditPolicy extends DefaultFreeZoneLayoutEditPolic
         } else {
             return super.createChildEditPolicy(child);
         }
+        
     }
 
     @objid ("d9345d22-55b6-11e2-877f-002564c97630")
@@ -173,6 +175,7 @@ public class LifelineBodyLayoutEditPolicy extends DefaultFreeZoneLayoutEditPolic
         IFigure childFigure = child.getFigure();
         return ((PlacementConstraint) childFigure.getParent().getLayoutManager().getConstraint(childFigure))
                         .getUpdatedBounds(childFigure);
+        
     }
 
     /**
@@ -267,6 +270,7 @@ public class LifelineBodyLayoutEditPolicy extends DefaultFreeZoneLayoutEditPolic
         } else {
             return null;
         }
+        
     }
 
 }

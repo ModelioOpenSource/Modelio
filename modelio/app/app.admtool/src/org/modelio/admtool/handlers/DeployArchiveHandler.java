@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.admtool.handlers;
 
 import java.io.File;
@@ -27,8 +26,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
@@ -88,11 +87,11 @@ public class DeployArchiveHandler {
         } catch (InterruptedException e) {
             // ignore
         }
+        
     }
 
     /**
      * Forbid this command for server projects.
-     * 
      * @param projectservice the project service
      * @return true if the command is available.
      */
@@ -117,20 +116,21 @@ public class DeployArchiveHandler {
         private IModuleStore catalog;
 
         @objid ("aca8b113-1c17-4dc5-a726-be7fbe0d1e2e")
-         IModuleManagementService moduleSvc;
+        IModuleManagementService moduleSvc;
 
         @objid ("38cb5ba8-70d7-4780-ab1c-75c9f2fdb479")
-         GProject project;
+        GProject project;
 
         @objid ("1917ce35-b4c0-47c9-b864-fe035509a140")
         private StringBuilder report = new StringBuilder();
 
         @objid ("0d33a12f-affa-44c3-b873-d746e8aa3828")
-        DeployModule(List<String> paths, IModuleStore catalog, IModuleManagementService moduleSvc, GProject project) {
+         DeployModule(List<String> paths, IModuleStore catalog, IModuleManagementService moduleSvc, GProject project) {
             this.modules = paths;
             this.catalog = catalog;
             this.moduleSvc = moduleSvc;
             this.project = project;
+            
         }
 
         @objid ("33e251e7-ac9a-4c1e-93d1-260139896671")
@@ -170,6 +170,7 @@ public class DeployArchiveHandler {
                 this.report.insert(0, AdmTool.I18N.getMessage("DeployArchiveHandler.SomeFailed"));
                 throw new InvocationTargetException(new IOException(this.report.toString()));
             }
+            
         }
 
     }

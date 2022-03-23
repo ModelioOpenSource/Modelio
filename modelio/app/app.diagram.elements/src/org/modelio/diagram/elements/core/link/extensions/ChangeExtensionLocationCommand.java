@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.extensions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,11 +42,11 @@ public class ChangeExtensionLocationCommand extends Command {
         if (this.model != null) {
             this.model.getParentLink().setLayoutConstraint(this.model, this.layoutData);
         }
+        
     }
 
     /**
      * Set the constraint that will be the new layoutData.
-     * 
      * @param constraint the new constraint.
      */
     @objid ("7ff5d407-1dec-11e2-8cad-001ec947c8cc")
@@ -57,7 +56,6 @@ public class ChangeExtensionLocationCommand extends Command {
 
     /**
      * Set the model that will be updated.
-     * 
      * @param model the model to update. Must be a {@link GmNodeModel}
      */
     @objid ("7ff5d40b-1dec-11e2-8cad-001ec947c8cc")

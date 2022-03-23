@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.sendsignal;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,34 +30,34 @@ import org.modelio.uml.activitydiagram.editor.style.ActivityAbstractStyleKeyProv
 @objid ("2b4cb5e1-55b6-11e2-877f-002564c97630")
 public class GmSendSignalStructuredStyleKeys extends ActivityAbstractStyleKeyProvider {
     @objid ("d06f71ea-55c0-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("SENDSIGNALACTION_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("SENDSIGNALACTION_REPMODE", MetaKey.REPMODE);
 
     @objid ("d06f71ec-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("SENDSIGNALACTION_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("SENDSIGNALACTION_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("d06f71ee-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("SENDSIGNALACTION_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("SENDSIGNALACTION_FILLMODE", MetaKey.FILLMODE);
 
     @objid ("d070f889-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("SENDSIGNALACTION_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("SENDSIGNALACTION_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("d070f88b-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("SENDSIGNALACTION_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("SENDSIGNALACTION_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("d070f88d-55c0-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("SENDSIGNALACTION_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("SENDSIGNALACTION_FONT", MetaKey.FONT);
 
     @objid ("d070f88f-55c0-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("SENDSIGNALACTION_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("SENDSIGNALACTION_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("d070f891-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("SENDSIGNALACTION_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("SENDSIGNALACTION_SHOWSTEREOTYPES",
+                MetaKey.SHOWSTEREOTYPES);
 
     @objid ("d070f893-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("SENDSIGNALACTION_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("SENDSIGNALACTION_SHOWTAGS", MetaKey.SHOWTAGS);
 
     @objid ("d070f895-55c0-11e2-9337-002564c97630")
-     static final StyleKey AUTOSHOWPINS = createStyleKey("SENDSIGNALACTION_AUTOSHOWPINS", MetaKey.AUTOSHOWPINS);
+    static final StyleKey AUTOSHOWPINS = createStyleKey("SENDSIGNALACTION_AUTOSHOWPINS", MetaKey.AUTOSHOWPINS);
 
 }

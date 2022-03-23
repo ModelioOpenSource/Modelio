@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.util.Collections;
@@ -54,17 +53,15 @@ public class SubstitutionPropertyModel extends AbstractPropertyModel<Substitutio
 
     /**
      * Create a new <i>Substitution</i> data model from an <i>Substitution</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("f0c72a6d-c1c3-4524-977d-d703bdd44e83")
-    public SubstitutionPropertyModel(Substitution theEditedElement) {
+    public  SubstitutionPropertyModel(Substitution theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("149a759b-3973-4001-adc1-e88d925dac59")
@@ -75,7 +72,6 @@ public class SubstitutionPropertyModel extends AbstractPropertyModel<Substitutio
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("1a807c1c-0bad-460a-83c2-320099a83b2b")
@@ -88,7 +84,6 @@ public class SubstitutionPropertyModel extends AbstractPropertyModel<Substitutio
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -112,6 +107,7 @@ public class SubstitutionPropertyModel extends AbstractPropertyModel<Substitutio
         default:
             return null;
         }
+        
     }
 
     /**
@@ -121,7 +117,6 @@ public class SubstitutionPropertyModel extends AbstractPropertyModel<Substitutio
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -147,13 +142,13 @@ public class SubstitutionPropertyModel extends AbstractPropertyModel<Substitutio
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -181,6 +176,7 @@ public class SubstitutionPropertyModel extends AbstractPropertyModel<Substitutio
         default:
             return;
         }
+        
     }
 
 }

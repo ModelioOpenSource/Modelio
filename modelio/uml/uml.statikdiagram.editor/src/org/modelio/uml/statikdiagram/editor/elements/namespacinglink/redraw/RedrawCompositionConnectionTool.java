@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.namespacinglink.redraw;
 
 import java.util.List;
@@ -42,11 +41,12 @@ import org.modelio.diagram.elements.core.link.CreateBendedConnectionRequest;
 import org.modelio.diagram.elements.core.link.GmLink;
 import org.modelio.diagram.elements.core.link.LinkEditPart;
 import org.modelio.diagram.elements.core.link.ModelioLinkCreationContext;
+import org.modelio.diagram.elements.core.link.path.RawPathData;
 import org.modelio.diagram.elements.core.model.IGmObject;
 import org.modelio.diagram.elements.core.requests.CreateLinkConstants;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
 import org.modelio.uml.statikdiagram.editor.elements.namespacinglink.CompositionLinkEditPart;
 import org.modelio.uml.statikdiagram.editor.elements.namespacinglink.GmCompositionLink;
 
@@ -76,11 +76,10 @@ public class RedrawCompositionConnectionTool extends AbstractConnectionCreationT
 
     /**
      * Constructs a new RedrawConnectionTool to redraw the given {@link LinkEditPart}
-     * 
      * @param linkEditPart the edit part of the link to redraw.
      */
     @objid ("35b739ab-55b7-11e2-877f-002564c97630")
-    public RedrawCompositionConnectionTool(final CompositionLinkEditPart linkEditPart) {
+    public  RedrawCompositionConnectionTool(final CompositionLinkEditPart linkEditPart) {
         super(new RedrawCompositionLinkFactory(((GmCompositionLink) linkEditPart.getModel()).getRelatedElement(), ((GmCompositionLink) linkEditPart.getModel()).getToElement()));
         /*
          * CreationFactory factory, final Connection oldConnection, final EditPart targetEditPart
@@ -93,6 +92,7 @@ public class RedrawCompositionConnectionTool extends AbstractConnectionCreationT
         
         this.originalGmLink = linkEditPart.getModel();
         this.originalGmLink.delete();
+        
     }
 
     /**
@@ -106,6 +106,7 @@ public class RedrawCompositionConnectionTool extends AbstractConnectionCreationT
         if (isInState(STATE_INITIAL | STATE_CONNECTION_STARTED)) {
             performViewerMouseWheel(event, viewer);
         }
+        
     }
 
     @objid ("35b739b6-55b7-11e2-877f-002564c97630")
@@ -190,13 +191,13 @@ public class RedrawCompositionConnectionTool extends AbstractConnectionCreationT
         } else {
             return RequestConstants.REQ_CONNECTION_START;
         }
+        
     }
 
     /**
      * Get the current routing mode.
      * <p>
      * The routing mode is lazily initialized here.
-     * 
      * @return the the current routing mode.
      */
     @objid ("35b8c02e-55b7-11e2-877f-002564c97630")
@@ -222,7 +223,6 @@ public class RedrawCompositionConnectionTool extends AbstractConnectionCreationT
     /**
      * If the connections is already started, the second button down will call
      * {@link AbstractConnectionCreationTool#handleCreateConnection()}. Otherwise, it attempts to start the connection.
-     * 
      * @param button the button that was pressed
      * @return <code>true</code> if the button down was processed
      */
@@ -263,7 +263,6 @@ public class RedrawCompositionConnectionTool extends AbstractConnectionCreationT
 
     /**
      * Cleans up feedback and resets the tool when focus is lost.
-     * 
      * @return <code>true</code> if this focus lost event was processed
      */
     @objid ("35b8c043-55b7-11e2-877f-002564c97630")
@@ -281,7 +280,6 @@ public class RedrawCompositionConnectionTool extends AbstractConnectionCreationT
     /**
      * Processes the arrow keys (to move the cursor to nearby anchor locations) and the enter key (to start or complete
      * a connections).
-     * 
      * @param event the key event
      * @return <code>true</code> if this key down event was processed
      */
@@ -390,9 +388,11 @@ public class RedrawCompositionConnectionTool extends AbstractConnectionCreationT
     @Override
     protected void updateTargetRequest() {
         CreateBendedConnectionRequest request = getTargetRequest();
-        request.setLocation(getLocation());
-        request.getData().setLastPoint(new Point(getLocation()));
+        Point location = getLocation();
+        request.setLocation(location);
+        request.getData().setLastPoint(new Point(location));
         request.getData().setRoutingMode(getCurrentRoutingMode());
+        
     }
 
     @objid ("35ba46bc-55b7-11e2-877f-002564c97630")
@@ -412,6 +412,7 @@ public class RedrawCompositionConnectionTool extends AbstractConnectionCreationT
         } else {
             return false;
         }
+        
     }
 
     @objid ("35ba46c0-55b7-11e2-877f-002564c97630")
@@ -421,7 +422,6 @@ public class RedrawCompositionConnectionTool extends AbstractConnectionCreationT
 
     /**
      * Get the alternate connection routing mode that is activated when pressing &lt;shift>.
-     * 
      * @return the alternate connection routing mode.
      */
     @objid ("35ba46c6-55b7-11e2-877f-002564c97630")
@@ -434,13 +434,13 @@ public class RedrawCompositionConnectionTool extends AbstractConnectionCreationT
             default:
                 return ConnectionRouterId.BENDPOINT;
         }
+        
     }
 
     /**
      * Get the primary routing mode.
      * <p>
      * The primary routing mode is lazily initialized from the routing mode style key.
-     * 
      * @return the primary routing mode.
      */
     @objid ("35ba46cc-55b7-11e2-877f-002564c97630")
@@ -463,7 +463,6 @@ public class RedrawCompositionConnectionTool extends AbstractConnectionCreationT
     /**
      * Find the target editpart and returns it. The target is searched by using the target conditional and the target
      * request.
-     * 
      * @return the edit part that can handle the request under the mouse.
      */
     @objid ("35ba46d3-55b7-11e2-877f-002564c97630")
@@ -480,7 +479,6 @@ public class RedrawCompositionConnectionTool extends AbstractConnectionCreationT
     /**
      * Method that is called when the gesture to create an intermediate point has been received. Returns
      * <code>true</code> to indicate that the point creation succeeded.
-     * 
      * @return <code>true</code> if the connection point was performed
      */
     @objid ("35ba46d8-55b7-11e2-877f-002564c97630")
@@ -488,9 +486,10 @@ public class RedrawCompositionConnectionTool extends AbstractConnectionCreationT
         Command endCommand = getCommand();
         if (endCommand != null) {
             final CreateBendedConnectionRequest r = getTargetRequest();
-            final Point newPoint = r.getLocation();
+            final RawPathData rawData = r.getData();
+            final Point newPoint = rawData.getLastPoint().getCopy();
         
-            r.getData().getPath().add(newPoint);
+            rawData.getPath().add(newPoint);
         
             setCurrentCommand(endCommand);
             showSourceFeedback();
@@ -511,12 +510,12 @@ public class RedrawCompositionConnectionTool extends AbstractConnectionCreationT
         } else {
             this.currentRoutingMode = getPrimaryRoutingMode();
         }
+        
     }
 
     /**
      * Same as {@link org.eclipse.gef.tools.TargetingTool#setTargetEditPart(EditPart) setTargetEditPart(EditPart)} but
      * returns whether a change was done or not.
-     * 
      * @param editPart The new edit part, may be null
      * @return true if the edit part was changed, false if it is still the same.
      */
@@ -540,6 +539,7 @@ public class RedrawCompositionConnectionTool extends AbstractConnectionCreationT
             handleButtonDown(1);
             handleButtonUp(1);
         }
+        
     }
 
     /**
@@ -559,6 +559,7 @@ public class RedrawCompositionConnectionTool extends AbstractConnectionCreationT
             getTargetRequest().setTargetEditPart(tmpEP);
             getTargetRequest().setType(type);
         }
+        
     }
 
     /**
@@ -572,6 +573,7 @@ public class RedrawCompositionConnectionTool extends AbstractConnectionCreationT
         if (this.targetEditPart != null) {
             this.targetEditPart.eraseTargetFeedback(getTargetRequest());
         }
+        
     }
 
     @objid ("35bbcd5d-55b7-11e2-877f-002564c97630")
@@ -594,6 +596,7 @@ public class RedrawCompositionConnectionTool extends AbstractConnectionCreationT
         if (mustReload) {
             this.originalGmLink.getDiagram().load();
         }
+        
     }
 
 }

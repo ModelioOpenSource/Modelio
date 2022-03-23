@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class EActionInputPin extends EInputPin {
     }
 
     @objid ("4bc54fdc-e73f-49f0-b5a2-595df4252480")
-    public EActionInputPin(org.eclipse.uml2.uml.ActionInputPin element) {
+    public  EActionInputPin(org.eclipse.uml2.uml.ActionInputPin element) {
         super(element);
     }
 

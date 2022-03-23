@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,9 +38,10 @@ public class ESubstitution extends ENamedElement {
     }
 
     @objid ("d91e6b6e-d32e-4644-ba0d-2d1c031a0cfe")
-    public ESubstitution(org.eclipse.uml2.uml.Substitution element) {
+    public  ESubstitution(org.eclipse.uml2.uml.Substitution element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("c3943c80-b94e-401b-88d4-01bbe4d40f2b")
@@ -66,6 +66,7 @@ public class ESubstitution extends ENamedElement {
             objingRImport.setContract(objingContract);
             objingRImport.setSubstitutingClassifier(objingClassifier);
         }
+        
     }
 
 }

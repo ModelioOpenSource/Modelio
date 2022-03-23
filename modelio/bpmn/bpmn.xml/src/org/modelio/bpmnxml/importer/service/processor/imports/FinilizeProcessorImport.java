@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.importer.service.processor.imports;
 
 import java.util.Map;
@@ -45,11 +44,12 @@ public class FinilizeProcessorImport implements IBPMNImportProcessor {
     private ICoreSession session;
 
     @objid ("4555f969-4d06-4d46-84dd-ff81641c276a")
-    public FinilizeProcessorImport(ICoreSession session, IDiagramService diagramService, Map<String, Object> elementsMap) {
+    public  FinilizeProcessorImport(ICoreSession session, IDiagramService diagramService, Map<String, Object> elementsMap) {
         this.diagramService = diagramService;
         this.elementsMap = elementsMap;
         this.session = session;
         this.factory = new ProductionFactory();
+        
     }
 
     @objid ("0af18cd6-b6ba-4e18-904d-f3d3c2b32556")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.model.factory;
 
 import java.util.ArrayList;
@@ -45,11 +44,10 @@ public class DelegatingEditPartFactory implements EditPartFactory {
 
     /**
      * Instantiate the factory.
-     * 
      * @param factoryIds identifier of the cascaded factories needed to call the {@link DiagramFactoryRegistry}.
      */
     @objid ("502b04b1-58c6-40c8-987a-16408be3cd01")
-    public DelegatingEditPartFactory(List<String> factoryIds) {
+    public  DelegatingEditPartFactory(List<String> factoryIds) {
         this.cascadedFactories = new ArrayList<>();
         for (String factoryId : factoryIds) {
             EditPartFactory cascadedFactory = DiagramFactoryRegistry.getInstance().getEditPartFactory(factoryId);
@@ -57,6 +55,7 @@ public class DelegatingEditPartFactory implements EditPartFactory {
                 this.cascadedFactories.add(cascadedFactory);
             }
         }
+        
     }
 
     @objid ("ea52b44c-7949-4347-9ad2-1542b29eedbc")
@@ -74,7 +73,6 @@ public class DelegatingEditPartFactory implements EditPartFactory {
 
     /**
      * Register a cascaded factory.
-     * 
      * @param factory the edit part factory.
      */
     @objid ("d8c7ce11-d733-4dff-9ac8-6b4a5485ba5a")
@@ -82,11 +80,11 @@ public class DelegatingEditPartFactory implements EditPartFactory {
         if (factory != null && !this.cascadedFactories.contains(factory)) {
             this.cascadedFactories.add(factory);
         }
+        
     }
 
     /**
      * Remove a registered cascaded factory.
-     * 
      * @param factory the edit part factory.
      */
     @objid ("21962ed9-b082-4ff9-be31-6afc2e985e43")

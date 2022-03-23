@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.helpers.palapi;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,11 +39,12 @@ class LinkToolActionDescriptor implements ICreationActionDescriptor {
     private final Command finishCommand;
 
     @objid ("5c442f51-edbc-40a5-8d07-7ab3204fc032")
-    public LinkToolActionDescriptor(PaletteEntry tool, CreateBendedConnectionRequest request, Command finishCommand) {
+    public  LinkToolActionDescriptor(PaletteEntry tool, CreateBendedConnectionRequest request, Command finishCommand) {
         super();
         this.tool = tool;
         this.request = request;
         this.finishCommand = finishCommand;
+        
     }
 
     @objid ("77cc7de7-8c59-4ecc-94dd-415a4dc4dc66")
@@ -90,6 +90,7 @@ class LinkToolActionDescriptor implements ICreationActionDescriptor {
         if (this.finishCommand != null && this.finishCommand.canExecute()) {
             viewer.getEditDomain().getCommandStack().execute(this.finishCommand);
         }
+        
     }
 
 }

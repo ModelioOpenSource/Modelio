@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,7 +45,7 @@ public class EllipseShaper implements IShaper {
 
     @objid ("7f79d9cb-1dec-11e2-8cad-001ec947c8cc")
     @Override
-    public Path getShapePath(Rectangle rect) {
+    public Path createShapePath(Rectangle rect) {
         int x = rect.x;
         int y = rect.y;
         int w = rect.width - 1;

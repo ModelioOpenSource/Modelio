@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.requiredinterface;
 
 import java.util.Collection;
@@ -32,6 +31,7 @@ import org.eclipse.gef.requests.ReconnectRequest;
 import org.modelio.diagram.elements.common.linktovoid.CreateLinkToVoidCommand;
 import org.modelio.diagram.elements.common.linktovoid.LinkToVoidConstants;
 import org.modelio.diagram.elements.core.link.CreateBendedConnectionRequest;
+import org.modelio.diagram.elements.core.link.path.RawPathData;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
 import org.modelio.diagram.elements.core.model.IGmObject;
@@ -57,16 +57,16 @@ public class CreateConnectedConnectionCommand extends Command {
 
     /**
      * Initialize the command.
-     * 
      * @param request the creation request.
      * @param targetPart The target required interface link edit part
      * @param location The join location
      */
     @objid ("366fdb4c-55b7-11e2-877f-002564c97630")
-    public CreateConnectedConnectionCommand(final CreateConnectionRequest request, final EditPart targetPart, final Point location) {
+    public  CreateConnectedConnectionCommand(final CreateConnectionRequest request, final EditPart targetPart, final Point location) {
         this.request = request;
         this.requiredInterfacePart = targetPart;
         this.location = location;
+        
     }
 
     @objid ("367161b9-55b7-11e2-877f-002564c97630")
@@ -94,6 +94,7 @@ public class CreateConnectedConnectionCommand extends Command {
         if (c2 != null && c2.canExecute()) {
             c2.execute();
         }
+        
     }
 
     @objid ("367161bc-55b7-11e2-877f-002564c97630")
@@ -130,10 +131,12 @@ public class CreateConnectedConnectionCommand extends Command {
             ret.setStartCommand(orig.getStartCommand());
             ret.setTargetEditPart(orig.getTargetEditPart());
             ret.setType(orig.getType());
-            ret.getData().setRoutingMode(orig.getData().getRoutingMode());
-            ret.getData().setSrcPoint(orig.getData().getSrcPoint());
+            RawPathData dataCopy = ret.getData();
+            dataCopy.setRoutingMode(orig.getData().getRoutingMode());
+            dataCopy.setSrcPoint(orig.getData().getSrcPoint());
+            dataCopy.setLastPoint(orig.getData().getLastPoint());
             for (Point p : orig.getData().getPath()) {
-                ret.getData().getPath().add(p);
+                dataCopy.getPath().add(p);
             }
         
             return ret;
@@ -149,6 +152,7 @@ public class CreateConnectedConnectionCommand extends Command {
             ret.setType(this.request.getType());
             return ret;
         }
+        
     }
 
     @objid ("367161c5-55b7-11e2-877f-002564c97630")

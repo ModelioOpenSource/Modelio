@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.loopnode;
 
 import java.util.Collections;
@@ -36,8 +35,8 @@ import org.modelio.diagram.elements.core.node.IImageableNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityNode;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityParameterNode;
 import org.modelio.metamodel.uml.behavior.activityModel.LoopNode;
@@ -83,18 +82,17 @@ public class GmLoopNodePrimaryNode extends GmNoStyleCompositeNode implements IIm
      * C'tor. Empty constructor needed for (de-)serialisation.
      */
     @objid ("2abe7f8a-55b6-11e2-877f-002564c97630")
-    public GmLoopNodePrimaryNode() {
+    public  GmLoopNodePrimaryNode() {
         // empty constructor for the serialization
     }
 
     /**
      * C'tor.
-     * 
      * @param diagram the diagram in which this gm is created.
      * @param relatedRef a reference to the loopnode this gm is related to.
      */
     @objid ("2abe7f8d-55b6-11e2-877f-002564c97630")
-    public GmLoopNodePrimaryNode(IGmDiagram diagram, MRef relatedRef) {
+    public  GmLoopNodePrimaryNode(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
         
         this.header = new GmActivityNodeHeader(diagram, relatedRef);
@@ -107,6 +105,7 @@ public class GmLoopNodePrimaryNode extends GmNoStyleCompositeNode implements IIm
         super.addChild(this.setup);
         super.addChild(this.test);
         super.addChild(this.innerZone);
+        
     }
 
     @objid ("2abe7f96-55b6-11e2-877f-002564c97630")
@@ -117,6 +116,7 @@ public class GmLoopNodePrimaryNode extends GmNoStyleCompositeNode implements IIm
             this.innerZone.addChild(child);
         } else
             super.addChild(child);
+        
     }
 
     @objid ("2abe7f9c-55b6-11e2-877f-002564c97630")
@@ -125,6 +125,7 @@ public class GmLoopNodePrimaryNode extends GmNoStyleCompositeNode implements IIm
         return ActivityNode.class.isAssignableFrom(type) &&
                         !Pin.class.isAssignableFrom(type) &&
                         !ActivityParameterNode.class.isAssignableFrom(type);
+        
     }
 
     @objid ("2abe7fa4-55b6-11e2-877f-002564c97630")
@@ -136,6 +137,7 @@ public class GmLoopNodePrimaryNode extends GmNoStyleCompositeNode implements IIm
                         !ActivityParameterNode.class.isAssignableFrom(type) &&
                         getRelatedElement() != null &&
                         getRelatedElement().equals(el.getCompositionOwner());
+        
     }
 
     @objid ("2abe7fac-55b6-11e2-877f-002564c97630")
@@ -186,6 +188,7 @@ public class GmLoopNodePrimaryNode extends GmNoStyleCompositeNode implements IIm
             break;
         }
         }
+        
     }
 
     @objid ("2ac0062b-55b6-11e2-877f-002564c97630")
@@ -197,6 +200,7 @@ public class GmLoopNodePrimaryNode extends GmNoStyleCompositeNode implements IIm
         firePropertyChange(PROPERTY_LABEL, oldLabel, this.header.getMainLabel());
         // forcing visual refresh in case Image changed
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("2ac0062e-55b6-11e2-877f-002564c97630")
@@ -205,6 +209,7 @@ public class GmLoopNodePrimaryNode extends GmNoStyleCompositeNode implements IIm
         // Returned result depends on current representation mode:
         List<GmNodeModel> ret;
         switch (this.getRepresentationMode()) {
+        case USER_IMAGE:
         case IMAGE: {
             ret = Collections.emptyList();
             break;
@@ -224,6 +229,7 @@ public class GmLoopNodePrimaryNode extends GmNoStyleCompositeNode implements IIm
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmLoopNodePrimaryNode.", GmLoopNodePrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("2ac0063d-55b6-11e2-877f-002564c97630")
@@ -236,6 +242,7 @@ public class GmLoopNodePrimaryNode extends GmNoStyleCompositeNode implements IIm
         
         GmDefaultModelElementLabel imageModeHeader = (GmDefaultModelElementLabel) this.getChildren().get(4);
         imageModeHeader.delete();
+        
     }
 
     @objid ("2ac00642-55b6-11e2-877f-002564c97630")
@@ -251,6 +258,7 @@ public class GmLoopNodePrimaryNode extends GmNoStyleCompositeNode implements IIm
         this.setup = (GmElementLabel) this.getChildren().get(1);
         this.test = (GmElementLabel) this.getChildren().get(2);
         this.innerZone = (GmBodyFreeZone) this.getChildren().get(3);
+        
     }
 
     /**
@@ -274,18 +282,17 @@ public class GmLoopNodePrimaryNode extends GmNoStyleCompositeNode implements IIm
          * For deserialization only.
          */
         @objid ("2ac00657-55b6-11e2-877f-002564c97630")
-        public GmSetup() {
+        public  GmSetup() {
             // for the serialization
         }
 
         /**
          * Creates a label
-         * 
          * @param diagram The diagram
          * @param relatedRef a reference to the loopnode this gm is related to.
          */
         @objid ("2ac18cbb-55b6-11e2-877f-002564c97630")
-        public GmSetup(IGmDiagram diagram, MRef relatedRef) {
+        public  GmSetup(IGmDiagram diagram, MRef relatedRef) {
             super(diagram, relatedRef);
         }
 
@@ -316,6 +323,7 @@ public class GmLoopNodePrimaryNode extends GmNoStyleCompositeNode implements IIm
                                 loopnode.setSetup(text);
                             }
                         };
+            
         }
 
         @objid ("2ac18cd0-55b6-11e2-877f-002564c97630")
@@ -335,6 +343,7 @@ public class GmLoopNodePrimaryNode extends GmNoStyleCompositeNode implements IIm
                 break;
             }
             }
+            
         }
 
         @objid ("2ac18cd6-55b6-11e2-877f-002564c97630")
@@ -344,6 +353,7 @@ public class GmLoopNodePrimaryNode extends GmNoStyleCompositeNode implements IIm
             
             // Write version of this Gm if different of 0
             writeMinorVersion(out, "GmSetup.", GmSetup.MINOR_VERSION);
+            
         }
 
         @objid ("2ac18cdc-55b6-11e2-877f-002564c97630")
@@ -380,18 +390,17 @@ public class GmLoopNodePrimaryNode extends GmNoStyleCompositeNode implements IIm
          * Constructor for the deserialization only.
          */
         @objid ("2ac18cf0-55b6-11e2-877f-002564c97630")
-        public GmTest() {
+        public  GmTest() {
             // for the serialization
         }
 
         /**
          * Creates a label
-         * 
          * @param diagram The diagram
          * @param relatedRef a reference to the loopnode this gm is related to.
          */
         @objid ("2ac18cf3-55b6-11e2-877f-002564c97630")
-        public GmTest(IGmDiagram diagram, MRef relatedRef) {
+        public  GmTest(IGmDiagram diagram, MRef relatedRef) {
             super(diagram, relatedRef);
         }
 
@@ -422,6 +431,7 @@ public class GmLoopNodePrimaryNode extends GmNoStyleCompositeNode implements IIm
                                 loopnode.setTest(text);
                             }
                         };
+            
         }
 
         @objid ("2ac3136b-55b6-11e2-877f-002564c97630")
@@ -441,6 +451,7 @@ public class GmLoopNodePrimaryNode extends GmNoStyleCompositeNode implements IIm
                 break;
             }
             }
+            
         }
 
         @objid ("2ac31371-55b6-11e2-877f-002564c97630")
@@ -450,6 +461,7 @@ public class GmLoopNodePrimaryNode extends GmNoStyleCompositeNode implements IIm
             
             // Write version of this Gm if different of 0
             writeMinorVersion(out, "GmTest.", GmTest.MINOR_VERSION);
+            
         }
 
         @objid ("2ac31377-55b6-11e2-877f-002564c97630")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.uml.infrastructure;
 
 import java.io.IOException;
@@ -37,9 +36,8 @@ public interface IResourceHandle {
      * Open a read stream.
      * <p>
      * The caller has to close the stream, usually with a try-with-resource statement.
-     * 
      * @return the read stream.
-     * @throws java.io.IOException on I/O failure.
+     * @throws IOException on I/O failure.
      */
     @objid ("b640fc64-2a28-44f3-8522-aeef1c7d0720")
     InputStream read() throws IOException;
@@ -48,16 +46,14 @@ public interface IResourceHandle {
      * Open a write stream on the resource.
      * <p>
      * The caller has to close the stream, usually with a try-with-resource statement.
-     * 
      * @return the writing stream.
-     * @throws java.io.IOException on I/O failure.
+     * @throws IOException on I/O failure.
      */
     @objid ("31663cb8-5d90-4f7f-b927-04ac5121eb59")
     OutputStream write() throws IOException;
 
     /**
      * Set the authentication data that may be needed to access the resource.
-     * 
      * @param auth the authentication data.
      */
     @objid ("7bea46b3-ae84-422f-b0e5-9e7cf4855209")
@@ -65,10 +61,9 @@ public interface IResourceHandle {
 
     /**
      * Copy the resource in a file in the given directory.
-     * 
      * @param dir the target directory.
      * @return the file containing the resource.
-     * @throws java.io.IOException the created file.
+     * @throws IOException the created file.
      */
     @objid ("17bff375-09b8-4481-85d1-e8a742828799")
     Path extractInto(Path dir) throws IOException;
@@ -78,10 +73,9 @@ public interface IResourceHandle {
      * <p>
      * Beware the target resource content will be overwritten, even if it
      * the resource was an external reference.
-     * 
      * @param src the source resource handle.
      * @param target the target resource handle.
-     * @throws java.io.IOException on I/O failure
+     * @throws IOException on I/O failure
      */
     @objid ("f22691ce-a5f2-45a2-b323-9d4ef5016941")
     static void copy(IResourceHandle src, IResourceHandle target) throws IOException {
@@ -94,13 +88,13 @@ public interface IResourceHandle {
                 os.write(buf, 0, read);
             }
         }
+        
     }
 
     /**
      * Get the location of the resource.
      * <p>
      * Returns null for an embedded resource.
-     * 
      * @return the location of the resource.
      */
     @objid ("dbb373fa-e595-41bc-8a98-51897dbe96d7")

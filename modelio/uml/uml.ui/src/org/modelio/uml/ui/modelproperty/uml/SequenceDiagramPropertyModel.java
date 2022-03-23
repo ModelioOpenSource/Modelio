@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,17 +50,15 @@ public class SequenceDiagramPropertyModel extends AbstractPropertyModel<Sequence
     /**
      * Create a new <i>SequenceDiagram</i> data model from an
      * <i>SequenceDiagram</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("a3117bcf-8965-4fb1-b366-192a4a0e863a")
-    public SequenceDiagramPropertyModel(SequenceDiagram theEditedElement) {
+    public  SequenceDiagramPropertyModel(SequenceDiagram theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("15f06625-d49d-4ecb-89db-882f974866a5")
@@ -72,7 +69,6 @@ public class SequenceDiagramPropertyModel extends AbstractPropertyModel<Sequence
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("afcc47ba-bae9-4ca7-8846-798dc76aa9e6")
@@ -85,7 +81,6 @@ public class SequenceDiagramPropertyModel extends AbstractPropertyModel<Sequence
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -107,6 +102,7 @@ public class SequenceDiagramPropertyModel extends AbstractPropertyModel<Sequence
         default:
             return null;
         }
+        
     }
 
     /**
@@ -116,7 +112,6 @@ public class SequenceDiagramPropertyModel extends AbstractPropertyModel<Sequence
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -139,13 +134,13 @@ public class SequenceDiagramPropertyModel extends AbstractPropertyModel<Sequence
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -170,6 +165,7 @@ public class SequenceDiagramPropertyModel extends AbstractPropertyModel<Sequence
         default:
             return;
         }
+        
     }
 
 }

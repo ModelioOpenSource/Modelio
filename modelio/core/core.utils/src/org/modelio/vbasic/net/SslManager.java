@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.net;
 
 import java.io.BufferedInputStream;
@@ -40,6 +39,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.SSLEngine;
@@ -48,7 +48,6 @@ import javax.net.ssl.TrustManager;
 import javax.net.ssl.TrustManagerFactory;
 import javax.net.ssl.X509ExtendedTrustManager;
 import javax.net.ssl.X509TrustManager;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.vbasic.files.FileUtils;
 
 /**
@@ -88,7 +87,7 @@ public class SslManager {
      * Initialize server certificate truster.
      */
     @objid ("392a0a1d-cd7e-4320-bcef-f3318ee4ba31")
-    private SslManager() {
+    private  SslManager() {
         try {
             this.sslContext = SSLContext.getInstance("TLS");
             this.trustManager = new X509TrustManagerImplementation();
@@ -99,14 +98,14 @@ public class SslManager {
             // Should never happen
             throw new Error(e.getLocalizedMessage(), e);
         }
+        
     }
 
     /**
      * Add a trusted certificate.
-     * 
      * @param cert the certificate to trust
      * @param permanent <code>true</code> to trust it permanently, <code>false</code> to trust it until the JVM exits.
-     * @throws java.security.KeyStoreException if the certificate cannot be permanently stored.
+     * @throws KeyStoreException if the certificate cannot be permanently stored.
      */
     @objid ("d92ceb2a-52ff-4a3b-b730-a524c5b79fd7")
     public void addCertificate(X509Certificate cert, boolean permanent) throws KeyStoreException {
@@ -115,10 +114,9 @@ public class SslManager {
 
     /**
      * Set the file path where permanent trusted certificates are stored.
-     * 
      * @param trustStoreFile the trust store path.
      * @param trustStorePassword the trust store password
-     * @throws java.io.IOException in case of failure reading the file.
+     * @throws IOException in case of failure reading the file.
      * @since 4.0
      */
     @objid ("5a93acc9-25c2-4e24-bb9d-3bd92d9ebcd1")
@@ -140,7 +138,6 @@ public class SslManager {
      * Returns <i>false</i> if no trust fixer has been registered.
      * <p>
      * If the method returns true the caller may try the connection again.
-     * 
      * @param uri the URI whose connection failed
      * @param certChain the certificate chain whose validation failed
      * @param error the SSL connection error
@@ -152,6 +149,7 @@ public class SslManager {
             return this.untrustedServerFixer.fixUntrustedServer(uri, certChain, error);
         else
             return false;
+        
     }
 
     /**
@@ -160,7 +158,6 @@ public class SslManager {
      * Returns <i>false</i> if no trust fixer has been registered.
      * <p>
      * If the method returns <i>true</i> the caller may try the connection again.
-     * 
      * @param ex the SSL exception
      * @param uri the URI whose connection failed
      * @return <i>true</i> if connection can be tried again, <i>false</i> if it should be aborted.
@@ -186,7 +183,6 @@ public class SslManager {
 
     /**
      * Set the handler that can fix non trusted SSL server.
-     * 
      * @param sslTrustProblemFixer the trust fixer.
      */
     @objid ("cc10d7fc-4800-4903-a157-f4d78a8a397a")
@@ -198,7 +194,6 @@ public class SslManager {
      * Get the X509TrustManager configured by this manager.
      * <p>
      * This trust manager throws a {@link InvalidCertificateException} when a server certificate is not valid.
-     * 
      * @return the X509TrustManager.
      */
     @objid ("1241e008-340a-40a0-9c16-ffb82131f81a")
@@ -209,7 +204,6 @@ public class SslManager {
     /**
      * Look for an {@link InvalidCertificateException} exception if the exception,
      * its cause and suppressed exceptions graph and return it if found.
-     * 
      * @param e an exception
      * @return the found InvalidCertificateException or <i>null</i>
      */
@@ -235,9 +229,8 @@ public class SslManager {
 
     /**
      * Set the file path where permanent trusted certificates are stored.
-     * 
      * @param trustStoreFile the trust store path.
-     * @throws java.io.IOException in case of failure reading the file.
+     * @throws IOException in case of failure reading the file.
      * @deprecated since 4.0 Use {@link #setTrustStoreFile(Path, char[])} instead
      */
     @objid ("fb4c3459-cba6-476c-870f-02191677e1e0")
@@ -281,7 +274,7 @@ public class SslManager {
         private Path trustStoreFile;
 
         @objid ("ef0ea38c-b4c6-48ec-82c9-1cd782cec12d")
-        X509TrustManagerImplementation() throws KeyStoreException, NoSuchAlgorithmException {
+         X509TrustManagerImplementation() throws KeyStoreException, NoSuchAlgorithmException {
             // Get a TrustManagerFactory
             TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
             this.defTrustManagers  = new ArrayList<>();
@@ -304,13 +297,13 @@ public class SslManager {
             
             // Initialize the temporary accepted certificates.
             this.tempTrustStore= new HashSet<>();
+            
         }
 
         /**
          * Initialize and load the permanently accepted certificates store.
-         * 
          * @param aStoreFile the certificate store file path.
-         * @throws java.io.IOException in case of failure
+         * @throws IOException in case of failure
          */
         @objid ("56424e26-3f62-47b6-8a17-b38ab47d5829")
         void init(Path aStoreFile, char[] filePassword) throws IOException {
@@ -329,14 +322,14 @@ public class SslManager {
             } catch (NoSuchAlgorithmException | CertificateException | KeyStoreException e) {
                 throw new IOException(e.getLocalizedMessage(), e);
             }
+            
         }
 
         /**
          * Add a trusted certificate.
-         * 
          * @param cert the certificate to trust
          * @param permanent <code>true</code> to trust it permanently, <code>false</code> to trust it until the JVM exits.
-         * @throws java.security.KeyStoreException if the certificate cannot be permanently stored.
+         * @throws KeyStoreException if the certificate cannot be permanently stored.
          */
         @objid ("b8c7566f-f680-48fa-b08e-f4310119ee26")
         public void addCertificate(X509Certificate cert, boolean permanent) throws KeyStoreException {
@@ -351,6 +344,7 @@ public class SslManager {
             } else {
                 this.tempTrustStore.add(cert);
             }
+            
         }
 
         @objid ("4cd289de-6cd4-4848-a123-2e70d732053e")
@@ -361,8 +355,7 @@ public class SslManager {
 
         /**
          * Save the permanently accepted certificate store.
-         * 
-         * @throws java.security.KeyStoreException in case of failure.
+         * @throws KeyStoreException in case of failure.
          */
         @objid ("1ad7a2f9-d72f-4a3f-a7d0-b7e5edbd1bac")
         @SuppressWarnings("synthetic-access")
@@ -376,6 +369,7 @@ public class SslManager {
                     throw new KeyStoreException(e.getLocalizedMessage(),e);
                 }
             }
+            
         }
 
         @objid ("c7a9e6a0-971d-40f1-99f3-cae6a72a5c6f")
@@ -383,6 +377,7 @@ public class SslManager {
         public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
             for (X509TrustManager i : this.defTrustManagers )
                 i.checkClientTrusted(chain, authType);
+            
         }
 
         @objid ("46884ec8-ae76-4e5e-9ced-5d672428aeb1")
@@ -392,6 +387,7 @@ public class SslManager {
             for (X509TrustManager i : this.defTrustManagers )
                 if (i instanceof X509ExtendedTrustManager)
                     ((X509ExtendedTrustManager)i).checkClientTrusted(chain, authType, socket);
+            
         }
 
         @objid ("65a30a5d-26b8-44fe-99f5-0cf8eaa655fa")
@@ -401,6 +397,7 @@ public class SslManager {
             for (X509TrustManager i : this.defTrustManagers )
                 if (i instanceof X509ExtendedTrustManager)
                     ((X509ExtendedTrustManager)i).checkClientTrusted(chain, authType, engine);
+            
         }
 
         @objid ("ac10c317-ce0f-4ef0-a2b1-8fbfd6b6d4e8")
@@ -416,6 +413,7 @@ public class SslManager {
             } catch (CertificateException e) {
                 throw new InvalidCertificateException(chain, e);
             }
+            
         }
 
         @objid ("0b6f1dee-5271-43fa-9433-f6827b09c75b")
@@ -432,6 +430,7 @@ public class SslManager {
             } catch (CertificateException e) {
                 throw new InvalidCertificateException(chain, e);
             }
+            
         }
 
         @objid ("38386588-a29a-49a2-a98c-ed2c9796b991")
@@ -448,6 +447,7 @@ public class SslManager {
             } catch (CertificateException e) {
                 throw new InvalidCertificateException(chain, e);
             }
+            
         }
 
         @objid ("611829a0-7f64-43c7-94d3-13dcb5c2fc6c")

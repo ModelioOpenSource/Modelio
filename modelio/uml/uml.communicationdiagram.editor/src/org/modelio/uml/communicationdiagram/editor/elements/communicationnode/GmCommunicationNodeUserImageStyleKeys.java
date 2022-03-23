@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.communicationdiagram.editor.elements.communicationnode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -53,7 +52,7 @@ public class GmCommunicationNodeUserImageStyleKeys extends CommunicationAbstract
      */
     @objid ("7bf630a0-09fa-4539-baad-dcc50879541f")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("COMMUNICATIONNODE_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+                MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Display tagged values.

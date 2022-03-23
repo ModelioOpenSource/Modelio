@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.label.modelelement;
 
 import java.util.ArrayList;
@@ -33,8 +32,8 @@ import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.diagram.styles.core.ProxyStyle;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.metamodel.uml.infrastructure.TaggedValue;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -52,12 +51,11 @@ public class GmDefaultModelElementLabel extends GmModelElementLabel {
 
     /**
      * Create an header label
-     * 
      * @param diagram the diagram.
      * @param relatedRef reference to the diagram.
      */
     @objid ("fd10b176-7aaa-49b0-b8d0-dc2811851e6d")
-    public GmDefaultModelElementLabel(IGmDiagram diagram, MRef relatedRef) {
+    public  GmDefaultModelElementLabel(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -65,7 +63,7 @@ public class GmDefaultModelElementLabel extends GmModelElementLabel {
      * For deserialization only.
      */
     @objid ("1fd4100c-e727-4934-ac55-b0e89edd462b")
-    public GmDefaultModelElementLabel() {
+    public  GmDefaultModelElementLabel() {
         // serialization
     }
 
@@ -109,6 +107,7 @@ public class GmDefaultModelElementLabel extends GmModelElementLabel {
         } else {
             return null;
         }
+        
     }
 
     @objid ("5b2939ae-f6ab-43e8-b3c6-e8944e570f86")
@@ -119,6 +118,7 @@ public class GmDefaultModelElementLabel extends GmModelElementLabel {
         } else {
             return getParent().getStyleKeys();
         }
+        
     }
 
     /**
@@ -148,6 +148,7 @@ public class GmDefaultModelElementLabel extends GmModelElementLabel {
             read_0(in);
             break;
         }
+        
     }
 
     @objid ("a94efea3-de13-44a4-a3b4-9dcb8f505b5d")
@@ -160,6 +161,7 @@ public class GmDefaultModelElementLabel extends GmModelElementLabel {
                 getPersistedStyle().setCascadedStyle(parentLink.getPersistedStyle());
             }
         }
+        
     }
 
     @objid ("3ffd9da3-56a7-4a6d-81e8-5bee20ecde62")
@@ -169,6 +171,7 @@ public class GmDefaultModelElementLabel extends GmModelElementLabel {
         
         // Write version of this Gm if different of 0.
         writeMinorVersion(out, "GmDefaultFlatHeader.", Integer.valueOf(MINOR_VERSION));
+        
     }
 
     /**
@@ -196,6 +199,7 @@ public class GmDefaultModelElementLabel extends GmModelElementLabel {
                 getPersistedStyle().setCascadedStyle(parent.getPersistedStyle());
             }
         }
+        
     }
 
     @objid ("1a76b3d1-9fc5-4c74-916e-01b421e15ad5")

@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
@@ -42,7 +42,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("5a66d517-b555-404b-b7f5-fbb06071a8be")
 public class ElementRealizationSmClass extends AbstractionSmClass {
     @objid ("2c3a8f65-9a7b-4328-9cfe-c5c6910fcb3a")
-    public ElementRealizationSmClass(ISmMetamodelFragment origin) {
+    public  ElementRealizationSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +50,7 @@ public class ElementRealizationSmClass extends AbstractionSmClass {
     @Override
     public String getName() {
         return "ElementRealization";
+        
     }
 
     @objid ("c33d7668-1f43-4e32-8a11-ea93e8749ece")
@@ -62,18 +63,21 @@ public class ElementRealizationSmClass extends AbstractionSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ElementRealization.class;
+        
     }
 
     @objid ("1fbec62f-f0ec-44e5-bdcb-88ac7470a3a4")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("86505014-2044-4344-8343-cd263ba63c4c")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("afc07404-a878-47f0-b971-27167ed38cde")
@@ -86,12 +90,14 @@ public class ElementRealizationSmClass extends AbstractionSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("cc39d3c3-2d2e-42a5-a6a7-ff82fa7ed717")
     @Override
     public boolean isLinkMetaclass() {
         return true;
+        
     }
 
     @objid ("c5da83fd-5c94-4f55-bbd5-3050c0ee1fd9")
@@ -100,7 +106,7 @@ public class ElementRealizationSmClass extends AbstractionSmClass {
         private ElementRealizationSmClass smClass;
 
         @objid ("7fd45e4b-b3c6-4e23-910c-490daa9134c4")
-        public ElementRealizationObjectFactory(ElementRealizationSmClass smClass) {
+        public  ElementRealizationObjectFactory(ElementRealizationSmClass smClass) {
             this.smClass = smClass;
         }
 

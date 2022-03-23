@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -49,22 +48,20 @@ public class BpmnExclusiveGatewayPropertyModel extends AbstractPropertyModel<Bpm
      */
     @objid ("310b449f-9901-46ff-92aa-469984429fbc")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name",
-			"GatewayDirection" };
+    			"GatewayDirection" };
 
     /**
      * Create a new <i>BpmnExclusiveGateway</i> data model from an
      * <i>BpmnExclusiveGateway</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("b590af0d-dc96-4243-b359-2219ccadc612")
-    public BpmnExclusiveGatewayPropertyModel(BpmnExclusiveGateway theEditedElement) {
+    public  BpmnExclusiveGatewayPropertyModel(BpmnExclusiveGateway theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("736ec651-95bf-470f-828d-b62ec9cc5a24")
@@ -75,7 +72,6 @@ public class BpmnExclusiveGatewayPropertyModel extends AbstractPropertyModel<Bpm
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("455e7d47-4492-487a-907e-8a205e010ec5")
@@ -88,7 +84,6 @@ public class BpmnExclusiveGatewayPropertyModel extends AbstractPropertyModel<Bpm
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -112,6 +107,7 @@ public class BpmnExclusiveGatewayPropertyModel extends AbstractPropertyModel<Bpm
         default:
             return null;
         }
+        
     }
 
     /**
@@ -121,7 +117,6 @@ public class BpmnExclusiveGatewayPropertyModel extends AbstractPropertyModel<Bpm
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -146,13 +141,13 @@ public class BpmnExclusiveGatewayPropertyModel extends AbstractPropertyModel<Bpm
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -180,6 +175,7 @@ public class BpmnExclusiveGatewayPropertyModel extends AbstractPropertyModel<Bpm
         default:
             return;
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.module;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -59,7 +58,6 @@ public interface IMetamodelFragmentHandle {
      * <p>
      * This class must implement {@link MMetamodelFragment} and should inherit
      * from {@link AbstractMetamodelFragment}.
-     * 
      * @return the main class name.
      */
     @objid ("7d8e8558-2f1f-46b3-8f1a-3388e6114d6c")

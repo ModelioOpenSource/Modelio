@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.popup.handlers;
 
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.e4.core.di.annotations.CanExecute;
@@ -71,7 +70,9 @@ public abstract class AbstractCreateHandler {
 
     @objid ("6686496c-33f7-11e2-95fe-001ec947c8cc")
     @Execute
-    public Object execute(@Named ("metaclass") String metaclass, @Optional @Named ("dependency") String dependency, @Optional @Named ("stereotype") String stereotype, IProjectService projectService, @Named (IServiceConstants.ACTIVE_SELECTION) ISelection selection) {
+    public Object execute(@Named ("metaclass") String metaclass, @Optional
+    @Named ("dependency") String dependency, @Optional
+    @Named ("stereotype") String stereotype, IProjectService projectService, @Named (IServiceConstants.ACTIVE_SELECTION) ISelection selection) {
         // Get the value of the parameters:
         this.metaclass = metaclass;
         this.dependency = dependency;
@@ -123,17 +124,15 @@ public abstract class AbstractCreateHandler {
      * Note that although the modelling session is passed as parameter, a transaction has already been opened and will be committed after this method returns.
      * </p>
      * @param modelingSession the session this handler must be executed in.
-     * 
      * @param selectedElement the element currently selected in the UML explorer view.
      * @return the created element (the main one if several are created at once) or <code>null</code> if nothing was created. This returned element will be passed to the postCommitExecute method.
-     * @throws org.eclipse.core.commands.ExecutionException if either the request metaclass, the requested dependency or the requested stereotype are invalid or cannot be found.
+     * @throws ExecutionException if either the request metaclass, the requested dependency or the requested stereotype are invalid or cannot be found.
      */
     @objid ("66864978-33f7-11e2-95fe-001ec947c8cc")
     protected abstract MObject create(MObject selectedElement) throws ExecutionException;
 
     /**
      * Get the first currently selected element .
-     * 
      * @return the currently selected element .
      */
     @objid ("66864986-33f7-11e2-95fe-001ec947c8cc")
@@ -149,7 +148,6 @@ public abstract class AbstractCreateHandler {
 
     /**
      * Subclasses should override this method to provide additional behaviours that should be only executed once the whole creation transaction has been safely committed. For example, they can ask for the opening of a diagram editor.
-     * 
      * @param element the main created element.
      */
     @objid ("6686498b-33f7-11e2-95fe-001ec947c8cc")

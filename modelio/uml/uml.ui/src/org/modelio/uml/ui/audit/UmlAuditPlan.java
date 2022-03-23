@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.audit;
 
 import java.util.List;
@@ -30,7 +29,7 @@ import org.modelio.uml.ui.plugin.UmlUi;
 @objid ("ac3a96b3-8a88-4575-a851-85bd5528ab38")
 public class UmlAuditPlan extends AbstractAuditExecutionPlan {
     @objid ("6c507e0c-aa84-4c11-8a74-88855ead223f")
-    public UmlAuditPlan(List<AuditCategory> rootCategories) {
+    public  UmlAuditPlan(List<AuditCategory> rootCategories) {
         super(rootCategories);
     }
 
@@ -52,6 +51,7 @@ public class UmlAuditPlan extends AbstractAuditExecutionPlan {
         } catch (IllegalAccessException e) {
             UmlUi.LOG.error(e);
         }
+        
     }
 
 }

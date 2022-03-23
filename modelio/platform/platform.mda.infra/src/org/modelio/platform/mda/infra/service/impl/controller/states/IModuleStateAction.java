@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.controller.states;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,8 +29,7 @@ import org.modelio.api.module.lifecycle.ModuleException;
 public interface IModuleStateAction {
     /**
      * Execute the action
-     * 
-     * @throws org.modelio.api.module.lifecycle.ModuleException to refuse state change
+     * @throws ModuleException to refuse state change
      */
     @objid ("dd139934-bc36-409d-b528-ce8c9cce52e6")
     void execute() throws ModuleException;

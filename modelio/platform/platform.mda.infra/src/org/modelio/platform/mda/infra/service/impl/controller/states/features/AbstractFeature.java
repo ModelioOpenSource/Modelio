@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.controller.states.features;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,7 +35,7 @@ public abstract class AbstractFeature implements IModuleFeature {
      * @param module the module
      */
     @objid ("2595e8ef-2e83-48b8-bc8d-b59c39db7e8e")
-    public AbstractFeature(IRTModuleAccess module) {
+    public  AbstractFeature(IRTModuleAccess module) {
         this.module = module;
     }
 

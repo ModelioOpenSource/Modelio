@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.infrastructure;
 
 import java.util.ArrayList;
@@ -98,14 +97,14 @@ public class R2850 extends AbstractInfrastructureRule {
      * Default constructor for R2850
      */
     @objid ("52accdba-74fb-4f62-8567-a4ccaa143a9d")
-    public R2850() {
+    public  R2850() {
         this.checkerInstance = new CheckR2850(this);
     }
 
     @objid ("3057bdae-bf56-4f12-932d-e0438dd8ccbf")
     private static class CheckR2850 extends AbstractControl {
         @objid ("d87174c7-ebcf-4a33-9ee1-d63d9b19634f")
-        public CheckR2850(IRule rule) {
+        public  CheckR2850(IRule rule) {
             super(rule);
         }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,7 @@ public class EExecutionOccurrenceSpecification extends EOccurrenceSpecification 
     }
 
     @objid ("c305b130-b001-473d-97f6-844ffc7af0b0")
-    public EExecutionOccurrenceSpecification(org.eclipse.uml2.uml.ExecutionOccurrenceSpecification element) {
+    public  EExecutionOccurrenceSpecification(org.eclipse.uml2.uml.ExecutionOccurrenceSpecification element) {
         super(element);
     }
 

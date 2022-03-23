@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.rootElements;
 
 import java.util.ArrayList;
@@ -31,9 +31,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.bpmn.rootElements.BpmnArtifact;
 import org.modelio.metamodel.bpmn.rootElements.BpmnFlowElement;
 import org.modelio.metamodel.bpmn.rootElements.BpmnGroup;
-import org.modelio.metamodel.impl.bpmn.rootElements.BpmnArtifactSmClass;
-import org.modelio.metamodel.impl.bpmn.rootElements.BpmnFlowElementSmClass;
-import org.modelio.metamodel.impl.bpmn.rootElements.BpmnGroupData;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -55,7 +52,7 @@ public class BpmnGroupSmClass extends BpmnArtifactSmClass {
     private SmDependency categorizedDep;
 
     @objid ("1c050496-fd2d-4744-9b8e-e5ddd1601a4d")
-    public BpmnGroupSmClass(ISmMetamodelFragment origin) {
+    public  BpmnGroupSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -63,6 +60,7 @@ public class BpmnGroupSmClass extends BpmnArtifactSmClass {
     @Override
     public String getName() {
         return "BpmnGroup";
+        
     }
 
     @objid ("239bee45-504c-4e2f-839a-4826b3f3f583")
@@ -75,18 +73,21 @@ public class BpmnGroupSmClass extends BpmnArtifactSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnGroup.class;
+        
     }
 
     @objid ("4e6097ed-c6c3-4cbf-b83e-8c9e4d21c4f6")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("24e02292-e089-4a2a-893f-6462a06a418d")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("9b1c6dbc-45bc-4217-82f8-864c66f37853")
@@ -106,6 +107,8 @@ public class BpmnGroupSmClass extends BpmnArtifactSmClass {
         this.categorizedDep = new CategorizedSmDependency();
         this.categorizedDep.init("Categorized", this, metamodel.getMClass(BpmnFlowElement.MQNAME), 0, -1 , SmDirective.SMCDPARTOF);
         registerDependency(this.categorizedDep);
+        
+        
     }
 
     @objid ("21c2a133-32bb-4c3e-9003-2c8edbb5a4ae")
@@ -130,7 +133,7 @@ public class BpmnGroupSmClass extends BpmnArtifactSmClass {
         private BpmnGroupSmClass smClass;
 
         @objid ("35dd93c1-7f80-46e4-9caf-47ca2e8deaba")
-        public BpmnGroupObjectFactory(BpmnGroupSmClass smClass) {
+        public  BpmnGroupObjectFactory(BpmnGroupSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -177,6 +180,7 @@ public class BpmnGroupSmClass extends BpmnArtifactSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnGroupData) data).mCategorized = values;
+            
         }
 
         @objid ("d039d3d5-690a-4e1c-aa08-1154ddc65d97")
@@ -186,6 +190,7 @@ public class BpmnGroupSmClass extends BpmnArtifactSmClass {
             	this.symetricDep = ((BpmnFlowElementSmClass)this.getTarget()).getGroupsDep();
             }
             return this.symetricDep;
+            
         }
 
     }

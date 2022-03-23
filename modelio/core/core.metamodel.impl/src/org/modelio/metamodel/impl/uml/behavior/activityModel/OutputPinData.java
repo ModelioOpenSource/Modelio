@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,10 +31,10 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("003b23ec-c4bf-1fd8-97fe-001ec947cd2a")
 public class OutputPinData extends PinData {
     @objid ("03a711fd-a067-431a-a5ad-9fc7e8bd4769")
-     SmObjectImpl mOutputing;
+    SmObjectImpl mOutputing;
 
     @objid ("eb0fbecb-15c8-42f4-ada3-ef67cf0608b5")
-    public OutputPinData(OutputPinSmClass smClass) {
+    public  OutputPinData(OutputPinSmClass smClass) {
         super(smClass);
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmndataobject;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,12 +49,11 @@ public class GmBpmnDataLabel extends GmDefaultModelElementLabel {
 
     /**
      * Create a model element label
-     * 
      * @param diagram the diagram.
      * @param relatedRef a reference to the element this GmModel is related to.
      */
     @objid ("60d45301-55b6-11e2-877f-002564c97630")
-    public GmBpmnDataLabel(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmBpmnDataLabel(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -63,7 +61,7 @@ public class GmBpmnDataLabel extends GmDefaultModelElementLabel {
      * For deserialization only.
      */
     @objid ("60d5d963-55b6-11e2-877f-002564c97630")
-    public GmBpmnDataLabel() {
+    public  GmBpmnDataLabel() {
         // serialization
     }
 
@@ -90,6 +88,7 @@ public class GmBpmnDataLabel extends GmDefaultModelElementLabel {
             break;
         }
         }
+        
     }
 
     @objid ("60d76008-55b6-11e2-877f-002564c97630")
@@ -99,6 +98,7 @@ public class GmBpmnDataLabel extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmBpmnDataLabel.", GmBpmnDataLabel.MINOR_VERSION);
+        
     }
 
     @objid ("60d5d98f-55b6-11e2-877f-002564c97630")
@@ -171,6 +171,7 @@ public class GmBpmnDataLabel extends GmDefaultModelElementLabel {
         } else {
             return null;
         }
+        
     }
 
 }

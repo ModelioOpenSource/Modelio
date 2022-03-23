@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.anchors;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,11 +35,10 @@ public class GmSourceSatelliteAnchor extends GmAbstractLinkAnchor {
 
     /**
      * Creates the anchor
-     * 
      * @param destinationLocation distance from the connection source.
      */
     @objid ("7fe2c14f-1dec-11e2-8cad-001ec947c8cc")
-    public GmSourceSatelliteAnchor(final Dimension destinationLocation) {
+    public  GmSourceSatelliteAnchor(final Dimension destinationLocation) {
         super(destinationLocation);
     }
 
@@ -48,7 +46,7 @@ public class GmSourceSatelliteAnchor extends GmAbstractLinkAnchor {
      * Constructor for deserialization only.
      */
     @objid ("7fe2c156-1dec-11e2-8cad-001ec947c8cc")
-    public GmSourceSatelliteAnchor() {
+    public  GmSourceSatelliteAnchor() {
         super();
     }
 

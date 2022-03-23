@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.message;
 
 import java.util.ArrayList;
@@ -83,14 +82,14 @@ public class MessageDragTracker extends SelectEditPartTracker {
 
     /**
      * Constructs a new ConnectionEndpointTracker for the given ConnectionEditPart.
-     * 
      * @param cep the ConnectionEditPart
      */
     @objid ("d95c0945-55b6-11e2-877f-002564c97630")
-    public MessageDragTracker(final ConnectionEditPart cep) {
+    public  MessageDragTracker(final ConnectionEditPart cep) {
         super(cep);
         setConnectionEditPart(cep);
         setDisabledCursor(Cursors.NO);
+        
     }
 
     /**
@@ -103,6 +102,7 @@ public class MessageDragTracker extends SelectEditPartTracker {
         eraseSourceFeedback();
         eraseTargetFeedback();
         executeCurrentCommand();
+        
     }
 
     /**
@@ -115,11 +115,11 @@ public class MessageDragTracker extends SelectEditPartTracker {
         eraseSourceFeedback();
         getCurrentViewer().setFocus(null);
         super.deactivate();
+        
     }
 
     /**
      * Sets the command name.
-     * 
      * @param newCommandName the new command name
      */
     @objid ("d95c0952-55b6-11e2-877f-002564c97630")
@@ -129,7 +129,6 @@ public class MessageDragTracker extends SelectEditPartTracker {
 
     /**
      * Sets the connection edit part that is being reconnected.
-     * 
      * @param cep the connection edit part
      */
     @objid ("d95c0957-55b6-11e2-877f-002564c97630")
@@ -139,7 +138,6 @@ public class MessageDragTracker extends SelectEditPartTracker {
 
     /**
      * Returns a custom "plug" cursor if this tool is in the initial, drag or accessible drag state. Otherwise defers to <code>super</code>.
-     * 
      * @return the cursor
      */
     @objid ("d95c0962-55b6-11e2-877f-002564c97630")
@@ -166,7 +164,6 @@ public class MessageDragTracker extends SelectEditPartTracker {
 
     /**
      * Creates the target request, a {@link ChangeBoundsRequest}.
-     * 
      * @return the target request
      */
     @objid ("d95c0970-55b6-11e2-877f-002564c97630")
@@ -190,6 +187,7 @@ public class MessageDragTracker extends SelectEditPartTracker {
             EditPart editPart = (EditPart) iter.next();
             editPart.eraseSourceFeedback(getTargetRequest());
         }
+        
     }
 
     /**
@@ -225,7 +223,6 @@ public class MessageDragTracker extends SelectEditPartTracker {
 
     /**
      * Returns the ConnectionEditPart's figure.
-     * 
      * @return the connection
      */
     @objid ("d95d8fea-55b6-11e2-877f-002564c97630")
@@ -235,7 +232,6 @@ public class MessageDragTracker extends SelectEditPartTracker {
 
     /**
      * Returns the ConnectionEditPart.
-     * 
      * @return the ConnectionEditPart
      */
     @objid ("d95d8fef-55b6-11e2-877f-002564c97630")
@@ -276,7 +272,6 @@ public class MessageDragTracker extends SelectEditPartTracker {
 
     /**
      * Updates the request and the mouse target, asks to show feedback, and gets the current command.
-     * 
      * @return <code>true</code>
      */
     @objid ("d95d9008-55b6-11e2-877f-002564c97630")
@@ -383,6 +378,7 @@ public class MessageDragTracker extends SelectEditPartTracker {
         // sourceRectangle.translate(delta);
         // if (compoundSrcRect != null)
         // compoundSrcRect.translate(delta);
+        
     }
 
     @objid ("d95f1688-55b6-11e2-877f-002564c97630")
@@ -396,6 +392,7 @@ public class MessageDragTracker extends SelectEditPartTracker {
             this.sourceRelativeStartPoint = new PrecisionPoint(getStartLocation());
             figure.translateToRelative(this.sourceRelativeStartPoint);
         }
+        
     }
 
     /**
@@ -411,6 +408,7 @@ public class MessageDragTracker extends SelectEditPartTracker {
             editPart.showSourceFeedback(getTargetRequest());
         }
         setFlag(FLAG_SOURCE_FEEBBACK, true);
+        
     }
 
     /**
@@ -464,6 +462,7 @@ public class MessageDragTracker extends SelectEditPartTracker {
         
         request.setLocation(getLocation());
         request.setType(getCommandName());
+        
     }
 
     @objid ("7752f87d-2f24-4f88-b4ec-fc87fd1e67d9")

@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,16 +32,16 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("00006a72-c4bf-1fd8-97fe-001ec947cd2a")
 public class AttributeLinkData extends UmlModelElementData {
     @objid ("0ab3f83c-321b-441c-9084-4084f289055a")
-     Object mValue = "";
+    Object mValue = "";
 
     @objid ("ae35b588-1ef7-407a-9b8a-fcf705f1af54")
-     SmObjectImpl mAttributed;
+    SmObjectImpl mAttributed;
 
     @objid ("344d84b1-32c0-42c4-a7a1-94ad267f09be")
-     SmObjectImpl mBase;
+    SmObjectImpl mBase;
 
     @objid ("3995aef0-297c-49f3-8d83-4325aa9964dc")
-    public AttributeLinkData(AttributeLinkSmClass smClass) {
+    public  AttributeLinkData(AttributeLinkSmClass smClass) {
         super(smClass);
     }
 

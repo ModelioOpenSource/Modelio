@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.interactionModel;
 
 import java.util.List;
@@ -33,19 +33,19 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("0047676a-c4bf-1fd8-97fe-001ec947cd2a")
 public abstract class InteractionFragmentData extends UmlModelElementData {
     @objid ("bbfab4d4-43ed-4bad-9fda-f65e1208ca9b")
-     Object mLineNumber = -1;
+    Object mLineNumber = -1;
 
     @objid ("97cdedf7-f704-4f6c-ab6d-55221db6e4da")
-     SmObjectImpl mEnclosingOperand;
+    SmObjectImpl mEnclosingOperand;
 
     @objid ("8fb1b7df-f632-4172-918e-89ac603cb630")
-     SmObjectImpl mEnclosingInteraction;
+    SmObjectImpl mEnclosingInteraction;
 
     @objid ("f7fa7641-7031-499b-be50-6785e190d710")
-     List<SmObjectImpl> mCovered = null;
+    List<SmObjectImpl> mCovered = null;
 
     @objid ("f372e125-190b-48ff-9c1a-f3ee4b2d2eae")
-    public InteractionFragmentData(InteractionFragmentSmClass smClass) {
+    public  InteractionFragmentData(InteractionFragmentSmClass smClass) {
         super(smClass);
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.policies;
 
 import java.util.Map;
@@ -98,7 +97,6 @@ public class DeferringCreateNodeOnLinkEditPolicy extends LayoutEditPolicy {
      * Looks for and return the first {@link GmCompositeNode} extension on the link.
      * <p>
      * Subclasses may override this method.
-     * 
      * @param gmLink The model link
      * @param location The mouse location
      * @return The composite node where the label must be added.
@@ -184,6 +182,7 @@ public class DeferringCreateNodeOnLinkEditPolicy extends LayoutEditPolicy {
         if (policy != null) {
             child.installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, policy);
         }
+        
     }
 
     /**
@@ -201,7 +200,7 @@ public class DeferringCreateNodeOnLinkEditPolicy extends LayoutEditPolicy {
     @objid ("80ca0548-1dec-11e2-8cad-001ec947c8cc")
     private class DeferredCreateCommand extends Command {
         @objid ("80ca054f-1dec-11e2-8cad-001ec947c8cc")
-        private Map<?,?> editPartRegistry;
+        private Map<?, ?> editPartRegistry;
 
         @objid ("80ca054e-1dec-11e2-8cad-001ec947c8cc")
         private GmLink gmLink;
@@ -211,15 +210,15 @@ public class DeferringCreateNodeOnLinkEditPolicy extends LayoutEditPolicy {
 
         /**
          * Create a deferred command.
-         * 
          * @param req The creation request.
          * @param sender The edit part sending the request
          */
         @objid ("80ca0553-1dec-11e2-8cad-001ec947c8cc")
-        public DeferredCreateCommand(final Request req, final EditPart sender) {
+        public  DeferredCreateCommand(final Request req, final EditPart sender) {
             this.req = req;
             this.gmLink = (GmLink) sender.getModel();
             this.editPartRegistry = sender.getViewer().getEditPartRegistry();
+            
         }
 
         @objid ("80ca055e-1dec-11e2-8cad-001ec947c8cc")
@@ -242,6 +241,7 @@ public class DeferringCreateNodeOnLinkEditPolicy extends LayoutEditPolicy {
             if (cmd != null && cmd.canExecute()) {
                 cmd.execute();
             }
+            
         }
 
         @objid ("80ca0566-1dec-11e2-8cad-001ec947c8cc")
@@ -267,6 +267,7 @@ public class DeferringCreateNodeOnLinkEditPolicy extends LayoutEditPolicy {
             } else {
                 return null;
             }
+            
         }
 
         /**
@@ -291,7 +292,7 @@ public class DeferringCreateNodeOnLinkEditPolicy extends LayoutEditPolicy {
     @objid ("80ca0572-1dec-11e2-8cad-001ec947c8cc")
     private class DeferredChangeBoundsCommand extends Command {
         @objid ("80ca057a-1dec-11e2-8cad-001ec947c8cc")
-        private Map<?,?> editPartRegistry;
+        private Map<?, ?> editPartRegistry;
 
         @objid ("80ca0579-1dec-11e2-8cad-001ec947c8cc")
         private GmLink gmLink;
@@ -301,15 +302,15 @@ public class DeferringCreateNodeOnLinkEditPolicy extends LayoutEditPolicy {
 
         /**
          * Create a deferred command.
-         * 
          * @param req The creation request.
          * @param sender The edit part sending the request
          */
         @objid ("80cc67a4-1dec-11e2-8cad-001ec947c8cc")
-        public DeferredChangeBoundsCommand(final ChangeBoundsRequest req, final EditPart sender) {
+        public  DeferredChangeBoundsCommand(final ChangeBoundsRequest req, final EditPart sender) {
             this.req = req;
             this.gmLink = (GmLink) sender.getModel();
             this.editPartRegistry = sender.getViewer().getEditPartRegistry();
+            
         }
 
         @objid ("80cc67af-1dec-11e2-8cad-001ec947c8cc")
@@ -331,12 +332,12 @@ public class DeferringCreateNodeOnLinkEditPolicy extends LayoutEditPolicy {
             if (p != null) {
                 p.getTargetEditPart(this.req).getCommand(this.req).execute();
             }
+            
         }
 
         /**
          * Get the node model where all the request must be handled or <tt>null</tt> if the request cannot be executed in a single
          * node (the selection is not homogeneous).
-         * 
          * @return the node model where the request must be handled.
          */
         @objid ("80cc67b7-1dec-11e2-8cad-001ec947c8cc")

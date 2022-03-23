@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.apply.gui;
 
 import java.util.HashMap;
@@ -50,17 +49,17 @@ public class ApplyPatternData {
     private IModelioPickingService pickingService;
 
     @objid ("97c45619-1005-42e8-9c3f-6ae9e1502595")
-    public ApplyPatternData(RuntimePattern pattern, ModelElement selectedElement, ICoreSession session, IModelioPickingService pickingService) {
+    public  ApplyPatternData(RuntimePattern pattern, ModelElement selectedElement, ICoreSession session, IModelioPickingService pickingService) {
         this.pattern = pattern;
         this.session = session;
         this.pickingService = pickingService;
         
         this.parameterValues = getInitialParameterValues(pattern, selectedElement);
+        
     }
 
     /**
      * Get initial parameter values from a pattern.
-     * 
      * @param selectedElement currently selected element, used as first root.
      */
     @objid ("39d63261-68dd-42c0-b6f5-03a85ef51549")

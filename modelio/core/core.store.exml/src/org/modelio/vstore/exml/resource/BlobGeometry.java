@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.resource;
 
 import java.io.File;
@@ -33,7 +32,6 @@ import org.modelio.vbasic.files.FileUtils;
 public class BlobGeometry {
     /**
      * Compute the path of a blob file.
-     * 
      * @param blobKey the blob key
      * @return the blob file path relative to the repository path.
      */
@@ -51,7 +49,6 @@ public class BlobGeometry {
 
     /**
      * Decode the blob key from a blob file path.
-     * 
      * @param file a blob file path.
      * @return the blob key.
      */
@@ -63,7 +60,6 @@ public class BlobGeometry {
 
     /**
      * Decode the blob key from a blob file path.
-     * 
      * @param file a blob file path.
      * @return the blob key.
      */

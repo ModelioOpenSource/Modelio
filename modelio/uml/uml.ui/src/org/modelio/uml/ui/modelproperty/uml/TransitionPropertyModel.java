@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.util.Arrays;
@@ -53,21 +52,19 @@ public class TransitionPropertyModel extends AbstractPropertyModel<Transition> {
      */
     @objid ("724c2fbc-661a-4a9e-9dec-e00a30da65e3")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name",
-			"ReceivedEvents", "Guard", "Effect", "SentEvents", "Post" };
+    			"ReceivedEvents", "Guard", "Effect", "SentEvents", "Post" };
 
     /**
      * Create a new <i>Transition</i> data model from an <i>Transition</i>.
-     * 
      * @param theEditedElement the transition to build a model for.
      */
     @objid ("a8c9363e-40a1-474d-b716-3e1dba2e850d")
-    public TransitionPropertyModel(Transition theEditedElement) {
+    public  TransitionPropertyModel(Transition theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("90ea10fe-26e4-415a-84dc-d8f3e05a6c0d")
@@ -78,7 +75,6 @@ public class TransitionPropertyModel extends AbstractPropertyModel<Transition> {
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("6db1275e-ae78-448c-8255-111013d10b0d")
@@ -91,7 +87,6 @@ public class TransitionPropertyModel extends AbstractPropertyModel<Transition> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -123,6 +118,7 @@ public class TransitionPropertyModel extends AbstractPropertyModel<Transition> {
         default:
             return null;
         }
+        
     }
 
     /**
@@ -132,7 +128,6 @@ public class TransitionPropertyModel extends AbstractPropertyModel<Transition> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -172,13 +167,13 @@ public class TransitionPropertyModel extends AbstractPropertyModel<Transition> {
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -218,6 +213,7 @@ public class TransitionPropertyModel extends AbstractPropertyModel<Transition> {
         default:
             return;
         }
+        
     }
 
     /**
@@ -232,7 +228,6 @@ public class TransitionPropertyModel extends AbstractPropertyModel<Transition> {
     protected static class TransitionEffectType {
         /**
          * Get the effect of a transition
-         * 
          * @param t a Transition
          * @return a String, an Operation or a Behavior
          */
@@ -254,7 +249,6 @@ public class TransitionPropertyModel extends AbstractPropertyModel<Transition> {
 
         /**
          * Set the effect of a Transition
-         * 
          * @param t a Transition
          * @param value a String, an Operation or a Behavior
          */
@@ -298,6 +292,7 @@ public class TransitionPropertyModel extends AbstractPropertyModel<Transition> {
                             + value.getClass().getCanonicalName());
                 }
             }
+            
         }
 
     }
@@ -314,7 +309,6 @@ public class TransitionPropertyModel extends AbstractPropertyModel<Transition> {
     protected static class TransitionReceivedType {
         /**
          * Get the trigger of a transition
-         * 
          * @param t a Transition
          * @return a String, or an Event
          */
@@ -331,7 +325,6 @@ public class TransitionPropertyModel extends AbstractPropertyModel<Transition> {
 
         /**
          * Set the trigger of a Transition
-         * 
          * @param t a Transition
          * @param value a String, or an Event
          */
@@ -365,6 +358,7 @@ public class TransitionPropertyModel extends AbstractPropertyModel<Transition> {
                             "value must be a String or a Event but not a " + value.getClass().getCanonicalName());
                 }
             }
+            
         }
 
     }
@@ -381,7 +375,6 @@ public class TransitionPropertyModel extends AbstractPropertyModel<Transition> {
     protected static class TransitionSentType {
         /**
          * Get the sent signal of a transition
-         * 
          * @param t a Transition
          * @return a String, or a Signal
          */
@@ -398,7 +391,6 @@ public class TransitionPropertyModel extends AbstractPropertyModel<Transition> {
 
         /**
          * Set the signal sent from a Transition
-         * 
          * @param t a Transition
          * @param value a String or a Signal
          */
@@ -432,6 +424,7 @@ public class TransitionPropertyModel extends AbstractPropertyModel<Transition> {
                             "value must be a String or a Signal but not a " + value.getClass().getCanonicalName());
                 }
             }
+            
         }
 
     }

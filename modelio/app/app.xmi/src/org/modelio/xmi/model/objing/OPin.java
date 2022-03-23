@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,7 +28,7 @@ import org.modelio.xmi.util.ObjingEAnnotation;
 @objid ("b3b180a8-f097-490e-a25f-ea48843fe394")
 public class OPin extends OObjectNode {
     @objid ("498b2710-e366-480f-abd3-721a19bab471")
-    public OPin(final Pin element) {
+    public  OPin(final Pin element) {
         super(element);
     }
 
@@ -59,6 +58,7 @@ public class OPin extends OObjectNode {
             if (GenerationProperties.getInstance().isRoundtripEnabled())
                 setExpansionEAnnotation((org.eclipse.uml2.uml.Pin) ecoreElt);
         }
+        
     }
 
     @objid ("348c1032-96e7-49e3-80ce-af0f355828df")

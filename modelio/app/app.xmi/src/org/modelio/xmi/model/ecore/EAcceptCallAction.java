@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,7 +35,7 @@ public class EAcceptCallAction extends EAcceptEventAction {
     }
 
     @objid ("599fb3ae-685c-4ffc-9e6a-d516860a197e")
-    public EAcceptCallAction(org.eclipse.uml2.uml.AcceptCallAction element) {
+    public  EAcceptCallAction(org.eclipse.uml2.uml.AcceptCallAction element) {
         super(element);
     }
 
@@ -45,6 +44,7 @@ public class EAcceptCallAction extends EAcceptEventAction {
     public void setProperties(Element objingElt) {
         super.setProperties(objingElt);
         setCalled((AcceptCallEventAction) objingElt);
+        
     }
 
     @objid ("e30fb12a-a5ea-4a25-9d22-5d8d5f0b5aa4")
@@ -64,6 +64,7 @@ public class EAcceptCallAction extends EAcceptEventAction {
                 }
             }
         }
+        
     }
 
 }

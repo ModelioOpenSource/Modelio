@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.generation;
 
 import java.util.Collection;
@@ -92,7 +91,7 @@ public class TotalExportMap {
     }
 
     @objid ("68d1c667-df36-44f5-96d7-c7cef873222e")
-    private TotalExportMap() {
+    private  TotalExportMap() {
         this.modelMap = new HashMap<>();
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.drawings.text;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -56,9 +55,10 @@ class TextDrawingDirectEditPolicy extends DirectEditPolicy {
         private GmTextDrawing gm;
 
         @objid ("6ade4d41-95bc-480d-bb7f-7830fade35a1")
-        public EditCommand(GmTextDrawing gm, String text) {
+        public  EditCommand(GmTextDrawing gm, String text) {
             this.gm = gm;
             this.text = text;
+            
         }
 
         @objid ("dc264fdc-c643-41c7-bb32-4801471701fc")

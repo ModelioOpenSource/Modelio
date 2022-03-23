@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.model.related;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,6 @@ public class RelatedModel extends AbstractModel {
     @objid ("263eb4c3-909d-4ea2-9a04-4e57a0eb8019")
     @Override
     public ITreeContentProvider getContentProvider() {
-        
         return this.contentProvider;
     }
 

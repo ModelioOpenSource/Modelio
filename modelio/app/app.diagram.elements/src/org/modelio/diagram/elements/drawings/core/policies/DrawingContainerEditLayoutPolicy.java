@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.drawings.core.policies;
 
 import java.util.Arrays;
@@ -140,7 +139,6 @@ public class DrawingContainerEditLayoutPolicy extends XYLayoutEditPolicy {
      * move it to the specified child's
      * constraint. The constraint has been converted from a draw2d constraint to
      * an object suitable for the model.
-     * 
      * @param request the ChangeBoundsRequest
      * @param child the EditPart of the child being changed
      * @param modelConstraint the new constraint, after being

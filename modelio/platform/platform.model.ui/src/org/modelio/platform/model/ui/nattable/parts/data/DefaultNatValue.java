@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data;
 
 import java.security.InvalidParameterException;
@@ -39,14 +38,14 @@ public abstract class DefaultNatValue implements INatValue {
 
     /**
      * Creates a new instance.
-     * 
      * @param value the wrapped value.
      * @param acceptNullValue whether or not <code>null</code> is a valid value for this field.
      */
     @objid ("b3c646a5-262d-4e75-abf2-8bfec6c0844b")
-    public DefaultNatValue(Object value, boolean acceptNullValue) {
+    public  DefaultNatValue(Object value, boolean acceptNullValue) {
         this.acceptNullValue = acceptNullValue;
         this.value = value;
+        
     }
 
     @objid ("1746db22-8b25-4db8-bf98-85a384675fbe")
@@ -68,17 +67,18 @@ public abstract class DefaultNatValue implements INatValue {
             throw new InvalidParameterException("Value can't be null.");
         }
         this.value = value;
+        
     }
 
     /**
      * Copy constructor, creating a new instance with the same configuration as the other.
-     * 
      * @param anotherInstance the instance to copy.
      */
     @objid ("7219d3d6-6a0e-42f8-aab3-ef313d0b7ae1")
-    protected DefaultNatValue(DefaultNatValue anotherInstance) {
+    protected  DefaultNatValue(DefaultNatValue anotherInstance) {
         this.acceptNullValue = anotherInstance.acceptNullValue;
         this.value = anotherInstance.value;
+        
     }
 
     @objid ("a1683d8e-2fe1-45dc-9a9b-2ea9a8657dcd")

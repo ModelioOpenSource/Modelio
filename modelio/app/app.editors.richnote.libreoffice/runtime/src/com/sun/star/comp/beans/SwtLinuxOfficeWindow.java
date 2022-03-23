@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package com.sun.star.comp.beans;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -70,13 +69,12 @@ class SwtLinuxOfficeWindow extends Composite implements XEventListener {
 
     /**
      * Constructor.
-     * 
      * @param connection The office connection object the window
      * belongs to.
      * @param parent a widget which will be the parent of the new instance (cannot be null)
      */
     @objid ("ec3c6a91-5c95-4c38-9e32-7fb7b8ad9d2b")
-    protected SwtLinuxOfficeWindow(final OfficeConnection connection, final Composite parent) {
+    protected  SwtLinuxOfficeWindow(final OfficeConnection connection, final Composite parent) {
         super(parent, SWT.EMBEDDED | SWT.NO_BACKGROUND |SWT.NO_REDRAW_RESIZE | SWT.NO_MERGE_PAINTS);
         
         this.mConnection = connection;
@@ -117,11 +115,11 @@ class SwtLinuxOfficeWindow extends Composite implements XEventListener {
                 LOG.debug("swt.FocusListener.focusGained: %s", e);
             }
         });
+        
     }
 
     /**
      * Retrieves an UNO XWindowPeer object associated with the OfficeWindow.
-     * 
      * @return The UNO XWindowPeer object associated with the OfficeWindow.
      */
     @objid ("3bb4520f-706b-4d1b-9792-e03797646afc")
@@ -158,6 +156,7 @@ class SwtLinuxOfficeWindow extends Composite implements XEventListener {
         this.xWindowPeer = null;
         this.xWindow = null;
         this.mConnection    = null;
+        
     }
 
     /**
@@ -179,6 +178,7 @@ class SwtLinuxOfficeWindow extends Composite implements XEventListener {
         } else {
             return null;
         }
+        
     }
 
     /**
@@ -200,6 +200,7 @@ class SwtLinuxOfficeWindow extends Composite implements XEventListener {
             this.xWindow.setEnable(true);
             //this.xWindow.setFocus();
         }
+        
     }
 
     /**
@@ -225,6 +226,7 @@ class SwtLinuxOfficeWindow extends Composite implements XEventListener {
         
             this.bPeer = false;
         }
+        
     }
 
     /**
@@ -242,6 +244,7 @@ class SwtLinuxOfficeWindow extends Composite implements XEventListener {
             releaseSystemWindow();
             super.setVisible(b);
         }
+        
     }
 
     /**
@@ -261,6 +264,7 @@ class SwtLinuxOfficeWindow extends Composite implements XEventListener {
         }
         return new Any(new Type("[]com.sun.star.beans.NamedValue"),
                                         new NamedValue[] {window, xembed});
+        
     }
 
 }

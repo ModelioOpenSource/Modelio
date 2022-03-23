@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.collab;
 
 import java.util.Collections;
@@ -101,12 +100,11 @@ public class GmCollaborationPrimaryNode extends GmNoStyleCompositeNode implement
 
     /**
      * Default constructor.
-     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param ref a reference to the represented object node.
      */
     @objid ("345cd9b2-55b7-11e2-877f-002564c97630")
-    public GmCollaborationPrimaryNode(IGmDiagram diagram, MRef ref) {
+    public  GmCollaborationPrimaryNode(IGmDiagram diagram, MRef ref) {
         super(diagram, ref);
         
         this.header = new GmNamespaceHeader(diagram, ref);
@@ -121,13 +119,14 @@ public class GmCollaborationPrimaryNode extends GmNoStyleCompositeNode implement
         super.addChild(this.header);
         super.addChild(this.internalStructure);
         super.addChild(this.innerElements);
+        
     }
 
     /**
      * Empty constructor, needed for serialization.
      */
     @objid ("345cd9bb-55b7-11e2-877f-002564c97630")
-    public GmCollaborationPrimaryNode() {
+    public  GmCollaborationPrimaryNode() {
         // empty constructor for the serialization
     }
 
@@ -161,7 +160,6 @@ public class GmCollaborationPrimaryNode extends GmNoStyleCompositeNode implement
 
     /**
      * Get the stereotype image to display.
-     * 
      * @return the stereotype image to display. Must not be <i>null</i>.
      */
     @objid ("345e603a-55b7-11e2-877f-002564c97630")
@@ -205,13 +203,15 @@ public class GmCollaborationPrimaryNode extends GmNoStyleCompositeNode implement
             break;
         }
         }
+        
     }
 
     @objid ("345e6052-55b7-11e2-877f-002564c97630")
     @Override
     public void refreshFromObModel() {
-        // forcing visual refresh in case Image changed 
+        // forcing visual refresh in case Image changed
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("345e6055-55b7-11e2-877f-002564c97630")
@@ -220,6 +220,7 @@ public class GmCollaborationPrimaryNode extends GmNoStyleCompositeNode implement
         // Returned result depends on current representation mode:
         List<GmNodeModel> ret;
         switch (getRepresentationMode()) {
+        case USER_IMAGE:
         case IMAGE: {
             ret = Collections.emptyList();
             break;
@@ -239,6 +240,7 @@ public class GmCollaborationPrimaryNode extends GmNoStyleCompositeNode implement
         
         // Write version of this Gm if different of 0.
         writeMinorVersion(out, "GmCollaborationPrimaryNode.", Integer.valueOf(GmCollaborationPrimaryNode.MINOR_VERSION));
+        
     }
 
     @objid ("345e6064-55b7-11e2-877f-002564c97630")
@@ -268,15 +270,15 @@ public class GmCollaborationPrimaryNode extends GmNoStyleCompositeNode implement
         this.internalStructure = new GmInternalStructure(getDiagram(), getRepresentedRef(), internalStructureZone, internalStructureGroup);
         this.internalStructure.setRoleInComposition(INTERNAL);
         addChild(this.internalStructure);
+        
     }
 
     /**
      * Migration constructor.
-     * 
      * @param oldVersionGm the instance to migrate from.
      */
     @objid ("345e6073-55b7-11e2-877f-002564c97630")
-    GmCollaborationPrimaryNode(final _GmCollaboration oldVersionGm) {
+     GmCollaborationPrimaryNode(final _GmCollaboration oldVersionGm) {
         super(oldVersionGm.getDiagram(), oldVersionGm.getRepresentedRef());
         
         this.header = oldVersionGm.getHeader();
@@ -303,6 +305,7 @@ public class GmCollaborationPrimaryNode extends GmNoStyleCompositeNode implement
         super.addChild(this.internalStructure);
         oldVersionGm.removeChild(this.innerElements);
         super.addChild(this.innerElements);
+        
     }
 
     @objid ("345fe6dc-55b7-11e2-877f-002564c97630")
@@ -312,6 +315,7 @@ public class GmCollaborationPrimaryNode extends GmNoStyleCompositeNode implement
         this.header = (GmModelElementHeader) getFirstChild(HEADER);
         this.internalStructure = (GmInternalStructure) getFirstChild(INTERNAL);
         this.innerElements = (GmInnerClass) getFirstChild(INNER);
+        
     }
 
 }

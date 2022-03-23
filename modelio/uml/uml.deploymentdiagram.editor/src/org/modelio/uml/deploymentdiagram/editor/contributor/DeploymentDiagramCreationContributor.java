@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.deploymentdiagram.editor.contributor;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.swt.graphics.Image;
 import org.modelio.api.modelio.model.scope.ElementScope;
@@ -83,6 +82,7 @@ public class DeploymentDiagramCreationContributor extends AbstractDiagramWizardC
         } else {
             return null;
         }
+        
     }
 
     @objid ("db48aada-78b8-4eec-81d7-64f9b3fac2b3")
@@ -120,6 +120,7 @@ public class DeploymentDiagramCreationContributor extends AbstractDiagramWizardC
         } else {
             return this.mmServices.getMetamodel();
         }
+        
     }
 
     @objid ("e450205b-0e9d-4a9e-830d-4ca550598e5c")

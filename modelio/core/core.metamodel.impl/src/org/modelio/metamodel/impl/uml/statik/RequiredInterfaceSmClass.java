@@ -17,23 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
-import org.modelio.metamodel.impl.uml.statik.InterfaceSmClass;
-import org.modelio.metamodel.impl.uml.statik.LinkEndSmClass;
-import org.modelio.metamodel.impl.uml.statik.NaryLinkEndSmClass;
-import org.modelio.metamodel.impl.uml.statik.PortSmClass;
-import org.modelio.metamodel.impl.uml.statik.RequiredInterfaceData;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.metamodel.uml.statik.Interface;
 import org.modelio.metamodel.uml.statik.LinkEnd;
@@ -67,7 +62,7 @@ public class RequiredInterfaceSmClass extends UmlModelElementSmClass {
     private SmDependency naryProviderDep;
 
     @objid ("bb19dc24-8572-46d0-8c9e-195a5ae64030")
-    public RequiredInterfaceSmClass(ISmMetamodelFragment origin) {
+    public  RequiredInterfaceSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -75,6 +70,7 @@ public class RequiredInterfaceSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "RequiredInterface";
+        
     }
 
     @objid ("6f0b2872-166b-4979-a3c1-b94a2daf1313")
@@ -87,18 +83,21 @@ public class RequiredInterfaceSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return RequiredInterface.class;
+        
     }
 
     @objid ("74a68dec-0e61-4781-9b3a-a3191d05f170")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("3936cbc3-1430-4337-bdbd-2d5350dacd85")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("1b1327ec-d5e0-4ef1-b4a3-597272e9f046")
@@ -126,6 +125,8 @@ public class RequiredInterfaceSmClass extends UmlModelElementSmClass {
         this.naryProviderDep = new NaryProviderSmDependency();
         this.naryProviderDep.init("NaryProvider", this, metamodel.getMClass(NaryLinkEnd.MQNAME), 0, -1 , SmDirective.SMCDTODELETE);
         registerDependency(this.naryProviderDep);
+        
+        
     }
 
     @objid ("7eafd161-d9ad-4f37-8343-413c28956c59")
@@ -166,7 +167,7 @@ public class RequiredInterfaceSmClass extends UmlModelElementSmClass {
         private RequiredInterfaceSmClass smClass;
 
         @objid ("c4e319c8-953c-4180-aa78-5501d63455b7")
-        public RequiredInterfaceObjectFactory(RequiredInterfaceSmClass smClass) {
+        public  RequiredInterfaceObjectFactory(RequiredInterfaceSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -199,6 +200,7 @@ public class RequiredInterfaceSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((RequiredInterfaceData) data).mRequiredElement = values;
+            
         }
 
         @objid ("07d21a09-ed2d-426d-8644-c837301c4e0f")
@@ -208,6 +210,7 @@ public class RequiredInterfaceSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((InterfaceSmClass)this.getTarget()).getRequiringDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -227,6 +230,7 @@ public class RequiredInterfaceSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((RequiredInterfaceData) data).mProvider = values;
+            
         }
 
         @objid ("85276568-c590-462e-a3f0-e510239d67fd")
@@ -236,6 +240,7 @@ public class RequiredInterfaceSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((LinkEndSmClass)this.getTarget()).getConsumerDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -264,6 +269,7 @@ public class RequiredInterfaceSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((PortSmClass)this.getTarget()).getRequiredDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -283,6 +289,7 @@ public class RequiredInterfaceSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((RequiredInterfaceData) data).mNaryProvider = values;
+            
         }
 
         @objid ("305b1f79-ff51-419f-b9f2-9d46c1a34389")
@@ -292,6 +299,7 @@ public class RequiredInterfaceSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((NaryLinkEndSmClass)this.getTarget()).getConsumerDep();
             }
             return this.symetricDep;
+            
         }
 
     }

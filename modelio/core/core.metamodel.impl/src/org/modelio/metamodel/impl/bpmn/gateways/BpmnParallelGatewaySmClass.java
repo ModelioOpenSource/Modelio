@@ -17,19 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.gateways;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.bpmn.gateways.BpmnGateway;
 import org.modelio.metamodel.bpmn.gateways.BpmnParallelGateway;
-import org.modelio.metamodel.impl.bpmn.gateways.BpmnGatewaySmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("231f222a-7f41-42fd-bde0-c4ecba43f073")
 public class BpmnParallelGatewaySmClass extends BpmnGatewaySmClass {
     @objid ("5c7e39e6-8a15-4936-a2cc-6962c6fb65a3")
-    public BpmnParallelGatewaySmClass(ISmMetamodelFragment origin) {
+    public  BpmnParallelGatewaySmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class BpmnParallelGatewaySmClass extends BpmnGatewaySmClass {
     @Override
     public String getName() {
         return "BpmnParallelGateway";
+        
     }
 
     @objid ("43e9b2b0-10ec-4456-ad6f-0733c1c5b98f")
@@ -62,18 +62,21 @@ public class BpmnParallelGatewaySmClass extends BpmnGatewaySmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnParallelGateway.class;
+        
     }
 
     @objid ("56633657-4a10-4da6-8629-b3e28e54ae7e")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("85f2beac-1c26-4dbc-a515-abba4858d82e")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("aa9bfe44-ae88-4ba8-98d2-315d845020fa")
@@ -86,6 +89,7 @@ public class BpmnParallelGatewaySmClass extends BpmnGatewaySmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("f8a4ef36-b9a1-4885-9e29-58a6d04439e8")
@@ -94,7 +98,7 @@ public class BpmnParallelGatewaySmClass extends BpmnGatewaySmClass {
         private BpmnParallelGatewaySmClass smClass;
 
         @objid ("0a8ded2c-764d-44e1-bb88-cd59ce556974")
-        public BpmnParallelGatewayObjectFactory(BpmnParallelGatewaySmClass smClass) {
+        public  BpmnParallelGatewayObjectFactory(BpmnParallelGatewaySmClass smClass) {
             this.smClass = smClass;
         }
 

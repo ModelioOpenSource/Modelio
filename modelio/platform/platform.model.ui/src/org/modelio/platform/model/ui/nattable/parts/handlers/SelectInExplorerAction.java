@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.handlers;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,9 +33,10 @@ public class SelectInExplorerAction extends AbstractMouseSelectionAction {
     private IModelioNavigationService navigationService;
 
     @objid ("fa8de8e6-ef30-4ef0-870b-8c539a9500d8")
-    public SelectInExplorerAction(IModelioNavigationService navigationService) {
+    public  SelectInExplorerAction(IModelioNavigationService navigationService) {
         super();
         this.navigationService = navigationService;
+        
     }
 
     @objid ("dfd7ef92-c43b-426c-b463-bd88f54d44df")
@@ -52,6 +52,7 @@ public class SelectInExplorerAction extends AbstractMouseSelectionAction {
         if (elt instanceof MObject) {
             this.navigationService.fireNavigate((MObject) elt);
         }
+        
     }
 
 }

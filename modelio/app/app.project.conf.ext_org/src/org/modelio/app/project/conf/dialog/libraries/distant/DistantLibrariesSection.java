@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.libraries.distant;
 
 import java.lang.reflect.InvocationTargetException;
@@ -101,14 +100,13 @@ public class DistantLibrariesSection {
      * @param applicationContext the Eclipse context
      */
     @objid ("7d4e9543-3adc-11e2-916e-002564c97630")
-    public DistantLibrariesSection(final IEclipseContext applicationContext) {
+    public  DistantLibrariesSection(final IEclipseContext applicationContext) {
         this.applicationContext = applicationContext;
     }
 
     /**
      * Update() is called by the project infos view when the project to be
      * displayed changes or need contents refresh.
-     * 
      * @param selectedProject the project selected in the workspace tree view
      */
     @objid ("7d4e9546-3adc-11e2-916e-002564c97630")
@@ -136,6 +134,7 @@ public class DistantLibrariesSection {
         for (final TableColumn col : this.viewer.getTable().getColumns()) {
             col.pack();
         }
+        
     }
 
     /**
@@ -281,7 +280,6 @@ public class DistantLibrariesSection {
 
     /**
      * Get the fragment viewer selection as a list of fragments.
-     * 
      * @return the selection as a list of fragments.
      */
     @objid ("55f63ac7-1fae-4c8d-b126-2c4ba5d1e4e3")
@@ -330,10 +328,11 @@ public class DistantLibrariesSection {
                 }
             
             }
+            
         }
 
         @objid ("7d4e955f-3adc-11e2-916e-002564c97630")
-        AddFragmentButtonListener() {
+         AddFragmentButtonListener() {
             // empty
         }
 
@@ -355,10 +354,11 @@ public class DistantLibrariesSection {
                 projectService.removeFragment(getProjectAdapter().getOpenedProject(), (IProjectFragment) obj);
             }
             refresh();
+            
         }
 
         @objid ("7d4e9566-3adc-11e2-916e-002564c97630")
-        RemoveFragmentButtonListener() {
+         RemoveFragmentButtonListener() {
             // empty
         }
 
@@ -367,7 +367,7 @@ public class DistantLibrariesSection {
     @objid ("7d4e9568-3adc-11e2-916e-002564c97630")
     private class RefreshFragmentButtonListener extends SelectionAdapter {
         @objid ("7d4e9569-3adc-11e2-916e-002564c97630")
-        RefreshFragmentButtonListener() {
+         RefreshFragmentButtonListener() {
             // empty
         }
 
@@ -415,6 +415,7 @@ public class DistantLibrariesSection {
                 }
             }
             refresh();
+            
         }
 
     }
@@ -422,7 +423,7 @@ public class DistantLibrariesSection {
     @objid ("7d4e956f-3adc-11e2-916e-002564c97630")
     private class EditFragmentButtonListener extends SelectionAdapter {
         @objid ("7d4e9570-3adc-11e2-916e-002564c97630")
-        EditFragmentButtonListener() {
+         EditFragmentButtonListener() {
             // empty
         }
 
@@ -467,6 +468,7 @@ public class DistantLibrariesSection {
                 }
             }
             refresh();
+            
         }
 
     }

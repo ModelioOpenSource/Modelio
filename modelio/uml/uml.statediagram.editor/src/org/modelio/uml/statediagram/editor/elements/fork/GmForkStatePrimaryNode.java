@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.fork;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,12 +50,11 @@ public class GmForkStatePrimaryNode extends GmNoStyleSimpleNode implements IImag
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the sendSignal is unmasked.
      * @param relatedRef related element reference, must not be <code>null</code>.
      */
     @objid ("f534a33d-55b6-11e2-877f-002564c97630")
-    public GmForkStatePrimaryNode(IGmDiagram diagram, MRef relatedRef) {
+    public  GmForkStatePrimaryNode(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -74,6 +72,7 @@ public class GmForkStatePrimaryNode extends GmNoStyleSimpleNode implements IImag
         }
         // forcing visual refresh in case Image changed 
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("f534a350-55b6-11e2-877f-002564c97630")
@@ -116,13 +115,14 @@ public class GmForkStatePrimaryNode extends GmNoStyleSimpleNode implements IImag
                                                                                             }
                                                                                 
                                                                                         };
+        
     }
 
     /**
      * Constructor for deserialization only.
      */
     @objid ("f53629d2-55b6-11e2-877f-002564c97630")
-    public GmForkStatePrimaryNode() {
+    public  GmForkStatePrimaryNode() {
         // empty for the serialization
     }
 
@@ -143,6 +143,7 @@ public class GmForkStatePrimaryNode extends GmNoStyleSimpleNode implements IImag
             break;
         }
         }
+        
     }
 
     @objid ("f53629db-55b6-11e2-877f-002564c97630")
@@ -152,6 +153,7 @@ public class GmForkStatePrimaryNode extends GmNoStyleSimpleNode implements IImag
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmForkStatePrimaryNode.", GmForkStatePrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("f53629e1-55b6-11e2-877f-002564c97630")

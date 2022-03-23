@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.sendsignal;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,18 +50,17 @@ public class GmSendSignalHeader extends GmActivityNodeHeader {
      * Empty c'tor for deserialisation.
      */
     @objid ("2b4514dd-55b6-11e2-877f-002564c97630")
-    public GmSendSignalHeader() {
+    public  GmSendSignalHeader() {
         super();
     }
 
     /**
      * C'tor.
-     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param relatedRef a reference to the send signal node this gm is related to.
      */
     @objid ("2b469b39-55b6-11e2-877f-002564c97630")
-    public GmSendSignalHeader(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmSendSignalHeader(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -100,6 +98,7 @@ public class GmSendSignalHeader extends GmActivityNodeHeader {
             break;
         }
         }
+        
     }
 
     @objid ("2b469b54-55b6-11e2-877f-002564c97630")
@@ -109,6 +108,7 @@ public class GmSendSignalHeader extends GmActivityNodeHeader {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmSendSignalHeader.", GmSendSignalHeader.MINOR_VERSION);
+        
     }
 
     @objid ("2b469b5a-55b6-11e2-877f-002564c97630")

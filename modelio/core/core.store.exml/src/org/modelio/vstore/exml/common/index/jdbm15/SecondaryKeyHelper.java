@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common.index.jdbm15;
 
 import java.io.IOError;
@@ -44,7 +43,7 @@ import jdbm.htree.HTreeSecondaryMap;
 @objid ("681daba8-5403-4eb4-9805-3486abdfcf01")
 final class SecondaryKeyHelper {
     @objid ("62214746-2df3-402e-b87e-5c7a56a1de55")
-    public static <A,K,V> BTree<A,Iterable<K>> secondaryBTree(final String objectName, final SecondaryKeyExtractor<A,K,V> keyExtractor, final Comparator<A> comparator, final JdbmBase<K,V> b, final Serializer<A> secondaryKeySerializer, final Serializer<Iterable<K>> keysSerializer) throws IOException {
+    public static <A, K, V> BTree<A, Iterable<K>> secondaryBTree(final String objectName, final SecondaryKeyExtractor<A, K, V> keyExtractor, final Comparator<A> comparator, final JdbmBase<K, V> b, final Serializer<A> secondaryKeySerializer, final Serializer<Iterable<K>> keysSerializer) throws IOException {
         BTree<A,Iterable<K>> secIndex = null;
         long recid = b.getRecordManager().getNamedObject( objectName );
         if ( recid != 0 ) {
@@ -125,7 +124,7 @@ final class SecondaryKeyHelper {
     }
 
     @objid ("15fa5360-a99b-4802-9461-cf573497706e")
-    public static <A,K,V> HTree<A,Iterable<K>> secondaryHTree(final String objectName, final SecondaryKeyExtractor<A,K,V> keyExtractor, final JdbmBase<K,V> b, final Serializer<A> secondaryKeySerializer, final Serializer<Iterable<K>> keysSerializer) throws IOException {
+    public static <A, K, V> HTree<A, Iterable<K>> secondaryHTree(final String objectName, final SecondaryKeyExtractor<A, K, V> keyExtractor, final JdbmBase<K, V> b, final Serializer<A> secondaryKeySerializer, final Serializer<Iterable<K>> keysSerializer) throws IOException {
         HTree<A,Iterable<K>> secIndex = null;
         long recid = b.getRecordManager().getNamedObject( objectName );
         if ( recid != 0 ) {
@@ -203,7 +202,7 @@ final class SecondaryKeyHelper {
     }
 
     @objid ("f3f91462-469d-4f3b-9384-7438a853e861")
-    public static <A,K,V> BTree<A,Iterable<K>> secondaryBTreeManyToOne(final String objectName, final SecondaryKeyExtractor<Iterable<A>,K,V> keyExtractor, final Comparator<A> comparator, final JdbmBase<K,V> b) throws IOException {
+    public static <A, K, V> BTree<A, Iterable<K>> secondaryBTreeManyToOne(final String objectName, final SecondaryKeyExtractor<Iterable<A>, K, V> keyExtractor, final Comparator<A> comparator, final JdbmBase<K, V> b) throws IOException {
         BTree<A,Iterable<K>> secIndex = null;
         long recid = b.getRecordManager().getNamedObject( objectName );
         if ( recid != 0 ) {
@@ -285,7 +284,7 @@ final class SecondaryKeyHelper {
     }
 
     @objid ("05c9f5a9-3815-4e3e-b31a-09fe45a8e560")
-    public static <A,K,V> HTree<A,Iterable<K>> secondaryHTreeManyToOne(final String objectName, final SecondaryKeyExtractor<Iterable<A>,K,V> keyExtractor, final JdbmBase<K,V> b, final Serializer<A> secondaryKeySerializer, final Serializer<Iterable<K>> resultSerializer) throws IOException {
+    public static <A, K, V> HTree<A, Iterable<K>> secondaryHTreeManyToOne(final String objectName, final SecondaryKeyExtractor<Iterable<A>, K, V> keyExtractor, final JdbmBase<K, V> b, final Serializer<A> secondaryKeySerializer, final Serializer<Iterable<K>> resultSerializer) throws IOException {
         HTree<A,Iterable<K>> secIndex = null;
         long recid = b.getRecordManager().getNamedObject( objectName );
         if ( recid != 0 ) {
@@ -367,7 +366,7 @@ final class SecondaryKeyHelper {
     }
 
     @objid ("f3fec822-d494-4154-b8ea-7df52c917134")
-    public static <A,K,V> SecondaryHashMap<A,K,V> secondaryHashMap(final String objectName, final SecondaryKeyExtractor<A,K,V> secKeyExtractor, final JdbmBase<K,V> b, final Serializer<A> secondaryKeySerializer, final Serializer<Iterable<K>> keysSerializer) {
+    public static <A, K, V> SecondaryHashMap<A, K, V> secondaryHashMap(final String objectName, final SecondaryKeyExtractor<A, K, V> secKeyExtractor, final JdbmBase<K, V> b, final Serializer<A> secondaryKeySerializer, final Serializer<Iterable<K>> keysSerializer) {
         try{
             HTree<A,Iterable<K>> secTree = secondaryHTree(objectName, secKeyExtractor, b,secondaryKeySerializer, keysSerializer);
             HTreeSecondaryMap<A, K, V> ret = new HTreeSecondaryMap<>(secTree, b);
@@ -375,10 +374,11 @@ final class SecondaryKeyHelper {
         }catch (IOException e){
             throw new IOError(e);
         }
+        
     }
 
     @objid ("8684fd8f-7fae-4a33-a538-d218bc5ec1f8")
-    public static <A,K,V> SecondaryTreeMap<A,K,V> secondaryTreeMap(final String objectName, final SecondaryKeyExtractor<A,K,V> secKeyExtractor, final Comparator<A> comparator, final JdbmBase<K,V> b, final Serializer<A> secondaryKeySerializer, final Serializer<Iterable<K>> keysSerializer) {
+    public static <A, K, V> SecondaryTreeMap<A, K, V> secondaryTreeMap(final String objectName, final SecondaryKeyExtractor<A, K, V> secKeyExtractor, final Comparator<A> comparator, final JdbmBase<K, V> b, final Serializer<A> secondaryKeySerializer, final Serializer<Iterable<K>> keysSerializer) {
         try{
             BTree<A,Iterable<K>> secTree = secondaryBTree(objectName, secKeyExtractor, comparator,b, secondaryKeySerializer, keysSerializer);
         
@@ -387,10 +387,11 @@ final class SecondaryKeyHelper {
         }catch (IOException e){
             throw new IOError(e);
         }
+        
     }
 
     @objid ("e6e63c73-9a46-40ce-a975-375aed8a0f9e")
-    public static <A,K,V> SecondaryHashMap<A,K,V> secondaryHashMapManyToOne(final String objectName, final SecondaryKeyExtractor<Iterable<A>,K,V> secKeyExtractor, final JdbmBase<K,V> b, final Serializer<A> secondaryKeySerializer, final Serializer<Iterable<K>> secondaryValueSerializer) {
+    public static <A, K, V> SecondaryHashMap<A, K, V> secondaryHashMapManyToOne(final String objectName, final SecondaryKeyExtractor<Iterable<A>, K, V> secKeyExtractor, final JdbmBase<K, V> b, final Serializer<A> secondaryKeySerializer, final Serializer<Iterable<K>> secondaryValueSerializer) {
         try{
             HTree<A,Iterable<K>> secTree = secondaryHTreeManyToOne(objectName, secKeyExtractor, b,secondaryKeySerializer, secondaryValueSerializer);
             HTreeSecondaryMap<A, K, V> ret = new HTreeSecondaryMap<>(secTree, b);
@@ -398,10 +399,11 @@ final class SecondaryKeyHelper {
         }catch (IOException e){
             throw new IOError(e);
         }
+        
     }
 
     @objid ("c12ebc53-9dce-4927-85bd-5472a060cce6")
-    public static <A,K,V> SecondaryTreeMap<A,K,V> secondarySortedMapManyToOne(final String objectName, final SecondaryKeyExtractor<Iterable<A>,K,V> secKeyExtractor, final Comparator<A> comparator, final JdbmBase<K,V> b, final Serializer<A> secondaryKeySerializer) {
+    public static <A, K, V> SecondaryTreeMap<A, K, V> secondarySortedMapManyToOne(final String objectName, final SecondaryKeyExtractor<Iterable<A>, K, V> secKeyExtractor, final Comparator<A> comparator, final JdbmBase<K, V> b, final Serializer<A> secondaryKeySerializer) {
         try{
             BTree<A,Iterable<K>> secTree = secondaryBTreeManyToOne(objectName, secKeyExtractor, comparator,b);
             if(secondaryKeySerializer!=null) {
@@ -412,11 +414,12 @@ final class SecondaryKeyHelper {
         }catch (IOException e){
             throw new IOError(e);
         }
+        
     }
 
     @objid ("4af8c559-b6e3-4862-913b-bd2544f8970c")
     @SuppressWarnings("unchecked")
-    public static <K,V> InverseHashView<K,V> inverseHashView(final PrimaryHashMap<K,V> base, final String recordName, final Serializer<Iterable<K>> keysSerializer) {
+    public static <K, V> InverseHashView<K, V> inverseHashView(final PrimaryHashMap<K, V> base, final String recordName, final Serializer<Iterable<K>> keysSerializer) {
         SecondaryKeyExtractor<Integer,K,V> hashExtractor = new SecondaryKeyExtractor<Integer, K, V>() {
             long hashEqualsIdentityCounter;
             @Override
@@ -471,7 +474,7 @@ final class SecondaryKeyHelper {
     }
 
     @objid ("99068a1a-1b54-43d0-98d8-d1e585fbce75")
-    public static <K,V> Iterable<V> translateIterable(final JdbmBase<K,V> b, final Iterable<K> keys) {
+    public static <K, V> Iterable<V> translateIterable(final JdbmBase<K, V> b, final Iterable<K> keys) {
         if(keys==null) {
             return new ArrayList<>();
         }

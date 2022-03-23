@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.objectdiagram.editor.elements.objectdiagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -58,6 +57,7 @@ public class ObjectDiagramEditLayoutPolicy extends DiagramEditLayoutPolicy {
         } else {
             return super.getTargetEditPart(request);
         }
+        
     }
 
     @objid ("a0cfad4c-aa85-40ea-8109-2e10b7263aec")

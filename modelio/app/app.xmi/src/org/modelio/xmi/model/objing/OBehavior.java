@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -26,7 +25,7 @@ import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
 @objid ("9ab7f3cf-8bd0-453c-97a1-8a329e6b4c79")
 public class OBehavior extends OModelElement {
     @objid ("f095fabe-8a52-4167-a95c-4d19215adcbc")
-    public OBehavior(Behavior element) {
+    public  OBehavior(Behavior element) {
         super(element);
     }
 

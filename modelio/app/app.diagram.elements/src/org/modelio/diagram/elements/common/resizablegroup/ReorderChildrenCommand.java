@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.resizablegroup;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -48,21 +47,22 @@ public class ReorderChildrenCommand extends Command {
     public void execute() {
         // this.container.removeChild(this.childToMove);
         this.container.moveChild(this.childToMove, this.container.getChildren().indexOf(this.reference));
+        
     }
 
     /**
      * C'tor.
-     * 
      * @param container the container in which children will be moved.
      * @param childToMove the child to move.
      * @param reference the reference: moved child will be moved just before this reference. If it is null, child will be
      * moved at the end of the container.
      */
     @objid ("7f0c2d97-1dec-11e2-8cad-001ec947c8cc")
-    public ReorderChildrenCommand(GmCompositeNode container, GmNodeModel childToMove, GmNodeModel reference) {
+    public  ReorderChildrenCommand(GmCompositeNode container, GmNodeModel childToMove, GmNodeModel reference) {
         this.container = container;
         this.childToMove = childToMove;
         this.reference = reference;
+        
     }
 
     @objid ("7f0c2d9d-1dec-11e2-8cad-001ec947c8cc")

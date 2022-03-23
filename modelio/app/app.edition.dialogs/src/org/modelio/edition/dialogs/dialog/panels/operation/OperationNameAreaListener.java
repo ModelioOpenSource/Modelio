@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.dialogs.dialog.panels.operation;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,7 @@ public class OperationNameAreaListener implements KeyListener, FocusListener {
     private OperationEditPanel panel = null;
 
     @objid ("6965be24-dac9-45ba-90a4-12fa3a92f4ea")
-    public OperationNameAreaListener(OperationEditPanel panel) {
+    public  OperationNameAreaListener(OperationEditPanel panel) {
         this.panel = panel;
     }
 
@@ -53,6 +52,7 @@ public class OperationNameAreaListener implements KeyListener, FocusListener {
         } else if (e.keyCode == SWT.ESC) {
             nameText.setText(this.panel.getModel().getName());
         }
+        
     }
 
     @objid ("12039104-43a3-4718-a693-d486ecc5d521")
@@ -66,6 +66,7 @@ public class OperationNameAreaListener implements KeyListener, FocusListener {
     public void focusLost(FocusEvent e) {
         Text nameText = (Text) e.getSource();
         this.panel.getModel().setName(nameText.getText());
+        
     }
 
 }

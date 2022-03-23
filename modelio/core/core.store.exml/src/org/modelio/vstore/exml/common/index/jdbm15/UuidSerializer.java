@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common.index.jdbm15;
 
 import java.io.IOException;
@@ -40,6 +39,7 @@ final class UuidSerializer implements Serializer<UUID> {
         out.writeLong (uuid.getLeastSignificantBits());
         */
         out.writeUTF(uuid.toString());
+        
     }
 
     @objid ("6abef75c-a0df-461b-a463-73f6f8242704")

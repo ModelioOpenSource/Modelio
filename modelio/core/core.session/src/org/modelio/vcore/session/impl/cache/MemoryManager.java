@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.cache;
 
 import java.beans.PropertyChangeEvent;
@@ -29,8 +28,8 @@ import java.lang.ref.SoftReference;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.vbasic.log.Log;
 import org.modelio.vcore.session.api.memory.IMemoryEventListener;
@@ -75,14 +74,13 @@ public class MemoryManager implements IMemoryManager, Runnable {
     private static volatile MemoryManager instance = null;
 
     @objid ("6ecef006-3d90-4481-886b-d36c0b3abf9f")
-    private Collection<Map<String,ISmObjectData>> caches = new ArrayList<>();
+    private Collection<Map<String, ISmObjectData>> caches = new ArrayList<>();
 
     @objid ("4d960c39-4d2d-418d-a62f-da0b73bc58d2")
     private Collection<IMemoryEventListener> listeners = new ArrayList<>();
 
     /**
      * Get the memory watcher instance.
-     * 
      * @return the memory watcher.
      */
     @objid ("50d9dd95-51b3-4f18-9b03-37d5f236d667")
@@ -109,11 +107,12 @@ public class MemoryManager implements IMemoryManager, Runnable {
      * Initialize the memory manager and its thread.
      */
     @objid ("d9053b8a-722a-4ea1-8e3d-20d028a5c3a0")
-    private MemoryManager() {
+    private  MemoryManager() {
         this.swapEnabled = System.getProperty(PROPERTY_DISABLE_MANAGER) == null; 
         if (isSwapEnabled()) {
             createSwapThread();
         }
+        
     }
 
     /**
@@ -153,6 +152,7 @@ public class MemoryManager implements IMemoryManager, Runnable {
                 //NOOP
             }
         }
+        
     }
 
     @objid ("cb603fa9-bf85-4964-9aa2-9cd27cc724fd")
@@ -169,18 +169,17 @@ public class MemoryManager implements IMemoryManager, Runnable {
 
     /**
      * Add a managed data cache.
-     * 
      * @param dataCache a data cache.
      */
     @objid ("57b5a26f-c1d1-4692-9c85-2b36339343cf")
     public synchronized void addManagedCache(Map<String, ISmObjectData> dataCache) {
         this.caches.add(dataCache);
         notifyAll();
+        
     }
 
     /**
      * Remove a managed cache.
-     * 
      * @param dataCache a data cache.
      */
     @objid ("e3999d4b-9483-47f4-b0ed-c0a49a9e6578")
@@ -221,11 +220,11 @@ public class MemoryManager implements IMemoryManager, Runnable {
         for (IMemoryEventListener  l : this.listeners) {
             l.onFreeMemoryEnd(removed, ManagementFactory.getMemoryMXBean().getHeapMemoryUsage());
         }
+        
     }
 
     /**
      * Swaps and free entries in the given data cache.
-     * 
      * @param cache an object data cache.
      * @param toRemoveIdx the access "time" below which an object must be freed.
      * @return the number of swapped objects.
@@ -275,11 +274,11 @@ public class MemoryManager implements IMemoryManager, Runnable {
         //        // Fire listeners
         //        for (IMemoryEventListener  l : this.listeners)
         //            l.onResetAccessTimeEnd();
+        
     }
 
     /**
      * Enable or disable the swap.
-     * 
      * @param enable <code>true</code> to anable swapping, <code>false</code> to disable it.
      */
     @objid ("ef3f463f-9d04-4ad7-87f4-2c012a05b041")
@@ -292,6 +291,7 @@ public class MemoryManager implements IMemoryManager, Runnable {
                 notifyAll();
             }
         }
+        
     }
 
     @objid ("62d75ba3-72e9-4a18-9c4d-5be30c593ba9")
@@ -317,6 +317,7 @@ public class MemoryManager implements IMemoryManager, Runnable {
         });
         
         t.start();
+        
     }
 
     /**
@@ -336,6 +337,7 @@ public class MemoryManager implements IMemoryManager, Runnable {
         if (pcUsed > LOWMEMORY_RATIO) {
             freeMemory(memState);
         }
+        
     }
 
     /**
@@ -347,7 +349,7 @@ public class MemoryManager implements IMemoryManager, Runnable {
     @objid ("3aaaff79-0d72-4e26-b3f9-192039c51320")
     private class LastResortGc {
         @objid ("404912a0-f95a-4002-baa7-41eb7b68977b")
-        public LastResortGc() {
+        public  LastResortGc() {
             // NOOP
         }
 
@@ -360,6 +362,7 @@ public class MemoryManager implements IMemoryManager, Runnable {
             ensureFreeMemory();
             
             super.finalize();
+            
         }
 
     }

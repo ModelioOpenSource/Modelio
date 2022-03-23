@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.combinedfragment;
 
 import java.util.List;
@@ -60,19 +59,18 @@ public class GmCombinedFragment extends GmPortContainer {
      * Empty c'tor for deserialisation.
      */
     @objid ("d8c4f974-55b6-11e2-877f-002564c97630")
-    public GmCombinedFragment() {
+    public  GmCombinedFragment() {
         super();
     }
 
     /**
      * C'tor.
-     * 
      * @param diagram diagram in which this gm is created.
      * @param combinedFragment the represented CombinedFragment
      * @param relatedRef a reference to the represented element.
      */
     @objid ("d8c4f977-55b6-11e2-877f-002564c97630")
-    public GmCombinedFragment(final IGmDiagram diagram, final CombinedFragment combinedFragment, final MRef relatedRef) {
+    public  GmCombinedFragment(final IGmDiagram diagram, final CombinedFragment combinedFragment, final MRef relatedRef) {
         super(diagram, relatedRef);
         
         GmCombinedFragmentPrimaryNode mainNode = new GmCombinedFragmentPrimaryNode(diagram, relatedRef);
@@ -80,6 +78,7 @@ public class GmCombinedFragment extends GmPortContainer {
         addChild(mainNode);
         
         this.combinedFragment = combinedFragment;
+        
     }
 
     @objid ("d8c4f986-55b6-11e2-877f-002564c97630")
@@ -129,6 +128,7 @@ public class GmCombinedFragment extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("d8c6800c-55b6-11e2-877f-002564c97630")
@@ -138,12 +138,14 @@ public class GmCombinedFragment extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmCombinedFragment.", GmCombinedFragment.MINOR_VERSION);
+        
     }
 
     @objid ("d8c68012-55b6-11e2-877f-002564c97630")
     private void read_0(final IDiagramReader in) {
         super.read(in);
         this.combinedFragment = (CombinedFragment) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("d8c68018-55b6-11e2-877f-002564c97630")
@@ -154,7 +156,6 @@ public class GmCombinedFragment extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -166,7 +167,6 @@ public class GmCombinedFragment extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

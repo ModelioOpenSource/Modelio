@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.region;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,9 +31,9 @@ import org.modelio.uml.statediagram.editor.style.StateAbstractStyleKeyProvider;
 @objid ("f56b91b7-55b6-11e2-877f-002564c97630")
 public class GmRegionStructuredStyleKeys extends StateAbstractStyleKeyProvider {
     @objid ("817e5459-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("REGION_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("REGION_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("817e545b-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("REGION_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("REGION_FILLMODE", MetaKey.FILLMODE);
 
 }

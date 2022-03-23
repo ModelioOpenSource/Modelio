@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.connectionpoint;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,12 +49,11 @@ public class GmConnectionPointPrimaryNode extends GmNoStyleSimpleNode implements
 
     /**
      * Initialize a connection point
-     * 
      * @param diagram The diagram
      * @param ref The represented element reference, must not be null.
      */
     @objid ("f4ff3b4a-55b6-11e2-877f-002564c97630")
-    public GmConnectionPointPrimaryNode(IGmDiagram diagram, MRef ref) {
+    public  GmConnectionPointPrimaryNode(IGmDiagram diagram, MRef ref) {
         super(diagram, ref);
     }
 
@@ -63,7 +61,7 @@ public class GmConnectionPointPrimaryNode extends GmNoStyleSimpleNode implements
      * Empty constructor needed for deserialisation.
      */
     @objid ("f4ff3b53-55b6-11e2-877f-002564c97630")
-    public GmConnectionPointPrimaryNode() {
+    public  GmConnectionPointPrimaryNode() {
         // Empty constructor needed for deserialisation.
     }
 
@@ -100,6 +98,7 @@ public class GmConnectionPointPrimaryNode extends GmNoStyleSimpleNode implements
         }
         // forcing visual refresh in case Image changed 
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("f4ff3b75-55b6-11e2-877f-002564c97630")
@@ -119,6 +118,7 @@ public class GmConnectionPointPrimaryNode extends GmNoStyleSimpleNode implements
             break;
         }
         }
+        
     }
 
     @objid ("f4ff3b7b-55b6-11e2-877f-002564c97630")
@@ -128,6 +128,7 @@ public class GmConnectionPointPrimaryNode extends GmNoStyleSimpleNode implements
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmConnectionPointPrimaryNode.", GmConnectionPointPrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("f500c1dc-55b6-11e2-877f-002564c97630")

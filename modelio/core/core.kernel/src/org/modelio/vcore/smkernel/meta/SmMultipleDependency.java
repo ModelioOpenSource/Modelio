@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta;
 
 import java.util.ArrayList;
@@ -47,7 +46,6 @@ public abstract class SmMultipleDependency extends SmDependency {
     /**
      * This is the unique getter accessor for multiple dependencies. It is redefined by specialized classes to access the proper
      * data field.
-     * 
      * @param obj a model object data
      * @return the content of the dependency on the model object.
      */
@@ -56,7 +54,6 @@ public abstract class SmMultipleDependency extends SmDependency {
 
     /**
      * Remove value from the list.
-     * 
      * @param data The object to modify
      * @param value the value to remove
      */
@@ -68,12 +65,12 @@ public abstract class SmMultipleDependency extends SmDependency {
         } else {
             return getValueList(data).remove(value);
         }
+        
     }
 
     /**
      * Insert <i>value</i> in the list at position <i>index</i>.
      * </ul>
-     * 
      * @param data The object to modify
      * @param value the value to add/set
      */
@@ -94,11 +91,11 @@ public abstract class SmMultipleDependency extends SmDependency {
             // valueList.remove(value);
             // valueList.add(index, value);
         }
+        
     }
 
     /**
      * Add the value to the end of the list.
-     * 
      * @param obj The object to modify
      * @param value the value to add/set
      * @return <code>true</code> if a change was done, <code>false</code> if no change was needed (the value was already present).
@@ -139,11 +136,10 @@ public abstract class SmMultipleDependency extends SmDependency {
     /**
      * Check <i>value</i> is not already present on <i>valueList</i>
      * @param obj the dependency source
-     * 
      * @param value the value to check
      * @param valueList the dependency content
      * @return <code>true</code>
-     * @throws java.lang.IllegalArgumentException if the value is present in the content.
+     * @throws IllegalArgumentException if the value is present in the content.
      */
     @objid ("4e70de17-f3ac-49c1-817f-7d711c2f012a")
     private boolean assertAbsent(ISmObjectData data, final SmObjectImpl value, List<SmObjectImpl> valueList) throws IllegalArgumentException {
@@ -158,7 +154,6 @@ public abstract class SmMultipleDependency extends SmDependency {
      * This method is called in order to initialize a the data structure for the dependency
      * when the dependency, being still empty and bound to the EMPTY list, has to be modified.
      * Its role is to initialize a concrete ArrayList for the dependency.
-     * 
      * @param data a model object data
      * @param list the allocated list.
      */
@@ -166,12 +161,12 @@ public abstract class SmMultipleDependency extends SmDependency {
     protected void initValueList(ISmObjectData data, List<SmObjectImpl> list) {
         // TODO set the method as abstract.
         throw new AbstractMethodError();
+        
     }
 
     /**
      * This method is called in order to allocate a new ArrayList data structure for the dependency when the dependency, being still
      * empty and bound to the EMPTY list, has to be modified. Its role is to allocate a concrete ArrayList for the dependency.
-     * 
      * @param data a model object data
      * @param initialCapacity a recommended initial capacity for the new ArrayList to allocate
      * @return the allocated list.
@@ -209,6 +204,7 @@ public abstract class SmMultipleDependency extends SmDependency {
         if (remove(refered, ref)) {
             getValueList(refered).add(oldIndex + offset, ref);
         }
+        
     }
 
 }

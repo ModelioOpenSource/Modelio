@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.datastore.v0;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,19 +30,19 @@ import org.modelio.uml.activitydiagram.editor.style.ActivityAbstractStyleKeyProv
 @objid ("2a321dfa-55b6-11e2-877f-002564c97630")
 class GmDataStoreImageStyleKeys extends ActivityAbstractStyleKeyProvider {
     @objid ("d1ccdf0f-55c0-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("DATASTORE_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("DATASTORE_REPMODE", MetaKey.REPMODE);
 
     @objid ("d1ccdf11-55c0-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("DATASTORE_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("DATASTORE_FONT", MetaKey.FONT);
 
     @objid ("d1ccdf13-55c0-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("DATASTORE_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("DATASTORE_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("d1ccdf15-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("DATASTORE_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("DATASTORE_SHOWSTEREOTYPES",
+                MetaKey.SHOWSTEREOTYPES);
 
     @objid ("d1ccdf17-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("DATASTORE_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("DATASTORE_SHOWTAGS", MetaKey.SHOWTAGS);
 
 }

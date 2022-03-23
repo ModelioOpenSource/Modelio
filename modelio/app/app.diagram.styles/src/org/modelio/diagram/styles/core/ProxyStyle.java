@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.core;
 
 import java.util.ArrayList;
@@ -48,21 +47,22 @@ public class ProxyStyle implements IPersistent, IStyle, IStyleChangeListener {
      * Constructor for deserialization only.
      */
     @objid ("856b5e46-1926-11e2-92d2-001ec947c8cc")
-    public ProxyStyle() {
+    public  ProxyStyle() {
+        
     }
 
     /**
      * Creates a style associated to an element.
-     * 
      * @param cascadedStyle The parent style.
      */
     @objid ("856dc070-1926-11e2-92d2-001ec947c8cc")
-    public ProxyStyle(IStyle cascadedStyle) {
-        assert (cascadedStyle != null);
+    public  ProxyStyle(IStyle cascadedStyle) {
+        assert cascadedStyle != null;
         this.cascadedStyle = cascadedStyle;
         if (this.cascadedStyle != null) {
             this.cascadedStyle.addListener(this);
         }
+        
     }
 
     /**
@@ -70,7 +70,6 @@ public class ProxyStyle implements IPersistent, IStyle, IStyleChangeListener {
      * <p>
      * The listener will be fired each time a property is changed or removed.<br>
      * Registering 2 times a listener will make it fired 2 times.
-     * 
      * @param l The style change listener.
      */
     @objid ("856dc074-1926-11e2-92d2-001ec947c8cc")
@@ -90,7 +89,6 @@ public class ProxyStyle implements IPersistent, IStyle, IStyleChangeListener {
 
     /**
      * Convenience method to get a boolean property.
-     * 
      * @param propertyKey The property key
      * @return The boolean value.
      */
@@ -102,11 +100,11 @@ public class ProxyStyle implements IPersistent, IStyle, IStyleChangeListener {
         } else {
             throw new IllegalArgumentException(ProxyStyle.getIllegalArgumentMessagePrefix(propertyKey) + "a boolean value");
         }
+        
     }
 
     /**
      * Get the style where property values are looked for when not defined on this style.
-     * 
      * @return The cascaded style.
      */
     @objid ("856dc07f-1926-11e2-92d2-001ec947c8cc")
@@ -117,7 +115,6 @@ public class ProxyStyle implements IPersistent, IStyle, IStyleChangeListener {
 
     /**
      * Convenience method to get a Color property.
-     * 
      * @param propertyKey The property key
      * @return The Color value.
      */
@@ -129,11 +126,11 @@ public class ProxyStyle implements IPersistent, IStyle, IStyleChangeListener {
         } else {
             throw new IllegalArgumentException(ProxyStyle.getIllegalArgumentMessagePrefix(propertyKey) + "a color");
         }
+        
     }
 
     /**
      * Convenience method to get a Font property.
-     * 
      * @param propertyKey The property key
      * @return The Font value.
      */
@@ -145,11 +142,11 @@ public class ProxyStyle implements IPersistent, IStyle, IStyleChangeListener {
         } else {
             throw new IllegalArgumentException(ProxyStyle.getIllegalArgumentMessagePrefix(propertyKey) + "a font");
         }
+        
     }
 
     /**
      * Convenience method to get an integer property.
-     * 
      * @param propertyKey The property key
      * @return The integer value.
      */
@@ -161,11 +158,11 @@ public class ProxyStyle implements IPersistent, IStyle, IStyleChangeListener {
         }
         
         throw new IllegalArgumentException(ProxyStyle.getIllegalArgumentMessagePrefix(propertyKey) + "an integer value");
+        
     }
 
     /**
      * Get all style keys for which a value has been locally set.
-     * 
      * @return locally defined style keys.
      */
     @objid ("856dc097-1926-11e2-92d2-001ec947c8cc")
@@ -183,7 +180,6 @@ public class ProxyStyle implements IPersistent, IStyle, IStyleChangeListener {
     /**
      * Get a style property .
      * @param <T> The wanted property value type .
-     * 
      * @param key The property key
      * @return The property value
      */
@@ -195,6 +191,7 @@ public class ProxyStyle implements IPersistent, IStyle, IStyleChangeListener {
         } else {
             return null;
         }
+        
     }
 
     /**
@@ -239,11 +236,11 @@ public class ProxyStyle implements IPersistent, IStyle, IStyleChangeListener {
         if (this.cascadedStyle != null) {
             this.cascadedStyle.addListener(this);
         }
+        
     }
 
     /**
      * Remove a style change listener.
-     * 
      * @param l a style change listener to remove.
      */
     @objid ("856dc0bd-1926-11e2-92d2-001ec947c8cc")
@@ -254,7 +251,6 @@ public class ProxyStyle implements IPersistent, IStyle, IStyleChangeListener {
 
     /**
      * Remove a property value and fires style changes listeners.
-     * 
      * @param key The property to remove
      */
     @objid ("856dc0c2-1926-11e2-92d2-001ec947c8cc")
@@ -284,7 +280,6 @@ public class ProxyStyle implements IPersistent, IStyle, IStyleChangeListener {
 
     /**
      * Set the parent style used to get a property value when it is not defined on this style.
-     * 
      * @param style The new parent style.
      */
     @objid ("85728527-1926-11e2-92d2-001ec947c8cc")
@@ -306,11 +301,11 @@ public class ProxyStyle implements IPersistent, IStyle, IStyleChangeListener {
         }
         
         this.fireListeners();
+        
     }
 
     /**
      * Change a style property and fires the style listeners.
-     * 
      * @param key The property key.
      * @param value The new value.
      */
@@ -324,7 +319,6 @@ public class ProxyStyle implements IPersistent, IStyle, IStyleChangeListener {
      * Called when a property of the style of the element is modified.
      * <p>
      * The element should then update itself from the style change.
-     * 
      * @param property The style property that changed
      * @param newValue The new property value
      */
@@ -338,7 +332,6 @@ public class ProxyStyle implements IPersistent, IStyle, IStyleChangeListener {
      * Called when a style completely changed .
      * <p>
      * The element should then update itself completely from the style.
-     * 
      * @param changedStyle The style that changed
      */
     @objid ("8574e787-1926-11e2-92d2-001ec947c8cc")
@@ -346,6 +339,7 @@ public class ProxyStyle implements IPersistent, IStyle, IStyleChangeListener {
     public void styleChanged(IStyle changedStyle) {
         // Fire listeners
         this.fireListeners();
+        
     }
 
     @objid ("857749d7-1926-11e2-92d2-001ec947c8cc")
@@ -354,6 +348,7 @@ public class ProxyStyle implements IPersistent, IStyle, IStyleChangeListener {
         if (this.cascadedStyle != null) {
             out.writeProperty("CascadedStyle", this.cascadedStyle instanceof DynamicStyle ? this.cascadedStyle.getCascadedStyle() : this.cascadedStyle);
         }
+        
     }
 
     @objid ("857749db-1926-11e2-92d2-001ec947c8cc")
@@ -362,6 +357,7 @@ public class ProxyStyle implements IPersistent, IStyle, IStyleChangeListener {
         for (IStyleChangeListener l : new ArrayList<>(this.listeners)) {
             l.styleChanged(key, value);
         }
+        
     }
 
     @objid ("857749df-1926-11e2-92d2-001ec947c8cc")
@@ -369,11 +365,11 @@ public class ProxyStyle implements IPersistent, IStyle, IStyleChangeListener {
         for (IStyleChangeListener l : new ArrayList<>(this.listeners)) {
             l.styleChanged(this);
         }
+        
     }
 
     /**
      * Factorization of a string literral to avoid SONAR error.
-     * 
      * @param propertyKey the property key
      * @return a preformatted prefix for the message used in IllegalArgumentException constructor. Just add the flavor.
      */
@@ -386,6 +382,17 @@ public class ProxyStyle implements IPersistent, IStyle, IStyleChangeListener {
     @Override
     public String toString() {
         return "ProxyStyle [" + this.cascadedStyle + "]";
+    }
+
+    @objid ("ac5afd6c-4337-42da-b140-ee05ffbde650")
+    @Override
+    public void dispose() {
+        if (this.cascadedStyle != null) {
+            this.cascadedStyle.removeListener(this);
+            this.cascadedStyle = null;
+        }
+        this.listeners.clear();
+        
     }
 
 }

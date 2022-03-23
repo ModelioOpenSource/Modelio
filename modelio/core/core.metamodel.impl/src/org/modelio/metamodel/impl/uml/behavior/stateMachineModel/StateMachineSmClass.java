@@ -17,23 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.stateMachineModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.BehaviorSmClass;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.EntryPointPseudoStateSmClass;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.ExitPointPseudoStateSmClass;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.RegionSmClass;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.StateMachineData;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.StateSmClass;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.EntryPointPseudoState;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.ExitPointPseudoState;
@@ -72,7 +67,7 @@ public class StateMachineSmClass extends BehaviorSmClass {
     private SmDependency exitPointDep;
 
     @objid ("df66b335-38a3-491c-bb56-2cc0b0f382e7")
-    public StateMachineSmClass(ISmMetamodelFragment origin) {
+    public  StateMachineSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -80,6 +75,7 @@ public class StateMachineSmClass extends BehaviorSmClass {
     @Override
     public String getName() {
         return "StateMachine";
+        
     }
 
     @objid ("e2c0d84e-6345-46b2-8a0f-62da2da4c0ae")
@@ -92,18 +88,21 @@ public class StateMachineSmClass extends BehaviorSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return StateMachine.class;
+        
     }
 
     @objid ("6e8b0546-4707-4bdd-9e38-f0ce75d96a4d")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("a8c9313f-69b5-4e7d-b7dd-ffe92a7846ac")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("6c353ca8-c532-4314-ae70-2c9bd4a4f3e2")
@@ -135,6 +134,8 @@ public class StateMachineSmClass extends BehaviorSmClass {
         this.exitPointDep = new ExitPointSmDependency();
         this.exitPointDep.init("ExitPoint", this, metamodel.getMClass(ExitPointPseudoState.MQNAME), 0, -1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.exitPointDep);
+        
+        
     }
 
     @objid ("eea39e0f-d25c-43be-974a-c9e07af3ce20")
@@ -183,7 +184,7 @@ public class StateMachineSmClass extends BehaviorSmClass {
         private StateMachineSmClass smClass;
 
         @objid ("95fe647b-c2aa-41d2-830e-9823f21d0480")
-        public StateMachineObjectFactory(StateMachineSmClass smClass) {
+        public  StateMachineObjectFactory(StateMachineSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -239,6 +240,7 @@ public class StateMachineSmClass extends BehaviorSmClass {
             	this.symetricDep = ((RegionSmClass)this.getTarget()).getRepresentedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -258,6 +260,7 @@ public class StateMachineSmClass extends BehaviorSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((StateMachineData) data).mSubmachineState = values;
+            
         }
 
         @objid ("9afea228-218c-40de-abc5-e04cc42254a4")
@@ -267,6 +270,7 @@ public class StateMachineSmClass extends BehaviorSmClass {
             	this.symetricDep = ((StateSmClass)this.getTarget()).getSubMachineDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -286,6 +290,7 @@ public class StateMachineSmClass extends BehaviorSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((StateMachineData) data).mEntryPoint = values;
+            
         }
 
         @objid ("7e60c491-4b98-4c37-b969-133043f21c04")
@@ -295,6 +300,7 @@ public class StateMachineSmClass extends BehaviorSmClass {
             	this.symetricDep = ((EntryPointPseudoStateSmClass)this.getTarget()).getEntryOfMachineDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -314,6 +320,7 @@ public class StateMachineSmClass extends BehaviorSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((StateMachineData) data).mExitPoint = values;
+            
         }
 
         @objid ("1cb8eac8-5a4d-4a94-a46c-3e6b628e6312")
@@ -323,6 +330,7 @@ public class StateMachineSmClass extends BehaviorSmClass {
             	this.symetricDep = ((ExitPointPseudoStateSmClass)this.getTarget()).getExitOfMachineDep();
             }
             return this.symetricDep;
+            
         }
 
     }

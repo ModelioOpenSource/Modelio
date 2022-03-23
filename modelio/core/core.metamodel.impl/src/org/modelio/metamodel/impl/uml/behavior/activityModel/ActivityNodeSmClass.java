@@ -17,23 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityEdgeSmClass;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityNodeData;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityPartitionSmClass;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivitySmClass;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ClauseSmClass;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.StructuredActivityNodeSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.Activity;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityEdge;
@@ -75,7 +69,7 @@ public class ActivityNodeSmClass extends UmlModelElementSmClass {
     private SmDependency outgoingDep;
 
     @objid ("4a2f8de8-b654-43b4-b2b0-891638d474f4")
-    public ActivityNodeSmClass(ISmMetamodelFragment origin) {
+    public  ActivityNodeSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -83,6 +77,7 @@ public class ActivityNodeSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "ActivityNode";
+        
     }
 
     @objid ("dd205423-33bc-4d99-ac36-3d39efc4e237")
@@ -95,18 +90,21 @@ public class ActivityNodeSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ActivityNode.class;
+        
     }
 
     @objid ("2281f2fd-bbac-4856-9493-f2c1bb78bb3e")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("920dcbd2-31cc-4b53-b506-8339f86b9866")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("118ac486-275b-4433-803a-dbb07257a356")
@@ -142,6 +140,8 @@ public class ActivityNodeSmClass extends UmlModelElementSmClass {
         this.outgoingDep = new OutgoingSmDependency();
         this.outgoingDep.init("Outgoing", this, metamodel.getMClass(ActivityEdge.MQNAME), 0, -1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.outgoingDep);
+        
+        
     }
 
     @objid ("3bb3833e-f965-48f0-8077-9d551975f8eb")
@@ -198,7 +198,7 @@ public class ActivityNodeSmClass extends UmlModelElementSmClass {
         private ActivityNodeSmClass smClass;
 
         @objid ("55b95737-f030-4f23-9740-51f0290b0126")
-        public ActivityNodeObjectFactory(ActivityNodeSmClass smClass) {
+        public  ActivityNodeObjectFactory(ActivityNodeSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -240,6 +240,7 @@ public class ActivityNodeSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((ActivitySmClass)this.getTarget()).getOwnedNodeDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -268,6 +269,7 @@ public class ActivityNodeSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((ActivityPartitionSmClass)this.getTarget()).getContainedNodeDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -287,6 +289,7 @@ public class ActivityNodeSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ActivityNodeData) data).mIncoming = values;
+            
         }
 
         @objid ("63f637a4-32fd-4a5b-96c3-bd0783208442")
@@ -296,6 +299,7 @@ public class ActivityNodeSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((ActivityEdgeSmClass)this.getTarget()).getTargetDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -324,6 +328,7 @@ public class ActivityNodeSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((ClauseSmClass)this.getTarget()).getBodyDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -352,6 +357,7 @@ public class ActivityNodeSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((StructuredActivityNodeSmClass)this.getTarget()).getBodyDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -371,6 +377,7 @@ public class ActivityNodeSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ActivityNodeData) data).mOutgoing = values;
+            
         }
 
         @objid ("699f92ad-b5b2-4afe-b940-e7b671d4f0ec")
@@ -380,6 +387,7 @@ public class ActivityNodeSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((ActivityEdgeSmClass)this.getTarget()).getSourceDep();
             }
             return this.symetricDep;
+            
         }
 
     }

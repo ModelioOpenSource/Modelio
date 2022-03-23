@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.label.modelelement;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,6 +43,7 @@ public class GmDefaultFlatHeaderMigrator implements IPersistentMigrator {
                 return null;
             }
         }
+        
     }
 
     @objid ("c14a8996-55b6-11e2-877f-002564c97630")

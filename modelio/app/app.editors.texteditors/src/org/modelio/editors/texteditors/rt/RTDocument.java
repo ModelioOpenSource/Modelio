@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.texteditors.rt;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,10 +29,10 @@ import org.eclipse.swt.widgets.Display;
 @objid ("7b6a6585-2a77-11e2-9fb9-bc305ba4815c")
 public class RTDocument extends Document {
     @objid ("7b6a6586-2a77-11e2-9fb9-bc305ba4815c")
-     IDocumentPartitioner currentPartitionner;
+    IDocumentPartitioner currentPartitionner;
 
     @objid ("7b6a6587-2a77-11e2-9fb9-bc305ba4815c")
-    public RTDocument(IDocumentPartitioner partitionner) {
+    public  RTDocument(IDocumentPartitioner partitionner) {
         this.setCurrentPartionner(partitionner);
     }
 
@@ -56,6 +55,7 @@ public class RTDocument extends Document {
         } else {
             Display.getDefault().beep();
         }
+        
     }
 
     @objid ("7b6a6590-2a77-11e2-9fb9-bc305ba4815c")
@@ -77,6 +77,7 @@ public class RTDocument extends Document {
         } else {
             Display.getDefault().beep();
         }
+        
     }
 
     @objid ("7b6a6597-2a77-11e2-9fb9-bc305ba4815c")
@@ -87,6 +88,7 @@ public class RTDocument extends Document {
             e.printStackTrace();
             return true;
         }
+        
     }
 
     @objid ("7b6a659b-2a77-11e2-9fb9-bc305ba4815c")
@@ -96,7 +98,6 @@ public class RTDocument extends Document {
 
     /**
      * Sets the partitioner to use for this document. If any previous partitioner was used, it is disconnected first.
-     * 
      * @param partitionner the partitioner to use for this document.
      */
     @objid ("7b6a65a0-2a77-11e2-9fb9-bc305ba4815c")
@@ -107,6 +108,7 @@ public class RTDocument extends Document {
         this.currentPartitionner = partitionner;
         this.currentPartitionner.connect(this);
         this.setDocumentPartitioner(partitionner);
+        
     }
 
 }

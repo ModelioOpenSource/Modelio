@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import java.util.List;
@@ -59,10 +58,11 @@ public class EStructuralFeature extends EFeature {
         }else  if (objingElt instanceof Instance){
             setInstance((Instance) objingElt);
         }
+        
     }
 
     @objid ("006d711b-a6cc-4e8b-a941-bd82cd4ad5ad")
-    public EStructuralFeature(org.eclipse.uml2.uml.StructuralFeature element) {
+    public  EStructuralFeature(org.eclipse.uml2.uml.StructuralFeature element) {
         super(element);
     }
 
@@ -80,6 +80,7 @@ public class EStructuralFeature extends EFeature {
         }
         
         testMutiplicity(objFeature);
+        
     }
 
     @objid ("c6a2c8ba-10ca-4e74-be01-73e67d6ba77d")
@@ -91,6 +92,7 @@ public class EStructuralFeature extends EFeature {
         }else{
             objFeature.setMultiplicityMax(multMax);
         }
+        
     }
 
     @objid ("e512230e-acf1-48d4-a16e-f4887f90ebe6")
@@ -99,6 +101,7 @@ public class EStructuralFeature extends EFeature {
         if ((value != null) && (!value.equals(""))){
             objingElt.setMultiplicityMin(value);
         }
+        
     }
 
     @objid ("ffed22d9-2a5a-45ad-858a-ff4f82dddec8")
@@ -114,6 +117,7 @@ public class EStructuralFeature extends EFeature {
                 feature.setMultiplicityMax("*");
             }
         }
+        
     }
 
     @objid ("0dbf9884-4428-4703-9bd1-456893366a80")
@@ -128,6 +132,7 @@ public class EStructuralFeature extends EFeature {
         if (!("".equals(multMax))){
             objingElt.setMultiplicityMax(multMax);
         }
+        
     }
 
     @objid ("893ae47c-5673-4106-9aae-421ca50d69de")
@@ -139,6 +144,7 @@ public class EStructuralFeature extends EFeature {
         }else{
             objFeature.setMultiplicityMax(multMax);
         }
+        
     }
 
     @objid ("96dd7007-0312-406a-a6f5-d82f128a3364")
@@ -147,6 +153,7 @@ public class EStructuralFeature extends EFeature {
         if ((value != null) && (!value.equals(""))){
             objingElt.setMultiplicityMin(value);
         }
+        
     }
 
     @objid ("6357e793-83f2-469e-9555-ecf37b4d55f5")
@@ -161,6 +168,7 @@ public class EStructuralFeature extends EFeature {
                     setMultiMax(objingElt);
                     setMultiMin(objingElt);
                 }
+        
     }
 
     @objid ("6c2f0ca3-ac51-4afd-831e-b50785bcf615")
@@ -174,6 +182,7 @@ public class EStructuralFeature extends EFeature {
         if ((value != null) && (!value.equals(""))){
             objingElt.setValue(value);
         }
+        
     }
 
     @objid ("96c21ba0-7649-43f8-ba34-b40c18012e02")
@@ -199,6 +208,7 @@ public class EStructuralFeature extends EFeature {
                 }
             }
         }
+        
     }
 
     @objid ("3109cfb4-24b9-4c7f-a81c-91eaee46505e")
@@ -214,6 +224,7 @@ public class EStructuralFeature extends EFeature {
         } else if (ObjingEAnnotation.ACCESS_NONE_VALUE.equals(accessMode)) {
             attribute.setChangeable(KindOfAccess.ACCESNONE);
         }
+        
     }
 
     @objid ("a8c3a982-d7e2-4ee7-8e34-07483c655cc1")
@@ -226,6 +237,7 @@ public class EStructuralFeature extends EFeature {
         if (((Property) getEcoreElement()).isReadOnly()){
             objingElt.setChangeable(KindOfAccess.READ);
         }
+        
     }
 
     @objid ("aee238a8-196c-43eb-961f-23b631430f81")

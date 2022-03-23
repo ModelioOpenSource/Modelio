@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.transactions.events;
 
 import java.util.HashMap;
@@ -72,7 +71,6 @@ public class EventFactory {
 
     /**
      * Create ready to use commit events.
-     * 
      * @param tr a transaction
      * @return a factory with events ready to use.
      */
@@ -94,7 +92,6 @@ public class EventFactory {
 
     /**
      * Create a change event factory for an undone transaction.
-     * 
      * @param tr the undone transaction
      * @return the change event factory.
      */
@@ -115,7 +112,6 @@ public class EventFactory {
 
     /**
      * Create a change event factory for an redone transaction.
-     * 
      * @param tr the redone transaction
      * @return the change event factory.
      */
@@ -201,18 +197,20 @@ public class EventFactory {
         this.event.updatedElements = rightUpdates;
         this.event.movedElements = rightMoves;
         this.event.deletedElements = rightDestructions;
+        
     }
 
     /**
      * Private constructor.
      */
     @objid ("7d70f14a-1c43-11e2-8eb9-001ec947ccaf")
-    private EventFactory(ChangeCause cause) {
+    private  EventFactory(ChangeCause cause) {
         // create a new event to be filled
         this.event = new ModelChangeEvent();
         this.statusEvent = new StatusChangeEvent();
         this.event.cause = cause;
         this.statusEvent.cause = cause;
+        
     }
 
     /**
@@ -220,7 +218,6 @@ public class EventFactory {
      * <p>
      * Call {@link #process(IAction)} to fill the events and
      * {@link #postProcess()} when finished.
-     * 
      * @param cause The cause of the model change event. {@link ChangeCause#UNDO} is not allowed.
      * @return a ready factory.
      */
@@ -238,7 +235,6 @@ public class EventFactory {
 
     /**
      * Process an action.
-     * 
      * @param a an action.
      */
     @objid ("7d7353a1-1c43-11e2-8eb9-001ec947ccaf")
@@ -264,7 +260,6 @@ public class EventFactory {
 
     /**
      * Test whether the change and status event are both empty.
-     * 
      * @return <code>true</code> if no model nor status change occurred.
      */
     @objid ("ec573269-4fe7-4ca5-b3c2-56287dec8823")
@@ -281,7 +276,6 @@ public class EventFactory {
      * Update the commit event.
      * <p>
      * To be called when the transaction had new actions after having called {@link #createCommitEvent(Transaction)}.
-     * 
      * @param tr the updated transaction
      */
     @objid ("15b75b37-5057-47fa-92e9-54187c60471f")
@@ -297,6 +291,7 @@ public class EventFactory {
             // Call the post process
             postProcess();
         }
+        
     }
 
 }

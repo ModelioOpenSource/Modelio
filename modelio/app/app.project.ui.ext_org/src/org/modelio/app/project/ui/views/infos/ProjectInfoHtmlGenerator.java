@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.ui.views.infos;
 
 import java.io.BufferedReader;
@@ -85,13 +84,13 @@ class ProjectInfoHtmlGenerator {
 
     /**
      * Instantiate the generator and immediately generates the HTML page.
-     * 
      * @param projectAdapter the project model
      */
     @objid ("f835672e-8d78-4c1e-8338-bd945dbde595")
-    public ProjectInfoHtmlGenerator(ProjectAdapter projectAdapter) {
+    public  ProjectInfoHtmlGenerator(ProjectAdapter projectAdapter) {
         this.projectAdapter = projectAdapter;
         createProjectInfoPageFromTemplate();
+        
     }
 
     /**
@@ -136,8 +135,7 @@ class ProjectInfoHtmlGenerator {
 
     /**
      * Create Libraries Fragments table content Columns: Name, Version, Description
-     * 
-     * @param fragments @return
+     * @return Libraries Fragments table content Columns
      */
     @objid ("fc59e2b0-cd2a-4f29-a20b-2c5aa6f9f312")
     private String createLibrariesTableContent(List<FragmentDescriptor> fragments) {
@@ -172,8 +170,7 @@ class ProjectInfoHtmlGenerator {
 
     /**
      * Create Modules table content Columns: Name, Version
-     * 
-     * @param modules @return
+     * @return Modules table content Columns
      */
     @objid ("25fe63e2-5bab-4c58-9a0a-659b45167b4b")
     private String createModulesTableContent(Object[] modules) {
@@ -253,8 +250,7 @@ class ProjectInfoHtmlGenerator {
 
     /**
      * Create Work Models Fragments table content Columns: Name, Type, Uri
-     * 
-     * @param fragments @return
+     * @return the HTML table columns
      */
     @objid ("325e6f93-4795-4cea-9ea2-43c0595c7486")
     private String createWorkModelsTableContent(List<FragmentDescriptor> fragments) {
@@ -274,7 +270,7 @@ class ProjectInfoHtmlGenerator {
             content.append(fType);
             content.append("</td>");
         
-            String fUriString = isDistant ? fragment.getUri().toString().replaceAll("%20", " ") : "";
+            String fUriString = isDistant ? fragment.getUri().toString().replace("%20", " ") : "";
             content.append("<td>");
             content.append(fUriString);
             content.append("</td>");
@@ -294,7 +290,6 @@ class ProjectInfoHtmlGenerator {
                 oldtext.append(line);
                 oldtext.append(System.getProperty("line.separator"));
             }
-            reader.close();
         } catch (IOException ioe) {
             AppProjectUi.LOG.error("Error when copying the template file: %s", FileUtils.getLocalizedMessage(ioe));
             AppProjectUi.LOG.debug(ioe);
@@ -306,11 +301,11 @@ class ProjectInfoHtmlGenerator {
         
         try (BufferedWriter writer = Files.newBufferedWriter(filePath, StandardCharsets.UTF_8);) {
             writer.write(newtext.toString());
-            writer.close();
         } catch (IOException ioe) {
             AppProjectUi.LOG.error("Error when writing the html page: %s", FileUtils.getLocalizedMessage(ioe));
             AppProjectUi.LOG.debug(ioe);
         }
+        
     }
 
     /**
@@ -366,20 +361,17 @@ class ProjectInfoHtmlGenerator {
         Version projVersion = this.projectAdapter.getProjectDescriptor().getModelioVersion();
         if (projVersion == null) {
             return "project_version_older";
-        } else if (projVersion.isNewerThan(ModelioVersion.VERSION)) {
-            return "project_version_newer";
-        } else if (ModelioVersion.VERSION.equals(projVersion)) {
-            return "project_version_same";
-        } else {
-            // project is older
-            if (projVersion.getMajorVersion() == ModelioVersion.VERSION.getMajorVersion() &&
-                    projVersion.getMinorVersion() == ModelioVersion.VERSION.getMinorVersion()) {
-                // Only build is different
-                return "project_version_same";
-            } else {
-                return "project_version_older";
-            }
         }
+        
+        int compare = projVersion.withoutBuild().compareTo(ModelioVersion.MAJOR_MINOR);
+        if (compare < 0) {
+            return "project_version_older";
+        } else if (compare > 0) {
+            return "project_version_newer";
+        } else {
+            return "project_version_same";
+        }
+        
     }
 
     @objid ("c6742097-e849-4b5b-a735-21b90bc1375e")
@@ -391,6 +383,7 @@ class ProjectInfoHtmlGenerator {
         } else {
             return modelioVersion.toString();
         }
+        
     }
 
     /**
@@ -472,7 +465,7 @@ class ProjectInfoHtmlGenerator {
         // Basic info
         String contactName = this.projectAdapter.getProperties().getValue(ProjectInfoHtmlGenerator.INFO_CONTACT, "");
         replaceAll(source, "$project_contact", contactName);
-        replaceAll(source, "$mail_subject", this.projectAdapter.getName().replaceAll(" ", "%20"));
+        replaceAll(source, "$mail_subject", this.projectAdapter.getName().replace(" ", "%20"));
         replaceAll(source, "$project_storage_path", this.projectAdapter.getStoragePathString());
         replaceAll(source, "$project_storage_last_modification_time", this.projectAdapter.getStorageLastModificationTimeString());
         
@@ -500,14 +493,14 @@ class ProjectInfoHtmlGenerator {
         
         // WorkModels Fragments section
         List<FragmentDescriptor> workModelsFragments = this.projectAdapter.getWorkModelsFragments();
-        if (workModelsFragments.size() > 0) {
+        if (!workModelsFragments.isEmpty()) {
             replaceAll(source, "$tbl_workModels_content", createWorkModelsListContent(workModelsFragments));
         } else { // Hide container if no WorkModels
             hideContainer(source, "AccordionContainerWorkModels");
         }
         // Libraries Fragments section
         List<FragmentDescriptor> librariesFragments = this.projectAdapter.getLibrariesFragments();
-        if (librariesFragments.size() > 0) {
+        if (!librariesFragments.isEmpty()) {
             replaceAll(source, "$tbl_libraries_content", createLibrariesListContent(librariesFragments));
         } else { // Hide container if no Libraries
             hideContainer(source, "AccordionContainerLibraries");
@@ -566,7 +559,7 @@ class ProjectInfoHtmlGenerator {
         for (FragmentDescriptor fragment : fragments) {
             content.append("<div class='listitem'>");
             boolean isDistant = fragment.getType() == FragmentType.EXML_SVN;
-            String fUriString = isDistant ? fragment.getUri().toString().replaceAll("%20", " ") : "";
+            String fUriString = isDistant ? fragment.getUri().toString().replace("%20", " ") : "";
             if (fUriString != null && fUriString.length() > 0) {
                 content.append("<span data-toggle=\"tooltip\" data-html=\"true\" title=\"" + fUriString + "\">");
             } else {

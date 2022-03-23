@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.persistence.plugin;
 
 import java.util.ResourceBundle;
@@ -54,6 +53,7 @@ public class DiagramPersistence implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), PLUGIN_ID));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("diagrampersistence"));
+        
     }
 
     @objid ("cb6b84fc-186f-11e2-92d2-001ec947c8cc")

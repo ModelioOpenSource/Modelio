@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,16 +32,16 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("000cfae4-c4bf-1fd8-97fe-001ec947cd2a")
 public class GeneralizationData extends UmlModelElementData {
     @objid ("8886a3fb-bc3c-490d-a781-46bdfea71582")
-     Object mDiscriminator = "";
+    Object mDiscriminator = "";
 
     @objid ("b9c712cb-881f-4dfa-b49a-285bf3cfd709")
-     SmObjectImpl mSuperType;
+    SmObjectImpl mSuperType;
 
     @objid ("408374fb-7796-488a-baed-c3c443ac949f")
-     SmObjectImpl mSubType;
+    SmObjectImpl mSubType;
 
     @objid ("8f990905-9ae2-4393-9763-9b47acdc0eef")
-    public GeneralizationData(GeneralizationSmClass smClass) {
+    public  GeneralizationData(GeneralizationSmClass smClass) {
         super(smClass);
     }
 

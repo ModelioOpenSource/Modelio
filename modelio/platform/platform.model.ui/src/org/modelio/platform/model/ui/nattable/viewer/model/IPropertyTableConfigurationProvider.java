@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.viewer.model;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,6 @@ public interface IPropertyTableConfigurationProvider {
 
     /**
      * Get a {@link IConfiguration} with the given datas.
-     * 
      * @param context the table project context
      * @param dataModel the table data model
      * @return the configuration

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.mmextensions.standard.facilities;
 
 import java.util.List;
@@ -66,17 +65,15 @@ public class CompositionInitializer extends DefaultModelVisitor {
 
     /**
      * Instantiate a composition initializer.
-     * 
      * @param parent the new composition parent where elements will be initialized.
      */
     @objid ("01f40498-0000-7682-0000-000000000000")
-    public CompositionInitializer(final SmObjectImpl parent) {
+    public  CompositionInitializer(final SmObjectImpl parent) {
         this.parent = parent;
     }
 
     /**
      * Attach the given element to the parent element.
-     * 
      * @param obj the element to attach
      * @param dep optional, the metamodel dependency to use to attach the element.
      * @return <code>true</code> if the object was successfully attached, <code>false</code> if it
@@ -128,6 +125,7 @@ public class CompositionInitializer extends DefaultModelVisitor {
         } else {
             return visitUmlModelElement(theActivityNode);
         }
+        
     }
 
     @objid ("01f40498-0000-7312-0000-000000000000")
@@ -139,6 +137,7 @@ public class CompositionInitializer extends DefaultModelVisitor {
         } else {
             return visitActivityGroup(theActivityPartition);
         }
+        
     }
 
     @objid ("01f40498-0000-6f22-0000-000000000000")
@@ -163,6 +162,7 @@ public class CompositionInitializer extends DefaultModelVisitor {
         } else {
             return visitUmlModelElement(theConstraint);
         }
+        
     }
 
     @objid ("01f40498-0000-6eba-0000-000000000000")
@@ -207,6 +207,7 @@ public class CompositionInitializer extends DefaultModelVisitor {
         } else {
             return visitModelTree(thePackage);
         }
+        
     }
 
     @objid ("01f40498-0000-7032-0000-000000000000")

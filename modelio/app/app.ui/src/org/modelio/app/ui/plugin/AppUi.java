@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.ui.plugin;
 
 import java.net.Authenticator;
@@ -81,7 +80,6 @@ public class AppUi implements BundleActivator {
 
     /**
      * Returns an image descriptor for the image file at the given plug-in relative path
-     * 
      * @param path the path
      * @return the image descriptor
      */
@@ -92,7 +90,6 @@ public class AppUi implements BundleActivator {
 
     /**
      * Access to preferences store.
-     * 
      * @return the {@link AppUi#PLUGIN_ID} plugin preferences store.
      */
     @objid ("6a5ec005-b829-45f9-8879-45b31bca9a4c")
@@ -114,6 +111,7 @@ public class AppUi implements BundleActivator {
         
         // Remove Eclipse 3.x URLConnection authenticator
         overrideAuthenticator(bundleContext);
+        
     }
 
     @objid ("002e26e2-d6b6-1ff2-a7f4-001ec947cd2a")
@@ -134,10 +132,7 @@ public class AppUi implements BundleActivator {
      * <p>
      * We don't need it and it does not work because we don't start the Eclipse 3 workbench.
      * @see org.eclipse.ui.internal.net.auth.NetAuthenticator
-     * 
      * @param bundleContext the bundle context.
-     * 
-     * 
      * @see java.net.Authenticator 
      * @see org.eclipse.ui.internal.net.auth.NetAuthenticator 
      */
@@ -151,6 +146,7 @@ public class AppUi implements BundleActivator {
         
         // remove its ugly authenticator
         Authenticator.setDefault(null);
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.acceptsignal;
 
 import java.util.List;
@@ -48,18 +47,17 @@ public class GmAcceptedSignalsLabel extends GmElementLabel {
      * Empty c'tor for deserialisation.
      */
     @objid ("2971db58-55b6-11e2-877f-002564c97630")
-    public GmAcceptedSignalsLabel() {
+    public  GmAcceptedSignalsLabel() {
         // Nothing to do.
     }
 
     /**
      * C'tor.
-     * 
      * @param diagram the diagram.
      * @param relatedRef ref to the related AcceptSignalAction
      */
     @objid ("2971db5b-55b6-11e2-877f-002564c97630")
-    public GmAcceptedSignalsLabel(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmAcceptedSignalsLabel(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -104,6 +102,7 @@ public class GmAcceptedSignalsLabel extends GmElementLabel {
             break;
         }
         }
+        
     }
 
     @objid ("2971db72-55b6-11e2-877f-002564c97630")
@@ -113,6 +112,7 @@ public class GmAcceptedSignalsLabel extends GmElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmAcceptedSignalsLabel.", GmAcceptedSignalsLabel.MINOR_VERSION);
+        
     }
 
     @objid ("297361dc-55b6-11e2-877f-002564c97630")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.ui.htmleditor.events;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,7 +30,7 @@ public class NodeSelectionEvent {
     private final String selectedHtml;
 
     @objid ("c0d10f91-2b61-402b-9f14-56e5c9cdd35e")
-    public NodeSelectionEvent(String selectedHtml) {
+    public  NodeSelectionEvent(String selectedHtml) {
         this.selectedHtml = selectedHtml;
     }
 

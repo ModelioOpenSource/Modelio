@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel.data.standard.infrastructure;
 
 import java.util.Collections;
@@ -55,11 +54,10 @@ public class DocumentPropertyModel extends AbstractPropertyModel<Document> {
 
     /**
      * Instantiate the externDocument type properties view.
-     * 
      * @param theEditedElement the current externDocument type.
      */
     @objid ("f29f59d6-503c-4784-b492-336741861c91")
-    public DocumentPropertyModel(final Document theEditedElement) {
+    public  DocumentPropertyModel(final Document theEditedElement) {
         super(theEditedElement);
     }
 
@@ -121,6 +119,7 @@ public class DocumentPropertyModel extends AbstractPropertyModel<Document> {
         default:
             return null;
         }
+        
     }
 
     /**
@@ -184,6 +183,7 @@ public class DocumentPropertyModel extends AbstractPropertyModel<Document> {
         default:
             return null;
         }
+        
     }
 
     /**
@@ -230,6 +230,7 @@ public class DocumentPropertyModel extends AbstractPropertyModel<Document> {
         default:
             return;
         }
+        
     }
 
     @objid ("71cd3168-5ff3-4d08-9627-6ccac0a14ef0")
@@ -242,6 +243,7 @@ public class DocumentPropertyModel extends AbstractPropertyModel<Document> {
         } else {
             return true;
         }
+        
     }
 
 }

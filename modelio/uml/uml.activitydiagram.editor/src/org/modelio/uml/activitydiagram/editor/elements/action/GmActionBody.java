@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.action;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,12 +46,11 @@ public class GmActionBody extends GmElementText {
 
     /**
      * Creates the node.
-     * 
      * @param diagram The diagram
      * @param relatedRef related element reference, must not be <code>null</code>.
      */
     @objid ("2985b15d-55b6-11e2-877f-002564c97630")
-    public GmActionBody(IGmDiagram diagram, MRef relatedRef) {
+    public  GmActionBody(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -60,7 +58,8 @@ public class GmActionBody extends GmElementText {
      * For deserialization only.
      */
     @objid ("2985b166-55b6-11e2-877f-002564c97630")
-    public GmActionBody() {
+    public  GmActionBody() {
+        
     }
 
     @objid ("2985b169-55b6-11e2-877f-002564c97630")
@@ -94,6 +93,7 @@ public class GmActionBody extends GmElementText {
                         return getRelatedElement().getBody();
                     }
                 };
+        
     }
 
     @objid ("2985b17c-55b6-11e2-877f-002564c97630")
@@ -113,6 +113,7 @@ public class GmActionBody extends GmElementText {
             break;
         }
         }
+        
     }
 
     @objid ("2985b182-55b6-11e2-877f-002564c97630")
@@ -122,6 +123,7 @@ public class GmActionBody extends GmElementText {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmActionBody.", GmActionBody.MINOR_VERSION);
+        
     }
 
     @objid ("2985b188-55b6-11e2-877f-002564c97630")

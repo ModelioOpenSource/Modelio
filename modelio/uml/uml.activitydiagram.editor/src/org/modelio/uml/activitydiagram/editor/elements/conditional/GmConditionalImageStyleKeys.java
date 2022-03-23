@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.conditional;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,21 +29,21 @@ import org.modelio.uml.activitydiagram.editor.style.ActivityAbstractStyleKeyProv
 @objid ("2a16a6e8-55b6-11e2-877f-002564c97630")
 public class GmConditionalImageStyleKeys extends ActivityAbstractStyleKeyProvider {
     @objid ("d121f90b-55c0-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmConditionalStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmConditionalStructuredStyleKeys.REPMODE;
 
     @objid ("d121f90d-55c0-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmConditionalStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmConditionalStructuredStyleKeys.FONT;
 
     @objid ("d121f90f-55c0-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmConditionalStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmConditionalStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("d121f911-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmConditionalStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmConditionalStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("d1237fa9-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmConditionalStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmConditionalStructuredStyleKeys.SHOWTAGS;
 
     @objid ("d1237fab-55c0-11e2-9337-002564c97630")
-     static final StyleKey AUTOSHOWPINS = GmConditionalStructuredStyleKeys.AUTOSHOWPINS;
+    static final StyleKey AUTOSHOWPINS = GmConditionalStructuredStyleKeys.AUTOSHOWPINS;
 
 }

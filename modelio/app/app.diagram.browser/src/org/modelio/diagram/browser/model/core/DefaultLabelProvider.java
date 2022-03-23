@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.model.core;
 
 import java.net.URL;
@@ -71,13 +70,13 @@ public class DefaultLabelProvider extends AbstractModelioElementLabelProvider {
 
     /**
      * Default constructor, initializing the view.
-     * 
      * @param browserView The diagram browser view.
      */
     @objid ("0037bc7a-0d4f-10c6-842f-001ec947cd2a")
-    public DefaultLabelProvider(TreeViewer browserView) {
+    public  DefaultLabelProvider(TreeViewer browserView) {
         this();
         this.browserView = browserView;
+        
     }
 
     @objid ("0037e678-0d4f-10c6-842f-001ec947cd2a")
@@ -89,10 +88,11 @@ public class DefaultLabelProvider extends AbstractModelioElementLabelProvider {
         }
         this.images.clear();
         this.browserView = null;
+        
     }
 
     @objid ("0038052c-0d4f-10c6-842f-001ec947cd2a")
-    private DefaultLabelProvider() {
+    private  DefaultLabelProvider() {
         Bundle imageBundle = Platform.getBundle(DiagramBrowser.PLUGIN_ID);
         
         URL bitmapUrl = FileLocator.find(imageBundle, new Path("icons/opened_folder.png"), null);
@@ -109,6 +109,7 @@ public class DefaultLabelProvider extends AbstractModelioElementLabelProvider {
         
         bitmapUrl = FileLocator.find(imageBundle, new Path("icons/refoverlay.png"), null);
         this.linkOverlayImageDescriptor = ImageDescriptor.createFromURL(bitmapUrl);
+        
     }
 
     @objid ("28530a8a-4ab5-11e2-a4d3-002564c97630")
@@ -158,7 +159,6 @@ public class DefaultLabelProvider extends AbstractModelioElementLabelProvider {
 
     /**
      * Get the background color for the given element in the given state
-     * 
      * @param obj the element
      * @return its background color
      */
@@ -175,7 +175,6 @@ public class DefaultLabelProvider extends AbstractModelioElementLabelProvider {
      * <li>Incomplete model elements font color is light red #FF8080.</li>
      * <li>Ramc model elements font color is modified yellow #A0A000.</li>
      * </ul>
-     * 
      * @return a Color.
      */
     @objid ("28592520-4ab5-11e2-a4d3-002564c97630")

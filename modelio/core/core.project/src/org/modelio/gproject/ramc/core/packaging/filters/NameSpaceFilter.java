@@ -17,10 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.ramc.core.packaging.filters;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.modelio.metamodel.uml.infrastructure.ModelTree;
 import org.modelio.metamodel.uml.statik.NameSpace;
 import org.modelio.metamodel.uml.statik.VisibilityMode;
 import org.modelio.vcore.model.filter.IObjectFilter;
@@ -36,7 +36,12 @@ class NameSpaceFilter implements IObjectFilter {
     public boolean accept(MObject obj) {
         NameSpace n = (NameSpace) obj;
         VisibilityMode vis = n.getVisibility();
-        return vis == VisibilityMode.PUBLIC || vis==VisibilityMode.PROTECTED;
+        boolean isExported = vis == VisibilityMode.PUBLIC || vis == VisibilityMode.PROTECTED;
+        if (isExported) {
+            ModelTree owner = n.getOwner();
+            isExported = owner == null || accept(owner);
+        }
+        return isExported;
     }
 
 }

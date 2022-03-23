@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel.actions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,10 +31,11 @@ public class RemoveAction extends Action {
     private ElementPropertyController controller;
 
     @objid ("fb62ff18-cfa6-448e-a8cc-2b74b1a992eb")
-    public RemoveAction(ElementPropertyController controller) {
+    public  RemoveAction(ElementPropertyController controller) {
         this.controller = controller;
         this.setText(ModelProperty.I18N.getString("RemoveStereotype.label"));
         this.setImageDescriptor(UI.getImageDescriptor("icons/remove.png"));
+        
     }
 
     @objid ("1266c217-a1b6-43a9-833e-5badd6ef8e05")

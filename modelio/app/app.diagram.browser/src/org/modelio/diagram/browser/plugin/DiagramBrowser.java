@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.plugin;
 
 import java.util.ResourceBundle;
@@ -53,6 +52,7 @@ public class DiagramBrowser implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger((String)null));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("diagrambrowser"));
+        
     }
 
     @objid ("002c092a-e077-10ce-896b-001ec947cd2a")
@@ -69,7 +69,6 @@ public class DiagramBrowser implements BundleActivator {
     /**
      * Returns an image descriptor for the image file at the given plug-in
      * relative path
-     * 
      * @param path the path
      * @return the image descriptor
      */

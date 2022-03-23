@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.audit;
 
 import java.util.ArrayList;
@@ -68,6 +67,7 @@ public class R1150 extends AbstractUmlRule {
                 AuditTrigger.UPDATE);
         plan.registerRule(InputPin.MQNAME, this, AuditTrigger.UPDATE
                 | AuditTrigger.MOVE);
+        
     }
 
     @objid ("9f8e55e2-4b87-4adf-b81e-54aa8eb0fb02")
@@ -107,14 +107,14 @@ public class R1150 extends AbstractUmlRule {
      * Default constructor for R1150
      */
     @objid ("c6b11aa2-b9c9-4fea-a42c-17a44cd70c5a")
-    public R1150() {
+    public  R1150() {
         this.checkerInstance = new CheckR1150(this);
     }
 
     @objid ("67aa6ea7-cdc6-474c-8dad-21657f1c735e")
     private static class CheckR1150 extends AbstractControl {
         @objid ("e70ababe-2545-4d2b-85f9-123e2a6de0da")
-        public CheckR1150(IRule rule) {
+        public  CheckR1150(IRule rule) {
             super(rule);
         }
 
@@ -138,7 +138,6 @@ public class R1150 extends AbstractUmlRule {
 
         /**
          * If an InputPin is updated and is on a CallOperationAction, its self attribute potentially change so we need to check the rule on this CallOperationAction.
-         * 
          * @param inputPin The updated pin.
          * @return An audit entry if the pin belongs to a CallOperationAction or a SendSignalAction, null otherwise
          */

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.files;
 
 import java.io.Closeable;
@@ -53,11 +52,10 @@ public class CloseOnFail implements Closeable {
 
     /**
      * Initialize the shield
-     * 
      * @param resource the resource to close on failure
      */
     @objid ("2f95a241-0bbf-11e2-b54c-001ec947ccaf")
-    public CloseOnFail(Closeable resource) {
+    public  CloseOnFail(Closeable resource) {
         this.resource = resource;
     }
 
@@ -78,6 +76,7 @@ public class CloseOnFail implements Closeable {
             this.resource.close();
             this.resource = null;
         }
+        
     }
 
 }

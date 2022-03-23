@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.slot;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -55,22 +54,22 @@ public class GmSlot extends GmDefaultModelElementLabel {
 
     /**
      * Default constructor.
-     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param el the represented slot, may be <i>null</i>.
      * @param ref a reference to the represented slot.
      */
     @objid ("369da1db-55b7-11e2-877f-002564c97630")
-    public GmSlot(IGmDiagram diagram, AttributeLink el, MRef ref) {
+    public  GmSlot(IGmDiagram diagram, AttributeLink el, MRef ref) {
         super(diagram, ref);
         this.element = el;
+        
     }
 
     /**
      * Empty constructor needed for deserialization only.
      */
     @objid ("369da1e7-55b7-11e2-877f-002564c97630")
-    public GmSlot() {
+    public  GmSlot() {
         // Empty constructor needed for deserialization.
     }
 
@@ -103,6 +102,7 @@ public class GmSlot extends GmDefaultModelElementLabel {
                 break;
             }
         }
+        
     }
 
     @objid ("369f2880-55b7-11e2-877f-002564c97630")
@@ -163,12 +163,14 @@ public class GmSlot extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmSlot.", GmSlot.MINOR_VERSION);
+        
     }
 
     @objid ("369f289c-55b7-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (AttributeLink) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("369f28a1-55b7-11e2-877f-002564c97630")

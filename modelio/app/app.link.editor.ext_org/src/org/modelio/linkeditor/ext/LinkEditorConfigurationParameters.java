@@ -17,13 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.ext;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.linkeditor.panel.ILinkEditorConfiguration;
+import org.modelio.linkeditor.panel.ILinkEditorConfiguration.Orientation;
 import org.modelio.linkeditor.panel.ILinkEditorFilter;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
@@ -161,25 +161,26 @@ public class LinkEditorConfigurationParameters implements ILinkEditorConfigurati
     @objid ("6d08a923-ea3c-4237-ae07-9c60bd1f4d7b")
     private static class ParametrizedLinkFilter implements ILinkEditorFilter {
         @objid ("110a68cd-25f1-488b-8e18-b95ced258113")
-         boolean showAssociations = false;
+        boolean showAssociations = false;
 
         @objid ("72fe4408-57a7-4a02-9bae-1a5be5c9f7d2")
-         boolean showDeps = false;
+        boolean showDeps = false;
 
         @objid ("ae267d7e-ac8c-4b89-93f3-b25e20b19ccb")
-         boolean showFiltereDeps = false;
+        boolean showFiltereDeps = false;
 
         @objid ("0a830570-4b01-4d00-94f6-748de7762abf")
-         boolean showTraces = false;
+        boolean showTraces = false;
 
         @objid ("27b4b21d-e218-4f5a-baf1-c011b7d25b63")
-         boolean showInheritance = false;
+        boolean showInheritance = false;
 
         @objid ("974a83c6-916b-47dc-a6b8-b484ff0798cc")
-         List<Stereotype> enabledStereotypes = new ArrayList<>();
+        List<Stereotype> enabledStereotypes = new ArrayList<>();
 
         @objid ("84f69a2c-a620-408e-95ef-6d84991ff620")
-        public ParametrizedLinkFilter() {
+        public  ParametrizedLinkFilter() {
+            
         }
 
         /**

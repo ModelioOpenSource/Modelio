@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,11 +49,10 @@ public class OInternalTransition extends OTransition {
 
     /**
      * Constructor
-     * 
      * @param param : the exported Modelio InternalTransition
      */
     @objid ("41f3b24d-7c7c-4413-a036-950a3bd04db4")
-    public OInternalTransition(final InternalTransition param) {
+    public  OInternalTransition(final InternalTransition param) {
         super(param);
     }
 
@@ -64,6 +62,7 @@ public class OInternalTransition extends OTransition {
         if (ecoreElt != null){
             super.setProperties(ecoreElt);
         }
+        
     }
 
     @objid ("88e89445-3ad9-4be4-a38f-790ffb31fecc")
@@ -71,6 +70,7 @@ public class OInternalTransition extends OTransition {
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         if (ecoreElt != null)
             super.setProperties(ecoreElt);
+        
     }
 
     @objid ("6fdf4950-ba0c-4828-833b-c5223ac39024")
@@ -92,6 +92,7 @@ public class OInternalTransition extends OTransition {
         }else{
             this.ecoreOpaqueBehavior.destroy();
         }
+        
     }
 
     @objid ("3a7d26d8-1237-4082-8aed-01f7b2ee6695")
@@ -112,6 +113,7 @@ public class OInternalTransition extends OTransition {
                     internalTransition.getReceivedEvents(), internalTransition.getSComposed().getName());
             genProp.addWarning(message, internalTransition);
         }
+        
     }
 
     @objid ("cc7890e6-aaa2-4cbf-aa73-fe19d34fca80")
@@ -138,6 +140,7 @@ public class OInternalTransition extends OTransition {
         
             }
         }
+        
     }
 
     @objid ("d30f7a3f-e59e-4f6d-8944-90986c8284ac")
@@ -152,6 +155,7 @@ public class OInternalTransition extends OTransition {
                 this.ecoreOpaqueBehavior.setSpecification((org.eclipse.uml2.uml.BehavioralFeature) effect);
             }
         }
+        
     }
 
 }

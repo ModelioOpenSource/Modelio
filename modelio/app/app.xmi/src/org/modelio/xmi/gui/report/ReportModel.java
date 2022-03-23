@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.gui.report;
 
 import java.util.Set;
@@ -44,10 +43,11 @@ public class ReportModel implements IReportWriter {
      * This default constructor initializes the lists of message (errors, warning and infos)
      */
     @objid ("88cd91ed-15ab-4f3e-a447-df41307f2a0c")
-    public ReportModel() {
+    public  ReportModel() {
         this.errors = new TreeSet <> ();
         this.warnings = new TreeSet <> ();
         this.infos = new TreeSet <> ();
+        
     }
 
     @objid ("422c95e4-6db4-4453-8832-464ac5a50b00")
@@ -59,6 +59,7 @@ public class ReportModel implements IReportWriter {
         }
         
         this.warnings.add (new ElementMessage (message, element, description));
+        
     }
 
     @objid ("998e946d-037d-43d5-a605-11d8b04ff00b")
@@ -70,11 +71,11 @@ public class ReportModel implements IReportWriter {
         }
         
         this.errors.add (new ElementMessage (message, element, description));
+        
     }
 
     /**
      * This method returns the list of error message
-     * 
      * @return set of error message
      */
     @objid ("44585a10-dfe9-43e4-ab22-505d5f6a5e4e")
@@ -84,7 +85,6 @@ public class ReportModel implements IReportWriter {
 
     /**
      * This method returns the list of warning message
-     * 
      * @return set of warning message
      */
     @objid ("faaa4657-d9f2-4d5c-9f1d-5b4584289edf")
@@ -98,42 +98,41 @@ public class ReportModel implements IReportWriter {
         return !(hasErrors () || hasWarnings () || hasInfos ());
     }
 
-//    /**
-//     * Adds a warning message at the existing list
-//     * @param message : the text of the message
-//     * @param element : the Element
-//     */
-//    @objid ("4634f153-19e2-4f24-9b00-b1d7d877918e")
-//    public void addWarning(final String message, final Element element) {
-//        this.warnings.add (new ElementMessage (message, element, ""));
-//    }
-//    /**
-//     * Adds an error message at the existing list
-//     * @param message : the text of the message
-//     * @param element : the Element
-//     */
-//    @objid ("4ba6d701-2e9c-4bf0-93e3-df98a77c97dc")
-//    public void addError(String message, Element element) {
-//        this.errors.add (new ElementMessage (message, element, ""));
-//    }
+    //    /**
+    //     * Adds a warning message at the existing list
+    //     * @param message : the text of the message
+    //     * @param element : the Element
+    //     */
+    //    @objid ("4634f153-19e2-4f24-9b00-b1d7d877918e")
+    //    public void addWarning(final String message, final Element element) {
+    //        this.warnings.add (new ElementMessage (message, element, ""));
+    //    }
+    //    /**
+    //     * Adds an error message at the existing list
+    //     * @param message : the text of the message
+    //     * @param element : the Element
+    //     */
+    //    @objid ("4ba6d701-2e9c-4bf0-93e3-df98a77c97dc")
+    //    public void addError(String message, Element element) {
+    //        this.errors.add (new ElementMessage (message, element, ""));
+    //    }
     @objid ("532a2cfa-5354-46ce-be80-a0ef9d51713a")
     @Override
     public void addInfo(String message, Element element, String description) {
         this.infos.add (new ElementMessage (message, element, description));
     }
 
-//    /**
-//     * Adds an info message at the existing list
-//     * @param message : the text of the message
-//     * @param element : the Element
-//     */
-//    @objid ("f51b6821-243e-412e-94e6-0e14b58f2151")
-//    public void addInfo(String message, Element element) {
-//        this.infos.add (new ElementMessage (message, element, ""));
-//    }
+    //    /**
+    //     * Adds an info message at the existing list
+    //     * @param message : the text of the message
+    //     * @param element : the Element
+    //     */
+    //    @objid ("f51b6821-243e-412e-94e6-0e14b58f2151")
+    //    public void addInfo(String message, Element element) {
+    //        this.infos.add (new ElementMessage (message, element, ""));
+    //    }
     /**
      * This method returns the list of info message
-     * 
      * @return set of info message
      */
     @objid ("b4d67140-a469-433f-b63b-9ba90004e017")
@@ -171,10 +170,11 @@ public class ReportModel implements IReportWriter {
         public Element element;
 
         @objid ("93377ec9-113b-4a7d-ab8b-1888918a781a")
-        ElementMessage(final String message, final Element element, final String description) {
+         ElementMessage(final String message, final Element element, final String description) {
             this.message = message;
             this.element = element;
             this.description = description;
+            
         }
 
         @objid ("124ac74c-3ab1-4ad1-9409-ae4e660b6225")
@@ -214,6 +214,7 @@ public class ReportModel implements IReportWriter {
                 return this.message.compareTo(anotherMessage.message) ;
             else
                 return 1;
+            
         }
 
         @objid ("11ea5b98-18ec-45df-8137-eade26f3799a")

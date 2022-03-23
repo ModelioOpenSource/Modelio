@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import java.util.List;
@@ -92,6 +91,7 @@ public class EAssociationClass extends ENamedElement {
                 this.objingClass.setOwner(revProp.getExternalPackage());
             }
         }
+        
     }
 
     @objid ("9bce2204-e396-494c-9cb5-23982ab3bf99")
@@ -109,6 +109,7 @@ public class EAssociationClass extends ENamedElement {
                 setClassMainEAnnotation();
             }
         }
+        
     }
 
     @objid ("a4ca60dd-af83-4770-a6e0-51cb812ea041")
@@ -118,6 +119,7 @@ public class EAssociationClass extends ENamedElement {
             this.objingClass.setName(name);
         else 
             this.objingClass.setName("");
+        
     }
 
     @objid ("2838e343-7e02-451f-a071-8443368b14d3")
@@ -157,6 +159,7 @@ public class EAssociationClass extends ENamedElement {
             this.objingAssociation.setName(name);
         else
             this.objingAssociation.setName("");
+        
     }
 
     @objid ("c77d95a2-dfa8-45f6-b599-2c71e77960ff")
@@ -171,10 +174,11 @@ public class EAssociationClass extends ENamedElement {
             this.objingClassAssociation.delete();
         
         this.isDeleted = true;
+        
     }
 
     @objid ("b13a9082-7acf-4a98-86e6-b66541c4bd84")
-    public EAssociationClass(org.eclipse.uml2.uml.AssociationClass element) {
+    public  EAssociationClass(org.eclipse.uml2.uml.AssociationClass element) {
         super(element);
     }
 
@@ -184,6 +188,7 @@ public class EAssociationClass extends ENamedElement {
         initialize((Class) objingElt);
         attachClass();
         attachAssociation();
+        
     }
 
     @objid ("ffdcf409-5e05-4eeb-aa8f-3830c2e0f567")
@@ -193,6 +198,7 @@ public class EAssociationClass extends ENamedElement {
         setClassProperties();
         if (this.objingAssociation != null)
             setAssociationProperties();
+        
     }
 
     @objid ("c0829aa6-298b-4b3d-87fb-e4a5343a21dc")
@@ -205,6 +211,7 @@ public class EAssociationClass extends ENamedElement {
             Xmi.LOG.error(e);
             deleteElements();
         }
+        
     }
 
     @objid ("9d290d53-5888-4f3c-ab7a-6ea6bb88e3b2")
@@ -240,6 +247,7 @@ public class EAssociationClass extends ENamedElement {
             }
         
         }
+        
     }
 
 }

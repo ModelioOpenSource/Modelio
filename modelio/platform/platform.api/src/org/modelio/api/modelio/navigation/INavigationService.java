@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.navigation;
 
 import java.util.List;
@@ -35,7 +34,6 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface INavigationService {
     /**
      * Register a navigation listener.
-     * 
      * @param listener a navigation listener.
      */
     @objid ("dcd9819a-e6e1-11dd-9e73-0014222a9f79")
@@ -43,7 +41,6 @@ public interface INavigationService {
 
     /**
      * Remove a navigation listener.
-     * 
      * @param listener a navigation listener.
      */
     @objid ("dcd9819b-e6e1-11dd-9e73-0014222a9f79")
@@ -51,7 +48,6 @@ public interface INavigationService {
 
     /**
      * Fire all navigation listeners.
-     * 
      * @param target The navigated element.
      */
     @objid ("a3d26c58-0ecc-11e2-96c4-002564c97630")
@@ -59,7 +55,6 @@ public interface INavigationService {
 
     /**
      * Fire all navigation listeners.
-     * 
      * @param targets The navigated elements.
      */
     @objid ("5923c631-4f5d-40de-b325-e2fe1958d76c")

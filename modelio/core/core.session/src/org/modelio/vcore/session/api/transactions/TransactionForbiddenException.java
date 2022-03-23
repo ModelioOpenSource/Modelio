@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.api.transactions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,7 @@ public class TransactionForbiddenException extends TransactionCreationException 
      * later retrieval by the {@link #getMessage()} method.
      */
     @objid ("006efba4-0d1e-1f20-85a5-001ec947cd2a")
-    public TransactionForbiddenException(final String msg) {
+    public  TransactionForbiddenException(final String msg) {
         super(msg);
     }
 
@@ -53,9 +52,10 @@ public class TransactionForbiddenException extends TransactionCreationException 
      * @since  1.4
      */
     @objid ("ed32c657-eb96-4855-945d-c19a22644f50")
-    public TransactionForbiddenException(Throwable cause) {
+    public  TransactionForbiddenException(Throwable cause) {
         super(cause.getLocalizedMessage());
         initCause(cause);
+        
     }
 
 }

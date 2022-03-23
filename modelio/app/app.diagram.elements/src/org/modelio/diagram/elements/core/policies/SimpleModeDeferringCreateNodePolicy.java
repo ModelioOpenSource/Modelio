@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.policies;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -107,6 +106,7 @@ public class SimpleModeDeferringCreateNodePolicy extends DefaultCreateNodeEditPo
         } else {
             return null;
         }
+        
     }
 
     /**
@@ -117,7 +117,6 @@ public class SimpleModeDeferringCreateNodePolicy extends DefaultCreateNodeEditPo
      * If no child model is found, return <tt>null</tt>.<br>
      * If the found model has no edit part, return the host edit part.
      * <p>
-     * 
      * @param metaclass The metaclass to create or drop.
      * @return <ul>
      * <li><tt>null</tt> if no suitable child model could be found <li>{@link #getHost()} if the child model is not
@@ -144,6 +143,7 @@ public class SimpleModeDeferringCreateNodePolicy extends DefaultCreateNodeEditPo
         } else {
             return getHost();
         }
+        
     }
 
 }

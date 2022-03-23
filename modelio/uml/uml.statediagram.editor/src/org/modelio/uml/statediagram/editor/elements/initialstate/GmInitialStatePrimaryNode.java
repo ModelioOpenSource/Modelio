@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.initialstate;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,12 +50,11 @@ public class GmInitialStatePrimaryNode extends GmNoStyleSimpleNode implements II
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the sendSignal is unmasked.
      * @param relatedRef a reference to the represented initial state node.
      */
     @objid ("f546f2b0-55b6-11e2-877f-002564c97630")
-    public GmInitialStatePrimaryNode(IGmDiagram diagram, MRef relatedRef) {
+    public  GmInitialStatePrimaryNode(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -74,6 +72,7 @@ public class GmInitialStatePrimaryNode extends GmNoStyleSimpleNode implements II
         }
         // forcing visual refresh in case Image changed 
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("f546f2c3-55b6-11e2-877f-002564c97630")
@@ -116,13 +115,14 @@ public class GmInitialStatePrimaryNode extends GmNoStyleSimpleNode implements II
                                                                                     }
                                                                                 
                                                                                 };
+        
     }
 
     /**
      * Constructor for deserialization.
      */
     @objid ("f5487942-55b6-11e2-877f-002564c97630")
-    public GmInitialStatePrimaryNode() {
+    public  GmInitialStatePrimaryNode() {
         //empty for the serialization
     }
 
@@ -143,6 +143,7 @@ public class GmInitialStatePrimaryNode extends GmNoStyleSimpleNode implements II
                 break;
             }
         }
+        
     }
 
     @objid ("f548794b-55b6-11e2-877f-002564c97630")
@@ -152,6 +153,7 @@ public class GmInitialStatePrimaryNode extends GmNoStyleSimpleNode implements II
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmInitialStatePrimaryNode.", GmInitialStatePrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("f5487951-55b6-11e2-877f-002564c97630")

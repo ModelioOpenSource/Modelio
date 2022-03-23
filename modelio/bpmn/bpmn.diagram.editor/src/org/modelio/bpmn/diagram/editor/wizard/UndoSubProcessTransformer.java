@@ -17,18 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.wizard;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.jface.viewers.ISelection;
@@ -70,6 +69,7 @@ public class UndoSubProcessTransformer implements IModelTransformer {
             fe.setSubProcess(null);
             fe.setContainer((BpmnProcess) parent);
         }
+        
     }
 
     @objid ("a78e24a5-7e1b-42bb-a872-40ef6c802937")
@@ -80,6 +80,7 @@ public class UndoSubProcessTransformer implements IModelTransformer {
         } else {
             return null;
         }
+        
     }
 
     @objid ("ebf690fc-cbb0-4ea2-8c44-11a14755fe2e")

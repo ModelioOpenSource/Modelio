@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.List;
@@ -32,19 +32,19 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("00011508-c4bf-1fd8-97fe-001ec947cd2a")
 public class BindableInstanceData extends InstanceData {
     @objid ("f44d6336-c212-4ebd-9b90-5ee77a2ebfd3")
-     SmObjectImpl mCluster;
+    SmObjectImpl mCluster;
 
     @objid ("bfd72c45-73e0-49a9-8138-9bddbb0d392a")
-     SmObjectImpl mInternalOwner;
+    SmObjectImpl mInternalOwner;
 
     @objid ("0ec1ea84-7bce-47ba-bb96-49ca2bb6be6d")
-     List<SmObjectImpl> mRepresentation = null;
+    List<SmObjectImpl> mRepresentation = null;
 
     @objid ("316c75dc-5d84-492d-9e6c-be2eb266927e")
-     SmObjectImpl mRepresentedFeature;
+    SmObjectImpl mRepresentedFeature;
 
     @objid ("ce6544af-c8cb-48ab-8d69-821bc369a579")
-    public BindableInstanceData(BindableInstanceSmClass smClass) {
+    public  BindableInstanceData(BindableInstanceSmClass smClass) {
         super(smClass);
     }
 

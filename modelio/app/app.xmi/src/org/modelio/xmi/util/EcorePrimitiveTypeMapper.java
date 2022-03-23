@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.util;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -73,7 +72,6 @@ public class EcorePrimitiveTypeMapper {
 
     /**
      * provide the Modelio org.eclipse.uml2.uml.DataType corresponding to a given Ecore org.eclipse.uml2.uml.Type
-     * 
      * @param ecoreType : the given Ecore org.eclipse.uml2.uml.Type
      * @return the corresponding Modelio org.eclipse.uml2.uml.DataType
      */
@@ -153,7 +151,6 @@ public class EcorePrimitiveTypeMapper {
 
     /**
      * Test if a given Ecore org.eclipse.uml2.uml.Type is a Modelio Predefined org.eclipse.uml2.uml.Type
-     * 
      * @param ecoreType : the tested Ecore org.eclipse.uml2.uml.Type
      * @return true if the Ecore org.eclipse.uml2.uml.Type corresponds to a Modelio Predefined org.eclipse.uml2.uml.Type
      */

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.freeform;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,6 +43,7 @@ public class ConnectionLayer2 extends ConnectionLayer implements IFreeformFigure
     public void remove(IFigure child) {
         this.helper.unhookChild(child);
         super.remove(child);
+        
     }
 
     @objid ("74888230-207b-48ac-b1d4-35b151821029")
@@ -57,13 +57,13 @@ public class ConnectionLayer2 extends ConnectionLayer implements IFreeformFigure
     public void add(IFigure child, Object constraint, int index) {
         super.add(child, constraint, index);
         this.helper.hookChild(child);
+        
     }
 
     /**
      * Set a filter to use when computing {@link #getFreeformExtent()}.
      * <p>
      * Filtered out figures won't be used to compute the extent, that may result to the figures being cropped.
-     * 
      * @param f an extent filter.
      */
     @objid ("62fc0720-7ddb-4e4c-971d-e01773514098")
@@ -76,7 +76,6 @@ public class ConnectionLayer2 extends ConnectionLayer implements IFreeformFigure
      * Get the filter used when computing {@link #getFreeformExtent()}.
      * <p>
      * Filtered out figures won't be used to compute the extent, that may result to the figures being cropped.
-     * 
      * @return an extent filter.
      */
     @objid ("1692dec0-0030-4449-aed8-2d0113cb3e33")

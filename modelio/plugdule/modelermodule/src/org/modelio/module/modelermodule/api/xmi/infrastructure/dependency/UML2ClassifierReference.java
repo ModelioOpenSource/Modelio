@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.infrastructure.dependency;
 
@@ -49,24 +48,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("ef0b69f8-a0bc-4e50-aa2f-4bd55a6ed606")
 public class UML2ClassifierReference {
-    @objid ("4a320caa-190d-42ad-8202-4b719347c2f4")
+    @objid ("771914e2-2b47-48e6-8ab6-de0949973491")
     public static final String STEREOTYPE_NAME = "UML2ClassifierReference";
 
     /**
      * The underlying {@link Dependency} represented by this proxy, never null.
      */
-    @objid ("c17b344d-2dca-4b83-a7f7-b1e520c65535")
+    @objid ("a993864f-8417-4b8c-8e51-7d0eecd85a96")
     protected final Dependency elt;
 
     /**
      * Tells whether a {@link UML2ClassifierReference proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << UML2ClassifierReference >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("8e8e62da-ea12-47e4-b018-62a00df7ed91")
+    @objid ("9e59c029-9782-46ff-b3ad-6d63430f4afb")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Dependency) && ((Dependency) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2ClassifierReference.STEREOTYPE_NAME));
     }
@@ -76,9 +74,9 @@ public class UML2ClassifierReference {
      * 
      * @return a {@link UML2ClassifierReference} proxy on the created {@link Dependency}.
      */
-    @objid ("bb7de8b5-2e56-4d4b-8fe0-47119b51dc00")
+    @objid ("647fc24b-8264-4456-85e6-6511fe0202dd")
     public static UML2ClassifierReference create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Dependency");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Infrastructure.Dependency");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2ClassifierReference.STEREOTYPE_NAME);
         return UML2ClassifierReference.instantiate((Dependency)e);
     }
@@ -90,7 +88,7 @@ public class UML2ClassifierReference {
      * @param obj a Dependency
      * @return a {@link UML2ClassifierReference} proxy or <i>null</i>.
      */
-    @objid ("96c497a1-8bd9-4184-9575-1b14ddd1dbf0")
+    @objid ("0c5bd67f-88d4-4a0d-a196-46e6398e42ae")
     public static UML2ClassifierReference instantiate(Dependency obj) {
         return UML2ClassifierReference.canInstantiate(obj) ? new UML2ClassifierReference(obj) : null;
     }
@@ -103,7 +101,7 @@ public class UML2ClassifierReference {
      * @return a {@link UML2ClassifierReference} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("67473590-b639-4977-bdca-bd14acc01ee9")
+    @objid ("730ddd5d-f1b9-434a-9158-e7f8d0bdb6ab")
     public static UML2ClassifierReference safeInstantiate(Dependency obj) throws IllegalArgumentException {
         if (UML2ClassifierReference.canInstantiate(obj))
         	return new UML2ClassifierReference(obj);
@@ -111,7 +109,7 @@ public class UML2ClassifierReference {
         	throw new IllegalArgumentException("UML2ClassifierReference: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("bf96a796-5d9e-4a87-a35c-5312348b6967")
+    @objid ("d6f702ad-dedb-44f0-be08-dafda9d1fd8f")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -131,46 +129,47 @@ public class UML2ClassifierReference {
      * Get the underlying {@link Dependency}. 
      * @return the Dependency represented by this proxy, never null.
      */
-    @objid ("80a5d37a-6ee5-4638-aa71-016667fcdb5b")
+    @objid ("69d45abe-fba9-4299-a561-450a753faf76")
     public Dependency getElement() {
         return this.elt;
     }
 
-    @objid ("0a2a3b35-70b3-4617-8ef9-c7ad16e061c7")
+    @objid ("3299c6fb-5ad9-4ebd-9f69-980bc918a2f9")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("bdd3f859-c128-4241-b805-d4dad407aa2f")
-    protected UML2ClassifierReference(Dependency elt) {
+    @objid ("23bfdfc4-696f-43ab-8ffc-0b7aaeb46f55")
+    protected  UML2ClassifierReference(Dependency elt) {
         this.elt = elt;
     }
 
     @objid ("218b6658-c8ad-417a-877f-66b90843c474")
     public static final class MdaTypes {
-        @objid ("05a6e549-4100-4bd9-9135-78c4faa140e3")
+        @objid ("b309aae0-d8db-406e-9251-2e17a7c6a419")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("bf7d883b-e930-4a5e-817c-2e35bf2c304e")
+        @objid ("1bb9029d-48be-4b37-94ad-0ab07c35e2ee")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("34d99e72-9ac3-4cb6-8f81-a798ec42fe65")
+        @objid ("5b023b3f-cddc-4ec1-b936-3104a3132110")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("7db6310c-53c5-411c-9ffa-365695c12a8c")
+        @objid ("0a6453ec-839e-488f-9fee-d5bf90c1d87c")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "ed95fa9b-de99-11de-905b-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

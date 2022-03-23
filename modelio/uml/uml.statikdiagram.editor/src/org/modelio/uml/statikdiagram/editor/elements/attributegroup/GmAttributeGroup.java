@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.attributegroup;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,8 +28,8 @@ import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.statik.Attribute;
 import org.modelio.metamodel.uml.statik.Classifier;
 import org.modelio.metamodel.uml.statik.Feature;
@@ -59,17 +58,17 @@ public class GmAttributeGroup extends GmGroup {
      * Constructor for deserialization only.
      */
     @objid ("3404597b-55b7-11e2-877f-002564c97630")
-    public GmAttributeGroup() {
+    public  GmAttributeGroup() {
+        
     }
 
     /**
      * Creates an attribute group.
-     * 
      * @param gmDiagram The diagram.
      * @param relatedRef The related element reference, must not be null.
      */
     @objid ("3404597e-55b7-11e2-877f-002564c97630")
-    public GmAttributeGroup(IGmDiagram gmDiagram, MRef relatedRef) {
+    public  GmAttributeGroup(IGmDiagram gmDiagram, MRef relatedRef) {
         super(gmDiagram, relatedRef);
     }
 
@@ -113,13 +112,6 @@ public class GmAttributeGroup extends GmGroup {
         return false;
     }
 
-    @objid ("3405e005-55b7-11e2-877f-002564c97630")
-    @Override
-    public void refreshFromObModel() {
-        //TODO : move this in parent class
-        firePropertyChange(PROP_REFRESH_FROM_OBMODEL, null, this);
-    }
-
     @objid ("3405e008-55b7-11e2-877f-002564c97630")
     @Override
     public void styleChanged(StyleKey property, Object newValue) {
@@ -130,6 +122,7 @@ public class GmAttributeGroup extends GmGroup {
         } else {
             super.styleChanged(property, newValue);
         }
+        
     }
 
     @objid ("3405e00f-55b7-11e2-877f-002564c97630")
@@ -138,6 +131,7 @@ public class GmAttributeGroup extends GmGroup {
         refreshFromObModel();
         fireVisibilityChanged();
         super.styleChanged(style);
+        
     }
 
     @objid ("3405e015-55b7-11e2-877f-002564c97630")
@@ -151,13 +145,13 @@ public class GmAttributeGroup extends GmGroup {
             return;
         }
         getDisplayedStyle().setProperty(styleKey, visible);
+        
     }
 
     /**
      * Checks whether the given model element can be and still be displayed here.
      * <p>
      * Check all conditions except the case where it is already unmasked.
-     * 
      * @param el The element to unmask
      * @return true if it satisfies all conditions, else false.
      */
@@ -206,7 +200,7 @@ public class GmAttributeGroup extends GmGroup {
             if (mode == null) {
                 return;
             }
-            
+        
             switch (mode) {
             case ALL:
                 break;
@@ -234,6 +228,7 @@ public class GmAttributeGroup extends GmGroup {
             setHiddenFeature(hasHiddenFeature);
         
         }
+        
     }
 
     @objid ("3405e025-55b7-11e2-877f-002564c97630")
@@ -253,6 +248,7 @@ public class GmAttributeGroup extends GmGroup {
             break;
         }
         }
+        
     }
 
     @objid ("3405e02b-55b7-11e2-877f-002564c97630")
@@ -262,6 +258,7 @@ public class GmAttributeGroup extends GmGroup {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmAttributeGroup.", GmAttributeGroup.MINOR_VERSION);
+        
     }
 
     @objid ("3405e031-55b7-11e2-877f-002564c97630")

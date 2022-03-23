@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.api.services;
 
 import java.util.ArrayList;
@@ -49,11 +48,10 @@ public abstract class DiagramGraphic implements IDiagramGraphic {
 
     /**
      * Initializer
-     * 
      * @param diagramHandle the diagram handle
      */
     @objid ("e352f549-5a98-4dc3-bdea-8e7e4193393d")
-    public DiagramGraphic(DiagramHandle diagramHandle) {
+    public  DiagramGraphic(DiagramHandle diagramHandle) {
         this.diagramHandle = diagramHandle;
     }
 
@@ -100,6 +98,7 @@ public abstract class DiagramGraphic implements IDiagramGraphic {
         } else {
             return null;
         }
+        
     }
 
     @objid ("1ac41701-cb47-4335-bb0a-811779b69e17")
@@ -107,6 +106,7 @@ public abstract class DiagramGraphic implements IDiagramGraphic {
     public void setStyle(final IStyleHandle style) {
         final IStyle namedStyle = style != null ? DiagramStyles.getStyleManager().getStyle(style.getName()) : getModel().getDiagram().getPersistedStyle();
         getModel().getDisplayedStyle().setCascadedStyle(namedStyle);
+        
     }
 
     @objid ("982caea5-364d-4d4a-a6c4-a9cfc5985ca1")
@@ -145,6 +145,7 @@ public abstract class DiagramGraphic implements IDiagramGraphic {
             getModel().getDisplayedStyle()
                     .setProperty(key, StyleKeyTypeConverter.convertFromString(key, stringValue));
         }
+        
     }
 
     @objid ("e77a46aa-6312-4fad-a596-23eeeecb23c1")
@@ -181,6 +182,7 @@ public abstract class DiagramGraphic implements IDiagramGraphic {
         if (styleKey != null) {
             getModel().getDisplayedStyle().setProperty(styleKey, new MRef(obj));
         }
+        
     }
 
     /**

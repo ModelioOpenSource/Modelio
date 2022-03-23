@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.pincontainer;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,12 +49,11 @@ public abstract class GmPinContainer extends GmPortContainer {
 
     /**
      * Constructor.
-     * 
      * @param diagram The diagram in which this port container will be unmasked.
      * @param relatedRef a reference to the element this GmModel is related to.
      */
     @objid ("2b3a6643-55b6-11e2-877f-002564c97630")
-    public GmPinContainer(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmPinContainer(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -63,7 +61,7 @@ public abstract class GmPinContainer extends GmPortContainer {
      * For deserialization only.
      */
     @objid ("2b3a664e-55b6-11e2-877f-002564c97630")
-    public GmPinContainer() {
+    public  GmPinContainer() {
         super();
     }
 
@@ -79,6 +77,7 @@ public abstract class GmPinContainer extends GmPortContainer {
         if (this.getRelatedElement() != null && this.getRelatedElement().isValid()) {
             refreshPinsFromObModel();
         }
+        
     }
 
     @objid ("2b3becda-55b6-11e2-877f-002564c97630")
@@ -89,6 +88,7 @@ public abstract class GmPinContainer extends GmPortContainer {
         if (this.getRelatedElement() != null && this.getRelatedElement().isValid()) {
             refreshPinsFromObModel();
         }
+        
     }
 
     @objid ("2b3bece1-55b6-11e2-877f-002564c97630")
@@ -101,6 +101,7 @@ public abstract class GmPinContainer extends GmPortContainer {
                 refreshPinsFromObModel();
             }
         }
+        
     }
 
     /**
@@ -124,6 +125,7 @@ public abstract class GmPinContainer extends GmPortContainer {
                 }
             }
         }
+        
     }
 
     /**
@@ -151,6 +153,7 @@ public abstract class GmPinContainer extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("2b3becf9-55b6-11e2-877f-002564c97630")
@@ -160,6 +163,7 @@ public abstract class GmPinContainer extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmPinContainer.", GmPinContainer.MINOR_VERSION);
+        
     }
 
     @objid ("2b3becff-55b6-11e2-877f-002564c97630")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.browser.view.panel;
 
 import java.util.ArrayList;
@@ -25,15 +24,15 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.UIEventTopic;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.services.EContextService;
 import org.eclipse.e4.ui.services.EMenuService;
-import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
+import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.viewers.ColumnViewerEditor;
 import org.eclipse.jface.viewers.ColumnViewerToolTipSupport;
@@ -160,7 +159,6 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
 
     /**
      * Makes this view editable. <code>modelingSession</code> is mandatory otherwise edition cannot be supported. To deactivate edition, call <code>activateEdition(null)</code>
-     * 
      * @param newModelingSession the current edited modeling session.
      */
     @objid ("1fc49987-1de3-11e2-bcbe-002564c97630")
@@ -196,11 +194,11 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
         
             this.treeViewer.refresh(true);
         }
+        
     }
 
     /**
      * Called to create the view and initialize it.
-     * 
      * @return the browser tree viewer.
      */
     @objid ("57ccc2d7-d023-11e1-9020-002564c97630")
@@ -231,7 +229,6 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
 
     /**
      * Get the current element displayed by the view.
-     * 
      * @return the model element whose content is listed in the model tree. May be null.
      */
     @objid ("57ccc2e3-d023-11e1-9020-002564c97630")
@@ -269,7 +266,6 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
 
     /**
      * Set the current element displayed by the view.
-     * 
      * @param input the model element whose content is listed in the model tree panel. May be null.
      */
     @objid ("57ccc2e9-d023-11e1-9020-002564c97630")
@@ -281,6 +277,7 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
         } else if (input instanceof GProject) {
             activateEdition(((GProject) input).getSession());
         }
+        
     }
 
     @objid ("002b00ca-78e3-107d-a016-001ec947cd2a")
@@ -328,12 +325,14 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
             // Make the browser view active to trigger its "selection provider"
             this.partService.showPart(this.mpart, PartState.ACTIVATE);
         }
+        
     }
 
     @objid ("72459266-4540-11e2-aeb7-002564c97630")
     public void setShowModuleFragments(boolean showModuleFragments) {
         this.contentProvider.setShowModuleFragments(showModuleFragments);
         this.treeViewer.refresh(true);
+        
     }
 
     @objid ("19e55b6a-cb92-4f35-8714-626d958de77c")
@@ -398,6 +397,7 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
                 }
             }
         });
+        
     }
 
     @objid ("1fc4998b-1de3-11e2-bcbe-002564c97630")
@@ -475,6 +475,7 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
         TreeViewerEditor.create(this.treeViewer, null, this.activationSupport, ColumnViewerEditor.TABBING_HORIZONTAL
                 | ColumnViewerEditor.TABBING_MOVE_TO_ROW_NEIGHBOR | ColumnViewerEditor.TABBING_VERTICAL
                 | ColumnViewerEditor.KEYBOARD_ACTIVATION);
+        
     }
 
     @objid ("9ce5023e-92ec-4172-9125-1f7321fa2d8b")
@@ -517,6 +518,7 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
         if (this.selectionService != null) {
             this.selectionService.setSelection(selection);
         }
+        
     }
 
     /**
@@ -529,6 +531,7 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
             this.treeViewer.expandToLevel(elementToEdit, 0);
             this.treeViewer.editElement(elementToEdit, 0);
         }
+        
     }
 
     /**
@@ -542,6 +545,7 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
             final MObject selectedObject = SelectionHelper.getFirst(selection, MObject.class);
             this.activationService.activateMObject(selectedObject);
         }
+        
     }
 
     @objid ("30f53473-4d1c-4d77-924a-d1336380e42b")
@@ -574,6 +578,7 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
                 Display.getDefault().asyncExec(() -> setSelection(Arrays.asList(target)));
             }
         }
+        
     }
 
     @objid ("9f61fe2c-05ba-457b-802f-c6926cc192be")
@@ -581,6 +586,7 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
         if (this.treeViewer != null && !this.treeViewer.getTree().isDisposed()) {
             this.treeViewer.collapseAll();
         }
+        
     }
 
     @objid ("f1151833-4e5e-4266-a973-3d2088422740")
@@ -588,6 +594,7 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
         if (this.treeViewer != null && !this.treeViewer.getTree().isDisposed()) {
             this.treeViewer.refresh(true);
         }
+        
     }
 
     @objid ("be9b5597-f318-4e4d-b127-8e86188b98d5")
@@ -598,6 +605,7 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
             this.pickingManager = new BrowserPickingManager(this, session);
             this.pickingManager.beginPicking();
         }
+        
     }
 
     @objid ("93e50294-3605-4f74-977e-83169f3a95dd")
@@ -608,6 +616,7 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
             this.pickingManager.endPicking();
             this.pickingManager = null;
         }
+        
     }
 
     @objid ("e6118f56-0d6b-4200-9df0-a3e2a819420d")
@@ -642,10 +651,11 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
         private TreeItem[] pickingStartSelection;
 
         @objid ("733d45fd-d4f6-4256-8e29-5efa0bbe935b")
-        public BrowserPickingManager(ModelBrowserPanelProvider view, IPickingSession pickingSession) {
+        public  BrowserPickingManager(ModelBrowserPanelProvider view, IPickingSession pickingSession) {
             this.view = view;
             this.pickingSession = pickingSession;
             this.defaultCursor = view.getPanel().getCursor();
+            
         }
 
         @objid ("80e1c5d4-e957-4a37-bedb-573f101ea356")
@@ -687,6 +697,7 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
                     this.pickingSession.pick(selectedElement);
                 }
             }
+            
         }
 
         @objid ("15f3ab91-6f53-482b-a0b4-f2d88b3a2048")
@@ -715,6 +726,7 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
             
             // Store the current selection to restore it when the picking ends
             this.pickingStartSelection = this.view.getPanel().getSelection();
+            
         }
 
         @objid ("d7ba0c1a-ee8f-402d-b192-cb7c76e603ad")
@@ -729,6 +741,7 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
             // Restore old selection
             this.view.getPanel().setSelection(this.pickingStartSelection);
             this.pickingStartSelection = null;
+            
         }
 
         @objid ("9bfe623c-c731-41cc-aa4a-102f1b4342c7")
@@ -759,6 +772,7 @@ public class ModelBrowserPanelProvider implements IPanelProvider, IElementNameEd
             } else {
                 this.view.getPanel().setCursor(SharedCursors2.CURSOR_PICKING);
             }
+            
         }
 
     }

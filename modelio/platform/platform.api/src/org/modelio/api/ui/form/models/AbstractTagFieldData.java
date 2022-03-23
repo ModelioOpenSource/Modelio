@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.form.models;
 
 import java.util.ArrayList;
@@ -52,21 +51,23 @@ public abstract class AbstractTagFieldData implements IFormFieldData {
     protected final TagType tagType;
 
     @objid ("c8c540c8-3253-4f27-8c04-5fafafe3e140")
-    public AbstractTagFieldData(IModelingSession session, ModelElement me, String moduleName, String tagTypeName) {
+    public  AbstractTagFieldData(IModelingSession session, ModelElement me, String moduleName, String tagTypeName) {
         this.session = session;
         this.editedEl = me;
         this.moduleName = moduleName;
         this.tagTypeName = tagTypeName;
         this.tagType = resolveTagType(me, moduleName, tagTypeName);
+        
     }
 
     @objid ("7702979f-c6ef-438a-ac3a-7c50e4b575e3")
-    public AbstractTagFieldData(IModelingSession session, ModelElement me, TagType tagType) {
+    public  AbstractTagFieldData(IModelingSession session, ModelElement me, TagType tagType) {
         this.session = session;
         this.editedEl = me;
         this.moduleName = tagType.getModule().getName();
         this.tagTypeName = tagType.getName();
         this.tagType = tagType;
+        
     }
 
     @objid ("cc4d0f43-86db-4b82-a98b-1569e104044e")
@@ -175,9 +176,10 @@ public abstract class AbstractTagFieldData implements IFormFieldData {
         }
 
         @objid ("5c428fe2-a147-45bf-9e65-601d9ed8ada8")
-        public TagFormFieldType(TagType type, String tagTypeName) {
+        public  TagFormFieldType(TagType type, String tagTypeName) {
             this.type = type;
             this.tagTypeName = tagTypeName;
+            
         }
 
     }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.stateinvariant;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -60,7 +59,6 @@ public class StateInvariantEditPart extends AbstractNodeEditPart implements IPla
 
     /**
      * Creates and returns a PlacementConstraint for the given model.
-     * 
      * @param model the graphic model for which a constraint is to be created.
      * @param x the desired X coordinate in coordinates relative to the parent figure.
      * @param y the desired Y coordinates relative to the parent figure.
@@ -77,6 +75,7 @@ public class StateInvariantEditPart extends AbstractNodeEditPart implements IPla
                                 width,
                                 height,
                                 (GmSequenceDiagram) model.getDiagram());
+        
     }
 
     @objid ("d99c1f94-55b6-11e2-877f-002564c97630")
@@ -84,6 +83,7 @@ public class StateInvariantEditPart extends AbstractNodeEditPart implements IPla
     protected void addChildVisual(final EditPart childEditPart, final int index) {
         IFigure child = ((GraphicalEditPart) childEditPart).getFigure();
         getContentPane().add(child, BorderLayout.CENTER, index);
+        
     }
 
     @objid ("d99c1f9b-55b6-11e2-877f-002564c97630")
@@ -94,6 +94,7 @@ public class StateInvariantEditPart extends AbstractNodeEditPart implements IPla
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                 new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("d99c1f9e-55b6-11e2-877f-002564c97630")
@@ -117,6 +118,7 @@ public class StateInvariantEditPart extends AbstractNodeEditPart implements IPla
     protected void refreshVisuals() {
         GmAbstractObject model = getModel();
         getFigure().getParent().setConstraint(getFigure(), model.getLayoutData());
+        
     }
 
 }

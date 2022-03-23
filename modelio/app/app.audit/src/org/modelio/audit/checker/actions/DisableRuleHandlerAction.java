@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.checker.actions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,12 +42,13 @@ public class DisableRuleHandlerAction extends Action {
     private IAuditService auditService;
 
     @objid ("f1f6d2a2-284c-4663-8b25-13d40883ae5c")
-    public DisableRuleHandlerAction(IAuditService auditService, Tree tree) {
+    public  DisableRuleHandlerAction(IAuditService auditService, Tree tree) {
         this.auditService = auditService;
         this.tree = tree;
         
         setText(Audit.I18N.getString("Audit.CheckerView.Contextual.Disable"));
         setImageDescriptor(Audit.getImageDescriptor("icons/suspended.png"));
+        
     }
 
     @objid ("3a226a03-0c35-4f96-be56-947ec080afc5")
@@ -75,6 +75,7 @@ public class DisableRuleHandlerAction extends Action {
                 this.tree.redraw();
             }
         }
+        
     }
 
     @objid ("51359115-7eaf-414c-872e-61d61c6ff303")

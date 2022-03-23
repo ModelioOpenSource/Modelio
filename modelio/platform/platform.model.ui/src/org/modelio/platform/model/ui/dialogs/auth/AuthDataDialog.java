@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.dialogs.auth;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -62,18 +61,18 @@ public class AuthDataDialog extends ModelioDialog {
 
     /**
      * Initialize
-     * 
      * @param parentShell a SWT Shell
      * @param initialData the initial values
      * @param toAuthenticate the part asking for authentication. Will be displayed to the user.
      */
     @objid ("b7cbbd1b-cde2-4deb-bccc-3f82df04aef9")
-    public AuthDataDialog(Shell parentShell, IAuthData initialData, String toAuthenticate) {
+    public  AuthDataDialog(Shell parentShell, IAuthData initialData, String toAuthenticate) {
         super(parentShell);
         this.toAuthenticate = toAuthenticate;
         this.authDataPanel = new AuthDataPanel();
         this.initialData = initialData;
         this.authData = initialData;
+        
     }
 
     @objid ("c3643fc6-ae90-4ca7-bd62-e7cd3b83a72a")
@@ -105,6 +104,7 @@ public class AuthDataDialog extends ModelioDialog {
     public void addButtonsInButtonBar(Composite parent) {
         createButton(parent, Window.OK, CoreUi.I18N.getString("AuthDataDialog.ok"), true);
         createButton(parent, Window.CANCEL, CoreUi.I18N.getString("AuthDataDialog.cancel"), false);
+        
     }
 
     @objid ("eeeee811-68a4-491b-8b04-441a9b80f961")
@@ -112,6 +112,7 @@ public class AuthDataDialog extends ModelioDialog {
     protected void okPressed() {
         this.authData = this.authDataPanel.getInput();
         super.okPressed();
+        
     }
 
     /**
@@ -127,6 +128,7 @@ public class AuthDataDialog extends ModelioDialog {
     protected void cancelPressed() {
         this.authData = this.initialData;
         super.cancelPressed();
+        
     }
 
     @objid ("0733bff8-6b6c-4737-8685-63b3ee15d91b")
@@ -152,6 +154,7 @@ public class AuthDataDialog extends ModelioDialog {
         
         getShell().setBounds(refBounds.x + (refBounds.width - width) / 2, refBounds.y + (refBounds.height - height) / 2,
                 width, height);
+        
     }
 
     @objid ("0c146f51-2d48-45a7-9fe1-8e492a8d3918")
@@ -168,6 +171,7 @@ public class AuthDataDialog extends ModelioDialog {
         if (this.dialogArea != null) {
             super.setErrorMessage(newErrorMessage);
         }
+        
     }
 
     @objid ("3cc0cf0c-a73b-4b6b-9ee1-849564a707e3")
@@ -178,6 +182,7 @@ public class AuthDataDialog extends ModelioDialog {
         if (this.dialogArea != null) {
             super.setWarningMessage(newMessage);
         }
+        
     }
 
 }

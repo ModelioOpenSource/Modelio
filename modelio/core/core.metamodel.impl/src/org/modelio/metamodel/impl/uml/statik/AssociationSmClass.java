@@ -17,22 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
-import org.modelio.metamodel.impl.uml.statik.AssociationData;
-import org.modelio.metamodel.impl.uml.statik.AssociationEndSmClass;
-import org.modelio.metamodel.impl.uml.statik.ClassAssociationSmClass;
-import org.modelio.metamodel.impl.uml.statik.LinkSmClass;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.metamodel.uml.statik.Association;
 import org.modelio.metamodel.uml.statik.AssociationEnd;
@@ -62,7 +58,7 @@ public class AssociationSmClass extends UmlModelElementSmClass {
     private SmDependency linkToClassDep;
 
     @objid ("1cc989b5-e25c-48bb-be0e-6dd4144c6f04")
-    public AssociationSmClass(ISmMetamodelFragment origin) {
+    public  AssociationSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -70,6 +66,7 @@ public class AssociationSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "Association";
+        
     }
 
     @objid ("f1231d2d-82e0-4cfb-9f9b-4fc09d9f83a6")
@@ -82,18 +79,21 @@ public class AssociationSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Association.class;
+        
     }
 
     @objid ("706125fa-8cb9-46e2-91b8-73cc01c7d10c")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("cc7f42d1-2c62-4b41-830f-52789583ac87")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("071d5cb1-4603-486f-a09c-cda2920a21ee")
@@ -117,6 +117,8 @@ public class AssociationSmClass extends UmlModelElementSmClass {
         this.linkToClassDep = new LinkToClassSmDependency();
         this.linkToClassDep.init("LinkToClass", this, metamodel.getMClass(ClassAssociation.MQNAME), 0, 1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.linkToClassDep);
+        
+        
     }
 
     @objid ("281946b9-1ae2-42bb-97ae-2e32d3a90597")
@@ -147,6 +149,7 @@ public class AssociationSmClass extends UmlModelElementSmClass {
     @Override
     public boolean isLinkMetaclass() {
         return true;
+        
     }
 
     @objid ("7102af6c-113d-4629-b612-fd6aba8da06f")
@@ -155,7 +158,7 @@ public class AssociationSmClass extends UmlModelElementSmClass {
         private AssociationSmClass smClass;
 
         @objid ("cbd551f6-32a1-498d-b98b-5584796b63fa")
-        public AssociationObjectFactory(AssociationSmClass smClass) {
+        public  AssociationObjectFactory(AssociationSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -188,6 +191,7 @@ public class AssociationSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((AssociationData) data).mOccurence = values;
+            
         }
 
         @objid ("5a03171a-6a7c-4b15-ad01-710bd9888722")
@@ -197,6 +201,7 @@ public class AssociationSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((LinkSmClass)this.getTarget()).getModelDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -216,6 +221,7 @@ public class AssociationSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((AssociationData) data).mEnd = values;
+            
         }
 
         @objid ("4c684ce4-ccab-4002-b97e-90a83bb35fc2")
@@ -225,6 +231,7 @@ public class AssociationSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((AssociationEndSmClass)this.getTarget()).getAssociationDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -253,6 +260,7 @@ public class AssociationSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((ClassAssociationSmClass)this.getTarget()).getAssociationPartDep();
             }
             return this.symetricDep;
+            
         }
 
     }

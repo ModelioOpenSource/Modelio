@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.bool;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,7 +36,7 @@ public class BooleanValueDisplayConverter extends DefaultBooleanDisplayConverter
      * Default c'tor.
      */
     @objid ("f003f3fe-9761-4a6d-b51f-1854035dbc96")
-    public BooleanValueDisplayConverter() {
+    public  BooleanValueDisplayConverter() {
         super();
     }
 

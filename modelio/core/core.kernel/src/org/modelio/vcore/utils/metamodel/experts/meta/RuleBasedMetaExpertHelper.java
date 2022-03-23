@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.utils.metamodel.experts.meta;
 
 import java.util.HashSet;
@@ -79,6 +78,7 @@ public class RuleBasedMetaExpertHelper implements IMetaExpertHelper {
         } else {
             return this.compositionRules.isRule(owner, composed, null);
         }
+        
     }
 
     @objid ("2469a8f5-45a6-4643-b055-b73b2dc2f1e9")
@@ -98,6 +98,7 @@ public class RuleBasedMetaExpertHelper implements IMetaExpertHelper {
         } else {
             return target.hasBase(mDep.getTarget());
         }
+        
     }
 
     @objid ("8dcac91d-ec44-4819-9b75-e6e4a8bf53fb")
@@ -108,7 +109,6 @@ public class RuleBasedMetaExpertHelper implements IMetaExpertHelper {
 
     /**
      * Register an allowed composition
-     * 
      * @param parentClass the parent metaclass
      * @param childClass the child metaclass.
      * @param depName the composition dependency name
@@ -122,11 +122,11 @@ public class RuleBasedMetaExpertHelper implements IMetaExpertHelper {
         if (mtarget != null) {
             this.compositionRules.addRule(msrc, mtarget, null);
         }
+        
     }
 
     /**
      * Register an allowed composition
-     * 
      * @param srcClass the source metaclass
      * @param targetClass the target metaclass.
      * @param depName the dependency name
@@ -149,21 +149,22 @@ public class RuleBasedMetaExpertHelper implements IMetaExpertHelper {
                 this.compositionRules.addRule(msrc, mtarget, null);
             }
         }
+        
     }
 
     /**
      * @param mm the metamodel.
      */
     @objid ("eb12ae89-073f-47fb-b2e4-265fd28d0175")
-    public RuleBasedMetaExpertHelper(MMetamodel mm) {
+    public  RuleBasedMetaExpertHelper(MMetamodel mm) {
         this.metamodel = mm;
         this.compositionRules = new Rules();
         this.dependencyRules = new Rules();
+        
     }
 
     /**
      * Activate/deactivate the dependency rules.
-     * 
      * @param value whether or not to deactivate the rules.
      */
     @objid ("bae65db9-73ae-43b3-9d81-13c236e7b182")
@@ -198,12 +199,12 @@ public class RuleBasedMetaExpertHelper implements IMetaExpertHelper {
         private final Set<RuleKey> directRules = new HashSet<>();
 
         @objid ("d6c9c19f-25bc-4805-a7a8-de389be32a8f")
-        public Rules() {
+        public  Rules() {
+            
         }
 
         /**
          * Tells whether the target metaclass can be added to the source metaclass with the given dependency.
-         * 
          * @param srcMetaclass The owner metaclass
          * @param targetMetaclass The child metaclass
          * @param dep the dependency, if <i>null</i> answer for any dependency.
@@ -224,7 +225,6 @@ public class RuleBasedMetaExpertHelper implements IMetaExpertHelper {
 
         /**
          * Add an allowed rule.
-         * 
          * @param mcX parent metaclass
          * @param mcY child metaclass
          * @param depName the dependency, if <i>null</i> answer for any dependency.
@@ -236,7 +236,6 @@ public class RuleBasedMetaExpertHelper implements IMetaExpertHelper {
 
         /**
          * Add an allowed rule.
-         * 
          * @param srcClass source metaclass
          * @param withSrcSubclasses with subclasses
          * @param childClass the target metaclass
@@ -262,6 +261,7 @@ public class RuleBasedMetaExpertHelper implements IMetaExpertHelper {
                     addRule(srcClass, withSrcSubclasses, ysub, true, depName);
                 }
             }
+            
         }
 
         @objid ("3f4cdfdf-5e75-4b21-a61e-092ee6abc59e")
@@ -276,11 +276,12 @@ public class RuleBasedMetaExpertHelper implements IMetaExpertHelper {
             public final MClass target;
 
             @objid ("4addc17d-f2ed-4fb8-a3cb-a98175c973d2")
-            public RuleKey(MClass source, MClass target, String depName) {
+            public  RuleKey(MClass source, MClass target, String depName) {
                 super();
                 this.depName = depName;
                 this.source = source;
                 this.target = target;
+                
             }
 
             @objid ("540a9dec-0833-42f8-9370-67254bd1ad51")

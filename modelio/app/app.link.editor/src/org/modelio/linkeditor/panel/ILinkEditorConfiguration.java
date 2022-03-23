@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.panel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,10 +42,14 @@ public interface ILinkEditorConfiguration {
     ILinkEditorFilter getLinkFilter();
 
     @objid ("36873e42-9943-4563-b41e-883ad44f4e8d")
-    enum Orientation {
+    public enum Orientation {
+        @objid ("c31eee05-5dd9-4e11-8a78-f69ea729d63c")
         Horizontal,
+        @objid ("50ea612c-909f-4a3d-a776-cb10d31a44a8")
         Vertical,
+        @objid ("677f5ae2-d6c9-4c53-a878-1439d9422238")
         Auto;
+
     }
 
 }

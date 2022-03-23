@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.texteditors.context;
 
 import java.io.File;
@@ -26,8 +25,8 @@ import org.eclipse.e4.core.contexts.ContextFunction;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.modelio.editors.texteditors.input.FileDocumentInput;
-import org.modelio.editors.texteditors.input.IInput.Listener;
 import org.modelio.editors.texteditors.input.IInput;
+import org.modelio.editors.texteditors.input.IInput.Listener;
 
 @objid ("7b502691-2a77-11e2-9fb9-bc305ba4815c")
 public class IDocumentInputProviderFunction extends ContextFunction {

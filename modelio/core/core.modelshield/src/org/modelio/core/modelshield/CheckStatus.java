@@ -17,13 +17,15 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.core.modelshield;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 @objid ("0081b244-d6c6-1f60-8473-001ec947cd2a")
 public enum CheckStatus {
+    @objid ("0081cd42-d6c6-1f60-8473-001ec947cd2a")
     Success,
+    @objid ("0081daa8-d6c6-1f60-8473-001ec947cd2a")
     Fail;
+
 }

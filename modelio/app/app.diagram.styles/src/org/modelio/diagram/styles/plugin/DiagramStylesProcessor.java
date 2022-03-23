@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.plugin;
 
 import java.io.IOException;
@@ -25,8 +24,8 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.URIUtil;
 import org.eclipse.e4.core.di.annotations.Execute;
@@ -56,6 +55,7 @@ public class DiagramStylesProcessor {
     void init() {
         // Create an instance and store it so it can listen to project open/close events.
         DiagramStylesProcessor.INSTANCE = this;
+        
     }
 
     @objid ("12c628eb-19f0-11e2-92d2-001ec947c8cc")
@@ -87,6 +87,7 @@ public class DiagramStylesProcessor {
             }
             DiagramStyles.getStyleManager().setDefaultTheme(store.getString(ProjectPreferencesKeys.DIAGRAM_DEFAULT_THEME_PREFKEY));
         }
+        
     }
 
     @objid ("12c628f1-19f0-11e2-92d2-001ec947c8cc")
@@ -106,6 +107,7 @@ public class DiagramStylesProcessor {
         
         // ensure the existence of the theme files
         ensuteFileExistence(getThemeDirectory(), DiagramStyles.THEME_FILE_EXTENSION, projectStyleDir);
+        
     }
 
     /**
@@ -124,6 +126,7 @@ public class DiagramStylesProcessor {
             DiagramStyles.LOG.error(e);
             return null;
         }
+        
     }
 
     /**
@@ -142,6 +145,7 @@ public class DiagramStylesProcessor {
             DiagramStyles.LOG.error(e);
             return null;
         }
+        
     }
 
     /**
@@ -166,6 +170,7 @@ public class DiagramStylesProcessor {
         } catch (IOException e) {
             DiagramStyles.LOG.debug(e);
         }
+        
     }
 
 }

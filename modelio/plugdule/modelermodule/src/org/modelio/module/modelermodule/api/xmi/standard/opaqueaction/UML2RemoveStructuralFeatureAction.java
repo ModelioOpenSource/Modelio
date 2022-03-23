@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.opaqueaction;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("483e6c61-31d1-4ff3-912d-56394bd2ed10")
 public class UML2RemoveStructuralFeatureAction {
-    @objid ("3b196f4a-9c27-43f4-a3f3-485704b09eea")
+    @objid ("989e84c8-a04d-4755-8241-63722d3a0b95")
     public static final String STEREOTYPE_NAME = "UML2RemoveStructuralFeatureAction";
 
     /**
      * The underlying {@link OpaqueAction} represented by this proxy, never null.
      */
-    @objid ("b08c1046-1f17-4d9b-bba1-a4ddbbe32531")
+    @objid ("4c9f36c6-fb1f-4011-b4de-449148e26176")
     protected final OpaqueAction elt;
 
     /**
      * Tells whether a {@link UML2RemoveStructuralFeatureAction proxy} can be instantiated from a {@link MObject} checking it is a {@link OpaqueAction} stereotyped << UML2RemoveStructuralFeatureAction >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("82e31807-18d6-45a0-acbb-05e9eb0aa4d3")
+    @objid ("0a37570f-1abf-4408-a539-ecbb80c28edc")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof OpaqueAction) && ((OpaqueAction) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2RemoveStructuralFeatureAction.STEREOTYPE_NAME));
     }
@@ -77,9 +75,9 @@ public class UML2RemoveStructuralFeatureAction {
      * 
      * @return a {@link UML2RemoveStructuralFeatureAction} proxy on the created {@link OpaqueAction}.
      */
-    @objid ("d29c70fb-cfb8-41d4-8450-7f7dfec95c43")
+    @objid ("1ea82e38-8ccd-4f5f-973d-37634ce088ed")
     public static UML2RemoveStructuralFeatureAction create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("OpaqueAction");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.OpaqueAction");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2RemoveStructuralFeatureAction.STEREOTYPE_NAME);
         return UML2RemoveStructuralFeatureAction.instantiate((OpaqueAction)e);
     }
@@ -91,7 +89,7 @@ public class UML2RemoveStructuralFeatureAction {
      * @param obj a OpaqueAction
      * @return a {@link UML2RemoveStructuralFeatureAction} proxy or <i>null</i>.
      */
-    @objid ("e276aa3f-b29f-4444-8427-1cd92e2615ac")
+    @objid ("e61ef1f6-77a4-49fb-b5c4-25ffbefe8a0f")
     public static UML2RemoveStructuralFeatureAction instantiate(OpaqueAction obj) {
         return UML2RemoveStructuralFeatureAction.canInstantiate(obj) ? new UML2RemoveStructuralFeatureAction(obj) : null;
     }
@@ -104,7 +102,7 @@ public class UML2RemoveStructuralFeatureAction {
      * @return a {@link UML2RemoveStructuralFeatureAction} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("49802061-cce7-490d-b146-c2f0286ebb05")
+    @objid ("18dabe66-df49-45d7-9da7-3b12dc01415f")
     public static UML2RemoveStructuralFeatureAction safeInstantiate(OpaqueAction obj) throws IllegalArgumentException {
         if (UML2RemoveStructuralFeatureAction.canInstantiate(obj))
         	return new UML2RemoveStructuralFeatureAction(obj);
@@ -112,7 +110,7 @@ public class UML2RemoveStructuralFeatureAction {
         	throw new IllegalArgumentException("UML2RemoveStructuralFeatureAction: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("792d3799-09f5-49ed-aa4f-69ef87f69db2")
+    @objid ("1c34ed0f-657e-4a3f-aa59-335b5e70fb30")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,46 +130,47 @@ public class UML2RemoveStructuralFeatureAction {
      * Get the underlying {@link OpaqueAction}. 
      * @return the OpaqueAction represented by this proxy, never null.
      */
-    @objid ("0f048f65-ccdc-42b7-92b9-b81ca5267744")
+    @objid ("6d54675d-a851-4219-b107-3d49dcb98802")
     public OpaqueAction getElement() {
         return this.elt;
     }
 
-    @objid ("88fc8225-26ee-401f-9b91-03060a3b8000")
+    @objid ("1d74c6f5-a30d-4299-965d-39b17c88fe11")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("9be3a96c-5f3d-4c8e-8663-041a69d59b21")
-    protected UML2RemoveStructuralFeatureAction(OpaqueAction elt) {
+    @objid ("1501dbf8-bc8d-43dc-89fc-e8c6757232eb")
+    protected  UML2RemoveStructuralFeatureAction(OpaqueAction elt) {
         this.elt = elt;
     }
 
     @objid ("5059f30e-33d1-46b2-a966-8c981d0db622")
     public static final class MdaTypes {
-        @objid ("b5517c5a-5aa0-45b7-8eba-e175a64714cd")
+        @objid ("be4d265a-bde1-4e73-9336-50a63811a537")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("b1caf085-40e6-4429-ba42-e6b7abab83de")
+        @objid ("6f25b160-1b70-4e83-81d9-f1c2d68218dd")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("3f89c8ce-c1a6-469d-a0b8-648fa81ecca9")
+        @objid ("a654fcf6-2caf-46e9-8f32-e22ecfb98219")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("0029c896-da55-49eb-ba13-398548d8960a")
+        @objid ("01809aaa-ccfb-47d6-8d4d-062d2dadaff0")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "35b84299-c2fd-11de-8ac8-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

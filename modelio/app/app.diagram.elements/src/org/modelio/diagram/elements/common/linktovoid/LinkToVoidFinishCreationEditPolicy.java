@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.linktovoid;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -72,6 +71,7 @@ public class LinkToVoidFinishCreationEditPolicy extends AbstractLinkToVoidCreati
                 request2.getExtendedData().remove(HIGHLIGHTKEY);
             }
         }
+        
     }
 
     @objid ("7ed2f531-1dec-11e2-8cad-001ec947c8cc")
@@ -114,13 +114,13 @@ public class LinkToVoidFinishCreationEditPolicy extends AbstractLinkToVoidCreati
         final Point location = request.getLocation().getCopy();
         highlight.translateToRelative(location);
         highlight.setBounds(new Rectangle(location, new Dimension(10, 10)));
+        
     }
 
     /**
      * Create the feed back figure.
      * <p>
      * Should create a ghost node to display where the node will be unmasked.
-     * 
      * @param req The create linked node request
      */
     @objid ("7ed2f54b-1dec-11e2-8cad-001ec947c8cc")
@@ -147,7 +147,6 @@ public class LinkToVoidFinishCreationEditPolicy extends AbstractLinkToVoidCreati
 
     /**
      * Compute the distance between the given figure upper left corner and the given point.
-     * 
      * @param srcFigure The source figure
      * @param absoluteLoc a location in absolute coordinates
      * @return The distance in coordinates relative to the source figure
@@ -197,14 +196,14 @@ public class LinkToVoidFinishCreationEditPolicy extends AbstractLinkToVoidCreati
 
         /**
          * Create the command.
-         * 
          * @param gmLink The link to move.
          * @param newTarget The new target node, should be the diagram.
          */
         @objid ("7ed5578e-1dec-11e2-8cad-001ec947c8cc")
-        public DisconnectLinkCommand(final IGmLink gmLink, final IGmNode newTarget) {
+        public  DisconnectLinkCommand(final IGmLink gmLink, final IGmNode newTarget) {
             this.gmLink = gmLink;
             this.newTargetNode = newTarget;
+            
         }
 
         @objid ("7ed55795-1dec-11e2-8cad-001ec947c8cc")
@@ -221,6 +220,7 @@ public class LinkToVoidFinishCreationEditPolicy extends AbstractLinkToVoidCreati
             } else {
                 return isModifableElement(this.gmLink);
             }
+            
         }
 
         @objid ("7ed55799-1dec-11e2-8cad-001ec947c8cc")
@@ -238,11 +238,11 @@ public class LinkToVoidFinishCreationEditPolicy extends AbstractLinkToVoidCreati
                 newPath.setTargetAnchor(new GmSourceSatelliteAnchor(this.anchor));
                 this.gmLink.setLayoutData(newPath);
             }
+            
         }
 
         /**
          * Set the exact source point of the link relative to the new source node location.
-         * 
          * @param ray the source point of the link
          */
         @objid ("7ed557a2-1dec-11e2-8cad-001ec947c8cc")
@@ -271,6 +271,7 @@ public class LinkToVoidFinishCreationEditPolicy extends AbstractLinkToVoidCreati
             if (this.newTargetNode != null) {
                 this.newTargetNode.addEndingLink(this.gmLink);
             }
+            
         }
 
     }

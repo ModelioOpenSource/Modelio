@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.participant.content;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -28,7 +27,7 @@ import org.modelio.diagram.elements.core.policies.AutoExpandLayoutEditPolicy;
 @objid ("0228169e-3c04-4931-b6d3-43832744944b")
 public class ParticipantContentRootEditPart extends EmbeddedDiagramRootEditPart {
     @objid ("3399079b-9615-42a4-945e-dc3b3de21c93")
-    public ParticipantContentRootEditPart(EditPart parent, Object model) {
+    public  ParticipantContentRootEditPart(EditPart parent, Object model) {
         super(parent, model);
     }
 
@@ -38,6 +37,7 @@ public class ParticipantContentRootEditPart extends EmbeddedDiagramRootEditPart 
         super.createEditPolicies();
         
         installEditPolicy(AutoExpandLayoutEditPolicy.class, new AutoExpandLayoutEditPolicy());
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.api.repository;
 
 import java.io.DataInputStream;
@@ -56,16 +55,15 @@ public class BlobServices {
     private static final int VERSION = 2;
 
     @objid ("f8635a30-31b9-4132-af24-f363f3b0852e")
-    private BlobServices() {
+    private  BlobServices() {
         // no instance
     }
 
     /**
      * Read the blob info from an input stream.
-     * 
      * @param is an input stream.
      * @return the read blob information.
-     * @throws java.io.IOException in case of failure
+     * @throws IOException in case of failure
      */
     @objid ("1cc90816-c7f9-4fef-b9c2-50ed4f0a8f72")
     public static IBlobInfo readBlobInfo(InputStream is) throws IOException {
@@ -94,6 +92,7 @@ public class BlobServices {
         } else {
             throw new UnsupportedOperationException(rversion + " BlobInfo version not supported");
         }
+        
     }
 
     /**
@@ -102,7 +101,6 @@ public class BlobServices {
      * If some blobs cannot be read for any reason, a blob information is created
      * with its key and the error message as label. A warning is also fired
      * to the repository error listeners.
-     * 
      * @param blobKeys the blob keys to read
      * @param repo the repository where blobs are stored
      * @return the read blob information.
@@ -113,16 +111,15 @@ public class BlobServices {
         for (String key : blobKeys) {
             try {
                 IBlobInfo info = repo.readBlobInfo(key);
-                if (info != null) {
-                    infos.add(info);
-                } else {
-                    throw new IllegalArgumentException(key);
+                if (info == null) {
+                    info = new BlobInfo(key, "<No such '"+key+"' blob>");
                 }
+                infos.add(info);
             } catch (FileSystemException e) {
                 BlobInfo info = new BlobInfo(key, "<"+FileUtils.getLocalizedMessage(e)+">");
                 infos.add(info);
                 repo.getErrorSupport().fireWarning(e);
-                
+        
             } catch (IOException e) {
                 BlobInfo info = new BlobInfo(key, "<"+e.getLocalizedMessage()+">");
                 infos.add(info);
@@ -136,10 +133,9 @@ public class BlobServices {
      * Serialize a blob information implementing {@link IBlobInfo} in the given output stream.
      * <p>
      * The blob information will be readable as by using {@link #readBlobInfo(InputStream)}.
-     * 
      * @param info a blob information
      * @param os an output stream.
-     * @throws java.io.IOException in case of I/O error
+     * @throws IOException in case of I/O error
      */
     @objid ("fbf396f3-fc2e-4fae-b936-9647f6c64e79")
     public static void write(IBlobInfo info, OutputStream os) throws IOException {
@@ -156,6 +152,7 @@ public class BlobServices {
             dos.writeUTF(relatedElement.name);
             dos.writeUTF(info.getLocalName());
         }
+        
     }
 
 }

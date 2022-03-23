@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.inputpin;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("c9ef7950-aef3-455f-bd22-02a260ca445a")
 public class UML2Target {
-    @objid ("8bbd3e8f-6829-49fe-bc7a-ada127c2fccb")
+    @objid ("8f41de94-eece-4783-a0e5-01a10b30ca2a")
     public static final String STEREOTYPE_NAME = "UML2Target";
 
     /**
      * The underlying {@link InputPin} represented by this proxy, never null.
      */
-    @objid ("77e52539-2415-4239-85bf-e16d5fffa6d2")
+    @objid ("7c3068dc-9853-4f3b-b568-d53fb5739e97")
     protected final InputPin elt;
 
     /**
      * Tells whether a {@link UML2Target proxy} can be instantiated from a {@link MObject} checking it is a {@link InputPin} stereotyped << UML2Target >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("61ab3e7d-05c8-48e8-a9b6-c0a3c1b463fc")
+    @objid ("fa1cdfd6-7a8b-4d34-8289-210a63b3340e")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof InputPin) && ((InputPin) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2Target.STEREOTYPE_NAME));
     }
@@ -77,9 +75,9 @@ public class UML2Target {
      * 
      * @return a {@link UML2Target} proxy on the created {@link InputPin}.
      */
-    @objid ("2325dcb1-e8b1-4ecb-90f7-53d3629f8d98")
+    @objid ("6ef1ba8d-c274-4902-8430-4a4d1a276b5d")
     public static UML2Target create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("InputPin");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.InputPin");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2Target.STEREOTYPE_NAME);
         return UML2Target.instantiate((InputPin)e);
     }
@@ -91,7 +89,7 @@ public class UML2Target {
      * @param obj a InputPin
      * @return a {@link UML2Target} proxy or <i>null</i>.
      */
-    @objid ("faca1890-7ec7-40ed-9363-2904300ff7fe")
+    @objid ("558b1278-b508-4e26-8bce-1023d616b45f")
     public static UML2Target instantiate(InputPin obj) {
         return UML2Target.canInstantiate(obj) ? new UML2Target(obj) : null;
     }
@@ -104,7 +102,7 @@ public class UML2Target {
      * @return a {@link UML2Target} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("9eea36bf-c752-42be-944a-5ad90a5e3feb")
+    @objid ("18775652-d54c-40ae-8c6d-c01e72f12918")
     public static UML2Target safeInstantiate(InputPin obj) throws IllegalArgumentException {
         if (UML2Target.canInstantiate(obj))
         	return new UML2Target(obj);
@@ -112,7 +110,7 @@ public class UML2Target {
         	throw new IllegalArgumentException("UML2Target: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("e19c964f-9c88-41f6-a19a-c8e866296c6b")
+    @objid ("37e6de6d-3a72-4bf2-bf38-2a8abddbb130")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,46 +130,47 @@ public class UML2Target {
      * Get the underlying {@link InputPin}. 
      * @return the InputPin represented by this proxy, never null.
      */
-    @objid ("2d46da4e-1429-4c97-a196-77dcca45d890")
+    @objid ("77bb62a4-cc0e-455a-bc0a-b05050f2c282")
     public InputPin getElement() {
         return this.elt;
     }
 
-    @objid ("a783f178-a6c8-4186-98d7-c394d56c3f43")
+    @objid ("d1d63c5e-fe05-4b2c-a9aa-023abcb2c836")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("dc3cc50f-8651-4789-a0e2-b2a6a7b27af9")
-    protected UML2Target(InputPin elt) {
+    @objid ("a2744335-fecb-4584-9f79-b5cf714e6b76")
+    protected  UML2Target(InputPin elt) {
         this.elt = elt;
     }
 
     @objid ("f7e8a899-0f5c-4177-848d-e2e7b037113a")
     public static final class MdaTypes {
-        @objid ("fd3e61f7-b15c-47e5-babd-b9a409b1a73e")
+        @objid ("361af955-be95-4aa5-9b75-121fc1d1477f")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("823e4700-16db-40f3-bd29-68c364cc6241")
+        @objid ("6d016281-5a16-4982-9582-de803d79fb78")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("852d5657-4324-4ae6-9551-4ece19a01cbd")
+        @objid ("aead3804-64b0-45c5-92d3-1b8838930084")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("26c5f1ca-f202-4a0b-b207-7342362247c5")
+        @objid ("d64559af-b9fd-4235-b67c-a61067c2727e")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "aa99ee06-c495-11de-ada1-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

@@ -1,5 +1,7 @@
 // Disable all captions for figures.
 :!figure-caption:
+// Path to the stylesheet files
+:stylesdir: .
 
 [[Drawing-links-in-a-diagram]]
 
@@ -32,7 +34,7 @@ image::images/Modeler-_modeler_diagrams_drawing_links_CreateLink.png[2]
 
 1.  Click on the "Create an association" icon in the diagram palette.
 2.  Click on the origin class.
-3.  Draw your link, with any desired intermediate points, and then click on the destination class.
+3.  Draw your link, with any desired routing points image:images/RoutingPoint.png[RoutingPoint], and then click on the destination class.
 
 [[Drawing-links-in-bendpoint-mode]]
 
@@ -46,7 +48,7 @@ image::images/Modeler-_modeler_diagrams_drawing_links_CreateBendLink.png[3]
 
 1.  Click on the "Create an association" icon in the diagram palette.
 2.  Click on the origin class.
-3.  Draw your link while holding down the *Shift* key, with any desired intermediate points, and then click on the destination class.
+3.  Draw your link while holding down the *Shift* key, with any desired routings points, and then click on the destination class.
 
 [[Drawing-links-in-rake-bar-mode-shared-target-links]]
 
@@ -65,6 +67,20 @@ image::images/Modeler-_modeler_diagrams_drawing_links_CreateRakeLink.png[4]
 1. Click on the "Create a Generalization" icon in the diagram palette.
 2. Click on the origin class.
 3. Draw your link with any desired intermediate points, and then click on the already existing Generalization.
+
+
+[[Fixed-anchors]]
+
+[[fixed-anchors]]
+===== Fixed anchors
+
+Some elements (such as BPMN, State or ArchiMate elements) have fixed anchor points, which allow the links to be hooked there so that their origin/destination points do not change subsequently, when moving or resizing these elements. The number of fixed anchors depends on the size of the element.
+
+.Fixed anchors on small State element
+image::images/FixedAnchors.png[FixedAnchors]
+
+.Fixed anchors on larger State element
+image::images/FixedAnchors2.png[FixedAnchors2]
 
 [[The-Smart-links-tool]]
 
@@ -93,11 +109,11 @@ image::images/Modeler-_modeler_diagrams_drawing_links_creating_link-type_element
 *Steps:*
 
 1. Move your mouse cursor over the origin class and wait for one second
-2. When the Smart links handle image:images/Modeler-_modeler_diagrams_drawing_links_SmartLinks_handle.png[8] appears, click on it and hold down your mouse button
+2. When the anchors image:images/Modeler-_modeler_diagrams_drawing_links_SmartLinks_handle.png[8] appear, click on one of them and hold down your mouse button
 3. Move your cursor over to the target class, as if to drag&drop the link's end onto it
 4. Release the mouse button, then choose a link type from the list
 
-*Note:* If you dont't want to display the Smart links handles (green arrows), you can deactivate them in the Symbol view of the diagram:
+*Note:* If you dont't want to display the anchors, you can deactivate them in the Symbol view of the diagram:
 
 image::images/Modeler-_modeler_diagrams_drawing_links_creating_link-type_elements_in_diagrams_4.png[7]
 

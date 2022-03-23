@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.diagrams.subprocess;
 
 import java.util.List;
@@ -33,6 +32,7 @@ import org.modelio.diagram.elements.common.abstractdiagram.GmAbstractDiagram;
 import org.modelio.diagram.elements.core.model.GmAbstractObject;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.elements.umlcommon.externdocument.GmExternDocument;
@@ -40,8 +40,8 @@ import org.modelio.diagram.elements.umlcommon.note.GmNote;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.view.ISymbolViewModel;
 import org.modelio.metamodel.bpmn.bpmnDiagrams.BpmnSubProcessDiagram;
 import org.modelio.metamodel.bpmn.events.BpmnBoundaryEvent;
@@ -86,18 +86,18 @@ public class GmBpmnSubProcessDiagram extends GmAbstractDiagram implements IWorkf
 
     /**
      * Default constructor.
-     * 
      * @param manager the manager needed make the link between the Ob and Gm models.
      * @param diagram the diagram itself.
      * @param diagramRef a reference to the diagram.
      */
     @objid ("61fddeae-55b6-11e2-877f-002564c97630")
-    public GmBpmnSubProcessDiagram(final IModelManager manager, final BpmnSubProcessDiagram diagram, final MRef diagramRef) {
+    public  GmBpmnSubProcessDiagram(final IModelManager manager, final BpmnSubProcessDiagram diagram, final MRef diagramRef) {
         super(manager, diagramRef);
         this.obDiagram = diagram;
         
         // GmWorkflow creation
         createBody();
+        
     }
 
     @objid ("61fddec0-55b6-11e2-877f-002564c97630")
@@ -160,11 +160,11 @@ public class GmBpmnSubProcessDiagram extends GmAbstractDiagram implements IWorkf
             break;
         }
         }
+        
     }
 
     /**
      * Returns true if the given metaclass is supported.
-     * 
      * @return true if the given metaclass is supported.
      */
     @objid ("61ff655d-55b6-11e2-877f-002564c97630")
@@ -202,6 +202,7 @@ public class GmBpmnSubProcessDiagram extends GmAbstractDiagram implements IWorkf
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmBpmnSubProcessDiagram.", GmBpmnSubProcessDiagram.MINOR_VERSION);
+        
     }
 
     @objid ("61ff657a-55b6-11e2-877f-002564c97630")
@@ -254,6 +255,7 @@ public class GmBpmnSubProcessDiagram extends GmAbstractDiagram implements IWorkf
                 oldChild.delete();
             }
         }
+        
     }
 
     @objid ("6200ebdd-55b6-11e2-877f-002564c97630")
@@ -274,6 +276,7 @@ public class GmBpmnSubProcessDiagram extends GmAbstractDiagram implements IWorkf
         this.obDiagram = (BpmnSubProcessDiagram) resolveRef(getRepresentedRef());
         
         this.body = (GmWorkflow) getFirstChild(GmBpmnSubProcessDiagram.ROLE_BODY);
+        
     }
 
     @objid ("3de8b656-f6d9-4a7c-8a2a-a5b467d6543a")
@@ -286,6 +289,7 @@ public class GmBpmnSubProcessDiagram extends GmAbstractDiagram implements IWorkf
         } else {
             super.addChild(child);
         }
+        
     }
 
     @objid ("cc14053c-41cc-4b11-8b96-7a7f2933e35f")
@@ -300,6 +304,7 @@ public class GmBpmnSubProcessDiagram extends GmAbstractDiagram implements IWorkf
         super.refreshFromObModel();
         
         firePropertyChange(GmModel.PROP_REFRESH_FROM_OBMODEL, null, this);
+        
     }
 
     @objid ("06649ac5-526a-4820-8659-719112d6fa0c")
@@ -313,6 +318,7 @@ public class GmBpmnSubProcessDiagram extends GmAbstractDiagram implements IWorkf
     public void delete() {
         this.body = null;
         super.delete();
+        
     }
 
     @objid ("d2f2f60f-9e1c-402b-8772-d2c34ad8b064")
@@ -320,6 +326,7 @@ public class GmBpmnSubProcessDiagram extends GmAbstractDiagram implements IWorkf
         this.body = new GmWorkflow(this, getRepresentedRef());
         this.body.setRoleInComposition(GmBpmnSubProcessDiagram.ROLE_BODY);
         addChild(this.body);
+        
     }
 
     @objid ("dd678702-0928-4475-9459-4495d91b35d9")
@@ -330,6 +337,7 @@ public class GmBpmnSubProcessDiagram extends GmAbstractDiagram implements IWorkf
         if (!hasPersistedData) {
             createBody();
         }
+        
     }
 
     /**
@@ -343,11 +351,11 @@ public class GmBpmnSubProcessDiagram extends GmAbstractDiagram implements IWorkf
                 && !(relatedElement.isShell() || relatedElement.isDeleted())
                 && relatedElement.getStatus().isModifiable()
                 && isLocal();
+        
     }
 
     /**
      * A sub-process is local if its owner diagram is also local, or null.
-     * 
      * @return <code>true</code> if the sub-process is local.
      */
     @objid ("7bf51053-252b-47e7-a811-045a2dffde96")
@@ -363,6 +371,7 @@ public class GmBpmnSubProcessDiagram extends GmAbstractDiagram implements IWorkf
             // Not in a process diagram,
             return false;
         }
+        
     }
 
     @objid ("5620548e-2d22-4471-8fc1-9e8524c072d5")

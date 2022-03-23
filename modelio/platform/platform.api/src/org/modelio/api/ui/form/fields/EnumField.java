@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.form.fields;
 
 import java.util.ArrayList;
@@ -43,7 +42,7 @@ public class EnumField extends AbstractField {
     private ComboViewer comboViewer;
 
     @objid ("c6e112b9-a881-4c93-b885-dccedfd228a1")
-    public EnumField(FormToolkit toolkit, Composite parent, IFormFieldData model) {
+    public  EnumField(FormToolkit toolkit, Composite parent, IFormFieldData model) {
         super(toolkit, parent, model);
     }
 
@@ -59,6 +58,7 @@ public class EnumField extends AbstractField {
         if (!Objects.equals(selectedType, getModel().getValue())) {
             getModel().setValue(selectedType);
         }
+        
     }
 
     /**
@@ -124,6 +124,7 @@ public class EnumField extends AbstractField {
         if (value != null && !"".equals(value)) {
             this.comboViewer.setSelection(new StructuredSelection(value));
         }
+        
     }
 
     @objid ("4b7e9e94-1463-416e-a8cf-828b609f2a27")

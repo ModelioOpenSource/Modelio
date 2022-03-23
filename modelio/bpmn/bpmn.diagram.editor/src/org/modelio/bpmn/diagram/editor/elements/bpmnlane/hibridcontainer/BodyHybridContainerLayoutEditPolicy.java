@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnlane.hibridcontainer;
 
 import java.util.Objects;
@@ -27,12 +26,12 @@ import org.eclipse.draw2d.geometry.PrecisionRectangle;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.AbstractEditPolicy;
-import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.eclipse.gef.requests.CreateConnectionRequest;
 import org.eclipse.gef.requests.CreateRequest;
@@ -42,19 +41,21 @@ import org.modelio.bpmn.diagram.editor.elements.bpmnlane.hibridcontainer.BodyHyb
 import org.modelio.bpmn.diagram.editor.elements.bpmnlanesetcontainer.BpmnLaneSetContainerEditPart;
 import org.modelio.bpmn.diagram.editor.elements.bpmnlanesetcontainer.CreateBpmnLaneSetContainerCommand;
 import org.modelio.bpmn.diagram.editor.elements.bpmnlanesetcontainer.GmBpmnLaneSetContainer;
+import org.modelio.bpmn.diagram.editor.elements.bpmnlanesetcontainer.LayoutLaneSetConnectionsEditPolicyDecorator;
 import org.modelio.bpmn.diagram.editor.elements.bpmnsubprocess.CreateBpmnSubProcessCommand;
-import org.modelio.bpmn.diagram.editor.elements.policies.BpmnBoundaryEventReparentElementCommand;
-import org.modelio.bpmn.diagram.editor.elements.policies.BpmnCreateLinkChooseNodeEditPolicy;
-import org.modelio.bpmn.diagram.editor.elements.policies.BpmnFlowElementReparentElementCommand;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnBoundaryEventReparentElementCommand;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnCreateLinkChooseNodeEditPolicy;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnFlowElementReparentElementCommand;
 import org.modelio.diagram.elements.common.freezone.DefaultFreeZoneLayoutEditPolicy;
 import org.modelio.diagram.elements.core.commands.DefaultCreateElementCommand;
 import org.modelio.diagram.elements.core.commands.DefaultReparentElementCommand;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
 import org.modelio.diagram.elements.core.link.linknode.AbstractCreateLinkChooseNodeEditPolicy;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
+import org.modelio.diagram.elements.core.policies.LayoutConnectionsConstrainedLayoutEditPolicyDecorator;
 import org.modelio.metamodel.bpmn.activities.BpmnSubProcess;
 import org.modelio.metamodel.bpmn.events.BpmnBoundaryEvent;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnLane;
@@ -85,23 +86,24 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
      * This will be used to "get" the behaviour of a free zone policy.
      */
     @objid ("c48b764f-59a6-11e2-ae45-002564c97630")
-    private BpmnFreeZoneLayoutPolicy freeZonePolicy;
+    private EditPolicy freeZonePolicy;
 
     /**
      * This will be used to "get" the behaviour of a lane set policy.
      */
     @objid ("985cf634-1c9d-4511-a1e6-58e30e706330")
-    private BpmnLaneSetEditPolicy laneSetPolicy;
+    private EditPolicy laneSetPolicy;
 
     /**
      * C'tor.
      */
     @objid ("61316701-55b6-11e2-877f-002564c97630")
-    public BodyHybridContainerLayoutEditPolicy() {
+    public  BodyHybridContainerLayoutEditPolicy() {
         super();
         // Create an instance of both free zone and lane set policies.
-        this.freeZonePolicy = new BpmnFreeZoneLayoutPolicy();
-        this.laneSetPolicy = new BpmnLaneSetEditPolicy();
+        this.freeZonePolicy = new LayoutConnectionsConstrainedLayoutEditPolicyDecorator( new BpmnFreeZoneLayoutPolicy());
+        this.laneSetPolicy = new LayoutLaneSetConnectionsEditPolicyDecorator(new BpmnLaneSetEditPolicy());
+        
     }
 
     @objid ("61316704-55b6-11e2-877f-002564c97630")
@@ -129,6 +131,7 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
         default:
             break;
         }
+        
     }
 
     @objid ("61316707-55b6-11e2-877f-002564c97630")
@@ -153,6 +156,7 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
         }
         removeLinkAndNodePolicy();
         super.deactivate();
+        
     }
 
     @objid ("6131670a-55b6-11e2-877f-002564c97630")
@@ -161,7 +165,7 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
         super.eraseSourceFeedback(request);
         switch (this.behaviour) {
         case HYBRID: {
-            LayoutEditPolicy editPolicy = getPolicyInvolvedWith(request);
+            EditPolicy editPolicy = getPolicyInvolvedWith(request);
             if (editPolicy != null) {
                 editPolicy.eraseSourceFeedback(request);
             }
@@ -178,6 +182,7 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
         default:
             break;
         }
+        
     }
 
     @objid ("6131670e-55b6-11e2-877f-002564c97630")
@@ -186,7 +191,7 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
         super.eraseTargetFeedback(request);
         switch (this.behaviour) {
         case HYBRID: {
-            LayoutEditPolicy editPolicy = getPolicyInvolvedWith(request);
+            EditPolicy editPolicy = getPolicyInvolvedWith(request);
             if (editPolicy != null) {
                 editPolicy.eraseTargetFeedback(request);
             }
@@ -203,6 +208,7 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
         default:
             break;
         }
+        
     }
 
     @objid ("61316712-55b6-11e2-877f-002564c97630")
@@ -211,7 +217,7 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
         Command command = null;
         switch (this.behaviour) {
         case HYBRID: {
-            LayoutEditPolicy editPolicy = getPolicyInvolvedWith(request);
+            EditPolicy editPolicy = getPolicyInvolvedWith(request);
             if (editPolicy != null) {
                 command = editPolicy.getCommand(request);
             }
@@ -237,7 +243,7 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
         EditPart targetEditPart = null;
         switch (this.behaviour) {
         case HYBRID: {
-            LayoutEditPolicy editPolicy = getPolicyInvolvedWith(request);
+            EditPolicy editPolicy = getPolicyInvolvedWith(request);
             if (editPolicy != null) {
                 targetEditPart = editPolicy.getTargetEditPart(request);
             }
@@ -262,6 +268,7 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
         } else {
             return null;
         }
+        
     }
 
     @objid ("6132ed7d-55b6-11e2-877f-002564c97630")
@@ -270,6 +277,7 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
         super.setHost(editpart);
         this.freeZonePolicy.setHost(editpart);
         this.laneSetPolicy.setHost(editpart);
+        
     }
 
     @objid ("6132ed81-55b6-11e2-877f-002564c97630")
@@ -277,7 +285,7 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
     public void showSourceFeedback(Request request) {
         switch (this.behaviour) {
         case HYBRID: {
-            LayoutEditPolicy editPolicy = getPolicyInvolvedWith(request);
+            EditPolicy editPolicy = getPolicyInvolvedWith(request);
             if (editPolicy != null) {
                 editPolicy.showSourceFeedback(request);
             }
@@ -294,6 +302,7 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
         default:
             break;
         }
+        
     }
 
     @objid ("6132ed85-55b6-11e2-877f-002564c97630")
@@ -301,7 +310,7 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
     public void showTargetFeedback(Request request) {
         switch (this.behaviour) {
         case HYBRID: {
-            LayoutEditPolicy editPolicy = getPolicyInvolvedWith(request);
+            EditPolicy editPolicy = getPolicyInvolvedWith(request);
             if (editPolicy != null) {
                 editPolicy.showTargetFeedback(request);
             }
@@ -318,6 +327,7 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
         default:
             break;
         }
+        
     }
 
     @objid ("6132ed89-55b6-11e2-877f-002564c97630")
@@ -325,7 +335,7 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
     public boolean understandsRequest(Request request) {
         switch (this.behaviour) {
         case HYBRID: {
-            LayoutEditPolicy editPolicy = getPolicyInvolvedWith(request);
+            EditPolicy editPolicy = getPolicyInvolvedWith(request);
             if (editPolicy != null) {
                 return editPolicy.understandsRequest(request);
             } else {
@@ -346,7 +356,6 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
 
     /**
      * Sets the behaviour to adopt.
-     * 
      * @param value the new behaviour.
      */
     @objid ("6132ed8f-55b6-11e2-877f-002564c97630")
@@ -394,6 +403,7 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
                 break;
             }
         }
+        
     }
 
     /**
@@ -405,7 +415,7 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
      * </p>
      */
     @objid ("6132ed93-55b6-11e2-877f-002564c97630")
-    private LayoutEditPolicy getPolicyInvolvedWith(ChangeBoundsRequest request) {
+    private EditPolicy getPolicyInvolvedWith(ChangeBoundsRequest request) {
         // Involved node Edit Parts must be of a consistant type (either all lanes or none)
         // Check for inconsistency
         Boolean allLanes = null;
@@ -431,6 +441,7 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
             // Everything of the same type, return corresponding policy.
             return allLanes ? this.laneSetPolicy : this.freeZonePolicy;
         }
+        
     }
 
     /**
@@ -442,7 +453,7 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
      * </p>
      */
     @objid ("6132ed98-55b6-11e2-877f-002564c97630")
-    private LayoutEditPolicy getPolicyInvolvedWith(CreateRequest request) {
+    private EditPolicy getPolicyInvolvedWith(CreateRequest request) {
         final ModelioCreationContext ctx = ModelioCreationContext.lookRequest(request);
         if (ctx == null) {
             return null;
@@ -452,10 +463,11 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
         } else {
             return this.freeZonePolicy;
         }
+        
     }
 
     @objid ("6132ed9d-55b6-11e2-877f-002564c97630")
-    private LayoutEditPolicy getPolicyInvolvedWith(Request request) {
+    private EditPolicy getPolicyInvolvedWith(Request request) {
         if (RequestConstants.REQ_CREATE.equals(request.getType())) {
             return getPolicyInvolvedWith((CreateRequest) request);
         } else if (RequestConstants.REQ_CONNECTION_START.equals(request.getType()) ||
@@ -474,7 +486,6 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
 
     /**
      * Returns the current behaviour.
-     * 
      * @return the current behaviour.
      */
     @objid ("6132eda3-55b6-11e2-877f-002564c97630")
@@ -491,6 +502,7 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
     private void installLinkAndNodePolicy() {
         // Policy to create Link+Node for sequence flow and data association (allow to create a node as target of a new link, user can choose the kind of node)
         getHost().installEditPolicy(AbstractCreateLinkChooseNodeEditPolicy.ROLE, new BpmnCreateLinkChooseNodeEditPolicy());
+        
     }
 
     @objid ("53e2fcae-28c3-4227-b4b0-e720a6f2051e")
@@ -595,6 +607,7 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
                         (GmNodeModel) child.getModel(),
                         constraint);
             }
+            
         }
 
         @objid ("61347439-55b6-11e2-877f-002564c97630")
@@ -642,6 +655,7 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
             if (!isLaneSet(child)) {
                 super.decorateChild(child);
             }
+            
         }
 
         @objid ("12b12153-1fef-4c90-97d9-98080f921a32")
@@ -650,6 +664,7 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
             if (!isLaneSet(child)) {
                 super.undecorateChild(child);
             }
+            
         }
 
         @objid ("dc45f2fc-f788-46b0-aa0b-11e0990804cb")
@@ -696,7 +711,7 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
         @objid ("621c6360-55b6-11e2-877f-002564c97630")
         private static class CreateBpmnFlowElementCommand extends DefaultCreateElementCommand {
             @objid ("621de9c4-55b6-11e2-877f-002564c97630")
-            public CreateBpmnFlowElementCommand(MObject parentNode, GmCompositeNode parentElement, ModelioCreationContext context, Object constraint) {
+            public  CreateBpmnFlowElementCommand(MObject parentNode, GmCompositeNode parentElement, ModelioCreationContext context, Object constraint) {
                 super(parentNode, parentElement, context, constraint);
             }
 
@@ -760,6 +775,7 @@ class BodyHybridContainerLayoutEditPolicy extends AbstractEditPolicy {
                 this.mainLinkable = gm;
                 
                 afterUnmask(newElement, gm);
+                
             }
 
         }

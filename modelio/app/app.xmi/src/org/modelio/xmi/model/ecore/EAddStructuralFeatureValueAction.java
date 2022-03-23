@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,7 +42,7 @@ public class EAddStructuralFeatureValueAction extends EActivityNode {
     }
 
     @objid ("5d523051-d4b5-4ec8-bba2-888cc8d68a6f")
-    public EAddStructuralFeatureValueAction(org.eclipse.uml2.uml.AddStructuralFeatureValueAction element) {
+    public  EAddStructuralFeatureValueAction(org.eclipse.uml2.uml.AddStructuralFeatureValueAction element) {
         super(element);
     }
 
@@ -52,6 +51,7 @@ public class EAddStructuralFeatureValueAction extends EActivityNode {
     public void setProperties(Element objingElt) {
         super.setProperties(objingElt);
         setFeature((OpaqueAction) objingElt);
+        
     }
 
     @objid ("beeb8435-5d1a-4e6b-9016-71dfb150ae2d")
@@ -78,6 +78,7 @@ public class EAddStructuralFeatureValueAction extends EActivityNode {
                 dependency.setImpacted(objingElt);
             }
         }
+        
     }
 
 }

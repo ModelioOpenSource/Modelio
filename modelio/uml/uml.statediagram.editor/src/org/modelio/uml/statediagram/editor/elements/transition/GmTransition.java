@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.transition;
 
 import java.util.List;
@@ -42,9 +41,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("f5a89a9a-55b6-11e2-877f-002564c97630")
 public class GmTransition extends GmLink {
-    @objid ("f5aa213b-55b6-11e2-877f-002564c97630")
-    private Transition element;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -60,18 +56,20 @@ public class GmTransition extends GmLink {
     @objid ("d1e76310-5c2a-4901-a52a-079972937a8a")
     public static final String ROLE_POSTCOND = "post_condition";
 
+    @objid ("f5aa213b-55b6-11e2-877f-002564c97630")
+    private Transition element;
+
     @objid ("fe7a7c21-5a5b-11e2-9e33-00137282c51b")
     private static final GmTransitionStyleKeys styleKeyProvider = new GmTransitionStyleKeys();
 
     /**
      * Initialize a control flow graphic model.
-     * 
      * @param diagram The owning diagram
      * @param transition The reference flow, may be null
      * @param ref The referenced flow reference, may not be null
      */
     @objid ("f5aa2145-55b6-11e2-877f-002564c97630")
-    public GmTransition(IGmDiagram diagram, Transition transition, MRef ref) {
+    public  GmTransition(IGmDiagram diagram, Transition transition, MRef ref) {
         super(diagram, ref);
         
         this.element = transition;
@@ -79,13 +77,14 @@ public class GmTransition extends GmLink {
         addExtension(ExtensionLocation.MiddleNW, IGmLink.ROLE_MAIN_LABEL, new GmTransitionMainLabel(diagram, ref));
         addExtension(ExtensionLocation.SourceSE, GmTransition.ROLE_GUARD, new GmTransitionGuardLabel(diagram, ref));
         addExtension(ExtensionLocation.TargetSE, GmTransition.ROLE_POSTCOND, new GmTransitionPostConditionLabel(diagram, ref));
+        
     }
 
     /**
      * For deserialization only.
      */
     @objid ("f5aa2151-55b6-11e2-877f-002564c97630")
-    public GmTransition() {
+    public  GmTransition() {
         // Nothing to do.
     }
 
@@ -130,6 +129,7 @@ public class GmTransition extends GmLink {
     protected void readLink(IDiagramReader in) {
         super.readLink(in);
         this.element = (Transition) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("f5aba7e7-55b6-11e2-877f-002564c97630")
@@ -139,6 +139,7 @@ public class GmTransition extends GmLink {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmTransition.", GmTransition.MINOR_VERSION);
+        
     }
 
     @objid ("f5aba7ed-55b6-11e2-877f-002564c97630")
@@ -159,6 +160,7 @@ public class GmTransition extends GmLink {
                 n.setRoleInComposition(GmTransition.ROLE_POSTCOND);
             }
         }
+        
     }
 
 }

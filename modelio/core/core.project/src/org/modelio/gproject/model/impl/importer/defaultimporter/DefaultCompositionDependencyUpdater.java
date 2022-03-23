@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.model.impl.importer.defaultimporter;
 
 import java.util.ArrayList;
@@ -53,11 +52,12 @@ public class DefaultCompositionDependencyUpdater implements IDependencyUpdater {
      * @param localSession the local session
      */
     @objid ("00927778-e7d6-1090-8d81-001ec947cd2a")
-    public DefaultCompositionDependencyUpdater(IBrokenDependencyHandler brokenDependencyHandler, IObjectFinder objectFinder, ICoreSession localSession) {
+    public  DefaultCompositionDependencyUpdater(IBrokenDependencyHandler brokenDependencyHandler, IObjectFinder objectFinder, ICoreSession localSession) {
         super();
         this.brokenDependencyHandler = brokenDependencyHandler;
         this.objectFinder = objectFinder;
         this.localSession = localSession;
+        
     }
 
     @objid ("0081dc4c-d3aa-108f-8d81-001ec947cd2a")
@@ -83,6 +83,7 @@ public class DefaultCompositionDependencyUpdater implements IDependencyUpdater {
         } else {
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("00822756-d3aa-108f-8d81-001ec947cd2a")
@@ -105,7 +106,6 @@ public class DefaultCompositionDependencyUpdater implements IDependencyUpdater {
 
     /**
      * Update a dependency
-     * 
      * @param localObject the local object to modify
      * @param refDep the dependency in the reference model
      * @param localDep the dependency in the local model
@@ -149,6 +149,7 @@ public class DefaultCompositionDependencyUpdater implements IDependencyUpdater {
         
             }
         }
+        
     }
 
     @objid ("00818828-d3aa-108f-8d81-001ec947cd2a")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.communicationinteraction;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,31 +31,31 @@ import org.modelio.uml.statikdiagram.editor.style.StaticAbstractStyleKeyProvider
 @objid ("349b6976-55b7-11e2-877f-002564c97630")
 public class GmCommunicationInteractionStructuredStyleKeys extends StaticAbstractStyleKeyProvider {
     @objid ("a6435300-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("INTERACTION_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("INTERACTION_REPMODE", MetaKey.REPMODE);
 
     @objid ("a6435302-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("INTERACTION_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("INTERACTION_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("a6435304-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("INTERACTION_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("INTERACTION_FILLMODE", MetaKey.FILLMODE);
 
     @objid ("a6435306-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("INTERACTION_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("INTERACTION_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("a6435308-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("INTERACTION_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("INTERACTION_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("a644d989-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("INTERACTION_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("INTERACTION_FONT", MetaKey.FONT);
 
     @objid ("a644d98b-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("INTERACTION_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("INTERACTION_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("a644d98d-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("INTERACTION_SHOWSTEREOTYPES",
-                                                           MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("INTERACTION_SHOWSTEREOTYPES",
+                                                               MetaKey.SHOWSTEREOTYPES);
 
     @objid ("a644d98f-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("INTERACTION_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("INTERACTION_SHOWTAGS", MetaKey.SHOWTAGS);
 
 }

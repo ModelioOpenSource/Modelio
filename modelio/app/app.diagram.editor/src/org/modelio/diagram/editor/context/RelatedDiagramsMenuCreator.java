@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.context;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.ui.di.AboutToShow;
 import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.model.application.commands.MCommand;
@@ -86,6 +85,7 @@ public class RelatedDiagramsMenuCreator {
             // Add the related diagrams menu
             items.add(createMenu(related, displaying));
         }
+        
     }
 
     @objid ("fb7d1e18-ca47-4080-ba87-7bbd74288700")
@@ -126,6 +126,7 @@ public class RelatedDiagramsMenuCreator {
         for (final AbstractDiagram diagram : relatedDiagrams) {
             menuChildren.add(createDiagramItems(diagram));
         }
+        
     }
 
     @objid ("ced07e16-3c49-427e-a131-7ff7707c5674")
@@ -168,7 +169,6 @@ public class RelatedDiagramsMenuCreator {
 
     /**
      * Get the currently selected element, or <code>null</code> if the selection size is not equal to one.
-     * 
      * @return the selected element.
      */
     @objid ("3c32cacb-f1eb-4709-acea-c4959a571faf")
@@ -189,7 +189,6 @@ public class RelatedDiagramsMenuCreator {
 
     /**
      * Get the edited diagram from the selection if the selection is in the diagram.
-     * 
      * @return the edited diagram or null.
      */
     @objid ("164d12f7-40a7-48e5-ba83-218466c41c59")

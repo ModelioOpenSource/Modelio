@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnlane.hibridcontainer;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,8 +30,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
 
@@ -64,7 +63,7 @@ public class GmBodyHybridContainer extends GmFreeZone {
      * @param relatedRef ref
      */
     @objid ("6137815f-55b6-11e2-877f-002564c97630")
-    public GmBodyHybridContainer(IGmDiagram diagram, MRef relatedRef) {
+    public  GmBodyHybridContainer(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -72,7 +71,7 @@ public class GmBodyHybridContainer extends GmFreeZone {
      * Empty constructor needed for serialisation.
      */
     @objid ("61378168-55b6-11e2-877f-002564c97630")
-    public GmBodyHybridContainer() {
+    public  GmBodyHybridContainer() {
         // Nothing to do.
     }
 
@@ -128,6 +127,7 @@ public class GmBodyHybridContainer extends GmFreeZone {
         if (parent != null && !parent.equals(oldParent)) {
             getPersistedStyle().setCascadedStyle(parent.getPersistedStyle());
         }
+        
     }
 
     @objid ("61378196-55b6-11e2-877f-002564c97630")
@@ -140,6 +140,7 @@ public class GmBodyHybridContainer extends GmFreeZone {
             child.setRoleInComposition(GmBodyHybridContainer.OWNED_NODE);
         }
         super.addChild(child);
+        
     }
 
     @objid ("613907fe-55b6-11e2-877f-002564c97630")
@@ -151,6 +152,7 @@ public class GmBodyHybridContainer extends GmFreeZone {
                 getParent().getDisplayedStyle().setProperty(key, RepresentationMode.STRUCTURED);
             }
         }
+        
     }
 
     @objid ("61390802-55b6-11e2-877f-002564c97630")
@@ -176,6 +178,7 @@ public class GmBodyHybridContainer extends GmFreeZone {
             break;
         }
         }
+        
     }
 
     @objid ("6139080d-55b6-11e2-877f-002564c97630")
@@ -185,6 +188,7 @@ public class GmBodyHybridContainer extends GmFreeZone {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmBodyHybridContainer.", GmBodyHybridContainer.MINOR_VERSION);
+        
     }
 
     @objid ("61390813-55b6-11e2-877f-002564c97630")

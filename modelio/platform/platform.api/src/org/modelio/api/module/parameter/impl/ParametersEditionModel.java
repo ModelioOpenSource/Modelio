@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.parameter.impl;
 
 import java.util.ArrayList;
@@ -33,7 +32,7 @@ public class ParametersEditionModel implements IParameterEditionModel {
     protected IModule mdac;
 
     @objid ("c035e347-8f9f-11dd-bbe0-001ec947ccaf")
-    public ParametersEditionModel(IModule mdac) {
+    public  ParametersEditionModel(IModule mdac) {
         this.mdac = mdac;
     }
 

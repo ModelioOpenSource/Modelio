@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.umlcommon.dependency;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,49 +37,49 @@ public class GmDependencyStyleKeys extends ElementsAbstractStyleKeyProvider {
      * Routing mode: bendpoint, orthogonal, ...
      */
     @objid ("81270134-1dec-11e2-8cad-001ec947c8cc")
-     final StyleKey CONNECTIONROUTER;
+    final StyleKey CONNECTIONROUTER;
 
     /**
      * Draw bridge where vertical segments cross horizontal ones.
      */
     @objid ("8129636e-1dec-11e2-8cad-001ec947c8cc")
-     final StyleKey DRAWLINEBRIDGES;
+    final StyleKey DRAWLINEBRIDGES;
 
     /**
      * Text font.
      */
     @objid ("81296362-1dec-11e2-8cad-001ec947c8cc")
-     final StyleKey FONT;
+    final StyleKey FONT;
 
     /**
      * Line color
      */
     @objid ("81270137-1dec-11e2-8cad-001ec947c8cc")
-     final StyleKey LINECOLOR;
+    final StyleKey LINECOLOR;
 
     /**
      * Line width
      */
     @objid ("81296359-1dec-11e2-8cad-001ec947c8cc")
-     final StyleKey LINEWIDTH;
+    final StyleKey LINEWIDTH;
 
     /**
      * Line pattern
      */
     @objid ("8129635c-1dec-11e2-8cad-001ec947c8cc")
-     final StyleKey LINEPATTERN;
+    final StyleKey LINEPATTERN;
 
     /**
      * Line corners radius
      */
     @objid ("8129635f-1dec-11e2-8cad-001ec947c8cc")
-     final StyleKey LINERADIUS;
+    final StyleKey LINERADIUS;
 
     /**
      * Display name
      */
     @objid ("81296371-1dec-11e2-8cad-001ec947c8cc")
-     final StyleKey SHOWLABEL;
+    final StyleKey SHOWLABEL;
 
     /**
      * Stereotype display mode.
@@ -92,22 +91,21 @@ public class GmDependencyStyleKeys extends ElementsAbstractStyleKeyProvider {
      * Display tagged values
      */
     @objid ("8129636b-1dec-11e2-8cad-001ec947c8cc")
-     final StyleKey SHOWTAGS;
+    final StyleKey SHOWTAGS;
 
     /**
      * Text color.
      */
     @objid ("81296365-1dec-11e2-8cad-001ec947c8cc")
-     final StyleKey TEXTCOLOR;
+    final StyleKey TEXTCOLOR;
 
     /**
      * Instantiates a Dependency like style key provider
-     * 
      * @param prefix a prefix for style key names.
      * It is advised to use the uppercase metaclass name as prefix.
      */
     @objid ("ff1488f7-b7a9-4d3f-aca4-f91d5c0bb7f5")
-    public GmDependencyStyleKeys(String prefix) {
+    public  GmDependencyStyleKeys(String prefix) {
         this.CONNECTIONROUTER = createStyleKey(prefix+"_ROUTINGMODE",
                 MetaKey.CONNECTIONROUTER);
         
@@ -132,6 +130,7 @@ public class GmDependencyStyleKeys extends ElementsAbstractStyleKeyProvider {
                 MetaKey.DRAWLINEBRIDGES);
         
         this.SHOWLABEL = createStyleKey(prefix+"_SHOWLABEL", MetaKey.SHOWLABEL);
+        
     }
 
 }

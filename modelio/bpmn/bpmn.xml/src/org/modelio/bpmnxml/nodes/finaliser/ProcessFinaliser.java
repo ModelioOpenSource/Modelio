@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.finaliser;
 
 import java.util.Map;
@@ -32,7 +31,7 @@ import org.modelio.metamodel.bpmn.processCollaboration.BpmnProcess;
 import org.modelio.vcore.session.api.ICoreSession;
 
 @objid ("0897348d-f86b-4f1a-bcbd-76857839dc40")
-public class ProcessFinaliser implements IFinaliseNode<BpmnProcess,TProcess> {
+public class ProcessFinaliser implements IFinaliseNode<BpmnProcess, TProcess> {
     @objid ("3138326d-cb21-4067-9c15-32c3e0459e55")
     private Map<String, Object> elementsMap;
 
@@ -64,6 +63,7 @@ public class ProcessFinaliser implements IFinaliseNode<BpmnProcess,TProcess> {
             session.getModel().getGenericFactory().create(BpmnProcessDesignDiagram.class, modelioElement, "Product");
         }
         createSubProcessDiagram(session, modelioElement);
+        
     }
 
     @objid ("b893603f-b985-4521-abc6-1488114ca6ce")
@@ -83,6 +83,7 @@ public class ProcessFinaliser implements IFinaliseNode<BpmnProcess,TProcess> {
                 }
             }
         }
+        
     }
 
     @objid ("778b1faa-e853-496f-a887-86033c1523a6")

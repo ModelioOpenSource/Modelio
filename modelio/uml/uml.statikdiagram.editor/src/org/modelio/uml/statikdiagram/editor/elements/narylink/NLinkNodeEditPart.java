@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.narylink;
 
 import java.beans.PropertyChangeEvent;
@@ -84,6 +83,7 @@ public class NLinkNodeEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         final GmAbstractObject model = this.getModel();
         getFigure().getParent().setConstraint(getFigure(), model.getLayoutData());
+        
     }
 
     @objid ("35f13539-55b7-11e2-877f-002564c97630")
@@ -113,6 +113,7 @@ public class NLinkNodeEditPart extends AbstractNodeEditPart {
         
             }
         }
+        
     }
 
     @objid ("35f1354f-55b7-11e2-877f-002564c97630")
@@ -125,6 +126,7 @@ public class NLinkNodeEditPart extends AbstractNodeEditPart {
         
         // Allow links
         installEditPolicy(EditPolicy.NODE_ROLE, new DefaultCreateLinkEditPolicy());
+        
     }
 
     @objid ("35f13552-55b7-11e2-877f-002564c97630")
@@ -178,6 +180,7 @@ public class NLinkNodeEditPart extends AbstractNodeEditPart {
         
         // In any case apply the super routine.
         super.propertyChange(evt);
+        
     }
 
     /**
@@ -197,6 +200,7 @@ public class NLinkNodeEditPart extends AbstractNodeEditPart {
             }
             return newbranches;
         }
+        
     }
 
     @objid ("35f2bbe5-55b7-11e2-877f-002564c97630")
@@ -208,6 +212,7 @@ public class NLinkNodeEditPart extends AbstractNodeEditPart {
                 (AbstractDiagramEditPart) getRoot().getContents(),
                 dropLocation);
         cmd.execute();
+        
     }
 
 }

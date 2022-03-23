@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.editingsupport.color;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,7 +42,7 @@ public class ColorLabelProvider extends ColumnLabelProvider implements IOwnerDra
     private final ColumnViewer viewer;
 
     @objid ("859183e0-1926-11e2-92d2-001ec947c8cc")
-    public ColorLabelProvider(ColumnViewer viewer) {
+    public  ColorLabelProvider(ColumnViewer viewer) {
         this.viewer = viewer;
     }
 
@@ -93,6 +92,7 @@ public class ColorLabelProvider extends ColumnLabelProvider implements IOwnerDra
         
         event.gc.setBackground(oldBackground);
         event.gc.setForeground(oldForeground);
+        
     }
 
     @objid ("7c076d1c-cb61-499c-97a7-15d31778393a")
@@ -103,6 +103,7 @@ public class ColorLabelProvider extends ColumnLabelProvider implements IOwnerDra
         } else {
             return null;
         }
+        
     }
 
 }

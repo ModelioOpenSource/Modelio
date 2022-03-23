@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.exporter.service.processor.export;
 
 import java.util.Map;
@@ -41,10 +40,11 @@ public class UpdateExportProcessor implements IBPMNProcessor {
     private IDiagramService diagramService;
 
     @objid ("b3821243-fdb0-46c5-ad7e-efc43c84598b")
-    public UpdateExportProcessor(IDiagramService diagramService, Map<String, Object> elementsMap) {
+    public  UpdateExportProcessor(IDiagramService diagramService, Map<String, Object> elementsMap) {
         this.factory = new ProductionFactory();
         this.elementsMap = elementsMap;
         this.diagramService = diagramService;
+        
     }
 
     @objid ("c68837d5-a9b6-4038-bf1e-0d7ca6b18e01")

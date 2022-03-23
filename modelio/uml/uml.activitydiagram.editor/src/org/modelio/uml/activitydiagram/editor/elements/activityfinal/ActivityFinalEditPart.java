@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.activityfinal;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -54,6 +53,7 @@ public class ActivityFinalEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                 new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("29a5bc86-55b6-11e2-877f-002564c97630")
@@ -81,6 +81,7 @@ public class ActivityFinalEditPart extends AbstractNodeEditPart {
                 super.refreshFromStyle(aFigure, style);
             }
         }
+        
     }
 
     /**
@@ -92,6 +93,7 @@ public class ActivityFinalEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         GmActivityFinalPrimaryNode activityFinalModel = (GmActivityFinalPrimaryNode) this.getModel();
         this.getFigure().getParent().setConstraint(this.getFigure(), activityFinalModel.getLayoutData());
+        
     }
 
 }

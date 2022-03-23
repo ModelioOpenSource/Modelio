@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -49,9 +48,10 @@ public class EObjectFlow extends EActivityEdge {
     }
 
     @objid ("14a6000a-9f1f-4880-9de6-48d6ebbcdf72")
-    public EObjectFlow(org.eclipse.uml2.uml.ObjectFlow element) {
+    public  EObjectFlow(org.eclipse.uml2.uml.ObjectFlow element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("c53f7f98-6a5c-4261-837c-64d58473bde8")
@@ -64,6 +64,7 @@ public class EObjectFlow extends EActivityEdge {
         setMultiReceive((ObjectFlow) objingElt);
         setSelectionBehavior((ObjectFlow) objingElt);
         setTransformationBehavior((ObjectFlow) objingElt);
+        
     }
 
     @objid ("ba1d90c2-8d80-4da3-8f95-4e36f1863536")
@@ -81,6 +82,7 @@ public class EObjectFlow extends EActivityEdge {
             flow.setEffect(ObjectFlowEffectKind.UPDATEFLOW);
         else
             flow.setEffect(ObjectFlowEffectKind.READFLOW);
+        
     }
 
     @objid ("a4eb618a-d28e-4815-90fa-8cbcd0d49d35")
@@ -107,6 +109,7 @@ public class EObjectFlow extends EActivityEdge {
             if (behaviorName != null)
                 flow.setSelectionBehavior(behaviorName);
         }
+        
     }
 
     @objid ("2907253e-496b-4ef3-a6bb-a8f984823914")
@@ -123,6 +126,7 @@ public class EObjectFlow extends EActivityEdge {
             if (behaviorName != null)
                 flow.setTransformationBehavior(behaviorName);
         }
+        
     }
 
 }

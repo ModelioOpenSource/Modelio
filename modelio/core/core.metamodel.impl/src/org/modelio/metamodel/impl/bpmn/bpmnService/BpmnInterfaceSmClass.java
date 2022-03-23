@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.bpmnService;
 
 import java.util.ArrayList;
@@ -32,8 +32,6 @@ import org.modelio.metamodel.bpmn.bpmnService.BpmnInterface;
 import org.modelio.metamodel.bpmn.bpmnService.BpmnOperation;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnParticipant;
 import org.modelio.metamodel.bpmn.rootElements.BpmnSharedElement;
-import org.modelio.metamodel.impl.bpmn.bpmnService.BpmnInterfaceData;
-import org.modelio.metamodel.impl.bpmn.bpmnService.BpmnOperationSmClass;
 import org.modelio.metamodel.impl.bpmn.processCollaboration.BpmnParticipantSmClass;
 import org.modelio.metamodel.impl.bpmn.rootElements.BpmnSharedElementSmClass;
 import org.modelio.vbasic.version.Version;
@@ -56,7 +54,7 @@ public class BpmnInterfaceSmClass extends BpmnSharedElementSmClass {
     private SmDependency participantRefDep;
 
     @objid ("ff6f2743-9d92-46d9-90c3-71958be3cb32")
-    public BpmnInterfaceSmClass(ISmMetamodelFragment origin) {
+    public  BpmnInterfaceSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -64,6 +62,7 @@ public class BpmnInterfaceSmClass extends BpmnSharedElementSmClass {
     @Override
     public String getName() {
         return "BpmnInterface";
+        
     }
 
     @objid ("f1621796-6939-4583-83f1-f2ba42b47ccb")
@@ -76,18 +75,21 @@ public class BpmnInterfaceSmClass extends BpmnSharedElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnInterface.class;
+        
     }
 
     @objid ("fb180df8-a62e-49f8-bb7b-18b178df6757")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("d1355309-5988-48bf-891e-a1a812ede1cf")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("2d14d976-b769-4aa0-bb34-439acde086cb")
@@ -107,6 +109,8 @@ public class BpmnInterfaceSmClass extends BpmnSharedElementSmClass {
         this.participantRefDep = new ParticipantRefSmDependency();
         this.participantRefDep.init("ParticipantRef", this, metamodel.getMClass(BpmnParticipant.MQNAME), 0, -1 );
         registerDependency(this.participantRefDep);
+        
+        
     }
 
     @objid ("196fd503-14f5-4fdd-8b37-d4b11ea20861")
@@ -131,7 +135,7 @@ public class BpmnInterfaceSmClass extends BpmnSharedElementSmClass {
         private BpmnInterfaceSmClass smClass;
 
         @objid ("f1fa9cbe-bde2-4457-b300-04d7b5c2d74b")
-        public BpmnInterfaceObjectFactory(BpmnInterfaceSmClass smClass) {
+        public  BpmnInterfaceObjectFactory(BpmnInterfaceSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -164,6 +168,7 @@ public class BpmnInterfaceSmClass extends BpmnSharedElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnInterfaceData) data).mOperation = values;
+            
         }
 
         @objid ("83f0fd73-92e0-4aed-8580-f3153eebcae8")
@@ -173,6 +178,7 @@ public class BpmnInterfaceSmClass extends BpmnSharedElementSmClass {
             	this.symetricDep = ((BpmnOperationSmClass)this.getTarget()).getBpmnInterfaceRefDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -192,6 +198,7 @@ public class BpmnInterfaceSmClass extends BpmnSharedElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnInterfaceData) data).mParticipantRef = values;
+            
         }
 
         @objid ("f7cc2ef9-58ea-4620-ad1b-27cb22600b23")
@@ -201,6 +208,7 @@ public class BpmnInterfaceSmClass extends BpmnSharedElementSmClass {
             	this.symetricDep = ((BpmnParticipantSmClass)this.getTarget()).getInterfaceRefsDep();
             }
             return this.symetricDep;
+            
         }
 
     }

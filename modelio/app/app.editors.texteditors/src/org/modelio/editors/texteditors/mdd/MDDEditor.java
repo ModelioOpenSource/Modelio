@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.texteditors.mdd;
 
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.annotation.PreDestroy;
 import javax.inject.Inject;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.di.Persist;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
@@ -67,7 +66,7 @@ public class MDDEditor implements IDocumentEditor {
 
     @objid ("7b594e6e-2a77-11e2-9fb9-bc305ba4815c")
     @Inject
-    public MDDEditor(Composite parent, IDocumentInput input, MPart editor) {
+    public  MDDEditor(Composite parent, IDocumentInput input, MPart editor) {
         this.input = input;
         this.editor = editor;
         parent.setLayout(new FillLayout());
@@ -89,6 +88,7 @@ public class MDDEditor implements IDocumentEditor {
         IDocument document = input.getDocument(new MDDDocument(standard, replace));
         
         this.viewer.setDocument(document);
+        
     }
 
     @objid ("7b594e73-2a77-11e2-9fb9-bc305ba4815c")
@@ -144,6 +144,7 @@ public class MDDEditor implements IDocumentEditor {
             this.viewer.getControl().setBackground(UIColor.TEXT_WRITABLE_BG);
             this.editor.setIconURI("platform:/plugin/" + TextEditors.PLUGIN_ID + "/icons/texteditor_rw.png");
         }
+        
     }
 
     @objid ("97499cf9-f0ad-4ab0-b2b7-13de3ad78bae")
@@ -160,7 +161,7 @@ public class MDDEditor implements IDocumentEditor {
     @objid ("a2d8751d-6279-400f-8cf9-0ce1b3ea7199")
     private static class FixedFastPartitioner extends FastPartitioner {
         @objid ("15c7d547-388f-4c10-b19a-e71141af7119")
-        public FixedFastPartitioner(IPartitionTokenScanner scanner, String[] legalContentTypes) {
+        public  FixedFastPartitioner(IPartitionTokenScanner scanner, String[] legalContentTypes) {
             super(scanner, legalContentTypes);
         }
 

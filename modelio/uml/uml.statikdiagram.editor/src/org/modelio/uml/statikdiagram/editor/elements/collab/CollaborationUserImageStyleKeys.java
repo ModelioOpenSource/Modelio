@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.collab;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,37 +32,37 @@ public class CollaborationUserImageStyleKeys extends StaticAbstractStyleKeyProvi
      * Representation mode.
      */
     @objid ("57232433-88fe-4946-a3c1-247c8ceadfa1")
-     static final StyleKey REPMODE = CollaborationStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = CollaborationStructuredStyleKeys.REPMODE;
 
     /**
      * Text font.
      */
     @objid ("711a9a5e-ec57-4d5a-8e20-62005b97d78b")
-     static final StyleKey FONT = CollaborationStructuredStyleKeys.FONT;
+    static final StyleKey FONT = CollaborationStructuredStyleKeys.FONT;
 
     /**
      * Text color.
      */
     @objid ("71427e41-ee5e-4e43-90a3-3408dd85388c")
-     static final StyleKey TEXTCOLOR = CollaborationStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = CollaborationStructuredStyleKeys.TEXTCOLOR;
 
     /**
      * Display name.
      */
     @objid ("3f2b1a70-1da6-4b01-8e52-290ffdf7d207")
-     static final StyleKey SHOWNAME = CollaborationStructuredStyleKeys.SHOWNAME;
+    static final StyleKey SHOWNAME = CollaborationStructuredStyleKeys.SHOWNAME;
 
     /**
      * Display stereotypes.
      */
     @objid ("ab7336a0-6927-46c2-a250-49d9dd515ea0")
-     static final StyleKey SHOWSTEREOTYPES = CollaborationStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = CollaborationStructuredStyleKeys.SHOWSTEREOTYPES;
 
     /**
      * Display tagged values.
      */
     @objid ("515ef498-423f-4401-a6c9-6359ac5a8da3")
-     static final StyleKey SHOWTAGS = CollaborationStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = CollaborationStructuredStyleKeys.SHOWTAGS;
 
     /**
      * Display visibility.

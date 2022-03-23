@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.infrastructure.migration;
 
 import java.io.IOException;
@@ -104,6 +103,7 @@ public class InfrastructureMmMigrationProvider implements IMigrationProvider {
             Log.trace("No migrator to migrate from %s v%s to v%s ", InfrastructureMetamodel.NAME, fromVersion, lastInfraMmVersion);
             return null;
         }
+        
     }
 
     @objid ("36991b97-d759-47da-bab3-52db83ee7343")
@@ -125,6 +125,7 @@ public class InfrastructureMmMigrationProvider implements IMigrationProvider {
         } catch (IOException e) {
             throw new MofMigrationException(FileUtils.getLocalizedMessage(e), e);
         }
+        
     }
 
 }

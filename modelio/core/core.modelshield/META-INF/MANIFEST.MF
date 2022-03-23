@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Model Shield
 Bundle-SymbolicName: org.modelio.core.modelshield;singleton:=true
-Bundle-Version: 4.1.0.qualifier
+Bundle-Version: 5.1.0.qualifier
 Require-Bundle: org.eclipse.osgi,
  org.modelio.core.kernel,
  org.modelio.core.session

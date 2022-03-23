@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.ui.welcome.plugin;
 
 import java.util.ResourceBundle;
@@ -65,6 +64,7 @@ public class AppUiWelcome implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         AppUiWelcome.LOG = new PluginLogger(service.getLogger((String)null));
         AppUiWelcome.I18N = new BundledMessages(AppUiWelcome.LOG, ResourceBundle.getBundle("welcome"));
+        
     }
 
     @objid ("1e5c4822-4b5c-4843-b5d9-635e90d02582")

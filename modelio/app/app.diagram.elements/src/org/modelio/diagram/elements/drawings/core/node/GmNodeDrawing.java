@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.drawings.core.node;
 
 import java.util.ArrayList;
@@ -87,6 +86,7 @@ public abstract class GmNodeDrawing extends GmDrawing implements IGmNodeDrawing 
                 break;
             }
         }
+        
     }
 
     @objid ("80769318-1dec-11e2-8cad-001ec947c8cc")
@@ -100,6 +100,7 @@ public abstract class GmNodeDrawing extends GmDrawing implements IGmNodeDrawing 
         }*/
         
         out.writeProperty("label", this.label);
+        
     }
 
     @objid ("8076931c-1dec-11e2-8cad-001ec947c8cc")
@@ -107,6 +108,7 @@ public abstract class GmNodeDrawing extends GmDrawing implements IGmNodeDrawing 
         super.read(in);
         
         this.label = (String) in.readProperty("label");
+        
     }
 
     @objid ("8076931f-1dec-11e2-8cad-001ec947c8cc")
@@ -117,12 +119,11 @@ public abstract class GmNodeDrawing extends GmDrawing implements IGmNodeDrawing 
 
     /**
      * Default constructor.
-     * 
      * @param diagram the owner diagram.
      * @param identifier the drawing identifier, must be unique in the diagram.
      */
     @objid ("05b0526a-7ec7-424a-adfa-860148d59fe0")
-    public GmNodeDrawing(IGmDiagram diagram, String identifier) {
+    public  GmNodeDrawing(IGmDiagram diagram, String identifier) {
         super(diagram, identifier);
     }
 
@@ -130,7 +131,7 @@ public abstract class GmNodeDrawing extends GmDrawing implements IGmNodeDrawing 
      * Deserialization constructor.
      */
     @objid ("d7824371-a25c-45a8-a7b6-6231cc5294e3")
-    public GmNodeDrawing() {
+    public  GmNodeDrawing() {
         super();
     }
 
@@ -148,11 +149,11 @@ public abstract class GmNodeDrawing extends GmDrawing implements IGmNodeDrawing 
         this.parent.removeChild(this);
         
         super.delete();
+        
     }
 
     /**
      * Set the parent layer
-     * 
      * @param gmDrawingLayer the parent layer
      */
     @objid ("f01a67cd-6b1d-4c60-b03c-ef849d7695e3")
@@ -161,6 +162,7 @@ public abstract class GmNodeDrawing extends GmDrawing implements IGmNodeDrawing 
         this.parent = gmDrawingLayer;
         
         updateDiagram();
+        
     }
 
     /**
@@ -184,6 +186,7 @@ public abstract class GmNodeDrawing extends GmDrawing implements IGmNodeDrawing 
         
             firePropertyChange(PROPERTY_LABEL, oldLabel, this.label);
         }
+        
     }
 
     @objid ("d06b2d81-31b4-43da-bf6e-639307d192c9")
@@ -194,11 +197,11 @@ public abstract class GmNodeDrawing extends GmDrawing implements IGmNodeDrawing 
         this.parentLink = parentLink;
         
         updateDiagram();
+        
     }
 
     /**
      * Add a link going to this element.
-     * 
      * @param link the ongoing link.
      */
     @objid ("046a51f5-1ccc-4578-849f-3e893ec5cc7c")
@@ -207,11 +210,11 @@ public abstract class GmNodeDrawing extends GmDrawing implements IGmNodeDrawing 
         this.endingLinks.add(link);
         link.setTo(this);
         firePropertyChange(IGmObject.PROPERTY_LINK_TARGET, null, link);
+        
     }
 
     /**
      * Add a link starting from this node.
-     * 
      * @param link The starting link.
      */
     @objid ("1429c94b-660a-43c2-a6f9-2670a496ddb3")
@@ -220,11 +223,11 @@ public abstract class GmNodeDrawing extends GmDrawing implements IGmNodeDrawing 
         this.startingLinks.add(link);
         link.setFrom(this);
         firePropertyChange(IGmObject.PROPERTY_LINK_SOURCE, null, link);
+        
     }
 
     /**
      * Get the links going to this node.
-     * 
      * @return the ongoing links.
      */
     @objid ("54626cda-7325-4988-84cb-41e98c0f34bb")
@@ -237,7 +240,6 @@ public abstract class GmNodeDrawing extends GmDrawing implements IGmNodeDrawing 
 
     /**
      * Remove a link going to this node.
-     * 
      * @param gmLink the link to remove.
      */
     @objid ("f075e689-6b7b-4e5b-bc3f-861c937ce3cc")
@@ -246,11 +248,11 @@ public abstract class GmNodeDrawing extends GmDrawing implements IGmNodeDrawing 
         this.endingLinks.remove(gmLink);
         gmLink.setTo(null);
         firePropertyChange(IGmObject.PROPERTY_LINK_TARGET, gmLink, null);
+        
     }
 
     /**
      * Remove a link starting from this node.
-     * 
      * @param gmLink the link to remove.
      */
     @objid ("d833688f-b721-461c-8d98-8d068d76a471")
@@ -259,6 +261,7 @@ public abstract class GmNodeDrawing extends GmDrawing implements IGmNodeDrawing 
         this.startingLinks.remove(gmLink);
         gmLink.setFrom(null);
         firePropertyChange(IGmObject.PROPERTY_LINK_SOURCE, gmLink, null);
+        
     }
 
     /**

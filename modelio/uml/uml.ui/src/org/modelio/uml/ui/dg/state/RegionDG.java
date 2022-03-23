@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.state;
 
 import java.util.Collection;
@@ -41,7 +40,7 @@ public class RegionDG extends DiagramNode {
      * @param node The gm node represented by this class.
      */
     @objid ("7bab98f9-2a6f-4e65-94de-b88c03f11c70")
-    public RegionDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  RegionDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 
@@ -60,6 +59,7 @@ public class RegionDG extends DiagramNode {
         } else {
             return Collections.emptyList();
         }
+        
     }
 
 }

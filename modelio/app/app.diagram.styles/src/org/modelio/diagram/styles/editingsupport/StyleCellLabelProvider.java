@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.editingsupport;
 
 import java.util.HashMap;
@@ -67,11 +66,10 @@ public class StyleCellLabelProvider extends OwnerDrawLabelProvider {
 
     /**
      * C'tor.
-     * 
      * @param treeViewer the viewer.
      */
     @objid ("85b2e4a5-1926-11e2-92d2-001ec947c8cc")
-    public StyleCellLabelProvider(ColumnViewer treeViewer, boolean tableMode, Supplier<ISymbolViewModel> modelSupplier) {
+    public  StyleCellLabelProvider(ColumnViewer treeViewer, boolean tableMode, Supplier<ISymbolViewModel> modelSupplier) {
         this.tableMode = tableMode;
         this.modelSupplier = modelSupplier;
         
@@ -83,6 +81,7 @@ public class StyleCellLabelProvider extends OwnerDrawLabelProvider {
         this.providers.put(Integer.class, new TextLabelProvider(treeViewer));
         this.providers.put(Font.class, new FontLabelProvider(treeViewer));
         this.providers.put(Enum.class, new EnumComboBoxLabelProvider(treeViewer));
+        
     }
 
     @objid ("85b2e4a8-1926-11e2-92d2-001ec947c8cc")
@@ -98,6 +97,7 @@ public class StyleCellLabelProvider extends OwnerDrawLabelProvider {
             // gray out cell
             cell.setBackground(UIColor.TABLE_HEADER_BG);
         }
+        
     }
 
     @objid ("85b2e4ac-1926-11e2-92d2-001ec947c8cc")
@@ -138,6 +138,7 @@ public class StyleCellLabelProvider extends OwnerDrawLabelProvider {
                 return columnLabelProvider != null ? columnLabelProvider : StyleCellLabelProvider.DEFAULT_PROVIDER;
             }
         }
+        
     }
 
     @objid ("8f965a39-a342-406d-b7bb-776663fbe5f6")
@@ -147,6 +148,7 @@ public class StyleCellLabelProvider extends OwnerDrawLabelProvider {
         if (provider != StyleCellLabelProvider.DEFAULT_PROVIDER && provider instanceof IOwnerDrawLabelProvider) {
             ((IOwnerDrawLabelProvider) provider).measure(event, element);
         }
+        
     }
 
     @objid ("025cbc39-c851-47f0-b7b0-c449be4a41ca")
@@ -156,6 +158,7 @@ public class StyleCellLabelProvider extends OwnerDrawLabelProvider {
         if (provider != StyleCellLabelProvider.DEFAULT_PROVIDER && provider instanceof IOwnerDrawLabelProvider) {
             ((IOwnerDrawLabelProvider) provider).paint(event, element);
         }
+        
     }
 
 }

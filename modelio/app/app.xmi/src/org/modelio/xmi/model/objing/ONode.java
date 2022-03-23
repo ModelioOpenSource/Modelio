@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,7 @@ import org.modelio.xmi.util.NotFoundException;
 @objid ("9b31f892-cc73-4864-b253-575d5bd7820f")
 public class ONode extends ONameSpace {
     @objid ("a37ba665-e0de-4913-b948-96a338291a73")
-     Node objingElement;
+    Node objingElement;
 
     @objid ("1999f5cd-c118-4906-b2c7-d27d741f908d")
     @Override
@@ -43,12 +42,14 @@ public class ONode extends ONameSpace {
             return UMLFactory.eINSTANCE.createExecutionEnvironment();
         else
             return UMLFactory.eINSTANCE.createNode();
+        
     }
 
     @objid ("aa73f205-92b7-44c1-8b78-138d5107feeb")
-    public ONode(Node param) {
+    public  ONode(Node param) {
         super(param);
         this.objingElement = param;
+        
     }
 
     @objid ("fc9f98bf-cce2-4261-a841-04c940c93735")
@@ -78,6 +79,7 @@ public class ONode extends ONameSpace {
                         + ecoreOwner.getClass().getSimpleName() + ") Not Found");
             }
         }
+        
     }
 
     @objid ("1dd5831d-f140-4418-8bb9-ded9d7580118")

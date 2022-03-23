@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.stateinvariant;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,12 +46,11 @@ public class GmStateInvariantBodyText extends GmElementText {
 
     /**
      * Creates the node.
-     * 
      * @param diagram The diagram
      * @param relatedRef related element reference, must not be <code>null</code>.
      */
     @objid ("d9978bc1-55b6-11e2-877f-002564c97630")
-    public GmStateInvariantBodyText(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmStateInvariantBodyText(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -60,7 +58,8 @@ public class GmStateInvariantBodyText extends GmElementText {
      * For deserialization only.
      */
     @objid ("d9978bcc-55b6-11e2-877f-002564c97630")
-    public GmStateInvariantBodyText() {
+    public  GmStateInvariantBodyText() {
+        
     }
 
     @objid ("d9978bcf-55b6-11e2-877f-002564c97630")
@@ -89,6 +88,7 @@ public class GmStateInvariantBodyText extends GmElementText {
                         return getRelatedElement().getBody();
                     }
                 };
+        
     }
 
     @objid ("d999123a-55b6-11e2-877f-002564c97630")
@@ -114,6 +114,7 @@ public class GmStateInvariantBodyText extends GmElementText {
             break;
         }
         }
+        
     }
 
     @objid ("d9991247-55b6-11e2-877f-002564c97630")
@@ -123,6 +124,7 @@ public class GmStateInvariantBodyText extends GmElementText {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmStateInvariantBodyText.", GmStateInvariantBodyText.MINOR_VERSION);
+        
     }
 
     @objid ("d999124d-55b6-11e2-877f-002564c97630")

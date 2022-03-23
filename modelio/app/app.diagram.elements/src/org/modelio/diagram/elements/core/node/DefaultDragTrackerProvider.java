@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.node;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,7 +36,7 @@ public class DefaultDragTrackerProvider implements IDragTrackerProvider {
     private EditPart editPart;
 
     @objid ("8089a5cf-1dec-11e2-8cad-001ec947c8cc")
-    public DefaultDragTrackerProvider(EditPart editPart) {
+    public  DefaultDragTrackerProvider(EditPart editPart) {
         this.editPart = editPart;
     }
 
@@ -49,6 +48,7 @@ public class DefaultDragTrackerProvider implements IDragTrackerProvider {
         } else {
             return new FireNavigateEditPartTracker(this.editPart);
         }
+        
     }
 
     @objid ("32c58a39-fc7b-4a59-9cc9-4da9459949d8")

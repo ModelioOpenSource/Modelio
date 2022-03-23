@@ -17,19 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.infrastructure.ConstraintData;
-import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
 import org.modelio.metamodel.uml.infrastructure.Constraint;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.vbasic.version.Version;
@@ -59,7 +57,7 @@ public class ConstraintSmClass extends UmlModelElementSmClass {
     private SmDependency constrainedElementDep;
 
     @objid ("7c7e3824-6c4b-46ed-83ca-a9e403e60638")
-    public ConstraintSmClass(ISmMetamodelFragment origin) {
+    public  ConstraintSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -67,6 +65,7 @@ public class ConstraintSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "Constraint";
+        
     }
 
     @objid ("5060f22a-78ce-4a2c-a674-f05e371a4f14")
@@ -79,18 +78,21 @@ public class ConstraintSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Constraint.class;
+        
     }
 
     @objid ("3c4128ff-db44-436f-ae98-a1ec4ea0ff46")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("5ebac175-f8dd-480f-92dc-a6b304dfeca8")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("5d7a87a9-b5f3-4f21-bb4a-e76fcc8f63b9")
@@ -118,6 +120,8 @@ public class ConstraintSmClass extends UmlModelElementSmClass {
         this.constrainedElementDep = new ConstrainedElementSmDependency();
         this.constrainedElementDep.init("ConstrainedElement", this, metamodel.getMClass(UmlModelElement.MQNAME), 0, -1 , SmDirective.SMCDPARTOF);
         registerDependency(this.constrainedElementDep);
+        
+        
     }
 
     @objid ("b3d16337-f58d-4d13-90bc-49029d2528c8")
@@ -158,7 +162,7 @@ public class ConstraintSmClass extends UmlModelElementSmClass {
         private ConstraintSmClass smClass;
 
         @objid ("9a7ed794-e169-4ce9-b0ca-aa01c5aaa27c")
-        public ConstraintObjectFactory(ConstraintSmClass smClass) {
+        public  ConstraintObjectFactory(ConstraintSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -233,6 +237,7 @@ public class ConstraintSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ConstraintData) data).mConstrainedElement = values;
+            
         }
 
         @objid ("98d6d960-32cf-48ad-9544-588814099a1a")
@@ -242,6 +247,7 @@ public class ConstraintSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((UmlModelElementSmClass)this.getTarget()).getConstraintDefinitionDep();
             }
             return this.symetricDep;
+            
         }
 
     }

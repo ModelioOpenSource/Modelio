@@ -1,5 +1,7 @@
 // Disable all captions for figures.
 :!figure-caption:
+// Path to the stylesheet files
+:stylesdir: .
 
 = Le cycle de vie d'un composant de modèle
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.gef.node;
 
 import java.util.Collections;
@@ -64,28 +63,28 @@ public class NodeEditPart extends AbstractGraphicalEditPart implements org.eclip
      */
     @objid ("7de33482-931a-4674-8ab4-d2153e2c65a7")
     public static INodeColorizer colorizer = new INodeColorizer() {
-    	/**
-         * Set the color of the node figure (rectangle and text) according to its current state (readonly, selected).
-         * @param model
-         * @param rect
-         * @param label
-         */
-    	@Override
-    	public void colorize(GraphNode model, Figure rect, Label label, boolean focus) {
-            // The rectangle background color
-            rect.setBackgroundColor(model.isCentral() ? (focus ? ColorConstants.menuBackgroundSelected : ColorConstants.menuBackground) : ColorConstants.listBackground);
-            
-            // The rectangle border color (line)
-            ((LineBorder)rect.getBorder()).setColor(model.isCentral() ? (hasFocus ? ColorConstants.menuBackgroundSelected : ColorConstants.buttonDarker) : ColorConstants.menuBackground);
-            
-            // The text font color
-            if (model.getData() == null || model.getData().isShell()) {
-                label.setForegroundColor(UIColor.SHELL_ELEMENT_FG);
-            } else {
-                label.setForegroundColor(Display.getDefault().getSystemColor(model.isCentral() ? (focus ? SWT.COLOR_LIST_SELECTION_TEXT : SWT.COLOR_LIST_FOREGROUND) : SWT.COLOR_LIST_FOREGROUND));
+        	/**
+             * Set the color of the node figure (rectangle and text) according to its current state (readonly, selected).
+             * @param model
+             * @param rect
+             * @param label
+             */
+        	@Override
+        	public void colorize(GraphNode model, Figure rect, Label label, boolean focus) {
+                // The rectangle background color
+                rect.setBackgroundColor(model.isCentral() ? (focus ? ColorConstants.menuBackgroundSelected : ColorConstants.menuBackground) : ColorConstants.listBackground);
+                
+                // The rectangle border color (line)
+                ((LineBorder)rect.getBorder()).setColor(model.isCentral() ? (hasFocus ? ColorConstants.menuBackgroundSelected : ColorConstants.buttonDarker) : ColorConstants.menuBackground);
+                
+                // The text font color
+                if (model.getData() == null || model.getData().isShell()) {
+                    label.setForegroundColor(UIColor.SHELL_ELEMENT_FG);
+                } else {
+                    label.setForegroundColor(Display.getDefault().getSystemColor(model.isCentral() ? (focus ? SWT.COLOR_LIST_SELECTION_TEXT : SWT.COLOR_LIST_FOREGROUND) : SWT.COLOR_LIST_FOREGROUND));
+                }
             }
-        }
-	};
+    	};
 
     @objid ("a764c8b1-6133-4572-9627-87594d04db90")
     private static final UniversalLabelProvider labelprovider = new UniversalLabelProvider();
@@ -123,6 +122,7 @@ public class NodeEditPart extends AbstractGraphicalEditPart implements org.eclip
                 return Collections.emptyList();
             }
         });
+        
     }
 
     @objid ("1bb294b5-5e33-11e2-b81d-002564c97630")
@@ -167,6 +167,7 @@ public class NodeEditPart extends AbstractGraphicalEditPart implements org.eclip
             tooltip.setText(tooltipString);
             
         }
+        
     }
 
     @objid ("1bb294b8-5e33-11e2-b81d-002564c97630")

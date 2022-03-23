@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.api.memory;
 
 import java.lang.management.MemoryUsage;
@@ -48,7 +47,6 @@ public interface IMemoryEventListener {
 
     /**
      * Called when the memory manager ends swapping model objects.
-     * 
      * @param swappedObjects the count of model objects that were freed.
      */
     @objid ("6b917eca-57b6-465e-b027-c492047a6f10")

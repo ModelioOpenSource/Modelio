@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.gateways;
 
 import java.util.ArrayList;
@@ -31,8 +31,6 @@ import org.modelio.metamodel.bpmn.flows.BpmnSequenceFlow;
 import org.modelio.metamodel.bpmn.gateways.BpmnComplexGateway;
 import org.modelio.metamodel.bpmn.gateways.BpmnGateway;
 import org.modelio.metamodel.impl.bpmn.flows.BpmnSequenceFlowSmClass;
-import org.modelio.metamodel.impl.bpmn.gateways.BpmnComplexGatewayData;
-import org.modelio.metamodel.impl.bpmn.gateways.BpmnGatewaySmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -54,7 +52,7 @@ public class BpmnComplexGatewaySmClass extends BpmnGatewaySmClass {
     private SmDependency defaultFlowDep;
 
     @objid ("44816c16-5507-4d94-b83a-e20b2bb58cc2")
-    public BpmnComplexGatewaySmClass(ISmMetamodelFragment origin) {
+    public  BpmnComplexGatewaySmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -62,6 +60,7 @@ public class BpmnComplexGatewaySmClass extends BpmnGatewaySmClass {
     @Override
     public String getName() {
         return "BpmnComplexGateway";
+        
     }
 
     @objid ("1ebc6f3a-82ff-4422-a00b-a0330c1bd8ea")
@@ -74,18 +73,21 @@ public class BpmnComplexGatewaySmClass extends BpmnGatewaySmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnComplexGateway.class;
+        
     }
 
     @objid ("c4ef2c93-6f10-40d9-ad40-90201844701e")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("0935e1fd-7616-4431-aeb9-a730fe6cffdf")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("8f89cce0-bc53-4140-8fe9-c82ee4353ed8")
@@ -105,6 +107,8 @@ public class BpmnComplexGatewaySmClass extends BpmnGatewaySmClass {
         this.defaultFlowDep = new DefaultFlowSmDependency();
         this.defaultFlowDep.init("DefaultFlow", this, metamodel.getMClass(BpmnSequenceFlow.MQNAME), 0, 1 , SmDirective.SMCDPARTOF);
         registerDependency(this.defaultFlowDep);
+        
+        
     }
 
     @objid ("45ccf678-ea46-4c1b-86e4-30783b25de36")
@@ -129,7 +133,7 @@ public class BpmnComplexGatewaySmClass extends BpmnGatewaySmClass {
         private BpmnComplexGatewaySmClass smClass;
 
         @objid ("2f036690-af8d-477c-8896-8b1d65dafb4f")
-        public BpmnComplexGatewayObjectFactory(BpmnComplexGatewaySmClass smClass) {
+        public  BpmnComplexGatewayObjectFactory(BpmnComplexGatewaySmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -185,6 +189,7 @@ public class BpmnComplexGatewaySmClass extends BpmnGatewaySmClass {
             	this.symetricDep = ((BpmnSequenceFlowSmClass)this.getTarget()).getDefaultOfComplexDep();
             }
             return this.symetricDep;
+            
         }
 
     }

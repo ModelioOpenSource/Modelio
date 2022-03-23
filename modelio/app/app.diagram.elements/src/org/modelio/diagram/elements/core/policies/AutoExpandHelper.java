@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.policies;
 
 import java.util.List;
@@ -47,9 +46,7 @@ public class AutoExpandHelper {
     /**
      * Get a command for the given request on the given edit part and executes it immediately.
      * <p>
-     * Does nothing if request is null.
-     * Logs a warning if no command could be obtained or if the command is not executable (if debug level is enabled).
-     * 
+     * Does nothing if request is null. Logs a warning if no command could be obtained or if the command is not executable (if debug level is enabled).
      * @param req the request. May be null.
      * @param target the edit part that should run the request.
      * @return true if resizing was done else false.
@@ -74,7 +71,6 @@ public class AutoExpandHelper {
 
     /**
      * Compute an auto expand command from a child edit part move/resize request.
-     * 
      * @param request a resize/move request for container children
      * @param containerEditPart the container edit part
      * @param layoutContainer the container figure directly containing child edit part figures.
@@ -98,11 +94,12 @@ public class AutoExpandHelper {
             r2.setLocation(request.getLocation());
             r2.setMoveDelta(request.getMoveDelta());
             r2.setSizeDelta(sizeDelta);
+            RequestHelper.addSharedEditParts(r2, request);
         
             EditPart tep = containerEditPart.getParent();
             if (tep != null) {
                 Command resizeContainerCommand = tep.getCommand(r2);
-                
+        
                 if ((resizeContainerCommand == null || !resizeContainerCommand.canExecute()) && DiagramElements.LOG.isDebugEnabled()) {
                     DiagramElements.LOG.debug("<%s> is not resizeable for request: %s", containerEditPart, RequestHelper.toString(r2));
                     DiagramElements.LOG.debug("  parent edit part= <%s>;\n\t command=%s", tep, resizeContainerCommand);
@@ -120,7 +117,6 @@ public class AutoExpandHelper {
 
     /**
      * Compute an auto fit to preferred size command from a child edit part move/resize request.
-     * 
      * @param request a resize/move request for container children
      * @param containerEditPart the container edit part
      * @param layoutContainer the container figure directly containing child edit part figures.
@@ -143,6 +139,7 @@ public class AutoExpandHelper {
             r2.setLocation(request.getLocation());
             r2.setMoveDelta(request.getMoveDelta());
             r2.setSizeDelta(sizeDelta);
+            RequestHelper.addSharedEditParts(r2, request);
         
             return r2;
         }
@@ -153,7 +150,6 @@ public class AutoExpandHelper {
      * Compute an auto expand request for a child edit part addition.
      * <p>
      * The child edit part must already be owned by the parent one.
-     * 
      * @param containerEditPart the parent edit part.
      * @param newChild the new child edit part
      * @param layoutContainer the container figure that directly own the children edit part figures.
@@ -252,8 +248,7 @@ public class AutoExpandHelper {
     /**
      * Layout manager that forces preferred size.
      * <p>
-     * This is used to temporarily force artificially a figure preferred size,
-     * skip layout and nothing else.
+     * This is used to temporarily force artificially a figure preferred size, skip layout and nothing else.
      * 
      * @author cmarin
      */
@@ -276,14 +271,14 @@ public class AutoExpandHelper {
 
         /**
          * constructor.
-         * 
          * @param old the old layout manager
          * @param prefSize the preferred size to force.
          */
         @objid ("cf85c946-fe32-49ac-ab9d-525f96d2d1e3")
-        public TempSizeLayout(LayoutManager old, Dimension prefSize) {
+        public  TempSizeLayout(LayoutManager old, Dimension prefSize) {
             super(old);
             this.prefSize = prefSize;
+            
         }
 
         @objid ("34b9184a-a9ba-42b7-bd58-e5bc260b8cde")
@@ -310,6 +305,7 @@ public class AutoExpandHelper {
             
                 return getChained().getMinimumSize(container, w, h);
             }
+            
         }
 
         @objid ("730a2dfb-cb5e-4ee3-85dd-2df36f817886")

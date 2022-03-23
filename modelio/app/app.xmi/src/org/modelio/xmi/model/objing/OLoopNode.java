@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,7 @@ public class OLoopNode extends OStructuredActivityNode {
     }
 
     @objid ("ba577b40-214c-487f-8051-3d1efa05f58b")
-    public OLoopNode(LoopNode element) {
+    public  OLoopNode(LoopNode element) {
         super(element);
     }
 
@@ -47,6 +46,7 @@ public class OLoopNode extends OStructuredActivityNode {
     public void attach(org.eclipse.uml2.uml.Element ecoreElt) {
         // Done when mapping the super type (org.eclipse.uml2.uml.StructuredActivityNode)
         super.attach(ecoreElt);
+        
     }
 
     @objid ("7a17fa6c-ee16-44fa-9dac-0f5f73ba558d")
@@ -61,6 +61,7 @@ public class OLoopNode extends OStructuredActivityNode {
         setBody((org.eclipse.uml2.uml.LoopNode) ecoreElt);
         setSetup((org.eclipse.uml2.uml.LoopNode) ecoreElt);
         setTest((org.eclipse.uml2.uml.LoopNode) ecoreElt);
+        
     }
 
     @objid ("701eaf8d-6815-4e10-87a0-40bede47c71c")
@@ -75,6 +76,7 @@ public class OLoopNode extends OStructuredActivityNode {
             if (ecoreBody instanceof org.eclipse.uml2.uml.ExecutableNode)
                 node.getBodyParts().add( (org.eclipse.uml2.uml.ExecutableNode)ecoreBody);
         }
+        
     }
 
     @objid ("02ea7b77-b61a-45d7-a54f-86cfb6c5114f")
@@ -91,6 +93,7 @@ public class OLoopNode extends OStructuredActivityNode {
             node.getSetupParts().add(ecoreSetupAction);
             attachActionToActivity(ecoreSetupAction);
         }
+        
     }
 
     @objid ("e3e8a904-bb5f-433e-8e17-d33c783c544c")
@@ -111,6 +114,7 @@ public class OLoopNode extends OStructuredActivityNode {
             node.getTests().add(ecoreTestAction);
             attachActionToActivity(ecoreTestAction);
         }
+        
     }
 
     @objid ("195ac640-8d5b-42eb-ba53-35857c7f47fb")
@@ -128,6 +132,7 @@ public class OLoopNode extends OStructuredActivityNode {
             }
         
         }
+        
     }
 
     @objid ("b9ceee1d-c5d7-4321-9736-aee054962fb4")

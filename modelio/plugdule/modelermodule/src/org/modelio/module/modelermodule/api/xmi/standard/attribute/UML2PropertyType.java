@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.attribute;
 
@@ -50,27 +49,26 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("97813a21-b7b0-4858-b207-98c2879e16e9")
 public class UML2PropertyType {
-    @objid ("f7ecf3e1-36a5-45f5-bc0c-ccdc78bad6a2")
+    @objid ("9d1e88ba-ebbc-44ed-ad40-46a0cb5bec6d")
     public static final String STEREOTYPE_NAME = "UML2PropertyType";
 
-    @objid ("3e51c17b-6288-46f2-8272-aad652d817e1")
+    @objid ("c6f82880-a5f5-435c-b346-907cd9c48b4d")
     public static final String PROPERTYTYPE_TAGTYPE = "PropertyType";
 
     /**
      * The underlying {@link Attribute} represented by this proxy, never null.
      */
-    @objid ("b64c9785-450f-4e67-8fa0-570041b720a1")
+    @objid ("32c43bd7-e909-4671-81ce-8c85235f6185")
     protected final Attribute elt;
 
     /**
      * Tells whether a {@link UML2PropertyType proxy} can be instantiated from a {@link MObject} checking it is a {@link Attribute} stereotyped << UML2PropertyType >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("a2198235-1279-40e8-ad6b-2105b0c9c88c")
+    @objid ("dba66895-807e-4dc5-afd1-81407d78512d")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Attribute) && ((Attribute) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2PropertyType.STEREOTYPE_NAME));
     }
@@ -80,9 +78,9 @@ public class UML2PropertyType {
      * 
      * @return a {@link UML2PropertyType} proxy on the created {@link Attribute}.
      */
-    @objid ("2de136bc-410a-4980-8536-292a2d131d33")
+    @objid ("30799bf4-92ba-418f-93bb-63d3fc55518d")
     public static UML2PropertyType create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Attribute");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.Attribute");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2PropertyType.STEREOTYPE_NAME);
         return UML2PropertyType.instantiate((Attribute)e);
     }
@@ -94,7 +92,7 @@ public class UML2PropertyType {
      * @param obj a Attribute
      * @return a {@link UML2PropertyType} proxy or <i>null</i>.
      */
-    @objid ("d211f356-0260-484a-8819-710ce8b4b256")
+    @objid ("9f9e0023-aaa1-4ca9-9e4b-966193417e2c")
     public static UML2PropertyType instantiate(Attribute obj) {
         return UML2PropertyType.canInstantiate(obj) ? new UML2PropertyType(obj) : null;
     }
@@ -107,7 +105,7 @@ public class UML2PropertyType {
      * @return a {@link UML2PropertyType} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("962a6969-5caa-462c-a2d5-4715301e564f")
+    @objid ("ea894c0b-f3ae-4e78-96fa-70918155b57d")
     public static UML2PropertyType safeInstantiate(Attribute obj) throws IllegalArgumentException {
         if (UML2PropertyType.canInstantiate(obj))
         	return new UML2PropertyType(obj);
@@ -115,7 +113,7 @@ public class UML2PropertyType {
         	throw new IllegalArgumentException("UML2PropertyType: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("5ddbbc61-a45c-4831-8df0-85c33489745c")
+    @objid ("86b4d38a-69ce-4a1e-951c-22a92c121785")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -135,7 +133,7 @@ public class UML2PropertyType {
      * Get the underlying {@link Attribute}. 
      * @return the Attribute represented by this proxy, never null.
      */
-    @objid ("4fc0bbd6-2155-441c-aa4a-0243fc42c88f")
+    @objid ("c8843c65-2fb7-4acb-b3bc-9186e4db9b3d")
     public Attribute getElement() {
         return this.elt;
     }
@@ -145,15 +143,16 @@ public class UML2PropertyType {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("1b222e0b-868e-42b1-bbb0-5bc5148932e5")
+    @objid ("93c733ac-6aac-4bb0-a47a-8799a498c6c5")
     public String getPropertyType() {
         return this.elt.getTagValue(UML2PropertyType.MdaTypes.PROPERTYTYPE_TAGTYPE_ELT);
     }
 
-    @objid ("3c3f193e-17af-4cbf-b517-3f361e1ddfdb")
+    @objid ("22cadd86-003f-4d7f-91ba-21a6193fd0f1")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
     /**
@@ -161,44 +160,44 @@ public class UML2PropertyType {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("6197627a-cd54-4b21-9fba-4c8afe459853")
+    @objid ("4fe103d4-f912-466d-b6c8-0f95944ccde7")
     public void setPropertyType(String value) {
         this.elt.putTagValue(UML2PropertyType.MdaTypes.PROPERTYTYPE_TAGTYPE_ELT, value);
     }
 
-    @objid ("81fd2537-fecf-4efe-8760-5b51fc902e4d")
-    protected UML2PropertyType(Attribute elt) {
+    @objid ("a328b37a-f039-429e-829f-c740ccae0d26")
+    protected  UML2PropertyType(Attribute elt) {
         this.elt = elt;
     }
 
     @objid ("52f01be1-c820-4bae-a974-82d910c67b9a")
     public static final class MdaTypes {
-        @objid ("62bc4041-2a23-4a71-af54-812cee9691fc")
+        @objid ("bd7ebd04-0679-4363-b40d-021473c4d032")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("7798a7bc-7d4c-45fe-a08e-bde45c27675f")
+        @objid ("ae424798-3864-4be8-bd62-d8f6e334a102")
         public static TagType PROPERTYTYPE_TAGTYPE_ELT;
 
-        @objid ("a7a02155-fcc8-4ee7-bc97-934f6d57ba53")
+        @objid ("75ed8928-226f-4f02-9f60-b20a40de27b6")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("caf28f5a-9705-461f-bde8-2cb3e1633ce0")
+        @objid ("3d45c1fe-8df7-4d51-b477-d0c47eaea73c")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("d4e86b3e-6bbc-4e9e-89e8-b150cd68c837")
+        @objid ("b085a63e-6a9b-4740-ba9d-2a695d5e38ab")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "68c63e60-70d6-11e0-872f-0027103f347c");
             PROPERTYTYPE_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "68c63e61-70d6-11e0-872f-0027103f347c");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

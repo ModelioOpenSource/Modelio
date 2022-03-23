@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,14 +36,14 @@ public class UnknownMetaclassException extends IllegalArgumentException {
      * @param className the missing metaclass name
      */
     @objid ("109a892e-16e7-11e2-b24b-001ec947ccaf")
-    public UnknownMetaclassException(String className) {
+    public  UnknownMetaclassException(String className) {
         super("Unknown '"+className+"' metaclass.");
         this.mc = className;
+        
     }
 
     /**
      * Get the name of the missing metaclass.
-     * 
      * @return the metaclass not found.
      */
     @objid ("109a8931-16e7-11e2-b24b-001ec947ccaf")

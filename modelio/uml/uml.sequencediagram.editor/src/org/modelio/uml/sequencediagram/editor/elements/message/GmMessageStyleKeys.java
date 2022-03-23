@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.message;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,6 +29,13 @@ import org.modelio.uml.sequencediagram.editor.style.SequenceAbstractStyleKeyProv
  */
 @objid ("d955ef08-55b6-11e2-877f-002564c97630")
 public class GmMessageStyleKeys extends SequenceAbstractStyleKeyProvider {
+    /**
+     * Routing mode: bendpoint, orthogonal, ...
+     */
+    @objid ("4db5b8ab-8843-461e-a39e-658fe85b7779")
+    public static final StyleKey CONNECTIONROUTER = createStyleKey("MESSAGE_ROUTINGMODE",
+                                                                               MetaKey.CONNECTIONROUTER);
+
     /**
      * Line color
      */
@@ -52,14 +58,14 @@ public class GmMessageStyleKeys extends SequenceAbstractStyleKeyProvider {
      * Text color.
      */
     @objid ("b42a6e57-2c59-4b7e-b837-0a7d07a70379")
-     static final StyleKey TEXTCOLOR = createStyleKey("MESSAGE_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("MESSAGE_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     /**
      * Stereotype display mode: text / icon / text+icon
      */
     @objid ("4feb7133-55c2-11e2-9337-002564c97630")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("MESSAGE_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+                    MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Show tagged values
@@ -88,29 +94,29 @@ public class GmMessageStyleKeys extends SequenceAbstractStyleKeyProvider {
          * Text color.
          */
         @objid ("4feb713c-55c2-11e2-9337-002564c97630")
-         static final StyleKey FLOWTEXTCOLOR = createStyleKey("MESSAGE_FLOWS_TEXTCOLOR",
-                MetaKey.InformationItemGroup.INFTEXTCOLOR);
+        static final StyleKey FLOWTEXTCOLOR = createStyleKey("MESSAGE_FLOWS_TEXTCOLOR",
+                                MetaKey.InformationItemGroup.INFTEXTCOLOR);
 
         /**
          * Font
          */
         @objid ("4feb713f-55c2-11e2-9337-002564c97630")
-         static final StyleKey FLOWFONT = createStyleKey("MESSAGE_FLOWS_FONT",
-                MetaKey.InformationItemGroup.INFFONT);
+        static final StyleKey FLOWFONT = createStyleKey("MESSAGE_FLOWS_FONT",
+                                MetaKey.InformationItemGroup.INFFONT);
 
         /**
          * Stereotype display mode.
          */
         @objid ("4feb7142-55c2-11e2-9337-002564c97630")
-         static final StyleKey FLOWSHOWSTEREOTYPES = createStyleKey("MESSAGE_FLOWS_SHOWSTEREOTYPES",
-                MetaKey.InformationItemGroup.INFSHOWSTEREOTYPES);
+        static final StyleKey FLOWSHOWSTEREOTYPES = createStyleKey("MESSAGE_FLOWS_SHOWSTEREOTYPES",
+                                MetaKey.InformationItemGroup.INFSHOWSTEREOTYPES);
 
         /**
          * Display tagged values.
          */
         @objid ("4feb7145-55c2-11e2-9337-002564c97630")
-         static final StyleKey FLOWSHOWTAGS = createStyleKey("MESSAGE_FLOWS_SHOWTAGS",
-                MetaKey.InformationItemGroup.INFSHOWTAGS);
+        static final StyleKey FLOWSHOWTAGS = createStyleKey("MESSAGE_FLOWS_SHOWTAGS",
+                                MetaKey.InformationItemGroup.INFSHOWTAGS);
 
     }
 

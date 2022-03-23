@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -67,9 +66,10 @@ public class ONaryConnectorEnd extends ONaryLinkEnd {
     }
 
     @objid ("b509e461-9b0a-439e-bf26-386020880ded")
-    public ONaryConnectorEnd(NaryConnectorEnd param) {
+    public  ONaryConnectorEnd(NaryConnectorEnd param) {
         super(param);
         this.objElt = param;
+        
     }
 
     @objid ("5953514f-7c25-4a1a-9d59-d04e10d5bbac")
@@ -82,6 +82,7 @@ public class ONaryConnectorEnd extends ONaryLinkEnd {
                 attachSlot((org.eclipse.uml2.uml.Slot) ecoreElt);
             }
         }
+        
     }
 
     @objid ("759fce34-3224-41c3-841c-9bdde082cd5d")
@@ -103,6 +104,7 @@ public class ONaryConnectorEnd extends ONaryLinkEnd {
                 ordered((org.eclipse.uml2.uml.ConnectorEnd) ecoreElt);
             }
         }
+        
     }
 
     @objid ("8d7900dc-7d05-40d7-a37f-7551a5dd5a97")
@@ -116,6 +118,7 @@ public class ONaryConnectorEnd extends ONaryLinkEnd {
         if (role instanceof org.eclipse.uml2.uml.ConnectableElement) {
             connectorEnd.setRole((org.eclipse.uml2.uml.ConnectableElement) role);
         }
+        
     }
 
     @objid ("198fdbdb-9d32-45e6-9270-db6e7e599b76")
@@ -124,6 +127,7 @@ public class ONaryConnectorEnd extends ONaryLinkEnd {
         if (owner instanceof InstanceSpecification) {
             ((InstanceSpecification) owner).getSlots().add(slot);
         }
+        
     }
 
     @objid ("174fba2a-c0a8-4119-ba8b-b919642815a6")
@@ -145,6 +149,7 @@ public class ONaryConnectorEnd extends ONaryLinkEnd {
         }
         
         ObjingEAnnotation.setOwner(ecoreElt, String.valueOf(this.objElt.getSource().getUuid().toString()));
+        
     }
 
     @objid ("1ca790d2-e548-42b3-ac7e-ed1af0cf962e")
@@ -157,6 +162,7 @@ public class ONaryConnectorEnd extends ONaryLinkEnd {
             connector.getEnds().add(connector.getEnds().size(), ecoreElt);
         
         }
+        
     }
 
     @objid ("aea63bb6-f653-4ef8-86a0-f14f126587a6")
@@ -177,6 +183,7 @@ public class ONaryConnectorEnd extends ONaryLinkEnd {
                 }
             }
         }
+        
     }
 
     @objid ("3543449a-893d-4f2d-9280-25a38acf29b1")
@@ -211,6 +218,7 @@ public class ONaryConnectorEnd extends ONaryLinkEnd {
                 }
             }
         }
+        
     }
 
     @objid ("ac14f2fd-5255-4eaa-ae48-f16bce44e79f")
@@ -236,6 +244,7 @@ public class ONaryConnectorEnd extends ONaryLinkEnd {
                 }
             }
         }
+        
     }
 
     @objid ("43fcb179-b15a-4674-86f5-9d7e3d9155f8")
@@ -244,6 +253,7 @@ public class ONaryConnectorEnd extends ONaryLinkEnd {
         if (role instanceof org.eclipse.uml2.uml.ConnectableElement) {
             ecoreElt.setRole((org.eclipse.uml2.uml.ConnectableElement) role);
         }
+        
     }
 
     @objid ("7ae2a030-00e5-49f2-a3bc-ed4007dcfc01")
@@ -257,6 +267,7 @@ public class ONaryConnectorEnd extends ONaryLinkEnd {
             }
         
         }
+        
     }
 
 }

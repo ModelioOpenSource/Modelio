@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import java.util.ArrayList;
@@ -58,7 +57,7 @@ public class EConnectorEnd extends EElement {
     }
 
     @objid ("adcb266f-1733-4e4e-aec5-d364148e4d55")
-    public EConnectorEnd(org.eclipse.uml2.uml.ConnectorEnd element) {
+    public  EConnectorEnd(org.eclipse.uml2.uml.ConnectorEnd element) {
         super(element);
     }
 
@@ -132,6 +131,7 @@ public class EConnectorEnd extends EElement {
                 objingElt.delete();
             }
         }
+        
     }
 
     @objid ("09092020-adc1-496f-a848-6e4faf2ff9fb")
@@ -149,6 +149,7 @@ public class EConnectorEnd extends EElement {
             setName((LinkEnd) objingElt);
             setIsNavigable();
         }
+        
     }
 
     @objid ("1f69600f-ff02-4342-8eb0-c2484a2bb8fe")
@@ -169,6 +170,7 @@ public class EConnectorEnd extends EElement {
                 }
             }
         }
+        
     }
 
     @objid ("97add917-096f-4774-b92e-c417f9d34d45")
@@ -202,6 +204,7 @@ public class EConnectorEnd extends EElement {
             setIsConstant(objingElt);
             setValue(objingElt);
         }
+        
     }
 
     @objid ("204ff8e8-81ca-4a9b-aeb4-a942bedcdde9")
@@ -210,6 +213,7 @@ public class EConnectorEnd extends EElement {
         if (name != null){
             objingElt.setName(name);
         }
+        
     }
 
     @objid ("0439e18b-c8e2-4ac5-aa4a-8c6d87a1aa58")
@@ -220,6 +224,7 @@ public class EConnectorEnd extends EElement {
             if (base instanceof NameSpace)
                 objingElt.setBase((NameSpace) base);
         }
+        
     }
 
     @objid ("5077bc9c-6963-4216-80da-93f8051496ed")
@@ -236,6 +241,7 @@ public class EConnectorEnd extends EElement {
         }else{
             objFeature.setMultiplicityMax(multMax);
         }
+        
     }
 
     @objid ("66cd2922-a5c6-4c5f-a2be-41c9b5e22748")
@@ -243,6 +249,7 @@ public class EConnectorEnd extends EElement {
         String value =  ObjingEAnnotation.getValue(this.role);
         if ((value != null) && (!(value.equals(""))))
             objingElt.setValue(value);
+        
     }
 
     @objid ("28452a29-af28-4d62-8edb-f2cef46aea4e")
@@ -250,6 +257,7 @@ public class EConnectorEnd extends EElement {
         String value =  ObjingEAnnotation.getMultiMin(this.role);
         if ((value != null) && (!(value.equals(""))))
             objingElt.setMultiplicityMin(value);
+        
     }
 
     @objid ("830efd41-8bf7-4252-81e6-ac6a264ef2dc")
@@ -313,6 +321,7 @@ public class EConnectorEnd extends EElement {
                     collab.getRepresentingInstance().add(objingElt);
             }
         }
+        
     }
 
     @objid ("0373a739-dcf6-4e72-b18c-e283bdea0df6")
@@ -322,6 +331,7 @@ public class EConnectorEnd extends EElement {
             link.getLinkEnd().get(0).setOpposite(link.getLinkEnd().get(1));
             link.getLinkEnd().get(1).setOpposite(link.getLinkEnd().get(0));
         }
+        
     }
 
     @objid ("7f8fef17-e87c-434a-9c77-83503361c586")

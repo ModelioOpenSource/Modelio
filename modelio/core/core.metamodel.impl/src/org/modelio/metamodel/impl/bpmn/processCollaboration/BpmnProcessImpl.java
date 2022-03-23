@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.processCollaboration;
 
 import java.util.ArrayList;
@@ -39,7 +39,6 @@ import org.modelio.metamodel.bpmn.processCollaboration.OptionalBoolean;
 import org.modelio.metamodel.bpmn.resources.BpmnResourceRole;
 import org.modelio.metamodel.bpmn.rootElements.BpmnArtifact;
 import org.modelio.metamodel.bpmn.rootElements.BpmnFlowElement;
-import org.modelio.metamodel.impl.bpmn.processCollaboration.BpmnProcessData;
 import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.BehaviorImpl;
 import org.modelio.metamodel.visitors.IModelVisitor;
 import org.modelio.vcore.smkernel.SmConstrainedList;
@@ -107,6 +106,7 @@ public class BpmnProcessImpl extends BehaviorImpl implements BpmnProcess {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("f330ea97-9ccd-4281-b2d1-8053833a1129")
@@ -128,6 +128,7 @@ public class BpmnProcessImpl extends BehaviorImpl implements BpmnProcess {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("cfddc3f8-476c-4dc1-86da-d9bce6aa4ba5")
@@ -162,6 +163,7 @@ public class BpmnProcessImpl extends BehaviorImpl implements BpmnProcess {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("5ad1b3e1-6197-443c-97ed-dd7efd961a45")
@@ -183,6 +185,7 @@ public class BpmnProcessImpl extends BehaviorImpl implements BpmnProcess {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("688b424b-6d7f-4c7a-8ea5-1d9542f9dc5f")
@@ -204,6 +207,7 @@ public class BpmnProcessImpl extends BehaviorImpl implements BpmnProcess {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("0b136821-e1e7-4417-8eb9-7a2d54f20a91")
@@ -225,6 +229,7 @@ public class BpmnProcessImpl extends BehaviorImpl implements BpmnProcess {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("a4b076a8-a164-48da-a72a-5ce7d06abefc")

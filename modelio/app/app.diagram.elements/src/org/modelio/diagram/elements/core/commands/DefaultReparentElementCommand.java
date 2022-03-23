@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.commands;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -74,19 +73,19 @@ public class DefaultReparentElementCommand extends Command {
 
     /**
      * Default C'tor.
-     * 
      * @param newParentElement the MObject that will be the new parent of the element represented by the reparented node.
      * @param newParent the composite node that will be the new parent of the reparented node.
      * @param reparentedChild the reparented node.
      * @param newLayoutData the new layout data of the reparented node.
      */
     @objid ("7f397a6e-1dec-11e2-8cad-001ec947c8cc")
-    public DefaultReparentElementCommand(MObject newParentElement, GmCompositeNode newParent, GmNodeModel reparentedChild, Object newLayoutData) {
+    public  DefaultReparentElementCommand(MObject newParentElement, GmCompositeNode newParent, GmNodeModel reparentedChild, Object newLayoutData) {
         super();
         this.newParentElement = newParentElement;
         this.newParent = newParent;
         this.reparentedChild = reparentedChild;
         this.newLayoutData = newLayoutData;
+        
     }
 
     @objid ("7f3bdc95-1dec-11e2-8cad-001ec947c8cc")
@@ -196,6 +195,7 @@ public class DefaultReparentElementCommand extends Command {
             // Delete the now unused child
             this.reparentedChild.delete();
         }
+        
     }
 
 }

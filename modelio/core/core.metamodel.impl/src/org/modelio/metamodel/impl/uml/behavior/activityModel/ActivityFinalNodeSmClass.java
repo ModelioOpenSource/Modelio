@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.FinalNodeSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityFinalNode;
 import org.modelio.metamodel.uml.behavior.activityModel.FinalNode;
 import org.modelio.vbasic.version.Version;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("0e2fb08a-7baa-443b-b80d-f9ba53347a78")
 public class ActivityFinalNodeSmClass extends FinalNodeSmClass {
     @objid ("af8670c9-afa0-4946-8599-913f44f7d9f0")
-    public ActivityFinalNodeSmClass(ISmMetamodelFragment origin) {
+    public  ActivityFinalNodeSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class ActivityFinalNodeSmClass extends FinalNodeSmClass {
     @Override
     public String getName() {
         return "ActivityFinalNode";
+        
     }
 
     @objid ("91900ea3-5c2a-41fe-81f7-1544a3c99d60")
@@ -62,18 +62,21 @@ public class ActivityFinalNodeSmClass extends FinalNodeSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ActivityFinalNode.class;
+        
     }
 
     @objid ("2c7ab435-7ea4-4a02-a056-749e424b4cd2")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("5d3c28f6-46ef-4cb5-a6c1-0f2799d4f8b9")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("ab030448-13a8-4162-9f7d-a65cc8ca5907")
@@ -86,6 +89,7 @@ public class ActivityFinalNodeSmClass extends FinalNodeSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("64be6c38-208f-4d34-862e-12df73372e9b")
@@ -94,7 +98,7 @@ public class ActivityFinalNodeSmClass extends FinalNodeSmClass {
         private ActivityFinalNodeSmClass smClass;
 
         @objid ("92e574cc-b38b-4a74-98fb-127fdef30650")
-        public ActivityFinalNodeObjectFactory(ActivityFinalNodeSmClass smClass) {
+        public  ActivityFinalNodeObjectFactory(ActivityFinalNodeSmClass smClass) {
             this.smClass = smClass;
         }
 

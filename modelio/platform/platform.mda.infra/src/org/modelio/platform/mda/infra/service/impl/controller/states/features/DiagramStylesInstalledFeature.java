@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.controller.states.features;
 
 import java.nio.file.Files;
@@ -39,7 +38,7 @@ public class DiagramStylesInstalledFeature extends AbstractFeature {
      * @param module the module
      */
     @objid ("e651ef4d-74dd-446f-a1df-28d090ba8b6c")
-    public DiagramStylesInstalledFeature(IRTModuleAccess module) {
+    public  DiagramStylesInstalledFeature(IRTModuleAccess module) {
         super(module);
     }
 
@@ -49,6 +48,7 @@ public class DiagramStylesInstalledFeature extends AbstractFeature {
         if (this.module.getConfiguration().getStylePath().size() > 0) {
             Display.getDefault().syncExec(new DiagramToolsAdder(this.module));
         }
+        
     }
 
     @objid ("c8ee223f-55b7-481f-b475-d9eb45b1444d")
@@ -69,7 +69,7 @@ public class DiagramStylesInstalledFeature extends AbstractFeature {
         private final IRTModule rtModule;
 
         @objid ("8cffe1c3-a497-4500-9f60-3d24f6b60ca6")
-        public DiagramToolsAdder(final IRTModule rtModule) {
+        public  DiagramToolsAdder(final IRTModule rtModule) {
             this.rtModule = rtModule;
         }
 
@@ -91,6 +91,7 @@ public class DiagramStylesInstalledFeature extends AbstractFeature {
                     MdaInfra.LOG.warning(e);
                 }
             }
+            
         }
 
     }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.innerclass;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,9 +30,9 @@ import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
+import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.diagram.styles.core.StyleKey.InternalsViewMode;
 import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
-import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.metamodel.uml.infrastructure.ModelTree;
 import org.modelio.metamodel.uml.statik.NameSpace;
 import org.modelio.metamodel.uml.statik.TemplateParameter;
@@ -57,12 +56,11 @@ public class GmInnerClassGroup extends GmGroup {
 
     /**
      * Creates an inner classes group.
-     * 
      * @param diagram The diagram.
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
     @objid ("3527cae6-55b7-11e2-877f-002564c97630")
-    public GmInnerClassGroup(IGmDiagram diagram, MRef relatedRef) {
+    public  GmInnerClassGroup(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -70,7 +68,8 @@ public class GmInnerClassGroup extends GmGroup {
      * Constructor for deserialization only.
      */
     @objid ("3527caef-55b7-11e2-877f-002564c97630")
-    public GmInnerClassGroup() {
+    public  GmInnerClassGroup() {
+        
     }
 
     /**
@@ -106,12 +105,6 @@ public class GmInnerClassGroup extends GmGroup {
             return (v == InternalsViewMode.LIST);
         }
         return false;
-    }
-
-    @objid ("3529515d-55b7-11e2-877f-002564c97630")
-    @Override
-    public void obElementAdded(MObject movedEl) {
-        refreshFromObModel();
     }
 
     @objid ("35295163-55b7-11e2-877f-002564c97630")
@@ -169,6 +162,7 @@ public class GmInnerClassGroup extends GmGroup {
                 }
             }
         }
+        
     }
 
     @objid ("35295166-55b7-11e2-877f-002564c97630")
@@ -177,6 +171,7 @@ public class GmInnerClassGroup extends GmGroup {
         // The visibility may have changed so fires a notification.
         fireVisibilityChanged();
         super.styleChanged(style);
+        
     }
 
     @objid ("3529516c-55b7-11e2-877f-002564c97630")
@@ -187,6 +182,7 @@ public class GmInnerClassGroup extends GmGroup {
         } else {
             super.styleChanged(property, newValue);
         }
+        
     }
 
     @objid ("35295173-55b7-11e2-877f-002564c97630")
@@ -198,6 +194,7 @@ public class GmInnerClassGroup extends GmGroup {
         } else {
             getDisplayedStyle().setProperty(getViewModeStyleKey(), InternalsViewMode.NONE);
         }
+        
     }
 
     @objid ("35295177-55b7-11e2-877f-002564c97630")
@@ -269,6 +266,7 @@ public class GmInnerClassGroup extends GmGroup {
             setHiddenFeature(hasHiddenFeature);
         
         }
+        
     }
 
     /**
@@ -304,6 +302,7 @@ public class GmInnerClassGroup extends GmGroup {
             break;
         }
         }
+        
     }
 
     @objid ("35295196-55b7-11e2-877f-002564c97630")
@@ -313,6 +312,7 @@ public class GmInnerClassGroup extends GmGroup {
         
         // Write version of this Gm if different of 0.
         GmAbstractObject.writeMinorVersion(out, "GmInnerClassGroup.", Integer.valueOf(GmInnerClassGroup.MINOR_VERSION));
+        
     }
 
     @objid ("352ad7fd-55b7-11e2-877f-002564c97630")

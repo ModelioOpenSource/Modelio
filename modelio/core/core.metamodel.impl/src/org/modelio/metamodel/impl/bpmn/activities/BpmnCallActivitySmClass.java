@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.activities;
 
 import java.util.ArrayList;
@@ -30,9 +30,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.bpmn.activities.BpmnActivity;
 import org.modelio.metamodel.bpmn.activities.BpmnCallActivity;
 import org.modelio.metamodel.bpmn.activities.BpmnTask;
-import org.modelio.metamodel.impl.bpmn.activities.BpmnActivitySmClass;
-import org.modelio.metamodel.impl.bpmn.activities.BpmnCallActivityData;
-import org.modelio.metamodel.impl.bpmn.activities.BpmnTaskSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -50,7 +47,7 @@ public class BpmnCallActivitySmClass extends BpmnActivitySmClass {
     private SmDependency calledGlobalTaskDep;
 
     @objid ("2dfa0006-834e-41ba-8c29-fe593712a365")
-    public BpmnCallActivitySmClass(ISmMetamodelFragment origin) {
+    public  BpmnCallActivitySmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -58,6 +55,7 @@ public class BpmnCallActivitySmClass extends BpmnActivitySmClass {
     @Override
     public String getName() {
         return "BpmnCallActivity";
+        
     }
 
     @objid ("bd0ad82d-8f9c-48df-bd4f-1e3a38dd4fb2")
@@ -70,18 +68,21 @@ public class BpmnCallActivitySmClass extends BpmnActivitySmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnCallActivity.class;
+        
     }
 
     @objid ("b3ef31f4-c4d1-4842-baf0-6a39b1f04fc1")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("4612ce71-79a2-431b-9021-a67aecfcc662")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("0921a29c-0798-49b4-9137-e511ae92ad72")
@@ -97,6 +98,8 @@ public class BpmnCallActivitySmClass extends BpmnActivitySmClass {
         this.calledGlobalTaskDep = new CalledGlobalTaskSmDependency();
         this.calledGlobalTaskDep.init("CalledGlobalTask", this, metamodel.getMClass(BpmnTask.MQNAME), 0, 1 , SmDirective.SMCDPARTOF);
         registerDependency(this.calledGlobalTaskDep);
+        
+        
     }
 
     @objid ("22706371-05f0-4817-b72d-e782b74e18e0")
@@ -113,7 +116,7 @@ public class BpmnCallActivitySmClass extends BpmnActivitySmClass {
         private BpmnCallActivitySmClass smClass;
 
         @objid ("0f8afa14-23c9-4287-a9e8-6bf79b1da303")
-        public BpmnCallActivityObjectFactory(BpmnCallActivitySmClass smClass) {
+        public  BpmnCallActivityObjectFactory(BpmnCallActivitySmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -155,6 +158,7 @@ public class BpmnCallActivitySmClass extends BpmnActivitySmClass {
             	this.symetricDep = ((BpmnTaskSmClass)this.getTarget()).getCallerDep();
             }
             return this.symetricDep;
+            
         }
 
     }

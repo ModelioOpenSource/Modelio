@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.versioned.load;
 
 import java.io.IOException;
@@ -34,13 +33,12 @@ import org.xml.sax.InputSource;
 public interface IVersionedExmlLoader {
     /**
      * Load a CMS node from an EXML resource.
-     * 
      * @param is the versioned EXML part
      * @param localIs the non versioned part
      * @param aModelLoader model loading API
      * @return the loaded CMS node
-     * @throws java.io.IOException in case of I/O error
-     * @throws org.modelio.vcore.model.DuplicateObjectException if a loaded object already exist in another repository.
+     * @throws IOException in case of I/O error
+     * @throws DuplicateObjectException if a loaded object already exist in another repository.
      */
     @objid ("ddea431e-407a-11e2-87cb-001ec947ccaf")
     SmObjectImpl load(final InputSource is, final InputSource localIs, IModelLoader aModelLoader) throws IOException, DuplicateObjectException;

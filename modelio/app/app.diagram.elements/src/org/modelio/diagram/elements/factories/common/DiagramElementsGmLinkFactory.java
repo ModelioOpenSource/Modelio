@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.factories.common;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -107,7 +106,7 @@ public class DiagramElementsGmLinkFactory implements IGmLinkFactory {
         private IGmDiagram diagram;
 
         @objid ("f0a2b81a-9fd8-49eb-9602-a7066f783fa1")
-        public ImplVisitor(IGmDiagram diagram) {
+        public  ImplVisitor(IGmDiagram diagram) {
             this.diagram = diagram;
         }
 
@@ -148,8 +147,7 @@ public class DiagramElementsGmLinkFactory implements IGmLinkFactory {
          * Creates a GmNoteLink between the annotated element and the note.
          * <p>
          * The link destination must be a GmNote.
-         * 
-         * @throws java.lang.ClassCastException if the destination node is not a GmNote.
+         * @throws ClassCastException if the destination node is not a GmNote.
          */
         @objid ("a645174b-6914-4878-b980-6b7fbaf81542")
         @Override

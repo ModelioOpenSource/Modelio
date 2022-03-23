@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Creation Wizard
 Bundle-SymbolicName: org.modelio.platform.model.view.template;singleton:=true
-Bundle-Version: 4.1.0.qualifier
+Bundle-Version: 5.1.0.qualifier
 Bundle-ClassPath: res/,
  .
 Bundle-Activator: org.modelio.platform.model.view.template.plugin.ModelViewTemplate

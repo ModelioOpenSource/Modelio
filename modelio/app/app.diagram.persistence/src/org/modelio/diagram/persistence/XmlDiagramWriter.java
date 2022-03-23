@@ -17,18 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.persistence;
 
 import java.io.StringWriter;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.AbsoluteBendpoint;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
@@ -59,22 +58,21 @@ public class XmlDiagramWriter implements IDiagramWriter {
 
     /**
      * Creates an XML serializer.
-     * 
-     * @throws org.modelio.diagram.persistence.PersistenceException in case of unexpected failure.
+     * @throws PersistenceException in case of unexpected failure.
      */
     @objid ("cb7c35b8-186f-11e2-92d2-001ec947c8cc")
-    public XmlDiagramWriter() throws PersistenceException {
+    public  XmlDiagramWriter() throws PersistenceException {
         XMLOutputFactory f = XMLOutputFactory.newInstance();
         try {
             this.writer = f.createXMLStreamWriter(this.result);
         } catch (XMLStreamException e) {
             throw new PersistenceException(e);
         }
+        
     }
 
     /**
      * Get the serialized string.
-     * 
      * @return the serialized string.
      */
     @objid ("cb7c35bb-186f-11e2-92d2-001ec947c8cc")
@@ -88,7 +86,6 @@ public class XmlDiagramWriter implements IDiagramWriter {
      * <p>
      * The root element is the element that was passed to
      * {@link #save(IPersistent)}.
-     * 
      * @return the root element.
      */
     @objid ("cb7e97c1-186f-11e2-92d2-001ec947c8cc")
@@ -99,9 +96,8 @@ public class XmlDiagramWriter implements IDiagramWriter {
 
     /**
      * Save a root persistent element and all its relations.
-     * 
      * @param diagram the element to save
-     * @throws org.modelio.diagram.persistence.PersistenceException in case of unexpected error.
+     * @throws PersistenceException in case of unexpected error.
      */
     @objid ("cb7e97c6-186f-11e2-92d2-001ec947c8cc")
     @Override
@@ -115,6 +111,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
         } catch (XMLStreamException e) {
             throw new PersistenceException(e);
         }
+        
     }
 
     @objid ("cb7e97ca-186f-11e2-92d2-001ec947c8cc")
@@ -131,6 +128,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
     private void writeValue(AbsoluteBendpoint value) throws PersistenceException {
         final String v = value.x + ";" + value.y;
         this.writeValueTag("AbsoluteBendpoint", v);
+        
     }
 
     @objid ("cb7e97d8-186f-11e2-92d2-001ec947c8cc")
@@ -157,18 +155,21 @@ public class XmlDiagramWriter implements IDiagramWriter {
     private void writeValue(MRef value) throws PersistenceException {
         // write("<Att name='" + attName + "' type='MRef' value='" + +"'/>");
         this.writeValueTag("MRef", value.mc + " " + value.uuid);
+        
     }
 
     @objid ("cb7e97e9-186f-11e2-92d2-001ec947c8cc")
     private void writeValue(Rectangle value) throws PersistenceException {
         final String v = value.x + ";" + value.y + ";" + value.width + ";" + value.height;
         this.writeValueTag("Rectangle", v);
+        
     }
 
     @objid ("cb7e97ee-186f-11e2-92d2-001ec947c8cc")
     private void writeValue(Point value) throws PersistenceException {
         final String v = value.x + ";" + value.y;
         this.writeValueTag("Point", v);
+        
     }
 
     /**
@@ -177,12 +178,11 @@ public class XmlDiagramWriter implements IDiagramWriter {
      * An external element is an element that is not stored in this stream but
      * in another one. The provided ids must help the diagram reader to retrieve
      * the data where is stored the external element.
-     * 
      * @param extObj The external element to reference.
      * @param dbId A "database" id that can be used to retrieve the location
      * where the element is stored
      * @param refId An identifier for the external element
-     * @throws org.modelio.diagram.persistence.PersistenceException in case of unexpected error.
+     * @throws PersistenceException in case of unexpected error.
      */
     @objid ("cb7e97f3-186f-11e2-92d2-001ec947c8cc")
     @Override
@@ -195,6 +195,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
         } catch (XMLStreamException e) {
             throw new PersistenceException(e);
         }
+        
     }
 
     @objid ("cb7e97f9-186f-11e2-92d2-001ec947c8cc")
@@ -208,10 +209,11 @@ public class XmlDiagramWriter implements IDiagramWriter {
         } catch (XMLStreamException e) {
             throw new PersistenceException(e);
         }
+        
     }
 
     @objid ("cb7e97ff-186f-11e2-92d2-001ec947c8cc")
-    private <K,V> void writeMap(Map<K, V> map) {
+    private <K, V> void writeMap(Map<K, V> map) {
         try {
             this.writer.writeStartElement(SchemaConstants.TAG_MAP);
             for (Entry<K, V> e : map.entrySet()) {
@@ -225,6 +227,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
         } catch (XMLStreamException e) {
             throw new PersistenceException(e);
         }
+        
     }
 
     /**
@@ -233,8 +236,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
      * Only types for which a writeAtt() method is available are supported.
      * @param attName
      * @param value
-     * 
-     * @throws org.modelio.diagram.persistence.PersistenceException in case of unexpected error.
+     * @throws PersistenceException in case of unexpected error.
      */
     @objid ("cb7e9807-186f-11e2-92d2-001ec947c8cc")
     @Override
@@ -249,6 +251,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
         } catch (XMLStreamException e) {
             throw new PersistenceException(e);
         }
+        
     }
 
     @objid ("cb7e980c-186f-11e2-92d2-001ec947c8cc")
@@ -269,6 +272,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
                 + String.valueOf(value.getBlue());
         
         this.writeValueTag("Color", s);
+        
     }
 
     @objid ("cb80fa1c-186f-11e2-92d2-001ec947c8cc")
@@ -278,6 +282,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
                 + String.valueOf(fontData.getStyle());
         
         this.writeValueTag("Font", s);
+        
     }
 
     /**
@@ -288,7 +293,6 @@ public class XmlDiagramWriter implements IDiagramWriter {
      * <p>
      * This (bad) design (work in progress) is made to minimize the methods to
      * add to IPersistent.
-     * 
      * @param c the external element.
      */
     @objid ("cb80fa1f-186f-11e2-92d2-001ec947c8cc")
@@ -308,18 +312,19 @@ public class XmlDiagramWriter implements IDiagramWriter {
         i.write(this);
         
         this.writer.writeEndElement();
+        
     }
 
     /**
      * Write a reference to another XML node.
-     * 
      * @param i the persistent object to reference.
-     * @throws javax.xml.stream.XMLStreamException in case of error
+     * @throws XMLStreamException in case of error
      */
     @objid ("cb80fa38-186f-11e2-92d2-001ec947c8cc")
     private void writeRef(IPersistent i) throws XMLStreamException {
         this.writer.writeEmptyElement(SchemaConstants.TAG_REF);
         this.writer.writeAttribute(SchemaConstants.ATT_OBJECT_ID, this.getId(i));
+        
     }
 
     @objid ("cb80fa3c-186f-11e2-92d2-001ec947c8cc")
@@ -364,6 +369,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
                 throw new IllegalArgumentException(c.getSimpleName() + " is not handled.");
             }
         }
+        
     }
 
     @objid ("cb80fa3f-186f-11e2-92d2-001ec947c8cc")
@@ -380,6 +386,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
         } catch (XMLStreamException e) {
             throw new PersistenceException(e);
         }
+        
     }
 
     /**
@@ -402,6 +409,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
         } catch (XMLStreamException e) {
             throw new PersistenceException(e);
         }
+        
     }
 
     /**
@@ -424,6 +432,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
         } catch (XMLStreamException e) {
             throw new PersistenceException(e);
         }
+        
     }
 
     /**
@@ -446,14 +455,14 @@ public class XmlDiagramWriter implements IDiagramWriter {
         } catch (XMLStreamException e) {
             throw new PersistenceException(e);
         }
+        
     }
 
     /**
      * Write an integer attribute.
      * @param attName
      * @param value
-     * 
-     * @throws org.modelio.diagram.persistence.PersistenceException in case of unexpected error.
+     * @throws PersistenceException in case of unexpected error.
      */
     @objid ("cb835c75-186f-11e2-92d2-001ec947c8cc")
     @Override
@@ -468,14 +477,14 @@ public class XmlDiagramWriter implements IDiagramWriter {
         } catch (XMLStreamException e) {
             throw new PersistenceException(e);
         }
+        
     }
 
     /**
      * Write a single object relation
-     * 
      * @param relation a relation name to be fetched by readObject().
      * @param object the object to write.
-     * @throws org.modelio.diagram.persistence.PersistenceException in case of unexpected error.
+     * @throws PersistenceException in case of unexpected error.
      */
     @objid ("cb835c7a-186f-11e2-92d2-001ec947c8cc")
     @Override
@@ -490,14 +499,14 @@ public class XmlDiagramWriter implements IDiagramWriter {
         } catch (XMLStreamException e) {
             throw new PersistenceException(e);
         }
+        
     }
 
     /**
      * Write an {@link MRef} attribute.
      * @param attName
-     * 
      * @param mRef a model element reference
-     * @throws org.modelio.diagram.persistence.PersistenceException in case of unexpected error.
+     * @throws PersistenceException in case of unexpected error.
      */
     @objid ("cb835c7f-186f-11e2-92d2-001ec947c8cc")
     @Override
@@ -512,16 +521,16 @@ public class XmlDiagramWriter implements IDiagramWriter {
         } catch (XMLStreamException e) {
             throw new PersistenceException(e);
         }
+        
     }
 
     /**
      * Write a string attribute.
      * <p>
      * String attribute values are put in a text xml node to support line breaks.
-     * 
      * @param attName attribute name
      * @param value attribute value
-     * @throws org.modelio.diagram.persistence.PersistenceException in case of unexpected error.
+     * @throws PersistenceException in case of unexpected error.
      */
     @objid ("cb835c92-186f-11e2-92d2-001ec947c8cc")
     @Override
@@ -541,6 +550,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
         } catch (XMLStreamException e) {
             throw new PersistenceException(e);
         }
+        
     }
 
     @objid ("cb835c97-186f-11e2-92d2-001ec947c8cc")
@@ -554,12 +564,14 @@ public class XmlDiagramWriter implements IDiagramWriter {
         } catch (XMLStreamException e) {
             throw new PersistenceException(e);
         }
+        
     }
 
     @objid ("cb835ca2-186f-11e2-92d2-001ec947c8cc")
     private void writeValue(Dimension value) {
         final String v = value.width + ";" + value.height;
         this.writeValueTag("Dimension", v);
+        
     }
 
     @objid ("ed5de069-186f-11e2-92d2-001ec947c8cc")
@@ -575,6 +587,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
         } catch (XMLStreamException e) {
             throw new PersistenceException(e);
         }
+        
     }
 
     @objid ("ed6042c4-186f-11e2-92d2-001ec947c8cc")
@@ -590,6 +603,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
         } catch (XMLStreamException e) {
             throw new PersistenceException(e);
         }
+        
     }
 
     @objid ("ed62a517-186f-11e2-92d2-001ec947c8cc")
@@ -605,11 +619,12 @@ public class XmlDiagramWriter implements IDiagramWriter {
         } catch (XMLStreamException e) {
             throw new PersistenceException(e);
         }
+        
     }
 
     @objid ("ed62a51f-186f-11e2-92d2-001ec947c8cc")
     @Override
-    public <K,V> void writeProperty(String attName, Map<K, V> value) throws PersistenceException {
+    public <K, V> void writeProperty(String attName, Map<K, V> value) throws PersistenceException {
         try {
             this.writer.writeStartElement(SchemaConstants.TAG_PROP);
             this.writer.writeAttribute(SchemaConstants.ATT_PROP_NAME, attName);
@@ -620,6 +635,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
         } catch (XMLStreamException e) {
             throw new PersistenceException(e);
         }
+        
     }
 
     @objid ("ed650779-186f-11e2-92d2-001ec947c8cc")
@@ -635,6 +651,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
         } catch (XMLStreamException e) {
             throw new PersistenceException(e);
         }
+        
     }
 
     @objid ("ed650781-186f-11e2-92d2-001ec947c8cc")
@@ -650,6 +667,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
         } catch (XMLStreamException e) {
             throw new PersistenceException(e);
         }
+        
     }
 
     @objid ("ed6769d1-186f-11e2-92d2-001ec947c8cc")
@@ -665,6 +683,7 @@ public class XmlDiagramWriter implements IDiagramWriter {
         } catch (XMLStreamException e) {
             throw new PersistenceException(e);
         }
+        
     }
 
 }

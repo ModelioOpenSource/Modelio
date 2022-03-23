@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.texteditors.mdd;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,7 @@ import org.modelio.editors.texteditors.mdd.partitions.TextAttributeManager;
 @objid ("7b564115-2a77-11e2-9fb9-bc305ba4815c")
 public class MDDConfiguration extends SourceViewerConfiguration {
     @objid ("7b564116-2a77-11e2-9fb9-bc305ba4815c")
-    public MDDConfiguration() {
+    public  MDDConfiguration() {
         super();
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.model.factory;
 
 import java.util.ArrayList;
@@ -49,11 +48,10 @@ public final class DelegatingGmNodeFactory implements IGmNodeFactory {
 
     /**
      * Instantiate the factory.
-     * 
      * @param factoryIds identifier of the cascaded factories needed to call the {@link DiagramFactoryRegistry}.
      */
     @objid ("6ea497f0-0ee7-4e63-952a-3fd82a01b2a0")
-    public DelegatingGmNodeFactory(List<String> factoryIds) {
+    public  DelegatingGmNodeFactory(List<String> factoryIds) {
         this.cascadedFactories = new ArrayList<>();
         for (String factoryId : factoryIds) {
             IGmNodeFactory cascadedFactory = DiagramFactoryRegistry.getInstance().getNodeFactory(factoryId);
@@ -61,6 +59,7 @@ public final class DelegatingGmNodeFactory implements IGmNodeFactory {
                 this.cascadedFactories.add(cascadedFactory);
             }
         }
+        
     }
 
     @objid ("6cfe3f0e-f6cf-46d0-b23e-21db3a624342")
@@ -117,7 +116,6 @@ public final class DelegatingGmNodeFactory implements IGmNodeFactory {
 
     /**
      * Register a cascaded factory.
-     * 
      * @param factory the node factory extension.
      */
     @objid ("90116ded-837a-4861-871c-1930dacdaa81")
@@ -125,11 +123,11 @@ public final class DelegatingGmNodeFactory implements IGmNodeFactory {
         if (factory != null && !this.cascadedFactories.contains(factory)) {
             this.cascadedFactories.add(factory);
         }
+        
     }
 
     /**
      * Remove a registered cascaded factory.
-     * 
      * @param factory the node factory extension.
      */
     @objid ("fa8bc1c2-a1b0-4716-bf75-c92346381c90")
@@ -139,13 +137,13 @@ public final class DelegatingGmNodeFactory implements IGmNodeFactory {
 
     /**
      * Instantiate the factory.
-     * 
      * @param factory a cascaded factory.
      */
     @objid ("07312c92-6313-412b-9c6a-a434322bd5eb")
-    public DelegatingGmNodeFactory(IGmNodeFactory factory) {
+    public  DelegatingGmNodeFactory(IGmNodeFactory factory) {
         this.cascadedFactories = new ArrayList<>();
         this.cascadedFactories.add(factory);
+        
     }
 
 }

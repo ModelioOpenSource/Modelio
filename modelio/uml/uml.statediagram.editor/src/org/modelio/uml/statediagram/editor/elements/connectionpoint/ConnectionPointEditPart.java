@@ -17,18 +17,22 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.connectionpoint;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.gef.AccessibleAnchorProvider;
 import org.eclipse.gef.EditPolicy;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeRequestConstants;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeStartCreationEditPolicy;
 import org.modelio.diagram.elements.common.portbordered.IPortEditPart;
 import org.modelio.diagram.elements.core.link.DefaultCreateLinkEditPolicy;
+import org.modelio.diagram.elements.core.link.anchors.fixed.AbstractFixedNodeAnchorProvider;
+import org.modelio.diagram.elements.core.link.anchors.fixed.EllipseFixedNodeAnchorProvider;
+import org.modelio.diagram.elements.core.link.anchors.fixed.IFixedConnectionAnchorFactory;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
+import org.modelio.diagram.elements.core.policies.AnchorsFeedbackEditPolicy;
 import org.modelio.diagram.elements.core.tools.multipoint.CreateMultiPointRequest;
 import org.modelio.diagram.elements.umlcommon.constraint.ConstraintLinkEditPolicy;
 import org.modelio.diagram.styles.core.IStyle;
@@ -42,6 +46,9 @@ import org.modelio.uml.statediagram.editor.elements.connectionpoint.ConnectionPo
  */
 @objid ("f4f920ba-55b6-11e2-877f-002564c97630")
 public class ConnectionPointEditPart extends AbstractNodeEditPart implements IPortEditPart {
+    @objid ("3b27aa18-ff2f-47b3-b7af-1f7386dff6ff")
+    private AbstractFixedNodeAnchorProvider nodeAnchorProvider;
+
     @objid ("f4f920c0-55b6-11e2-877f-002564c97630")
     @Override
     public boolean isSelectable() {
@@ -73,6 +80,7 @@ public class ConnectionPointEditPart extends AbstractNodeEditPart implements IPo
         if (aFigure instanceof ConnectionPointFigure && !switchRepresentationMode()) {
             super.refreshFromStyle(aFigure, style);
         }
+        
     }
 
     @objid ("f4f920d2-55b6-11e2-877f-002564c97630")
@@ -83,6 +91,7 @@ public class ConnectionPointEditPart extends AbstractNodeEditPart implements IPo
         fig.getParent().setConstraint(fig, model.getLayoutData());
         // refresh the figure corresponding to the referenced element
         refreshFigureOfReference((ConnectionPointReference) model.getRelatedElement(), fig);
+        
     }
 
     @objid ("f4f920d5-55b6-11e2-877f-002564c97630")
@@ -91,8 +100,10 @@ public class ConnectionPointEditPart extends AbstractNodeEditPart implements IPo
             fig.setReference(ReferencedConnectionPoint.ENTRYREF);
         } else if (connectionPoint.getExit() != null) {
             fig.setReference(ReferencedConnectionPoint.EXITREF);
-        } else
+        } else {
             fig.setReference(ReferencedConnectionPoint.NOREF);
+        }
+        
     }
 
     @objid ("f4faa759-55b6-11e2-877f-002564c97630")
@@ -109,6 +120,50 @@ public class ConnectionPointEditPart extends AbstractNodeEditPart implements IPo
         
         // Constraint creation
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
+        installEditPolicy(AnchorsFeedbackEditPolicy.class, new AnchorsFeedbackEditPolicy(this.nodeAnchorProvider));
+        
+    }
+
+    @objid ("dbcaf0ac-96d0-45fb-9cdb-ba869bea6ed5")
+    @Override
+    protected AbstractFixedNodeAnchorProvider getNodeAnchorProvider() {
+        if (this.nodeAnchorProvider == null) {
+            this.nodeAnchorProvider = createAnchorProvider(this.figure);
+        }
+        return this.nodeAnchorProvider;
+    }
+
+    @objid ("c56e2181-db1b-4c69-99cc-ed550797004c")
+    @Override
+    protected void setFigure(IFigure figure) {
+        super.setFigure(figure);
+        getNodeAnchorProvider().onFigureMoved(figure);
+        
+    }
+
+    /**
+     * Create the {@link AbstractFixedNodeAnchorProvider} for this edit part.
+     * @param figure the edit part figure.
+     * @return the created anchor provider.
+     */
+    @objid ("beb08347-4505-4532-a7f4-d1b5434563a9")
+    protected AbstractFixedNodeAnchorProvider createAnchorProvider(IFigure figure) {
+        return new EllipseFixedNodeAnchorProvider();
+    }
+
+    /**
+     * Adapt to {@link AccessibleAnchorProvider} or {@link IFixedConnectionAnchorFactory}.
+     */
+    @objid ("4e98e6dc-cacd-4edf-89de-9bae32f56557")
+    @Override
+    public Object getAdapter(Class adapter) {
+        if (AccessibleAnchorProvider.class.isAssignableFrom(adapter)) {
+            return this.nodeAnchorProvider.getAccessibleAnchorProvider(getFigure());
+        } else if (IFixedConnectionAnchorFactory.class.isAssignableFrom(adapter)) {
+            return this.nodeAnchorProvider;
+        }
+        return super.getAdapter(adapter);
     }
 
 }

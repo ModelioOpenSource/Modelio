@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.diagramauto.diagram.creator;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.modelio.api.modelio.diagram.IDiagramGraphic;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
-import org.modelio.api.modelio.diagram.IDiagramLink.LinkRouterKind;
 import org.modelio.api.modelio.diagram.IDiagramLink;
+import org.modelio.api.modelio.diagram.IDiagramLink.LinkRouterKind;
 import org.modelio.api.modelio.diagram.IDiagramNode;
 import org.modelio.diagram.diagramauto.plugin.DiagramAuto;
 import org.modelio.diagram.diagramauto.tools.groups.DgNodeGroup;
@@ -79,13 +78,14 @@ public class UseCaseFocusDiagramTemplate extends AbstractDiagramTemplate {
      * Mandatory default c'tor needed by eclipse when loading the extension point.
      */
     @objid ("6e4174f9-90bb-47d6-b944-e7e60dc502cf")
-    public UseCaseFocusDiagramTemplate() {
+    public  UseCaseFocusDiagramTemplate() {
         super();
         
         this._actorsDgs = new ArrayList<>();
         this._linksDgs = new ArrayList<>();
         this._parentUseCaseDgs = new ArrayList<>();
         this._linkedUseCaseDgs = new ArrayList<>();
+        
     }
 
     @objid ("9f7e7dc8-a3c9-42bd-a042-026136719b2c")
@@ -106,6 +106,7 @@ public class UseCaseFocusDiagramTemplate extends AbstractDiagramTemplate {
         if (main instanceof UseCase) {
             initialUnmasking(dh, (UseCase) main);
         }
+        
     }
 
     @objid ("b53e3108-66c2-45a9-bc15-43d5f6e7eb2c")
@@ -188,6 +189,7 @@ public class UseCaseFocusDiagramTemplate extends AbstractDiagramTemplate {
                 this._linksDgs.add(link);
             }
         }
+        
     }
 
     @objid ("116308bf-987f-4887-926a-b05cca2d2356")
@@ -224,6 +226,7 @@ public class UseCaseFocusDiagramTemplate extends AbstractDiagramTemplate {
                 DiagramAuto.LOG.debug(e);
             }
         }
+        
     }
 
     @objid ("015232ce-21a9-4487-ac8b-ecbaf9264642")
@@ -250,6 +253,7 @@ public class UseCaseFocusDiagramTemplate extends AbstractDiagramTemplate {
         this._linksDgs.clear();
         this._parentUseCaseDgs.clear();
         this._linkedUseCaseDgs.clear();
+        
     }
 
     @objid ("d37d0da0-c7c4-4bc6-ad5e-700fab4a7c82")
@@ -317,6 +321,7 @@ public class UseCaseFocusDiagramTemplate extends AbstractDiagramTemplate {
                     linkDg.setPath(points);
                 }
             }
+            
         }
 
         @objid ("e16c2008-ea7b-45f2-9adf-fbd4a5148b29")

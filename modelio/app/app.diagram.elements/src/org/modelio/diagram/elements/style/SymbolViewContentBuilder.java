@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.style;
 
 import java.util.ArrayList;
@@ -35,10 +34,10 @@ import org.modelio.diagram.elements.plugin.DiagramElements;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.IStyleProvider;
 import org.modelio.diagram.styles.core.NamedStyle;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
-import org.modelio.diagram.styles.core.view.ISymbolViewItem.Choice;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.view.ISymbolViewItem;
+import org.modelio.diagram.styles.core.view.ISymbolViewItem.Choice;
 import org.modelio.diagram.styles.core.view.ISymbolViewModel;
 import org.modelio.diagram.styles.manager.StyleManager;
 import org.modelio.diagram.styles.plugin.DiagramStyles;
@@ -97,13 +96,12 @@ public class SymbolViewContentBuilder {
     public final IEntryFilter structuredModeFilter = filterRepresentationMode(RepresentationMode.STRUCTURED);
 
     @objid ("3ee01fc4-4a3a-47c2-99f2-4d9cfb4572af")
-    public SymbolViewContentBuilder(String label) {
+    public  SymbolViewContentBuilder(String label) {
         this.label = label;
     }
 
     /**
      * Add a symbol view entry at the root level.
-     * 
      * @param item a symbol view entry.
      * @return this instance.
      */
@@ -129,7 +127,6 @@ public class SymbolViewContentBuilder {
 
     /**
      * Change the label
-     * 
      * @param label the label
      * @return this instance.
      */
@@ -141,7 +138,6 @@ public class SymbolViewContentBuilder {
 
     /**
      * Create a filter that test a style key value against the given {@link Predicate}.
-     * 
      * @param key the style key
      * @param valueTest the value test function
      * @return the created filter
@@ -174,7 +170,6 @@ public class SymbolViewContentBuilder {
     /**
      * Create a non configured symbol view entry from a {@link StyleKey}.
      * @param key a {@link StyleKey}.
-     * 
      * @return the created symbol view entry.
      */
     @objid ("dfed236a-5300-4625-a71a-4fe4c7c6b3ff")
@@ -192,7 +187,6 @@ public class SymbolViewContentBuilder {
 
     /**
      * Build a pre configured "Pen & brush" section from all the given style keys.
-     * 
      * @param lineWidth line width style key. Cannot be <i>null</i>.
      * @param lineColor line color style key. Cannot be <i>null</i>.
      * @param fillMode fill mode style key. Cannot be <i>null</i>.
@@ -225,7 +219,6 @@ public class SymbolViewContentBuilder {
 
     /**
      * Create a symbol view entry from a {@link StyleKey}.
-     * 
      * @param key a {@link StyleKey}.
      * @return the created symbol view entry.
      */
@@ -244,7 +237,6 @@ public class SymbolViewContentBuilder {
 
     /**
      * Create a filter that test a style key value against the given value.
-     * 
      * @param key the style key
      * @param requiredValue the accepted value.
      * @return the created filter
@@ -306,11 +298,12 @@ public class SymbolViewContentBuilder {
         private final AbstractEntry parent;
 
         @objid ("4120c2e4-8598-4faf-9445-da56c03ac077")
-        public AbstractEntry(AbstractEntry parent, List<IEntryFilter> filters) {
+        public  AbstractEntry(AbstractEntry parent, List<IEntryFilter> filters) {
             super();
             this.children = new ArrayList<>();
             this.parent = parent;
             this.filters = filters;
+            
         }
 
         @objid ("784650b2-4192-4d80-82a2-e08c51303bae")
@@ -345,9 +338,10 @@ public class SymbolViewContentBuilder {
         private final IStyle diagramStyle;
 
         @objid ("ec638ff6-94fa-4fd4-bc4e-af3941896258")
-        public ChooseStyleEntry(IStyle diagramStyle, AbstractEntry parent, List<IEntryFilter> filters) {
+        public  ChooseStyleEntry(IStyle diagramStyle, AbstractEntry parent, List<IEntryFilter> filters) {
             super(parent, filters);
             this.diagramStyle = diagramStyle;
+            
         }
 
         @objid ("7e83a3d7-d2ed-414e-9c94-c20bbd06f17f")
@@ -448,7 +442,7 @@ public class SymbolViewContentBuilder {
     @objid ("132521e8-5e96-451e-96fb-0b45bffc05c9")
     protected static class ChooseThemeEntry extends AbstractEntry {
         @objid ("69142901-515c-4e08-901e-2d517d0572b3")
-        public ChooseThemeEntry(AbstractEntry parent, List<IEntryFilter> filters) {
+        public  ChooseThemeEntry(AbstractEntry parent, List<IEntryFilter> filters) {
             super(parent, filters);
         }
 
@@ -552,10 +546,11 @@ public class SymbolViewContentBuilder {
         private final String description;
 
         @objid ("fb32aa70-4935-4157-8cfa-6d5c2b8040ba")
-        public LabelEntry(String label, String description, AbstractEntry parent, List<IEntryFilter> filters) {
+        public  LabelEntry(String label, String description, AbstractEntry parent, List<IEntryFilter> filters) {
             super(parent, filters);
             this.label = Objects.requireNonNull(label);
             this.description = Objects.requireNonNull(label);
+            
         }
 
         @objid ("cbc6c0db-910c-4f7d-bcf6-405fbd3fa6d4")
@@ -657,12 +652,13 @@ public class SymbolViewContentBuilder {
         private final List<Choice> possibleValues;
 
         @objid ("1d8a3005-0d1e-4c27-b206-c40e9cd99870")
-        public StyleEntry(StyleKey key, String label, String description, AbstractEntry parent, List<Choice> possibleValues, List<IEntryFilter> filters) {
+        public  StyleEntry(StyleKey key, String label, String description, AbstractEntry parent, List<Choice> possibleValues, List<IEntryFilter> filters) {
             super(parent, filters);
             this.key = Objects.requireNonNull(key);
             this.label = Objects.requireNonNull(label);
             this.description = Objects.requireNonNull(description);
             this.possibleValues = Objects.requireNonNull(possibleValues);
+            
         }
 
         @objid ("552f2e15-9f95-482a-9523-427261e31844")
@@ -799,7 +795,6 @@ public class SymbolViewContentBuilder {
          * Add an item builder to this item children.
          * <p>
          * If {@link #setNextChildrenFilter(IEntryFilter)} has been called before, the given filter will be put on this child.
-         * 
          * @param item the child item to add
          * @return this instance to chain calls.
          */
@@ -832,7 +827,6 @@ public class SymbolViewContentBuilder {
 
         /**
          * Set a filter that will be applied to next elements added with {@link #add(ItemBuilder)}.
-         * 
          * @param filter a filter to put on next children.
          * @return this instance.
          */
@@ -959,7 +953,6 @@ public class SymbolViewContentBuilder {
 
         /**
          * Convert this {@link ItemBuilder} and all its children to a {@link StyleEntry}.
-         * 
          * @param parent the parent {@link StyleEntry} or null.
          * @return the created {@link StyleEntry}.
          */
@@ -1038,11 +1031,12 @@ public class SymbolViewContentBuilder {
         private final IStyle style;
 
         @objid ("dbc1f110-504b-4542-9a1c-b143b2979b37")
-        protected BuiltSymbolModel(IStyle style, String label, IStyleProvider context, List<AbstractEntry> items) {
+        protected  BuiltSymbolModel(IStyle style, String label, IStyleProvider context, List<AbstractEntry> items) {
             this.style = style;
             this.items = items;
             this.context = context;
             this.label = label;
+            
         }
 
         @objid ("174ca4ba-b794-412f-a970-eab8bb91ace6")
@@ -1070,6 +1064,7 @@ public class SymbolViewContentBuilder {
             } else {
                 return Collections.emptyList();
             }
+            
         }
 
         @objid ("5f249fbc-a48c-49e6-8db2-97bd0ef78284")
@@ -1080,6 +1075,7 @@ public class SymbolViewContentBuilder {
             } else {
                 return null;
             }
+            
         }
 
         @objid ("cc6a4c30-cbd1-4798-b247-418ef7534548")
@@ -1096,6 +1092,7 @@ public class SymbolViewContentBuilder {
             } else {
                 return Collections.emptyList();
             }
+            
         }
 
     }

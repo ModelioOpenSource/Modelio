@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
 
 import java.util.ArrayList;
@@ -31,7 +31,6 @@ import org.modelio.metamodel.impl.uml.infrastructure.ElementSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.ModelElementSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.matrix.MatrixValueDefinitionSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.matrix.QueryDefinitionSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.properties.PropertyTableData;
 import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.matrix.MatrixValueDefinition;
@@ -67,7 +66,7 @@ public class PropertyTableSmClass extends ElementSmClass {
     private SmDependency ownerDep;
 
     @objid ("66627003-bc36-4e20-b887-2831bcba0c9f")
-    public PropertyTableSmClass(ISmMetamodelFragment origin) {
+    public  PropertyTableSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -75,6 +74,7 @@ public class PropertyTableSmClass extends ElementSmClass {
     @Override
     public String getName() {
         return "PropertyTable";
+        
     }
 
     @objid ("e50c4cd2-e672-4ce9-9bee-842c4febe897")
@@ -87,18 +87,21 @@ public class PropertyTableSmClass extends ElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return PropertyTable.class;
+        
     }
 
     @objid ("5f6ad5bd-dc1f-466c-a073-64014737ad45")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("279c4c7b-af7c-4685-9cd5-a5c3b9be8d56")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("e111387b-05ef-49d3-b31a-8b7d537ef873")
@@ -130,6 +133,8 @@ public class PropertyTableSmClass extends ElementSmClass {
         this.ownerDep = new OwnerSmDependency();
         this.ownerDep.init("Owner", this, metamodel.getMClass(ModelElement.MQNAME), 0, 1 );
         registerDependency(this.ownerDep);
+        
+        
     }
 
     @objid ("368f337a-da2a-4c00-9c18-e5f33aad35f6")
@@ -178,7 +183,7 @@ public class PropertyTableSmClass extends ElementSmClass {
         private PropertyTableSmClass smClass;
 
         @objid ("fd1056c7-e240-4efc-9f73-9de2648c8c48")
-        public PropertyTableObjectFactory(PropertyTableSmClass smClass) {
+        public  PropertyTableObjectFactory(PropertyTableSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -248,6 +253,7 @@ public class PropertyTableSmClass extends ElementSmClass {
             	this.symetricDep = ((ModelElementSmClass)this.getTarget()).getPropertiesDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -276,6 +282,7 @@ public class PropertyTableSmClass extends ElementSmClass {
             	this.symetricDep = ((MatrixValueDefinitionSmClass)this.getTarget()).getParametersDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -304,6 +311,7 @@ public class PropertyTableSmClass extends ElementSmClass {
             	this.symetricDep = ((QueryDefinitionSmClass)this.getTarget()).getParametersDep();
             }
             return this.symetricDep;
+            
         }
 
     }

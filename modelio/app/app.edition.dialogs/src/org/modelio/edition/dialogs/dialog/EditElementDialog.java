@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.dialogs.dialog;
 
 import java.util.ArrayList;
@@ -100,10 +99,11 @@ public class EditElementDialog extends ModelioDialog implements IModelChangeList
      * @param coreSession the modeling session
      */
     @objid ("e11d9728-db21-4462-8460-cd4e87f90d44")
-    public EditElementDialog(Shell parentShell, List<PanelDescriptor> panelDescriptors, ICoreSession coreSession) {
+    public  EditElementDialog(Shell parentShell, List<PanelDescriptor> panelDescriptors, ICoreSession coreSession) {
         super(parentShell);
         this.coreSession = coreSession;
         this.panelDescriptors = panelDescriptors;
+        
     }
 
     @objid ("8fa7c864-c068-11e1-8c0a-002564c97630")
@@ -201,6 +201,7 @@ public class EditElementDialog extends ModelioDialog implements IModelChangeList
         Rectangle parentBounds = getShell().getParent().getBounds();
         getShell().setLocation(parentBounds.x + parentBounds.width / 2 - size.x / 2,
                 parentBounds.y + parentBounds.height / 2 - size.y / 2);
+        
     }
 
     @objid ("81119e6d-3446-4d79-8566-c5fe980e241f")
@@ -226,11 +227,11 @@ public class EditElementDialog extends ModelioDialog implements IModelChangeList
                 panel.setInput(input);
             }
         });
+        
     }
 
     /**
      * Set the edited element.
-     * 
      * @param editedElement the new edited element.
      */
     @objid ("8fa7c869-c068-11e1-8c0a-002564c97630")
@@ -246,6 +247,7 @@ public class EditElementDialog extends ModelioDialog implements IModelChangeList
             }
         }
         this.editedElement = editedElement;
+        
     }
 
     @objid ("b3cf7cfc-844c-4b19-b82c-6c561580b543")
@@ -271,6 +273,7 @@ public class EditElementDialog extends ModelioDialog implements IModelChangeList
                 panel.setInput(selection);
             }
         });
+        
     }
 
     /**

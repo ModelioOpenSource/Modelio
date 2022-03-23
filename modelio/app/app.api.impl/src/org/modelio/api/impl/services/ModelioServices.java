@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.api.impl.services;
 
 import java.util.HashMap;
 import java.util.Map;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Execute;
@@ -124,6 +123,7 @@ public class ModelioServices implements IModelioServices, IModelioServicesRegist
         
         // Register singleton into the context
         this.eclipseContext.set(IModelioServicesRegistry.class, this);
+        
     }
 
     /**
@@ -224,7 +224,6 @@ public class ModelioServices implements IModelioServices, IModelioServicesRegist
 
     /**
      * On project closing , clear the service cache
-     * 
      * @param closedProject the project being closed.
      */
     @objid ("6b190cd8-644a-4e6b-8d3b-3e938d0a282b")
@@ -234,11 +233,11 @@ public class ModelioServices implements IModelioServices, IModelioServicesRegist
         this.serviceMap = new HashMap<>();
         this.servicesInitialized = false;
         this.gProject = null;
+        
     }
 
     /**
      * On project opening clear the service cache
-     * 
      * @param newProject the project being opened.
      */
     @objid ("9c59d5ce-bfdd-4e4c-a938-e6123da56fb4")
@@ -247,6 +246,7 @@ public class ModelioServices implements IModelioServices, IModelioServicesRegist
     void onProjectOpening(@EventTopic(ModelioEventTopics.PROJECT_OPENING) final GProject newProject) {
         this.servicesInitialized = false;
         this.gProject = newProject;
+        
     }
 
     @objid ("c647d7c7-edeb-492a-abd8-d881be8fcbee")
@@ -259,7 +259,8 @@ public class ModelioServices implements IModelioServices, IModelioServicesRegist
      * C'tor to forbid external instantiation
      */
     @objid ("312c325d-fe5a-4eba-abbc-6c42585b898b")
-    ModelioServices() {
+     ModelioServices() {
+        
     }
 
     @objid ("611abdc6-6a92-48c4-879b-5203115f3efa")
@@ -316,6 +317,7 @@ public class ModelioServices implements IModelioServices, IModelioServicesRegist
         this.serviceMap.put(IUiToolkit.class, uiToolkit);
         
         this.servicesInitialized = true;
+        
     }
 
     @objid ("a8c35b3b-7e0b-4a66-b629-ff31278242c8")

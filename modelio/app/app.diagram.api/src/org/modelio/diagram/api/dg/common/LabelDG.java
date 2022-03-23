@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.api.dg.common;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,7 +34,7 @@ public class LabelDG extends LeafNodeDG {
      * @param node The gm node represented by this class.
      */
     @objid ("31d3f7a6-becb-4ed2-9a49-fbef1541faae")
-    public LabelDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  LabelDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 
@@ -52,6 +51,7 @@ public class LabelDG extends LeafNodeDG {
         
         setSize(newBounds.width, newBounds.height);
         setLocation(newBounds.x, newBounds.y);
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.plugin;
 
 import java.net.URL;
@@ -58,20 +57,20 @@ import org.modelio.bpmn.diagram.editor.elements.bpmnservicetask.GmBpmnServiceTas
 import org.modelio.bpmn.diagram.editor.elements.bpmnstartevent.GmBpmnStartEventImageStyleKeys;
 import org.modelio.bpmn.diagram.editor.elements.bpmnstartevent.GmBpmnStartEventSimpleStyleKeys;
 import org.modelio.bpmn.diagram.editor.elements.bpmnstartevent.GmBpmnStartEventStructuredStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnGatewayImageStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnGatewaySimpleStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnGatewayStructuredStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnSubProcessImageStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnSubProcessSimpleStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnSubProcessStructuredStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnTaskImageStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnTaskSimpleStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnTaskStructuredStyleKeys;
 import org.modelio.bpmn.diagram.editor.elements.diagrams.GmBpmnDiagramStyleKeys;
 import org.modelio.bpmn.diagram.editor.elements.factories.BpmnEditPartFactory;
 import org.modelio.bpmn.diagram.editor.elements.factories.BpmnGmLinkFactory;
 import org.modelio.bpmn.diagram.editor.elements.factories.BpmnGmNodeFactory;
 import org.modelio.bpmn.diagram.editor.elements.participant.ParticipantStyleKeys;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnGatewayImageStyleKeys;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnGatewaySimpleStyleKeys;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnGatewayStructuredStyleKeys;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnSubProcessImageStyleKeys;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnSubProcessSimpleStyleKeys;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnSubProcessStructuredStyleKeys;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnTaskImageStyleKeys;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnTaskSimpleStyleKeys;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnTaskStructuredStyleKeys;
 import org.modelio.diagram.editor.plugin.IDiagramConfigurerRegistry;
 import org.modelio.diagram.editor.processor.AbstractDiagramInitializationProcessor;
 import org.modelio.diagram.elements.core.model.factory.DiagramFactoryRegistry;
@@ -93,6 +92,7 @@ public class BpmnProcessor extends AbstractDiagramInitializationProcessor {
         configurerRegistry.registerDiagramConfigurer(BpmnCollaborationDiagram.MNAME, null, new BpmnCollaborationDiagramConfigurer());
         configurerRegistry.registerDiagramConfigurer(BpmnProcessDesignDiagram.MNAME, null, new BpmnProcessDesignDiagramConfigurer());
         configurerRegistry.registerDiagramConfigurer(BpmnSubProcessDiagram.MNAME, null, new BpmnSubProcessDiagramConfigurer());
+        
     }
 
     @objid ("c618fbf3-59a6-11e2-ae45-002564c97630")
@@ -103,6 +103,7 @@ public class BpmnProcessor extends AbstractDiagramInitializationProcessor {
         factoryRegistry.registerDiagramFactories(BpmnProcessDesignDiagram.MNAME, new BpmnGmNodeFactory(), new BpmnGmLinkFactory(), new BpmnEditPartFactory());
         
         factoryRegistry.registerDiagramFactories(BpmnSubProcessDiagram.MNAME, new BpmnGmNodeFactory(), new BpmnGmLinkFactory(), new BpmnEditPartFactory());
+        
     }
 
     @objid ("c618fbf5-59a6-11e2-ae45-002564c97630")
@@ -164,6 +165,7 @@ public class BpmnProcessor extends AbstractDiagramInitializationProcessor {
         factoryStyle.declareProvider(GmBpmnSendTaskStructuredStyleKeys.class);
         factoryStyle.declareProvider(GmBpmnServiceTaskStructuredStyleKeys.class);
         factoryStyle.declareProvider(GmBpmnReceiveTaskStructuredStyleKeys.class);
+        
     }
 
     @objid ("c618fbf7-59a6-11e2-ae45-002564c97630")
@@ -176,6 +178,7 @@ public class BpmnProcessor extends AbstractDiagramInitializationProcessor {
         loader.load(url);
         
         factoryStyle.injectDefaultValues(loader.getStyleProperties());
+        
     }
 
 }

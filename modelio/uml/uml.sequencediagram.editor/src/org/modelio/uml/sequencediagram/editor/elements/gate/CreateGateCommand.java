@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.gate;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.gef.commands.Command;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
@@ -62,7 +61,6 @@ public class CreateGateCommand extends Command {
 
     /**
      * Creates a node creation command.
-     * 
      * @param parentElement The parent Interaction of the Gate to create
      * @param parentNode The parent node
      * @param context Details on the MObject and/or the node to create
@@ -70,12 +68,13 @@ public class CreateGateCommand extends Command {
      * @param time the time of the gate.
      */
     @objid ("d8f2c027-55b6-11e2-877f-002564c97630")
-    public CreateGateCommand(Interaction parentElement, GmCompositeNode parentNode, ModelioCreationContext context, Object constraint, final int time) {
+    public  CreateGateCommand(Interaction parentElement, GmCompositeNode parentNode, ModelioCreationContext context, Object constraint, final int time) {
         this.parentNode = parentNode;
         this.parentElement = parentElement;
         this.context = context;
         this.constraint = constraint;
         this.time = time;
+        
     }
 
     @objid ("d8f2c036-55b6-11e2-877f-002564c97630")
@@ -123,11 +122,11 @@ public class CreateGateCommand extends Command {
         
         // Show the new element in the diagram (ie create its Gm )
         diagram.unmask(this.parentNode, newElement, this.constraint);
+        
     }
 
     /**
      * Get the initial layout constraint.
-     * 
      * @return the initial layout constraint.
      */
     @objid ("d8f2c039-55b6-11e2-877f-002564c97630")
@@ -137,7 +136,6 @@ public class CreateGateCommand extends Command {
 
     /**
      * Get the creation context (parent element, parent dependency, stereotype).
-     * 
      * @return the creation context.
      */
     @objid ("d8f2c03e-55b6-11e2-877f-002564c97630")
@@ -147,7 +145,6 @@ public class CreateGateCommand extends Command {
 
     /**
      * Get the parent model element.
-     * 
      * @return the parent model element.
      */
     @objid ("d8f2c045-55b6-11e2-877f-002564c97630")
@@ -157,7 +154,6 @@ public class CreateGateCommand extends Command {
 
     /**
      * Get the parent graphic node.
-     * 
      * @return the parent graphic node.
      */
     @objid ("d8f446bf-55b6-11e2-877f-002564c97630")

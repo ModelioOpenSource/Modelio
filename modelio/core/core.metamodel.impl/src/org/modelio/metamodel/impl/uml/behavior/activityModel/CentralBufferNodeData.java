@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,7 +30,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 @objid ("002c7f7c-c4bf-1fd8-97fe-001ec947cd2a")
 public class CentralBufferNodeData extends ObjectNodeData {
     @objid ("42136929-96e0-4f83-bdcc-fc69d1b9c9d5")
-    public CentralBufferNodeData(CentralBufferNodeSmClass smClass) {
+    public  CentralBufferNodeData(CentralBufferNodeSmClass smClass) {
         super(smClass);
     }
 

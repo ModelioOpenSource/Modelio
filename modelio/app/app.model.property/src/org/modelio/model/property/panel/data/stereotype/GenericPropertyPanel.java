@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel.data.stereotype;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -60,30 +59,30 @@ public class GenericPropertyPanel implements IPropertyPanel {
 
     /**
      * Create a new property panel for a ModuleComponent.
-     * 
      * @param parent a widget which will be the parent of the new instance (cannot be null)
      * @param editedElement the element currently edited in the Element's view.
      * @param module the module to load the {@link TagType} & {@link PropertyDefinition} list from.
      */
     @objid ("28c06912-54ec-494f-8083-06042c8e6af7")
-    public GenericPropertyPanel(final Composite parent, final ModelElement editedElement, final ModuleComponent module) {
+    public  GenericPropertyPanel(final Composite parent, final ModelElement editedElement, final ModuleComponent module) {
         this.editedElement = editedElement;
         this.module = module;
         createGUI(parent);
+        
     }
 
     /**
      * Create a new property panel for a ModuleComponent.
-     * 
      * @param parent a widget which will be the parent of the new instance (cannot be null)
      * @param editedElement the element currently edited in the Element's view.
      * @param stereotype the stereotype to load the {@link TagType} & {@link PropertyDefinition} list from.
      */
     @objid ("7485b5d5-88be-4d90-91f3-b5880f810985")
-    public GenericPropertyPanel(final Composite parent, final ModelElement editedElement, final Stereotype stereotype) {
+    public  GenericPropertyPanel(final Composite parent, final ModelElement editedElement, final Stereotype stereotype) {
         this.editedElement = editedElement;
         this.stereotype = stereotype;
         createGUI(parent);
+        
     }
 
     @objid ("3b6d71c8-d929-4ef9-a8ab-c3d1db678fdc")
@@ -95,6 +94,7 @@ public class GenericPropertyPanel implements IPropertyPanel {
         
         // Create the nattable
         this.tableViewer = new PropertyNatTableViewer(this.comp);
+        
     }
 
     @objid ("6b78c5f6-5d2c-45d1-960b-05987605066b")
@@ -126,6 +126,7 @@ public class GenericPropertyPanel implements IPropertyPanel {
             this.comp.layout(true);
             this.comp.redraw();
         }
+        
     }
 
     @objid ("2d945f51-609d-47dc-8c96-66066eddd1c2")
@@ -154,6 +155,7 @@ public class GenericPropertyPanel implements IPropertyPanel {
         
         this.tableViewer.setContext(newInput.getContext());
         this.tableViewer.setInput(dataModel);
+        
     }
 
     @objid ("7865aacb-4907-4288-8e67-c38a5dd26ac4")
@@ -167,6 +169,7 @@ public class GenericPropertyPanel implements IPropertyPanel {
     public void stop() {
         setInput(null);
         disableGUI();
+        
     }
 
 }

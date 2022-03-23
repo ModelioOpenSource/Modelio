@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.engine.impl;
 
 import java.util.HashMap;
@@ -65,6 +64,7 @@ public class CheckProgram {
         
         // Add a LIFO entry for the element
         this.lifo.addFirst(elementTocheck);
+        
     }
 
     @objid ("3d6b0ea9-de44-4bea-9709-55cc2f081f0c")
@@ -101,6 +101,7 @@ public class CheckProgram {
     public synchronized void clearCleck() {
         this.lifo.clear();
         this.nPostedChecks = 0;
+        
     }
 
 }

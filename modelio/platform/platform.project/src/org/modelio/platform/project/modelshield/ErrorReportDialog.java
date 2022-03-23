@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.project.modelshield;
 
 import java.text.MessageFormat;
@@ -57,13 +56,14 @@ public class ErrorReportDialog extends IconAndMessageDialog {
     private String htmlErrorReport;
 
     @objid ("4fc27ce6-7554-4419-aa90-99f8fdeb90cb")
-    protected ErrorReportDialog(Shell parentShell, String dialogTitle, String message, String htmlErrorReport) {
+    protected  ErrorReportDialog(Shell parentShell, String dialogTitle, String message, String htmlErrorReport) {
         super(parentShell);
         setShellStyle(getShellStyle() | SWT.RESIZE);
         
         this.title = (dialogTitle == null) ? "" : dialogTitle;
         this.message = (message == null) ? "" : message;
         this.htmlErrorReport = htmlErrorReport;
+        
     }
 
     @objid ("14f04041-5563-4339-9548-9ee647cc9931")
@@ -114,7 +114,6 @@ public class ErrorReportDialog extends IconAndMessageDialog {
      * Open an audit report dialog.
      * <p>
      * The method returns immediately and the dialog is not modal.
-     * 
      * @param dialogTitle dialog title
      * @param message dialog message displayed just before the report.
      * @param errorReport the audit report to display.
@@ -133,6 +132,7 @@ public class ErrorReportDialog extends IconAndMessageDialog {
             // The report dialog can open later
             display.asyncExec(() -> new ErrorReportDialog(display.getActiveShell(), dialogTitle, message, htmlReport).open());
         });
+        
     }
 
     @objid ("4fc80fb1-3f2e-46b2-9369-33fbf1dc35bd")
@@ -182,6 +182,7 @@ public class ErrorReportDialog extends IconAndMessageDialog {
                 AppProjectCore.LOG.warning("Missing i18n for " + key);
                 return "!" + key + "!";
             }
+            
         }
 
         @objid ("6e89096d-6b66-440f-a4c4-e8d3505dfe54")
@@ -193,6 +194,7 @@ public class ErrorReportDialog extends IconAndMessageDialog {
                 AppProjectCore.LOG.warning("Missing i18n for " + key);
                 return "!" + key + "!";
             }
+            
         }
 
         @objid ("9def5e99-268d-40e3-8525-0a1b2eec0399")

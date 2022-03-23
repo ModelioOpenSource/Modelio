@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.umlcommon.dependency;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -56,6 +55,7 @@ public class DependencyEditPart extends LinkEditPart {
         
         // Not an UML element, it can no longer be the target of constraints
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, null);
+        
     }
 
 }

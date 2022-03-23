@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.form;
 
 import java.util.ArrayList;
@@ -65,18 +64,16 @@ public abstract class AbstractFieldFactory implements IFieldFactory {
 
     /**
      * Initialize the field factory.
-     * 
      * @param moduleContext The module context
      * @since 3.8 : a module context is now needed
      */
     @objid ("87fdbd9b-17a3-4f7f-9dce-7a2c03c2f1c8")
-    public AbstractFieldFactory(IModuleContext moduleContext) {
+    public  AbstractFieldFactory(IModuleContext moduleContext) {
         this.moduleContext = Objects.requireNonNull(moduleContext);
     }
 
     /**
      * Create a form field for a specific {@link PropertyDefinition}.
-     * 
      * @param parent a widget which will be the parent of the new field instance (cannot be null)
      * @param input the element to build the form field for.
      */
@@ -170,7 +167,6 @@ public abstract class AbstractFieldFactory implements IFieldFactory {
 
     /**
      * Create a form field from a specific {@link Stereotype}.
-     * 
      * @param parent a widget which will be the parent of the new field instance (cannot be null)
      * @param input the element to build the form field for.
      */
@@ -215,7 +211,6 @@ public abstract class AbstractFieldFactory implements IFieldFactory {
 
     /**
      * Create a form field from a specific {@link MAttribute}.
-     * 
      * @param parent a widget which will be the parent of the new field instance (cannot be null)
      * @param input the element to build the form field for.
      */
@@ -310,7 +305,6 @@ public abstract class AbstractFieldFactory implements IFieldFactory {
 
     /**
      * Create a form field page.
-     * 
      * @param id the id
      * @param label the page label
      * @param image the page icon
@@ -324,7 +318,6 @@ public abstract class AbstractFieldFactory implements IFieldFactory {
 
     /**
      * Get the module context whose service may be used to build fields.
-     * 
      * @return the module context
      * @since 3.8
      */
@@ -335,7 +328,6 @@ public abstract class AbstractFieldFactory implements IFieldFactory {
 
     /**
      * Setup default layout for a {@link IField}.
-     * 
      * @param aField a form field
      * @since 3.7.1
      */
@@ -344,6 +336,7 @@ public abstract class AbstractFieldFactory implements IFieldFactory {
         final GridData ld_name = new GridData(SWT.FILL, SWT.CENTER, true, false);
         ld_name.widthHint = 600;
         aField.getComposite().setLayoutData(ld_name);
+        
     }
 
     /**
@@ -363,11 +356,12 @@ public abstract class AbstractFieldFactory implements IFieldFactory {
         private final Image image;
 
         @objid ("180a4175-5472-4ae5-956f-26cd01bc5289")
-        public BasicPage(int id, String label, Image image) {
+        public  BasicPage(int id, String label, Image image) {
             super();
             this.id = id;
             this.label = label;
             this.image = image;
+            
         }
 
         @objid ("488499b3-2fc4-4c66-ab0a-4f95e442bf42")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.extensions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -70,7 +69,6 @@ public class ObsoleteFractionalConnectionLocator extends FractionalConnectionLoc
 
     /**
      * Construct a locator with U and V computed from the given point.
-     * 
      * @param c The Connection
      * @param fraction distance from the starting point of the line as a fraction of the line length.
      * @param figLocation The figure location, in the connection coordinates
@@ -101,19 +99,17 @@ public class ObsoleteFractionalConnectionLocator extends FractionalConnectionLoc
 
     /**
      * Constructs a locator.
-     * 
      * @param c The Connection
      * @param fraction distance from the starting point of the line as a fraction of the line length.
      * @param towardTarget <code>true</code> to orient toward the target, <code>false</code> for the source
      */
     @objid ("ef15aed7-427a-40e2-8bf5-28ae767bbc3f")
-    public ObsoleteFractionalConnectionLocator(Connection c, final double fraction, final boolean towardTarget) {
+    public  ObsoleteFractionalConnectionLocator(Connection c, final double fraction, final boolean towardTarget) {
         super(c, fraction, towardTarget);
     }
 
     /**
      * Get the position where the given figure center would be located if {@link #relocate(IFigure)} was called.
-     * 
      * @param target The figure to relocate
      * @return The figure center location in the figure coordinates
      */
@@ -136,7 +132,6 @@ public class ObsoleteFractionalConnectionLocator extends FractionalConnectionLoc
 
     /**
      * Returns how/where to anchor the label to the connection
-     * 
      * @param points The points in the Connection
      * @param referencePoint Will contain the reference point location, in the connection coordinates.
      * @param orientationPoint Will contain a point used in association with referencePoint above to define the label orientation
@@ -171,6 +166,7 @@ public class ObsoleteFractionalConnectionLocator extends FractionalConnectionLoc
         }
         
         throw new IllegalStateException("Failed to compute location");
+        
     }
 
     /**
@@ -227,11 +223,11 @@ public class ObsoleteFractionalConnectionLocator extends FractionalConnectionLoc
         
             target.setBounds(computeNewBounds(prefSize, referencePoint));
         }
+        
     }
 
     /**
      * Distance from the reference point towards the target
-     * 
      * @param uDistance The distance from the reference point towards the target
      */
     @objid ("76d53b99-cba9-4fe6-97b9-09095eebf09e")
@@ -242,7 +238,6 @@ public class ObsoleteFractionalConnectionLocator extends FractionalConnectionLoc
 
     /**
      * Distance from the connection.
-     * 
      * @param vDistance The distance from the connection
      */
     @objid ("8cc4304a-7e05-484b-9092-245575930da3")
@@ -253,7 +248,6 @@ public class ObsoleteFractionalConnectionLocator extends FractionalConnectionLoc
 
     /**
      * Calculates the slope of the line segment (y=ax+b)
-     * 
      * @param start start of segment
      * @param end end of segment
      * @return <code>float</code> the slope of the segment. If the slope is not defined such as when the line segment is vertical, then the constant <code>BIGSLOPE</code> is returned to avoid divide by zero errors.
@@ -268,7 +262,6 @@ public class ObsoleteFractionalConnectionLocator extends FractionalConnectionLoc
 
     /**
      * Recalculate the location of the figure according to its desired position relative to the center point.
-     * 
      * @param size The size of the figure
      * @param center The center point
      * @return The new bounds
@@ -284,7 +277,6 @@ public class ObsoleteFractionalConnectionLocator extends FractionalConnectionLoc
 
     /**
      * Returns Locator's reference point in absolute coordinates.
-     * 
      * @return The reference point
      */
     @objid ("11b25691-959d-43fd-bc58-0bc63db399fb")
@@ -300,7 +292,6 @@ public class ObsoleteFractionalConnectionLocator extends FractionalConnectionLoc
     /**
      * Convert {@link #uDistance} and {@link #vDistance} to XY coordinates. The given points give the vector used to
      * compute the rotation.
-     * 
      * @param origin vector origin in the connection coordinates
      * @param direction vector direction in the connection coordinates
      * @return The converted coordinates in the connection coordinates.
@@ -320,7 +311,6 @@ public class ObsoleteFractionalConnectionLocator extends FractionalConnectionLoc
 
     /**
      * Get the length of the given point list.
-     * 
      * @param points The point list
      * @return the length
      */
@@ -342,7 +332,6 @@ public class ObsoleteFractionalConnectionLocator extends FractionalConnectionLoc
 
     /**
      * Gets the point on the line segment at the given distance away from the key point.
-     * 
      * @param theDistance <code>long</code> distance along the line
      * @param start start of the segment
      * @param end end of the segment
@@ -405,7 +394,6 @@ public class ObsoleteFractionalConnectionLocator extends FractionalConnectionLoc
 
     /**
      * Calculate the figure size from this locator
-     * 
      * @param target the figure to relocate.
      * @return the figure size to set.
      */
@@ -418,7 +406,6 @@ public class ObsoleteFractionalConnectionLocator extends FractionalConnectionLoc
      * Get the width constraint.
      * <p>
      * -1 means no constraint.
-     * 
      * @return the width constraint.
      */
     @objid ("0d373038-97ca-43e8-bbc3-8ba0253c088c")
@@ -431,7 +418,6 @@ public class ObsoleteFractionalConnectionLocator extends FractionalConnectionLoc
      * Set the width constraint.
      * <p>
      * -1 means no constraint.
-     * 
      * @param fixedWidth the width constraint.
      */
     @objid ("c5464ab7-68a9-4733-8cad-b2f31cbedd39")
@@ -444,7 +430,6 @@ public class ObsoleteFractionalConnectionLocator extends FractionalConnectionLoc
      * Get the height constraint.
      * <p>
      * -1 means no constraint.
-     * 
      * @return the height constraint.
      */
     @objid ("5a590661-9d37-427d-820a-62e9cc3e7cf5")
@@ -457,7 +442,6 @@ public class ObsoleteFractionalConnectionLocator extends FractionalConnectionLoc
      * Set the height constraint.
      * <p>
      * -1 means no constraint.
-     * 
      * @param fixedHeight the height constraint.
      */
     @objid ("1500fff3-698b-408d-b91b-89381bc850b7")

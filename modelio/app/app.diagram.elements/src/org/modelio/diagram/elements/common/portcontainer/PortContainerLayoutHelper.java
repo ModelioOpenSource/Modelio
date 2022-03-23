@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.portcontainer;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -48,16 +47,17 @@ public class PortContainerLayoutHelper {
      * @param mainNodeConstraint the main node bounds relative to the container top left.
      */
     @objid ("4d0d6c77-b1bf-42a6-a70f-43a3775493e7")
-    public PortContainerLayoutHelper(Rectangle portContainerBounds, Rectangle mainNodeConstraint) {
+    public  PortContainerLayoutHelper(Rectangle portContainerBounds, Rectangle mainNodeConstraint) {
         this.portContainerBounds = portContainerBounds;
         this.mainNodeConstraint = mainNodeConstraint;
+        
     }
 
     /**
      * @param portContainerFigure a port container figure
      */
     @objid ("934b4119-65eb-47db-a78f-eefb7db23856")
-    public PortContainerLayoutHelper(PortContainerFigure portContainerFigure) {
+    public  PortContainerLayoutHelper(PortContainerFigure portContainerFigure) {
         PortContainerLayout layoutManager = portContainerFigure.getPortContainerLayout();
         
         this.portContainerBounds = portContainerFigure.getBounds();
@@ -68,13 +68,13 @@ public class PortContainerLayoutHelper {
             // preferred size at location (0, 0).
             this.mainNodeConstraint = new Rectangle().setSize(portContainerFigure.getMainNodeFigure().getPreferredSize());
         }
+        
     }
 
     /**
      * Complete the given rectangle with the child preferred size if width or height is not specified.
      * <p>
      * Warn: The given rectangle is directly modified ! The already specified width and height are passed as hints to get preferred size.
-     * 
      * @param init the rectangle to complete
      * @param child the figure
      * @return the same rectangle, modified or not.
@@ -96,7 +96,6 @@ public class PortContainerLayoutHelper {
 
     /**
      * Returned a "fixed" copy of the requested bounds on the reference border.
-     * 
      * @param child the child figure.
      * @param portConstraint the constraint.
      * @return the fixed bounds.
@@ -186,7 +185,6 @@ public class PortContainerLayoutHelper {
      * Determine which border is closest of the center of the passed rectangle.
      * <p>
      * The rectangle must be relative to the {@link #getLayoutOrigin(IFigure)}.
-     * 
      * @param rectConstraint the bounds to test.
      * @return the border closest to the center of the passed rectangle.
      */
@@ -201,7 +199,6 @@ public class PortContainerLayoutHelper {
      * Determine which border is closest of the center of the passed rectangle.
      * <p>
      * The rectangle must be in the port container figure coordinates.
-     * 
      * @param bounds the bounds to test.
      * @return the border closest to the center of the passed rectangle.
      */
@@ -224,11 +221,11 @@ public class PortContainerLayoutHelper {
         } else {
             portConstraint.setReferenceBorder(determineReferenceBorder(portConstraint.getRequestedBounds()));
         }
+        
     }
 
     /**
      * Returns the origin for the given figure.
-     * 
      * @param parent the figure whose origin is requested
      * @return the origin
      */
@@ -239,7 +236,6 @@ public class PortContainerLayoutHelper {
 
     /**
      * Computes the bounds in coordinates relative to the {@link #portContainerBounds parent top left} that covers every children.
-     * 
      * @param container the figure for which to compute preferred rectangle.
      * @param layoutManager the layout manager to use
      * @return the bounds in coordinates relative to the parent top left that covers every children.
@@ -277,7 +273,6 @@ public class PortContainerLayoutHelper {
 
     /**
      * Convert a port layout constraint to bounds the figure should take. The bounds are relative to the container origin.
-     * 
      * @param childConstraint the constraint : Rectangle, Integer or PortConstraint.
      * @param child the child figure
      * @return the new child figure coords.
@@ -303,7 +298,6 @@ public class PortContainerLayoutHelper {
 
     /**
      * Computes the initial location of a satellite based on the bounds of the main node, a placement constraint expressed as a value from {@link PositionConstants} and the preferred size of the satellite.
-     * 
      * @param mainNodeBounds the bounds of the main node.
      * @param placement a placement constraint expressed as a value from {@link PositionConstants}. Can be either {@link PositionConstants#SOUTH_EAST}, {@link PositionConstants#SOUTH}, {@link PositionConstants#SOUTH_WEST}, {@link PositionConstants#WEST},
      * {@link PositionConstants#NORTH_WEST}, {@link PositionConstants#NORTH}, {@link PositionConstants#NORTH_EAST} or {@link PositionConstants#EAST} which is the default.
@@ -340,11 +334,11 @@ public class PortContainerLayoutHelper {
         default:
             return mainNodeBounds.getRight().translate(0, -childPrefSize.height / 2);
         }
+        
     }
 
     /**
      * Converts an Integer (interpreted as a value from {@link PositionConstants} to a Rectangle.
-     * 
      * @param child the child figure
      * @param constraint its layout constraint
      * @return the new rectangle constraint.
@@ -372,7 +366,6 @@ public class PortContainerLayoutHelper {
     /**
      * Determine which border is closest of the passed point.
      * @param container the reference container
-     * 
      * @param requestedCenter the point to test.
      * @return the border closest to the center of the passed rectangle.
      */
@@ -410,6 +403,7 @@ public class PortContainerLayoutHelper {
             // W quadrant
             return Border.West;
         }
+        
     }
 
     @objid ("c51f01b3-4622-41bb-b17c-207e950a7b0e")
@@ -419,7 +413,6 @@ public class PortContainerLayoutHelper {
 
     /**
      * Convert a {@link Border} constraint for a child figure to a {@link PortConstraint} with default values.
-     * 
      * @param child a child figure to layout as port
      * @param border a border
      * @return a default port constraint.
@@ -438,7 +431,6 @@ public class PortContainerLayoutHelper {
      * Complete the given rectangle with the child preferred size if width or height is not specified.
      * <p>
      * If the rectangle is already complete it is returned as is. In the other case a completed copy is returned. The already specified width and height are then passed as hints to get preferred size.
-     * 
      * @param init the rectangle to complete
      * @param child the figure
      * @return the same rectangle or a completed copy.
@@ -461,10 +453,9 @@ public class PortContainerLayoutHelper {
 
     /**
      * Get the border on which a figure with the given constraint is.
-     * 
      * @param constraint the {@link PortConstraint} or {@link PortConstraint.Border}.
      * @return the {@link PortConstraint.Border}
-     * @throws java.lang.ClassCastException if the constraint is not a port or border.
+     * @throws ClassCastException if the constraint is not a port or border.
      */
     @objid ("f87cccd3-6b7c-441d-a866-c241b1dab3d4")
     public static org.modelio.diagram.elements.common.portcontainer.PortConstraint.Border getReferenceBorder(Object constraint) throws ClassCastException {
@@ -475,6 +466,7 @@ public class PortContainerLayoutHelper {
         } else {
             return ((PortConstraint) constraint).getReferenceBorder();
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.model.core;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,9 +33,10 @@ public class DiagramRef implements IAdaptable {
     private final DiagramSet referenceOwner;
 
     @objid ("0033c05c-0d4f-10c6-842f-001ec947cd2a")
-    public DiagramRef(AbstractDiagram referencedDiagram, DiagramSet referenceOwner) {
+    public  DiagramRef(AbstractDiagram referencedDiagram, DiagramSet referenceOwner) {
         this.referencedDiagram = referencedDiagram;
         this.referenceOwner = referenceOwner;
+        
     }
 
     @objid ("0033f16c-0d4f-10c6-842f-001ec947cd2a")

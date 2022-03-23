@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,21 +49,19 @@ public class StateMachinePropertyModel extends AbstractPropertyModel<StateMachin
      */
     @objid ("8c1e6f70-d176-432a-9aef-b1f84eba3af4")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name", "Kind",
-			"IsReentrant" };
+    			"IsReentrant" };
 
     /**
      * Create a new <i>StateMachine</i> data model from an <i>StateMachine</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("e078f6e4-68e4-430d-88e9-8d800c03f7c7")
-    public StateMachinePropertyModel(StateMachine theEditedElement) {
+    public  StateMachinePropertyModel(StateMachine theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("78269912-14f3-4802-bb40-ccc35eb0e524")
@@ -75,7 +72,6 @@ public class StateMachinePropertyModel extends AbstractPropertyModel<StateMachin
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("88c5ece1-43a7-4254-929d-9e09f09fa60c")
@@ -88,7 +84,6 @@ public class StateMachinePropertyModel extends AbstractPropertyModel<StateMachin
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -114,6 +109,7 @@ public class StateMachinePropertyModel extends AbstractPropertyModel<StateMachin
         default:
             return null;
         }
+        
     }
 
     /**
@@ -123,7 +119,6 @@ public class StateMachinePropertyModel extends AbstractPropertyModel<StateMachin
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -150,13 +145,13 @@ public class StateMachinePropertyModel extends AbstractPropertyModel<StateMachin
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -187,6 +182,7 @@ public class StateMachinePropertyModel extends AbstractPropertyModel<StateMachin
         default:
             return;
         }
+        
     }
 
 }

@@ -17,11 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Objects;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
@@ -54,11 +54,10 @@ public abstract class GmAbstractLinkAnchor implements IPersistent {
 
     /**
      * Creates a link anchor.
-     * 
      * @param location The anchor reference point location relative to the anchored node location.
      */
     @objid ("800dabbf-1dec-11e2-8cad-001ec947c8cc")
-    public GmAbstractLinkAnchor(Dimension location) {
+    protected  GmAbstractLinkAnchor(Dimension location) {
         this.location = location;
     }
 
@@ -66,12 +65,12 @@ public abstract class GmAbstractLinkAnchor implements IPersistent {
      * Constructor for deserialization.
      */
     @objid ("800dabc5-1dec-11e2-8cad-001ec947c8cc")
-    public GmAbstractLinkAnchor() {
+    protected  GmAbstractLinkAnchor() {
+        
     }
 
     /**
      * Get the anchor reference point location.
-     * 
      * @return the anchor reference point location.
      */
     @objid ("800dabc8-1dec-11e2-8cad-001ec947c8cc")
@@ -96,11 +95,11 @@ public abstract class GmAbstractLinkAnchor implements IPersistent {
         } else {
             this.location = (Dimension) o;
         }
+        
     }
 
     /**
      * Set the anchor reference point location relative to the node.
-     * 
      * @param location the anchor reference point location.
      */
     @objid ("80100de9-1dec-11e2-8cad-001ec947c8cc")
@@ -110,6 +109,7 @@ public abstract class GmAbstractLinkAnchor implements IPersistent {
         for (IGmAnchorListener l : this.links) {
             l.fireAnchorMoved(this);
         }
+        
     }
 
     @objid ("80100def-1dec-11e2-8cad-001ec947c8cc")
@@ -120,7 +120,6 @@ public abstract class GmAbstractLinkAnchor implements IPersistent {
 
     /**
      * Called by the link on deserialization
-     * 
      * @param l a link
      */
     @objid ("80100df3-1dec-11e2-8cad-001ec947c8cc")
@@ -146,6 +145,28 @@ public abstract class GmAbstractLinkAnchor implements IPersistent {
     @Override
     public String toString() {
         return getClass().getSimpleName()+"[location="+getLocation()+", "+this.links.size()+" listener(s) ]";
+    }
+
+    @objid ("a3deecb9-97fb-4381-9a3c-b1bfdddd11a4")
+    @Override
+    public int hashCode() {
+        return Objects.hash(getClass(), this.location);
+    }
+
+    @objid ("f0ab53f2-57b5-47d7-bbf1-f050798d912b")
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        GmAbstractLinkAnchor other = (GmAbstractLinkAnchor) obj;
+        return Objects.equals(this.location, other.location);
     }
 
 }

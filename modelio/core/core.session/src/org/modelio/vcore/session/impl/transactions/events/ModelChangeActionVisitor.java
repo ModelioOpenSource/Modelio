@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.transactions.events;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,9 +42,10 @@ class ModelChangeActionVisitor implements IActionVisitor {
     private StatusChangeEvent statusEvent;
 
     @objid ("00d00074-0000-08b7-0000-000000000000")
-    public ModelChangeActionVisitor(ModelChangeEvent event, StatusChangeEvent statusEvent) {
+    public  ModelChangeActionVisitor(ModelChangeEvent event, StatusChangeEvent statusEvent) {
         this.event = event;
         this.statusEvent = statusEvent;
+        
     }
 
     @objid ("00d00074-0000-089b-0000-000000000000")
@@ -55,6 +55,7 @@ class ModelChangeActionVisitor implements IActionVisitor {
         for (IAction a : tr.getActions()) {
             a.accept(this);
         }
+        
     }
 
     @objid ("00d00074-0000-089f-0000-000000000000")
@@ -67,6 +68,7 @@ class ModelChangeActionVisitor implements IActionVisitor {
         // A created element cannot have already been created, thereby
         // permitting the new object to be stored without test
         this.event.createdElements.add(created);
+        
     }
 
     @objid ("00d00074-0000-08a3-0000-000000000000")
@@ -85,6 +87,7 @@ class ModelChangeActionVisitor implements IActionVisitor {
                 this.event.deletedRootElements.add(deleted);
             }
         }
+        
     }
 
     @objid ("00d00074-0000-08a7-0000-000000000000")
@@ -121,6 +124,7 @@ class ModelChangeActionVisitor implements IActionVisitor {
                 }
             }
         }
+        
     }
 
     @objid ("00d00074-0000-08ab-0000-000000000000")
@@ -176,6 +180,7 @@ class ModelChangeActionVisitor implements IActionVisitor {
         } else if (action.getDep().isPartOf() && owner != null) {
             this.event.updatedElements.add(owner);
         }
+        
     }
 
     @objid ("00d00074-0000-08af-0000-000000000000")
@@ -202,6 +207,7 @@ class ModelChangeActionVisitor implements IActionVisitor {
         
             this.event.updatedElements.add(owner);
         }
+        
     }
 
     @objid ("00d00074-0000-08b3-0000-000000000000")
@@ -229,6 +235,7 @@ class ModelChangeActionVisitor implements IActionVisitor {
                 this.event.updatedElements.add(refered);
             }
         }
+        
     }
 
     @objid ("01f42120-0000-1ee0-0000-000000000000")

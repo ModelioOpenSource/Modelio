@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnmessageflow;
 
 import java.util.List;
@@ -67,26 +66,26 @@ public class GmBpmnMessageFlow extends GmLink {
 
     /**
      * Initialize a control flow graphic model.
-     * 
      * @param diagram The owning diagram
      * @param element The reference flow, may be null
      * @param ref The referenced flow reference, may not be null
      */
     @objid ("616ce95a-55b6-11e2-877f-002564c97630")
-    public GmBpmnMessageFlow(IGmDiagram diagram, BpmnMessageFlow element, MRef ref) {
+    public  GmBpmnMessageFlow(IGmDiagram diagram, BpmnMessageFlow element, MRef ref) {
         super(diagram, ref);
         this.element = element;
         
         GmDefaultModelElementLabel extension = new GmDefaultModelElementLabel(diagram, ref);
         extension.setShowLabel(true);
         addExtension(ExtensionLocation.MiddleSE, IGmLink.ROLE_MAIN_LABEL, extension);
+        
     }
 
     /**
      * For deserialization only.
      */
     @objid ("616ce966-55b6-11e2-877f-002564c97630")
-    public GmBpmnMessageFlow() {
+    public  GmBpmnMessageFlow() {
         // Nothing to do.
     }
 
@@ -125,6 +124,7 @@ public class GmBpmnMessageFlow extends GmLink {
     public void readLink(IDiagramReader in) {
         super.readLink(in);
         this.element = (BpmnMessageFlow) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("616e6ff4-55b6-11e2-877f-002564c97630")
@@ -140,6 +140,7 @@ public class GmBpmnMessageFlow extends GmLink {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmBpmnMessageFlow.", GmBpmnMessageFlow.MINOR_VERSION);
+        
     }
 
     @objid ("616e7001-55b6-11e2-877f-002564c97630")
@@ -195,6 +196,7 @@ public class GmBpmnMessageFlow extends GmLink {
             }
         
         }
+        
     }
 
     @objid ("6dedfbf9-8f8f-499d-8883-fbbb46368a63")
@@ -211,7 +213,6 @@ public class GmBpmnMessageFlow extends GmLink {
 
     /**
      * Find a {@link BpmnParticipant} of {@link BpmnProcess} in the diagram owner that contains <i>element</i>.
-     * 
      * @param bpmnElt a BPMN element
      * @return the best {@link BpmnParticipant} referencing the {@link BpmnProcess} that owns <i>element</i>, or the {@link BpmnProcess} itself.
      */

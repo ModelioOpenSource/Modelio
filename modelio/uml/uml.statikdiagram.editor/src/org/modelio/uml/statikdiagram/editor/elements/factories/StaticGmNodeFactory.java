@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.factories;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -250,9 +249,10 @@ public class StaticGmNodeFactory implements IGmNodeFactory {
         private Object initialLayoutData;
 
         @objid ("36c54e22-55b7-11e2-877f-002564c97630")
-        public GroupElementFactoryVisitor(IGmDiagram diagram, Object initialLayoutData) {
+        public  GroupElementFactoryVisitor(IGmDiagram diagram, Object initialLayoutData) {
             this.diagram = diagram;
             this.initialLayoutData = initialLayoutData;
+            
         }
 
         @objid ("36c6d4e5-55b7-11e2-877f-002564c97630")
@@ -410,27 +410,28 @@ public class StaticGmNodeFactory implements IGmNodeFactory {
         private Object initialLayoutData;
 
         @objid ("36bf33d8-55b7-11e2-877f-002564c97630")
-        public NodeFactoryVisitor(IGmDiagram diagram, Object initialLayoutData) {
+        public  NodeFactoryVisitor(IGmDiagram diagram, Object initialLayoutData) {
             this.diagram = diagram;
             this.initialLayoutData = initialLayoutData;
+            
         }
 
-/*
-         * @objid ("36c24109-55b7-11e2-877f-002564c97630")
-         *
-         * @Override public Object visitAssociation(final Association theAssoc) { if (theAssoc.Connection().size() > 2) { // N-Ary association GmNAssocNode node = new GmNAssocNode(this.diagram, theAssoc, new MRef(theAssoc));
-         * node.setLayoutData(this.initialLayoutData); return node; } return null; }
-         *
-         * @objid ("36c24112-55b7-11e2-877f-002564c97630")
-         *
-         * @Override public Object visitLink(final ILink theAssoc) { if (theAssoc.cardConnection() > 2) { // N-Ary association GmNodeModel node = new GmNLinkNode(this.diagram, theAssoc, new MRef(theAssoc)); node.setLayoutData(this.initialLayoutData);
-         * return node; } return null; }
-         *
-         * @objid ("36c3c77a-55b7-11e2-877f-002564c97630")
-         *
-         * @Override public Object visitConnector(final Connector theAssoc) { if (theAssoc.cardConnection() > 2) { // N-Ary association GmNodeModel node = new GmNConnectorNode(this.diagram, theAssoc, new MRef(theAssoc));
-         * node.setLayoutData(this.initialLayoutData); return node; } return null; }
-         */
+        /*
+                 * @objid ("36c24109-55b7-11e2-877f-002564c97630")
+                 *
+                 * @Override public Object visitAssociation(final Association theAssoc) { if (theAssoc.Connection().size() > 2) { // N-Ary association GmNAssocNode node = new GmNAssocNode(this.diagram, theAssoc, new MRef(theAssoc));
+                 * node.setLayoutData(this.initialLayoutData); return node; } return null; }
+                 *
+                 * @objid ("36c24112-55b7-11e2-877f-002564c97630")
+                 *
+                 * @Override public Object visitLink(final ILink theAssoc) { if (theAssoc.cardConnection() > 2) { // N-Ary association GmNodeModel node = new GmNLinkNode(this.diagram, theAssoc, new MRef(theAssoc)); node.setLayoutData(this.initialLayoutData);
+                 * return node; } return null; }
+                 *
+                 * @objid ("36c3c77a-55b7-11e2-877f-002564c97630")
+                 *
+                 * @Override public Object visitConnector(final Connector theAssoc) { if (theAssoc.cardConnection() > 2) { // N-Ary association GmNodeModel node = new GmNConnectorNode(this.diagram, theAssoc, new MRef(theAssoc));
+                 * node.setLayoutData(this.initialLayoutData); return node; } return null; }
+                 */
         @objid ("36c3c783-55b7-11e2-877f-002564c97630")
         @Override
         public Object visitActivity(final Activity theItem) {
@@ -578,6 +579,7 @@ public class StaticGmNodeFactory implements IGmNodeFactory {
                 node.setLayoutData(this.initialLayoutData);
                 return node;
             }
+            
         }
 
         @objid ("52f4b320-7cff-4509-9ae7-d7e0db9b3fb6")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel.data.standard.infrastructure;
 
 import java.util.Arrays;
@@ -49,15 +48,14 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class NotePropertyModel extends AbstractPropertyModel<Note> {
     @objid ("84c09dcc-2b12-44ab-8ca8-cc69713c9ca2")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name", "NoteType",
-			"MimeType" };
+    			"MimeType" };
 
     /**
      * Instantiate the note type properties view.
-     * 
      * @param theEditedElement the current note type.
      */
     @objid ("41cfd428-4eee-47fe-88a6-03d7720b84e2")
-    public NotePropertyModel(final Note theEditedElement) {
+    public  NotePropertyModel(final Note theEditedElement) {
         super(theEditedElement);
     }
 
@@ -108,6 +106,7 @@ public class NotePropertyModel extends AbstractPropertyModel<Note> {
         default:
             return null;
         }
+        
     }
 
     /**
@@ -167,6 +166,7 @@ public class NotePropertyModel extends AbstractPropertyModel<Note> {
         default:
             return null;
         }
+        
     }
 
     @objid ("feb788b1-1bfe-48c0-ad2c-becf59d0ecb2")
@@ -205,6 +205,7 @@ public class NotePropertyModel extends AbstractPropertyModel<Note> {
         default:
             return;
         }
+        
     }
 
 }

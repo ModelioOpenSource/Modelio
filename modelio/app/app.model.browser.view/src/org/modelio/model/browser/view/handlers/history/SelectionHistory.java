@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.browser.view.handlers.history;
 
 import java.util.LinkedList;
@@ -46,7 +45,7 @@ public class SelectionHistory implements IModelChangeListener {
     protected ListIterator<MObject> currentSelection;
 
     @objid ("2c2deb53-33a4-4499-be21-7138be0b9d96")
-    public SelectionHistory() {
+    public  SelectionHistory() {
         super();
     }
 
@@ -94,6 +93,7 @@ public class SelectionHistory implements IModelChangeListener {
         this.currentSelection = this.navigationHistory.listIterator(index);
         
         this.isForward = false;
+        
     }
 
     @objid ("f9e74de4-48d4-498f-a16d-9d36eebdc4a0")
@@ -102,6 +102,7 @@ public class SelectionHistory implements IModelChangeListener {
             this.navigationHistory.removeFirst();
         }
         this.navigationHistory.offerLast(element);
+        
     }
 
     @objid ("28b1d647-012d-41ac-b470-62d790856c62")
@@ -114,6 +115,7 @@ public class SelectionHistory implements IModelChangeListener {
         if (this.currentSelection.hasPrevious()) {
             fireSelection(selectionService, this.currentSelection.previous());
         }
+        
     }
 
     @objid ("8d5e7f26-6667-4757-aff5-2d7cb69b621c")
@@ -126,6 +128,7 @@ public class SelectionHistory implements IModelChangeListener {
         if (this.currentSelection.hasNext()) {
             fireSelection(selectionService, this.currentSelection.next());
         }
+        
     }
 
     @objid ("7a814a2c-8cec-4027-af80-910ad7947e64")
@@ -133,6 +136,7 @@ public class SelectionHistory implements IModelChangeListener {
         while (this.navigationHistory.size() > index + 1) {
             this.navigationHistory.removeLast();
         }
+        
     }
 
     @objid ("d8608ba7-be01-4a7d-a88b-87c8544066a9")
@@ -160,6 +164,7 @@ public class SelectionHistory implements IModelChangeListener {
                 }
             });
         }
+        
     }
 
     @objid ("15284e35-43fa-4fa1-9a5b-0434e2d2a627")
@@ -167,6 +172,7 @@ public class SelectionHistory implements IModelChangeListener {
         this.navigationHistory.clear();
         this.currentSelection = null;
         this.isForward = false;
+        
     }
 
     @objid ("20ba36fb-3545-4cfa-a013-b34b7f6b9d19")

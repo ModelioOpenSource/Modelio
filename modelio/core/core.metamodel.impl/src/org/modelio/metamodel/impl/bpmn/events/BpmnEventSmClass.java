@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.events;
 
 import java.util.ArrayList;
@@ -31,8 +31,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.bpmn.events.BpmnEvent;
 import org.modelio.metamodel.bpmn.events.BpmnEventDefinition;
 import org.modelio.metamodel.bpmn.rootElements.BpmnFlowNode;
-import org.modelio.metamodel.impl.bpmn.events.BpmnEventData;
-import org.modelio.metamodel.impl.bpmn.events.BpmnEventDefinitionSmClass;
 import org.modelio.metamodel.impl.bpmn.rootElements.BpmnFlowNodeSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
@@ -51,7 +49,7 @@ public class BpmnEventSmClass extends BpmnFlowNodeSmClass {
     private SmDependency eventDefinitionsDep;
 
     @objid ("d7cf49e3-f1d5-48c8-b7dc-b0b29825e007")
-    public BpmnEventSmClass(ISmMetamodelFragment origin) {
+    public  BpmnEventSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -59,6 +57,7 @@ public class BpmnEventSmClass extends BpmnFlowNodeSmClass {
     @Override
     public String getName() {
         return "BpmnEvent";
+        
     }
 
     @objid ("af23d280-913b-4c65-80f5-4154238bf1df")
@@ -71,18 +70,21 @@ public class BpmnEventSmClass extends BpmnFlowNodeSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnEvent.class;
+        
     }
 
     @objid ("3888c6f4-0c99-485f-8133-d40fa67ec466")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("3f2cb934-b40c-4ce5-8585-58e0df0cb7f2")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("ed27cbce-2fd4-4dc1-ab0d-0d4d828ba3bc")
@@ -98,6 +100,8 @@ public class BpmnEventSmClass extends BpmnFlowNodeSmClass {
         this.eventDefinitionsDep = new EventDefinitionsSmDependency();
         this.eventDefinitionsDep.init("EventDefinitions", this, metamodel.getMClass(BpmnEventDefinition.MQNAME), 0, -1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.eventDefinitionsDep);
+        
+        
     }
 
     @objid ("33bc1322-c411-498a-a51a-ad0edf4fb339")
@@ -114,7 +118,7 @@ public class BpmnEventSmClass extends BpmnFlowNodeSmClass {
         private BpmnEventSmClass smClass;
 
         @objid ("64123256-871a-4640-ab78-a6cd621de2c7")
-        public BpmnEventObjectFactory(BpmnEventSmClass smClass) {
+        public  BpmnEventObjectFactory(BpmnEventSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -147,6 +151,7 @@ public class BpmnEventSmClass extends BpmnFlowNodeSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnEventData) data).mEventDefinitions = values;
+            
         }
 
         @objid ("6f8d5ecc-bdab-4abb-b8d1-baed83662a62")
@@ -156,6 +161,7 @@ public class BpmnEventSmClass extends BpmnFlowNodeSmClass {
             	this.symetricDep = ((BpmnEventDefinitionSmClass)this.getTarget()).getDefinedDep();
             }
             return this.symetricDep;
+            
         }
 
     }

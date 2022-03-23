@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.util;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -25,12 +24,12 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 @objid ("3bc732bb-d5cd-4f90-b943-c2d74ba3c121")
 public class AssociationNotFoundException extends Exception {
     @objid ("23afe5d9-ed08-4aed-a136-a9b3315d603f")
-    public AssociationNotFoundException(String message) {
+    public  AssociationNotFoundException(String message) {
         super(message);
     }
 
     @objid ("1f717c1a-2d5d-4360-9120-7da8706c71c6")
-    public AssociationNotFoundException() {
+    public  AssociationNotFoundException() {
         super();
     }
 

@@ -17,13 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.workflow;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Deque;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.BiConsumer;
+import java.util.function.Consumer;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.XYLayout;
@@ -34,7 +38,6 @@ import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.commands.Command;
-import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gef.tools.ToolUtilities;
@@ -42,21 +45,20 @@ import org.modelio.bpmn.diagram.editor.elements.bpmnlane.BpmnLaneEditPart;
 import org.modelio.bpmn.diagram.editor.elements.bpmnlanesetcontainer.BpmnLaneSetContainerEditPart;
 import org.modelio.bpmn.diagram.editor.elements.bpmnlanesetcontainer.CreateBpmnLaneSetContainerCommand;
 import org.modelio.bpmn.diagram.editor.elements.bpmnsubprocess.CreateBpmnSubProcessCommand;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnBoundaryEventReparentElementCommand;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnFlowElementReparentElementCommand;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnLaneReparentElementCommand;
 import org.modelio.bpmn.diagram.editor.elements.diagrams.GmBpmnDiagramStyleKeys;
 import org.modelio.bpmn.diagram.editor.elements.diagrams.processdesign.BpmnProcessDesignDiagramEditPart;
-import org.modelio.bpmn.diagram.editor.elements.policies.BpmnBoundaryEventReparentElementCommand;
-import org.modelio.bpmn.diagram.editor.elements.policies.BpmnFlowElementReparentElementCommand;
-import org.modelio.bpmn.diagram.editor.elements.policies.BpmnLaneReparentElementCommand;
 import org.modelio.diagram.elements.common.freezone.DefaultFreeZoneLayoutEditPolicy;
-import org.modelio.diagram.elements.common.freezone.ILayoutAssistant;
 import org.modelio.diagram.elements.core.commands.DefaultReparentElementCommand;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
 import org.modelio.diagram.elements.core.commands.NodeChangeLayoutCommand;
 import org.modelio.diagram.elements.core.link.LinkEditPart;
 import org.modelio.diagram.elements.core.model.GmModel;
-import org.modelio.diagram.elements.core.model.IGmDiagram;
 import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
+import org.modelio.diagram.elements.core.policies.LayoutChildrenNodeConnectionsHelper;
 import org.modelio.diagram.elements.drawings.core.GmDrawing;
 import org.modelio.metamodel.bpmn.activities.BpmnActivity;
 import org.modelio.metamodel.bpmn.activities.BpmnSubProcess;
@@ -85,20 +87,19 @@ class WorkflowLayoutEditPolicy extends DefaultFreeZoneLayoutEditPolicy {
             MObject elementToUnmask = ctx.getElementToUnmask();
             GmWorkflow gmParentNode = getHostCompositeNode();
         
-            if (cls == BpmnLaneSet.class) {
+            if (cls == BpmnLaneSet.class || cls == BpmnLane.class) {
                 if (elementToUnmask != null && !gmParentNode.canUnmask(elementToUnmask)) {
                     return null;
                 }
         
                 Object requestConstraint = getConstraintFor(request);
-                return new CreateBpmnLaneSetContainerCommand(hostElement, gmParentNode, ctx, requestConstraint, null);
-            } else if (cls == BpmnLane.class) {
-                if (elementToUnmask != null && !gmParentNode.canUnmask(elementToUnmask)) {
-                    return null;
-                }
+                CreateBpmnLaneSetContainerCommand createLaneContainerCommand = new CreateBpmnLaneSetContainerCommand(hostElement, gmParentNode, ctx, requestConstraint, null);
         
-                Object requestConstraint = getConstraintFor(request);
-                return new CreateBpmnLaneSetContainerCommand(hostElement, gmParentNode, ctx, requestConstraint, null);
+                // CreateBpmnLaneSetContainerCommand moves nodes directly in model,
+                // ==> manually add connection layout commands
+                return LayoutChildrenNodeConnectionsHelper.forRequest(request)
+                .addEditPart(getHost())
+                .createChainedCommand(createLaneContainerCommand);
             } else if (BpmnSubProcess.class.isAssignableFrom(cls)) {
                 if (elementToUnmask != null && !gmParentNode.canUnmask(elementToUnmask)) {
                     return null;
@@ -130,7 +131,8 @@ class WorkflowLayoutEditPolicy extends DefaultFreeZoneLayoutEditPolicy {
             WorkflowEditPart host = getHost();
         
             // Make sure the moved elements are not part of the diagram itself, aka generic nodes.
-            for (Object ep : ((ChangeBoundsRequest) request).getEditParts()) {
+            ChangeBoundsRequest changeBoundsReq = (ChangeBoundsRequest) request;
+            for (Object ep : changeBoundsReq.getEditParts()) {
                 EditPart editPart = (EditPart) ep;
                 if (editPart.getParent() instanceof BpmnProcessDesignDiagramEditPart) {
                     return null;
@@ -148,7 +150,7 @@ class WorkflowLayoutEditPolicy extends DefaultFreeZoneLayoutEditPolicy {
             }
         
             // Ignore resize requests on elements that are not part of the workflow
-            for (Object ep : ((ChangeBoundsRequest) request).getEditParts()) {
+            for (Object ep : changeBoundsReq.getEditParts()) {
                 EditPart editPart = (EditPart) ep;
                 Object model = editPart.getModel();
                 if (model instanceof GmModel) {
@@ -170,6 +172,7 @@ class WorkflowLayoutEditPolicy extends DefaultFreeZoneLayoutEditPolicy {
         } else {
             return null;
         }
+        
     }
 
     @objid ("778d3a66-f041-4178-bb14-9a79669d2721")
@@ -221,17 +224,19 @@ class WorkflowLayoutEditPolicy extends DefaultFreeZoneLayoutEditPolicy {
         } else {
             return super.createAddCommand(request, child, constraint);
         }
+        
     }
 
     @objid ("c6e9378b-028a-4ca3-8454-fc65bad77f3b")
     @Override
-    protected Command createChangeConstraintCommand(ChangeBoundsRequest request, EditPart child, Object constraint) {
+    protected Command createChangeConstraintCommand(ChangeBoundsRequest request, EditPart movedEditPart, Object constraint) {
         // if child is a 'node' it usually can be resized and/or moved
-        if (child instanceof AbstractNodeEditPart || child.getModel() instanceof GmDrawing) {
-            final NodeChangeLayoutCommand command = new NodeChangeLayoutCommand();
-            command.setModel(child.getModel());
-            command.setConstraint(constraint);
-            return command;
+        if (movedEditPart instanceof AbstractNodeEditPart || movedEditPart.getModel() instanceof GmDrawing) {
+            NodeChangeLayoutCommand layoutCommand = new NodeChangeLayoutCommand();
+            layoutCommand.setModel(movedEditPart.getModel());
+            layoutCommand.setConstraint(constraint);
+        
+            return layoutCommand;
         }
         return null;
     }
@@ -286,42 +291,7 @@ class WorkflowLayoutEditPolicy extends DefaultFreeZoneLayoutEditPolicy {
             this.highlight.setOpaque(false);
             this.highlight.setBackgroundColor(null);
         }
-    }
-
-    /**
-     * Redefined to avoid intersections during resize.
-     */
-    @objid ("86e1aa67-642e-4e80-b5b6-def831fde385")
-    @Override
-    protected Command getChangeConstraintCommand(ChangeBoundsRequest request) {
-        CompoundCommand finalCommand = new CompoundCommand();
         
-        // Call super to get the child resize command
-        Command cmd = super.getChangeConstraintCommand(request);
-        finalCommand.add(cmd);
-        
-        ILayoutAssistant helper = getLayoutAssistant(request);
-        
-        // build commands for initial and added requests
-        // build commands for moved bend points
-        createLayoutAssistantCommands(helper, finalCommand);
-        List<Object> editParts = request.getEditParts();
-        for (Object ep : editParts) {
-            if (ep instanceof BpmnLaneSetContainerEditPart) {
-                createMoveBendpointCommands((BpmnLaneSetContainerEditPart) ep, finalCommand, request.getMoveDelta());
-            }
-        }
-        return finalCommand.isEmpty() ? null : finalCommand.unwrap();
-    }
-
-    @objid ("1f628c2d-9690-4f7f-9ad6-36f23aaa774d")
-    @Override
-    public Command getCommand(Request request) {
-        if (true) {
-            return super.getCommand(request);
-        } else {
-            return null;
-        }
     }
 
     @objid ("6c5d4504-bc3a-4c7e-b392-81b3b5bf70ea")
@@ -345,6 +315,7 @@ class WorkflowLayoutEditPolicy extends DefaultFreeZoneLayoutEditPolicy {
         } else {
             return layoutContainer.getClientArea().getLocation();
         }
+        
     }
 
     @objid ("39b05a7a-e3b8-4877-a8e2-b89b3c810d6c")
@@ -372,99 +343,116 @@ class WorkflowLayoutEditPolicy extends DefaultFreeZoneLayoutEditPolicy {
         } else {
             return null;
         }
-    }
-
-    @objid ("27e69296-2424-4242-83ea-2792a3eab10f")
-    private void createMoveBendpointCommands(BpmnLaneSetContainerEditPart ep, CompoundCommand finalCommand, Point move) {
-        // Add all links :
-        // - linking any two nodes that are in that list or have an ancestor in that list
-        // - understanding the request
-        List<GraphicalEditPart> editParts = new ArrayList<>();
-        editParts.add(ep);
         
-        Set<LinkEditPart> linksToAdd = new HashSet<>();
-        do {
-            linksToAdd.clear();
-            computeAllLinksFor(editParts, linksToAdd);
-            editParts.addAll(linksToAdd);
-            // Do it again if some links were added (this might trigger some new links, because of links on links!).
-        } while (!linksToAdd.isEmpty());
-        
-        editParts.remove(ep);
-        
-        for (GraphicalEditPart lep : editParts) {
-            ChangeBoundsRequest req = new ChangeBoundsRequest();
-            req.setType(RequestConstants.REQ_MOVE);
-            req.setEditParts(lep);
-            req.setMoveDelta(move);
-        
-            Command com = lep.getCommand(req);
-            if (com != null && com.canExecute()) {
-                finalCommand.add(com);
-            }
-        }
-    }
-
-    @objid ("b9275000-8878-4aa1-9e40-636336eec595")
-    private void computeAllLinksFor(final List<GraphicalEditPart> operationSet, final Set<LinkEditPart> linksToAdd) {
-        Set<GraphicalEditPart> transitiveChildren = new HashSet<>();
-        for (GraphicalEditPart object : operationSet) {
-            WorkflowLayoutEditPolicy.getAllChildrenInDiagram(object, transitiveChildren);
-        }
-        for (GraphicalEditPart child : transitiveChildren) {
-            List<GraphicalEditPart> links = child.getSourceConnections();
-            for (GraphicalEditPart link : links) {
-                if (isLinkToInclude(link, operationSet, null)) {
-                    linksToAdd.add((LinkEditPart) link);
-                }
-            }
-        
-            links = child.getTargetConnections();
-            for (GraphicalEditPart link : links) {
-                if (isLinkToInclude(link, operationSet, null)) {
-                    linksToAdd.add((LinkEditPart) link);
-                }
-        
-            }
-        }
     }
 
     /**
-     * Returns the transitive child edit part set of the given parent <code>GraphicalEditPart</code>.
-     * 
-     * Prunes embedded diagram edit parts from the result.
-     * 
-     * @param parentEditPart the parent graphical edit part for which to retrieve the transitive child edit part set.
-     * @return the transitive child edit part set
+     * Traverse a graph of GraphicalEditPart to find all Connections inside , starting from roots.
+     * <p>
+     * This class handles cycles, and works without recursion.
+     * <p>
+     * TODO : extract this class for reuse into its own (abstract?) class.
+     * The same algorithm is already used in {@link org.modelio.bpmn.diagram.editor.elements.bpmnlanesetcontainer.GmLinksFinder GmLinksFinder}
      */
-    @objid ("ea3645f7-f85d-4f7d-9248-05e876a41d3b")
-    private static Set<GraphicalEditPart> getAllChildrenInDiagram(GraphicalEditPart parentEditPart, Set<GraphicalEditPart> transitiveChildren) {
-        List<GraphicalEditPart> children = parentEditPart.getChildren();
-        transitiveChildren.addAll(children);
-        for (GraphicalEditPart child : children) {
-            if (!(child.getModel() instanceof IGmDiagram)) {
-                WorkflowLayoutEditPolicy.getAllChildrenInDiagram(child, transitiveChildren);
-            }
+    @objid ("ee079d7f-94bf-4daf-b87b-05572412b3a5")
+    @Deprecated
+    private static class ConnectionsFinder {
+        @objid ("4e5a355f-ab11-445f-84d7-1c4725bbee0f")
+        private void computeAllLinksFor2(final Collection<GraphicalEditPart> operationSet, final Set<GraphicalEditPart> linksToAdd) {
+            BiConsumer<GraphicalEditPart, Consumer<GraphicalEditPart>> transitions = (ep, graphWalker) -> walkConnectedLinks(graphWalker, ep, operationSet, linksToAdd);
+            
+            traverseGraph2(operationSet, transitions);
+            
         }
-        return transitiveChildren;
-    }
 
-    @objid ("319ff823-3bec-4e8c-97cd-52b12abe465b")
-    private boolean isLinkToInclude(GraphicalEditPart link, final List<GraphicalEditPart> operationSet, ChangeBoundsRequest request) {
-        if (link instanceof LinkEditPart && !operationSet.contains(link)) {
-            LinkEditPart linkEditPart = (LinkEditPart) link;
-            EditPart linkSource = linkEditPart.getSource();
-            EditPart linkTarget = linkEditPart.getTarget();
-            boolean sourceInSet = linkSource == null || ToolUtilities.isAncestorContainedIn(operationSet,
-                    linkSource);
-            boolean targetInSet = linkTarget == null || ToolUtilities.isAncestorContainedIn(operationSet,
-                    linkTarget);
-        
-            if (sourceInSet && targetInSet) {
-                return true;
+        /**
+         * Called by {@link #traverseGraph2(Collection, BiConsumer)} to find all link edit parts from the operation set.
+         * <p>
+         * Walks composition children and all connected links.
+         * @param graphWalker the function to queue next nodes in the graph
+         * @param ep the walked node edit part
+         * @param operationSet the initial request operation set
+         * @param linkEditParts all found link edit parts
+         */
+        @objid ("f36a15d2-c53b-401c-8caa-6ecdb89636da")
+        private static void walkConnectedLinks(Consumer<GraphicalEditPart> graphWalker, GraphicalEditPart ep, Collection<GraphicalEditPart> operationSet, Collection<GraphicalEditPart> linkEditParts) {
+            // Walk composition children
+            for (Object child : ep.getChildren()) {
+                graphWalker.accept((GraphicalEditPart) child);
             }
+            
+            // Walk source connections
+            List<GraphicalEditPart> links = ep.getSourceConnections();
+            for (GraphicalEditPart link : links) {
+                if (isLinkToInclude(link, operationSet) && linkEditParts.add(link)) {
+                    graphWalker.accept(link);
+                }
+            }
+            
+            // Walk target connections
+            links = ep.getTargetConnections();
+            for (GraphicalEditPart link : links) {
+                if (isLinkToInclude(link, operationSet) && linkEditParts.add(link)) {
+                    graphWalker.accept(link);
+                }
+            
+            }
+            
         }
-        return false;
+
+        /**
+         * Traverse a graph of A , starting from roots, calling 'transitions' on each node.
+         * <p>
+         * This method handles cycles, and works without recursion.
+         * <p>
+         * <code>transitions</code> is a function called on each new traversed node. It receives the A node and a function. It is expected to call the passed Consumer for each connected node to walk. The consumer will queue the passed node to be walked.
+         * <p>
+         * TODO : extract this method for reuse into its own (abstract?) class. The same algorithm is already used in {@link org.modelio.bpmn.diagram.editor.elements.bpmnlanesetcontainer.GmLinksFinder GmLinksFinder}
+         * @param <A>         the type of the graph nodes
+         * @param roots the start nodes.
+         * @param transitions a function that receives a A node and a function to call for each connected node to walk. This function is expected to walk transitions.
+         */
+        @objid ("e3385d24-1436-48f8-bb53-fbe103f99218")
+        private static <A> void traverseGraph2(final Collection<? extends A> roots, BiConsumer<A, Consumer<A>> transitions) {
+            // Set of already traversed nodes to avoid cycles.
+            final Set<A> traversed = new HashSet<>();
+            
+            // Initialize a nodes to traverse queue with the passed root elements
+            final Deque<A> queue = new ArrayDeque<>(roots);
+            
+            // Loop until there is no node to traverse
+            while (!queue.isEmpty()) {
+                A o = queue.poll();
+                // call transitions with the node and a function that queues all passed nodes.
+                transitions.accept(o, (A n) -> {
+                    // check node not already traversed
+                    if (traversed.add(n)) {
+                        // add node to the queue
+                        queue.add(n);
+                    }
+                });
+            }
+            
+        }
+
+        @objid ("319ff823-3bec-4e8c-97cd-52b12abe465b")
+        private static boolean isLinkToInclude(GraphicalEditPart link, final Collection<GraphicalEditPart> operationSet) {
+            if (link instanceof LinkEditPart && !operationSet.contains(link)) {
+                LinkEditPart linkEditPart = (LinkEditPart) link;
+                EditPart linkSource = linkEditPart.getSource();
+                EditPart linkTarget = linkEditPart.getTarget();
+                boolean sourceInSet = linkSource == null || ToolUtilities.isAncestorContainedIn(operationSet,
+                        linkSource);
+                boolean targetInSet = linkTarget == null || ToolUtilities.isAncestorContainedIn(operationSet,
+                        linkTarget);
+            
+                if (sourceInSet && targetInSet) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
     }
 
 }

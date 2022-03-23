@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,11 +44,10 @@ public class OInteractionFragment extends OModelElement {
 
     /**
      * Constructor
-     * 
      * @param element : the exported Modelio InteractionFragment
      */
     @objid ("a7de0259-dac4-4fe4-b298-5191d74a3a22")
-    public OInteractionFragment(final InteractionFragment element) {
+    public  OInteractionFragment(final InteractionFragment element) {
         super(element);
     }
 
@@ -100,6 +98,7 @@ public class OInteractionFragment extends OModelElement {
                 }
             }
         }
+        
     }
 
     @objid ("014adc09-1600-4176-acd6-6ea76fcdd23b")
@@ -111,6 +110,7 @@ public class OInteractionFragment extends OModelElement {
         if (GenerationProperties.getInstance().isRoundtripEnabled()){
             setLineNumber(ecoreElt);
         }
+        
     }
 
     @objid ("f1692c33-d623-4bec-8907-cbe048860035")
@@ -133,6 +133,7 @@ public class OInteractionFragment extends OModelElement {
                 }
             }
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnmessage;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -28,8 +27,8 @@ import org.eclipse.swt.widgets.Display;
 import org.modelio.api.module.mda.IMdaExpert;
 import org.modelio.bpmn.diagram.editor.plugin.DiagramEditorBpmn;
 import org.modelio.diagram.elements.core.model.GmModel;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.policies.DefaultElementDropEditPolicy;
 import org.modelio.diagram.elements.core.requests.ModelElementDropRequest;
 import org.modelio.metamodel.bpmn.flows.BpmnMessage;
@@ -114,6 +113,7 @@ public class BpmnMessageElementDropEditPolicy extends DefaultElementDropEditPoli
         } else {
             return BpmnMessageElementDropEditPolicy.getStateMachineOwnerClassifier(elt.getCompositionOwner());
         }
+        
     }
 
     @objid ("bb3ecbfb-69f1-427c-8ce1-a18d2fe90d9b")
@@ -152,28 +152,28 @@ public class BpmnMessageElementDropEditPolicy extends DefaultElementDropEditPoli
 
         /**
          * Constructor to type the message with {@link Classifier} or {@link State}.
-         * 
          * @param messageToType the message to type.
          * @param type the general class to use. Might be <code>null</code>.
          * @param state the state to use. Might be <code>null</code>.
          */
         @objid ("db69ab3e-a0d2-4c5d-8fc3-b78f76b1c3bc")
-        public SmartTypeBpmnMessageCommand(final BpmnMessage messageToType, final ModelElement type, final ModelElement state) {
+        public  SmartTypeBpmnMessageCommand(final BpmnMessage messageToType, final ModelElement type, final ModelElement state) {
             this.messageToType = messageToType;
             this.state = state;
             this.type = type;
+            
         }
 
         /**
          * Constructor to type the message with {@link Classifier} or {@link State}.
-         * 
          * @param messageToType the message to type.
          * @param type the general class to use. Might be <code>null</code>.
          */
         @objid ("b0797e48-d214-4ecc-a69f-62ce7fb4c1eb")
-        public SmartTypeBpmnMessageCommand(final BpmnMessage messageToType, final ModelElement type) {
+        public  SmartTypeBpmnMessageCommand(final BpmnMessage messageToType, final ModelElement type) {
             this.messageToType = messageToType;
             this.type = type;
+            
         }
 
         @objid ("77b96ef8-d440-47bf-bdc7-f14576c5b05f")
@@ -199,6 +199,7 @@ public class BpmnMessageElementDropEditPolicy extends DefaultElementDropEditPoli
                     }
                 }
             }
+            
         }
 
         @objid ("9bb39048-ab6f-4b14-ab22-e2061fa2c0be")
@@ -209,6 +210,7 @@ public class BpmnMessageElementDropEditPolicy extends DefaultElementDropEditPoli
             } else if (this.type != null) {
                 Represents.setTarget(this.messageToType, null);
             }
+            
         }
 
         @objid ("e2d03470-1c56-4baf-9c3f-6b575da4e877")
@@ -220,6 +222,7 @@ public class BpmnMessageElementDropEditPolicy extends DefaultElementDropEditPoli
             } else if (this.type != null) {
                 Represents.setTarget(this.messageToType, this.type);
             }
+            
         }
 
         @objid ("fe16065a-63e5-4e2d-908f-c391845cb5b5")

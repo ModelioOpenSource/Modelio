@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.util;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -49,6 +48,7 @@ public class SysMLProfileUtils {
         addSatisfyStereotype(sysMLProfile, metamodel);
         addVerifyStereotype(sysMLProfile, metamodel);
         addSysMLNoteStereotypes(sysMLProfile);
+        
     }
 
     @objid ("c81d0be5-a72f-4393-90b5-aa54dcd242dd")
@@ -64,6 +64,7 @@ public class SysMLProfileUtils {
         } catch (IllegalArgumentException | ElementNotUniqueException e) {
             Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
         }
+        
     }
 
     @objid ("98254b76-9fd1-44d2-95eb-7c2ca8a74b86")
@@ -77,6 +78,7 @@ public class SysMLProfileUtils {
         } catch (IllegalArgumentException | ElementNotUniqueException e) {
             Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
         }
+        
     }
 
     @objid ("71ceb6f3-2c17-4bc7-9660-27b11b42d7c1")
@@ -90,6 +92,7 @@ public class SysMLProfileUtils {
         } catch (IllegalArgumentException | ElementNotUniqueException e) {
             Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
         }
+        
     }
 
     @objid ("736e3a5f-4bd5-4e01-a5cd-7cadb9af53b0")
@@ -107,6 +110,7 @@ public class SysMLProfileUtils {
         Property id = stereotype.createOwnedAttribute("Id",  ecoreUMLTypes.getString());
         id.setLower(1);
         id.setUpper(1);
+        
     }
 
     @objid ("5f1291c0-679d-4170-8fef-393db70cb7c2")
@@ -119,6 +123,7 @@ public class SysMLProfileUtils {
         
         org.eclipse.uml2.uml.Stereotype relatedStereotype = sysMLProfile.createOwnedStereotype("RequirementRelated", false);
         ProfileUtils.addReference(relatedStereotype, "NamedElement");
+        
     }
 
 }

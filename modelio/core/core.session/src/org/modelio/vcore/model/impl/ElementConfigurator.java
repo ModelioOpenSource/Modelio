@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model.impl;
 
 import java.util.Map;
@@ -38,7 +37,7 @@ public class ElementConfigurator implements IElementConfiguratorService {
     private final MetamodelExtensionPoint<IElementConfigurator> metamodelExtensionPoint;
 
     @objid ("a3750744-301a-442f-ba16-fbd45ca5fc67")
-    public ElementConfigurator() {
+    public  ElementConfigurator() {
         this.metamodelExtensionPoint = new MetamodelExtensionPoint<>();
     }
 
@@ -49,6 +48,7 @@ public class ElementConfigurator implements IElementConfiguratorService {
         if (service != null) {
             service.configure(element, properties);
         }
+        
     }
 
     @objid ("0dfc1ab2-1673-4227-b9df-e19e831930e9")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,9 +46,10 @@ public class EInputPin extends EPin {
     }
 
     @objid ("620c3b37-5c2b-454c-ab9f-b58c594fbfeb")
-    public EInputPin(org.eclipse.uml2.uml.InputPin element) {
+    public  EInputPin(org.eclipse.uml2.uml.InputPin element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("f7d5c77f-d85e-4784-9d50-0e9490ae4ab4")
@@ -72,6 +72,7 @@ public class EInputPin extends EPin {
         setSelectionBehavior((InputPin) objingElt);
         setType((InputPin) objingElt);
         setState((InputPin) objingElt);
+        
     }
 
     @objid ("6a742021-a125-4ebe-a93e-a13f808bab97")
@@ -86,6 +87,7 @@ public class EInputPin extends EPin {
             ReverseProperties.getInstance().addError(message);
             objingElt.delete();
         }
+        
     }
 
     @objid ("a4776688-f756-4fac-9201-e1c8cc75e2df")
@@ -111,6 +113,7 @@ public class EInputPin extends EPin {
         default:
             pin.setOrdering(ObjectNodeOrderingKind.FIFO);
         }
+        
     }
 
     @objid ("ba8d9f72-f7b8-40dd-9dea-a6e6f135f2b5")
@@ -127,6 +130,7 @@ public class EInputPin extends EPin {
             if (behaviorName != null)
                 pin.setSelectionBehavior(behaviorName);
         }
+        
     }
 
     @objid ("85a00276-46d9-4c44-9b62-379d9a5e4e9e")
@@ -138,6 +142,7 @@ public class EInputPin extends EPin {
             if (objingType instanceof GeneralClass)
                 pin.setType((GeneralClass) objingType);       
         }
+        
     }
 
     @objid ("b9ba77cb-dfd8-423e-b0a2-25260c4a0942")
@@ -147,6 +152,7 @@ public class EInputPin extends EPin {
             if (objingState instanceof State)
                 pin.setInState((State) objingState);
         }
+        
     }
 
     @objid ("afd80eba-172d-4228-931a-9e2bad87f783")
@@ -342,6 +348,7 @@ public class EInputPin extends EPin {
         } catch (ElementNotUniqueException e) {
             Xmi.LOG.warning(e);
         }
+        
     }
 
 }

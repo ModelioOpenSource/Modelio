@@ -17,16 +17,15 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.cert;
 
 import java.net.URI;
 import java.security.KeyStoreException;
 import java.security.cert.X509Certificate;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.net.ssl.SSLHandshakeException;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.jface.dialogs.IDialogConstants;
@@ -84,10 +83,11 @@ public class ServerTrustErrorHandler implements ISslUntrustedServerFixer {
         private X509Certificate[] chain;
 
         @objid ("c7baa7bb-122d-44f9-8dc9-9e6015d2d41d")
-        Runner(Throwable cause, URI uri, X509Certificate[] chain) {
+         Runner(Throwable cause, URI uri, X509Certificate[] chain) {
             this.cause = cause;
             this.uri = uri;
             this.chain = chain;
+            
         }
 
         @objid ("524266d1-0742-45a1-8595-e0a6547df8b0")
@@ -128,6 +128,7 @@ public class ServerTrustErrorHandler implements ISslUntrustedServerFixer {
                 MessageDialog.openError(parentShell, "Error", e.getLocalizedMessage());
                 return false;
             }
+            
         }
 
     }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnboundaryevent;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -25,13 +24,13 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.swt.graphics.Color;
-import org.modelio.bpmn.diagram.editor.elements.policies.BpmnCreateLinkEditPolicy;
-import org.modelio.bpmn.diagram.editor.elements.policies.MethodologicalLinkUpdateDropEditPolicy;
+import org.modelio.bpmn.diagram.editor.elements.common.editpart.AbstractCircleNodeEditPart;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnCreateLinkEditPolicy;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.MethodologicalLinkUpdateDropEditPolicy;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeRequestConstants;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeStartCreationEditPolicy;
 import org.modelio.diagram.elements.core.figures.ColorizableImageFigure;
 import org.modelio.diagram.elements.core.model.GmModel;
-import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
 import org.modelio.diagram.elements.core.requests.ModelElementDropRequest;
 import org.modelio.diagram.elements.core.tools.multipoint.CreateMultiPointRequest;
 import org.modelio.diagram.elements.umlcommon.constraint.ConstraintLinkEditPolicy;
@@ -43,7 +42,7 @@ import org.modelio.module.modelermodule.api.methodology.infrastructure.methodolo
  * EditPart for an {@link GmBpmnBoundaryEventPrimaryNode}.
  */
 @objid ("6083739a-55b6-11e2-877f-002564c97630")
-public final class BpmnBoundaryEventPrimaryNodeEditPart extends AbstractNodeEditPart {
+public final class BpmnBoundaryEventPrimaryNodeEditPart extends AbstractCircleNodeEditPart {
     @objid ("6083739e-55b6-11e2-877f-002564c97630")
     @Override
     public boolean isSelectable() {
@@ -58,6 +57,7 @@ public final class BpmnBoundaryEventPrimaryNodeEditPart extends AbstractNodeEdit
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START, new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
         installEditPolicy(ModelElementDropRequest.TYPE, new MethodologicalLinkUpdateDropEditPolicy(Event.MdaTypes.STEREOTYPE_ELT, true));
+        
     }
 
     @objid ("608373a6-55b6-11e2-877f-002564c97630")
@@ -87,6 +87,7 @@ public final class BpmnBoundaryEventPrimaryNodeEditPart extends AbstractNodeEdit
                 cFigure.setColor(color);
             }
         }
+        
     }
 
     @objid ("608373b2-55b6-11e2-877f-002564c97630")
@@ -94,6 +95,7 @@ public final class BpmnBoundaryEventPrimaryNodeEditPart extends AbstractNodeEdit
     protected void refreshVisuals() {
         GmBpmnBoundaryEventPrimaryNode initialNodeModel = getModel();
         getFigure().getParent().setConstraint(getFigure(), initialNodeModel.getLayoutData());
+        
     }
 
     @objid ("ba38ce59-4df0-47c9-9e2e-e697804f0543")

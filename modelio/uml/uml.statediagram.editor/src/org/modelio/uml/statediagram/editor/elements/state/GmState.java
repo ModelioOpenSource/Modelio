@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.state;
 
 import java.util.Collections;
@@ -50,9 +49,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("f57c5a99-55b6-11e2-877f-002564c97630")
 public class GmState extends GmPortContainer {
-    @objid ("f57c5a9d-55b6-11e2-877f-002564c97630")
-    private State element;
-
     /**
      * Current version of this Gm.
      */
@@ -65,27 +61,29 @@ public class GmState extends GmPortContainer {
     @objid ("f57c5ab1-55b6-11e2-877f-002564c97630")
     private static final String IMAGE_LABEL_ROLE = "ImageLabel";
 
+    @objid ("f57c5a9d-55b6-11e2-877f-002564c97630")
+    private State element;
+
     @objid ("818be8e9-55c2-11e2-9337-002564c97630")
-     static final AbstractStyleKeyProvider STRUCTURED_KEYS = new GmStateStructuredStyleKeys();
+    static final AbstractStyleKeyProvider STRUCTURED_KEYS = new GmStateStructuredStyleKeys();
 
     @objid ("818c0ffa-55c2-11e2-9337-002564c97630")
-     static final AbstractStyleKeyProvider SIMPLE_KEYS = new GmStateSimpleStyleKeys();
+    static final AbstractStyleKeyProvider SIMPLE_KEYS = new GmStateSimpleStyleKeys();
 
     @objid ("818c0ffc-55c2-11e2-9337-002564c97630")
-     static final AbstractStyleKeyProvider IMAGE_KEYS = new GmStateImageStyleKeys();
+    static final AbstractStyleKeyProvider IMAGE_KEYS = new GmStateImageStyleKeys();
 
     @objid ("a4634197-2725-43a5-a322-eb29424f99c2")
-     static final AbstractStyleKeyProvider USERIMAGE_KEYS = new GmStateUserImageStyleKeys();
+    static final AbstractStyleKeyProvider USERIMAGE_KEYS = new GmStateUserImageStyleKeys();
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the element is unmasked.
      * @param el the unmasked element, can be <i>null</i>.
      * @param ref the unmasked element reference, must not be <i>null</i>..
      */
     @objid ("f57c5ab3-55b6-11e2-877f-002564c97630")
-    public GmState(IGmDiagram diagram, State el, MRef ref) {
+    public  GmState(IGmDiagram diagram, State el, MRef ref) {
         super(diagram, ref);
         this.element = el;
         
@@ -98,6 +96,7 @@ public class GmState extends GmPortContainer {
         
         super.addChild(mainNode);
         super.addChild(imageModeHeader);
+        
     }
 
     /**
@@ -136,6 +135,7 @@ public class GmState extends GmPortContainer {
         return ConnectionPointReference.class.isAssignableFrom(type) ||
                                         EntryPointPseudoState.class.isAssignableFrom(type) ||
                                         ExitPointPseudoState.class.isAssignableFrom(type);
+        
     }
 
     @objid ("f57de128-55b6-11e2-877f-002564c97630")
@@ -170,13 +170,14 @@ public class GmState extends GmPortContainer {
         default:
             return Collections.emptyList();
         }
+        
     }
 
     /**
      * Empty constructor needed for deserialisation.
      */
     @objid ("f57de13a-55b6-11e2-877f-002564c97630")
-    public GmState() {
+    public  GmState() {
         // Nothing specific to do.
     }
 
@@ -201,6 +202,7 @@ public class GmState extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("f57de143-55b6-11e2-877f-002564c97630")
@@ -223,6 +225,7 @@ public class GmState extends GmPortContainer {
         if (getRelatedElement() != null && getRelatedElement().isValid()) {
             refreshPointsFromObModel();
         }
+        
     }
 
     @objid ("f57de154-55b6-11e2-877f-002564c97630")
@@ -233,6 +236,7 @@ public class GmState extends GmPortContainer {
         if (getRelatedElement() != null && getRelatedElement().isValid()) {
             refreshPointsFromObModel();
         }
+        
     }
 
     @objid ("f57f67ba-55b6-11e2-877f-002564c97630")
@@ -245,6 +249,7 @@ public class GmState extends GmPortContainer {
                 refreshPointsFromObModel();
             }
         }
+        
     }
 
     /**
@@ -279,6 +284,7 @@ public class GmState extends GmPortContainer {
                 }
             }
         }
+        
     }
 
     @objid ("f57f67c6-55b6-11e2-877f-002564c97630")
@@ -293,6 +299,7 @@ public class GmState extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmState.", GmState.MINOR_VERSION);
+        
     }
 
     @objid ("f57f67d0-55b6-11e2-877f-002564c97630")
@@ -305,6 +312,7 @@ public class GmState extends GmPortContainer {
         imageModeHeader.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         
         super.addChild(imageModeHeader, 1);
+        
     }
 
     @objid ("f57f67d5-55b6-11e2-877f-002564c97630")
@@ -317,6 +325,7 @@ public class GmState extends GmPortContainer {
     private void read_1(final IDiagramReader in) {
         super.read(in);
         this.element = (State) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("f57f67e0-55b6-11e2-877f-002564c97630")
@@ -332,6 +341,7 @@ public class GmState extends GmPortContainer {
                 ret.remove(imageModeHeader);
                 break;
             }
+            case USER_IMAGE:
             case IMAGE:
             default: {
                 break;
@@ -344,7 +354,6 @@ public class GmState extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -354,11 +363,11 @@ public class GmState extends GmPortContainer {
         String role = childNode.getRoleInComposition();
         return GmPortContainer.SATELLITE_ROLE.equals(role)
                                         || GmState.IMAGE_LABEL_ROLE.equals(role);
+        
     }
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */

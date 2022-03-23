@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,7 @@ public class ELiteralString extends ENamedElement {
     }
 
     @objid ("1495dbe6-f7a7-4c16-aa74-becb950a3a61")
-    public ELiteralString(org.eclipse.uml2.uml.LiteralString element) {
+    public  ELiteralString(org.eclipse.uml2.uml.LiteralString element) {
         super(element);
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.modules.parameters.standard;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -55,6 +54,7 @@ class ScopeLabelProvider extends ColumnLabelProvider {
         } else {
             return "";
         }
+        
     }
 
 }

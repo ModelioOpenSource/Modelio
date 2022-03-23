@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnsequenceflow;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,16 +32,19 @@ import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.requests.LocationRequest;
 import org.modelio.bpmn.diagram.editor.elements.bpmnsequenceflow.insert.InsertInFlowEditPolicy;
 import org.modelio.bpmn.diagram.editor.elements.bpmnsequenceflow.throwcatch.InsertThrowCatchEditPolicy;
-import org.modelio.bpmn.diagram.editor.elements.policies.BpmnCreateLinkEditPolicy;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnCreateLinkEditPolicy;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeRequestConstants;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeStartCreationEditPolicy;
 import org.modelio.diagram.elements.core.figures.decorations.DefaultPolygonDecoration;
 import org.modelio.diagram.elements.core.helpers.palapi.PaletteActionProvider;
 import org.modelio.diagram.elements.core.link.LinkEditPart;
 import org.modelio.diagram.elements.core.link.createhandle.UserChoiceCreateLinkEditPolicy;
-import org.modelio.diagram.elements.core.policies.DefaultConnectionEndpointEditPolicy;
+import org.modelio.diagram.elements.core.link.rake.CreateRakeLinkEditPolicy;
+import org.modelio.diagram.elements.core.link.rake.RakeRefreshEditPolicy;
 import org.modelio.diagram.elements.core.policies.DefaultDeleteLinkEditPolicy;
 import org.modelio.diagram.elements.core.policies.DelegatingDirectEditionEditPolicy;
+import org.modelio.diagram.elements.core.policies.LayoutConnectionConnectionsEditPolicy;
+import org.modelio.diagram.elements.core.policies.LayoutNodeConnectionsEditPolicy;
 import org.modelio.diagram.elements.core.requests.ModelElementDropRequest;
 import org.modelio.diagram.elements.core.tools.multipoint.CreateMultiPointRequest;
 import org.modelio.diagram.elements.umlcommon.constraint.ConstraintLinkEditPolicy;
@@ -123,6 +125,7 @@ public class BpmnSequenceFlowEditPart extends LinkEditPart {
                 pfigure.setSourceDecoration(null);
             }
         }
+        
     }
 
     @objid ("619dbd55-55b6-11e2-877f-002564c97630")
@@ -132,7 +135,6 @@ public class BpmnSequenceFlowEditPart extends LinkEditPart {
         installEditPolicy(UserChoiceCreateLinkEditPolicy.class, new UserChoiceCreateLinkEditPolicy(new PaletteActionProvider(this, PaletteActionProvider.IS_LINK_TOOL), false));
         
         installEditPolicy(EditPolicy.LAYOUT_ROLE, new SequenceFlowLinkLayoutEditPolicy());
-        installEditPolicy(EditPolicy.CONNECTION_ENDPOINTS_ROLE, new DefaultConnectionEndpointEditPolicy());
         installEditPolicy(EditPolicy.NODE_ROLE, new BpmnCreateLinkEditPolicy(true));
         installEditPolicy(EditPolicy.CONNECTION_ROLE, new DefaultDeleteLinkEditPolicy());
         installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE, new DelegatingDirectEditionEditPolicy());
@@ -141,6 +143,20 @@ public class BpmnSequenceFlowEditPart extends LinkEditPart {
         installEditPolicy(InsertInFlowEditPolicy.class.getSimpleName(), new InsertInFlowEditPolicy());
         installEditPolicy(InsertThrowCatchEditPolicy.class.getSimpleName(), new InsertThrowCatchEditPolicy());
         installEditPolicy(ModelElementDropRequest.class, new BpmnSequenceFlowElementDropEditPolicy());
+        
+        // to allow using this link as link target to create a rake
+        installEditPolicy("rake", new CreateRakeLinkEditPolicy());
+        installEditPolicy(RakeRefreshEditPolicy.ROLE, new RakeRefreshEditPolicy());
+        
+        if (getRoutingMode().routingStyle != null) {
+            updateRouterDependentEditPolicies(getRoutingMode());
+        }
+        
+        // Additional policies that request links on the link to update their feedback then layout.
+        // They require drag policies to be registered or reserved before
+        installEditPolicy(LayoutConnectionConnectionsEditPolicy.ROLE, new LayoutConnectionConnectionsEditPolicy(this));
+        installEditPolicy(LayoutNodeConnectionsEditPolicy.ROLE, new LayoutNodeConnectionsEditPolicy(this));
+        
     }
 
     @objid ("7b17cd7a-7660-41b5-b4a7-af73f01cb7d5")
@@ -149,7 +165,7 @@ public class BpmnSequenceFlowEditPart extends LinkEditPart {
         if (RequestConstants.REQ_DIRECT_EDIT.equals(req.getType())) {
             if (!(req instanceof LocationRequest)) {
                 // Give the request to the guard
-                Object guardEditPart = getViewer().getEditPartRegistry().get((getModel().getFirstExtension(GmBpmnSequenceFlow.ROLE_GUARD)));
+                Object guardEditPart = getViewer().getEditPartRegistry().get(getModel().getFirstExtension(GmBpmnSequenceFlow.ROLE_GUARD));
                 if (guardEditPart != null) {
                     // Make sure it understands the request
                     final EditPart childEditPart = (EditPart) guardEditPart;
@@ -162,6 +178,7 @@ public class BpmnSequenceFlowEditPart extends LinkEditPart {
             }
         }
         super.performRequest(req);
+        
     }
 
     @objid ("187cb644-237e-483b-939c-209eefc71109")

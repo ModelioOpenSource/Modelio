@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -61,13 +60,13 @@ public class EPackageImport extends EElement {
     /**
      * The EPackageImport constructor.
      * It takes the imported Ecore org.eclipse.uml2.uml.PackageImport as parameter
-     * 
      * @param element : the imported Ecore org.eclipse.uml2.uml.PackageImport
      */
     @objid ("c22ff0f3-3484-4ab8-96fd-886c8fa8e90c")
-    public EPackageImport(final org.eclipse.uml2.uml.PackageImport element) {
+    public  EPackageImport(final org.eclipse.uml2.uml.PackageImport element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("bb4cfefa-0d9f-44fc-9c3a-6fa97183042f")
@@ -128,6 +127,7 @@ public class EPackageImport extends EElement {
             objingElt.delete();
             objingImported.delete();
         }
+        
     }
 
     @objid ("5551fc73-4de9-4822-947d-b067b875d763")
@@ -140,6 +140,7 @@ public class EPackageImport extends EElement {
             setNameFromEAnnotation((PackageImport) objingElt);
          
                 super.setProperties(objingElt);
+        
     }
 
     @objid ("7ebbf165-5459-4d05-87aa-da59ab335955")
@@ -147,6 +148,7 @@ public class EPackageImport extends EElement {
         if (ObjingEAnnotation.getName(this.ecoreElement) != null) {
             objingElt.setName(ObjingEAnnotation.getName(this.ecoreElement));
         }
+        
     }
 
     @objid ("164233b2-1a44-4999-b6a0-f570d56b568b")
@@ -170,6 +172,7 @@ public class EPackageImport extends EElement {
         if (ObjingEAnnotation.isUndefined(this.ecoreElement))
             objingElt
             .setVisibility(VisibilityMode.VISIBILITYUNDEFINED);
+        
     }
 
 }

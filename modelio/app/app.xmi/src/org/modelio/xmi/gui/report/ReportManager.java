@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.gui.report;
 
 import java.io.BufferedWriter;
@@ -47,7 +46,6 @@ public class ReportManager {
 
     /**
      * This method opens the XMI report dialog
-     * 
      * @param report : the report model exposed in report dialog
      */
     @objid ("d287868e-137b-44cd-9cc7-c5df08abf99a")
@@ -71,11 +69,11 @@ public class ReportManager {
                 shell.dispose();
             }
         }
+        
     }
 
     /**
      * This method creates a new Report Model
-     * 
      * @return the created Report Model
      */
     @objid ("fd6e5f07-72e9-42c3-864c-26c2c3e9ebfa")
@@ -125,6 +123,7 @@ public class ReportManager {
         } catch (IOException e) {
             Xmi.LOG.error(e);       
         }
+        
     }
 
 }

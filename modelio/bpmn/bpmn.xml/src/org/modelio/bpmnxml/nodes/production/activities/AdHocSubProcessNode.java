@@ -17,16 +17,15 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.production.activities;
 
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.List;
 import java.util.Map;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.bind.JAXBElement;
 import javax.xml.namespace.QName;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.bpmnxml.model.ObjectFactory;
 import org.modelio.bpmnxml.model.TAdHocOrdering;
 import org.modelio.bpmnxml.model.TAdHocSubProcess;
@@ -50,7 +49,7 @@ import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("ec5a3194-5413-45bb-819c-11d1b83e8f0c")
-public class AdHocSubProcessNode implements IProductionNode<BpmnAdHocSubProcess,TAdHocSubProcess> {
+public class AdHocSubProcessNode implements IProductionNode<BpmnAdHocSubProcess, TAdHocSubProcess> {
     @objid ("a8a98c51-aff6-43f4-a739-1773bffd0e84")
     private Map<String, Object> elementsMap;
 
@@ -87,6 +86,7 @@ public class AdHocSubProcessNode implements IProductionNode<BpmnAdHocSubProcess,
         } else {
             return factory.create(BpmnAdHocSubProcess.class, context);
         }
+        
     }
 
     @objid ("8a82ee6e-fbc7-4f7f-bae2-50a79b56896c")

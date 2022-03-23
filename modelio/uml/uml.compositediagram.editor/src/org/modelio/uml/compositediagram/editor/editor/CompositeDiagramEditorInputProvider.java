@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.compositediagram.editor.editor;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.editor.DiagramEditorInput;
 import org.modelio.diagram.editor.IDiagramEditorInputProvider;
+import org.modelio.diagram.editor.IDiagramEditorInputProvider.GmDiagramCreator;
 import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.diagrams.CompositeStructureDiagram;
@@ -34,7 +34,7 @@ import org.modelio.vcore.smkernel.mapi.MRef;
 @objid ("a80425ba-5a44-11e2-9e33-00137282c51b")
 public class CompositeDiagramEditorInputProvider implements IDiagramEditorInputProvider {
     @objid ("b72410aa-5a44-11e2-9e33-00137282c51b")
-    public CompositeDiagramEditorInputProvider() {
+    public  CompositeDiagramEditorInputProvider() {
         super();
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.gui.creation.doctype;
 
 import java.util.HashMap;
@@ -42,7 +41,7 @@ class DocTypeChooserModel {
     private ModelElement element;
 
     @objid ("a70648b0-9681-42e9-8890-b84cb000e8ec")
-     Map<ModuleComponent, AdapterModule> mdacAdapters;
+    Map<ModuleComponent, AdapterModule> mdacAdapters;
 
     @objid ("be7afd2e-9591-4e8f-8ecd-7ab9eec233ee")
     private IMModelServices modelService;
@@ -54,7 +53,6 @@ class DocTypeChooserModel {
 
     /**
      * Get accessor for mdacAdapters
-     * 
      * @return the module nodes.
      */
     @objid ("41ed2acb-25d5-48f8-9645-371c43ae574c")
@@ -73,11 +71,12 @@ class DocTypeChooserModel {
     }
 
     @objid ("b8237a0b-0226-4016-b52a-cb4f8080f5b9")
-    DocTypeChooserModel(ModelElement element) {
+     DocTypeChooserModel(ModelElement element) {
         this.element = element;
         this.modelService = new MModelServices(CoreSession.getSession(element));
         this.mdacAdapters = new HashMap<>();
         init();
+        
     }
 
     @objid ("e0290510-bd79-4fc5-bfab-a981875d3bcb")
@@ -89,6 +88,7 @@ class DocTypeChooserModel {
             this.mdacAdapters.put(module, adapter);
         }
         adapter.addDocType(noteType);
+        
     }
 
     @objid ("4b021394-8d24-4a54-8762-3f809fdbcb51")
@@ -101,6 +101,7 @@ class DocTypeChooserModel {
         }
         
         adapter.addStereotype(stereotype);
+        
     }
 
     @objid ("e76b20a8-cc24-435c-90cc-1c1d92c9235b")
@@ -161,6 +162,7 @@ class DocTypeChooserModel {
                 }
             }
         }
+        
     }
 
 }

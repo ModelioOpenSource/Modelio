@@ -7,11 +7,12 @@
 	<parent>
 		<groupId>org.modelio</groupId>
 		<artifactId>doc-parent</artifactId>
-		<version>4.1.0-SNAPSHOT</version>
-		<relativePath>../../parent</relativePath>
+		<version>5.1.0-SNAPSHOT</version>
+		<relativePath>../..</relativePath>
 	</parent>
 
 	<modules>
 		<module>org.modelio.documentation.modeler.feature</module>
 	</modules>
+
 </project>

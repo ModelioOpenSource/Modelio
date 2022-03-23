@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.abstractdiagram;
 
 import java.util.ArrayDeque;
@@ -79,6 +78,7 @@ public class DiagramElementDropEditPolicy extends DefaultElementDropEditPolicy {
                 super.showTargetFeedback(request);
             }
         }
+        
     }
 
     @objid ("7e11d6be-1dec-11e2-8cad-001ec947c8cc")
@@ -102,7 +102,6 @@ public class DiagramElementDropEditPolicy extends DefaultElementDropEditPolicy {
 
     /**
      * Creates a drop command for an element that will be unmasked as a link.
-     * 
      * @param dropLocation the point where the drop happened.
      * @param link the link.
      * @return the created command.
@@ -156,7 +155,6 @@ public class DiagramElementDropEditPolicy extends DefaultElementDropEditPolicy {
 
     /**
      * Creates a drop command for an element that will be unmasked as a node.
-     * 
      * @param dropLocation the point where the drop happened.
      * @param toUnmask the element to unmask.
      * @return the created command.
@@ -246,17 +244,16 @@ public class DiagramElementDropEditPolicy extends DefaultElementDropEditPolicy {
      * C'tor forbidding multiple unmask.
      */
     @objid ("74f91ad7-bd45-4593-85d7-979d5fe595b9")
-    public DiagramElementDropEditPolicy() {
+    public  DiagramElementDropEditPolicy() {
         super(false);
     }
 
     /**
      * C'tor.
-     * 
      * @param multipleUnmaskAllowed allow or forbid multiple unmask for model elements.
      */
     @objid ("45449ee2-30e0-41b9-a420-5f67660dea1f")
-    public DiagramElementDropEditPolicy(boolean multipleUnmaskAllowed) {
+    public  DiagramElementDropEditPolicy(boolean multipleUnmaskAllowed) {
         super(multipleUnmaskAllowed);
     }
 

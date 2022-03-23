@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.api.impl.editor;
 
 import java.io.File;
@@ -76,13 +75,13 @@ public class EditionService implements IEditionService {
 
     /**
      * Initialize the edition service.
-     * 
      * @param eventService the Modelio event service
      */
     @objid ("83aae504-98c5-4e05-aa25-24ca50ff57ae")
-    public EditionService(IModelioEventService eventService, IEclipseContext eclipseContext) {
+    public  EditionService(IModelioEventService eventService, IEclipseContext eclipseContext) {
         this.eventService = eventService;
         this.eclipseContext = eclipseContext;
+        
     }
 
     @objid ("775aa980-fcae-4a9a-934c-5f05762c412f")
@@ -117,6 +116,7 @@ public class EditionService implements IEditionService {
         } else {
             return fileRepository.openRichNote(doc, null);
         }
+        
     }
 
     @objid ("0f1883de-d93e-4bb5-8f34-0bd39a384dc7")
@@ -193,6 +193,7 @@ public class EditionService implements IEditionService {
         final IRichNoteFileRepository fileRepository = RichNotesSession.get(GProject.getProject(doc)).getFileRepository();
         
         fileRepository.saveRichNote(doc, fileToSave);
+        
     }
 
     @objid ("83876608-10e6-4747-a08f-f24f91066405")
@@ -203,6 +204,7 @@ public class EditionService implements IEditionService {
             final IRichNoteFileRepository fileRepository = RichNotesSession.get(doc).getFileRepository();
             fileRepository.initRichNoteFromFile(doc, content);
         }
+        
     }
 
     @objid ("ee7ee03c-8aed-4c77-8734-918f9dea9570")
@@ -218,6 +220,7 @@ public class EditionService implements IEditionService {
         
         final IRichNoteFileRepository fileRepository = RichNotesSession.get(GProject.getProject(mdaRichNoteEditor.getDoc())).getFileRepository();
         fileRepository.removeEditor(mdaRichNoteEditor);
+        
     }
 
     @objid ("5e54bcd5-049f-4cc5-8a02-5160d2506e98")

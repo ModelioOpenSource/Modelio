@@ -17,21 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.interactionModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.CombinedFragmentData;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.GateSmClass;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.InteractionFragmentSmClass;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.InteractionOperandSmClass;
 import org.modelio.metamodel.uml.behavior.interactionModel.CombinedFragment;
 import org.modelio.metamodel.uml.behavior.interactionModel.Gate;
 import org.modelio.metamodel.uml.behavior.interactionModel.InteractionFragment;
@@ -61,7 +57,7 @@ public class CombinedFragmentSmClass extends InteractionFragmentSmClass {
     private SmDependency fragmentGateDep;
 
     @objid ("8db8ca77-60f6-4cbf-8304-110c8dbcb693")
-    public CombinedFragmentSmClass(ISmMetamodelFragment origin) {
+    public  CombinedFragmentSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -69,6 +65,7 @@ public class CombinedFragmentSmClass extends InteractionFragmentSmClass {
     @Override
     public String getName() {
         return "CombinedFragment";
+        
     }
 
     @objid ("2b0b39c1-a76c-4d8a-a59e-b47c919f4a29")
@@ -81,18 +78,21 @@ public class CombinedFragmentSmClass extends InteractionFragmentSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return CombinedFragment.class;
+        
     }
 
     @objid ("74f59d8e-2b34-47e8-bc06-36f00f786d08")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("df05748e-563a-42f8-b24a-d2c75b59df73")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("302d3f2f-e37e-48cc-a854-28b036324b51")
@@ -116,6 +116,8 @@ public class CombinedFragmentSmClass extends InteractionFragmentSmClass {
         this.fragmentGateDep = new FragmentGateSmDependency();
         this.fragmentGateDep.init("FragmentGate", this, metamodel.getMClass(Gate.MQNAME), 0, -1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.fragmentGateDep);
+        
+        
     }
 
     @objid ("c1c886ba-65bc-420d-b444-2bfe06d73f0e")
@@ -148,7 +150,7 @@ public class CombinedFragmentSmClass extends InteractionFragmentSmClass {
         private CombinedFragmentSmClass smClass;
 
         @objid ("8412a76d-7176-42a3-bc12-63991b36213e")
-        public CombinedFragmentObjectFactory(CombinedFragmentSmClass smClass) {
+        public  CombinedFragmentObjectFactory(CombinedFragmentSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -195,6 +197,7 @@ public class CombinedFragmentSmClass extends InteractionFragmentSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((CombinedFragmentData) data).mOperand = values;
+            
         }
 
         @objid ("141c444a-25d4-44e4-a1a7-6c6e1551a736")
@@ -204,6 +207,7 @@ public class CombinedFragmentSmClass extends InteractionFragmentSmClass {
             	this.symetricDep = ((InteractionOperandSmClass)this.getTarget()).getOwnerFragmentDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -223,6 +227,7 @@ public class CombinedFragmentSmClass extends InteractionFragmentSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((CombinedFragmentData) data).mFragmentGate = values;
+            
         }
 
         @objid ("256c3933-2d7a-4705-ad0a-c3cb88cd6565")
@@ -232,6 +237,7 @@ public class CombinedFragmentSmClass extends InteractionFragmentSmClass {
             	this.symetricDep = ((GateSmClass)this.getTarget()).getOwnerFragmentDep();
             }
             return this.symetricDep;
+            
         }
 
     }

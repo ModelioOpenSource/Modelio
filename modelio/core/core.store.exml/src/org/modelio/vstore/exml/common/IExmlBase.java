@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common;
 
 import java.io.IOException;
@@ -44,7 +43,7 @@ import org.modelio.vstore.exml.common.model.ObjId;
 public interface IExmlBase extends IRepository {
     /**
      * @return the CMS nodes composition indexes.
-     * @throws org.modelio.vstore.exml.common.index.IndexException in case of index access error.
+     * @throws IndexException in case of index access error.
      */
     @objid ("fd21f505-5986-11e1-991a-001ec947ccaf")
     ICmsNodeIndex getCmsNodeIndex() throws IndexException;
@@ -57,12 +56,11 @@ public interface IExmlBase extends IRepository {
 
     /**
      * Load the given CMS node if not already loaded.
-     * 
      * @param obj a CMS node ID .
      * @param modelLoader the model loader to use.
      * @param force true to always reload the node, false to load it only if not already done.
      * @return the loaded CMS node.
-     * @throws org.modelio.vcore.model.DuplicateObjectException if a duplicate object is detected in many repositories.
+     * @throws DuplicateObjectException if a duplicate object is detected in many repositories.
      */
     @objid ("fd1f92d4-5986-11e1-991a-001ec947ccaf")
     SmObjectImpl loadCmsNode(ObjId obj, IModelLoader modelLoader, boolean force) throws DuplicateObjectException;
@@ -71,26 +69,23 @@ public interface IExmlBase extends IRepository {
      * Force reload the given CMS node.
      * <p>
      * In case of failure the CMS node will be set as <i>shell</i>.
-     * 
      * @param obj a CMS node model object.
      * @param modelLoader the model loader to use.
-     * @throws org.modelio.vcore.model.DuplicateObjectException if a duplicate object is detected in many repositories.
+     * @throws DuplicateObjectException if a duplicate object is detected in many repositories.
      */
     @objid ("fd21f4c8-5986-11e1-991a-001ec947ccaf")
     void reloadCmsNode(final SmObjectImpl obj, IModelLoader modelLoader) throws DuplicateObjectException;
 
     /**
      * Remove the model object from the repository.
-     * 
      * @param object the model object to remove from the base.
-     * @throws java.io.IOException in case of I/O error.
+     * @throws IOException in case of I/O error.
      */
     @objid ("fd21f527-5986-11e1-991a-001ec947ccaf")
     void removeObject(final SmObjectImpl object) throws IOException;
 
     /**
      * Get the already loaded object.
-     * 
      * @param id the object ID.
      * @return the loaded object or <code>null</code>.
      */
@@ -99,7 +94,6 @@ public interface IExmlBase extends IRepository {
 
     /**
      * Get the EMF Resource adapter.
-     * 
      * @return the EMF Resource.
      */
     @objid ("4b16d903-c065-11e1-b511-001ec947ccaf")
@@ -107,7 +101,6 @@ public interface IExmlBase extends IRepository {
 
     /**
      * Create and register a new storage handler for the given CMS node
-     * 
      * @param cmsNode a CMs node
      * @param isNodeLoaded <code>true</code> if the node is already loaded, else <code>false</code>
      * @return the new storage handler.
@@ -117,7 +110,6 @@ public interface IExmlBase extends IRepository {
 
     /**
      * Tells whether the given object is stored in this repository.
-     * 
      * @param id the object id
      * @return <code>true</code> if the object is in the repository else <code>false</code>.
      */
@@ -126,7 +118,6 @@ public interface IExmlBase extends IRepository {
 
     /**
      * Get the model loader provider.
-     * 
      * @return a loading session.
      */
     @objid ("73a67de2-43a3-11e2-91c9-001ec947ccaf")
@@ -134,7 +125,6 @@ public interface IExmlBase extends IRepository {
 
     /**
      * Declare the indexes as damaged.
-     * 
      * @param e the index error.
      */
     @objid ("e7e4ee21-55ba-11e2-81b0-001ec947ccaf")
@@ -142,7 +132,6 @@ public interface IExmlBase extends IRepository {
 
     /**
      * Tells whether the object has been detached from this repository since last save.
-     * 
      * @param id the object identifier
      * @return the object if it has been detached from this repository .
      */
@@ -151,21 +140,19 @@ public interface IExmlBase extends IRepository {
 
     /**
      * Find an object from its ID in the repository.
-     * 
      * @param id an object ID.
      * @param modelLoader the model loader to use to load the model object
      * @return the found model object or <code>null</code>.
-     * @throws org.modelio.vcore.model.DuplicateObjectException if another object with the same identifier already exists
+     * @throws DuplicateObjectException if another object with the same identifier already exists
      * in another repository.
-     * @throws org.modelio.vstore.exml.common.index.IndexException if the index is broken
-     * @throws org.modelio.vstore.exml.common.model.IllegalReferenceException in case of problem with the related object.
+     * @throws IndexException if the index is broken
+     * @throws IllegalReferenceException in case of problem with the related object.
      */
     @objid ("9922f96b-a6ca-46bf-843e-fa3cfb58f12b")
     SmObjectImpl findByObjId(final ObjId id, IModelLoader modelLoader) throws DuplicateObjectException, IndexException, IllegalReferenceException;
 
     /**
      * Unload and forget the given object.
-     * 
      * @param obj the object to unload
      */
     @objid ("ef33536b-3ce1-43eb-afde-6c1dc1fa4f57")

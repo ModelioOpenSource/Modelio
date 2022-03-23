@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.browser.contrib;
 
 import java.util.ArrayList;
@@ -126,7 +125,6 @@ class StandardModelProviderVisitor extends DefaultModelVisitor {
 
     /**
      * Get the 'links' under parent, links are those elements intended to appear in the 'link' container in the browser
-     * 
      * @param parent @return
      */
     @objid ("4fa114c7-d916-43c0-b6e0-7746dbf11b21")
@@ -136,7 +134,6 @@ class StandardModelProviderVisitor extends DefaultModelVisitor {
 
     /**
      * Get the 'elements' under parent.
-     * 
      * @param parent @return
      */
     @objid ("4e9d9580-087e-490f-9ab0-ad8b8fe940f9")
@@ -1053,7 +1050,6 @@ class StandardModelProviderVisitor extends DefaultModelVisitor {
 
     /**
      * Avoid having a duplicated element in the result, but preserves order unlike a Set.
-     * 
      * @param elt the element to add.
      */
     @objid ("9603c2d1-df56-4ed0-8090-7c9734bb87ec")
@@ -1061,11 +1057,11 @@ class StandardModelProviderVisitor extends DefaultModelVisitor {
         if (elt != null && !this.result.contains(elt)) {
             this.result.add(elt);
         }
+        
     }
 
     /**
      * Avoid having duplicated elements in the result, but preserves order unlike a Set.
-     * 
      * @param objects the element to add.
      */
     @objid ("2d1c1b40-a3d9-442a-b7cc-6e5baec7a3b3")
@@ -1073,11 +1069,11 @@ class StandardModelProviderVisitor extends DefaultModelVisitor {
         for (Object elt : objects) {
             addResult(elt);
         }
+        
     }
 
     /**
      * Get the children to display into the given element. The method configure the visitor (setting with elements/links options) and call the accept() method.
-     * 
      * @param parent the element where children will be looked for
      * @return The children to display when expanding the tree node.
      */

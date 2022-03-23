@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.List;
@@ -33,25 +33,25 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("00193926-c4bf-1fd8-97fe-001ec947cd2a")
 public class PortData extends BindableInstanceData {
     @objid ("b9a72b7d-2de3-4525-bd7f-8b0d00e10f6e")
-     Object mIsBehavior = false;
+    Object mIsBehavior = false;
 
     @objid ("f0102afd-3c25-40d6-8a86-bc3e70ec6d45")
-     Object mIsService = false;
+    Object mIsService = false;
 
     @objid ("b34b650e-bd81-4fd8-872d-517b846ba1d2")
-     Object mIsConjugated = false;
+    Object mIsConjugated = false;
 
     @objid ("e413ded6-faf0-4f70-b083-16b565ba5ea8")
-     Object mDirection = PortOrientation.NONE;
+    Object mDirection = PortOrientation.NONE;
 
     @objid ("e6690fe6-340a-43a0-8ae3-3bcd57b80979")
-     List<SmObjectImpl> mProvided = null;
+    List<SmObjectImpl> mProvided = null;
 
     @objid ("3573321e-6b06-41c1-8f59-14b00fd7d0dc")
-     List<SmObjectImpl> mRequired = null;
+    List<SmObjectImpl> mRequired = null;
 
     @objid ("fa9991b6-a8a0-43f4-b630-cde16dc46117")
-    public PortData(PortSmClass smClass) {
+    public  PortData(PortSmClass smClass) {
         super(smClass);
     }
 

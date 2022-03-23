@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.api.impl.diagrams;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.resource.DataFormatException;
-import org.modelio.api.modelio.diagram.IDGDynamicDecorator.IOverwrittenProperties;
 import org.modelio.api.modelio.diagram.IDGDynamicDecorator;
+import org.modelio.api.modelio.diagram.IDGDynamicDecorator.IOverwrittenProperties;
 import org.modelio.api.modelio.diagram.IDiagramGraphic;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
 import org.modelio.diagram.api.dg.DGFactory;
@@ -33,9 +32,9 @@ import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.styles.core.DynamicStyle;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
+import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.diagram.styles.core.StyleKey.FillMode;
 import org.modelio.diagram.styles.core.StyleKey.LinePattern;
-import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
@@ -57,9 +56,10 @@ public class DGDynamicStyler implements IDynamicStyler {
     private OverwrittenProperties properties = new OverwrittenProperties();
 
     @objid ("ddb84bae-1da0-41eb-a109-f4e8011cecca")
-    public DGDynamicStyler(IDGDynamicDecorator dgDecorator) {
+    public  DGDynamicStyler(IDGDynamicDecorator dgDecorator) {
         this.dgDecorator = dgDecorator;
         this.decorationInProgress = false;
+        
     }
 
     @objid ("b2474e4b-5290-4887-befe-e514420183e6")
@@ -102,6 +102,7 @@ public class DGDynamicStyler implements IDynamicStyler {
             this.gmModel = model;
             this.originalStyle = style;
             this.styleOverwrite = null;
+            
         }
 
         @objid ("6782efc1-43b0-40ad-a663-12a8064271c7")
@@ -124,6 +125,7 @@ public class DGDynamicStyler implements IDynamicStyler {
             if (key != null) {
                 overloadProperty(key, StyleKeyTypeConverter.convertFromString(key, value));
             }
+            
         }
 
         @objid ("618d7ac7-cf5f-48a5-bc2f-26b4704bb978")
@@ -134,6 +136,7 @@ public class DGDynamicStyler implements IDynamicStyler {
                 return;
             }
             overloadProperty(styleKey, value);
+            
         }
 
         @objid ("d623640e-5d27-4ca2-a4a5-869635e83969")
@@ -144,6 +147,7 @@ public class DGDynamicStyler implements IDynamicStyler {
                 return;
             }
             overloadProperty(styleKey, StyleKeyTypeConverter.convertFromString(styleKey, value));
+            
         }
 
         @objid ("67f1d413-55c6-4d72-a895-5c48315778fa")
@@ -154,6 +158,7 @@ public class DGDynamicStyler implements IDynamicStyler {
                 return;
             }
             overloadProperty(styleKey, StyleKeyTypeConverter.convertFromString(styleKey, value));
+            
         }
 
         @objid ("e4ba8244-753c-42a6-87dd-53fa5df5098b")
@@ -186,6 +191,7 @@ public class DGDynamicStyler implements IDynamicStyler {
             }
             
             overloadProperty(styleKey, pattern);
+            
         }
 
         @objid ("73e708eb-3145-4ed1-89f6-bdaa6de4b079")
@@ -197,6 +203,7 @@ public class DGDynamicStyler implements IDynamicStyler {
             }
             
             overloadProperty(styleKey, value);
+            
         }
 
         @objid ("2994aca2-38fa-4df7-b918-0d592310af58")
@@ -208,6 +215,7 @@ public class DGDynamicStyler implements IDynamicStyler {
             }
             
             overloadProperty(styleKey, value);
+            
         }
 
         @objid ("4a0d4b87-caea-4208-8dfc-e8577df146e5")
@@ -218,6 +226,7 @@ public class DGDynamicStyler implements IDynamicStyler {
                 return;
             }
             overloadProperty(styleKey, StyleKeyTypeConverter.convertFromString(styleKey, value));
+            
         }
 
         @objid ("b75f669d-8f86-4bfa-990c-c0bae6d6cccc")
@@ -229,6 +238,7 @@ public class DGDynamicStyler implements IDynamicStyler {
             }
             
             overloadProperty(styleKey, StyleKeyTypeConverter.convertFromString(styleKey, value));
+            
         }
 
         @objid ("937b5909-6214-49cf-8a4e-e9c88c6d68c3")
@@ -256,6 +266,7 @@ public class DGDynamicStyler implements IDynamicStyler {
             }
             
             overloadProperty(styleKey, pattern);
+            
         }
 
         /**

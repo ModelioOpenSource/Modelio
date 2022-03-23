@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.exporter.impl;
 
 import java.io.File;
@@ -35,11 +34,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.jar.JarEntry;
 import java.util.jar.JarOutputStream;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.tools.JavaCompiler;
 import javax.tools.JavaFileObject;
 import javax.tools.StandardJavaFileManager;
 import javax.tools.ToolProvider;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Platform;
@@ -52,8 +51,8 @@ import org.eclipse.swt.widgets.Display;
 import org.modelio.api.modelio.Modelio;
 import org.modelio.api.modelio.diagram.IDiagramGraphic;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
-import org.modelio.api.modelio.diagram.IDiagramLink.LinkRouterKind;
 import org.modelio.api.modelio.diagram.IDiagramLink;
+import org.modelio.api.modelio.diagram.IDiagramLink.LinkRouterKind;
 import org.modelio.api.modelio.diagram.IDiagramNode;
 import org.modelio.api.modelio.diagram.IDiagramService;
 import org.modelio.api.modelio.diagram.style.IStyleHandle;
@@ -83,7 +82,8 @@ import org.osgi.framework.Bundle;
 @objid ("c4642b85-bc62-4047-bb08-86ede73aa57a")
 public class JarExporter {
     @objid ("05222809-1ee2-4266-a4b6-03420d1ee670")
-    public JarExporter() {
+    public  JarExporter() {
+        
     }
 
     @objid ("f7e4f245-ab22-469a-9bcd-c60f52e3dcb7")
@@ -94,7 +94,6 @@ public class JarExporter {
 
     /**
      * Generate a Pattern.java file from a <<Pattern>> Package.
-     * 
      * @return the generated file.
      */
     @objid ("28c273e9-0968-4c34-82a5-d7a7da0892e3")
@@ -173,11 +172,14 @@ public class JarExporter {
             metaGenerator.generate(filewriter, modelPattern);
         
             metaGenerator.getRelationGenerator().generate(filewriter);
-            metaGenerator.getDiagramGenerator().generate(filewriter);
         
             if (filewriter.getCounter() <= 1000) {
                 filewriter.write("}");
             }
+            filewriter.write("");
+        
+            metaGenerator.getDiagramGenerator().generate(filewriter);
+        
             filewriter.write("");
         
             // createModel
@@ -195,6 +197,11 @@ public class JarExporter {
             for (int i = 1; (i <= filewriter.getMethodIndex()); i++) {
                 filewriter.write("        createModel" + i + "();");
             }
+        
+            for (int i = 1; (i <= metaGenerator.getDiagramGenerator().getMethodIndex()); i++) {
+                filewriter.write("        createDiagram" + i + "();");
+            }
+        
             filewriter.write("");
             filewriter.write("        tr.commit();");
             filewriter.write("    } catch (Exception e) {");
@@ -255,6 +262,7 @@ public class JarExporter {
             filewriter.close();
             return metaGenerator.getReport();
         }
+        
     }
 
     @objid ("bdff2a6a-003d-4f1a-b504-ae44e3b56e69")
@@ -343,6 +351,7 @@ public class JarExporter {
                     FileUtils.delete(tempDirectory);
                 }
             }
+            
         }
 
         @objid ("c7523b11-9cc9-4695-bb92-60f480ec4d17")
@@ -430,6 +439,7 @@ public class JarExporter {
             } else {
                 return null;
             }
+            
         }
 
     }

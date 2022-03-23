@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.net;
 
 import java.io.IOException;
@@ -26,9 +25,9 @@ import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URL;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLHandshakeException;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.vbasic.auth.IAuthData;
 import org.modelio.vbasic.auth.NoneAuthData;
 import org.modelio.vbasic.auth.UserPasswordAuthData;
@@ -42,7 +41,7 @@ import org.modelio.vbasic.auth.UserPasswordAuthData;
 @Deprecated
 class HttpsUriConnection extends UriConnection {
     @objid ("e45a932f-5604-44ff-8216-f5aa591febf0")
-     HttpsURLConnection conn;
+    HttpsURLConnection conn;
 
     @objid ("51dd03ad-e89a-4892-b618-31f3c4147bee")
     private URI uri;
@@ -51,14 +50,14 @@ class HttpsUriConnection extends UriConnection {
      * Creates an https URI connection.
      * <p>
      * The URI must be a https URI.
-     * 
      * @param uri the URI to connect to.
-     * @throws java.io.IOException in case of failure.
+     * @throws IOException in case of failure.
      */
     @objid ("a6bd91ec-b360-4308-aac7-1b07f6157923")
-    public HttpsUriConnection(URI uri) throws IOException {
+    public  HttpsUriConnection(URI uri) throws IOException {
         this.uri = uri;
         initConnection();
+        
     }
 
     @objid ("880bdc5b-f0cb-45c2-975b-669682bcbbc7")
@@ -74,6 +73,7 @@ class HttpsUriConnection extends UriConnection {
                 throw e;
             }
         }
+        
     }
 
     @objid ("9885623f-0fbe-42cb-9ea7-414d4d5a7852")
@@ -88,6 +88,7 @@ class HttpsUriConnection extends UriConnection {
                 throw e;
             }
         }
+        
     }
 
     @objid ("07b3ebb8-1637-440c-b081-f00136c7ac64")
@@ -149,6 +150,7 @@ class HttpsUriConnection extends UriConnection {
                 throw new UnsupportedOperationException(auth+ " not supported for "+this.conn);
             }
         }
+        
     }
 
     /**
@@ -156,7 +158,6 @@ class HttpsUriConnection extends UriConnection {
      * <p>
      * Look for user and password in the 'user' and 'pass' parameters.
      * If they are not filled, look at the URL itself.
-     * 
      * @param url the URL to open
      * @param user the user login, may be null
      * @param pass the password, may be null
@@ -172,6 +173,7 @@ class HttpsUriConnection extends UriConnection {
         } else {
             return null;
         }
+        
     }
 
     @objid ("1a8124d8-79e8-4ecc-994b-5b8463575489")
@@ -179,6 +181,7 @@ class HttpsUriConnection extends UriConnection {
         URL url = this.uri.toURL();
         this.conn = (HttpsURLConnection) url.openConnection();
         this.conn.setSSLSocketFactory(SslManager.getInstance().getSslContext().getSocketFactory());
+        
     }
 
     @objid ("7d53db93-d99c-4240-91a9-8879db7a91a8")
@@ -195,6 +198,7 @@ class HttpsUriConnection extends UriConnection {
                 throw e;
             }
         }
+        
     }
 
     /**

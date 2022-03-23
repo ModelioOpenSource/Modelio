@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.project.services;
 
 import java.io.IOException;
@@ -46,8 +45,8 @@ import org.modelio.gproject.fragment.FragmentMigrationNeededException;
 import org.modelio.gproject.fragment.IProjectFragment;
 import org.modelio.gproject.fragment.VersionHelper;
 import org.modelio.gproject.fragment.migration.BasicMigrationReporter;
-import org.modelio.gproject.fragment.migration.IFragmentMigrator.IMigrationProcess;
 import org.modelio.gproject.fragment.migration.IFragmentMigrator;
+import org.modelio.gproject.fragment.migration.IFragmentMigrator.IMigrationProcess;
 import org.modelio.gproject.fragment.migration.MigrationFailedException;
 import org.modelio.gproject.gproject.GProject;
 import org.modelio.platform.model.ui.dialogs.auth.AuthDataDialog;
@@ -55,7 +54,6 @@ import org.modelio.platform.project.plugin.AppProjectCore;
 import org.modelio.platform.rcp.extensionpoint.ExtensionPointContributionManager;
 import org.modelio.platform.ui.progress.ModelioProgressAdapter;
 import org.modelio.platform.ui.swt.DefaultShellProvider;
-import org.modelio.platform.ui.swt.SwtThreadHelper;
 import org.modelio.vbasic.auth.IAuthData;
 import org.modelio.vbasic.auth.UserPasswordAuthData;
 import org.modelio.vbasic.files.FileUtils;
@@ -89,27 +87,26 @@ public class FragmentsMigrator {
 
     /**
      * C'tor
-     * 
      * @param project the project to work on.
      * @param withConfirmation whether to ask user for confirmation.
      */
     @objid ("042f317a-bf12-42ab-bbf5-467301437964")
-    public FragmentsMigrator(final IEclipseContext eclipseContext, final GProject project, final boolean withConfirmation) {
+    public  FragmentsMigrator(final IEclipseContext eclipseContext, final GProject project, final boolean withConfirmation) {
         this.eclipseContext = Objects.requireNonNull(eclipseContext);
         this.project = Objects.requireNonNull(project);
         this.lastConfirmMigrationResult = toStatus(withConfirmation ? IDialogConstants.YES_ID : IDialogConstants.YES_TO_ALL_ID, null);
         this.mmDesc = VersionHelper.getDescriptors(this.project.getSession().getMetamodel());
+        
     }
 
     /**
      * Propose migration of a fragment.
-     * 
      * @param f the fragment to migrate
      * @param parentShell a parent SWT shell
      * @param parentMon the progress monitor to use
      * @param allowedMonWork the maximum progress ticks this method may use
      * @return the migration report or null if nothing was done
-     * @throws java.lang.InterruptedException on user cancellation
+     * @throws InterruptedException on user cancellation
      */
     @objid ("50464582-98ef-465e-8abc-f9d4443e5562")
     public IStatus migrateFragment(final IProjectFragment f, final Shell parentShell, final SubMonitor parentMon, final int allowedMonWork) throws InterruptedException {
@@ -191,10 +188,9 @@ public class FragmentsMigrator {
 
     /**
      * Propose migration of all model fragments that may be migrated.
-     * 
      * @param parentMon the progress monitor to use
      * @param allowedMonWork the maximum progress ticks this method may use
-     * @throws java.lang.InterruptedException on cancel
+     * @throws InterruptedException on cancel
      */
     @objid ("2afc1535-052c-439e-84e7-d17d8de792eb")
     public void migrateFragments(final SubMonitor parentMon, final int allowedMonWork) throws InterruptedException {
@@ -203,7 +199,9 @@ public class FragmentsMigrator {
                 .filter(f -> (f.getDownError() instanceof FragmentMigrationNeededException))
                 .collect(Collectors.toList());
         
-        final Shell parentShell = SwtThreadHelper.syncSupply(this.display, DefaultShellProvider::getBestParentShell);
+        final Shell parentShell = CompletableFuture.supplyAsync(
+                DefaultShellProvider::getBestParentShell,
+                this.display::syncExec).join();
         
         if (!fragsToMigrate.isEmpty()) {
             final String taskName = AppProjectCore.I18N.getMessage("FragmentsMigrator.monitor.begin", fragsToMigrate.size());
@@ -243,6 +241,7 @@ public class FragmentsMigrator {
                 displayMigrationResult(allresult.get(0), parentShell);
             }
         }
+        
     }
 
     @objid ("82717dbf-6005-4fe9-a9bc-be5a19af828f")
@@ -282,6 +281,7 @@ public class FragmentsMigrator {
         
             ErrorDialog.openError(parentShell, title, null, report);
         });
+        
     }
 
     @objid ("a8f9ad05-873e-478a-bc3f-4f411bf4ed9e")
@@ -307,6 +307,7 @@ public class FragmentsMigrator {
         } else {
             return false;
         }
+        
     }
 
     @objid ("0d8b727d-61f6-4cde-9951-e639bb776ee3")
@@ -322,6 +323,7 @@ public class FragmentsMigrator {
             f.unmount();
             mp.finish(mon.newChild(1));
         }
+        
     }
 
     @objid ("dbefcd5d-94f9-4be9-8f1c-932d1428331a")
@@ -342,11 +344,11 @@ public class FragmentsMigrator {
                 throw new MigrationFailedException(FileUtils.getLocalizedMessage(e), e);
             }
         }
+        
     }
 
     /**
      * Ask the user for migration confirmation.
-     * 
      * @param f the fragment to migrate
      * @param parentShell a parent SWT shell
      * @return a future that will be completed when the user has made a choice.
@@ -394,7 +396,6 @@ public class FragmentsMigrator {
 
     /**
      * Convert {@link IDialogConstants} to a {@link IStatus} with a user friendly message.
-     * 
      * @param dlgConstant one of {@link IDialogConstants}
      * @param f a project fragment
      * @return the built {@link IStatus}, never <i>null</i>.
@@ -419,6 +420,7 @@ public class FragmentsMigrator {
             final String strVal = String.valueOf(dlgConstant);
             return new Status(IStatus.ERROR, AppProjectCore.PLUGIN_ID, dlgConstant, "unknown " + strVal, new IllegalArgumentException(strVal));
         }
+        
     }
 
 }

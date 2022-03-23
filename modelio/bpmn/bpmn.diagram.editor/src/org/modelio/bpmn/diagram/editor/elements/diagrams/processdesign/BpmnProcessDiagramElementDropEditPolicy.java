@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.diagrams.processdesign;
 
 import java.util.Objects;
@@ -25,15 +24,18 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.commands.Command;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnDiagramElementDropEditPolicy;
 import org.modelio.bpmn.diagram.editor.elements.diagrams.processcollaboration.GmBpmnProcessCollaborationDiagram;
-import org.modelio.diagram.elements.common.abstractdiagram.DiagramElementDropEditPolicy;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
 import org.modelio.diagram.elements.core.requests.ModelElementDropRequest;
 import org.modelio.metamodel.bpmn.flows.BpmnMessageFlow;
+import org.modelio.metamodel.bpmn.flows.BpmnSequenceFlow;
+import org.modelio.metamodel.bpmn.objects.BpmnDataAssociation;
+import org.modelio.vcore.smkernel.mapi.MExpert;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("1f91ec7e-4b82-4d6f-93be-6e56aa308a3e")
-class BpmnProcessDiagramElementDropEditPolicy extends DiagramElementDropEditPolicy {
+class BpmnProcessDiagramElementDropEditPolicy extends BpmnDiagramElementDropEditPolicy {
     @objid ("1e10db7c-43ef-4dc4-b3cf-dfecf5aa088d")
     @Override
     protected Command createDropCommandForElement(final Point p, MObject toUnmask) {
@@ -42,6 +44,7 @@ class BpmnProcessDiagramElementDropEditPolicy extends DiagramElementDropEditPoli
         } else {
             return null;
         }
+        
     }
 
     /**
@@ -49,13 +52,14 @@ class BpmnProcessDiagramElementDropEditPolicy extends DiagramElementDropEditPoli
      */
     @objid ("f0712f44-05f3-4324-82fe-8b99d5cbc28f")
     private boolean isInWorkflow(IGmDiagram diagram, MObject elt) {
-        if (elt == null) {
+        if (elt == null || elt instanceof BpmnSequenceFlow) {
             return false;
         } else if (Objects.equals(diagram.getRelatedElement().getOrigin(), elt)) {
             return true;
         } else {
             return isInWorkflow(diagram, elt.getCompositionOwner());
         }
+        
     }
 
     @objid ("f48894d7-3b6a-4dcc-bfd1-d024cce12361")
@@ -64,7 +68,15 @@ class BpmnProcessDiagramElementDropEditPolicy extends DiagramElementDropEditPoli
         EditPart ret = super.getDropTargetEditPart(request);
         IGmDiagram diagram = (IGmDiagram) getHost().getModel();
         if (ret != null) {
+            MExpert mExpert = diagram.getModelManager().getMetamodel().getMExpert();
             for (final MObject toUnmask : request.getDroppedElements()) {
+                if (toUnmask.getMClass().isLinkMetaclass() || toUnmask instanceof BpmnDataAssociation) {
+                    // Links between workflow elements must be managed by the diagram itself
+                    if (isInWorkflow(diagram, mExpert.getSource(toUnmask)) && isInWorkflow(diagram, mExpert.getTarget(toUnmask))) {
+                        continue;
+                    }
+                }
+        
                 if (isInWorkflow(diagram, toUnmask)) {
                     return null;
                 } else if (diagram.getDiagramOwner() instanceof GmBpmnProcessCollaborationDiagram) {

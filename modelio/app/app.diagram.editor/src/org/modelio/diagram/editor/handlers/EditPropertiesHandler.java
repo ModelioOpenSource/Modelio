@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.handlers;
 
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
@@ -49,6 +48,7 @@ public class EditPropertiesHandler {
                 activationService.editProperties(elt);
             }
         }
+        
     }
 
     @objid ("6c0cce9c-7d6f-4104-9a2c-38e8bfd9d5c8")

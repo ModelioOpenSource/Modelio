@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.componentRealization;
 
 import java.util.List;
@@ -59,18 +58,18 @@ public class GmComponentRealization extends GmLink {
 
     /**
      * Initialize a control flow graphic model.
-     * 
      * @param diagram The owning diagram
      * @param dependency The reference flow, may be null
      * @param ref The referenced flow reference, may not be null
      */
     @objid ("ef00cdd2-0e6e-4ca0-8f7c-ada3b51c1a4e")
-    public GmComponentRealization(IGmDiagram diagram, ComponentRealization dependency, MRef ref) {
+    public  GmComponentRealization(IGmDiagram diagram, ComponentRealization dependency, MRef ref) {
         super(diagram, ref);
         this.dependency = dependency;
         
         final GmNodeModel header = new GmComponentRealizationHeader(diagram, ref);
         addExtension(ExtensionLocation.MiddleNW, ROLE_MAIN_LABEL, header);
+        
     }
 
     @objid ("0d24c59a-19f5-49b9-bf8f-54910b2daafd")
@@ -89,7 +88,8 @@ public class GmComponentRealization extends GmLink {
      * For deserialization only.
      */
     @objid ("97ced59b-bdd2-4125-8126-a6a771f0ddb7")
-    public GmComponentRealization() {
+    public  GmComponentRealization() {
+        
     }
 
     @objid ("39341e38-b962-47ed-bec1-08b86424df8c")
@@ -97,6 +97,7 @@ public class GmComponentRealization extends GmLink {
     protected void readLink(IDiagramReader in) {
         super.readLink(in);
         this.dependency = (ComponentRealization) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("d46348bf-460a-477d-b9a1-9327fdb18b41")
@@ -130,6 +131,7 @@ public class GmComponentRealization extends GmLink {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmComponentRealization.", GmComponentRealization.MINOR_VERSION);
+        
     }
 
     @objid ("d5ae162a-fb1c-426b-b154-67678cc89b84")
@@ -144,6 +146,7 @@ public class GmComponentRealization extends GmLink {
         for (GmNodeModel n : getExtensions()) {
             n.setRoleInComposition(ROLE_MAIN_LABEL);
         }
+        
     }
 
 }

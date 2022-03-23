@@ -17,13 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.ui.plugin;
 
+import java.util.ResourceBundle;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.equinox.log.ExtendedLogService;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.modelio.platform.utils.i18n.BundledMessages;
 import org.modelio.platform.utils.log.writers.PluginLogger;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
@@ -40,29 +41,33 @@ public class UI implements BundleActivator {
     @objid ("41e55bdb-0908-4a00-b9eb-4963c084057e")
     public static PluginLogger LOG;
 
+    @objid ("9adefb82-bd01-4513-b2dd-ae72c579a287")
+    public static BundledMessages I18N;
+
     @objid ("e1e415eb-36f1-4279-b0db-bfabb25aba57")
     @Override
     public void start(BundleContext bundleContext) throws Exception {
-        UI.context = bundleContext;
+        context = bundleContext;
         ServiceReference<ExtendedLogService> ref = bundleContext.getServiceReference(ExtendedLogService.class);
         ExtendedLogService service = bundleContext.getService(ref);
-        UI.LOG = new PluginLogger(service.getLogger((String)null));
+        LOG = new PluginLogger(service.getLogger((String)null));
+        I18N = new BundledMessages(LOG, ResourceBundle.getBundle("ui"));
+        
     }
 
     @objid ("a393ff8f-271e-4975-96b6-da7cfc7055cd")
     @Override
     public void stop(BundleContext bundleContext) throws Exception {
-        UI.context = null;
+        context = null;
     }
 
     @objid ("f860a2d0-3133-4ba5-b58e-d2fa0634914b")
     public static BundleContext getContext() {
-        return UI.context;
+        return context;
     }
 
     /**
      * Returns an image descriptor for the image file at the given plug-in relative path
-     * 
      * @param path the path
      * @return the image descriptor
      */

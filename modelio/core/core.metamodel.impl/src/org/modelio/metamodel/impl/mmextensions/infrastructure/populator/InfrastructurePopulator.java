@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.infrastructure.populator;
 
 import java.util.ArrayList;
@@ -40,7 +39,6 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class InfrastructurePopulator implements IRepositoryContentInitializer {
     /**
      * Populate the given repository using the given session.
-     * 
      * @param fragmentName the fragment name
      * @param s the session to use
      * @param repository the repository to populate.

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.gui.creation.file;
 
 import java.net.HttpURLConnection;
@@ -35,8 +34,8 @@ import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.modelio.editors.richnote.api.RichNoteFormat;
-import org.modelio.editors.richnote.gui.creation.RichNoteDescriptor.CreationMode;
 import org.modelio.editors.richnote.gui.creation.RichNoteDescriptor;
+import org.modelio.editors.richnote.gui.creation.RichNoteDescriptor.CreationMode;
 import org.modelio.editors.richnote.plugin.EditorsRichNote;
 import org.modelio.platform.ui.panel.IPanelListener;
 
@@ -49,7 +48,7 @@ public class FileWizardPage extends WizardPage {
     private AtomicReference<CompletableFuture<?>> work = new AtomicReference<>();
 
     @objid ("4352751f-57e5-45c2-b36b-a7e87d69796d")
-    public FileWizardPage(RichNoteDescriptor data) {
+    public  FileWizardPage(RichNoteDescriptor data) {
         super(EditorsRichNote.I18N.getString("FileWizardPage.page"), EditorsRichNote.I18N.getString("FileWizardPage.title"), null);
         this.panel = new FilePanel();
         this.panel.setInput(data);
@@ -62,6 +61,7 @@ public class FileWizardPage extends WizardPage {
         });
         
         setPageComplete(isPageComplete(data));
+        
     }
 
     @objid ("c7a66281-292f-4ff3-8d6e-162468388669")
@@ -69,6 +69,7 @@ public class FileWizardPage extends WizardPage {
     public void createControl(Composite parent) {
         Control aPanel = this.panel.createPanel(parent);
         setControl(aPanel);
+        
     }
 
     @objid ("e5a95e9b-48a7-4417-acfb-d9c91b563c76")
@@ -76,6 +77,7 @@ public class FileWizardPage extends WizardPage {
     public void dispose() {
         super.dispose();
         this.panel.dispose();
+        
     }
 
     @objid ("73c497ea-f804-423e-a2e4-709e70787570")
@@ -115,6 +117,7 @@ public class FileWizardPage extends WizardPage {
         default:
             return false;
         }
+        
     }
 
     @objid ("fbe9e024-9333-4bff-a1e4-d406cea3abdc")
@@ -199,6 +202,7 @@ public class FileWizardPage extends WizardPage {
             // Invalid path too
             return EditorsRichNote.I18N.getString("FileWizardPage.NotARegularFile");
         }
+        
     }
 
     @objid ("900e73ea-9653-40aa-a982-d8aab803a83b")
@@ -215,6 +219,7 @@ public class FileWizardPage extends WizardPage {
         } catch (Exception e) {
             return EditorsRichNote.I18N.getString("FileWizardPage.UnreachableURI");
         }
+        
     }
 
 }

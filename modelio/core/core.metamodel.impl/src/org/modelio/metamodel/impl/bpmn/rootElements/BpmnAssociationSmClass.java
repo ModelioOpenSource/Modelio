@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.rootElements;
 
 import java.util.ArrayList;
@@ -31,9 +31,6 @@ import org.modelio.metamodel.bpmn.rootElements.BpmnArtifact;
 import org.modelio.metamodel.bpmn.rootElements.BpmnAssociation;
 import org.modelio.metamodel.bpmn.rootElements.BpmnAssociationDirection;
 import org.modelio.metamodel.bpmn.rootElements.BpmnBaseElement;
-import org.modelio.metamodel.impl.bpmn.rootElements.BpmnArtifactSmClass;
-import org.modelio.metamodel.impl.bpmn.rootElements.BpmnAssociationData;
-import org.modelio.metamodel.impl.bpmn.rootElements.BpmnBaseElementSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -58,7 +55,7 @@ public class BpmnAssociationSmClass extends BpmnArtifactSmClass {
     private SmDependency sourceRefDep;
 
     @objid ("af21fd4f-4c1d-4d17-9f4f-5c066ce474b3")
-    public BpmnAssociationSmClass(ISmMetamodelFragment origin) {
+    public  BpmnAssociationSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -66,6 +63,7 @@ public class BpmnAssociationSmClass extends BpmnArtifactSmClass {
     @Override
     public String getName() {
         return "BpmnAssociation";
+        
     }
 
     @objid ("5ef0dbd6-3be1-417e-9e15-d30a164aa54d")
@@ -78,18 +76,21 @@ public class BpmnAssociationSmClass extends BpmnArtifactSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnAssociation.class;
+        
     }
 
     @objid ("1893b827-c4df-4e7f-8216-d1aaa4a6b70e")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("357bbbee-786a-4e30-950d-abe5974ce137")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("43edbf23-d6c6-4edf-aa85-1dcb803e7127")
@@ -113,6 +114,8 @@ public class BpmnAssociationSmClass extends BpmnArtifactSmClass {
         this.sourceRefDep = new SourceRefSmDependency();
         this.sourceRefDep.init("SourceRef", this, metamodel.getMClass(BpmnBaseElement.MQNAME), 1, 1 , SmDirective.SMCDPARTOF);
         registerDependency(this.sourceRefDep);
+        
+        
     }
 
     @objid ("f5d4f0fc-d202-4e95-8da5-5784aa172da2")
@@ -145,7 +148,7 @@ public class BpmnAssociationSmClass extends BpmnArtifactSmClass {
         private BpmnAssociationSmClass smClass;
 
         @objid ("a61f58b2-db2e-49eb-bdf1-c1fccbdbe175")
-        public BpmnAssociationObjectFactory(BpmnAssociationSmClass smClass) {
+        public  BpmnAssociationObjectFactory(BpmnAssociationSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -201,6 +204,7 @@ public class BpmnAssociationSmClass extends BpmnArtifactSmClass {
             	this.symetricDep = ((BpmnBaseElementSmClass)this.getTarget()).getIncomingAssocDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -229,6 +233,7 @@ public class BpmnAssociationSmClass extends BpmnArtifactSmClass {
             	this.symetricDep = ((BpmnBaseElementSmClass)this.getTarget()).getOutgoingAssocDep();
             }
             return this.symetricDep;
+            
         }
 
     }

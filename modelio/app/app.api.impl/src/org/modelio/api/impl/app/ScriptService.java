@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.api.impl.app;
 
-import javax.script.ScriptEngine;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.script.ScriptEngine;
 import org.modelio.api.module.script.IScriptService;
 import org.modelio.platform.mda.infra.service.IModuleManagementService;
 import org.modelio.platform.project.services.IProjectService;
@@ -48,9 +47,10 @@ public class ScriptService implements IScriptService {
     }
 
     @objid ("4ec808d5-45c0-406f-ab71-c3041b6b872b")
-    public ScriptService(IModuleManagementService moduleService, IProjectService projectService) {
+    public  ScriptService(IModuleManagementService moduleService, IProjectService projectService) {
         this.moduleService = moduleService;
         this.projectService = projectService;
+        
     }
 
 }

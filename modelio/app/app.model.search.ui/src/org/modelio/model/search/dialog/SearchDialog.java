@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.search.dialog;
 
 import java.util.List;
@@ -106,7 +105,7 @@ public class SearchDialog extends ModelioDialog {
     private static SearchDialog instance = null;
 
     @objid ("000ac24c-c59e-10ab-8258-001ec947cd2a")
-    private SearchDialog(Shell parentShell, ICoreSession session, IModelioNavigationService navigationService) {
+    private  SearchDialog(Shell parentShell, ICoreSession session, IModelioNavigationService navigationService) {
         super(parentShell);
         
         this.session = session;
@@ -115,6 +114,7 @@ public class SearchDialog extends ModelioDialog {
         
         this.listener = new SearchModelChangeListener(this);
         session.getModelChangeSupport().addModelChangeListener(this.listener);
+        
     }
 
     @objid ("000aef60-c59e-10ab-8258-001ec947cd2a")
@@ -142,6 +142,7 @@ public class SearchDialog extends ModelioDialog {
         getShell().setText(ModelSearch.I18N.getString("SearchDialog.shell.title")); //$NON-NLS-1$
         setTitle(ModelSearch.I18N.getString("SearchDialog.title")); //$NON-NLS-1$
         this.setMessage(ModelSearch.I18N.getString("SearchDialog.description")); //$NON-NLS-1$
+        
     }
 
     @objid ("48e673ea-cb6e-4a6b-85a5-a855bbdd0644")
@@ -166,11 +167,11 @@ public class SearchDialog extends ModelioDialog {
     void showResults(ISearchPanel panel, List<Element> resultsToShow) {
         setActivePanel(panel);
         this.resultsPanel.showResults(resultsToShow);
+        
     }
 
     /**
      * Set the informations the dialog will display once ready.
-     * 
      * @param panelClass the panel to show
      * @param searchCriteria the search criteria to show
      * @param found the results to show
@@ -198,6 +199,7 @@ public class SearchDialog extends ModelioDialog {
             }
         
         });
+        
     }
 
     @objid ("5fc98cdb-d759-42de-8e60-663b9093fc72")
@@ -260,6 +262,7 @@ public class SearchDialog extends ModelioDialog {
                 SearchDialog.this.controller.runSearch();
             }
         });
+        
     }
 
     @objid ("17937083-7e07-4dfe-8b8d-266a6003eaf4")
@@ -272,11 +275,11 @@ public class SearchDialog extends ModelioDialog {
         this.resultsPanel = new ResultsPanel(composite, this.navigationService);
         final Control top = this.resultsPanel.getControl();
         top.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+        
     }
 
     /**
      * Register a search tool tab in the tab folder.
-     * 
      * @param label the tool label, to display as tab title
      * @param panel the panel
      * @param engine the search engine used by the tool.
@@ -292,6 +295,7 @@ public class SearchDialog extends ModelioDialog {
             tabItem.setData(SearchDialog.PANEL_DATAKEY, panel);
             tabItem.setData(SearchDialog.ENGINE_DATAKEY, engine);
         }
+        
     }
 
     @objid ("8eb1a2aa-e3a5-44e8-a61f-50c12a61f005")
@@ -302,6 +306,7 @@ public class SearchDialog extends ModelioDialog {
                 break;
             }
         }
+        
     }
 
     @objid ("eef0646b-b60e-43e2-9f73-54c805f67a35")
@@ -314,7 +319,6 @@ public class SearchDialog extends ModelioDialog {
      * Get the search dialog.
      * <p>
      * Displays the existing dialog if one already exists, create it in the other case.
-     * 
      * @param parentShell a parent SWT shell if a dialog needs to be created
      * @param session the modeling session
      * @param navigationService the navigation service
@@ -344,6 +348,7 @@ public class SearchDialog extends ModelioDialog {
             SearchDialog.instance.close();
             SearchDialog.instance = null;
         }
+        
     }
 
     @objid ("b0df4761-faa3-468d-869b-709971a4d450")
@@ -355,6 +360,7 @@ public class SearchDialog extends ModelioDialog {
             }
         
         });
+        
     }
 
     @objid ("1c1f332c-e5b9-4263-8de2-e813feb44045")
@@ -371,6 +377,7 @@ public class SearchDialog extends ModelioDialog {
             cell.setText(mc.getName());
             cell.setImage(MetamodelImageService.getIcon(mc));
             cell.setStyleRanges(StandardModelStyleProvider.getStyleRanges(mc, cell.getText()));
+            
         }
 
     }
@@ -381,7 +388,7 @@ public class SearchDialog extends ModelioDialog {
         private final SearchDialog searchDialog;
 
         @objid ("e7511797-08dd-417c-ac0d-db80e7e1d4ff")
-        public SearchModelChangeListener(SearchDialog searchDialog) {
+        public  SearchModelChangeListener(SearchDialog searchDialog) {
             this.searchDialog = searchDialog;
         }
 
@@ -396,6 +403,7 @@ public class SearchDialog extends ModelioDialog {
         public void modelChanged(IModelChangeEvent event) {
             // TODO improve by looking up for deletions in the update event
             this.searchDialog.runASyncSearch();
+            
         }
 
     }

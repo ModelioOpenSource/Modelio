@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,7 +36,7 @@ public class OEnumeration extends ONameSpace {
     }
 
     @objid ("7c804373-49c0-4c26-83be-5b2be0d5389f")
-    public OEnumeration(Enumeration element) {
+    public  OEnumeration(Enumeration element) {
         super(element);
     }
 
@@ -76,6 +75,7 @@ public class OEnumeration extends ONameSpace {
                         + ecoreOwner.getClass().getSimpleName() + ") Not Found");
             }
         }
+        
     }
 
     @objid ("8db3fced-f513-4adc-809e-3e113961230b")

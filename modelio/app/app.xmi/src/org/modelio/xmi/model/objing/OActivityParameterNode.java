@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,7 +35,7 @@ public class OActivityParameterNode extends OObjectNode {
     }
 
     @objid ("3ada1519-0198-4214-bab6-8e906513272b")
-    public OActivityParameterNode(ActivityParameterNode element) {
+    public  OActivityParameterNode(ActivityParameterNode element) {
         super(element);
     }
 
@@ -51,6 +50,7 @@ public class OActivityParameterNode extends OObjectNode {
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         super.setProperties(ecoreElt);
         setRepresentedRealParameter((org.eclipse.uml2.uml.ActivityParameterNode) ecoreElt);
+        
     }
 
     @objid ("2a59d76c-6869-4e00-9e3f-e3b54578c6e6")
@@ -71,6 +71,7 @@ public class OActivityParameterNode extends OObjectNode {
                 }
             }
         }
+        
     }
 
 }

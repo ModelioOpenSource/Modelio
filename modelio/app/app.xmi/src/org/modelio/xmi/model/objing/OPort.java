@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -73,7 +72,7 @@ public class OPort extends OElement implements IOElement {
     }
 
     @objid ("4066af51-2b58-4921-834b-c004732f1a23")
-    public OPort(Port element) {
+    public  OPort(Port element) {
         super(element);
     }
 
@@ -97,6 +96,7 @@ public class OPort extends OElement implements IOElement {
         }else{
             attachPortToClassifier(objingOwner, (org.eclipse.uml2.uml.Port) ecoreElt);
         }
+        
     }
 
     @objid ("9351cc2d-465b-4356-af19-71ea7e0986d6")
@@ -134,12 +134,14 @@ public class OPort extends OElement implements IOElement {
         }else{
             ecoreElt.destroy();
         }
+        
     }
 
     @objid ("2b4d3bdc-78c7-4b62-ba71-2551f58540ec")
     private void attachPortToInstance(Instance objingOwner, org.eclipse.uml2.uml.Slot ecoreElt) {
         InstanceSpecification ecoreOwner = (InstanceSpecification) this.genProp.getMappedElement(objingOwner);
         ecoreOwner.getSlots().add(ecoreElt);
+        
     }
 
     @objid ("b35de0bf-cbdf-41b5-b971-bba2bc4c5bc7")
@@ -156,6 +158,7 @@ public class OPort extends OElement implements IOElement {
                 attachPortToClassifier(objOwner, (org.eclipse.uml2.uml.Port) ecoreElt);
             }
         }
+        
     }
 
     @objid ("1bfc6796-66ec-44a2-9505-947670f0e6a9")
@@ -181,6 +184,7 @@ public class OPort extends OElement implements IOElement {
             ObjingEAnnotation.setOwner(ecoreElt, String.valueOf(objElt.getCompositionOwner().getUuid().toString()));
             ObjingEAnnotation.setPortDirection(ecoreElt, objElt.getDirection().getLiteral());
         }
+        
     }
 
     @objid ("d42e4b1d-66d8-4182-9035-3988627a22a0")
@@ -193,6 +197,7 @@ public class OPort extends OElement implements IOElement {
                 slot.setDefiningFeature((org.eclipse.uml2.uml.StructuralFeature) temp);
             }
         }
+        
     }
 
     @objid ("78a33388-78df-4e3a-b14f-000c137a9e20")

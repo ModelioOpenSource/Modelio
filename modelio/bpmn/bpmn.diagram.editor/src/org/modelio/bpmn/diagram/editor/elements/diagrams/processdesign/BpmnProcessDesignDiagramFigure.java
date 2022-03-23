@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.diagrams.processdesign;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,7 +28,8 @@ import org.modelio.diagram.elements.common.abstractdiagram.AbstractDiagramFigure
 @objid ("220d0c17-1453-41af-81af-fd2001f6d38a")
 public class BpmnProcessDesignDiagramFigure extends AbstractDiagramFigure {
     @objid ("31d65989-3033-471b-8871-a0901c2ed938")
-    public BpmnProcessDesignDiagramFigure() {
+    public  BpmnProcessDesignDiagramFigure() {
+        
     }
 
 }

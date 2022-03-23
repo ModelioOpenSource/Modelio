@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.script.view;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,12 +35,13 @@ import org.modelio.script.plugin.Script;
 @objid ("008c762a-663d-105c-84ef-001ec947cd2a")
 class OutputView extends StyledText {
     @objid ("008c8912-663d-105c-84ef-001ec947cd2a")
-    public OutputView(Composite parent, int style) {
+    public  OutputView(Composite parent, int style) {
         super(parent, style | SWT.READ_ONLY);
         setEditable(false);
         
         // Add contextual menu
         createMenu(this);
+        
     }
 
     @objid ("008c9eac-663d-105c-84ef-001ec947cd2a")
@@ -62,6 +62,7 @@ class OutputView extends StyledText {
         
             }
         });
+        
     }
 
     @objid ("008cc558-663d-105c-84ef-001ec947cd2a")
@@ -105,6 +106,7 @@ class OutputView extends StyledText {
                 text.selectAll();
             }
         });
+        
     }
 
 }

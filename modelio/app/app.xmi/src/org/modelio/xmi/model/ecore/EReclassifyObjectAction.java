@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class EReclassifyObjectAction extends EActivityNode {
     }
 
     @objid ("5c29f2bd-54d7-4496-805f-a02fd461abd1")
-    public EReclassifyObjectAction(org.eclipse.uml2.uml.ReclassifyObjectAction element) {
+    public  EReclassifyObjectAction(org.eclipse.uml2.uml.ReclassifyObjectAction element) {
         super(element);
     }
 

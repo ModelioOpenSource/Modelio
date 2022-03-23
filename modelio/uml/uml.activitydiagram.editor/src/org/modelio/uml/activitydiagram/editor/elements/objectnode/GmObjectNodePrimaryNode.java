@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.objectnode;
 
 import java.util.Collections;
@@ -65,25 +64,25 @@ public class GmObjectNodePrimaryNode extends GmNoStyleCompositeNode implements I
 
     /**
      * Default constructor.
-     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param ref a reference to the represented object node.
      */
     @objid ("2ad6e9b5-55b6-11e2-877f-002564c97630")
-    public GmObjectNodePrimaryNode(IGmDiagram diagram, MRef ref) {
+    public  GmObjectNodePrimaryNode(IGmDiagram diagram, MRef ref) {
         super(diagram, ref);
         this.header = new GmObjectNodeHeader(diagram, ref);
         this.header.setShowMetaclassIcon(true);
         super.addChild(this.header);
         this.objectNodeStateLabel = new GmObjectNodeStateLabel(diagram, ref);
         addChild(this.objectNodeStateLabel);
+        
     }
 
     /**
      * Empty constructor, needed for serialization.
      */
     @objid ("2ad8701b-55b6-11e2-877f-002564c97630")
-    public GmObjectNodePrimaryNode() {
+    public  GmObjectNodePrimaryNode() {
         // empty constructor for the serialization
     }
 
@@ -110,7 +109,6 @@ public class GmObjectNodePrimaryNode extends GmNoStyleCompositeNode implements I
 
     /**
      * Get the stereotype image to display.
-     * 
      * @return the stereotype image to display. Must not be <i>null</i>.
      */
     @objid ("2ad87038-55b6-11e2-877f-002564c97630")
@@ -142,6 +140,7 @@ public class GmObjectNodePrimaryNode extends GmNoStyleCompositeNode implements I
             break;
         }
         }
+        
     }
 
     @objid ("2ad8704b-55b6-11e2-877f-002564c97630")
@@ -153,6 +152,7 @@ public class GmObjectNodePrimaryNode extends GmNoStyleCompositeNode implements I
         firePropertyChange(PROPERTY_LABEL, oldLabel, this.header.getMainLabel());
         // forcing visual refresh in case Image changed
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("2ad8704e-55b6-11e2-877f-002564c97630")
@@ -161,6 +161,7 @@ public class GmObjectNodePrimaryNode extends GmNoStyleCompositeNode implements I
         // Returned result depends on current representation mode:
         List<GmNodeModel> ret;
         switch (this.getRepresentationMode()) {
+        case USER_IMAGE:
         case IMAGE: {
             ret = Collections.emptyList();
             break;
@@ -180,6 +181,7 @@ public class GmObjectNodePrimaryNode extends GmNoStyleCompositeNode implements I
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmObjectNodePrimaryNode.", GmObjectNodePrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("2ad9f6bc-55b6-11e2-877f-002564c97630")
@@ -187,6 +189,7 @@ public class GmObjectNodePrimaryNode extends GmNoStyleCompositeNode implements I
         super.read(in);
         this.header = (GmObjectNodeHeader) this.getChildren().get(0);
         this.objectNodeStateLabel = (GmElementLabel) this.getChildren().get(1);
+        
     }
 
     @objid ("2ad9f6c1-55b6-11e2-877f-002564c97630")
@@ -197,11 +200,10 @@ public class GmObjectNodePrimaryNode extends GmNoStyleCompositeNode implements I
 
     /**
      * Migration constructor.
-     * 
      * @param oldVersionGm the instance to migrate from.
      */
     @objid ("2ad9f6c6-55b6-11e2-877f-002564c97630")
-    GmObjectNodePrimaryNode(final _GmObjectNode oldVersionGm) {
+     GmObjectNodePrimaryNode(final _GmObjectNode oldVersionGm) {
         super(oldVersionGm.getDiagram(), oldVersionGm.getRepresentedRef());
         
         this.header = oldVersionGm.getHeader();
@@ -212,6 +214,7 @@ public class GmObjectNodePrimaryNode extends GmNoStyleCompositeNode implements I
         this.objectNodeStateLabel = oldVersionGm.getObjectNodeStateLabel();
         oldVersionGm.removeChild(this.objectNodeStateLabel);
         addChild(this.objectNodeStateLabel);
+        
     }
 
 }

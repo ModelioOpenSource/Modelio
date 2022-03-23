@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.fragment.exml;
 
 import java.io.BufferedReader;
@@ -82,14 +81,13 @@ public class ExmlFragment extends AbstractFragment {
 
     /**
      * Instantiate a local fragment.
-     * 
      * @param id the fragment name
      * @param scope definition scope
      * @param properties the fragment properties.
      * @param authData authentication configuration
      */
     @objid ("6a69b8ca-d66d-11e1-9f03-001ec947ccaf")
-    public ExmlFragment(final String id, final DefinitionScope scope, final GProperties properties, final GAuthConf authData) {
+    public  ExmlFragment(final String id, final DefinitionScope scope, final GProperties properties, final GAuthConf authData) {
         super(id, scope, properties, authData);
     }
 
@@ -140,6 +138,7 @@ public class ExmlFragment extends AbstractFragment {
             final MetamodelVersionDescriptor guessed = VersionHelper.getDescriptors(9020);
             return guessed;
         }
+        
     }
 
     @objid ("13a7bf93-9a85-11e1-ac83-001ec947ccaf")
@@ -186,6 +185,7 @@ public class ExmlFragment extends AbstractFragment {
                 saveMmVersion(currentMm);
             }
         }
+        
     }
 
     @objid ("dd4c7da9-395a-11e2-a6db-001ec947ccaf")
@@ -222,6 +222,7 @@ public class ExmlFragment extends AbstractFragment {
         try (Writer out = Files.newBufferedWriter(mmVersionPath, StandardCharsets.UTF_8)) {
             mmVersion.write(out);
         }
+        
     }
 
     @objid ("35be4acf-910c-44e4-9216-85556fb8aca2")
@@ -242,15 +243,15 @@ public class ExmlFragment extends AbstractFragment {
         } else {
             return null;
         }
+        
     }
 
     /**
      * Instantiate a configured {@link IRepository}.
-     * 
      * @param session unused
      * @return a ready repository.
-     * @throws java.io.IOException on I/O failure
-     * @throws org.modelio.gproject.fragment.FragmentAuthenticationException on authentication error.
+     * @throws IOException on I/O failure
+     * @throws FragmentAuthenticationException on authentication error.
      */
     @objid ("f9b97b4a-dfb7-4ec1-9452-e3535b2683c6")
     public IRepository instantiateRepository(final ICoreSession session) throws IOException, FragmentAuthenticationException {
@@ -267,7 +268,6 @@ public class ExmlFragment extends AbstractFragment {
 
     /**
      * Instantiate an EXML resources provider for this fragment.
-     * 
      * @return a new EXML resources provider for this fragment.
      */
     @objid ("b4245893-7dfb-4526-8b13-0618eae6bf9a")
@@ -288,6 +288,7 @@ public class ExmlFragment extends AbstractFragment {
             Log.warning("No '"+infosuri+"' infos version file, use default values.");
             return new FragmentInfos(getId(), "", new Version("0.0.0"), ModelioVersion.VERSION);
         }
+        
     }
 
 }

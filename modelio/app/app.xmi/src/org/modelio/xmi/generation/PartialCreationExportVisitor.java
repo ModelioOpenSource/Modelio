@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.generation;
 
 import java.util.List;
@@ -219,27 +218,27 @@ import org.modelio.xmi.util.ObjingEAnnotation;
 @objid ("2090910d-9b0b-449a-974e-a1318a5eb5bf")
 public class PartialCreationExportVisitor {
     @objid ("e7cc4cdb-ffd3-46fd-8259-d3617d555dee")
-     org.eclipse.uml2.uml.Element ecoreElt = null;
+    org.eclipse.uml2.uml.Element ecoreElt = null;
 
     @objid ("bfd45eda-8885-43b3-9b91-7e638b917bc1")
-     CreationExportMapper mapper = null;
+    CreationExportMapper mapper = null;
 
     @objid ("3f126aa1-fa77-4123-b4cd-64d6b1674fdd")
-     PartialExportMap partialMap = null;
+    PartialExportMap partialMap = null;
 
     /**
      * The default constructor
      */
     @objid ("c09422bd-33c3-428e-8177-5da5e19fae8f")
-    public PartialCreationExportVisitor() {
+    public  PartialCreationExportVisitor() {
         this.ecoreElt = null;
         this.mapper = new CreationExportMapper();
         this.partialMap = PartialExportMap.getInstance();
+        
     }
 
     /**
      * This is method supervise the Ecore element creation
-     * 
      * @param objingElt : the referenced Modelio element
      * @return the corresponding Ecore element
      */
@@ -261,11 +260,11 @@ public class PartialCreationExportVisitor {
             Xmi.LOG.warning(Xmi.PLUGIN_ID, "Modelio element is null.");
             throw new RuntimeException("Modelio element is null.");
         }
+        
     }
 
     /**
      * This method returns the CreationExportMapper
-     * 
      * @return the CreationExportMapper
      */
     @objid ("231e1542-ccb8-4a3b-a8b1-951a1111e334")
@@ -276,7 +275,6 @@ public class PartialCreationExportVisitor {
 
     /**
      * This methods returns the map containing all "partial" exports
-     * 
      * @return the PartilaExportMap
      */
     @objid ("f994e0a9-92af-4cb1-9f34-3898850646af")
@@ -288,9 +286,10 @@ public class PartialCreationExportVisitor {
     @objid ("094cc757-5d74-41bc-b5d1-c2c82590937c")
     private class CreationExportMapper extends DefaultModelVisitor implements IDefaultInfrastructureVisitor {
         @objid ("681ea022-8507-47c9-ae77-7c106f138423")
-        public CreationExportMapper() {
+        public  CreationExportMapper() {
             super();
             this.infrastructureVisitor = this;
+            
         }
 
         @objid ("61333097-5dc4-4595-bfc1-132dc317b3f7")

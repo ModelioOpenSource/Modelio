@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.util;
 
 import java.io.File;
@@ -47,7 +46,8 @@ public class ResourceLoader {
     private static ResourceLoader INSTANCE = null;
 
     @objid ("43ca3ec8-cd96-4f31-94ec-72ee3a1fcd1f")
-    private ResourceLoader() {
+    private  ResourceLoader() {
+        
     }
 
     @objid ("27a2b802-6499-4a7b-86ed-50c8099ee2ba")

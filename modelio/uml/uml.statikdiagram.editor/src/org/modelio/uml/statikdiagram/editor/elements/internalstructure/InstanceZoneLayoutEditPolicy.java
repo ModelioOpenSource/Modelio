@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.internalstructure;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.Request;
+import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.requests.CreateRequest;
 import org.modelio.diagram.elements.common.freezone.DefaultFreeZoneLayoutEditPolicy;
@@ -55,31 +55,30 @@ public class InstanceZoneLayoutEditPolicy extends DefaultFreeZoneLayoutEditPolic
     @objid ("35942154-55b7-11e2-877f-002564c97630")
     @Override
     public EditPart getTargetEditPart(Request request) {
-        if (REQ_CREATE.equals(request.getType())) {
+        if (RequestConstants.REQ_CREATE.equals(request.getType())) {
             return super.getTargetEditPart(getModifiedRequest((CreateRequest) request));
         } else {
             return super.getTargetEditPart(request);
         }
+        
     }
 
     @objid ("35942159-55b7-11e2-877f-002564c97630")
     private CreateRequest getModifiedRequest(CreateRequest req) {
-        ModelioCreationContext context = ModelioCreationContext.fromRequest(req);
-        
-        if ("true".equals(context.getProperties().get("smart"))) {
-        
+        ModelioCreationContext context = ModelioCreationContext.lookRequest(req);
+        if (context != null && "true".equals(context.getProperties().get("smart"))) {
             final AbstractNodeEditPart targetEditPart = (AbstractNodeEditPart) getHost();
             final MObject targetElement = targetEditPart.getModel().getRelatedElement();
         
             if (targetElement instanceof Instance ||
-                targetElement instanceof Classifier ||
-                targetElement instanceof Collaboration) {
+                    targetElement instanceof Classifier ||
+                    targetElement instanceof Collaboration) {
                 MMetamodel mm = targetElement.getMClass().getMetamodel();
         
                 // Ask to create a BindableInstance
                 ModelioCreationContext newContext = new ModelioCreationContext(mm.getMClass(BindableInstance.class),
-                                                                               context.getDependency(),
-                                                                               context.getStereotype());
+                        context.getDependency(),
+                        context.getStereotype());
         
                 newContext.setProperties(context.getProperties());
         

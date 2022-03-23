@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.partition;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,25 +36,25 @@ public class GmPartitionStructuredStyleKeys extends ActivityAbstractStyleKeyProv
     public static final StyleKey FILLCOLOR = createStyleKey("PARTITION_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("d268d0eb-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("PARTITION_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("PARTITION_FILLMODE", MetaKey.FILLMODE);
 
     @objid ("d268d0ed-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("PARTITION_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("PARTITION_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("d268d0ef-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("PARTITION_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("PARTITION_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("d268d0f1-55c0-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("PARTITION_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("PARTITION_FONT", MetaKey.FONT);
 
     @objid ("d268d0f3-55c0-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("PARTITION_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("PARTITION_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("d268d0f5-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("PARTITION_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("PARTITION_SHOWSTEREOTYPES",
+                MetaKey.SHOWSTEREOTYPES);
 
     @objid ("d268d0f7-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("PARTITION_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("PARTITION_SHOWTAGS", MetaKey.SHOWTAGS);
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.versioned;
 
 import java.io.IOException;
@@ -41,11 +40,10 @@ class LazyOutputStream extends OutputStream {
 
     /**
      * Initialize the lazy stream.
-     * 
      * @param exmlResource an EXML resource.
      */
     @objid ("977d1082-12de-11e2-816a-001ec947ccaf")
-    public LazyOutputStream(ExmlResource exmlResource) {
+    public  LazyOutputStream(ExmlResource exmlResource) {
         this.resource = exmlResource;
     }
 
@@ -73,6 +71,7 @@ class LazyOutputStream extends OutputStream {
         if (this.os != null) {
             this.os.flush();
         }
+        
     }
 
     @objid ("977d109b-12de-11e2-816a-001ec947ccaf")
@@ -83,6 +82,7 @@ class LazyOutputStream extends OutputStream {
         } else {
             this.resource.delete();
         }
+        
     }
 
     @objid ("977d109e-12de-11e2-816a-001ec947ccaf")

@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.commands;
 
 import java.util.List;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
@@ -33,8 +32,8 @@ import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.statik.Package;
 import org.modelio.patterns.api.IPatternRepository;
 import org.modelio.patterns.api.IPatternService;
-import org.modelio.patterns.model.ProfileUtils.PatternDesignerStereotypes;
 import org.modelio.patterns.model.ProfileUtils;
+import org.modelio.patterns.model.ProfileUtils.PatternDesignerStereotypes;
 import org.modelio.patterns.plugin.Patterns;
 import org.modelio.platform.core.navigate.IModelioNavigationService;
 import org.modelio.platform.model.ui.swt.SelectionHelper;
@@ -50,7 +49,6 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class CreatePatternFromModelHandler {
     /**
      * Create a new pattern from an existing model.
-     * 
      * @param selection the current modelio selection.
      * @param patternService the pattern service.
      */
@@ -72,11 +70,11 @@ public class CreatePatternFromModelHandler {
             Patterns.LOG.debug(e);
             MessageDialog.openError(activeShell, Patterns.I18N.getString("Gui.ErrorTitle"), e.getMessage());
         }
+        
     }
 
     /**
      * Available only when the selection contains only a ModelElement that is not a pattern.
-     * 
      * @param selection the current modelio selection.
      * @return true if the handler can be executed.
      */

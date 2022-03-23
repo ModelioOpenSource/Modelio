@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.communicationdiagram.editor.elements.communicationdiagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,7 +34,7 @@ public class GmCommunicationDiagramStyleKeys extends CommunicationAbstractStyleK
      * Snap to geometry.
      */
     @objid ("a02e9362-c626-4489-9856-e637ee766738")
-     static final StyleKey SNAPTOGEOMETRY = GmAbstractDiagramStyleKeys.SNAPTOGEOMETRY;
+    static final StyleKey SNAPTOGEOMETRY = GmAbstractDiagramStyleKeys.SNAPTOGEOMETRY;
 
     /**
      * View grid.
@@ -101,9 +100,9 @@ public class GmCommunicationDiagramStyleKeys extends CommunicationAbstractStyleK
     public static final StyleKey PAGE_SIZE = GmAbstractDiagramStyleKeys.PAGE_SIZE;
 
     @objid ("c9fe3b08-dfe5-484f-b401-05cafefb8136")
-     static final LayoutAssistantStyleKeys autoLayoutStyle = GmAbstractDiagramStyleKeys.autoLayoutStyle;
+    static final LayoutAssistantStyleKeys autoLayoutStyle = GmAbstractDiagramStyleKeys.autoLayoutStyle;
 
     @objid ("3f1d9d6c-b1d7-4499-b740-914f51cdd6d5")
-     static final StyleKey SHOW_SMARTLINK_HANDLE = GmAbstractDiagramStyleKeys.SHOW_SMARTLINK_HANDLE;
+    static final StyleKey SHOW_SMARTLINK_HANDLE = GmAbstractDiagramStyleKeys.SHOW_SMARTLINK_HANDLE;
 
 }

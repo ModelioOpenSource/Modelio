@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.license;
 
 import java.util.Date;
@@ -32,14 +31,22 @@ public interface ILicenseInfos {
     Status getStatus();
 
     @objid ("889058ab-7290-4b65-8f1a-f0d837bc32c4")
-    enum Status {
+    public enum Status {
+        @objid ("fb5c8ee9-161b-430a-a726-b6437d73c667")
         FREE,
+        @objid ("0f0339ed-7604-4042-b85d-643fc6fd1985")
         VALID,
+        @objid ("7f4290fd-5585-4e51-b32c-00c28826ae36")
         TRIAL_VALID,
+        @objid ("dd15fa41-2c8a-48a5-8d2a-59b6968d4f11")
         EXPIRED,
+        @objid ("66d9c1a6-b624-42a1-aea5-95d92f8b21c3")
         TRIAL_EXPIRED,
+        @objid ("8575e4f6-0a68-48a9-a191-ac5058b72909")
         UNDEFINED,
+        @objid ("751ee1f9-c136-406c-ac21-440a000af9cf")
         NO_LICENSE;
+
     }
 
 }

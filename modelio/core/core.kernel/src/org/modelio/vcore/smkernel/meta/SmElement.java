@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta;
 
 import java.util.Collection;
@@ -40,7 +39,7 @@ public abstract class SmElement {
      * boolean semantic directives
      */
     @objid ("0083e5e6-ed97-1f1f-85a5-001ec947cd2a")
-    protected EnumSet<SmDirective> smFlags = EnumSet.noneOf(SmDirective.class);
+    protected final EnumSet<SmDirective> smFlags = EnumSet.noneOf(SmDirective.class);
 
     /**
      * @param flag a flag
@@ -58,7 +57,7 @@ public abstract class SmElement {
     public abstract String getName();
 
     @objid ("d47516d7-30aa-4074-9db3-1b411bd9890b")
-    protected void initSmFlags(Collection<SmDirective> dirs) {
+    protected final void initSmFlags(Collection<SmDirective> dirs) {
         this.smFlags.addAll(dirs);
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.instancelink;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,9 +38,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("355d32aa-55b7-11e2-877f-002564c97630")
 public class GmLinkRoleCardinalityLabel extends GmElementLabel {
-    @objid ("355d32ae-55b7-11e2-877f-002564c97630")
-    private LinkEnd role;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -51,17 +47,20 @@ public class GmLinkRoleCardinalityLabel extends GmElementLabel {
     @objid ("355d32b4-55b7-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
 
+    @objid ("355d32ae-55b7-11e2-877f-002564c97630")
+    private LinkEnd role;
+
     /**
      * Creates a role cardinality label.
-     * 
      * @param diagram The diagram
      * @param role The represented role, may be null
      * @param roleRef The represented role reference, may not be null
      */
     @objid ("355d32b6-55b7-11e2-877f-002564c97630")
-    public GmLinkRoleCardinalityLabel(IGmDiagram diagram, LinkEnd role, MRef roleRef) {
+    public  GmLinkRoleCardinalityLabel(IGmDiagram diagram, LinkEnd role, MRef roleRef) {
         super(diagram, roleRef);
         this.role = role;
+        
     }
 
     @objid ("355d32c2-55b7-11e2-877f-002564c97630")
@@ -94,7 +93,8 @@ public class GmLinkRoleCardinalityLabel extends GmElementLabel {
      * Constructor for deserialization only.
      */
     @objid ("355d32c9-55b7-11e2-877f-002564c97630")
-    public GmLinkRoleCardinalityLabel() {
+    public  GmLinkRoleCardinalityLabel() {
+        
     }
 
     @objid ("355d32cc-55b7-11e2-877f-002564c97630")
@@ -120,12 +120,13 @@ public class GmLinkRoleCardinalityLabel extends GmElementLabel {
             break;
         }
         default: {
-            assert (false) : "version number not covered!";
+            assert false : "version number not covered!";
             // reading as last handled version: 0
             read_0(in);
             break;
         }
         }
+        
     }
 
     @objid ("355d32de-55b7-11e2-877f-002564c97630")
@@ -142,33 +143,39 @@ public class GmLinkRoleCardinalityLabel extends GmElementLabel {
             return null;
         }
         return new IEditableText() {
-                    @Override
-                    public String getText() {
-                        return computeLabel();
-                    }
+            @Override
+            public String getText() {
+                return computeLabel();
+            }
         
-                    @Override
-                    public void setText(String text) {
-                        String[] values = text.split("\\.\\.");
+            @Override
+            public void setText(String text) {
+                String[] values = text.split("\\.\\.");
         
-                        if (values.length == 1 && values[0].equals("*")) {
-                            linkEnd.setMultiplicityMin("0");
-                            linkEnd.setMultiplicityMax(values[0]);
-                        } else if (values.length == 1) {
-                            linkEnd.setMultiplicityMin(values[0]);
-                            linkEnd.setMultiplicityMax(values[0]);
-                        } else if (values.length == 2) {
-                            linkEnd.setMultiplicityMin(values[0]);
-                            linkEnd.setMultiplicityMax(values[1]);
-                        }
-                    }
-                };
+                if (values.length == 1 && values[0].equals("*")) {
+                    linkEnd.setMultiplicityMin("0");
+                    linkEnd.setMultiplicityMax(values[0]);
+                } else if (values.length == 1) {
+                    linkEnd.setMultiplicityMin(values[0]);
+                    linkEnd.setMultiplicityMax(values[0]);
+                } else if (values.length == 2) {
+                    linkEnd.setMultiplicityMin(values[0]);
+                    linkEnd.setMultiplicityMax(values[1]);
+                }
+            }
+        };
+        
     }
 
     @objid ("355eb93e-55b7-11e2-877f-002564c97630")
     @Override
     public boolean isVisible() {
-        return this.getDisplayedStyle().getProperty(getStyleKeyStrict(MetaKey.SHOWCARDINALITIES));
+        if (getParent() != null) {
+            return getDisplayedStyle().getProperty(getStyleKeyStrict(MetaKey.SHOWCARDINALITIES));
+        } else {
+            return false;
+        }
+        
     }
 
     @objid ("355eb943-55b7-11e2-877f-002564c97630")
@@ -178,6 +185,7 @@ public class GmLinkRoleCardinalityLabel extends GmElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmLinkRoleCardinalityLabel.", GmLinkRoleCardinalityLabel.MINOR_VERSION);
+        
     }
 
     @objid ("355eb949-55b7-11e2-877f-002564c97630")
@@ -187,6 +195,7 @@ public class GmLinkRoleCardinalityLabel extends GmElementLabel {
         if (resolveRef instanceof LinkEnd) {
             this.role = (LinkEnd) resolveRef;
         }
+        
     }
 
     @objid ("355eb94e-55b7-11e2-877f-002564c97630")

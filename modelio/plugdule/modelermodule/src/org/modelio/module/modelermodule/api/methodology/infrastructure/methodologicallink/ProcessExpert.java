@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink;
 
@@ -56,28 +55,28 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("e1d58720-679f-4348-85eb-57ac0f2f1243")
 public class ProcessExpert implements IMdaExpert {
-    @objid ("6d4ffd6c-f3e5-4f2b-850d-bbb0de76abd6")
+    @objid ("43a9b9b1-b3c7-4576-980d-bd18a8b59a0d")
     @Override
     public boolean canSource(Stereotype linkStereotype, MClass linkMetaclass, MClass fromMetaclass) {
         MMetamodel metamodel = linkMetaclass.getMetamodel();
         return (fromMetaclass.hasBase(metamodel.getMClass("Standard.BpmnProcess")));
     }
 
-    @objid ("75f86ac9-8d75-4b37-9e93-ab14351935d5")
+    @objid ("ac82450f-8e73-4d99-9e03-c9b18973daed")
     @Override
     public boolean canSource(Stereotype linkStereotype, MObject linkElement, MObject fromElement) {
         MMetamodel metamodel = linkElement.getMClass().getMetamodel();
         return (fromElement.getMClass().hasBase(metamodel.getMClass("Standard.BpmnProcess")));
     }
 
-    @objid ("868e435c-ec38-4334-b06c-3eb6b6204728")
+    @objid ("e24deae0-3d4f-4587-885c-03b870f929d4")
     @Override
     public boolean canSource(ElementScope linkScope, MObject fromElement) {
         MMetamodel metamodel = linkScope.getMetaclass().getMetamodel();
         return (fromElement.getMClass().hasBase(metamodel.getMClass("Standard.BpmnProcess")));
     }
 
-    @objid ("4e9d0aff-1172-4190-92c1-3390d141745c")
+    @objid ("5c0fc7e2-8835-418a-abf5-424e2f0fdf3c")
     @Override
     public boolean canTarget(Stereotype linkStereotype, MClass linkMetaclass, MClass toMetaclass) {
         MMetamodel metamodel = linkMetaclass.getMetamodel();
@@ -86,7 +85,7 @@ public class ProcessExpert implements IMdaExpert {
         (toMetaclass.hasBase(metamodel.getMClass("Archimate.TechnologyProcess")));
     }
 
-    @objid ("e551a4bb-a800-43a2-8dd3-b08101e33f8f")
+    @objid ("27fc107e-a129-488f-be7b-eb958c4b13f4")
     @Override
     public boolean canTarget(Stereotype linkStereotype, MObject linkElement, MObject toElement) {
         MMetamodel metamodel = linkElement.getMClass().getMetamodel();
@@ -95,7 +94,7 @@ public class ProcessExpert implements IMdaExpert {
         (toElement.getMClass().hasBase(metamodel.getMClass("Archimate.TechnologyProcess")));
     }
 
-    @objid ("54ad83d6-9d65-42c7-84c4-972e80d4a0b8")
+    @objid ("a5b50da8-1158-409d-9c75-0698e0014f09")
     @Override
     public boolean canLink(Stereotype linkStereotype, MClass linkMetaclass, MClass fromMetaclass, MClass toMetaclass) {
         MMetamodel metamodel = linkMetaclass.getMetamodel();
@@ -104,7 +103,7 @@ public class ProcessExpert implements IMdaExpert {
         ((fromMetaclass.hasBase(metamodel.getMClass("Standard.BpmnProcess"))) && (toMetaclass.hasBase(metamodel.getMClass("Archimate.TechnologyProcess"))));
     }
 
-    @objid ("2bc9b34c-2e24-485e-a5d8-21cecc0cd5a1")
+    @objid ("c5d93585-1875-4482-9692-4a1472f84500")
     @Override
     public boolean canLink(Stereotype linkStereotype, MClass linkMetaclass, MObject fromElement, MObject toElement) {
         MMetamodel metamodel = linkMetaclass.getMetamodel();
@@ -113,7 +112,7 @@ public class ProcessExpert implements IMdaExpert {
         ((fromElement.getMClass().hasBase(metamodel.getMClass("Standard.BpmnProcess"))) && (toElement.getMClass().hasBase(metamodel.getMClass("Archimate.TechnologyProcess"))));
     }
 
-    @objid ("48bb2cae-1ca9-45df-9e92-a2d5ef0189cd")
+    @objid ("cc65b41e-20d3-4b7f-b297-1acd1eb122ba")
     @Override
     public Collection<MClass> getPossibleSourceMetaclasses(Stereotype linkStereotype, MClass targetMetaclass) {
         MMetamodel metamodel = linkStereotype.getMClass().getMetamodel();
@@ -136,7 +135,7 @@ public class ProcessExpert implements IMdaExpert {
         return metaclasses;
     }
 
-    @objid ("e932b106-f8bb-4199-889a-35f9efc1065d")
+    @objid ("47fb691a-ddd0-46c4-bb18-48ed41e109af")
     @Override
     public Collection<MClass> getPossibleTargetMetaclasses(Stereotype linkStereotype, MClass sourceMetaclass) {
         MMetamodel metamodel = linkStereotype.getMClass().getMetamodel();
@@ -159,7 +158,7 @@ public class ProcessExpert implements IMdaExpert {
         return metaclasses;
     }
 
-    @objid ("4c48c444-b452-4d2e-b4da-02a973b9f4b6")
+    @objid ("32671186-9437-4ceb-9707-0bff5a341ada")
     @Override
     public boolean isMultiple(Stereotype linkStereotype) {
         return false;

@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.infrastructure.dependency;
 
@@ -49,24 +48,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("57682dea-36fc-489f-a20b-7834ce24109f")
 public class UML2InstanceValue {
-    @objid ("bd9e7727-955a-4b96-8576-c0833cf28076")
+    @objid ("6bc58bf7-6013-4d1f-b8c7-c321d30a4d26")
     public static final String STEREOTYPE_NAME = "UML2InstanceValue";
 
     /**
      * The underlying {@link Dependency} represented by this proxy, never null.
      */
-    @objid ("ffe6ed5c-32ea-4c20-bce8-90a3cfb9eb93")
+    @objid ("ace9867e-73d1-4ce1-9ca5-4ec1c730d52b")
     protected final Dependency elt;
 
     /**
      * Tells whether a {@link UML2InstanceValue proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << UML2InstanceValue >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("b13e8fd4-025f-4c08-8ea3-108a7244fdd8")
+    @objid ("281e130b-26af-4cd1-b26e-e8c94d561e0c")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Dependency) && ((Dependency) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2InstanceValue.STEREOTYPE_NAME));
     }
@@ -76,9 +74,9 @@ public class UML2InstanceValue {
      * 
      * @return a {@link UML2InstanceValue} proxy on the created {@link Dependency}.
      */
-    @objid ("83867f77-31c1-41e5-a694-b60ff2a68b83")
+    @objid ("c9b9a5e5-75e7-4849-8cb0-62d6fbe8c56c")
     public static UML2InstanceValue create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Dependency");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Infrastructure.Dependency");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2InstanceValue.STEREOTYPE_NAME);
         return UML2InstanceValue.instantiate((Dependency)e);
     }
@@ -90,7 +88,7 @@ public class UML2InstanceValue {
      * @param obj a Dependency
      * @return a {@link UML2InstanceValue} proxy or <i>null</i>.
      */
-    @objid ("f42da06e-1461-4fd7-a249-800607bb6250")
+    @objid ("c1c930c9-72c5-4f84-ac51-e5463b9a7807")
     public static UML2InstanceValue instantiate(Dependency obj) {
         return UML2InstanceValue.canInstantiate(obj) ? new UML2InstanceValue(obj) : null;
     }
@@ -103,7 +101,7 @@ public class UML2InstanceValue {
      * @return a {@link UML2InstanceValue} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("33202de9-4503-4c8d-990d-9f61c5faec60")
+    @objid ("8e967e8a-d7c4-43b0-a88c-cde938bb59fd")
     public static UML2InstanceValue safeInstantiate(Dependency obj) throws IllegalArgumentException {
         if (UML2InstanceValue.canInstantiate(obj))
         	return new UML2InstanceValue(obj);
@@ -111,7 +109,7 @@ public class UML2InstanceValue {
         	throw new IllegalArgumentException("UML2InstanceValue: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("e1f677ac-1b92-4f4a-a14f-bba17275f8b5")
+    @objid ("15b349ec-78af-4fdb-8336-e8bec3ad8f46")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -131,46 +129,47 @@ public class UML2InstanceValue {
      * Get the underlying {@link Dependency}. 
      * @return the Dependency represented by this proxy, never null.
      */
-    @objid ("45c68ea7-d03c-406b-920a-90463029e535")
+    @objid ("6c3cae1b-4d7b-4a32-8935-34ce1080188f")
     public Dependency getElement() {
         return this.elt;
     }
 
-    @objid ("6bca2c02-fe43-4015-96b2-85d18e394642")
+    @objid ("b9bf96c2-ca50-4f17-b762-1d4418433513")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("f2d80847-790f-42ea-a6b9-b9d5bed7f2f1")
-    protected UML2InstanceValue(Dependency elt) {
+    @objid ("fd8ce67e-2378-4d3f-9b5e-1a552273d890")
+    protected  UML2InstanceValue(Dependency elt) {
         this.elt = elt;
     }
 
     @objid ("212a0d8e-5958-407c-8c93-a9014079a3cb")
     public static final class MdaTypes {
-        @objid ("d592374c-e711-4873-bebc-e4dda99b3d8b")
+        @objid ("380fb4ba-3978-42ac-abfd-4189321ce0e4")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("f68a0cdf-1da9-46bc-820d-21cbb2d08074")
+        @objid ("064d2d07-6217-42b0-a058-a05560f0b206")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("a9fe326c-aa78-41be-85d9-e35557ee317e")
+        @objid ("c8c6e215-a57b-4367-97b0-98b4f93f35ca")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("f09a045e-7935-4c9e-ba21-dc4c0bcdb6f4")
+        @objid ("a7dd4b77-b618-401e-9747-4f04f6033953")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "5791cd76-03ec-11e2-9c63-0027103f347d");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

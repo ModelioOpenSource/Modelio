@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.libraries.local;
 
 import java.io.IOException;
@@ -114,14 +113,14 @@ public class LocalLibrariesSection {
     private final UpdateChecker updateChecker;
 
     @objid ("7d535818-3adc-11e2-916e-002564c97630")
-    public LocalLibrariesSection(final IEclipseContext applicationContext) {
+    public  LocalLibrariesSection(final IEclipseContext applicationContext) {
         this.applicationContext = applicationContext;
         this.updateChecker = new UpdateChecker();
+        
     }
 
     /**
      * Update() is called by the project infos view when the project to be displayed changes or need contents refresh
-     * 
      * @param selectedProject the project selected in the workspace tree view
      */
     @objid ("7d53581b-3adc-11e2-916e-002564c97630")
@@ -150,6 +149,7 @@ public class LocalLibrariesSection {
         for (final TableColumn col : this.viewer.getTable().getColumns()) {
             col.pack();
         }
+        
     }
 
     @objid ("7d53581f-3adc-11e2-916e-002564c97630")
@@ -294,6 +294,7 @@ public class LocalLibrariesSection {
         } catch (final InterruptedException ex) {
             // nothing
         }
+        
     }
 
     @objid ("6072cf04-eb91-4635-8b00-3580e9cd9edd")
@@ -305,6 +306,7 @@ public class LocalLibrariesSection {
             final Path deploymentPath = LocalLibrariesSection.this.projectAdapter.getProjectFileStructure().getProjectPath();
             modelComponentArchive.removeExportedFiles(deploymentPath, null);
         }
+        
     }
 
     @objid ("09a13e4a-5f2f-4b09-8dc2-e1495c981193")
@@ -325,6 +327,7 @@ public class LocalLibrariesSection {
             // Silently ignore broken ramcs...
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("20d0f6ac-a4a6-4921-bbaf-f5992240e083")
@@ -391,6 +394,7 @@ public class LocalLibrariesSection {
             // nothing
         }
         installExportedFilesOfFragment(newArchive);
+        
     }
 
     @objid ("9b61658c-0e3e-4878-84c2-7f9d39a5e8ec")
@@ -449,10 +453,11 @@ public class LocalLibrariesSection {
             
                 updateFragment(existingFragment, newArchive, fragmentDescriptor);
             }
+            
         }
 
         @objid ("7d55b94b-3adc-11e2-916e-002564c97630")
-        AddFragmentFromFileListener() {
+         AddFragmentFromFileListener() {
             // empty
         }
 
@@ -480,10 +485,11 @@ public class LocalLibrariesSection {
                 projectService.removeFragment(getProjectAdapter().getOpenedProject(), fragment);
                 refresh();
             }
+            
         }
 
         @objid ("7d55b952-3adc-11e2-916e-002564c97630")
-        RemoveFragmentButtonListener() {
+         RemoveFragmentButtonListener() {
             // empty
         }
 
@@ -492,7 +498,7 @@ public class LocalLibrariesSection {
     @objid ("7d55b95b-3adc-11e2-916e-002564c97630")
     private class ShowFragmentPropertiesButtonListener extends SelectionAdapter {
         @objid ("7d55b95c-3adc-11e2-916e-002564c97630")
-        ShowFragmentPropertiesButtonListener() {
+         ShowFragmentPropertiesButtonListener() {
             // empty
         }
 
@@ -517,6 +523,7 @@ public class LocalLibrariesSection {
             } catch (final IOException error) {
                 AppProjectConfExt.LOG.error(error);
             }
+            
         }
 
     }
@@ -570,10 +577,11 @@ public class LocalLibrariesSection {
             } else {
                 MessageDialog.openInformation(parentShell, AppProjectConfExt.I18N.getString("UpdateLocalLibraryDialog.Title"), AppProjectConfExt.I18N.getString("UpdateLocalLibraryDialog.NoUpdate"));
             }
+            
         }
 
         @objid ("36816872-30c9-475d-adfb-b089431a7eb4")
-        AddFragmentFromUpdateSiteButtonListener() {
+         AddFragmentFromUpdateSiteButtonListener() {
             // empty
         }
 

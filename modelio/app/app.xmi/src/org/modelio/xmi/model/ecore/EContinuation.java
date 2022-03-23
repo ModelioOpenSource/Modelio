@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -25,7 +24,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 @objid ("9ba59624-4253-4659-98ad-7a217841543e")
 public class EContinuation extends ENamedElement {
     @objid ("1900504b-0f4d-45bb-8eb9-0b06eded2721")
-    public EContinuation(org.eclipse.uml2.uml.Continuation element) {
+    public  EContinuation(org.eclipse.uml2.uml.Continuation element) {
         super(element);
     }
 

@@ -17,20 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
-import org.modelio.metamodel.impl.uml.statik.ElementImportData;
-import org.modelio.metamodel.impl.uml.statik.NameSpaceSmClass;
-import org.modelio.metamodel.impl.uml.statik.OperationSmClass;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.metamodel.uml.statik.ElementImport;
 import org.modelio.metamodel.uml.statik.NameSpace;
@@ -63,7 +60,7 @@ public class ElementImportSmClass extends UmlModelElementSmClass {
     private SmDependency importingOperationDep;
 
     @objid ("d7c8299b-baed-49ea-987b-ea7756a7237b")
-    public ElementImportSmClass(ISmMetamodelFragment origin) {
+    public  ElementImportSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -71,6 +68,7 @@ public class ElementImportSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "ElementImport";
+        
     }
 
     @objid ("0d4610a0-5d76-4e02-a11c-fb8b96f441ff")
@@ -83,18 +81,21 @@ public class ElementImportSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ElementImport.class;
+        
     }
 
     @objid ("b10ca424-5e32-4fe0-98af-70591b6a8940")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("d3bb1e1b-6bef-4d98-8e43-fc056da95312")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("914b1935-3787-439b-9357-7f448e35834e")
@@ -122,6 +123,8 @@ public class ElementImportSmClass extends UmlModelElementSmClass {
         this.importingOperationDep = new ImportingOperationSmDependency();
         this.importingOperationDep.init("ImportingOperation", this, metamodel.getMClass(Operation.MQNAME), 0, 1 , SmDirective.SMCDLINKSOURCE);
         registerDependency(this.importingOperationDep);
+        
+        
     }
 
     @objid ("e79ea572-3bd9-4a2a-8170-e8acf3232ef0")
@@ -160,6 +163,7 @@ public class ElementImportSmClass extends UmlModelElementSmClass {
     @Override
     public boolean isLinkMetaclass() {
         return true;
+        
     }
 
     @objid ("32e190a7-c510-4e4e-84e5-434396425161")
@@ -168,7 +172,7 @@ public class ElementImportSmClass extends UmlModelElementSmClass {
         private ElementImportSmClass smClass;
 
         @objid ("0b8f5844-83bc-4c57-964c-2e0f0e59ba88")
-        public ElementImportObjectFactory(ElementImportSmClass smClass) {
+        public  ElementImportObjectFactory(ElementImportSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -224,6 +228,7 @@ public class ElementImportSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((NameSpaceSmClass)this.getTarget()).getOwnedImportDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -252,6 +257,7 @@ public class ElementImportSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((NameSpaceSmClass)this.getTarget()).getImportingDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -280,6 +286,7 @@ public class ElementImportSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((OperationSmClass)this.getTarget()).getOwnedImportDep();
             }
             return this.symetricDep;
+            
         }
 
     }

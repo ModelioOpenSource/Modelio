@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.preferences;
 
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.jface.preference.BooleanFieldEditor;
 import org.eclipse.jface.preference.ComboFieldEditor;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
@@ -60,14 +59,14 @@ public class XmiPreferencesPage extends FieldEditorPreferencePage {
      * are stored in the preference store that belongs to
      * the main plug-in class. That way, preferences can
      * be accessed directly via the preference store.
-     * 
      * @param projectService : the Modelio project service used for project management
      */
     @objid ("50d88f00-a8e7-4e21-a996-f6e9fd2e13cd")
     @Inject
-    public XmiPreferencesPage(IProjectService projectService) {
+    public  XmiPreferencesPage(IProjectService projectService) {
         super(GRID);
         init(projectService);
+        
     }
 
     @objid ("70dfb2cf-ce89-4745-8624-9b2e196b960f")
@@ -96,6 +95,7 @@ public class XmiPreferencesPage extends FieldEditorPreferencePage {
         
             addField(this.compatibilityField);
         }
+        
     }
 
     @objid ("36bfd509-9405-43d4-948b-23efed3a68be")
@@ -120,6 +120,7 @@ public class XmiPreferencesPage extends FieldEditorPreferencePage {
             preferenceStore.setDefault(XmiPreferencesKeys.XMIFORMAT_PREFKEY, FormatExport.EMF300.toString());
         
         }
+        
     }
 
     @objid ("b9b91e12-b17e-4656-89f9-c76b1c8fdfd4")
@@ -150,6 +151,7 @@ public class XmiPreferencesPage extends FieldEditorPreferencePage {
         if (getPreferenceStore() == null) {
             this.setVisible(false);
         }
+        
     }
 
 }

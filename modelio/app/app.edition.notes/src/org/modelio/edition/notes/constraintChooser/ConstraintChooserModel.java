@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.constraintChooser;
 
 import java.util.Collection;
@@ -35,7 +34,7 @@ import org.modelio.vcore.smkernel.mapi.MMetamodel;
 @objid ("26d79eff-186f-11e2-bc4e-002564c97630")
 class ConstraintChooserModel {
     @objid ("2c8b5147-8395-4e46-bcff-7f48a0dc55c5")
-     Collection<Object> roots = new HashSet<>();
+    Collection<Object> roots = new HashSet<>();
 
     @objid ("2fcbda68-9566-4bd9-b7b1-dffab08eb427")
     public Collection<Object> getRoots() {
@@ -43,7 +42,7 @@ class ConstraintChooserModel {
     }
 
     @objid ("66cdade2-efff-4028-be6d-a8fab36bea3a")
-    public ConstraintChooserModel(IMModelServices modelService, MMetamodel mm) {
+    public  ConstraintChooserModel(IMModelServices modelService, MMetamodel mm) {
         for (Stereotype stereotype : modelService.findStereotypes(".*", ".*", mm.getMClass(Constraint.class))) {
             if (!stereotype.isIsHidden()) {
                 ModuleComponent moduleComponent = stereotype.getOwner().getOwnerModule();
@@ -53,6 +52,7 @@ class ConstraintChooserModel {
         
         //TODO Gnii ??!?
         this.roots.add(Constraint.class);
+        
     }
 
 }

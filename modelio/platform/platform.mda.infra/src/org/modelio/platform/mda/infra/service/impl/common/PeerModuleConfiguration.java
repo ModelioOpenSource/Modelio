@@ -17,131 +17,74 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.common;
 
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.emf.common.util.EList;
 import org.modelio.api.module.context.configuration.IModuleAPIConfiguration;
 import org.modelio.api.module.context.configuration.IModuleConfigurationListener;
-import org.modelio.gproject.data.project.DefinitionScope;
-import org.modelio.gproject.data.project.GProperties.Entry;
-import org.modelio.gproject.data.project.GProperties;
-import org.modelio.gproject.module.GModule;
-import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.mda.ModuleParameter;
 
 /**
- * {@link IModuleAPIConfiguration} implementation.
+ * This class represents the means of reading and writing module parameters through the module's API (peer services), aka in code outside of the module.
+ * <p>
+ * Each module owns parameters that can be read and written. The current class is used to give the opportunity to change or get the specific module parameters.
+ * <p>
+ * The parameters can be defined using a specific string key. The returned value is always typed by a String, meaning that needed conversion should be managed by the developer.
  */
 @objid ("fb48176c-f1b6-11e1-af52-001ec947c8cc")
-public class PeerModuleConfiguration implements IModuleAPIConfiguration {
-    @objid ("fb4a79c3-f1b6-11e1-af52-001ec947c8cc")
-    private GModule module;
-
-    @objid ("c8527d1b-03ec-11e2-8e1f-001ec947c8cc")
-    private Path deploymentPath;
-
+public final class PeerModuleConfiguration implements IModuleAPIConfiguration {
     @objid ("c8527d1c-03ec-11e2-8e1f-001ec947c8cc")
     private List<Path> docpath;
 
-    @objid ("d8e2c88d-74b7-41e1-bfdf-9e71768c8b9c")
-    private List<IModuleConfigurationListener> listeners = new ArrayList<>();
+    /**
+     * The instance to delegate access to the module parameters.
+     */
+    @objid ("9803ebfc-76d6-4385-aa63-2bf49abdaaa2")
+    private ConfigurationImpl impl;
 
+    /**
+     * Unique constructor of an API parameter manager.
+     * @param impl the actual instance accessing the module parameters.
+     * @param docpath list of all files that should be loaded for documentation.
+     */
     @objid ("fb4a79c4-f1b6-11e1-af52-001ec947c8cc")
-    public PeerModuleConfiguration(GModule module, Path deploymentPath, final List<Path> docpath) {
-        this.module = module;
-        this.deploymentPath = deploymentPath;
+    public  PeerModuleConfiguration(ConfigurationImpl impl, final List<Path> docpath) {
+        this.impl = impl;
         this.docpath = docpath;
+        
     }
 
     @objid ("fb4cdc1d-f1b6-11e1-af52-001ec947c8cc")
     @Override
     public String getParameterValue(String key) {
-        ModuleComponent moduleElement = this.module.getModuleElement();
-        if (moduleElement != null) {
-            EList<ModuleParameter> configParams = moduleElement.getModuleParameter();
-            for (ModuleParameter configParam : configParams) {
-                if (configParam.getName().equals(key) && configParam.isIsApiRead()) {
-                    return this.module.getParameters().getValue(key, "");
-                }
-            }
-        }
-        return null;
+        return this.impl.getParameterValue(key, ModuleParameter::isIsApiRead);
     }
 
     @objid ("fb4cdc23-f1b6-11e1-af52-001ec947c8cc")
     @Override
     public Map<String, String> getParameters() {
-        Map<String, String> results = new HashMap<>();
-        
-        GProperties gProperties = this.module.getParameters();
-        ModuleComponent moduleElement = this.module.getModuleElement();
-        if (moduleElement != null) {
-            EList<ModuleParameter> configParams = moduleElement.getModuleParameter();
-        
-            for (ModuleParameter configParam : configParams) {
-                if (configParam.isIsApiRead()) {
-                    results.put(configParam.getName(), gProperties.getValue(configParam.getName(), ""));
-                }
-            }
-        }
-        return results;
+        return this.impl.getParameters(ModuleParameter::isIsApiRead);
     }
 
     @objid ("fb4f3e7d-f1b6-11e1-af52-001ec947c8cc")
     @Override
     public boolean setParameterValue(String key, String value) {
-        ModuleComponent moduleElement = this.module.getModuleElement();
-        if (moduleElement != null) {
-            EList<ModuleParameter> configParams = moduleElement.getModuleParameter();
-            for (ModuleParameter configParam : configParams) {
-                if (configParam.getName().equals(key) && configParam.isIsApiWrite()) {
-                    GProperties gProperties = this.module.getParameters();
-                    Entry gProperty = gProperties.getProperty(key);
-                    if (gProperty == null || gProperty.getScope() == DefinitionScope.LOCAL) {
-                        // Update property value
-                        String oldValue = (gProperty != null)? gProperty.getValue() : null;
-                        gProperties.setProperty(key, value, DefinitionScope.LOCAL);
-                        fireListeners(key, oldValue, value);
-                        return true;
-                    }
-                    // This property can't be edited
-                    return false;
-                }
-            }
-        }
-        return false;
+        return this.impl.setParameterValue(key, value, ModuleParameter::isIsApiWrite);
     }
 
     @objid ("fb51a0d5-f1b6-11e1-af52-001ec947c8cc")
     @Override
     public void updateFrom(Map<String, String> parameters) {
-        ModuleComponent moduleElement = this.module.getModuleElement();
-        if (moduleElement != null) {
-            GProperties gProperties = this.module.getParameters();
-            for (ModuleParameter configParam : moduleElement.getModuleParameter()) {
-                String key = configParam.getName();
-                if (parameters.containsKey(key) && configParam.isIsApiWrite()) {
-                    Entry gProperty = gProperties.getProperty(key);
-                    if (gProperty == null || gProperty.getScope() == DefinitionScope.LOCAL) {
-                        // Update property value
-                        gProperties.setProperty(key, parameters.get(key), DefinitionScope.LOCAL);
-                    }
-                }
-            }
-        }
+        this.impl.updateFrom(parameters, ModuleParameter::isIsApiWrite);
     }
 
     @objid ("fb5b2a39-f1b6-11e1-af52-001ec947c8cc")
     @Override
     public Path getModuleResourcesPath() {
-        return this.deploymentPath;
+        return this.impl.getModuleResourcesPath();
     }
 
     @objid ("fb5d8c94-f1b6-11e1-af52-001ec947c8cc")
@@ -153,36 +96,24 @@ public class PeerModuleConfiguration implements IModuleAPIConfiguration {
     @objid ("b4f6e2bb-c6fd-4c28-a9bb-c2dae8be6a3c")
     @Override
     public boolean isLocked(String key) {
-        ModuleComponent moduleElement = this.module.getModuleElement();
-        if (moduleElement != null) {
-            EList<ModuleParameter> configParams = moduleElement.getModuleParameter();
-            for (ModuleParameter configParam : configParams) {
-                if (configParam.getName().equals(key) && configParam.isIsApiRead()) {
-                    Entry property = this.module.getParameters().getProperty(key);
-                    if (property != null) {
-                        return property.getScope() == DefinitionScope.SHARED;
-                    }
-                }
-            }
-        }
-        return false;
+        return this.impl.isLocked(key, ModuleParameter::isIsApiRead);
     }
 
     @objid ("159c5e27-f47a-42d7-a579-44980b0a479b")
     private void fireListeners(String pName, String oldValue, String newValue) {
-        this.listeners.forEach(l -> l.parameterChanged(pName, oldValue, newValue));
+        this.impl.fireListeners(pName, oldValue, newValue);
     }
 
     @objid ("fa32bc8b-eef5-4392-af98-fcdf1585409d")
     @Override
     public void addListener(IModuleConfigurationListener l) {
-        this.listeners.add(l);
+        this.impl.addListener(l);
     }
 
     @objid ("03f12cef-27bf-41cf-9956-41dc453fffc2")
     @Override
     public void removeListener(IModuleConfigurationListener l) {
-        this.listeners.remove(l);
+        this.impl.removeListener(l);
     }
 
 }

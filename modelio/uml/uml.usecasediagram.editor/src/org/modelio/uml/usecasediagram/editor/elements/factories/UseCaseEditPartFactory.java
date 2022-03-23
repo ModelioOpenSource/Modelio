@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.elements.factories;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,10 +49,10 @@ import org.modelio.uml.usecasediagram.editor.elements.usecasediagram.UseCaseDiag
 @objid ("5e8a464d-55b7-11e2-877f-002564c97630")
 public final class UseCaseEditPartFactory implements EditPartFactory {
     @objid ("5e8a464f-55b7-11e2-877f-002564c97630")
-    private static final StructuredModeEditPartFactory structuredModeEditPartFactory = new StructuredModeEditPartFactory();
+    private final StructuredModeEditPartFactory structuredModeEditPartFactory = new StructuredModeEditPartFactory();
 
     @objid ("5e8a4653-55b7-11e2-877f-002564c97630")
-    private static final SimpleModeEditPartFactory simpleModeEditPartFactory = new SimpleModeEditPartFactory();
+    private final SimpleModeEditPartFactory simpleModeEditPartFactory = new SimpleModeEditPartFactory();
 
     @objid ("5e8a465d-55b7-11e2-877f-002564c97630")
     @Override
@@ -65,10 +64,10 @@ public final class UseCaseEditPartFactory implements EditPartFactory {
             GmNodeModel node = (GmNodeModel) model;
             switch (node.getRepresentationMode()) {
             case SIMPLE:
-                editPart = UseCaseEditPartFactory.simpleModeEditPartFactory.createEditPart(context, model);
+                editPart = this.simpleModeEditPartFactory.createEditPart(context, model);
                 break;
             case STRUCTURED:
-                editPart = UseCaseEditPartFactory.structuredModeEditPartFactory.createEditPart(context, model);
+                editPart = this.structuredModeEditPartFactory.createEditPart(context, model);
                 break;
             case IMAGE:
             default:
@@ -82,7 +81,7 @@ public final class UseCaseEditPartFactory implements EditPartFactory {
             return null;
         }
         // Link models are always in structured mode.
-        editPart = UseCaseEditPartFactory.structuredModeEditPartFactory.createEditPart(context, model);
+        editPart = this.structuredModeEditPartFactory.createEditPart(context, model);
         
         if (editPart != null) {
             return editPart;

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,6 @@ import org.modelio.metamodel.diagrams.AbstractDiagram;
 public interface IDiagramEditorInputProvider {
     /**
      * Instanciate a {@link DiagramEditorInput} for a diagram.
-     * 
      * @param diagramUid the UUID of an existing diagram.
      * @param modelManager a diagram model manager.
      * @return the editor input, or <code>null</code> if the diagram's instance can't be handled by this provider.
@@ -50,7 +48,7 @@ public interface IDiagramEditorInputProvider {
     GmDiagramCreator getDiagramCreator();
 
     @objid ("34471e22-62b6-49bd-8d2c-61e6c7b80209")
-    interface GmDiagramCreator {
+    public interface GmDiagramCreator {
         /**
          * Create a {@link GmAbstractDiagram} from an AbstractDiagram.
          * <p>
@@ -63,7 +61,6 @@ public interface IDiagramEditorInputProvider {
          * diagram.getPersister().load();
          * </code>
          * </p>
-         * 
          * @param modelManager a diagram model manager
          * @param diagram The element to unmask
          * @return The created graphic node.

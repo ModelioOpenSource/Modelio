@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.util;
 
 import java.util.HashMap;
@@ -330,10 +329,11 @@ public class ScopeChecker {
     private final ScopeSelector selector;
 
     @objid ("6298ca39-0c93-4608-80fb-aaf2f6d1057c")
-    public ScopeChecker(List<ModelElement> localRoots) {
+    public  ScopeChecker(List<ModelElement> localRoots) {
         this.localRoot = localRoots;
         this.scopeMap = new HashMap<>();
         this.selector = new ScopeSelector();
+        
     }
 
     @objid ("ec15003f-db01-4ed9-a67f-c9f5ce9c2630")
@@ -367,7 +367,7 @@ public class ScopeChecker {
     @objid ("0fbc91e8-7e3c-4438-a5d8-2776eee9f31a")
     private class ScopeSelector extends DefaultModelVisitor implements IDefaultInfrastructureVisitor {
         @objid ("92d2a917-299e-4a25-8b81-8c53878a20af")
-        public ScopeSelector() {
+        public  ScopeSelector() {
             this.infrastructureVisitor = this;
         }
 
@@ -607,9 +607,8 @@ public class ScopeChecker {
         @objid ("83bb744c-db83-4bc3-a5a7-a70a1b5260e6")
         @Override
         public Object visitElement(Element eltToTest) {
-            throw new NotFoundException("Element of type "
-                    + eltToTest.getClass()
-                    + " has no implementation done in scope filter.");
+            setTheResult(false);
+            return null;
         }
 
         @objid ("ab6fba2a-8cbf-47c1-821a-af05b6436e48")

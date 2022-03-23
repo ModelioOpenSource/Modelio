@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.model;
 
 import java.util.Collection;
@@ -51,7 +50,6 @@ public interface IModelingSession {
      * Handlers can modify the model.
      * <p>
      * This model listener is used to be notified of the model structural changes, through the use of the {@link IModelChangeHandler} listener class.
-     * 
      * @param handler the model change listener to add.
      */
     @objid ("785d1e1a-f797-11dd-83f5-0014222a9f79")
@@ -63,7 +61,6 @@ public interface IModelingSession {
      * Added listeners must not modify the model. If model modifications should be done use addModelHandler() method.
      * <p>
      * This model listener is used to be notified of the model structural changes, through the use of the {@link IModelChangeListener} listener class.
-     * 
      * @param listener the model change listener to add.
      */
     @objid ("785d1e18-f797-11dd-83f5-0014222a9f79")
@@ -75,7 +72,6 @@ public interface IModelingSession {
      * Added listeners must not modify the model. If model modifications should be done use addModelHandler() method.
      * <p>
      * This model listener is used to be notified of all the model status changes (read/write), through the use of the {@link IStatusChangeListener} listener class.
-     * 
      * @param listener the model change listener to add.
      */
     @objid ("785d1e16-f797-11dd-83f5-0014222a9f79")
@@ -87,7 +83,6 @@ public interface IModelingSession {
      * <p>
      * All the model updates have to be carried out in the context of a transaction, which has to be created, through the use of this method, and Committed via the {@link ITransaction#commit} method or rollbacked using the {@link ITransaction#rollback}
      * method.
-     * 
      * @param transactionName A transaction name. This name is just a label that might be displayed in log files, a console or dialog boxes.
      * @return the created transaction.
      */
@@ -99,7 +94,6 @@ public interface IModelingSession {
      * <p>
      * If <code>Element</code> is given, every elements in the model will be checked.
      * </p>
-     * 
      * @param metaclass the java interface of the metaclass to look for.
      * @param att the name of the meta attribute to check the value in.
      * @param value the value to look for in the attribute.
@@ -113,7 +107,6 @@ public interface IModelingSession {
      * <p>
      * If <code>Element</code> is given, every elements in the model will be checked.
      * </p>
-     * 
      * @param metaclass the metaclass to look for.
      * @param att the name of the meta attribute to check the value in.
      * @param value the value to look for in the attribute.
@@ -124,7 +117,6 @@ public interface IModelingSession {
 
     /**
      * Get all elements in the model from their metaclass.
-     * 
      * @param metaclass the java interface of the metaclass to look for.
      * @return A list of all model elements, or null if no match is found.
      */
@@ -133,7 +125,6 @@ public interface IModelingSession {
 
     /**
      * Get all elements in the model from their metaclass.
-     * 
      * @param metaclass the metaclass to look for.
      * @return A list of all model elements, or null if no match is found.
      */
@@ -142,7 +133,6 @@ public interface IModelingSession {
 
     /**
      * Get an element in the model from its id and metaclass.
-     * 
      * @param metaclass the java interface of the metaclass to look for.
      * @param id the id to look for.
      * @return A model element, or null if no match is found.
@@ -152,7 +142,6 @@ public interface IModelingSession {
 
     /**
      * Get an element in the model from its id and metaclass.
-     * 
      * @param metaclass the metaclass to look for.
      * @param id the element's id.
      * @return A model element, or null if no match is found.
@@ -165,7 +154,6 @@ public interface IModelingSession {
      * <p>
      * <p>
      * The metamodel extensions are added by the tool when modules are deployed. It corresponds to the stereotypes, note types and tag types brought by modules.
-     * 
      * @return the stereotypes, tag types and not types brought by deployed modules.
      */
     @objid ("00d00158-0001-67c3-0000-000000000000")
@@ -176,7 +164,6 @@ public interface IModelingSession {
      * <p>
      * <p>
      * This method is often used to get the roots using the {@link IUmlModel#getModelRoots} method
-     * 
      * @return the UML Model connected to the session.
      */
     @objid ("00d00158-0001-67bd-0000-000000000000")
@@ -184,7 +171,6 @@ public interface IModelingSession {
 
     /**
      * Get the name of this session.
-     * 
      * @return the name of this session.
      */
     @objid ("00d00158-0001-67ba-0000-000000000000")
@@ -200,7 +186,6 @@ public interface IModelingSession {
 
     /**
      * Remove a model change handler.
-     * 
      * @param handler the model change handler to remove.
      */
     @objid ("7db5a3e6-f797-11dd-83f5-0014222a9f79")
@@ -208,7 +193,6 @@ public interface IModelingSession {
 
     /**
      * Remove a model change listener.
-     * 
      * @param listener the model change listener to remove.
      */
     @objid ("7db5a3e7-f797-11dd-83f5-0014222a9f79")
@@ -216,7 +200,6 @@ public interface IModelingSession {
 
     /**
      * Remove a status change listener.
-     * 
      * @param listener the status change listener to remove.
      */
     @objid ("7db5a3e9-f797-11dd-83f5-0014222a9f79")
@@ -224,7 +207,6 @@ public interface IModelingSession {
 
     /**
      * Get an element in the model from an {@link org.modelio.vcore.smkernel.mapi.MRef}.<br>
-     * 
      * @param ref a model object reference.
      * @return A model element, or null if no match is found.
      * @since 3.7

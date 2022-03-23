@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,17 +50,15 @@ public class ExitPointPseudoStatePropertyModel extends AbstractPropertyModel<Exi
     /**
      * Create a new <i>ExitPointPseudoState</i> data model from an
      * <i>ExitPointPseudoState</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("9fe522bb-4034-4931-a4b1-9ccc871adbbc")
-    public ExitPointPseudoStatePropertyModel(ExitPointPseudoState theEditedElement) {
+    public  ExitPointPseudoStatePropertyModel(ExitPointPseudoState theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("4f890f2e-bd7a-47a6-973a-5faa2d13db95")
@@ -72,7 +69,6 @@ public class ExitPointPseudoStatePropertyModel extends AbstractPropertyModel<Exi
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("182e4a7f-2c9f-4a20-876a-09fbbea28251")
@@ -85,7 +81,6 @@ public class ExitPointPseudoStatePropertyModel extends AbstractPropertyModel<Exi
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -107,6 +102,7 @@ public class ExitPointPseudoStatePropertyModel extends AbstractPropertyModel<Exi
         default:
             return null;
         }
+        
     }
 
     /**
@@ -116,7 +112,6 @@ public class ExitPointPseudoStatePropertyModel extends AbstractPropertyModel<Exi
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -139,13 +134,13 @@ public class ExitPointPseudoStatePropertyModel extends AbstractPropertyModel<Exi
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -170,6 +165,7 @@ public class ExitPointPseudoStatePropertyModel extends AbstractPropertyModel<Exi
         default:
             return;
         }
+        
     }
 
 }

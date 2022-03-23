@@ -17,22 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.uml.statik;
 
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
-import org.modelio.metamodel.uml.statik.Binding;
-import org.modelio.metamodel.uml.statik.Collaboration;
-import org.modelio.metamodel.uml.statik.NameSpace;
-import org.modelio.metamodel.uml.statik.Operation;
 
 /**
  * CollaborationUse v0.0.9054

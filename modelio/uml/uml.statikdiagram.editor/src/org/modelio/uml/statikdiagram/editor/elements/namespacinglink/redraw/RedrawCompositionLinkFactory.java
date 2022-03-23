@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.namespacinglink.redraw;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,10 +44,11 @@ public class RedrawCompositionLinkFactory implements CreationFactory {
     }
 
     @objid ("35b73986-55b7-11e2-877f-002564c97630")
-    public RedrawCompositionLinkFactory(final MObject sourceElement, final MObject targetElement) {
+    public  RedrawCompositionLinkFactory(final MObject sourceElement, final MObject targetElement) {
         super();
         this.sourceElement = sourceElement;
         this.targetElement = targetElement;
+        
     }
 
     @objid ("35b73990-55b7-11e2-877f-002564c97630")

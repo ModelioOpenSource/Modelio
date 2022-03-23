@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,7 +38,7 @@ public class OInterruptibleActivityRegion extends OElement implements IOElement 
     }
 
     @objid ("f6d07530-e479-400d-b821-c62a2e249879")
-    public OInterruptibleActivityRegion(InterruptibleActivityRegion element) {
+    public  OInterruptibleActivityRegion(InterruptibleActivityRegion element) {
         super(element);
     }
 
@@ -51,6 +50,7 @@ public class OInterruptibleActivityRegion extends OElement implements IOElement 
         
         if (ecoreOwner != null && objingOwner instanceof Activity)
             attachToActivity(ecoreElt, ecoreOwner);
+        
     }
 
     @objid ("508867f5-a7f2-4a25-9f90-292ccccb704e")
@@ -58,6 +58,7 @@ public class OInterruptibleActivityRegion extends OElement implements IOElement 
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         setInterrupts((org.eclipse.uml2.uml.InterruptibleActivityRegion) ecoreElt);
         setName((org.eclipse.uml2.uml.InterruptibleActivityRegion) ecoreElt);
+        
     }
 
     @objid ("19c488f6-174f-4282-9b2e-666aed57fb15")
@@ -70,6 +71,7 @@ public class OInterruptibleActivityRegion extends OElement implements IOElement 
             throw new NotFoundException("Owner Class ("
                     + ecoreOwner.getClass().getSimpleName() + ") Not Found");
         }
+        
     }
 
     @objid ("1d547986-144d-48fe-aa22-ff9a2fd5c66a")
@@ -80,6 +82,7 @@ public class OInterruptibleActivityRegion extends OElement implements IOElement 
                 region.getInterruptingEdges().add((org.eclipse.uml2.uml.ActivityEdge)ecoreEdge);
             }
         }
+        
     }
 
     @objid ("f14cc6ac-90a3-47c7-adc5-71168b05e9e7")

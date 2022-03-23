@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.engine.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.audit.engine.core.AuditEntry;
 import org.modelio.audit.engine.core.IAuditDiagnostic;
@@ -58,7 +57,7 @@ public class AuditDiagnostic implements IAuditDiagnostic {
      * Default constructor.
      */
     @objid ("4dc825d2-d00b-49c3-952d-f14df049dc42")
-    public AuditDiagnostic() {
+    public  AuditDiagnostic() {
         this.entries = new ArrayList<>();
     }
 
@@ -99,7 +98,6 @@ public class AuditDiagnostic implements IAuditDiagnostic {
      * <p>
      * If the entry is already present the passed argument is not added. If the entry is 'success' removing the previosu one(s) from
      * the diagnostic
-     * 
      * @param diagnosticEntries The entries to be added.
      * @param session a modeling session
      * @return <code>true</code> if the current entry list changed, and listeners must be notified.
@@ -155,7 +153,6 @@ public class AuditDiagnostic implements IAuditDiagnostic {
 
     /**
      * Register an audit listener.
-     * 
      * @param listener the listener to add.
      */
     @objid ("984297ab-baed-43d0-9100-e0b836f3204c")
@@ -166,7 +163,6 @@ public class AuditDiagnostic implements IAuditDiagnostic {
 
     /**
      * Unregister an audit listener.
-     * 
      * @param listener the listener to remove.
      */
     @objid ("9a81dff1-a01e-4b23-b6a6-524599b598fb")
@@ -209,6 +205,7 @@ public class AuditDiagnostic implements IAuditDiagnostic {
         default:
             break;
         }
+        
     }
 
     @objid ("9904e062-e885-43ba-be28-027572ab346d")
@@ -242,6 +239,7 @@ public class AuditDiagnostic implements IAuditDiagnostic {
         default:
             break;
         }
+        
     }
 
     @objid ("72e7cc63-00a6-460c-ad03-6806824fb9e8")
@@ -261,11 +259,11 @@ public class AuditDiagnostic implements IAuditDiagnostic {
         }
         
         this.entries.remove(index);
+        
     }
 
     /**
      * Purge current results from disabled or obsolete rules
-     * 
      * @param configuredRules configuration rules.
      */
     @objid ("3bf3a592-6d40-4ce8-b35e-99d13a195d0a")
@@ -297,6 +295,7 @@ public class AuditDiagnostic implements IAuditDiagnostic {
         if (notifyListeners) {
             fireAuditModelChanged();
         }
+        
     }
 
     @objid ("5c873292-7f96-410a-ba2d-f3adbb6fe8ed")
@@ -305,6 +304,7 @@ public class AuditDiagnostic implements IAuditDiagnostic {
         for (IAuditListener listener : this.auditListeners) {
             listener.auditModelChanged(this);
         }
+        
     }
 
     @objid ("c602bb98-7f92-428e-9ead-650e6fae24f5")
@@ -327,11 +327,11 @@ public class AuditDiagnostic implements IAuditDiagnostic {
         
         this.entries.clear();
         fireAuditModelChanged();
+        
     }
 
     /**
      * Update the audit status flags on the audited elements.
-     * 
      * @param auditStatusMap a map of elements with their audit status.
      */
     @objid ("83fdcdb9-5698-400b-97f9-a7040b9c142e")
@@ -363,6 +363,7 @@ public class AuditDiagnostic implements IAuditDiagnostic {
         
             ((SmObjectImpl) entry.getKey()).setRStatus(on, off, 0);
         }
+        
     }
 
     @objid ("aa63e1c3-fa14-4333-978f-bb602a46cf21")
@@ -389,6 +390,7 @@ public class AuditDiagnostic implements IAuditDiagnostic {
                 doRemoveEntry(index);
             }
         }
+        
     }
 
 }

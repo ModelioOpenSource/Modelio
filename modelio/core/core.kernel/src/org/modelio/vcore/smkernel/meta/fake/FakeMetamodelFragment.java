@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta.fake;
 
 import java.util.Arrays;
@@ -50,14 +49,15 @@ public class FakeMetamodelFragment implements ISmMetamodelFragment {
     private final Version version;
 
     @objid ("e8fa3acb-e136-47aa-a42d-e026602f732a")
-    public FakeMetamodelFragment(String name) {
+    public  FakeMetamodelFragment(String name) {
         this (name, null);
     }
 
     @objid ("1e5a6af4-7145-4721-85f1-54a0ced02fbe")
-    public FakeMetamodelFragment(String name, Version version) {
+    public  FakeMetamodelFragment(String name, Version version) {
         this.name = name;
         this.version = version != null ? version : DEFAULT_VERSION;
+        
     }
 
     @objid ("04411042-9255-4681-843d-054f0fbc2282")
@@ -75,7 +75,6 @@ public class FakeMetamodelFragment implements ISmMetamodelFragment {
 
     /**
      * Create the metaclasses.
-     * 
      * @return the metaclasses.
      */
     @objid ("e8419915-d6c9-49e8-977c-623f0b6fa852")
@@ -125,7 +124,6 @@ public class FakeMetamodelFragment implements ISmMetamodelFragment {
      * or a standard Modelio metamodel fragment.
      * <p>
      * Standard Modelio metamodel fragments are guaranteed to have no metaclass name collisions.
-     * 
      * @return <i>true</i> if the fragment is an extension, <i>false</i> if it is a Modelio standard fragment.
      */
     @objid ("8f321bad-bd83-41a8-bd27-893e42d5a8f9")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.element.multi;
 
 import java.util.Collections;
@@ -60,17 +59,16 @@ public class MultiElementPainter extends AbstractCellPainter {
      * Create a new painter that doesn't underline the cell's contents.
      */
     @objid ("24161e43-0863-4e7d-806b-b173bc1bfa70")
-    public MultiElementPainter() {
+    public  MultiElementPainter() {
         this(false);
     }
 
     /**
      * Create a new painter.
-     * 
      * @param underline whether the painter should underline the cell's contents or not.
      */
     @objid ("a28dad2b-6324-4845-a686-3340563851bd")
-    public MultiElementPainter(boolean underline) {
+    public  MultiElementPainter(boolean underline) {
         this.underline = underline;
     }
 
@@ -197,6 +195,7 @@ public class MultiElementPainter extends AbstractCellPainter {
             layer.doCommand(
                     new RowResizeCommand(layer, cell.getRowPosition(), neededRowHeight + contentToCellDiff));
         }
+        
     }
 
     /**
@@ -226,6 +225,7 @@ public class MultiElementPainter extends AbstractCellPainter {
         } else {
             return Collections.singletonList(new TextIcon(String.valueOf(displayValue), null)); // $NON-NLS-1$
         }
+        
     }
 
     @objid ("562d0629-ecb6-497d-b157-1109bcbe335c")
@@ -242,6 +242,7 @@ public class MultiElementPainter extends AbstractCellPainter {
             gc.fillRectangle(bounds);
             gc.setBackground(originalBackground);
         }
+        
     }
 
     /**
@@ -258,11 +259,11 @@ public class MultiElementPainter extends AbstractCellPainter {
         gc.setFont(font);
         gc.setForeground(fg != null ? fg : GUIHelper.COLOR_LIST_FOREGROUND);
         gc.setBackground(bg != null ? bg : GUIHelper.COLOR_LIST_BACKGROUND);
+        
     }
 
     /**
      * Checks if the given text is bigger than the available space. If not the given text is simply returned without modification. If the text does not fit into the available space, it will be modified by cutting and adding three dots.
-     * 
      * @param text the text to compute
      * @param gc the current GC
      * @param availableLength the available space

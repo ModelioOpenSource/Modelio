@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.project.services.openproject;
 
 import java.net.URI;
@@ -38,7 +37,7 @@ class AuthenticationPrompter implements IAuthenticationPrompter {
     private Shell parentShell;
 
     @objid ("427b8463-32b2-4dc2-8681-6e6e5452537f")
-    public AuthenticationPrompter(Shell parentShell) {
+    public  AuthenticationPrompter(Shell parentShell) {
         this.parentShell = parentShell;
     }
 

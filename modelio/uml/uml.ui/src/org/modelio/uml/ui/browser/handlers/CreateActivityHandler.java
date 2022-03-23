@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.browser.handlers;
 
 import java.util.List;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.swt.widgets.Display;
 import org.modelio.metamodel.diagrams.ActivityDiagram;
@@ -48,7 +47,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class CreateActivityHandler extends CreateCmsElementHandler {
     @objid ("87804746-c36e-4375-b6bd-dfad361d785e")
     @Inject
-     IModelioEventService eventService;
+    IModelioEventService eventService;
 
     @objid ("4e57e2bf-ccde-11e1-97e5-001ec947c8cc")
     @Override
@@ -63,6 +62,7 @@ public class CreateActivityHandler extends CreateCmsElementHandler {
         } else {
             smartCreateForNameSpace(interaction, mmServices);
         }
+        
     }
 
     @objid ("53a5487d-ccff-11e1-97e5-001ec947c8cc")
@@ -80,6 +80,7 @@ public class CreateActivityHandler extends CreateCmsElementHandler {
                 }, ModelioEvent.EDIT_ELEMENT, param);
             }
         });
+        
     }
 
     @objid ("53a54882-ccff-11e1-97e5-001ec947c8cc")
@@ -112,6 +113,7 @@ public class CreateActivityHandler extends CreateCmsElementHandler {
         instanceNode.setRepresented(instance);
         
         // TODO Unmask the InstanceNode in the diagram
+        
     }
 
     @objid ("53a54886-ccff-11e1-97e5-001ec947c8cc")
@@ -128,6 +130,7 @@ public class CreateActivityHandler extends CreateCmsElementHandler {
         Collaboration locals = modelFactory.createCollaboration();
         activity.getOwnedCollaboration().add(locals);
         locals.setName("locals");
+        
     }
 
     @objid ("53a54889-ccff-11e1-97e5-001ec947c8cc")
@@ -220,6 +223,7 @@ public class CreateActivityHandler extends CreateCmsElementHandler {
         
         // TODO Unmask the InstanceNode in the diagram
         // TODO Unmask the parameter nodes in the diagram
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing.profile;
 
 import java.util.ArrayList;
@@ -45,7 +44,7 @@ public class PExportReference implements IExportProfileElement {
     private TotalExportMap totalMap = TotalExportMap.getInstance();
 
     @objid ("80dbd421-31cc-45d5-ad65-3d74eec45ce7")
-    public PExportReference(MetaclassReference reference) {
+    public  PExportReference(MetaclassReference reference) {
         this.objingElt = reference;
     }
 
@@ -69,6 +68,7 @@ public class PExportReference implements IExportProfileElement {
     private void setProperties(org.eclipse.uml2.uml.Stereotype stereotype) {
         setInheritance();
         ObjingEAnnotation.addObjingID(stereotype, this.objingElt.getUuid().toString());
+        
     }
 
     @objid ("6833e3bc-e88b-4dd3-9e4c-4400193f6cb8")
@@ -106,6 +106,7 @@ public class PExportReference implements IExportProfileElement {
                     stereotypeEcore.createExtension(reference, false);
             }    
         }
+        
     }
 
     @objid ("192f0d0f-1092-4417-a22e-39633f21a95f")
@@ -147,6 +148,7 @@ public class PExportReference implements IExportProfileElement {
             this.totalMap.put(this.objingElt.getUuid().toString(), ecoreElt);
             setProperties(ecoreElt);
         }
+        
     }
 
 }

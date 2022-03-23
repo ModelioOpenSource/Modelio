@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.module;
 
 import java.io.FileNotFoundException;
@@ -34,11 +33,11 @@ import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collections;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.gproject.data.module.jaxbv1.JxbModule;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module;
 import org.modelio.gproject.data.module.migration.Migrator;
@@ -50,10 +49,9 @@ import org.modelio.gproject.data.module.migration.Migrator;
 public class JaxbModelPersistence {
     /**
      * Load a JAXB model from a jmdac file.
-     * 
      * @param modulePath the .jmdac file path
      * @return the JAXB module
-     * @throws java.io.IOException in case of failure.
+     * @throws IOException in case of failure.
      */
     @objid ("53e607c5-6c08-4c07-94f1-4d3fc8b580d3")
     public static Jxbv2Module loadJaxbModelFromJmdac(Path modulePath) throws IOException {
@@ -73,14 +71,14 @@ public class JaxbModelPersistence {
         } catch (URISyntaxException e) {
             throw new IOException(e.getLocalizedMessage(), e);
         }
+        
     }
 
     /**
      * Load a JAXB model
-     * 
      * @param moduleXmlFile the module.xml file path
      * @return the JAXB module
-     * @throws java.io.IOException in case of failure.
+     * @throws IOException in case of failure.
      */
     @objid ("b38b2cc5-f27f-11e1-8543-001ec947ccaf")
     public static Jxbv2Module loadJaxbModel(final Path moduleXmlFile) throws IOException {
@@ -93,14 +91,14 @@ public class JaxbModelPersistence {
                 throw new IOException(e);
             }
         }
+        
     }
 
     /**
      * Save the JAXB model to a file.
-     * 
      * @param module the JAXB module model to save.
      * @param moduleXmlFile the module.xml file path
-     * @throws java.io.IOException in case of failure.
+     * @throws IOException in case of failure.
      */
     @objid ("82033481-f366-11e1-85f6-002564c97630")
     public static void saveJaxbModel(final JxbModule module, final Path moduleXmlFile) throws IOException {
@@ -113,6 +111,7 @@ public class JaxbModelPersistence {
         } catch (JAXBException e) {
             throw new IOException(e);
         }
+        
     }
 
     @objid ("b9889f13-6e54-41da-9acb-51d8584999af")
@@ -127,6 +126,7 @@ public class JaxbModelPersistence {
             }
         }
         throw new NoSuchFileException("/*/module.xml");
+        
     }
 
     @objid ("c1bb102d-6b96-4c07-9012-14b93e046431")
@@ -140,6 +140,7 @@ public class JaxbModelPersistence {
         } catch (JAXBException e) {
             throw new IOException(e);
         }
+        
     }
 
     /**
@@ -157,6 +158,7 @@ public class JaxbModelPersistence {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        
     }
 
     @objid ("0ec60d78-3c53-46fa-b761-3dbc16f619db")
@@ -168,6 +170,7 @@ public class JaxbModelPersistence {
             JxbModule moduleV1 = (JxbModule) unmarshaller.unmarshal(inputStream);
             return new Migrator().migrate(moduleV1);
         }
+        
     }
 
     @objid ("1142fe68-5304-4cf9-a636-d8e4522c6020")
@@ -179,6 +182,7 @@ public class JaxbModelPersistence {
             Jxbv2Module module = (Jxbv2Module) unmarshaller.unmarshal(inputStream);
             return module;
         }
+        
     }
 
 }

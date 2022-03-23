@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmndataassociation;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -63,6 +62,7 @@ public class BpmnDataAssociationEditPart extends LinkEditPart {
         } else {
             ((PolylineConnection) getFigure()).setTargetDecoration(null);
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.communicationdiagram.editor.elements.communicationmessage;
 
 import java.util.List;
@@ -53,21 +52,22 @@ public final class GmCommunicationInvertedMessageGroup extends GmGroup {
 
     /**
      * Creates a group.
-     * 
      * @param diagram The diagram.
      * @param relatedRef The related element reference, may not be null.
      */
     @objid ("7a438de4-55b6-11e2-877f-002564c97630")
-    public GmCommunicationInvertedMessageGroup(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmCommunicationInvertedMessageGroup(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
         this.relatedEl = (CommunicationChannel) resolveRef(relatedRef);
+        
     }
 
     /**
      * Constructor for deserialization only.
      */
     @objid ("7a438def-55b6-11e2-877f-002564c97630")
-    public GmCommunicationInvertedMessageGroup() {
+    public  GmCommunicationInvertedMessageGroup() {
+        
     }
 
     @objid ("7a438df2-55b6-11e2-877f-002564c97630")
@@ -117,6 +117,7 @@ public final class GmCommunicationInvertedMessageGroup extends GmGroup {
             break;
         }
         }
+        
     }
 
     @objid ("7a451474-55b6-11e2-877f-002564c97630")
@@ -149,6 +150,7 @@ public final class GmCommunicationInvertedMessageGroup extends GmGroup {
             }
         
         }
+        
     }
 
     @objid ("7a451477-55b6-11e2-877f-002564c97630")
@@ -157,6 +159,7 @@ public final class GmCommunicationInvertedMessageGroup extends GmGroup {
         refreshFromObModel();
         fireVisibilityChanged();
         super.styleChanged(style);
+        
     }
 
     @objid ("7a45147e-55b6-11e2-877f-002564c97630")
@@ -196,6 +199,7 @@ public final class GmCommunicationInvertedMessageGroup extends GmGroup {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmCommunicationInvertedMessageGroup.", GmCommunicationInvertedMessageGroup.MINOR_VERSION);
+        
     }
 
     @objid ("7a469b08-55b6-11e2-877f-002564c97630")
@@ -203,6 +207,7 @@ public final class GmCommunicationInvertedMessageGroup extends GmGroup {
         super.read(in);
         
         this.relatedEl = (CommunicationChannel) resolveRef((MRef) in.readProperty("relatedRef"));
+        
     }
 
     @objid ("7a469b0e-55b6-11e2-877f-002564c97630")

@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,10 +30,10 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 @objid ("0092b9d6-c4be-1fd8-97fe-001ec947cd2a")
 public class DocumentData extends AbstractResourceData {
     @objid ("2df55aec-ba30-42c7-98d9-1ed049cc807c")
-     Object mAbstract = "";
+    Object mAbstract = "";
 
     @objid ("73b2f8cd-59da-4f14-8cd1-0776bd478572")
-    public DocumentData(DocumentSmClass smClass) {
+    public  DocumentData(DocumentSmClass smClass) {
         super(smClass);
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.plugin;
 
 import java.util.ResourceBundle;
@@ -63,6 +62,7 @@ public class AppProjectConfExt implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger((String)null));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("appprojectconfext"));
+        
     }
 
     @objid ("c07e5e03-a768-440c-884b-861498499cf1")

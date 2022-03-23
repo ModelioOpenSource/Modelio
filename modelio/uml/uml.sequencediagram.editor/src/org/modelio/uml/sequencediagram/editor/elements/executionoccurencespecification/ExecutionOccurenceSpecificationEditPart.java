@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.executionoccurencespecification;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -86,6 +85,7 @@ public class ExecutionOccurenceSpecificationEditPart extends AbstractNodeEditPar
                 new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
         installEditPolicy("hover", new EosSelectionEditPolicy());
+        
     }
 
     @objid ("d8d7490d-55b6-11e2-877f-002564c97630")
@@ -96,7 +96,6 @@ public class ExecutionOccurenceSpecificationEditPart extends AbstractNodeEditPar
 
     /**
      * Creates and returns a PlacementConstraint for the given model.
-     * 
      * @param model the graphic model for which a constraint is to be created.
      * @param x the desired X coordinate in coordinates relative to the parent figure.
      * @param y the desired Y coordinates relative to the parent figure.
@@ -113,6 +112,7 @@ public class ExecutionOccurenceSpecificationEditPart extends AbstractNodeEditPar
                                 width,
                                 height,
                                 (GmSequenceDiagram) model.getDiagram());
+        
     }
 
     @objid ("d8d8cf82-55b6-11e2-877f-002564c97630")
@@ -188,6 +188,7 @@ public class ExecutionOccurenceSpecificationEditPart extends AbstractNodeEditPar
             fig.setDrawX(false);
         }
         fig.getParent().setConstraint(fig, model.getLayoutData());
+        
     }
 
     /**
@@ -222,6 +223,7 @@ public class ExecutionOccurenceSpecificationEditPart extends AbstractNodeEditPar
                 }
             }
         }
+        
     }
 
     @objid ("d8d8cfab-55b6-11e2-877f-002564c97630")
@@ -234,6 +236,7 @@ public class ExecutionOccurenceSpecificationEditPart extends AbstractNodeEditPar
         } else {
             return super.createAnchorModel(anchor);
         }
+        
     }
 
 }

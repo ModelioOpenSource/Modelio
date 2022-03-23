@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.panel.model;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -64,19 +63,18 @@ public class GraphNode extends Node {
 
     /**
      * Creates a node representing the passed element.
-     * 
      * @param element the element this node will represent.
      */
     @objid ("1bb0338c-5e33-11e2-b81d-002564c97630")
-    public GraphNode(final MObject element) {
+    public  GraphNode(final MObject element) {
         super(element);
         this.width = GraphNode.WIDTH;
         this.height = GraphNode.HEIGHT;
+        
     }
 
     /**
      * Returns this GraphNode data casted as an MObject.
-     * 
      * @return this GraphNode data casted as an MObject.
      */
     @objid ("1bb03391-5e33-11e2-b81d-002564c97630")
@@ -86,7 +84,6 @@ public class GraphNode extends Node {
 
     /**
      * Returns whether this node is the central one.
-     * 
      * @return <code>true</code> if this node is the central one, <code>false</code> otherwise.
      */
     @objid ("1bb03396-5e33-11e2-b81d-002564c97630")
@@ -96,7 +93,6 @@ public class GraphNode extends Node {
 
     /**
      * Sets whether this node is the central one.
-     * 
      * @param isCentral <code>true</code> if this node is the central one, <code>false</code> otherwise.
      */
     @objid ("1bb0339b-5e33-11e2-b81d-002564c97630")

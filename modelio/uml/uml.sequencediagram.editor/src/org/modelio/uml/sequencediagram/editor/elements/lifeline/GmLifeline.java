@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.lifeline;
 
 import java.util.Collections;
@@ -30,8 +29,8 @@ import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.interactionModel.InteractionFragment;
 import org.modelio.metamodel.uml.behavior.interactionModel.Lifeline;
 import org.modelio.uml.sequencediagram.editor.elements.lifeline.body.GmLifelineBody;
@@ -45,10 +44,10 @@ import org.modelio.vcore.smkernel.mapi.MRef;
 @objid ("d938f0e0-55b6-11e2-877f-002564c97630")
 public class GmLifeline extends GmCompositeNode {
     @objid ("d938f0ee-55b6-11e2-877f-002564c97630")
-     static final String BODY_ROLE = "body";
+    static final String BODY_ROLE = "body";
 
     @objid ("d938f0f0-55b6-11e2-877f-002564c97630")
-     static final String HEADER_ROLE = "header";
+    static final String HEADER_ROLE = "header";
 
     /**
      * Current version of this Gm. Defaults to 0.
@@ -91,13 +90,12 @@ public class GmLifeline extends GmCompositeNode {
 
     /**
      * C'tor.
-     * 
      * @param diagram the diagram in which this gm is created.
      * @param obLifeline the represented lifeline
      * @param ref a reference to the represented lifeline.
      */
     @objid ("d93bfe1f-55b6-11e2-877f-002564c97630")
-    public GmLifeline(IGmDiagram diagram, Lifeline obLifeline, MRef ref) {
+    public  GmLifeline(IGmDiagram diagram, Lifeline obLifeline, MRef ref) {
         super(diagram, ref);
         this.element = obLifeline;
         GmLifelineHeaderContainer header = new GmLifelineHeaderContainer(diagram, ref);
@@ -106,13 +104,14 @@ public class GmLifeline extends GmCompositeNode {
         this.body = new GmLifelineBody(diagram, ref);
         this.body.setRoleInComposition(GmLifeline.BODY_ROLE);
         addChild(this.body);
+        
     }
 
     /**
      * For deserialization only.
      */
     @objid ("d93bfe2b-55b6-11e2-877f-002564c97630")
-    public GmLifeline() {
+    public  GmLifeline() {
         // Empty c'tor for deserialization.
     }
 
@@ -125,6 +124,7 @@ public class GmLifeline extends GmCompositeNode {
         } else {
             return false;
         }
+        
     }
 
     @objid ("d93bfe35-55b6-11e2-877f-002564c97630")
@@ -145,6 +145,7 @@ public class GmLifeline extends GmCompositeNode {
         } else {
             return null;
         }
+        
     }
 
     @objid ("d93bfe46-55b6-11e2-877f-002564c97630")
@@ -180,6 +181,7 @@ public class GmLifeline extends GmCompositeNode {
         default:
             return null;
         }
+        
     }
 
     @objid ("d93d84bf-55b6-11e2-877f-002564c97630")
@@ -197,6 +199,7 @@ public class GmLifeline extends GmCompositeNode {
         default:
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("d93d84c7-55b6-11e2-877f-002564c97630")
@@ -216,6 +219,7 @@ public class GmLifeline extends GmCompositeNode {
             break;
         }
         }
+        
     }
 
     @objid ("d93d84cd-55b6-11e2-877f-002564c97630")
@@ -225,6 +229,7 @@ public class GmLifeline extends GmCompositeNode {
         if (this.element != null && this.element.isValid()) {
             firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, this.getLayoutData(), null);
         }
+        
     }
 
     @objid ("d93d84d0-55b6-11e2-877f-002564c97630")
@@ -234,6 +239,7 @@ public class GmLifeline extends GmCompositeNode {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmLifeline.", GmLifeline.MINOR_VERSION);
+        
     }
 
     @objid ("d93d84d6-55b6-11e2-877f-002564c97630")
@@ -242,6 +248,7 @@ public class GmLifeline extends GmCompositeNode {
         
         this.element = (Lifeline) resolveRef(this.getRepresentedRef());
         this.body = (GmLifelineBody) getFirstChild(GmLifeline.BODY_ROLE);
+        
     }
 
     @objid ("d93d84db-55b6-11e2-877f-002564c97630")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.resource;
 
 import java.io.File;
@@ -46,6 +45,7 @@ import org.modelio.vbasic.log.Log;
 import org.modelio.vbasic.progress.IModelioProgress;
 import org.modelio.vcore.smkernel.mapi.MMetamodel;
 import org.modelio.vstore.exml.common.index.IndexOutdatedException;
+import org.modelio.vstore.exml.resource.IExmlResourceProvider.ExmlResource;
 
 /**
  * Resource provider for repositories stored on an HTTP server,
@@ -79,14 +79,13 @@ public class UrlExmlResourceProvider extends AbstractExmlResourceProvider {
 
     /**
      * Initialize the resource provider.
-     * 
      * @param url the URL of the repository.
      * @param localDir a local directory to store the index.
      * @param user user name (optional)
      * @param passwd password (optional)
      */
     @objid ("bed4ba70-03f0-11e2-a7da-001ec947ccaf")
-    public UrlExmlResourceProvider(URL url, Path localDir, String user, String passwd) {
+    public  UrlExmlResourceProvider(URL url, Path localDir, String user, String passwd) {
         try {
             this.url = url;
             this.name = url.getFile();
@@ -105,6 +104,7 @@ public class UrlExmlResourceProvider extends AbstractExmlResourceProvider {
         } catch (MalformedURLException e) {
             throw new IllegalArgumentException(e);
         }
+        
     }
 
     @objid ("cf2cb503-03e4-11e2-b5bf-001ec947ccaf")
@@ -146,6 +146,7 @@ public class UrlExmlResourceProvider extends AbstractExmlResourceProvider {
         
             Files.write(this.localIndexStampPath, getStamp().getBytes(StandardCharsets.UTF_8));
         }
+        
     }
 
     @objid ("cf2cb50d-03e4-11e2-b5bf-001ec947ccaf")
@@ -170,6 +171,7 @@ public class UrlExmlResourceProvider extends AbstractExmlResourceProvider {
         } catch (IOException e) {
             return true;
         }
+        
     }
 
     @objid ("cf2cb513-03e4-11e2-b5bf-001ec947ccaf")
@@ -199,6 +201,7 @@ public class UrlExmlResourceProvider extends AbstractExmlResourceProvider {
         } catch (MalformedURLException e) {
             throw new IllegalArgumentException(relativePath+": "+e.getLocalizedMessage(), e);
         }
+        
     }
 
     @objid ("55ec3008-195d-47e5-9e86-071952f1e2ff")
@@ -209,6 +212,7 @@ public class UrlExmlResourceProvider extends AbstractExmlResourceProvider {
         } catch (FileNotFoundException | NoSuchFileException e) {
             return "";
         }
+        
     }
 
     @objid ("cf2f1754-03e4-11e2-b5bf-001ec947ccaf")
@@ -219,6 +223,7 @@ public class UrlExmlResourceProvider extends AbstractExmlResourceProvider {
         } catch (URISyntaxException e) {
             throw new IllegalArgumentException(e);
         }
+        
     }
 
     @objid ("4cf39a56-787f-42db-a3b3-955fddcaab6c")
@@ -272,6 +277,7 @@ public class UrlExmlResourceProvider extends AbstractExmlResourceProvider {
         } catch (IOException e) {
             throw new IndexOutdatedException("Failed reading '"+this.localIndexStampPath+"': "+e.toString(), e);
         }
+        
     }
 
     /**
@@ -279,7 +285,6 @@ public class UrlExmlResourceProvider extends AbstractExmlResourceProvider {
      * <p>
      * Look for user and password in the 'user' and 'pass' parameters.
      * If they are not filled, look at the URL itself.
-     * 
      * @param url the URL to open
      * @param user the user login, may be null
      * @param pass the password, may be null
@@ -295,6 +300,7 @@ public class UrlExmlResourceProvider extends AbstractExmlResourceProvider {
         } else {
             return null;
         }
+        
     }
 
     @objid ("e5315907-37d7-11e2-920a-001ec947ccaf")
@@ -320,6 +326,7 @@ public class UrlExmlResourceProvider extends AbstractExmlResourceProvider {
                 throw e;
             }
         }
+        
     }
 
     /**
@@ -334,9 +341,10 @@ public class UrlExmlResourceProvider extends AbstractExmlResourceProvider {
         private URL url;
 
         @objid ("cf2cb51e-03e4-11e2-b5bf-001ec947ccaf")
-        public UrlResource(URL url, String auth) {
+        public  UrlResource(URL url, String auth) {
             this.url = url;
             this.auth = auth;
+            
         }
 
         @objid ("cf2cb521-03e4-11e2-b5bf-001ec947ccaf")
@@ -348,11 +356,11 @@ public class UrlExmlResourceProvider extends AbstractExmlResourceProvider {
                 Log.warning(e.toString());
                 return null;
             }
+            
         }
 
         /**
          * Returns an output stream that writes to this resource.
-         * 
          * @return an output stream that writes to this resource.
          * @exception  IOException              if an I/O error occurs while
          * creating the output stream.

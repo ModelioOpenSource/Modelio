@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.api.plugin;
 
 import java.util.Calendar;
@@ -77,6 +76,7 @@ public class DiagramApi implements BundleActivator {
                 " - Copyright 2013-" +
                 Calendar.getInstance().get(Calendar.YEAR) +
                 " Modeliosoft.");
+        
     }
 
     /**

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import java.util.ArrayList;
@@ -54,9 +53,10 @@ public class EPort extends EFeature {
     }
 
     @objid ("93dd9be2-74f3-4860-a5f3-6fb860b89187")
-    public EPort(org.eclipse.uml2.uml.Port element) {
+    public  EPort(org.eclipse.uml2.uml.Port element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("7b04dc9d-5e18-462e-9801-9fc079157078")
@@ -82,6 +82,7 @@ public class EPort extends EFeature {
             setInterfaces((Port) objingElt);
             setPortDirection((Port) objingElt);
         }
+        
     }
 
     @objid ("97fac66e-4f7a-4845-bca5-c7d6ff63baa3")
@@ -111,6 +112,7 @@ public class EPort extends EFeature {
                 }
             }
         }
+        
     }
 
     @objid ("f627d573-5a3a-4330-a4f2-08b6c425d906")
@@ -128,6 +130,7 @@ public class EPort extends EFeature {
             requiredInterface.setRequiring(objingElt);
             objingElt.getRequired().add(requiredInterface);
         }
+        
     }
 
     @objid ("d2525799-cea9-4920-85d2-44747c2460a0")
@@ -153,6 +156,7 @@ public class EPort extends EFeature {
             }
         
         }
+        
     }
 
     @objid ("dd5aac85-cde4-404d-a72a-d2555202e16e")
@@ -166,6 +170,7 @@ public class EPort extends EFeature {
                 }
             }
         }
+        
     }
 
     @objid ("e760697d-85ac-4e4c-918b-6f45c419f2f0")
@@ -190,6 +195,7 @@ public class EPort extends EFeature {
             }
         
         }
+        
     }
 
     @objid ("e91d10dd-665b-4372-866b-a9adb3f8828f")
@@ -207,6 +213,7 @@ public class EPort extends EFeature {
                 }
             }
         }
+        
     }
 
     @objid ("a421f23b-0683-4ae3-a7af-4c4747dd8a4f")
@@ -247,6 +254,7 @@ public class EPort extends EFeature {
                 objingElt.setRepresentedFeature((UmlModelElement) redefinedPort);
             }
         }
+        
     }
 
     @objid ("ae38753d-6bac-47c0-b0e8-f87f685b1f5e")
@@ -266,6 +274,7 @@ public class EPort extends EFeature {
         }catch(IllegalArgumentException e){
             Xmi.LOG.warning(Xmi.PLUGIN_ID, e);
         }
+        
     }
 
     @objid ("84b38f51-e6d8-416d-a0d8-49b67cff782a")
@@ -274,6 +283,7 @@ public class EPort extends EFeature {
         providedInterface.setProviding(port);
         providedInterface.getProvidedElement().add(inter);
         port.getProvided().add(providedInterface);
+        
     }
 
     @objid ("c54eaed4-f976-4fab-8ac9-2451b0e2c678")
@@ -289,6 +299,7 @@ public class EPort extends EFeature {
                     ((Instance) objElt).getPart().add(portClone);
             }       
         }
+        
     }
 
 }

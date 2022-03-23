@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta;
 
 import java.util.ArrayList;
@@ -39,7 +38,7 @@ public final class MMFragmentTopologicalSorter<T extends MMetamodelFragment> ext
     private Collection<T> frags;
 
     @objid ("fdb7fc2c-6224-4ec5-bb61-428839c0b228")
-    public MMFragmentTopologicalSorter(Collection<T> frags) {
+    public  MMFragmentTopologicalSorter(Collection<T> frags) {
         this.frags = frags;
     }
 
@@ -68,6 +67,7 @@ public final class MMFragmentTopologicalSorter<T extends MMetamodelFragment> ext
         
             return ret;
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.executionoccurencespecification;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -60,6 +59,7 @@ class EosSelectionEditPolicy extends GraphicalEditPolicy {
             }
         
         }
+        
     }
 
     @objid ("8e8a10de-defb-4e65-96cc-c2df2b15c18d")
@@ -73,6 +73,7 @@ class EosSelectionEditPolicy extends GraphicalEditPolicy {
             }
         
         }
+        
     }
 
 }

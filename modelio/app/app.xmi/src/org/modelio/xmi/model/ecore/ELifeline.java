@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import java.util.List;
@@ -38,7 +37,7 @@ public class ELifeline extends ENamedElement {
     }
 
     @objid ("f66d6908-a422-4a5b-b418-886c5436fe19")
-    public ELifeline(org.eclipse.uml2.uml.Lifeline element) {
+    public  ELifeline(org.eclipse.uml2.uml.Lifeline element) {
         super(element);
     }
 
@@ -51,6 +50,7 @@ public class ELifeline extends ENamedElement {
         if (objingInt instanceof Interaction) {
             ((Interaction) objingInt).getOwnedLine().add((Lifeline) objingElt);
         }
+        
     }
 
     @objid ("e291341c-c106-47eb-b43a-007f58eb3ede")
@@ -58,6 +58,7 @@ public class ELifeline extends ENamedElement {
     public void setProperties(Element objingElt) {
         super.setProperties(objingElt);
         setRepresented((Lifeline) objingElt);
+        
     }
 
     @objid ("c99da5ef-8631-4acd-89ea-6f114c16ee38")
@@ -77,6 +78,7 @@ public class ELifeline extends ENamedElement {
                 }
             }
         }
+        
     }
 
 }

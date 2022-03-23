@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.outputpin;
 
 import java.util.Collections;
@@ -31,8 +30,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.OutputPin;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -57,7 +56,7 @@ public class GmOutputPin extends GmPortContainer {
     private static final int MAJOR_VERSION = 0;
 
     @objid ("3126ea6a-58a2-11e2-9574-002564c97630")
-     static final GmOutputPinStructuredStyleKeys STRUCTURED_KEYS = new GmOutputPinStructuredStyleKeys();
+    static final GmOutputPinStructuredStyleKeys STRUCTURED_KEYS = new GmOutputPinStructuredStyleKeys();
 
     @objid ("3126ea6c-58a2-11e2-9574-002564c97630")
     private static final GmOutputPinSimpleStyleKeys SIMPLE_KEYS = new GmOutputPinSimpleStyleKeys();
@@ -70,13 +69,12 @@ public class GmOutputPin extends GmPortContainer {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the OutputPin is unmasked.
      * @param el the unmasked OutputPin.
      * @param ref a reference to the unmasked OutputPin.
      */
     @objid ("2ae9390c-55b6-11e2-877f-002564c97630")
-    public GmOutputPin(IGmDiagram diagram, OutputPin el, MRef ref) {
+    public  GmOutputPin(IGmDiagram diagram, OutputPin el, MRef ref) {
         super(diagram, ref);
         
         GmOutputPinPrimaryNode mainNode = new GmOutputPinPrimaryNode(diagram, ref);
@@ -88,6 +86,7 @@ public class GmOutputPin extends GmPortContainer {
         label.setRoleInComposition(GmPortContainer.SATELLITE_ROLE);
         label.setLayoutData(Integer.valueOf(PositionConstants.NORTH_EAST));
         this.addChild(label);
+        
     }
 
     @objid ("2ae93918-55b6-11e2-877f-002564c97630")
@@ -146,7 +145,7 @@ public class GmOutputPin extends GmPortContainer {
      * Empty constructor needed for deserialisation.
      */
     @objid ("2aeabf9d-55b6-11e2-877f-002564c97630")
-    public GmOutputPin() {
+    public  GmOutputPin() {
         // Nothing specific to do.
     }
 
@@ -167,6 +166,7 @@ public class GmOutputPin extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("2aeabfa6-55b6-11e2-877f-002564c97630")
@@ -188,12 +188,14 @@ public class GmOutputPin extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmOutputPin.", GmOutputPin.MINOR_VERSION);
+        
     }
 
     @objid ("2aeabfba-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (OutputPin) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("2aeabfbf-55b6-11e2-877f-002564c97630")
@@ -204,7 +206,6 @@ public class GmOutputPin extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -216,7 +217,6 @@ public class GmOutputPin extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

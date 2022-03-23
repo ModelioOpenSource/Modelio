@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.project;
 
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.vbasic.auth.IAuthData;
@@ -44,20 +43,20 @@ public class GAuthConf {
      * Initialize an empty data.
      */
     @objid ("e43ca658-898e-41f0-af6d-7b38f6e13f56")
-    public GAuthConf() {
+    public  GAuthConf() {
         // nothing
     }
 
     /**
      * initialize an authentication configuration from an authentication data.
-     * 
      * @param data an authentication data.
      * @param scope the definition scope
      */
     @objid ("b89d91d7-fcc4-49d3-909c-d40a00b314f1")
-    public GAuthConf(IAuthData data, DefinitionScope scope) {
+    public  GAuthConf(IAuthData data, DefinitionScope scope) {
         this.authData = data;
         this.scope = scope;
+        
     }
 
     @objid ("b88d6b88-46cf-4824-bd57-bf97009223df")
@@ -93,7 +92,6 @@ public class GAuthConf {
      * Initialize an authentication configuration from the descriptor.
      * <p>
      * Returns a local empty GAuthConf if no descriptor is passed.
-     * 
      * @param desc an authentication data descriptor.
      * @return the authentication configuration, never <code>null</code>.
      */
@@ -113,7 +111,6 @@ public class GAuthConf {
      * Get the authentication data.
      * <p>
      * <i>null</i> means authentication must be asked to the user.
-     * 
      * @return the authentication data or <i>null</i>.
      */
     @objid ("7d657f60-3600-4114-a0f8-8efa77a5be84")
@@ -143,7 +140,6 @@ public class GAuthConf {
      * Reconfigure this authentication configuration from the provided authentication descriptor.
      * <p>
      * If no descriptor is provided, the configuration is left unmodified.
-     * 
      * @param authDescriptor The new authentication descriptor
      * @return <code>true</code> if the authentication changed else <code>false</code>.
      */
@@ -174,6 +170,7 @@ public class GAuthConf {
         
             return false;
         }
+        
     }
 
     /**
@@ -204,7 +201,6 @@ public class GAuthConf {
      * Returns <code>false</code> if the second authentication should replace the first one.
      * Compares the schemes, then test whether all the first authentication properties
      * are contained in the second one.
-     * 
      * @param old an current authentication data
      * @param newData the new authentication data.
      * @return <code>true</code> if the 2 authentications represents the same login,
@@ -237,7 +233,6 @@ public class GAuthConf {
      * Get the authentication scheme id for convenience.
      * <p>
      * Returns <i>null</i> if there is no authentication data.
-     * 
      * @return the authentication data scheme id.
      */
     @objid ("04c3e7ee-c36a-48f2-9c77-1ca68aa3f040")

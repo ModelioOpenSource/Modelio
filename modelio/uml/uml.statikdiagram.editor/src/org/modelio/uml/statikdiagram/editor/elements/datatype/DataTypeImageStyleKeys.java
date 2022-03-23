@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.datatype;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,25 +33,25 @@ import org.modelio.uml.statikdiagram.editor.style.StaticAbstractStyleKeyProvider
 @objid ("34b6e07a-55b7-11e2-877f-002564c97630")
 public class DataTypeImageStyleKeys extends StaticAbstractStyleKeyProvider {
     @objid ("a655f08a-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = DataTypeStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = DataTypeStructuredStyleKeys.REPMODE;
 
     @objid ("a655f08c-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = DataTypeStructuredStyleKeys.FONT;
+    static final StyleKey FONT = DataTypeStructuredStyleKeys.FONT;
 
     @objid ("a655f08e-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = DataTypeStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = DataTypeStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("a655f090-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWNAME = DataTypeStructuredStyleKeys.SHOWNAME;
+    static final StyleKey SHOWNAME = DataTypeStructuredStyleKeys.SHOWNAME;
 
     @objid ("a655f092-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = DataTypeStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = DataTypeStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("a655f094-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = DataTypeStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = DataTypeStructuredStyleKeys.SHOWTAGS;
 
     @objid ("a655f096-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWVISIBILITY = DataTypeStructuredStyleKeys.SHOWVISIBILITY;
+    static final StyleKey SHOWVISIBILITY = DataTypeStructuredStyleKeys.SHOWVISIBILITY;
 
     /**
      * No shared style edition for this provider, the {@link DataTypeStructuredStyleKeys} symbol view model has everything.

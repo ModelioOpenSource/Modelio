@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.informationflowlink;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,22 +46,23 @@ public class GmInformationFlowLinkHeader extends GmDefaultModelElementLabel {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
     @objid ("35063931-55b7-11e2-877f-002564c97630")
-    public GmInformationFlowLinkHeader(IGmDiagram diagram, MRef relatedRef) {
+    public  GmInformationFlowLinkHeader(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
         this.setShowMetaclassIcon(false);
         this.setShowMetaclassKeyword(true);
+        
     }
 
     /**
      * For deserialization only.
      */
     @objid ("3506393a-55b7-11e2-877f-002564c97630")
-    public GmInformationFlowLinkHeader() {
+    public  GmInformationFlowLinkHeader() {
+        
     }
 
     /**
@@ -106,6 +106,7 @@ public class GmInformationFlowLinkHeader extends GmDefaultModelElementLabel {
                 break;
             }
         }
+        
     }
 
     @objid ("3507bfdd-55b7-11e2-877f-002564c97630")
@@ -115,6 +116,7 @@ public class GmInformationFlowLinkHeader extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0.
         writeMinorVersion(out, "GmInformationFlowLinkHeader.", Integer.valueOf(MINOR_VERSION));
+        
     }
 
     @objid ("3509463d-55b7-11e2-877f-002564c97630")

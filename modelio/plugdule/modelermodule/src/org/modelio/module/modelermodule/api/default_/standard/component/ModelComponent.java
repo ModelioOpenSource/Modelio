@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.component;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("c387e5c6-b04b-4bbe-a77e-ab653b1d5ee1")
 public class ModelComponent {
-    @objid ("887bc458-2fff-4444-90ba-d8c0769b6a84")
+    @objid ("93ae1def-46d1-4692-b07f-5a16c86f1feb")
     public static final String STEREOTYPE_NAME = "ModelComponent";
 
     /**
      * The underlying {@link Component} represented by this proxy, never null.
      */
-    @objid ("ee79ddca-8f9e-4763-b867-44976d0fb0ed")
+    @objid ("206ca87e-e25a-4a70-a95a-7198a2347ccd")
     protected final Component elt;
 
     /**
      * Tells whether a {@link ModelComponent proxy} can be instantiated from a {@link MObject} checking it is a {@link Component} stereotyped << ModelComponent >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("b08d1b7e-a478-4947-93eb-02efeb8e2afa")
+    @objid ("1819f3ad-dd2e-40c0-93fd-a39bfeeffa0a")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Component) && ((Component) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, ModelComponent.STEREOTYPE_NAME));
     }
@@ -77,9 +75,9 @@ public class ModelComponent {
      * 
      * @return a {@link ModelComponent} proxy on the created {@link Component}.
      */
-    @objid ("5e648c2f-526e-4ab8-bc5b-8b65a444a622")
+    @objid ("2806d8f9-ea6c-47de-956a-126970729fb9")
     public static ModelComponent create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Component");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.Component");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, ModelComponent.STEREOTYPE_NAME);
         return ModelComponent.instantiate((Component)e);
     }
@@ -91,7 +89,7 @@ public class ModelComponent {
      * @param obj a Component
      * @return a {@link ModelComponent} proxy or <i>null</i>.
      */
-    @objid ("24ba19ab-a42f-4d32-ada9-823d62a748bc")
+    @objid ("7289ebdb-87cf-409e-88c3-4181683e4769")
     public static ModelComponent instantiate(Component obj) {
         return ModelComponent.canInstantiate(obj) ? new ModelComponent(obj) : null;
     }
@@ -104,7 +102,7 @@ public class ModelComponent {
      * @return a {@link ModelComponent} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("c973b233-415d-43c8-ba59-75a5d05f06f7")
+    @objid ("72a0ac5e-003a-4d8d-af6b-60cded4e31fe")
     public static ModelComponent safeInstantiate(Component obj) throws IllegalArgumentException {
         if (ModelComponent.canInstantiate(obj))
         	return new ModelComponent(obj);
@@ -112,7 +110,7 @@ public class ModelComponent {
         	throw new IllegalArgumentException("ModelComponent: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("981cb419-494c-4896-9512-a1ef6e152904")
+    @objid ("9a78b000-8235-4c3a-a81b-2884f02f6f2f")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,46 +130,47 @@ public class ModelComponent {
      * Get the underlying {@link Component}. 
      * @return the Component represented by this proxy, never null.
      */
-    @objid ("58fba160-6d7c-4df1-83a2-1c97b330e2fb")
+    @objid ("8d052604-f444-4836-a2db-390c9fbfd055")
     public Component getElement() {
         return this.elt;
     }
 
-    @objid ("35e800cc-3784-4f3b-bcc1-f746e6a5f257")
+    @objid ("86024f23-4aa8-4741-bb91-5e3ea92a2fa7")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("f13e2813-714f-4d77-84fb-cbd4e66d48ee")
-    protected ModelComponent(Component elt) {
+    @objid ("010e3c2d-a980-450d-ab54-bce91aea4a36")
+    protected  ModelComponent(Component elt) {
         this.elt = elt;
     }
 
     @objid ("9685b84a-47f2-4a11-b7a6-d392fda9c49b")
     public static final class MdaTypes {
-        @objid ("34a923f5-ea83-4212-9370-8047136b8f8e")
+        @objid ("ee8de9db-00c1-426a-ac28-fab68a7bbe8a")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("38b3753b-9605-45cc-86e3-0a5bc1145cff")
+        @objid ("3073d9cb-4c0e-4133-8cce-7ef793b44450")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("44b38f0d-6a14-4af6-9074-7b6ae7b1661e")
+        @objid ("f47fc02c-cf42-4741-bd36-7b52391574ff")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("14d2caf2-fded-4237-b57d-4e3cdff51919")
+        @objid ("c11754f8-0006-4440-8d07-4402662c2116")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "00d0052c-0000-0143-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

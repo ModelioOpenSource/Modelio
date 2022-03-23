@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.gui;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,7 +45,6 @@ public class ValidationBoutonComposite extends Composite {
 
     /**
      * This methods return the Cancel Button
-     * 
      * @return SWT button
      */
     @objid ("72c6e07f-9459-49f1-91a7-e6869c01537e")
@@ -56,7 +54,6 @@ public class ValidationBoutonComposite extends Composite {
 
     /**
      * This methods return the Validation Button
-     * 
      * @return SWT button
      */
     @objid ("640fc381-5fa5-4811-b19b-233e96f4b62e")
@@ -67,14 +64,13 @@ public class ValidationBoutonComposite extends Composite {
     /**
      * Contructor of the composite.
      * it needs a parent composite, its SWT style, the label of the cancellation button and the label of the validation button
-     * 
      * @param parent : the parent composition
      * @param style : the SWT style
      * @param cancelField : the label of the cancellation button
      * @param validateField : the label of the validation button
      */
     @objid ("674ad497-ccd2-47af-a4d5-d6e714dde9b8")
-    public ValidationBoutonComposite(final Composite parent, final int style, final String cancelField, final String validateField) {
+    public  ValidationBoutonComposite(final Composite parent, final int style, final String cancelField, final String validateField) {
         super(parent, style);
         setLayout(new FormLayout());
               
@@ -92,6 +88,7 @@ public class ValidationBoutonComposite extends Composite {
         fd_cancelButton.left = new FormAttachment(this.validationButton, 10, SWT.DEFAULT);
         this. cancelButton.setLayoutData(fd_cancelButton);
         this.cancelButton.setText(cancelField);
+        
     }
 
 }

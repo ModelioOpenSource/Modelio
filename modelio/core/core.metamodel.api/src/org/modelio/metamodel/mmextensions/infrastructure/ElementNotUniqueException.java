@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.mmextensions.infrastructure;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,7 +35,7 @@ public class ElementNotUniqueException extends Exception {
      * call to {@link #initCause}.
      */
     @objid ("bbdad56f-f4b8-4f6e-808f-0ad631b113d0")
-    public ElementNotUniqueException() {
+    public  ElementNotUniqueException() {
         super();
     }
 
@@ -48,7 +47,7 @@ public class ElementNotUniqueException extends Exception {
      * later retrieval by the {@link #getMessage()} method.
      */
     @objid ("5f1ea3d7-f41f-4a26-b0eb-6e9543c8e3a1")
-    public ElementNotUniqueException(String message) {
+    public  ElementNotUniqueException(String message) {
         super(message);
     }
 
@@ -65,7 +64,7 @@ public class ElementNotUniqueException extends Exception {
      * unknown.)
      */
     @objid ("8b88661c-f678-4142-a74f-b3e897b4264a")
-    public ElementNotUniqueException(String message, Throwable cause) {
+    public  ElementNotUniqueException(String message, Throwable cause) {
         super(message, cause);
     }
 
@@ -82,7 +81,7 @@ public class ElementNotUniqueException extends Exception {
      * unknown.)
      */
     @objid ("08b58323-7857-4968-92aa-2e466833e43f")
-    public ElementNotUniqueException(Throwable cause) {
+    public  ElementNotUniqueException(Throwable cause) {
         super(cause);
     }
 

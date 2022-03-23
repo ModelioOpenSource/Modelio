@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,7 @@ public class EParameterSet extends ENamedElement {
     }
 
     @objid ("e69bb904-86ba-477f-b80a-0a2b04e639b6")
-    public EParameterSet(org.eclipse.uml2.uml.ParameterSet element) {
+    public  EParameterSet(org.eclipse.uml2.uml.ParameterSet element) {
         super(element);
     }
 

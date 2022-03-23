@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.statik.LinkSmClass;
 import org.modelio.metamodel.uml.statik.Connector;
 import org.modelio.metamodel.uml.statik.Link;
 import org.modelio.vbasic.version.Version;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("d3b7192d-019b-42f0-81c8-5dc12c1e6414")
 public class ConnectorSmClass extends LinkSmClass {
     @objid ("656f3545-f1c6-49e7-9c29-9a1e0676d920")
-    public ConnectorSmClass(ISmMetamodelFragment origin) {
+    public  ConnectorSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class ConnectorSmClass extends LinkSmClass {
     @Override
     public String getName() {
         return "Connector";
+        
     }
 
     @objid ("b0a5c270-7e9c-4d6f-9f91-006059d608be")
@@ -62,18 +62,21 @@ public class ConnectorSmClass extends LinkSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Connector.class;
+        
     }
 
     @objid ("809e30f4-fe60-4043-bd08-bf26ceb1cdb7")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("cd981494-ad35-4263-bce3-2a36a049493a")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("bbfe2bfd-522c-435f-949c-f458754ee887")
@@ -86,12 +89,14 @@ public class ConnectorSmClass extends LinkSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("48972357-f2a6-4b6a-bf59-67ce2625a861")
     @Override
     public boolean isLinkMetaclass() {
         return true;
+        
     }
 
     @objid ("94ff6f0d-687c-4daf-9b09-d48d3786307d")
@@ -100,7 +105,7 @@ public class ConnectorSmClass extends LinkSmClass {
         private ConnectorSmClass smClass;
 
         @objid ("7ff6ef99-6903-46a8-bdc7-c6448165f90a")
-        public ConnectorObjectFactory(ConnectorSmClass smClass) {
+        public  ConnectorObjectFactory(ConnectorSmClass smClass) {
             this.smClass = smClass;
         }
 

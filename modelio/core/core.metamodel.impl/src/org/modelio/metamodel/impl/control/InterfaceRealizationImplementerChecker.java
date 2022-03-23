@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.control;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -52,7 +51,7 @@ public class InterfaceRealizationImplementerChecker extends AbstractDependencyTy
      * C'tor
      */
     @objid ("26cfbea5-7288-43f7-93db-b4938b9c5611")
-    public InterfaceRealizationImplementerChecker(SmMetamodel mm) {
+    public  InterfaceRealizationImplementerChecker(SmMetamodel mm) {
         // Cached SmClass
         this.componentID = mm.getMClass(Component.class);
         this.classID = mm.getMClass(Class.class);
@@ -65,6 +64,7 @@ public class InterfaceRealizationImplementerChecker extends AbstractDependencyTy
         // Symetric checker
         NameSpaceRealizedChecker symetricChecker = new NameSpaceRealizedChecker(this);
         symetricChecker.register(mm.getMClass(NameSpace.class), "Realized");
+        
     }
 
     @objid ("00649664-5404-1fdf-a6ee-001ec947cd2a")
@@ -88,10 +88,10 @@ public class InterfaceRealizationImplementerChecker extends AbstractDependencyTy
     @objid ("7ddd9bf1-ec3a-11e1-91c5-002564c97630")
     static class NameSpaceRealizedChecker extends AbstractDependencyTypeChecker {
         @objid ("7ddf2292-ec3a-11e1-91c5-002564c97630")
-         InterfaceRealizationImplementerChecker symetricChecker;
+        InterfaceRealizationImplementerChecker symetricChecker;
 
         @objid ("7ddf2293-ec3a-11e1-91c5-002564c97630")
-        public NameSpaceRealizedChecker(InterfaceRealizationImplementerChecker symetricChecker) {
+        public  NameSpaceRealizedChecker(InterfaceRealizationImplementerChecker symetricChecker) {
             this.symetricChecker = symetricChecker;
         }
 

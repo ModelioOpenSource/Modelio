@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,18 +31,20 @@ public class OClassifier extends OElement implements IOElement {
     }
 
     @objid ("82c2e6e1-ba06-46ec-9b9a-3c1ea1296f20")
-    public OClassifier(final ModelElement element) {
+    public  OClassifier(final ModelElement element) {
         super(element);
     }
 
     @objid ("b4879b5f-d88a-4d56-8b8e-d3c37c2dba1a")
     @Override
     public void attach(org.eclipse.uml2.uml.Element ecoreElt) {
+        
     }
 
     @objid ("356bcbe7-bec9-4b24-bc99-bee9e7f09f09")
     @Override
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
+        
     }
 
 }

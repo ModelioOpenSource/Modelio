@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,11 +37,10 @@ public class OAbstraction extends ODependency {
 
     /**
      * A constructor with the exported org.eclipse.uml2.uml.Abstraction
-     * 
      * @param abstraction The exported org.eclipse.uml2.uml.Abstraction
      */
     @objid ("8bcfee2b-9d02-42f1-a25a-da258e9d3eb5")
-    public OAbstraction(Abstraction abstraction) {
+    public  OAbstraction(Abstraction abstraction) {
         super(abstraction);
     }
 
@@ -57,6 +55,7 @@ public class OAbstraction extends ODependency {
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         super.setProperties(ecoreElt);
         setAbstractionMapping( (org.eclipse.uml2.uml.Abstraction) ecoreElt);
+        
     }
 
     @objid ("f6c938be-41c4-46b1-8a86-7f0f5274d832")
@@ -73,6 +72,7 @@ public class OAbstraction extends ODependency {
         expr.setName(mappingName);
         expr.getBodies().add(getObjingElement().getMapping());
         ecoreAbstraction.setMapping(expr);
+        
     }
 
     @objid ("0dab13ac-784d-4dc0-b279-3df9234cca97")

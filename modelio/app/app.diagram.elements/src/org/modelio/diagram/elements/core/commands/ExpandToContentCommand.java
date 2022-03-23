@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.commands;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,11 +43,10 @@ public class ExpandToContentCommand extends Command {
 
     /**
      * Initialize the expand command.
-     * 
      * @param editPart The graphic edit part to expand.
      */
     @objid ("7f40a154-1dec-11e2-8cad-001ec947c8cc")
-    public ExpandToContentCommand(final GraphicalEditPart editPart) {
+    public  ExpandToContentCommand(final GraphicalEditPart editPart) {
         this.editPart = editPart;
     }
 
@@ -60,11 +58,11 @@ public class ExpandToContentCommand extends Command {
         if (resizeCommand != null && resizeCommand.canExecute()) {
             resizeCommand.execute();
         }
+        
     }
 
     /**
      * Ask for the command that will expand the node to its preferred size.
-     * 
      * @return The resize command. May return <tt>null</tt>.
      */
     @objid ("7f40a15e-1dec-11e2-8cad-001ec947c8cc")

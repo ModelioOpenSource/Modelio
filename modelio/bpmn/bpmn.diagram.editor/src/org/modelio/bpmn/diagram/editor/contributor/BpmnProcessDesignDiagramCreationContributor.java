@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.contributor;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.swt.graphics.Image;
 import org.modelio.api.modelio.model.scope.ElementScope;
@@ -106,6 +105,7 @@ public class BpmnProcessDesignDiagramCreationContributor extends AbstractDiagram
         } else {
             return null;
         }
+        
     }
 
     @objid ("e4fc1453-12bb-47c9-8510-27d5a6e32265")
@@ -123,7 +123,6 @@ public class BpmnProcessDesignDiagramCreationContributor extends AbstractDiagram
     /**
      * Create a BPMNProcess under <code>diagramContext</code> if possible.
      * @param modelFactory the model factory
-     * 
      * @param diagramContext the parent candidate for the process to create
      * @return <code>null</code> if creation was not possible
      */
@@ -178,6 +177,7 @@ public class BpmnProcessDesignDiagramCreationContributor extends AbstractDiagram
         } else {
             return this.mmServices.getMetamodel();
         }
+        
     }
 
     @objid ("d517a978-9654-44c2-b524-20ad6611028d")
@@ -239,6 +239,7 @@ public class BpmnProcessDesignDiagramCreationContributor extends AbstractDiagram
         flow2.setSourceRef(task);
         flow2.setTargetRef(endEvent);
         flow2.setContainer(process);
+        
     }
 
     @objid ("6bbb4a2e-d02d-4b6d-88f1-a7e16ec881c3")

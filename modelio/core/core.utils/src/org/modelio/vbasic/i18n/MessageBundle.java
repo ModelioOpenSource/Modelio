@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.i18n;
 
 import java.text.MessageFormat;
@@ -36,7 +35,7 @@ public class MessageBundle {
     private final ResourceBundle resBundle;
 
     @objid ("3f12070c-7a49-416f-863d-b4d3df19e3d5")
-    public MessageBundle(final ResourceBundle resBundle) {
+    public  MessageBundle(final ResourceBundle resBundle) {
         this.resBundle = resBundle;
     }
 
@@ -46,7 +45,6 @@ public class MessageBundle {
      * If the message is missing return the message key and log the failure as a warning.
      * </p>
      * @see MessageFormat
-     * 
      * @param key the message key
      * @param args message parameters
      * @return the translated message
@@ -60,6 +58,7 @@ public class MessageBundle {
             logMissingMessage("Missing '" + key + "' message in " + this.resBundle);
             return "!" + key + "(" + Arrays.toString(args) + ")!";
         }
+        
     }
 
     /**
@@ -67,7 +66,6 @@ public class MessageBundle {
      * <p>
      * If the message is missing return the message key and log the failure as a warning.
      * </p>
-     * 
      * @param key the string key
      * @return the translated string.
      */
@@ -79,6 +77,7 @@ public class MessageBundle {
             logMissingMessage("Missing '" + key + "' message in " + this.resBundle);
             return "!" + key + "!";
         }
+        
     }
 
     @objid ("9a2abdf0-e968-4ddf-a5b5-13a0a1ee8c08")

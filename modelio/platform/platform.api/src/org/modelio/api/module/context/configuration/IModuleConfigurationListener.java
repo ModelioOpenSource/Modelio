@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.context.configuration;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -27,7 +26,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IModuleConfigurationListener {
     /**
      * A IModuleConfigurationListener is called when a module parameter value has changed.
-     * 
      * @param pName The name of the parameter whose value changed.
      * @param oldValue The previous value of the parameter value. Can be null.
      * @param newValue The new value of the parameter value. Can be null.

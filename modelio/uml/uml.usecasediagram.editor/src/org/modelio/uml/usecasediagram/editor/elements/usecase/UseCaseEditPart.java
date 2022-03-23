@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.elements.usecase;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -62,6 +61,7 @@ public class UseCaseEditPart extends AbstractNodeEditPart {
         if (!switchRepresentationMode()) {
             super.refreshFromStyle(aFigure, style);
         }
+        
     }
 
     @objid ("5e6bc1bf-55b7-11e2-877f-002564c97630")
@@ -73,6 +73,7 @@ public class UseCaseEditPart extends AbstractNodeEditPart {
                           new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(EditPolicy.LAYOUT_ROLE, new DeferringCreateNodePolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("5e6bc1c2-55b7-11e2-877f-002564c97630")
@@ -80,6 +81,7 @@ public class UseCaseEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         GmAbstractObject model = getModel();
         getFigure().getParent().setConstraint(getFigure(), model.getLayoutData());
+        
     }
 
     @objid ("5e6bc1c5-55b7-11e2-877f-002564c97630")
@@ -91,6 +93,7 @@ public class UseCaseEditPart extends AbstractNodeEditPart {
         } else {
             getFigure().add(child, BorderLayout.CENTER, index);
         }
+        
     }
 
     @objid ("5e6bc1ca-55b7-11e2-877f-002564c97630")

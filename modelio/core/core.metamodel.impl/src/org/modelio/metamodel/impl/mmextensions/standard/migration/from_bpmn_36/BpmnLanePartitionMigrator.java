@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.migration.from_bpmn_36;
 
 import java.io.PrintWriter;
@@ -56,7 +55,6 @@ public class BpmnLanePartitionMigrator {
     /**
      * Move all BpmnLane.PartitionElement containing BPMN elements to BpmnLane.BpmnPartitionElementRef .
      * @param mofSession the MOF session
-     * 
      * @param monitor a progress monitor
      */
     @objid ("590904ba-f5ae-41d5-ad52-e18a97f3cc9b")
@@ -96,16 +94,18 @@ public class BpmnLanePartitionMigrator {
             mon.worked(1);
         }
         logger.println("  Fixed BPMN Lanes PartitionElement.");
+        
     }
 
     @objid ("a369938c-0072-4162-b9a8-324d1faaaf53")
-    public BpmnLanePartitionMigrator(IMofSession mofSession) {
+    public  BpmnLanePartitionMigrator(IMofSession mofSession) {
         this.mofSession = mofSession;
         MofMetamodel metamodel = mofSession.getMetamodel();
         this.bpmnLaneMC = requireMClass(metamodel, "Standard.BpmnLane");
         this.bpmnBaseElementMc= requireMClass(metamodel, "Standard.BpmnBaseElement");
         this.umlModelElementMc= requireMClass(metamodel, "Standard.UmlModelElement");
         this.dependencyMc= requireMClass(metamodel, Dependency.MQNAME);
+        
     }
 
     @objid ("83dd5029-262e-4ab9-9a71-687a8dc3e7c5")

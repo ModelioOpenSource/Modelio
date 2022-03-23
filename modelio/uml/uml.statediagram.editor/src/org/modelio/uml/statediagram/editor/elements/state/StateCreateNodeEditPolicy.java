@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.state;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -128,6 +127,7 @@ public class StateCreateNodeEditPolicy extends DeferringCreateNodePolicy {
             // Call inherited behavior.
             return super.getCreateCommand(createRequest);
         }
+        
     }
 
     @objid ("f58a161a-55b6-11e2-877f-002564c97630")

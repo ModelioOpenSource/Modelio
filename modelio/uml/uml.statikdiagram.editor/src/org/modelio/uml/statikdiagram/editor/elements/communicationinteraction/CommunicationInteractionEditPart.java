@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.communicationinteraction;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -65,6 +64,7 @@ public class CommunicationInteractionEditPart extends AbstractNodeEditPart {
                                                index);
         }
         getFigure().add(child, gmAbstractObject.getLayoutData(), index);
+        
     }
 
     @objid ("3492418a-55b7-11e2-877f-002564c97630")
@@ -75,6 +75,7 @@ public class CommunicationInteractionEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                           new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("3492418d-55b7-11e2-877f-002564c97630")
@@ -104,6 +105,7 @@ public class CommunicationInteractionEditPart extends AbstractNodeEditPart {
                 super.refreshFromStyle(aFigure, style);
             }
         }
+        
     }
 
     @objid ("3493c824-55b7-11e2-877f-002564c97630")
@@ -111,6 +113,7 @@ public class CommunicationInteractionEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         GmCommunicationInteractionPrimaryNode callBehaviorModel = (GmCommunicationInteractionPrimaryNode) getModel();
         getFigure().getParent().setConstraint(getFigure(), callBehaviorModel.getLayoutData());
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.controller.load.diagram.wizard;
 
 import java.io.IOException;
@@ -43,11 +42,10 @@ import org.modelio.platform.mda.infra.service.impl.IRTModuleAccess;
 public class DiagramWizardReader {
     /**
      * read wizard contribution from module.xml
-     * 
      * @param module the module
      * @param wizardDef the JAXB node
      * @param wizardCategory the contribution category
-     * @throws java.io.IOException on failure
+     * @throws IOException on failure
      */
     @objid ("64a1fb92-86a1-4553-9bd4-18bc711156ab")
     public void registerWizard(IRTModuleAccess module, Jxbv2Wizard wizardDef, ContributorCategory wizardCategory) throws IOException {
@@ -105,6 +103,7 @@ public class DiagramWizardReader {
         
         // Register the contributor
         module.registerWizardContribution(wizardCategory, contributor);
+        
     }
 
 }

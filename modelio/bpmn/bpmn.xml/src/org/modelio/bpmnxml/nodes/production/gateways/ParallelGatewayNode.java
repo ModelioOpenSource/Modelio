@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.production.gateways;
 
 import java.util.List;
 import java.util.Map;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.bind.JAXBElement;
 import javax.xml.namespace.QName;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.bpmnxml.model.ObjectFactory;
 import org.modelio.bpmnxml.model.TFlowElement;
 import org.modelio.bpmnxml.model.TGatewayDirection;
@@ -45,7 +44,7 @@ import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("3c4d064d-e6ef-47cb-83c9-aa10a656289f")
-public class ParallelGatewayNode implements IProductionNode<BpmnParallelGateway,TParallelGateway> {
+public class ParallelGatewayNode implements IProductionNode<BpmnParallelGateway, TParallelGateway> {
     @objid ("48cded22-0781-41a7-97ac-7f7a38e47f2b")
     private Map<String, Object> elementsMap;
 
@@ -82,6 +81,7 @@ public class ParallelGatewayNode implements IProductionNode<BpmnParallelGateway,
         } else {
             return factory.create(BpmnParallelGateway.class, context);
         }
+        
     }
 
     @objid ("091db3b8-33fd-4372-bc14-c39082d0850d")

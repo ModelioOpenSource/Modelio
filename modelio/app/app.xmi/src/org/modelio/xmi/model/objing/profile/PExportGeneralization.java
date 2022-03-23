@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing.profile;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,9 +34,10 @@ public class PExportGeneralization implements IExportProfileElement {
     private Stereotype stereotype = null;
 
     @objid ("5e9a234c-3243-442f-9a54-4d3b89271685")
-    public PExportGeneralization(String baseClass, Stereotype stereotype) {
+    public  PExportGeneralization(String baseClass, Stereotype stereotype) {
         this.baseClass = baseClass;
         this.stereotype = stereotype;
+        
     }
 
     @objid ("2b8e0769-8cd5-441c-9c1c-27913b2d54bc")
@@ -53,6 +53,7 @@ public class PExportGeneralization implements IExportProfileElement {
         for (String newMetaclassName : ProfileUtils.getEcoreNameClass(this.baseClass)){
             ProfileUtils.addReference(ecoreStereotype, newMetaclassName);
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.preferences.model;
 
 import java.util.Collection;
@@ -43,12 +42,13 @@ public class AuditConfigurationModel {
      * Creates an audit model.
      */
     @objid ("9a09fa7e-3563-4daa-9a6f-cca8bc956e57")
-    public AuditConfigurationModel(IAuditConfigurationPlan auditConfigurationPlan) {
+    public  AuditConfigurationModel(IAuditConfigurationPlan auditConfigurationPlan) {
         super();
         
         this.rulesById = new HashMap<>();
         this.auditConfigurationPlan = auditConfigurationPlan;
         addRules(auditConfigurationPlan);
+        
     }
 
     /**
@@ -69,7 +69,6 @@ public class AuditConfigurationModel {
 
     /**
      * Get all registered audit rules.
-     * 
      * @return audit rules
      */
     @objid ("bd3cb4ed-cee1-418a-b89f-1dbb1d952f79")
@@ -79,7 +78,6 @@ public class AuditConfigurationModel {
 
     /**
      * Find a rule from its identifier.
-     * 
      * @param ruleId a rule identifier.
      * @return the found rule or <code>null</code>.
      */
@@ -92,11 +90,10 @@ public class AuditConfigurationModel {
      * Creates a deep copy of the given audit model.
      * <p>
      * All rules are copied to this model.
-     * 
      * @param anotherConfig the audit model to copy.
      */
     @objid ("dd5d2e1b-aac7-4165-bd88-c9d53d488d71")
-    public AuditConfigurationModel(AuditConfigurationModel anotherConfig) {
+    public  AuditConfigurationModel(AuditConfigurationModel anotherConfig) {
         super();
         this.rulesById = new HashMap<>();
         this.auditConfigurationPlan = anotherConfig.auditConfigurationPlan;
@@ -119,6 +116,7 @@ public class AuditConfigurationModel {
                 }
             }
         }
+        
     }
 
     @objid ("d40ba60e-201c-409b-a620-82d4255fdb08")
@@ -126,6 +124,7 @@ public class AuditConfigurationModel {
         for (AuditCategory rootCategory : configurationPlan.getRootCategories()) {
             addRules(rootCategory);
         }
+        
     }
 
     @objid ("8ac5e701-6ed1-4abe-ac9e-0cf95a1b7ad1")
@@ -137,6 +136,7 @@ public class AuditConfigurationModel {
         // for (AuditCategory subCategory : category.getSubCategories()) {
         // addRules(subCategory);
         // }
+        
     }
 
     @objid ("6de7108c-8e8e-4d7a-b167-7abba02e4ffe")

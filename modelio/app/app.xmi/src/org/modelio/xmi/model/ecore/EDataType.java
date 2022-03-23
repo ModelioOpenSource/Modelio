@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -53,13 +52,13 @@ public class EDataType extends ENamedElement {
 
     /**
      * Constructor with the imported Ecore org.eclipse.uml2.uml.DataType
-     * 
      * @param element : the imported Ecore org.eclipse.uml2.uml.DataType
      */
     @objid ("ac60c550-1ef5-410a-80b1-82ef516c6ee9")
-    public EDataType(org.eclipse.uml2.uml.DataType element) {
+    public  EDataType(org.eclipse.uml2.uml.DataType element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("d7f642bb-a25d-4847-8ffc-3541743844d6")
@@ -80,6 +79,7 @@ public class EDataType extends ENamedElement {
                 }
             }
         }
+        
     }
 
     @objid ("5b5546ff-ec80-4e5f-afec-16dc57c3cdd3")
@@ -100,6 +100,7 @@ public class EDataType extends ENamedElement {
                 }
             }
         }
+        
     }
 
     @objid ("9bee6d47-2b95-4425-926b-62c8b4fa4c52")
@@ -124,6 +125,7 @@ public class EDataType extends ENamedElement {
         if (ObjingEAnnotation.isUndefined(this.ecoreElement))
             objingElt
             .setVisibility(VisibilityMode.VISIBILITYUNDEFINED);
+        
     }
 
     @objid ("cc117593-d7f9-4ffb-bfe5-0d35018ce5f1")

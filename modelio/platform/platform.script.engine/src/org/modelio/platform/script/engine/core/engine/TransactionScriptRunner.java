@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.script.engine.core.engine;
 
 import java.io.PrintWriter;
 import java.nio.file.Path;
 import java.util.Collection;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.script.ScriptEngine;
 import javax.script.ScriptException;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.ISelection;
 import org.modelio.api.modelio.model.IModelingSession;
 import org.modelio.api.modelio.model.ITransaction;
@@ -41,11 +40,10 @@ public class TransactionScriptRunner implements IScriptRunner {
 
     /**
      * Constructor
-     * 
      * @param runner the adapted runner.
      */
     @objid ("89cc69b2-ed76-461f-b726-b29fd740d516")
-    public TransactionScriptRunner(IScriptRunner runner) {
+    public  TransactionScriptRunner(IScriptRunner runner) {
         this.runner = runner;
     }
 
@@ -61,6 +59,7 @@ public class TransactionScriptRunner implements IScriptRunner {
         } else {
             this.runner.runFile(file, selection, selectedElements);
         }
+        
     }
 
     @objid ("c425984b-9c4d-4f6b-94f2-ca8584381121")
@@ -75,6 +74,7 @@ public class TransactionScriptRunner implements IScriptRunner {
         } else {
             this.runner.runScript(script, selection, elements);
         }
+        
     }
 
     @objid ("3d609f2f-8046-453b-94e9-8b09584bd06e")

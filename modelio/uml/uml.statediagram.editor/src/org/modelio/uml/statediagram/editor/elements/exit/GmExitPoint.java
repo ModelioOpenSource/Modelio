@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.exit;
 
 import java.util.Collections;
@@ -31,8 +30,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.ExitPointPseudoState;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -44,9 +43,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("f51ab27b-55b6-11e2-877f-002564c97630")
 public class GmExitPoint extends GmPortContainer {
-    @objid ("f51ab27f-55b6-11e2-877f-002564c97630")
-    private ExitPointPseudoState element;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -56,8 +52,11 @@ public class GmExitPoint extends GmPortContainer {
     @objid ("f51ab28b-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
 
+    @objid ("f51ab27f-55b6-11e2-877f-002564c97630")
+    private ExitPointPseudoState element;
+
     @objid ("f51ab282-55b6-11e2-877f-002564c97630")
-     static final GmExitStructuredStyleKeys STRUCTURED_KEYS = new GmExitStructuredStyleKeys();
+    static final GmExitStructuredStyleKeys STRUCTURED_KEYS = new GmExitStructuredStyleKeys();
 
     @objid ("f51ab286-55b6-11e2-877f-002564c97630")
     private static final GmExitImageStyleKeys IMAGE_KEYS = new GmExitImageStyleKeys();
@@ -70,13 +69,12 @@ public class GmExitPoint extends GmPortContainer {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the element is unmasked.
      * @param el the unmasked element, can be <i>null</i>.
      * @param ref the unmasked element reference, must not be <i>null</i>..
      */
     @objid ("f51ab28d-55b6-11e2-877f-002564c97630")
-    public GmExitPoint(IGmDiagram diagram, ExitPointPseudoState el, MRef ref) {
+    public  GmExitPoint(IGmDiagram diagram, ExitPointPseudoState el, MRef ref) {
         super(diagram, ref);
         
         GmExitPointPrimaryNode mainNode = new GmExitPointPrimaryNode(diagram, ref);
@@ -89,6 +87,7 @@ public class GmExitPoint extends GmPortContainer {
         
         this.addChild(mainNode);
         this.addChild(label);
+        
     }
 
     @objid ("f51ab299-55b6-11e2-877f-002564c97630")
@@ -147,7 +146,7 @@ public class GmExitPoint extends GmPortContainer {
      * Empty constructor needed for deserialisation.
      */
     @objid ("f51c3919-55b6-11e2-877f-002564c97630")
-    public GmExitPoint() {
+    public  GmExitPoint() {
         // Nothing specific to do.
     }
 
@@ -168,6 +167,7 @@ public class GmExitPoint extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("f51c3922-55b6-11e2-877f-002564c97630")
@@ -189,12 +189,14 @@ public class GmExitPoint extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmExitPoint.", GmExitPoint.MINOR_VERSION);
+        
     }
 
     @objid ("f51c3936-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (ExitPointPseudoState) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("f51c393b-55b6-11e2-877f-002564c97630")
@@ -205,7 +207,6 @@ public class GmExitPoint extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -217,7 +218,6 @@ public class GmExitPoint extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

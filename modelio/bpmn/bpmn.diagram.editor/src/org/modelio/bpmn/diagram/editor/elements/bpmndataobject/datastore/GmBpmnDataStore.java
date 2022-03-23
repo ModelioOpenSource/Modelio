@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmndataobject.datastore;
 
 import java.util.Collections;
@@ -36,8 +35,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.bpmn.objects.BpmnDataStore;
 import org.modelio.metamodel.uml.infrastructure.Note;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -48,9 +47,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("60ce384c-55b6-11e2-877f-002564c97630")
 public class GmBpmnDataStore extends GmPortContainer {
-    @objid ("60ce3850-55b6-11e2-877f-002564c97630")
-     BpmnDataStore theElement;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -59,6 +55,9 @@ public class GmBpmnDataStore extends GmPortContainer {
 
     @objid ("60ce385c-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
+
+    @objid ("60ce3850-55b6-11e2-877f-002564c97630")
+    BpmnDataStore theElement;
 
     @objid ("c4d07e2f-59a6-11e2-ae45-002564c97630")
     public static final GmBpmnDataObjectStyleKeys STRUCTURED_KEYS = new GmBpmnDataObjectStyleKeys();
@@ -76,18 +75,18 @@ public class GmBpmnDataStore extends GmPortContainer {
      * Constructor to use only for deserialization.
      */
     @objid ("60ce385e-55b6-11e2-877f-002564c97630")
-    public GmBpmnDataStore() {
+    public  GmBpmnDataStore() {
+        
     }
 
     /**
      * Creates a GmNote.
-     * 
      * @param diagram The diagram owning the node
      * @param theElement The represented note element
      * @param ref The represented note reference
      */
     @objid ("60ce3861-55b6-11e2-877f-002564c97630")
-    public GmBpmnDataStore(IGmDiagram diagram, BpmnDataStore theElement, MRef ref) {
+    public  GmBpmnDataStore(IGmDiagram diagram, BpmnDataStore theElement, MRef ref) {
         super(diagram, ref);
         
         GmBpmnDataStorePrimaryNode mainNode = new GmBpmnDataStorePrimaryNode(diagram, ref);
@@ -99,6 +98,7 @@ public class GmBpmnDataStore extends GmPortContainer {
         label.setRoleInComposition(GmPortContainer.SATELLITE_ROLE);
         label.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         this.addChild(label);
+        
     }
 
     @objid ("60ce386d-55b6-11e2-877f-002564c97630")
@@ -128,6 +128,7 @@ public class GmBpmnDataStore extends GmPortContainer {
         default:
             return null;
         }
+        
     }
 
     @objid ("60ce3883-55b6-11e2-877f-002564c97630")
@@ -145,6 +146,7 @@ public class GmBpmnDataStore extends GmPortContainer {
         default:
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("60cfbee0-55b6-11e2-877f-002564c97630")
@@ -164,6 +166,7 @@ public class GmBpmnDataStore extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("60cfbee6-55b6-11e2-877f-002564c97630")
@@ -172,6 +175,7 @@ public class GmBpmnDataStore extends GmPortContainer {
         if (this.theElement != null) {
             firePropertyChange(PROPERTY_LABEL, null, this.theElement.getName());
         }
+        
     }
 
     @objid ("60cfbee9-55b6-11e2-877f-002564c97630")
@@ -205,12 +209,14 @@ public class GmBpmnDataStore extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmBpmnDataStore.", MINOR_VERSION);
+        
     }
 
     @objid ("60d14579-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.theElement = (BpmnDataStore) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("60d1457e-55b6-11e2-877f-002564c97630")
@@ -221,7 +227,6 @@ public class GmBpmnDataStore extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -233,7 +238,6 @@ public class GmBpmnDataStore extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

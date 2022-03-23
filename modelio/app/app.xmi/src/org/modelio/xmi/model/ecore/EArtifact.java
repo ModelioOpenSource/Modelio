@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,7 +36,7 @@ public class EArtifact extends ENamedElement {
     }
 
     @objid ("420b77a9-c0b8-46c4-b207-dd11df098c68")
-    public EArtifact(org.eclipse.uml2.uml.Artifact element) {
+    public  EArtifact(org.eclipse.uml2.uml.Artifact element) {
         super(element);
     }
 
@@ -57,6 +56,7 @@ public class EArtifact extends ENamedElement {
         }else {
              ((Artifact) objingElt).setOwner(ReverseProperties.getInstance().getExternalPackage()); 
         }
+        
     }
 
     @objid ("d6af4cf8-a0c8-4540-8c5d-e89b182a8126")
@@ -64,6 +64,7 @@ public class EArtifact extends ENamedElement {
     public void setProperties(Element objingElt) {
         super.setProperties(objingElt);
         setFileName((Artifact) objingElt);
+        
     }
 
     @objid ("473e91e3-b546-40df-88da-0f538f020619")
@@ -73,6 +74,7 @@ public class EArtifact extends ENamedElement {
             objingElt.setFileName(name);
         else 
             objingElt.setFileName("");
+        
     }
 
 }

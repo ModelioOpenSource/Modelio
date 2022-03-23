@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.gef;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -72,7 +71,7 @@ public class LinkEditorEditPartFactory implements EditPartFactory {
     }
 
     @objid ("d4995d79-5efd-11e2-a8be-00137282c51b")
-    public LinkEditorEditPartFactory(IEclipseContext context) {
+    public  LinkEditorEditPartFactory(IEclipseContext context) {
         this.context = context;
     }
 

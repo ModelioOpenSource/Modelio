@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.combinedfragment;
 
 import java.util.List;
@@ -59,18 +58,18 @@ public class CreateCombinedFragmentCommand extends Command {
 
     /**
      * Creates a node creation command.
-     * 
      * @param diagram The sequence diagram in which the interaction use is to be created.
      * @param context Details on the MObject and/or the node to create.
      * @param constraint The initial constraint of the created node.
      * @param coveredLifelines The list of lifelines covered at creation time. May be empty but not <code>null</code>!
      */
     @objid ("d8c372e3-55b6-11e2-877f-002564c97630")
-    public CreateCombinedFragmentCommand(final GmSequenceDiagram diagram, final ModelioCreationContext context, final Rectangle constraint, final List<GmLifeline> coveredLifelines) {
+    public  CreateCombinedFragmentCommand(final GmSequenceDiagram diagram, final ModelioCreationContext context, final Rectangle constraint, final List<GmLifeline> coveredLifelines) {
         this.diagram = diagram;
         this.context = context;
         this.constraint = constraint;
         this.coveredLifelines = coveredLifelines;
+        
     }
 
     @objid ("d8c372f2-55b6-11e2-877f-002564c97630")
@@ -134,6 +133,7 @@ public class CreateCombinedFragmentCommand extends Command {
         
         // Show the new element in the diagram (ie create its Gm )
         this.diagram.unmask(this.diagram, newElement, this.constraint);
+        
     }
 
 }

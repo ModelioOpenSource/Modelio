@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.elements.system;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -67,6 +66,7 @@ public class SystemEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         GmSystem model = (GmSystem) this.getModel();
         this.getFigure().getParent().setConstraint(this.getFigure(), model.getLayoutData());
+        
     }
 
     @objid ("5e5357f1-55b7-11e2-877f-002564c97630")
@@ -80,6 +80,7 @@ public class SystemEditPart extends AbstractNodeEditPart {
         } else {
             getFigure().add(child, BorderLayout.CENTER, index);
         }
+        
     }
 
 }

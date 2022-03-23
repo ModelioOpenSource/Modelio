@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.informationflowgroup;
 
 import java.util.ArrayList;
@@ -52,7 +51,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 @objid ("81734c69-1dec-11e2-8cad-001ec947c8cc")
 class InformationFlowFactory {
     @objid ("81734c6b-1dec-11e2-8cad-001ec947c8cc")
-     IStandardModelFactory modelFactory;
+    IStandardModelFactory modelFactory;
 
     @objid ("81734c6c-1dec-11e2-8cad-001ec947c8cc")
     private CreateVisitor impl;
@@ -62,19 +61,18 @@ class InformationFlowFactory {
 
     /**
      * Constructor.
-     * 
      * @param modelFactory a model factory. Can be get on the GmDiagram.
      */
     @objid ("81734c6e-1dec-11e2-8cad-001ec947c8cc")
-    public InformationFlowFactory(final IStandardModelFactory modelFactory) {
+    public  InformationFlowFactory(final IStandardModelFactory modelFactory) {
         this.modelFactory = modelFactory;
         this.impl = new CreateVisitor();
         this.canCreateImpl = new CanCreateVisitor();
+        
     }
 
     /**
      * Create an information flow realizing the given link.
-     * 
      * @param realizingLink a model link or a model link end.
      * @return the created information flow.
      */
@@ -167,7 +165,8 @@ class InformationFlowFactory {
         }
 
         @objid ("8175aebf-1dec-11e2-8cad-001ec947c8cc")
-        CreateVisitor() {
+         CreateVisitor() {
+            
         }
 
         /**
@@ -176,7 +175,6 @@ class InformationFlowFactory {
          * Sets its owner to the namespace owning all sources and targets.
          * <p>
          * The only remaining work is to add realizing links.
-         * 
          * @param srcs The sources
          * @param dests The targets
          * @return The created information flow.
@@ -202,7 +200,6 @@ class InformationFlowFactory {
 
         /**
          * Get the namespace in the composition hierarchy that owns all the given elements.
-         * 
          * @param elements The elements to search
          * @return The common namespace owning them.
          */
@@ -251,6 +248,7 @@ class InformationFlowFactory {
             
             // Should never reach this point.
             throw new IllegalArgumentException("No common namespace between " + elements);
+            
         }
 
     }
@@ -258,7 +256,7 @@ class InformationFlowFactory {
     @objid ("8175aee4-1dec-11e2-8cad-001ec947c8cc")
     private class CanCreateVisitor extends DefaultModelVisitor {
         @objid ("8175aee5-1dec-11e2-8cad-001ec947c8cc")
-        public CanCreateVisitor() {
+        public  CanCreateVisitor() {
             // nothing
         }
 
@@ -338,7 +336,6 @@ class InformationFlowFactory {
          * <p>
          * Check that the namespace owning all sources and targets is modifiable.
          * <p>
-         * 
          * @param srcs The sources
          * @param dests The targets
          * @return true if an information flow can be created, else false.
@@ -352,7 +349,6 @@ class InformationFlowFactory {
 
         /**
          * Get the namespace in the composition hierarchy that owns all the given elements.
-         * 
          * @param elements The elements to search
          * @return The common namespace owning them.
          */
@@ -401,6 +397,7 @@ class InformationFlowFactory {
             
             // Should never reach this point.
             throw new IllegalArgumentException("No common namespace between " + elements);
+            
         }
 
     }

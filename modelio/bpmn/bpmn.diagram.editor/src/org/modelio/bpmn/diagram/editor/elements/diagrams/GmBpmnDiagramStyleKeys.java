@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.diagrams;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.swt.graphics.Color;
-import org.modelio.bpmn.diagram.editor.elements.style.BpmnAbstractStyleKeyProvider;
+import org.modelio.bpmn.diagram.editor.elements.common.style.BpmnAbstractStyleKeyProvider;
 import org.modelio.diagram.elements.common.abstractdiagram.GmAbstractDiagramStyleKeys;
 import org.modelio.diagram.elements.common.abstractdiagram.LayoutAssistantStyleKeys;
 import org.modelio.diagram.styles.core.MetaKey;
@@ -67,10 +66,10 @@ public class GmBpmnDiagramStyleKeys extends BpmnAbstractStyleKeyProvider {
     public static final StyleKey PAGE_SIZE = createStyleKey("DIAGRAM_PAGE_SIZE", String.class);
 
     @objid ("e4270e05-8c53-48c6-82e0-7c97b29e069b")
-     static final LayoutAssistantStyleKeys autoLayoutStyle = GmAbstractDiagramStyleKeys.autoLayoutStyle;
+    static final LayoutAssistantStyleKeys autoLayoutStyle = GmAbstractDiagramStyleKeys.autoLayoutStyle;
 
     @objid ("7cf03d78-b8c6-4815-851b-afcf88176cdb")
-     static final StyleKey SHOW_SMARTLINK_HANDLE = createStyleKey("DIAGRAM_SHOW_SMARTLINK_HANDLE", MetaKey.SHOWSMARTLINKHANDLE);
+    static final StyleKey SHOW_SMARTLINK_HANDLE = createStyleKey("DIAGRAM_SHOW_SMARTLINK_HANDLE", MetaKey.SHOWSMARTLINKHANDLE);
 
     /**
      * Whether Lanes are displayed horizontally or vertically in the diagram.

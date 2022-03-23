@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.interfaze;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,27 +31,27 @@ import org.modelio.uml.statikdiagram.editor.style.StaticAbstractStyleKeyProvider
 @objid ("357d3dda-55b7-11e2-877f-002564c97630")
 public class InterfaceImageStyleKeys extends StaticAbstractStyleKeyProvider {
     @objid ("a5a935ca-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = InterfaceStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = InterfaceStructuredStyleKeys.REPMODE;
 
     @objid ("a5a935cc-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = InterfaceStructuredStyleKeys.FILLCOLOR;
+    static final StyleKey FILLCOLOR = InterfaceStructuredStyleKeys.FILLCOLOR;
 
     @objid ("a5a935ce-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = InterfaceStructuredStyleKeys.FONT;
+    static final StyleKey FONT = InterfaceStructuredStyleKeys.FONT;
 
     @objid ("a5aabc69-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = InterfaceStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = InterfaceStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("a5aabc6b-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWNAME = InterfaceStructuredStyleKeys.SHOWNAME;
+    static final StyleKey SHOWNAME = InterfaceStructuredStyleKeys.SHOWNAME;
 
     @objid ("a5aabc6d-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = InterfaceStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = InterfaceStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("a5aabc6f-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = InterfaceStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = InterfaceStructuredStyleKeys.SHOWTAGS;
 
     @objid ("a5aabc71-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWVISIBILITY = InterfaceStructuredStyleKeys.SHOWVISIBILITY;
+    static final StyleKey SHOWVISIBILITY = InterfaceStructuredStyleKeys.SHOWVISIBILITY;
 
 }

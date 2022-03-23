@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.realization;
 
 import java.util.List;
@@ -56,15 +55,15 @@ public class GmInterfaceRealization extends GmLink {
 
     /**
      * Create a interface realization link model.
-     * 
      * @param diagram The diagram
      * @param generalization The represented link, may be null
      * @param ref The represented link reference, may not be null
      */
     @objid ("3666b368-55b7-11e2-877f-002564c97630")
-    public GmInterfaceRealization(IGmDiagram diagram, InterfaceRealization generalization, MRef ref) {
+    public  GmInterfaceRealization(IGmDiagram diagram, InterfaceRealization generalization, MRef ref) {
         super(diagram, ref);
         this.element = generalization;
+        
     }
 
     @objid ("3666b374-55b7-11e2-877f-002564c97630")
@@ -83,7 +82,7 @@ public class GmInterfaceRealization extends GmLink {
      * Constructor for deserialization only.
      */
     @objid ("366839fd-55b7-11e2-877f-002564c97630")
-    public GmInterfaceRealization() {
+    public  GmInterfaceRealization() {
         // Nothing to do.
     }
 
@@ -92,6 +91,7 @@ public class GmInterfaceRealization extends GmLink {
     protected void readLink(IDiagramReader in) {
         super.readLink(in);
         this.element = (InterfaceRealization) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("36683a06-55b7-11e2-877f-002564c97630")
@@ -125,6 +125,7 @@ public class GmInterfaceRealization extends GmLink {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmInterfaceRealization.", GmInterfaceRealization.MINOR_VERSION);
+        
     }
 
     @objid ("36683a28-55b7-11e2-877f-002564c97630")

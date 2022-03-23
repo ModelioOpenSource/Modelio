@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.join;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,11 +50,10 @@ public class GmJoinPrimaryNode extends GmNoStyleSimpleNode implements IImageable
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the element is unmasked.
      */
     @objid ("f55634f1-55b6-11e2-877f-002564c97630")
-    public GmJoinPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
+    public  GmJoinPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -73,6 +71,7 @@ public class GmJoinPrimaryNode extends GmNoStyleSimpleNode implements IImageable
         }
         // forcing visual refresh in case Image changed 
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("f5563504-55b6-11e2-877f-002564c97630")
@@ -115,13 +114,14 @@ public class GmJoinPrimaryNode extends GmNoStyleSimpleNode implements IImageable
                                                                                             }
                                                                                 
                                                                                         };
+        
     }
 
     /**
      * Constructor for deserialization only.
      */
     @objid ("f557bb81-55b6-11e2-877f-002564c97630")
-    public GmJoinPrimaryNode() {
+    public  GmJoinPrimaryNode() {
         // empty the serialization
     }
 
@@ -142,6 +142,7 @@ public class GmJoinPrimaryNode extends GmNoStyleSimpleNode implements IImageable
             break;
         }
         }
+        
     }
 
     @objid ("f557bb8a-55b6-11e2-877f-002564c97630")
@@ -151,6 +152,7 @@ public class GmJoinPrimaryNode extends GmNoStyleSimpleNode implements IImageable
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmJoinPrimaryNode.", GmJoinPrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("f557bb90-55b6-11e2-877f-002564c97630")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.realization;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,42 +36,42 @@ public class GmInterfaceRealizationStyleKeys extends StaticAbstractStyleKeyProvi
      */
     @objid ("a77654ad-55c2-11e2-9337-002564c97630")
     public static final StyleKey CONNECTIONROUTER = createStyleKey("INTERFACEREALIZATION_CONNECTIONROUTER",
-                                                                   MetaKey.CONNECTIONROUTER);
+                                                                       MetaKey.CONNECTIONROUTER);
 
     /**
      * Fill color.
      */
     @objid ("a77654b0-55c2-11e2-9337-002564c97630")
     public static final StyleKey FILLCOLOR = createStyleKey("INTERFACEREALIZATION_FILLCOLOR",
-                                                            MetaKey.FILLCOLOR);
+                                                                MetaKey.FILLCOLOR);
 
     /**
      * Line color.
      */
     @objid ("a77654b3-55c2-11e2-9337-002564c97630")
     public static final StyleKey LINECOLOR = createStyleKey("INTERFACEREALIZATION_LINECOLOR",
-                                                            MetaKey.LINECOLOR);
+                                                                MetaKey.LINECOLOR);
 
     /**
      * Line width.
      */
     @objid ("a77654b6-55c2-11e2-9337-002564c97630")
     public static final StyleKey LINEWIDTH = createStyleKey("INTERFACEREALIZATION_LINEWIDTH",
-                                                            MetaKey.LINEWIDTH);
+                                                                MetaKey.LINEWIDTH);
 
     /**
      * Line corners radius
      */
     @objid ("a77654b9-55c2-11e2-9337-002564c97630")
     public static final StyleKey LINERADIUS = createStyleKey("INTERFACEREALIZATION_LINERADIUS",
-                                                             MetaKey.LINERADIUS);
+                                                                 MetaKey.LINERADIUS);
 
     /**
      * Draw bridge where vertical segments cross horizontal ones.
      */
     @objid ("a77654bc-55c2-11e2-9337-002564c97630")
     public static final StyleKey DRAWLINEBRIDGES = createStyleKey("INTERFACEREALIZATION_DRAWLINEBRIDGES",
-                                                                  MetaKey.DRAWLINEBRIDGES);
+                                                                      MetaKey.DRAWLINEBRIDGES);
 
     /**
      * Text font.
@@ -85,14 +84,14 @@ public class GmInterfaceRealizationStyleKeys extends StaticAbstractStyleKeyProvi
      */
     @objid ("a777db4b-55c2-11e2-9337-002564c97630")
     public static final StyleKey TEXTCOLOR = createStyleKey("INTERFACEREALIZATION_TEXTCOLOR",
-                                                            MetaKey.TEXTCOLOR);
+                                                                MetaKey.TEXTCOLOR);
 
     /**
      * Stereotype mode: none, icon, text, text+icon
      */
     @objid ("a777db4e-55c2-11e2-9337-002564c97630")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("INTERFACEREALIZATION_SHOWSTEREOTYPES",
-                                                                  MetaKey.SHOWSTEREOTYPES);
+                                                                      MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Show tags: {@link Boolean}.
@@ -105,6 +104,6 @@ public class GmInterfaceRealizationStyleKeys extends StaticAbstractStyleKeyProvi
      */
     @objid ("a777db54-55c2-11e2-9337-002564c97630")
     public static final StyleKey LINEPATTERN = createStyleKey("INTERFACEREALIZATION_LINEPATTERN",
-                                                              MetaKey.LINEPATTERN);
+                                                                  MetaKey.LINEPATTERN);
 
 }

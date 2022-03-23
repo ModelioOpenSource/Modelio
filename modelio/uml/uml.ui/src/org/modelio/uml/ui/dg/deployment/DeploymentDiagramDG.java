@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.deployment;
 
 import java.util.Collections;
@@ -36,12 +35,11 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 public class DeploymentDiagramDG extends DiagramDG {
     /**
      * Initialize the activity diagram graphic element.
-     * 
      * @param diagramHandle The diagram handle
      * @param node The internal graphic node representing the diagram.
      */
     @objid ("55acf501-9ef9-4af8-9c87-eeb083c07d1a")
-    public DeploymentDiagramDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  DeploymentDiagramDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 

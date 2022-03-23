@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.net;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,9 +49,10 @@ public class HttpUriAuthenticationException extends UriAuthenticationException i
      * @param reason a message. It should be the HTTP response body or the HTTP status line message.
      */
     @objid ("bf9b7d2d-d64a-492b-ae06-79495c6a3673")
-    public HttpUriAuthenticationException(int httpStatus, String file, String reason) {
+    public  HttpUriAuthenticationException(int httpStatus, String file, String reason) {
         super(file, reason);
         this.httpStatus = httpStatus;
+        
     }
 
     @objid ("603cca94-4161-4ee9-a7b2-006cf713da24")
@@ -70,9 +70,10 @@ public class HttpUriAuthenticationException extends UriAuthenticationException i
      * @param reason a message. It should be the HTTP response body or the HTTP status line message.
      */
     @objid ("213eea6d-809d-43fb-935f-25ef45ff1868")
-    public HttpUriAuthenticationException(int httpStatus, Throwable cause, String file, String reason) {
+    public  HttpUriAuthenticationException(int httpStatus, Throwable cause, String file, String reason) {
         super(cause, file, reason);
         this.httpStatus = httpStatus;
+        
     }
 
 }

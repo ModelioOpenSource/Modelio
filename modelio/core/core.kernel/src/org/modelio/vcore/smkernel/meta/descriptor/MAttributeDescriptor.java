@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta.descriptor;
 
 import java.io.Serializable;
@@ -31,54 +30,57 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  */
 @objid ("6ed5dfcd-a248-490b-a762-d71c7cfa64b8")
 public class MAttributeDescriptor implements Serializable {
+    
     @mdl.prop
     @objid ("e53bd4f1-cc0d-490d-bf82-48ae4a7da34c")
-    private String name;
+    public String name;
 
     @mdl.propgetter
     public String getName() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.name;
     }
 
     @mdl.propsetter
     public void setName(String value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.name = value;
     }
 
     @objid ("96104fec-e06c-4b8f-8124-1877fbfadc1a")
     private static final long serialVersionUID = 1L;
 
+    
     @mdl.prop
     @objid ("87193928-1a9c-4f2c-8911-015fb21f10e6")
-    private String enumType;
+    public String enumType;
 
     @mdl.propgetter
     public String getEnumType() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.enumType;
     }
 
     @mdl.propsetter
     public void setEnumType(String value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.enumType = value;
     }
 
+    
     @mdl.prop
     @objid ("ddbc9732-898c-4958-8ac3-7f56b6f4a152")
-    private Class<?> type;
+    public Class<?> type;
 
     @mdl.propgetter
     public Class<?> getType() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.type;
     }
 
     @mdl.propsetter
     public void setType(Class<?> value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.type = value;
     }
 

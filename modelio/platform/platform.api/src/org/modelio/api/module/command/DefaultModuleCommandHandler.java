@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.command;
 
 import java.util.List;
@@ -76,11 +75,11 @@ public abstract class DefaultModuleCommandHandler implements IModuleCommandHandl
     public void initialize(List<ElementScope> scopes, Map<String, String> hParameters) {
         this.scopes = scopes;
         this.parameters = hParameters;
+        
     }
 
     /**
      * get a parameter value.
-     * 
      * @param key a parameter key
      * @return the parameter value
      */
@@ -100,7 +99,6 @@ public abstract class DefaultModuleCommandHandler implements IModuleCommandHandl
      * <li><i>module regex<b>#</b>stereotype regex</i>
      * </ul>
      * Returns <i>null</i> if the specification is <i>null</i> or the stereotype is not found.
-     * 
      * @param module the module
      * @param metaclass the metaclass to look from
      * @param stereotypeSpec the stereotype specification

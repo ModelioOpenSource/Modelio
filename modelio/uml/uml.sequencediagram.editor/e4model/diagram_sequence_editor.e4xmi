@@ -41,6 +41,7 @@
   <imports xsi:type="commands:Command" xmi:id="_bZeTQO6qEeapbqVwhM5HSA" elementId="org.modelio.app.ui.command.openproperties"/>
   <imports xsi:type="commands:Command" xmi:id="_bb1qwO6qEeapbqVwhM5HSA" elementId="org.modelio.app.ui.command.opendiagram"/>
   <imports xsi:type="commands:Command" xmi:id="_rOc2ICOAEeisQ_vwCH92Uw" elementId="diagram.editor.command.opengmdebugger"/>
+  <imports xsi:type="commands:Command" xmi:id="_VDepIPZyEeqaga_r_8J0-Q" elementId="org.modelio.diagram.editor.command.ChangeCustomImageCommand"/>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_fBk20IfREeWj6a9oyLXySQ" featurename="descriptors" parentElementId="org.modelio.app.application">
     <elements xsi:type="basic:PartDescriptor" xmi:id="_w2L0gIkcEeWbO4MnNK7ogg" elementId="org.modelio.uml.sequencediagram.editor.SequenceDiagramEditorID" label="%SequenceEditor.label" tooltip="%SequenceEditor.tooltip" bindingContexts="_3L8k4IzAEeKbH-WHrunjdQ" allowMultiple="true" category="TEST_EDITOR" closeable="true" dirtyable="true" contributionURI="bundleclass://org.modelio.uml.sequencediagram.editor/org.modelio.uml.sequencediagram.editor.editor.SequenceDiagramEditor">
       <handlers xmi:id="_ZIzakID9EeKKLZZAYaz6Sg" elementId="diagram.editor.sequence.handler.createelement" contributionURI="bundleclass://org.modelio.app.diagram.editor/org.modelio.diagram.editor.popup.handlers.CreateElementHandler" command="_aVfQIID9EeKKLZZAYaz6Sg"/>
@@ -77,6 +78,10 @@
         </children>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_SxvwQIY_EeKYkaRTRtSF_A" elementId="org.modelio.uml.sequencediagram.editor.handledmenuitem.redrawlink" label="%RedrawLink.label" iconURI="platform:/plugin/org.modelio.app.diagram.editor/icons/redrawlink.png" tooltip="%RedrawLink.tooltip" command="_kT7RwIY4EeKYkaRTRtSF_A">
           <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_GbENMO0mEeKWx8-qQ2OLqA" coreExpressionId="org.modelio.diagram.editor.corexp.is-gmlink.id"/>
+        </children>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_xSNgAPaDEeqaga_r_8J0-Q" elementId="uml.sequencediagram.editor.menuseparator.0"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_xnRxEPaDEeqaga_r_8J0-Q" elementId="uml.sequencediagram.editor.handledmenuitem.changecustomimage" label="%ChangeCustomImage.label" iconURI="platform:/plugin/org.modelio.app.diagram.editor/icons/select_image.png" tooltip="%ChangeCustomImage.tooltip" command="_VDepIPZyEeqaga_r_8J0-Q">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_z7ZIwPaDEeqaga_r_8J0-Q" coreExpressionId="org.modelio.diagram.editor.corexp.is-gmnode-custommode.id"/>
         </children>
       </menus>
       <toolbar xmi:id="_QalMgGR9EeKpoNjm4nPb8Q" elementId="diagram.editor.sequence.toolbar.0">

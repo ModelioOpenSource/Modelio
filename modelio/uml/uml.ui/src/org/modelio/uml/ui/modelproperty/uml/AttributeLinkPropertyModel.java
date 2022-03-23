@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.util.ArrayList;
@@ -64,11 +63,10 @@ public class AttributeLinkPropertyModel extends AbstractPropertyModel<AttributeL
     /**
      * Create a new <i>AttributeLink</i> data model from an <i>AttributeLink</i>
      * .
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("3dc46852-d623-43e3-9ede-bdd7868e4980")
-    public AttributeLinkPropertyModel(AttributeLink theEditedElement) {
+    public  AttributeLinkPropertyModel(AttributeLink theEditedElement) {
         super(theEditedElement);
     }
 
@@ -117,7 +115,6 @@ public class AttributeLinkPropertyModel extends AbstractPropertyModel<AttributeL
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("1b5610a6-19dd-4a1f-9c84-99f6151ad9cb")
@@ -128,7 +125,6 @@ public class AttributeLinkPropertyModel extends AbstractPropertyModel<AttributeL
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("452ad150-b621-463a-b20b-88edb7dc9b99")
@@ -141,7 +137,6 @@ public class AttributeLinkPropertyModel extends AbstractPropertyModel<AttributeL
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -167,6 +162,7 @@ public class AttributeLinkPropertyModel extends AbstractPropertyModel<AttributeL
         default:
             return null;
         }
+        
     }
 
     /**
@@ -176,7 +172,6 @@ public class AttributeLinkPropertyModel extends AbstractPropertyModel<AttributeL
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -203,13 +198,13 @@ public class AttributeLinkPropertyModel extends AbstractPropertyModel<AttributeL
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -240,6 +235,7 @@ public class AttributeLinkPropertyModel extends AbstractPropertyModel<AttributeL
         default:
             return;
         }
+        
     }
 
 }

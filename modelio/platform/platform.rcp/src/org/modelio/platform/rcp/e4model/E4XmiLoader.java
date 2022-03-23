@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.rcp.e4model;
 
 import java.util.ArrayList;
@@ -60,7 +59,6 @@ public final class E4XmiLoader {
      * Load an E4XMI plugin resource and merges it into the application model.
      * <p>
      * Imports won't be resolved.
-     * 
      * @param application the Eclipse 4 application model.
      * @param e4ModelPath the .e4xmi file path relative to the plugin.
      * @param contributorPlugin an Eclipse plugin.
@@ -77,7 +75,6 @@ public final class E4XmiLoader {
      * Load an E4XMI plugin resource and merges it into the application model.
      * <p>
      * Imports won't be resolved.
-     * 
      * @param application the Eclipse 4 application model.
      * @param e4ModelURI the E4XMI file URI.
      * @param contributorURI the contributor plugin URI.
@@ -162,7 +159,6 @@ public final class E4XmiLoader {
 
     /**
      * Remove all E4 elements that belong to the given Eclipse bundle.
-     * 
      * @param application the application model to clean.
      * *
      * @param e4ModelPath the .e4xmi file path relative to the plugin.
@@ -173,11 +169,11 @@ public final class E4XmiLoader {
         final URI e4ModelURI = URI.createURI(contributorPlugin.getEntry(e4ModelPath).toString());
         final String contributorURI = URI.createPlatformPluginURI(contributorPlugin.getSymbolicName(), true).toString();
         E4XmiLoader.unload(application, e4ModelURI, contributorURI);
+        
     }
 
     /**
      * Remove all E4 elements that belong to the given contributor.
-     * 
      * @param application the application model to clean.
      * @param e4ModelURI the E4XMI file URI.
      * @param contributorURI the contributor plugin URI.
@@ -216,6 +212,7 @@ public final class E4XmiLoader {
         } catch (final RuntimeException e) {
             throw new RuntimeException("Unable to unload '" + e4ModelURI + "' model extension: " + e.getMessage(), e); //$NON-NLS-1$
         }
+        
     }
 
     @objid ("677de8b8-e3af-4ed5-bb56-ef7d3a0c01ac")
@@ -265,11 +262,11 @@ public final class E4XmiLoader {
                 }
             }
         }
+        
     }
 
     /**
      * Remove all E4 elements that belong to the given Eclipse bundle.
-     * 
      * @param application the application model to clean.
      * *
      * @param e4ModelPath the .e4xmi file path relative to the plugin.
@@ -280,11 +277,11 @@ public final class E4XmiLoader {
         final URI e4ModelURI = URI.createURI(contributorPlugin.getEntry(e4ModelPath).toString());
         final String contributorURI = URI.createPlatformPluginURI(contributorPlugin.getSymbolicName(), true).toString();
         E4XmiLoader.setVisible(application, e4ModelURI, contributorURI, value);
+        
     }
 
     /**
      * Show/hide all E4 elements that belong to the given contributor.
-     * 
      * @param application the application model to update.
      * @param e4ModelURI the E4XMI file URI.
      * @param contributorURI the contributor plugin URI.
@@ -307,6 +304,7 @@ public final class E4XmiLoader {
                 }
             }
         }
+        
     }
 
 }

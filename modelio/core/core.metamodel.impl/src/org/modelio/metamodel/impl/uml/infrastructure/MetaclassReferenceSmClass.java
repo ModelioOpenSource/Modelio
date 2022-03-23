@@ -17,23 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.infrastructure.ElementSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.MetaclassReferenceData;
-import org.modelio.metamodel.impl.uml.infrastructure.NoteTypeSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.ProfileSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.ResourceTypeSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.TagTypeSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.properties.PropertyTableDefinitionSmClass;
 import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.metamodel.uml.infrastructure.MetaclassReference;
@@ -76,7 +70,7 @@ public class MetaclassReferenceSmClass extends ElementSmClass {
     private SmDependency definedTagTypeDep;
 
     @objid ("e3162768-dd33-4614-a66e-261ed91e9b5e")
-    public MetaclassReferenceSmClass(ISmMetamodelFragment origin) {
+    public  MetaclassReferenceSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -84,6 +78,7 @@ public class MetaclassReferenceSmClass extends ElementSmClass {
     @Override
     public String getName() {
         return "MetaclassReference";
+        
     }
 
     @objid ("9b710970-4616-4ea4-86c3-ca72730ceb62")
@@ -96,18 +91,21 @@ public class MetaclassReferenceSmClass extends ElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return MetaclassReference.class;
+        
     }
 
     @objid ("d2f33659-efb9-45d9-9ed6-ded7ae017686")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("c62ad532-a228-4bff-ae40-01c83df3ef5a")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("b25f87ef-58f3-42a1-83ec-f6fb31322510")
@@ -143,6 +141,8 @@ public class MetaclassReferenceSmClass extends ElementSmClass {
         this.definedTagTypeDep = new DefinedTagTypeSmDependency();
         this.definedTagTypeDep.init("DefinedTagType", this, metamodel.getMClass(TagType.MQNAME), 0, -1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.definedTagTypeDep);
+        
+        
     }
 
     @objid ("7365df90-a5a8-4bdb-b286-222bed82bab7")
@@ -199,7 +199,7 @@ public class MetaclassReferenceSmClass extends ElementSmClass {
         private MetaclassReferenceSmClass smClass;
 
         @objid ("6400ae41-a7ed-43b4-9fa9-b4bb705a2bb0")
-        public MetaclassReferenceObjectFactory(MetaclassReferenceSmClass smClass) {
+        public  MetaclassReferenceObjectFactory(MetaclassReferenceSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -255,6 +255,7 @@ public class MetaclassReferenceSmClass extends ElementSmClass {
             	this.symetricDep = ((PropertyTableDefinitionSmClass)this.getTarget()).getOwnerReferenceDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -274,6 +275,7 @@ public class MetaclassReferenceSmClass extends ElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((MetaclassReferenceData) data).mDefinedNoteType = values;
+            
         }
 
         @objid ("946281c0-772f-4a4f-86a2-00521dd7fe70")
@@ -283,6 +285,7 @@ public class MetaclassReferenceSmClass extends ElementSmClass {
             	this.symetricDep = ((NoteTypeSmClass)this.getTarget()).getOwnerReferenceDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -311,6 +314,7 @@ public class MetaclassReferenceSmClass extends ElementSmClass {
             	this.symetricDep = ((ProfileSmClass)this.getTarget()).getOwnedReferenceDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -330,6 +334,7 @@ public class MetaclassReferenceSmClass extends ElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((MetaclassReferenceData) data).mDefinedTagType = values;
+            
         }
 
         @objid ("1c12dac0-a40f-4489-bb06-4c12cfc2dcac")
@@ -339,6 +344,7 @@ public class MetaclassReferenceSmClass extends ElementSmClass {
             	this.symetricDep = ((TagTypeSmClass)this.getTarget()).getOwnerReferenceDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -358,6 +364,7 @@ public class MetaclassReferenceSmClass extends ElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((MetaclassReferenceData) data).mDefinedResourceType = values;
+            
         }
 
         @objid ("5718c99b-09fd-407f-91a7-094615127da9")
@@ -367,6 +374,7 @@ public class MetaclassReferenceSmClass extends ElementSmClass {
             	this.symetricDep = ((ResourceTypeSmClass)this.getTarget()).getOwnerReferenceDep();
             }
             return this.symetricDep;
+            
         }
 
     }

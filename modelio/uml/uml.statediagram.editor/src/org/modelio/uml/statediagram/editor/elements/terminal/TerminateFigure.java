@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.terminal;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.swt.SWT;
 import org.modelio.diagram.elements.core.figures.GradientFigure;
 
 /**
@@ -36,10 +36,11 @@ public class TerminateFigure extends GradientFigure {
      * Creates the figure.
      */
     @objid ("f5a71430-55b6-11e2-877f-002564c97630")
-    public TerminateFigure() {
+    public  TerminateFigure() {
         super();
         setSize(30, 30);
         this.setOpaque(false);
+        
     }
 
     @objid ("f5a71433-55b6-11e2-877f-002564c97630")
@@ -48,11 +49,17 @@ public class TerminateFigure extends GradientFigure {
         // super method will draw the shapedFigure
         super.paintFigure(graphics);
         
+        graphics.setAdvanced(true);
+        graphics.setAntialias(SWT.ON);
+        
         final Rectangle r = getBounds();
         graphics.setForegroundColor(this.penOptions.lineColor);
         graphics.setLineWidth(this.penOptions.lineWidth);
         graphics.drawLine(r.getTopLeft(), r.getBottomRight());
         graphics.drawLine(r.getTopRight(), r.getBottomLeft());
+        
+        graphics.restoreState();
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.jdbm7;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,7 @@ class JdbmStorageHandler implements IRepositoryObject {
     private JdbmRepository repo;
 
     @objid ("00e23140-d259-4e93-aec7-306441400122")
-    public JdbmStorageHandler(JdbmRepository jdbmRepository) {
+    public  JdbmStorageHandler(JdbmRepository jdbmRepository) {
         this.repo = jdbmRepository;
     }
 
@@ -55,6 +54,7 @@ class JdbmStorageHandler implements IRepositoryObject {
             data.setRFlags(IRStatus.REPO_DIRTY, StatusState.TRUE);
             this.repo.addDirty(obj);
         }
+        
     }
 
     @objid ("eda2ec46-0501-4914-bf15-03717e075940")
@@ -89,6 +89,7 @@ class JdbmStorageHandler implements IRepositoryObject {
         
             return obj.getData().hasAllStatus(IRStatus.REPO_USERS_LOADED) == StatusState.TRUE;
         }
+        
     }
 
     @objid ("db49ea72-07e5-42ac-ae4b-e0158a070a4a")
@@ -119,6 +120,7 @@ class JdbmStorageHandler implements IRepositoryObject {
                 }
             }
         }
+        
     }
 
     @objid ("8fbe4252-72c0-40db-b955-b81983e9c718")
@@ -132,6 +134,7 @@ class JdbmStorageHandler implements IRepositoryObject {
                 }
             }
         }
+        
     }
 
     @objid ("ea4a85f0-2c9b-4e84-8515-10157650112b")
@@ -151,6 +154,7 @@ class JdbmStorageHandler implements IRepositoryObject {
     public void detach(SmObjectImpl obj) {
         obj.getData().setRFlags(IRStatus.MASK_REPO, StatusState.FALSE);
         this.repo.removeObj(obj);
+        
     }
 
     @objid ("63bf6faa-8558-4637-8fcb-f310f9cbfdf8")
@@ -170,6 +174,7 @@ class JdbmStorageHandler implements IRepositoryObject {
         } catch (DuplicateObjectException e) {
             this.repo.getErrorSupport().fireError(e);
         }
+        
     }
 
     @objid ("0583c262-5e90-4b30-abbd-4432a648ca1c")

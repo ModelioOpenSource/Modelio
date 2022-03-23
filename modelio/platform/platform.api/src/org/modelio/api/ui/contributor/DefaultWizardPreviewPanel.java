@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.contributor;
 
 import java.net.URL;
@@ -55,7 +54,7 @@ public class DefaultWizardPreviewPanel implements IPanelProvider {
      * Default constructor.
      */
     @objid ("ae928eff-f2ec-4312-9d18-342a61540ad9")
-    public DefaultWizardPreviewPanel() {
+    public  DefaultWizardPreviewPanel() {
         this.controller = new WizardPreviewPanelController();
     }
 
@@ -91,6 +90,7 @@ public class DefaultWizardPreviewPanel implements IPanelProvider {
         } else {
             this.controller.setData(null);
         }
+        
     }
 
     @objid ("268d3210-0745-4c6b-bb04-85bb580d8ca5")
@@ -129,7 +129,7 @@ public class DefaultWizardPreviewPanel implements IPanelProvider {
         private Link detailsLink;
 
         @objid ("b16d844a-6e18-4bc0-834b-1e2e8bc53c14")
-        public WizardPreviewPanelUI(WizardPreviewPanelController controller) {
+        public  WizardPreviewPanelUI(WizardPreviewPanelController controller) {
             this.controller = controller;
         }
 
@@ -178,6 +178,7 @@ public class DefaultWizardPreviewPanel implements IPanelProvider {
                 this.previewImage.setImage(null);
             }
             this.previewGroup.dispose();
+            
         }
 
         @objid ("bc6c951f-483f-4eec-9cd5-f01d0f010489")
@@ -197,6 +198,7 @@ public class DefaultWizardPreviewPanel implements IPanelProvider {
                 URL imageUrl = FileLocator.find(bundle, new Path("images/noimagepreview400x300.png"), null);
                 this.previewImage.setImage(ImageDescriptor.createFromURL(imageUrl).createImage(true));
             }
+            
         }
 
         @objid ("c41a81f3-0baa-4a27-955d-895de9209d6d")
@@ -218,6 +220,7 @@ public class DefaultWizardPreviewPanel implements IPanelProvider {
                 this.detailsLink.setText("");
                 this.detailsLink.setData("url", null);
             }
+            
         }
 
     }
@@ -241,6 +244,7 @@ public class DefaultWizardPreviewPanel implements IPanelProvider {
             if (this.ui != null) {
                 this.ui.update(this.data);
             }
+            
         }
 
         @objid ("c95362fd-17f4-472e-b35b-fba1f6b73e2f")
@@ -261,6 +265,7 @@ public class DefaultWizardPreviewPanel implements IPanelProvider {
         public void dispose() {
             this.ui.dispose();
             this.ui = null;
+            
         }
 
         @objid ("f302f7aa-f840-447e-a03f-2764426d4612")
@@ -269,10 +274,11 @@ public class DefaultWizardPreviewPanel implements IPanelProvider {
                 BrowserDialog dialog = new BrowserDialog(getUi().getShell(), helpUrl);
                 dialog.open();
             }
+            
         }
 
         @objid ("507bcd09-60f1-41ba-85c1-0163c2b5a1d4")
-        public WizardPreviewPanelController() {
+        public  WizardPreviewPanelController() {
             super();
         }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures;
 
 import java.util.ArrayList;
@@ -35,18 +34,23 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontData;
+import org.modelio.diagram.elements.core.link.MPoint;
 import org.modelio.diagram.elements.plugin.DiagramElements;
 import org.modelio.platform.ui.CoreFontRegistry;
 
 /**
- * Utility class to make: - ghost shapes. - highlight figures for link or box
+ * Utility class to make:
+ * <ul>
+ * <li>ghost shapes.
+ * <li>highlight figures for link or box
+ * </ul>
  * 
  * @author phv
  */
 @objid ("7f79d9d6-1dec-11e2-8cad-001ec947c8cc")
 public class FigureUtilities2 extends FigureUtilities {
     @objid ("7f79d9da-1dec-11e2-8cad-001ec947c8cc")
-    private static Color ghostLineColor = ColorConstants.darkGray; // new Color(null, 31, 31, 31);
+    private static Color ghostLineColor = ColorConstants.darkGray;
 
     @objid ("7f79d9e9-1dec-11e2-8cad-001ec947c8cc")
     public static IFigure createHighlightFigure(final IFigure feedbackLayer, final IFigure refFigure, final HighlightType type) {
@@ -65,7 +69,6 @@ public class FigureUtilities2 extends FigureUtilities {
 
     /**
      * Get the same font as the given one but smaller.
-     * 
      * @param baseFont the base font
      * @return the smaller font
      */
@@ -80,7 +83,6 @@ public class FigureUtilities2 extends FigureUtilities {
 
     /**
      * Produces a ghosting effect on the shape <i>s</i>.
-     * 
      * @param s the shape
      * @param refFigure unused
      * @return the ghosted shape
@@ -93,9 +95,9 @@ public class FigureUtilities2 extends FigureUtilities {
         }
         s.setForegroundColor(penColor);
         
-        //s.setBackgroundColor(ghostFillColor);
+        // s.setBackgroundColor(ghostFillColor);
         
-        //s.setFillXOR(true);
+        // s.setFillXOR(true);
         s.setFill(false);
         
         s.setOutlineXOR(false);
@@ -106,50 +108,52 @@ public class FigureUtilities2 extends FigureUtilities {
 
     @objid ("7f7c3c1b-1dec-11e2-8cad-001ec947c8cc")
     public static void updateHighlightType(final IFigure highlightFigure, final HighlightType type) {
-        if (highlightFigure instanceof PolylineConnection) {
-            PolylineConnection connectionfigure = (PolylineConnection) highlightFigure;
-            switch (type) {
-                case SUCCESS:
-                    connectionfigure.setForegroundColor(ColorConstants.green);
-                    break;
-                case ERROR:
-                    connectionfigure.setForegroundColor(ColorConstants.red);
-                    break;
-                case WARNING:
-                    connectionfigure.setForegroundColor(ColorConstants.orange);
-                    break;
-                case INFO:
-                    connectionfigure.setForegroundColor(ColorConstants.blue);
-                    break;
-            }
-        } else if (highlightFigure instanceof RectangleFigure) {
+        if (highlightFigure instanceof RectangleFigure) {
             RectangleFigure boxFigure = (RectangleFigure) highlightFigure;
             switch (type) {
-                case SUCCESS:
-                    boxFigure.setBorder(new LineBorder(ColorConstants.lightGreen, 2));
-                    boxFigure.setBackgroundColor(ColorConstants.lightGreen);
-                    boxFigure.setAlpha(50);
-                    break;
-                case ERROR:
-                    boxFigure.setBorder(new LineBorder(ColorConstants.red, 2));
-                    boxFigure.setBackgroundColor(ColorConstants.red);
-                    boxFigure.setAlpha(20);
-                    break;
-                case WARNING:
-                    boxFigure.setBorder(new LineBorder(ColorConstants.orange, 2));
-                    boxFigure.setBackgroundColor(ColorConstants.orange);
-                    boxFigure.setAlpha(120);
-                    break;
-                case INFO:
-                    boxFigure.setBorder(new LineBorder(ColorConstants.blue, 2));
-                    boxFigure.setBackgroundColor(ColorConstants.lightBlue);
-                    boxFigure.setAlpha(50);
-                    break;
+            case SUCCESS:
+                boxFigure.setBorder(new LineBorder(ColorConstants.lightGreen, 2));
+                boxFigure.setBackgroundColor(ColorConstants.lightGreen);
+                boxFigure.setAlpha(50);
+                break;
+            case ERROR:
+                boxFigure.setBorder(new LineBorder(ColorConstants.red, 2));
+                boxFigure.setBackgroundColor(ColorConstants.red);
+                boxFigure.setAlpha(20);
+                break;
+            case WARNING:
+                boxFigure.setBorder(new LineBorder(ColorConstants.orange, 2));
+                boxFigure.setBackgroundColor(ColorConstants.orange);
+                boxFigure.setAlpha(120);
+                break;
+            case INFO:
+                boxFigure.setBorder(new LineBorder(ColorConstants.blue, 2));
+                boxFigure.setBackgroundColor(ColorConstants.lightBlue);
+                boxFigure.setAlpha(50);
+                break;
             }
+        } else if (highlightFigure instanceof PolylineConnection || highlightFigure instanceof Shape) {
+            Shape shapeFigure = (Shape) highlightFigure;
+            switch (type) {
+            case SUCCESS:
+                shapeFigure.setForegroundColor(ColorConstants.green);
+                break;
+            case ERROR:
+                shapeFigure.setForegroundColor(ColorConstants.red);
+                break;
+            case WARNING:
+                shapeFigure.setForegroundColor(ColorConstants.orange);
+                break;
+            case INFO:
+                shapeFigure.setForegroundColor(ColorConstants.blue);
+                break;
+            }
+        
         } else {
             DiagramElements.LOG.warning("updateHighlightType() ignoring unsupported highlight figure type " +
-                                highlightFigure.getClass().getSimpleName());
+                    highlightFigure.getClass().getSimpleName());
         }
+        
     }
 
     @objid ("7f7c3c23-1dec-11e2-8cad-001ec947c8cc")
@@ -167,6 +171,7 @@ public class FigureUtilities2 extends FigureUtilities {
     @objid ("7f79d9f9-1dec-11e2-8cad-001ec947c8cc")
     private static IFigure createHighlightLink(final IFigure feedbackLayer, final PolylineConnection refConnection, final HighlightType type) {
         PolylineConnection highlightFigure = new PolylineConnection();
+        highlightFigure.removeAllPoints();
         highlightFigure.setSourceAnchor(refConnection.getSourceAnchor());
         highlightFigure.setTargetAnchor(refConnection.getTargetAnchor());
         highlightFigure.setConnectionRouter(refConnection.getConnectionRouter());
@@ -175,7 +180,7 @@ public class FigureUtilities2 extends FigureUtilities {
             ArrayList<AbsoluteBendpoint> newRoutingConstraint = new ArrayList<>();
             for (Object o : (ArrayList<?>) refConnection.getRoutingConstraint()) {
                 if (o instanceof AbsoluteBendpoint) {
-                    AbsoluteBendpoint point = new AbsoluteBendpoint((AbsoluteBendpoint) o);
+                    AbsoluteBendpoint point = new MPoint((AbsoluteBendpoint) o, true);
                     refConnection.translateToAbsolute(point);
                     feedbackLayer.translateToRelative(point);
                     newRoutingConstraint.add(point);
@@ -217,19 +222,26 @@ public class FigureUtilities2 extends FigureUtilities {
             return 10;
         
         default:
-            if (height < 8)
+            if (height < 8) {
                 return height;
-            else
+            } else {
                 return height * 10 / 14;
+            }
         }
+        
     }
 
     @objid ("7f7c3c33-1dec-11e2-8cad-001ec947c8cc")
     public enum HighlightType {
+        @objid ("7f7c3c34-1dec-11e2-8cad-001ec947c8cc")
         ERROR,
+        @objid ("7f7c3c35-1dec-11e2-8cad-001ec947c8cc")
         WARNING,
+        @objid ("7f7c3c36-1dec-11e2-8cad-001ec947c8cc")
         SUCCESS,
+        @objid ("7f7c3c37-1dec-11e2-8cad-001ec947c8cc")
         INFO;
+
     }
 
 }

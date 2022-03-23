@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.policies;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,11 +30,9 @@ import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.modelio.diagram.elements.core.helpers.RequestHelper;
 
 /**
- * Same as {@link org.eclipse.gef.editpolicies.ResizableEditPolicy} without
- * feedback nor selection handles.
+ * Same as {@link org.eclipse.gef.editpolicies.ResizableEditPolicy} without feedback nor selection handles.
  * <p>
- * This policy is meant to be put on edit part the user shouldn't select
- * but that should be able to respond to move and resize requests created internally.
+ * This policy is meant to be put on edit part the user shouldn't select but that should be able to respond to move and resize requests created internally.
  * 
  * @author cmarin
  * @since 3.4
@@ -43,9 +40,7 @@ import org.modelio.diagram.elements.core.helpers.RequestHelper;
 @objid ("9624b358-e041-432c-beac-15fef8719d76")
 public class ProgrammaticOnlyDragPolicy extends GraphicalEditPolicy {
     /**
-     * Returns <code>true</code> for move, align, add, and orphan request types.
-     * This method is never called for some of these types, but they are
-     * included for possible future use.
+     * Returns <code>true</code> for move, align, add, and orphan request types. This method is never called for some of these types, but they are included for possible future use.
      * @see org.eclipse.gef.EditPolicy#understandsRequest(org.eclipse.gef.Request)
      */
     @objid ("a6b7d19d-9160-4d12-8c15-427935d92b67")
@@ -92,7 +87,6 @@ public class ProgrammaticOnlyDragPolicy extends GraphicalEditPolicy {
 
     /**
      * Returns the command contribution to an alignment request
-     * 
      * @param request the alignment request
      * @return the contribution to the alignment
      */
@@ -106,11 +100,7 @@ public class ProgrammaticOnlyDragPolicy extends GraphicalEditPolicy {
     }
 
     /**
-     * Returns the command contribution to a change bounds request. The
-     * implementation actually redispatches the request to the host's parent
-     * editpart as a {@link RequestConstants#REQ_MOVE_CHILDREN} request. The
-     * parent's contribution is returned.
-     * 
+     * Returns the command contribution to a change bounds request. The implementation actually redispatches the request to the host's parent editpart as a {@link RequestConstants#REQ_MOVE_CHILDREN} request. The parent's contribution is returned.
      * @param request the change bounds request
      * @return the command contribution to the request
      */
@@ -123,16 +113,13 @@ public class ProgrammaticOnlyDragPolicy extends GraphicalEditPolicy {
         req.setSizeDelta(request.getSizeDelta());
         req.setLocation(request.getLocation());
         req.setExtendedData(request.getExtendedData());
+        RequestHelper.addSharedEditParts(req, request);
         return getHost().getParent().getCommand(req);
     }
 
     /**
-     * Subclasses may override to contribute to the orphan request. By default,
-     * <code>null</code> is returned to indicate no participation. Orphan
-     * requests are not forwarded to the host's parent here. That is done in
-     * {@link ComponentEditPolicy}. So, if the host has a component editpolicy,
-     * then the parent will already have a chance to contribute.
-     * 
+     * Subclasses may override to contribute to the orphan request. By default, <code>null</code> is returned to indicate no participation. Orphan requests are not forwarded to the host's parent here. That is done in {@link ComponentEditPolicy}. So, if the
+     * host has a component editpolicy, then the parent will already have a chance to contribute.
      * @param req the orphan request
      * @return <code>null</code> by default
      */
@@ -142,12 +129,8 @@ public class ProgrammaticOnlyDragPolicy extends GraphicalEditPolicy {
     }
 
     /**
-     * Returns the command contribution for the given resize request. By
-     * default, the request is re-dispatched to the host's parent as a
-     * {@link org.eclipse.gef.RequestConstants#REQ_RESIZE_CHILDREN}. The
-     * parent's edit policies determine how to perform the resize based on the
-     * layout manager in use.
-     * 
+     * Returns the command contribution for the given resize request. By default, the request is re-dispatched to the host's parent as a {@link org.eclipse.gef.RequestConstants#REQ_RESIZE_CHILDREN}. The parent's edit policies determine how to perform the
+     * resize based on the layout manager in use.
      * @param request the resize request
      * @return the command contribution obtained from the parent
      */
@@ -156,6 +139,7 @@ public class ProgrammaticOnlyDragPolicy extends GraphicalEditPolicy {
         ChangeBoundsRequest req = RequestHelper.shallowCopy(request);
         req.setType(REQ_RESIZE_CHILDREN);
         req.setEditParts(getHost());
+        RequestHelper.addSharedEditParts(req, request);
         return getHost().getParent().getCommand(req);
     }
 

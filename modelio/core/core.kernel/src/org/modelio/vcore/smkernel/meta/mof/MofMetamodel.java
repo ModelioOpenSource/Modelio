@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta.mof;
 
 import java.util.Collection;
@@ -34,7 +33,6 @@ import org.modelio.vcore.smkernel.mapi.MAttribute;
 import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MDependency;
 import org.modelio.vcore.smkernel.mapi.MMetamodel;
-import org.modelio.vcore.smkernel.mapi.MMetamodelFragment;
 import org.modelio.vcore.smkernel.mapi.MetaclassAlreadyExistException;
 import org.modelio.vcore.smkernel.meta.FakeSmClassBuilder;
 import org.modelio.vcore.smkernel.meta.ISmMetamodelFragment;
@@ -67,7 +65,6 @@ public class MofMetamodel extends SmMetamodel {
      * <p>
      * The copy will have a copy of the same dependencies as the source.
      * The dependency copies will point to the same target metaclass as the copied ones.
-     * 
      * @param origCls the metaclass to copy
      * @param name the new metaclass short name
      * @param fragment the new metaclass fragment.
@@ -109,7 +106,6 @@ public class MofMetamodel extends SmMetamodel {
      * <p>
      * This class implements {@link AutoCloseable} and should be
      * used in a <i>try-with-resources</i> statement.
-     * 
      * @return a builder to create new MOF metaclasses and dependencies.
      */
     @objid ("42cfd27a-3f0b-417e-b85a-68a3649a6707")
@@ -121,7 +117,6 @@ public class MofMetamodel extends SmMetamodel {
      * Copy a metamodel into this metamodel.
      * <p>
      * All copies metaclass will be converted to MOF metaclasses.
-     * 
      * @param original the metamodel to copy
      */
     @objid ("bfd92201-2995-4203-9753-a0f4554033ba")
@@ -131,17 +126,17 @@ public class MofMetamodel extends SmMetamodel {
         
         // Create empty metamodel fragments for each original metamodel fragment
         // absent in this metamodel.
-        for (MMetamodelFragment origFrag : original.getFragments(true)) {
+        for (ISmMetamodelFragment origFrag : original.getFragments(true)) {
             if (getFragment(origFrag.getName()) == null) {
                 MofMetamodelFragment mofFr = new MofMetamodelFragment(
-                        origFrag.getName(), 
+                        origFrag.getName(),
                         origFrag.getVersion(),
                         origFrag.isExtension())
                         .setProvider(origFrag.getProvider())
                         .setProviderVersion(origFrag.getProviderVersion());
         
                 addMetamodelFragment(mofFr);
-                copiedFragMaps.put((ISmMetamodelFragment) origFrag, mofFr);
+                copiedFragMaps.put(origFrag, mofFr);
             }
         }
         
@@ -162,7 +157,7 @@ public class MofMetamodel extends SmMetamodel {
             }
         
             MofSmClass mofCls = createStubCopy(origCls, origin);
-            
+        
             clsMap.put(origCls, mofCls);
         }
         
@@ -195,7 +190,7 @@ public class MofMetamodel extends SmMetamodel {
                 mofDep.setCardinality(origDep.getMinCardinality(), origDep.getMaxCardinality());
         
                 mofCls.addDependency(mofDep);
-                
+        
                 // set the original opposite as temporary symetric
                 mofDep.setSymetric((SmDependency) origDep.getSymetric());
             }
@@ -226,7 +221,7 @@ public class MofMetamodel extends SmMetamodel {
                     } else {
                         Log.warning("MofMetamodel.copy: No matching '%s' dependency found in '%s'", origSym, origTarget.getQualifiedName());
                     }
-                } 
+                }
             }
         }
         
@@ -234,13 +229,13 @@ public class MofMetamodel extends SmMetamodel {
         for (MofSmClass mofCls : clsMap.values()) {
             mofCls.ensurePostInit();
         }
+        
     }
 
     /**
      * Find or create the metamodel fragment with the given name.
      * <p>
      * If absent, a new extension metamodel fragment with 1.0.00 version is created.
-     * 
      * @param fragmentName the metamodel fragment name.
      * @return the found or created metamodel fragment .
      */
@@ -272,14 +267,15 @@ public class MofMetamodel extends SmMetamodel {
                                 .withMetaclassFilter(mc -> !( mc instanceof MofSmClass) || !((MofSmClass)mc).isTemporary())
                                 .withFragmentFilter(mf -> !( mf instanceof MofMetamodelFragment) || !((MofMetamodelFragment)mf).isTemporary())
                                 .run(this);
+        
     }
 
     @objid ("a4005620-24a8-4d75-ad05-287cac22c69f")
     private MofSmClass createStubCopy(MClass origCls, ISmMetamodelFragment origin) {
         MofSmClass mofCls = new MofSmClass(
-                origin != null ? origin : getOrCreateFragment(MClassRef.fromQualifiedName(origCls.getQualifiedName()).getFragmentName()), 
-                origCls.getName(), 
-                origCls.getQualifiedName(), 
+                origin != null ? origin : getOrCreateFragment(MClassRef.fromQualifiedName(origCls.getQualifiedName()).getFragmentName()),
+                origCls.getName(),
+                origCls.getQualifiedName(),
                 origCls.isCmsNode());
         mofCls.setAbstract(origCls.isAbstract());
         mofCls.setLinkMetaclass(origCls.isLinkMetaclass());
@@ -336,14 +332,13 @@ public class MofMetamodel extends SmMetamodel {
 
         /**
          * Initialize the builder for a 0..* {noPartOf} dependency
-         * @param source
-         * @param name
          */
         @objid ("1e6d0b95-b363-4345-adfe-e2bb40702ac3")
-        DepBuilder(MofSmClass source, String name) {
+         DepBuilder(MofSmClass source, String name) {
             this.name = name;
             this.source = source;
             this.temporary = true;
+            
         }
 
         /**
@@ -379,7 +374,6 @@ public class MofMetamodel extends SmMetamodel {
 
         /**
          * Set the dependency opposite.
-         * 
          * @param opposite the dependency opposite.
          * @return this instance.
          */
@@ -394,7 +388,6 @@ public class MofMetamodel extends SmMetamodel {
          * Set the opposite dependency from its name in the target metaclass.
          * <p>
          * The opposite dependency must already exist.
-         * 
          * @param opposite the opposite dependency name.
          * @return this instance.
          */
@@ -411,7 +404,6 @@ public class MofMetamodel extends SmMetamodel {
 
         /**
          * Build the {@link MofSmDependency} and its opposite if asked for.
-         * 
          * @return the built {@link MofSmDependency}.
          */
         @objid ("ae7e5478-6f79-462b-9394-500982e3ee62")
@@ -448,7 +440,6 @@ public class MofMetamodel extends SmMetamodel {
 
         /**
          * Create the opposite dependency.
-         * 
          * @param oppositeName the opposite name
          * @param oppCardMin the minimum cardinality
          * @param oppCardMax the maximum cardinality
@@ -466,12 +457,11 @@ public class MofMetamodel extends SmMetamodel {
          * Copy another dependency.
          * <p>
          * This dependency and the other will have the same opposite.
-         * 
          * @param orig the dependency to copy
          * @param source the source metaclass of the copy
          */
         @objid ("b9409c53-9c94-4307-aef5-08ea108e22c0")
-        DepBuilder(SmDependency orig, SmClass source) {
+         DepBuilder(SmDependency orig, SmClass source) {
             this.name = orig.getName();
             this.target = (MofSmClass) orig.getTarget();
             this.cardMin = orig.getMinCardinality();
@@ -479,6 +469,7 @@ public class MofMetamodel extends SmMetamodel {
             this.opposite = (MofSmDependency) orig.getSymetric();
             this.flags = orig.getDirectives().isEmpty() ? EnumSet.noneOf(SmDirective.class) : EnumSet.copyOf(orig.getDirectives());
             this.source = (MofSmClass) source;
+            
         }
 
         @objid ("a3c139f5-4680-44ad-8477-94a0968221d2")
@@ -506,7 +497,6 @@ public class MofMetamodel extends SmMetamodel {
 
         /**
          * Means the role is an opposite role.
-         * 
          * @return this instance.
          */
         @objid ("69325b57-6105-4afc-ad7e-fe76410e5898")
@@ -519,7 +509,6 @@ public class MofMetamodel extends SmMetamodel {
 
         /**
          * Means the target must be deleted with the source.
-         * 
          * @return this instance.
          */
         @objid ("99d53888-f5dd-438d-9e63-17e715f13bf0")
@@ -536,7 +525,6 @@ public class MofMetamodel extends SmMetamodel {
 
         /**
          * Create the opposite dependency.
-         * 
          * @param oppositeName the opposite name
          * @param oppositeInitializer a consumer that further initializes the opposite dependency.
          * @return this instance
@@ -552,7 +540,6 @@ public class MofMetamodel extends SmMetamodel {
          * Set whether build meta elements are temporary.
          * <p>
          * Temporary elements are not persisted in {@link MofMetamodel#serialize()}.
-         * 
          * @param temporary whether build meta elements are temporary.
          * @return this instance.
          */
@@ -564,7 +551,6 @@ public class MofMetamodel extends SmMetamodel {
 
         /**
          * Build the dependency only if it does not already exist.
-         * 
          * @return the found or built dependency
          */
         @objid ("e1568c5c-4a03-444f-8592-4d92ddb2feab")
@@ -581,7 +567,6 @@ public class MofMetamodel extends SmMetamodel {
 
         /**
          * Means the role is a navigable {partOf} role.
-         * 
          * @return this instance.
          */
         @objid ("252fddd9-a22c-4f75-80c8-02d7519b149d")
@@ -609,7 +594,6 @@ public class MofMetamodel extends SmMetamodel {
 
         /**
          * Get a builder to create a metaclass.
-         * 
          * @param clsName the metaclass name
          * @param fragmentName the metamodel fragment name
          * @param isCmsNode whether it is a CMS node
@@ -622,7 +606,6 @@ public class MofMetamodel extends SmMetamodel {
 
         /**
          * Initialize the builder for a 0..* {noPartOf} dependency without source.
-         * 
          * @param name the dependency name
          * @return a builder to create the dependency.
          */
@@ -635,7 +618,6 @@ public class MofMetamodel extends SmMetamodel {
          * Build a copy of the given dependency.
          * <p>
          * The original and the copy are configured to share the same opposite.
-         * 
          * @param orig the dependency to copy
          * @param modelElCls the source of the dependency copy
          * @return a builder to create the dependency.
@@ -654,13 +636,13 @@ public class MofMetamodel extends SmMetamodel {
                     ((MofSmClass) cls).ensurePostInit();
                 }
             }
+            
         }
 
         /**
          * Set whether build meta elements are temporary.
          * <p>
          * Temporary elements are not persisted in {@link MofMetamodel#serialize()}.
-         * 
          * @param temporary whether build meta elements are temporary.
          * @return this instance.
          */
@@ -682,12 +664,13 @@ public class MofMetamodel extends SmMetamodel {
         private final MofSmClass built;
 
         @objid ("e8da694c-bc24-40c4-839f-18829c978217")
-        MofClassBuilder(String clsName, String fragmentName, boolean isCmsNode) {
+         MofClassBuilder(String clsName, String fragmentName, boolean isCmsNode) {
             ISmMetamodelFragment origin = getOrCreateFragment(fragmentName);
             String qualifiedName = fragmentName+"."+clsName;
             this.built = new MofSmClass(origin, clsName, qualifiedName, isCmsNode);
             this.built.setTemporary(true);
             this.built.load(MofMetamodel.this);
+            
         }
 
         @objid ("102e99c0-9dfe-4915-b72f-c506b9c9840c")
@@ -724,7 +707,6 @@ public class MofMetamodel extends SmMetamodel {
 
         /**
          * Create a SmDirective.SMCDPARTOF 0..* dependency builder.
-         * 
          * @param name the dependency name
          * @return the dependency builder for further initializations.
          */
@@ -737,7 +719,6 @@ public class MofMetamodel extends SmMetamodel {
 
         /**
          * Finish the metaclass building.
-         * 
          * @return the built metaclass
          */
         @objid ("1cd3b42b-0a6d-4398-9d3d-92825c9ebacc")
@@ -761,7 +742,6 @@ public class MofMetamodel extends SmMetamodel {
          * Set whether build meta elements are temporary.
          * <p>
          * Temporary elements are not persisted in {@link MofMetamodel#serialize()}.
-         * 
          * @param isTemp whether build meta elements are temporary.
          * @return this instance.
          */
@@ -776,7 +756,7 @@ public class MofMetamodel extends SmMetamodel {
     @objid ("7a30da55-0d05-4656-8294-d1c81368d7c7")
     protected static class MofFakeSmClassBuilder extends FakeSmClassBuilder {
         @objid ("41f17ef2-6217-44dd-b96e-474a2de54e37")
-        protected MofFakeSmClassBuilder(SmMetamodel mm) {
+        protected  MofFakeSmClassBuilder(SmMetamodel mm) {
             super(mm);
         }
 

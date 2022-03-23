@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model.spi.mm;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,7 +34,6 @@ public class BuildCompatibleMigrationProvider implements IMigrationProvider {
     /**
      * Returns a {@link NoopMofRepositoryMigrator} if the target metamodel is build compatible
      * with the source metamodel. returns null in all other cases.
-     * 
      * @param fromMetamodel the given metamodel
      * @param targetMetamodel the target metamodel
      * @return the metamodel after this migrator would run.
@@ -48,6 +46,7 @@ public class BuildCompatibleMigrationProvider implements IMigrationProvider {
         } else {
             return null;
         }
+        
     }
 
 }

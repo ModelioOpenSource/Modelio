@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.util;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -111,6 +110,7 @@ public class ModelUtils {
                 transOwner.setProcessed((Operation)objFeature);
             }
         }
+        
     }
 
     @objid ("5ea56988-9496-4690-bdd7-d030089f185c")
@@ -183,6 +183,7 @@ public class ModelUtils {
         
             ((InteractionFragment) objGate).setLineNumber(lineNumber);
         }
+        
     }
 
     @objid ("5cd1dd13-0abe-4072-9cee-9033476189c5")
@@ -205,6 +206,7 @@ public class ModelUtils {
         }else if (objGate instanceof StateInvariant) {
             ((StateInvariant) objGate).setEndLineNumber(lineNumber);
         }
+        
     }
 
     @objid ("1705c8f0-35a1-480e-a4b0-18f237659499")

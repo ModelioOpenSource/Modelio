@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-SymbolicName: org.modelio.app.propertyview;singleton:=true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Name: PropertyView
-Bundle-Version: 4.1.0.qualifier
+Bundle-Version: 5.1.0.qualifier
 Bundle-Localization: plugin
 Bundle-ClassPath: res/,.
 Require-Bundle: org.eclipse.jface,

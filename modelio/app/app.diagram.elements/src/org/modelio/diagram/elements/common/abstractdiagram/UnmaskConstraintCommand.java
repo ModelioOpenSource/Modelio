@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.abstractdiagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,16 +43,16 @@ public class UnmaskConstraintCommand extends Command {
 
     /**
      * C'tor.
-     * 
      * @param theConstraint the constraint to unmask.
      * @param host the edit part of the diagram in which to unmask it.
      * @param initialLayoutData the initial layout data for the node part
      */
     @objid ("7e2024c9-1dec-11e2-8cad-001ec947c8cc")
-    public UnmaskConstraintCommand(final Constraint theConstraint, final AbstractDiagramEditPart host, final Object initialLayoutData) {
+    public  UnmaskConstraintCommand(final Constraint theConstraint, final AbstractDiagramEditPart host, final Object initialLayoutData) {
         this.theConstraint = theConstraint;
         this.diagram = (IGmDiagram) host.getModel();
         this.constraint = initialLayoutData;
+        
     }
 
     @objid ("7e2024d2-1dec-11e2-8cad-001ec947c8cc")

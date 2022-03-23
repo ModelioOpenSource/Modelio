@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.instance;
 
 import java.util.Collections;
@@ -30,8 +29,8 @@ import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.ShowNameMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.ShowNameMode;
 import org.modelio.metamodel.uml.statik.Instance;
 import org.modelio.vcore.smkernel.mapi.MRef;
 
@@ -56,21 +55,22 @@ public class GmInstanceLabel extends GmDefaultModelElementLabel {
      * constructor to be used only for deserialization
      */
     @objid ("35370cfd-55b7-11e2-877f-002564c97630")
-    public GmInstanceLabel() {
+    public  GmInstanceLabel() {
+        
     }
 
     /**
      * Creates an instance label.
-     * 
      * @param diagram the owning graphic diagram, may not be <tt>null</tt>.
      * @param el the represented instance, may be <tt>null</tt>.
      * @param ref the represented instance reference, may not be <tt>null</tt>.
      */
     @objid ("35370d00-55b7-11e2-877f-002564c97630")
-    public GmInstanceLabel(IGmDiagram diagram, Instance el, MRef ref) {
+    public  GmInstanceLabel(IGmDiagram diagram, Instance el, MRef ref) {
         super(diagram, ref);
         
         this.element = el;
+        
     }
 
     @objid ("35370d0c-55b7-11e2-877f-002564c97630")
@@ -92,6 +92,7 @@ public class GmInstanceLabel extends GmDefaultModelElementLabel {
             return InstanceSymbolProvider.computeSimpleLabel(inst);
         
         }
+        
     }
 
     @objid ("35370d33-55b7-11e2-877f-002564c97630")
@@ -149,6 +150,7 @@ public class GmInstanceLabel extends GmDefaultModelElementLabel {
             break;
         }
         }
+        
     }
 
     @objid ("353893bb-55b7-11e2-877f-002564c97630")
@@ -161,6 +163,7 @@ public class GmInstanceLabel extends GmDefaultModelElementLabel {
         }
         
         super.styleChanged(property, newValue);
+        
     }
 
     @objid ("353893c4-55b7-11e2-877f-002564c97630")
@@ -171,6 +174,7 @@ public class GmInstanceLabel extends GmDefaultModelElementLabel {
         }
         
         super.styleChanged(changedStyle);
+        
     }
 
     @objid ("353893cf-55b7-11e2-877f-002564c97630")
@@ -180,12 +184,14 @@ public class GmInstanceLabel extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmInstanceLabel.", GmInstanceLabel.MINOR_VERSION);
+        
     }
 
     @objid ("353893d5-55b7-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (Instance) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("353893da-55b7-11e2-877f-002564c97630")

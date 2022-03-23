@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.commonBehaviors;
 
 import java.util.ArrayList;
@@ -30,8 +30,6 @@ import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.behavior.activityModel.AcceptSignalActionSmClass;
 import org.modelio.metamodel.impl.uml.behavior.activityModel.SendSignalActionSmClass;
-import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.EventSmClass;
-import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.SignalData;
 import org.modelio.metamodel.impl.uml.behavior.communicationModel.CommunicationMessageSmClass;
 import org.modelio.metamodel.impl.uml.behavior.interactionModel.MessageSmClass;
 import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.TransitionSmClass;
@@ -102,7 +100,7 @@ public class SignalSmClass extends GeneralClassSmClass {
     private SmDependency receiverDep;
 
     @objid ("c969b508-26b8-4afe-bca4-c6e22fbd0fa2")
-    public SignalSmClass(ISmMetamodelFragment origin) {
+    public  SignalSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -110,6 +108,7 @@ public class SignalSmClass extends GeneralClassSmClass {
     @Override
     public String getName() {
         return "Signal";
+        
     }
 
     @objid ("bad05428-c0cd-4281-8f47-6e1021ede38d")
@@ -122,18 +121,21 @@ public class SignalSmClass extends GeneralClassSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Signal.class;
+        
     }
 
     @objid ("655fccf5-5d71-4d76-82a3-b334d66e0cd5")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("85d27296-94f9-41ee-a4a1-29449aeea0c1")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("63c0ae62-f70e-4203-b1ba-b8d4b6ac5c68")
@@ -193,6 +195,8 @@ public class SignalSmClass extends GeneralClassSmClass {
         this.receiverDep = new ReceiverSmDependency();
         this.receiverDep.init("Receiver", this, metamodel.getMClass(AcceptSignalAction.MQNAME), 0, -1 );
         registerDependency(this.receiverDep);
+        
+        
     }
 
     @objid ("bcf023ce-9d9b-43ae-9bd2-fca0646fcc8f")
@@ -297,7 +301,7 @@ public class SignalSmClass extends GeneralClassSmClass {
         private SignalSmClass smClass;
 
         @objid ("826b1caa-b541-4b73-b5c0-ec696faae1b2")
-        public SignalObjectFactory(SignalSmClass smClass) {
+        public  SignalObjectFactory(SignalSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -358,6 +362,7 @@ public class SignalSmClass extends GeneralClassSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((SignalData) data).mSender = values;
+            
         }
 
         @objid ("795292fa-09c6-4767-9f01-c006af3278fb")
@@ -367,6 +372,7 @@ public class SignalSmClass extends GeneralClassSmClass {
             	this.symetricDep = ((SendSignalActionSmClass)this.getTarget()).getSentDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -386,6 +392,7 @@ public class SignalSmClass extends GeneralClassSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((SignalData) data).mUsage = values;
+            
         }
 
         @objid ("dc90d792-1064-4d16-8d24-01fdd4beef50")
@@ -395,6 +402,7 @@ public class SignalSmClass extends GeneralClassSmClass {
             	this.symetricDep = ((MessageSmClass)this.getTarget()).getSignalSignatureDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -414,6 +422,7 @@ public class SignalSmClass extends GeneralClassSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((SignalData) data).mSends = values;
+            
         }
 
         @objid ("7325b16b-d417-4072-8b2c-0a39c27fd5c4")
@@ -423,6 +432,7 @@ public class SignalSmClass extends GeneralClassSmClass {
             	this.symetricDep = ((TransitionSmClass)this.getTarget()).getEffectsDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -451,6 +461,7 @@ public class SignalSmClass extends GeneralClassSmClass {
             	this.symetricDep = ((ParameterSmClass)this.getTarget()).getSRepresentationDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -479,6 +490,7 @@ public class SignalSmClass extends GeneralClassSmClass {
             	this.symetricDep = ((OperationSmClass)this.getTarget()).getSRepresentationDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -498,6 +510,7 @@ public class SignalSmClass extends GeneralClassSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((SignalData) data).mCommunicationUsage = values;
+            
         }
 
         @objid ("13f50404-eb80-4833-93dc-3d4f7f878aa5")
@@ -507,6 +520,7 @@ public class SignalSmClass extends GeneralClassSmClass {
             	this.symetricDep = ((CommunicationMessageSmClass)this.getTarget()).getSignalSignatureDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -526,6 +540,7 @@ public class SignalSmClass extends GeneralClassSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((SignalData) data).mDOccurence = values;
+            
         }
 
         @objid ("e0999cc8-1fed-4ab9-889b-30435d6bb604")
@@ -535,6 +550,7 @@ public class SignalSmClass extends GeneralClassSmClass {
             	this.symetricDep = ((DataFlowSmClass)this.getTarget()).getSModelDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -554,6 +570,7 @@ public class SignalSmClass extends GeneralClassSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((SignalData) data).mEOccurence = values;
+            
         }
 
         @objid ("083bc365-1c74-4ff8-9f37-690e53043569")
@@ -563,6 +580,7 @@ public class SignalSmClass extends GeneralClassSmClass {
             	this.symetricDep = ((EventSmClass)this.getTarget()).getModelDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -591,6 +609,7 @@ public class SignalSmClass extends GeneralClassSmClass {
             	this.symetricDep = ((GeneralClassSmClass)this.getTarget()).getSRepresentationDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -610,6 +629,7 @@ public class SignalSmClass extends GeneralClassSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((SignalData) data).mReceiver = values;
+            
         }
 
         @objid ("19ad560c-8f3f-431a-8c12-24324258e6f2")
@@ -619,6 +639,7 @@ public class SignalSmClass extends GeneralClassSmClass {
             	this.symetricDep = ((AcceptSignalActionSmClass)this.getTarget()).getAcceptedDep();
             }
             return this.symetricDep;
+            
         }
 
     }

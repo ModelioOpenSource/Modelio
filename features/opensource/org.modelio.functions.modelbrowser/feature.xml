@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature id="org.modelio.functions.modelbrowser"
          label="Functions Model Browser"
-         version="4.1.0.qualifier"
+         version="5.1.0.qualifier"
          provider-name="modelio.org">
 
 <copyright>

@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.production.process;
 
 import java.util.Map;
-import javax.xml.bind.JAXBElement;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.xml.bind.JAXBElement;
 import org.modelio.bpmnxml.model.ObjectFactory;
 import org.modelio.bpmnxml.model.TBaseElement;
 import org.modelio.bpmnxml.model.TLane;
@@ -41,7 +40,7 @@ import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("af0929f7-c344-45f8-9481-831740caa5ff")
-public class LaneNode implements IProductionNode<BpmnLane,TLane> {
+public class LaneNode implements IProductionNode<BpmnLane, TLane> {
     @objid ("2723b0bb-ad04-4c06-811c-e4a522f7301c")
     private Map<String, Object> elementsMap;
 
@@ -78,6 +77,7 @@ public class LaneNode implements IProductionNode<BpmnLane,TLane> {
         } else {
             return factory.create(BpmnLane.class, context);
         }
+        
     }
 
     @objid ("6bf12e6a-dd80-4c0a-877a-f946d92829ce")

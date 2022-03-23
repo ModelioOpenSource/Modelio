@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.jdbm;
 
 import java.io.IOException;
@@ -46,7 +45,7 @@ class BlobsRepository {
     private Path blobsPath;
 
     @objid ("f63a2865-b72d-4921-a291-e3d153989ada")
-    public BlobsRepository(Path blobsPath) {
+    public  BlobsRepository(Path blobsPath) {
         this.blobsPath = blobsPath;
     }
 
@@ -84,6 +83,7 @@ class BlobsRepository {
         } else {
             return null;
         }
+        
     }
 
     @objid ("ae2178c8-554b-431a-a08d-f8eb88939ece")
@@ -96,17 +96,18 @@ class BlobsRepository {
         } else {
             return null;
         }
+        
     }
 
     @objid ("07f1abba-a368-4fd0-ab9e-4dc42456cbd8")
     public void removeBlob(String blob) throws IOException {
         Path blobPath = getBlobPath(blob);
         Files.deleteIfExists(blobPath);
+        
     }
 
     /**
      * Compute the path of a blob file.
-     * 
      * @param blobKey the blob key
      * @return the blob file path relative to the repository path.
      */
@@ -120,7 +121,6 @@ class BlobsRepository {
 
     /**
      * Decode the blob key from a blob file path.
-     * 
      * @param file a blob file path.
      * @return the blob key.
      */
@@ -154,6 +154,7 @@ class BlobsRepository {
                 return Stream.empty();
             }
         }
+        
     }
 
 }

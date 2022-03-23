@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.audit;
 
 import java.util.List;
@@ -41,7 +40,7 @@ public class UmlConfigurationPlan implements IAuditConfigurationPlan {
     private List<AuditCategory> rootCategories;
 
     @objid ("fce7a07b-c9fe-4e34-902c-9855ad6e679e")
-    public UmlConfigurationPlan(List<AuditCategory> rootCategories) {
+    public  UmlConfigurationPlan(List<AuditCategory> rootCategories) {
         this.rootCategories = rootCategories;
     }
 

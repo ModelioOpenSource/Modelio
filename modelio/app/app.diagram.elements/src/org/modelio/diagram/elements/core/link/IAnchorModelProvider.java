@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,7 +35,6 @@ import org.modelio.diagram.persistence.IPersistent;
 public interface IAnchorModelProvider extends NodeEditPart {
     /**
      * Create a serializable anchor model from the given anchor.
-     * 
      * @param anchor a figure anchor
      * @return an anchor model.
      */

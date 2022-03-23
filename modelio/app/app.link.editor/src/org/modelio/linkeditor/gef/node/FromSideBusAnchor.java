@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.gef.node;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,9 +31,10 @@ public class FromSideBusAnchor extends AbstractConnectionAnchor {
     private boolean vertical;
 
     @objid ("1bb03361-5e33-11e2-b81d-002564c97630")
-    public FromSideBusAnchor(final IFigure owner, boolean vertical) {
+    public  FromSideBusAnchor(final IFigure owner, boolean vertical) {
         super(owner);
         this.vertical = vertical;
+        
     }
 
     @objid ("1bb03367-5e33-11e2-b81d-002564c97630")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.gui.creation.doctype;
 
 import java.util.ArrayList;
@@ -39,10 +38,11 @@ class AdapterStereotype implements IAdaptable {
     private Stereotype stereotype;
 
     @objid ("abd82267-aa31-466b-8029-5df5b17012d0")
-    public AdapterStereotype(Stereotype stereotype, AdapterModule parent) {
+    public  AdapterStereotype(Stereotype stereotype, AdapterModule parent) {
         this.stereotype = stereotype;
         this.parent = parent;
         this.noteAdapters = new ArrayList<>();
+        
     }
 
     @objid ("00f78da4-0e10-40e9-b1bd-829b662ea573")

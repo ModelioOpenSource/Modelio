@@ -17,19 +17,19 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.communicationdiagram.editor.elements.communicationdiagram;
 
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.elements.common.abstractdiagram.GmAbstractDiagram;
 import org.modelio.diagram.elements.core.model.GmAbstractObject;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.diagrams.CommunicationDiagram;
 import org.modelio.metamodel.uml.behavior.communicationModel.CommunicationChannel;
 import org.modelio.metamodel.uml.behavior.communicationModel.CommunicationNode;
@@ -62,15 +62,15 @@ public class GmCommunicationDiagram extends GmAbstractDiagram {
 
     /**
      * Initialize the diagram.
-     * 
      * @param manager The model manager
      * @param theCommunicationDiagram the displayed diagram.
      * @param diagramRef the reference of the displayed diagram. Must reference a {@link CommunicationDiagram}.
      */
     @objid ("7a299d3e-55b6-11e2-877f-002564c97630")
-    public GmCommunicationDiagram(IModelManager manager, CommunicationDiagram theCommunicationDiagram, MRef diagramRef) {
+    public  GmCommunicationDiagram(IModelManager manager, CommunicationDiagram theCommunicationDiagram, MRef diagramRef) {
         super(manager, diagramRef);
         this.element = theCommunicationDiagram;
+        
     }
 
     @objid ("7a299d4d-55b6-11e2-877f-002564c97630")
@@ -140,6 +140,7 @@ public class GmCommunicationDiagram extends GmAbstractDiagram {
             break;
         }
         }
+        
     }
 
     @objid ("7a2b23e2-55b6-11e2-877f-002564c97630")
@@ -167,12 +168,14 @@ public class GmCommunicationDiagram extends GmAbstractDiagram {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmCommunicationDiagram.", GmCommunicationDiagram.MINOR_VERSION);
+        
     }
 
     @objid ("7a2b23f9-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (CommunicationDiagram) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("7a2caa59-55b6-11e2-877f-002564c97630")

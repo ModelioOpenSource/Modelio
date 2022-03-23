@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.panelprovider;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -87,11 +86,10 @@ public class NotesPanelToolbar implements IPanelProvider {
 
     /**
      * C'Tor
-     * 
      * @param controller the controller of the GUI panel owning the tool bar
      */
     @objid ("3e929c96-c812-4811-8401-f0783c4a15d6")
-    public NotesPanelToolbar(NotesPanelController controller) {
+    public  NotesPanelToolbar(NotesPanelController controller) {
         NotesPanelToolbar.this.controller = controller;
     }
 
@@ -255,11 +253,11 @@ public class NotesPanelToolbar implements IPanelProvider {
         this.verticalLayout.setSelection(this.controller.isVerticalLayout());
         this.horizontalLayout.setSelection(this.controller.isHorizontalLayout());
         this.autoLayout.setSelection(this.controller.isAutoLayout());
+        
     }
 
     /**
      * Helper function to create tool item
-     * 
      * @param parent the parent toolbar
      * @param iconDescriptor the image to display on the tool item
      * @param tooltip the tool tip text for the tool item

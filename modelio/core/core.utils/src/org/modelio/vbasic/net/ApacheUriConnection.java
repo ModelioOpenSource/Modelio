@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.net;
 
 import java.io.IOException;
@@ -33,8 +32,8 @@ import org.apache.http.HttpHeaders;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
 import org.apache.http.client.HttpResponseException;
-import org.apache.http.client.config.RequestConfig.Builder;
 import org.apache.http.client.config.RequestConfig;
+import org.apache.http.client.config.RequestConfig.Builder;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPut;
@@ -77,9 +76,10 @@ public class ApacheUriConnection extends UriConnection {
      * @param uri the URI to open
      */
     @objid ("bcf11edd-2a78-43ac-bf86-c0b0d059c536")
-    public ApacheUriConnection(URI uri) {
+    public  ApacheUriConnection(URI uri) {
         this.uri = uri;
         this.configBuilder = RequestConfig.custom();
+        
     }
 
     @objid ("366975a5-be39-484e-a69f-c37ffc4a162e")
@@ -106,9 +106,8 @@ public class ApacheUriConnection extends UriConnection {
      * <p>
      * This implementation creates a {@link PipedOutputStream} to the Apache entity input stream.
      * It is strongly advised to <b>write to the returned stream in another thread</b>.
-     * 
      * @return an output stream that writes to this connection.
-     * @throws java.io.IOException if an I/O error occurs while creating the output stream.
+     * @throws IOException if an I/O error occurs while creating the output stream.
      */
     @objid ("79282b13-7e13-42d5-9917-892c78a155bd")
     @Override
@@ -146,6 +145,7 @@ public class ApacheUriConnection extends UriConnection {
         } catch (IOException e) {
             throw new IllegalStateException(e);
         }
+        
     }
 
     @objid ("d397b034-969b-4d1e-b1ae-d91981eb1887")
@@ -159,6 +159,7 @@ public class ApacheUriConnection extends UriConnection {
     public void setConnectTimeout(int timeout) throws IllegalArgumentException {
         this.configBuilder.setConnectTimeout(timeout);
         this.timeout = timeout;
+        
     }
 
     @objid ("b96addaa-11c6-4df7-b0f2-4882209696e4")
@@ -210,8 +211,7 @@ public class ApacheUriConnection extends UriConnection {
      * <p>
      * Adds as cause another exception whose message is the entity content.
      * This may be the HTML message sent by the server.
-     * 
-     * @throws java.nio.file.FileSystemException the built exception
+     * @throws FileSystemException the built exception
      */
     @objid ("4e25ec1d-3711-45cc-b742-0c77edf5e414")
     private void handleConnectionFailure() throws FileSystemException {
@@ -233,6 +233,7 @@ public class ApacheUriConnection extends UriConnection {
         
         FileSystemException error = HttpErrorMapper.create(statusCode, this.uri.toString(), reason, base);
         throw error;
+        
     }
 
     @objid ("f8e1a3e4-45b3-4065-8838-90de7fe64eaa")
@@ -251,6 +252,7 @@ public class ApacheUriConnection extends UriConnection {
         } else {
             handleConnectionFailure();
         }
+        
     }
 
     /**

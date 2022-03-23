@@ -7,16 +7,18 @@
 	<parent>
 		<groupId>org.modelio</groupId>
 		<artifactId>doc-parent</artifactId>
-		<version>4.1.0-SNAPSHOT</version>
-		<relativePath>../../parent</relativePath>
+		<version>5.1.0-SNAPSHOT</version>
+		<relativePath>../..</relativePath>
 	</parent>
 
 	<modules>
 		<module>documentation.bpmn</module>
 		<module>documentation.copyright.org</module>
-		<module>documentation.vaudit</module>
 		<module>documentation.modeler.org</module>
 		<module>documentation.modeler.org.toc</module>
+
+		<module>documentation.vaudit</module>
 		<module>documentation.welcome.org</module>
 	</modules>
+
 </project>

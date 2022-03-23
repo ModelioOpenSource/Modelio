@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.controller.states.actions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,7 +39,7 @@ public class SelectModuleAction implements IModuleStateAction {
      * @param module the module
      */
     @objid ("8b5fdb4e-110d-4696-b680-fd5f78391578")
-    public SelectModuleAction(IRTModule module) {
+    public  SelectModuleAction(IRTModule module) {
         this.module = module;
     }
 
@@ -57,6 +56,7 @@ public class SelectModuleAction implements IModuleStateAction {
             e2.initCause(e);
             throw e2;
         }
+        
     }
 
 }

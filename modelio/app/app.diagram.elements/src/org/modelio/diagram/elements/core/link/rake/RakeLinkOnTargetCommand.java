@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.rake;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -25,9 +24,9 @@ import org.eclipse.draw2d.XYAnchor;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.gef.commands.Command;
 import org.modelio.diagram.elements.core.figures.routers.RakeConstraint;
-import org.modelio.diagram.elements.core.link.GmLink;
 import org.modelio.diagram.elements.core.link.GmLinkRake;
 import org.modelio.diagram.elements.core.link.GmPath;
+import org.modelio.diagram.elements.core.model.IGmLink;
 import org.modelio.diagram.elements.core.model.IGmLinkable;
 import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
@@ -45,10 +44,10 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 @objid ("806aa737-1dec-11e2-8cad-001ec947c8cc")
 public class RakeLinkOnTargetCommand extends Command {
     @objid ("806aa73b-1dec-11e2-8cad-001ec947c8cc")
-    private final GmLink toConnect;
+    private final IGmLink toConnect;
 
     @objid ("806aa73d-1dec-11e2-8cad-001ec947c8cc")
-    private final GmLink rakeLink;
+    private final IGmLink rakeLink;
 
     @objid ("806aa743-1dec-11e2-8cad-001ec947c8cc")
     private Object gmTargetAnchor;
@@ -58,18 +57,18 @@ public class RakeLinkOnTargetCommand extends Command {
 
     /**
      * Initializes the command.
-     * 
      * @param toConnect The link to connect to the rake.
      * @param rakeLink The rake link. This link may already be in rake mode or not.
      * @param loc The rake merge location. Ignored if the main link is already in rake mode.
      * @param gmTargetAnchor The new target anchor model.
      */
     @objid ("806aa744-1dec-11e2-8cad-001ec947c8cc")
-    public RakeLinkOnTargetCommand(GmLink toConnect, GmLink rakeLink, Point loc, final Object gmTargetAnchor) {
+    public  RakeLinkOnTargetCommand(IGmLink toConnect, IGmLink rakeLink, Point loc, final Object gmTargetAnchor) {
         this.rakeLink = rakeLink;
         this.toConnect = toConnect;
         this.rakeLocation = loc;
         this.gmTargetAnchor = gmTargetAnchor;
+        
     }
 
     @objid ("806aa74e-1dec-11e2-8cad-001ec947c8cc")
@@ -89,6 +88,7 @@ public class RakeLinkOnTargetCommand extends Command {
         newConnectPath.setTargetRake(this.rakeLink.getPath().getTargetRake());
         
         this.toConnect.setLayoutData(newConnectPath);
+        
     }
 
     @objid ("806aa751-1dec-11e2-8cad-001ec947c8cc")
@@ -108,6 +108,7 @@ public class RakeLinkOnTargetCommand extends Command {
         path.setTargetRake(targetRake);
         
         this.rakeLink.setLayoutData(path);
+        
     }
 
     @objid ("806aa753-1dec-11e2-8cad-001ec947c8cc")
@@ -141,6 +142,7 @@ public class RakeLinkOnTargetCommand extends Command {
         
         // Update gm model
         this.rakeLink.getTo().addEndingLink(this.toConnect);
+        
     }
 
 }

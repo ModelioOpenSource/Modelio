@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.view;
 
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.di.UIEventTopic;
@@ -84,7 +83,6 @@ public class AuditView {
 
     /**
      * Called by the framework to create the view and initialize it.
-     * 
      * @param projectService the project service.
      * @param mmService the model service.
      * @param auditService the audit service
@@ -103,6 +101,7 @@ public class AuditView {
         if (projectService.getOpenedProject() != null) {
             onProjectOpened(projectService.getOpenedProject(), mmService, auditService, navigationService, application, emService, menuService);
         }
+        
     }
 
     /**
@@ -131,6 +130,7 @@ public class AuditView {
         } else {
             this.auditResultsPanel.refresh(auditService.getAuditEngine().getAuditDiagnostic());
         }
+        
     }
 
     /**
@@ -144,6 +144,7 @@ public class AuditView {
             this.modelService = null;
             this.auditResultsPanel.dispose();
         }
+        
     }
 
     @objid ("b6790bce-129a-4f2d-bb6e-0057ed2f3dae")
@@ -152,6 +153,7 @@ public class AuditView {
         if (this.auditResultsPanel != null) {
             this.auditResultsPanel.getPanel().setFocus();
         }
+        
     }
 
     @objid ("407156c0-a1e8-4520-bf70-13804034f189")
@@ -163,6 +165,7 @@ public class AuditView {
     public void setAuditViewMode(final AuditViewMode mode) {
         this.auditResultsPanel.setViewMode(mode);
         this.parentComposite.layout();
+        
     }
 
     @objid ("49eeb021-3adf-4db1-a87b-ce46beabdcb6")
@@ -197,6 +200,7 @@ public class AuditView {
         } else {
             this.auditResultsPanel.setScope(null, null);
         }
+        
     }
 
     @objid ("e4a188ea-c440-4031-9f8b-a0729d2056fc")
@@ -208,6 +212,7 @@ public class AuditView {
                 this.auditResultsPanel.setScope(null, null);
             }
         }
+        
     }
 
 }

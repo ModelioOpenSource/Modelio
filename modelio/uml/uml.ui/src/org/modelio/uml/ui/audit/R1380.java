@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.audit;
 
 import java.util.ArrayList;
@@ -72,6 +71,7 @@ public class R1380 extends AbstractUmlRule {
         plan.registerRule(Signal.MQNAME, this, AuditTrigger.UPDATE);
         plan.registerRule(Attribute.MQNAME, this, AuditTrigger.CREATE | AuditTrigger.MOVE);
         plan.registerRule(InputPin.MQNAME, this, AuditTrigger.CREATE | AuditTrigger.MOVE | AuditTrigger.UPDATE);
+        
     }
 
     /**
@@ -105,14 +105,14 @@ public class R1380 extends AbstractUmlRule {
      * Default constructor for R1380
      */
     @objid ("414dfef5-e2c9-4d2b-afc9-ee74eece9930")
-    public R1380() {
+    public  R1380() {
         this.checkerInstance = new CheckR1380(this);
     }
 
     @objid ("48d980c2-7f06-417c-a045-91b149db3e01")
     private static class CheckR1380 extends AbstractControl {
         @objid ("e205c44b-e9ce-4752-8ee0-a12e34e9b3b7")
-        public CheckR1380(IRule rule) {
+        public  CheckR1380(IRule rule) {
             super(rule);
         }
 
@@ -208,7 +208,6 @@ public class R1380 extends AbstractUmlRule {
 
         /**
          * If an attribute was created or moved under a Signal, we need to check the rule on the Signal.
-         * 
          * @param attribute The created or moved attribute.
          * @return A list of audit entry for each SendSignalAction concerned by the attribute.
          */
@@ -224,7 +223,6 @@ public class R1380 extends AbstractUmlRule {
 
         /**
          * If an InputPin was created or moved, and if it now belongs to a SendSignalAction, we need to check the rule on the SendSignalAction. If an InputPin was updated and belongs to a SendSignalAction, it's represented attribute potentially changed and we need to check the rule on the SendSignalAction.
-         * 
          * @param pin The InputPin that was either created, moved of updated.
          * @return An audit entry for the SendSignalAction if the InputPin belongs to one, null otherwise.
          */
@@ -239,7 +237,6 @@ public class R1380 extends AbstractUmlRule {
 
         /**
          * If a Signal is modified, Attributes were potentially added or removed, and we need to check the rule on any SendSignalAction which is a sender of the Signal.
-         * 
          * @param signal The Signal that was updated.
          * @return A list of audit entry for any concerned SendSignalAction.
          */

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.handlers.unmask;
 
 import java.util.HashSet;
@@ -87,15 +86,15 @@ public class LinkPositionSet {
 
     /**
      * Constructor building the position set from a root element.
-     * 
      * @param theRoot The element to compute the links from.
      * @param unmaskStructuringLink Whether or not the computed links must be structural.
      * @param unmaskedElements Each computed link must start or target an element from this list. A <code>null</code>value indicates no restrictions: all links related to theRoot are accepted.
      */
     @objid ("65f0154d-33f7-11e2-95fe-001ec947c8cc")
-    public LinkPositionSet(final MObject theRoot, final boolean unmaskStructuringLink, final Set<MObject> unmaskedElements) {
+    public  LinkPositionSet(final MObject theRoot, final boolean unmaskStructuringLink, final Set<MObject> unmaskedElements) {
         this.visitor = new LinkFinderVisitor(unmaskStructuringLink, unmaskedElements);
         theRoot.accept(this.visitor);
+        
     }
 
     @objid ("65f01558-33f7-11e2-95fe-001ec947c8cc")
@@ -139,7 +138,7 @@ public class LinkPositionSet {
         protected Set<MObject> bottomLinks = new HashSet<>();
 
         @objid ("65f01577-33f7-11e2-95fe-001ec947c8cc")
-        public LinkFinderVisitor(final boolean unmaskStructuringLink, final Set<MObject> unmaskedElements) {
+        public  LinkFinderVisitor(final boolean unmaskStructuringLink, final Set<MObject> unmaskedElements) {
             super();
             this.infrastructureVisitor = new DefaultInfrastructureVisitor() {
                 @objid ("66379be2-33f7-11e2-95fe-001ec947c8cc")
@@ -156,6 +155,7 @@ public class LinkPositionSet {
             };
             this.unmaskStructuringLink = unmaskStructuringLink;
             this.unmaskedElements = unmaskedElements;
+            
         }
 
         @objid ("65f0157f-33f7-11e2-95fe-001ec947c8cc")
@@ -165,6 +165,7 @@ public class LinkPositionSet {
                     this.leftLinks.add(elt);
                 }
             }
+            
         }
 
         @objid ("65f01585-33f7-11e2-95fe-001ec947c8cc")
@@ -174,6 +175,7 @@ public class LinkPositionSet {
                     this.rightLinks.add(elt);
                 }
             }
+            
         }
 
         @objid ("65f0158b-33f7-11e2-95fe-001ec947c8cc")
@@ -183,6 +185,7 @@ public class LinkPositionSet {
                     this.topLinks.add(elt);
                 }
             }
+            
         }
 
         @objid ("65f01591-33f7-11e2-95fe-001ec947c8cc")
@@ -192,6 +195,7 @@ public class LinkPositionSet {
                     this.bottomLinks.add(elt);
                 }
             }
+            
         }
 
         @objid ("65f277e5-33f7-11e2-95fe-001ec947c8cc")

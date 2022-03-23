@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,7 @@ public class EIntervalConstraint extends ENamedElement {
     }
 
     @objid ("220cc290-9ce0-40a8-b1d2-bcdc36d98a7c")
-    public EIntervalConstraint(org.eclipse.uml2.uml.IntervalConstraint element) {
+    public  EIntervalConstraint(org.eclipse.uml2.uml.IntervalConstraint element) {
         super(element);
     }
 

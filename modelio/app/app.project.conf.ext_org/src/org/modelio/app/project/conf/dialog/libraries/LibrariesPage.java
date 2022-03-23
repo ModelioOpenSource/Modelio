@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.libraries;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -71,6 +70,7 @@ public class LibrariesPage implements IProjectConfPage {
         // update the different sections
         this.mcLibSection.setInput(projectAdapter);
         this.distantLibSection.setInput(projectAdapter);
+        
     }
 
     @objid ("1c4b48bd-75e0-443c-9577-7acfab5fdd08")

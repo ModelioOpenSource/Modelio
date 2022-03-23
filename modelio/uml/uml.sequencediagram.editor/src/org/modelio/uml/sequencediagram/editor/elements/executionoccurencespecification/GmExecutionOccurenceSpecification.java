@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.executionoccurencespecification;
 
 import java.util.List;
@@ -30,8 +29,8 @@ import org.modelio.diagram.elements.core.node.GmSimpleNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.interactionModel.ExecutionOccurenceSpecification;
 import org.modelio.metamodel.uml.behavior.interactionModel.Message;
 import org.modelio.vcore.session.api.transactions.TransactionException;
@@ -110,6 +109,7 @@ public class GmExecutionOccurenceSpecification extends GmSimpleNode {
             // Ghost ExecutionOccurenceSpecification should not be kept
             delete();
         }
+        
     }
 
     @objid ("d8dd636b-55b6-11e2-877f-002564c97630")
@@ -153,27 +153,28 @@ public class GmExecutionOccurenceSpecification extends GmSimpleNode {
             break;
         }
         }
+        
     }
 
     /**
      * Empty c'tor for deserialisation.
      */
     @objid ("d8dd6394-55b6-11e2-877f-002564c97630")
-    public GmExecutionOccurenceSpecification() {
+    public  GmExecutionOccurenceSpecification() {
         super();
     }
 
     /**
      * C'tor.
-     * 
      * @param diagram the diagram this node is created in.
      * @param executionOccurenceSpecification the represented ExecutionOccurenceSpecification. May be <code>null</code>.
      * @param relatedRef a reference to the represented ExecutionOccurenceSpecification. May NOT be <code>null</code>.
      */
     @objid ("d8dd6397-55b6-11e2-877f-002564c97630")
-    public GmExecutionOccurenceSpecification(final IGmDiagram diagram, final ExecutionOccurenceSpecification executionOccurenceSpecification, final MRef relatedRef) {
+    public  GmExecutionOccurenceSpecification(final IGmDiagram diagram, final ExecutionOccurenceSpecification executionOccurenceSpecification, final MRef relatedRef) {
         super(diagram, relatedRef);
         this.executionOccurenceSpecification = executionOccurenceSpecification;
+        
     }
 
     @objid ("d8deea05-55b6-11e2-877f-002564c97630")
@@ -183,12 +184,14 @@ public class GmExecutionOccurenceSpecification extends GmSimpleNode {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmExecutionOccurenceSpecification.", GmExecutionOccurenceSpecification.MINOR_VERSION);
+        
     }
 
     @objid ("d8deea0b-55b6-11e2-877f-002564c97630")
     private void read_0(final IDiagramReader in) {
         super.read(in);
         this.executionOccurenceSpecification = (ExecutionOccurenceSpecification) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("d8deea11-55b6-11e2-877f-002564c97630")

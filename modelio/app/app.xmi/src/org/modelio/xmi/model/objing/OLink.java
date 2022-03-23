@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -58,10 +57,11 @@ public class OLink extends OModelElement {
     }
 
     @objid ("d6197858-76be-4945-8e5a-ba275cd5cb03")
-    public OLink(Link element) {
+    public  OLink(Link element) {
         super(element);
         this.linkOwner = AbstractObjingModelNavigation.getLinkOwner(element);
         this.connectorOwner = AbstractObjingModelNavigation.getConnectorOwner(element);
+        
     }
 
     @objid ("90e3aeec-c2d1-44fa-8a41-25583b2d5bb6")
@@ -74,6 +74,7 @@ public class OLink extends OModelElement {
                 attachInstanceSpecification((InstanceSpecification) ecoreElt);
             }
         }
+        
     }
 
     @objid ("147fed30-0d7e-4d69-b283-3bc74bd0a288")
@@ -89,6 +90,7 @@ public class OLink extends OModelElement {
                 ObjingEAnnotation.isLink(ecoreElt);
             }
         }
+        
     }
 
     @objid ("08c3c5a7-37c0-4d26-b939-ce16df0a330d")
@@ -97,6 +99,7 @@ public class OLink extends OModelElement {
         if (AbstractObjingModelNavigation.isNotNullOrEmpty(eltName)) {
             connector.setName(eltName);
         }
+        
     }
 
     @objid ("a528125d-1d14-4a40-9137-f4e6a45c1b26")
@@ -109,6 +112,7 @@ public class OLink extends OModelElement {
                 connector.getClassifiers().add((org.eclipse.uml2.uml.Classifier) type);
             }
         }
+        
     }
 
     @objid ("a0d79b2e-46bf-4349-90a6-20d375b54e9c")
@@ -129,6 +133,7 @@ public class OLink extends OModelElement {
                         + ") Not Found");
             }
         }
+        
     }
 
     @objid ("b6dc4ed5-6b77-4d2c-9bf6-998548d134b7")
@@ -148,6 +153,7 @@ public class OLink extends OModelElement {
                 GenerationProperties.getInstance().addWarning(message, getObjingElement());
             }
         }
+        
     }
 
     @objid ("45d7a5b3-1159-450a-b867-e709848b8549")
@@ -165,6 +171,7 @@ public class OLink extends OModelElement {
             }
         
         }
+        
     }
 
     @objid ("6118497a-87e2-43a2-afe3-86bf89738dd1")

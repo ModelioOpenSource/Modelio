@@ -17,20 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure.matrix;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.infrastructure.ModelElementSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.matrix.MatrixDefinitionData;
-import org.modelio.metamodel.impl.uml.infrastructure.matrix.MatrixValueDefinitionSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.matrix.QueryDefinitionSmClass;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.matrix.MatrixDefinition;
 import org.modelio.metamodel.uml.infrastructure.matrix.MatrixValueDefinition;
@@ -64,7 +61,7 @@ public class MatrixDefinitionSmClass extends ModelElementSmClass {
     private SmDependency ownerDep;
 
     @objid ("5ce46ad5-392c-460e-bd97-6eea8d3caba6")
-    public MatrixDefinitionSmClass(ISmMetamodelFragment origin) {
+    public  MatrixDefinitionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -72,6 +69,7 @@ public class MatrixDefinitionSmClass extends ModelElementSmClass {
     @Override
     public String getName() {
         return "MatrixDefinition";
+        
     }
 
     @objid ("0bd8016d-a2d2-4fc5-b73b-9c96a922e8e5")
@@ -84,18 +82,21 @@ public class MatrixDefinitionSmClass extends ModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return MatrixDefinition.class;
+        
     }
 
     @objid ("77a05a4a-4ca1-403e-a060-33a09587f769")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("964bbaa3-15cb-447e-a6d4-b42a59a8545a")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("3d243a30-1285-44ef-98ca-8e3986cc6843")
@@ -127,6 +128,8 @@ public class MatrixDefinitionSmClass extends ModelElementSmClass {
         this.ownerDep = new OwnerSmDependency();
         this.ownerDep.init("Owner", this, metamodel.getMClass(ModelElement.MQNAME), 1, 1 );
         registerDependency(this.ownerDep);
+        
+        
     }
 
     @objid ("11a8c971-d5e4-45e8-9cd2-a5ceaaa57a1e")
@@ -175,7 +178,7 @@ public class MatrixDefinitionSmClass extends ModelElementSmClass {
         private MatrixDefinitionSmClass smClass;
 
         @objid ("de15f900-63fa-4946-98f7-c4c9b97e1e0f")
-        public MatrixDefinitionObjectFactory(MatrixDefinitionSmClass smClass) {
+        public  MatrixDefinitionObjectFactory(MatrixDefinitionSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -217,6 +220,7 @@ public class MatrixDefinitionSmClass extends ModelElementSmClass {
             	this.symetricDep = ((QueryDefinitionSmClass)this.getTarget()).getOwnerAsLineDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -245,6 +249,7 @@ public class MatrixDefinitionSmClass extends ModelElementSmClass {
             	this.symetricDep = ((QueryDefinitionSmClass)this.getTarget()).getOwnerAsColDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -273,6 +278,7 @@ public class MatrixDefinitionSmClass extends ModelElementSmClass {
             	this.symetricDep = ((MatrixValueDefinitionSmClass)this.getTarget()).getMatrixDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -301,6 +307,7 @@ public class MatrixDefinitionSmClass extends ModelElementSmClass {
             	this.symetricDep = ((QueryDefinitionSmClass)this.getTarget()).getOwnerAsDepthDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -329,6 +336,7 @@ public class MatrixDefinitionSmClass extends ModelElementSmClass {
             	this.symetricDep = ((ModelElementSmClass)this.getTarget()).getMatrixDep();
             }
             return this.symetricDep;
+            
         }
 
     }

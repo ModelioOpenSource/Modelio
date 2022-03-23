@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.load;
 
 import java.util.ArrayList;
@@ -86,12 +85,13 @@ class ModelRefresher extends ModelLoader implements IModelRefresher {
     private final IRepositoryObject unloadedRepoHandle;
 
     @objid ("7d88c89e-1c43-11e2-8eb9-001ec947ccaf")
-    public ModelRefresher(ModelLoaderConfiguration loaderConfig, Collection<IModelLoader> pool) {
+    public  ModelRefresher(ModelLoaderConfiguration loaderConfig, Collection<IModelLoader> pool) {
         super(loaderConfig, pool);
         this.refreshEventService = loaderConfig.getRefreshEventService();
         this.unloadedRepoHandle = loaderConfig.getUnloadedRepositoryHandle();
         
         reset();
+        
     }
 
     @objid ("7d8b2af7-1c43-11e2-8eb9-001ec947ccaf")
@@ -105,6 +105,7 @@ class ModelRefresher extends ModelLoader implements IModelRefresher {
         
         // Reinitialize
         reset();
+        
     }
 
     @objid ("7d88c8a7-1c43-11e2-8eb9-001ec947ccaf")
@@ -126,6 +127,7 @@ class ModelRefresher extends ModelLoader implements IModelRefresher {
         if (! Objects.equals(oldVal, newValue)) {
             this.recordedActions.add(new SetAttributeAction(obj, att, oldVal, newValue));
         }
+        
     }
 
     @objid ("7d88c8b4-1c43-11e2-8eb9-001ec947ccaf")
@@ -161,6 +163,7 @@ class ModelRefresher extends ModelLoader implements IModelRefresher {
         this.deleter = new ModelRefreshDeleter(this);
         this.deletedObjs = new ArrayList<>();
         this.deletedData = new ArrayList<>();
+        
     }
 
     @objid ("8fd36252-152e-4714-b0bf-0f1b36269037")
@@ -176,6 +179,7 @@ class ModelRefresher extends ModelLoader implements IModelRefresher {
         if (oldStatus != objStatus) {
             this.recordedActions.add(new SetAttributeAction(obj, obj.getClassOf().statusAtt(), oldStatus, objStatus));
         }
+        
     }
 
     @objid ("3bae9bad-1d7f-42cf-bb22-5cb6afda897a")
@@ -191,6 +195,7 @@ class ModelRefresher extends ModelLoader implements IModelRefresher {
         if (oldStatus != objStatus) {
             this.recordedActions.add(new SetAttributeAction(obj, obj.getClassOf().statusAtt(), oldStatus, objStatus));
         }
+        
     }
 
     @objid ("415ceb93-daaa-4e0f-8a01-4b2fd254b537")
@@ -203,13 +208,13 @@ class ModelRefresher extends ModelLoader implements IModelRefresher {
         if (wasAlive && !this.mayBeOrphan.contains(obj)) {
             this.recordedActions.add(new DeleteElementAction(obj));
         }
+        
     }
 
     /**
      * Remove a value to a dependency content.
      * <p>
      * Does not remove it from the other side.
-     * 
      * @param obj a model object
      * @param dep the dependency to modify
      * @param toRemove the model object to remove
@@ -233,7 +238,6 @@ class ModelRefresher extends ModelLoader implements IModelRefresher {
 
     /**
      * Delete the given object individually.
-     * 
      * @param obj the object to delete.
      */
     @objid ("ab9f7625-7ea1-4657-89d9-48c962718e50")
@@ -262,11 +266,11 @@ class ModelRefresher extends ModelLoader implements IModelRefresher {
             
             data.setMetaOf(getMetaOf());
         //}
+        
     }
 
     /**
      * Debug method to dump recorded actions.
-     * 
      * @return the string dump
      */
     @objid ("f1800684-5912-45f6-bdf2-18866b99e1da")
@@ -287,6 +291,7 @@ class ModelRefresher extends ModelLoader implements IModelRefresher {
         
         // Delete orphan elements
         this.deleter.doDelete(getObjsToDelete());
+        
     }
 
     /**
@@ -301,9 +306,10 @@ class ModelRefresher extends ModelLoader implements IModelRefresher {
         private Collection<IAction> recordedActions;
 
         @objid ("7d8b2afc-1c43-11e2-8eb9-001ec947ccaf")
-        public DepRefresher(Collection<SmObjectImpl> orphanDetection, Collection<IAction> recordedActions) {
+        public  DepRefresher(Collection<SmObjectImpl> orphanDetection, Collection<IAction> recordedActions) {
             this.orphanDetection = orphanDetection;
             this.recordedActions = recordedActions;
+            
         }
 
         @objid ("7d8b2b00-1c43-11e2-8eb9-001ec947ccaf")
@@ -320,6 +326,7 @@ class ModelRefresher extends ModelLoader implements IModelRefresher {
             }
             
             this.recordedActions.add(new EraseDependencyAction(obj, dep, value, 0));
+            
         }
 
     }

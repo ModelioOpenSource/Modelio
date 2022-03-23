@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel.actions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,10 +31,11 @@ public class CutAction extends Action {
     private ElementPropertyController controller;
 
     @objid ("b2fb150d-2f4a-4bc7-893a-dea56c34b966")
-    public CutAction(ElementPropertyController controller) {
+    public  CutAction(ElementPropertyController controller) {
         this.controller = controller;
         this.setText(ModelProperty.I18N.getString("CutElement.label"));
         this.setImageDescriptor(UI.getImageDescriptor("icons/cut.png"));
+        
     }
 
     @objid ("b61422e6-41ba-40a1-a572-8b3ee1c4b18b")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.api.services;
 
 import java.util.ArrayList;
@@ -39,8 +38,8 @@ import org.modelio.diagram.elements.core.model.IGmLink;
 import org.modelio.diagram.elements.core.model.IGmObject;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
@@ -53,14 +52,14 @@ public abstract class DiagramNode extends DiagramAbstractNode {
 
     /**
      * Creates a diagram node.
-     * 
      * @param diagramHandle The diagram manipulation class.
      * @param gmNode The gm node represented by this class.
      */
     @objid ("0bb46c19-8466-4020-80ff-cec60109d0cc")
-    public DiagramNode(DiagramHandle diagramHandle, GmNodeModel gmNode) {
+    public  DiagramNode(DiagramHandle diagramHandle, GmNodeModel gmNode) {
         super(diagramHandle);
         this.gmNode = gmNode;
+        
     }
 
     /**
@@ -84,7 +83,6 @@ public abstract class DiagramNode extends DiagramAbstractNode {
 
     /**
      * Return the list of children nodes of this node.
-     * 
      * @return A list of nodes in any case, possibly an empty one. Never returns null
      */
     @objid ("fb5a6042-61b0-450e-807c-3c504b6ce9bc")
@@ -93,7 +91,6 @@ public abstract class DiagramNode extends DiagramAbstractNode {
 
     /**
      * Return the links that are starting (ie outgoing links) from this node.
-     * 
      * @return A list of links in any case, possibly an empty one. Never returns null
      */
     @objid ("c1bcd859-bb76-4e23-aaff-3a45911c3bd0")
@@ -111,7 +108,6 @@ public abstract class DiagramNode extends DiagramAbstractNode {
 
     /**
      * Return the links that are ending (ie incoming links) at this node.
-     * 
      * @return A list of links in any case, possibly an empty one. Never returns null
      */
     @objid ("94b4c755-4b5a-4c22-89e6-9e9902878ba8")
@@ -146,7 +142,6 @@ public abstract class DiagramNode extends DiagramAbstractNode {
     /**
      * Return the name of this node. In most cases the name is the displayed label but this can however vary for
      * different nodes. No uniqueness of names across a diagram should be assumed.
-     * 
      * @return the node name
      */
     @objid ("db4ec55a-b6a2-4bec-a0e5-43dc7c46500c")
@@ -174,6 +169,7 @@ public abstract class DiagramNode extends DiagramAbstractNode {
         if (cmd != null && cmd.canExecute()) {
             editPart.getViewer().getEditDomain().getCommandStack().execute(cmd);
         }
+        
     }
 
     @objid ("cd51bb0c-3dee-4bf1-8568-515c123da777")
@@ -227,6 +223,7 @@ public abstract class DiagramNode extends DiagramAbstractNode {
             default:
                 return 1;
         }
+        
     }
 
     @objid ("71a368b8-ffe0-40fa-8495-34a55d8226ed")
@@ -253,6 +250,7 @@ public abstract class DiagramNode extends DiagramAbstractNode {
         }
         
         this.gmNode.getDisplayedStyle().setProperty(styleKey, pattern);
+        
     }
 
     @objid ("7dbf42c9-487d-4a39-b15f-dedccc1a13eb")

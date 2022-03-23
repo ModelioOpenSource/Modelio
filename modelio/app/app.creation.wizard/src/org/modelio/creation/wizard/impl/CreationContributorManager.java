@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.creation.wizard.impl;
 
 import java.net.URL;
@@ -27,8 +26,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IPath;
@@ -67,12 +66,13 @@ public class CreationContributorManager {
 
     @objid ("e8ab7403-98a5-410d-a2ed-15308b4ee1ae")
     @Inject
-    CreationContributorManager(final IEclipseContext context) {
+     CreationContributorManager(final IEclipseContext context) {
         this.context = context;
         
         for (final IConfigurationElement element : new ExtensionPointContributionManager(CreationContributorManager.DIAGRAM_CREATION_EXTENSIONPOINT_ID).getExtensions("wizard")) {
             parseWizard(element);
         }
+        
     }
 
     @objid ("091eaed9-56ca-4df1-8023-ca98e74d9b35")
@@ -117,6 +117,7 @@ public class CreationContributorManager {
             CreationWizard.LOG.error("Unable to register wizard contribution '%s':\n\t=>'%s'", element.getContributor().getName(), e.getMessage());
             CreationWizard.LOG.debug(e);
         }
+        
     }
 
     @objid ("d99b8e29-e2ba-4fb4-a508-35d33a1ddce6")
@@ -149,6 +150,7 @@ public class CreationContributorManager {
         List<IWizardContributor> contribs = this.wizards.get(categoryId);
         ContextInjectionFactory.inject(contributor, this.context);
         contribs.add(contributor);
+        
     }
 
     @objid ("4ab570c6-cdc0-46ad-bcb5-e793dcf969d6")
@@ -164,6 +166,7 @@ public class CreationContributorManager {
                 ContextInjectionFactory.uninject(contributor, this.context);
             }
         }
+        
     }
 
 }

@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.browser.view.context;
 
-import javax.inject.Singleton;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Singleton;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.e4.core.di.annotations.Creatable;

@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.viewtemplate;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,6 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IModelViewTemplate<T extends MObject> {
     /**
      * Get the unique identifier of a model view template.
-     * 
      * @return the model view template Id.
      */
     @objid ("a311200a-0f96-4a5b-8e42-e2208010b706")
@@ -42,7 +40,6 @@ public interface IModelViewTemplate<T extends MObject> {
 
     /**
      * Create the view for a given element.
-     * 
      * @param base The element used by the creator to create the view. Depending on the creator behavior this element can simply be the composition parent of the created diagram or be interpreted differently (example subject of the diagram).
      * @return The created view.
      */
@@ -52,7 +49,6 @@ public interface IModelViewTemplate<T extends MObject> {
     /**
      * Get the existing view for a given element.
      * Must implement the same 'main' element interpretation as in {@link #createView(ModelElement)}
-     * 
      * @param base The element to look a view for.
      * @return The corresponding  view or null.
      */
@@ -61,7 +57,6 @@ public interface IModelViewTemplate<T extends MObject> {
 
     /**
      * Update a view for the given element.
-     * 
      * @param existingView the view to be updated. Must be the one returned by {@link #getExistingView(ModelElement)}.
      */
     @objid ("ecc0b311-deb5-4de8-939a-d694a5f05c28")
@@ -71,7 +66,6 @@ public interface IModelViewTemplate<T extends MObject> {
      * Get the composition owner that this creator would use to create a view for main element <b>base</b>.
      * 
      * This defines the 'base element' resolution algorithm implementation for this template.
-     * 
      * @param base the base element
      * @return the current view origin.
      */
@@ -81,7 +75,6 @@ public interface IModelViewTemplate<T extends MObject> {
     /**
      * Get the base element the view was created from.
      * This is the inverse resolution of {@link #getExistingView(ModelElement)}.
-     * 
      * @param view a MObject representing a view.
      * @return The element the view was created for by this template.
      */

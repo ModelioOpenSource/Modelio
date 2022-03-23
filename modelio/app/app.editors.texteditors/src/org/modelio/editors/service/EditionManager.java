@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.service;
 
 import java.io.File;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.model.application.ui.advanced.MPlaceholder;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
@@ -46,7 +45,8 @@ public class EditionManager {
      * The default charset name used to open an editor.
      */
     @objid ("1e2ad6af-efea-4653-8299-076a13317c92")
-    public static final String DEFAULT_CHARSET_NAME = "UTF-8"; // $NON-NLS-1$
+    public static final String DEFAULT_CHARSET_NAME = "UTF-8"; /* // $NON-NLS-1$
+     */
 
     @objid ("ab475603-2a77-11e2-9fb9-bc305ba4815c")
     private static final String PARENT_PART_ID = "org.modelio.app.center.parts";
@@ -70,6 +70,7 @@ public class EditionManager {
             MPart mPart = mdaEditor.getEditor();
             this.inputservice.showInputPart(mPart.getElementId(), mdaEditor.getFile().getAbsolutePath(), PartState.ACTIVATE);
         }
+        
     }
 
     @objid ("7b48856b-2a77-11e2-9fb9-bc305ba4815c")
@@ -78,11 +79,11 @@ public class EditionManager {
             MDATextEditor mdaEditor = (MDATextEditor) editor;
             mdaEditor.getEditor().setParent(null);
         }
+        
     }
 
     /**
      * Open an editor for the given parameters.
-     * 
      * @param modelElement the represented model element
      * @param file the file to open
      * @param editorTypeID the editor type
@@ -138,7 +139,7 @@ public class EditionManager {
             editor.setReadonlyMode(readonly);
             input.setCharsetName(charsetName);
         
-            MDATextEditor proxy = new MDATextEditor(input, inputPart);
+            MDATextEditor proxy = new MDATextEditor(input, inputPart, editorTypeID);
             proxy.setElement(modelElement);
             return proxy;
         }
@@ -154,7 +155,7 @@ public class EditionManager {
      * Singleton c'tor.
      */
     @objid ("7b46fed2-2a77-11e2-9fb9-bc305ba4815c")
-    private EditionManager() {
+    private  EditionManager() {
         super();
     }
 

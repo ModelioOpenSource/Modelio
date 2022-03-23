@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.image;
 
 import java.util.Collections;
@@ -72,6 +71,7 @@ public class LabelledImageEditPart extends ImageEditPart {
         } else {
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("7e890c42-1dec-11e2-8cad-001ec947c8cc")
@@ -81,6 +81,7 @@ public class LabelledImageEditPart extends ImageEditPart {
             // bypass the container figure.
             super.refreshFromStyle(getImageFigure(aFigure), style);
         }
+        
     }
 
     @objid ("7e890c49-1dec-11e2-8cad-001ec947c8cc")
@@ -93,6 +94,7 @@ public class LabelledImageEditPart extends ImageEditPart {
         imageFig.setImage(getImage());
         
         mainFig.getParent().setConstraint(mainFig, inode.getLayoutData());
+        
     }
 
     @objid ("7e890c4c-1dec-11e2-8cad-001ec947c8cc")
@@ -103,11 +105,11 @@ public class LabelledImageEditPart extends ImageEditPart {
             IFigure child = ((GraphicalEditPart) childEditPart).getFigure();
             getContentPane().add(child, BorderLayout.BOTTOM, 1);
         }
+        
     }
 
     /**
      * Get the image figure from the main figure.
-     * 
      * @param mainFig the main figure.
      * @return the image figure.
      */

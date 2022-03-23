@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.debug;
 
 import java.time.Duration;
@@ -42,15 +41,15 @@ public class Chronometer {
      * Initializes a chronometer and starts it.
      */
     @objid ("4fec5d99-addf-496e-995c-d55c253abd7d")
-    public Chronometer() {
+    public  Chronometer() {
         this.start = System.nanoTime();
         this.last = this.start;
+        
     }
 
     /**
      * Get the duration since last call to {@link #next()}.
      * If first call returns the duration since instantiation.
-     * 
      * @return the duration since last call in nanoseconds.
      */
     @objid ("43d9cd14-47f4-442c-bf2a-898de57795a4")
@@ -73,18 +72,17 @@ public class Chronometer {
     /**
      * Log the duration since last call to {@link #next()}.
      * If first call logs the duration since instantiation.
-     * 
      * @param label a prefix for the log.
      */
     @objid ("639f6e8b-96f3-49ef-89a0-d053f0fc7010")
     public void logNext(String label) {
         Duration d = Duration.ofNanos(next());
         Log.trace("%s : %s", label, humanReadableFormat(d));
+        
     }
 
     /**
      * Log the duration since instantiation.
-     * 
      * @param label a prefix for the log.
      */
     @objid ("6c8c1be6-e0b0-4583-9961-13a5a0d5d6a7")
@@ -93,11 +91,11 @@ public class Chronometer {
         Duration d = Duration.ofNanos(now - this.start);
         this.last = now;
         Log.trace("%s : %s", label, humanReadableFormat(d));
+        
     }
 
     /**
      * Return a human readable string form of the duration.
-     * 
      * @param durationNano a duration in nanoseconds
      * @return a user friendly string
      */

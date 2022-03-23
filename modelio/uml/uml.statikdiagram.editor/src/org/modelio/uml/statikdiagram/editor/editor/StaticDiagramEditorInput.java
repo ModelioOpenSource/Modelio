@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.editor;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,13 +34,12 @@ public class StaticDiagramEditorInput extends DiagramEditorInput {
      * Initialize the editor input.
      * <p>
      * Creates the diagram graphic model and load it from the diagram model element.
-     * 
      * @param modelManager the link between the Gm model and the Ob model.
      * @param diagram the diagram to edit.
      * @param gmDiagramCreator a small factory to instanciate the Gm diagram itself.
      */
     @objid ("33d3857d-55b7-11e2-877f-002564c97630")
-    public StaticDiagramEditorInput(IModelManager modelManager, AbstractDiagram diagram, GmDiagramCreator gmDiagramCreator) {
+    public  StaticDiagramEditorInput(IModelManager modelManager, AbstractDiagram diagram, GmDiagramCreator gmDiagramCreator) {
         super(diagram, modelManager, gmDiagramCreator);
     }
 

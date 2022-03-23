@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.portcontainer;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,15 +32,17 @@ import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.modelio.diagram.elements.core.figures.geometry.GeomUtils;
+import org.modelio.diagram.elements.core.helpers.RequestHelper;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.elements.core.policies.DefaultNodeResizableEditPolicy;
 
 /**
  * Move/resize policy for satellite labels.
  * <p>
- * The request height is modified so that: <ul>
- * <li> the new size fits the label content.
- * <li> the satellite and container nearest borders keep the same distance.
+ * The request height is modified so that:
+ * <ul>
+ * <li>the new size fits the label content.
+ * <li>the satellite and container nearest borders keep the same distance.
  * </ul>
  * 
  * @author cmarin
@@ -64,6 +65,7 @@ public class SatelliteLabelMoveResizeEditPolicy extends DefaultNodeResizableEdit
         } else {
             super.showSourceFeedback(request);
         }
+        
     }
 
     @objid ("c5c769f0-a635-4ea5-a544-f15459d64c67")
@@ -76,6 +78,8 @@ public class SatelliteLabelMoveResizeEditPolicy extends DefaultNodeResizableEdit
         req.setLocation(request.getLocation());
         req.setExtendedData(request.getExtendedData());
         req.setResizeDirection(request.getResizeDirection());
+        
+        RequestHelper.addSharedEditParts(req, request);
         return req;
     }
 
@@ -114,15 +118,14 @@ public class SatelliteLabelMoveResizeEditPolicy extends DefaultNodeResizableEdit
             fixFigurePosition(request, fig, initBounds, refFig);
         }
         
-        /*System.out.println("patch request= "+origRequest.getMoveDelta()+" size="+origRequest.getSizeDelta());
-        System.out.println("   new request= "+request.getMoveDelta()+" size="+request.getSizeDelta());
-        System.out.println("   size diff="+bestSize);*/
+        /*
+         * System.out.println("patch request= "+origRequest.getMoveDelta()+" size="+origRequest.getSizeDelta()); System.out.println("   new request= "+request.getMoveDelta()+" size="+request.getSizeDelta()); System.out.println("   size diff="+bestSize);
+         */
         return request;
     }
 
     /**
      * Get the main node figure.
-     * 
      * @return the main node figure.
      */
     @objid ("1aab4bca-425c-4442-b688-5d2b7d81f2a3")
@@ -148,7 +151,6 @@ public class SatelliteLabelMoveResizeEditPolicy extends DefaultNodeResizableEdit
 
     /**
      * Modify the request so that the figure border keeps the same distance from its owner.
-     * 
      * @param request the resize request to modify
      * @param fig the figure being resized
      * @param initBounds figure current bounds in absolute coordinates
@@ -165,28 +167,29 @@ public class SatelliteLabelMoveResizeEditPolicy extends DefaultNodeResizableEdit
             switch (GeomUtils.getDirection(initBounds.getCenter(), refBounds)) {
             case EAST:
                 // stick on left
-                request.setMoveDelta(new PrecisionPoint(0, - sizeDelta.preciseHeight() / 2));
+                request.setMoveDelta(new PrecisionPoint(0, -sizeDelta.preciseHeight() / 2));
                 break;
             case NONE:
                 // Move the figure so that it has the same center point after resize
-                request.setMoveDelta(new PrecisionPoint(- sizeDelta.preciseWidth() / 2, - sizeDelta.preciseHeight() / 2));
+                request.setMoveDelta(new PrecisionPoint(-sizeDelta.preciseWidth() / 2, -sizeDelta.preciseHeight() / 2));
                 break;
             case NORTH:
-                request.setMoveDelta(new PrecisionPoint(- sizeDelta.preciseWidth() / 2, - sizeDelta.preciseHeight()));
+                request.setMoveDelta(new PrecisionPoint(-sizeDelta.preciseWidth() / 2, -sizeDelta.preciseHeight()));
                 break;
             case SOUTH:
-                request.setMoveDelta(new PrecisionPoint(- sizeDelta.preciseWidth() / 2, 0));
+                request.setMoveDelta(new PrecisionPoint(-sizeDelta.preciseWidth() / 2, 0));
                 break;
             case WEST:
-                request.setMoveDelta(new PrecisionPoint(- sizeDelta.preciseWidth()    , - sizeDelta.preciseHeight() / 2));
+                request.setMoveDelta(new PrecisionPoint(-sizeDelta.preciseWidth(), -sizeDelta.preciseHeight() / 2));
                 break;
             default:
                 // Move the figure so that it has the same center point after resize
-                request.setMoveDelta(new PrecisionPoint(- sizeDelta.preciseWidth() / 2, - sizeDelta.preciseHeight() / 2));
+                request.setMoveDelta(new PrecisionPoint(-sizeDelta.preciseWidth() / 2, -sizeDelta.preciseHeight() / 2));
                 break;
         
             }
         }
+        
     }
 
     @objid ("76bd8c31-51b4-4c78-8f34-ab87c4f187dd")
@@ -201,6 +204,7 @@ public class SatelliteLabelMoveResizeEditPolicy extends DefaultNodeResizableEdit
         } else {
             return fig.getPreferredSize(askedBounds.width(), -1);
         }
+        
     }
 
 }

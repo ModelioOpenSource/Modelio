@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.module.propertytab.ui.panel.treeview.editingsupport;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -49,13 +48,13 @@ public class ModulePropertyEditingSupport extends EditingSupport {
 
     /**
      * Initialize the StylePropertyEditingSupport.
-     * 
      * @param viewer The style viewer.
      */
     @objid ("c8959380-1eba-11e2-9382-bc305ba4815c")
-    public ModulePropertyEditingSupport(TreeViewer viewer) {
+    public  ModulePropertyEditingSupport(TreeViewer viewer) {
         super(viewer);
         this.viewer = viewer;
+        
     }
 
     @objid ("c8959384-1eba-11e2-9382-bc305ba4815c")
@@ -154,6 +153,7 @@ public class ModulePropertyEditingSupport extends EditingSupport {
                 model.setValueAt(property, value);
             }
         }
+        
     }
 
 }

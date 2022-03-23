@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.textelement;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,25 +40,26 @@ class InfoPopup extends PopupDialog {
     @objid ("92ac8f9a-a6f9-4980-81cf-f8b042ce500a")
     private static final String EMPTY = "";
 
-/*
-     * The description text displayed in the popup.
-     */
+    /*
+         * The description text displayed in the popup.
+         */
     @objid ("6c0c6e1f-389e-4724-9940-e0100dba4de6")
     private String contents = EMPTY;
 
-/*
-     * The text control that displays the description.
-     */
+    /*
+         * The text control that displays the description.
+         */
     @objid ("0b690658-5c78-442c-a82c-32b4c1f0419b")
     private Browser text;
 
-/*
-     * Construct an info-popup with the specified parent.
-     */
+    /*
+         * Construct an info-popup with the specified parent.
+         */
     @objid ("25bedb9d-d8b3-4a69-b3d5-90c90d027a9c")
-    InfoPopup(Shell parent) {
+     InfoPopup(Shell parent) {
         super(parent, PopupDialog.HOVER_SHELLSTYLE | SWT.RESIZE, /* takefocusOnOpen */false, /* persistSize */false, /* persistLocation */
                 false, /* showDialogMenu */false, /* showPersistActions */false, /* titleText */null, /* infoText */null);
+        
     }
 
     @objid ("de418b82-9038-45e6-896b-1a2267f97d77")
@@ -86,9 +86,9 @@ class InfoPopup extends PopupDialog {
         return this.text;
     }
 
-/*
-     * Position the info popup adjacent to the proposal popup
-     */
+    /*
+         * Position the info popup adjacent to the proposal popup
+         */
     @objid ("449a0d47-8510-4001-8e6d-2a4fea1683f6")
     @Override
     protected void adjustBounds() {
@@ -122,33 +122,34 @@ class InfoPopup extends PopupDialog {
             proposedBounds = rightProposedBounds;
         }
         getShell().setBounds(proposedBounds);
+        
     }
 
-/*
-     * (non-Javadoc)
-     * 
-     * @see org.eclipse.jface.dialogs.PopupDialog#getForeground()
-     */
+    /*
+         * (non-Javadoc)
+         * 
+         * @see org.eclipse.jface.dialogs.PopupDialog#getForeground()
+         */
     @objid ("14e4d133-f4bb-4179-a83c-c4d4b42c0df5")
     @Override
     protected Color getForeground() {
         return this.text.getDisplay().getSystemColor(SWT.COLOR_INFO_FOREGROUND);
     }
 
-/*
-     * (non-Javadoc)
-     * 
-     * @see org.eclipse.jface.dialogs.PopupDialog#getBackground()
-     */
+    /*
+         * (non-Javadoc)
+         * 
+         * @see org.eclipse.jface.dialogs.PopupDialog#getBackground()
+         */
     @objid ("a2c58ed0-9df1-4657-b13c-4154166a7f62")
     @Override
     protected Color getBackground() {
         return this.text.getDisplay().getSystemColor(SWT.COLOR_INFO_BACKGROUND);
     }
 
-/*
-     * Set the text contents of the popup.
-     */
+    /*
+         * Set the text contents of the popup.
+         */
     @objid ("3ba982aa-55b8-444d-be8d-a691ddd15baf")
     void setContents(String newContents) {
         if (newContents == null) {
@@ -158,11 +159,12 @@ class InfoPopup extends PopupDialog {
         if (this.text != null && !this.text.isDisposed()) {
             this.text.setText(this.contents);
         }
+        
     }
 
-/*
-     * Return whether the popup has focus.
-     */
+    /*
+         * Return whether the popup has focus.
+         */
     @objid ("68637752-b149-4313-b9e6-4a7f9739aa5b")
     boolean hasFocus() {
         if (this.text == null || this.text.isDisposed()) {

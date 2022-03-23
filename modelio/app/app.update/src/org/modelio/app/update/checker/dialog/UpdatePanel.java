@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.update.checker.dialog;
 
 import java.util.ArrayList;
@@ -60,7 +59,7 @@ public class UpdatePanel implements IPanelProvider {
     private final PanelController controller;
 
     @objid ("24c63740-28a4-4d61-83f2-ee52353c2f54")
-    public UpdatePanel() {
+    public  UpdatePanel() {
         this.controller = new PanelController();
     }
 
@@ -102,6 +101,7 @@ public class UpdatePanel implements IPanelProvider {
         } else {
             this.controller.setData(null);
         }
+        
     }
 
     @objid ("0b16c9eb-6b42-4888-9a47-06eb1217fe03")
@@ -132,6 +132,7 @@ public class UpdatePanel implements IPanelProvider {
             if (this.ui != null) {
                 this.ui.update(this.data);
             }
+            
         }
 
         @objid ("95251a96-8120-4acf-a72f-9b01e872274b")
@@ -151,6 +152,7 @@ public class UpdatePanel implements IPanelProvider {
         public void dispose() {
             this.ui.dispose();
             this.ui = null;
+            
         }
 
         @objid ("1f8483a5-565e-4785-ad80-c521865f320d")
@@ -161,6 +163,7 @@ public class UpdatePanel implements IPanelProvider {
                 this.data.unSelectUpdate(element);
             }
             this.ui.update(this.data);
+            
         }
 
         @objid ("9e89ac36-57ad-4c76-a8d1-b3423dd4443b")
@@ -169,6 +172,7 @@ public class UpdatePanel implements IPanelProvider {
                 this.data.selectUpdate(descriptor);
             }
             this.ui.update(this.data);
+            
         }
 
         @objid ("8df13a9e-aa90-4b92-944c-229d9d8de0d2")
@@ -177,6 +181,7 @@ public class UpdatePanel implements IPanelProvider {
                 this.data.unSelectUpdate(descriptor);
             }
             this.ui.update(this.data);
+            
         }
 
     }
@@ -202,7 +207,7 @@ public class UpdatePanel implements IPanelProvider {
         protected static final Image MODULE = AppUpdate.getImageDescriptor("icons/module.png").createImage();
 
         @objid ("d35ad481-993a-4961-9041-622b3cbf6b01")
-        public PanelUI(final PanelController controller) {
+        public  PanelUI(final PanelController controller) {
             this.controller = controller;
         }
 
@@ -383,6 +388,7 @@ public class UpdatePanel implements IPanelProvider {
                     return true;
                 }
             });
+            
         }
 
         @objid ("f8110f0d-9eba-4775-b217-9bc83bd3fed4")
@@ -410,6 +416,7 @@ public class UpdatePanel implements IPanelProvider {
                     this.tableViewer.setSelection(new StructuredSelection(this.tableViewer.getElementAt(0)));
                 }
             }
+            
         }
 
         @objid ("ff412ffb-dc46-40c6-9f41-1ee75c7bc8c2")

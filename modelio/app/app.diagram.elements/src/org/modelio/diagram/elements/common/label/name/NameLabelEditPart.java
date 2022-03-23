@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.label.name;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,6 +36,7 @@ public class NameLabelEditPart extends ModelElementLabelEditPart {
         super.createEditPolicies();
         // Remove the DefaultDeleteNodeEditPolicy installed by default since NameLabel is a floating label, selectable but NOT maskable.
         removeEditPolicy(EditPolicy.COMPONENT_ROLE);
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.policies;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -48,6 +47,7 @@ public class DefaultDeleteLinkEditPolicy extends ConnectionEditPolicy {
         } else {
             return getHost().getParent().getCommand(request);
         }
+        
     }
 
 }

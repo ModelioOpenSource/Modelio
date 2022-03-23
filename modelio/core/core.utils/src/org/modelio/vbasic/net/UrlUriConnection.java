@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.net;
 
 import java.io.IOException;
@@ -45,7 +44,7 @@ class UrlUriConnection extends UriConnection {
     private final URLConnection c;
 
     @objid ("90557c3c-c75f-4486-95e6-a03982b0a6c8")
-    public UrlUriConnection(URI uri) throws IOException {
+    public  UrlUriConnection(URI uri) throws IOException {
         try {
             URL url = uri.toURL();
             this.c = url.openConnection();
@@ -53,6 +52,7 @@ class UrlUriConnection extends UriConnection {
         } catch (MalformedURLException e) {
             throw new IllegalArgumentException(e);
         }
+        
     }
 
     @objid ("34a316fe-4009-43c7-95e7-10d2341714fb")
@@ -121,6 +121,7 @@ class UrlUriConnection extends UriConnection {
                 throw new UnsupportedOperationException(auth+ " not supported for "+this.c);
             }
         }
+        
     }
 
     /**
@@ -128,7 +129,6 @@ class UrlUriConnection extends UriConnection {
      * <p>
      * Look for user and password in the 'user' and 'pass' parameters.
      * If they are not filled, look at the URL itself.
-     * 
      * @param url the URL to open
      * @param user the user login, may be null
      * @param pass the password, may be null
@@ -144,6 +144,7 @@ class UrlUriConnection extends UriConnection {
         } else {
             return null;
         }
+        
     }
 
     @objid ("1c51622b-e649-4b6e-a62d-65efe6601879")

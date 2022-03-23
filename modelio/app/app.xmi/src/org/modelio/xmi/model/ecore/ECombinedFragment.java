@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,7 +34,7 @@ public class ECombinedFragment extends EInteractionFragment {
     }
 
     @objid ("1b540561-ca4e-4683-b6ef-d24fc48a7359")
-    public ECombinedFragment(org.eclipse.uml2.uml.CombinedFragment element) {
+    public  ECombinedFragment(org.eclipse.uml2.uml.CombinedFragment element) {
         super(element);
     }
 
@@ -44,6 +43,7 @@ public class ECombinedFragment extends EInteractionFragment {
     public void setProperties(Element objingElt) {
         super.setProperties(objingElt);
         setOperand((CombinedFragment) objingElt);
+        
     }
 
     @objid ("f8b20d02-7bb9-41b3-a4ed-2ac0bcf708e8")
@@ -91,6 +91,7 @@ public class ECombinedFragment extends EInteractionFragment {
         default :
             break;
         }
+        
     }
 
 }

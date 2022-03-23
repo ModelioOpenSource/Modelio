@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,7 +39,7 @@ public class OInteractionOperand extends OInteractionFragment {
     }
 
     @objid ("a400db1c-46c1-4671-86fe-91959f46333f")
-    public OInteractionOperand(InteractionOperand param) {
+    public  OInteractionOperand(InteractionOperand param) {
         super(param);
     }
 
@@ -54,6 +53,7 @@ public class OInteractionOperand extends OInteractionFragment {
         
         if (fragment != null)
             fragment.getOperands().add((org.eclipse.uml2.uml.InteractionOperand)ecoreElt);
+        
     }
 
     @objid ("aed0b7bb-96e2-4340-9a0a-ed93f1412a2b")
@@ -65,6 +65,7 @@ public class OInteractionOperand extends OInteractionFragment {
         if (GenerationProperties.getInstance().isRoundtripEnabled()){
             setEndLineNumber(ecoreElt);
         }
+        
     }
 
     @objid ("bf9a1003-a8e9-4377-a7d7-dc09b231cdaa")
@@ -81,6 +82,7 @@ public class OInteractionOperand extends OInteractionFragment {
             constraint.setSpecification(valueSpecification);
             ecoreElt.setGuard(constraint);
         }
+        
     }
 
     @objid ("f95a7098-1b09-42bc-9151-84f0eed26a3f")

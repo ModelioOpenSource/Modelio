@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.combinedfragment.primarynode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -52,20 +51,20 @@ public class GmInteractionOperandContainer extends GmResizableGroup {
      * Empty c'tor for deserialisation.
      */
     @objid ("d8cc9ab8-55b6-11e2-877f-002564c97630")
-    public GmInteractionOperandContainer() {
+    public  GmInteractionOperandContainer() {
         super();
     }
 
     /**
      * C'tor.
-     * 
      * @param diagram diagram in which this gm is created.
      * @param relatedRef a ref to the represented CombinedFragment.
      */
     @objid ("d8cc9abb-55b6-11e2-877f-002564c97630")
-    public GmInteractionOperandContainer(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmInteractionOperandContainer(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
         super.setVertical(true);
+        
     }
 
     @objid ("d8ce211d-55b6-11e2-877f-002564c97630")
@@ -79,6 +78,7 @@ public class GmInteractionOperandContainer extends GmResizableGroup {
     public boolean canUnmask(final MObject el) {
         return canCreate(el.getClass()) &&
                         ((InteractionOperand) el).getOwnerFragment().equals(getRelatedElement());
+        
     }
 
     @objid ("d8ce212f-55b6-11e2-877f-002564c97630")
@@ -104,6 +104,7 @@ public class GmInteractionOperandContainer extends GmResizableGroup {
                 }
             }
         }
+        
     }
 
     @objid ("d8ce213d-55b6-11e2-877f-002564c97630")
@@ -123,6 +124,7 @@ public class GmInteractionOperandContainer extends GmResizableGroup {
             break;
         }
         }
+        
     }
 
     @objid ("d8ce2143-55b6-11e2-877f-002564c97630")
@@ -132,6 +134,7 @@ public class GmInteractionOperandContainer extends GmResizableGroup {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmInteractionOperandContainer.", GmInteractionOperandContainer.MINOR_VERSION);
+        
     }
 
     @objid ("d8ce2149-55b6-11e2-877f-002564c97630")

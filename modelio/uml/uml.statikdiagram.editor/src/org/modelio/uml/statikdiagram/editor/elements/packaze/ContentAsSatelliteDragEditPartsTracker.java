@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.packaze;
 
 import java.util.HashSet;
@@ -36,11 +35,10 @@ import org.modelio.uml.statikdiagram.editor.elements.namespacinglink.GmCompositi
 public class ContentAsSatelliteDragEditPartsTracker extends GmNodeDragTracker {
     /**
      * Default constructor.
-     * 
      * @param sourceEditPart the edit part this DragTracker applies to.
      */
     @objid ("3615d43d-55b7-11e2-877f-002564c97630")
-    public ContentAsSatelliteDragEditPartsTracker(final EditPart sourceEditPart) {
+    public  ContentAsSatelliteDragEditPartsTracker(final EditPart sourceEditPart) {
         super(sourceEditPart);
     }
 
@@ -79,6 +77,7 @@ public class ContentAsSatelliteDragEditPartsTracker extends GmNodeDragTracker {
                 }
             }
         }
+        
     }
 
 }

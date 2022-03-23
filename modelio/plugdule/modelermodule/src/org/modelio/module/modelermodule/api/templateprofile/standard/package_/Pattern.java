@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.templateprofile.standard.package_;
 
@@ -51,42 +50,41 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("f262c9ee-11ab-45a0-82eb-98e618810a63")
 public class Pattern {
-    @objid ("e9f1bd77-18ad-4667-9067-1ec7a57ff49b")
+    @objid ("43c37a88-b938-46c8-b9e6-d45b15930a9d")
     public static final String STEREOTYPE_NAME = "Pattern";
 
-    @objid ("4f2bbf3e-f0dd-44b2-a980-9217dfce8a88")
+    @objid ("0cff3195-9379-4748-94f0-df4b25cb2464")
     public static final String TEMPLATE_CATEGORIES_TAGTYPE = "Template.Categories";
 
-    @objid ("284e143f-0982-4a46-aa55-94f83ddb91ed")
+    @objid ("25a13d57-77bd-422c-ad07-077f4b7d76b3")
     public static final String TEMPLATE_FILE_TAGTYPE = "Template.File";
 
-    @objid ("2b2fc1cb-1aff-4955-8e04-0fef9c56b448")
+    @objid ("c115a6ac-fbfa-4bf1-a6c1-335936aa940d")
     public static final String TEMPLATE_IMAGE_TAGTYPE = "Template.Image";
 
-    @objid ("7b7aad39-941c-40c8-a6be-3c9485ca7dde")
+    @objid ("6f48440e-5691-4d2b-9376-e62b9e6fe1f6")
     public static final String TEMPLATE_PARAMETERS_TAGTYPE = "Template.Parameters";
 
-    @objid ("a92b7cb9-a448-405a-9533-00ffbaee78e0")
+    @objid ("e3cc4095-4c29-4540-936e-849caf88cbf4")
     public static final String TEMPLATE_STRINGPARAMETERS_TAGTYPE = "Template.StringParameters";
 
-    @objid ("ba8aff27-745f-4300-bc21-acd589a24c17")
+    @objid ("af225da6-0ba7-49ae-accf-068620da2663")
     public static final String TEMPLATE_VERSION_TAGTYPE = "Template.Version";
 
     /**
      * The underlying {@link Package} represented by this proxy, never null.
      */
-    @objid ("abe24f56-03ed-45dc-a766-267c9213e383")
+    @objid ("c88d5193-21a0-4f3f-af80-9759a01521e7")
     protected final Package elt;
 
     /**
      * Tells whether a {@link Pattern proxy} can be instantiated from a {@link MObject} checking it is a {@link Package} stereotyped << Pattern >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("a10b9b3d-1b83-42c0-a83a-3b42c6553f63")
+    @objid ("ea63004e-bec9-4d33-bac6-6edeffe00ca5")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Package) && ((Package) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Pattern.STEREOTYPE_NAME));
     }
@@ -96,9 +94,9 @@ public class Pattern {
      * 
      * @return a {@link Pattern} proxy on the created {@link Package}.
      */
-    @objid ("43cadea6-ef53-49d3-b962-c9637ad5f31b")
+    @objid ("77b7fcf1-3da0-434b-a6de-1bea4da00781")
     public static Pattern create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Package");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.Package");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Pattern.STEREOTYPE_NAME);
         return Pattern.instantiate((Package)e);
     }
@@ -110,7 +108,7 @@ public class Pattern {
      * @param obj a Package
      * @return a {@link Pattern} proxy or <i>null</i>.
      */
-    @objid ("6dc7a5c2-249c-41bc-8b1b-335c79a7e0c5")
+    @objid ("95fe3e05-79d6-4e41-a9e3-0902d4180f18")
     public static Pattern instantiate(Package obj) {
         return Pattern.canInstantiate(obj) ? new Pattern(obj) : null;
     }
@@ -123,7 +121,7 @@ public class Pattern {
      * @return a {@link Pattern} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("87146230-016d-4b0d-a0f5-596f95f1b552")
+    @objid ("255e29ff-da72-4456-bdda-b3de891cd1c7")
     public static Pattern safeInstantiate(Package obj) throws IllegalArgumentException {
         if (Pattern.canInstantiate(obj))
         	return new Pattern(obj);
@@ -131,7 +129,7 @@ public class Pattern {
         	throw new IllegalArgumentException("Pattern: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("2228e17c-ca56-4a90-b9c1-62ced10ca50e")
+    @objid ("d78e2b93-9693-482c-a4ca-248c8de4f8c6")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -151,7 +149,7 @@ public class Pattern {
      * Get the underlying {@link Package}. 
      * @return the Package represented by this proxy, never null.
      */
-    @objid ("0c31a233-462e-483c-b7b8-5db9b3be0528")
+    @objid ("d8fc42c0-adb2-4b1c-848d-7e002efb92d4")
     public Package getElement() {
         return this.elt;
     }
@@ -161,7 +159,7 @@ public class Pattern {
      * <p>Property description:<br/>
      * <i></i></p>
      */
-    @objid ("53822155-c472-472e-947a-480c2b4881a0")
+    @objid ("c13a93af-4f05-48e8-aa7c-51510bad3f14")
     public List<String> getTemplateCategories() {
         return this.elt.getTagValues(Pattern.MdaTypes.TEMPLATE_CATEGORIES_TAGTYPE_ELT);
     }
@@ -171,7 +169,7 @@ public class Pattern {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("32a69609-2951-4568-9ec7-08ef1b20b261")
+    @objid ("270d946b-5cd8-4419-a56a-37c28af5d9cc")
     public String getTemplateFile() {
         return this.elt.getTagValue(Pattern.MdaTypes.TEMPLATE_FILE_TAGTYPE_ELT);
     }
@@ -181,7 +179,7 @@ public class Pattern {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("fe5983ac-40b9-48f1-9763-84ce3ddfea9d")
+    @objid ("822f65e1-22af-4064-add0-f0e839f3e305")
     public String getTemplateImage() {
         return this.elt.getTagValue(Pattern.MdaTypes.TEMPLATE_IMAGE_TAGTYPE_ELT);
     }
@@ -191,7 +189,7 @@ public class Pattern {
      * <p>Property description:<br/>
      * <i></i></p>
      */
-    @objid ("4b612163-153b-4a99-b1fb-5f27b32804b9")
+    @objid ("e3afc846-cbda-47b4-8d3e-4bae0586f5f0")
     public List<String> getTemplateParameters() {
         return this.elt.getTagValues(Pattern.MdaTypes.TEMPLATE_PARAMETERS_TAGTYPE_ELT);
     }
@@ -201,7 +199,7 @@ public class Pattern {
      * <p>Property description:<br/>
      * <i></i></p>
      */
-    @objid ("61029679-90de-450b-9a37-14666967c805")
+    @objid ("0a47330f-9cf3-4a0d-bf20-5f7ca0e11ed7")
     public List<String> getTemplateStringParameters() {
         return this.elt.getTagValues(Pattern.MdaTypes.TEMPLATE_STRINGPARAMETERS_TAGTYPE_ELT);
     }
@@ -211,15 +209,16 @@ public class Pattern {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("10559de4-5772-4c32-a07c-183d716424ed")
+    @objid ("a7051ab6-2695-4f60-8351-cfee57af27cc")
     public String getTemplateVersion() {
         return this.elt.getTagValue(Pattern.MdaTypes.TEMPLATE_VERSION_TAGTYPE_ELT);
     }
 
-    @objid ("ae79b527-d398-4c90-aaf6-dcfafce40236")
+    @objid ("d335d571-5fc5-405d-83fa-a86e828a7bf3")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
     /**
@@ -227,7 +226,7 @@ public class Pattern {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("b2746912-ce3d-47a6-a298-b81113ae0abf")
+    @objid ("37ea8e9d-eac0-4204-9b70-7862c415dd2a")
     public void setTemplateCategories(List<String> values) {
         this.elt.putTagValues(Pattern.MdaTypes.TEMPLATE_CATEGORIES_TAGTYPE_ELT, values);
     }
@@ -237,7 +236,7 @@ public class Pattern {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("6b603bef-c9a8-45c5-8e50-2aab8bc6858c")
+    @objid ("1de7f5a5-bc2f-4387-9a00-7c8872a4d2f8")
     public void setTemplateFile(String value) {
         this.elt.putTagValue(Pattern.MdaTypes.TEMPLATE_FILE_TAGTYPE_ELT, value);
     }
@@ -247,7 +246,7 @@ public class Pattern {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("a4807fb7-ceac-4749-a364-a7a33977316d")
+    @objid ("5b67e6a3-0d71-4aaf-b149-9e81e3ae552c")
     public void setTemplateImage(String value) {
         this.elt.putTagValue(Pattern.MdaTypes.TEMPLATE_IMAGE_TAGTYPE_ELT, value);
     }
@@ -257,7 +256,7 @@ public class Pattern {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("5f4a3b1d-2c9b-4754-9376-4948ccdedf8a")
+    @objid ("c60c6715-aaa9-4093-aa39-10a5377b1276")
     public void setTemplateParameters(List<String> values) {
         this.elt.putTagValues(Pattern.MdaTypes.TEMPLATE_PARAMETERS_TAGTYPE_ELT, values);
     }
@@ -267,7 +266,7 @@ public class Pattern {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("4aeb2d6f-bbff-4661-87a5-a7eaa8225759")
+    @objid ("ad5cb2f4-ea5d-4f30-8021-183e614e975f")
     public void setTemplateStringParameters(List<String> values) {
         this.elt.putTagValues(Pattern.MdaTypes.TEMPLATE_STRINGPARAMETERS_TAGTYPE_ELT, values);
     }
@@ -277,46 +276,46 @@ public class Pattern {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("c940d8fc-7818-4d66-9edd-c54e359e7e12")
+    @objid ("f5fe2201-0166-4e85-86e7-ede8c7adc45f")
     public void setTemplateVersion(String value) {
         this.elt.putTagValue(Pattern.MdaTypes.TEMPLATE_VERSION_TAGTYPE_ELT, value);
     }
 
-    @objid ("786c79d3-a0c3-4d68-8598-d62525af984b")
-    protected Pattern(Package elt) {
+    @objid ("26e71b0a-c8c6-4b24-a24f-5f29105eebe1")
+    protected  Pattern(Package elt) {
         this.elt = elt;
     }
 
     @objid ("54db8a75-1b63-4aac-9476-5a7732417e7a")
     public static final class MdaTypes {
-        @objid ("069d5d66-8d0c-4773-b415-b0a55153ed32")
+        @objid ("1c00a2d2-7d68-4508-9bf5-9541d80cb833")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("ca92edf1-371c-49b2-a4d3-1ab120268157")
+        @objid ("9399e9fb-d255-4fec-9c26-2562c7b9f9c4")
         public static TagType TEMPLATE_VERSION_TAGTYPE_ELT;
 
-        @objid ("12b19ed0-12e2-4e7d-8f14-308b271af539")
+        @objid ("986b39af-c1e0-41c4-bfb4-83b50357ada5")
         public static TagType TEMPLATE_IMAGE_TAGTYPE_ELT;
 
-        @objid ("4faed1ed-b82f-4d14-864d-a7f0abb2c4d4")
+        @objid ("025c4699-d68e-4dbc-8e09-27eca9a49927")
         public static TagType TEMPLATE_CATEGORIES_TAGTYPE_ELT;
 
-        @objid ("ee3b4374-af61-4dc7-8078-825e22c457dd")
+        @objid ("967206c7-3400-4ff2-8160-d26368390b8e")
         public static TagType TEMPLATE_FILE_TAGTYPE_ELT;
 
-        @objid ("2336b7e9-89fd-4c75-add1-1c55922a8020")
+        @objid ("1e66e157-24b3-4679-b417-5cc183e9ae5a")
         public static TagType TEMPLATE_STRINGPARAMETERS_TAGTYPE_ELT;
 
-        @objid ("a4dcd116-2ef1-4c4e-ab79-af2c59f499f9")
+        @objid ("d78ced52-8139-4f8c-b1a1-bd48710268fc")
         public static TagType TEMPLATE_PARAMETERS_TAGTYPE_ELT;
 
-        @objid ("a3eecbd4-51c0-48ba-80b4-6452299ec3f9")
+        @objid ("fb9e74ab-d019-463a-8eeb-fbcd6c5883b4")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("cb9999ec-eee3-4a34-85a7-f9dd1f7fdd3e")
+        @objid ("143d5d47-c434-4519-bc16-5eac376583ab")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("eadbec84-5226-48c5-bffe-5264b0a9f0e3")
+        @objid ("12d5cea2-5792-4d9c-87c8-d5cd27f41157")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "641a5778-89a9-11df-9978-0014224f9977");
             TEMPLATE_VERSION_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "dc10adee-8a8b-11df-9e1a-0014224f9977");
@@ -327,14 +326,14 @@ public class Pattern {
             TEMPLATE_PARAMETERS_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "120a832b-6bf6-4b03-900f-f60e86f19363");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

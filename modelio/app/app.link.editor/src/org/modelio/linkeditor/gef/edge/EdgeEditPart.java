@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.gef.edge;
 
 import java.util.List;
@@ -85,7 +84,7 @@ public class EdgeEditPart extends AbstractConnectionEditPart {
 
     @objid ("a453cc05-31bf-4ad0-92d4-9ba5c2a2aed2")
     private static final PointList NAVIG_AGGREG_TIP = new PointList(new int[] { -1, 1, 0, 0, -1, -1, -2, 0,
-	        -3, -1, -2, 0, -3, 1, -2, 0 });
+    	        -3, -1, -2, 0, -3, 1, -2, 0 });
 
     @objid ("c95d026f-58e2-45ea-af1a-761b6e8ba561")
     private static final PointList TRIANGLE_TIP = new PointList(new int[] { -1, 1, 0, 0, -1, -1 });
@@ -95,37 +94,39 @@ public class EdgeEditPart extends AbstractConnectionEditPart {
      */
     @objid ("3e66ff73-5806-45e6-a3d4-cc056af6f039")
     public static IEdgeDecorator colorizer = new IEdgeDecorator() {
-		
-		@Override
-		public void decorateLabel(Edge edge, Label fig) {
-			fig.setFont(CoreFontRegistry.getModifiedFont(Display.getDefault().getSystemFont(), SWT.NONE, UIFont.SMALL_SIZE));
-			fig.setForegroundColor(ColorConstants.lightGray);
-		}
-		
-		@Override
-		public void decorateLine(Edge edge, PolylineConnection fig) {
-			
-			if (edge.data != null) {
-				// Link towards node
-				Color swtColor = Display.getDefault().getSystemColor(SWT.COLOR_LIST_FOREGROUND);
-                fig.setForegroundColor(swtColor);
-                fig.setLineWidth(1);
-				
-			} else {
-				// Link towards bus
-				fig.setForegroundColor(ColorConstants.lightGray);
-                fig.setLineWidth(2);
-			}
-			
-		}
-		
-	};
+    		
+    		@Override
+    		public void decorateLabel(Edge edge, Label fig) {
+    			fig.setFont(CoreFontRegistry.getModifiedFont(Display.getDefault().getSystemFont(), SWT.NONE, UIFont.SMALL_SIZE));
+    			fig.setForegroundColor(ColorConstants.lightGray);
+    		}
+    		
+    		@Override
+    		public void decorateLine(Edge edge, PolylineConnection fig) {
+    			
+    			if (edge.data != null) {
+    				// Link towards node
+    				Color swtColor = Display.getDefault().getSystemColor(SWT.COLOR_LIST_FOREGROUND);
+                    fig.setForegroundColor(swtColor);
+                    fig.setLineWidth(1);
+    				
+    			} else {
+    				// Link towards bus
+    				fig.setForegroundColor(ColorConstants.lightGray);
+                    fig.setLineWidth(2);
+    			}
+    			
+    		}
+    
+    		
+    	};
 
     @objid ("1b9d2874-5e33-11e2-b81d-002564c97630")
     @Override
     protected void createEditPolicies() {
         installEditPolicy(EditPolicy.CONNECTION_ENDPOINTS_ROLE, new ConnectionEndpointEditPolicy());
         installEditPolicy(EditPolicy.COMPONENT_ROLE, new DeleteEdgeEditPolicy());
+        
     }
 
     @objid ("1b9d2877-5e33-11e2-b81d-002564c97630")
@@ -159,6 +160,7 @@ public class EdgeEditPart extends AbstractConnectionEditPart {
                 decorateNamespaceUse(fig, model);
             }
         }
+        
     }
 
     @objid ("1b9d287a-5e33-11e2-b81d-002564c97630")
@@ -199,6 +201,7 @@ public class EdgeEditPart extends AbstractConnectionEditPart {
         constraint.setRelativePosition(PositionConstants.NORTH);
         fig.add(role, 0);
         fig.setConstraint(role, constraint);
+        
     }
 
     @objid ("1b9d2889-5e33-11e2-b81d-002564c97630")
@@ -241,6 +244,7 @@ public class EdgeEditPart extends AbstractConnectionEditPart {
             fig.add(role, 0);
             fig.setConstraint(role, constraint);
         }
+        
     }
 
     @objid ("1b9d2891-5e33-11e2-b81d-002564c97630")
@@ -248,6 +252,7 @@ public class EdgeEditPart extends AbstractConnectionEditPart {
         AssociationEnd assocEnd = (AssociationEnd) model;
         decorateAssociationSource(fig, assocEnd);
         decorateAssociationTarget(fig, assocEnd);
+        
     }
 
     @objid ("1b9d2899-5e33-11e2-b81d-002564c97630")
@@ -261,6 +266,7 @@ public class EdgeEditPart extends AbstractConnectionEditPart {
         arrow.setForegroundColor(fig.getForegroundColor());
         arrow.setBackgroundColor(ColorConstants.white);
         fig.setTargetDecoration(arrow);
+        
     }
 
     @objid ("1b9f89ae-5e33-11e2-b81d-002564c97630")
@@ -345,6 +351,7 @@ public class EdgeEditPart extends AbstractConnectionEditPart {
             }
             fig.setTargetDecoration(targetDecoration);
         }
+        
     }
 
     @objid ("1b9f89bd-5e33-11e2-b81d-002564c97630")
@@ -423,6 +430,7 @@ public class EdgeEditPart extends AbstractConnectionEditPart {
             }
             fig.setSourceDecoration(sourceDecoration);
         }
+        
     }
 
     @objid ("1b9f89c7-5e33-11e2-b81d-002564c97630")
@@ -450,6 +458,7 @@ public class EdgeEditPart extends AbstractConnectionEditPart {
         constraint.setGap(vertical ? VERTICALLAYOUT_EDGELABELGAP : HORIZONTALLAYOUT_EDGELABELGAP);
         constraint.setRelativePosition(PositionConstants.NORTH);
         fig.add(role, constraint);
+        
     }
 
     @objid ("06f88162-8bdf-4d49-ae41-1dc8ab140945")

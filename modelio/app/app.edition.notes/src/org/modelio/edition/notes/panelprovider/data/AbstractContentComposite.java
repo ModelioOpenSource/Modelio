@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.panelprovider.data;
 
 import java.util.ArrayList;
@@ -41,9 +40,10 @@ public abstract class AbstractContentComposite extends Composite implements INot
     private final EContextService contextService;
 
     @objid ("e536812a-3ffa-401b-b512-1587628a632d")
-    public AbstractContentComposite(Composite parentComposite, int style, EContextService contextService) {
+    public  AbstractContentComposite(Composite parentComposite, int style, EContextService contextService) {
         super(parentComposite, style);
         this.contextService = contextService;
+        
     }
 
     @objid ("abeed79a-9d66-41c3-969e-f4548664f8c0")
@@ -57,6 +57,7 @@ public abstract class AbstractContentComposite extends Composite implements INot
                 this.contextService.deactivateContext(contextId);
             }
         }
+        
     }
 
     @objid ("aaa16675-7e18-437c-821d-710190115c07")
@@ -68,6 +69,7 @@ public abstract class AbstractContentComposite extends Composite implements INot
             }
             this.activeContexts = null;
         }
+        
     }
 
 }

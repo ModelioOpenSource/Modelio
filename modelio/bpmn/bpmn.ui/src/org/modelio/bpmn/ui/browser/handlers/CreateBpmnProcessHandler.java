@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.ui.browser.handlers;
 
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.swt.widgets.Display;
 import org.modelio.bpmn.diagram.editor.layout.BpmnLayouter;
@@ -46,7 +45,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class CreateBpmnProcessHandler extends CreateCmsElementHandler {
     @objid ("11a28ee4-a493-49a6-9b33-ad73af971f01")
     @Inject
-     IModelioEventService eventService;
+    IModelioEventService eventService;
 
     /**
      * BPMNProcess post-creation => create a Process Design Diagram
@@ -67,6 +66,7 @@ public class CreateBpmnProcessHandler extends CreateCmsElementHandler {
         
         // Layout diagram
         new BpmnLayouter(diagram).run();
+        
     }
 
     /**
@@ -81,6 +81,7 @@ public class CreateBpmnProcessHandler extends CreateCmsElementHandler {
                         () -> "CreateBpmnProcessHandler.postCommit()",
                         ModelioEvent.EDIT_ELEMENT,
                         diagram));
+        
     }
 
     /**
@@ -121,6 +122,7 @@ public class CreateBpmnProcessHandler extends CreateCmsElementHandler {
         flow2.setSourceRef(task);
         flow2.setTargetRef(endEvent);
         flow2.setContainer(process);
+        
     }
 
 }

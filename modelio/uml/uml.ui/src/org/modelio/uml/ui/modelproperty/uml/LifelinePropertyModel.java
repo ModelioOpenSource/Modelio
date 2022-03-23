@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.util.Collections;
@@ -51,21 +50,19 @@ public class LifelinePropertyModel extends AbstractPropertyModel<Lifeline> {
      */
     @objid ("5a4ad2ec-30d2-48ea-b0e5-425dbc537296")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name", "Represented",
-			"Selector", "RefersTo" };
+    			"Selector", "RefersTo" };
 
     /**
      * Create a new <i>Lifeline</i> data model from an <i>Lifeline</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("d88a9671-d1af-48c1-b951-ba785cfe4787")
-    public LifelinePropertyModel(Lifeline theEditedElement) {
+    public  LifelinePropertyModel(Lifeline theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("3320f6b9-596c-46f0-b759-dedd11ba6e65")
@@ -76,7 +73,6 @@ public class LifelinePropertyModel extends AbstractPropertyModel<Lifeline> {
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("8911ae60-5512-4d7c-8b54-a370b42bf38e")
@@ -93,7 +89,6 @@ public class LifelinePropertyModel extends AbstractPropertyModel<Lifeline> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -121,6 +116,7 @@ public class LifelinePropertyModel extends AbstractPropertyModel<Lifeline> {
         default:
             return null;
         }
+        
     }
 
     /**
@@ -130,7 +126,6 @@ public class LifelinePropertyModel extends AbstractPropertyModel<Lifeline> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -161,13 +156,13 @@ public class LifelinePropertyModel extends AbstractPropertyModel<Lifeline> {
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -201,6 +196,7 @@ public class LifelinePropertyModel extends AbstractPropertyModel<Lifeline> {
         default:
             return;
         }
+        
     }
 
 }

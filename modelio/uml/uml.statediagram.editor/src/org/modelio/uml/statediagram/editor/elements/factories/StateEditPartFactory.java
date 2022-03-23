@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.factories;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -25,10 +24,12 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPartFactory;
 import org.modelio.diagram.elements.common.label.base.ElementLabelEditPart;
 import org.modelio.diagram.elements.common.portcontainer.PortContainerEditPart;
+import org.modelio.diagram.elements.core.model.factory.GenericUserImageModeEditPartFactory;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.uml.statediagram.editor.elements.choice.ChoiceEditPart;
 import org.modelio.uml.statediagram.editor.elements.choice.GmChoice;
 import org.modelio.uml.statediagram.editor.elements.choice.GmChoicePrimaryNode;
+import org.modelio.uml.statediagram.editor.elements.common.StateNonSelectableImageEditPart;
 import org.modelio.uml.statediagram.editor.elements.connectionpoint.ConnectionPointEditPart;
 import org.modelio.uml.statediagram.editor.elements.connectionpoint.GmConnectionPoint;
 import org.modelio.uml.statediagram.editor.elements.connectionpoint.GmConnectionPointPrimaryNode;
@@ -70,6 +71,7 @@ import org.modelio.uml.statediagram.editor.elements.state.GmState;
 import org.modelio.uml.statediagram.editor.elements.state.GmStatePrimaryNode;
 import org.modelio.uml.statediagram.editor.elements.state.RegionsGroupEditPart;
 import org.modelio.uml.statediagram.editor.elements.state.StateEditPart;
+import org.modelio.uml.statediagram.editor.elements.state.StateSimpleEditPart;
 import org.modelio.uml.statediagram.editor.elements.statediagram.GmStateDiagram;
 import org.modelio.uml.statediagram.editor.elements.statediagram.StateDiagramEditPart;
 import org.modelio.uml.statediagram.editor.elements.terminal.GmTerminal;
@@ -92,10 +94,22 @@ public class StateEditPartFactory implements EditPartFactory {
      * the default factory to use when structured mode is requested.
      */
     @objid ("f5933e22-55b6-11e2-877f-002564c97630")
-    private static final StructuredModeEditPartFactory structuredModeEditPartFactory = new StructuredModeEditPartFactory();
+    private final StructuredModeEditPartFactory structuredModeEditPartFactory = new StructuredModeEditPartFactory();
 
     @objid ("f594c479-55b6-11e2-877f-002564c97630")
-    private static final SimpleModeEditPartFactory simpleModeEditPartFactory = new SimpleModeEditPartFactory();
+    private final SimpleModeEditPartFactory simpleModeEditPartFactory = new SimpleModeEditPartFactory();
+
+    /**
+     * the default factory to use when image mode is requested.
+     */
+    @objid ("6ba3b634-07a2-42aa-907c-0c01154a20b9")
+    private final EditPartFactory imageModeEditPartFactory = new ImageModeEditPartFactory();
+
+    /**
+     * the default factory to use when user image mode is requested.
+     */
+    @objid ("bfee634b-d3f0-4fca-980e-5034970495b2")
+    private final EditPartFactory userImageModeEditPartFactory = new GenericUserImageModeEditPartFactory(this.imageModeEditPartFactory);
 
     @objid ("f594c47a-55b6-11e2-877f-002564c97630")
     @Override
@@ -105,11 +119,17 @@ public class StateEditPartFactory implements EditPartFactory {
             // For node models, delegates according the representation model.
             GmNodeModel node = (GmNodeModel) model;
             switch (node.getRepresentationMode()) {
+            case USER_IMAGE:
+                editPart = this.userImageModeEditPartFactory.createEditPart(context, model);
+                break;
+            case IMAGE:
+                editPart = this.imageModeEditPartFactory.createEditPart(context, model);
+                break;
             case STRUCTURED:
-                editPart = StateEditPartFactory.structuredModeEditPartFactory.createEditPart(context, model);
+                editPart = this.structuredModeEditPartFactory.createEditPart(context, model);
                 break;
             case SIMPLE:
-                editPart = StateEditPartFactory.simpleModeEditPartFactory.createEditPart(context, model);
+                editPart = this.simpleModeEditPartFactory.createEditPart(context, model);
                 break;
             default:
                 editPart = null; // generically supported by standard factory
@@ -118,9 +138,10 @@ public class StateEditPartFactory implements EditPartFactory {
             return editPart;
         } else {
             // Link models are always in structured mode.
-            editPart = StateEditPartFactory.structuredModeEditPartFactory.createEditPart(context, model);
+            editPart = this.structuredModeEditPartFactory.createEditPart(context, model);
             return editPart;
         }
+        
     }
 
     /**
@@ -481,6 +502,12 @@ public class StateEditPartFactory implements EditPartFactory {
                 return editPart;
             }
             
+            if (model.getClass() == GmStatePrimaryNode.class) {
+                editPart = new StateSimpleEditPart();
+                editPart.setModel(model);
+                return editPart;
+            }
+            
             if (model.getClass() == GmTerminal.class) {
                 editPart = new PortContainerEditPart();
                 editPart.setModel(model);
@@ -489,6 +516,112 @@ public class StateEditPartFactory implements EditPartFactory {
             
             if (model.getClass() == GmTerminalPrimaryNode.class) {
                 editPart = new TerminalEditPart();
+                editPart.setModel(model);
+                return editPart;
+            }
+            
+            // not found
+            return null;
+        }
+
+    }
+
+    /**
+     * EditPart factory for node models in stereotype image mode.
+     */
+    @objid ("4ae2fe14-968e-470e-a655-b24b1ceec4ba")
+    private static final class ImageModeEditPartFactory implements EditPartFactory {
+        @objid ("d5043e58-28e3-4bf2-8ed8-9a6ac0e4e6a1")
+        @Override
+        public EditPart createEditPart(EditPart context, Object model) {
+            EditPart editPart = null;
+            
+            if (model.getClass() == GmChoicePrimaryNode.class) {
+                editPart = new StateNonSelectableImageEditPart(false);
+                editPart.setModel(model);
+                return editPart;
+            }
+            
+            if (model.getClass() == GmConnectionPointPrimaryNode.class) {
+                editPart = new StateNonSelectableImageEditPart(true);
+                editPart.setModel(model);
+                return editPart;
+            }
+            
+            if (model.getClass() == GmDeepHistoryPrimaryNode.class) {
+                editPart = new StateNonSelectableImageEditPart(true);
+                editPart.setModel(model);
+                return editPart;
+            }
+            
+            if (model.getClass() == GmEntryPrimaryNode.class) {
+                editPart = new StateNonSelectableImageEditPart(true);
+                editPart.setModel(model);
+                return editPart;
+            }
+            
+            if (model.getClass() == GmExitPointPrimaryNode.class) {
+                editPart = new StateNonSelectableImageEditPart(true);
+                editPart.setModel(model);
+                return editPart;
+            }
+            
+            if (model.getClass() == GmFinalStatePrimaryNode.class) {
+                editPart = new StateNonSelectableImageEditPart(true);
+                editPart.setModel(model);
+                return editPart;
+            }
+            
+            if (model.getClass() == GmForkState.class) {
+                editPart = new StateNonSelectableImageEditPart(false);
+                editPart.setModel(model);
+                return editPart;
+            }
+            
+            if (model.getClass() == GmForkStatePrimaryNode.class) {
+                editPart = new StateNonSelectableImageEditPart(false);
+                editPart.setModel(model);
+                return editPart;
+            }
+            
+            if (model.getClass() == GmInitialStatePrimaryNode.class) {
+                editPart = new StateNonSelectableImageEditPart(true);
+                editPart.setModel(model);
+                return editPart;
+            }
+            
+            if (model.getClass() == GmJoin.class) {
+                editPart = new StateNonSelectableImageEditPart(false);
+                editPart.setModel(model);
+                return editPart;
+            }
+            
+            if (model.getClass() == GmJoinPrimaryNode.class) {
+                editPart = new StateNonSelectableImageEditPart(false);
+                editPart.setModel(model);
+                return editPart;
+            }
+            
+            if (model.getClass() == GmJunctionPrimaryNode.class) {
+                editPart = new StateNonSelectableImageEditPart(true);
+                editPart.setModel(model);
+                return editPart;
+            }
+            
+            if (model.getClass() == GmShallowHistoryPrimaryNode.class) {
+                editPart = new StateNonSelectableImageEditPart(true);
+                editPart.setModel(model);
+                return editPart;
+            }
+            
+            if (model.getClass() == GmStatePrimaryNode.class) {
+                editPart = new StateNonSelectableImageEditPart(false);
+                editPart.setModel(model);
+                return editPart;
+            }
+            
+            if (model.getClass() == GmTerminalPrimaryNode.class) {
+                editPart = new StateNonSelectableImageEditPart(false);
                 editPart.setModel(model);
                 return editPart;
             }

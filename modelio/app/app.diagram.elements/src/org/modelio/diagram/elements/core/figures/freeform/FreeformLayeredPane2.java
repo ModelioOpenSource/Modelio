@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.freeform;
 
 import java.util.Iterator;
@@ -45,7 +44,7 @@ public class FreeformLayeredPane2 extends LayeredPane implements IFreeformFigure
      * Constructs a new FreeformLayeredPane2.
      */
     @objid ("acd26497-419f-4a55-9e07-b3ad6b5af764")
-    public FreeformLayeredPane2() {
+    public  FreeformLayeredPane2() {
         setLayoutManager(null);
     }
 
@@ -57,6 +56,7 @@ public class FreeformLayeredPane2 extends LayeredPane implements IFreeformFigure
     public void add(IFigure child, Object constraint, int index) {
         super.add(child, constraint, index);
         this.helper.hookChild(child);
+        
     }
 
     /**
@@ -78,6 +78,7 @@ public class FreeformLayeredPane2 extends LayeredPane implements IFreeformFigure
         while (iter.hasNext()) {
             iter.next().notifyFreeformExtentChanged();
         }
+        
     }
 
     /**
@@ -87,11 +88,11 @@ public class FreeformLayeredPane2 extends LayeredPane implements IFreeformFigure
     @objid ("df8a0559-707a-4084-a773-0748e97131f6")
     @Override
     protected void fireMoved() {
+        
     }
 
     /**
      * Returns the FreeformHelper.
-     * 
      * @return the FreeformHelper
      */
     @objid ("2e57e082-5840-4878-9898-b7d8bafdcb59")
@@ -116,6 +117,7 @@ public class FreeformLayeredPane2 extends LayeredPane implements IFreeformFigure
     protected void primTranslate(int dx, int dy) {
         this.bounds.x += dx;
         this.bounds.y += dy;
+        
     }
 
     /**
@@ -126,6 +128,7 @@ public class FreeformLayeredPane2 extends LayeredPane implements IFreeformFigure
     public void remove(IFigure child) {
         this.helper.unhookChild(child);
         super.remove(child);
+        
     }
 
     /**
@@ -150,7 +153,6 @@ public class FreeformLayeredPane2 extends LayeredPane implements IFreeformFigure
      * Set a filter to use when computing {@link #getFreeformExtent()}.
      * <p>
      * Filtered out figures won't be used to compute the extent, that may result to the figures being cropped.
-     * 
      * @param f an extent filter.
      */
     @objid ("0acc2c67-9206-4627-a459-eacc0f219de1")
@@ -163,7 +165,6 @@ public class FreeformLayeredPane2 extends LayeredPane implements IFreeformFigure
      * Get the filter used when computing {@link #getFreeformExtent()}.
      * <p>
      * Filtered out figures won't be used to compute the extent, that may result to the figures being cropped.
-     * 
      * @return an extent filter.
      */
     @objid ("7b234742-0ecf-4b04-abed-f238f9276631")

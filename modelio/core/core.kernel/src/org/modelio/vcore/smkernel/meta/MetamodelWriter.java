@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta;
 
 import java.util.Collection;
@@ -112,7 +111,6 @@ public class MetamodelWriter {
 
     /**
      * Produce a {@link MetamodelDescriptor} from a {@link MMetamodel}.
-     * 
      * @param metamodel the metamodel to write
      * @return the metamodel descriptor.
      */
@@ -152,6 +150,7 @@ public class MetamodelWriter {
         } else {
             return new MClassRef(c.getOrigin().getName(), c.getName());
         }
+        
     }
 
     @objid ("553f238e-4135-46dd-8df7-a9d6f8bf90de")
@@ -213,6 +212,7 @@ public class MetamodelWriter {
                 fd.getMetaclasses().add(writeMetaclass(cls));
             }
         }
+        
     }
 
     @objid ("716072f5-ff75-48f6-83e2-6b6b2ac3162b")
@@ -271,6 +271,7 @@ public class MetamodelWriter {
             return d;
             
         }
+        
     }
 
     @objid ("b429c9f0-22cd-4a6b-a23b-c26d476e4b9b")
@@ -294,6 +295,7 @@ public class MetamodelWriter {
         }
         
         d.setParent(toMClassRef(cls.getSuper()));
+        
     }
 
 }

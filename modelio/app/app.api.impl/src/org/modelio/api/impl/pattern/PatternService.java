@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.api.impl.pattern;
 
 import java.nio.file.Path;
@@ -28,10 +27,11 @@ import java.util.Map;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.modelio.api.modelio.pattern.IPatternService;
+import org.modelio.api.modelio.pattern.IPatternService.PatternException;
 import org.modelio.gproject.fragment.IProjectFragment;
 import org.modelio.metamodel.uml.statik.Package;
-import org.modelio.patterns.model.ProfileUtils.PatternDesignerStereotypes;
 import org.modelio.patterns.model.ProfileUtils;
+import org.modelio.patterns.model.ProfileUtils.PatternDesignerStereotypes;
 import org.modelio.patterns.model.RuntimePattern;
 import org.modelio.platform.project.services.IProjectService;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -45,9 +45,10 @@ public class PatternService implements IPatternService {
     private IProjectService projectService;
 
     @objid ("272dd984-11d7-4315-a451-ae8c44da8c3f")
-    public PatternService(final IEclipseContext eclipseContext) {
+    public  PatternService(final IEclipseContext eclipseContext) {
         this.patternService = eclipseContext.get(org.modelio.patterns.api.IPatternService.class);
         this.projectService = eclipseContext.get(IProjectService.class);
+        
     }
 
     @objid ("7a484490-62c1-4bcc-85e8-c47109b7541f")
@@ -60,6 +61,7 @@ public class PatternService implements IPatternService {
         } else {
             throw new InvalidParameterException("Invalid pattern");
         }
+        
     }
 
     @objid ("6ccc33ca-ef6e-4064-a9c4-66456806499f")
@@ -96,6 +98,7 @@ public class PatternService implements IPatternService {
             throw new PatternException("Invalid pattern " + patternName);
         }
         this.patternService.getCatalog().removePattern(pattern);
+        
     }
 
     @objid ("eb279c38-1f10-488d-9609-677aa746ace7")
@@ -116,6 +119,7 @@ public class PatternService implements IPatternService {
             throw new PatternException("Invalid pattern " + patternName);
         }
         pattern.applyPattern(parameters, this.projectService.getSession(), getModelRoot());
+        
     }
 
     @objid ("ba0855f4-91e0-4d41-8cce-1383100d6265")
@@ -123,6 +127,7 @@ public class PatternService implements IPatternService {
     public void applyPattern(final Path patternPath, final Map<String, Object> parameters) throws PatternException {
         RuntimePattern pattern = new RuntimePattern(patternPath);
         pattern.applyPattern(parameters, this.projectService.getSession(), getModelRoot());
+        
     }
 
     @objid ("80745b6d-debe-469b-a17b-01ce2d96fa1b")

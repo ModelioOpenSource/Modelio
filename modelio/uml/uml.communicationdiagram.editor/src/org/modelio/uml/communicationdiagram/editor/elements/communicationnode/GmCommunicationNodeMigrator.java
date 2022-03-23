@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.communicationdiagram.editor.elements.communicationnode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,6 +44,7 @@ public class GmCommunicationNodeMigrator implements IPersistentMigrator {
             return null;
         }
         }
+        
     }
 
     @objid ("7a5a713b-55b6-11e2-877f-002564c97630")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.informationflowgroup;
 
 import java.util.Collection;
@@ -28,8 +27,8 @@ import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.informationFlow.InformationFlow;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -65,19 +64,20 @@ public final class GmInformationFlowArrow extends GmNoStyleSimpleNode {
      * Constructor for deserialization only.
      */
     @objid ("816760a7-1dec-11e2-8cad-001ec947c8cc")
-    public GmInformationFlowArrow() {
+    public  GmInformationFlowArrow() {
+        
     }
 
     /**
      * Creates a group.
-     * 
      * @param diagram The diagram.
      * @param relatedRef The related element reference, may not be null.
      */
     @objid ("816760aa-1dec-11e2-8cad-001ec947c8cc")
-    public GmInformationFlowArrow(IGmDiagram diagram, MRef relatedRef) {
+    public  GmInformationFlowArrow(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
         this.relatedEl = resolveRef(relatedRef);
+        
     }
 
     @objid ("8169c2d8-1dec-11e2-8cad-001ec947c8cc")
@@ -111,12 +111,6 @@ public final class GmInformationFlowArrow extends GmNoStyleSimpleNode {
         return false;
     }
 
-    @objid ("8169c2e8-1dec-11e2-8cad-001ec947c8cc")
-    @Override
-    public void obElementAdded(final MObject movedEl) {
-        fireVisibilityChanged();
-    }
-
     @objid ("8169c2ed-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public void obElementsUpdated() {
@@ -140,6 +134,7 @@ public final class GmInformationFlowArrow extends GmNoStyleSimpleNode {
             break;
         }
         }
+        
     }
 
     @objid ("8169c2f5-1dec-11e2-8cad-001ec947c8cc")
@@ -153,6 +148,7 @@ public final class GmInformationFlowArrow extends GmNoStyleSimpleNode {
     public final void styleChanged(IStyle style) {
         fireVisibilityChanged();
         super.styleChanged(style);
+        
     }
 
     @objid ("8169c2fc-1dec-11e2-8cad-001ec947c8cc")
@@ -163,6 +159,7 @@ public final class GmInformationFlowArrow extends GmNoStyleSimpleNode {
         } else {
             super.styleChanged(property, newValue);
         }
+        
     }
 
     @objid ("8169c301-1dec-11e2-8cad-001ec947c8cc")
@@ -183,6 +180,7 @@ public final class GmInformationFlowArrow extends GmNoStyleSimpleNode {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmInformationFlowArrow.", GmInformationFlowArrow.MINOR_VERSION);
+        
     }
 
     @objid ("8169c30f-1dec-11e2-8cad-001ec947c8cc")
@@ -191,6 +189,7 @@ public final class GmInformationFlowArrow extends GmNoStyleSimpleNode {
         
         // TODO : Beurk !!!!!!!
         this.relatedEl = resolveRef((MRef) in.readProperty("relatedRef"));
+        
     }
 
     @objid ("816c252f-1dec-11e2-8cad-001ec947c8cc")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.project.services.openproject;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,9 +40,10 @@ final class ProjectOpeningMonitor implements IProjectMonitor {
     private final IProjectService projectService;
 
     @objid ("7ff991c3-3f29-4db2-b310-da80de5d0bdc")
-    ProjectOpeningMonitor(IProjectService projectService, IProjectMonitor cascaded) {
+     ProjectOpeningMonitor(IProjectService projectService, IProjectMonitor cascaded) {
         this.projectService = projectService;
         this.cascaded = cascaded;
+        
     }
 
     @objid ("dce14247-dd23-4bb3-adbb-4b9fd9137959")
@@ -77,6 +77,7 @@ final class ProjectOpeningMonitor implements IProjectMonitor {
             break;
         
         }
+        
     }
 
     /**
@@ -106,6 +107,7 @@ final class ProjectOpeningMonitor implements IProjectMonitor {
         
             }
         }
+        
     }
 
 }

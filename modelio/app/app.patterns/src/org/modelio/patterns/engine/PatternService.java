@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.engine;
 
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.Creatable;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.core.di.extensions.EventTopic;
@@ -53,7 +52,6 @@ class PatternService implements IPatternService {
 
     /**
      * Called by injection when the current project is closed, to dereference its pattern catalog.
-     * 
      * @param project the current project.
      */
     @objid ("cd77fe80-0796-44ac-bea1-9c0708119dc0")
@@ -63,11 +61,11 @@ class PatternService implements IPatternService {
         if (project != null) {
             this.patternCatalog = null;
         }
+        
     }
 
     /**
      * Called by injection when a project is opened, to load its pattern catalog.
-     * 
      * @param project the current project.
      */
     @objid ("5a58cde4-dd24-495b-ad96-c7457c85970a")
@@ -80,6 +78,7 @@ class PatternService implements IPatternService {
                     Patterns.getProjectPatternsDirectory(project),
                     false);
         }
+        
     }
 
 }

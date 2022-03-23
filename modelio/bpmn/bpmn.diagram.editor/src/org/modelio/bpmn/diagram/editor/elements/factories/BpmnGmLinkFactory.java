@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.factories;
 
 import java.util.Objects;
@@ -56,7 +55,8 @@ public class BpmnGmLinkFactory implements IGmLinkFactory {
      * Creates the link factory for a diagram.
      */
     @objid ("620b9a40-55b6-11e2-877f-002564c97630")
-    public BpmnGmLinkFactory() {
+    public  BpmnGmLinkFactory() {
+        
     }
 
     @objid ("620b9a43-55b6-11e2-877f-002564c97630")
@@ -67,6 +67,7 @@ public class BpmnGmLinkFactory implements IGmLinkFactory {
         } else {
             return null;
         }
+        
     }
 
     @objid ("aec2b316-5acd-4591-8288-30e0e633bc5e")
@@ -133,6 +134,7 @@ public class BpmnGmLinkFactory implements IGmLinkFactory {
         } else {
             return isInWorkflow(diagram, elt.getCompositionOwner());
         }
+        
     }
 
     @objid ("2f56e6b6-f40b-43a5-af7b-978cf125b459")
@@ -153,7 +155,7 @@ public class BpmnGmLinkFactory implements IGmLinkFactory {
         private IGmDiagram diagram;
 
         @objid ("620d20e1-55b6-11e2-877f-002564c97630")
-        public ImplVisitor(IGmDiagram diagram) {
+        public  ImplVisitor(IGmDiagram diagram) {
             this.diagram = diagram;
         }
 

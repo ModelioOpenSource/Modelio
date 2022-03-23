@@ -1,5 +1,7 @@
 // Disable all captions for figures.
 :!figure-caption:
+// Path to the stylesheet files
+:stylesdir: .
 
 [[Afficher-et-masquer-des-éléments-dans-un-diagramme]]
 

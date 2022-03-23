@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.instance;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,12 +35,11 @@ import org.modelio.metamodel.uml.statik.BindableInstance;
 class DeferredSmartCreateInstanceCommand extends DeferredCreateCommand {
     /**
      * Create a deferred command.
-     * 
      * @param req The creation request. The request must be a smart instance creation request.
      * @param sender The edit part sending the request
      */
     @objid ("352de53e-55b7-11e2-877f-002564c97630")
-    public DeferredSmartCreateInstanceCommand(final CreateRequest req, final EditPart sender) {
+    public  DeferredSmartCreateInstanceCommand(final CreateRequest req, final EditPart sender) {
         super(req, sender);
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,14 +49,14 @@ public class DiagramCommandStack extends CommandStack {
 
     /**
      * Initialize the command stack.
-     * 
      * @param iCoreSession a modeling session
      * @param gmDiagram The diagram model to handle.
      */
     @objid ("6590b740-33f7-11e2-95fe-001ec947c8cc")
-    public DiagramCommandStack(ICoreSession iCoreSession, IGmDiagram gmDiagram) {
+    public  DiagramCommandStack(ICoreSession iCoreSession, IGmDiagram gmDiagram) {
         this.session = iCoreSession.getTransactionSupport();
         this.diagram = gmDiagram;
+        
     }
 
     @objid ("6590b745-33f7-11e2-95fe-001ec947c8cc")
@@ -85,6 +84,7 @@ public class DiagramCommandStack extends CommandStack {
         } finally {
             notifyListeners(command, CommandStack.POST_UNDO);
         }
+        
     }
 
     @objid ("6590b752-33f7-11e2-95fe-001ec947c8cc")
@@ -102,6 +102,7 @@ public class DiagramCommandStack extends CommandStack {
         } finally {
             notifyListeners(command, CommandStack.POST_REDO);
         }
+        
     }
 
     @objid ("6590b755-33f7-11e2-95fe-001ec947c8cc")
@@ -155,6 +156,7 @@ public class DiagramCommandStack extends CommandStack {
             }
             notifyListeners(command, CommandStack.POST_EXECUTE);
         }
+        
     }
 
     @objid ("6590b766-33f7-11e2-95fe-001ec947c8cc")
@@ -174,13 +176,13 @@ public class DiagramCommandStack extends CommandStack {
 
     /**
      * Sets the batch mode on/off. Should only be used by API.
-     * 
      * @param value true if batch mode should be engaged (ie no more automatic save of the diagram).
      */
     @objid ("9b591753-bb10-4490-a379-79e041b56702")
     public void setBatchMode(boolean value) {
         // Automatically generated method. Please delete this comment before entering specific code.
         this.batchMode = value;
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common;
 
 import java.io.IOException;
@@ -48,11 +47,10 @@ public class EmfResource implements Resource {
 
     /**
      * Initialize the EXML adapter.
-     * 
      * @param abstractExmlRepository the EXML repository.
      */
     @objid ("a654c25f-c064-11e1-b511-001ec947ccaf")
-    public EmfResource(AbstractExmlRepository abstractExmlRepository) {
+    public  EmfResource(AbstractExmlRepository abstractExmlRepository) {
         this.repo = abstractExmlRepository;
     }
 
@@ -74,6 +72,7 @@ public class EmfResource implements Resource {
         if (deliver) {
             throw new UnsupportedOperationException();
         }
+        
     }
 
     @objid ("a654c233-c064-11e1-b511-001ec947ccaf")
@@ -138,6 +137,7 @@ public class EmfResource implements Resource {
         }
         
         throw new IllegalArgumentException("object is not a SmObjectImpl");
+        
     }
 
     /**
@@ -157,25 +157,25 @@ public class EmfResource implements Resource {
 
     @objid ("a654c20f-c064-11e1-b511-001ec947ccaf")
     @Override
-    public void save(Map<?,?> options) throws IOException {
+    public void save(Map<?, ?> options) throws IOException {
         this.repo.save((IModelioProgress) options.get(IModelioProgress.class));
     }
 
     @objid ("a654c20b-c064-11e1-b511-001ec947ccaf")
     @Override
-    public void load(Map<?,?> options) throws IOException {
+    public void load(Map<?, ?> options) throws IOException {
         // Do nothing, loading is automatic.
     }
 
     @objid ("a654c20a-c064-11e1-b511-001ec947ccaf")
     @Override
-    public void save(OutputStream outputStream, Map<?,?> options) throws IOException {
+    public void save(OutputStream outputStream, Map<?, ?> options) throws IOException {
         throw new UnsupportedOperationException("'Save as' is not supported.");
     }
 
     @objid ("a654c205-c064-11e1-b511-001ec947ccaf")
     @Override
-    public void load(InputStream inputStream, Map<?,?> options) throws IOException {
+    public void load(InputStream inputStream, Map<?, ?> options) throws IOException {
         throw new UnsupportedOperationException("'Load from' is not supported.");
     }
 
@@ -218,7 +218,7 @@ public class EmfResource implements Resource {
 
     @objid ("a654c1e9-c064-11e1-b511-001ec947ccaf")
     @Override
-    public void delete(Map<?,?> options) throws IOException {
+    public void delete(Map<?, ?> options) throws IOException {
         throw new UnsupportedOperationException();
     }
 

@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.lifecycle;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -25,14 +24,15 @@ public class ModuleException extends Exception {
     private static final long serialVersionUID = 1L;
 
     @objid ("01f40414-0000-30b8-0000-000000000000")
-    public ModuleException(String message) {
+    public  ModuleException(String message) {
         super(message);
     }
 
     @objid ("7a57d65b-6111-11e0-bac7-001ec947cd2a")
-    public ModuleException(final String message, final Throwable e) {
+    public  ModuleException(final String message, final Throwable e) {
         super(message);
         this.initCause(e);
+        
     }
 
 }

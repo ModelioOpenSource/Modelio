@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.project.services.createproject;
 
 import java.io.IOException;
@@ -32,18 +31,16 @@ import org.modelio.platform.project.services.openproject.IProjectServiceAccess;
 public interface IProjectCreator2 {
     /**
      * Creates a new project in the current workspace. The nature and the properties of the project to create are passed in the <code>dataModel</code> argument.
-     * 
      * @param projectCreator the delegated project creator, typically null. If null a project creator will be guessed from 'data' and used to create the project.
      * @param data the nature, characteristics and properties of the project to create.
      * @param monitor a progress monitor, null accepted.
-     * @throws java.io.IOException in case of failure
+     * @throws IOException in case of failure
      */
     @objid ("8e2f8b3f-a57d-4898-b25d-1ad77925152d")
     void createProject(IProjectCreator projectCreator, IProjectCreationData data, IProgressMonitor monitor) throws IOException;
 
     /**
      * Equivalent to calling {@link IProjectService#createProject(IProjectCreator, IProjectCreationData, IProgressMonitor)} with projectCreator being null
-     * 
      * @param data the nature, characteristics and properties of the project to create. This will determine wich project creator to use.
      * @param monitor a progress monitor, null accepted.
      */

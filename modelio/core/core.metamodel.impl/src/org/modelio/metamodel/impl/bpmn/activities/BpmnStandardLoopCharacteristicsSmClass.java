@@ -17,19 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.activities;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.bpmn.activities.BpmnLoopCharacteristics;
 import org.modelio.metamodel.bpmn.activities.BpmnStandardLoopCharacteristics;
-import org.modelio.metamodel.impl.bpmn.activities.BpmnLoopCharacteristicsSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -52,7 +51,7 @@ public class BpmnStandardLoopCharacteristicsSmClass extends BpmnLoopCharacterist
     private SmAttribute loopMaximumAtt;
 
     @objid ("e21b6304-7166-4582-bfcb-a093efaa76db")
-    public BpmnStandardLoopCharacteristicsSmClass(ISmMetamodelFragment origin) {
+    public  BpmnStandardLoopCharacteristicsSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -60,6 +59,7 @@ public class BpmnStandardLoopCharacteristicsSmClass extends BpmnLoopCharacterist
     @Override
     public String getName() {
         return "BpmnStandardLoopCharacteristics";
+        
     }
 
     @objid ("86dcef59-03e1-4adb-b2fd-30ba55b4a09e")
@@ -72,18 +72,21 @@ public class BpmnStandardLoopCharacteristicsSmClass extends BpmnLoopCharacterist
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnStandardLoopCharacteristics.class;
+        
     }
 
     @objid ("fbb5e69b-b534-48ba-bbe7-96d8c179274e")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("96e8e2ae-0988-416a-84b0-4efce3165560")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("b0299336-de2e-4fab-be42-260cb27822be")
@@ -108,6 +111,7 @@ public class BpmnStandardLoopCharacteristicsSmClass extends BpmnLoopCharacterist
         
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("a290a92e-db5b-424d-983c-46f651e1cd8f")
@@ -140,7 +144,7 @@ public class BpmnStandardLoopCharacteristicsSmClass extends BpmnLoopCharacterist
         private BpmnStandardLoopCharacteristicsSmClass smClass;
 
         @objid ("0cb42a54-b573-4f36-a641-bc7c13693bbf")
-        public BpmnStandardLoopCharacteristicsObjectFactory(BpmnStandardLoopCharacteristicsSmClass smClass) {
+        public  BpmnStandardLoopCharacteristicsObjectFactory(BpmnStandardLoopCharacteristicsSmClass smClass) {
             this.smClass = smClass;
         }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.lifeline.body;
 
 import java.util.ArrayDeque;
@@ -103,6 +102,7 @@ public class LifelineBodyLayout extends AbstractLayout {
                 locator.relocate(child);
             }
         }
+        
     }
 
     @objid ("d932d67e-55b6-11e2-877f-002564c97630")
@@ -118,6 +118,7 @@ public class LifelineBodyLayout extends AbstractLayout {
         if (constraint instanceof PlacementConstraint) {
             this.constraints.put(figure, (PlacementConstraint) constraint);
         }
+        
     }
 
     @objid ("d932d68a-55b6-11e2-877f-002564c97630")

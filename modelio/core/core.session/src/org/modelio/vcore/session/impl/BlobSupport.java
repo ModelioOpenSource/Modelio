@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl;
 
 import java.util.ArrayList;
@@ -71,6 +70,7 @@ public class BlobSupport implements IBlobSupport {
         for(IBlobChangeListener p : this.listeners) {
             p.blobsChanged(event);
         }
+        
     }
 
     @objid ("91b7d44a-4c53-47c7-99a1-7683052f1354")
@@ -81,6 +81,7 @@ public class BlobSupport implements IBlobSupport {
         for(IBlobProvider p : this.providers) {
             p.objectCopied(from, fromRepo, to, toRepo);
         }
+        
     }
 
     @objid ("a448037d-3616-4193-a088-885a7b39fcef")
@@ -101,6 +102,7 @@ public class BlobSupport implements IBlobSupport {
         for(IBlobProvider p : this.providers) {
             p.objectsMoved(objs, fromRepo, toRepo);
         }
+        
     }
 
 }

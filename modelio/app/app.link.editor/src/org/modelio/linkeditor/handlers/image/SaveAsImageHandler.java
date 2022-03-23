@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.handlers.image;
 
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.services.IServiceConstants;
@@ -50,10 +49,10 @@ public class SaveAsImageHandler {
     private static final int[] filterFormats = { SWT.IMAGE_PNG, SWT.IMAGE_BMP, SWT.IMAGE_JPEG, SWT.IMAGE_GIF };
 
     @objid ("1b477746-5e33-11e2-b81d-002564c97630")
-     static String initialFilterPath = System.getenv("USERPROFILE");
+    static String initialFilterPath = System.getenv("USERPROFILE");
 
     @objid ("1b477747-5e33-11e2-b81d-002564c97630")
-     static int initialFilterIndex = 0; // PNG
+    static int initialFilterIndex = 0; // PNG
 
     @objid ("1b477749-5e33-11e2-b81d-002564c97630")
     @Execute
@@ -109,6 +108,7 @@ public class SaveAsImageHandler {
             return saveLocation;
         else
             return saveLocation + fileExtension;
+        
     }
 
     @objid ("1b49d85a-5e33-11e2-b81d-002564c97630")
@@ -120,9 +120,10 @@ public class SaveAsImageHandler {
         public int format;
 
         @objid ("1b49d85d-5e33-11e2-b81d-002564c97630")
-        public SaveInfo(final String location, final int format) {
+        public  SaveInfo(final String location, final int format) {
             this.location = location;
             this.format = format;
+            
         }
 
     }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.reverse;
 
 import java.util.ArrayList;
@@ -82,7 +81,7 @@ public class PartialCreationImportVisitor {
     private final int defaut = 42;
 
     @objid ("34cc51c3-5c11-4090-b350-16a1673459a0")
-     Object objingElt = null;
+    Object objingElt = null;
 
     @objid ("db25f58f-fa87-4d8e-8fe7-26a41bb7cbd1")
     private CreationImportMapper mapper;
@@ -91,10 +90,11 @@ public class PartialCreationImportVisitor {
     private PartialImportMap partialMap;
 
     @objid ("73c92685-7d18-41ae-a80e-f615a857e706")
-    public PartialCreationImportVisitor() {
+    public  PartialCreationImportVisitor() {
         this.objingElt = null;
         this.mapper = new CreationImportMapper();
         this.partialMap = PartialImportMap.getInstance();
+        
     }
 
     @objid ("02d82373-2d55-4b5d-a2e0-03d014e09adc")
@@ -127,6 +127,7 @@ public class PartialCreationImportVisitor {
             Xmi.LOG.warning(Xmi.PLUGIN_ID, "Ecore element is null.");
             throw new RuntimeException("Ecore element is null.");
         }
+        
     }
 
     @objid ("6b8638a0-dc92-4be8-b7cd-857dd71f1829")
@@ -137,13 +138,13 @@ public class PartialCreationImportVisitor {
 
     @objid ("d647d571-ba11-42f9-8d3c-fba0811d852a")
     private class CreationImportMapper extends UMLSwitch<Object> {
-//        @objid ("ca796f8a-1ab6-4935-aabb-e98afc62dc2f")
-//        boolean isRoundTrip = ReverseProperties.getInstance().isRoundtripEnabled();
+        //        @objid ("ca796f8a-1ab6-4935-aabb-e98afc62dc2f")
+        //        boolean isRoundTrip = ReverseProperties.getInstance().isRoundtripEnabled();
         @objid ("987b0449-63c8-41f7-8098-42e1cf2bc70b")
-         IMModelServices mmServices = ReverseProperties.getInstance().getMModelServices();
+        IMModelServices mmServices = ReverseProperties.getInstance().getMModelServices();
 
         @objid ("aaf4284e-6fa8-41f7-bce1-f7bdc2658719")
-         IStandardModelFactory factory = this.mmServices.getModelFactory().getFactory(IStandardModelFactory.class);
+        IStandardModelFactory factory = this.mmServices.getModelFactory().getFactory(IStandardModelFactory.class);
 
         @objid ("9460dad8-e353-4e5e-af28-5629226e0adc")
         public void accept(org.eclipse.uml2.uml.Element ecoreElt) {
@@ -1132,6 +1133,7 @@ public class PartialCreationImportVisitor {
                 PartialCreationImportVisitor.this.objingElt =  this.factory.createInstance();
                 return PartialCreationImportVisitor.this.defaut;
             }
+            
         }
 
         @objid ("6fe35662-87ae-4159-b718-05877105ea7b")
@@ -2364,7 +2366,8 @@ public class PartialCreationImportVisitor {
         }
 
         @objid ("e4c00aed-3704-4860-b369-5f773ab3826c")
-        public CreationImportMapper() {
+        public  CreationImportMapper() {
+            
         }
 
         @objid ("79bda372-ee0b-4992-8196-04aa3f2e6c99")

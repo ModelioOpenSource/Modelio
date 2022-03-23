@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.storage;
 
 import java.nio.file.FileSystemException;
@@ -43,26 +42,26 @@ public class StorageException extends Exception {
      * Initialize from an exception.
      * <p>
      * If the exception is a {@link FileSystemException}, a user friendly message is computed.
-     * 
      * @param repository the repository where the error occurred.
      * @param cause the error that occurred
      */
     @objid ("00684d22-fd1a-1f27-a7da-001ec947cd2a")
-    public StorageException(IRepository repository, final Throwable cause) {
+    public  StorageException(IRepository repository, final Throwable cause) {
         super(computeMsg(cause), cause);
         this.repository = repository;
+        
     }
 
     /**
      * initialize from an error message.
-     * 
      * @param repository the repository where the error occurred.
      * @param message the error message
      */
     @objid ("0068635c-fd1a-1f27-a7da-001ec947cd2a")
-    public StorageException(IRepository repository, final String message) {
+    public  StorageException(IRepository repository, final String message) {
         super(message);
         this.repository = repository;
+        
     }
 
     /**
@@ -71,9 +70,10 @@ public class StorageException extends Exception {
      * @param cause the cause of this exception.
      */
     @objid ("00689854-fd1a-1f27-a7da-001ec947cd2a")
-    public StorageException(IRepository repository, final String message, final Throwable cause) {
+    public  StorageException(IRepository repository, final String message, final Throwable cause) {
         super(message, cause);
         this.repository = repository;
+        
     }
 
     /**
@@ -90,6 +90,7 @@ public class StorageException extends Exception {
             return FileUtils.getLocalizedMessage((FileSystemException) cause);
         else
             return cause.getLocalizedMessage();
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.model.related;
 
 import java.util.ArrayList;
@@ -79,7 +78,8 @@ public class RelatedContentProvider implements ITreeContentProvider {
     }
 
     @objid ("a54d3361-d128-44d9-a20c-7e18f11c6b5b")
-    public RelatedContentProvider() {
+    public  RelatedContentProvider() {
+        
     }
 
 }

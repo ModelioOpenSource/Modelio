@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.activities;
 
 import java.util.ArrayList;
@@ -35,9 +35,6 @@ import org.modelio.metamodel.bpmn.activities.MultiInstanceBehavior;
 import org.modelio.metamodel.bpmn.events.BpmnEventDefinition;
 import org.modelio.metamodel.bpmn.objects.BpmnDataInput;
 import org.modelio.metamodel.bpmn.objects.BpmnDataOutput;
-import org.modelio.metamodel.impl.bpmn.activities.BpmnComplexBehaviorDefinitionSmClass;
-import org.modelio.metamodel.impl.bpmn.activities.BpmnLoopCharacteristicsSmClass;
-import org.modelio.metamodel.impl.bpmn.activities.BpmnMultiInstanceLoopCharacteristicsData;
 import org.modelio.metamodel.impl.bpmn.events.BpmnEventDefinitionSmClass;
 import org.modelio.metamodel.impl.bpmn.objects.BpmnDataInputSmClass;
 import org.modelio.metamodel.impl.bpmn.objects.BpmnDataOutputSmClass;
@@ -81,7 +78,7 @@ public class BpmnMultiInstanceLoopCharacteristicsSmClass extends BpmnLoopCharact
     private SmDependency complexBehaviorDefinitionDep;
 
     @objid ("698a0ad0-3128-4d9e-9398-c513f5abb361")
-    public BpmnMultiInstanceLoopCharacteristicsSmClass(ISmMetamodelFragment origin) {
+    public  BpmnMultiInstanceLoopCharacteristicsSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -89,6 +86,7 @@ public class BpmnMultiInstanceLoopCharacteristicsSmClass extends BpmnLoopCharact
     @Override
     public String getName() {
         return "BpmnMultiInstanceLoopCharacteristics";
+        
     }
 
     @objid ("d5d2c4e8-62da-4c38-bb3b-7c9111a438ce")
@@ -101,18 +99,21 @@ public class BpmnMultiInstanceLoopCharacteristicsSmClass extends BpmnLoopCharact
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnMultiInstanceLoopCharacteristics.class;
+        
     }
 
     @objid ("105786ec-fd57-47a1-818f-530c1f1776d6")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("81f4d630-64b9-4bc5-82d3-7ae4c2248edb")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("d0c9ef0d-5dae-4adc-aebd-b37944a739fa")
@@ -156,6 +157,8 @@ public class BpmnMultiInstanceLoopCharacteristicsSmClass extends BpmnLoopCharact
         this.complexBehaviorDefinitionDep = new ComplexBehaviorDefinitionSmDependency();
         this.complexBehaviorDefinitionDep.init("ComplexBehaviorDefinition", this, metamodel.getMClass(BpmnComplexBehaviorDefinition.MQNAME), 0, -1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.complexBehaviorDefinitionDep);
+        
+        
     }
 
     @objid ("5e8f5247-e4bf-4019-a08b-6724f117f7c0")
@@ -228,7 +231,7 @@ public class BpmnMultiInstanceLoopCharacteristicsSmClass extends BpmnLoopCharact
         private BpmnMultiInstanceLoopCharacteristicsSmClass smClass;
 
         @objid ("0751bea2-3687-47c7-8bb5-ee73fefa0b15")
-        public BpmnMultiInstanceLoopCharacteristicsObjectFactory(BpmnMultiInstanceLoopCharacteristicsSmClass smClass) {
+        public  BpmnMultiInstanceLoopCharacteristicsObjectFactory(BpmnMultiInstanceLoopCharacteristicsSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -326,6 +329,7 @@ public class BpmnMultiInstanceLoopCharacteristicsSmClass extends BpmnLoopCharact
             	this.symetricDep = ((BpmnDataInputSmClass)this.getTarget()).getOwnerLoopCharacteristicsDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -354,6 +358,7 @@ public class BpmnMultiInstanceLoopCharacteristicsSmClass extends BpmnLoopCharact
             	this.symetricDep = ((BpmnDataOutputSmClass)this.getTarget()).getOwnerLoopCharacteristicsDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -382,6 +387,7 @@ public class BpmnMultiInstanceLoopCharacteristicsSmClass extends BpmnLoopCharact
             	this.symetricDep = ((BpmnEventDefinitionSmClass)this.getTarget()).getLoopRefDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -401,6 +407,7 @@ public class BpmnMultiInstanceLoopCharacteristicsSmClass extends BpmnLoopCharact
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnMultiInstanceLoopCharacteristicsData) data).mComplexBehaviorDefinition = values;
+            
         }
 
         @objid ("45cf989e-f13c-4194-9c5f-c785073bec3b")
@@ -410,6 +417,7 @@ public class BpmnMultiInstanceLoopCharacteristicsSmClass extends BpmnLoopCharact
             	this.symetricDep = ((BpmnComplexBehaviorDefinitionSmClass)this.getTarget()).getOwnerDep();
             }
             return this.symetricDep;
+            
         }
 
     }

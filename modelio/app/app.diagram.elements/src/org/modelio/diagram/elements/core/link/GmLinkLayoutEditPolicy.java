@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link;
 
 import java.util.List;
@@ -65,6 +64,7 @@ public class GmLinkLayoutEditPolicy extends LayoutEditPolicy {
         } else {
             return null;
         }
+        
     }
 
     @objid ("802320e0-1dec-11e2-8cad-001ec947c8cc")
@@ -78,11 +78,11 @@ public class GmLinkLayoutEditPolicy extends LayoutEditPolicy {
     protected Command getMoveChildrenCommand(Request request) {
         // Move requests are directly handled by children
         throw new IllegalStateException();
+        
     }
 
     /**
      * Returns the <code>Command</code> to resize a group of children.
-     * 
      * @param request the ChangeBoundsRequest
      * @return the Command
      */
@@ -125,7 +125,6 @@ public class GmLinkLayoutEditPolicy extends LayoutEditPolicy {
      * Decorates the child with a {@link EditPolicy#PRIMARY_DRAG_ROLE} such as {@link ResizableEditPolicy}.
      * <p>
      * Redefined to do nothing if {@link #createChildEditPolicy(EditPart)} returns <code>null</code>.
-     * 
      * @param child the child EditPart being decorated
      */
     @objid ("8023210e-1dec-11e2-8cad-001ec947c8cc")
@@ -135,6 +134,7 @@ public class GmLinkLayoutEditPolicy extends LayoutEditPolicy {
         if (policy != null) {
             child.installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, policy);
         }
+        
     }
 
     @objid ("8025830a-1dec-11e2-8cad-001ec947c8cc")
@@ -159,6 +159,7 @@ public class GmLinkLayoutEditPolicy extends LayoutEditPolicy {
         } else {
             return null;
         }
+        
     }
 
     @objid ("80258314-1dec-11e2-8cad-001ec947c8cc")

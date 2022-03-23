@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.api.impl.mc;
 
 import java.io.File;
@@ -63,16 +62,16 @@ public class ModelComponentService implements IModelComponentService {
 
     /**
      * C'tor.
-     * 
      * @param projectService the project service.
      * @param gProject the project this service is available for.
      * @param moduleManagementService the module service, needed to find model component contributors.
      */
     @objid ("5fa17d16-6f97-4206-b5f3-888ac153780d")
-    public ModelComponentService(IProjectService projectService, GProject gProject, IModuleService moduleManagementService) {
+    public  ModelComponentService(IProjectService projectService, GProject gProject, IModuleService moduleManagementService) {
         this.projectService = projectService;
         this.gProject = gProject;
         this.moduleService = moduleManagementService;
+        
     }
 
     @objid ("9304d2eb-2768-4914-ba80-c4097a5835c3")
@@ -89,6 +88,7 @@ public class ModelComponentService implements IModelComponentService {
         } catch (Exception e) {
             ApiImpl.LOG.error(e);
         }
+        
     }
 
     @objid ("51c27ce0-54ad-4e8b-b821-e9055c7bf9fe")
@@ -114,6 +114,7 @@ public class ModelComponentService implements IModelComponentService {
         if (fragmentToRemove != null) {
             this.projectService.removeFragment(this.gProject, fragmentToRemove);
         }
+        
     }
 
     @objid ("6ab88513-30a0-4524-bd55-157740c586f0")
@@ -144,6 +145,7 @@ public class ModelComponentService implements IModelComponentService {
         } catch (IOException e) {
             ApiImpl.LOG.error(e);
         }
+        
     }
 
     @objid ("27d59096-2a29-4ece-b3db-82b7a7eddbb1")

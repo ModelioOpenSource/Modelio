@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,9 +41,10 @@ public class ETrigger extends ENamedElement {
     }
 
     @objid ("cbcd22d8-faaa-47a6-b56e-5d23a19188df")
-    public ETrigger(org.eclipse.uml2.uml.Trigger element) {
+    public  ETrigger(org.eclipse.uml2.uml.Trigger element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("0a304634-9465-401a-b1d9-db5c3aff0646")
@@ -69,6 +69,7 @@ public class ETrigger extends ENamedElement {
                 }
             }
         }
+        
     }
 
     @objid ("0a69fd70-c069-4949-8c6f-20e84c8cadc4")
@@ -87,6 +88,7 @@ public class ETrigger extends ENamedElement {
                 setExpression(objingElt,  (org.eclipse.uml2.uml.TimeEvent) event);
             }
         }
+        
     }
 
     @objid ("cbf24bef-4a86-4f5a-884e-9354807abe42")
@@ -95,6 +97,7 @@ public class ETrigger extends ENamedElement {
         if (name != null){
             ((Event) objingElt).setName(name);
         }
+        
     }
 
     @objid ("7b845b58-e618-43f4-b110-cadcd87ab4e5")
@@ -106,6 +109,7 @@ public class ETrigger extends ENamedElement {
                 ((Event) objingElt).setModel((Signal) objSignal);
             }
         }
+        
     }
 
     @objid ("fdbf5ff6-18d8-46bd-900a-82888b68efbb")
@@ -117,6 +121,7 @@ public class ETrigger extends ENamedElement {
                 ((Event) objingElt).setCalled((Operation) objOperation);
             }
         }
+        
     }
 
     @objid ("f1a8f259-ff0a-4c09-942f-d9db99052692")
@@ -138,6 +143,7 @@ public class ETrigger extends ENamedElement {
                 }
             }
         }
+        
     }
 
     @objid ("5cc0e464-2ac4-4105-b88d-e8d9106685fe")
@@ -150,6 +156,7 @@ public class ETrigger extends ENamedElement {
                 objingElt.setExpression(expr);
             }
         }
+        
     }
 
 }

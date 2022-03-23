@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.collab;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -79,6 +78,7 @@ public class CollaborationEditPart extends AbstractNodeEditPart {
         if (!switchRepresentationMode()) {
             super.refreshFromStyle(aFigure, style);
         }
+        
     }
 
     @objid ("344c10ca-55b7-11e2-877f-002564c97630")
@@ -91,6 +91,7 @@ public class CollaborationEditPart extends AbstractNodeEditPart {
         installEditPolicy(EditPolicy.LAYOUT_ROLE, new DeferringCreateNodePolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
         installEditPolicy(ModelElementDropRequest.TYPE, new CollaborationElementDropEditPolicy());
+        
     }
 
     @objid ("344c10cd-55b7-11e2-877f-002564c97630")
@@ -98,6 +99,7 @@ public class CollaborationEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         final GmAbstractObject model = getModel();
         getFigure().getParent().setConstraint(getFigure(), model.getLayoutData());
+        
     }
 
     @objid ("344c10d0-55b7-11e2-877f-002564c97630")
@@ -106,6 +108,7 @@ public class CollaborationEditPart extends AbstractNodeEditPart {
         super.addChildVisual(childEditPart, index);
         
         updateSeparations(getFigure());
+        
     }
 
     @objid ("344c10d5-55b7-11e2-877f-002564c97630")
@@ -114,11 +117,11 @@ public class CollaborationEditPart extends AbstractNodeEditPart {
         super.removeChildVisual(childEditPart);
         
         updateSeparations(getFigure());
+        
     }
 
     /**
      * Update the separation lines between zones.
-     * 
      * @param aFigure the composite figure to update.
      */
     @objid ("344d975b-55b7-11e2-877f-002564c97630")
@@ -134,6 +137,7 @@ public class CollaborationEditPart extends AbstractNodeEditPart {
         
         zoneBorder.setStyle(Graphics.LINE_DASH);
         ChildFigureLineSeparator.updateSeparation(fig, zoneBorder);
+        
     }
 
     @objid ("344d975f-55b7-11e2-877f-002564c97630")

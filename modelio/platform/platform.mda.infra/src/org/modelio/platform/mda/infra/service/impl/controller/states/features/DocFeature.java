@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.controller.states.features;
 
 import java.nio.file.Path;
@@ -44,7 +43,7 @@ public class DocFeature extends AbstractFeature {
      * @param module the module
      */
     @objid ("58adaed7-4c5c-41ec-995f-cebe71bbcaa8")
-    public DocFeature(IRTModuleAccess module) {
+    public  DocFeature(IRTModuleAccess module) {
         super(module);
     }
 
@@ -87,6 +86,7 @@ public class DocFeature extends AbstractFeature {
         if (!this.docBundles.isEmpty()) {
             HelpPlugin.getTocManager().clearCache();
         }
+        
     }
 
     @objid ("f22df734-674d-43b6-858d-12e0d2990f78")
@@ -109,6 +109,7 @@ public class DocFeature extends AbstractFeature {
             // Force the help to reload
             HelpPlugin.getTocManager().clearCache();
         }
+        
     }
 
     @objid ("ea6366a9-b7c2-4e45-b7b0-216fb0a52b14")

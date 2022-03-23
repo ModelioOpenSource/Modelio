@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.workmodel.local;
 
 import java.io.IOException;
@@ -74,7 +73,7 @@ public class LocalModelSection {
     private ProjectModel projectAdapter;
 
     @objid ("7d61a03e-3adc-11e2-916e-002564c97630")
-     IEclipseContext applicationContext;
+    IEclipseContext applicationContext;
 
     @objid ("7d61a03f-3adc-11e2-916e-002564c97630")
     private TableViewer viewer;
@@ -89,14 +88,13 @@ public class LocalModelSection {
     private Button renameFragment;
 
     @objid ("7d61a042-3adc-11e2-916e-002564c97630")
-    public LocalModelSection(IEclipseContext applicationContext) {
+    public  LocalModelSection(IEclipseContext applicationContext) {
         this.applicationContext = applicationContext;
     }
 
     /**
      * Update() is called by the project infos view when the project to be
      * displayed changes or need contents refresh
-     * 
      * @param selectedProject the project selected in the workspace tree view
      */
     @objid ("7d61a045-3adc-11e2-916e-002564c97630")
@@ -121,6 +119,7 @@ public class LocalModelSection {
         for (TableColumn col : this.viewer.getTable().getColumns()) {
             col.pack();
         }
+        
     }
 
     @objid ("7d61a049-3adc-11e2-916e-002564c97630")
@@ -259,10 +258,11 @@ public class LocalModelSection {
                 }
             
             }
+            
         }
 
         @objid ("7d61a05e-3adc-11e2-916e-002564c97630")
-        AddFragmentButtonListener() {
+         AddFragmentButtonListener() {
             // empty
         }
 
@@ -271,7 +271,7 @@ public class LocalModelSection {
     @objid ("7d61a060-3adc-11e2-916e-002564c97630")
     private class RemoveFragmentButtonListener extends SelectionAdapter {
         @objid ("7d61a065-3adc-11e2-916e-002564c97630")
-        RemoveFragmentButtonListener() {
+         RemoveFragmentButtonListener() {
             // empty
         }
 
@@ -297,6 +297,7 @@ public class LocalModelSection {
                 }
             }
             refresh();
+            
         }
 
     }
@@ -333,10 +334,11 @@ public class LocalModelSection {
                 }
             }
             refresh();
+            
         }
 
         @objid ("53cfc348-9451-409b-8c3b-57687e177fd4")
-        RenameFragmentButtonListener() {
+         RenameFragmentButtonListener() {
             // empty
         }
 

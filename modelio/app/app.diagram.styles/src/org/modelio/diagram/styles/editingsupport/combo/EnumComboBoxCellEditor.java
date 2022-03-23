@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.editingsupport.combo;
 
 import java.util.List;
@@ -41,11 +40,12 @@ public class EnumComboBoxCellEditor extends ComboBoxCellEditor2 {
     private final List<Choice> choices;
 
     @objid ("8593e615-1926-11e2-92d2-001ec947c8cc")
-    public EnumComboBoxCellEditor(Composite parent, List<Choice> choices, int style) {
+    public  EnumComboBoxCellEditor(Composite parent, List<Choice> choices, int style) {
         super(parent, getLabels(choices), style);
         this.choices = choices;
         ((CCombo) getControl()).setEditable(false);
         setActivationStyle(ComboBoxCellEditor2.DROP_DOWN_ON_MOUSE_ACTIVATION);
+        
     }
 
     @objid ("8593e61c-1926-11e2-92d2-001ec947c8cc")
@@ -65,6 +65,7 @@ public class EnumComboBoxCellEditor extends ComboBoxCellEditor2 {
         
         // Fallback to first option
         super.doSetValue(0);
+        
     }
 
     @objid ("8593e620-1926-11e2-92d2-001ec947c8cc")

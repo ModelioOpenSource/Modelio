@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.deploymentdiagram.editor.elements.artifact;
 
 import java.util.Collections;
@@ -63,34 +62,33 @@ public class GmArtifact extends GmPortContainer {
     private static final String IMAGE_LABEL_ROLE = "ImageLabel";
 
     @objid ("9712bcc1-55b6-11e2-877f-002564c97630")
-     static final GmArtifactImageStyleKeys IMAGE_KEYS = new GmArtifactImageStyleKeys();
+    static final GmArtifactImageStyleKeys IMAGE_KEYS = new GmArtifactImageStyleKeys();
 
     @objid ("9712bcc3-55b6-11e2-877f-002564c97630")
-     static final GmArtifactSimpleStyleKeys SIMPLE_KEYS = new GmArtifactSimpleStyleKeys();
+    static final GmArtifactSimpleStyleKeys SIMPLE_KEYS = new GmArtifactSimpleStyleKeys();
 
     @objid ("9712bcc5-55b6-11e2-877f-002564c97630")
-     static final GmArtifactStructuredStyleKeys STRUCTURED_KEYS = new GmArtifactStructuredStyleKeys();
+    static final GmArtifactStructuredStyleKeys STRUCTURED_KEYS = new GmArtifactStructuredStyleKeys();
 
     @objid ("683ea44b-853a-4a7e-b3e0-0646aaaec4f9")
-     static final GmArtifactUserImageStyleKeys USERIMAGE_KEYS = new GmArtifactUserImageStyleKeys();
+    static final GmArtifactUserImageStyleKeys USERIMAGE_KEYS = new GmArtifactUserImageStyleKeys();
 
     /**
      * Empty constructor needed for deserialisation.
      */
     @objid ("9712bcd1-55b6-11e2-877f-002564c97630")
-    public GmArtifact() {
+    public  GmArtifact() {
         // Nothing specific to do.
     }
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the class is unmasked.
      * @param el the unmasked class.
      * @param ref a reference to the unmasked class.
      */
     @objid ("9712bcd4-55b6-11e2-877f-002564c97630")
-    public GmArtifact(IGmDiagram diagram, Artifact el, MRef ref) {
+    public  GmArtifact(IGmDiagram diagram, Artifact el, MRef ref) {
         super(diagram, ref);
         this.element = el;
         
@@ -103,6 +101,7 @@ public class GmArtifact extends GmPortContainer {
         
         super.addChild(mainNode);
         super.addChild(imageModeHeader);
+        
     }
 
     @objid ("9712bce0-55b6-11e2-877f-002564c97630")
@@ -144,6 +143,7 @@ public class GmArtifact extends GmPortContainer {
         default:
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("9714435b-55b6-11e2-877f-002564c97630")
@@ -167,6 +167,7 @@ public class GmArtifact extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("97144361-55b6-11e2-877f-002564c97630")
@@ -190,6 +191,7 @@ public class GmArtifact extends GmPortContainer {
             }
         
         }
+        
     }
 
     @objid ("9714436b-55b6-11e2-877f-002564c97630")
@@ -198,6 +200,7 @@ public class GmArtifact extends GmPortContainer {
         super.refreshFromObModel();
         
         refreshPortsFromObModel();
+        
     }
 
     /**
@@ -215,6 +218,7 @@ public class GmArtifact extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmArtifact.", GmArtifact.MINOR_VERSION);
+        
     }
 
     @objid ("9715c9dc-55b6-11e2-877f-002564c97630")
@@ -227,6 +231,7 @@ public class GmArtifact extends GmPortContainer {
         imageModeHeader.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         
         super.addChild(imageModeHeader, 1);
+        
     }
 
     @objid ("9715c9e1-55b6-11e2-877f-002564c97630")
@@ -239,6 +244,7 @@ public class GmArtifact extends GmPortContainer {
     private void read_1(final IDiagramReader in) {
         super.read(in);
         this.element = (Artifact) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("9715c9ec-55b6-11e2-877f-002564c97630")
@@ -254,6 +260,7 @@ public class GmArtifact extends GmPortContainer {
                 ret.remove(imageModeHeader);
                 break;
             }
+            case USER_IMAGE:
             case IMAGE:
             default: {
                 break;
@@ -266,7 +273,6 @@ public class GmArtifact extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -276,11 +282,11 @@ public class GmArtifact extends GmPortContainer {
         String role = childNode.getRoleInComposition();
         return GmPortContainer.SATELLITE_ROLE.equals(role)
                         || GmArtifact.IMAGE_LABEL_ROLE.equals(role);
+        
     }
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -298,6 +304,7 @@ public class GmArtifact extends GmPortContainer {
         } else {
             super.addStartingLink(link);
         }
+        
     }
 
     @objid ("97175079-55b6-11e2-877f-002564c97630")
@@ -308,6 +315,7 @@ public class GmArtifact extends GmPortContainer {
         } else {
             super.addEndingLink(link);
         }
+        
     }
 
     @objid ("dd5cf1ef-3a71-4234-937f-9893e44fb1c8")

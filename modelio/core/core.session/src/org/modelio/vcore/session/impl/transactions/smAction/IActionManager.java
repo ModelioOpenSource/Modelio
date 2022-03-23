@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.transactions.smAction;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,16 +29,14 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IActionManager {
     /**
      * Add the given action to this action manager.
-     * 
      * @param action the action to add
-     * @throws org.modelio.vcore.session.impl.transactions.smAction.AddActionNoActiveTransactionException if no transaction is open.
+     * @throws AddActionNoActiveTransactionException if no transaction is open.
      */
     @objid ("006e9c68-0d1e-1f20-85a5-001ec947cd2a")
     void addAction(final IAction action) throws AddActionNoActiveTransactionException;
 
     /**
      * Returns whether action recording is enabled or not.
-     * 
      * @return <code>true</code> if action recording is enabled, <code>false</code> in the other case.
      */
     @objid ("006e9d12-0d1e-1f20-85a5-001ec947cd2a")
@@ -47,7 +44,6 @@ public interface IActionManager {
 
     /**
      * Tells whether a transaction is open.
-     * 
      * @return <code>true</code> if a transaction is open else false.
      */
     @objid ("f1cc6452-b8f8-4681-8ddb-d7acb530d90c")

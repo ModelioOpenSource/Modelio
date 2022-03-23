@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.modelshield.standardcheckers;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -53,10 +52,11 @@ public class E238Checker extends DepCardinalityChecker {
         
         // trigger=create, metaclass=CombinedFragment, feature=Operand
         plan.registerChecker(this, smMetamodel.getMClass(CombinedFragment.class), TriggerType.Update, DEPNAME);
+        
     }
 
     @objid ("00636f32-9e33-1f6c-bf9a-001ec947cd2a")
-    public E238Checker() {
+    public  E238Checker() {
         super(ERRORID, DEPNAME);
     }
 

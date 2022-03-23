@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.elements.usecase;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,14 +46,15 @@ public class GmExtensionPointGroup extends GmGroup {
     private static final int MAJOR_VERSION = 0;
 
     @objid ("5e57eba4-55b7-11e2-877f-002564c97630")
-    public GmExtensionPointGroup() {
+    public  GmExtensionPointGroup() {
         super();
     }
 
     @objid ("5e57eba7-55b7-11e2-877f-002564c97630")
-    public GmExtensionPointGroup(IGmDiagram diagram, MRef relatedRef) {
+    public  GmExtensionPointGroup(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
         refreshFromObModel();
+        
     }
 
     @objid ("5e57ebb0-55b7-11e2-877f-002564c97630")
@@ -63,6 +63,7 @@ public class GmExtensionPointGroup extends GmGroup {
         super.addChild(toAdd);
         
         fireVisibilityChanged();
+        
     }
 
     @objid ("5e57ebb6-55b7-11e2-877f-002564c97630")
@@ -88,12 +89,6 @@ public class GmExtensionPointGroup extends GmGroup {
     public boolean isVisible() {
         boolean styleVisible = getDisplayedStyle().getProperty(GmUseCaseStructuredStyleKeys.EXTENSIONPOINTGROUPVISIBLE);
         return styleVisible && this.isVisible;
-    }
-
-    @objid ("5e59723a-55b7-11e2-877f-002564c97630")
-    @Override
-    public void obElementAdded(MObject movedEl) {
-        refreshFromObModel();
     }
 
     @objid ("5e597240-55b7-11e2-877f-002564c97630")
@@ -138,6 +133,7 @@ public class GmExtensionPointGroup extends GmGroup {
                 // unmask or hide nothing.
                 break;
         }
+        
     }
 
     @objid ("5e597243-55b7-11e2-877f-002564c97630")
@@ -151,6 +147,7 @@ public class GmExtensionPointGroup extends GmGroup {
         }
         
         fireVisibilityChanged();
+        
     }
 
     @objid ("5e597249-55b7-11e2-877f-002564c97630")
@@ -163,6 +160,7 @@ public class GmExtensionPointGroup extends GmGroup {
         } else {
             super.styleChanged(property, newValue);
         }
+        
     }
 
     @objid ("5e597250-55b7-11e2-877f-002564c97630")
@@ -171,6 +169,7 @@ public class GmExtensionPointGroup extends GmGroup {
         refreshFromObModel();
         fireVisibilityChanged();
         super.styleChanged(style);
+        
     }
 
     @objid ("5e597256-55b7-11e2-877f-002564c97630")
@@ -178,6 +177,7 @@ public class GmExtensionPointGroup extends GmGroup {
     protected void doSetVisible(boolean visible) {
         getDisplayedStyle().setProperty(GmUseCaseStructuredStyleKeys.EXTENSIONPOINTGROUPVISIBLE, visible);
         this.isVisible = visible;
+        
     }
 
     @objid ("5e59725a-55b7-11e2-877f-002564c97630")
@@ -209,6 +209,7 @@ public class GmExtensionPointGroup extends GmGroup {
             default:
                 return false;
         }
+        
     }
 
     @objid ("5e597263-55b7-11e2-877f-002564c97630")
@@ -246,6 +247,7 @@ public class GmExtensionPointGroup extends GmGroup {
         }
         
         setHiddenFeature(hasHiddenFeature);
+        
     }
 
     @objid ("5e597266-55b7-11e2-877f-002564c97630")
@@ -265,6 +267,7 @@ public class GmExtensionPointGroup extends GmGroup {
                 break;
             }
         }
+        
     }
 
     @objid ("5e59726c-55b7-11e2-877f-002564c97630")
@@ -274,6 +277,7 @@ public class GmExtensionPointGroup extends GmGroup {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmExtensionPointGroup.", GmExtensionPointGroup.MINOR_VERSION);
+        
     }
 
     @objid ("5e597272-55b7-11e2-877f-002564c97630")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.interactionoperand.primarynode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,7 +41,7 @@ public class GmInteractionOperandPrimaryNode extends GmNoStyleCompositeNode {
      * This property name is used to indicate to the edit part that a refresh from model indicated that a resize is needed.
      */
     @objid ("d909a3a4-55b6-11e2-877f-002564c97630")
-     static final String PROPERTY_MODEL_UPDATE = "ModelUpdate";
+    static final String PROPERTY_MODEL_UPDATE = "ModelUpdate";
 
     /**
      * Current version of this Gm. Defaults to 0.
@@ -57,21 +56,21 @@ public class GmInteractionOperandPrimaryNode extends GmNoStyleCompositeNode {
      * Empty c'tor for deserialisation.
      */
     @objid ("d909a3ac-55b6-11e2-877f-002564c97630")
-    public GmInteractionOperandPrimaryNode() {
+    public  GmInteractionOperandPrimaryNode() {
         super();
     }
 
     /**
      * C'tor.
-     * 
      * @param diagram the diagram in which this Gm is created.
      * @param relatedRef a reference to the represented element.
      */
     @objid ("d909a3af-55b6-11e2-877f-002564c97630")
-    public GmInteractionOperandPrimaryNode(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmInteractionOperandPrimaryNode(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
         GmGuardLabel label = new GmGuardLabel(diagram, relatedRef);
         this.addChild(label);
+        
     }
 
     @objid ("d909a3ba-55b6-11e2-877f-002564c97630")
@@ -83,6 +82,7 @@ public class GmInteractionOperandPrimaryNode extends GmNoStyleCompositeNode {
         } else {
             return null;
         }
+        
     }
 
     @objid ("d90b2a20-55b6-11e2-877f-002564c97630")
@@ -114,6 +114,7 @@ public class GmInteractionOperandPrimaryNode extends GmNoStyleCompositeNode {
             break;
         }
         }
+        
     }
 
     @objid ("d90b2a38-55b6-11e2-877f-002564c97630")
@@ -123,6 +124,7 @@ public class GmInteractionOperandPrimaryNode extends GmNoStyleCompositeNode {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmInteractionOperandPrimaryNode.", GmInteractionOperandPrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("d90b2a3e-55b6-11e2-877f-002564c97630")

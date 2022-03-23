@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.model.impl.copy;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,9 +32,10 @@ class CopierObjectFinder extends AbstractObjectFinder {
     private final CopyMachine copyMachine;
 
     @objid ("01f419b4-0000-2b50-0000-000000000000")
-    public CopierObjectFinder(CopyMachine copyMachine, IModel searchedSession, MMetamodel metamodel) {
+    public  CopierObjectFinder(CopyMachine copyMachine, IModel searchedSession, MMetamodel metamodel) {
         super(searchedSession, metamodel);
         this.copyMachine = copyMachine;
+        
     }
 
     @objid ("01f419b4-0000-2b6b-0000-000000000000")

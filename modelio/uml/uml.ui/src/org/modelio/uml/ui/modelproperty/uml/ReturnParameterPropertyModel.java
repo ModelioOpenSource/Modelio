@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.util.ArrayList;
@@ -57,22 +56,20 @@ public class ReturnParameterPropertyModel extends AbstractPropertyModel<Paramete
      */
     @objid ("1f2e7ed0-27a4-4d49-8684-6395ad9db68f")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Type",
-			"MultiplicityMin", "MultiplicityMax", "TypeConstraint", "Effect", "IsException", "IsStream", "IsOrdered",
-			"IsUnique" };
+    			"MultiplicityMin", "MultiplicityMax", "TypeConstraint", "Effect", "IsException", "IsStream", "IsOrdered",
+    			"IsUnique" };
 
     /**
      * Create a new <i>Parameter</i> data model from an <i>Parameter</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("7b714388-bcdc-4a88-9d28-6fbf5570aaa6")
-    public ReturnParameterPropertyModel(Parameter theEditedElement) {
+    public  ReturnParameterPropertyModel(Parameter theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("a3893abd-f76c-4c2c-a7fa-76c411813d2c")
@@ -83,7 +80,6 @@ public class ReturnParameterPropertyModel extends AbstractPropertyModel<Paramete
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("fff1cc3b-ad84-4e0b-99b4-3fe7d15448c6")
@@ -96,7 +92,6 @@ public class ReturnParameterPropertyModel extends AbstractPropertyModel<Paramete
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -134,6 +129,7 @@ public class ReturnParameterPropertyModel extends AbstractPropertyModel<Paramete
         default:
             return null;
         }
+        
     }
 
     /**
@@ -143,7 +139,6 @@ public class ReturnParameterPropertyModel extends AbstractPropertyModel<Paramete
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -190,13 +185,13 @@ public class ReturnParameterPropertyModel extends AbstractPropertyModel<Paramete
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -245,6 +240,7 @@ public class ReturnParameterPropertyModel extends AbstractPropertyModel<Paramete
         default:
             return;
         }
+        
     }
 
 }

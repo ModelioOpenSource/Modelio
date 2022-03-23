@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.api.dg.common;
 
 import java.util.ArrayList;
@@ -36,6 +35,7 @@ import org.eclipse.gef.LayerConstants;
 import org.eclipse.gef.editparts.LayerManager;
 import org.modelio.api.modelio.diagram.IDiagramLink;
 import org.modelio.api.modelio.diagram.IDiagramNode;
+import org.modelio.api.modelio.diagram.IDiagramNode.Role;
 import org.modelio.api.modelio.diagram.dg.IDiagramDG;
 import org.modelio.api.modelio.diagram.dg.IDiagramDrawingsLayer;
 import org.modelio.api.modelio.diagram.dg.IDiagramElementsLayer;
@@ -63,7 +63,7 @@ public abstract class DiagramDG extends DiagramNode implements IDiagramDG, IDiag
      * @param node The gm node represented by this class.
      */
     @objid ("6c1cee84-f492-41ad-acac-2d898e724a37")
-    public DiagramDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  DiagramDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 
@@ -183,6 +183,7 @@ public abstract class DiagramDG extends DiagramNode implements IDiagramDG, IDiag
         default:
             return null;
         }
+        
     }
 
     @objid ("ba0c65bf-730e-4c13-b355-47309f27946d")
@@ -287,12 +288,12 @@ public abstract class DiagramDG extends DiagramNode implements IDiagramDG, IDiag
         default:
             return Collections.emptyList();
         }
+        
     }
 
     /**
      * Computes the minimum bounds of a diagram figure. The returned rectangle is the smallest rectangle enclosing all the diagram nodes (note: the computation take links into account which are laid in the Connection layer)
      * @param figure
-     * 
      * @return the enclosing rectangle. Never returns null but an empty rectangle instead..
      */
     @objid ("87ff319d-0b0d-46a0-b61f-57c0f65cd82b")
@@ -323,7 +324,6 @@ public abstract class DiagramDG extends DiagramNode implements IDiagramDG, IDiag
      * Compute the minimum contents size of the diagram. This size is defined as the union of the smallest bounding rectangle that encloses both all the nodes and all the links
      * @param layer
      * the diagram figure layer
-     * 
      * @param connectionLayer the connection layer
      * @param drawingLayers the drawing layers pane
      * @return the bounds to export

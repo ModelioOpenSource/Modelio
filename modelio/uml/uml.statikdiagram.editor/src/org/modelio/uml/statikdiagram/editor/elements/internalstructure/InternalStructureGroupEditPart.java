@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.internalstructure;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,6 +37,7 @@ public class InternalStructureGroupEditPart extends GroupEditPart {
         super.createEditPolicies();
         
         installEditPolicy(EditPolicy.LAYOUT_ROLE, new InstanceGroupLayoutEditPolicy());
+        
     }
 
     @objid ("3595a7db-55b7-11e2-877f-002564c97630")
@@ -47,6 +47,7 @@ public class InternalStructureGroupEditPart extends GroupEditPart {
         if (model.getLayoutData() != null) {
             getFigure().getParent().setConstraint(getFigure(), model.getLayoutData());
         }
+        
     }
 
 }

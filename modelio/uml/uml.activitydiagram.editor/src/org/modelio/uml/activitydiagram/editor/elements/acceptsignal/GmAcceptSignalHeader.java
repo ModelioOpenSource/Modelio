@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.acceptsignal;
 
 import java.util.List;
@@ -52,18 +51,17 @@ public class GmAcceptSignalHeader extends GmActivityNodeHeader {
      * Empty c'tor for deserialisation.
      */
     @objid ("fefa7f2b-ff0e-400a-a7df-e6e503ac75c6")
-    public GmAcceptSignalHeader() {
+    public  GmAcceptSignalHeader() {
         super();
     }
 
     /**
      * C'tor.
-     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param relatedRef a reference to the accept signal node this gm is related to.
      */
     @objid ("2977f5bd-55b6-11e2-877f-002564c97630")
-    public GmAcceptSignalHeader(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmAcceptSignalHeader(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -101,6 +99,7 @@ public class GmAcceptSignalHeader extends GmActivityNodeHeader {
             break;
         }
         }
+        
     }
 
     @objid ("2977f5d8-55b6-11e2-877f-002564c97630")
@@ -110,6 +109,7 @@ public class GmAcceptSignalHeader extends GmActivityNodeHeader {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmAcceptSignalHeader.", GmAcceptSignalHeader.MINOR_VERSION);
+        
     }
 
     @objid ("2977f5de-55b6-11e2-877f-002564c97630")

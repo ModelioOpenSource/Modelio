@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.treetable.combo;
 
 import java.util.ArrayList;
@@ -42,7 +41,7 @@ public class LabelsComboBoxCellEditor extends ComboBoxCellEditor2 {
     private List<String> types;
 
     @objid ("6b34b314-1eba-11e2-9382-bc305ba4815c")
-    public LabelsComboBoxCellEditor(Composite parent, String[] labels, int style) {
+    public  LabelsComboBoxCellEditor(Composite parent, String[] labels, int style) {
         this(parent, labels, false, style);
     }
 
@@ -54,6 +53,7 @@ public class LabelsComboBoxCellEditor extends ComboBoxCellEditor2 {
             index = 0;
         }
         super.doSetValue(Integer.valueOf(index));
+        
     }
 
     @objid ("6b350132-1eba-11e2-9382-bc305ba4815c")
@@ -66,14 +66,16 @@ public class LabelsComboBoxCellEditor extends ComboBoxCellEditor2 {
         } else {
             return ((CCombo) getControl()).getText();
         }
+        
     }
 
     @objid ("4fd7663b-ac36-4040-895d-7cfe4b44ba5c")
-    public LabelsComboBoxCellEditor(Composite parent, String[] labels, boolean editable, int style) {
+    public  LabelsComboBoxCellEditor(Composite parent, String[] labels, boolean editable, int style) {
         super(parent, labels, style);
         this.types = new ArrayList<>(Arrays.asList(labels));
         ((CCombo) getControl()).setEditable(editable);
         setActivationStyle(ComboBoxCellEditor2.DROP_DOWN_ON_MOUSE_ACTIVATION);
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.elements.usecasediagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,8 @@ public class UseCaseDiagramFigure extends AbstractDiagramFigure {
      * Constructor.
      */
     @objid ("5e88bfb9-55b7-11e2-877f-002564c97630")
-    public UseCaseDiagramFigure() {
+    public  UseCaseDiagramFigure() {
+        
     }
 
 }

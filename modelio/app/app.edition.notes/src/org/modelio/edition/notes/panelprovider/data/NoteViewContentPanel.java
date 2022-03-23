@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.panelprovider.data;
 
 import java.util.regex.Pattern;
@@ -81,9 +80,10 @@ public class NoteViewContentPanel implements IPanelProvider {
     private DocumentContentComposite documentContentComposite;
 
     @objid ("05eee4bd-c151-406a-8728-6cdcc4a178c4")
-    public NoteViewContentPanel(IActivationService activationService, EContextService contextService) {
+    public  NoteViewContentPanel(IActivationService activationService, EContextService contextService) {
         this.activationService = activationService;
         this.contextService = contextService;
+        
     }
 
     @objid ("cd190d68-a0d3-465d-ac76-3cf301d7c491")
@@ -132,6 +132,7 @@ public class NoteViewContentPanel implements IPanelProvider {
                 this.currentContent.setInput(this.element);
             }
         }
+        
     }
 
     /**
@@ -144,6 +145,7 @@ public class NoteViewContentPanel implements IPanelProvider {
             this.currentContent = null;
             this.stackLayout.topControl = null;
         }
+        
     }
 
     @objid ("d14c9fd8-b792-4fe5-a913-81632e59ee98")
@@ -192,6 +194,7 @@ public class NoteViewContentPanel implements IPanelProvider {
         } else {
             return null;
         }
+        
     }
 
     @objid ("40e14112-6e79-43fc-bc9c-380a6c48ce51")
@@ -199,6 +202,7 @@ public class NoteViewContentPanel implements IPanelProvider {
     public void dispose() {
         this.constraintContentComposite.dispose();
         this.noteContentComposite.dispose();
+        
     }
 
 }

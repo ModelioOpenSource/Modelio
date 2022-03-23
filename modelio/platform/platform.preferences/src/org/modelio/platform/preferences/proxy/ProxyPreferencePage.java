@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.preferences.proxy;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -83,6 +82,7 @@ public class ProxyPreferencePage extends PreferencePage implements IWorkbenchPre
                 setProvider(ProxySelector.unlocalizeProvider(ProxyPreferencePage.this.providerCombo.getText()));
             }
         });
+        
     }
 
     @objid ("5709218f-98af-4c81-962f-45fddfad5274")
@@ -90,6 +90,7 @@ public class ProxyPreferencePage extends PreferencePage implements IWorkbenchPre
         this.proxyEntriesComposite = new ProxyEntriesComposite(parent, SWT.NONE);
         this.proxyEntriesComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL,
                 true, true));
+        
     }
 
     @objid ("f27b6e4e-2235-4d9d-ba8b-991c06e7ab25")
@@ -97,6 +98,7 @@ public class ProxyPreferencePage extends PreferencePage implements IWorkbenchPre
         this.nonProxyHostsComposite = new NonProxyHostsComposite(parent, SWT.NONE);
         this.nonProxyHostsComposite.setLayoutData(new GridData(SWT.FILL, SWT.FILL,
                 true, true));
+        
     }
 
     @objid ("f3865ce2-5669-4fea-bf2a-03a17321c7f1")
@@ -116,6 +118,7 @@ public class ProxyPreferencePage extends PreferencePage implements IWorkbenchPre
             ProxySelector.setActiveProvider(ProxySelector
                     .unlocalizeProvider(this.providerCombo.getItem(sel)));
         }
+        
     }
 
     @objid ("09f65310-5fd6-4555-8079-d1b33652c996")
@@ -127,6 +130,7 @@ public class ProxyPreferencePage extends PreferencePage implements IWorkbenchPre
         }
         this.providerCombo.select(index);
         setProvider(ProxySelector.unlocalizeProvider(this.providerCombo.getItem(index)));
+        
     }
 
     @objid ("11a6fe2d-dce4-410b-8001-c225dfd98139")
@@ -146,6 +150,7 @@ public class ProxyPreferencePage extends PreferencePage implements IWorkbenchPre
         this.providerCombo.setItems(localizedProviders);
         this.providerCombo.select(this.providerCombo.indexOf(ProxySelector
                 .localizeProvider(ProxySelector.getDefaultProvider())));
+        
     }
 
     @objid ("ac4a419f-75de-449e-937d-2b0651c1270d")
@@ -153,12 +158,14 @@ public class ProxyPreferencePage extends PreferencePage implements IWorkbenchPre
         this.proxyEntriesComposite.setProvider(name);
         this.nonProxyHostsComposite.setProvider(name);
         refresh();
+        
     }
 
     @objid ("bde6ad9a-c778-443c-8b76-133387101c2c")
     private void refresh() {
         this.proxyEntriesComposite.refresh();
         this.nonProxyHostsComposite.refresh();
+        
     }
 
 }

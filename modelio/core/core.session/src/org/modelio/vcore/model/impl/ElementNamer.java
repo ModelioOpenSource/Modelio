@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model.impl;
 
 import java.util.HashSet;
@@ -67,6 +66,7 @@ public class ElementNamer implements IElementNamerService {
         } else {
             return effectiveNamer.getBaseName(object);
         }
+        
     }
 
     /**
@@ -95,6 +95,7 @@ public class ElementNamer implements IElementNamerService {
         } else {
             return effectiveNamer.getUniqueName(basename, object);
         }
+        
     }
 
     @objid ("0068a6fa-030f-1035-9f91-001ec947cd2a")
@@ -110,7 +111,7 @@ public class ElementNamer implements IElementNamerService {
     }
 
     @objid ("2e597709-72d8-4d78-892e-25011066e6a0")
-    public ElementNamer() {
+    public  ElementNamer() {
         this.metamodelExtensionPoint = new MetamodelExtensionPoint<>();
     }
 

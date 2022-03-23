@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.analyst.infrastructure.dependency;
 
@@ -57,7 +56,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("df104a7b-4e95-4bf0-b700-05aec816039f")
 public class ContextExpert implements IMdaExpert {
-    @objid ("b0cebe8d-c739-49fd-a387-11282c7d664c")
+    @objid ("8a300ae1-dc3b-44dc-b28a-ec90f7b17927")
     @Override
     public boolean canSource(Stereotype linkStereotype, MClass linkMetaclass, MClass fromMetaclass) {
         MMetamodel metamodel = linkMetaclass.getMetamodel();
@@ -67,7 +66,7 @@ public class ContextExpert implements IMdaExpert {
         (fromMetaclass.hasBase(metamodel.getMClass("Standard.BpmnCollaboration")));
     }
 
-    @objid ("80a65760-862e-4e74-8e5d-d938e0f8c076")
+    @objid ("8bff513f-39c4-4006-a7e7-556b17fbab6e")
     @Override
     public boolean canSource(Stereotype linkStereotype, MObject linkElement, MObject fromElement) {
         MMetamodel metamodel = linkElement.getMClass().getMetamodel();
@@ -77,7 +76,7 @@ public class ContextExpert implements IMdaExpert {
         (fromElement.getMClass().hasBase(metamodel.getMClass("Standard.BpmnCollaboration")));
     }
 
-    @objid ("57312d55-fd5a-4a4a-8282-3b82c7da1cce")
+    @objid ("b1045fc6-a8fd-4132-a224-ba51f61aaab9")
     @Override
     public boolean canSource(ElementScope linkScope, MObject fromElement) {
         MMetamodel metamodel = linkScope.getMetaclass().getMetamodel();
@@ -87,21 +86,21 @@ public class ContextExpert implements IMdaExpert {
         (fromElement.getMClass().hasBase(metamodel.getMClass("Standard.BpmnCollaboration")));
     }
 
-    @objid ("e3cc8c02-44f8-4e25-8bd1-f48772e47fef")
+    @objid ("0a7d2ed9-e727-428d-b36e-dae1cab03ce6")
     @Override
     public boolean canTarget(Stereotype linkStereotype, MClass linkMetaclass, MClass toMetaclass) {
         MMetamodel metamodel = linkMetaclass.getMetamodel();
         return (toMetaclass.hasBase(metamodel.getMClass("Analyst.Goal")));
     }
 
-    @objid ("a5e04254-1eed-4679-a877-12ce7ace123d")
+    @objid ("bbbb42f7-5e1f-4b94-a679-625c1b88df43")
     @Override
     public boolean canTarget(Stereotype linkStereotype, MObject linkElement, MObject toElement) {
         MMetamodel metamodel = linkElement.getMClass().getMetamodel();
         return (toElement.getMClass().hasBase(metamodel.getMClass("Analyst.Goal")));
     }
 
-    @objid ("8788bd3a-3771-4650-80b2-73345ba8e6f3")
+    @objid ("0f93461d-a13f-4490-aa1c-71a0f8cda077")
     @Override
     public boolean canLink(Stereotype linkStereotype, MClass linkMetaclass, MClass fromMetaclass, MClass toMetaclass) {
         MMetamodel metamodel = linkMetaclass.getMetamodel();
@@ -111,7 +110,7 @@ public class ContextExpert implements IMdaExpert {
         ((fromMetaclass.hasBase(metamodel.getMClass("Standard.BpmnCollaboration"))) && (toMetaclass.hasBase(metamodel.getMClass("Analyst.Goal"))));
     }
 
-    @objid ("6524418d-0cd5-4290-b4aa-b2b6b6af9740")
+    @objid ("95069ddb-561f-4d18-9225-398b619400ba")
     @Override
     public boolean canLink(Stereotype linkStereotype, MClass linkMetaclass, MObject fromElement, MObject toElement) {
         MMetamodel metamodel = linkMetaclass.getMetamodel();
@@ -121,7 +120,7 @@ public class ContextExpert implements IMdaExpert {
         ((fromElement.getMClass().hasBase(metamodel.getMClass("Standard.BpmnCollaboration"))) && (toElement.getMClass().hasBase(metamodel.getMClass("Analyst.Goal"))));
     }
 
-    @objid ("e5853b98-f7b0-4292-8b6d-29fd643e638f")
+    @objid ("dbfc2084-39f4-4aca-b664-41c5391a67d2")
     @Override
     public Collection<MClass> getPossibleSourceMetaclasses(Stereotype linkStereotype, MClass targetMetaclass) {
         MMetamodel metamodel = linkStereotype.getMClass().getMetamodel();
@@ -149,7 +148,7 @@ public class ContextExpert implements IMdaExpert {
         return metaclasses;
     }
 
-    @objid ("033a0177-36d0-49a5-bd0d-2d1e329c941b")
+    @objid ("a805f83b-bb71-45d0-97ec-291d08e0f304")
     @Override
     public Collection<MClass> getPossibleTargetMetaclasses(Stereotype linkStereotype, MClass sourceMetaclass) {
         MMetamodel metamodel = linkStereotype.getMClass().getMetamodel();
@@ -177,7 +176,7 @@ public class ContextExpert implements IMdaExpert {
         return metaclasses;
     }
 
-    @objid ("9a6e15a0-6f6f-4ddf-a5ce-545df2f5bfa8")
+    @objid ("cb7279ec-741d-44c8-803a-89ef93c420ff")
     @Override
     public boolean isMultiple(Stereotype linkStereotype) {
         return false;

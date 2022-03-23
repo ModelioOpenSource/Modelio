@@ -17,23 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
-import org.modelio.metamodel.impl.uml.statik.InterfaceSmClass;
-import org.modelio.metamodel.impl.uml.statik.LinkEndSmClass;
-import org.modelio.metamodel.impl.uml.statik.NaryLinkEndSmClass;
-import org.modelio.metamodel.impl.uml.statik.PortSmClass;
-import org.modelio.metamodel.impl.uml.statik.ProvidedInterfaceData;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.metamodel.uml.statik.Interface;
 import org.modelio.metamodel.uml.statik.LinkEnd;
@@ -67,7 +62,7 @@ public class ProvidedInterfaceSmClass extends UmlModelElementSmClass {
     private SmDependency naryConsumerDep;
 
     @objid ("4c72ee7b-0c9d-40bf-8444-ac24dee3a1f2")
-    public ProvidedInterfaceSmClass(ISmMetamodelFragment origin) {
+    public  ProvidedInterfaceSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -75,6 +70,7 @@ public class ProvidedInterfaceSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "ProvidedInterface";
+        
     }
 
     @objid ("3f9eee73-55e0-4a3d-9801-dc9faa377ea5")
@@ -87,18 +83,21 @@ public class ProvidedInterfaceSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ProvidedInterface.class;
+        
     }
 
     @objid ("6a72db15-1902-4fc8-bade-82d8e03a36c0")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("2a827720-fcf2-4f3e-8e98-c0f34e36ffff")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("24927823-0419-4a20-a7b0-1587c6f16903")
@@ -126,6 +125,8 @@ public class ProvidedInterfaceSmClass extends UmlModelElementSmClass {
         this.naryConsumerDep = new NaryConsumerSmDependency();
         this.naryConsumerDep.init("NaryConsumer", this, metamodel.getMClass(NaryLinkEnd.MQNAME), 0, -1 , SmDirective.SMCDTODELETE);
         registerDependency(this.naryConsumerDep);
+        
+        
     }
 
     @objid ("9fe1a489-61e4-4c73-a4cb-88233fd50699")
@@ -166,7 +167,7 @@ public class ProvidedInterfaceSmClass extends UmlModelElementSmClass {
         private ProvidedInterfaceSmClass smClass;
 
         @objid ("bd17c483-2be5-4609-9860-59f4d49046b0")
-        public ProvidedInterfaceObjectFactory(ProvidedInterfaceSmClass smClass) {
+        public  ProvidedInterfaceObjectFactory(ProvidedInterfaceSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -199,6 +200,7 @@ public class ProvidedInterfaceSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ProvidedInterfaceData) data).mProvidedElement = values;
+            
         }
 
         @objid ("8b80612e-3155-457a-b5d4-10c9f27cac1b")
@@ -208,6 +210,7 @@ public class ProvidedInterfaceSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((InterfaceSmClass)this.getTarget()).getProvidingDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -236,6 +239,7 @@ public class ProvidedInterfaceSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((PortSmClass)this.getTarget()).getProvidedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -255,6 +259,7 @@ public class ProvidedInterfaceSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ProvidedInterfaceData) data).mConsumer = values;
+            
         }
 
         @objid ("6e7a7eef-0f10-4e67-815d-61c2c693f07e")
@@ -264,6 +269,7 @@ public class ProvidedInterfaceSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((LinkEndSmClass)this.getTarget()).getProviderDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -283,6 +289,7 @@ public class ProvidedInterfaceSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ProvidedInterfaceData) data).mNaryConsumer = values;
+            
         }
 
         @objid ("f9fc60d5-ff73-4adf-8f02-fa70465fbea7")
@@ -292,6 +299,7 @@ public class ProvidedInterfaceSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((NaryLinkEndSmClass)this.getTarget()).getProviderDep();
             }
             return this.symetricDep;
+            
         }
 
     }

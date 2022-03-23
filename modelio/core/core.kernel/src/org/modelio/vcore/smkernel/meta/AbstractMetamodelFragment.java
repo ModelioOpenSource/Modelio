@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta;
 
 import java.util.Collection;
@@ -68,7 +67,7 @@ public abstract class AbstractMetamodelFragment implements ISmMetamodelFragment 
      * @param providerVersion the provider metamodel version. see {@link #getProviderVersion()}
      */
     @objid ("b5217eca-22f8-4927-89e8-8d665ffe9ec1")
-    public AbstractMetamodelFragment(String name, Version version, String provider, String providerVersion) {
+    public  AbstractMetamodelFragment(String name, Version version, String provider, String providerVersion) {
         this.name = name;
         this.version = version;
         this.provider = provider;
@@ -80,6 +79,7 @@ public abstract class AbstractMetamodelFragment implements ISmMetamodelFragment 
         result = prime * result + ((this.name == null) ? 0 : this.name.hashCode());
         result = prime * result + ((this.version == null) ? 0 : this.version.hashCode());
         this.hash = result;
+        
     }
 
     /**
@@ -134,7 +134,6 @@ public abstract class AbstractMetamodelFragment implements ISmMetamodelFragment 
      * Tells whether this metamodel fragment is an extension or a standard Modelio metamodel fragment.
      * <p>
      * Standard Modelio metamodel fragments are guaranteed to have no metaclass name collisions.
-     * 
      * @return <i>true</i> if the fragment is an extension, <i>false</i> if it is a Modelio standard fragment.
      */
     @objid ("b0d2add3-0f63-42e2-9891-fd5b3699c800")

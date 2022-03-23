@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.deploymentdiagram.editor.elements.deploymentdiagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,7 @@ public class DeploymentDiagramFigure extends AbstractDiagramFigure {
      * Constructor.
      */
     @objid ("97250c35-55b6-11e2-877f-002564c97630")
-    public DeploymentDiagramFigure() {
+    public  DeploymentDiagramFigure() {
         super();
     }
 

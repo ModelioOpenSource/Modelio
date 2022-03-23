@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.gui.creation.file;
 
 import java.security.InvalidParameterException;
@@ -28,8 +27,8 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.modelio.editors.richnote.api.RichNoteFormat;
-import org.modelio.editors.richnote.gui.creation.RichNoteDescriptor.CreationMode;
 import org.modelio.editors.richnote.gui.creation.RichNoteDescriptor;
+import org.modelio.editors.richnote.gui.creation.RichNoteDescriptor.CreationMode;
 import org.modelio.platform.ui.panel.IPanelListener;
 
 @objid ("6ce1862e-2e03-4d5d-8601-a64b9317f321")
@@ -49,6 +48,7 @@ class FilePanelController {
             throw new InvalidParameterException("Listener already registered");
         }
         this.listeners.add(l);
+        
     }
 
     @objid ("a28e3da1-018e-4b59-81d0-ef7134eb8ccc")
@@ -63,6 +63,7 @@ class FilePanelController {
     public void dispose() {
         this.ui.dispose();
         this.ui = null;
+        
     }
 
     @objid ("5cf14a9c-da9f-4e45-9f8f-54fa89697931")
@@ -87,6 +88,7 @@ class FilePanelController {
             this.ui.update(this.data);
         }
         fireListeners(this.data, isValidate);
+        
     }
 
     @objid ("ce312b3a-72c2-4100-ad63-875c0afcff65")
@@ -105,6 +107,7 @@ class FilePanelController {
         
         this.ui.update(this.data);
         fireListeners(this.data, true);
+        
     }
 
     @objid ("71135f3b-cf3a-40b2-91cf-603da8e1a4be")
@@ -118,6 +121,7 @@ class FilePanelController {
         
         this.ui.update(this.data);
         fireListeners(this.data, true);
+        
     }
 
     @objid ("00d625de-865f-434f-bd62-253037a280ec")
@@ -131,6 +135,7 @@ class FilePanelController {
         if (this.ui != null) {
             this.ui.update(this.data);
         }
+        
     }
 
     @objid ("29bd7a93-d132-4910-9a82-5d991a0b7098")

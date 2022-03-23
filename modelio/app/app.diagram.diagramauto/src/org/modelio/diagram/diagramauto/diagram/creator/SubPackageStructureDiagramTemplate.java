@@ -17,11 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.diagramauto.diagram.creator;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.modelio.diagram.IDiagramGraphic;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
@@ -38,22 +38,33 @@ import org.modelio.metamodel.impact.ImpactLink;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.ModelTree;
-import org.modelio.metamodel.uml.statik.NameSpace;
+import org.modelio.metamodel.uml.statik.Component;
 import org.modelio.metamodel.uml.statik.Package;
 
+/**
+ * Model View template for to create a SubPackage Structure diagram.
+ * <p>
+ * A SubPackage Structure diagram shows the internal structure of a {@link Package} or {@link Component} in terms of packages, and the dependencies between them. It includes:
+ * <ul>
+ * <li>Its sub-packages.</li>
+ * <li>The blue links (impact links) between those sub-packages.</li>
+ * </ul>
+ * </p>
+ */
 @objid ("6ea3c15a-6a80-4418-84db-93923707e9bf")
 public class SubPackageStructureDiagramTemplate extends AbstractDiagramTemplate {
     @objid ("dc2c84aa-e4e4-46c3-b441-fc2d525bedac")
-    public List<IDiagramNode> _contentDgs;
+    private List<IDiagramNode> _contentDgs;
 
     /**
      * Mandatory default c'tor needed by eclipse when loading the extension point.
      */
     @objid ("77d98f85-f2ae-4863-9c99-ff93bc09fdd7")
-    public SubPackageStructureDiagramTemplate() {
+    public  SubPackageStructureDiagramTemplate() {
         super();
         
         this._contentDgs = new ArrayList<>();
+        
     }
 
     @objid ("59fdfe02-8d2b-4997-9a0b-dcba038ae62e")
@@ -65,19 +76,21 @@ public class SubPackageStructureDiagramTemplate extends AbstractDiagramTemplate 
     @objid ("98aa1323-e088-489a-b929-14600654ef44")
     @Override
     public ModelElement resolveOrigin(final ModelElement main) {
-        if (main instanceof NameSpace) {
+        if (main instanceof Package || main instanceof Component) {
             return main;
         } else {
             return null;
         }
+        
     }
 
     @objid ("732f94cd-fcb5-4e1a-beb8-64c887bb201a")
     @Override
     protected void generateContent(final IDiagramHandle dh, final ModelElement main) {
-        if (main instanceof org.modelio.metamodel.uml.statik.Package) {
+        if (main instanceof Package || main instanceof Component) {
             initialUnmasking(dh, (ModelTree) main);
         }
+        
     }
 
     @objid ("bab7ec8a-a51d-4d5d-8b0b-a260c093b0e3")
@@ -88,40 +101,35 @@ public class SubPackageStructureDiagramTemplate extends AbstractDiagramTemplate 
         }
         
         // unmask content
-        for (ModelTree child : main.getOwnedElement()) {
-            if (child instanceof org.modelio.metamodel.uml.statik.Package) {
-                List<IDiagramGraphic> nodes = dh.unmask(child, 0, 0);
-                if ((nodes != null) && (nodes.size() > 0) && nodes.get(0) instanceof IDiagramNode) {
-                    IDiagramNode node = (IDiagramNode) nodes.get(0);
-                    node.setRepresentationMode(1);
+        for (Package child : main.getOwnedElement(Package.class)) {
+            List<IDiagramGraphic> nodes = dh.unmask(child, 0, 0);
+            if (nodes != null && nodes.size() > 0 && nodes.get(0) instanceof IDiagramNode) {
+                IDiagramNode node = (IDiagramNode) nodes.get(0);
+                node.setRepresentationMode(1);
         
-                    // Add intern/extern style
-                    initStyle(main, node);
+                // Add intern/extern style
+                initStyle(main, node);
         
-                    this._contentDgs.add(node);
-                }
+                this._contentDgs.add(node);
             }
         
         }
         
         // Unmask blue links
-        for (ModelTree child : main.getOwnedElement()) {
-        
-            if (child instanceof org.modelio.metamodel.uml.statik.Package) {
-                for (ImpactLink blueLink : getImpactLinkToElement((org.modelio.metamodel.uml.statik.Package) child)) {
-                    dh.unmask(blueLink, 0, 0);
-                }
+        for (Package child : main.getOwnedElement(Package.class)) {
+            for (ImpactLink blueLink : getImpactLinkToElement(child)) {
+                dh.unmask(blueLink, 0, 0);
             }
         }
+        
     }
 
     @objid ("452ce988-c665-4fa5-8592-06fa9d23a7d0")
-    private List<ImpactLink> getImpactLinkToElement(final NameSpace namespaceElt) {
+    private List<ImpactLink> getImpactLinkToElement(final Package element) {
         List<ImpactLink> nsus = new ArrayList<>();
-        
-        for (ImpactLink impactLink : namespaceElt.getImpactDependsOn()) {
+        for (ImpactLink impactLink : element.getImpactDependsOn()) {
             final ModelElement used = impactLink.getDependsOn();
-            if ((used instanceof Package) && isInSamePackage(namespaceElt, (Package) used)) {
+            if (used instanceof Package && isInSamePackage(element, (Package) used)) {
                 nsus.add(impactLink);
             }
         }
@@ -137,28 +145,12 @@ public class SubPackageStructureDiagramTemplate extends AbstractDiagramTemplate 
         } else {
             node.setStyle(new DiagramStyleHandle(DiagramStyles.getStyleManager().getStyle(DiagramStyles.INTERN_STYLE_NAME)));
         }
+        
     }
 
     @objid ("a719621f-9d96-4064-9bfd-7aaf907ec95b")
-    private boolean isInSamePackage(final ModelTree elt1, final ModelTree elt2) {
-        ModelTree parent1 = getOwnerPackage(elt1);
-        ModelTree parent2 = getOwnerPackage(elt2);
-        return parent1 != null && parent2 != null && parent1.equals(parent2);
-    }
-
-    @objid ("4b56f666-ccfa-417c-bbff-41af1be3b131")
-    private ModelTree getOwnerPackage(final ModelTree elt) {
-        ModelTree parent = elt.getOwner();
-        
-        // Take parents for Inner elements
-        while ((parent != null)) {
-            if (parent instanceof Package) {
-                return parent;
-            } else {
-                parent = parent.getOwner();
-            }
-        }
-        return parent;
+    private boolean isInSamePackage(final Package elt1, final Package elt2) {
+        return Objects.equals(elt1.getOwner(), elt2.getOwner());
     }
 
     @objid ("c658a4b2-8d7f-4ba0-910c-6b4c0c045cb6")
@@ -171,6 +163,7 @@ public class SubPackageStructureDiagramTemplate extends AbstractDiagramTemplate 
             // Should never happen
             DiagramAuto.LOG.debug(e);
         }
+        
     }
 
     @objid ("9e009f97-c1e1-442c-9b68-b2b84ef068c1")

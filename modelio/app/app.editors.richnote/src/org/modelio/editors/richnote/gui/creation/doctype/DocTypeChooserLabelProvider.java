@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.gui.creation.doctype;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,8 @@ import org.modelio.platform.model.ui.swt.images.MetamodelImageService;
 @objid ("a3cb7538-b1f7-4732-a51f-75adf160af91")
 class DocTypeChooserLabelProvider extends LabelProvider {
     @objid ("7517f40a-6c59-426d-b61b-2359b2ac1133")
-    public DocTypeChooserLabelProvider() {
+    public  DocTypeChooserLabelProvider() {
+        
     }
 
     @objid ("eb6134dc-e852-4cd7-8d86-061dc74ee8bf")
@@ -100,11 +100,11 @@ class DocTypeChooserLabelProvider extends LabelProvider {
         } else {
             return element.toString();
         }
+        
     }
 
     /**
      * Get the icon the the rich note type.
-     * 
      * @param docType the rich note type
      */
     @objid ("9885814f-a09e-4000-ae07-cf2e1893dd8a")
@@ -123,6 +123,7 @@ class DocTypeChooserLabelProvider extends LabelProvider {
         } else {
             return MetamodelImageService.getIcon(moduleModel.getMClass());
         }
+        
     }
 
 }

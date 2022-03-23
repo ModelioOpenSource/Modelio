@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.informationitem;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,21 +31,21 @@ import org.modelio.uml.statikdiagram.editor.style.StaticAbstractStyleKeyProvider
 @objid ("351b95cc-55b7-11e2-877f-002564c97630")
 public class InformationItemImageStyleKeys extends StaticAbstractStyleKeyProvider {
     @objid ("a67d9ccd-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = InformationItemStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = InformationItemStructuredStyleKeys.REPMODE;
 
     @objid ("a67d9ccf-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = InformationItemStructuredStyleKeys.FONT;
+    static final StyleKey FONT = InformationItemStructuredStyleKeys.FONT;
 
     @objid ("a67f2369-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = InformationItemStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = InformationItemStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("a67f236b-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWNAME = InformationItemStructuredStyleKeys.SHOWNAME;
+    static final StyleKey SHOWNAME = InformationItemStructuredStyleKeys.SHOWNAME;
 
     @objid ("a67f236d-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = InformationItemStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = InformationItemStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("a67f236f-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = InformationItemStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = InformationItemStructuredStyleKeys.SHOWTAGS;
 
 }

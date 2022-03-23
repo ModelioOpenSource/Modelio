@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.attribute;
 
 import java.util.List;
@@ -59,21 +58,22 @@ public class GmAttribute extends GmDefaultModelElementLabel {
      * Constructor for deserialization only.
      */
     @objid ("33fe3f05-55b7-11e2-877f-002564c97630")
-    public GmAttribute() {
+    public  GmAttribute() {
+        
     }
 
     /**
      * Create an attribute representation.
-     * 
      * @param diagram The diagram
      * @param el The represented attribute, may be null.
      * @param ref The represented attribute reference, may not be null.
      */
     @objid ("33ffc579-55b7-11e2-877f-002564c97630")
-    public GmAttribute(IGmDiagram diagram, Attribute el, MRef ref) {
+    public  GmAttribute(IGmDiagram diagram, Attribute el, MRef ref) {
         super(diagram, ref);
         this.element = el;
         init();
+        
     }
 
     @objid ("33ffc5a8-55b7-11e2-877f-002564c97630")
@@ -100,6 +100,7 @@ public class GmAttribute extends GmDefaultModelElementLabel {
         } else {
             return ATT_KEYS.getStyleKey(metakey);
         }
+        
     }
 
     @objid ("33ffc5c0-55b7-11e2-877f-002564c97630")
@@ -125,6 +126,7 @@ public class GmAttribute extends GmDefaultModelElementLabel {
             break;
         }
         }
+        
     }
 
     @objid ("34014c27-55b7-11e2-877f-002564c97630")
@@ -178,7 +180,6 @@ public class GmAttribute extends GmDefaultModelElementLabel {
 
     /**
      * Compute the multiplicity symbol of the attribute and append it to the given buffer.
-     * 
      * @param theAttribute the attribute to compute the visibility.
      * @param output the output buffer
      * @return
@@ -218,6 +219,7 @@ public class GmAttribute extends GmDefaultModelElementLabel {
     private void init() {
         setShowMetaclassKeyword(false);
         setShowMetaclassIcon(false);
+        
     }
 
     @objid ("34014c47-55b7-11e2-877f-002564c97630")
@@ -227,12 +229,14 @@ public class GmAttribute extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmAttribute.", GmAttribute.MINOR_VERSION);
+        
     }
 
     @objid ("34014c4d-55b7-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (Attribute) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("34014c52-55b7-11e2-877f-002564c97630")

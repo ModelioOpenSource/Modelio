@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.elements.system;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,10 +46,11 @@ class SystemResizeCommand extends Command {
     private ChangeBoundsRequest request;
 
     @objid ("5e54de8c-55b7-11e2-877f-002564c97630")
-    SystemResizeCommand(final GraphicalEditPart freeZoneEditPart, final GraphicalEditPart childEditPart, final ChangeBoundsRequest request) {
+     SystemResizeCommand(final GraphicalEditPart freeZoneEditPart, final GraphicalEditPart childEditPart, final ChangeBoundsRequest request) {
         this.freeZoneEditPart = freeZoneEditPart;
         this.childEditPart = childEditPart;
         this.request = request;
+        
     }
 
     @objid ("5e54de94-55b7-11e2-877f-002564c97630")
@@ -80,6 +80,7 @@ class SystemResizeCommand extends Command {
                 childModel.setLayoutData(((Rectangle) childModel.getLayoutData()).getTranslated(moveDelta));
             }
         }
+        
     }
 
     @objid ("5e54de97-55b7-11e2-877f-002564c97630")

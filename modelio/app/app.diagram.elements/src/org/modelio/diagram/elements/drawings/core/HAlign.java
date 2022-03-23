@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.drawings.core;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,21 +30,24 @@ public enum HAlign {
     /**
      * Left
      */
-    Left (SWT.BEGINNING),
+    @objid ("47879b38-2f8d-46ba-86a2-32383b681dc7")
+    Left(SWT.BEGINNING),
     /**
      * Center
      */
-    Center (SWT.CENTER),
+    @objid ("daacce24-bb87-456d-945d-936a4ae6a0a3")
+    Center(SWT.CENTER),
     /**
      * Right
      */
-    Right (SWT.END);
+    @objid ("2dd64d78-0622-463a-89fe-a6978b06dc34")
+    Right(SWT.END);
 
     @objid ("c9d0f90e-fafa-4e51-8ba5-c9d3af5fdf68")
     private final int swtConst;
 
     @objid ("880c2540-0ba2-41a4-9444-95c6aae51355")
-    HAlign(int swtConst) {
+     HAlign(int swtConst) {
         this.swtConst = swtConst;
     }
 

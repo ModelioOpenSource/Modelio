@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.editor.IDiagramEditorInputProvider.GmDiagramCreator;
 import org.modelio.diagram.elements.common.abstractdiagram.GmAbstractDiagram;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 
 /**
@@ -47,13 +46,12 @@ public abstract class DiagramEditorInput {
      * Initialize the editor input.
      * <p>
      * Creates the diagram graphic model and load it from the diagram model element.
-     * 
      * @param diagram the diagram to edit.
      * @param modelManager the link between the Gm model and the Ob model.
      * @param gmDiagramCreator a small factory to instanciate the Gm diagram itself.
      */
     @objid ("65931999-33f7-11e2-95fe-001ec947c8cc")
-    public DiagramEditorInput(AbstractDiagram diagram, IModelManager modelManager, GmDiagramCreator gmDiagramCreator) {
+    public  DiagramEditorInput(AbstractDiagram diagram, IModelManager modelManager, GmDiagramCreator gmDiagramCreator) {
         this.diagram = diagram;
         this.model = gmDiagramCreator.createDiagram(modelManager, diagram);
         if (this.model != null) {
@@ -63,6 +61,7 @@ public abstract class DiagramEditorInput {
             // Load from the persistence.
             this.model.load();
         }
+        
     }
 
     @objid ("659319b8-33f7-11e2-95fe-001ec947c8cc")
@@ -123,6 +122,7 @@ public abstract class DiagramEditorInput {
             this.model.dispose();
             this.model = null;
         }
+        
     }
 
     /**
@@ -135,7 +135,6 @@ public abstract class DiagramEditorInput {
 
     /**
      * Get the editor ID this input is destined to.
-     * 
      * @return the e4xmi ID of a diagram editor.
      */
     @objid ("f258f912-3996-43fc-9fdf-cb5cb5321893")

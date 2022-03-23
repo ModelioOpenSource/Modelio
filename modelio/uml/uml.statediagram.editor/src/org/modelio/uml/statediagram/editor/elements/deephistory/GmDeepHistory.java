@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.deephistory;
 
 import java.util.Collections;
@@ -31,8 +30,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.DeepHistoryPseudoState;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -44,9 +43,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("f503cf3f-55b6-11e2-877f-002564c97630")
 public class GmDeepHistory extends GmPortContainer {
-    @objid ("f503cf43-55b6-11e2-877f-002564c97630")
-    private DeepHistoryPseudoState element;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -56,11 +52,14 @@ public class GmDeepHistory extends GmPortContainer {
     @objid ("f50555bf-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
 
+    @objid ("f503cf43-55b6-11e2-877f-002564c97630")
+    private DeepHistoryPseudoState element;
+
     @objid ("f503cf48-55b6-11e2-877f-002564c97630")
     private static final GmDeepHistorySimpleStyleKeys SIMPLE_KEYS = new GmDeepHistorySimpleStyleKeys();
 
     @objid ("fd2cb2e9-5a5b-11e2-9e33-00137282c51b")
-     static final GmDeepHistoryStructuredStyleKeys STRUCTURED_KEYS = new GmDeepHistoryStructuredStyleKeys();
+    static final GmDeepHistoryStructuredStyleKeys STRUCTURED_KEYS = new GmDeepHistoryStructuredStyleKeys();
 
     @objid ("fd2cb2eb-5a5b-11e2-9e33-00137282c51b")
     private static final GmDeepHistoryImageStyleKeys IMAGE_KEYS = new GmDeepHistoryImageStyleKeys();
@@ -70,13 +69,12 @@ public class GmDeepHistory extends GmPortContainer {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the element is unmasked.
      * @param el the unmasked element, can be <i>null</i>.
      * @param ref the unmasked element reference, must not be <i>null</i>..
      */
     @objid ("f50555c1-55b6-11e2-877f-002564c97630")
-    public GmDeepHistory(IGmDiagram diagram, DeepHistoryPseudoState el, MRef ref) {
+    public  GmDeepHistory(IGmDiagram diagram, DeepHistoryPseudoState el, MRef ref) {
         super(diagram, ref);
         
         GmDeepHistoryPrimaryNode mainNode = new GmDeepHistoryPrimaryNode(diagram, ref);
@@ -90,6 +88,7 @@ public class GmDeepHistory extends GmPortContainer {
         
         this.addChild(mainNode);
         this.addChild(label);
+        
     }
 
     @objid ("f50555cd-55b6-11e2-877f-002564c97630")
@@ -148,7 +147,7 @@ public class GmDeepHistory extends GmPortContainer {
      * Empty constructor needed for deserialisation.
      */
     @objid ("f50555f0-55b6-11e2-877f-002564c97630")
-    public GmDeepHistory() {
+    public  GmDeepHistory() {
         // Nothing specific to do.
     }
 
@@ -169,6 +168,7 @@ public class GmDeepHistory extends GmPortContainer {
                 break;
             }
         }
+        
     }
 
     @objid ("f50555f9-55b6-11e2-877f-002564c97630")
@@ -190,12 +190,14 @@ public class GmDeepHistory extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmDeepHistory.", GmDeepHistory.MINOR_VERSION);
+        
     }
 
     @objid ("f506dc66-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (DeepHistoryPseudoState) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("f506dc6b-55b6-11e2-877f-002564c97630")
@@ -206,7 +208,6 @@ public class GmDeepHistory extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -218,7 +219,6 @@ public class GmDeepHistory extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

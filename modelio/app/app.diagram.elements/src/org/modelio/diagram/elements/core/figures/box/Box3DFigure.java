@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.box;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,13 +37,13 @@ import org.modelio.diagram.elements.core.figures.borders.ShapedBorder;
 @objid ("97344e5a-55b6-11e2-877f-002564c97630")
 public class Box3DFigure extends ShapedFigure {
     @objid ("1ccff243-55c2-11e2-9337-002564c97630")
-    private ShapedBorder shapedBorder;
+    private final ShapedBorder shapedBorder;
 
     /**
      * Initializes the figure with a BoxShaper, and adds the default border.
      */
     @objid ("9735d4fb-55b6-11e2-877f-002564c97630")
-    public Box3DFigure() {
+    public  Box3DFigure() {
         super();
         
         setShaper(new Box3DShaper());
@@ -54,6 +53,7 @@ public class Box3DFigure extends ShapedFigure {
                                              this.shaper);
         
         setBorder(new CompoundBorder(this.shapedBorder, new MarginBorder(2)));
+        
     }
 
     @objid ("9735d4fe-55b6-11e2-877f-002564c97630")
@@ -63,6 +63,7 @@ public class Box3DFigure extends ShapedFigure {
             super.setLineColor(lineColor);
             this.shapedBorder.setColor(lineColor);
         }
+        
     }
 
     @objid ("9735d502-55b6-11e2-877f-002564c97630")
@@ -72,11 +73,11 @@ public class Box3DFigure extends ShapedFigure {
             super.setLineWidth(lineWidth);
             this.shapedBorder.setWidth(lineWidth);
         }
+        
     }
 
     /**
      * Setter for the depth of the box.
-     * 
      * @param value the new depth for the box.
      */
     @objid ("9735d506-55b6-11e2-877f-002564c97630")
@@ -86,7 +87,6 @@ public class Box3DFigure extends ShapedFigure {
 
     /**
      * Getter for the depth of the box.
-     * 
      * @return the current depth of the box.
      */
     @objid ("9735d50a-55b6-11e2-877f-002564c97630")
@@ -106,7 +106,7 @@ public class Box3DFigure extends ShapedFigure {
          * Initializes a BoxShaper with a default depth of 12.
          */
         @objid ("97375b9e-55b6-11e2-877f-002564c97630")
-        public Box3DShaper() {
+        public  Box3DShaper() {
             this.depth = 12;
         }
 
@@ -118,7 +118,7 @@ public class Box3DFigure extends ShapedFigure {
 
         @objid ("97375ba7-55b6-11e2-877f-002564c97630")
         @Override
-        public Path getShapePath(Rectangle rect) {
+        public Path createShapePath(Rectangle rect) {
             float x = rect.x;
             float y = rect.y;
             float w = rect.width - 1;
@@ -145,7 +145,6 @@ public class Box3DFigure extends ShapedFigure {
 
         /**
          * Setter for the depth of the box.
-         * 
          * @param value the new depth for the box.
          */
         @objid ("97375bad-55b6-11e2-877f-002564c97630")
@@ -155,7 +154,6 @@ public class Box3DFigure extends ShapedFigure {
 
         /**
          * Getter for the depth of the box.
-         * 
          * @return the current depth of the box.
          */
         @objid ("97375bb1-55b6-11e2-877f-002564c97630")

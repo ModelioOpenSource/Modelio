@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.activitydiagram;
 
 import java.util.List;
@@ -56,7 +55,7 @@ public class CreatePartitionContainerCommand extends Command {
     private boolean vertical;
 
     @objid ("2991e668-55b6-11e2-877f-002564c97630")
-    private Map<?,?> editPartRegistry;
+    private Map<?, ?> editPartRegistry;
 
     @objid ("2991e665-55b6-11e2-877f-002564c97630")
     private Rectangle constraint;
@@ -72,7 +71,6 @@ public class CreatePartitionContainerCommand extends Command {
 
     /**
      * C'tor.
-     * 
      * @param originalRequest the request that lead to this command.
      * @param parentDiagramEditPart the edit part of the diagram in which the partition container is to be created.
      * @param context the creation context.
@@ -80,13 +78,14 @@ public class CreatePartitionContainerCommand extends Command {
      * @param vertical whether this is a vertical container.
      */
     @objid ("2991e66c-55b6-11e2-877f-002564c97630")
-    public CreatePartitionContainerCommand(CreateRequest originalRequest, ActivityDiagramEditPart parentDiagramEditPart, ModelioCreationContext context, Rectangle constraint, boolean vertical) {
+    public  CreatePartitionContainerCommand(CreateRequest originalRequest, ActivityDiagramEditPart parentDiagramEditPart, ModelioCreationContext context, Rectangle constraint, boolean vertical) {
         this.originalRequest = originalRequest;
         this.editPartRegistry = parentDiagramEditPart.getViewer().getEditPartRegistry();
         this.parentDiagram = (GmActivityDiagram) parentDiagramEditPart.getModel();
         this.context = context;
         this.constraint = constraint;
         this.vertical = vertical;
+        
     }
 
     /**
@@ -114,6 +113,7 @@ public class CreatePartitionContainerCommand extends Command {
         } else {
             executeActualCreation(parentElement, this.parentDiagram.getModelManager());
         }
+        
     }
 
     @objid ("2991e67a-55b6-11e2-877f-002564c97630")
@@ -177,6 +177,7 @@ public class CreatePartitionContainerCommand extends Command {
         if (command != null && command.canExecute()) {
             command.execute();
         }
+        
     }
 
     @objid ("2991e683-55b6-11e2-877f-002564c97630")
@@ -234,6 +235,7 @@ public class CreatePartitionContainerCommand extends Command {
         for (GmNodeModel gmPartition : partitionContainer.getChildren()) {
             gmPartition.setLayoutData(partitionConstraint);
         }
+        
     }
 
     @objid ("2991e689-55b6-11e2-877f-002564c97630")

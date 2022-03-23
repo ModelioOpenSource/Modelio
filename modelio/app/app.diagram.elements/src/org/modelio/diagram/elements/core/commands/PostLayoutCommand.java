@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.commands;
 
 import java.util.Collection;
@@ -34,19 +33,16 @@ import org.modelio.diagram.elements.core.helpers.RequestHelper;
 /**
  * Command used to notify edit parts their layout changed.
  * <p>
- * Usage :
- * On the node layout change command {@link Command#execute()} method:
+ * Usage : On the node layout change command {@link Command#execute()} method:
  * <ol>
- * <li> instantiate this class
- * <li> call {@link #add(Command)} with the layout command(s)
- * <li> make somebody call {@link #execute()} on this instance
+ * <li>instantiate this class
+ * <li>call {@link #add(Command)} with the layout command(s)
+ * <li>make somebody call {@link #execute()} on this instance
  * </ol>
  * 
  * Edit parts wishing to listen for node layout changes must understand the {@link #REQ_TYPE} request type.
  * <p>
- * This command will look for edit parts in the composition tree that understand {@link #REQ_TYPE} request type
- * and ask them immediately for commands.
- * The iteration skips the composition tree for edit parts that understand the request or that are included
+ * This command will look for edit parts in the composition tree that understand {@link #REQ_TYPE} request type and ask them immediately for commands. The iteration skips the composition tree for edit parts that understand the request or that are included
  * in the {@link #REQPARAM_NOPOSTLAYOUT} request extended data.
  * 
  * 
@@ -68,10 +64,9 @@ public class PostLayoutCommand extends CompoundCommand {
     public static final Object REQ_TYPE = PostLayoutCommand.class;
 
     /**
-     * Request extended parameter key containing a collection of edit parts for which
-     * post layout must not be called.
+     * Request extended parameter key containing a collection of edit parts for which post layout must not be called.
      */
-    @objid ("620bd04a-1d27-44f7-93d7-0f1a30141dbc")
+    @objid ("8a918bfa-4b91-4c62-bfc1-0bae87993314")
     public static final Object REQPARAM_NOPOSTLAYOUT = "no post layout for";
 
     /**
@@ -84,14 +79,14 @@ public class PostLayoutCommand extends CompoundCommand {
      * @param origin the origin request
      */
     @objid ("39423a69-d215-4079-aa1d-3240e71eb772")
-    public PostLayoutCommand(ChangeBoundsRequest origin) {
-        super("Layout and post layout for:"+RequestHelper.toString(origin));
+    public  PostLayoutCommand(ChangeBoundsRequest origin) {
+        super("Layout and post layout for:" + RequestHelper.toString(origin));
         this.origin = origin;
+        
     }
 
     /**
      * Add the given command only if the edit part has not already be recorded.
-     * 
      * @param part the involved edit part
      * @param c the command for the edit part.
      */
@@ -100,6 +95,7 @@ public class PostLayoutCommand extends CompoundCommand {
         if (this.postLayouters.add(part)) {
             super.add(c);
         }
+        
     }
 
     @objid ("7cd6a4af-490b-4b0e-9242-ca7f55a8eddb")
@@ -121,37 +117,38 @@ public class PostLayoutCommand extends CompoundCommand {
     }
 
     /**
-     * Look for edit parts in the composition tree that understand {@link #REQ_TYPE} request type
-     * and ask them immediately for commands.
-     * The iteration skips the composition tree for edit parts that understand the request.
+     * Look for edit parts in the composition tree that understand {@link #REQ_TYPE} request type and ask them immediately for commands. The iteration skips the composition tree for edit parts that understand the request.
      * @param part the edit part to iterate.
      */
     @objid ("0776d336-c8db-4d81-b0ee-45c225251f62")
     private void collectPostExecuteCommands() {
         ChangeBoundsRequest req = RequestHelper.shallowCopy(this.origin);
         req.setType(REQ_TYPE);
+        RequestHelper.addSharedEditParts(req, this.origin);
         
         for (Iterator<EditPart> iterator = req.getEditParts().iterator(); iterator.hasNext();) {
             EditPart child = iterator.next();
             collectPostExecuteCommands(req, child);
         }
+        
     }
 
     @objid ("2356ddec-8c43-4987-b2db-d673c261aa0d")
     private void collectPostExecuteCommands(ChangeBoundsRequest req, EditPart ep) {
-        if (! RequestHelper.containsParamValue(req, REQPARAM_NOPOSTLAYOUT, ep)) {
+        if (!RequestHelper.containsParamValue(req, REQPARAM_NOPOSTLAYOUT, ep)) {
             if (ep.understandsRequest(req)) {
                 Command cmd = ep.getCommand(req);
                 if (cmd != null && cmd.canExecute()) {
                     add(ep, cmd);
-                }
-            } else {
-                for (Iterator<EditPart> iterator = ep.getChildren().iterator(); iterator.hasNext();) {
-                    EditPart child = iterator.next();
-                    collectPostExecuteCommands(req, child);
+                    return;
                 }
             }
+            for (Iterator<EditPart> iterator = ep.getChildren().iterator(); iterator.hasNext();) {
+                EditPart child = iterator.next();
+                collectPostExecuteCommands(req, child);
+            }
         }
+        
     }
 
     /**
@@ -159,9 +156,10 @@ public class PostLayoutCommand extends CompoundCommand {
      * @param origin the origin request
      */
     @objid ("9ec29e8f-2435-4d52-be87-625114c4dfa3")
-    public PostLayoutCommand(Command c, ChangeBoundsRequest origin) {
+    public  PostLayoutCommand(Command c, ChangeBoundsRequest origin) {
         this(origin);
         add(c);
+        
     }
 
     @objid ("0fbac638-6765-40bc-a4d2-c5157daab014")
@@ -172,6 +170,7 @@ public class PostLayoutCommand extends CompoundCommand {
         
         // Run layout command followed by post layout commands
         super.execute();
+        
     }
 
     @objid ("cbfb0594-eb13-45e4-bceb-a4fc29d5b441")
@@ -182,6 +181,7 @@ public class PostLayoutCommand extends CompoundCommand {
         } else {
             return this;
         }
+        
     }
 
 }

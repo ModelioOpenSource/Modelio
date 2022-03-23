@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.semantic.browser.panel;
 
 import java.util.Arrays;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Optional;
@@ -79,6 +78,7 @@ public class SmBrowserPanelProvider implements IPanelProvider {
     public void dispose() {
         this.ui = null;
         this.controller = null;
+        
     }
 
     @objid ("479c1c1b-564e-4849-b424-8cac0bc790ef")
@@ -143,6 +143,7 @@ public class SmBrowserPanelProvider implements IPanelProvider {
             // Call the controller for closing project
             this.controller.onProjectClosed(null);
         }
+        
     }
 
     /**
@@ -154,6 +155,7 @@ public class SmBrowserPanelProvider implements IPanelProvider {
     void postConstruct(IEclipseContext context) {
         this.controller = new SmBrowserController();
         ContextInjectionFactory.inject(this.controller, context);
+        
     }
 
     @objid ("a5ae9dcb-04b5-4558-9598-70151a581d0e")
@@ -182,6 +184,7 @@ public class SmBrowserPanelProvider implements IPanelProvider {
             List<MObject> elements = SelectionHelper.toList(selection, MObject.class);
             this.controller.select(elements);
         }
+        
     }
 
     @objid ("2c021f8b-cecf-4987-861c-fc0d9fb0bd5c")

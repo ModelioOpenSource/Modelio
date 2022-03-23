@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.ramc.core.packaging.filters;
 
 import java.util.HashMap;
@@ -46,14 +45,14 @@ public class ConfigurableModelFilter implements IModelFilterConfigurer, IObjectF
 
     /**
      * Initialize the filter.
-     * 
      * @param metamodel the modelio metamodel.
      */
     @objid ("871694ab-1b3f-4889-abb6-e0122ae97e3a")
-    public ConfigurableModelFilter(SmMetamodel metamodel) {
+    public  ConfigurableModelFilter(SmMetamodel metamodel) {
         List<SmClass> allMetaclasses = metamodel.getRegisteredMClasses();
         this.metamodel = metamodel;
         this.classDescriptors = new HashMap<>(allMetaclasses.size());
+        
     }
 
     @objid ("b76fcf68-7f2f-45ba-97e1-c13cf3af24ce")
@@ -65,6 +64,7 @@ public class ConfigurableModelFilter implements IModelFilterConfigurer, IObjectF
         } else {
             return filter.accept(obj);
         }
+        
     }
 
     @objid ("729f32df-60f0-4344-a0ed-dc6950d95076")
@@ -75,6 +75,7 @@ public class ConfigurableModelFilter implements IModelFilterConfigurer, IObjectF
         for (SmClass c : cls.getAllSubClasses()) {
             this.classDescriptors.put(c, objectFilter);
         }
+        
     }
 
 }

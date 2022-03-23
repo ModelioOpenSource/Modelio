@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.statemachine;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,31 +31,31 @@ import org.modelio.uml.statikdiagram.editor.style.StaticAbstractStyleKeyProvider
 @objid ("36ace45c-55b7-11e2-877f-002564c97630")
 public class GmStateMachineStructuredStyleKeys extends StaticAbstractStyleKeyProvider {
     @objid ("a55f829b-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("STATEMACHINE_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("STATEMACHINE_REPMODE", MetaKey.REPMODE);
 
     @objid ("a55fa9aa-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("STATEMACHINE_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("STATEMACHINE_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("a55fa9ac-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("STATEMACHINE_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("STATEMACHINE_FILLMODE", MetaKey.FILLMODE);
 
     @objid ("a55fa9ae-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("STATEMACHINE_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("STATEMACHINE_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("a55fd0ba-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("STATEMACHINE_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("STATEMACHINE_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("a55fd0bc-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("STATEMACHINE_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("STATEMACHINE_FONT", MetaKey.FONT);
 
     @objid ("a55ff7c9-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("STATEMACHINE_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("STATEMACHINE_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("a55ff7cb-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("STATEMACHINE_SHOWSTEREOTYPES",
-                                                           MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("STATEMACHINE_SHOWSTEREOTYPES",
+                                                               MetaKey.SHOWSTEREOTYPES);
 
     @objid ("a55ff7cd-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("STATEMACHINE_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("STATEMACHINE_SHOWTAGS", MetaKey.SHOWTAGS);
 
 }

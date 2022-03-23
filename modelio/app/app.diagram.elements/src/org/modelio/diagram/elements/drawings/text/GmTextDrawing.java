@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.drawings.text;
 
 import java.util.List;
@@ -36,26 +35,26 @@ public class GmTextDrawing extends GmNodeDrawing {
     private static final int MINOR_VERSION = 0;
 
     @objid ("34ff56f8-2f12-43af-8aa7-ac3e0e84f84b")
-     static final GmTextStyleKeys KEYS = new GmTextStyleKeys();
+    static final GmTextStyleKeys KEYS = new GmTextStyleKeys();
 
     /**
      * Deserialization only constructor.
      */
     @objid ("0f3ac5ec-fcf3-471b-b790-2cdda7ab8faa")
-    public GmTextDrawing() {
+    public  GmTextDrawing() {
         super();
     }
 
     /**
      * Default constructor.
-     * 
      * @param diagram the owner diagram.
      * @param identifier drawing identifier, must be unique in the diagram.
      */
     @objid ("2731003f-730a-4629-bddf-be9eaf078346")
-    public GmTextDrawing(IGmDiagram diagram, String identifier) {
+    public  GmTextDrawing(IGmDiagram diagram, String identifier) {
         super(diagram, identifier);
         setLabel("Text");
+        
     }
 
     @objid ("c5afbc22-49f4-4450-9daf-4d73c20472ba")

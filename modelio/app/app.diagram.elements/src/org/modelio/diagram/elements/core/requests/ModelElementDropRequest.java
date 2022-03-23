@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.requests;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,9 +39,10 @@ public class ModelElementDropRequest extends Request {
     private Point dropLocation;
 
     @objid ("80dab5d6-1dec-11e2-8cad-001ec947c8cc")
-    public ModelElementDropRequest() {
+    public  ModelElementDropRequest() {
         super(TYPE);
         this.droppedElements = new MObject[0];
+        
     }
 
     @objid ("80dab5d8-1dec-11e2-8cad-001ec947c8cc")
@@ -60,6 +60,7 @@ public class ModelElementDropRequest extends Request {
     public void setDroppedElements(MObject[] value) {
         // Automatically generated method. Please delete this comment before entering specific code.
         this.droppedElements = value;
+        
     }
 
     @objid ("80dd1820-1dec-11e2-8cad-001ec947c8cc")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.drawings.line;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,23 +31,23 @@ import org.modelio.diagram.styles.core.StyleKey;
 @objid ("6d6316c2-309c-44ad-bf0b-4466e46d091a")
 public class GmLineStyleKeys extends ElementsAbstractStyleKeyProvider {
     @objid ("74e94e4b-c3da-4158-b89f-a8d389331858")
-     static final StyleKey CONNECTIONROUTER = createStyleKey("DRAWLINE_CONNECTIONROUTER",
-                                                            MetaKey.CONNECTIONROUTER);
+    static final StyleKey CONNECTIONROUTER = createStyleKey("DRAWLINE_CONNECTIONROUTER",
+                                                                MetaKey.CONNECTIONROUTER);
 
     @objid ("81e3a096-0b74-4af7-aa99-48964e0060d7")
-     static final StyleKey LINECOLOR = createStyleKey("DRAWLINE_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("DRAWLINE_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("0ed73cb8-bcb7-4ca3-aaf4-424310424c75")
-     static final StyleKey LINEWIDTH = createStyleKey("DRAWLINE_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("DRAWLINE_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("0102676f-9eb4-4425-b96d-65adb81dd349")
-     static final StyleKey LINERADIUS = createStyleKey("DRAWLINE_LINERADIUS", MetaKey.LINERADIUS);
+    static final StyleKey LINERADIUS = createStyleKey("DRAWLINE_LINERADIUS", MetaKey.LINERADIUS);
 
     @objid ("5a1425a8-4be3-488e-b45b-dfbc8a3fdba5")
-     static final StyleKey DRAWLINEBRIDGES = createStyleKey("DRAWLINE_DRAWLINEBRIDGES", MetaKey.DRAWLINEBRIDGES);
+    static final StyleKey DRAWLINEBRIDGES = createStyleKey("DRAWLINE_DRAWLINEBRIDGES", MetaKey.DRAWLINEBRIDGES);
 
     @objid ("857bf848-188b-4aed-b820-13f6a1b1d030")
-     static final StyleKey LINEPATTERN = createStyleKey("DRAWLINE_LINEPATTERN", MetaKey.LINEPATTERN);
+    static final StyleKey LINEPATTERN = createStyleKey("DRAWLINE_LINEPATTERN", MetaKey.LINEPATTERN);
 
     /**
      * Label style keys
@@ -87,25 +86,25 @@ public class GmLineStyleKeys extends ElementsAbstractStyleKeyProvider {
     @SuppressWarnings("hiding")
     public static final class SourceDeco extends ElementsAbstractStyleKeyProvider {
         @objid ("73c05337-f122-4c60-8d96-15d9f64a24ac")
-         static final StyleKey KIND = createStyleKey("DRAWLINEDECO_SOURCE_KIND", LineDecoration.class);
+        static final StyleKey KIND = createStyleKey("DRAWLINEDECO_SOURCE_KIND", LineDecoration.class);
 
         @objid ("ee37e82a-5074-4702-9aa5-651a36524de2")
-         static final StyleKey LINECOLOR = createStyleKey("DRAWLINEDECO_SOURCE_LINECOLOR", MetaKey.LINECOLOR);
+        static final StyleKey LINECOLOR = createStyleKey("DRAWLINEDECO_SOURCE_LINECOLOR", MetaKey.LINECOLOR);
 
         @objid ("d9dff7a3-d980-4203-b734-564804ac4a91")
-         static final StyleKey FILLCOLOR = createStyleKey("DRAWLINEDECO_SOURCE_FILLCOLOR", MetaKey.FILLCOLOR);
+        static final StyleKey FILLCOLOR = createStyleKey("DRAWLINEDECO_SOURCE_FILLCOLOR", MetaKey.FILLCOLOR);
 
         @objid ("9aad167d-539a-43f0-bb0b-6ecb82b2688a")
-         static final StyleKey FILLMODE = createStyleKey("DRAWLINEDECO_SOURCE_FILLMODE", MetaKey.FILLMODE);
+        static final StyleKey FILLMODE = createStyleKey("DRAWLINEDECO_SOURCE_FILLMODE", MetaKey.FILLMODE);
 
         @objid ("af164216-923d-44d9-8d48-b1a1375aecba")
-         static final StyleKey LINEPATTERN = createStyleKey("DRAWLINEDECO_SOURCE_LINEPATTERN", MetaKey.LINEPATTERN);
+        static final StyleKey LINEPATTERN = createStyleKey("DRAWLINEDECO_SOURCE_LINEPATTERN", MetaKey.LINEPATTERN);
 
         @objid ("7900261d-3d21-47b2-aa42-380a71761333")
-         static final StyleKey SCALEX = createStyleKey("DRAWLINEDECO_SOURCE_SCALEX", Integer.class);
+        static final StyleKey SCALEX = createStyleKey("DRAWLINEDECO_SOURCE_SCALEX", Integer.class);
 
         @objid ("368a1669-b8b6-4a10-94d9-60b0d2ef1250")
-         static final StyleKey SCALEY = createStyleKey("DRAWLINEDECO_SOURCE_SCALEY", Integer.class);
+        static final StyleKey SCALEY = createStyleKey("DRAWLINEDECO_SOURCE_SCALEY", Integer.class);
 
     }
 
@@ -118,25 +117,25 @@ public class GmLineStyleKeys extends ElementsAbstractStyleKeyProvider {
     @SuppressWarnings("hiding")
     public static final class TargetDeco extends ElementsAbstractStyleKeyProvider {
         @objid ("a4d81fa3-9543-4839-b3eb-185e182da488")
-         static final StyleKey KIND = createStyleKey("DRAWLINEDECO_TARGET_KIND", LineDecoration.class);
+        static final StyleKey KIND = createStyleKey("DRAWLINEDECO_TARGET_KIND", LineDecoration.class);
 
         @objid ("615e3482-dcc4-449c-8bc6-8d62a1b4aa64")
-         static final StyleKey LINECOLOR = createStyleKey("DRAWLINEDECO_TARGET_LINECOLOR", MetaKey.LINECOLOR);
+        static final StyleKey LINECOLOR = createStyleKey("DRAWLINEDECO_TARGET_LINECOLOR", MetaKey.LINECOLOR);
 
         @objid ("1d00b03c-a226-4197-8e3f-1e9d5016d13d")
-         static final StyleKey FILLCOLOR = createStyleKey("DRAWLINEDECO_TARGET_FILLCOLOR", MetaKey.FILLCOLOR);
+        static final StyleKey FILLCOLOR = createStyleKey("DRAWLINEDECO_TARGET_FILLCOLOR", MetaKey.FILLCOLOR);
 
         @objid ("38ecf65f-0658-4e30-85f8-5880e07dcf36")
-         static final StyleKey FILLMODE = createStyleKey("DRAWLINEDECO_TARGET_FILLMODE", MetaKey.FILLMODE);
+        static final StyleKey FILLMODE = createStyleKey("DRAWLINEDECO_TARGET_FILLMODE", MetaKey.FILLMODE);
 
         @objid ("6f02ab81-5e8c-49a2-829b-8778ea03a90e")
-         static final StyleKey LINEPATTERN = createStyleKey("DRAWLINEDECO_TARGET_LINEPATTERN", MetaKey.LINEPATTERN);
+        static final StyleKey LINEPATTERN = createStyleKey("DRAWLINEDECO_TARGET_LINEPATTERN", MetaKey.LINEPATTERN);
 
         @objid ("9f155e53-d44b-4a64-9eac-773bfdd027db")
-         static final StyleKey SCALEX = createStyleKey("DRAWLINEDECO_TARGET_SCALEX", Integer.class);
+        static final StyleKey SCALEX = createStyleKey("DRAWLINEDECO_TARGET_SCALEX", Integer.class);
 
         @objid ("3ed03f97-1f2f-4d51-ad98-6643b79e81f8")
-         static final StyleKey SCALEY = createStyleKey("DRAWLINEDECO_TARGET_SCALEY", Integer.class);
+        static final StyleKey SCALEY = createStyleKey("DRAWLINEDECO_TARGET_SCALEY", Integer.class);
 
     }
 

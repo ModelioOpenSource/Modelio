@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.importer.service;
 
 import java.io.FileNotFoundException;
@@ -26,13 +25,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.modelio.api.modelio.diagram.IDiagramService;
 import org.modelio.bpmnxml.importer.service.processor.imports.CreateElementProcessorImport;
@@ -67,9 +66,10 @@ public class BPMNImportService {
     private IProgressMonitor progress;
 
     @objid ("02d23fcc-3b92-4ff8-9db7-db4fcb51ec61")
-    public BPMNImportService(ICoreSession session, IDiagramService diagramService) {
+    public  BPMNImportService(ICoreSession session, IDiagramService diagramService) {
         this.session = session;
         this.diagramService = diagramService;
+        
     }
 
     @objid ("34fb19db-2b04-442e-8f26-d81561e53f1b")
@@ -105,6 +105,7 @@ public class BPMNImportService {
         
             tr.commit();
         }
+        
     }
 
     @objid ("9bee80a7-fac9-42f0-90ac-1f1dbe99e61b")
@@ -142,6 +143,7 @@ public class BPMNImportService {
         
             tr.commit();
         }
+        
     }
 
     @objid ("f0ef88c3-8076-4967-96c6-51504660392c")
@@ -179,6 +181,7 @@ public class BPMNImportService {
         
             tr.commit();
         }
+        
     }
 
     @objid ("dfe4d7e7-d538-407d-b81b-91ad8521f7f5")
@@ -226,6 +229,7 @@ public class BPMNImportService {
         }
         
         importBPMN(filePath, packageContext, keepId);
+        
     }
 
 }

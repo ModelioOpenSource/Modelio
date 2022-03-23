@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.diagrams;
 
 import java.util.List;
@@ -33,25 +33,25 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("00678cde-c4bf-1fd8-97fe-001ec947cd2a")
 public abstract class AbstractDiagramData extends ModelElementData {
     @objid ("41e8749c-0b36-4c81-a86c-76b9c43bc12e")
-     Object mUiDataVersion = 0;
+    Object mUiDataVersion = 0;
 
     @objid ("efdb6f9e-a69e-4920-ae01-b9950bd929a6")
-     Object mUiData = "";
+    Object mUiData = "";
 
     @objid ("7641e38b-48aa-44a4-a0db-cf958529da67")
-     Object mPreviewData = "";
+    Object mPreviewData = "";
 
     @objid ("0a8793ee-ae8e-4693-b24c-ddc59ac51770")
-     List<SmObjectImpl> mRepresented = null;
+    List<SmObjectImpl> mRepresented = null;
 
     @objid ("dfed637b-db42-4458-acfb-c148d7c36dba")
-     List<SmObjectImpl> mReferencingSet = null;
+    List<SmObjectImpl> mReferencingSet = null;
 
     @objid ("e86d19ce-989e-4da0-a918-7066f59a2fc0")
-     SmObjectImpl mOrigin;
+    SmObjectImpl mOrigin;
 
     @objid ("ed9a91d6-0fea-4d71-9166-9050274ec500")
-    public AbstractDiagramData(AbstractDiagramSmClass smClass) {
+    public  AbstractDiagramData(AbstractDiagramSmClass smClass) {
         super(smClass);
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.module.catalog.catalog.update;
 
 import java.io.IOException;
@@ -113,6 +112,7 @@ public class ModuleUpdater {
         } catch (InterruptedException e) {
             AppModules.LOG.info(e);
         }
+        
     }
 
     @objid ("7d579c29-ee17-4910-8853-638fc19af8ad")
@@ -157,6 +157,7 @@ public class ModuleUpdater {
         } catch (InvocationTargetException | InterruptedException e) {
             AppModules.LOG.debug(e);
         }
+        
     }
 
 }

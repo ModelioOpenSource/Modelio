@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.combinedfragment.primarynode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -52,23 +51,23 @@ public class GmCombinedFragmentPrimaryNode extends GmNoStyleCompositeNode {
      * Empty c'tor for deserialisation.
      */
     @objid ("d8cb13fe-55b6-11e2-877f-002564c97630")
-    public GmCombinedFragmentPrimaryNode() {
+    public  GmCombinedFragmentPrimaryNode() {
         super();
     }
 
     /**
      * C'tor.
-     * 
      * @param diagram diagram in which this gm is created.
      * @param relatedRef a ref to the represented CombinedFragment.
      */
     @objid ("d8cb1401-55b6-11e2-877f-002564c97630")
-    public GmCombinedFragmentPrimaryNode(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmCombinedFragmentPrimaryNode(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
         GmOperatorLabel label = new GmOperatorLabel(diagram, relatedRef);
         this.addChild(label);
         GmInteractionOperandContainer container = new GmInteractionOperandContainer(diagram, relatedRef);
         this.addChild(container);
+        
     }
 
     @objid ("d8cb140c-55b6-11e2-877f-002564c97630")
@@ -88,6 +87,7 @@ public class GmCombinedFragmentPrimaryNode extends GmNoStyleCompositeNode {
     public GmCompositeNode getCompositeFor(final Class<? extends MObject> metaclass) {
         return (GmCompositeNode) (InteractionOperand.class.isAssignableFrom(metaclass) ? this.getChildren()
                         .get(1) : null);
+        
     }
 
     @objid ("d8cc9a8b-55b6-11e2-877f-002564c97630")
@@ -98,6 +98,7 @@ public class GmCombinedFragmentPrimaryNode extends GmNoStyleCompositeNode {
         if (combinedFragment != null && combinedFragment.isValid()) {
             firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, this.getLayoutData(), null);
         }
+        
     }
 
     @objid ("d8cc9a8e-55b6-11e2-877f-002564c97630")
@@ -117,6 +118,7 @@ public class GmCombinedFragmentPrimaryNode extends GmNoStyleCompositeNode {
             break;
         }
         }
+        
     }
 
     @objid ("d8cc9a94-55b6-11e2-877f-002564c97630")
@@ -126,6 +128,7 @@ public class GmCombinedFragmentPrimaryNode extends GmNoStyleCompositeNode {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmCombinedFragmentPrimaryNode.", GmCombinedFragmentPrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("d8cc9a9a-55b6-11e2-877f-002564c97630")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,7 +35,7 @@ public class EExecutionSpecification extends EInteractionFragment {
     }
 
     @objid ("aa3b68be-b0d8-4dbe-b393-c87f07772c5e")
-    public EExecutionSpecification(org.eclipse.uml2.uml.ExecutionSpecification element) {
+    public  EExecutionSpecification(org.eclipse.uml2.uml.ExecutionSpecification element) {
         super(element);
     }
 
@@ -48,6 +47,7 @@ public class EExecutionSpecification extends EInteractionFragment {
             setStart((ExecutionSpecification) objingElt);
             setFinish((ExecutionSpecification) objingElt);
         }
+        
     }
 
     @objid ("d0316e60-a70b-409c-a335-279272fe163d")
@@ -63,6 +63,7 @@ public class EExecutionSpecification extends EInteractionFragment {
                 objingElt.setStart((ExecutionOccurenceSpecification) objStart);
         
         }
+        
     }
 
     @objid ("59399bf7-0235-46d6-ae07-0cea8828411e")
@@ -76,6 +77,7 @@ public class EExecutionSpecification extends EInteractionFragment {
             if (objFinish instanceof ExecutionOccurenceSpecification)
                 objingElt.setFinish((ExecutionOccurenceSpecification) objFinish);
         }
+        
     }
 
 }

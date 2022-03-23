@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import java.util.Collections;
@@ -62,19 +61,18 @@ public class BpmnOperationPropertyModel extends AbstractPropertyModel<BpmnOperat
 
     /**
      * Create a new <i>BpmnOperation</i> data model from an <i>BpmnOperation</i> .
-     * 
      * @param theEditedElement the model to edit.
      * @param mdaExpert the MDA expert to handle Methodological links.
      */
     @objid ("17066827-4b63-4db0-ab2c-d82bb5a98199")
-    public BpmnOperationPropertyModel(BpmnOperation theEditedElement, IMdaExpert mdaExpert) {
+    public  BpmnOperationPropertyModel(BpmnOperation theEditedElement, IMdaExpert mdaExpert) {
         super(theEditedElement);
         this.mdaExpert = mdaExpert;
+        
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("25984938-8c6d-4673-86a7-f095558f7192")
@@ -85,7 +83,6 @@ public class BpmnOperationPropertyModel extends AbstractPropertyModel<BpmnOperat
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("72f22a2f-81d1-4813-89a1-cf475bd3b5ae")
@@ -98,7 +95,6 @@ public class BpmnOperationPropertyModel extends AbstractPropertyModel<BpmnOperat
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -126,6 +122,7 @@ public class BpmnOperationPropertyModel extends AbstractPropertyModel<BpmnOperat
         default:
             return null;
         }
+        
     }
 
     /**
@@ -134,7 +131,6 @@ public class BpmnOperationPropertyModel extends AbstractPropertyModel<BpmnOperat
      * This type will be used to choose an editor and a renderer for each cell of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -177,13 +173,13 @@ public class BpmnOperationPropertyModel extends AbstractPropertyModel<BpmnOperat
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -217,6 +213,7 @@ public class BpmnOperationPropertyModel extends AbstractPropertyModel<BpmnOperat
         default:
             return;
         }
+        
     }
 
 }

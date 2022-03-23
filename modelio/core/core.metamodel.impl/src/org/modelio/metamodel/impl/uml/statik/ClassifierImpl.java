@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.uml.statik.ClassifierData;
 import org.modelio.metamodel.uml.informationFlow.InformationFlow;
 import org.modelio.metamodel.uml.informationFlow.InformationItem;
 import org.modelio.metamodel.uml.infrastructure.Substitution;
@@ -72,6 +71,7 @@ public abstract class ClassifierImpl extends NameSpaceImpl implements Classifier
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("e9bc5bd7-d2a7-41ae-8ea7-b671805ea489")
@@ -93,6 +93,7 @@ public abstract class ClassifierImpl extends NameSpaceImpl implements Classifier
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("7281463c-1784-4bcf-a590-c93e381de08c")
@@ -114,6 +115,7 @@ public abstract class ClassifierImpl extends NameSpaceImpl implements Classifier
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("e559edb4-d6a2-400c-bce3-118258e3048d")
@@ -135,6 +137,7 @@ public abstract class ClassifierImpl extends NameSpaceImpl implements Classifier
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("2047b117-a012-4a15-9fb3-e142616cc170")
@@ -156,6 +159,7 @@ public abstract class ClassifierImpl extends NameSpaceImpl implements Classifier
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("8f7d9ef1-1e3a-4ca0-8687-8eca5ce6b683")
@@ -177,6 +181,7 @@ public abstract class ClassifierImpl extends NameSpaceImpl implements Classifier
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("952bb6fa-703e-4a7c-afbb-be881494e3f9")
@@ -198,6 +203,7 @@ public abstract class ClassifierImpl extends NameSpaceImpl implements Classifier
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("d1cb60bc-5bd3-418c-a47e-76bded53986a")
@@ -219,6 +225,7 @@ public abstract class ClassifierImpl extends NameSpaceImpl implements Classifier
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("0f29c135-32e5-4019-b578-296c7b58910f")
@@ -240,6 +247,7 @@ public abstract class ClassifierImpl extends NameSpaceImpl implements Classifier
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("6c460c1e-9694-4b93-9adc-2cf1a3409720")
@@ -261,6 +269,7 @@ public abstract class ClassifierImpl extends NameSpaceImpl implements Classifier
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("f2d8907e-7d69-4aa4-930e-f542a9fd09d7")
@@ -282,6 +291,7 @@ public abstract class ClassifierImpl extends NameSpaceImpl implements Classifier
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("b11a1d87-dbf0-44e6-aa67-e15f90370c51")
@@ -303,6 +313,7 @@ public abstract class ClassifierImpl extends NameSpaceImpl implements Classifier
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("843a7941-c1c3-4aca-952b-e32c925ac402")

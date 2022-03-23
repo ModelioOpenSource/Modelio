@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.common;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,15 +38,15 @@ public class DefaultPeerModule implements IPeerModule {
 
     /**
      * Instantiate the Default peer module.
-     * 
      * @param moduleComponent the module model element
      * @param configuration the access to module parameter and resource paths.
      */
     @objid ("b31582ff-f11c-11e1-af52-001ec947c8cc")
-    public DefaultPeerModule(ModuleComponent moduleComponent, IModuleAPIConfiguration configuration) {
+    public  DefaultPeerModule(ModuleComponent moduleComponent, IModuleAPIConfiguration configuration) {
         super();
         this.moduleComponent = moduleComponent;
         this.configuration = configuration;
+        
     }
 
     @objid ("b3158303-f11c-11e1-af52-001ec947c8cc")

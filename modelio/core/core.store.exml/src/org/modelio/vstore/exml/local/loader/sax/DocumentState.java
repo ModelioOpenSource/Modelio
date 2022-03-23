@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.local.loader.sax;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -66,6 +65,7 @@ class DocumentState extends AbstractState {
         default:
             break;
         }
+        
     }
 
 }

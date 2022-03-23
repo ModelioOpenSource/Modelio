@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -58,13 +57,14 @@ public class ONote extends OElement implements IOElement {
             return ecoreComment;
         
         }
+        
     }
 
     /**
      * @param element : the exported Note
      */
     @objid ("9dea1ffc-5d4c-4c5f-ad14-780aab9db96f")
-    public ONote(final Note element) {
+    public  ONote(final Note element) {
         super(element);
     }
 
@@ -96,6 +96,7 @@ public class ONote extends OElement implements IOElement {
                 }
             }
         }
+        
     }
 
     @objid ("7a40312c-7075-4cd4-a011-3fa5c2712165")
@@ -110,6 +111,7 @@ public class ONote extends OElement implements IOElement {
         }else{
             setName((org.eclipse.uml2.uml.TimeObservation) ecoreElt);
         }
+        
     }
 
     @objid ("a520f5e8-d478-4e6e-bb2a-89d09887c8d3")
@@ -121,6 +123,7 @@ public class ONote extends OElement implements IOElement {
     private void setTypeEAnnotation(org.eclipse.uml2.uml.Comment ecoreElt) {
         NoteType noteType = getObjingElement().getModel();
         ObjingEAnnotation.setNoteTypeName(ecoreElt, noteType.getName());
+        
     }
 
     @objid ("83494a5d-8a85-4d13-963f-541b134c407d")
@@ -132,6 +135,7 @@ public class ONote extends OElement implements IOElement {
                 ObjingEAnnotation.setIsOwnedByAssociationClass(ecoreElt);
             }
         }
+        
     }
 
     @objid ("dfcf25f2-8f34-4c04-a5cc-ffbee21cf8bf")
@@ -141,6 +145,7 @@ public class ONote extends OElement implements IOElement {
         if ((name != null) &&  (!name.equals(""))){
             ecoreElt.setName(name);
         }
+        
     }
 
     @objid ("3ddbf38a-2ad6-4fa9-bc89-628736d04afb")

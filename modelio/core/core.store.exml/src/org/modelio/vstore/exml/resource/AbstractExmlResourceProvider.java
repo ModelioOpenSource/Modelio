@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.resource;
 
 import java.io.File;
@@ -33,6 +32,7 @@ import org.modelio.vcore.session.api.repository.BlobServices;
 import org.modelio.vcore.smkernel.mapi.MMetamodel;
 import org.modelio.vstore.exml.common.RepositoryVersions;
 import org.modelio.vstore.exml.common.model.ObjId;
+import org.modelio.vstore.exml.resource.IExmlResourceProvider.ExmlResource;
 
 /**
  * Base implementation of {@link IExmlResourceProvider}.
@@ -60,6 +60,7 @@ public abstract class AbstractExmlResourceProvider implements IExmlResourceProvi
     public void createRepository(MMetamodel metamodel) throws IOException {
         this.geometry = new ExmlRepositoryGeometry2();
         doCreateRepository(metamodel);
+        
     }
 
     @objid ("bdb40586-18b8-45f4-b44f-e22437648ff4")
@@ -68,6 +69,7 @@ public abstract class AbstractExmlResourceProvider implements IExmlResourceProvi
         String blobPath = getGeometry().getBlobPath(blob);
         ExmlResource res = getRelativePathResource(blobPath);
         res.delete();
+        
     }
 
     @objid ("d7d93bce-5a26-4205-b5c5-fba2a71526e3")
@@ -100,8 +102,7 @@ public abstract class AbstractExmlResourceProvider implements IExmlResourceProvi
 
     /**
      * Redefine only if really necessary. Redefining {@link #getResource(String)} should be suffisient.
-     * 
-     * @throws java.io.IOException in case of failure
+     * @throws IOException in case of failure
      */
     @objid ("8901ae83-c450-468c-bc38-e074402ef419")
     @Override
@@ -126,6 +127,7 @@ public abstract class AbstractExmlResourceProvider implements IExmlResourceProvi
         }
         
         this.geometry = readGeometry();
+        
     }
 
     @objid ("b45202ed-785e-48e6-8fa4-4c424f24f4a3")
@@ -158,15 +160,15 @@ public abstract class AbstractExmlResourceProvider implements IExmlResourceProvi
                 return null;
             }
         }
+        
     }
 
     /**
      * Read the repository formats versions from {@link #getRepositoryVersionResource()}.
      * <p>
      * May return <i>null</i> if it is an old repository with no format version file.
-     * 
      * @return the repository versions, null if none stored yet.
-     * @throws java.io.IOException in case of error getting the versions
+     * @throws IOException in case of error getting the versions
      */
     @objid ("1255b148-7bb7-45e7-bc9c-bd8e927999ad")
     @Override
@@ -180,6 +182,7 @@ public abstract class AbstractExmlResourceProvider implements IExmlResourceProvi
         } catch (FileNotFoundException| NoSuchFileException e) {
             return null;
         }
+        
     }
 
     /**
@@ -215,9 +218,8 @@ public abstract class AbstractExmlResourceProvider implements IExmlResourceProvi
      * <p>
      * Subclasses must redefine this method to do something for {@link #createRepository(MMetamodel)}.
      * {@link #getGeometry()} works inside this method.
-     * 
      * @param metamodel the metamodel
-     * @throws java.io.IOException on failure.
+     * @throws IOException on failure.
      */
     @objid ("b674901e-8a4c-4c01-9cf3-2c8fbe82e18e")
     protected abstract void doCreateRepository(MMetamodel metamodel) throws IOException;
@@ -227,9 +229,8 @@ public abstract class AbstractExmlResourceProvider implements IExmlResourceProvi
      * <p>
      * Called by {@link #open()}.
      * Implementations may call {@link #readGeometry(File)}.
-     * 
      * @return the repository geometry.
-     * @throws java.io.IOException on non recoverable failure.
+     * @throws IOException on non recoverable failure.
      */
     @objid ("b8c2b13a-b5e3-498f-b496-e0d3acab341f")
     protected IExmlRepositoryGeometry readGeometry() throws IOException {
@@ -243,6 +244,7 @@ public abstract class AbstractExmlResourceProvider implements IExmlResourceProvi
         }
                 
         throw new IOException(String.format("Unsupported repository format vers '%d'. Last known format is %d",repoFormat, RepositoryVersions.CURRENT_FORMAT));
+        
     }
 
 }

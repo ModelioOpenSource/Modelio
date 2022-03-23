@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,9 +38,10 @@ public class EEnumerationLiteral extends ENamedElement {
     }
 
     @objid ("487f30c5-c136-4252-94d8-ca33c791f200")
-    public EEnumerationLiteral(org.eclipse.uml2.uml.EnumerationLiteral element) {
+    public  EEnumerationLiteral(org.eclipse.uml2.uml.EnumerationLiteral element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("95e787d7-5de5-4290-bfff-d6df5e0cf417")
@@ -54,6 +54,7 @@ public class EEnumerationLiteral extends ENamedElement {
             EnumerationLiteral objingLiteral = (EnumerationLiteral) objingElt;
             objingLiteral.setValuated((Enumeration)objingEnumeration);
         }
+        
     }
 
 }

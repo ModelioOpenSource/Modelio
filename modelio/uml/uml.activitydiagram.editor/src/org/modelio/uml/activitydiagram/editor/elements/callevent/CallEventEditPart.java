@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.callevent;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -70,6 +69,7 @@ public class CallEventEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                 new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("29c2ba68-55b6-11e2-877f-002564c97630")
@@ -77,6 +77,7 @@ public class CallEventEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         final GmCallEventPrimaryNode callEventModel = (GmCallEventPrimaryNode) getModel();
         getFigure().getParent().setConstraint(getFigure(), callEventModel.getLayoutData());
+        
     }
 
     @objid ("29c2ba6b-55b6-11e2-877f-002564c97630")
@@ -94,6 +95,7 @@ public class CallEventEditPart extends AbstractNodeEditPart {
             throw new IllegalArgumentException("CallEventEditPart#addChildVisual: unknown index " + index);
         }
         getFigure().add(child, gmAbstractObject.getLayoutData(), index);
+        
     }
 
     @objid ("29c440fb-55b6-11e2-877f-002564c97630")
@@ -112,6 +114,7 @@ public class CallEventEditPart extends AbstractNodeEditPart {
         } else {
             super.refreshFromStyle(aFigure, style);
         }
+        
     }
 
 }

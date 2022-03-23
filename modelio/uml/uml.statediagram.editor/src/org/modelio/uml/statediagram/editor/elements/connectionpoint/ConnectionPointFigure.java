@@ -17,12 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.connectionpoint;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Path;
 import org.modelio.diagram.elements.core.figures.EllipseFigure;
 
 /**
@@ -34,16 +35,7 @@ public class ConnectionPointFigure extends EllipseFigure {
     private ReferencedConnectionPoint Reference = ReferencedConnectionPoint.NOREF;
 
     /**
-     * C'tor.
-     */
-    @objid ("f4faa76c-55b6-11e2-877f-002564c97630")
-    public ConnectionPointFigure() {
-        super();
-    }
-
-    /**
      * Sets the exact type of decoration to use.
-     * 
      * @param reference the type of decoration to use.
      */
     @objid ("f4faa76f-55b6-11e2-877f-002564c97630")
@@ -52,6 +44,7 @@ public class ConnectionPointFigure extends EllipseFigure {
             this.Reference = reference;
             this.repaint();
         }
+        
     }
 
     @objid ("f4faa773-55b6-11e2-877f-002564c97630")
@@ -59,8 +52,11 @@ public class ConnectionPointFigure extends EllipseFigure {
     protected void paintFigure(Graphics graphics) {
         // super method will draw the shapedFigure
         super.paintFigure(graphics);
-        Rectangle r = getBounds().getCopy();
         
+        graphics.setAdvanced(true);
+        graphics.setAntialias(SWT.ON);
+        
+        Rectangle r = getBounds().getCopy();
         switch (this.Reference) {
         case EXITREF:
             paintExitFigure(graphics, r);
@@ -71,32 +67,59 @@ public class ConnectionPointFigure extends EllipseFigure {
         default:
             break;
         }
+        graphics.restoreState();
+        
     }
 
     @objid ("f4faa777-55b6-11e2-877f-002564c97630")
     private void paintConnectionPoint(Graphics graphics, Rectangle r) {
         // reclip with path and draw crossed lines
-        if (this.shaper != null) {
-            graphics.setClip(this.shaper.getShapePath(r));
+        Path shapePath = createShapePath(r);
+        try {
+            if (shapePath != null) {
+                graphics.setClip(shapePath);
+            }
+        
+            graphics.setForegroundColor(this.penOptions.lineColor);
+            graphics.setLineWidth(this.penOptions.lineWidth);
+            graphics.drawLine(r.getTopRight(), r.getCenter());
+            graphics.drawLine(r.getCenter(), r.getBottomRight());
+        } finally {
+            if (shapePath != null) {
+                shapePath.dispose();
+            }
         }
         
-        graphics.setForegroundColor(this.penOptions.lineColor);
-        graphics.setLineWidth(this.penOptions.lineWidth);
-        graphics.drawLine(r.getTopRight(), r.getCenter());
-        graphics.drawLine(r.getCenter(), r.getBottomRight());
+    }
+
+    @objid ("dac33aa1-0573-43d9-8247-8ff43d93f999")
+    protected Path createShapePath(Rectangle r) {
+        Path shapePath = null;
+        if (this.shaper != null) {
+            shapePath = this.shaper.createShapePath(r);
+        }
+        return shapePath;
     }
 
     @objid ("f4faa77b-55b6-11e2-877f-002564c97630")
     private void paintExitFigure(Graphics graphics, Rectangle r) {
         // reclip with path and draw crossed lines
-        if (this.shaper != null) {
-            graphics.setClip(this.shaper.getShapePath(r));
+        Path shapePath = createShapePath(r);
+        try {
+            if (shapePath != null) {
+                graphics.setClip(shapePath);
+            }
+        
+            graphics.setForegroundColor(this.penOptions.lineColor);
+            graphics.setLineWidth(this.penOptions.lineWidth);
+            graphics.drawLine(r.getTopLeft(), r.getBottomRight());
+            graphics.drawLine(r.getTopRight(), r.getBottomLeft());
+        } finally {
+            if (shapePath != null) {
+                shapePath.dispose();
+            }
         }
         
-        graphics.setForegroundColor(this.penOptions.lineColor);
-        graphics.setLineWidth(this.penOptions.lineWidth);
-        graphics.drawLine(r.getTopLeft(), r.getBottomRight());
-        graphics.drawLine(r.getTopRight(), r.getBottomLeft());
     }
 
     /**
@@ -109,15 +132,19 @@ public class ConnectionPointFigure extends EllipseFigure {
         /**
          * This is used when the reference is to an entry point
          */
+        @objid ("f4faa781-55b6-11e2-877f-002564c97630")
         ENTRYREF,
         /**
          * This is used when the reference is to an exit point
          */
+        @objid ("f4faa783-55b6-11e2-877f-002564c97630")
         EXITREF,
         /**
          * This is used when the reference is undefined
          */
+        @objid ("f4faa785-55b6-11e2-877f-002564c97630")
         NOREF;
+
     }
 
 }

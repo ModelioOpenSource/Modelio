@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,7 @@ public class ETimeObservation extends ENamedElement {
     }
 
     @objid ("977a76fa-8b18-4055-ad4d-b5c61fe802c5")
-    public ETimeObservation(org.eclipse.uml2.uml.TimeObservation element) {
+    public  ETimeObservation(org.eclipse.uml2.uml.TimeObservation element) {
         super(element);
     }
 

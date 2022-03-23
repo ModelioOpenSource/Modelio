@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.wizard;
 
 import java.util.ArrayList;
@@ -48,11 +47,10 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class BpmnActivityTransmuter extends AbstractElementTransmuter {
     /**
      * Public constructor required by the {@link TransformerRegistry}.
-     * 
      * @param targetMetaclass target metaclass of the transmutation
      */
     @objid ("8f730ce3-950f-4c09-aaff-7850d8cc03e7")
-    public BpmnActivityTransmuter(final String targetMetaclass) {
+    public  BpmnActivityTransmuter(final String targetMetaclass) {
         super(targetMetaclass);
     }
 

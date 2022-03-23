@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta.fake;
 
 import java.lang.reflect.InvocationHandler;
@@ -59,6 +58,7 @@ public class FakeSmObjectImpl extends SmObjectImpl implements FakeMObject {
         } else {
             return null;
         }
+        
     }
 
     /**
@@ -78,6 +78,7 @@ public class FakeSmObjectImpl extends SmObjectImpl implements FakeMObject {
                     new Class[]{cls, MObject.class, ISmMeta.class, ISmStorable.class},
                     handler);
         }
+        
     }
 
     @objid ("7e969d41-76a2-4940-8cef-a418ea19c14b")
@@ -133,12 +134,13 @@ public class FakeSmObjectImpl extends SmObjectImpl implements FakeMObject {
          * Java classes for which method calls are directly forwarded to the fake object
          */
         @objid ("a87fcc79-c736-4fcb-843c-5ff9190f38bf")
-         static final List<Class<? extends Object>> directClasses = Arrays.asList(Object.class, MObject.class, ISmMeta.class, ISmStorable.class);
+        static final List<Class<? extends Object>> directClasses = Arrays.asList(Object.class, MObject.class, ISmMeta.class, ISmStorable.class);
 
         @objid ("3a1db8d5-870e-463c-92ec-478c54b0d8ba")
-        public ProxyObj(FakeSmObjectImpl obj, MClass targetClass) {
+        public  ProxyObj(FakeSmObjectImpl obj, MClass targetClass) {
             this.obj = obj;
             this.targetClass = targetClass;
+            
         }
 
         @objid ("feeb3016-849a-4f6e-ad1d-6ca8f929c18e")
@@ -150,7 +152,6 @@ public class FakeSmObjectImpl extends SmObjectImpl implements FakeMObject {
                 String visitMethodName = "visit"+this.targetClass.getName();
                 Method m = args[0].getClass().getDeclaredMethod(visitMethodName, this.targetClass.getJavaInterface());
                 if (m != null) {
-                    m.setAccessible(true);
                     return m.invoke(args[0], proxy);
                 } else {
                     throw new UnsupportedOperationException(method.toString()+" on "+args[0]+": no "+visitMethodName+" on "+args[0]);
@@ -212,6 +213,7 @@ public class FakeSmObjectImpl extends SmObjectImpl implements FakeMObject {
             }
             
             throw new UnsupportedOperationException(method.toString()+" on "+this.obj.toString());
+            
         }
 
         @objid ("88c458a8-85bf-4532-92e3-7d3019ec3b46")

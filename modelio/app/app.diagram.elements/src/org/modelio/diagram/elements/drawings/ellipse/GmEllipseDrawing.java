@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.drawings.ellipse;
 
 import java.util.List;
@@ -33,24 +32,23 @@ import org.modelio.diagram.styles.core.StyleKey;
 @objid ("029fbd1c-e60d-4340-84b8-886625c10970")
 public class GmEllipseDrawing extends GmNodeDrawing {
     @objid ("e8064284-a378-4f59-9865-f0f555b4d892")
-     static final GmEllipseStyleKeys KEYS = new GmEllipseStyleKeys();
+    static final GmEllipseStyleKeys KEYS = new GmEllipseStyleKeys();
 
     /**
      * Deserialization only constructor.
      */
     @objid ("daa32cba-d7ee-47a2-9363-cae0b1b91fd7")
-    public GmEllipseDrawing() {
+    public  GmEllipseDrawing() {
         super();
     }
 
     /**
      * Default constructor.
-     * 
      * @param diagram the owner diagram.
      * @param identifier drawing identifier, must be unique in the diagram.
      */
     @objid ("dc897a04-918f-4306-8409-0ac5cddf5bd1")
-    public GmEllipseDrawing(IGmDiagram diagram, String identifier) {
+    public  GmEllipseDrawing(IGmDiagram diagram, String identifier) {
         super(diagram, identifier);
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.element.single;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -58,14 +57,14 @@ public class ElementEditor extends AbstractCellEditor {
 
     /**
      * Build a new editor.
-     * 
      * @param session a model session, needed to look for elements.
      * @param pickingService the picking service, to manually select an element in the model.
      */
     @objid ("96c3a426-0870-424c-b392-c4f4c63e04e5")
-    public ElementEditor(ICoreSession session, IModelioPickingService pickingService) {
+    public  ElementEditor(ICoreSession session, IModelioPickingService pickingService) {
         this.session = session;
         this.pickingService = pickingService;
+        
     }
 
     /**
@@ -97,6 +96,7 @@ public class ElementEditor extends AbstractCellEditor {
                 }
             });
         }
+        
     }
 
     @objid ("b01ef03e-6966-4bac-9d7d-f71076782c67")
@@ -118,6 +118,7 @@ public class ElementEditor extends AbstractCellEditor {
         // }
         this.textElement = null;
         super.close();
+        
     }
 
     @objid ("9791d923-ddfb-4edf-8b8d-574de2485dfc")
@@ -155,6 +156,7 @@ public class ElementEditor extends AbstractCellEditor {
             // editorControl.removeFocusListener(this.focusListener);
             // editorControl.removeTraverseListener(this.traverseListener);
         }
+        
     }
 
     /**
@@ -178,6 +180,7 @@ public class ElementEditor extends AbstractCellEditor {
         } else {
             this.textElement.setValue(null);
         }
+        
     }
 
     @objid ("a76a742c-9bff-4bd6-9f7a-e302337ac250")

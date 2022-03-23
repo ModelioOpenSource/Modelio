@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.form.fields;
 
 import java.beans.PropertyChangeListener;
@@ -59,19 +58,20 @@ public abstract class AbstractField implements IField {
     @objid ("53f29cd5-2e6c-450b-83dc-0edb7d60d4ee")
     private static final String EMPTY_STRING = "";
 
+    
     @mdl.prop
     @objid ("c36e7061-71b8-498a-881e-840b1c22fbb4")
-    private boolean vertical = false;
+    public boolean vertical = false;
 
     @mdl.propgetter
     public boolean isVertical() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.vertical;
     }
 
     @mdl.propsetter
     public void setVertical(boolean value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.vertical = value;
     }
 
@@ -103,17 +103,19 @@ public abstract class AbstractField implements IField {
     private final FormToolkit toolkit;
 
     @objid ("77c1c8a1-7453-40e6-93b9-5606dfbcce42")
-    public AbstractField(FormToolkit toolkit, Composite parent, IFormFieldData model) {
+    public  AbstractField(FormToolkit toolkit, Composite parent, IFormFieldData model) {
         this.toolkit = toolkit;
         this.parent = parent;
         this.model = model;
+        
     }
 
     @objid ("3e47891d-fabf-4e1d-b552-3ed3116273f1")
-    public AbstractField(FormToolkit toolkit, Composite parent) {
+    public  AbstractField(FormToolkit toolkit, Composite parent) {
         this.toolkit = toolkit;
         this.parent = parent;
         this.model = null;
+        
     }
 
     @objid ("57a9510b-3acb-495a-ae0b-5e3f4ac97c91")
@@ -128,11 +130,11 @@ public abstract class AbstractField implements IField {
         // If we reach here it means the field implementation does not anymore.
         // The field implementation has not been updated for Modelio Valkyrie 3.8 .
         throw new UnsupportedOperationException(getClass().getName()+".apply() Not implemented, ask the module developer for an update.");
+        
     }
 
     /**
      * Create the edition control.
-     * 
      * @param tk the {@link FormToolkit}
      * @param p the parent composite
      * @return the created control.
@@ -242,6 +244,7 @@ public abstract class AbstractField implements IField {
             formData.right = new FormAttachment(this.helpButton, -2);
             ctrl.setLayoutData(formData);
         }
+        
     }
 
     @objid ("d9ef5ce1-056a-4c7e-949b-47c80022276a")
@@ -259,6 +262,7 @@ public abstract class AbstractField implements IField {
                 refresh();
             }
         }
+        
     }
 
     @objid ("e7e7a4f5-d3b5-4020-9812-4e7a5639c937")
@@ -269,6 +273,7 @@ public abstract class AbstractField implements IField {
         
         this.helpText.setText(s);
         this.helpButton.setVisible(!s.isEmpty());
+        
     }
 
     @objid ("e0268ef8-2ae7-49ed-95b1-ca1181db44a2")
@@ -373,6 +378,7 @@ public abstract class AbstractField implements IField {
             this.fieldComposite.pack();
             this.fieldComposite.getParent().layout(true, true);
         }
+        
     }
 
 }

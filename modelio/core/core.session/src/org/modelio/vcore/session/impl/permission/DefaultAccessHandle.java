@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.permission;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -96,6 +95,7 @@ public class DefaultAccessHandle implements IAccessHandle {
         } else {
             return obj.getClassOf().hasDirectiveInGraph(SmDirective.NOREADONLY);
         }
+        
     }
 
     @objid ("000caf9e-702c-1f21-85a5-001ec947cd2a")
@@ -109,6 +109,7 @@ public class DefaultAccessHandle implements IAccessHandle {
         if (!isModifiable(obj)) {
             throw createReadOnlyObjectException(obj);
         }
+        
     }
 
     @objid ("000c7bbe-702c-1f21-85a5-001ec947cd2a")
@@ -125,6 +126,7 @@ public class DefaultAccessHandle implements IAccessHandle {
                 }
             }
         }
+        
     }
 
     @objid ("e01c01ae-9a12-4558-8b8c-3a18e35042c7")
@@ -136,6 +138,7 @@ public class DefaultAccessHandle implements IAccessHandle {
         if (symetric != null && val != null) {
             checkAccess(val, symetric, obj);
         }
+        
     }
 
     @objid ("24f41c7b-382d-4b30-bad3-2f0beabe297f")
@@ -174,6 +177,7 @@ public class DefaultAccessHandle implements IAccessHandle {
                 throw createReadOnlyObjectException(obj);
             }
         }
+        
     }
 
 }

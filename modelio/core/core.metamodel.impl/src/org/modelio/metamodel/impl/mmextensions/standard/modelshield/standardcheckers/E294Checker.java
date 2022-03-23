@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.modelshield.standardcheckers;
 
 import java.util.Arrays;
@@ -69,6 +68,7 @@ public class E294Checker implements IChecker {
                 report.addEntry(new ModelError(ERRORID, object, Arrays.<Object>asList(el)));
             }
         }
+        
     }
 
 }

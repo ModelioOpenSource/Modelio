@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -94,7 +93,7 @@ public class ElementPropertyUi {
     private SelectionChangedListener treeSelectionListener;
 
     @objid ("2963ac57-4902-4a33-8038-53bc7d99030d")
-    public ElementPropertyUi(ElementPropertyController controller) {
+    public  ElementPropertyUi(ElementPropertyController controller) {
         this.controller = controller;
     }
 
@@ -144,7 +143,6 @@ public class ElementPropertyUi {
 
     /**
      * Get the top level container of the UI.
-     * 
      * @return the top level container of the UI.
      */
     @objid ("0a2f0ccf-d59a-4ee4-8065-af810437f5b5")
@@ -177,6 +175,7 @@ public class ElementPropertyUi {
         this.layoutChangeListener = new LayoutChangeListener(this);
         this.parent.addControlListener(this.layoutChangeListener);
         autoLayout();
+        
     }
 
     /**
@@ -189,6 +188,7 @@ public class ElementPropertyUi {
             this.parent.removeControlListener(this.layoutChangeListener);
             this.layoutChangeListener = null;
         }
+        
     }
 
     /**
@@ -203,6 +203,7 @@ public class ElementPropertyUi {
         } else if (ratio > ElementPropertyUi.HWMAX) {
             setVerticalLayout();
         }
+        
     }
 
     @objid ("0d004ed8-9d50-4897-bdf4-fc84a10df6dd")
@@ -234,6 +235,7 @@ public class ElementPropertyUi {
         Object previousTypeItem = this.controller.getSelectedTypeItems().isEmpty() ? null : this.controller.getSelectedTypeItems().get(0);
         this.controller.onTreeSelectionChange(null);
         this.controller.onTreeSelectionChange(previousTypeItem);
+        
     }
 
     @objid ("8ad7f439-2906-4250-905a-c9b3ce510c83")
@@ -241,6 +243,7 @@ public class ElementPropertyUi {
         this.treePanel.setInput(treeInput);
         this.contentPanel.setInput(dataInput);
         this.toolBar.setInput(dataInput.getTypedElement());
+        
     }
 
     @objid ("cd41a824-371c-459e-9cfe-ad10048b9383")
@@ -306,6 +309,7 @@ public class ElementPropertyUi {
             }
         
         });
+        
     }
 
     @objid ("b423d61c-3130-4841-9990-fc5ee70780de")
@@ -325,6 +329,7 @@ public class ElementPropertyUi {
         });
         Menu menu = menuMgr.createContextMenu(treeViewer.getTree());
         treeViewer.getTree().setMenu(menu);
+        
     }
 
     @objid ("fa04acc0-b591-4dbd-bc4c-95367244ed8e")
@@ -346,13 +351,13 @@ public class ElementPropertyUi {
 
         /**
          * C'tor
-         * 
          * @param view the panel view
          */
         @objid ("3ff46de3-8d23-449e-910f-ec0acaa39a86")
-        public LayoutChangeListener(final ElementPropertyUi view) {
+        public  LayoutChangeListener(final ElementPropertyUi view) {
             super();
             this.view = view;
+            
         }
 
         @objid ("694014c5-ccba-425b-bf39-6859ab9b102d")
@@ -360,6 +365,7 @@ public class ElementPropertyUi {
             final Composite comp = (Composite) theEvent.widget;
             comp.layout();
             this.view.autoLayout();
+            
         }
 
     }
@@ -377,7 +383,7 @@ public class ElementPropertyUi {
         private final ElementPropertyController controller;
 
         @objid ("8fac8aed-c068-11e1-8c0a-002564c97630")
-        protected SelectionChangedListener(final ElementPropertyController controller) {
+        protected  SelectionChangedListener(final ElementPropertyController controller) {
             this.controller = controller;
         }
 
@@ -389,6 +395,7 @@ public class ElementPropertyUi {
             
             Object obj = SelectionHelper.getFirst(selection, Object.class);
             this.controller.onTreeSelectionChange(obj);
+            
         }
 
     }

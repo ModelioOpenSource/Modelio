@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import java.util.ArrayList;
@@ -64,22 +63,21 @@ public class BpmnServiceTaskPropertyModel extends AbstractPropertyModel<BpmnServ
 
     /**
      * Create a new <i>BpmnServiceTask</i> data model from an <i>BpmnServiceTask</i>.
-     * 
      * @param theEditedElement the model to edit.
      * @param modelService the model service needed to find elements.
      * @param mdaExpert the MDA expert to handle Methodological links.
      */
     @objid ("bcd01578-115a-4348-89a6-33ca1bd1b31b")
-    public BpmnServiceTaskPropertyModel(BpmnServiceTask theEditedElement, IMModelServices modelService, IMdaExpert mdaExpert) {
+    public  BpmnServiceTaskPropertyModel(BpmnServiceTask theEditedElement, IMModelServices modelService, IMdaExpert mdaExpert) {
         super(theEditedElement);
         this.modelService = modelService;
         this.mdaExpert = mdaExpert;
         initPropertyModel();
+        
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("9dfa31ed-423e-4054-891d-6a0696fc3f24")
@@ -90,7 +88,6 @@ public class BpmnServiceTaskPropertyModel extends AbstractPropertyModel<BpmnServ
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("43c5d48c-5f06-4139-89ad-524fd14155b6")
@@ -105,7 +102,6 @@ public class BpmnServiceTaskPropertyModel extends AbstractPropertyModel<BpmnServ
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -173,7 +169,6 @@ public class BpmnServiceTaskPropertyModel extends AbstractPropertyModel<BpmnServ
      * This type will be used to choose an editor and a renderer for each cell of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -269,13 +264,13 @@ public class BpmnServiceTaskPropertyModel extends AbstractPropertyModel<BpmnServ
             this.properties.add("CompletionCondition");
             this.properties.add("EventDefinition");
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -335,6 +330,7 @@ public class BpmnServiceTaskPropertyModel extends AbstractPropertyModel<BpmnServ
                 }
             }
         }
+        
     }
 
 }

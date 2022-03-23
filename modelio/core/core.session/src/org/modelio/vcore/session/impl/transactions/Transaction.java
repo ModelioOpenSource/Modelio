@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.transactions;
 
 import java.util.ArrayList;
@@ -68,12 +67,13 @@ public class Transaction implements IAction, ITransaction {
      * Constructeur d'une transaction.
      */
     @objid ("006d4e3a-0d1e-1f20-85a5-001ec947cd2a")
-    Transaction(final String name, final TransactionManager manager) {
+     Transaction(final String name, final TransactionManager manager) {
         this.name = name;
         this.undoable = true;
         this.manager = manager;
         this.creatorThread = Thread.currentThread();
         this.creationTrace = new Throwable(name+" transaction created.");
+        
     }
 
     @objid ("006d4f70-0d1e-1f20-85a5-001ec947cd2a")
@@ -84,7 +84,6 @@ public class Transaction implements IAction, ITransaction {
 
     /**
      * Ajout d'une action dans la transaction
-     * 
      * @param action the action to add
      */
     @objid ("006d5010-0d1e-1f20-85a5-001ec947cd2a")
@@ -115,11 +114,11 @@ public class Transaction implements IAction, ITransaction {
                 this.actions.add(sub);
             }
         }
+        
     }
 
     /**
      * Get the stack trace recorded when the transaction was created.
-     * 
      * @return the transaction creation stack trace.
      */
     @objid ("c5ab1fcb-83cc-40d0-8d9e-6dc4e8ab5926")
@@ -155,7 +154,6 @@ public class Transaction implements IAction, ITransaction {
     /**
      * Permet de savoir si la transaction est vide, c'est a dire ne contient aucune
      * action.
-     * 
      * @return <i>true</i> si la transaction est vide.
      */
     @objid ("006d531c-0d1e-1f20-85a5-001ec947cd2a")
@@ -165,7 +163,6 @@ public class Transaction implements IAction, ITransaction {
 
     /**
      * Verifie si la derniere action est une transaction.
-     * 
      * @return <i>true</i> si la derniere action est une transaction.
      */
     @objid ("006d53c6-0d1e-1f20-85a5-001ec947cd2a")
@@ -199,6 +196,7 @@ public class Transaction implements IAction, ITransaction {
         for (IAction action : this.actions) {
             action.redo();
         }
+        
     }
 
     /**
@@ -215,6 +213,7 @@ public class Transaction implements IAction, ITransaction {
         for (IAction action : this.actions) {
             action.disableUndo();
         }
+        
     }
 
     /**
@@ -232,11 +231,11 @@ public class Transaction implements IAction, ITransaction {
                 this.actions.get(i).undo(rollback);
             }
         }
+        
     }
 
     /**
      * Forget the last registered action.
-     * 
      * @return the removed action.
      */
     @objid ("008ac6cc-702b-1f21-85a5-001ec947cd2a")
@@ -246,7 +245,6 @@ public class Transaction implements IAction, ITransaction {
 
     /**
      * Please do not modify the returned list.
-     * 
      * @return the transaction actions.
      */
     @objid ("008f242e-f11f-1f3c-aafd-001ec947cd2a")
@@ -259,6 +257,7 @@ public class Transaction implements IAction, ITransaction {
     public void commit() {
         this.manager.commit(this);
         this.closed = true;
+        
     }
 
     @objid ("60d15194-babd-11e1-9fd3-001ec947ccaf")
@@ -266,6 +265,7 @@ public class Transaction implements IAction, ITransaction {
     public void rollback() {
         this.manager.rollback(this);
         this.closed = true;
+        
     }
 
     @objid ("60d15197-babd-11e1-9fd3-001ec947ccaf")
@@ -275,6 +275,7 @@ public class Transaction implements IAction, ITransaction {
             Log.warning(new Throwable("Transaction '"+getName()+"' not committed, auto-rollbacking."));
             rollback();
         }
+        
     }
 
 }

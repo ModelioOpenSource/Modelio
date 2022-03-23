@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.preferences.proxy;
 
 import java.util.ArrayList;
@@ -67,7 +66,7 @@ public class ProxyEntriesComposite extends Composite {
     @objid ("8b8662b8-ed2b-404c-ae0c-2fa6caf105a3")
     private CheckboxTableViewer entriesViewer;
 
-// private Button addButton;
+    // private Button addButton;
     @objid ("ba0395a7-5970-459c-8eb3-e0156d999f66")
     private Button editButton;
 
@@ -78,9 +77,10 @@ public class ProxyEntriesComposite extends Composite {
     private List<ProxyData> proxyEntries = new ArrayList<>();
 
     @objid ("86d31e4a-cdb0-4a7c-afab-bedb61b68288")
-    ProxyEntriesComposite(Composite parent, int style) {
+     ProxyEntriesComposite(Composite parent, int style) {
         super(parent, style);
         createWidgets();
+        
     }
 
     @objid ("cae687a8-b4e3-4deb-ac1e-783eb07da32d")
@@ -161,6 +161,7 @@ public class ProxyEntriesComposite extends Composite {
         
         initializeValues();
         enableButtons();
+        
     }
 
     @objid ("dfd17225-2a2d-47cc-aa9b-e866fb3856ec")
@@ -175,6 +176,7 @@ public class ProxyEntriesComposite extends Composite {
             this.editButton.setEnabled(false);
             this.removeButton.setEnabled(false);
         }
+        
     }
 
     @objid ("27b904d4-05de-4052-bd78-023972ddee6a")
@@ -218,6 +220,7 @@ public class ProxyEntriesComposite extends Composite {
             this.proxyEntries.add(0, data);
             this.entriesViewer.refresh();
         }
+        
     }
 
     @objid ("a07ac32d-e7d7-4168-bda0-5a006cea82d8")
@@ -271,6 +274,7 @@ public class ProxyEntriesComposite extends Composite {
         if (data != null) {
             this.entriesViewer.refresh();
         }
+        
     }
 
     @objid ("9eccee93-f409-408a-bc33-7ef32f5974c2")
@@ -286,6 +290,7 @@ public class ProxyEntriesComposite extends Composite {
             data.setPassword(null);
         }
         this.entriesViewer.refresh();
+        
     }
 
     @objid ("a13feb32-7e2a-4e84-be11-58a63013c5b2")
@@ -304,6 +309,7 @@ public class ProxyEntriesComposite extends Composite {
         }
         this.entriesViewer.setInput(this.proxyEntries);
         setProvider(ProxySelector.getDefaultProvider());
+        
     }
 
     @objid ("0dadf171-489c-4f00-bb98-05f18f046f68")
@@ -322,6 +328,7 @@ public class ProxyEntriesComposite extends Composite {
             }
         }
         this.entriesViewer.setCheckedElements(checked.toArray(new ProxyData[0]));
+        
     }
 
     @objid ("6edaa134-615b-460f-b7d2-c5fb2c458870")
@@ -337,6 +344,7 @@ public class ProxyEntriesComposite extends Composite {
         }
         ProxyData data[] = proxies.toArray(new ProxyData[0]);
         ProxySelector.setProxyData(provider, data);
+        
     }
 
     @objid ("92ca10e2-ceb0-407e-9285-8eaddb244a35")
@@ -359,6 +367,7 @@ public class ProxyEntriesComposite extends Composite {
         }
         this.entriesViewer.refresh();
         setProvider(this.currentProvider);
+        
     }
 
     @objid ("55abc228-ae4b-4ffd-8b90-2affdd667f50")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.gui.creation.doctype;
 
 import java.util.ArrayList;
@@ -40,9 +39,10 @@ class AdapterModule implements IAdaptable {
     private ModuleComponent module;
 
     @objid ("6132ccb5-32d9-4c16-8a8a-cdbe5ba38dbc")
-    public AdapterModule(final ModuleComponent module) {
+    public  AdapterModule(final ModuleComponent module) {
         this.module = module;
         this.adapters = new ArrayList<>();
+        
     }
 
     @objid ("f0ad5cd6-3b4d-4b94-9b09-9b4c5e7184ec")
@@ -66,7 +66,6 @@ class AdapterModule implements IAdaptable {
 
     /**
      * Get accessor for adapters
-     * 
      * @return the child document type adapters.
      */
     @objid ("0069b6ef-88e8-400c-bb83-c14ed9bc157e")
@@ -76,7 +75,6 @@ class AdapterModule implements IAdaptable {
 
     /**
      * Get accessor for mdac
-     * 
      * @return the module.
      */
     @objid ("92a24bc6-b13c-4f0c-8273-13f40f6f0b8c")
@@ -107,12 +105,14 @@ class AdapterModule implements IAdaptable {
                 }
             }
         }
+        
     }
 
     @objid ("32c7f18e-fedc-4422-af9d-7944a9263ead")
     void addStereotype(Stereotype stereotype) {
         AdapterStereotype adapter = new AdapterStereotype(stereotype, this);
         this.adapters.add(adapter);
+        
     }
 
     @objid ("36d0b039-1e34-4c14-9922-29f9ebc563fb")
@@ -129,6 +129,7 @@ class AdapterModule implements IAdaptable {
             }
             return result;
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.executionoccurencespecification;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,11 +41,11 @@ public class MoveExecutionOccurenceSpecificationCommand extends Command {
         // Modifying the Ob model, the rest will follow...
         ExecutionOccurenceSpecification executionOccurenceSpecification = (ExecutionOccurenceSpecification) this.gmExecutionOccurenceSpecification.getRelatedElement();
         executionOccurenceSpecification.setLineNumber(this.newTime);
+        
     }
 
     /**
      * Sets the modified execution occurence specification.
-     * 
      * @param value the modified execution occurence specification.
      */
     @objid ("d8e070ab-55b6-11e2-877f-002564c97630")
@@ -56,7 +55,6 @@ public class MoveExecutionOccurenceSpecificationCommand extends Command {
 
     /**
      * Sets the new "time" of the ExecutionOccurenceSpecification.
-     * 
      * @param value the new "time" of the ExecutionOccurenceSpecification.
      */
     @objid ("d8e070af-55b6-11e2-877f-002564c97630")

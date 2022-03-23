@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.ui.htmleditor.model;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -27,15 +26,18 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  */
 @objid ("05c9d42e-4455-48ca-b271-408fb9a5369a")
 public enum TriState {
-    ON ("1.0"),
-    OFF ("2.0"),
-    DISABLED ("3.0");
+    @objid ("cce5e019-b435-44c3-b1ef-191b6276fc46")
+    ON("1.0"),
+    @objid ("53f807eb-5204-49ae-b899-e7abe9552270")
+    OFF("2.0"),
+    @objid ("5257bd57-fe28-44d9-9d2a-2f6b88a0f48e")
+    DISABLED("3.0");
 
     @objid ("db2457bd-0dd4-4297-8804-3274b590bfb0")
     private final String representation;
 
     @objid ("89e02ee4-3e0a-45a8-8db8-bc9a85843a68")
-    TriState(String representation) {
+     TriState(String representation) {
         this.representation = representation;
     }
 

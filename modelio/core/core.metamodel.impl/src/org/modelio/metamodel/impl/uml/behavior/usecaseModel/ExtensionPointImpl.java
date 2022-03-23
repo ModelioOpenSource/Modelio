@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.usecaseModel;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.uml.behavior.usecaseModel.ExtensionPointData;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementImpl;
 import org.modelio.metamodel.uml.behavior.usecaseModel.ExtensionPoint;
 import org.modelio.metamodel.uml.behavior.usecaseModel.UseCase;
@@ -78,6 +77,7 @@ public class ExtensionPointImpl extends UmlModelElementImpl implements Extension
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("4adcd9f3-a046-4bca-b20e-3281a32942bd")

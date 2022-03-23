@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.interactionuse.primarynode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -52,23 +51,23 @@ public class GmInteractionUsePrimaryNode extends GmNoStyleCompositeNode {
      * Empty c'tor for deserialisation.
      */
     @objid ("d926a15f-55b6-11e2-877f-002564c97630")
-    public GmInteractionUsePrimaryNode() {
+    public  GmInteractionUsePrimaryNode() {
         super();
     }
 
     /**
      * C'tor.
-     * 
      * @param diagram diagram in which this gm is created.
      * @param relatedRef a ref to the represented interaction use.
      */
     @objid ("d926a162-55b6-11e2-877f-002564c97630")
-    public GmInteractionUsePrimaryNode(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmInteractionUsePrimaryNode(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
         GmOperatorLabel operatorLabel = new GmOperatorLabel(diagram, relatedRef);
         this.addChild(operatorLabel);
         GmDefaultModelElementHeader header = new GmInteractionUseHeader(diagram, relatedRef);
         this.addChild(header);
+        
     }
 
     @objid ("d926a16d-55b6-11e2-877f-002564c97630")
@@ -98,6 +97,7 @@ public class GmInteractionUsePrimaryNode extends GmNoStyleCompositeNode {
         if (interactionUse != null && interactionUse.isValid()) {
             firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, this.getLayoutData(), null);
         }
+        
     }
 
     @objid ("d926a18d-55b6-11e2-877f-002564c97630")
@@ -117,6 +117,7 @@ public class GmInteractionUsePrimaryNode extends GmNoStyleCompositeNode {
             break;
         }
         }
+        
     }
 
     @objid ("d926a193-55b6-11e2-877f-002564c97630")
@@ -126,6 +127,7 @@ public class GmInteractionUsePrimaryNode extends GmNoStyleCompositeNode {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmInteractionUsePrimaryNode.", GmInteractionUsePrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("d926a199-55b6-11e2-877f-002564c97630")

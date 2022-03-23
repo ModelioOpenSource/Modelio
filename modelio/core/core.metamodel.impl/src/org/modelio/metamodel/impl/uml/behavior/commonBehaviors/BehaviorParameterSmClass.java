@@ -17,20 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.commonBehaviors;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.behavior.activityModel.ObjectNodeSmClass;
-import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.BehaviorParameterData;
-import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.BehaviorSmClass;
 import org.modelio.metamodel.impl.uml.statik.ParameterSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.ObjectNode;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
@@ -60,7 +58,7 @@ public class BehaviorParameterSmClass extends ParameterSmClass {
     private SmDependency mappedDep;
 
     @objid ("06650466-fad6-4370-8be7-49ef482bc1a8")
-    public BehaviorParameterSmClass(ISmMetamodelFragment origin) {
+    public  BehaviorParameterSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -68,6 +66,7 @@ public class BehaviorParameterSmClass extends ParameterSmClass {
     @Override
     public String getName() {
         return "BehaviorParameter";
+        
     }
 
     @objid ("50cd0d28-ac00-4444-9b6c-3fe1df37b20e")
@@ -80,18 +79,21 @@ public class BehaviorParameterSmClass extends ParameterSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BehaviorParameter.class;
+        
     }
 
     @objid ("742e11f9-204c-4ecd-9860-3a2276848379")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("ec7b980b-bf25-494b-8541-cc94abdaaf6a")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("59c5b3a6-7053-4428-9f04-adf91520b8ea")
@@ -115,6 +117,8 @@ public class BehaviorParameterSmClass extends ParameterSmClass {
         this.mappedDep = new MappedSmDependency();
         this.mappedDep.init("Mapped", this, metamodel.getMClass(Parameter.MQNAME), 0, 1 , SmDirective.SMCDPARTOF);
         registerDependency(this.mappedDep);
+        
+        
     }
 
     @objid ("ffe1fd0d-861c-48b8-b896-c2c1523c9c62")
@@ -147,7 +151,7 @@ public class BehaviorParameterSmClass extends ParameterSmClass {
         private BehaviorParameterSmClass smClass;
 
         @objid ("6c43d865-6330-4928-b233-be30a5bab4f1")
-        public BehaviorParameterObjectFactory(BehaviorParameterSmClass smClass) {
+        public  BehaviorParameterObjectFactory(BehaviorParameterSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -180,6 +184,7 @@ public class BehaviorParameterSmClass extends ParameterSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BehaviorParameterData) data).mRepresentingObjectNode = values;
+            
         }
 
         @objid ("c4096a7a-2adb-4262-9a18-057c206e5968")
@@ -189,6 +194,7 @@ public class BehaviorParameterSmClass extends ParameterSmClass {
             	this.symetricDep = ((ObjectNodeSmClass)this.getTarget()).getRepresentedRealParameterDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -217,6 +223,7 @@ public class BehaviorParameterSmClass extends ParameterSmClass {
             	this.symetricDep = ((BehaviorSmClass)this.getTarget()).getParameterDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -245,6 +252,7 @@ public class BehaviorParameterSmClass extends ParameterSmClass {
             	this.symetricDep = ((ParameterSmClass)this.getTarget()).getBehaviorParamDep();
             }
             return this.symetricDep;
+            
         }
 
     }

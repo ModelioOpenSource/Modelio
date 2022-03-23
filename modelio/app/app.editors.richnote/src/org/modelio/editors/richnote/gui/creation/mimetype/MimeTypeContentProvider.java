@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.gui.creation.mimetype;
 
 import java.util.ArrayList;
@@ -35,7 +34,7 @@ import org.modelio.editors.richnote.api.SupportLevel;
 @objid ("6943f192-3ad6-4f31-97b9-bbc85813698e")
 public class MimeTypeContentProvider implements IStructuredContentProvider {
     @objid ("62cb9eb5-e41e-4246-9d3a-ce0f3a5f982d")
-    public MimeTypeContentProvider() {
+    public  MimeTypeContentProvider() {
         super();
     }
 

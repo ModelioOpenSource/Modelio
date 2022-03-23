@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.ui.application.undo;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,6 +44,7 @@ public class UndoHandler {
             
             statusReporter.show(StatusReporter.ERROR, AppProjectUi.I18N.getMessage("UndoHandler.Failed"), e);
         }
+        
     }
 
     @objid ("d40464e8-3259-11e2-ad6b-002564c97630")

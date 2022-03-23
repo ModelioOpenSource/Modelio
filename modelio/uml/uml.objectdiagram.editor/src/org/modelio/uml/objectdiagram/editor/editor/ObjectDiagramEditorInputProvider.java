@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.objectdiagram.editor.editor;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.editor.DiagramEditorInput;
 import org.modelio.diagram.editor.IDiagramEditorInputProvider;
+import org.modelio.diagram.editor.IDiagramEditorInputProvider.GmDiagramCreator;
 import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.diagrams.ObjectDiagram;
@@ -34,7 +34,7 @@ import org.modelio.vcore.smkernel.mapi.MRef;
 @objid ("a25fff12-5a62-11e2-9e33-00137282c51b")
 public class ObjectDiagramEditorInputProvider implements IDiagramEditorInputProvider {
     @objid ("05df5d7c-5bed-11e2-9e33-00137282c51b")
-    public ObjectDiagramEditorInputProvider() {
+    public  ObjectDiagramEditorInputProvider() {
         super();
     }
 

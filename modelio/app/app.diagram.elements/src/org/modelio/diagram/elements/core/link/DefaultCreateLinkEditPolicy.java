@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link;
 
 import java.util.ArrayList;
@@ -27,11 +26,9 @@ import org.eclipse.draw2d.BendpointConnectionRouter;
 import org.eclipse.draw2d.Connection;
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.ConnectionRouter;
-import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PolylineConnection;
 import org.eclipse.draw2d.PolylineDecoration;
-import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.XYAnchor;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.gef.ConnectionEditPart;
@@ -47,10 +44,10 @@ import org.eclipse.gef.requests.DropRequest;
 import org.eclipse.gef.requests.ReconnectRequest;
 import org.modelio.api.module.mda.IMdaExpert;
 import org.modelio.diagram.elements.core.figures.FigureUtilities2;
+import org.modelio.diagram.elements.core.figures.RotatedPinFigureHelper;
 import org.modelio.diagram.elements.core.helpers.palapi.PaletteActionProvider;
 import org.modelio.diagram.elements.core.link.createhandle.CreateLinkHandleEditPolicy;
 import org.modelio.diagram.elements.core.link.createhandle.UserChoiceCreateLinkEditPolicy;
-import org.modelio.diagram.elements.core.link.path.ConnectionHelperFactory;
 import org.modelio.diagram.elements.core.link.path.ConnectionPolicyUtils;
 import org.modelio.diagram.elements.core.link.path.IConnectionHelper;
 import org.modelio.diagram.elements.core.model.GmModel;
@@ -60,6 +57,8 @@ import org.modelio.diagram.elements.core.model.IGmModelRelated;
 import org.modelio.diagram.elements.core.model.IGmObject;
 import org.modelio.diagram.elements.core.model.IGmPath;
 import org.modelio.diagram.elements.core.requests.CreateLinkConstants;
+import org.modelio.diagram.elements.core.requests.RequestProperty;
+import org.modelio.diagram.elements.core.requests.WrappedRequest;
 import org.modelio.vcore.smkernel.mapi.MExpert;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -99,7 +98,7 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
      * @see #DefaultCreateLinkEditPolicy(boolean)
      */
     @objid ("7fe78621-1dec-11e2-8cad-001ec947c8cc")
-    public DefaultCreateLinkEditPolicy() {
+    public  DefaultCreateLinkEditPolicy() {
         this(true);
     }
 
@@ -118,13 +117,13 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
      * <li>When <code>false</code> on the other hand, the getTargetEditPart method will return <code>null</code>, giving a chance to the tool to propose the request to the host's parent edit part, meaning the host is "transparent".</li>
      * </ul>
      * </p>
-     * 
      * @param isOpaque determines the behavior of this policy on request where the creation expert doesn't allow. See Note.
      */
     @objid ("7fe78624-1dec-11e2-8cad-001ec947c8cc")
-    public DefaultCreateLinkEditPolicy(final boolean isOpaque) {
+    public  DefaultCreateLinkEditPolicy(final boolean isOpaque) {
         super();
         this.isOpaque = isOpaque;
+        
     }
 
     @objid ("7fe78629-1dec-11e2-8cad-001ec947c8cc")
@@ -135,6 +134,7 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
         } else {
             super.eraseSourceFeedback(request);
         }
+        
     }
 
     @objid ("7fe7862f-1dec-11e2-8cad-001ec947c8cc")
@@ -145,6 +145,7 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
         } else {
             super.eraseTargetFeedback(request);
         }
+        
     }
 
     @objid ("7fe78635-1dec-11e2-8cad-001ec947c8cc")
@@ -171,6 +172,7 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
         } else {
             super.showSourceFeedback(request);
         }
+        
     }
 
     @objid ("7fe9e849-1dec-11e2-8cad-001ec947c8cc")
@@ -181,12 +183,14 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
         } else {
             super.showTargetFeedback(request);
         }
+        
     }
 
     @objid ("7fe9e850-1dec-11e2-8cad-001ec947c8cc")
     @Override
     protected Connection createDummyConnection(Request req) {
         final PolylineConnection ret = new PolylineConnection();
+        ret.removeAllPoints();
         
         // Add an arrow
         final PolylineDecoration arrow = new PolylineDecoration();
@@ -202,7 +206,6 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
 
     /**
      * Create a serializable path model from the given connection creation request.
-     * 
      * @param req a connection creation request.
      * @return A serializable path model.
      */
@@ -226,6 +229,7 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
             feedbackLayer.remove(this.highlight);
             this.highlight = null;
         }
+        
     }
 
     @objid ("7fe9e869-1dec-11e2-8cad-001ec947c8cc")
@@ -263,7 +267,7 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
         }
         
         if (req.getExtendedData().containsKey(CreateLinkConstants.PROP_USER_INTERACTION)) {
-            if (! isNewLinkDiagramEditable(req)) {
+            if (!isNewLinkDiagramEditable(req)) {
                 return null;
             }
         }
@@ -338,11 +342,20 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
         }
         
         final DefaultReconnectSourceCommand cmd = new DefaultReconnectSourceCommand(linkModel,
-                (IGmLinkable) newSourceNodeEditPart.getModel());
+                (IGmLinkable) newSourceNodeEditPart.getModel(), RequestProperty.PROP_SKIP_MODELCHANGE.get(req));
         
         final ConnectionAnchor srcAnchor = newSourceNodeEditPart.getSourceConnectionAnchor(req);
         cmd.setAnchorModel(ConnectionPolicyUtils.getAnchorModel(newSourceNodeEditPart, srcAnchor));
-        return cmd;
+        
+        // Since 5.1.0 : request the connection to layout
+        WrappedRequest layoutRequest = new WrappedRequest(CreateLinkConstants.REQ_CONNECTION_UPDATE_ROUTING_CONSTRAINT, req);
+        Command cmd2 = connectionEditPart.getCommand(layoutRequest);
+        if (cmd2 != null) {
+            return cmd.chain(cmd2);
+        } else {
+            return cmd;
+        }
+        
     }
 
     @objid ("7fe9e892-1dec-11e2-8cad-001ec947c8cc")
@@ -366,10 +379,19 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
         }
         
         // build the command
-        DefaultReconnectTargetCommand cmd = new DefaultReconnectTargetCommand(gmLink, newTargetNode);
+        DefaultReconnectTargetCommand cmd = new DefaultReconnectTargetCommand(gmLink, newTargetNode, RequestProperty.PROP_SKIP_MODELCHANGE.get(req));
         ConnectionAnchor targetAnchor = destEditPart.getTargetConnectionAnchor(req);
         cmd.setAnchorModel(ConnectionPolicyUtils.getAnchorModel(destEditPart, targetAnchor));
-        return cmd;
+        
+        // Since 5.1.0 : request the connection to layout
+        WrappedRequest layoutRequest = new WrappedRequest(CreateLinkConstants.REQ_CONNECTION_UPDATE_ROUTING_CONSTRAINT, req);
+        Command cmd2 = connectionEditPart.getCommand(layoutRequest);
+        if (cmd2 != null) {
+            return cmd.chain(cmd2);
+        } else {
+            return cmd;
+        }
+        
     }
 
     @objid ("7fec4a99-1dec-11e2-8cad-001ec947c8cc")
@@ -389,7 +411,7 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
             getFeedbackHelper(request);
         
             // Set/update the router
-            final ConnectionRouter router = getRouterRegistry().get(req.getData().getRoutingMode());
+            final ConnectionRouter router = ConnectionPolicyUtils.getRoutingServices(getHost()).getCreationRouter(req.getData().getRoutingMode());
             this.connectionFeedback.setConnectionRouter(router);
         
             // Set/update the anchors
@@ -407,40 +429,39 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
         
             // Set/update the routing constraint.
             IConnectionHelper connHelper = getUpdatedConnectionHelper(req, this.connectionFeedback);
-        
             @SuppressWarnings ("unchecked")
             List<Point> constraint = (List<Point>) connHelper.getRoutingConstraint();
             this.connectionFeedback.setRoutingConstraint(constraint);
         
             // Debug code that display intermediate points
-            if (false) {
-                int a = 10;
-                for (IFigure f : new ArrayList<IFigure>(this.connectionFeedback.getChildren())) {
-                    this.connectionFeedback.remove(f);
-                }
-        
-                for (Point cp : constraint) {
-                    final Figure r = new RectangleFigure();
-                    r.setBackgroundColor(org.eclipse.draw2d.ColorConstants.red);
-                    r.setSize(2 * a, 2 * a);
-                    Point p = new Point(cp).translate(-a, -a);
-                    r.setLocation(p);
-                    this.connectionFeedback.add(r);
-                }
-        
-                for (int i = 0; i < this.connectionFeedback.getPoints().size(); i++) {
-                    final Figure r = new RectangleFigure();
-                    r.setBackgroundColor(org.eclipse.draw2d.ColorConstants.blue);
-                    r.setSize(a, a);
-                    Point p = new Point(this.connectionFeedback.getPoints().getPoint(i).translate(-a / 2, -a / 2));
-                    r.setLocation(p);
-                    this.connectionFeedback.add(r);
-                }
-            }
+            showIntermediatePoints(constraint);
         
         } else {
             super.showCreationFeedback(request);
         }
+        
+    }
+
+    /**
+     * display intermediate points during link creation
+     * @param constraint the current routing constraint
+     */
+    @objid ("7edc8668-5205-49f3-93cd-d56b445feabd")
+    protected void showIntermediatePoints(List<Point> constraint) {
+        for (IFigure f : new ArrayList<IFigure>(this.connectionFeedback.getChildren())) {
+            this.connectionFeedback.remove(f);
+        }
+        
+        if (constraint != null) {
+            for (int i = 0; i < constraint.size(); i++) {
+                Point cp = constraint.get(i);
+                if (!(cp instanceof MPoint) || ((MPoint) cp).isFixed()) {
+                    RotatedPinFigureHelper.RotatedPinFigure pinFig = new RotatedPinFigureHelper.RotatedPinFigure(this.connectionFeedback, i + 1);
+                    this.connectionFeedback.add(pinFig, pinFig.getLocator());
+                }
+            }
+        }
+        
     }
 
     @objid ("7fec4a9f-1dec-11e2-8cad-001ec947c8cc")
@@ -449,7 +470,7 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
         // Additional feedback: highlight the node.
         // compute highlight type
         final Command c = getHost().getCommand((Request) request);
-        FigureUtilities2.HighlightType hightlightType = FigureUtilities2.HighlightType.INFO;
+        FigureUtilities2.HighlightType hightlightType;
         if (c == null) {
             hightlightType = FigureUtilities2.HighlightType.ERROR;
         } else if (c.canExecute()) {
@@ -468,26 +489,29 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
             // configure the highlight figure
             FigureUtilities2.updateHighlightType(this.highlight, hightlightType);
         }
+        
     }
 
     /**
      * Tells whether the metamodel experts allow to connect the given link to the 2 given nodes.
      * <p>
      * Asks the metamodel expert then the stereotypes experts.
-     * 
      * @param newSrcElement the source element
      * @param targetElement the target element
      * @param linkElement the link
      */
     @objid ("7fec4aa5-1dec-11e2-8cad-001ec947c8cc")
     private static boolean canLink(final MObject newSrcElement, final MObject targetElement, final MObject linkElement) {
+        if (newSrcElement == null || targetElement == null || linkElement == null) {
+            return false;
+        }
+        
         MExpert expert = newSrcElement.getMClass().getMetamodel().getMExpert();
         return expert.canLink(linkElement.getMClass(), newSrcElement, targetElement);
     }
 
     /**
      * Returns the host if the given request can be handled, <code>null</code> otherwise.
-     * 
      * @param request a Source Reconnect request.
      * @return the host edit part or <code>null</code>.
      */
@@ -529,11 +553,11 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
         } else {
             return null;
         }
+        
     }
 
     /**
      * Returns the host if the given request can be handled, <code>null</code> otherwise.
-     * 
      * @param request a Target Reconnect request.
      * @return the host edit part or <code>null</code>.
      */
@@ -576,19 +600,11 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
         } else {
             return null;
         }
-    }
-
-    /**
-     * @return the connection routers registry.
-     */
-    @objid ("7fec4ad0-1dec-11e2-8cad-001ec947c8cc")
-    private ConnectionRouterRegistry getRouterRegistry() {
-        return (ConnectionRouterRegistry) getHost().getViewer().getProperty(ConnectionRouterRegistry.ID);
+        
     }
 
     /**
      * Returns the host if the given request can be handled, <code>null</code> otherwise.
-     * 
      * @param request a complete Connection creation request.
      * @return the host edit part or <code>null</code>.
      */
@@ -608,8 +624,8 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
             final MObject targetElement = ((GmModel) getHost().getModel()).getRelatedElement();
             final IGmLinkable sourceNode = (IGmLinkable) request.getSourceEditPart().getModel();
             final MExpert expert = context.getMetaclass().getMetamodel().getMExpert();
-            if (sourceNode == null || (sourceElement = sourceNode.getRelatedElement()) == null || (targetElement == null)
-                    || (!expert.canLink(context.getMetaclass(), sourceElement, targetElement))
+            if (sourceNode == null || (sourceElement = sourceNode.getRelatedElement()) == null || targetElement == null
+                    || !expert.canLink(context.getMetaclass(), sourceElement, targetElement)
                             && !this.isOpaque) {
                 return null;
             }
@@ -622,13 +638,12 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
 
     /**
      * Returns the host if the given request can be handled, <code>null</code> otherwise.
-     * 
      * @param request a starting Connection creation request.
      * @return the host edit part or <code>null</code>.
      */
     @objid ("7fec4ae0-1dec-11e2-8cad-001ec947c8cc")
     protected EditPart getTargetEditPartConnectionStart(final CreateConnectionRequest request) {
-        ModelioLinkCreationContext context = (ModelioLinkCreationContext.lookRequest(request));
+        ModelioLinkCreationContext context = ModelioLinkCreationContext.lookRequest(request);
         
         if (context == null) {
             // Only handle model element creation requests.
@@ -663,13 +678,12 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
 
     /**
      * Get or create the updated connection helper for the given connection creation request.
-     * 
      * @param req a bended connection creation request
      * @return the connection helper.
      */
     @objid ("7feeacf0-1dec-11e2-8cad-001ec947c8cc")
-    private static IConnectionHelper getUpdatedConnectionHelper(final CreateBendedConnectionRequest req, final Connection connection) {
-        return ConnectionHelperFactory.getUpdatedConnectionHelper(req, connection);
+    private IConnectionHelper getUpdatedConnectionHelper(final CreateBendedConnectionRequest req, final Connection connection) {
+        return ConnectionPolicyUtils.getRoutingServices(getHost()).getConnectionHelperFactory().getUpdatedConnectionHelper(req, connection);
     }
 
     @objid ("7feeacfc-1dec-11e2-8cad-001ec947c8cc")
@@ -683,6 +697,7 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
         } else {
             return false;
         }
+        
     }
 
     /**
@@ -695,6 +710,7 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
     public void activate() {
         super.activate();
         installPopupMenuEditPolicies();
+        
     }
 
     /**
@@ -721,11 +737,11 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
                 selectableParent.installEditPolicy(CreateLinkHandleEditPolicy.ROLE, new CreateLinkHandleEditPolicy((GraphicalEditPart) getHost()));
             }
         }
+        
     }
 
     /**
      * Test whether the diagram where the link must be created is editable by the user.
-     * 
      * @param r the connection creation request
      * @return whether the diagram is editable by the user.
      */
@@ -748,6 +764,7 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
         removeSmartLinkHandlePolicy();
         
         super.deactivate();
+        
     }
 
     /**
@@ -765,6 +782,7 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
                 selectableParent.removeEditPolicy(CreateLinkHandleEditPolicy.ROLE);
             }
         }
+        
     }
 
     @objid ("b3cc597f-217d-4cf2-a119-04afc9f0b040")
@@ -778,7 +796,7 @@ public class DefaultCreateLinkEditPolicy extends GraphicalNodeEditPolicy {
                 selectableParent = selectableParent.getParent();
             } else {
                 selectableParent = null;
-            } 
+            }
         }
         return selectableParent;
     }

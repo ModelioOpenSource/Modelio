@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.ramc.core.packaging;
 
 import java.io.IOException;
@@ -64,11 +63,10 @@ class Metadatas {
 
     /**
      * initialize the meta datas.
-     * 
      * @param ramc the model component representation.
      */
     @objid ("154faeef-56c6-4de9-85db-0e9deb66ef4b")
-    public Metadatas(IModelComponent ramc) {
+    public  Metadatas(IModelComponent ramc) {
         this.ramc = ramc;
     }
 
@@ -77,7 +75,6 @@ class Metadatas {
      * @param deploymentPath
      * @param fileDate
      * @param fileEntry the entry telling where the file must be deployed.
-     * 
      * @param archiveFileName the file name in the archive
      */
     @objid ("4e57c868-9fca-491d-8f77-95fdd210f821")
@@ -100,9 +97,8 @@ class Metadatas {
 
     /**
      * Writes the "metadatas.xml" file.
-     * 
      * @param exportPath the directory where "metadatas.xml" file will be written.
-     * @throws java.io.IOException on failure
+     * @throws IOException on failure
      */
     @objid ("9ffcedf6-e353-4f69-a321-1d35164be6e2")
     public void write(Path exportPath) throws IOException {
@@ -114,6 +110,7 @@ class Metadatas {
         
             w.write(manifest, metadataWriter);
         }
+        
     }
 
     @objid ("aa085837-52e2-4ad0-ad5c-39b0a4ae6426")
@@ -123,7 +120,6 @@ class Metadatas {
 
     /**
      * Adapt this instance to {@link IModelComponentInfos} interface.
-     * 
      * @return the adapter
      */
     @objid ("d40d8002-1dac-40a6-b4e3-c9543e9d8671")

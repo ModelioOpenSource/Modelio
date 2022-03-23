@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.uml.infrastructure.MetaclassReferenceData;
 import org.modelio.metamodel.uml.infrastructure.MetaclassReference;
 import org.modelio.metamodel.uml.infrastructure.NoteType;
 import org.modelio.metamodel.uml.infrastructure.Profile;
@@ -92,6 +91,7 @@ public class MetaclassReferenceImpl extends ElementImpl implements MetaclassRefe
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("cd66c002-f7cb-4cec-b0fc-2606752ac672")
@@ -113,6 +113,7 @@ public class MetaclassReferenceImpl extends ElementImpl implements MetaclassRefe
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("fb8fb0b9-b776-4336-af80-d2518cfc98be")
@@ -147,6 +148,7 @@ public class MetaclassReferenceImpl extends ElementImpl implements MetaclassRefe
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("03ee575d-cac8-4f36-b274-413bcf675b47")

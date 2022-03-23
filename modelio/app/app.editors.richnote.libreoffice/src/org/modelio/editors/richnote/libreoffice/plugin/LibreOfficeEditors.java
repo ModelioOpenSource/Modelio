@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.libreoffice.plugin;
 
 import java.util.ResourceBundle;
@@ -78,6 +77,7 @@ public class LibreOfficeEditors implements BundleActivator {
         
         // Since 4.0 use our own preference node instead of 'app.preferences' one.
         PREFERENCES = new ScopedPreferenceStore(InstanceScope.INSTANCE, PLUGIN_ID);
+        
     }
 
     @objid ("f38e7cd8-6672-4f28-bb06-b412857c3dc4")

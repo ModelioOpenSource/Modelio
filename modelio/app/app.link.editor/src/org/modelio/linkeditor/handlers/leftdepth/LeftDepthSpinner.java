@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.handlers.leftdepth;
 
-import javax.annotation.PostConstruct;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.annotation.PostConstruct;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -87,6 +86,7 @@ public class LeftDepthSpinner {
                 }
             }
         });
+        
     }
 
     @objid ("eaf641a6-fcc2-4a1c-8ad2-817527a22f8f")

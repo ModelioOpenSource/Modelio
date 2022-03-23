@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.decorations;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -118,6 +117,7 @@ public class DefaultPolygonDecoration extends PolygonDecoration implements IPenO
         ZoomDrawer.setLineWidth(g, getLineWidth());
         
         super.outlineShape(g);
+        
     }
 
     /**
@@ -131,6 +131,7 @@ public class DefaultPolygonDecoration extends PolygonDecoration implements IPenO
         this.scalex = x;
         this.scaley = y;
         super.setScale(x + getLineWidth() * 2 - 2, y + getLineWidth() * 2 - 2);
+        
     }
 
     /**
@@ -143,6 +144,7 @@ public class DefaultPolygonDecoration extends PolygonDecoration implements IPenO
     public void setLineWidth(int w) {
         super.setScale(this.scalex + 2 * w - 2, this.scaley + 2 * w - 2);
         super.setLineWidth(w);
+        
     }
 
     @objid ("7f72b2ba-1dec-11e2-8cad-001ec947c8cc")
@@ -176,6 +178,7 @@ public class DefaultPolygonDecoration extends PolygonDecoration implements IPenO
             this.alpha = alpha;
             this.repaint();
         }
+        
     }
 
     @objid ("238e7d9c-6491-4ca2-a4cd-ad470b384037")

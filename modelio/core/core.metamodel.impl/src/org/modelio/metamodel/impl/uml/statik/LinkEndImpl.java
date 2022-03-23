@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
@@ -31,7 +31,6 @@ import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementImpl;
-import org.modelio.metamodel.impl.uml.statik.LinkEndData;
 import org.modelio.metamodel.uml.informationFlow.InformationFlow;
 import org.modelio.metamodel.uml.statik.AssociationEnd;
 import org.modelio.metamodel.uml.statik.Instance;
@@ -52,7 +51,6 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 public class LinkEndImpl extends UmlModelElementImpl implements LinkEnd {
     /**
      * Compute the link navigation way from all roles construction.
-     * 
      * @return the link navigability.
      */
     @objid ("1efdf05d-4abe-4809-a5e2-6e5cf051d3a6")
@@ -98,6 +96,7 @@ public class LinkEndImpl extends UmlModelElementImpl implements LinkEnd {
             opposite.setSource(target);
             opposite.setTarget(null);
         }
+        
     }
 
     @objid ("0047aacc-27d2-1080-943a-001ec947cd2a")
@@ -142,6 +141,7 @@ public class LinkEndImpl extends UmlModelElementImpl implements LinkEnd {
         } else {
             setTarget(value);
         }
+        
     }
 
     @objid ("000aa226-27ef-1080-943a-001ec947cd2a")
@@ -186,6 +186,7 @@ public class LinkEndImpl extends UmlModelElementImpl implements LinkEnd {
         } else {
             setSource(value);
         }
+        
     }
 
     @objid ("001f2be2-1a19-10a1-88a0-001ec947cd2a")
@@ -206,6 +207,7 @@ public class LinkEndImpl extends UmlModelElementImpl implements LinkEnd {
                 return null;
             }
         }
+        
     }
 
     @objid ("71066600-5b42-11e2-90ce-002564c97630")
@@ -244,6 +246,7 @@ public class LinkEndImpl extends UmlModelElementImpl implements LinkEnd {
         } else {
             return null;
         }
+        
     }
 
     @objid ("0aed289b-c84f-4d32-9047-10a14bf76274")
@@ -256,6 +259,7 @@ public class LinkEndImpl extends UmlModelElementImpl implements LinkEnd {
             LinkEnd opposite = getOpposite();
             return opposite != null ? opposite.getTarget() : null;
         }
+        
     }
 
     @objid ("891a32f4-6ac7-42a6-b286-ad0bf75273a5")
@@ -278,6 +282,7 @@ public class LinkEndImpl extends UmlModelElementImpl implements LinkEnd {
             }
         
         }
+        
     }
 
     @objid ("9a2854fe-ec52-4f3d-bc7f-c8d8640aff01")
@@ -386,6 +391,7 @@ public class LinkEndImpl extends UmlModelElementImpl implements LinkEnd {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("6577f23b-d45e-4358-8e64-ceb7d19a1e8f")

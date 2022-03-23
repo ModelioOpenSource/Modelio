@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.freezone;
 
 import java.util.ArrayList;
@@ -43,6 +42,7 @@ import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.modelio.diagram.elements.core.helpers.RequestHelper;
 import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
 import org.modelio.diagram.elements.core.policies.AutoExpandHelper;
+import org.modelio.diagram.elements.core.policies.LayoutChildrenNodeConnectionsHelper;
 import org.modelio.diagram.elements.plugin.DiagramElements;
 
 /**
@@ -69,14 +69,13 @@ public class DefaultFreeZoneLayoutEditPolicy extends BaseFreeZoneLayoutEditPolic
                 this.feedbackHelper = null;
             }
         }
+        
     }
 
     /**
      * Creates the EditPartListener for observing when children are added to the host.
      * <p>
      * Redefined to auto expand on child edit part addition.
-     * 
-     * @return EditPartListener
      */
     @objid ("cc404576-6efc-401b-a682-39c42add3cbc")
     @Override
@@ -103,6 +102,7 @@ public class DefaultFreeZoneLayoutEditPolicy extends BaseFreeZoneLayoutEditPolic
                 this.feedbackHelper = null;
             }
         }
+        
     }
 
     @objid ("fa2cb4de-cbe8-41d7-aef8-7a191499c024")
@@ -115,12 +115,12 @@ public class DefaultFreeZoneLayoutEditPolicy extends BaseFreeZoneLayoutEditPolic
         } else {
             return super.getAddCommand(request);
         }
+        
     }
 
     /**
      * Get a auto expand container command for a collection of move/resize requests relating container child edit parts.
      * @param request children edit parts move/resize requests
-     * 
      * @param bpRequests connection bend points to move
      * @return the auto expand command
      */
@@ -138,6 +138,7 @@ public class DefaultFreeZoneLayoutEditPolicy extends BaseFreeZoneLayoutEditPolic
         } else {
             return null;
         }
+        
     }
 
     /**
@@ -145,7 +146,6 @@ public class DefaultFreeZoneLayoutEditPolicy extends BaseFreeZoneLayoutEditPolic
      * <p>
      * The container will take into account connection bend points that were initially in the container.
      * @param request children edit parts move/resize requests
-     * 
      * @param bpRequests connection bend points to move
      * @return the auto expand command
      */
@@ -248,7 +248,6 @@ public class DefaultFreeZoneLayoutEditPolicy extends BaseFreeZoneLayoutEditPolic
 
     /**
      * Calls {@link BaseFreeZoneLayoutEditPolicy#getAddCommand(Request)}.
-     * 
      * @param generic a REQ_ADD request.
      * @return the command
      */
@@ -270,6 +269,7 @@ public class DefaultFreeZoneLayoutEditPolicy extends BaseFreeZoneLayoutEditPolic
         } else {
             return super.getResizeChildrenCommand(request);
         }
+        
     }
 
     @objid ("99daa132-a7cc-4b8a-a1aa-683234c06047")
@@ -279,13 +279,13 @@ public class DefaultFreeZoneLayoutEditPolicy extends BaseFreeZoneLayoutEditPolic
             DiagramElements.LOG.warning("  parent edit part= <%s>;\n\t this policy = <%s>\n\t target edit part=%s\n\t command=%s", getHost().getParent(), this, targetEp, cmd);
             DiagramElements.LOG.warning(new Throwable("stack trace"));
         }
+        
     }
 
     /**
      * Called by the edit part listener created by {@link #createListener()} when a child edit part is added.
      * <p>
      * Try to expand the container to fit all children.
-     * 
      * @param child the added edit part
      */
     @objid ("56630146-8851-4e0c-932d-92ddd099784a")
@@ -304,6 +304,7 @@ public class DefaultFreeZoneLayoutEditPolicy extends BaseFreeZoneLayoutEditPolic
             // resize needed
             AutoExpandHelper.executeExpandRequest(req, getHost());
         }
+        
     }
 
     /**
@@ -311,7 +312,6 @@ public class DefaultFreeZoneLayoutEditPolicy extends BaseFreeZoneLayoutEditPolic
      * <p>
      * Defers the other commands creation until the container is expanded and new container bounds are computed by layout. This is needed because when the container expands toward top/left the constraint coordinates origin changes after the new constraints
      * would be computed. They would then become invalid regarding the wanted result.
-     * 
      * @param request the initial move/resize children request
      * @return the final command.
      */
@@ -366,8 +366,12 @@ public class DefaultFreeZoneLayoutEditPolicy extends BaseFreeZoneLayoutEditPolic
             }
         }
         
-        Command cmd = new DeferredAddCommand();
-        finalCmd.add(cmd);
+        finalCmd.add(new DeferredAddCommand());
+        
+        // Handle connection layout
+        LayoutChildrenNodeConnectionsHelper.forRequest(request)
+        .addEditParts(request)
+        .createCommands(finalCmd);
         return finalCmd;
     }
 
@@ -376,7 +380,6 @@ public class DefaultFreeZoneLayoutEditPolicy extends BaseFreeZoneLayoutEditPolic
      * <p>
      * Defers the other commands creation until the container is expanded and new container bounds are computed by layout. This is needed because when the container expands toward top/left the constraint coordinates origin changes after the new constraints
      * would be computed. They would then become invalid regarding the wanted result.
-     * 
      * @param request the initial move/resize children request
      * @return the final command.
      */
@@ -450,7 +453,7 @@ public class DefaultFreeZoneLayoutEditPolicy extends BaseFreeZoneLayoutEditPolic
         private Request request;
 
         @objid ("b78783e7-1aac-433a-b14b-6b7a45438ec7")
-        public FeedbackHelper() {
+        public  FeedbackHelper() {
             super();
         }
 
@@ -467,6 +470,7 @@ public class DefaultFreeZoneLayoutEditPolicy extends BaseFreeZoneLayoutEditPolic
                 t.showSourceFeedback(aRequest);
             }
             this.request = aRequest;
+            
         }
 
         @objid ("9158bca5-8619-44ad-bee0-05d3a51eb778")
@@ -476,6 +480,7 @@ public class DefaultFreeZoneLayoutEditPolicy extends BaseFreeZoneLayoutEditPolic
                 this.targetEditPart = null;
                 this.request = null;
             }
+            
         }
 
     }

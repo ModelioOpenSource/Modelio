@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnendevent;
 
 import java.util.Collections;
@@ -43,9 +42,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("60dd7ab0-55b6-11e2-877f-002564c97630")
 public class GmBpmnEndEvent extends GmPortContainer {
-    @objid ("60dd7aba-55b6-11e2-877f-002564c97630")
-    private BpmnEndEvent element;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -55,8 +51,11 @@ public class GmBpmnEndEvent extends GmPortContainer {
     @objid ("60dd7ac0-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
 
+    @objid ("60dd7aba-55b6-11e2-877f-002564c97630")
+    private BpmnEndEvent element;
+
     @objid ("c504dc6f-59a6-11e2-ae45-002564c97630")
-     static final GmBpmnEndEventStructuredStyleKeys STRUCTURED_KEYS = new GmBpmnEndEventStructuredStyleKeys();
+    static final GmBpmnEndEventStructuredStyleKeys STRUCTURED_KEYS = new GmBpmnEndEventStructuredStyleKeys();
 
     @objid ("c504dc71-59a6-11e2-ae45-002564c97630")
     private static final GmBpmnEndEventSimpleStyleKeys SIMPLE_KEYS = new GmBpmnEndEventSimpleStyleKeys();
@@ -69,13 +68,12 @@ public class GmBpmnEndEvent extends GmPortContainer {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the timeEvent is unmasked.
      * @param el the unmasked timeEvent.
      * @param ref a reference to the unmasked timeEvent.
      */
     @objid ("60dd7ac2-55b6-11e2-877f-002564c97630")
-    public GmBpmnEndEvent(IGmDiagram diagram, BpmnEndEvent el, MRef ref) {
+    public  GmBpmnEndEvent(IGmDiagram diagram, BpmnEndEvent el, MRef ref) {
         super(diagram, ref);
         
         GmBpmnEndEventPrimaryNode mainNode = new GmBpmnEndEventPrimaryNode(diagram, ref);
@@ -87,6 +85,7 @@ public class GmBpmnEndEvent extends GmPortContainer {
         label.setRoleInComposition(GmPortContainer.SATELLITE_ROLE);
         label.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         this.addChild(label);
+        
     }
 
     @objid ("60df0124-55b6-11e2-877f-002564c97630")
@@ -116,6 +115,7 @@ public class GmBpmnEndEvent extends GmPortContainer {
         default:
             return null;
         }
+        
     }
 
     @objid ("60df013d-55b6-11e2-877f-002564c97630")
@@ -133,13 +133,14 @@ public class GmBpmnEndEvent extends GmPortContainer {
         default:
             return Collections.emptyList();
         }
+        
     }
 
     /**
      * Empty constructor needed for deserialisation.
      */
     @objid ("60df0145-55b6-11e2-877f-002564c97630")
-    public GmBpmnEndEvent() {
+    public  GmBpmnEndEvent() {
         // Nothing specific to do.
     }
 
@@ -160,6 +161,7 @@ public class GmBpmnEndEvent extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("60df014e-55b6-11e2-877f-002564c97630")
@@ -181,12 +183,14 @@ public class GmBpmnEndEvent extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmBpmnEndEvent.", MINOR_VERSION);
+        
     }
 
     @objid ("60e087cd-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (BpmnEndEvent) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("60e087d2-55b6-11e2-877f-002564c97630")
@@ -197,7 +201,6 @@ public class GmBpmnEndEvent extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -209,7 +212,6 @@ public class GmBpmnEndEvent extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

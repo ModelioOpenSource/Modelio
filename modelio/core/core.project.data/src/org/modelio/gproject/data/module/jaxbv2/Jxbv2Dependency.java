@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.module.jaxbv2;
 
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
  * <p>Java class for _Dependency complex type.
@@ -72,7 +71,6 @@ public class Jxbv2Dependency {
 
     /**
      * Sets the value of the name property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -94,7 +92,6 @@ public class Jxbv2Dependency {
 
     /**
      * Sets the value of the version property.
-     * 
      * @param value allowed object is
      * {@link String }
      */

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.editingsupport.font;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,7 @@ public final class FontService {
     }
 
     @objid ("85a496db-1926-11e2-92d2-001ec947c8cc")
-    private FontService() {
+    private  FontService() {
         // private constructor to forbid class instantiation
     }
 
@@ -50,6 +49,7 @@ public final class FontService {
         } else {
             return "";
         }
+        
     }
 
     @objid ("050c7477-7009-4d10-9426-92394311e281")

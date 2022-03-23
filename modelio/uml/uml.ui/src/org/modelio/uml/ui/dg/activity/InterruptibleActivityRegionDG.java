@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.activity;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,7 +34,7 @@ public class InterruptibleActivityRegionDG extends LeafNodeDG {
      * @param node The gm node represented by this class.
      */
     @objid ("fcaa80ce-c4f6-4b3d-9523-de16bb7e847f")
-    public InterruptibleActivityRegionDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  InterruptibleActivityRegionDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 

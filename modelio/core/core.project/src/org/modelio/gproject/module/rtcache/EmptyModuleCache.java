@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.module.rtcache;
 
 import java.io.IOException;
@@ -45,7 +44,7 @@ public class EmptyModuleCache implements IModuleRTCache {
     }
 
     @objid ("c23ab254-0576-4894-963b-e7278367c11f")
-    private EmptyModuleCache() {
+    private  EmptyModuleCache() {
         // Nothing
     }
 

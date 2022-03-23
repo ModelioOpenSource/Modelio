@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,9 +49,10 @@ public class ERegion extends ENamedElement {
     }
 
     @objid ("9ba453e6-37ad-4d48-8e49-34c6eb79393f")
-    public ERegion(org.eclipse.uml2.uml.Region element) {
+    public  ERegion(org.eclipse.uml2.uml.Region element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("e303abed-276f-440a-8c46-078ed8f47ae6")
@@ -70,6 +70,7 @@ public class ERegion extends ENamedElement {
             ((Region)objingElt).setRepresented((StateMachine) objOwner);
         
         }
+        
     }
 
 }

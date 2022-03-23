@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnlane.header;
 
 import java.util.regex.Pattern;
@@ -39,12 +38,12 @@ public class LaneSymbolProvider {
      * This class is not instanciable.
      */
     @objid ("612cd2fa-55b6-11e2-877f-002564c97630")
-    private LaneSymbolProvider() {
+    private  LaneSymbolProvider() {
+        
     }
 
     /**
      * Get the lane label at the following format: "name : type"
-     * 
      * @param elementNamer service that assigns a default name to new model elements.
      * @param lane the lane
      * @return the computed label
@@ -82,7 +81,6 @@ public class LaneSymbolProvider {
 
     /**
      * Get the lane label at the following format: "name : type"
-     * 
      * @param elementNamer service that assigns a default name to new model elements.
      * @param elt the lane or participant
      * @return the computed label
@@ -96,6 +94,7 @@ public class LaneSymbolProvider {
         } else {
             return " ";
         }
+        
     }
 
 }

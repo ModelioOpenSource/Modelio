@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.checker;
 
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.core.di.annotations.Optional;
@@ -41,6 +40,7 @@ public class CheckElementHandler {
     public void execute(@Named(IServiceConstants.ACTIVE_SELECTION) final Object selection, IAuditService auditService, Shell shell, @Optional IProjectService projectService, IMModelServices modelService, IModelioNavigationService navigationService, MApplication application, EModelService emService) {
         CheckerView view = new CheckerView(shell, selection, modelService, navigationService, application, emService, auditService, projectService);
         view.open();
+        
     }
 
     @objid ("abe7bd0c-5df4-4e84-8f6c-20c72544832c")

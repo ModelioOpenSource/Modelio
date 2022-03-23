@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.model.impl.importer.defaultimporter;
 
 import java.util.Collection;
@@ -37,7 +36,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 @objid ("00689656-d3aa-108f-8d81-001ec947cd2a")
 public class DefaultObjectFinder extends AbstractObjectFinder {
     @objid ("9c3e132c-5e2e-41e9-9b89-925a882c2afb")
-    public DefaultObjectFinder(IModel searchedSession, MMetamodel metamodel) {
+    public  DefaultObjectFinder(IModel searchedSession, MMetamodel metamodel) {
         super(searchedSession, metamodel);
     }
 

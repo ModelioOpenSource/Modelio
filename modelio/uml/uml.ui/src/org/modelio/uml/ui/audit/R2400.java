@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.audit;
 
 import java.util.ArrayList;
@@ -75,6 +74,7 @@ public class R2400 extends AbstractUmlRule {
         // It also covers the case of renaming a Parameter.
         plan.registerRule(Parameter.MQNAME, this, AuditTrigger.CREATE | AuditTrigger.MOVE
                 | AuditTrigger.UPDATE);
+        
     }
 
     /**
@@ -108,14 +108,14 @@ public class R2400 extends AbstractUmlRule {
      * Default constructor for R2400
      */
     @objid ("ee328220-a379-4af6-b68c-b4f19b8d94dc")
-    public R2400() {
+    public  R2400() {
         this.checkerInstance = new CheckR2400(this);
     }
 
     @objid ("d4197b8a-bf9f-4ef5-bd8c-260c669b598f")
     private static class CheckR2400 extends AbstractControl {
         @objid ("b69a5114-a97c-4c3b-ae9b-036e7650613c")
-        public CheckR2400(IRule rule) {
+        public  CheckR2400(IRule rule) {
             super(rule);
         }
 

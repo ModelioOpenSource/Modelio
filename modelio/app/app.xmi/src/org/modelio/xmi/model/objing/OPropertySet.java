@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,7 +41,7 @@ public class OPropertySet extends OElement implements IOElement {
     }
 
     @objid ("63ca13e1-52b9-453e-ac5e-378b99abe348")
-    public OPropertySet(PropertyTableDefinition param) {
+    public  OPropertySet(PropertyTableDefinition param) {
         super(param);
     }
 

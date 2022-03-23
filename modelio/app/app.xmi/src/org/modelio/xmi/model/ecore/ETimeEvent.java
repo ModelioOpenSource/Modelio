@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,12 +43,14 @@ public class ETimeEvent extends ENamedElement {
             return result;
         }else
             return null;
+        
     }
 
     @objid ("5a3622cc-a2b3-47a8-89a2-faefa3fc2ef0")
-    public ETimeEvent(org.eclipse.uml2.uml.TimeEvent element) {
+    public  ETimeEvent(org.eclipse.uml2.uml.TimeEvent element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("a6ca8d23-f8ae-4475-a0ae-8e435aa7b1c6")
@@ -64,6 +65,7 @@ public class ETimeEvent extends ENamedElement {
                 objingElt.delete();
             }
         }
+        
     }
 
     @objid ("3f5f9e3b-a10d-462c-927c-7520ea887e21")
@@ -71,6 +73,7 @@ public class ETimeEvent extends ENamedElement {
     public void setProperties(Element objingElt) {
         super.setProperties(objingElt);
         setExpression((Event)objingElt);
+        
     }
 
     @objid ("3cefd2a2-2e58-4efd-b404-8279aa542373")
@@ -83,6 +86,7 @@ public class ETimeEvent extends ENamedElement {
                 objingElt.setExpression(expr);
             }
         }
+        
     }
 
 }

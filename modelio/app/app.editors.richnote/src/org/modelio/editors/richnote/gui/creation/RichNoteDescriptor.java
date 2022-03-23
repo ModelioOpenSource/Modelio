@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.gui.creation;
 
 import com.modeliosoft.modelio.javadesigner.annotations.mdl;
@@ -59,35 +58,36 @@ public class RichNoteDescriptor {
     /**
      * <p>Optional authentication data for remote documents.</p><p>The authentication data might&nbsp;or may not be stored in the model.</p>
      */
+    
     @mdl.prop
     @objid ("782b187e-ba5d-4278-b3a6-16540808a01d")
-    private IAuthData authData;
+    public IAuthData authData;
 
     @mdl.propgetter
     public IAuthData getAuthData() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.authData;
     }
 
     @mdl.propsetter
     public void setAuthData(IAuthData value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.authData = value;
     }
 
     /**
      * Initialize the rich note descriptor.
-     * 
      * @param targetElement The element on which the rich note must be created.
      */
     @objid ("8be9937f-bcef-4d60-b932-02c72651412c")
-    public RichNoteDescriptor(final ModelElement targetElement) {
+    public  RichNoteDescriptor(final ModelElement targetElement) {
         this.targetElement = targetElement;
         
         this.mimeType = RichNoteFormatRegistry.getInstance().getDocumentFormatForMime("application/vnd.openxmlformats-officedocument.wordprocessingml.document");
         if (this.mimeType == null || !this.mimeType.isUsable() || this.mimeType.getSupportLevel() != SupportLevel.Primary) {
             this.mimeType = RichNoteFormatRegistry.getInstance().getDocumentFormatForMime("application/vnd.oasis.opendocument.text");
         }
+        
     }
 
     /**
@@ -184,10 +184,15 @@ public class RichNoteDescriptor {
 
     @objid ("df6abd79-80bd-4e3b-9b76-ea1d7d5220d6")
     public enum CreationMode {
+        @objid ("0736e34c-a6d8-41c9-bcff-227d3533ab1d")
         EMBEDDED,
+        @objid ("be8ca4c2-bbfe-452f-a68e-03236c8e9f62")
         IMPORT,
+        @objid ("0e4579ba-8693-4127-878c-4c0249e97980")
         EXTERNAL,
+        @objid ("a9ba95d3-a960-4fbc-ab3c-b6bbc02cd389")
         UNDEFINED;
+
     }
 
 }

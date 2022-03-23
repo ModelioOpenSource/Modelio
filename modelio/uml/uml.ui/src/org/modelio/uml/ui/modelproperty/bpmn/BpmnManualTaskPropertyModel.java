@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import java.util.ArrayList;
@@ -56,20 +55,19 @@ public class BpmnManualTaskPropertyModel extends AbstractPropertyModel<BpmnManua
     /**
      * Create a new <i>BpmnManualTask</i> data model from an
      * <i>BpmnManualTask</i>.
-     * 
      * @param theEditedElement the model to edit.
      * @param modelService the model service needed to find elements.
      */
     @objid ("382475ab-ebbd-4800-a122-ab14b20de5c3")
-    public BpmnManualTaskPropertyModel(BpmnManualTask theEditedElement, IMModelServices modelService) {
+    public  BpmnManualTaskPropertyModel(BpmnManualTask theEditedElement, IMModelServices modelService) {
         super(theEditedElement);
         this.modelService = modelService;
         initPropertyModel();
+        
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("122c39c0-a689-47f7-94e1-4339bec77903")
@@ -80,7 +78,6 @@ public class BpmnManualTaskPropertyModel extends AbstractPropertyModel<BpmnManua
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("62e25d8b-1e74-443c-8eea-cb95f4cb0236")
@@ -95,7 +92,6 @@ public class BpmnManualTaskPropertyModel extends AbstractPropertyModel<BpmnManua
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -160,7 +156,6 @@ public class BpmnManualTaskPropertyModel extends AbstractPropertyModel<BpmnManua
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -238,13 +233,13 @@ public class BpmnManualTaskPropertyModel extends AbstractPropertyModel<BpmnManua
             this.properties.add("CompletionCondition");
             this.properties.add("EventDefinition");
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -300,6 +295,7 @@ public class BpmnManualTaskPropertyModel extends AbstractPropertyModel<BpmnManua
                 }
             }
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.bpmncollaboration;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -64,6 +63,7 @@ public class BpmnCollaborationEditPart extends AbstractNodeEditPart {
             throw new IllegalArgumentException("CallBehaviorEditPart#addChildVisual: unknown index " + index);
         }
         getFigure().add(child, gmAbstractObject.getLayoutData(), index);
+        
     }
 
     @objid ("d6a3bba3-2f5d-417f-9e3d-e832ff2a8612")
@@ -74,6 +74,7 @@ public class BpmnCollaborationEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                           new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("3ebe4bf3-fd46-4b26-98fd-e2d591984351")
@@ -103,6 +104,7 @@ public class BpmnCollaborationEditPart extends AbstractNodeEditPart {
                 super.refreshFromStyle(aFigure, style);
             }
         }
+        
     }
 
     @objid ("b13209ac-f636-4cfb-b312-1e661f8cf889")
@@ -110,6 +112,7 @@ public class BpmnCollaborationEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         GmBpmnCollaborationPrimaryNode callBehaviorModel = (GmBpmnCollaborationPrimaryNode) getModel();
         getFigure().getParent().setConstraint(getFigure(), callBehaviorModel.getLayoutData());
+        
     }
 
 }

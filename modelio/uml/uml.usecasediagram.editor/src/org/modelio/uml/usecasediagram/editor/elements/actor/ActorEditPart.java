@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.elements.actor;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -75,6 +74,7 @@ public class ActorEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                 new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("5e34d348-55b7-11e2-877f-002564c97630")
@@ -88,6 +88,7 @@ public class ActorEditPart extends AbstractNodeEditPart {
                 updateFigureBorder((GradientFigure) aFigure);
             }
         }
+        
     }
 
     @objid ("5e34d350-55b7-11e2-877f-002564c97630")
@@ -95,6 +96,7 @@ public class ActorEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         GmActorPrimaryNode model = (GmActorPrimaryNode) getModel();
         getFigure().getParent().setConstraint(getFigure(), model.getLayoutData());
+        
     }
 
     @objid ("5e34d354-55b7-11e2-877f-002564c97630")
@@ -104,6 +106,7 @@ public class ActorEditPart extends AbstractNodeEditPart {
         
         updateSeparations(getFigure());
         updateFigureBorder(getFigure());
+        
     }
 
     @objid ("5e34d359-55b7-11e2-877f-002564c97630")
@@ -113,6 +116,7 @@ public class ActorEditPart extends AbstractNodeEditPart {
         
         updateSeparations(getFigure());
         updateFigureBorder(getFigure());
+        
     }
 
     @objid ("5e34d35d-55b7-11e2-877f-002564c97630")
@@ -126,6 +130,7 @@ public class ActorEditPart extends AbstractNodeEditPart {
                 false);
         
         ChildFigureLineSeparator.updateSeparation(aFigure, zoneBorder);
+        
     }
 
     @objid ("5e34d361-55b7-11e2-877f-002564c97630")
@@ -135,6 +140,7 @@ public class ActorEditPart extends AbstractNodeEditPart {
         final CompoundBorder b = new CompoundBorder(outer, inner);
         
         aFigure.setBorder(b);
+        
     }
 
     @objid ("5e34d364-55b7-11e2-877f-002564c97630")

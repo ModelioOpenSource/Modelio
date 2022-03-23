@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.diagrams;
 
 import java.util.ArrayList;
@@ -70,15 +69,15 @@ public class BpmnDiagramUnmaskHelper {
 
     /**
      * C'tor.
-     * 
      * @param gmDiagram the diagram to unmask contents into.
      * @param viewer the diagram viewer.
      */
     @objid ("27940cd1-e09c-4194-b7fb-ff7f2ecd829c")
-    public BpmnDiagramUnmaskHelper(IGmDiagram gmDiagram, EditPartViewer viewer) {
+    public  BpmnDiagramUnmaskHelper(IGmDiagram gmDiagram, EditPartViewer viewer) {
         this.viewer = viewer;
         this.gmDiagram = gmDiagram;
         this.rootFigure = ((GraphicalEditPart) this.viewer.getRootEditPart()).getFigure();
+        
     }
 
     /**
@@ -99,6 +98,7 @@ public class BpmnDiagramUnmaskHelper {
         } else if (origin instanceof BpmnSubProcess) {
             doUnmaskWorkflowElements((BpmnSubProcess) origin);
         }
+        
     }
 
     @objid ("2a569856-65d9-4e79-b784-b052166f0e1d")
@@ -168,6 +168,7 @@ public class BpmnDiagramUnmaskHelper {
                 }
             }
         }
+        
     }
 
     @objid ("1c5c1898-1df1-4e7e-8f30-40f334a7d939")
@@ -182,6 +183,7 @@ public class BpmnDiagramUnmaskHelper {
         for (BpmnFlowElement node : lane.getFlowElementRef()) {
             doUnmaskElement(node, unmaskCoordinates.translate(5, 5), lane);
         }
+        
     }
 
     @objid ("e5c395a7-586a-4c52-90cf-833dddc02878")
@@ -192,6 +194,7 @@ public class BpmnDiagramUnmaskHelper {
         
             doUnmaskLaneElements(lane, unmaskCoordinates);
         }
+        
     }
 
     @objid ("de99eed4-21e6-4290-a946-6960c949608c")
@@ -222,6 +225,7 @@ public class BpmnDiagramUnmaskHelper {
                 unmaskDataAssociations(elt, unmaskCoordinates);
             }
         }
+        
     }
 
     @objid ("5e7d746b-15d2-47d9-a79b-65a0314d86ae")
@@ -250,12 +254,12 @@ public class BpmnDiagramUnmaskHelper {
                 doUnmaskElement(elt, unmaskCoordinates.translate(5, 5), this.gmDiagram.getRelatedElement());
             }
         }
+        
     }
 
     /**
      * Returns the diagram graphic models for the passed element.
      * @param gmObject a model element
-     * 
      * @return a list of {@link GmModel}. Empty when the element is not unmasked in the diagram.
      */
     @objid ("84f64981-6ec8-4d5c-a19f-f02f8236ba7e")
@@ -273,7 +277,6 @@ public class BpmnDiagramUnmaskHelper {
 
     /**
      * Returns the edit part for the passed object.
-     * 
      * @param gmObject the graphic object model
      * @return the edit part
      */
@@ -284,7 +287,6 @@ public class BpmnDiagramUnmaskHelper {
 
     /**
      * Unmask {@link BpmnDataAssociation} linked to this element.
-     * 
      * @param elt the element to check for {@link BpmnDataAssociation} links.
      * @param unmaskCoordinates where to unmask the link.
      */
@@ -314,6 +316,7 @@ public class BpmnDiagramUnmaskHelper {
                 unmaskDataAssociations(unmaskCoordinates, dataAssociation);
             }
         }
+        
     }
 
     @objid ("6cb17e72-1135-43c2-b9d7-3f7314838ceb")
@@ -325,6 +328,7 @@ public class BpmnDiagramUnmaskHelper {
                 doUnmaskElement(bpmnSequenceFlowDataAssociation, unmaskCoordinates.translate(5, 5), this.gmDiagram.getRelatedElement());
             }
         }
+        
     }
 
 }

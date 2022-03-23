@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.contributor;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.swt.graphics.Image;
 import org.modelio.api.modelio.model.scope.ElementScope;
@@ -87,6 +86,7 @@ public class SequenceDiagramCreationContributor extends AbstractDiagramWizardCon
         } else {
             return null;
         }
+        
     }
 
     @objid ("77ff93e3-6ecc-47cd-804a-d640b982c7fc")
@@ -122,6 +122,7 @@ public class SequenceDiagramCreationContributor extends AbstractDiagramWizardCon
         } else {
             return this.mmServices.getMetamodel();
         }
+        
     }
 
     @objid ("5406bf1d-0df5-479d-ab4a-23f9b850ddea")

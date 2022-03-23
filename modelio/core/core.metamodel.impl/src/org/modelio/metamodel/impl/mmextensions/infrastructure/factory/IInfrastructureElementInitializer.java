@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.infrastructure.factory;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,6 @@ interface IInfrastructureElementInitializer {
      * Initialize the given element.
      * @param modelFactory
      * the model creation factory.
-     * 
      * @param element The element to initialize.
      */
     @objid ("6f6d5c56-2dc3-475f-b4ee-dc128827142c")

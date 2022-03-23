@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.audit;
 
 import java.util.ArrayList;
@@ -86,6 +85,7 @@ public class R1050 extends AbstractUmlRule {
                 AuditTrigger.MOVE |
                 AuditTrigger.UPDATE |
                 AuditTrigger.DELETE);
+        
     }
 
     /**
@@ -119,9 +119,10 @@ public class R1050 extends AbstractUmlRule {
      * Default constructor for R1050
      */
     @objid ("57bb4221-2db4-4290-bc91-f55fabb75d6f")
-    public R1050() {
+    public  R1050() {
         this.checkerInstance = new CheckR1050(this);
         this.deleteCheckerInstance = new CheckFlowDeleteR1050(this);
+        
     }
 
     @objid ("af3ff378-6804-4f76-a88f-aeb5fa7654ef")
@@ -137,11 +138,10 @@ public class R1050 extends AbstractUmlRule {
     private static class CheckR1050 extends AbstractControl {
         /**
          * C'tor.
-         * 
          * @param rule the rule to check.
          */
         @objid ("d35fd839-fc2d-4c31-a39d-e42220302090")
-        public CheckR1050(IRule rule) {
+        public  CheckR1050(IRule rule) {
             super(rule);
         }
 
@@ -202,7 +202,7 @@ public class R1050 extends AbstractUmlRule {
     @objid ("d788afe1-71b7-49a4-9a51-c103f474f3d8")
     private static class CheckFlowDeleteR1050 extends CheckR1050 {
         @objid ("a6bb89dc-65f5-4e1c-94a7-f3bedb7e86f7")
-        public CheckFlowDeleteR1050(final IRule rule) {
+        public  CheckFlowDeleteR1050(final IRule rule) {
             super(rule);
         }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.view.model;
 
 import java.text.AttributedCharacterIterator;
@@ -29,8 +28,8 @@ import java.util.MissingResourceException;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider.IStyledLabelProvider;
 import org.eclipse.jface.viewers.ILabelProvider;
-import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.jface.viewers.StyledString;
+import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.swt.custom.StyleRange;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.RGB;
@@ -54,6 +53,7 @@ public class DiagnosticFormatter {
             Audit.LOG.warning("auditrules: no entry for rule " + entry.getRuleId() + ".message");
             return "!" + entry.getRuleId() + ".message!";
         }
+        
     }
 
     @objid ("412fe267-1739-495d-a70d-1af908ac81f7")
@@ -131,6 +131,7 @@ public class DiagnosticFormatter {
             Audit.LOG.warning("auditrules: no entry for rule " + entry.getRuleId() + ".message");
             return new StyledString("!" + entry.getRuleId() + ".message!");
         }
+        
     }
 
     @objid ("ea8b7907-802c-4dd7-bca1-76abb2b852e9")
@@ -189,7 +190,7 @@ public class DiagnosticFormatter {
      * Make default constructor private, this is a pure utility class.
      */
     @objid ("43d2339a-4a9f-497b-85d6-3052e092fefe")
-    private DiagnosticFormatter() {
+    private  DiagnosticFormatter() {
         super();
     }
 
@@ -216,6 +217,7 @@ public class DiagnosticFormatter {
                 textStyle.underlineColor = this.range.underlineColor;
                 textStyle.underlineStyle = this.range.underlineStyle;
             }
+            
         }
 
         @objid ("0081d8ff-8e8c-48d7-9ad9-e67a11c3ce46")
@@ -239,6 +241,7 @@ public class DiagnosticFormatter {
                 RGB target = targetColor.getRGB();
                 textStyle.foreground = CoreColorRegistry.getIntermediateColor(textStyle.foreground, target, 0.3f);
             }
+            
         }
 
     }

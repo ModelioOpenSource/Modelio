@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.sequence;
 
 import java.util.Collection;
@@ -25,6 +24,7 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.modelio.diagram.IDiagramNode;
+import org.modelio.api.modelio.diagram.IDiagramNode.Role;
 import org.modelio.diagram.api.dg.DGFactory;
 import org.modelio.diagram.api.services.DiagramHandle;
 import org.modelio.diagram.api.services.DiagramNode;
@@ -42,7 +42,7 @@ public class LifelineDG extends DiagramNode {
      * @param node The gm node represented by this class.
      */
     @objid ("a12281df-cab9-4bb5-918b-8ef9f87e2e20")
-    public LifelineDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  LifelineDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 
@@ -56,6 +56,7 @@ public class LifelineDG extends DiagramNode {
         } else {
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("95fadb4c-1cdc-45dc-9b55-62d5487a7821")
@@ -66,6 +67,7 @@ public class LifelineDG extends DiagramNode {
         } else {
             return Collections.emptyList();
         }
+        
     }
 
 }

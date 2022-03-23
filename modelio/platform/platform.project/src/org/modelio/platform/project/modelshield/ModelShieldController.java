@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.project.modelshield;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,7 +36,6 @@ import org.modelio.vcore.smkernel.mapi.modelshield.api.IErrorReport;
 public class ModelShieldController {
     /**
      * This method is called during a project opening.
-     * 
      * @param openedProject the opened project
      */
     @objid ("82488fee-1dd5-11e2-82de-002564c97630")
@@ -58,12 +56,12 @@ public class ModelShieldController {
                 ErrorReportDialog.open(AppProjectCore.I18N.getString("CoreAudit.report.title"), AppProjectCore.I18N.getString("CoreAudit.report.message"), errors);
             }
         });
+        
     }
 
     /**
      * Called when a project is closed.
      * On session close un-reference the modeling session.
-     * 
      * @param closedProject the closed project
      */
     @objid ("82488ff4-1dd5-11e2-82de-002564c97630")
@@ -72,6 +70,7 @@ public class ModelShieldController {
         if (session != null) {
             session.getTransactionSupport().setTransactionValidator(null);
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.umlcommon.externdocument;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -71,6 +70,6 @@ public class GmExternDocumentStyleKeys extends ElementsAbstractStyleKeyProvider 
      */
     @objid ("815b74e4-1dec-11e2-8cad-001ec947c8cc")
     public static final StyleKey LINEPATTERN = createStyleKey("EXTERNDOCUMENT_LINEPATTERN",
-                                                              MetaKey.LINEPATTERN);
+                                                                  MetaKey.LINEPATTERN);
 
 }

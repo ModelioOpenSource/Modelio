@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.script.macro.catalogdialog;
 
 import java.util.ArrayList;
@@ -72,6 +71,7 @@ class CatalogContentProvider implements ITreeContentProvider {
         } else {
             return null;
         }
+        
     }
 
     @objid ("0069b77a-c497-106a-bf4f-001ec947cd2a")
@@ -85,10 +85,12 @@ class CatalogContentProvider implements ITreeContentProvider {
         } else {
             return false;
         }
+        
     }
 
     @objid ("00697a62-c497-106a-bf4f-001ec947cd2a")
-    public CatalogContentProvider() {
+    public  CatalogContentProvider() {
+        
     }
 
     @objid ("006a1062-c497-106a-bf4f-001ec947cd2a")
@@ -97,6 +99,7 @@ class CatalogContentProvider implements ITreeContentProvider {
         //
         // // Notify Catalogs observers
         // this.provider.getObservable().notifyObservers(this.provider);
+        
     }
 
     @objid ("006a10f8-c497-106a-bf4f-001ec947cd2a")
@@ -105,6 +108,7 @@ class CatalogContentProvider implements ITreeContentProvider {
         //
         // // Notify Catalogs observers
         // this.provider.getObservable().notifyObservers(this.provider);
+        
     }
 
     @objid ("0083ccf0-ca64-106a-bf4f-001ec947cd2a")

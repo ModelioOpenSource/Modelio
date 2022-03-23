@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,17 +50,15 @@ public class JoinPseudoStatePropertyModel extends AbstractPropertyModel<JoinPseu
     /**
      * Create a new <i>JoinPseudoState</i> data model from an
      * <i>JoinPseudoState</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("a702d606-d1f2-4685-9732-e24bb726b7ef")
-    public JoinPseudoStatePropertyModel(JoinPseudoState theEditedElement) {
+    public  JoinPseudoStatePropertyModel(JoinPseudoState theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("d7cd2eec-cda8-4ed0-937b-112de2b9d948")
@@ -72,7 +69,6 @@ public class JoinPseudoStatePropertyModel extends AbstractPropertyModel<JoinPseu
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("fc48dfab-7401-4b03-a31d-dd3f1d9088c9")
@@ -85,7 +81,6 @@ public class JoinPseudoStatePropertyModel extends AbstractPropertyModel<JoinPseu
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -107,6 +102,7 @@ public class JoinPseudoStatePropertyModel extends AbstractPropertyModel<JoinPseu
         default:
             return null;
         }
+        
     }
 
     /**
@@ -116,7 +112,6 @@ public class JoinPseudoStatePropertyModel extends AbstractPropertyModel<JoinPseu
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -139,13 +134,13 @@ public class JoinPseudoStatePropertyModel extends AbstractPropertyModel<JoinPseu
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -170,6 +165,7 @@ public class JoinPseudoStatePropertyModel extends AbstractPropertyModel<JoinPseu
         default:
             return;
         }
+        
     }
 
 }

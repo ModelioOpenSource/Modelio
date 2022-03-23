@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,10 +32,11 @@ public class OEnumerationLiteral extends OModelElement {
     public org.eclipse.uml2.uml.Element createEcoreElt() {
         return UMLFactory.eINSTANCE
                                         .createEnumerationLiteral();
+        
     }
 
     @objid ("b9edea2a-3b05-403f-8c05-59951b05b7ad")
-    public OEnumerationLiteral(EnumerationLiteral element) {
+    public  OEnumerationLiteral(EnumerationLiteral element) {
         super(element);
     }
 
@@ -55,6 +55,7 @@ public class OEnumerationLiteral extends OModelElement {
                 ecoreEnum.getOwnedLiterals().add((org.eclipse.uml2.uml.EnumerationLiteral)ecoreElt);
             }
         }
+        
     }
 
     @objid ("d11e713a-d26c-4675-8c58-6621b191ddd0")

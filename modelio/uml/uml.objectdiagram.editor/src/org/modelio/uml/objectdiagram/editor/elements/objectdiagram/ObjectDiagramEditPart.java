@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.objectdiagram.editor.elements.objectdiagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -87,6 +86,7 @@ public class ObjectDiagramEditPart extends AbstractDiagramEditPart {
         // Allow creation of n-ary associations, links, connectors
         installEditPolicy("nary-link", new NLinkFinalizationEditPolicy());
         installEditPolicy("nary-connector", new NConnectorFinalizationEditPolicy());
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.realization;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -71,6 +70,7 @@ public class InterfaceRealizationEditPart extends LinkEditPart {
             if (arrow != null)
                 arrow.setLinePattern(LinePattern.LINE_SOLID);
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.finalstate;
 
 import java.util.Collections;
@@ -31,8 +30,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.FinalState;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -44,9 +43,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("f526e788-55b6-11e2-877f-002564c97630")
 public class GmFinalState extends GmPortContainer {
-    @objid ("f526e78c-55b6-11e2-877f-002564c97630")
-    private FinalState element;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -56,8 +52,11 @@ public class GmFinalState extends GmPortContainer {
     @objid ("f526e798-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
 
+    @objid ("f526e78c-55b6-11e2-877f-002564c97630")
+    private FinalState element;
+
     @objid ("fd6ab013-5a5b-11e2-9e33-00137282c51b")
-     static final GmFinalStateStructuredStyleKeys STRUCTURED_KEYS = new GmFinalStateStructuredStyleKeys();
+    static final GmFinalStateStructuredStyleKeys STRUCTURED_KEYS = new GmFinalStateStructuredStyleKeys();
 
     @objid ("fd6ab015-5a5b-11e2-9e33-00137282c51b")
     private static final GmFinalStateSimpleStyleKeys SIMPLE_KEYS = new GmFinalStateSimpleStyleKeys();
@@ -70,13 +69,12 @@ public class GmFinalState extends GmPortContainer {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the element is unmasked.
      * @param el the unmasked element, can be <i>null</i>.
      * @param ref the unmasked element reference, must not be <i>null</i>..
      */
     @objid ("f526e79a-55b6-11e2-877f-002564c97630")
-    public GmFinalState(IGmDiagram diagram, FinalState el, MRef ref) {
+    public  GmFinalState(IGmDiagram diagram, FinalState el, MRef ref) {
         super(diagram, ref);
         
         GmFinalStatePrimaryNode mainNode = new GmFinalStatePrimaryNode(diagram, ref);
@@ -89,6 +87,7 @@ public class GmFinalState extends GmPortContainer {
         
         this.addChild(mainNode);
         this.addChild(label);
+        
     }
 
     @objid ("f526e7a6-55b6-11e2-877f-002564c97630")
@@ -147,7 +146,7 @@ public class GmFinalState extends GmPortContainer {
      * Empty constructor needed for deserialisation.
      */
     @objid ("f5286e29-55b6-11e2-877f-002564c97630")
-    public GmFinalState() {
+    public  GmFinalState() {
         // Nothing specific to do.
     }
 
@@ -168,6 +167,7 @@ public class GmFinalState extends GmPortContainer {
                 break;
             }
         }
+        
     }
 
     @objid ("f5286e32-55b6-11e2-877f-002564c97630")
@@ -189,12 +189,14 @@ public class GmFinalState extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmFinalState.", GmFinalState.MINOR_VERSION);
+        
     }
 
     @objid ("f5286e46-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (FinalState) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("f5286e4b-55b6-11e2-877f-002564c97630")
@@ -205,7 +207,6 @@ public class GmFinalState extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -217,7 +218,6 @@ public class GmFinalState extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

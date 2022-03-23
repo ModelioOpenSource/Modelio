@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.versioned;
 
 import java.util.Collection;
@@ -64,11 +63,10 @@ public class VersionedNodeDependencies {
 
     /**
      * Computes the CMS dependencies of a given CMS node element.
-     * 
      * @param el a CMS node
      */
     @objid ("3de2911e-121a-11e2-816a-001ec947ccaf")
-    public VersionedNodeDependencies(final SmObjectImpl el) {
+    public  VersionedNodeDependencies(final SmObjectImpl el) {
         this.parentNode = ExmlUtils.getParentCmsNode (el);
         
         computeDependentObjects(el, new HashSet<MObject>());
@@ -78,6 +76,7 @@ public class VersionedNodeDependencies {
         this.compLocalNodes.remove(el);
         this.refNodes.remove(el);
         this.refDeps.remove(el);
+        
     }
 
     /**
@@ -98,7 +97,6 @@ public class VersionedNodeDependencies {
 
     /**
      * Get the model objects outside of the repository.
-     * 
      * @return the model objects outside of the repository
      */
     @objid ("ad6ff07b-1778-11e2-ac36-001ec947ccaf")
@@ -118,7 +116,6 @@ public class VersionedNodeDependencies {
      * Get the objects referenced outside this node.
      * <p>
      * The CMS node owning these objects can be got with {@link #getUsedNodes()}.
-     * 
      * @return the used objects .
      */
     @objid ("ad6ff06f-1778-11e2-ac36-001ec947ccaf")
@@ -128,7 +125,6 @@ public class VersionedNodeDependencies {
 
     /**
      * Get the CMS nodes used by this CMS node.
-     * 
      * @return the used CMS nodes
      */
     @objid ("ad6ff068-1778-11e2-ac36-001ec947ccaf")
@@ -199,6 +195,7 @@ public class VersionedNodeDependencies {
         
         // remove 'object' from recursion context
         recursionContext.remove(object);
+        
     }
 
     /**
@@ -210,7 +207,7 @@ public class VersionedNodeDependencies {
         public static final Comparator<MObject> instance = new MObjectComparator();
 
         @objid ("c67520c3-f661-45b8-8077-84d2ddab6653")
-        public MObjectComparator() {
+        public  MObjectComparator() {
             // nothing
         }
 

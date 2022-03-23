@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.namespacelabel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,6 +46,7 @@ public class NamespaceLabelEditPart extends ModelElementLabelEditPart {
                 headerFigure.setTextFont(CoreFontRegistry.getModifiedFont(headerFigure.getTextFont(), SWT.ITALIC, 1));
             }
         }
+        
     }
 
 }

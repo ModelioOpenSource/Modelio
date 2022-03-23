@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.core.modelshield;
 
 import java.util.ArrayList;
@@ -55,7 +54,6 @@ public class ModelShield {
 
     /**
      * Add a protection agent.
-     * 
      * @param agent a protection agent.
      */
     @objid ("5edd4230-2b5b-11de-b561-001ec947cd2a")
@@ -65,7 +63,6 @@ public class ModelShield {
 
     /**
      * Remove a protection agent.
-     * 
      * @param agent a protection agent.
      */
     @objid ("25146e1e-721e-11de-9c55-0014222a9f79")
@@ -75,7 +72,6 @@ public class ModelShield {
 
     /**
      * Add a diagnostic listener.
-     * 
      * @param listener a diagnostic listener.
      */
     @objid ("002804f8-0000-064a-0000-000000000000")
@@ -85,7 +81,6 @@ public class ModelShield {
 
     /**
      * Remove a diagnostic listener
-     * 
      * @param listener a diagnostic listener.
      */
     @objid ("002804f8-0000-0647-0000-000000000000")
@@ -95,7 +90,6 @@ public class ModelShield {
 
     /**
      * Check for model errors on a model object.
-     * 
      * @param anObject a model object to check.
      * @return the check report.
      */
@@ -123,11 +117,11 @@ public class ModelShield {
                 listener.onCommitDiagnostic(diagnostic);
             }
         }
+        
     }
 
     /**
      * Check a transaction for model errors.
-     * 
      * @param transaction the transaction to check.
      * @return the check report.
      */
@@ -156,7 +150,7 @@ public class ModelShield {
         private final ModelShield modelShield;
 
         @objid ("01f40340-0000-6958-0000-000000000000")
-        public ModelShieldTransactionValidator(final ModelShield modelShield) {
+        public  ModelShieldTransactionValidator(final ModelShield modelShield) {
             this.modelShield = modelShield;
         }
 
@@ -167,6 +161,7 @@ public class ModelShield {
             
             if (report.isFailed())
                 throw new IllegalModelManipulationException(MODELSHIELD_ERROR, null, report);
+            
         }
 
     }

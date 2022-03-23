@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import java.util.ArrayList;
@@ -44,7 +43,7 @@ public class ONoteType extends OElement implements IOElement {
     }
 
     @objid ("35cba785-d1bd-48b4-8d8f-b75a6bc4eb00")
-    public ONoteType(NoteType param) {
+    public  ONoteType(NoteType param) {
         super(param);
     }
 

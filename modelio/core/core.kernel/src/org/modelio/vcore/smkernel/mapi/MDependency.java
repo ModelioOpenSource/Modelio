@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.mapi;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,7 +39,6 @@ public interface MDependency {
 
     /**
      * Get the dependency target (aka its type).
-     * 
      * @return the dependency target metamodel class.
      */
     @objid ("005315ec-2efa-1ffc-8433-001ec947cd2a")
@@ -48,7 +46,6 @@ public interface MDependency {
 
     /**
      * Get the origin of this dependency.
-     * 
      * @return the dependency origin metamodel class.
      */
     @objid ("00531da8-2efa-1ffc-8433-001ec947cd2a")
@@ -57,7 +54,6 @@ public interface MDependency {
     /**
      * Tells whether this dependency is a strong composition.
      * @see #isSharedComposition()
-     * 
      * @return <code>true</code> for a composition dependency.
      */
     @objid ("00532596-2efa-1ffc-8433-001ec947cd2a")
@@ -65,7 +61,6 @@ public interface MDependency {
 
     /**
      * Get the opposite dependency.
-     * 
      * @return the opposite of this dependency.
      */
     @objid ("00532dca-2efa-1ffc-8433-001ec947cd2a")
@@ -75,7 +70,6 @@ public interface MDependency {
      * Get the minimum cardinality of this dependency
      * <p>
      * Usually returns 0 or 1.
-     * 
      * @return the minimum cardinality
      */
     @objid ("0053364e-2efa-1ffc-8433-001ec947cd2a")
@@ -85,7 +79,6 @@ public interface MDependency {
      * Get the maximum cardinality of this dependency.
      * <p>
      * -1 means no limit, usually return 1 or -1.
-     * 
      * @return the maximum cardinality
      */
     @objid ("00533f36-2efa-1ffc-8433-001ec947cd2a")
@@ -98,7 +91,6 @@ public interface MDependency {
      * <p>
      * <b>Note:</b> Be warned that a model object composition graph including shared compositions may
      * contain cycles. Please mind them when navigating it to avoid infinite loops and {@link StackOverflowError}.
-     * 
      * @return <code>true</code> for a composition dependency.
      */
     @objid ("9ac80a00-7577-4334-8564-8ecd5d145372")

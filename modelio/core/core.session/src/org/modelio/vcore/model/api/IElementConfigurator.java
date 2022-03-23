@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model.api;
 
 import java.util.Map;
@@ -34,7 +33,6 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IElementConfigurator {
     /**
      * Configure an element.
-     * 
      * @param element the element to configure
      * @param properties properties that can be used to customize the configuration. These properties
      * are implementation dependent.

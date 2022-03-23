@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import java.util.List;
@@ -35,7 +34,7 @@ public class EAbstraction extends EDependency {
     }
 
     @objid ("7b1d772c-f2ac-4739-afe4-c91c20fabc39")
-    public EAbstraction(org.eclipse.uml2.uml.Abstraction element) {
+    public  EAbstraction(org.eclipse.uml2.uml.Abstraction element) {
         super(element);
     }
 
@@ -47,6 +46,7 @@ public class EAbstraction extends EDependency {
         if (objingElt instanceof Abstraction) {
             setMapping((Abstraction) objingElt);
         }
+        
     }
 
     @objid ("8a3e5ba3-c827-47c8-9d79-3960070d1fce")
@@ -67,6 +67,7 @@ public class EAbstraction extends EDependency {
         
             objingElt.setMapping(objingMapping.toString());
         }
+        
     }
 
 }

@@ -9,8 +9,8 @@ import jdbm.RecordManagerFactory;
 import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
-import org.modelio.vcore.smkernel.meta.mof.MofMetamodel.MofBuilder;
 import org.modelio.vcore.smkernel.meta.mof.MofMetamodel;
+import org.modelio.vcore.smkernel.meta.mof.MofMetamodel.MofBuilder;
 import org.modelio.vcore.smkernel.meta.mof.MofSmClass;
 import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 import org.modelio.vstore.exml.common.index.IndexException;
@@ -42,6 +42,7 @@ public class SymbolTableTest {
         } finally {
             db.close();
         }
+        
     }
 
     @objid ("7fd850bf-57fe-458a-876a-e73b8e21d558")
@@ -77,6 +78,7 @@ public class SymbolTableTest {
         } finally {
             db.close();
         }
+        
     }
 
     @objid ("4e187c69-1662-463a-95c7-22a3c9fed4f9")
@@ -151,6 +153,7 @@ public class SymbolTableTest {
         } finally {
             db.close();
         }
+        
     }
 
     /**
@@ -169,7 +172,7 @@ public class SymbolTableTest {
         public final MofMetamodel mm;
 
         @objid ("48780530-dd46-4521-9e52-d180743107e6")
-        public TestMetamodel() {
+        public  TestMetamodel() {
             this.mm = new MofMetamodel();
             try (MofBuilder mmBuilder = this.mm.builder();) {
                 this.classCls = mmBuilder.createClass("Class", "mmFrag1", true).build();
@@ -202,6 +205,7 @@ public class SymbolTableTest {
                 })
                 .build();
             }
+            
         }
 
     }

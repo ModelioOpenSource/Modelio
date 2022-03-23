@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.manager;
 
 import java.io.File;
@@ -134,12 +133,11 @@ public class StyleEditorDialog extends ModelioDialog {
 
     /**
      * C'tor.
-     * 
      * @param parentShell the parent SWT shell
      * @param pickingService Modelio picking service
      */
     @objid ("85bed06b-1926-11e2-92d2-001ec947c8cc")
-    public StyleEditorDialog(Shell parentShell, IModelioPickingService pickingService) {
+    public  StyleEditorDialog(Shell parentShell, IModelioPickingService pickingService) {
         super(parentShell);
         this.pickingService = pickingService;
         
@@ -148,6 +146,7 @@ public class StyleEditorDialog extends ModelioDialog {
         this.model = new StyleEditPanelUIData(viewModel, editedStyle, true);
         
         setBlockOnOpen(false);
+        
     }
 
     @objid ("85bed06f-1926-11e2-92d2-001ec947c8cc")
@@ -187,6 +186,7 @@ public class StyleEditorDialog extends ModelioDialog {
         setTitle(DiagramStyles.I18N.getString("EditStylesDialog.SubTitle"));
         setMessage(DiagramStyles.I18N.getString("EditStylesDialog.Message"));
         getShell().setText(DiagramStyles.I18N.getString("EditStylesDialog.Title"));
+        
     }
 
     @objid ("85c3951e-1926-11e2-92d2-001ec947c8cc")
@@ -197,7 +197,6 @@ public class StyleEditorDialog extends ModelioDialog {
 
     /**
      * Set the edited style
-     * 
      * @param editedStyle the edited style
      */
     @objid ("85c39522-1926-11e2-92d2-001ec947c8cc")
@@ -266,6 +265,7 @@ public class StyleEditorDialog extends ModelioDialog {
                 this.styleEditPanel.setInput(this.model);
             }
         }
+        
     }
 
     @objid ("85c39525-1926-11e2-92d2-001ec947c8cc")
@@ -308,6 +308,7 @@ public class StyleEditorDialog extends ModelioDialog {
             this.restoreButton.setEnabled(false);
         
         }
+        
     }
 
     @objid ("85c39536-1926-11e2-92d2-001ec947c8cc")
@@ -572,6 +573,7 @@ public class StyleEditorDialog extends ModelioDialog {
             this.styleViewer.refresh();
             this.styleViewer.setSelection(new StructuredSelection(newStyle), true);
         }
+        
     }
 
     @objid ("2c49f859-133c-428e-a63c-697eb2ba240b")
@@ -610,6 +612,7 @@ public class StyleEditorDialog extends ModelioDialog {
                 }
             }
         }
+        
     }
 
     @objid ("85c5f78e-1926-11e2-92d2-001ec947c8cc")
@@ -622,6 +625,7 @@ public class StyleEditorDialog extends ModelioDialog {
             } else {
                 return super.getText(element);
             }
+            
         }
 
         @objid ("ce754385-7e5c-44fa-bd94-3033fad528d7")
@@ -632,6 +636,7 @@ public class StyleEditorDialog extends ModelioDialog {
             } else {
                 return super.getImage(element);
             }
+            
         }
 
     }
@@ -645,6 +650,7 @@ public class StyleEditorDialog extends ModelioDialog {
             return sm.getAvailableStyles().stream()
                     .map(styleName -> sm.getStyle(styleName))
                     .collect(Collectors.toList()).toArray();
+            
         }
 
     }
@@ -666,10 +672,11 @@ public class StyleEditorDialog extends ModelioDialog {
             } else {
                 return 2;
             }
+            
         }
 
         @objid ("727877b6-ad50-460c-b6f2-ff5f7b0ac96b")
-        public StyleViewerComparator(boolean areThemeFirst) {
+        public  StyleViewerComparator(boolean areThemeFirst) {
             this.areThemeFirst = areThemeFirst;
         }
 

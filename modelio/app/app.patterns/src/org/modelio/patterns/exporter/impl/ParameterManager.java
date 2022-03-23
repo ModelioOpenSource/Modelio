@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.exporter.impl;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.patterns.exporter.PatternModelAnalysis;
+import org.modelio.patterns.model.ProfileUtils;
 import org.modelio.patterns.model.ProfileUtils.ParameterModelData;
 import org.modelio.patterns.model.ProfileUtils.PatternDesignerTagTypes;
-import org.modelio.patterns.model.ProfileUtils;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
 
@@ -56,7 +55,7 @@ class ParameterManager {
     private PatternModelAnalysis report;
 
     @objid ("6b806399-debd-4df6-9cc1-550474f65c84")
-    public ParameterManager(PatternModelAnalysis report) {
+    public  ParameterManager(PatternModelAnalysis report) {
         this.report = report;
     }
 

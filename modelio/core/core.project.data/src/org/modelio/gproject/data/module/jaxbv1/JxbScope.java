@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.module.jaxbv1;
 
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
  * <p>Java class for scope complex type.
@@ -67,7 +66,6 @@ public class JxbScope {
 
     /**
      * Sets the value of the metaclass property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -89,7 +87,6 @@ public class JxbScope {
 
     /**
      * Sets the value of the stereotype property.
-     * 
      * @param value allowed object is
      * {@link String }
      */

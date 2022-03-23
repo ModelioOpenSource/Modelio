@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,7 +30,7 @@ public class EExtension extends ENamedElement {
     }
 
     @objid ("4005cc21-710f-4e40-8bc0-69b4872688a4")
-    public EExtension(org.eclipse.uml2.uml.Extension element) {
+    public  EExtension(org.eclipse.uml2.uml.Extension element) {
         super(element);
     }
 

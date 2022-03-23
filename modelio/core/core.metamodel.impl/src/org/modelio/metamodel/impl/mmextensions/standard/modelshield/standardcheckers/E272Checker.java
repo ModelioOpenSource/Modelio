@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.modelshield.standardcheckers;
 
 import java.util.Collections;
@@ -57,6 +56,7 @@ public class E272Checker implements IChecker {
         if ((flow.getInformationSource() == null) || (flow.getInformationTarget() == null)) {
             report.addEntry(new ModelError(ERRORID, object, Collections.emptyList()));
         }
+        
     }
 
     @objid ("0097ab4e-e472-1f69-b3fb-001ec947cd2a")
@@ -70,6 +70,7 @@ public class E272Checker implements IChecker {
         
         // trigger=create, metaclass=InformationFlow, feature=InformationTarget
         plan.registerChecker(this, smMetamodel.getMClass(InformationFlow.class), TriggerType.Update, "InformationTarget");
+        
     }
 
 }

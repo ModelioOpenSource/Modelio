@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.executionspecification;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,12 +45,13 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
      * C'tor.
      */
     @objid ("d8e68b32-55b6-11e2-877f-002564c97630")
-    public ExecutionSpecificationFigure() {
+    public  ExecutionSpecificationFigure() {
         super();
         this.visibleFigure = new RectangularFigure();
         this.visibleFigure.setOpaque(true);
         // Use super implementation to avoid automatic increase of index.
         super.add(this.visibleFigure, null, 0);
+        
     }
 
     @objid ("d8e68b35-55b6-11e2-877f-002564c97630")
@@ -59,11 +59,11 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
     public void add(final IFigure figure, final Object constraint, final int index) {
         // Increase index by one, because index 0 is already used by this.visibleFigure.
         super.add(figure, constraint, index + 1);
+        
     }
 
     /**
      * Get the fill color.
-     * 
      * @return the fill color.
      */
     @objid ("d8e68b3e-55b6-11e2-877f-002564c97630")
@@ -74,7 +74,6 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
 
     /**
      * Returns the Rectangle around which handles are to be placed. The Rectangle should be in the same coordinate system as the figure itself.
-     * 
      * @return The rectangle used for handles
      */
     @objid ("d8e68b44-55b6-11e2-877f-002564c97630")
@@ -85,7 +84,6 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
 
     /**
      * Get the line color.
-     * 
      * @return the line color.
      */
     @objid ("d8e68b4a-55b6-11e2-877f-002564c97630")
@@ -96,7 +94,6 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
 
     /**
      * Get the line pattern
-     * 
      * @return lineStyle the line style See {@link LinePattern}
      */
     @objid ("d8e68b50-55b6-11e2-877f-002564c97630")
@@ -107,7 +104,6 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
 
     /**
      * Get the line width.
-     * 
      * @return the line width.
      */
     @objid ("d8e68b58-55b6-11e2-877f-002564c97630")
@@ -118,7 +114,6 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
 
     /**
      * Get the text color.
-     * 
      * @return the text color.
      */
     @objid ("d8e68b5e-55b6-11e2-877f-002564c97630")
@@ -129,7 +124,6 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
 
     /**
      * Get the text font.
-     * 
      * @return the text font.
      */
     @objid ("d8e811bb-55b6-11e2-877f-002564c97630")
@@ -140,7 +134,6 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
 
     /**
      * Tells whether the background is filled with a gradient.
-     * 
      * @return true if the background is filled with a gradient, false in the other case.
      */
     @objid ("d8e811c1-55b6-11e2-877f-002564c97630")
@@ -151,7 +144,6 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
 
     /**
      * Set the fill color.
-     * 
      * @param fillColor the fill color.
      */
     @objid ("d8e811c7-55b6-11e2-877f-002564c97630")
@@ -162,7 +154,6 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
 
     /**
      * Set the line(s) color.
-     * 
      * @param lineColor the line color.
      */
     @objid ("d8e811cc-55b6-11e2-877f-002564c97630")
@@ -175,7 +166,6 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
      * Sets the line pattern to the argument, which must be one of the constants
      * 
      * {@link LinePattern}
-     * 
      * @param lineStyle the new style
      */
     @objid ("d8e811d1-55b6-11e2-877f-002564c97630")
@@ -186,7 +176,6 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
 
     /**
      * Set the line(s) width.
-     * 
      * @param lineWidth the line(s) width.
      */
     @objid ("d8e811d8-55b6-11e2-877f-002564c97630")
@@ -197,7 +186,6 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
 
     /**
      * Set the text color.
-     * 
      * @param textColor the text color.
      */
     @objid ("d8e811dd-55b6-11e2-877f-002564c97630")
@@ -208,7 +196,6 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
 
     /**
      * Set the text font.
-     * 
      * @param textFont the text font.
      */
     @objid ("d8e811e2-55b6-11e2-877f-002564c97630")
@@ -219,7 +206,6 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
 
     /**
      * Set whether the background is filled with a gradient.
-     * 
      * @param useGradient true to fill with a gradient, false to fill only with the fill color.
      */
     @objid ("d8e811e7-55b6-11e2-877f-002564c97630")
@@ -246,7 +232,7 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
     @objid ("d8e811ec-55b6-11e2-877f-002564c97630")
     class ExecutionXYLayout extends XYLayout {
         @objid ("d8e811ed-55b6-11e2-877f-002564c97630")
-        public ExecutionXYLayout() {
+        public  ExecutionXYLayout() {
             super();
         }
 
@@ -264,6 +250,7 @@ public class ExecutionSpecificationFigure extends Figure implements IBrushOption
                 newBounds.width = child.getPreferredSize().width;
                 child.setBounds(newBounds);
             }
+            
         }
 
         @objid ("d8e99859-55b6-11e2-877f-002564c97630")

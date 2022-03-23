@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,9 +37,10 @@ public class ODataFlow extends OModelElement {
     }
 
     @objid ("e49cd970-f4f8-4d38-9ac0-ec4e9aeeae4b")
-    public ODataFlow(DataFlow element) {
+    public  ODataFlow(DataFlow element) {
         super(element);
         this.objingElement = element;
+        
     }
 
     @objid ("c030afdd-d20f-45e2-9c75-7321cfe3643c")
@@ -61,6 +61,7 @@ public class ODataFlow extends OModelElement {
                         ecoreOrigin);
             }
         }
+        
     }
 
     @objid ("6629e907-efba-46b6-aa79-571088b87615")
@@ -68,6 +69,7 @@ public class ODataFlow extends OModelElement {
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         super.setProperties(ecoreElt);
         setDestinationElement((org.eclipse.uml2.uml.InformationFlow) ecoreElt);
+        
     }
 
     @objid ("938e776c-2d35-4e0c-b4ba-a6b885a977ad")
@@ -84,6 +86,7 @@ public class ODataFlow extends OModelElement {
                 ecoreIF.getInformationTargets().add(
                         ecoreDestination);
         }
+        
     }
 
 }

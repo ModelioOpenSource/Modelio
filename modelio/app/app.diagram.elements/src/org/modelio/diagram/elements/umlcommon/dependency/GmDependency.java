@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.umlcommon.dependency;
 
 import java.util.List;
@@ -31,8 +30,8 @@ import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -64,17 +63,17 @@ public class GmDependency extends GmLink {
 
     /**
      * Initialize a control flow graphic model.
-     * 
      * @param diagram The owning diagram
      * @param dependency The reference flow, may be null
      * @param ref The referenced flow reference, may not be null
      */
     @objid ("81249ebb-1dec-11e2-8cad-001ec947c8cc")
-    public GmDependency(IGmDiagram diagram, Dependency dependency, MRef ref) {
+    public  GmDependency(IGmDiagram diagram, Dependency dependency, MRef ref) {
         super(diagram, ref);
         this.dependency = dependency;
         
         addExtension(ExtensionLocation.MiddleNW, IGmLink.ROLE_MAIN_LABEL, new GmDefaultModelElementLabel(diagram, ref));
+        
     }
 
     @objid ("81270101-1dec-11e2-8cad-001ec947c8cc")
@@ -93,7 +92,8 @@ public class GmDependency extends GmLink {
      * For deserialization only.
      */
     @objid ("8127010e-1dec-11e2-8cad-001ec947c8cc")
-    public GmDependency() {
+    public  GmDependency() {
+        
     }
 
     @objid ("81270111-1dec-11e2-8cad-001ec947c8cc")
@@ -118,6 +118,7 @@ public class GmDependency extends GmLink {
             break;
         }
         }
+        
     }
 
     @objid ("81270115-1dec-11e2-8cad-001ec947c8cc")
@@ -152,6 +153,7 @@ public class GmDependency extends GmLink {
         super.write(out);
         
         writeMinorVersion(out, "GmDependency.", GmDependency.MINOR_VERSION);
+        
     }
 
     @objid ("8127012d-1dec-11e2-8cad-001ec947c8cc")
@@ -180,6 +182,7 @@ public class GmDependency extends GmLink {
             // Before 3.7.1, default value was "orthogonal router"
             style.setProperty(styleKey, ConnectionRouterId.ORTHOGONAL);
         }
+        
     }
 
     /**

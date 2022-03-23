@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.util;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,6 +41,7 @@ public class MessageUtils {
         }else {
             return type;
         }
+        
     }
 
     @objid ("0c3783c2-9fa1-453d-baa5-ffe538436c43")
@@ -51,6 +51,7 @@ public class MessageUtils {
         }else {
             return element.getClass().getSimpleName();
         }
+        
     }
 
 }

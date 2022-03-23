@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.acceptsignal;
 
 import java.util.Collections;
@@ -33,8 +32,8 @@ import org.modelio.diagram.elements.core.node.IImageableNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.AcceptSignalAction;
 import org.modelio.platform.model.ui.swt.images.ElementImageService;
 import org.modelio.uml.activitydiagram.editor.elements.activitynodeheader.GmActivityNodeHeader;
@@ -63,25 +62,25 @@ public class GmAcceptSignalPrimaryNode extends GmNoStyleCompositeNode implements
 
     /**
      * Default constructor.
-     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param relatedRef a reference to the accept signal node this gm is related to.
      */
     @objid ("29797c7b-55b6-11e2-877f-002564c97630")
-    public GmAcceptSignalPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
+    public  GmAcceptSignalPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
         
         this.header = new GmAcceptSignalHeader(diagram, relatedRef);
         
         super.addChild(this.header);
         super.addChild(new GmAcceptedSignalsLabel(diagram, relatedRef));
+        
     }
 
     /**
      * Empty constructor needed for serialisation.
      */
     @objid ("29797c84-55b6-11e2-877f-002564c97630")
-    public GmAcceptSignalPrimaryNode() {
+    public  GmAcceptSignalPrimaryNode() {
         // empty constructor for the serialization
     }
 
@@ -139,6 +138,7 @@ public class GmAcceptSignalPrimaryNode extends GmNoStyleCompositeNode implements
             break;
         }
         }
+        
     }
 
     @objid ("297b0318-55b6-11e2-877f-002564c97630")
@@ -150,6 +150,7 @@ public class GmAcceptSignalPrimaryNode extends GmNoStyleCompositeNode implements
         firePropertyChange(PROPERTY_LABEL, oldLabel, this.header.getMainLabel());
         // forcing visual refresh in case Image changed
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("297b031b-55b6-11e2-877f-002564c97630")
@@ -158,6 +159,7 @@ public class GmAcceptSignalPrimaryNode extends GmNoStyleCompositeNode implements
         // Returned result depends on current representation mode:
         List<GmNodeModel> ret;
         switch (this.getRepresentationMode()) {
+        case USER_IMAGE:
         case IMAGE: {
             ret = Collections.emptyList();
             break;
@@ -177,6 +179,7 @@ public class GmAcceptSignalPrimaryNode extends GmNoStyleCompositeNode implements
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmAcceptSignalPrimaryNode.", GmAcceptSignalPrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("297b032a-55b6-11e2-877f-002564c97630")
@@ -186,6 +189,7 @@ public class GmAcceptSignalPrimaryNode extends GmNoStyleCompositeNode implements
         
         GmDefaultModelElementLabel imageModeHeader = (GmDefaultModelElementLabel) this.getChildren().get(2);
         imageModeHeader.delete();
+        
     }
 
     @objid ("297b032f-55b6-11e2-877f-002564c97630")
@@ -198,6 +202,7 @@ public class GmAcceptSignalPrimaryNode extends GmNoStyleCompositeNode implements
     private void read_1(final IDiagramReader in) {
         super.read(in);
         this.header = (GmActivityNodeHeader) this.getChildren().get(0);
+        
     }
 
     @objid ("297c899d-55b6-11e2-877f-002564c97630")

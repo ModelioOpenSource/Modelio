@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.generation;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,7 +30,7 @@ import org.modelio.metamodel.uml.statik.NaryAssociationEnd;
 @objid ("a8c2821f-d60f-45a4-a9d3-430c89b43668")
 public class GenericMetamodelVisitor extends OwnershipMetamodelVisitor {
     @objid ("3a0ed12a-8989-4565-81a1-cf160fe9a5c3")
-    public GenericMetamodelVisitor(IParseModelBehavior behavior) {
+    public  GenericMetamodelVisitor(IParseModelBehavior behavior) {
         super(behavior);
     }
 

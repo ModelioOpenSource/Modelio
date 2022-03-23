@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.production.looptypes;
 
 import java.io.Serializable;
@@ -37,7 +36,7 @@ import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("2ea8ae25-30db-4c46-9ec5-d1b27e54d212")
-public class StandardLoopNode implements IProductionNode<BpmnStandardLoopCharacteristics,TStandardLoopCharacteristics> {
+public class StandardLoopNode implements IProductionNode<BpmnStandardLoopCharacteristics, TStandardLoopCharacteristics> {
     @objid ("26708517-24c0-4a46-a40c-12cc7fb0da9b")
     private Map<String, Object> elementsMap;
 
@@ -66,6 +65,7 @@ public class StandardLoopNode implements IProductionNode<BpmnStandardLoopCharact
         } else {
             return factory.create(BpmnStandardLoopCharacteristics.class, context);
         }
+        
     }
 
     @objid ("7fc306da-8e01-48c5-8bda-40b715812c27")

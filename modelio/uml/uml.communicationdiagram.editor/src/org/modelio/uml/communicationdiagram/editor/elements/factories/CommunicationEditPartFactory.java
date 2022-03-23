@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.communicationdiagram.editor.elements.factories;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -53,7 +52,7 @@ public final class CommunicationEditPartFactory implements EditPartFactory {
      * the default factory to use when structured mode is requested.
      */
     @objid ("7a2fb7cc-55b6-11e2-877f-002564c97630")
-    private static final StructuredModeEditPartFactory structuredModeEditPartFactory = new StructuredModeEditPartFactory();
+    private final StructuredModeEditPartFactory structuredModeEditPartFactory = new StructuredModeEditPartFactory();
 
     @objid ("7a2fb7d7-55b6-11e2-877f-002564c97630")
     @Override
@@ -64,7 +63,7 @@ public final class CommunicationEditPartFactory implements EditPartFactory {
             GmNodeModel node = (GmNodeModel) model;
             switch (node.getRepresentationMode()) {
             case STRUCTURED:
-                editPart = CommunicationEditPartFactory.structuredModeEditPartFactory.createEditPart(context, model);
+                editPart = this.structuredModeEditPartFactory.createEditPart(context, model);
                 break;
             default:
                 editPart = null; // generically supported by standard factory
@@ -73,9 +72,10 @@ public final class CommunicationEditPartFactory implements EditPartFactory {
             return editPart;
         } else {
             // Link models are always in structured mode.
-            editPart = CommunicationEditPartFactory.structuredModeEditPartFactory.createEditPart(context, model);
+            editPart = this.structuredModeEditPartFactory.createEditPart(context, model);
             return editPart;
         }
+        
     }
 
     /**

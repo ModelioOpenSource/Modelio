@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.gproject;
 
 import java.net.URI;
@@ -47,11 +46,10 @@ public class ProjectWriter {
 
     /**
      * Instantiate the writer.
-     * 
      * @param aProject the related project.
      */
     @objid ("eed3ae02-e758-4d5c-98e4-d68425e669c8")
-    public ProjectWriter(final GProject aProject) {
+    public  ProjectWriter(final GProject aProject) {
         this.project = aProject;
     }
 
@@ -61,13 +59,12 @@ public class ProjectWriter {
      */
     @objid ("60702d4e-101b-4823-94fd-a15a1b669f87")
     @Deprecated
-    public ProjectWriter() {
+    public  ProjectWriter() {
         super();
     }
 
     /**
      * Get the descriptor of a fragment.
-     * 
      * @param projectFragment a project fragment
      * @return its descriptor
      */
@@ -89,7 +86,6 @@ public class ProjectWriter {
 
     /**
      * Get the descriptor of a module.
-     * 
      * @param m a module
      * @return its descriptor.
      */
@@ -112,7 +108,6 @@ public class ProjectWriter {
 
     /**
      * Write the project configuration to a descriptor.
-     * 
      * @return the descriptor of the project.
      */
     @objid ("eed9bfb6-9a71-11e1-ac83-001ec947ccaf")
@@ -124,7 +119,7 @@ public class ProjectWriter {
         // Get expected Modelio version to write.
         Version modelioVersion = this.project.getExpectedModelioVersion();
         if (modelioVersion == null) {
-            modelioVersion = ModelioVersion.VERSION;
+            modelioVersion = ModelioVersion.MAJOR_MINOR;
         }
         
         ProjectDescriptor out = new ProjectDescriptor();
@@ -134,7 +129,7 @@ public class ProjectWriter {
         out.setModelioVersion(modelioVersion);
         
         if (this.project.getRemoteLocation() != null) {
-            out.setRemoteLocation(this.project.getRemoteLocation().toString());
+            out.setRemoteLocation(this.project.getRemoteLocation());
         }
         
         // Write properties
@@ -173,6 +168,7 @@ public class ProjectWriter {
         } else {
             return this.project.getProjectFileStructure().getProjectPath().toUri().relativize(uri);
         }
+        
     }
 
     @objid ("2edd7fb7-8fbf-417d-9063-d46f55c20ab8")
@@ -182,6 +178,7 @@ public class ProjectWriter {
         } else {
             return new AuthDescriptor(auth.getAuthData(), auth.getScope());
         }
+        
     }
 
 }

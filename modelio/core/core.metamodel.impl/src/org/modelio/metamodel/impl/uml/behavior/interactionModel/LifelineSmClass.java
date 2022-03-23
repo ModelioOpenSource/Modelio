@@ -17,21 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.interactionModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.InteractionFragmentSmClass;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.InteractionSmClass;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.LifelineData;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.PartDecompositionSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
 import org.modelio.metamodel.impl.uml.statik.InstanceSmClass;
 import org.modelio.metamodel.uml.behavior.interactionModel.Interaction;
@@ -71,7 +67,7 @@ public class LifelineSmClass extends UmlModelElementSmClass {
     private SmDependency representedDep;
 
     @objid ("a375dd8e-778c-4c37-9c22-4cbae8dc80f8")
-    public LifelineSmClass(ISmMetamodelFragment origin) {
+    public  LifelineSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -79,6 +75,7 @@ public class LifelineSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "Lifeline";
+        
     }
 
     @objid ("cdaec220-e51f-41d8-8764-4a37b79103d8")
@@ -91,18 +88,21 @@ public class LifelineSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Lifeline.class;
+        
     }
 
     @objid ("691c9bfd-0e2d-459c-9c67-81878d1cd827")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("6a36bd02-1dce-4ff2-bc97-b2d3c243dae6")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("2f9700f4-0068-480a-a6a4-cf196293e456")
@@ -134,6 +134,8 @@ public class LifelineSmClass extends UmlModelElementSmClass {
         this.representedDep = new RepresentedSmDependency();
         this.representedDep.init("Represented", this, metamodel.getMClass(Instance.MQNAME), 0, 1 , SmDirective.SMCDPARTOF);
         registerDependency(this.representedDep);
+        
+        
     }
 
     @objid ("f8d70ff8-3d3b-4ad7-b306-5e5ee4d49ad9")
@@ -182,7 +184,7 @@ public class LifelineSmClass extends UmlModelElementSmClass {
         private LifelineSmClass smClass;
 
         @objid ("b3beb3a8-6b26-40c7-ba43-6b52ee43e29e")
-        public LifelineObjectFactory(LifelineSmClass smClass) {
+        public  LifelineObjectFactory(LifelineSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -229,6 +231,7 @@ public class LifelineSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((LifelineData) data).mCoveredBy = values;
+            
         }
 
         @objid ("b0b6c875-5ac0-4221-b730-9709eac217e6")
@@ -238,6 +241,7 @@ public class LifelineSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((InteractionFragmentSmClass)this.getTarget()).getCoveredDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -266,6 +270,7 @@ public class LifelineSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((PartDecompositionSmClass)this.getTarget()).getDecomposedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -294,6 +299,7 @@ public class LifelineSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((InteractionSmClass)this.getTarget()).getOwnedLineDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -322,6 +328,7 @@ public class LifelineSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((InstanceSmClass)this.getTarget()).getRepresentedLifeLineDep();
             }
             return this.symetricDep;
+            
         }
 
     }

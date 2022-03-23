@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import java.util.ArrayList;
@@ -48,7 +47,7 @@ public class OConstraint extends OModelElement {
     }
 
     @objid ("ee156bcb-35da-4c73-a301-a7418f297e00")
-    public OConstraint(Constraint element) {
+    public  OConstraint(Constraint element) {
         super(element);
     }
 
@@ -127,6 +126,7 @@ public class OConstraint extends OModelElement {
                 }
             }
         }
+        
     }
 
     @objid ("c83a2cbc-a9e1-4828-a770-0c84577e2348")
@@ -139,6 +139,7 @@ public class OConstraint extends OModelElement {
         }else{
             setName((org.eclipse.uml2.uml.DurationObservation) ecoreElt);
         }
+        
     }
 
     @objid ("a7c3049c-a0b4-4954-880e-c24e97710756")
@@ -147,12 +148,14 @@ public class OConstraint extends OModelElement {
                 .createLiteralString();
         valueSpecification.setValue(getObjingElement().getBody());
         ecoreElt.setSpecification(valueSpecification);
+        
     }
 
     @objid ("e5fcfe58-4550-407d-b2b0-fe5a2bc71214")
     private void setContext(org.eclipse.uml2.uml.Constraint constraint) {
         org.eclipse.uml2.uml.Model ecoreModel = GenerationProperties.getInstance().getEcoreModel();
         constraint.setContext(ecoreModel);
+        
     }
 
     @objid ("ca1828ba-3ad2-4ca1-b15e-317b60c7357b")
@@ -162,6 +165,7 @@ public class OConstraint extends OModelElement {
         if ((name != null) &&  (!name.equals(""))){
             ecoreElt.setName(name);
         }
+        
     }
 
     @objid ("9f6f768c-e405-4179-86a0-aa85c63e9f32")

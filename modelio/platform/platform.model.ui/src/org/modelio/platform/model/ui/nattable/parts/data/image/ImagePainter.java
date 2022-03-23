@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.image;
 
 import java.net.URL;
@@ -62,6 +61,7 @@ public class ImagePainter extends BackgroundPainter {
         } else {
             return null;
         }
+        
     }
 
     @objid ("3b12558b-8531-4316-b395-6d93f22991b9")
@@ -73,6 +73,7 @@ public class ImagePainter extends BackgroundPainter {
         } else {
             return 0;
         }
+        
     }
 
     @objid ("e1b56993-40fd-4ff0-bc2b-c5ffafbae245")
@@ -84,6 +85,7 @@ public class ImagePainter extends BackgroundPainter {
         } else {
             return 0;
         }
+        
     }
 
     @objid ("80f5a94e-97c8-420d-9f7a-ac75208ab68e")
@@ -102,6 +104,7 @@ public class ImagePainter extends BackgroundPainter {
         } else if (cell.getDataValue() != null) {
             gc.drawText(cell.getDataValue().toString(), bounds.x, bounds.y);
         }
+        
     }
 
     @objid ("5da9bc43-fd49-4054-9fd3-ef5f4137ef01")
@@ -131,10 +134,11 @@ public class ImagePainter extends BackgroundPainter {
                 return null;
             }
         }
+        
     }
 
     @objid ("50a81190-f914-4627-9a65-8a09f9e60310")
-    public ImagePainter(ResourceManager resources) {
+    public  ImagePainter(ResourceManager resources) {
         this.resources = resources;
     }
 

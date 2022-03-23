@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.semantic.browser.handlers;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
@@ -56,7 +55,6 @@ public class DeleteElementHandler {
 
     /**
      * Available only when the selected elements are modifiable.
-     * 
      * @param selection the current modelio selection.
      * @return true if the handler can be executed.
      */
@@ -83,7 +81,6 @@ public class DeleteElementHandler {
 
     /**
      * Delete the currently selected elements.
-     * 
      * @param selection the current modelio selection.
      */
     @objid ("c3ddb311-e92d-4aac-9751-72bfb30e3ef4")
@@ -112,6 +109,7 @@ public class DeleteElementHandler {
             }
             t.commit();
         }
+        
     }
 
     @objid ("a49fc5ab-4428-4722-8c75-40d2256743e3")

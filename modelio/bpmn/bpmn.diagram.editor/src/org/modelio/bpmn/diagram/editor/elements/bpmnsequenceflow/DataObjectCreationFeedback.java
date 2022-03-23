@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnsequenceflow;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -64,14 +63,14 @@ class DataObjectCreationFeedback {
     private ZoomManager zoomManager;
 
     @objid ("5a354aea-8bcb-48a7-9b03-7d67e67b7ae0")
-    public DataObjectCreationFeedback(IFigure feedbackLayer, ZoomManager zoomManager) {
+    public  DataObjectCreationFeedback(IFigure feedbackLayer, ZoomManager zoomManager) {
         this.feedbackLayer = feedbackLayer;
         this.zoomManager = zoomManager;
+        
     }
 
     /**
      * Shows the creation feedback.
-     * 
      * @param flowFigure the sequence flow to create the data object on.
      * @param mouseLocation the current mouse location.
      */
@@ -132,6 +131,7 @@ class DataObjectCreationFeedback {
         
         this.feedbackLayer.add(this.nodeFeedback);
         this.feedbackLayer.add(this.linkFeedback);
+        
     }
 
     /**
@@ -147,6 +147,7 @@ class DataObjectCreationFeedback {
             this.feedbackLayer.remove(this.nodeFeedback);
             this.nodeFeedback = null;
         }
+        
     }
 
     @objid ("34a4820b-483a-4af8-8d1d-e43c88e3aa56")
@@ -165,7 +166,6 @@ class DataObjectCreationFeedback {
 
         /**
          * Compute the center point of a line figure.
-         * 
          * @param flowFigure a flow figure.
          * @return a point.
          */
@@ -193,11 +193,11 @@ class DataObjectCreationFeedback {
             }
             
             throw new IllegalStateException("Failed to compute location");
+            
         }
 
         /**
          * Gets the point on the line segment at the given distance away from the key point.
-         * 
          * @param theDistance <code>long</code> distance along the line
          * @param start start of the segment
          * @param end end of the segment
@@ -260,7 +260,6 @@ class DataObjectCreationFeedback {
 
         /**
          * Calculates the slope of the line segment (y=ax+b)
-         * 
          * @param start start of segment
          * @param end end of segment
          * @return <code>float</code> the slope of the segment. If the slope is not defined such as when the line segment is
@@ -276,7 +275,6 @@ class DataObjectCreationFeedback {
 
         /**
          * Get the length of the given point list.
-         * 
          * @param points The point list
          * @return the length
          */

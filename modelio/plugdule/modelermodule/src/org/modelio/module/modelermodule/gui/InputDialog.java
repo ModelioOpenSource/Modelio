@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.module.modelermodule.gui;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,17 +49,17 @@ public class InputDialog {
 
     /**
      * Private constructor, initializing the dialog's content.
-     * 
      * @param parent the parent to attach the dialog to.
      * @param label the label to display in the dialog.
      * @param title the title for the dialog.
      * @param value the default value for the asked text.
      */
     @objid ("5a36d3aa-d711-42d6-a861-f874dfca685f")
-    private InputDialog(final Shell parent, final String label, final String title, final String value) {
+    private  InputDialog(final Shell parent, final String label, final String title, final String value) {
         this.name = "";
         
         createContents(parent, label, title, value);
+        
     }
 
     /**
@@ -96,6 +95,7 @@ public class InputDialog {
         
         this.shell.pack();
         this.shell.setSize(this.shell.getSize().x + 20, this.shell.getSize().y);
+        
     }
 
     @objid ("f66fe310-2259-4e4a-a7a3-ebdb877f4895")
@@ -142,7 +142,6 @@ public class InputDialog {
 
     /**
      * Opens a dialog and returns the chosen text.
-     * 
      * @param parent the parent to attach the dialog to.
      * @param label the label to display in the dialog.
      * @param title the title for the dialog.

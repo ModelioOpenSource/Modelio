@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.browser.handlers;
 
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.swt.widgets.Display;
 import org.modelio.metamodel.diagrams.SequenceDiagram;
@@ -44,7 +43,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class CreateInteractionHandler extends CreateCmsElementHandler {
     @objid ("95a5800d-49e2-4173-beb5-4c05f0407300")
     @Inject
-     IModelioEventService eventService;
+    IModelioEventService eventService;
 
     @objid ("4e4e591e-ccde-11e1-97e5-001ec947c8cc")
     @Override
@@ -59,6 +58,7 @@ public class CreateInteractionHandler extends CreateCmsElementHandler {
         } else {
             smartCreateForNameSpace(interaction, mmServices);
         }
+        
     }
 
     @objid ("4e4e5922-ccde-11e1-97e5-001ec947c8cc")
@@ -76,6 +76,7 @@ public class CreateInteractionHandler extends CreateCmsElementHandler {
                 }, ModelioEvent.EDIT_ELEMENT, param);
             }
         });
+        
     }
 
     @objid ("4e4e5927-ccde-11e1-97e5-001ec947c8cc")
@@ -103,6 +104,7 @@ public class CreateInteractionHandler extends CreateCmsElementHandler {
         interaction.getOwnedLine().add(lifeline);
         lifeline.setName("this");
         lifeline.setRepresented(instance);
+        
     }
 
     @objid ("4e4e592b-ccde-11e1-97e5-001ec947c8cc")
@@ -118,6 +120,7 @@ public class CreateInteractionHandler extends CreateCmsElementHandler {
         Collaboration locals = mmFactory.createCollaboration();
         interaction.getOwnedCollaboration().add(locals);
         locals.setName("locals");
+        
     }
 
     @objid ("4e4e592e-ccde-11e1-97e5-001ec947c8cc")
@@ -145,6 +148,7 @@ public class CreateInteractionHandler extends CreateCmsElementHandler {
         interaction.getOwnedLine().add(lifeline);
         lifeline.setName("this");
         lifeline.setRepresented(instance);
+        
     }
 
 }

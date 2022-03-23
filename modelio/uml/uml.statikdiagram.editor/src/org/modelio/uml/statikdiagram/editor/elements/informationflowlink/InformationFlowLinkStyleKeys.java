@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.informationflowlink;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,8 +35,8 @@ public class InformationFlowLinkStyleKeys extends StaticAbstractStyleKeyProvider
      * Connection routing mode.
      */
     @objid ("a675fbae-55c2-11e2-9337-002564c97630")
-     static final StyleKey CONNECTIONROUTER = createStyleKey("INFOFLOWLINK_CONNECTIONROUTER",
-                                                            MetaKey.CONNECTIONROUTER);
+    static final StyleKey CONNECTIONROUTER = createStyleKey("INFOFLOWLINK_CONNECTIONROUTER",
+                                                                MetaKey.CONNECTIONROUTER);
 
     /**
      * Line color
@@ -49,57 +48,57 @@ public class InformationFlowLinkStyleKeys extends StaticAbstractStyleKeyProvider
      * Line width
      */
     @objid ("a675fbb4-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("INFOFLOWLINK_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("INFOFLOWLINK_LINEWIDTH", MetaKey.LINEWIDTH);
 
     /**
      * Line corners radius
      */
     @objid ("a675fbb7-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINERADIUS = createStyleKey("INFOFLOWLINK_LINERADIUS", MetaKey.LINERADIUS);
+    static final StyleKey LINERADIUS = createStyleKey("INFOFLOWLINK_LINERADIUS", MetaKey.LINERADIUS);
 
     /**
      * Draw bridge where vertical segments cross horizontal ones.
      */
     @objid ("a675fbba-55c2-11e2-9337-002564c97630")
-     static final StyleKey DRAWLINEBRIDGES = createStyleKey("INFOFLOWLINK_DRAWLINEBRIDGES",
-                                                           MetaKey.DRAWLINEBRIDGES);
+    static final StyleKey DRAWLINEBRIDGES = createStyleKey("INFOFLOWLINK_DRAWLINEBRIDGES",
+                                                               MetaKey.DRAWLINEBRIDGES);
 
     /**
      * Text font
      */
     @objid ("a675fbbd-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("INFOFLOWLINK_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("INFOFLOWLINK_FONT", MetaKey.FONT);
 
     /**
      * Text color
      */
     @objid ("a675fbc0-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("INFOFLOWLINK_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("INFOFLOWLINK_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     /**
      * Show stereotypes
      */
     @objid ("a677824a-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("INFOFLOWLINK_SHOWSTEREOTYPES",
-                                                           MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("INFOFLOWLINK_SHOWSTEREOTYPES",
+                                                               MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Show tagged values
      */
     @objid ("a677824d-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("INFOFLOWLINK_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("INFOFLOWLINK_SHOWTAGS", MetaKey.SHOWTAGS);
 
     @objid ("b4924614-0367-4b62-a464-01c49d7a1cba")
-     static final StyleKey SHOWLABEL = createStyleKey("INFOFLOWLINK_SHOWLABEL", MetaKey.SHOWLABEL);
+    static final StyleKey SHOWLABEL = createStyleKey("INFOFLOWLINK_SHOWLABEL", MetaKey.SHOWLABEL);
 
     @objid ("19a39804-7179-4103-b8e1-398c8b8eedb5")
-     static final StyleKey SHOWFLOWARROW = createStyleKey("INFOFLOWLINK_SHOWFLOWARROW", Boolean.class);
+    static final StyleKey SHOWFLOWARROW = createStyleKey("INFOFLOWLINK_SHOWFLOWARROW", Boolean.class);
 
     /**
      * Line pattern
      */
     @objid ("a6778250-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEPATTERN = createStyleKey("INFOFLOWLINK_LINEPATTERN", MetaKey.LINEPATTERN);
+    static final StyleKey LINEPATTERN = createStyleKey("INFOFLOWLINK_LINEPATTERN", MetaKey.LINEPATTERN);
 
     /**
      * Style keys for collaboration use bindings shown as a label group.
@@ -113,36 +112,36 @@ public class InformationFlowLinkStyleKeys extends StaticAbstractStyleKeyProvider
          * Show conveyed items: true / false.
          */
         @objid ("a6778255-55c2-11e2-9337-002564c97630")
-         static final StyleKey SHOWGROUP = createStyleKey("INFOFLOWLINK_ITEMS_SHOWGROUP",
-                                                         MetaKey.InformationItemGroup.INFSHOWGROUP);
+        static final StyleKey SHOWGROUP = createStyleKey("INFOFLOWLINK_ITEMS_SHOWGROUP",
+                                                                 MetaKey.InformationItemGroup.INFSHOWGROUP);
 
         /**
          * Text color.
          */
         @objid ("a6778258-55c2-11e2-9337-002564c97630")
-         static final StyleKey TEXTCOLOR = createStyleKey("INFOFLOWLINK_ITEMS_TEXTCOLOR",
-                                                         MetaKey.InformationItemGroup.INFTEXTCOLOR);
+        static final StyleKey TEXTCOLOR = createStyleKey("INFOFLOWLINK_ITEMS_TEXTCOLOR",
+                                                                 MetaKey.InformationItemGroup.INFTEXTCOLOR);
 
         /**
          * Font
          */
         @objid ("a677825b-55c2-11e2-9337-002564c97630")
-         static final StyleKey FONT = createStyleKey("INFOFLOWLINK_ITEMS_FONT",
-                                                    MetaKey.InformationItemGroup.INFFONT);
+        static final StyleKey FONT = createStyleKey("INFOFLOWLINK_ITEMS_FONT",
+                                                            MetaKey.InformationItemGroup.INFFONT);
 
         /**
          * Stereotype display mode.
          */
         @objid ("a677825e-55c2-11e2-9337-002564c97630")
-         static final StyleKey SHOWSTEREOTYPES = createStyleKey("INFOFLOWLINK_ITEMS_SHOWSTEREOTYPES",
-                                                               MetaKey.InformationItemGroup.INFSHOWSTEREOTYPES);
+        static final StyleKey SHOWSTEREOTYPES = createStyleKey("INFOFLOWLINK_ITEMS_SHOWSTEREOTYPES",
+                                                                       MetaKey.InformationItemGroup.INFSHOWSTEREOTYPES);
 
         /**
          * Display tagged values.
          */
         @objid ("a6778261-55c2-11e2-9337-002564c97630")
-         static final StyleKey SHOWTAGS = createStyleKey("INFOFLOWLINK_ITEMS_SHOWTAGS",
-                                                        MetaKey.InformationItemGroup.INFSHOWTAGS);
+        static final StyleKey SHOWTAGS = createStyleKey("INFOFLOWLINK_ITEMS_SHOWTAGS",
+                                                                MetaKey.InformationItemGroup.INFSHOWTAGS);
 
     }
 

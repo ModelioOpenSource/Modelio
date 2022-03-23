@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import java.util.List;
@@ -73,13 +72,13 @@ public class OBindableInstance extends OInstance {
 
     /**
      * Constructor of OBindableInstance
-     * 
      * @param param : the exported Modelio BindableInstance
      */
     @objid ("fc43e156-49ad-4e54-ae99-6188ef2db40a")
-    public OBindableInstance(final BindableInstance param) {
+    public  OBindableInstance(final BindableInstance param) {
         super(param);
         this.root = AbstractObjingModelNavigation.getBindableInstanceOwner(param);
+        
     }
 
     @objid ("7faa03bf-9afb-4909-810d-82a449203d8c")
@@ -94,6 +93,7 @@ public class OBindableInstance extends OInstance {
                 ecoreElt.destroy();
             }
         }
+        
     }
 
     @objid ("3c64e24e-ef70-42e7-b89a-6042d98c6000")
@@ -114,6 +114,7 @@ public class OBindableInstance extends OInstance {
         } else {
             ecoreElt.destroy();
         }
+        
     }
 
     @objid ("4f5ed78c-f232-4f14-8487-e4c25f6fb88c")
@@ -139,6 +140,7 @@ public class OBindableInstance extends OInstance {
                 ObjingEAnnotation.setIsBindableInstance(ecoreElt);
             }
         }
+        
     }
 
     @objid ("53709c87-7b37-4d5a-8c94-bc79959e56ef")
@@ -156,6 +158,7 @@ public class OBindableInstance extends OInstance {
             setEAnnotationName((org.eclipse.uml2.uml.Slot) ecoreElt);
             setValue((org.eclipse.uml2.uml.Slot) ecoreElt);
         }
+        
     }
 
     @objid ("c7fe5b8c-ad33-496a-8a19-c08162dbaae3")
@@ -169,6 +172,7 @@ public class OBindableInstance extends OInstance {
                 ecoreElt.setDefiningFeature((org.eclipse.uml2.uml.StructuralFeature) represented);
             }
         }
+        
     }
 
     @objid ("18f9768d-3c93-4fe1-bcfd-4b925749d176")
@@ -192,6 +196,7 @@ public class OBindableInstance extends OInstance {
                 bi.setRepresentedFeature(((List<? extends UmlModelElement>) base).get(0));
             }
         }
+        
     }
 
 }

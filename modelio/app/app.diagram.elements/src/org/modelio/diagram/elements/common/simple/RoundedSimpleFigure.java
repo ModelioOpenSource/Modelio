@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.simple;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,7 +40,7 @@ class RoundedSimpleFigure extends RoundedBoxFigure {
      * Label firstChild;
      */
     @objid ("7f21a2e6-1dec-11e2-8cad-001ec947c8cc")
-    public RoundedSimpleFigure() {
+    public  RoundedSimpleFigure() {
         // init text and line pen support
         this.penOptions = new PenOptions();
         
@@ -58,6 +57,7 @@ class RoundedSimpleFigure extends RoundedBoxFigure {
         this.label.setOpaque(false);
         this.label.setBorder(new MarginBorder(4));
         this.add(this.label, BorderLayout.CENTER);
+        
     }
 
     @objid ("7f21a2e9-1dec-11e2-8cad-001ec947c8cc")
@@ -67,6 +67,7 @@ class RoundedSimpleFigure extends RoundedBoxFigure {
         if (this.penOptions.textColor != textColor) {
             this.label.setForegroundColor(textColor);
         }
+        
     }
 
     @objid ("7f21a2ed-1dec-11e2-8cad-001ec947c8cc")
@@ -76,6 +77,7 @@ class RoundedSimpleFigure extends RoundedBoxFigure {
         if (this.penOptions.textFont != textFont) {
             this.label.setFont(textFont);
         }
+        
     }
 
     @objid ("7f21a2f1-1dec-11e2-8cad-001ec947c8cc")

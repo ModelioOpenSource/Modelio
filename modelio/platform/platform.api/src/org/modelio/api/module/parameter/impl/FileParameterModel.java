@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.parameter.impl;
 
 import java.util.ArrayList;
@@ -32,7 +31,7 @@ public class FileParameterModel extends ParameterModel {
     protected List<String> allowedExtensionLabels = new ArrayList<>();
 
     @objid ("e45fc11f-feb1-11dd-8b31-0014222a9f79")
-    public FileParameterModel(IModuleUserConfiguration conf, String name, String label, String description, String defaultValue) {
+    public  FileParameterModel(IModuleUserConfiguration conf, String name, String label, String description, String defaultValue) {
         super(conf, name, label, description, defaultValue);
     }
 
@@ -57,7 +56,6 @@ public class FileParameterModel extends ParameterModel {
      * 
      * Each label is a user-friendly short description shown for its corresponding filter.
      * The names array must be the same length as the extensions array.<P>
-     * 
      * @param extensions the allowed file extension filter
      * @param labels the corresponding label for each extension
      */
@@ -70,6 +68,7 @@ public class FileParameterModel extends ParameterModel {
         
         this.allowedExtensions.addAll (Arrays.asList(extensions));
         this.allowedExtensionLabels.addAll (Arrays.asList(labels));
+        
     }
 
     /**
@@ -83,7 +82,6 @@ public class FileParameterModel extends ParameterModel {
      * 
      * The label is a user-friendly short description shown for its corresponding filter.
      * The names array must be the same length as the extensions array.<P>
-     * 
      * @param extension the allowed file extension filter
      * @param label the corresponding label
      */
@@ -94,6 +92,7 @@ public class FileParameterModel extends ParameterModel {
         
         this.allowedExtensions.add(extension);
         this.allowedExtensionLabels.add(label);
+        
     }
 
 }

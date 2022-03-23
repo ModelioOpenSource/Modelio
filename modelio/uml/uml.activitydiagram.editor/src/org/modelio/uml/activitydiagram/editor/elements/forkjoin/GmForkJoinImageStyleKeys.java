@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.forkjoin;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,22 +30,22 @@ import org.modelio.uml.activitydiagram.editor.style.ActivityAbstractStyleKeyProv
 @objid ("2a8483eb-55b6-11e2-877f-002564c97630")
 public class GmForkJoinImageStyleKeys extends ActivityAbstractStyleKeyProvider {
     @objid ("d20a362d-55c0-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("FORKJOIN_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("FORKJOIN_REPMODE", MetaKey.REPMODE);
 
     @objid ("d20a362f-55c0-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("FORKJOIN_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("FORKJOIN_FONT", MetaKey.FONT);
 
     @objid ("d20a3631-55c0-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("FORKJOIN_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("FORKJOIN_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("d20a3633-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("FORKJOIN_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("FORKJOIN_SHOWSTEREOTYPES",
+                MetaKey.SHOWSTEREOTYPES);
 
     @objid ("d20a3635-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("FORKJOIN_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("FORKJOIN_SHOWTAGS", MetaKey.SHOWTAGS);
 
     @objid ("d20a3637-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWLABEL = createStyleKey("FORKJOIN_SHOWLABEL", MetaKey.SHOWLABEL);
+    static final StyleKey SHOWLABEL = createStyleKey("FORKJOIN_SHOWLABEL", MetaKey.SHOWLABEL);
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -61,13 +60,13 @@ public class EExtend extends ENamedElement {
 
     /**
      * Constructor with the imported Ecore org.eclipse.uml2.uml.Extend
-     * 
      * @param element : the imported Ecore org.eclipse.uml2.uml.Extend
      */
     @objid ("7524021f-9aa9-4ee1-831b-07418335f4ad")
-    public EExtend(final org.eclipse.uml2.uml.Extend element) {
+    public  EExtend(final org.eclipse.uml2.uml.Extend element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("0aaee0a3-1fec-459b-966a-4ad26fbe0e41")
@@ -87,6 +86,7 @@ public class EExtend extends ENamedElement {
             objingUseCaseDependency.setOrigin(objingOrigin);
             objingUseCaseDependency.setTarget(objingTarget);
         }
+        
     }
 
     @objid ("41997c2f-cdb2-491d-b9b3-232d90635e8c")
@@ -94,6 +94,7 @@ public class EExtend extends ENamedElement {
     public void setProperties(Element objingElt) {
         super.setProperties(objingElt);
         setExtensionPoint((UseCaseDependency) objingElt);
+        
     }
 
     @objid ("5a98d150-ed76-4390-97f2-55a4614379c7")
@@ -109,6 +110,7 @@ public class EExtend extends ENamedElement {
                 dependency.getExtensionLocation().add(objingExtensionPoint);
             }
         }
+        
     }
 
 }

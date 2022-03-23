@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.panel.model;
 
 import java.util.ArrayList;
@@ -109,6 +108,7 @@ class TreeBuilder {
                 }
             }
         }
+        
     }
 
     /**
@@ -137,13 +137,14 @@ class TreeBuilder {
                 }
             }
         }
+        
     }
 
     /**
      * C'Tor
      */
     @objid ("6a7c54ad-07df-4693-9f28-3e97afec2ef6")
-    TreeBuilder(ILinkEditorConfiguration config) {
+     TreeBuilder(ILinkEditorConfiguration config) {
         this.config = config;
     }
 
@@ -164,6 +165,7 @@ class TreeBuilder {
         
         // Build right tree
         doBuildRightTree(graph, centralNode, element, this.config.getRightDepth());
+        
     }
 
     /**
@@ -178,6 +180,7 @@ class TreeBuilder {
                 addLeftNode(graph, targetNode, link, remainingDepth, source);
             }
         }
+        
     }
 
     /**
@@ -192,6 +195,7 @@ class TreeBuilder {
                 addRightNode(graph, sourceNode, link, remainingDepth, target);
             }
         }
+        
     }
 
     /**
@@ -225,6 +229,7 @@ class TreeBuilder {
                 this.linkMetaclasses.add(mc);
             }
         }
+        
     }
 
     @objid ("01167238-6baf-44cc-a271-c285118c9d36")
@@ -237,6 +242,7 @@ class TreeBuilder {
         
         // decrement remainingDepth and recurse.
         doBuildLeftTree(graph, sourceNode, source, remainingDepth - 1);
+        
     }
 
     @objid ("ba3102f1-703f-4219-9e5b-ae744725eed2")
@@ -248,6 +254,7 @@ class TreeBuilder {
         graph.addEdge(newEdge);
         // decrement remainingDepth and recurse.
         doBuildRightTree(graph, newNode, target, remainingDepth - 1);
+        
     }
 
 }

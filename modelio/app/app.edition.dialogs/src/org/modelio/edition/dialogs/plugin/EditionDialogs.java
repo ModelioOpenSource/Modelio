@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.dialogs.plugin;
 
 import java.util.ResourceBundle;
@@ -56,6 +55,7 @@ public class EditionDialogs implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), PLUGIN_ID));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("editiondialogs"));
+        
     }
 
     @objid ("dbd53cae-75d6-4d51-8fd6-4e4049e282ce")
@@ -72,7 +72,6 @@ public class EditionDialogs implements BundleActivator {
     /**
      * Returns an image descriptor for the image file at the given plug-in
      * relative path
-     * 
      * @param path the path
      * @return the image descriptor
      */

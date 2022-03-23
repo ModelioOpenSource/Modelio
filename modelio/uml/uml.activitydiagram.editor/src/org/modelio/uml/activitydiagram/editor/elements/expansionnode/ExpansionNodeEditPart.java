@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.expansionnode;
 
 import java.beans.PropertyChangeEvent;
@@ -34,8 +33,8 @@ import org.eclipse.gef.editpolicies.SelectionEditPolicy;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeRequestConstants;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeStartCreationEditPolicy;
-import org.modelio.diagram.elements.common.portcontainer.PortConstraint.Border;
 import org.modelio.diagram.elements.common.portcontainer.PortConstraint;
+import org.modelio.diagram.elements.common.portcontainer.PortConstraint.Border;
 import org.modelio.diagram.elements.common.portcontainer.PortContainerFigure;
 import org.modelio.diagram.elements.common.portcontainer.PortContainerLayoutHelper;
 import org.modelio.diagram.elements.core.figures.IOrientableShaper.Orientation;
@@ -61,7 +60,7 @@ import org.modelio.uml.activitydiagram.editor.elements.policies.CreateFlowEditPo
 @objid ("2a52291a-55b6-11e2-877f-002564c97630")
 public class ExpansionNodeEditPart extends AbstractNodeEditPart {
     @objid ("2a52291e-55b6-11e2-877f-002564c97630")
-     Label labelFigure;
+    Label labelFigure;
 
     @objid ("2a52291f-55b6-11e2-877f-002564c97630")
     @Override
@@ -71,6 +70,7 @@ public class ExpansionNodeEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                 new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("2a522922-55b6-11e2-877f-002564c97630")
@@ -97,6 +97,7 @@ public class ExpansionNodeEditPart extends AbstractNodeEditPart {
         expansionNodeFig.getParent().setConstraint(expansionNodeFig, expansionnodeModel.getLayoutData());
         
         refreshOrientation();
+        
     }
 
     @objid ("2a52292c-55b6-11e2-877f-002564c97630")
@@ -115,6 +116,7 @@ public class ExpansionNodeEditPart extends AbstractNodeEditPart {
         } else {
             super.refreshFromStyle(aFigure, style);
         }
+        
     }
 
     @objid ("0de6a928-0447-441a-b89d-5d56a66fe45b")
@@ -153,6 +155,7 @@ public class ExpansionNodeEditPart extends AbstractNodeEditPart {
                 getFigure().setSize(15, 80);
             }
         }
+        
     }
 
     @objid ("3be0db8d-6ecf-4a1e-b003-a78141899163")
@@ -164,6 +167,7 @@ public class ExpansionNodeEditPart extends AbstractNodeEditPart {
         }
         
         super.deactivate();
+        
     }
 
     @objid ("88596540-abbf-42e0-999f-8d3baeeaef07")
@@ -178,6 +182,7 @@ public class ExpansionNodeEditPart extends AbstractNodeEditPart {
         } else {
             super.propertyChange(evt);
         }
+        
     }
 
     @objid ("7ad9f50f-8d1d-4537-933d-752308165bc7")
@@ -189,6 +194,7 @@ public class ExpansionNodeEditPart extends AbstractNodeEditPart {
         if (parentPortConst != null) {
             expansionNodeFig.setReferenceBorder(parentPortConst.getReferenceBorder());
         }
+        
     }
 
     /**
@@ -200,7 +206,7 @@ public class ExpansionNodeEditPart extends AbstractNodeEditPart {
     @objid ("72df758f-8bce-4817-a320-89f577c8fd8d")
     private static class ExpansionNodeDragEditPolicy extends DefaultNodeResizableEditPolicy {
         @objid ("f06e9ad3-71a7-448a-a9ba-8eafc0a9a4be")
-        public ExpansionNodeDragEditPolicy() {
+        public  ExpansionNodeDragEditPolicy() {
             super();
         }
 
@@ -231,6 +237,7 @@ public class ExpansionNodeEditPart extends AbstractNodeEditPart {
             } else {
                 return super.getMoveCommand(request);
             }
+            
         }
 
         @objid ("cbab22b7-a031-4ef0-b1e1-8d3366714a0d")
@@ -245,11 +252,13 @@ public class ExpansionNodeEditPart extends AbstractNodeEditPart {
             
                 ChangeBoundsRequest newReq = RequestHelper.shallowCopy(request);
                 RequestHelper.setDeltas(newReq, hostFigure, requestedBounds);
+                RequestHelper.addSharedEditParts(newReq, request);
             
                 return newReq;
             } else {
                 return request;
             }
+            
         }
 
         @objid ("59d8a2c8-0886-4135-9319-0fc462931ba1")
@@ -277,7 +286,6 @@ public class ExpansionNodeEditPart extends AbstractNodeEditPart {
 
         /**
          * Rotate the rectangle by 90° around its center
-         * 
          * @param rotated the rectangle to rotate.
          */
         @objid ("2df8df0d-634f-4aea-9799-4cea95a2b445")
@@ -286,6 +294,7 @@ public class ExpansionNodeEditPart extends AbstractNodeEditPart {
             rotated.translate(-center.x(), -center.y());
             rotated.transpose();
             rotated.translate(center);
+            
         }
 
     }

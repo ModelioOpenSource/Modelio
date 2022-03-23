@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.text;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -27,7 +26,6 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IElementChangeListener {
     /**
      * Called when the selected element changes.
-     * 
      * @param oldElement previously selected element. May be null.
      * @param newElement newly selected element. May be null.
      */

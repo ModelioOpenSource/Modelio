@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.interactionoperand.primarynode;
 
 import java.util.List;
@@ -79,6 +78,7 @@ public class InteractionOperandPrimaryNodeEditPart extends AbstractNodeEditPart 
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                 new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("d90cb0de-55b6-11e2-877f-002564c97630")
@@ -86,6 +86,7 @@ public class InteractionOperandPrimaryNodeEditPart extends AbstractNodeEditPart 
     protected void refreshVisuals() {
         super.refreshVisuals();
         getFigure().getParent().setConstraint(getFigure(), ((GmAbstractObject) getModel()).getLayoutData());
+        
     }
 
     @objid ("d90cb0e1-55b6-11e2-877f-002564c97630")
@@ -95,6 +96,7 @@ public class InteractionOperandPrimaryNodeEditPart extends AbstractNodeEditPart 
         IFigure child = ((GraphicalEditPart) childEditPart).getFigure();
         ((GmAbstractObject) childEditPart.getModel()).setLayoutData(BorderLayout.TOP);
         getContentPane().add(child, BorderLayout.TOP, index);
+        
     }
 
     @objid ("d90cb0e8-55b6-11e2-877f-002564c97630")
@@ -121,7 +123,7 @@ public class InteractionOperandPrimaryNodeEditPart extends AbstractNodeEditPart 
         private final ChangeBoundsRequest request;
 
         @objid ("25840fe0-fa65-4698-bbc0-257435504cc4")
-        private UpdateInteractionOperandHeightCommand(ChangeBoundsRequest request) {
+        private  UpdateInteractionOperandHeightCommand(ChangeBoundsRequest request) {
             this.request = request;
         }
 
@@ -164,6 +166,7 @@ public class InteractionOperandPrimaryNodeEditPart extends AbstractNodeEditPart 
                 }
                 operand.setEndLineNumber(newEndTime);
             }
+            
         }
 
     }

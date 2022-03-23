@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.contributor;
 
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.modelio.api.ui.viewtemplate.IModelViewTemplate;
 import org.modelio.bpmn.diagram.editor.layout.BpmnLayouter;
@@ -42,7 +41,7 @@ public class BpmnProcessDesignDiagramTemplate implements IModelViewTemplate<Abst
      * Mandatory default c'tor needed by eclipse when loading the extension point.
      */
     @objid ("b6c8a960-1c82-439c-923c-c4e1bc789619")
-    public BpmnProcessDesignDiagramTemplate() {
+    public  BpmnProcessDesignDiagramTemplate() {
         super();
     }
 

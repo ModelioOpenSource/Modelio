@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.modelshield.standardcheckers;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -56,10 +55,11 @@ public class E229Checker extends DepCardinalityChecker {
         // trigger=create, metaclass=Property, feature=Type
         plan.registerChecker(this, smMetamodel.getMClass(PropertyDefinition.class), TriggerType.Update, DEPNAME);
         plan.registerChecker(this, smMetamodel.getMClass(DynamicPropertyDefinition.class), TriggerType.Update, DEPNAME);
+        
     }
 
     @objid ("005e5934-9e33-1f6c-bf9a-001ec947cd2a")
-    public E229Checker() {
+    public  E229Checker() {
         super(ERRORID, DEPNAME);
     }
 

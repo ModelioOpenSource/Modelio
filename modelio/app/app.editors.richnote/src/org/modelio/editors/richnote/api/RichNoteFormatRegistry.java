@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.api;
 
 import java.io.File;
@@ -88,14 +87,14 @@ public class RichNoteFormatRegistry implements IRichNoteFormatRegistry {
      * Constructor.
      */
     @objid ("8ec6a453-418a-4188-92c8-84be8ef1d942")
-    public RichNoteFormatRegistry() {
+    public  RichNoteFormatRegistry() {
         instance = this;
         init();
+        
     }
 
     /**
      * Get the format registry.
-     * 
      * @return the format registry.
      */
     @objid ("baad7816-e378-44b2-b196-03e4ff36c1dc")
@@ -164,6 +163,7 @@ public class RichNoteFormatRegistry implements IRichNoteFormatRegistry {
             Platform.getExtensionRegistry().removeListener(this.listener);
             this.listener = null;
         }
+        
     }
 
     /**
@@ -173,6 +173,7 @@ public class RichNoteFormatRegistry implements IRichNoteFormatRegistry {
     void init() {
         this.listener = new RegistryListener();
         Platform.getExtensionRegistry().addListener(this.listener, DOCFORMATPROVIDER_EXTENSION_ID);
+        
     }
 
     /**
@@ -185,11 +186,11 @@ public class RichNoteFormatRegistry implements IRichNoteFormatRegistry {
     public void reset() {
         this.bestFormats = null;
         this.bestEditableFormats = null;
+        
     }
 
     /**
      * Tells whether the first given format is better than the second.
-     * 
      * @param a the first format
      * @param b the second format
      * @return <code>true</code> if <i>a</i> is the best format else <code>false</code>
@@ -239,6 +240,7 @@ public class RichNoteFormatRegistry implements IRichNoteFormatRegistry {
                 }
             }
         }
+        
     }
 
     @objid ("98c52623-9922-4d89-bd48-e17db463f373")
@@ -257,11 +259,10 @@ public class RichNoteFormatRegistry implements IRichNoteFormatRegistry {
 
     /**
      * Get an icon for the given rich note format.
-     * 
      * @param docEl the format declaration in plugin.xml
      * @param f the rich note format
      * @return The rich note format icon descriptor
-     * @throws org.eclipse.core.runtime.InvalidRegistryObjectException if this format declaration is no longer valid
+     * @throws InvalidRegistryObjectException if this format declaration is no longer valid
      */
     @objid ("7d6ce023-196f-438e-8f5d-9564dfff8a61")
     private ImageDescriptor getIcon(final IConfigurationElement docEl, final RichNoteFormat f) throws InvalidRegistryObjectException {
@@ -287,7 +288,8 @@ public class RichNoteFormatRegistry implements IRichNoteFormatRegistry {
     @objid ("6e4d8afc-1720-4798-8273-0fa47f739e2c")
     private class RegistryListener implements IRegistryEventListener {
         @objid ("2945f34f-947c-4eb8-a031-ef677dbbb622")
-        public RegistryListener() {
+        public  RegistryListener() {
+            
         }
 
         @objid ("90ca2181-40eb-4561-8426-d29bcee366ee")

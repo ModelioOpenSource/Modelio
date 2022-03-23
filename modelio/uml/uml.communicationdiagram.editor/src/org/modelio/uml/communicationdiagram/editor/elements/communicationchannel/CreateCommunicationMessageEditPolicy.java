@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.communicationdiagram.editor.elements.communicationchannel;
 
 import java.util.Map;
@@ -51,7 +50,6 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class CreateCommunicationMessageEditPolicy extends DeferringCreateNodePolicy {
     /**
      * Redefined to return the {@link GmGroup} for the nearest association role from the mouse.
-     * 
      * @param gmLink The association model
      * @param location The mouse location
      * @return The nearest {@link GmGroup} from the mouse.
@@ -161,7 +159,7 @@ public class CreateCommunicationMessageEditPolicy extends DeferringCreateNodePol
     @objid ("7a207588-55b6-11e2-877f-002564c97630")
     class DeferredCommand extends Command {
         @objid ("7a20758d-55b6-11e2-877f-002564c97630")
-        private Map<?,?> editPartRegistry;
+        private Map<?, ?> editPartRegistry;
 
         @objid ("9cbf1079-55c1-11e2-9337-002564c97630")
         private GmLink gmLink;
@@ -171,15 +169,15 @@ public class CreateCommunicationMessageEditPolicy extends DeferringCreateNodePol
 
         /**
          * Create a deferred command.
-         * 
          * @param req The creation request.
          * @param sender The edit part sending the request
          */
         @objid ("7a207591-55b6-11e2-877f-002564c97630")
-        public DeferredCommand(final Request req, final EditPart sender) {
+        public  DeferredCommand(final Request req, final EditPart sender) {
             this.req = req;
             this.gmLink = (GmLink) sender.getModel();
             this.editPartRegistry = sender.getViewer().getEditPartRegistry();
+            
         }
 
         @objid ("7a207598-55b6-11e2-877f-002564c97630")
@@ -196,6 +194,7 @@ public class CreateCommunicationMessageEditPolicy extends DeferringCreateNodePol
             if (cmd != null && cmd.canExecute()) {
                 cmd.execute();
             }
+            
         }
 
         @objid ("7a21fbfd-55b6-11e2-877f-002564c97630")
@@ -222,6 +221,7 @@ public class CreateCommunicationMessageEditPolicy extends DeferringCreateNodePol
             } else {
                 return null;
             }
+            
         }
 
     }

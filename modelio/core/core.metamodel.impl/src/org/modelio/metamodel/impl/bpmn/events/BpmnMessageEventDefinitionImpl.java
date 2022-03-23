@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.events;
 
 import java.util.ArrayList;
@@ -33,7 +33,6 @@ import org.eclipse.emf.common.util.EList;
 import org.modelio.metamodel.bpmn.bpmnService.BpmnOperation;
 import org.modelio.metamodel.bpmn.events.BpmnMessageEventDefinition;
 import org.modelio.metamodel.bpmn.flows.BpmnMessage;
-import org.modelio.metamodel.impl.bpmn.events.BpmnMessageEventDefinitionData;
 import org.modelio.metamodel.visitors.IModelVisitor;
 import org.modelio.vcore.smkernel.SmConstrainedList;
 import org.modelio.vcore.smkernel.SmDepVal;
@@ -77,6 +76,7 @@ public class BpmnMessageEventDefinitionImpl extends BpmnEventDefinitionImpl impl
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("fe3802be-87a3-4d66-bb2f-4f81818110c1")

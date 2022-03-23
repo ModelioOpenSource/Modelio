@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.resource;
 
 import java.io.File;
@@ -42,6 +41,7 @@ import org.modelio.vbasic.progress.IModelioProgress;
 import org.modelio.vbasic.progress.SubProgress;
 import org.modelio.vcore.smkernel.mapi.MMetamodel;
 import org.modelio.vstore.exml.common.RepositoryVersions;
+import org.modelio.vstore.exml.resource.IExmlResourceProvider.ExmlResource;
 
 /**
  * Resource provider for repositories on the local file system.
@@ -68,20 +68,20 @@ public class LocalExmlResourceProvider extends AbstractExmlResourceProvider {
 
     /**
      * Initialize the resource provider.
-     * 
      * @param repositoryPath a path on the local file system.
      * @param runtimePath a path on the local file system containing repository data
      * that may be discarded. This directory will usually contain the EXML indexes.
      * @param name the resource name, returned by {@link #getName()}
      */
     @objid ("be505de5-4462-4451-9764-fb11edf3c768")
-    public LocalExmlResourceProvider(Path repositoryPath, Path runtimePath, String name) {
+    public  LocalExmlResourceProvider(Path repositoryPath, Path runtimePath, String name) {
         this.repositoryPath = repositoryPath;
         this.name = name;
         this.modelPath = repositoryPath.resolve(IExmlRepositoryGeometry.MODEL_DIRNAME);
         this.stampPath = repositoryPath.resolve(IStampGeometry.STAMP_DIR_NAME).resolve(IStampGeometry.STAMP_FILE_NAME);
         this.indexPath = runtimePath.resolve(IExmlRepositoryGeometry.INDEX_DIRNAME);
         this.versionPath = repositoryPath.resolve(IExmlRepositoryGeometry.FORMAT_VERSION_PATH);
+        
     }
 
     @objid ("cf50781d-03e4-11e2-b5bf-001ec947ccaf")
@@ -106,6 +106,7 @@ public class LocalExmlResourceProvider extends AbstractExmlResourceProvider {
         if (isWriteable()) {
             writeStamp();
         }
+        
     }
 
     @objid ("b7bd8a6c-220c-4225-88ff-aa5b1540ce6e")
@@ -166,6 +167,7 @@ public class LocalExmlResourceProvider extends AbstractExmlResourceProvider {
         } catch (IOException e) {
             return "";
         }
+        
     }
 
     @objid ("cf52da74-03e4-11e2-b5bf-001ec947ccaf")
@@ -200,7 +202,6 @@ public class LocalExmlResourceProvider extends AbstractExmlResourceProvider {
 
     /**
      * Set the repository name.
-     * 
      * @param name the repository name.
      */
     @objid ("7a4eab85-01fe-4946-96f6-c458bb62e242")
@@ -225,6 +226,7 @@ public class LocalExmlResourceProvider extends AbstractExmlResourceProvider {
             Files.createDirectories(stampDir);
             Files.write(this.stampPath, bytes);
         }
+        
     }
 
     @objid ("cf52da71-03e4-11e2-b5bf-001ec947ccaf")
@@ -232,6 +234,7 @@ public class LocalExmlResourceProvider extends AbstractExmlResourceProvider {
     protected void doCreateRepository(MMetamodel metamodel) throws IOException {
         ExmlRepositoryCreator c = new ExmlRepositoryCreator(this.repositoryPath, getGeometry(), metamodel);
         c.createRepositoryStructure();
+        
     }
 
     /**
@@ -243,7 +246,7 @@ public class LocalExmlResourceProvider extends AbstractExmlResourceProvider {
         private Path p;
 
         @objid ("cf52da61-03e4-11e2-b5bf-001ec947ccaf")
-        public LocalResource(Path p) {
+        public  LocalResource(Path p) {
             this.p = p;
         }
 
@@ -255,6 +258,7 @@ public class LocalExmlResourceProvider extends AbstractExmlResourceProvider {
             } else {
                 return Files.newInputStream(this.p);
             }
+            
         }
 
         @objid ("cf52da69-03e4-11e2-b5bf-001ec947ccaf")

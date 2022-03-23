@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.analyst.analyst.analystelement;
 
@@ -33,7 +32,7 @@ import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
- * Proxy class to handle a AnalystElement metaclass.
+ * Proxy class to handle a Analyst.AnalystElement metaclass.
  * <p>Description:
  * <br/><i>MMAnalystAnalystElement</i></p>
  */
@@ -42,18 +41,17 @@ public class MMAnalystAnalystElement {
     /**
      * The underlying {@link AnalystElement} represented by this proxy, never null.
      */
-    @objid ("5db7e67e-7b58-455c-bbf6-cdb4ba4c4d93")
+    @objid ("4b63a6af-95dd-4490-9a34-5d0638d2944f")
     protected final ModelElement elt;
 
     /**
-     * Tells whether a {@link MMAnalystAnalystElement proxy} can be instantiated from a {@link MObject} checking it is a AnalystElement.
+     * Tells whether a {@link MMAnalystAnalystElement proxy} can be instantiated from a {@link MObject} checking it is a Analyst.AnalystElement.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("e2a82346-aeb5-46f1-b5b8-ebd5bb7bf990")
+    @objid ("446a679b-7aa9-4257-9d41-d713701e0a45")
     public static boolean canInstantiate(MObject elt) {
         if (elt == null) {
             return false;
@@ -63,19 +61,18 @@ public class MMAnalystAnalystElement {
     }
 
     /**
-     * Tries to instantiate a {@link MMAnalystAnalystElement} proxy from an AnalystElement checking its metaclass.
+     * Tries to instantiate a {@link MMAnalystAnalystElement} proxy from a Analyst.AnalystElement checking its metaclass.
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
-     * 
      * @param obj a AnalystElement
      * @return a {@link MMAnalystAnalystElement} proxy or <i>null</i>.
      */
-    @objid ("ba46702c-4e64-44db-ab86-30c026e0ffcd")
+    @objid ("31ea0d6f-3800-4564-ba86-d26b34339d51")
     public static MMAnalystAnalystElement instantiate(ModelElement obj) {
         return MMAnalystAnalystElement.canInstantiate(obj) ? new MMAnalystAnalystElement(obj) : null;
     }
 
-    @objid ("66c5926a-86e4-41f0-88cb-5d4a14e8bc0e")
+    @objid ("aacd615d-aeb5-492b-9c6f-5352828f7c52")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -92,46 +89,45 @@ public class MMAnalystAnalystElement {
     }
 
     /**
-     * Get the underlying AnalystElement.
-     * 
+     * Get the underlying Analyst.AnalystElement.
      * @return the AnalystElement represented by this proxy, never null.
      */
-    @objid ("729b1d2f-4437-4d6b-88b8-cf6c5ecf757c")
+    @objid ("da9bcce9-89a6-4908-b2b0-a3d3e08d3957")
     public ModelElement getElement() {
         return this.elt;
     }
 
-    @objid ("6fd54071-dd99-4c57-8c8a-475457d968ab")
+    @objid ("534cb4a6-77bd-4739-99bd-8102ed3abb7d")
     @Override
     public int hashCode() {
-        return 23 + (this.elt == null ? 0 : this.elt.hashCode());
+        return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
-    @objid ("66fc77cf-27b7-496a-859f-59723737ec92")
-    protected MMAnalystAnalystElement(ModelElement elt) {
+    @objid ("fa623a4c-102b-4c3e-bf0a-cbc54245d7bc")
+    protected  MMAnalystAnalystElement(ModelElement elt) {
         this.elt = elt;
     }
 
     @objid ("67e8f8d4-4fb2-4f00-be1a-9e6a90e0562d")
     public static final class MdaTypes {
-        @objid ("ea7a7357-6d25-4319-9fc7-d2d7d509b238")
+        @objid ("22935b49-3023-4b76-a5b6-5fb092b415ce")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("6784ad7e-73b0-4176-84e0-aa01a3b3ff32")
+        @objid ("d356d4a4-b430-4a34-9445-e1f425eea227")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("b655e613-4014-4f06-a8d3-90c1cf4f919d")
+        @objid ("06bfd201-cd3d-4381-8f84-de9e6eb18f54")
         public static void init(IModuleContext ctx) {
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 static {
-            if(ModelerModuleModule.getInstance() != null) {
-                init(ModelerModuleModule.getInstance().getModuleContext());
+                if(ModelerModuleModule.getInstance() != null) {
+                    init(ModelerModuleModule.getInstance().getModuleContext());
+                }
             }
-        }
+        
     }
 
 }

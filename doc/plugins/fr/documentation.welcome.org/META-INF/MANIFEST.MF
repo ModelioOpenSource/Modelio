@@ -1,5 +1,5 @@
 Bundle-SymbolicName:  org.modelio.documentation.welcome.nl_fr;singleton=true
-Bundle-Version: 4.1.0.qualifier
+Bundle-Version: 5.1.0.qualifier
 Bundle-Name: Welcome
 Bundle-Vendor: modelio.org
 Fragment-Host: org.modelio.documentation.welcome

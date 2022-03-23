@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.datatype;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -90,7 +89,7 @@ public final class DataTypeStructuredStyleKeys extends StaticAbstractStyleKeyPro
      */
     @objid ("a566d59b-55c2-11e2-9337-002564c97630")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("DATATYPE_SHOWSTEREOTYPES",
-                                                                  MetaKey.SHOWSTEREOTYPES);
+                                                                      MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Show tagged values.
@@ -103,7 +102,7 @@ public final class DataTypeStructuredStyleKeys extends StaticAbstractStyleKeyPro
      */
     @objid ("a566fcab-55c2-11e2-9337-002564c97630")
     public static final StyleKey SHOWVISIBILITY = createStyleKey("DATATYPE_SHOWVISIBILITY",
-                                                                 MetaKey.SHOWVISIBILITY);
+                                                                     MetaKey.SHOWVISIBILITY);
 
     /**
      * Filter on features

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.viewer.config.body;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,14 +42,14 @@ public class CellByCellOverrideLabelAccumulator extends ColumnOverrideLabelAccum
 
     /**
      * Create a new accumulator instance.
-     * 
      * @param layer the layer this accumulator works on.
      * @param dataModel the table's data model.
      */
     @objid ("9a113dbd-e46c-4514-b6a5-9e26962a4bd3")
-    public CellByCellOverrideLabelAccumulator(ILayer layer, PropertyTableDataModel dataModel) {
+    public  CellByCellOverrideLabelAccumulator(ILayer layer, PropertyTableDataModel dataModel) {
         super(layer);
         this.dataModel = dataModel;
+        
     }
 
     @objid ("8cc3a48b-a6d8-415b-a101-83afcb91a5c9")
@@ -85,6 +84,7 @@ public class CellByCellOverrideLabelAccumulator extends ColumnOverrideLabelAccum
         if (propertyModel.isEditable(row, col)) {
             configLabels.addLabel(BodyConfiguration.EDITABLE);
         }
+        
     }
 
 }

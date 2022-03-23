@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.combinedfragment.primarynode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,9 +37,9 @@ import org.modelio.diagram.elements.core.figures.labelum.LabelumFigure;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
+import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.diagram.styles.core.StyleKey.FillMode;
 import org.modelio.diagram.styles.core.StyleKey.LinePattern;
-import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.platform.ui.CoreColorRegistry;
 
 /**
@@ -65,6 +64,7 @@ public class OperatorEditPart extends ElementLabelEditPart {
         } else {
             super.performRequest(req);
         }
+        
     }
 
     @objid ("d8d12e9a-55b6-11e2-877f-002564c97630")
@@ -142,6 +142,7 @@ public class OperatorEditPart extends ElementLabelEditPart {
             final IPenOptionsSupport pen = (IPenOptionsSupport) labelFigure;
             applyPenOptions(pen, style, gmModel);
         }
+        
     }
 
     @objid ("d8d2b509-55b6-11e2-877f-002564c97630")
@@ -150,6 +151,7 @@ public class OperatorEditPart extends ElementLabelEditPart {
         final GmElementLabel model = (GmElementLabel) getModel();
         // Update label.
         getLabelFigure(getFigure()).setText(model.getLabel());
+        
     }
 
     @objid ("4a2b540c-7f3d-442b-8d63-b5c7bb72be36")
@@ -190,6 +192,7 @@ public class OperatorEditPart extends ElementLabelEditPart {
             LinePattern linePattern = style.getProperty(styleKey);
             pen.setLinePattern(linePattern);
         }
+        
     }
 
 }

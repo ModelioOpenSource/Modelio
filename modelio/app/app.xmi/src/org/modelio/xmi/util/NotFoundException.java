@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.util;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -25,7 +24,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 @objid ("73103f8a-5b45-4107-86f7-674e15804835")
 public class NotFoundException extends RuntimeException {
     @objid ("dd6933e7-ee27-4e34-8cd5-f7b5686bbca8")
-    public NotFoundException(String message) {
+    public  NotFoundException(String message) {
         super(message);
     }
 

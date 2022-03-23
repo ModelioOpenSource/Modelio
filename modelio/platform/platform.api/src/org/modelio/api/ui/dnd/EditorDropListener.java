@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.dnd;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,13 +28,13 @@ public class EditorDropListener {
 
     /**
      * Constructor initializing an instance of EditorDropListener.
-     * 
      * @param client the drop client.
      */
     @objid ("0eccba60-79dc-11dd-ba6f-0014222a9f79")
-    public EditorDropListener(final IEditorDropClient client) {
+    public  EditorDropListener(final IEditorDropClient client) {
         super();
         this.client = client;
+        
     }
 
 }

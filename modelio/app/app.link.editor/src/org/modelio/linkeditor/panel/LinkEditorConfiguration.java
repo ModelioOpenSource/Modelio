@@ -17,10 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.panel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.modelio.linkeditor.panel.ILinkEditorConfiguration.Orientation;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.vcore.smkernel.mapi.MClass;
 
@@ -37,15 +37,15 @@ public class LinkEditorConfiguration implements ILinkEditorConfiguration {
 
     @objid ("eeca2864-d9b9-4e3e-967e-4c11464d3364")
     private static final ILinkEditorFilter ANY_LINK = new ILinkEditorFilter() {
-		@Override
-		public boolean accept(MClass enabledLinkType, Stereotype st) {
-			return true;
-		}
-		@Override
-		public boolean isLinkTypeEnabled(MClass mc) {
-			return true;
-		}
-	};
+    		@Override
+    		public boolean accept(MClass enabledLinkType, Stereotype st) {
+    			return true;
+    		}
+    		@Override
+    		public boolean isLinkTypeEnabled(MClass mc) {
+    			return true;
+    		}
+    	};
 
     @objid ("1c26e947-b281-4c6a-8256-b1b420ba6138")
     private ILinkEditorFilter linkFilter = LinkEditorConfiguration.ANY_LINK;
@@ -59,22 +59,24 @@ public class LinkEditorConfiguration implements ILinkEditorConfiguration {
      * @param linkFilter
      */
     @objid ("cd903e53-756c-4a2e-bfe7-9aa516915656")
-    public LinkEditorConfiguration(int leftDepth, int rightDepth, Orientation orientation, ILinkEditorFilter linkFilter) {
+    public  LinkEditorConfiguration(int leftDepth, int rightDepth, Orientation orientation, ILinkEditorFilter linkFilter) {
         this.leftDepth = leftDepth;
         this.rightDepth = rightDepth;
         this.layoutOrientation = orientation;
         this.linkFilter = (linkFilter != null) ? linkFilter : LinkEditorConfiguration.ANY_LINK;
+        
     }
 
     /**
      * Default C'tor
      */
     @objid ("0e819fcc-9ace-4eea-88f6-604bc5f682c3")
-    LinkEditorConfiguration() {
+     LinkEditorConfiguration() {
         this.leftDepth = 1;
         this.rightDepth = 1;
         this.layoutOrientation = Orientation.Horizontal;
         this.linkFilter = LinkEditorConfiguration.ANY_LINK;
+        
     }
 
     /**
@@ -82,7 +84,7 @@ public class LinkEditorConfiguration implements ILinkEditorConfiguration {
      * @param config
      */
     @objid ("c3b9dc8e-b58c-4327-8f11-2d592e99782b")
-    LinkEditorConfiguration(ILinkEditorConfiguration config) {
+     LinkEditorConfiguration(ILinkEditorConfiguration config) {
         this(config.getLeftDepth(), config.getRightDepth(), config.getLayoutOrientation(), config.getLinkFilter());
     }
 
@@ -96,6 +98,7 @@ public class LinkEditorConfiguration implements ILinkEditorConfiguration {
         setRightDepth(aConfig.getRightDepth());
         setLayoutOrientation(aConfig.getLayoutOrientation());
         setLinkFilter(aConfig.getLinkFilter());
+        
     }
 
     @objid ("93153d9a-5a0d-446d-848d-0a10d0f07a0a")
@@ -129,12 +132,14 @@ public class LinkEditorConfiguration implements ILinkEditorConfiguration {
     public void setLayoutOrientation(Orientation value) {
         // Automatically generated method. Please do not modify this code.
         this.layoutOrientation = value;
+        
     }
 
     @objid ("af6ed48a-44ec-427f-ae6c-2a86501499a9")
     public void setLeftDepth(int value) {
         // Automatically generated method. Please do not modify this code.
         this.leftDepth = value;
+        
     }
 
     @objid ("6d72f0cc-1ec2-4474-87cd-0202a9f0ce2f")
@@ -146,6 +151,7 @@ public class LinkEditorConfiguration implements ILinkEditorConfiguration {
     public void setRightDepth(int value) {
         // Automatically generated method. Please do not modify this code.
         this.rightDepth = value;
+        
     }
 
 }

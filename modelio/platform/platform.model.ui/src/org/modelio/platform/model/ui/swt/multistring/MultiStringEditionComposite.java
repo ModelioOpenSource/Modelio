@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.multistring;
 
 import java.util.ArrayList;
@@ -92,7 +91,7 @@ public class MultiStringEditionComposite extends Composite {
     }
 
     @objid ("c0f94828-4984-4425-82cd-e4a6856feeb5")
-    public MultiStringEditionComposite(Composite parent, int style, int size) {
+    public  MultiStringEditionComposite(Composite parent, int style, int size) {
         super(parent, style);
         
         this.size = size;
@@ -110,6 +109,7 @@ public class MultiStringEditionComposite extends Composite {
         createAddStringField(this);
         
         initListeners();
+        
     }
 
     @objid ("8dd22d81-c068-11e1-8c0a-002564c97630")
@@ -117,6 +117,7 @@ public class MultiStringEditionComposite extends Composite {
         this.content = new ArrayList<>();
         this.content.addAll(values);
         refresh();
+        
     }
 
     @objid ("8dd0a6f8-c068-11e1-8c0a-002564c97630")
@@ -144,6 +145,7 @@ public class MultiStringEditionComposite extends Composite {
         this.addParameterButton.setEnabled(false);
         GridData gd_addParameterButton = new GridData(SWT.LEFT, SWT.TOP, false, false);
         this.addParameterButton.setLayoutData(gd_addParameterButton);
+        
     }
 
     @objid ("8dd22d65-c068-11e1-8c0a-002564c97630")
@@ -165,6 +167,7 @@ public class MultiStringEditionComposite extends Composite {
         this.contentTable.setInput(this.content);
         GridData gd_contentTree = new GridData(SWT.FILL, SWT.FILL, true, true);
         this.contentTable.getControl().setLayoutData(gd_contentTree);
+        
     }
 
     @objid ("8dd22d8a-c068-11e1-8c0a-002564c97630")
@@ -189,6 +192,7 @@ public class MultiStringEditionComposite extends Composite {
         TableViewerEditor.create(this.contentTable, null, actSupport, ColumnViewerEditor.TABBING_HORIZONTAL
                 | ColumnViewerEditor.TABBING_MOVE_TO_ROW_NEIGHBOR
                 | ColumnViewerEditor.TABBING_VERTICAL | ColumnViewerEditor.KEYBOARD_ACTIVATION);
+        
     }
 
     @objid ("8dd0a6fe-c068-11e1-8c0a-002564c97630")
@@ -218,6 +222,7 @@ public class MultiStringEditionComposite extends Composite {
         this.removeParameterButton.setEnabled(false);
         GridData gd_removeParameterButton = new GridData(SWT.LEFT, SWT.TOP, false, false);
         this.removeParameterButton.setLayoutData(gd_removeParameterButton);
+        
     }
 
     @objid ("8dd22d8c-c068-11e1-8c0a-002564c97630")
@@ -242,6 +247,7 @@ public class MultiStringEditionComposite extends Composite {
         this.stringTextListener = new StringTextListener(this);
         this.addStringText.addModifyListener(this.stringTextListener);
         this.addStringText.addKeyListener(this.stringTextListener);
+        
     }
 
     @objid ("8dcf2050-c068-11e1-8c0a-002564c97630")
@@ -284,6 +290,7 @@ public class MultiStringEditionComposite extends Composite {
     public void addAdapter(String value) {
         this.content.add(value);
         refresh();
+        
     }
 
     @objid ("8dd0a6e6-c068-11e1-8c0a-002564c97630")
@@ -293,6 +300,7 @@ public class MultiStringEditionComposite extends Composite {
         if (this.size != -1) {
             this.addStringText.setEnabled(this.content.size() < this.size);
         }
+        
     }
 
     @objid ("8dd0a6e8-c068-11e1-8c0a-002564c97630")
@@ -301,6 +309,7 @@ public class MultiStringEditionComposite extends Composite {
             this.content.remove(value);
         }
         refresh();
+        
     }
 
     @objid ("8dd22d68-c068-11e1-8c0a-002564c97630")
@@ -351,6 +360,7 @@ public class MultiStringEditionComposite extends Composite {
         }
         
         refresh();
+        
     }
 
     @objid ("8dd0a6dc-c068-11e1-8c0a-002564c97630")
@@ -367,6 +377,7 @@ public class MultiStringEditionComposite extends Composite {
         }
         
         this.refresh();
+        
     }
 
     @objid ("9454b7ad-f11d-4fd9-aa3a-5ab9b5a533f8")
@@ -406,6 +417,7 @@ public class MultiStringEditionComposite extends Composite {
         }
         
         super.dispose();
+        
     }
 
 }

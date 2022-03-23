@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures;
 
 import java.util.List;
@@ -51,18 +50,17 @@ public class ToolbarLayoutWithGrab extends ToolbarLayout {
      * <code>true</code>, and {@link #ALIGN_TOPLEFT} alignment.
      */
     @objid ("7fcd4c2f-1dec-11e2-8cad-001ec947c8cc")
-    public ToolbarLayoutWithGrab() {
+    public  ToolbarLayoutWithGrab() {
         super();
     }
 
     /**
      * Constructs a ToolbarLayoutWithGrab with a specified orientation. Default values are: child spacing 0 pixels,
      * matchWidth <code>false</code>, and {@link #ALIGN_TOPLEFT} alignment.
-     * 
      * @param isHorizontal whether the children are oriented horizontally
      */
     @objid ("7fcd4c32-1dec-11e2-8cad-001ec947c8cc")
-    public ToolbarLayoutWithGrab(boolean isHorizontal) {
+    public  ToolbarLayoutWithGrab(boolean isHorizontal) {
         super(isHorizontal);
     }
 
@@ -174,11 +172,11 @@ public class ToolbarLayoutWithGrab extends ToolbarLayout {
             prefMinSumHeight -= (prefHeight - minHeight);
             y += newBounds.height + getSpacing();
         }
+        
     }
 
     /**
      * Activate or disable last child grabbing the remaining space.
-     * 
      * @param grab whether last child grabs the remaining space.
      * @return this for convenience.
      */

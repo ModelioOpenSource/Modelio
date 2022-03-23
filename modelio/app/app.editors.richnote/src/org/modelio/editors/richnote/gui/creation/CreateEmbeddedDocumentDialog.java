@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.gui.creation;
 
 import java.net.URI;
@@ -89,15 +88,15 @@ public class CreateEmbeddedDocumentDialog extends ModelioDialog {
 
     /**
      * C'tor.
-     * 
      * @param parentShell the parent SWT shell
      * @param data the dialogs date model.
      */
     @objid ("82894722-42c4-47a7-ac3b-2f874ddd2121")
-    public CreateEmbeddedDocumentDialog(Shell parentShell, RichNoteDescriptor data) {
+    public  CreateEmbeddedDocumentDialog(Shell parentShell, RichNoteDescriptor data) {
         super(parentShell);
         this.data = data;
         data.setCreationMode(CreationMode.EMBEDDED);
+        
     }
 
     @objid ("a8e79481-30f3-4341-a05c-639523897755")
@@ -118,6 +117,7 @@ public class CreateEmbeddedDocumentDialog extends ModelioDialog {
         setTitle(EditorsRichNote.I18N.getString("CreateEmbeddedDocumentDialog.title"));
         setMessage(EditorsRichNote.I18N.getString("CreateEmbeddedDocumentDialog.message"));
         validatePage();
+        
     }
 
     @objid ("1f9f33e5-c4ac-40c4-999e-2f31a4546153")
@@ -247,6 +247,7 @@ public class CreateEmbeddedDocumentDialog extends ModelioDialog {
         this.openFileSelectionDialog.setVisible(b);
         this.data.setCreationMode(b ? CreationMode.IMPORT : CreationMode.EMBEDDED);
         validatePage();
+        
     }
 
     @objid ("ef28c2d4-a6d0-4f69-819e-dd35e0ff1e38")
@@ -262,6 +263,7 @@ public class CreateEmbeddedDocumentDialog extends ModelioDialog {
         }
         
         validatePage();
+        
     }
 
     @objid ("8207dc9e-a57d-4ff5-8d87-493602919975")
@@ -271,6 +273,7 @@ public class CreateEmbeddedDocumentDialog extends ModelioDialog {
         if (b != null) {
             b.setEnabled(isPageComplete(this.data));
         }
+        
     }
 
     @objid ("6735b4ea-598d-4671-a961-5b235d610bf6")
@@ -282,6 +285,7 @@ public class CreateEmbeddedDocumentDialog extends ModelioDialog {
         
         this.data.setMimeType(selectedMimeType);
         validatePage();
+        
     }
 
     @objid ("54aab377-bdb9-476c-95e2-a5d645d0f60c")
@@ -293,6 +297,7 @@ public class CreateEmbeddedDocumentDialog extends ModelioDialog {
         } else {
             return false;
         }
+        
     }
 
     @objid ("06ba36ae-fb1f-437e-acec-77cce0b9a391")
@@ -303,6 +308,7 @@ public class CreateEmbeddedDocumentDialog extends ModelioDialog {
             // no error
             this.errorLabel.setText("");
         }
+        
     }
 
     /**
@@ -381,6 +387,7 @@ public class CreateEmbeddedDocumentDialog extends ModelioDialog {
         super.configureShell(newShell);
         setShellStyle(SWT.APPLICATION_MODAL | SWT.DIALOG_TRIM | SWT.RESIZE | SWT.MAX);
         newShell.setMinimumSize(getInitialSize());
+        
     }
 
 }

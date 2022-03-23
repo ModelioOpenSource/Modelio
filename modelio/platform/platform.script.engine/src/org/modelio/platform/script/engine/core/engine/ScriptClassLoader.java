@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.script.engine.core.engine;
 
 import java.io.IOException;
@@ -57,9 +56,10 @@ public class ScriptClassLoader extends URLClassLoader {
     private final List<ClassLoader> parents = new ArrayList<>();
 
     @objid ("007706dc-bf95-1069-96f6-001ec947cd2a")
-    public ScriptClassLoader() {
+    public  ScriptClassLoader() {
         super(new URL[0]);
         addContributingPluginClassLoaders();
+        
     }
 
     @objid ("007225f4-c5d9-1069-96f6-001ec947cd2a")
@@ -99,7 +99,6 @@ public class ScriptClassLoader extends URLClassLoader {
      * includes: - the parent class loaders URLs - the original list of URLs
      * specified to the constructor, - along with any URLs subsequently appended
      * by the addURL() method.
-     * 
      * @return the search path of URLs for loading classes and resources.
      */
     @objid ("0076debe-bf95-1069-96f6-001ec947cd2a")
@@ -124,7 +123,6 @@ public class ScriptClassLoader extends URLClassLoader {
      * path. Any URLs referring to JAR files are loaded and opened as needed
      * until the class is found. Looks for classes first in parents class
      * loaders
-     * 
      * @param name the name of the class
      * @return the resulting class
      * @exception ClassNotFoundException
@@ -154,6 +152,7 @@ public class ScriptClassLoader extends URLClassLoader {
         if (p != null) {
             this.parents.add(p);
         }
+        
     }
 
     /**
@@ -177,6 +176,7 @@ public class ScriptClassLoader extends URLClassLoader {
                 }
             }
         });
+        
     }
 
     /**
@@ -194,7 +194,7 @@ public class ScriptClassLoader extends URLClassLoader {
         private final Enumeration<E>[] enums;
 
         @objid ("00770772-bf95-1069-96f6-001ec947cd2a")
-        public CompoundEnumeration(final Enumeration<E>[] enums) {
+        public  CompoundEnumeration(final Enumeration<E>[] enums) {
             this.enums = enums;
         }
 

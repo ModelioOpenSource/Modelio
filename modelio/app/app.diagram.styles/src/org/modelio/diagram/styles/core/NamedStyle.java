@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.core;
 
 import java.util.HashMap;
@@ -65,51 +64,54 @@ public class NamedStyle extends Style {
      * 
      * A missing key or a null or empty value matches anything.
      */
+    
     @mdl.prop
     @objid ("63e5e109-938e-422a-8cbb-07d9990bf64f")
     private Set<String> applicability = new HashSet<>(2);
 
     @mdl.propgetter
     public Set<String> getApplicability() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.applicability;
     }
 
     /**
      * The style name is used as a unique mandatory identifier for the style. It is also used as a label in the gui when listing styles.
      */
+    
     @mdl.prop
     @objid ("27710c46-1927-11e2-92d2-001ec947c8cc")
     private String name;
 
     @mdl.propgetter
     public String getName() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.name;
     }
 
     @mdl.propsetter
     public void setName(String value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.name = value;
     }
 
     /**
      * The style provider is an optional value indicating who provided the style definition.
      */
+    
     @mdl.prop
     @objid ("bebaf5d6-c89d-4783-9fb8-c544954445a8")
     private String provider;
 
     @mdl.propgetter
     public String getProvider() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.provider;
     }
 
     @mdl.propsetter
     public void setProvider(String value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.provider = value;
     }
 
@@ -127,22 +129,23 @@ public class NamedStyle extends Style {
 
     /**
      * Creates a named style.
-     * 
      * @param name The named style name.
      * @param cascadedStyle The parent style.
      */
     @objid ("856b5e1d-1926-11e2-92d2-001ec947c8cc")
-    public NamedStyle(String name, IStyle cascadedStyle) {
+    public  NamedStyle(String name, IStyle cascadedStyle) {
         super(cascadedStyle);
         this.name = name;
         this.properties = new HashMap<>();
+        
     }
 
     @objid ("856b5e22-1926-11e2-92d2-001ec947c8cc")
-    public NamedStyle(String name, Map<StyleKey, Object> styleProperties, IStyle cascadedStyle) {
+    public  NamedStyle(String name, Map<StyleKey, Object> styleProperties, IStyle cascadedStyle) {
         super(cascadedStyle);
         this.properties = styleProperties;
         this.name = name;
+        
     }
 
     @objid ("856b5e39-1926-11e2-92d2-001ec947c8cc")
@@ -216,6 +219,7 @@ public class NamedStyle extends Style {
         } else {
             super.write(out);
         }
+        
     }
 
     @objid ("be877fe5-676c-48dc-89f8-27471be87ae8")

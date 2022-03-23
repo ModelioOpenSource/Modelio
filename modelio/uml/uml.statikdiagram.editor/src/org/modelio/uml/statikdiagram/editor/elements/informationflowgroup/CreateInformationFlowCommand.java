@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.informationflowgroup;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,13 +36,12 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 class CreateInformationFlowCommand extends DefaultCreateElementCommand {
     /**
      * Creates the command
-     * 
      * @param gmGroup The group where the flow must be created
      * @param ctx The creation context
      * @param index an index in the group
      */
     @objid ("815dd716-1dec-11e2-8cad-001ec947c8cc")
-    public CreateInformationFlowCommand(final GmCompositeNode gmGroup, final ModelioCreationContext ctx, final Integer index) {
+    public  CreateInformationFlowCommand(final GmCompositeNode gmGroup, final ModelioCreationContext ctx, final Integer index) {
         super(gmGroup, ctx, index);
     }
 
@@ -67,6 +65,7 @@ class CreateInformationFlowCommand extends DefaultCreateElementCommand {
         
         // Show the new element in the diagram (ie create its Gm )
         diagram.unmask(getParentNode(), newElement, getConstraint());
+        
     }
 
     @objid ("815dd723-1dec-11e2-8cad-001ec947c8cc")

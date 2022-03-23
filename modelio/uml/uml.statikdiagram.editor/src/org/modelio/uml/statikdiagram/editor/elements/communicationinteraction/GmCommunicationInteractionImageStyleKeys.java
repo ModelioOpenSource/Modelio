@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.communicationinteraction;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,18 +31,18 @@ import org.modelio.uml.statikdiagram.editor.style.StaticAbstractStyleKeyProvider
 @objid ("3496d59b-55b7-11e2-877f-002564c97630")
 public class GmCommunicationInteractionImageStyleKeys extends StaticAbstractStyleKeyProvider {
     @objid ("a64045ad-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmCommunicationInteractionStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmCommunicationInteractionStructuredStyleKeys.REPMODE;
 
     @objid ("a64045af-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmCommunicationInteractionStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmCommunicationInteractionStructuredStyleKeys.FONT;
 
     @objid ("a64045b1-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmCommunicationInteractionStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmCommunicationInteractionStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("a64045b3-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmCommunicationInteractionStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmCommunicationInteractionStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("a64045b5-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmCommunicationInteractionStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmCommunicationInteractionStructuredStyleKeys.SHOWTAGS;
 
 }

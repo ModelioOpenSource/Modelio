@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.model.event;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -58,7 +57,6 @@ public interface IModelChangeListener {
      * parameter provide the changes made in the model.
      * </p>
      * No model changes must be done in this method.
-     * 
      * @param session The modeling session.
      * @param event Delta between the beginning and the end of the transaction.
      */

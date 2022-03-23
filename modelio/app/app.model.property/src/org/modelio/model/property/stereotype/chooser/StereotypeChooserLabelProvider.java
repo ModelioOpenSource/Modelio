@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.stereotype.chooser;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -75,6 +74,7 @@ public class StereotypeChooserLabelProvider extends LabelProvider implements IMo
         } else {
             return element.toString();
         }
+        
     }
 
     @objid ("d7e3665d-0d73-42ee-8775-e402f70c6981")
@@ -86,6 +86,7 @@ public class StereotypeChooserLabelProvider extends LabelProvider implements IMo
         } else {
             return null;
         }
+        
     }
 
     @objid ("98c7d17f-c83f-489d-9f33-26a6e6db4353")

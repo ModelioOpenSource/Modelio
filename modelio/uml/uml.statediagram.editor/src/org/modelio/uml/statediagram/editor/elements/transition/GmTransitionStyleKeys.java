@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.transition;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,7 +36,7 @@ public class GmTransitionStyleKeys extends StateAbstractStyleKeyProvider {
      */
     @objid ("81bc6ecd-55c2-11e2-9337-002564c97630")
     public static final StyleKey CONNECTIONROUTER = createStyleKey("TRANSITION_ROUTINGMODE",
-                                                                   MetaKey.CONNECTIONROUTER);
+                                                                           MetaKey.CONNECTIONROUTER);
 
     /**
      * Line color
@@ -62,7 +61,7 @@ public class GmTransitionStyleKeys extends StateAbstractStyleKeyProvider {
      */
     @objid ("81bdf56b-55c2-11e2-9337-002564c97630")
     public static final StyleKey DRAWLINEBRIDGES = createStyleKey("TRANSITION_DRAWLINEBRIDGES",
-                                                                  MetaKey.DRAWLINEBRIDGES);
+                                                                          MetaKey.DRAWLINEBRIDGES);
 
     /**
      * Text font.
@@ -81,7 +80,7 @@ public class GmTransitionStyleKeys extends StateAbstractStyleKeyProvider {
      */
     @objid ("81bdf574-55c2-11e2-9337-002564c97630")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("TRANSITION_SHOWSTEREOTYPES",
-                                                                  MetaKey.SHOWSTEREOTYPES);
+                                                                          MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Display tagged values
@@ -90,14 +89,14 @@ public class GmTransitionStyleKeys extends StateAbstractStyleKeyProvider {
     public static final StyleKey SHOWTAGS = createStyleKey("TRANSITION_SHOWTAGS", MetaKey.SHOWTAGS);
 
     @objid ("81bdf57a-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWLABEL = createStyleKey("TRANSITION_SHOWLABEL", MetaKey.SHOWLABEL);
+    static final StyleKey SHOWLABEL = createStyleKey("TRANSITION_SHOWLABEL", MetaKey.SHOWLABEL);
 
     @objid ("81bdf57c-55c2-11e2-9337-002564c97630")
-     static final StyleKey GUARDVISIBLE = createStyleKey("TRANSITION_GUARDVISIBLE", Boolean.class);
+    static final StyleKey GUARDVISIBLE = createStyleKey("TRANSITION_GUARDVISIBLE", Boolean.class);
 
     @objid ("81bdf57e-55c2-11e2-9337-002564c97630")
-     static final StyleKey POSTCONDITIONVISIBLE = createStyleKey("TRANSITION_POSTCONDITIONVISIBLE",
-                                                                Boolean.class);
+    static final StyleKey POSTCONDITIONVISIBLE = createStyleKey("TRANSITION_POSTCONDITIONVISIBLE",
+                                                                        Boolean.class);
 
     /**
      * Line pattern

@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.ArrayList;
@@ -30,9 +30,7 @@ import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityPartitionSmClass;
 import org.modelio.metamodel.impl.uml.informationFlow.InformationFlowSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.ConstraintSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.ModelElementSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementData;
 import org.modelio.metamodel.impl.uml.statik.BindableInstanceSmClass;
 import org.modelio.metamodel.impl.uml.statik.BindingSmClass;
 import org.modelio.metamodel.impl.uml.statik.ConnectorEndSmClass;
@@ -106,7 +104,7 @@ public class UmlModelElementSmClass extends ModelElementSmClass {
     private SmDependency representingConnectorDep;
 
     @objid ("99bb8377-e362-435f-bae3-c2238e5c7773")
-    public UmlModelElementSmClass(ISmMetamodelFragment origin) {
+    public  UmlModelElementSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -114,6 +112,7 @@ public class UmlModelElementSmClass extends ModelElementSmClass {
     @Override
     public String getName() {
         return "UmlModelElement";
+        
     }
 
     @objid ("f83c6b22-f8f8-4e24-ae58-9b89f877695e")
@@ -126,18 +125,21 @@ public class UmlModelElementSmClass extends ModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return UmlModelElement.class;
+        
     }
 
     @objid ("dc4ba0e3-4eb2-4d8c-9a70-ed1d0edf1c90")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("ecbfb0db-1a2d-43f4-8862-75c503f4599c")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("be73d003-5e58-4f4b-b837-79ac30326ffd")
@@ -201,6 +203,8 @@ public class UmlModelElementSmClass extends ModelElementSmClass {
         this.representingConnectorDep = new RepresentingConnectorSmDependency();
         this.representingConnectorDep.init("RepresentingConnector", this, metamodel.getMClass(NaryConnector.MQNAME), 0, -1 );
         registerDependency(this.representingConnectorDep);
+        
+        
     }
 
     @objid ("9af2ba88-e44c-42a6-887d-ff3612ad21ea")
@@ -313,7 +317,7 @@ public class UmlModelElementSmClass extends ModelElementSmClass {
         private UmlModelElementSmClass smClass;
 
         @objid ("76ffc1ea-8f7a-4f1c-9546-ba5cc2c85e5a")
-        public UmlModelElementObjectFactory(UmlModelElementSmClass smClass) {
+        public  UmlModelElementObjectFactory(UmlModelElementSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -346,6 +350,7 @@ public class UmlModelElementSmClass extends ModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((UmlModelElementData) data).mTemplateSubstitution = values;
+            
         }
 
         @objid ("8f64b73e-b174-4214-a5e0-980ea02ad0f6")
@@ -355,6 +360,7 @@ public class UmlModelElementSmClass extends ModelElementSmClass {
             	this.symetricDep = ((TemplateParameterSubstitutionSmClass)this.getTarget()).getActualDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -374,6 +380,7 @@ public class UmlModelElementSmClass extends ModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((UmlModelElementData) data).mDefaultParametering = values;
+            
         }
 
         @objid ("23edfba2-3543-4bc3-acdb-51cb471125ca")
@@ -383,6 +390,7 @@ public class UmlModelElementSmClass extends ModelElementSmClass {
             	this.symetricDep = ((TemplateParameterSmClass)this.getTarget()).getDefaultTypeDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -402,6 +410,7 @@ public class UmlModelElementSmClass extends ModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((UmlModelElementData) data).mRepresents = values;
+            
         }
 
         @objid ("501d1eed-ff9f-43c9-bb3a-9db1395b2634")
@@ -411,6 +420,7 @@ public class UmlModelElementSmClass extends ModelElementSmClass {
             	this.symetricDep = ((BindingSmClass)this.getTarget()).getRepresentedFeatureDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -439,6 +449,7 @@ public class UmlModelElementSmClass extends ModelElementSmClass {
             	this.symetricDep = ((TemplateParameterSmClass)this.getTarget()).getOwnedParameterElementDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -458,6 +469,7 @@ public class UmlModelElementSmClass extends ModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((UmlModelElementData) data).mRepresentingEnd = values;
+            
         }
 
         @objid ("d9c0adf5-6787-4f6e-85d3-3f158892a26f")
@@ -467,6 +479,7 @@ public class UmlModelElementSmClass extends ModelElementSmClass {
             	this.symetricDep = ((ConnectorEndSmClass)this.getTarget()).getRepresentedFeatureDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -486,6 +499,7 @@ public class UmlModelElementSmClass extends ModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((UmlModelElementData) data).mRepresentingPartition = values;
+            
         }
 
         @objid ("fb80b5bd-171c-4240-a401-6f0be608c2da")
@@ -495,6 +509,7 @@ public class UmlModelElementSmClass extends ModelElementSmClass {
             	this.symetricDep = ((ActivityPartitionSmClass)this.getTarget()).getRepresentedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -514,6 +529,7 @@ public class UmlModelElementSmClass extends ModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((UmlModelElementData) data).mConstraintDefinition = values;
+            
         }
 
         @objid ("a4c82cad-e1e0-4f0e-9d97-427562c8510d")
@@ -523,6 +539,7 @@ public class UmlModelElementSmClass extends ModelElementSmClass {
             	this.symetricDep = ((ConstraintSmClass)this.getTarget()).getConstrainedElementDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -542,6 +559,7 @@ public class UmlModelElementSmClass extends ModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((UmlModelElementData) data).mTypingParameter = values;
+            
         }
 
         @objid ("6a3666af-503d-4188-8fe8-0397ce794ca6")
@@ -551,6 +569,7 @@ public class UmlModelElementSmClass extends ModelElementSmClass {
             	this.symetricDep = ((TemplateParameterSmClass)this.getTarget()).getTypeDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -570,6 +589,7 @@ public class UmlModelElementSmClass extends ModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((UmlModelElementData) data).mManifesting = values;
+            
         }
 
         @objid ("d6c37972-1eba-4668-9070-154367f5bc8f")
@@ -579,6 +599,7 @@ public class UmlModelElementSmClass extends ModelElementSmClass {
             	this.symetricDep = ((ManifestationSmClass)this.getTarget()).getUtilizedElementDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -598,6 +619,7 @@ public class UmlModelElementSmClass extends ModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((UmlModelElementData) data).mRepresentingInstance = values;
+            
         }
 
         @objid ("e3811b24-032d-4ef4-9fc7-9e439e67f7af")
@@ -607,6 +629,7 @@ public class UmlModelElementSmClass extends ModelElementSmClass {
             	this.symetricDep = ((BindableInstanceSmClass)this.getTarget()).getRepresentedFeatureDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -626,6 +649,7 @@ public class UmlModelElementSmClass extends ModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((UmlModelElementData) data).mReceivedInfo = values;
+            
         }
 
         @objid ("d78ac929-9f26-4cc8-ad93-1e0714497dfb")
@@ -635,6 +659,7 @@ public class UmlModelElementSmClass extends ModelElementSmClass {
             	this.symetricDep = ((InformationFlowSmClass)this.getTarget()).getInformationTargetDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -654,6 +679,7 @@ public class UmlModelElementSmClass extends ModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((UmlModelElementData) data).mSentInfo = values;
+            
         }
 
         @objid ("d483ec60-274c-42bc-9b3a-931ef544da65")
@@ -663,6 +689,7 @@ public class UmlModelElementSmClass extends ModelElementSmClass {
             	this.symetricDep = ((InformationFlowSmClass)this.getTarget()).getInformationSourceDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -682,6 +709,7 @@ public class UmlModelElementSmClass extends ModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((UmlModelElementData) data).mRepresentingConnector = values;
+            
         }
 
         @objid ("198ff6d4-cb5a-415d-9de9-136d540fbc03")
@@ -691,6 +719,7 @@ public class UmlModelElementSmClass extends ModelElementSmClass {
             	this.symetricDep = ((NaryConnectorSmClass)this.getTarget()).getRepresentedFeatureDep();
             }
             return this.symetricDep;
+            
         }
 
     }

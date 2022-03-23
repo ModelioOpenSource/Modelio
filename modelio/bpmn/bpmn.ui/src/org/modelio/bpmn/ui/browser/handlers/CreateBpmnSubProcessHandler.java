@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.ui.browser.handlers;
 
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.modelio.bpmn.diagram.editor.layout.BpmnLayouter;
 import org.modelio.metamodel.bpmn.activities.BpmnAdHocSubProcess;
@@ -56,11 +55,11 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class CreateBpmnSubProcessHandler extends CreateBpmnFlowElement {
     @objid ("08b1dffc-f46b-4111-a7b8-74e80882714d")
     @Inject
-     IActivationService activationService;
+    IActivationService activationService;
 
     @objid ("e6ff5469-69d7-47cc-86b9-95b400337f26")
     @Inject
-     IModelioNavigationService navigationService;
+    IModelioNavigationService navigationService;
 
     @objid ("426994c6-0f3b-4682-8654-e5652742328f")
     @Override
@@ -83,6 +82,7 @@ public class CreateBpmnSubProcessHandler extends CreateBpmnFlowElement {
         
         // Layout diagram
         new BpmnLayouter(diagram).run();
+        
     }
 
     @objid ("8c00d5c6-b1fc-4e9d-85e4-36471da0079f")
@@ -100,6 +100,7 @@ public class CreateBpmnSubProcessHandler extends CreateBpmnFlowElement {
             this.navigationService.fireNavigate(diagram);
             this.navigationService.fireNavigate(diagram.getCompositionOwner());
         }
+        
     }
 
     @objid ("8abb396a-65b4-4ddf-b8ef-2c1b7a13af48")
@@ -153,6 +154,7 @@ public class CreateBpmnSubProcessHandler extends CreateBpmnFlowElement {
         flow2.setSourceRef(task);
         flow2.setTargetRef(endEvent);
         flow2.setSubProcess(subProcess);
+        
     }
 
 }

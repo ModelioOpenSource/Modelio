@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.browser.handlers;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,6 +34,7 @@ public class CreateProtocolStateMachineHandler extends CreateStateMachineHandler
         // set the state machine as "protocol"
         stateMachine.setKind(KindOfStateMachine.PROTOCOL);
         super.postCreationStep(createdElement, mmServices);
+        
     }
 
 }

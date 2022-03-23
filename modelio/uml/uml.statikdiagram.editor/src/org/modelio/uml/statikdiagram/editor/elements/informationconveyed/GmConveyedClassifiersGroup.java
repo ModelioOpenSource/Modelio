@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.informationconveyed;
 
 import java.util.List;
@@ -58,17 +57,17 @@ public class GmConveyedClassifiersGroup extends GmGroup {
      * Constructor for deserialization only.
      */
     @objid ("34fe97f1-55b7-11e2-877f-002564c97630")
-    public GmConveyedClassifiersGroup() {
+    public  GmConveyedClassifiersGroup() {
+        
     }
 
     /**
      * Creates a binding group.
-     * 
      * @param diagram The diagram.
      * @param relatedRef The related element reference, must not be null.
      */
     @objid ("34fe97f4-55b7-11e2-877f-002564c97630")
-    public GmConveyedClassifiersGroup(IGmDiagram diagram, MRef relatedRef) {
+    public  GmConveyedClassifiersGroup(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -129,6 +128,7 @@ public class GmConveyedClassifiersGroup extends GmGroup {
                 }
             }
         }
+        
     }
 
     @objid ("34fe981f-55b7-11e2-877f-002564c97630")
@@ -139,6 +139,7 @@ public class GmConveyedClassifiersGroup extends GmGroup {
         } else {
             super.styleChanged(property, newValue);
         }
+        
     }
 
     @objid ("35001e7f-55b7-11e2-877f-002564c97630")
@@ -147,6 +148,7 @@ public class GmConveyedClassifiersGroup extends GmGroup {
         refreshFromObModel();
         fireVisibilityChanged();
         super.styleChanged(style);
+        
     }
 
     @objid ("35001e85-55b7-11e2-877f-002564c97630")
@@ -204,6 +206,7 @@ public class GmConveyedClassifiersGroup extends GmGroup {
             break;
         }
         }
+        
     }
 
     @objid ("35001ea4-55b7-11e2-877f-002564c97630")
@@ -213,6 +216,7 @@ public class GmConveyedClassifiersGroup extends GmGroup {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmConveyedClassifiersGroup.", GmConveyedClassifiersGroup.MINOR_VERSION);
+        
     }
 
     @objid ("35001eaa-55b7-11e2-877f-002564c97630")

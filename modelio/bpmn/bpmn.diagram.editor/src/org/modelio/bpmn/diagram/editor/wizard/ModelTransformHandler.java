@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.wizard;
 
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
@@ -59,6 +58,7 @@ public class ModelTransformHandler {
         } catch (Exception e) {
             DiagramElements.LOG.debug(e);
         }
+        
     }
 
     @objid ("55dc70fc-42c8-4005-a3fc-4b77a14bd149")

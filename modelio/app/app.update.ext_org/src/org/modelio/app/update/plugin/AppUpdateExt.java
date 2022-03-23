@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.update.plugin;
 
 import java.util.ResourceBundle;
@@ -56,6 +55,7 @@ public class AppUpdateExt implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         AppUpdateExt.LOG = new PluginLogger(service.getLogger((String)null));
         AppUpdateExt.I18N = new BundledMessages(AppUpdateExt.LOG, ResourceBundle.getBundle("appupdate"));
+        
     }
 
     @objid ("de96e952-b3f8-40f7-93f9-d5035774d424")
@@ -71,7 +71,6 @@ public class AppUpdateExt implements BundleActivator {
 
     /**
      * Get the image descriptor for an image stored in this plugin.
-     * 
      * @param path a path relative to the plugin
      * @return the image descriptor.
      */

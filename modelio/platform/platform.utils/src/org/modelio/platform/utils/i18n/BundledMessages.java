@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.utils.i18n;
 
 import java.text.MessageFormat;
@@ -48,9 +47,10 @@ public class BundledMessages {
      * @param bundle the bundle where messages are stored
      */
     @objid ("00063984-9df5-1fcc-9f44-001ec947cd2a")
-    public BundledMessages(final PluginLogger pluginLogger, final ResourceBundle bundle) {
+    public  BundledMessages(final PluginLogger pluginLogger, final ResourceBundle bundle) {
         this.pluginLogger = pluginLogger;
         this.bundle = bundle;
+        
     }
 
     /**
@@ -58,7 +58,6 @@ public class BundledMessages {
      * <p>
      * The internationalized string is expected to use {@link MessageFormat} pattern.
      * @see MessageFormat
-     * 
      * @param key The message key
      * @param arguments arguments for the message pattern
      * @return the internationalized message
@@ -81,11 +80,11 @@ public class BundledMessages {
             this.pluginLogger.warning(e);
             return "!" + key + "(" + Arrays.toString(arguments) + "):"+e.getMessage()+"!";
         }
+        
     }
 
     /**
      * Gets an internationalized string for the given key from this plugin resource bundle.
-     * 
      * @param key The string key
      * @return The internationalized string
      */
@@ -104,7 +103,6 @@ public class BundledMessages {
 
     /**
      * Return the locale currently being used by this BundledMessages
-     * 
      * @return the locale
      */
     @objid ("edf4007f-b609-48f6-ad81-dbc55ddc7bbe")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.view;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,10 +42,11 @@ public class DiagramBrowserActivationStrategy extends ColumnViewerEditorActivati
     private ColumnViewer viewer;
 
     @objid ("0010fe00-0d4f-10c6-842f-001ec947cd2a")
-    public DiagramBrowserActivationStrategy(ColumnViewer viewer) {
+    public  DiagramBrowserActivationStrategy(ColumnViewer viewer) {
         super(viewer);
         this.viewer = viewer;
         viewer.getControl().addMouseListener(this);
+        
     }
 
     @objid ("00111138-0d4f-10c6-842f-001ec947cd2a")
@@ -137,6 +137,7 @@ public class DiagramBrowserActivationStrategy extends ColumnViewerEditorActivati
                 return;
             }
         }
+        
     }
 
 }

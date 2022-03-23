@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.silent;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,11 +34,10 @@ class DiagramCommandStack extends CommandStack {
 
     /**
      * Initialise the command stack.
-     * 
      * @param session a modelling session
      */
     @objid ("6694978a-33f7-11e2-95fe-001ec947c8cc")
-    public DiagramCommandStack(ITransactionSupport session) {
+    public  DiagramCommandStack(ITransactionSupport session) {
         this.session = session;
     }
 
@@ -68,6 +66,7 @@ class DiagramCommandStack extends CommandStack {
         } finally {
             notifyListeners(command, POST_UNDO);
         }
+        
     }
 
     @objid ("6694979d-33f7-11e2-95fe-001ec947c8cc")
@@ -84,6 +83,7 @@ class DiagramCommandStack extends CommandStack {
         } finally {
             notifyListeners(command, POST_REDO);
         }
+        
     }
 
     @objid ("669497a0-33f7-11e2-95fe-001ec947c8cc")
@@ -124,6 +124,7 @@ class DiagramCommandStack extends CommandStack {
         } finally {
             notifyListeners(command, POST_EXECUTE);
         }
+        
     }
 
     @objid ("6696f9ec-33f7-11e2-95fe-001ec947c8cc")

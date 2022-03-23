@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta.descriptor;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,13 +31,17 @@ public enum MAggregation {
     /**
      * No aggregation.
      */
+    @objid ("959777a3-f2ac-47be-ba80-086b2ba9df0e")
     None,
     /**
      * Shared composition.
      */
+    @objid ("9c33a4ee-4984-4ada-acae-e3385705cd0a")
     SharedAggregation,
     /**
      * Composition
      */
+    @objid ("a963a8ac-7ae7-4040-a51d-96dd6de3d975")
     Composition;
+
 }

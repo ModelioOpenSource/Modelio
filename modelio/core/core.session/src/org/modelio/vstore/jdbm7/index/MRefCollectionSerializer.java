@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.jdbm7.index;
 
 import java.io.IOException;
@@ -41,6 +40,7 @@ class MRefCollectionSerializer implements Serializer<Collection<MRef>> {
         for (MRef o : obj) {
             MRefSerializer.instance.serialize(out, o);
         }
+        
     }
 
     @objid ("9c83cb47-1050-489f-9fa6-f3d8b8824bb4")
@@ -60,7 +60,8 @@ class MRefCollectionSerializer implements Serializer<Collection<MRef>> {
      * Don't instantiate directly, use singleton.
      */
     @objid ("ef4bbda9-4d9d-4dcb-aee2-715f632f72bf")
-    private MRefCollectionSerializer() {
+    private  MRefCollectionSerializer() {
+        
     }
 
 }

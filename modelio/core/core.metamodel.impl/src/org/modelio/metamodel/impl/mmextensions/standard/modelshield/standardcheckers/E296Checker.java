@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.modelshield.standardcheckers;
 
 import java.util.Arrays;
@@ -62,6 +61,7 @@ public class E296Checker implements IChecker {
         
         // trigger=create, metaclass=ConnectorEnd, feature=Association
         plan.registerChecker(this, smMetamodel.getMClass(ConnectorEnd.class), TriggerType.Update, DEPNAME);
+        
     }
 
     @objid ("3819aebb-3b8f-46a6-bb3f-5f850cf697f0")
@@ -72,6 +72,7 @@ public class E296Checker implements IChecker {
         if (end.getLink() == null) {
             report.addEntry(new ModelError(ERRORID, object, Arrays.<Object>asList(end)));
         }
+        
     }
 
 }

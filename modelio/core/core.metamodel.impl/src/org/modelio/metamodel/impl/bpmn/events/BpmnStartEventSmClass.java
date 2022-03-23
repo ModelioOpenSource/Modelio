@@ -17,19 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.events;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.bpmn.events.BpmnCatchEvent;
 import org.modelio.metamodel.bpmn.events.BpmnStartEvent;
-import org.modelio.metamodel.impl.bpmn.events.BpmnCatchEventSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -46,7 +45,7 @@ public class BpmnStartEventSmClass extends BpmnCatchEventSmClass {
     private SmAttribute isInterruptingAtt;
 
     @objid ("6963207d-fbf4-4889-8b0c-8c7cc9a4a8ce")
-    public BpmnStartEventSmClass(ISmMetamodelFragment origin) {
+    public  BpmnStartEventSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -54,6 +53,7 @@ public class BpmnStartEventSmClass extends BpmnCatchEventSmClass {
     @Override
     public String getName() {
         return "BpmnStartEvent";
+        
     }
 
     @objid ("bae50689-ed89-40d6-8332-7d1900621e89")
@@ -66,18 +66,21 @@ public class BpmnStartEventSmClass extends BpmnCatchEventSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnStartEvent.class;
+        
     }
 
     @objid ("bfddbdbb-28fe-4c51-b5b8-3a2abba4cef4")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("5762dc07-1864-41b3-a72d-b3eb2e5bd321")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("4eba2942-dcd1-4777-8426-e4262aa0c286")
@@ -94,6 +97,7 @@ public class BpmnStartEventSmClass extends BpmnCatchEventSmClass {
         
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("5aac2c91-ceea-4b18-906b-05c3101e6187")
@@ -110,7 +114,7 @@ public class BpmnStartEventSmClass extends BpmnCatchEventSmClass {
         private BpmnStartEventSmClass smClass;
 
         @objid ("64c301cc-5d16-424e-a2ab-569e0b3c6ce1")
-        public BpmnStartEventObjectFactory(BpmnStartEventSmClass smClass) {
+        public  BpmnStartEventObjectFactory(BpmnStartEventSmClass smClass) {
             this.smClass = smClass;
         }
 

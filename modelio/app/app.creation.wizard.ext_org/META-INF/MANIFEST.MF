@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Creation Wizard
 Bundle-SymbolicName: org.modelio.app.creation.wizard.ext_org;singleton:=true
-Bundle-Version: 4.1.0.qualifier
+Bundle-Version: 5.1.0.qualifier
 Bundle-Activator: org.modelio.creation.wizard.ext.plugin.CreationWizardOrg
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy

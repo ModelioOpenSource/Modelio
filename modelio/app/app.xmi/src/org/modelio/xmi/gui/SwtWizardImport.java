@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.gui;
 
 import java.io.File;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.progress.IProgressService;
 import org.modelio.platform.project.services.IProjectService;
@@ -78,6 +77,7 @@ public class SwtWizardImport extends AbstractSwtWizardImport {
             fileDontExist();
             enableComposites();
         }
+        
     }
 
     @objid ("073f156d-159c-4419-aeca-d5a56261250b")
@@ -88,6 +88,7 @@ public class SwtWizardImport extends AbstractSwtWizardImport {
         setFrametitle(Xmi.I18N.getString("fileChooser.frame.import.title"));
         setCancelButton(Xmi.I18N.getString("fileChooser.buttons.import.cancel.name"));
         setValidateButton(Xmi.I18N.getString("fileChooser.buttons.import.import.name"));
+        
     }
 
     /**
@@ -95,7 +96,7 @@ public class SwtWizardImport extends AbstractSwtWizardImport {
      */
     @objid ("ffcab5e9-c1f3-4e9e-899f-e1bbd411d3f8")
     @Inject
-    public SwtWizardImport(final Shell parent, IProgressService progressService, IProjectService projectService) {
+    public  SwtWizardImport(final Shell parent, IProgressService progressService, IProjectService projectService) {
         super(parent, progressService, projectService);
     }
 

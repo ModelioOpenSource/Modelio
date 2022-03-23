@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.script.handlers;
 
 import java.nio.file.Paths;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Named;
 import javax.script.ScriptException;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
@@ -59,6 +58,7 @@ public class RunFileHandler {
                 Script.LOG.debug(e);
             }
         }
+        
     }
 
     @objid ("0046b266-6505-105c-84ef-001ec947cd2a")
@@ -69,6 +69,7 @@ public class RunFileHandler {
         } else {
             return false;
         }
+        
     }
 
 }

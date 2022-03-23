@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.figures;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class AcceptArrowFigure extends ShapedFigure {
     private ShapedBorder shapedBorder;
 
     @objid ("2a690c80-55b6-11e2-877f-002564c97630")
-    public AcceptArrowFigure() {
+    public  AcceptArrowFigure() {
         super();
         setShaper(new AcceptArrowShaper());
         this.setOpaque(true);
@@ -42,6 +41,7 @@ public class AcceptArrowFigure extends ShapedFigure {
                 this.shaper);
         
         setBorder(new CompoundBorder(this.shapedBorder, new MarginBorder(2)));
+        
     }
 
     @objid ("2a690c82-55b6-11e2-877f-002564c97630")
@@ -51,6 +51,7 @@ public class AcceptArrowFigure extends ShapedFigure {
             super.setLineColor(lineColor);
             this.shapedBorder.setColor(lineColor);
         }
+        
     }
 
     @objid ("2a690c86-55b6-11e2-877f-002564c97630")
@@ -60,6 +61,7 @@ public class AcceptArrowFigure extends ShapedFigure {
             super.setLineWidth(lineWidth);
             this.shapedBorder.setWidth(lineWidth);
         }
+        
     }
 
 }

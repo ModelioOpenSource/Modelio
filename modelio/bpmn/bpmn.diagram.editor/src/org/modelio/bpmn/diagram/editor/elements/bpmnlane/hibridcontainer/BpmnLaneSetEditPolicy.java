@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnlane.hibridcontainer;
 
 import java.util.ArrayList;
@@ -38,6 +37,7 @@ import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.commands.Command;
+import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gef.editpolicies.OrderedLayoutEditPolicy;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.eclipse.gef.requests.CreateRequest;
@@ -46,13 +46,14 @@ import org.modelio.bpmn.diagram.editor.elements.bpmnlane.BpmnLaneEditPart;
 import org.modelio.bpmn.diagram.editor.elements.bpmnlanesetcontainer.BpmnLaneSetContainerEditPart;
 import org.modelio.bpmn.diagram.editor.elements.bpmnlanesetcontainer.CreateBpmnLaneSetContainerCommand;
 import org.modelio.bpmn.diagram.editor.elements.bpmnlanesetcontainer.GmBpmnLaneSetContainer;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnLaneReparentElementCommand;
 import org.modelio.bpmn.diagram.editor.elements.diagrams.GmBpmnDiagramStyleKeys;
-import org.modelio.bpmn.diagram.editor.elements.policies.BpmnLaneReparentElementCommand;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
 import org.modelio.diagram.elements.core.helpers.RequestHelper;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.elements.core.policies.AutoExpandHelper;
+import org.modelio.diagram.elements.core.policies.LayoutChildrenNodeConnectionsHelper;
 import org.modelio.diagram.elements.core.policies.ProgrammaticOnlyDragPolicy;
 import org.modelio.diagram.elements.plugin.DiagramElements;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnLane;
@@ -72,6 +73,7 @@ class BpmnLaneSetEditPolicy extends OrderedLayoutEditPolicy {
         } else {
             return super.getCommand(request);
         }
+        
     }
 
     @objid ("61347457-55b6-11e2-877f-002564c97630")
@@ -97,12 +99,12 @@ class BpmnLaneSetEditPolicy extends OrderedLayoutEditPolicy {
                     }
                 }
             }
-        } else if (RequestConstants.REQ_ADD.equals(request.getType()) 
+        } else if (RequestConstants.REQ_ADD.equals(request.getType())
                 || RequestConstants.REQ_MOVE.equals(request.getType())) {
-            // - REQ_MOVE needs to be tested too because the Tool will know 
-            //   it is a reparenting operation only once we return getHost().
-            // - On move we ignore the Lane move if the cusror is on the 20% border 
-            //   so that the LaneSet edit part moves the lane as a sibling of this one.
+            // - REQ_MOVE needs to be tested too because the Tool will know
+            // it is a reparenting operation only once we return getHost().
+            // - On move we ignore the Lane move if the cusror is on the 20% border
+            // so that the LaneSet edit part moves the lane as a sibling of this one.
             ChangeBoundsRequest req = (ChangeBoundsRequest) request;
             if (isOnFigureBorder(req.getLocation())) {
                 // mouse on border, transfer request to the parent
@@ -129,10 +131,10 @@ class BpmnLaneSetEditPolicy extends OrderedLayoutEditPolicy {
         if (ownedLanes.isEmpty()) {
             if (RequestConstants.REQ_ADD.equals(request.getType())) {
                 // Adding lanes to an empty one should take all available space, this is the standard feedback.
-                //super.showTargetFeedback(request);
+                // super.showTargetFeedback(request);
                 Polyline fb = getLineFeedback();
                 Transposer transposer = new Transposer();
-                //transposer.setEnabled(isHorizontalLaneOrientation());
+                // transposer.setEnabled(isHorizontalLaneOrientation());
                 Rectangle r = transposer.t(getAbsoluteBounds((GraphicalEditPart) getHost()));
                 fb.translateToRelative(r);
                 fb.setPoint(r.getTopLeft(), 0);
@@ -152,10 +154,10 @@ class BpmnLaneSetEditPolicy extends OrderedLayoutEditPolicy {
                 Transposer transposer = new Transposer();
                 transposer.setEnabled(isHorizontalLaneOrientation());
                 Rectangle r = transposer.t(getAbsoluteBounds((GraphicalEditPart) getHost()));
-                Point p1 = new Point(r.x + (r.width / 2), r.y);
+                Point p1 = new Point(r.x + r.width / 2, r.y);
                 p1 = transposer.t(p1);
                 fb.translateToRelative(p1);
-                Point p2 = new Point(r.x + (r.width / 2), r.y + r.height);
+                Point p2 = new Point(r.x + r.width / 2, r.y + r.height);
                 p2 = transposer.t(p2);
                 fb.translateToRelative(p2);
                 fb.setPoint(p1, 0);
@@ -183,7 +185,7 @@ class BpmnLaneSetEditPolicy extends OrderedLayoutEditPolicy {
             EditPart editPart = ownedLanes.get(epIndex);
             r = transposer.t(getAbsoluteBounds((GraphicalEditPart) editPart));
             Point p = transposer.t(getLocationFromRequest(request));
-            if (p.x <= r.x + (r.width / 2)) {
+            if (p.x <= r.x + r.width / 2) {
                 before = true;
             } else {
                 /*
@@ -248,6 +250,7 @@ class BpmnLaneSetEditPolicy extends OrderedLayoutEditPolicy {
         fb.setPoint(header2, 1);
         fb.setPoint(p1, 2);
         fb.setPoint(p2, 3);
+        
     }
 
     @objid ("6135faba-55b6-11e2-877f-002564c97630")
@@ -260,9 +263,10 @@ class BpmnLaneSetEditPolicy extends OrderedLayoutEditPolicy {
         // This command is expected to create a sub BpmnLaneSet and move the lane as a sub-lane
         GmCompositeNode hostNode = getHostCompositeNode();
         return new BpmnLaneReparentElementCommand(hostNode.getRelatedElement(),
-                                                hostNode,
-                                                (GmNodeModel) child.getModel(),
-                                                null);
+                hostNode,
+                (GmNodeModel) child.getModel(),
+                null);
+        
     }
 
     @objid ("4dbda419-10b9-4ed8-8000-352c7fdf80a9")
@@ -280,11 +284,12 @@ class BpmnLaneSetEditPolicy extends OrderedLayoutEditPolicy {
     @Override
     protected EditPartListener createListener() {
         return new EditPartListener.Stub() {
-                                            @Override
-                                            public void childAdded(EditPart child, int index) {
-                                                onChildAdded(child);
-                                            }
-                                        };
+            @Override
+            public void childAdded(EditPart child, int index) {
+                onChildAdded(child);
+            }
+        };
+        
     }
 
     @objid ("17b39ce8-66c4-4249-8a70-028c24017d81")
@@ -300,9 +305,10 @@ class BpmnLaneSetEditPolicy extends OrderedLayoutEditPolicy {
     @objid ("c850d522-056c-4050-829f-ef74573064f6")
     @Override
     protected void decorateChild(EditPart child) {
-        if ( isLaneSet(child)) {
+        if (isLaneSet(child)) {
             super.decorateChild(child);
         }
+        
     }
 
     @objid ("7625d1eb-6521-4328-b29e-3f5bc6ff4c58")
@@ -312,6 +318,7 @@ class BpmnLaneSetEditPolicy extends OrderedLayoutEditPolicy {
             removeFeedback(this.insertionLine);
             this.insertionLine = null;
         }
+        
     }
 
     @objid ("61347450-55b6-11e2-877f-002564c97630")
@@ -320,11 +327,41 @@ class BpmnLaneSetEditPolicy extends OrderedLayoutEditPolicy {
         final ModelioCreationContext ctx = ModelioCreationContext.lookRequest(request);
         
         if (ctx != null && ctx.getMetaclass().getJavaInterface() == BpmnLane.class) {
-            return new CreateBpmnLaneSetContainerCommand(getHostElement(), 
-                    getHostCompositeNode(), 
-                    ctx, null, 
+            CreateBpmnLaneSetContainerCommand cmd = new CreateBpmnLaneSetContainerCommand(getHostElement(),
+                    getHostCompositeNode(),
+                    ctx, null,
                     getInsertionReference(request));
         
+            if (true) {
+                return cmd;
+            } else {
+                // CreateBpmnLaneSetContainerCommand moves and resize
+                // the host itself more or less directly, we need to
+                // layout all links from the root laneset container: .
+        
+                // - host is BodyHybridContainerEditPart
+                // - parent is BpmnLaneEditPart
+                // - grand parent is BpmnLaneSetContainerEditPart
+                // - ...
+                EditPart root = getHost();
+                EditPart parent = root.getParent();
+                while (parent != null && (parent instanceof BpmnLaneSetContainerEditPart ||
+                        parent instanceof BpmnLaneEditPart ||
+                        parent instanceof BodyHybridContainerEditPart)) {
+                    root = parent;
+                    parent = root.getParent();
+                }
+        
+                CompoundCommand compound = new CompoundCommand();
+                compound.add(cmd);
+        
+                LayoutChildrenNodeConnectionsHelper
+                .forRequest(request)
+                .addEditPart((GraphicalEditPart) root)
+                .createCommands(compound);
+        
+                return compound;
+            }
         }
         return null;
     }
@@ -350,7 +387,7 @@ class BpmnLaneSetEditPolicy extends OrderedLayoutEditPolicy {
         int candidate = -1;
         for (int i = 0; i < children.size(); i++) {
             EditPart child = children.get(i);
-            Rectangle rect = transposer.t(getAbsoluteBounds(((GraphicalEditPart) child)));
+            Rectangle rect = transposer.t(getAbsoluteBounds((GraphicalEditPart) child));
             if (rect.y > rowBottom) {
                 /*
                  * We are in a new row, so if we don't have a candidate but yet are within the previous row, then the current entry becomes the candidate. This is because we know we must be to the right of center of the last Figure in the previous row, so
@@ -371,7 +408,7 @@ class BpmnLaneSetEditPolicy extends OrderedLayoutEditPolicy {
                 /*
                  * See if we have a possible candidate. It is a candidate if the cursor is left of the center of this candidate.
                  */
-                if (p.x <= rect.x + (rect.width / 2)) {
+                if (p.x <= rect.x + rect.width / 2) {
                     candidate = i;
                 }
             }
@@ -422,7 +459,6 @@ class BpmnLaneSetEditPolicy extends OrderedLayoutEditPolicy {
 
     /**
      * Lazily creates and returns a <code>Polyline</code> Figure for use as feedback.
-     * 
      * @return a Polyline figure
      */
     @objid ("9dd20a54-749c-4710-9bf2-2af9b33bbcd1")
@@ -452,6 +488,7 @@ class BpmnLaneSetEditPolicy extends OrderedLayoutEditPolicy {
         ChangeBoundsRequest req = RequestHelper.shallowCopy(request);
         req.setType(REQ_RESIZE);
         req.setEditParts(getHost());
+        RequestHelper.addSharedEditParts(req, request);
         return getHost().getCommand(req);
     }
 
@@ -471,9 +508,10 @@ class BpmnLaneSetEditPolicy extends OrderedLayoutEditPolicy {
     @objid ("bb1bafa9-9858-4d0d-8516-b48277e948b5")
     @Override
     protected void undecorateChild(EditPart child) {
-        if ( isLaneSet(child)) {
+        if (isLaneSet(child)) {
             super.undecorateChild(child);
         }
+        
     }
 
     @objid ("5dc6521c-5f95-4fad-ba3d-a46ce14b1a91")
@@ -514,16 +552,15 @@ class BpmnLaneSetEditPolicy extends OrderedLayoutEditPolicy {
      * Called by an edit part listener when a child edit part is added.
      * <p>
      * Try to expand the container to fit all children.
-     * 
      * @param child the added edit part
      */
     @objid ("7c5201ac-e871-4ca0-b0bd-bfc1069f3d51")
     protected void onChildAdded(EditPart child) {
         // handle only Laneset containers
-        if (! isLaneSet(child)) {
+        if (!isLaneSet(child)) {
             return;
         }
-            
+        
         // Standard behavior inherited from LayoutEditPolicy
         decorateChild(child);
         
@@ -541,11 +578,11 @@ class BpmnLaneSetEditPolicy extends OrderedLayoutEditPolicy {
             DiagramElements.LOG.debug("BpmnLaneSetEditPolicy.onChildAdded(%s) : unable to expand <%s>. Command = <%s>",
                     child.toString(), getHost().toString(), cmd);
         }
+        
     }
 
     /**
      * Tells whether the given point is on the 20% figure border.
-     * 
      * @param absLoc a location in absolute coordinates
      * @return true if the point is near the figure border.
      */
@@ -561,7 +598,7 @@ class BpmnLaneSetEditPolicy extends OrderedLayoutEditPolicy {
         } else {
             fraction = loc.preciseX() / hostFigure.getBounds().preciseWidth();
         }
-        return (fraction <= 0.2 || fraction >= 0.8);
+        return fraction <= 0.2 || fraction >= 0.8;
     }
 
 }

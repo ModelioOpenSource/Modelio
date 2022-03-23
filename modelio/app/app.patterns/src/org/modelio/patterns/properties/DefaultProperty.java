@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.properties;
 
 import java.util.ArrayList;
@@ -25,8 +24,8 @@ import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.module.propertiesPage.IModulePropertyTable;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
-import org.modelio.patterns.model.ProfileUtils.PatternDesignerStereotypes;
 import org.modelio.patterns.model.ProfileUtils;
+import org.modelio.patterns.model.ProfileUtils.PatternDesignerStereotypes;
 import org.modelio.patterns.plugin.Patterns;
 
 @objid ("12788111-9d33-4214-882a-dbb80de31b14")
@@ -43,6 +42,7 @@ public class DefaultProperty implements IPropertyContent {
         } else if (row == 2) {
             setRootStereotype(element);
         }
+        
     }
 
     @objid ("90668832-8b84-4305-ad1e-cd49c3e9feb0")
@@ -50,6 +50,7 @@ public class DefaultProperty implements IPropertyContent {
     public void update(ModelElement element, IModulePropertyTable table) {
         table.addProperty(Patterns.I18N.getString("PropertyDefinition.IsPatternParameter"), element.isStereotyped(ProfileUtils.MODULE_NAME,PatternDesignerStereotypes.PATTERNPARAMETER));
         table.addProperty(Patterns.I18N.getString("PropertyDefinition.IsPatternRoot"), element.isStereotyped(ProfileUtils.MODULE_NAME,PatternDesignerStereotypes.PATTERNROOT));
+        
     }
 
     @objid ("538f1ad3-8b62-4670-83bd-9a579e86574a")
@@ -72,6 +73,7 @@ public class DefaultProperty implements IPropertyContent {
         } catch (Exception e) {
             Patterns.LOG.debug(e);
         }
+        
     }
 
 }

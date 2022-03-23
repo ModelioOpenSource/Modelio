@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.text;
 
 import java.util.List;
@@ -65,7 +64,6 @@ public class ResultsProposalPopup extends PopupDialog {
 
     /**
      * Open a popup to choose elements from.
-     * 
      * @return the element chosen in the popup. Might be <code>null</code>.
      */
     @objid ("5bf1eb55-911c-11e0-9de7-002564c97630")
@@ -173,13 +171,12 @@ public class ResultsProposalPopup extends PopupDialog {
 
     /**
      * Constructor initializing a ResultsProposalPopup.
-     * 
      * @param control the swt control displaying the popup.
      * @param elements the elements to display in the popup.
      * @param acceptNullValue indicates whether or not the "null" value must be shown in the popup.
      */
     @objid ("d966290a-5b07-11e2-9c97-002564c97630")
-    public ResultsProposalPopup(final Control control, final List<MObject> elements, final boolean acceptNullValue) {
+    public  ResultsProposalPopup(final Control control, final List<MObject> elements, final boolean acceptNullValue) {
         super(control.getShell(), INFOPOPUPRESIZE_SHELLSTYLE,
         /*take focus*/true,
         /*persist size*/false,
@@ -211,6 +208,7 @@ public class ResultsProposalPopup extends PopupDialog {
             height = 100;
         }
         this.listRectangle = Display.getDefault().map(this.parent, null, new Rectangle(posX, posY, width, height));
+        
     }
 
     @objid ("d9667729-5b07-11e2-9c97-002564c97630")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.expert.standard.links.impl.creation;
 
 import java.util.ArrayList;
@@ -90,10 +89,11 @@ public class ClassAssociationCreationExpert extends DefaultDelegatingLinkExpert 
         } else {
             return !linkedElements.contains(toElement);
         }
+        
     }
 
     @objid ("33994630-67c0-4176-bd91-c3c4229aa57d")
-    public ClassAssociationCreationExpert(ILinkExpert defaultExpert) {
+    public  ClassAssociationCreationExpert(ILinkExpert defaultExpert) {
         super(defaultExpert);
     }
 

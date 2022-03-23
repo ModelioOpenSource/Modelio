@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,23 +33,26 @@ public class OBpmnBaseElement extends OElement implements IOElement {
     }
 
     @objid ("30523249-f31c-45ec-8386-6eb728908963")
-    public OBpmnBaseElement(BpmnBaseElement element) {
+    public  OBpmnBaseElement(BpmnBaseElement element) {
         super(element);
         String errorMessage =   Xmi.I18N.getMessage("logFile.warning.export.bpmnelement.title",
                 element.getName());
         String descMessage =   Xmi.I18N.getMessage("logFile.warning.export.bpmnelement.description",
                 element.getName());
         GenerationProperties.getInstance().addWarning( errorMessage, element, descMessage);
+        
     }
 
     @objid ("d4bde130-b083-4096-ae35-b74fcf0c794d")
     @Override
     public void attach(org.eclipse.uml2.uml.Element ecoreElt) {
+        
     }
 
     @objid ("7c7a8bde-a7d1-40c6-b4a7-484574b1f359")
     @Override
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
+        
     }
 
 }

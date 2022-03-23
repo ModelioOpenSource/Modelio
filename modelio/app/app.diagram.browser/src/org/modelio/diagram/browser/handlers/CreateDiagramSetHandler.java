@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.handlers;
 
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -59,6 +58,7 @@ public class CreateDiagramSetHandler extends AbstractBrwModelHandler {
             newSet.setName(namer.getUniqueName(newSet));
             postExpandAndSelect(browserView, newSet, parentSet);
         }
+        
     }
 
     @objid ("0019b446-0d4f-10c6-842f-001ec947cd2a")
@@ -84,10 +84,11 @@ public class CreateDiagramSetHandler extends AbstractBrwModelHandler {
                 browserView.edit(diagramSet);
             }
         });
+        
     }
 
     @objid ("ca3eb80c-4b58-11e2-a4d3-002564c97630")
-    public CreateDiagramSetHandler() {
+    public  CreateDiagramSetHandler() {
         super();
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,7 +45,6 @@ public interface IRepositoryObject {
      * The object is likely coming from another repository.
      * It may also be moving back in this repository.
      * Implementations are advised to be careful about these use cases.
-     * 
      * @param obj the object to attach.
      */
     @objid ("002746ce-3ddf-1ffc-8433-001ec947cd2a")
@@ -58,7 +56,6 @@ public interface IRepositoryObject {
      * <p>
      * Implementations may either call {@link #attach(SmObjectImpl)} or do some optimizations
      * avoiding to look whether the object already existed.
-     * 
      * @param obj the new born object.
      */
     @objid ("92764ccc-df2e-4879-a697-4d2e76a3282c")
@@ -82,7 +79,6 @@ public interface IRepositoryObject {
 
     /**
      * Called when the dependency content of a model object is reordered.
-     * 
      * @param obj the modified model object.
      * @param dep the reordered dependency.
      * @param val the moved dependency value.
@@ -92,7 +88,6 @@ public interface IRepositoryObject {
 
     /**
      * Detach the object from this repository.
-     * 
      * @param obj the object to detach.
      */
     @objid ("00273512-3ddf-1ffc-8433-001ec947cd2a")
@@ -100,7 +95,6 @@ public interface IRepositoryObject {
 
     /**
      * Get the EMF Resource object mapping this repository object.
-     * 
      * @return the EMF Resource.
      */
     @objid ("17bcf492-c064-11e1-b511-001ec947ccaf")
@@ -108,7 +102,6 @@ public interface IRepositoryObject {
 
     /**
      * The repository id is attributed by the <code>IRepository</code>.
-     * 
      * @return the repository id.
      */
     @objid ("008478bc-eb1b-1f22-8c06-001ec947cd2a")
@@ -141,7 +134,6 @@ public interface IRepositoryObject {
      * Tells whether the given SmDependency is stored in the database.
      * 
      * The answer should be the same for any element in the database, but it is not required.
-     * 
      * @param dep a metamodel dependency.
      * @return <code>true</code> if stored, else <code>false</code>.
      */
@@ -150,7 +142,6 @@ public interface IRepositoryObject {
 
     /**
      * Load the attribute value if not already done.
-     * 
      * @param obj the object to load.
      * @param att the attribute to load.
      */
@@ -161,7 +152,6 @@ public interface IRepositoryObject {
      * Load an object dependency content if not already done.
      * <p>
      * Should do nothing if the dependency is already loaded.
-     * 
      * @param obj the object to load.
      * @param dep the dependency to load.
      */
@@ -174,7 +164,6 @@ public interface IRepositoryObject {
      * Called when an object is removed from memory.
      * <p>
      * The repository object must unload only the passed object.
-     * 
      * @param obj the object to unload.
      */
     @objid ("c66aaf03-0884-11e2-b33c-001ec947ccaf")
@@ -182,7 +171,6 @@ public interface IRepositoryObject {
 
     /**
      * Set the given object as to be reloaded on next access.
-     * 
      * @param obj the object to reload.
      */
     @objid ("4e2fcaea-71c8-4474-a0db-5f21f1db31b0")

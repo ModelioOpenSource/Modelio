@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnlane;
 
 import java.util.List;
@@ -32,8 +31,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnCollaboration;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnLane;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnLaneSet;
@@ -62,7 +61,8 @@ public class GmBpmnLane extends GmCompositeNode {
      * The represented lane.
      */
     @objid ("6118fd19-55b6-11e2-877f-002564c97630")
-    private BpmnLane element; // BpmnLane or BpmnParticipant
+    private BpmnLane element; /* // BpmnLane or BpmnParticipant
+     */
 
     @objid ("c471472d-59a6-11e2-ae45-002564c97630")
     private static GmBpmnLaneStructuredStyleKeys STRUCTKEYS = new GmBpmnLaneStructuredStyleKeys();
@@ -81,26 +81,26 @@ public class GmBpmnLane extends GmCompositeNode {
 
     /**
      * Default constructor.
-     * 
      * @param diagram the diagram in which this partition will be unmasked.
      * @param theLane the unmasked partition (can be null).
      * @param ref a reference to the unmasked partition (cannot be null).
      */
     @objid ("611a837a-55b6-11e2-877f-002564c97630")
-    public GmBpmnLane(IGmDiagram diagram, BpmnLane theLane, MRef ref) {
+    public  GmBpmnLane(IGmDiagram diagram, BpmnLane theLane, MRef ref) {
         super(diagram, ref);
         this.element = theLane;
         this.header = new GmBpmnLaneHeader(diagram, ref);
         this.body = new GmBodyHybridContainer(diagram, ref);
         super.addChild(this.header);
         super.addChild(this.body);
+        
     }
 
     /**
      * Empty constructor needed for serialisation.
      */
     @objid ("611a83ba-55b6-11e2-877f-002564c97630")
-    public GmBpmnLane() {
+    public  GmBpmnLane() {
         // Nothing to do.
     }
 
@@ -199,6 +199,7 @@ public class GmBpmnLane extends GmCompositeNode {
             break;
         }
         }
+        
     }
 
     @objid ("611c0a2b-55b6-11e2-877f-002564c97630")
@@ -207,6 +208,7 @@ public class GmBpmnLane extends GmCompositeNode {
         super.write(out);
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmBpmnLane.", GmBpmnLane.MINOR_VERSION);
+        
     }
 
     /**
@@ -215,7 +217,6 @@ public class GmBpmnLane extends GmCompositeNode {
      * This method should return true only if it is consistent to display the given metaclass elements inside this graphic element.
      * <p>
      * <b>eg:</b> IAttributes can be displayed in a GmClass .
-     * 
      * @param type The metaclass to unmask.
      * @return true only if it is consistent to display elements of the given metaclass inside this graphic element, false in the other cases.
      */
@@ -241,10 +242,11 @@ public class GmBpmnLane extends GmCompositeNode {
         this.header = (GmBpmnLaneHeader) this.getChildren().get(0);
         this.body = (GmBodyHybridContainer) this.getChildren().get(1);
         this.element = (BpmnLane) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("4906081c-b4b0-4292-85e3-a9950913bda5")
-    GmBpmnLane(final GmBpmnLaneV0 oldVersionGm) {
+     GmBpmnLane(final GmBpmnLaneV0 oldVersionGm) {
         super(oldVersionGm.getDiagram(), oldVersionGm.getRepresentedRef());
         this.element = (BpmnLane) oldVersionGm.getRepresentedElement();
         
@@ -256,6 +258,7 @@ public class GmBpmnLane extends GmCompositeNode {
         super.addChild(this.header);
         oldVersionGm.removeChild(this.body);
         super.addChild(this.body);
+        
     }
 
     @objid ("71c08734-6644-4aa7-b083-ef8eb9fd0a46")
@@ -282,6 +285,7 @@ public class GmBpmnLane extends GmCompositeNode {
         } else {
             return findParentCollaboration(owner);
         }
+        
     }
 
 }

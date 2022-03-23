@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.executionoccurencespecification;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,13 +39,13 @@ class MasterExecutionOccurrenceSpecificationAnchor extends AbstractConnectionAnc
 
     /**
      * C'tor.
-     * 
      * @param owner the owner figure on which bounds this anchor will be placed.
      */
     @objid ("d8deea36-55b6-11e2-877f-002564c97630")
-    public MasterExecutionOccurrenceSpecificationAnchor(IFigure owner) {
+    public  MasterExecutionOccurrenceSpecificationAnchor(IFigure owner) {
         super(owner);
         this.lastValidLocation = owner.getBounds().getCenter();
+        
     }
 
     @objid ("d8deea3a-55b6-11e2-877f-002564c97630")
@@ -93,6 +92,7 @@ class MasterExecutionOccurrenceSpecificationAnchor extends AbstractConnectionAnc
             this.lastValidLocation = location.getCopy();
         }
         super.ancestorMoved(figure);
+        
     }
 
 }

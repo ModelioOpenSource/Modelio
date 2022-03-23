@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,11 +41,10 @@ public class OTemplateBinding extends OElement implements IOElement {
 
     /**
      * constructor
-     * 
      * @param param : the exported Modelio TemplateBinding
      */
     @objid ("367bd5bd-c0a5-4d3a-9bbc-60f9f996f743")
-    public OTemplateBinding(final TemplateBinding param) {
+    public  OTemplateBinding(final TemplateBinding param) {
         super(param);
     }
 
@@ -67,6 +65,7 @@ public class OTemplateBinding extends OElement implements IOElement {
         }else{
             ecoreElt.destroy();
         }
+        
     }
 
     @objid ("faa7e741-7999-4747-baa1-75866a30877f")
@@ -109,6 +108,7 @@ public class OTemplateBinding extends OElement implements IOElement {
                
             }
         }
+        
     }
 
 }

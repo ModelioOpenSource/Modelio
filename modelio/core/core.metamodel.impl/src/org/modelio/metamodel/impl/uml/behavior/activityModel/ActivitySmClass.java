@@ -17,20 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityData;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityGroupSmClass;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityNodeSmClass;
 import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.BehaviorSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.Activity;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityGroup;
@@ -63,7 +60,7 @@ public class ActivitySmClass extends BehaviorSmClass {
     private SmDependency ownedNodeDep;
 
     @objid ("703b7380-4154-48c9-bdcb-8b82a5ca156e")
-    public ActivitySmClass(ISmMetamodelFragment origin) {
+    public  ActivitySmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -71,6 +68,7 @@ public class ActivitySmClass extends BehaviorSmClass {
     @Override
     public String getName() {
         return "Activity";
+        
     }
 
     @objid ("838a461a-baa4-4263-9776-ea22dba6b578")
@@ -83,18 +81,21 @@ public class ActivitySmClass extends BehaviorSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Activity.class;
+        
     }
 
     @objid ("05c3ca45-0dc2-41d8-9b9b-d66a2f346bfa")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("37121e9e-bc6e-489d-a9e7-71704e97b174")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("ed7aa951-4f9b-4613-80be-609d604b7e87")
@@ -122,6 +123,8 @@ public class ActivitySmClass extends BehaviorSmClass {
         this.ownedNodeDep = new OwnedNodeSmDependency();
         this.ownedNodeDep.init("OwnedNode", this, metamodel.getMClass(ActivityNode.MQNAME), 0, -1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.ownedNodeDep);
+        
+        
     }
 
     @objid ("3a07bd67-127d-498d-ad78-78b9c9f60cb1")
@@ -162,7 +165,7 @@ public class ActivitySmClass extends BehaviorSmClass {
         private ActivitySmClass smClass;
 
         @objid ("664cee80-38bf-401f-b64f-1ef556e31238")
-        public ActivityObjectFactory(ActivitySmClass smClass) {
+        public  ActivityObjectFactory(ActivitySmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -223,6 +226,7 @@ public class ActivitySmClass extends BehaviorSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ActivityData) data).mOwnedGroup = values;
+            
         }
 
         @objid ("d96267ff-2d81-4a8e-acaa-c123895cf919")
@@ -232,6 +236,7 @@ public class ActivitySmClass extends BehaviorSmClass {
             	this.symetricDep = ((ActivityGroupSmClass)this.getTarget()).getInActivityDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -251,6 +256,7 @@ public class ActivitySmClass extends BehaviorSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ActivityData) data).mOwnedNode = values;
+            
         }
 
         @objid ("bf6b93ed-8dcb-4330-ad84-de5189e130d1")
@@ -260,6 +266,7 @@ public class ActivitySmClass extends BehaviorSmClass {
             	this.symetricDep = ((ActivityNodeSmClass)this.getTarget()).getOwnerDep();
             }
             return this.symetricDep;
+            
         }
 
     }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import java.util.ArrayList;
@@ -68,22 +67,21 @@ public class BpmnBoundaryEventPropertyModel extends AbstractPropertyModel<BpmnBo
 
     /**
      * Create a new <i>BpmnBoundaryEvent</i> data model from an <i>BpmnBoundaryEvent</i>.
-     * 
      * @param theEditedElement the model to edit.
      * @param modelService the model service needed to find elements.
      * @param umlPropertyModelVisitor the property model visitor, needed for the event definition.
      */
     @objid ("f0db519b-a9a8-47d5-8bb2-1ce7a7665ba8")
-    public BpmnBoundaryEventPropertyModel(BpmnBoundaryEvent theEditedElement, IMModelServices modelService, UmlPropertyModelVisitor umlPropertyModelVisitor) {
+    public  BpmnBoundaryEventPropertyModel(BpmnBoundaryEvent theEditedElement, IMModelServices modelService, UmlPropertyModelVisitor umlPropertyModelVisitor) {
         super(theEditedElement);
         this.modelService = modelService;
         this.umlPropertyModelVisitor = umlPropertyModelVisitor;
         updateFieldsLists();
+        
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("5691678d-a6eb-481c-869f-71068892598b")
@@ -94,7 +92,6 @@ public class BpmnBoundaryEventPropertyModel extends AbstractPropertyModel<BpmnBo
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("de839e95-9a2d-471f-96b0-655d7d133770")
@@ -110,7 +107,6 @@ public class BpmnBoundaryEventPropertyModel extends AbstractPropertyModel<BpmnBo
      * This type will be used to choose an editor and a renderer for each cell of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -123,13 +119,13 @@ public class BpmnBoundaryEventPropertyModel extends AbstractPropertyModel<BpmnBo
         } else {
             return this.fieldList.get(row);
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -176,6 +172,7 @@ public class BpmnBoundaryEventPropertyModel extends AbstractPropertyModel<BpmnBo
             // Row not found in event types, update ParallelMultiple
             this.theEditedElement.setParallelMultiple(Boolean.parseBoolean(Objects.toString(value)));
         }
+        
     }
 
     @objid ("9dbfe90d-55ad-4c10-bf26-4e575804df3a")
@@ -222,6 +219,7 @@ public class BpmnBoundaryEventPropertyModel extends AbstractPropertyModel<BpmnBo
             this.labelList.add(new DefaultStringNatValue(getPropertyI18n("ParallelMultiple"), false)); // ParallelMultiple
             this.fieldList.add(new DefaultBooleanNatValue(this.theEditedElement.isParallelMultiple()));
         }
+        
     }
 
     @objid ("9b7d9099-4b7e-4e2c-a896-742be6448838")
@@ -230,17 +228,26 @@ public class BpmnBoundaryEventPropertyModel extends AbstractPropertyModel<BpmnBo
         BpmnEventDefinition event_definition = (BpmnEventDefinition) modelFactory.createElement(EventType.getMetaclass(evt));
         event_definition.setName(this.modelService.getElementNamer().getBaseName(event_definition.getMClass()));
         event_definition.setDefined(this.theEditedElement);
+        
     }
 
     @objid ("510d3298-c4e2-492d-9225-a7b84b4bd297")
     private enum EventType {
+        @objid ("b23c56cc-952a-44e5-af8b-0a927b978f15")
         Cancel,
+        @objid ("27ed0205-735e-4eef-bb1b-881df41cacdb")
         Compensate,
+        @objid ("f3ac3cc4-67d9-4672-a230-fb34671a1434")
         Conditional,
+        @objid ("43faebb3-6dda-4ece-a677-0f217179cdee")
         Error,
+        @objid ("63da2ed3-53f7-4943-9432-68101f2f7694")
         Escalation,
+        @objid ("7a26a899-9475-4570-93f3-448ce7c76171")
         Message,
+        @objid ("465469e0-b155-4fac-8eca-90e303bc5083")
         Signal,
+        @objid ("ab67d58d-3232-49ee-bf66-7ce0b1968af5")
         Timer;
 
         @objid ("8c2c2b10-60a2-4342-b2a1-1e5a9262d4c9")

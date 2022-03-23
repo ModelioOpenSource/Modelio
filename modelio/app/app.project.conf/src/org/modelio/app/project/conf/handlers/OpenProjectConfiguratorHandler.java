@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.handlers;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.file.FileSystemException;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
@@ -51,7 +50,8 @@ import org.modelio.vbasic.files.FileUtils;
 public class OpenProjectConfiguratorHandler {
     @objid ("0023c4cc-5a8e-10a6-888d-001ec947cd2a")
     @Execute
-    void execute(final MApplication application, final IProjectService projectService, @Named (IServiceConstants.ACTIVE_SHELL) final Shell shell, @Optional @Named ("folder") final String folder, IModelioProgressService progressService, StatusReporter statusReporter) {
+    void execute(final MApplication application, final IProjectService projectService, @Named (IServiceConstants.ACTIVE_SHELL) final Shell shell, @Optional
+    @Named ("folder") final String folder, IModelioProgressService progressService, StatusReporter statusReporter) {
         AppProjectConf.LOG.info("Opening project configurator");
         
         GProject openedProject = projectService.getOpenedProject();
@@ -77,6 +77,7 @@ public class OpenProjectConfiguratorHandler {
         } catch (InterruptedException e) {
             AppProjectConf.LOG.error(e);
         }
+        
     }
 
     @objid ("0024384e-5a8e-10a6-888d-001ec947cd2a")
@@ -102,6 +103,7 @@ public class OpenProjectConfiguratorHandler {
         };
         
         svc.run(true, false, runnable);
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.element.single;
 
 import java.util.Objects;
@@ -76,21 +75,21 @@ public class ElementPainter extends BackgroundPainter implements IToolTipProvide
 
     /**
      * Create a new painter.
-     * 
      * @param labelProvider a label provider to delegate image/text computing to.
      * @param underline whether the painter should underline the cell's contents or not.
      */
     @objid ("f3734ca0-3837-4f7a-91ba-ba2e344f66d8")
-    public ElementPainter(ILabelProvider labelProvider, boolean underline) {
+    public  ElementPainter(ILabelProvider labelProvider, boolean underline) {
         this.labelProvider = new NatValueWrappingLabelProvider(Objects.requireNonNull(labelProvider));
         this.underline = underline;
+        
     }
 
     /**
      * Create a new painter that underlines the cell's contents.
      */
     @objid ("61e8a89c-cb69-45f2-b197-59fca85b262f")
-    public ElementPainter(ILabelProvider labelProvider) {
+    public  ElementPainter(ILabelProvider labelProvider) {
         this(labelProvider, true);
     }
 
@@ -185,6 +184,7 @@ public class ElementPainter extends BackgroundPainter implements IToolTipProvide
             final int underlineY = y + fontHeight - (gc.getFontMetrics().getDescent() / 2);
             gc.drawLine(x, underlineY, x + gc.textExtent(text).x, underlineY);
         }
+        
     }
 
     @objid ("7a4606e2-194d-4a76-bb2e-d793acce8e3f")
@@ -216,11 +216,11 @@ public class ElementPainter extends BackgroundPainter implements IToolTipProvide
         gc.setFont(font);
         gc.setForeground(fg != null ? fg : GUIHelper.COLOR_LIST_FOREGROUND);
         gc.setBackground(bg != null ? bg : GUIHelper.COLOR_LIST_BACKGROUND);
+        
     }
 
     /**
      * Checks if the given text is bigger than the available space. If not the given text is simply returned without modification. If the text does not fit into the available space, it will be modified by cutting and adding three dots.
-     * 
      * @param text the text to compute
      * @param gc the current GC
      * @param availableLength the available space
@@ -296,7 +296,6 @@ public class ElementPainter extends BackgroundPainter implements IToolTipProvide
 
     /**
      * Checks if a row resize needs to be triggered.
-     * 
      * @param contentHeight The necessary height to show the content completely
      * @param rectangle The available rectangle to render to
      * @return <code>true</code> if a row resize needs to be performed, <code>false</code> if not

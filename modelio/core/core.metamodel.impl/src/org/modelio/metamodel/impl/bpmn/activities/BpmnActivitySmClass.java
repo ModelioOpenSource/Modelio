@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.activities;
 
 import java.util.ArrayList;
@@ -37,8 +37,6 @@ import org.modelio.metamodel.bpmn.objects.BpmnDataAssociation;
 import org.modelio.metamodel.bpmn.objects.BpmnDataInput;
 import org.modelio.metamodel.bpmn.objects.BpmnDataOutput;
 import org.modelio.metamodel.bpmn.rootElements.BpmnFlowNode;
-import org.modelio.metamodel.impl.bpmn.activities.BpmnActivityData;
-import org.modelio.metamodel.impl.bpmn.activities.BpmnLoopCharacteristicsSmClass;
 import org.modelio.metamodel.impl.bpmn.events.BpmnBoundaryEventSmClass;
 import org.modelio.metamodel.impl.bpmn.events.BpmnCompensateEventDefinitionSmClass;
 import org.modelio.metamodel.impl.bpmn.flows.BpmnSequenceFlowSmClass;
@@ -95,7 +93,7 @@ public class BpmnActivitySmClass extends BpmnFlowNodeSmClass {
     private SmDependency defaultFlowDep;
 
     @objid ("c2adbc8a-5d00-47dc-bdd3-da9eed993a51")
-    public BpmnActivitySmClass(ISmMetamodelFragment origin) {
+    public  BpmnActivitySmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -103,6 +101,7 @@ public class BpmnActivitySmClass extends BpmnFlowNodeSmClass {
     @Override
     public String getName() {
         return "BpmnActivity";
+        
     }
 
     @objid ("250fe22d-0620-4f23-9e4d-83c17a92c48c")
@@ -115,18 +114,21 @@ public class BpmnActivitySmClass extends BpmnFlowNodeSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnActivity.class;
+        
     }
 
     @objid ("deceaf3e-a88f-49af-a51e-8ee72e52fccc")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("710e9408-b09f-4ce0-9032-d602aaeed654")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("69228c76-d4f3-4398-b52d-f6498ceb03a7")
@@ -182,6 +184,8 @@ public class BpmnActivitySmClass extends BpmnFlowNodeSmClass {
         this.defaultFlowDep = new DefaultFlowSmDependency();
         this.defaultFlowDep.init("DefaultFlow", this, metamodel.getMClass(BpmnSequenceFlow.MQNAME), 0, 1 , SmDirective.SMCDPARTOF);
         registerDependency(this.defaultFlowDep);
+        
+        
     }
 
     @objid ("e146ba5e-797e-4dc4-8338-c182b1a36cf3")
@@ -278,7 +282,7 @@ public class BpmnActivitySmClass extends BpmnFlowNodeSmClass {
         private BpmnActivitySmClass smClass;
 
         @objid ("e4921c10-3498-4cd6-8a17-6ec0c58f7a9a")
-        public BpmnActivityObjectFactory(BpmnActivitySmClass smClass) {
+        public  BpmnActivityObjectFactory(BpmnActivitySmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -353,6 +357,7 @@ public class BpmnActivitySmClass extends BpmnFlowNodeSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnActivityData) data).mCompensateEventDefinitions = values;
+            
         }
 
         @objid ("95b808c1-bda8-4009-810c-d24de72a5f9a")
@@ -362,6 +367,7 @@ public class BpmnActivitySmClass extends BpmnFlowNodeSmClass {
             	this.symetricDep = ((BpmnCompensateEventDefinitionSmClass)this.getTarget()).getActivityRefDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -381,6 +387,7 @@ public class BpmnActivitySmClass extends BpmnFlowNodeSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnActivityData) data).mInputSpecification = values;
+            
         }
 
         @objid ("4ddb26dd-b68d-4d2f-96d8-48c4236bb2a6")
@@ -390,6 +397,7 @@ public class BpmnActivitySmClass extends BpmnFlowNodeSmClass {
             	this.symetricDep = ((BpmnDataInputSmClass)this.getTarget()).getOwnerActivityDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -409,6 +417,7 @@ public class BpmnActivitySmClass extends BpmnFlowNodeSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnActivityData) data).mDataInputAssociation = values;
+            
         }
 
         @objid ("b06d2095-be26-4d5b-a909-12dacb31c1e3")
@@ -418,6 +427,7 @@ public class BpmnActivitySmClass extends BpmnFlowNodeSmClass {
             	this.symetricDep = ((BpmnDataAssociationSmClass)this.getTarget()).getStartingActivityDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -437,6 +447,7 @@ public class BpmnActivitySmClass extends BpmnFlowNodeSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnActivityData) data).mOutputSpecification = values;
+            
         }
 
         @objid ("5defd1b3-2263-4070-883a-82faaa70705e")
@@ -446,6 +457,7 @@ public class BpmnActivitySmClass extends BpmnFlowNodeSmClass {
             	this.symetricDep = ((BpmnDataOutputSmClass)this.getTarget()).getOwnerActivityDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -474,6 +486,7 @@ public class BpmnActivitySmClass extends BpmnFlowNodeSmClass {
             	this.symetricDep = ((BpmnLoopCharacteristicsSmClass)this.getTarget()).getOwnerActivityDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -493,6 +506,7 @@ public class BpmnActivitySmClass extends BpmnFlowNodeSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnActivityData) data).mBoundaryEventRef = values;
+            
         }
 
         @objid ("50382d87-1b95-4740-8241-01437302f4d7")
@@ -502,6 +516,7 @@ public class BpmnActivitySmClass extends BpmnFlowNodeSmClass {
             	this.symetricDep = ((BpmnBoundaryEventSmClass)this.getTarget()).getAttachedToRefDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -521,6 +536,7 @@ public class BpmnActivitySmClass extends BpmnFlowNodeSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnActivityData) data).mDataOutputAssociation = values;
+            
         }
 
         @objid ("47f78804-1f01-45be-9e45-d0974dbeb390")
@@ -530,6 +546,7 @@ public class BpmnActivitySmClass extends BpmnFlowNodeSmClass {
             	this.symetricDep = ((BpmnDataAssociationSmClass)this.getTarget()).getEndingActivityDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -558,6 +575,7 @@ public class BpmnActivitySmClass extends BpmnFlowNodeSmClass {
             	this.symetricDep = ((BpmnSequenceFlowSmClass)this.getTarget()).getDefaultFromDep();
             }
             return this.symetricDep;
+            
         }
 
     }

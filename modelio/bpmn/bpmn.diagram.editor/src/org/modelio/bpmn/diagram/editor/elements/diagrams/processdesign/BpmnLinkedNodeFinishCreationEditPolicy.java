@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.diagrams.processdesign;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;

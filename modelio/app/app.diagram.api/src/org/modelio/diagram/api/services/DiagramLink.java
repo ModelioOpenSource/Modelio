@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.api.services;
 
 import java.util.ArrayList;
@@ -35,6 +34,7 @@ import org.eclipse.gef.requests.ReconnectRequest;
 import org.eclipse.swt.graphics.Color;
 import org.modelio.api.modelio.diagram.IDiagramGraphic;
 import org.modelio.api.modelio.diagram.IDiagramLink;
+import org.modelio.api.modelio.diagram.IDiagramLink.ExtensionRole;
 import org.modelio.api.modelio.diagram.dg.IDiagramElementsLayer;
 import org.modelio.api.modelio.diagram.dg.IDiagramLayer;
 import org.modelio.diagram.api.dg.DGFactory;
@@ -59,14 +59,14 @@ public abstract class DiagramLink extends DiagramAbstractLink {
 
     /**
      * Creates a diagram link.
-     * 
      * @param diagramHandle The diagram manipulation class.
      * @param gmLink The gm link represented by this class.
      */
     @objid ("8f8c8cd7-50d2-4d76-aab8-ecb706ec5465")
-    public DiagramLink(DiagramHandle diagramHandle, IGmLink gmLink) {
+    public  DiagramLink(DiagramHandle diagramHandle, IGmLink gmLink) {
         super(diagramHandle);
         this.gmLink = gmLink;
+        
     }
 
     /**
@@ -163,11 +163,11 @@ public abstract class DiagramLink extends DiagramAbstractLink {
         }
         this.gmLink.getDisplayedStyle()
                 .setProperty(styleKey, StyleKeyTypeConverter.convertFromString(styleKey, value));
+        
     }
 
     /**
      * Return the links that are starting (ie outgoing links) from this node.
-     * 
      * @return A list of links in any case, possibly an empty one. Never returns null
      */
     @objid ("31b051d0-60de-4e90-96c5-2cd43816b021")
@@ -185,7 +185,6 @@ public abstract class DiagramLink extends DiagramAbstractLink {
 
     /**
      * Return the links that are ending (ie incoming links) at this node.
-     * 
      * @return A list of links in any case, possibly an empty one. Never returns null
      */
     @objid ("71d2d2f0-0043-4476-8455-261ebf6fc10e")
@@ -203,7 +202,6 @@ public abstract class DiagramLink extends DiagramAbstractLink {
 
     /**
      * Return the name of this link.
-     * 
      * @return the link name
      */
     @objid ("5a77b0d0-5e96-43e2-879c-0fe4701f7a4c")
@@ -211,6 +209,7 @@ public abstract class DiagramLink extends DiagramAbstractLink {
     public String getName() {
         return this.gmLink.getRelatedElement() != null ? this.gmLink.getRelatedElement().getName()
                 : this.gmLink.getGhostLabel();
+        
     }
 
     @objid ("82e6fac1-0d2b-42f7-b495-054138cd4529")
@@ -261,7 +260,6 @@ public abstract class DiagramLink extends DiagramAbstractLink {
 
     /**
      * Default implementation of {@link #getGmNodes(ExtensionRole)} to call for default behavior.
-     * 
      * @param role the asked role
      * @return the found extension nodes.
      */
@@ -274,6 +272,7 @@ public abstract class DiagramLink extends DiagramAbstractLink {
         default:
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("db68662f-53e9-43d7-a00a-e6a1331ccd49")
@@ -282,6 +281,7 @@ public abstract class DiagramLink extends DiagramAbstractLink {
         IGmObject newNode = ((DiagramGraphic) source).getModel();
         String type = RequestConstants.REQ_RECONNECT_SOURCE;
         reconnect(newNode, type);
+        
     }
 
     @objid ("28fe3b0a-8634-4354-a4d6-6389d5c6587b")
@@ -290,6 +290,7 @@ public abstract class DiagramLink extends DiagramAbstractLink {
         IGmObject newNode = ((DiagramGraphic) target).getModel();
         String type = RequestConstants.REQ_RECONNECT_TARGET;
         reconnect(newNode, type);
+        
     }
 
     @objid ("671f24c0-6084-41aa-8bad-9fefcbd0c750")
@@ -310,6 +311,7 @@ public abstract class DiagramLink extends DiagramAbstractLink {
                 recoCommand.execute();
             }
         }
+        
     }
 
     @objid ("811e0083-0da4-4e4f-8dcd-f8616cf5c7fe")
@@ -327,6 +329,7 @@ public abstract class DiagramLink extends DiagramAbstractLink {
         }
         
         throw new IllegalArgumentException("Reconnection is not supported");
+        
     }
 
 }

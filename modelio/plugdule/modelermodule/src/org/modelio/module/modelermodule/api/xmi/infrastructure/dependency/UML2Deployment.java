@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.infrastructure.dependency;
 
@@ -49,24 +48,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("fc3acabf-4f25-4ad1-b9d8-51446901052b")
 public class UML2Deployment {
-    @objid ("2ceffa46-dd08-4897-aeba-4733443c896e")
+    @objid ("5caa1d19-e9ad-423e-a7cb-58c0d6bd26fe")
     public static final String STEREOTYPE_NAME = "UML2Deployment";
 
     /**
      * The underlying {@link Dependency} represented by this proxy, never null.
      */
-    @objid ("c18b8f97-a531-4b11-b741-c71221157482")
+    @objid ("7758a0aa-961a-42b9-8c97-aea201ac78d6")
     protected final Dependency elt;
 
     /**
      * Tells whether a {@link UML2Deployment proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << UML2Deployment >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("bfd5f359-5957-4b29-a74c-c3cc5d3b7bc2")
+    @objid ("21919596-7321-4fb8-8741-19fca9a09c10")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Dependency) && ((Dependency) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2Deployment.STEREOTYPE_NAME));
     }
@@ -76,9 +74,9 @@ public class UML2Deployment {
      * 
      * @return a {@link UML2Deployment} proxy on the created {@link Dependency}.
      */
-    @objid ("c154adaa-158a-4206-ad4a-0ac44392b6ea")
+    @objid ("3c82b35e-a42b-4bd0-a84e-6e075070ad14")
     public static UML2Deployment create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Dependency");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Infrastructure.Dependency");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2Deployment.STEREOTYPE_NAME);
         return UML2Deployment.instantiate((Dependency)e);
     }
@@ -90,7 +88,7 @@ public class UML2Deployment {
      * @param obj a Dependency
      * @return a {@link UML2Deployment} proxy or <i>null</i>.
      */
-    @objid ("0702099e-c0f1-4dd2-8051-fccddd46e437")
+    @objid ("a0b3cc0a-4f73-4fdb-ba3d-eaea3c538327")
     public static UML2Deployment instantiate(Dependency obj) {
         return UML2Deployment.canInstantiate(obj) ? new UML2Deployment(obj) : null;
     }
@@ -103,7 +101,7 @@ public class UML2Deployment {
      * @return a {@link UML2Deployment} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("836abe17-bf69-42b7-a662-7ba30c061da8")
+    @objid ("fd01ab35-d810-46b9-898a-41b4402deef6")
     public static UML2Deployment safeInstantiate(Dependency obj) throws IllegalArgumentException {
         if (UML2Deployment.canInstantiate(obj))
         	return new UML2Deployment(obj);
@@ -111,7 +109,7 @@ public class UML2Deployment {
         	throw new IllegalArgumentException("UML2Deployment: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("4b85c291-9853-4867-8c31-31e1818b7caa")
+    @objid ("1a03b4cb-f6ad-458d-a26c-08082f4963d1")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -131,46 +129,47 @@ public class UML2Deployment {
      * Get the underlying {@link Dependency}. 
      * @return the Dependency represented by this proxy, never null.
      */
-    @objid ("d6c2fa2e-7dcc-411a-a18c-8065a695244d")
+    @objid ("c2c09138-793f-4094-a8e4-81c6f8941700")
     public Dependency getElement() {
         return this.elt;
     }
 
-    @objid ("5e1c093a-d4ca-4fa3-aa70-0cb1a90b0f58")
+    @objid ("bdca4d83-f5d2-47bc-823b-810735f09abf")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("9c951bd6-b948-45a3-979d-6f362e9473cb")
-    protected UML2Deployment(Dependency elt) {
+    @objid ("80e6a12c-75d3-40f5-a323-f9a84086db7c")
+    protected  UML2Deployment(Dependency elt) {
         this.elt = elt;
     }
 
     @objid ("3c7b3b03-b7b6-4b5e-b616-ef29bb173f1b")
     public static final class MdaTypes {
-        @objid ("9306317d-4b0a-465f-8e48-eece09d40083")
+        @objid ("c60c0f59-4d52-4d05-a7a3-1f1cb8c4863f")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("79e089b8-656f-4d0f-a14e-8e5fa316c4b9")
+        @objid ("1f4ca4d2-276d-4eb1-8b12-ccdc1eb71256")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("8fdd0349-05b6-41db-8305-a2683d6f0e0e")
+        @objid ("43db5912-4c83-4715-a1e2-8c3faaa388f5")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("e286bc31-09a8-4db8-ab81-a0a5ef919d4d")
+        @objid ("40aa80ef-2536-4b1d-aaed-285365773b20")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "6faa55e3-5d0b-11df-a996-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.preferences;
 
 import java.io.IOException;
@@ -45,9 +44,10 @@ public class GProjectPreferenceNode implements IGProjectPreferenceStore {
      * @param nodeId - the prefix to prepend to keys before calling the concrete store
      */
     @objid ("0bf3fd04-1c41-4a37-93ff-64f61bbb7d35")
-    public GProjectPreferenceNode(GProjectPreferenceStore prefsStore, String nodeId) {
+    public  GProjectPreferenceNode(GProjectPreferenceStore prefsStore, String nodeId) {
         this.store = prefsStore;
         this.prefix = nodeId + "/";
+        
     }
 
     @objid ("849e48a5-a3f5-4d77-91b8-f86f54ed60ea")

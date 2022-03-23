@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.panelprovider.actions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,10 +30,11 @@ public class JyExecAction extends Action {
     private NotesPanelController controller;
 
     @objid ("ac11cbf8-8d54-45f5-ac67-1466e50350d9")
-    public JyExecAction(NotesPanelController controller) {
+    public  JyExecAction(NotesPanelController controller) {
         this.controller = controller;
         this.setText(EditionNotes.I18N.getString("JyExec.label"));
         this.setImageDescriptor(EditionNotes.getImageDescriptor("icons/jyexec.png"));
+        
     }
 
     @objid ("2092fea8-4749-4f08-8d17-86cac957ef47")

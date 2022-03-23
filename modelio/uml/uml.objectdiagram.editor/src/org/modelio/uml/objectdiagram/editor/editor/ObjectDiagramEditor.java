@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.objectdiagram.editor.editor;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,7 +40,7 @@ public class ObjectDiagramEditor extends AbstractDiagramEditor {
      * C'tor.
      */
     @objid ("9d5d267b-55b6-11e2-877f-002564c97630")
-    public ObjectDiagramEditor() {
+    public  ObjectDiagramEditor() {
         super();
     }
 

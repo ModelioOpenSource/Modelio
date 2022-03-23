@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.semantic.browser;
 
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.inject.Inject;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Optional;
@@ -42,7 +41,7 @@ public class SemanticBrowserView {
 
     @objid ("c1f7ac9d-70c4-4402-be5a-94f1a3dd38d0")
     @Inject
-     IEclipseContext eclipseContext;
+    IEclipseContext eclipseContext;
 
     @objid ("3cf26590-f9d2-44c2-b97b-94f67a4f0a2a")
     @PostConstruct
@@ -60,6 +59,7 @@ public class SemanticBrowserView {
                 onProjectOpened(project);
             }
         }
+        
     }
 
     @objid ("a79d0511-b5a4-4505-9b8b-6beef95b3f8d")
@@ -75,6 +75,7 @@ public class SemanticBrowserView {
             this.panel.dispose();
             this.panel = null;
         }
+        
     }
 
     @objid ("927dbf00-20bb-476a-a260-4bc9ff3c5c4f")

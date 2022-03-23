@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.diagramauto.diagram.creator;
 
 import java.util.List;
@@ -40,7 +39,7 @@ public class ClassArchitectureDiagramTemplate extends ClassStructureDiagramTempl
      * Mandatory default c'tor needed by eclipse when loading the extension point.
      */
     @objid ("bca0d640-874f-4546-bf24-8122867469b3")
-    public ClassArchitectureDiagramTemplate() {
+    public  ClassArchitectureDiagramTemplate() {
         super();
     }
 
@@ -127,6 +126,7 @@ public class ClassArchitectureDiagramTemplate extends ClassStructureDiagramTempl
                 }
             }
         }
+        
     }
 
 }

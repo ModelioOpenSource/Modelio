@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.combinedfragment.primarynode;
 
 import java.util.ArrayList;
@@ -109,20 +108,21 @@ public class ReorderOperandsCommand extends Command {
         
         // Re-order gm model.
         this.container.moveChild(this.childToMove, this.container.getChildren().indexOf(this.reference));
+        
     }
 
     /**
      * C'tor.
-     * 
      * @param container the container in which children will be moved.
      * @param childToMove the child to move.
      * @param reference the reference: moved child will be moved just before this reference. If it is null, child will be moved at the end of the container.
      */
     @objid ("d8d5c23a-55b6-11e2-877f-002564c97630")
-    public ReorderOperandsCommand(final GmCompositeNode container, final GmNodeModel childToMove, final GmNodeModel reference) {
+    public  ReorderOperandsCommand(final GmCompositeNode container, final GmNodeModel childToMove, final GmNodeModel reference) {
         this.container = container;
         this.childToMove = childToMove;
         this.reference = reference;
+        
     }
 
 }

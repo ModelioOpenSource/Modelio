@@ -1,5 +1,7 @@
 // Disable all captions for figures.
 :!figure-caption:
+// Path to the stylesheet files
+:stylesdir: .
 
 [[La-fenêtre-principale]]
 
@@ -11,7 +13,7 @@ image::images/Modeler-_modeler_interface_main_window_MainWindowPuces.png[2]
 
 *Légende :*
 
-1. L'outil de <<Modeler-_modeler_managing_projects_configuring_project_informations.adoc#,configuration du projet>>. Cet outil vous permet de configurer les informations, les modèles de travail, les librairies, les modules, l'audit et les URLs pour votre project.
+1. L'outil de <<Modeler-_modeler_managing_projects_configuring_project_informations.adoc#,configuration du projet>>. Cet outil vous permet de configurer les informations, les modèles de travail, les bibliothèques, les modules, l'audit et les URLs pour votre project.
 2. L'<<Modeler-_modeler_handy_tools_advanced_search.adoc#,outil de recherche avancée>>. Cet outil recherche des éléments de type "NameSpace" à partir d'un nom complet ou partiel.
 3. Les boutons de perspectives. Ces icônes vous permettent de changer de perspective (<<Modeler-_modeler_interface_workspace_view.adoc#,Espace de travail>> ou <<Modeler-_modeler_interface_uml_view.adoc#,modèle>>).
 4. La vue <<Modeler-_modeler_interface_uml_view.adoc#,"Modèle">>. Dans cette vue, vous pouvez visualiser, parcourir et éditer votre modèle UML / BPMN.

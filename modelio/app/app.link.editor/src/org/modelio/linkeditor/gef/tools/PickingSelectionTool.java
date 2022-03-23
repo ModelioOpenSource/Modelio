@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.gef.tools;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,6 +44,7 @@ public class PickingSelectionTool extends PanSelectionTool {
             return SharedCursors2.CURSOR_PICKING;
         else
             return this.session.hover(hoveredElement) ? SharedCursors2.CURSOR_PICKING_YES : SharedCursors2.CURSOR_PICKING_NO;
+        
     }
 
     @objid ("1bb9b8df-5e33-11e2-b81d-002564c97630")
@@ -77,9 +77,10 @@ public class PickingSelectionTool extends PanSelectionTool {
     }
 
     @objid ("d48b0f5d-5efd-11e2-a8be-00137282c51b")
-    public PickingSelectionTool(IPickingSession session) {
+    public  PickingSelectionTool(IPickingSession session) {
         super(null);
         this.session = session;
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel.data;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -48,13 +47,12 @@ public class ContentPanel extends Composite {
     private Object typingElement;
 
     @objid ("8dfe6d8e-c068-11e1-8c0a-002564c97630")
-    public ContentPanel(SashForm sash, int style) {
+    public  ContentPanel(SashForm sash, int style) {
         super(sash, style);
     }
 
     /**
      * Set the panel input.
-     * 
      * @param newInput the new input
      */
     @objid ("8dfe6d93-c068-11e1-8c0a-002564c97630")
@@ -99,6 +97,7 @@ public class ContentPanel extends Composite {
             this.propertyPanel.refresh();
             this.layout();
         }
+        
     }
 
     /**

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class EStringExpression extends ENamedElement {
     }
 
     @objid ("2bbdfa44-564c-4d78-863b-9a71db897008")
-    public EStringExpression(StringExpression element) {
+    public  EStringExpression(StringExpression element) {
         super(element);
     }
 

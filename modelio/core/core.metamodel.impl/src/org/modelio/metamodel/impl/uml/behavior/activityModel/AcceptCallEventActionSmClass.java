@@ -17,18 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.AcceptCallEventActionData;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityActionSmClass;
 import org.modelio.metamodel.impl.uml.statik.OperationSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.AcceptCallEventAction;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityAction;
@@ -50,7 +48,7 @@ public class AcceptCallEventActionSmClass extends ActivityActionSmClass {
     private SmDependency calledDep;
 
     @objid ("68618de2-8950-4ac4-a0c5-0b0fdd2bddc7")
-    public AcceptCallEventActionSmClass(ISmMetamodelFragment origin) {
+    public  AcceptCallEventActionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -58,6 +56,7 @@ public class AcceptCallEventActionSmClass extends ActivityActionSmClass {
     @Override
     public String getName() {
         return "AcceptCallEventAction";
+        
     }
 
     @objid ("e3bb6d3c-c54d-465b-a98a-892a8a7a1e78")
@@ -70,18 +69,21 @@ public class AcceptCallEventActionSmClass extends ActivityActionSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return AcceptCallEventAction.class;
+        
     }
 
     @objid ("4e8b1c4b-1606-42cb-ac3a-7623f1391edd")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("fe71accf-cd23-4a11-b98a-43a40ca4aab2")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("0d794e01-ea46-4d0d-afe1-cd798436748d")
@@ -97,6 +99,8 @@ public class AcceptCallEventActionSmClass extends ActivityActionSmClass {
         this.calledDep = new CalledSmDependency();
         this.calledDep.init("Called", this, metamodel.getMClass(Operation.MQNAME), 0, 1 , SmDirective.SMCDPARTOF);
         registerDependency(this.calledDep);
+        
+        
     }
 
     @objid ("55dee06f-6000-43d0-8c86-974bd5b919f4")
@@ -113,7 +117,7 @@ public class AcceptCallEventActionSmClass extends ActivityActionSmClass {
         private AcceptCallEventActionSmClass smClass;
 
         @objid ("90db8626-0769-48a1-94b2-4690043d383d")
-        public AcceptCallEventActionObjectFactory(AcceptCallEventActionSmClass smClass) {
+        public  AcceptCallEventActionObjectFactory(AcceptCallEventActionSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -155,6 +159,7 @@ public class AcceptCallEventActionSmClass extends ActivityActionSmClass {
             	this.symetricDep = ((OperationSmClass)this.getTarget()).getEntryPointActionDep();
             }
             return this.symetricDep;
+            
         }
 
     }

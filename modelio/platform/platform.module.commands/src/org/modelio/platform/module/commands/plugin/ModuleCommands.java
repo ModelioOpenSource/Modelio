@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.module.commands.plugin;
 
 import java.util.ResourceBundle;
@@ -58,6 +57,7 @@ public class ModuleCommands implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), PLUGIN_ID));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("modulecommands"));
+        
     }
 
     @objid ("6c968c06-1442-11e2-a678-001ec947c8cc")

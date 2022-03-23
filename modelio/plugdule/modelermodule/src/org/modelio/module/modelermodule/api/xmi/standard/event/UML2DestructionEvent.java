@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.event;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("de52f393-67b1-475c-bd25-f72709e6e3a4")
 public class UML2DestructionEvent {
-    @objid ("174be668-074b-44b1-9dee-478e25895f7e")
+    @objid ("fd0d30b3-0704-4e8d-8463-0acbeb24550f")
     public static final String STEREOTYPE_NAME = "UML2DestructionEvent";
 
     /**
      * The underlying {@link Event} represented by this proxy, never null.
      */
-    @objid ("09475427-9ac3-4e16-b1b1-5054d0da8a87")
+    @objid ("4510a6ee-b073-486b-b645-659cc2bee994")
     protected final Event elt;
 
     /**
      * Tells whether a {@link UML2DestructionEvent proxy} can be instantiated from a {@link MObject} checking it is a {@link Event} stereotyped << UML2DestructionEvent >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("429f22e2-e99c-40ff-b6d5-e84fc007182b")
+    @objid ("3b705b42-e294-4beb-9dd4-c0b33cc1acab")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Event) && ((Event) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2DestructionEvent.STEREOTYPE_NAME));
     }
@@ -77,9 +75,9 @@ public class UML2DestructionEvent {
      * 
      * @return a {@link UML2DestructionEvent} proxy on the created {@link Event}.
      */
-    @objid ("86a78bbd-3d0a-42d2-a61d-016cbc4507c4")
+    @objid ("320f1e68-aa85-430d-919a-47df83d0881f")
     public static UML2DestructionEvent create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Event");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.Event");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2DestructionEvent.STEREOTYPE_NAME);
         return UML2DestructionEvent.instantiate((Event)e);
     }
@@ -91,7 +89,7 @@ public class UML2DestructionEvent {
      * @param obj a Event
      * @return a {@link UML2DestructionEvent} proxy or <i>null</i>.
      */
-    @objid ("ad381852-a589-465a-8838-8b000ef7b5ed")
+    @objid ("83640bdc-2282-4bfb-a036-52379c19a668")
     public static UML2DestructionEvent instantiate(Event obj) {
         return UML2DestructionEvent.canInstantiate(obj) ? new UML2DestructionEvent(obj) : null;
     }
@@ -104,7 +102,7 @@ public class UML2DestructionEvent {
      * @return a {@link UML2DestructionEvent} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("54e09b91-22d7-4eb3-a440-48520d1a6004")
+    @objid ("e01aaffa-d530-4760-9bad-47c9cf7290ca")
     public static UML2DestructionEvent safeInstantiate(Event obj) throws IllegalArgumentException {
         if (UML2DestructionEvent.canInstantiate(obj))
         	return new UML2DestructionEvent(obj);
@@ -112,7 +110,7 @@ public class UML2DestructionEvent {
         	throw new IllegalArgumentException("UML2DestructionEvent: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("5131d99c-346a-4d8f-a818-226a72a9ce07")
+    @objid ("4d39efdd-f49d-485b-bf7b-0425122f7499")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,46 +130,47 @@ public class UML2DestructionEvent {
      * Get the underlying {@link Event}. 
      * @return the Event represented by this proxy, never null.
      */
-    @objid ("ef110bc7-6efa-4ec7-9e66-d8e98fcbc7e3")
+    @objid ("b477075a-2cfe-486d-ab8a-e8ad2441fa87")
     public Event getElement() {
         return this.elt;
     }
 
-    @objid ("216310bc-3742-42e2-a4f6-c0f55d396f56")
+    @objid ("43ebe9a7-4c26-443a-967f-b48b0e61b5c2")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("46fd307d-952e-40b9-b0f9-2a2ce632fd51")
-    protected UML2DestructionEvent(Event elt) {
+    @objid ("7847e547-80f9-4f08-b594-57c045957acf")
+    protected  UML2DestructionEvent(Event elt) {
         this.elt = elt;
     }
 
     @objid ("9f8a454e-892f-45b5-bfe5-6ffdf6e1cbbc")
     public static final class MdaTypes {
-        @objid ("d0ba5b48-69c6-42ab-b478-c8bb51845992")
+        @objid ("09d9508e-0d5b-45f8-90a0-41461baad94c")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("5e8c8984-f6cb-47f0-8d44-6d0e2f53b08b")
+        @objid ("922193cf-3820-49a3-a6fc-3200f9a58b5a")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("d543b7bc-a2f4-4e32-95e6-314073540877")
+        @objid ("f28be204-1fef-4016-9b67-90a6e02ac8aa")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("3c7085e8-158f-4b67-b16f-f04d841e486e")
+        @objid ("9c01d471-4fcb-46fa-8522-37872373a64c")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "c0f03827-5d0b-11df-a996-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

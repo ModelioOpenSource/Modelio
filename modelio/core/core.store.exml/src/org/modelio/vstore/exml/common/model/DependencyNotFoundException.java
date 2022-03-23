@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common.model;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,7 @@ public class DependencyNotFoundException extends Exception {
      * @param string an error message.
      */
     @objid ("66b09b1b-9755-469b-86b8-17c563cc7bd9")
-    public DependencyNotFoundException(String string) {
+    public  DependencyNotFoundException(String string) {
         super(string);
     }
 

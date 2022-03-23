@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.panelprovider.data.htmlnotes;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -63,6 +62,7 @@ public class HtmlNoteContentComposite extends AbstractContentComposite {
             this.htmlText.setHtml("");
         }
         leaveEdition();
+        
     }
 
     @objid ("93822920-a36a-4185-91d6-30a0bd2f08e0")
@@ -85,6 +85,7 @@ public class HtmlNoteContentComposite extends AbstractContentComposite {
         } else {
             this.htmlText.setBackground(UIColor.TEXT_READONLY_BG);
         }
+        
     }
 
     @objid ("31a5b972-7f39-421b-b58c-b13d586c9f88")
@@ -95,6 +96,7 @@ public class HtmlNoteContentComposite extends AbstractContentComposite {
             this.htmlText.setBackground(UIColor.TEXT_READONLY_BG);
         }
         reactivateContexts();
+        
     }
 
     @objid ("6cd6a4a8-a8b4-488e-ba13-9a269acf26d7")
@@ -102,15 +104,17 @@ public class HtmlNoteContentComposite extends AbstractContentComposite {
     public void dispose() {
         this.htmlText.dispose();
         super.dispose();
+        
     }
 
     @objid ("e9e7aae2-41d1-4770-921b-c4136d2e0db0")
-    public HtmlNoteContentComposite(Composite parentComposite, int style, EContextService contextService) {
+    public  HtmlNoteContentComposite(Composite parentComposite, int style, EContextService contextService) {
         super(parentComposite, style, contextService);
         setLayout(new FillLayout());
         this.htmlText = new HtmlComposer(this, SWT.BORDER | SWT.BORDER | SWT.V_SCROLL | SWT.WRAP);
         this.controler = new Controler(this, this.htmlText);
         this.htmlText.addFocusListener(this.controler);
+        
     }
 
     @objid ("9d1541a0-570d-46eb-966b-695e82b19752")
@@ -122,9 +126,10 @@ public class HtmlNoteContentComposite extends AbstractContentComposite {
         private final HtmlComposer htmlComposer;
 
         @objid ("f00283b2-6678-430b-b79f-c976fba85e07")
-        public Controler(HtmlNoteContentComposite htmlNoteContentComposite, HtmlComposer htmlComposer) {
+        public  Controler(HtmlNoteContentComposite htmlNoteContentComposite, HtmlComposer htmlComposer) {
             this.view = htmlNoteContentComposite;
             this.htmlComposer = htmlComposer;
+            
         }
 
         /**
@@ -140,6 +145,7 @@ public class HtmlNoteContentComposite extends AbstractContentComposite {
                     transaction.commit();
                 }
             }
+            
         }
 
         /**
@@ -152,6 +158,7 @@ public class HtmlNoteContentComposite extends AbstractContentComposite {
             if (editedNote != null && editedNote.getStatus().isModifiable()) {
                 this.view.enterEdition();
             }
+            
         }
 
         @objid ("bbfc738e-70ef-428c-b774-f6ba86c65032")
@@ -160,6 +167,7 @@ public class HtmlNoteContentComposite extends AbstractContentComposite {
             final Note editedNote = this.view.getNoteElement();
             changeContent(editedNote, this.htmlComposer.getHtml());
             this.view.leaveEdition();
+            
         }
 
     }

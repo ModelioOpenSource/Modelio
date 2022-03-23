@@ -17,19 +17,19 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.objectdiagram.editor.elements.objectdiagram;
 
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.elements.common.abstractdiagram.GmAbstractDiagram;
 import org.modelio.diagram.elements.core.model.GmAbstractObject;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.diagrams.ObjectDiagram;
 import org.modelio.metamodel.diagrams.StaticDiagram;
@@ -60,15 +60,15 @@ public class GmObjectDiagram extends GmAbstractDiagram {
 
     /**
      * Initialize the diagram.
-     * 
      * @param manager The model manager
      * @param theObjectDiagram the displayed diagram.
      * @param diagramRef the reference of the displayed diagram. Must reference a {@link StaticDiagram}.
      */
     @objid ("9d61ba20-55b6-11e2-877f-002564c97630")
-    public GmObjectDiagram(IModelManager manager, StaticDiagram theObjectDiagram, MRef diagramRef) {
+    public  GmObjectDiagram(IModelManager manager, StaticDiagram theObjectDiagram, MRef diagramRef) {
         super(manager, diagramRef);
         this.element = theObjectDiagram;
+        
     }
 
     @objid ("9d61ba2f-55b6-11e2-877f-002564c97630")
@@ -88,6 +88,7 @@ public class GmObjectDiagram extends GmAbstractDiagram {
         } else {
             return true;
         }
+        
     }
 
     @objid ("9d61ba3f-55b6-11e2-877f-002564c97630")
@@ -135,6 +136,7 @@ public class GmObjectDiagram extends GmAbstractDiagram {
             break;
         }
         }
+        
     }
 
     @objid ("9d6340c1-55b6-11e2-877f-002564c97630")
@@ -162,12 +164,14 @@ public class GmObjectDiagram extends GmAbstractDiagram {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmObjectDiagram.", GmObjectDiagram.MINOR_VERSION);
+        
     }
 
     @objid ("9d6340d8-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (StaticDiagram) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("9d6340dd-55b6-11e2-877f-002564c97630")

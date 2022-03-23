@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.fragment;
 
 import java.util.ArrayList;
@@ -44,7 +43,6 @@ public class Fragments {
 
     /**
      * Get the factory for instantiating an existing fragment.
-     * 
      * @param fDesc a fragment descriptor
      * @return the instantiation factory.
      */
@@ -66,11 +64,11 @@ public class Fragments {
             
             return UnsupportedFragmentFactory.getInstance();
         }
+        
     }
 
     /**
      * Register the given fragment factory.
-     * 
      * @param f a fragment factory.
      */
     @objid ("aa7c47e5-0eed-11e2-8e4b-001ec947ccaf")

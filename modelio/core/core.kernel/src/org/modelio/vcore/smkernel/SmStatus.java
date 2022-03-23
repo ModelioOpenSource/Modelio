@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -62,13 +61,13 @@ public final class SmStatus implements IRStatus, IPStatus {
      * Remove the CMS and repository status part that was in the persistent part.
      */
     @objid ("325165ab-d27b-11e1-b069-001ec947ccaf")
-     static final long PFLAGS = 0x0000_ffff_0000_0000L & ~ (MASK_CMS | MASK_REPO);
+    static final long PFLAGS = 0x0000_ffff_0000_0000L & ~ (MASK_CMS | MASK_REPO);
 
     /**
      * Persistent flags mask area
      */
     @objid ("325165af-d27b-11e1-b069-001ec947ccaf")
-     static final long PMASK = PFLAGS << 16; // 0xffff_0000_0000_0000L;
+    static final long PMASK = PFLAGS << 16; // 0xffff_0000_0000_0000L;
 
     /**
      * Runtime flags area.
@@ -77,13 +76,13 @@ public final class SmStatus implements IRStatus, IPStatus {
      * Add the CMS status part that was in the persistent part.
      */
     @objid ("325165a5-d27b-11e1-b069-001ec947ccaf")
-     static final long RFLAGS = 0x0000_0000_0000_ffffL | MASK_CMS | MASK_REPO;
+    static final long RFLAGS = 0x0000_0000_0000_ffffL | MASK_CMS | MASK_REPO;
 
     /**
      * Persistent part of a SmStatus.
      */
     @objid ("fc5fc7d9-b344-40e1-be54-529ab3a03d60")
-     static final long PERSISTENT_BITS = PFLAGS | PMASK;
+    static final long PERSISTENT_BITS = PFLAGS | PMASK;
 
     /**
      * Runtime flags mask area
@@ -101,7 +100,6 @@ public final class SmStatus implements IRStatus, IPStatus {
      * <li> <code>StatusState.TRUE</code> if all of them are defined and set to <code>StatusState.TRUE</code>,
      * <li> <code>StatusState.FALSE</code> if all of them are defined and some are set to <code>StatusState.FALSE</code>.
      * </ul>
-     * 
      * @param status the status to test
      * @param bitdef the flags to test
      * @return <code>StatusState.UNDEFINED</code> if any of the flags is not defined, <code>StatusState.TRUE</code> if all of them are defined
@@ -132,7 +130,6 @@ public final class SmStatus implements IRStatus, IPStatus {
     /**
      * Return the string representation of the given flags combination.
      * Flags are to be found in {@link IRStatus} and {@link IPStatus}.
-     * 
      * @param bitdef a combination of lags, not a status.
      * @return the string representation.
      */
@@ -146,11 +143,11 @@ public final class SmStatus implements IRStatus, IPStatus {
         } else {
             return toString(status) + " invalid mask bits:" + toString(invalid | fromMask(invalid));
         }
+        
     }
 
     /**
      * Get the value and mask bits filtered by the given access mask.
-     * 
      * @param status a status
      * @param bitdef an access mask
      * @return the value and mask bits
@@ -165,7 +162,6 @@ public final class SmStatus implements IRStatus, IPStatus {
 
     /**
      * Get flags defined to FALSE in the given status
-     * 
      * @param status a status
      * @return the flags defined to FALSE.
      */
@@ -177,7 +173,6 @@ public final class SmStatus implements IRStatus, IPStatus {
 
     /**
      * Get the persistent value and mask bits.
-     * 
      * @param status a status
      * @return the persistent value and mask bits.
      */
@@ -193,7 +188,6 @@ public final class SmStatus implements IRStatus, IPStatus {
      * <li> <code>StatusState.UNDEFINED</code> if no flag is TRUE and at least one flag is UNDEFINED,
      * <li> <code>StatusState.FALSE</code> if all of them are defined to <code>StatusState.FALSE</code>.
      * </ul>
-     * 
      * @param status a status
      * @param bitdef the flags to test
      * @return the test result.
@@ -212,11 +206,11 @@ public final class SmStatus implements IRStatus, IPStatus {
         } else {
             return StatusState.FALSE;
         }
+        
     }
 
     /**
      * Test whether all bit masks are set.
-     * 
      * @param status the status to test.
      * @return true if all flags are defined, false if some flags need to be read on another status
      */
@@ -230,7 +224,6 @@ public final class SmStatus implements IRStatus, IPStatus {
      * <p>
      * Use the constants defined in {@link IRStatus} and {@link IPStatus}.
      * No delete flag must be undefined, in the other case Modelio behavior is undefined.
-     * 
      * @param astatus the initial status
      * @param trueFlags a combination of flags to set.
      * @param falseFlags a combination of flags to unset.
@@ -281,7 +274,6 @@ public final class SmStatus implements IRStatus, IPStatus {
      * Set the state of the given flags.
      * <p>
      * No delete flag must be undefined, in the other case Modelio behavior is undefined.
-     * 
      * @param origStatus the original status value.
      * @param bitdef the flags to modify.
      * @param state the new state of the flags
@@ -322,7 +314,6 @@ public final class SmStatus implements IRStatus, IPStatus {
      * <p>
      * Use the constants defined in {@link IRStatus} and {@link IPStatus}.
      * No delete flag must be undefined, in the other case Modelio behavior is undefined.
-     * 
      * @param astatus the initial status
      * @param trueFlags a combination of flags to set.
      * @param falseFlags a combination of flags to unset.
@@ -364,7 +355,6 @@ public final class SmStatus implements IRStatus, IPStatus {
 
     /**
      * Return a string representation of the given status flags.
-     * 
      * @param status the status to print
      * @return the string representation.
      */
@@ -409,6 +399,7 @@ public final class SmStatus implements IRStatus, IPStatus {
         } else {
             return "";
         }
+        
     }
 
     /**
@@ -416,7 +407,6 @@ public final class SmStatus implements IRStatus, IPStatus {
      * <p>
      * All flags defined to <code>true</code> or <code>false</code> in the <i>other</i> status will be copied in this status.
      * Other flags will be left untouched.
-     * 
      * @param destStatus the status value to modify.
      * @param other the status value to merge
      * @return the merged status value
@@ -435,7 +425,6 @@ public final class SmStatus implements IRStatus, IPStatus {
 
     /**
      * Modify the persistent part of a status value.
-     * 
      * @param status the status to modify
      * @param persistentBits the persistent part to replace to
      * @return the modified status value
@@ -448,9 +437,10 @@ public final class SmStatus implements IRStatus, IPStatus {
     }
 
     @objid ("d3a914d9-3b68-468c-9bad-9ca35f69444f")
-    private SmStatus() {
+    private  SmStatus() {
         // no instance
         throw new AssertionError();
+        
     }
 
     @objid ("0c769dd2-d4cd-11e1-b069-001ec947ccaf")
@@ -469,6 +459,7 @@ public final class SmStatus implements IRStatus, IPStatus {
             break;
         
         }
+        
     }
 
     @objid ("464deb0b-f799-4bfd-a6c6-ab069c5a9518")
@@ -484,11 +475,11 @@ public final class SmStatus implements IRStatus, IPStatus {
             break;
         
         }
+        
     }
 
     /**
      * Convert definition mask flags to value flags .
-     * 
      * @param status a complete status
      * @return flags that are defined
      */
@@ -499,7 +490,6 @@ public final class SmStatus implements IRStatus, IPStatus {
 
     /**
      * Convert value flags to definition mask flags.
-     * 
      * @param flags value flags
      * @return definition mask
      */
@@ -514,7 +504,6 @@ public final class SmStatus implements IRStatus, IPStatus {
      * same as toString(). Exists to allow it being called by Jython for which
      * 'toString' seems to be overwritten by the interpreter.
      * @see SmStatus#toString()
-     * 
      * @param status the status to print
      * @return the string representation.
      */

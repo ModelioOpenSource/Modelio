@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -98,10 +97,11 @@ public class OOpaqueAction extends OActivityNode {
             return UMLFactory.eINSTANCE.createUnmarshallAction();
         else
             return UMLFactory.eINSTANCE.createOpaqueAction();
+        
     }
 
     @objid ("d689dec3-c673-404b-92da-1b0629dd7bf1")
-    public OOpaqueAction(OpaqueAction element) {
+    public  OOpaqueAction(OpaqueAction element) {
         super(element);
     }
 
@@ -123,6 +123,7 @@ public class OOpaqueAction extends OActivityNode {
         }else if (ecoreElt instanceof org.eclipse.uml2.uml.StructuralFeatureAction){
             setFeature((org.eclipse.uml2.uml.StructuralFeatureAction) ecoreElt);
         }
+        
     }
 
     @objid ("5cdd4c4f-daa8-43e0-a932-e71094e9ad70")
@@ -176,6 +177,7 @@ public class OOpaqueAction extends OActivityNode {
                 }
             }
         }
+        
     }
 
     @objid ("07817664-0145-46b3-9885-c52b383500b8")
@@ -188,6 +190,7 @@ public class OOpaqueAction extends OActivityNode {
                 }
             }
         }
+        
     }
 
     @objid ("11efb652-28f1-4519-b506-1705c74ca03d")
@@ -200,6 +203,7 @@ public class OOpaqueAction extends OActivityNode {
                 }
             }
         }
+        
     }
 
     @objid ("9310efce-052b-4a34-ad5e-726044f7f48b")
@@ -212,6 +216,7 @@ public class OOpaqueAction extends OActivityNode {
                 }
             }
         }
+        
     }
 
     @objid ("41c57fa9-1193-439a-9be9-a4ad13601473")
@@ -224,6 +229,7 @@ public class OOpaqueAction extends OActivityNode {
                 }
             }
         }
+        
     }
 
     @objid ("7d154d94-eeaa-4b1e-a7a4-f86b0eb04a71")

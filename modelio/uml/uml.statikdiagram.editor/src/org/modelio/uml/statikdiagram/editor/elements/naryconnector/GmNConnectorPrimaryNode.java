@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.naryconnector;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,19 +49,18 @@ public class GmNConnectorPrimaryNode extends GmNLinkPrimaryNode {
      * Empty c'tor for deserialization.
      */
     @objid ("35da5204-55b7-11e2-877f-002564c97630")
-    public GmNConnectorPrimaryNode() {
+    public  GmNConnectorPrimaryNode() {
         super();
     }
 
     /**
      * C'tor.
-     * 
      * @param diagram the diagram in which this gm is created.
      * @param assoc the represented n-ary association. May be null.
      * @param relatedRef a reference to the represented n-ary association. Must Not be null.
      */
     @objid ("35da5207-55b7-11e2-877f-002564c97630")
-    public GmNConnectorPrimaryNode(final IGmDiagram diagram, final NaryConnector assoc, final MRef relatedRef) {
+    public  GmNConnectorPrimaryNode(final IGmDiagram diagram, final NaryConnector assoc, final MRef relatedRef) {
         super(diagram, assoc, relatedRef);
     }
 
@@ -89,6 +87,7 @@ public class GmNConnectorPrimaryNode extends GmNLinkPrimaryNode {
                 break;
             }
         }
+        
     }
 
     @objid ("35dbd888-55b7-11e2-877f-002564c97630")
@@ -98,6 +97,7 @@ public class GmNConnectorPrimaryNode extends GmNLinkPrimaryNode {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmNConnectorPrimaryNode.", GmNConnectorPrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("35dbd88e-55b7-11e2-877f-002564c97630")

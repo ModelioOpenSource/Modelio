@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.form.fields;
 
 import java.util.Calendar;
@@ -46,7 +45,7 @@ public class TimeField extends AbstractField {
     private DateTime time;
 
     @objid ("78440f64-01bf-4df3-977e-b4b0f11ad919")
-    public TimeField(FormToolkit toolkit, Composite parent, IFormFieldData model) {
+    public  TimeField(FormToolkit toolkit, Composite parent, IFormFieldData model) {
         super(toolkit, parent, model);
     }
 
@@ -61,6 +60,7 @@ public class TimeField extends AbstractField {
             getModel().setValue(null);
         }
         this.time.setVisible(this.nullCheckBox.getSelection());
+        
     }
 
     @objid ("790c98b4-a1c9-49f8-af30-b231b6bc5b9a")
@@ -120,6 +120,7 @@ public class TimeField extends AbstractField {
             this.nullCheckBox.setSelection(false);
             this.time.setVisible(false);
         }
+        
     }
 
 }

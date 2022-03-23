@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.net;
 
 import java.io.IOException;
@@ -56,35 +55,33 @@ public class UriPathAccess implements AutoCloseable {
 
     /**
      * Constructor
-     * 
      * @param uri the URI to access a a Path.
      * @deprecated Please use {@link #UriPathAccess(URI, IAuthData)} with an authentication data or <code>null</code>
      * if none is needed.
      */
     @objid ("1c5f59d7-d5ca-4c53-8504-f5eb35950306")
     @Deprecated
-    public UriPathAccess(URI uri) {
+    public  UriPathAccess(URI uri) {
         this.uri = uri;
     }
 
     /**
      * Constructor
-     * 
      * @param uri the URI to access a a Path.
      * @param auth authentication data, may be <code>null</code>.
      */
     @objid ("16ad0406-1982-4623-a694-0796f242b97b")
-    public UriPathAccess(URI uri, IAuthData auth) {
+    public  UriPathAccess(URI uri, IAuthData auth) {
         this.uri = uri;
         this.authData = auth;
+        
     }
 
     /**
      * Convert the URI to a {@link Path}.
-     * 
      * @return the converted path.
-     * @throws java.io.IOException in case of I/O failure.
-     * @throws java.nio.file.FileSystemException in case of file system failure
+     * @throws IOException in case of I/O failure.
+     * @throws FileSystemException in case of file system failure
      */
     @objid ("6f37298c-2604-40e0-ac5d-74c915898b42")
     public Path getPath() throws IOException, FileSystemException {
@@ -95,7 +92,6 @@ public class UriPathAccess implements AutoCloseable {
 
     /**
      * Set the authentication data.
-     * 
      * @param auth authentication data, may be <code>null</code>.
      */
     @objid ("fde22ca8-57f1-4f57-adb4-8788735d8951")
@@ -116,6 +112,7 @@ public class UriPathAccess implements AutoCloseable {
             // ignore
             //Log.trace(e);
         }
+        
     }
 
     @objid ("4fb461c0-e355-401b-9bf1-e18b5aec58c7")
@@ -131,6 +128,7 @@ public class UriPathAccess implements AutoCloseable {
                 this.path = this.localPath;
             }
         }
+        
     }
 
 }

@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.browser.view.handlers.fragment;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.Status;
@@ -111,6 +110,7 @@ public class MigrateFragmentHandler {
             BrowserViewActivator.LOG.info("Migration cancelled");
             BrowserViewActivator.LOG.debug(e);
         }
+        
     }
 
     @objid ("1c0662e6-22a2-4505-a64a-86c446eacd2e")

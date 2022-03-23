@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.contributor;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.swt.graphics.Image;
 import org.modelio.api.modelio.model.scope.ElementScope;
@@ -81,6 +80,7 @@ public class UseCaseDiagramCreationContributor extends AbstractDiagramWizardCont
         } else {
             return null;
         }
+        
     }
 
     @objid ("4f43f0be-8ff1-45b9-bd04-ff3d05c1811e")
@@ -110,6 +110,7 @@ public class UseCaseDiagramCreationContributor extends AbstractDiagramWizardCont
         } else {
             return this.mmServices.getMetamodel();
         }
+        
     }
 
     @objid ("40fdf349-3651-4c40-8c4b-c0a84a97e373")

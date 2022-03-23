@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.deploymentdiagram.editor.elements.factories;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -142,9 +141,10 @@ public final class DeploymentGmNodeFactory implements IGmNodeFactory {
         private Object initialLayoutData;
 
         @objid ("972e33f1-55b6-11e2-877f-002564c97630")
-        public GmLabelFactoryVisitor(IGmDiagram diagram, Object initialLayoutData) {
+        public  GmLabelFactoryVisitor(IGmDiagram diagram, Object initialLayoutData) {
             this.diagram = diagram;
             this.initialLayoutData = initialLayoutData;
+            
         }
 
     }
@@ -161,9 +161,10 @@ public final class DeploymentGmNodeFactory implements IGmNodeFactory {
         private Object initialLayoutData;
 
         @objid ("972cad7c-55b6-11e2-877f-002564c97630")
-        public NodeFactoryVisitor(IGmDiagram diagram, Object initialLayoutData) {
+        public  NodeFactoryVisitor(IGmDiagram diagram, Object initialLayoutData) {
             this.diagram = diagram;
             this.initialLayoutData = initialLayoutData;
+            
         }
 
         @objid ("972e33d9-55b6-11e2-877f-002564c97630")

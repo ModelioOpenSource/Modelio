@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.handlers.drawings;
 
 import java.util.List;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
@@ -41,7 +40,6 @@ import org.modelio.platform.model.ui.swt.SelectionHelper;
 public class MoveDrawingToForegroundHandler {
     /**
      * Execute the handler
-     * 
      * @param selection the Eclipse selection
      */
     @objid ("b15f1f77-3502-4c80-a56a-0bd7e5646332")
@@ -53,6 +51,7 @@ public class MoveDrawingToForegroundHandler {
             CommandStack cmdStack = SelectionHelper.getFirst(selection, GraphicalEditPart.class).getViewer().getEditDomain().getCommandStack();
             cmdStack.execute(cmd);
         }
+        
     }
 
     @objid ("67d99f48-12c5-4434-b9fc-646b836af90e")

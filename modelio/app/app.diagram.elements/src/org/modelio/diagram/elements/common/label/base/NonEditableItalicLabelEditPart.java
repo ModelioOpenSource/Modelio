@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.label.base;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,7 +39,8 @@ public class NonEditableItalicLabelEditPart extends ElementLabelEditPart {
      * Default constructor.
      */
     @objid ("7e9295c6-1dec-11e2-8cad-001ec947c8cc")
-    public NonEditableItalicLabelEditPart() {
+    public  NonEditableItalicLabelEditPart() {
+        
     }
 
     @objid ("7e9295c9-1dec-11e2-8cad-001ec947c8cc")
@@ -57,6 +57,7 @@ public class NonEditableItalicLabelEditPart extends ElementLabelEditPart {
         
         // operation label isn't meant to be editable
         removeEditPolicy(EditPolicy.DIRECT_EDIT_ROLE);
+        
     }
 
     @objid ("7e9295d3-1dec-11e2-8cad-001ec947c8cc")
@@ -83,6 +84,7 @@ public class NonEditableItalicLabelEditPart extends ElementLabelEditPart {
             Font newFont = (Font) getViewer().getResourceManager().get(italicDesc);
             aFigure.setFont(newFont);
         }
+        
     }
 
     @objid ("7e9295e1-1dec-11e2-8cad-001ec947c8cc")

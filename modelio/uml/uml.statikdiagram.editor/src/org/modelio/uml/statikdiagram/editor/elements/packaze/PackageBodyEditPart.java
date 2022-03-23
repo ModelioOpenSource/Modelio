@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.packaze;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,7 +38,7 @@ public class PackageBodyEditPart extends FreeZoneEditPart {
      * Constructor
      */
     @objid ("36269d55-55b7-11e2-877f-002564c97630")
-    public PackageBodyEditPart() {
+    public  PackageBodyEditPart() {
         super();
     }
 
@@ -55,6 +54,7 @@ public class PackageBodyEditPart extends FreeZoneEditPart {
         super.createEditPolicies();
         installEditPolicy(ModelElementDropRequest.TYPE, new DefaultElementDropEditPolicy());
         //installEditPolicy(ModelElementDropRequest.TYPE+"2", new DefaultSmartDropEditPolicy());
+        
     }
 
     @objid ("362823c3-55b7-11e2-877f-002564c97630")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -57,6 +56,7 @@ public class OAssociation extends OModelElement {
             // related Modelio ClassAssociation, Class
             // or current org.eclipse.uml2.uml.Association.
            return getOrCreateEcoreAssociationClass();
+        
     }
 
     @objid ("77c53512-552a-470f-be7c-a1a45e186996")
@@ -65,6 +65,7 @@ public class OAssociation extends OModelElement {
         // Gets or creates the Ecore org.eclipse.uml2.uml.AssociationClass:
         return  (org.eclipse.uml2.uml.AssociationClass) genProp
                                                  .getMappedElement(getObjingElement());
+        
     }
 
     @objid ("dd4c8de5-7416-4da2-943e-5259c6598182")
@@ -75,13 +76,13 @@ public class OAssociation extends OModelElement {
     /**
      * Constructor of OAssociation.
      * it takes the exported Modelio org.eclipse.uml2.uml.Association as parameter
-     * 
      * @param element : the exported Modelio org.eclipse.uml2.uml.Association
      */
     @objid ("f72568fa-cb09-47d9-bf66-5fbabcf90299")
-    public OAssociation(final Association element) {
+    public  OAssociation(final Association element) {
         super(element);
         this.isIsClassAssociation = AbstractObjingModelNavigation.isIsClassAssociation(element);
+        
     }
 
     @objid ("771b65ef-0beb-4f57-b5d0-f0354cc5d68a")
@@ -98,6 +99,7 @@ public class OAssociation extends OModelElement {
         
             ecoreElt.destroy();
         }
+        
     }
 
     @objid ("77efb628-9a57-492e-99e3-12eeab81b220")
@@ -150,6 +152,7 @@ public class OAssociation extends OModelElement {
                 }
             }
         }
+        
     }
 
     @objid ("60ce3c10-8bbd-4feb-be40-c18867eab289")

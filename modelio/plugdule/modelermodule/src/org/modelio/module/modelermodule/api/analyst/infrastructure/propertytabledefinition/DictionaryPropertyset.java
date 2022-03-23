@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition;
 
@@ -49,24 +48,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("a701ba85-699e-41ed-a46b-eb90d18ebaa6")
 public class DictionaryPropertyset {
-    @objid ("ad537259-3f6e-4b9e-b8c2-e2e89f6501da")
+    @objid ("61106dca-441b-4c0d-940f-6412b6b9fb17")
     public static final String STEREOTYPE_NAME = "dictionary_propertyset";
 
     /**
      * The underlying {@link PropertyTableDefinition} represented by this proxy, never null.
      */
-    @objid ("ae6751d8-c8ca-4346-9407-533e72434e60")
+    @objid ("4ae5abeb-1253-425e-8755-5029272b1085")
     protected final PropertyTableDefinition elt;
 
     /**
      * Tells whether a {@link DictionaryPropertyset proxy} can be instantiated from a {@link MObject} checking it is a {@link PropertyTableDefinition} stereotyped << dictionary_propertyset >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("dde2da65-7bc8-4f6d-b93a-6b0f9fb6b377")
+    @objid ("655841ef-4ced-48de-a7e7-012ea3bf9828")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof PropertyTableDefinition) && ((PropertyTableDefinition) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, DictionaryPropertyset.STEREOTYPE_NAME));
     }
@@ -76,9 +74,9 @@ public class DictionaryPropertyset {
      * 
      * @return a {@link DictionaryPropertyset} proxy on the created {@link PropertyTableDefinition}.
      */
-    @objid ("dd415003-94be-4f89-8357-daec314e468c")
+    @objid ("3280fc6a-43c3-4993-a814-7817719a6437")
     public static DictionaryPropertyset create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("PropertyTableDefinition");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Infrastructure.PropertyTableDefinition");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, DictionaryPropertyset.STEREOTYPE_NAME);
         return DictionaryPropertyset.instantiate((PropertyTableDefinition)e);
     }
@@ -90,7 +88,7 @@ public class DictionaryPropertyset {
      * @param obj a PropertyTableDefinition
      * @return a {@link DictionaryPropertyset} proxy or <i>null</i>.
      */
-    @objid ("12db744b-cd69-43e5-8564-d69432d01998")
+    @objid ("35298f1f-2321-47c4-b306-a3c7b1bc4a62")
     public static DictionaryPropertyset instantiate(PropertyTableDefinition obj) {
         return DictionaryPropertyset.canInstantiate(obj) ? new DictionaryPropertyset(obj) : null;
     }
@@ -103,7 +101,7 @@ public class DictionaryPropertyset {
      * @return a {@link DictionaryPropertyset} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("d6c18b41-fdb2-48c6-a664-3786b0e44512")
+    @objid ("4d8b4b2b-1665-4dc0-a643-bc7b0cea441b")
     public static DictionaryPropertyset safeInstantiate(PropertyTableDefinition obj) throws IllegalArgumentException {
         if (DictionaryPropertyset.canInstantiate(obj))
         	return new DictionaryPropertyset(obj);
@@ -111,7 +109,7 @@ public class DictionaryPropertyset {
         	throw new IllegalArgumentException("DictionaryPropertyset: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("b433425e-55b0-4534-87f8-c176e2d71593")
+    @objid ("3ed9f2bc-7d63-49d4-a695-579314a11897")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -131,46 +129,47 @@ public class DictionaryPropertyset {
      * Get the underlying {@link PropertyTableDefinition}. 
      * @return the PropertyTableDefinition represented by this proxy, never null.
      */
-    @objid ("70956346-5dc5-4f8e-b00d-f1a130fee2d4")
+    @objid ("a8d65aaf-c63f-4c09-a647-0adb5270a003")
     public PropertyTableDefinition getElement() {
         return this.elt;
     }
 
-    @objid ("8291cb14-5f29-4962-ae29-622c262bc3cc")
+    @objid ("ff149719-7422-4227-afa0-6e573b1d26be")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("01b4ef56-cba6-491f-8499-58f88003dea9")
-    protected DictionaryPropertyset(PropertyTableDefinition elt) {
+    @objid ("85c9e8c8-0149-4b3c-a26f-bb392428024e")
+    protected  DictionaryPropertyset(PropertyTableDefinition elt) {
         this.elt = elt;
     }
 
     @objid ("d95109a9-38e2-4ad3-8d22-511e555e6dcc")
     public static final class MdaTypes {
-        @objid ("d9816438-d10f-4e59-b3ff-d64adff895cb")
+        @objid ("bdb96e63-0c52-4a17-8628-041c4eff311f")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("a53de813-96f9-4c41-b98f-142d951f092c")
+        @objid ("ca24211d-a2c7-402f-8d76-f40276ef9abd")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("28f167cc-3099-4f1f-a7e2-88de146ea72b")
+        @objid ("c99ac13b-6f05-4a3e-b3d0-0b4bcd378165")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("2a5dc846-94b2-4017-a652-ba3539ee8a42")
+        @objid ("0d895bf8-cfda-4cdc-9fb0-e695d24ef4ca")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "01ec141c-0000-12fc-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

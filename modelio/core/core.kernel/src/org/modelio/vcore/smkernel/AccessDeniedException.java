@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,19 +35,18 @@ public class AccessDeniedException extends RuntimeException {
 
     /**
      * Initialize the exception.
-     * 
      * @param message a user friendly error message
      * @param related the object whose access was denied.
      */
     @objid ("dc142713-8fb5-11e1-81e9-001ec947ccaf")
-    public AccessDeniedException(final String message, final MObject related) {
+    public  AccessDeniedException(final String message, final MObject related) {
         super(message);
         this.related = related;
+        
     }
 
     /**
      * Get the the object whose access was denied.
-     * 
      * @return the read only object.
      */
     @objid ("c79e3188-d58f-11e1-b069-001ec947ccaf")

@@ -17,19 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.diagrams;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.diagrams.CompositeStructureDiagram;
 import org.modelio.metamodel.diagrams.StaticDiagram;
-import org.modelio.metamodel.impl.diagrams.StaticDiagramSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("96f7f998-24f2-4040-be32-3fdb756e6161")
 public class CompositeStructureDiagramSmClass extends StaticDiagramSmClass {
     @objid ("0cfab617-41fa-4571-93b3-dbec5726c874")
-    public CompositeStructureDiagramSmClass(ISmMetamodelFragment origin) {
+    public  CompositeStructureDiagramSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class CompositeStructureDiagramSmClass extends StaticDiagramSmClass {
     @Override
     public String getName() {
         return "CompositeStructureDiagram";
+        
     }
 
     @objid ("0bb1a4a7-b5da-4f2a-ab1d-f6cd6f2a18f6")
@@ -62,18 +62,21 @@ public class CompositeStructureDiagramSmClass extends StaticDiagramSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return CompositeStructureDiagram.class;
+        
     }
 
     @objid ("af8e124d-023f-4f97-bea2-e093d4ed6b1d")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("8b8ee3cf-395c-46cf-99ea-56aefd5ee859")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("0913cc07-8cd1-46f8-962d-2e19c4781ffd")
@@ -86,6 +89,7 @@ public class CompositeStructureDiagramSmClass extends StaticDiagramSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("065f73d9-72bb-46f3-89f0-776ee02e152a")
@@ -94,7 +98,7 @@ public class CompositeStructureDiagramSmClass extends StaticDiagramSmClass {
         private CompositeStructureDiagramSmClass smClass;
 
         @objid ("5816a8f5-1e01-4e17-8d1f-7c3c74d1738b")
-        public CompositeStructureDiagramObjectFactory(CompositeStructureDiagramSmClass smClass) {
+        public  CompositeStructureDiagramObjectFactory(CompositeStructureDiagramSmClass smClass) {
             this.smClass = smClass;
         }
 

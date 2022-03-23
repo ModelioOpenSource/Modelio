@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.abstractdiagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,6 @@ import org.modelio.diagram.styles.core.IStyle;
 public interface IDynamicStyler {
     /**
      * Dynamically redefine a diagram's style.
-     * 
      * @param gmModel the Gm being analyzed.
      * @param originalStyle the current style of the Gm.
      * @return the redefined style.

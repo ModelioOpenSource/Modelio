@@ -17,20 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
-import org.modelio.metamodel.impl.uml.statik.ClassifierSmClass;
-import org.modelio.metamodel.impl.uml.statik.OperationSmClass;
-import org.modelio.metamodel.impl.uml.statik.RaisedExceptionData;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.metamodel.uml.statik.Classifier;
 import org.modelio.metamodel.uml.statik.Operation;
@@ -55,7 +52,7 @@ public class RaisedExceptionSmClass extends UmlModelElementSmClass {
     private SmDependency throwerDep;
 
     @objid ("8564bfc0-d68c-48b2-97e7-65970df45d71")
-    public RaisedExceptionSmClass(ISmMetamodelFragment origin) {
+    public  RaisedExceptionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -63,6 +60,7 @@ public class RaisedExceptionSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "RaisedException";
+        
     }
 
     @objid ("c4ebd542-90df-4433-b34a-5db07aeea5f3")
@@ -75,18 +73,21 @@ public class RaisedExceptionSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return RaisedException.class;
+        
     }
 
     @objid ("80b37443-de1b-4242-8651-768f059deba9")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("ae0cea48-759b-4050-ac00-7e361afa9053")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("762e6cc0-f9aa-4265-bb54-eaf56c6a170a")
@@ -106,6 +107,8 @@ public class RaisedExceptionSmClass extends UmlModelElementSmClass {
         this.throwerDep = new ThrowerSmDependency();
         this.throwerDep.init("Thrower", this, metamodel.getMClass(Operation.MQNAME), 1, 1 , SmDirective.SMCDLINKSOURCE);
         registerDependency(this.throwerDep);
+        
+        
     }
 
     @objid ("ad7afa48-d6ed-4b80-8f52-4f86e512677e")
@@ -128,6 +131,7 @@ public class RaisedExceptionSmClass extends UmlModelElementSmClass {
     @Override
     public boolean isLinkMetaclass() {
         return true;
+        
     }
 
     @objid ("a29b4053-1a60-414c-8a97-d3201ced8c80")
@@ -136,7 +140,7 @@ public class RaisedExceptionSmClass extends UmlModelElementSmClass {
         private RaisedExceptionSmClass smClass;
 
         @objid ("37f7f0db-5b27-4a1a-98f3-67eed1e11430")
-        public RaisedExceptionObjectFactory(RaisedExceptionSmClass smClass) {
+        public  RaisedExceptionObjectFactory(RaisedExceptionSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -178,6 +182,7 @@ public class RaisedExceptionSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((ClassifierSmClass)this.getTarget()).getThrowingDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -206,6 +211,7 @@ public class RaisedExceptionSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((OperationSmClass)this.getTarget()).getThrownDep();
             }
             return this.symetricDep;
+            
         }
 
     }

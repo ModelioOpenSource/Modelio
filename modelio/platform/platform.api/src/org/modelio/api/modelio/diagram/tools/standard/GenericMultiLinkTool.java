@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.diagram.tools.standard;
 
 import java.util.ArrayList;
@@ -23,9 +22,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.modelio.api.modelio.diagram.IDiagramGraphic;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
-import org.modelio.api.modelio.diagram.IDiagramLink.LinkRouterKind;
 import org.modelio.api.modelio.diagram.IDiagramLink;
-import org.modelio.api.modelio.diagram.ILinkPath;
+import org.modelio.api.modelio.diagram.IDiagramLink.LinkRouterKind;
+import org.modelio.api.modelio.diagram.ILinkRoute;
 import org.modelio.api.modelio.diagram.dg.IDiagramDG;
 import org.modelio.api.modelio.diagram.tools.DefaultMultiLinkTool;
 import org.modelio.api.modelio.model.IModelingSession;
@@ -70,11 +69,11 @@ public class GenericMultiLinkTool extends DefaultMultiLinkTool {
 
     @objid ("dd5fd3ed-892e-4399-ac4e-a6e381412613")
     @Override
-    public void actionPerformed(IDiagramHandle diagramHandle, IDiagramGraphic lastNode, List<IDiagramGraphic> otherNodes, List<LinkRouterKind> routerKinds, List<ILinkPath> paths, Rectangle rectangle) {
+    public void actionPerformed(IDiagramHandle diagramHandle, IDiagramGraphic lastNode, List<IDiagramGraphic> otherNodes, List<LinkRouterKind> routerKinds, List<ILinkRoute> paths, Rectangle rectangle) {
         IModelingSession session = getModule().getModuleContext().getModelingSession();
         String metaclass = getParameter("metaclass");
         if (metaclass != null) {
-            try (ITransaction tr = session.createTransaction("Create multi link")) {
+            try (ITransaction tr = session.createTransaction("Create "+metaclass+" multi link")) {
                 MObject newElement = null;
                 IUmlModel modelFactory = session.getModel();
         
@@ -110,7 +109,7 @@ public class GenericMultiLinkTool extends DefaultMultiLinkTool {
                     newElement = modelFactory.createNaryLink(instances);
                     break;
                 default:
-                    getModule().getModuleContext().getLogService().error("Invalid metaclass : " + metaclass);
+                    getModule().getModuleContext().getLogService().error(new IllegalArgumentException("Invalid metaclass : " + metaclass));
                     break;
                 }
         
@@ -137,7 +136,7 @@ public class GenericMultiLinkTool extends DefaultMultiLinkTool {
                             link.setRouterKind(routerKinds.get(i));
                         }
                         if (i < paths.size()) {
-                            link.setPath(paths.get(i));
+                            link.setRoute(paths.get(i));
                         }
         
                         i++;
@@ -154,6 +153,7 @@ public class GenericMultiLinkTool extends DefaultMultiLinkTool {
                 getModule().getModuleContext().getLogService().error(e);
             }
         }
+        
     }
 
     @objid ("25fbfe41-d507-4251-a488-1a6cea4be8ff")
@@ -198,7 +198,6 @@ public class GenericMultiLinkTool extends DefaultMultiLinkTool {
      * Hook called once the element is created, configured, unmasked and before the transaction is committed.
      * <p>
      * Does nothing by default. Sub classes may redefine this method to make additional modifications.
-     * 
      * @param diagramHandle the diagram handle
      * @param lastNode the last graphic node
      * @param otherNodes the other graphic nodes
@@ -209,7 +208,7 @@ public class GenericMultiLinkTool extends DefaultMultiLinkTool {
      * @param newGraphics the graphics relating the new element that were unmasked.
      */
     @objid ("7ff6e85c-9ea1-4103-bd50-1a29c8113f17")
-    protected void postConfigure(IDiagramHandle diagramHandle, IDiagramGraphic lastNode, List<IDiagramGraphic> otherNodes, List<LinkRouterKind> routerKinds, List<ILinkPath> paths, Rectangle rectangle, MObject newElement, List<IDiagramGraphic> newGraphics) {
+    protected void postConfigure(IDiagramHandle diagramHandle, IDiagramGraphic lastNode, List<IDiagramGraphic> otherNodes, List<LinkRouterKind> routerKinds, List<ILinkRoute> paths, Rectangle rectangle, MObject newElement, List<IDiagramGraphic> newGraphics) {
         // nothing by default
     }
 

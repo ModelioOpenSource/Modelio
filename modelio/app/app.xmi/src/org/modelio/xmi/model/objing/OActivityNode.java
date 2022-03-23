@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,7 +36,7 @@ import org.modelio.xmi.util.NotFoundException;
 @objid ("df789de6-d0ae-4695-b413-5d4a37f0fde9")
 public class OActivityNode extends OModelElement {
     @objid ("06f04fbe-f28a-4d08-8dd8-a97df22c5ea1")
-    public OActivityNode(final ActivityNode element) {
+    public  OActivityNode(final ActivityNode element) {
         super(element);
     }
 
@@ -57,6 +56,7 @@ public class OActivityNode extends OModelElement {
             else if (objingOwner instanceof Clause)
                 attachToClause(ecoreElt, ecoreOwner, (Clause) objingOwner);
         }
+        
     }
 
     @objid ("00dc9388-c6d1-4df0-b22f-2267dc299fc1")
@@ -69,6 +69,7 @@ public class OActivityNode extends OModelElement {
             throw new NotFoundException("Owner Class ("
                     + ecoreOwner.getClass().getSimpleName() + ") Not Found");
         }
+        
     }
 
     @objid ("bfd9011a-145a-440d-aae4-3a21390ed425")
@@ -95,6 +96,7 @@ public class OActivityNode extends OModelElement {
             throw new NotFoundException("Owner Class ("
                     + ecoreOwner.getClass().getSimpleName() + ") Not Found");
         }
+        
     }
 
     @objid ("53ae8629-74fa-4f46-bf3d-bc31521d375d")
@@ -107,6 +109,7 @@ public class OActivityNode extends OModelElement {
             throw new NotFoundException("Owner Class ("
                     + ecoreOwner.getClass().getSimpleName() + ") Not Found");
         }
+        
     }
 
     @objid ("ea470137-be74-4b97-9fd3-84fa5e518241")
@@ -163,6 +166,7 @@ public class OActivityNode extends OModelElement {
                 throw new NotFoundException("Owner Class not found.");
             }
         }
+        
     }
 
     @objid ("2a2482b8-6529-43e0-a501-dd6fe41bcab5")

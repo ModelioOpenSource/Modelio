@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.meta;
 
 import java.util.List;
@@ -29,7 +28,6 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IMetamodelService {
     /**
      * Get the Xxxx interface java class corresponding to the given metaclass name.
-     * 
      * @param metaclassName a metaclass name.
      * @return The I class or <code>null</code> if the requested metaclass cannot be found..
      * @deprecated Since Modelio 3.4 use {@link #getMetamodel()}.{@link MMetamodel#getMClass(String)}
@@ -42,7 +40,6 @@ public interface IMetamodelService {
      * Returns the textual name of a metaclass.<br>
      * <em>Note: The returned name is <u>NOT</u> i18n'd.</em>
      * @see MMetamodel#getMClass(Class)
-     * 
      * @param metaclass the metaclass whose name is sought, or <code>null</code> if the given class is not a metaclass.
      * @return the textual name of the metaclass.
      */
@@ -53,7 +50,6 @@ public interface IMetamodelService {
      * Get the metaclasses that inherit from the given metaclass.
      * <p>
      * The given metaclass will in the result list.
-     * 
      * @param metaclass The parent metaclass of the wanted metaclasses.
      * @return A list of metaclasses that inherit from the given metaclass.
      */
@@ -62,7 +58,6 @@ public interface IMetamodelService {
 
     /**
      * Get the current project metamodel.
-     * 
      * @return the metamodel.
      * @since 3.4
      */

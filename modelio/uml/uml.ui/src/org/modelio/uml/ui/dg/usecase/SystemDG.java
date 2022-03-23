@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.usecase;
 
 import java.util.Collection;
@@ -25,6 +24,7 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.modelio.diagram.IDiagramNode;
+import org.modelio.api.modelio.diagram.IDiagramNode.Role;
 import org.modelio.diagram.api.dg.DGFactory;
 import org.modelio.diagram.api.services.DiagramHandle;
 import org.modelio.diagram.api.services.DiagramNode;
@@ -42,7 +42,7 @@ public class SystemDG extends DiagramNode {
      * @param node The gm node represented by this class.
      */
     @objid ("1b262f64-d813-43cf-bc2e-000502efb2fd")
-    public SystemDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  SystemDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 
@@ -56,6 +56,7 @@ public class SystemDG extends DiagramNode {
         } else {
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("780b023e-6778-4c38-99b9-05e7c4a55f4f")
@@ -66,6 +67,7 @@ public class SystemDG extends DiagramNode {
         } else {
             return Collections.emptyList();
         }
+        
     }
 
 }

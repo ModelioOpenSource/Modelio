@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.preferences.plugin;
 
 import java.util.ResourceBundle;
@@ -58,6 +57,7 @@ public class Preferences implements BundleActivator {
         LOG = new PluginLogger(service.getLogger((String)null));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("apppreferences"));
         PREFERENCES = new ScopedPreferenceStore(InstanceScope.INSTANCE, Preferences.PLUGIN_ID);
+        
     }
 
     @objid ("7a24619f-7a86-455d-9eda-11dc6d38d17e")
@@ -68,6 +68,7 @@ public class Preferences implements BundleActivator {
         }
         
         context = null;
+        
     }
 
     @objid ("f3f93b2d-1cef-4665-8018-d25211104fe0")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.swap.jmx;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,11 +40,10 @@ public class JdbmSwapMXAdapter implements ISwap, ISwapMXBean {
 
     /**
      * Initialize the swap adapter.
-     * 
      * @param swap the real swap.
      */
     @objid ("dcbe8759-493b-11e2-91c9-001ec947ccaf")
-    public JdbmSwapMXAdapter(JdbmSwap swap) {
+    public  JdbmSwapMXAdapter(JdbmSwap swap) {
         this.swap= swap;
     }
 
@@ -78,6 +76,7 @@ public class JdbmSwapMXAdapter implements ISwap, ISwapMXBean {
     public void swap(SmObjectData data) {
         this.swap.swap(data);
         this.swapCount++;
+        
     }
 
     @objid ("dcbe8776-493b-11e2-91c9-001ec947ccaf")

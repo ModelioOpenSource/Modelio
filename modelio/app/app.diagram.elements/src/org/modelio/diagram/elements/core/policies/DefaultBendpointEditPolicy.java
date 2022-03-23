@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.policies;
 
 import java.util.ArrayList;
@@ -30,15 +29,18 @@ import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.XYAnchor;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.gef.ConnectionEditPart;
+import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.BendpointEditPolicy;
 import org.eclipse.gef.requests.BendpointRequest;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
+import org.eclipse.gef.tools.ToolUtilities;
 import org.modelio.diagram.elements.core.commands.DefaultAddBendPointCommand;
 import org.modelio.diagram.elements.core.commands.DefaultDeleteBendPointCommand;
 import org.modelio.diagram.elements.core.commands.DefaultMoveBendPointCommand;
+import org.modelio.diagram.elements.core.figures.routers.ConnectionState;
 import org.modelio.diagram.elements.core.link.ortho.TranslateBendpointsCommand;
 import org.modelio.diagram.elements.core.model.IGmLinkObject;
 
@@ -51,17 +53,8 @@ import org.modelio.diagram.elements.core.model.IGmLinkObject;
  */
 @objid ("80b4905e-1dec-11e2-8cad-001ec947c8cc")
 public class DefaultBendpointEditPolicy extends BendpointEditPolicy {
-    @objid ("67f57217-1e83-11e2-8cad-001ec947c8cc")
-    private ConnectionAnchor originalSourceAnchor;
-
-    @objid ("67f57218-1e83-11e2-8cad-001ec947c8cc")
-    private ConnectionAnchor originalTargetAnchor;
-
     @objid ("67f57219-1e83-11e2-8cad-001ec947c8cc")
-    private List<Bendpoint> originalConstraint;
-
-    @objid ("67f5721c-1e83-11e2-8cad-001ec947c8cc")
-    private static final List<Bendpoint> NULL_CONSTRAINT = new ArrayList<>();
+    private ConnectionState changeBoundsOrigState;
 
     @objid ("80b6f27d-1dec-11e2-8cad-001ec947c8cc")
     @Override
@@ -99,20 +92,30 @@ public class DefaultBendpointEditPolicy extends BendpointEditPolicy {
         } else {
             return super.getCommand(request);
         }
+        
     }
 
     @objid ("80b6f2a5-1dec-11e2-8cad-001ec947c8cc")
     protected Command getMoveCommand(final ChangeBoundsRequest request) {
-        ConnectionAnchor currentSourceAnchor = getConnection().getSourceAnchor();
-        ConnectionAnchor currentTargetAnchor = getConnection().getTargetAnchor();
-        getConnection().setSourceAnchor(this.originalSourceAnchor);
-        getConnection().setTargetAnchor(this.originalTargetAnchor);
+        Connection connection = getConnection();
         
-        ConnectionEditPart hostEP = (ConnectionEditPart) getHost();
-        Command command = new TranslateBendpointsCommand( hostEP);
+        // Temporarly restore original anchors to compute the command
+        // TODO : seems this stuff is not needed by the command
+        ConnectionAnchor currentSourceAnchor = connection.getSourceAnchor();
+        ConnectionAnchor currentTargetAnchor = connection.getTargetAnchor();
+        if (this.changeBoundsOrigState != null) {
+            connection.setSourceAnchor(this.changeBoundsOrigState.getSourceAnchor());
+            connection.setTargetAnchor(this.changeBoundsOrigState.getTargetAnchor());
+        }
         
-        getConnection().setSourceAnchor(currentSourceAnchor);
-        getConnection().setTargetAnchor(currentTargetAnchor);
+        ConnectionEditPart hostEP = getHost();
+        Command command = new TranslateBendpointsCommand(hostEP);
+        
+        // Restore connection to feedback state
+        if (this.changeBoundsOrigState != null) {
+            connection.setSourceAnchor(currentSourceAnchor);
+            connection.setTargetAnchor(currentTargetAnchor);
+        }
         return command;
     }
 
@@ -124,15 +127,15 @@ public class DefaultBendpointEditPolicy extends BendpointEditPolicy {
         } else {
             return super.understandsRequest(req);
         }
+        
     }
 
     @objid ("80b6f2b7-1dec-11e2-8cad-001ec947c8cc")
     @Override
     protected void eraseConnectionFeedback(final BendpointRequest request) {
         super.eraseConnectionFeedback(request);
-        this.originalConstraint = null;
-        this.originalSourceAnchor = null;
-        this.originalTargetAnchor = null;
+        this.changeBoundsOrigState = null;
+        
     }
 
     @objid ("80b6f2be-1dec-11e2-8cad-001ec947c8cc")
@@ -143,35 +146,30 @@ public class DefaultBendpointEditPolicy extends BendpointEditPolicy {
         } else {
             super.eraseSourceFeedback(request);
         }
+        
     }
 
     @objid ("80b6f2c5-1dec-11e2-8cad-001ec947c8cc")
-    @Override
-    protected void restoreOriginalConstraint() {
-        if (this.originalConstraint != null) {
-            if (this.originalConstraint == DefaultBendpointEditPolicy.NULL_CONSTRAINT) {
-                getConnection().setRoutingConstraint(null);
-            } else {
-                getConnection().setRoutingConstraint(this.originalConstraint);
-            }
+    protected void restoreMoveOriginalConstraint() {
+        if (this.changeBoundsOrigState != null) {
+            this.changeBoundsOrigState.applyTo(getConnection());
         }
-        getConnection().setSourceAnchor(this.originalSourceAnchor);
-        getConnection().setTargetAnchor(this.originalTargetAnchor);
-        super.restoreOriginalConstraint();
+        
     }
 
     @objid ("80b6f2c8-1dec-11e2-8cad-001ec947c8cc")
-    @Override
     @SuppressWarnings ("unchecked")
-    protected void saveOriginalConstraint() {
-        super.saveOriginalConstraint();
-        this.originalConstraint = (List<Bendpoint>) getConnection().getRoutingConstraint();
-        if (this.originalConstraint == null) {
-            this.originalConstraint = DefaultBendpointEditPolicy.NULL_CONSTRAINT;
+    protected void saveMoveOriginalConstraint() {
+        Connection connection = getConnection();
+        
+        this.changeBoundsOrigState = new ConnectionState().init(connection);
+        
+        if (this.changeBoundsOrigState.getConstraint() == null) {
+            connection.setRoutingConstraint( new ArrayList<>(1));
+        } else {
+            connection.setRoutingConstraint(new ArrayList<>((List<Bendpoint>)this.changeBoundsOrigState.getConstraint()));
         }
-        getConnection().setRoutingConstraint(new ArrayList<>(this.originalConstraint));
-        this.originalSourceAnchor = getConnection().getSourceAnchor();
-        this.originalTargetAnchor = getConnection().getTargetAnchor();
+        
     }
 
     @objid ("80b6f2cb-1dec-11e2-8cad-001ec947c8cc")
@@ -182,45 +180,71 @@ public class DefaultBendpointEditPolicy extends BendpointEditPolicy {
         } else {
             super.showSourceFeedback(request);
         }
+        
+    }
+
+    @objid ("11f5c08f-e5b7-44b7-863f-b8fb074a85ee")
+    @Override
+    public ConnectionEditPart getHost() {
+        return (ConnectionEditPart) super.getHost();
     }
 
     @objid ("80b6f2d2-1dec-11e2-8cad-001ec947c8cc")
     protected void showChangeBoundsFeedback(final ChangeBoundsRequest request) {
         // Before modifying the connection, save its original constraint and anchors so as to be able to cancel if needed.
-        if (this.originalConstraint == null) {
-            saveOriginalConstraint();
+        if (this.changeBoundsOrigState == null) {
+            saveMoveOriginalConstraint();
         }
-        Connection connection = getConnection();
-        List<Bendpoint> newConstraint = new ArrayList<>();
-        for (Bendpoint bendpoint : this.originalConstraint) {
-            Point location = Point.SINGLETON;
-            location.setLocation(bendpoint.getLocation());
-            connection.translateToAbsolute(location);
-            location.translate(request.getMoveDelta());
-            connection.translateToRelative(location);
-            newConstraint.add(new AbsoluteBendpoint(location));
-        }
-        getConnection().setSourceAnchor(new XYAnchor(this.originalSourceAnchor.getReferencePoint()
-                .getTranslated(request.getMoveDelta())));
-        getConnection().setTargetAnchor(new XYAnchor(this.originalTargetAnchor.getReferencePoint()
-                .getTranslated(request.getMoveDelta())));
         
-        getConnection().setRoutingConstraint(newConstraint);
+        Connection connection = getConnection();
+        ConnectionEditPart linkEditPart = getHost();
+        Point absMoveDelta = request.getMoveDelta();
+        
+        // Deal with the source
+        Point sourceAnchor = this.changeBoundsOrigState.getSourceAnchor().getReferencePoint();
+        GraphicalEditPart linkSource = (GraphicalEditPart) linkEditPart.getSource();
+        boolean sourceInSet = linkSource == null || ToolUtilities.isAncestorContainedIn(request.getEditParts(), linkSource);
+        if (sourceInSet) {
+            sourceAnchor = sourceAnchor.getTranslated(absMoveDelta);
+        }
+        connection.setSourceAnchor(new XYAnchor(sourceAnchor));
+        
+        // Deal with the target
+        Point targetAnchor = this.changeBoundsOrigState.getTargetAnchor().getReferencePoint();
+        GraphicalEditPart linkTarget = (GraphicalEditPart) linkEditPart.getTarget();
+        boolean targetInSet = linkTarget == null || ToolUtilities.isAncestorContainedIn(request.getEditParts(), linkTarget);
+        if (targetInSet) {
+            targetAnchor = targetAnchor.getTranslated(absMoveDelta);
+        }
+        connection.setTargetAnchor(new XYAnchor(targetAnchor));
+        
+        if (sourceInSet && targetInSet) {
+            // Both source and target are being moved, move the link's points too
+            List<Bendpoint> newConstraint = new ArrayList<>();
+            for (Bendpoint bendpoint : (List<Bendpoint>) this.changeBoundsOrigState.getConstraint()) {
+                AbsoluteBendpoint location = new AbsoluteBendpoint(bendpoint.getLocation());
+                connection.translateToAbsolute(location);
+                location.translate(absMoveDelta);
+                connection.translateToRelative(location);
+                newConstraint.add(location);
+            }
+            connection.setRoutingConstraint(newConstraint);
+        }
+        
     }
 
     @objid ("80b954d4-1dec-11e2-8cad-001ec947c8cc")
     protected void eraseChangeBoundsFeedback(final ChangeBoundsRequest request) {
-        restoreOriginalConstraint();
-        this.originalConstraint = null;
-        this.originalSourceAnchor = null;
-        this.originalTargetAnchor = null;
+        restoreMoveOriginalConstraint();
+        this.changeBoundsOrigState = null;
+        
     }
 
     @objid ("72de9a17-6672-4d84-bf53-4637558588fd")
-    @SuppressWarnings ("unchecked")
     @Override
     protected List<?> createSelectionHandles() {
-        return SelectionHandlesBuilder.disableHandlesIfReadOnly(getHost(), super.createSelectionHandles());
+        List<Object> newHandles = super.createSelectionHandles();
+        return SelectionHandlesBuilder.disableHandlesIfReadOnly(getHost(), newHandles);
     }
 
 }

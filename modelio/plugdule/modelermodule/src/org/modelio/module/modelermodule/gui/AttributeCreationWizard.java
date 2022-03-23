@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.module.modelermodule.gui;
 
 import java.util.ArrayList;
@@ -94,13 +93,12 @@ public class AttributeCreationWizard {
 
     /**
      * Default constructor, initializing the classifier and instance to synchronize attributes and attribute links from.
-     * 
      * @param parent the parent shell.
      * @param classifier a classifier.
      * @param instance an instance.
      */
     @objid ("bb4b8022-d15d-4f95-9fc0-a9eca82170cc")
-    public AttributeCreationWizard(final Shell parent, final Classifier classifier, final Instance instance) {
+    public  AttributeCreationWizard(final Shell parent, final Classifier classifier, final Instance instance) {
         this.column1 = new Vector<>();   //Vector of Label
         this.column2 = new Vector<>();  //Vector of Button
         this.column3 = new Vector<>();    //Vector of Text
@@ -110,6 +108,7 @@ public class AttributeCreationWizard {
         this.base = classifier;
         
         createContents(parent);
+        
     }
 
     /**
@@ -127,6 +126,7 @@ public class AttributeCreationWizard {
             if (!display.readAndDispatch())
                 display.sleep();
         }
+        
     }
 
     @objid ("b6a53648-73de-4f9d-b604-b044ccc460a0")
@@ -158,6 +158,7 @@ public class AttributeCreationWizard {
         for (int i = 0; i < this.toDelete.size(); i++) {
             this.toDelete.get(i).delete();
         }
+        
     }
 
     /**
@@ -179,6 +180,7 @@ public class AttributeCreationWizard {
                 Math.min(this.shell.getSize().y, this.shell.getDisplay().getClientArea().height - 50));
         
         updateValues(this.base, this.instance);
+        
     }
 
     @objid ("b23921e1-6911-4a28-ae00-23afc1c127fe")
@@ -278,6 +280,7 @@ public class AttributeCreationWizard {
                 this.column3.add(value);
             }
         }
+        
     }
 
     @objid ("426bdfe2-93c4-4c62-8ff9-4f41f8dba69e")
@@ -359,6 +362,7 @@ public class AttributeCreationWizard {
                 this.toDelete.add(link);
             }
         }
+        
     }
 
     @objid ("d540d6d9-3177-4c1e-9468-41cc194c65fa")
@@ -391,6 +395,7 @@ public class AttributeCreationWizard {
             }
         });
         cancelButton.setText(I18nMessageService.getString("module.gui.cancel"));
+        
     }
 
     @objid ("5e084ee0-7d5e-4e66-b321-02f9275d9294")

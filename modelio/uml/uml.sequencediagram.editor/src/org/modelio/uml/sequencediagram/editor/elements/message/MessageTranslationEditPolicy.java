@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.message;
 
 import java.beans.PropertyChangeEvent;
@@ -98,6 +97,7 @@ public class MessageTranslationEditPolicy extends SelectionHandlesEditPolicy {
         } else if (RequestConstants.REQ_MOVE.equals(request.getType())) {
             eraseChangeBoundsFeedback((ChangeBoundsRequest) request);
         }
+        
     }
 
     @objid ("d966b7a2-55b6-11e2-877f-002564c97630")
@@ -135,6 +135,7 @@ public class MessageTranslationEditPolicy extends SelectionHandlesEditPolicy {
         } else if (RequestConstants.REQ_MOVE.equals(request.getType())) {
             showChangeBoundsFeedback((ChangeBoundsRequest) request);
         }
+        
     }
 
     /**
@@ -152,7 +153,6 @@ public class MessageTranslationEditPolicy extends SelectionHandlesEditPolicy {
 
     /**
      * Erases connection move feedback. This method is called when a ReconnectRequest is received.
-     * 
      * @param request the reconnect request.
      */
     @objid ("d966b7b6-55b6-11e2-877f-002564c97630")
@@ -166,11 +166,11 @@ public class MessageTranslationEditPolicy extends SelectionHandlesEditPolicy {
         this.originalSourceAnchor = null;
         this.originalTargetAnchor = null;
         this.feedbackHelper = null;
+        
     }
 
     /**
      * Convenience method for obtaining the host's <code>Connection</code> figure.
-     * 
      * @return the Connection figure
      */
     @objid ("d966b7bb-55b6-11e2-877f-002564c97630")
@@ -180,7 +180,6 @@ public class MessageTranslationEditPolicy extends SelectionHandlesEditPolicy {
 
     /**
      * Lazily creates and returns the feedback helper for the given request. The helper will be configured as either moving the source or target end of the connection.
-     * 
      * @param request the reconnect request
      * @return the feedback helper
      */
@@ -206,11 +205,11 @@ public class MessageTranslationEditPolicy extends SelectionHandlesEditPolicy {
             removeFeedback(this.focus);
             this.focus = null;
         }
+        
     }
 
     /**
      * Shows or updates connection move feedback. Called whenever a show feedback request is received for reconnection.
-     * 
      * @param request the reconnect request
      */
     @objid ("d966b7cb-55b6-11e2-877f-002564c97630")
@@ -236,6 +235,7 @@ public class MessageTranslationEditPolicy extends SelectionHandlesEditPolicy {
         }
         FeedbackHelper helper = getFeedbackHelper(request);
         helper.update(anchor, request.getLocation());
+        
     }
 
     @objid ("d966b7d0-55b6-11e2-877f-002564c97630")
@@ -245,11 +245,11 @@ public class MessageTranslationEditPolicy extends SelectionHandlesEditPolicy {
             this.focus = new ConnectionFocus();
             addFeedback(this.focus);
         }
+        
     }
 
     /**
      * Shows or updates feedback for a change bounds request.
-     * 
      * @param originalRequest the request
      */
     @objid ("d966b7d3-55b6-11e2-877f-002564c97630")
@@ -300,6 +300,7 @@ public class MessageTranslationEditPolicy extends SelectionHandlesEditPolicy {
         computePredicatesForHost();
         updateVariablesFromRequest(request);
         this.manipHelper.showFeedBack(getFeedbackLayer());
+        
     }
 
     @objid ("d9683e39-55b6-11e2-877f-002564c97630")
@@ -333,6 +334,7 @@ public class MessageTranslationEditPolicy extends SelectionHandlesEditPolicy {
         
         IFigure fbLayer = getFeedbackLayer();
         this.manipHelper.eraseFeedback(fbLayer);
+        
     }
 
     @objid ("d9683e3d-55b6-11e2-877f-002564c97630")
@@ -343,6 +345,7 @@ public class MessageTranslationEditPolicy extends SelectionHandlesEditPolicy {
         } else {
             return false;
         }
+        
     }
 
     @objid ("d9683e43-55b6-11e2-877f-002564c97630")
@@ -350,6 +353,7 @@ public class MessageTranslationEditPolicy extends SelectionHandlesEditPolicy {
         // Move and/or resizing an ExecutionSpecification, is really like move the ExecutionOccurrenceSpecification at each end.
         Message message = ((GmMessage) getHost().getModel()).getRelatedElement();
         this.manipHelper.computePredicatesForHost(message);
+        
     }
 
     @objid ("d9683e45-55b6-11e2-877f-002564c97630")
@@ -385,6 +389,7 @@ public class MessageTranslationEditPolicy extends SelectionHandlesEditPolicy {
         
             }
         }
+        
     }
 
     @objid ("d9683e5a-55b6-11e2-877f-002564c97630")
@@ -420,11 +425,11 @@ public class MessageTranslationEditPolicy extends SelectionHandlesEditPolicy {
                 }
             }
         }
+        
     }
 
     /**
      * Update variables for execution rectangle.
-     * 
      * @param executionSpecification the execution rectangle
      * @param shift the vertical move delta
      * @param sizeDelta the vertical size delta
@@ -438,6 +443,7 @@ public class MessageTranslationEditPolicy extends SelectionHandlesEditPolicy {
         updateVariablesForMessageEnd(executionSpecification.getStart(), shift);
         // And finally the Execution end.
         updateVariablesForMessageEnd(executionSpecification.getFinish(), shift + sizeDelta);
+        
     }
 
     @objid ("d9683e6c-55b6-11e2-877f-002564c97630")
@@ -451,6 +457,7 @@ public class MessageTranslationEditPolicy extends SelectionHandlesEditPolicy {
         super.activate();
         
         this.manipHelper = new ManipulationHelper((GraphicalEditPart) getHost());
+        
     }
 
     @objid ("6da2e559-729d-44c7-86ef-ac5c901f32fd")
@@ -474,11 +481,11 @@ public class MessageTranslationEditPolicy extends SelectionHandlesEditPolicy {
     class ConnectionFocus extends Polygon implements PropertyChangeListener {
         @objid ("13b57fe5-b6ce-474c-ae28-ca6403a99118")
         public AncestorListener ancestorListener = new AncestorListener.Stub() {
-            @Override
-            public void ancestorMoved(IFigure ancestor) {
-                revalidate();
-            }
-        };
+                    @Override
+                    public void ancestorMoved(IFigure ancestor) {
+                        revalidate();
+                    }
+                };
 
         @objid ("d9683e76-55b6-11e2-877f-002564c97630")
         @Override
@@ -486,6 +493,7 @@ public class MessageTranslationEditPolicy extends SelectionHandlesEditPolicy {
             super.addNotify();
             getConnection().addPropertyChangeListener(Connection.PROPERTY_POINTS, this);
             getConnection().addAncestorListener(this.ancestorListener);
+            
         }
 
         @objid ("d9683e79-55b6-11e2-877f-002564c97630")
@@ -500,6 +508,7 @@ public class MessageTranslationEditPolicy extends SelectionHandlesEditPolicy {
             getConnection().removePropertyChangeListener(Connection.PROPERTY_POINTS, this);
             getConnection().removeAncestorListener(this.ancestorListener);
             super.removeNotify();
+            
         }
 
         @objid ("d969c4df-55b6-11e2-877f-002564c97630")
@@ -513,15 +522,17 @@ public class MessageTranslationEditPolicy extends SelectionHandlesEditPolicy {
             // points = StrokePointList.strokeList(points, 5);
             translateToRelative(points);
             setPoints(points);
+            
         }
 
         @objid ("d969c4e2-55b6-11e2-877f-002564c97630")
-        ConnectionFocus() {
+         ConnectionFocus() {
             setFill(true);
             setForegroundColor(ColorConstants.green);
             setBackgroundColor(ColorConstants.red);
             setXOR(true);
             setOutline(true);
+            
         }
 
         @objid ("d969c4e4-55b6-11e2-877f-002564c97630")
@@ -529,6 +540,7 @@ public class MessageTranslationEditPolicy extends SelectionHandlesEditPolicy {
         protected void outlineShape(final Graphics g) {
             g.setLineDash(new int[] { 1, 1 });
             super.outlineShape(g);
+            
         }
 
     }

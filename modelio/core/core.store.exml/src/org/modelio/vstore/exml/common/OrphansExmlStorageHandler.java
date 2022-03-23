@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,9 +44,10 @@ public class OrphansExmlStorageHandler extends RepositoryObjectStub {
     private final AbstractExmlRepository repository;
 
     @objid ("cd49f70a-f954-4bff-b589-5d1c71c3236d")
-    public OrphansExmlStorageHandler(AbstractExmlRepository repository, String cause) {
+    public  OrphansExmlStorageHandler(AbstractExmlRepository repository, String cause) {
         this.repository = repository;
         this.cause = cause;
+        
     }
 
     @objid ("b879d591-9d31-409d-91d7-351ee4c9a260")
@@ -83,6 +83,7 @@ public class OrphansExmlStorageHandler extends RepositoryObjectStub {
                 throw new IllegalStateException(String.format("%s.%s.append(%s): the source is %s.", obj, dep, val,this.cause));
             }
         }*/
+        
     }
 
     @objid ("2cb533d0-d528-4f82-a8a4-e5c5f77196a7")

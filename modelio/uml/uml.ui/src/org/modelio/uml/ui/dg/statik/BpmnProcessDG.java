@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.statik;
 
 import java.util.Collections;
@@ -38,7 +37,7 @@ public class BpmnProcessDG extends PortContainerDG {
      * @param node The gm node represented by this class.
      */
     @objid ("816c0430-b764-419b-844f-b9bb3af1940e")
-    public BpmnProcessDG(final DiagramHandle diagramHandle, final GmNodeModel node) {
+    public  BpmnProcessDG(final DiagramHandle diagramHandle, final GmNodeModel node) {
         super(diagramHandle, node);
     }
 

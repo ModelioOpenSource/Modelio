@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel.data.standard.infrastructure;
 
 import java.util.Collections;
@@ -57,17 +56,15 @@ public class DependencyPropertyModel extends AbstractPropertyModel<Dependency> {
 
     /**
      * Create a new <i>Dependency</i> data model from an <i>Dependency</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("6df3e243-ed32-4b98-8897-db05c30e4641")
-    public DependencyPropertyModel(Dependency theEditedElement) {
+    public  DependencyPropertyModel(Dependency theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("6f3acfa6-5f65-4880-91ab-6656de500ed4")
@@ -78,7 +75,6 @@ public class DependencyPropertyModel extends AbstractPropertyModel<Dependency> {
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("acf4ed91-42b5-4d15-9b78-19cd75c35e68")
@@ -91,7 +87,6 @@ public class DependencyPropertyModel extends AbstractPropertyModel<Dependency> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -115,6 +110,7 @@ public class DependencyPropertyModel extends AbstractPropertyModel<Dependency> {
         default:
             return null;
         }
+        
     }
 
     /**
@@ -124,7 +120,6 @@ public class DependencyPropertyModel extends AbstractPropertyModel<Dependency> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -152,13 +147,13 @@ public class DependencyPropertyModel extends AbstractPropertyModel<Dependency> {
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -186,6 +181,7 @@ public class DependencyPropertyModel extends AbstractPropertyModel<Dependency> {
         default:
             return;
         }
+        
     }
 
     @objid ("fcbcccc9-4f72-4900-a6b1-1c4049cf67c7")

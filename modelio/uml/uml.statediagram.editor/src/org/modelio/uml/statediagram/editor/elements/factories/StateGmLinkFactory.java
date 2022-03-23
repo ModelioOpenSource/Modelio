@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.factories;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -114,7 +113,7 @@ public class StateGmLinkFactory implements IGmLinkFactory {
         private IGmDiagram diagram;
 
         @objid ("f53c443b-55b6-11e2-877f-002564c97630")
-        public ImplVisitor(IGmDiagram diagram) {
+        public  ImplVisitor(IGmDiagram diagram) {
             this.diagram = diagram;
         }
 

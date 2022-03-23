@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.diagram.tools;
 
 import java.util.List;
@@ -23,7 +22,7 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.modelio.api.modelio.diagram.IDiagramGraphic;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
 import org.modelio.api.modelio.diagram.IDiagramLink.LinkRouterKind;
-import org.modelio.api.modelio.diagram.ILinkPath;
+import org.modelio.api.modelio.diagram.ILinkRoute;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
@@ -66,7 +65,6 @@ public interface IMultiLinkTool extends IDiagramTool {
      * If the interaction is not allowed the method return <code>new InteractionStatus(false, "Tooltip message");</code>
      * . In this case the acceptLastElement method is called with the same arguments, to check if the pointed element
      * could be the last of the interaction.<br>
-     * 
      * @param diagramHandle the representation of the diagram in which the interaction occurs.
      * @param targetNode the graphic that is below the mouse pointer.
      * @return an InteractionStatus that represents the result of the acceptFirstElement method.
@@ -83,7 +81,6 @@ public interface IMultiLinkTool extends IDiagramTool {
      * If the interaction is not allowed the method return <code>new InteractionStatus(false, "Tooltip message");</code>
      * . In this case the acceptLastElement method is called with the same arguments, to check if the pointed element
      * could be the last of the interaction.<br>
-     * 
      * @param diagramHandle the representation of the diagram in which the interaction occurs.
      * @param previousNodes the graphics accepted until now (might be empty).
      * @param targetNode the graphic that is below the mouse pointer.
@@ -101,7 +98,6 @@ public interface IMultiLinkTool extends IDiagramTool {
      * If the interaction is not allowed the method return <code>new InteractionStatus(false, "Tooltip message");</code>
      * . In this case the mouse pointer is changed to a "forbidden" icon and the tooltip message is displayed in a
      * tooltip near the mouse pointer<br>
-     * 
      * @param diagramHandle the representation of the diagram in which the interaction occurs.
      * @param otherNodes the graphics accepted until now (might be empty).
      * @param targetNode the graphic that is below the mouse pointer (might be null if no graphic under the mouse pointer, in
@@ -122,7 +118,6 @@ public interface IMultiLinkTool extends IDiagramTool {
      * 
      * <code>otherNodes</code> are all the graphics accepted by calls to acceptFirstNode and acceptAdditionalNode.
      * @see IDiagramHandle#unmask(MObject, int, int)
-     * 
      * @param diagramHandle the representation of the diagram where the command has been triggered.
      * @param lastNode the last graphic accepted (might be null if no graphic under the mouse pointer, in which case the
      * diagram itself or its composition owner might be considered).
@@ -133,6 +128,6 @@ public interface IMultiLinkTool extends IDiagramTool {
      * @param rectangle the rectangle of the object to create.
      */
     @objid ("a3ec0f80-0ecc-11e2-96c4-002564c97630")
-    void actionPerformed(final IDiagramHandle diagramHandle, IDiagramGraphic lastNode, List<IDiagramGraphic> otherNodes, List<LinkRouterKind> routerKinds, List<ILinkPath> paths, Rectangle rectangle);
+    void actionPerformed(final IDiagramHandle diagramHandle, IDiagramGraphic lastNode, List<IDiagramGraphic> otherNodes, List<LinkRouterKind> routerKinds, List<ILinkRoute> paths, Rectangle rectangle);
 
 }

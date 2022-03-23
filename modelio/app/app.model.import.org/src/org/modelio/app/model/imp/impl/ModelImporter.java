@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.model.imp.impl;
 
 import java.lang.reflect.InvocationTargetException;
@@ -25,8 +24,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Optional;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -71,13 +70,12 @@ public class ModelImporter implements IRunnableWithProgress {
 
     /**
      * Initialize the model importer
-     * 
      * @param localSession the model to import elements into.
      * @param selection the Eclipse selection
      * @param importedModel the model elements to import. This list must not contain any {@link AbstractProject}.
      */
     @objid ("8ab86f97-c77b-488c-b773-15625fadb57c")
-    public ModelImporter(ICoreSession localSession, IStructuredSelection selection, ModelImportDataModel importedModel) {
+    public  ModelImporter(ICoreSession localSession, IStructuredSelection selection, ModelImportDataModel importedModel) {
         this.importedModel = importedModel;
         this.localSession = localSession;
         this.localTargetElements = SelectionHelper.toList(selection, MObject.class);
@@ -85,6 +83,7 @@ public class ModelImporter implements IRunnableWithProgress {
         this.localRepository = Optional.ofNullable(SelectionHelper.getFirst(selection, IProjectFragment.class))
                 .map(f -> f.getRepository())
                 .orElseGet(() -> localSession.getRepositorySupport().getRepository(this.localTargetElements.get(0)));
+        
     }
 
     /**
@@ -132,6 +131,7 @@ public class ModelImporter implements IRunnableWithProgress {
         }
         
         monitor.done();
+        
     }
 
     /**
@@ -162,6 +162,7 @@ public class ModelImporter implements IRunnableWithProgress {
                 MessageDialog.openError(Display.getDefault().getActiveShell(), "Error", e.getLocalizedMessage());
             }
         });
+        
     }
 
     /**
@@ -169,7 +170,6 @@ public class ModelImporter implements IRunnableWithProgress {
      * If found, return it.
      * In the other case create a new object with same name and metaclass and add it
      * to the default composition dependency of 'into.
-     * 
      * @param into the element that will own the stub, non null.
      * @param src the element to copy
      * @return the created stub.
@@ -225,7 +225,6 @@ public class ModelImporter implements IRunnableWithProgress {
 
     /**
      * Get or create the element in which the given element must be attached to.
-     * 
      * @param sourceEl the element we want a composition parent
      * @return the element in which the given one must be placed.
      */
@@ -257,6 +256,7 @@ public class ModelImporter implements IRunnableWithProgress {
             MObject target = findSameChildOrCreateStub(ownerTarget, srcOwner);
             return target;
         }
+        
     }
 
 }

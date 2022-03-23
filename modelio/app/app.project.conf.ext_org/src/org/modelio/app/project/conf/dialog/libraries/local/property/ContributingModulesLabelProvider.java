@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /**
  *
  */
@@ -26,8 +25,8 @@ package org.modelio.app.project.conf.dialog.libraries.local.property;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.StyledCellLabelProvider;
-import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.jface.viewers.StyledString;
+import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.jface.viewers.ViewerCell;
 import org.eclipse.swt.graphics.TextStyle;
 import org.modelio.app.project.conf.plugin.AppProjectConfExt;
@@ -46,19 +45,20 @@ public class ContributingModulesLabelProvider extends StyledCellLabelProvider {
 
     @objid ("75f20e4d-8db1-4827-9b09-28dd7f735cbb")
     private static final Styler INVALID = new Styler() {
-        @Override
-        public void applyStyles(final TextStyle textStyle) {
-            textStyle.foreground = UIColor.RED;
-        }
-    };
+            @Override
+            public void applyStyles(final TextStyle textStyle) {
+                textStyle.foreground = UIColor.RED;
+            }
+        };
 
     @objid ("89e40e90-b88d-4476-81c7-0d6c7037c1fe")
     private final List<GModule> modules;
 
     @objid ("9fdb810d-f710-45a1-8e5c-cd504a81466d")
-    public ContributingModulesLabelProvider(final List<GModule> modules) {
+    public  ContributingModulesLabelProvider(final List<GModule> modules) {
         super();
         this.modules = modules;
+        
     }
 
     @objid ("955d98bd-77d7-46c5-af31-ee1d75d89f93")
@@ -72,6 +72,7 @@ public class ContributingModulesLabelProvider extends StyledCellLabelProvider {
         cell.setText(text.getString());
         cell.setStyleRanges(text.getStyleRanges());
         super.update(cell);
+        
     }
 
     @objid ("02882f5c-7169-4844-ae13-f966a48a310f")

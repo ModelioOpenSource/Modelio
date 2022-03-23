@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.ramc.core.packaging.filters;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,7 +34,6 @@ public interface IModelFilterConfigurer {
      * Add a filter to the given metaclass and all its sub classes.
      * <p>
      * The filter replaces the previously set one.
-     * 
      * @param mmClass a metamodel class
      * @param objectFilter a filter to add.
      */

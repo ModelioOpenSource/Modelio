@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.handlers;
 
 import java.util.Objects;
@@ -51,9 +50,10 @@ public class CellPainterMouseEventMatcherWithMask extends MouseEventMatcher {
      * {@link MouseEventMatcher#RIGHT_BUTTON} can be used for convenience
      */
     @objid ("adb0b45a-cf1a-4a0d-bb97-57292ce84c6c")
-    public CellPainterMouseEventMatcherWithMask(int stateMask, String regionName, int button, Class<? extends ICellPainter> targetCellPainterClass) {
+    public  CellPainterMouseEventMatcherWithMask(int stateMask, String regionName, int button, Class<? extends ICellPainter> targetCellPainterClass) {
         super(stateMask, regionName, button);
         this.targetCellPainterClass = Objects.requireNonNull(targetCellPainterClass);
+        
     }
 
     @objid ("242a8955-6179-40c2-99bd-7880218e31b3")

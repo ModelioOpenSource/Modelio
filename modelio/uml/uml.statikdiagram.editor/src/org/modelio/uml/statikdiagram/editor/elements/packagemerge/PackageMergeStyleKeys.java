@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.packagemerge;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,7 +36,7 @@ public class PackageMergeStyleKeys extends StaticAbstractStyleKeyProvider {
      */
     @objid ("a72b900b-55c2-11e2-9337-002564c97630")
     public static final StyleKey CONNECTIONROUTER = createStyleKey("PACKAGEMERGE_CONNECTIONROUTER",
-                                                                   MetaKey.CONNECTIONROUTER);
+                                                                       MetaKey.CONNECTIONROUTER);
 
     /**
      * Line color
@@ -62,7 +61,7 @@ public class PackageMergeStyleKeys extends StaticAbstractStyleKeyProvider {
      */
     @objid ("a72b9017-55c2-11e2-9337-002564c97630")
     public static final StyleKey DRAWLINEBRIDGES = createStyleKey("PACKAGEMERGE_DRAWLINEBRIDGES",
-                                                                  MetaKey.DRAWLINEBRIDGES);
+                                                                      MetaKey.DRAWLINEBRIDGES);
 
     /**
      * Text font
@@ -87,7 +86,7 @@ public class PackageMergeStyleKeys extends StaticAbstractStyleKeyProvider {
      */
     @objid ("a72b9023-55c2-11e2-9337-002564c97630")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("PACKAGEMERGE_SHOWSTEREOTYPES",
-                                                                  MetaKey.SHOWSTEREOTYPES);
+                                                                      MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Show tagged values

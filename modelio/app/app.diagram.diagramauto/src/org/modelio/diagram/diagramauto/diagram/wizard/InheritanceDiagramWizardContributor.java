@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.diagramauto.diagram.wizard;
 
 import java.util.ArrayList;
@@ -61,6 +60,7 @@ public class InheritanceDiagramWizardContributor extends AbstractAutoDiagramWiza
         } else {
             return null;
         }
+        
     }
 
     @objid ("27c03072-9a4c-4b51-91fb-5478b887f0e3")

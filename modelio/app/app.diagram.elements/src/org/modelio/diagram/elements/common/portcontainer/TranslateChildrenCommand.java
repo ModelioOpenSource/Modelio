@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.portcontainer;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -55,14 +54,14 @@ public class TranslateChildrenCommand extends Command {
 
     /**
      * C'tor.
-     * 
      * @param container the edit part which children must be translated.
      * @param moveDelta the translation delta.
      */
     @objid ("7f0506a7-1dec-11e2-8cad-001ec947c8cc")
-    public TranslateChildrenCommand(GraphicalEditPart container, Point moveDelta) {
+    public  TranslateChildrenCommand(GraphicalEditPart container, Point moveDelta) {
         this.container = container;
         this.moveDelta = moveDelta;
+        
     }
 
     @objid ("7f0506b0-1dec-11e2-8cad-001ec947c8cc")
@@ -94,6 +93,7 @@ public class TranslateChildrenCommand extends Command {
                 }
             }
         }
+        
     }
 
     @objid ("7f0506b3-1dec-11e2-8cad-001ec947c8cc")

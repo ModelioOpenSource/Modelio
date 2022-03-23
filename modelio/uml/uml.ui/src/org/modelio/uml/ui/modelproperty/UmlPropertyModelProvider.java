@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -332,7 +331,7 @@ public class UmlPropertyModelProvider implements IPropertyModelProvider {
          * C'tor
          */
         @objid ("10a9f218-9a14-4e4b-b528-22adb1e4022a")
-        public UmlPropertyModelVisitor(INatTableViewerContext context) {
+        public  UmlPropertyModelVisitor(INatTableViewerContext context) {
             this.context = context;
         }
 
@@ -1432,6 +1431,7 @@ public class UmlPropertyModelProvider implements IPropertyModelProvider {
             } else {
                 return null;
             }
+            
         }
 
         @objid ("d6b1688f-b71e-4755-9e6a-ed9cea481339")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.ortho;
 
 import java.util.ArrayList;
@@ -30,6 +29,7 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.requests.BendpointRequest;
 import org.eclipse.gef.tools.SimpleDragTracker;
 import org.modelio.diagram.elements.core.figures.geometry.Orientation;
+import org.modelio.diagram.elements.core.requests.CreateLinkConstants;
 
 /**
  * Specific drag tracker "installed" on segments of orthogonal-routed connections. It sends specific type of {@link BendpointRequest} so that the corresponging {@link OrthoBendpointEditPolicy} can understand them.
@@ -42,7 +42,7 @@ public class ConnectionSegmentTracker extends SimpleDragTracker {
     private int index;
 
     @objid ("90d340d0-1e83-11e2-8cad-001ec947c8cc")
-     static final String REQ_MOVE_SEGMENT = "move connection segment";
+    static final String REQ_MOVE_SEGMENT = CreateLinkConstants.REQ_CONNECTION_MOVE_SEGMENT;
 
     @objid ("90d340d7-1e83-11e2-8cad-001ec947c8cc")
     private Orientation orientation;
@@ -52,16 +52,16 @@ public class ConnectionSegmentTracker extends SimpleDragTracker {
 
     /**
      * Constructs a tracker for the given connection and index.
-     * 
      * @param editpart the connection
      * @param index the index of the segment
      * @param orientation the orientation of the segment
      */
     @objid ("8033d136-1dec-11e2-8cad-001ec947c8cc")
-    public ConnectionSegmentTracker(final ConnectionEditPart editpart, final int index, final Orientation orientation) {
+    public  ConnectionSegmentTracker(final ConnectionEditPart editpart, final int index, final Orientation orientation) {
         setConnectionEditPart(editpart);
         setIndex(index);
         setOrientation(orientation);
+        
     }
 
     /**
@@ -102,7 +102,6 @@ public class ConnectionSegmentTracker extends SimpleDragTracker {
 
     /**
      * Convenience method to obtain the connection editpart's connection figure.
-     * 
      * @return the connection figure
      */
     @objid ("8033d15d-1dec-11e2-8cad-001ec947c8cc")
@@ -112,7 +111,6 @@ public class ConnectionSegmentTracker extends SimpleDragTracker {
 
     /**
      * Returns the connection editpart on which the tracker operates.
-     * 
      * @return the connection editpart
      */
     @objid ("8033d164-1dec-11e2-8cad-001ec947c8cc")
@@ -128,7 +126,6 @@ public class ConnectionSegmentTracker extends SimpleDragTracker {
 
     /**
      * Returns the index of the segment being dragged.
-     * 
      * @return the index
      */
     @objid ("8033d170-1dec-11e2-8cad-001ec947c8cc")
@@ -138,7 +135,6 @@ public class ConnectionSegmentTracker extends SimpleDragTracker {
 
     /**
      * Sets the connection editpart being operated on.
-     * 
      * @param editpart the connection
      */
     @objid ("8036337e-1dec-11e2-8cad-001ec947c8cc")
@@ -148,7 +144,6 @@ public class ConnectionSegmentTracker extends SimpleDragTracker {
 
     /**
      * Sets the index of the operation.
-     * 
      * @param i the index
      */
     @objid ("80363385-1dec-11e2-8cad-001ec947c8cc")
@@ -163,11 +158,11 @@ public class ConnectionSegmentTracker extends SimpleDragTracker {
         request.setIndex(getIndex());
         request.getExtendedData().put(Orientation.class, this.orientation);
         request.setLocation(getLocation());
+        
     }
 
     /**
      * Sets the current orientation.
-     * 
      * @param orientation the orientation of the reference segment.
      */
     @objid ("8036338d-1dec-11e2-8cad-001ec947c8cc")

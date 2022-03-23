@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.model.bycontext;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,12 +32,11 @@ public class ByCtxModel extends AbstractModel {
     @objid ("002b7096-0d4f-10c6-842f-001ec947cd2a")
     @Override
     public ITreeContentProvider getContentProvider() {
-        
         return this.byCtxContentProvider;
     }
 
     @objid ("a2907aff-fb26-48de-948b-1148a24c6ab3")
-    public ByCtxModel(GProject project) {
+    public  ByCtxModel(GProject project) {
         this.byCtxContentProvider = new ByCtxContentProvider(project);
     }
 

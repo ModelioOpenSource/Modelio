@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.objects;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,10 +32,10 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("0008b3d0-c4c0-1fd8-97fe-001ec947cd2a")
 public class BpmnDataStateData extends BpmnBaseElementData {
     @objid ("8deaf12a-ec6f-4000-9290-8b6f125740ba")
-     SmObjectImpl mItem;
+    SmObjectImpl mItem;
 
     @objid ("0fc2d94a-72fe-48b5-b729-e82ed7aeeb12")
-    public BpmnDataStateData(BpmnDataStateSmClass smClass) {
+    public  BpmnDataStateData(BpmnDataStateSmClass smClass) {
         super(smClass);
     }
 

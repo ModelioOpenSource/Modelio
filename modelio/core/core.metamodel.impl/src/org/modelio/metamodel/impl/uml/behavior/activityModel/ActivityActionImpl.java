@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityActionData;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityAction;
 import org.modelio.metamodel.uml.behavior.activityModel.ExceptionHandler;
 import org.modelio.metamodel.uml.behavior.activityModel.InputPin;
@@ -89,6 +88,7 @@ public abstract class ActivityActionImpl extends ActivityNodeImpl implements Act
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("8d898b42-ea14-4095-83be-450a4f5dc6f6")
@@ -110,6 +110,7 @@ public abstract class ActivityActionImpl extends ActivityNodeImpl implements Act
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("095af958-dc47-4d0a-89fb-3805b71e4e70")
@@ -131,6 +132,7 @@ public abstract class ActivityActionImpl extends ActivityNodeImpl implements Act
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("e8f7dbf9-53e9-4f35-b3d4-9b668895d39f")

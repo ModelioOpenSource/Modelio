@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnlanesetcontainer;
 
 import java.util.Map;
@@ -38,17 +37,15 @@ public class ResizePartitionsCommand extends Command {
 
     /**
      * Constructor.
-     * 
      * @param container the partition container.
      */
     @objid ("614b5797-55b6-11e2-877f-002564c97630")
-    public ResizePartitionsCommand(GmBpmnLaneSetContainer container) {
+    public  ResizePartitionsCommand(GmBpmnLaneSetContainer container) {
         this.container = container;
     }
 
     /**
      * Set the constraints that must be changed.
-     * 
      * @param newConstraints the constraints that must be changed.
      */
     @objid ("614b579b-55b6-11e2-877f-002564c97630")
@@ -64,6 +61,7 @@ public class ResizePartitionsCommand extends Command {
             if (i != null)
                 child.setLayoutData(i);
         }
+        
     }
 
 }

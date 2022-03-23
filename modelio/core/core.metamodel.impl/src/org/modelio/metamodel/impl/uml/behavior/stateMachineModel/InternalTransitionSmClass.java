@@ -17,19 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.stateMachineModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.InternalTransitionData;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.StateSmClass;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.TransitionSmClass;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.InternalTransition;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.State;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.Transition;
@@ -50,7 +47,7 @@ public class InternalTransitionSmClass extends TransitionSmClass {
     private SmDependency sComposedDep;
 
     @objid ("67aafc73-94b9-43d4-933c-00da348fbd68")
-    public InternalTransitionSmClass(ISmMetamodelFragment origin) {
+    public  InternalTransitionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -58,6 +55,7 @@ public class InternalTransitionSmClass extends TransitionSmClass {
     @Override
     public String getName() {
         return "InternalTransition";
+        
     }
 
     @objid ("ab8a4945-4336-4f92-add8-a3f4164b0899")
@@ -70,18 +68,21 @@ public class InternalTransitionSmClass extends TransitionSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return InternalTransition.class;
+        
     }
 
     @objid ("0bffc170-2644-4489-895e-2411faa4db7e")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("399cbebf-b6cf-4863-adbb-a8aee1c5f198")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("2494cafe-9df3-4e21-8daa-4d89210d0ba4")
@@ -97,6 +98,8 @@ public class InternalTransitionSmClass extends TransitionSmClass {
         this.sComposedDep = new SComposedSmDependency();
         this.sComposedDep.init("SComposed", this, metamodel.getMClass(State.MQNAME), 0, 1 );
         registerDependency(this.sComposedDep);
+        
+        
     }
 
     @objid ("dfd7c655-94c1-407e-8ad9-79407c63ab85")
@@ -113,7 +116,7 @@ public class InternalTransitionSmClass extends TransitionSmClass {
         private InternalTransitionSmClass smClass;
 
         @objid ("9569b1d1-5b27-43d1-925b-04955dd0897b")
-        public InternalTransitionObjectFactory(InternalTransitionSmClass smClass) {
+        public  InternalTransitionObjectFactory(InternalTransitionSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -155,6 +158,7 @@ public class InternalTransitionSmClass extends TransitionSmClass {
             	this.symetricDep = ((StateSmClass)this.getTarget()).getInternalDep();
             }
             return this.symetricDep;
+            
         }
 
     }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.drawings.rectangle;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -59,6 +58,7 @@ public class RectangleDrawingEditPart extends NodeDrawingWithLabelEditPart {
         
         RoundedBoxFigure f = (RoundedBoxFigure) aFigure;
         f.setRadius(style.getInteger(gmModel.getStyleKey(MetaKey.LINERADIUS)));
+        
     }
 
     @objid ("4a7a0a28-c580-4e17-91fb-a5b515874453")
@@ -82,7 +82,7 @@ public class RectangleDrawingEditPart extends NodeDrawingWithLabelEditPart {
     @objid ("1b407167-cef2-4c2a-be05-57d34a7227ef")
     public static final class RectangleDrawingFigure extends RoundedBoxFigure {
         @objid ("6d964167-2e1d-44b3-bcb0-ab84c419aed2")
-        public RectangleDrawingFigure() {
+        public  RectangleDrawingFigure() {
             super();
         }
 

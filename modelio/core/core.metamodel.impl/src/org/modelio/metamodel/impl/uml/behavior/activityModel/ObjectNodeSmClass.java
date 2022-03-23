@@ -17,18 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityNodeSmClass;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ObjectNodeData;
 import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.BehaviorParameterSmClass;
 import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.StateSmClass;
 import org.modelio.metamodel.impl.uml.statik.AssociationEndSmClass;
@@ -89,7 +87,7 @@ public class ObjectNodeSmClass extends ActivityNodeSmClass {
     private SmDependency inStateDep;
 
     @objid ("80fd151c-a349-4735-939b-f0d0f8a782dc")
-    public ObjectNodeSmClass(ISmMetamodelFragment origin) {
+    public  ObjectNodeSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -97,6 +95,7 @@ public class ObjectNodeSmClass extends ActivityNodeSmClass {
     @Override
     public String getName() {
         return "ObjectNode";
+        
     }
 
     @objid ("be993ccd-d354-4637-8894-524cfeb19a78")
@@ -109,18 +108,21 @@ public class ObjectNodeSmClass extends ActivityNodeSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ObjectNode.class;
+        
     }
 
     @objid ("4f7dc840-1596-4a1d-8e03-cc390af3bbec")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("9135bb35-8e7b-45f2-a3aa-68382326dd8b")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("9b8be859-371e-4d92-a7ce-e6c999c06e2f")
@@ -172,6 +174,8 @@ public class ObjectNodeSmClass extends ActivityNodeSmClass {
         this.inStateDep = new InStateSmDependency();
         this.inStateDep.init("InState", this, metamodel.getMClass(State.MQNAME), 0, 1 , SmDirective.SMCDPARTOF);
         registerDependency(this.inStateDep);
+        
+        
     }
 
     @objid ("cb4e81ac-489f-4350-91b6-34ad429d8690")
@@ -260,7 +264,7 @@ public class ObjectNodeSmClass extends ActivityNodeSmClass {
         private ObjectNodeSmClass smClass;
 
         @objid ("a04a7dbc-61e0-45be-b551-8f41675e7349")
-        public ObjectNodeObjectFactory(ObjectNodeSmClass smClass) {
+        public  ObjectNodeObjectFactory(ObjectNodeSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -358,6 +362,7 @@ public class ObjectNodeSmClass extends ActivityNodeSmClass {
             	this.symetricDep = ((InstanceSmClass)this.getTarget()).getRepresentingObjectNodeDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -386,6 +391,7 @@ public class ObjectNodeSmClass extends ActivityNodeSmClass {
             	this.symetricDep = ((BehaviorParameterSmClass)this.getTarget()).getRepresentingObjectNodeDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -414,6 +420,7 @@ public class ObjectNodeSmClass extends ActivityNodeSmClass {
             	this.symetricDep = ((GeneralClassSmClass)this.getTarget()).getOccurenceObjectNodeDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -442,6 +449,7 @@ public class ObjectNodeSmClass extends ActivityNodeSmClass {
             	this.symetricDep = ((AssociationEndSmClass)this.getTarget()).getRepresentingObjectNodeDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -470,6 +478,7 @@ public class ObjectNodeSmClass extends ActivityNodeSmClass {
             	this.symetricDep = ((AttributeSmClass)this.getTarget()).getRepresentingObjectNodeDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -498,6 +507,7 @@ public class ObjectNodeSmClass extends ActivityNodeSmClass {
             	this.symetricDep = ((StateSmClass)this.getTarget()).getRequiredStateOfDep();
             }
             return this.symetricDep;
+            
         }
 
     }

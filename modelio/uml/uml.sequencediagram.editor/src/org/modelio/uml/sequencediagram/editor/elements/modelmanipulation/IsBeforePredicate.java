@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.modelmanipulation;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,17 +36,17 @@ public class IsBeforePredicate extends Predicate {
 
     /**
      * C'tor.
-     * 
      * @param before the first variable. Predicate returns <code>true</code> if it is less than (or equal, depending on the value of "strict") <code>after - offset</code>.
      * @param after the second variable. Predicate returns <code>true</code> if it is greater than (or equal, depending on the value of "strict") <code>before + offset</code>.
      * @param offset an offset that may be used to define a minimal spacing between the variables.
      * @param strict <i>true</i> to refuse equality, <i>false</i> to accept equality.
      */
     @objid ("d96e58be-55b6-11e2-877f-002564c97630")
-    public IsBeforePredicate(final Variable before, final Variable after, final int offset, final boolean strict) {
+    public  IsBeforePredicate(final Variable before, final Variable after, final int offset, final boolean strict) {
         super(before, after);
         this.offset = offset;
         this.strict = strict;
+        
     }
 
     /**
@@ -61,6 +60,7 @@ public class IsBeforePredicate extends Predicate {
         } else {
             return (this.firstVariable.getValue() + this.offset) <= this.secondVariable.getValue();
         }
+        
     }
 
     @objid ("d590d08a-bc75-4348-a942-cbabd51735b6")

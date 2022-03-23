@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.association;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("81678c9e-2f43-40bc-ad65-f1a578bb0dee")
 public class UML2CommunicationPath {
-    @objid ("4e7f4970-ad16-462e-8a97-98c72897c8b9")
+    @objid ("b9a5fef7-6516-4bf4-95d7-73f98e2aef3c")
     public static final String STEREOTYPE_NAME = "UML2CommunicationPath";
 
     /**
      * The underlying {@link Association} represented by this proxy, never null.
      */
-    @objid ("ad9c55ab-a8fd-4e91-8b6d-a4eb5a70516f")
+    @objid ("6c857072-c429-40c2-9d73-e82c80c692ea")
     protected final Association elt;
 
     /**
      * Tells whether a {@link UML2CommunicationPath proxy} can be instantiated from a {@link MObject} checking it is a {@link Association} stereotyped << UML2CommunicationPath >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("dc1d09aa-0855-49c6-80f8-7ab963d589ed")
+    @objid ("628d882e-4dcd-4804-b2c6-e25f152351e1")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Association) && ((Association) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2CommunicationPath.STEREOTYPE_NAME));
     }
@@ -77,9 +75,9 @@ public class UML2CommunicationPath {
      * 
      * @return a {@link UML2CommunicationPath} proxy on the created {@link Association}.
      */
-    @objid ("4ea8494a-92ab-4f92-bf29-57aae3ea8c20")
+    @objid ("f5bb0a44-ee9f-42ac-b9e8-087be72badc0")
     public static UML2CommunicationPath create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Association");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.Association");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2CommunicationPath.STEREOTYPE_NAME);
         return UML2CommunicationPath.instantiate((Association)e);
     }
@@ -91,7 +89,7 @@ public class UML2CommunicationPath {
      * @param obj a Association
      * @return a {@link UML2CommunicationPath} proxy or <i>null</i>.
      */
-    @objid ("c436ead0-6a5d-4daf-b872-2596c99d8bf5")
+    @objid ("37b41d25-5bc4-4978-8014-c089da547586")
     public static UML2CommunicationPath instantiate(Association obj) {
         return UML2CommunicationPath.canInstantiate(obj) ? new UML2CommunicationPath(obj) : null;
     }
@@ -104,7 +102,7 @@ public class UML2CommunicationPath {
      * @return a {@link UML2CommunicationPath} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("d0ada198-633e-4b39-95c7-40f33be775bf")
+    @objid ("f5652bfa-1170-45f5-9c6d-615e97ba0334")
     public static UML2CommunicationPath safeInstantiate(Association obj) throws IllegalArgumentException {
         if (UML2CommunicationPath.canInstantiate(obj))
         	return new UML2CommunicationPath(obj);
@@ -112,7 +110,7 @@ public class UML2CommunicationPath {
         	throw new IllegalArgumentException("UML2CommunicationPath: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("dcf2a5d3-7bfe-455c-89fe-32b9c84f68ac")
+    @objid ("da280eae-b3a5-4a94-85af-21d7fbba759c")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,46 +130,47 @@ public class UML2CommunicationPath {
      * Get the underlying {@link Association}. 
      * @return the Association represented by this proxy, never null.
      */
-    @objid ("466dec24-c022-4d45-8a91-6c2898e64691")
+    @objid ("89f0e7bd-6768-4fd6-a1ab-a0482499feec")
     public Association getElement() {
         return this.elt;
     }
 
-    @objid ("2ff7c0e8-5e72-4875-8c6d-388b41a6dfe3")
+    @objid ("e4c5954c-da5f-4b37-8277-5ac9b37342d8")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("a4b43b45-8f22-4ee3-9f55-5cfb8b442847")
-    protected UML2CommunicationPath(Association elt) {
+    @objid ("b5e8e138-8cfc-417d-ada0-03b3019b621e")
+    protected  UML2CommunicationPath(Association elt) {
         this.elt = elt;
     }
 
     @objid ("d8b8c58e-ba0a-4cce-937a-c14207a1cafc")
     public static final class MdaTypes {
-        @objid ("6577f8e6-b4a2-44ac-986a-149fc5c96d16")
+        @objid ("9e6de080-1f3f-40e4-9b0e-ecead7772234")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("f2f287ef-8ed4-441b-ab35-99cd28b86373")
+        @objid ("62470b1e-504f-43d4-8b9e-4464673e06c3")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("55f7944f-6d73-4d65-9b60-a97ab9f4f5be")
+        @objid ("0d1406d4-3378-4702-a642-b0c5c67790f7")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("e42a9814-ee25-4388-be45-db28b8fcd9a0")
+        @objid ("24282698-97d3-49b4-81c1-56c4f902345a")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "8ed6276e-5821-11df-be59-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

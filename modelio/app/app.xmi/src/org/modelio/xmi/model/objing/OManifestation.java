@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -48,12 +47,14 @@ public class OManifestation extends OElement implements IOElement {
             GenerationProperties.getInstance().addWarning(message, this.objingElement);
             return null;
         }
+        
     }
 
     @objid ("5bc148c4-82cc-4302-822e-33c918d7b527")
-    public OManifestation(Manifestation param) {
+    public  OManifestation(Manifestation param) {
         super(param);
         this.objingElement = param;
+        
     }
 
     @objid ("7252135f-4657-4219-bda2-af54ed689df0")
@@ -73,6 +74,7 @@ public class OManifestation extends OElement implements IOElement {
                     ecoreManifList.add((org.eclipse.uml2.uml.Manifestation)ecoreElt);
             }
         }
+        
     }
 
     @objid ("cd0142a6-0dcb-42ea-a723-34ac1c72c1ff")
@@ -80,12 +82,14 @@ public class OManifestation extends OElement implements IOElement {
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         setName((org.eclipse.uml2.uml.Manifestation) ecoreElt);
         setUtilizedElement((org.eclipse.uml2.uml.Manifestation) ecoreElt);
+        
     }
 
     @objid ("948e7065-8318-4973-93c6-73ab608e2d28")
     private void setName(org.eclipse.uml2.uml.Manifestation manifestation) {
         if (AbstractObjingModelNavigation.isNotNullOrEmpty(this.objingElement.getName()))
             manifestation.setName(this.objingElement.getName());
+        
     }
 
     @objid ("20b7ad5f-5e18-4ec7-aecc-fcdb61b78887")
@@ -117,6 +121,7 @@ public class OManifestation extends OElement implements IOElement {
                  */
             }
         }
+        
     }
 
 }

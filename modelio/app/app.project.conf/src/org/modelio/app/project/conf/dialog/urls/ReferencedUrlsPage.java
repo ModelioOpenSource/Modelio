@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.urls;
 
-import javax.annotation.PostConstruct;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.annotation.PostConstruct;
 import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.ISelectionChangedListener;
@@ -53,7 +52,6 @@ public class ReferencedUrlsPage implements IProjectConfPage {
      * Creates the SWT controls.
      * <p>
      * Called by E4 injection.
-     * 
      * @param parent the parent composite.
      */
     @objid ("67cf1ddf-1c78-4861-ab43-c1734be31e3f")

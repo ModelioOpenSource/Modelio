@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.script.macro.catalogdialog;
 
 import java.nio.file.Path;
-import javax.script.ScriptException;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.script.ScriptException;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.viewers.TreeViewer;
@@ -42,12 +41,11 @@ class RunMacroButtonListener implements SelectionListener {
 
     /**
      * Creates a listener.
-     * 
      * @param treeviewer The tree viewer where the selected element is to be looked
      * for.
      */
     @objid ("006979c2-c497-106a-bf4f-001ec947cd2a")
-    public RunMacroButtonListener(TreeViewer treeviewer) {
+    public  RunMacroButtonListener(TreeViewer treeviewer) {
         this.treeviewer = treeviewer;
     }
 
@@ -78,6 +76,7 @@ class RunMacroButtonListener implements SelectionListener {
             }
         
         }
+        
     }
 
 }

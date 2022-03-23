@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.util;
 
 import java.awt.image.BufferedImage;
@@ -35,8 +34,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
-import javax.imageio.ImageIO;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.imageio.ImageIO;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
@@ -95,13 +94,12 @@ public class ProfileUtils {
 
     @objid ("0e7767a9-a354-4d7e-a5b1-1b387339d9d3")
     private static ScopeChecker scopeChecker = new ScopeChecker(GenerationProperties
-            .getInstance().getRootElements());
+                .getInstance().getRootElements());
 
     /**
      * Get the content of an {@link Image} as {@link org.eclipse.swt.graphics.Image}
      * @link Image} to set
      * @link org.eclipse.swt.graphics.Image} content
-     * 
      * @param image the UML {
      * @return {
      */
@@ -205,6 +203,7 @@ public class ProfileUtils {
             Xmi.LOG.error(Xmi.PLUGIN_ID, e);
             return null;
         }
+        
     }
 
     @objid ("ea5d8042-cf6a-4302-a434-9cfbfa9c0b5f")
@@ -221,6 +220,7 @@ public class ProfileUtils {
             return temp;
         else
             return (name + temp);
+        
     }
 
     @objid ("f3020b80-76d3-49bf-97b6-3de99c2a5a50")
@@ -237,12 +237,12 @@ public class ProfileUtils {
             return name.replaceFirst(path, "");
         else
             return name ;
+        
     }
 
     /**
      * Set the content of an {@link Image} with a file (containing an image)
      * @link Image} to set
-     * 
      * @param image the UML {
      * @param imageFile the icon
      */
@@ -267,11 +267,11 @@ public class ProfileUtils {
         }catch (Exception e) {
             Xmi.LOG.error(Xmi.PLUGIN_ID, e);
         }
+        
     }
 
     /**
      * org.eclipse.uml2.uml.Read an image file content
-     * 
      * @return a table of bytes of the file content
      */
     @objid ("2154d545-1b59-4464-bb28-7515b7e9b9c4")
@@ -385,6 +385,7 @@ public class ProfileUtils {
                 }
             }
         }
+        
     }
 
     @objid ("9544f7d0-2c83-4ce3-b460-87d35ba4d7a9")
@@ -394,6 +395,7 @@ public class ProfileUtils {
             setHidden(tagType, ecoreProperty);
             setPartSignature(tagType, ecoreProperty);
         }
+        
     }
 
     @objid ("aaeb206f-3049-471b-9526-ae5ce0f40935")
@@ -417,6 +419,7 @@ public class ProfileUtils {
             if (label != null)
                 objElt.setLabelKey(label);
         }
+        
     }
 
     @objid ("66f60446-fe75-4c56-9d1a-cf8ddbd1cc44")
@@ -455,6 +458,7 @@ public class ProfileUtils {
             }
         
         }
+        
     }
 
     @objid ("354ef187-019c-4fec-9b99-d0f080576799")
@@ -494,6 +498,7 @@ public class ProfileUtils {
         
             }
         }
+        
     }
 
     @objid ("4d59d022-0695-44dc-9df7-7a07ef5ee453")
@@ -509,6 +514,7 @@ public class ProfileUtils {
             }
         
         }
+        
     }
 
     @objid ("6645495e-60b1-4485-b4b2-2452b81ea1cb")
@@ -564,6 +570,7 @@ public class ProfileUtils {
         
         if (name != null)
             objProfile.setName(name);
+        
     }
 
     @objid ("a620562a-806d-4dbc-a116-79b55b6753af")
@@ -648,6 +655,7 @@ public class ProfileUtils {
             Profile localProfile = ReverseProperties.getInstance().getLocalProfile();
             localProfile.getDefinedStereotype().add(objingStereotype);
         }
+        
     }
 
     @objid ("4d0a71b1-3c6a-4266-b1e2-df1546eb9cd8")
@@ -677,6 +685,7 @@ public class ProfileUtils {
         }
         
         objProfile.setOwnerModule((ReverseProperties.getInstance().getProfileRoot() ));
+        
     }
 
     @objid ("c9fdf191-fd9c-41e4-a302-cd544ec15901")
@@ -687,6 +696,7 @@ public class ProfileUtils {
         
         if (ReverseProperties.getInstance().isRoundtripEnabled())
             setHidden(objingElt, ecoreElement);
+        
     }
 
     @objid ("3703a5dc-4491-4fbe-bef3-2b64204d8835")
@@ -708,12 +718,14 @@ public class ProfileUtils {
         
             }
         }
+        
     }
 
     @objid ("39a72af6-8b3b-4a34-aa9f-2d652031a214")
     private static void setHidden(final Stereotype objElt, final org.eclipse.uml2.uml.Stereotype ecoreElement) {
         if (ReverseProperties.getInstance().isRoundtripEnabled())
             objElt.setIsHidden(ObjingEAnnotation.isHidden(ecoreElement));
+        
     }
 
     @objid ("09e9b2f2-8353-4d23-a53f-b76a24a410fc")
@@ -723,6 +735,7 @@ public class ProfileUtils {
             if ((label != null) && (label.equals("")))
                 objElt.setLabelKey(label);
         }
+        
     }
 
     @objid ("9c2368bd-275b-4b7d-a6d1-ba0c1e6a96a7")
@@ -744,6 +757,7 @@ public class ProfileUtils {
             }
         
         }
+        
     }
 
     @objid ("27b0d119-a3d2-4daa-b3d1-f02959770f4e")
@@ -756,6 +770,7 @@ public class ProfileUtils {
         }catch(IOException e){
             Xmi.LOG.warning(Xmi.PLUGIN_ID,"File not Found");
         }
+        
     }
 
     /**
@@ -768,7 +783,6 @@ public class ProfileUtils {
      * BufferedImage bimg = convertToAWT(img.getImageData())
      * 
      * funcione correctamente para "pepe" con formato png, jpg, gif
-     * 
      * @param data la ImageData (image swt) a convertir
      * @return la conversi?n de data a una BufferedImage swt
      */
@@ -858,6 +872,7 @@ public class ProfileUtils {
             }
             return bufferedImage;
         }
+        
     }
 
     @objid ("f6fe65b9-d331-4c7c-a5d1-32a058f3f4b6")
@@ -866,6 +881,7 @@ public class ProfileUtils {
             Object parents =  visitStereotype(ecoreParent);
             objElt.setParent(((ArrayList<Stereotype>)parents).get(0));
         }
+        
     }
 
     @objid ("5338fbda-f250-46b5-b1ff-3f92ce2345d3")
@@ -907,6 +923,7 @@ public class ProfileUtils {
                 }
             }
         }
+        
     }
 
     @objid ("3a0b805e-ddb9-42c8-ac90-dfa6f9fb329f")
@@ -915,6 +932,7 @@ public class ProfileUtils {
         if (ReverseProperties.getInstance().isRoundtripEnabled()){
             setHidden(attri,ecoreElement);
         }
+        
     }
 
     @objid ("9a21deb5-d5bf-4d4b-97a6-a3e0f46b8657")
@@ -933,6 +951,7 @@ public class ProfileUtils {
             if (label != null)
                 objElt.setLabelKey(label);
         }
+        
     }
 
     @objid ("6a80f9d9-8fd2-4ee4-b563-994c42dabdc3")
@@ -987,6 +1006,7 @@ public class ProfileUtils {
         
             setProperties(noteType, ecoreElement);
         }
+        
     }
 
     @objid ("2f41b581-78f3-42fe-8dd2-5fb3c8dc4d23")
@@ -1119,6 +1139,7 @@ public class ProfileUtils {
                 }
             }
         }
+        
     }
 
     @objid ("3e9e6cb6-79b2-49d3-8eff-b7574fb2676a")
@@ -1148,6 +1169,7 @@ public class ProfileUtils {
             PartialImportMap.getInstance().remove(ecoreElement);
             TotalImportMap.getInstance().put(ecoreElement, results);
         }
+        
     }
 
     @objid ("c37ac558-354e-42e7-9868-77fe1a3423d8")
@@ -1198,6 +1220,7 @@ public class ProfileUtils {
             }
         
         }
+        
     }
 
     @objid ("dcc4c7b6-0b5a-4b54-b8d3-c7658a9cd388")
@@ -1206,6 +1229,7 @@ public class ProfileUtils {
             return stereotype.getName().equals(stereotype.getLabelKey() + "_" + stereotype.getBaseClassName());
         else
             return false;
+        
     }
 
     @objid ("ba9e43dc-f15c-4eef-9a5a-b0a475d5175e")
@@ -1221,6 +1245,7 @@ public class ProfileUtils {
                 return "Sterotype";
             }
         }
+        
     }
 
     @objid ("060ab4e2-328c-4173-907a-9bab9397b106")
@@ -1234,6 +1259,7 @@ public class ProfileUtils {
             return tagtype.getName().equals(tagtype.getOwnerStereotype().getLabelKey() + "_" + tagtype.getOwnerStereotype().getBaseClassName()+ "_"+ tagtype.getLabelKey() );
         else
             return false;
+        
     }
 
     @objid ("d591eea4-5f3a-459b-ba88-277f46f30afb")
@@ -1242,6 +1268,7 @@ public class ProfileUtils {
             return tagtype.getLabelKey();
         else
             return tagtype.getName();
+        
     }
 
     @objid ("d41b7b07-7938-436c-a601-9310889f546b")
@@ -1292,6 +1319,7 @@ public class ProfileUtils {
             String errorMsg = "Not found correspondance for : " + metaclassName;
             Xmi.LOG.warning(Xmi.PLUGIN_ID, errorMsg);
         }
+        
     }
 
     @objid ("1597f0aa-9fe8-43b7-9392-6d09303c70b4")
@@ -1514,6 +1542,7 @@ public class ProfileUtils {
                 }
             }
         }
+        
     }
 
     @objid ("6f95fe74-555a-453d-8c9d-6f49ad037c43")

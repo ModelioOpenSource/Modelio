@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.elements.usecase;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,6 +39,7 @@ public class GmUseCaseMigrator implements IPersistentMigrator {
             return null;
         }
         }
+        
     }
 
     @objid ("5e5f8cce-55b7-11e2-877f-002564c97630")

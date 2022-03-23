@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.preferences.ui.labelproviders;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,7 +44,7 @@ public class SummaryLabelProvider extends ColumnLabelProvider {
      * @param configurationPlan the current configuration plan, in charge of i18n...
      */
     @objid ("82ac04d5-cf76-4004-9da4-1ec2fb8c8ad8")
-    public SummaryLabelProvider(IAuditConfigurationPlan configurationPlan) {
+    public  SummaryLabelProvider(IAuditConfigurationPlan configurationPlan) {
         this.configurationPlan = configurationPlan;
     }
 

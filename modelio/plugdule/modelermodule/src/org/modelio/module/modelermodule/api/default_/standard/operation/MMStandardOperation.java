@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.operation;
 
@@ -51,24 +50,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("ab8de4e7-e6a1-4760-8096-da69fc4a8d36")
 public class MMStandardOperation {
-    @objid ("9fe27d49-18c5-423f-8129-46a323956858")
+    @objid ("794ad4aa-e902-4328-be8a-2d2751abe9e0")
     public static final String SUMMARY_NOTETYPE = "summary";
 
     /**
      * The underlying {@link Operation} represented by this proxy, never null.
      */
-    @objid ("deb984d1-a343-4823-8021-f17d839b6365")
+    @objid ("a260a869-ecf9-4f25-92f2-a88f9ce5f945")
     protected final Operation elt;
 
     /**
      * Tells whether a {@link MMStandardOperation proxy} can be instantiated from a {@link MObject} checking it is a {@link Operation}.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("d2b25372-3a2b-4c0a-a486-d0af4dfb12ba")
+    @objid ("d7d925c5-f778-423c-b70f-4d4ce648507d")
     public static boolean canInstantiate(MObject elt) {
         return (elt instanceof Operation);
     }
@@ -80,12 +78,12 @@ public class MMStandardOperation {
      * @param obj a Operation
      * @return a {@link MMStandardOperation} proxy or <i>null</i>.
      */
-    @objid ("1c025c6c-02d9-4eca-94f3-45e7037e1cd7")
+    @objid ("0261be02-9bcd-4e62-ab38-4378b217c07c")
     public static MMStandardOperation instantiate(Operation obj) {
         return MMStandardOperation.canInstantiate(obj) ? new MMStandardOperation(obj) : null;
     }
 
-    @objid ("1cd7d615-3dd5-43ad-bfc9-3dcb9693e090")
+    @objid ("b5d3aae0-c31f-417e-bb03-e1dd23bd697a")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -105,7 +103,7 @@ public class MMStandardOperation {
      * Get the underlying {@link Operation}. 
      * @return the Operation represented by this proxy, never null.
      */
-    @objid ("7d840a42-ec92-4996-8a5b-f253a37cf83c")
+    @objid ("ccc01915-9949-4c14-84aa-1ca34a2bf6ab")
     public Operation getElement() {
         return this.elt;
     }
@@ -115,15 +113,16 @@ public class MMStandardOperation {
      * <p>Note description:
      * <br/><i></i></p>
      */
-    @objid ("bed149f4-dd50-4a70-8df9-e547d3acc866")
+    @objid ("1f45744c-2985-4c46-bc62-3ee8e6f1ca0c")
     public String getSummaryNote() {
         return this.elt.getNoteContent(MMStandardOperation.MdaTypes.SUMMARY_NOTETYPE_ELT);
     }
 
-    @objid ("b818aac7-d6de-496e-8d39-70a6459eaa32")
+    @objid ("e69bfa08-05c6-4fb8-be0f-b4d2b5dbc9ad")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
     /**
@@ -131,40 +130,40 @@ public class MMStandardOperation {
      * <p>Note description:
      * <br/><i></i></p>
      */
-    @objid ("3cb94f6f-f5c9-4f5b-8661-6263ef64c3de")
+    @objid ("4b86a4ca-0e27-45fe-b387-9a9ce68aa54d")
     public void setSummaryNote(String value) {
         this.elt.putNoteContent(MMStandardOperation.MdaTypes.SUMMARY_NOTETYPE_ELT, value);
     }
 
-    @objid ("639ad04a-665e-46da-9f60-8b156279494a")
-    protected MMStandardOperation(Operation elt) {
+    @objid ("d7cc2ff5-0917-48c1-93a8-f4d084b9aaa7")
+    protected  MMStandardOperation(Operation elt) {
         this.elt = elt;
     }
 
     @objid ("6311b55f-0b8b-4db8-a14d-54974cabd5fb")
     public static final class MdaTypes {
-        @objid ("4f4d897d-b40a-4934-bd75-a1a5aa07bb4c")
+        @objid ("a97e83e1-688c-4401-a704-27d16238be02")
         public static NoteType SUMMARY_NOTETYPE_ELT;
 
-        @objid ("c8a347a6-4c22-4c42-ad8a-b4aa801254d8")
+        @objid ("73e8769a-1ddc-4424-898d-020ecd64a6ff")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("db2cfff6-1f26-4d41-9592-01f7917c6f15")
+        @objid ("30c4eaff-d577-4dd3-8e94-3b60d6ff41d2")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("697b4d64-6653-41f3-9575-1e49e785a40b")
+        @objid ("fe12666e-d89c-4bb8-bfd4-f0d9032c6858")
         public static void init(IModuleContext ctx) {
             SUMMARY_NOTETYPE_ELT = ctx.getModelingSession().findElementById(NoteType.class, "00540400-0000-011f-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

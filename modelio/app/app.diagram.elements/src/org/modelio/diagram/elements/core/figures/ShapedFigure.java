@@ -17,13 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Path;
 
 /**
  * A shaped figure filled with a gradient.
@@ -39,24 +39,23 @@ public class ShapedFigure extends GradientFigure implements IClonableFigure {
      * Default constructor.
      */
     @objid ("7fcd4c13-1dec-11e2-8cad-001ec947c8cc")
-    public ShapedFigure() {
+    public  ShapedFigure() {
         super();
     }
 
     /**
      * Builds a ShapedFigure with a specific Shaper.
-     * 
      * @param shaper A shaper.
      */
     @objid ("7fcd4c16-1dec-11e2-8cad-001ec947c8cc")
-    public ShapedFigure(IShaper shaper) {
+    public  ShapedFigure(IShaper shaper) {
         super();
         this.shaper = shaper;
+        
     }
 
     /**
      * Get the current shaper.
-     * 
      * @return A shaper.
      */
     @objid ("7fcd4c1a-1dec-11e2-8cad-001ec947c8cc")
@@ -67,35 +66,46 @@ public class ShapedFigure extends GradientFigure implements IClonableFigure {
 
     /**
      * Set the current shaper.
-     * 
      * @param value The new shaper.
      */
     @objid ("7fcd4c1f-1dec-11e2-8cad-001ec947c8cc")
     public void setShaper(IShaper value) {
         // Automatically generated method. Please delete this comment before entering specific code.
         this.shaper = value;
+        
     }
 
     @objid ("7fcd4c23-1dec-11e2-8cad-001ec947c8cc")
     @Override
     protected void paintFigure(Graphics graphics) {
+        Path shapePath;
+        
         if (this.shaper != null) {
             graphics.setAdvanced(true);
             graphics.setAntialias(SWT.ON);
-            graphics.clipPath(this.shaper.getShapePath(getBounds()));
+            shapePath = this.shaper.createShapePath(getBounds());
+            try {
+                graphics.clipPath(shapePath);
+        
+                super.paintFigure(graphics);
+            } finally {
+                shapePath.dispose();
+            }
+        } else {
+            super.paintFigure(graphics);
         }
-        super.paintFigure(graphics);
+        
     }
 
     /**
      * Copy constructor.
-     * 
      * @param orig the original figure
      */
     @objid ("3c379a6e-6344-4ea1-a8c8-c954fa4e5654")
-    public ShapedFigure(ShapedFigure orig) {
+    public  ShapedFigure(ShapedFigure orig) {
         super(orig);
         this.shaper = orig.getShaper();
+        
     }
 
     @objid ("b39b45b9-d868-4aa0-ac34-ef09367cef85")

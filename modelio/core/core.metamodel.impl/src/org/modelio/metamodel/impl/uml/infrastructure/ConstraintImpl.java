@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.uml.infrastructure.ConstraintData;
 import org.modelio.metamodel.uml.infrastructure.Constraint;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.metamodel.visitors.IModelVisitor;
@@ -53,6 +52,7 @@ public class ConstraintImpl extends UmlModelElementImpl implements Constraint {
         } else {
             return list.get(0);
         }
+        
     }
 
     @objid ("006b90fe-4224-10bf-bd58-001ec947cd2a")
@@ -64,6 +64,7 @@ public class ConstraintImpl extends UmlModelElementImpl implements Constraint {
         } else {
             return new SmDepVal(((ConstraintSmClass) getClassOf()).getConstrainedElementDep(), list.get(0));
         }
+        
     }
 
     @objid ("dc0243f1-0d07-41a0-a075-8956cb67cd32")
@@ -83,6 +84,7 @@ public class ConstraintImpl extends UmlModelElementImpl implements Constraint {
         }
         
         super.afterEraseDepVal(dep, value);
+        
     }
 
     @objid ("80772748-239b-41ab-a728-d44e6ba39f9f")
@@ -140,6 +142,7 @@ public class ConstraintImpl extends UmlModelElementImpl implements Constraint {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("d7208105-9508-405d-9579-dad06d3d70c4")

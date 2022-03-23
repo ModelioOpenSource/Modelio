@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.factories;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -65,16 +64,16 @@ public class StandardEditPartFactory implements EditPartFactory {
 
     /**
      * Instantiate the factory.
-     * 
      * @param factoryId identifier of the main factory.
      */
     @objid ("ba6ea29a-5b54-4e1f-96c2-be423f6fac92")
-    public StandardEditPartFactory(String factoryId) {
+    public  StandardEditPartFactory(String factoryId) {
         this.mainFactory = DiagramFactoryRegistry.getInstance().getEditPartFactory(factoryId);
         this.secondaryFactories = new DelegatingEditPartFactory(DiagramFactoryRegistry.getInstance().getExtensions(factoryId));
         this.diagramElementsFactory = new DiagramElementsEditPartFactory();
         this.drawingEditPartFactory = new DrawingEditPartFactory();
         this.genericFactory = new GenericEditPartFactory();
+        
     }
 
     @objid ("76579b95-e9ca-4560-8274-c1d15b7cea1e")
@@ -129,6 +128,7 @@ public class StandardEditPartFactory implements EditPartFactory {
         }
         
         throw new IllegalArgumentException(model + " is not supported.");
+        
     }
 
     @objid ("620c2085-e879-4e0c-a387-23aaced18ed2")

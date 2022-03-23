@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.gproject.migration;
 
 import java.io.BufferedReader;
@@ -75,9 +74,10 @@ public class GProjectSpaceFormatMigrator1 {
     private final ProjectDescriptor srcDescriptor;
 
     @objid ("e7454db8-acb1-4c93-95ff-594d30e12489")
-    public GProjectSpaceFormatMigrator1(ProjectDescriptor srcDescriptor) throws IOException {
+    public  GProjectSpaceFormatMigrator1(ProjectDescriptor srcDescriptor) throws IOException {
         this.srcDescriptor = srcDescriptor;
         this.moves = loadMoves();
+        
     }
 
     @objid ("b0d61497-30b7-481a-9229-0d1fbecc985b")
@@ -155,6 +155,7 @@ public class GProjectSpaceFormatMigrator1 {
             movePath(monitor, logger, projectPath, src, dest);
         
         }
+        
     }
 
     @objid ("22ee3a62-e286-4bf5-b20b-234052af0538")
@@ -225,6 +226,7 @@ public class GProjectSpaceFormatMigrator1 {
         });
         
         monitor.worked(1);
+        
     }
 
     @objid ("5c08714f-0ffe-4c1f-b602-68f0146d5187")
@@ -237,6 +239,7 @@ public class GProjectSpaceFormatMigrator1 {
                 logger.format("info: removed obsolete '%s' = '%s' (%s) property.\n", entry.getName(), entry.getValue(), entry.getScope());
             }
         }
+        
     }
 
 }

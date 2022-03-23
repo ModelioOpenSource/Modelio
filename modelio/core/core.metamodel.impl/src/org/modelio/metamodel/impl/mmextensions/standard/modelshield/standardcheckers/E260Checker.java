@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.modelshield.standardcheckers;
 
 import java.util.ArrayList;
@@ -61,6 +60,7 @@ public class E260Checker implements IChecker {
             objects.add(superPartition);
             report.addEntry(new ModelError(ERRORID, object, objects));
         }
+        
     }
 
     @objid ("0000a37a-e473-1f69-b3fb-001ec947cd2a")
@@ -74,6 +74,7 @@ public class E260Checker implements IChecker {
         
         // trigger=update, metaclass=ActivityPartition, feature=
         plan.registerChecker(this, smMetamodel.getMClass(ActivityPartition.class), TriggerType.Update, "");
+        
     }
 
 }

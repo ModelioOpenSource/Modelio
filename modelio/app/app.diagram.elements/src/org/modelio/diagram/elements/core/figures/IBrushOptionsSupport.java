@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,7 +30,6 @@ import org.eclipse.swt.graphics.Color;
 public interface IBrushOptionsSupport {
     /**
      * Set the fill color.
-     * 
      * @param fillColor the fill color.
      */
     @objid ("7fa4c426-1dec-11e2-8cad-001ec947c8cc")
@@ -39,7 +37,6 @@ public interface IBrushOptionsSupport {
 
     /**
      * Set whether the background is filled with a gradient.
-     * 
      * @param useGradient true to fill with a gradient, false to fill only with the fill color.
      */
     @objid ("7fa4c429-1dec-11e2-8cad-001ec947c8cc")
@@ -47,7 +44,6 @@ public interface IBrushOptionsSupport {
 
     /**
      * Get the fill color.
-     * 
      * @return the fill color.
      */
     @objid ("7fa4c42c-1dec-11e2-8cad-001ec947c8cc")
@@ -55,7 +51,6 @@ public interface IBrushOptionsSupport {
 
     /**
      * Tells whether the background is filled with a gradient.
-     * 
      * @return true if the background is filled with a gradient, false in the other case.
      */
     @objid ("7fa4c42f-1dec-11e2-8cad-001ec947c8cc")
@@ -66,7 +61,6 @@ public interface IBrushOptionsSupport {
      * <p>
      * Values may range from 0 to 255. A value of 0 is completely transparent.
      * @see org.eclipse.draw2d.Graphics#setAlpha(int)
-     * 
      * @param alpha an alpha value (0-255)
      */
     @objid ("9b37c0ed-781c-4dfd-902d-dffe6af53137")
@@ -77,7 +71,6 @@ public interface IBrushOptionsSupport {
      * <p>
      * Values may range from 0 to 255. A value of 0 is completely transparent.
      * @see org.eclipse.draw2d.Graphics#setAlpha(int)
-     * 
      * @return an alpha value (0-255)
      */
     @objid ("2315f1fa-1106-4272-995c-59835f1ce38d")

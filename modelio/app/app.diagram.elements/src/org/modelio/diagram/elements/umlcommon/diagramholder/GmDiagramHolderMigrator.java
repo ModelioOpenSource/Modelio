@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.umlcommon.diagramholder;
 
 import java.util.List;
@@ -47,6 +46,7 @@ public class GmDiagramHolderMigrator implements IPersistentMigrator {
             return null;
         }
         }
+        
     }
 
     @objid ("09cb4022-72bb-4dce-8704-205c7cc25489")

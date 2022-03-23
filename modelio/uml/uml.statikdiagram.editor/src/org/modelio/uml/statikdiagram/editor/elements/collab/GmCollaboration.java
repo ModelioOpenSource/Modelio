@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.collab;
 
 import java.util.Collections;
@@ -59,7 +58,7 @@ public class GmCollaboration extends GmPortContainer {
     private static final String IMAGE_MODE_HEADER = "ImageHeader";
 
     @objid ("3456bf53-55b7-11e2-877f-002564c97630")
-     static final CollaborationSimpleStyleKeys SIMPLE_KEYS = new CollaborationSimpleStyleKeys();
+    static final CollaborationSimpleStyleKeys SIMPLE_KEYS = new CollaborationSimpleStyleKeys();
 
     @objid ("3456bf55-55b7-11e2-877f-002564c97630")
     private static final CollaborationStructuredStyleKeys STRUCTURED_KEYS = new CollaborationStructuredStyleKeys();
@@ -72,13 +71,12 @@ public class GmCollaboration extends GmPortContainer {
 
     /**
      * Default constructor.
-     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param theCollaboration the represented object node, may be null.
      * @param ref a reference to the represented object node.
      */
     @objid ("345845c2-55b7-11e2-877f-002564c97630")
-    public GmCollaboration(IGmDiagram diagram, final Collaboration theCollaboration, MRef ref) {
+    public  GmCollaboration(IGmDiagram diagram, final Collaboration theCollaboration, MRef ref) {
         super(diagram, ref);
         this.collaboration = theCollaboration;
         
@@ -90,13 +88,14 @@ public class GmCollaboration extends GmPortContainer {
         imageModeHeader.setRoleInComposition(IMAGE_MODE_HEADER);
         imageModeHeader.setLayoutData(PositionConstants.SOUTH);
         super.addChild(imageModeHeader);
+        
     }
 
     /**
      * Empty constructor, needed for serialization.
      */
     @objid ("345845cf-55b7-11e2-877f-002564c97630")
-    public GmCollaboration() {
+    public  GmCollaboration() {
         // empty constructor for the serialization
     }
 
@@ -146,6 +145,7 @@ public class GmCollaboration extends GmPortContainer {
         } else {
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("345845f3-55b7-11e2-877f-002564c97630")
@@ -165,6 +165,7 @@ public class GmCollaboration extends GmPortContainer {
                 break;
             }
         }
+        
     }
 
     @objid ("345845f9-55b7-11e2-877f-002564c97630")
@@ -185,6 +186,7 @@ public class GmCollaboration extends GmPortContainer {
                     GmNodeModel imageModeHeader = getFirstChild(IMAGE_MODE_HEADER);
                     ret.remove(imageModeHeader);
                     break;
+                case USER_IMAGE:
                 case IMAGE:
                 default:
                     break;
@@ -201,6 +203,7 @@ public class GmCollaboration extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmCollaboration.", GmCollaboration.MINOR_VERSION);
+        
     }
 
     @objid ("3459cc6c-55b7-11e2-877f-002564c97630")
@@ -214,11 +217,11 @@ public class GmCollaboration extends GmPortContainer {
         super.read(in);
         
         this.collaboration = (Collaboration) resolveRef(getRepresentedRef());
+        
     }
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -230,7 +233,6 @@ public class GmCollaboration extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -248,6 +250,7 @@ public class GmCollaboration extends GmPortContainer {
         } else {
             super.addStartingLink(link);
         }
+        
     }
 
     @objid ("345b52f9-55b7-11e2-877f-002564c97630")
@@ -258,15 +261,15 @@ public class GmCollaboration extends GmPortContainer {
         } else {
             super.addEndingLink(link);
         }
+        
     }
 
     /**
      * Migration constructor from major version 0, should only be called by migrator.
-     * 
      * @param oldVersionGm the instance to migrate from.
      */
     @objid ("345b5300-55b7-11e2-877f-002564c97630")
-    GmCollaboration(final _GmCollaboration oldVersionGm) {
+     GmCollaboration(final _GmCollaboration oldVersionGm) {
         super(oldVersionGm.getDiagram(), oldVersionGm.getRepresentedRef());
         this.collaboration = oldVersionGm.getRepresentedElement();
         
@@ -279,6 +282,7 @@ public class GmCollaboration extends GmPortContainer {
         imageModeHeader.setRoleInComposition(IMAGE_MODE_HEADER);
         imageModeHeader.setLayoutData(PositionConstants.SOUTH);
         super.addChild(imageModeHeader);
+        
     }
 
     @objid ("d7c88feb-fd95-4eca-984a-cdc03a2f89bb")

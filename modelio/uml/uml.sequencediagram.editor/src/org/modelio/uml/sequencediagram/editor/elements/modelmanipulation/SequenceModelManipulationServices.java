@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.modelmanipulation;
 
 import java.util.Collection;
@@ -39,14 +38,13 @@ public class SequenceModelManipulationServices {
     private final Collection<InteractionFragment> existingFragments;
 
     @objid ("5dd09812-acc4-4c5c-923b-28997aaa6971")
-    public SequenceModelManipulationServices(Interaction interaction) {
+    public  SequenceModelManipulationServices(Interaction interaction) {
         this.existingFragments = InteractionHelper.getAllInteractionFragments(interaction);
     }
 
     /**
      * Ensure there is at least <i>minDelta</i> vertical space between the given line
      * and other interaction fragments.
-     * 
      * @param newLine a line to insert
      * @param minDelta the minimum space between the new line and interaction fragments below.
      * @since 3.7.1
@@ -84,11 +82,11 @@ public class SequenceModelManipulationServices {
             final int moveDelta = minDelta - (yToMove - newLine);
             moveAllBelow(yToMove, moveDelta);
                }
+        
     }
 
     /**
      * Move all interaction fragments situated at <i>yToMove</i> or below by <i>moveDelta</i> .
-     * 
      * @param yToMove minimum y coordinate of interaction fragments to move, included
      * @param moveDelta the move delta
      */
@@ -113,6 +111,7 @@ public class SequenceModelManipulationServices {
                 }
             }
         }
+        
     }
 
 }

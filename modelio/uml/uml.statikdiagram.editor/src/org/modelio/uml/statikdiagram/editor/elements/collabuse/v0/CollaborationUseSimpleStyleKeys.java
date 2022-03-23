@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.collabuse.v0;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,60 +32,60 @@ class CollaborationUseSimpleStyleKeys extends StaticAbstractStyleKeyProvider {
      * Representation mode.
      */
     @objid ("a631037c-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = CollaborationUseStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = CollaborationUseStructuredStyleKeys.REPMODE;
 
     /**
      * Fill color.
      */
     @objid ("a631037f-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = CollaborationUseStructuredStyleKeys.FILLCOLOR;
+    static final StyleKey FILLCOLOR = CollaborationUseStructuredStyleKeys.FILLCOLOR;
 
     /**
      * Fill mode.
      */
     @objid ("a6310382-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = CollaborationUseStructuredStyleKeys.FILLMODE;
+    static final StyleKey FILLMODE = CollaborationUseStructuredStyleKeys.FILLMODE;
 
     /**
      * Line color.
      */
     @objid ("a6310385-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = CollaborationUseStructuredStyleKeys.LINECOLOR;
+    static final StyleKey LINECOLOR = CollaborationUseStructuredStyleKeys.LINECOLOR;
 
     /**
      * Line width.
      */
     @objid ("a6310388-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = CollaborationUseStructuredStyleKeys.LINEWIDTH;
+    static final StyleKey LINEWIDTH = CollaborationUseStructuredStyleKeys.LINEWIDTH;
 
     /**
      * Text font.
      */
     @objid ("a631038b-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = CollaborationUseStructuredStyleKeys.FONT;
+    static final StyleKey FONT = CollaborationUseStructuredStyleKeys.FONT;
 
     /**
      * Text color.
      */
     @objid ("a631038e-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = CollaborationUseStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = CollaborationUseStructuredStyleKeys.TEXTCOLOR;
 
     /**
      * Display name.
      */
     @objid ("a6328a0a-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWNAME = CollaborationUseStructuredStyleKeys.SHOWNAME;
+    static final StyleKey SHOWNAME = CollaborationUseStructuredStyleKeys.SHOWNAME;
 
     /**
      * Display stereotypes.
      */
     @objid ("a6328a0d-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = CollaborationUseStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = CollaborationUseStructuredStyleKeys.SHOWSTEREOTYPES;
 
     /**
      * Display tagged values.
      */
     @objid ("a6328a10-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = CollaborationUseStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = CollaborationUseStructuredStyleKeys.SHOWTAGS;
 
 }

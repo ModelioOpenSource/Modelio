@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.plugin;
 
 import java.util.ArrayList;
@@ -25,8 +24,8 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Execute;
@@ -57,7 +56,7 @@ import org.modelio.vcore.smkernel.mapi.MRef;
 @objid ("6670d446-33f7-11e2-95fe-001ec947c8cc")
 public class DiagramEditorsManager {
     @objid ("98e02547-0d22-44f8-a91b-3b5ee448a64e")
-    private final Map<AbstractDiagram , MPart> editors = new HashMap<>();
+    private final Map<AbstractDiagram, MPart> editors = new HashMap<>();
 
     @objid ("083bd59f-afa8-4a9c-9017-d699c967c57e")
     private static DiagramEditorsManager instance;
@@ -92,6 +91,7 @@ public class DiagramEditorsManager {
         ContextInjectionFactory.inject(newInstance, context);
         context.set(DiagramEditorsManager.class, newInstance);
         context.set(ToolRegistry.class, ContextInjectionFactory.make(ToolRegistry.class, context));
+        
     }
 
     @objid ("6670d448-33f7-11e2-95fe-001ec947c8cc")
@@ -158,6 +158,7 @@ public class DiagramEditorsManager {
             inputPartService.hideInputPart(editor, true);
         }
         this.editors.clear();
+        
     }
 
     @objid ("6f12a531-b16a-428a-b079-a86c9bc0f687")
@@ -167,6 +168,7 @@ public class DiagramEditorsManager {
         // Reload saved opened diagrams
         IPreferenceStore statePrefs = projectService.getStatePreferences();
         StatePersistenceHelper.restoreState(statePrefs, openedProject, eventService);
+        
     }
 
     /**
@@ -190,6 +192,7 @@ public class DiagramEditorsManager {
                 }
                 i++;
             }
+            
         }
 
         @objid ("fa19566f-4c3a-455c-947c-18ed4c85ca94")
@@ -212,12 +215,14 @@ public class DiagramEditorsManager {
                 prefs.setValue(key, new MRef(diagram).toString());
                 i++;
             }
+            
         }
 
         @objid ("bbf0855d-eef7-49f7-8ae4-aeef80fb6dc0")
         private static void openDiagram(GProject openedProject, IModelioEventService eventService, MRef mref) {
             AbstractDiagram diagram = (AbstractDiagram) openedProject.getSession().getModel().findByRef(mref);
-            if (diagram != null) {
+            // Make sure the diagram is still here and belongs to a valid parent
+            if (diagram != null && diagram.getCompositionOwner() != null && diagram.getCompositionOwner().isValid()) {
                 eventService.postAsyncEvent(new IModelioService() {
                     @Override
                     public String getName() {
@@ -225,6 +230,7 @@ public class DiagramEditorsManager {
                     }
                 }, ModelioEvent.EDIT_ELEMENT, diagram);
             }
+            
         }
 
         @objid ("54183ca0-23f3-40e0-baf3-1ea362757dff")
@@ -240,6 +246,7 @@ public class DiagramEditorsManager {
                 }
                 i++;
             }
+            
         }
 
     }

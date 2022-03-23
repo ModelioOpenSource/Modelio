@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.controller.load.menu;
 
 import java.util.Map;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.module.command.ActionLocation;
 import org.modelio.api.module.command.IModuleAction;
-import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2ContextualMenu.Jxbv2CommandRef;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2ContextualMenu;
+import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2ContextualMenu.Jxbv2CommandRef;
 import org.modelio.platform.mda.infra.plugin.MdaInfra;
 import org.modelio.platform.mda.infra.service.impl.IRTModuleAccess;
 
@@ -46,6 +45,7 @@ public class ContextualMenuReader {
                 MdaInfra.LOG.error("Unresolved contextual command ref for '%s' module : '%s'", module.getName(), ref.getRefid());
             }
         }
+        
     }
 
 }

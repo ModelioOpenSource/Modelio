@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.view;
 
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.Focus;
@@ -92,7 +91,7 @@ public class NotesView implements IModelChangeListener, IStatusChangeListener {
     public static int nbinstances = 0;
 
     @objid ("a4ecfa86-487d-47af-9197-b800f3a97d96")
-     NotesPanelProvider panel;
+    NotesPanelProvider panel;
 
     /**
      * Use this with {@link Display#asyncExec(Runnable)} to update the view in the SWT thread.
@@ -107,12 +106,12 @@ public class NotesView implements IModelChangeListener, IStatusChangeListener {
      * Constructor.
      */
     @objid ("ca31b44f-fe5b-4a0e-adfa-92600a4bc6db")
-    public NotesView() {
+    public  NotesView() {
+        
     }
 
     /**
      * Get the notes panel.
-     * 
      * @return the current notes panel.
      */
     @objid ("f5a048c6-3634-409c-bd26-94494f9ce41d")
@@ -122,7 +121,6 @@ public class NotesView implements IModelChangeListener, IStatusChangeListener {
 
     /**
      * Called by the framework to create the view and initialize it.
-     * 
      * @param projectService the project service.
      * @param parent the composite the view must add its content into.
      * @param selection the application selection.
@@ -131,7 +129,8 @@ public class NotesView implements IModelChangeListener, IStatusChangeListener {
      */
     @objid ("9c61c640-b8fb-4c3c-b0d6-62fc01ed9324")
     @PostConstruct
-    public void createControls(IProjectService projectService, Composite parent, @Optional @Named(IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection, @Optional EMenuService theMenuService, IEclipseContext context) {
+    public void createControls(IProjectService projectService, Composite parent, @Optional
+    @Named(IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection, @Optional EMenuService theMenuService, IEclipseContext context) {
         this.parentComposite = parent;
         
         this.panel = new NotesPanelProvider(context, context.get(IActivationService.class));
@@ -148,6 +147,7 @@ public class NotesView implements IModelChangeListener, IStatusChangeListener {
                 onSelectionChange(selection);
             }
         }
+        
     }
 
     /**
@@ -159,6 +159,7 @@ public class NotesView implements IModelChangeListener, IStatusChangeListener {
         if (this.panel != null) {
             this.panel.setFocus();
         }
+        
     }
 
     /**
@@ -169,7 +170,8 @@ public class NotesView implements IModelChangeListener, IStatusChangeListener {
     @objid ("d7a0aaf0-1a32-4e94-89bd-86c0d3391e57")
     @Inject
     @Optional
-    void onProjectOpened(@UIEventTopic(ModelioEventTopics.PROJECT_OPENED) final GProject openedProject, @Optional final IActivationService activationService, @Optional @Named(IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
+    void onProjectOpened(@UIEventTopic(ModelioEventTopics.PROJECT_OPENED) final GProject openedProject, @Optional final IActivationService activationService, @Optional
+    @Named(IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
         if (openedProject == null) {
             return;
         }
@@ -182,6 +184,7 @@ public class NotesView implements IModelChangeListener, IStatusChangeListener {
         if (selection != null) {
             onSelectionChange(selection);
         }
+        
     }
 
     /**
@@ -201,6 +204,7 @@ public class NotesView implements IModelChangeListener, IStatusChangeListener {
                 }
             }
         });
+        
     }
 
     /**
@@ -214,7 +218,6 @@ public class NotesView implements IModelChangeListener, IStatusChangeListener {
     /**
      * This listener is activated when the selection changes in the workbench.<br>
      * Its responsibility is to set the NotesView's current element.
-     * 
      * @param selection the current modelio selection.
      */
     @objid ("5565698e-2918-4551-ba17-8e9893e5e18b")
@@ -226,25 +229,26 @@ public class NotesView implements IModelChangeListener, IStatusChangeListener {
             this.panel.setInput(selection);
             this.panel.getPanel().layout(true, true);
         }
+        
     }
 
-/*
-     * Called when the model is modified (element status modification) (non-Javadoc)
-     * @see
-     * org.modelio.vcore.session.api.model.change.IStatusChangeListener#statusChanged(org.modelio.vcore.session.api.model.change
-     * .IStatusChangeEvent)
-     */
+    /*
+         * Called when the model is modified (element status modification) (non-Javadoc)
+         * @see
+         * org.modelio.vcore.session.api.model.change.IStatusChangeListener#statusChanged(org.modelio.vcore.session.api.model.change
+         * .IStatusChangeEvent)
+         */
     @objid ("a1db0319-7627-4d95-827e-f8ca43551ddb")
     @Override
     public void statusChanged(IStatusChangeEvent event) {
         this.panel.getPanel().getDisplay().asyncExec(this.viewUpdater);
     }
 
-/*
-     * Called when the model is modified (element modification) (non-Javadoc)
-     * @see org.modelio.vcore.session.api.model.change.IModelChangeListener#modelChanged(org.modelio.vcore.session.api.model.change.
-     * IModelChangeEvent)
-     */
+    /*
+         * Called when the model is modified (element modification) (non-Javadoc)
+         * @see org.modelio.vcore.session.api.model.change.IModelChangeListener#modelChanged(org.modelio.vcore.session.api.model.change.
+         * IModelChangeEvent)
+         */
     @objid ("1a43b2b7-5396-4ebd-97e4-0d1ffdc4b37d")
     @Override
     public void modelChanged(IModelChangeEvent event) {
@@ -253,7 +257,6 @@ public class NotesView implements IModelChangeListener, IStatusChangeListener {
 
     /**
      * E4 destructor.
-     * 
      * @param projectService the project service.
      */
     @objid ("e3d6e9c3-ff4c-472d-a0a2-7ea4fd199c75")
@@ -268,12 +271,13 @@ public class NotesView implements IModelChangeListener, IStatusChangeListener {
         if (this.panel != null) {
             this.panel.dispose();
         }
+        
     }
 
     @objid ("8d2c0e8f-04df-423e-8848-015f8dce6fde")
     private class UpdateViewRunnable implements Runnable {
         @objid ("89823f35-9bd2-4689-aaa4-3efabb31b576")
-        public UpdateViewRunnable() {
+        public  UpdateViewRunnable() {
             super();
         }
 
@@ -285,6 +289,7 @@ public class NotesView implements IModelChangeListener, IStatusChangeListener {
                 notesViewPanel.setInput(new StructuredSelection(notesViewPanel.getInput()));
                 notesViewPanel.getPanel().layout(true, true);
             }
+            
         }
 
     }

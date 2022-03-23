@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -53,21 +52,22 @@ public class BrushOptions {
      * Initialize brush options.
      */
     @objid ("7f692948-1dec-11e2-8cad-001ec947c8cc")
-    public BrushOptions() {
+    public  BrushOptions() {
         this.fillColor = ColorConstants.white;
         this.useGradient = false;
+        
     }
 
     /**
      * Copy constructor.
-     * 
      * @param other the original
      */
     @objid ("72bc9d53-5a6f-47c3-b4e2-c5a33ddd33b6")
-    public BrushOptions(BrushOptions other) {
+    public  BrushOptions(BrushOptions other) {
         this.alpha = other.alpha;
         this.fillColor = other.fillColor;
         this.useGradient = other.useGradient;
+        
     }
 
 }

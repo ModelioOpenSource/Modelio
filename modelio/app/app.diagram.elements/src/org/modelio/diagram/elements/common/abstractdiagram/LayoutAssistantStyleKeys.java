@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.abstractdiagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -56,6 +55,6 @@ public class LayoutAssistantStyleKeys extends ElementsAbstractStyleKeyProvider {
      */
     @objid ("f6a39ff7-df7b-4b40-9872-80505fee8f3c")
     public static final StyleKey AVOIDBENDDPOINTS = createStyleKey("LAYOUTASSISTANT_AVOIDBENDDPOINTS",
-                                                           Boolean.class);
+                                                               Boolean.class);
 
 }

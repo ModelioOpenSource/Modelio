@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.viewer.model;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -60,7 +59,6 @@ public interface INatTableViewerContext {
 
     /**
      * Get the core session model access.
-     * 
      * @return the IModel or null if there is no session.
      */
     @objid ("b1622837-ac57-47bb-bba4-af81710925ad")

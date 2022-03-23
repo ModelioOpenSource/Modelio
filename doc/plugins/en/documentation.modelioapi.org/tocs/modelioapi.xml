@@ -160,6 +160,7 @@
 	<topic href="" label="org.modelio.api.module.context.configuration" >
 		<topic href="html/org/modelio/api/module/context/configuration/IConfigParamValidator.html" label="IConfigParamValidator" />
 		<topic href="html/org/modelio/api/module/context/configuration/IModuleAPIConfiguration.html" label="IModuleAPIConfiguration" />
+		<topic href="html/org/modelio/api/module/context/configuration/IModuleConfigurationListener.html" label="IModuleConfigurationListener" />
 		<topic href="html/org/modelio/api/module/context/configuration/IModuleUserConfiguration.html" label="IModuleUserConfiguration" />
 	</topic>
 	<topic href="" label="org.modelio.api.module.context.i18n" >

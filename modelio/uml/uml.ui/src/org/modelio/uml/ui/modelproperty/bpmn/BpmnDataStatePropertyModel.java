@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import java.util.List;
@@ -60,19 +59,18 @@ public class BpmnDataStatePropertyModel extends AbstractPropertyModel<BpmnDataSt
 
     /**
      * Create a new <i>BpmnDataState</i> data model from a <i>BpmnDataState</i> .
-     * 
      * @param theEditedElement the model to edit.
      * @param mdaExpert the MDA expert to handle Methodological links.
      */
     @objid ("c890c40a-aca4-4125-9f2a-dcb0876b4117")
-    public BpmnDataStatePropertyModel(BpmnDataState theEditedElement, IMdaExpert mdaExpert) {
+    public  BpmnDataStatePropertyModel(BpmnDataState theEditedElement, IMdaExpert mdaExpert) {
         super(theEditedElement);
         this.mdaExpert = mdaExpert;
+        
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("123fa214-bee1-413d-88e0-845b0542a159")
@@ -83,7 +81,6 @@ public class BpmnDataStatePropertyModel extends AbstractPropertyModel<BpmnDataSt
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("5634c352-d004-4778-820c-87d28a6a747e")
@@ -96,7 +93,6 @@ public class BpmnDataStatePropertyModel extends AbstractPropertyModel<BpmnDataSt
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -120,6 +116,7 @@ public class BpmnDataStatePropertyModel extends AbstractPropertyModel<BpmnDataSt
         default:
             return null;
         }
+        
     }
 
     /**
@@ -128,7 +125,6 @@ public class BpmnDataStatePropertyModel extends AbstractPropertyModel<BpmnDataSt
      * This type will be used to choose an editor and a renderer for each cell of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -165,13 +161,13 @@ public class BpmnDataStatePropertyModel extends AbstractPropertyModel<BpmnDataSt
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -199,6 +195,7 @@ public class BpmnDataStatePropertyModel extends AbstractPropertyModel<BpmnDataSt
         default:
             return;
         }
+        
     }
 
 }

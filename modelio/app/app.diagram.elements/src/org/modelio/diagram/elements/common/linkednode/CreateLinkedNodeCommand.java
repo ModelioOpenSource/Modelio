@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.linkednode;
 
 import java.util.ArrayList;
@@ -27,8 +26,8 @@ import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.EditPart;
-import org.eclipse.gef.EditPartViewer.Conditional;
 import org.eclipse.gef.EditPartViewer;
+import org.eclipse.gef.EditPartViewer.Conditional;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.requests.CreateConnectionRequest;
@@ -88,11 +87,10 @@ public class CreateLinkedNodeCommand extends Command {
 
     /**
      * Creates a node creation command.
-     * 
      * @param context Details on the MObject and/or the node to create
      */
     @objid ("7eb658f4-1dec-11e2-8cad-001ec947c8cc")
-    public CreateLinkedNodeCommand(ModelioCreationContext context) {
+    public  CreateLinkedNodeCommand(ModelioCreationContext context) {
         this.context = context;
     }
 
@@ -137,11 +135,11 @@ public class CreateLinkedNodeCommand extends Command {
             path.setPathData(new ArrayList<>());
             gmlink.setLayoutData(path);
         }
+        
     }
 
     /**
      * Set the node inside which the node will be created.
-     * 
      * @param destNode The node in which the node will be created.
      */
     @objid ("7eb658fb-1dec-11e2-8cad-001ec947c8cc")
@@ -151,7 +149,6 @@ public class CreateLinkedNodeCommand extends Command {
 
     /**
      * Set the node location.
-     * 
      * @param location The location in absolute coordinates.
      */
     @objid ("7eb658ff-1dec-11e2-8cad-001ec947c8cc")
@@ -161,7 +158,6 @@ public class CreateLinkedNodeCommand extends Command {
 
     /**
      * set the node size.
-     * 
      * @param size The size of the node to create
      */
     @objid ("7eb8bb3e-1dec-11e2-8cad-001ec947c8cc")
@@ -171,7 +167,6 @@ public class CreateLinkedNodeCommand extends Command {
 
     /**
      * Set the parent element independently from the parent node.
-     * 
      * @param parentElement the parent element.
      */
     @objid ("7eb8bb44-1dec-11e2-8cad-001ec947c8cc")
@@ -183,7 +178,6 @@ public class CreateLinkedNodeCommand extends Command {
      * Set the node on which the created node will be linked.
      * <p>
      * Set the parent element to be the represented element of the source node.
-     * 
      * @param source the source edit part.
      */
     @objid ("7eb8bb48-1dec-11e2-8cad-001ec947c8cc")
@@ -191,11 +185,11 @@ public class CreateLinkedNodeCommand extends Command {
         this.sourceEditPart = source;
         this.sourceNode = (IGmLinkable) this.sourceEditPart.getModel();
         this.parentElement = this.sourceNode.getRelatedElement();
+        
     }
 
     /**
      * Create and initialize the model element.
-     * 
      * @param modelFactory the model factory.
      * @return the created model element.
      */
@@ -246,11 +240,11 @@ public class CreateLinkedNodeCommand extends Command {
         } else {
             return true;
         }
+        
     }
 
     /**
      * Set the source anchor model where the link starts.
-     * 
      * @param sourceAnchorModel the source anchor model.
      */
     @objid ("7eb8bb5a-1dec-11e2-8cad-001ec947c8cc")
@@ -288,7 +282,6 @@ public class CreateLinkedNodeCommand extends Command {
 
     /**
      * Find in the viewer the right edit part to anchor the connection to.
-     * 
      * @param request a connection creation request
      * @return the edit part to which the node link must be anchored to.
      */

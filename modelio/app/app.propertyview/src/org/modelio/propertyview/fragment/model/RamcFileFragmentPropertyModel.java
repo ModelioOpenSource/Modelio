@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.propertyview.fragment.model;
 
 import java.io.IOException;
@@ -40,11 +39,10 @@ public class RamcFileFragmentPropertyModel extends AbstractFragmentPropertyModel
 
     /**
      * Create a new <i>RamcFileFragment</i> data model from an <i>RamcFileFragment</i>.
-     * 
      * @param fragment the fragment of which properties will be display
      */
     @objid ("785f6be6-0396-4df5-b759-c5e8601b4a28")
-    public RamcFileFragmentPropertyModel(RamcFileFragment fragment) {
+    public  RamcFileFragmentPropertyModel(RamcFileFragment fragment) {
         super(fragment);
         IModelComponentInfos infos;
         try {
@@ -54,11 +52,11 @@ public class RamcFileFragmentPropertyModel extends AbstractFragmentPropertyModel
         } catch (IOException e) {
             PropertyViewPlugin.LOG.error(e);
         }
+        
     }
 
     /**
      * Get fragment version
-     * 
      * @return the fragment revision
      */
     @objid ("c743a3f0-382d-44d1-b492-41e7a2b231c8")
@@ -68,7 +66,6 @@ public class RamcFileFragmentPropertyModel extends AbstractFragmentPropertyModel
 
     /**
      * Set fragment version
-     * 
      * @param version the fragment version
      */
     @objid ("71ae9e75-f041-4b0b-9982-5ab76fcf6c0b")

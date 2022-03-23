@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.astyle;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -27,7 +26,6 @@ import org.modelio.api.plugin.Api;
 class AStyleInterface {
     /**
      * Call the AStyleMain function in Artistic Style.
-     * 
      * @param textIn A string containing the source code to be formatted.
      * @param options A string of options to Artistic Style.
      * @return A String containing the formatted source from Artistic Style, or an empty string on error.
@@ -48,7 +46,6 @@ class AStyleInterface {
 
     /**
      * Call the AStyleGetVersion function in Artistic Style.
-     * 
      * @return A String containing the formatted source from Artistic Style, or an empty string on error.
      */
     @objid ("005e8012-13d7-1f63-9ca6-001e4fea2d8b")
@@ -65,7 +62,6 @@ class AStyleInterface {
 
     /**
      * Calls the AStyleMain function in Artistic Style.
-     * 
      * @param textIn A string containing the source code to be formatted.
      * @param options A string of options to Artistic Style.
      * @return A String containing the formatted source from Artistic Style.
@@ -75,7 +71,6 @@ class AStyleInterface {
 
     /**
      * Calls the AStyleGetVersion function in Artistic Style.
-     * 
      * @return A String containing the version number of Artistic Style.
      */
     @objid ("005ec068-13d7-1f63-9ca6-001e4fea2d8b")
@@ -83,7 +78,6 @@ class AStyleInterface {
 
     /**
      * Default error handler used by Artistic Style.
-     * 
      * @param id The error id.
      * @param str The error message.
      */
@@ -91,18 +85,17 @@ class AStyleInterface {
     public void ErrorHandler(final int id, final String str) {
         Api.LOG.error(str);
     }
-
-
 static {
-        /**
-         * This code is in charge of loading the native libraries required by hades.mda. The chosen loading mechanism is
-         * based of the Bundle-NativeCode clause in the plugin manifest where loaded DLLs are declared along with their
-         * supported platform and os.
-         */
-        try {
-            System.loadLibrary("AStylej");
-        } catch (UnsatisfiedLinkError x) {
-            Api.LOG.warning("  - loading 'AStylej' failed, reason is " + x.getMessage());
+            /**
+             * This code is in charge of loading the native libraries required by hades.mda. The chosen loading mechanism is
+             * based of the Bundle-NativeCode clause in the plugin manifest where loaded DLLs are declared along with their
+             * supported platform and os.
+             */
+            try {
+                System.loadLibrary("AStylej");
+            } catch (UnsatisfiedLinkError x) {
+                Api.LOG.warning("  - loading 'AStylej' failed, reason is " + x.getMessage());
+            }
         }
-    }
+    
 }

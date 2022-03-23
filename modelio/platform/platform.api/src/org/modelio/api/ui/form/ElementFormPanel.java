@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.form;
 
 import java.beans.PropertyChangeListener;
@@ -122,18 +121,18 @@ public class ElementFormPanel implements IPanelProvider {
      * Build a new instance of {@link ElementFormPanel}.
      * <p>
      * The fields will apply their value immediately on leaving.
-     * 
      * @param moduleContext a module context to get modelio services and sessuin from.
      * @param fieldFactory the factory to create form fields with.
      * @since 3.8 : a module context is now needed.
      */
     @objid ("91e5b885-b238-45db-ac3b-78ddfa5b154c")
-    public ElementFormPanel(IModuleContext moduleContext, IFieldFactory fieldFactory) {
+    public  ElementFormPanel(IModuleContext moduleContext, IFieldFactory fieldFactory) {
         this.moduleContext = Objects.requireNonNull(moduleContext);
         this.fieldFactory = Objects.requireNonNull(fieldFactory);
         this.autoApply = true;
         
         this.modelListener = this::onModelChanged;
+        
     }
 
     @objid ("d0e03d50-cfc5-492d-b207-fb67e641d333")
@@ -155,11 +154,11 @@ public class ElementFormPanel implements IPanelProvider {
         for (IField f : this.fields) {
             f.apply();
         }
+        
     }
 
     /**
      * Tells whether {@link #apply()} may be called safely.
-     * 
      * @return true only if all fields have valid values.
      * @since 3.8 Valkyrie
      */
@@ -210,12 +209,12 @@ public class ElementFormPanel implements IPanelProvider {
         this.scrolledForm.dispose();
         this.scrolledForm = null;
         // The remaining is to be made in the dispose listener, see 'createPanel'
+        
     }
 
     /**
      * Get the first element in the selection that matches the given type
      * @param <T> the required type
-     * 
      * @param selection the selection object
      * @param cls the required type class
      * @return the first matching element or null.
@@ -247,7 +246,6 @@ public class ElementFormPanel implements IPanelProvider {
 
     /**
      * @since 3.7.1
-     * 
      * @return whether the form header is displayed.
      */
     @objid ("3d73403e-0e2d-484a-a1db-5ba064247c88")
@@ -271,7 +269,6 @@ public class ElementFormPanel implements IPanelProvider {
      * Set whether the field will apply their value when leaving it.
      * <p>
      * If called with false {@link #apply()} must be called in order to apply the field values.
-     * 
      * @param autoApply true to apply values immediately, false to manually apply them.
      * @return this instance
      */
@@ -283,7 +280,6 @@ public class ElementFormPanel implements IPanelProvider {
 
     /**
      * Display or hide the form header to display the edited element name or gain place.
-     * 
      * @param headerVisible whether the form header is displayed.
      * @since 3.7.1
      */
@@ -352,13 +348,13 @@ public class ElementFormPanel implements IPanelProvider {
                 delayUpdateForm(effectiveInput);
             }
         });
+        
     }
 
     /**
      * Create a complete form for an element.
      * <p/>
      * Fields should be filled after calling this method.
-     * 
      * @param parent a widget which will be the parent of the new field instance (cannot be null)
      * @param formInput the element to build the form for.
      */
@@ -406,11 +402,11 @@ public class ElementFormPanel implements IPanelProvider {
         // Install field change listener that will auto apply the value if in auto apply mode
         // and fire panel listeners.
         installFieldListeners();
+        
     }
 
     /**
      * Ensure the {@link IField field} has a {@link GridData} as layout data, creating one in the orher case.
-     * 
      * @param aField a form field
      */
     @objid ("6cb323a0-5622-4e99-bee6-2a9b7e8ef304")
@@ -423,13 +419,13 @@ public class ElementFormPanel implements IPanelProvider {
             ld_name.widthHint = 600;
             composite.setLayoutData(ld_name);
         }
+        
     }
 
     /**
      * {@link IModelChangeListener} callback called on model change event.
      * <p>
      * Refresh and reset fields from the model. This method could be redefined by sub classes.
-     * 
      * @param session the modeling session
      * @param event the event.
      */
@@ -451,11 +447,11 @@ public class ElementFormPanel implements IPanelProvider {
                 throw e;
             }
         }
+        
     }
 
     /**
      * Add a listener on the property page updating its content as soon as the {@link SWT#Show} event is triggered.
-     * 
      * @param formInput the element to use as input for the form.
      */
     @objid ("6f41848a-92a5-4800-9a9d-d23c44f77d6d")
@@ -476,6 +472,7 @@ public class ElementFormPanel implements IPanelProvider {
         };
         
         this.scrolledForm.addListener(SWT.Show, this.formUpdater);
+        
     }
 
     @objid ("226c833c-b29c-4d9e-b4e7-86110c3340fa")
@@ -511,6 +508,7 @@ public class ElementFormPanel implements IPanelProvider {
         for (IField f : this.fields) {
             f.addPropertyChangeListener(listener);
         }
+        
     }
 
     /**
@@ -521,11 +519,11 @@ public class ElementFormPanel implements IPanelProvider {
         for (IField field : this.fields) {
             field.refresh();
         }
+        
     }
 
     /**
      * Update the form's contents.
-     * 
      * @param formInput the element to use as input for the form.
      */
     @objid ("1650ca22-065a-4869-9cb8-59a1c2ea5c3d")
@@ -580,6 +578,7 @@ public class ElementFormPanel implements IPanelProvider {
         // Force form's redraw
         this.scrolledForm.setLayoutDeferred(false);
         this.scrolledForm.setRedraw(true);
+        
     }
 
 }

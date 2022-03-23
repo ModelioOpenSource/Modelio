@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.api.impl.model;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,7 +30,7 @@ public class DefaultNameService implements IDefaultNameService {
     private IElementNamer elementNamer;
 
     @objid ("d40d2f95-35ff-491d-9e79-1e5a905c5c95")
-    public DefaultNameService(IElementNamer elementNamer) {
+    public  DefaultNameService(IElementNamer elementNamer) {
         this.elementNamer = elementNamer;
     }
 

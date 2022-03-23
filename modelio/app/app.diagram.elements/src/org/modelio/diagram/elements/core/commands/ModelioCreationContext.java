@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.commands;
 
 import java.util.HashMap;
@@ -79,26 +78,25 @@ public class ModelioCreationContext implements CreationFactory {
 
     /**
      * Creates a {@link ModelioCreationContext} that creates an MObject and a GmObject.
-     * 
      * @param metaclass The metaclass name
      * @param dependency The name of the dependency
      * @param obstereotype An optional stereotype, may be null.
      */
     @objid ("7f4303f3-1dec-11e2-8cad-001ec947c8cc")
-    public ModelioCreationContext(MClass metaclass, MDependency dependency, Stereotype obstereotype) {
+    public  ModelioCreationContext(MClass metaclass, MDependency dependency, Stereotype obstereotype) {
         this.metaclass = metaclass;
         this.dependency = dependency;
         this.stereotype = obstereotype;
         this.elementToUnmask = null;
+        
     }
 
     /**
      * Creates a {@link ModelioCreationContext} that unmask an already existing MObject in the diagram.
-     * 
      * @param elementToUnmask The element to unmask
      */
     @objid ("7f4565f9-1dec-11e2-8cad-001ec947c8cc")
-    public ModelioCreationContext(MObject elementToUnmask) {
+    public  ModelioCreationContext(MObject elementToUnmask) {
         this.elementToUnmask = elementToUnmask;
         this.metaclass = elementToUnmask.getMClass();
         
@@ -120,6 +118,7 @@ public class ModelioCreationContext implements CreationFactory {
                 this.stereotype = extension.get(0);
             }
         }
+        
     }
 
     /**
@@ -127,10 +126,9 @@ public class ModelioCreationContext implements CreationFactory {
      * <p>
      * It is recommended because safer to use this methog instead of casting
      * {@link CreateRequest#getNewObject()} to <code>ModelioCreationContext</code>.
-     * 
      * @param req the creation request
      * @return the creation context.
-     * @throws java.lang.ClassCastException if the request is not a <code>ModelioCreationContext</code> request
+     * @throws ClassCastException if the request is not a <code>ModelioCreationContext</code> request
      */
     @objid ("f4243304-450b-48cb-a9e0-ddf9e53b8752")
     public static ModelioCreationContext fromRequest(CreateRequest req) throws ClassCastException {
@@ -139,7 +137,6 @@ public class ModelioCreationContext implements CreationFactory {
 
     /**
      * Get the name of the dependency used to add the element to its parent.
-     * 
      * @return The name of the dependency.
      */
     @objid ("7f4565fd-1dec-11e2-8cad-001ec947c8cc")
@@ -152,7 +149,6 @@ public class ModelioCreationContext implements CreationFactory {
      * Get the {@link MObject} to unmask.
      * <p>
      * If null, the MObject must be created.
-     * 
      * @return The model element to unmask.
      */
     @objid ("7f456602-1dec-11e2-8cad-001ec947c8cc")
@@ -162,7 +158,6 @@ public class ModelioCreationContext implements CreationFactory {
 
     /**
      * Get the Java interface implemented by the {@link #getMetaclass() metaclass}.
-     * 
      * @return the metaclass java interface.
      */
     @objid ("8c74170a-991a-481b-8ebe-a0a66e6d87bf")
@@ -172,7 +167,6 @@ public class ModelioCreationContext implements CreationFactory {
 
     /**
      * Get the metaclass name of the MObject to create.
-     * 
      * @return the metaclass name.
      */
     @objid ("7f456607-1dec-11e2-8cad-001ec947c8cc")
@@ -220,7 +214,6 @@ public class ModelioCreationContext implements CreationFactory {
 
     /**
      * Get the creation custom properties.
-     * 
      * @return the creation properties or <tt>null</tt> if no property was defined.
      */
     @objid ("7f456616-1dec-11e2-8cad-001ec947c8cc")
@@ -230,7 +223,6 @@ public class ModelioCreationContext implements CreationFactory {
 
     /**
      * Get the stereotype to apply to the created element.
-     * 
      * @return the stereotype to apply.
      */
     @objid ("7f45661e-1dec-11e2-8cad-001ec947c8cc")
@@ -247,7 +239,6 @@ public class ModelioCreationContext implements CreationFactory {
      * It is recommended because safer to use this methog instead of comparing
      * {@link CreateRequest#getNewObject()} class to <code>ModelioCreationContext</code>.
      * <p>
-     * 
      * @param req the creation request
      * @return the creation context or <i>null</i>.
      */
@@ -259,11 +250,11 @@ public class ModelioCreationContext implements CreationFactory {
         } else {
             return null;
         }
+        
     }
 
     /**
      * Set the creation properties.
-     * 
      * @param properties the creation properties.
      */
     @objid ("7f456623-1dec-11e2-8cad-001ec947c8cc")
@@ -273,7 +264,6 @@ public class ModelioCreationContext implements CreationFactory {
 
     /**
      * Add a custom property value.
-     * 
      * @param key The property key
      * @param value The property value.
      */
@@ -288,7 +278,6 @@ public class ModelioCreationContext implements CreationFactory {
      * <p>
      * This is a convenience to avoid testing {@link #getDependency()} against <i>null</i>
      * for code that use the dependency name.
-     * 
      * @return the dependency name or <i>null</i>.
      */
     @objid ("5c52029c-def1-4d7e-b54c-43c788e53278")
@@ -298,6 +287,7 @@ public class ModelioCreationContext implements CreationFactory {
         } else {
             return getDependency().getName();
         }
+        
     }
 
 }

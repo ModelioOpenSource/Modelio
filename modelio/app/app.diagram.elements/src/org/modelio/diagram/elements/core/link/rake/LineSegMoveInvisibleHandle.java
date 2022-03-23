@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.rake;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,14 +35,12 @@ import org.eclipse.gef.tools.ConnectionBendpointTracker;
 @objid ("805ebb91-1dec-11e2-8cad-001ec947c8cc")
 public class LineSegMoveInvisibleHandle extends BendpointCreationInvisibleHandle {
     /**
-     * Creates a new BendpointCreationHandle, sets its owner to <code>owner</code> and its index to <code>index</code>,
-     * and sets its locator to a new {@link org.eclipse.draw2d.MidpointLocator}.
-     * 
+     * Creates a new BendpointCreationHandle, sets its owner to <code>owner</code> and its index to <code>index</code>, and sets its locator to a new {@link org.eclipse.draw2d.MidpointLocator}.
      * @param owner the moved connection
      * @param index the index of the moved bend point
      */
     @objid ("805ebb93-1dec-11e2-8cad-001ec947c8cc")
-    public LineSegMoveInvisibleHandle(ConnectionEditPart owner, int index) {
+    public  LineSegMoveInvisibleHandle(ConnectionEditPart owner, int index) {
         super(owner, index);
         
         PointList points = ((Connection) owner.getFigure()).getPoints();
@@ -54,11 +51,11 @@ public class LineSegMoveInvisibleHandle extends BendpointCreationInvisibleHandle
         } else {
             setCursor(Cursors.SIZENS);
         }
+        
     }
 
     /**
      * Creates and returns a new {@link ConnectionBendpointTracker}.
-     * 
      * @return the new ConnectionBendpointTracker
      */
     @objid ("805ebb9a-1dec-11e2-8cad-001ec947c8cc")
@@ -68,6 +65,7 @@ public class LineSegMoveInvisibleHandle extends BendpointCreationInvisibleHandle
         tracker = new ConnectionBendpointTracker((ConnectionEditPart) getOwner(), getIndex());
         tracker.setType(RequestConstants.REQ_CREATE_BENDPOINT);
         tracker.setDefaultCursor(getCursor());
+        tracker.setDisabledCursor(Cursors.NO);
         return tracker;
     }
 

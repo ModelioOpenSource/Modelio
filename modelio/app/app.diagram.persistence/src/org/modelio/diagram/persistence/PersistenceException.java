@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.persistence;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,24 +36,22 @@ public class PersistenceException extends RuntimeException {
      * <p>
      * The detail message associated with <code>cause</code> is automatically incorporated in this exception's detail
      * message.
-     * 
      * @param cause the cause (which is saved for later retrieval by the {@link #getCause()} method). (A <tt>null</tt>
      * value is not permitted.)
      */
     @objid ("cb7049d3-186f-11e2-92d2-001ec947c8cc")
-    public PersistenceException(Throwable cause) {
+    public  PersistenceException(Throwable cause) {
         super(cause.getLocalizedMessage(), cause);
     }
 
     /**
      * Constructs a new persistence exception with the specified detail message. The cause is not initialized, and may
      * subsequently be initialized by a call to {@link #initCause}.
-     * 
      * @param message the detail message. The detail message is saved for later retrieval by the {@link #getMessage()}
      * method.
      */
     @objid ("cb7049d7-186f-11e2-92d2-001ec947c8cc")
-    public PersistenceException(String message) {
+    public  PersistenceException(String message) {
         super(message);
     }
 
@@ -63,13 +60,12 @@ public class PersistenceException extends RuntimeException {
      * <p>
      * Note that the detail message associated with <code>cause</code> is <i>not</i> automatically incorporated in this
      * runtime exception's detail message.
-     * 
      * @param message the detail message (which is saved for later retrieval by the {@link #getMessage()} method).
      * @param cause the cause (which is saved for later retrieval by the {@link #getCause()} method). (A <tt>null</tt>
      * value is permitted, and indicates that the cause is nonexistent or unknown.)
      */
     @objid ("cb7049db-186f-11e2-92d2-001ec947c8cc")
-    public PersistenceException(String message, Exception cause) {
+    public  PersistenceException(String message, Exception cause) {
         super(message, cause);
     }
 

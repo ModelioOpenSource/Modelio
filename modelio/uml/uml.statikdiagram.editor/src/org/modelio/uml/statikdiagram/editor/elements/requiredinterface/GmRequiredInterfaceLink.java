@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.requiredinterface;
 
 import java.util.ArrayList;
@@ -64,30 +63,30 @@ public class GmRequiredInterfaceLink extends GmLink {
     private static final int MAJOR_VERSION = 0;
 
     @objid ("63a0e86c-5bd5-11e2-9e33-00137282c51b")
-     static final RequiredInterfaceStyleKeys SIMPLE_KEYS = new RequiredInterfaceStyleKeys();
+    static final RequiredInterfaceStyleKeys SIMPLE_KEYS = new RequiredInterfaceStyleKeys();
 
     /**
      * Constructor that must be used for deserialization only.
      */
     @objid ("36777c7e-55b7-11e2-877f-002564c97630")
-    public GmRequiredInterfaceLink() {
+    public  GmRequiredInterfaceLink() {
         // Nothing to do.
     }
 
     /**
      * Creates a new GmNoteLink
-     * 
      * @param diagram The diagram containing the link.
      * @param el the represented element, may be null.
      * @param relatedRef a reference to the represented Note.
      */
     @objid ("367902d9-55b7-11e2-877f-002564c97630")
-    public GmRequiredInterfaceLink(IGmDiagram diagram, final RequiredInterface el, MRef relatedRef) {
+    public  GmRequiredInterfaceLink(IGmDiagram diagram, final RequiredInterface el, MRef relatedRef) {
         super(diagram, relatedRef);
         this.element = el;
         
         addExtension(new GmRequiredInterfaceLabel(diagram, el, relatedRef),
                      ROLE_MAIN_LABEL, new GmFractionalConnectionLocator(0.9, 0, -25));
+        
     }
 
     @objid ("367902e6-55b7-11e2-877f-002564c97630")
@@ -105,6 +104,7 @@ public class GmRequiredInterfaceLink extends GmLink {
         } else {
             return connectors.iterator().next();
         }
+        
     }
 
     @objid ("367902f3-55b7-11e2-877f-002564c97630")
@@ -133,7 +133,6 @@ public class GmRequiredInterfaceLink extends GmLink {
 
     /**
      * Get the stereotype image.
-     * 
      * @return the stereotype image.
      */
     @objid ("36790314-55b7-11e2-877f-002564c97630")
@@ -146,11 +145,11 @@ public class GmRequiredInterfaceLink extends GmLink {
     public void readLink(IDiagramReader in) {
         super.readLink(in);
         this.element = (RequiredInterface) resolveRef(this.getRepresentedRef());
+        
     }
 
     /**
      * Get all connections to provided interfaces in the model.
-     * 
      * @return all provided interface connections.
      */
     @objid ("367a8981-55b7-11e2-877f-002564c97630")
@@ -165,7 +164,6 @@ public class GmRequiredInterfaceLink extends GmLink {
 
     /**
      * Get the lollipop connection between this required interface and connected provided interfaces.
-     * 
      * @return the lollipop connection
      */
     @objid ("367a898a-55b7-11e2-877f-002564c97630")
@@ -176,6 +174,7 @@ public class GmRequiredInterfaceLink extends GmLink {
         } else {
             return null;
         }
+        
     }
 
     @objid ("367a898e-55b7-11e2-877f-002564c97630")
@@ -185,6 +184,7 @@ public class GmRequiredInterfaceLink extends GmLink {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmRequiredInterfaceLink.", GmRequiredInterfaceLink.MINOR_VERSION);
+        
     }
 
     @objid ("367a8994-55b7-11e2-877f-002564c97630")

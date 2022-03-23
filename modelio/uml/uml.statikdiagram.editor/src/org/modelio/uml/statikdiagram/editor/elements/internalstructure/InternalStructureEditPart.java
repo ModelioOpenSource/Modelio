@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.internalstructure;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -55,6 +54,7 @@ public class InternalStructureEditPart extends AbstractNodeEditPart {
     protected void addChildVisual(final EditPart childEditPart, final int index) {
         IFigure child = ((GraphicalEditPart) childEditPart).getFigure();
         getContentPane().add(child, BorderLayout.CENTER, index);
+        
     }
 
     @objid ("3595a7c3-55b7-11e2-877f-002564c97630")
@@ -83,6 +83,7 @@ public class InternalStructureEditPart extends AbstractNodeEditPart {
         if (model.getLayoutData() != null) {
             getFigure().getParent().setConstraint(getFigure(), model.getLayoutData());
         }
+        
     }
 
     @objid ("9dd05912-c68e-4c47-95a7-daf1b03a1d59")
@@ -91,6 +92,7 @@ public class InternalStructureEditPart extends AbstractNodeEditPart {
         super.createEditPolicies();
         
         installEditPolicy(EditPolicy.LAYOUT_ROLE, new AutoExpandLayoutEditPolicy());
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.copy;
 
 import java.io.ByteArrayInputStream;
@@ -49,7 +48,8 @@ public class PasteElementTransfer extends ByteArrayTransfer {
      * Avoid explicit instantiation
      */
     @objid ("6af30017-bb84-483e-babd-e996f39d91a0")
-    private PasteElementTransfer() {
+    private  PasteElementTransfer() {
+        
     }
 
     /**
@@ -79,6 +79,7 @@ public class PasteElementTransfer extends ByteArrayTransfer {
                 CoreUi.LOG.error(e);
             }
         }
+        
     }
 
     @objid ("7a34484f-4414-4d6e-8df5-2e7354844403")

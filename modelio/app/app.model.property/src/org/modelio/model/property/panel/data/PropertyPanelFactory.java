@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel.data;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,6 @@ import org.modelio.model.property.panel.data.standard.StandardPropertyPanel;
 public class PropertyPanelFactory {
     /**
      * Create a panel displaying standard UML properties.
-     * 
      * @param parent the graphical parent.
      * @param element the element to display in the panel.
      * @return a new instance of IPropertyPanel.

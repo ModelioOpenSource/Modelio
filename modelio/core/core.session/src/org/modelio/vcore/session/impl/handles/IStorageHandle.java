@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.handles;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,7 +46,6 @@ public interface IStorageHandle {
 
     /**
      * Load an attribute value
-     * 
      * @param obj a model object
      * @param att the model attribute to load
      * @param data the model object data
@@ -57,7 +55,6 @@ public interface IStorageHandle {
 
     /**
      * Ensure the given dependency is loaded for the given object.
-     * 
      * @param obj An object
      * @param data The object data, to avoid calling {@link SmObjectImpl#getData()}.
      * @param dep the dependency to load.
@@ -67,7 +64,6 @@ public interface IStorageHandle {
 
     /**
      * Force loading a model dependency
-     * 
      * @param obj a model object
      * @param dep a model dependency
      * @param data the model object data to fill
@@ -77,7 +73,6 @@ public interface IStorageHandle {
 
     /**
      * Called when an object relation is modified
-     * 
      * @param data The object data, to avoid calling {@link SmObjectImpl#getData()}.
      * @param obj An object
      * @param dep the modified metamodel relation
@@ -88,7 +83,6 @@ public interface IStorageHandle {
 
     /**
      * Called when an object relation modification is rollbacked.
-     * 
      * @param obj An object
      * @param dep the modified metamodel relation
      * @param dep_val the object to remove

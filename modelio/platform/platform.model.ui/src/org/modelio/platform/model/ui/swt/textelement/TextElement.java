@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.textelement;
 
 import java.util.ArrayList;
@@ -91,19 +90,20 @@ public class TextElement {
     /**
      * Indicates that this TextElement should accept and propose null value
      */
+    
     @mdl.prop
     @objid ("6fb3cc5f-ef1e-4821-91d2-55ad79ad0c47")
     private boolean acceptNullValue;
 
     @mdl.propgetter
     public boolean isAcceptNullValue() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.acceptNullValue;
     }
 
     @mdl.propsetter
     public void setAcceptNullValue(boolean value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.acceptNullValue = value;
     }
 
@@ -173,9 +173,10 @@ public class TextElement {
      * @param style
      */
     @objid ("ac31aa48-ea31-407c-88c2-78c181314718")
-    public TextElement(Composite parent, int style, boolean acceptNullValue) {
+    public  TextElement(Composite parent, int style, boolean acceptNullValue) {
         this.text = createControl(parent, style);
         this.acceptNullValue = acceptNullValue;
+        
     }
 
     /**
@@ -196,9 +197,9 @@ public class TextElement {
         return this.filter;
     }
 
-/*
-     * Get the list of the accepted metaclasses for the elements. Add metaclasses to this list to complete it.
-     */
+    /*
+         * Get the list of the accepted metaclasses for the elements. Add metaclasses to this list to complete it.
+         */
     @objid ("40e35022-8e04-4e24-8070-55645c40638b")
     public List<MClass> getAcceptedMetaclasses() {
         return this.metaclasses;
@@ -218,6 +219,7 @@ public class TextElement {
                 this.completionDriver = null;
             }
         }
+        
     }
 
     /**
@@ -234,6 +236,7 @@ public class TextElement {
                 this.pickingDriver = null;
             }
         }
+        
     }
 
     /**
@@ -248,6 +251,7 @@ public class TextElement {
         DropTarget target = new DropTarget(this.text, operations);
         target.setTransfer(types);
         target.addDropListener(dropListener);
+        
     }
 
     @objid ("2a8ae7f7-6ac5-4c3e-bd18-9e112a3e5dc1")
@@ -259,6 +263,7 @@ public class TextElement {
     public void setValue(MObject value) {
         this.value = value;
         this.text.setText((value != null) ? value.getName() : "");
+        
     }
 
     @objid ("14b7ac79-01f0-496d-942c-eb508f6eb16e")
@@ -284,7 +289,6 @@ public class TextElement {
      * Create and configure the wrapped text control
      * @param parent
      * @param style
-     * 
      * @return the configured Text control
      */
     @objid ("410d2704-bee0-49ea-946f-187b050fcfe1")
@@ -306,6 +310,7 @@ public class TextElement {
         for (final ITextElementSelectionListener listener : this.listeners) {
             listener.selectedElementChanged(oldElement, newElement);
         }
+        
     }
 
     /**
@@ -351,6 +356,7 @@ public class TextElement {
         
         }
         validate(true);
+        
     }
 
     @objid ("b3760393-31e1-4d15-979b-850072a78afa")
@@ -367,6 +373,7 @@ public class TextElement {
             this.tooltip.hide();
             this.tooltip = null;
         }
+        
     }
 
     /**
@@ -384,10 +391,11 @@ public class TextElement {
             
             final Rectangle imageRect = UIImages.ASSIST.getBounds();
             gc.drawImage(UIImages.ASSIST, clip.x + clip.width - imageRect.width, clip.y);
+            
         }
 
         @objid ("cb8668ea-e904-44d4-919c-175e313a18d3")
-        public TextElementPaintListener() {
+        public  TextElementPaintListener() {
             // nothing to do
         }
 
@@ -422,13 +430,14 @@ public class TextElement {
         private DefaultToolTip tooltip;
 
         @objid ("65285751-2e8e-44fb-b0cf-20276c910abe")
-        public CompletionDriver(final TextElement textElement, CoreSession session, DefaultToolTip tooltip) {
+        public  CompletionDriver(final TextElement textElement, CoreSession session, DefaultToolTip tooltip) {
             this.searchCriteria = new ModelSearchCriteria();
             this.searcher = new ModelSearchEngine();
             this.textElement = textElement;
             this.text = textElement.getTextControl();
             this.tooltip = tooltip;
             connect(session);
+            
         }
 
         @objid ("dbc534c3-b241-43ce-9954-62ab692ed8ec")
@@ -465,6 +474,7 @@ public class TextElement {
             
                 this.textElement.setSelectedElement(selected);
             }
+            
         }
 
         @objid ("2eb32355-fa64-4d05-9c87-bd30b6f9ae7d")
@@ -541,6 +551,7 @@ public class TextElement {
             } else if (e.character == SWT.ESC) {
                 this.textElement.validate(false);
             }
+            
         }
 
         @objid ("98079e41-fc99-4beb-b553-37d756175074")
@@ -548,6 +559,7 @@ public class TextElement {
             disconnect();
             this.textElement = null;
             this.text = null;
+            
         }
 
         @objid ("da2933f9-d5ba-405c-9d80-21834e9ab725")
@@ -568,6 +580,7 @@ public class TextElement {
             };
             
             this.textElement.getTextControl().addKeyListener(this.keyListener);
+            
         }
 
         @objid ("556e862f-06ce-48f0-ab8f-8a476d1717b1")
@@ -577,6 +590,7 @@ public class TextElement {
             }
             this.keyListener = null;
             this.session = null;
+            
         }
 
     }
@@ -599,10 +613,11 @@ public class TextElement {
         private DisposeListener disposeListener;
 
         @objid ("91485e7d-16ee-4ddf-8def-591e3d49afda")
-        public PickingDriver(TextElement textElement, IModelioPickingService pickingService) {
+        public  PickingDriver(TextElement textElement, IModelioPickingService pickingService) {
             this.textElement = textElement;
             this.pickingService = pickingService;
             connect();
+            
         }
 
         @objid ("7176fe97-535e-4630-8d57-8a34d065a50d")
@@ -610,6 +625,7 @@ public class TextElement {
             if (this.pickingSession == null) {
                 this.pickingSession = this.pickingService.startPicking(this);
             }
+            
         }
 
         @objid ("6e213995-21df-4ecb-a400-9ef6a38d8448")
@@ -618,6 +634,7 @@ public class TextElement {
                 this.pickingService.stopPicking(this.pickingSession);
                 this.pickingSession = null;
             }
+            
         }
 
         @objid ("003cef22-e939-4463-b9b2-559f6cabb9f5")
@@ -644,6 +661,7 @@ public class TextElement {
                 }
             };
             this.textElement.getTextControl().addDisposeListener(this.disposeListener);
+            
         }
 
         @objid ("4976289f-e257-482e-9df2-1e98abe0b7a6")
@@ -657,6 +675,7 @@ public class TextElement {
             if (this.pickingSession != null) {
                 this.pickingSession.abort();
             }
+            
         }
 
         /**
@@ -666,6 +685,7 @@ public class TextElement {
         void terminate() {
             disconnect();
             this.pickingService = null;
+            
         }
 
         @objid ("1228e614-8211-401d-92a6-2c4e83ae0d6a")
@@ -704,6 +724,7 @@ public class TextElement {
                 this.pickingSession = null;
             }
             this.textElement.validate(false);
+            
         }
 
     }
@@ -717,9 +738,10 @@ public class TextElement {
         private ICoreSession session;
 
         @objid ("3bd1ce00-f717-4424-ae0e-74cc65e5bb53")
-        public DropListener(TextElement textElement, ICoreSession session) {
+        public  DropListener(TextElement textElement, ICoreSession session) {
             this.textElement = textElement;
             this.session = session;
+            
         }
 
         @objid ("8ab7475b-970b-4489-990d-d9b4fd9a2dfd")
@@ -730,6 +752,7 @@ public class TextElement {
             if (!validateDroppedObjects(droppedObjects)) {
                 event.detail = DND.DROP_NONE;
             }
+            
         }
 
         @objid ("bc66ec5f-a3fd-4b5a-9dbc-12db769e3d10")
@@ -740,6 +763,7 @@ public class TextElement {
             if (validateDroppedObjects(droppedObjects)) {
                 this.textElement.setSelectedElement(droppedObjects.get(0));
             }
+            
         }
 
         @objid ("f4e12f1a-e280-41bd-9054-71d17dfe648f")
@@ -758,6 +782,7 @@ public class TextElement {
                 event.feedback = DND.FEEDBACK_NONE;
                 return;
             }
+            
         }
 
         @objid ("f43822ed-895f-402c-9012-0f456f9620e2")
@@ -782,7 +807,6 @@ public class TextElement {
 
         /**
          * Extract the list of MObject being dropped, excluding 'deleted' objects.
-         * 
          * @param event @return
          */
         @objid ("73b024de-35de-47b2-9d2c-a62a32f7ff21")
@@ -803,6 +827,7 @@ public class TextElement {
                 // getting the selection from LocalSelectionTransfer.
                 return getLocalDraggedElements();
             }
+            
         }
 
         /**

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.interaction;
 
 import java.util.Collections;
@@ -32,8 +31,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.interactionModel.Interaction;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -59,26 +58,25 @@ public class GmInteraction extends GmPortContainer {
     private static final String IMAGE_LABEL_ROLE = "ImageLabel";
 
     @objid ("5e603a24-5bd5-11e2-9e33-00137282c51b")
-     static final GmInteractionStructuredStyleKeys STRUCTURED_KEYS = new GmInteractionStructuredStyleKeys();
+    static final GmInteractionStructuredStyleKeys STRUCTURED_KEYS = new GmInteractionStructuredStyleKeys();
 
     @objid ("5e64fed9-5bd5-11e2-9e33-00137282c51b")
-     static final GmInteractionSimpleStyleKeys SIMPLE_KEYS = new GmInteractionSimpleStyleKeys();
+    static final GmInteractionSimpleStyleKeys SIMPLE_KEYS = new GmInteractionSimpleStyleKeys();
 
     @objid ("5e64fedb-5bd5-11e2-9e33-00137282c51b")
-     static final GmInteractionImageStyleKeys IMAGE_KEYS = new GmInteractionImageStyleKeys();
+    static final GmInteractionImageStyleKeys IMAGE_KEYS = new GmInteractionImageStyleKeys();
 
     @objid ("cc59209b-2785-42b7-b3d3-2fc55fd15ce7")
-     static final GmInteractionUserImageStyleKeys USERIMAGE_KEYS = new GmInteractionUserImageStyleKeys();
+    static final GmInteractionUserImageStyleKeys USERIMAGE_KEYS = new GmInteractionUserImageStyleKeys();
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the callBehavior is unmasked.
      * @param el the unmasked callBehavior.
      * @param ref a reference to the unmasked callBehavior.
      */
     @objid ("35665a6e-55b7-11e2-877f-002564c97630")
-    public GmInteraction(final IGmDiagram diagram, final Interaction el, final MRef ref) {
+    public  GmInteraction(final IGmDiagram diagram, final Interaction el, final MRef ref) {
         super(diagram, ref);
         this.element = el;
         
@@ -91,13 +89,14 @@ public class GmInteraction extends GmPortContainer {
         
         super.addChild(mainNode);
         super.addChild(imageModeHeader);
+        
     }
 
     /**
      * Empty constructor needed for deserialisation.
      */
     @objid ("3567e101-55b7-11e2-877f-002564c97630")
-    public GmInteraction() {
+    public  GmInteraction() {
         // Nothing specific to do.
     }
 
@@ -186,6 +185,7 @@ public class GmInteraction extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("3569679c-55b7-11e2-877f-002564c97630")
@@ -195,6 +195,7 @@ public class GmInteraction extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmInteraction.", GmInteraction.MINOR_VERSION);
+        
     }
 
     @objid ("356967a2-55b7-11e2-877f-002564c97630")
@@ -207,6 +208,7 @@ public class GmInteraction extends GmPortContainer {
         imageModeHeader.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         
         super.addChild(imageModeHeader, 1);
+        
     }
 
     @objid ("356967a8-55b7-11e2-877f-002564c97630")
@@ -219,6 +221,7 @@ public class GmInteraction extends GmPortContainer {
     private void read_1(final IDiagramReader in) {
         super.read(in);
         this.element = (Interaction) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("356967b3-55b7-11e2-877f-002564c97630")
@@ -234,6 +237,7 @@ public class GmInteraction extends GmPortContainer {
                 ret.remove(imageModeHeader);
                 break;
             }
+            case USER_IMAGE:
             case IMAGE:
             default: {
                 break;
@@ -246,7 +250,6 @@ public class GmInteraction extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -256,11 +259,11 @@ public class GmInteraction extends GmPortContainer {
         String role = childNode.getRoleInComposition();
         return GmPortContainer.SATELLITE_ROLE.equals(role)
                                         || GmInteraction.IMAGE_LABEL_ROLE.equals(role);
+        
     }
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.sequence;
 
 import java.util.Collections;
@@ -42,7 +41,7 @@ public class CombinedFragmentDG extends PortContainerDG {
      * @param node The gm node represented by this class.
      */
     @objid ("d79958b2-0e3d-4cb7-834f-45d34b486e95")
-    public CombinedFragmentDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  CombinedFragmentDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 
@@ -54,6 +53,7 @@ public class CombinedFragmentDG extends PortContainerDG {
                                       currentBounds.y(),
                                       newBounds.width(),
                                       currentBounds.height()));
+        
     }
 
     @objid ("7591de47-2a3f-4812-85bc-109ddb55e789")
@@ -68,6 +68,7 @@ public class CombinedFragmentDG extends PortContainerDG {
         } else {
             return Collections.emptyList();
         }
+        
     }
 
 }

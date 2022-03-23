@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.bpmnsharedefinition;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,18 +31,18 @@ import org.modelio.uml.statikdiagram.editor.style.StaticAbstractStyleKeyProvider
 @objid ("889c47b1-457e-43b5-b159-0d2fa51a1613")
 public class GmBpmnSharedDefinitionsUserImageStyleKeys extends StaticAbstractStyleKeyProvider {
     @objid ("2a4f69b4-62ab-410b-8f2c-078896382f07")
-     static final StyleKey REPMODE = GmBpmnSharedDefinitionsStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmBpmnSharedDefinitionsStructuredStyleKeys.REPMODE;
 
     @objid ("343b0244-b9fb-4ddd-b001-211d6549f644")
-     static final StyleKey FONT = GmBpmnSharedDefinitionsStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmBpmnSharedDefinitionsStructuredStyleKeys.FONT;
 
     @objid ("d074b4cb-3e84-4080-be82-466ed41a677b")
-     static final StyleKey TEXTCOLOR = GmBpmnSharedDefinitionsStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmBpmnSharedDefinitionsStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("98364836-5d2a-4676-aedc-ad543daccf69")
-     static final StyleKey SHOWSTEREOTYPES = GmBpmnSharedDefinitionsStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmBpmnSharedDefinitionsStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("7b81e9c8-7c24-449c-b697-1f9ce62c459d")
-     static final StyleKey SHOWTAGS = GmBpmnSharedDefinitionsStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmBpmnSharedDefinitionsStructuredStyleKeys.SHOWTAGS;
 
 }

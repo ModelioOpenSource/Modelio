@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.propertiesPage;
 
 import java.nio.file.Path;
@@ -63,52 +62,52 @@ public class ModuleMultiVariantPropertyPanel implements IModulePropertyCustomPan
      */
     @objid ("84128088-6e78-447a-9d87-f7c4fbb1feef")
     private static final IPanelProvider EMPTYPANELPROVIDER = new IPanelProvider() {
-        private Composite top;
-        private Object input;
-        @Override
-        public void setInput(Object input) {
-            // Nothing special to do here, the EMPTYPANELPROVIDER does not display anything dependent on the current input.
-            // Just store the current input to provide a coherent implementation of getInput()
-            this.input = input;
-        }
-        @Override
-        public boolean isRelevantFor(@SuppressWarnings ("hiding") Object input) {
-            // EMPTYPANELPROVIDER is relevant for any element
-            return true;
-        }
-        @Override
-        public Object getPanel() {
-            return this.top;
-        }
-        @Override
-        public Object getInput() {
-            return this.input;
-        }
-        @Override
-        public String getHelpTopic() {
-            return null;
-        }
-        @Override
-        public void dispose() {
-        }
-        @Override
-        public Object createPanel(Composite parent) {
-            this.top = new Composite(parent, SWT.NONE);
-            this.top.setBackground(UIColor.LIGHTGRAY);
-            return this.top;
-        }
-    };
+            private Composite top;
+            private Object input;
+            @Override
+            public void setInput(Object input) {
+                // Nothing special to do here, the EMPTYPANELPROVIDER does not display anything dependent on the current input.
+                // Just store the current input to provide a coherent implementation of getInput()
+                this.input = input;
+            }
+            @Override
+            public boolean isRelevantFor(@SuppressWarnings ("hiding") Object input) {
+                // EMPTYPANELPROVIDER is relevant for any element
+                return true;
+            }
+            @Override
+            public Object getPanel() {
+                return this.top;
+            }
+            @Override
+            public Object getInput() {
+                return this.input;
+            }
+            @Override
+            public String getHelpTopic() {
+                return null;
+            }
+            @Override
+            public void dispose() {
+            }
+            @Override
+            public Object createPanel(Composite parent) {
+                this.top = new Composite(parent, SWT.NONE);
+                this.top.setBackground(UIColor.LIGHTGRAY);
+                return this.top;
+            }
+        };
 
     /**
      * A YES to any element filter used as a fallback when no filter has been set in a VariantEntry.
      */
     @objid ("d6357326-b4f1-4e6a-a320-c566929efef4")
     private static final IElementFilter YES_FILTER = new IElementFilter() {
-        @Override
-        public boolean accept(MObject element) {
-            return true;
-        }
-    };
+            @Override
+            public boolean accept(MObject element) {
+                return true;
+            }
+        };
 
     @objid ("69ba0307-c647-497e-9c55-9b7117f4effb")
     private IPanelProvider activePanelProvider;
@@ -133,18 +132,18 @@ public class ModuleMultiVariantPropertyPanel implements IModulePropertyCustomPan
 
     /**
      * Constructors of this property page.
-     * 
      * @param module module that is associated to the property page
      * @param name the name of the property page.
      * @param label the label of the property page.
      * @param icon a relative path to the image to display for the property page.
      */
     @objid ("666a43ce-2009-41c7-acb3-3f0d828b722d")
-    public ModuleMultiVariantPropertyPanel(IModule module, String name, String label, String icon) {
+    public  ModuleMultiVariantPropertyPanel(IModule module, String name, String label, String icon) {
         this.module = module;
         this.name = name;
         this.label = label;
         this.icon = icon == null || icon.isEmpty() ? null : module.getModuleContext().getConfiguration().getModuleResourcesPath().resolve(icon);
+        
     }
 
     /**
@@ -180,6 +179,7 @@ public class ModuleMultiVariantPropertyPanel implements IModulePropertyCustomPan
             variantEntry.panelProvider.dispose();
         }
         this.registeredPanels.clear();
+        
     }
 
     /**
@@ -259,7 +259,6 @@ public class ModuleMultiVariantPropertyPanel implements IModulePropertyCustomPan
 
     /**
      * Register an {@link IPanelProvider} for the given scope.
-     * 
      * @param panelProvider the {@link IPanelProvider} to register. Cannot be null.
      * @param scope the scope for which the panel provider is applicable. Cannot be null.
      */
@@ -270,7 +269,6 @@ public class ModuleMultiVariantPropertyPanel implements IModulePropertyCustomPan
 
     /**
      * Register an {@link IPanelProvider} for the given scope and under the additional filter condition.
-     * 
      * @param panelProvider the {@link IPanelProvider} to register. Cannot be null.
      * @param scope the scope for which the panel provider is applicable. Cannot be null.
      * @param filter the additional filter the element must pass once its scope has been approved. Cannot be null.
@@ -288,8 +286,6 @@ public class ModuleMultiVariantPropertyPanel implements IModulePropertyCustomPan
     @objid ("d14ab560-4631-4194-bd51-5003013606ef")
     @Override
     public void setInput(Object input) {
-        this.input = input;
-        
         MObject mobj = null;
         if (input instanceof ISelection) {
             mobj = SelectionHelper.getFirst((ISelection) input, MObject.class);
@@ -308,12 +304,14 @@ public class ModuleMultiVariantPropertyPanel implements IModulePropertyCustomPan
         } else if (input instanceof MObject) {
             mobj = (MObject) input;
         }
+        this.input = mobj;
         
         switchActivePanelProvider(mobj);
         
         this.activePanelProvider.setInput(mobj);
         ((Composite) this.activePanelProvider.getPanel()).layout(true, true);
         ((Composite) this.activePanelProvider.getPanel()).redraw();
+        
     }
 
     /**
@@ -363,11 +361,11 @@ public class ModuleMultiVariantPropertyPanel implements IModulePropertyCustomPan
         }
         this.stackLayout.topControl = (Control) this.activePanelProvider.getPanel();
         this.stackComposite.layout(true, true);
+        
     }
 
     /**
      * If no proper panel can be guessed for the input, use the EMPTYPANELPROVIDER that displays nothing.
-     * 
      * @return the proper panel provider for mObj or the EMPTYPANELPROVIDER
      */
     @objid ("a6c9cddf-c0f4-4c74-9f32-bdec484e6a53")
@@ -406,10 +404,11 @@ public class ModuleMultiVariantPropertyPanel implements IModulePropertyCustomPan
         public final IPanelProvider panelProvider;
 
         @objid ("a19d58f7-a4cf-4bc2-ad88-762d28fef7a4")
-        public VariantEntry(IPanelProvider panelProvider, ElementScope scope, IElementFilter filter) {
+        public  VariantEntry(IPanelProvider panelProvider, ElementScope scope, IElementFilter filter) {
             this.panelProvider = panelProvider;
             this.scope = scope;
             this.filter = filter;
+            
         }
 
     }

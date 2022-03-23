@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.panel;
 
 import java.util.Objects;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.PrintFigureOperation;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Optional;
@@ -110,6 +109,7 @@ class LinkEditorPanelController {
     void setInput(MObject mObj) {
         this.backgroundModel.setInput(mObj);
         refreshView();
+        
     }
 
     @objid ("ff79023c-828c-48c1-b38e-7944f6d3d42f")
@@ -144,6 +144,7 @@ class LinkEditorPanelController {
     void onModelChanged() {
         this.backgroundModel.rebuild();
         refreshView();
+        
     }
 
     @objid ("00f6eb1b-9fe3-4f16-bdef-7b3b5e253931")
@@ -156,6 +157,7 @@ class LinkEditorPanelController {
     public void setZoomLevel(double level) {
         ZoomManager zm = ((ScalableFreeformRootEditPart) (this.ui.getGraphicalViewer().getRootEditPart())).getZoomManager();
         zm.setZoom(level);
+        
     }
 
     @objid ("25e01036-44e3-4104-83f6-a2cfc0a88f0f")
@@ -165,6 +167,7 @@ class LinkEditorPanelController {
         operation.setPrintMode(PrintFigureOperation.TILE);
         // run the print operation
         operation.run("Printing diagram");
+        
     }
 
     @objid ("3bdeafae-6731-4f54-882d-4c6ea9946487")
@@ -193,6 +196,7 @@ class LinkEditorPanelController {
             }
             this.ui.getGraphicalViewer().setProperty(BackgroundEditPart.LAYOUT_ORIENTATION, recommended);
         }
+        
     }
 
     @objid ("b4ddf7ff-17be-42e1-829d-098667f82cdd")
@@ -210,6 +214,7 @@ class LinkEditorPanelController {
                 }
             }
         }
+        
     }
 
     @objid ("bb682004-28e3-4b01-908b-d4cfec7dced3")
@@ -226,11 +231,12 @@ class LinkEditorPanelController {
         if (!SelectionHelper.containsOnly(selection, BackgroundEditPart.class)) {
             this.selectionService.setSelection(selection);
         }
+        
     }
 
     @objid ("f563bd6a-f199-44bf-b747-59c89bb9511b")
     @Inject
-    public LinkEditorPanelController(IEclipseContext eclipseContext, ILinkEditorConfiguration config, MPart e4Part, EMenuService menuService, EModelService e4ModelService, ESelectionService selectionService, IProjectService projectService, IModelioNavigationService navigationService) {
+    public  LinkEditorPanelController(IEclipseContext eclipseContext, ILinkEditorConfiguration config, MPart e4Part, EMenuService menuService, EModelService e4ModelService, ESelectionService selectionService, IProjectService projectService, IModelioNavigationService navigationService) {
         this.eclipseContext = eclipseContext;
         this.config = config;
         this.menuService = menuService;
@@ -238,6 +244,7 @@ class LinkEditorPanelController {
         this.projectService = projectService;
         this.navigationService = navigationService;
         this.editModeToobarButton = Objects.requireNonNull(((MItem) e4ModelService.find("org.modelio.linkeditor.handledtoolitem.PinEditor", e4Part.getToolbar())));
+        
     }
 
     /**
@@ -252,6 +259,7 @@ class LinkEditorPanelController {
         this.backgroundModel.setConfiguration(this.config);
         
         refreshView();
+        
     }
 
     /**
@@ -259,9 +267,6 @@ class LinkEditorPanelController {
      * @param selection
      * @see org.modelio.linkeditor.others.edge.EdgeEditPart
      * @see org.modelio.linkeditor.gef.edge.EdgeEditPart
-     * 
-     * 
-     * 
      * @see org.modelio.linkeditor.gef.edge.EdgeEditPart 
      */
     @objid ("4a040d81-19de-4e2e-b69a-68933757377f")
@@ -281,6 +286,7 @@ class LinkEditorPanelController {
                 setInput(mObj);
             }
         }
+        
     }
 
     @objid ("91bd34bd-f013-4a34-9543-45eaa8e24305")
@@ -306,6 +312,7 @@ class LinkEditorPanelController {
             // Notifies the view to display new content
             this.ui.getComposite().getDisplay().asyncExec(() -> this.backgroundModel.fireContentChanged());
         }
+        
     }
 
 }

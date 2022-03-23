@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.callbehavior;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,21 +29,21 @@ import org.modelio.uml.activitydiagram.editor.style.ActivityAbstractStyleKeyProv
 @objid ("29bc9ff2-55b6-11e2-877f-002564c97630")
 public class GmCallBehaviorImageStyleKeys extends ActivityAbstractStyleKeyProvider {
     @objid ("d16e444c-55c0-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmCallBehaviorStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmCallBehaviorStructuredStyleKeys.REPMODE;
 
     @objid ("d16e444e-55c0-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmCallBehaviorStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmCallBehaviorStructuredStyleKeys.FONT;
 
     @objid ("d16e4450-55c0-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmCallBehaviorStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmCallBehaviorStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("d16e4452-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmCallBehaviorStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmCallBehaviorStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("d16e4454-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmCallBehaviorStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmCallBehaviorStructuredStyleKeys.SHOWTAGS;
 
     @objid ("d16e4456-55c0-11e2-9337-002564c97630")
-     static final StyleKey AUTOSHOWPINS = GmCallBehaviorStructuredStyleKeys.AUTOSHOWPINS;
+    static final StyleKey AUTOSHOWPINS = GmCallBehaviorStructuredStyleKeys.AUTOSHOWPINS;
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.fragment.exml;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,7 +40,8 @@ public class ExmlFragmentFactory implements IFragmentFactory {
      * Singleton
      */
     @objid ("49bc2ae4-ab3f-11e1-8392-001ec947ccaf")
-    private ExmlFragmentFactory() {
+    private  ExmlFragmentFactory() {
+        
     }
 
     /**
@@ -60,7 +60,6 @@ public class ExmlFragmentFactory implements IFragmentFactory {
 
     /**
      * Create a local project fragment.
-     * 
      * @param name the fragment name
      * @return the project fragment.
      */

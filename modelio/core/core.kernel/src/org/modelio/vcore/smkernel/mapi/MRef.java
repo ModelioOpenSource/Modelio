@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.mapi;
 
 import java.io.Serializable;
@@ -70,51 +69,50 @@ public class MRef implements Serializable {
 
     /**
      * Creates a reference for the given element.
-     * 
      * @param element The element to reference.
      */
     @objid ("dcadb00c-13af-11e2-8f8e-001ec947ccaf")
-    public MRef(MObject element) {
+    public  MRef(MObject element) {
         this.mc = element.getMClass().getQualifiedName();
         this.uuid = element.getUuid();
         this.name = loadName(element);
+        
     }
 
     /**
      * Creates a reference.
-     * 
      * @param mc The metaclass name.
      * @param tuuid The UUID
      */
     @objid ("dcadb010-13af-11e2-8f8e-001ec947ccaf")
-    public MRef(String mc, String tuuid) {
+    public  MRef(String mc, String tuuid) {
         this.mc = mc;
         this.uuid = tuuid;
         this.name = "";
+        
     }
 
     /**
      * Creates a reference.
-     * 
      * @param mc The metaclass name.
      * @param tuuid The UUID
      * @param name an object name, may be <code>null</code>.
      */
     @objid ("dcadb015-13af-11e2-8f8e-001ec947ccaf")
-    public MRef(String mc, String tuuid, String name) {
+    public  MRef(String mc, String tuuid, String name) {
         this.mc = mc;
         this.uuid = tuuid;
         this.name = name;
+        
     }
 
     /**
      * Construct a MRef instance from a String whose format is the MRef.toString() format so that:<br>
      * given <i>mref</i> a MRef, <code>new MRef(mref.toString()).equals(mref)</code> is guaranteed to be <code>true</code>.
-     * 
      * @param s a string
      */
     @objid ("21ba15fc-c3cd-4f9f-a436-e5ba1e769c3f")
-    public MRef(String s) {
+    public  MRef(String s) {
         final Matcher m = pattern.matcher(s);
         
         if (m.matches()) {
@@ -132,6 +130,7 @@ public class MRef implements Serializable {
         } else {
             throw new IllegalArgumentException("Invalid MRef string: " + s);
         }
+        
     }
 
     @objid ("dcadb021-13af-11e2-8f8e-001ec947ccaf")
@@ -173,7 +172,6 @@ public class MRef implements Serializable {
 
     /**
      * Test method
-     * 
      * @param args command line arguments
      */
     @objid ("21533303-0310-4e06-a1fb-2155b29b8684")
@@ -207,6 +205,7 @@ public class MRef implements Serializable {
         assert(Objects.equals(ref.mc,"Standard.BpmnBehavior"));
         assert(Objects.equals(ref.name,"Validation de l'EG d'abord"));
         assert(Objects.equals(ref.uuid,"c14066e5-015a-45af-8b4e-1aa27aadbac8"));
+        
     }
 
     /**
@@ -237,7 +236,6 @@ public class MRef implements Serializable {
      * Creates a reference for the given element without loading the element name.
      * <p>
      * Can be used to avoid loading a not yet loaded {@link MObject} or an object whose loading may fail with exception.
-     * 
      * @param element The element to reference.
      */
     @objid ("3f9ae11d-7337-41cd-ba3d-548ca64b1063")
@@ -254,6 +252,7 @@ public class MRef implements Serializable {
         } catch (RuntimeException e) {
             return e.toString();
         }
+        
     }
 
 }

@@ -17,9 +17,9 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.anchors;
 
+import java.util.Objects;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.AbstractConnectionAnchor;
 import org.eclipse.draw2d.Connection;
@@ -40,61 +40,60 @@ public class NodeAnchor extends AbstractConnectionAnchor {
      * Location of the anchor relative to the owner figure top left corner.
      */
     @objid ("8d11e6f6-6fe4-4073-b320-8b4c7824038e")
-    private Dimension anchorOffset;
+    private final Dimension anchorOffset;
 
     /**
      * Temporary rectangle to avoid allocation.
      */
     @objid ("c463fa8c-1577-413b-92e3-05b6ca823a61")
-    private static Rectangle A_RECTANGLE = new Rectangle();
+    private static final Rectangle A_RECTANGLE = new Rectangle();
 
     /**
      * Temporary point to avoid allocation.
      */
     @objid ("fcb8b26a-3e65-4e2c-be72-445b0b3dbda8")
-    private static Point A_POINT = new Point();
+    private static final Point A_POINT = new Point();
 
     /**
      * Create an anchor.
-     * 
      * @param owner The owner node of the anchor
      * @param anchorLocation The location of the anchor relative to the owner node location.
      */
     @objid ("7f587908-1dec-11e2-8cad-001ec947c8cc")
-    public NodeAnchor(IFigure owner, Dimension anchorLocation) {
+    public  NodeAnchor(IFigure owner, Dimension anchorLocation) {
         super(owner);
         this.anchorOffset = new Dimension(anchorLocation);
+        
     }
 
     @objid ("7f587911-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public Point getLocation(Point reference) {
-        final Point anchor = A_POINT;
-        getReferencePoint(anchor);
+        final Point anchor = getReferencePoint(A_POINT);
         
         final Rectangle r = A_RECTANGLE;
         r.setBounds(getOwner().getBounds());
         r.expand(1,1);
         getOwner().translateToAbsolute(r);
         
-        if (r.isEmpty())
+        if (r.isEmpty()) {
             return r.getLocation();
-        else if ((reference.x == anchor.x && reference.y == anchor.y))
+        } else if ((reference.x() == anchor.x() && reference.y() == anchor.y())) {
             return new Point(anchor); //This avoids divide-by-zero
-        else {
+        } else {
             Point ret = GeomUtils.getLineIntersection(anchor, reference, r);
             if (ret == null)
                 ret = r.getLocation();
         
             return ret;
         }
+        
     }
 
     /**
      * Get the offset to the reference point.
      * <p>
      * The offset is returned by reference and must not be directly modified.
-     * 
      * @return the reference offset.
      */
     @objid ("7f58791a-1dec-11e2-8cad-001ec947c8cc")
@@ -105,46 +104,64 @@ public class NodeAnchor extends AbstractConnectionAnchor {
     @objid ("7f5adb24-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public Point getReferencePoint() {
-        final Point ret = new Point();
-        getReferencePoint(ret);
-        return ret;
+        return getReferencePoint(new Point());
     }
 
     /**
      * Modifies the anchor reference offset.
-     * 
      * @param d The new offset to locate the reference point.
      */
     @objid ("7f5adb2b-1dec-11e2-8cad-001ec947c8cc")
     public void setReference(Dimension d) {
         this.anchorOffset.setSize(d);
         fireAnchorMoved();
+        
     }
 
     /**
-     * Correct the point position so that it is inside or touches the given rectangle.
-     * 
-     * @param p a point
-     * @param r the point location limits.
+     * Fills 'out' with the computed reference point.
+     * @param out the computed reference point.
      */
-    @objid ("7f5adb31-1dec-11e2-8cad-001ec947c8cc")
-    protected void fixPointInto(final Point p, final Rectangle r) {
-        p.x = Math.max(p.x, r.x);
-        p.x = Math.min(p.x, r.right());
-        p.y = Math.max(p.y, r.y);
-        p.y = Math.min(p.y, r.bottom());
+    @objid ("7f5adb3c-1dec-11e2-8cad-001ec947c8cc")
+    private Point getReferencePoint(final Point out) {
+        final Rectangle bounds = A_RECTANGLE.setBounds(getOwner().getBounds());
+        
+        out.setLocation(bounds.x(), bounds.y());
+        out.translate(this.anchorOffset);
+        
+        GeomUtils.forcePointInside(out, bounds.expand(-1, -1));
+        
+        getOwner().translateToAbsolute(out);
+        return out;
     }
 
-    @objid ("7f5adb3c-1dec-11e2-8cad-001ec947c8cc")
-    private void getReferencePoint(final Point refPoint) {
-        final Rectangle bounds = getOwner().getBounds();
+    @objid ("96a30a94-642e-4fca-bd0d-c1028352057b")
+    @Override
+    public String toString() {
+        return String.format("%s [offset=%s, ref point=%s]",
+                getClass().getSimpleName(),
+                getOffset(),
+                getReferencePoint());
         
-        refPoint.setLocation(bounds.x(), bounds.y());
-        refPoint.translate(this.anchorOffset);
-        
-        fixPointInto(refPoint, bounds.getExpanded(-1, -1));
-        
-        getOwner().translateToAbsolute(refPoint);
+    }
+
+    @objid ("f3c13864-210d-4a31-81c6-11d968838d75")
+    @Override
+    public int hashCode() {
+        return Objects.hash(getOwner(), this.anchorOffset);
+    }
+
+    @objid ("47c073bd-cd7e-46e0-9444-12df4a6bb8df")
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        NodeAnchor other = (NodeAnchor) obj;
+        return Objects.equals(this.anchorOffset, other.anchorOffset) && Objects.equals(getOwner(), other.getOwner());
     }
 
 }

@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.activities;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.bpmn.activities.BpmnSubProcess;
 import org.modelio.metamodel.bpmn.activities.BpmnTransaction;
 import org.modelio.metamodel.bpmn.activities.TransactionMethod;
-import org.modelio.metamodel.impl.bpmn.activities.BpmnSubProcessSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -47,7 +46,7 @@ public class BpmnTransactionSmClass extends BpmnSubProcessSmClass {
     private SmAttribute methodAtt;
 
     @objid ("2c927b05-d378-47dc-9fd6-b999e3d06162")
-    public BpmnTransactionSmClass(ISmMetamodelFragment origin) {
+    public  BpmnTransactionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -55,6 +54,7 @@ public class BpmnTransactionSmClass extends BpmnSubProcessSmClass {
     @Override
     public String getName() {
         return "BpmnTransaction";
+        
     }
 
     @objid ("ac0bb305-5f92-403b-ae94-29af61ab3aef")
@@ -67,18 +67,21 @@ public class BpmnTransactionSmClass extends BpmnSubProcessSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnTransaction.class;
+        
     }
 
     @objid ("6d6caff7-bebf-4a2a-a559-6866ad9d39e0")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("4f2c880e-6e4a-4dff-8c15-e86ae3a5fdda")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("a07976a5-a23c-4853-8c2a-8a50677f535d")
@@ -95,6 +98,7 @@ public class BpmnTransactionSmClass extends BpmnSubProcessSmClass {
         
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("5852e449-16e4-47fd-972f-48c5c762ac30")
@@ -111,7 +115,7 @@ public class BpmnTransactionSmClass extends BpmnSubProcessSmClass {
         private BpmnTransactionSmClass smClass;
 
         @objid ("7cb39cc3-a5ca-40b0-9b23-0d3c60f2bb59")
-        public BpmnTransactionObjectFactory(BpmnTransactionSmClass smClass) {
+        public  BpmnTransactionObjectFactory(BpmnTransactionSmClass smClass) {
             this.smClass = smClass;
         }
 

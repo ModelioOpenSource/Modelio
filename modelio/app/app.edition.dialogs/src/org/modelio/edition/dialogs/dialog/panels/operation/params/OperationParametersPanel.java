@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.dialogs.dialog.panels.operation.params;
 
 import java.util.ArrayList;
@@ -247,6 +246,7 @@ public class OperationParametersPanel implements IPanelProvider {
         }
         
         setReadOnly(this.opModel != null && !this.opModel.isModifiable());
+        
     }
 
     @objid ("b52eca23-74c6-4f49-afbc-bdc86f9bc2f8")
@@ -289,6 +289,7 @@ public class OperationParametersPanel implements IPanelProvider {
             }
         }
         this.parametersTable.setSelection(new StructuredSelection(selection));
+        
     }
 
     @objid ("e69e8154-7f2c-4214-a4db-662087260e83")
@@ -308,6 +309,7 @@ public class OperationParametersPanel implements IPanelProvider {
         final boolean returnParameterExists = !getCurrentParameters().isEmpty()
                 && getCurrentParameters().get(0).isReturn();
         this.addReturnParameterButton.setEnabled(!ro && !returnParameterExists);
+        
     }
 
     @objid ("841bdf05-2957-4ec7-9433-3803d7e9c446")
@@ -317,6 +319,7 @@ public class OperationParametersPanel implements IPanelProvider {
         final List<ParameterPropertyModel> parameters = getOperationModel().getParameters();
         this.parametersTable.setInput(parameters);
         this.parametersTable.setSelection(new StructuredSelection(parameters.get(parameters.size() - 1)));
+        
     }
 
     @objid ("a44982ed-1691-4bfd-8cae-fff4004735db")
@@ -324,6 +327,7 @@ public class OperationParametersPanel implements IPanelProvider {
         final List<Parameter> selectedParameters = getSelectedParameters();
         this.opModel.moveParametersDown(selectedParameters);
         selectParameters(selectedParameters);
+        
     }
 
     @objid ("7a1c9d9e-2adc-401d-bd82-386bb6d9e80d")
@@ -331,6 +335,7 @@ public class OperationParametersPanel implements IPanelProvider {
         final List<Parameter> selectedParameters = getSelectedParameters();
         this.opModel.moveParametersUp(selectedParameters);
         selectParameters(selectedParameters);
+        
     }
 
     @objid ("12b29b49-f601-4c11-916a-95fe550e27c8")
@@ -341,6 +346,7 @@ public class OperationParametersPanel implements IPanelProvider {
         if (!parameters.isEmpty()) {
             this.parametersTable.setSelection(new StructuredSelection(parameters.get(0)));
         }
+        
     }
 
     @objid ("1e020e94-21d2-4ffb-adf7-a70211984176")
@@ -369,6 +375,7 @@ public class OperationParametersPanel implements IPanelProvider {
         createCardColumn(viewer);
         createPassingModeColumn(viewer);
         createDefaultValueColumn(viewer);
+        
     }
 
     @objid ("5fd3477b-f5e9-4ad5-ac6a-8b1c0ae02555")
@@ -412,6 +419,7 @@ public class OperationParametersPanel implements IPanelProvider {
             }
         
         });
+        
     }
 
     @objid ("e1794fe9-a10e-4de8-b641-c4b5faaeb0c1")
@@ -461,6 +469,7 @@ public class OperationParametersPanel implements IPanelProvider {
             }
         
         });
+        
     }
 
     @objid ("4d6a2b9a-5601-41b4-a83e-c2aa4fa70944")
@@ -510,6 +519,7 @@ public class OperationParametersPanel implements IPanelProvider {
             }
         
         });
+        
     }
 
     @objid ("4a4a1e25-32a0-475e-8013-8db8b1734241")
@@ -565,6 +575,7 @@ public class OperationParametersPanel implements IPanelProvider {
             }
         
         });
+        
     }
 
     @objid ("0d770127-0e04-43ad-be6a-c100c18d7f70")
@@ -609,6 +620,7 @@ public class OperationParametersPanel implements IPanelProvider {
             }
         
         });
+        
     }
 
     @objid ("b772e2ab-03ad-414d-8997-d48b938dccaa")
@@ -629,6 +641,7 @@ public class OperationParametersPanel implements IPanelProvider {
                 return "";
             }
         });
+        
     }
 
     /**
@@ -648,6 +661,7 @@ public class OperationParametersPanel implements IPanelProvider {
         final List<ParameterPropertyModel> parameters = getOperationModel().getParameters();
         this.parametersTable.setInput(parameters);
         this.parametersTable.setSelection(new StructuredSelection(parameters.get(0)));
+        
     }
 
 }

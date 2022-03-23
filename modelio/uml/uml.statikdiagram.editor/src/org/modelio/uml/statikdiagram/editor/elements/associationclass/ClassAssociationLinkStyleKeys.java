@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.associationclass;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,32 +35,32 @@ public class ClassAssociationLinkStyleKeys extends StaticAbstractStyleKeyProvide
      * Connection routing mode.
      */
     @objid ("a58496cc-55c2-11e2-9337-002564c97630")
-     static final StyleKey CONNECTIONROUTER = createStyleKey("CLASSASSOC_CONNECTIONROUTER",
-                                                            MetaKey.CONNECTIONROUTER);
+    static final StyleKey CONNECTIONROUTER = createStyleKey("CLASSASSOC_CONNECTIONROUTER",
+                                                                MetaKey.CONNECTIONROUTER);
 
     /**
      * Line color.
      */
     @objid ("a58496cf-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("CLASSASSOC_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("CLASSASSOC_LINECOLOR", MetaKey.LINECOLOR);
 
     /**
      * Line width.
      */
     @objid ("a58496d2-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("CLASSASSOC_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("CLASSASSOC_LINEWIDTH", MetaKey.LINEWIDTH);
 
     /**
      * Line corners radius
      */
     @objid ("a58496d5-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINERADIUS = createStyleKey("CLASSASSOC_LINERADIUS", MetaKey.LINERADIUS);
+    static final StyleKey LINERADIUS = createStyleKey("CLASSASSOC_LINERADIUS", MetaKey.LINERADIUS);
 
     /**
      * Draw bridge where vertical segments cross horizontal ones.
      */
     @objid ("a58496d8-55c2-11e2-9337-002564c97630")
-     static final StyleKey DRAWLINEBRIDGES = createStyleKey("CLASSASSOC_DRAWLINEBRIDGES",
-                                                           MetaKey.DRAWLINEBRIDGES);
+    static final StyleKey DRAWLINEBRIDGES = createStyleKey("CLASSASSOC_DRAWLINEBRIDGES",
+                                                               MetaKey.DRAWLINEBRIDGES);
 
 }

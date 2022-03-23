@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.persistence;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,7 +30,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IPersistent {
     /**
      * Read the element properties from a serialized form.
-     * 
      * @param in a reader to build the graphic model from.
      */
     @objid ("cb7049b6-186f-11e2-92d2-001ec947c8cc")
@@ -45,7 +43,6 @@ public interface IPersistent {
      * <p>
      * In the other case it can call any {@link IDiagramWriter IDiagramWriter.writeXxxx(...)} method except
      * <tt>writeExtRef(...)</tt>.
-     * 
      * @param out a writer to save the model to.
      */
     @objid ("cb7049b9-186f-11e2-92d2-001ec947c8cc")
@@ -58,7 +55,6 @@ public interface IPersistent {
      * <p>
      * If this is the case, {@link #write(IDiagramWriter)} will be called, which will have to call
      * {@link IDiagramWriter#writeExtRef(IPersistent, String, String)} only.
-     * 
      * @param out the writer where the model is saved.
      * @return true if this element is external, false if the element is to be saved in this writer.
      */
@@ -67,7 +63,6 @@ public interface IPersistent {
 
     /**
      * Returns the current major version of this Graphic Model class.
-     * 
      * @return the current major version of this Graphic Model class.
      */
     @objid ("cb7049c0-186f-11e2-92d2-001ec947c8cc")

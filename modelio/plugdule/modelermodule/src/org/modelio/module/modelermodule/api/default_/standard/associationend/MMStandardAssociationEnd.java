@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.associationend;
 
@@ -50,27 +49,26 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("bede992d-d9a6-4fe2-85c8-da0181d09b45")
 public class MMStandardAssociationEnd {
-    @objid ("19658a25-9e6a-4523-877a-de3dc9f6cb7b")
+    @objid ("2f975acb-21bc-4609-a3b7-a0fd99eb40b6")
     public static final String ORDERED_TAGTYPE = "ordered";
 
-    @objid ("5fb64d06-2a41-45e7-b03b-be63a0a61b12")
+    @objid ("714fbeb5-1a0a-43dd-8135-7ab7d372faae")
     public static final String QUALIFIER_TAGTYPE = "qualifier";
 
     /**
      * The underlying {@link AssociationEnd} represented by this proxy, never null.
      */
-    @objid ("d777b8a3-5455-4429-b3db-065db5e4c3d9")
+    @objid ("bee00f9f-5fb0-4b48-a4bc-53a183b23f40")
     protected final AssociationEnd elt;
 
     /**
      * Tells whether a {@link MMStandardAssociationEnd proxy} can be instantiated from a {@link MObject} checking it is a {@link AssociationEnd}.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("e408bd9a-0b4a-40b7-8b9d-d6564a914714")
+    @objid ("a0637fb1-fe00-46de-9abb-b4a3d5728a46")
     public static boolean canInstantiate(MObject elt) {
         return (elt instanceof AssociationEnd);
     }
@@ -82,12 +80,12 @@ public class MMStandardAssociationEnd {
      * @param obj a AssociationEnd
      * @return a {@link MMStandardAssociationEnd} proxy or <i>null</i>.
      */
-    @objid ("8c716310-c1a6-4938-87d2-9553d9eae558")
+    @objid ("24047284-e284-4fc4-8685-31937299e2da")
     public static MMStandardAssociationEnd instantiate(AssociationEnd obj) {
         return MMStandardAssociationEnd.canInstantiate(obj) ? new MMStandardAssociationEnd(obj) : null;
     }
 
-    @objid ("1e805066-8e0e-4e6c-a1d4-d43c5b00f74d")
+    @objid ("be46a87f-09ca-46e0-a30c-09a6cae331cf")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -107,7 +105,7 @@ public class MMStandardAssociationEnd {
      * Get the underlying {@link AssociationEnd}. 
      * @return the AssociationEnd represented by this proxy, never null.
      */
-    @objid ("4f0febaa-00f9-4884-b221-a30d2d501a7c")
+    @objid ("b9941606-e5f3-42d8-8b4c-2c53d4726281")
     public AssociationEnd getElement() {
         return this.elt;
     }
@@ -117,15 +115,16 @@ public class MMStandardAssociationEnd {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("8de2dc9c-aaad-4b54-b48d-163c45ad7813")
+    @objid ("5e214ae5-fd70-4796-817a-bf4c87f6b3a0")
     public String getQualifier() {
         return this.elt.getTagValue(MMStandardAssociationEnd.MdaTypes.QUALIFIER_TAGTYPE_ELT);
     }
 
-    @objid ("33a4b590-45d0-4e3e-b30e-e504a389c24c")
+    @objid ("d8076256-1ec5-4a28-8305-43de343b94ae")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
     /**
@@ -133,7 +132,7 @@ public class MMStandardAssociationEnd {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("639bf266-0bee-4bde-a30b-6313126c86a6")
+    @objid ("6303b64e-e47e-44d2-a61c-491efc8fa07f")
     public boolean isOrdered() {
         return this.elt.isTagged(MMStandardAssociationEnd.MdaTypes.ORDERED_TAGTYPE_ELT);
     }
@@ -143,7 +142,7 @@ public class MMStandardAssociationEnd {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("38d1e972-5c67-4dfb-ab86-9172e3dda4c5")
+    @objid ("d36d1df0-c905-4e28-b50f-ee5ab7738f8a")
     public void setOrdered(boolean value) {
         if (value)
           ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createTaggedValue(MMStandardAssociationEnd.MdaTypes.ORDERED_TAGTYPE_ELT, this.elt);
@@ -156,44 +155,44 @@ public class MMStandardAssociationEnd {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("518b467d-8218-4435-809e-b3ccfe508280")
+    @objid ("2623b071-601d-47d4-a50a-7409361a1647")
     public void setQualifier(String value) {
         this.elt.putTagValue(MMStandardAssociationEnd.MdaTypes.QUALIFIER_TAGTYPE_ELT, value);
     }
 
-    @objid ("e680b716-35f9-4243-8682-22b2e8e7fd8a")
-    protected MMStandardAssociationEnd(AssociationEnd elt) {
+    @objid ("c4fde175-bdbd-4ffe-9fc0-13aa9d005fe2")
+    protected  MMStandardAssociationEnd(AssociationEnd elt) {
         this.elt = elt;
     }
 
     @objid ("0b0a5694-64a0-45c5-8e7b-ff7eee4dd4bd")
     public static final class MdaTypes {
-        @objid ("2326890e-db4b-4037-a648-d19ea86b162e")
+        @objid ("c739f206-5890-4f1c-9588-89c6b3ca5dfb")
         public static TagType ORDERED_TAGTYPE_ELT;
 
-        @objid ("c9376d0a-dfcf-49e6-a7c2-24b8facbc8e9")
+        @objid ("abf45f8d-c6e6-4719-915d-702ca0f11132")
         public static TagType QUALIFIER_TAGTYPE_ELT;
 
-        @objid ("62c4a14c-2b17-4c0a-9b7b-89a12e6beb84")
+        @objid ("db393ed5-df6c-4248-bd0e-96fd6a75f14f")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("b9faa8e1-21f0-4416-a9fe-deeba0c9991c")
+        @objid ("be528008-bb15-4301-92a0-12ad8126af5f")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("1fa00527-d72c-4a13-8b95-033db70d3d78")
+        @objid ("d466ed9c-c344-4f3a-b4c7-de64f4ad37ef")
         public static void init(IModuleContext ctx) {
             ORDERED_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "00000000-0000-3729-0000-000000000000");
             QUALIFIER_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "00000000-0000-372a-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

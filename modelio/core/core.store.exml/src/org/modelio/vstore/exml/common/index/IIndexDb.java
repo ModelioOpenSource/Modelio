@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common.index;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,62 +32,55 @@ import org.modelio.vstore.exml.resource.IExmlResourceProvider;
 public interface IIndexDb {
     /**
      * Close all connections and release resources.
-     * 
-     * @throws org.modelio.vstore.exml.common.index.IndexException in case of I/O failure
+     * @throws IndexException in case of I/O failure
      */
     @objid ("8ffd24ac-aae7-4f71-8e73-c265f5a68885")
     void close() throws IndexException;
 
     /**
      * Commit pending changes now, and reset internal counter.
-     * 
-     * @throws org.modelio.vstore.exml.common.index.IndexException in case of JDBM failure.
+     * @throws IndexException in case of JDBM failure.
      */
     @objid ("74f81083-ce49-4b84-ada9-2e905c544d8b")
     void commit() throws IndexException;
 
     /**
      * Read the index format version.
-     * 
      * @return the index format version
-     * @throws org.modelio.vstore.exml.common.index.IndexException in case of I/O failure
+     * @throws IndexException in case of I/O failure
      */
     @objid ("75ecb7fa-b721-470e-ba64-c5ca658ccf22")
     int getStoredVersion() throws IndexException;
 
     /**
      * Write the index  stamp.
-     * 
      * @param stamp the index  stamp.
-     * @throws org.modelio.vstore.exml.common.index.IndexException in case of I/O failure
+     * @throws IndexException in case of I/O failure
      */
     @objid ("8e1b1735-8711-4ebd-b22d-0052c3354d7a")
     void setStamp(String stamp) throws IndexException;
 
     /**
      * Read the index stamp.
-     * 
      * @return the index stamp.
-     * @throws org.modelio.vstore.exml.common.index.IndexException in case of I/O failure
+     * @throws IndexException in case of I/O failure
      */
     @objid ("f0bac8d8-d1a0-4637-9bf1-68642eac1e25")
     String getStoredStamp() throws IndexException;
 
     /**
      * Save the index format version.
-     * 
-     * @throws org.modelio.vstore.exml.common.index.IndexException in case of I/O failure.
+     * @throws IndexException in case of I/O failure.
      */
     @objid ("1e34a4c3-93fd-4e01-9350-e968747940ed")
     void setStoredVersion() throws IndexException;
 
     /**
      * Defragments the index, so it consumes less space. This commits any uncommitted data.
-     * 
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call done()
      * on the given monitor. Accepts null, indicating that no progress should be reported and that the operation cannot
      * be cancelled.
-     * @throws org.modelio.vstore.exml.common.index.IndexException in case of failure
+     * @throws IndexException in case of failure
      */
     @objid ("8df7be19-49d3-4a5e-b108-927741c1ae93")
     void compress(IModelioProgress monitor) throws IndexException;

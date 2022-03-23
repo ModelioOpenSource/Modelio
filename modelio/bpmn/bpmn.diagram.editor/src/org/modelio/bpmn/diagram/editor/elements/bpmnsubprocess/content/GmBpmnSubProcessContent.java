@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnsubprocess.content;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnSubProcessStructuredStyleKeys;
 import org.modelio.bpmn.diagram.editor.elements.diagrams.subprocess.GmBpmnSubProcessDiagram;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnSubProcessStructuredStyleKeys;
 import org.modelio.bpmn.diagram.editor.elements.workflow.GmWorkflow;
 import org.modelio.diagram.elements.common.embeddeddiagram.GmEmbeddedDiagram;
 import org.modelio.diagram.elements.core.model.GmAbstractObject;
@@ -56,13 +55,12 @@ public class GmBpmnSubProcessContent extends GmEmbeddedDiagram {
 
     /**
      * Default constructor.
-     * 
      * @param diagram the diagram in which this gm is used.
      * @param subProcessDiagram the unmasked diagram (can be <code>null</code>)
      * @param relatedRef a reference to the unmasked diagram (cannot be <code>null</code>).
      */
     @objid ("386898f0-294e-4d1f-a76a-f279ac4383b0")
-    public GmBpmnSubProcessContent(IGmDiagram diagram, BpmnSubProcessDiagram subProcessDiagram, MRef relatedRef) {
+    public  GmBpmnSubProcessContent(IGmDiagram diagram, BpmnSubProcessDiagram subProcessDiagram, MRef relatedRef) {
         super(diagram, subProcessDiagram, relatedRef);
     }
 
@@ -70,7 +68,7 @@ public class GmBpmnSubProcessContent extends GmEmbeddedDiagram {
      * Empty constructor needed for serialisation.
      */
     @objid ("121f2833-1f73-4c14-b23f-6af22c666fb8")
-    public GmBpmnSubProcessContent() {
+    public  GmBpmnSubProcessContent() {
         // Nothing to do.
     }
 
@@ -111,6 +109,7 @@ public class GmBpmnSubProcessContent extends GmEmbeddedDiagram {
             read_0(in);
             break;
         }
+        
     }
 
     @objid ("9a298615-7a87-4716-af37-c5d53fe5048c")
@@ -125,6 +124,7 @@ public class GmBpmnSubProcessContent extends GmEmbeddedDiagram {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, GmBpmnSubProcessContent.MINOR_PREFIX, GmBpmnSubProcessContent.MINOR_VERSION);
+        
     }
 
     @objid ("fbc5ef0b-9884-43f9-9c94-c3540dcc17ca")
@@ -138,6 +138,7 @@ public class GmBpmnSubProcessContent extends GmEmbeddedDiagram {
     protected void doSetVisible(final boolean visible) {
         getDisplayedStyle().setProperty(GmBpmnSubProcessStructuredStyleKeys.SHOWCONTENT, visible);
         super.doSetVisible(visible);
+        
     }
 
     /**

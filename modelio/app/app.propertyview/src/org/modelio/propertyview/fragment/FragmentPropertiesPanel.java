@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.propertyview.fragment;
 
 import java.util.ArrayList;
@@ -74,6 +73,7 @@ public class FragmentPropertiesPanel implements IPanelProvider {
         } else {
             return input instanceof IProjectFragment;
         }
+        
     }
 
     @objid ("20d46bf2-6ecc-4e93-b5c3-e430ef6b36a7")
@@ -137,6 +137,7 @@ public class FragmentPropertiesPanel implements IPanelProvider {
                 return f.getValue();
             }
         });
+        
     }
 
     @objid ("ccd736fa-7c11-4b36-ad74-9bb2626c56f8")
@@ -167,11 +168,11 @@ public class FragmentPropertiesPanel implements IPanelProvider {
             this.element = fragment;
             displayTableData(fragment);
         }
+        
     }
 
     /**
      * Display differents fragment properties according to the fragment type
-     * 
      * @param fragment the fragment to display
      */
     @objid ("5ce639d4-c2fa-4bf6-ab60-38ddd73539ba")
@@ -200,11 +201,13 @@ public class FragmentPropertiesPanel implements IPanelProvider {
         
         this.viewer.setInput(dataModel);
         this.viewer.refresh();
+        
     }
 
     @objid ("0f949e74-fdd6-484b-80e5-7afc528ad49a")
     @Override
     public void dispose() {
+        
     }
 
     /**
@@ -222,19 +225,18 @@ public class FragmentPropertiesPanel implements IPanelProvider {
 
         /**
          * An instance of this class represent a table line
-         * 
          * @param name the property name
          * @param value the property value
          */
         @objid ("7b0bdcf1-a8c1-4fee-ae7f-478d6a20be43")
-        public FragmentProperty(String name, String value) {
+        public  FragmentProperty(String name, String value) {
             this.name = name;
             this.value = value;
+            
         }
 
         /**
          * Set property name
-         * 
          * @param name the property name
          */
         @objid ("bb4a8918-405c-4006-9460-de789d33dcb9")
@@ -244,7 +246,6 @@ public class FragmentPropertiesPanel implements IPanelProvider {
 
         /**
          * Get property name
-         * 
          * @return the property name
          */
         @objid ("9025ec17-221c-472f-83a9-2455890bc0d0")
@@ -254,7 +255,6 @@ public class FragmentPropertiesPanel implements IPanelProvider {
 
         /**
          * Set property value
-         * 
          * @param value the property value
          */
         @objid ("f741c6f2-e723-4932-91ed-44e235f9f2ee")
@@ -264,7 +264,6 @@ public class FragmentPropertiesPanel implements IPanelProvider {
 
         /**
          * Get property value
-         * 
          * @return the property value
          */
         @objid ("38735efb-2619-4f2d-a27e-e569542a588c")

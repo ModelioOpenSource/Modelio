@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.versioned;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,6 @@ public interface IVersionStatusInitializer {
      * Load/initialize the CMS status flags for a given element being loaded.
      * <p>
      * These flags must be set using the given {@link IModelLoader}.
-     * 
      * @param obj a model object being loaded.
      * @param modelLoader the model loading API to use to initialize flags.
      */

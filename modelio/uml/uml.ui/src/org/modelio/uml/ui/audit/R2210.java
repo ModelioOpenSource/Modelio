@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.audit;
 
 import java.util.ArrayList;
@@ -101,6 +100,7 @@ public class R2210 extends AbstractUmlRule {
         plan.registerRule(UseCase.MQNAME, this, AuditTrigger.UPDATE);
         plan.registerRule(Node.MQNAME, this, AuditTrigger.UPDATE);
         plan.registerRule(Component.MQNAME, this, AuditTrigger.UPDATE);
+        
     }
 
     /**
@@ -134,14 +134,14 @@ public class R2210 extends AbstractUmlRule {
      * Default constructor for R2210
      */
     @objid ("dc57bb73-84fc-4508-a9f4-5716f8c5a4f5")
-    public R2210() {
+    public  R2210() {
         this.checkerInstance = new CheckR2210(this);
     }
 
     @objid ("7e908c7e-34c0-4c97-aa1c-ce45a2abfb36")
     private static class CheckR2210 extends AbstractControl {
         @objid ("3e790681-bd63-4219-8ddd-d394af43a8f8")
-        public CheckR2210(IRule rule) {
+        public  CheckR2210(IRule rule) {
             super(rule);
         }
 

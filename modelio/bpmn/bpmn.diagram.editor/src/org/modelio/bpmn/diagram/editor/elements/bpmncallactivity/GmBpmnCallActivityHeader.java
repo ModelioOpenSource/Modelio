@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmncallactivity;
 
 import java.util.ArrayList;
@@ -59,7 +58,7 @@ public class GmBpmnCallActivityHeader extends GmBpmnNodeHeader {
      * C'tor
      */
     @objid ("609a571b-55b6-11e2-877f-002564c97630")
-    public GmBpmnCallActivityHeader(final IGmDiagram diagram, final MRef relatedRef, final boolean showIcon) {
+    public  GmBpmnCallActivityHeader(final IGmDiagram diagram, final MRef relatedRef, final boolean showIcon) {
         super(diagram, relatedRef, showIcon);
     }
 
@@ -103,6 +102,7 @@ public class GmBpmnCallActivityHeader extends GmBpmnNodeHeader {
         } else {
             return "";
         }
+        
     }
 
     @objid ("609a572c-55b6-11e2-877f-002564c97630")
@@ -123,7 +123,7 @@ public class GmBpmnCallActivityHeader extends GmBpmnNodeHeader {
      * Empty c'torfor deserialization.
      */
     @objid ("609a5732-55b6-11e2-877f-002564c97630")
-    public GmBpmnCallActivityHeader() {
+    public  GmBpmnCallActivityHeader() {
         // empty constructor for the serialization
     }
 
@@ -144,6 +144,7 @@ public class GmBpmnCallActivityHeader extends GmBpmnNodeHeader {
             break;
         }
         }
+        
     }
 
     @objid ("609a573b-55b6-11e2-877f-002564c97630")
@@ -153,6 +154,7 @@ public class GmBpmnCallActivityHeader extends GmBpmnNodeHeader {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmBpmnCallActivityHeader.", GmBpmnCallActivityHeader.MINOR_VERSION);
+        
     }
 
     @objid ("609bdd99-55b6-11e2-877f-002564c97630")

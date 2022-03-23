@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.texticon;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -57,17 +56,16 @@ public class TextIconPainter extends BackgroundPainter {
      * Create a new painter that doesn't underline the cell's contents.
      */
     @objid ("c6db16b3-cf29-4f5a-bfec-94d935ac54cd")
-    public TextIconPainter() {
+    public  TextIconPainter() {
         this(false);
     }
 
     /**
      * Create a new painter.
-     * 
      * @param underline whether the painter should underline the cell's contents or not.
      */
     @objid ("cd3ffb0b-be4e-4b52-88ec-b11ed4007c6f")
-    public TextIconPainter(boolean underline) {
+    public  TextIconPainter(boolean underline) {
         this.underline = underline;
     }
 
@@ -166,6 +164,7 @@ public class TextIconPainter extends BackgroundPainter {
                 gc.drawLine(x, underlineY, x + gc.textExtent(text).x, underlineY);
             }
         }
+        
     }
 
     @objid ("7eed7c00-04a0-43e3-a6ed-fc79a2038c72")
@@ -176,7 +175,6 @@ public class TextIconPainter extends BackgroundPainter {
 
     /**
      * Checks if the given text is bigger than the available space. If not the given text is simply returned without modification. If the text does not fit into the available space, it will be modified by cutting and adding three dots.
-     * 
      * @param text the text to compute
      * @param gc the current GC
      * @param availableLength the available space
@@ -206,7 +204,6 @@ public class TextIconPainter extends BackgroundPainter {
 
     /**
      * Checks if a row resize needs to be triggered.
-     * 
      * @param contentHeight The necessary height to show the content completely
      * @param rectangle The available rectangle to render to
      * @return <code>true</code> if a row resize needs to be performed, <code>false</code> if not
@@ -240,6 +237,7 @@ public class TextIconPainter extends BackgroundPainter {
         } else {
             return new TextIcon(String.valueOf(displayValue), null);
         }
+        
     }
 
     /**
@@ -256,6 +254,7 @@ public class TextIconPainter extends BackgroundPainter {
         gc.setFont(font);
         gc.setForeground(fg != null ? fg : GUIHelper.COLOR_LIST_FOREGROUND);
         gc.setBackground(bg != null ? bg : GUIHelper.COLOR_LIST_BACKGROUND);
+        
     }
 
 }

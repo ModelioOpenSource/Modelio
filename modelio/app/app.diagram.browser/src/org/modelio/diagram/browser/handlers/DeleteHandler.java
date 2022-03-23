@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.handlers;
 
 import java.util.List;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -60,11 +59,11 @@ public class DeleteHandler extends AbstractBrwModelHandler {
                 ((MObject) obj).delete();
             }
         }
+        
     }
 
     /**
      * Rule for enabling a multiple selection => all selected elements are modifiable
-     * 
      * @param selection the eclipse selection
      * @return if the selection may be deleted.
      */
@@ -109,6 +108,7 @@ public class DeleteHandler extends AbstractBrwModelHandler {
         } else {
             return false;
         }
+        
     }
 
 }

@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.texteditors.rt;
 
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.annotation.PreDestroy;
 import javax.inject.Inject;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.di.Persist;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
@@ -64,7 +63,7 @@ public class RTEditor implements IDocumentEditor {
 
     @objid ("7b6a65a9-2a77-11e2-9fb9-bc305ba4815c")
     @Inject
-    public RTEditor(Composite parent, IDocumentInput input, MPart editor) {
+    public  RTEditor(Composite parent, IDocumentInput input, MPart editor) {
         this.input = input;
         this.editor = editor;
         parent.setLayout(new FillLayout());
@@ -81,6 +80,7 @@ public class RTEditor implements IDocumentEditor {
         
         this.viewer.setDocument(document);
         editor.setObject(input);
+        
     }
 
     @objid ("7b6a65af-2a77-11e2-9fb9-bc305ba4815c")
@@ -136,6 +136,7 @@ public class RTEditor implements IDocumentEditor {
             this.viewer.getControl().setBackground(UIColor.TEXT_WRITABLE_BG);
             this.editor.setIconURI("platform:/plugin/" + TextEditors.PLUGIN_ID + "/icons/texteditor_rw.png");
         }
+        
     }
 
     @objid ("e5260c7b-c27a-4ca5-9989-fe81377f2351")

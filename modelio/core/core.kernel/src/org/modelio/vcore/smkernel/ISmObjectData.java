@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel;
 
 import java.io.Serializable;
@@ -61,7 +60,6 @@ public interface ISmObjectData extends Serializable, IAccessOrdered {
 
     /**
      * Initialize the data
-     * 
      * @param uuid the object universal identifier
      * @param liveId the live identifier
      */
@@ -76,7 +74,6 @@ public interface ISmObjectData extends Serializable, IAccessOrdered {
 
     /**
      * Set the repository object.
-     * 
      * @param createObject the repository object.
      */
     @objid ("00827972-eb1b-1f22-8c06-001ec947cd2a")
@@ -92,7 +89,6 @@ public interface ISmObjectData extends Serializable, IAccessOrdered {
      * Set the given flags state.
      * <p>
      * No delete flag must be undefined, in the other case Modelio behavior is undefined.
-     * 
      * @param flags a combination of flags. Use the constants defined in {@link IRStatus}.
      * @param state the flags state
      */
@@ -104,7 +100,6 @@ public interface ISmObjectData extends Serializable, IAccessOrdered {
      * <p>
      * Use the constants defined in {@link IRStatus}.
      * No delete flag must be undefined, in the other case Modelio behavior is undefined.
-     * 
      * @param trueFlags a combination of flags to set.
      * @param falseFlags a combination of flags to unset.
      * @param undefFlags a combination of flags to undefine.
@@ -117,7 +112,6 @@ public interface ISmObjectData extends Serializable, IAccessOrdered {
      * <p>
      * Use the constants defined in {@link IPStatus}.
      * No delete flag must be undefined, in the other case Modelio behavior is undefined.
-     * 
      * @param trueFlags a combination of flags to set.
      * @param falseFlags a combination of flags to unset.
      * @param undefFlags a combination of flags to undefine.
@@ -127,7 +121,6 @@ public interface ISmObjectData extends Serializable, IAccessOrdered {
 
     /**
      * Set the given persistent flags state.
-     * 
      * @param flags a combination of flags. Use the constants defined in {@link IRStatus}.
      * @param state the flags state*
      */
@@ -141,7 +134,6 @@ public interface ISmObjectData extends Serializable, IAccessOrdered {
      * <li> <code>StatusState.TRUE</code> if all of them are defined and set to <code>StatusState.TRUE</code>,
      * <li> <code>StatusState.FALSE</code> if all of them are defined and some are set to <code>StatusState.FALSE</code>.
      * </ul>
-     * 
      * @param flags the flags to test
      * @return <code>StatusState.UNDEFINED</code> if any of the flags is not defined, <code>StatusState.TRUE</code> if all of them are defined
      * and set, else <code>StatusState.FALSE</code>.
@@ -156,7 +148,6 @@ public interface ISmObjectData extends Serializable, IAccessOrdered {
      * <li> <code>StatusState.UNDEFINED</code> if no flag is TRUE and at least one flag is UNDEFINED,
      * <li> <code>StatusState.FALSE</code> if all of them are defined to <code>StatusState.FALSE</code>.
      * </ul>
-     * 
      * @param flags the flags to test
      * @return the test result.
      */

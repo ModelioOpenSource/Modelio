@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,7 @@ public class ENode extends ENamedElement {
     }
 
     @objid ("7183726e-68d8-4d7c-abf9-fc9cd393029d")
-    public ENode(org.eclipse.uml2.uml.Node element) {
+    public  ENode(org.eclipse.uml2.uml.Node element) {
         super(element);
     }
 
@@ -60,6 +59,7 @@ public class ENode extends ENamedElement {
         } else {
             objingCollab.setOwner(revProp.getExternalPackage());
         }
+        
     }
 
 }

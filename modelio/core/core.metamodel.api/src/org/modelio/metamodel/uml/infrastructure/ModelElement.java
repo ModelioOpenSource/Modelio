@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.uml.infrastructure;
 
 import java.util.List;
@@ -31,11 +31,6 @@ import org.eclipse.emf.common.util.EList;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.impact.ImpactLink;
 import org.modelio.metamodel.mmextensions.infrastructure.ExtensionNotFoundException;
-import org.modelio.metamodel.uml.infrastructure.AbstractResource;
-import org.modelio.metamodel.uml.infrastructure.Dependency;
-import org.modelio.metamodel.uml.infrastructure.Note;
-import org.modelio.metamodel.uml.infrastructure.Stereotype;
-import org.modelio.metamodel.uml.infrastructure.TaggedValue;
 import org.modelio.metamodel.uml.infrastructure.matrix.MatrixDefinition;
 import org.modelio.metamodel.uml.infrastructure.properties.LocalPropertyTable;
 import org.modelio.metamodel.uml.infrastructure.properties.PropertyTable;
@@ -67,10 +62,9 @@ public interface ModelElement extends Element {
      * Does nothing if the stereotype is already present.
      * </p>
      * @since Modelio 3.4
-     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param stereotypeName The stereotype to find. Cannot be <code>null</code>.
-     * @throws org.modelio.metamodel.mmextensions.infrastructure.ExtensionNotFoundException when the stereotype has not been found.
+     * @throws ExtensionNotFoundException when the stereotype has not been found.
      */
     @objid ("4601cf60-e004-4047-a69c-5b34dad34860")
     void addStereotype(String moduleName, String stereotypeName) throws ExtensionNotFoundException;
@@ -80,7 +74,6 @@ public interface ModelElement extends Element {
      * <p>
      * Return <code>null</code> if no {@link LocalPropertyTable} with the given name exists or it does not contain the given property.
      * </p>
-     * 
      * @param key a property name
      * @return The property value or <code>null</code>.
      */
@@ -89,7 +82,6 @@ public interface ModelElement extends Element {
 
     /**
      * This operation returns the first note of the type indicated by the (moduleName, noteTypeName) pair.
-     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param noteTypeName the note type name. Cannot be <code>null</code>.
      * @return The note or <code>null</code> if the note can't be found.
@@ -101,7 +93,6 @@ public interface ModelElement extends Element {
 
     /**
      * This operation returns the first note of the type indicated by the (moduleName, noteTypeName) pair.
-     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. If <code>null</code>, only types owned by a {@link MetaclassReference} are considered.
      * @param noteTypeName the note type name. Cannot be <code>null</code>.
@@ -113,7 +104,6 @@ public interface ModelElement extends Element {
 
     /**
      * Get the first note of the given type.
-     * 
      * @param noteType a note type
      * @return the first matching note or <i>null</i>.
      * @since 3.8
@@ -123,7 +113,6 @@ public interface ModelElement extends Element {
 
     /**
      * This method returns the content of the first note of the type indicated by the (moduleName, noteTypeName) pair.
-     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param noteTypeName the note type name. Cannot be <code>null</code>.
      * @return The note or <code>null</code> if the note can't be found.
@@ -135,7 +124,6 @@ public interface ModelElement extends Element {
 
     /**
      * This method returns the content of the first note of the type indicated by the (moduleName, noteTypeName) pair.
-     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param noteTypeName the note type name. Cannot be <code>null</code>.
@@ -148,7 +136,6 @@ public interface ModelElement extends Element {
     /**
      * This method returns the content of the first note of the given type.
      * @since 3.8
-     * 
      * @param noteType the note type.
      * @return The note or <code>null</code> if the note can't be found.
      */
@@ -157,7 +144,6 @@ public interface ModelElement extends Element {
 
     /**
      * Get the first found {@link PropertyTable} that has the given name.
-     * 
      * @param name a property table name
      * @return the found table or <code>null</code>.
      */
@@ -169,7 +155,6 @@ public interface ModelElement extends Element {
      * <p>
      * Return <code>null</code> if no {@link PropertyTable} with the given name exists or it does not contain the given property.
      * </p>
-     * 
      * @param tableName The table name. The table may not exist.
      * @param key a property name
      * @return The property value or <code>null</code>.
@@ -182,13 +167,12 @@ public interface ModelElement extends Element {
      * <p>
      * Return <code>null</code> if no {@link TypedPropertyTable} for the stereotype exists or it does not contain the given property.
      * </p>
-     * 
      * @param moduleName the name of the module providing stereotype. Cannot be <code>null</code>.
      * @param stereotypeName the name of the stereotype providing the table type. Cannot be <code>null</code>.
      * @param key a property name
      * @return The property value or <code>null</code>.
      * @since Modelio 3.4
-     * @throws org.modelio.metamodel.mmextensions.infrastructure.ExtensionNotFoundException when the Stereotype has not been found.
+     * @throws ExtensionNotFoundException when the Stereotype has not been found.
      */
     @objid ("a102d222-688b-45ac-bc95-5d68fc907403")
     String getProperty(String moduleName, String stereotypeName, String key) throws ExtensionNotFoundException;
@@ -197,7 +181,6 @@ public interface ModelElement extends Element {
      * Get the first stereotype applied to this element that matches the (moduleName, stereotypeName) pair from this model element.
      * <p>
      * The returned stereotype may be a sub stereotype that derives from the given specification.
-     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param stereotypeName The stereotype to find. Cannot be <code>null</code>.
      * @return the specified stereotype or <code>null</code>.
@@ -207,7 +190,6 @@ public interface ModelElement extends Element {
 
     /**
      * This method returns the (first) tagged value of the type indicated by the (moduleName, tagTypeName) pair.
-     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param tagTypeName The tagged value type name. Cannot be <code>null</code>.
      * @return The tag or <code>null</code> if it can't be found
@@ -219,7 +201,6 @@ public interface ModelElement extends Element {
 
     /**
      * This method returns the (first) tagged value of the type indicated by the (moduleName, tagTypeName) pair.
-     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param tagTypeName The tagged value type name. Cannot be <code>null</code>.
@@ -232,7 +213,6 @@ public interface ModelElement extends Element {
     /**
      * This method returns the first tagged value of the given type.
      * @since 3.8
-     * 
      * @param tagType a tag type
      * @return The tag or <code>null</code> if it can't be found.
      */
@@ -241,7 +221,6 @@ public interface ModelElement extends Element {
 
     /**
      * This method returns the first parameter value of the first tagged value of the type indicated by the (moduleName, tagTypeName) pair.
-     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param tagTypeName The tagged value type name. Cannot be <code>null</code>.
      * @return <code>null</code> if no tag can be found or there are no parameters, otherwise the first parameter value.
@@ -253,7 +232,6 @@ public interface ModelElement extends Element {
 
     /**
      * This method returns the first parameter value of the first tagged value of the type indicated by the (moduleName, tagTypeName) pair.
-     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param tagTypeName The tagged value type name. Cannot be <code>null</code>.
@@ -266,7 +244,6 @@ public interface ModelElement extends Element {
     /**
      * This method returns the first parameter value of the first tagged value of the given type.
      * @since 3.8
-     * 
      * @param tagType a tag type
      * @return <code>null</code> if no tag can be found or there are no parameters, otherwise the first parameter value.
      */
@@ -275,7 +252,6 @@ public interface ModelElement extends Element {
 
     /**
      * This method returns the parameter values of the first tagged value of the type indicated by the (moduleName, tagTypeName) pair.
-     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param tagTypeName The tagged value type name. Cannot be <code>null</code>.
      * @return <code>null</code> if no tag can be found otherwise the (possibly empty) parameter list
@@ -287,7 +263,6 @@ public interface ModelElement extends Element {
 
     /**
      * This method returns the parameter values of the first tagged value of the type indicated by the (moduleName, tagTypeName) pair.
-     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param tagTypeName The tagged value type name. Cannot be <code>null</code>.
@@ -300,7 +275,6 @@ public interface ModelElement extends Element {
     /**
      * This method returns the parameter values of the first tagged value of the given type.
      * @since 3.8
-     * 
      * @param tagType a tag type
      * @return <code>null</code> if no tag can be found otherwise the (possibly empty) parameter list.
      */
@@ -312,7 +286,6 @@ public interface ModelElement extends Element {
 
     /**
      * Checks if a model element has the stereotype specified by the (moduleName, stereotypeName) pair.
-     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param stereotypeName The stereotype to find. Cannot be <code>null</code>.
      * @return true if the element has the given stereotype or a stereotype derived from the given one.
@@ -322,7 +295,6 @@ public interface ModelElement extends Element {
 
     /**
      * This method returns <code>true</code> if the element has a tagged value of the type indicated by the (moduleName, tagTypeName) pair.
-     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param tagTypeName The tagged value type name. Cannot be <code>null</code>.
      * @return <code>true</code> if the element has a tagged value with the corresponding type.
@@ -334,7 +306,6 @@ public interface ModelElement extends Element {
 
     /**
      * This method returns <code>true</code> if the element has a tagged value of the type indicated by the (moduleName, tagTypeName) pair.
-     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param tagTypeName The tagged value type name. Cannot be <code>null</code>.
@@ -347,7 +318,6 @@ public interface ModelElement extends Element {
     /**
      * This method returns <code>true</code> if the element has a tagged value of the given type.
      * @since 3.8
-     * 
      * @param tagType a tag type
      * @return <code>true</code> if the element has a tagged value with the corresponding type.
      */
@@ -359,11 +329,10 @@ public interface ModelElement extends Element {
      * <p>
      * If no note with the given type is found, one is created.
      * </p>
-     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param noteTypeName the note type name. Cannot be <code>null</code>.
-     * @param content the note content
-     * @throws org.modelio.metamodel.mmextensions.infrastructure.ExtensionNotFoundException when the NoteType has not been found.
+     * @param content the note content. If value is <code>null</code> the note is deleted.
+     * @throws ExtensionNotFoundException when the NoteType has not been found.
      * @deprecated since Modelio 3.8, it is recommended to use {@link #putNoteContent(String, String, String, String)} instead.
      */
     @objid ("73b0ebfc-5dab-4ecb-b39e-3dd5a188916f")
@@ -375,12 +344,11 @@ public interface ModelElement extends Element {
      * <p>
      * If no note with the given type is found, one is created.
      * </p>
-     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param noteTypeName the note type name. Cannot be <code>null</code>.
-     * @param content the note content
-     * @throws org.modelio.metamodel.mmextensions.infrastructure.ExtensionNotFoundException when the NoteType has not been found.
+     * @param content the note content. If value is <code>null</code> the note is deleted.
+     * @throws ExtensionNotFoundException when the NoteType has not been found.
      * @since Modelio 3.8
      */
     @objid ("99e30ace-a3d1-4662-9263-99c63a399432")
@@ -392,9 +360,8 @@ public interface ModelElement extends Element {
      * If no note with the given type is found, one is created.
      * </p>
      * @since 3.8
-     * 
      * @param noteType a note type
-     * @param content the note content
+     * @param content the note content. If value is <code>null</code> the note is deleted.
      */
     @objid ("59d255ab-4c7a-4ea8-8fa4-ee03c5c9339e")
     void putNoteContent(NoteType noteType, String content);
@@ -408,11 +375,10 @@ public interface ModelElement extends Element {
      * <p>
      * If value is <code>null</code> the existing tag is deleted.
      * </p>
-     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param tagTypeName The tagged value type name. Cannot be <code>null</code>.
      * @param value the values to store on the tag parameters. If value is <code>null</code> the tag is deleted.
-     * @throws org.modelio.metamodel.mmextensions.infrastructure.ExtensionNotFoundException when the TagType has not been found.
+     * @throws ExtensionNotFoundException when the TagType has not been found.
      * @deprecated since Modelio 3.8, it is recommended to use {@link #putTagValue(String, String, String, String)} instead.
      */
     @objid ("5caef430-b9e6-4b7c-900c-b7deb17a8197")
@@ -428,12 +394,11 @@ public interface ModelElement extends Element {
      * <p>
      * If value is <code>null</code> the existing tag is deleted.
      * </p>
-     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param tagTypeName The tagged value type name. Cannot be <code>null</code>.
      * @param value the values to store on the tag parameters. If value is <code>null</code> the tag is deleted.
-     * @throws org.modelio.metamodel.mmextensions.infrastructure.ExtensionNotFoundException when the TagType has not been found.
+     * @throws ExtensionNotFoundException when the TagType has not been found.
      * @since Modelio 3.8
      */
     @objid ("76d91482-3045-4474-bbc3-3dac75e60a95")
@@ -449,7 +414,6 @@ public interface ModelElement extends Element {
      * If value is <code>null</code> the existing tag is deleted.
      * </p>
      * @since 3.8
-     * 
      * @param tagType a tag type
      * @param value the value to store on the tag parameter. If value is <code>null</code> the tag is deleted.
      */
@@ -465,11 +429,10 @@ public interface ModelElement extends Element {
      * <p>
      * If values is <code>null</code> or empty list, the existing tag is deleted.
      * </p>
-     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param tagTypeName The tagged value type name. Cannot be <code>null</code>.
      * @param values the values to store on the tag parameters. If value is <code>null</code> or empty list, the tag is deleted.
-     * @throws org.modelio.metamodel.mmextensions.infrastructure.ExtensionNotFoundException when the TagType has not been found.
+     * @throws ExtensionNotFoundException when the TagType has not been found.
      * @deprecated since Modelio 3.8, it is recommended to use {@link #putTagValues(String, String, String, List)} instead.
      */
     @objid ("d59462b8-4bf4-4878-a82a-8eede2c93613")
@@ -485,12 +448,11 @@ public interface ModelElement extends Element {
      * <p>
      * If values is <code>null</code> or empty list, the existing tag is deleted.
      * </p>
-     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param tagTypeName The tagged value type name. Cannot be <code>null</code>.
      * @param values the values to store on the tag parameters. If value is <code>null</code> or empty list, the tag is deleted.
-     * @throws org.modelio.metamodel.mmextensions.infrastructure.ExtensionNotFoundException when the TagType has not been found.
+     * @throws ExtensionNotFoundException when the TagType has not been found.
      * @since Modelio 3.8
      */
     @objid ("e1373209-c29c-42f0-85d6-203b8f8c79e6")
@@ -506,7 +468,6 @@ public interface ModelElement extends Element {
      * If values is <code>null</code> or empty list, the existing tag is deleted.
      * </p>
      * @since 3.8
-     * 
      * @param tagType a tag type
      * @param values the new tag parameters
      */
@@ -515,7 +476,6 @@ public interface ModelElement extends Element {
 
     /**
      * This method deletes all the notes having this noteType of the type indicated by the (moduleName, noteTypeName) pair.
-     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param noteTypeName the note type name. Cannot be <code>null</code>.
      * @deprecated since Modelio 3.8, it is recommended to use {@link #removeNotes(String, String, String)} instead.
@@ -526,7 +486,6 @@ public interface ModelElement extends Element {
 
     /**
      * This method deletes all the notes having this noteType of the type indicated by the (moduleName, noteTypeName) pair.
-     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param noteTypeName the note type name. Cannot be <code>null</code>.
@@ -537,7 +496,6 @@ public interface ModelElement extends Element {
 
     /**
      * This method deletes all the notes having this note Type .
-     * 
      * @param noteType the type of the notes to delete.
      */
     @objid ("9d0d3b40-b4be-4187-b2d9-fa9ce2d5a787")
@@ -549,7 +507,6 @@ public interface ModelElement extends Element {
      * If several instances of the stereotype are present, they are all removed.
      * </p>
      * @since Modelio 3.4
-     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param stereotypeName The stereotype to find. Cannot be <code>null</code>.
      */
@@ -558,7 +515,6 @@ public interface ModelElement extends Element {
 
     /**
      * This method deletes all the tagged values of the type indicated by the (moduleName, tagTypeName) pair.
-     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param tagTypeName The tagged value type name. Cannot be <code>null</code>.
      * @deprecated since Modelio 3.8, it is recommended to use {@link #removeTags(String, String, String)} instead.
@@ -569,7 +525,6 @@ public interface ModelElement extends Element {
 
     /**
      * This method deletes all the tagged values of the type indicated by the (moduleName, tagTypeName) pair.
-     * 
      * @param moduleName the name of the module providing the type. Cannot be <code>null</code>.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param tagTypeName The tagged value type name. Cannot be <code>null</code>.
@@ -580,7 +535,6 @@ public interface ModelElement extends Element {
 
     /**
      * This method deletes all the tagged values of given type .
-     * 
      * @param tagType a tag type
      */
     @objid ("1aeee99e-cdea-4eac-b02a-02d4b382c961")
@@ -593,7 +547,6 @@ public interface ModelElement extends Element {
      * </p>
      * <p>
      * Warning: local property tables are only part of the local project, and are never shared with other users.
-     * 
      * @param key a property name
      * @param value the property value.
      */
@@ -605,12 +558,11 @@ public interface ModelElement extends Element {
      * <p>
      * Update the value of a property in a stereotype's {@link TypedPropertyTable}. If missing, the table itself is created.
      * </p>
-     * 
      * @param moduleName the name of the module providing stereotype. Cannot be <code>null</code>.
      * @param stereotypeName the name of the stereotype providing the table type. Cannot be <code>null</code>.
      * @param key a property name
      * @param value the property value.
-     * @throws org.modelio.metamodel.mmextensions.infrastructure.ExtensionNotFoundException when the stereotype has not been found.
+     * @throws ExtensionNotFoundException when the stereotype has not been found.
      * @since Modelio 3.4
      */
     @objid ("5bd36280-3dc5-4bdd-9e7c-c5b1fc16e7f1")
@@ -621,7 +573,6 @@ public interface ModelElement extends Element {
      * <p>
      * Update the value of a property in a {@link PropertyTable}. If missing, the table itself is created.
      * </p>
-     * 
      * @param tableName The table name. The table may not exist.
      * @param key a property name
      * @param value the property value.
@@ -633,7 +584,6 @@ public interface ModelElement extends Element {
     /**
      * Get the property table for the properties defined by the given stereotype.
      * @since 3.8
-     * 
      * @param stereotype a stereotype, must not be <code>null</code>.
      * @return the found property table or <code>null</code>.
      */
@@ -645,7 +595,6 @@ public interface ModelElement extends Element {
      * <p>
      * Return <code>null</code> if no {@link TypedPropertyTable} for the stereotype exists or it does not contain the given property.
      * </p>
-     * 
      * @param stereotype the stereotype providing the table type. Cannot be <code>null</code>.
      * @param key a property name
      * @return The property value or <code>null</code>.
@@ -659,7 +608,6 @@ public interface ModelElement extends Element {
      * <p>
      * Update the value of a property in a stereotype's {@link TypedPropertyTable}. If missing, the table itself is created.
      * </p>
-     * 
      * @param stereotype the stereotype providing the table type. Cannot be <code>null</code>.
      * @param key a property name
      * @param value the property value.
@@ -671,7 +619,6 @@ public interface ModelElement extends Element {
     /**
      * Get the property table for the properties defined by the given metaclass reference.
      * @since 3.8.1
-     * 
      * @param ref the metaclass reference providing the table type. Cannot be <code>null</code>.
      * @return the found property table or <code>null</code>.
      */
@@ -684,7 +631,6 @@ public interface ModelElement extends Element {
      * Update the value of a property in a metaclass reference's {@link TypedPropertyTable}. If missing, the table itself is created.
      * </p>
      * @since 3.8.1
-     * 
      * @param ref the metaclass reference providing the table type. Cannot be <code>null</code>.
      * @param key a property name
      * @param value the property value.
@@ -699,7 +645,6 @@ public interface ModelElement extends Element {
      * Return <code>null</code> if no {@link TypedPropertyTable} for the metaclass reference exists or it does not contain the given property.
      * </p>
      * @since 3.8.1
-     * 
      * @param ref the metaclass reference providing the table type. Cannot be <code>null</code>.
      * @param key a property name
      * @return The property value or <code>null</code>.

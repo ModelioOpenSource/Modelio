@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.sequence;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,7 +35,7 @@ public class StateInvariantDG extends LeafNodeDG {
      * @param node The gm node represented by this class.
      */
     @objid ("25772298-0b1c-4dbc-8c5e-b1fb36d701b6")
-    public StateInvariantDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  StateInvariantDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 

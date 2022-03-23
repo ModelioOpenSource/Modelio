@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.module.modelermodule.gui;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -60,7 +59,6 @@ public class ClassifierCreationWizard {
 
     /**
      * Get the inputed name.
-     * 
      * @return a name for the new classifier.
      */
     @objid ("a58792ce-1af2-40d4-83da-9bf3f2f291fa")
@@ -70,7 +68,6 @@ public class ClassifierCreationWizard {
 
     /**
      * Get the selected classifier type.
-     * 
      * @return a classifier sub-type name: Class, Component, Interface or Node.
      */
     @objid ("c0825a83-6a1a-465d-83b4-3f3eba14d53c")
@@ -80,18 +77,18 @@ public class ClassifierCreationWizard {
 
     /**
      * Default constructor.
-     * 
      * @param parent the parent shell.
      * @param instance the instance indicating which classifier sub-types should be made available.
      * Interfaces and Nodes won't be available is the instance has ports.
      */
     @objid ("2a5f40e9-e5f1-480b-87a5-3aa7ee34495e")
-    public ClassifierCreationWizard(final Shell parent, final Instance instance) {
+    public  ClassifierCreationWizard(final Shell parent, final Instance instance) {
         this.name = "";
         this.selected = I18nMessageService.getString("module.gui.classifierWizard.class");
         this.instance = instance;
         
         createContents(parent);
+        
     }
 
     /**
@@ -109,6 +106,7 @@ public class ClassifierCreationWizard {
             if (!display.readAndDispatch())
                 display.sleep();
         }
+        
     }
 
     /**
@@ -165,6 +163,7 @@ public class ClassifierCreationWizard {
         
         this.shell.pack();
         this.shell.setSize(this.shell.getSize().x + 30, this.shell.getSize().y);
+        
     }
 
     @objid ("69140fe7-a73d-4231-8bc9-ce16ef83859f")
@@ -241,6 +240,7 @@ public class ClassifierCreationWizard {
             nodeButton.setData(I18nMessageService.getString("module.gui.classifierWizard.node"));
             nodeButton.addSelectionListener(listener);
         }
+        
     }
 
     @objid ("9355ee74-82dc-4501-b12d-d94133a979be")

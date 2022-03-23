@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.activities;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.bpmn.activities.AdHocOrdering;
 import org.modelio.metamodel.bpmn.activities.BpmnAdHocSubProcess;
 import org.modelio.metamodel.bpmn.activities.BpmnSubProcess;
-import org.modelio.metamodel.impl.bpmn.activities.BpmnSubProcessSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -53,7 +52,7 @@ public class BpmnAdHocSubProcessSmClass extends BpmnSubProcessSmClass {
     private SmAttribute completionConditionAtt;
 
     @objid ("ad973951-aa79-4563-81ac-7ad090f596e6")
-    public BpmnAdHocSubProcessSmClass(ISmMetamodelFragment origin) {
+    public  BpmnAdHocSubProcessSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -61,6 +60,7 @@ public class BpmnAdHocSubProcessSmClass extends BpmnSubProcessSmClass {
     @Override
     public String getName() {
         return "BpmnAdHocSubProcess";
+        
     }
 
     @objid ("71ae5218-44eb-4f81-a62b-27df2790b989")
@@ -73,18 +73,21 @@ public class BpmnAdHocSubProcessSmClass extends BpmnSubProcessSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnAdHocSubProcess.class;
+        
     }
 
     @objid ("daaacc23-afe7-4a4d-bbf1-29273a54aa58")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("011c64ac-62f0-4529-ad18-37eb2420589f")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("8b660944-2c3b-49fc-bfd5-0cd3b6ea003f")
@@ -109,6 +112,7 @@ public class BpmnAdHocSubProcessSmClass extends BpmnSubProcessSmClass {
         
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("3546649d-4df7-4f8e-91ff-129503b6be25")
@@ -141,7 +145,7 @@ public class BpmnAdHocSubProcessSmClass extends BpmnSubProcessSmClass {
         private BpmnAdHocSubProcessSmClass smClass;
 
         @objid ("e97076fd-4dc2-43a7-a00f-f31dab874504")
-        public BpmnAdHocSubProcessObjectFactory(BpmnAdHocSubProcessSmClass smClass) {
+        public  BpmnAdHocSubProcessObjectFactory(BpmnAdHocSubProcessSmClass smClass) {
             this.smClass = smClass;
         }
 

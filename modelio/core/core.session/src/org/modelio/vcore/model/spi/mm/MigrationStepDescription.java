@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model.spi.mm;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class MigrationStepDescription implements IMigrationStepDescription {
     private final String desc;
 
     @objid ("afe66a20-dc86-4583-84a0-d1f8d3bf6b99")
-    public MigrationStepDescription(String desc) {
+    public  MigrationStepDescription(String desc) {
         this.desc = desc;
     }
 

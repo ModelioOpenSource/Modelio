@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.dnd;
 
 import java.util.List;
@@ -44,10 +43,11 @@ public class DiagramBrowserDropListener extends ViewerDropAdapter {
     private final TreeViewer viewer;
 
     @objid ("ce5c0117-b1db-45fc-9c5e-fd670b91c7d5")
-    public DiagramBrowserDropListener(TreeViewer viewer, ICoreSession session) {
+    public  DiagramBrowserDropListener(TreeViewer viewer, ICoreSession session) {
         super(viewer);
         this.viewer = viewer;
         this.session = session;
+        
     }
 
     @objid ("28afdfb5-c670-46dd-9408-00d1d83fafe9")
@@ -99,6 +99,7 @@ public class DiagramBrowserDropListener extends ViewerDropAdapter {
         
             }
         }
+        
     }
 
     @objid ("1e0e48c4-2b22-4090-a82d-3bbdb5dc3e21")

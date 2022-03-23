@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.texticon;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -60,9 +59,10 @@ public class StyledTextPainter extends AbstractCellPainter {
     private final IStyledLabelProvider labelProvider;
 
     @objid ("a625391e-65c7-4302-a6a7-43324cb71594")
-    public StyledTextPainter(TextLayout textDrawer, IStyledLabelProvider labelProvider) {
+    public  StyledTextPainter(TextLayout textDrawer, IStyledLabelProvider labelProvider) {
         this.textDrawer = textDrawer;
         this.labelProvider = labelProvider;
+        
     }
 
     @objid ("2da6f7a5-e9b8-4f6f-b14e-1a4dc86bda65")
@@ -132,6 +132,7 @@ public class StyledTextPainter extends AbstractCellPainter {
             gc.setForeground(oldForeground);
             gc.setBackground(oldBackground);
         }
+        
     }
 
     @objid ("1d5b3eb6-72cb-4958-9e58-1516886220ca")
@@ -179,13 +180,13 @@ public class StyledTextPainter extends AbstractCellPainter {
         } else {
             return this.labelProvider.getStyledText(displayValue); 
         }
+        
     }
 
     /**
      * @param layout
      * @param cell
      * @param applyColors
-     * 
      * @return the text width delta (0 if the text layout contains no other font)
      */
     @objid ("24e93a97-08fa-4f42-9798-b20131190fee")
@@ -239,7 +240,6 @@ public class StyledTextPainter extends AbstractCellPainter {
      * no colors are drawn when the element is selected.
      * The current version of the {@link StyledCellLabelProvider} will also ignore all font settings on the
      * style range. Clients can override.
-     * 
      * @param styleRange the style range to prepare. the style range element must not be modified
      * @param applyColors specifies if colors should be applied.
      * @return
@@ -273,6 +273,7 @@ public class StyledTextPainter extends AbstractCellPainter {
         gc.setFont(font);
         gc.setForeground(fg != null ? fg : GUIHelper.COLOR_LIST_FOREGROUND);
         gc.setBackground(bg != null ? bg : GUIHelper.COLOR_LIST_BACKGROUND);
+        
     }
 
 }

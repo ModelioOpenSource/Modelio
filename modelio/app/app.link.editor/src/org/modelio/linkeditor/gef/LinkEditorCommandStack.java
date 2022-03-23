@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.gef;
 
 import java.util.Optional;
@@ -39,11 +38,10 @@ public class LinkEditorCommandStack extends CommandStack {
 
     /**
      * Initialize the command stack.
-     * 
      * @param session a modeling session
      */
     @objid ("1b9f89e5-5e33-11e2-b81d-002564c97630")
-    public LinkEditorCommandStack(Supplier<ICoreSession> session) {
+    public  LinkEditorCommandStack(Supplier<ICoreSession> session) {
         this.sessionGetter = () -> Optional.ofNullable(session.get());
     }
 
@@ -72,6 +70,7 @@ public class LinkEditorCommandStack extends CommandStack {
         } finally {
             notifyListeners(command, POST_UNDO);
         }
+        
     }
 
     @objid ("1b9f89f6-5e33-11e2-b81d-002564c97630")
@@ -89,6 +88,7 @@ public class LinkEditorCommandStack extends CommandStack {
         } finally {
             notifyListeners(command, POST_REDO);
         }
+        
     }
 
     @objid ("1b9f89f9-5e33-11e2-b81d-002564c97630")
@@ -132,6 +132,7 @@ public class LinkEditorCommandStack extends CommandStack {
         } finally {
             notifyListeners(command, POST_EXECUTE);
         }
+        
     }
 
     @objid ("1b9f8a0c-5e33-11e2-b81d-002564c97630")

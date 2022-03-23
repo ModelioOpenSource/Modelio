@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.audit;
 
 import java.util.ArrayList;
@@ -90,6 +89,7 @@ public class R2340 extends AbstractUmlRule {
         
         // Classifier.GeneralClass.Class
         plan.registerRule(Component.MQNAME, this, AuditTrigger.UPDATE);
+        
     }
 
     /**
@@ -123,14 +123,14 @@ public class R2340 extends AbstractUmlRule {
      * Default constructor for R2340
      */
     @objid ("b42d8b78-7f25-4ef0-bc23-bd72582214d1")
-    public R2340() {
+    public  R2340() {
         this.checkerInstance = new CheckR2340(this);
     }
 
     @objid ("8e9de58b-c4fc-4c06-8e5d-3038d42d2272")
     private static class CheckR2340 extends AbstractControl {
         @objid ("f6c02bd4-3295-464a-9b03-e7b98d52c9f2")
-        public CheckR2340(IRule rule) {
+        public  CheckR2340(IRule rule) {
             super(rule);
         }
 
@@ -196,7 +196,6 @@ public class R2340 extends AbstractUmlRule {
 
         /**
          * This methods checks if the given classifier is an .Interface, in which case the appropriate method is called.
-         * 
          * @param classifier The Classifier.
          * @return A list of AuditEntries.
          */
@@ -207,11 +206,11 @@ public class R2340 extends AbstractUmlRule {
             } else {
                 return checkAllClassifier(classifier, new ArrayList<Classifier>());
             }
+            
         }
 
         /**
          * This method recursively navigates the .Interface realizations until it find Classifiers and then call the appropriate method that check Classifiers.
-         * 
          * @param interfaze The .Interface to check.
          * @return A list of AuditEntries.
          */
@@ -243,7 +242,6 @@ public class R2340 extends AbstractUmlRule {
 
         /**
          * This method recursively checks the given Classifier as well as all Classifier that inherits from it.
-         * 
          * @param classifier The given Classifier.
          * @return A list of AuditEntries.
          */
@@ -297,6 +295,7 @@ public class R2340 extends AbstractUmlRule {
                     fetchAllOperations(clazzifier, accessibleClassifiers);
                 }
             }
+            
         }
 
     }

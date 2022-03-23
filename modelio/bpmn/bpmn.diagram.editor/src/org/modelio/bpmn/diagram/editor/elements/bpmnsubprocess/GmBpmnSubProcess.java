@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnsubprocess;
 
 import java.util.Collections;
@@ -25,10 +24,10 @@ import java.util.List;
 import java.util.Objects;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.PositionConstants;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnSubProcessImageStyleKeys;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnSubProcessSimpleStyleKeys;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnSubProcessStructuredStyleKeys;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnSubProcessUserImageStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnSubProcessImageStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnSubProcessSimpleStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnSubProcessStructuredStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnSubProcessUserImageStyleKeys;
 import org.modelio.diagram.elements.common.label.modelelement.GmDefaultModelElementLabel;
 import org.modelio.diagram.elements.common.portcontainer.GmPortContainer;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
@@ -47,9 +46,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("61c6f025-55b6-11e2-877f-002564c97630")
 public class GmBpmnSubProcess extends GmPortContainer {
-    @objid ("61c6f02f-55b6-11e2-877f-002564c97630")
-    private BpmnSubProcess element;
-
     /**
      * Current version of this Gm.
      */
@@ -62,27 +58,29 @@ public class GmBpmnSubProcess extends GmPortContainer {
     @objid ("61c6f037-55b6-11e2-877f-002564c97630")
     private static final String IMAGE_LABEL_ROLE = "ImageLabel";
 
+    @objid ("61c6f02f-55b6-11e2-877f-002564c97630")
+    private BpmnSubProcess element;
+
     @objid ("c5158610-59a6-11e2-ae45-002564c97630")
-     static final GmBpmnSubProcessStructuredStyleKeys STRUCTURED_KEYS = new GmBpmnSubProcessStructuredStyleKeys();
+    static final GmBpmnSubProcessStructuredStyleKeys STRUCTURED_KEYS = new GmBpmnSubProcessStructuredStyleKeys();
 
     @objid ("c5158612-59a6-11e2-ae45-002564c97630")
-     static final GmBpmnSubProcessSimpleStyleKeys SIMPLE_KEYS = new GmBpmnSubProcessSimpleStyleKeys();
+    static final GmBpmnSubProcessSimpleStyleKeys SIMPLE_KEYS = new GmBpmnSubProcessSimpleStyleKeys();
 
     @objid ("c5158614-59a6-11e2-ae45-002564c97630")
-     static final GmBpmnSubProcessImageStyleKeys IMAGE_KEYS = new GmBpmnSubProcessImageStyleKeys();
+    static final GmBpmnSubProcessImageStyleKeys IMAGE_KEYS = new GmBpmnSubProcessImageStyleKeys();
 
     @objid ("b3b6595b-c23a-439b-af55-f11b0c3c27c8")
-     static final GmBpmnSubProcessUserImageStyleKeys USERIMAGE_KEYS = new GmBpmnSubProcessUserImageStyleKeys();
+    static final GmBpmnSubProcessUserImageStyleKeys USERIMAGE_KEYS = new GmBpmnSubProcessUserImageStyleKeys();
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the BpmnReceiveTask is unmasked.
      * @param element the unmasked BpmnReceiveTask.
      * @param ref a reference to the unmasked callOperation.
      */
     @objid ("61c6f039-55b6-11e2-877f-002564c97630")
-    public GmBpmnSubProcess(IGmDiagram diagram, BpmnSubProcess element, MRef ref) {
+    public  GmBpmnSubProcess(IGmDiagram diagram, BpmnSubProcess element, MRef ref) {
         super(diagram, ref);
         this.element = element;
         
@@ -95,6 +93,7 @@ public class GmBpmnSubProcess extends GmPortContainer {
         
         super.addChild(mainNode);
         super.addChild(imageModeHeader);
+        
     }
 
     @objid ("61c6f045-55b6-11e2-877f-002564c97630")
@@ -133,6 +132,7 @@ public class GmBpmnSubProcess extends GmPortContainer {
         default:
             return null;
         }
+        
     }
 
     @objid ("61c6f05e-55b6-11e2-877f-002564c97630")
@@ -150,13 +150,14 @@ public class GmBpmnSubProcess extends GmPortContainer {
         default:
             return Collections.emptyList();
         }
+        
     }
 
     /**
      * Empty constructor needed for deserialisation.
      */
     @objid ("61c876ba-55b6-11e2-877f-002564c97630")
-    public GmBpmnSubProcess() {
+    public  GmBpmnSubProcess() {
         // Nothing specific to do.
     }
 
@@ -181,6 +182,7 @@ public class GmBpmnSubProcess extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("61c876c3-55b6-11e2-877f-002564c97630")
@@ -202,6 +204,7 @@ public class GmBpmnSubProcess extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmBpmnSubProcess.", GmBpmnSubProcess.MINOR_VERSION);
+        
     }
 
     @objid ("61c876d7-55b6-11e2-877f-002564c97630")
@@ -214,6 +217,7 @@ public class GmBpmnSubProcess extends GmPortContainer {
         imageModeHeader.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         
         super.addChild(imageModeHeader, 1);
+        
     }
 
     @objid ("61c876dc-55b6-11e2-877f-002564c97630")
@@ -226,6 +230,7 @@ public class GmBpmnSubProcess extends GmPortContainer {
     private void read_1(final IDiagramReader in) {
         super.read(in);
         this.element = (BpmnSubProcess) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("61c876e7-55b6-11e2-877f-002564c97630")
@@ -254,7 +259,6 @@ public class GmBpmnSubProcess extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -264,11 +268,11 @@ public class GmBpmnSubProcess extends GmPortContainer {
         String role = childNode.getRoleInComposition();
         return GmPortContainer.SATELLITE_ROLE.equals(role)
                         || GmBpmnSubProcess.IMAGE_LABEL_ROLE.equals(role);
+        
     }
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnsequenceflowdataassociation;
 
 import java.util.List;
@@ -66,13 +65,12 @@ public class GmBpmnSequenceFlowDataAssociation extends GmLink {
 
     /**
      * Initialize a control flow graphic model.
-     * 
      * @param diagram The owning diagram
      * @param element The reference flow, may be null
      * @param ref The referenced flow reference, may not be null
      */
     @objid ("c96de0ed-0257-4293-9450-233d1c932a30")
-    public GmBpmnSequenceFlowDataAssociation(IGmDiagram diagram, BpmnSequenceFlowDataAssociation element, BpmnDataObject dataObject, MRef ref) {
+    public  GmBpmnSequenceFlowDataAssociation(IGmDiagram diagram, BpmnSequenceFlowDataAssociation element, BpmnDataObject dataObject, MRef ref) {
         super(diagram, ref);
         this.element = element;
         this.dataObject = dataObject;
@@ -80,6 +78,7 @@ public class GmBpmnSequenceFlowDataAssociation extends GmLink {
         GmDefaultModelElementLabel extension = new GmDefaultModelElementLabel(diagram, ref);
         extension.setShowLabel(false);
         addExtension(ExtensionLocation.MiddleNW, IGmLink.ROLE_MAIN_LABEL, extension);
+        
     }
 
     @objid ("3d845dda-650e-4701-b4f4-b57aacc25369")
@@ -89,13 +88,14 @@ public class GmBpmnSequenceFlowDataAssociation extends GmLink {
         if (this.element != null) {
             firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, null, getRepresentedElement().getName());
         }
+        
     }
 
     /**
      * For deserialization only.
      */
     @objid ("8b6d251c-17cd-4d7d-9001-f09ab1bba31e")
-    public GmBpmnSequenceFlowDataAssociation() {
+    public  GmBpmnSequenceFlowDataAssociation() {
         // Nothing to do.
     }
 
@@ -139,6 +139,7 @@ public class GmBpmnSequenceFlowDataAssociation extends GmLink {
         if (to instanceof GmBpmnDataObject) {
             setTo(((GmBpmnDataObject) to).getMainNode());
         }
+        
     }
 
     @objid ("5ed3dd0b-cc5e-49ca-b2fc-02a14ab605ea")
@@ -162,6 +163,7 @@ public class GmBpmnSequenceFlowDataAssociation extends GmLink {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmBpmnSequenceFlowDataAssociation.", GmBpmnSequenceFlowDataAssociation.MINOR_VERSION);
+        
     }
 
     @objid ("580dba9a-e244-48dc-80f4-efdf28194db7")

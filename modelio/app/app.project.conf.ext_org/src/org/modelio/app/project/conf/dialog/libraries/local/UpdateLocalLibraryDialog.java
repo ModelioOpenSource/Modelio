@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.libraries.local;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,9 +40,10 @@ class UpdateLocalLibraryDialog extends ModelioDialog {
     private UpdatePanel panel;
 
     @objid ("3355d1db-0332-43b2-9612-b92bbc40e0d7")
-    public UpdateLocalLibraryDialog(final Shell parentShell, final UpdatePanelDataModel model) {
+    public  UpdateLocalLibraryDialog(final Shell parentShell, final UpdatePanelDataModel model) {
         super(parentShell);
         this.model = model;
+        
     }
 
     @objid ("2bb1dc2d-3fa5-4ef7-8931-71ec921beb0e")
@@ -65,6 +65,7 @@ class UpdateLocalLibraryDialog extends ModelioDialog {
     public void addButtonsInButtonBar(final Composite parent) {
         createButton(parent, OK, AppProjectConfExt.I18N.getString("UpdateLocalLibraryDialog.Update"), true);
         createButton(parent, CANCEL, AppProjectConfExt.I18N.getString("UpdateLocalLibraryDialog.Close"), true);
+        
     }
 
     @objid ("8bd48fe2-c5fa-4494-9104-a8036e1a35f1")
@@ -84,6 +85,7 @@ class UpdateLocalLibraryDialog extends ModelioDialog {
         getShell().layout(true);
         
         getShell().setBounds(refBounds.x + (refBounds.width - width) / 2, refBounds.y + (refBounds.height - height) / 2, width, height);
+        
     }
 
     @objid ("9d5b0e4d-ac9f-4315-9d32-b63432d83964")

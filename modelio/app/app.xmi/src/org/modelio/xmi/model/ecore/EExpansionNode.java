@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,9 +38,10 @@ public class EExpansionNode extends ENamedElement {
     }
 
     @objid ("c2f372da-09c0-4dcb-9dc0-6dac7e206020")
-    public EExpansionNode(org.eclipse.uml2.uml.ExpansionNode element) {
+    public  EExpansionNode(org.eclipse.uml2.uml.ExpansionNode element) {
         super(element);
         this.isInput = (element.getRegionAsInput()!= null);
+        
     }
 
     @objid ("98545e29-76c2-41ef-b70a-e7f2bf152438")
@@ -61,6 +61,7 @@ public class EExpansionNode extends ENamedElement {
         }else{
             objingElt.delete();
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.informationflowlink;
 
 import java.util.List;
@@ -65,19 +64,18 @@ public class GmInformationFlowLink extends GmLink {
      * Constructor for deserialization.
      */
     @objid ("3504b268-55b7-11e2-877f-002564c97630")
-    public GmInformationFlowLink() {
+    public  GmInformationFlowLink() {
         // Nothing to do.
     }
 
     /**
      * Creates a GmElementImport.
-     * 
      * @param diagram The diagram containing the link.
      * @param role The represented element.
      * @param ref The represented element reference. May not be null.
      */
     @objid ("3504b26b-55b7-11e2-877f-002564c97630")
-    public GmInformationFlowLink(IGmDiagram diagram, InformationFlow role, MRef ref) {
+    public  GmInformationFlowLink(IGmDiagram diagram, InformationFlow role, MRef ref) {
         super(diagram, ref);
         
         this.element = role;
@@ -87,6 +85,7 @@ public class GmInformationFlowLink extends GmLink {
             addExtension(ExtensionLocation.TargetNW, ROLE_MAIN_LABEL, new GmInformationFlowLinkHeader(diagram, ref));
             addExtension(ExtensionLocation.TargetSE, ROLE_CONVEYED_GROUP, new GmConveyedClassifiersGroup(diagram, ref));
         }
+        
     }
 
     @objid ("3504b277-55b7-11e2-877f-002564c97630")
@@ -98,6 +97,7 @@ public class GmInformationFlowLink extends GmLink {
         } else {
             return sources.get(0);
         }
+        
     }
 
     @objid ("3504b27d-55b7-11e2-877f-002564c97630")
@@ -133,6 +133,7 @@ public class GmInformationFlowLink extends GmLink {
         } else {
             return targets.get(0);
         }
+        
     }
 
     @objid ("3506390a-55b7-11e2-877f-002564c97630")
@@ -140,6 +141,7 @@ public class GmInformationFlowLink extends GmLink {
     protected void readLink(IDiagramReader in) {
         super.readLink(in);
         this.element = (InformationFlow) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("35063910-55b7-11e2-877f-002564c97630")
@@ -149,6 +151,7 @@ public class GmInformationFlowLink extends GmLink {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmInformationFlowLink.", GmInformationFlowLink.MINOR_VERSION);
+        
     }
 
     @objid ("35063916-55b7-11e2-877f-002564c97630")
@@ -179,6 +182,7 @@ public class GmInformationFlowLink extends GmLink {
                 n.setRoleInComposition(ROLE_CONVEYED_GROUP);
             }
         }
+        
     }
 
 }

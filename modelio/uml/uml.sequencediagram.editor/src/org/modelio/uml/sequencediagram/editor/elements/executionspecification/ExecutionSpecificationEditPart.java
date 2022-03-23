@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.executionspecification;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -67,7 +66,6 @@ public class ExecutionSpecificationEditPart extends AbstractNodeEditPart impleme
 
     /**
      * Creates and returns a PlacementConstraint for the given model.
-     * 
      * @param model the graphic model for which a constraint is to be created.
      * @param x the desired X coordinate in coordinates relative to the parent figure.
      * @param y the desired Y coordinates relative to the parent figure.
@@ -84,6 +82,7 @@ public class ExecutionSpecificationEditPart extends AbstractNodeEditPart impleme
                                 width,
                                 height,
                                 (GmSequenceDiagram) model.getDiagram());
+        
     }
 
     @objid ("d8e5048e-55b6-11e2-877f-002564c97630")
@@ -133,6 +132,7 @@ public class ExecutionSpecificationEditPart extends AbstractNodeEditPart impleme
         }
         IFigure child = ((GraphicalEditPart) childEditPart).getFigure();
         getContentPane().add(child, layoutData, index);
+        
     }
 
     @objid ("d8e504a1-55b6-11e2-877f-002564c97630")
@@ -145,6 +145,7 @@ public class ExecutionSpecificationEditPart extends AbstractNodeEditPart impleme
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                 new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("d8e504a4-55b6-11e2-877f-002564c97630")
@@ -168,6 +169,7 @@ public class ExecutionSpecificationEditPart extends AbstractNodeEditPart impleme
     protected void refreshVisuals() {
         GmAbstractObject model = getModel();
         getFigure().getParent().setConstraint(getFigure(), model.getLayoutData());
+        
     }
 
     @objid ("d8e504ac-55b6-11e2-877f-002564c97630")
@@ -179,6 +181,7 @@ public class ExecutionSpecificationEditPart extends AbstractNodeEditPart impleme
         } else {
             return super.createAnchorModel(anchor);
         }
+        
     }
 
     @objid ("d8e504b2-55b6-11e2-877f-002564c97630")
@@ -191,6 +194,7 @@ public class ExecutionSpecificationEditPart extends AbstractNodeEditPart impleme
         } else {
             return super.getSourceConnectionAnchor(connection);
         }
+        
     }
 
     @objid ("d8e504b8-55b6-11e2-877f-002564c97630")
@@ -203,6 +207,7 @@ public class ExecutionSpecificationEditPart extends AbstractNodeEditPart impleme
         } else {
             return super.getSourceConnectionAnchor(connection);
         }
+        
     }
 
 }

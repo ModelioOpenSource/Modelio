@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.partition.bodyhybridcontainer;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -61,12 +60,13 @@ public class BodyHybridContainerDropEditPolicy extends AbstractEditPolicy {
      * C'tor.
      */
     @objid ("2af56e02-55b6-11e2-877f-002564c97630")
-    public BodyHybridContainerDropEditPolicy() {
+    public  BodyHybridContainerDropEditPolicy() {
         super();
         // Create an instance of both DefaultFreeZoneLayoutEditPolicy and
         // PartitionContainerLayoutEditPolicy.
         this.freeZonePolicy = new SmartDropEditPolicy();
         this.partitionContainerPolicy = new PartitionDropEditPolicy();
+        
     }
 
     @objid ("2af56e05-55b6-11e2-877f-002564c97630")
@@ -90,6 +90,7 @@ public class BodyHybridContainerDropEditPolicy extends AbstractEditPolicy {
             break;
         }
         }
+        
     }
 
     @objid ("2af56e08-55b6-11e2-877f-002564c97630")
@@ -111,6 +112,7 @@ public class BodyHybridContainerDropEditPolicy extends AbstractEditPolicy {
         }
         }
         super.deactivate();
+        
     }
 
     @objid ("2af56e0b-55b6-11e2-877f-002564c97630")
@@ -134,6 +136,7 @@ public class BodyHybridContainerDropEditPolicy extends AbstractEditPolicy {
             break;
         }
         }
+        
     }
 
     @objid ("2af56e0f-55b6-11e2-877f-002564c97630")
@@ -157,6 +160,7 @@ public class BodyHybridContainerDropEditPolicy extends AbstractEditPolicy {
             break;
         }
         }
+        
     }
 
     @objid ("2af56e13-55b6-11e2-877f-002564c97630")
@@ -213,6 +217,7 @@ public class BodyHybridContainerDropEditPolicy extends AbstractEditPolicy {
         super.setHost(editpart);
         this.freeZonePolicy.setHost(editpart);
         this.partitionContainerPolicy.setHost(editpart);
+        
     }
 
     @objid ("2af6f49d-55b6-11e2-877f-002564c97630")
@@ -235,6 +240,7 @@ public class BodyHybridContainerDropEditPolicy extends AbstractEditPolicy {
             break;
         }
         }
+        
     }
 
     @objid ("2af6f4a1-55b6-11e2-877f-002564c97630")
@@ -257,6 +263,7 @@ public class BodyHybridContainerDropEditPolicy extends AbstractEditPolicy {
             break;
         }
         }
+        
     }
 
     @objid ("2af6f4a5-55b6-11e2-877f-002564c97630")
@@ -283,7 +290,6 @@ public class BodyHybridContainerDropEditPolicy extends AbstractEditPolicy {
 
     /**
      * Sets the behaviour to adopt.
-     * 
      * @param value the new behaviour.
      */
     @objid ("2af6f4ab-55b6-11e2-877f-002564c97630")
@@ -324,6 +330,7 @@ public class BodyHybridContainerDropEditPolicy extends AbstractEditPolicy {
             }
             }
         }
+        
     }
 
     @objid ("2af6f4af-55b6-11e2-877f-002564c97630")
@@ -356,7 +363,6 @@ public class BodyHybridContainerDropEditPolicy extends AbstractEditPolicy {
 
     /**
      * Returns the current behaviour.
-     * 
      * @return the current behaviour.
      */
     @objid ("2af6f4bc-55b6-11e2-877f-002564c97630")

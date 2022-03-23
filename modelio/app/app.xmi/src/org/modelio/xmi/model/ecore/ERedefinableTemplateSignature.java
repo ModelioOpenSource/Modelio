@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,12 +46,14 @@ public class ERedefinableTemplateSignature extends ENamedElement {
         }else {
             return null;
         }
+        
     }
 
     @objid ("db7b17f4-809d-4f4d-a8b1-2fbd629ba607")
-    public ERedefinableTemplateSignature(org.eclipse.uml2.uml.RedefinableTemplateSignature element) {
+    public  ERedefinableTemplateSignature(org.eclipse.uml2.uml.RedefinableTemplateSignature element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("f95841d6-98e0-429f-a7ac-4971fec114aa")
@@ -71,6 +72,7 @@ public class ERedefinableTemplateSignature extends ENamedElement {
                 objingElt.delete();
             }
         }
+        
     }
 
 }

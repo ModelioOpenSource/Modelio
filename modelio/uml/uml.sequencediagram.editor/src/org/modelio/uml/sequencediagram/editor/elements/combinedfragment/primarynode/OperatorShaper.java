@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.combinedfragment.primarynode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,13 +40,13 @@ public class OperatorShaper implements IShaper {
      * Constructs and empty label.
      */
     @objid ("d8d2b524-55b6-11e2-877f-002564c97630")
-    public OperatorShaper() {
+    public  OperatorShaper() {
         super();
     }
 
     @objid ("0a7bbd8f-4388-4e70-a688-537d2115fcf7")
     @Override
-    public Path getShapePath(Rectangle r) {
+    public Path createShapePath(Rectangle r) {
         Path p = new Path(Display.getDefault());
         p.moveTo(r.x                     , r.bottom() - 1);
         p.lineTo(r.right() - INSETS.right, r.bottom() - 1);

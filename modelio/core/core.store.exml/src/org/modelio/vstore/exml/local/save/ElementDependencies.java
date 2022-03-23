@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.local.save;
 
 import java.util.Comparator;
@@ -35,19 +34,19 @@ class ElementDependencies {
      * reference to owned CMS nodes
      */
     @objid ("fd21f5b0-5986-11e1-991a-001ec947ccaf")
-     final Set<MObject> compNodes = new TreeSet<>(MObjectComparator.instance);
+    final Set<MObject> compNodes = new TreeSet<>(MObjectComparator.instance);
 
     /**
      * references to CMS  nodes
      */
     @objid ("fd21f5d0-5986-11e1-991a-001ec947ccaf")
-     final Set<MObject> refNodes = new TreeSet<>(MObjectComparator.instance);
+    final Set<MObject> refNodes = new TreeSet<>(MObjectComparator.instance);
 
     /**
      * references to non CMS nodes
      */
     @objid ("fd21f5d4-5986-11e1-991a-001ec947ccaf")
-     final Set<MObject> refDeps = new TreeSet<>(MObjectComparator.instance);
+    final Set<MObject> refDeps = new TreeSet<>(MObjectComparator.instance);
 
     /**
      * External references.
@@ -55,10 +54,10 @@ class ElementDependencies {
      * References to elements outside the repository.
      */
     @objid ("f09fc3d5-92d7-11e1-be7e-001ec947ccaf")
-     final Set<MObject> extDeps = new TreeSet<>(MObjectComparator.instance);
+    final Set<MObject> extDeps = new TreeSet<>(MObjectComparator.instance);
 
     @objid ("fd21f5da-5986-11e1-991a-001ec947ccaf")
-     MObject parentNode;
+    MObject parentNode;
 
     /**
      * MObject comparator that sorts object by name then by UUID.

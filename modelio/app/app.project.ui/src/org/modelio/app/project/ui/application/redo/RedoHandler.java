@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.ui.application.redo;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,6 +43,7 @@ public class RedoHandler {
             AppProjectUi.LOG.error(e);
             statusReporter.show(StatusReporter.ERROR, AppProjectUi.I18N.getMessage("RedoHandler.Failed"), e);
         }
+        
     }
 
     @objid ("d40927ab-3259-11e2-ad6b-002564c97630")

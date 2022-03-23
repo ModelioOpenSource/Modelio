@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui;
 
 import java.util.MissingResourceException;
@@ -35,7 +34,6 @@ public class MetamodelLabels {
 
     /**
      * Gets an i18n string for the given key from the 'metamodel_labels' resource bundle
-     * 
      * @param key the key to search in the resource bundle.
      * @return an 18n string.
      */

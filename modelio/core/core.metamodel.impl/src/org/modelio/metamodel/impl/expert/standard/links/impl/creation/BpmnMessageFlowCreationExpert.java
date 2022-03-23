@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.expert.standard.links.impl.creation;
 
 import java.util.Objects;
@@ -83,7 +82,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 @objid ("7e974185-1eb2-11e2-8009-002564c97630")
 public class BpmnMessageFlowCreationExpert extends DefaultDelegatingLinkExpert {
     @objid ("1a14a6b3-9ccf-4513-822a-0adc28800000")
-    public BpmnMessageFlowCreationExpert(ILinkExpert defaultExpert) {
+    public  BpmnMessageFlowCreationExpert(ILinkExpert defaultExpert) {
         super(defaultExpert);
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.infrastructure;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -52,7 +51,7 @@ public class InfrastructureMetamodelExtension extends AbstractGMetamodelExtensio
      * Initialize the metamodel extension.
      */
     @objid ("1d90a5da-c3c3-4849-bcc7-2249dd529dbc")
-    public InfrastructureMetamodelExtension() {
+    public  InfrastructureMetamodelExtension() {
         super(InfrastructureMetamodelFragment.getInstance());
     }
 
@@ -92,6 +91,7 @@ public class InfrastructureMetamodelExtension extends AbstractGMetamodelExtensio
         super.register(session);
         
         session.getBlobSupport().addBlobProvider(new InfrastructureMmBlobProvider());
+        
     }
 
     @objid ("48f1942e-ae29-44e7-bafa-01b5be2c23db")
@@ -103,6 +103,7 @@ public class InfrastructureMetamodelExtension extends AbstractGMetamodelExtensio
         } else {
             return super.createExtension(service, session);
         }
+        
     }
 
 }

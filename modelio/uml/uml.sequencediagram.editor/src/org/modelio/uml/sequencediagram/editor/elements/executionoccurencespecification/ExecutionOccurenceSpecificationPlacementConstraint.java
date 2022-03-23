@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.executionoccurencespecification;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -55,7 +54,6 @@ public class ExecutionOccurenceSpecificationPlacementConstraint extends Placemen
 
     /**
      * Constructor.
-     * 
      * @param executionOccurenceSpecification the represented execution
      * @param x the desired X coordinate in absolute coordinates.
      * @param y the desired Y coordinate in absolute coordinates.
@@ -64,7 +62,7 @@ public class ExecutionOccurenceSpecificationPlacementConstraint extends Placemen
      * @param diagram the diagram in which this constraint is used.
      */
     @objid ("d8dbdcb9-55b6-11e2-877f-002564c97630")
-    public ExecutionOccurenceSpecificationPlacementConstraint(final ExecutionOccurenceSpecification executionOccurenceSpecification, final int x, final int y, final int width, final int height, final GmSequenceDiagram diagram) {
+    public  ExecutionOccurenceSpecificationPlacementConstraint(final ExecutionOccurenceSpecification executionOccurenceSpecification, final int x, final int y, final int width, final int height, final GmSequenceDiagram diagram) {
         super(x, y, width, height, diagram);
         
         this.executionOccurenceSpecification = executionOccurenceSpecification;
@@ -78,13 +76,14 @@ public class ExecutionOccurenceSpecificationPlacementConstraint extends Placemen
                 setHeight(ExecutionOccurenceSpecificationPlacementConstraint.DEFAULT_SIZE);
             }
         }
+        
     }
 
     /**
      * Empty constructor for deserialisation. Do not use!
      */
     @objid ("d8dbdcca-55b6-11e2-877f-002564c97630")
-    public ExecutionOccurenceSpecificationPlacementConstraint() {
+    public  ExecutionOccurenceSpecificationPlacementConstraint() {
         super();
     }
 
@@ -122,6 +121,7 @@ public class ExecutionOccurenceSpecificationPlacementConstraint extends Placemen
                 setHeight(ExecutionOccurenceSpecificationPlacementConstraint.DEFAULT_SIZE);
             }
         }
+        
     }
 
     @objid ("d8dbdcdb-55b6-11e2-877f-002564c97630")
@@ -131,6 +131,7 @@ public class ExecutionOccurenceSpecificationPlacementConstraint extends Placemen
         if (this.executionOccurenceSpecification != null) {
             writer.writeProperty("executionOccurenceSpecification", new MRef(this.executionOccurenceSpecification));
         }
+        
     }
 
     @objid ("d8dbdce2-55b6-11e2-877f-002564c97630")
@@ -142,6 +143,7 @@ public class ExecutionOccurenceSpecificationPlacementConstraint extends Placemen
         } else {
             return ExecutionOccurenceSpecificationPlacementConstraint.DEFAULT_SIZE;
         }
+        
     }
 
     @objid ("d8dbdce6-55b6-11e2-877f-002564c97630")
@@ -153,6 +155,7 @@ public class ExecutionOccurenceSpecificationPlacementConstraint extends Placemen
         } else {
             return ExecutionOccurenceSpecificationPlacementConstraint.DEFAULT_SIZE;
         }
+        
     }
 
     @objid ("d8dbdcea-55b6-11e2-877f-002564c97630")
@@ -163,6 +166,7 @@ public class ExecutionOccurenceSpecificationPlacementConstraint extends Placemen
         } else {
             return super.getY();
         }
+        
     }
 
     @objid ("d8dbdcee-55b6-11e2-877f-002564c97630")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.namer.helpers;
 
 import java.util.List;
@@ -176,7 +175,7 @@ public class GetDefaultNameVisitor extends DefaultModelVisitor {
     private static final MessageBundle I18N = new MessageBundle(ResourceBundle.getBundle("standard_default_name"));
 
     @objid ("0f12a474-80de-4ab4-9a14-3f2c8b6fb193")
-    public GetDefaultNameVisitor() {
+    public  GetDefaultNameVisitor() {
         super();
     }
 
@@ -268,6 +267,7 @@ public class GetDefaultNameVisitor extends DefaultModelVisitor {
         } else {
             return "";
         }
+        
     }
 
     @objid ("d4f0f9d9-54df-4a7d-b453-1a2408c567a5")
@@ -284,6 +284,7 @@ public class GetDefaultNameVisitor extends DefaultModelVisitor {
         } else {
             return GetDefaultNameVisitor.I18N.getMessage("$DefaultName.BehaviorParameter");
         }
+        
     }
 
     @objid ("389f23d0-4048-46c9-914f-db01ef552034")
@@ -296,6 +297,7 @@ public class GetDefaultNameVisitor extends DefaultModelVisitor {
         } else {
             return GetDefaultNameVisitor.I18N.getMessage("$DefaultName.BindableInstance");
         }
+        
     }
 
     @objid ("876f127a-558a-42ab-8871-01daff0dc4d0")
@@ -315,6 +317,7 @@ public class GetDefaultNameVisitor extends DefaultModelVisitor {
         } else {
             return GetDefaultNameVisitor.I18N.getMessage("$DefaultName.Bpmn.BoundaryEvent");
         }
+        
     }
 
     @objid ("dd600b1a-8b09-48c1-bec3-c945fe11bd20")
@@ -413,6 +416,7 @@ public class GetDefaultNameVisitor extends DefaultModelVisitor {
         } else {
             return GetDefaultNameVisitor.I18N.getMessage("$DefaultName.Bpmn.EndEvent");
         }
+        
     }
 
     @objid ("c59f7ac0-e4fd-4124-8d1a-953405abef92")
@@ -474,6 +478,7 @@ public class GetDefaultNameVisitor extends DefaultModelVisitor {
         } else {
             return GetDefaultNameVisitor.I18N.getMessage("$DefaultName.Bpmn.IntermediateCatchEvent");
         }
+        
     }
 
     @objid ("26607990-6902-4d8f-a35e-79aa40b0fe0d")
@@ -487,6 +492,7 @@ public class GetDefaultNameVisitor extends DefaultModelVisitor {
         } else {
             return GetDefaultNameVisitor.I18N.getMessage("$DefaultName.Bpmn.IntermediateThrowEvent");
         }
+        
     }
 
     @objid ("a7023d82-fc99-4c39-9d78-179ce01233bf")
@@ -644,6 +650,7 @@ public class GetDefaultNameVisitor extends DefaultModelVisitor {
         } else {
             return GetDefaultNameVisitor.I18N.getMessage("$DefaultName.Bpmn.StartEvent");
         }
+        
     }
 
     @objid ("9f0b58ae-7f10-436f-abe1-1fa88209d7fb")
@@ -836,6 +843,7 @@ public class GetDefaultNameVisitor extends DefaultModelVisitor {
         } else {
             return GetDefaultNameVisitor.I18N.getMessage("$DefaultName.ExpansionNode");
         }
+        
     }
 
     @objid ("ff9eef3e-e603-44b3-ba1c-7761965ee484")
@@ -949,6 +957,7 @@ public class GetDefaultNameVisitor extends DefaultModelVisitor {
         } else {
             return "";
         }
+        
     }
 
     @objid ("661d31df-3820-4abf-85f1-1d8328b45382")
@@ -994,6 +1003,7 @@ public class GetDefaultNameVisitor extends DefaultModelVisitor {
         } else {
             return theParameter.getMClass().getName();
         }
+        
     }
 
     @objid ("ae55b7e3-82fd-4e9f-b1e5-9c2c6c966694")
@@ -1028,6 +1038,7 @@ public class GetDefaultNameVisitor extends DefaultModelVisitor {
         } else {
             return GetDefaultNameVisitor.I18N.getMessage("$DefaultName.StateMachine");
         }
+        
     }
 
     @objid ("06eb71e3-786f-4eb0-b0ce-beb8a81b01b1")
@@ -1046,6 +1057,7 @@ public class GetDefaultNameVisitor extends DefaultModelVisitor {
         } else {
             return GetDefaultNameVisitor.I18N.getMessage("$DefaultName.Diagram.IStatic", theStaticDiagram.getOrigin().getName());
         }
+        
     }
 
     @objid ("fa52e02e-0eb0-439a-868d-34a005947a3e")

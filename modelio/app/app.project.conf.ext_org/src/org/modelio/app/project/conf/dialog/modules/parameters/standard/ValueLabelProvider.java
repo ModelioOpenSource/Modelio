@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.modules.parameters.standard;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -54,6 +53,7 @@ class ValueLabelProvider extends ColumnLabelProvider {
         } else {
             return ""; //$NON-NLS-1$
         }
+        
     }
 
     @objid ("81d80e12-32ea-4c05-bcfc-514486127a45")
@@ -70,6 +70,7 @@ class ValueLabelProvider extends ColumnLabelProvider {
             // Default case
             return null;
         }
+        
     }
 
     @objid ("5ff22b6c-929d-416d-9361-fae3c6214df6")

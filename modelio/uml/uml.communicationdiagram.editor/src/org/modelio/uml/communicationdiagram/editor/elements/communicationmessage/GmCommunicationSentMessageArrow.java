@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.communicationdiagram.editor.elements.communicationmessage;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -26,8 +25,8 @@ import org.modelio.diagram.elements.core.node.GmNoStyleSimpleNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.communicationModel.CommunicationChannel;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -55,19 +54,20 @@ public final class GmCommunicationSentMessageArrow extends GmNoStyleSimpleNode {
      * Constructor for deserialization only.
      */
     @objid ("7a4b2ed9-55b6-11e2-877f-002564c97630")
-    public GmCommunicationSentMessageArrow() {
+    public  GmCommunicationSentMessageArrow() {
+        
     }
 
     /**
      * Creates a group.
-     * 
      * @param diagram The diagram.
      * @param relatedRef The related element reference, may not be null.
      */
     @objid ("7a4b2edc-55b6-11e2-877f-002564c97630")
-    public GmCommunicationSentMessageArrow(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmCommunicationSentMessageArrow(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
         this.relatedEl = (CommunicationChannel) resolveRef(relatedRef);
+        
     }
 
     @objid ("7a4b2ee7-55b6-11e2-877f-002564c97630")
@@ -89,12 +89,6 @@ public final class GmCommunicationSentMessageArrow extends GmNoStyleSimpleNode {
     @Override
     public final boolean isVisible() {
         return this.relatedEl.isValid() && this.relatedEl.getStartToEndMessage().size() > 0;
-    }
-
-    @objid ("7a4b2efb-55b6-11e2-877f-002564c97630")
-    @Override
-    public void obElementAdded(final MObject movedEl) {
-        fireVisibilityChanged();
     }
 
     @objid ("7a4b2f02-55b6-11e2-877f-002564c97630")
@@ -120,6 +114,7 @@ public final class GmCommunicationSentMessageArrow extends GmNoStyleSimpleNode {
             break;
         }
         }
+        
     }
 
     @objid ("7a4b2f0c-55b6-11e2-877f-002564c97630")
@@ -133,6 +128,7 @@ public final class GmCommunicationSentMessageArrow extends GmNoStyleSimpleNode {
     public final void styleChanged(final IStyle style) {
         fireVisibilityChanged();
         super.styleChanged(style);
+        
     }
 
     @objid ("7a4b2f16-55b6-11e2-877f-002564c97630")
@@ -154,6 +150,7 @@ public final class GmCommunicationSentMessageArrow extends GmNoStyleSimpleNode {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmCommunicationSentMessageArrow.", GmCommunicationSentMessageArrow.MINOR_VERSION);
+        
     }
 
     @objid ("7a4cb58a-55b6-11e2-877f-002564c97630")
@@ -161,6 +158,7 @@ public final class GmCommunicationSentMessageArrow extends GmNoStyleSimpleNode {
         super.read(in);
         
         this.relatedEl = (CommunicationChannel) resolveRef((MRef) in.readProperty("relatedRef"));
+        
     }
 
     @objid ("7a4cb590-55b6-11e2-877f-002564c97630")

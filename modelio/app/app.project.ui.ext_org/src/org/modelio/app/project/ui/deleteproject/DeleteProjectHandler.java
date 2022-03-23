@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.ui.deleteproject;
 
 import java.io.IOException;
 import java.util.List;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.core.di.annotations.Optional;
@@ -72,11 +71,13 @@ public class DeleteProjectHandler {
                 }     
             }
         }
+        
     }
 
     @objid ("22628a89-8b02-48a7-a57c-8e615594b6e1")
     @CanExecute
-    public boolean canExecute(@Optional @Named(IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
+    public boolean canExecute(@Optional
+    @Named(IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
         if (selection == null || selection.isEmpty()) {
             return false;
         }

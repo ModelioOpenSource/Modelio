@@ -17,19 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.infrastructure.ElementSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.TagParameterData;
-import org.modelio.metamodel.impl.uml.infrastructure.TaggedValueSmClass;
 import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.metamodel.uml.infrastructure.TagParameter;
 import org.modelio.metamodel.uml.infrastructure.TaggedValue;
@@ -57,7 +54,7 @@ public class TagParameterSmClass extends ElementSmClass {
     private SmDependency qualifiedDep;
 
     @objid ("dbe0da8c-4f7c-481a-adf8-b1d727375134")
-    public TagParameterSmClass(ISmMetamodelFragment origin) {
+    public  TagParameterSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -65,6 +62,7 @@ public class TagParameterSmClass extends ElementSmClass {
     @Override
     public String getName() {
         return "TagParameter";
+        
     }
 
     @objid ("b1390d01-9a84-4604-b9b0-eff348b11f27")
@@ -77,18 +75,21 @@ public class TagParameterSmClass extends ElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return TagParameter.class;
+        
     }
 
     @objid ("64857fd7-88d3-46c9-906c-4f301c32ca8d")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("1ec40dd7-3396-4ca7-a1b9-57c25bc244a8")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("f389a3a5-bb55-4ffd-b6be-fae5112814a8")
@@ -112,6 +113,8 @@ public class TagParameterSmClass extends ElementSmClass {
         this.qualifiedDep = new QualifiedSmDependency();
         this.qualifiedDep.init("Qualified", this, metamodel.getMClass(TaggedValue.MQNAME), 0, 1 );
         registerDependency(this.qualifiedDep);
+        
+        
     }
 
     @objid ("0120af72-bda8-45c2-a341-075f3d3d1296")
@@ -144,7 +147,7 @@ public class TagParameterSmClass extends ElementSmClass {
         private TagParameterSmClass smClass;
 
         @objid ("3bbe9dd6-cf71-4f8e-846a-176c1753834a")
-        public TagParameterObjectFactory(TagParameterSmClass smClass) {
+        public  TagParameterObjectFactory(TagParameterSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -200,6 +203,7 @@ public class TagParameterSmClass extends ElementSmClass {
             	this.symetricDep = ((TaggedValueSmClass)this.getTarget()).getActualDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -228,6 +232,7 @@ public class TagParameterSmClass extends ElementSmClass {
             	this.symetricDep = ((TaggedValueSmClass)this.getTarget()).getQualifierDep();
             }
             return this.symetricDep;
+            
         }
 
     }

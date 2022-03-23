@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common.utils;
 
 import java.util.function.Supplier;
@@ -54,10 +53,11 @@ public class ObjIdReader {
      * @param logSuffixer a log suffix provider used when fake metaclasses are created.
      */
     @objid ("d97f2f57-5101-4fd1-8154-aaf0eb7b692e")
-    public ObjIdReader(SmMetamodel metamodel, Supplier<String> logPrefixer, Supplier<String> logSuffixer) {
+    public  ObjIdReader(SmMetamodel metamodel, Supplier<String> logPrefixer, Supplier<String> logSuffixer) {
         this.metamodel = metamodel;
         this.logPrefixer = logPrefixer;
         this.logSuffixer = logSuffixer;
+        
     }
 
     @objid ("d7c8dde6-a6e8-4723-b531-56f4a3768ae1")

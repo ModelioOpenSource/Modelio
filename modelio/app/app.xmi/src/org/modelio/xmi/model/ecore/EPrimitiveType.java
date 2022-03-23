@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,9 +46,10 @@ public class EPrimitiveType extends ENamedElement {
     }
 
     @objid ("c0fae08b-dcd5-4656-bfea-2f9903c1190e")
-    public EPrimitiveType(org.eclipse.uml2.uml.PrimitiveType element) {
+    public  EPrimitiveType(org.eclipse.uml2.uml.PrimitiveType element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("afa84d8e-4259-45d2-8f56-659653530dff")
@@ -71,6 +71,7 @@ public class EPrimitiveType extends ENamedElement {
                 ((GeneralClass)objingElt).setOwner(ReverseProperties.getInstance().getExternalPackage());      
         
         }
+        
     }
 
     @objid ("c1dbea71-c4f0-4407-ba1e-5016f0dd1f85")
@@ -93,6 +94,7 @@ public class EPrimitiveType extends ENamedElement {
         
             }
         }
+        
     }
 
     @objid ("23a7ef13-5c2b-4bff-9298-1a57ee0a8a69")
@@ -137,6 +139,7 @@ public class EPrimitiveType extends ENamedElement {
         if (ObjingEAnnotation.isUndefined(this.ecoreElement))
             objingElt
             .setVisibility(VisibilityMode.VISIBILITYUNDEFINED);
+        
     }
 
 }

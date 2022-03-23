@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model;
 
 import java.util.AbstractCollection;
@@ -51,27 +50,26 @@ public class MObjectCache {
      * Please use {@link #getMClassCache(MClass, boolean)} to access this member.
      */
     @objid ("4fe90ea4-7c19-4d9b-a547-75c3dd69c767")
-    private ConcurrentMap<MClass,IMClassCache> caches = null;
+    private ConcurrentMap<MClass, IMClassCache> caches = null;
 
     @objid ("08448b81-ff4c-474f-a38c-020b42d67aca")
     private SmMetamodel metamodel;
 
     /**
      * Creates a new cache.
-     * 
      * @param metamodel the metamodel
      */
     @objid ("006e8a20-0d1e-1f20-85a5-001ec947cd2a")
-    public MObjectCache(SmMetamodel metamodel) {
+    public  MObjectCache(SmMetamodel metamodel) {
         this.metamodel = metamodel;
         this.caches = new ConcurrentHashMap<>(metamodel.getRegisteredMClasses().size()/2, 0.95f, 1);
+        
     }
 
     /**
      * Add an object to the cache.
-     * 
      * @param obj the object to add
-     * @throws org.modelio.vcore.model.DuplicateObjectException if another object with the same identifier is already in the cache.
+     * @throws DuplicateObjectException if another object with the same identifier is already in the cache.
      */
     @objid ("006c88d8-0d1e-1f20-85a5-001ec947cd2a")
     public void addToCache(SmObjectImpl obj) throws DuplicateObjectException {
@@ -82,6 +80,7 @@ public class MObjectCache {
             // Duplicate found: throw exception.
             throw new DuplicateObjectException(oid, oldObj, obj);
         }
+        
     }
 
     /**
@@ -90,7 +89,6 @@ public class MObjectCache {
      * The returned collection is a view on the cache and reflects all changes made on it.
      * The cache should not be modified while walking the returned collection to avoid unspecified
      * behavior.
-     * 
      * @return all the cache content.
      */
     @objid ("f4aa154a-08b1-11e2-b33c-001ec947ccaf")
@@ -116,7 +114,6 @@ public class MObjectCache {
 
     /**
      * Find model objects by a metaclass and an attribute value.
-     * 
      * @param cls the metaclass.
      * @param withSubClasses if true will look into subclasses hierarchy too. Since 3.6
      * @param att the attribute to search
@@ -156,11 +153,11 @@ public class MObjectCache {
                 }
             }
         }
+        
     }
 
     /**
      * Get all elements of a given class and the class descendants.
-     * 
      * @param cls a metaclass.
      * @param withSubClasses if true look in sub classes hierarchy too.
      * @param result all elements of this class will be added here.
@@ -176,6 +173,7 @@ public class MObjectCache {
                 result.addAll(getMClassCache(mc, false).values());
             }
         }
+        
     }
 
     /**
@@ -183,7 +181,6 @@ public class MObjectCache {
      * <p>
      * Looks in sub classes hierarchy too.
      * @see #findById(MClass, String, boolean) to avoid looking in sub classes
-     * 
      * @param cls a metaclass
      * @param siteIdentifier an UUID
      * @return the found element or <code>null</code>.
@@ -195,7 +192,6 @@ public class MObjectCache {
 
     /**
      * Find a model object from its MClass and its identifier.
-     * 
      * @param cls a metaclass
      * @param siteIdentifier an UUID
      * @param lookInsubClasses if true look into subclasses if not found in the given one.
@@ -227,7 +223,6 @@ public class MObjectCache {
      * <p>
      * Returns <code>null</code> if no object with the given class and identifier is found, or
      * if the metaclass is unknown.
-     * 
      * @param ref an element reference
      * @return the found element or <code>null</code>.
      */
@@ -239,6 +234,7 @@ public class MObjectCache {
         } else {
             return findById(cls, ref.uuid);
         }
+        
     }
 
     /**
@@ -246,7 +242,6 @@ public class MObjectCache {
      * <p>
      * The cache should not be modified while walking it to avoid unspecified
      * behavior.
-     * 
      * @return all the cache content.
      */
     @objid ("bd96ad7d-92d7-11e1-81e9-001ec947ccaf")
@@ -264,7 +259,6 @@ public class MObjectCache {
      * <p>
      * The cache should not be modified while walking it to avoid unspecified
      * behavior.
-     * 
      * @return all the cache content.
      */
     @objid ("bd96ad84-92d7-11e1-81e9-001ec947ccaf")
@@ -283,18 +277,17 @@ public class MObjectCache {
     /**
      * Add an object to the cache without duplicate check.
      * <p>
-     * 
      * @param obj the object to add
      */
     @objid ("f4aa1543-08b1-11e2-b33c-001ec947ccaf")
     public void putToCache(SmObjectImpl obj) {
         String oid = obj.getUuid();
         getMClassCache(obj.getClassOf(), true).put(oid, obj);
+        
     }
 
     /**
      * Remove a model object from the cache.
-     * 
      * @param obj a model object.
      */
     @objid ("006c8f36-0d1e-1f20-85a5-001ec947cd2a")
@@ -310,7 +303,6 @@ public class MObjectCache {
      * returns a non modifiable empty cache.
      * <p>
      * Nearly all methods of this class should call this method to access the {@link #caches} member.
-     * 
      * @param key a metamodel class
      * @param createMissing <code>true</code> to create a cache if missing, <code>false</code> to return a dummy one.
      * @return the metaclass cache.
@@ -335,7 +327,6 @@ public class MObjectCache {
 
     /**
      * Remove a model object from the cache using its identifier.
-     * 
      * @param cls the metaclass
      * @param uuid the identifier
      * @since 3.6
@@ -360,9 +351,10 @@ public class MObjectCache {
         private Iterator<SmObjectImpl> entryIt;
 
         @objid ("bd9b7233-92d7-11e1-81e9-001ec947ccaf")
-        public ContentIterator(Iterator<IMClassCache> classCacheIt) {
+        public  ContentIterator(Iterator<IMClassCache> classCacheIt) {
             this.cacheIt = classCacheIt;
             this.entryIt = null;
+            
         }
 
         @objid ("bd9b7235-92d7-11e1-81e9-001ec947ccaf")
@@ -386,6 +378,7 @@ public class MObjectCache {
             } else {
                 throw new NoSuchElementException();
             }
+            
         }
 
         @objid ("bd9b723e-92d7-11e1-81e9-001ec947ccaf")
@@ -416,12 +409,12 @@ public class MObjectCache {
      * This is an immutable singleton.
      */
     @objid ("80504461-413d-4c89-83b6-b42180f2961e")
-    private static class EmptyClassCache extends AbstractMap<String,SmObjectImpl> implements IMClassCache {
+    private static class EmptyClassCache extends AbstractMap<String, SmObjectImpl> implements IMClassCache {
         @objid ("497e8dfc-93ba-4d69-b587-5bd6f300994d")
-         static final IMClassCache INSTANCE = new EmptyClassCache();
+        static final IMClassCache INSTANCE = new EmptyClassCache();
 
         @objid ("b74871f8-9f04-421e-82e6-91a4c0112d61")
-        private EmptyClassCache() {
+        private  EmptyClassCache() {
             // noop
         }
 
@@ -469,7 +462,7 @@ public class MObjectCache {
 
         @objid ("d25852bd-01de-4f97-8149-37796700f079")
         @Override
-        public Set<java.util.Map.Entry<String,SmObjectImpl>> entrySet() {
+        public Set<java.util.Map.Entry<String, SmObjectImpl>> entrySet() {
             return Collections.emptySet();
         }
 
@@ -515,21 +508,20 @@ public class MObjectCache {
      * Typedef to Map<UUID,SmObjectImpl> .
      */
     @objid ("eeabc200-5921-48a9-9945-775681defcde")
-    private interface IMClassCache extends ConcurrentMap<String,SmObjectImpl> {
-
-// nothing more
+    private interface IMClassCache extends ConcurrentMap<String, SmObjectImpl> {// nothing more
+        
     }
 
     /**
      * Typedef to ConcurrentHashMap<UUID,SmObjectImpl> implementation of {@link IMClassCache}.
      */
     @objid ("009869a8-702b-1f21-85a5-001ec947cd2a")
-    private static class MClassCache extends ConcurrentHashMap<String,SmObjectImpl> implements IMClassCache {
+    private static class MClassCache extends ConcurrentHashMap<String, SmObjectImpl> implements IMClassCache {
         @objid ("00285e38-4fda-1f32-b43f-001ec947cd2a")
         private static final long serialVersionUID = 1L;
 
         @objid ("00287184-4fda-1f32-b43f-001ec947cd2a")
-        public MClassCache() {
+        public  MClassCache() {
             super(50, 0.8f, 1);
         }
 

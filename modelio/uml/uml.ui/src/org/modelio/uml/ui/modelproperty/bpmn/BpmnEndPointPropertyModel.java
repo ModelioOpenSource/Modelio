@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,17 +49,15 @@ public class BpmnEndPointPropertyModel extends AbstractPropertyModel<BpmnEndPoin
 
     /**
      * Create a new <i>BpmnEndPoint</i> data model from an <i>BpmnEndPoint</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("21f09373-da41-4d4b-a6e6-af27fc9c6c11")
-    public BpmnEndPointPropertyModel(BpmnEndPoint theEditedElement) {
+    public  BpmnEndPointPropertyModel(BpmnEndPoint theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("220ea2dd-9d11-4523-a5c8-6ba26b230b53")
@@ -71,7 +68,6 @@ public class BpmnEndPointPropertyModel extends AbstractPropertyModel<BpmnEndPoin
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("e3b73df3-eb32-4b60-a896-7cea1c6dbbc5")
@@ -84,7 +80,6 @@ public class BpmnEndPointPropertyModel extends AbstractPropertyModel<BpmnEndPoin
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -106,6 +101,7 @@ public class BpmnEndPointPropertyModel extends AbstractPropertyModel<BpmnEndPoin
         default:
             return null;
         }
+        
     }
 
     /**
@@ -115,7 +111,6 @@ public class BpmnEndPointPropertyModel extends AbstractPropertyModel<BpmnEndPoin
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -138,13 +133,13 @@ public class BpmnEndPointPropertyModel extends AbstractPropertyModel<BpmnEndPoin
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -169,6 +164,7 @@ public class BpmnEndPointPropertyModel extends AbstractPropertyModel<BpmnEndPoin
         default:
             return;
         }
+        
     }
 
 }

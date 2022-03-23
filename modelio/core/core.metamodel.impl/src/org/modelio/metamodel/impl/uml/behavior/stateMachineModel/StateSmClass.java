@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.stateMachineModel;
 
 import java.util.ArrayList;
@@ -30,14 +30,6 @@ import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.behavior.activityModel.ObjectNodeSmClass;
 import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.EventSmClass;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.ConnectionPointReferenceSmClass;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.EntryPointPseudoStateSmClass;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.ExitPointPseudoStateSmClass;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.InternalTransitionSmClass;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.RegionSmClass;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.StateData;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.StateMachineSmClass;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.StateVertexSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.ObjectNode;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Event;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.ConnectionPointReference;
@@ -87,7 +79,7 @@ public class StateSmClass extends StateVertexSmClass {
     private SmDependency subMachineDep;
 
     @objid ("0f518efd-8e12-404e-9d77-ce5c9881492b")
-    public StateSmClass(ISmMetamodelFragment origin) {
+    public  StateSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -95,6 +87,7 @@ public class StateSmClass extends StateVertexSmClass {
     @Override
     public String getName() {
         return "State";
+        
     }
 
     @objid ("a6c436f5-9f48-4c22-aec8-6e96513af3a6")
@@ -107,18 +100,21 @@ public class StateSmClass extends StateVertexSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return State.class;
+        
     }
 
     @objid ("614f33d3-34ae-4c75-aa4c-f95cd04fbac1")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("a4ed183a-0454-4634-8c8f-08d87229ad1c")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("ebb03eb5-c6a7-4272-b1e1-45834d9aabe5")
@@ -162,6 +158,8 @@ public class StateSmClass extends StateVertexSmClass {
         this.subMachineDep = new SubMachineSmDependency();
         this.subMachineDep.init("SubMachine", this, metamodel.getMClass(StateMachine.MQNAME), 0, 1 , SmDirective.SMCDPARTOF);
         registerDependency(this.subMachineDep);
+        
+        
     }
 
     @objid ("e16e61cb-7af7-4210-90ca-7bbe4dc4db9f")
@@ -234,7 +232,7 @@ public class StateSmClass extends StateVertexSmClass {
         private StateSmClass smClass;
 
         @objid ("040043c9-3332-4d6e-9a96-539a351e378d")
-        public StateObjectFactory(StateSmClass smClass) {
+        public  StateObjectFactory(StateSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -267,6 +265,7 @@ public class StateSmClass extends StateVertexSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((StateData) data).mExitPoint = values;
+            
         }
 
         @objid ("32c48930-3d05-46fd-9c27-518d1c85e125")
@@ -276,6 +275,7 @@ public class StateSmClass extends StateVertexSmClass {
             	this.symetricDep = ((ExitPointPseudoStateSmClass)this.getTarget()).getExitOfDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -295,6 +295,7 @@ public class StateSmClass extends StateVertexSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((StateData) data).mDeffered = values;
+            
         }
 
         @objid ("d89f2629-3e9b-453c-9356-dcaeea8dc5c0")
@@ -304,6 +305,7 @@ public class StateSmClass extends StateVertexSmClass {
             	this.symetricDep = ((EventSmClass)this.getTarget()).getOriginDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -323,6 +325,7 @@ public class StateSmClass extends StateVertexSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((StateData) data).mInternal = values;
+            
         }
 
         @objid ("5bdc90e3-502e-4e6d-b0f0-a44978907f78")
@@ -332,6 +335,7 @@ public class StateSmClass extends StateVertexSmClass {
             	this.symetricDep = ((InternalTransitionSmClass)this.getTarget()).getSComposedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -351,6 +355,7 @@ public class StateSmClass extends StateVertexSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((StateData) data).mEntryPoint = values;
+            
         }
 
         @objid ("6c68ab27-c185-49cc-b092-c4861047e8b1")
@@ -360,6 +365,7 @@ public class StateSmClass extends StateVertexSmClass {
             	this.symetricDep = ((EntryPointPseudoStateSmClass)this.getTarget()).getEntryOfDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -379,6 +385,7 @@ public class StateSmClass extends StateVertexSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((StateData) data).mOwnedRegion = values;
+            
         }
 
         @objid ("4ec76474-0704-4c71-aec5-144d0a2807f8")
@@ -388,6 +395,7 @@ public class StateSmClass extends StateVertexSmClass {
             	this.symetricDep = ((RegionSmClass)this.getTarget()).getParentDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -407,6 +415,7 @@ public class StateSmClass extends StateVertexSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((StateData) data).mRequiredStateOf = values;
+            
         }
 
         @objid ("f4c0c9ae-c20e-4bfe-8f52-15eca50a3e98")
@@ -416,6 +425,7 @@ public class StateSmClass extends StateVertexSmClass {
             	this.symetricDep = ((ObjectNodeSmClass)this.getTarget()).getInStateDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -435,6 +445,7 @@ public class StateSmClass extends StateVertexSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((StateData) data).mConnection = values;
+            
         }
 
         @objid ("3da5b230-fce3-415c-8779-9b5b50f84ea1")
@@ -444,6 +455,7 @@ public class StateSmClass extends StateVertexSmClass {
             	this.symetricDep = ((ConnectionPointReferenceSmClass)this.getTarget()).getOwnerStateDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -472,6 +484,7 @@ public class StateSmClass extends StateVertexSmClass {
             	this.symetricDep = ((StateMachineSmClass)this.getTarget()).getSubmachineStateDep();
             }
             return this.symetricDep;
+            
         }
 
     }

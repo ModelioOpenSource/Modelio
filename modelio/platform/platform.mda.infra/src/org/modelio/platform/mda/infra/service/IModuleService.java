@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service;
 
 import java.util.List;
@@ -31,7 +30,6 @@ import org.modelio.api.module.mda.IMdaExpert;
 public interface IModuleService {
     /**
      * The MDA expert tool can answer questions about dependencies between stereotyped metaclass or elements.
-     * 
      * @return the MDA expert.
      */
     @objid ("d28f6b20-c3c7-4ff4-9cd1-c13c26b869a6")
@@ -39,7 +37,6 @@ public interface IModuleService {
 
     /**
      * Get the started modules.
-     * 
      * @return The started modules.
      */
     @objid ("e7106362-faf7-4de6-8f2c-a192145b7b58")

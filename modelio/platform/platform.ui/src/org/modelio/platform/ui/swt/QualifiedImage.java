@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.ui.swt;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,9 +39,10 @@ public class QualifiedImage {
     private final Image image;
 
     @objid ("79b2f838-ad30-4070-8493-6a83a78852af")
-    public QualifiedImage(Image image, String qualifier) {
+    public  QualifiedImage(Image image, String qualifier) {
         this.image = image;
         this.qualifier = qualifier;
+        
     }
 
     @objid ("5eb5c2bc-3048-4253-a9ac-0c81ddc3cea5")

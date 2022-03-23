@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.internalstructure;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,9 +30,9 @@ import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
+import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.diagram.styles.core.StyleKey.InternalsViewMode;
 import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
-import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.metamodel.uml.statik.BindableInstance;
 import org.modelio.metamodel.uml.statik.Classifier;
 import org.modelio.metamodel.uml.statik.CollaborationUse;
@@ -61,12 +60,11 @@ public class GmInternalStructureGroup extends GmGroup {
 
     /**
      * Creates an internal structure group.
-     * 
      * @param diagram The diagram.
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
     @objid ("358e06c9-55b7-11e2-877f-002564c97630")
-    public GmInternalStructureGroup(IGmDiagram diagram, MRef relatedRef) {
+    public  GmInternalStructureGroup(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -74,7 +72,8 @@ public class GmInternalStructureGroup extends GmGroup {
      * Constructor for deserialization only.
      */
     @objid ("358e06d2-55b7-11e2-877f-002564c97630")
-    public GmInternalStructureGroup() {
+    public  GmInternalStructureGroup() {
+        
     }
 
     @objid ("358e06d5-55b7-11e2-877f-002564c97630")
@@ -101,12 +100,6 @@ public class GmInternalStructureGroup extends GmGroup {
             return (v == InternalsViewMode.LIST);
         }
         return false;
-    }
-
-    @objid ("358f8d3c-55b7-11e2-877f-002564c97630")
-    @Override
-    public void obElementAdded(MObject movedEl) {
-        refreshFromObModel();
     }
 
     @objid ("358f8d42-55b7-11e2-877f-002564c97630")
@@ -161,6 +154,7 @@ public class GmInternalStructureGroup extends GmGroup {
                 }
             }
         }
+        
     }
 
     @objid ("358f8d48-55b7-11e2-877f-002564c97630")
@@ -169,6 +163,7 @@ public class GmInternalStructureGroup extends GmGroup {
         // The visibility may have changed so fires a notification.
         fireVisibilityChanged();
         super.styleChanged(style);
+        
     }
 
     @objid ("358f8d4e-55b7-11e2-877f-002564c97630")
@@ -179,6 +174,7 @@ public class GmInternalStructureGroup extends GmGroup {
         } else {
             super.styleChanged(property, newValue);
         }
+        
     }
 
     @objid ("358f8d55-55b7-11e2-877f-002564c97630")
@@ -190,6 +186,7 @@ public class GmInternalStructureGroup extends GmGroup {
         } else {
             getDisplayedStyle().setProperty(getViewModeStyleKey(), InternalsViewMode.NONE);
         }
+        
     }
 
     @objid ("358f8d59-55b7-11e2-877f-002564c97630")
@@ -235,6 +232,7 @@ public class GmInternalStructureGroup extends GmGroup {
             }
             setHiddenFeature(hasHiddenFeature);
         }
+        
     }
 
     /**
@@ -271,6 +269,7 @@ public class GmInternalStructureGroup extends GmGroup {
             break;
         }
         }
+        
     }
 
     @objid ("359113da-55b7-11e2-877f-002564c97630")
@@ -280,6 +279,7 @@ public class GmInternalStructureGroup extends GmGroup {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmInternalStructureGroup.", GmInternalStructureGroup.MINOR_VERSION);
+        
     }
 
     @objid ("359113e0-55b7-11e2-877f-002564c97630")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.model;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,7 +34,6 @@ import org.eclipse.gef.EditPartViewer;
 public interface IPostLoadAction {
     /**
      * Run this action
-     * 
      * @param viewer the edit part viewer.
      */
     @objid ("9d382761-aeda-410a-84c3-32ae3671a5a3")

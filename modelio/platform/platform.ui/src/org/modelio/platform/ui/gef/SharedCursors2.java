@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.ui.gef;
 
 import java.net.URL;
@@ -111,24 +110,23 @@ public class SharedCursors2 extends SharedCursors {
         ImageData bitmapData = ImageDescriptor.createFromURL(bitmapUrl).getImageData();
         return new Cursor(Display.getCurrent(), bitmapData, hotX, hotY);
     }
-
-
 static {
-
-        CURSOR_REPARENT = createCursor("cursors/reparent.bmp", //$NON-NLS-1$
-                                       "cursors/reparent_mask.bmp", 1, 11); //$NON-NLS-1$
-        CURSOR_REPARENT_NOT = createCursor("cursors/reparent_not.bmp", //$NON-NLS-1$
-                                           "cursors/reparent_not_mask.bmp", 1, 11); //$NON-NLS-1$
-
-        CURSOR_PICKING = createCursor("cursors/picking_cursor32x32.png", 1, 11); //$NON-NLS-1$
-        CURSOR_PICKING_YES = createCursor("cursors/picking_cursor_yes32x32.png", 1, 11); //$NON-NLS-1$
-        CURSOR_PICKING_NO = createCursor("cursors/picking_cursor_no32x32.png", 1, 11); //$NON-NLS-1$
-        CURSOR_CLONE_GRAPHIC_OPTIONS = createCursor("cursors/clone_graphic_options19x19.png", 1, 1); //$NON-NLS-1$
-        CURSOR_CLONE_ALL_OPTIONS = createCursor("cursors/clone_all_options19x19.png", 1, 1); //$NON-NLS-1$
-        CURSOR_GRAB_HAND = createCursor("cursors/grab_hand22x23.png",1, 11); //$NON-NLS-1$
-
-        CURSOR_LINK_END_MENU       = createCursor("cursors/link_end_menu32x32.png",1, 1); //$NON-NLS-1$
-        CURSOR_LINK_BENDPOINT      = createCursor("cursors/link_bendpoint32x32.png",1, 1);//$NON-NLS-1$
-
-    }
+    
+            CURSOR_REPARENT = createCursor("cursors/reparent.bmp", //$NON-NLS-1$
+                                           "cursors/reparent_mask.bmp", 1, 11); //$NON-NLS-1$
+            CURSOR_REPARENT_NOT = createCursor("cursors/reparent_not.bmp", //$NON-NLS-1$
+                                               "cursors/reparent_not_mask.bmp", 1, 11); //$NON-NLS-1$
+    
+            CURSOR_PICKING = createCursor("cursors/picking_cursor32x32.png", 1, 11); //$NON-NLS-1$
+            CURSOR_PICKING_YES = createCursor("cursors/picking_cursor_yes32x32.png", 1, 11); //$NON-NLS-1$
+            CURSOR_PICKING_NO = createCursor("cursors/picking_cursor_no32x32.png", 1, 11); //$NON-NLS-1$
+            CURSOR_CLONE_GRAPHIC_OPTIONS = createCursor("cursors/clone_graphic_options19x19.png", 1, 1); //$NON-NLS-1$
+            CURSOR_CLONE_ALL_OPTIONS = createCursor("cursors/clone_all_options19x19.png", 1, 1); //$NON-NLS-1$
+            CURSOR_GRAB_HAND = createCursor("cursors/grab_hand22x23.png",1, 11); //$NON-NLS-1$
+    
+            CURSOR_LINK_END_MENU       = createCursor("cursors/link_end_menu32x32.png",1, 1); //$NON-NLS-1$
+            CURSOR_LINK_BENDPOINT      = createCursor("cursors/link_bendpoint32x32.png",1, 1);//$NON-NLS-1$
+    
+        }
+    
 }

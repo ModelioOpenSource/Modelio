@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.abstractdiagram;
 
 import java.util.Collection;
@@ -56,18 +55,18 @@ public class DeferredUnmaskCommand extends Command {
 
     /**
      * C'tor.
-     * 
      * @param parent the parent in which to unmask.
      * @param child the child to unmask.
      * @param dropLocation the point where the child should be unmasked.
      * @param diagramEditPart the diagram in which the unmasking takes place.
      */
     @objid ("7e0f744a-1dec-11e2-8cad-001ec947c8cc")
-    public DeferredUnmaskCommand(MObject parent, MObject child, Point dropLocation, AbstractDiagramEditPart diagramEditPart) {
+    public  DeferredUnmaskCommand(MObject parent, MObject child, Point dropLocation, AbstractDiagramEditPart diagramEditPart) {
         this.parent = parent;
         this.child = child;
         this.dropLocation = dropLocation;
         this.diagramEditPart = diagramEditPart;
+        
     }
 
     @objid ("7e0f7453-1dec-11e2-8cad-001ec947c8cc")
@@ -85,11 +84,11 @@ public class DeferredUnmaskCommand extends Command {
         if (command != null && command.canExecute()) {
             command.execute();
         }
+        
     }
 
     /**
      * Create the real command.
-     * 
      * @return the real command.
      */
     @objid ("7e0f745b-1dec-11e2-8cad-001ec947c8cc")

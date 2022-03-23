@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.core;
 
 import java.io.IOException;
@@ -149,6 +148,7 @@ public class StyleWriter {
         } catch (IOException e) {
             DiagramStyles.LOG.error(e);
         }
+        
     }
 
 }

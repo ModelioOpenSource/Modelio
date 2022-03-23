@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.fragment.migration;
 
 import java.io.PrintWriter;
@@ -36,9 +35,10 @@ final class NestedBasicLogger implements IBasicLogger {
     private PrintWriter writer;
 
     @objid ("9bedfbf3-43c0-4e66-a0e8-28446603ed97")
-    public NestedBasicLogger(IBasicLogger oldLog, PrintWriter logger) {
+    public  NestedBasicLogger(IBasicLogger oldLog, PrintWriter logger) {
         this.wrapped = oldLog;
         this.writer = logger;
+        
     }
 
     @objid ("4762511f-3251-49b0-a079-e565ac0fa8d9")
@@ -47,6 +47,7 @@ final class NestedBasicLogger implements IBasicLogger {
         this.wrapped.warning(message);
         
         this.writer.println(NestedBasicLogger.PREFIX + "WARNING: " + message);
+        
     }
 
     @objid ("70fc9643-fd79-49f4-942b-9b62c9f03800")
@@ -59,6 +60,7 @@ final class NestedBasicLogger implements IBasicLogger {
         
         ex.printStackTrace(this.writer);
         this.writer.println();
+        
     }
 
     @objid ("b9b4f455-1202-47cb-8f9d-c0eecc8b0859")
@@ -67,6 +69,7 @@ final class NestedBasicLogger implements IBasicLogger {
         this.wrapped.warning(format, args);
         
         this.writer.format(NestedBasicLogger.PREFIX + "WARNING: " + format + "%n", args);
+        
     }
 
     @objid ("45e65821-4521-4da1-a502-8154710b0320")
@@ -78,6 +81,7 @@ final class NestedBasicLogger implements IBasicLogger {
         
         ex.printStackTrace(this.writer);
         this.writer.println();
+        
     }
 
     @objid ("b0626b68-f812-43cb-8575-51c0f34ef152")
@@ -86,6 +90,7 @@ final class NestedBasicLogger implements IBasicLogger {
         this.wrapped.trace(format, args);
         
         this.writer.format(NestedBasicLogger.PREFIX + "trace: " + format + "%n", args);
+        
     }
 
     @objid ("7620f634-67c4-451e-ac9f-15ae5e61b57a")
@@ -94,6 +99,7 @@ final class NestedBasicLogger implements IBasicLogger {
         this.wrapped.trace(message);
         
         this.writer.println(NestedBasicLogger.PREFIX + "trace: " + message);
+        
     }
 
     @objid ("c3d51d87-8437-4ee8-8c11-8a5042d7a24e")
@@ -105,6 +111,7 @@ final class NestedBasicLogger implements IBasicLogger {
         
         ex.printStackTrace(this.writer);
         this.writer.println();
+        
     }
 
     @objid ("c94797eb-5dd5-444c-9299-ea77e7613642")
@@ -113,6 +120,7 @@ final class NestedBasicLogger implements IBasicLogger {
         this.wrapped.error(format, args);
         
         this.writer.format(NestedBasicLogger.PREFIX + "ERROR: " + format + "%n", args);
+        
     }
 
     @objid ("8e858af3-9013-40c6-a998-a78a317bd449")
@@ -121,6 +129,7 @@ final class NestedBasicLogger implements IBasicLogger {
         this.wrapped.error(message);
         
         this.writer.println(NestedBasicLogger.PREFIX + "ERROR: " + message);
+        
     }
 
     @objid ("8e7ee003-3438-47a1-9db9-454a0adac669")

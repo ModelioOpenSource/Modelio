@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,7 +38,7 @@ public class EExceptionHandler extends EElement {
     }
 
     @objid ("1f738a81-314f-49d3-9aa8-45d18d906e01")
-    public EExceptionHandler(org.eclipse.uml2.uml.ExceptionHandler element) {
+    public  EExceptionHandler(org.eclipse.uml2.uml.ExceptionHandler element) {
         super(element);
     }
 
@@ -51,6 +50,7 @@ public class EExceptionHandler extends EElement {
         setExceptionInput((ExceptionHandler)objingElt);
         setExceptionType((ExceptionHandler)objingElt);
         setProtectedNode((ExceptionHandler)objingElt);
+        
     }
 
     @objid ("09dfc22f-ec8f-452f-9f43-45f3f8bc8b46")
@@ -61,6 +61,7 @@ public class EExceptionHandler extends EElement {
             if (objingTarget instanceof InputPin)
                  objingElt.setExceptionInput((InputPin) objingTarget);
         }
+        
     }
 
     @objid ("199a0b05-c1e2-4f32-8a3b-a065f647896f")
@@ -70,6 +71,7 @@ public class EExceptionHandler extends EElement {
             if (objType instanceof GeneralClass)
                 objingElt.getExceptionType().add((GeneralClass) objType);
         }
+        
     }
 
     @objid ("136bbe64-da41-4989-b5e7-0b1f985bb709")
@@ -81,6 +83,7 @@ public class EExceptionHandler extends EElement {
                  objingElt.setProtectedNode((ActivityAction) objingSource);
             }
         }
+        
     }
 
     @objid ("90ba9700-2994-4125-a0da-fe2091f65e67")

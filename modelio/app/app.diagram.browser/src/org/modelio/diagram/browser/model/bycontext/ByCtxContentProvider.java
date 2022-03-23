@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.model.bycontext;
 
 import java.util.ArrayList;
@@ -43,7 +42,7 @@ import org.modelio.vcore.session.api.model.change.IModelChangeEvent;
 @objid ("002bc776-0d4f-10c6-842f-001ec947cd2a")
 public class ByCtxContentProvider implements ITreeContentProvider {
     @objid ("007f5972-107c-10c6-842f-001ec947cd2a")
-     Map<Element, VirtualFolder> elementFolders = new HashMap<>();
+    Map<Element, VirtualFolder> elementFolders = new HashMap<>();
 
     @objid ("003f18f8-e065-10ce-896b-001ec947cd2a")
     private GProject project;
@@ -111,7 +110,7 @@ public class ByCtxContentProvider implements ITreeContentProvider {
     }
 
     @objid ("002e0a04-0d4f-10c6-842f-001ec947cd2a")
-    public ByCtxContentProvider(GProject project) {
+    public  ByCtxContentProvider(GProject project) {
         this.project = project;
     }
 
@@ -179,6 +178,7 @@ public class ByCtxContentProvider implements ITreeContentProvider {
                 this.elementFolders.put(context, newFolder);
             }
         }
+        
     }
 
     @objid ("002e3a2e-0d4f-10c6-842f-001ec947cd2a")
@@ -193,6 +193,7 @@ public class ByCtxContentProvider implements ITreeContentProvider {
                 }
             }
         }
+        
     }
 
     /**
@@ -248,7 +249,7 @@ public class ByCtxContentProvider implements ITreeContentProvider {
     @objid ("002f5684-0d4f-10c6-842f-001ec947cd2a")
     static class ParentProvider extends DefaultInfrastructureVisitor {
         @objid ("002f7dee-0d4f-10c6-842f-001ec947cd2a")
-         static ParentProvider INSTANCE = new ParentProvider();
+        static ParentProvider INSTANCE = new ParentProvider();
 
         @objid ("002f85b4-0d4f-10c6-842f-001ec947cd2a")
         public static Object getParent(Element e) {

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.ports;
 
 import java.util.Collections;
@@ -30,8 +29,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.statik.Port;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -66,13 +65,12 @@ public class GmPort extends GmPortContainer {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the Port is unmasked.
      * @param el the unmasked Port.
      * @param ref a reference to the unmasked Port.
      */
     @objid ("36408dbf-55b7-11e2-877f-002564c97630")
-    public GmPort(IGmDiagram diagram, Port el, MRef ref) {
+    public  GmPort(IGmDiagram diagram, Port el, MRef ref) {
         super(diagram,  ref);
         this.element = el;
         
@@ -84,6 +82,7 @@ public class GmPort extends GmPortContainer {
         label.setRoleInComposition(GmPortContainer.SATELLITE_ROLE);
         label.setLayoutData(Integer.valueOf(PositionConstants.EAST));
         this.addChild(label);
+        
     }
 
     @objid ("36408dcb-55b7-11e2-877f-002564c97630")
@@ -128,7 +127,7 @@ public class GmPort extends GmPortContainer {
      * Empty constructor needed for deserialisation.
      */
     @objid ("36408dde-55b7-11e2-877f-002564c97630")
-    public GmPort() {
+    public  GmPort() {
         super();
     }
 
@@ -149,6 +148,7 @@ public class GmPort extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("36408de7-55b7-11e2-877f-002564c97630")
@@ -182,12 +182,14 @@ public class GmPort extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmPort.", MINOR_VERSION);
+        
     }
 
     @objid ("3642146e-55b7-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (Port) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("36421473-55b7-11e2-877f-002564c97630")
@@ -198,7 +200,6 @@ public class GmPort extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -210,7 +211,6 @@ public class GmPort extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

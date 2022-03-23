@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.dialogs.selectelements;
 
 import java.util.List;
@@ -64,7 +63,7 @@ public class SelectElementsDialog extends ModelioDialog {
      * <br/>
      */
     @objid ("e0f5d128-6590-4e1f-b3b2-61bb74e00dbf")
-    public SelectElementsDialog(final Shell parentShell, final ICoreSession session, final ISearchEngine searcher, final ISearchCriteria searchCriteria, final String titleKey, final List<MObject> selection) {
+    public  SelectElementsDialog(final Shell parentShell, final ICoreSession session, final ISearchEngine searcher, final ISearchCriteria searchCriteria, final String titleKey, final List<MObject> selection) {
         this(parentShell, session, searcher, searchCriteria, titleKey, selection, true);
     }
 
@@ -81,6 +80,7 @@ public class SelectElementsDialog extends ModelioDialog {
     public void addButtonsInButtonBar(final Composite parent) {
         createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL, true);
         createButton(parent, IDialogConstants.CANCEL_ID, IDialogConstants.CLOSE_LABEL, false);
+        
     }
 
     @objid ("7fbb9653-bc6a-45e6-b287-09945c4b9233")
@@ -91,12 +91,14 @@ public class SelectElementsDialog extends ModelioDialog {
         getShell().setText(CoreUi.I18N.getString(this.titleKey));
         setTitle(CoreUi.I18N.getString(this.titleKey));
         setMessage(CoreUi.I18N.getString("SelectElementsPanel.MultipleInputHelp"));
+        
     }
 
     @objid ("f66633bf-1065-4cb6-916a-039da4100239")
     public void setContent(final List<MObject> content) {
         this.content = content;
         this.selectElementsPanel.setInput(this.content);
+        
     }
 
     @objid ("98a36122-9c08-4cc2-8acc-f20df9b75c30")
@@ -119,7 +121,7 @@ public class SelectElementsDialog extends ModelioDialog {
      * @param autorunSearch
      */
     @objid ("167ded70-15f4-4906-8127-aa8bba584616")
-    public SelectElementsDialog(final Shell parentShell, final ICoreSession session, final ISearchEngine searcher, final ISearchCriteria searchCriteria, final String titleKey, final List<MObject> selection, final boolean autorunSearch) {
+    public  SelectElementsDialog(final Shell parentShell, final ICoreSession session, final ISearchEngine searcher, final ISearchCriteria searchCriteria, final String titleKey, final List<MObject> selection, final boolean autorunSearch) {
         super(parentShell);
         
         this.titleKey = titleKey;
@@ -132,6 +134,7 @@ public class SelectElementsDialog extends ModelioDialog {
         int style = getShellStyle();
         style &= ~(SWT.PRIMARY_MODAL | SWT.APPLICATION_MODAL | SWT.SYSTEM_MODAL);
         setShellStyle(style);
+        
     }
 
     @objid ("f61656da-ba76-4266-b57e-c5a3d36c3cca")
@@ -139,6 +142,7 @@ public class SelectElementsDialog extends ModelioDialog {
     protected void okPressed() {
         this.selectElementsPanel.dispose();
         super.okPressed();
+        
     }
 
     @objid ("c230dd65-0914-4b38-9261-5b226126ce5f")
@@ -146,6 +150,7 @@ public class SelectElementsDialog extends ModelioDialog {
     protected void cancelPressed() {
         this.selectElementsPanel.dispose();
         super.cancelPressed();
+        
     }
 
 }

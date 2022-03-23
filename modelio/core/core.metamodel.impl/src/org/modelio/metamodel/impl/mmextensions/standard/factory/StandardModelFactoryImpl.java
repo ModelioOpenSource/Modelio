@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.factory;
 
 import java.util.List;
@@ -259,10 +258,11 @@ public class StandardModelFactoryImpl extends InfrastructureModelFactoryImpl imp
     private final IElementInitializer elementInitializer;
 
     @objid ("2f86cfde-cddc-42a6-9bdd-72fbbf25a59f")
-    public StandardModelFactoryImpl(ICoreSession session) {
+    public  StandardModelFactoryImpl(ICoreSession session) {
         super(session);
         
         this.elementInitializer = new ElementInitializer(this);
+        
     }
 
     @objid ("e45f8be1-f906-43f9-a86e-dfb9d6309208")
@@ -3009,6 +3009,7 @@ public class StandardModelFactoryImpl extends InfrastructureModelFactoryImpl imp
     public void setDefaultValue(String key, Object value) {
         super.setDefaultValue(key, value);
         this.elementInitializer.setDefaultValue(key, value);
+        
     }
 
     @objid ("10aabf63-49bb-40e9-8eb6-d23791e02c5d")

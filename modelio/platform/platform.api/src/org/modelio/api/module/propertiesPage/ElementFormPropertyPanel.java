@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.propertiesPage;
 
 import java.nio.file.Path;
@@ -59,19 +58,19 @@ public abstract class ElementFormPropertyPanel implements IModulePropertyCustomP
      * Constructor invoked by Modelio when building the module's property page.
      * <p/>
      * Signature is <b>mandatory</b> and shouldn't be changed on the module's side.
-     * 
      * @param module the module this property page is build for.
      * @param name the internal name of this property page.
      * @param label the label displayed in Modelio for this property page.
      * @param icon a relative path to the image to display for the property page.
      */
     @objid ("221b1605-f921-41d5-a62e-07b7eccd98fa")
-    public ElementFormPropertyPanel(IModule module, String name, String label, String icon) {
+    public  ElementFormPropertyPanel(IModule module, String name, String label, String icon) {
         this.module = Objects.requireNonNull(module);
         this.name = name;
         this.label = label;
         this.formPanel = new ElementFormPanel(module.getModuleContext(), initFactory());
         this.icon = icon == null || icon.isEmpty() ? null : module.getModuleContext().getConfiguration().getModuleResourcesPath().resolve(icon);
+        
     }
 
     @objid ("1d855019-44ad-473a-b6c0-ca6635435747")

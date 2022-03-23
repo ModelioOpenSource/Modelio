@@ -17,23 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
-import org.modelio.metamodel.impl.uml.statik.GeneralClassSmClass;
-import org.modelio.metamodel.impl.uml.statik.NameSpaceSmClass;
-import org.modelio.metamodel.impl.uml.statik.OperationSmClass;
-import org.modelio.metamodel.impl.uml.statik.TemplateParameterData;
-import org.modelio.metamodel.impl.uml.statik.TemplateParameterSubstitutionSmClass;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.metamodel.uml.statik.GeneralClass;
 import org.modelio.metamodel.uml.statik.NameSpace;
@@ -80,7 +75,7 @@ public class TemplateParameterSmClass extends GeneralClassSmClass {
     private SmDependency parameterizedOperationDep;
 
     @objid ("8df66720-3c28-4cbc-a692-e7a7068e0618")
-    public TemplateParameterSmClass(ISmMetamodelFragment origin) {
+    public  TemplateParameterSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -88,6 +83,7 @@ public class TemplateParameterSmClass extends GeneralClassSmClass {
     @Override
     public String getName() {
         return "TemplateParameter";
+        
     }
 
     @objid ("6d3aa257-9547-43b1-913b-513ca2d4b911")
@@ -100,18 +96,21 @@ public class TemplateParameterSmClass extends GeneralClassSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return TemplateParameter.class;
+        
     }
 
     @objid ("125756ed-565c-4409-9569-a2ea08a482e1")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("305ba3d8-bfbb-41a4-94a2-0d676584f8f3")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("dc0b9497-e22c-442b-b51c-ab7c6ce72bd3")
@@ -155,6 +154,8 @@ public class TemplateParameterSmClass extends GeneralClassSmClass {
         this.parameterizedOperationDep = new ParameterizedOperationSmDependency();
         this.parameterizedOperationDep.init("ParameterizedOperation", this, metamodel.getMClass(Operation.MQNAME), 0, 1 );
         registerDependency(this.parameterizedOperationDep);
+        
+        
     }
 
     @objid ("4cb6d446-7561-4fdc-bc96-ae68894b0d41")
@@ -227,7 +228,7 @@ public class TemplateParameterSmClass extends GeneralClassSmClass {
         private TemplateParameterSmClass smClass;
 
         @objid ("38110e60-4470-45e8-a402-130ec12d1485")
-        public TemplateParameterObjectFactory(TemplateParameterSmClass smClass) {
+        public  TemplateParameterObjectFactory(TemplateParameterSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -288,6 +289,7 @@ public class TemplateParameterSmClass extends GeneralClassSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((TemplateParameterData) data).mParameterSubstitution = values;
+            
         }
 
         @objid ("2bd39525-d2cc-47e4-92f0-5c9a7cda409e")
@@ -297,6 +299,7 @@ public class TemplateParameterSmClass extends GeneralClassSmClass {
             	this.symetricDep = ((TemplateParameterSubstitutionSmClass)this.getTarget()).getFormalParameterDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -325,6 +328,7 @@ public class TemplateParameterSmClass extends GeneralClassSmClass {
             	this.symetricDep = ((UmlModelElementSmClass)this.getTarget()).getTypingParameterDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -353,6 +357,7 @@ public class TemplateParameterSmClass extends GeneralClassSmClass {
             	this.symetricDep = ((NameSpaceSmClass)this.getTarget()).getTemplateDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -381,6 +386,7 @@ public class TemplateParameterSmClass extends GeneralClassSmClass {
             	this.symetricDep = ((UmlModelElementSmClass)this.getTarget()).getOwnerTemplateParameterDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -409,6 +415,7 @@ public class TemplateParameterSmClass extends GeneralClassSmClass {
             	this.symetricDep = ((UmlModelElementSmClass)this.getTarget()).getDefaultParameteringDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -437,6 +444,7 @@ public class TemplateParameterSmClass extends GeneralClassSmClass {
             	this.symetricDep = ((OperationSmClass)this.getTarget()).getTemplateDep();
             }
             return this.symetricDep;
+            
         }
 
     }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.infrastructure.factory;
 
 import java.io.IOException;
@@ -80,7 +79,7 @@ public class InfrastructureModelFactoryImpl extends AbstractModelFactory impleme
      * The model element initializer used by the factory.
      */
     @objid ("188bea13-2bcc-4785-b8f2-2d706e7e2e0d")
-     final IInfrastructureElementInitializer elementInitializer;
+    final IInfrastructureElementInitializer elementInitializer;
 
     @objid ("fa8690f3-602f-44c7-8169-279926cea787")
     protected final GenericFactory genericFactory;
@@ -98,7 +97,7 @@ public class InfrastructureModelFactoryImpl extends AbstractModelFactory impleme
     protected final MModelServices modelServices;
 
     @objid ("97b0f694-4ba7-42c0-a0f6-402eed7ecdab")
-    public InfrastructureModelFactoryImpl(ICoreSession session) {
+    public  InfrastructureModelFactoryImpl(ICoreSession session) {
         super(session.getMetamodel());
         
         this.iModel = session.getModel();
@@ -108,6 +107,7 @@ public class InfrastructureModelFactoryImpl extends AbstractModelFactory impleme
         this.modelServices = new MModelServices(session);
         
         this.elementInitializer = new InfrastructureElementInitializer(this);
+        
     }
 
     @objid ("a7125457-b9e1-4b37-86ff-f48a21c3c724")
@@ -250,6 +250,7 @@ public class InfrastructureModelFactoryImpl extends AbstractModelFactory impleme
             // Cannot happen, no location was specified
             throw new IllegalStateException(e);
         }
+        
     }
 
     @objid ("73bc09d5-03ba-40ac-8021-9a8b9786b7bb")
@@ -266,6 +267,7 @@ public class InfrastructureModelFactoryImpl extends AbstractModelFactory impleme
             // Cannot happen, no location was specified
             throw new IllegalStateException(e);
         }
+        
     }
 
     @objid ("a586a25c-147c-4e02-9c9c-3f33720609fe")
@@ -432,6 +434,7 @@ public class InfrastructureModelFactoryImpl extends AbstractModelFactory impleme
         } catch (ElementNotUniqueException e) {
             throw new IllegalArgumentException("'" + noteTypeName + "' note type is not unique in module '" + moduleName + "'");
         }
+        
     }
 
     @objid ("e67acda0-8134-4a5e-8a50-c20eeda715a5")
@@ -561,6 +564,7 @@ public class InfrastructureModelFactoryImpl extends AbstractModelFactory impleme
         } catch (ElementNotUniqueException e) {
             throw new IllegalArgumentException("'" + tagTypeName + "' tag type is not unique in module '" + moduleName + "'");
         }
+        
     }
 
     @objid ("3a0b4724-1ac0-4c2f-8344-a0d8cbc076ec")
@@ -583,7 +587,6 @@ public class InfrastructureModelFactoryImpl extends AbstractModelFactory impleme
 
     /**
      * Build a new attached {@link Document} or {@link Resource}.
-     * 
      * @return an attached resource builder.
      */
     @objid ("1264191e-3666-4607-931f-7dee756285d1")
@@ -604,6 +607,7 @@ public class InfrastructureModelFactoryImpl extends AbstractModelFactory impleme
         if (stereotype != null) {
             newElement.getExtension().add(stereotype);
         }
+        
     }
 
     @objid ("9527f308-8172-4a45-89b8-8548e6a2ecdb")
@@ -627,17 +631,17 @@ public class InfrastructureModelFactoryImpl extends AbstractModelFactory impleme
         this.elementInitializer.initialize(newElement);
         newElement.setMimeType(mimeType);
         newElement.setType(resourceType);
+        
     }
 
     /**
      * Find a stereotype by name and metaclass.
      * @throws IllegalArgumentException when resolution is ambiguous and several stereotypes match the given parameters
-     * 
      * @param moduleName the name of the module owing the stereotype, or a regular expression for module name matching. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any module.
      * @param stereotypeName the stereotype name, or a regular expression. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any stereotype.
      * @param metaclass a metaclass the stereotype must be applicable to.
      * @return the found stereotype. Might be <code>null</code> is no element matches the given parameters.
-     * @throws org.modelio.metamodel.mmextensions.infrastructure.ExtensionNotFoundException when no stereotype matches the given parameters
+     * @throws ExtensionNotFoundException when no stereotype matches the given parameters
      */
     @objid ("51f38b74-58bf-40f1-95fe-af46fd70ac4a")
     protected final Stereotype resolveStereotype(String moduleName, String stereotypeName, MClass metaclass) throws ExtensionNotFoundException {
@@ -649,11 +653,11 @@ public class InfrastructureModelFactoryImpl extends AbstractModelFactory impleme
         } else {
             throw new IllegalArgumentException("'" + stereotypeName + "' stereotype is not unique in module '" + moduleName + "'");
         }
+        
     }
 
     /**
      * Answer to the question: is 'stereotype' a child of the stereotype named by 'stereotypeName' Companion method of the public isStereoyped() method
-     * 
      * @param stereotype a stereotype
      * @param stereotypeName the name of another stereotype.
      * @return <code>true</code> if 'stereotype' a child of the stereotype named by 'stereotypeName' else <code>false</code>.

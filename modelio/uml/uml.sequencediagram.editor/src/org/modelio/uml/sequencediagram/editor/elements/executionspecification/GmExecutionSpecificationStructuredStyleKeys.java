@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.executionspecification;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,15 +30,15 @@ import org.modelio.uml.sequencediagram.editor.style.SequenceAbstractStyleKeyProv
 @objid ("d8ee2c6e-55b6-11e2-877f-002564c97630")
 public class GmExecutionSpecificationStructuredStyleKeys extends SequenceAbstractStyleKeyProvider {
     @objid ("501196c9-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("EXECUTIONSPECIFICATION_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("EXECUTIONSPECIFICATION_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("501196cb-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("EXECUTIONSPECIFICATION_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("EXECUTIONSPECIFICATION_FILLMODE", MetaKey.FILLMODE);
 
     @objid ("501196cd-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("EXECUTIONSPECIFICATION_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("EXECUTIONSPECIFICATION_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("501196cf-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("EXECUTIONSPECIFICATION_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("EXECUTIONSPECIFICATION_LINEWIDTH", MetaKey.LINEWIDTH);
 
 }

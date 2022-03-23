@@ -17,9 +17,9 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.state;
 
+import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.ColorConstants;
 import org.eclipse.draw2d.Graphics;
@@ -27,12 +27,15 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.gef.EditPart;
 import org.eclipse.swt.graphics.Color;
 import org.modelio.diagram.elements.common.resizablegroup.ResizableGroupEditPart;
+import org.modelio.diagram.elements.common.resizablegroup.ResizableGroupRefreshFromModelEditPolicy;
 import org.modelio.diagram.elements.core.figures.ChildFigureLineSeparator;
 import org.modelio.diagram.elements.core.figures.borders.TLBRBorder;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.metamodel.uml.behavior.stateMachineModel.State;
+import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
  * Specialization for regions group: handle the borders on add and remove.
@@ -41,11 +44,28 @@ import org.modelio.diagram.styles.core.StyleKey;
  */
 @objid ("f5888f87-55b6-11e2-877f-002564c97630")
 public class RegionsGroupEditPart extends ResizableGroupEditPart {
+    @objid ("92e69579-325b-40c1-a5d3-17214c44e4dc")
+    @Override
+    protected void createEditPolicies() {
+        super.createEditPolicies();
+        
+        installEditPolicy(ResizableGroupRefreshFromModelEditPolicy.ROLE,
+                new ResizableGroupRefreshFromModelEditPolicy(this::getExpectedChildren, false));
+        
+    }
+
+    @objid ("d00d1e3c-550f-49dc-a2fc-bcbd40381531")
+    private List<? extends MObject> getExpectedChildren(MObject t) {
+        State state = (State) t;
+        return state.getOwnedRegion();
+    }
+
     @objid ("f5888f8b-55b6-11e2-877f-002564c97630")
     @Override
     protected void addChildVisual(final EditPart childEditPart, final int index) {
         super.addChildVisual(childEditPart, index);
         updateSeparations(this.getFigure());
+        
     }
 
     @objid ("f5888f92-55b6-11e2-877f-002564c97630")
@@ -53,6 +73,7 @@ public class RegionsGroupEditPart extends ResizableGroupEditPart {
     protected void removeChildVisual(final EditPart childEditPart) {
         super.removeChildVisual(childEditPart);
         updateSeparations(this.getFigure());
+        
     }
 
     @objid ("f5888f97-55b6-11e2-877f-002564c97630")
@@ -60,11 +81,11 @@ public class RegionsGroupEditPart extends ResizableGroupEditPart {
     protected void refreshFromStyle(final IFigure aFigure, final IStyle style) {
         super.refreshFromStyle(aFigure, style);
         updateSeparations(aFigure);
+        
     }
 
     /**
      * Update the separation lines between zones and between regions.
-     * 
      * @param stateFig The state figure.
      */
     @objid ("f5888fa0-55b6-11e2-877f-002564c97630")
@@ -90,6 +111,7 @@ public class RegionsGroupEditPart extends ResizableGroupEditPart {
         regionBorder.setStyle(Graphics.LINE_DASH);
         
         ChildFigureLineSeparator.updateSeparation(this, regionBorder);
+        
     }
 
     @objid ("f5888fa4-55b6-11e2-877f-002564c97630")

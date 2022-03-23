@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.packaze;
 
 import java.beans.PropertyChangeEvent;
@@ -43,10 +42,10 @@ import org.modelio.uml.statikdiagram.editor.elements.namespacinglink.redraw.Redr
 @objid ("3629aa91-55b7-11e2-877f-002564c97630")
 public class PackageSimpleEditPart extends NonSelectableSimpleEditPart {
     @objid ("3629aa95-55b7-11e2-877f-002564c97630")
-     static final int DEFAULT_HEIGHT = 50;
+    static final int DEFAULT_HEIGHT = 50;
 
     @objid ("3629aa97-55b7-11e2-877f-002564c97630")
-     static final int DEFAULT_WIDTH = 100;
+    static final int DEFAULT_WIDTH = 100;
 
     @objid ("3629aaa2-55b7-11e2-877f-002564c97630")
     @Override
@@ -75,6 +74,7 @@ public class PackageSimpleEditPart extends NonSelectableSimpleEditPart {
         // Add specific policy to handle requests to redraw composition links.
         installEditPolicy("RedrawCompositionLinkEditPolicy", new RedrawCompositionLinkEditPolicy());
         installEditPolicy(EditPolicy.LAYOUT_ROLE, new SimpleModeOwnedElementCreationEditPolicy());
+        
     }
 
     @objid ("362b30fd-55b7-11e2-877f-002564c97630")
@@ -84,6 +84,7 @@ public class PackageSimpleEditPart extends NonSelectableSimpleEditPart {
         final PackageSimpleFigure aFigure = (PackageSimpleFigure) getFigure();
         
         aFigure.getParent().setConstraint(aFigure, model.getLayoutData());
+        
     }
 
     /**
@@ -127,6 +128,7 @@ public class PackageSimpleEditPart extends NonSelectableSimpleEditPart {
             model.addPropertyChangeListener(this);
         
         }
+        
     }
 
     @objid ("664e5fcd-7a66-41f5-bd4e-735ce67b9c64")
@@ -135,6 +137,7 @@ public class PackageSimpleEditPart extends NonSelectableSimpleEditPart {
         // On any property change event, refresh all!
         refresh();
         refreshFromStyle(getFigure(), getModelStyle());
+        
     }
 
 }

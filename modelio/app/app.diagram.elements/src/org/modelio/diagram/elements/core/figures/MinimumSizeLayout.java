@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -52,13 +51,12 @@ public class MinimumSizeLayout extends ChainedLayout {
      * @param chained the initial layout
      */
     @objid ("90d2fe46-f85f-40f0-b8d4-a7c957ea4ad1")
-    public MinimumSizeLayout(LayoutManager chained) {
+    public  MinimumSizeLayout(LayoutManager chained) {
         super(chained);
     }
 
     /**
      * Set the minimum size.
-     * 
      * @param minSize the minimum size. The passed dimension is copied.
      */
     @objid ("ea1ec0bf-e1e8-4765-887f-0ef827386ef5")
@@ -68,7 +66,6 @@ public class MinimumSizeLayout extends ChainedLayout {
 
     /**
      * Set the minimum size.
-     * 
      * @param minw the minimum width
      * @param minh the minimum height
      */
@@ -81,7 +78,6 @@ public class MinimumSizeLayout extends ChainedLayout {
      * Apply a minimum size to the given figure.
      * <p>
      * The figure layout manager must already have been set.
-     * 
      * @param fig the figure to layout
      * @param minw the minimum width
      * @param minh the minimum height
@@ -97,6 +93,7 @@ public class MinimumSizeLayout extends ChainedLayout {
         minLayout.setMinimumSize(minw, minh);
         
         fig.setLayoutManager(minLayout);
+        
     }
 
     @objid ("f5f9266f-f7b8-4df5-9378-fdc65a78c1ca")
@@ -109,6 +106,7 @@ public class MinimumSizeLayout extends ChainedLayout {
         } else {
             return ret.getUnioned(this.minSize);
         }
+        
     }
 
     @objid ("75ce8981-8565-4847-bf13-1c06e7711293")
@@ -121,6 +119,7 @@ public class MinimumSizeLayout extends ChainedLayout {
         } else {
             return ret.getUnioned(this.minSize);
         }
+        
     }
 
     @objid ("afc303f3-36b5-4f46-9240-b9f4a3a58f87")

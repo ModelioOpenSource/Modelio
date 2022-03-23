@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.operation;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,6 +46,7 @@ public class OperationEditPart extends GroupItemEditPart {
         super.refreshVisuals();
         
         refreshFromStyle(getFigure(), getModelStyle());
+        
     }
 
     @objid ("35fbe3b3-55b7-11e2-877f-002564c97630")
@@ -57,6 +57,7 @@ public class OperationEditPart extends GroupItemEditPart {
         refreshStaticAbstract((IHeaderFigure) fig);
         
         refreshWrapping((IHeaderFigure) fig, style);
+        
     }
 
     @objid ("35fbe3bc-55b7-11e2-877f-002564c97630")
@@ -74,6 +75,7 @@ public class OperationEditPart extends GroupItemEditPart {
             // restore default font from style
             fig.setTextFont(gm.getDisplayedStyle().getFont(gm.getStyleKey(MetaKey.FONT)));
         }
+        
     }
 
     @objid ("40f07382-4af6-4b97-a0f6-2d3a06a33411")

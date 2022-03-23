@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.fork;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,36 +31,36 @@ import org.modelio.uml.statediagram.editor.style.StateAbstractStyleKeyProvider;
 @objid ("f537b083-55b6-11e2-877f-002564c97630")
 public class GmForkStateStructuredStyleKeys extends StateAbstractStyleKeyProvider {
     @objid ("81207d04-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("FORK_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("FORK_REPMODE", MetaKey.REPMODE);
 
     @objid ("81207d06-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("FORK_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("FORK_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("81207d08-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("FORK_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("FORK_FILLMODE", MetaKey.FILLMODE);
 
     @objid ("81207d0a-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("FORK_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("FORK_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("81207d0c-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("FORK_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("FORK_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("81207d0e-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("FORK_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("FORK_FONT", MetaKey.FONT);
 
     @objid ("81207d10-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("FORK_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("FORK_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("81207d12-55c2-11e2-9337-002564c97630")
-     static final StyleKey ORIENTATION = createStyleKey("FORK_ORIENTATION", ForkJoinOrientation.class);
+    static final StyleKey ORIENTATION = createStyleKey("FORK_ORIENTATION", ForkJoinOrientation.class);
 
     @objid ("81220389-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("FORK_SHOWSTEREOTYPES", MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("FORK_SHOWSTEREOTYPES", MetaKey.SHOWSTEREOTYPES);
 
     @objid ("8122038b-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("FORK_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("FORK_SHOWTAGS", MetaKey.SHOWTAGS);
 
     @objid ("8122038d-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWLABEL = createStyleKey("FORK_SHOWLABEL", MetaKey.SHOWLABEL);
+    static final StyleKey SHOWLABEL = createStyleKey("FORK_SHOWLABEL", MetaKey.SHOWLABEL);
 
 }

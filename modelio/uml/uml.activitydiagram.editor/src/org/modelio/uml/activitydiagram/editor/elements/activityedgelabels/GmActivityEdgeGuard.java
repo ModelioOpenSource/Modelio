@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.activityedgelabels;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -58,18 +57,17 @@ public class GmActivityEdgeGuard extends GmElementLabel {
      * For deserialization only.
      */
     @objid ("29a128a3-55b6-11e2-877f-002564c97630")
-    public GmActivityEdgeGuard() {
+    public  GmActivityEdgeGuard() {
         // serialization
     }
 
     /**
      * Creates an activity edge guard label.
-     * 
      * @param diagram The diagram.
      * @param relatedRef related element reference, must not be <code>null</code>.
      */
     @objid ("29a128a6-55b6-11e2-877f-002564c97630")
-    public GmActivityEdgeGuard(IGmDiagram diagram, MRef relatedRef) {
+    public  GmActivityEdgeGuard(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -91,6 +89,7 @@ public class GmActivityEdgeGuard extends GmElementLabel {
                         iActivityEdge.setGuard(text);
                     }
                 };
+        
     }
 
     @objid ("29a128b6-55b6-11e2-877f-002564c97630")
@@ -101,6 +100,7 @@ public class GmActivityEdgeGuard extends GmElementLabel {
         } else {
             return getDisplayedStyle().getProperty(GmObjectFlowStyleKeys.GUARDVISIBLE);
         }
+        
     }
 
     @objid ("29a128ba-55b6-11e2-877f-002564c97630")
@@ -132,6 +132,7 @@ public class GmActivityEdgeGuard extends GmElementLabel {
             break;
         }
         }
+        
     }
 
     @objid ("29a2af42-55b6-11e2-877f-002564c97630")
@@ -141,6 +142,7 @@ public class GmActivityEdgeGuard extends GmElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmActivityEdgeGuard.", GmActivityEdgeGuard.MINOR_VERSION);
+        
     }
 
     @objid ("29a2af48-55b6-11e2-877f-002564c97630")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,9 +32,10 @@ public class EFeature extends ENamedElement {
     private org.eclipse.uml2.uml.Feature ecoreFeatureElt = null;
 
     @objid ("9def6d61-d437-4f82-9f5f-63fad1be9a77")
-    public EFeature(org.eclipse.uml2.uml.Feature element) {
+    public  EFeature(org.eclipse.uml2.uml.Feature element) {
         super(element);
         this.ecoreFeatureElt = element;
+        
     }
 
     @objid ("0465481d-987d-45bc-b4fc-65157ab8fecf")
@@ -57,6 +57,7 @@ public class EFeature extends ENamedElement {
         default:
             objingElement.setVisibility(null);
         }
+        
     }
 
     @objid ("ec7b38f9-d6d2-457c-a875-de7a47e46931")
@@ -75,6 +76,7 @@ public class EFeature extends ENamedElement {
             }
         
         }
+        
     }
 
     @objid ("dcec4dcd-3390-4800-8fd1-c25e1f1a1952")
@@ -86,6 +88,7 @@ public class EFeature extends ENamedElement {
     private void setIsUndefined(Feature feature) {
         if (ObjingEAnnotation.isUndefined(this.ecoreFeatureElt))
             feature.setVisibility(VisibilityMode.VISIBILITYUNDEFINED);
+        
     }
 
     @objid ("368e49bd-65a3-47fd-96db-197c52139baa")

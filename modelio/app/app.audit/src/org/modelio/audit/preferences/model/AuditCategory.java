@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.preferences.model;
 
 import java.util.ArrayList;
@@ -37,25 +36,23 @@ public class AuditCategory implements Comparable<AuditCategory> {
 
     @objid ("a836f660-1c6c-403c-8aa7-9293ee4ced33")
     private Set<AuditRule> rules = new TreeSet<>(new Comparator<AuditRule>() {
-		@Override
-		public int compare(AuditRule o1, AuditRule o2) {
-			return o1.getId().compareTo(o2.getId());
-		}
-	});
+    		@Override
+    		public int compare(AuditRule o1, AuditRule o2) {
+    			return o1.getId().compareTo(o2.getId());
+    		}
+    	});
 
     /**
      * Initialize a category.
-     * 
      * @param id the category's identifier.
      */
     @objid ("dd86bc9d-fcea-431c-8d95-a8ff8ae67480")
-    public AuditCategory(String id) {
+    public  AuditCategory(String id) {
         this.id = id;
     }
 
     /**
      * Add a rule.
-     * 
      * @param rulePref a rule
      */
     @objid ("8b55405a-7b63-4fe8-beda-96d41cbb0aa0")
@@ -65,7 +62,6 @@ public class AuditCategory implements Comparable<AuditCategory> {
 
     /**
      * Get the category rules.
-     * 
      * @return the category rules.
      */
     @objid ("9102932c-a9bc-43da-84c5-912b1cd6b158")
@@ -76,7 +72,6 @@ public class AuditCategory implements Comparable<AuditCategory> {
 
     /**
      * Remove a rule
-     * 
      * @param rulePref a rule
      */
     @objid ("3d045178-c06c-4bb3-957a-e96b894c7805")

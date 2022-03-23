@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,7 @@ public class EEnumeration extends EDataType {
     }
 
     @objid ("257e8d9e-f5ed-44da-90a4-89f48e9cfca2")
-    public EEnumeration(org.eclipse.uml2.uml.Enumeration element) {
+    public  EEnumeration(org.eclipse.uml2.uml.Enumeration element) {
         super(element);
     }
 
@@ -61,6 +60,7 @@ public class EEnumeration extends EDataType {
                 objingDTImport.setOwner(ReverseProperties.getInstance().getExternalPackage());
             }
         }
+        
     }
 
     @objid ("d6dd0ada-8714-4ea9-8634-973c90259dd3")
@@ -68,12 +68,14 @@ public class EEnumeration extends EDataType {
     public void setProperties(Element objingElt) {
         super.setProperties(objingElt);
         setElementary((Enumeration) objingElt);
+        
     }
 
     @objid ("8bf053d4-e752-4dfd-b459-62a3561a2c05")
     private void setElementary(Enumeration objingElt) {
         // Audit Rule number 80 (Warning): "An org.eclipse.uml2.uml.Enumeration is always primitive."
         objingElt.setIsElementary(true);
+        
     }
 
 }

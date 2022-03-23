@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,7 @@ public class EOpaqueExpression extends ENamedElement {
     }
 
     @objid ("60410ae3-db89-46f2-8de7-63a810a5826e")
-    public EOpaqueExpression(org.eclipse.uml2.uml.OpaqueExpression element) {
+    public  EOpaqueExpression(org.eclipse.uml2.uml.OpaqueExpression element) {
         super(element);
     }
 

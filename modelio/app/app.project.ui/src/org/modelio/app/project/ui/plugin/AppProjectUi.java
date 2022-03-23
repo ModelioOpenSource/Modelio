@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.ui.plugin;
 
 import java.util.ResourceBundle;
@@ -51,6 +50,7 @@ public class AppProjectUi implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger((String)null));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("appprojectui"));
+        
     }
 
     @objid ("004a05f6-de3d-1ff2-a7f4-001ec947cd2a")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.modelshield.standardcheckers.generic;
 
 import java.util.ArrayList;
@@ -60,27 +59,29 @@ public abstract class DepCardinalityChecker implements IChecker {
         
             report.addEntry(createError(object, this.dep, currentCard));
         }
+        
     }
 
     @objid ("0071f48a-80c8-1f6c-bf9a-001ec947cd2a")
-    public DepCardinalityChecker(final String errorId, final String depName) {
+    public  DepCardinalityChecker(final String errorId, final String depName) {
         this.errorId = errorId;
         this.depName = depName;
+        
     }
 
-/*
-     * Derived classes should redefine this method where needed so that a clear report can be provided to the end user.
-     *
-     * This 'default' implementation produces a rather technical report about SmDep cardinalities which is most often poorly
-     * understandable by end users
-     */
+    /*
+         * Derived classes should redefine this method where needed so that a clear report can be provided to the end user.
+         *
+         * This 'default' implementation produces a rather technical report about SmDep cardinalities which is most often poorly
+         * understandable by end users
+         */
     @objid ("d889a123-a103-4ce6-b326-f12443a93c01")
     protected abstract ModelError createError(final MObject object, MDependency dep, int currentCard);
 
-/*
-     * Creates a 'default' Model error
-     *
-     */
+    /*
+         * Creates a 'default' Model error
+         *
+         */
     @objid ("c9c424e2-0798-4dba-8a54-bdd303ed54bf")
     protected final ModelError createDefaultError(final MObject object, MDependency dep, int currentCard) {
         List<Object> objects = new ArrayList<>();

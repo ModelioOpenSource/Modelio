@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.abstractdiagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -73,6 +72,7 @@ public class DiagramEditLayoutPolicy extends BaseFreeZoneLayoutEditPolicy {
             this.highlight.setOpaque(false);
             this.highlight.setBackgroundColor(null);
         }
+        
     }
 
     @objid ("68911685-6e7d-498a-95f8-6bae340817f6")

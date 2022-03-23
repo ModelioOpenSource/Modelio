@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.theme;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -69,7 +68,7 @@ public class ModelioTableTheme {
     @objid ("e28e176a-9822-4347-83d7-b3ca75e4cce9")
     public final Color cellBackground;
 
-// Normal (unselected) cell
+    // Normal (unselected) cell
     @objid ("d14d5a43-9d77-482b-9583-7e38b153de88")
     public final Font cellFont;
 
@@ -79,7 +78,7 @@ public class ModelioTableTheme {
     @objid ("10c2b8ce-22a7-4189-85ab-8f47238d8762")
     public final Color evenRowBackground;
 
-// Normal (unselected) header
+    // Normal (unselected) header
     @objid ("71a2f05f-d18a-4540-9170-935add701bcb")
     public final Color headerBackground;
 
@@ -98,7 +97,7 @@ public class ModelioTableTheme {
     @objid ("30a77a1b-ef08-4e3d-82e1-75e8a668e185")
     private static ModelioTableTheme instance = null;
 
-// Alternate row background colors
+    // Alternate row background colors
     @objid ("f72a0713-e49f-498d-9a40-00c54968fbfe")
     public final Color oddRowBackground;
 
@@ -111,11 +110,11 @@ public class ModelioTableTheme {
     @objid ("cb5d5a57-9f6c-4860-885e-206b64ef306c")
     public final Color selectedCellForeground;
 
-// Selected cell
+    // Selected cell
     @objid ("a04bbba8-7066-4319-9418-5efd606baa32")
     public final Color selectedCellGridlineColor;
 
-// Selected header
+    // Selected header
     @objid ("de62be25-2aae-4c3c-b5b1-b7b14441696f")
     public final Color selectedHeaderBackground;
 
@@ -149,7 +148,7 @@ public class ModelioTableTheme {
     }
 
     @objid ("d0812a1e-6d57-4527-9b75-03fa76da87d2")
-    private ModelioTableTheme() {
+    private  ModelioTableTheme() {
         // Use platform theme values where possible
         Color systemSelectionBackground = Display.getCurrent().getSystemColor(SWT.COLOR_LIST_SELECTION);
         Color systemSelectionForeground = Display.getCurrent().getSystemColor(SWT.COLOR_LIST_SELECTION_TEXT);
@@ -204,6 +203,7 @@ public class ModelioTableTheme {
         this.selectedHeaderGradientForeground = this.selectedHeaderBackground;
         
         this.selectedHeaderForeground = systemSelectionForeground;
+        
     }
 
 }

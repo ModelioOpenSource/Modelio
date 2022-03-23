@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.bpmn.processCollaboration;
 
 import java.util.Arrays;
@@ -33,65 +32,68 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  */
 @objid ("003a2bfe-91e1-1f74-804b-001ec947cd2a")
 public enum OptionalBoolean {
-    OFALSE (0, "OFalse", "OFalse"),
-    OTRUE (1, "OTrue", "OTrue"),
-    OUNDEFINED (2, "OUndefined", "OUndefined");
-
+    @objid ("c8d6a014-b89f-4eb5-8537-16c2a33af9a7")
+    OFALSE(0, "OFalse", "OFalse"),
+    @objid ("78e8267e-849d-46ca-8e0e-be693ed8b75e")
+    OTRUE(1, "OTrue", "OTrue"),
+    @objid ("67eb233c-bbca-4ded-b5ca-94e874c13b72")
+    OUNDEFINED(2, "OUndefined", "OUndefined");
 public static final int OFALSE_VALUE = 0;
-public static final int OTRUE_VALUE = 1;
-public static final int OUNDEFINED_VALUE = 2;
-private static final OptionalBoolean[] VALUES_ARRAY =
-new OptionalBoolean[] {
-OFALSE,
-OTRUE,
-OUNDEFINED,
-};
-public static final List<OptionalBoolean> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
-public static OptionalBoolean get(String literal) {
-  for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-    OptionalBoolean result = VALUES_ARRAY[i];
-    if (result.toString().equals(literal)) {
-       return result;
+    public static final int OTRUE_VALUE = 1;
+    public static final int OUNDEFINED_VALUE = 2;
+    private static final OptionalBoolean[] VALUES_ARRAY =
+    new OptionalBoolean[] {
+    OFALSE,
+    OTRUE,
+    OUNDEFINED,
+    };
+    public static final List<OptionalBoolean> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static OptionalBoolean get(String literal) {
+      for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+        OptionalBoolean result = VALUES_ARRAY[i];
+        if (result.toString().equals(literal)) {
+           return result;
+        }
+      }
+      return null;
     }
-  }
-  return null;
-}
-public static OptionalBoolean getByName(String name) {
-    for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-OptionalBoolean result = VALUES_ARRAY[i];
-if (result.getName().equals(name)) {
-return result;
-}
-}
-return null;
-}
-public static OptionalBoolean get(int value) {
-    switch (value) {
-        case OFALSE_VALUE: return OFALSE;
-        case OTRUE_VALUE: return OTRUE;
-        case OUNDEFINED_VALUE: return OUNDEFINED;
+    public static OptionalBoolean getByName(String name) {
+        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+    OptionalBoolean result = VALUES_ARRAY[i];
+    if (result.getName().equals(name)) {
+    return result;
+    }
     }
     return null;
-}
-private final int value;
-private final String name;
-private final String literal;
-private OptionalBoolean(int value, String name, String literal) {
-  this.value = value;
-  this.name = name;
-  this.literal = literal;
-}
-public int getValue() {
-   return value;
-}
- public String getName() {
-    return name;
-}
-public String getLiteral() {
-  return literal;
-}
- @Override
-public String toString() {
-   return literal;
-}
+    }
+    public static OptionalBoolean get(int value) {
+        switch (value) {
+            case OFALSE_VALUE: return OFALSE;
+            case OTRUE_VALUE: return OTRUE;
+            case OUNDEFINED_VALUE: return OUNDEFINED;
+        }
+        return null;
+    }
+    private final int value;
+    private final String name;
+    private final String literal;
+    private OptionalBoolean(int value, String name, String literal) {
+      this.value = value;
+      this.name = name;
+      this.literal = literal;
+    }
+    public int getValue() {
+       return value;
+    }
+     public String getName() {
+        return name;
+    }
+    public String getLiteral() {
+      return literal;
+    }
+     @Override
+    public String toString() {
+       return literal;
+    }
+    
 }

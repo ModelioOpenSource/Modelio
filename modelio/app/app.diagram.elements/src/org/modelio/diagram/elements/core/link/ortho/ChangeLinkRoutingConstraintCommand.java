@@ -17,142 +17,142 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.ortho;
 
-import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.draw2d.Bendpoint;
 import org.eclipse.draw2d.Connection;
-import org.eclipse.draw2d.ConnectionAnchor;
-import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.geometry.Point;
-import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.ConnectionEditPart;
-import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gef.commands.Command;
-import org.eclipse.gef.handles.HandleBounds;
+import org.modelio.diagram.elements.core.figures.routers.AnchorBounds;
+import org.modelio.diagram.elements.core.figures.routers.ConnectionState;
 import org.modelio.diagram.elements.core.link.GmPath;
 import org.modelio.diagram.elements.core.link.IAnchorModelProvider;
+import org.modelio.diagram.elements.core.link.MPoint;
 import org.modelio.diagram.elements.core.link.path.BendPointUtils;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
 import org.modelio.diagram.elements.core.model.IGmLinkObject;
 import org.modelio.diagram.elements.core.model.IGmPath;
+import org.modelio.diagram.elements.plugin.DiagramElements;
 import org.modelio.vcore.model.api.MTools;
 
 /**
- * A command that changes the routing constraint of the given connection.
- * 
- * @author fpoyer
+ * Command that updates the {@link IGmPath} of an {@link IGmLinkObject} from a {@link Connection}.
  */
 @objid ("80316eee-1dec-11e2-8cad-001ec947c8cc")
 public class ChangeLinkRoutingConstraintCommand extends Command {
-    @objid ("b6184cca-b43e-42a4-b9d2-98d7c7cb5d80")
-    private List<Bendpoint> routingConstraint;
+    @objid ("c1724591-c96c-4072-8d17-2f9fd68bd4ca")
+    private boolean isForced;
 
     @objid ("e1ca5238-941b-4c2f-92d7-ab0cbc0fdf5a")
-    private Connection connection;
+    protected final Connection connection;
 
-    @objid ("80316ef2-1dec-11e2-8cad-001ec947c8cc")
-    private IGmPath path;
+    @objid ("83483ee1-48da-4f71-b292-1f3e39d9e1f4")
+    private ConnectionEditPart connectionEP;
 
-    @objid ("80316ef8-1dec-11e2-8cad-001ec947c8cc")
-    private Object sourceAnchorModel;
-
-    @objid ("80316ef9-1dec-11e2-8cad-001ec947c8cc")
-    private Object targetAnchorModel;
+    @objid ("eca3a130-475a-497f-b99b-d741981b6aa0")
+    protected final IGmPath initialPath;
 
     @objid ("80316efa-1dec-11e2-8cad-001ec947c8cc")
-    private IGmLinkObject model;
+    protected final IGmLinkObject model;
 
-    @objid ("188cd1ab-b6b9-4041-9394-3785483651be")
-    private EditPartViewer viewer;
+    @objid ("ce9f496b-fd7f-4eb9-b0db-3b37a90a5ef1")
+    protected final ConnectionState connectionState;
 
     /**
      * Creates a command that changes the routing constraint of the given connection.
-     * 
-     * @param path the new path
      * @param connectionEP the edit part of the connection to modify.
+     * @param connectionState the connection state to save in the model
+     * @param isForced if false, check if a previous command already modified the connection route before changing the constraint.
      */
     @objid ("80316efe-1dec-11e2-8cad-001ec947c8cc")
-    @SuppressWarnings ("unchecked")
-    public ChangeLinkRoutingConstraintCommand(final IGmPath path, final ConnectionEditPart connectionEP) {
+    public  ChangeLinkRoutingConstraintCommand(final ConnectionEditPart connectionEP, ConnectionState connectionState, boolean isForced) {
+        this.connectionEP = connectionEP;
         this.model = (IGmLinkObject) connectionEP.getModel();
         this.connection = (Connection) connectionEP.getFigure();
-        this.path = new GmPath(path);
-        this.viewer = connectionEP.getViewer();
-        this.routingConstraint = (List<Bendpoint>) this.connection.getRoutingConstraint();
-        this.sourceAnchorModel = ((IAnchorModelProvider) connectionEP.getSource()).createAnchorModel(this.connection.getSourceAnchor());
-        this.targetAnchorModel = ((IAnchorModelProvider) connectionEP.getTarget()).createAnchorModel(this.connection.getTargetAnchor());
+        this.connectionState = connectionState;
+        this.initialPath = this.model.getPath();
+        this.isForced = isForced;
+        
+    }
+
+    /**
+     * Creates a command that changes the routing constraint of the given connection. (isForced is set to <code>false</code>)
+     * @param connectionEP the edit part of the connection to modify.
+     * @param connectionState the connection state to save in the model
+     */
+    @objid ("08969000-5310-433a-884a-77080fdff261")
+    public  ChangeLinkRoutingConstraintCommand(final ConnectionEditPart connectionEP, ConnectionState connectionState) {
+        this(connectionEP, connectionState, false);
+    }
+
+    /**
+     * Creates a command that synchronize the routing constraint of the model from the Connection figure routing constraint.
+     * @param connectionEP the edit part of the connection to modify.
+     */
+    @objid ("447ec4b1-84c8-4186-95c6-6efa59b9aeb2")
+    public  ChangeLinkRoutingConstraintCommand(final ConnectionEditPart connectionEP) {
+        this(connectionEP, new ConnectionState().init((Connection) connectionEP.getFigure()));
     }
 
     @objid ("80316f08-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public void execute() {
-        this.path.setSourceAnchor(this.sourceAnchorModel);
-        this.path.setTargetAnchor(this.targetAnchorModel);
-        
-        Rectangle sourceBounds = getAnchorOwnerAbsoluteBounds(this.connection.getSourceAnchor()).expand(1, 1);
-        this.connection.translateToRelative(sourceBounds);
-        
-        Rectangle targetBounds = getAnchorOwnerAbsoluteBounds(this.connection.getTargetAnchor()).expand(1, 1);
-        this.connection.translateToRelative(targetBounds);
-        
-        ArrayList<Point> bendpoints = new ArrayList<>(this.routingConstraint.size());
-        this.routingConstraint.forEach(bp -> bendpoints.add(bp.getLocation()));
-        
-        if (!sourceBounds.contains(targetBounds)) {
-            while (!bendpoints.isEmpty() && sourceBounds.contains(bendpoints.get(0))) {
-                bendpoints.remove(0);
-            }
-        } else if (!sourceBounds.equals(targetBounds)) {
-            // Remove the first point unless the link is reflexive
-            bendpoints.remove(0);
-        }
-        if (!targetBounds.contains(sourceBounds)) {
-            for (int lastIdx = bendpoints.size() - 1; lastIdx >= 0 && targetBounds.contains(bendpoints.get(lastIdx)); lastIdx--) {
-                bendpoints.remove(lastIdx);
-            }
-        } else if (!bendpoints.isEmpty()) {
-            bendpoints.remove(0);
+        if (!this.isForced && !this.model.getLayoutData().equals(this.initialPath)) {
+            // A previous command already modified the connection route.
+            if (DiagramElements.LOG.isDebugEnabled())
+                DiagramElements.LOG.debug(new Throwable(String.format("Layout already changed:%n  - from %s%n  - to %s", this.initialPath, this.model.getLayoutData())));
+            // Don't overwrite its work and abort.
+            return;
         }
         
-        List<Point> modelPoints = BendPointUtils.draw2dPointsToModelConstraint(bendpoints);
+        IAnchorModelProvider sourceEp = (IAnchorModelProvider) this.connectionEP.getSource();
+        IAnchorModelProvider targetEp = (IAnchorModelProvider) this.connectionEP.getTarget();
         
-        // DEBUG
-        // System.err.println("final: " + points.size());
-        this.path.setPathData(modelPoints);
-        this.model.setLayoutData(this.path);
+        if (sourceEp != null && targetEp != null) {
+            try {
+                GmPath newPath = new GmPath(this.initialPath);
+        
+                Object sourceAnchorModel = sourceEp.createAnchorModel(this.connectionState.getSourceAnchor());
+                newPath.setSourceAnchor(sourceAnchorModel);
+        
+                Object targetAnchorModel = targetEp.createAnchorModel(this.connectionState.getTargetAnchor());
+                newPath.setTargetAnchor(targetAnchorModel);
+        
+                List<MPoint> modelPoints = getNewBendPoints();
+        
+                newPath.setPathData(modelPoints);
+                this.model.setLayoutData(newPath);
+            } catch (@SuppressWarnings ("unused") IllegalArgumentException e) {
+                // Invalid anchor found, just do nothing.
+            }
+        }
+        
     }
 
     /**
-     * Get the anchor owner (handle)bounds in absolute coordinates. If the anchor is not attached to a figure, returns a 1x1 sized rectangle located at the anchor reference point.
-     * 
-     * @param anchor The anchor.
-     * @return The anchor owner bounds.
+     * Compute the new bend points from the command parameters.
+     * @see #connectionState
+     * @see #connection
+     * @return the new draw2d bend points
      */
-    @objid ("80316f0b-1dec-11e2-8cad-001ec947c8cc")
-    private Rectangle getAnchorOwnerAbsoluteBounds(final ConnectionAnchor anchor) {
-        final IFigure f = anchor.getOwner();
-        if (f == null) {
-            Point p = anchor.getReferencePoint();
-            return new Rectangle(p.x, p.y, 1, 1);
-        } else {
-            final Rectangle bounds = f instanceof HandleBounds ? ((HandleBounds) f).getHandleBounds()
-                    .getCopy() : f.getBounds()
-                            .getCopy();
-            f.translateToAbsolute(bounds);
-        
-            return bounds;
+    @objid ("528e6f9c-189b-45c3-98c7-383281eb28a5")
+    protected List<MPoint> getNewBendPoints() {
+        List<MPoint> points = BendPointUtils.copyConstraint(this.connectionState.getMPoints());
+        if (!points.isEmpty()) {
+            AnchorBounds.SHARED.fromAnchors(this.connectionState.getSourceAnchor(), this.connectionState.getTargetAnchor())
+                    .expand(1)
+                    .toRelative(this.connection)
+                    .trimContainedPoints(points, MPoint::getLocation, true);
         }
+        return points;
     }
 
     @objid ("6720891d-10c8-42e6-9a00-7c403cd02115")
     @Override
     public boolean canExecute() {
         final IGmDiagram diagram = this.model.getDiagram();
-        return (MTools.getAuthTool().canModify(diagram.getRelatedElement()));
+        return MTools.getAuthTool().canModify(diagram.getRelatedElement());
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.datastore;
 
 import java.util.Collections;
@@ -68,25 +67,25 @@ public class GmDataStorePrimaryNode extends GmNoStyleCompositeNode implements II
 
     /**
      * Default constructor.
-     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param ref a reference to the represented data store.
      */
     @objid ("2a2c03a5-55b6-11e2-877f-002564c97630")
-    public GmDataStorePrimaryNode(IGmDiagram diagram, MRef ref) {
+    public  GmDataStorePrimaryNode(IGmDiagram diagram, MRef ref) {
         super(diagram, ref);
         this.header = new GmActivityNodeHeader(diagram, ref);
         this.header.setShowMetaclassIcon(true);
         super.addChild(this.header);
         this.objectNodeStateLabel = new GmObjectNodeStateLabel(diagram, ref);
         addChild(this.objectNodeStateLabel);
+        
     }
 
     /**
      * Empty constructor, needed for serialisation.
      */
     @objid ("2a2c03ae-55b6-11e2-877f-002564c97630")
-    public GmDataStorePrimaryNode() {
+    public  GmDataStorePrimaryNode() {
         // empty constructor for the serialization
     }
 
@@ -113,7 +112,6 @@ public class GmDataStorePrimaryNode extends GmNoStyleCompositeNode implements II
 
     /**
      * Get the stereotype image to display.
-     * 
      * @return the stereotype image to display. Must not be <i>null</i>.
      */
     @objid ("2a2d8a27-55b6-11e2-877f-002564c97630")
@@ -145,6 +143,7 @@ public class GmDataStorePrimaryNode extends GmNoStyleCompositeNode implements II
             break;
         }
         }
+        
     }
 
     @objid ("2a2d8a3a-55b6-11e2-877f-002564c97630")
@@ -156,6 +155,7 @@ public class GmDataStorePrimaryNode extends GmNoStyleCompositeNode implements II
         firePropertyChange(PROPERTY_LABEL, oldLabel, this.header.getMainLabel());
         // forcing visual refresh in case Image changed
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("2a2d8a3d-55b6-11e2-877f-002564c97630")
@@ -164,6 +164,7 @@ public class GmDataStorePrimaryNode extends GmNoStyleCompositeNode implements II
         // Returned result depends on current representation mode:
         List<GmNodeModel> ret;
         switch (this.getRepresentationMode()) {
+        case USER_IMAGE:
         case IMAGE: {
             ret = Collections.emptyList();
             break;
@@ -183,6 +184,7 @@ public class GmDataStorePrimaryNode extends GmNoStyleCompositeNode implements II
         
         // Write version of this Gm if different of 0.
         writeMinorVersion(out, "GmDataStorePrimaryNode.", Integer.valueOf(GmDataStorePrimaryNode.MINOR_VERSION));
+        
     }
 
     @objid ("2a2d8a4c-55b6-11e2-877f-002564c97630")
@@ -190,6 +192,7 @@ public class GmDataStorePrimaryNode extends GmNoStyleCompositeNode implements II
         super.read(in);
         this.header = (GmActivityNodeHeader) this.getChildren().get(0);
         this.objectNodeStateLabel = (GmElementLabel) this.getChildren().get(1);
+        
     }
 
     @objid ("2a2d8a51-55b6-11e2-877f-002564c97630")
@@ -200,11 +203,10 @@ public class GmDataStorePrimaryNode extends GmNoStyleCompositeNode implements II
 
     /**
      * Migration constructor.
-     * 
      * @param oldVersionGm the instance to migrate from.
      */
     @objid ("2a2f10b9-55b6-11e2-877f-002564c97630")
-    GmDataStorePrimaryNode(final _GmDataStore oldVersionGm) {
+     GmDataStorePrimaryNode(final _GmDataStore oldVersionGm) {
         super(oldVersionGm.getDiagram(), oldVersionGm.getRepresentedRef());
         this.header = oldVersionGm.getHeader();
         this.header.setShowMetaclassIcon(true);
@@ -214,6 +216,7 @@ public class GmDataStorePrimaryNode extends GmNoStyleCompositeNode implements II
         this.objectNodeStateLabel = oldVersionGm.getObjectNodeStateLabel();
         oldVersionGm.removeChild(this.objectNodeStateLabel);
         addChild(this.objectNodeStateLabel);
+        
     }
 
 }

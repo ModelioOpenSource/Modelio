@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.script.engine.core.engine;
 
 import java.io.PrintWriter;
 import java.nio.file.Path;
 import java.util.Collection;
-import javax.script.ScriptException;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.script.ScriptException;
 import org.eclipse.jface.viewers.ISelection;
 import org.modelio.metamodel.uml.infrastructure.Element;
 

@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.uml.statik.InterfaceData;
 import org.modelio.metamodel.uml.statik.Interface;
 import org.modelio.metamodel.uml.statik.InterfaceRealization;
 import org.modelio.metamodel.uml.statik.ProvidedInterface;
@@ -65,6 +64,7 @@ public class InterfaceImpl extends GeneralClassImpl implements Interface {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("5a823c6a-2395-4580-8d9e-1696f20eab85")
@@ -86,6 +86,7 @@ public class InterfaceImpl extends GeneralClassImpl implements Interface {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("9873aa48-f25c-4729-bfab-a20c0e257e4e")
@@ -107,6 +108,7 @@ public class InterfaceImpl extends GeneralClassImpl implements Interface {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("8cc06e09-a050-431a-bdb4-282730ce6fa3")

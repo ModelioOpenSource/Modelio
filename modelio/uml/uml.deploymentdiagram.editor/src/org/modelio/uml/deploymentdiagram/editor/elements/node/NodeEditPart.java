@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.deploymentdiagram.editor.elements.node;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -60,6 +59,7 @@ public class NodeEditPart extends AbstractNodeEditPart {
         super.addChildVisual(childEditPart, index);
         
         updateSeparations(getFigure());
+        
     }
 
     @objid ("97469e16-55b6-11e2-877f-002564c97630")
@@ -73,6 +73,7 @@ public class NodeEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                 new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("9748247b-55b6-11e2-877f-002564c97630")
@@ -108,6 +109,7 @@ public class NodeEditPart extends AbstractNodeEditPart {
                 updateSeparations(aFigure);
             }
         }
+        
     }
 
     @objid ("97482487-55b6-11e2-877f-002564c97630")
@@ -117,6 +119,7 @@ public class NodeEditPart extends AbstractNodeEditPart {
         GmNodePrimaryNode classModel = (GmNodePrimaryNode) getModel();
         
         classFigure.getParent().setConstraint(classFigure, classModel.getLayoutData());
+        
     }
 
     @objid ("9748248a-55b6-11e2-877f-002564c97630")
@@ -125,11 +128,11 @@ public class NodeEditPart extends AbstractNodeEditPart {
         super.removeChildVisual(childEditPart);
         
         updateSeparations(getFigure());
+        
     }
 
     /**
      * Update the separation lines between zones.
-     * 
      * @param aFigure the composite figure to update.
      */
     @objid ("9748248e-55b6-11e2-877f-002564c97630")
@@ -144,6 +147,7 @@ public class NodeEditPart extends AbstractNodeEditPart {
                 false);
         
         ChildFigureLineSeparator.updateSeparation(stateFig, zoneBorder);
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.factories;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -26,6 +25,7 @@ import org.eclipse.gef.EditPartFactory;
 import org.modelio.diagram.elements.common.label.modelelement.GmDefaultModelElementLabel;
 import org.modelio.diagram.elements.common.label.modelelement.ModelElementLabelEditPart;
 import org.modelio.diagram.elements.common.text.ElementTextEditPart;
+import org.modelio.diagram.elements.core.model.factory.GenericUserImageModeEditPartFactory;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.uml.sequencediagram.editor.elements.combinedfragment.CombinedFragmentEditPart;
 import org.modelio.uml.sequencediagram.editor.elements.combinedfragment.GmCombinedFragment;
@@ -85,16 +85,22 @@ public final class SequenceEditPartFactory implements EditPartFactory {
      * the default factory to use when structured mode is requested.
      */
     @objid ("44516f5a-31fd-414c-93b6-71c19a5df783")
-    private static final StructuredModeEditPartFactory structuredModeEditPartFactory = new StructuredModeEditPartFactory();
+    private final EditPartFactory structuredModeEditPartFactory = new StructuredModeEditPartFactory();
 
     /**
      * the default factory to use when simple mode is requested.
      */
     @objid ("ffd9732b-a0e8-4394-8815-a2f5e8e6bd77")
-    private static final SimpleModeEditPartFactory simpleModeEditPartFactory = new SimpleModeEditPartFactory();
+    private final EditPartFactory simpleModeEditPartFactory = new SimpleModeEditPartFactory();
 
     @objid ("234b4aa0-8b19-420b-bf4e-c43f6b05a365")
-    private static final ImageModeEditPartFactory imageModeEditPartFactory = new ImageModeEditPartFactory();
+    private final EditPartFactory imageModeEditPartFactory = new ImageModeEditPartFactory();
+
+    /**
+     * the default factory to use when user image mode is requested.
+     */
+    @objid ("5aa567d3-e4dc-4dd6-90aa-f1226c0f238e")
+    private final EditPartFactory userImageModeEditPartFactory = new GenericUserImageModeEditPartFactory(this.imageModeEditPartFactory);
 
     @objid ("6fd07e7e-2619-4d7e-84bd-af8eccfb3240")
     @Override
@@ -105,14 +111,17 @@ public final class SequenceEditPartFactory implements EditPartFactory {
             // For node models, delegates according the representation model.
             GmNodeModel node = (GmNodeModel) model;
             switch (node.getRepresentationMode()) {
+            case USER_IMAGE:
+                editPart = this.userImageModeEditPartFactory.createEditPart(context, model);
+                break;
             case IMAGE:
-                editPart = SequenceEditPartFactory.imageModeEditPartFactory.createEditPart(context, model);
+                editPart = this.imageModeEditPartFactory.createEditPart(context, model);
                 break;
             case SIMPLE:
-                editPart = SequenceEditPartFactory.simpleModeEditPartFactory.createEditPart(context, model);
+                editPart = this.simpleModeEditPartFactory.createEditPart(context, model);
                 break;
             case STRUCTURED:
-                editPart = SequenceEditPartFactory.structuredModeEditPartFactory.createEditPart(context, model);
+                editPart = this.structuredModeEditPartFactory.createEditPart(context, model);
                 break;
             default:
                 editPart = null;
@@ -125,7 +134,7 @@ public final class SequenceEditPartFactory implements EditPartFactory {
             return null;
         }
         // Link models are always in structured mode.
-        editPart = SequenceEditPartFactory.structuredModeEditPartFactory.createEditPart(context, model);
+        editPart = this.structuredModeEditPartFactory.createEditPart(context, model);
         
         if (editPart != null) {
             return editPart;

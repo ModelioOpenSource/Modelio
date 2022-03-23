@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.portcontainer;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,7 +43,6 @@ public class PortContainerFigure extends Figure implements HandleBounds {
     /**
      * Returns the Rectangle around which handles are to be placed. The Rectangle should be in the same coordinate
      * system as the figure itself.
-     * 
      * @return The rectangle used for handles
      */
     @objid ("7ef6b8af-1dec-11e2-8cad-001ec947c8cc")
@@ -61,11 +59,11 @@ public class PortContainerFigure extends Figure implements HandleBounds {
         } else {
             return getBounds();
         }
+        
     }
 
     /**
      * Sets the main node figure.
-     * 
      * @param mainNodeFigure the main node figure.
      */
     @objid ("7ef91ab9-1dec-11e2-8cad-001ec947c8cc")
@@ -85,6 +83,7 @@ public class PortContainerFigure extends Figure implements HandleBounds {
                 }
             });
         }
+        
     }
 
     @objid ("7ef91abf-1dec-11e2-8cad-001ec947c8cc")

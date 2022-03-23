@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.callevent;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -49,18 +48,17 @@ public class GmCallEventHeader extends GmActivityNodeHeader {
      * Empty c'tor for deserialisation.
      */
     @objid ("29c8d518-55b6-11e2-877f-002564c97630")
-    public GmCallEventHeader() {
+    public  GmCallEventHeader() {
         super();
     }
 
     /**
      * C'tor.
-     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param relatedRef a reference to the node this gm is related to.
      */
     @objid ("29c8d51b-55b6-11e2-877f-002564c97630")
-    public GmCallEventHeader(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmCallEventHeader(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -98,6 +96,7 @@ public class GmCallEventHeader extends GmActivityNodeHeader {
             break;
         }
         }
+        
     }
 
     @objid ("29ca5b92-55b6-11e2-877f-002564c97630")
@@ -107,6 +106,7 @@ public class GmCallEventHeader extends GmActivityNodeHeader {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmCallEventHeader.", GmCallEventHeader.MINOR_VERSION);
+        
     }
 
     @objid ("29ca5b98-55b6-11e2-877f-002564c97630")

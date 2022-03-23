@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.activity;
 
 import java.util.Collection;
@@ -42,7 +41,7 @@ public class ClauseDG extends DiagramNode {
      * @param node The gm node represented by this class.
      */
     @objid ("749a21f6-747f-4a35-8a60-0e797367f0f9")
-    public ClauseDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  ClauseDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 
@@ -55,6 +54,7 @@ public class ClauseDG extends DiagramNode {
         } else {
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("cb990625-28e2-4ba0-a549-bb3b86f4a328")
@@ -65,6 +65,7 @@ public class ClauseDG extends DiagramNode {
         } else {
             return Collections.emptyList();
         }
+        
     }
 
 }

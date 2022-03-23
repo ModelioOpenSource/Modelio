@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.flowfinal;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -77,7 +76,7 @@ public class GmFlowFinalStructuredStyleKeys extends ActivityAbstractStyleKeyProv
      */
     @objid ("d2041bab-55c0-11e2-9337-002564c97630")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("FLOWFINAL_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+                MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Show tags.

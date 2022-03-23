@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.libraries.local.property;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,11 +46,12 @@ public class RamcPropertyDialog extends ModelioDialog {
     private final ProjectModel projectAdapter;
 
     @objid ("ad3c4972-106a-4134-912a-d5acbc6863d9")
-    public RamcPropertyDialog(final Shell parentShell, final IModelComponentInfos fragmentInfos, final ProjectModel projectAdapter) {
+    public  RamcPropertyDialog(final Shell parentShell, final IModelComponentInfos fragmentInfos, final ProjectModel projectAdapter) {
         super(parentShell);
         this.fragmentInfos = fragmentInfos;
         this.projectAdapter = projectAdapter;
         setShellStyle(SWT.MODELESS | SWT.DIALOG_TRIM | SWT.RESIZE);
+        
     }
 
     @objid ("4d7ee709-7b44-4618-89b2-7edd1aebc843")
@@ -61,6 +61,7 @@ public class RamcPropertyDialog extends ModelioDialog {
                 IDialogConstants.CANCEL_ID,
                 AppProjectConfExt.I18N.getString("RamcPropertyDialog.Close"),
                 true);
+        
     }
 
     @objid ("965579fc-5106-414f-931b-8ac45f16c2db")
@@ -88,6 +89,7 @@ public class RamcPropertyDialog extends ModelioDialog {
         getShell().setLocation(parentLocation.x + 300, parentLocation.y + 200);
         getShell().setSize(600, 800);
         getShell().setMinimumSize(500, 550);
+        
     }
 
     @objid ("c39397bf-0851-4346-8141-741cede1c291")

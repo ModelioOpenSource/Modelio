@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.semantic.browser.plugin;
 
 import java.util.ResourceBundle;
@@ -58,6 +57,7 @@ public class SemanticBrowser extends AbstractUIPlugin {
         ExtendedLogService service = bundleContext.getService(ref);
         SemanticBrowser.LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), SemanticBrowser.PLUGIN_ID));
         SemanticBrowser.I18N = new BundledMessages(SemanticBrowser.LOG, ResourceBundle.getBundle("semanticbrowser"));
+        
     }
 
     @objid ("9d1d7481-8aba-4578-867b-e3a1f7da90f3")
@@ -69,7 +69,6 @@ public class SemanticBrowser extends AbstractUIPlugin {
     /**
      * Returns an image descriptor for the image file at the given plug-in
      * relative path
-     * 
      * @param path the path
      * @return the image descriptor
      */

@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.form.models;
 
 import java.util.ArrayList;
@@ -59,14 +58,13 @@ public class NoteFieldData implements IFormFieldData {
      * Creates a note field data.
      * <p>
      * Notes will be created as HTML if the note type MIME type is HTML, plain text in all other cases.
-     * 
      * @param modelingSession the Modeling session, needed since 3.8 .
      * @param me the edited element
      * @param moduleName the note type module
      * @param noteTypeName the note type module name
      */
     @objid ("98e77c5a-90a1-44dd-9f6b-f6e0399c2719")
-    public NoteFieldData(IModelingSession modelingSession, ModelElement me, String moduleName, String noteTypeName) {
+    public  NoteFieldData(IModelingSession modelingSession, ModelElement me, String moduleName, String noteTypeName) {
         this.modelingSession = Objects.requireNonNull(modelingSession);
         this.me = Objects.requireNonNull(me);
         this.moduleName = Objects.requireNonNull(moduleName);
@@ -80,6 +78,7 @@ public class NoteFieldData implements IFormFieldData {
         }
         
         this.noteLabel = computeNoteLabel(modelingSession, this.noteType, noteTypeName);
+        
     }
 
     /**
@@ -90,7 +89,7 @@ public class NoteFieldData implements IFormFieldData {
      * @param newNoteType the new notes MIME type : either "plain" or "html"
      */
     @objid ("d6307a8d-4c79-472f-82dc-e7685a328b85")
-    public NoteFieldData(IModelingSession modelingSession, ModelElement me, String moduleName, String noteTypeName, String newNoteType) {
+    public  NoteFieldData(IModelingSession modelingSession, ModelElement me, String moduleName, String noteTypeName, String newNoteType) {
         this.modelingSession = Objects.requireNonNull(modelingSession);
         this.me = Objects.requireNonNull(me);
         this.moduleName = Objects.requireNonNull(moduleName);
@@ -104,6 +103,7 @@ public class NoteFieldData implements IFormFieldData {
         }
         
         this.noteLabel = computeNoteLabel(modelingSession, this.noteType, noteTypeName);
+        
     }
 
     @objid ("4b2478df-a23c-4ae2-bc5b-6067d7638692")
@@ -134,6 +134,7 @@ public class NoteFieldData implements IFormFieldData {
         } catch (final ExtensionNotFoundException e) {
             Api.LOG.error(e);
         }
+        
     }
 
     @objid ("d2b46c40-26f0-4f12-b0ea-44eb12ccb2d7")
@@ -143,6 +144,7 @@ public class NoteFieldData implements IFormFieldData {
         } else {
             return "! Missing "+noteTypeName+"!";
         }
+        
     }
 
     @objid ("517cf15c-904f-4bf4-834d-66b1d8b531b1")
@@ -224,6 +226,7 @@ public class NoteFieldData implements IFormFieldData {
             } else {              
                 return NoteFieldData.this.newNoteType;
             }
+            
         }
 
         @objid ("8dc49753-d44d-44ec-beb2-4aba3fc7838c")

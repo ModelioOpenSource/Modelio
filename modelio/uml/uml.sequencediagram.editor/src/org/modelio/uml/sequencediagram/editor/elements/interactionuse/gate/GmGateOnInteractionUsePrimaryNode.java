@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.interactionuse.gate;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -57,18 +56,17 @@ public class GmGateOnInteractionUsePrimaryNode extends GmNoStyleSimpleNode imple
      * Empty c'tor for deserialisation.
      */
     @objid ("d918e5d5-55b6-11e2-877f-002564c97630")
-    public GmGateOnInteractionUsePrimaryNode() {
+    public  GmGateOnInteractionUsePrimaryNode() {
         super();
     }
 
     /**
      * C'tor.
-     * 
      * @param diagram diagram in which this gm is created.
      * @param relatedRef a ref of the gate.
      */
     @objid ("d918e5d8-55b6-11e2-877f-002564c97630")
-    public GmGateOnInteractionUsePrimaryNode(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmGateOnInteractionUsePrimaryNode(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -107,6 +105,7 @@ public class GmGateOnInteractionUsePrimaryNode extends GmNoStyleSimpleNode imple
         
             firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, this.getLayoutData(), null);
         }
+        
     }
 
     @objid ("d918e5ed-55b6-11e2-877f-002564c97630")
@@ -132,6 +131,7 @@ public class GmGateOnInteractionUsePrimaryNode extends GmNoStyleSimpleNode imple
             break;
         }
         }
+        
     }
 
     @objid ("d918e5f7-55b6-11e2-877f-002564c97630")
@@ -141,6 +141,7 @@ public class GmGateOnInteractionUsePrimaryNode extends GmNoStyleSimpleNode imple
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmGateOnInteractionUsePrimaryNode.", GmGateOnInteractionUsePrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("d91a6c5e-55b6-11e2-877f-002564c97630")

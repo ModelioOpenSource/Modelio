@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.combinedfragment;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,28 +32,28 @@ import org.modelio.uml.sequencediagram.editor.style.SequenceAbstractStyleKeyProv
 @objid ("d8c806a4-55b6-11e2-877f-002564c97630")
 public class GmCombinedFragmentStyleKeys extends SequenceAbstractStyleKeyProvider {
     @objid ("4ff3124a-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("COMBINEDFRAGMENT_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("COMBINEDFRAGMENT_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("4ff3124c-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("COMBINEDFRAGMENT_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("COMBINEDFRAGMENT_FILLMODE", MetaKey.FILLMODE);
 
     @objid ("4ff3124e-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("COMBINEDFRAGMENT_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("COMBINEDFRAGMENT_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("4ff31250-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("COMBINEDFRAGMENT_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("COMBINEDFRAGMENT_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("4ff31252-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("COMBINEDFRAGMENT_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("COMBINEDFRAGMENT_FONT", MetaKey.FONT);
 
     @objid ("4ff31254-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("COMBINEDFRAGMENT_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("COMBINEDFRAGMENT_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("4ff31256-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("COMBINEDFRAGMENT_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("COMBINEDFRAGMENT_SHOWSTEREOTYPES",
+                MetaKey.SHOWSTEREOTYPES);
 
     @objid ("4ff31258-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("COMBINEDFRAGMENT_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("COMBINEDFRAGMENT_SHOWTAGS", MetaKey.SHOWTAGS);
 
 }

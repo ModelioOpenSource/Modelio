@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
@@ -31,7 +31,6 @@ import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementImpl;
-import org.modelio.metamodel.impl.uml.statik.NaryAssociationData;
 import org.modelio.metamodel.uml.statik.ClassAssociation;
 import org.modelio.metamodel.uml.statik.NaryAssociation;
 import org.modelio.metamodel.uml.statik.NaryAssociationEnd;
@@ -89,6 +88,7 @@ public class NaryAssociationImpl extends UmlModelElementImpl implements NaryAsso
         }
         
         super.afterEraseDepVal(dep, value);
+        
     }
 
     @objid ("6cdf1b07-b468-4a19-9d0e-f9314f0db712")
@@ -110,6 +110,7 @@ public class NaryAssociationImpl extends UmlModelElementImpl implements NaryAsso
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("882c9344-7668-4624-b5b9-3a32786c6cd2")
@@ -131,6 +132,7 @@ public class NaryAssociationImpl extends UmlModelElementImpl implements NaryAsso
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("5a96060c-137c-4bcb-97dd-414bcb427edd")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.expression;
 
 import java.lang.reflect.InvocationTargetException;
@@ -93,6 +92,7 @@ public class MObjectPropertyTester extends PropertyTester {
         default:
             throw new IllegalArgumentException(property);
         }
+        
     }
 
     @objid ("9721e8a6-3b43-48a2-b574-8846e7b6b5ea")
@@ -103,6 +103,7 @@ public class MObjectPropertyTester extends PropertyTester {
             return val != null;
         else
             return Objects.equals(String.valueOf(expectedValue), String.valueOf(val));
+        
     }
 
     @objid ("573f3076-61a7-4aac-bb3c-1d30900dca2a")
@@ -143,7 +144,6 @@ public class MObjectPropertyTester extends PropertyTester {
      * Call a boolean method on the given java object and test its return value.
      * <p>
      * The method name may begin with "!", the result is then negated.
-     * 
      * @param receiver the object to test
      * @param methodName the method name to call. If the method name begins with "!", the result is negated.
      * @return the test result
@@ -170,6 +170,7 @@ public class MObjectPropertyTester extends PropertyTester {
         } catch (IllegalAccessException |  InvocationTargetException e) {
             throw new IllegalArgumentException(e.toString(), e);
         }
+        
     }
 
     @objid ("0df9fcc1-cf0c-4b75-8a62-9c5727a457f9")
@@ -182,6 +183,7 @@ public class MObjectPropertyTester extends PropertyTester {
             return vals.size() == (Integer)expectedValue;
         else
             throw new IllegalArgumentException("Unsupported value:"+expectedValue);
+        
     }
 
     @objid ("d4d27df3-5d7a-459e-b7f5-d81436b2fcc8")
@@ -199,6 +201,7 @@ public class MObjectPropertyTester extends PropertyTester {
             return !vals.isEmpty();
         else 
             return vals.size() > (Integer)expectedValue;
+        
     }
 
     @objid ("a42ae0b3-3ac4-4fd0-84c1-7b84af78d6af")
@@ -209,6 +212,7 @@ public class MObjectPropertyTester extends PropertyTester {
             throw new IllegalArgumentException("Missing expected value.");
         else 
             return vals.size() < (Integer)expectedValue;
+        
     }
 
     @objid ("2b0b5500-b9d0-4036-b501-5c2b2cd479d6")
@@ -218,6 +222,7 @@ public class MObjectPropertyTester extends PropertyTester {
             return att;
         
         throw new IllegalArgumentException("No '"+args[0]+"' attribute on "+obj);
+        
     }
 
     @objid ("e2d290eb-9978-4cd7-bcac-68a158af487a")
@@ -227,6 +232,7 @@ public class MObjectPropertyTester extends PropertyTester {
             return att;
         
         throw new IllegalArgumentException("No '"+args[0]+"' dependency on "+obj);
+        
     }
 
 }

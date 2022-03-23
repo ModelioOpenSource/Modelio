@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.image;
 
 import java.io.File;
@@ -54,9 +53,10 @@ public class UserDefinedImageProvider implements IImageableNode {
      * @param imageRegistry the image registry.
      */
     @objid ("9f65a2f6-943a-402f-9792-e1bf78f06b39")
-    public UserDefinedImageProvider(GmModel model, ImageRegistry imageRegistry) {
+    public  UserDefinedImageProvider(GmModel model, ImageRegistry imageRegistry) {
         this.model = model;
         this.imageRegistry = imageRegistry;
+        
     }
 
     @objid ("cfcdfdb9-c256-4fb8-b7a2-77aa6c51eb9d")
@@ -91,7 +91,6 @@ public class UserDefinedImageProvider implements IImageableNode {
      * <li> an absolute URL
      * </ul>
      * Returns <i>null</i> if the image is not found.
-     * 
      * @param imageSpec an image location specification.
      * @return an image descriptor or <i>null</i>.
      */
@@ -127,6 +126,7 @@ public class UserDefinedImageProvider implements IImageableNode {
             // Not an URL either
             return null;
         }
+        
     }
 
 }

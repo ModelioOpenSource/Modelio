@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.component;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,77 +41,77 @@ public final class ComponentStructuredStyleKeys extends StaticAbstractStyleKeyPr
      * Representation mode.
      */
     @objid ("a644d993-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("COMPONENT_REPRES_MODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("COMPONENT_REPRES_MODE", MetaKey.REPMODE);
 
     /**
      * Fill color.
      */
     @objid ("a644d996-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("COMPONENT_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("COMPONENT_FILLCOLOR", MetaKey.FILLCOLOR);
 
     /**
      * Fill mode.
      */
     @objid ("a644d999-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("COMPONENT_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("COMPONENT_FILLMODE", MetaKey.FILLMODE);
 
     /**
      * Lines color.
      */
     @objid ("a644d99c-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("COMPONENT_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("COMPONENT_LINECOLOR", MetaKey.LINECOLOR);
 
     /**
      * Lines width.
      */
     @objid ("a644d99f-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("COMPONENT_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("COMPONENT_LINEWIDTH", MetaKey.LINEWIDTH);
 
     /**
      * Text font.
      */
     @objid ("a644d9a2-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("COMPONENT_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("COMPONENT_FONT", MetaKey.FONT);
 
     /**
      * Text color.
      */
     @objid ("a644d9a5-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("COMPONENT_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("COMPONENT_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     /**
      * Name display mode: none, simple, qualified, ...
      */
     @objid ("a644d9a8-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWNAME = createStyleKey("COMPONENT_SHOWNAME", MetaKey.SHOWNAME);
+    static final StyleKey SHOWNAME = createStyleKey("COMPONENT_SHOWNAME", MetaKey.SHOWNAME);
 
     /**
      * Stereotype display mode.
      */
     @objid ("a644d9ab-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("COMPONENT_SHOWSTEREOTYPES",
-                                                           MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("COMPONENT_SHOWSTEREOTYPES",
+                                                               MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Show tagged values.
      */
     @objid ("a644d9ae-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("COMPONENT_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("COMPONENT_SHOWTAGS", MetaKey.SHOWTAGS);
 
     /**
      * Filter on features
      */
     @objid ("a644d9b7-55c2-11e2-9337-002564c97630")
-     static final StyleKey FEATURES = createStyleKey("COMPONENT_FEATURES", MetaKey.VISIBILITYFILTER);
+    static final StyleKey FEATURES = createStyleKey("COMPONENT_FEATURES", MetaKey.VISIBILITYFILTER);
 
     @objid ("a646602b-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWPORTS = createStyleKey("COMPONENT_SHOWPORTS", MetaKey.AUTOSHOWPORTS);
+    static final StyleKey SHOWPORTS = createStyleKey("COMPONENT_SHOWPORTS", MetaKey.AUTOSHOWPORTS);
 
     /**
      * Display visibility.
      */
     @objid ("da901d79-9fd2-4b48-91bb-005800360fef")
-     static final StyleKey SHOWVISIBILITY = createStyleKey("COMPONENT_SHOWVISIBILITY", MetaKey.SHOWVISIBILITY);
+    static final StyleKey SHOWVISIBILITY = createStyleKey("COMPONENT_SHOWVISIBILITY", MetaKey.SHOWVISIBILITY);
 
     @objid ("d65b7fa4-b1fa-472a-8d1f-a21731c94ce9")
     public static final ClassifierAttributeKeys Attribute = new ClassifierAttributeKeys("COMPONENT");

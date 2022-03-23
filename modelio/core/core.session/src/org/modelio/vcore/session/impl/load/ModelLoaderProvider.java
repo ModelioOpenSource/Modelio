@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.load;
 
 import java.util.Queue;
@@ -49,14 +48,14 @@ public class ModelLoaderProvider implements IModelLoaderProvider {
 
     /**
      * Initialize the model loader provider.
-     * 
      * @param loaderConfig The model loaders configuration.
      */
     @objid ("7dc20091-1c43-11e2-8eb9-001ec947ccaf")
-    public ModelLoaderProvider(ModelLoaderConfiguration loaderConfig) {
+    public  ModelLoaderProvider(ModelLoaderConfiguration loaderConfig) {
         this.loaderPool = new ConcurrentLinkedQueue<>();
         this.refreshPool = new ConcurrentLinkedQueue<>();
         this.loaderConfig = loaderConfig;
+        
     }
 
     @objid ("f69ee879-3948-11e2-920a-001ec947ccaf")

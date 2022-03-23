@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,7 @@ public class ELinkEndCreationData extends EElement {
     }
 
     @objid ("a7415e27-46ac-44f4-b7d6-2865cf5a9493")
-    public ELinkEndCreationData(org.eclipse.uml2.uml.LinkEndCreationData element) {
+    public  ELinkEndCreationData(org.eclipse.uml2.uml.LinkEndCreationData element) {
         super(element);
     }
 

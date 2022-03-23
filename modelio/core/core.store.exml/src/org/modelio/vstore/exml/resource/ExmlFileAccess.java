@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.resource;
 
 import java.io.File;
@@ -26,10 +25,10 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.Objects;
 import java.util.stream.Collectors;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.vbasic.log.Log;
 import org.modelio.vcore.smkernel.mapi.MMetamodel;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -61,16 +60,16 @@ public class ExmlFileAccess {
      * @param geometry the repository geometry.
      */
     @objid ("980fb6d6-8f92-4840-840d-6a71ca4f8ae3")
-    public ExmlFileAccess(File repositoryRoot, IExmlRepositoryGeometry geometry) {
+    public  ExmlFileAccess(File repositoryRoot, IExmlRepositoryGeometry geometry) {
         this.repositoryRoot = Objects.requireNonNull(repositoryRoot);
         this.geometry = Objects.requireNonNull(geometry);
         this.cachedModelPath = new File(this.repositoryRoot, this.geometry.getModelPath());
         this.xmlInputFactory = XMLInputFactory.newInstance();
+        
     }
 
     /**
      * Create a copy of this geometry with the given directory as repository root.
-     * 
      * @param newRoot the repository root path
      * @return a copy of this geometry.
      */
@@ -81,7 +80,6 @@ public class ExmlFileAccess {
 
     /**
      * Get the file where the given blob should be stored.
-     * 
      * @param blobKey a Blob key
      * @return the file where the blob is stored.
      */
@@ -92,7 +90,6 @@ public class ExmlFileAccess {
 
     /**
      * Get the blob key stored in the given file.
-     * 
      * @param file a blob file
      * @return the blob key.
      */
@@ -103,7 +100,6 @@ public class ExmlFileAccess {
 
     /**
      * Get the root directory where blobs are stored.
-     * 
      * @return the blobs directory.
      */
     @objid ("b94567dd-c6cf-4fcf-8cac-07f13e242455")
@@ -114,7 +110,6 @@ public class ExmlFileAccess {
     /**
      * This method returns the externalized file for the element. Can be null for CMS tools which are not able to
      * produce such a file.
-     * 
      * @param element an element.
      * @return the element file.
      */
@@ -125,7 +120,6 @@ public class ExmlFileAccess {
 
     /**
      * This method returns the externalized file for the element.
-     * 
      * @param ref the element reference.
      * @return the element file.
      */
@@ -144,7 +138,6 @@ public class ExmlFileAccess {
 
     /**
      * Get the directories that should exist on an empty repository.
-     * 
      * @param metamodel the metamodel
      * @return the list of directories.
      */
@@ -158,7 +151,6 @@ public class ExmlFileAccess {
 
     /**
      * This method returns the externalized file for the local part of an element.
-     * 
      * @param ref the element reference.
      * @return the element local part file.
      */
@@ -177,7 +169,6 @@ public class ExmlFileAccess {
 
     /**
      * Get the 'model' directory containing a sub directory per metaclass.
-     * 
      * @return the model directory.
      */
     @objid ("c31bcf87-f23a-44de-acad-a5ff0d09d86b")
@@ -187,7 +178,6 @@ public class ExmlFileAccess {
 
     /**
      * Get the element reference representing the given file.
-     * 
      * @param exmlFile an EXML file
      * @return the represented element reference.
      */
@@ -199,6 +189,7 @@ public class ExmlFileAccess {
             // Guess with errors in the metaclass
             return this.geometry.getObRef(exmlFile.getPath());
         }
+        
     }
 
     /**
@@ -216,7 +207,6 @@ public class ExmlFileAccess {
      * <p>
      * The answer is based on the file extension.
      * Returns <i>false</i> if it is a {@link IExmlRepositoryGeometry#EXT_LOCAL_EXML ".local.exml"} file.
-     * 
      * @param file a file
      * @return <i>true</i> if it is an EXML file, else <i>false</i>.
      */
@@ -228,10 +218,9 @@ public class ExmlFileAccess {
 
     /**
      * Read the element reference from the file.
-     * 
      * @param exmlFile the file path
      * @return the element reference
-     * @throws java.io.IOException on failure
+     * @throws IOException on failure
      */
     @objid ("169e7b58-7215-46a9-8fae-817a402e13b3")
     public MRef readRefFromFile(final File exmlFile) throws IOException {
@@ -255,6 +244,7 @@ public class ExmlFileAccess {
         } catch (XMLStreamException e) {
             throw new IOException(e.getLocalizedMessage(), e);
         }
+        
     }
 
     @objid ("9c72fa65-c1b2-492d-8c4b-001695605695")
@@ -266,6 +256,7 @@ public class ExmlFileAccess {
         } else {
             return null;
         }
+        
     }
 
     @objid ("6a406bf8-4040-491f-be16-32ea708daf7c")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.communicationdiagram.editor.style;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,7 +35,6 @@ import org.modelio.uml.communicationdiagram.editor.plugin.DiagramEditorCommunica
 public abstract class CommunicationAbstractStyleKeyProvider extends AbstractStyleKeyProvider {
     /**
      * Creates a StyleKey based on a MetaKey.
-     * 
      * @param key The style key.
      * @param metakey the base meta key.
      * @return a StyleKey with i18n informations filled.
@@ -48,11 +46,11 @@ public abstract class CommunicationAbstractStyleKeyProvider extends AbstractStyl
                         metakey.getLabel(),
                         metakey.getTooltip(),
                         DiagramEditorCommunication.I18N.getMessage(AbstractStyleKeyProvider.STYLEKEY_PREFIX + key + AbstractStyleKeyProvider.CATEGORY_SUFFIX));
+        
     }
 
     /**
      * Creates a style key.
-     * 
      * @param key The style key id.
      * @param type The type of the style key.
      * @return a StyleKey with i18n informations filled.
@@ -64,6 +62,7 @@ public abstract class CommunicationAbstractStyleKeyProvider extends AbstractStyl
                         DiagramEditorCommunication.I18N.getMessage(AbstractStyleKeyProvider.STYLEKEY_PREFIX + key + AbstractStyleKeyProvider.LABEL_SUFFIX),
                         DiagramEditorCommunication.I18N.getMessage(AbstractStyleKeyProvider.STYLEKEY_PREFIX + key + AbstractStyleKeyProvider.TOOLTIP_SUFFIX),
                         DiagramEditorCommunication.I18N.getMessage(AbstractStyleKeyProvider.STYLEKEY_PREFIX + key + AbstractStyleKeyProvider.CATEGORY_SUFFIX));
+        
     }
 
 }

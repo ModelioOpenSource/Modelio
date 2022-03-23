@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnsubprocess;
 
 import java.util.List;
@@ -28,12 +27,12 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.GraphicalEditPart;
 import org.modelio.bpmn.diagram.editor.elements.bpmnnodefooter.GmBpmnNodeFooter;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnSubProcessStructuredStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.editpart.AbstractBpmnNodeEditPart;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnSubProcessStructuredStyleKeys;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeRequestConstants;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeStartCreationEditPolicy;
 import org.modelio.diagram.elements.core.figures.MinimumSizeLayout;
 import org.modelio.diagram.elements.core.figures.RoundedBoxFigure;
-import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.elements.core.policies.DeferringCreateNodePolicy;
 import org.modelio.diagram.elements.core.tools.multipoint.CreateMultiPointRequest;
@@ -45,7 +44,7 @@ import org.modelio.diagram.styles.core.StyleKey.LinePattern;
  * EditPart for an SubProcess Node.
  */
 @objid ("61c25c3a-55b6-11e2-877f-002564c97630")
-public class BpmnSubProcessEditPart extends AbstractNodeEditPart {
+public class BpmnSubProcessEditPart extends AbstractBpmnNodeEditPart {
     @objid ("61c25c3e-55b6-11e2-877f-002564c97630")
     @Override
     protected IFigure createFigure() {
@@ -78,6 +77,7 @@ public class BpmnSubProcessEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                 new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("61c25c46-55b6-11e2-877f-002564c97630")
@@ -91,6 +91,7 @@ public class BpmnSubProcessEditPart extends AbstractNodeEditPart {
         } else {
             ((RoundedBoxFigure) getFigure()).setLinePattern(LinePattern.LINE_SOLID);
         }
+        
     }
 
     @objid ("61c25c49-55b6-11e2-877f-002564c97630")
@@ -106,6 +107,7 @@ public class BpmnSubProcessEditPart extends AbstractNodeEditPart {
         if (((GmNodeModel) childEditPart.getModel()).getRoleInComposition().equals(GmBpmnSubProcessPrimaryNode.ROLE_FOOTER)) {
             getFigure().add(child, BorderLayout.BOTTOM, index);
         }
+        
     }
 
     @objid ("61c25c4e-55b6-11e2-877f-002564c97630")
@@ -135,6 +137,7 @@ public class BpmnSubProcessEditPart extends AbstractNodeEditPart {
                 gmBpmnNodeFooter.setNonEmptySubProcess(false);
             }
         }
+        
     }
 
     @objid ("61c3e2e1-55b6-11e2-877f-002564c97630")
@@ -145,6 +148,7 @@ public class BpmnSubProcessEditPart extends AbstractNodeEditPart {
         achildren.remove(child);
         achildren.add(index, child);
         addChildVisual(child, index);
+        
     }
 
 }

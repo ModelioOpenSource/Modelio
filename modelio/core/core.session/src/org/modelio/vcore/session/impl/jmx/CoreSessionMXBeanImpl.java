@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.jmx;
 
 import java.lang.management.ManagementFactory;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.management.JMException;
 import javax.management.MBeanServer;
 import javax.management.ObjectName;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.session.impl.cache.CacheManager;
 import org.modelio.vcore.smkernel.IKernelServiceProvider;
@@ -78,10 +77,11 @@ public class CoreSessionMXBeanImpl implements ICoreSessionMXBean {
      * @param cacheManager the session cache manager
      */
     @objid ("dca91257-493b-11e2-91c9-001ec947ccaf")
-    public CoreSessionMXBeanImpl(ICoreSession session, JdbmSwap swap, CacheManager cacheManager) {
+    public  CoreSessionMXBeanImpl(ICoreSession session, JdbmSwap swap, CacheManager cacheManager) {
         this.session = session;
         this.swap = new JdbmSwapMXAdapter(swap);
         this.cacheManager = cacheManager;
+        
     }
 
     @objid ("dca9125b-493b-11e2-91c9-001ec947ccaf")
@@ -100,7 +100,6 @@ public class CoreSessionMXBeanImpl implements ICoreSessionMXBean {
      * Get the JMX adapter wrapping the actual {@link ISwap} implementation.
      * <p>
      * The returned wrapper also implements {@link ISwapMXBean}.
-     * 
      * @return the JMX swap adapter.
      */
     @objid ("dca91265-493b-11e2-91c9-001ec947ccaf")
@@ -138,6 +137,7 @@ public class CoreSessionMXBeanImpl implements ICoreSessionMXBean {
         } catch (JMException e) {
             throw new Error(e);
         }
+        
     }
 
     /**
@@ -152,6 +152,7 @@ public class CoreSessionMXBeanImpl implements ICoreSessionMXBean {
         } catch (JMException e) {
             throw new Error(e);
         }
+        
     }
 
     @objid ("b2e05921-49c5-11e2-91c9-001ec947ccaf")

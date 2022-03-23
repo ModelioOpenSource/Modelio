@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.rcp.system;
 
 import java.net.URL;
@@ -50,7 +49,7 @@ public class ModelioHelpUi {
      * Constructor.
      */
     @objid ("94dcc31c-55ee-461e-8e80-5e858a730079")
-    public ModelioHelpUi() {
+    public  ModelioHelpUi() {
         ModelioHelpUi.instance = this;
     }
 
@@ -84,6 +83,7 @@ public class ModelioHelpUi {
         } else {
             CoreRcp.LOG.debug("help resource not found: " + "../index.jsp");
         }
+        
     }
 
     /**
@@ -101,6 +101,7 @@ public class ModelioHelpUi {
         } else {
             CoreRcp.LOG.debug("help resource not found: " + href);
         }
+        
     }
 
     @objid ("4946cad6-70a3-4919-b07b-e72a037dc768")
@@ -140,6 +141,7 @@ public class ModelioHelpUi {
         
         this.shellWindow.setLocation(x, y);
         this.shellWindow.open();
+        
     }
 
 }

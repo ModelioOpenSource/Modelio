@@ -17,9 +17,9 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.commands;
 
+import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.Bendpoint;
@@ -45,16 +45,16 @@ public class DefaultMoveBendPointCommand extends Command {
 
     /**
      * Constructor.
-     * 
      * @param gmLink the link to edit
      * @param index the index of the point to move
      * @param newpoint the new bend point position.
      */
     @objid ("7f397a4f-1dec-11e2-8cad-001ec947c8cc")
-    public DefaultMoveBendPointCommand(IGmLinkObject gmLink, int index, Bendpoint newpoint) {
+    public  DefaultMoveBendPointCommand(IGmLinkObject gmLink, int index, Bendpoint newpoint) {
         this.index = index;
         this.newpoint = newpoint;
         this.gmLink = gmLink;
+        
     }
 
     @objid ("7f397a57-1dec-11e2-8cad-001ec947c8cc")
@@ -65,10 +65,13 @@ public class DefaultMoveBendPointCommand extends Command {
         assert (this.gmLink.getLayoutData() != null);
         IGmPath path = new GmPath((IGmPath) this.gmLink.getLayoutData());
         
-        List<Bendpoint> bendpoints = (List<Bendpoint>) path.getPathData();
+        List<Bendpoint> bendpoints = new ArrayList<>((List<Bendpoint>) path.getPathData());
+        path.setPathData(bendpoints);
+        
         bendpoints.set(this.index, this.newpoint);
         
         this.gmLink.setLayoutData(path);
+        
     }
 
     @objid ("7f397a5a-1dec-11e2-8cad-001ec947c8cc")

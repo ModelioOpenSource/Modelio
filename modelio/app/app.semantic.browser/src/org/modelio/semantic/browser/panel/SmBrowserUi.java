@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.semantic.browser.panel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -58,7 +57,7 @@ class SmBrowserUi {
     private SmBrowserContentProvider contentProvider;
 
     @objid ("faaca18d-66bf-4e07-a104-55508323c961")
-    SmBrowserUi(Composite parent, SmBrowserController controller, EMenuService menuService) {
+     SmBrowserUi(Composite parent, SmBrowserController controller, EMenuService menuService) {
         this.controller = controller;
         this.composite = new Composite(parent, SWT.NONE);
         this.composite.setLayout(new FillLayout(SWT.VERTICAL));
@@ -85,11 +84,11 @@ class SmBrowserUi {
         });
         
         menuService.registerContextMenu(this.treeViewer.getTree(), SmBrowserUi.SEMANTICBROWSER_POPUP_ID);
+        
     }
 
     /**
      * When changing the project being displayed by the view, new ContenProvider and LabelProvider are created and configured
-     * 
      * @param project might be null
      */
     @objid ("96905266-2901-4323-bafa-16d7a7fe9a78")
@@ -112,6 +111,7 @@ class SmBrowserUi {
         if (this.treeViewer != null && !this.treeViewer.getTree().isDisposed()) {
             this.treeViewer.addSelectionChangedListener(l);
         }
+        
     }
 
     @objid ("d96d180b-bda7-44a4-88f9-c5cfd8d1549f")
@@ -128,6 +128,7 @@ class SmBrowserUi {
         if (this.treeViewer != null && !this.treeViewer.getTree().isDisposed()) {
             this.treeViewer.removeSelectionChangedListener(l);
         }
+        
     }
 
 }

@@ -17,38 +17,47 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.policies;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.PrecisionRectangle;
+import org.eclipse.gef.EditPart;
 import org.eclipse.gef.GraphicalEditPart;
+import org.eclipse.gef.Request;
+import org.eclipse.gef.commands.Command;
+import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.eclipse.gef.tools.ResizeTracker;
+import org.modelio.diagram.elements.common.portcontainer.PortContainerEditPart;
 import org.modelio.diagram.elements.core.model.IGmObject;
+import org.modelio.diagram.elements.core.requests.ChangeBoundsFeedbackMap;
 
 /**
  * {@link ResizeTracker} redefined to not loose precision on floating point resize request.
+ * 
  * @author cma
  * @since 3.7
  */
 @objid ("86fda749-29e5-47ec-8735-41053c88942d")
 public class DefaultResizeTracker extends ResizeTracker {
     /**
-     * Constructs a resize tracker that resizes in the specified direction. The
-     * direction is specified using {@link PositionConstants#NORTH}, {@link PositionConstants#NORTH_EAST}, etc.
-     * 
+     * Constructs a resize tracker that resizes in the specified direction. The direction is specified using {@link PositionConstants#NORTH}, {@link PositionConstants#NORTH_EAST}, etc.
      * @param owner of the resize handle which returned this tracker
      * @param direction the direction
      */
     @objid ("bbf31388-0ddf-41df-a41c-bf500fe3662e")
-    public DefaultResizeTracker(GraphicalEditPart owner, int direction) {
+    public  DefaultResizeTracker(GraphicalEditPart owner, int direction) {
         super(owner, direction);
+    }
+
+    @objid ("9b5cc0fe-8c39-42d5-bffc-cdd703187a6a")
+    @Override
+    protected ChangeBoundsRequest getSourceRequest() {
+        return (ChangeBoundsRequest) super.getSourceRequest();
     }
 
     @objid ("60f9ec6a-a06b-4f6e-bc27-a8d57f76617e")
@@ -87,26 +96,83 @@ public class DefaultResizeTracker extends ResizeTracker {
         
             changeBoundsRequest.setSizeDelta(newSizeDelta);
         }
+        
     }
 
     /**
-     * Returns a new List of editparts that this tool is operating on. This
-     * method is called once during {@link #getOperationSet()}, and its result
-     * is cached.
+     * Returns a new List of editparts that this tool is operating on.
+     * <p>
+     * This method is called once during {@link #getOperationSet()}, and its result is cached.
      * <P>
-     * Edit parts that are not "user editable" are always filtered.
-     * 
-     * @return a list of editparts being operated on
+     * Redefined so that Edit parts that are not {@link IGmObject#isUserEditable() "user editable"} are filtered out.
+     * @return a list of edit parts being operated on
      */
     @objid ("88094cde-a0a3-466f-b022-b4c215f587b0")
     @Override
     protected List createOperationSet() {
-        List<?> ret = super.createOperationSet();
-        return ret.stream()
-                        .filter(ep -> ep instanceof GraphicalEditPart)
-                        .map(ep -> (GraphicalEditPart) ep)
-                        .filter(ep -> ((IGmObject) ep.getModel()).isUserEditable())
-                        .collect(Collectors.toList());
+        List<EditPart> ret = super.createOperationSet();
+        
+        ret.removeIf(ep -> !(ep instanceof GraphicalEditPart && ((IGmObject) ep.getModel()).isUserEditable()));
+        return ret;
+    }
+
+    @objid ("6269b4a2-0a2c-43b1-b499-0e4be9b6c0e0")
+    @Override
+    protected Command getCommand() {
+        CompoundCommand command = new CompoundCommand();
+        command.add(super.getCommand());
+        return command.unwrap();
+    }
+
+    /**
+     * Request that holds node feedback figures so that link policies may update draw feedback from node feedback figures.
+     * 
+     * @author chm
+     * @since 5.0.2
+     */
+    @objid ("92eb89dc-358b-4c1f-9aea-5d900b0fe48a")
+    public static class FeedbackChangeBoundsRequest extends Request {
+        /**
+         * The request type.
+         */
+        @objid ("c1c17a14-d383-4935-92e1-1e15e47f71bc")
+        public static final String REQ_TYPE = "Display link feedback on node feedback";
+
+        @objid ("5b41f384-9255-404f-8494-0b1f0fe1898a")
+        private final ChangeBoundsRequest linkedRequest;
+
+        @objid ("214ff933-bd0f-4757-860b-220c791521b5")
+        private final ChangeBoundsFeedbackMap feedbackFigures;
+
+        @objid ("9d3c3b76-de28-47b4-8b0a-01598f695bd9")
+        public  FeedbackChangeBoundsRequest(ChangeBoundsRequest linkedRequest, ChangeBoundsFeedbackMap feedbackFigures) {
+            super(REQ_TYPE);
+            this.linkedRequest = linkedRequest;
+            this.feedbackFigures = feedbackFigures;
+            
+        }
+
+        /**
+         * @return the original request
+         */
+        @objid ("76759591-ac0d-4c9c-af38-c3a072e5c67a")
+        public ChangeBoundsRequest getLinkedRequest() {
+            return this.linkedRequest;
+        }
+
+        /**
+         * @param ep an edit part
+         * @return the figure to use as feedback
+         */
+        @objid ("d3590a2b-ff2b-42f8-8d42-2b768064f29a")
+        public IFigure getFeedbackFigure(GraphicalEditPart ep) {
+            GraphicalEditPart current = ep;
+            if (!(current instanceof PortContainerEditPart)) {
+                current = (GraphicalEditPart) current.getParent();
+            }
+            return this.feedbackFigures.getOrDefault(current, current.getFigure());
+        }
+
     }
 
 }

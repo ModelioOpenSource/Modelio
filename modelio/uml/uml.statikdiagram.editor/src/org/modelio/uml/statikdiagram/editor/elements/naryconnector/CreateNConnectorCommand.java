@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.naryconnector;
 
 import java.util.ArrayList;
@@ -29,8 +28,8 @@ import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gef.commands.Command;
 import org.modelio.diagram.elements.core.helpers.UnmaskHelper;
 import org.modelio.diagram.elements.core.link.ModelioLinkCreationContext;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmLinkable;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
@@ -67,7 +66,6 @@ public class CreateNConnectorCommand extends Command {
 
     /**
      * Creates a n-ary association creation command.
-     * 
      * @param editPart the edit part producing this command
      * @param sourceModels The models that are to be linked to the created association.
      * @param parentNode The parent node unmasking the "diamond" of the association.
@@ -75,12 +73,13 @@ public class CreateNConnectorCommand extends Command {
      * @param constraint The initial layout constraint of the association diamond.
      */
     @objid ("35d5bdfa-55b7-11e2-877f-002564c97630")
-    public CreateNConnectorCommand(final EditPart editPart, final List<IGmLinkable> sourceModels, final GmCompositeNode parentNode, final ModelioLinkCreationContext context, final Rectangle constraint) {
+    public  CreateNConnectorCommand(final EditPart editPart, final List<IGmLinkable> sourceModels, final GmCompositeNode parentNode, final ModelioLinkCreationContext context, final Rectangle constraint) {
         this.editPart = editPart;
         this.sourceModels = sourceModels;
         this.parentNode = parentNode;
         this.context = context;
         this.layoutConstraint = constraint;
+        
     }
 
     @objid ("35d5be0f-55b7-11e2-877f-002564c97630")
@@ -149,6 +148,7 @@ public class CreateNConnectorCommand extends Command {
             Command cmd = UnmaskHelper.getUnmaskCommand(viewer, r, this.layoutConstraint.getCenter());
             cmd.execute();
         }
+        
     }
 
 }

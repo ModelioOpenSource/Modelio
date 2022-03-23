@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.production.activities;
 
 import java.math.BigInteger;
 import java.util.List;
 import java.util.Map;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.bind.JAXBElement;
 import javax.xml.namespace.QName;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.bpmnxml.model.ObjectFactory;
 import org.modelio.bpmnxml.model.TFlowElement;
 import org.modelio.bpmnxml.model.TProcess;
@@ -46,7 +45,7 @@ import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("8e2a4169-69b9-4a3d-99ba-98d09a8e76e6")
-public class TransactionNode implements IProductionNode<BpmnTransaction,TTransaction> {
+public class TransactionNode implements IProductionNode<BpmnTransaction, TTransaction> {
     @objid ("fefbc2de-711f-4181-8efa-abd6361e8d91")
     private Map<String, Object> elementsMap;
 
@@ -83,6 +82,7 @@ public class TransactionNode implements IProductionNode<BpmnTransaction,TTransac
         }else{
             return factory.create(BpmnTransaction.class,context);
         }
+        
     }
 
     @objid ("dfed2d31-3a32-46d5-b4f0-2da068961ff3")

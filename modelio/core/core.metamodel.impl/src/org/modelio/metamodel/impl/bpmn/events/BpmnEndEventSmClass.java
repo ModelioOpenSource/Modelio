@@ -17,19 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.events;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.bpmn.events.BpmnEndEvent;
 import org.modelio.metamodel.bpmn.events.BpmnThrowEvent;
-import org.modelio.metamodel.impl.bpmn.events.BpmnThrowEventSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("26197e71-813e-4e29-85ae-553ffa4bcfed")
 public class BpmnEndEventSmClass extends BpmnThrowEventSmClass {
     @objid ("48dcb931-18df-4f5b-bdb0-80a805b518a4")
-    public BpmnEndEventSmClass(ISmMetamodelFragment origin) {
+    public  BpmnEndEventSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class BpmnEndEventSmClass extends BpmnThrowEventSmClass {
     @Override
     public String getName() {
         return "BpmnEndEvent";
+        
     }
 
     @objid ("3f479ce8-a6a9-4340-af3f-45a20bcfa0ce")
@@ -62,18 +62,21 @@ public class BpmnEndEventSmClass extends BpmnThrowEventSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnEndEvent.class;
+        
     }
 
     @objid ("93b64a34-351d-4954-9856-9abcc9c9801e")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("a7e2cca8-14d2-4604-a87c-9236c9b59a46")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("a8a3f0aa-fe46-4808-98f9-4f4ff3fe19af")
@@ -86,6 +89,7 @@ public class BpmnEndEventSmClass extends BpmnThrowEventSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("75605232-2271-4387-a9a8-b9b7f44426a8")
@@ -94,7 +98,7 @@ public class BpmnEndEventSmClass extends BpmnThrowEventSmClass {
         private BpmnEndEventSmClass smClass;
 
         @objid ("41e4d45a-0891-4129-ba48-4f003aade6cc")
-        public BpmnEndEventObjectFactory(BpmnEndEventSmClass smClass) {
+        public  BpmnEndEventObjectFactory(BpmnEndEventSmClass smClass) {
             this.smClass = smClass;
         }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.stereotype.chooser;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,13 +28,12 @@ public class StereotypeChooserModel {
     private ModelElement element;
 
     @objid ("80576a9f-989a-428c-9606-d0819c5b9a1a")
-    public StereotypeChooserModel(ModelElement element) {
+    public  StereotypeChooserModel(ModelElement element) {
         this.element = element;
     }
 
     /**
      * Get the element beeing edited.
-     * 
      * @return a model element
      */
     @objid ("895c275e-97b1-4518-b722-02ce25e9ffbf")

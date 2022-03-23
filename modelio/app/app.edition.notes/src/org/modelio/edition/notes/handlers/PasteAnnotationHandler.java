@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.handlers;
 
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
@@ -42,7 +41,6 @@ public class PasteAnnotationHandler {
 
     /**
      * Available only when the selection contains only one modifiable element.
-     * 
      * @param part the E4 part
      * @param currentDisplay the SWT display
      * @return true if the handler can be executed.
@@ -70,7 +68,6 @@ public class PasteAnnotationHandler {
 
     /**
      * Cut the currently selected elements.
-     * 
      * @param part the current E4 view
      * @param currentDisplay the display Modelio runs into.
      */
@@ -80,6 +77,7 @@ public class PasteAnnotationHandler {
         NotesPanelProvider notesPanel = ((NotesView) part.getObject()).getNotesPanel();
         NotesPanelController controller = notesPanel.getController();
         controller.onPaste();
+        
     }
 
 }

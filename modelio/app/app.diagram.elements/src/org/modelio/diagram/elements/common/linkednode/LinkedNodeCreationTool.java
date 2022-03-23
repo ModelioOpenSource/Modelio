@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.linkednode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,6 +37,7 @@ public class LinkedNodeCreationTool extends ConnectionCreationTool implements Li
             return REQ_LINKEDNODE_END;
         else
             return REQ_LINKEDNODE_START;
+        
     }
 
 }

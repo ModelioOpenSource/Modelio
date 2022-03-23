@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.view.providers.byelement;
 
 import java.util.HashMap;
@@ -40,9 +39,10 @@ public class ByElementContentProvider implements ITreeContentProvider {
     private Map<MObject, AuditElementModel> elementsMap;
 
     @objid ("f481d599-3c86-45f1-acee-51a9c389e4a8")
-    public ByElementContentProvider(String jobId) {
+    public  ByElementContentProvider(String jobId) {
         this.jobId = jobId;
         this.elementsMap = new HashMap<>();
+        
     }
 
     @objid ("1c5a0474-e3f2-40a4-a1c7-ec39f0dd5eab")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.dialogs.dialog.panels.note;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -62,7 +61,7 @@ public class NoteEditPanel implements IPanelProvider {
     private NoteEditView view;
 
     @objid ("89569a73-5111-450f-8b47-e56b13122da3")
-    public NoteEditPanel() {
+    public  NoteEditPanel() {
         super();
     }
 
@@ -81,6 +80,7 @@ public class NoteEditPanel implements IPanelProvider {
         this.view.dispose();
         this.view = null;
         this.controller = null;
+        
     }
 
     @objid ("cd09dbf7-b279-4828-ae5a-697dd184d849")
@@ -110,6 +110,7 @@ public class NoteEditPanel implements IPanelProvider {
         } else {
             return obj instanceof Note;
         }
+        
     }
 
     @objid ("27023a91-7d40-45ee-b7ba-6e63658abcab")
@@ -131,6 +132,7 @@ public class NoteEditPanel implements IPanelProvider {
             this.controller.setNote(null);
             return;
         }
+        
     }
 
     /**
@@ -154,7 +156,8 @@ public class NoteEditPanel implements IPanelProvider {
          * C'tor
          */
         @objid ("b43f3acb-9dc5-44fd-9fe8-7dec1f60e804")
-        public NoteEditController() {
+        public  NoteEditController() {
+            
         }
 
         /**
@@ -213,6 +216,7 @@ public class NoteEditPanel implements IPanelProvider {
                 this.view.enableModeSwitcher(false);
                 this.view.setTitle("undefined");
             }
+            
         }
 
         /**
@@ -243,6 +247,7 @@ public class NoteEditPanel implements IPanelProvider {
                 // Refresh contents
                 setNote(this.note);
             }
+            
         }
 
         /**
@@ -259,6 +264,7 @@ public class NoteEditPanel implements IPanelProvider {
             } catch (final Exception e) {
                 EditionDialogs.LOG.error(e);
             }
+            
         }
 
         /**
@@ -278,7 +284,6 @@ public class NoteEditPanel implements IPanelProvider {
 
         /**
          * Returns the mime type preference of the NoteType
-         * 
          * @param model @return
          */
         @objid ("925f2ddd-916f-41d2-b6b5-ed17cfd82ce5")
@@ -307,6 +312,7 @@ public class NoteEditPanel implements IPanelProvider {
                     EditionDialogs.LOG.error(e);
                 }
             }
+            
         }
 
     }
@@ -367,7 +373,7 @@ public class NoteEditPanel implements IPanelProvider {
          * text,html text]]
          */
         @objid ("b35571d4-c31b-4edc-8526-dfd94deb1781")
-        public NoteEditView(Composite parent, NoteEditController controller) {
+        public  NoteEditView(Composite parent, NoteEditController controller) {
             this.controller = controller;
             
             // The top level container
@@ -437,6 +443,7 @@ public class NoteEditPanel implements IPanelProvider {
                 }
             
             });
+            
         }
 
         /**
@@ -472,6 +479,7 @@ public class NoteEditPanel implements IPanelProvider {
                 this.text.setText(s);
                 break;
             }
+            
         }
 
         /**
@@ -493,6 +501,7 @@ public class NoteEditPanel implements IPanelProvider {
                 NoteEditView.this.controller.onSetNoteContent(NoteEditView.this.htmlText.getHtml());
             }
             this.htmlText.dispose();
+            
         }
 
         /**
@@ -518,6 +527,7 @@ public class NoteEditPanel implements IPanelProvider {
             
                 }
             }
+            
         }
 
         /**
@@ -531,6 +541,7 @@ public class NoteEditPanel implements IPanelProvider {
             this.htmlText.setEditable(modifiable);
             // this.htmlText.setBackground(modifiable ? UIColor.TEXT_WRITABLE_BG
             // : UIColor.TEXT_READONLY_BG);
+            
         }
 
     }

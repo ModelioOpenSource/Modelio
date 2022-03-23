@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.helper;
 
 import java.net.URI;
@@ -46,9 +45,10 @@ public class RichNoteLabelProvider {
     private static final ImageRegistry REGISTRY = new ImageRegistry();
 
     @objid ("d8aee85c-1451-4173-ba84-d22f908de772")
-    private RichNoteLabelProvider() {
+    private  RichNoteLabelProvider() {
         // no instance
         throw new UnsupportedOperationException();
+        
     }
 
     /**
@@ -56,7 +56,6 @@ public class RichNoteLabelProvider {
      * <p>
      * The returned image is owned by a registry, may be used elsewhere and must <b>not</b> be disposed.
      * </p>
-     * 
      * @param resource a resource.
      * @return an icon. Might be <code>null</code> if no icon is found for the resource's mime type.
      */
@@ -89,13 +88,13 @@ public class RichNoteLabelProvider {
             }
             return icon;
         }
+        
     }
 
     /**
      * Get the Windows explorer icon descriptor for a file.
      * <p>
      * Return <code>null</code> if the file has no registered extension or is a directory.
-     * 
      * @param aFile a file.
      * @return the icon descriptor or <code>null</code>.
      */
@@ -110,11 +109,11 @@ public class RichNoteLabelProvider {
         } else {
             return null;
         }
+        
     }
 
     /**
      * Get the label to display for an extern document.
-     * 
      * @param document a document.
      * @return the label.
      */

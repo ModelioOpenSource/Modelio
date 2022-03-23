@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model.spi;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,7 +43,6 @@ public interface IGMetamodelExtension {
      * Register the default metamodel extensions into the project tools.
      * <p>
      * This method is called by the project opening process.
-     * 
      * @param session the core session
      */
     @objid ("47667e92-0d6d-4b1b-a800-96567f1d6a38")
@@ -58,7 +56,6 @@ public interface IGMetamodelExtension {
      * <p>
      * The implementation may test for other known services (CMS services extension point for example)
      * and then register more metamodel extensions.
-     * 
      * @param service the required service
      * @param session the core session
      * @return the created service or <i>null</i>.

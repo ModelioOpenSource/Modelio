@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.audit;
 
 import java.util.ArrayList;
@@ -71,6 +70,7 @@ public class R1100 extends AbstractUmlRule {
         plan.registerRule(ActivityPartition.MQNAME, this,
                 AuditTrigger.UPDATE | AuditTrigger.MOVE);
         plan.registerRule(BindableInstance.MQNAME, this, AuditTrigger.UPDATE | AuditTrigger.MOVE);
+        
     }
 
     /**
@@ -104,14 +104,14 @@ public class R1100 extends AbstractUmlRule {
      * Default constructor for R1100
      */
     @objid ("fbcbc014-65f7-495a-bf8d-f29234280433")
-    public R1100() {
+    public  R1100() {
         this.checkerInstance = new CheckR1100(this);
     }
 
     @objid ("be0bc58e-0394-4447-8984-fae67ed09eba")
     private static class CheckR1100 extends AbstractControl {
         @objid ("9a41b10c-650a-44e6-ad32-3a5031e30d92")
-        public CheckR1100(IRule rule) {
+        public  CheckR1100(IRule rule) {
             super(rule);
         }
 
@@ -132,7 +132,6 @@ public class R1100 extends AbstractUmlRule {
 
         /**
          * UML2.3, ActivityPartition, Constraints [4]
-         * 
          * @param partition The partition to check.
          * @return The audit entry result.
          */
@@ -190,7 +189,6 @@ public class R1100 extends AbstractUmlRule {
 
         /**
          * When a partition is updated or moved, we need to check if it satisfies the rule, but in the case it is updated, we also need to check if its sub partitions, if any, satisfy the rule or not.
-         * 
          * @param partition The updated partition.
          * @return A list of audit entry for each concerned partition.
          */

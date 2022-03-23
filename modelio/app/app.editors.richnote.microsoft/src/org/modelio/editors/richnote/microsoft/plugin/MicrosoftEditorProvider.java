@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.microsoft.plugin;
 
 import java.io.IOException;
@@ -49,6 +48,7 @@ public class MicrosoftEditorProvider extends AbstractRichNoteEditorProvider {
         
         MicrosoftEditor.createEmptyFile(notePath.toFile(), format);
         richRepository.saveRichNote(richNote, notePath);
+        
     }
 
     @objid ("8ca256af-8d53-4674-a5c1-059f3538d229")

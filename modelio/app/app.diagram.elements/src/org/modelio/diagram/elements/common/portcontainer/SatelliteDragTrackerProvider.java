@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.portcontainer;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,11 +42,10 @@ public class SatelliteDragTrackerProvider implements IDragTrackerProvider {
 
     /**
      * Constructor.
-     * 
      * @param editPart the EditPart for which DragTracker are to be returned.
      */
     @objid ("7f050681-1dec-11e2-8cad-001ec947c8cc")
-    public SatelliteDragTrackerProvider(EditPart editPart) {
+    public  SatelliteDragTrackerProvider(EditPart editPart) {
         this.editPart = editPart;
     }
 
@@ -59,6 +57,7 @@ public class SatelliteDragTrackerProvider implements IDragTrackerProvider {
         } else {
             return new FireNavigateEditPartTracker(this.editPart);
         }
+        
     }
 
     @objid ("e4620769-0fdd-4815-b361-751381766e73")

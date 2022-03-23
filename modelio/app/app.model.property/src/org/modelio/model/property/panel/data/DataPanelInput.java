@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel.data;
 
 import java.util.Objects;
@@ -91,31 +90,31 @@ public class DataPanelInput {
      * @param modelService service to look for model elements and metamodel extensions.
      * @param pickingService service to activate/deactivate the picking mode.
      * @param activationService service to select elements in the model.
-     * 
      * @param typedElement Model element whose annotations are edited.
      * @param typingElement Part of annotations displayed in the data panel.
      * @param showHiddenAnnotations whether or not the hidden mda annotations should be shown.
      */
     @objid ("98d05ffe-672f-4bed-89c0-eeba3dff1de2")
-    public DataPanelInput(INatTableViewerContext context, Element typedElement, Object typingElement, boolean showHiddenAnnotations) {
+    public  DataPanelInput(INatTableViewerContext context, Element typedElement, Object typingElement, boolean showHiddenAnnotations) {
         super();
         this.context = context;
         this.typedElement = typedElement;
         this.typingElement = typingElement;
         setShowHiddenAnnotations(showHiddenAnnotations);
+        
     }
 
     /**
      * Build a new panel input from another one.
-     * 
      * @param other another panel input.
      */
     @objid ("9a011839-1861-424b-8af0-13b01fb66a80")
-    public DataPanelInput(DataPanelInput other) {
+    public  DataPanelInput(DataPanelInput other) {
         this.context = other.context;
         this.typedElement = other.typedElement;
         this.typingElement = other.typingElement;
         setShowHiddenAnnotations(other.isShowHiddenAnnotations());
+        
     }
 
     @objid ("7b9f4391-163e-495b-b884-3230f1ac80e1")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.ui.handlers;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,6 +36,7 @@ public class SubmitIssueHandler {
         } catch (IllegalArgumentException e) {
             AppUi.LOG.error(e);
         }
+        
     }
 
     @objid ("176f4621-1200-49ad-b178-2d6854f010bc")

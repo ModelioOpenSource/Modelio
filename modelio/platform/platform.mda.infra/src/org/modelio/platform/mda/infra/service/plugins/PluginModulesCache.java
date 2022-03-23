@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.plugins;
 
 import java.io.IOException;
@@ -56,7 +55,7 @@ public class PluginModulesCache implements IModuleRTCache, IModuleStore {
     private final Map<Bundle, IModuleHandle> handles = new WeakHashMap<>();
 
     @objid ("ac9f5c75-1208-4fb0-a41a-7ae8d47b6148")
-    public PluginModulesCache(final Collection<IGMetamodelExtension> mmExtensions) {
+    public  PluginModulesCache(final Collection<IGMetamodelExtension> mmExtensions) {
         this.handleFactory = new PluginModuleHandleFactory(mmExtensions);
     }
 
@@ -127,6 +126,7 @@ public class PluginModulesCache implements IModuleRTCache, IModuleStore {
         } else {
             return Platform.getBundle(contributor.getName());
         }
+        
     }
 
     @objid ("77ff05cb-91b2-4cec-811d-4d34809d37c4")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.instance;
 
 import java.util.ArrayList;
@@ -90,18 +89,17 @@ public class GmInstancePrimaryNode extends GmNoStyleCompositeNode implements IIm
      * Constructor for deserialization only.
      */
     @objid ("353a1a61-55b7-11e2-877f-002564c97630")
-    public GmInstancePrimaryNode() {
+    public  GmInstancePrimaryNode() {
         // Nothing to do.
     }
 
     /**
      * Creates a GmInstancePrimaryNode.
-     * 
      * @param diagram The owner diagram.
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
     @objid ("353a1a64-55b7-11e2-877f-002564c97630")
-    public GmInstancePrimaryNode(IGmDiagram diagram, MRef relatedRef) {
+    public  GmInstancePrimaryNode(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
         
         this.header = new GmInstanceHeader(diagram, relatedRef);
@@ -120,6 +118,7 @@ public class GmInstancePrimaryNode extends GmNoStyleCompositeNode implements IIm
         styleChanged(getDisplayedStyle());
         this.imageModeHeader = new GmDefaultModelElementLabel(diagram, relatedRef);
         addChild(this.imageModeHeader);
+        
     }
 
     @objid ("353a1a6d-55b7-11e2-877f-002564c97630")
@@ -136,7 +135,6 @@ public class GmInstancePrimaryNode extends GmNoStyleCompositeNode implements IIm
 
     /**
      * Get the group where <tt>GmAttributes</tt> are unmasked.
-     * 
      * @return the attributes group.
      */
     @objid ("353a1a7d-55b7-11e2-877f-002564c97630")
@@ -171,7 +169,6 @@ public class GmInstancePrimaryNode extends GmNoStyleCompositeNode implements IIm
 
     /**
      * Get the internal structure.
-     * 
      * @return the internal structure.
      */
     @objid ("353ba0e9-55b7-11e2-877f-002564c97630")
@@ -197,21 +194,22 @@ public class GmInstancePrimaryNode extends GmNoStyleCompositeNode implements IIm
         // Read version, defaults to 0 if not found
         int readVersion = readMinorVersion(in, "GmInstancePrimaryNode.");
         switch (readVersion) {
-            case 0: {
-                read_0(in);
-                break;
-            }
-            case 1: {
-                read_1(in);
-                break;
-            }
-            default: {
-                assert (false) : "version number not covered!";
-                // reading as last handled version: 1
-                read_1(in);
-                break;
-            }
+        case 0: {
+            read_0(in);
+            break;
         }
+        case 1: {
+            read_1(in);
+            break;
+        }
+        default: {
+            assert (false) : "version number not covered!";
+            // reading as last handled version: 1
+            read_1(in);
+            break;
+        }
+        }
+        
     }
 
     @objid ("353ba102-55b7-11e2-877f-002564c97630")
@@ -223,6 +221,7 @@ public class GmInstancePrimaryNode extends GmNoStyleCompositeNode implements IIm
         firePropertyChange(PROPERTY_LABEL, oldLabel, this.header.getMainLabel());
         // forcing visual refresh in case Image changed
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("353ba105-55b7-11e2-877f-002564c97630")
@@ -231,20 +230,21 @@ public class GmInstancePrimaryNode extends GmNoStyleCompositeNode implements IIm
         // Returned result depends on current representation mode:
         List<GmNodeModel> ret;
         switch (this.getRepresentationMode()) {
-            case IMAGE: {
-                ret = new ArrayList<>(1);
-                //ret.add(this.imageModeHeader);
-                break;
-            }
-            case SIMPLE:
-                return Arrays.asList((GmNodeModel)this.header);
-            case STRUCTURED:
-            default: {
-                ret = super.getVisibleChildren();
-                // Remove the header used for image mode.
-                ret.remove(this.imageModeHeader);
-                break;
-            }
+        case USER_IMAGE:
+        case IMAGE: {
+            ret = new ArrayList<>(1);
+            //ret.add(this.imageModeHeader);
+            break;
+        }
+        case SIMPLE:
+            return Arrays.asList((GmNodeModel)this.header);
+        case STRUCTURED:
+        default: {
+            ret = super.getVisibleChildren();
+            // Remove the header used for image mode.
+            ret.remove(this.imageModeHeader);
+            break;
+        }
         }
         return ret;
     }
@@ -256,6 +256,7 @@ public class GmInstancePrimaryNode extends GmNoStyleCompositeNode implements IIm
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmInstancePrimaryNode.", GmInstancePrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("353ba114-55b7-11e2-877f-002564c97630")
@@ -275,6 +276,7 @@ public class GmInstancePrimaryNode extends GmNoStyleCompositeNode implements IIm
         this.internalStructure = new GmInstanceInternalStructure(getDiagram(), getRepresentedRef(), internalStructureZone, internalStructureGroup);
         this.internalStructure.setRoleInComposition(Constants.INTERNALSTRUCTURE);
         addChild(this.internalStructure, 2);
+        
     }
 
     @objid ("353ba119-55b7-11e2-877f-002564c97630")
@@ -292,6 +294,7 @@ public class GmInstancePrimaryNode extends GmNoStyleCompositeNode implements IIm
         this.internalStructure = (GmInstanceInternalStructure) getFirstChild(Constants.INTERNALSTRUCTURE);
         
         this.imageModeHeader = (GmDefaultModelElementLabel) this.getChildren().get(3);
+        
     }
 
     /**

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.mapi.modelshield.spi;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,15 +34,15 @@ public interface ICheckerFactory extends IMetamodelDependentService {
      */
     @objid ("4bc8f7d7-3d4b-4114-b962-b935b3b5be68")
     public static final ICheckerFactory NONE = new ICheckerFactory() {
-		@Override
-		public void createCheckers(IModelShieldRegistry plan, MMetamodel metamodel) {
-			// do nothing
-		}
-	};
+    
+    		@Override
+    		public void createCheckers(IModelShieldRegistry plan, MMetamodel metamodel) {
+    			// do nothing
+    		}
+    	};
 
     /**
      * Create and register the model shield checkers.
-     * 
      * @param plan the model shield registry where checkers must be registered.
      * @param metamodel the current metamodel.
      */

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /*
 
  *
@@ -64,16 +63,16 @@ public class ImportProfileThread extends AbstractXMIThread implements IRunnableW
 
     /**
      * @param root The profile owner
-     * 
      * @param shell The current shell
      * @param progressBar The progress bar of the XMI dialog
      */
     @objid ("4204aa46-e72f-4c8c-8e1b-ec15ec924ccd")
-    public ImportProfileThread(final Shell shell, final ProgressBarComposite progressBar) {
+    public  ImportProfileThread(final Shell shell, final ProgressBarComposite progressBar) {
         super();
         this.service = new ImportServices();
         this.progressBar = progressBar;
         this.shell = shell;
+        
     }
 
     @objid ("3678a6c6-e3ee-4401-9277-f01a1623fe6b")
@@ -117,6 +116,7 @@ public class ImportProfileThread extends AbstractXMIThread implements IRunnableW
             TotalImportMap.getInstance().clear();
             PartialImportMap.getInstance().clear();
         }
+        
     }
 
 }

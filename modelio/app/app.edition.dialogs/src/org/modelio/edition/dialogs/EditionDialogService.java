@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.dialogs;
 
 import java.lang.reflect.Constructor;
@@ -25,10 +24,10 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.InvalidRegistryObjectException;
@@ -88,6 +87,7 @@ public class EditionDialogService {
             dlg.setEditedElement((Element) mObject);
             dlg.open();
         }
+        
     }
 
     @objid ("d31c607f-307e-4bec-94a6-43dc02922607")
@@ -99,6 +99,7 @@ public class EditionDialogService {
         final EditElementDialog dlg = new EditElementDialog(shell, getRelevantPanels(mObject), ps.getSession());
         dlg.setEditedElement((Element) mObject);
         dlg.open();
+        
     }
 
     @objid ("d147a8c3-5930-4558-a926-c97f33d70dc6")
@@ -208,7 +209,6 @@ public class EditionDialogService {
 
         /**
          * Get the edition panels for a model object
-         * 
          * @param obj the element to edit
          * @return the panels to display
          */
@@ -271,7 +271,8 @@ public class EditionDialogService {
         }
 
         @objid ("1fbe8d0b-107f-48e6-b172-72533bf1d135")
-        public PanelContributions() {
+        public  PanelContributions() {
+            
         }
 
         @objid ("b4de7b39-9ff1-454e-8976-1950511cfe28")
@@ -287,6 +288,7 @@ public class EditionDialogService {
                     EditionDialogs.LOG.error(e);
                 }
             }
+            
         }
 
         @objid ("bbf2c04b-fc52-44d7-98fa-c7b5e431358f")
@@ -313,6 +315,7 @@ public class EditionDialogService {
                 this.extensionStaticPanels.clear();
             }
             this.eclipseContext = null;
+            
         }
 
     }
@@ -323,7 +326,7 @@ public class EditionDialogService {
         private final MObject referencedObject;
 
         @objid ("710185c4-c6c9-48b0-9bc3-73449847adf3")
-        public PanelSorter(final MObject input) {
+        public  PanelSorter(final MObject input) {
             this.referencedObject = input;
         }
 

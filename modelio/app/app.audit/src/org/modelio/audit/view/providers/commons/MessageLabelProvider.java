@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.view.providers.commons;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,9 +37,10 @@ public class MessageLabelProvider extends StyledCellLabelProvider {
     private IAuditConfigurationPlan auditConfigurationPlan;
 
     @objid ("d80538cd-3094-4456-b972-6de22909ff02")
-    public MessageLabelProvider(IAuditConfigurationPlan auditConfigurationPlan) {
+    public  MessageLabelProvider(IAuditConfigurationPlan auditConfigurationPlan) {
         this.bp = new UniversalLabelProvider();
         this.auditConfigurationPlan = auditConfigurationPlan;
+        
     }
 
     @objid ("b2beadfc-9cf9-4d8c-ab4b-f050a373570c")
@@ -58,6 +58,7 @@ public class MessageLabelProvider extends StyledCellLabelProvider {
         cell.setStyleRanges(text.getStyleRanges());
         
         super.update(cell);
+        
     }
 
 }

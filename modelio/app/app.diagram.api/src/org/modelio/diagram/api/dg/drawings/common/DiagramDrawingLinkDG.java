@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.api.dg.drawings.common;
 
 import java.util.Collection;
@@ -34,6 +33,7 @@ import org.eclipse.gef.requests.ReconnectRequest;
 import org.modelio.api.modelio.diagram.IDiagramDrawingLink;
 import org.modelio.api.modelio.diagram.IDiagramGraphic;
 import org.modelio.api.modelio.diagram.IDiagramLink;
+import org.modelio.api.modelio.diagram.IDiagramLink.ExtensionRole;
 import org.modelio.api.modelio.diagram.dg.IDiagramLayer;
 import org.modelio.diagram.api.dg.DGFactory;
 import org.modelio.diagram.api.services.DiagramAbstractLink;
@@ -119,14 +119,14 @@ public class DiagramDrawingLinkDG extends DiagramAbstractLink implements IDiagra
 
     /**
      * Creates a drawing link.
-     * 
      * @param diagramHandle the diagram handle
      * @param gmLink the drawing link model
      */
     @objid ("f7f7aefc-a5f9-4c39-afbb-11c92b342bec")
-    public DiagramDrawingLinkDG(DiagramHandle diagramHandle, IGmDrawingLink gmLink) {
+    public  DiagramDrawingLinkDG(DiagramHandle diagramHandle, IGmDrawingLink gmLink) {
         super(diagramHandle);
         this.gmLink = gmLink;
+        
     }
 
     @objid ("28699ac5-2d6d-4d61-8d22-47bcfcecf30e")
@@ -153,6 +153,7 @@ public class DiagramDrawingLinkDG extends DiagramAbstractLink implements IDiagra
         IGmObject newNode = ((DiagramGraphic) source).getModel();
         String type = RequestConstants.REQ_RECONNECT_SOURCE;
         reconnect(newNode, type);
+        
     }
 
     @objid ("a4cb47e8-0506-4c96-b2ca-1ff2cdc48e12")
@@ -161,6 +162,7 @@ public class DiagramDrawingLinkDG extends DiagramAbstractLink implements IDiagra
         IGmObject newNode = ((DiagramGraphic) target).getModel();
         String type = RequestConstants.REQ_RECONNECT_TARGET;
         reconnect(newNode, type);
+        
     }
 
     @objid ("e0beae80-01c0-4ba3-9cae-c6ce8adf3a58")
@@ -181,6 +183,7 @@ public class DiagramDrawingLinkDG extends DiagramAbstractLink implements IDiagra
                 recoCommand.execute();
             }
         }
+        
     }
 
     @objid ("dbe143a1-129a-4636-a8f8-63fc255aa937")
@@ -198,6 +201,7 @@ public class DiagramDrawingLinkDG extends DiagramAbstractLink implements IDiagra
         }
         
         throw new IllegalArgumentException("Reconnection is not supported");
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.narylink;
 
 import java.util.ArrayList;
@@ -47,7 +46,7 @@ public class NLinkFinalizationEditPolicy extends MultiPointCreationEditPolicy {
      * C'tor.
      */
     @objid ("35ee2824-55b7-11e2-877f-002564c97630")
-    public NLinkFinalizationEditPolicy() {
+    public  NLinkFinalizationEditPolicy() {
         super(false);
     }
 
@@ -81,6 +80,7 @@ public class NLinkFinalizationEditPolicy extends MultiPointCreationEditPolicy {
         } else {
             return null;
         }
+        
     }
 
     @objid ("35efae99-55b7-11e2-877f-002564c97630")
@@ -113,6 +113,7 @@ public class NLinkFinalizationEditPolicy extends MultiPointCreationEditPolicy {
         } else {
             return null;
         }
+        
     }
 
     @objid ("35efaebc-55b7-11e2-877f-002564c97630")
@@ -120,6 +121,7 @@ public class NLinkFinalizationEditPolicy extends MultiPointCreationEditPolicy {
     protected void showTargetConnectionFeedback(final CreateMultiPointRequest request) {
         // do NOT use the default highlight for diagram background, this is ugly!
         // TODO: define a better highlight
+        
     }
 
 }

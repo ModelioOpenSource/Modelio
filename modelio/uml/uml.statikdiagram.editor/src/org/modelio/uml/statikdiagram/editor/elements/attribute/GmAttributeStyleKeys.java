@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.attribute;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,12 +33,12 @@ public class GmAttributeStyleKeys extends StaticAbstractStyleKeyProvider {
      * Text font.
      */
     @objid ("245566e2-1bfc-4422-8efd-3f9006372e1a")
-     static final StyleKey FONT = createStyleKey("ATTRIBUTE_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("ATTRIBUTE_FONT", MetaKey.FONT);
 
     /**
      * Text color.
      */
     @objid ("ab995d95-50e4-4e09-86c9-4fdb17f171f0")
-     static final StyleKey TEXTCOLOR = createStyleKey("ATTRIBUTE_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("ATTRIBUTE_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnreceivetask;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -26,13 +25,13 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.GraphicalEditPart;
-import org.modelio.bpmn.diagram.editor.elements.policies.BpmnCreateLinkEditPolicy;
-import org.modelio.bpmn.diagram.editor.elements.policies.MethodologicalLinkUpdateDropEditPolicy;
+import org.modelio.bpmn.diagram.editor.elements.common.editpart.AbstractBpmnNodeEditPart;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnCreateLinkEditPolicy;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.MethodologicalLinkUpdateDropEditPolicy;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeRequestConstants;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeStartCreationEditPolicy;
 import org.modelio.diagram.elements.core.figures.MinimumSizeLayout;
 import org.modelio.diagram.elements.core.figures.RoundedBoxFigure;
-import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
 import org.modelio.diagram.elements.core.requests.ModelElementDropRequest;
 import org.modelio.diagram.elements.core.tools.multipoint.CreateMultiPointRequest;
 import org.modelio.diagram.elements.umlcommon.constraint.ConstraintLinkEditPolicy;
@@ -43,7 +42,7 @@ import org.modelio.module.modelermodule.api.methodology.infrastructure.methodolo
  * EditPart for an BpmnReceiveTask Node.
  */
 @objid ("618b6dba-55b6-11e2-877f-002564c97630")
-public class BpmnReceiveTaskEditPart extends AbstractNodeEditPart {
+public class BpmnReceiveTaskEditPart extends AbstractBpmnNodeEditPart {
     @objid ("618b6dbe-55b6-11e2-877f-002564c97630")
     @Override
     protected IFigure createFigure() {
@@ -70,6 +69,7 @@ public class BpmnReceiveTaskEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START, new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
         installEditPolicy(ModelElementDropRequest.TYPE, new MethodologicalLinkUpdateDropEditPolicy(Called.MdaTypes.STEREOTYPE_ELT));
+        
     }
 
     @objid ("618b6dc6-55b6-11e2-877f-002564c97630")
@@ -77,6 +77,7 @@ public class BpmnReceiveTaskEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         GmBpmnReceiveTaskPrimaryNode calloperationModel = (GmBpmnReceiveTaskPrimaryNode) getModel();
         getFigure().getParent().setConstraint(getFigure(), calloperationModel.getLayoutData());
+        
     }
 
     @objid ("618b6dc9-55b6-11e2-877f-002564c97630")
@@ -92,6 +93,7 @@ public class BpmnReceiveTaskEditPart extends AbstractNodeEditPart {
         if (index == 2) {
             getFigure().add(child, BorderLayout.BOTTOM, index);
         }
+        
     }
 
     @objid ("618b6dce-55b6-11e2-877f-002564c97630")
@@ -108,6 +110,7 @@ public class BpmnReceiveTaskEditPart extends AbstractNodeEditPart {
                 super.refreshFromStyle(aFigure, style);
             }
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.stereotype.creator;
 
 import java.io.File;
@@ -89,13 +88,14 @@ public class StereotypeEditor {
      * @param mmServices the model services for the project
      */
     @objid ("b525246b-ef2c-4850-9b81-6b96606f1232")
-    public StereotypeEditor(IProjectService projectService, IMModelServices mmServices) {
+    public  StereotypeEditor(IProjectService projectService, IMModelServices mmServices) {
         super();
         this.projectService = projectService;
         this.mmServices = mmServices;
         this.createdBlobs = new ArrayList<>();
         this.deletedBlobs = new ArrayList<>();
         this.updatedBlobs = new ArrayList<>();
+        
     }
 
     /**
@@ -122,11 +122,11 @@ public class StereotypeEditor {
         if (dataModel != null) {
             editStereotype(editedStereotype, dataModel);
         }
+        
     }
 
     /**
      * @param elements
-     * 
      * @param showApplyStereotype @return
      */
     @objid ("3c8af456-467f-45d3-bd09-99a8124ea874")
@@ -242,6 +242,7 @@ public class StereotypeEditor {
                 element.getExtension().add(stereotype);
             }
         }
+        
     }
 
     /**
@@ -292,6 +293,7 @@ public class StereotypeEditor {
         } catch (Exception e) {
             ModelProperty.LOG.error(e);
         }
+        
     }
 
     /**
@@ -314,6 +316,7 @@ public class StereotypeEditor {
         
         BlobChangeEvent blobEvent = new BlobChangeEvent(this.createdBlobs, this.deletedBlobs, this.updatedBlobs);
         session.getBlobSupport().fireBlobsChanged(blobEvent);
+        
     }
 
     /**
@@ -343,6 +346,7 @@ public class StereotypeEditor {
         } catch (IOException e) {
             ModelProperty.LOG.error(e);
         }
+        
     }
 
     /**
@@ -372,6 +376,7 @@ public class StereotypeEditor {
         } catch (IOException e) {
             ModelProperty.LOG.error(e);
         }
+        
     }
 
     /**
@@ -395,7 +400,6 @@ public class StereotypeEditor {
      * Write the given blob.
      * @param repository
      * @param file
-     * 
      * @param blob @return
      */
     @objid ("087430e0-c507-4f52-aaa8-13edc98cc47e")
@@ -422,6 +426,7 @@ public class StereotypeEditor {
             this.createdBlobs.add(blob);
             ModelProperty.LOG.debug("Blob created: " + blob.getKey());
         }
+        
     }
 
     /**
@@ -436,6 +441,7 @@ public class StereotypeEditor {
             this.updatedBlobs.add(blob);
             ModelProperty.LOG.debug("Blob updated: " + blob.getKey());
         }
+        
     }
 
     /**
@@ -451,6 +457,7 @@ public class StereotypeEditor {
         } catch (IOException e) {
             ModelProperty.LOG.error(e);
         }
+        
     }
 
 }

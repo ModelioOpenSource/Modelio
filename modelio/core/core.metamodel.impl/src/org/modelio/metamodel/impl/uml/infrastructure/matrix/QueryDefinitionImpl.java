@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure.matrix;
 
 import java.util.ArrayList;
@@ -31,7 +31,6 @@ import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
 import org.modelio.metamodel.impl.uml.infrastructure.ElementImpl;
-import org.modelio.metamodel.impl.uml.infrastructure.matrix.QueryDefinitionData;
 import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.metamodel.uml.infrastructure.ExternProcessor;
 import org.modelio.metamodel.uml.infrastructure.matrix.MatrixDefinition;
@@ -79,6 +78,7 @@ public class QueryDefinitionImpl extends ElementImpl implements QueryDefinition 
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("265000e6-4327-42de-b28c-f0287c9065dc")

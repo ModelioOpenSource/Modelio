@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta.fake;
 
 import java.util.ArrayList;
@@ -67,10 +66,11 @@ public class FakeSmClass extends SmObjectSmClass implements FakeMClass {
      * @param isCmsNode whether the metaclass is a CMS node
      */
     @objid ("8a4b0292-61ad-4355-ba3a-204e533d5880")
-    public FakeSmClass(ISmMetamodelFragment origin, String name, boolean isCmsNode) {
+    public  FakeSmClass(ISmMetamodelFragment origin, String name, boolean isCmsNode) {
         super(origin);
         this.name = name;
         this.isCmsNode = isCmsNode;
+        
     }
 
     @objid ("f74604ed-4aca-47a1-9b6d-206c92e048f8")
@@ -80,13 +80,13 @@ public class FakeSmClass extends SmObjectSmClass implements FakeMClass {
         
         resetCache();
         initCache();
+        
     }
 
     /**
      * Get the attribute definition with the given name.
      * <p>
      * Look into the class attributes and inherited attributes.
-     * 
      * @param att_name the meta attribute name
      * @return the found meta attribute or null.
      */
@@ -104,7 +104,6 @@ public class FakeSmClass extends SmObjectSmClass implements FakeMClass {
      * Get the relation definition with the given name.
      * <p>
      * Look into the class relations and inherited relations
-     * 
      * @param dep_name the meta relation name
      * @return the found meta relation or null.
      */
@@ -164,7 +163,6 @@ public class FakeSmClass extends SmObjectSmClass implements FakeMClass {
 
     /**
      * Get the "Name" attribute defined for all fake metaclasses.
-     * 
      * @return the "Name" attribute.
      */
     @objid ("a728cf97-400e-4d12-b78b-596bb0e06b89")
@@ -175,7 +173,6 @@ public class FakeSmClass extends SmObjectSmClass implements FakeMClass {
     /**
      * Get or create a fake dependency from a dependency that existed on the metaclass before it was discarded.
      * <p>
-     * 
      * @param orig a dependency that existed on the metaclass before it becomes fake.
      * @return the matching fake dependency.
      */
@@ -220,7 +217,6 @@ public class FakeSmClass extends SmObjectSmClass implements FakeMClass {
      * <p>
      * A relationship metaclass elements represents links between other objects. They have source and target MDependencies.
      * @since toutatis
-     * 
      * @return true if this metaclass is fake.
      */
     @objid ("c263441a-166a-4f5f-aec9-5c76c761823e")
@@ -254,6 +250,7 @@ public class FakeSmClass extends SmObjectSmClass implements FakeMClass {
         
         this.atts.put("Name", this.nameAtt);
         registerAttribute(this.nameAtt);
+        
     }
 
     /**
@@ -278,6 +275,7 @@ public class FakeSmClass extends SmObjectSmClass implements FakeMClass {
             });
         
         }
+        
     }
 
     @objid ("a03d12fa-6955-48a5-8a6f-00db77aba3b8")
@@ -359,6 +357,7 @@ public class FakeSmClass extends SmObjectSmClass implements FakeMClass {
                 .stream()
                 .filter(dep -> dep.hasDirective(SmDirective.SMCDLINKTARGET))
                 .collect(Collectors.<MDependency>toList());
+        
     }
 
     /**

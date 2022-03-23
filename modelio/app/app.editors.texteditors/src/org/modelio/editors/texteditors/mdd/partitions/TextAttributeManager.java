@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.texteditors.mdd.partitions;
 
 import java.util.HashMap;
@@ -45,7 +44,7 @@ public class TextAttributeManager {
     }
 
     @objid ("7b60efa5-2a77-11e2-9fb9-bc305ba4815c")
-    private TextAttributeManager() {
+    private  TextAttributeManager() {
         TextAttribute  att = null;
         
         this.attributes = new HashMap<>();
@@ -70,6 +69,7 @@ public class TextAttributeManager {
         // Comments
         att   = new TextAttribute(UIColor.EDITOR_COMMENT_FG, null, SWT.ITALIC);
         this.attributes.put(MDDPartitionTypes.COMMENT_PARTITION, att);
+        
     }
 
     @objid ("7b60efa7-2a77-11e2-9fb9-bc305ba4815c")

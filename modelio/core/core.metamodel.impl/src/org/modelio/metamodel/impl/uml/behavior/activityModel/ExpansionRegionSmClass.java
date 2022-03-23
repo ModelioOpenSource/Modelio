@@ -17,20 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ExpansionNodeSmClass;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ExpansionRegionData;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.StructuredActivityNodeSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.ExpansionKind;
 import org.modelio.metamodel.uml.behavior.activityModel.ExpansionNode;
 import org.modelio.metamodel.uml.behavior.activityModel.ExpansionRegion;
@@ -59,7 +56,7 @@ public class ExpansionRegionSmClass extends StructuredActivityNodeSmClass {
     private SmDependency inputElementDep;
 
     @objid ("58461969-1f20-4709-9d35-26e0237d8e38")
-    public ExpansionRegionSmClass(ISmMetamodelFragment origin) {
+    public  ExpansionRegionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -67,6 +64,7 @@ public class ExpansionRegionSmClass extends StructuredActivityNodeSmClass {
     @Override
     public String getName() {
         return "ExpansionRegion";
+        
     }
 
     @objid ("689c1f6f-6395-4f92-8af0-41833ad471ee")
@@ -79,18 +77,21 @@ public class ExpansionRegionSmClass extends StructuredActivityNodeSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ExpansionRegion.class;
+        
     }
 
     @objid ("272484f4-5f2b-4c48-986a-e00f2baf53a0")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("47fcd579-55fb-4888-ac9d-947728d88051")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("e5c703ba-7ef3-4326-abb5-25c1c8435968")
@@ -114,6 +115,8 @@ public class ExpansionRegionSmClass extends StructuredActivityNodeSmClass {
         this.inputElementDep = new InputElementSmDependency();
         this.inputElementDep.init("InputElement", this, metamodel.getMClass(ExpansionNode.MQNAME), 1, -1 , SmDirective.SMCDCOMPONENT, SmDirective.SMCDPARTOF);
         registerDependency(this.inputElementDep);
+        
+        
     }
 
     @objid ("d967f1c3-d032-48a6-b9c9-e340dfe5a925")
@@ -146,7 +149,7 @@ public class ExpansionRegionSmClass extends StructuredActivityNodeSmClass {
         private ExpansionRegionSmClass smClass;
 
         @objid ("a02cf9e0-6bf5-4d65-bd8f-b533df56698a")
-        public ExpansionRegionObjectFactory(ExpansionRegionSmClass smClass) {
+        public  ExpansionRegionObjectFactory(ExpansionRegionSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -193,6 +196,7 @@ public class ExpansionRegionSmClass extends StructuredActivityNodeSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ExpansionRegionData) data).mOutputElement = values;
+            
         }
 
         @objid ("bb452e73-62b5-48e9-b876-382b9d9101db")
@@ -202,6 +206,7 @@ public class ExpansionRegionSmClass extends StructuredActivityNodeSmClass {
             	this.symetricDep = ((ExpansionNodeSmClass)this.getTarget()).getRegionAsOutputDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -221,6 +226,7 @@ public class ExpansionRegionSmClass extends StructuredActivityNodeSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ExpansionRegionData) data).mInputElement = values;
+            
         }
 
         @objid ("c1947201-8fa3-4a32-8238-e97fddfc7ce5")
@@ -230,6 +236,7 @@ public class ExpansionRegionSmClass extends StructuredActivityNodeSmClass {
             	this.symetricDep = ((ExpansionNodeSmClass)this.getTarget()).getRegionAsInputDep();
             }
             return this.symetricDep;
+            
         }
 
     }

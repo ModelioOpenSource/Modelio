@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.module.modelermodule.engine;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,10 +31,9 @@ import org.modelio.module.modelermodule.i18n.I18nMessageService;
 public class LinkUpdater {
     /**
      * Update a link from its base association.
-     * 
      * @param current the link to update.
      * @return <code>true</code> if the link has been modified.
-     * @throws org.modelio.module.modelermodule.api.ModelerModuleException when an error occurs during the update.
+     * @throws ModelerModuleException when an error occurs during the update.
      */
     @objid ("8373b99f-4318-43a0-8bae-55b9c7aa7d2a")
     public boolean updateLinkFromAssociation(final Link current) throws ModelerModuleException {
@@ -73,6 +71,7 @@ public class LinkUpdater {
             // No matching end found
             throw new ModelerModuleException(I18nMessageService.getString("module.error.updateLinkFromAssociation.end", le.getName()));
         }
+        
     }
 
     /**
@@ -85,6 +84,7 @@ public class LinkUpdater {
         current.setIsOrdered(model.isIsOrdered());
         current.setIsUnique(model.isIsUnique());
         current.setNavigable(model.isNavigable());
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,14 +34,14 @@ class DummyRepositoryObject extends RepositoryObjectStub {
      * Get the singleton. To be accessed from the package only.
      */
     @objid ("fca7a9d3-2cec-11e2-81f1-001ec947ccaf")
-     static final IRepositoryObject instance = new DummyRepositoryObject();
+    static final IRepositoryObject instance = new DummyRepositoryObject();
 
     /**
      * Private singleton constructor
      * @param data
      */
     @objid ("fca7a9d6-2cec-11e2-81f1-001ec947ccaf")
-    protected DummyRepositoryObject() {
+    protected  DummyRepositoryObject() {
         // nothing
     }
 
@@ -72,6 +71,7 @@ class DummyRepositoryObject extends RepositoryObjectStub {
         } else {
             return super.toString();
         }
+        
     }
 
     @objid ("d701c4da-e46d-413e-b5f0-b662f0f3e91e")
@@ -92,7 +92,6 @@ class DummyRepositoryObject extends RepositoryObjectStub {
      * Returns the DummyRepositoryObject singleton in normal run, a {@link DummyDebugRepositoryObject}
      * when assertions are enabled.
      * @param smObjectData
-     * 
      * @return a dummy repository object.
      */
     @objid ("37cd123c-585d-4bc1-bd34-8159d31d4555")
@@ -105,6 +104,7 @@ class DummyRepositoryObject extends RepositoryObjectStub {
         } else {
             return instance;
         }
+        
     }
 
 }

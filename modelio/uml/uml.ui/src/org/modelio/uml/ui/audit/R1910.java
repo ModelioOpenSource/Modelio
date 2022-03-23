@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.audit;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.audit.engine.core.AbstractControl;
 import org.modelio.audit.engine.core.AbstractRule;
@@ -76,6 +75,7 @@ public class R1910 extends AbstractUmlRule {
         plan.registerRule(Association.MQNAME, this, AuditTrigger.UPDATE);
         plan.registerRule(LinkEnd.MQNAME, this, AuditTrigger.UPDATE);
         plan.registerRule(AssociationEnd.MQNAME, this, AuditTrigger.UPDATE);
+        
     }
 
     /**
@@ -109,14 +109,14 @@ public class R1910 extends AbstractUmlRule {
      * Default constructor for R1910
      */
     @objid ("0464325f-1e52-46b8-85a3-4e86750342f9")
-    public R1910() {
+    public  R1910() {
         this.checkerInstance = new CheckR1910(this);
     }
 
     @objid ("176394f6-058a-446e-9af3-0c1c9efe138e")
     private static class CheckR1910 extends AbstractControl {
         @objid ("87c8d687-b53b-462d-9ed8-dc9b6d0bca21")
-        public CheckR1910(IRule rule) {
+        public  CheckR1910(IRule rule) {
             super(rule);
         }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.extensions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -59,11 +58,12 @@ public class ChangeExtensionSizeCommand extends Command {
      * @param size the new size
      */
     @objid ("7194783d-4c1b-41f5-ad9e-728b08fd909c")
-    public ChangeExtensionSizeCommand(IFigure figure, IGmLink gmLink, IGmObject gmExtension, Dimension size) {
+    public  ChangeExtensionSizeCommand(IFigure figure, IGmLink gmLink, IGmObject gmExtension, Dimension size) {
         this.figure = figure;
         this.gmLink = gmLink;
         this.gmExtension = gmExtension;
         this.newSize = size;
+        
     }
 
     @objid ("4947b0f4-6104-4421-8c2f-c737b57be050")
@@ -79,6 +79,7 @@ public class ChangeExtensionSizeCommand extends Command {
         
             this.gmLink.setLayoutConstraint(this.gmExtension, locator);
         }
+        
     }
 
     @objid ("ed22fb90-3a83-4742-99d6-99805b084bab")
@@ -90,7 +91,6 @@ public class ChangeExtensionSizeCommand extends Command {
 
     /**
      * Get the new bounds of the figure if the command matching the request was executed.
-     * 
      * @param hostFigure the host figure
      * @param request the request
      * @return the new bounds in host figure coordinates .
@@ -109,7 +109,6 @@ public class ChangeExtensionSizeCommand extends Command {
 
     /**
      * Show the feedback of a resize link extension.
-     * 
      * @param request the request
      * @param feedback the feedback figure to use
      * @param hostFigure the target link extension figure of the request
@@ -134,6 +133,7 @@ public class ChangeExtensionSizeCommand extends Command {
         loc.relocate(feedback);
         
         feedback.validate();
+        
     }
 
     @objid ("f8349cb9-7a58-4005-962e-a17f9b6dc854")

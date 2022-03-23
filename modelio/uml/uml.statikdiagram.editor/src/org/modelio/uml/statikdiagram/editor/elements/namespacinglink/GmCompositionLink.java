@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.namespacinglink;
 
 import java.util.Collections;
@@ -52,17 +51,17 @@ public class GmCompositionLink extends GmLink {
      * Empty constructor for deserialization.
      */
     @objid ("35ae11bf-55b7-11e2-877f-002564c97630")
-    public GmCompositionLink() {
+    public  GmCompositionLink() {
+        
     }
 
     /**
      * Constructor.
-     * 
      * @param diagram The diagram in which this link will be unmasked.
      * @param relatedRef a reference to the element this GmModel is related to.
      */
     @objid ("35ae11c2-55b7-11e2-877f-002564c97630")
-    public GmCompositionLink(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmCompositionLink(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -121,6 +120,7 @@ public class GmCompositionLink extends GmLink {
     private void refreshStyle(final IStyleProvider provider) {
         // Modify the style
         getPersistedStyle().setCascadedStyle(provider.getPersistedStyle());
+        
     }
 
     @objid ("35af9867-55b7-11e2-877f-002564c97630")
@@ -132,6 +132,7 @@ public class GmCompositionLink extends GmLink {
         } else {
             refreshStyle(getDiagram());
         }
+        
     }
 
     @objid ("35af986e-55b7-11e2-877f-002564c97630")
@@ -141,6 +142,7 @@ public class GmCompositionLink extends GmLink {
         if (from != null) {
             refreshStyle(from);
         }
+        
     }
 
     @objid ("35af9875-55b7-11e2-877f-002564c97630")
@@ -150,6 +152,7 @@ public class GmCompositionLink extends GmLink {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmCompositionLink.", GmCompositionLink.MINOR_VERSION);
+        
     }
 
     @objid ("35af987c-55b7-11e2-877f-002564c97630")
@@ -168,6 +171,7 @@ public class GmCompositionLink extends GmLink {
             (getToElement() != null && getToElement().isValid() && !getFromElement().equals(getToElement().getCompositionOwner()))) {
             delete();
         }
+        
     }
 
     @objid ("d626421d-72f5-4027-a2f3-b6cace1a840b")

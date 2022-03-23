@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.control;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -72,7 +71,7 @@ public class CollaborationUseNRepresentedChecker extends AbstractDependencyTypeC
      * C'tor
      */
     @objid ("31634809-bc63-40c4-8d11-054c11991f58")
-    public CollaborationUseNRepresentedChecker(SmMetamodel mm) {
+    public  CollaborationUseNRepresentedChecker(SmMetamodel mm) {
         // Cached SmClass
         this.templateParameterID = mm.getMClass(TemplateParameter.class);
         this.componentID = mm.getMClass(Component.class);
@@ -93,6 +92,7 @@ public class CollaborationUseNRepresentedChecker extends AbstractDependencyTypeC
         // Symetric checker
         NameSpaceOwnedCollaborationUseChecker symetricChecker = new NameSpaceOwnedCollaborationUseChecker(this);
         symetricChecker.register(mm.getMClass(NameSpace.class), "OwnedCollaborationUse");
+        
     }
 
     @objid ("e4c440cc-ecfb-11e1-91c5-002564c97630")
@@ -120,10 +120,10 @@ public class CollaborationUseNRepresentedChecker extends AbstractDependencyTypeC
     @objid ("e4c5c76d-ecfb-11e1-91c5-002564c97630")
     static class NameSpaceOwnedCollaborationUseChecker extends AbstractDependencyTypeChecker {
         @objid ("e4c5c770-ecfb-11e1-91c5-002564c97630")
-         CollaborationUseNRepresentedChecker symetricChecker;
+        CollaborationUseNRepresentedChecker symetricChecker;
 
         @objid ("e4c5c771-ecfb-11e1-91c5-002564c97630")
-        public NameSpaceOwnedCollaborationUseChecker(CollaborationUseNRepresentedChecker symetricChecker) {
+        public  NameSpaceOwnedCollaborationUseChecker(CollaborationUseNRepresentedChecker symetricChecker) {
             this.symetricChecker = symetricChecker;
         }
 

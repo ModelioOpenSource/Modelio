@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.gmdbg;
 
 import java.util.ArrayList;
@@ -45,14 +44,15 @@ import org.modelio.platform.model.ui.swt.images.ElementImageService;
 
 @objid ("dd3e99ab-5e44-4ebb-8608-d09b0bb05638")
 public class GmTreeView {
-    @objid ("ce794a59-36dc-4ad4-a4f5-9c1fca8d2ea6")
+    @objid ("b9e93a49-e67b-4413-b710-4d06dd51f005")
     private TreeViewer treeViewer;
 
     @objid ("0cce793b-db6b-47be-bbe3-88a8608d149a")
-    public GmTreeView(Composite parent) {
+    public  GmTreeView(Composite parent) {
         this.treeViewer = new TreeViewer(parent, SWT.V_SCROLL | SWT.H_SCROLL);
         this.treeViewer.setLabelProvider(new GmTreeLabelProvider());
         this.treeViewer.setContentProvider(new GmTreecontentProvider());
+        
     }
 
     @objid ("197af0dd-3b5d-4269-8ec3-8b9c5301c435")
@@ -114,6 +114,7 @@ public class GmTreeView {
             if (parent instanceof GmEmbeddedDiagram) {
                 for (GmNodeModel child : ((GmEmbeddedDiagram) parent).getVisibleChildren()) {
                     results.add(child.getDiagram());
+                    break;
                 }
             } else if (parent instanceof GmCompositeNode) {
                 results.addAll(((GmCompositeNode) parent).getChildren());
@@ -145,16 +146,17 @@ public class GmTreeView {
             } else {
                 return null;
             }
+            
         }
 
         @objid ("7e1e8aeb-14cd-44a8-abaa-b67d045a6243")
         @Override
         public boolean hasChildren(Object element) {
             if (element instanceof GmEmbeddedDiagram) {
-                return (!((GmEmbeddedDiagram) element).getVisibleChildren().isEmpty());
+                return !((GmEmbeddedDiagram) element).getVisibleChildren().isEmpty();
             
             } else if (element instanceof GmCompositeNode) {
-                return (!((GmCompositeNode) element).getChildren().isEmpty());
+                return !((GmCompositeNode) element).getChildren().isEmpty();
             
             } else if (element instanceof IGmLinkable) {
                 final IGmLinkable gmNode = (IGmLinkable) element;
@@ -167,6 +169,7 @@ public class GmTreeView {
             } else {
                 return false;
             }
+            
         }
 
     }

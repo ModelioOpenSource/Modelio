@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.api.impl.model;
 
 import java.util.ArrayList;
@@ -57,11 +56,10 @@ public class MetamodelExtensions implements IMetamodelExtensions {
 
     /**
      * Default constructor initializing the model service.
-     * 
      * @param modelService the model service used to find mda extensions.
      */
     @objid ("b9ee8668-665f-4fde-8a1e-81da6117d149")
-    public MetamodelExtensions(final IMModelServices modelService) {
+    public  MetamodelExtensions(final IMModelServices modelService) {
         this.modelService = modelService;
     }
 
@@ -79,6 +77,7 @@ public class MetamodelExtensions implements IMetamodelExtensions {
         } catch (@SuppressWarnings ("unused") ElementNotUniqueException e) {
             return null;
         }
+        
     }
 
     @objid ("5eaacbcc-ade1-45b2-adcd-2f9568ba57f1")
@@ -95,6 +94,7 @@ public class MetamodelExtensions implements IMetamodelExtensions {
         } catch (@SuppressWarnings ("unused") ElementNotUniqueException e) {
             return null;
         }
+        
     }
 
     @objid ("e271cb4a-a7bd-4089-9990-38e0b3430db9")
@@ -111,6 +111,7 @@ public class MetamodelExtensions implements IMetamodelExtensions {
         } catch (@SuppressWarnings ("unused") ElementNotUniqueException e) {
             return null;
         }
+        
     }
 
     @objid ("65800c35-4002-499d-8b68-33f88e02fa62")
@@ -136,6 +137,7 @@ public class MetamodelExtensions implements IMetamodelExtensions {
         } else {
             return null;
         }
+        
     }
 
     @objid ("8a2c709f-e6df-49fb-bddb-99dc9441c53d")
@@ -158,6 +160,7 @@ public class MetamodelExtensions implements IMetamodelExtensions {
         } catch (@SuppressWarnings ("unused") ElementNotUniqueException e) {
             return null;
         }
+        
     }
 
     @objid ("c1039865-3d70-444f-b2eb-431d8157dc34")
@@ -177,6 +180,7 @@ public class MetamodelExtensions implements IMetamodelExtensions {
         } else {
             return null;
         }
+        
     }
 
     @objid ("ae21accb-96ac-4ff9-956c-19b8689dbbaf")
@@ -199,6 +203,7 @@ public class MetamodelExtensions implements IMetamodelExtensions {
         } catch (@SuppressWarnings ("unused") ElementNotUniqueException e) {
             return null;
         }
+        
     }
 
     @objid ("5fe5eb24-f885-4fd1-888d-bb0db43af2d9")
@@ -218,6 +223,7 @@ public class MetamodelExtensions implements IMetamodelExtensions {
         } else {
             return null;
         }
+        
     }
 
     @objid ("47acd5b5-ee1b-4605-b122-b34e4e6cd5c5")

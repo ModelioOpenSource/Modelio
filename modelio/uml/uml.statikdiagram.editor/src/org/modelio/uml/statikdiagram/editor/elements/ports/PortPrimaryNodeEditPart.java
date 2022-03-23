@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.ports;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -53,7 +52,7 @@ public class PortPrimaryNodeEditPart extends AbstractNodeEditPart {
      * Constructor.
      */
     @objid ("364cc2f8-55b7-11e2-877f-002564c97630")
-    public PortPrimaryNodeEditPart() {
+    public  PortPrimaryNodeEditPart() {
         // Nothing specific to do.
     }
 
@@ -96,6 +95,7 @@ public class PortPrimaryNodeEditPart extends AbstractNodeEditPart {
         }
         // read model to set border figure is sticking to.
         fig.setPosition(model.getPosition());
+        
     }
 
     @objid ("364e4967-55b7-11e2-877f-002564c97630")
@@ -112,6 +112,7 @@ public class PortPrimaryNodeEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkToVoidConstants.REQ_LINKTOVOID_START, new LinkToVoidStartCreationEditPolicy());
         installEditPolicy("constraint", new ConstraintLinkEditPolicy(false));
         installEditPolicy("nary-connector", new AcceptNConnectorEditPolicy(true));
+        
     }
 
     @objid ("364e496a-55b7-11e2-877f-002564c97630")
@@ -120,6 +121,7 @@ public class PortPrimaryNodeEditPart extends AbstractNodeEditPart {
         if (!switchRepresentationMode()) {
             super.refreshFromStyle(aFigure, style);
         }
+        
     }
 
     @objid ("364e4973-55b7-11e2-877f-002564c97630")

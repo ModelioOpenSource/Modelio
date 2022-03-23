@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.deephistory;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,18 +30,18 @@ import org.modelio.uml.statediagram.editor.style.StateAbstractStyleKeyProvider;
 @objid ("f506dc99-55b6-11e2-877f-002564c97630")
 public class GmDeepHistoryImageStyleKeys extends StateAbstractStyleKeyProvider {
     @objid ("8155e4cf-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmDeepHistoryStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmDeepHistoryStructuredStyleKeys.REPMODE;
 
     @objid ("8155e4d1-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmDeepHistoryStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmDeepHistoryStructuredStyleKeys.FONT;
 
     @objid ("8155e4d3-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmDeepHistoryStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmDeepHistoryStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("8155e4d5-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmDeepHistoryStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmDeepHistoryStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("8155e4d7-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmDeepHistoryStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmDeepHistoryStructuredStyleKeys.SHOWTAGS;
 
 }

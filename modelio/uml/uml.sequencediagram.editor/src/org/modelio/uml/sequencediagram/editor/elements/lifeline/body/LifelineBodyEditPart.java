@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.lifeline.body;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -104,6 +103,7 @@ public class LifelineBodyEditPart extends AbstractNodeEditPart {
         }
         IFigure child = ((GraphicalEditPart) childEditPart).getFigure();
         getContentPane().add(child, layoutData, index);
+        
     }
 
     @objid ("d92fc922-55b6-11e2-877f-002564c97630")
@@ -115,6 +115,7 @@ public class LifelineBodyEditPart extends AbstractNodeEditPart {
         
         // Snap to Geometry feedback
         installEditPolicy("Snap Feedback", new SnapFeedbackPolicy()); //$NON-NLS-1$
+        
     }
 
     @objid ("d92fc925-55b6-11e2-877f-002564c97630")
@@ -134,6 +135,7 @@ public class LifelineBodyEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         GmAbstractObject model = getModel();
         getFigure().getParent().setConstraint(getFigure(), model.getLayoutData());
+        
     }
 
     @objid ("d92fc92d-55b6-11e2-877f-002564c97630")
@@ -146,6 +148,7 @@ public class LifelineBodyEditPart extends AbstractNodeEditPart {
         } else {
             return super.createAnchorModel(anchor);
         }
+        
     }
 
     @objid ("d92fc933-55b6-11e2-877f-002564c97630")
@@ -158,6 +161,7 @@ public class LifelineBodyEditPart extends AbstractNodeEditPart {
         } else {
             return super.getSourceConnectionAnchor(connection);
         }
+        
     }
 
     @objid ("d92fc939-55b6-11e2-877f-002564c97630")
@@ -170,6 +174,7 @@ public class LifelineBodyEditPart extends AbstractNodeEditPart {
         } else {
             return super.getSourceConnectionAnchor(connection);
         }
+        
     }
 
     /**

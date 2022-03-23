@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.utils.metamodel.experts.links;
 
 import java.util.ArrayList;
@@ -52,9 +51,10 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
      * @param mm the metamodel
      */
     @objid ("6f84bdc8-8e27-435d-bbf2-d1d559fefa87")
-    public RuleBasedLinkExpertHelper(MMetamodel mm) {
+    public  RuleBasedLinkExpertHelper(MMetamodel mm) {
         this.mm = mm;
         this.RULES = new MetamodelRules(mm);
+        
     }
 
     @objid ("e58b5438-ed76-4b04-81ce-32cb3659fe3b")
@@ -95,7 +95,6 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
 
     /**
      * Add an allowed rule.
-     * 
      * @param mcD link metaclass
      * @param mcX source metaclass
      * @param mcY target metaclass
@@ -107,7 +106,6 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
 
     /**
      * Add an allowed rule with subclasses if asked for.
-     * 
      * @param mcD link metaclass
      * @param mcX source metaclass
      * @param xRec with subclasses
@@ -121,7 +119,6 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
 
     /**
      * Get a model link source
-     * 
      * @param aLink a model link.
      * @return the link source
      */
@@ -141,7 +138,6 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
 
     /**
      * Get a model link target.
-     * 
      * @param aLink a model link.
      * @return the link target.
      */
@@ -170,11 +166,10 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
 
     /**
      * Change a model link target.
-     * 
      * @param link a model link.
      * @param oldTarget the old target.
      * @param newTarget the new target.
-     * @throws java.lang.IllegalArgumentException if the new destination is illegal or the link is not a model link.
+     * @throws IllegalArgumentException if the new destination is illegal or the link is not a model link.
      */
     @objid ("5eaa3115-74fc-4212-a295-7d67877d06a2")
     @Override
@@ -208,15 +203,15 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
         if (found == null && newTarget != null) {
             throw new IllegalArgumentException(newTarget.toString());
         }
+        
     }
 
     /**
      * Change a model link source.
-     * 
      * @param link a model link.
      * @param oldSource the old source.
      * @param newSource the new source.
-     * @throws java.lang.IllegalArgumentException if the new destination is illegal or the link is not a model link.
+     * @throws IllegalArgumentException if the new destination is illegal or the link is not a model link.
      */
     @objid ("cc871ff1-06e7-4b1b-815f-3920b57bc735")
     @Override
@@ -250,14 +245,14 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
         if (found == null && newSource != null) {
             throw new IllegalArgumentException(newSource.toString());
         }
+        
     }
 
     /**
      * Register a source dependency
-     * 
      * @param depClass the link metaclass interface
      * @param srcDepName the dependency name
-     * @throws java.lang.IllegalArgumentException on input mistake.
+     * @throws IllegalArgumentException on input mistake.
      */
     @objid ("6d98708e-9ede-4e7d-a7e2-0836eb86e871")
     public void addSourceDep(Class<? extends MObject> depClass, String srcDepName) throws IllegalArgumentException {
@@ -275,11 +270,11 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
         }
         
         data.sources.add(dep);
+        
     }
 
     /**
      * Register a link metaclass.
-     * 
      * @param linkMetaclassInterface a link metaclass name.
      */
     @objid ("ee7c9185-dfcf-4ee1-b642-f7fe4e1f9613")
@@ -291,6 +286,7 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
             data = new AssocData();
             this.associations.put(mClass, data);
         }
+        
     }
 
     @objid ("8be4ba63-dfbe-4ceb-b4e2-6e67386b134f")
@@ -304,10 +300,9 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
 
     /**
      * Register a target dependency.
-     * 
      * @param depClass the link metaclass interface
      * @param depName the dependency name
-     * @throws java.lang.IllegalArgumentException on input mistake.
+     * @throws IllegalArgumentException on input mistake.
      */
     @objid ("ff79561a-ded9-4bf8-bd90-6295e769e823")
     public void addTargetDep(Class<? extends MObject> depClass, String depName) throws IllegalArgumentException {
@@ -325,6 +320,7 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
         }
         
         data.targets.add(dep);
+        
     }
 
     @objid ("807c87b3-feec-4a29-9819-5d3d780963b0")
@@ -367,13 +363,12 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
         private final Set<RuleKey> canTargetRules = new HashSet<>();
 
         @objid ("761727f5-3a09-4810-96bd-80ef81651c1a")
-        public MetamodelRules(MMetamodel mm) {
+        public  MetamodelRules(MMetamodel mm) {
             this.mm = mm;
         }
 
         /**
          * Tells whether a link of the given metaclass can have another metaclass as source.
-         * 
          * @param linkMetaclass The link metaclass
          * @param fromMetaclass The source metaclass
          * @return true if the creation is possible, false otherwise.
@@ -387,7 +382,6 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
 
         /**
          * Tells whether a link of the given metaclass can be created between the 2 other metaclasses.
-         * 
          * @param linkMetaclass The link metaclass
          * @param fromMetaclass The Source metaclass
          * @param toMetaclass The destination metaclass
@@ -403,7 +397,6 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
 
         /**
          * Returns whether this metaclass is known or not.
-         * 
          * @param linkMetaclass The link metaclass
          * @param toMetaclass The target metaclass
          * @return true if the creation is possible, false otherwise.
@@ -417,7 +410,6 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
 
         /**
          * Add an allowed rule.
-         * 
          * @param mcD link metaclass
          * @param mcX source metaclass
          * @param mcY target metaclass
@@ -429,7 +421,6 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
 
         /**
          * Add an allowed rule.
-         * 
          * @param mcD link metaclass
          * @param mcX source metaclass
          * @param xRec with subclasses
@@ -460,11 +451,11 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
                     addRule(mcD, mcX, xRec, ysub.getJavaInterface(), true);
                 }
             }
+            
         }
 
         /**
          * Create a rule key from metaclass java interfaces.
-         * 
          * @param link link metaclass
          * @param source source metaclass
          * @param target target metaclass
@@ -489,11 +480,12 @@ public class RuleBasedLinkExpertHelper implements ILinkExpertHelper {
             public final MClass target;
 
             @objid ("6d7acb60-e63a-4646-8b15-843da45a2676")
-            public RuleKey(MClass link, MClass source, MClass target) {
+            public  RuleKey(MClass link, MClass source, MClass target) {
                 super();
                 this.link = link;
                 this.source = source;
                 this.target = target;
+                
             }
 
             @objid ("1ade9953-0405-44b8-9f89-be764cfcb3e5")

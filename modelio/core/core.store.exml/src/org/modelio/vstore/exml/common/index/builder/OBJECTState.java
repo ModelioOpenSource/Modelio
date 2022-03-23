@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common.index.builder;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -74,6 +73,7 @@ class OBJECTState extends AbstractState {
                 localName.equals(ExmlTags.TAG_COMP)) {
             this.stateHandler.enterLINKState(attrs.getValue (ExmlTags.ATT_RELATION));
         }
+        
     }
 
     @objid ("fd21f6b7-5986-11e1-991a-001ec947ccaf")
@@ -84,10 +84,12 @@ class OBJECTState extends AbstractState {
             // This may also be end of file but don't mind it
             this.stateHandler.enterLINKState(null);
         }
+        
     }
 
     @objid ("fd21f6b4-5986-11e1-991a-001ec947ccaf")
-    public OBJECTState() {
+    public  OBJECTState() {
+        
     }
 
 }

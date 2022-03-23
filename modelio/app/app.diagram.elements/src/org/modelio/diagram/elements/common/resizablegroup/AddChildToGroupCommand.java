@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.resizablegroup;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.commands.Command;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
@@ -60,14 +59,13 @@ public class AddChildToGroupCommand extends Command {
 
     /**
      * Creates a node creation command.
-     * 
      * @param parentEditPart The parent editPart
      * @param context Details on the MObject and/or the node to create
      * @param insertAfter The editPart used as reference for insertion at the correct place.
      * @param newConstraint the constraint with which to create the child.
      */
     @objid ("7f0768df-1dec-11e2-8cad-001ec947c8cc")
-    public AddChildToGroupCommand(EditPart parentEditPart, ModelioCreationContext context, GmNodeModel insertAfter, int newConstraint) {
+    public  AddChildToGroupCommand(EditPart parentEditPart, ModelioCreationContext context, GmNodeModel insertAfter, int newConstraint) {
         this.parentNode = (GmCompositeNode) parentEditPart.getModel();
         this.parentElement = this.parentNode.getRelatedElement();
         if (this.parentElement instanceof AbstractDiagram) {
@@ -76,6 +74,7 @@ public class AddChildToGroupCommand extends Command {
         this.context = context;
         this.insertAfter = insertAfter;
         this.newConstraint = newConstraint;
+        
     }
 
     @objid ("7f09cb2f-1dec-11e2-8cad-001ec947c8cc")
@@ -90,6 +89,7 @@ public class AddChildToGroupCommand extends Command {
         } else {
             executeCreation(diagram);
         }
+        
     }
 
     /**
@@ -135,6 +135,7 @@ public class AddChildToGroupCommand extends Command {
         newElement.setName(modelManager.getModelServices().getElementNamer().getUniqueName(newElement));
         
         unmaskAdditionalChild(diagram, newElement);
+        
     }
 
     @objid ("7f09cb37-1dec-11e2-8cad-001ec947c8cc")
@@ -171,6 +172,7 @@ public class AddChildToGroupCommand extends Command {
         } else {
             return true;
         }
+        
     }
 
 }

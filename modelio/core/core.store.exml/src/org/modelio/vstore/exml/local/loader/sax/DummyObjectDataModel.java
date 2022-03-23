@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.local.loader.sax;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,7 +35,7 @@ class DummyObjectDataModel implements IObjectDataModel {
     private final SmObjectImpl skippedObj;
 
     @objid ("22513207-356f-48ee-88af-c84b7b086c63")
-    public DummyObjectDataModel(SmObjectImpl obj) {
+    public  DummyObjectDataModel(SmObjectImpl obj) {
         this.skippedObj = obj;
     }
 

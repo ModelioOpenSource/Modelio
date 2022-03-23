@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.html.flyingsaucer;
 
 import java.io.PrintWriter;
@@ -52,18 +51,17 @@ public class FsHtmlFigure extends GefFsRenderer {
 
     /**
      * C'tor
-     * 
      * @param swtComposite a SWT composite to allow HTML to add SWT controls, not yet used.
      */
     @objid ("dbd77727-6f8b-4202-95a2-a6a29c80d8dd")
-    public FsHtmlFigure(Composite swtComposite) {
+    public  FsHtmlFigure(Composite swtComposite) {
         super(swtComposite);
         setOpaque(false);
+        
     }
 
     /**
      * Set the HTML content.
-     * 
      * @param htmlText the HTML text
      */
     @objid ("649ea6d6-3583-4546-803c-875c8994d3b1")
@@ -73,6 +71,7 @@ public class FsHtmlFigure extends GefFsRenderer {
             
             this.htmlText = htmlText;
         }
+        
     }
 
     /**
@@ -86,11 +85,11 @@ public class FsHtmlFigure extends GefFsRenderer {
             
             setDocument(getHtmlDocument(this.htmlText), null, new NamespaceHandlerExtension());
         }
+        
     }
 
     /**
      * Tidy and parse the HTML text.
-     * 
      * @param aHtmlText an HTML text
      * @return the parsed DOM tree or null.
      */
@@ -131,7 +130,7 @@ public class FsHtmlFigure extends GefFsRenderer {
     @objid ("e6e7f2c8-14b9-4795-b934-016bc3b06743")
     private final class NamespaceHandlerExtension extends XhtmlNamespaceHandler {
         @objid ("dfdafd97-d0db-44e3-bdf8-0622f1a112be")
-        public NamespaceHandlerExtension() {
+        public  NamespaceHandlerExtension() {
             super();
         }
 
@@ -150,7 +149,6 @@ public class FsHtmlFigure extends GefFsRenderer {
 
         /**
          * Creates a CSS style sheet from the {@link FsHtmlFigure#getFont() Figure font}.
-         * 
          * @return the note style sheet.
          */
         @objid ("7e6875d9-2186-4ff2-8f01-599371cea938")

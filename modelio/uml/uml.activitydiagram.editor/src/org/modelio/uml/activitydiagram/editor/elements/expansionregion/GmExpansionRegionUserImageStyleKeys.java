@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.expansionregion;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,19 +30,19 @@ import org.modelio.uml.activitydiagram.editor.style.ActivityAbstractStyleKeyProv
 @objid ("245d4031-cfa5-4abb-a14e-5f54502a599e")
 public class GmExpansionRegionUserImageStyleKeys extends ActivityAbstractStyleKeyProvider {
     @objid ("d934992a-e26f-41c3-81ad-a79fdb04334f")
-     static final StyleKey REPMODE = createStyleKey("EXPANSIONREGION_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("EXPANSIONREGION_REPMODE", MetaKey.REPMODE);
 
     @objid ("d388b148-e83b-4b82-b394-42c6e1272437")
-     static final StyleKey FONT = createStyleKey("EXPANSIONREGION_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("EXPANSIONREGION_FONT", MetaKey.FONT);
 
     @objid ("0b8e68b1-a1e5-4be2-9f95-e0f41a9080f9")
-     static final StyleKey TEXTCOLOR = createStyleKey("EXPANSIONREGION_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("EXPANSIONREGION_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("10cfd22c-b356-41bf-92da-aab6ddae8a06")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("EXPANSIONREGION_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("EXPANSIONREGION_SHOWSTEREOTYPES",
+                MetaKey.SHOWSTEREOTYPES);
 
     @objid ("48f48dc0-5ee5-451f-921c-aa09875d152e")
-     static final StyleKey SHOWTAGS = createStyleKey("EXPANSIONREGION_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("EXPANSIONREGION_SHOWTAGS", MetaKey.SHOWTAGS);
 
 }

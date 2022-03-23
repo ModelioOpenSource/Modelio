@@ -17,17 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.view;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.core.di.extensions.EventTopic;
@@ -45,28 +41,19 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.modelio.gproject.gproject.GProject;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
-import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.model.property.panel.ElementPropertyPanelProvider;
 import org.modelio.platform.core.activation.IActivationService;
 import org.modelio.platform.core.events.ModelioEventTopics;
 import org.modelio.platform.core.picking.IModelioPickingService;
 import org.modelio.platform.core.picking.IPickingSession;
 import org.modelio.platform.project.services.IProjectService;
-import org.modelio.vcore.session.api.blob.BlobCopier;
-import org.modelio.vcore.session.api.blob.BlobInfo;
-import org.modelio.vcore.session.api.blob.IBlobInfo;
-import org.modelio.vcore.session.api.blob.IBlobProvider;
 import org.modelio.vcore.session.api.model.change.IModelChangeEvent;
 import org.modelio.vcore.session.api.model.change.IModelChangeListener;
 import org.modelio.vcore.session.api.model.change.IStatusChangeEvent;
 import org.modelio.vcore.session.api.model.change.IStatusChangeListener;
-import org.modelio.vcore.session.api.repository.IRepository;
-import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
- * ModelProperty plugin main model class.
- * This class stores a reference to the current project, and listens to
- * open/close events.
+ * ModelProperty plugin main model class. This class stores a reference to the current project, and listens to open/close events.
  */
 @objid ("8fb871ca-c068-11e1-8c0a-002564c97630")
 @SuppressWarnings ("restriction")
@@ -75,7 +62,7 @@ public class ElementView implements IModelChangeListener, IStatusChangeListener 
     private static final String POPUPID = "org.modelio.property.popupmenu";
 
     @objid ("8fb871ce-c068-11e1-8c0a-002564c97630")
-     ElementPropertyPanelProvider panel;
+    ElementPropertyPanelProvider panel;
 
     @objid ("86a2b971-cf24-11e1-80a9-002564c97630")
     @Inject
@@ -93,10 +80,7 @@ public class ElementView implements IModelChangeListener, IStatusChangeListener 
     @objid ("f60bed7a-0c12-4103-af97-3637ba7fb13f")
     @Inject
     @Optional
-     EMenuService menuService;
-
-    @objid ("250993c0-d688-4063-bac7-ee55d9cf381f")
-    private IBlobProvider blobProvider;
+    EMenuService menuService;
 
     @objid ("0d21bd7b-54d4-4b91-b0ee-4a8104faed9d")
     private IActivationService activationService;
@@ -121,11 +105,10 @@ public class ElementView implements IModelChangeListener, IStatusChangeListener 
     private IStructuredSelection currentSelection;
 
     @objid ("15b80f6e-e47c-4fec-bc9e-05c944872e50")
-     GProject project;
+    GProject project;
 
     /**
      * Called by the framework to create the view and initialize it.
-     * 
      * @param aProjectService the project service.
      * @param modelServices the model service.
      * @param modelioActivationService the activation service
@@ -137,7 +120,8 @@ public class ElementView implements IModelChangeListener, IStatusChangeListener 
      */
     @objid ("8fb871cf-c068-11e1-8c0a-002564c97630")
     @PostConstruct
-    public void createControls(IProjectService aProjectService, @Optional IMModelServices modelServices, @Optional IActivationService modelioActivationService, IModelioPickingService modelioPickingService, Composite parent, @Optional @Named (IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection, @Optional EMenuService theMenuService, @Optional MPart propertyPart, IEclipseContext eclipseContext) {
+    public void createControls(IProjectService aProjectService, @Optional IMModelServices modelServices, @Optional IActivationService modelioActivationService, IModelioPickingService modelioPickingService, Composite parent, @Optional
+    @Named (IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection, @Optional EMenuService theMenuService, @Optional MPart propertyPart, IEclipseContext eclipseContext) {
         this.parentComposite = parent;
         
         // Sometimes, the view is instantiated only after the project is opened
@@ -148,11 +132,11 @@ public class ElementView implements IModelChangeListener, IStatusChangeListener 
                 update(selection, eclipseContext);
             }
         }
+        
     }
 
     /**
      * Updates the view for the given selection.
-     * 
      * @param selection an Eclipse selection
      */
     @objid ("8fb871d4-c068-11e1-8c0a-002564c97630")
@@ -181,11 +165,11 @@ public class ElementView implements IModelChangeListener, IStatusChangeListener 
             return;
         }
         this.panel.setInput(null);
+        
     }
 
     /**
-     * This method is called after a project opening.
-     * Keep a reference to the modeling session and model services.
+     * This method is called after a project opening. Keep a reference to the modeling session and model services.
      */
     @objid ("8fb871da-c068-11e1-8c0a-002564c97630")
     @Optional
@@ -206,17 +190,14 @@ public class ElementView implements IModelChangeListener, IStatusChangeListener 
         }
         
         if (this.project != null) {
-            // Register the blob provider, for local stereotype images.
-            this.blobProvider = new StereotypeIconsBlobProvider();
-            this.project.getSession().getBlobSupport().addBlobProvider(this.blobProvider);
             this.project.getSession().getModelChangeSupport().addModelChangeListener(this);
             this.project.getSession().getModelChangeSupport().addStatusChangeListener(this);
         }
+        
     }
 
     /**
-     * Called when a project is closing.
-     * Set the current selection to <code>null</code>.
+     * Called when a project is closing. Set the current selection to <code>null</code>.
      */
     @objid ("3e16e841-cbe8-4277-bb1a-fc8232bfc8d5")
     @Inject
@@ -225,28 +206,23 @@ public class ElementView implements IModelChangeListener, IStatusChangeListener 
         if (this.panel != null) {
             this.panel.setInput(null);
         }
+        
     }
 
     /**
-     * Called when a project is closed.
-     * On session close un-reference the modeling session and model services.
+     * Called when a project is closed. On session close un-reference the modeling session and model services.
      */
     @objid ("8fb871e3-c068-11e1-8c0a-002564c97630")
     @Inject
     @Optional
     void onProjectClosed(@EventTopic (ModelioEventTopics.PROJECT_CLOSED) GProject closedProject) {
         if (closedProject == this.project) {
-            // Unregister blob provider
-            if (this.blobProvider != null) {
-                this.project.getSession().getBlobSupport().removeBlobProvider(this.blobProvider);
-                this.blobProvider = null;
-            }
-        
             removeModelListeners();
         
             this.project = null;
             this.modelService = null;
         }
+        
     }
 
     @objid ("06be8d36-16d1-11e2-aa0d-002564c97630")
@@ -255,13 +231,11 @@ public class ElementView implements IModelChangeListener, IStatusChangeListener 
         if (this.panel != null) {
             this.panel.getPanel().setFocus();
         }
+        
     }
 
     /**
-     * Called by the modelio application when a picking session starts. We 'pin'
-     * the view so that it is not responding to selection changes during the
-     * picking session.
-     * @param session
+     * Called by the modelio application when a picking session starts. We 'pin' the view so that it is not responding to selection changes during the picking session.
      */
     @objid ("06be8d39-16d1-11e2-aa0d-002564c97630")
     @Inject
@@ -270,12 +244,11 @@ public class ElementView implements IModelChangeListener, IStatusChangeListener 
     void onPickingStart(@EventTopic (ModelioEventTopics.PICKING_START) final IPickingSession session) {
         // Temporary pin the view when picking is in progress
         this.panel.setPinned(true);
+        
     }
 
     /**
-     * Called by the modelio application when a picking session ends. We
-     * 'un-pin' the view so restore the response to selection changes.
-     * @param session
+     * Called by the modelio application when a picking session ends. We 'un-pin' the view so restore the response to selection changes.
      */
     @objid ("06beb44b-16d1-11e2-aa0d-002564c97630")
     @Inject
@@ -284,6 +257,7 @@ public class ElementView implements IModelChangeListener, IStatusChangeListener 
     void onPickingSessionStop(@EventTopic (ModelioEventTopics.PICKING_STOP) final IPickingSession session) {
         // Unpin the view
         this.panel.setPinned(false);
+        
     }
 
     /**
@@ -322,6 +296,7 @@ public class ElementView implements IModelChangeListener, IStatusChangeListener 
             this.configurator.loadConfiguration(this.panel);
             configureMenuItem();
         }
+        
     }
 
     /**
@@ -347,6 +322,7 @@ public class ElementView implements IModelChangeListener, IStatusChangeListener 
         // hideMenu);
         // fragmentsMenuItem.setSelected(this.configurator.areHiddenMdaElementsDisplayed());
         // }
+        
     }
 
     @objid ("93d2c6e4-7ce6-4d3b-9bf5-f4af115ddf64")
@@ -361,6 +337,7 @@ public class ElementView implements IModelChangeListener, IStatusChangeListener 
         // Automatically generated method. Please delete this comment before
         // entering specific code.
         this.menuService = value;
+        
     }
 
     @objid ("147b931d-17dd-4194-8bf0-0e686ef67f94")
@@ -373,6 +350,7 @@ public class ElementView implements IModelChangeListener, IStatusChangeListener 
         
             });
         }
+        
     }
 
     @objid ("6eee49d3-a7cc-4da8-93a0-96ff440f0089")
@@ -383,6 +361,7 @@ public class ElementView implements IModelChangeListener, IStatusChangeListener 
                 this.panel.setInput(this.currentSelection);
             });
         }
+        
     }
 
     /**
@@ -402,70 +381,11 @@ public class ElementView implements IModelChangeListener, IStatusChangeListener 
             this.project.getSession().getModelChangeSupport().removeModelChangeListener(this);
             this.project.getSession().getModelChangeSupport().removeStatusChangeListener(this);
         }
+        
     }
 
     /**
-     * Blob provider for Stereotype icon and image.
-     */
-    @objid ("08a2878f-b2b0-4e49-a688-b9ca91483ad4")
-    private static final class StereotypeIconsBlobProvider implements IBlobProvider {
-        @objid ("5fdcab68-6b97-4552-a4b5-eb48ddaafda9")
-        @Override
-        public Collection<String> getRelatedBlobs(MObject obj) {
-            List<String> blobKeys = new ArrayList<>();
-            if (obj instanceof Stereotype) {
-                blobKeys.add(getIconKey(obj));
-                blobKeys.add(getImageKey(obj));
-            }
-            return blobKeys;
-        }
-
-        @objid ("3d4cad60-9d95-4e59-9e5b-10afc367a8b5")
-        @Override
-        public void objectCopied(MObject from, IRepository fromRepo, MObject to, IRepository toRepo) {
-            if (from instanceof Stereotype) {
-                IBlobInfo toInfo = new BlobInfo(getIconKey(to), "icon for " + to.getName());
-                BlobCopier.copy(getIconKey(from), fromRepo, toInfo, toRepo);
-            
-                toInfo = new BlobInfo(getImageKey(to), "image for " + to.getName());
-                BlobCopier.copy(getImageKey(from), fromRepo, toInfo, toRepo);
-            }
-        }
-
-        @objid ("9fc1c6a1-37b6-43db-a7bb-81f759dd2259")
-        @Override
-        public void objectsMoved(Collection<? extends MObject> objs, IRepository fromRepo, IRepository destRepo) {
-            for (MObject obj : objs) {
-                if (obj instanceof Stereotype) {
-                    String blobKey = getIconKey(obj);
-                    BlobCopier.move(blobKey, fromRepo, destRepo);
-            
-                    blobKey = getImageKey(obj);
-                    BlobCopier.move(blobKey, fromRepo, destRepo);
-                }
-            }
-        }
-
-        @objid ("26b6850f-251f-489e-8731-1166d4556d21")
-        private String getIconKey(MObject obj) {
-            return obj.getUuid() + ".icon";
-        }
-
-        @objid ("1ede781f-bdd7-4dbc-ac8d-e6baef0510f4")
-        private String getImageKey(MObject obj) {
-            return obj.getUuid() + ".image";
-        }
-
-        @objid ("52a7679d-40dd-44fb-9e7d-6275b0a3f8d8")
-        public StereotypeIconsBlobProvider() {
-            super();
-        }
-
-    }
-
-    /**
-     * Manage the preferences for the view. Preferences are project scoped.
-     * Right now, the unique preference currently managed is:
+     * Manage the preferences for the view. Preferences are project scoped. Right now, the unique preference currently managed is:
      * <ul>
      * <li>SHOW_HIDDEN_MDA_ELEMENTS.</li>
      * </ul>
@@ -490,6 +410,7 @@ public class ElementView implements IModelChangeListener, IStatusChangeListener 
             if (prefs != null) {
                 prefs.setValue(PropertyViewConfigurator.SHOW_HIDDEN_MDA_ELEMENTS, isShown);
             }
+            
         }
 
         @objid ("412a7fee-8d3f-4dc3-b424-a092ae484a44")
@@ -498,10 +419,11 @@ public class ElementView implements IModelChangeListener, IStatusChangeListener 
             if (prefs != null) {
                 panel.setShowHiddenMdaElements(prefs.getBoolean(PropertyViewConfigurator.SHOW_HIDDEN_MDA_ELEMENTS));
             }
+            
         }
 
         @objid ("f639c91d-23b7-4d68-8fc7-3e3e9241d8e6")
-        public PropertyViewConfigurator(IProjectService projectService, MPart part) {
+        public  PropertyViewConfigurator(IProjectService projectService, MPart part) {
             this.projectService = projectService;
             this.part = part;
             
@@ -509,6 +431,7 @@ public class ElementView implements IModelChangeListener, IStatusChangeListener 
             if (prefs != null) {
                 prefs.setDefault(PropertyViewConfigurator.SHOW_HIDDEN_MDA_ELEMENTS, PropertyViewConfigurator.SHOW_HIDDEN_MDA_ELEMENTS_DEFAULT);
             }
+            
         }
 
         @objid ("a1da02dc-21bc-4be3-8909-51bc6b4f1b03")
@@ -527,6 +450,7 @@ public class ElementView implements IModelChangeListener, IStatusChangeListener 
             } else {
                 return null;
             }
+            
         }
 
     }

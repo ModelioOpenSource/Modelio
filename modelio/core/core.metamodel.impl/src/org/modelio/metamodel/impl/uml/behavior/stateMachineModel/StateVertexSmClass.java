@@ -17,20 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.stateMachineModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.RegionSmClass;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.StateVertexData;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.TransitionSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.Region;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.StateVertex;
@@ -60,7 +57,7 @@ public class StateVertexSmClass extends UmlModelElementSmClass {
     private SmDependency parentDep;
 
     @objid ("621dd0a0-7ffb-494d-97bf-8a5e8393d105")
-    public StateVertexSmClass(ISmMetamodelFragment origin) {
+    public  StateVertexSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -68,6 +65,7 @@ public class StateVertexSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "StateVertex";
+        
     }
 
     @objid ("87ae1164-330f-433d-a4a6-e1b49bb6ecf5")
@@ -80,18 +78,21 @@ public class StateVertexSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return StateVertex.class;
+        
     }
 
     @objid ("d66c23da-0d86-442c-862f-2c68b652e662")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("d0ac53c6-e0be-4612-9066-921ad46cde30")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("ce044740-1039-4230-912c-3fdd152aff95")
@@ -115,6 +116,8 @@ public class StateVertexSmClass extends UmlModelElementSmClass {
         this.parentDep = new ParentSmDependency();
         this.parentDep.init("Parent", this, metamodel.getMClass(Region.MQNAME), 0, 1 );
         registerDependency(this.parentDep);
+        
+        
     }
 
     @objid ("4bda5bcb-c4b0-4a5b-a3ee-d32aaba9db49")
@@ -147,7 +150,7 @@ public class StateVertexSmClass extends UmlModelElementSmClass {
         private StateVertexSmClass smClass;
 
         @objid ("4c6da4f3-36db-4acc-a1ad-927c4b1b682d")
-        public StateVertexObjectFactory(StateVertexSmClass smClass) {
+        public  StateVertexObjectFactory(StateVertexSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -180,6 +183,7 @@ public class StateVertexSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((StateVertexData) data).mOutGoing = values;
+            
         }
 
         @objid ("e86cff6c-18f8-4097-8537-b9a5e7ae2174")
@@ -189,6 +193,7 @@ public class StateVertexSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((TransitionSmClass)this.getTarget()).getSourceDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -208,6 +213,7 @@ public class StateVertexSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((StateVertexData) data).mIncoming = values;
+            
         }
 
         @objid ("d7b450e0-cb0d-467b-bd52-549178dac166")
@@ -217,6 +223,7 @@ public class StateVertexSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((TransitionSmClass)this.getTarget()).getTargetDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -245,6 +252,7 @@ public class StateVertexSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((RegionSmClass)this.getTarget()).getSubDep();
             }
             return this.symetricDep;
+            
         }
 
     }

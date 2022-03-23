@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.project.creation;
 
 import java.io.File;
@@ -61,11 +60,10 @@ public class ProjectNameValidator implements IInputValidator {
 
     /**
      * Default constructor.
-     * 
      * @param workspace The Modelio work space.
      */
     @objid ("00463886-cc35-1ff2-a7f4-001ec947cd2a")
-    public ProjectNameValidator(final Path workspace) {
+    public  ProjectNameValidator(final Path workspace) {
         this.workspace = workspace;
     }
 

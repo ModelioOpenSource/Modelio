@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.List;
@@ -32,19 +32,19 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("00859e2c-c4be-1fd8-97fe-001ec947cd2a")
 public class ConstraintData extends UmlModelElementData {
     @objid ("d768eb70-0b5c-4d82-a8f8-bb7448da2831")
-     Object mBaseClass = "";
+    Object mBaseClass = "";
 
     @objid ("81a53081-a620-4c98-bf1a-c73c13ce47f6")
-     Object mBody = "";
+    Object mBody = "";
 
     @objid ("0c7568aa-1721-4b8d-a238-1962f1074fd3")
-     Object mLanguage = "";
+    Object mLanguage = "";
 
     @objid ("b3e4b944-5a6e-4f6a-abc5-3c751d89e2e6")
-     List<SmObjectImpl> mConstrainedElement = null;
+    List<SmObjectImpl> mConstrainedElement = null;
 
     @objid ("a3ab7b49-7e10-4e6b-b51b-c3712237036c")
-    public ConstraintData(ConstraintSmClass smClass) {
+    public  ConstraintData(ConstraintSmClass smClass) {
         super(smClass);
     }
 

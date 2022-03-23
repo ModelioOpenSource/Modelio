@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.requiredinterface;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -122,6 +121,7 @@ public class RequiredInterfaceLinkEditPart extends LinkToVoidEditPart {
         
         // Allow connection of provided interfaces to this required interface.
         installEditPolicy(EditPolicy.NODE_ROLE, new ConnectProvToReqEditPolicy());
+        
     }
 
     /**
@@ -140,7 +140,8 @@ public class RequiredInterfaceLinkEditPart extends LinkToVoidEditPart {
         private Point location = new Point();
 
         @objid ("3680a405-55b7-11e2-877f-002564c97630")
-        public RequiredInterfaceDeco() {
+        public  RequiredInterfaceDeco() {
+            
         }
 
         @objid ("3680a407-55b7-11e2-877f-002564c97630")
@@ -152,6 +153,7 @@ public class RequiredInterfaceLinkEditPart extends LinkToVoidEditPart {
             this.rotation = Math.atan2(pt.y, pt.x);
             
             updateBounds();
+            
         }
 
         @objid ("3680a40c-55b7-11e2-877f-002564c97630")
@@ -159,6 +161,7 @@ public class RequiredInterfaceLinkEditPart extends LinkToVoidEditPart {
         public void setLocation(final Point p) {
             this.location.setLocation(p);
             updateBounds();
+            
         }
 
         /**
@@ -169,6 +172,7 @@ public class RequiredInterfaceLinkEditPart extends LinkToVoidEditPart {
         private void updateBounds() {
             final Dimension halfSize = getBounds().getSize().scale(0.5);
             super.setLocation(new Point(this.location.x - halfSize.width, this.location.y - halfSize.height));
+            
         }
 
         @objid ("3680a414-55b7-11e2-877f-002564c97630")
@@ -179,6 +183,7 @@ public class RequiredInterfaceLinkEditPart extends LinkToVoidEditPart {
             r.setBounds(getBounds());
             r.resize(-1, -1);
             g.drawArc(r, angle - 90, 180);
+            
         }
 
         @objid ("8e640f6e-e7db-4fc5-a15d-ba7c60f96216")
@@ -201,7 +206,7 @@ public class RequiredInterfaceLinkEditPart extends LinkToVoidEditPart {
          * Creates the figure.
          */
         @objid ("3680a41e-55b7-11e2-877f-002564c97630")
-        public RequiredInterfaceFigure() {
+        public  RequiredInterfaceFigure() {
             super();
             
             final RequiredInterfaceDeco dec = new RequiredInterfaceDeco();
@@ -211,6 +216,7 @@ public class RequiredInterfaceLinkEditPart extends LinkToVoidEditPart {
             // Set style independent properties
             dec.setOpaque(true);
             dec.setSize(REQUIRED_DIAM, REQUIRED_DIAM);
+            
         }
 
         @objid ("3680a421-55b7-11e2-877f-002564c97630")
@@ -238,6 +244,7 @@ public class RequiredInterfaceLinkEditPart extends LinkToVoidEditPart {
             
                 points.setPoint(p2, nbPoints - 1);
             }
+            
         }
 
         @objid ("3680a424-55b7-11e2-877f-002564c97630")
@@ -264,9 +271,10 @@ public class RequiredInterfaceLinkEditPart extends LinkToVoidEditPart {
         private Connection fig;
 
         @objid ("3680a431-55b7-11e2-877f-002564c97630")
-        public LastConnectionPointAnchor(final Connection fig) {
+        public  LastConnectionPointAnchor(final Connection fig) {
             super(fig);
             this.fig = fig;
+            
         }
 
         @objid ("3680a435-55b7-11e2-877f-002564c97630")

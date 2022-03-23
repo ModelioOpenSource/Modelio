@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.acceptsignal;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,21 +29,21 @@ import org.modelio.uml.activitydiagram.editor.style.ActivityAbstractStyleKeyProv
 @objid ("2977f5f0-55b6-11e2-877f-002564c97630")
 public class GmAcceptSignalImageStyleKeys extends ActivityAbstractStyleKeyProvider {
     @objid ("d0e1e2ca-55c0-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmAcceptSignalStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmAcceptSignalStructuredStyleKeys.REPMODE;
 
     @objid ("d0e1e2cc-55c0-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmAcceptSignalStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmAcceptSignalStructuredStyleKeys.FONT;
 
     @objid ("d0e1e2ce-55c0-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmAcceptSignalStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmAcceptSignalStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("d0e1e2d0-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmAcceptSignalStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmAcceptSignalStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("d0e1e2d2-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmAcceptSignalStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmAcceptSignalStructuredStyleKeys.SHOWTAGS;
 
     @objid ("d0e1e2d4-55c0-11e2-9337-002564c97630")
-     static final StyleKey AUTOSHOWPINS = GmAcceptSignalStructuredStyleKeys.AUTOSHOWPINS;
+    static final StyleKey AUTOSHOWPINS = GmAcceptSignalStructuredStyleKeys.AUTOSHOWPINS;
 
 }

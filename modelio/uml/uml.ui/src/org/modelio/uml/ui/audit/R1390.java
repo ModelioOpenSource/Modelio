@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.audit;
 
 import java.util.ArrayList;
@@ -68,6 +67,7 @@ public class R1390 extends AbstractUmlRule {
     public void autoRegister(UmlAuditPlan plan) {
         plan.registerRule(Attribute.MQNAME, this, AuditTrigger.UPDATE);
         plan.registerRule(InputPin.MQNAME, this, AuditTrigger.UPDATE);
+        
     }
 
     /**
@@ -101,14 +101,14 @@ public class R1390 extends AbstractUmlRule {
      * Default constructor for R1390
      */
     @objid ("eef9020c-d759-4f6a-bfe4-011339b9f5fc")
-    public R1390() {
+    public  R1390() {
         this.checkerInstance = new CheckR1390(this);
     }
 
     @objid ("daea0ae0-3c49-4223-94e5-e12ea997d087")
     private static class CheckR1390 extends AbstractControl {
         @objid ("ba3c5701-fc33-4c2f-8ff5-6d60d51cc6cc")
-        public CheckR1390(IRule rule) {
+        public  CheckR1390(IRule rule) {
             super(rule);
         }
 
@@ -152,7 +152,6 @@ public class R1390 extends AbstractUmlRule {
 
         /**
          * If an Attribute is updated and this Attribute is represented in an InputPin, we need to check the rule on this InputPin.
-         * 
          * @param attribute The updated Attribute.
          * @return A list of audit entry for each InputPin representing the Attribute.
          */

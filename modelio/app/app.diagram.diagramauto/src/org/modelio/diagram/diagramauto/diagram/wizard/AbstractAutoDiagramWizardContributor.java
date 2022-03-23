@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.diagramauto.diagram.wizard;
 
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.modelio.api.module.contributor.diagramcreation.AbstractDiagramWizardContributor;
 import org.modelio.api.ui.viewtemplate.IModelViewTemplate;
@@ -72,6 +71,7 @@ public abstract class AbstractAutoDiagramWizardContributor extends AbstractDiagr
             diagram.putNoteContent("ModelerModule", ModelElement.MQNAME, "description", diagramDescription);
             return diagram;
         }
+        
     }
 
     @objid ("f178b37e-78df-4a5d-99bd-d0fe80017560")
@@ -99,6 +99,7 @@ public abstract class AbstractAutoDiagramWizardContributor extends AbstractDiagr
         } else {
             return true;
         }
+        
     }
 
 }

@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.stateMachineModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.AbstractPseudoStateSmClass;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.AbstractPseudoState;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.JoinPseudoState;
 import org.modelio.vbasic.version.Version;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("ad158599-e4d5-48f9-8d7a-9611ad5776cb")
 public class JoinPseudoStateSmClass extends AbstractPseudoStateSmClass {
     @objid ("1d3286b5-1659-429a-91ae-6c8ada4ef581")
-    public JoinPseudoStateSmClass(ISmMetamodelFragment origin) {
+    public  JoinPseudoStateSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class JoinPseudoStateSmClass extends AbstractPseudoStateSmClass {
     @Override
     public String getName() {
         return "JoinPseudoState";
+        
     }
 
     @objid ("9133c6d3-c84e-43e7-a998-af5d53a4067f")
@@ -62,18 +62,21 @@ public class JoinPseudoStateSmClass extends AbstractPseudoStateSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return JoinPseudoState.class;
+        
     }
 
     @objid ("dec71aaf-015d-44c7-8ef1-6a04b6a63e9d")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("dd510a5a-f722-4f6e-9c25-99b734ff3760")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("4e10cb78-1452-48e9-a847-1057c49e2bbb")
@@ -86,6 +89,7 @@ public class JoinPseudoStateSmClass extends AbstractPseudoStateSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("c0d07e40-271c-4c2b-a530-c82550a1c64a")
@@ -94,7 +98,7 @@ public class JoinPseudoStateSmClass extends AbstractPseudoStateSmClass {
         private JoinPseudoStateSmClass smClass;
 
         @objid ("690824dd-6e95-40f4-8d78-469473cd2c41")
-        public JoinPseudoStateObjectFactory(JoinPseudoStateSmClass smClass) {
+        public  JoinPseudoStateObjectFactory(JoinPseudoStateSmClass smClass) {
             this.smClass = smClass;
         }
 

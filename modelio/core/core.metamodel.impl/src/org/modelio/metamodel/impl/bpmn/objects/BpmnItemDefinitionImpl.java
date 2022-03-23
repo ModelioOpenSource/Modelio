@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.objects;
 
 import java.util.ArrayList;
@@ -35,7 +35,6 @@ import org.modelio.metamodel.bpmn.objects.BpmnItemAwareElement;
 import org.modelio.metamodel.bpmn.objects.BpmnItemDefinition;
 import org.modelio.metamodel.bpmn.objects.BpmnItemKind;
 import org.modelio.metamodel.bpmn.resources.BpmnResourceParameter;
-import org.modelio.metamodel.impl.bpmn.objects.BpmnItemDefinitionData;
 import org.modelio.metamodel.impl.bpmn.rootElements.BpmnSharedElementImpl;
 import org.modelio.metamodel.visitors.IModelVisitor;
 import org.modelio.vcore.smkernel.SmConstrainedList;
@@ -91,6 +90,7 @@ public class BpmnItemDefinitionImpl extends BpmnSharedElementImpl implements Bpm
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("0eb12a21-777a-478c-9077-7df6a41eee1f")
@@ -112,6 +112,7 @@ public class BpmnItemDefinitionImpl extends BpmnSharedElementImpl implements Bpm
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("09288759-e3c3-4ab3-91d9-8e5a469c3f5e")
@@ -133,6 +134,7 @@ public class BpmnItemDefinitionImpl extends BpmnSharedElementImpl implements Bpm
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("11a1b092-56bc-40b3-9956-b4adbadae203")

@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.production.process;
 
 import java.util.Map;
-import javax.xml.namespace.QName;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.xml.namespace.QName;
 import org.modelio.bpmnxml.model.TCollaboration;
 import org.modelio.bpmnxml.model.TParticipant;
 import org.modelio.bpmnxml.model.TParticipantMultiplicity;
@@ -38,7 +37,7 @@ import org.modelio.vcore.session.impl.CoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("8008ace9-f7b2-4570-b70f-4ca88a115f2e")
-public class ParticipantNode implements IProductionNode<BpmnParticipant,TParticipant> {
+public class ParticipantNode implements IProductionNode<BpmnParticipant, TParticipant> {
     @objid ("bd2a909d-0f1a-46d4-858c-9a7d5bd91a09")
     private Map<String, Object> elementsMap;
 
@@ -69,6 +68,7 @@ public class ParticipantNode implements IProductionNode<BpmnParticipant,TPartici
         } else {
             return factory.create(BpmnParticipant.class, context);
         }
+        
     }
 
     @objid ("667eb8d3-95e6-426a-8098-062e3995f395")

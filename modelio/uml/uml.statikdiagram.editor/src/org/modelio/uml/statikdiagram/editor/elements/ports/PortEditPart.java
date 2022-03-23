@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.ports;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.PositionConstants;
-import org.modelio.diagram.elements.common.portcontainer.PortConstraint.Border;
 import org.modelio.diagram.elements.common.portcontainer.PortConstraint;
+import org.modelio.diagram.elements.common.portcontainer.PortConstraint.Border;
 import org.modelio.diagram.elements.common.portcontainer.PortContainerEditPart;
 import org.modelio.diagram.elements.core.model.GmAbstractObject;
 
@@ -39,6 +38,7 @@ public class PortEditPart extends PortContainerEditPart {
     protected void refreshVisuals() {
         super.refreshVisuals();
         refreshOrientation();
+        
     }
 
     @objid ("364b3c2f-55b7-11e2-877f-002564c97630")
@@ -52,6 +52,7 @@ public class PortEditPart extends PortContainerEditPart {
                 updateMainNodeOrientation(mainNodeModel, border);
             }
         }
+        
     }
 
     @objid ("364b3c31-55b7-11e2-877f-002564c97630")
@@ -86,6 +87,7 @@ public class PortEditPart extends PortContainerEditPart {
                 mainNodeModel.setPosition(PositionConstants.NONE);
                 break;
         }
+        
     }
 
 }

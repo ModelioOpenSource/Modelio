@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmncallactivity;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,6 +35,7 @@ public class BpmnCallActivityHeaderEditPart extends ModelElementHeaderEditPart {
         WrappedHeaderFigure fig = (WrappedHeaderFigure) getFigure();
         final GmBpmnCallActivityHeader noteModel = (GmBpmnCallActivityHeader) getModel();
         fig.setLeftIcons(noteModel.getRepresentedIcon());
+        
     }
 
 }

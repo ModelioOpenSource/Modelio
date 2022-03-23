@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.util;
 
 import java.util.ArrayList;
@@ -67,6 +66,7 @@ public class XMIEAnnotation {
             prop.setDefault(fieldContent);
             ea.getContents().add(prop);
         }
+        
     }
 
     @objid ("43202b11-4d06-4895-94c2-b2059f0b97d9")
@@ -161,6 +161,7 @@ public class XMIEAnnotation {
         
             ea.getContents().add(prop);
         }
+        
     }
 
     @objid ("600e457f-e0b9-412a-b1aa-b96113cf2631")
@@ -191,6 +192,7 @@ public class XMIEAnnotation {
             }
         
         }
+        
     }
 
     @objid ("21371758-af13-4138-8b64-31c194d3b813")
@@ -251,6 +253,7 @@ public class XMIEAnnotation {
             }
         
         }
+        
     }
 
     @objid ("fb4cc62c-1bfa-459a-b845-09f79a6ae83a")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.api.model;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,7 +29,6 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IMObjectFilter {
     /**
      * This method checks if an element is accepted.
-     * 
      * @param element the element to check.
      * @return <code>true</code> if the element is accepted.
      */

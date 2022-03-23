@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt;
 
 import java.io.IOException;
@@ -26,10 +25,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StyleRange;
 import org.eclipse.swt.custom.StyledText;
@@ -98,7 +97,6 @@ public class StyledTextHelper {
      * Interprets the potentially HTML text and set the text and style ranges of a StyledText.
      * <p>
      * The text must begin with "&lt;html&gt;" to be interpreted as HTML.
-     * 
      * @param htmlText the HTML text.
      * @param widget the StyledText to fill.
      */
@@ -128,11 +126,11 @@ public class StyledTextHelper {
             CoreUi.LOG.warning(e);
             widget.setText("<!--"+FileUtils.getLocalizedMessage(e)+"-->\n"+htmlText);
         }
+        
     }
 
     /**
      * This main method can be used to test the StyledTextHelper class.
-     * 
      * @param args unused
      */
     @objid ("e3b38947-0556-42ad-ad9b-d72930210be6")
@@ -153,6 +151,7 @@ public class StyledTextHelper {
         while (!shell.isDisposed())
             if (!display.readAndDispatch())
                 display.sleep();
+        
     }
 
     /**
@@ -194,13 +193,14 @@ public class StyledTextHelper {
         }
 
         @objid ("db739d8d-7807-45d4-b3e0-2de49b400026")
-        HtmlTextContentHandler() {
+         HtmlTextContentHandler() {
             this.formatStack = new Stack<>();
             this.formatStack.push(new Format());
             this.lastTextChunk = new StringBuilder();
             
             this.styleRanges = new ArrayList<>();
             this.textBuilder = new StringBuilder();
+            
         }
 
         /**
@@ -280,6 +280,7 @@ public class StyledTextHelper {
             default:
             
             }
+            
         }
 
         @objid ("81efc2a6-450c-4d2c-9960-4ba8033dccb3")
@@ -295,6 +296,7 @@ public class StyledTextHelper {
             StyleRange r = createStyleRange(format, currentIndex(), s.length());
             this.textBuilder.append(s);
             this.styleRanges.add(r);
+            
         }
 
         /**
@@ -306,6 +308,7 @@ public class StyledTextHelper {
             produce(this.lastTextChunk.toString(), getFormat());
             this.lastTextChunk = new StringBuilder();
             super.endDocument();
+            
         }
 
         /**
@@ -353,6 +356,7 @@ public class StyledTextHelper {
             
             produce(this.lastTextChunk.toString(), currentFormat);
             this.lastTextChunk = new StringBuilder();
+            
         }
 
         /**
@@ -474,7 +478,7 @@ public class StyledTextHelper {
         }
 
         @objid ("c824fb35-9512-4abd-9880-bd225bc8a497")
-        private Format(Format f) {
+        private  Format(Format f) {
             this.fontSize = f.fontSize;
             this.foreground = f.foreground;
             this.background = f.background;
@@ -487,10 +491,11 @@ public class StyledTextHelper {
             this.borderColor = f.borderColor;
             this.bold = f.bold;
             this.italic = f.italic;
+            
         }
 
         @objid ("9cea3b24-aa1f-4094-930a-b47c3a31a100")
-        public Format() {
+        public  Format() {
             this.fontSize = -1;
             this.foreground = null;
             this.background = null;
@@ -503,6 +508,7 @@ public class StyledTextHelper {
             this.borderColor = null;
             this.bold = false;
             this.italic = false;
+            
         }
 
         @objid ("0baa6e86-7f1c-41d4-8d23-1b3a9ea523d7")
@@ -513,6 +519,7 @@ public class StyledTextHelper {
                     this.italic ? "i" : "-",
                     this.underline ? "u" : "-",
                     this.strikeout ? "s" : "-");
+            
         }
 
         @objid ("5046d6a0-cbdd-4bc8-8010-2104b783f2b6")
@@ -550,13 +557,13 @@ public class StyledTextHelper {
                     }
                 }
             }
+            
         }
 
         /**
          * Convert a HTML color value into a color.
          * 
          * Only the hexadecimal #XXXXXX syntax is supported.
-         * 
          * @param s doc
          * @return the color 2
          */
@@ -573,6 +580,7 @@ public class StyledTextHelper {
             } else {
                 return null;
             }
+            
         }
 
     }

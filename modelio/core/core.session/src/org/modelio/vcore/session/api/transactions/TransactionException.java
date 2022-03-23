@@ -17,11 +17,9 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.api.transactions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.vcore.session.api.transactions.ITransactionSupport;
 
 /**
  * Root class for all transaction exceptions thrown by {@link ITransactionSupport}.
@@ -39,7 +37,7 @@ public abstract class TransactionException extends RuntimeException {
      * later retrieval by the {@link #getMessage()} method.
      */
     @objid ("006d4d22-0d1e-1f20-85a5-001ec947cd2a")
-    public TransactionException(final String message) {
+    public  TransactionException(final String message) {
         super(message);
     }
 
@@ -56,7 +54,7 @@ public abstract class TransactionException extends RuntimeException {
      * unknown.)
      */
     @objid ("4247e9e8-1933-4615-875f-9e37651ce755")
-    public TransactionException(String message, Throwable cause) {
+    public  TransactionException(String message, Throwable cause) {
         super(message, cause);
     }
 

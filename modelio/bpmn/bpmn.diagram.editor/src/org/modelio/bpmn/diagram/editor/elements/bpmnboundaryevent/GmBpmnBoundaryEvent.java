@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnboundaryevent;
 
 import java.util.Collections;
@@ -41,9 +40,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("608373d6-55b6-11e2-877f-002564c97630")
 public class GmBpmnBoundaryEvent extends GmPortContainer {
-    @objid ("6084fa3d-55b6-11e2-877f-002564c97630")
-    private BpmnBoundaryEvent element;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -53,8 +49,11 @@ public class GmBpmnBoundaryEvent extends GmPortContainer {
     @objid ("6084fa43-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
 
+    @objid ("6084fa3d-55b6-11e2-877f-002564c97630")
+    private BpmnBoundaryEvent element;
+
     @objid ("c549e44d-59a6-11e2-ae45-002564c97630")
-     static final GmBpmnBoundaryEventStructuredStyleKeys STRUCTURED_KEYS = new GmBpmnBoundaryEventStructuredStyleKeys();
+    static final GmBpmnBoundaryEventStructuredStyleKeys STRUCTURED_KEYS = new GmBpmnBoundaryEventStructuredStyleKeys();
 
     @objid ("c549e44f-59a6-11e2-ae45-002564c97630")
     private static final GmBpmnBoundaryEventSimpleStyleKeys SIMPLE_KEYS = new GmBpmnBoundaryEventSimpleStyleKeys();
@@ -67,13 +66,12 @@ public class GmBpmnBoundaryEvent extends GmPortContainer {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the timeEvent is unmasked.
      * @param el the unmasked timeEvent.
      * @param ref a reference to the unmasked timeEvent.
      */
     @objid ("6084fa45-55b6-11e2-877f-002564c97630")
-    public GmBpmnBoundaryEvent(IGmDiagram diagram, BpmnBoundaryEvent el, MRef ref) {
+    public  GmBpmnBoundaryEvent(IGmDiagram diagram, BpmnBoundaryEvent el, MRef ref) {
         super(diagram, ref);
         
         GmBpmnBoundaryEventPrimaryNode mainNode = new GmBpmnBoundaryEventPrimaryNode(diagram, ref);
@@ -85,6 +83,7 @@ public class GmBpmnBoundaryEvent extends GmPortContainer {
         label.setRoleInComposition(GmPortContainer.SATELLITE_ROLE);
         label.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         this.addChild(label);
+        
     }
 
     @objid ("6084fa51-55b6-11e2-877f-002564c97630")
@@ -114,6 +113,7 @@ public class GmBpmnBoundaryEvent extends GmPortContainer {
         default:
             return null;
         }
+        
     }
 
     @objid ("6084fa6a-55b6-11e2-877f-002564c97630")
@@ -131,13 +131,14 @@ public class GmBpmnBoundaryEvent extends GmPortContainer {
         default:
             return Collections.emptyList();
         }
+        
     }
 
     /**
      * Empty constructor needed for deserialisation.
      */
     @objid ("6084fa72-55b6-11e2-877f-002564c97630")
-    public GmBpmnBoundaryEvent() {
+    public  GmBpmnBoundaryEvent() {
         // Nothing specific to do.
     }
 
@@ -158,6 +159,7 @@ public class GmBpmnBoundaryEvent extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("6084fa7b-55b6-11e2-877f-002564c97630")
@@ -179,12 +181,14 @@ public class GmBpmnBoundaryEvent extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmBpmnBoundaryEvent.", MINOR_VERSION);
+        
     }
 
     @objid ("608680f5-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (BpmnBoundaryEvent) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("608680fa-55b6-11e2-877f-002564c97630")
@@ -195,7 +199,6 @@ public class GmBpmnBoundaryEvent extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -207,7 +210,6 @@ public class GmBpmnBoundaryEvent extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

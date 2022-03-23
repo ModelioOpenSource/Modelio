@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.commands;
 
 import java.util.Map;
@@ -45,7 +44,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 @objid ("7f47c869-1dec-11e2-8cad-001ec947c8cc")
 public class SimpleModeDeferredCreateCommand extends Command {
     @objid ("7f47c871-1dec-11e2-8cad-001ec947c8cc")
-    private Map<?,?> editPartRegistry;
+    private Map<?, ?> editPartRegistry;
 
     @objid ("7f47c870-1dec-11e2-8cad-001ec947c8cc")
     private GmCompositeNode gmComposite;
@@ -55,15 +54,15 @@ public class SimpleModeDeferredCreateCommand extends Command {
 
     /**
      * Create a deferred command.
-     * 
      * @param req The creation request.
      * @param sender The edit part sending the request
      */
     @objid ("7f47c875-1dec-11e2-8cad-001ec947c8cc")
-    public SimpleModeDeferredCreateCommand(CreateRequest req, EditPart sender) {
+    public  SimpleModeDeferredCreateCommand(CreateRequest req, EditPart sender) {
         this.req = req;
         this.gmComposite = (GmCompositeNode) sender.getModel();
         this.editPartRegistry = sender.getViewer().getEditPartRegistry();
+        
     }
 
     @objid ("7f47c87e-1dec-11e2-8cad-001ec947c8cc")
@@ -76,6 +75,7 @@ public class SimpleModeDeferredCreateCommand extends Command {
         } else {
             return false;
         }
+        
     }
 
     @objid ("7f47c882-1dec-11e2-8cad-001ec947c8cc")
@@ -93,11 +93,11 @@ public class SimpleModeDeferredCreateCommand extends Command {
                 autoSizeNode((GraphicalEditPart) sub);
             }
         }
+        
     }
 
     /**
      * Build and return the deferred command.
-     * 
      * @return the built command or null if it couldn't be built.
      */
     @objid ("7f47c885-1dec-11e2-8cad-001ec947c8cc")
@@ -130,9 +130,8 @@ public class SimpleModeDeferredCreateCommand extends Command {
 
     /**
      * Get the composite node in which the element will be really unmasked.
-     * 
      * @return the target node.
-     * @throws java.lang.IllegalArgumentException if the metaclass name of the element to create is invalid
+     * @throws IllegalArgumentException if the metaclass name of the element to create is invalid
      */
     @objid ("7f47c88c-1dec-11e2-8cad-001ec947c8cc")
     private GmCompositeNode getTargetNode() throws IllegalArgumentException {
@@ -167,6 +166,7 @@ public class SimpleModeDeferredCreateCommand extends Command {
             // Run fit to content to the found edit part.
             new FitToMinSizeCommand(graphicEditPart).execute();
         }
+        
     }
 
 }

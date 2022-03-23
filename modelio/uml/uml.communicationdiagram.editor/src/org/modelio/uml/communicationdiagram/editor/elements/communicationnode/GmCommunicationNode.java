@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.communicationdiagram.editor.elements.communicationnode;
 
 import java.util.Collections;
@@ -67,20 +66,19 @@ public class GmCommunicationNode extends GmPortContainer {
     private static final GmCommunicationNodeImageStyleKeys IMAGEKEYS = new GmCommunicationNodeImageStyleKeys();
 
     @objid ("0561fa7d-599a-11e2-ae45-002564c97630")
-     static final GmCommunicationNodeSimpleStyleKeys SIMPLEKEYS = new GmCommunicationNodeSimpleStyleKeys();
+    static final GmCommunicationNodeSimpleStyleKeys SIMPLEKEYS = new GmCommunicationNodeSimpleStyleKeys();
 
     @objid ("40a154ed-b7b6-4dfb-9bce-c57b686d1eaa")
     private static final GmCommunicationNodeUserImageStyleKeys USERIMAGE_KEYS = new GmCommunicationNodeUserImageStyleKeys();
 
     /**
      * Default constructor.
-     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param theCommunicationNode the represented object node, may be null.
      * @param ref a reference to the represented object node.
      */
     @objid ("7a52d031-55b6-11e2-877f-002564c97630")
-    public GmCommunicationNode(IGmDiagram diagram, CommunicationNode theCommunicationNode, MRef ref) {
+    public  GmCommunicationNode(IGmDiagram diagram, CommunicationNode theCommunicationNode, MRef ref) {
         super(diagram, ref);
         this.communicationNode = theCommunicationNode;
         
@@ -91,13 +89,14 @@ public class GmCommunicationNode extends GmPortContainer {
         imageModeHeader.setRoleInComposition(GmCommunicationNode.IMAGE_MODE_HEADER);
         imageModeHeader.setLayoutData(PositionConstants.SOUTH);
         addChild(imageModeHeader);
+        
     }
 
     /**
      * Empty constructor, needed for serialization.
      */
     @objid ("7a54569c-55b6-11e2-877f-002564c97630")
-    public GmCommunicationNode() {
+    public  GmCommunicationNode() {
         // empty constructor for the serialization
     }
 
@@ -154,6 +153,7 @@ public class GmCommunicationNode extends GmPortContainer {
         } else {
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("7a5456c0-55b6-11e2-877f-002564c97630")
@@ -173,6 +173,7 @@ public class GmCommunicationNode extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("7a5456c6-55b6-11e2-877f-002564c97630")
@@ -187,6 +188,7 @@ public class GmCommunicationNode extends GmPortContainer {
                 GmNodeModel imageModeHeader = getFirstChild(GmCommunicationNode.IMAGE_MODE_HEADER);
                 ret.remove(imageModeHeader);
                 break;
+            case USER_IMAGE:
             case IMAGE:
             default:
                 break;
@@ -209,12 +211,14 @@ public class GmCommunicationNode extends GmPortContainer {
         
         // Write version of this Gm if different of 0.
         GmAbstractObject.writeMinorVersion(out, "GmCommunicationNode.", Integer.valueOf(GmCommunicationNode.MINOR_VERSION));
+        
     }
 
     @objid ("7a55dd39-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.communicationNode = (CommunicationNode) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("7a55dd3e-55b6-11e2-877f-002564c97630")
@@ -225,7 +229,6 @@ public class GmCommunicationNode extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -237,7 +240,6 @@ public class GmCommunicationNode extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -255,6 +257,7 @@ public class GmCommunicationNode extends GmPortContainer {
         } else {
             super.addStartingLink(link);
         }
+        
     }
 
     @objid ("7a55dd64-55b6-11e2-877f-002564c97630")
@@ -265,15 +268,15 @@ public class GmCommunicationNode extends GmPortContainer {
         } else {
             super.addEndingLink(link);
         }
+        
     }
 
     /**
      * Migration constructor from major version 0, should only be called by migrator.
-     * 
      * @param oldVersionGm the instance to migrate from.
      */
     @objid ("7a55dd6b-55b6-11e2-877f-002564c97630")
-    GmCommunicationNode(final _GmCommunicationNode oldVersionGm) {
+     GmCommunicationNode(final _GmCommunicationNode oldVersionGm) {
         super(oldVersionGm.getDiagram(), oldVersionGm.getRepresentedRef());
         this.communicationNode = (CommunicationNode) oldVersionGm.getRepresentedElement();
         
@@ -284,6 +287,7 @@ public class GmCommunicationNode extends GmPortContainer {
         imageModeHeader.setRoleInComposition(GmCommunicationNode.IMAGE_MODE_HEADER);
         imageModeHeader.setLayoutData(PositionConstants.SOUTH);
         addChild(imageModeHeader);
+        
     }
 
     @objid ("b47a1a78-70c8-4f97-b44b-c18710c39b09")

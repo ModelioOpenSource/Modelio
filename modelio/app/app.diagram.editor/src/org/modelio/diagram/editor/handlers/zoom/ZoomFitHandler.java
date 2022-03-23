@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /**
  * 
  */
 package org.modelio.diagram.editor.handlers.zoom;
 
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.draw2d.ConnectionLayer;
 import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.FigureCanvas;
@@ -51,7 +50,7 @@ public class ZoomFitHandler {
      * C'tor.
      */
     @objid ("66628625-33f7-11e2-95fe-001ec947c8cc")
-    public ZoomFitHandler() {
+    public  ZoomFitHandler() {
         super();
     }
 
@@ -117,7 +116,6 @@ public class ZoomFitHandler {
 
     /**
      * Recurse through layers in order to find the DiagramFigure
-     * 
      * @param layer @return
      */
     @objid ("66628635-33f7-11e2-95fe-001ec947c8cc")

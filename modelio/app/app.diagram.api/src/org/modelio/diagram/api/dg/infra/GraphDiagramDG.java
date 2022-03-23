@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.api.dg.infra;
 
 import java.util.Collections;
@@ -36,12 +35,11 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 public class GraphDiagramDG extends DiagramDG {
     /**
      * Initialize the graph diagram graphic element.
-     * 
      * @param diagramHandle The diagram handle
      * @param node The internal graphic node representing the diagram.
      */
     @objid ("f6e01b64-65bd-438f-98de-a4df76c1fd84")
-    public GraphDiagramDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  GraphDiagramDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.labelum;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,6 @@ public interface ILabelumTextLayouter {
      * <p>
      * As side effect, the implementation may use and modify
      * {@link LabelumFigure#getTextDrawer()}.
-     * 
      * @param labelumFigure the LabelumFigure to format
      * @param origText the text to format/wrap
      * @param maxSize the maximum allowed text size. -1 means there is no maximum.

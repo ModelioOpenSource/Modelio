@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.versioned.load.sax.local;
 
 import java.util.ArrayList;
@@ -52,10 +51,10 @@ final class LocalDataModel implements ExmlTags {
     private int version;
 
     @objid ("b5c32bf7-3fbb-11e2-87cb-001ec947ccaf")
-     ILoadHelper loadHelper;
+    ILoadHelper loadHelper;
 
     @objid ("b5c32bf9-3fbb-11e2-87cb-001ec947ccaf")
-     IModelLoader modelLoader;
+    IModelLoader modelLoader;
 
     @objid ("b5c32bfb-3fbb-11e2-87cb-001ec947ccaf")
     private ObjectNode currentNode;
@@ -67,7 +66,7 @@ final class LocalDataModel implements ExmlTags {
     private Locator locator;
 
     @objid ("b5c32c0e-3fbb-11e2-87cb-001ec947ccaf")
-     static final List<SmObjectImpl> EMPTY_DEP = Collections.emptyList();
+    static final List<SmObjectImpl> EMPTY_DEP = Collections.emptyList();
 
     @objid ("ddd99329-407a-11e2-87cb-001ec947ccaf")
     private static final Collection<ObjectNode> EMPTY_NODES = Collections.emptyList();
@@ -77,14 +76,14 @@ final class LocalDataModel implements ExmlTags {
 
     /**
      * initialize the loader
-     * 
      * @param loadHelper a load helper
      */
     @objid ("b5c32c01-3fbb-11e2-87cb-001ec947ccaf")
-    public LocalDataModel(ILoadHelper loadHelper) {
+    public  LocalDataModel(ILoadHelper loadHelper) {
         this.loadHelper = loadHelper;
         this.modelLoader = null;
         this.nodes = EMPTY_NODES;
+        
     }
 
     /**
@@ -96,6 +95,7 @@ final class LocalDataModel implements ExmlTags {
         this.nodes.clear();
         this.currentNode = null;
         this.currentDepNode = null;
+        
     }
 
     @objid ("b5c32b8b-3fbb-11e2-87cb-001ec947ccaf")
@@ -108,6 +108,7 @@ final class LocalDataModel implements ExmlTags {
         
             this.currentDepNode.add (obj);
         }
+        
     }
 
     @objid ("b5c58ddd-3fbb-11e2-87cb-001ec947ccaf")
@@ -126,6 +127,7 @@ final class LocalDataModel implements ExmlTags {
             final SAXParseException cause = new SAXParseException("assertion failed", getLocator());
             throw new AssertionError(cause.getMessage(), cause);
         }
+        
     }
 
     @objid ("b5c32b83-3fbb-11e2-87cb-001ec947ccaf")
@@ -134,6 +136,7 @@ final class LocalDataModel implements ExmlTags {
             final SAXParseException cause = new SAXParseException(msg, getLocator());
             throw new AssertionError(cause.getMessage(), cause);
         }
+        
     }
 
     @objid ("b5c58dd8-3fbb-11e2-87cb-001ec947ccaf")
@@ -144,11 +147,11 @@ final class LocalDataModel implements ExmlTags {
         
         this.currentNode = new ObjectNode(id.toObjId());
         this.nodes.add(this.currentNode);
+        
     }
 
     /**
      * Initialize the document locator.
-     * 
      * @param aLocator a SAX locator.
      */
     @objid ("b5c58deb-3fbb-11e2-87cb-001ec947ccaf")
@@ -158,7 +161,6 @@ final class LocalDataModel implements ExmlTags {
 
     /**
      * initialize the model loader.
-     * 
      * @param modelLoader a model loader.
      */
     @objid ("b5c58def-3fbb-11e2-87cb-001ec947ccaf")
@@ -168,7 +170,6 @@ final class LocalDataModel implements ExmlTags {
 
     /**
      * Set the file format version.
-     * 
      * @param v the file format version.
      */
     @objid ("b5c58df6-3fbb-11e2-87cb-001ec947ccaf")
@@ -183,7 +184,6 @@ final class LocalDataModel implements ExmlTags {
 
     /**
      * Get the local content of a model object dependency
-     * 
      * @param obj a model object
      * @param dep a dependency
      * @return the dependency content or <code>null</code> if none.
@@ -205,7 +205,6 @@ final class LocalDataModel implements ExmlTags {
 
     /**
      * Get the dependencies for which there is a local content.
-     * 
      * @param obj a model object
      * @return all dependencies with a local content.
      */
@@ -248,7 +247,7 @@ final class LocalDataModel implements ExmlTags {
         }
 
         @objid ("ddd99311-407a-11e2-87cb-001ec947ccaf")
-        public ObjectNode(ObjId objid) {
+        public  ObjectNode(ObjId objid) {
             this.id = objid;
         }
 
@@ -277,15 +276,16 @@ final class LocalDataModel implements ExmlTags {
     @objid ("ddd992fa-407a-11e2-87cb-001ec947ccaf")
     static final class DepNode implements Content {
         @objid ("ddd992fc-407a-11e2-87cb-001ec947ccaf")
-         List<SmObjectImpl> content;
+        List<SmObjectImpl> content;
 
         @objid ("ddd992ff-407a-11e2-87cb-001ec947ccaf")
-         SmDependency dep;
+        SmDependency dep;
 
         @objid ("ddd99300-407a-11e2-87cb-001ec947ccaf")
-        public DepNode(SmDependency adep) {
+        public  DepNode(SmDependency adep) {
             this.dep = adep;
             this.content = new ArrayList<>();
+            
         }
 
         @objid ("ddd99303-407a-11e2-87cb-001ec947ccaf")

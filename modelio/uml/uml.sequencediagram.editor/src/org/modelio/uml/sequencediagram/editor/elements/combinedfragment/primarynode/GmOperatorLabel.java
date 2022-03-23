@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.combinedfragment.primarynode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -48,18 +47,17 @@ public class GmOperatorLabel extends GmElementLabel {
      * Empty c'tor for deserialisation.
      */
     @objid ("d8cfa7be-55b6-11e2-877f-002564c97630")
-    public GmOperatorLabel() {
+    public  GmOperatorLabel() {
         super();
     }
 
     /**
      * Main c'tor
-     * 
      * @param diagram the diagram in which this gm is created.
      * @param relatedRef a reference to the represented element.
      */
     @objid ("d8cfa7c1-55b6-11e2-877f-002564c97630")
-    public GmOperatorLabel(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmOperatorLabel(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -116,6 +114,7 @@ public class GmOperatorLabel extends GmElementLabel {
             break;
         }
         }
+        
     }
 
     @objid ("d8cfa7d7-55b6-11e2-877f-002564c97630")
@@ -125,6 +124,7 @@ public class GmOperatorLabel extends GmElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmOperatorLabel.", GmOperatorLabel.MINOR_VERSION);
+        
     }
 
     @objid ("d8cfa7dd-55b6-11e2-877f-002564c97630")

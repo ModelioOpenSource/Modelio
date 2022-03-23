@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.search.engine.searchers.inherit;
 
 import java.util.ArrayList;
@@ -45,7 +44,8 @@ import org.modelio.vcore.session.api.model.IMObjectFilter;
 @objid ("c3299bb4-d695-4b13-95df-e614f4ba4b68")
 public class InheritSearchEngine implements ISearchEngine {
     @objid ("190abfbd-ddaf-4c11-af72-369f3ad3a5f0")
-    public InheritSearchEngine() {
+    public  InheritSearchEngine() {
+        
     }
 
     @objid ("af51fbe2-b137-4815-bbf4-5d255b0eff3a")
@@ -96,6 +96,7 @@ public class InheritSearchEngine implements ISearchEngine {
                 }
             }
         }
+        
     }
 
     @objid ("093a148d-b708-4d9a-8d10-51b5c12a7830")
@@ -118,12 +119,12 @@ public class InheritSearchEngine implements ISearchEngine {
                 collectDerivedClasses(derived, results, processed, recurse);
             }
         }
+        
     }
 
     /**
      * Get the implementers of an interface
      * @param root
-     * 
      * @param recurse @return
      */
     @objid ("5db35c95-392c-4cba-a12b-82121c4f40d8")
@@ -158,6 +159,7 @@ public class InheritSearchEngine implements ISearchEngine {
                 }
             }
         }
+        
     }
 
     @objid ("05eade32-b6da-42a0-8c7b-75a53221a36b")

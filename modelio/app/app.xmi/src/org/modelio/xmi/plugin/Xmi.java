@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.plugin;
 
 import java.util.ResourceBundle;
@@ -34,7 +33,7 @@ import org.osgi.framework.ServiceReference;
  */
 @objid ("66331fcd-41ae-4dcb-94a9-e95ee23e8ec0")
 public class Xmi extends AbstractUIPlugin {
-// The plug-in ID
+    // The plug-in ID
     @objid ("394f68e1-7139-4387-85b6-f41108391653")
     public static final String PLUGIN_ID = "org.modelio.app.xmi";
 
@@ -51,13 +50,14 @@ public class Xmi extends AbstractUIPlugin {
      * The constructor
      */
     @objid ("d7274482-54e0-47d0-b97f-85c852f93c7a")
-    public Xmi() {
+    public  Xmi() {
+        
     }
 
-/*
-     * (non-Javadoc)
-     * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
-     */
+    /*
+         * (non-Javadoc)
+         * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
+         */
     @objid ("8d0df960-03bd-460f-8bd7-fc86b1059793")
     @Override
     public void start(BundleContext bundleContext) throws Exception {
@@ -66,12 +66,13 @@ public class Xmi extends AbstractUIPlugin {
         ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), PLUGIN_ID));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("xmi"));
+        
     }
 
-/*
-     * (non-Javadoc)
-     * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
-     */
+    /*
+         * (non-Javadoc)
+         * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
+         */
     @objid ("e5320a2c-24b4-4926-9e48-dc0208225efc")
     @Override
     public void stop(BundleContext bundleContext) throws Exception {
@@ -80,7 +81,6 @@ public class Xmi extends AbstractUIPlugin {
 
     /**
      * Returns the shared instance
-     * 
      * @return the shared instance
      */
     @objid ("addbe9a5-6b4c-459b-9204-55778cf90708")

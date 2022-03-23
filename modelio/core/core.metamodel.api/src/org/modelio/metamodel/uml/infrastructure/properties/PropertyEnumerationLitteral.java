@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.uml.infrastructure.properties;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
-import org.modelio.metamodel.uml.infrastructure.properties.EnumeratedPropertyType;
 
 /**
  * PropertyEnumerationLitteral v0.0.9054
@@ -53,7 +52,6 @@ public interface PropertyEnumerationLitteral extends ModelElement {
      * Compare 'this' literal with 'v' based on the ordering of the literals in
      * the EnumeratedPropertyType owning 'this' literal.
      * If 'l' does not belong to 'this' owner, the method returns -1 (meaning l < this by convention)
-     * 
      * @param l @return
      */
     @objid ("3f7c4c9d-6307-4688-9ae7-6d02f373cc0f")

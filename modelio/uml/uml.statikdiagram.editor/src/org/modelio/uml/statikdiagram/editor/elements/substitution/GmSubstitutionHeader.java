@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.substitution;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,12 +42,11 @@ public class GmSubstitutionHeader extends GmDefaultModelElementLabel {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
     @objid ("e9c77344-97a7-4ede-9548-6dda5d407bd4")
-    public GmSubstitutionHeader(IGmDiagram diagram, MRef relatedRef) {
+    public  GmSubstitutionHeader(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -56,7 +54,8 @@ public class GmSubstitutionHeader extends GmDefaultModelElementLabel {
      * For deserialization only.
      */
     @objid ("49ace891-9dca-4580-9b52-a3836522241c")
-    public GmSubstitutionHeader() {
+    public  GmSubstitutionHeader() {
+        
     }
 
     @objid ("aaca4d01-f82f-41cb-a730-37e05ea9c1f3")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.naryassoc;
 
 import java.util.List;
@@ -55,25 +54,24 @@ public class GmNAssocNode extends GmPortContainer {
     private static final int MAJOR_VERSION = 0;
 
     @objid ("60bb6d18-5bd5-11e2-9e33-00137282c51b")
-     static final NAssocStructuredStyleKeys KEYS = GmNAssocEndLink.STRUCTURED_KEYS;
+    static final NAssocStructuredStyleKeys KEYS = GmNAssocEndLink.STRUCTURED_KEYS;
 
     /**
      * Empty constructor needed for deserialization.
      */
     @objid ("35c36ebc-55b7-11e2-877f-002564c97630")
-    public GmNAssocNode() {
+    public  GmNAssocNode() {
         // Nothing specific to do.
     }
 
     /**
      * Initialize the n-ary association node.
-     * 
      * @param diagram the diagram in which the n-ary association is unmasked.
      * @param el the unmasked n-ary association.
      * @param ref a reference to the unmasked class.
      */
     @objid ("35c4f519-55b7-11e2-877f-002564c97630")
-    public GmNAssocNode(IGmDiagram diagram, NaryAssociation el, MRef ref) {
+    public  GmNAssocNode(IGmDiagram diagram, NaryAssociation el, MRef ref) {
         super(diagram,ref);
         GmNAssocPrimaryNode mainNode = new GmNAssocPrimaryNode(diagram, el, ref);
         mainNode.setRoleInComposition(MAIN_NODE_ROLE);
@@ -86,6 +84,7 @@ public class GmNAssocNode extends GmPortContainer {
         
         addChild(mainNode);
         addChild(label);
+        
     }
 
     @objid ("35c4f525-55b7-11e2-877f-002564c97630")
@@ -117,6 +116,7 @@ public class GmNAssocNode extends GmPortContainer {
                 break;
             }
         }
+        
     }
 
     @objid ("35c4f53b-55b7-11e2-877f-002564c97630")
@@ -150,12 +150,14 @@ public class GmNAssocNode extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmNAssocNode.", GmNAssocNode.MINOR_VERSION);
+        
     }
 
     @objid ("35c67bbe-55b7-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (NaryAssociation) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("35c67bc3-55b7-11e2-877f-002564c97630")
@@ -166,7 +168,6 @@ public class GmNAssocNode extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -178,7 +179,6 @@ public class GmNAssocNode extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

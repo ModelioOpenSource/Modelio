@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.generalization;
 
 import java.util.List;
@@ -56,15 +55,15 @@ public class GmGeneralization extends GmLink {
 
     /**
      * Create a generalization link model.
-     * 
      * @param diagram The diagram
      * @param generalization The represented generalization, may be null
      * @param ref The represented generalization reference, may not be null
      */
     @objid ("34ec485d-55b7-11e2-877f-002564c97630")
-    public GmGeneralization(IGmDiagram diagram, Generalization generalization, MRef ref) {
+    public  GmGeneralization(IGmDiagram diagram, Generalization generalization, MRef ref) {
         super(diagram, ref);
         this.element = generalization;
+        
     }
 
     @objid ("34ec4869-55b7-11e2-877f-002564c97630")
@@ -83,7 +82,7 @@ public class GmGeneralization extends GmLink {
      * Constructor for deserialization only.
      */
     @objid ("34ec487c-55b7-11e2-877f-002564c97630")
-    public GmGeneralization() {
+    public  GmGeneralization() {
         // Nothing to do.
     }
 
@@ -92,6 +91,7 @@ public class GmGeneralization extends GmLink {
     protected void readLink(IDiagramReader in) {
         super.readLink(in);
         this.element = (Generalization) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("34ec4885-55b7-11e2-877f-002564c97630")
@@ -125,6 +125,7 @@ public class GmGeneralization extends GmLink {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmGeneralization.", GmGeneralization.MINOR_VERSION);
+        
     }
 
     @objid ("34edcf05-55b7-11e2-877f-002564c97630")

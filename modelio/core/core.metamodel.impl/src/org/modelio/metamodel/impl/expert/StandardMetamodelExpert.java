@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.expert;
 
 import java.util.HashMap;
@@ -103,9 +102,10 @@ public class StandardMetamodelExpert extends org.modelio.vcore.smkernel.meta.Def
      * @param mm the metamodel.
      */
     @objid ("ea0fbaa9-47e9-4e3b-8907-142d54d6e6c4")
-    public StandardMetamodelExpert(MMetamodel mm) {
+    public  StandardMetamodelExpert(MMetamodel mm) {
         this.LINK_REGISTRY = new LinkExpertRegistry(mm);
         this.META_REGISTRY = new MetaExpertRegistry(mm);
+        
     }
 
     @objid ("000103ce-de02-1097-bcec-001ec947cd2a")
@@ -210,6 +210,7 @@ public class StandardMetamodelExpert extends org.modelio.vcore.smkernel.meta.Def
         } catch (final ClassCastException e) {
             throw new IllegalArgumentException(newSource + " is not a legal source for " + linkElement, e);
         }
+        
     }
 
     @objid ("4a959dc3-cf59-48aa-ba80-344a28195da2")
@@ -222,16 +223,17 @@ public class StandardMetamodelExpert extends org.modelio.vcore.smkernel.meta.Def
         } catch (final ClassCastException e) {
             throw new IllegalArgumentException(newTarget + " is not a legal target for " + linkElement, e);
         }
+        
     }
 
-// typical usage: creation tools
+    // typical usage: creation tools
     @objid ("0092974e-de01-1097-bcec-001ec947cd2a")
     @Override
     public boolean canCompose(MClass owner, MClass composed, String dep) {
         return this.META_REGISTRY.getExpert(owner).canCompose(owner, composed, dep);
     }
 
-// typical usage: creation tools where stereotypes count
+    // typical usage: creation tools where stereotypes count
     @objid ("0092d830-de01-1097-bcec-001ec947cd2a")
     @Override
     public boolean canCompose(MObject owner, MClass composed, String dep) {
@@ -239,7 +241,7 @@ public class StandardMetamodelExpert extends org.modelio.vcore.smkernel.meta.Def
         return expert.canCompose(owner, composed, dep);
     }
 
-// typical usage: drag and drop
+    // typical usage: drag and drop
     @objid ("00935c10-de01-1097-bcec-001ec947cd2a")
     @Override
     public boolean canCompose(MObject owner, MObject composed, String dep) {
@@ -247,7 +249,7 @@ public class StandardMetamodelExpert extends org.modelio.vcore.smkernel.meta.Def
         return expert.canCompose(owner, composed, dep);
     }
 
-// typical usage: move objects, import
+    // typical usage: move objects, import
     @objid ("0094215e-de01-1097-bcec-001ec947cd2a")
     @Override
     public MDependency getDefaultCompositionDep(MObject owner, MObject composed) {
@@ -256,14 +258,14 @@ public class StandardMetamodelExpert extends org.modelio.vcore.smkernel.meta.Def
         return dep != null ? dep : super.getDefaultCompositionDep(owner, composed);
     }
 
-// typical usage : property box for element editor ?
+    // typical usage : property box for element editor ?
     @objid ("0094af34-de01-1097-bcec-001ec947cd2a")
     @Override
     public boolean canDep(MClass source, MClass target, String dep) {
         return this.META_REGISTRY.getExpert(source).canDep(source, target, dep);
     }
 
-// typical usage : property box for element editor ?
+    // typical usage : property box for element editor ?
     @objid ("0094f14c-de01-1097-bcec-001ec947cd2a")
     @Override
     public boolean canDep(MObject source, MClass target, String dep) {
@@ -271,7 +273,7 @@ public class StandardMetamodelExpert extends org.modelio.vcore.smkernel.meta.Def
         return expert.canDep(source, target, dep);
     }
 
-// typical usage : property box for element editor ?
+    // typical usage : property box for element editor ?
     @objid ("00953418-de01-1097-bcec-001ec947cd2a")
     @Override
     public boolean canDep(MObject source, MObject target, String dep) {
@@ -302,7 +304,6 @@ public class StandardMetamodelExpert extends org.modelio.vcore.smkernel.meta.Def
 
         /**
          * Get the creation expert for the given element.
-         * 
          * @param metaclass a metamodel class.
          * @return the matching creation expert (never returns <code>null</code>)
          */
@@ -318,11 +319,10 @@ public class StandardMetamodelExpert extends org.modelio.vcore.smkernel.meta.Def
 
         /**
          * This class has no instances.
-         * 
          * @param mm the metamodel.
          */
         @objid ("00043486-de02-1097-bcec-001ec947cd2a")
-        public LinkExpertRegistry(MMetamodel mm) {
+        public  LinkExpertRegistry(MMetamodel mm) {
             // Init experts
             this.DEFAULT_EXPERT = new DefaultLinkExpert(mm);
             
@@ -332,6 +332,7 @@ public class StandardMetamodelExpert extends org.modelio.vcore.smkernel.meta.Def
             this.EXPERTS.put(mm.getMClass(BpmnSequenceFlow.class), new BpmnSequenceFlowCreationExpert(this.DEFAULT_EXPERT));
             this.EXPERTS.put(mm.getMClass(TemplateBinding.class), new TemplateBindingCreationExpert(this.DEFAULT_EXPERT));
             this.EXPERTS.put(mm.getMClass(ClassAssociation.class), new ClassAssociationCreationExpert(this.DEFAULT_EXPERT));
+            
         }
 
     }
@@ -359,7 +360,6 @@ public class StandardMetamodelExpert extends org.modelio.vcore.smkernel.meta.Def
 
         /**
          * Get the creation expert for the given element.
-         * 
          * @param metaclass a metamodel class.
          * @return the matching creation expert (never returns <code>null</code>)
          */
@@ -375,15 +375,15 @@ public class StandardMetamodelExpert extends org.modelio.vcore.smkernel.meta.Def
 
         /**
          * This class has no instances.
-         * 
          * @param mm the metamodel.
          */
         @objid ("0097fbc6-de01-1097-bcec-001ec947cd2a")
-        public MetaExpertRegistry(MMetamodel mm) {
+        public  MetaExpertRegistry(MMetamodel mm) {
             // Init experts
             this.DEFAULT_EXPERT = new DefaultMetaExpert();
             this.EXPERTS.put(mm.getMClass(Lifeline.class), new PartDecompositionCreationExpert((SmClass) mm.getMClass(PartDecomposition.class)));
             this.EXPERTS.put(mm.getMClass(BpmnLane.class), new BpmnLaneCreationExpert());
+            
         }
 
     }
@@ -394,7 +394,7 @@ public class StandardMetamodelExpert extends org.modelio.vcore.smkernel.meta.Def
         private final MObject objDest;
 
         @objid ("80ea318e-272c-11e2-a9d1-002564c97630")
-        public CompositionDepVisitor(MObject to) {
+        public  CompositionDepVisitor(MObject to) {
             this.objDest = to;
         }
 

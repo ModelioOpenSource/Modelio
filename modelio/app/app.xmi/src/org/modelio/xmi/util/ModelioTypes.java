@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.util;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -49,9 +48,10 @@ public class ModelioTypes implements IUMLTypes {
     private final MClass dataTypeMClass;
 
     @objid ("475f738a-91a0-48e4-bb8f-17156a7a3fbd")
-    public ModelioTypes(IMModelServices mmServices, MMetamodel metamodel) {
+    public  ModelioTypes(IMModelServices mmServices, MMetamodel metamodel) {
         this.mmServices = mmServices;
         this.dataTypeMClass = metamodel.getMClass(DataType.class);
+        
     }
 
     @objid ("54fee4f6-0e45-450a-a9c3-bf045fa67c4a")

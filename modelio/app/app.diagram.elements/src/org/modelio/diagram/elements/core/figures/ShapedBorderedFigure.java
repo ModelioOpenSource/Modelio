@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,16 +43,16 @@ public class ShapedBorderedFigure extends ShapedFigure {
 
     /**
      * Creates the figure.
-     * 
      * @param aShaper The shape of the figure
      */
     @objid ("7fcae9f8-1dec-11e2-8cad-001ec947c8cc")
-    public ShapedBorderedFigure(final IShaper aShaper) {
+    public  ShapedBorderedFigure(final IShaper aShaper) {
         super(aShaper);
         setSize(30, 40);
         setOpaque(true);
         
         setShaper(aShaper);
+        
     }
 
     @objid ("7fcae9fd-1dec-11e2-8cad-001ec947c8cc")
@@ -63,6 +62,7 @@ public class ShapedBorderedFigure extends ShapedFigure {
             super.setLineColor(lineColor);
             this.shapedBorder.setColor(lineColor);
         }
+        
     }
 
     @objid ("7fcaea01-1dec-11e2-8cad-001ec947c8cc")
@@ -72,6 +72,7 @@ public class ShapedBorderedFigure extends ShapedFigure {
             super.setLineWidth(lineWidth);
             this.shapedBorder.setWidth(lineWidth);
         }
+        
     }
 
     @objid ("7fcaea05-1dec-11e2-8cad-001ec947c8cc")
@@ -80,6 +81,7 @@ public class ShapedBorderedFigure extends ShapedFigure {
         super.setShaper(value);
         
         updateBorder();
+        
     }
 
     /**
@@ -92,6 +94,7 @@ public class ShapedBorderedFigure extends ShapedFigure {
                                              this.shaper);
         this.shapedBorder.setStyle(getLinePattern().toSWTConstant());
         setBorder(new CompoundBorder(this.shapedBorder, new MarginBorder(MARGIN)));
+        
     }
 
     @objid ("7fcd4c08-1dec-11e2-8cad-001ec947c8cc")
@@ -101,20 +104,21 @@ public class ShapedBorderedFigure extends ShapedFigure {
             super.setLinePattern(lineStyle);
             this.shapedBorder.setStyle(lineStyle.toSWTConstant());
         }
+        
     }
 
     /**
      * Copy constructor.
      * <p>
      * Copy the border.
-     * 
      * @param orig the original
      */
     @objid ("8c2d393d-a181-479c-a5f8-ec4e489ac438")
-    public ShapedBorderedFigure(ShapedBorderedFigure orig) {
+    public  ShapedBorderedFigure(ShapedBorderedFigure orig) {
         super(orig);
         
         updateBorder();
+        
     }
 
     @objid ("1beb0cf5-321b-4242-af94-4a543ea6d45d")

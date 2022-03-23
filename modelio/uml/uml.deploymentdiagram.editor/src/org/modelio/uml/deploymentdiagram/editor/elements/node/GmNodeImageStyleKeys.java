@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.deploymentdiagram.editor.elements.node;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -59,7 +58,7 @@ public class GmNodeImageStyleKeys extends DeploymentAbstractStyleKeyProvider {
      */
     @objid ("1cd178da-55c2-11e2-9337-002564c97630")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("NODE_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+                MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Display tagged values.

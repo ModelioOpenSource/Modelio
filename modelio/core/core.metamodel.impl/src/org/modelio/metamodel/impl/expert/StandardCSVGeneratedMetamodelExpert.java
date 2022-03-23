@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.expert;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -280,12 +279,13 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
      * Constructor.
      * <p>
      * You need to call {@link #register()} next.
-     * 
      * @param mm The metamodel.
      */
     @objid ("6af6247c-0090-4e35-b61e-f2159ab54a90")
-    public StandardCSVGeneratedMetamodelExpert(MMetamodel mm) {
+    public  StandardCSVGeneratedMetamodelExpert(MMetamodel mm) {
         super(mm);
+        
+        
     }
 
     /**
@@ -566,6 +566,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         registerMetaExpertForBpmnFlowNode();
         registerMetaExpertForBpmnFlowElement();
         registerMetaExpertForBpmnBaseElement();
+        
     }
 
     @objid ("350c71c9-ec9d-46d1-96d0-4dfd2a22342c")
@@ -581,6 +582,8 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         
         // Standard.BpmnMessageFlow rules:
+        
+        
     }
 
     @objid ("1222dba5-663f-474f-9a46-45c1439d8705")
@@ -596,6 +599,8 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         
         // Standard.BpmnSequenceFlow rules:
+        
+        
     }
 
     @objid ("5348524c-d2b8-40df-ae86-859b154696d5")
@@ -603,6 +608,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         // Standard.ActivityEdge is abstract
         
         this.ruleLinkExpert.addLinkMetaclass(ActivityEdge.class);
+        
     }
 
     @objid ("99e03216-934d-4138-b700-17f1b6fd07a3")
@@ -618,6 +624,8 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         
         // Standard.CommunicationChannel rules:
+        
+        
     }
 
     @objid ("afb0280f-9a41-4c88-9ee9-58dd244a1ae1")
@@ -633,6 +641,8 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         
         // Standard.Message rules:
+        
+        
     }
 
     @objid ("4e529caf-bc0c-41b5-b16d-3f842c35e523")
@@ -648,6 +658,8 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         
         // Standard.Transition rules:
+        
+        
     }
 
     @objid ("adb1e689-b04e-4f82-a0bc-b1cb78830c11")
@@ -663,6 +675,8 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         
         // Standard.UseCaseDependency rules:
+        
+        
     }
 
     @objid ("04a46798-21f5-476b-9ebd-fde8b1111f27")
@@ -678,6 +692,8 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         
         // Standard.DataFlow rules:
+        
+        
     }
 
     @objid ("46c006fb-12e2-4349-b336-414af2d6785e")
@@ -693,6 +709,8 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         
         // Standard.InformationFlow rules:
+        
+        
     }
 
     @objid ("38810226-9817-4cc4-a128-d28741654412")
@@ -708,6 +726,8 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         
         // Standard.Abstraction rules:
+        
+        
     }
 
     @objid ("f1a2ea3a-376f-45f8-9fe2-76d06cf6d803")
@@ -723,6 +743,8 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         
         // Standard.Substitution rules:
+        
+        
     }
 
     @objid ("c17844ff-8295-40da-9746-da571270d8ed")
@@ -738,6 +760,8 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         
         // Standard.Usage rules:
+        
+        
     }
 
     @objid ("7737d20f-68d1-4b63-9a27-b7d84c3c744f")
@@ -751,6 +775,8 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         
         // Standard.Association rules:
+        
+        
     }
 
     @objid ("3181e7c4-9137-4e75-b07a-02328c51431d")
@@ -766,6 +792,8 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         
         // Standard.AssociationEnd rules:
+        
+        
     }
 
     @objid ("e08a2a27-d75a-4bc4-b9d0-d73b4569630e")
@@ -782,6 +810,8 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         
         // Standard.ElementImport rules:
+        
+        
     }
 
     @objid ("bbb93efd-2767-455d-9197-6d4e972f5b0d")
@@ -797,6 +827,8 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         
         // Standard.Generalization rules:
+        
+        
     }
 
     @objid ("2f7467b0-a16f-4e29-9898-a366e85b50f4")
@@ -812,6 +844,8 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         
         // Standard.InterfaceRealization rules:
+        
+        
     }
 
     @objid ("306c1752-629b-419a-9d05-5bfa3344ac41")
@@ -825,6 +859,8 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         
         // Standard.Link rules:
+        
+        
     }
 
     @objid ("88e3f7ae-7071-4e66-8439-f84090952270")
@@ -840,6 +876,8 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         
         // Standard.LinkEnd rules:
+        
+        
     }
 
     @objid ("0476b105-1ac7-4487-94c8-b7e88e4aa245")
@@ -855,6 +893,8 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         
         // Standard.Manifestation rules:
+        
+        
     }
 
     @objid ("698579b2-b94e-4218-9c3f-62c3ae3bc288")
@@ -871,6 +911,8 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         
         // Standard.PackageImport rules:
+        
+        
     }
 
     @objid ("5f5c411d-8939-4c5d-acfe-38b96a9e9cd9")
@@ -886,6 +928,8 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         
         // Standard.PackageMerge rules:
+        
+        
     }
 
     @objid ("824bf648-b5c6-40ed-8ef4-eee7ee985b23")
@@ -901,6 +945,8 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         
         // Standard.RaisedException rules:
+        
+        
     }
 
     @objid ("8f1169ca-1260-451f-94e3-21cdbf034d96")
@@ -918,6 +964,8 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         
         // Standard.TemplateBinding rules:
+        
+        
     }
 
     @objid ("c540a0b6-d951-478c-8195-877d47c4f991")
@@ -933,6 +981,8 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         
         // Standard.ControlFlow rules:
+        
+        
     }
 
     @objid ("30aa177a-5a39-40a3-bdfe-fce9fb8f054a")
@@ -950,6 +1000,8 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         
         // Standard.MessageFlow rules:
+        
+        
     }
 
     @objid ("3bc9aac0-9fcd-48d5-b6e0-4cbe03c6ecc7")
@@ -965,6 +1017,8 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         
         // Standard.ObjectFlow rules:
+        
+        
     }
 
     @objid ("51180f25-6fb3-483c-a85b-331eec466622")
@@ -980,6 +1034,8 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         
         // Standard.ElementRealization rules:
+        
+        
     }
 
     @objid ("2104997c-1fef-4eec-9e7d-d87624f69a64")
@@ -993,6 +1049,8 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         
         // Standard.Connector rules:
+        
+        
     }
 
     @objid ("fe87938d-3767-40fb-a9a1-9728218b6108")
@@ -1008,6 +1066,8 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         
         // Standard.ConnectorEnd rules:
+        
+        
     }
 
     @objid ("8f7f10b3-a75b-4ac4-896e-d57558e953dd")
@@ -1017,6 +1077,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on Project.Model : Package from Standard.Project to Standard.Package
         this.ruleMetaExpert.addDependencyRule(Project.class, null, "Model");
+        
     }
 
     @objid ("15f96b0f-cc17-408e-a678-6a0e1cfc8c11")
@@ -1029,6 +1090,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on TemplateParameterSubstitution.FormalParameter : TemplateParameter from Standard.TemplateParameterSubstitution to Standard.TemplateParameter
         this.ruleMetaExpert.addDependencyRule(TemplateParameterSubstitution.class, null, "FormalParameter");
+        
     }
 
     @objid ("3f081138-fe7e-4d0b-b060-8d025cd710a4")
@@ -1044,6 +1106,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on TemplateParameter.DefaultType : UmlModelElement from Standard.TemplateParameter to Standard.UmlModelElement
         this.ruleMetaExpert.addDependencyRule(TemplateParameter.class, null, "DefaultType");
+        
     }
 
     @objid ("375b9c77-9d32-4519-ad38-fae28670ee40")
@@ -1059,6 +1122,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on TemplateBinding.InstanciatedTemplate : NameSpace from Standard.TemplateBinding to Standard.NameSpace
         this.ruleMetaExpert.addDependencyRule(TemplateBinding.class, null, "InstanciatedTemplate");
+        
     }
 
     @objid ("ade260b2-087d-4a42-8d7a-135883ef89f2")
@@ -1068,6 +1132,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on RequiredInterface.RequiredElement : Interface from Standard.RequiredInterface to Standard.Interface
         this.ruleMetaExpert.addDependencyRule(RequiredInterface.class, null, "RequiredElement");
+        
     }
 
     @objid ("4b52a5cb-42a2-47dd-988d-3918f06f97a4")
@@ -1077,6 +1142,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on RaisedException.ThrownType : Classifier from Standard.RaisedException to Standard.Classifier
         this.ruleMetaExpert.addDependencyRule(RaisedException.class, null, "ThrownType");
+        
     }
 
     @objid ("9df573c5-33ec-4873-ab63-e10943ecd184")
@@ -1086,6 +1152,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on ProvidedInterface.ProvidedElement : Interface from Standard.ProvidedInterface to Standard.Interface
         this.ruleMetaExpert.addDependencyRule(ProvidedInterface.class, null, "ProvidedElement");
+        
     }
 
     @objid ("ced73f35-91c8-407c-a3b7-e2d9d13eb57d")
@@ -1098,6 +1165,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on Port.Required : RequiredInterface from Standard.Port to Standard.RequiredInterface
         this.ruleMetaExpert.addDependencyRule(Port.class, null, "Required");
+        
     }
 
     @objid ("0a926d65-a46c-46d0-b091-2a8a40e38677")
@@ -1107,6 +1175,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on PackageMerge.MergedPackage : Package from Standard.PackageMerge to Standard.Package
         this.ruleMetaExpert.addDependencyRule(PackageMerge.class, null, "MergedPackage");
+        
     }
 
     @objid ("10e9e30a-330f-45dc-9bba-9dc701b504fe")
@@ -1116,6 +1185,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on PackageImport.ImportedPackage : Package from Standard.PackageImport to Standard.Package
         this.ruleMetaExpert.addDependencyRule(PackageImport.class, null, "ImportedPackage");
+        
     }
 
     @objid ("9ffb2f2e-ca39-4bc1-9ed5-4a79c59bdef1")
@@ -1125,6 +1195,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on Package.Merge : PackageMerge from Standard.Package to Standard.PackageMerge
         this.ruleMetaExpert.addDependencyRule(Package.class, null, "Merge");
+        
     }
 
     @objid ("d904b7d3-629b-4f42-84d9-74237ec7f237")
@@ -1164,6 +1235,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on Operation.Redefines : Operation from Standard.Operation to Standard.Operation
         this.ruleMetaExpert.addDependencyRule(Operation.class, null, "Redefines");
+        
     }
 
     @objid ("60f70a30-2b0b-4bab-91cf-66d05491d02e")
@@ -1173,12 +1245,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on Node.Resident : Artifact from Standard.Node to Standard.Artifact
         this.ruleMetaExpert.addDependencyRule(Node.class, null, "Resident");
+        
     }
 
     @objid ("32d30fb3-86b6-46dc-b85d-2714adaad879")
     protected void registerMetaExpertForNaryConnectorEnd() {
         // Standard.NaryConnectorEnd
         // -----------
+        
     }
 
     @objid ("62842df9-9de9-4784-a9fd-3869a9ffd414")
@@ -1197,6 +1271,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         // no constraint on NaryLinkEnd.Provider : ProvidedInterface from Standard.NaryLinkEnd to Standard.ProvidedInterface
         this.ruleMetaExpert.addDependencyRule(NaryConnectorEnd.class, null, "Provider");
         this.ruleMetaExpert.addDependencyRule(NaryLinkEnd.class, null, "Provider");
+        
     }
 
     @objid ("df69b55c-604b-46bc-bfc8-a587ae4f09ca")
@@ -1206,6 +1281,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on NaryConnector.RepresentedFeature : UmlModelElement from Standard.NaryConnector to Standard.UmlModelElement
         this.ruleMetaExpert.addDependencyRule(NaryConnector.class, null, "RepresentedFeature");
+        
     }
 
     @objid ("8443acb6-e540-4e43-b586-62d951d76fcf")
@@ -1220,6 +1296,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         // no constraint on NaryLink.Model : NaryAssociation from Standard.NaryLink to Standard.NaryAssociation
         this.ruleMetaExpert.addDependencyRule(NaryConnector.class, null, "Model");
         this.ruleMetaExpert.addDependencyRule(NaryLink.class, null, "Model");
+        
     }
 
     @objid ("ccd92c99-2a2e-42f1-9751-f849bfa48023")
@@ -1229,6 +1306,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on NaryAssociationEnd.NaryAssociation : NaryAssociation from Standard.NaryAssociationEnd to Standard.NaryAssociation
         this.ruleMetaExpert.addDependencyRule(NaryAssociationEnd.class, null, "NaryAssociation");
+        
     }
 
     @objid ("2b1de829-452c-4a8f-ad3e-c1f6fe630806")
@@ -1241,6 +1319,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on NaryAssociation.LinkToClass : ClassAssociation from Standard.NaryAssociation to Standard.ClassAssociation
         this.ruleMetaExpert.addDependencyRule(NaryAssociation.class, null, "LinkToClass");
+        
     }
 
     @objid ("958c4486-d9ae-4a46-a6d1-9e9709f8e595")
@@ -1250,6 +1329,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on Manifestation.UtilizedElement : UmlModelElement from Standard.Manifestation to Standard.UmlModelElement
         this.ruleMetaExpert.addDependencyRule(Manifestation.class, null, "UtilizedElement");
+        
     }
 
     @objid ("46b657b9-8ead-4c96-8ff0-d2814deeed9c")
@@ -1259,12 +1339,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on InterfaceRealization.Implemented : Interface from Standard.InterfaceRealization to Standard.Interface
         this.ruleMetaExpert.addDependencyRule(InterfaceRealization.class, null, "Implemented");
+        
     }
 
     @objid ("db6040d2-1e7a-4afd-b2df-d5c2f05330a3")
     protected void registerMetaExpertForInterface() {
         // Standard.Interface
         // -----------
+        
     }
 
     @objid ("3da18146-4453-4984-9dc9-cd6516319c0b")
@@ -1274,12 +1356,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on Generalization.SuperType : NameSpace from Standard.Generalization to Standard.NameSpace
         this.ruleMetaExpert.addDependencyRule(Generalization.class, null, "SuperType");
+        
     }
 
     @objid ("ef11675d-1e98-4c4e-a0ed-16d426978b1c")
     protected void registerMetaExpertForEnumerationLiteral() {
         // Standard.EnumerationLiteral
         // -----------
+        
     }
 
     @objid ("74ea1d01-5f97-4cf2-bcc9-c90686bf751f")
@@ -1289,12 +1373,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on Enumeration.Value : EnumerationLiteral from Standard.Enumeration to Standard.EnumerationLiteral
         this.ruleMetaExpert.addDependencyRule(Enumeration.class, null, "Value");
+        
     }
 
     @objid ("996867a0-606a-4eba-9596-8c9c3e6a59cc")
     protected void registerMetaExpertForElementRealization() {
         // Standard.ElementRealization
         // -----------
+        
     }
 
     @objid ("c889a01d-4970-4e09-86db-2b65a1ae3daf")
@@ -1304,12 +1390,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on ElementImport.ImportedElement : NameSpace from Standard.ElementImport to Standard.NameSpace
         this.ruleMetaExpert.addDependencyRule(ElementImport.class, null, "ImportedElement");
+        
     }
 
     @objid ("3e641f9d-e8e2-4e0a-9cbd-5bff85c8d0d8")
     protected void registerMetaExpertForDataType() {
         // Standard.DataType
         // -----------
+        
     }
 
     @objid ("f56ab84f-a6bb-4a56-9284-edd2162f7911")
@@ -1319,6 +1407,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on ConnectorEnd.RepresentedFeature : UmlModelElement from Standard.ConnectorEnd to Standard.UmlModelElement
         this.ruleMetaExpert.addDependencyRule(ConnectorEnd.class, null, "RepresentedFeature");
+        
     }
 
     @objid ("d11d8105-8972-4152-843b-3cdfeeda6872")
@@ -1353,12 +1442,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         // no constraint on LinkEnd.Provider : ProvidedInterface from Standard.LinkEnd to Standard.ProvidedInterface
         this.ruleMetaExpert.addDependencyRule(ConnectorEnd.class, null, "Provider");
         this.ruleMetaExpert.addDependencyRule(LinkEnd.class, null, "Provider");
+        
     }
 
     @objid ("be31efc3-9c49-4251-a596-28a7289378ab")
     protected void registerMetaExpertForConnector() {
         // Standard.Connector
         // -----------
+        
     }
 
     @objid ("b7bcf3c7-37c8-4301-a969-e39ceccab62d")
@@ -1369,6 +1460,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         // no constraint on Link.Model : Association from Standard.Link to Standard.Association
         this.ruleMetaExpert.addDependencyRule(Connector.class, null, "Model");
         this.ruleMetaExpert.addDependencyRule(Link.class, null, "Model");
+        
     }
 
     @objid ("e50810a7-dbf9-45e4-876d-d9bec573f05f")
@@ -1378,6 +1470,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on ComponentRealization.RealizingClassifier : Classifier from Standard.ComponentRealization to Standard.Classifier
         this.ruleMetaExpert.addDependencyRule(ComponentRealization.class, null, "RealizingClassifier");
+        
     }
 
     @objid ("2bb67618-8310-4873-bb18-004c0db5c6df")
@@ -1387,6 +1480,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on Component.Realization : ComponentRealization from Standard.Component to Standard.ComponentRealization
         this.ruleMetaExpert.addDependencyRule(Component.class, null, "Realization");
+        
     }
 
     @objid ("637a6abf-3a4e-4a54-a573-247bd8f37096")
@@ -1399,12 +1493,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on CollaborationUse.RoleBinding : Binding from Standard.CollaborationUse to Standard.Binding
         this.ruleMetaExpert.addDependencyRule(CollaborationUse.class, null, "RoleBinding");
+        
     }
 
     @objid ("dc601058-e746-463e-8b34-e9e333c23514")
     protected void registerMetaExpertForCollaboration() {
         // Standard.Collaboration
         // -----------
+        
     }
 
     @objid ("8a3248f1-87db-41da-910f-1d6923e22c97")
@@ -1414,12 +1510,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on ClassAssociation.ClassPart : Class from Standard.ClassAssociation to Standard.Class
         this.ruleMetaExpert.addDependencyRule(ClassAssociation.class, null, "ClassPart");
+        
     }
 
     @objid ("09e9462a-471b-4cb8-843d-063ee18cb065")
     protected void registerMetaExpertForClass() {
         // Standard.Class
         // -----------
+        
     }
 
     @objid ("e1647114-3d01-4e91-b6a2-b3ec7793b6ca")
@@ -1438,6 +1536,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on Binding.RepresentedFeature : UmlModelElement from Standard.Binding to Standard.UmlModelElement
         this.ruleMetaExpert.addDependencyRule(Binding.class, null, "RepresentedFeature");
+        
     }
 
     @objid ("31e5d2b0-c8d6-4412-abf9-deafc576a642")
@@ -1448,6 +1547,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         // no constraint on BindableInstance.RepresentedFeature : UmlModelElement from Standard.BindableInstance to Standard.UmlModelElement
         this.ruleMetaExpert.addDependencyRule(BindableInstance.class, null, "RepresentedFeature");
         this.ruleMetaExpert.addDependencyRule(Port.class, null, "RepresentedFeature");
+        
     }
 
     @objid ("235af248-e0ad-4909-82bb-12233f10b30c")
@@ -1479,12 +1579,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         this.ruleMetaExpert.addDependencyRule(BindableInstance.class, null, "Part");
         this.ruleMetaExpert.addDependencyRule(Instance.class, null, "Part");
         this.ruleMetaExpert.addDependencyRule(Port.class, null, "Part");
+        
     }
 
     @objid ("88f55bd0-d017-48bd-9aaa-5b6303b634da")
     protected void registerMetaExpertForBehavioralFeature() {
         // Standard.BehavioralFeature
         // -----------
+        
     }
 
     @objid ("1afabd97-d25f-4dcf-8f7f-6e5b27751d4c")
@@ -1494,6 +1596,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on AttributeLink.Base : Attribute from Standard.AttributeLink to Standard.Attribute
         this.ruleMetaExpert.addDependencyRule(AttributeLink.class, null, "Base");
+        
     }
 
     @objid ("746d01f8-c3c9-4bbe-a3a5-f637ad1dd429")
@@ -1503,6 +1606,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on Attribute.Type : GeneralClass from Standard.Attribute to Standard.GeneralClass
         this.ruleMetaExpert.addDependencyRule(Attribute.class, null, "Type");
+        
     }
 
     @objid ("44ab2fec-b0e9-4b96-b3d2-db5a7d95707f")
@@ -1524,12 +1628,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on AssociationEnd.Association : Association from Standard.AssociationEnd to Standard.Association
         this.ruleMetaExpert.addDependencyRule(AssociationEnd.class, null, "Association");
+        
     }
 
     @objid ("89811e21-2808-4e99-838e-52c74f8fa8fc")
     protected void registerMetaExpertForStructuralFeature() {
         // Standard.StructuralFeature
         // -----------
+        
     }
 
     @objid ("6978bc26-f495-47e9-986d-83064bf38bf7")
@@ -1537,6 +1643,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         // Standard.Feature is abstract
         
         // -----------
+        
     }
 
     @objid ("41bac1f8-8403-4427-b615-6684ea8b1a51")
@@ -1546,6 +1653,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on Association.LinkToClass : ClassAssociation from Standard.Association to Standard.ClassAssociation
         this.ruleMetaExpert.addDependencyRule(Association.class, null, "LinkToClass");
+        
     }
 
     @objid ("8c979517-bde9-4371-b9d8-b2b70ffe4053")
@@ -1555,12 +1663,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on Artifact.Utilized : Manifestation from Standard.Artifact to Standard.Manifestation
         this.ruleMetaExpert.addDependencyRule(Artifact.class, null, "Utilized");
+        
     }
 
     @objid ("a7d5ac0b-5072-43ef-9bd4-baf237fd66b6")
     protected void registerMetaExpertForUsage() {
         // Standard.Usage
         // -----------
+        
     }
 
     @objid ("a9eb59a7-850e-439d-a553-90a0d042b6b7")
@@ -1570,12 +1680,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on Substitution.Contract : Classifier from Standard.Substitution to Standard.Classifier
         this.ruleMetaExpert.addDependencyRule(Substitution.class, null, "Contract");
+        
     }
 
     @objid ("40732411-7df4-4a70-9ef8-61a3b550daba")
     protected void registerMetaExpertForAbstraction() {
         // Standard.Abstraction
         // -----------
+        
     }
 
     @objid ("9d95ed17-2363-4954-a8ef-e12138a4c0fc")
@@ -1585,6 +1697,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on InformationItem.Represented : Classifier from Standard.InformationItem to Standard.Classifier
         this.ruleMetaExpert.addDependencyRule(InformationItem.class, null, "Represented");
+        
     }
 
     @objid ("89869feb-13f2-41db-88ee-d0908fa1786d")
@@ -1621,6 +1734,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on InformationFlow.Channel : AssociationEnd from Standard.InformationFlow to Standard.AssociationEnd
         this.ruleMetaExpert.addDependencyRule(InformationFlow.class, null, "Channel");
+        
     }
 
     @objid ("cd497e00-c46f-4655-a33a-c70e29540c44")
@@ -1633,6 +1747,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on DataFlow.SModel : Signal from Standard.DataFlow to Standard.Signal
         this.ruleMetaExpert.addDependencyRule(DataFlow.class, null, "SModel");
+        
     }
 
     @objid ("e5de7c06-f01d-43b4-8da6-176ffadf5067")
@@ -1645,6 +1760,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on UseCaseDependency.Target : UseCase from Standard.UseCaseDependency to Standard.UseCase
         this.ruleMetaExpert.addDependencyRule(UseCaseDependency.class, null, "Target");
+        
     }
 
     @objid ("363ee3ef-75f6-4fea-8ed8-c2369974a54c")
@@ -1657,24 +1773,28 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on UseCase.OwnedExtension : ExtensionPoint from Standard.UseCase to Standard.ExtensionPoint
         this.ruleMetaExpert.addDependencyRule(UseCase.class, null, "OwnedExtension");
+        
     }
 
     @objid ("2816854b-74ee-4c58-be05-8e64a8c127be")
     protected void registerMetaExpertForExtensionPoint() {
         // Standard.ExtensionPoint
         // -----------
+        
     }
 
     @objid ("2df24786-194d-429e-bb25-cec0b739511f")
     protected void registerMetaExpertForActor() {
         // Standard.Actor
         // -----------
+        
     }
 
     @objid ("1f96ae08-6b09-49b4-a3c0-2cd3433aebfa")
     protected void registerMetaExpertForTerminatePseudoState() {
         // Standard.TerminatePseudoState
         // -----------
+        
     }
 
     @objid ("984d02d5-945d-4507-bb0f-e007634cdd60")
@@ -1690,12 +1810,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on StateMachine.ExitPoint : ExitPointPseudoState from Standard.StateMachine to Standard.ExitPointPseudoState
         this.ruleMetaExpert.addDependencyRule(StateMachine.class, null, "ExitPoint");
+        
     }
 
     @objid ("3eb9521e-8552-470a-90be-b23d46b24043")
     protected void registerMetaExpertForShallowHistoryPseudoState() {
         // Standard.ShallowHistoryPseudoState
         // -----------
+        
     }
 
     @objid ("45962915-a129-44c7-91aa-4977a9b8187f")
@@ -1705,24 +1827,28 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on Region.Sub : StateVertex from Standard.Region to Standard.StateVertex
         this.ruleMetaExpert.addDependencyRule(Region.class, null, "Sub");
+        
     }
 
     @objid ("e91f46c8-f122-48f2-b01a-889ab3db9754")
     protected void registerMetaExpertForJunctionPseudoState() {
         // Standard.JunctionPseudoState
         // -----------
+        
     }
 
     @objid ("d1ead0fb-73a5-49ff-b4e0-cc0760562c8d")
     protected void registerMetaExpertForJoinPseudoState() {
         // Standard.JoinPseudoState
         // -----------
+        
     }
 
     @objid ("04867c93-8dfc-46ac-b045-9074ed8cb984")
     protected void registerMetaExpertForInternalTransition() {
         // Standard.InternalTransition
         // -----------
+        
     }
 
     @objid ("d8d634fe-0e0c-44fc-806a-96fcd66c0646")
@@ -1749,24 +1875,28 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         // no constraint on Transition.Effects : Signal from Standard.Transition to Standard.Signal
         this.ruleMetaExpert.addDependencyRule(InternalTransition.class, null, "Effects");
         this.ruleMetaExpert.addDependencyRule(Transition.class, null, "Effects");
+        
     }
 
     @objid ("bd14ee23-d68a-4c6d-b50a-a5d792fafb49")
     protected void registerMetaExpertForInitialPseudoState() {
         // Standard.InitialPseudoState
         // -----------
+        
     }
 
     @objid ("a0f4470e-a500-4135-8f5d-2321e852d94f")
     protected void registerMetaExpertForForkPseudoState() {
         // Standard.ForkPseudoState
         // -----------
+        
     }
 
     @objid ("867043d1-df23-4e48-abbf-d0d94796e7ae")
     protected void registerMetaExpertForFinalState() {
         // Standard.FinalState
         // -----------
+        
     }
 
     @objid ("d670367c-73b0-4793-9ac4-518fe35cb47a")
@@ -1801,24 +1931,28 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         // no constraint on State.SubMachine : StateMachine from Standard.State to Standard.StateMachine
         this.ruleMetaExpert.addDependencyRule(FinalState.class, null, "SubMachine");
         this.ruleMetaExpert.addDependencyRule(State.class, null, "SubMachine");
+        
     }
 
     @objid ("8b26d8a4-7577-4429-8705-b82266bd084c")
     protected void registerMetaExpertForExitPointPseudoState() {
         // Standard.ExitPointPseudoState
         // -----------
+        
     }
 
     @objid ("149c6abf-32bf-495c-a5a7-0bb69cb97897")
     protected void registerMetaExpertForEntryPointPseudoState() {
         // Standard.EntryPointPseudoState
         // -----------
+        
     }
 
     @objid ("f697d54e-6f89-4c50-aed7-2852c4cba11d")
     protected void registerMetaExpertForDeepHistoryPseudoState() {
         // Standard.DeepHistoryPseudoState
         // -----------
+        
     }
 
     @objid ("290e1d9d-231b-4d80-8568-528416920478")
@@ -1831,12 +1965,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on ConnectionPointReference.Entry : EntryPointPseudoState from Standard.ConnectionPointReference to Standard.EntryPointPseudoState
         this.ruleMetaExpert.addDependencyRule(ConnectionPointReference.class, null, "Entry");
+        
     }
 
     @objid ("c800fb08-4c8a-4163-81cd-e1588e79f0ef")
     protected void registerMetaExpertForChoicePseudoState() {
         // Standard.ChoicePseudoState
         // -----------
+        
     }
 
     @objid ("63cc9629-8a49-4eee-b411-68877b46994a")
@@ -1844,6 +1980,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         // Standard.AbstractPseudoState is abstract
         
         // -----------
+        
     }
 
     @objid ("a43db67c-c58c-4ee1-b9f5-6564354f2e73")
@@ -1868,24 +2005,28 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         this.ruleMetaExpert.addDependencyRule(State.class, null, "OutGoing");
         this.ruleMetaExpert.addDependencyRule(StateVertex.class, null, "OutGoing");
         this.ruleMetaExpert.addDependencyRule(TerminatePseudoState.class, null, "OutGoing");
+        
     }
 
     @objid ("19a6426a-f940-46d1-a329-aced78c2ea47")
     protected void registerMetaExpertForTerminateSpecification() {
         // Standard.TerminateSpecification
         // -----------
+        
     }
 
     @objid ("4c23ebfe-08fa-446a-9fe7-d94d74fa9002")
     protected void registerMetaExpertForStateInvariant() {
         // Standard.StateInvariant
         // -----------
+        
     }
 
     @objid ("c811f75c-dd33-428f-be82-b29290232ef4")
     protected void registerMetaExpertForPartDecomposition() {
         // Standard.PartDecomposition
         // -----------
+        
     }
 
     @objid ("3d1f16f1-ce21-45ba-a0b7-1b49634acefb")
@@ -1901,6 +2042,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on Message.Invoked : Operation from Standard.Message to Standard.Operation
         this.ruleMetaExpert.addDependencyRule(Message.class, null, "Invoked");
+        
     }
 
     @objid ("43dadb1d-c9ff-4106-8faa-bce7f24be13d")
@@ -1913,6 +2055,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on Lifeline.Represented : Instance from Standard.Lifeline to Standard.Instance
         this.ruleMetaExpert.addDependencyRule(Lifeline.class, null, "Represented");
+        
     }
 
     @objid ("05e6ada2-dc4a-4c97-bcd6-d34ea5de4b35")
@@ -1927,6 +2070,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         // no constraint on InteractionUse.RefersTo : Interaction from Standard.InteractionUse to Standard.Interaction
         this.ruleMetaExpert.addDependencyRule(InteractionUse.class, null, "RefersTo");
         this.ruleMetaExpert.addDependencyRule(PartDecomposition.class, null, "RefersTo");
+        
     }
 
     @objid ("8f9381dd-9520-40b8-9727-60f6d2c8bb75")
@@ -1936,6 +2080,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on InteractionOperand.Fragment : InteractionFragment from Standard.InteractionOperand to Standard.InteractionFragment
         this.ruleMetaExpert.addDependencyRule(InteractionOperand.class, null, "Fragment");
+        
     }
 
     @objid ("ce88b1e0-dbfd-4ea3-9a1f-007325c56c6f")
@@ -1951,6 +2096,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on Interaction.OwnedLine : Lifeline from Standard.Interaction to Standard.Lifeline
         this.ruleMetaExpert.addDependencyRule(Interaction.class, null, "OwnedLine");
+        
     }
 
     @objid ("11e5b566-0ffc-4133-9763-b7abb751e365")
@@ -1960,6 +2106,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on GeneralOrdering.After : OccurrenceSpecification from Standard.GeneralOrdering to Standard.OccurrenceSpecification
         this.ruleMetaExpert.addDependencyRule(GeneralOrdering.class, null, "After");
+        
     }
 
     @objid ("d2dc7141-838c-4881-b277-f2d25240368e")
@@ -1969,6 +2116,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on Gate.Formal : Gate from Standard.Gate to Standard.Gate
         this.ruleMetaExpert.addDependencyRule(Gate.class, null, "Formal");
+        
     }
 
     @objid ("61c269f2-18d8-41df-84e1-1c68c0aed486")
@@ -1978,6 +2126,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on ExecutionSpecification.Finish : ExecutionOccurenceSpecification from Standard.ExecutionSpecification to Standard.ExecutionOccurenceSpecification
         this.ruleMetaExpert.addDependencyRule(ExecutionSpecification.class, null, "Finish");
+        
     }
 
     @objid ("ecf90b3f-8b07-4860-99e3-c64573db4faa")
@@ -1988,6 +2137,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         // no constraint on ExecutionOccurenceSpecification.Started : ExecutionSpecification from Standard.ExecutionOccurenceSpecification to Standard.ExecutionSpecification
         this.ruleMetaExpert.addDependencyRule(ExecutionOccurenceSpecification.class, null, "Started");
         this.ruleMetaExpert.addDependencyRule(TerminateSpecification.class, null, "Started");
+        
     }
 
     @objid ("73456418-454f-4ed4-a9c2-c267a06b03ee")
@@ -2001,6 +2151,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         this.ruleMetaExpert.addDependencyRule(Gate.class, null, "SentMessage");
         this.ruleMetaExpert.addDependencyRule(MessageEnd.class, null, "SentMessage");
         this.ruleMetaExpert.addDependencyRule(TerminateSpecification.class, null, "SentMessage");
+        
     }
 
     @objid ("6005e7f5-2fcb-49fb-915c-8d6931b56c83")
@@ -2016,12 +2167,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         this.ruleMetaExpert.addDependencyRule(OccurrenceSpecification.class, null, "ToAfter");
         this.ruleMetaExpert.addDependencyRule(StateInvariant.class, null, "ToAfter");
         this.ruleMetaExpert.addDependencyRule(TerminateSpecification.class, null, "ToAfter");
+        
     }
 
     @objid ("e1e61392-0c66-4ee9-9009-698bc7e5a1ba")
     protected void registerMetaExpertForDurationConstraint() {
         // Standard.DurationConstraint
         // -----------
+        
     }
 
     @objid ("5984dc6b-68de-4bad-8453-3fde1dbeb54c")
@@ -2032,6 +2185,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         // no constraint on Constraint.ConstrainedElement : UmlModelElement from Standard.Constraint to Standard.UmlModelElement
         this.ruleMetaExpert.addDependencyRule(Constraint.class, null, "ConstrainedElement");
         this.ruleMetaExpert.addDependencyRule(DurationConstraint.class, null, "ConstrainedElement");
+        
     }
 
     @objid ("719f9fd5-ee21-4472-9ad9-fc57b37194e9")
@@ -2044,6 +2198,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on CombinedFragment.FragmentGate : Gate from Standard.CombinedFragment to Standard.Gate
         this.ruleMetaExpert.addDependencyRule(CombinedFragment.class, null, "FragmentGate");
+        
     }
 
     @objid ("e1c6541d-bc25-4746-9f8f-15636e832fa1")
@@ -2065,6 +2220,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         this.ruleMetaExpert.addDependencyRule(PartDecomposition.class, null, "Covered");
         this.ruleMetaExpert.addDependencyRule(StateInvariant.class, null, "Covered");
         this.ruleMetaExpert.addDependencyRule(TerminateSpecification.class, null, "Covered");
+        
     }
 
     @objid ("ef29632f-38a8-4d82-a598-362df7145592")
@@ -2077,6 +2233,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on CommunicationNode.Started : CommunicationChannel from Standard.CommunicationNode to Standard.CommunicationChannel
         this.ruleMetaExpert.addDependencyRule(CommunicationNode.class, null, "Started");
+        
     }
 
     @objid ("299f23a5-6346-429e-ae6a-4cbc4546b269")
@@ -2089,6 +2246,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on CommunicationMessage.SignalSignature : Signal from Standard.CommunicationMessage to Standard.Signal
         this.ruleMetaExpert.addDependencyRule(CommunicationMessage.class, null, "SignalSignature");
+        
     }
 
     @objid ("d05f400e-9344-4866-ab6e-1b21609a501e")
@@ -2098,6 +2256,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on CommunicationInteraction.Owned : CommunicationNode from Standard.CommunicationInteraction to Standard.CommunicationNode
         this.ruleMetaExpert.addDependencyRule(CommunicationInteraction.class, null, "Owned");
+        
     }
 
     @objid ("f629760f-8a67-49cc-920b-ed77d7d70fc2")
@@ -2119,6 +2278,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on CommunicationChannel.End : CommunicationNode from Standard.CommunicationChannel to Standard.CommunicationNode
         this.ruleMetaExpert.addDependencyRule(CommunicationChannel.class, null, "End");
+        
     }
 
     @objid ("75f63324-8916-4ae2-9c50-bf35f30dcadf")
@@ -2134,6 +2294,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on Signal.Base : GeneralClass from Standard.Signal to Standard.GeneralClass
         this.ruleMetaExpert.addDependencyRule(Signal.class, null, "Base");
+        
     }
 
     @objid ("812d4c2a-3ec0-4b83-bbbf-a1b55dcfcc73")
@@ -2141,6 +2302,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         // Standard.GeneralClass is abstract
         
         // -----------
+        
     }
 
     @objid ("6a8928b3-ea6e-4c74-ab69-daf93842e656")
@@ -2244,6 +2406,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         this.ruleMetaExpert.addDependencyRule(Signal.class, null, "InternalStructure");
         this.ruleMetaExpert.addDependencyRule(TemplateParameter.class, null, "InternalStructure");
         this.ruleMetaExpert.addDependencyRule(UseCase.class, null, "InternalStructure");
+        
     }
 
     @objid ("82337aa4-bb05-4deb-bc03-4c1568408c15")
@@ -2479,6 +2642,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         this.ruleMetaExpert.addDependencyRule(Signal.class, null, "OwnedImport");
         this.ruleMetaExpert.addDependencyRule(TemplateParameter.class, null, "OwnedImport");
         this.ruleMetaExpert.addDependencyRule(UseCase.class, null, "OwnedImport");
+        
     }
 
     @objid ("979c9ade-fc8b-4970-a90a-c1eff613cde1")
@@ -2506,12 +2670,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         this.ruleMetaExpert.addDependencyRule(Signal.class, null, "OwnedElement");
         this.ruleMetaExpert.addDependencyRule(TemplateParameter.class, null, "OwnedElement");
         this.ruleMetaExpert.addDependencyRule(UseCase.class, null, "OwnedElement");
+        
     }
 
     @objid ("f57d8ff6-e620-479d-8c90-c987256967bf")
     protected void registerMetaExpertForOpaqueBehavior() {
         // Standard.OpaqueBehavior
         // -----------
+        
     }
 
     @objid ("e1929d82-421d-4591-ba42-048ccf841c45")
@@ -2524,6 +2690,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on Event.Called : Operation from Standard.Event to Standard.Operation
         this.ruleMetaExpert.addDependencyRule(Event.class, null, "Called");
+        
     }
 
     @objid ("569f0580-b687-4119-a17b-74bebd8c93d5")
@@ -2533,6 +2700,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BehaviorParameter.Mapped : Parameter from Standard.BehaviorParameter to Standard.Parameter
         this.ruleMetaExpert.addDependencyRule(BehaviorParameter.class, null, "Mapped");
+        
     }
 
     @objid ("ecd4a508-3663-4189-b362-23eb4fc1445b")
@@ -2543,12 +2711,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         // no constraint on Parameter.Type : GeneralClass from Standard.Parameter to Standard.GeneralClass
         this.ruleMetaExpert.addDependencyRule(BehaviorParameter.class, null, "Type");
         this.ruleMetaExpert.addDependencyRule(Parameter.class, null, "Type");
+        
     }
 
     @objid ("b8a44269-fb2f-4bd7-914f-48c5bf4e8254")
     protected void registerMetaExpertForValuePin() {
         // Standard.ValuePin
         // -----------
+        
     }
 
     @objid ("a2d06f25-d004-4f07-978f-cab0725c9d16")
@@ -2558,24 +2728,28 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on SendSignalAction.Sent : Signal from Standard.SendSignalAction to Standard.Signal
         this.ruleMetaExpert.addDependencyRule(SendSignalAction.class, null, "Sent");
+        
     }
 
     @objid ("b524bb39-d37a-486b-8120-2c94b67cbfae")
     protected void registerMetaExpertForOutputPin() {
         // Standard.OutputPin
         // -----------
+        
     }
 
     @objid ("60b38ca6-60e5-4c25-af52-6ab978a7258b")
     protected void registerMetaExpertForOpaqueAction() {
         // Standard.OpaqueAction
         // -----------
+        
     }
 
     @objid ("c76042a8-a1e4-4dc4-91fe-5cc21050a243")
     protected void registerMetaExpertForObjectFlow() {
         // Standard.ObjectFlow
         // -----------
+        
     }
 
     @objid ("af58e253-638d-4d5c-b439-09089c8bf2e2")
@@ -2585,12 +2759,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on MessageFlow.TargetPartition : ActivityPartition from Standard.MessageFlow to Standard.ActivityPartition
         this.ruleMetaExpert.addDependencyRule(MessageFlow.class, null, "TargetPartition");
+        
     }
 
     @objid ("9d16f091-8324-4249-90a6-4fd6cfddc987")
     protected void registerMetaExpertForLoopNode() {
         // Standard.LoopNode
         // -----------
+        
     }
 
     @objid ("f7da63fc-dee8-444d-abc4-88791b52d5e9")
@@ -2600,18 +2776,21 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on InterruptibleActivityRegion.InterruptingEdge : ActivityEdge from Standard.InterruptibleActivityRegion to Standard.ActivityEdge
         this.ruleMetaExpert.addDependencyRule(InterruptibleActivityRegion.class, null, "InterruptingEdge");
+        
     }
 
     @objid ("911c7528-e4a2-4b86-83e5-971821e6b846")
     protected void registerMetaExpertForInstanceNode() {
         // Standard.InstanceNode
         // -----------
+        
     }
 
     @objid ("60aa7614-2c98-407f-8f79-d8527fbf1a37")
     protected void registerMetaExpertForInputPin() {
         // Standard.InputPin
         // -----------
+        
     }
 
     @objid ("7b6b18d2-4005-402f-837b-82ed7e773df7")
@@ -2625,24 +2804,28 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         this.ruleMetaExpert.addDependencyRule(OutputPin.class, null, "Matched");
         this.ruleMetaExpert.addDependencyRule(Pin.class, null, "Matched");
         this.ruleMetaExpert.addDependencyRule(ValuePin.class, null, "Matched");
+        
     }
 
     @objid ("4b94f4fa-0f77-4be8-9c43-b9b263b6036d")
     protected void registerMetaExpertForInitialNode() {
         // Standard.InitialNode
         // -----------
+        
     }
 
     @objid ("04e4aefb-199b-42a2-a366-528a09eafd69")
     protected void registerMetaExpertForForkJoinNode() {
         // Standard.ForkJoinNode
         // -----------
+        
     }
 
     @objid ("abde501d-6930-4639-8b8f-5e7942100655")
     protected void registerMetaExpertForFlowFinalNode() {
         // Standard.FlowFinalNode
         // -----------
+        
     }
 
     @objid ("b4f431b3-8afe-47ce-8870-144a4c9baccf")
@@ -2655,12 +2838,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on ExpansionRegion.InputElement : ExpansionNode from Standard.ExpansionRegion to Standard.ExpansionNode
         this.ruleMetaExpert.addDependencyRule(ExpansionRegion.class, null, "InputElement");
+        
     }
 
     @objid ("b7c28c9b-738f-4eb0-bfe5-b7781ca670a8")
     protected void registerMetaExpertForExpansionNode() {
         // Standard.ExpansionNode
         // -----------
+        
     }
 
     @objid ("95a68e83-3aa7-4904-bd2a-9d933e366c79")
@@ -2673,24 +2858,28 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on ExceptionHandler.ExceptionType : GeneralClass from Standard.ExceptionHandler to Standard.GeneralClass
         this.ruleMetaExpert.addDependencyRule(ExceptionHandler.class, null, "ExceptionType");
+        
     }
 
     @objid ("4e65d66d-265c-430b-aeb4-6e59e2a91074")
     protected void registerMetaExpertForDecisionMergeNode() {
         // Standard.DecisionMergeNode
         // -----------
+        
     }
 
     @objid ("b69fc041-72c6-44d3-bdde-cdd554453ed5")
     protected void registerMetaExpertForDataStoreNode() {
         // Standard.DataStoreNode
         // -----------
+        
     }
 
     @objid ("456a70ce-5b62-40f6-b52e-bba57a509e28")
     protected void registerMetaExpertForControlFlow() {
         // Standard.ControlFlow
         // -----------
+        
     }
 
     @objid ("45ff19a4-80a7-4a54-804f-a1f80d2fd1da")
@@ -2700,6 +2889,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on ConditionalNode.OwnedClause : Clause from Standard.ConditionalNode to Standard.Clause
         this.ruleMetaExpert.addDependencyRule(ConditionalNode.class, null, "OwnedClause");
+        
     }
 
     @objid ("51a63b08-c967-4396-bb41-f49b1b900ce9")
@@ -2712,6 +2902,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         this.ruleMetaExpert.addDependencyRule(ExpansionRegion.class, null, "Body");
         this.ruleMetaExpert.addDependencyRule(LoopNode.class, null, "Body");
         this.ruleMetaExpert.addDependencyRule(StructuredActivityNode.class, null, "Body");
+        
     }
 
     @objid ("b0615691-cb72-45c5-82ce-22b3264f374c")
@@ -2721,12 +2912,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on Clause.Body : ActivityNode from Standard.Clause to Standard.ActivityNode
         this.ruleMetaExpert.addDependencyRule(Clause.class, null, "Body");
+        
     }
 
     @objid ("b51172d2-6d4c-4ebc-89cf-74034a726809")
     protected void registerMetaExpertForCentralBufferNode() {
         // Standard.CentralBufferNode
         // -----------
+        
     }
 
     @objid ("c47a5812-2f2a-4d30-8e3c-a24bbcb6fe1f")
@@ -2736,6 +2929,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on CallOperationAction.Called : Operation from Standard.CallOperationAction to Standard.Operation
         this.ruleMetaExpert.addDependencyRule(CallOperationAction.class, null, "Called");
+        
     }
 
     @objid ("a1dc8e62-dc51-47f3-be94-06776b29af04")
@@ -2745,6 +2939,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on CallBehaviorAction.Called : Behavior from Standard.CallBehaviorAction to Standard.Behavior
         this.ruleMetaExpert.addDependencyRule(CallBehaviorAction.class, null, "Called");
+        
     }
 
     @objid ("e1407538-a572-4fab-a15b-0065da487a92")
@@ -2752,6 +2947,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         // Standard.CallAction is abstract
         
         // -----------
+        
     }
 
     @objid ("b6862c43-2730-43e9-8b48-92bfba9e3e47")
@@ -2770,12 +2966,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on ActivityPartition.SubPartition : ActivityPartition from Standard.ActivityPartition to Standard.ActivityPartition
         this.ruleMetaExpert.addDependencyRule(ActivityPartition.class, null, "SubPartition");
+        
     }
 
     @objid ("952cd88c-4146-4390-9f9c-2b65defcbbb5")
     protected void registerMetaExpertForActivityParameterNode() {
         // Standard.ActivityParameterNode
         // -----------
+        
     }
 
     @objid ("ce47181c-6380-45d7-836b-edf536a179bc")
@@ -2855,6 +3053,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         this.ruleMetaExpert.addDependencyRule(OutputPin.class, null, "InState");
         this.ruleMetaExpert.addDependencyRule(Pin.class, null, "InState");
         this.ruleMetaExpert.addDependencyRule(ValuePin.class, null, "InState");
+        
     }
 
     @objid ("a3f8ef30-a352-4e19-a733-6b371d6916b8")
@@ -2862,12 +3061,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         // Standard.ActivityGroup is abstract
         
         // -----------
+        
     }
 
     @objid ("5109f1c5-060c-41c1-9ce5-c22d66e4431d")
     protected void registerMetaExpertForActivityFinalNode() {
         // Standard.ActivityFinalNode
         // -----------
+        
     }
 
     @objid ("65ec41b4-666d-4520-b4de-457922809c6d")
@@ -2875,6 +3076,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         // Standard.FinalNode is abstract
         
         // -----------
+        
     }
 
     @objid ("4c0e0dba-7f91-43ea-8e61-ddb3af74f9df")
@@ -2882,6 +3084,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         // Standard.ControlNode is abstract
         
         // -----------
+        
     }
 
     @objid ("0451e5e0-3dfd-4deb-96fe-2513851e7ff6")
@@ -2895,6 +3098,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         this.ruleMetaExpert.addDependencyRule(ControlFlow.class, null, "Target");
         this.ruleMetaExpert.addDependencyRule(MessageFlow.class, null, "Target");
         this.ruleMetaExpert.addDependencyRule(ObjectFlow.class, null, "Target");
+        
     }
 
     @objid ("ae017834-1358-408e-9bc2-04db5a827a40")
@@ -2907,12 +3111,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on Activity.OwnedNode : ActivityNode from Standard.Activity to Standard.ActivityNode
         this.ruleMetaExpert.addDependencyRule(Activity.class, null, "OwnedNode");
+        
     }
 
     @objid ("7dcf2a09-1004-424f-bfe5-bfb27c0b12c6")
     protected void registerMetaExpertForAcceptTimeEventAction() {
         // Standard.AcceptTimeEventAction
         // -----------
+        
     }
 
     @objid ("c9714c36-6b90-40ba-a4b4-ef46d2bd54ad")
@@ -2922,12 +3128,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on AcceptSignalAction.Accepted : Signal from Standard.AcceptSignalAction to Standard.Signal
         this.ruleMetaExpert.addDependencyRule(AcceptSignalAction.class, null, "Accepted");
+        
     }
 
     @objid ("fb79e097-285a-4803-9012-fcd45cbaa0de")
     protected void registerMetaExpertForAcceptChangeEventAction() {
         // Standard.AcceptChangeEventAction
         // -----------
+        
     }
 
     @objid ("11872acd-0e07-4461-b4d9-b8eac854cfd9")
@@ -2937,6 +3145,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on AcceptCallEventAction.Called : Operation from Standard.AcceptCallEventAction to Standard.Operation
         this.ruleMetaExpert.addDependencyRule(AcceptCallEventAction.class, null, "Called");
+        
     }
 
     @objid ("45f4057c-efc3-4acb-89c2-c3aa24595592")
@@ -2992,6 +3201,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         this.ruleMetaExpert.addDependencyRule(OpaqueAction.class, null, "Handler");
         this.ruleMetaExpert.addDependencyRule(SendSignalAction.class, null, "Handler");
         this.ruleMetaExpert.addDependencyRule(StructuredActivityNode.class, null, "Handler");
+        
     }
 
     @objid ("692b8121-78b4-4d25-83eb-c27ec88a234e")
@@ -3033,66 +3243,77 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         this.ruleMetaExpert.addDependencyRule(SendSignalAction.class, null, "Outgoing");
         this.ruleMetaExpert.addDependencyRule(StructuredActivityNode.class, null, "Outgoing");
         this.ruleMetaExpert.addDependencyRule(ValuePin.class, null, "Outgoing");
+        
     }
 
     @objid ("3ab42e7f-6172-40d2-9e48-48dd7072d26e")
     protected void registerMetaExpertForUseCaseDiagram() {
         // Standard.UseCaseDiagram
         // -----------
+        
     }
 
     @objid ("2fdf7565-8d26-4f6f-ad35-1f36a1d30349")
     protected void registerMetaExpertForStateMachineDiagram() {
         // Standard.StateMachineDiagram
         // -----------
+        
     }
 
     @objid ("b186948c-3dc5-4ff4-8882-7a2e1530833d")
     protected void registerMetaExpertForSequenceDiagram() {
         // Standard.SequenceDiagram
         // -----------
+        
     }
 
     @objid ("059c70b5-2abe-4378-8ec9-4fb0a5bb820c")
     protected void registerMetaExpertForObjectDiagram() {
         // Standard.ObjectDiagram
         // -----------
+        
     }
 
     @objid ("98b436f1-b8df-401e-ba19-2085171b818f")
     protected void registerMetaExpertForDeploymentDiagram() {
         // Standard.DeploymentDiagram
         // -----------
+        
     }
 
     @objid ("975f20d4-13e6-4dfd-a1cb-d82daebe07c2")
     protected void registerMetaExpertForCompositeStructureDiagram() {
         // Standard.CompositeStructureDiagram
         // -----------
+        
     }
 
     @objid ("998e254e-8cf5-4799-993c-1621bc4afba2")
     protected void registerMetaExpertForCommunicationDiagram() {
         // Standard.CommunicationDiagram
         // -----------
+        
     }
 
     @objid ("02014494-bb4e-4313-94d7-ca3ec4da9755")
     protected void registerMetaExpertForClassDiagram() {
         // Standard.ClassDiagram
         // -----------
+        
     }
 
     @objid ("b706d137-4fc2-4b2b-b454-9227451d04e6")
     protected void registerMetaExpertForStaticDiagram() {
         // Standard.StaticDiagram
         // -----------
+        
     }
 
     @objid ("6d3182d7-05f8-4299-8d92-b0a3b63701fc")
     protected void registerMetaExpertForActivityDiagram() {
         // Standard.ActivityDiagram
         // -----------
+        
     }
 
     @objid ("f878b702-79ca-4434-b0fb-5364403cb1a3")
@@ -3102,6 +3323,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnSharedDefinitions.RootElement : BpmnSharedElement from Standard.BpmnSharedDefinitions to Standard.BpmnSharedElement
         this.ruleMetaExpert.addDependencyRule(BpmnSharedDefinitions.class, null, "RootElement");
+        
     }
 
     @objid ("6f66f16a-702f-4a7d-bdb5-efa6e755c9d8")
@@ -3111,6 +3333,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnGroup.Categorized : BpmnFlowElement from Standard.BpmnGroup to Standard.BpmnFlowElement
         this.ruleMetaExpert.addDependencyRule(BpmnGroup.class, null, "Categorized");
+        
     }
 
     @objid ("bfc7545c-8b32-4db8-a743-3a4227eed5e9")
@@ -3123,6 +3346,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnAssociation.SourceRef : BpmnBaseElement from Standard.BpmnAssociation to Standard.BpmnBaseElement
         this.ruleMetaExpert.addDependencyRule(BpmnAssociation.class, null, "SourceRef");
+        
     }
 
     @objid ("0b5887cd-e202-4365-b836-1c27770cca71")
@@ -3130,6 +3354,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         // Standard.BpmnArtifact is abstract
         
         // -----------
+        
     }
 
     @objid ("245fa2fb-2fa8-45ac-a5e5-bd1747732442")
@@ -3142,6 +3367,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnResourceRole.ResourceParameterBinding : BpmnResourceParameterBinding from Standard.BpmnResourceRole to Standard.BpmnResourceParameterBinding
         this.ruleMetaExpert.addDependencyRule(BpmnResourceRole.class, null, "ResourceParameterBinding");
+        
     }
 
     @objid ("ae2340f3-e8c8-4f30-a946-c584ff0e93bb")
@@ -3151,6 +3377,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnResourceParameterBinding.ParameterRef : BpmnResourceParameter from Standard.BpmnResourceParameterBinding to Standard.BpmnResourceParameter
         this.ruleMetaExpert.addDependencyRule(BpmnResourceParameterBinding.class, null, "ParameterRef");
+        
     }
 
     @objid ("8b75dcff-b1ef-4a96-8301-24dfb5b6eb7b")
@@ -3160,6 +3387,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnResourceParameter.Type : BpmnItemDefinition from Standard.BpmnResourceParameter to Standard.BpmnItemDefinition
         this.ruleMetaExpert.addDependencyRule(BpmnResourceParameter.class, null, "Type");
+        
     }
 
     @objid ("216ed0c9-f416-4d98-9b6a-d6caccf5f73e")
@@ -3169,6 +3397,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnResource.Parameter : BpmnResourceParameter from Standard.BpmnResource to Standard.BpmnResourceParameter
         this.ruleMetaExpert.addDependencyRule(BpmnResource.class, null, "Parameter");
+        
     }
 
     @objid ("bcfd04bc-9bf3-4722-9b76-8a65aef500b3")
@@ -3193,6 +3422,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnProcess.DefinitionalCollaboration : BpmnCollaboration from Standard.BpmnProcess to Standard.BpmnCollaboration
         this.ruleMetaExpert.addDependencyRule(BpmnProcess.class, null, "DefinitionalCollaboration");
+        
     }
 
     @objid ("9f6b315c-d2f6-4b12-a3eb-1af4b46feee8")
@@ -3208,6 +3438,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnParticipant.InterfaceRefs : BpmnInterface from Standard.BpmnParticipant to Standard.BpmnInterface
         this.ruleMetaExpert.addDependencyRule(BpmnParticipant.class, null, "InterfaceRefs");
+        
     }
 
     @objid ("5680c31b-eb27-4824-af3d-cd001670a93d")
@@ -3217,6 +3448,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnLaneSet.Lane : BpmnLane from Standard.BpmnLaneSet to Standard.BpmnLane
         this.ruleMetaExpert.addDependencyRule(BpmnLaneSet.class, null, "Lane");
+        
     }
 
     @objid ("4c2341c2-dcc3-4c5a-a6e8-7152bfd5c663")
@@ -3232,6 +3464,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnLane.BpmnPartitionElementRef : BpmnBaseElement from Standard.BpmnLane to Standard.BpmnBaseElement
         this.ruleMetaExpert.addDependencyRule(BpmnLane.class, null, "BpmnPartitionElementRef");
+        
     }
 
     @objid ("1d04a1c7-e62a-439f-8fd0-473c993de7f1")
@@ -3250,6 +3483,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnCollaboration.Messages : BpmnMessage from Standard.BpmnCollaboration to Standard.BpmnMessage
         this.ruleMetaExpert.addDependencyRule(BpmnCollaboration.class, null, "Messages");
+        
     }
 
     @objid ("130c72dc-9789-4450-9826-3d9b56809cec")
@@ -3290,6 +3524,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         this.ruleMetaExpert.addDependencyRule(Interaction.class, null, "EComponent");
         this.ruleMetaExpert.addDependencyRule(OpaqueBehavior.class, null, "EComponent");
         this.ruleMetaExpert.addDependencyRule(StateMachine.class, null, "EComponent");
+        
     }
 
     @objid ("9f87de41-5cb2-47d0-812f-8b5b5004ffe5")
@@ -3450,6 +3685,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         this.ruleMetaExpert.addDependencyRule(UseCase.class, null, "ConstraintDefinition");
         this.ruleMetaExpert.addDependencyRule(UseCaseDependency.class, null, "ConstraintDefinition");
         this.ruleMetaExpert.addDependencyRule(ValuePin.class, null, "ConstraintDefinition");
+        
     }
 
     @objid ("220bec63-01f6-4bbf-ad00-65ec515a7c55")
@@ -3462,42 +3698,49 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnSequenceFlowDataAssociation.DataAssociation : BpmnDataAssociation from Standard.BpmnSequenceFlowDataAssociation to Standard.BpmnDataAssociation
         this.ruleMetaExpert.addDependencyRule(BpmnSequenceFlowDataAssociation.class, null, "DataAssociation");
+        
     }
 
     @objid ("20624a20-9eb6-4555-a26f-858241fdc1c2")
     protected void registerMetaExpertForBpmnItemDefinition() {
         // Standard.BpmnItemDefinition
         // -----------
+        
     }
 
     @objid ("cef4ef39-6e1e-44ed-9c01-c9f42413863a")
     protected void registerMetaExpertForBpmnDataStore() {
         // Standard.BpmnDataStore
         // -----------
+        
     }
 
     @objid ("d1ac0f56-dec6-47a0-ad4c-bcb4b2c42f58")
     protected void registerMetaExpertForBpmnDataState() {
         // Standard.BpmnDataState
         // -----------
+        
     }
 
     @objid ("9d5ce853-1097-4cab-b73f-e1fdd2634fe6")
     protected void registerMetaExpertForBpmnDataOutput() {
         // Standard.BpmnDataOutput
         // -----------
+        
     }
 
     @objid ("8aa72331-b659-4deb-b14b-36474da6caba")
     protected void registerMetaExpertForBpmnDataObject() {
         // Standard.BpmnDataObject
         // -----------
+        
     }
 
     @objid ("4254b555-5e89-4efc-bb16-37e66603d331")
     protected void registerMetaExpertForBpmnDataInput() {
         // Standard.BpmnDataInput
         // -----------
+        
     }
 
     @objid ("5006f998-1a2b-47f8-8a83-70779f9701f8")
@@ -3519,6 +3762,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         this.ruleMetaExpert.addDependencyRule(BpmnDataOutput.class, null, "DataState");
         this.ruleMetaExpert.addDependencyRule(BpmnDataStore.class, null, "DataState");
         this.ruleMetaExpert.addDependencyRule(BpmnItemAwareElement.class, null, "DataState");
+        
     }
 
     @objid ("551f083c-2c4b-4918-9d1d-12cba6a39372")
@@ -3531,12 +3775,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnDataAssociation.TargetRef : BpmnItemAwareElement from Standard.BpmnDataAssociation to Standard.BpmnItemAwareElement
         this.ruleMetaExpert.addDependencyRule(BpmnDataAssociation.class, null, "TargetRef");
+        
     }
 
     @objid ("81561af4-b36b-48cb-8a59-d62b735d96c4")
     protected void registerMetaExpertForBpmnParallelGateway() {
         // Standard.BpmnParallelGateway
         // -----------
+        
     }
 
     @objid ("452aef5e-d82b-43d6-8e1e-f352d5babf7e")
@@ -3546,6 +3792,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnInclusiveGateway.DefaultFlow : BpmnSequenceFlow from Standard.BpmnInclusiveGateway to Standard.BpmnSequenceFlow
         this.ruleMetaExpert.addDependencyRule(BpmnInclusiveGateway.class, null, "DefaultFlow");
+        
     }
 
     @objid ("2d9d9a45-3415-4b19-93b1-7e99312aea52")
@@ -3555,12 +3802,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnExclusiveGateway.DefaultFlow : BpmnSequenceFlow from Standard.BpmnExclusiveGateway to Standard.BpmnSequenceFlow
         this.ruleMetaExpert.addDependencyRule(BpmnExclusiveGateway.class, null, "DefaultFlow");
+        
     }
 
     @objid ("8ae9d86a-1c05-4f46-9d63-e6c65ffd8e0f")
     protected void registerMetaExpertForBpmnEventBasedGateway() {
         // Standard.BpmnEventBasedGateway
         // -----------
+        
     }
 
     @objid ("7dbd6cdc-ed16-4796-9cfc-2d76d6524f63")
@@ -3570,6 +3819,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnComplexGateway.DefaultFlow : BpmnSequenceFlow from Standard.BpmnComplexGateway to Standard.BpmnSequenceFlow
         this.ruleMetaExpert.addDependencyRule(BpmnComplexGateway.class, null, "DefaultFlow");
+        
     }
 
     @objid ("476f223c-324a-4bfb-a294-440b092cba78")
@@ -3577,6 +3827,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         // Standard.BpmnGateway is abstract
         
         // -----------
+        
     }
 
     @objid ("c81cec58-fb0d-44a5-baec-f653f24abbaf")
@@ -3592,6 +3843,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnSequenceFlow.Connector : BpmnSequenceFlowDataAssociation from Standard.BpmnSequenceFlow to Standard.BpmnSequenceFlowDataAssociation
         this.ruleMetaExpert.addDependencyRule(BpmnSequenceFlow.class, null, "Connector");
+        
     }
 
     @objid ("3530fc18-1853-471a-a618-75a89bbccfa1")
@@ -3607,6 +3859,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnMessageFlow.TargetRef : BpmnBaseElement from Standard.BpmnMessageFlow to Standard.BpmnBaseElement
         this.ruleMetaExpert.addDependencyRule(BpmnMessageFlow.class, null, "TargetRef");
+        
     }
 
     @objid ("c9306bc6-0eac-4d44-a4dc-8322168bfe2d")
@@ -3616,30 +3869,35 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnMessage.ItemRef : BpmnItemDefinition from Standard.BpmnMessage to Standard.BpmnItemDefinition
         this.ruleMetaExpert.addDependencyRule(BpmnMessage.class, null, "ItemRef");
+        
     }
 
     @objid ("a7934a25-c21e-4430-87fa-cf50160efcaf")
     protected void registerMetaExpertForBpmnTimerEventDefinition() {
         // Standard.BpmnTimerEventDefinition
         // -----------
+        
     }
 
     @objid ("0d2e53cd-1bb0-4897-acc8-c72e577b8577")
     protected void registerMetaExpertForBpmnTerminateEventDefinition() {
         // Standard.BpmnTerminateEventDefinition
         // -----------
+        
     }
 
     @objid ("8fa71687-e20e-44db-99b4-459ceddf10fc")
     protected void registerMetaExpertForBpmnStartEvent() {
         // Standard.BpmnStartEvent
         // -----------
+        
     }
 
     @objid ("ac2395f3-5b66-4304-ad3e-8f74f211b4a5")
     protected void registerMetaExpertForBpmnSignalEventDefinition() {
         // Standard.BpmnSignalEventDefinition
         // -----------
+        
     }
 
     @objid ("449986db-638d-422d-80c7-993f71883729")
@@ -3652,6 +3910,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnMessageEventDefinition.OperationRef : BpmnOperation from Standard.BpmnMessageEventDefinition to Standard.BpmnOperation
         this.ruleMetaExpert.addDependencyRule(BpmnMessageEventDefinition.class, null, "OperationRef");
+        
     }
 
     @objid ("dc9f6436-3509-4cfb-899b-d15ed6205726")
@@ -3661,42 +3920,49 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnLinkEventDefinition.Target : BpmnLinkEventDefinition from Standard.BpmnLinkEventDefinition to Standard.BpmnLinkEventDefinition
         this.ruleMetaExpert.addDependencyRule(BpmnLinkEventDefinition.class, null, "Target");
+        
     }
 
     @objid ("5668529c-53aa-455a-a7c7-c4c87a8a89fb")
     protected void registerMetaExpertForBpmnIntermediateThrowEvent() {
         // Standard.BpmnIntermediateThrowEvent
         // -----------
+        
     }
 
     @objid ("b2dad21e-ebcb-4b0a-a298-2d5546854228")
     protected void registerMetaExpertForBpmnIntermediateCatchEvent() {
         // Standard.BpmnIntermediateCatchEvent
         // -----------
+        
     }
 
     @objid ("b48757b8-4c65-40b0-8c63-cfcaef2300ff")
     protected void registerMetaExpertForBpmnImplicitThrowEvent() {
         // Standard.BpmnImplicitThrowEvent
         // -----------
+        
     }
 
     @objid ("2076675d-3e06-4827-b4ef-a154d8b26315")
     protected void registerMetaExpertForBpmnEscalationEventDefinition() {
         // Standard.BpmnEscalationEventDefinition
         // -----------
+        
     }
 
     @objid ("b8a48e4e-cb99-4fb2-a2ee-f3c91b42de67")
     protected void registerMetaExpertForBpmnErrorEventDefinition() {
         // Standard.BpmnErrorEventDefinition
         // -----------
+        
     }
 
     @objid ("1ad53efc-2129-4acf-82e5-e5237a914ef7")
     protected void registerMetaExpertForBpmnEndEvent() {
         // Standard.BpmnEndEvent
         // -----------
+        
     }
 
     @objid ("c090ba7a-79be-4fdd-b476-fa1d91813c4d")
@@ -3716,12 +3982,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         this.ruleMetaExpert.addDependencyRule(BpmnImplicitThrowEvent.class, null, "DataInput");
         this.ruleMetaExpert.addDependencyRule(BpmnIntermediateThrowEvent.class, null, "DataInput");
         this.ruleMetaExpert.addDependencyRule(BpmnThrowEvent.class, null, "DataInput");
+        
     }
 
     @objid ("b408f6df-ba51-4391-9993-f1389e632af5")
     protected void registerMetaExpertForBpmnConditionalEventDefinition() {
         // Standard.BpmnConditionalEventDefinition
         // -----------
+        
     }
 
     @objid ("d21872de-9296-4550-9cef-272c989d58fa")
@@ -3731,12 +3999,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnCompensateEventDefinition.ActivityRef : BpmnActivity from Standard.BpmnCompensateEventDefinition to Standard.BpmnActivity
         this.ruleMetaExpert.addDependencyRule(BpmnCompensateEventDefinition.class, null, "ActivityRef");
+        
     }
 
     @objid ("39b4007c-bd04-49dd-a242-b2b271b7c654")
     protected void registerMetaExpertForBpmnCancelEventDefinition() {
         // Standard.BpmnCancelEventDefinition
         // -----------
+        
     }
 
     @objid ("0aa7aa0d-cc30-4bf8-8560-3a264688d842")
@@ -3744,12 +4014,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         // Standard.BpmnEventDefinition is abstract
         
         // -----------
+        
     }
 
     @objid ("f51be05c-9f1d-4659-ac8c-1c4f0a4b63e8")
     protected void registerMetaExpertForBpmnBoundaryEvent() {
         // Standard.BpmnBoundaryEvent
         // -----------
+        
     }
 
     @objid ("6c20f065-28d8-460b-9701-8f049c6e7e18")
@@ -3769,6 +4041,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         this.ruleMetaExpert.addDependencyRule(BpmnCatchEvent.class, null, "DataOutput");
         this.ruleMetaExpert.addDependencyRule(BpmnIntermediateCatchEvent.class, null, "DataOutput");
         this.ruleMetaExpert.addDependencyRule(BpmnStartEvent.class, null, "DataOutput");
+        
     }
 
     @objid ("a6ac8252-f62b-4498-aee6-9addc681f140")
@@ -3787,6 +4060,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         this.ruleMetaExpert.addDependencyRule(BpmnIntermediateThrowEvent.class, null, "EventDefinitions");
         this.ruleMetaExpert.addDependencyRule(BpmnStartEvent.class, null, "EventDefinitions");
         this.ruleMetaExpert.addDependencyRule(BpmnThrowEvent.class, null, "EventDefinitions");
+        
     }
 
     @objid ("bf6a5b62-d949-498f-9200-b42b1ce93f8b")
@@ -3799,6 +4073,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnOperation.OutMessageRef : BpmnMessage from Standard.BpmnOperation to Standard.BpmnMessage
         this.ruleMetaExpert.addDependencyRule(BpmnOperation.class, null, "OutMessageRef");
+        
     }
 
     @objid ("2a09c296-0a0d-4554-a24e-88ec79fb693a")
@@ -3808,12 +4083,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnInterface.Operation : BpmnOperation from Standard.BpmnInterface to Standard.BpmnOperation
         this.ruleMetaExpert.addDependencyRule(BpmnInterface.class, null, "Operation");
+        
     }
 
     @objid ("236fc9a3-0686-4935-8a39-b0d9b2086f8f")
     protected void registerMetaExpertForBpmnEndPoint() {
         // Standard.BpmnEndPoint
         // -----------
+        
     }
 
     @objid ("b35bf176-5d14-4f14-82ba-95336a270534")
@@ -3821,24 +4098,28 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         // Standard.BpmnSharedElement is abstract
         
         // -----------
+        
     }
 
     @objid ("fd7052f5-082a-47bd-8e5b-93bf4e6a06eb")
     protected void registerMetaExpertForBpmnCollaborationDiagram() {
         // Standard.BpmnCollaborationDiagram
         // -----------
+        
     }
 
     @objid ("f4e7b827-cd4d-4681-9aa4-716f07f3b6ba")
     protected void registerMetaExpertForBpmnProcessDesignDiagram() {
         // Standard.BpmnProcessDesignDiagram
         // -----------
+        
     }
 
     @objid ("3d497e23-eaf2-45a8-9f7a-a4ef31dc40c4")
     protected void registerMetaExpertForBpmnSubProcessDiagram() {
         // Standard.BpmnSubProcessDiagram
         // -----------
+        
     }
 
     @objid ("998e6f06-d167-4f82-88e0-f28623480e7f")
@@ -3846,6 +4127,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         // Standard.BpmnProcessCollaborationDiagram is abstract
         
         // -----------
+        
     }
 
     @objid ("57f35e7b-8395-4c9f-8936-0df4d5c177ba")
@@ -3853,24 +4135,28 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         // Standard.BehaviorDiagram is abstract
         
         // -----------
+        
     }
 
     @objid ("0c6129ae-ccee-403a-8329-0e78ee65ef69")
     protected void registerMetaExpertForBpmnUserTask() {
         // Standard.BpmnUserTask
         // -----------
+        
     }
 
     @objid ("d2190ce8-c02a-451c-8240-6557026ee098")
     protected void registerMetaExpertForBpmnTransaction() {
         // Standard.BpmnTransaction
         // -----------
+        
     }
 
     @objid ("85902d63-9d44-4c1b-9802-ae3a1301200d")
     protected void registerMetaExpertForBpmnStandardLoopCharacteristics() {
         // Standard.BpmnStandardLoopCharacteristics
         // -----------
+        
     }
 
     @objid ("043bf9f8-ebca-4fad-b722-2d15d4ce460d")
@@ -3880,6 +4166,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnServiceTask.OperationRef : BpmnOperation from Standard.BpmnServiceTask to Standard.BpmnOperation
         this.ruleMetaExpert.addDependencyRule(BpmnServiceTask.class, null, "OperationRef");
+        
     }
 
     @objid ("173c9543-2c39-4f60-a5d8-8b9971a04324")
@@ -3892,12 +4179,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnSendTask.OperationRef : BpmnOperation from Standard.BpmnSendTask to Standard.BpmnOperation
         this.ruleMetaExpert.addDependencyRule(BpmnSendTask.class, null, "OperationRef");
+        
     }
 
     @objid ("5a8507ec-f4bc-43d4-adb7-36997492dc2e")
     protected void registerMetaExpertForBpmnScriptTask() {
         // Standard.BpmnScriptTask
         // -----------
+        
     }
 
     @objid ("653b78f0-40af-4638-bcb7-8c748b5c16c2")
@@ -3910,6 +4199,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnReceiveTask.OperationRef : BpmnOperation from Standard.BpmnReceiveTask to Standard.BpmnOperation
         this.ruleMetaExpert.addDependencyRule(BpmnReceiveTask.class, null, "OperationRef");
+        
     }
 
     @objid ("aa3b1255-d7c7-4ee7-bdf5-c1a5bd6b59b6")
@@ -3928,12 +4218,14 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnMultiInstanceLoopCharacteristics.ComplexBehaviorDefinition : BpmnComplexBehaviorDefinition from Standard.BpmnMultiInstanceLoopCharacteristics to Standard.BpmnComplexBehaviorDefinition
         this.ruleMetaExpert.addDependencyRule(BpmnMultiInstanceLoopCharacteristics.class, null, "ComplexBehaviorDefinition");
+        
     }
 
     @objid ("632314be-7edc-408c-a423-d0311c6a4f47")
     protected void registerMetaExpertForBpmnManualTask() {
         // Standard.BpmnManualTask
         // -----------
+        
     }
 
     @objid ("87e6000f-f63f-4426-8793-e2ffba5d323b")
@@ -3941,6 +4233,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         // Standard.BpmnLoopCharacteristics is abstract
         
         // -----------
+        
     }
 
     @objid ("15e8f165-5681-4195-9eb9-73da73ba3046")
@@ -3950,6 +4243,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnComplexBehaviorDefinition.Event : BpmnImplicitThrowEvent from Standard.BpmnComplexBehaviorDefinition to Standard.BpmnImplicitThrowEvent
         this.ruleMetaExpert.addDependencyRule(BpmnComplexBehaviorDefinition.class, null, "Event");
+        
     }
 
     @objid ("5aeb8fa1-3c2e-47f6-9bb9-3057f4291700")
@@ -3959,24 +4253,28 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         
         // no constraint on BpmnCallActivity.CalledGlobalTask : BpmnTask from Standard.BpmnCallActivity to Standard.BpmnTask
         this.ruleMetaExpert.addDependencyRule(BpmnCallActivity.class, null, "CalledGlobalTask");
+        
     }
 
     @objid ("9720609d-337b-4acc-a110-bde2dc31d7a5")
     protected void registerMetaExpertForBpmnBusinessRuleTask() {
         // Standard.BpmnBusinessRuleTask
         // -----------
+        
     }
 
     @objid ("96c280c4-bf23-4774-8247-55d41f4de104")
     protected void registerMetaExpertForBpmnTask() {
         // Standard.BpmnTask
         // -----------
+        
     }
 
     @objid ("a34146df-0efc-482d-977d-3af3dfdad0e1")
     protected void registerMetaExpertForBpmnAdHocSubProcess() {
         // Standard.BpmnAdHocSubProcess
         // -----------
+        
     }
 
     @objid ("f13a6dd4-e863-427e-9668-b675817c4a82")
@@ -3998,6 +4296,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         this.ruleMetaExpert.addDependencyRule(BpmnAdHocSubProcess.class, null, "LaneSet");
         this.ruleMetaExpert.addDependencyRule(BpmnSubProcess.class, null, "LaneSet");
         this.ruleMetaExpert.addDependencyRule(BpmnTransaction.class, null, "LaneSet");
+        
     }
 
     @objid ("921ca57e-0954-4f50-9732-f9ecaf47dfe7")
@@ -4109,6 +4408,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         this.ruleMetaExpert.addDependencyRule(BpmnTask.class, null, "DefaultFlow");
         this.ruleMetaExpert.addDependencyRule(BpmnTransaction.class, null, "DefaultFlow");
         this.ruleMetaExpert.addDependencyRule(BpmnUserTask.class, null, "DefaultFlow");
+        
     }
 
     @objid ("a4f11f6e-0a71-4183-a383-70b3f0d4ec3f")
@@ -4147,6 +4447,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         this.ruleMetaExpert.addDependencyRule(BpmnThrowEvent.class, null, "Resource");
         this.ruleMetaExpert.addDependencyRule(BpmnTransaction.class, null, "Resource");
         this.ruleMetaExpert.addDependencyRule(BpmnUserTask.class, null, "Resource");
+        
     }
 
     @objid ("405f226f-63a7-4090-b1a5-5804dac21e62")
@@ -4154,6 +4455,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         // Standard.BpmnFlowElement is abstract
         
         // -----------
+        
     }
 
     @objid ("7d0911a9-6dfa-4376-a2f8-826bc52b1ad9")
@@ -4161,6 +4463,7 @@ public class StandardCSVGeneratedMetamodelExpert extends CompositeMetamodelExper
         // Standard.BpmnBaseElement is abstract
         
         // -----------
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.generation;
 
 import java.io.File;
@@ -66,7 +65,7 @@ public class ExportServices {
      * @param theShell the current shell
      */
     @objid ("b540be75-ba78-4f13-90bb-fc5a60149afc")
-    public ExportServices(Shell theShell) {
+    public  ExportServices(Shell theShell) {
         this._shell = theShell;
     }
 
@@ -106,7 +105,6 @@ public class ExportServices {
     /**
      * Save the Modelio model in the Ecore resource
      * @param resource The Ecore resource
-     * 
      * @param progressBar The progress bar of the XMI dialog
      * @return
      * false if an error occurs during the export
@@ -213,7 +211,6 @@ public class ExportServices {
 
     /**
      * Export the Modelio model into Ecore model
-     * 
      * @param selectedPkg The root of the Modelio model
      * @param progressBar The progress bar of the XMI dialog
      * @return The Ecore model
@@ -268,7 +265,6 @@ public class ExportServices {
 
     /**
      * Export a org.eclipse.uml2.uml.Profile in EMF format
-     * 
      * @param progressBar The progress bar of the XMI dialog
      * @return
      * resource The EMF resource which will be the profile
@@ -371,6 +367,7 @@ public class ExportServices {
         }
         
         genProp.cleanStereotypesExported();
+        
     }
 
     @objid ("bb4ffffb-65be-40cb-833e-1719c7fec64e")
@@ -411,6 +408,7 @@ public class ExportServices {
                     ecoreElement.applyStereotype(ecoreStereotype);
             }
         }
+        
     }
 
     @objid ("4b62cbc4-dd28-4087-b797-9015e612b681")
@@ -421,6 +419,7 @@ public class ExportServices {
         
         if (GenerationProperties.getInstance().isSysMLApplied())
             GenerationProperties.getInstance().getSysMLProfile().define();
+        
     }
 
     @objid ("f6581620-7016-432d-8bab-1fd63090a190")
@@ -504,6 +503,7 @@ public class ExportServices {
                 Xmi.LOG.error(ioe);
             }
         }
+        
     }
 
     @objid ("2b68d8a7-d5d7-4dfc-a726-5f35466017ad")

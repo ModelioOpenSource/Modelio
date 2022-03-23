@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.browser.handlers;
 
 import java.util.Arrays;
@@ -99,6 +98,7 @@ public class CreatePseudoStateHandler extends CreateElementHandler {
         } else {
             return null;
         }
+        
     }
 
     @objid ("00914a06-d19c-1006-9c1d-001ec947cd2a")

@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.informationFlow;
 
 import java.util.ArrayList;
@@ -31,7 +31,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityEdgeSmClass;
 import org.modelio.metamodel.impl.uml.behavior.communicationModel.CommunicationMessageSmClass;
 import org.modelio.metamodel.impl.uml.behavior.interactionModel.MessageSmClass;
-import org.modelio.metamodel.impl.uml.informationFlow.InformationFlowData;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
 import org.modelio.metamodel.impl.uml.statik.AssociationEndSmClass;
 import org.modelio.metamodel.impl.uml.statik.ClassifierSmClass;
@@ -98,7 +97,7 @@ public class InformationFlowSmClass extends UmlModelElementSmClass {
     private SmDependency channelDep;
 
     @objid ("7d6dd2d1-36c7-491c-beed-0fa786db0d96")
-    public InformationFlowSmClass(ISmMetamodelFragment origin) {
+    public  InformationFlowSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -106,6 +105,7 @@ public class InformationFlowSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "InformationFlow";
+        
     }
 
     @objid ("fe38f372-4d48-49ef-a54d-985561738d6b")
@@ -118,18 +118,21 @@ public class InformationFlowSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return InformationFlow.class;
+        
     }
 
     @objid ("bc54339e-1030-44eb-9186-c2f6e396b029")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("fda3f762-d5a8-42d2-a043-28d0a414e479")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("609c54a1-138a-4eb8-aa1b-9b2c57b12f09")
@@ -185,6 +188,8 @@ public class InformationFlowSmClass extends UmlModelElementSmClass {
         this.channelDep = new ChannelSmDependency();
         this.channelDep.init("Channel", this, metamodel.getMClass(AssociationEnd.MQNAME), 0, 1 , SmDirective.SMCDPARTOF);
         registerDependency(this.channelDep);
+        
+        
     }
 
     @objid ("848e8cf7-8fe0-432a-be17-9191071cf47d")
@@ -279,6 +284,7 @@ public class InformationFlowSmClass extends UmlModelElementSmClass {
     @Override
     public boolean isLinkMetaclass() {
         return true;
+        
     }
 
     @objid ("5657ac11-7bbc-47b5-9528-e42bb69bab91")
@@ -287,7 +293,7 @@ public class InformationFlowSmClass extends UmlModelElementSmClass {
         private InformationFlowSmClass smClass;
 
         @objid ("eb4df5ae-4809-479d-8261-334b1b53064d")
-        public InformationFlowObjectFactory(InformationFlowSmClass smClass) {
+        public  InformationFlowObjectFactory(InformationFlowSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -329,6 +335,7 @@ public class InformationFlowSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((NameSpaceSmClass)this.getTarget()).getOwnedInformationFlowDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -348,6 +355,7 @@ public class InformationFlowSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((InformationFlowData) data).mInformationSource = values;
+            
         }
 
         @objid ("b1ab7752-1106-49ef-908d-589c558c66ac")
@@ -357,6 +365,7 @@ public class InformationFlowSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((UmlModelElementSmClass)this.getTarget()).getSentInfoDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -376,6 +385,7 @@ public class InformationFlowSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((InformationFlowData) data).mInformationTarget = values;
+            
         }
 
         @objid ("2a119957-70b8-4f19-bd97-afe830d00b90")
@@ -385,6 +395,7 @@ public class InformationFlowSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((UmlModelElementSmClass)this.getTarget()).getReceivedInfoDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -404,6 +415,7 @@ public class InformationFlowSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((InformationFlowData) data).mRealizingActivityEdge = values;
+            
         }
 
         @objid ("d5b0a372-7dbb-4fce-8399-17edd87801be")
@@ -413,6 +425,7 @@ public class InformationFlowSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((ActivityEdgeSmClass)this.getTarget()).getRealizedInformationFlowDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -432,6 +445,7 @@ public class InformationFlowSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((InformationFlowData) data).mRealizingCommunicationMessage = values;
+            
         }
 
         @objid ("f4686098-ef1c-4c8e-acd5-7536f80ae4e5")
@@ -441,6 +455,7 @@ public class InformationFlowSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((CommunicationMessageSmClass)this.getTarget()).getRealizedInformationFlowDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -460,6 +475,7 @@ public class InformationFlowSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((InformationFlowData) data).mRealizingFeature = values;
+            
         }
 
         @objid ("84181e7b-de4f-496b-b3e5-213daf1f1c00")
@@ -469,6 +485,7 @@ public class InformationFlowSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((StructuralFeatureSmClass)this.getTarget()).getRealizedInformationFlowDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -488,6 +505,7 @@ public class InformationFlowSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((InformationFlowData) data).mRealizingLink = values;
+            
         }
 
         @objid ("356adc80-72d1-40f6-b18f-c59ab48d3d70")
@@ -497,6 +515,7 @@ public class InformationFlowSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((LinkEndSmClass)this.getTarget()).getRealizedInformationFlowDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -516,6 +535,7 @@ public class InformationFlowSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((InformationFlowData) data).mRealizingMessage = values;
+            
         }
 
         @objid ("991d12cc-db70-40af-bc61-395e3b80287f")
@@ -525,6 +545,7 @@ public class InformationFlowSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((MessageSmClass)this.getTarget()).getRealizedInformationFlowDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -544,6 +565,7 @@ public class InformationFlowSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((InformationFlowData) data).mRealizingNaryLink = values;
+            
         }
 
         @objid ("cfe37500-ce27-460a-bfde-7ea2e05be71d")
@@ -553,6 +575,7 @@ public class InformationFlowSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((NaryLinkSmClass)this.getTarget()).getRealizedInformationFlowDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -572,6 +595,7 @@ public class InformationFlowSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((InformationFlowData) data).mConveyed = values;
+            
         }
 
         @objid ("940b1c67-a16e-4e19-b755-cfed215f3f6a")
@@ -581,6 +605,7 @@ public class InformationFlowSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((ClassifierSmClass)this.getTarget()).getConveyerDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -609,6 +634,7 @@ public class InformationFlowSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((AssociationEndSmClass)this.getTarget()).getSentDep();
             }
             return this.symetricDep;
+            
         }
 
     }

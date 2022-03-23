@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.diagramauto.tools.layout;
 
 import java.util.List;
@@ -26,6 +25,7 @@ import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
 import org.modelio.api.modelio.diagram.IDiagramNode;
+import org.modelio.diagram.diagramauto.tools.DgUtils;
 
 @objid ("a9d4f391-9c3a-43f4-aef7-767c9304eba4")
 public class MatrixLayout {
@@ -42,26 +42,28 @@ public class MatrixLayout {
     private int y0 = 0;
 
     @objid ("915cf46d-37bd-4348-81ae-7260ae60ceba")
-    public MatrixLayout() {
+    public  MatrixLayout() {
+        
     }
 
     @objid ("3fcb58dc-f780-4daf-a71b-23be9e1852c0")
-    public MatrixLayout(int x0, int y0) {
+    public  MatrixLayout(int x0, int y0) {
         this.x0 = x0;
         this.y0 = y0;
+        
     }
 
     @objid ("05e3851e-806b-4d95-ad94-5c9a487b3027")
-    public MatrixLayout(int x0, int y0, int dx, int dy) {
+    public  MatrixLayout(int x0, int y0, int dx, int dy) {
         this.x0 = x0;
         this.y0 = y0;
         this.deltaX = dx;
         this.deltaY = dy;
+        
     }
 
     /**
-     * Layout the nodes as a matrix.
-     * Nodes are first 'fit to contents' then resize to the size of the bigger found node.
+     * Layout the nodes as a matrix. Nodes are first 'fit to contents' then resize to the size of the bigger found node.
      */
     @objid ("ef50cf4f-f95e-448f-89db-45482eee8f8a")
     public void layout(final IDiagramHandle dh, final List<IDiagramNode> contentDgs) {
@@ -80,11 +82,11 @@ public class MatrixLayout {
         // Place the elements in the matrix
         layoutElements(contentDgs, cellWidth, cellHeight, nrows, ncols);
         dh.save();
+        
     }
 
     /**
-     * Compute the matrix bounds without layouting the nodes.
-     * Preferably use after a layout() to ensure predictible results.
+     * Compute the matrix bounds without layouting the nodes. Preferably use after a layout() to ensure predictible results.
      * @return
      */
     @objid ("7ccad4e3-2b77-4359-952f-b9765f0670d6")
@@ -100,7 +102,6 @@ public class MatrixLayout {
 
     /**
      * Compute the matrix gemotry based on the contained node number and size.
-     * 
      * @return Two int pairs. The Point class is used to represent int pairs. First returned Point is (nrows, ncols), the second returned point is (cellWidht, cellHeight).
      */
     @objid ("84f40b8f-01e1-40e7-8a09-02fa98fcb617")
@@ -108,8 +109,8 @@ public class MatrixLayout {
         Point[] geo = new Point[2];
         
         int n = contentDgs.size();
-        int ncols = n!=0 ? (int) Math.ceil(Math.sqrt(n * 16.0 / 9.0)) : 0;
-        int nrows = n!=0 ? n / ncols : 0;
+        int ncols = n != 0 ? (int) Math.ceil(Math.sqrt(n * 16.0 / 9.0)) : 0;
+        int nrows = n != 0 ? n / ncols : 0;
         
         int maxWidth = 0;
         int maxHeight = 0;
@@ -127,7 +128,6 @@ public class MatrixLayout {
 
     /**
      * Sets locations and size of all dgs, aligned on a nrows, ncols matrix The center of each dg is part of the circle itself.
-     * 
      * @param dgs the graphics to layout.
      */
     @objid ("e6cf7e87-3225-48e7-9413-96501700a52f")
@@ -137,7 +137,7 @@ public class MatrixLayout {
         
         for (IDiagramNode dg : dgs) {
             dg.setSize(w, h);
-            dg.setLocation(this.x0 + curCol * (w + this.deltaX), this.y0 + curRow * (h + this.deltaY));
+            DgUtils.setLocation(dg, this.x0 + curCol * (w + this.deltaX), this.y0 + curRow * (h + this.deltaY));
             curCol++;
             if (curCol >= ncols) {
                 curCol = 0;

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.informationflowgroup;
 
 import java.util.Collection;
@@ -61,21 +60,22 @@ public final class GmInfoFlowsGroup extends GmGroup {
 
     /**
      * Creates a group.
-     * 
      * @param diagram The diagram.
      * @param relatedRef The related element reference, may not be null.
      */
     @objid ("8164fe39-1dec-11e2-8cad-001ec947c8cc")
-    public GmInfoFlowsGroup(IGmDiagram diagram, MRef relatedRef) {
+    public  GmInfoFlowsGroup(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
         this.relatedEl = resolveRef(relatedRef);
+        
     }
 
     /**
      * Constructor for deserialization only.
      */
     @objid ("8164fe3e-1dec-11e2-8cad-001ec947c8cc")
-    public GmInfoFlowsGroup() {
+    public  GmInfoFlowsGroup() {
+        
     }
 
     @objid ("8164fe41-1dec-11e2-8cad-001ec947c8cc")
@@ -125,6 +125,7 @@ public final class GmInfoFlowsGroup extends GmGroup {
                 break;
             }
         }
+        
     }
 
     @objid ("8164fe63-1dec-11e2-8cad-001ec947c8cc")
@@ -141,6 +142,7 @@ public final class GmInfoFlowsGroup extends GmGroup {
             }
         
         }
+        
     }
 
     @objid ("8164fe66-1dec-11e2-8cad-001ec947c8cc")
@@ -151,6 +153,7 @@ public final class GmInfoFlowsGroup extends GmGroup {
         } else {
             super.styleChanged(property, newValue);
         }
+        
     }
 
     @objid ("8167607b-1dec-11e2-8cad-001ec947c8cc")
@@ -159,6 +162,7 @@ public final class GmInfoFlowsGroup extends GmGroup {
         refreshFromObModel();
         fireVisibilityChanged();
         super.styleChanged(style);
+        
     }
 
     @objid ("8167607f-1dec-11e2-8cad-001ec947c8cc")
@@ -195,6 +199,7 @@ public final class GmInfoFlowsGroup extends GmGroup {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmInfoFlowsGroup.", MINOR_VERSION);
+        
     }
 
     @objid ("81676096-1dec-11e2-8cad-001ec947c8cc")
@@ -203,6 +208,7 @@ public final class GmInfoFlowsGroup extends GmGroup {
                 
         // TODO : Beurk !!!!!!!
         this.relatedEl = resolveRef((MRef) in.readProperty("relatedRef"));
+        
     }
 
     @objid ("8167609a-1dec-11e2-8cad-001ec947c8cc")

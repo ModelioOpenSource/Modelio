@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.executionspecification;
 
 import java.util.List;
@@ -61,6 +60,7 @@ public class MoveResizeExecutionSpecificationEditPolicy extends DefaultNodeResiz
         } else {
             return UnexecutableCommand.INSTANCE;
         }
+        
     }
 
     @objid ("d8efb303-55b6-11e2-877f-002564c97630")
@@ -74,6 +74,7 @@ public class MoveResizeExecutionSpecificationEditPolicy extends DefaultNodeResiz
         } else {
             return UnexecutableCommand.INSTANCE;
         }
+        
     }
 
     @objid ("d8efb309-55b6-11e2-877f-002564c97630")
@@ -83,6 +84,7 @@ public class MoveResizeExecutionSpecificationEditPolicy extends DefaultNodeResiz
         this.manipHelper.computePredicatesForHost(
                 executionSpecification.getStart(),
                 executionSpecification.getFinish());
+        
     }
 
     @objid ("d8efb30b-55b6-11e2-877f-002564c97630")
@@ -157,6 +159,7 @@ public class MoveResizeExecutionSpecificationEditPolicy extends DefaultNodeResiz
         
             }
         }
+        
     }
 
     @objid ("b3b5c7cc-4dd5-47d7-82ca-ea39f0eeac37")
@@ -165,6 +168,7 @@ public class MoveResizeExecutionSpecificationEditPolicy extends DefaultNodeResiz
         super.activate();
         
         this.manipHelper = new ManipulationHelper((GraphicalEditPart) getHost());
+        
     }
 
     @objid ("949c963a-5756-44ad-af9d-14c7064dcd45")
@@ -180,6 +184,7 @@ public class MoveResizeExecutionSpecificationEditPolicy extends DefaultNodeResiz
         } else {
             this.manipHelper.eraseFeedback(getFeedbackLayer());
         }
+        
     }
 
     @objid ("42ff2e5f-94b2-4424-8ea8-1c775b50f2f8")
@@ -191,6 +196,7 @@ public class MoveResizeExecutionSpecificationEditPolicy extends DefaultNodeResiz
         if (type.equals(REQ_MOVE) || type.equals(REQ_RESIZE)) {
             this.manipHelper.eraseFeedback(getFeedbackLayer());
         }
+        
     }
 
     /**
@@ -214,6 +220,7 @@ public class MoveResizeExecutionSpecificationEditPolicy extends DefaultNodeResiz
                         .addResizeHandle(PositionConstants.NORTH)
                         .addResizeHandle(PositionConstants.SOUTH)
                         .getHandles();
+        
     }
 
 }

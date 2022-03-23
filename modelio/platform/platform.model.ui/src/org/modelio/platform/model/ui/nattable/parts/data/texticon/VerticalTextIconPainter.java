@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.texticon;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -60,17 +59,16 @@ public class VerticalTextIconPainter extends AbstractCellPainter {
      * Create a new painter that doesn't underline the cell's contents.
      */
     @objid ("5d745960-a64e-427f-b3b0-361be347c8df")
-    public VerticalTextIconPainter() {
+    public  VerticalTextIconPainter() {
         this(false);
     }
 
     /**
      * Create a new painter.
-     * 
      * @param underline whether the painter should underline the cell's contents or not.
      */
     @objid ("eca61429-b4cc-45cb-904c-7266f4c0dd68")
-    public VerticalTextIconPainter(boolean underline) {
+    public  VerticalTextIconPainter(boolean underline) {
         this.underline = underline;
     }
 
@@ -80,7 +78,6 @@ public class VerticalTextIconPainter extends AbstractCellPainter {
      * <dt><b>Styles: </b></dt>
      * <dd>UP, DOWN</dd>
      * </dl>
-     * 
      * @param image the image to draw
      * @param x the x coordinate of the top left corner of the drawing rectangle
      * @param y the y coordinate of the top left corner of the drawing rectangle
@@ -125,6 +122,7 @@ public class VerticalTextIconPainter extends AbstractCellPainter {
         
         // Dispose the vertical image
         vertical.dispose();
+        
     }
 
     @objid ("70851a8e-29ea-4e16-8fb2-1591c32c1b1d")
@@ -205,6 +203,7 @@ public class VerticalTextIconPainter extends AbstractCellPainter {
                 true,
                 gc, 
                 SWT.UP | SWT.DRAW_TRANSPARENT | SWT.DRAW_DELIMITER);
+        
     }
 
     /**
@@ -232,6 +231,7 @@ public class VerticalTextIconPainter extends AbstractCellPainter {
         } else {
             return new TextIcon(String.valueOf(displayValue), null); //$NON-NLS-1$
         }
+        
     }
 
     @objid ("b33cc79a-46d9-4b89-909f-a777246aeecc")
@@ -254,6 +254,7 @@ public class VerticalTextIconPainter extends AbstractCellPainter {
         gc.setFont(font);
         gc.setForeground(fg != null ? fg : GUIHelper.COLOR_LIST_FOREGROUND);
         gc.setBackground(bg != null ? bg : GUIHelper.COLOR_LIST_BACKGROUND);
+        
     }
 
     /**
@@ -261,7 +262,6 @@ public class VerticalTextIconPainter extends AbstractCellPainter {
      * given text is simply returned without modification. If the text does not
      * fit into the available space, it will be modified by cutting and adding
      * three dots.
-     * 
      * @param text the text to compute
      * @param gc the current GC
      * @param availableLength the available space

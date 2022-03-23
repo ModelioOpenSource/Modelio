@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.api.style;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,14 +44,15 @@ public class StyleHandle implements IStyleHandle {
     }
 
     @objid ("c35f5032-a423-4591-9568-a9bfb1fb5f9b")
-    public StyleHandle(final String name) {
+    public  StyleHandle(final String name) {
         this(DiagramStyles.getStyleManager().getStyle(name));
     }
 
     @objid ("a28a3b82-92b2-4ceb-a566-946a76bb29db")
-    public StyleHandle(final NamedStyle style) {
+    public  StyleHandle(final NamedStyle style) {
         this.style = style;
         this.name = style.getName();
+        
     }
 
     @objid ("eb2b054c-b817-47f9-8edf-6d8121503ec6")

@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.inputpin;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("6a8233a5-9eb3-40a5-83aa-e84ebe4d59b4")
 public class UML2LoopVariableInput {
-    @objid ("bff328d0-09b4-43e7-a0e0-018ad3edb5b0")
+    @objid ("32649d31-8b3a-4cb2-9658-e9ab25d328be")
     public static final String STEREOTYPE_NAME = "UML2LoopVariableInput";
 
     /**
      * The underlying {@link InputPin} represented by this proxy, never null.
      */
-    @objid ("8f1a7345-2306-44bf-b2d8-7a884fdcf1e2")
+    @objid ("7fbc74ac-3b1d-442b-90e6-f47a2b6fb86a")
     protected final InputPin elt;
 
     /**
      * Tells whether a {@link UML2LoopVariableInput proxy} can be instantiated from a {@link MObject} checking it is a {@link InputPin} stereotyped << UML2LoopVariableInput >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("d48b848d-1ed8-4ba4-b3aa-f56e5e22ada4")
+    @objid ("a0d4dec1-cdbe-480e-9516-e653ec9981fb")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof InputPin) && ((InputPin) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2LoopVariableInput.STEREOTYPE_NAME));
     }
@@ -77,9 +75,9 @@ public class UML2LoopVariableInput {
      * 
      * @return a {@link UML2LoopVariableInput} proxy on the created {@link InputPin}.
      */
-    @objid ("89a2e322-1ecf-419e-b26d-33e64e0d09ae")
+    @objid ("e354cacb-936f-4095-add2-2a415a1fdf31")
     public static UML2LoopVariableInput create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("InputPin");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.InputPin");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2LoopVariableInput.STEREOTYPE_NAME);
         return UML2LoopVariableInput.instantiate((InputPin)e);
     }
@@ -91,7 +89,7 @@ public class UML2LoopVariableInput {
      * @param obj a InputPin
      * @return a {@link UML2LoopVariableInput} proxy or <i>null</i>.
      */
-    @objid ("a20d22d4-132e-4119-b473-1a177c4b310b")
+    @objid ("67653730-587a-4c73-90e3-62c27c3ab31c")
     public static UML2LoopVariableInput instantiate(InputPin obj) {
         return UML2LoopVariableInput.canInstantiate(obj) ? new UML2LoopVariableInput(obj) : null;
     }
@@ -104,7 +102,7 @@ public class UML2LoopVariableInput {
      * @return a {@link UML2LoopVariableInput} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("11b27afb-18fb-4e72-8a36-517c7433a557")
+    @objid ("8f0d5108-71c2-4950-a70c-85d5f022fc02")
     public static UML2LoopVariableInput safeInstantiate(InputPin obj) throws IllegalArgumentException {
         if (UML2LoopVariableInput.canInstantiate(obj))
         	return new UML2LoopVariableInput(obj);
@@ -112,7 +110,7 @@ public class UML2LoopVariableInput {
         	throw new IllegalArgumentException("UML2LoopVariableInput: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("c4443f73-f524-493b-87b0-2e541152386e")
+    @objid ("359915fd-0866-4383-8fd2-f22088c4382d")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,46 +130,47 @@ public class UML2LoopVariableInput {
      * Get the underlying {@link InputPin}. 
      * @return the InputPin represented by this proxy, never null.
      */
-    @objid ("e4bbd5cf-b38b-4958-b3eb-01bad79cb01a")
+    @objid ("a457748c-47f4-4f25-8076-291ac1f16620")
     public InputPin getElement() {
         return this.elt;
     }
 
-    @objid ("a982a14a-5fa8-423a-90ce-f09b624d901c")
+    @objid ("d95ce2eb-40ef-4abf-b384-dc62953ccbf5")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("478097ac-1a11-4c50-8b3a-2cbaafd5e483")
-    protected UML2LoopVariableInput(InputPin elt) {
+    @objid ("ef2df497-6f15-49ba-962c-d4705d8b199d")
+    protected  UML2LoopVariableInput(InputPin elt) {
         this.elt = elt;
     }
 
     @objid ("2bccab18-b4c5-42a8-a3d6-068429925e3a")
     public static final class MdaTypes {
-        @objid ("bcf88c35-d076-4012-ba5a-1ddb5659f637")
+        @objid ("c91a64a9-12e7-4054-8cc7-8b22f19de6a1")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("7943e1b7-a689-4ae5-bee2-c88954c90062")
+        @objid ("1b58792d-9de7-427e-b2c6-acd51ad98dd8")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("4a71b6b7-941f-4257-837f-3cc3c61669da")
+        @objid ("eacfbf77-7b2c-416f-983e-33fb4f638941")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("2c2c8c54-7c8c-439c-8e26-5e3630dbbe05")
+        @objid ("f8d1e5ce-2242-4d0e-ab5c-38adac19ec26")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "7a7f049a-6b5f-4db9-9f79-8e327ca90297");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

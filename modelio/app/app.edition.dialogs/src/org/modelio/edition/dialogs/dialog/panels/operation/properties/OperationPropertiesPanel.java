@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.dialogs.dialog.panels.operation.properties;
 
 import java.util.Arrays;
@@ -147,6 +146,7 @@ public class OperationPropertiesPanel implements IPanelProvider {
             this.nameText.setText("");
         }
         setReadOnly(this.opModel != null && !this.opModel.isModifiable());
+        
     }
 
     @objid ("345b0f3e-3fdc-480c-94fd-fca4035a13a5")
@@ -187,6 +187,7 @@ public class OperationPropertiesPanel implements IPanelProvider {
                 OperationPropertiesPanel.this.opModel.setName(text.getText());
             }
         });
+        
     }
 
     @objid ("87f35b4b-45d1-4403-a4d2-fe5778d6a642")
@@ -212,6 +213,7 @@ public class OperationPropertiesPanel implements IPanelProvider {
                 }
             }
         });
+        
     }
 
     @objid ("4db4ec7e-f259-4525-9c87-5d7faf51f5c1")
@@ -244,6 +246,7 @@ public class OperationPropertiesPanel implements IPanelProvider {
                 }
             }
         });
+        
     }
 
     @objid ("5d000f73-e96a-42eb-8375-8386745ca3ca")
@@ -318,6 +321,7 @@ public class OperationPropertiesPanel implements IPanelProvider {
         this.redefinitionTextElement = new TextElement(parent, SWT.BORDER, true);
         gd = new GridData(SWT.FILL, SWT.CENTER, true, false);
         this.redefinitionTextElement.getTextControl().setLayoutData(gd);
+        
     }
 
     @objid ("5e593f1f-3aea-41a1-a60f-7af45789b263")
@@ -329,6 +333,7 @@ public class OperationPropertiesPanel implements IPanelProvider {
         this.kindCombo.getControl().setEnabled(!ro);
         this.nameText.setEnabled(!ro);
         this.visibilityCombo.getControl().setEnabled(!ro);
+        
     }
 
     @objid ("dcf3386e-3f8b-4949-a3dd-884bf70769ee")

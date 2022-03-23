@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.gef.background.typeselection;
 
 import java.util.ArrayList;
@@ -54,6 +53,7 @@ class TypeSelectionContentProvider implements ITreeContentProvider {
                 descriptors.add(d);
             }
         }
+        
     }
 
     @objid ("1b96043f-5e33-11e2-b81d-002564c97630")

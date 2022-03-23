@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.files;
 
 import java.io.File;
@@ -73,32 +72,31 @@ public class Unzipper {
      * Default c'tor using a ZIP archiver and no compressor.
      */
     @objid ("b8d4c55e-caf4-4234-8cfb-b6d705cf474c")
-    public Unzipper() {
+    public  Unzipper() {
         this(ArchiveStreamFactory.ZIP, null);
     }
 
     /**
      * C'tor using a specific archiver and compressor.
-     * 
      * @param archiverName the archive name, i.e. "ar", "arj", "zip", "tar", "jar", "cpio", "dump" or "7z".
      * @param compressorName the compressor name, i.e. "gz", "bzip2", "xz", "lzma", "pack200", "snappy-raw", "snappy-framed", "z", "lz4-block", "lz4-framed", "zstd", "deflate64" or "deflate". Might also be <code>null</code>.
      */
     @objid ("850684f0-765e-425b-a3d0-7a21dc47d4a0")
-    public Unzipper(final String archiverName, final String compressorName) {
+    public  Unzipper(final String archiverName, final String compressorName) {
         this.archiverName = archiverName;
         this.compressorName = compressorName;
+        
     }
 
     /**
      * Unzip the archive in the given folder.
-     * 
      * @param archive the archive to extract
      * @param folder the target folder
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility
      * to call done() on the given monitor. Accepts <i>null</i>, indicating that no progress should be
      * reported and that the operation cannot be cancelled.
-     * @throws java.io.IOException on I/O failure
-     * @throws java.io.InterruptedIOException if the user cancelled the operation in the progress dialog.
+     * @throws IOException on I/O failure
+     * @throws InterruptedIOException if the user cancelled the operation in the progress dialog.
      */
     @objid ("00590c36-b821-1ffa-8e11-001ec947cd2a")
     public void unzip(final Path archive, final Path folder, IModelioProgress monitor) throws IOException, InterruptedIOException {
@@ -160,6 +158,7 @@ public class Unzipper {
             }
             ais.close();
         }
+        
     }
 
     /**
@@ -179,6 +178,7 @@ public class Unzipper {
             }
             throw e;
         }
+        
     }
 
     @objid ("0058e62a-b821-1ffa-8e11-001ec947cd2a")
@@ -196,11 +196,10 @@ public class Unzipper {
 
     /**
      * Find entries in an archive that matches the given regular expression.
-     * 
      * @param archive an archive.
      * @param regexp a regular expression.
      * @return entries matching the given pattern. Might be empty but never {@link NullPointerException}.
-     * @throws java.io.IOException on I/O failure
+     * @throws IOException on I/O failure
      */
     @objid ("0059a268-b821-1ffa-8e11-001ec947cd2a")
     public ArchiveEntry[] findEntry(File archive, String regexp) throws IOException {
@@ -254,11 +253,11 @@ public class Unzipper {
         } catch (ArchiveException | CompressorException e) {
             throw new IOException(e.getMessage(), e);
         }
+        
     }
 
     /**
      * Computes the progress monitor label.
-     * 
      * @param currentCount the count of extracted files
      * @param entriesNumber the total number of entries in the archive.
      * @return the progress monitor label to display.
@@ -284,7 +283,6 @@ public class Unzipper {
 
     /**
      * Set the progress monitor sub task label prefix that will be displayed just before the counters.
-     * 
      * @param labelPrefix the monitor label prefix
      * @return this zipper to chain calls.
      */
@@ -296,7 +294,6 @@ public class Unzipper {
 
     /**
      * Remove all '/' and '\' on the beginning to ensure the path is a relative one.
-     * 
      * @param name a zip entry name
      * @return an normalized name.
      */

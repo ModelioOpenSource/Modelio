@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.stateMachineModel;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.StateVertexData;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementImpl;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.Region;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.StateVertex;
@@ -65,6 +64,7 @@ public abstract class StateVertexImpl extends UmlModelElementImpl implements Sta
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("920f2746-67fe-4563-b699-8cb42525e600")
@@ -86,6 +86,7 @@ public abstract class StateVertexImpl extends UmlModelElementImpl implements Sta
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("dcf3e4fd-4b24-436f-9aa8-f0b26a6766b6")

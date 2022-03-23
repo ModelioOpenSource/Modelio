@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.utils.plugin;
 
 import java.util.Iterator;
@@ -39,7 +38,7 @@ public class Utils implements BundleActivator {
     @objid ("003cb1f8-0db0-1feb-93a7-001ec947cd2a")
     public static final String MODELIO_LOGFILENAME = "modelio.log";
 
-// private LogBackListener logbackListener;
+    // private LogBackListener logbackListener;
     @objid ("004ffcae-4447-1fe3-9845-001ec947cd2a")
     @Override
     public void start(BundleContext bundleContext) {
@@ -49,17 +48,18 @@ public class Utils implements BundleActivator {
     @objid ("005028aa-4447-1fe3-9845-001ec947cd2a")
     @Override
     public void stop(BundleContext bundleContext) {
+        
     }
 
     @objid ("5d0016a8-64f0-493c-9f8f-0158238c4637")
     private void plugKernelLogToEclipseLog() {
         // Set Modelio kernel logger
         org.modelio.vbasic.log.Log.setLogger(new KernelLogger());
+        
     }
 
     /**
      * Find the current Modelio log file from the logback current configuration.
-     * 
      * @return the current Modelio log file, null if unable to find it.
      */
     @objid ("2ba8983e-a272-477b-811d-dc94502b0907")

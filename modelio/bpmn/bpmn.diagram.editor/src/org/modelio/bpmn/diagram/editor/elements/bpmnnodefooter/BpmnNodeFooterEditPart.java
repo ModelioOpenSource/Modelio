@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnnodefooter;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,7 +35,7 @@ import org.modelio.diagram.styles.core.IStyle;
 @objid ("61717d20-55b6-11e2-877f-002564c97630")
 public class BpmnNodeFooterEditPart extends AbstractNodeEditPart {
     @objid ("617303bc-55b6-11e2-877f-002564c97630")
-    public BpmnNodeFooterEditPart() {
+    public  BpmnNodeFooterEditPart() {
         // Nothing to do.
     }
 
@@ -51,6 +50,7 @@ public class BpmnNodeFooterEditPart extends AbstractNodeEditPart {
     protected void createEditPolicies() {
         super.createEditPolicies();
         installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE, new DefaultElementDirectEditPolicy());
+        
     }
 
     @objid ("617303c6-55b6-11e2-877f-002564c97630")
@@ -117,6 +117,7 @@ public class BpmnNodeFooterEditPart extends AbstractNodeEditPart {
         } else {
             ffigure.setEmptySubProcessVisible(false);
         }
+        
     }
 
     @objid ("617303ce-55b6-11e2-877f-002564c97630")
@@ -142,6 +143,7 @@ public class BpmnNodeFooterEditPart extends AbstractNodeEditPart {
             ffigure.setNonEmptySubProcessVisible(false);
         }
         super.refreshFromStyle(aFigure, style);
+        
     }
 
 }

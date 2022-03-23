@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.text;
 
 import java.beans.PropertyChangeEvent;
@@ -55,7 +54,7 @@ public class ElementTextEditPart extends AbstractNodeEditPart {
      * Creates the edit part.
      */
     @objid ("7f2b2c35-1dec-11e2-8cad-001ec947c8cc")
-    public ElementTextEditPart() {
+    public  ElementTextEditPart() {
         super();
     }
 
@@ -97,6 +96,7 @@ public class ElementTextEditPart extends AbstractNodeEditPart {
         } else {
             super.performRequest(req);
         }
+        
     }
 
     /**
@@ -131,6 +131,7 @@ public class ElementTextEditPart extends AbstractNodeEditPart {
         } else {
             super.propertyChange(evt);
         }
+        
     }
 
     @objid ("7f2b2c44-1dec-11e2-8cad-001ec947c8cc")
@@ -141,6 +142,7 @@ public class ElementTextEditPart extends AbstractNodeEditPart {
         if (((GmModel) getModel()).getEditableText() != null) {
             installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE, new DefaultElementDirectEditPolicy());
         }
+        
     }
 
     /**
@@ -171,6 +173,7 @@ public class ElementTextEditPart extends AbstractNodeEditPart {
         aFigure.setFont(style.getFont(model.getStyleKey(MetaKey.FONT)));
         
         updateVisibility(aFigure);
+        
     }
 
     @objid ("7f2b2c56-1dec-11e2-8cad-001ec947c8cc")
@@ -185,6 +188,7 @@ public class ElementTextEditPart extends AbstractNodeEditPart {
         if (layoutData != null) {
             labelFigure.getParent().setConstraint(labelFigure, layoutData);
         }
+        
     }
 
     @objid ("7f2b2c59-1dec-11e2-8cad-001ec947c8cc")
@@ -195,6 +199,7 @@ public class ElementTextEditPart extends AbstractNodeEditPart {
         } else {
             aFigure.setVisible(false);
         }
+        
     }
 
 }

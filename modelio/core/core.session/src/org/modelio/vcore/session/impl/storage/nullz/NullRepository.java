@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.storage.nullz;
 
 import java.io.IOException;
@@ -174,7 +173,8 @@ public class NullRepository implements IRepository, IRepositoryObject {
      * Instantiate the repository
      */
     @objid ("00633e90-fd1a-1f27-a7da-001ec947cd2a")
-    public NullRepository() {
+    public  NullRepository() {
+        
     }
 
     @objid ("0067a1c4-fd1a-1f27-a7da-001ec947cd2a")
@@ -226,6 +226,7 @@ public class NullRepository implements IRepository, IRepositoryObject {
     public Resource getEmfResource() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException();
+        
     }
 
     @objid ("0d11a3af-d66d-11e1-adbb-001ec947ccaf")

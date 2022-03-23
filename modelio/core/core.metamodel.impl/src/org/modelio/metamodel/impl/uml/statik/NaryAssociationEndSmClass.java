@@ -17,20 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.statik.ClassifierSmClass;
-import org.modelio.metamodel.impl.uml.statik.NaryAssociationEndData;
-import org.modelio.metamodel.impl.uml.statik.NaryAssociationSmClass;
-import org.modelio.metamodel.impl.uml.statik.StructuralFeatureSmClass;
 import org.modelio.metamodel.uml.statik.Classifier;
 import org.modelio.metamodel.uml.statik.NaryAssociation;
 import org.modelio.metamodel.uml.statik.NaryAssociationEnd;
@@ -55,7 +51,7 @@ public class NaryAssociationEndSmClass extends StructuralFeatureSmClass {
     private SmDependency ownerDep;
 
     @objid ("6051fbb5-db6b-4a0b-b313-422e39cc5053")
-    public NaryAssociationEndSmClass(ISmMetamodelFragment origin) {
+    public  NaryAssociationEndSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -63,6 +59,7 @@ public class NaryAssociationEndSmClass extends StructuralFeatureSmClass {
     @Override
     public String getName() {
         return "NaryAssociationEnd";
+        
     }
 
     @objid ("ad726f9b-7d6c-4fdb-a785-e97f53247e86")
@@ -75,18 +72,21 @@ public class NaryAssociationEndSmClass extends StructuralFeatureSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return NaryAssociationEnd.class;
+        
     }
 
     @objid ("087e8320-ce23-40f3-a62e-fa92427b55be")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("64edf9b7-92fc-424c-a662-055d5fcf0d7b")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("d9b6efc7-4589-4859-86e4-511f721f4235")
@@ -106,6 +106,8 @@ public class NaryAssociationEndSmClass extends StructuralFeatureSmClass {
         this.ownerDep = new OwnerSmDependency();
         this.ownerDep.init("Owner", this, metamodel.getMClass(Classifier.MQNAME), 1, 1 );
         registerDependency(this.ownerDep);
+        
+        
     }
 
     @objid ("6317c51f-1d99-4d4a-bb71-ab41e2e3ab00")
@@ -130,7 +132,7 @@ public class NaryAssociationEndSmClass extends StructuralFeatureSmClass {
         private NaryAssociationEndSmClass smClass;
 
         @objid ("e98b7096-622b-421e-b713-bc44f6454471")
-        public NaryAssociationEndObjectFactory(NaryAssociationEndSmClass smClass) {
+        public  NaryAssociationEndObjectFactory(NaryAssociationEndSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -172,6 +174,7 @@ public class NaryAssociationEndSmClass extends StructuralFeatureSmClass {
             	this.symetricDep = ((NaryAssociationSmClass)this.getTarget()).getNaryEndDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -200,6 +203,7 @@ public class NaryAssociationEndSmClass extends StructuralFeatureSmClass {
             	this.symetricDep = ((ClassifierSmClass)this.getTarget()).getOwnedNaryEndDep();
             }
             return this.symetricDep;
+            
         }
 
     }

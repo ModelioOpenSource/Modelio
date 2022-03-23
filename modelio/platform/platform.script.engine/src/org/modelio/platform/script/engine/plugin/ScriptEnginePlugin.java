@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.script.engine.plugin;
 
 import java.util.ResourceBundle;
@@ -51,6 +50,7 @@ public class ScriptEnginePlugin implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger((String)null));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("scriptengine"));
+        
     }
 
     @objid ("008428bc-a068-10b7-9941-001ec947cd2a")

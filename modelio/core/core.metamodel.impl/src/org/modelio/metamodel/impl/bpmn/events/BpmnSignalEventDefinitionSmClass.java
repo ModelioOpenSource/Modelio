@@ -17,19 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.events;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.bpmn.events.BpmnEventDefinition;
 import org.modelio.metamodel.bpmn.events.BpmnSignalEventDefinition;
-import org.modelio.metamodel.impl.bpmn.events.BpmnEventDefinitionSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("b0b2b22d-8502-406a-abb3-042ce2c07a78")
 public class BpmnSignalEventDefinitionSmClass extends BpmnEventDefinitionSmClass {
     @objid ("322e7e5a-77d8-4f1d-859c-de8f2667dcf9")
-    public BpmnSignalEventDefinitionSmClass(ISmMetamodelFragment origin) {
+    public  BpmnSignalEventDefinitionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class BpmnSignalEventDefinitionSmClass extends BpmnEventDefinitionSmClass
     @Override
     public String getName() {
         return "BpmnSignalEventDefinition";
+        
     }
 
     @objid ("e77f5e28-f07d-469f-9f1e-d2fae52c2044")
@@ -62,18 +62,21 @@ public class BpmnSignalEventDefinitionSmClass extends BpmnEventDefinitionSmClass
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnSignalEventDefinition.class;
+        
     }
 
     @objid ("472a145c-d051-4b74-a88a-a111b51125e8")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("27646ea6-1ee0-471a-83a6-8033cfc27868")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("ca7cbf4e-e13a-433e-8959-2574adcc6185")
@@ -86,6 +89,7 @@ public class BpmnSignalEventDefinitionSmClass extends BpmnEventDefinitionSmClass
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("b760a66e-0264-4a69-a21b-d5788f72cd16")
@@ -94,7 +98,7 @@ public class BpmnSignalEventDefinitionSmClass extends BpmnEventDefinitionSmClass
         private BpmnSignalEventDefinitionSmClass smClass;
 
         @objid ("858888ef-6abd-461e-a50a-706033cdd82d")
-        public BpmnSignalEventDefinitionObjectFactory(BpmnSignalEventDefinitionSmClass smClass) {
+        public  BpmnSignalEventDefinitionObjectFactory(BpmnSignalEventDefinitionSmClass smClass) {
             this.smClass = smClass;
         }
 

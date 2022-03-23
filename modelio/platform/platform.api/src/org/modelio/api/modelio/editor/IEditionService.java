@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.editor;
 
 import java.io.File;
@@ -46,7 +45,6 @@ import org.modelio.metamodel.uml.statik.Artifact;
 public interface IEditionService {
     /**
      * Set the focus on a specific editor.
-     * 
      * @param editor the editor to focus.
      */
     @objid ("ab3f9e59-6c24-11e0-b589-002564c97630")
@@ -54,7 +52,6 @@ public interface IEditionService {
 
     /**
      * Close the given text editor.
-     * 
      * @param editor The text editor to close.
      */
     @objid ("ab3f7747-6c24-11e0-b589-002564c97630")
@@ -75,10 +72,9 @@ public interface IEditionService {
      * are replaced by '_' when looked for the file.
      * <li>If everything failed then an empty content valid for the MIME type is created.
      * </ol>
-     * 
      * @param doc The document to initialize
      * @return <code>true</code> if the file was created, false if no default content could be found.
-     * @throws java.io.IOException in case of error trying to create the file.
+     * @throws IOException in case of error trying to create the file.
      * @since 2.1
      */
     @objid ("a4084ac9-0ecc-11e2-96c4-002564c97630")
@@ -86,11 +82,10 @@ public interface IEditionService {
 
     /**
      * Get a copy of the file for a given external document.
-     * 
      * @param doc an external document.
      * @param listener A listener fired if the original note is modified externally, by SVN for example. <code>null</code> means no edition.
      * @return its file.
-     * @throws java.io.IOException in case of failure.
+     * @throws IOException in case of failure.
      * @since 3.1
      */
     @objid ("513826ce-ccdb-487e-829d-2417eb0a7d99")
@@ -98,7 +93,6 @@ public interface IEditionService {
 
     /**
      * Indicates which mime type are supported in the current instance of Modelio.
-     * 
      * @return the supported mime type list.
      * @since 2.1
      */
@@ -111,7 +105,6 @@ public interface IEditionService {
     /**
      * Open a new text editor, making the correspondence between a model element and a file.
      * Use default UTF-8 charset.
-     * 
      * @param modelElement the model element to edit.
      * @param file the file to display in the editor.
      * @param editorTypeID the type of the editor to open.
@@ -125,7 +118,6 @@ public interface IEditionService {
 
     /**
      * Open a new text editor, making the correspondence between a model element and a file.
-     * 
      * @param modelElement the model element to edit.
      * @param file the file to display in the editor.
      * @param editorTypeID the type of the editor to open.
@@ -141,7 +133,6 @@ public interface IEditionService {
 
     /**
      * Open a diagram editor from an {@link AbstractDiagram}.
-     * 
      * @param diagram the diagram to edit.
      * @since 2.1
      */
@@ -152,7 +143,6 @@ public interface IEditionService {
      * Open an editor from an artifact.
      * <p>
      * The file declared by the artifact must be part of the supported mime type list.
-     * 
      * @param artifact the artifact to edit.
      * @since 2.1
      */
@@ -163,7 +153,6 @@ public interface IEditionService {
      * Open an editor from an extern document.
      * <p>
      * The type of the document's file must be part of the supported mime type list.
-     * 
      * @param document the extern document to edit.
      * @since 2.1
      */
@@ -172,7 +161,6 @@ public interface IEditionService {
 
     /**
      * Open a new text editor, making the correspondence between a model element and a file.
-     * 
      * @param modelElement the model element to edit.
      * @param file the file to display in the editor.
      * @param editorTypeID the type of the editor to open.
@@ -190,7 +178,6 @@ public interface IEditionService {
      * Open an editor from a matrix.
      * <p>
      * The type of the document's file must be part of the supported mime type list.
-     * 
      * @param document the matrix to edit.
      * @since 3.8.0 Valkyrie
      */
@@ -199,7 +186,6 @@ public interface IEditionService {
 
     /**
      * Register creation wizard contributor
-     * 
      * @param category of the diagram contributor
      * @since 3.4
      * @param contributor the diagram contributor
@@ -209,10 +195,9 @@ public interface IEditionService {
 
     /**
      * Save the external document.
-     * 
      * @param doc the external document model object.
      * @param fileToSave the external document content
-     * @throws java.io.IOException in case of failure.
+     * @throws IOException in case of failure.
      * @since 3.1
      */
     @objid ("a9cccc45-56c4-4cf9-9961-104104bff393")
@@ -220,10 +205,9 @@ public interface IEditionService {
 
     /**
      * Set a document content for the given document.
-     * 
      * @param doc The document to update.
      * @param content the content to set.
-     * @throws java.io.IOException in case of error trying to set the file.
+     * @throws IOException in case of error trying to set the file.
      * @since 3.1
      */
     @objid ("bc8aec62-33c9-458d-b57f-41b09ea08346")
@@ -231,7 +215,6 @@ public interface IEditionService {
 
     /**
      * Unregister creation wizard contributor
-     * 
      * @param category of the diagram contributor
      * @since 3.4
      * @param contributor the diagram contributor
@@ -241,7 +224,6 @@ public interface IEditionService {
 
     /**
      * To call when an listener is not used anymore.
-     * 
      * @param editor the listener to unregister.
      * @since 3.1
      */

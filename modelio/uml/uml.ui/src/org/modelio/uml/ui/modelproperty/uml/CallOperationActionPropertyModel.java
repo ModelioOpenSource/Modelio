@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.util.Collections;
@@ -52,22 +51,20 @@ public class CallOperationActionPropertyModel extends AbstractPropertyModel<Call
      */
     @objid ("4cc0ba1c-b84a-4ef7-a17c-362cd1722784")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name", "Called",
-			"IsSynchronous" };
+    			"IsSynchronous" };
 
     /**
      * Create a new <i>CallOperationAction</i> data model from an
      * <i>CallOperationAction</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("e368f21a-ecaf-433e-9be5-268cce68cda1")
-    public CallOperationActionPropertyModel(CallOperationAction theEditedElement) {
+    public  CallOperationActionPropertyModel(CallOperationAction theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("46521dce-950c-4441-ab74-8b331631d572")
@@ -78,7 +75,6 @@ public class CallOperationActionPropertyModel extends AbstractPropertyModel<Call
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("eba35507-8add-4426-b317-81ed6d480691")
@@ -91,7 +87,6 @@ public class CallOperationActionPropertyModel extends AbstractPropertyModel<Call
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -117,6 +112,7 @@ public class CallOperationActionPropertyModel extends AbstractPropertyModel<Call
         default:
             return null;
         }
+        
     }
 
     /**
@@ -126,7 +122,6 @@ public class CallOperationActionPropertyModel extends AbstractPropertyModel<Call
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -154,13 +149,13 @@ public class CallOperationActionPropertyModel extends AbstractPropertyModel<Call
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -191,6 +186,7 @@ public class CallOperationActionPropertyModel extends AbstractPropertyModel<Call
         default:
             return;
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class EClearVariableAction extends EActivityNode {
     }
 
     @objid ("7fb45c6a-f017-4be6-8e9a-13c6ff0a67d5")
-    public EClearVariableAction(org.eclipse.uml2.uml.ClearVariableAction element) {
+    public  EClearVariableAction(org.eclipse.uml2.uml.ClearVariableAction element) {
         super(element);
     }
 

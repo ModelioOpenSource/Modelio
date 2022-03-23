@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.terminal;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,12 +46,12 @@ public class GmTerminalSimpleStyleKeys extends StateAbstractStyleKeyProvider {
 
     @objid ("81b34716-55c2-11e2-9337-002564c97630")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("TERMINAL_SHOWSTEREOTYPES",
-                                                                  MetaKey.SHOWSTEREOTYPES);
+                                                                          MetaKey.SHOWSTEREOTYPES);
 
     @objid ("81b34718-55c2-11e2-9337-002564c97630")
     public static final StyleKey SHOWTAGS = createStyleKey("TERMINAL_SHOWTAGS", MetaKey.SHOWTAGS);
 
     @objid ("81b3471a-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWLABEL = createStyleKey("TERMINAL_SHOWLABEL", MetaKey.SHOWLABEL);
+    static final StyleKey SHOWLABEL = createStyleKey("TERMINAL_SHOWLABEL", MetaKey.SHOWLABEL);
 
 }

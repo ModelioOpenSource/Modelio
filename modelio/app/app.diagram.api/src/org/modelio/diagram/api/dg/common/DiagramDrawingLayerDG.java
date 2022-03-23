@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.api.dg.common;
 
 import java.util.ArrayList;
@@ -28,6 +27,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.modelio.diagram.IDiagramGraphic;
 import org.modelio.api.modelio.diagram.IDiagramLink;
 import org.modelio.api.modelio.diagram.IDiagramNode;
+import org.modelio.api.modelio.diagram.IDiagramNode.Role;
 import org.modelio.api.modelio.diagram.dg.IDiagramDrawingsLayer;
 import org.modelio.api.modelio.diagram.dg.IDiagramLayer;
 import org.modelio.diagram.api.dg.DGFactory;
@@ -50,14 +50,14 @@ public class DiagramDrawingLayerDG extends DiagramAbstractNode implements IDiagr
 
     /**
      * C'tor
-     * 
      * @param diagramHandle the diagram handle
      * @param gm the graphic model
      */
     @objid ("7b402cfd-4d0e-4b82-baf0-f9f8a9f8a621")
-    public DiagramDrawingLayerDG(DiagramHandle diagramHandle, IGmDrawingLayer gm) {
+    public  DiagramDrawingLayerDG(DiagramHandle diagramHandle, IGmDrawingLayer gm) {
         super(diagramHandle);
         this.gm = gm;
+        
     }
 
     @objid ("95c2f64f-3e3f-446e-8985-4e88a9f1ec39")
@@ -182,6 +182,7 @@ public class DiagramDrawingLayerDG extends DiagramAbstractNode implements IDiagr
         default:
             return Collections.emptyList();
         }
+        
     }
 
 }

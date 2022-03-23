@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module author="modelio" binaryversion="4.0.0"
+<Module author="modelio" binaryversion="5.0.0"
     class="org.modelio.module.modelermodule.impl.ModelerModuleModule"
     id="ModelerModule" image="" schema-level="2"
-    uid="00000000-0000-2710-0000-000000000000" url="" version="9.2.00">
+    uid="00000000-0000-2710-0000-000000000000" url="" version="9.3.00">
     <ClassPath/>
     <Profiles>
         <Profile id="Code" uid="00300000-0000-0032-0000-000000000000">
@@ -735,6 +735,13 @@
                     <TagType is-hidden="false" is-signed="false"
                         label="%tagtype.userDiagramImage.label"
                         name="userDiagramImage" parameter-card="1" uid="885e070a-b0d2-4da8-92a5-8ecd396f4afe"/>
+                </TagTypes>
+            </MetaclassReference>
+            <MetaclassReference metaclass="Standard.CommunicationNode" uid="65be51da-d456-4444-a8f8-a3452a8b8c8e">
+                <TagTypes>
+                    <TagType is-hidden="false" is-signed="false"
+                        label="%tagtype.userDiagramImage.label"
+                        name="userDiagramImage" parameter-card="1" uid="82b4ccc9-7f05-4ea8-9a48-7ad0f8dfc051"/>
                 </TagTypes>
             </MetaclassReference>
             <MetaclassReference metaclass="Standard.Constraint" uid="4bd5d0c9-d5de-41d0-9515-f36f0ac34454">

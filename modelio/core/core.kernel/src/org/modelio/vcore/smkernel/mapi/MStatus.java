@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.mapi;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,7 +30,6 @@ public interface MStatus {
      * Tells whether related object is made visible in the GUI.
      * <p>
      * The current value depends on the currently logged user rights on the object.
-     * 
      * @return true if the element is visible in GUI, else false.
      */
     @objid ("aaf2a991-d287-11e1-b069-001ec947ccaf")
@@ -41,7 +39,6 @@ public interface MStatus {
      * Tells whether related object object is browsable (visiting its dependencies).
      * <p>
      * The current value depends on the currently logged user rights on the object.
-     * 
      * @return <code>true</code> object is browsable, else <code>false</code>.
      */
     @objid ("aaf2a993-d287-11e1-b069-001ec947ccaf")
@@ -51,20 +48,18 @@ public interface MStatus {
      * Tells whether related object is writable.
      * <p>
      * The current value depends on the currently logged user rights on the object.
-     * 
      * @return <code>true</code> if the element is writable, else <code>false</code>.
      */
     @objid ("aaf2a995-d287-11e1-b069-001ec947ccaf")
     boolean isUserWrite();
 
-//
-// Domain flags
-// ------------
+    //
+    // Domain flags
+    // ------------
     /**
      * Tells whether related object is made visible in the GUI.
      * <p>
      * The current value depends on the current state of the application (licences).
-     * 
      * @return <code>true</code> if the element is visible in GUI, else <code>false</code>.
      */
     @objid ("aaf50be4-d287-11e1-b069-001ec947ccaf")
@@ -74,7 +69,6 @@ public interface MStatus {
      * Tells whether related object is browsable (visiting its dependencies).
      * <p>
      * The current value depends on the current state of the application (licences).
-     * 
      * @return <code>true</code> if the element is browsable, else <code>false</code>.
      */
     @objid ("aaf50be6-d287-11e1-b069-001ec947ccaf")
@@ -84,7 +78,6 @@ public interface MStatus {
      * Tells whether related object is writable.
      * <p>
      * The current value depends on the current state of the application (licences).
-     * 
      * @return <code>true</code> if the element is writable, else <code>false</code>.
      */
     @objid ("aaf50be8-d287-11e1-b069-001ec947ccaf")
@@ -94,7 +87,6 @@ public interface MStatus {
      * Tells whether related object .
      * <p>
      * This value is set for an object and is intrinsic to this object.
-     * 
      * @return <code>true</code> if the element is visible in GUI, else <code>false</code>.
      */
     @objid ("aaf50bea-d287-11e1-b069-001ec947ccaf")
@@ -104,7 +96,6 @@ public interface MStatus {
      * Tells whether related object is browsable (visiting its dependencies).
      * <p>
      * This value is set for an object and is intrinsic to this object.
-     * 
      * @return <code>true</code> if the element is browsable, else <code>false</code>.
      */
     @objid ("aaf50bec-d287-11e1-b069-001ec947ccaf")
@@ -114,7 +105,6 @@ public interface MStatus {
      * Tells whether related object is writable.
      * <p>
      * This value is set for an object and is intrinsic to this object.
-     * 
      * @return <code>true</code> if the element is writable, else <code>false</code>.
      */
     @objid ("aaf50bee-d287-11e1-b069-001ec947ccaf")
@@ -124,7 +114,6 @@ public interface MStatus {
      * Tells whether the related element is made visible in the GUI.
      * <p>
      * This metho
-     * 
      * @return true if the element is visible in the explorer and other views, else false.
      */
     @objid ("aaf50bf0-d287-11e1-b069-001ec947ccaf")
@@ -135,7 +124,6 @@ public interface MStatus {
      * <p>
      * The current value is the intersection of the currently logged user rights on the object,
      * the current state of the application (licences) and the intrinsic rights set on the object.
-     * 
      * @return <code>true</code> if the element is visible in GUI, else <code>false</code>.
      */
     @objid ("aaf50bf2-d287-11e1-b069-001ec947ccaf")
@@ -149,7 +137,6 @@ public interface MStatus {
      * <p>
      * Note: an object that is writable is not necessarly {@link #isModifiable() modifiable}.
      * @see MStatus#isModifiable()
-     * 
      * @return <code>true</code> if the element is visible in GUI, else <code>false</code>.
      */
     @objid ("aaf50bf4-d287-11e1-b069-001ec947ccaf")
@@ -158,7 +145,6 @@ public interface MStatus {
     /**
      * When a CMS is used (or a similar tool), tells whether the related object
      * needs an update from its CMS repository.
-     * 
      * @return <code>true</code> if the object needs an update, else <code>false</code>.
      */
     @objid ("aaf50bf6-d287-11e1-b069-001ec947ccaf")
@@ -167,7 +153,6 @@ public interface MStatus {
     /**
      * When a CMS is used (or a similar tool), tells whether the related object
      * has been locally modified (by reference to its CMS repository).
-     * 
      * @return <code>true</code> if the object has been locally modified, else <code>false</code>.
      */
     @objid ("aaf50bf8-d287-11e1-b069-001ec947ccaf")
@@ -176,7 +161,6 @@ public interface MStatus {
     /**
      * When a CMS is used (or a similar tool), tells whether the related object
      * is planned for adding to the CMS repository (most often at next commit).
-     * 
      * @return <code>true</code> if the object is planned for adding, else <code>false</code>.
      */
     @objid ("aaf50bfa-d287-11e1-b069-001ec947ccaf")
@@ -185,7 +169,6 @@ public interface MStatus {
     /**
      * When a CMS is used (or a similar tool), tells whether the related object
      * is planned for removing from the CMS repository (most often at next commit).
-     * 
      * @return <code>true</code> if the object is planned for removing, else <code>false</code>.
      */
     @objid ("462ad777-e2ab-4742-abd1-ee44973ed770")
@@ -194,7 +177,6 @@ public interface MStatus {
     /**
      * When a CMS is used (or a similar tool), tells whether the related object
      * is read only at the CMS level.
-     * 
      * @return <code>true</code> if the object is read only at the CMS level, else <code>false</code>.
      */
     @objid ("aaf50bfc-d287-11e1-b069-001ec947ccaf")
@@ -202,7 +184,6 @@ public interface MStatus {
 
     /**
      * Tells whether the related object is under CMS management.
-     * 
      * @return <code>true</code> if the object is under CMS management, else <code>false</code>.
      */
     @objid ("aaf50bfe-d287-11e1-b069-001ec947ccaf")
@@ -210,7 +191,6 @@ public interface MStatus {
 
     /**
      * Tells whether the related object is in CMS conflict.
-     * 
      * @return <code>true</code> if the object is in CMS conflict, else <code>false</code>.
      */
     @objid ("16a8c411-67ca-4f0d-95fb-ef97b76a90eb")
@@ -219,7 +199,6 @@ public interface MStatus {
     /**
      * Tells whether the related object belongs to a Model Component (RAMC),
      * meaning that its definition is partial.
-     * 
      * @return <code>true</code> if the object is part of a model component, else <code>false</code>.
      */
     @objid ("aaf50c00-d287-11e1-b069-001ec947ccaf")
@@ -230,7 +209,6 @@ public interface MStatus {
      * <p>
      * Shell objects are objects that are not currently reachable for some reasons,
      * and detailed contents is not available.
-     * 
      * @return <code>true</code> if the object is a shell object, else <code>false</code>.
      */
     @objid ("aaf50c02-d287-11e1-b069-001ec947ccaf")
@@ -238,7 +216,6 @@ public interface MStatus {
 
     /**
      * Tells whether the related object is deleted.
-     * 
      * @return <code>true</code> if the object is deleted, else <code>false</code>.
      */
     @objid ("aaf50c04-d287-11e1-b069-001ec947ccaf")
@@ -253,7 +230,6 @@ public interface MStatus {
      * <li> it is not {@link #isCmsReadOnly() locked by the CMS}.
      * <li> it is not a {@link #isShell() shell object}.
      * <li> it is not {@link #isDeleted() deleted}.
-     * 
      * @return <code>true</code> if the element is visible in GUI, else <code>false</code>.
      */
     @objid ("aaf50c06-d287-11e1-b069-001ec947ccaf")
@@ -263,7 +239,6 @@ public interface MStatus {
      * Tells whether a lock must be taken before modifying the related object.
      * <p>
      * This usually depends on the versioned fragment the related object belongs to.
-     * 
      * @return <code>true</code> if locking is needed, else <code>false</code>.
      */
     @objid ("7d33f1f6-0265-43e8-b697-eb4930b115f3")
@@ -273,7 +248,6 @@ public interface MStatus {
      * Tells whether has been modified since last model save.
      * <p>
      * May answer true for a whole set of object (eg: a CMS node) if only one of them is modified.
-     * 
      * @return <code>true</code> if the object needs to be saved.
      */
     @objid ("f34b675a-5bb7-4804-a63e-868a027dd998")

@@ -17,20 +17,21 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.browser.view.handlers;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.swt.widgets.Display;
 import org.modelio.metamodel.diagrams.DiagramSet;
 import org.modelio.metamodel.uml.infrastructure.AbstractProject;
 import org.modelio.metamodel.uml.infrastructure.Element;
@@ -40,6 +41,7 @@ import org.modelio.model.browser.view.plugin.BrowserViewActivator;
 import org.modelio.platform.project.services.IProjectService;
 import org.modelio.vcore.model.api.MTools;
 import org.modelio.vcore.session.api.transactions.ITransaction;
+import org.modelio.vcore.smkernel.AccessDeniedException;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
@@ -54,7 +56,6 @@ public class DeleteElementHandler {
 
     /**
      * Available only when the selected elements are modifiable.
-     * 
      * @param selection the current modelio selection.
      * @return true if the handler can be executed.
      */
@@ -81,7 +82,6 @@ public class DeleteElementHandler {
 
     /**
      * Delete the currently selected elements.
-     * 
      * @param selection the current modelio selection.
      */
     @objid ("9b744038-13a8-11e2-8060-002564c97630")
@@ -113,7 +113,11 @@ public class DeleteElementHandler {
                 }
             }
             t.commit();
+        } catch (AccessDeniedException e) {
+            BrowserViewActivator.LOG.warning(e);
+            MessageDialog.openError(Display.getCurrent().getActiveShell(), "Error", e.getLocalizedMessage());
         }
+        
     }
 
     @objid ("9b748e5e-13a8-11e2-8060-002564c97630")

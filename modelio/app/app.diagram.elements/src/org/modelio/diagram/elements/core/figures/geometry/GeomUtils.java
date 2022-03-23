@@ -17,15 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.geometry;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.eclipse.draw2d.geometry.Geometry;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.PointList;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.draw2d.geometry.Translatable;
 
 /**
  * Geometric utility functions.
@@ -35,8 +36,15 @@ import org.eclipse.draw2d.geometry.Rectangle;
 @objid ("7f7e9e76-1dec-11e2-8cad-001ec947c8cc")
 public class GeomUtils {
     /**
+     * No instance
+     */
+    @objid ("2894b6f9-26c1-4875-a1d8-e1c6d0a9b511")
+    private  GeomUtils() {
+        
+    }
+
+    /**
      * Get the direction of the given point relative to the given rectangle. Will return one of the Direction.EAST, Direction.WEST, Direction.SOUTH, Direction.NORTH directions. The rectangle diagonals are used as separation between directions.
-     * 
      * @param p the point to evaluate
      * @param rect The rectangle
      * @return the direction or Direction.NONE if the point is the center of the rectangle.
@@ -56,7 +64,6 @@ public class GeomUtils {
         }
         
         Point upright = rect.getTopRight();
-        Point bottomLeft = rect.getBottomLeft();
         
         double a = (double) (center.y - upright.y) / (double) (center.x - upright.x);
         double b = (double) (center.y - p.y) / (double) (center.x - p.x);
@@ -72,11 +79,40 @@ public class GeomUtils {
             else
                 return Direction.NORTH;
         }
+        
+    }
+
+    /**
+     * Translate a point/rectangle/... toward a given direction.
+     * @param t a translatable thing
+     * @param dir the direction
+     * @param distance the distance
+     */
+    @objid ("cb44b62b-ab23-40e3-a7d2-78a238f06101")
+    public static void translate(Translatable t, Direction dir, int distance) {
+        switch (dir) {
+        case EAST:
+            t.performTranslate(distance, 0);
+            break;
+        case NONE:
+            return;
+        case NORTH:
+            t.performTranslate(0, -distance);
+            break;
+        case SOUTH:
+            t.performTranslate(0, distance);
+            break;
+        case WEST:
+            t.performTranslate(-distance, 0);
+            break;
+        default:
+            throw new UnsupportedOperationException(dir.toString());
+        }
+        
     }
 
     /**
      * Get the intersection between the rectangle and the line formed by the 2 given points
-     * 
      * @param p1 first point of the line
      * @param p2 last point of the line. Also used as reference to choose the nearest intersection point.
      * @param r a rectangle
@@ -97,7 +133,6 @@ public class GeomUtils {
 
     /**
      * Get the nearest point from the given one among 2 candidates points.
-     * 
      * @param origin first candidate
      * @param destination second candidate
      * @param p the point to evaluate
@@ -109,11 +144,11 @@ public class GeomUtils {
             return origin;
         else
             return destination;
+        
     }
 
     /**
      * Return the point that is the nearest from the given reference point.
-     * 
      * @param candidates Candidates points
      * @param ref Reference point
      * @return the nearest point or <tt>null</tt> if the collection is empty.
@@ -137,7 +172,6 @@ public class GeomUtils {
 
     /**
      * Get the intersection between the rectangle and the line formed by the 2 given points
-     * 
      * @param p1 first point of the line
      * @param p2 last point of the line. Also used as reference to choose the nearest intersection point.
      * @param r a rectangle
@@ -157,6 +191,37 @@ public class GeomUtils {
     }
 
     /**
+     * Determines whether any of the line segment represented by the two points
+     * intersect the given Rectangle. If the segment touches the given rectangle,
+     * that's considered intersection.
+     * @param p1 the segment start
+     * @param p2 the segment end
+     * @param r the rectangle
+     * @return <code>true</code> if the given rectangle intersects the
+     * segments represented by the two points
+     * @since 5.1.0
+     */
+    @objid ("385cc8e3-125d-445d-939e-054c7ee7d0dc")
+    public static boolean segmentIntersects(Point p1, Point p2, Rectangle r) {
+        if (r.isEmpty())
+            return false;
+        if (r.contains(p1) || r.contains(p2))
+            return true;
+        
+        int diagonal1x1 = r.x;
+        int diagonal1y1 = r.y;
+        int diagonal1x2 = r.x + r.width - 1;
+        int diagonal1y2 = r.y + r.height - 1;
+        int diagonal2x1 = r.x + r.width - 1;
+        int diagonal2y1 = r.y;
+        int diagonal2x2 = r.x;
+        int diagonal2y2 = r.y + r.height - 1;
+        return (Geometry.linesIntersect(diagonal1x1, diagonal1y1, diagonal1x2, diagonal1y2, p1.x(), p1.y(), p2.x(), p2.y())
+                || Geometry.linesIntersect(diagonal2x1, diagonal2y1, diagonal2x2, diagonal2y2, p1.x(), p1.y(), p2.x(), p2.y()));
+        
+    }
+
+    /**
      * @param a a number
      * @param b another number
      * @return true if a and b have the same sign.
@@ -168,10 +233,9 @@ public class GeomUtils {
 
     /**
      * Get the intersection between the given lines and the given segment.
-     * @param segment
-     * 
      * @param p1 first point of line
      * @param p2 other point of line
+     * @param segment a segment
      * @return the intersection between the given line and the given segment.
      */
     @objid ("7f8100fc-1dec-11e2-8cad-001ec947c8cc")
@@ -179,16 +243,16 @@ public class GeomUtils {
         LineSeg s1 = new LineSeg(p1, p2);
         PointList intersections = s1.getLinesIntersections(segment);
         
-        if (intersections != null && intersections.size() > 0) {
-            if (segment.containsPoint(intersections.getFirstPoint(), 0))
-                return intersections.getFirstPoint();
+        if (intersections != null
+                && intersections.size() > 0
+                && segment.containsPoint(intersections.getFirstPoint(), 0)) {
+            return intersections.getFirstPoint();
         }
         return null;
     }
 
     /**
      * Get the intersection point between the p1-p2 segment and the p3-p4 segment.
-     * 
      * @param p1 1st segment begin
      * @param p2 1st segment end
      * @param p3 2nd segment begin
@@ -205,9 +269,9 @@ public class GeomUtils {
          * Compute a1, b1, c1, where line joining points 1 and 2 is "a1 x  +  b1 y  +  c1  =  0".
          */
         
-        a1 = p2.y - p1.y;
-        b1 = p1.x - p2.x;
-        c1 = p2.x * p1.y - p1.x * p2.y;
+        a1 = (long)p2.y - p1.y;
+        b1 = (long)p1.x - p2.x;
+        c1 = (long)p2.x * p1.y - p1.x * p2.y;
         
         /*
          * Compute r3 and r4.
@@ -225,9 +289,9 @@ public class GeomUtils {
         
         /* Compute a2, b2, c2 */
         
-        a2 = p4.y - p3.y;
-        b2 = p3.x - p4.x;
-        c2 = p4.x * p3.y - p3.x * p4.y;
+        a2 = (long)p4.y - p3.y;
+        b2 = (long)p3.x - p4.x;
+        c2 = (long)p4.x * p3.y - p3.x * p4.y;
         
         /* Compute r1 and r2 */
         
@@ -265,18 +329,44 @@ public class GeomUtils {
 
     /**
      * Convert the given direction to horizontal or vertical
-     * 
      * @param anchorRelativeLocation PositionConstants.NORTH, PositionConstants.SOUTH, PositionConstants.EAST or PositionConstants.WEST
      * @return PositionConstants.HORIZONTAL or PositionConstants.VERTICAL.
+     * @deprecated use {@link Direction#orientation()}.
      */
     @objid ("7f81011d-1dec-11e2-8cad-001ec947c8cc")
+    @Deprecated
     public static Orientation getOrientation(final Direction anchorRelativeLocation) {
-        if (anchorRelativeLocation == Direction.EAST || anchorRelativeLocation == Direction.WEST) {
-            return Orientation.HORIZONTAL;
-        } else if (anchorRelativeLocation == Direction.NORTH || anchorRelativeLocation == Direction.SOUTH) {
-            return Orientation.VERTICAL;
-        }
-        return Orientation.NONE;
+        return anchorRelativeLocation.orientation();
+    }
+
+    /**
+     * Return equivalent of {@link Rectangle#toString()} with topleft and bottom right points
+     * instead of top left and size.
+     * @param r a rectangle
+     * @return a dump of the rectangle
+     */
+    @objid ("705e774e-77b7-48b5-894d-13a3d8a45c77")
+    public static String toString(Rectangle r) {
+        return r.getClass().getSimpleName() + "["
+                + r.preciseX()
+                + ", " + r.preciseY()
+                + " --> " + (r.preciseX() + r.preciseWidth())
+                + ", " + (r.preciseY() + r.preciseHeight()) + "]";
+        
+    }
+
+    /**
+     * Correct the point position so that it is inside or touches the given rectangle.
+     * @param p a point
+     * @param r the point location limits.
+     */
+    @objid ("7f5adb31-1dec-11e2-8cad-001ec947c8cc")
+    public static void forcePointInside(final Point p, final Rectangle r) {
+        p.x = Math.max(p.x(), r.x());
+        p.x = Math.min(p.x(), r.right());
+        p.y = Math.max(p.y(), r.y());
+        p.y = Math.min(p.y(), r.bottom());
+        
     }
 
 }

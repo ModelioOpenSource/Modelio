@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.commands;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,18 +40,18 @@ public class DeleteInDiagramCommand extends Command {
     @objid ("7f3e3f1c-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public void execute() {
-        // this.parent.removeChild(this.child);
         this.toDelete.delete();
     }
 
     /**
      * Set the graphic element to delete.
-     * 
      * @param el the graphic element to delete.
+     * @return this instance
      */
     @objid ("7f3e3f1f-1dec-11e2-8cad-001ec947c8cc")
-    public void setNodetoDelete(IGmObject el) {
+    public DeleteInDiagramCommand setNodetoDelete(IGmObject el) {
         this.toDelete = el;
+        return this;
     }
 
     /**

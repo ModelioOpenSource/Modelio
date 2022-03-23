@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.viewer.config;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,11 +40,10 @@ import org.modelio.platform.model.ui.nattable.parts.theme.ModelioTableTheme;
 public class GridLayerConfiguration extends DefaultGridLayerConfiguration {
     /**
      * Create a new ColumnHeaderConfiguration.
-     * 
      * @param gridLayer the layer associated with this configuration.
      */
     @objid ("bf771737-0e34-40ae-81b4-1848bfeab83a")
-    public GridLayerConfiguration(CompositeLayer gridLayer) {
+    public  GridLayerConfiguration(CompositeLayer gridLayer) {
         super(gridLayer);
     }
 
@@ -57,6 +55,7 @@ public class GridLayerConfiguration extends DefaultGridLayerConfiguration {
     protected void addAlternateRowColoringConfig(CompositeLayer gridLayer) {
         addConfiguration(new ModelioRowStyleConfiguration());
         gridLayer.setConfigLabelAccumulatorForRegion(GridRegion.BODY, new AlternatingRowConfigLabelAccumulator(gridLayer.getChildLayerByRegionName(GridRegion.BODY)));
+        
     }
 
     @objid ("07165c09-1d8c-46e2-9b85-1364da3719e9")
@@ -69,6 +68,7 @@ public class GridLayerConfiguration extends DefaultGridLayerConfiguration {
         public void configureRegistry(IConfigRegistry configRegistry) {
             configureOddRowStyle(configRegistry);
             configureEvenRowStyle(configRegistry);
+            
         }
 
         @objid ("25527e4b-96bb-4fa5-9e8f-9ac0961cc011")
@@ -76,6 +76,7 @@ public class GridLayerConfiguration extends DefaultGridLayerConfiguration {
             Style cellStyle = new Style();
             cellStyle.setAttributeValue(CellStyleAttributes.BACKGROUND_COLOR, this.colorScheme.oddRowBackground);
             configRegistry.registerConfigAttribute(CellConfigAttributes.CELL_STYLE, cellStyle, DisplayMode.NORMAL, AlternatingRowConfigLabelAccumulator.EVEN_ROW_CONFIG_TYPE);
+            
         }
 
         @objid ("bde04cf6-dd11-4abf-9296-dae91640a428")
@@ -83,10 +84,11 @@ public class GridLayerConfiguration extends DefaultGridLayerConfiguration {
             Style cellStyle = new Style();
             cellStyle.setAttributeValue(CellStyleAttributes.BACKGROUND_COLOR, this.colorScheme.evenRowBackground);
             configRegistry.registerConfigAttribute(CellConfigAttributes.CELL_STYLE, cellStyle, DisplayMode.NORMAL, AlternatingRowConfigLabelAccumulator.ODD_ROW_CONFIG_TYPE);
+            
         }
 
         @objid ("3cb0c138-c9a7-4fc5-8f03-2139212c50d3")
-        public ModelioRowStyleConfiguration() {
+        public  ModelioRowStyleConfiguration() {
             super();
         }
 

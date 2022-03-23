@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.controller.load.diagram.type;
 
 import java.io.IOException;
@@ -27,8 +26,8 @@ import java.util.Map;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.modelio.diagram.IDiagramCustomizer;
 import org.modelio.api.modelio.diagram.tools.PaletteEntry;
-import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2Diagrams.Jxbv2DiagramType.Jxbv2Palette;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2Diagrams.Jxbv2DiagramType;
+import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2Diagrams.Jxbv2DiagramType.Jxbv2Palette;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2ToolRef;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
@@ -45,7 +44,6 @@ import org.modelio.vcore.smkernel.mapi.MMetamodel;
 public class DiagramTypeReader {
     /**
      * Registers diagram customizations from module.xml .
-     * 
      * @param diagramDef the module.xml part
      * @param module the module to fill
      */
@@ -106,6 +104,7 @@ public class DiagramTypeReader {
             MdaInfra.LOG.error(e);
             return;
         }
+        
     }
 
 }

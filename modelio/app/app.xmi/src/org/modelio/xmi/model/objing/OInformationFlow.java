@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,7 +34,7 @@ import org.modelio.xmi.generation.GenerationProperties;
 @objid ("62154cad-ecea-42b6-a4d5-3274cb7ba67d")
 public class OInformationFlow extends OModelElement {
     @objid ("028a681a-2750-4b13-afbc-9909419eb5df")
-     InformationFlow objingElement;
+    InformationFlow objingElement;
 
     @objid ("b04b9658-f150-4374-a691-7984193a0978")
     private GenerationProperties genProp = GenerationProperties.getInstance();
@@ -47,9 +46,10 @@ public class OInformationFlow extends OModelElement {
     }
 
     @objid ("434b0e2f-34b5-4071-a561-0cb227393db4")
-    public OInformationFlow(InformationFlow element) {
+    public  OInformationFlow(InformationFlow element) {
         super(element);
         this.objingElement = element;
+        
     }
 
     @objid ("4a3b803d-d6fa-4417-b1f4-f1069d3c188c")
@@ -72,6 +72,7 @@ public class OInformationFlow extends OModelElement {
                 }
             }
         }
+        
     }
 
     @objid ("386eb18e-54ef-467b-b1fb-31790430b573")
@@ -85,6 +86,7 @@ public class OInformationFlow extends OModelElement {
         setConveyed((org.eclipse.uml2.uml.InformationFlow)ecoreElt);
         //        setRealizingConnector((org.eclipse.uml2.uml.InformationFlow)ecoreElt);
         setRealization((org.eclipse.uml2.uml.InformationFlow)ecoreElt);
+        
     }
 
     @objid ("2a02ac17-3e4f-4bdf-a9f6-0c48abc00e56")
@@ -95,6 +97,7 @@ public class OInformationFlow extends OModelElement {
                 flow.getInformationSources().add((org.eclipse.uml2.uml.NamedElement)ecoreSource);
             }
         }
+        
     }
 
     @objid ("a27192f3-0037-4df6-a011-029138a57d19")
@@ -105,6 +108,7 @@ public class OInformationFlow extends OModelElement {
                 flow.getInformationTargets().add((org.eclipse.uml2.uml.NamedElement)ecoreTarget);
             }
         }
+        
     }
 
     @objid ("f2ce3c2a-797c-42e7-82f2-c56058eba010")
@@ -114,6 +118,7 @@ public class OInformationFlow extends OModelElement {
             if (ecoreMsg instanceof org.eclipse.uml2.uml.Message)
                 flow.getRealizingMessages().add((org.eclipse.uml2.uml.Message)ecoreMsg);
         }
+        
     }
 
     @objid ("132fab02-14ac-442b-b259-cb4ffcecc30b")
@@ -123,6 +128,7 @@ public class OInformationFlow extends OModelElement {
             if (ecoreEdge instanceof  org.eclipse.uml2.uml.ActivityEdge)
                 flow.getRealizingActivityEdges().add((org.eclipse.uml2.uml.ActivityEdge)ecoreEdge);
         }
+        
     }
 
     @objid ("174e0f7f-883d-4bc4-a25e-6b2da9551545")
@@ -132,6 +138,7 @@ public class OInformationFlow extends OModelElement {
             if (ecoreConveyed instanceof org.eclipse.uml2.uml.Classifier)
                 flow.getConveyeds().add( (org.eclipse.uml2.uml.Classifier)ecoreConveyed);    
         }
+        
     }
 
     @objid ("a141fcb0-14d9-4eaa-bcd4-325a01cf82c9")
@@ -143,6 +150,7 @@ public class OInformationFlow extends OModelElement {
             if (realization instanceof org.eclipse.uml2.uml.Relationship)
                 flow.getRealizations().add((org.eclipse.uml2.uml.Relationship)realization);
         }
+        
     }
 
 }

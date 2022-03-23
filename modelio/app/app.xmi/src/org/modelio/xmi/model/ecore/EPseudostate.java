@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -90,9 +89,10 @@ public class EPseudostate extends ENamedElement {
     }
 
     @objid ("b01024f9-4341-4a01-b6f8-b153b19f00fe")
-    public EPseudostate(org.eclipse.uml2.uml.Pseudostate element) {
+    public  EPseudostate(org.eclipse.uml2.uml.Pseudostate element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("5c3c7636-55e3-46c6-b0d0-fa2ff94da1ea")
@@ -130,6 +130,7 @@ public class EPseudostate extends ENamedElement {
             }
         
         }
+        
     }
 
 }

@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.exporter.commands;
 
 import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.xml.bind.JAXBException;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
@@ -87,6 +86,7 @@ public class BPMExportHandler {
           
             exportBpmn(selectedOwner, bpmnFile);
         }
+        
     }
 
     @objid ("ea6cbadc-f54a-4305-9746-b59b09e3b531")
@@ -101,6 +101,7 @@ public class BPMExportHandler {
         } catch (JAXBException e) {
             e.printStackTrace();
         }
+        
     }
 
     @objid ("b13b7afe-1fec-4070-abcf-de7b80b17812")

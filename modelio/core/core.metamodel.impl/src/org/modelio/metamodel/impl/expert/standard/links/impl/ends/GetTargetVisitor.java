@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.expert.standard.links.impl.ends;
 
 import java.util.List;
@@ -69,13 +68,14 @@ public class GetTargetVisitor extends DefaultModelVisitor {
      * Constructor
      */
     @objid ("ac18ca11-e6bf-486c-9e27-a7feea2cdecf")
-    public GetTargetVisitor() {
+    public  GetTargetVisitor() {
         super(new DefaultInfrastructureVisitor() {
             @Override
             public Object visitDependency(Dependency theDependency) {
                 return theDependency.getDependsOn();
             }
         });
+        
     }
 
     @objid ("345736c4-aa9e-43d9-9ed8-f865e1f5a581")
@@ -93,6 +93,7 @@ public class GetTargetVisitor extends DefaultModelVisitor {
         } else {
             return visitAssociationEnd(ends.get(0));
         }
+        
     }
 
     @objid ("cc552411-0bdf-469d-a16b-b0cf84911c52")
@@ -105,6 +106,7 @@ public class GetTargetVisitor extends DefaultModelVisitor {
         } else {
             return null;
         }
+        
     }
 
     @objid ("209d0d8e-c72d-46ef-bcd3-0c24beb445bc")
@@ -165,6 +167,7 @@ public class GetTargetVisitor extends DefaultModelVisitor {
         } else {
             return visitConnectorEnd((ConnectorEnd) ends.get(0));
         }
+        
     }
 
     @objid ("26fa1bda-e402-47a0-9fa3-4b51d6efc5b1")
@@ -202,6 +205,7 @@ public class GetTargetVisitor extends DefaultModelVisitor {
         } else {
             throw new UnsupportedOperationException(theInformationFlow + " has " + ret.size() + " targets.");
         }
+        
     }
 
     @objid ("7fd63fc4-ada2-4145-930b-99f5d611c938")
@@ -219,6 +223,7 @@ public class GetTargetVisitor extends DefaultModelVisitor {
         } else {
             return visitLinkEnd(ends.get(0));
         }
+        
     }
 
     @objid ("808686dd-bafa-4a8d-a42b-baedbf49f28b")
@@ -231,6 +236,7 @@ public class GetTargetVisitor extends DefaultModelVisitor {
         } else {
             return null;
         }
+        
     }
 
     @objid ("0c19a8e6-78ab-44f0-acbf-9e8007dc4631")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.packageimport;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,7 +36,7 @@ public class PackageImportStyleKeys extends StaticAbstractStyleKeyProvider {
      */
     @objid ("a726fc2b-55c2-11e2-9337-002564c97630")
     public static final StyleKey CONNECTIONROUTER = createStyleKey("PACKAGEIMPORT_CONNECTIONROUTER",
-                                                                   MetaKey.CONNECTIONROUTER);
+                                                                       MetaKey.CONNECTIONROUTER);
 
     /**
      * Line color
@@ -62,7 +61,7 @@ public class PackageImportStyleKeys extends StaticAbstractStyleKeyProvider {
      */
     @objid ("a726fc37-55c2-11e2-9337-002564c97630")
     public static final StyleKey DRAWLINEBRIDGES = createStyleKey("PACKAGEIMPORT_DRAWLINEBRIDGES",
-                                                                  MetaKey.DRAWLINEBRIDGES);
+                                                                      MetaKey.DRAWLINEBRIDGES);
 
     /**
      * Text font
@@ -87,7 +86,7 @@ public class PackageImportStyleKeys extends StaticAbstractStyleKeyProvider {
      */
     @objid ("a726fc43-55c2-11e2-9337-002564c97630")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("PACKAGEIMPORT_SHOWSTEREOTYPES",
-                                                                  MetaKey.SHOWSTEREOTYPES);
+                                                                      MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Show tagged values
@@ -100,7 +99,7 @@ public class PackageImportStyleKeys extends StaticAbstractStyleKeyProvider {
      */
     @objid ("a726fc49-55c2-11e2-9337-002564c97630")
     public static final StyleKey LINEPATTERN = createStyleKey("PACKAGEIMPORT_LINEPATTERN",
-                                                              MetaKey.LINEPATTERN);
+                                                                  MetaKey.LINEPATTERN);
 
     /**
      * Show information flows.

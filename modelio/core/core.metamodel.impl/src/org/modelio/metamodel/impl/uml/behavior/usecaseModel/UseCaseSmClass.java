@@ -17,20 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.usecaseModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.usecaseModel.ExtensionPointSmClass;
-import org.modelio.metamodel.impl.uml.behavior.usecaseModel.UseCaseData;
-import org.modelio.metamodel.impl.uml.behavior.usecaseModel.UseCaseDependencySmClass;
 import org.modelio.metamodel.impl.uml.statik.GeneralClassSmClass;
 import org.modelio.metamodel.uml.behavior.usecaseModel.ExtensionPoint;
 import org.modelio.metamodel.uml.behavior.usecaseModel.UseCase;
@@ -59,7 +56,7 @@ public class UseCaseSmClass extends GeneralClassSmClass {
     private SmDependency userDep;
 
     @objid ("0fae14c6-a03a-4a0d-8c8f-15665f6d32c8")
-    public UseCaseSmClass(ISmMetamodelFragment origin) {
+    public  UseCaseSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -67,6 +64,7 @@ public class UseCaseSmClass extends GeneralClassSmClass {
     @Override
     public String getName() {
         return "UseCase";
+        
     }
 
     @objid ("1c2c36e7-16ca-4350-a87d-6241f071f264")
@@ -79,18 +77,21 @@ public class UseCaseSmClass extends GeneralClassSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return UseCase.class;
+        
     }
 
     @objid ("2d8a65c2-76ea-43b8-9154-3a3ddec2d2ca")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("9204c437-2bd0-46af-ac5f-e478b4afae9b")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("32af65bc-e493-4f09-b102-5b448b4d371a")
@@ -114,6 +115,8 @@ public class UseCaseSmClass extends GeneralClassSmClass {
         this.userDep = new UserSmDependency();
         this.userDep.init("User", this, metamodel.getMClass(UseCaseDependency.MQNAME), 0, -1 , SmDirective.SMCDDYNAMIC, SmDirective.SMCDTODELETE);
         registerDependency(this.userDep);
+        
+        
     }
 
     @objid ("664199d2-a1fe-4fef-8d13-ffc311613b8c")
@@ -146,7 +149,7 @@ public class UseCaseSmClass extends GeneralClassSmClass {
         private UseCaseSmClass smClass;
 
         @objid ("f35a9825-6caa-4fbe-84a1-deb40a783654")
-        public UseCaseObjectFactory(UseCaseSmClass smClass) {
+        public  UseCaseObjectFactory(UseCaseSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -179,6 +182,7 @@ public class UseCaseSmClass extends GeneralClassSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((UseCaseData) data).mUsed = values;
+            
         }
 
         @objid ("c0707574-b80b-404c-9df6-1f74123a46f8")
@@ -188,6 +192,7 @@ public class UseCaseSmClass extends GeneralClassSmClass {
             	this.symetricDep = ((UseCaseDependencySmClass)this.getTarget()).getOriginDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -207,6 +212,7 @@ public class UseCaseSmClass extends GeneralClassSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((UseCaseData) data).mOwnedExtension = values;
+            
         }
 
         @objid ("76f97b08-f083-4b19-b3fb-b90dc82c58fa")
@@ -216,6 +222,7 @@ public class UseCaseSmClass extends GeneralClassSmClass {
             	this.symetricDep = ((ExtensionPointSmClass)this.getTarget()).getOwnerDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -235,6 +242,7 @@ public class UseCaseSmClass extends GeneralClassSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((UseCaseData) data).mUser = values;
+            
         }
 
         @objid ("98a8b4ad-f7ed-4ccb-9e90-dfce97f1c84d")
@@ -244,6 +252,7 @@ public class UseCaseSmClass extends GeneralClassSmClass {
             	this.symetricDep = ((UseCaseDependencySmClass)this.getTarget()).getTargetDep();
             }
             return this.symetricDep;
+            
         }
 
     }

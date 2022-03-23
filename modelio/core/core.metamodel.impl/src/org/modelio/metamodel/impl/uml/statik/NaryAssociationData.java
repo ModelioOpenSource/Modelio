@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.List;
@@ -33,16 +33,16 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("0021f11a-c4bf-1fd8-97fe-001ec947cd2a")
 public class NaryAssociationData extends UmlModelElementData {
     @objid ("b671d465-3e89-473d-9d93-eb56de3e815f")
-     List<SmObjectImpl> mOccurence = null;
+    List<SmObjectImpl> mOccurence = null;
 
     @objid ("e70b4ae0-c570-4422-be5d-fa1e8579f671")
-     List<SmObjectImpl> mNaryEnd = null;
+    List<SmObjectImpl> mNaryEnd = null;
 
     @objid ("2966e167-95e6-4214-821d-ad38f3e706bf")
-     SmObjectImpl mLinkToClass;
+    SmObjectImpl mLinkToClass;
 
     @objid ("dbe3988f-c30a-48e3-93d8-5cf2beefc507")
-    public NaryAssociationData(NaryAssociationSmClass smClass) {
+    public  NaryAssociationData(NaryAssociationSmClass smClass) {
         super(smClass);
     }
 

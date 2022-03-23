@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.choice;
 
 import java.util.Collections;
@@ -31,8 +30,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.ChoicePseudoState;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -44,9 +43,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("f4eff91f-55b6-11e2-877f-002564c97630")
 public class GmChoice extends GmPortContainer {
-    @objid ("f4eff923-55b6-11e2-877f-002564c97630")
-    private ChoicePseudoState element;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -56,8 +52,11 @@ public class GmChoice extends GmPortContainer {
     @objid ("f4eff92f-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
 
+    @objid ("f4eff923-55b6-11e2-877f-002564c97630")
+    private ChoicePseudoState element;
+
     @objid ("f4eff926-55b6-11e2-877f-002564c97630")
-     static final GmChoiceStructuredStyleKeys STRUCTURED_KEYS = new GmChoiceStructuredStyleKeys();
+    static final GmChoiceStructuredStyleKeys STRUCTURED_KEYS = new GmChoiceStructuredStyleKeys();
 
     @objid ("fd0b5203-5a5b-11e2-9e33-00137282c51b")
     private static final GmChoiceSimpleStyleKeys SIMPLE_KEYS = new GmChoiceSimpleStyleKeys();
@@ -70,13 +69,12 @@ public class GmChoice extends GmPortContainer {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the timeEvent is unmasked.
      * @param el the unmasked timeEvent.
      * @param ref a reference to the unmasked timeEvent.
      */
     @objid ("f4eff931-55b6-11e2-877f-002564c97630")
-    public GmChoice(IGmDiagram diagram, ChoicePseudoState el, MRef ref) {
+    public  GmChoice(IGmDiagram diagram, ChoicePseudoState el, MRef ref) {
         super(diagram, ref);
         
         GmChoicePrimaryNode mainNode = new GmChoicePrimaryNode(diagram, ref);
@@ -89,6 +87,7 @@ public class GmChoice extends GmPortContainer {
         
         this.addChild(mainNode);
         this.addChild(label);
+        
     }
 
     @objid ("f4eff93d-55b6-11e2-877f-002564c97630")
@@ -147,7 +146,7 @@ public class GmChoice extends GmPortContainer {
      * Empty constructor needed for deserialisation.
      */
     @objid ("f4f17fbb-55b6-11e2-877f-002564c97630")
-    public GmChoice() {
+    public  GmChoice() {
         // Nothing specific to do.
     }
 
@@ -168,6 +167,7 @@ public class GmChoice extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("f4f17fc4-55b6-11e2-877f-002564c97630")
@@ -189,12 +189,14 @@ public class GmChoice extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmChoice.", GmChoice.MINOR_VERSION);
+        
     }
 
     @objid ("f4f17fd8-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (ChoicePseudoState) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("f4f17fdd-55b6-11e2-877f-002564c97630")
@@ -205,7 +207,6 @@ public class GmChoice extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -217,7 +218,6 @@ public class GmChoice extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

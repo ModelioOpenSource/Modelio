@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.api;
 
 import java.io.File;
@@ -58,6 +57,7 @@ public class ImportConfiguration {
         if (file.exists()){
             this.xmiFile = file;
         }
+        
     }
 
 }

@@ -10,7 +10,6 @@
  * from Modeliosoft.
  * 
  */
-
 package org.modelio.admtool.plugin;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,9 +29,10 @@ public class AdminPreferencesPage extends FieldEditorPreferencePage {
      * Public constructor
      */
     @objid ("e7aac2fe-0e3d-456a-96af-6c31528b842c")
-    public AdminPreferencesPage() {
+    public  AdminPreferencesPage() {
         super(GRID);
         init();
+        
     }
 
     @objid ("46cadc18-771c-45dc-87ab-8cdaf7f84794")
@@ -51,6 +51,7 @@ public class AdminPreferencesPage extends FieldEditorPreferencePage {
         
             BooleanFieldEditor showAdmTools = new BooleanFieldEditor(AppSharedPreferencesKeys.SHOWADMTOOLS_PREFKEY, AdmToolOrg.I18N.getString("AdmTools.Show"), getFieldEditorParent());
             addField(showAdmTools);
+        
     }
 
     @objid ("d49de3f5-60f5-4dbc-8013-8c9e5f4d9486")

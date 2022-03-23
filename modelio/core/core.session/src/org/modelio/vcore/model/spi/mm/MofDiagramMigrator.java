@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model.spi.mm;
 
 import java.io.PrintWriter;
@@ -29,6 +28,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.namespace.QName;
 import javax.xml.stream.Location;
 import javax.xml.stream.XMLEventFactory;
@@ -41,7 +41,6 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.events.Attribute;
 import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.vbasic.progress.SubProgress;
 import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -79,12 +78,13 @@ class MofDiagramMigrator {
      * @param mofSession a MOF session.
      */
     @objid ("9d2a8a62-ab40-4bb1-ba45-ba3881216b70")
-    public MofDiagramMigrator(IMofSession mofSession) {
+    public  MofDiagramMigrator(IMofSession mofSession) {
         this.mofSession = mofSession;
         this.xInputFactory = XMLInputFactory.newInstance();
         this.xOutputFactory = XMLOutputFactory.newInstance();
         this.xEventFactory = XMLEventFactory.newFactory();
         this.logger = this.mofSession.getReport().getLogger();
+        
     }
 
     @objid ("42ae550b-3bd6-44f5-8ef6-df3f7b48a0d0")
@@ -115,6 +115,7 @@ class MofDiagramMigrator {
                 }
             }
         }
+        
     }
 
     @objid ("382aeee5-484d-4565-a1a7-ff8361d99151")
@@ -154,6 +155,7 @@ class MofDiagramMigrator {
             diag.setAttVal("UiData", newDiagData);
             this.logger.printf("      %s diagram references migrated.\n", diag);
         }
+        
     }
 
     @objid ("7b31090f-c6d4-4f36-8099-978346b0b245")
@@ -164,7 +166,6 @@ class MofDiagramMigrator {
     /**
      * Copied from {@link org.modelio.diagram.persistence.XmlDiagramReader#convertToMRef(String)}
      * @param val
-     * 
      * @return the MRef
      */
     @objid ("d0164a92-3659-407b-b040-aff73983ba52")
@@ -174,7 +175,6 @@ class MofDiagramMigrator {
 
     /**
      * Add an identifier to change to another
-     * 
      * @param orig the original reference.
      * @param newRef the replacement reference .
      */
@@ -250,6 +250,7 @@ class MofDiagramMigrator {
         } else {
             return "l" + loc.getLineNumber() + " c" + loc.getColumnNumber();
         }
+        
     }
 
     @objid ("1ea2e85b-5739-41be-9fc7-a6e579eb5872")

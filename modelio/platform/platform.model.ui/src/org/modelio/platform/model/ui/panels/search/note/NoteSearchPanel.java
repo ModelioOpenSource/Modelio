@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.panels.search.note;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -140,6 +139,7 @@ public class NoteSearchPanel implements ISearchPanel {
         defaultCriteria.setNoteType(DEFAULT_NOTE_TYPE);
         defaultCriteria.setCaseSensitive(false);
         setCriteria(defaultCriteria);
+        
     }
 
     @objid ("2be34ff5-c625-4e3e-b324-e2532a865a0c")
@@ -169,13 +169,15 @@ public class NoteSearchPanel implements ISearchPanel {
         this.textfield.setText(criteria.getExpression());
         this.notetypeText.setText(criteria.getNoteType());
         this.caseSensitiveCheckBox.setSelection(this.searchCriteria.isCaseSensitive());
+        
     }
 
     /**
      * Default constructor
      */
     @objid ("adfc7124-f6c7-4ac1-b570-5c5ed6ef4025")
-    public NoteSearchPanel() {
+    public  NoteSearchPanel() {
+        
     }
 
 }

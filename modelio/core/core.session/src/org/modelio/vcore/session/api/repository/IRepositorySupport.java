@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.api.repository;
 
 import java.io.IOException;
@@ -56,7 +55,6 @@ public interface IRepositorySupport {
 
     /**
      * Registers a repository change listener.
-     * 
      * @param listener a repository change listener.
      */
     @objid ("59707384-d0fe-4e21-b2f1-89ec83df3847")
@@ -68,39 +66,35 @@ public interface IRepositorySupport {
      * The repository key can then be used to find the repository with {@link #getRepository(String)}.
      * @see #REPOSITORY_KEY_LOCAL
      * @see #REPOSITORY_KEY_SCRATCH
-     * 
      * @param aBase the repository to add.
      * @param key a key used to retrieve the repository.
      * @param accessManager an access manager.
      * @param monitor a progress monitor
-     * @throws java.io.IOException in case of failure.
+     * @throws IOException in case of failure.
      */
     @objid ("575a2f1c-9e37-493a-937e-fdc83533be0f")
     void connectRepository(IRepository aBase, String key, final IAccessManager accessManager, IModelioProgress monitor) throws IOException;
 
     /**
      * Connect a repository to this modeling session.
-     * 
      * @param aBase the repository to add.
      * @param accessManager an access manager.
      * @param monitor a progress monitor
-     * @throws java.io.IOException in case of failure.
+     * @throws IOException in case of failure.
      */
     @objid ("08e18da1-1771-11e2-ac36-001ec947ccaf")
     void connectRepository(IRepository aBase, final IAccessManager accessManager, IModelioProgress monitor) throws IOException;
 
     /**
      * Close and remove the given model repository from the connected repositories.
-     * 
      * @param toRemove the repository to disconnect.
-     * @throws java.lang.IllegalArgumentException if the repository is not connected to this session
+     * @throws IllegalArgumentException if the repository is not connected to this session
      */
     @objid ("08e18da8-1771-11e2-ac36-001ec947ccaf")
     void disconnectRepository(IRepository toRemove) throws IllegalArgumentException;
 
     /**
      * Notifies the registered repository change listeners of a repository change.
-     * 
      * @param event the repository change event.
      */
     @objid ("a8ea70bc-d4a2-40ec-a887-b633e43d5e2d")
@@ -114,7 +108,6 @@ public interface IRepositorySupport {
      * <p>
      * The caller should test whether the referenced repositories are still open
      * with {@link IRepository#isOpen()} when iterating the result.
-     * 
      * @return the connected repositories at the moment of call.
      */
     @objid ("0d23c864-4b7e-11e2-91c9-001ec947ccaf")
@@ -124,7 +117,6 @@ public interface IRepositorySupport {
      * Get the repository where the given object is stored.
      * <p>
      * Returns <code>null</code> if the object is not assigned to a repository or the repository does not belong to this session.
-     * 
      * @param anObject an object
      * @return its repository, or <code>null</code>.
      */
@@ -134,7 +126,6 @@ public interface IRepositorySupport {
     /**
      * Get the repository identified by the given key.
      * <p>
-     * 
      * @param key the repository key
      * @return the found repository or null
      */
@@ -143,7 +134,6 @@ public interface IRepositorySupport {
 
     /**
      * Unregisters a repository change listener.
-     * 
      * @param listener a repository change listener.
      */
     @objid ("06a53b06-cc63-4961-8d2c-b192fb46977b")

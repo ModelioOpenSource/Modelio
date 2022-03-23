@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.migration;
 
 import java.util.List;
@@ -61,8 +60,8 @@ import org.modelio.vcore.smkernel.mapi.MRef;
 import org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException;
 import org.modelio.vcore.smkernel.mapi.MetamodelVersionDescriptor;
 import org.modelio.vcore.smkernel.meta.SmClass;
-import org.modelio.vcore.smkernel.meta.mof.MofMetamodel.MofBuilder;
 import org.modelio.vcore.smkernel.meta.mof.MofMetamodel;
+import org.modelio.vcore.smkernel.meta.mof.MofMetamodel.MofBuilder;
 import org.modelio.vcore.smkernel.meta.mof.MofSmClass;
 import org.modelio.vcore.smkernel.meta.mof.MofSmObjectImpl;
 
@@ -173,9 +172,10 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
     private static final MRef state_methodologicallink_stereotype = new MRef(Stereotype.MQNAME, "c2d2a1ec-2c29-453c-a79c-19e4f2d27f13", "State");
 
     @objid ("12bb2e74-fe02-48eb-a47a-1261d3a5badc")
-    public BpmnMigratorFromV220(MetamodelVersionDescriptor sourceMetamodel, MetamodelVersionDescriptor targetMetamodel) {
+    public  BpmnMigratorFromV220(MetamodelVersionDescriptor sourceMetamodel, MetamodelVersionDescriptor targetMetamodel) {
         this.sourceMetamodel = sourceMetamodel;
         this.targetMetamodel = targetMetamodel;
+        
     }
 
     @objid ("daf685e4-fc5e-4c67-b6f5-e7ac38e13510")
@@ -198,9 +198,8 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
 
     /**
      * Modify the metamodel so that it can read the source repository.
-     * 
      * @param metamodel the metamodel at the final state
-     * @throws org.modelio.vcore.model.spi.mm.MofMigrationException on fatal failure preventing migration
+     * @throws MofMigrationException on fatal failure preventing migration
      */
     @objid ("2e819494-7e84-4169-bac3-84d77214fa42")
     @Override
@@ -411,6 +410,7 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
                     .createOpposite("CallerServiceTask", 0, -1)
                     .build();
         }
+        
     }
 
     @objid ("bc253f04-9362-4c45-b122-cc7438ad396c")
@@ -436,6 +436,7 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
         } catch (MetaclassNotFoundException e) {
             throw new MofMigrationException(e.getLocalizedMessage(), e);
         }
+        
     }
 
     @objid ("7cee4877-1baf-480a-974d-abf292e234ee")
@@ -466,10 +467,9 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
 
     /**
      * Replace 'UmlState' metamodel dep with a <<State>> {@link MethodologicalLink}.
-     * 
      * @param monitor a progress monitor
      * @param mofsession the migration session
-     * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException should not occur
+     * @throws MetaclassNotFoundException should not occur
      */
     @objid ("10fd9503-ac5a-4ccc-9be5-f0675b70ddc3")
     private void fixBpmnDataState(IModelioProgress monitor, IMofSession mofsession) throws MetaclassNotFoundException {
@@ -478,14 +478,14 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
         for (MofSmObjectImpl bpmnElement : mofsession.findByClass(this.bpmnDataStateMC, true)) {
             createMethodologicalLink(mofsession, bpmnElement, "UmlState", stateStereotype);
         }
+        
     }
 
     /**
      * Replace 'RepresentedParameter' metamodel dep with a <<Represents>> {@link MethodologicalLink}.
-     * 
      * @param monitor a progress monitor
      * @param mofsession the migration session
-     * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException should not occur
+     * @throws MetaclassNotFoundException should not occur
      */
     @objid ("7bb3d7ed-f3dd-412d-85b2-d270d43bfdd6")
     private void fixBpmnDataOutput(IModelioProgress monitor, IMofSession mofsession) throws MetaclassNotFoundException {
@@ -494,14 +494,14 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
         for (MofSmObjectImpl bpmnElement : mofsession.findByClass(this.bpmnDataOutputMC, true)) {
             createMethodologicalLink(mofsession, bpmnElement, "RepresentedParameter", representsStereotype);
         }
+        
     }
 
     /**
      * Replace 'RepresentedParameter' metamodel dep with a <<Represents>> {@link MethodologicalLink}.
-     * 
      * @param monitor a progress monitor
      * @param mofsession the migration session
-     * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException should not occur
+     * @throws MetaclassNotFoundException should not occur
      */
     @objid ("8ef8977b-d01c-4100-95c4-49c7b32eac2c")
     private void fixBpmnDataInput(IModelioProgress monitor, IMofSession mofsession) throws MetaclassNotFoundException {
@@ -510,14 +510,14 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
         for (MofSmObjectImpl bpmnElement : mofsession.findByClass(this.bpmnDataInputMC, true)) {
             createMethodologicalLink(mofsession, bpmnElement, "RepresentedParameter", representsStereotype);
         }
+        
     }
 
     /**
      * Replace 'CalledOperation' and 'CalledBehavior' metamodel deps with a <<Called>> {@link MethodologicalLink}.
-     * 
      * @param monitor a progress monitor
      * @param mofsession the migration session
-     * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException should not occur
+     * @throws MetaclassNotFoundException should not occur
      */
     @objid ("8569a021-469f-497b-8be6-85dedad25129")
     private void fixBpmnCallActivity(IModelioProgress monitor, IMofSession mofsession) throws MetaclassNotFoundException {
@@ -527,6 +527,7 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
             createMethodologicalLink(mofsession, bpmnElement, "CalledOperation", calledStereotype);
             createMethodologicalLink(mofsession, bpmnElement, "CalledBehavior", calledStereotype);
         }
+        
     }
 
     /**
@@ -545,14 +546,14 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
         }
         
         dep.clear();
+        
     }
 
     /**
      * Replace 'ImplementationRef' metamodel dep with a <<Reference>> {@link MethodologicalLink}.
-     * 
      * @param monitor a progress monitor
      * @param mofsession the migration session
-     * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException should not occur
+     * @throws MetaclassNotFoundException should not occur
      */
     @objid ("2434f02b-950b-4f27-ad91-eca0aa001278")
     private void fixBpmnInterface(IModelioProgress monitor, IMofSession mofsession) throws MetaclassNotFoundException {
@@ -561,14 +562,14 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
         for (MofSmObjectImpl bpmnElement : mofsession.findByClass(this.bpmnInterfaceMC, true)) {
             createMethodologicalLink(mofsession, bpmnElement, "ImplementationRef", referenceStereotype);
         }
+        
     }
 
     /**
      * Replace 'Type', 'RepresentedAssociationEnd', 'RepresentedAttribute' and 'RepresentedInstance' metamodel deps with a <<Represents>> {@link MethodologicalLink}. Replace 'InState' metamodel dep with a <<State>> {@link MethodologicalLink}.
-     * 
      * @param monitor a progress monitor
      * @param mofsession the migration session
-     * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException should not occur
+     * @throws MetaclassNotFoundException should not occur
      */
     @objid ("c038923d-ae8b-4de5-8b5c-b35118a660bd")
     private void fixBpmnItemAwareElement(IModelioProgress monitor, IMofSession mofsession) throws MetaclassNotFoundException {
@@ -582,14 +583,14 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
             createMethodologicalLink(mofsession, bpmnElement, "RepresentedInstance", representsStereotype);
             createMethodologicalLink(mofsession, bpmnElement, "InState", stateStereotype);
         }
+        
     }
 
     /**
      * Replace 'StructureRef' metamodel dep with a <<Reference>> {@link MethodologicalLink}.
-     * 
      * @param monitor a progress monitor
      * @param mofsession the migration session
-     * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException should not occur
+     * @throws MetaclassNotFoundException should not occur
      */
     @objid ("2bfbf318-db04-484b-8637-aa0105c2e506")
     private void fixBpmnItemDefinition(IModelioProgress monitor, IMofSession mofsession) throws MetaclassNotFoundException {
@@ -598,14 +599,14 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
         for (MofSmObjectImpl bpmnElement : mofsession.findByClass(this.bpmnItemDefinitionMC, true)) {
             createMethodologicalLink(mofsession, bpmnElement, "StructureRef", referenceStereotype);
         }
+        
     }
 
     /**
      * Replace 'PartitionElement' metamodel dep with a <<PartitionElement>> {@link MethodologicalLink}.
-     * 
      * @param monitor a progress monitor
      * @param mofsession the migration session
-     * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException should not occur
+     * @throws MetaclassNotFoundException should not occur
      */
     @objid ("cd02e384-b1fc-493a-b353-56c62b60d4bd")
     private void fixBpmnLane(IModelioProgress monitor, IMofSession mofsession) throws MetaclassNotFoundException {
@@ -614,15 +615,15 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
         for (MofSmObjectImpl bpmnElement : mofsession.findByClass(this.bpmnLaneMC, true)) {
             createMethodologicalLink(mofsession, bpmnElement, "PartitionElement", partitionElementStereotype);
         }
+        
     }
 
     /**
      * Replace 'Type' metamodel dep with a <<Represents>> {@link MethodologicalLink}. <br/>
      * Replace 'InState' metamodel dep with a <<State>> {@link MethodologicalLink}.
-     * 
      * @param monitor a progress monitor
      * @param mofsession the migration session
-     * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException should not occur
+     * @throws MetaclassNotFoundException should not occur
      */
     @objid ("93ee661e-e955-4eba-85a9-0491c8729d96")
     private void fixBpmnMessage(IModelioProgress monitor, IMofSession mofsession) throws MetaclassNotFoundException {
@@ -633,14 +634,14 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
             createMethodologicalLink(mofsession, bpmnElement, "Type", representsStereotype);
             createMethodologicalLink(mofsession, bpmnElement, "InState", stateStereotype);
         }
+        
     }
 
     /**
      * Replace 'ImplementationRef' metamodel dep with a <<Reference>> {@link MethodologicalLink}.
-     * 
      * @param monitor a progress monitor
      * @param mofsession the migration session
-     * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException should not occur
+     * @throws MetaclassNotFoundException should not occur
      */
     @objid ("6f460638-7088-4fb2-8e5e-70dacf01de05")
     private void fixBpmnOperation(IModelioProgress monitor, IMofSession mofsession) throws MetaclassNotFoundException {
@@ -649,15 +650,15 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
         for (MofSmObjectImpl bpmnElement : mofsession.findByClass(this.bpmnOperationMC, true)) {
             createMethodologicalLink(mofsession, bpmnElement, "ImplementationRef", referenceStereotype);
         }
+        
     }
 
     /**
      * Replace 'Type' metamodel dep with a <<Represents>> {@link MethodologicalLink}. <br/>
      * Replace 'PackageRef' metamodel dep with a <<Reference>> {@link MethodologicalLink}.
-     * 
      * @param monitor a progress monitor
      * @param mofsession the migration session
-     * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException should not occur
+     * @throws MetaclassNotFoundException should not occur
      */
     @objid ("2fbed0dd-8f5f-44f1-a674-97e0cc32c62a")
     private void fixBpmnParticipant(IModelioProgress monitor, IMofSession mofsession) throws MetaclassNotFoundException {
@@ -668,14 +669,14 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
             createMethodologicalLink(mofsession, bpmnElement, "Type", representsStereotype);
             createMethodologicalLink(mofsession, bpmnElement, "PackageRef", referenceStereotype);
         }
+        
     }
 
     /**
      * Replace 'CalledOperation' metamodel dep with a <<Called>> {@link MethodologicalLink}.
-     * 
      * @param monitor a progress monitor
      * @param mofsession the migration session
-     * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException should not occur
+     * @throws MetaclassNotFoundException should not occur
      */
     @objid ("8baaef52-fe1c-418e-afe3-8ea080014780")
     private void fixBpmnReceiveTask(IModelioProgress monitor, IMofSession mofsession) throws MetaclassNotFoundException {
@@ -684,14 +685,14 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
         for (MofSmObjectImpl bpmnElement : mofsession.findByClass(this.bpmnReceiveTaskMC, true)) {
             createMethodologicalLink(mofsession, bpmnElement, "CalledOperation", calledStereotype);
         }
+        
     }
 
     /**
      * Replace 'CalledOperation' metamodel dep with a <<Called>> {@link MethodologicalLink}.
-     * 
      * @param monitor a progress monitor
      * @param mofsession the migration session
-     * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException should not occur
+     * @throws MetaclassNotFoundException should not occur
      */
     @objid ("df0218d8-1e7c-4ed4-9688-a0c881bb87ab")
     private void fixBpmnSendTask(IModelioProgress monitor, IMofSession mofsession) throws MetaclassNotFoundException {
@@ -700,14 +701,14 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
         for (MofSmObjectImpl bpmnElement : mofsession.findByClass(this.bpmnSendTaskMC, true)) {
             createMethodologicalLink(mofsession, bpmnElement, "CalledOperation", calledStereotype);
         }
+        
     }
 
     /**
      * Replace 'CalledOperation' metamodel dep with a <<Called>> {@link MethodologicalLink}.
-     * 
      * @param monitor a progress monitor
      * @param mofsession the migration session
-     * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException should not occur
+     * @throws MetaclassNotFoundException should not occur
      */
     @objid ("b103ba15-569e-4603-8674-aed8c1d23e13")
     private void fixBpmnServiceTask(IModelioProgress monitor, IMofSession mofsession) throws MetaclassNotFoundException {
@@ -716,6 +717,7 @@ class BpmnMigratorFromV220 implements IMofRepositoryMigrator {
         for (MofSmObjectImpl bpmnElement : mofsession.findByClass(this.bpmnServiceTaskMC, true)) {
             createMethodologicalLink(mofsession, bpmnElement, "CalledOperation", calledStereotype);
         }
+        
     }
 
 }

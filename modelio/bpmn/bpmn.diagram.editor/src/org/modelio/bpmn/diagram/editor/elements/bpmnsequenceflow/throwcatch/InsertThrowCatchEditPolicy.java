@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnsequenceflow.throwcatch;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -113,6 +112,7 @@ public class InsertThrowCatchEditPolicy extends GmLinkLayoutEditPolicy {
             }
             this.feedback.show(getHostFigure(), createRequest.getLocation());
         }
+        
     }
 
     @objid ("497c5802-e384-413c-80e4-a72f6e13194c")
@@ -122,6 +122,7 @@ public class InsertThrowCatchEditPolicy extends GmLinkLayoutEditPolicy {
             this.feedback.hide();
             this.feedback = null;
         }
+        
     }
 
     @objid ("24f4deae-4a6b-4eec-a559-cf9e4832a68b")

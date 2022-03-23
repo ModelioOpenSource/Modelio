@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.model.impl.importer.core;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,11 +38,12 @@ public class BrokenDepReport implements IBrokenDepReport {
     private final SmDependency smDep;
 
     @objid ("00782daa-d3aa-108f-8d81-001ec947cd2a")
-    public BrokenDepReport(final SmObjectImpl refObject, final SmObjectImpl localObject, SmDependency smDep, SmObjectImpl missingRefObject) {
+    public  BrokenDepReport(final SmObjectImpl refObject, final SmObjectImpl localObject, SmDependency smDep, SmObjectImpl missingRefObject) {
         this.refObject = refObject;
         this.localObject = localObject;
         this.smDep = smDep;
         this.missingRefObject = missingRefObject;
+        
     }
 
     @objid ("f9bfcdda-446a-11e2-b513-002564c97630")

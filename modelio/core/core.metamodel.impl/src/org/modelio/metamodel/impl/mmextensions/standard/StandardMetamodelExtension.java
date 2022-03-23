@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,7 +50,7 @@ public class StandardMetamodelExtension extends AbstractGMetamodelExtension {
      * Initialize the metamodel extension.
      */
     @objid ("91cb87a7-55f0-4249-8249-1e0c50e14370")
-    public StandardMetamodelExtension() {
+    public  StandardMetamodelExtension() {
         super(StandardMetamodelFragment.getInstance());
     }
 
@@ -94,6 +93,7 @@ public class StandardMetamodelExtension extends AbstractGMetamodelExtension {
         } else {
             return super.createExtension(service, session);
         }
+        
     }
 
 }

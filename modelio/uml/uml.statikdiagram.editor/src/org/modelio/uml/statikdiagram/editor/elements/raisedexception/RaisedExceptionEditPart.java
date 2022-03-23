@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.raisedexception;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -72,7 +71,8 @@ public class RaisedExceptionEditPart extends LinkEditPart {
     @objid ("36621f8e-55b7-11e2-877f-002564c97630")
     private static class CircleDeco extends EllipseFigure implements RotatableDecoration {
         @objid ("36621f92-55b7-11e2-877f-002564c97630")
-        public CircleDeco() {
+        public  CircleDeco() {
+            
         }
 
         @objid ("36621f94-55b7-11e2-877f-002564c97630")
@@ -86,6 +86,7 @@ public class RaisedExceptionEditPart extends LinkEditPart {
         public void setLocation(final Point p) {
             Dimension dim = getBounds().getSize().scale(0.5);
             super.setLocation(new Point(p.x - dim.width, p.y - dim.height));
+            
         }
 
         @objid ("36621f9e-55b7-11e2-877f-002564c97630")
@@ -105,6 +106,7 @@ public class RaisedExceptionEditPart extends LinkEditPart {
         public void setLineColor(final Color lineColor) {
             super.setLineColor(lineColor);
             setFillColor(lineColor);
+            
         }
 
     }

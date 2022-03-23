@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.drawings.line;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -54,6 +53,7 @@ public class LineDrawingEditPart extends AbstractLinkDrawingEditPart {
         GmLineDrawing model = getModel();
         
         createDecorations(connection, model);
+        
     }
 
     @objid ("be84e7d5-3536-4f89-a39d-a4d62be95257")
@@ -170,6 +170,7 @@ public class LineDrawingEditPart extends AbstractLinkDrawingEditPart {
         
         deco = createDecoration(kind, scalex,scaley,fillmode, fillColor, lineColor, linePattern, lineWidth);
         connection.setTargetDecoration(deco);
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common.model;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,7 @@ public class IllegalReferenceException extends Exception {
      * @param string the message
      */
     @objid ("d5a82ab6-d9fb-456a-bb8a-0f20e653c4fc")
-    public IllegalReferenceException(String string) {
+    public  IllegalReferenceException(String string) {
         super(string);
     }
 

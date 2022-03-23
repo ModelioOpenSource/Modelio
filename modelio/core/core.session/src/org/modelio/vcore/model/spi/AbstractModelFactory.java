@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model.spi;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public abstract class AbstractModelFactory implements IModelFactory {
     protected final MMetamodel metamodel;
 
     @objid ("90bd2681-5b8c-4911-9d58-2b1bf4618827")
-    public AbstractModelFactory(MMetamodel metamodel) {
+    public  AbstractModelFactory(MMetamodel metamodel) {
         this.metamodel = metamodel;
     }
 
@@ -141,6 +140,7 @@ public abstract class AbstractModelFactory implements IModelFactory {
                 return (T) createElement(this.mc);
             else
                 return (T) createElement(this.mc, this.owner, this.dep);
+            
         }
 
     }

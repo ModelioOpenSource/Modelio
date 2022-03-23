@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.util.ArrayList;
@@ -60,19 +59,18 @@ public class EventPropertyModel extends AbstractPropertyModel<Event> {
 
     /**
      * Create a new <i>Event</i> data model from an <i>Event</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("25519e48-ae6f-4277-983e-9970fa05c56d")
-    public EventPropertyModel(Event theEditedElement) {
+    public  EventPropertyModel(Event theEditedElement) {
         super(theEditedElement);
         
         this.eventKindType = new EventKindType();
+        
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("ea3cefdc-0f13-4207-ba97-24c52fb36d20")
@@ -83,7 +81,6 @@ public class EventPropertyModel extends AbstractPropertyModel<Event> {
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("97ba749f-69c2-45af-891d-8e96cf04d74f")
@@ -96,7 +93,6 @@ public class EventPropertyModel extends AbstractPropertyModel<Event> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -127,6 +123,7 @@ public class EventPropertyModel extends AbstractPropertyModel<Event> {
         default:
             return null;
         }
+        
     }
 
     /**
@@ -136,7 +133,6 @@ public class EventPropertyModel extends AbstractPropertyModel<Event> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -164,13 +160,13 @@ public class EventPropertyModel extends AbstractPropertyModel<Event> {
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -202,6 +198,7 @@ public class EventPropertyModel extends AbstractPropertyModel<Event> {
         default:
             return;
         }
+        
     }
 
     @objid ("3cf009c9-4cf0-4615-9909-ae90b77d9ee4")
@@ -220,6 +217,7 @@ public class EventPropertyModel extends AbstractPropertyModel<Event> {
             default:
                 return "?";
             }
+            
         }
 
         @objid ("245defaf-2d92-4d00-9b13-633abf87c0de")
@@ -235,6 +233,7 @@ public class EventPropertyModel extends AbstractPropertyModel<Event> {
             default:
                 return null;
             }
+            
         }
 
         @objid ("af609eaf-04bb-4ce3-a2eb-de3e780cda71")
@@ -254,6 +253,7 @@ public class EventPropertyModel extends AbstractPropertyModel<Event> {
                 e.setModel(null);
                 break;
             }
+            
         }
 
         @objid ("fbf1b986-92d1-4426-a403-013d301eca65")
@@ -275,6 +275,7 @@ public class EventPropertyModel extends AbstractPropertyModel<Event> {
                 e.setExpression((String) value);
                 break;
             }
+            
         }
 
         @objid ("e5308ae5-95d7-487f-894a-2b5d3f082812")

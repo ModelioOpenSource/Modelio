@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.exceptionhandler;
 
 import java.util.List;
@@ -57,23 +56,23 @@ public class GmExceptionHandler extends GmLink {
 
     /**
      * Initialize a control flow graphic model.
-     * 
      * @param diagram The owning diagram
      * @param exceptionhandler The reference flow, may be null
      * @param ref The referenced flow reference, may not be null
      */
     @objid ("2a4a8807-55b6-11e2-877f-002564c97630")
-    public GmExceptionHandler(IGmDiagram diagram, ExceptionHandler exceptionhandler, MRef ref) {
+    public  GmExceptionHandler(IGmDiagram diagram, ExceptionHandler exceptionhandler, MRef ref) {
         super(diagram, ref);
         this.element = exceptionhandler;
         addExtension(ExtensionLocation.MiddleNW, ROLE_MAIN_LABEL, new GmExceptionHandlerHeader(diagram, ref));
+        
     }
 
     /**
      * For deserialization only.
      */
     @objid ("2a4a8813-55b6-11e2-877f-002564c97630")
-    public GmExceptionHandler() {
+    public  GmExceptionHandler() {
         // Nothing to do.
     }
 
@@ -94,6 +93,7 @@ public class GmExceptionHandler extends GmLink {
     protected void readLink(IDiagramReader in) {
         super.readLink(in);
         this.element = (ExceptionHandler) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("2a4a882f-55b6-11e2-877f-002564c97630")
@@ -127,6 +127,7 @@ public class GmExceptionHandler extends GmLink {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmExceptionHandler.", GmExceptionHandler.MINOR_VERSION);
+        
     }
 
     @objid ("2a4c0eb8-55b6-11e2-877f-002564c97630")

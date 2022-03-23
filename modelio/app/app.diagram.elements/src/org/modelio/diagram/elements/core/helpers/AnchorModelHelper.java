@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.helpers;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,7 +36,6 @@ import org.modelio.diagram.elements.core.link.IAnchorModelProvider;
 public class AnchorModelHelper {
     /**
      * Get a source anchor model for the given request.
-     * 
      * @param sourceEditPart The source node edit part.
      * @param req a create connection request.
      * @return the anchor model.
@@ -51,11 +49,11 @@ public class AnchorModelHelper {
         } else {
             return null;
         }
+        
     }
 
     /**
      * Get a target anchor model for the given request.
-     * 
      * @param req a create connection request.
      * @return the anchor model.
      */
@@ -68,7 +66,6 @@ public class AnchorModelHelper {
 
     /**
      * Get the anchor model for the given anchor.
-     * 
      * @param editpart a node edit part.
      * @param anchor a draw2d anchor
      * @return the anchor model, may be <code>null</code>
@@ -80,11 +77,11 @@ public class AnchorModelHelper {
         } else {
             return (null); // TODO handle non IAnchorModelProvider
         }
+        
     }
 
     /**
      * Get a target anchor model for the given reconnection request.
-     * 
      * @param req a create connection request.
      * @return the anchor model.
      */
@@ -97,7 +94,6 @@ public class AnchorModelHelper {
 
     /**
      * Get a target anchor model for the given reconnection request.
-     * 
      * @param req a create connection request.
      * @return the anchor model.
      */

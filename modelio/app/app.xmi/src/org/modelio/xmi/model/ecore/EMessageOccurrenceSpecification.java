@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,7 +28,7 @@ import org.modelio.xmi.reverse.ReverseProperties;
 @objid ("3d3e7fe2-486d-4d0f-b2ca-d1bc83a1705d")
 public class EMessageOccurrenceSpecification extends EOccurrenceSpecification {
     @objid ("e0fce75b-0015-432d-880a-5889053c87bc")
-    public EMessageOccurrenceSpecification(org.eclipse.uml2.uml.MessageOccurrenceSpecification element) {
+    public  EMessageOccurrenceSpecification(org.eclipse.uml2.uml.MessageOccurrenceSpecification element) {
         super(element);
     }
 
@@ -38,6 +37,7 @@ public class EMessageOccurrenceSpecification extends EOccurrenceSpecification {
     public void setProperties(Element objingElt) {
         super.setProperties(objingElt);
         setStartOrEnd(objingElt);
+        
     }
 
     @objid ("bbf5febf-a345-4540-aad5-c9d1b8e7673a")
@@ -58,6 +58,7 @@ public class EMessageOccurrenceSpecification extends EOccurrenceSpecification {
             }
         
         }
+        
     }
 
 }

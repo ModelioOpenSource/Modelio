@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.resource;
 
 import java.io.File;
@@ -45,6 +44,7 @@ import org.modelio.vbasic.net.UriUtils;
 import org.modelio.vbasic.progress.IModelioProgress;
 import org.modelio.vcore.smkernel.mapi.MMetamodel;
 import org.modelio.vstore.exml.common.index.IndexOutdatedException;
+import org.modelio.vstore.exml.resource.IExmlResourceProvider.ExmlResource;
 
 /**
  * Resource provider for repositories stored on an HTTP server,
@@ -81,13 +81,12 @@ public class UriExmlResourceProvider extends AbstractExmlResourceProvider {
 
     /**
      * Initialize the resource provider.
-     * 
      * @param url the URL of the repository.
      * @param localDir a local directory to store the index.
      * @param auth user/password (optional)
      */
     @objid ("31fd234d-229a-49d5-ac69-0a785a9c433d")
-    public UriExmlResourceProvider(URI url, Path localDir, IAuthData auth) {
+    public  UriExmlResourceProvider(URI url, Path localDir, IAuthData auth) {
         this.url = UriUtils.asDirectoryUri(url);
         this.auth = auth;
         
@@ -97,6 +96,7 @@ public class UriExmlResourceProvider extends AbstractExmlResourceProvider {
         
         this.localIndexDir = localDir.resolve(IExmlRepositoryGeometry.INDEX_DIRNAME);
         this.localIndexStampPath = localDir.resolve(IStampGeometry.LOCAL_INDEX_STAMP_FILE);
+        
     }
 
     @objid ("8aed1788-219d-4a0e-b816-82e4a52e8766")
@@ -138,6 +138,7 @@ public class UriExmlResourceProvider extends AbstractExmlResourceProvider {
         
             Files.write(this.localIndexStampPath, getStamp().getBytes(StandardCharsets.UTF_8));
         }
+        
     }
 
     @objid ("5d9550bb-9137-4d35-b3bd-7d1ed2a92004")
@@ -162,6 +163,7 @@ public class UriExmlResourceProvider extends AbstractExmlResourceProvider {
         } catch (AccessDeniedException e) {
             return true;
         }
+        
     }
 
     @objid ("c03ff62f-4459-4335-9d66-cdac805738a9")
@@ -196,6 +198,7 @@ public class UriExmlResourceProvider extends AbstractExmlResourceProvider {
         } catch (FileNotFoundException | NoSuchFileException e) {
             return "";
         }
+        
     }
 
     @objid ("a5c90c28-c723-4f4e-a506-8ae4246249a3")
@@ -220,7 +223,6 @@ public class UriExmlResourceProvider extends AbstractExmlResourceProvider {
      * Set the repository name.
      * <p>
      * This name will be used in error messages to tell the user the error location.
-     * 
      * @param name the repository name.
      */
     @objid ("044a315e-5be8-466d-92e9-996b2d3b42aa")
@@ -263,6 +265,7 @@ public class UriExmlResourceProvider extends AbstractExmlResourceProvider {
         } catch (IOException e) {
             throw new IndexOutdatedException("Failed reading '"+this.localIndexStampPath+"': "+FileUtils.getLocalizedMessage(e), e);
         }
+        
     }
 
     @objid ("d1c951d9-400a-432b-be5d-16b72e4bd7ed")
@@ -292,9 +295,10 @@ public class UriExmlResourceProvider extends AbstractExmlResourceProvider {
         private IAuthData auth;
 
         @objid ("6135b20a-047a-4909-84e5-1a94c2064d09")
-        public UriResource(URI url, IAuthData auth) {
+        public  UriResource(URI url, IAuthData auth) {
             this.url = url;
             this.auth = auth;
+            
         }
 
         @objid ("13562a62-0b81-48a9-af5b-e1bf9ef20f54")
@@ -306,11 +310,11 @@ public class UriExmlResourceProvider extends AbstractExmlResourceProvider {
                 Log.warning(e.toString());
                 return null;
             }
+            
         }
 
         /**
          * Returns an output stream that writes to this resource.
-         * 
          * @return an output stream that writes to this resource.
          * @exception  IOException              if an I/O error occurs while
          * creating the output stream.

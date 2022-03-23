@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.objects;
 
 import java.util.ArrayList;
@@ -35,8 +35,6 @@ import org.modelio.metamodel.bpmn.objects.BpmnItemAwareElement;
 import org.modelio.metamodel.impl.bpmn.activities.BpmnActivitySmClass;
 import org.modelio.metamodel.impl.bpmn.activities.BpmnMultiInstanceLoopCharacteristicsSmClass;
 import org.modelio.metamodel.impl.bpmn.events.BpmnCatchEventSmClass;
-import org.modelio.metamodel.impl.bpmn.objects.BpmnDataOutputData;
-import org.modelio.metamodel.impl.bpmn.objects.BpmnItemAwareElementSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -64,7 +62,7 @@ public class BpmnDataOutputSmClass extends BpmnItemAwareElementSmClass {
     private SmDependency ownerLoopCharacteristicsDep;
 
     @objid ("c1714eff-0945-4a0c-9069-d68136c65700")
-    public BpmnDataOutputSmClass(ISmMetamodelFragment origin) {
+    public  BpmnDataOutputSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -72,6 +70,7 @@ public class BpmnDataOutputSmClass extends BpmnItemAwareElementSmClass {
     @Override
     public String getName() {
         return "BpmnDataOutput";
+        
     }
 
     @objid ("70350d4b-44ea-4285-aa6e-175b838ff0f7")
@@ -84,18 +83,21 @@ public class BpmnDataOutputSmClass extends BpmnItemAwareElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnDataOutput.class;
+        
     }
 
     @objid ("21b87d50-a236-4946-8679-2b9339d05ccb")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("7d39d13b-21ea-477c-b714-39a069655ee4")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("4e1277fb-9d3c-4682-ba23-865858fb0173")
@@ -123,6 +125,8 @@ public class BpmnDataOutputSmClass extends BpmnItemAwareElementSmClass {
         this.ownerLoopCharacteristicsDep = new OwnerLoopCharacteristicsSmDependency();
         this.ownerLoopCharacteristicsDep.init("OwnerLoopCharacteristics", this, metamodel.getMClass(BpmnMultiInstanceLoopCharacteristics.MQNAME), 0, 1 );
         registerDependency(this.ownerLoopCharacteristicsDep);
+        
+        
     }
 
     @objid ("89015f13-6744-4fff-96c1-8b7c19e77fdc")
@@ -163,7 +167,7 @@ public class BpmnDataOutputSmClass extends BpmnItemAwareElementSmClass {
         private BpmnDataOutputSmClass smClass;
 
         @objid ("9682b814-885b-4417-b162-dbe9b48b4662")
-        public BpmnDataOutputObjectFactory(BpmnDataOutputSmClass smClass) {
+        public  BpmnDataOutputObjectFactory(BpmnDataOutputSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -219,6 +223,7 @@ public class BpmnDataOutputSmClass extends BpmnItemAwareElementSmClass {
             	this.symetricDep = ((BpmnActivitySmClass)this.getTarget()).getOutputSpecificationDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -247,6 +252,7 @@ public class BpmnDataOutputSmClass extends BpmnItemAwareElementSmClass {
             	this.symetricDep = ((BpmnCatchEventSmClass)this.getTarget()).getDataOutputDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -275,6 +281,7 @@ public class BpmnDataOutputSmClass extends BpmnItemAwareElementSmClass {
             	this.symetricDep = ((BpmnMultiInstanceLoopCharacteristicsSmClass)this.getTarget()).getLoopDataOutputRefDep();
             }
             return this.symetricDep;
+            
         }
 
     }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.treetable.element;
 
 import java.util.Objects;
@@ -45,7 +44,7 @@ public class SingleElementCellEditor extends CellEditor {
     private TextElement textElement;
 
     @objid ("3c4c533b-b08a-4eb9-b81a-70119f28c309")
-    public SingleElementCellEditor(Composite parent) {
+    public  SingleElementCellEditor(Composite parent) {
         super(parent);
     }
 
@@ -77,6 +76,7 @@ public class SingleElementCellEditor extends CellEditor {
         markDirty();
         fireApplyEditorValue();
         deactivate();
+        
     }
 
     @objid ("ff0230f6-e0ce-46c6-b7de-fadbd664a312")
@@ -105,6 +105,7 @@ public class SingleElementCellEditor extends CellEditor {
         } else {
             this.textElement.setValue(null);
         }
+        
     }
 
 }

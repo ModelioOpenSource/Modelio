@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.clazz;
 
 import java.util.Collections;
@@ -31,8 +30,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.view.ISymbolViewModel;
 import org.modelio.metamodel.uml.statik.BindableInstance;
 import org.modelio.metamodel.uml.statik.Port;
@@ -64,7 +63,7 @@ public class GmClass extends GmTemplateContainer {
     private static final GmClassSimpleStyleKeys SIMPLE_KEYS = new GmClassSimpleStyleKeys();
 
     @objid ("5b6c70b3-5bd5-11e2-9e33-00137282c51b")
-     static final GmClassStructuredStyleKeys STRUCTURED_KEYS = new GmClassStructuredStyleKeys();
+    static final GmClassStructuredStyleKeys STRUCTURED_KEYS = new GmClassStructuredStyleKeys();
 
     @objid ("8de70d8a-a5a2-494f-8ae1-188c83eea3ab")
     private static final GmClassUserImageStyleKeys USERIMAGE_KEYS = new GmClassUserImageStyleKeys();
@@ -76,19 +75,18 @@ public class GmClass extends GmTemplateContainer {
      * Empty constructor needed for deserialisation.
      */
     @objid ("343b47ea-55b7-11e2-877f-002564c97630")
-    public GmClass() {
+    public  GmClass() {
         // Nothing specific to do.
     }
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the class is unmasked.
      * @param el the unmasked class.
      * @param ref a reference to the unmasked class.
      */
     @objid ("343b47ed-55b7-11e2-877f-002564c97630")
-    public GmClass(IGmDiagram diagram, org.modelio.metamodel.uml.statik.Class el, MRef ref) {
+    public  GmClass(IGmDiagram diagram, org.modelio.metamodel.uml.statik.Class el, MRef ref) {
         super(diagram, new GmClassPrimaryNode(diagram, el, ref), ref);
         this.element = el;
         
@@ -97,6 +95,7 @@ public class GmClass extends GmTemplateContainer {
         interfaceLabel.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         
         addChild(interfaceLabel);
+        
     }
 
     @objid ("343b47f9-55b7-11e2-877f-002564c97630")
@@ -161,6 +160,7 @@ public class GmClass extends GmTemplateContainer {
         default:
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("343ccea8-55b7-11e2-877f-002564c97630")
@@ -185,7 +185,6 @@ public class GmClass extends GmTemplateContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -197,7 +196,6 @@ public class GmClass extends GmTemplateContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -207,6 +205,7 @@ public class GmClass extends GmTemplateContainer {
         String childRole = childNode.getRoleInComposition();
         return CONTENT_AS_SATELLITE_ROLE.equals(childRole)
                                                                                         || GmPortContainer.SATELLITE_ROLE.equals(childRole);
+        
     }
 
     @objid ("343cce89-55b7-11e2-877f-002564c97630")
@@ -226,6 +225,7 @@ public class GmClass extends GmTemplateContainer {
             break;
         }
         }
+        
     }
 
     @objid ("343cce99-55b7-11e2-877f-002564c97630")
@@ -234,6 +234,7 @@ public class GmClass extends GmTemplateContainer {
         super.refreshFromObModel();
         
         refreshPortsFromObModel();
+        
     }
 
     @objid ("343cceb1-55b7-11e2-877f-002564c97630")
@@ -243,6 +244,7 @@ public class GmClass extends GmTemplateContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmClass.", GmClass.MINOR_VERSION);
+        
     }
 
     /**
@@ -257,6 +259,7 @@ public class GmClass extends GmTemplateContainer {
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (org.modelio.metamodel.uml.statik.Class) resolveRef(getRepresentedRef());
+        
     }
 
     /**
@@ -277,6 +280,7 @@ public class GmClass extends GmTemplateContainer {
             }
         
         }
+        
     }
 
     @objid ("a27b339f-7b2b-46ba-b867-7a4431fbd2dd")

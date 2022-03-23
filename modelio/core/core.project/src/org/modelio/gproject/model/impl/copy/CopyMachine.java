@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.model.impl.copy;
 
 import java.util.ArrayList;
@@ -25,8 +24,8 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.gproject.model.impl.importer.defaultimporter.DefaultImporter;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
@@ -68,7 +67,6 @@ public class CopyMachine extends DefaultImporter {
      * E.g : when copying a reflexive association to another class, it will stay reflexive in the target.
      * When copying from C1 an operation doxxx(C1 c) to C2, the operation will become doxxx(C2 c).
      * This may be useful for copying clone() methods or static creation methods.
-     * 
      * @param replace true to replace source composition owners by the target.
      */
     @objid ("681ceb56-6b98-426c-bffb-ee1e0ad8ae01")
@@ -102,6 +100,7 @@ public class CopyMachine extends DefaultImporter {
         if (localObject instanceof AbstractDiagram) {
             diagramCopier.fixDiagram((AbstractDiagram) localObject, this.result.getCreations());
         }
+        
     }
 
     /**
@@ -125,6 +124,7 @@ public class CopyMachine extends DefaultImporter {
         }
         
         reparentElements(toReparent, localSession, localRoot);
+        
     }
 
     @objid ("000cc10a-5247-1091-8d81-001ec947cd2a")
@@ -139,6 +139,7 @@ public class CopyMachine extends DefaultImporter {
         
             this.result.addCreatedObject(localObject, refToImport);
         }
+        
     }
 
     @objid ("1fda4a17-fe2a-4f22-941f-ce88d50c4977")
@@ -154,6 +155,7 @@ public class CopyMachine extends DefaultImporter {
                 }
             }
         }
+        
     }
 
     @objid ("000c41da-5247-1091-8d81-001ec947cd2a")
@@ -199,6 +201,7 @@ public class CopyMachine extends DefaultImporter {
         }
         
         super.prepare(localSession, localRoot, refSession, reducedRefRoots);
+        
     }
 
     @objid ("000cfcc4-5247-1091-8d81-001ec947cd2a")
@@ -221,6 +224,7 @@ public class CopyMachine extends DefaultImporter {
         } else {
             super.reparentElements(toReparent, localSession, newLocalParent);
         }
+        
     }
 
 }

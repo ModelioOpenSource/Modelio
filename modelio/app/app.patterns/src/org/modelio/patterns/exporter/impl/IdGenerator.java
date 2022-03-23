@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.exporter.impl;
 
 import java.util.HashMap;
@@ -40,6 +39,7 @@ class IdGenerator {
     public void reset() {
         this.idMap.clear();
         this.id = -1;
+        
     }
 
     @objid ("e675567b-74fb-45f3-a43f-9d6c027810af")
@@ -48,9 +48,10 @@ class IdGenerator {
     }
 
     @objid ("2bbb705d-c6f2-4ee7-8383-3610af7acd62")
-    private IdGenerator() {
+    private  IdGenerator() {
         this.idMap = new HashMap<>();
         this.id = -1;
+        
     }
 
     @objid ("4e766608-34c2-4d35-8ab3-4f436a56804a")

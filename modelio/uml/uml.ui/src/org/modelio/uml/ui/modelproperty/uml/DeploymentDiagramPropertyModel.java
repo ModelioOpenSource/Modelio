@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.util.ArrayList;
@@ -61,17 +60,15 @@ public class DeploymentDiagramPropertyModel extends AbstractPropertyModel<Deploy
     /**
      * Create a new <i>DeploymentDiagram</i> data model from an
      * <i>DeploymentDiagram</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("2c7ef75e-4877-4e54-b863-d448347224a5")
-    public DeploymentDiagramPropertyModel(final DeploymentDiagram theEditedElement) {
+    public  DeploymentDiagramPropertyModel(final DeploymentDiagram theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("80788884-1dee-4f2e-a2e6-a50ebb528f07")
@@ -82,7 +79,6 @@ public class DeploymentDiagramPropertyModel extends AbstractPropertyModel<Deploy
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("83c93e50-5554-427e-bf9f-61245972d946")
@@ -95,7 +91,6 @@ public class DeploymentDiagramPropertyModel extends AbstractPropertyModel<Deploy
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -119,6 +114,7 @@ public class DeploymentDiagramPropertyModel extends AbstractPropertyModel<Deploy
         default:
             return null;
         }
+        
     }
 
     /**
@@ -128,7 +124,6 @@ public class DeploymentDiagramPropertyModel extends AbstractPropertyModel<Deploy
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -160,13 +155,13 @@ public class DeploymentDiagramPropertyModel extends AbstractPropertyModel<Deploy
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -194,6 +189,7 @@ public class DeploymentDiagramPropertyModel extends AbstractPropertyModel<Deploy
         default:
             return;
         }
+        
     }
 
 }

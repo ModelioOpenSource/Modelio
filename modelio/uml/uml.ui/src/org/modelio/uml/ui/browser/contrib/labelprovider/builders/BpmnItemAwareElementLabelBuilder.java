@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.browser.contrib.labelprovider.builders;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.jface.viewers.StyledString;
+import org.eclipse.jface.viewers.StyledString.Styler;
 import org.modelio.metamodel.bpmn.objects.BpmnDataState;
 import org.modelio.metamodel.bpmn.objects.BpmnItemAwareElement;
 import org.modelio.metamodel.bpmn.objects.BpmnItemDefinition;
@@ -93,7 +92,6 @@ public class BpmnItemAwareElementLabelBuilder {
     /**
      * Computes a label for a BpmnItemAwareElement
      * @param elt the data object whose name is to be computed
-     * 
      * @return the computed name
      */
     @objid ("ce41e129-b868-469b-b4ee-453d3c2e87a6")

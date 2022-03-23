@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model.spi.mtools;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,7 +30,6 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IAuthTool {
     /**
      * Tells whether an element of the given metaclass can be created inside the given parent element.
-     * 
      * @param parentElement the owner element
      * @param metaclass the new element metaclass
      * @return true if a new object can be created
@@ -43,7 +41,6 @@ public interface IAuthTool {
 
     /**
      * Tells whether an element of the given metaclass can be created inside the given parent element.
-     * 
      * @param parentElement the owner element
      * @param metaclass the new element metaclass
      * @return true if a new object can be created
@@ -54,7 +51,6 @@ public interface IAuthTool {
 
     /**
      * Tells whether an element of the given metaclass can be created inside the given parent element.
-     * 
      * @param parentElement the owner element
      * @param metaclass the new element metaclass java interface
      * @return true if a new object can be created

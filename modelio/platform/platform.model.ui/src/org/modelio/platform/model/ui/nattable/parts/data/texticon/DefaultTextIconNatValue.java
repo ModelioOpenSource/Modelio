@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.texticon;
 
 import java.security.InvalidParameterException;
@@ -36,17 +35,16 @@ public class DefaultTextIconNatValue extends DefaultNatValue implements ITextIco
      * @param image the icon.
      */
     @objid ("bd76a36c-242c-41be-aa7c-91fad2afbdc8")
-    public DefaultTextIconNatValue(String text, Image icon) {
+    public  DefaultTextIconNatValue(String text, Image icon) {
         super(new TextIcon(text, icon), false);
     }
 
     /**
      * Copy constructor, creating a new instance with the same configuration as the other.
-     * 
      * @param anotherInstance the instance to copy.
      */
     @objid ("69b5b162-bce9-4339-9940-769f6b1fc84f")
-    public DefaultTextIconNatValue(DefaultTextIconNatValue anotherInstance) {
+    public  DefaultTextIconNatValue(DefaultTextIconNatValue anotherInstance) {
         super(anotherInstance);
     }
 
@@ -63,6 +61,7 @@ public class DefaultTextIconNatValue extends DefaultNatValue implements ITextIco
             throw new InvalidParameterException("Value must be a TextIcon.");
         }
         super.setValue(value);
+        
     }
 
 }

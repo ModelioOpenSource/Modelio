@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.jdbm7.impl.migration.v4;
 
 import java.io.DataInput;
@@ -46,7 +45,7 @@ import org.modelio.vstore.jdbm7.index.JdbmIndex;
 @objid ("64454899-7501-45d6-807a-7579d4956226")
 class V4Transcoder {
     @objid ("5a042f6e-8232-457e-b42b-4f1353617463")
-    private static Map<Class<?>,Object[]> enumContent = new HashMap<>();
+    private static Map<Class<?>, Object[]> enumContent = new HashMap<>();
 
     @objid ("724168ee-edc3-46b6-9083-75d434683c83")
     private SmMetamodel mm;
@@ -62,18 +61,18 @@ class V4Transcoder {
      * @param index the new base index to be populated
      */
     @objid ("e82043ee-26d3-4634-85b4-05d382b7c1b8")
-    public V4Transcoder(SmMetamodel mm, JdbmIndex index) {
+    public  V4Transcoder(SmMetamodel mm, JdbmIndex index) {
         this.mm = mm;
         this.index = index;
+        
     }
 
     /**
      * Transcode in to out and update indexes.
-     * 
      * @param in input data with old format
      * @param out same data with new format
      * @param uuid the UUID of the object to transcode.
-     * @throws java.io.IOException on failure
+     * @throws IOException on failure
      */
     @objid ("2c55abda-ef63-4a05-91f4-067e13e16a47")
     public void transcode(SerializerInput in, final DataOutput out, UUID uuid) throws IOException {
@@ -107,6 +106,7 @@ class V4Transcoder {
             // JDBM throws IOErrors
             throw new IOException(e);
         }
+        
     }
 
     @objid ("ad322958-d65f-4d99-aa0a-8706062265a2")
@@ -168,6 +168,7 @@ class V4Transcoder {
         } else {
             throw new UnsupportedOperationException(type+" "+val+" "+att+" attribute not supported.");
         }
+        
     }
 
     @objid ("d29c4b76-ea40-4fc0-bdf1-47c8bdfcf32a")
@@ -185,6 +186,7 @@ class V4Transcoder {
         }
         
         this.index.addCrossRef(this.currentRef, d, values );
+        
     }
 
     @objid ("3f35cbb9-616d-4327-adab-6edbf6457842")
@@ -204,7 +206,6 @@ class V4Transcoder {
 
     /**
      * Get all possible enumeration values of an enumerate type.
-     * 
      * @param type a enumerate class.
      * @return all possible values, ordered.
      */

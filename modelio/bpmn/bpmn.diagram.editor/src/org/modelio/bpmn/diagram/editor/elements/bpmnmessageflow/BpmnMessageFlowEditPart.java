@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnmessageflow;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,7 +28,7 @@ import org.eclipse.draw2d.RotatableDecoration;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.gef.EditPolicy;
-import org.modelio.bpmn.diagram.editor.elements.policies.BpmnCreateLinkEditPolicy;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnCreateLinkEditPolicy;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeRequestConstants;
 import org.modelio.diagram.elements.core.figures.EllipseFigure;
 import org.modelio.diagram.elements.core.figures.decorations.DefaultPolygonDecoration;
@@ -59,6 +58,7 @@ public class BpmnMessageFlowEditPart extends LinkEditPart {
         super.createEditPolicies();
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START, new LinkedMessageFlowStartEditPolicy());
         installEditPolicy(EditPolicy.NODE_ROLE, new BpmnCreateLinkEditPolicy(true));
+        
     }
 
     @objid ("448261e7-a7e6-4c2e-94b8-f350adc4127a")
@@ -73,12 +73,13 @@ public class BpmnMessageFlowEditPart extends LinkEditPart {
     @objid ("6aa49318-d450-473c-98c6-ec4767634bc5")
     public static class SolidArrowDecoration extends DefaultPolygonDecoration {
         @objid ("17684db0-022a-450f-9bab-6d166ce659e2")
-        public SolidArrowDecoration() {
+        public  SolidArrowDecoration() {
             super();
             setTemplate(PolygonDecoration.TRIANGLE_TIP);
             setOpaque(true);
             setFill(true);
             setBackgroundColor(ColorConstants.white);
+            
         }
 
         @objid ("da0565a5-ad43-460b-b9ea-7284001079a0")
@@ -92,6 +93,7 @@ public class BpmnMessageFlowEditPart extends LinkEditPart {
         public void setLineWidth(int w) {
             super.setLineWidth(w);
             setScale(8 + w, 5 + w);
+            
         }
 
     }
@@ -102,10 +104,11 @@ public class BpmnMessageFlowEditPart extends LinkEditPart {
     @objid ("3044af17-912a-49ae-8a30-6f24a3f73560")
     public static class SolidCircleDeco extends EllipseFigure implements RotatableDecoration {
         @objid ("a7b25014-d5e8-4f8e-8eda-1c8ce2911649")
-        public SolidCircleDeco() {
+        public  SolidCircleDeco() {
             super();
             setOpaque(true);
             setBackgroundColor(ColorConstants.white);
+            
         }
 
         @objid ("8af8c16b-7193-41ce-9873-359806c6373f")
@@ -119,6 +122,7 @@ public class BpmnMessageFlowEditPart extends LinkEditPart {
         public void setLocation(final Point p) {
             Dimension dim = getBounds().getSize().scale(0.5);
             super.setLocation(new Point(p.x - dim.width, p.y - dim.height));
+            
         }
 
         @objid ("ab473777-8859-40f6-aba9-f0f08cb42018")
@@ -133,6 +137,7 @@ public class BpmnMessageFlowEditPart extends LinkEditPart {
             super.setLineWidth(lineWidth);
             int radius = Math.max(11, lineWidth * 4 + 1);
             setSize(radius, radius);
+            
         }
 
     }

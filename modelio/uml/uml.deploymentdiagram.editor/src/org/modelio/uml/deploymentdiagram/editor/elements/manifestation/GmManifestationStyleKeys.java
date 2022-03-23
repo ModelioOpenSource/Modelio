@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.deploymentdiagram.editor.elements.manifestation;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,7 +34,7 @@ public class GmManifestationStyleKeys extends DeploymentAbstractStyleKeyProvider
      */
     @objid ("1cf4912b-55c2-11e2-9337-002564c97630")
     public static final StyleKey CONNECTIONROUTER = createStyleKey("MANIFESTATION_ROUTINGMODE",
-            MetaKey.CONNECTIONROUTER);
+                MetaKey.CONNECTIONROUTER);
 
     /**
      * Line color
@@ -60,7 +59,7 @@ public class GmManifestationStyleKeys extends DeploymentAbstractStyleKeyProvider
      */
     @objid ("1cf49137-55c2-11e2-9337-002564c97630")
     public static final StyleKey DRAWLINEBRIDGES = createStyleKey("MANIFESTATION_DRAWLINEBRIDGES",
-            MetaKey.DRAWLINEBRIDGES);
+                MetaKey.DRAWLINEBRIDGES);
 
     /**
      * Text font.
@@ -79,7 +78,7 @@ public class GmManifestationStyleKeys extends DeploymentAbstractStyleKeyProvider
      */
     @objid ("1cf49140-55c2-11e2-9337-002564c97630")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("MANIFESTATION_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+                MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Display tagged values
@@ -92,6 +91,6 @@ public class GmManifestationStyleKeys extends DeploymentAbstractStyleKeyProvider
      */
     @objid ("1cf49146-55c2-11e2-9337-002564c97630")
     public static final StyleKey LINEPATTERN = createStyleKey("MANIFESTATION_LINEPATTERN",
-            MetaKey.LINEPATTERN);
+                MetaKey.LINEPATTERN);
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.resizablegroup;
 
 import java.util.Map;
@@ -42,17 +41,15 @@ public class ResizeChildrenCommand extends Command {
 
     /**
      * Constructor.
-     * 
      * @param container the partition container.
      */
     @objid ("7f1a7ba9-1dec-11e2-8cad-001ec947c8cc")
-    public ResizeChildrenCommand(GmResizableGroup container) {
+    public  ResizeChildrenCommand(GmResizableGroup container) {
         this.container = container;
     }
 
     /**
      * Set the constraints that must be changed.
-     * 
      * @param newConstraints the constraints that must be changed.
      */
     @objid ("7f1a7bad-1dec-11e2-8cad-001ec947c8cc")
@@ -69,6 +66,7 @@ public class ResizeChildrenCommand extends Command {
                 child.setLayoutData(i);
             }
         }
+        
     }
 
     @objid ("7f1a7bb8-1dec-11e2-8cad-001ec947c8cc")

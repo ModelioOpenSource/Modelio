@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra;
 
 import java.io.File;
@@ -32,8 +31,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-import javax.script.ScriptEngine;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.script.ScriptEngine;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.SWT;
@@ -49,6 +48,7 @@ import org.modelio.api.modelio.IModelioContext;
 import org.modelio.api.modelio.IModelioServices;
 import org.modelio.api.modelio.model.IModelingSession;
 import org.modelio.api.module.IModule;
+import org.modelio.api.module.IModule.ImageType;
 import org.modelio.api.module.IPeerModule;
 import org.modelio.api.module.context.IModuleContext;
 import org.modelio.api.module.context.configuration.IModuleAPIConfiguration;
@@ -132,11 +132,11 @@ public class ModuleI18NService {
         } else {
             return FallbackModuleI18n.instance;
         }
+        
     }
 
     /**
      * Get the icon provided by the module for a given stereotype. The module should return an icon if the stereotype is provided by itself, <code>null</code> in the other case. The image life cycle is handled by the module.
-     * 
      * @param moduleComponent the module to get the image from.
      * @param stereotype a stereotype
      * @return the stereotype image, or <code>null</code> if the module provides none.
@@ -155,7 +155,6 @@ public class ModuleI18NService {
 
     /**
      * Get the icon provided by the module for a given stereotype. The life cycle of the returned image is handled by the module and the image should not be disposed.
-     * 
      * @param stereotype a stereotype
      * @return the stereotype image, or <code>null</code> if the module provides none.
      */
@@ -180,7 +179,6 @@ public class ModuleI18NService {
      * <p>
      * Otherwise, returns the icon of the first stereotype belonging to the preferred provider if any, or <code>null</code>.
      * </p>
-     * 
      * @param element the element to get the icon for.
      * @param preferredProvider the module the icon must belong to. If <code>null</code>, any module will do.
      */
@@ -198,7 +196,6 @@ public class ModuleI18NService {
      * <p>
      * Otherwise, returns the image of the first stereotype belonging to the preferred provider if any, or <code>null</code>.
      * </p>
-     * 
      * @param element the element to get the image for.
      * @param preferredProvider the module the image must belong to. If <code>null</code>, any module will do.
      */
@@ -210,7 +207,6 @@ public class ModuleI18NService {
 
     /**
      * Get the image provided by the module for a given stereotype.The life cycle of the returned image is handled by the module and the image should not be disposed.
-     * 
      * @param stereotype a stereotype
      * @return the stereotype image, or <code>null</code> if the module provides none.
      */
@@ -284,7 +280,6 @@ public class ModuleI18NService {
 
     /**
      * Returns an Image for a module. The image life cycle is handled by the module.
-     * 
      * @param moduleComponent the module to get the image from.
      * @return an Image for a module. Might be <code>null</code>.
      */
@@ -303,7 +298,6 @@ public class ModuleI18NService {
      * The priority values define an ordering of the modules that allows Modelio to give more importance to some of them, for example to propose their commands or extensions in first positions in the GUI...
      * 
      * Values: 0 is understood as the highest priority
-     * 
      * @return the current functional priority level of the module
      */
     @objid ("15bb57bc-0740-4974-950e-d308d8b2ac39")
@@ -339,6 +333,7 @@ public class ModuleI18NService {
                 // Return its label
                 .map(stereotype -> ModuleI18NService.getLabel(stereotype))
                 .orElse(null);
+        
     }
 
     /**
@@ -404,7 +399,6 @@ public class ModuleI18NService {
 
     /**
      * Get the icon provided by the module for a given profile. The life cycle of the returned image is handled by the module and the image should not be disposed.
-     * 
      * @param profile a profile
      * @return the profile image, or <code>null</code> if the module provides none.
      */
@@ -456,6 +450,7 @@ public class ModuleI18NService {
                     })
                     .orElse(null);
         }
+        
     }
 
     @objid ("ca79edec-b501-45a3-b036-388cbfc38a82")
@@ -493,6 +488,7 @@ public class ModuleI18NService {
                     })
                     .orElse(null);
         }
+        
     }
 
     @objid ("9a3ac14d-7600-4160-ad71-fbb70428ef6c")
@@ -522,10 +518,11 @@ public class ModuleI18NService {
         private final MObject element;
 
         @objid ("41e2ba36-4ebe-44fc-946b-09d342bae94a")
-        public BlobImageDescriptor(final MObject element, final String blobKey) {
+        public  BlobImageDescriptor(final MObject element, final String blobKey) {
             super();
             this.element = element;
             this.blobKey = blobKey;
+            
         }
 
         @objid ("0f834579-f5b0-4bf8-9224-879975815fe8")
@@ -543,9 +540,8 @@ public class ModuleI18NService {
 
         /**
          * Get an InputStream access to the image content.
-         * 
          * @return an InputStream or <i>null</i> if there is no matching blob.
-         * @throws java.io.IOException on I/O failure
+         * @throws IOException on I/O failure
          */
         @objid ("2d0d7f81-3c70-4aac-9ab8-ce3cc112acaa")
         private InputStream getImageStreamFromBlob(final String aBlobKey) throws IOException {
@@ -600,7 +596,6 @@ public class ModuleI18NService {
 
         /**
          * Tells whether the blob exists.
-         * 
          * @return true only if the blob exists.
          */
         @objid ("b875fdc7-a0a3-4d27-a880-6a18f917b3ba")
@@ -647,7 +642,7 @@ public class ModuleI18NService {
          * Default c'tor
          */
         @objid ("64712871-e452-45d4-a01e-114a8f47a4e3")
-        LocalModule(final ModuleComponent moduleComponent) {
+         LocalModule(final ModuleComponent moduleComponent) {
             this.moduleComponent = moduleComponent;
             Display.getDefault().syncExec(() -> {
                 this.imageRegistry = new ImageRegistry();
@@ -656,6 +651,7 @@ public class ModuleI18NService {
             });
             
             registerBlobListener(moduleComponent);
+            
         }
 
         @objid ("8326d29e-5d6c-42c5-ba7e-1df5190eea7b")
@@ -778,6 +774,7 @@ public class ModuleI18NService {
                     this.imageRegistry.remove(blob.getKey());
                 }
             });
+            
         }
 
         @objid ("6108aa40-2da9-472e-8318-b1ba8b33c081")
@@ -797,7 +794,6 @@ public class ModuleI18NService {
          * <p>
          * The module should return an image if the stereotype is provided by itself, <i>null</i> in the other case.
          * @param imageType the image type
-         * 
          * @param stereotype a stereotype
          * @return the stereotype image, or <i>null</i> if the module provides none.
          */
@@ -819,7 +815,6 @@ public class ModuleI18NService {
 
         /**
          * Returns true if the given stereotype belongs to the module.
-         * 
          * @param stereotype the stereotype to test
          * @return true if the given stereotype belongs to the module.
          */

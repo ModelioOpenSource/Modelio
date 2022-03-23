@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.group;
 
 import java.util.List;
@@ -67,6 +66,7 @@ public class DefaultGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
         }
         
         super.eraseTargetFeedback(request);
+        
     }
 
     @objid ("7e4fd3f4-1dec-11e2-8cad-001ec947c8cc")
@@ -110,13 +110,13 @@ public class DefaultGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
             FigureUtilities2.updateHighlightType(this.highlight, hightlightType);
         }
         super.showTargetFeedback(request);
+        
     }
 
     /**
      * Returns whether this edit policy can handle this metaclass (either through simple or smart behavior). Default behavior is to
      * accept any metaclass that can be child (in the CreationExpert's understanding) of the host's metaclass This method should be
      * overridden by subclasses to add specific the behavior.
-     * 
      * @param metaclass the metaclass to handle.
      * @return true if this policy can handle the metaclass.
      */
@@ -227,7 +227,6 @@ public class DefaultGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
 
     /**
      * Return the host edit part if this policy can handle the metaclass involved in the request.
-     * 
      * @param createRequest the request.
      * @return the host editpart if the metaclass involved in the request can be handled by this policy, <code>null</code>
      * otherwise.
@@ -246,7 +245,6 @@ public class DefaultGroupLayoutEditPolicy extends OrderedLayoutEditPolicy {
 
     /**
      * Return the host edit part if this policy can handle all edit parts involved in the request.
-     * 
      * @param changeBoundsRequest the request, can be CLONE or ADD.
      * @return the host editpart if all editparts involved in the request can be handled by this policy, <code>null</code>
      * otherwise.

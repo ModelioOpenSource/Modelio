@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.diagramauto.diagram.creator;
 
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
 import org.modelio.api.module.context.IModuleContext;
@@ -32,6 +31,18 @@ import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.module.modelermodule.api.default_.infrastructure.abstractdiagram.AutoDiagram;
 
+/**
+ * Skeleton for a Model View template implementation.
+ * <p>
+ * {@link #updateView(AbstractDiagram)} sequences the diagram's creation to avoid performance issues due to heavy link routing.
+ * <ol>
+ * <li>Define which nodes should be part of the created diagram.</li>
+ * <li>Layout these nodes.</li>
+ * <li>Define which links should be part of the created diagram.</li>
+ * <li>Layout these links.</li>
+ * </ol>
+ * </p>
+ */
 @objid ("7b0608cc-5339-4a12-91aa-df36556c07a9")
 public abstract class AbstractDiagramTemplate implements IModelViewTemplate<AbstractDiagram> {
     @objid ("82e36ced-0fe5-4c0e-ba2e-cc78480e886a")
@@ -42,11 +53,6 @@ public abstract class AbstractDiagramTemplate implements IModelViewTemplate<Abst
     @Inject
     @Optional
     private IModuleContext localModuleContext;
-
-    @objid ("a068b3d7-d0c3-4804-ad04-d37951c95983")
-    public AbstractDiagramTemplate() {
-        super();
-    }
 
     @objid ("d2278822-5961-4832-b4ba-3b7572246fb8")
     @Override
@@ -59,8 +65,8 @@ public abstract class AbstractDiagramTemplate implements IModelViewTemplate<Abst
             return newDiagram;
         } catch (Exception e) {
             DiagramAuto.LOG.debug(e);
-            return null;
         }
+        return null;
     }
 
     @objid ("bbbe495b-7957-486c-94ec-0fe2a0406fcc")
@@ -95,11 +101,82 @@ public abstract class AbstractDiagramTemplate implements IModelViewTemplate<Abst
         return diagram;
     }
 
+    /**
+     * Perform the initial unmasking of nodes & links.
+     * @param dh the edited diagram.
+     * @param main the main node.
+     * @deprecated to be deleted, redefine {@link #generateNodesContent(IDiagramHandle, ModelElement)} and {@link #generateLinksContent(IDiagramHandle, ModelElement)} instead.
+     */
     @objid ("af1ac11c-3710-4f9a-900d-aca9dd06863a")
-    protected abstract void generateContent(final IDiagramHandle dh, final ModelElement main);
+    @Deprecated
+    protected void generateContent(final IDiagramHandle dh, final ModelElement main) {
+        // do nothing
+    }
 
+    /**
+     * Layout nodes & links.
+     * @param dh the edited diagram.
+     * @deprecated to be deleted, redefine {@link #layoutNodes(IDiagramHandle)} and {@link #layoutLinks(IDiagramHandle)} instead.
+     */
     @objid ("86b6e380-ffa6-43f4-9d2a-e38a6b33177c")
-    protected abstract void layout(final IDiagramHandle dh);
+    @Deprecated
+    protected void layout(final IDiagramHandle dh) {
+        // do nothing
+    }
+
+    /**
+     * Perform the initial node unmasking.
+     * <p>
+     * Default implementation calls the deprecated {@link #generateContent(IDiagramHandle, ModelElement)} method.
+     * </p>
+     * @param dh the edited diagram.
+     * @param main the main node.
+     * @since 5.1.1
+     */
+    @objid ("7882f0b9-c0b2-487b-8178-5c7fbfe89e13")
+    protected void generateNodesContent(final IDiagramHandle dh, final ModelElement main) {
+        generateContent(dh, main);
+    }
+
+    /**
+     * Perform the initial link unmasking.
+     * <p>
+     * Default implementation is empty.
+     * </p>
+     * @param dh the edited diagram.
+     * @param main the main node.
+     * @since 5.1.1
+     */
+    @objid ("0faaf65d-09ef-4abf-9bd9-9ae30cbba412")
+    protected void generateLinksContent(final IDiagramHandle dh, final ModelElement main) {
+        // do nothing
+    }
+
+    /**
+     * Layout all nodes in the diagram.
+     * <p>
+     * Default implementation is empty.
+     * </p>
+     * @param dh the edited diagram.
+     * @since 5.1.1
+     */
+    @objid ("353cf474-a10c-482f-91bf-055afc4b1afc")
+    protected void layoutNodes(final IDiagramHandle dh) {
+        // do nothing
+    }
+
+    /**
+     * Layout all links in the diagram.
+     * <p>
+     * Default implementation calls the deprecated {@link #layout(IDiagramHandle)} method.
+     * </p>
+     * @param dh the edited diagram.
+     * @since 5.1.1
+     */
+    @objid ("128f483b-d88b-4c01-81cf-2ae3f94b5239")
+    protected void layoutLinks(final IDiagramHandle dh) {
+        layout(dh);
+    }
 
     @objid ("6a8cce36-ce9e-46f5-ae6c-94c7c8778eec")
     protected abstract AbstractDiagram createDiagramElement();
@@ -133,21 +210,23 @@ public abstract class AbstractDiagramTemplate implements IModelViewTemplate<Abst
             try (IDiagramHandle dh = this.localModuleContext.getModelioServices().getDiagramService().getDiagramHandle(existingDiagram)) {
                 dh.setBatchMode(true);
         
-                // perform the inital unmasking (mainly nodes)
-                generateContent(dh, main);
+                generateNodesContent(dh, main);
+                layoutNodes(dh);
         
-                // layout the diagram
-                layout(dh);
+                // Performance optimization: unmask links AFTER node layout to minimize routing calls
+                generateLinksContent(dh, main);
+                layoutLinks(dh);
         
                 // open the resulting diagram
-                dh.save();
                 dh.setBatchMode(false);
+                dh.save();
             }
         } catch (Exception e) {
             DiagramAuto.LOG.debug(e);
         } finally {
             reset();
         }
+        
     }
 
     @objid ("6147d67a-7d48-4b79-a8f4-140d6a56067b")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.commands;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -61,18 +60,18 @@ public class CreateCallOperationCommand extends Command {
 
     /**
      * Initialize the command.
-     * 
      * @param dropLocation The location of the element in the diagram
      * @param toUnmask The operation to unmask
      * @param editPart The destination edit part that will own the call operation.
      * @param parentElement The element that will own the call operation action.
      */
     @objid ("2a0d7f15-55b6-11e2-877f-002564c97630")
-    public CreateCallOperationCommand(Point dropLocation, Operation toUnmask, EditPart editPart, MObject parentElement) {
+    public  CreateCallOperationCommand(Point dropLocation, Operation toUnmask, EditPart editPart, MObject parentElement) {
         this.operation = toUnmask;
         this.dropLocation = dropLocation;
         this.editPart = editPart;
         this.parentElement = parentElement;
+        
     }
 
     @objid ("2a0d7f20-55b6-11e2-877f-002564c97630")
@@ -143,11 +142,11 @@ public class CreateCallOperationCommand extends Command {
         }
         
         unmaskElement(el);
+        
     }
 
     /**
      * Unmask the given element in the destination edit part.
-     * 
      * @param el The element to unmask
      */
     @objid ("2a0d7f23-55b6-11e2-877f-002564c97630")
@@ -163,6 +162,7 @@ public class CreateCallOperationCommand extends Command {
         if (cmd != null && cmd.canExecute()) {
             cmd.execute();
         }
+        
     }
 
     @objid ("2a0d7f29-55b6-11e2-877f-002564c97630")
@@ -177,6 +177,7 @@ public class CreateCallOperationCommand extends Command {
         pin.setName(p.getName());
         pin.setType(p.getType());
         pin.setUpperBound(p.getMultiplicityMax());
+        
     }
 
 }

@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.mmextensions.standard.facilities.interaction;
 
 import java.util.HashMap;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.TreeSet;
 import java.util.stream.Collectors;
-import java.util.stream.Stream.Builder;
 import java.util.stream.Stream;
+import java.util.stream.Stream.Builder;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.uml.behavior.interactionModel.Interaction;
 import org.modelio.metamodel.uml.behavior.interactionModel.InteractionFragment;
@@ -57,17 +56,17 @@ public class MessageSequencer {
     private final Interaction interaction;
 
     @objid ("c1b77b94-3d89-465d-901b-9fb081561f2e")
-    public MessageSequencer(Interaction interaction) {
+    public  MessageSequencer(Interaction interaction) {
         this.interaction = interaction;
         this.sequences = compute();
+        
     }
 
     /**
      * Get the sequence number for a message
-     * 
      * @param m a message
      * @return its sequence number.
-     * @throws java.lang.IllegalArgumentException if the message is not part of the interaction.
+     * @throws IllegalArgumentException if the message is not part of the interaction.
      */
     @objid ("d2b5c9a3-8a02-411f-8159-3acd3ace34dc")
     public String getSequence(Message m) throws IllegalArgumentException {
@@ -93,6 +92,7 @@ public class MessageSequencer {
                 msg.setSequence(newSeq);
             }
         }
+        
     }
 
     @objid ("d8e46003-a8e9-4984-a2bd-bcf96f24f2bf")
@@ -121,7 +121,6 @@ public class MessageSequencer {
 
     /**
      * Compute the messages sequence number.
-     * 
      * @return the sequence map
      */
     @objid ("0152a228-5771-46cb-a8f4-3f4f59edca86")
@@ -156,6 +155,7 @@ public class MessageSequencer {
         } else {
             return Stream.empty();
         }
+        
     }
 
     @objid ("b7abf7c0-2043-4cbb-a34e-2ccbbc5bdd1c")

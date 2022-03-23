@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnintermediatecatchevent;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.bpmn.diagram.editor.elements.style.BpmnAbstractStyleKeyProvider;
+import org.modelio.bpmn.diagram.editor.elements.common.style.BpmnAbstractStyleKeyProvider;
 import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.diagram.styles.core.StyleKey;
 
@@ -31,36 +30,36 @@ import org.modelio.diagram.styles.core.StyleKey;
 @objid ("6106ad89-55b6-11e2-877f-002564c97630")
 public class GmBpmnIntermediateCatchEventSimpleStyleKeys extends BpmnAbstractStyleKeyProvider {
     @objid ("719828ac-55c1-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmBpmnIntermediateCatchEventStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmBpmnIntermediateCatchEventStructuredStyleKeys.REPMODE;
 
     @objid ("719828ae-55c1-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("INTERMEDIATECATCHEVENT_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("INTERMEDIATECATCHEVENT_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("719828b0-55c1-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("INTERMEDIATECATCHEVENT_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("INTERMEDIATECATCHEVENT_FILLMODE", MetaKey.FILLMODE);
 
     @objid ("719828b2-55c1-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("INTERMEDIATECATCHEVENT_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("INTERMEDIATECATCHEVENT_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("719828b4-55c1-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("INTERMEDIATECATCHEVENT_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("INTERMEDIATECATCHEVENT_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("719828b6-55c1-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmBpmnIntermediateCatchEventStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmBpmnIntermediateCatchEventStructuredStyleKeys.FONT;
 
     @objid ("719828b8-55c1-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmBpmnIntermediateCatchEventStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmBpmnIntermediateCatchEventStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("719828ba-55c1-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmBpmnIntermediateCatchEventStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmBpmnIntermediateCatchEventStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("719828bc-55c1-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmBpmnIntermediateCatchEventStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmBpmnIntermediateCatchEventStructuredStyleKeys.SHOWTAGS;
 
     /**
      * Show the label.
      */
     @objid ("719828be-55c1-11e2-9337-002564c97630")
-     static final StyleKey SHOWLABEL = GmBpmnIntermediateCatchEventStructuredStyleKeys.SHOWLABEL;
+    static final StyleKey SHOWLABEL = GmBpmnIntermediateCatchEventStructuredStyleKeys.SHOWLABEL;
 
 }

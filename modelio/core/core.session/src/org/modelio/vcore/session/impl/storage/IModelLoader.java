@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.storage;
 
 import java.util.List;
@@ -42,11 +41,10 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 public interface IModelLoader extends AutoCloseable {
     /**
      * Create a model object that is being loaded.
-     * 
      * @param classof The metaclass
      * @param id The identifier
      * @return the object ready to be to loaded
-     * @throws org.modelio.vcore.model.DuplicateObjectException if another object with the same identifier already exist in another repository.
+     * @throws DuplicateObjectException if another object with the same identifier already exist in another repository.
      */
     @objid ("002c6636-5454-1f29-adbc-001ec947cd2a")
     SmObjectImpl createLoadedObject(final SmClass classof, final String id) throws DuplicateObjectException;
@@ -56,7 +54,6 @@ public interface IModelLoader extends AutoCloseable {
      * <p>
      * If the model object is found in a repository, return it. In the other case create
      * a shell model object and return it.
-     * 
      * @param classof The metaclass
      * @param id The identifier
      * @param name The shell object name.
@@ -67,7 +64,6 @@ public interface IModelLoader extends AutoCloseable {
 
     /**
      * Load a dependency content.
-     * 
      * @param obj The object to load
      * @param dep the dependency to load
      * @param newContent the new dependency content.
@@ -77,7 +73,6 @@ public interface IModelLoader extends AutoCloseable {
 
     /**
      * Load an attribute value.
-     * 
      * @param obj The object to load
      * @param att the attribute to load.
      * @param newValue the attribute value.
@@ -93,12 +88,11 @@ public interface IModelLoader extends AutoCloseable {
 
     /**
      * Create a loaded model object from the given object data.
-     * 
      * @param cls the object class
      * @param uuid the object String
      * @param d the object data
      * @return the loaded ready object.
-     * @throws org.modelio.vcore.model.DuplicateObjectException if another object with the same identifier already exist in another repository.
+     * @throws DuplicateObjectException if another object with the same identifier already exist in another repository.
      */
     @objid ("f69a23d2-3948-11e2-920a-001ec947ccaf")
     SmObjectImpl createLoadedObject(SmClass cls, String uuid, SmObjectData d) throws DuplicateObjectException;
@@ -107,7 +101,6 @@ public interface IModelLoader extends AutoCloseable {
      * Create, initialize and set a new model object data for the given model object.
      * <p>
      * To be called when recovering a garbage collected model object data .
-     * 
      * @param obj the model object to recover.
      * @return the new model object data.
      */
@@ -121,7 +114,6 @@ public interface IModelLoader extends AutoCloseable {
      * <p>
      * Use the constants defined in {@link IRStatus}.
      * No delete flag must be undefined, in the other case Modelio behavior is undefined.
-     * 
      * @param obj the object to initialize
      * @param trueFlags a combination of flags to set.
      * @param falseFlags a combination of flags to unset.
@@ -137,7 +129,6 @@ public interface IModelLoader extends AutoCloseable {
      * <p>
      * Use the constants defined in {@link IPStatus}.
      * No delete flag must be undefined, in the other case Modelio behavior is undefined.
-     * 
      * @param obj the object to initialize
      * @param trueFlags a combination of flags to set.
      * @param falseFlags a combination of flags to unset.

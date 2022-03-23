@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.libraries.distant;
 
 import java.io.FileNotFoundException;
@@ -85,7 +84,7 @@ public final class DistantLibraryDialog extends ModelioDialog {
     private final boolean isLocalFragment;
 
     @objid ("49950b86-83df-4124-9da7-44227f36373d")
-     List<String> invalidIds;
+    List<String> invalidIds;
 
     @objid ("d9a338c7-d8d1-4f07-8f5d-fb1929165e33")
     private final boolean allowProjectAuth;
@@ -103,26 +102,26 @@ public final class DistantLibraryDialog extends ModelioDialog {
     private Text fragmentIdText;
 
     @objid ("a337af22-69a8-4e5f-a4bb-ae695e6fb7ec")
-     Button addButton;
+    Button addButton;
 
     @objid ("4cb171be-8afa-428e-a2fd-3b744a246387")
-     Button editButton;
+    Button editButton;
 
     /**
      * initialize the dialog.
-     * 
      * @param parentShell a SWT shell
      * @param fragment the fragment to edit
      * @param allowProjectAuth Allow the fragment to use the project authentication data
      * @param allFragmentsIds all existing fragments identifiers. used to forbid using them again.
      */
     @objid ("7d4c33d1-3adc-11e2-916e-002564c97630")
-    public DistantLibraryDialog(final Shell parentShell, final IProjectFragment fragment, final boolean allowProjectAuth, final List<String> allFragmentsIds) {
+    public  DistantLibraryDialog(final Shell parentShell, final IProjectFragment fragment, final boolean allowProjectAuth, final List<String> allFragmentsIds) {
         super(parentShell);
         this.editedFragment = fragment;
         this.isLocalFragment = fragment == null || fragment.getScope() == DefinitionScope.LOCAL;
         this.invalidIds = allFragmentsIds;
         this.allowProjectAuth = allowProjectAuth;
+        
     }
 
     @objid ("7d4c33d4-3adc-11e2-916e-002564c97630")
@@ -178,6 +177,7 @@ public final class DistantLibraryDialog extends ModelioDialog {
         } else {
             createButton(parent, Window.CANCEL, IDialogConstants.CLOSE_LABEL, true);
         }
+        
     }
 
     @objid ("7d4e9529-3adc-11e2-916e-002564c97630")
@@ -196,6 +196,7 @@ public final class DistantLibraryDialog extends ModelioDialog {
             this.fragmentIdText.setEnabled(this.editedFragment.getScope() == DefinitionScope.LOCAL);
             this.panel.setEdited(this.editedFragment);
         }
+        
     }
 
     @objid ("7d4e9532-3adc-11e2-916e-002564c97630")
@@ -216,6 +217,7 @@ public final class DistantLibraryDialog extends ModelioDialog {
         }
         this.result = fragmentDescriptor;
         super.okPressed();
+        
     }
 
     /**
@@ -241,6 +243,7 @@ public final class DistantLibraryDialog extends ModelioDialog {
             return;
         }
         fragmentIdIsInvalid(fragmentId);
+        
     }
 
     @objid ("bcbd175f-5580-415b-acae-d774a0e80e3e")
@@ -253,6 +256,7 @@ public final class DistantLibraryDialog extends ModelioDialog {
             this.editButton.setEnabled(true);
         }
         this.fragmentIdText.setForeground(this.fragmentIdText.getDisplay().getSystemColor(SWT.COLOR_DARK_GREEN));
+        
     }
 
     @objid ("2217df42-c3b2-4958-8036-640809a43b54")
@@ -269,6 +273,7 @@ public final class DistantLibraryDialog extends ModelioDialog {
             this.editButton.setEnabled(false);
         }
         this.fragmentIdText.setForeground(this.fragmentIdText.getDisplay().getSystemColor(SWT.COLOR_RED));
+        
     }
 
     @objid ("c55eae58-9524-4a16-ba3c-8be949cf9804")
@@ -286,27 +291,27 @@ public final class DistantLibraryDialog extends ModelioDialog {
         private final boolean allowProjectAuth;
 
         @objid ("36465423-93e1-4505-8236-61116550c873")
-         Text urlText;
+        Text urlText;
 
         @objid ("eb430d8a-f830-44be-89f9-09cdc4e906d3")
-         Text message;
+        Text message;
 
         @objid ("b88e6390-36d1-49d3-bab9-1001ea0b52a5")
         private OptionalAuthPanelProvider authPanel;
 
         /**
          * Initialize the panel.
-         * 
          * @param parent the parent composite.
          * @param style the style of widget to construct
          * @param allowProjectAuth Allow the fragment to use the project authentication data.
          */
         @objid ("7d4e957c-3adc-11e2-916e-002564c97630")
-        public ExmlUrlFragmentPanel(final Composite parent, final int style, final boolean allowProjectAuth) {
+        public  ExmlUrlFragmentPanel(final Composite parent, final int style, final boolean allowProjectAuth) {
             super(parent, style);
             this.allowProjectAuth = allowProjectAuth;
             setLayout(new FillLayout());
             createContents(this);
+            
         }
 
         @objid ("7d4e9582-3adc-11e2-916e-002564c97630")
@@ -328,6 +333,7 @@ public final class DistantLibraryDialog extends ModelioDialog {
                 MessageDialog.openError(null, AppProjectConfExt.I18N.getString("DistantLibraryDialog.InvalidUrl"), this.message.getText()); //$NON-NLS-1$
                 throw new URISyntaxException(this.urlText.getMessage(), this.message.getText());
             }
+            
         }
 
         @objid ("7d4e9585-3adc-11e2-916e-002564c97630")
@@ -368,6 +374,7 @@ public final class DistantLibraryDialog extends ModelioDialog {
             this.message = new Text(data, SWT.WRAP | SWT.READ_ONLY | SWT.MULTI);
             this.message.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));
             this.message.setBackground(data.getBackground());
+            
         }
 
         @objid ("7d50f689-3adc-11e2-916e-002564c97630")
@@ -416,6 +423,7 @@ public final class DistantLibraryDialog extends ModelioDialog {
                 this.urlText.setEditable(false);
                 this.authPanel.setEnabled(authConf.getScope() != DefinitionScope.SHARED);
             }
+            
         }
 
         @objid ("94011d7c-3b7d-4214-8c49-5c05d96374ae")
@@ -428,6 +436,7 @@ public final class DistantLibraryDialog extends ModelioDialog {
             
             this.urlText.setForeground(color);
             this.message.setForeground(color);
+            
         }
 
     }

@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnsubprocess.content.v0;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.bpmn.diagram.editor.elements.bpmnsubprocess.GmBpmnSubProcess;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnSubProcessStructuredStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnSubProcessStructuredStyleKeys;
 import org.modelio.diagram.elements.common.freezone.GmBodyFreeZone;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
@@ -56,7 +55,7 @@ public class GmBpmnBodyFreeZone extends GmBodyFreeZone {
     private static final int MAJOR_VERSION = 1;
 
     @objid ("61c3e318-55b6-11e2-877f-002564c97630")
-    public GmBpmnBodyFreeZone(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmBpmnBodyFreeZone(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -66,6 +65,7 @@ public class GmBpmnBodyFreeZone extends GmBodyFreeZone {
         // The visibility may have changed so fires a notification.
         fireVisibilityChanged();
         super.styleChanged(style);
+        
     }
 
     @objid ("61c5697e-55b6-11e2-877f-002564c97630")
@@ -77,6 +77,7 @@ public class GmBpmnBodyFreeZone extends GmBodyFreeZone {
         } else {
             super.styleChanged(property, newValue);
         }
+        
     }
 
     @objid ("61c56987-55b6-11e2-877f-002564c97630")
@@ -92,7 +93,8 @@ public class GmBpmnBodyFreeZone extends GmBodyFreeZone {
     }
 
     @objid ("61c56991-55b6-11e2-877f-002564c97630")
-    public GmBpmnBodyFreeZone() {
+    public  GmBpmnBodyFreeZone() {
+        
     }
 
     @objid ("61c56993-55b6-11e2-877f-002564c97630")
@@ -100,6 +102,7 @@ public class GmBpmnBodyFreeZone extends GmBodyFreeZone {
     public boolean canCreate(final Class<? extends MObject> type) {
         return BpmnBaseElement.class.isAssignableFrom(type) &&
                                 !BpmnBoundaryEvent.class.isAssignableFrom(type);
+        
     }
 
     @objid ("61c5699c-55b6-11e2-877f-002564c97630")
@@ -125,6 +128,7 @@ public class GmBpmnBodyFreeZone extends GmBodyFreeZone {
             break;
         }
         }
+        
     }
 
     @objid ("61c569a9-55b6-11e2-877f-002564c97630")
@@ -134,6 +138,7 @@ public class GmBpmnBodyFreeZone extends GmBodyFreeZone {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmBpmnBodyFreeZone.", GmBpmnBodyFreeZone.MINOR_VERSION);
+        
     }
 
     @objid ("61c569af-55b6-11e2-877f-002564c97630")

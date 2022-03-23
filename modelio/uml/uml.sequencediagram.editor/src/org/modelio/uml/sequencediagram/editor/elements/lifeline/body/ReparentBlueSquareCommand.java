@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.lifeline.body;
 
 import java.util.List;
@@ -53,17 +52,17 @@ public class ReparentBlueSquareCommand extends Command {
 
     /**
      * Default C'tor.
-     * 
      * @param newParent the composite node that will be the new parent of the reparented node.
      * @param reparentedChild the reparented node.
      * @param newTime the new "time" of the ExecutionOccurenceSpecification.
      */
     @objid ("d9376a40-55b6-11e2-877f-002564c97630")
-    public ReparentBlueSquareCommand(GmCompositeNode newParent, GmExecutionOccurenceSpecification reparentedChild, final int newTime) {
+    public  ReparentBlueSquareCommand(GmCompositeNode newParent, GmExecutionOccurenceSpecification reparentedChild, final int newTime) {
         super();
         this.newParentNode = newParent;
         this.reparentedChild = reparentedChild;
         this.newTime = newTime;
+        
     }
 
     @objid ("d9376a49-55b6-11e2-877f-002564c97630")
@@ -96,6 +95,7 @@ public class ReparentBlueSquareCommand extends Command {
         return sameParentInObModel
                         || (oldParent.getStatus().isModifiable() && newParent.getStatus().isModifiable() && mm.getMExpert().canCompose(
                                 newParent, childElement, "CoveredBy"));
+        
     }
 
     @objid ("d9376a4e-55b6-11e2-877f-002564c97630")
@@ -213,6 +213,7 @@ public class ReparentBlueSquareCommand extends Command {
             tmp = childElement.getFinished().getStart().getLineNumber() + delta;
             childElement.getFinished().getStart().setLineNumber(tmp);
         }
+        
     }
 
     @objid ("d9376a51-55b6-11e2-877f-002564c97630")
@@ -225,6 +226,7 @@ public class ReparentBlueSquareCommand extends Command {
         } else {
             return null;
         }
+        
     }
 
     @objid ("d9376a56-55b6-11e2-877f-002564c97630")
@@ -237,6 +239,7 @@ public class ReparentBlueSquareCommand extends Command {
         } else {
             return null;
         }
+        
     }
 
 }

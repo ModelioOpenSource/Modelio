@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common.index.jdbm;
 
 import java.io.IOError;
@@ -46,7 +45,7 @@ import org.modelio.vstore.exml.common.model.ObjId;
 @objid ("e1ee6208-5c83-11e1-863f-001ec947ccaf")
 public class UserNodeIndex implements IUserNodeIndex {
     @objid ("f32593c4-1f6e-497d-98fc-c1de22cb22c6")
-    private final PrimaryTreeMap<UserNodeIndex.UseEntry,Boolean> usersInverse;
+    private final PrimaryTreeMap<UserNodeIndex.UseEntry, Boolean> usersInverse;
 
     /**
      * Sorted Map used as a Set.
@@ -55,7 +54,7 @@ public class UserNodeIndex implements IUserNodeIndex {
      * value = collection of user CMS nodes id.
      */
     @objid ("d55011a2-7f1a-11e1-ba70-001ec947ccaf")
-    private final PrimaryTreeMap<UserNodeIndex.UseEntry,Boolean> users;
+    private final PrimaryTreeMap<UserNodeIndex.UseEntry, Boolean> users;
 
     @objid ("03a04e99-10c4-4db7-8f8d-df8ad2b20fbf")
     private final SymbolTable<String> symbolTable;
@@ -65,15 +64,14 @@ public class UserNodeIndex implements IUserNodeIndex {
 
     /**
      * Initialize the index.
-     * 
      * @param db the JDBM database.
      * @param symbolTable the string symbols table
      * @param objIdTable the ObjId table
-     * @throws org.modelio.vstore.exml.common.index.IndexException if the index is broken
+     * @throws IndexException if the index is broken
      */
     @objid ("e1ee6203-5c83-11e1-863f-001ec947ccaf")
     @SuppressWarnings("unchecked")
-    public UserNodeIndex(final RecordManager db, SymbolTable<String> symbolTable, SymbolTable<ObjId> objIdTable) throws IndexException {
+    public  UserNodeIndex(final RecordManager db, SymbolTable<String> symbolTable, SymbolTable<ObjId> objIdTable) throws IndexException {
         this.symbolTable = symbolTable;
         this.objIdTable = objIdTable;
         try {
@@ -85,6 +83,7 @@ public class UserNodeIndex implements IUserNodeIndex {
         } catch (IOError e) {
             throw JdbmIndexException.from(e);
         }
+        
     }
 
     @objid ("e1ee6204-5c83-11e1-863f-001ec947ccaf")
@@ -136,6 +135,7 @@ public class UserNodeIndex implements IUserNodeIndex {
             dumpUsers(System.err);
             throw e;
         }
+        
     }
 
     @objid ("e1ee6205-5c83-11e1-863f-001ec947ccaf")
@@ -155,6 +155,7 @@ public class UserNodeIndex implements IUserNodeIndex {
         } catch (IOException e) {
             throw JdbmIndexException.from(e);
         }
+        
     }
 
     @objid ("e1ee6206-5c83-11e1-863f-001ec947ccaf")
@@ -177,6 +178,7 @@ public class UserNodeIndex implements IUserNodeIndex {
         } catch (IOError e) {
             throw JdbmIndexException.from(e);
         }
+        
     }
 
     @objid ("d4f31703-7f1a-11e1-ba70-001ec947ccaf")
@@ -190,13 +192,13 @@ public class UserNodeIndex implements IUserNodeIndex {
                 out.println("   - "+user);
             }
         }*/
+        
     }
 
     /**
      * Get a sub map of the given map filtered for the target node id and.
      * <p>
      * Reminder: {@link UseEntry} are sorted in order by: the target then the dependency id then the source.
-     * 
      * @param from the map to filter
      * @param nodeId the target node id in the index
      * @param depId the dependency id in the index
@@ -225,19 +227,19 @@ public class UserNodeIndex implements IUserNodeIndex {
          * The CMS node is of the source
          */
         @objid ("761777b2-d4a3-4040-b1dd-377687663852")
-         final long srcCmsNodeId;
+        final long srcCmsNodeId;
 
         /**
          * The id of the dependency
          */
         @objid ("6e814e3e-efd8-4085-b149-c77fe8e2ced0")
-         final long depId;
+        final long depId;
 
         /**
          * The target object Id.
          */
         @objid ("15574f42-f2b3-4751-af17-90f2520e4678")
-         final long targetObjectId;
+        final long targetObjectId;
 
         /**
          * Min Id stub for Tree.subMap(min, max)
@@ -252,11 +254,12 @@ public class UserNodeIndex implements IUserNodeIndex {
         public static final long MAX = Long.MAX_VALUE;
 
         @objid ("8298eb0e-d8ba-4048-8b9e-5ac7667c7e98")
-        public UseEntry(long srcId, long depId, long targetId) {
+        public  UseEntry(long srcId, long depId, long targetId) {
             super();
             this.srcCmsNodeId = srcId;
             this.depId = depId;
             this.targetObjectId = targetId;
+            
         }
 
         @objid ("08aae18d-17f0-4b59-90af-76c0d479d324")
@@ -332,6 +335,7 @@ public class UserNodeIndex implements IUserNodeIndex {
             out.writeLong(obj.srcCmsNodeId);
             out.writeLong(obj.depId);
             out.writeLong(obj.targetObjectId);
+            
         }
 
         @objid ("ae381422-6b94-4c1e-a2ff-840f529c038f")

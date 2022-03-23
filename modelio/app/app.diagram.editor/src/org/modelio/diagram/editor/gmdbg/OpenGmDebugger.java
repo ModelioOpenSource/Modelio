@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.gmdbg;
 
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Execute;
@@ -44,6 +43,7 @@ public class OpenGmDebugger {
         ContextInjectionFactory.inject(debugger, context);
         RootEditPart r = editor.getRootEditPart();
         debugger.setInput2((AbstractDiagramEditPart) r.getContents(), (GmModel)editor.getEditorInput().getGmDiagram());
+        
     }
 
 }

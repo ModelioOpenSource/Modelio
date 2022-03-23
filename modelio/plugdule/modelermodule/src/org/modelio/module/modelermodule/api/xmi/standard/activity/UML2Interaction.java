@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.activity;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("fe0a2eb7-94ca-4d4c-b8b4-0755c72af361")
 public class UML2Interaction {
-    @objid ("363156ee-67e8-4bf7-9627-4851371bd6d1")
+    @objid ("90a85dba-87cc-4c78-82c4-0cf411daa931")
     public static final String STEREOTYPE_NAME = "UML2Interaction ";
 
     /**
      * The underlying {@link Activity} represented by this proxy, never null.
      */
-    @objid ("fcaed73a-b7d1-470e-a0f1-6303329e160a")
+    @objid ("db754deb-e9ac-4516-a86e-830cba3c75dd")
     protected final Activity elt;
 
     /**
      * Tells whether a {@link UML2Interaction proxy} can be instantiated from a {@link MObject} checking it is a {@link Activity} stereotyped << UML2Interaction  >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("627dc50f-af4d-4048-84a0-dd133326f110")
+    @objid ("286659a8-665e-4b49-a12f-74eabc103309")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Activity) && ((Activity) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2Interaction.STEREOTYPE_NAME));
     }
@@ -77,9 +75,9 @@ public class UML2Interaction {
      * 
      * @return a {@link UML2Interaction} proxy on the created {@link Activity}.
      */
-    @objid ("2017b4b1-3cbe-4c51-a3aa-12d8a4c82f1f")
+    @objid ("f1ee8b20-55b7-44d6-8f14-9c9abd9f0922")
     public static UML2Interaction create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Activity");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.Activity");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2Interaction.STEREOTYPE_NAME);
         return UML2Interaction.instantiate((Activity)e);
     }
@@ -91,7 +89,7 @@ public class UML2Interaction {
      * @param obj a Activity
      * @return a {@link UML2Interaction} proxy or <i>null</i>.
      */
-    @objid ("78234a2c-4a48-4b90-8ab6-3ce0776773de")
+    @objid ("30e2877d-989f-4b5c-b04a-b062f2294a4a")
     public static UML2Interaction instantiate(Activity obj) {
         return UML2Interaction.canInstantiate(obj) ? new UML2Interaction(obj) : null;
     }
@@ -104,7 +102,7 @@ public class UML2Interaction {
      * @return a {@link UML2Interaction} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("f47a5865-bdc5-4bee-9788-c6ae3c0d9905")
+    @objid ("2cebc72d-75f4-4fea-b88d-2821c3d4a155")
     public static UML2Interaction safeInstantiate(Activity obj) throws IllegalArgumentException {
         if (UML2Interaction.canInstantiate(obj))
         	return new UML2Interaction(obj);
@@ -112,7 +110,7 @@ public class UML2Interaction {
         	throw new IllegalArgumentException("UML2Interaction: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("69dc1408-7aab-4998-b198-508894133a14")
+    @objid ("d9eb90f1-a39b-4a51-9896-a1309cfe1d19")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,46 +130,47 @@ public class UML2Interaction {
      * Get the underlying {@link Activity}. 
      * @return the Activity represented by this proxy, never null.
      */
-    @objid ("304e4928-d96b-47c7-b508-65791d7c625c")
+    @objid ("dc9b1a8b-bcdf-49ce-a91f-1e0f67669e93")
     public Activity getElement() {
         return this.elt;
     }
 
-    @objid ("ab90d548-efb3-4674-8f9d-a5cc9bcf25d1")
+    @objid ("71cf9f8b-8950-438b-abd5-ac1106bbc575")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("ea0c64b1-433a-4b42-bf9f-85ab8aa4057d")
-    protected UML2Interaction(Activity elt) {
+    @objid ("953b0fb2-4555-4324-bacd-beed23b0b4df")
+    protected  UML2Interaction(Activity elt) {
         this.elt = elt;
     }
 
     @objid ("2d8755d9-18eb-44df-b006-43b75366bab0")
     public static final class MdaTypes {
-        @objid ("a5082e0b-f107-469e-9389-9fd8b13e97c4")
+        @objid ("1a51ad49-c41d-482e-926d-b6423ad5a716")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("92e9718f-11d5-4b12-be64-0c3ebd54771b")
+        @objid ("4a0e7985-9c1b-4dc0-99bb-76c3bc463736")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("3ab5f50a-67f7-4400-8313-98d8794ea4dc")
+        @objid ("1d52f6f9-cf4b-499e-9683-f04d836d44f0")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("e1c55fb0-9555-4354-b88e-2232e0d8350e")
+        @objid ("c2b7a998-ff0a-4685-b954-aefd3617c2cc")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "021863a9-f3db-11df-8ada-0027103f347c");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

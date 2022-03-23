@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -25,7 +24,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 @objid ("b63d855d-5bab-494c-9931-01b1a032b48a")
 public class EDurationInterval extends ENamedElement {
     @objid ("17578664-2294-4186-8d64-d24abfb8e759")
-    public EDurationInterval(org.eclipse.uml2.uml.DurationInterval element) {
+    public  EDurationInterval(org.eclipse.uml2.uml.DurationInterval element) {
         super(element);
     }
 

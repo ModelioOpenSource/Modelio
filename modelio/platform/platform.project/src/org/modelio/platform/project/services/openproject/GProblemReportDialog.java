@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.project.services.openproject;
 
 import java.util.List;
@@ -49,13 +48,15 @@ public class GProblemReportDialog extends ModelioDialog {
         GProblemReportDialog dlg = new GProblemReportDialog(parent, projectName, failures);
         dlg.setBlockOnOpen(true);
         dlg.open();
+        
     }
 
     @objid ("747e8b0b-0385-42f2-8692-92caeaafb65b")
-    protected GProblemReportDialog(Shell parentShell, String projectName, List<GProblem> failures) {
+    protected  GProblemReportDialog(Shell parentShell, String projectName, List<GProblem> failures) {
         super(parentShell);
         this.projectName = projectName;
         this.failures = failures;
+        
     }
 
     @objid ("f8cf5ef0-d355-41f8-9c9e-fa4724f89e08")
@@ -108,6 +109,7 @@ public class GProblemReportDialog extends ModelioDialog {
     protected void configureShell(Shell newShell) {
         super.configureShell(newShell);
         setTitle("Shell title");
+        
     }
 
 }

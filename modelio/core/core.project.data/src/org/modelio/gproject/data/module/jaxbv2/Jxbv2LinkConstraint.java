@@ -17,18 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.module.jaxbv2;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElementRef;
 import javax.xml.bind.annotation.XmlElementRefs;
 import javax.xml.bind.annotation.XmlType;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
  * <p>Java class for _LinkConstraint complex type.
@@ -56,9 +55,9 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public class Jxbv2LinkConstraint {
     @objid ("9f54212b-c4fc-42ba-8e46-2581da5ab4c5")
     @XmlElementRefs({
-        @XmlElementRef(name = "SourceScope", type = JAXBElement.class),
-        @XmlElementRef(name = "TargetScope", type = JAXBElement.class)
-    })
+            @XmlElementRef(name = "SourceScope", type = JAXBElement.class),
+            @XmlElementRef(name = "TargetScope", type = JAXBElement.class)
+        })
     protected List<JAXBElement<Jxbv2Scope>> sourceScopeAndTargetScope;
 
     /**

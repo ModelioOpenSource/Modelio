@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.elements.usecasediagram;
 
 import java.util.List;
@@ -25,15 +24,16 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.elements.common.abstractdiagram.GmAbstractDiagram;
 import org.modelio.diagram.elements.core.model.GmAbstractObject;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
+import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
 import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
-import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.diagram.styles.core.view.ISymbolViewModel;
 import org.modelio.metamodel.diagrams.UseCaseDiagram;
 import org.modelio.metamodel.uml.behavior.usecaseModel.Actor;
@@ -67,15 +67,15 @@ public class GmUseCaseDiagram extends GmAbstractDiagram {
 
     /**
      * Default constructor.
-     * 
      * @param manager the manager needed make the link between the Ob and Gm models.
      * @param theUseCaseDiagram the diagram itself.
      * @param diagramRef a reference to the diagram.
      */
     @objid ("5e82a529-55b7-11e2-877f-002564c97630")
-    public GmUseCaseDiagram(IModelManager manager, UseCaseDiagram theUseCaseDiagram, MRef diagramRef) {
+    public  GmUseCaseDiagram(IModelManager manager, UseCaseDiagram theUseCaseDiagram, MRef diagramRef) {
         super(manager, diagramRef);
         this.element = theUseCaseDiagram;
+        
     }
 
     @objid ("5e82a538-55b7-11e2-877f-002564c97630")
@@ -139,6 +139,7 @@ public class GmUseCaseDiagram extends GmAbstractDiagram {
             break;
         }
         }
+        
     }
 
     @objid ("5e842be7-55b7-11e2-877f-002564c97630")
@@ -182,6 +183,7 @@ public class GmUseCaseDiagram extends GmAbstractDiagram {
         // or System is set "not visible" by the style,
         // or use case doesn't belong to system's element
         super.addChild(child);
+        
     }
 
     @objid ("5e85b25d-55b7-11e2-877f-002564c97630")
@@ -191,6 +193,7 @@ public class GmUseCaseDiagram extends GmAbstractDiagram {
         if (child == this.system) {
             this.system = null;
         }
+        
     }
 
     @objid ("5e85b264-55b7-11e2-877f-002564c97630")
@@ -201,6 +204,7 @@ public class GmUseCaseDiagram extends GmAbstractDiagram {
         if (getSystem() != null) {
             fireChildVisibilityChanged(getSystem());
         }
+        
     }
 
     @objid ("5e85b26b-55b7-11e2-877f-002564c97630")
@@ -221,6 +225,7 @@ public class GmUseCaseDiagram extends GmAbstractDiagram {
         } else {
             super.styleChanged(property, newValue);
         }
+        
     }
 
     @objid ("5e85b274-55b7-11e2-877f-002564c97630")
@@ -230,6 +235,7 @@ public class GmUseCaseDiagram extends GmAbstractDiagram {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmUseCaseDiagram.", GmUseCaseDiagram.MINOR_VERSION);
+        
     }
 
     @objid ("5e85b27a-55b7-11e2-877f-002564c97630")
@@ -237,6 +243,7 @@ public class GmUseCaseDiagram extends GmAbstractDiagram {
         read_1(in);
         
         initStyleKeys(getPersistedStyle());
+        
     }
 
     @objid ("5e85b27f-55b7-11e2-877f-002564c97630")
@@ -272,6 +279,7 @@ public class GmUseCaseDiagram extends GmAbstractDiagram {
         style.setProperty(GmAssocStructuredStyleKeys.SHOWNAVIGABILITY, false);
         style.setProperty(GmAssocStructuredStyleKeys.SHOWROLES, false);
         style.setProperty(GmAssocStructuredStyleKeys.CONNECTIONROUTER, ConnectionRouterId.DIRECT);
+        
     }
 
     @objid ("12e3b787-fa10-481f-8ac0-fbb3f9301f7e")
@@ -283,6 +291,7 @@ public class GmUseCaseDiagram extends GmAbstractDiagram {
                 this.system = (GmSystem) child;
             }
         }
+        
     }
 
     @objid ("fab01c4c-add5-4b79-a2e2-0c5baaf3f901")

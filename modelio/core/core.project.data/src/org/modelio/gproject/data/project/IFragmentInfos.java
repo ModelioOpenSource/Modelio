@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.project;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,7 +35,6 @@ public interface IFragmentInfos {
 
     /**
      * Get the version of Modelio used to create this fragment.
-     * 
      * @return the Modelio version.
      */
     @objid ("b48eb12b-a728-4154-b5ed-d3a23f137151")

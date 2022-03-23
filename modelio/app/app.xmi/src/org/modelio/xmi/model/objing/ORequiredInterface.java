@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -61,7 +60,7 @@ public class ORequiredInterface extends OElement implements IOElement {
     }
 
     @objid ("d1aad5fe-7d1a-4f1b-ac75-ae374b002247")
-    public ORequiredInterface(RequiredInterface param) {
+    public  ORequiredInterface(RequiredInterface param) {
         super(param);
     }
 
@@ -144,6 +143,7 @@ public class ORequiredInterface extends OElement implements IOElement {
             }
         
         }
+        
     }
 
     @objid ("c5a2d042-7546-4046-bb69-ce6baaba0b63")
@@ -158,11 +158,13 @@ public class ORequiredInterface extends OElement implements IOElement {
         if (number != 0)
             ObjingEAnnotation.setNumberRequiredInterface(
                     GenerationProperties.getInstance().getMappedElement(getObjingElement().getRequiring()), number);
+        
     }
 
     @objid ("76678cb7-d9b7-44eb-9966-ac01743830e0")
     @Override
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
+        
     }
 
     @objid ("715525c7-cfc8-4e56-8887-1fc8ea2e285d")

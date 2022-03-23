@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.elements.usecase;
 
 import java.util.ArrayList;
@@ -33,7 +32,7 @@ import org.modelio.diagram.elements.core.figures.borders.TLBRBorder;
 @objid ("5e6bc1d8-55b7-11e2-877f-002564c97630")
 public class UseCaseFigure extends EllipseFigure {
     @objid ("5e6bc1dc-55b7-11e2-877f-002564c97630")
-    public UseCaseFigure() {
+    public  UseCaseFigure() {
         super();
         
         final ToolbarLayoutWithGrab layout = new ToolbarLayoutWithGrab();
@@ -42,6 +41,7 @@ public class UseCaseFigure extends EllipseFigure {
         layout.setLastChildGrab(false);
         
         this.setLayoutManager(layout);
+        
     }
 
     @objid ("5e6bc1df-55b7-11e2-877f-002564c97630")
@@ -49,6 +49,7 @@ public class UseCaseFigure extends EllipseFigure {
     public void add(IFigure figure, Object constraint, int index) {
         super.add(figure, constraint, index);
         updateChildrenSeparationLine();
+        
     }
 
     @objid ("5e6bc1e5-55b7-11e2-877f-002564c97630")
@@ -56,6 +57,7 @@ public class UseCaseFigure extends EllipseFigure {
     public void remove(IFigure figure) {
         super.remove(figure);
         updateChildrenSeparationLine();
+        
     }
 
     @objid ("5e6bc1e9-55b7-11e2-877f-002564c97630")
@@ -65,6 +67,7 @@ public class UseCaseFigure extends EllipseFigure {
         
         // Update children separation lines
         updateChildrenSeparationLine();
+        
     }
 
     @objid ("5e6bc1ed-55b7-11e2-877f-002564c97630")
@@ -102,6 +105,7 @@ public class UseCaseFigure extends EllipseFigure {
         for (IFigure f : withNoBorder) {
             f.setBorder(null);
         }
+        
     }
 
 }

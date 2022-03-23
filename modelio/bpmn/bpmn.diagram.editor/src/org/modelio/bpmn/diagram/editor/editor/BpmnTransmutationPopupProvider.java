@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.editor;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.ui.di.AboutToHide;
 import org.eclipse.e4.ui.di.AboutToShow;
@@ -41,8 +40,8 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.modelio.bpmn.diagram.editor.plugin.DiagramEditorBpmn;
-import org.modelio.bpmn.diagram.editor.wizard.TransformerRegistry.ModelTransformerCommand;
 import org.modelio.bpmn.diagram.editor.wizard.TransformerRegistry;
+import org.modelio.bpmn.diagram.editor.wizard.TransformerRegistry.ModelTransformerCommand;
 import org.modelio.diagram.editor.context.AbstractCreationPopupProvider;
 import org.modelio.diagram.editor.plugin.DiagramEditor;
 import org.modelio.diagram.elements.core.model.GmModel;
@@ -84,7 +83,6 @@ public class BpmnTransmutationPopupProvider {
     /**
      * Fills a dynamic creation menu with selection-compatible contributions before display. <br/>
      * Called by the rcp platform through injection.
-     * 
      * @param items the item list to fill.
      */
     @objid ("68c430ea-7812-4c4d-99f5-e374c0243a59")
@@ -97,6 +95,7 @@ public class BpmnTransmutationPopupProvider {
             // add menu items
             items.add(createMenu(entries));
         }
+        
     }
 
     @objid ("16659ef9-a5df-4b3e-8cf2-5ac225aab786")
@@ -129,7 +128,6 @@ public class BpmnTransmutationPopupProvider {
 
     /**
      * Compute a contributor id from a bundle.
-     * 
      * @return a contributor id.
      */
     @objid ("45137d19-a403-49cf-b33e-d0cde257a113")
@@ -139,7 +137,6 @@ public class BpmnTransmutationPopupProvider {
 
     /**
      * Create a new handled menu item from a popup entry descriptor.
-     * 
      * @param entry the descriptor to convert.
      * @return a new menu elements.
      */
@@ -180,7 +177,6 @@ public class BpmnTransmutationPopupProvider {
     /**
      * Get the MCommand defined in the application having a specific id.
      * @param commandId the element id of the MCommand to find.
-     * 
      * @return a MCommand, or <code>null</code> if the id is not found.
      */
     @objid ("e5863e77-4084-4d68-a845-51daa7f87e91")

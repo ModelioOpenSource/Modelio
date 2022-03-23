@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.panelprovider.tree;
 
 import java.net.URI;
@@ -26,8 +25,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.jface.viewers.StyledString;
+import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Font;
@@ -69,6 +68,7 @@ public class NoteViewTreeLabelProvider extends UniversalLabelProvider2 {
         } else {
             return super.getImage(element);
         }
+        
     }
 
     @objid ("6fd1fd28-ef88-48ff-8b92-77475605a66b")
@@ -171,7 +171,7 @@ public class NoteViewTreeLabelProvider extends UniversalLabelProvider2 {
     }
 
     @objid ("cd7477b7-1752-462b-95a6-8b260e091f56")
-    public NoteViewTreeLabelProvider(Viewer viewer) {
+    public  NoteViewTreeLabelProvider(Viewer viewer) {
         Font mimeFont = CoreFontRegistry.getModifiedFont(viewer.getControl().getFont(), SWT.ITALIC, UIFont.NORMAL_SIZE);
         
         this.mimeStyler = new Styler() {
@@ -189,6 +189,7 @@ public class NoteViewTreeLabelProvider extends UniversalLabelProvider2 {
                 textStyle.foreground = UIColor.SHELL_ELEMENT_FG;
             }
         };
+        
     }
 
     /**

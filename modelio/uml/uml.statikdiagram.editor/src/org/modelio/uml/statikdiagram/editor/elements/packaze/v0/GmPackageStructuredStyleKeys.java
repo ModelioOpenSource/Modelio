@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.packaze.v0;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.UmaskByVisibilityStragegy;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.UmaskByVisibilityStragegy;
 import org.modelio.uml.statikdiagram.editor.elements.packaze.GmPackage;
 import org.modelio.uml.statikdiagram.editor.style.StaticAbstractStyleKeyProvider;
 
@@ -35,40 +34,40 @@ import org.modelio.uml.statikdiagram.editor.style.StaticAbstractStyleKeyProvider
 @objid ("3635df59-55b7-11e2-877f-002564c97630")
 class GmPackageStructuredStyleKeys extends StaticAbstractStyleKeyProvider {
     @objid ("a7488e0a-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("PACKAGE_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("PACKAGE_REPMODE", MetaKey.REPMODE);
 
     @objid ("a7488e0c-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("PACKAGE_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("PACKAGE_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("a7488e0e-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("PACKAGE_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("PACKAGE_FILLMODE", MetaKey.FILLMODE);
 
     @objid ("a7488e10-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("PACKAGE_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("PACKAGE_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("a74a148a-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("PACKAGE_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("PACKAGE_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("a74a148c-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("PACKAGE_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("PACKAGE_FONT", MetaKey.FONT);
 
     @objid ("a74a148e-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("PACKAGE_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("PACKAGE_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("a74a1490-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWNAME = createStyleKey("PACKAGE_SHOWNAME", MetaKey.SHOWNAME);
+    static final StyleKey SHOWNAME = createStyleKey("PACKAGE_SHOWNAME", MetaKey.SHOWNAME);
 
     @objid ("a74a1492-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("PACKAGE_SHOWSTEREOTYPES", MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("PACKAGE_SHOWSTEREOTYPES", MetaKey.SHOWSTEREOTYPES);
 
     @objid ("a74a1494-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("PACKAGE_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("PACKAGE_SHOWTAGS", MetaKey.SHOWTAGS);
 
     @objid ("a74a1496-55c2-11e2-9337-002564c97630")
-     static final StyleKey INSTANCEUNMASKING = createStyleKey("PACKAGE_INSTANCEUNMASKING", Boolean.class);
+    static final StyleKey INSTANCEUNMASKING = createStyleKey("PACKAGE_INSTANCEUNMASKING", Boolean.class);
 
     @objid ("a74a1498-55c2-11e2-9337-002564c97630")
-     static final StyleKey UNMASKINGSTRATEGY = createStyleKey("PACKAGE_CONTENTS",
-                                                             UmaskByVisibilityStragegy.class);
+    static final StyleKey UNMASKINGSTRATEGY = createStyleKey("PACKAGE_CONTENTS",
+                                                                 UmaskByVisibilityStragegy.class);
 
 }

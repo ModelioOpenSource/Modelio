@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,7 +34,7 @@ public class EStateInvariant extends EInteractionFragment {
     }
 
     @objid ("d244bfc4-f348-40aa-a653-bd7271d8e884")
-    public EStateInvariant(org.eclipse.uml2.uml.StateInvariant element) {
+    public  EStateInvariant(org.eclipse.uml2.uml.StateInvariant element) {
         super(element);
     }
 
@@ -44,6 +43,7 @@ public class EStateInvariant extends EInteractionFragment {
     public void setProperties(Element objingElt) {
         super.setProperties(objingElt);
         setBody((StateInvariant) objingElt);
+        
     }
 
     @objid ("cc326fdd-a871-4a0f-967b-dd030f0a6e30")
@@ -67,6 +67,7 @@ public class EStateInvariant extends EInteractionFragment {
                     invariant.setBody(body);
             }
         }
+        
     }
 
     @objid ("8200640d-19bd-4aca-bc24-552ba87ec5fc")

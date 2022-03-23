@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.stateMachineModel;
 
 import java.util.ArrayList;
@@ -30,8 +30,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.BehaviorSmClass;
 import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.EventSmClass;
 import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.SignalSmClass;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.StateVertexSmClass;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.TransitionData;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
 import org.modelio.metamodel.impl.uml.statik.OperationSmClass;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
@@ -89,7 +87,7 @@ public class TransitionSmClass extends UmlModelElementSmClass {
     private SmDependency effectsDep;
 
     @objid ("1318d641-6a49-41a6-bd58-195e351741f9")
-    public TransitionSmClass(ISmMetamodelFragment origin) {
+    public  TransitionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -97,6 +95,7 @@ public class TransitionSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "Transition";
+        
     }
 
     @objid ("64195aab-560f-4997-b852-7022056388c6")
@@ -109,18 +108,21 @@ public class TransitionSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Transition.class;
+        
     }
 
     @objid ("61448ec2-5d65-4824-aac3-10463d7ae0fd")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("85950f88-48eb-42cf-a808-12f5e2ab761e")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("20807e3c-6715-43fd-845d-716d38a1ba9d")
@@ -176,6 +178,8 @@ public class TransitionSmClass extends UmlModelElementSmClass {
         this.effectsDep = new EffectsSmDependency();
         this.effectsDep.init("Effects", this, metamodel.getMClass(Signal.MQNAME), 0, 1 , SmDirective.SMCDPARTOF);
         registerDependency(this.effectsDep);
+        
+        
     }
 
     @objid ("adee4fea-6443-406c-9f36-957d8c656363")
@@ -270,6 +274,7 @@ public class TransitionSmClass extends UmlModelElementSmClass {
     @Override
     public boolean isLinkMetaclass() {
         return true;
+        
     }
 
     @objid ("dad83e8a-7d34-4663-9de2-371993220e25")
@@ -278,7 +283,7 @@ public class TransitionSmClass extends UmlModelElementSmClass {
         private TransitionSmClass smClass;
 
         @objid ("be1500f9-228c-43e1-a585-1560248fce49")
-        public TransitionObjectFactory(TransitionSmClass smClass) {
+        public  TransitionObjectFactory(TransitionSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -390,6 +395,7 @@ public class TransitionSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((OperationSmClass)this.getTarget()).getInvokerDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -418,6 +424,7 @@ public class TransitionSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((EventSmClass)this.getTarget()).getTriggeredDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -446,6 +453,7 @@ public class TransitionSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((BehaviorSmClass)this.getTarget()).getEffectOfDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -474,6 +482,7 @@ public class TransitionSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((StateVertexSmClass)this.getTarget()).getIncomingDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -502,6 +511,7 @@ public class TransitionSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((StateVertexSmClass)this.getTarget()).getOutGoingDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -530,6 +540,7 @@ public class TransitionSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((SignalSmClass)this.getTarget()).getSendsDep();
             }
             return this.symetricDep;
+            
         }
 
     }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.policies;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,11 +36,10 @@ public class RevealEditPartCommand extends Command {
 
     /**
      * C'tor.
-     * 
      * @param editPartToSelect the {@link EditPart} to select.
      */
     @objid ("80d5f12b-1dec-11e2-8cad-001ec947c8cc")
-    public RevealEditPartCommand(EditPart editPartToSelect) {
+    public  RevealEditPartCommand(EditPart editPartToSelect) {
         this.editPartToSelect = editPartToSelect;
     }
 
@@ -50,6 +48,7 @@ public class RevealEditPartCommand extends Command {
     public void execute() {
         this.editPartToSelect.getViewer().reveal(this.editPartToSelect);
         this.editPartToSelect.getViewer().setSelection(new StructuredSelection(this.editPartToSelect));
+        
     }
 
 }

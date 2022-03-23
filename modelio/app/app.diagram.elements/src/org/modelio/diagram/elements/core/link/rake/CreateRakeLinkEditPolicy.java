@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.rake;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,12 +37,12 @@ import org.eclipse.gef.requests.ReconnectRequest;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
 import org.modelio.diagram.elements.core.figures.routers.RakeConstraint;
 import org.modelio.diagram.elements.core.figures.routers.RakeRouter;
-import org.modelio.diagram.elements.core.link.GmLink;
 import org.modelio.diagram.elements.core.link.GmLinkRake;
 import org.modelio.diagram.elements.core.link.GmPath;
 import org.modelio.diagram.elements.core.link.IAnchorModelProvider;
 import org.modelio.diagram.elements.core.link.LinkEditPart;
 import org.modelio.diagram.elements.core.link.ModelioLinkCreationContext;
+import org.modelio.diagram.elements.core.model.IGmLink;
 import org.modelio.diagram.elements.core.model.IGmLinkable;
 import org.modelio.diagram.elements.core.model.IGmPath;
 import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
@@ -86,6 +85,7 @@ public class CreateRakeLinkEditPolicy extends GraphicalNodeEditPolicy {
     public void showSourceFeedback(Request request) {
         // do nothing
         // note : please test "if (isHandled(request))" if you need to do something
+        
     }
 
     @objid ("805c593f-1dec-11e2-8cad-001ec947c8cc")
@@ -93,17 +93,17 @@ public class CreateRakeLinkEditPolicy extends GraphicalNodeEditPolicy {
     public void showTargetFeedback(final Request request) {
         // do nothing
         // note : please test "if (isHandled(request))" if you need to do something
+        
     }
 
     /**
      * Create a serializable path model from the given connection creation request.
-     * 
      * @param req a connection creation request.
      * @param gmTargetLink the link to rake to.
      * @return A serializable path model.
      */
     @objid ("805c5957-1dec-11e2-8cad-001ec947c8cc")
-    protected IGmPath createPathModel(final CreateConnectionRequest req, final GmLink gmTargetLink) {
+    protected IGmPath createPathModel(final CreateConnectionRequest req, final IGmLink gmTargetLink) {
         GmPath path = new GmPath();
         
         path.setRouterKind(ConnectionRouterId.ORTHOGONAL);
@@ -155,7 +155,7 @@ public class CreateRakeLinkEditPolicy extends GraphicalNodeEditPolicy {
     @Override
     protected Command getConnectionCompleteCommand(CreateConnectionRequest request) {
         if (allowRakeCreation(request)) {
-            GmLink gm = (GmLink) getHost().getModel();
+            IGmLink gm = (IGmLink) getHost().getModel();
             CreateRakedLinkCommand cmd = new CreateRakedLinkCommand((ModelioLinkCreationContext) request.getNewObject(), gm);
         
             cmd.setSource((IGmLinkable) request.getSourceEditPart().getModel());
@@ -181,13 +181,13 @@ public class CreateRakeLinkEditPolicy extends GraphicalNodeEditPolicy {
         }
         
         ConnectionEditPart toReconnect = request.getConnectionEditPart();
-        Point loc = request.getLocation();
+        Point loc = request.getLocation().getCopy();
         toReconnect.getFigure().translateToRelative(loc);
         
         NodeEditPart newSourceEditPart = (NodeEditPart) ((ConnectionEditPart) getHost()).getSource();
         ConnectionAnchor anchor = getFinalSourceAnchor(newSourceEditPart, request);
         Object gmAnchor = ((IAnchorModelProvider) newSourceEditPart).createAnchorModel(anchor);
-        return new RakeLinkOnSourceCommand((GmLink) toReconnect.getModel(), (GmLink) getHost().getModel(), loc, gmAnchor);
+        return new RakeLinkOnSourceCommand((IGmLink) toReconnect.getModel(), (IGmLink) getHost().getModel(), loc, gmAnchor);
     }
 
     @objid ("8059f700-1dec-11e2-8cad-001ec947c8cc")
@@ -204,7 +204,7 @@ public class CreateRakeLinkEditPolicy extends GraphicalNodeEditPolicy {
         NodeEditPart newTargetEditPart = (NodeEditPart) ((ConnectionEditPart) getHost()).getTarget();
         ConnectionAnchor anchor = getFinalTargetAnchor(newTargetEditPart, request);
         Object gmAnchor = ((IAnchorModelProvider) newTargetEditPart).createAnchorModel(anchor);
-        return new RakeLinkOnTargetCommand((GmLink) toReconnect.getModel(), (GmLink) getHost().getModel(), loc, gmAnchor);
+        return new RakeLinkOnTargetCommand((IGmLink) toReconnect.getModel(), (IGmLink) getHost().getModel(), loc, gmAnchor);
     }
 
     @objid ("805c5946-1dec-11e2-8cad-001ec947c8cc")
@@ -219,15 +219,14 @@ public class CreateRakeLinkEditPolicy extends GraphicalNodeEditPolicy {
                 }
             }
         
-        } else if (request instanceof CreateConnectionRequest && model instanceof GmLink) {
+        } else if (request instanceof CreateConnectionRequest && model instanceof IGmLink) {
             // Test the metaclass
             MClass toCreate = getMetaclass((CreateConnectionRequest) request);
-            MObject repEl = ((GmLink) model).getRelatedElement();
-            if (toCreate != null && repEl != null && toCreate == repEl.getMClass()) {
-                return true;
-            }
+            MObject repEl = ((IGmLink) model).getRelatedElement();
         
-            return false;
+            return (toCreate != null
+                    && repEl != null
+                    && toCreate == repEl.getMClass()) ;
         }
         return false;
     }
@@ -267,7 +266,6 @@ public class CreateRakeLinkEditPolicy extends GraphicalNodeEditPolicy {
 
     /**
      * Get the anchor model for the given anchor.
-     * 
      * @param editpart a node edit part.
      * @param anchor a draw2d anchor
      * @return the anchor model, may be <code>null</code>
@@ -279,6 +277,7 @@ public class CreateRakeLinkEditPolicy extends GraphicalNodeEditPolicy {
         } else {
             return (null); // TODO handle non IAnchorModelProvider
         }
+        
     }
 
     @objid ("805c5923-1dec-11e2-8cad-001ec947c8cc")
@@ -348,6 +347,7 @@ public class CreateRakeLinkEditPolicy extends GraphicalNodeEditPolicy {
         } else {
             return null;
         }
+        
     }
 
     @objid ("805ebb7a-1dec-11e2-8cad-001ec947c8cc")
@@ -361,6 +361,7 @@ public class CreateRakeLinkEditPolicy extends GraphicalNodeEditPolicy {
         } else {
             return false;
         }
+        
     }
 
 }

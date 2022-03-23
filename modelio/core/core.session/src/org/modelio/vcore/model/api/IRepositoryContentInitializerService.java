@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model.api;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,7 +28,6 @@ public interface IRepositoryContentInitializerService extends IRepositoryContent
      * Get the metamodel extensions point.
      * <p>
      * Use it to register metamodel extensions to this service.
-     * 
      * @return the metamodel extensions point.
      */
     @objid ("6b480d6f-4f85-4124-9396-922946d3c60b")

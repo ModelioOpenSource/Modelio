@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.debug;
 
 import java.lang.management.ManagementFactory;
@@ -53,15 +52,15 @@ public class ThreadDumper {
      */
     @objid ("f3f2f5fb-f4d4-43dd-a0ae-7e67773c89d3")
     @Deprecated
-    public ThreadDumper() {
+    public  ThreadDumper() {
         this.mbean = ManagementFactory.getThreadMXBean();
         this.synchronizerUsageSupported = this.mbean.isSynchronizerUsageSupported();
         this.objectMonitorUsageSupported = this.mbean.isObjectMonitorUsageSupported();
+        
     }
 
     /**
      * Dump all thread stack trace with java lock informations if asked for.
-     * 
      * @param withLocks dump monitor and Lock informations
      * @return the found thread informations.
      */
@@ -77,7 +76,6 @@ public class ThreadDumper {
      * Look for dead locked threads and dump their stack trace with java lock informations.
      * <p>
      * If no dead locked thread is found dump all threads .
-     * 
      * @return the found thread informations.
      */
     @objid ("0b09375d-3ceb-41e4-afab-cd6a3fcb3edc")
@@ -106,7 +104,6 @@ public class ThreadDumper {
      * <p>
      * The result contains no lock information and no thread state.
      * See {@link Thread#getAllStackTraces()} for more informations.
-     * 
      * @return all threads stack trace.
      */
     @objid ("dd54edb8-f452-4f94-8b51-7426b99bb29e")
@@ -146,16 +143,15 @@ public class ThreadDumper {
     @objid ("732fc3df-88e0-4d0e-be69-b27bb1932077")
     public static class Result {
         @objid ("3ac5d0b6-92f2-4a56-be9a-3234dda9251c")
-         final ThreadInfo[] threads;
+        final ThreadInfo[] threads;
 
         @objid ("4107ed27-e946-4cc4-9e66-3450590a6a7f")
-        Result(ThreadInfo[] threads) {
+         Result(ThreadInfo[] threads) {
             this.threads = threads;
         }
 
         /**
          * Dump line by line.
-         * 
          * @param lineConsumer a consumer that will receive all text lines
          */
         @objid ("952a0cda-cd19-4cc6-959f-4cbf13499637")
@@ -169,11 +165,11 @@ public class ThreadDumper {
                     }
                 }
             }
+            
         }
 
         /**
          * Add a suppressed exception for each thread
-         * 
          * @param target the throwable to add suppressed exceptions to.
          * @return target for convenience
          */
@@ -191,7 +187,6 @@ public class ThreadDumper {
 
         /**
          * Get the stack trace of all threads.
-         * 
          * @return all threads stack trace.
          */
         @objid ("248b78bf-057e-48f0-a1f4-df06ea46e03c")

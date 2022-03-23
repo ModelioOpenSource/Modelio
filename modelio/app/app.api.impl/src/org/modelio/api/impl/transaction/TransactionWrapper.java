@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.api.impl.transaction;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,11 +32,10 @@ public class TransactionWrapper implements org.modelio.api.modelio.model.ITransa
 
     /**
      * Constructor
-     * 
      * @param wrapped the wrapped transaction.
      */
     @objid ("1c44d7fb-06af-4003-9fc7-7e4545fb8f2b")
-    public TransactionWrapper(ITransaction wrapped) {
+    public  TransactionWrapper(ITransaction wrapped) {
         this.wrapped = wrapped;
     }
 

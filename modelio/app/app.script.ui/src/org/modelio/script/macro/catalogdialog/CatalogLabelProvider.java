@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.script.macro.catalogdialog;
 
 import java.net.MalformedURLException;
@@ -62,6 +61,7 @@ class CatalogLabelProvider extends LabelProvider {
         } else {
             return null;
         }
+        
     }
 
     @objid ("00699a92-c497-106a-bf4f-001ec947cd2a")
@@ -81,14 +81,16 @@ class CatalogLabelProvider extends LabelProvider {
         } else {
             return element.toString();
         }
+        
     }
 
     @objid ("0069772e-c497-106a-bf4f-001ec947cd2a")
-    CatalogLabelProvider() {
+     CatalogLabelProvider() {
         this.images = new ImageRegistry(Display.getDefault());
         final Bundle bundle = Platform.getBundle(org.modelio.script.plugin.Script.PLUGIN_ID);
         final URL catalogImageUrl = FileLocator.find(bundle, new org.eclipse.core.runtime.Path("icons/scriptcatalog.png"), null);
         this.images.put(CATALOGID, ImageDescriptor.createFromURL(catalogImageUrl));
+        
     }
 
     @objid ("00699dda-c497-106a-bf4f-001ec947cd2a")

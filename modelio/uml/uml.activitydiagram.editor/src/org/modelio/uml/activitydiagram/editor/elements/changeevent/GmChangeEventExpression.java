@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.changeevent;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,12 +44,11 @@ public class GmChangeEventExpression extends GmElementText {
 
     /**
      * Creates the node.
-     * 
      * @param diagram The diagram
      * @param relatedRef related element reference, must not be <code>null</code>.
      */
     @objid ("29fb2f82-55b6-11e2-877f-002564c97630")
-    public GmChangeEventExpression(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmChangeEventExpression(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -58,7 +56,8 @@ public class GmChangeEventExpression extends GmElementText {
      * For deserialization only.
      */
     @objid ("29fb2f8d-55b6-11e2-877f-002564c97630")
-    public GmChangeEventExpression() {
+    public  GmChangeEventExpression() {
+        
     }
 
     @objid ("29fb2f90-55b6-11e2-877f-002564c97630")
@@ -92,6 +91,7 @@ public class GmChangeEventExpression extends GmElementText {
                         return getRelatedElement().getChangeExpresion();
                     }
                 };
+        
     }
 
     @objid ("29fb2fa3-55b6-11e2-877f-002564c97630")
@@ -111,6 +111,7 @@ public class GmChangeEventExpression extends GmElementText {
             break;
         }
         }
+        
     }
 
     @objid ("29fb2fa9-55b6-11e2-877f-002564c97630")
@@ -120,6 +121,7 @@ public class GmChangeEventExpression extends GmElementText {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmChangeEventExpression.", GmChangeEventExpression.MINOR_VERSION);
+        
     }
 
     @objid ("29fb2faf-55b6-11e2-877f-002564c97630")

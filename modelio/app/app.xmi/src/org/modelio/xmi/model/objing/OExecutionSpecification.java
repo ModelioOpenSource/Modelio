@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class OExecutionSpecification extends OInteractionFragment {
     }
 
     @objid ("ccdb0983-451e-422e-87f3-9cb01a83129b")
-    public OExecutionSpecification(ExecutionSpecification param) {
+    public  OExecutionSpecification(ExecutionSpecification param) {
         super(param);
     }
 

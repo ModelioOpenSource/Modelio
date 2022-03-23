@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel.data.standard.infrastructure;
 
 import java.util.ArrayList;
@@ -48,15 +47,14 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class StereotypePropertyModel extends AbstractPropertyModel<Stereotype> {
     @objid ("3c453377-fd1c-4190-9000-59ed853b76dc")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name", "Label",
-	        "BaseClass", "IsHidden", "IsAbstract", "ParentStereotype", "Icon", "DiagramImage" };
+    	        "BaseClass", "IsHidden", "IsAbstract", "ParentStereotype", "Icon", "DiagramImage" };
 
     /**
      * Instantiate the stereotype properties view. element finder structure.
-     * 
      * @param theEditedElement the current stereotype.
      */
     @objid ("5d692088-108a-4d04-aa45-5fd64f86e6b4")
-    public StereotypePropertyModel(Stereotype theEditedElement) {
+    public  StereotypePropertyModel(Stereotype theEditedElement) {
         super(theEditedElement);
     }
 
@@ -115,6 +113,7 @@ public class StereotypePropertyModel extends AbstractPropertyModel<Stereotype> {
         default:
             return null;
         }
+        
     }
 
     /**
@@ -171,6 +170,7 @@ public class StereotypePropertyModel extends AbstractPropertyModel<Stereotype> {
         default:
             return null;
         }
+        
     }
 
     /**
@@ -217,6 +217,7 @@ public class StereotypePropertyModel extends AbstractPropertyModel<Stereotype> {
         default:
             return;
         }
+        
     }
 
 }

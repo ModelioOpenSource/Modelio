@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing.profile;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,7 +34,7 @@ public class PExportNoteType implements IExportProfileElement {
     private NoteType objingElt = null;
 
     @objid ("f887459d-6ff8-45c9-ba01-1ab89c276b0a")
-    public PExportNoteType(NoteType attribut) {
+    public  PExportNoteType(NoteType attribut) {
         this.objingElt = attribut;
     }
 
@@ -73,6 +72,7 @@ public class PExportNoteType implements IExportProfileElement {
         
         }
         ObjingEAnnotation.addObjingID(attr, this.objingElt.getUuid().toString());
+        
     }
 
     @objid ("df5f957c-8570-4a3f-9b37-be31af8f6466")

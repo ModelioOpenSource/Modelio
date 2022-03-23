@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.rcp.system;
 
 import java.net.URL;
@@ -38,12 +37,12 @@ public class ModelioHelpSystem implements IWorkbenchHelpSystem {
     private ModelioHelpUi ui = null;
 
     @objid ("12ac8dc1-77f3-4ecb-9971-7bf904450124")
-    private ModelioHelpSystem() {
+    private  ModelioHelpSystem() {
+        
     }
 
     /**
      * Return the singleton instance of this class.
-     * 
      * @return the singleton instance
      */
     @objid ("22b609c9-a02c-4d7d-a0fe-3f32d4678232")
@@ -81,6 +80,7 @@ public class ModelioHelpSystem implements IWorkbenchHelpSystem {
         if (getUi() != null) {
             this.ui.displayHelp();
         }
+        
     }
 
     @objid ("1ca488c7-d1dc-44e5-8e28-c89137a5323d")
@@ -117,6 +117,7 @@ public class ModelioHelpSystem implements IWorkbenchHelpSystem {
         if (helpUi != null) {
             helpUi.displayHelpResource(href);
         }
+        
     }
 
     @objid ("a84cad00-00ef-4e7e-91b7-3d5f5394c68d")

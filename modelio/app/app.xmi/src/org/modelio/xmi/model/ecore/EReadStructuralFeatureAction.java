@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import java.util.List;
@@ -48,9 +47,10 @@ public class EReadStructuralFeatureAction extends EActivityNode {
     }
 
     @objid ("314e3281-a7b8-452e-bbf5-15ae30e79642")
-    public EReadStructuralFeatureAction(org.eclipse.uml2.uml.ReadStructuralFeatureAction element) {
+    public  EReadStructuralFeatureAction(org.eclipse.uml2.uml.ReadStructuralFeatureAction element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("b70ee92c-57e6-4212-8b14-bed7ab23af16")
@@ -58,6 +58,7 @@ public class EReadStructuralFeatureAction extends EActivityNode {
     public void setProperties(Element objingElt) {
         super.setProperties(objingElt);
         setFeature((OpaqueAction) objingElt);
+        
     }
 
     @objid ("0b878b15-814e-4ff5-8bfb-f2efc67c87aa")
@@ -76,6 +77,7 @@ public class EReadStructuralFeatureAction extends EActivityNode {
                 }
             }
         }
+        
     }
 
     @objid ("8c089eb4-13b3-4204-8bf7-9229bb2dec36")
@@ -91,6 +93,7 @@ public class EReadStructuralFeatureAction extends EActivityNode {
               
         dependency.setDependsOn(obBehavior);
         dependency.setImpacted(objingElt);
+        
     }
 
 }

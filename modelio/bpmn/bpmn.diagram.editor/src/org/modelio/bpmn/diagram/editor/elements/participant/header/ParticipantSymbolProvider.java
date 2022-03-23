@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.participant.header;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,7 +34,8 @@ public class ParticipantSymbolProvider {
      * This class is not instanciable.
      */
     @objid ("a8136cea-092a-4e64-b716-8e86537fe432")
-    private ParticipantSymbolProvider() {
+    private  ParticipantSymbolProvider() {
+        
     }
 
     /**
@@ -46,7 +46,6 @@ public class ParticipantSymbolProvider {
      * <li>simply its name.</li>
      * <li>an empty string for a <code>null</code> participant.</li>
      * </ul>
-     * 
      * @param participant the participant
      * @return the computed label.
      */

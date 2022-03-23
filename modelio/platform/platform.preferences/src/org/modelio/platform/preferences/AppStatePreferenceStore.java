@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.preferences;
 
 import java.io.IOException;
@@ -36,7 +35,7 @@ import org.modelio.vbasic.files.FileUtils;
 @objid ("f698d9f8-7233-48f8-b4f5-22e9fd647d3f")
 public class AppStatePreferenceStore extends PreferenceStore {
     @objid ("ab76bea7-2b14-4138-9e52-b373031c80c4")
-    public AppStatePreferenceStore(GProject project) {
+    public  AppStatePreferenceStore(GProject project) {
         super();
         
         Path p = project.getProjectFileStructure().getProjectRuntimePath().resolve(".save");
@@ -51,6 +50,7 @@ public class AppStatePreferenceStore extends PreferenceStore {
             Preferences.LOG.warning("Failed loading application state from '%s': %s", p, FileUtils.getLocalizedMessage(e));
             Preferences.LOG.debug(e);
         }
+        
     }
 
 }

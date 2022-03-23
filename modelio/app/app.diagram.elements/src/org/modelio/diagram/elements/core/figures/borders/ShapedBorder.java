@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.borders;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -28,6 +27,7 @@ import org.eclipse.draw2d.LineBorder;
 import org.eclipse.draw2d.geometry.Insets;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Path;
 import org.modelio.diagram.elements.core.figures.IShaper;
 
 /**
@@ -36,20 +36,20 @@ import org.modelio.diagram.elements.core.figures.IShaper;
 @objid ("7f620252-1dec-11e2-8cad-001ec947c8cc")
 public class ShapedBorder extends LineBorder {
     @objid ("7f620255-1dec-11e2-8cad-001ec947c8cc")
-    private IShaper shaper;
+    private final IShaper shaper;
 
     /**
      * Constructs a ShapedBorder with the specified color and of the specified line width and shaped by the shaper
-     * 
      * @param color The color of the border.
      * @param width The width of the border in pixels.
      * @param shaper the border shape
      * @since 2.0
      */
     @objid ("7f620256-1dec-11e2-8cad-001ec947c8cc")
-    public ShapedBorder(Color color, int width, IShaper shaper) {
+    public  ShapedBorder(Color color, int width, IShaper shaper) {
         super(color, width);
         this.shaper = shaper;
+        
     }
 
     @objid ("7f62025c-1dec-11e2-8cad-001ec947c8cc")
@@ -72,12 +72,17 @@ public class ShapedBorder extends LineBorder {
         
         graphics.setLineStyle(getStyle());
         
-        graphics.drawPath(this.shaper.getShapePath(AbstractBorder.tempRect));
+        Path shapePath = this.shaper.createShapePath(AbstractBorder.tempRect);
+        try {
+            graphics.drawPath(shapePath);
+        } finally {
+            shapePath.dispose();
+        }
+        
     }
 
     /**
      * Returns the space used by the border for the figure provided as input. In this border all sides always have equal width.
-     * 
      * @param figure The figure this border belongs to
      * @return This border's insets
      */
@@ -105,9 +110,12 @@ public class ShapedBorder extends LineBorder {
         return builder.toString();
     }
 
+    /**
+     * @return the shape factory.
+     */
     @objid ("d2f223d6-df9c-47ad-b089-1c72a70e0252")
     public IShaper getShaper() {
-        return shaper;
+        return this.shaper;
     }
 
 }

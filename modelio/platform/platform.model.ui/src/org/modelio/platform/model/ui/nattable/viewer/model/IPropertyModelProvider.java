@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.viewer.model;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -27,7 +26,6 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IPropertyModelProvider {
     /**
      * Provides the data model matching a given model element.
-     * 
      * @param element The element to display in the property view.
      * @param context The project context.
      * @return The matching property model.

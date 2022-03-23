@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.embeddeddiagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,6 +32,7 @@ import org.eclipse.gef.editparts.ZoomManager;
 
 /**
  * Zoom manager for embedded diagrams.
+ * 
  * @author cma
  * @since 3.7
  */
@@ -42,23 +42,23 @@ class EmbeddedZoomManager extends ZoomManager {
     private boolean centerView;
 
     @objid ("fc86529e-6f05-456d-ae7e-3e437f3e8f5f")
-    public EmbeddedZoomManager(ScalableFigure pane, Viewport viewport) {
+    public  EmbeddedZoomManager(ScalableFigure pane, Viewport viewport) {
         super(pane, viewport);
     }
 
     @objid ("edc8b735-96f6-4f9d-b1fd-4f0fa9689854")
     public void fitToContent() {
-        if (! getViewport().getClientArea().isEmpty()) {
+        if (!getViewport().getClientArea().isEmpty()) {
             double fitZoomLevel = getFitPageZoomLevel();
             primSetZoom(fitZoomLevel);
         } else {
             // DiagramElements.LOG.debug(new Throwable("Skip fit to content on empty "+getViewport()+ " with area="+getViewport().getClientArea()));
         }
+        
     }
 
     /**
      * Sets the zoom level to the given value. Min-max range check is not done.
-     * 
      * @param zoom the new zoom level
      */
     @objid ("6bd9895a-342c-452f-b6a8-d586c5fb1f23")
@@ -74,26 +74,27 @@ class EmbeddedZoomManager extends ZoomManager {
         double prevZoom = getZoom();
         if (Math.abs(prevZoom - finalZoom) >= 0.01) {
             super.primSetZoom(finalZoom);
+        
+            Rectangle extent = scalableFigure.getFreeformExtent();
+            Viewport vp = getViewport();
+            Point topLeft = extent.getTopLeft();
+        
+            if (this.centerView) {
+                Rectangle avail = vp.getBounds();
+        
+                Dimension spare = avail.getSize().shrink(extent.width(), extent.height()).scale(0.5).negate();
+        
+                topLeft.translate(spare);
+                vp.getHorizontalRangeModel().setMinimum(Math.min(topLeft.x, vp.getHorizontalRangeModel().getMinimum()));
+                vp.getVerticalRangeModel().setMinimum(Math.min(topLeft.y, vp.getVerticalRangeModel().getMinimum()));
+            }
+        
+            Point viewLocation = vp.getViewLocation();
+            if (!viewLocation.equals(topLeft)) {
+                setViewLocation(topLeft);
+            }
         }
         
-        Rectangle extent = scalableFigure.getFreeformExtent();
-        Viewport vp = getViewport();
-        Point topLeft =  extent.getTopLeft();
-        
-        if (this.centerView) {
-            Rectangle avail = vp.getBounds();
-        
-            Dimension spare = avail.getSize().shrink(extent.width(), extent.height()).scale(0.5).negate();
-        
-            topLeft.translate(spare);
-            vp.getHorizontalRangeModel().setMinimum(Math.min(topLeft.x, vp.getHorizontalRangeModel().getMinimum()));
-            vp.getVerticalRangeModel().setMinimum(Math.min(topLeft.y, vp.getVerticalRangeModel().getMinimum()));
-        }
-        
-        Point viewLocation = vp.getViewLocation();
-        if (!viewLocation.equals(topLeft)) {
-            setViewLocation(topLeft);
-        }
     }
 
     /**
@@ -127,7 +128,7 @@ class EmbeddedZoomManager extends ZoomManager {
         
         double scalableFigureZoom = scalableFigure.getScale();
         double curZoom = getZoom();
-        assert (Math.abs(curZoom - scalableFigureZoom) < 0.001) : String.format("curZoom:%f != fig zoom:%f", curZoom, scalableFigureZoom);
+        assert Math.abs(curZoom - scalableFigureZoom) < 0.001 : String.format("curZoom:%f != fig zoom:%f", curZoom, scalableFigureZoom);
         double maxZoom = getMaxZoom();
         double scaleX = Math.min(available.width * curZoom / desired.width, maxZoom);
         double scaleY = Math.min(available.height * curZoom / desired.height, maxZoom);

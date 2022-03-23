@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.api;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,7 +38,6 @@ public interface IAccessManager {
      * The implementation should initialize only the flags it manages and keep
      * the other untouched, as many other access managers may be called
      * before or after.
-     * 
      * @param obj the object to initialize.
      * @param loader the model loader to use to initialize access rights.
      */

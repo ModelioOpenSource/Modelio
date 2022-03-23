@@ -17,20 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.interactionModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.GeneralOrderingSmClass;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.InteractionFragmentSmClass;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.OccurrenceSpecificationData;
 import org.modelio.metamodel.uml.behavior.interactionModel.GeneralOrdering;
 import org.modelio.metamodel.uml.behavior.interactionModel.InteractionFragment;
 import org.modelio.metamodel.uml.behavior.interactionModel.OccurrenceSpecification;
@@ -54,7 +51,7 @@ public class OccurrenceSpecificationSmClass extends InteractionFragmentSmClass {
     private SmDependency toBeforeDep;
 
     @objid ("f8c281e3-9c8d-4472-b84d-454754045407")
-    public OccurrenceSpecificationSmClass(ISmMetamodelFragment origin) {
+    public  OccurrenceSpecificationSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -62,6 +59,7 @@ public class OccurrenceSpecificationSmClass extends InteractionFragmentSmClass {
     @Override
     public String getName() {
         return "OccurrenceSpecification";
+        
     }
 
     @objid ("099142d5-f52d-47c5-af47-edbeebc22d4c")
@@ -74,18 +72,21 @@ public class OccurrenceSpecificationSmClass extends InteractionFragmentSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return OccurrenceSpecification.class;
+        
     }
 
     @objid ("c8a766af-2b3a-4924-8067-97f735281255")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("7bfa475c-69f2-4b77-851c-d4b3bef463cd")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("fac62a77-9fd2-42b5-9355-f81212cc62c4")
@@ -105,6 +106,8 @@ public class OccurrenceSpecificationSmClass extends InteractionFragmentSmClass {
         this.toBeforeDep = new ToBeforeSmDependency();
         this.toBeforeDep.init("ToBefore", this, metamodel.getMClass(GeneralOrdering.MQNAME), 0, -1 , SmDirective.SMCDTODELETE);
         registerDependency(this.toBeforeDep);
+        
+        
     }
 
     @objid ("0aab069d-39f3-4f08-a308-c55ec4de5040")
@@ -129,7 +132,7 @@ public class OccurrenceSpecificationSmClass extends InteractionFragmentSmClass {
         private OccurrenceSpecificationSmClass smClass;
 
         @objid ("8b09bd92-b641-41bc-8ee4-b3e80dd38d21")
-        public OccurrenceSpecificationObjectFactory(OccurrenceSpecificationSmClass smClass) {
+        public  OccurrenceSpecificationObjectFactory(OccurrenceSpecificationSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -162,6 +165,7 @@ public class OccurrenceSpecificationSmClass extends InteractionFragmentSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((OccurrenceSpecificationData) data).mToAfter = values;
+            
         }
 
         @objid ("f42bf38b-eb92-4644-b80c-3f9046127598")
@@ -171,6 +175,7 @@ public class OccurrenceSpecificationSmClass extends InteractionFragmentSmClass {
             	this.symetricDep = ((GeneralOrderingSmClass)this.getTarget()).getBeforeDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -190,6 +195,7 @@ public class OccurrenceSpecificationSmClass extends InteractionFragmentSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((OccurrenceSpecificationData) data).mToBefore = values;
+            
         }
 
         @objid ("389bffc6-d5a4-4974-96f1-735a457ef5f1")
@@ -199,6 +205,7 @@ public class OccurrenceSpecificationSmClass extends InteractionFragmentSmClass {
             	this.symetricDep = ((GeneralOrderingSmClass)this.getTarget()).getAfterDep();
             }
             return this.symetricDep;
+            
         }
 
     }

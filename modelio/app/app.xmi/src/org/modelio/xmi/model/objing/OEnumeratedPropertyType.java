@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import java.util.ArrayList;
@@ -44,7 +43,7 @@ public class OEnumeratedPropertyType extends OElement implements IOElement {
     }
 
     @objid ("1f9b6cfa-bff4-43cc-b8d7-2e8217fdbb8c")
-    public OEnumeratedPropertyType(EnumeratedPropertyType param) {
+    public  OEnumeratedPropertyType(EnumeratedPropertyType param) {
         super(param);
     }
 

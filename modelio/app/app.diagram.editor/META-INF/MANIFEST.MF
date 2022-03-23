@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Diagram Editor
 Bundle-SymbolicName: org.modelio.app.diagram.editor;singleton:=true
-Bundle-Version: 4.1.0.qualifier
+Bundle-Version: 5.1.0.qualifier
 Require-Bundle: org.eclipse.core.expressions,
  org.eclipse.core.runtime,
  org.eclipse.e4.core.contexts,
@@ -46,8 +46,8 @@ Export-Package: org.modelio.diagram.editor,
  org.modelio.diagram.editor.context,
  org.modelio.diagram.editor.corexp,
  org.modelio.diagram.editor.handlers,
+ org.modelio.diagram.editor.handlers.link,
  org.modelio.diagram.editor.handlers.print,
- org.modelio.diagram.editor.handlers.redrawlink,
  org.modelio.diagram.editor.handlers.unmask,
  org.modelio.diagram.editor.handlers.zoom,
  org.modelio.diagram.editor.plugin,

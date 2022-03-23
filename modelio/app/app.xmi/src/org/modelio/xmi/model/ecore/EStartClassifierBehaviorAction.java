@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class EStartClassifierBehaviorAction extends EActivityNode {
     }
 
     @objid ("76cb27cf-1652-425d-a3f0-0cecdc543eb4")
-    public EStartClassifierBehaviorAction(org.eclipse.uml2.uml.StartClassifierBehaviorAction element) {
+    public  EStartClassifierBehaviorAction(org.eclipse.uml2.uml.StartClassifierBehaviorAction element) {
         super(element);
     }
 

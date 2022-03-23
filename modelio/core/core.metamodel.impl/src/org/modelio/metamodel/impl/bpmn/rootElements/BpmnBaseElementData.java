@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.rootElements;
 
 import java.util.List;
@@ -33,22 +33,22 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("00783e94-c4bf-1fd8-97fe-001ec947cd2a")
 public abstract class BpmnBaseElementData extends ModelElementData {
     @objid ("663b17b3-1e53-4620-a7bd-1e6776912889")
-     List<SmObjectImpl> mOutgoingAssoc = null;
+    List<SmObjectImpl> mOutgoingAssoc = null;
 
     @objid ("8ba84ea7-cd4c-4dc8-9e22-e375b3f3f16e")
-     List<SmObjectImpl> mIncomingAssoc = null;
+    List<SmObjectImpl> mIncomingAssoc = null;
 
     @objid ("498f09f6-3cb1-493e-8491-9a230c6d46f0")
-     List<SmObjectImpl> mIncomingFlow = null;
+    List<SmObjectImpl> mIncomingFlow = null;
 
     @objid ("d2a80303-c0ed-4251-ac5a-9c7d1f0c8e68")
-     List<SmObjectImpl> mOutgoingFlow = null;
+    List<SmObjectImpl> mOutgoingFlow = null;
 
     @objid ("d9c5c3c4-28a2-4bd2-bcbf-7599d663d50d")
-     List<SmObjectImpl> mPartitionedLaneRefs = null;
+    List<SmObjectImpl> mPartitionedLaneRefs = null;
 
     @objid ("1364e239-5011-4d3d-8b16-40412c6278e3")
-    public BpmnBaseElementData(BpmnBaseElementSmClass smClass) {
+    public  BpmnBaseElementData(BpmnBaseElementSmClass smClass) {
         super(smClass);
     }
 

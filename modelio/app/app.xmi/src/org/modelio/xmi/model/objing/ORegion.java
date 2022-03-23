@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,9 +40,10 @@ public class ORegion extends OModelElement {
     }
 
     @objid ("1539874b-01d0-468c-84f6-dae1e6f9f4e6")
-    public ORegion(Region element) {
+    public  ORegion(Region element) {
         super(element);       
         this.objingElement = element;
+        
     }
 
     @objid ("d607c2a4-f614-4d1a-9468-f93f060df8ef")
@@ -62,6 +62,7 @@ public class ORegion extends OModelElement {
         }else if (ecoreOwner instanceof org.eclipse.uml2.uml.StateMachine){
             ((org.eclipse.uml2.uml.StateMachine) ecoreOwner).getRegions().add( (org.eclipse.uml2.uml.Region) ecoreElt);
         }
+        
     }
 
     @objid ("ab45ebbb-1120-4f05-a10d-70d97ffe3a08")

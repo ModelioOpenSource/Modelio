@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.infrastructure.dependency;
 
@@ -49,24 +48,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("deb1d430-370d-47a6-83f9-89eae36b4475")
 public class Trace {
-    @objid ("e106f20f-b424-43bc-a28c-8c5fb5bba61d")
+    @objid ("23d79614-6ef2-4808-8247-f6e5be9b8025")
     public static final String STEREOTYPE_NAME = "trace";
 
     /**
      * The underlying {@link Dependency} represented by this proxy, never null.
      */
-    @objid ("d85123f7-990f-4e30-89c4-e2dfbcf07f60")
+    @objid ("517f46e0-40be-451a-8013-d93f6b726562")
     protected final Dependency elt;
 
     /**
      * Tells whether a {@link Trace proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << trace >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("6420abcb-f8ef-4c85-89b6-425c47e6c851")
+    @objid ("0210e92e-66b6-4f9a-9845-0d8bc841ef5c")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Dependency) && ((Dependency) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Trace.STEREOTYPE_NAME));
     }
@@ -76,9 +74,9 @@ public class Trace {
      * 
      * @return a {@link Trace} proxy on the created {@link Dependency}.
      */
-    @objid ("11d4c924-f3ed-471c-a7f1-4f3353084481")
+    @objid ("d17577cd-cec6-444d-9812-49137517aa4a")
     public static Trace create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Dependency");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Infrastructure.Dependency");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Trace.STEREOTYPE_NAME);
         return Trace.instantiate((Dependency)e);
     }
@@ -90,7 +88,7 @@ public class Trace {
      * @param obj a Dependency
      * @return a {@link Trace} proxy or <i>null</i>.
      */
-    @objid ("a9b83a71-8139-4759-9e12-4e511773cbe3")
+    @objid ("cb8fc96c-f00b-4847-bfca-abfa9abd4fb2")
     public static Trace instantiate(Dependency obj) {
         return Trace.canInstantiate(obj) ? new Trace(obj) : null;
     }
@@ -103,7 +101,7 @@ public class Trace {
      * @return a {@link Trace} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("a2663d87-1e58-4d6e-808e-23d6849eca58")
+    @objid ("11ec7d4c-0908-4c61-bf37-89804c2e40c0")
     public static Trace safeInstantiate(Dependency obj) throws IllegalArgumentException {
         if (Trace.canInstantiate(obj))
         	return new Trace(obj);
@@ -111,7 +109,7 @@ public class Trace {
         	throw new IllegalArgumentException("Trace: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("a9827933-91e3-42ba-aed9-50e763b5189c")
+    @objid ("97bdeb19-7b21-48d9-9473-2d70235c80a7")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -131,46 +129,47 @@ public class Trace {
      * Get the underlying {@link Dependency}. 
      * @return the Dependency represented by this proxy, never null.
      */
-    @objid ("76615f72-6620-44a8-a1f1-f8c57e5f4989")
+    @objid ("cfbeaf38-0cbf-4e40-9ef3-a61248649072")
     public Dependency getElement() {
         return this.elt;
     }
 
-    @objid ("41518c5f-d68a-4c0d-a8ea-34c002f88104")
+    @objid ("4f587ef7-e692-4607-9c63-18ed6299e092")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("5c73f0c8-ceb7-425e-9a4f-4e31c6a583a4")
-    protected Trace(Dependency elt) {
+    @objid ("df4891a6-48c8-4ae3-9bba-3467acd497a0")
+    protected  Trace(Dependency elt) {
         this.elt = elt;
     }
 
     @objid ("1335f40a-5185-493c-ac4b-6745cea1855f")
     public static final class MdaTypes {
-        @objid ("1a7d5adc-8339-4050-a032-8e885c99aa3e")
+        @objid ("f06768c9-dded-4903-8032-e31d48a24c0b")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("a75c4cdb-4583-498d-8d55-d9d9dbec1770")
+        @objid ("9df69f75-a3ab-47d2-9384-7e13b6fb22f7")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("09aa1193-454a-410f-a753-09e0a703b87a")
+        @objid ("6119a6f6-74c8-4823-b338-672e0dea1afc")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("0c212ccf-386d-489f-9f5b-bbf90d09f99f")
+        @objid ("64d6750f-5201-4c56-ae08-f453580dd448")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "01280500-0000-0b37-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

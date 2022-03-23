@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.drawings.core.node;
 
 import java.beans.PropertyChangeEvent;
@@ -45,10 +44,10 @@ import org.modelio.diagram.elements.core.commands.FitToMinSizeCommand;
 import org.modelio.diagram.elements.core.figures.IBrushOptionsSupport;
 import org.modelio.diagram.elements.core.figures.IPenOptionsSupport;
 import org.modelio.diagram.elements.core.link.IAnchorModelProvider;
+import org.modelio.diagram.elements.core.link.anchors.RectangleNodeAnchorProvider;
 import org.modelio.diagram.elements.core.model.IGmObject;
 import org.modelio.diagram.elements.core.node.DefaultDragTrackerProvider;
 import org.modelio.diagram.elements.core.node.IDragTrackerProvider;
-import org.modelio.diagram.elements.core.node.RectangleNodeAnchorProvider;
 import org.modelio.diagram.elements.core.policies.DefaultDeleteNodeEditPolicy;
 import org.modelio.diagram.elements.core.policies.DefaultElementDropEditPolicy;
 import org.modelio.diagram.elements.core.policies.DelegatingDirectEditionEditPolicy;
@@ -78,9 +77,10 @@ public abstract class NodeDrawingEditPart extends AbstractGraphicalEditPart impl
      * Constructor.
      */
     @objid ("d454239c-f2cf-47a6-a654-326ceb099010")
-    public NodeDrawingEditPart() {
+    public  NodeDrawingEditPart() {
         super();
         this.dragTrackerProvider = new DefaultDragTrackerProvider(this);
+        
     }
 
     @objid ("5c381a89-6342-4d4d-94dc-6bbf484d4b53")
@@ -88,11 +88,11 @@ public abstract class NodeDrawingEditPart extends AbstractGraphicalEditPart impl
     public void activate() {
         super.activate();
         getModel().addPropertyChangeListener(this);
+        
     }
 
     /**
      * Create a serializable anchor model from the given anchor.
-     * 
      * @param anchor a figure anchor
      * @return an anchor model.
      */
@@ -107,6 +107,7 @@ public abstract class NodeDrawingEditPart extends AbstractGraphicalEditPart impl
     public void deactivate() {
         super.deactivate();
         getModel().removePropertyChangeListener(this);
+        
     }
 
     /**
@@ -116,7 +117,6 @@ public abstract class NodeDrawingEditPart extends AbstractGraphicalEditPart impl
      * Extends {@link AbstractGraphicalEditPart#getAdapter(Class)} to support {@link IGmObject},
      * {@link GmDrawing} and their subclasses.
      * @see IAdaptable#getAdapter(Class)
-     * 
      * @param adapter the adapter class to look up
      * @return a object castable to the given class, or <code>null</code> if this object does not have an adapter for
      * the given class
@@ -182,7 +182,6 @@ public abstract class NodeDrawingEditPart extends AbstractGraphicalEditPart impl
 
     /**
      * To be redefined if the node should not be resizeable.
-     * 
      * @return <code>true</code> if the figure should be resizeable else <code>false</code>.
      */
     @objid ("0f435f58-46af-4b9c-b75a-4437e2c3b03e")
@@ -241,6 +240,7 @@ public abstract class NodeDrawingEditPart extends AbstractGraphicalEditPart impl
             }
         }
         super.performRequest(req);
+        
     }
 
     @objid ("bdbdd1c5-02bb-4afc-b369-82bfcdc3e736")
@@ -266,6 +266,7 @@ public abstract class NodeDrawingEditPart extends AbstractGraphicalEditPart impl
         default:
             break;
         }
+        
     }
 
     @objid ("9b32af8c-ec82-4ad8-91de-9b38ef662395")
@@ -284,11 +285,11 @@ public abstract class NodeDrawingEditPart extends AbstractGraphicalEditPart impl
             }
         }*/
         super.removeNotify();
+        
     }
 
     /**
      * Changes the current {@link IDragTrackerProvider} used by this edit part.
-     * 
      * @param value the new {@link IDragTrackerProvider} to be used by this edit part.
      */
     @objid ("63e477d3-574c-417e-b3e2-16a2fdbb4bb0")
@@ -296,6 +297,7 @@ public abstract class NodeDrawingEditPart extends AbstractGraphicalEditPart impl
         // Automatically generated method. Please delete this comment before
         // entering specific code.
         this.dragTrackerProvider = value;
+        
     }
 
     @objid ("98a9df6e-bef2-409e-b737-dd858193bd4c")
@@ -305,6 +307,7 @@ public abstract class NodeDrawingEditPart extends AbstractGraphicalEditPart impl
         installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE, new DelegatingDirectEditionEditPolicy());
         installEditPolicy(EditPolicy.COMPONENT_ROLE, new DefaultDeleteNodeEditPolicy());
         installEditPolicy(ModelElementDropRequest.TYPE, new DefaultElementDropEditPolicy());
+        
     }
 
     @objid ("9b362757-b131-44c8-8aa9-ba8cb83d06a7")
@@ -327,7 +330,6 @@ public abstract class NodeDrawingEditPart extends AbstractGraphicalEditPart impl
 
     /**
      * Convenience method to retrieve the model style.
-     * 
      * @return the model style.
      */
     @objid ("3b360802-5569-4c7c-8557-885271bec8e8")
@@ -346,7 +348,6 @@ public abstract class NodeDrawingEditPart extends AbstractGraphicalEditPart impl
      * StyleKey are looked up by MetaKey.
      * <p>
      * Often called in {@link #createFigure()} and after a style change.
-     * 
      * @param aFigure The figure to update, should be {@link #getFigure()}.
      * @param style The style to update from, usually {@link #getModelStyle()}
      */
@@ -406,6 +407,7 @@ public abstract class NodeDrawingEditPart extends AbstractGraphicalEditPart impl
             }
             
         }
+        
     }
 
     @objid ("cf5cf4e7-d23d-4d46-9ce7-0e1a33d45c33")
@@ -417,6 +419,7 @@ public abstract class NodeDrawingEditPart extends AbstractGraphicalEditPart impl
         final GmNodeDrawing model = getModel();
         
         fig.getParent().setConstraint(fig, model.getLayoutData());
+        
     }
 
     @objid ("21a39b32-0d85-4f96-9873-ec12624b9d51")
@@ -443,11 +446,11 @@ public abstract class NodeDrawingEditPart extends AbstractGraphicalEditPart impl
             // Run fit to content to the found edit part.
             new FitToMinSizeCommand(graphicEditPart).execute();
         }
+        
     }
 
     /**
      * Tells whether the figure of the given edit part contains the given point.
-     * 
      * @param editPart A graphic edit part
      * @param aPoint a point in absolute coordinates
      * @return <i>true</i> if the edit part figure contains the point, else <i>false</i>

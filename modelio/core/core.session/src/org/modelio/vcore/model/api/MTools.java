@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model.api;
 
 import java.util.Map;
@@ -54,13 +53,14 @@ public class MTools {
     @objid ("91d96560-306f-46ed-b362-872ee9c55d52")
     private static IAuthTool authTool;
 
+    
     @mdl.prop
     @objid ("7018434a-7149-4e44-b20a-c190268257be")
-    private final IElementConfiguratorService configurator;
+    public final IElementConfiguratorService configurator;
 
     @mdl.propgetter
     public IElementConfiguratorService getConfigurator() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.configurator;
     }
 
@@ -78,39 +78,41 @@ public class MTools {
     @objid ("0db9ca95-89ab-4c32-9485-fe94fe01b2fb")
     private static IModelTool modelTool;
 
+    
     @mdl.prop
     @objid ("975cb1da-d241-4790-b51e-831e5b4f8451")
-    private final IElementNamerService namer;
+    public final IElementNamerService namer;
 
     @mdl.propgetter
     public IElementNamerService getNamer() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.namer;
     }
 
+    
     @mdl.prop
     @objid ("2cae1294-df9a-44b4-af8e-16209deefb14")
-    private final IRepositoryContentInitializerService populator;
+    public final IRepositoryContentInitializerService populator;
 
     @mdl.propgetter
     public IRepositoryContentInitializerService getPopulator() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.populator;
     }
 
+    
     @mdl.prop
     @objid ("b665e985-19b1-415e-b1db-ae56b94cb914")
-    private final IRepositoryRootGetterService rootGetter;
+    public final IRepositoryRootGetterService rootGetter;
 
     @mdl.propgetter
     public IRepositoryRootGetterService getRootGetter() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.rootGetter;
     }
 
     /**
      * Get the model tools from a model object.
-     * 
      * @param obj a model object
      * @return the tools for the project of this model object.
      */
@@ -121,7 +123,6 @@ public class MTools {
 
     /**
      * Get the model tools for a project.
-     * 
      * @param session an opened core session.
      * @return the tools for this project.
      */
@@ -151,7 +152,6 @@ public class MTools {
 
     /**
      * Get the service used to get a model factory.
-     * 
      * @return the model factories service.
      * @since 3.6
      */
@@ -162,7 +162,6 @@ public class MTools {
 
     /**
      * Get the service used to get a model factory.
-     * 
      * @return the model factories service.
      * @deprecated renamed to {@link #getModelFactories()} since 3.6 .
      */
@@ -176,10 +175,9 @@ public class MTools {
      * Get a specific model factory.
      * <p>
      * This is a convenience method replacing <code>{@link #getModelFactories()}.{@link IModelFactoryService#getFactory(Class) getFactory(Class<? extends IModelFactory>)}</code>
-     * 
      * @param factoryCls the model factory interface class.
      * @return the matching model factory
-     * @throws java.lang.IllegalArgumentException if there is no model factory implementing the class or interface.
+     * @throws IllegalArgumentException if there is no model factory implementing the class or interface.
      */
     @objid ("945d9d46-2ed5-429e-908f-c7998cd9ddd9")
     public <T extends IModelFactory> T getModelFactory(java.lang.Class<T> factoryCls) throws IllegalArgumentException {
@@ -198,7 +196,6 @@ public class MTools {
      * Initialize {@link MTools} so that {@link #getModelTool()} and {@link #getAuthTool()} work.
      * <p>
      * This method should be called by GProject on first open.
-     * 
      * @param modelTool the model tool
      * @param authTool the auth tool
      */
@@ -216,22 +213,23 @@ public class MTools {
         
         MTools.authTool = authTool;
         MTools.modelTool = modelTool;
+        
     }
 
     /**
      * Private constructor.
      * <p>
      * Builds all project related tools.
-     * 
      * @param proj the related project
      */
     @objid ("39f94803-cd04-479d-8745-c361c0d011da")
-    private MTools(ICoreSession proj) {
+    private  MTools(ICoreSession proj) {
         this.namer = new ElementNamer();
         this.populator = new UmlFragmentContentInitializer();
         this.configurator = new ElementConfigurator();
         this.rootGetter = new CompositionRootGetter(proj);
         this.modelFactory = new ModelFactory(proj);
+        
     }
 
 }

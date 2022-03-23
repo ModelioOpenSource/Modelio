@@ -17,14 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.node;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.gef.EditPart;
@@ -34,11 +31,8 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gef.tools.AbstractTool;
 import org.eclipse.gef.tools.DragEditPartsTracker;
-import org.eclipse.gef.tools.ToolUtilities;
 import org.eclipse.swt.graphics.Cursor;
 import org.modelio.diagram.elements.core.commands.DefaultReparentElementCommand;
-import org.modelio.diagram.elements.core.link.LinkEditPart;
-import org.modelio.diagram.elements.core.model.IGmDiagram;
 import org.modelio.diagram.elements.core.requests.NavigationRequest;
 import org.modelio.platform.ui.gef.SharedCursors2;
 
@@ -54,11 +48,10 @@ public class GmNodeDragTracker extends DragEditPartsTracker {
 
     /**
      * Constructs a new GmNodeDragTracker with the given source edit part.
-     * 
      * @param sourceEditPart the source edit part.
      */
     @objid ("808e6ab0-1dec-11e2-8cad-001ec947c8cc")
-    public GmNodeDragTracker(EditPart sourceEditPart) {
+    public  GmNodeDragTracker(EditPart sourceEditPart) {
         super(sourceEditPart);
     }
 
@@ -100,58 +93,13 @@ public class GmNodeDragTracker extends DragEditPartsTracker {
     @Override
     protected Collection<?> getExclusionSet() {
         if (this.exclusionSet == null) {
-            List<?> set = getOperationSet();
+            List<GraphicalEditPart> set = getOperationSet();
             this.exclusionSet = new ArrayList<>(set.size() + 1);
-            for (int i = 0; i < set.size(); i++) {
-                GraphicalEditPart editpart = (GraphicalEditPart) set.get(i);
+            for (GraphicalEditPart editpart : set) {
                 this.exclusionSet.add(editpart.getFigure());
             }
         }
         return this.exclusionSet;
-    }
-
-    @objid ("8090cce3-1dec-11e2-8cad-001ec947c8cc")
-    @Override
-    protected List<?> createOperationSet() {
-        List<Object> operationSet = super.createOperationSet();
-        
-        // Add all links :
-        // - linking any two nodes that are in that list or have an ancestor in that list
-        // - understanding the request
-        Set<Object> linksToAdd = new HashSet<>();
-        do {
-            linksToAdd.clear();
-            computeAllLinksFor(operationSet, linksToAdd);
-            operationSet.addAll(linksToAdd);
-            // Do it again if some links were added (this might trigger some new links, because of links on links!).
-        } while (!linksToAdd.isEmpty());
-        return operationSet;
-    }
-
-    @objid ("8090ccea-1dec-11e2-8cad-001ec947c8cc")
-    protected void computeAllLinksFor(final List<Object> operationSet, final Set<Object> linksToAdd) {
-        Set<GraphicalEditPart> transitiveChildren = new HashSet<>();
-        for (Object object : operationSet) {
-            if (object instanceof GraphicalEditPart) {
-                getAllChildrenInDiagram((GraphicalEditPart) object, transitiveChildren);
-            }
-        }
-        for (GraphicalEditPart child : transitiveChildren) {
-            List<GraphicalEditPart> links = child.getSourceConnections();
-            for (GraphicalEditPart link : links) {
-                if (isLinkToInclude(link, operationSet)) {
-                    linksToAdd.add(link);
-                }
-            }
-        
-            links = child.getTargetConnections();
-            for (GraphicalEditPart link : links) {
-                if (isLinkToInclude(link, operationSet)) {
-                    linksToAdd.add(link);
-                }
-        
-            }
-        }
     }
 
     @objid ("8090ccf4-1dec-11e2-8cad-001ec947c8cc")
@@ -199,44 +147,7 @@ public class GmNodeDragTracker extends DragEditPartsTracker {
         NavigationRequest request = new NavigationRequest();
         request.setLocation(getLocation());
         getSourceEditPart().performRequest(request);
-    }
-
-    @objid ("9bcaea2f-ed47-4568-9d2d-5e4764c83a18")
-    private boolean isLinkToInclude(GraphicalEditPart link, final List<Object> operationSet) {
-        if (link instanceof LinkEditPart && !operationSet.contains(link)) {
-            LinkEditPart linkEditPart = (LinkEditPart) link;
-            EditPart linkSource = linkEditPart.getSource();
-            EditPart linkTarget = linkEditPart.getTarget();
-            boolean sourceInSet = linkSource == null || ToolUtilities.isAncestorContainedIn(operationSet,
-                    linkSource);
-            boolean targetInSet = linkTarget == null || ToolUtilities.isAncestorContainedIn(operationSet,
-                    linkTarget);
         
-            if (sourceInSet && targetInSet && linkEditPart.understandsRequest(getTargetRequest())) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    /**
-     * Returns the transitive child edit part set of the given parent <code>GraphicalEditPart</code>.
-     * 
-     * Prunes embedded diagram edit parts from the result.
-     * 
-     * @param parentEditPart the parent graphical edit part for which to retrieve the transitive child edit part set.
-     * @return the transitive child edit part set
-     */
-    @objid ("eade2183-e87c-47d4-b1e0-aa70f2eccc34")
-    protected static Set<GraphicalEditPart> getAllChildrenInDiagram(GraphicalEditPart parentEditPart, Set<GraphicalEditPart> transitiveChildren) {
-        List<GraphicalEditPart> children = parentEditPart.getChildren();
-        transitiveChildren.addAll(children);
-        for (GraphicalEditPart child : children) {
-            if (!(child.getModel() instanceof IGmDiagram)) {
-                getAllChildrenInDiagram(child, transitiveChildren);
-            }
-        }
-        return transitiveChildren;
     }
 
 }

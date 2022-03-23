@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.association;
 
 import java.util.List;
@@ -123,20 +122,19 @@ public class GmAssociation extends GmLink {
      * Constructor for deserialization only.
      */
     @objid ("33ea68bf-55b7-11e2-877f-002564c97630")
-    public GmAssociation() {
+    public  GmAssociation() {
         // Nothing to do.
     }
 
     /**
      * Creates a GmAssociation.
-     * 
      * @param diagram The diagram
      * @param role The represented association role, may be null
      * @param roleRef The represented association role reference, must not be null
      * @param associationRef The represented association reference, must not be null
      */
     @objid ("33ea68c2-55b7-11e2-877f-002564c97630")
-    public GmAssociation(IGmDiagram diagram, AssociationEnd role, MRef roleRef, MRef associationRef) {
+    public  GmAssociation(IGmDiagram diagram, AssociationEnd role, MRef roleRef, MRef associationRef) {
         super(diagram, associationRef);
         this.roleRef = roleRef;
         this.sourceRole = role;
@@ -179,6 +177,7 @@ public class GmAssociation extends GmLink {
             addExtension(ExtensionLocation.MiddleSE, IGmLink.ROLE_MAIN_LABEL, new GmAssociationLabel(diagram, associationRef));
         
         }
+        
     }
 
     /**
@@ -219,7 +218,6 @@ public class GmAssociation extends GmLink {
      * Get the represented association role.
      * <p>
      * Returns null if the represented role is not in the model.
-     * 
      * @return the represented association role.
      */
     @objid ("33ea68ed-55b7-11e2-877f-002564c97630")
@@ -290,6 +288,7 @@ public class GmAssociation extends GmLink {
         
         // post change event
         firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, null, this);
+        
     }
 
     @objid ("33ebef7d-55b7-11e2-877f-002564c97630")
@@ -299,6 +298,7 @@ public class GmAssociation extends GmLink {
         out.writeProperty("representedRole", this.roleRef);
         
         writeMinorVersion(out, "GmAssociation.", GmAssociation.MINOR_VERSION);
+        
     }
 
     /**
@@ -333,11 +333,11 @@ public class GmAssociation extends GmLink {
             break;
         }
         }
+        
     }
 
     /**
      * Get the represented association role reference.
-     * 
      * @return the represented association role reference.
      */
     @objid ("33ebef8f-55b7-11e2-877f-002564c97630")
@@ -360,6 +360,7 @@ public class GmAssociation extends GmLink {
             this.fromNavigable = false;
             this.toNavigable = false;
         }
+        
     }
 
     /**
@@ -389,6 +390,7 @@ public class GmAssociation extends GmLink {
             removeExtension(oldLabel);
             oldLabel.delete();
         }
+        
     }
 
     /**
@@ -412,6 +414,7 @@ public class GmAssociation extends GmLink {
                 }
             }
         }
+        
     }
 
     @objid ("ffe53908-abd2-4f03-818a-26bd78bf09c6")
@@ -436,6 +439,7 @@ public class GmAssociation extends GmLink {
         }
         
         updateNavigability();
+        
     }
 
     @objid ("f06bf161-85c7-4290-9590-26149bf2be5a")
@@ -480,6 +484,7 @@ public class GmAssociation extends GmLink {
             }
         
         }
+        
     }
 
 }

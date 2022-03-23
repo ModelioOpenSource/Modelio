@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.enumeration;
 
 import java.util.Collections;
@@ -64,26 +63,25 @@ public class GmEnum extends GmTemplateContainer {
     private static final String IMAGE_LABEL_ROLE = "ImageLabel";
 
     @objid ("5c91b1f1-5bd5-11e2-9e33-00137282c51b")
-     static final EnumStructuredStyleKeys STRUCTURED_KEYS = new EnumStructuredStyleKeys();
+    static final EnumStructuredStyleKeys STRUCTURED_KEYS = new EnumStructuredStyleKeys();
 
     @objid ("5c91b1f3-5bd5-11e2-9e33-00137282c51b")
-     static final EnumSimpleStyleKeys SIMPLE_KEYS = new EnumSimpleStyleKeys();
+    static final EnumSimpleStyleKeys SIMPLE_KEYS = new EnumSimpleStyleKeys();
 
     @objid ("5c94144b-5bd5-11e2-9e33-00137282c51b")
-     static final EnumImageStyleKeys IMAGE_KEYS = new EnumImageStyleKeys();
+    static final EnumImageStyleKeys IMAGE_KEYS = new EnumImageStyleKeys();
 
     @objid ("3a6c5345-58f1-44eb-98ea-6b82a06e4c23")
-     static final EnumUserImageStyleKeys USERIMAGE_KEYS = new EnumUserImageStyleKeys();
+    static final EnumUserImageStyleKeys USERIMAGE_KEYS = new EnumUserImageStyleKeys();
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the class is unmasked.
      * @param el the unmasked class.
      * @param ref a reference to the unmasked class.
      */
     @objid ("34d8725c-55b7-11e2-877f-002564c97630")
-    public GmEnum(IGmDiagram diagram, Enumeration el, MRef ref) {
+    public  GmEnum(IGmDiagram diagram, Enumeration el, MRef ref) {
         super(diagram, new GmEnumPrimaryNode(diagram, ref), ref);
         this.element = el;
         
@@ -92,6 +90,7 @@ public class GmEnum extends GmTemplateContainer {
         imageModeHeader.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         
         super.addChild(imageModeHeader);
+        
     }
 
     @objid ("34d87268-55b7-11e2-877f-002564c97630")
@@ -138,13 +137,14 @@ public class GmEnum extends GmTemplateContainer {
         default:
             return Collections.emptyList();
         }
+        
     }
 
     /**
      * Empty constructor needed for deserialization.
      */
     @objid ("34d9f8e8-55b7-11e2-877f-002564c97630")
-    public GmEnum() {
+    public  GmEnum() {
         // Nothing specific to do.
     }
 
@@ -169,6 +169,7 @@ public class GmEnum extends GmTemplateContainer {
             break;
         }
         }
+        
     }
 
     @objid ("34d9f8f1-55b7-11e2-877f-002564c97630")
@@ -190,6 +191,7 @@ public class GmEnum extends GmTemplateContainer {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmEnum.", GmEnum.MINOR_VERSION);
+        
     }
 
     @objid ("34d9f905-55b7-11e2-877f-002564c97630")
@@ -202,6 +204,7 @@ public class GmEnum extends GmTemplateContainer {
         imageModeHeader.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         
         super.addChild(imageModeHeader, 1);
+        
     }
 
     @objid ("34d9f90a-55b7-11e2-877f-002564c97630")
@@ -214,6 +217,7 @@ public class GmEnum extends GmTemplateContainer {
     private void read_1(final IDiagramReader in) {
         super.read(in);
         this.element = (Enumeration) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("34db7f7b-55b7-11e2-877f-002564c97630")
@@ -229,6 +233,7 @@ public class GmEnum extends GmTemplateContainer {
                 ret.remove(imageModeHeader);
                 break;
             }
+            case USER_IMAGE:
             case IMAGE:
             default: {
                 break;
@@ -241,7 +246,6 @@ public class GmEnum extends GmTemplateContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -252,11 +256,11 @@ public class GmEnum extends GmTemplateContainer {
         return "body content as satellite".equals(childNode.getRoleInComposition())
                                                 || GmPortContainer.SATELLITE_ROLE.equals(role)
                                                 || GmEnum.IMAGE_LABEL_ROLE.equals(role);
+        
     }
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */

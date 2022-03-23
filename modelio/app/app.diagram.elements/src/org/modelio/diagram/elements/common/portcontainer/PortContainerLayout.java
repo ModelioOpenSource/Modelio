@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.portcontainer;
 
 import java.util.HashMap;
@@ -67,7 +66,6 @@ public class PortContainerLayout extends AbstractLayout {
 
     /**
      * Returns the current constraint for the mainNodeFigure.
-     * 
      * @return the current constraint for the mainNodeFigure if found, <code>null</code> otherwise.
      */
     @objid ("7ef91aed-1dec-11e2-8cad-001ec947c8cc")
@@ -112,6 +110,7 @@ public class PortContainerLayout extends AbstractLayout {
     public void invalidate() {
         this.minimumSize = null;
         super.invalidate();
+        
     }
 
     /**
@@ -149,6 +148,7 @@ public class PortContainerLayout extends AbstractLayout {
         if (mainNodeOriginalConstraint != null) {
             setConstraint(this.mainNodeFigure, mainNodeOriginalConstraint);
         }
+        
     }
 
     @objid ("7efb7d30-1dec-11e2-8cad-001ec947c8cc")
@@ -156,6 +156,7 @@ public class PortContainerLayout extends AbstractLayout {
     public void remove(IFigure figure) {
         super.remove(figure);
         this.constraints.remove(figure);
+        
     }
 
     /**
@@ -170,11 +171,11 @@ public class PortContainerLayout extends AbstractLayout {
                 !(newConstraint instanceof Border)) {
             this.constraints.put(figure, newConstraint);
         }
+        
     }
 
     /**
      * Sets the main node figure.
-     * 
      * @param mainNodeFigure the main node figure.
      */
     @objid ("7efb7d3e-1dec-11e2-8cad-001ec947c8cc")
@@ -225,6 +226,7 @@ public class PortContainerLayout extends AbstractLayout {
             // Take insets and border into account.
             return new Dimension(d.width + insets.getWidth(), d.height + insets.getHeight()).union(getBorderPreferredSize(f));
         }
+        
     }
 
     /**
@@ -262,6 +264,7 @@ public class PortContainerLayout extends AbstractLayout {
         this.constraints.put(this.mainNodeFigure, mainNodeConstraint);
         // Take insets and border into account.
         this.minimumSize = new Dimension(d.width + insets.getWidth(), d.height + insets.getHeight()).union(getBorderPreferredSize(container));
+        
     }
 
     @objid ("7efddfb9-1dec-11e2-8cad-001ec947c8cc")
@@ -275,6 +278,7 @@ public class PortContainerLayout extends AbstractLayout {
             // Temporarily modify the mainNode constraint
             return mainNodeConstraint.getCopy().setSize(mainNode.getMinimumSize());
         }
+        
     }
 
     @objid ("7f0041cb-1dec-11e2-8cad-001ec947c8cc")
@@ -288,11 +292,11 @@ public class PortContainerLayout extends AbstractLayout {
             // Temporarily modify the mainNode constraint
             return mainNodeConstraint.getCopy().setSize(mainNode.getPreferredSize());
         }
+        
     }
 
     /**
      * Returns the origin for the given figure.
-     * 
      * @param parent the figure whose origin is requested
      * @return the origin
      */
@@ -303,7 +307,6 @@ public class PortContainerLayout extends AbstractLayout {
 
     /**
      * Computes the bounds in coordinates relative to the parent that covers every children.
-     * 
      * @param container the figure for which to compute bounds.
      * @return the bounds in coordinates relative to the parent that covers every children.
      */
@@ -341,7 +344,6 @@ public class PortContainerLayout extends AbstractLayout {
 
     /**
      * Get the border on which the given port child figure is.
-     * 
      * @param portFigure the child figure
      * @return the border
      */
@@ -355,11 +357,11 @@ public class PortContainerLayout extends AbstractLayout {
         } else {
             return ((PortConstraint) c).getReferenceBorder();
         }
+        
     }
 
     /**
      * Determine which border is closest of the centre of the passed rectangle.
-     * 
      * @param container the reference container.
      * @param requestedBounds the bounds to test.
      * @return the border closest to the centre of the passed rectangle.
@@ -381,11 +383,11 @@ public class PortContainerLayout extends AbstractLayout {
             portConstraint.setReferenceBorder(determineReferenceBorder(container,
                     portConstraint.getRequestedBounds()));
         }
+        
     }
 
     /**
      * Returned a "fixed" copy of the requested bounds on the reference border.
-     * 
      * @param child the child figure.
      * @param portConstraint the constraint.
      * @return the fixed bounds.
@@ -504,7 +506,6 @@ public class PortContainerLayout extends AbstractLayout {
 
     /**
      * Determine which border is closest of the passed point.
-     * 
      * @param container the reference container
      * @param requestedCenter the point to test.
      * @return the border closest to the centre of the passed rectangle.
@@ -559,7 +560,6 @@ public class PortContainerLayout extends AbstractLayout {
 
     /**
      * Copy constructor that copies layout constraints for the given container figure.
-     * 
      * @param hostFigure a port container figure
      * @return the lyaout manager copy.
      */

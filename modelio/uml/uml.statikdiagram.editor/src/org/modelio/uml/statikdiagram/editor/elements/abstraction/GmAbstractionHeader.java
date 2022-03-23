@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.abstraction;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,12 +44,11 @@ public class GmAbstractionHeader extends GmDefaultModelElementHeader {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
     @objid ("384dbae0-b51c-418d-a612-f24db0c610b2")
-    public GmAbstractionHeader(IGmDiagram diagram, MRef relatedRef) {
+    public  GmAbstractionHeader(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -58,7 +56,8 @@ public class GmAbstractionHeader extends GmDefaultModelElementHeader {
      * For deserialization only.
      */
     @objid ("901ff967-e4c6-4953-ac33-5d5c03be56f1")
-    public GmAbstractionHeader() {
+    public  GmAbstractionHeader() {
+        
     }
 
     @objid ("18080172-15c6-4846-8cbb-4a6ad15335cf")
@@ -78,6 +77,7 @@ public class GmAbstractionHeader extends GmDefaultModelElementHeader {
                 break;
             }
         }
+        
     }
 
     @objid ("240aa6c4-0a07-4d21-84e0-184901cb6a7e")
@@ -87,6 +87,7 @@ public class GmAbstractionHeader extends GmDefaultModelElementHeader {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmAbstractionHeader.", GmAbstractionHeader.MINOR_VERSION);
+        
     }
 
     @objid ("5a853233-3f17-42cd-b65e-16d94ab1d466")

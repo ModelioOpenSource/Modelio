@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -63,15 +62,15 @@ public class RoundedBoxFigure extends Figure implements IBrushOptionsSupport, IP
      * Creates a rounded box figure.
      */
     @objid ("7fabeb25-1dec-11e2-8cad-001ec947c8cc")
-    public RoundedBoxFigure() {
+    public  RoundedBoxFigure() {
         this.brushOptions = new BrushOptions();
         this.penOptions = new PenOptions();
         setBorder(new RoundedRectangleBorder(null, 1));
+        
     }
 
     /**
      * Get the radius value adjusted so that it is not too big for the given rectangle.
-     * 
      * @param rect The rectangle the radius must be adjusted to.
      * @return the adjusted radius.
      */
@@ -155,6 +154,7 @@ public class RoundedBoxFigure extends Figure implements IBrushOptionsSupport, IP
         setBackgroundColor(fillColor);
         this.brushOptions.fillColor = fillColor;
         this.repaint();
+        
     }
 
     @objid ("7fae4d75-1dec-11e2-8cad-001ec947c8cc")
@@ -166,6 +166,7 @@ public class RoundedBoxFigure extends Figure implements IBrushOptionsSupport, IP
         this.penOptions.lineColor = lineColor;
         ((LineBorder) getBorder()).setColor(lineColor);
         this.repaint();
+        
     }
 
     @objid ("7fae4d79-1dec-11e2-8cad-001ec947c8cc")
@@ -176,6 +177,7 @@ public class RoundedBoxFigure extends Figure implements IBrushOptionsSupport, IP
             ((LineBorder) getBorder()).setStyle(linePattern.toSWTConstant());
             this.repaint();
         }
+        
     }
 
     @objid ("7fae4d7d-1dec-11e2-8cad-001ec947c8cc")
@@ -187,11 +189,11 @@ public class RoundedBoxFigure extends Figure implements IBrushOptionsSupport, IP
         this.penOptions.lineWidth = lineWidth;
         ((LineBorder) getBorder()).setWidth(lineWidth);
         this.repaint();
+        
     }
 
     /**
      * Set the new radius.
-     * 
      * @param value the new radius
      */
     @objid ("7fae4d81-1dec-11e2-8cad-001ec947c8cc")
@@ -199,6 +201,7 @@ public class RoundedBoxFigure extends Figure implements IBrushOptionsSupport, IP
         // Automatically generated method. Please delete this comment before
         // entering specific code.
         this.radius = value;
+        
     }
 
     @objid ("7fae4d85-1dec-11e2-8cad-001ec947c8cc")
@@ -209,6 +212,7 @@ public class RoundedBoxFigure extends Figure implements IBrushOptionsSupport, IP
         }
         this.penOptions.textColor = textColor;
         this.repaint();
+        
     }
 
     @objid ("7fae4d89-1dec-11e2-8cad-001ec947c8cc")
@@ -219,6 +223,7 @@ public class RoundedBoxFigure extends Figure implements IBrushOptionsSupport, IP
         }
         this.penOptions.textFont = textFont;
         this.repaint();
+        
     }
 
     @objid ("7fae4d8d-1dec-11e2-8cad-001ec947c8cc")
@@ -229,6 +234,7 @@ public class RoundedBoxFigure extends Figure implements IBrushOptionsSupport, IP
         }
         this.brushOptions.useGradient = useGradient;
         this.repaint();
+        
     }
 
     @objid ("7fae4d91-1dec-11e2-8cad-001ec947c8cc")
@@ -290,6 +296,7 @@ public class RoundedBoxFigure extends Figure implements IBrushOptionsSupport, IP
         // adjustedRadius * 2, adjustedRadius * 2);
         // }
         graphics.restoreState();
+        
     }
 
     @objid ("7fae4d97-1dec-11e2-8cad-001ec947c8cc")
@@ -308,6 +315,7 @@ public class RoundedBoxFigure extends Figure implements IBrushOptionsSupport, IP
             this.brushOptions.alpha = alpha;
             this.repaint();
         }
+        
     }
 
     @objid ("db96871a-8231-4d40-9bd9-ff9fa6af3c65")
@@ -328,13 +336,12 @@ public class RoundedBoxFigure extends Figure implements IBrushOptionsSupport, IP
 
         /**
          * Constructs a RoundedRectangleBorder with the specified color and of the specified width.
-         * 
          * @param color The color of the border.
          * @param width The width of the border in pixels.
          * @since 2.0
          */
         @objid ("7fae4da0-1dec-11e2-8cad-001ec947c8cc")
-        public RoundedRectangleBorder(Color color, int width) {
+        public  RoundedRectangleBorder(Color color, int width) {
             super(color, width);
         }
 
@@ -354,11 +361,11 @@ public class RoundedBoxFigure extends Figure implements IBrushOptionsSupport, IP
             graphics.setLineStyle(getStyle());
             int borderRadius = ((RoundedBoxFigure) figure).getAdjustedRadius(AbstractBorder.tempRect);
             graphics.drawRoundRectangle(AbstractBorder.tempRect, borderRadius * 2, borderRadius * 2);
+            
         }
 
         /**
          * Returns the space used by the border for the figure provided as input. In this border all sides always have equal width.
-         * 
          * @param figure The figure this border belongs to
          * @return This border's insets
          */
@@ -376,6 +383,7 @@ public class RoundedBoxFigure extends Figure implements IBrushOptionsSupport, IP
             } else {
                 return new Insets(lineWidth);
             }
+            
         }
 
     }

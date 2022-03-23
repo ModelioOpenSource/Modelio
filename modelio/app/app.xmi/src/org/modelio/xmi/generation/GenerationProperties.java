@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.generation;
 
 import java.util.ArrayList;
@@ -111,6 +110,7 @@ public class GenerationProperties extends XMIProperties {
         if (!(this.exportedProfiles.contains(newProfile))) {
             this.exportedProfiles.add(newProfile);
         }
+        
     }
 
     @objid ("c442faee-ae80-4f4c-95f7-27d3e70ccfb0")
@@ -118,6 +118,7 @@ public class GenerationProperties extends XMIProperties {
         if (!this.stereotypesExported.contains(element)) {
             this.stereotypesExported.add(element);
         }
+        
     }
 
     @objid ("9a23bb1d-1118-42e6-8d60-4abfe8002238")
@@ -125,6 +126,7 @@ public class GenerationProperties extends XMIProperties {
         if (!this.sysMLElementExported.contains(element)) {
             this.sysMLElementExported.add(element);
         }
+        
     }
 
     @objid ("70ba6010-debf-4f44-b6dd-ada56337c4fc")
@@ -145,7 +147,6 @@ public class GenerationProperties extends XMIProperties {
     /**
      * This methods returns the list of Ecore classes corresponding to a given Modelio class name
      * @param ecoreClassName : the name of the Modelio class name
-     * 
      * @return the list of the corresponding Ecore class names
      */
     @objid ("8dcb6901-9236-4210-be12-bd7770a59219")
@@ -303,6 +304,7 @@ public class GenerationProperties extends XMIProperties {
         if (this.libraryExported != null){
             this.libraryExported.clear();
         }
+        
     }
 
     @objid ("4443f7f1-8686-4f52-832f-ec1466f3fc0f")
@@ -325,6 +327,7 @@ public class GenerationProperties extends XMIProperties {
             }
         
         }
+        
     }
 
     @objid ("a11ab043-8f81-4989-81ca-0e6aa6ab19ba")
@@ -336,11 +339,11 @@ public class GenerationProperties extends XMIProperties {
         } else {
             return false;
         }
+        
     }
 
     /**
      * This method allows to know if the Modelio annotation are available
-     * 
      * @return true if the imported XMI files contains Modelio annotations
      */
     @objid ("d051074a-a332-4d22-baeb-7e0ed37483ad")
@@ -392,6 +395,7 @@ public class GenerationProperties extends XMIProperties {
     public void setVersionExport(FormatExport version) {
         this.exportVersion = version;
         this.ecoreTypes = new EcoreTypes(version);
+        
     }
 
     @objid ("9076ed4e-ee50-49ba-89ac-6b1541d0869b")
@@ -402,6 +406,7 @@ public class GenerationProperties extends XMIProperties {
             }
         }
         this.exportedProfiles = new ArrayList<>();
+        
     }
 
     @objid ("b5aa4ff9-0070-4f5a-8412-a391b83d71fc")
@@ -412,10 +417,12 @@ public class GenerationProperties extends XMIProperties {
             }
             this.sysMLProfile = null;
         }
+        
     }
 
     @objid ("f491dbd5-7dd6-444a-b2f9-999c3c23acc3")
-    private GenerationProperties() {
+    private  GenerationProperties() {
+        
     }
 
     @objid ("9ad89e6f-0243-47b0-b8b2-268f9d3de1fb")
@@ -533,6 +540,7 @@ public class GenerationProperties extends XMIProperties {
         this.umlClassTabConvertion.put("Usage",  new ArrayList<String>(){{add("Usage");}});
         this.umlClassTabConvertion.put("UseCase",  new ArrayList<String>(){{add("UseCase");}});
         this.umlClassTabConvertion.put("UseCaseDependency",  new ArrayList<String>(){{add("Extend");add("Include");}});
+        
     }
 
     @objid ("09b74215-fde7-4796-a90e-5f662a48d6a0")
@@ -543,6 +551,7 @@ public class GenerationProperties extends XMIProperties {
         this.infraClassTabConvertion.put("Dependency",  new ArrayList<String>(){{add("Dependency"); add("Extend"); add("Include");}});
         this.infraClassTabConvertion.put("ModelElement",  new ArrayList<String>(){{add("NamedElement");}});
         this.infraClassTabConvertion.put("Stereotype",  new ArrayList<String>(){{add("Stereotype");}});
+        
     }
 
 }

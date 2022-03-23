@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.ramc;
 
 import java.io.Serializable;
@@ -61,39 +60,38 @@ public class ModelRef implements Serializable {
 
     /**
      * Creates a reference.
-     * 
      * @param mc The metaclass name.
      * @param tuuid The UUID
      */
     @objid ("89557d1f-5475-4fe8-a6e0-b1eacc11fe5e")
-    public ModelRef(String mc, String tuuid) {
+    public  ModelRef(String mc, String tuuid) {
         this.mc = mc;
         this.uuid = tuuid;
         this.name = "";
+        
     }
 
     /**
      * Creates a reference.
-     * 
      * @param mc The metaclass name.
      * @param tuuid The object universal identifier
      * @param name an object name, may be <code>null</code>.
      */
     @objid ("629151b6-e3b4-447b-acde-2576ca04ffdd")
-    public ModelRef(String mc, String tuuid, String name) {
+    public  ModelRef(String mc, String tuuid, String name) {
         this.mc = mc;
         this.uuid = tuuid;
         this.name = name;
+        
     }
 
     /**
      * Construct a MRef instance from a String whose format is the MRef.toString() format so that:<br>
      * given <i>mref</i> a MRef, <code>new MRef(mref.toString()).equals(mref)</code> is guaranteed to be <code>true</code>.
-     * 
      * @param s a string
      */
     @objid ("eac2fcf2-4526-4ab0-ab84-4b201533281e")
-    public ModelRef(String s) {
+    public  ModelRef(String s) {
         final Matcher m = pattern.matcher(s);
         
         if (m.matches()) {
@@ -110,6 +108,7 @@ public class ModelRef implements Serializable {
         } else {
             throw new IllegalArgumentException("Invalid MRef string: " + s);
         }
+        
     }
 
     @objid ("6659fae5-2345-45d2-9e01-edaaf4eb9d8c")

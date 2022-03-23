@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -25,7 +24,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 @objid ("3eba5fb2-d564-46af-a85a-c30f96e330f0")
 public class EConnectableElement extends EElement {
     @objid ("c1a36b51-d43f-4bc5-b86f-7e1f425104aa")
-    public EConnectableElement(org.eclipse.uml2.uml.ConnectableElement element) {
+    public  EConnectableElement(org.eclipse.uml2.uml.ConnectableElement element) {
         super(element);
     }
 

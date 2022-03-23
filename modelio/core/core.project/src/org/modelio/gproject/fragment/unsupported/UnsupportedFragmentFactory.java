@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.fragment.unsupported;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,7 +36,8 @@ public class UnsupportedFragmentFactory implements IFragmentFactory {
      * Singleton
      */
     @objid ("1fb53977-ac16-4a5c-b491-e3f21de112b5")
-    private UnsupportedFragmentFactory() {
+    private  UnsupportedFragmentFactory() {
+        
     }
 
     /**

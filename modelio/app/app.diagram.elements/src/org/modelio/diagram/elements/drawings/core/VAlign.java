@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.drawings.core;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,21 +30,24 @@ public enum VAlign {
     /**
      * Top
      */
-    Top (SWT.BEGINNING),
+    @objid ("ab520471-65e0-4997-83af-86bcd0999822")
+    Top(SWT.BEGINNING),
     /**
      * Center
      */
-    Center (SWT.CENTER),
+    @objid ("db65e702-752c-4bb4-b6a8-5bdaa9dbbff5")
+    Center(SWT.CENTER),
     /**
      * Bottom
      */
-    Bottom (SWT.END);
+    @objid ("b691cc13-75cf-46a0-bf57-b2dccb422e75")
+    Bottom(SWT.END);
 
     @objid ("86d26b0a-ce2d-45f5-a9c9-f29e45486722")
     private final int swtConst;
 
     @objid ("600338e2-1d20-4052-8f82-dc93c5334ba1")
-    VAlign(int swtConst) {
+     VAlign(int swtConst) {
         this.swtConst = swtConst;
     }
 

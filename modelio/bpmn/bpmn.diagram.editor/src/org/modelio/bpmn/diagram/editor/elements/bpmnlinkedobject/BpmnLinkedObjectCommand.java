@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnlinkedobject;
 
 import java.util.ArrayList;
@@ -30,8 +29,8 @@ import org.modelio.diagram.elements.common.linkednode.CreateLinkedNodeCommand;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
 import org.modelio.diagram.elements.core.link.GmPath;
 import org.modelio.diagram.elements.core.link.anchors.GmLinkAnchor;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmLink;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
@@ -63,11 +62,10 @@ public class BpmnLinkedObjectCommand extends CreateLinkedNodeCommand {
 
     /**
      * Creates a node creation command.
-     * 
      * @param context Details on the MObject and/or the node to create
      */
     @objid ("614e64c6-55b6-11e2-877f-002564c97630")
-    public BpmnLinkedObjectCommand(ModelioCreationContext context) {
+    public  BpmnLinkedObjectCommand(ModelioCreationContext context) {
         super(context);
     }
 
@@ -181,11 +179,11 @@ public class BpmnLinkedObjectCommand extends CreateLinkedNodeCommand {
         
             }
         }
+        
     }
 
     /**
      * Set the node inside which the node will be created.
-     * 
      * @param destNode The node in which the node will be created.
      */
     @objid ("614e64cf-55b6-11e2-877f-002564c97630")
@@ -196,7 +194,6 @@ public class BpmnLinkedObjectCommand extends CreateLinkedNodeCommand {
 
     /**
      * Set the node location.
-     * 
      * @param location The location in absolute coordinates.
      */
     @objid ("614e64d6-55b6-11e2-877f-002564c97630")
@@ -207,7 +204,6 @@ public class BpmnLinkedObjectCommand extends CreateLinkedNodeCommand {
 
     /**
      * set the node size.
-     * 
      * @param size The size of the node to create
      */
     @objid ("614e64db-55b6-11e2-877f-002564c97630")
@@ -218,7 +214,6 @@ public class BpmnLinkedObjectCommand extends CreateLinkedNodeCommand {
 
     /**
      * Set the parent element independently from the parent node.
-     * 
      * @param parentElement the parent element.
      */
     @objid ("614e64e0-55b6-11e2-877f-002564c97630")
@@ -229,7 +224,6 @@ public class BpmnLinkedObjectCommand extends CreateLinkedNodeCommand {
 
     /**
      * Set the exact source point of the link relative to the target node location.
-     * 
      * @param location the exact source point of the link.
      */
     @objid ("614e64e7-55b6-11e2-877f-002564c97630")
@@ -241,13 +235,13 @@ public class BpmnLinkedObjectCommand extends CreateLinkedNodeCommand {
      * Set the node on which the created node will be linked.
      * <p>
      * Set the parent element to be the represented element of the source node.
-     * 
      * @param sourceNode the source node.
      */
     @objid ("614e64eb-55b6-11e2-877f-002564c97630")
     public void setSourceNode(GmNodeModel sourceNode) {
         this.sourceNode = sourceNode;
         this.parentElement = sourceNode.getRelatedElement();
+        
     }
 
 }

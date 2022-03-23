@@ -17,11 +17,9 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.platform.model.ui.nattable.parts.data.INatValue;
 
 /**
  * Simple helper class computing a unique tag from an {@link INatValue} class.

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.production.process;
 
 import java.util.Map;
@@ -34,7 +33,7 @@ import org.modelio.vcore.session.impl.CoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("3aa46027-bfd2-4091-a249-7422d3419fca")
-public class AssociationNode implements IProductionNode<Note,TAssociation> {
+public class AssociationNode implements IProductionNode<Note, TAssociation> {
     @objid ("41f20879-8c8c-44e4-802d-35da4c5163c2")
     private Map<String, Object> elementsMap;
 
@@ -58,6 +57,7 @@ public class AssociationNode implements IProductionNode<Note,TAssociation> {
         } else {
             return factory.create(Note.class, context);
         }
+        
     }
 
     @objid ("d5a8f3c3-f177-4ac0-a90a-5bc07b3e3bd7")

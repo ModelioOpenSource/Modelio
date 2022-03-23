@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.parameter.impl;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -23,7 +22,7 @@ import org.modelio.api.module.context.configuration.IModuleUserConfiguration;
 @objid ("05ae8715-8fa2-11dd-bbe0-001ec947ccaf")
 public class StringParameterModel extends ParameterModel {
     @objid ("e47ebfa8-feb1-11dd-8b31-0014222a9f79")
-    public StringParameterModel(IModuleUserConfiguration conf, String name, String label, String description, String defaultValue) {
+    public  StringParameterModel(IModuleUserConfiguration conf, String name, String label, String description, String defaultValue) {
         super(conf, name, label, description, defaultValue);
     }
 

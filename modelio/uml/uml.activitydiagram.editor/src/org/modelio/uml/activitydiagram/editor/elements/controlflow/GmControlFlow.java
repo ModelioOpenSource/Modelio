@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.controlflow;
 
 import java.util.List;
@@ -77,13 +76,12 @@ public class GmControlFlow extends GmLink {
 
     /**
      * Initialize a control flow graphic model.
-     * 
      * @param diagram The owning diagram
      * @param controlflow The reference flow, may be null
      * @param ref The referenced flow reference, may not be null
      */
     @objid ("2a1e47f8-55b6-11e2-877f-002564c97630")
-    public GmControlFlow(IGmDiagram diagram, ControlFlow controlflow, MRef ref) {
+    public  GmControlFlow(IGmDiagram diagram, ControlFlow controlflow, MRef ref) {
         super(diagram, ref);
         
         this.element = controlflow;
@@ -97,13 +95,14 @@ public class GmControlFlow extends GmLink {
         
         constraint = new GmFractionalConnectionLocator(0.75, 0, 0, true);
         addExtension(new GmInformationFlowArrow(diagram, ref), GmControlFlow.ROLE_INFOFLOW_ARROW, constraint);
+        
     }
 
     /**
      * For deserialization only.
      */
     @objid ("2a1e4804-55b6-11e2-877f-002564c97630")
-    public GmControlFlow() {
+    public  GmControlFlow() {
         // Nothing to do.
     }
 
@@ -124,6 +123,7 @@ public class GmControlFlow extends GmLink {
     protected void readLink(IDiagramReader in) {
         super.readLink(in);
         this.element = (ControlFlow) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("2a1fce91-55b6-11e2-877f-002564c97630")
@@ -157,6 +157,7 @@ public class GmControlFlow extends GmLink {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmControlFlow.", GmControlFlow.MINOR_VERSION);
+        
     }
 
     @objid ("2a1fceb3-55b6-11e2-877f-002564c97630")
@@ -182,6 +183,7 @@ public class GmControlFlow extends GmLink {
             }
         
         }
+        
     }
 
 }

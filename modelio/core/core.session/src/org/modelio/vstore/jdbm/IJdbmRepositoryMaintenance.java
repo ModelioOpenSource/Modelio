@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.jdbm;
 
 import java.io.IOException;
@@ -31,9 +30,8 @@ import org.modelio.vbasic.progress.IModelioProgress;
 public interface IJdbmRepositoryMaintenance {
     /**
      * Defragments the repository and recover unused disk space.
-     * 
      * @param monitor a Modelio progress monitor
-     * @throws java.io.IOException in case of failure
+     * @throws IOException in case of failure
      */
     @objid ("5cdcea38-880f-4904-925a-cbe618374a40")
     void defragment(IModelioProgress monitor) throws IOException;

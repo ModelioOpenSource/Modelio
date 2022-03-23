@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.objectdiagram.editor.elements.factories;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,7 +38,7 @@ public class ObjectEditPartFactory implements EditPartFactory {
      * the default factory to use when structured mode is requested.
      */
     @objid ("9d664e15-55b6-11e2-877f-002564c97630")
-    private static final StructuredModeEditPartFactory structuredModeEditPartFactory = new StructuredModeEditPartFactory();
+    private final StructuredModeEditPartFactory structuredModeEditPartFactory = new StructuredModeEditPartFactory();
 
     @objid ("9d664e20-55b6-11e2-877f-002564c97630")
     @Override
@@ -50,7 +49,7 @@ public class ObjectEditPartFactory implements EditPartFactory {
             GmNodeModel node = (GmNodeModel) model;
             switch (node.getRepresentationMode()) {
             case STRUCTURED:
-                editPart = ObjectEditPartFactory.structuredModeEditPartFactory.createEditPart(context, model);
+                editPart = this.structuredModeEditPartFactory.createEditPart(context, model);
                 break;
             default:
                 editPart = null; // generically supported by standard factory
@@ -59,9 +58,10 @@ public class ObjectEditPartFactory implements EditPartFactory {
             return editPart;
         } else {
             // Link models are always in structured mode.
-            editPart = ObjectEditPartFactory.structuredModeEditPartFactory.createEditPart(context, model);
+            editPart = this.structuredModeEditPartFactory.createEditPart(context, model);
             return editPart;
         }
+        
     }
 
     /**

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.editor;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,7 @@ public class UseCaseDiagramEditor extends AbstractDiagramEditor {
     private static final String POPUP_ID = "org.modelio.uml.usecasediagram.editor.menu.popupmenu";
 
     @objid ("5e31c5fc-55b7-11e2-877f-002564c97630")
-    public UseCaseDiagramEditor() {
+    public  UseCaseDiagramEditor() {
         super();
     }
 

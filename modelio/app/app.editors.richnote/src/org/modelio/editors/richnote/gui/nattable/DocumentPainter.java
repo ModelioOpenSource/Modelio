@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.gui.nattable;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,7 +35,6 @@ import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Rectangle;
-import org.modelio.editors.richnote.gui.nattable.IDocumentNatValue;
 import org.modelio.editors.richnote.helper.RichNoteLabelProvider;
 import org.modelio.metamodel.uml.infrastructure.Document;
 import org.modelio.vcore.session.api.ICoreSession;
@@ -85,6 +83,7 @@ public class DocumentPainter extends AbstractCellPainter {
                 paintText(cellStyle, gc, bounds, text);
             }
         }
+        
     }
 
     @objid ("959ff72c-cda2-49ee-8f65-dd1e0137d4df")
@@ -108,6 +107,7 @@ public class DocumentPainter extends AbstractCellPainter {
                 SWT.DRAW_TRANSPARENT | SWT.DRAW_DELIMITER);
         
         gc.setClipping(originalClipping);
+        
     }
 
     @objid ("6075e213-c1f2-4e68-9f68-a05c43c3b1b8")
@@ -124,6 +124,7 @@ public class DocumentPainter extends AbstractCellPainter {
             gc.fillRectangle(bounds);
             gc.setBackground(originalBackground);
         }
+        
     }
 
     @objid ("e4182e4e-14a7-4e2c-9e0c-685272e1d117")
@@ -193,6 +194,7 @@ public class DocumentPainter extends AbstractCellPainter {
         gc.setFont(font);
         gc.setForeground(fg != null ? fg : GUIHelper.COLOR_LIST_FOREGROUND);
         gc.setBackground(bg != null ? bg : GUIHelper.COLOR_LIST_BACKGROUND);
+        
     }
 
     /**
@@ -200,7 +202,6 @@ public class DocumentPainter extends AbstractCellPainter {
      * given text is simply returned without modification. If the text does not
      * fit into the available space, it will be modified by cutting and adding
      * three dots.
-     * 
      * @param text the text to compute
      * @param gc the current GC
      * @param availableLength the available space
@@ -230,11 +231,10 @@ public class DocumentPainter extends AbstractCellPainter {
 
     /**
      * Build a new painter instance.
-     * 
      * @param session the model session, needed for mref lookup.
      */
     @objid ("1d70afe4-8326-4df2-8573-c14d9497e4d1")
-    public DocumentPainter(ICoreSession session) {
+    public  DocumentPainter(ICoreSession session) {
         this.session = session;
     }
 

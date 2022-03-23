@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.ui.views.infos;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.model.application.MApplication;
@@ -34,8 +33,8 @@ import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.model.application.ui.basic.MPartStack;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
-import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 import org.eclipse.e4.ui.workbench.modeling.EPartService;
+import org.eclipse.e4.ui.workbench.modeling.EPartService.PartState;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.swt.widgets.Composite;
 import org.modelio.app.project.ui.plugin.AppProjectUiExt;
@@ -83,7 +82,7 @@ public class ProjectInfosView {
      * the view.
      */
     @objid ("dc1da7b9-b10e-452d-9b3c-312b90f7f56a")
-     ProjectAdapter projectAdapter;
+    ProjectAdapter projectAdapter;
 
     @objid ("f030d7c5-f037-4f24-8bc0-6a4363b3902c")
     private ProjectPageView projectInfoPage;
@@ -92,14 +91,14 @@ public class ProjectInfosView {
      * C'tor
      */
     @objid ("53cee2b3-5dc3-4606-b936-46b03118172d")
-    public ProjectInfosView() {
+    public  ProjectInfosView() {
+        
     }
 
     /**
      * Creates the SWT controls.
      * <p>
      * Called by E4 injection.
-     * 
      * @param parent the parent composite.
      */
     @objid ("a2f2df54-85b8-43f2-a193-b8f0e4207630")
@@ -109,11 +108,11 @@ public class ProjectInfosView {
         this.projectInfoPage.createControls(parent);
         
         updateProjectInfoPage();
+        
     }
 
     /**
      * Workspace tree selection always comes as ProjectDescriptor.
-     * 
      * @param selection the project selected in the workspace browser
      */
     @objid ("deac0c58-836a-4407-907c-ec280e6bbbd3")
@@ -129,6 +128,7 @@ public class ProjectInfosView {
         }
         updateProjectInfoPage();
         updateBrowsers();
+        
     }
 
     @objid ("a5c926ee-b46c-48b0-8568-f7b5bb7eb4bd")
@@ -178,6 +178,7 @@ public class ProjectInfosView {
             }
             stack.setSelectedElement(stack.getChildren().get(0));
         }
+        
     }
 
     @objid ("4a4918f3-f579-4891-879e-a28b472175e1")
@@ -192,6 +193,7 @@ public class ProjectInfosView {
                 this.projectInfoPage.setUrl(null);
             }
         }
+        
     }
 
     @objid ("a6c093a9-b0f2-4fbe-91fa-a960331d5af7")

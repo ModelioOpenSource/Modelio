@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.participant;
 
 import java.beans.PropertyChangeEvent;
@@ -72,13 +71,13 @@ public class GmBpmnParticipantPrimaryNode extends GmNoStyleCompositeNode impleme
     private static final String MINOR_PREFIX = "GmBpmnParticipantPrimaryExpanded.";
 
     @objid ("31cdf934-a21d-4b1e-a1bf-dd204b576d60")
-     static final String ROLE_HEAD = "participant.head";
+    static final String ROLE_HEAD = "participant.head";
 
     @objid ("6bf2d8a6-9830-409b-9fae-a11b8ed06b98")
-     static final String ROLE_BODY = "participant.body";
+    static final String ROLE_BODY = "participant.body";
 
     @objid ("b980eb79-f0a1-4366-8950-87c581a61fd0")
-     static final String ROLE_FOOTER = "participant.foot";
+    static final String ROLE_FOOTER = "participant.foot";
 
     @objid ("36e5807e-102e-4def-a26d-a9155b2871ed")
     private static final Collection<String> ROLES_IMAGE = Collections.emptyList();
@@ -90,7 +89,7 @@ public class GmBpmnParticipantPrimaryNode extends GmNoStyleCompositeNode impleme
     private static final Collection<String> ROLES_STRUCTURED = new HashSet<>(Arrays.asList(GmBpmnParticipantPrimaryNode.ROLE_HEAD, GmBpmnParticipantPrimaryNode.ROLE_BODY, GmBpmnParticipantPrimaryNode.ROLE_FOOTER));
 
     @objid ("61c0bdf3-e13a-47c2-b700-4add88cb280d")
-     static final String CHECK_ORIENTATION = "CHECK_ORIENTATION";
+    static final String CHECK_ORIENTATION = "CHECK_ORIENTATION";
 
     /**
      * Free zone
@@ -115,13 +114,12 @@ public class GmBpmnParticipantPrimaryNode extends GmNoStyleCompositeNode impleme
 
     /**
      * Default constructor.
-     * 
      * @param diagram the diagram in which this partition will be unmasked.
      * @param theParticipant the unmasked partition (can be null).
      * @param ref a reference to the unmasked partition (cannot be null).
      */
     @objid ("16febe96-6160-4914-a72c-b5578ff47092")
-    public GmBpmnParticipantPrimaryNode(IGmDiagram diagram, BpmnParticipant theParticipant, MRef ref) {
+    public  GmBpmnParticipantPrimaryNode(IGmDiagram diagram, BpmnParticipant theParticipant, MRef ref) {
         super(diagram, ref);
         this.element = theParticipant;
         
@@ -139,13 +137,14 @@ public class GmBpmnParticipantPrimaryNode extends GmNoStyleCompositeNode impleme
         super.addChild(this.footer);
         
         refreshOrientation();
+        
     }
 
     /**
      * Empty constructor needed for serialization.
      */
     @objid ("d0c47542-3a13-4a14-8915-8f933aaa00c3")
-    public GmBpmnParticipantPrimaryNode() {
+    public  GmBpmnParticipantPrimaryNode() {
         // Nothing to do.
     }
 
@@ -211,6 +210,7 @@ public class GmBpmnParticipantPrimaryNode extends GmNoStyleCompositeNode impleme
             break;
         
         }
+        
     }
 
     @objid ("f34ced4b-4428-4f78-985e-3bf2625d24b5")
@@ -219,6 +219,7 @@ public class GmBpmnParticipantPrimaryNode extends GmNoStyleCompositeNode impleme
         super.write(out);
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, GmBpmnParticipantPrimaryNode.MINOR_PREFIX, GmBpmnParticipantPrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("38d6653b-2d91-4792-8053-3398c0f3068e")
@@ -229,6 +230,7 @@ public class GmBpmnParticipantPrimaryNode extends GmNoStyleCompositeNode impleme
         this.footer = (GmBpmnNodeFooter) getFirstChild(GmBpmnParticipantPrimaryNode.ROLE_FOOTER);
         this.element = (BpmnParticipant) resolveRef(getRepresentedRef());
         refreshOrientation();
+        
     }
 
     @objid ("b6b69e8e-0d3e-48a5-b441-80c95e7ec8dd")
@@ -265,6 +267,7 @@ public class GmBpmnParticipantPrimaryNode extends GmNoStyleCompositeNode impleme
         
         // forcing visual refresh in case Image changed
         firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("1922ef41-593f-4ad9-b72d-851ce92715fb")
@@ -336,6 +339,7 @@ public class GmBpmnParticipantPrimaryNode extends GmNoStyleCompositeNode impleme
     protected final void refreshOrientation() {
         this.header.setHorizontal(!isHorizontalParticipantOrientation());
         this.footer.setHorizontal(isHorizontalParticipantOrientation());
+        
     }
 
     @objid ("ad7122f2-6bc6-4449-8a54-4ee26b1c7466")
@@ -345,6 +349,7 @@ public class GmBpmnParticipantPrimaryNode extends GmNoStyleCompositeNode impleme
             this.body = null;
         }
         super.removeChild(child);
+        
     }
 
     @objid ("15568458-54c4-46c0-9ee9-e50f33e64f03")
@@ -357,6 +362,7 @@ public class GmBpmnParticipantPrimaryNode extends GmNoStyleCompositeNode impleme
         } else {
             return super.isValidChild(child);
         }
+        
     }
 
 }

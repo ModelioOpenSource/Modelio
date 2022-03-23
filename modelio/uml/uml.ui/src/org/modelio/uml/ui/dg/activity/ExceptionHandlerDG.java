@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.activity;
 
 import java.util.Collection;
@@ -37,7 +36,7 @@ public class ExceptionHandlerDG extends DiagramLink {
      * @param link The gm link represented by this class.
      */
     @objid ("1463801c-a621-4a0c-8c70-9494370a4cb7")
-    public ExceptionHandlerDG(final DiagramHandle diagramHandle, final IGmLink link) {
+    public  ExceptionHandlerDG(final DiagramHandle diagramHandle, final IGmLink link) {
         super(diagramHandle, link);
     }
 

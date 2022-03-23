@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.activityedgelabels;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -58,18 +57,17 @@ public class GmActivityEdgeWeight extends GmElementLabel {
      * For deserialization only.
      */
     @objid ("29a2af63-55b6-11e2-877f-002564c97630")
-    public GmActivityEdgeWeight() {
+    public  GmActivityEdgeWeight() {
         // serialization
     }
 
     /**
      * Create the weight label.
-     * 
      * @param diagram the diagram
      * @param relatedRef related element reference, must not be <code>null</code>.
      */
     @objid ("29a2af66-55b6-11e2-877f-002564c97630")
-    public GmActivityEdgeWeight(IGmDiagram diagram, MRef relatedRef) {
+    public  GmActivityEdgeWeight(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -91,6 +89,7 @@ public class GmActivityEdgeWeight extends GmElementLabel {
                         iActivityEdge.setWeight(text);
                     }
                 };
+        
     }
 
     @objid ("29a2af76-55b6-11e2-877f-002564c97630")
@@ -101,6 +100,7 @@ public class GmActivityEdgeWeight extends GmElementLabel {
         } else {
             return getDisplayedStyle().getProperty(GmObjectFlowStyleKeys.WEIGHTVISIBLE);
         }
+        
     }
 
     @objid ("29a2af7a-55b6-11e2-877f-002564c97630")
@@ -132,6 +132,7 @@ public class GmActivityEdgeWeight extends GmElementLabel {
             break;
         }
         }
+        
     }
 
     @objid ("29a435e2-55b6-11e2-877f-002564c97630")
@@ -141,6 +142,7 @@ public class GmActivityEdgeWeight extends GmElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmActivityEdgeWeight.", GmActivityEdgeWeight.MINOR_VERSION);
+        
     }
 
     @objid ("29a435e8-55b6-11e2-877f-002564c97630")

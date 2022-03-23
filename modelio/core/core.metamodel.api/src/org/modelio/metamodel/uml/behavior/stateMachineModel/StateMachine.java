@@ -17,23 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.uml.behavior.stateMachineModel;
 
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
-import org.modelio.metamodel.uml.behavior.stateMachineModel.EntryPointPseudoState;
-import org.modelio.metamodel.uml.behavior.stateMachineModel.ExitPointPseudoState;
-import org.modelio.metamodel.uml.behavior.stateMachineModel.KindOfStateMachine;
-import org.modelio.metamodel.uml.behavior.stateMachineModel.Region;
-import org.modelio.metamodel.uml.behavior.stateMachineModel.State;
 
 /**
  * StateMachine v0.0.9054

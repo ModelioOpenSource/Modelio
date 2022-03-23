@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.workmodel.local;
 
 import java.net.URI;
@@ -54,24 +53,25 @@ import org.modelio.platform.ui.dialog.ModelioDialog;
 @objid ("7d5f3ec9-3adc-11e2-916e-002564c97630")
 public final class AddLocalModelDialog extends ModelioDialog {
     @objid ("c7bc2618-c1a0-4db2-a16f-5ad5f2bc6ad6")
-     List<String> invalidIds;
+    List<String> invalidIds;
 
     @objid ("7d5f3eca-3adc-11e2-916e-002564c97630")
     private FragmentDescriptor result;
 
     @objid ("7d5f3ecc-3adc-11e2-916e-002564c97630")
-     Text fragmentIdText;
+    Text fragmentIdText;
 
     @objid ("2c0bd4b1-2fe4-42fc-bef9-1ca962cb7632")
-     Button addBtn;
+    Button addBtn;
 
     @objid ("60a8fa6e-0376-4781-a9df-74f155ac7a5b")
     private static final Pattern NAME_PATTERN = Pattern.compile("[\\p{L}\\p{N}\\._ ]+");
 
     @objid ("7d5f3ed1-3adc-11e2-916e-002564c97630")
-    public AddLocalModelDialog(Shell parentShell, List<String> allFragmentsIds) {
+    public  AddLocalModelDialog(Shell parentShell, List<String> allFragmentsIds) {
         super(parentShell);
         this.invalidIds = allFragmentsIds;
+        
     }
 
     @objid ("7d5f3ed4-3adc-11e2-916e-002564c97630")
@@ -113,6 +113,7 @@ public final class AddLocalModelDialog extends ModelioDialog {
         createButton(parent, Window.CANCEL, IDialogConstants.CANCEL_LABEL, true);
         this.addBtn = createButton(parent, Window.OK, AppProjectConf.I18N.getString("AddLocalModelDialog.AddFragment"), true); //$NON-NLS-1$
         this.addBtn.setEnabled(false);
+        
     }
 
     @objid ("7d5f3ede-3adc-11e2-916e-002564c97630")
@@ -121,6 +122,7 @@ public final class AddLocalModelDialog extends ModelioDialog {
         getShell().setText(AppProjectConf.I18N.getString("AddLocalModelDialog.ShellTitle")); //$NON-NLS-1$
         setTitle(AppProjectConf.I18N.getString("AddLocalModelDialog.Title")); //$NON-NLS-1$
         setMessage(AppProjectConf.I18N.getString("AddLocalModelDialog.Message")); //$NON-NLS-1$
+        
     }
 
     @objid ("7d5f3ee7-3adc-11e2-916e-002564c97630")
@@ -141,6 +143,7 @@ public final class AddLocalModelDialog extends ModelioDialog {
         }
         
         super.okPressed();
+        
     }
 
     @objid ("7d61a029-3adc-11e2-916e-002564c97630")
@@ -153,6 +156,7 @@ public final class AddLocalModelDialog extends ModelioDialog {
         fragmentDescriptor.setType(FragmentType.EXML);
         fragmentDescriptor.setProperties(new GProperties());
         fragmentDescriptor.setUri((URI) null);
+        
     }
 
     @objid ("568cc0f3-9609-4e7b-bc0a-dd52e5a81fb2")
@@ -171,6 +175,7 @@ public final class AddLocalModelDialog extends ModelioDialog {
             this.addBtn.setEnabled(true);
             this.fragmentIdText.setForeground(this.fragmentIdText.getDisplay().getSystemColor(SWT.COLOR_DARK_GREEN));
         }
+        
     }
 
     @objid ("9e2fecec-22f1-4757-8d7b-988bc754e6d7")

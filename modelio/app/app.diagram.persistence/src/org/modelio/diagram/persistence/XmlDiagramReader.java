@@ -17,22 +17,20 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.persistence;
 
 import java.io.IOException;
-import java.io.PrintStream;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.AbsoluteBendpoint;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
@@ -41,6 +39,7 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.RGB;
+import org.modelio.diagram.persistence.plugin.DiagramPersistence;
 import org.modelio.platform.ui.CoreColorRegistry;
 import org.modelio.platform.ui.CoreFontRegistry;
 import org.modelio.vbasic.files.FileUtils;
@@ -78,21 +77,20 @@ public class XmlDiagramReader implements IDiagramReader {
 
     /**
      * Creates a diagram reader
-     * 
      * @param instanceFactory An instance factory
      * @param extRefResolver An external reference resolver
      */
     @objid ("cb7770b8-186f-11e2-92d2-001ec947c8cc")
-    public XmlDiagramReader(IInstanceFactory instanceFactory, IExtReferenceResolver extRefResolver) {
+    public  XmlDiagramReader(IInstanceFactory instanceFactory, IExtReferenceResolver extRefResolver) {
         this.instanceFactory = instanceFactory;
         this.extRefResolver = extRefResolver;
+        
     }
 
     /**
      * Get the root object being read.
      * <p>
      * The root object is the persistent object passed to {@link #readDiagram(String, IPersistent)}.
-     * 
      * @return the root object being read.
      */
     @objid ("cb7770bd-186f-11e2-92d2-001ec947c8cc")
@@ -104,7 +102,6 @@ public class XmlDiagramReader implements IDiagramReader {
     /**
      * Read all attributes at once.
      * @param attName The attribute name
-     * 
      * @return a map with the attribute name as key and the attribute value as value.
      */
     @objid ("cb7770c2-186f-11e2-92d2-001ec947c8cc")
@@ -127,7 +124,6 @@ public class XmlDiagramReader implements IDiagramReader {
 
     /**
      * Read an attribute whose type is not constant.
-     * 
      * @param attName The attribute name
      * @return The attribute value or <tt>null</tt> if the attribute has no value.
      */
@@ -140,6 +136,7 @@ public class XmlDiagramReader implements IDiagramReader {
         } else {
             return readPropertyElement(el);
         }
+        
     }
 
     @objid ("cb79d30f-186f-11e2-92d2-001ec947c8cc")
@@ -166,31 +163,29 @@ public class XmlDiagramReader implements IDiagramReader {
 
     /**
      * Convert the given string value to the given enumeration type.
-     * 
      * @param enumType The enumeration type
      * @param val the string value to convert
      * @return the enumeration value
-     * @throws java.lang.IllegalArgumentException if the specified enum type has no constant with the specified name, or the specified class object does not represent an enum type
-     * @throws java.lang.ClassNotFoundException if the class cannot be located
-     * @throws java.lang.NullPointerException if <tt>enumType</tt> is null
+     * @throws IllegalArgumentException if the specified enum type has no constant with the specified name, or the specified class object does not represent an enum type
+     * @throws ClassNotFoundException if the class cannot be located
+     * @throws NullPointerException if <tt>enumType</tt> is null
      */
     @objid ("cb79d322-186f-11e2-92d2-001ec947c8cc")
-    private <T extends  Enum<T>> T convertToEnum(String enumType, String val) throws IllegalArgumentException, ClassNotFoundException, NullPointerException {
+    private <T extends Enum<T>> T convertToEnum(String enumType, String val) throws IllegalArgumentException, ClassNotFoundException, NullPointerException {
         return XmlDiagramReader.convertToEnum(this.instanceFactory.getEnumClass(enumType), val);
     }
 
     /**
      * Returns the enum constant of the specified enum type with the specified name. The name must match exactly an identifier used to declare an enum constant in this type. (Extraneous whitespace characters are not permitted.)
-     * 
      * @param enumType the <tt>Class</tt> object of the enum type from which to return a constant
      * @param val the name of the constant to return
      * @return the enum constant of the specified enum type with the specified name
-     * @throws java.lang.IllegalArgumentException if the specified enum type has no constant with the specified name, or the specified class object does not represent an enum type
-     * @throws java.lang.NullPointerException if <tt>enumType</tt> is null
+     * @throws IllegalArgumentException if the specified enum type has no constant with the specified name, or the specified class object does not represent an enum type
+     * @throws NullPointerException if <tt>enumType</tt> is null
      */
     @objid ("cb79d32c-186f-11e2-92d2-001ec947c8cc")
     @SuppressWarnings ("unchecked")
-    private static <T extends  Enum<T>> T convertToEnum(Class<?> enumType, String val) throws IllegalArgumentException, NullPointerException {
+    private static <T extends Enum<T>> T convertToEnum(Class<?> enumType, String val) throws IllegalArgumentException, NullPointerException {
         if (val == null) {
             return null;
         }
@@ -226,13 +221,13 @@ public class XmlDiagramReader implements IDiagramReader {
                 Integer.valueOf(vals[1]),
                 Integer.valueOf(vals[2]),
                 Integer.valueOf(vals[3]));
+        
     }
 
     /**
      * Return an instance of the given class for the given DOM element.
      * <p>
      * This method can create a new instance or return an existing one.
-     * 
      * @param nodeType The java class
      * @return The created instance.
      * 
@@ -268,7 +263,6 @@ public class XmlDiagramReader implements IDiagramReader {
 
     /**
      * Read an external reference.
-     * 
      * @param domElement a {@link SchemaConstants#TAG_EXTREF} DOM Element.
      * @return The read external reference
      */
@@ -293,14 +287,14 @@ public class XmlDiagramReader implements IDiagramReader {
         } finally {
             this.currentDomElement = oldCurrentDomElement;
         }
+        
     }
 
     /**
      * Completely read a {@link List} from the given DOM element.
-     * 
      * @param subEl DOM Element of type {@link SchemaConstants#TAG_LIST}
      * @return a list of persistent elements
-     * @throws org.modelio.diagram.persistence.PersistenceException in case of error.
+     * @throws PersistenceException in case of error.
      */
     @objid ("cb79d366-186f-11e2-92d2-001ec947c8cc")
     @SuppressWarnings ("unchecked")
@@ -323,14 +317,13 @@ public class XmlDiagramReader implements IDiagramReader {
 
     /**
      * Completely read a {@link Map} from the given DOM element.
-     * 
      * @param domElement DOM Element of type {@link SchemaConstants#TAG_MAP}
      * @return the read map
-     * @throws org.modelio.diagram.persistence.PersistenceException in case of unexpected error.
+     * @throws PersistenceException in case of unexpected error.
      */
     @objid ("cb7c3568-186f-11e2-92d2-001ec947c8cc")
     @SuppressWarnings ("unchecked")
-    private <K,V> Map<K, V> readMapElement(Element domElement) throws PersistenceException {
+    private <K, V> Map<K, V> readMapElement(Element domElement) throws PersistenceException {
         final Map<K, V> ret = new HashMap<>();
         final NodeList childrenNodes = domElement.getChildNodes();
         
@@ -355,10 +348,9 @@ public class XmlDiagramReader implements IDiagramReader {
 
     /**
      * Read the given element and return the read Object.
-     * 
      * @param compElement a DOM Element.
      * @return the read Object
-     * @throws org.modelio.diagram.persistence.PersistenceException in case of error
+     * @throws PersistenceException in case of error
      */
     @objid ("cb7c3574-186f-11e2-92d2-001ec947c8cc")
     private Object readObjectElement(Element compElement) throws PersistenceException {
@@ -378,11 +370,11 @@ public class XmlDiagramReader implements IDiagramReader {
         } else {
             throw new PersistenceException("<" + tagName + "> tag not handled.");
         }
+        
     }
 
     /**
      * Read the 'Ref' tag value and return the matching persistent object.
-     * 
      * @param compNode DOM Element of type {@link SchemaConstants#TAG_REF}
      * @return The read referenced persistent object.
      */
@@ -395,10 +387,9 @@ public class XmlDiagramReader implements IDiagramReader {
 
     /**
      * Completely read an object from the given DOM element.
-     * 
      * @param domElement DOM Element of type {@link SchemaConstants#TAG_PERSISTENT}
      * @return the read object. Might be null in some migration cases.
-     * @throws org.modelio.diagram.persistence.PersistenceException in case of unexpected error.
+     * @throws PersistenceException in case of unexpected error.
      */
     @objid ("cb7c357f-186f-11e2-92d2-001ec947c8cc")
     private IPersistent readPersistentElement(Element domElement) throws PersistenceException {
@@ -446,14 +437,14 @@ public class XmlDiagramReader implements IDiagramReader {
         } finally {
             this.currentDomElement = oldCurrentDomElement;
         }
+        
     }
 
     /**
      * Read the 'Property' tag value and convert it to the right type.
-     * 
      * @param el DOM Element of type {@link SchemaConstants#TAG_PROP}
      * @return The read property value.
-     * @throws org.modelio.diagram.persistence.PersistenceException in case of error
+     * @throws PersistenceException in case of error
      */
     @objid ("cb7c3584-186f-11e2-92d2-001ec947c8cc")
     private Object readPropertyElement(Element el) throws PersistenceException {
@@ -471,11 +462,10 @@ public class XmlDiagramReader implements IDiagramReader {
 
     /**
      * Read the 'Value' tag value and convert it to the right type.
-     * 
      * @param el DOM Element of type {@link SchemaConstants#TAG_VALUE}
      * @return The read value
-     * @throws java.lang.NumberFormatException in case of number conversion error
-     * @throws org.modelio.diagram.persistence.PersistenceException in case of error
+     * @throws NumberFormatException in case of number conversion error
+     * @throws PersistenceException in case of error
      */
     @objid ("cb7c358a-186f-11e2-92d2-001ec947c8cc")
     private Object readValueElement(Element el) throws NumberFormatException, PersistenceException {
@@ -526,6 +516,7 @@ public class XmlDiagramReader implements IDiagramReader {
         } else {
             throw new PersistenceException("'" + val + "' of " + type + " type is not handled.");
         }
+        
     }
 
     @objid ("ed4acd97-186f-11e2-92d2-001ec947c8cc")
@@ -547,10 +538,13 @@ public class XmlDiagramReader implements IDiagramReader {
             dbf.setNamespaceAware(true);
             dbf.setXIncludeAware(false);
             dbf.setFeature(XMLConstants.FEATURE_SECURE_PROCESSING, false);
+            dbf.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, ""); // XML parsers should not be vulnerable to XXE attacks (java:S2755)
+            dbf.setAttribute(XMLConstants.ACCESS_EXTERNAL_SCHEMA, ""); // XML parsers should not be vulnerable to XXE attacks (java:S2755)
+        
         
             // Create a DocumentBuilder
             final DocumentBuilder db = dbf.newDocumentBuilder();
-            db.setErrorHandler(new LocalErrorHandler(System.err));
+            db.setErrorHandler(new LocalErrorHandler());
         
             // Parse
             final Document xmlDoc = db.parse(new InputSource(new StringReader(data)));
@@ -570,12 +564,13 @@ public class XmlDiagramReader implements IDiagramReader {
         } catch (IOException e) {
             throw new PersistenceException(FileUtils.getLocalizedMessage(e), e);
         }
+        
     }
 
     @objid ("ed4d2fed-186f-11e2-92d2-001ec947c8cc")
     @SuppressWarnings ("unchecked")
     @Override
-    public <K,V> Map<K, V> readMapProperty(String mapName) throws PersistenceException {
+    public <K, V> Map<K, V> readMapProperty(String mapName) throws PersistenceException {
         return (Map<K, V>) readProperty(mapName);
     }
 
@@ -589,6 +584,7 @@ public class XmlDiagramReader implements IDiagramReader {
         } else {
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("83462b50-099f-43ca-b903-0cb155e015d9")
@@ -617,12 +613,9 @@ public class XmlDiagramReader implements IDiagramReader {
      */
     @objid ("cb7c358f-186f-11e2-92d2-001ec947c8cc")
     private static class LocalErrorHandler implements ErrorHandler {
-        @objid ("cb7c3592-186f-11e2-92d2-001ec947c8cc")
-        private PrintStream report;
-
         @objid ("cb7c3593-186f-11e2-92d2-001ec947c8cc")
-        public LocalErrorHandler(final PrintStream err) {
-            this.report = err;
+        public  LocalErrorHandler() {
+            
         }
 
         @objid ("cb7c3597-186f-11e2-92d2-001ec947c8cc")
@@ -636,6 +629,7 @@ public class XmlDiagramReader implements IDiagramReader {
         public void fatalError(final SAXParseException exception) throws SAXException {
             print(exception);
             throw exception;
+            
         }
 
         @objid ("cb7c35a1-186f-11e2-92d2-001ec947c8cc")
@@ -646,14 +640,17 @@ public class XmlDiagramReader implements IDiagramReader {
 
         @objid ("cb7c35a6-186f-11e2-92d2-001ec947c8cc")
         private void print(final SAXParseException exception) {
-            this.report.print(exception.getLineNumber());
-            this.report.print(exception.getColumnNumber());
-            this.report.print(":");
-            this.report.print(exception.getLocalizedMessage());
+            DiagramPersistence.LOG.warning(
+                    "%s at line %d col %d: %s",
+                    exception.getClass().getSimpleName(),
+                    exception.getLineNumber(),
+                    exception.getColumnNumber(),
+                    exception.getLocalizedMessage());
             
             if (exception.getException() != null) {
-                exception.getException().printStackTrace(this.report);
+                DiagramPersistence.LOG.warning(exception.getException());
             }
+            
         }
 
     }

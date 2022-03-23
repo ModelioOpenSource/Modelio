@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnparallelgateway;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,8 +28,8 @@ import org.modelio.diagram.elements.core.node.IImageableNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.bpmn.gateways.BpmnComplexGateway;
 import org.modelio.metamodel.bpmn.gateways.BpmnParallelGateway;
 import org.modelio.platform.model.ui.swt.images.ElementImageService;
@@ -53,12 +52,11 @@ public final class GmBpmnParallelGatewayPrimaryNode extends GmNoStyleSimpleNode 
 
     /**
      * Create a initial graphic node.
-     * 
      * @param diagram The diagram
      * @param relatedRef The related element reference, may not be null.
      */
     @objid ("61886096-55b6-11e2-877f-002564c97630")
-    public GmBpmnParallelGatewayPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
+    public  GmBpmnParallelGatewayPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -76,6 +74,7 @@ public final class GmBpmnParallelGatewayPrimaryNode extends GmNoStyleSimpleNode 
         }
         // forcing visual refresh in case Image changed
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("618860a9-55b6-11e2-877f-002564c97630")
@@ -92,7 +91,6 @@ public final class GmBpmnParallelGatewayPrimaryNode extends GmNoStyleSimpleNode 
 
     /**
      * Get the parent model representation mode.
-     * 
      * @return the parent representation mode or null if the node has still no parent.
      */
     @objid ("618860b9-55b6-11e2-877f-002564c97630")
@@ -124,13 +122,14 @@ public final class GmBpmnParallelGatewayPrimaryNode extends GmNoStyleSimpleNode 
                             }
                 
                         };
+        
     }
 
     /**
      * Constructor for deserialization only.
      */
     @objid ("6189e720-55b6-11e2-877f-002564c97630")
-    public GmBpmnParallelGatewayPrimaryNode() {
+    public  GmBpmnParallelGatewayPrimaryNode() {
         // for the serialization
     }
 
@@ -151,6 +150,7 @@ public final class GmBpmnParallelGatewayPrimaryNode extends GmNoStyleSimpleNode 
             break;
         }
         }
+        
     }
 
     @objid ("6189e729-55b6-11e2-877f-002564c97630")
@@ -160,6 +160,7 @@ public final class GmBpmnParallelGatewayPrimaryNode extends GmNoStyleSimpleNode 
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmBpmnParallelGatewayPrimaryNode.", MINOR_VERSION);
+        
     }
 
     @objid ("6189e72f-55b6-11e2-877f-002564c97630")

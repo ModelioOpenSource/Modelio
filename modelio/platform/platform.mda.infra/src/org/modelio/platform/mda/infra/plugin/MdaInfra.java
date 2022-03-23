@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.plugin;
 
 import java.util.ResourceBundle;
@@ -68,7 +67,6 @@ public class MdaInfra implements BundleActivator {
 
     /**
      * Get the image descriptor for an image stored in this plugin.
-     * 
      * @param path a path relative to the plugin
      * @return the image descriptor.
      */
@@ -85,6 +83,7 @@ public class MdaInfra implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         MdaInfra.LOG = new MdaInfraLogger(service.getLogger(bundleContext.getBundle(), MdaInfra.PLUGIN_ID));
         MdaInfra.I18N = new BundledMessages(MdaInfra.LOG, ResourceBundle.getBundle("mdainfra"));
+        
     }
 
     @objid ("b349f6b2-f11c-11e1-af52-001ec947c8cc")
@@ -107,7 +106,7 @@ public class MdaInfra implements BundleActivator {
          * @param logger the eclipse logger.
          */
         @objid ("15744642-d6d3-464a-b02a-58c5bca056a8")
-        public MdaInfraLogger(Logger logger) {
+        public  MdaInfraLogger(Logger logger) {
             super(logger);
         }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model.filter;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,7 +29,6 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IObjectFilter {
     /**
      * Tells whether the given object must be included.
-     * 
      * @param obj an object
      * @return <li><code>true</code> to include the object, <li>
      * <code>false</code> to filter it out.

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.informationitem;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,33 +31,33 @@ import org.modelio.uml.statikdiagram.editor.style.StaticAbstractStyleKeyProvider
 @objid ("351b95eb-55b7-11e2-877f-002564c97630")
 public class InformationItemSimpleStyleKeys extends StaticAbstractStyleKeyProvider {
     @objid ("a67f2371-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = InformationItemStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = InformationItemStructuredStyleKeys.REPMODE;
 
     @objid ("a67f2373-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = InformationItemStructuredStyleKeys.FILLCOLOR;
+    static final StyleKey FILLCOLOR = InformationItemStructuredStyleKeys.FILLCOLOR;
 
     @objid ("a67f2375-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = InformationItemStructuredStyleKeys.FILLMODE;
+    static final StyleKey FILLMODE = InformationItemStructuredStyleKeys.FILLMODE;
 
     @objid ("a67f2377-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = InformationItemStructuredStyleKeys.LINECOLOR;
+    static final StyleKey LINECOLOR = InformationItemStructuredStyleKeys.LINECOLOR;
 
     @objid ("a67f2379-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = InformationItemStructuredStyleKeys.LINEWIDTH;
+    static final StyleKey LINEWIDTH = InformationItemStructuredStyleKeys.LINEWIDTH;
 
     @objid ("a67f237b-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = InformationItemStructuredStyleKeys.FONT;
+    static final StyleKey FONT = InformationItemStructuredStyleKeys.FONT;
 
     @objid ("a67f237d-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = InformationItemStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = InformationItemStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("a67f237f-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWNAME = InformationItemStructuredStyleKeys.SHOWNAME;
+    static final StyleKey SHOWNAME = InformationItemStructuredStyleKeys.SHOWNAME;
 
     @objid ("a67f2381-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = InformationItemStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = InformationItemStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("a67f2383-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = InformationItemStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = InformationItemStructuredStyleKeys.SHOWTAGS;
 
 }

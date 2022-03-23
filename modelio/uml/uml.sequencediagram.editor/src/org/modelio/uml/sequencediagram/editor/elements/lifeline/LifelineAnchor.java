@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.lifeline;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,14 +37,14 @@ public class LifelineAnchor extends AbstractConnectionAnchor {
 
     /**
      * c'tor.
-     * 
      * @param owner Owner of this anchor
      * @param timeCoordinate the time coordinate of that anchor.
      */
     @objid ("d94b4062-55b6-11e2-877f-002564c97630")
-    public LifelineAnchor(final IFigure owner, final int timeCoordinate) {
+    public  LifelineAnchor(final IFigure owner, final int timeCoordinate) {
         super(owner);
         this.timeCoordinate = timeCoordinate;
+        
     }
 
     @objid ("d94b4069-55b6-11e2-877f-002564c97630")

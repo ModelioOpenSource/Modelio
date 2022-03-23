@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.model.bytype;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,12 +32,11 @@ public class ByTypeModel extends AbstractModel {
     @objid ("00408080-0d4f-10c6-842f-001ec947cd2a")
     @Override
     public ITreeContentProvider getContentProvider() {
-        
         return this.byTypeContentProvider;
     }
 
     @objid ("7068a710-af08-4eea-b642-ee60cb5150d7")
-    public ByTypeModel(GProject project) {
+    public  ByTypeModel(GProject project) {
         this.byTypeContentProvider = new ByTypeContentProvider(project);
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.umlcommon.namespaceuse;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,12 +44,11 @@ public class GmNamespaceUseLabel extends GmElementLabel {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
     @objid ("817cd5ad-1dec-11e2-8cad-001ec947c8cc")
-    public GmNamespaceUseLabel(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmNamespaceUseLabel(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -58,7 +56,8 @@ public class GmNamespaceUseLabel extends GmElementLabel {
      * For deserialization only.
      */
     @objid ("817cd5b4-1dec-11e2-8cad-001ec947c8cc")
-    public GmNamespaceUseLabel() {
+    public  GmNamespaceUseLabel() {
+        
     }
 
     @objid ("817cd5b7-1dec-11e2-8cad-001ec947c8cc")
@@ -92,6 +91,7 @@ public class GmNamespaceUseLabel extends GmElementLabel {
             break;
         }
         }
+        
     }
 
     @objid ("817cd5c0-1dec-11e2-8cad-001ec947c8cc")
@@ -101,6 +101,7 @@ public class GmNamespaceUseLabel extends GmElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmNamespaceUseLabel.", GmNamespaceUseLabel.MINOR_VERSION);
+        
     }
 
     @objid ("817cd5c4-1dec-11e2-8cad-001ec947c8cc")

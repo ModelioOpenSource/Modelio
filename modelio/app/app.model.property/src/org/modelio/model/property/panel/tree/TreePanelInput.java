@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel.tree;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -49,24 +48,25 @@ public class TreePanelInput {
      * @param displayHiddenAnnotations true to display annotations whose type is set to hidden.
      */
     @objid ("d5268733-74a2-4c9a-acb5-5210e66edf62")
-    public TreePanelInput(Element typedElement, Element preselectedTypingElement, boolean displayHiddenAnnotations) {
+    public  TreePanelInput(Element typedElement, Element preselectedTypingElement, boolean displayHiddenAnnotations) {
         super();
         this.typedElement = typedElement;
         this.preselectedTypingElement = preselectedTypingElement;
         this.displayHiddenAnnotations = displayHiddenAnnotations;
+        
     }
 
     /**
      * Copy constructor.
-     * 
      * @param other the copied input.
      */
     @objid ("31d89695-1ec8-4c7e-947e-746d7e45e913")
-    public TreePanelInput(TreePanelInput other) {
+    public  TreePanelInput(TreePanelInput other) {
         super();
         this.typedElement = other.typedElement;
         this.preselectedTypingElement = other.preselectedTypingElement;
         this.displayHiddenAnnotations = other.displayHiddenAnnotations;
+        
     }
 
     @objid ("3e9b1b6d-1ea2-4b98-b870-36971ff7e070")

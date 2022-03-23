@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.viewer;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -77,6 +76,7 @@ public class StyleEditPanel implements IPanelProvider {
         } else {
             this.controller.setData(null);
         }
+        
     }
 
     @objid ("621052e7-47e1-4110-8ae7-b0418866ee39")
@@ -101,7 +101,6 @@ public class StyleEditPanel implements IPanelProvider {
      * Return the edition viewer.
      * <p>
      * It may be either a TreeViewer or a TableViewer.
-     * 
      * @return the style edition viewer.
      */
     @objid ("c7b10464-6f5d-41ec-81b9-f041ff5bc1fc")
@@ -118,17 +117,15 @@ public class StyleEditPanel implements IPanelProvider {
      * Private constructor.
      * <p>
      * Call either {@link #newTablePanel()} or {@link #newTreePanel()} .
-     * 
      * @param tableMode true for a table panel, false for a tree panel.
      */
     @objid ("cc54edbc-1d5f-4f95-a867-be705ffdcf64")
-    private StyleEditPanel(boolean tableMode) {
+    private  StyleEditPanel(boolean tableMode) {
         this.tableMode = tableMode;
     }
 
     /**
      * Creates a table style edit panel.
-     * 
      * @return the style edit panel.
      */
     @objid ("9e5489d3-57d2-4912-b581-82eb129b7997")
@@ -138,7 +135,6 @@ public class StyleEditPanel implements IPanelProvider {
 
     /**
      * Creates a tree style edit panel.
-     * 
      * @return the style edit panel.
      */
     @objid ("0577556d-5c78-4e0a-aab9-5cf61d35f1e8")
@@ -150,7 +146,6 @@ public class StyleEditPanel implements IPanelProvider {
      * Get the contextual menu manager.
      * <p>
      * The caller may add entries to the menu and register listeners.
-     * 
      * @return the contextual menu manager.
      */
     @objid ("7c581986-d984-4a72-be20-0f8f0b93d1ed")
@@ -162,7 +157,6 @@ public class StyleEditPanel implements IPanelProvider {
      * Get lazily computed expressions about the current selection.
      * <p>
      * Use them to set visibility of contextual menu items dynamically.
-     * 
      * @return selected elements computations.
      */
     @objid ("91b8ce00-e5c6-429e-b166-73acd0547b1d")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.objectdiagram.editor.plugin;
 
 import java.net.URL;
@@ -60,6 +59,7 @@ public class ObjectProcessor extends AbstractDiagramInitializationProcessor {
         
         // Object elements should be usable in every Static diagram
         factoryRegistry.registerExtensions(StaticDiagram.MNAME, ObjectDiagram.MNAME);
+        
     }
 
     @objid ("194affd2-5a45-11e2-9e33-00137282c51b")
@@ -73,6 +73,7 @@ public class ObjectProcessor extends AbstractDiagramInitializationProcessor {
         loader.load(url);
         
         factoryStyle.injectDefaultValues(loader.getStyleProperties());
+        
     }
 
     @objid ("a3665e67-115b-4b53-af55-2655c5bd9dd6")
@@ -80,6 +81,7 @@ public class ObjectProcessor extends AbstractDiagramInitializationProcessor {
     protected void declareStyleProviders(FactoryStyle factoryStyle) {
         // Communication Channel
         factoryStyle.declareProvider(GmObjectDiagramStyleKeys.class);
+        
     }
 
 }

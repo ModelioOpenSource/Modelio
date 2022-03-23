@@ -14,11 +14,10 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.script;
 
-import javax.script.ScriptEngine;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.script.ScriptEngine;
 
 /**
  * Get the modelio script service, to execute Jython macros.

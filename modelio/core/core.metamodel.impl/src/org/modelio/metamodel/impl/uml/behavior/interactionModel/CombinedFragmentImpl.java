@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.interactionModel;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.CombinedFragmentData;
 import org.modelio.metamodel.uml.behavior.interactionModel.CombinedFragment;
 import org.modelio.metamodel.uml.behavior.interactionModel.Gate;
 import org.modelio.metamodel.uml.behavior.interactionModel.InteractionOperand;
@@ -77,6 +76,7 @@ public class CombinedFragmentImpl extends InteractionFragmentImpl implements Com
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("76b2beb0-c90c-4efa-a105-e043ba76f347")
@@ -98,6 +98,7 @@ public class CombinedFragmentImpl extends InteractionFragmentImpl implements Com
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("27da8d75-e260-4737-b53f-0d04d328d189")

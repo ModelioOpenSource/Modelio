@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.ramc.core.model;
 
 import java.io.File;
@@ -27,8 +26,8 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -99,11 +98,10 @@ public class ModelComponent implements Comparable<ModelComponent>, IModelCompone
 
     /**
      * Initialize a <code>ModelComponent</code> from an {@link Artifact} .
-     * 
      * @param ramc the model component artifact.
      */
     @objid ("c738cb04-0d54-4fa4-a865-fe0e5be87c05")
-    public ModelComponent(final Artifact ramc) {
+    public  ModelComponent(final Artifact ramc) {
         this.artifact = ramc;
         this.name = Loader.getName(ramc);
         this.version = Loader.getVersion(ramc);
@@ -114,6 +112,7 @@ public class ModelComponent implements Comparable<ModelComponent>, IModelCompone
         this.requiredModelComponents = Loader.getDependencies(ramc);
         this.exportedFiles = Loader.getExportedFiles(ramc);
         this.contributors = Loader.getContributors(ramc);
+        
     }
 
     @objid ("40e79687-d525-400a-9127-c7abacea4c8d")
@@ -195,6 +194,7 @@ public class ModelComponent implements Comparable<ModelComponent>, IModelCompone
         // Automatically generated method. Please delete this comment before
         // entering specific code.
         this.description = value;
+        
     }
 
     @objid ("eb824121-49b2-41fa-9719-a7ec5a81b6ff")
@@ -207,6 +207,7 @@ public class ModelComponent implements Comparable<ModelComponent>, IModelCompone
         // Automatically generated method. Please delete this comment before
         // entering specific code.
         this.version = value;
+        
     }
 
     @objid ("5f3438ee-6674-43fb-a147-5985a328ece8")
@@ -219,6 +220,7 @@ public class ModelComponent implements Comparable<ModelComponent>, IModelCompone
         Writer.setManifestedElements(this.artifact, this.exportedElements);
         Writer.setExportedFiles(this.artifact, this.exportedFiles);
         Writer.setContributors(this.artifact, this.contributors);
+        
     }
 
     @objid ("4609ff8a-f11c-4525-a20e-cfc6415e85b8")
@@ -412,6 +414,7 @@ public class ModelComponent implements Comparable<ModelComponent>, IModelCompone
             for (final Entry<String, String> entry : contributors.entrySet()) {
                 modelFactory.createTagParameter(entry.getKey() + '#' + entry.getValue(), contributorsTag);
             }
+            
         }
 
         @objid ("d70f5e47-ca5e-4af0-9372-b101accf3ab4")
@@ -430,6 +433,7 @@ public class ModelComponent implements Comparable<ModelComponent>, IModelCompone
                     standardFactory.createElementImport(ramc, m.getArtifact());
                 }
             }
+            
         }
 
         @objid ("145c5d6e-89c8-43cf-81e5-73799d802b11")
@@ -446,6 +450,7 @@ public class ModelComponent implements Comparable<ModelComponent>, IModelCompone
             } catch (@SuppressWarnings ("unused") final ExtensionNotFoundException e) {
                 // Log.error("Note type 'ModelerModule#description' not found or not unique");
             }
+            
         }
 
         @objid ("420b993c-1ea6-45cf-8b6b-6858601ad4b0")
@@ -476,6 +481,7 @@ public class ModelComponent implements Comparable<ModelComponent>, IModelCompone
                 modelFactory.createTagParameter(file.getFileToExport().toString().replace(File.separator, "/"), filesTag);
                 modelFactory.createTagParameter(file.getExportPath().replace(File.separator, "/"), filesTag);
             }
+            
         }
 
         @objid ("c96eeb6f-10d1-4986-ac88-7fb5ed3ccb8f")
@@ -521,6 +527,7 @@ public class ModelComponent implements Comparable<ModelComponent>, IModelCompone
                     }
                 }
             }
+            
         }
 
         @objid ("a9e17425-13bc-4f69-9934-8274f44ea64e")
@@ -547,6 +554,7 @@ public class ModelComponent implements Comparable<ModelComponent>, IModelCompone
             } catch (@SuppressWarnings ("unused") final ExtensionNotFoundException e) {
                 // Log.error("Tag type 'ModelerModule#ModelComponentVersion not found or not unique.");
             }
+            
         }
 
         @objid ("bd9cc712-0053-4a71-aa13-1af0b63c5923")
@@ -576,6 +584,7 @@ public class ModelComponent implements Comparable<ModelComponent>, IModelCompone
             } catch (@SuppressWarnings ("unused") final ExtensionNotFoundException e) {
                 // Log.error("Tag type 'ModelerModule#ModelComponentVersion not found or not unique.");
             }
+            
         }
 
     }

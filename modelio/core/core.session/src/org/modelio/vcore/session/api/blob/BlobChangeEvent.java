@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.api.blob;
 
 import java.util.Collection;
@@ -40,19 +39,19 @@ public class BlobChangeEvent implements IBlobChangeEvent {
 
     /**
      * Initialize a blob change event.
-     * 
      * @param createdBlobs created blob identifiers.
      * @param deletedBlobs deleted blob identifiers.
      * @param updatedBlobs updated blob identifiers.
      */
     @objid ("ff9827a6-33dd-46a5-a8a3-d47fa7a74ca2")
-    public BlobChangeEvent(Collection<IBlobInfo> createdBlobs, Collection<IBlobInfo> deletedBlobs, Collection<IBlobInfo> updatedBlobs) {
+    public  BlobChangeEvent(Collection<IBlobInfo> createdBlobs, Collection<IBlobInfo> deletedBlobs, Collection<IBlobInfo> updatedBlobs) {
         this.createdBlobs = createdBlobs;
         this.deletedBlobs = deletedBlobs;
         this.updatedBlobs = updatedBlobs;
         
         // Shields collections with unmodifiable collections when assertions are enabled.
         assert shieldFields();
+        
     }
 
     /**
@@ -61,13 +60,12 @@ public class BlobChangeEvent implements IBlobChangeEvent {
      * To be called or redefined by sub classes.
      */
     @objid ("ca399fb1-7db5-453a-8ea5-66a952ee6677")
-    protected BlobChangeEvent() {
+    protected  BlobChangeEvent() {
         // nothing
     }
 
     /**
      * Get the new blobs.
-     * 
      * @return the identifier of created blobs.
      */
     @objid ("d59f724f-7fe4-4bf3-bc90-24eee271d32d")
@@ -78,7 +76,6 @@ public class BlobChangeEvent implements IBlobChangeEvent {
 
     /**
      * Get the deleted blobs.
-     * 
      * @return the identifier of deleted blobs.
      */
     @objid ("c577d88f-9f6a-4a60-b308-c6f2ad58583b")
@@ -89,7 +86,6 @@ public class BlobChangeEvent implements IBlobChangeEvent {
 
     /**
      * Get the modified blobs.
-     * 
      * @return the identifier of modified blobs.
      */
     @objid ("40ab327f-0905-4936-98ca-d804eecad841")
@@ -104,7 +100,6 @@ public class BlobChangeEvent implements IBlobChangeEvent {
      * Called by {@link #BlobChangeEvent(Collection, Collection, Collection)}
      * only when assertions are enabled.
      * May be called by sub classes.
-     * 
      * @return always <code>true</code>.
      */
     @objid ("0173d951-24c6-4e2b-931b-f3aa32d8996c")

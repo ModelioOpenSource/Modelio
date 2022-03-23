@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,7 @@ public class ELiteralNull extends ENamedElement {
     }
 
     @objid ("86592c49-752b-439c-acf6-169da8f02f5e")
-    public ELiteralNull(org.eclipse.uml2.uml.LiteralNull element) {
+    public  ELiteralNull(org.eclipse.uml2.uml.LiteralNull element) {
         super(element);
     }
 

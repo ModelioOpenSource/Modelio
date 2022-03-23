@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.project;
 
 import java.io.Serializable;
@@ -138,16 +137,16 @@ public final class ProjectDescriptor implements Serializable {
      * Instantiate an empty project descriptor.
      */
     @objid ("001113fe-92ee-1060-84ef-001ec947cd2a")
-    public ProjectDescriptor() {
+    public  ProjectDescriptor() {
+        
     }
 
     /**
      * Copy constructor.
-     * 
      * @param orig the descriptor to copy.
      */
     @objid ("7db50d7f-a86a-4334-927c-7a2babc38e8e")
-    public ProjectDescriptor(ProjectDescriptor orig) {
+    public  ProjectDescriptor(ProjectDescriptor orig) {
         for (FragmentDescriptor of : orig.getFragments()) {
             getFragments().add(new FragmentDescriptor(of));
         }
@@ -172,11 +171,11 @@ public final class ProjectDescriptor implements Serializable {
         if (projectFileStructure != null) {
             setPath(projectFileStructure.getProjectPath());
         }
+        
     }
 
     /**
      * Remove incomplete module and fragment descriptors.
-     * 
      * @return A report of all incomplete descriptors that were deleted.
      */
     @objid ("0448f7d4-3019-11e2-8f81-001ec947ccaf")
@@ -216,7 +215,6 @@ public final class ProjectDescriptor implements Serializable {
      * Create an empty local project descriptor.
      * <p>
      * Authorization data is set to none.
-     * 
      * @param projectName the project name.
      * @param projectPath the project path.
      * @param modelioVersion the Modelio version
@@ -293,7 +291,6 @@ public final class ProjectDescriptor implements Serializable {
 
     /**
      * Get the authentication data descriptor.
-     * 
      * @return the authentication data descriptor.
      */
     @objid ("e56af036-c4ad-476c-9bea-80bd4aff34e5")
@@ -304,7 +301,6 @@ public final class ProjectDescriptor implements Serializable {
     /**
      * Get the descriptor format version.
      * @see #serialVersionUID
-     * 
      * @return the descriptor format version.
      */
     @objid ("1ea700b4-0fed-41b2-a401-a457c6445199")
@@ -324,7 +320,6 @@ public final class ProjectDescriptor implements Serializable {
 
     /**
      * Get lock informations if the project is locked.
-     * 
      * @return the lock informations or <i>null</i>.
      */
     @objid ("0a6603c2-92d9-4d31-8a54-139bf7b43b26")
@@ -334,7 +329,6 @@ public final class ProjectDescriptor implements Serializable {
 
     /**
      * Get the version of Modelio used to write this project.
-     * 
      * @return the Modelio version.
      */
     @objid ("f0dd8e6b-0be9-49f8-b3c5-89c552d20945")
@@ -361,7 +355,6 @@ public final class ProjectDescriptor implements Serializable {
 
     /**
      * Get the project space structure.
-     * 
      * @return the project space structure. Might be <code>null</code> if this descriptor is not fully initialized.
      */
     @objid ("49be8d30-ab3f-11e1-8392-001ec947ccaf")
@@ -377,7 +370,6 @@ public final class ProjectDescriptor implements Serializable {
 
     /**
      * Get the project properties.
-     * 
      * @return the project properties.
      */
     @objid ("f478e911-aa5a-11e1-8392-001ec947ccaf")
@@ -389,7 +381,6 @@ public final class ProjectDescriptor implements Serializable {
      * Get the project remote location.
      * <p>
      * Returns <code>null</code> for local projects.
-     * 
      * @return the project remote location.
      */
     @objid ("380d01f6-0c6e-11e2-bed6-001ec947ccaf")
@@ -399,7 +390,6 @@ public final class ProjectDescriptor implements Serializable {
 
     /**
      * Find a shared resource from its id.
-     * 
      * @param id the resource id
      * @return the found resource or <i>null</i>.
      */
@@ -421,7 +411,6 @@ public final class ProjectDescriptor implements Serializable {
 
     /**
      * Get the actions to do on project opening.
-     * 
      * @return the to-do descriptor.
      * @since Modelio 3.4
      */
@@ -434,7 +423,6 @@ public final class ProjectDescriptor implements Serializable {
      * Get the project type as a string.
      * <p>
      * The string value should match one of the {@link ProjectType} enumeration values.
-     * 
      * @return the project type.
      */
     @objid ("b473b153-0baa-11e2-bed6-001ec947ccaf")
@@ -460,7 +448,6 @@ public final class ProjectDescriptor implements Serializable {
 
     /**
      * set the authentication descriptor.
-     * 
      * @param auth the authentication descriptor
      */
     @objid ("7a1b901b-1130-43df-a23c-b63c13b1b567")
@@ -471,7 +458,6 @@ public final class ProjectDescriptor implements Serializable {
     /**
      * Set the descriptor format version.
      * @see #serialVersionUID
-     * 
      * @param formatVersion the descriptor format version.
      */
     @objid ("e8b67ce0-1342-4bbe-96d7-5dfac922cbbb")
@@ -481,7 +467,6 @@ public final class ProjectDescriptor implements Serializable {
 
     /**
      * Set lock informations if the project is locked.
-     * 
      * @param lockInfo lock informations
      */
     @objid ("a8fe0c95-328b-474e-b986-1968dd2a39a1")
@@ -491,18 +476,17 @@ public final class ProjectDescriptor implements Serializable {
 
     /**
      * Set the version of Modelio used to write this project.
-     * 
      * @param value the Modelio version.
      */
     @objid ("a26ffff2-e558-422f-8eb6-478c0431f639")
     public void setModelioVersion(Version value) {
         // Automatically generated method. Please delete this comment before entering specific code.
         this.modelioVersion = value;
+        
     }
 
     /**
      * Set the project name.
-     * 
      * @param name the project name.
      */
     @objid ("eed9bf9f-9a71-11e1-ac83-001ec947ccaf")
@@ -512,7 +496,6 @@ public final class ProjectDescriptor implements Serializable {
 
     /**
      * Set the project path to initialize the project file structure.
-     * 
      * @param projectPath the project path.
      */
     @objid ("001ff676-34d4-1fc7-b42e-001ec947cd2a")
@@ -524,13 +507,13 @@ public final class ProjectDescriptor implements Serializable {
     public void setProjectSpaceVersion(long value) {
         // Automatically generated method. Please delete this comment before entering specific code.
         this.projectSpaceVersion = value;
+        
     }
 
     /**
      * Set the project properties.
      * <p>
      * Since Modelio 3.2 properties are initialized to an empty GProperties, you don't need to set one.
-     * 
      * @param gProperties the project properties.
      */
     @objid ("f478e915-aa5a-11e1-8392-001ec947ccaf")
@@ -540,7 +523,6 @@ public final class ProjectDescriptor implements Serializable {
 
     /**
      * Set the project remote location.
-     * 
      * @param remoteLocation the project remote location.
      */
     @objid ("380d01fb-0c6e-11e2-bed6-001ec947ccaf")
@@ -550,7 +532,6 @@ public final class ProjectDescriptor implements Serializable {
 
     /**
      * Get the actions to do on project opening.
-     * 
      * @param newTodo the to-do descriptor.
      * @since Modelio 3.4
      */
@@ -563,7 +544,6 @@ public final class ProjectDescriptor implements Serializable {
      * Set the project type.
      * <p>
      * The string value should match one of the {@link ProjectType} enumeration values.
-     * 
      * @param type the project type.
      */
     @objid ("b473b157-0baa-11e2-bed6-001ec947ccaf")
@@ -593,7 +573,6 @@ public final class ProjectDescriptor implements Serializable {
 
     /**
      * Compare 2 lists regardless of the order.
-     * 
      * @param c1 a list
      * @param c2 another list
      * @return <code>true</code> if they contain the same elements, whatever the order.

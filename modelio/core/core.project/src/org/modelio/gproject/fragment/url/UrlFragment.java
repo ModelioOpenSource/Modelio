@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.fragment.url;
 
 import java.io.FileNotFoundException;
@@ -77,7 +76,6 @@ public class UrlFragment extends AbstractFragment {
 
     /**
      * Instantiate an URL based EXML fragment.
-     * 
      * @param id the fragment name
      * @param url the repository location as a URL
      * @param definitionScope definition scope
@@ -85,10 +83,11 @@ public class UrlFragment extends AbstractFragment {
      * @param authConf authentication configuration
      */
     @objid ("e77dec8d-03f8-11e2-9ef9-001ec947ccaf")
-    public UrlFragment(final String id, final URI url, final DefinitionScope definitionScope, final GProperties properties, final GAuthConf authConf) {
+    public  UrlFragment(final String id, final URI url, final DefinitionScope definitionScope, final GProperties properties, final GAuthConf authConf) {
         super(id, definitionScope, properties, authConf);
         
         this.repoUrl = url;
+        
     }
 
     @objid ("e77ded0e-03f8-11e2-9ef9-001ec947ccaf")
@@ -142,6 +141,7 @@ public class UrlFragment extends AbstractFragment {
         if (this.repository == null) {
             throw new IllegalStateException("The '" + getId() + "' fragment is not mount.");
         }
+        
     }
 
     @objid ("dd53a49c-395a-11e2-a6db-001ec947ccaf")
@@ -165,6 +165,7 @@ public class UrlFragment extends AbstractFragment {
             Log.warning("No '"+mmuri+"' metamodel version file. Assume Modelio 3.1 (9020) metamodel version.");
             return new MetamodelVersionDescriptor(new VersionedItem<Void>(StandardMetamodel.NAME, VersionHelper.convert(9020)));
         }
+        
     }
 
     @objid ("6eb6c578-bbb3-4189-8e0a-06071d706b7b")
@@ -182,6 +183,7 @@ public class UrlFragment extends AbstractFragment {
         } else {
             return new UrlFragmentInfos(getId(), "", new Version("0.0.0"), ModelioVersion.VERSION);
         }
+        
     }
 
     @objid ("fe570c78-5d20-4d1b-a966-01d7426d394c")
@@ -196,12 +198,13 @@ public class UrlFragment extends AbstractFragment {
             Log.warning("No '"+infosUri+"' infos version file, use default values.");
             return null;
         }
+        
     }
 
     @objid ("3efd75da-0c7f-446e-a640-516dd04167a0")
     public class UrlFragmentInfos extends FragmentInfos {
         @objid ("b060b084-1473-423d-af5d-6cecc82ff8e8")
-        public UrlFragmentInfos(final String name, final String description, final Version version, final Version modelioVersion) {
+        public  UrlFragmentInfos(final String name, final String description, final Version version, final Version modelioVersion) {
             super(name, description, version, modelioVersion);
         }
 
@@ -213,6 +216,7 @@ public class UrlFragment extends AbstractFragment {
             } else {
                 return "";
             }
+            
         }
 
         @objid ("9efe9b09-a21f-45f2-af9c-8e3b5b4ec893")
@@ -223,6 +227,7 @@ public class UrlFragment extends AbstractFragment {
             } else {
                 return "";
             }
+            
         }
 
     }

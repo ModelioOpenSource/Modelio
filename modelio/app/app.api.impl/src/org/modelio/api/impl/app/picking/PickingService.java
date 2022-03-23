@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.api.impl.app.picking;
 
 import java.util.ArrayList;
@@ -82,6 +81,7 @@ public class PickingService implements IPickingService {
             }
             PickingService.currentSession = null;
         }
+        
     }
 
     @objid ("8da6ced7-df88-4dbb-b89e-490b48beac1c")
@@ -90,7 +90,7 @@ public class PickingService implements IPickingService {
     }
 
     @objid ("6868bba4-8c76-4e28-a3a9-3a6fc8702a3b")
-    public PickingService(IModelioPickingService modelioPickin) {
+    public  PickingService(IModelioPickingService modelioPickin) {
         this.modelioPicking = modelioPickin;
     }
 
@@ -100,7 +100,7 @@ public class PickingService implements IPickingService {
         private IPickingClient client;
 
         @objid ("00f54bad-cbf9-4a24-a43d-91ba538de859")
-        public PickingClientProxy(IPickingClient client) {
+        public  PickingClientProxy(IPickingClient client) {
             this.client = client;
         }
 

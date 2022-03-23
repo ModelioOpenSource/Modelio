@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.umlcommon.note;
 
 import java.util.ArrayList;
@@ -36,8 +35,8 @@ import org.modelio.diagram.elements.core.node.GmSimpleNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.Note;
@@ -66,26 +65,27 @@ public class GmNote extends GmSimpleNode {
     private Note note;
 
     @objid ("81819a5c-1dec-11e2-8cad-001ec947c8cc")
-     static final GmNoteStyleKeys KEYS = new GmNoteStyleKeys();
+    static final GmNoteStyleKeys KEYS = new GmNoteStyleKeys();
 
     /**
      * Constructor to use only for deserialization.
      */
     @objid ("81865f11-1dec-11e2-8cad-001ec947c8cc")
-    public GmNote() {
+    public  GmNote() {
+        
     }
 
     /**
      * Creates a GmNote.
-     * 
      * @param diagram The diagram owning the node
      * @param note The represented note element
      * @param ref The represented note reference
      */
     @objid ("81865f14-1dec-11e2-8cad-001ec947c8cc")
-    public GmNote(IGmDiagram diagram, Note note, MRef ref) {
+    public  GmNote(IGmDiagram diagram, Note note, MRef ref) {
         super(diagram, ref);
         this.note = note;
+        
     }
 
     /**
@@ -98,6 +98,7 @@ public class GmNote extends GmSimpleNode {
         } else {
             return "?";
         }
+        
     }
 
     @objid ("81865f1e-1dec-11e2-8cad-001ec947c8cc")
@@ -145,7 +146,6 @@ public class GmNote extends GmSimpleNode {
 
     /**
      * Get the note type label.
-     * 
      * @return the note type label.
      */
     @objid ("8188c170-1dec-11e2-8cad-001ec947c8cc")
@@ -198,6 +198,7 @@ public class GmNote extends GmSimpleNode {
             break;
         }
         }
+        
     }
 
     @objid ("8188c179-1dec-11e2-8cad-001ec947c8cc")
@@ -208,6 +209,7 @@ public class GmNote extends GmSimpleNode {
         
             refreshNoteLink();
         }
+        
     }
 
     @objid ("8188c17c-1dec-11e2-8cad-001ec947c8cc")
@@ -229,6 +231,7 @@ public class GmNote extends GmSimpleNode {
             // the removed link represents the same element (the note) as this gm: delete self as well.
             delete();
         }
+        
     }
 
     @objid ("8188c186-1dec-11e2-8cad-001ec947c8cc")
@@ -238,12 +241,14 @@ public class GmNote extends GmSimpleNode {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmNote.", GmNote.MINOR_VERSION);
+        
     }
 
     @objid ("8188c18a-1dec-11e2-8cad-001ec947c8cc")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.note = (Note) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("8188c18d-1dec-11e2-8cad-001ec947c8cc")
@@ -320,6 +325,7 @@ public class GmNote extends GmSimpleNode {
                 }
             }
         }
+        
     }
 
     /**

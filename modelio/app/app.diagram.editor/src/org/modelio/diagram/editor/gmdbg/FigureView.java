@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.gmdbg;
 
 import java.util.ArrayList;
@@ -28,7 +27,9 @@ import org.eclipse.draw2d.Connection;
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.ConnectionRouter;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.draw2d.LayoutManager;
 import org.eclipse.draw2d.geometry.PointList;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.editparts.AbstractConnectionEditPart;
 import org.eclipse.gef.editparts.AbstractGraphicalEditPart;
@@ -41,18 +42,19 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
+import org.modelio.diagram.elements.core.figures.ChainedLayout;
 import org.modelio.platform.ui.CoreFontRegistry;
 
 @objid ("7ccc0864-4543-49ad-87ad-3329399a9c4d")
 public class FigureView {
-    @objid ("d908acf1-2154-4c08-8028-ea06618c97a7")
+    @objid ("2b7868b4-fbcc-45fc-8132-abcc9dcc4b78")
     private TableViewer figureProps;
 
-    @objid ("0d896cf8-8fa0-4f72-b8fe-519e1dee9144")
+    @objid ("c81aa6b8-a565-4540-9bb9-5a2d5d4a4587")
     private Font boldFont;
 
     @objid ("4437763e-a988-4646-894e-6c51b00d2645")
-    public FigureView(Composite parent) {
+    public  FigureView(Composite parent) {
         this.figureProps = new TableViewer(parent, SWT.V_SCROLL);
         
         final Table table = this.figureProps.getTable();
@@ -94,6 +96,7 @@ public class FigureView {
         });
         
         this.figureProps.setContentProvider(new FigureContentProvider());
+        
     }
 
     @objid ("a545ec63-44b5-42a7-b7d3-7ae459102bbc")
@@ -109,7 +112,7 @@ public class FigureView {
     @objid ("c0c70427-1be7-4476-b524-6fac3e75757d")
     private static class FigureContentProvider implements IStructuredContentProvider {
         @objid ("9bd8e3c9-51ba-420c-81b2-64b259da5fec")
-         List<Entry<String,String>> properties;
+        List<Entry<String, String>> properties;
 
         @objid ("48a52f83-1a76-4746-abaf-29e1082cc452")
         @Override
@@ -132,13 +135,13 @@ public class FigureView {
             
                 Connection connectionFigure = ep.getConnectionFigure();
                 this.properties.add(new XEntry("Type", connectionFigure.getClass().getSimpleName()));
-                
+            
                 ConnectionRouter router = connectionFigure.getConnectionRouter();
                 this.properties.add(new XEntry("    router", router.getClass().getSimpleName()));
-                
+            
                 this.properties.add(new XEntry("Path", ""));
-                
-                
+            
+            
                 ConnectionAnchor sourceAnchor = connectionFigure.getSourceAnchor();
                 if (sourceAnchor != null) {
                     this.properties.add(new XEntry("    source anchor", sourceAnchor.getClass().getSimpleName()));
@@ -147,8 +150,8 @@ public class FigureView {
                     this.properties.add(new XEntry("    source anchor", "<null>"));
                     this.properties.add(new XEntry("        ref point", "<null>"));
                 }
-                
-                ConnectionAnchor targetAnchor = connectionFigure.getTargetAnchor(); 
+            
+                ConnectionAnchor targetAnchor = connectionFigure.getTargetAnchor();
                 if (targetAnchor != null) {
                     this.properties.add(new XEntry("    target anchor", targetAnchor.getClass().getSimpleName()));
                     this.properties.add(new XEntry("        ref point", targetAnchor.getReferencePoint() != null ? targetAnchor.getReferencePoint().toString() : "<null>"));
@@ -156,22 +159,26 @@ public class FigureView {
                     this.properties.add(new XEntry("    target anchor", "<null>"));
                     this.properties.add(new XEntry("        ref point", "<null>"));
                 }
-                
-                this.properties.add(new XEntry("    route constraint", router.getConstraint(connectionFigure) != null ? router.getConstraint(connectionFigure).toString() : "<null>"));
-                
+            
+                Object routingConstraint = router.getConstraint(connectionFigure);
+                this.properties.add(new XEntry("    route constraint", Formatter.toString(routingConstraint)));
+            
                 this.properties.add(new XEntry("Points", ""));
                 PointList points = connectionFigure.getPoints();
                 for (int i=0; i<points.size(); i++) {
                     this.properties.add(new XEntry("    pt"+i, points.getPoint(i).toString()));
                 }
-                
+            
             
             } else if (newInput instanceof AbstractGraphicalEditPart) {
                 AbstractGraphicalEditPart ep = (AbstractGraphicalEditPart) newInput;
             
                 IFigure figure = ep.getFigure();
+                Rectangle absBounds = figure.getBounds().getCopy();
+                figure.translateToAbsolute(absBounds);
                 this.properties.add(new XEntry("Type", figure.getClass().getSimpleName()));
-                this.properties.add(new XEntry("    bounds", Formatter.toString(figure.getBounds())));
+                this.properties.add(new XEntry("    bounds relative", Formatter.toString(figure.getBounds())));
+                this.properties.add(new XEntry("    bounds absolute", Formatter.toString(absBounds)));
                 this.properties.add(new XEntry("    insets", Formatter.toString(figure.getInsets())));
                 this.properties.add(new XEntry("    client area", Formatter.toString(figure.getClientArea())));
                 this.properties.add(new XEntry("    size", Formatter.toString(figure.getSize())));
@@ -186,12 +193,52 @@ public class FigureView {
                 this.properties.add(new XEntry("    foreground", Formatter.toString(figure.getForegroundColor())));
                 this.properties.add(new XEntry("    font", Formatter.toString(figure.getFont())));
             
-                this.properties.add(new XEntry("    layout", (figure.getLayoutManager() != null) ? figure.getLayoutManager().getClass().getSimpleName() : "<null>"));
+                this.properties.add(new XEntry("    layout", formatLayoutManager(figure)));
+                this.properties.add(new XEntry("    layout constraint", formatLayoutConstraint(figure)));
             
                 this.properties.add(new XEntry("    parent", (figure.getParent() != null) ? figure.getParent().getClass().getSimpleName() : "<null>"));
-                this.properties.add(new XEntry("    parent layout", (figure.getParent() != null) ? (figure.getParent().getLayoutManager() != null) ? figure.getParent().getLayoutManager().getClass().getSimpleName() : "<null>"
-                        : "NA"));
+                this.properties.add(new XEntry("    parent layout", formatLayoutManager(figure.getParent())));
+            
             }
+            
+        }
+
+        @objid ("7f63b105-4871-41f3-a9e1-4e819524743d")
+        private String formatLayoutConstraint(IFigure figure) {
+            IFigure parent = figure.getParent();
+            if (parent == null)
+                return "N/A";
+            
+            LayoutManager layoutManager = parent.getLayoutManager();
+            if (layoutManager == null)
+                return "N/A";
+            return Formatter.toString(layoutManager.getConstraint(figure));
+        }
+
+        @objid ("f39ed5c5-fcb5-4328-a8f0-c631100fe4fd")
+        private String formatLayoutManager(IFigure figure) {
+            if (figure == null)
+                return "N/A";
+            
+            LayoutManager layoutManager = figure.getLayoutManager();
+            if (layoutManager == null)
+                return "<null>";
+            
+            if (! (layoutManager instanceof ChainedLayout))
+                return layoutManager.getClass().getSimpleName();
+            
+            StringBuilder s = new StringBuilder();
+            while (layoutManager instanceof ChainedLayout) {
+                s.append(layoutManager.getClass().getSimpleName());
+                s.append(" > ");
+                layoutManager = ((ChainedLayout) layoutManager).getChained();
+            }
+            
+            if (layoutManager == null)
+                s.append("<null>");
+            else
+                s.append(layoutManager.getClass().getSimpleName());
+            return s.toString();
         }
 
         @objid ("baf881e9-10a8-431f-9787-ac0c523b6ec8")

@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.swt;
 
 import java.util.ArrayList;
@@ -39,7 +38,7 @@ import org.eclipse.jface.viewers.IStructuredSelection;
 @objid ("acea6a4e-ea5d-46fc-9690-d8500c0a2116")
 public final class SelectionHelper {
     @objid ("5ffe3602-d87b-4cc7-851b-e5b604e1594a")
-    private SelectionHelper() {
+    private  SelectionHelper() {
         // no instance
     }
 
@@ -47,7 +46,6 @@ public final class SelectionHelper {
      * Tells whether the selection contains <b>at least</b> one element of the given type.
      * <p>
      * Returns false if the selection is empty.
-     * 
      * @param selection a selection object
      * @param cls the required type
      * @return true if the selection contains at least one such element.
@@ -68,7 +66,6 @@ public final class SelectionHelper {
      * Tells whether the selection contains <b>only</b> elements of the given type.
      * <p>
      * Returns false if the selection is empty.
-     * 
      * @param selection a selection object
      * @param cls the required type
      * @return true if the selection is not empty and contains only such elements.
@@ -94,7 +91,6 @@ public final class SelectionHelper {
 
     /**
      * Count in the selection the elements matching the given type.
-     * 
      * @param selection a selection object
      * @param cls the required type
      * @return true the matching elements count.
@@ -117,7 +113,6 @@ public final class SelectionHelper {
      * <p>
      * All selection elements not matching the type are filtered out.
      * @param <T> the wanted type
-     * 
      * @param selection the selection object
      * @param cls the wanted type
      * @return the filtered selection content
@@ -143,7 +138,6 @@ public final class SelectionHelper {
      * <p>
      * All selection elements not matching the type are filtered out.
      * @param <T> the wanted type
-     * 
      * @param selection the selection object
      * @param cls the wanted type
      * @return the filtered selection content
@@ -163,7 +157,6 @@ public final class SelectionHelper {
     /**
      * Get the first element in the selection that matches the given type
      * @param <T> the required type
-     * 
      * @param selection the selection object
      * @param cls the required type class
      * @return the first matching element or null.

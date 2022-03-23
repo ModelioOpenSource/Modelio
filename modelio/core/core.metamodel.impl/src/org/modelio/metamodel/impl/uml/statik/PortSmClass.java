@@ -17,21 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.statik.BindableInstanceSmClass;
-import org.modelio.metamodel.impl.uml.statik.PortData;
-import org.modelio.metamodel.impl.uml.statik.ProvidedInterfaceSmClass;
-import org.modelio.metamodel.impl.uml.statik.RequiredInterfaceSmClass;
 import org.modelio.metamodel.uml.statik.BindableInstance;
 import org.modelio.metamodel.uml.statik.Port;
 import org.modelio.metamodel.uml.statik.PortOrientation;
@@ -70,7 +66,7 @@ public class PortSmClass extends BindableInstanceSmClass {
     private SmDependency requiredDep;
 
     @objid ("f5bdb6f2-6d2d-40ed-ae13-4099a7ded8ba")
-    public PortSmClass(ISmMetamodelFragment origin) {
+    public  PortSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -78,6 +74,7 @@ public class PortSmClass extends BindableInstanceSmClass {
     @Override
     public String getName() {
         return "Port";
+        
     }
 
     @objid ("5fcaae36-277d-4454-9f6a-c47c6f9dce57")
@@ -90,18 +87,21 @@ public class PortSmClass extends BindableInstanceSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Port.class;
+        
     }
 
     @objid ("8178febb-b044-4ba8-85bc-e9ba7125cb5f")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("6cce3233-c089-40ab-8331-5c7056cf7583")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("39b5c2f7-6c34-497a-9b23-1430df89e340")
@@ -137,6 +137,8 @@ public class PortSmClass extends BindableInstanceSmClass {
         this.requiredDep = new RequiredSmDependency();
         this.requiredDep.init("Required", this, metamodel.getMClass(RequiredInterface.MQNAME), 0, -1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.requiredDep);
+        
+        
     }
 
     @objid ("aeda62af-a144-4b93-8a44-27577c7fad81")
@@ -193,7 +195,7 @@ public class PortSmClass extends BindableInstanceSmClass {
         private PortSmClass smClass;
 
         @objid ("cfb69f4a-6bb8-42e1-a27b-44e6e8821a72")
-        public PortObjectFactory(PortSmClass smClass) {
+        public  PortObjectFactory(PortSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -282,6 +284,7 @@ public class PortSmClass extends BindableInstanceSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((PortData) data).mProvided = values;
+            
         }
 
         @objid ("9d2a1520-0e31-4c91-a7cb-3434ebec8f26")
@@ -291,6 +294,7 @@ public class PortSmClass extends BindableInstanceSmClass {
             	this.symetricDep = ((ProvidedInterfaceSmClass)this.getTarget()).getProvidingDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -310,6 +314,7 @@ public class PortSmClass extends BindableInstanceSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((PortData) data).mRequired = values;
+            
         }
 
         @objid ("082637d0-e91d-4918-a6b0-9a310829f270")
@@ -319,6 +324,7 @@ public class PortSmClass extends BindableInstanceSmClass {
             	this.symetricDep = ((RequiredInterfaceSmClass)this.getTarget()).getRequiringDep();
             }
             return this.symetricDep;
+            
         }
 
     }

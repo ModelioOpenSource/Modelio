@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.root;
 
 import java.util.Collection;
@@ -41,7 +40,7 @@ public class StandardRootGetter implements IRepositoryRootGetter {
     }
 
     @objid ("a1da0b56-5f6c-4bfd-bc99-82088d912a73")
-    public StandardRootGetter(SmMetamodel mm) {
+    public  StandardRootGetter(SmMetamodel mm) {
         this.mm = mm;
     }
 

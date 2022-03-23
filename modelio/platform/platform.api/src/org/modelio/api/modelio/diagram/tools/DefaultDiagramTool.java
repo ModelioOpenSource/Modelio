@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.diagram.tools;
 
 import java.util.List;
@@ -55,7 +54,6 @@ public abstract class DefaultDiagramTool implements IDiagramTool {
 
     /**
      * Convenience to get a parameter value.
-     * 
      * @param key the parameter
      * @return the value or null.
      */
@@ -71,6 +69,7 @@ public abstract class DefaultDiagramTool implements IDiagramTool {
         this.label = label;
         this.tooltip = tooltip;
         this.bitmap = image;
+        
     }
 
     @objid ("5620d586-91b1-4e86-a049-b652f438f843")
@@ -81,6 +80,7 @@ public abstract class DefaultDiagramTool implements IDiagramTool {
         this.targetScopes = targetScopes;
         this.parameters = parameters;
         this.module = module;
+        
     }
 
     @objid ("21f3f61a-ce9a-4f77-b2f3-ef9db1b325bc")
@@ -99,7 +99,6 @@ public abstract class DefaultDiagramTool implements IDiagramTool {
      * <li> <i>module regex<b>#</b>stereotype regex</i>
      * </ul>
      * Returns <i>null</i> if the specification is <i>null</i> or the stereotype is not found.
-     * 
      * @param metaclass the metaclass to look from
      * @param stereotypeSpec the stereotype specification
      * @return the found stereotype or <i>null</i>.

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.expansionregion;
 
 import java.util.Collections;
@@ -33,8 +32,8 @@ import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.AbstractStyleKeyProvider;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.ExpansionNode;
 import org.modelio.metamodel.uml.behavior.activityModel.ExpansionRegion;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -63,26 +62,25 @@ public class GmExpansionRegion extends GmPortContainer {
     private static final String IMAGE_LABEL_ROLE = "ImageLabel";
 
     @objid ("d0803aca-55c0-11e2-9337-002564c97630")
-     static final AbstractStyleKeyProvider STRUCTURED_KEYS = new GmExpansionRegionStructuredStyleKeys();
+    static final AbstractStyleKeyProvider STRUCTURED_KEYS = new GmExpansionRegionStructuredStyleKeys();
 
     @objid ("d0803acc-55c0-11e2-9337-002564c97630")
-     static final AbstractStyleKeyProvider SIMPLE_KEYS = new GmExpansionRegionSimpleStyleKeys();
+    static final AbstractStyleKeyProvider SIMPLE_KEYS = new GmExpansionRegionSimpleStyleKeys();
 
     @objid ("d0803ace-55c0-11e2-9337-002564c97630")
-     static final AbstractStyleKeyProvider IMAGE_KEYS = new GmExpansionRegionImageStyleKeys();
+    static final AbstractStyleKeyProvider IMAGE_KEYS = new GmExpansionRegionImageStyleKeys();
 
     @objid ("0ad35449-60de-482c-b972-35e631ed3146")
-     static final AbstractStyleKeyProvider USERIMAGE_KEYS = new GmExpansionRegionUserImageStyleKeys();
+    static final AbstractStyleKeyProvider USERIMAGE_KEYS = new GmExpansionRegionUserImageStyleKeys();
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the expansionRegion is unmasked.
      * @param el the unmasked expansionRegion.
      * @param ref a reference to the unmasked expansionRegion.
      */
     @objid ("2a5e5e59-55b6-11e2-877f-002564c97630")
-    public GmExpansionRegion(IGmDiagram diagram, ExpansionRegion el, MRef ref) {
+    public  GmExpansionRegion(IGmDiagram diagram, ExpansionRegion el, MRef ref) {
         super(diagram, ref);
         this.element = el;
         
@@ -95,13 +93,14 @@ public class GmExpansionRegion extends GmPortContainer {
         
         super.addChild(mainNode);
         super.addChild(imageModeHeader);
+        
     }
 
     /**
      * Empty constructor needed for deserialisation.
      */
     @objid ("2a5fe4bf-55b6-11e2-877f-002564c97630")
-    public GmExpansionRegion() {
+    public  GmExpansionRegion() {
         // Nothing specific to do.
     }
 
@@ -116,6 +115,7 @@ public class GmExpansionRegion extends GmPortContainer {
     public boolean canUnmask(MObject el) {
         return ((ExpansionNode.class.isAssignableFrom(el.getClass())) && el.getCompositionOwner()
                         .equals(this.element));
+        
     }
 
     @objid ("2a5fe4d2-55b6-11e2-877f-002564c97630")
@@ -179,6 +179,7 @@ public class GmExpansionRegion extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("2a5fe4eb-55b6-11e2-877f-002564c97630")
@@ -200,6 +201,7 @@ public class GmExpansionRegion extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmExpansionRegion.", GmExpansionRegion.MINOR_VERSION);
+        
     }
 
     @objid ("2a616b60-55b6-11e2-877f-002564c97630")
@@ -212,6 +214,7 @@ public class GmExpansionRegion extends GmPortContainer {
         imageModeHeader.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         
         super.addChild(imageModeHeader, 1);
+        
     }
 
     @objid ("2a616b65-55b6-11e2-877f-002564c97630")
@@ -224,6 +227,7 @@ public class GmExpansionRegion extends GmPortContainer {
     private void read_1(final IDiagramReader in) {
         super.read(in);
         this.element = (ExpansionRegion) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("2a616b70-55b6-11e2-877f-002564c97630")
@@ -239,6 +243,7 @@ public class GmExpansionRegion extends GmPortContainer {
                 ret.remove(imageModeHeader);
                 break;
             }
+            case USER_IMAGE:
             case IMAGE:
             default: {
                 break;
@@ -251,7 +256,6 @@ public class GmExpansionRegion extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -261,11 +265,11 @@ public class GmExpansionRegion extends GmPortContainer {
         String role = childNode.getRoleInComposition();
         return GmPortContainer.SATELLITE_ROLE.equals(role)
                         || GmExpansionRegion.IMAGE_LABEL_ROLE.equals(role);
+        
     }
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */

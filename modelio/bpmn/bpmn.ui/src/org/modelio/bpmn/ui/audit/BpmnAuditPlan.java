@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.ui.audit;
 
 import java.util.List;
@@ -30,7 +29,7 @@ import org.modelio.bpmn.ui.plugin.BpmnUi;
 @objid ("58703556-600b-4cb3-9ebd-1eedf18909b9")
 public class BpmnAuditPlan extends AbstractAuditExecutionPlan {
     @objid ("1fa9d783-86b9-483e-9e68-7019012c3b37")
-    public BpmnAuditPlan(List<AuditCategory> rootCategories) {
+    public  BpmnAuditPlan(List<AuditCategory> rootCategories) {
         super(rootCategories);
     }
 
@@ -52,6 +51,7 @@ public class BpmnAuditPlan extends AbstractAuditExecutionPlan {
         } catch (IllegalAccessException e) {
             BpmnUi.LOG.error(e);
         }
+        
     }
 
 }

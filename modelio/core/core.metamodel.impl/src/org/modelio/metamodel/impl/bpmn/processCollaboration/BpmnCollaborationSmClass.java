@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.processCollaboration;
 
 import java.util.ArrayList;
@@ -36,9 +36,6 @@ import org.modelio.metamodel.bpmn.processCollaboration.BpmnProcess;
 import org.modelio.metamodel.bpmn.rootElements.BpmnArtifact;
 import org.modelio.metamodel.impl.bpmn.flows.BpmnMessageFlowSmClass;
 import org.modelio.metamodel.impl.bpmn.flows.BpmnMessageSmClass;
-import org.modelio.metamodel.impl.bpmn.processCollaboration.BpmnCollaborationData;
-import org.modelio.metamodel.impl.bpmn.processCollaboration.BpmnParticipantSmClass;
-import org.modelio.metamodel.impl.bpmn.processCollaboration.BpmnProcessSmClass;
 import org.modelio.metamodel.impl.bpmn.rootElements.BpmnArtifactSmClass;
 import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.BehaviorSmClass;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
@@ -76,7 +73,7 @@ public class BpmnCollaborationSmClass extends BehaviorSmClass {
     private SmDependency definedProcessDep;
 
     @objid ("2b11237f-b845-4a58-9638-58b6103f5e75")
-    public BpmnCollaborationSmClass(ISmMetamodelFragment origin) {
+    public  BpmnCollaborationSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -84,6 +81,7 @@ public class BpmnCollaborationSmClass extends BehaviorSmClass {
     @Override
     public String getName() {
         return "BpmnCollaboration";
+        
     }
 
     @objid ("8b740db6-e023-45ed-803e-c0a80e37d2a0")
@@ -96,18 +94,21 @@ public class BpmnCollaborationSmClass extends BehaviorSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnCollaboration.class;
+        
     }
 
     @objid ("0ee219e5-37be-44fa-87a6-c7ebf8464ac2")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("99b35e61-09d0-4480-8dbd-769dbfeb274d")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("7eddddbc-bf23-4806-a801-5a4117f1c4f0")
@@ -143,6 +144,8 @@ public class BpmnCollaborationSmClass extends BehaviorSmClass {
         this.definedProcessDep = new DefinedProcessSmDependency();
         this.definedProcessDep.init("DefinedProcess", this, metamodel.getMClass(BpmnProcess.MQNAME), 0, 1 );
         registerDependency(this.definedProcessDep);
+        
+        
     }
 
     @objid ("d0b7a4f2-7125-4681-9db3-586d8d915d5f")
@@ -199,7 +202,7 @@ public class BpmnCollaborationSmClass extends BehaviorSmClass {
         private BpmnCollaborationSmClass smClass;
 
         @objid ("e877a9b8-2b25-4627-9aea-0dcc32453638")
-        public BpmnCollaborationObjectFactory(BpmnCollaborationSmClass smClass) {
+        public  BpmnCollaborationObjectFactory(BpmnCollaborationSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -246,6 +249,7 @@ public class BpmnCollaborationSmClass extends BehaviorSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnCollaborationData) data).mArtifact = values;
+            
         }
 
         @objid ("fd3f8d1d-3472-46c3-aff1-df5309e4b1ec")
@@ -255,6 +259,7 @@ public class BpmnCollaborationSmClass extends BehaviorSmClass {
             	this.symetricDep = ((BpmnArtifactSmClass)this.getTarget()).getCollaborationDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -274,6 +279,7 @@ public class BpmnCollaborationSmClass extends BehaviorSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnCollaborationData) data).mMessageFlow = values;
+            
         }
 
         @objid ("3c67dcaf-ae03-44a9-b9d6-14f6390c925a")
@@ -283,6 +289,7 @@ public class BpmnCollaborationSmClass extends BehaviorSmClass {
             	this.symetricDep = ((BpmnMessageFlowSmClass)this.getTarget()).getCollaborationDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -302,6 +309,7 @@ public class BpmnCollaborationSmClass extends BehaviorSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnCollaborationData) data).mParticipants = values;
+            
         }
 
         @objid ("1f9ca96e-add9-4ee8-8f56-658c91790c92")
@@ -311,6 +319,7 @@ public class BpmnCollaborationSmClass extends BehaviorSmClass {
             	this.symetricDep = ((BpmnParticipantSmClass)this.getTarget()).getContainerDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -330,6 +339,7 @@ public class BpmnCollaborationSmClass extends BehaviorSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnCollaborationData) data).mMessages = values;
+            
         }
 
         @objid ("51f2e6db-0724-4c5f-8198-da2366125b85")
@@ -339,6 +349,7 @@ public class BpmnCollaborationSmClass extends BehaviorSmClass {
             	this.symetricDep = ((BpmnMessageSmClass)this.getTarget()).getCollaborationDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -367,6 +378,7 @@ public class BpmnCollaborationSmClass extends BehaviorSmClass {
             	this.symetricDep = ((BpmnProcessSmClass)this.getTarget()).getDefinitionalCollaborationDep();
             }
             return this.symetricDep;
+            
         }
 
     }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.element.single;
 
 import java.security.InvalidParameterException;
@@ -40,27 +39,27 @@ public class DefaultElementNatValue extends DefaultNatValue implements IElementN
 
     /**
      * Creates a new instance.
-     * 
      * @param value the wrapped value.
      * @param acceptNullValue whether or not <code>null</code> is a valid value for this field.
      * @param allowedClasses list of the accepted metaclasses for the value.
      */
     @objid ("fe6f7807-500b-4fa8-8ae4-d65b9361a018")
-    public DefaultElementNatValue(MObject value, boolean acceptNullValue, List<Class<? extends MObject>> allowedClasses) {
+    public  DefaultElementNatValue(MObject value, boolean acceptNullValue, List<Class<? extends MObject>> allowedClasses) {
         super(value, acceptNullValue);
         this.allowedClasses = allowedClasses;
+        
     }
 
     /**
      * Copy constructor, creating a new instance with the same configuration as the other.
-     * 
      * @param anotherInstance the instance to copy.
      */
     @objid ("62969e17-d736-4c14-9826-0bfd8ef6be7f")
-    public DefaultElementNatValue(DefaultElementNatValue anotherInstance) {
+    public  DefaultElementNatValue(DefaultElementNatValue anotherInstance) {
         super(anotherInstance);
         this.allowedClasses = anotherInstance.allowedClasses;
         this.elementFilter = anotherInstance.elementFilter;
+        
     }
 
     @objid ("29dd2ee2-d268-4013-8f04-a825f26fca9a")
@@ -94,6 +93,7 @@ public class DefaultElementNatValue extends DefaultNatValue implements IElementN
             throw new InvalidParameterException("Value must be a MObject.");
         }
         super.setValue(value);
+        
     }
 
     @objid ("a5360e66-343d-4e07-856b-6f1527466396")

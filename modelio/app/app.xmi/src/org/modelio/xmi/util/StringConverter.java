@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.util;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,6 +50,7 @@ public class StringConverter {
         } catch (Exception e) {
             return null;
         }
+        
     }
 
     @objid ("9344b4e1-bc16-4cdf-980f-06abe4d13f14")
@@ -62,6 +62,7 @@ public class StringConverter {
         } catch (Exception e) {
             return null;
         }
+        
     }
 
     @objid ("3c171e41-23a4-4b75-8b9a-3147913569d7")
@@ -73,6 +74,7 @@ public class StringConverter {
         } catch (Exception e) {
             return null;
         }
+        
     }
 
     @objid ("a5b970d9-0faf-43c7-9558-f1e0d9d91352")
@@ -82,6 +84,7 @@ public class StringConverter {
         } catch (Exception e) {
             return null;
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import java.util.ArrayList;
@@ -43,9 +42,10 @@ public class OBinding extends OElement implements IOElement {
     }
 
     @objid ("117d587e-a45f-45c1-9489-60c621cfc17b")
-    public OBinding(Binding param) {
+    public  OBinding(Binding param) {
         super(param);
         this.objElt = param;
+        
     }
 
     @objid ("2435240c-7aec-4476-907c-ea638adbcf48")
@@ -117,6 +117,7 @@ public class OBinding extends OElement implements IOElement {
         }else{
             ecoreDependency.destroy();
         }
+        
     }
 
     @objid ("10bddb4c-1cab-4bc8-aafd-9193ebc1abfa")
@@ -126,6 +127,7 @@ public class OBinding extends OElement implements IOElement {
         if (ecoreOwner instanceof  org.eclipse.uml2.uml.CollaborationUse){
             ( (org.eclipse.uml2.uml.CollaborationUse) ecoreOwner).getRoleBindings().add((org.eclipse.uml2.uml.Dependency)ecoreElt);
         }
+        
     }
 
 }

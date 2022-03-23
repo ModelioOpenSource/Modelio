@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.infrastructure.factory;
 
 import java.io.IOException;
@@ -89,7 +88,7 @@ public class ResourceBuilder implements IResourceBuilder {
     private URI uri;
 
     @objid ("7f0c3630-3704-4ede-ae81-368aa1643805")
-    public ResourceBuilder(InfrastructureModelFactoryImpl factory) {
+    public  ResourceBuilder(InfrastructureModelFactoryImpl factory) {
         this.factory = factory;
     }
 
@@ -229,6 +228,7 @@ public class ResourceBuilder implements IResourceBuilder {
         } else {
             res.setStorageInfo("blob:");
         }
+        
     }
 
     @objid ("28860bb9-c74c-48c7-a743-d57534097443")
@@ -238,6 +238,7 @@ public class ResourceBuilder implements IResourceBuilder {
         } else if (this.uri != null) {
             res.createExternalResource(this.uri.toString());
         }
+        
     }
 
     @objid ("8e363dad-9e83-4a14-abfe-5358440c513b")
@@ -281,6 +282,7 @@ public class ResourceBuilder implements IResourceBuilder {
         res.setMimeType(this.mimeType);
         res.setSubject(this.owner);
         res.setType(this.type);
+        
     }
 
     @objid ("15ae885d-78f5-4f7d-9ee7-b4f61a192241")

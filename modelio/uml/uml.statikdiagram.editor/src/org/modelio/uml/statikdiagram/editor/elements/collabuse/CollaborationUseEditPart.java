@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.collabuse;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -54,6 +53,7 @@ public class CollaborationUseEditPart extends AbstractNodeEditPart {
         super.addChildVisual(childEditPart, index);
         
         updateSeparations(getFigure());
+        
     }
 
     /**
@@ -68,6 +68,7 @@ public class CollaborationUseEditPart extends AbstractNodeEditPart {
                           new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(EditPolicy.LAYOUT_ROLE, new DeferringCreateNodePolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     /**
@@ -102,7 +103,6 @@ public class CollaborationUseEditPart extends AbstractNodeEditPart {
      * Refresh the figure from the given style.
      * <p>
      * Often called in {@link #createFigure()} and after a style change.
-     * 
      * @param aFigure The figure to update, should be {@link #getFigure()}.
      * @param style The style to update from, usually {@link #getModelStyle()}
      */
@@ -112,6 +112,7 @@ public class CollaborationUseEditPart extends AbstractNodeEditPart {
         if (!switchRepresentationMode()) {
             super.refreshFromStyle(aFigure, style);
         }
+        
     }
 
     /**
@@ -123,6 +124,7 @@ public class CollaborationUseEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         final GmAbstractObject model = getModel();
         getFigure().getParent().setConstraint(getFigure(), model.getLayoutData());
+        
     }
 
     @objid ("346da299-55b7-11e2-877f-002564c97630")
@@ -131,11 +133,11 @@ public class CollaborationUseEditPart extends AbstractNodeEditPart {
         super.removeChildVisual(childEditPart);
         
         updateSeparations(getFigure());
+        
     }
 
     /**
      * Update the separation lines between zones.
-     * 
      * @param aFigure the composite figure to update.
      */
     @objid ("346da29d-55b7-11e2-877f-002564c97630")
@@ -151,6 +153,7 @@ public class CollaborationUseEditPart extends AbstractNodeEditPart {
         
         zoneBorder.setStyle(Graphics.LINE_DASH);
         ChildFigureLineSeparator.updateSeparation(fig, zoneBorder);
+        
     }
 
     @objid ("346da2a1-55b7-11e2-877f-002564c97630")

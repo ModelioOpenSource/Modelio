@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.communicationdiagram.editor.elements.communicationmessage;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,6 +45,7 @@ public class CommunicationMessageGroupEditPart extends GroupEditPart {
         
         installEditPolicy(EditPolicy.LAYOUT_ROLE, new CommunicationMessageGroupCreatePolicy());
         installEditPolicy("hover", new HoverFeedbackEditPolicy());
+        
     }
 
 }

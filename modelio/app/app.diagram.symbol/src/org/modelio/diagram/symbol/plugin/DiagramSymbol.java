@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.symbol.plugin;
 
 import java.util.ResourceBundle;
@@ -65,6 +64,7 @@ public class DiagramSymbol extends Plugin {
         ExtendedLogService service = context.getService(ref);
         LOG = new PluginLogger(service.getLogger(context.getBundle(), PLUGIN_ID));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("diagram_symbol"));
+        
     }
 
     @objid ("1c699886-58d7-11e2-8bfd-001ec947ccaf")
@@ -76,7 +76,6 @@ public class DiagramSymbol extends Plugin {
     /**
      * Returns an image descriptor for the image file at the given plug-in
      * relative path
-     * 
      * @param path the path
      * @return the image descriptor
      */

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.stereotype.chooser;
 
 import java.util.ArrayList;
@@ -76,17 +75,17 @@ public class StereotypeChooserDriver implements IElementChooserDriver {
 
     /**
      * Initialize the chooser driver.
-     * 
      * @param modelService a model service
      * @param selectedModule a ModuleComponent
      */
     @objid ("df3aae4c-7769-45f9-a5db-4c024ab68ec1")
-    public StereotypeChooserDriver(ICoreSession session, IMModelServices modelService, ModuleComponent selectedModule) {
+    public  StereotypeChooserDriver(ICoreSession session, IMModelServices modelService, ModuleComponent selectedModule) {
         this.session = session;
         this.modelService = modelService;
         this.selectedModule = selectedModule;
         this.createdStereotype = null;
         this.stereotypeSelectionListener = new StereotypeChooserSelectionListener();
+        
     }
 
     @objid ("c73b78b4-97e7-4b00-a10b-245034d92679")
@@ -94,6 +93,7 @@ public class StereotypeChooserDriver implements IElementChooserDriver {
     protected void finalize() throws Throwable {
         this.leftViewer.removeSelectionChangedListener(this.stereotypeSelectionListener);
         super.finalize();
+        
     }
 
     @objid ("c4fe5b93-bc5f-4a43-b657-f1956b50e2f6")
@@ -111,7 +111,6 @@ public class StereotypeChooserDriver implements IElementChooserDriver {
 
     /**
      * Get the last created stereotype.
-     * 
      * @return the last created stereotype.
      */
     @objid ("0ff29a75-30fd-4cca-ba3f-3b72a6864bdc")
@@ -153,6 +152,7 @@ public class StereotypeChooserDriver implements IElementChooserDriver {
             this.leftViewer.setInput(this.leftModel);
             setExpandedState();
         }
+        
     }
 
     @objid ("71722c2f-a790-4162-a991-34f9f69cb6f8")
@@ -179,6 +179,7 @@ public class StereotypeChooserDriver implements IElementChooserDriver {
         
             transaction.commit();
         }
+        
     }
 
     @objid ("9e7b94de-3dee-4deb-8ba2-f8cfa27422ef")
@@ -207,10 +208,11 @@ public class StereotypeChooserDriver implements IElementChooserDriver {
                 }
                 this.enable = true;
             }
+            
         }
 
         @objid ("4b2a3b27-ab85-4286-a595-354d83e1a6db")
-        public StereotypeChooserSelectionListener() {
+        public  StereotypeChooserSelectionListener() {
             // Nothing to do
         }
 

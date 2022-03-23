@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.abstractdiagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -55,7 +54,7 @@ public class AbstractDiagramFigure extends FreeformLayer2 {
      * Constructor
      */
     @objid ("7e084d40-1dec-11e2-8cad-001ec947c8cc")
-    public AbstractDiagramFigure() {
+    public  AbstractDiagramFigure() {
         super();
         
         setBounds(new Rectangle(new Point(0, 0), this.pageBoundaries));
@@ -65,6 +64,7 @@ public class AbstractDiagramFigure extends FreeformLayer2 {
         // for the grid and the background to be displayed
         setBackgroundColor(null);
         setOpaque(false);
+        
     }
 
     @objid ("7e084d43-1dec-11e2-8cad-001ec947c8cc")
@@ -76,18 +76,17 @@ public class AbstractDiagramFigure extends FreeformLayer2 {
 
     /**
      * Set page boundary dimensions.
-     * 
      * @param size the page boundary dimensions.
      */
     @objid ("7e084d4a-1dec-11e2-8cad-001ec947c8cc")
     public void setPageBoundaries(Dimension size) {
         this.pageBoundaries = size;
         repaint();
+        
     }
 
     /**
      * Set the working area bounds.
-     * 
      * @param r The new work area bounds.
      */
     @objid ("7e084d50-1dec-11e2-8cad-001ec947c8cc")
@@ -98,11 +97,11 @@ public class AbstractDiagramFigure extends FreeformLayer2 {
         
         this.workarea = r;
         fireExtentChanged();
+        
     }
 
     /**
      * Toggle display of page boundaries.
-     * 
      * @param onOff true to display page boundaries, false to hide them.
      */
     @objid ("7e084d56-1dec-11e2-8cad-001ec947c8cc")
@@ -111,6 +110,7 @@ public class AbstractDiagramFigure extends FreeformLayer2 {
             this.showPageBoundaries = onOff;
             repaint();
         }
+        
     }
 
     @objid ("7e084d5a-1dec-11e2-8cad-001ec947c8cc")
@@ -143,6 +143,7 @@ public class AbstractDiagramFigure extends FreeformLayer2 {
             }
         
         }
+        
     }
 
     /**

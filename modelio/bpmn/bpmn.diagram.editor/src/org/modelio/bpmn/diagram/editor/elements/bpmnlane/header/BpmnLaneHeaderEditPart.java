@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnlane.header;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,8 +28,8 @@ import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.tools.CellEditorLocator;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.swt.graphics.Point;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.MethodologicalLinkUpdateDropEditPolicy;
 import org.modelio.bpmn.diagram.editor.elements.diagrams.GmBpmnDiagramStyleKeys;
-import org.modelio.bpmn.diagram.editor.elements.policies.MethodologicalLinkUpdateDropEditPolicy;
 import org.modelio.diagram.elements.common.edition.TextDirectEditManager;
 import org.modelio.diagram.elements.common.header.IHeaderFigure;
 import org.modelio.diagram.elements.common.header.ModelElementHeaderEditPart;
@@ -59,6 +58,7 @@ public class BpmnLaneHeaderEditPart extends ModelElementHeaderEditPart {
         if (getParent() != null) {
             getParent().setFocus(value);
         }
+        
     }
 
     @objid ("611f1767-55b6-11e2-877f-002564c97630")
@@ -80,6 +80,7 @@ public class BpmnLaneHeaderEditPart extends ModelElementHeaderEditPart {
         } else {
             return super.createFigure();
         }
+        
     }
 
     @objid ("611f1778-55b6-11e2-877f-002564c97630")
@@ -123,6 +124,7 @@ public class BpmnLaneHeaderEditPart extends ModelElementHeaderEditPart {
         } else {
             super.performRequest(req);
         }
+        
     }
 
     @objid ("2503af85-8468-4d72-a2f8-6c98e4ff5f57")
@@ -135,6 +137,7 @@ public class BpmnLaneHeaderEditPart extends ModelElementHeaderEditPart {
         } else {
             return getHeaderFigure((IFigure) aFigure.getChildren().get(0));
         }
+        
     }
 
     /**
@@ -151,6 +154,7 @@ public class BpmnLaneHeaderEditPart extends ModelElementHeaderEditPart {
         super.createEditPolicies();
         
         installEditPolicy(ModelElementDropRequest.TYPE, new MethodologicalLinkUpdateDropEditPolicy(PartitionElement.MdaTypes.STEREOTYPE_ELT));
+        
     }
 
 }

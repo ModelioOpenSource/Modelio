@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.ui.plugin;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,13 +32,13 @@ import org.eclipse.swt.widgets.Display;
 public class DefaultSWTExceptionHandler {
     /**
      * Set our global exception handler on a display.
-     * 
      * @param display the display to setup.
      */
     @objid ("1f2858ed-83fc-43ea-b86a-360579756aa5")
     public static void setup(Display display) {
         display.setErrorHandler(e -> handle(e));
         display.setRuntimeExceptionHandler(e -> handle(e));
+        
     }
 
     @objid ("aac5424a-b9ee-43e6-8c0b-48af2b788b97")
@@ -48,6 +47,7 @@ public class DefaultSWTExceptionHandler {
         // SWT should already log the stack trace, this should not be needed
         AppUi.LOG.debug(e);
         throw e;
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.rake;
 
 import java.beans.PropertyChangeEvent;
@@ -34,19 +33,24 @@ import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.PointList;
 import org.eclipse.draw2d.geometry.PrecisionRectangle;
+import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.AccessibleHandleProvider;
 import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.NodeEditPart;
 import org.eclipse.gef.Request;
+import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.SelectionHandlesEditPolicy;
 import org.eclipse.gef.handles.BendpointHandle;
 import org.eclipse.gef.handles.BendpointMoveHandle;
 import org.eclipse.gef.requests.BendpointRequest;
+import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.eclipse.gef.requests.ReconnectRequest;
-import org.modelio.diagram.elements.core.figures.anchors.ISlidableAnchor;
+import org.modelio.diagram.elements.core.figures.geometry.Direction;
+import org.modelio.diagram.elements.core.figures.geometry.GeomUtils;
 import org.modelio.diagram.elements.core.figures.geometry.LineSeg;
+import org.modelio.diagram.elements.core.figures.geometry.Orientation;
 import org.modelio.diagram.elements.core.figures.routers.RakeConstraint;
 import org.modelio.diagram.elements.core.link.GmLink;
 import org.modelio.diagram.elements.core.link.GmPath;
@@ -55,7 +59,7 @@ import org.modelio.diagram.elements.core.policies.SelectionHandlesBuilder;
 import org.modelio.vcore.model.api.MTools;
 
 /**
- * This EditPolicy defines the behavior of Bendpoints on a Connection.
+ * This EditPolicy defines the behavior of Bendpoints on a raked Connection.
  */
 @objid ("805ebbab-1dec-11e2-8cad-001ec947c8cc")
 public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements PropertyChangeListener {
@@ -66,7 +70,7 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
      * Constructor for EditPolicy
      */
     @objid ("805ebbb0-1dec-11e2-8cad-001ec947c8cc")
-    public RakeLinkEditPolicy() {
+    public  RakeLinkEditPolicy() {
         super();
     }
 
@@ -80,6 +84,7 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
         super.activate();
         
         getConnection().addPropertyChangeListener(Connection.PROPERTY_POINTS, this);
+        
     }
 
     /**
@@ -92,26 +97,40 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
         getConnection().removePropertyChangeListener(Connection.PROPERTY_POINTS, this);
         
         super.deactivate();
+        
     }
 
     /**
      * Erases bendpoint feedback. Since the original figure is used for feedback, we just restore the original
      * constraint that was saved before feedback started to show.
-     * 
      * @param request the Request
      */
     @objid ("80611dcf-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public void eraseSourceFeedback(Request request) {
-        if (REQ_MOVE_BENDPOINT.equals(request.getType()) || REQ_CREATE_BENDPOINT.equals(request.getType())) {
-            restoreOriginalConstraint();
-            getFeedbackState().originalConstraint = null;
-            if (((BendpointRequest) request).getSource() != getHost()) {
+        Object reqType = request.getType();
+        if (reqType instanceof String) {
+            switch ((String)reqType) {
+            case REQ_MOVE:
+                restoreOriginalConstraint();
+                getFeedbackState().originalConstraint = null;
+                cleanFeedbackState();
+                break;
+            case REQ_MOVE_BENDPOINT:
+            case REQ_CREATE_BENDPOINT:
+                restoreOriginalConstraint();
+                getFeedbackState().originalConstraint = null;
+                if (((BendpointRequest) request).getSource() != getHost()) {
+                    cleanFeedbackState();
+                }
+                break;
+            default:
                 cleanFeedbackState();
             }
         } else {
             cleanFeedbackState();
         }
+        
     }
 
     /**
@@ -137,13 +156,43 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
     @objid ("80611ddd-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public Command getCommand(Request request) {
-        if (REQ_MOVE_BENDPOINT.equals(request.getType())) {
-            return getFeedbackState().currentCommand;
-        }
-        if (REQ_CREATE_BENDPOINT.equals(request.getType())) {
-            return getFeedbackState().currentCommand;
+        Object reqType = request.getType();
+        if (REQ_DELETE.equals(reqType))
+            return null;
+        
+        
+        if (reqType instanceof String) {
+            switch ((String)reqType) {
+            case REQ_MOVE:
+                return getMoveCommand((ChangeBoundsRequest) request);
+            case REQ_MOVE_BENDPOINT:
+            case REQ_CREATE_BENDPOINT:
+                return getFeedbackState().currentCommand;
+            }
         }
         return null;
+    }
+
+    @objid ("f3ea9472-d5f7-4c6f-b51b-7b47ce77d2f5")
+    protected Command getMoveCommand(final ChangeBoundsRequest request) {
+        // When handling a request without displaying feedback first, we have to simulate it first
+        // in order to compute the move coordinates...
+        // This happens when moving the connection with the keyboard.
+        
+        boolean simulateFeedback = false;
+        if (this.feedbackState == null) {
+            simulateFeedback = true;
+            showSourceFeedback(request);
+            showTargetFeedback(request);
+        }
+        
+        Command command = getFeedbackState().currentCommand;
+        
+        if (simulateFeedback) {
+            eraseSourceFeedback(request);
+            eraseTargetFeedback(request);
+        }
+        return command;
     }
 
     /**
@@ -156,8 +205,8 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
     public void propertyChange(PropertyChangeEvent evt) {
         if (getHost().getSelected() != EditPart.SELECTED_NONE) {
             addSelectionHandles();
-        
         }
+        
     }
 
     /**
@@ -166,15 +215,93 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
     @objid ("80611ded-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public void showSourceFeedback(Request request) {
-        if (REQ_CREATE_BENDPOINT.equals(request.getType())) {
+        Object reqType = request.getType();
+        if (RequestConstants.REQ_MOVE.equals(reqType))  {
+            showMoveRequestFeedback(request);
+        } else if (REQ_CREATE_BENDPOINT.equals(reqType)) {
             showMoveLineSegFeedback((BendpointRequest) request);
             getFeedbackState().currentCommand = getBendpointsChangedCommand((BendpointRequest) request);
-        } else if (REQ_MOVE_BENDPOINT.equals(request.getType())) {
+        } else if (REQ_MOVE_BENDPOINT.equals(reqType)) {
             showMoveOrthogonalBendpointFeedback((BendpointRequest) request);
             getFeedbackState().currentCommand = getBendpointsChangedCommand((BendpointRequest) request);
         }
         
         super.showSourceFeedback(request);
+        
+    }
+
+    @objid ("40237797-bcc6-4888-b52e-660077fb2ac7")
+    protected void showMoveRequestFeedback(Request request) {
+        ChangeBoundsRequest cbReq = (ChangeBoundsRequest) request;
+        
+        final FeedbackState fbState = getFeedbackState();
+        if (fbState.originalConstraint == null) {
+            saveOriginalConstraint();
+        }
+        
+        final RakeConstraint constraint = getConnectionRoutingConstraint();
+        XYAnchor curAnchor = constraint.getSourceRakeAnchor();
+        int index = 1;
+        if (curAnchor == null) {
+            index = 2;
+            curAnchor = constraint.getTargetRakeAnchor();
+        }
+        
+        final Connection connection = getConnection();
+        
+        //System.err.printf("%s.showMoveRequestFeedback(move=%s): host=%s%n", getClass().getSimpleName(), cbReq.getMoveDelta(), getHost());
+        
+        
+        // move conn source
+        Point p = fbState.originalSourceAbsLoc.getCopy();
+        //System.err.printf("  - orig source anchor=%s%n", p);
+        
+        p.translate(cbReq.getMoveDelta());
+        connection.setSourceAnchor(new XYAnchor( p));
+        //System.err.printf("   - moved source anchor=%s%n", p);
+        
+        // move conn target
+        p = fbState.originalTargetAbsLoc.getCopy();
+        //System.err.printf("  - orig target anchor=%s%n", p);
+        
+        p.translate(cbReq.getMoveDelta());
+        connection.setTargetAnchor(new XYAnchor(p));
+        //System.err.printf("   - moved target anchor=%s%n", p);
+        
+        // avoid modifying the anchor twice if many links of the same rake are moved
+        if (request.getExtendedData().putIfAbsent(curAnchor, Boolean.TRUE)==null) {
+        
+            // work on the original constraint to edit the current one
+            XYAnchor origAnchor;
+            if (index==1) {
+                origAnchor = fbState.originalConstraint.getSourceRakeAnchor();
+            } else {
+                origAnchor = fbState.originalConstraint.getTargetRakeAnchor();
+            }
+        
+            p = origAnchor.getReferencePoint().getCopy();
+            //System.err.printf("  - rake orig anchor=%s%n", p);
+            connection.translateToAbsolute(p);
+            p.translate(cbReq.getMoveDelta());
+            connection.translateToRelative(p);
+            //System.err.printf("  - rake moved anchor=%s%n", p);
+            curAnchor.setLocation(p);
+        
+            fbState.currentCommand = new MoveRakeCommand(getHost(), fbState.feedbackConstraint);
+        }
+        //System.err.println();
+        
+    }
+
+    @objid ("e72337de-6f73-4ece-a864-ced389f2252c")
+    @Override
+    public boolean understandsRequest(final Request req) {
+        if (RequestConstants.REQ_MOVE.equals(req.getType())) {
+            return true;
+        } else {
+            return super.understandsRequest(req);
+        }
+        
     }
 
     /**
@@ -193,6 +320,7 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
                 super.addSelectionHandles();
             }
         }
+        
     }
 
     /**
@@ -218,9 +346,6 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
 
     /**
      * This handle is necessary for the accessibility feature to allow keyboard navigation to the add bendpoint feature.
-     * @param list
-     * @param connEP
-     * @param i
      */
     @objid ("80611e03-1dec-11e2-8cad-001ec947c8cc")
     private void addInvisibleCreationHandle(List<BendpointHandle> list, ConnectionEditPart connEP, int i) {
@@ -278,11 +403,11 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
                 line.setTerminus(p2);
             }
         }
+        
     }
 
     /**
      * handle feedback where the line is dragged outside of the source or target shapes bounding box.
-     * 
      * @param newLine LineSeg representing the line currently being manipulated.
      * @param index the index
      * @param constraint the rake constraint to the gesture.
@@ -297,14 +422,6 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
         } else if (index == 2) {
             adjustLineToRectangle(newLine, getConnection().getTargetAnchor().getOwner());
         }
-        /*
-        if ((index == 0 && lineOutsideSource(newLine)) ||
-                ((index == 2) && lineOutsideTarget(newLine)))
-        {
-            newLine.setOrigin(moveLine.getOrigin());
-            newLine.setTerminus(moveLine.getTerminus());
-            return true;
-        }*/
         return false;
     }
 
@@ -329,7 +446,6 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
 
     /**
      * This method will return a SetBendpointsCommand with the points retrieved from the user feedback in the figure.
-     * 
      * @param request BendpointRequest from the user gesture for moving / creating a bendpoint
      * @return Command SetBendpointsCommand that contains the point changes for the connection.
      */
@@ -347,11 +463,15 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
                 cleanFeedbackState();
             }
         };
-        return new SetRakeConstraintCommand((ConnectionEditPart) getHost(),
-                                                                                                    c.getSourceRakeLocation(),
-                                                                                                    c.getTargetRakeLocation(),
-                                                                                                    srcAnchor,
-                                                                                                    targetAnchor).chain(cleanFpCmd);
+        return new SetRakeConstraintCommand(
+                (ConnectionEditPart) getHost(),
+                c.getSourceRakeLocation(),
+                c.getTargetRakeLocation(),
+                c.getOrientation(),
+                srcAnchor,
+                targetAnchor)
+                .chain(cleanFpCmd);
+        
     }
 
     /**
@@ -364,7 +484,6 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
 
     /**
      * convenience method to get the connection routing constraint casted to List&lt;Bendpoint>
-     * 
      * @return the connection routing constraint.
      */
     @objid ("8063803a-1dec-11e2-8cad-001ec947c8cc")
@@ -375,7 +494,6 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
     /**
      * Get the line point at the given index. index 0 is the source anchor, the last point is the target anchor and
      * other indexes correspond to the bend points in the constraint.
-     * 
      * @param index if 0, return the source anchor location. If index is the size of the constraint, return the target
      * anchor.
      * @return return the line point location, <i>relative</i> to the connection
@@ -389,7 +507,6 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
      * Get the feedback state.
      * <p>
      * Creates one if it does not exist.
-     * 
      * @return the feedback state.
      */
     @objid ("8063804a-1dec-11e2-8cad-001ec947c8cc")
@@ -435,9 +552,10 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
      */
     @objid ("8063806b-1dec-11e2-8cad-001ec947c8cc")
     private void restoreOriginalConstraint() {
-        final RakeConstraint originalConstraint = getFeedbackState().originalConstraint;
+        final FeedbackState fbState = getFeedbackState();
+        final RakeConstraint originalConstraint = fbState.originalConstraint;
+        final RakeConstraint current = getConnectionRoutingConstraint();
         if (originalConstraint != null) {
-            final RakeConstraint current = getConnectionRoutingConstraint();
             if (current.getSourceRakeAnchor() != null) {
                 current.getSourceRakeAnchor().setLocation(originalConstraint.getSourceRakeAnchor()
                                                                             .getReferencePoint());
@@ -447,11 +565,26 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
                 current.getTargetRakeAnchor().setLocation(originalConstraint.getTargetRakeAnchor()
                                                                             .getReferencePoint());
             }
-        
+            current.setOrientation(originalConstraint.getOrientation());
         }
+        
+        Connection connection = getConnection();
+        if (current.getSourceRakeAnchor() != null) {
+            current.setSharedSourceAnchor(fbState.originalSourceAnchor);
+        } else {
+            connection.setSourceAnchor(fbState.originalSourceAnchor);
+        }
+        
+        if (current.getTargetRakeAnchor() != null) {
+            current.setSharedTargetAnchor(fbState.originalTargetAnchor);
+        } else {
+            connection.setTargetAnchor(fbState.originalTargetAnchor);
+        }
+        
         
         // Refresh visual, source and target anchor from model.
         getHost().refresh();
+        
     }
 
     /**
@@ -476,12 +609,26 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
             if (anchor != null) {
                 fbState.originalConstraint.setTargetRakeAnchor(new XYAnchor(anchor.getReferencePoint()));
             }
+        
+            if (currentConstraint.getOrientation()==null) {
+                updateRakeOrientation(currentConstraint);
+            }
+            fbState.originalConstraint.setOrientation(currentConstraint.getOrientation());
         }
+        
+        Connection connection = getConnection();
+        fbState.originalSourceAnchor = connection.getSourceAnchor();
+        fbState.originalTargetAnchor = connection.getTargetAnchor();
+        
+        fbState.originalSourceAbsLoc = connection.getPoints().getFirstPoint();
+        fbState.originalTargetAbsLoc = connection.getPoints().getLastPoint();
+        connection.translateToAbsolute(fbState.originalSourceAbsLoc);
+        connection.translateToAbsolute(fbState.originalTargetAbsLoc);
+        
     }
 
     /**
      * Set the position of the point at the given index for a rake that joins on the target side.
-     * 
      * @param connection The connection to modify
      * @param c The rake constraint for convenience, avoid casts.
      * @param index the index of the point to modify. 0 is the source anchor and 3 is the target anchor.
@@ -494,46 +641,47 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
         
         switch (index) {
             case 0:
-                // 0 is the source anchor, try to update it
-                if (connection.getSourceAnchor() instanceof ISlidableAnchor) {
-                    ISlidableAnchor a = (ISlidableAnchor) connection.getSourceAnchor();
-                    a.setLocation(absolutePoint);
-        
+                // 0 is the source anchor
+                if (c.getSourceRakeAnchor() != null) {
+                    // change the source anchor for all connections on the rake
+                    c.setSharedSourceAnchor(getNewSourceAnchor(absolutePoint));
                 } else {
+                    // non shared non mutable anchor, change it
                     connection.setSourceAnchor(getNewSourceAnchor(absolutePoint));
                 }
                 break;
             case 1:
-                // 1 is the rake anchor on the source side or a computed point, do nothing
+                // 1 is the join anchor on the source side or a computed point, do nothing for computed point
         
                 if (c.getSourceRakeAnchor() != null) {
                     c.getSourceRakeAnchor().setLocation(relativePoint);
                 }
                 break;
             case 2:
-                // 2 is the rake anchor on the target side
+                // 2 is the join anchor on the target side or a computed point, do nothing for computed point
         
                 if (c.getTargetRakeAnchor() != null) {
                     c.getTargetRakeAnchor().setLocation(relativePoint);
                 }
                 break;
             case 3:
-                // 3 is the target anchor, try to update it
-                if (connection.getTargetAnchor() instanceof ISlidableAnchor) {
-                    ISlidableAnchor a = (ISlidableAnchor) connection.getTargetAnchor();
-                    a.setLocation(absolutePoint);
+                // 3 is the target anchor
+                if (c.getTargetRakeAnchor() != null) {
+                    // change the anchor for all connections on the rake
+                    c.setSharedTargetAnchor(getNewTargetAnchor(absolutePoint));
                 } else {
+                    // non shared non mutable anchor, change it
                     connection.setTargetAnchor(getNewTargetAnchor(absolutePoint));
                 }
                 break;
             default:
                 throw new IllegalArgumentException("index out of bounds");
         }
+        
     }
 
     /**
      * Modify the coordinates of one segment of the constraint.
-     * 
      * @param rakeConstraint The constraint
      * @param nIndex the index of the first point of the segment
      * @param newSeg the new segment
@@ -542,6 +690,7 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
     private void setLineSeg(Connection c, RakeConstraint rakeConstraint, int nIndex, LineSeg newSeg) {
         setContrainedPoint(c, rakeConstraint, nIndex - 1, newSeg.getOrigin());
         setContrainedPoint(c, rakeConstraint, nIndex, newSeg.getTerminus());
+        
     }
 
     /**
@@ -569,13 +718,42 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
         adjustOutsideBoundsLineFeedback(newLine, index, constraint, moveLine);
         
         setLineSeg(connection, constraint, index + 1, newLine);
+        updateRakeOrientation(constraint);
         
         connection.setRoutingConstraint(constraint);
+        
+    }
+
+    @objid ("4a5c36af-5f82-47c4-83cc-e2619fc0f36d")
+    private void updateRakeOrientation(RakeConstraint c) {
+        final Connection connection = getConnection();
+        Point rakePos;
+        ConnectionAnchor connAnchor;
+        if (c.getSourceRakeAnchor() != null) {
+            connAnchor = connection.getSourceAnchor();
+            rakePos = connection.getPoints().getPoint(1);
+        } else {
+            connAnchor = connection.getTargetAnchor();
+            rakePos = connection.getPoints().getPoint(2);
+        }
+        
+        IFigure node = connAnchor.getOwner();
+        if (node == null)
+            return;
+        
+        Rectangle nodeBounds =  node.getBounds().getCopy();
+        if (nodeBounds.width < 2 || nodeBounds.height < 2)
+            return;
+        
+        node.translateToAbsolute(nodeBounds);
+        connection.translateToAbsolute(rakePos);
+        Direction rakeDir = GeomUtils.getDirection(connAnchor.getLocation(rakePos), nodeBounds);
+        c.setOrientation(GeomUtils.getOrientation(rakeDir));
+        
     }
 
     /**
      * Draws feedback for moving a bend point of a rectilinear connection
-     * 
      * @param request Bendpoint request
      */
     @objid ("8065e291-1dec-11e2-8cad-001ec947c8cc")
@@ -621,7 +799,10 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
         adjustOutsideBoundsLineFeedback(movedSecond, index, constraint, originalSecond);
         setContrainedPoint(connection, constraint, index + 1, movedSecond.getTerminus());
         
+        updateRakeOrientation(constraint);
+        
         connection.setRoutingConstraint(constraint);
+        
     }
 
     /**
@@ -630,7 +811,10 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
      * @author cmarin
      */
     @objid ("8065e297-1dec-11e2-8cad-001ec947c8cc")
-    public static class SetRakeConstraintCommand extends Command {
+    private static class SetRakeConstraintCommand extends Command {
+        @objid ("62d6d4b1-26af-4bf9-8608-e05ee102525e")
+        private Orientation rakeOrientation;
+
         @objid ("8065e29c-1dec-11e2-8cad-001ec947c8cc")
         private GmLink gmLink;
 
@@ -648,18 +832,20 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
 
         /**
          * Creates the command.
-         * 
          * @param connectionEditPart the link to modify
          * @param sourceRake source side rake position, can be null if targetRake is not null.
          * @param targetRake target side rake position, can be null is sourceRake is not null.
+         * @param rakeOrientation the rake orientation
          * @param sourceAnchor Source anchor
          * @param targetAnchor Target anchor
          */
         @objid ("8065e2a8-1dec-11e2-8cad-001ec947c8cc")
-        public SetRakeConstraintCommand(final ConnectionEditPart connectionEditPart, Point sourceRake, Point targetRake, ConnectionAnchor sourceAnchor, ConnectionAnchor targetAnchor) {
+        public  SetRakeConstraintCommand(final ConnectionEditPart connectionEditPart, Point sourceRake, Point targetRake, Orientation rakeOrientation, ConnectionAnchor sourceAnchor, ConnectionAnchor targetAnchor) {
             if (sourceRake == null && targetRake == null) {
                 throw new NullPointerException("rakes are all null.");
             }
+            
+            this.rakeOrientation = rakeOrientation;
             
             if (sourceRake != null) {
                 this.sourceRakePos = new Point(sourceRake);
@@ -681,6 +867,7 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
             if (nodeEditPart instanceof IAnchorModelProvider) {
                 this.targetAnchorModel = ((IAnchorModelProvider) nodeEditPart).createAnchorModel(targetAnchor);
             }
+            
         }
 
         @objid ("8065e2bb-1dec-11e2-8cad-001ec947c8cc")
@@ -695,13 +882,18 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
             
             if (this.sourceRakePos != null) {
                 c.getSourceRakeAnchor().setLocation(this.sourceRakePos);
+                newPath.getSourceRake().setSharedAnchor(this.sourceAnchorModel);
             }
             
             if (this.targetRakePos != null) {
                 c.getTargetRakeAnchor().setLocation(this.targetRakePos);
+                newPath.getTargetRake().setSharedAnchor(this.targetAnchorModel);
             }
             
+            c.setOrientation(this.rakeOrientation);
+            
             this.gmLink.setLayoutData(newPath);
+            
         }
 
         @objid ("8065e2be-1dec-11e2-8cad-001ec947c8cc")
@@ -719,6 +911,18 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
      */
     @objid ("8065e2c3-1dec-11e2-8cad-001ec947c8cc")
     private static class FeedbackState {
+        @objid ("6d717391-38a3-47e5-9978-214716777be6")
+        public Point originalTargetAbsLoc;
+
+        @objid ("677873a6-ecd3-4bed-933f-417983d93b44")
+        public Point originalSourceAbsLoc;
+
+        @objid ("6d24b14d-1a93-420d-bcef-cd1aaca52fe0")
+        public ConnectionAnchor originalTargetAnchor;
+
+        @objid ("72e4528f-9d4a-4102-a525-d69c3e7f9533")
+        public ConnectionAnchor originalSourceAnchor;
+
         @objid ("8065e2c6-1dec-11e2-8cad-001ec947c8cc")
         public RakeConstraint originalConstraint;
 
@@ -728,8 +932,57 @@ public class RakeLinkEditPolicy extends SelectionHandlesEditPolicy implements Pr
         @objid ("67914f53-1e83-11e2-8cad-001ec947c8cc")
         public Command currentCommand;
 
-        @objid ("806844df-1dec-11e2-8cad-001ec947c8cc")
-        public FeedbackState() {
+    }
+
+    /**
+     * Command that moves the rake link.
+     * <p>
+     * Happens when the connection is moved with both source and target nodes.
+     */
+    @objid ("78583f8a-ef4c-4202-b8a4-2b6d06dba375")
+    private static class MoveRakeCommand extends Command {
+        @objid ("0dad4660-2da6-4dab-8980-01b3f02b9169")
+        private final GmLink gmLink;
+
+        @objid ("8ba241b4-5cdf-4e63-87dc-ec5352c08357")
+        private final RakeConstraint constraint;
+
+        @objid ("ab8cfad2-f49d-43c9-94ba-c646d4cbf0e6")
+        public  MoveRakeCommand(final EditPart connectionEditPart, RakeConstraint constraint) {
+            if (constraint.getSourceRakeAnchor() == null && constraint.getTargetRakeAnchor() == null) {
+                throw new NullPointerException("rakes are all null.");
+            }
+            
+            this.constraint = constraint.getCopy();
+            this.gmLink = (GmLink) connectionEditPart.getModel();
+            
+        }
+
+        @objid ("38405d61-524a-4199-9a03-289ef9b5c878")
+        @Override
+        public void execute() {
+            final GmPath newPath = new GmPath(this.gmLink.getPath());
+            
+            final RakeConstraint c = (RakeConstraint) newPath.getPathData();
+            
+            if (this.constraint.getSourceRakeAnchor() != null) {
+                c.getSourceRakeAnchor().setLocation(this.constraint.getSourceRakeLocation());
+            }
+            
+            if (this.constraint.getTargetRakeAnchor() != null) {
+                c.getTargetRakeAnchor().setLocation(this.constraint.getTargetRakeLocation());
+            }
+            
+            c.setOrientation(this.constraint.getOrientation());
+            
+            this.gmLink.setLayoutData(newPath);
+            
+        }
+
+        @objid ("92991606-87a1-45ca-bc2b-917bca430e63")
+        @Override
+        public boolean canExecute() {
+            return (MTools.getAuthTool().canModify(this.gmLink.getDiagram().getRelatedElement()));
         }
 
     }

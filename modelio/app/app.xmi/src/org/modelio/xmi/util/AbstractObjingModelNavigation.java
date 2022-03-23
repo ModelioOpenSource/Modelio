@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.util;
 
 import java.util.ArrayList;
@@ -258,6 +257,7 @@ public abstract class AbstractObjingModelNavigation {
         if (ecoreElt != null){
             ecoreElt.destroy();
         }
+        
     }
 
     @objid ("fe3fec0d-ff09-4a77-acd7-f4292d535aab")
@@ -451,6 +451,7 @@ public abstract class AbstractObjingModelNavigation {
                                                                                         && (transition.getProcessed() != null)
                                                                                         && (sm != null)
                                                                                         && (sm.getKind().equals(KindOfStateMachine.PROTOCOL)));
+        
     }
 
     @objid ("1188e00d-1028-4b0b-ac54-9e7ab2b2079e")
@@ -523,6 +524,7 @@ public abstract class AbstractObjingModelNavigation {
             return mustBeExported(tagType.getOwnerReference());
         }else
             return false;
+        
     }
 
     @objid ("f9980de4-ffbf-4000-a0c2-6e2b726618e3")
@@ -614,6 +616,7 @@ public abstract class AbstractObjingModelNavigation {
             }
         
         }
+        
     }
 
     @objid ("9de45bba-9e96-4045-9886-718dbdb06716")
@@ -625,6 +628,7 @@ public abstract class AbstractObjingModelNavigation {
                 objingElt.setBase((NameSpace) base);
             }
         }
+        
     }
 
     @objid ("b4c778f4-45eb-4547-a966-b89ffacbeed4")
@@ -644,6 +648,7 @@ public abstract class AbstractObjingModelNavigation {
                 }
             }
         }
+        
     }
 
     @objid ("f4f1e091-2a1c-45ec-ae51-657e82eb6d1b")
@@ -657,6 +662,7 @@ public abstract class AbstractObjingModelNavigation {
         if ((value != null) && (!value.equals(""))){
             objingElt.setMultiplicityMax(value);
         }
+        
     }
 
     @objid ("f21a3ed2-f403-4118-a090-a28839845521")
@@ -665,6 +671,7 @@ public abstract class AbstractObjingModelNavigation {
         if ((value != null) && (!value.equals(""))){
             objingElt.setValue(value);
         }
+        
     }
 
     @objid ("e3f1c41a-14bc-415a-891a-9a36b8ce7be7")
@@ -673,6 +680,7 @@ public abstract class AbstractObjingModelNavigation {
         if ((value != null) && (!value.equals(""))){
             objingElt.setMultiplicityMin(value);
         }
+        
     }
 
     @objid ("ae2d9b02-a6f7-4daf-9fc0-341413564685")
@@ -687,6 +695,7 @@ public abstract class AbstractObjingModelNavigation {
         if (!("".equals(multMax))){
             objingElt.setMultiplicityMax(multMax);
         }
+        
     }
 
     @objid ("250bfce3-e043-43e6-981c-7c983449c2bf")
@@ -701,6 +710,7 @@ public abstract class AbstractObjingModelNavigation {
             setMultiMax(objingElt, ecoreElt);
             setMultiMin(objingElt, ecoreElt);
         }
+        
     }
 
     @objid ("9fdf1064-c596-4149-90ec-c6d36af28906")
@@ -711,6 +721,7 @@ public abstract class AbstractObjingModelNavigation {
         String message = Xmi.I18N.getMessage("logFile.warning.unsupportedOwnerExport",
                         eltClassName, eltName, ownerClassName);
         GenerationProperties.getInstance().addError(message, objingElement);
+        
     }
 
     @objid ("ac25ba19-3f77-48df-821d-0c9127e45663")

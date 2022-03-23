@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.datatype;
 
 import java.util.Collections;
@@ -63,26 +62,25 @@ public class GmDataType extends GmTemplateContainer {
     private static final String IMAGE_LABEL_ROLE = "ImageLabel";
 
     @objid ("34bcfb31-55b7-11e2-877f-002564c97630")
-     static final DataTypeStructuredStyleKeys STRUCTURED_KEYS = new DataTypeStructuredStyleKeys();
+    static final DataTypeStructuredStyleKeys STRUCTURED_KEYS = new DataTypeStructuredStyleKeys();
 
     @objid ("34bcfb33-55b7-11e2-877f-002564c97630")
-     static final DataTypeSimpleStyleKeys SIMPLE_KEYS = new DataTypeSimpleStyleKeys();
+    static final DataTypeSimpleStyleKeys SIMPLE_KEYS = new DataTypeSimpleStyleKeys();
 
     @objid ("34bcfb35-55b7-11e2-877f-002564c97630")
-     static final DataTypeImageStyleKeys IMAGE_KEYS = new DataTypeImageStyleKeys();
+    static final DataTypeImageStyleKeys IMAGE_KEYS = new DataTypeImageStyleKeys();
 
     @objid ("8f121c05-a621-4be6-bdbf-a98937e06d97")
-     static final DataTypeUserImageStyleKeys USERIMAGE_KEYS = new DataTypeUserImageStyleKeys();
+    static final DataTypeUserImageStyleKeys USERIMAGE_KEYS = new DataTypeUserImageStyleKeys();
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the class is unmasked.
      * @param el the unmasked class.
      * @param ref a reference to the unmasked class.
      */
     @objid ("34be81a1-55b7-11e2-877f-002564c97630")
-    public GmDataType(IGmDiagram diagram, DataType el, MRef ref) {
+    public  GmDataType(IGmDiagram diagram, DataType el, MRef ref) {
         super(diagram, new GmDataTypePrimaryNode(diagram, ref), ref);
         this.element = el;
         
@@ -91,13 +89,14 @@ public class GmDataType extends GmTemplateContainer {
         imageModeHeader.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         
         super.addChild(imageModeHeader);
+        
     }
 
     /**
      * Empty constructor needed for deserialization.
      */
     @objid ("34be81ad-55b7-11e2-877f-002564c97630")
-    public GmDataType() {
+    public  GmDataType() {
         // Nothing specific to do.
     }
 
@@ -151,6 +150,7 @@ public class GmDataType extends GmTemplateContainer {
             default:
                 return Collections.emptyList();
         }
+        
     }
 
     @objid ("34c0083c-55b7-11e2-877f-002564c97630")
@@ -174,6 +174,7 @@ public class GmDataType extends GmTemplateContainer {
                 break;
             }
         }
+        
     }
 
     @objid ("34c00842-55b7-11e2-877f-002564c97630")
@@ -189,6 +190,7 @@ public class GmDataType extends GmTemplateContainer {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmDataType.", GmDataType.MINOR_VERSION);
+        
     }
 
     @objid ("34c0084f-55b7-11e2-877f-002564c97630")
@@ -201,6 +203,7 @@ public class GmDataType extends GmTemplateContainer {
         imageModeHeader.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         
         super.addChild(imageModeHeader, 1);
+        
     }
 
     @objid ("34c00854-55b7-11e2-877f-002564c97630")
@@ -213,6 +216,7 @@ public class GmDataType extends GmTemplateContainer {
     private void read_1(final IDiagramReader in) {
         super.read(in);
         this.element = (DataType) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("34c0085f-55b7-11e2-877f-002564c97630")
@@ -228,6 +232,7 @@ public class GmDataType extends GmTemplateContainer {
                 ret.remove(imageModeHeader);
                 break;
             }
+            case USER_IMAGE:
             case IMAGE:
             default: {
                 break;
@@ -240,7 +245,6 @@ public class GmDataType extends GmTemplateContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -250,11 +254,11 @@ public class GmDataType extends GmTemplateContainer {
         String role = childNode.getRoleInComposition();
         return GmPortContainer.SATELLITE_ROLE.equals(role)
                                                 || GmDataType.IMAGE_LABEL_ROLE.equals(role);
+        
     }
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */

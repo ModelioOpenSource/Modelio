@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.audit;
 
 import java.util.ArrayList;
@@ -71,6 +70,7 @@ public class R2870 extends AbstractUmlRule {
     public void autoRegister(UmlAuditPlan plan) {
         plan.registerRule(UseCase.MQNAME, this, AuditTrigger.UPDATE);
         plan.registerRule(UseCaseDependency.MQNAME + R2870.UseCaseDependencyExtendKind, this, AuditTrigger.CREATE | AuditTrigger.MOVE | AuditTrigger.UPDATE);
+        
     }
 
     /**
@@ -104,14 +104,14 @@ public class R2870 extends AbstractUmlRule {
      * Default constructor for R2870
      */
     @objid ("4c152130-01c4-4f0b-aba6-49cbf39b6573")
-    public R2870() {
+    public  R2870() {
         this.checkerInstance = new CheckR2870(this);
     }
 
     @objid ("dbe8bb9d-d4a2-4647-b674-335394ee40e1")
     private static class CheckR2870 extends AbstractControl {
         @objid ("1b7f6cc6-e5d7-4173-828a-092f381ba0f7")
-        public CheckR2870(IRule rule) {
+        public  CheckR2870(IRule rule) {
             super(rule);
         }
 

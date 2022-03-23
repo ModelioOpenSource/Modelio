@@ -20,24 +20,25 @@ public class SymbolTableV17<T> {
     private Long counter;
 
     @objid ("9f7c09c7-4d89-4a52-95bf-f5ee74053bb5")
-    private final PrimaryHashMap<T,Long> table;
+    private final PrimaryHashMap<T, Long> table;
 
     @objid ("0e245d64-2512-4d9d-a6e9-7b94d9fdfdec")
     private final Serializer<T> serializer;
 
     @objid ("903982b2-1464-4eb0-ac9f-abea1ed9a8e9")
-    private final PrimaryHashMap<Long,T> inverseTable;
+    private final PrimaryHashMap<Long, T> inverseTable;
 
     @objid ("61f2e405-6081-4c9f-85d3-e8b76d059a69")
     private final JdbmNamedObject<Long> jdbmCounter;
 
     @objid ("f4d38442-2dc5-4046-a4e6-51229c7ee756")
-    public SymbolTableV17(RecordManager db, String name, Serializer<T> serializer) throws IOException {
+    public  SymbolTableV17(RecordManager db, String name, Serializer<T> serializer) throws IOException {
         this.serializer = serializer;
         this.table = db.hashMap(name, serializer, LongSerializer.instance);
         this.inverseTable = db.hashMap(name+"_inverse", LongSerializer.instance, serializer);
         this.jdbmCounter = new JdbmNamedObject<>(db, "", LongSerializer.instance);
         this.counter = this.jdbmCounter.read(1L);
+        
     }
 
     @objid ("fc785c12-d440-4b51-aa52-308ab167dee8")
@@ -65,13 +66,14 @@ public class SymbolTableV17<T> {
         } catch (IOError | InternalError e) {
             throw new IOException(e);
         }
+        
     }
 
     /**
      * @param symbol the symbol to find
      * @return the symbol ID or -1 if not found.
-     * @throws java.io.IOError on JDBM failure
-     * @throws java.lang.InternalError on JDBM failure
+     * @throws IOError on JDBM failure
+     * @throws InternalError on JDBM failure
      */
     @objid ("0f8b1389-cf39-4dcc-96cd-cc8fb9784950")
     public long findKey(T symbol) throws IOError, InternalError {

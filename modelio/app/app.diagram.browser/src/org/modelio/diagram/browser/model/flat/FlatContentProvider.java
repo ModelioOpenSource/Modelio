@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.model.flat;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -87,9 +86,10 @@ public class FlatContentProvider implements ITreeContentProvider {
      * @param session
      */
     @objid ("002856cc-0d4f-10c6-842f-001ec947cd2a")
-    public FlatContentProvider(GProject project) {
+    public  FlatContentProvider(GProject project) {
         this.project = project;
         this.rootNode = new AllDiagramsNode(project, null);
+        
     }
 
     @objid ("0026aa98-43b1-10c7-842f-001ec947cd2a")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.microsoft.editor;
 
 import java.io.Closeable;
@@ -87,7 +86,7 @@ class MicrosoftDocumentViewer {
      * Allows Modelio menus to be restored.
      */
     @objid ("e3542cbf-1c7f-4262-b5cb-d59aa89a337a")
-     Image idleImg;
+    Image idleImg;
 
     /**
      * Close the viewer.
@@ -101,14 +100,14 @@ class MicrosoftDocumentViewer {
             this.oleFrame.dispose();
         
         this.isActive = false;
+        
     }
 
     /**
      * Create and open the document.
-     * 
      * @param file the path for the rich note
      * @param docFormat a rich note format
-     * @throws java.io.IOException in case of failure
+     * @throws IOException in case of failure
      */
     @objid ("2b00b6db-2e66-44e0-989f-808fa54371ad")
     public void createDocument(File file, RichNoteFormat docFormat) throws IOException {
@@ -138,11 +137,11 @@ class MicrosoftDocumentViewer {
             if (!saveOk) 
                 throw new IOException("Save of '"+file.getPath()+"' failed.");
         }
+        
     }
 
     /**
      * Creates the SWT controls for this viewer.
-     * 
      * @param parent the parent control
      */
     @objid ("e03b4653-439f-4183-97c7-6dca9798373b")
@@ -185,6 +184,7 @@ class MicrosoftDocumentViewer {
                     e.gc.drawImage(MicrosoftDocumentViewer.this.idleImg, 0, 0);
             }
         });
+        
     }
 
     /**
@@ -213,6 +213,7 @@ class MicrosoftDocumentViewer {
                 doFocusLost();
             }
         });
+        
     }
 
     /**
@@ -224,6 +225,7 @@ class MicrosoftDocumentViewer {
             return false;
         else
             return this.oleSite.isDirty() && this.allowWrite;
+        
     }
 
     @objid ("374f676c-1073-4861-8620-62226bea7111")
@@ -261,13 +263,13 @@ class MicrosoftDocumentViewer {
         } catch (SWTException e) {
             throw new IOException(e);
         }
+        
     }
 
     /**
      * Save the content to the given stream.
-     * 
      * @param file where the document will be saved.
-     * @throws java.io.IOException in case of error saving the document.
+     * @throws IOException in case of error saving the document.
      */
     @objid ("4ed875e1-70a2-4f51-b5fe-273c04dadbb6")
     public void saveDocument(final File file) throws IOException {
@@ -279,12 +281,12 @@ class MicrosoftDocumentViewer {
         } else {
             saveFormat(this.oleSite, file);
         }
+        
     }
 
     /**
      * Save the content in another file.
-     * 
-     * @throws java.io.IOException in case of error saving the document.
+     * @throws IOException in case of error saving the document.
      */
     @objid ("78de602b-3c55-44b2-b52c-b269febb901c")
     public void saveDocumentAs() throws IOException {
@@ -292,6 +294,7 @@ class MicrosoftDocumentViewer {
         Variant in = null;
         Variant out = null;
         this.oleSite.exec(OLE.OLECMDID_SAVEAS, options, in, out);
+        
     }
 
     @objid ("859b55e6-e9b2-49f2-82ff-e2444b38a209")
@@ -302,6 +305,7 @@ class MicrosoftDocumentViewer {
         
             activateOleGui();
         }
+        
     }
 
     /**
@@ -318,6 +322,7 @@ class MicrosoftDocumentViewer {
                 doActivateOleGui();
             }
         });
+        
     }
 
     /**
@@ -363,6 +368,7 @@ class MicrosoftDocumentViewer {
         this.oleSite.setFocus();
         
         //upgradeBackgroundImage(true);
+        
     }
 
     @objid ("e74c051a-296e-4f89-8d6e-bd2a4cee70e9")
@@ -397,14 +403,14 @@ class MicrosoftDocumentViewer {
         } finally {
             activeDoc.dispose();
         }
+        
     }
 
     /**
      * Save the edited document by keeping a backup in the case save fails.
-     * 
      * @param clientSite the editor to save
      * @param file the destination file
-     * @throws java.io.IOException in case of save or backup failure.
+     * @throws IOException in case of save or backup failure.
      */
     @objid ("8028dd3f-8768-41b4-b8af-3ae75a23f22d")
     private void saveFormat(final OleClientSite clientSite, final File file) throws IOException {
@@ -414,11 +420,11 @@ class MicrosoftDocumentViewer {
             // save was successful so discard the backup
             b.discard();
         }
+        
     }
 
     /**
      * Rename the given file
-     * 
      * @param file the file to rename
      * @param tempFile new name
      */
@@ -431,11 +437,11 @@ class MicrosoftDocumentViewer {
         } catch (IOException e) {
             MicrosoftEditors.LOG.warning("Rename backup '"+tempFile+"' failed:"+e.getMessage());
         }
+        
     }
 
     /**
      * Try to print in the console the currently open Word documents.
-     * 
      * @param application a Word.Application OLE object
      */
     @objid ("dd725439-ed13-463b-a532-e620c3759bb5")
@@ -469,6 +475,7 @@ class MicrosoftDocumentViewer {
             doc.dispose();
         }
         docs.dispose();
+        
     }
 
     @objid ("965ff243-6fbe-4aef-8a5d-a1dc28f310fc")
@@ -536,6 +543,7 @@ class MicrosoftDocumentViewer {
             if (dispInterface!=null) dispInterface.dispose();
             if (newSite!=null) newSite.dispose();
         }
+        
     }
 
     @objid ("de746768-8683-4af3-8f5a-ea126a7bab4a")
@@ -553,11 +561,11 @@ class MicrosoftDocumentViewer {
             return EWdSaveFormat.wdFormatXMLDocument;
         else
             return EWdSaveFormat.FormatOle;
+        
     }
 
     /**
      * Create a Word.Application OLE client.
-     * 
      * @param composite @return
      */
     @objid ("76e53bae-e7b0-420f-8b31-1e819bde8451")
@@ -578,11 +586,11 @@ class MicrosoftDocumentViewer {
         }
         
         throw new IOException(lastErr);
+        
     }
 
     /**
      * Save a screenshot of the OLE control in the idle image.
-     * 
      * @param create true to create the image if none exist, <code>false</code> to do nothing
      * if the image does not exist.
      */
@@ -620,6 +628,7 @@ class MicrosoftDocumentViewer {
         gd.heightHint = bounds.height;
         gd.exclude = this.isActive;
         this.idleCanvas.setLayoutData(gd);
+        
     }
 
     @objid ("9f6f0543-bc43-4c09-8ddf-09940106eded")
@@ -653,6 +662,7 @@ class MicrosoftDocumentViewer {
             // Disable the GUI now.
             doDisableGui();
         }
+        
     }
 
     /**
@@ -696,6 +706,7 @@ class MicrosoftDocumentViewer {
         System.out.println("Variant result = "+result);
         automation.dispose();  
         */
+        
     }
 
     @objid ("34f7f17a-6959-472d-9f2b-1647791c81af")
@@ -743,12 +754,13 @@ class MicrosoftDocumentViewer {
         private Path origFile;
 
         @objid ("cfefefeb-c3e1-4a75-8ff2-b43fe207bf81")
-        public Backuper(Path file) throws IOException {
+        public  Backuper(Path file) throws IOException {
             this.origFile = file;
             this.tempFile = file.resolveSibling(file.getFileName().toString()+ ".tmp"); //$NON-NLS-1$
             
             Files.deleteIfExists(this.tempFile);
             Files.move(file, this.tempFile);
+            
         }
 
         @objid ("98f3f458-0674-4eea-9790-bbd2ff01e58b")
@@ -773,6 +785,7 @@ class MicrosoftDocumentViewer {
                 Files.deleteIfExists(this.origFile);
                 Files.move(this.tempFile, this.origFile);
             }
+            
         }
 
     }

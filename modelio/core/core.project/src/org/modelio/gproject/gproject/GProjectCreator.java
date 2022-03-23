@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.gproject;
 
 import java.io.IOException;
@@ -45,12 +44,11 @@ public class GProjectCreator {
      * <p>
      * The <i>projectPath</i> can then be given to
      * {@link GProjectFactory#openProject GProjectFactory.openProject()} to obtain a {@link GProject}.
-     * 
      * @param projectName the project name.
      * @param projectPath the project path. Must be a directory that should be empty or
      * does not exist yet.
      * @return The created project descriptor
-     * @throws java.io.IOException in case of I/O error.
+     * @throws IOException in case of I/O error.
      */
     @objid ("41d51dff-ab36-11e1-8392-001ec947ccaf")
     public static ProjectDescriptor buildEmptyProject(final String projectName, final Path projectPath) throws IOException {
@@ -64,13 +62,12 @@ public class GProjectCreator {
      * <p>
      * The <i>projectPath</i> can then be given to
      * {@link GProjectFactory#openProject GProjectFactory.openProject()} to obtain a {@link GProject}.
-     * 
      * @param projectName the project name.
      * @param projectPath the project path. Must be a directory that should be empty or
      * does not exist yet.
      * @param modelioVersion the Modelio version
      * @return The created project descriptor
-     * @throws java.io.IOException in case of I/O error.
+     * @throws IOException in case of I/O error.
      * @since 3.4.1
      */
     @objid ("25c59074-2364-4ff7-8647-875067f01374")

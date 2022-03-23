@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.script.view;
 
 import java.util.ArrayList;
@@ -131,14 +130,13 @@ class InputView extends SourceViewer implements IInputView {
 
     /**
      * Mandatory constructor.
-     * 
      * @param parent parent widget
      * @param styles the SWT style bits for the viewer's control,
      * <em>if <code>SWT.WRAP</code> is set then a custom document adapter needs to be provided, see {@link #createDocumentAdapter()}
      * @param viewPart the view part where the view is contained in
      */
     @objid ("00828d5e-663d-105c-84ef-001ec947cd2a")
-    public InputView(Composite parent, int styles, ScriptView viewPart) {
+    public  InputView(Composite parent, int styles, ScriptView viewPart) {
         super(parent, new CompositeRuler(), styles);
         this.viewPart = viewPart;
         
@@ -166,6 +164,7 @@ class InputView extends SourceViewer implements IInputView {
         
         // Add drag and drop
         new TextViewerDragDropManager(viewPart, this);
+        
     }
 
     @objid ("0082bcb6-663d-105c-84ef-001ec947cd2a")
@@ -184,6 +183,7 @@ class InputView extends SourceViewer implements IInputView {
         } catch (BadLocationException e) {
             e.printStackTrace();
         }
+        
     }
 
     @objid ("0082e29a-663d-105c-84ef-001ec947cd2a")
@@ -200,7 +200,6 @@ class InputView extends SourceViewer implements IInputView {
      * <li>the selected text if there is a selection. (The selected text will then be removed from the input view if no debug mode.)
      * </li>
      * </ul>
-     * 
      * @return The code to execute.
      */
     @objid ("008310da-663d-105c-84ef-001ec947cd2a")
@@ -239,11 +238,11 @@ class InputView extends SourceViewer implements IInputView {
             e.printStackTrace();
             return "";
         }
+        
     }
 
     /**
      * Fill the contextual menu.
-     * 
      * @param menu menu to fill.
      */
     @objid ("00833538-663d-105c-84ef-001ec947cd2a")
@@ -271,6 +270,7 @@ class InputView extends SourceViewer implements IInputView {
         menu.add(new Separator(IActionConstants.GROUP_EXECUTE));
         // Some commands are added by plugin.xml here.
         // eg : Execute
+        
     }
 
     /**
@@ -296,6 +296,7 @@ class InputView extends SourceViewer implements IInputView {
         // Allow other plugins to add commands to the menu
         // this.viewPart.getViewSite().registerContextMenu(MENU_ID, manager,
         // InputView.this);
+        
     }
 
     /**
@@ -317,11 +318,11 @@ class InputView extends SourceViewer implements IInputView {
         // ActionHandler(this.globalActions.get(SHIFT_RIGHT_COMMAND_ID)));
         // service.activateHandler(SELECT_ALL_COMMAND_ID, new
         // ActionHandler(this.globalActions.get(SELECT_ALL_COMMAND_ID)));
+        
     }
 
     /**
      * Update an action state.
-     * 
      * @param actionId the ID of the action to update
      */
     @objid ("0083bc92-663d-105c-84ef-001ec947cd2a")
@@ -330,6 +331,7 @@ class InputView extends SourceViewer implements IInputView {
         if (action instanceof IUpdate) {
             ((IUpdate) action).update();
         }
+        
     }
 
     /**
@@ -340,6 +342,7 @@ class InputView extends SourceViewer implements IInputView {
         for (String id : this.selectionDependentActions) {
             updateAction(id);
         }
+        
     }
 
     /**
@@ -412,8 +415,8 @@ class InputView extends SourceViewer implements IInputView {
         static class PythonPartitionScanner extends RuleBasedScanner {
             @objid ("001994de-b235-1069-96f6-001ec947cd2a")
             private static String[] keywords = { "and", "assert", "break", "class", "continue", "def", "del", "elif", "else",
-                    "except", "exec", "finally", "for", "from", "global", "if", "import", "in", "is", "lambda", "not", "or",
-                    "pass", "print", "raise", "return", "self", "try", "while", "yield" };
+                                "except", "exec", "finally", "for", "from", "global", "if", "import", "in", "is", "lambda", "not", "or",
+                                "pass", "print", "raise", "return", "self", "try", "while", "yield" };
 
             @objid ("005a4fe2-f1bd-106a-bf4f-001ec947cd2a")
             public static final Color KEYWORD_COLOR = new Color(Display.getCurrent(), new RGB(128, 0, 128));
@@ -425,7 +428,7 @@ class InputView extends SourceViewer implements IInputView {
             public static final Color CONSTANT_COLOR = new Color(Display.getCurrent(), new RGB(0, 0, 255));
 
             @objid ("008cceea-b233-1069-96f6-001ec947cd2a")
-            public PythonPartitionScanner() {
+            public  PythonPartitionScanner() {
                 super();
                 
                 final Font normalFont = Display.getCurrent().getSystemFont();
@@ -474,6 +477,7 @@ class InputView extends SourceViewer implements IInputView {
                 
                 // Set rules
                 setRules(rules.toArray(new IRule[rules.size()]));
+                
             }
 
         }

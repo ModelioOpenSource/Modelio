@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.management;
 
 import java.util.Collection;
@@ -34,7 +33,7 @@ class EditorsRegistry {
     private Map<MRef, RichNoteToken> openEditors = new HashMap<>();
 
     @objid ("494b9393-1cab-48e3-b098-bf036659da42")
-    EditorsRegistry() {
+     EditorsRegistry() {
         // nothing
     }
 
@@ -48,6 +47,7 @@ class EditorsRegistry {
     public void addEditor(MObject model, IRichNoteEditor editor) {
         RichNoteToken token = new RichNoteToken(model, editor);
         this.openEditors.put(new MRef(model), token);
+        
     }
 
     @objid ("12dc5faa-0959-435a-a9c1-259f3a45f24c")
@@ -79,15 +79,16 @@ class EditorsRegistry {
     @objid ("f4bbc736-efb1-4c0e-a74c-229b7fad51f2")
     static final class RichNoteToken {
         @objid ("0360ca70-7e0a-4a99-8530-bfbbb4273d8a")
-         final MObject model;
+        final MObject model;
 
         @objid ("332b5992-578b-4991-9750-1ff6db739698")
-         final IRichNoteEditor editor;
+        final IRichNoteEditor editor;
 
         @objid ("837648cd-cf9e-4ed5-bf58-baec4f1ac42c")
-        public RichNoteToken(MObject model, IRichNoteEditor editor) {
+        public  RichNoteToken(MObject model, IRichNoteEditor editor) {
             this.model = model;
             this.editor = editor;
+            
         }
 
     }

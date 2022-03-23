@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.mapi.modelshield.api;
 
 import java.util.Arrays;
@@ -40,10 +39,11 @@ public class ModelError implements IModelError {
     private final MObject element;
 
     @objid ("00280b38-0000-0005-0000-000000000000")
-    public ModelError(final String ruleId, final MObject element, final List<Object> linkedObjects) {
+    public  ModelError(final String ruleId, final MObject element, final List<Object> linkedObjects) {
         this.ruleId = ruleId;
         this.element = element;
         this.linkedObjects = linkedObjects;
+        
     }
 
     @objid ("002804f8-0000-06bb-0000-000000000000")
@@ -65,10 +65,11 @@ public class ModelError implements IModelError {
     }
 
     @objid ("7bf8816c-f3ab-4338-972e-02d00f06c08a")
-    public ModelError(final String ruleId, final MObject element, Object... linkedObjects) {
+    public  ModelError(final String ruleId, final MObject element, Object... linkedObjects) {
         this.ruleId = ruleId;
         this.element = element;
         this.linkedObjects = Arrays.asList(linkedObjects);
+        
     }
 
 }

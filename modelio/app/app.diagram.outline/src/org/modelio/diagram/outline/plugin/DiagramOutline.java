@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.outline.plugin;
 
 import java.util.ResourceBundle;
@@ -54,6 +53,7 @@ public class DiagramOutline implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), PLUGIN_ID));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("diagramoutline"));
+        
     }
 
     @objid ("b485ccac-8c60-4a00-b9fa-2427c220b94c")

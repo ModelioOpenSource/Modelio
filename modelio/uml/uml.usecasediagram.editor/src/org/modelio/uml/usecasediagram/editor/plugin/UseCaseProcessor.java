@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.plugin;
 
 import java.net.URL;
@@ -59,6 +58,7 @@ public class UseCaseProcessor extends AbstractDiagramInitializationProcessor {
         
         factoryRegistry.registerExtensions(StaticDiagram.MNAME, UseCaseDiagram.MNAME);
         factoryRegistry.registerExtensions(UseCaseDiagram.MNAME, StaticDiagram.MNAME);
+        
     }
 
     @objid ("7c1c4013-5eff-11e2-b9cc-001ec947c8cc")
@@ -86,6 +86,7 @@ public class UseCaseProcessor extends AbstractDiagramInitializationProcessor {
         
         // System
         factoryStyle.declareProvider(GmSystemStyleKeys.class);
+        
     }
 
     @objid ("7c1c4015-5eff-11e2-b9cc-001ec947c8cc")
@@ -99,6 +100,7 @@ public class UseCaseProcessor extends AbstractDiagramInitializationProcessor {
         loader.load(url);
         
         factoryStyle.injectDefaultValues(loader.getStyleProperties());
+        
     }
 
 }

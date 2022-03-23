@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common.index.builder;
 
 import java.io.IOError;
 import java.io.IOException;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.vcore.smkernel.meta.SmMetamodel;
 import org.modelio.vstore.exml.common.index.ICmsNodeIndex;
 import org.modelio.vstore.exml.common.index.IUserNodeIndex;
@@ -49,13 +48,12 @@ public class IndexBuilder {
 
     /**
      * Initialize the index builder.
-     * 
      * @param metamodel the metamodel
      * @param parentIndex the parent/child index
      * @param userIndex the used CMS nodes index.
      */
     @objid ("fd21f71a-5986-11e1-991a-001ec947ccaf")
-    public IndexBuilder(SmMetamodel metamodel, ICmsNodeIndex parentIndex, IUserNodeIndex userIndex) {
+    public  IndexBuilder(SmMetamodel metamodel, ICmsNodeIndex parentIndex, IUserNodeIndex userIndex) {
         this.defaultHandler = new DocumentContentHandler(metamodel, parentIndex, userIndex);
         
         try {
@@ -74,14 +72,14 @@ public class IndexBuilder {
             // should never happen
             throw new Error(e);
         }
+        
     }
 
     /**
      * Run the builder on an XML file.
-     * 
      * @param is the XML input source.
-     * @throws java.io.IOException in case of failure writing the index.
-     * @throws org.modelio.vstore.exml.common.index.builder.InvalidExmlException in case of error reading the EXML source.
+     * @throws IOException in case of failure writing the index.
+     * @throws InvalidExmlException in case of error reading the EXML source.
      */
     @objid ("fd21f719-5986-11e1-991a-001ec947ccaf")
     public void run(final InputSource is) throws IOException, InvalidExmlException {
@@ -119,6 +117,7 @@ public class IndexBuilder {
             String msg = this.defaultHandler.getLocator()+": "+toCatch.getLocalizedMessage();
             throw new IOException (msg, toCatch);
         }
+        
     }
 
 }

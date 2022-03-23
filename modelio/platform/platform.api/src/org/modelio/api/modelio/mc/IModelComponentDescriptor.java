@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.mc;
 
 import java.io.IOException;
@@ -34,7 +33,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IModelComponentDescriptor {
     /**
      * Get the name of the model component.
-     * 
      * @return the name of the model component.
      */
     @objid ("318987b6-d5cc-11de-884b-001ec947cd2a")
@@ -42,7 +40,6 @@ public interface IModelComponentDescriptor {
 
     /**
      * Get the version of the model component.
-     * 
      * @return the version of the model component.
      */
     @objid ("318987b8-d5cc-11de-884b-001ec947cd2a")
@@ -60,7 +57,7 @@ public interface IModelComponentDescriptor {
     /**
      * @param filter a path filter
      * @return relative files deployed by the model component in the project and matching the filter.
-     * @throws java.io.IOException If an I/O error occurs
+     * @throws IOException If an I/O error occurs
      * @since 3.7.1
      */
     @objid ("824b657c-f9cd-4a18-b755-fdd5d8b87deb")

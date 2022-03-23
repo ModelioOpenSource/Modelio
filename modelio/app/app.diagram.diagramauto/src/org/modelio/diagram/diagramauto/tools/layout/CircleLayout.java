@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.diagramauto.tools.layout;
 
 import java.util.ArrayList;
@@ -27,13 +26,14 @@ import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.PrecisionPoint;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
-import org.modelio.api.modelio.diagram.IDiagramLink.LinkRouterKind;
 import org.modelio.api.modelio.diagram.IDiagramLink;
+import org.modelio.api.modelio.diagram.IDiagramLink.LinkRouterKind;
 import org.modelio.api.modelio.diagram.IDiagramNode;
 import org.modelio.api.modelio.diagram.ILinkPath;
 import org.modelio.api.modelio.diagram.InvalidDestinationPointException;
 import org.modelio.api.modelio.diagram.InvalidPointsPathException;
 import org.modelio.api.modelio.diagram.InvalidSourcePointException;
+import org.modelio.diagram.diagramauto.tools.DgUtils;
 
 @objid ("578596b5-501f-4968-a428-7d1157e48096")
 public class CircleLayout {
@@ -93,12 +93,11 @@ public class CircleLayout {
         }
         
         dh.save();
+        
     }
 
     /**
-     * Sets locations of all dgs, distributed around a circle.
-     * The center of each dg is part of the circle itself.
-     * 
+     * Sets locations of all dgs, distributed around a circle. The center of each dg is part of the circle itself.
      * @param dgs the graphics to layout.
      * @param center The center of the circle.
      * @param radius The radius of the circle.
@@ -117,13 +116,14 @@ public class CircleLayout {
             Rectangle r = node.getOverallBounds();
         
             // Set the node in the correct place in the circle, with a shift corresponding to the center's coordinates
-            node.setLocation(center.x + p.x - r.width / 2, center.y + p.y - r.height / 2);
+            DgUtils.setLocation(node, center.x + p.x - r.width / 2, center.y + p.y - r.height / 2);
         
             // Compute next point, with a rotation of (360/n) ?
             double newX = p.preciseX() * cos + p.preciseY() * sin;
             double newY = -p.preciseX() * sin + p.preciseY() * cos;
             p = new PrecisionPoint(newX, newY);
         }
+        
     }
 
 }

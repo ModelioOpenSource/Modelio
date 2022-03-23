@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.view.handlers;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -57,6 +56,7 @@ public class DisableRuleHandler extends AbstractAuditEntryHandler {
                 auditService.apply(prefModel);
             }
         }
+        
     }
 
     @objid ("03852f54-f97f-446f-8051-0e6dafa22eac")

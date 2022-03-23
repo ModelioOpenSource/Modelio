@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.local.loader.sax;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,6 +40,7 @@ class ATTState extends AbstractState {
         if (this.attValueBuilder != null) {
             this.attValueBuilder.append(chars, start, length);
         }
+        
     }
 
     @objid ("2af5305a-3faf-11e2-87cb-001ec947ccaf")
@@ -59,6 +59,7 @@ class ATTState extends AbstractState {
         default:
             throwInvalidTag(localName);
         }
+        
     }
 
     @objid ("2af53047-3faf-11e2-87cb-001ec947ccaf")
@@ -76,6 +77,7 @@ class ATTState extends AbstractState {
         } else {
             throwInvalidTag(localName);
         }
+        
     }
 
 }

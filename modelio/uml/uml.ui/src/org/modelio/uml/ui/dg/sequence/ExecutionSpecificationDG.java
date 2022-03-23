@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.sequence;
 
 import java.util.Collection;
@@ -40,7 +39,7 @@ public class ExecutionSpecificationDG extends DiagramNode {
      * @param node The gm node represented by this class.
      */
     @objid ("a5fe85bb-9c73-433d-8109-c11c536899d9")
-    public ExecutionSpecificationDG(final DiagramHandle diagramHandle, final GmNodeModel node) {
+    public  ExecutionSpecificationDG(final DiagramHandle diagramHandle, final GmNodeModel node) {
         super(diagramHandle, node);
     }
 

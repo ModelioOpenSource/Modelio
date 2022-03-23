@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.gproject.remote;
 
 import java.io.IOException;
@@ -50,13 +49,12 @@ public abstract class GRemoteProjectFactory implements IProjectFactory {
 
     /**
      * Fetch the remote descriptor from its remote location.
-     * 
      * @param localDescriptor the local part of a project descriptor.
      * @param authData authentication data.
      * @param monitor a progress monitor
      * @return the XML input source of the server side project descriptor.
-     * @throws java.io.IOException in case of failure.
-     * @throws org.modelio.gproject.gproject.GProjectAuthenticationException in case of authentication error
+     * @throws IOException in case of failure.
+     * @throws GProjectAuthenticationException in case of authentication error
      */
     @objid ("9c5cdca1-b1a5-46b5-895d-f581de5aa994")
     public abstract InputSource readRemoteDescriptor(ProjectDescriptor localDescriptor, IAuthData authData, IModelioProgress monitor) throws IOException, GProjectAuthenticationException;
@@ -80,6 +78,7 @@ public abstract class GRemoteProjectFactory implements IProjectFactory {
             }
             throw e;
         }
+        
     }
 
     @objid ("151079c2-d162-4f44-a4f9-f3226ee7955c")
@@ -100,6 +99,7 @@ public abstract class GRemoteProjectFactory implements IProjectFactory {
             DescriptorServices.merge(newServerDesc, projectDescriptor);
             projectDescriptor.cleanup();
         }
+        
     }
 
 }

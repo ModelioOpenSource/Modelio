@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.umlcommon.note;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,8 +46,8 @@ import org.modelio.diagram.elements.core.figures.ToolbarLayoutWithGrab;
 import org.modelio.diagram.elements.core.figures.borders.ShapedBorder;
 import org.modelio.diagram.elements.core.figures.borders.TLBRBorder;
 import org.modelio.diagram.elements.core.figures.html.flyingsaucer.FsHtmlFigure;
-import org.modelio.platform.model.ui.MimeServices.MimeType;
 import org.modelio.platform.model.ui.MimeServices;
+import org.modelio.platform.model.ui.MimeServices.MimeType;
 
 /**
  * A note figure is is made of: <br>
@@ -82,7 +81,7 @@ public class NoteFigure extends ShapedFigure {
      * @param aCompo a SWT composite
      */
     @objid ("818d8652-1dec-11e2-8cad-001ec947c8cc")
-    public NoteFigure() {
+    public  NoteFigure() {
         super(NoteFigure.NOTE_SHAPER);
         
         // this.swtComposite = aCompo;
@@ -116,11 +115,11 @@ public class NoteFigure extends ShapedFigure {
         this.scrollPane.setContents(this.contentFigure);
         
         this.add(this.scrollPane);
+        
     }
 
     /**
      * Get the note content figure.
-     * 
      * @return The figure where the note content is displayed.
      */
     @objid ("818d8655-1dec-11e2-8cad-001ec947c8cc")
@@ -130,7 +129,6 @@ public class NoteFigure extends ShapedFigure {
 
     /**
      * Set note content and mode.
-     * 
      * @param content the content, as HTML or plain text
      * @param htmlMode true to activate the HTML mode
      */
@@ -172,6 +170,7 @@ public class NoteFigure extends ShapedFigure {
                 this.contentsText.setText(content);
             }
         }
+        
     }
 
     @objid ("818d8660-1dec-11e2-8cad-001ec947c8cc")
@@ -180,6 +179,7 @@ public class NoteFigure extends ShapedFigure {
         this.title.setForegroundColor(textColor);
         this.contentFigure.setForegroundColor(textColor);
         super.setTextColor(textColor);
+        
     }
 
     @objid ("818d8664-1dec-11e2-8cad-001ec947c8cc")
@@ -189,24 +189,24 @@ public class NoteFigure extends ShapedFigure {
         this.title.setMinimumSize(this.title.getPreferredSize(-1, -1));
         this.contentFigure.setFont(textFont);
         super.setTextFont(textFont);
+        
     }
 
     /**
      * Set the displayed note type.
-     * 
      * @param type the note type.
      */
     @objid ("818d8668-1dec-11e2-8cad-001ec947c8cc")
     public void setType(String type) {
         this.title.setText(type);
         this.title.setMinimumSize(this.title.getPreferredSize(-1, -1));
+        
     }
 
     /**
      * Convert a HTML text to plain text.
      * <p>
      * In the case where the conversion fails, the HTMl text is returned.
-     * 
      * @param htmlText HTML text
      * @return plain text.
      */
@@ -217,7 +217,6 @@ public class NoteFigure extends ShapedFigure {
 
     /**
      * Creates HTMl representation .
-     * 
      * @param htmlText the HTML text
      * @return the created figure
      */
@@ -229,7 +228,6 @@ public class NoteFigure extends ShapedFigure {
 
     /**
      * Creates the plain text mode figure: a FlowPage + a TextFlow
-     * 
      * @param content the plain text
      * @return the plain text mode figure
      */
@@ -254,7 +252,7 @@ public class NoteFigure extends ShapedFigure {
     @objid ("818d8672-1dec-11e2-8cad-001ec947c8cc")
     private static final class NoteLayout extends ToolbarLayoutWithGrab {
         @objid ("818fe875-1dec-11e2-8cad-001ec947c8cc")
-        NoteLayout() {
+         NoteLayout() {
             super(false);
         }
 
@@ -291,7 +289,6 @@ public class NoteFigure extends ShapedFigure {
 
         /**
          * Calculate the minimum size a note should be.
-         * 
          * @param container the note figure
          * @param wHint the width hint (the desired width of the container)
          * @param hHint the height hint (the desired height of the container)
@@ -321,7 +318,6 @@ public class NoteFigure extends ShapedFigure {
 
         /**
          * Compute the ideal size of the note.
-         * 
          * @param container the note figure
          * @param wHint the width hint (the desired width of the container)
          * @param hHint the height hint (the desired height of the container)
@@ -355,7 +351,7 @@ public class NoteFigure extends ShapedFigure {
     @objid ("81924ad9-1dec-11e2-8cad-001ec947c8cc")
     public static final class TransparentScrollPane extends ScrollPane {
         @objid ("81924ade-1dec-11e2-8cad-001ec947c8cc")
-        public TransparentScrollPane() {
+        public  TransparentScrollPane() {
             super();
         }
 
@@ -376,7 +372,7 @@ public class NoteFigure extends ShapedFigure {
 
         @objid ("9329aee9-5033-49d0-b193-2f4fd59e8bda")
         @Override
-        public Path getShapePath(Rectangle rect) {
+        public Path createShapePath(Rectangle rect) {
             Path path = new Path(Display.getCurrent());
             
             Point[] points = computeShape(rect);
@@ -407,7 +403,6 @@ public class NoteFigure extends ShapedFigure {
          * 5----------4
          * </pre>
          * @param p an array of 6 points. If null a new array with 6 points will be allocated.
-         * 
          * @param r the bounding box rectangle
          * @return the passed array or a new one
          */

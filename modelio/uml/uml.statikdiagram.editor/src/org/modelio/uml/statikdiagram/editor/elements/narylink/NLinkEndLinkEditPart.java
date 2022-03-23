@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.narylink;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -55,7 +54,7 @@ public class NLinkEndLinkEditPart extends LinkEditPart {
 
     @objid ("ac242789-10a0-4d64-8edd-d9d977629e77")
     private static final PointList NAVIG_AGGREG_TIP = new PointList(new int[] { -1, 1, 0, 0, -1, -1, -2, 0,
-            -3, -1, -2, 0, -3, 1, -2, 0 });
+                -3, -1, -2, 0, -3, 1, -2, 0 });
 
     @objid ("35eca19c-55b7-11e2-877f-002564c97630")
     @Override
@@ -72,6 +71,7 @@ public class NLinkEndLinkEditPart extends LinkEditPart {
         }
         
         refreshDecorationsFromStyle((LinkFigure) aFigure, style);
+        
     }
 
     @objid ("35ee27fc-55b7-11e2-877f-002564c97630")
@@ -86,6 +86,7 @@ public class NLinkEndLinkEditPart extends LinkEditPart {
         createDecorations(connection, model);
         
         refreshDecorationsFromStyle(connection, getModelStyle());
+        
     }
 
     @objid ("35ee27ff-55b7-11e2-877f-002564c97630")
@@ -94,6 +95,7 @@ public class NLinkEndLinkEditPart extends LinkEditPart {
         
         deco = createDecoration(AggregationKind.KINDISASSOCIATION, this.showNavigability && model.isToNavigable());
         connection.setTargetDecoration(deco);
+        
     }
 
     @objid ("35ee2803-55b7-11e2-877f-002564c97630")
@@ -169,6 +171,7 @@ public class NLinkEndLinkEditPart extends LinkEditPart {
             pennable.setLinePattern(linePattern);
             pennable.setLineWidth(lineWidth);
         }
+        
     }
 
     @objid ("35ee2813-55b7-11e2-877f-002564c97630")
@@ -178,6 +181,7 @@ public class NLinkEndLinkEditPart extends LinkEditPart {
         
         installEditPolicy("CreateInfoFlow", new DefaultCreateInfoFlowOnLinkEditPolicy());
         removeEditPolicy("rake");
+        
     }
 
 }

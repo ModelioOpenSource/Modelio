@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.permission;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,6 +50,7 @@ public class BasicAccessManager implements IAccessManager {
             modelLoader.setRStatus(obj, this.cmsNodeStatus.on, this.cmsNodeStatus.off, this.cmsNodeStatus.undef);
         else
             modelLoader.setRStatus(obj, this.regularStatus.on, this.regularStatus.off, this.regularStatus.undef | IRStatus.MASK_CMS);
+        
     }
 
     /**
@@ -59,14 +59,14 @@ public class BasicAccessManager implements IAccessManager {
      * The manager is configured to be writable, non versioned and non RAMC.
      */
     @objid ("f638648c-3948-11e2-920a-001ec947ccaf")
-    public BasicAccessManager() {
+    public  BasicAccessManager() {
         setWriteable(true);
         setRamc(false);
+        
     }
 
     /**
      * Set elements as model component.
-     * 
      * @param ramc <code>true</code> to set loaded elements as model component.
      */
     @objid ("f638648f-3948-11e2-920a-001ec947ccaf")
@@ -78,11 +78,11 @@ public class BasicAccessManager implements IAccessManager {
             this.cmsNodeStatus.set(IRStatus.RAMC, StatusState.FALSE);
             this.regularStatus.set(IRStatus.RAMC, StatusState.FALSE);
         }
+        
     }
 
     /**
      * Tells whether the access manager allow writing.
-     * 
      * @return <code>true</code> if writing is allowed else <code>false</code>.
      */
     @objid ("f63ac6e0-3948-11e2-920a-001ec947ccaf")
@@ -92,7 +92,6 @@ public class BasicAccessManager implements IAccessManager {
 
     /**
      * Allow write.
-     * 
      * @param val <code>true</code> to allow writing, <code>false</code> to deny it.
      */
     @objid ("f63ac6e5-3948-11e2-920a-001ec947ccaf")
@@ -105,6 +104,7 @@ public class BasicAccessManager implements IAccessManager {
             this.cmsNodeStatus.set(IRStatus.USERWRITE, StatusState.FALSE);
             this.regularStatus.set(IRStatus.USERWRITE, StatusState.FALSE);
         }
+        
     }
 
     @objid ("4e42cfb9-7725-4073-be66-5e2cc6d441fe")
@@ -119,7 +119,7 @@ public class BasicAccessManager implements IAccessManager {
         public long undef;
 
         @objid ("ee2a8261-c081-4d84-9ae8-d0ab4c0c2aa7")
-        public StatusConf() {
+        public  StatusConf() {
             // noop
         }
 
@@ -144,6 +144,7 @@ public class BasicAccessManager implements IAccessManager {
             default:
                 assert false : state;
             }
+            
         }
 
         @objid ("88c3489b-2421-4c21-ab79-c603ce54a475")
@@ -151,6 +152,7 @@ public class BasicAccessManager implements IAccessManager {
             this.on &= ~bitdef;
             this.off &= ~bitdef;
             this.undef &= ~bitdef;
+            
         }
 
         @objid ("13805952-35fe-4d1d-8708-bad40173ff6c")

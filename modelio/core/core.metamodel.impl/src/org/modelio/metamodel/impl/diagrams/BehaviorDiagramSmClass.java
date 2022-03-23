@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.diagrams;
 
 import java.util.ArrayList;
@@ -42,7 +42,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("3179c664-e485-47e8-aacc-ed2e277ea76b")
 public class BehaviorDiagramSmClass extends AbstractDiagramSmClass {
     @objid ("25bcc39f-633b-4015-ad9b-08d2d54323b7")
-    public BehaviorDiagramSmClass(ISmMetamodelFragment origin) {
+    public  BehaviorDiagramSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +50,7 @@ public class BehaviorDiagramSmClass extends AbstractDiagramSmClass {
     @Override
     public String getName() {
         return "BehaviorDiagram";
+        
     }
 
     @objid ("0676b863-8273-4c16-98c0-aef8b69adf2c")
@@ -62,18 +63,21 @@ public class BehaviorDiagramSmClass extends AbstractDiagramSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BehaviorDiagram.class;
+        
     }
 
     @objid ("3ff18417-4e43-4802-94d8-fdbb95b3d5af")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("5dab8924-f870-4742-96ac-fb178f748674")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("0b53060e-429c-459a-bee5-9dc695b6748c")
@@ -86,6 +90,7 @@ public class BehaviorDiagramSmClass extends AbstractDiagramSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("c2789e32-bd52-49cb-b045-c5095e7ca2eb")
@@ -94,7 +99,7 @@ public class BehaviorDiagramSmClass extends AbstractDiagramSmClass {
         private BehaviorDiagramSmClass smClass;
 
         @objid ("ac0c4b67-583f-4cba-b50e-79fc93fc0dd7")
-        public BehaviorDiagramObjectFactory(BehaviorDiagramSmClass smClass) {
+        public  BehaviorDiagramObjectFactory(BehaviorDiagramSmClass smClass) {
             this.smClass = smClass;
         }
 

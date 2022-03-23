@@ -17,12 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.geometry;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.geometry.Point;
@@ -44,7 +42,7 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
     private static final int DEFAULT_INTERSECTION_TOLERANCE = 1;
 
     @objid ("7f836330-1dec-11e2-8cad-001ec947c8cc")
-     static final long serialVersionUID = 1;
+    static final long serialVersionUID = 1;
 
     /**
      * Constant to avoid divide by zero errors.
@@ -53,14 +51,13 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
     private static final float BIGSLOPE = 9999;
 
     @objid ("630a9879-1e83-11e2-8cad-001ec947c8cc")
-    private Point origin;
+    private final Point origin;
 
     @objid ("630a987a-1e83-11e2-8cad-001ec947c8cc")
-    private Point terminus;
+    private final Point terminus;
 
     /**
      * Returns the coefficients of the generalized equation of the line passing through points (x1,y1) and (x2,y2) Generalized line equation: ax+by=c => a==result[0], b==result[1], c==result[2]
-     * 
      * @param x1 - x coordinate of the 1st point
      * @param y1 - y coordinate of the 1st point
      * @param x2 - x coordinate of the 2nd point
@@ -93,20 +90,19 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
 
     /**
      * Constructor
-     * 
      * @param ptStart Point indicating the start of the line segment
      * @param ptEnd Point indicating the end of the line segment
      */
     @objid ("7f836340-1dec-11e2-8cad-001ec947c8cc")
-    public LineSeg(Point ptStart, Point ptEnd) {
+    public  LineSeg(Point ptStart, Point ptEnd) {
         this.origin = ptStart.getCopy();
         this.terminus = ptEnd.getCopy();
+        
     }
 
     /**
      * Creates a segment using (fromX, fromY) as either the first point of the segment (start == Origin) or the midpoint of the segment (start == Midpoint), and using slope as its new slope and len as the new length. xdir indicates which direction the
      * segment should go in the x-axis.
-     * 
      * @param start <code>KeyPoint</code> from which the other parameters are relative to
      * @param fromX int x value of start <code>KeyPoint</code>
      * @param fromY int y value of start <code>KeyPoint</code>
@@ -115,7 +111,7 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
      * @param xdir direction
      */
     @objid ("7f836349-1dec-11e2-8cad-001ec947c8cc")
-    public LineSeg(final KeyPoint start, final int fromX, final int fromY, final float slope, final long len, final int xdir) {
+    public  LineSeg(final KeyPoint start, final int fromX, final int fromY, final float slope, final long len, final int xdir) {
         super();
         
         this.origin = new Point();
@@ -157,11 +153,11 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
         
         this.terminus.x = fromX + dx;
         this.terminus.y = fromY + dy;
+        
     }
 
     /**
      * Checks if this line segment contains the given point within a tolerance value.
-     * 
      * @param aPoint <code>Point</code> to test if contained in this line.
      * @param tolerance int tolerance value for detecting the intersection.
      * @return <code>boolean</code> <code>true</code> if the given point lies on this segment, <code>false</code> otherwise.
@@ -179,7 +175,6 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
 
     /**
      * Finds the percentage distance along this line segement where the given point resides.
-     * 
      * @param coord <code>Point</code> to determine how far along the line segment it resides.
      * @return <code>float</code> the distance along the line segment where the ptCoord is in a percentage from.
      */
@@ -190,7 +185,7 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
         
         /*
          * Use parametric form for equation of a line segment: p + td, where 0 < t < 1 and d = p2 - p (direction vector)
-         * 
+         *
          * To find out if point lies "inside" line segment (i.e. can draw perpendicular line from segment to point), use projection of point (q) to line (p + td): t = (q-p).d/length(d)^2 (. is dot product)
          */
         
@@ -220,7 +215,6 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
 
     /**
      * Finds the perpendicular distance from a point coordinates to this line segment. If point is "inside" line segment, then use distance from point to the line, otherwise use distance to nearest endpoint of segment
-     * 
      * @param xCoord the x coordinate of the point.
      * @param yCoord the y coordinate of the point.
      * @return <code>long</code> the distance from the line segment to the given point.
@@ -238,9 +232,19 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
         long d2 = Math.round(getTerminus().getDistance(new Point(xCoord, yCoord)));
         return (d1 < d2 ? d1 : d2);
         /*
-                 * There are 2 general forms to equations of a line: 1. y = mx + c, where c = y1 - m(x1), and 2. ax + by + c = 0 We know m and c, so putting first version in the form of the second version, we get: mx - y + c = 0 So, for form 2, a = m, b = -1, and
-                 * c = y1 - m(x1). Distance from point (x, y) to line (using form 2) is: |ax + by + c| / sqrt(a^2 + b^2) or |mx - y + y1 - m(x1)| / sqrt(m^2 + 1)
-                 */
+         * There are 2 general forms to equations of a line:
+         * 1. y = mx + c, where c = y1 - m(x1),
+         * and 2. ax + by + c = 0
+         *
+         * We know m and c, so putting first version in the form of the second version, we get:
+         * mx - y + c = 0
+         * So, for form 2, a = m, b = -1, and
+         * c = y1 - m(x1).
+         * Distance from point (x, y) to line (using form 2) is:
+         *  |ax + by + c| / sqrt(a^2 + b^2) or
+         *  |mx - y + y1 - m(x1)| / sqrt(m^2 + 1)
+         */
+        
     }
 
     @objid ("7f85c582-1dec-11e2-8cad-001ec947c8cc")
@@ -255,8 +259,10 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
     }
 
     /**
-     * Returns array with 3 numbers in it, which are the coefficients of the generalized line equation of the line corresponding to this line segment a*x+b*y=c is the equation => result[0]=a, result[1]=b, result[2]=c
-     * 
+     * Returns array with 3 numbers in it, which are the coefficients of the generalized line equation
+     * of the line corresponding to this line segment
+     * <p>
+     * a*x+b*y=c is the equation => result[0]=a, result[1]=b, result[2]=c
      * @return an array with 3 numbers in it, which are the coefficients of the generalized line equation
      */
     @objid ("7f85c588-1dec-11e2-8cad-001ec947c8cc")
@@ -267,11 +273,11 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
                         preciseOrigin.preciseY(),
                         preciseTerminus.preciseX(),
                         preciseTerminus.preciseY());
+        
     }
 
     /**
      * Get a <code>Point</code> representing the lowest point value for this line segment.
-     * 
      * @return <code>Point</code> Representing the lowest point value.
      */
     @objid ("7f85c58f-1dec-11e2-8cad-001ec947c8cc")
@@ -281,7 +287,6 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
 
     /**
      * Calculates intersection points of the line of the line segment and ellipse
-     * 
      * @param ellipseBounds - width and height of the ellipse
      * @return - <Code>PointList</Code> containing all intersection points
      */
@@ -353,23 +358,31 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
         return intersections;
     }
 
+    @objid ("88aff947-519b-4be4-8212-d44fed8a6050")
+    public LineSeg setValues(PointList from, int index1, int index2) {
+        from.getPoint(this.origin, index1);
+        from.getPoint(this.terminus, index2);
+        return this;
+    }
+
     /**
      * Calculates intersection points of the line that contains this line segment with a list of other line segments. If the list of points (line segments) form a closed <Code>PolyLine</Code>, i.e form a closed polygon figure, then the method will
-     * claculate intersections of a line and a figure
-     * 
-     * @param points - list of points that form linesegments, i.e the <Code>PolyLine</Code>
+     * Calculate intersections of a line and a figure
+     * @param points - list of points that form line segments, i.e the <Code>PolyLine</Code>
      * @return the intersection points of the line that contains this line segment with a list of other line segments.
      */
     @objid ("7f85c5a0-1dec-11e2-8cad-001ec947c8cc")
     public PointList getLineIntersectionsWithLineSegs(final PointList points) {
         PointList intersections = new PrecisionPointList();
         if (points.size() < 2) {
-            if (containsPoint(points.getFirstPoint(), LineSeg.DEFAULT_INTERSECTION_TOLERANCE)) {
-                intersections.addPoint(points.getFirstPoint());
+            Point firstPoint = points.getFirstPoint();
+            if (containsPoint(firstPoint, LineSeg.DEFAULT_INTERSECTION_TOLERANCE)) {
+                intersections.addPoint(firstPoint);
             }
         } else {
+            LineSeg seg = new LineSeg(this.origin, this.terminus);
             for (int i = 0; i < points.size() - 1; i++) {
-                LineSeg seg = new LineSeg(points.getPoint(i), points.getPoint(i + 1));
+                seg.setValues(points, i, i+1);
                 PointList currentIntersections = getLinesIntersections(seg);
                 for (int j = 0; j < currentIntersections.size(); j++) {
                     Point intersection = currentIntersections.getPoint(j);
@@ -385,7 +398,6 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
     /**
      * Returns intersection points of two lines that contain this line segment and the argumet line segment. The list of intersection points may contain at most two points and will contain 2 points if and only if the lines are equal. The 2 points will be
      * the end points of the parameter line segment
-     * 
      * @param line - the line segment
      * @return intersection points of two lines that contain this line segment and the argumet line segment.
      */
@@ -410,17 +422,14 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
                 points.add(getTerminus());
                 points.add(line.getOrigin());
                 points.add(line.getTerminus());
-                Collections.sort(points, new Comparator<Point>() {
-                    @Override
-                    public int compare(Point arg0, Point arg1) {
-                        if (arg0.equals(arg1)) {
-                            return 0;
-                        } else if (arg0.preciseX() < arg1.preciseX() ||
-                                (arg0.preciseX() == arg1.preciseX() && arg0.preciseY() < arg1.preciseY())) {
-                            return -1;
-                        } else {
-                            return 1;
-                        }
+                Collections.sort(points, (arg0, arg1) -> {
+                    if (arg0.equals(arg1)) {
+                        return 0;
+                    } else if (arg0.preciseX() < arg1.preciseX() ||
+                            (arg0.preciseX() == arg1.preciseX() && arg0.preciseY() < arg1.preciseY())) {
+                        return -1;
+                    } else {
+                        return 1;
                     }
                 });
                 // if lines are the same, then instead of infinite number of intersections
@@ -429,15 +438,14 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
                 intersections.addPoint(points.get(2));
             }
         } else {
-            intersections.addPoint(new PrecisionPoint((c1 * b2 - b1 * c2) / det, (a1 * c2 - c1 * a2) / det));
+            intersections.addPrecisionPoint((c1 * b2 - b1 * c2) / det, (a1 * c2 - c1 * a2) / det);
         }
         return intersections;
     }
 
     /**
-     * Accesssor to retrieve the origin point of the line segement.
-     * 
-     * @return <code>Point</code> the origin of the line segment.
+     * Accessor to retrieve the origin point of the line segment.
+     * @return <code>Point</code> the origin of the line segment, by copy.
      */
     @objid ("7f85c5b3-1dec-11e2-8cad-001ec947c8cc")
     public Point getOrigin() {
@@ -445,8 +453,17 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
     }
 
     /**
+     * Accessor to retrieve the origin point of the line segment.
+     * @param out the point to fill with the origin
+     * @return <code>out</code> filled with the origin of the line segment.
+     */
+    @objid ("ad6334db-2a26-4561-9e02-06f83f4e96fb")
+    public Point getOrigin(Point out) {
+        return out.setLocation(this.origin);
+    }
+
+    /**
      * Returns a new <code>LineSeg</code> that is parallel to this by the given distance. Orientation is relative to the start and end. Negative implies to the left and Position implies to the right.
-     * 
      * @param ptLoc <code>Point</code> value to constrain the line to.
      * @return <code>LineSeg</code> line that was calculated going through the given point
      */
@@ -463,11 +480,11 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
         
             return new LineSeg(locatePoint(0.0, nHeight, position), locatePoint(1.0, nHeight, position));
         }
+        
     }
 
     /**
      * Get points representing the highest point value for this line segment.
-     * 
      * @return <code>Point</code> Representing the highest point value.
      */
     @objid ("7f85c5c1-1dec-11e2-8cad-001ec947c8cc")
@@ -476,8 +493,7 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
     }
 
     /**
-     * Accesssor to retrieve the terminal point of the line segement.
-     * 
+     * Accessor to retrieve the terminal point of the line segment.
      * @return <code>Point</code> the terminating point of the line segment
      */
     @objid ("7f85c5c8-1dec-11e2-8cad-001ec947c8cc")
@@ -486,8 +502,16 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
     }
 
     /**
+     * Accessor to retrieve the terminal point of the line segment.
+     * @return <code>Point</code> the terminating point of the line segment
+     */
+    @objid ("62e7b79c-4161-4cd8-b290-fab7c2d1ca48")
+    public Point getTerminus(Point out) {
+        return out.setLocation(this.terminus);
+    }
+
+    /**
      * Gets the trig values associated with the angle from this line segment to the given vector.
-     * 
      * @param ptToVector <code>Ray</code> value to calculate trig values of.
      * @return <code>TrigValues</code> object representing the trigonometry values for the angle of the passed in <code>Ray</code> relative to <code>this</code> or null if calculation is not possible,
      */
@@ -535,7 +559,6 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
     /**
      * Determines the intersect point between this line and the line passed in as a parameter. If they intersect, then true is returned and the point reference passed in will be set to the intersect point. If they don't intersect, then the method returns
      * <code>false</code>.
-     * 
      * @param line <code>LineSeg</code> to test the intersection against.
      * @param nTolerance int tolerance value for detecting the intersection.
      * @return <code>Point</code> that represents the intersection with this line, or <code>null</code> if the calculation is not possible.
@@ -544,11 +567,11 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
     public Point intersect(final LineSeg line, final int nTolerance) {
         PointList intersections = getLinesIntersections(line);
         if (intersections.size() > 1) {
-            intersections.addPoint(getOrigin().getCopy());
-            intersections.addPoint(getTerminus().getCopy());
+            intersections.addPoint(getOrigin());
+            intersections.addPoint(getTerminus());
         }
         for (int i = 0; i < intersections.size(); i++) {
-            Point result = intersections.getPoint(i).getCopy();
+            Point result = intersections.getPoint(i);
             if (containsPoint(result, nTolerance) && line.containsPoint(result, nTolerance)) {
                 return result;
             }
@@ -558,7 +581,6 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
 
     /**
      * Determines if this a horizontal segment
-     * 
      * @return <code>boolean</code> <code>true</code> if horizontal, <code>false</code> otherwise.
      */
     @objid ("7f8827e2-1dec-11e2-8cad-001ec947c8cc")
@@ -568,7 +590,6 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
 
     /**
      * Determines if this a vertical segment
-     * 
      * @return <code>boolean</code> <code>true</code> if vertical, <code>false</code> otherwise.
      */
     @objid ("7f8827e7-1dec-11e2-8cad-001ec947c8cc")
@@ -578,7 +599,6 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
 
     /**
      * Calculate the length of the line segment.
-     * 
      * @return the <code>double</code> length of the line segment.
      */
     @objid ("7f8827ec-1dec-11e2-8cad-001ec947c8cc")
@@ -588,7 +608,6 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
 
     /**
      * Locates a point at a given height and distance along the line segment. B (the point we are looking for) + | dist |h this segment P1-----------+-------------------> A get point A (on picture above)
-     * 
      * @param pctDist <code>double</code> distance along the line
      * @param theHeight <code>long</code> height above the line
      * @param asOriented <code>Sign</code> indicating relative position of the point to be located
@@ -621,6 +640,7 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
     public void performScale(double factor) {
         setOrigin(getOrigin().scale(factor));
         setTerminus(getTerminus().scale(factor));
+        
     }
 
     @objid ("7f882801-1dec-11e2-8cad-001ec947c8cc")
@@ -628,11 +648,11 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
     public void performTranslate(int dx, int dy) {
         setOrigin(getOrigin().translate(dx, dy));
         setTerminus(getTerminus().translate(dx, dy));
+        
     }
 
     /**
      * Calculates the perpendicular intersection point on the line segment from the given point.
-     * 
      * @param startX the x coordinate of the point
      * @param startY the y coordinate of the point
      * @return <code>Point</code> value containment the perpendicular intersection point.
@@ -665,7 +685,6 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
 
     /**
      * Calculates the perpendicular slope of this line segment. This calculates the slope and then inverts it. Again, to avoid divide by zero errors, the constant <code>BIGSLOPE</code> is returned if the calculated slope before inverting it was zero.
-     * 
      * @return <code>float</code> the perpendicular slope value of the line segment.
      */
     @objid ("7f882810-1dec-11e2-8cad-001ec947c8cc")
@@ -676,11 +695,11 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
         } else {
             return -(1.0F / m);
         }
+        
     }
 
     /**
      * Gets the point on the line segment at the given distance away from the key point.
-     * 
      * @param theDistance <code>long</code> distance along the line
      * @param fromKeyPoint <code>KeyPoint</code> to calculate the distance from
      * @param ptResult <code>Point</code> where the resulting calculating value is stored.
@@ -756,7 +775,6 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
 
     /**
      * Returns out a positive or negative value (Positive / Negative) depending on the orientation of the given point to the line. Point on this side: Positive. P1------------------------------> this segment Point on this side: Negative.
-     * 
      * @param rel <code>Point</code> to test the relative position against this line.
      * @return <code>Sign</code> value indicating the relative position of the given point.
      */
@@ -776,7 +794,6 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
 
     /**
      * Calculates the projection of the given point onto the line segment.
-     * 
      * @param xCoord the x coordinate of the point.
      * @param yCoord the y coordinate of the point.
      * @return <code>double</code> value of the calculated projection.
@@ -785,7 +802,7 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
     public final double projection(final int xCoord, final int yCoord) {
         /*
          * Use parametric form for equation of a line segment: p + td, where 0 < t < 1 and d = p2 - p (direction vector)
-         * 
+         *
          * To find out if point lies "inside" line segment (i.e. can draw perpendicular line from segment to point), use projection of point (q) to line (p + td): t = (q-p).d/length(d)^2 (. is dot product)
          */
         
@@ -815,27 +832,28 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
 
     /**
      * Sets the origin point of the line segment
-     * 
      * @param origin Point to set as origin
+     * @return this instance
      */
     @objid ("7f8a8a3d-1dec-11e2-8cad-001ec947c8cc")
-    public void setOrigin(Point origin) {
-        this.origin = origin.getCopy();
+    public LineSeg setOrigin(Point origin) {
+        this.origin.setLocation(origin);
+        return this;
     }
 
     /**
      * Sets the terminating point of the line segment.
-     * 
      * @param terminus Point to set as terminus
+     * @return this instance
      */
     @objid ("7f8a8a43-1dec-11e2-8cad-001ec947c8cc")
-    public void setTerminus(Point terminus) {
-        this.terminus = terminus.getCopy();
+    public LineSeg setTerminus(Point terminus) {
+        this.terminus.setLocation(terminus);
+        return this;
     }
 
     /**
      * Calculates the slope of this line segment (y=mx+b)
-     * 
      * @return <code>float</code> the slope of this segment. If the slope is not defined such as when the line segment is vertical, then the constant <code>BIGSLOPE</code> is returned to avoid divide by zero errors.
      */
     @objid ("7f8a8a49-1dec-11e2-8cad-001ec947c8cc")
@@ -858,22 +876,25 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
          * Constant designating the origin point on the line segment.
          */
         @objid ("7f8a8a53-1dec-11e2-8cad-001ec947c8cc")
-        public static final KeyPoint ORIGIN = new KeyPoint("origin"); // $NON-NLS-1$
+        public static final KeyPoint ORIGIN = new KeyPoint("origin"); /* // $NON-NLS-1$
+         */
 
         /**
          * Constant designating the mid point on the line segment.
          */
         @objid ("7f8a8a57-1dec-11e2-8cad-001ec947c8cc")
-        public static final KeyPoint MIDPOINT = new KeyPoint("midpoint"); // $NON-NLS-1$
+        public static final KeyPoint MIDPOINT = new KeyPoint("midpoint"); /* // $NON-NLS-1$
+         */
 
         /**
          * Constant designating the terminal point on the line segment.
          */
         @objid ("7f8a8a5b-1dec-11e2-8cad-001ec947c8cc")
-        public static final KeyPoint TERMINUS = new KeyPoint("terminus"); // $NON-NLS-1$
+        public static final KeyPoint TERMINUS = new KeyPoint("terminus"); /* // $NON-NLS-1$
+         */
 
         @objid ("7f8a8a5f-1dec-11e2-8cad-001ec947c8cc")
-        private KeyPoint(String name) {
+        private  KeyPoint(String name) {
             this.name = name;
         }
 
@@ -897,16 +918,18 @@ public class LineSeg implements Cloneable, java.io.Serializable, Translatable {
          * Constant designating an orientation that is position relative to the lineseg vector.
          */
         @objid ("7f8a8a6c-1dec-11e2-8cad-001ec947c8cc")
-        public static final Sign POSITIVE = new Sign("positive"); // $NON-NLS-1$
+        public static final Sign POSITIVE = new Sign("positive"); /* // $NON-NLS-1$
+         */
 
         /**
          * Constant designating an orientation that is negative relative to the lineseg vector.
          */
         @objid ("7f8a8a70-1dec-11e2-8cad-001ec947c8cc")
-        public static final Sign NEGATIVE = new Sign("negative"); // $NON-NLS-1$
+        public static final Sign NEGATIVE = new Sign("negative"); /* // $NON-NLS-1$
+         */
 
         @objid ("7f8cec88-1dec-11e2-8cad-001ec947c8cc")
-        private Sign(String name) {
+        private  Sign(String name) {
             this.name = name;
         }
 

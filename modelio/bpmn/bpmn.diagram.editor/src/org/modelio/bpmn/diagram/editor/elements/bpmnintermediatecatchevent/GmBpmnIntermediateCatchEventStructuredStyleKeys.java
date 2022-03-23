@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnintermediatecatchevent;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.bpmn.diagram.editor.elements.style.BpmnAbstractStyleKeyProvider;
+import org.modelio.bpmn.diagram.editor.elements.common.style.BpmnAbstractStyleKeyProvider;
 import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.diagram.styles.core.StyleKey;
 
@@ -31,23 +30,23 @@ import org.modelio.diagram.styles.core.StyleKey;
 @objid ("6108340f-55b6-11e2-877f-002564c97630")
 public class GmBpmnIntermediateCatchEventStructuredStyleKeys extends BpmnAbstractStyleKeyProvider {
     @objid ("7199af4b-55c1-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("INTERMEDIATECATCHEVENT_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("INTERMEDIATECATCHEVENT_REPMODE", MetaKey.REPMODE);
 
     @objid ("7199af4d-55c1-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("INTERMEDIATECATCHEVENT_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("INTERMEDIATECATCHEVENT_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("7199af4f-55c1-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("INTERMEDIATECATCHEVENT_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("INTERMEDIATECATCHEVENT_FONT", MetaKey.FONT);
 
     @objid ("7199af51-55c1-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("INTERMEDIATECATCHEVENT_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("INTERMEDIATECATCHEVENT_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("7199af53-55c1-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("INTERMEDIATECATCHEVENT_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("INTERMEDIATECATCHEVENT_SHOWSTEREOTYPES",
+                MetaKey.SHOWSTEREOTYPES);
 
     @objid ("7199af55-55c1-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("INTERMEDIATECATCHEVENT_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("INTERMEDIATECATCHEVENT_SHOWTAGS", MetaKey.SHOWTAGS);
 
     /**
      * Show the element name label.
@@ -55,6 +54,6 @@ public class GmBpmnIntermediateCatchEventStructuredStyleKeys extends BpmnAbstrac
      * @see MetaKey#SHOWLABEL
      */
     @objid ("7199af57-55c1-11e2-9337-002564c97630")
-     static final StyleKey SHOWLABEL = createStyleKey("INTERMEDIATECATCHEVENT_SHOWLABEL", MetaKey.SHOWLABEL);
+    static final StyleKey SHOWLABEL = createStyleKey("INTERMEDIATECATCHEVENT_SHOWLABEL", MetaKey.SHOWLABEL);
 
 }

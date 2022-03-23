@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.module.jaxbv1;
 
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
  * <p>Java class for taggedvalues complex type.
@@ -87,7 +86,6 @@ public class JxbTaggedvalues {
 
     /**
      * Sets the value of the name property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -109,7 +107,6 @@ public class JxbTaggedvalues {
 
     /**
      * Sets the value of the uid property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -131,7 +128,6 @@ public class JxbTaggedvalues {
 
     /**
      * Sets the value of the label property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -153,7 +149,6 @@ public class JxbTaggedvalues {
 
     /**
      * Sets the value of the parameterCard property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -175,7 +170,6 @@ public class JxbTaggedvalues {
 
     /**
      * Sets the value of the isHidden property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -197,7 +191,6 @@ public class JxbTaggedvalues {
 
     /**
      * Sets the value of the isSigned property.
-     * 
      * @param value allowed object is
      * {@link String }
      */

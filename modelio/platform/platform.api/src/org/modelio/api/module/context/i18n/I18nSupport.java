@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.context.i18n;
 
 import java.util.ResourceBundle;
@@ -35,7 +34,6 @@ import org.modelio.metamodel.uml.infrastructure.properties.PropertyDefinition;
 public interface I18nSupport {
     /**
      * Get the I18n'ed description for a {@link PropertyDefinition}.
-     * 
      * @param pdef the property definition to get the description for.
      * @return the property definition's description, computed from the module's i18n bundle.
      */
@@ -45,7 +43,6 @@ public interface I18nSupport {
     /**
      * Get the I18n'ed description for a {@link NoteType}.
      * @param pdef the NoteType to get the description for.
-     * 
      * @return the NoteType's description, computed from the module's i18n bundle.
      * @since Modelio Valkyrie 3.8
      */
@@ -55,7 +52,6 @@ public interface I18nSupport {
     /**
      * Get the I18n'ed description for a {@link TagType}.
      * @param pdef the TagType to get the description for.
-     * 
      * @return the TagType's description, computed from the module's i18n bundle.
      * @since Modelio Valkyrie 3.8
      */
@@ -65,7 +61,6 @@ public interface I18nSupport {
     /**
      * Get the I18n'ed description for a {@link Stereotype}.
      * @param pdef the Stereotype to get the description for.
-     * 
      * @return the Stereotype's description, computed from the module's i18n bundle.
      * @since Modelio Valkyrie 3.8
      */
@@ -75,7 +70,6 @@ public interface I18nSupport {
     /**
      * Get the I18n'ed description for a {@link ResourceType}.
      * @param pdef the ResourceType to get the description for.
-     * 
      * @return the ResourceType's description, computed from the module's i18n bundle.
      * @since Modelio Valkyrie 3.8
      */
@@ -84,7 +78,6 @@ public interface I18nSupport {
 
     /**
      * Get the I18n'ed description for a {@link Profile}.
-     * 
      * @param element the {@link Profile} to get the description for.
      * @return the profile description, computed from the module's i18n bundle.
      * @since Modelio Valkyrie 3.8
@@ -94,7 +87,6 @@ public interface I18nSupport {
 
     /**
      * The most basic service: get the ResourceBundle of the module.
-     * 
      * @return the module's i18n bundle.
      */
     @objid ("3623ca58-1888-45ee-9148-aa7a935ec02c")
@@ -102,7 +94,6 @@ public interface I18nSupport {
 
     /**
      * Get the I18n'ed label for a Stereotype.
-     * 
      * @param stereotype the stereotype to get the label for.
      * @return the stereotype's label, computed from the module's i18n bundle.
      */
@@ -111,7 +102,6 @@ public interface I18nSupport {
 
     /**
      * Get the I18n'ed label for a TagType
-     * 
      * @param tagType the tag type to get the label for.
      * @return the tag type's label, computed from the module's i18n bundle.
      */
@@ -120,7 +110,6 @@ public interface I18nSupport {
 
     /**
      * Get the I18n'ed label for a NoteType
-     * 
      * @param noteType the note type to get the label for.
      * @return the note type's label, computed from the module's i18n bundle.
      */
@@ -129,7 +118,6 @@ public interface I18nSupport {
 
     /**
      * Get the I18n'ed label for a {@link ResourceType}.
-     * 
      * @param docType the resource type to get the label for.
      * @return the resource type's label, computed from the module's i18n bundle.
      */
@@ -138,7 +126,6 @@ public interface I18nSupport {
 
     /**
      * Get the I18n'ed label for a {@link PropertyDefinition}
-     * 
      * @param pdef the property definition to get the label for.
      * @return the property definition's label, computed from the module's i18n bundle.
      */
@@ -148,7 +135,6 @@ public interface I18nSupport {
     /**
      * Get the I18n'ed label for a {@link Profile}.
      * @param docType the profile to get the label for.
-     * 
      * @return the profile label, computed from the module's i18n bundle.
      * @since Modelio Valkyrie 3.8
      */
@@ -157,7 +143,6 @@ public interface I18nSupport {
 
     /**
      * Get the I18n'ed label for a given key
-     * 
      * @param key the key for the desired string.
      * @return the string for the given key if any. Otherwise, the key as is.
      */

@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.handlers;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.services.IServiceConstants;
@@ -54,7 +53,6 @@ public class SelectAllHandler {
 
     /**
      * Retrieves edit parts which can be selected on the diagram background.
-     * 
      * @param viewer from which the edit parts are to be retrieved
      * @return list of selectable EditParts
      */

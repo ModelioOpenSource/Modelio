@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.multistring;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,7 @@ class StringTextListener implements ModifyListener, KeyListener {
     private MultiStringEditionComposite dialog = null;
 
     @objid ("8dd22d9d-c068-11e1-8c0a-002564c97630")
-    public StringTextListener(MultiStringEditionComposite dialog) {
+    public  StringTextListener(MultiStringEditionComposite dialog) {
         this.dialog = dialog;
     }
 
@@ -53,6 +52,7 @@ class StringTextListener implements ModifyListener, KeyListener {
             this.dialog.addAdapter(text);
             addStringText.setText("");
         }
+        
     }
 
     @objid ("8dd3b40e-c068-11e1-8c0a-002564c97630")
@@ -66,6 +66,7 @@ class StringTextListener implements ModifyListener, KeyListener {
         } else {
             this.dialog.getAddParameterButton().setEnabled(false);
         }
+        
     }
 
 }

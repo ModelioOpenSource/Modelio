@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.utils.metamodel.experts;
 
 import java.util.HashMap;
@@ -67,7 +66,7 @@ public class CompositeMetamodelExpert extends org.modelio.vcore.smkernel.meta.De
      * @param mm the metamodel.
      */
     @objid ("488f1475-3aba-4e93-a3f0-13a8ced3f6b6")
-    public CompositeMetamodelExpert(MMetamodel mm) {
+    public  CompositeMetamodelExpert(MMetamodel mm) {
         this.metamodel = mm;
         
         this.ruleMetaExpert = new RuleBasedMetaExpertHelper(mm);
@@ -75,6 +74,7 @@ public class CompositeMetamodelExpert extends org.modelio.vcore.smkernel.meta.De
         
         this.LINK_REGISTRY = new LinkExpertRegistry(this.ruleLinkExpert);
         this.META_REGISTRY = new MetaExpertRegistry(this.ruleMetaExpert);
+        
     }
 
     @objid ("c736fe6c-62fb-499b-b148-9b5e836820d3")
@@ -141,6 +141,7 @@ public class CompositeMetamodelExpert extends org.modelio.vcore.smkernel.meta.De
     public void setSource(MObject linkElement, final MObject oldSource, MObject newSource) throws IllegalArgumentException {
         ILinkExpertHelper expert = this.LINK_REGISTRY.getExpert(linkElement.getMClass());
         expert.setSource(linkElement, oldSource, newSource);
+        
     }
 
     @objid ("3f566980-7434-4750-b47f-08b6f54d4e42")
@@ -148,16 +149,17 @@ public class CompositeMetamodelExpert extends org.modelio.vcore.smkernel.meta.De
     public void setTarget(MObject linkElement, final MObject oldTarget, MObject newTarget) throws IllegalArgumentException {
         ILinkExpertHelper expert = this.LINK_REGISTRY.getExpert(linkElement.getMClass());
         expert.setTarget(linkElement, oldTarget, newTarget);
+        
     }
 
-// typical usage: creation tools
+    // typical usage: creation tools
     @objid ("202a544b-0dd7-4cf5-9122-75ef94544552")
     @Override
     public boolean canCompose(MClass owner, MClass composed, String dep) {
         return this.META_REGISTRY.getExpert(owner).canCompose(owner, composed, dep);
     }
 
-// typical usage: creation tools where stereotypes count
+    // typical usage: creation tools where stereotypes count
     @objid ("23892fc4-da37-4eec-ace3-230ce558a3e2")
     @Override
     public boolean canCompose(MObject owner, MClass composed, String dep) {
@@ -165,7 +167,7 @@ public class CompositeMetamodelExpert extends org.modelio.vcore.smkernel.meta.De
         return expert.canCompose(owner, composed, dep);
     }
 
-// typical usage: drag and drop
+    // typical usage: drag and drop
     @objid ("619b03c2-54de-493d-9819-1c2264d3df64")
     @Override
     public boolean canCompose(MObject owner, MObject composed, String dep) {
@@ -173,14 +175,14 @@ public class CompositeMetamodelExpert extends org.modelio.vcore.smkernel.meta.De
         return expert.canCompose(owner, composed, dep);
     }
 
-// typical usage : property box for element editor ?
+    // typical usage : property box for element editor ?
     @objid ("c284d458-94ff-4b08-b644-f3801c3fe5a7")
     @Override
     public boolean canDep(MClass source, MClass target, String dep) {
         return this.META_REGISTRY.getExpert(source).canDep(source, target, dep);
     }
 
-// typical usage : property box for element editor ?
+    // typical usage : property box for element editor ?
     @objid ("014bdc0d-d230-478d-aa89-8213ebfc80ba")
     @Override
     public boolean canDep(MObject source, MClass target, String dep) {
@@ -188,7 +190,7 @@ public class CompositeMetamodelExpert extends org.modelio.vcore.smkernel.meta.De
         return expert.canDep(source, target, dep);
     }
 
-// typical usage : property box for element editor ?
+    // typical usage : property box for element editor ?
     @objid ("7bc41f40-ba67-4147-8e33-59e3c3d13e44")
     @Override
     public boolean canDep(MObject source, MObject target, String dep) {
@@ -198,7 +200,6 @@ public class CompositeMetamodelExpert extends org.modelio.vcore.smkernel.meta.De
 
     /**
      * Register a link expert.
-     * 
      * @param cls the metaclass
      * @param expert the expert
      */
@@ -209,7 +210,6 @@ public class CompositeMetamodelExpert extends org.modelio.vcore.smkernel.meta.De
 
     /**
      * Register a meta expert.
-     * 
      * @param cls the metaclass
      * @param expert the expert
      */
@@ -241,7 +241,6 @@ public class CompositeMetamodelExpert extends org.modelio.vcore.smkernel.meta.De
 
         /**
          * Get the creation expert for the given element.
-         * 
          * @param metaclass a metamodel class.
          * @return the matching creation expert (never returns <code>null</code>)
          */
@@ -257,18 +256,17 @@ public class CompositeMetamodelExpert extends org.modelio.vcore.smkernel.meta.De
 
         /**
          * This class has no instances.
-         * 
          * @param defaultExpert the default expert
          */
         @objid ("a4e96390-88b2-408e-9634-c6ee24cb2e52")
-        public LinkExpertRegistry(ILinkExpertHelper defaultExpert) {
+        public  LinkExpertRegistry(ILinkExpertHelper defaultExpert) {
             // Init experts
             this.DEFAULT_EXPERT = defaultExpert;
+            
         }
 
         /**
          * Register an expert
-         * 
          * @param cls the metaclass
          * @param expert the expert
          */
@@ -302,7 +300,6 @@ public class CompositeMetamodelExpert extends org.modelio.vcore.smkernel.meta.De
 
         /**
          * Get the creation expert for the given element.
-         * 
          * @param metaclass a metamodel class.
          * @return the matching creation expert (never returns <code>null</code>)
          */
@@ -320,14 +317,14 @@ public class CompositeMetamodelExpert extends org.modelio.vcore.smkernel.meta.De
          * @param defaultExpert the default expert.
          */
         @objid ("98103981-629c-4fb3-a78c-27b90e6ed456")
-        public MetaExpertRegistry(IMetaExpertHelper defaultExpert) {
+        public  MetaExpertRegistry(IMetaExpertHelper defaultExpert) {
             // Init experts
             this.DEFAULT_EXPERT = defaultExpert;
+            
         }
 
         /**
          * Register an expert
-         * 
          * @param cls the metaclass
          * @param expert the expert
          */

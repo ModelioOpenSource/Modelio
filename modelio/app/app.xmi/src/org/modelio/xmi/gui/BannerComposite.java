@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.gui;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -52,14 +51,13 @@ public class BannerComposite extends Composite {
 
     /**
      * The constructor of banner itself
-     * 
      * @param parent : the SWT composite owner of the banner
      * @param style : SWT style of the banner
      * @param title : the title of the banner
      * @param description : the description associated to the banner
      */
     @objid ("fba1a4c6-83ad-4aae-b0b2-d529dde3ca21")
-    public BannerComposite(final Composite parent, final int style, final String title, final String description) {
+    public  BannerComposite(final Composite parent, final int style, final String title, final String description) {
         super(parent, style);
         Image image = ResourceLoader.getInstance().getImage(this.bandeauName);
         
@@ -110,6 +108,7 @@ public class BannerComposite extends Composite {
                 }
             }
         });
+        
     }
 
     @objid ("90bb77af-3592-4ede-b020-961b7f67f0f1")

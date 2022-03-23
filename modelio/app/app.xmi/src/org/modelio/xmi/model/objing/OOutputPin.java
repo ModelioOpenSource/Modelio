@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import java.util.ArrayList;
@@ -83,9 +82,10 @@ public class OOutputPin extends OPin {
     }
 
     @objid ("e20df4cd-28e6-446a-a22b-771c5cd58150")
-    public OOutputPin(org.modelio.metamodel.uml.behavior.activityModel.OutputPin element) {
+    public  OOutputPin(org.modelio.metamodel.uml.behavior.activityModel.OutputPin element) {
         super(element);
         this.ecoreOwnerElt = GenerationProperties.getInstance().getMappedElement(element.getOutputing());
+        
     }
 
     @objid ("2bbf0320-25a9-451a-86a5-c7e2e3a44625")
@@ -100,6 +100,7 @@ public class OOutputPin extends OPin {
             else
                 super.attach(ecoreElt);
         }
+        
     }
 
     @objid ("943a2e71-944d-4535-8233-5eb06b7cd75c")
@@ -111,12 +112,14 @@ public class OOutputPin extends OPin {
         }
         
         setMatched();
+        
     }
 
     @objid ("41255ced-7c50-4b96-b99c-4b53bf146cc2")
     private void attachToActivityAction(org.eclipse.uml2.uml.Element ecoreElt, org.eclipse.uml2.uml.Element ecoreOwner) {
         AttachOutputPinToOwnerVisitor attachOutputPin = new AttachOutputPinToOwnerVisitor();
         attachOutputPin.attachOutputPin((org.eclipse.uml2.uml.OutputPin) ecoreElt, (org.modelio.metamodel.uml.behavior.activityModel.OutputPin) getObjingElement(), ecoreOwner);
+        
     }
 
     @objid ("5e6c9130-fac5-4156-a47a-81dd7191ef38")
@@ -135,6 +138,7 @@ public class OOutputPin extends OPin {
                 }
             }
         }
+        
     }
 
     @objid ("8a256732-c907-4f4f-9362-c9e326fb5b19")
@@ -150,6 +154,7 @@ public class OOutputPin extends OPin {
     private void setOutputRegion(org.eclipse.uml2.uml.ExpansionNode ecoreElt) {
         if (ecoreElt.getOwner() instanceof org.eclipse.uml2.uml.ExpansionRegion)
             ecoreElt.setRegionAsOutput((org.eclipse.uml2.uml.ExpansionRegion)ecoreElt.getOwner());
+        
     }
 
 }

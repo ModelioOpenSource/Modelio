@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.symbol.panel;
 
 import java.util.ArrayList;
@@ -36,7 +35,7 @@ class UpdateStyleFromModifiedPropsCommand {
     private ISymbolPanelModel model;
 
     @objid ("a38f4832-fa94-40cf-9eaf-cf345940b205")
-    public UpdateStyleFromModifiedPropsCommand(ISymbolPanelModel model) {
+    public  UpdateStyleFromModifiedPropsCommand(ISymbolPanelModel model) {
         this.model = model;
     }
 
@@ -51,6 +50,7 @@ class UpdateStyleFromModifiedPropsCommand {
         }
         
         DiagramStyles.getStyleManager().save(parentStyle);
+        
     }
 
 }

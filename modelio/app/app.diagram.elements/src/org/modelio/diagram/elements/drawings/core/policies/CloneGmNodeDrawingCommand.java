@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.drawings.core.policies;
 
 import java.lang.reflect.InvocationTargetException;
@@ -47,16 +46,16 @@ public class CloneGmNodeDrawingCommand extends Command {
 
     /**
      * Creates a node creation command.
-     * 
      * @param layer The parent layer
      * @param newNodeType the node to create
      * @param constraint The initial constraint of the created node.
      */
     @objid ("ddbcdd4f-ba78-4317-a345-40ff6ba80a0b")
-    public CloneGmNodeDrawingCommand(IGmDrawingLayer layer, IGmNodeDrawing newNodeType, Object constraint) {
+    public  CloneGmNodeDrawingCommand(IGmDrawingLayer layer, IGmNodeDrawing newNodeType, Object constraint) {
         this.layer = layer;
         this.toCopy = newNodeType;
         this.constraint = constraint;
+        
     }
 
     @objid ("41b411f8-e0e5-49a4-a7fc-7eed29779401")
@@ -71,7 +70,6 @@ public class CloneGmNodeDrawingCommand extends Command {
 
     /**
      * Get the initial layout constraint.
-     * 
      * @return the initial layout constraint.
      */
     @objid ("db7f3c97-1871-4855-958d-3659b2211f8a")
@@ -103,6 +101,7 @@ public class CloneGmNodeDrawingCommand extends Command {
             // TODO : report in another way ?
             throw new RuntimeException(e.toString(), e);
         }
+        
     }
 
 }

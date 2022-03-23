@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.module.propertytab.ui.panel.treeview.editingsupport.text;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -52,6 +51,7 @@ public class TextLabelProvider extends ColumnLabelProvider {
                 cell.setBackground(UIColor.TABLE_ODDROW_BG);
             }
         }
+        
     }
 
     @objid ("c898a0c3-1eba-11e2-9382-bc305ba4815c")

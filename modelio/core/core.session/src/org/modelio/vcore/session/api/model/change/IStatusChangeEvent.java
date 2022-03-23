@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.api.model.change;
 
 import java.util.Collection;
@@ -34,7 +33,6 @@ public interface IStatusChangeEvent {
      * Test whether the status change event is empty.
      * <p>
      * An empty status change event does not need to be fired.
-     * 
      * @return <code>true</code> if the status change event is empty.
      */
     @objid ("3b8e46bc-9a87-4db3-ac49-3fe516e8b650")
@@ -42,7 +40,6 @@ public interface IStatusChangeEvent {
 
     /**
      * Get the element whose access rights changed.
-     * 
      * @return element whose access rights changed.
      */
     @objid ("9efb3445-9228-43b8-a6af-b83d653931e6")
@@ -70,7 +67,6 @@ public interface IStatusChangeEvent {
      * Get the elements whose status changed.
      * <p>
      * Returns a map with as key the changed element and as value the old status.
-     * 
      * @return the changed elements map.
      */
     @objid ("dec1336f-da18-41dc-a2d3-5b538d676e98")
@@ -78,7 +74,6 @@ public interface IStatusChangeEvent {
 
     /**
      * Get the origin of this status change event
-     * 
      * @return the status change event cause.
      */
     @objid ("15129f5d-ba62-4b0c-85c6-e3f046b9a9df")

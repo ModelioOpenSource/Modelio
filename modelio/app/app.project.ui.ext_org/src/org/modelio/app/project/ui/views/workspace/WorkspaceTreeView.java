@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.ui.views.workspace;
 
 import java.io.File;
@@ -31,24 +30,19 @@ import java.nio.file.WatchKey;
 import java.nio.file.WatchService;
 import java.util.ArrayList;
 import java.util.HashMap;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.inject.Inject;
-import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.commands.ParameterizedCommand;
 import org.eclipse.e4.core.commands.ECommandService;
 import org.eclipse.e4.core.commands.EHandlerService;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.core.di.extensions.EventTopic;
-import org.eclipse.e4.core.services.statusreporter.StatusReporter;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.di.UIEventTopic;
-import org.eclipse.e4.ui.model.application.ui.basic.MWindow;
 import org.eclipse.e4.ui.services.EMenuService;
-import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
-import org.eclipse.e4.ui.workbench.modeling.IWindowCloseHandler;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.ColumnViewerToolTipSupport;
 import org.eclipse.jface.viewers.DoubleClickEvent;
@@ -60,8 +54,6 @@ import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Shell;
-import org.modelio.app.project.ui.closeproject.CloseProjectHandler;
 import org.modelio.app.project.ui.plugin.AppProjectUi;
 import org.modelio.app.project.ui.plugin.AppProjectUiExt;
 import org.modelio.gproject.data.project.ProjectDescriptor;
@@ -69,7 +61,6 @@ import org.modelio.gproject.gproject.GProject;
 import org.modelio.gproject.gproject.GProjectFactory;
 import org.modelio.platform.core.events.ModelioEventTopics;
 import org.modelio.platform.project.services.IProjectService;
-import org.modelio.platform.ui.progress.IModelioProgressService;
 
 /**
  * Workspace tree viewer
@@ -89,6 +80,9 @@ public class WorkspaceTreeView {
     @objid ("d83720b7-c5f7-47ad-9736-7f802d483301")
     private static final String VIEW_ID = "org.modelio.model.workspace.views.BrowserView";
 
+    @objid ("52e3df53-e1d7-482c-bb75-3a09071233aa")
+    private static final String OPENPROJECT_COMMAND_ID = "org.modelio.app.ui.command.openproject";
+
     @objid ("a47db1a4-d225-4ab9-b4a9-0a1244e5a314")
     @Inject
     @Optional
@@ -107,9 +101,6 @@ public class WorkspaceTreeView {
     @Inject
     private EHandlerService handlerService;
 
-    @objid ("52e3df53-e1d7-482c-bb75-3a09071233aa")
-    private static final String OPENPROJECT_COMMAND_ID = "org.modelio.app.ui.command.openproject";
-
     @objid ("dfdd98f1-616b-4d8a-8740-1bf1c82ce56d")
     private Path workspacePath;
 
@@ -118,7 +109,7 @@ public class WorkspaceTreeView {
 
     @objid ("eff65e7e-5368-4011-a9df-7392de4aec1e")
     @Inject
-     IProjectService projectService;
+    IProjectService projectService;
 
     @objid ("71590ca6-3913-425c-9100-b102ee22b28a")
     private WatchService watchSvc;
@@ -130,7 +121,8 @@ public class WorkspaceTreeView {
      * Constructor
      */
     @objid ("d62e4ef8-68a5-4a73-b3e7-d87820268fa0")
-    public WorkspaceTreeView() {
+    public  WorkspaceTreeView() {
+        
     }
 
     @objid ("af66ff8b-a586-4edf-b112-165865aca1c4")
@@ -169,11 +161,11 @@ public class WorkspaceTreeView {
         setWorkspacePath(path);
         
         this.service.registerContextMenu(this.viewer.getTree(), WorkspaceTreeView.POPUP_MENU_ID);
+        
     }
 
     /**
      * Modify the workspace path.
-     * 
      * @param path the workspace path.
      */
     @objid ("79544b5e-3ba2-4dec-babe-ddbfe62695a2")
@@ -203,6 +195,7 @@ public class WorkspaceTreeView {
         } else {
             AppProjectUi.LOG.error("Invalid workspace path: %s", path.toString());
         }
+        
     }
 
     /**
@@ -220,6 +213,7 @@ public class WorkspaceTreeView {
     private void refreshContents() {
         this.cache.refresh();
         asyncRefreshTree();
+        
     }
 
     @objid ("30d503ec-3a46-4020-ab41-17856bc11fda")
@@ -232,11 +226,11 @@ public class WorkspaceTreeView {
                 }
             }
         });
+        
     }
 
     /**
      * Select the project with the given name.
-     * 
      * @param projectName the project to select
      */
     @objid ("40dec47b-3078-44bf-85ed-29e312c815d2")
@@ -251,6 +245,7 @@ public class WorkspaceTreeView {
                 }
             }
         });
+        
     }
 
     @objid ("fc130275-e00f-40a3-84d1-8cd997329b93")
@@ -261,7 +256,6 @@ public class WorkspaceTreeView {
 
     /**
      * Called when the contents of the workspace are known to have changed (add/removing project).
-     * 
      * @param wkspace the changed workspace
      */
     @objid ("922aa40f-b39e-434a-b243-86f5cce232ef")
@@ -272,38 +266,19 @@ public class WorkspaceTreeView {
         if (isValid()) {
             refreshContents();
         }
+        
     }
 
     @objid ("f32e571b-0a36-4e5d-99ba-9959aed05cd2")
     @Inject
     @Optional
-    void onProjectOpened(@UIEventTopic (ModelioEventTopics.PROJECT_OPENED) final GProject project, @Named (IServiceConstants.ACTIVE_SHELL) final Shell shell, MWindow window, final IModelioProgressService progressService, final StatusReporter statusReporter) {
-        AppProjectUi.LOG.debug("onProjectOpened() %s", project.getName());
-        
-        // FIXME Misplaced
-        IWindowCloseHandler handler = new IWindowCloseHandler() {
-            @Override
-            public boolean close(MWindow windoww) {
-                GProject openedProject = WorkspaceTreeView.this.projectService.getOpenedProject();
-                if (CloseProjectHandler.saveBeforeClose(shell, WorkspaceTreeView.this.projectService, openedProject, progressService, statusReporter)) {
-                    if (openedProject != null) {
-                        WorkspaceTreeView.this.projectService.closeProject(openedProject, true);
-                    }
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        };
-        
-        window.getContext().set(IWindowCloseHandler.class, handler);
-        
+    private void onProjectOpened(@SuppressWarnings ("unused")
+    @UIEventTopic (ModelioEventTopics.PROJECT_OPENED) final GProject project) {
         asyncRefreshTree();
     }
 
     /**
      * Called when the current opened project has been closed
-     * 
      * @param project the closed project
      */
     @objid ("12a4a585-6877-4f9f-8ffd-a2e2225d5cc9")
@@ -316,11 +291,11 @@ public class WorkspaceTreeView {
         if (isValid()) {
             refreshContents();
         }
+        
     }
 
     /**
      * Called when the currently opened project has been saved.
-     * 
      * @param project the saved project
      */
     @objid ("2812c2d1-fd94-448c-b8fe-47f4d64de83a")
@@ -331,11 +306,11 @@ public class WorkspaceTreeView {
             refreshContents();
             selectProject(project.getName());
         }
+        
     }
 
     /**
      * Called when current workspace has been changed (another workspace was chosen)
-     * 
      * @param wkspace the new workspace
      */
     @objid ("1205faf1-03d1-4c56-92d2-b9a96474f31b")
@@ -344,6 +319,7 @@ public class WorkspaceTreeView {
     void onWorkspaceSwitch(@EventTopic (ModelioEventTopics.WORKSPACE_SWITCH) final Path wkspace) {
         AppProjectUi.LOG.debug("onWorkspaceSwitch() ", wkspace.toString());
         setWorkspacePath(wkspace);
+        
     }
 
     @objid ("adb3ef1a-05ca-4894-a0c1-44aef5f664a9")
@@ -353,7 +329,6 @@ public class WorkspaceTreeView {
 
     /**
      * Tells whether the tree view is initialized and not disposed.
-     * 
      * @return <code>true</code> if the viewer is usable else <code>false</code> .
      */
     @objid ("b5bd7783-1bd7-4bc8-89b4-2689d96b18e8")
@@ -363,7 +338,6 @@ public class WorkspaceTreeView {
 
     /**
      * Watch the given workspace directory for modifications and refresh the tree viewer in this case.
-     * 
      * @param path the workspace directory to watch
      */
     @objid ("181a93a1-e02f-4abf-a686-81b259b36176")
@@ -406,6 +380,7 @@ public class WorkspaceTreeView {
         } catch (IOException e) {
             AppProjectUi.LOG.error(e);
         }
+        
     }
 
     /**
@@ -421,6 +396,7 @@ public class WorkspaceTreeView {
                 AppProjectUi.LOG.debug(e);
             }
         }
+        
     }
 
     @objid ("8209e2b8-e792-419f-8168-b95776058425")
@@ -431,6 +407,7 @@ public class WorkspaceTreeView {
         if (isValid()) {
             selectProject(projectName);
         }
+        
     }
 
     /**
@@ -442,10 +419,11 @@ public class WorkspaceTreeView {
         public Path cachePath;
 
         @objid ("47a54307-d0d6-45d1-90ad-06f8be86ce35")
-         ArrayList<ProjectDescriptor> cachedProjects = new ArrayList<>();
+        ArrayList<ProjectDescriptor> cachedProjects = new ArrayList<>();
 
         @objid ("8fcfc271-9cd7-41ac-a846-a9b65247e1df")
-        public ProjectCache() {
+        public  ProjectCache() {
+            
         }
 
         @objid ("da4708e5-6cd8-4954-8428-d1eb3c5d3c3e")
@@ -457,6 +435,7 @@ public class WorkspaceTreeView {
         public void load(final Path aWorkspacePath) {
             this.cachePath = aWorkspacePath;
             rescan(this.cachePath);
+            
         }
 
         @objid ("7be5fe49-88ed-4e8d-9b6e-14c92ec6bad8")
@@ -496,6 +475,7 @@ public class WorkspaceTreeView {
                     AppProjectUi.LOG.error(e);
                 }
             }
+            
         }
 
     }

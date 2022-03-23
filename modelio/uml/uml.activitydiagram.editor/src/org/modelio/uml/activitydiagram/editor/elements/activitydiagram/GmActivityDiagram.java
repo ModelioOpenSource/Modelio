@@ -17,19 +17,19 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.activitydiagram;
 
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.elements.common.abstractdiagram.GmAbstractDiagram;
 import org.modelio.diagram.elements.core.model.GmAbstractObject;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.diagrams.ActivityDiagram;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityAction;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityEdge;
@@ -72,15 +72,15 @@ public class GmActivityDiagram extends GmAbstractDiagram {
 
     /**
      * Default constructor.
-     * 
      * @param manager the manager needed make the link between the Ob and Gm models.
      * @param theActivityDiagram the diagram itself.
      * @param diagramRef a reference to the diagram.
      */
     @objid ("29936d03-55b6-11e2-877f-002564c97630")
-    public GmActivityDiagram(IModelManager manager, ActivityDiagram theActivityDiagram, MRef diagramRef) {
+    public  GmActivityDiagram(IModelManager manager, ActivityDiagram theActivityDiagram, MRef diagramRef) {
         super(manager, diagramRef);
         this.obDiagram = theActivityDiagram;
+        
     }
 
     @objid ("29936d12-55b6-11e2-877f-002564c97630")
@@ -140,11 +140,11 @@ public class GmActivityDiagram extends GmAbstractDiagram {
             break;
         }
         }
+        
     }
 
     /**
      * Returns true if the given metaclass is supported.
-     * 
      * @param metaclass the metaclass to create
      * @return true if the given metaclass is supported.
      */
@@ -164,6 +164,7 @@ public class GmActivityDiagram extends GmAbstractDiagram {
                 Document.class.isAssignableFrom(metaclass) ||
                 Note.class.isAssignableFrom(metaclass) ||
                 Constraint.class.isAssignableFrom(metaclass));
+        
     }
 
     @objid ("2994f3b4-55b6-11e2-877f-002564c97630")
@@ -180,7 +181,6 @@ public class GmActivityDiagram extends GmAbstractDiagram {
 
     /**
      * Returns true if the given metaclass is supported.
-     * 
      * @param metaclass the metaclass to unmask
      * @return true if the given metaclass is supported.
      */
@@ -189,6 +189,7 @@ public class GmActivityDiagram extends GmAbstractDiagram {
         return acceptCreateMetaclass(metaclass) ||
                 Pin.class.isAssignableFrom(metaclass) ||
                 ExpansionNode.class.isAssignableFrom(metaclass);
+        
     }
 
     @objid ("2994f3cb-55b6-11e2-877f-002564c97630")
@@ -198,12 +199,14 @@ public class GmActivityDiagram extends GmAbstractDiagram {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmActivityDiagram.", GmActivityDiagram.MINOR_VERSION);
+        
     }
 
     @objid ("2994f3d1-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.obDiagram = (ActivityDiagram) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("2994f3d6-55b6-11e2-877f-002564c97630")

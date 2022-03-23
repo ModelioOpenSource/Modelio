@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.ramcs.plugin;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -25,7 +24,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 @objid ("b4dcc38a-9d84-4f18-90b7-54f3cf6a9af7")
 public class InitProcessor {
     @objid ("7ffcea40-cd72-4b3f-965c-334af62d603d")
-    public InitProcessor() {
+    public  InitProcessor() {
         // nothing to do
     }
 

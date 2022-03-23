@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.fragment.ramcfile;
 
 import java.io.IOException;
@@ -83,7 +82,6 @@ public class RamcFileFragment extends AbstractFragment {
 
     /**
      * Initialize the RAMC fragment.
-     * 
      * @param id the fragment ID.
      * @param uri the ramc file location as an URI
      * @param definitionScope definition scope
@@ -91,18 +89,18 @@ public class RamcFileFragment extends AbstractFragment {
      * @param authConf authentication configuration
      */
     @objid ("7420cc9c-cc3e-11e1-87f1-001ec947ccaf")
-    RamcFileFragment(final String id, final URI uri, final DefinitionScope definitionScope, final GProperties properties, final GAuthConf authConf) {
+     RamcFileFragment(final String id, final URI uri, final DefinitionScope definitionScope, final GProperties properties, final GAuthConf authConf) {
         super(id, definitionScope, properties, authConf);
         Objects.requireNonNull(uri, "URI must be non null");
         
         this.uri = uri;
+        
     }
 
     /**
      * Get the model component informations such as the version, the description, the dependencies...
-     * 
      * @return the model component description.
-     * @throws java.io.IOException in case of I/O failure.
+     * @throws IOException in case of I/O failure.
      */
     @objid ("cc07bd6d-d668-4067-b513-b7afaac79182")
     @Override
@@ -160,6 +158,7 @@ public class RamcFileFragment extends AbstractFragment {
         if (this.repository == null) {
             throw new IllegalStateException("The '" + getId() + "' fragment is not mount.");
         }
+        
     }
 
     @objid ("7420ccb9-cc3e-11e1-87f1-001ec947ccaf")
@@ -199,15 +198,15 @@ public class RamcFileFragment extends AbstractFragment {
         } catch (final IOException e) {
             getProject().getMonitorSupport().fireMonitors(GProjectEvent.buildWarning(this, e));
         }
+        
     }
 
     /**
      * Copy the RAMC file into the fragment data directory if the URI is not
      * relative to the data directory.
-     * 
      * @param monitor a progress monitor
      * @return the local ramc file location
-     * @throws java.io.IOException in case of failure.
+     * @throws IOException in case of failure.
      */
     @objid ("b419188e-0baa-11e2-bed6-001ec947ccaf")
     private Path extractRamcToLocal(final IModelioProgress monitor) throws IOException {
@@ -242,25 +241,25 @@ public class RamcFileFragment extends AbstractFragment {
                 throw new IOException(msg, e1);
             }
         }
+        
     }
 
     /**
      * Delete other files deployed with the RAMC such as extern libraries
      * or source files.
-     * 
      * @param monitor a progress monitor
-     * @throws java.io.IOException in case of failure.
+     * @throws IOException in case of failure.
      */
     @objid ("85eb632b-e430-41b1-8852-4e6635050d84")
     private void removeExportedFilesOfFragment(final IModelioProgress monitor) throws IOException {
         final ModelComponentArchive modelComponentArchive = new ModelComponentArchive(getContentDirectory(), false);
         final Path deploymentPath = getProject().getProjectFileStructure().getProjectDataPath();
         modelComponentArchive.removeExportedFiles(deploymentPath, monitor);
+        
     }
 
     /**
      * Get the directory where the RAMC archive is extracted.
-     * 
      * @return the extracted RAMC directory.
      */
     @objid ("0614b2bc-cefb-436d-9be2-84630005c75e")

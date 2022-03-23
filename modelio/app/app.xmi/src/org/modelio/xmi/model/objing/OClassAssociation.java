@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,10 +46,11 @@ public class OClassAssociation extends OModelElement {
         // Gets or creates the Ecore org.eclipse.uml2.uml.AssociationClass:
         return (org.eclipse.uml2.uml.AssociationClass) genProp
                                         .getMappedElement(getObjingElement());
+        
     }
 
     @objid ("d6c13dc6-fa9b-48cd-8075-5fbdf6c209bc")
-    public OClassAssociation(ClassAssociation param) {
+    public  OClassAssociation(ClassAssociation param) {
         super(param);
     }
 
@@ -97,6 +97,7 @@ public class OClassAssociation extends OModelElement {
                 }
             }
         }
+        
     }
 
     @objid ("54718478-9540-4230-ac7c-33116ffa6b01")

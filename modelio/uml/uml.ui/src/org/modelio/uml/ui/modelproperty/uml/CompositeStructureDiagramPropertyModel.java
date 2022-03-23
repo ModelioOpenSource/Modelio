@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.util.ArrayList;
@@ -64,17 +63,15 @@ public class CompositeStructureDiagramPropertyModel extends AbstractPropertyMode
     /**
      * Create a new <i>CompositeStructureDiagram</i> data model from an
      * <i>CompositeStructureDiagram</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("717c0aa2-31e1-4068-924e-2c61f0f51c48")
-    public CompositeStructureDiagramPropertyModel(final CompositeStructureDiagram theEditedElement) {
+    public  CompositeStructureDiagramPropertyModel(final CompositeStructureDiagram theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("9e2ad9af-d85e-4fc3-866f-dbad1ce54a8e")
@@ -85,7 +82,6 @@ public class CompositeStructureDiagramPropertyModel extends AbstractPropertyMode
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("70f864e3-cc2e-4433-b7d0-881ee1c1c00a")
@@ -98,7 +94,6 @@ public class CompositeStructureDiagramPropertyModel extends AbstractPropertyMode
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -122,6 +117,7 @@ public class CompositeStructureDiagramPropertyModel extends AbstractPropertyMode
         default:
             return null;
         }
+        
     }
 
     /**
@@ -131,7 +127,6 @@ public class CompositeStructureDiagramPropertyModel extends AbstractPropertyMode
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -166,13 +161,13 @@ public class CompositeStructureDiagramPropertyModel extends AbstractPropertyMode
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -200,6 +195,7 @@ public class CompositeStructureDiagramPropertyModel extends AbstractPropertyMode
         default:
             return;
         }
+        
     }
 
 }

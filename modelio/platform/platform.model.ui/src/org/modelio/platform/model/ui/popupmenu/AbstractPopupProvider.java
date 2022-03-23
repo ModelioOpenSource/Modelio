@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.popupmenu;
 
 import java.net.URL;
@@ -25,10 +24,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Map;
-import javax.inject.Inject;
+import java.util.Map.Entry;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IPath;
@@ -92,7 +91,6 @@ public abstract class AbstractPopupProvider {
     /**
      * Fills a dynamic creation menu with selection-compatible contributions before display. <br/>
      * Called by the rcp platform through injection.
-     * 
      * @param items the item list to fill.
      */
     @objid ("d483d62b-e85c-4d95-a1f7-565806980dd9")
@@ -134,6 +132,7 @@ public abstract class AbstractPopupProvider {
             // bind the new menu to the popup
             items.add(menu);
         }
+        
     }
 
     /**
@@ -142,13 +141,13 @@ public abstract class AbstractPopupProvider {
     @objid ("394f20f3-0e0e-48c8-b319-7821722f7cc9")
     @Optional
     @Inject
-    private void onProjectClosing(@SuppressWarnings ("unused") @UIEventTopic (ModelioEventTopics.PROJECT_CLOSING) final GProject project) {
+    private void onProjectClosing(@SuppressWarnings ("unused")
+    @UIEventTopic (ModelioEventTopics.PROJECT_CLOSING) final GProject project) {
         this.popupEntries = null;
     }
 
     /**
      * Create a new handled menu items from popup entry descriptors.
-     * 
      * @param entries the descriptors to convert.
      * @return a list of menu elements.
      */
@@ -169,7 +168,6 @@ public abstract class AbstractPopupProvider {
 
     /**
      * Create a new handled menu item from a popup entry descriptor.
-     * 
      * @param entry the descriptor to convert.
      * @return a new menu elements.
      */
@@ -223,7 +221,6 @@ public abstract class AbstractPopupProvider {
 
     /**
      * Create a new menu separator item.
-     * 
      * @return a new menu elements.
      */
     @objid ("d267e39a-dab5-4f60-991d-1d8d907b03c3")
@@ -280,7 +277,6 @@ public abstract class AbstractPopupProvider {
 
     /**
      * Get the MCommand defined in the application having a specific id.
-     * 
      * @param commandId the element id of the MCommand to find.
      * @return a MCommand, or <code>null</code> if the id is not found.
      */
@@ -322,11 +318,11 @@ public abstract class AbstractPopupProvider {
         final CreationPopupXmlLoader loader = new CreationPopupXmlLoader();
         
         this.popupEntries = loader.parseCreationPopupEntries(url);
+        
     }
 
     /**
      * Get the XML file defining the popup menu's contents.
-     * 
      * @return a relative path in the plugin, like <code>/res/create-popups.xml<code>.
      */
     @objid ("fd37cc63-bd1e-447b-9c93-c234d3559c83")
@@ -346,7 +342,6 @@ public abstract class AbstractPopupProvider {
 
     /**
      * Get the bundle defining the new creation popup menu.
-     * 
      * @return An installed bundle in the Framework.
      */
     @objid ("955cc815-5982-4fb0-97eb-c8b2865b4194")
@@ -354,7 +349,6 @@ public abstract class AbstractPopupProvider {
 
     /**
      * Get the i18n bundle containing all keys referenced by the current popup menu.
-     * 
      * @return an i18n bundle.
      */
     @objid ("8b30b399-b0e7-4117-9e52-0dd07865baff")
@@ -373,7 +367,6 @@ public abstract class AbstractPopupProvider {
 
     /**
      * Get the currently selected element, or <code>null</code> if the selection size is not equal to one.
-     * 
      * @return the selected element.
      */
     @objid ("e8f6a37a-27bf-47df-bbc9-91b8796d625e")

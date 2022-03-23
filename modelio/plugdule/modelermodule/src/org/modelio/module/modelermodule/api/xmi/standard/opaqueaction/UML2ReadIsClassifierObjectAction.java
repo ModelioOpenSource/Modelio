@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.opaqueaction;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("2863745e-922c-4eff-ae51-cb047027a4c0")
 public class UML2ReadIsClassifierObjectAction {
-    @objid ("19690970-6ba2-4510-bb42-09a1990f94c8")
+    @objid ("2e1dbf33-428f-4d42-b617-90b9faf05176")
     public static final String STEREOTYPE_NAME = "UML2ReadIsClassifierObjectAction";
 
     /**
      * The underlying {@link OpaqueAction} represented by this proxy, never null.
      */
-    @objid ("76f00fe8-5b1b-4632-9021-41e6a7797ecf")
+    @objid ("89fae62a-c51c-4358-88ac-b8452c9d97b5")
     protected final OpaqueAction elt;
 
     /**
      * Tells whether a {@link UML2ReadIsClassifierObjectAction proxy} can be instantiated from a {@link MObject} checking it is a {@link OpaqueAction} stereotyped << UML2ReadIsClassifierObjectAction >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("0a92abc5-12a8-4699-8a2e-30bec4b43a4f")
+    @objid ("87a12b4a-028b-46d3-8aaa-3fb4afb4e8b0")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof OpaqueAction) && ((OpaqueAction) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2ReadIsClassifierObjectAction.STEREOTYPE_NAME));
     }
@@ -77,9 +75,9 @@ public class UML2ReadIsClassifierObjectAction {
      * 
      * @return a {@link UML2ReadIsClassifierObjectAction} proxy on the created {@link OpaqueAction}.
      */
-    @objid ("94ac90f2-83f1-4c28-ba9a-3f87afcf11be")
+    @objid ("b27be92c-f545-4a3e-972c-8c85dc23a4a4")
     public static UML2ReadIsClassifierObjectAction create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("OpaqueAction");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.OpaqueAction");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2ReadIsClassifierObjectAction.STEREOTYPE_NAME);
         return UML2ReadIsClassifierObjectAction.instantiate((OpaqueAction)e);
     }
@@ -91,7 +89,7 @@ public class UML2ReadIsClassifierObjectAction {
      * @param obj a OpaqueAction
      * @return a {@link UML2ReadIsClassifierObjectAction} proxy or <i>null</i>.
      */
-    @objid ("4a581bca-b9f7-4eb9-b9f5-608e8bfecbd8")
+    @objid ("4baa4085-0a50-41f3-8795-323d68a64817")
     public static UML2ReadIsClassifierObjectAction instantiate(OpaqueAction obj) {
         return UML2ReadIsClassifierObjectAction.canInstantiate(obj) ? new UML2ReadIsClassifierObjectAction(obj) : null;
     }
@@ -104,7 +102,7 @@ public class UML2ReadIsClassifierObjectAction {
      * @return a {@link UML2ReadIsClassifierObjectAction} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("be0ff09b-d465-474f-b007-7fa6b3371d49")
+    @objid ("c83fca03-b1d1-4795-b9cc-e6f50510ca1c")
     public static UML2ReadIsClassifierObjectAction safeInstantiate(OpaqueAction obj) throws IllegalArgumentException {
         if (UML2ReadIsClassifierObjectAction.canInstantiate(obj))
         	return new UML2ReadIsClassifierObjectAction(obj);
@@ -112,7 +110,7 @@ public class UML2ReadIsClassifierObjectAction {
         	throw new IllegalArgumentException("UML2ReadIsClassifierObjectAction: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("3f2b9c90-dbb7-4eff-9eeb-989f730b6b76")
+    @objid ("f441ba62-00a3-46b7-b63c-8b89bc267255")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,46 +130,47 @@ public class UML2ReadIsClassifierObjectAction {
      * Get the underlying {@link OpaqueAction}. 
      * @return the OpaqueAction represented by this proxy, never null.
      */
-    @objid ("3cb0b9e3-d947-42ff-9b2e-242ae04f3f21")
+    @objid ("5f0af197-00ef-4fde-b4ee-80bd2d566953")
     public OpaqueAction getElement() {
         return this.elt;
     }
 
-    @objid ("4613573a-c1c0-4242-92df-c32c1bb94052")
+    @objid ("76e16175-a5c3-4cb7-ade2-ca115fa099ff")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("ea9d7132-5ee6-44a8-a782-2ecf5a24fd6d")
-    protected UML2ReadIsClassifierObjectAction(OpaqueAction elt) {
+    @objid ("6b143204-7056-4d8a-83d2-822a9c9c65e9")
+    protected  UML2ReadIsClassifierObjectAction(OpaqueAction elt) {
         this.elt = elt;
     }
 
     @objid ("56ed5dde-97b3-43a7-80e9-7b0b898107d8")
     public static final class MdaTypes {
-        @objid ("532e530a-6919-4404-9c17-75224a7e17cc")
+        @objid ("5b4c42a0-4883-4884-804b-10dfaa32f4a3")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("30702b4f-4852-4ac1-8206-1130342fc770")
+        @objid ("b85a3581-3b3d-42bf-b6ed-709ccfc7c16c")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("3b7249c3-c053-4e17-8da0-9bdafbd8bf0f")
+        @objid ("e6bb574c-bd1b-403b-9d29-c14b37f0ed9a")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("58c78a45-02ba-410a-991c-0c29f9903f28")
+        @objid ("338e4360-0429-45ea-9f5a-c5dab01086f3")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "e4c6c55f-c2fc-11de-8ac8-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

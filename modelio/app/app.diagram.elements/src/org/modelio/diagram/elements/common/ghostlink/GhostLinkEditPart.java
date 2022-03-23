@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.ghostlink;
 
 import java.beans.PropertyChangeEvent;
@@ -36,24 +35,22 @@ import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.editparts.AbstractConnectionEditPart;
 import org.modelio.diagram.elements.core.figures.RoundedLinkFigure;
+import org.modelio.diagram.elements.core.figures.routers.AutoOrthogonalRouter;
 import org.modelio.diagram.elements.core.figures.routers.RakeRouter;
-import org.modelio.diagram.elements.core.link.ConnectionRouterRegistry;
+import org.modelio.diagram.elements.core.link.ConnectionRoutingServices;
+import org.modelio.diagram.elements.core.link.ConnectionRoutingServices.IRouterDependentEditPolicyFactory;
 import org.modelio.diagram.elements.core.link.GmLink;
 import org.modelio.diagram.elements.core.link.GmLinkLayoutEditPolicy;
+import org.modelio.diagram.elements.core.link.RoutingMode;
 import org.modelio.diagram.elements.core.link.SelectConnectionEditPartTracker;
-import org.modelio.diagram.elements.core.link.ortho.OrthoBendpointEditPolicy;
-import org.modelio.diagram.elements.core.link.path.ConnectionHelperFactory;
+import org.modelio.diagram.elements.core.link.ortho.AutoOrthogonalRouterSynchronizeConstraintCommand;
 import org.modelio.diagram.elements.core.link.path.ConnectionPolicyUtils;
 import org.modelio.diagram.elements.core.link.path.IConnectionHelper;
 import org.modelio.diagram.elements.core.link.rake.CreateRakeLinkEditPolicy;
-import org.modelio.diagram.elements.core.link.rake.RakeLinkEditPolicy;
+import org.modelio.diagram.elements.core.link.rake.RakeRefreshEditPolicy;
 import org.modelio.diagram.elements.core.model.IGmLink;
 import org.modelio.diagram.elements.core.model.IGmObject;
-import org.modelio.diagram.elements.core.model.IGmPath;
-import org.modelio.diagram.elements.core.policies.DefaultBendpointEditPolicy;
-import org.modelio.diagram.elements.core.policies.DefaultConnectionEndpointEditPolicy;
 import org.modelio.diagram.elements.core.policies.DefaultDeleteLinkEditPolicy;
-import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
 
 /**
  * Edit part for GmLinks.
@@ -66,7 +63,7 @@ public class GhostLinkEditPart extends AbstractConnectionEditPart implements Pro
     @objid ("7e43e806-1dec-11e2-8cad-001ec947c8cc")
     private static final int NAME_LABEL_INDEX = GhostLinkEditPart.METACLASS_LABEL_INDEX + 1;
 
-    @objid ("7e43e808-1dec-11e2-8cad-001ec947c8cc")
+    @objid ("ca379e08-b9ec-4ccd-a81f-9e5bdda08bf4")
     private RoutingMode currentRoutingMode = new RoutingMode();
 
     /**
@@ -79,7 +76,7 @@ public class GhostLinkEditPart extends AbstractConnectionEditPart implements Pro
      * Constructor for deserialization.
      */
     @objid ("7e43e80b-1dec-11e2-8cad-001ec947c8cc")
-    public GhostLinkEditPart() {
+    public  GhostLinkEditPart() {
         super();
     }
 
@@ -88,6 +85,7 @@ public class GhostLinkEditPart extends AbstractConnectionEditPart implements Pro
     public void activate() {
         super.activate();
         getLinkModel().addPropertyChangeListener(this);
+        
     }
 
     @objid ("7e43e811-1dec-11e2-8cad-001ec947c8cc")
@@ -111,19 +109,23 @@ public class GhostLinkEditPart extends AbstractConnectionEditPart implements Pro
             refreshTargetAnchor();
             refreshVisuals();
         }
+        
     }
 
     @objid ("7e43e825-1dec-11e2-8cad-001ec947c8cc")
     @Override
     protected void createEditPolicies() {
-        installEditPolicy(EditPolicy.CONNECTION_ENDPOINTS_ROLE, new DefaultConnectionEndpointEditPolicy());
         installEditPolicy(EditPolicy.NODE_ROLE, new CreateRakeLinkEditPolicy());
         installEditPolicy(EditPolicy.CONNECTION_ROLE, new DefaultDeleteLinkEditPolicy());
         installEditPolicy(EditPolicy.LAYOUT_ROLE, new GmLinkLayoutEditPolicy());
         
+        installEditPolicy(RakeRefreshEditPolicy.ROLE, new RakeRefreshEditPolicy());
+        
+        
         if (getRoutingMode().routingStyle != null) {
-            updateBendPointEditPolicies(getRoutingMode());
+            updateRouterDependentEditPolicies(getRoutingMode());
         }
+        
     }
 
     @objid ("7e464a5d-1dec-11e2-8cad-001ec947c8cc")
@@ -154,18 +156,7 @@ public class GhostLinkEditPart extends AbstractConnectionEditPart implements Pro
     }
 
     /**
-     * Get the connection router registry.
-     * 
-     * @return the connection router registry.
-     */
-    @objid ("7e464a64-1dec-11e2-8cad-001ec947c8cc")
-    protected ConnectionRouterRegistry getConnectionRouterRegistry() {
-        return (ConnectionRouterRegistry) getViewer().getProperty(ConnectionRouterRegistry.ID);
-    }
-
-    /**
      * Get the connection routing mode.
-     * 
      * @return the connection routing mode.
      */
     @objid ("7e464a69-1dec-11e2-8cad-001ec947c8cc")
@@ -189,6 +180,7 @@ public class GhostLinkEditPart extends AbstractConnectionEditPart implements Pro
         
         Label nameLabel = (Label) conn.getChildren().get(GhostLinkEditPart.NAME_LABEL_INDEX);
         nameLabel.setText(gmLink.getGhostLabel());
+        
     }
 
     @objid ("7e464a71-1dec-11e2-8cad-001ec947c8cc")
@@ -197,39 +189,29 @@ public class GhostLinkEditPart extends AbstractConnectionEditPart implements Pro
     }
 
     /**
-     * Add an edit policy to edit bend points if the router handles bend point editing.
-     * 
-     * @param newRoutingMode the new routing mode
+     * Update edit policies that depend on the connection routing mode.
+     * @param mode the new routing mode
      */
     @objid ("7e464a75-1dec-11e2-8cad-001ec947c8cc")
-    private void updateBendPointEditPolicies(RoutingMode newRoutingMode) {
-        removeEditPolicy(EditPolicy.CONNECTION_BENDPOINTS_ROLE);
+    private void updateRouterDependentEditPolicies(RoutingMode mode) {
+        IRouterDependentEditPolicyFactory editPoliciesFactory = ConnectionPolicyUtils.getRoutingServices(this).getEditPoliciesFactory();
         
-        if (newRoutingMode.rake) {
-            installEditPolicy(EditPolicy.CONNECTION_BENDPOINTS_ROLE, new RakeLinkEditPolicy());
-        } else {
-            switch (newRoutingMode.routingStyle) {
-            case DIRECT:
-                break;
-            case BENDPOINT:
-                installEditPolicy(EditPolicy.CONNECTION_BENDPOINTS_ROLE, new DefaultBendpointEditPolicy());
-                break;
-            case ORTHOGONAL:
-                installEditPolicy(EditPolicy.CONNECTION_BENDPOINTS_ROLE, new OrthoBendpointEditPolicy());
-                break;
-            default:
-                throw new IllegalStateException(getRoutingMode() + " routing mode not supported");
-            }
-        }
+        // Note : installEditPolicy(...) removes cleanly the existing policy if any
+        installEditPolicy(EditPolicy.CONNECTION_BENDPOINTS_ROLE, editPoliciesFactory.createBendPointsPolicy(mode));
+        installEditPolicy(EditPolicy.CONNECTION_ENDPOINTS_ROLE, editPoliciesFactory.createEndPointsPolicy(mode));
+        
     }
 
     /**
      * Update the connection router, the edit policies and the drag tracker from the model routing style.
-     * 
      * @param cnx The connection figure
      */
     @objid ("7e464a79-1dec-11e2-8cad-001ec947c8cc")
     private void updateConnectionRoute(final Connection cnx) {
+        if (getSource()==null || getTarget() == null) {
+            return;
+        }
+        
         // Refresh anchors
         refreshSourceAnchor();
         refreshTargetAnchor();
@@ -237,34 +219,43 @@ public class GhostLinkEditPart extends AbstractConnectionEditPart implements Pro
         final IGmLink gmLink = getLinkModel();
         final RoutingMode newRoutingMode = new RoutingMode(gmLink.getPath());
         final RoutingMode oldRoutingMode = getRoutingMode();
+        final ConnectionRoutingServices routingServices = ConnectionPolicyUtils.getRoutingServices(this);
         
         // Change connection router if the rake mode changes or there is no rake and the style changes
-        if (oldRoutingMode.rake != newRoutingMode.rake ||
-                (!newRoutingMode.rake && oldRoutingMode.routingStyle != newRoutingMode.routingStyle)) {
+        if (oldRoutingMode.rake != newRoutingMode.rake || !newRoutingMode.rake && oldRoutingMode.routingStyle != newRoutingMode.routingStyle) {
             // Set the connection router
+            boolean isAutoRouter = false;
             if (newRoutingMode.rake) {
-                cnx.setConnectionRouter(GhostLinkEditPart.rakeRouter);
+                cnx.setConnectionRouter(rakeRouter);
             } else {
-                cnx.setConnectionRouter(getConnectionRouterRegistry().get(newRoutingMode.routingStyle));
+                cnx.setConnectionRouter(routingServices.getDisplayRouter(newRoutingMode.routingStyle));
+                isAutoRouter = (routingServices.getEditionRouter(newRoutingMode.routingStyle) instanceof AutoOrthogonalRouter) ;
             }
         
             // Set the new constraint
-            IConnectionHelper helper = ConnectionHelperFactory.createFromSerializedData(newRoutingMode.routingStyle,
-                    this,
-                    cnx);
+            IConnectionHelper helper = routingServices.getConnectionHelperFactory().createFromSerializedData(newRoutingMode.routingStyle, this, cnx);
             cnx.setRoutingConstraint(helper.getRoutingConstraint());
         
-            // Update edit policy
-            updateBendPointEditPolicies(newRoutingMode);
+            // Update edit policies
+            updateRouterDependentEditPolicies(newRoutingMode);
         
             this.currentRoutingMode = newRoutingMode;
         
+            if (isAutoRouter /*&& oldRoutingMode.routingStyle != null*/) {
+                // difference from LinkEditPart.updateConnectionRoute(...)
+                // run the router even if oldRoutingMode.routingStyle is null
+                // because a ghost node often replaced the initial edit part on diagram loading.
+                // In this case the ghost node size is often different and the anchor position is different too.
+                // Then the link is not orthogonal anymore.
+                //new ConnectionView().init(cnx).isValidPath();
+                cnx.getUpdateManager().performValidation();
+                new AutoOrthogonalRouterSynchronizeConstraintCommand(this).execute();
+            }
         } else {
-            IConnectionHelper helper = ConnectionHelperFactory.createFromSerializedData(newRoutingMode.routingStyle,
-                    this,
-                    cnx);
+            IConnectionHelper helper = routingServices.getConnectionHelperFactory().createFromSerializedData(newRoutingMode.routingStyle, this, cnx);
             cnx.setRoutingConstraint(helper.getRoutingConstraint());
         }
+        
     }
 
     /**
@@ -286,67 +277,7 @@ public class GhostLinkEditPart extends AbstractConnectionEditPart implements Pro
             Collection<Connection> allDiagramConnections = ConnectionPolicyUtils.getAllDiagramConnectionsCollector(this);
             ((RoundedLinkFigure) fig).setAllDiagramConnections(allDiagramConnections);
         }
-    }
-
-    /**
-     * Represents the routing mode of the link.
-     * 
-     * @author cmarin
-     */
-    @objid ("7e464a80-1dec-11e2-8cad-001ec947c8cc")
-    private static class RoutingMode {
-        @objid ("7e464a83-1dec-11e2-8cad-001ec947c8cc")
-        public boolean rake = false;
-
-        @objid ("8f1306a9-1e83-11e2-8cad-001ec947c8cc")
-        public ConnectionRouterId routingStyle = null;
-
-        @objid ("7e464a85-1dec-11e2-8cad-001ec947c8cc")
-        public RoutingMode() {
-        }
-
-        @objid ("7e464a87-1dec-11e2-8cad-001ec947c8cc")
-        public RoutingMode(final IGmPath path) {
-            this.routingStyle = path.getRouterKind();
-            this.rake = path.getSourceRake() != null || path.getTargetRake() != null;
-        }
-
-        @objid ("7e464a8b-1dec-11e2-8cad-001ec947c8cc")
-        @Override
-        public int hashCode() {
-            final int prime = 31;
-            int result = 1;
-            result = prime * result + (this.rake ? 1231 : 1237);
-            result = prime * result + ((this.routingStyle == null) ? 0 : this.routingStyle.hashCode());
-            return result;
-        }
-
-        @objid ("7e464a90-1dec-11e2-8cad-001ec947c8cc")
-        @Override
-        public boolean equals(final Object obj) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null) {
-                return false;
-            }
-            if (getClass() != obj.getClass()) {
-                return false;
-            }
-            RoutingMode other = (RoutingMode) obj;
-            if (this.rake != other.rake) {
-                return false;
-            }
-            if (this.routingStyle == null) {
-                if (other.routingStyle != null) {
-                    return false;
-                }
-            } else if (this.routingStyle != other.routingStyle) {
-                return false;
-            }
-            return true;
-        }
-
+        
     }
 
 }

@@ -13,6 +13,7 @@
 # 1.0   25th August 2009   - creation
 # 1.1   3rd September 2009 - when applied to a package, create a new class
 # 2.0   10th June 2013     - update for Modelio 3.0
+# 3.0   23rd November 2020 - Modelio 5.0, use the Java Architect module if Java Designer is missing
 #
 
 from org.modelio.metamodel.uml.statik import KindOfAccess
@@ -38,7 +39,7 @@ def createInstanceAssociation(clazz):
 	"""Create the 'instance' association """
 	# create and configure the source AssociationEnd
 	source = modelingSession.getModel().createAssociationEnd()
-	
+
   # create and configure the target AssociationEnd
 	target = modelingSession.getModel().createAssociationEnd()
 	target.setIsClass(1)
@@ -50,7 +51,7 @@ def createInstanceAssociation(clazz):
 	target.setName("Instance")
 	target.setSource(clazz)
 	target.setTarget(clazz)
-  
+
 	# create and bind the new association
 	assoc  = modelingSession.getModel().createAssociation()
 	assoc.setName("")
@@ -71,6 +72,9 @@ def createGetInstanceMethod(clazz):
 	if (Modelio.getInstance().getModuleService().getPeerModule("JavaDesigner")):
 	  code = "return (instance == null)? (instance=new " + clazz.getName() + "()) : instance;"
 	  note = modelingSession.getModel().createNote("JavaDesigner", "JavaCode", op, code)
+	elif (Modelio.getInstance().getModuleService().getPeerModule("JavaArchitect")):
+	  code = "return (instance == null)? (instance=new " + clazz.getName() + "()) : instance;"
+	  note = modelingSession.getModel().createNote("JavaArchitect", "JavaCode", op, code)
 
 def createPrivateConstructor(clazz):
 	"""Create a private default constructor for the class"""

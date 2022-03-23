@@ -10,7 +10,6 @@
  * from Modeliosoft.
  * 
  */
-
 package org.modelio.admtool.plugin;
 
 import java.util.ResourceBundle;
@@ -40,6 +39,7 @@ public class AdmToolOrg extends AbstractUIPlugin {
         ExtendedLogService service = bundleContext.getService(ref);
         AdmToolOrg.LOG = new PluginLogger(service.getLogger((String) null));
         AdmToolOrg.I18N = new BundledMessages(AdmToolOrg.LOG, ResourceBundle.getBundle("admtoolorg"));
+        
     }
 
     @objid ("be471244-cbaa-4e4f-843b-9b5fdef7f867")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.geometry;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,19 +31,21 @@ public enum Orientation {
     /**
      * horizontal
      */
+    @objid ("7f8ceca1-1dec-11e2-8cad-001ec947c8cc")
     HORIZONTAL,
     /**
      * Vertical
      */
+    @objid ("7f8ceca3-1dec-11e2-8cad-001ec947c8cc")
     VERTICAL,
     /**
      * Not defined or oblique.
      */
+    @objid ("7f8ceca5-1dec-11e2-8cad-001ec947c8cc")
     NONE;
 
     /**
      * return the perpendicular orientation of this orientation.
-     * 
      * @return the perpendicular orientation.
      */
     @objid ("7f8ceca7-1dec-11e2-8cad-001ec947c8cc")
@@ -55,6 +56,7 @@ public enum Orientation {
             return HORIZONTAL;
         else
             return NONE;
+        
     }
 
 }

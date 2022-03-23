@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.instance;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,6 +50,7 @@ public class ImageInstanceEditPart extends NonSelectableImageEditPart {
         }
         
         installEditPolicy(ModelElementDropRequest.TYPE, new InstanceElementDropEditPolicy());
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.module.catalog.plugin;
 
 import java.util.ResourceBundle;
@@ -53,6 +52,7 @@ public class AppModules implements BundleActivator {
         final ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger((String)null));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("appmodules"));
+        
     }
 
     @objid ("99476565-7bfe-4d4f-8642-641e9660255f")
@@ -68,7 +68,6 @@ public class AppModules implements BundleActivator {
 
     /**
      * Get the image descriptor for an image stored in this plugin.
-     * 
      * @param path a path relative to the plugin
      * @return the image descriptor.
      */

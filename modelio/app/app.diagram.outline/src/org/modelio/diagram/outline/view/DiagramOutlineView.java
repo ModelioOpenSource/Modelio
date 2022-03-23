@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.outline.view;
 
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.core.di.extensions.EventTopic;
@@ -50,7 +49,7 @@ public class DiagramOutlineView {
     private Composite panel;
 
     @objid ("2edbad2f-8179-493d-becb-c84f72c5260a")
-     IContentOutlinePage outlinePage;
+    IContentOutlinePage outlinePage;
 
     @objid ("d8936dce-0bd5-4ad5-a1e8-57f1cf5dca77")
     @PostConstruct
@@ -58,6 +57,7 @@ public class DiagramOutlineView {
         this.parent = theParent;
         this.panel = new Composite(this.parent, SWT.NONE);
         this.panel.setLayout(new FillLayout());
+        
     }
 
     /**
@@ -77,11 +77,11 @@ public class DiagramOutlineView {
                 }
             }
         });
+        
     }
 
     /**
      * Create the outline page when select a part which provides an {@link IContentOutlinePage}.
-     * 
      * @param part the active part.
      */
     @objid ("a961591e-2d66-4bd3-8b50-54877732c4dc")
@@ -102,6 +102,7 @@ public class DiagramOutlineView {
             this.panel.layout();
             this.parent.layout();
         }
+        
     }
 
 }

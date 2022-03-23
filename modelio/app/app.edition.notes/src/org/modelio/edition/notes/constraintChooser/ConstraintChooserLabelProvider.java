@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.constraintChooser;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -74,6 +73,7 @@ public class ConstraintChooserLabelProvider extends LabelProvider {
         } else {
             return EditionNotes.I18N.getString("Constraint");
         }
+        
     }
 
 }

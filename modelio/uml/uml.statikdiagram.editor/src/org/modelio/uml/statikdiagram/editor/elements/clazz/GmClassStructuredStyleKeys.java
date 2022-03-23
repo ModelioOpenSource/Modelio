@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.clazz;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,79 +41,79 @@ public final class GmClassStructuredStyleKeys extends StaticAbstractStyleKeyProv
      * Representation model.
      */
     @objid ("a517f261-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("CLASS_REPRES_MODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("CLASS_REPRES_MODE", MetaKey.REPMODE);
 
     /**
      * Fill color.
      */
     @objid ("a517f264-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("CLASS_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("CLASS_FILLCOLOR", MetaKey.FILLCOLOR);
 
     /**
      * Fill mode.
      */
     @objid ("a517f267-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("CLASS_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("CLASS_FILLMODE", MetaKey.FILLMODE);
 
     /**
      * Lines color.
      */
     @objid ("a517f26a-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("CLASS_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("CLASS_LINECOLOR", MetaKey.LINECOLOR);
 
     /**
      * Lines width.
      */
     @objid ("a517f26d-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("CLASS_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("CLASS_LINEWIDTH", MetaKey.LINEWIDTH);
 
     /**
      * Text font.
      */
     @objid ("a517f270-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("CLASS_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("CLASS_FONT", MetaKey.FONT);
 
     /**
      * Text color.
      */
     @objid ("a517f273-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("CLASS_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("CLASS_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     /**
      * Name display mode: none, simple, qualified, ...
      */
     @objid ("a517f276-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWNAME = createStyleKey("CLASS_SHOWNAME", MetaKey.SHOWNAME);
+    static final StyleKey SHOWNAME = createStyleKey("CLASS_SHOWNAME", MetaKey.SHOWNAME);
 
     /**
      * Stereotype display mode.
      */
     @objid ("a51978eb-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("CLASS_SHOWSTEREOTYPES", MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("CLASS_SHOWSTEREOTYPES", MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Show tagged values.
      */
     @objid ("a51978ee-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("CLASS_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("CLASS_SHOWTAGS", MetaKey.SHOWTAGS);
 
     /**
      * Display class visibility.
      */
     @objid ("a51978f1-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWVISIBILITY = createStyleKey("CLASS_SHOWVISIBILITY", MetaKey.SHOWVISIBILITY);
+    static final StyleKey SHOWVISIBILITY = createStyleKey("CLASS_SHOWVISIBILITY", MetaKey.SHOWVISIBILITY);
 
     /**
      * Filter on features
      */
     @objid ("a51978fa-55c2-11e2-9337-002564c97630")
-     static final StyleKey FEATURES = createStyleKey("CLASS_FEATURES", MetaKey.VISIBILITYFILTER);
+    static final StyleKey FEATURES = createStyleKey("CLASS_FEATURES", MetaKey.VISIBILITYFILTER);
 
     /**
      * Auto unmask ports.
      */
     @objid ("a5197900-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWPORTS = createStyleKey("CLASS_SHOWPORTS", MetaKey.AUTOSHOWPORTS);
+    static final StyleKey SHOWPORTS = createStyleKey("CLASS_SHOWPORTS", MetaKey.AUTOSHOWPORTS);
 
     @objid ("67e31a53-af09-436d-982d-26f215a38c8b")
     public static final ClassifierAttributeKeys Attribute = new ClassifierAttributeKeys("CLASS");

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.genericnode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -74,6 +73,7 @@ public class GenericNodeEditPart extends AbstractNodeEditPart {
         installEditPolicy(UserChoiceCreateLinkEditPolicy.class, new UserChoiceCreateLinkEditPolicy(new PaletteActionProvider(this, PaletteActionProvider.IS_LINK_TOOL), false));
         installEditPolicy(EditPolicy.NODE_ROLE, new DefaultCreateLinkEditPolicy());
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START, new LinkedNodeStartCreationEditPolicy());
+        
     }
 
     @objid ("156ef199-a45c-4a09-b92c-e544ce597fb0")
@@ -85,6 +85,7 @@ public class GenericNodeEditPart extends AbstractNodeEditPart {
         } else {
             getFigure().add(child, BorderLayout.CENTER, index);
         }
+        
     }
 
     @objid ("19f3b383-bada-4573-9efb-dce5a9cf386a")
@@ -93,6 +94,7 @@ public class GenericNodeEditPart extends AbstractNodeEditPart {
         super.refreshVisuals();
         GmAbstractObject model = getModel();
         getFigure().getParent().setConstraint(getFigure(), model.getLayoutData());
+        
     }
 
     @objid ("f240719d-c6ad-4e13-9504-527818e4fb32")
@@ -103,6 +105,7 @@ public class GenericNodeEditPart extends AbstractNodeEditPart {
                 super.refreshFromStyle(aFigure, style);
             }
         }
+        
     }
 
 }

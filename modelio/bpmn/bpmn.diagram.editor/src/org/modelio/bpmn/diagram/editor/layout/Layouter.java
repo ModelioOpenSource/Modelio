@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.layout;
 
 import java.util.ArrayList;
@@ -40,12 +39,13 @@ public class Layouter {
     private LayoutModel layout;
 
     @objid ("a6bf637c-5089-495b-87f5-f4024efb479a")
-    public Layouter(IDiagramHandle dh) {
+    public  Layouter(IDiagramHandle dh) {
         this.dh = dh;
         
         this.layout = new LayoutModel();
         
         loadDiagram();
+        
     }
 
     @objid ("d831eed2-51b7-4e03-a3d3-d680a043aed2")
@@ -95,6 +95,7 @@ public class Layouter {
             doLayout(nn, col + 1, r, processed, indent + "  ");
             r = r + 1;
         }
+        
     }
 
     @objid ("bb3b6702-285c-451b-ab5c-b8d5a3b26cae")
@@ -174,19 +175,21 @@ public class Layouter {
             lNode.setRightDepth(computeRightDepth(lNode, new HashSet<ILayoutableNode>()));
             // System.out.printf("loadDiagram(): max right depth of '%s' = %d\n", lNode.getName(), lNode.getRightDepth());
         }
+        
     }
 
-// Logical layout of the links, consists in determining them in the (row, col) logical table
+    // Logical layout of the links, consists in determining them in the (row, col) logical table
     @objid ("d5118d20-f84b-47e2-8d26-c56f29e1ed03")
     private void layoutLinks() {
         // for (ILayoutableLink link : this.linksLayout.values()) {
         for (ILayoutableLink link : this.layout.getLinks()) {
             routeLink(link);
         }
+        
     }
 
-// end routeHorizontalLink
-// Logical layout of the nodes, consists in placing them in the (row, col) logical table
+    // end routeHorizontalLink
+    // Logical layout of the nodes, consists in placing them in the (row, col) logical table
     @objid ("36f61962-3252-420a-aa37-1f7f79cfba51")
     private void layoutNodes() {
         // this.nodeTable = new NodeTable();
@@ -208,6 +211,7 @@ public class Layouter {
             this.doLayout(nld, col, row, processed, "  ");
             row++;
         }
+        
     }
 
     @objid ("34d94f98-86ae-40d8-aec0-5f0851c21840")
@@ -240,6 +244,7 @@ public class Layouter {
         target.getInLinks(link.getTargetAnchor()).add(link);
         
         // System.out.println(" link = " + link.toString());
+        
     }
 
     /**
@@ -305,9 +310,10 @@ public class Layouter {
                 }
             }
         }
+        
     }
 
-// end routeQuadrantLink()
+    // end routeQuadrantLink()
     /**
      * @return true if a corner route could be defined for the link. The link has been configured (kind and anchors) with proper values.
      */
@@ -435,6 +441,7 @@ public class Layouter {
         default:
             return false;
         }
+        
     }
 
     @objid ("13a1eb5a-03a3-484f-a835-87a28ebe926b")
@@ -466,9 +473,10 @@ public class Layouter {
             link.setSourceAnchor(downward ? ILayoutableLink.AnchorDirection.South : ILayoutableLink.AnchorDirection.North);
             link.setTargetAnchor(downward ? ILayoutableLink.AnchorDirection.North : ILayoutableLink.AnchorDirection.South);
         }
+        
     }
 
-// end routeVerticalLink
+    // end routeVerticalLink
     /**
      * Source and target on the same row.
      * 
@@ -490,6 +498,7 @@ public class Layouter {
             link.setSourceAnchor(forward ? ILayoutableLink.AnchorDirection.East : ILayoutableLink.AnchorDirection.West);
             link.setTargetAnchor(forward ? ILayoutableLink.AnchorDirection.West : ILayoutableLink.AnchorDirection.East);
         }
+        
     }
 
 }

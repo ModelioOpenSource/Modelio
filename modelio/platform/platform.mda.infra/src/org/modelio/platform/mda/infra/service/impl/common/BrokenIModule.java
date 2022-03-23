@@ -17,20 +17,20 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.common;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import javax.script.ScriptEngine;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.script.ScriptEngine;
 import org.eclipse.swt.graphics.Image;
 import org.modelio.api.modelio.IModelioContext;
 import org.modelio.api.modelio.IModelioServices;
 import org.modelio.api.modelio.model.IModelingSession;
 import org.modelio.api.module.IModule;
+import org.modelio.api.module.IModule.ImageType;
 import org.modelio.api.module.IPeerModule;
 import org.modelio.api.module.context.IModuleContext;
 import org.modelio.api.module.context.configuration.IModuleAPIConfiguration;
@@ -74,13 +74,14 @@ public class BrokenIModule implements IModule {
      * @param downError the broken cause
      */
     @objid ("1b98cff1-630d-4ae2-a93d-b75d2dcf20d5")
-    public BrokenIModule(GModule gmodule, IModuleUserConfiguration userConfiguration, Throwable downError) {
+    public  BrokenIModule(GModule gmodule, IModuleUserConfiguration userConfiguration, Throwable downError) {
         this.gModule = gmodule;
         this.moduleComponent = gmodule.getModuleElement();
         this.moduleConfiguration = userConfiguration;
         this.downError = downError;
         
         loadModuleImage();
+        
     }
 
     @objid ("d83e8454-ccdb-47b2-9da0-44721c7a240c")
@@ -193,6 +194,7 @@ public class BrokenIModule implements IModule {
         } catch (Exception e) {
             MdaInfra.LOG.error(e.getMessage());
         }
+        
     }
 
     @objid ("d559bc44-c49b-40dd-b5b3-7b68355e9e37")

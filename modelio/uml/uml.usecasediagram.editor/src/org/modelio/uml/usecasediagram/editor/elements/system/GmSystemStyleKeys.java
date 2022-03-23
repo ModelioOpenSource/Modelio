@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.elements.system;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,7 +49,7 @@ public class GmSystemStyleKeys extends UseCaseAbstractStyleKeyProvider {
 
     @objid ("d9d4ec4d-55c2-11e2-9337-002564c97630")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("SYSTEM_SHOWSTEREOTYPES",
-                                                                  MetaKey.SHOWSTEREOTYPES);
+                                                                      MetaKey.SHOWSTEREOTYPES);
 
     @objid ("d9d4ec50-55c2-11e2-9337-002564c97630")
     public static final StyleKey SHOWTAGS = createStyleKey("SYSTEM_SHOWTAGS", MetaKey.SHOWTAGS);

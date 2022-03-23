@@ -14,16 +14,15 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.diagram.tools.standard;
 
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.modelio.diagram.IDiagramGraphic;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
-import org.modelio.api.modelio.diagram.IDiagramLink.LinkRouterKind;
 import org.modelio.api.modelio.diagram.IDiagramLink;
-import org.modelio.api.modelio.diagram.ILinkPath;
+import org.modelio.api.modelio.diagram.IDiagramLink.LinkRouterKind;
+import org.modelio.api.modelio.diagram.ILinkRoute;
 import org.modelio.api.modelio.diagram.dg.IDiagramDG;
 import org.modelio.api.modelio.diagram.tools.DefaultLinkTool;
 import org.modelio.api.modelio.model.IModelingSession;
@@ -91,7 +90,7 @@ public class GenericLinkTool extends DefaultLinkTool {
 
     @objid ("aafda059-0c7c-47e2-994c-b5bee70564fd")
     @Override
-    public void actionPerformed(final IDiagramHandle diagramHandle, final IDiagramGraphic originNode, final IDiagramGraphic targetNode, final LinkRouterKind routerType, final ILinkPath path) {
+    public void actionPerformed(final IDiagramHandle diagramHandle, final IDiagramGraphic originNode, final IDiagramGraphic targetNode, final LinkRouterKind routerType, final ILinkRoute path) {
         final IModelingSession session = getModule().getModuleContext().getModelingSession();
         try (ITransaction tr = session.createTransaction("Create link")) {
             final ModelElement source = (ModelElement) originNode.getElement();
@@ -139,7 +138,7 @@ public class GenericLinkTool extends DefaultLinkTool {
                 link.setRouterKind(routerType);
                 link.setFrom(originNode);
                 link.setTo(targetNode);
-                link.setPath(path);
+                link.setRoute(path);
         
                 postConfigure(diagramHandle, originNode, targetNode, source, target, newElement, link, graph, routerType, path);
         
@@ -149,6 +148,7 @@ public class GenericLinkTool extends DefaultLinkTool {
         } catch (final Exception e) {
             getModule().getModuleContext().getLogService().error(e);
         }
+        
     }
 
     @objid ("85e08e4f-a903-401e-99c8-36d33a648902")
@@ -277,6 +277,7 @@ public class GenericLinkTool extends DefaultLinkTool {
         }
         name = getModule().getModuleContext().getI18nSupport().getString(name);
         modelFactory.getDefaultNameService().setDefaultName(newElement, name);
+        
     }
 
     @objid ("181a5202-313d-40c3-b921-b5e860025b63")
@@ -285,13 +286,13 @@ public class GenericLinkTool extends DefaultLinkTool {
         if (stereotype != null) {
             ((ModelElement) newElement).getExtension().add(stereotype);
         }
+        
     }
 
     /**
      * Hook called once the element is created, configured, unmasked and before the transaction is committed.
      * <p>
      * Does nothing by default. Sub classes may redefine this method to make additional modifications.
-     * 
      * @param diagramHandle the diagram handle
      * @param originNode the source graphic node
      * @param targetNode the target graphic node
@@ -304,7 +305,7 @@ public class GenericLinkTool extends DefaultLinkTool {
      * @param path the link path deduced from the user interactions.
      */
     @objid ("a80525b4-bab1-4176-8a5e-293ef3d4a214")
-    protected void postConfigure(IDiagramHandle diagramHandle, IDiagramGraphic originNode, IDiagramGraphic targetNode, ModelElement source, ModelElement target, MObject newElement, IDiagramLink newLink, List<IDiagramGraphic> newGraphics, final LinkRouterKind routerType, final ILinkPath path) {
+    protected void postConfigure(IDiagramHandle diagramHandle, IDiagramGraphic originNode, IDiagramGraphic targetNode, ModelElement source, ModelElement target, MObject newElement, IDiagramLink newLink, List<IDiagramGraphic> newGraphics, final LinkRouterKind routerType, final ILinkRoute path) {
         // nothing by default
     }
 

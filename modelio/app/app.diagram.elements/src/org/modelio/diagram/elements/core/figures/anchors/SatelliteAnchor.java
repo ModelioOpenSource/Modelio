@@ -17,9 +17,9 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.anchors;
 
+import java.util.Objects;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.AbstractConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
@@ -39,18 +39,18 @@ public class SatelliteAnchor extends AbstractConnectionAnchor {
      * Location of the anchor relative to the owner figure top left corner.
      */
     @objid ("d2391399-10f8-42e0-ac09-f11c14f8c23b")
-    private Dimension distance;
+    private final Dimension distance;
 
     /**
      * Create an anchor.
-     * 
      * @param reference The owner node of the anchor
      * @param distance The location of the anchor relative to the owner node location.
      */
     @objid ("7f5d3db5-1dec-11e2-8cad-001ec947c8cc")
-    public SatelliteAnchor(final IFigure reference, Dimension distance) {
+    public  SatelliteAnchor(final IFigure reference, Dimension distance) {
         super(reference);
         this.distance = new Dimension(distance);
+        
     }
 
     @objid ("7f5d3dbf-1dec-11e2-8cad-001ec947c8cc")
@@ -73,23 +73,44 @@ public class SatelliteAnchor extends AbstractConnectionAnchor {
 
     /**
      * Modifies the anchor reference point location
-     * 
      * @param d The new relative location of the reference point.
      */
     @objid ("7f5d3dd0-1dec-11e2-8cad-001ec947c8cc")
     public void setDistance(Dimension d) {
         this.distance.setSize(d);
         fireAnchorMoved();
+        
     }
 
     /**
      * Get the distance of the reference point from the owner figure.
-     * 
      * @return the reference distance.
      */
     @objid ("7f5d3dd6-1dec-11e2-8cad-001ec947c8cc")
     public Dimension getDistance() {
         return this.distance;
+    }
+
+    @objid ("bae996ac-e34b-49c5-a0fa-4db2af9b74d2")
+    @Override
+    public int hashCode() {
+        return Objects.hash(getOwner(), this.distance);
+    }
+
+    @objid ("a279e809-6c3d-449c-a9cc-7ec4992ed01d")
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        SatelliteAnchor other = (SatelliteAnchor) obj;
+        return this.distance == other.distance && getOwner()==other.getOwner();
     }
 
 }

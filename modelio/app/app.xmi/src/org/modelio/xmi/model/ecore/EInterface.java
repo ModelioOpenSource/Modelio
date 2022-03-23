@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -48,9 +47,10 @@ public class EInterface extends ENamedElement {
      * @param element : the imported Ecore org.eclipse.uml2.uml.Interface
      */
     @objid ("f7b0430e-6b23-4f82-bf00-4ded415dbec3")
-    public EInterface(final org.eclipse.uml2.uml.Interface element) {
+    public  EInterface(final org.eclipse.uml2.uml.Interface element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("b0958dfa-2907-409f-a99a-8cabc953fae1")
@@ -65,6 +65,7 @@ public class EInterface extends ENamedElement {
             ((Interface) objingElt).setOwner((ModelTree) objingOwner);
         }else
             ((Interface) objingElt).setOwner(ReverseProperties.getInstance().getExternalPackage());
+        
     }
 
     @objid ("e0dd6bcc-3408-40e2-9cc7-4c4708a124cf")
@@ -78,6 +79,7 @@ public class EInterface extends ENamedElement {
         if (ReverseProperties.getInstance().isRoundtripEnabled()) {
             setPrimitiveEAnnotation((Interface) objingElt);
         }
+        
     }
 
     @objid ("bc95b443-af82-4c53-bd6c-d98b025cfb82")

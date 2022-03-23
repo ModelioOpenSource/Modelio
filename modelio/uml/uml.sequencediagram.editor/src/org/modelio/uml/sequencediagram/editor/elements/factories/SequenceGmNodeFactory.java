@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.factories;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -154,9 +153,10 @@ public final class SequenceGmNodeFactory implements IGmNodeFactory {
         private Object initialLayoutData;
 
         @objid ("d989d009-55b6-11e2-877f-002564c97630")
-        public NodeFactoryVisitor(IGmDiagram diagram, Object initialLayoutData) {
+        public  NodeFactoryVisitor(IGmDiagram diagram, Object initialLayoutData) {
             this.diagram = diagram;
             this.initialLayoutData = initialLayoutData;
+            
         }
 
         @objid ("d98b569c-55b6-11e2-877f-002564c97630")
@@ -203,6 +203,7 @@ public final class SequenceGmNodeFactory implements IGmNodeFactory {
                 node.setLayoutData(this.initialLayoutData);
                 return node;
             }
+            
         }
 
         @objid ("d98b56a5-55b6-11e2-877f-002564c97630")

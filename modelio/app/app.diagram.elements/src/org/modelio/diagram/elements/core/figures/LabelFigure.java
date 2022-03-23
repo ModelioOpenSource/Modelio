@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -58,11 +57,11 @@ public class LabelFigure extends Label {
                 graphics.drawLine(p1.x, y, p1.x + textSize.width, y);
             }
         }
+        
     }
 
     /**
      * Set whether the main label is underlined.
-     * 
      * @param underline true to underline the main label
      */
     @objid ("7fa7268b-1dec-11e2-8cad-001ec947c8cc")
@@ -71,11 +70,11 @@ public class LabelFigure extends Label {
             this.underline = underline;
             repaint();
         }
+        
     }
 
     /**
      * Set whether the main label is underlined.
-     * 
      * @param strikeThrough true to strike the label
      */
     @objid ("7fa72690-1dec-11e2-8cad-001ec947c8cc")
@@ -84,6 +83,7 @@ public class LabelFigure extends Label {
             this.strikeThrough = strikeThrough;
             repaint();
         }
+        
     }
 
 }

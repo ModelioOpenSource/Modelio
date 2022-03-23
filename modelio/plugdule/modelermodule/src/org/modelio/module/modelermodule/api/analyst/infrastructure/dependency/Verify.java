@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.analyst.infrastructure.dependency;
 
@@ -49,24 +48,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("844b6b14-0353-4b18-9447-12baf0537b75")
 public class Verify {
-    @objid ("5bde3f01-970c-4845-b958-145251a13367")
+    @objid ("c92f84d7-b3ad-44d2-bc84-36069d17024d")
     public static final String STEREOTYPE_NAME = "verify";
 
     /**
      * The underlying {@link Dependency} represented by this proxy, never null.
      */
-    @objid ("faaa0245-e75d-43a8-b335-ddd4278360e4")
+    @objid ("3f8f116e-0619-41b4-b431-fe9438592ee2")
     protected final Dependency elt;
 
     /**
      * Tells whether a {@link Verify proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << verify >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("5a01c42f-e104-47e0-b76f-6f6f8cdc570a")
+    @objid ("ad761ddf-efca-48c3-953d-dc38afa0ccc9")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Dependency) && ((Dependency) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Verify.STEREOTYPE_NAME));
     }
@@ -76,9 +74,9 @@ public class Verify {
      * 
      * @return a {@link Verify} proxy on the created {@link Dependency}.
      */
-    @objid ("8aa0c6e2-ccf3-460c-9932-e4024effff31")
+    @objid ("8022c009-aa34-44eb-9738-0de6c790b889")
     public static Verify create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Dependency");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Infrastructure.Dependency");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Verify.STEREOTYPE_NAME);
         return Verify.instantiate((Dependency)e);
     }
@@ -90,7 +88,7 @@ public class Verify {
      * @param obj a Dependency
      * @return a {@link Verify} proxy or <i>null</i>.
      */
-    @objid ("98bde775-5f63-45f6-a895-737a5c1a9622")
+    @objid ("6f95b4ff-ab88-4e47-9e15-b120c2b2a1b2")
     public static Verify instantiate(Dependency obj) {
         return Verify.canInstantiate(obj) ? new Verify(obj) : null;
     }
@@ -103,7 +101,7 @@ public class Verify {
      * @return a {@link Verify} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("c406cbe9-c827-4ad0-890c-3eb13dc13be0")
+    @objid ("8ade8b5b-f4a8-42e3-9fca-1bc65acbf04f")
     public static Verify safeInstantiate(Dependency obj) throws IllegalArgumentException {
         if (Verify.canInstantiate(obj))
         	return new Verify(obj);
@@ -111,7 +109,7 @@ public class Verify {
         	throw new IllegalArgumentException("Verify: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("6988292e-383e-41eb-a6bd-b1703d7283e9")
+    @objid ("14ffadab-3fce-485d-a61f-30bd98d87bf6")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -131,46 +129,47 @@ public class Verify {
      * Get the underlying {@link Dependency}. 
      * @return the Dependency represented by this proxy, never null.
      */
-    @objid ("c6755d7d-4017-4633-bf17-8b8b61044042")
+    @objid ("352503e7-f600-4bee-8805-035c845c8539")
     public Dependency getElement() {
         return this.elt;
     }
 
-    @objid ("a109d23d-6c39-45c4-863e-442e78163390")
+    @objid ("ceef32a8-f6ac-4ce0-a642-1979dab8f054")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("34b9d77c-2a24-4b60-89b3-b2944704169a")
-    protected Verify(Dependency elt) {
+    @objid ("e625bd16-95c9-4f48-a3ab-7fdb539d6cbb")
+    protected  Verify(Dependency elt) {
         this.elt = elt;
     }
 
     @objid ("e2805429-a662-4e03-8705-adeea09fdcc7")
     public static final class MdaTypes {
-        @objid ("76d8471e-1c1c-475c-afa6-2bc5ef64231f")
+        @objid ("b8879360-ddff-4976-9431-50fce6911e80")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("c6a13558-8043-489a-893f-cbffc2f31513")
+        @objid ("d998706f-bcf0-4cd4-b847-086847697ccf")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("ea379281-9974-4eb5-8eec-3c48eed338f3")
+        @objid ("f0548d79-63aa-4791-8daa-ff26b153506f")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("1e085f76-c10c-481e-b6c8-6898e31a0d81")
+        @objid ("3e25d593-c393-4d94-9d28-e63c96d85013")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "01ec12fc-0000-0229-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

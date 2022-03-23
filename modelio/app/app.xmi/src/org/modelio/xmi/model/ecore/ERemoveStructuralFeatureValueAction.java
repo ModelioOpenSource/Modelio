@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,9 +40,10 @@ public class ERemoveStructuralFeatureValueAction extends EActivityNode {
     }
 
     @objid ("5800b9d0-70ee-403e-bf06-4384972c8b0b")
-    public ERemoveStructuralFeatureValueAction(org.eclipse.uml2.uml.RemoveStructuralFeatureValueAction element) {
+    public  ERemoveStructuralFeatureValueAction(org.eclipse.uml2.uml.RemoveStructuralFeatureValueAction element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("55d23198-1b78-4959-a863-b612ff3c0099")
@@ -51,6 +51,7 @@ public class ERemoveStructuralFeatureValueAction extends EActivityNode {
     public void setProperties(Element objingElt) {
         super.setProperties(objingElt);
         setFeature((OpaqueAction) objingElt);
+        
     }
 
     @objid ("5a6428e6-073a-4ce2-a255-a165bc303339")
@@ -61,6 +62,7 @@ public class ERemoveStructuralFeatureValueAction extends EActivityNode {
             dependency.setDependsOn((ModelElement) obBehavior);
             dependency.setImpacted(objingElt);
         }
+        
     }
 
 }

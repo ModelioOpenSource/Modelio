@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.text;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -55,14 +54,14 @@ public class MTextCellEditor extends MultiLineTextCellEditor {
 
     /**
      * Create a new multi line text editor.
-     * 
      * @param lineWrap Flag to configure whether the text control should enable automatic line wrap behaviour or not.
      * @param moveSelectionOnEnter Flag to configure whether the selection should move after a value was committed after pressing enter.
      */
     @objid ("15f802c4-3226-414d-8ff8-c0fe16cf222a")
-    public MTextCellEditor(boolean lineWrap, boolean moveSelectionOnEnter) {
+    public  MTextCellEditor(boolean lineWrap, boolean moveSelectionOnEnter) {
         super(lineWrap, moveSelectionOnEnter);
         this.lineWrap = lineWrap;
+        
     }
 
     /**
@@ -157,6 +156,7 @@ public class MTextCellEditor extends MultiLineTextCellEditor {
     public void setLineWrap(boolean lineWrap) {
         super.setLineWrap(lineWrap);
         this.lineWrap = lineWrap;
+        
     }
 
     @objid ("7825ae30-9b31-4ce5-a797-48f89ac1e9aa")

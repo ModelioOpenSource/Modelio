@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.gui.creation.doctype;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,9 +32,10 @@ class AdapterRichNoteType implements IAdaptable {
     private IAdaptable parent;
 
     @objid ("810c6418-2cbc-48c2-b2d2-9b63daf48eb2")
-    public AdapterRichNoteType(ResourceType noteType, IAdaptable parent) {
+    public  AdapterRichNoteType(ResourceType noteType, IAdaptable parent) {
         this.docType = noteType;
         this.parent = parent;
+        
     }
 
     @objid ("0b1311e0-713e-4abd-b36d-84532190b337")
@@ -50,7 +50,6 @@ class AdapterRichNoteType implements IAdaptable {
 
     /**
      * Get accessor for noteType
-     * 
      * @return the document type.
      */
     @objid ("24cd6043-ed71-4be2-8dd5-2695604af250")
@@ -60,7 +59,6 @@ class AdapterRichNoteType implements IAdaptable {
 
     /**
      * Get accessor for parent
-     * 
      * @return the parent node.
      */
     @objid ("7008d1e7-fe57-4435-b703-211e502ccd8e")

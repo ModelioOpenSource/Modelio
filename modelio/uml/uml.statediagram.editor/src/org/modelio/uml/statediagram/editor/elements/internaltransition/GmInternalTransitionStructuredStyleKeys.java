@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.internaltransition;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,16 +30,16 @@ import org.modelio.uml.statediagram.editor.style.StateAbstractStyleKeyProvider;
 @objid ("f5501a7f-55b6-11e2-877f-002564c97630")
 public class GmInternalTransitionStructuredStyleKeys extends StateAbstractStyleKeyProvider {
     @objid ("816ec3fb-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("INTERNALTRANSITION_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("INTERNALTRANSITION_FONT", MetaKey.FONT);
 
     @objid ("816ec3fd-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("INTERNALTRANSITION_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("INTERNALTRANSITION_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("816eeb0a-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("INTERNALTRANSITION_SHOWSTEREOTYPES",
-                                                           MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("INTERNALTRANSITION_SHOWSTEREOTYPES",
+                                                                   MetaKey.SHOWSTEREOTYPES);
 
     @objid ("816eeb0c-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("INTERNALTRANSITION_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("INTERNALTRANSITION_SHOWTAGS", MetaKey.SHOWTAGS);
 
 }

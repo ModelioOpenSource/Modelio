@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,12 +36,14 @@ public class OInterfaceRealization extends OModelElement {
     public org.eclipse.uml2.uml.Element createEcoreElt() {
         return UMLFactory.eINSTANCE
                                         .createInterfaceRealization();
+        
     }
 
     @objid ("386b8299-c6cf-43cf-b9d9-b8e784d9dafa")
-    public OInterfaceRealization(InterfaceRealization element) {
+    public  OInterfaceRealization(InterfaceRealization element) {
         super(element);
         this.objingElement = element;
+        
     }
 
     @objid ("1a3ae940-f2fd-4d18-b38e-de0d1beb4205")
@@ -68,6 +69,7 @@ public class OInterfaceRealization extends OModelElement {
                 ecoreItfReal.setImplementingClassifier(ecoreImplementerNS);
             }
         }
+        
     }
 
     @objid ("f8875d77-c6e2-4968-888a-46c3b8f5ef96")

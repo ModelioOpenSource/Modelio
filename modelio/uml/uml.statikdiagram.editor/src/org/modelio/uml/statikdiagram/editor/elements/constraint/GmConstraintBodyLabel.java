@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.constraint;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -52,18 +51,17 @@ public class GmConstraintBodyLabel extends GmDefaultModelElementHeader {
      * Empty c'tor for deserialisation.
      */
     @objid ("811d77ce-1dec-11e2-8cad-001ec947c8cc")
-    public GmConstraintBodyLabel() {
+    public  GmConstraintBodyLabel() {
         super();
     }
 
     /**
      * C'tor.
-     * 
      * @param diagram the diagram in which this gm is created.
      * @param relatedRef a reference to the represented constraint. Must NOT be null.
      */
     @objid ("811d77d1-1dec-11e2-8cad-001ec947c8cc")
-    public GmConstraintBodyLabel(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmConstraintBodyLabel(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -96,6 +94,7 @@ public class GmConstraintBodyLabel extends GmDefaultModelElementHeader {
             break;
         }
         }
+        
     }
 
     @objid ("811fd9f4-1dec-11e2-8cad-001ec947c8cc")
@@ -105,6 +104,7 @@ public class GmConstraintBodyLabel extends GmDefaultModelElementHeader {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmConstraintBodyLabel.", GmConstraintBodyLabel.MINOR_VERSION);
+        
     }
 
     @objid ("811fd9f8-1dec-11e2-8cad-001ec947c8cc")
@@ -132,6 +132,7 @@ public class GmConstraintBodyLabel extends GmDefaultModelElementHeader {
                                                                         GmConstraintBodyLabel.this.getRelatedElement().setBody(text);
                                                                                     }
                                                                                 };
+        
     }
 
 }

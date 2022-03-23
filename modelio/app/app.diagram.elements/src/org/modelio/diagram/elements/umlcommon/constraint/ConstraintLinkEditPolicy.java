@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.umlcommon.constraint;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,11 +40,10 @@ public class ConstraintLinkEditPolicy extends MultiPointCreationEditPolicy {
      * C'tor.
      * @see MultiPointCreationEditPolicy#MultiPointCreationEditPolicy(boolean) for details on the effect of isOpaque
      * parameter.
-     * 
      * @param isOpaque whether this policy is opaque or not.
      */
     @objid ("811650b1-1dec-11e2-8cad-001ec947c8cc")
-    public ConstraintLinkEditPolicy(final boolean isOpaque) {
+    public  ConstraintLinkEditPolicy(final boolean isOpaque) {
         super(isOpaque);
     }
 
@@ -58,6 +56,7 @@ public class ConstraintLinkEditPolicy extends MultiPointCreationEditPolicy {
         } else {
             return null;
         }
+        
     }
 
     @objid ("811650be-1dec-11e2-8cad-001ec947c8cc")
@@ -85,6 +84,7 @@ public class ConstraintLinkEditPolicy extends MultiPointCreationEditPolicy {
         } else {
             return null;
         }
+        
     }
 
     @objid ("2385bd26-76db-4555-b484-51329b54398d")

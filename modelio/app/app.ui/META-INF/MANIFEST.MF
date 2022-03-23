@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Ui
 Bundle-SymbolicName: org.modelio.app.ui;singleton:=true
-Bundle-Version: 4.1.0.qualifier
+Bundle-Version: 5.1.0.qualifier
 Bundle-ClassPath: .,
  res/,
  css/
@@ -10,6 +10,7 @@ Bundle-Activator: org.modelio.app.ui.plugin.AppUi
 Bundle-Vendor: modelio.org
 Bundle-Localization: plugin
 Export-Package: org.modelio.app.ui,
+ org.modelio.app.ui.env,
  org.modelio.app.ui.login,
  org.modelio.app.ui.persp,
  org.modelio.app.ui.plugin,

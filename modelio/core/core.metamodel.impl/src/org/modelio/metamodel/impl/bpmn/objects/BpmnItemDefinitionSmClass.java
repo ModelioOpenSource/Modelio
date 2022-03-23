@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.objects;
 
 import java.util.ArrayList;
@@ -35,8 +35,6 @@ import org.modelio.metamodel.bpmn.objects.BpmnItemKind;
 import org.modelio.metamodel.bpmn.resources.BpmnResourceParameter;
 import org.modelio.metamodel.bpmn.rootElements.BpmnSharedElement;
 import org.modelio.metamodel.impl.bpmn.flows.BpmnMessageSmClass;
-import org.modelio.metamodel.impl.bpmn.objects.BpmnItemAwareElementSmClass;
-import org.modelio.metamodel.impl.bpmn.objects.BpmnItemDefinitionData;
 import org.modelio.metamodel.impl.bpmn.resources.BpmnResourceParameterSmClass;
 import org.modelio.metamodel.impl.bpmn.rootElements.BpmnSharedElementSmClass;
 import org.modelio.vbasic.version.Version;
@@ -69,7 +67,7 @@ public class BpmnItemDefinitionSmClass extends BpmnSharedElementSmClass {
     private SmDependency typedResourceParameterDep;
 
     @objid ("30659a64-1221-4419-95a0-970a5cb55b59")
-    public BpmnItemDefinitionSmClass(ISmMetamodelFragment origin) {
+    public  BpmnItemDefinitionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -77,6 +75,7 @@ public class BpmnItemDefinitionSmClass extends BpmnSharedElementSmClass {
     @Override
     public String getName() {
         return "BpmnItemDefinition";
+        
     }
 
     @objid ("5897cdd5-800b-4e15-84a1-ccdc936b4d4d")
@@ -89,18 +88,21 @@ public class BpmnItemDefinitionSmClass extends BpmnSharedElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnItemDefinition.class;
+        
     }
 
     @objid ("fc5f89ef-26be-44da-af9b-bb2a20b7362d")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("7e3e723c-c44c-4855-9986-4edfb16f9f39")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("a6857982-5433-41d3-8c06-da07a937b6a5")
@@ -132,6 +134,8 @@ public class BpmnItemDefinitionSmClass extends BpmnSharedElementSmClass {
         this.typedResourceParameterDep = new TypedResourceParameterSmDependency();
         this.typedResourceParameterDep.init("TypedResourceParameter", this, metamodel.getMClass(BpmnResourceParameter.MQNAME), 0, -1 );
         registerDependency(this.typedResourceParameterDep);
+        
+        
     }
 
     @objid ("6a06a216-784d-4f99-bff9-3db8759523e5")
@@ -180,7 +184,7 @@ public class BpmnItemDefinitionSmClass extends BpmnSharedElementSmClass {
         private BpmnItemDefinitionSmClass smClass;
 
         @objid ("3b710e7e-8ba1-470a-bd3a-6183cfdb48e6")
-        public BpmnItemDefinitionObjectFactory(BpmnItemDefinitionSmClass smClass) {
+        public  BpmnItemDefinitionObjectFactory(BpmnItemDefinitionSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -241,6 +245,7 @@ public class BpmnItemDefinitionSmClass extends BpmnSharedElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnItemDefinitionData) data).mTypedMessage = values;
+            
         }
 
         @objid ("aabed385-55ea-4276-bb9e-89528d4ba5f8")
@@ -250,6 +255,7 @@ public class BpmnItemDefinitionSmClass extends BpmnSharedElementSmClass {
             	this.symetricDep = ((BpmnMessageSmClass)this.getTarget()).getItemRefDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -269,6 +275,7 @@ public class BpmnItemDefinitionSmClass extends BpmnSharedElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnItemDefinitionData) data).mTypedItem = values;
+            
         }
 
         @objid ("ef7aee5a-560e-4395-b7d7-42415f06f0b9")
@@ -278,6 +285,7 @@ public class BpmnItemDefinitionSmClass extends BpmnSharedElementSmClass {
             	this.symetricDep = ((BpmnItemAwareElementSmClass)this.getTarget()).getItemSubjectRefDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -297,6 +305,7 @@ public class BpmnItemDefinitionSmClass extends BpmnSharedElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnItemDefinitionData) data).mTypedResourceParameter = values;
+            
         }
 
         @objid ("83ede203-00c8-4267-99c2-9f3a9b84567a")
@@ -306,6 +315,7 @@ public class BpmnItemDefinitionSmClass extends BpmnSharedElementSmClass {
             	this.symetricDep = ((BpmnResourceParameterSmClass)this.getTarget()).getTypeDep();
             }
             return this.symetricDep;
+            
         }
 
     }

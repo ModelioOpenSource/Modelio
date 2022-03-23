@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.gui.handler;
 
 import java.io.IOException;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.core.di.annotations.Optional;
@@ -56,7 +55,9 @@ public class AddDocumentHandler {
 
     @objid ("90c10778-0498-49c4-8fa1-5077685e59c9")
     @Execute
-    void execute(@Optional @Named(IServiceConstants.ACTIVE_SHELL) Shell parentShell, @Optional @Named(IServiceConstants.ACTIVE_SELECTION) IStructuredSelection selection, @Optional IActivationService activationService, @Optional IMModelServices modelServices) {
+    void execute(@Optional
+    @Named(IServiceConstants.ACTIVE_SHELL) Shell parentShell, @Optional
+    @Named(IServiceConstants.ACTIVE_SELECTION) IStructuredSelection selection, @Optional IActivationService activationService, @Optional IMModelServices modelServices) {
         ModelElement currentElement = SelectionHelper.getFirst(selection, ModelElement.class);
         
         try {
@@ -67,6 +68,7 @@ public class AddDocumentHandler {
         } catch (IllegalArgumentException | IOException e) {
             reportException(e, parentShell);
         }
+        
     }
 
     /**
@@ -79,6 +81,7 @@ public class AddDocumentHandler {
         String title = EditorsRichNote.I18N.getMessage("CannotInitializeRichNoteContent");
         String message = e instanceof IOException ? FileUtils.getLocalizedMessage((IOException) e) : e.getLocalizedMessage();
         MessageDialog.openWarning(parentShell, title, message);
+        
     }
 
 }

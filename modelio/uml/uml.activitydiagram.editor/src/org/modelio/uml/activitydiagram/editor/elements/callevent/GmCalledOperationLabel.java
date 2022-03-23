@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.callevent;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,18 +45,17 @@ public class GmCalledOperationLabel extends GmElementLabel {
      * Empty c'tor for deserialisation.
      */
     @objid ("29c44118-55b6-11e2-877f-002564c97630")
-    public GmCalledOperationLabel() {
+    public  GmCalledOperationLabel() {
         // Nothing to do.
     }
 
     /**
      * C'tor.
-     * 
      * @param diagram the diagram.
      * @param relatedRef ref to the related AcceptCallEventAction
      */
     @objid ("29c4411b-55b6-11e2-877f-002564c97630")
-    public GmCalledOperationLabel(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmCalledOperationLabel(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -94,6 +92,7 @@ public class GmCalledOperationLabel extends GmElementLabel {
             break;
         }
         }
+        
     }
 
     @objid ("29c44132-55b6-11e2-877f-002564c97630")
@@ -103,6 +102,7 @@ public class GmCalledOperationLabel extends GmElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmCalledOperationLabel.", GmCalledOperationLabel.MINOR_VERSION);
+        
     }
 
     @objid ("29c5c79c-55b6-11e2-877f-002564c97630")

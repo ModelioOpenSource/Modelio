@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.update.preferences;
 
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.jface.preference.FieldEditorPreferencePage;
 import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.jface.util.PropertyChangeEvent;
@@ -36,9 +35,10 @@ public class UpdatePreferencesPage extends FieldEditorPreferencePage {
 
     @objid ("ef069461-90d9-477c-b7e2-36f3a3bf387b")
     @Inject
-    public UpdatePreferencesPage() {
+    public  UpdatePreferencesPage() {
         super(FieldEditorPreferencePage.GRID);
         init();
+        
     }
 
     @objid ("b7cf49cc-7500-4cc5-ad9b-bd43e5862cd6")
@@ -46,6 +46,7 @@ public class UpdatePreferencesPage extends FieldEditorPreferencePage {
     public void createFieldEditors() {
         this.updateSiteField = new StringFieldEditor(AppSharedPreferencesKeys.UPDATESITE_PREFKEY, AppUpdateExt.I18N.getString("UpdatePrefPage.UpdateSite.label"), getFieldEditorParent());
         addField(this.updateSiteField);
+        
     }
 
     @objid ("ea9495ef-af74-4e07-b255-b1170f628ccd")

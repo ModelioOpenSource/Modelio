@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.deephistory;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,12 +50,11 @@ public class GmDeepHistoryPrimaryNode extends GmNoStyleSimpleNode implements IIm
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the element is unmasked.
      * @param relatedRef related element reference, must not be <code>null</code>.
      */
     @objid ("f5086315-55b6-11e2-877f-002564c97630")
-    public GmDeepHistoryPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
+    public  GmDeepHistoryPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -74,6 +72,7 @@ public class GmDeepHistoryPrimaryNode extends GmNoStyleSimpleNode implements IIm
         }
         // forcing visual refresh in case Image changed 
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("f5086328-55b6-11e2-877f-002564c97630")
@@ -116,13 +115,14 @@ public class GmDeepHistoryPrimaryNode extends GmNoStyleSimpleNode implements IIm
                                                                                     }
                                                                         
                                                                                 };
+        
     }
 
     /**
      * Constructor for deserialization only.
      */
     @objid ("f509e9b3-55b6-11e2-877f-002564c97630")
-    public GmDeepHistoryPrimaryNode() {
+    public  GmDeepHistoryPrimaryNode() {
         // empty for the serialization
     }
 
@@ -143,6 +143,7 @@ public class GmDeepHistoryPrimaryNode extends GmNoStyleSimpleNode implements IIm
             break;
         }
         }
+        
     }
 
     @objid ("f509e9bc-55b6-11e2-877f-002564c97630")
@@ -152,6 +153,7 @@ public class GmDeepHistoryPrimaryNode extends GmNoStyleSimpleNode implements IIm
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmDeepHistoryPrimaryNode.", GmDeepHistoryPrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("f509e9c2-55b6-11e2-877f-002564c97630")

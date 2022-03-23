@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.module.modelermodule.command;
 
 import java.util.List;
@@ -38,6 +37,7 @@ public class OpenDocument extends DefaultModuleCommandHandler {
         for (MObject selectedElement : selectedElements) {
             ModelerModuleModule.getInstance().getModuleContext().getModelioServices().getEditionService().openEditor((Artifact) selectedElement);
         }
+        
     }
 
     /**

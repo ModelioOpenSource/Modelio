@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.handlers;
 
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.core.di.annotations.Optional;
@@ -34,12 +33,12 @@ public class SwitchBrowserType {
      * For some obscure reason the execute method is called twice when changing
      * the model => check for a real model change before doing anything
      * @param part
-     * 
      * @param type @return
      */
     @objid ("001c147a-0d4f-10c6-842f-001ec947cd2a")
     @Execute
-    public Object execute(MPart part, @Optional @Named("type") final String type) {
+    public Object execute(MPart part, @Optional
+    @Named("type") final String type) {
         final DiagramBrowserView browserView = (DiagramBrowserView) part.getObject();
         browserView.getComposite().switchBrowserModel(type);
         return null;

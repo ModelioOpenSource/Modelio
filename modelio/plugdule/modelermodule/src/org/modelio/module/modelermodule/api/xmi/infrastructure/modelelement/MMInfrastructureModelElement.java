@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.infrastructure.modelelement;
 
@@ -49,30 +48,29 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("06737fde-4734-439e-9e34-e3d7d7d6b636")
 public class MMInfrastructureModelElement {
-    @objid ("3755db7a-3452-4585-919f-f08eeee261c9")
+    @objid ("5a7069d5-876e-4832-99de-aa53b61ae807")
     public static final String ECOREID_TAGTYPE = "EcoreId";
 
-    @objid ("e6c2248d-a578-417e-bb81-acd9b6a21369")
+    @objid ("52989513-61d4-4f86-ae53-2f4b2cf904bd")
     public static final String NOTEXPORTED_TAGTYPE = "NotExported";
 
-    @objid ("220526cc-48f9-422c-9d1b-a57c7fa8ef2d")
+    @objid ("6d82f460-382f-421b-88ce-cd98708e0de9")
     public static final String XMIIMPORTED_TAGTYPE = "XMIImported";
 
     /**
      * The underlying {@link ModelElement} represented by this proxy, never null.
      */
-    @objid ("152c9c39-7d58-4306-bb49-0bb9579b7b40")
+    @objid ("dd819d08-2d34-4b8b-a52b-66b327f65b41")
     protected final ModelElement elt;
 
     /**
      * Tells whether a {@link MMInfrastructureModelElement proxy} can be instantiated from a {@link MObject} checking it is a {@link ModelElement}.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("759dd281-cbb4-4d09-9465-086fb2e8c379")
+    @objid ("3d441db4-8024-4ddc-8bb3-0846d7dbed7f")
     public static boolean canInstantiate(MObject elt) {
         return (elt instanceof ModelElement);
     }
@@ -84,12 +82,12 @@ public class MMInfrastructureModelElement {
      * @param obj a ModelElement
      * @return a {@link MMInfrastructureModelElement} proxy or <i>null</i>.
      */
-    @objid ("f5ba6472-97c8-466a-88a9-73bb664a72c3")
+    @objid ("ae390659-6bad-441b-bf56-78fceae78708")
     public static MMInfrastructureModelElement instantiate(ModelElement obj) {
         return MMInfrastructureModelElement.canInstantiate(obj) ? new MMInfrastructureModelElement(obj) : null;
     }
 
-    @objid ("21d40012-1fc3-4a97-a47e-06c5cec7312c")
+    @objid ("4afe0313-e364-46ec-adf0-776cde38d508")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -110,7 +108,7 @@ public class MMInfrastructureModelElement {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("f961c76c-15b1-45e9-8ae0-1119bdf7f93b")
+    @objid ("e9c9505d-bf71-4f6e-a415-f65ec973e9ab")
     public String getEcoreId() {
         return this.elt.getTagValue(MMInfrastructureModelElement.MdaTypes.ECOREID_TAGTYPE_ELT);
     }
@@ -119,15 +117,16 @@ public class MMInfrastructureModelElement {
      * Get the underlying {@link ModelElement}. 
      * @return the ModelElement represented by this proxy, never null.
      */
-    @objid ("34b352f1-4bdb-4f38-a6ca-c2653d08379a")
+    @objid ("d6db2c02-9fbd-4f0d-8b26-263bee6158e3")
     public ModelElement getElement() {
         return this.elt;
     }
 
-    @objid ("ccd9efd7-f6b9-41bc-ab8a-e24c454b7e6e")
+    @objid ("1fd3ac69-be0c-4bac-9fa3-4693b9fa1856")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
     /**
@@ -135,7 +134,7 @@ public class MMInfrastructureModelElement {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("b7c38f53-e877-43cf-ae0a-a240665a11cb")
+    @objid ("e80a155b-813a-4296-a8a6-1225aac26dc3")
     public boolean isNotExported() {
         return this.elt.isTagged(MMInfrastructureModelElement.MdaTypes.NOTEXPORTED_TAGTYPE_ELT);
     }
@@ -145,7 +144,7 @@ public class MMInfrastructureModelElement {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("91e1d012-f179-4a8c-990d-85e04b098a9f")
+    @objid ("a5388e80-0157-4135-9f62-dd8bd420f0d7")
     public boolean isXMIImported() {
         return this.elt.isTagged(MMInfrastructureModelElement.MdaTypes.XMIIMPORTED_TAGTYPE_ELT);
     }
@@ -155,7 +154,7 @@ public class MMInfrastructureModelElement {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("b364bcc4-e91f-41c5-9bac-d6ddcde32220")
+    @objid ("150cb156-d340-4610-9e4e-b2e22ad0998e")
     public void setEcoreId(String value) {
         this.elt.putTagValue(MMInfrastructureModelElement.MdaTypes.ECOREID_TAGTYPE_ELT, value);
     }
@@ -165,7 +164,7 @@ public class MMInfrastructureModelElement {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("0e76518f-3d48-49a3-9146-609fa55a6b33")
+    @objid ("bee9ee36-aa3c-4d4c-8964-d00110c4163e")
     public void setNotExported(boolean value) {
         if (value)
           ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createTaggedValue(MMInfrastructureModelElement.MdaTypes.NOTEXPORTED_TAGTYPE_ELT, this.elt);
@@ -178,7 +177,7 @@ public class MMInfrastructureModelElement {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("2d3faec4-3e98-4ad1-8e2c-b2fdc57ac6dd")
+    @objid ("004b7013-259d-43cc-90f1-ca33539e95c4")
     public void setXMIImported(boolean value) {
         if (value)
           ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createTaggedValue(MMInfrastructureModelElement.MdaTypes.XMIIMPORTED_TAGTYPE_ELT, this.elt);
@@ -186,43 +185,43 @@ public class MMInfrastructureModelElement {
           this.elt.removeTags(MMInfrastructureModelElement.MdaTypes.XMIIMPORTED_TAGTYPE_ELT);
     }
 
-    @objid ("24c4efcd-9e83-4f53-8562-65ad11560572")
-    protected MMInfrastructureModelElement(ModelElement elt) {
+    @objid ("fb5526cb-7b43-4bea-9b94-f502a8da9dbc")
+    protected  MMInfrastructureModelElement(ModelElement elt) {
         this.elt = elt;
     }
 
     @objid ("5c553672-3a15-4523-b622-8c4014f6e963")
     public static final class MdaTypes {
-        @objid ("37836774-91e9-4cc4-a38f-608e9636b74b")
+        @objid ("7102c44a-c14d-472f-ab35-f3984106ff95")
         public static TagType XMIIMPORTED_TAGTYPE_ELT;
 
-        @objid ("38395507-a649-489d-9cb6-4db6f8962efb")
+        @objid ("dc59db5c-1b4d-4e35-b1dd-362a7d671831")
         public static TagType NOTEXPORTED_TAGTYPE_ELT;
 
-        @objid ("48c79b33-4df9-4111-851d-afa65c0f4f32")
+        @objid ("87ba151e-869f-4423-bbd7-a25cb1dbd0e1")
         public static TagType ECOREID_TAGTYPE_ELT;
 
-        @objid ("d8fdb948-ff76-4961-becf-9aa24eaee78a")
+        @objid ("16cc69a8-9130-46f1-8818-9034e086d014")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("c7f41e22-2f4f-4f24-ac40-33a3fb109361")
+        @objid ("378d175b-3861-4a61-92e2-6e943bc5b0d0")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("e66c5af4-38be-4038-9016-4278cb91630f")
+        @objid ("90bc4775-d4d9-48aa-8144-27369720a14d")
         public static void init(IModuleContext ctx) {
             XMIIMPORTED_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "01ec045c-0000-373f-0000-000000000000");
             NOTEXPORTED_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "1cbf4295-9bcf-11e0-8162-0027103f347c");
             ECOREID_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "46e094c2-6889-11e1-905a-0027103f347d");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

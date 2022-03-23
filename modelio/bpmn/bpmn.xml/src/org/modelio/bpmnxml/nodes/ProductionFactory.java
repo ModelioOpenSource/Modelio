@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -204,6 +203,7 @@ public class ProductionFactory {
             BPMNXml.LOG.debug("[Missing Case] " + jaxbElement.getClass().getSimpleName());
             return null;
         }
+        
     }
 
     @objid ("5f57657d-d8ce-4d7c-9b3d-7106a40e56b1")
@@ -218,6 +218,7 @@ public class ProductionFactory {
         default:
             return null;
         }
+        
     }
 
     @objid ("9afdc315-3cd3-4ce9-80c2-367f80b55d80")
@@ -234,6 +235,7 @@ public class ProductionFactory {
         default:
             return null;
         }
+        
     }
 
     @objid ("5dcc2904-7e79-416a-ba9f-627b1d12b3a2")
@@ -360,6 +362,7 @@ public class ProductionFactory {
             BPMNXml.LOG.debug("[Missing Case] " + modelioElement.getClass().getSimpleName());
             return null;
         }
+        
     }
 
 }

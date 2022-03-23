@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.abstractdiagram;
 
 import java.util.List;
@@ -53,18 +52,18 @@ public class CreateConstraintCommand extends Command {
 
     /**
      * Creates a constraint creation command.
-     * 
      * @param sourceModels The models that are to be linked to the created constraint.
      * @param parentNode The parent node unmasking the "body" of the constraint.
      * @param context Details on the MObject and/or the node to create
      * @param constraint The initial constraint of the created node.
      */
     @objid ("7e0d1204-1dec-11e2-8cad-001ec947c8cc")
-    public CreateConstraintCommand(final List<GmModel> sourceModels, final GmCompositeNode parentNode, final ModelioLinkCreationContext context, final Object constraint) {
+    public  CreateConstraintCommand(final List<GmModel> sourceModels, final GmCompositeNode parentNode, final ModelioLinkCreationContext context, final Object constraint) {
         this.sourceModels = sourceModels;
         this.parentNode = parentNode;
         this.context = context;
         this.constraint = constraint;
+        
     }
 
     @objid ("7e0d1211-1dec-11e2-8cad-001ec947c8cc")
@@ -110,6 +109,7 @@ public class CreateConstraintCommand extends Command {
         
         // Show the new element in the diagram (ie create its Gm )
         diagram.unmask(this.parentNode, newElement, this.constraint);
+        
     }
 
 }

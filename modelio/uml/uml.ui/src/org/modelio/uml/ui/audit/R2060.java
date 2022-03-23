@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.audit;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.audit.engine.core.AbstractControl;
 import org.modelio.audit.engine.core.AbstractRule;
@@ -99,6 +98,7 @@ public class R2060 extends AbstractUmlRule {
         plan.registerRule(UseCase.MQNAME, this, AuditTrigger.CREATE | AuditTrigger.UPDATE | AuditTrigger.MOVE);
         plan.registerRule(Node.MQNAME, this, AuditTrigger.CREATE | AuditTrigger.UPDATE | AuditTrigger.MOVE);
         plan.registerRule(Component.MQNAME, this, AuditTrigger.CREATE | AuditTrigger.UPDATE | AuditTrigger.MOVE);
+        
     }
 
     /**
@@ -132,14 +132,14 @@ public class R2060 extends AbstractUmlRule {
      * Default constructor for R2060
      */
     @objid ("8e4e63b4-86be-4c5a-bdb8-8e316dff193d")
-    public R2060() {
+    public  R2060() {
         this.checkerInstance = new CheckR2060(this);
     }
 
     @objid ("50035a57-7fe9-497b-805f-993817100504")
     private static class CheckR2060 extends AbstractControl {
         @objid ("20ee36eb-22ab-4db3-8b89-dda859d9e6d6")
-        public CheckR2060(IRule rule) {
+        public  CheckR2060(IRule rule) {
             super(rule);
         }
 

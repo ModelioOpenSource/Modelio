@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.api.tools;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -58,7 +57,7 @@ public class BoxTool extends CreationTool {
      * C'tor, used by platform to instantiate the tool by reflexion.
      */
     @objid ("6f93d935-c8eb-47f1-8c78-0104ccd2683f")
-    public BoxTool() {
+    public  BoxTool() {
         this.boxCommand = null;
     }
 
@@ -75,6 +74,7 @@ public class BoxTool extends CreationTool {
                         return false;
                     }
                 };
+        
     }
 
     @objid ("d7a6b122-d81d-41ae-ac0e-6493aff4bad9")
@@ -105,6 +105,7 @@ public class BoxTool extends CreationTool {
         this.boxCommand.actionPerformed(this.diagramHandle, dg, rect);
         
         setCurrentCommand(null);
+        
     }
 
     @objid ("986d25a0-fee5-4f66-a2ed-e65b7090dd16")
@@ -117,13 +118,13 @@ public class BoxTool extends CreationTool {
             return;
         }
         super.applyProperty(key, value);
+        
     }
 
     /**
      * Updates the target editpart and returns <code>true</code> if the target changes. The target is updated by using
      * the target conditional and the target request. If the target has been locked, this method does nothing and
      * returns <code>false</code>.
-     * 
      * @return <code>true</code> if the target was changed
      */
     @objid ("7cde64c4-a7aa-4172-b97c-1bb48a228437")
@@ -147,6 +148,7 @@ public class BoxTool extends CreationTool {
         } else {
             return false;
         }
+        
     }
 
     @objid ("7eb9a6ac-bbde-4660-9fd5-1651c8bde123")
@@ -175,6 +177,7 @@ public class BoxTool extends CreationTool {
         
             this.diagramHandle = DiagramHandle.create(editor, true);
         }
+        
     }
 
     @objid ("2bc687cd-06bc-41a4-bdf3-dce6360ba6e8")
@@ -185,6 +188,7 @@ public class BoxTool extends CreationTool {
             this.diagramHandle.close();
             this.diagramHandle = null;
         }
+        
     }
 
     @objid ("d3a515ba-1ca0-4e82-b2c9-19f720af7eab")
@@ -193,6 +197,7 @@ public class BoxTool extends CreationTool {
         if (getTargetEditPart() != null) {
             super.enforceConstraintsForSizeOnDropCreate(request);
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.emf;
 
 import java.util.List;
@@ -46,14 +45,14 @@ public class MContentListView extends AbstractSequentialInternalEList<EObject> i
 
     /**
      * Initialize the iterator.
-     * 
      * @param obj the object to scan
      * @param deps the dependencies to scan.
      */
     @objid ("23450ed7-bfa4-11e1-b511-001ec947ccaf")
-    public MContentListView(SmObjectImpl obj, List<SmDependency> deps) {
+    public  MContentListView(SmObjectImpl obj, List<SmDependency> deps) {
         this.obj = obj;
         this.deps = deps;
+        
     }
 
     @objid ("23450ede-bfa4-11e1-b511-001ec947ccaf")

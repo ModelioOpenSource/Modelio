@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -25,10 +24,23 @@ import org.eclipse.draw2d.geometry.Insets;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.swt.graphics.Path;
 
+/**
+ * Interface used by {@link ShapedFigure} to get its {@link Path} from its bounds.
+ * <p>
+ * <h1>Beware</h1>
+ * The created {@link Path} must be disposed when not used anymore.
+ */
 @objid ("7fa7266e-1dec-11e2-8cad-001ec947c8cc")
 public interface IShaper {
+    /**
+     * Create a SWT Path fitting the given rectangle.
+     * <p>
+     * The returned Path must be disposed when not used anymore.
+     * @param rect the bounds the created path must fit.
+     * @return the created SWT path.
+     */
     @objid ("7fa7266f-1dec-11e2-8cad-001ec947c8cc")
-    Path getShapePath(Rectangle rect);
+    Path createShapePath(Rectangle rect);
 
     @objid ("7fa72674-1dec-11e2-8cad-001ec947c8cc")
     Insets getShapeInsets(Rectangle rect);

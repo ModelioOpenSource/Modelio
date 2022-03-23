@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.contributions;
 
 import java.io.IOException;
@@ -71,13 +70,12 @@ public class ContributionReader {
      * @param module the module being loaded.
      */
     @objid ("c05fee6a-cbac-4f81-a2ce-42b2bc598a42")
-    public ContributionReader(final IRTModule module) {
+    public  ContributionReader(final IRTModule module) {
         this.module = module;
     }
 
     /**
      * Reads {@link Jxbv2Scope} as {@link ElementScope}.
-     * 
      * @param scopes the scopes to read
      * @return the read scopes.
      */
@@ -111,7 +109,6 @@ public class ContributionReader {
      * <li><i>module regex<b>#</b>stereotype name</i>
      * <li><i>module regex<b>#</b>stereotype regex</i>
      * </ul>
-     * 
      * @param metaclass the metaclass to look from
      * @param stereotypeSpec the stereotype specification
      * @return the found stereotype or null.
@@ -135,18 +132,18 @@ public class ContributionReader {
                     .getMetamodelExtensions()
                     .getStereotype(stereotypeSpec, metaclass);
         }
+        
     }
 
     /**
      * Instantiate a handler from a verb or a class name.
-     * 
      * @param contributionType the contribution element type to look for in the extensions
      * registry. See the {@value #HANDLER_PROVIDER_EXTENSION_ID}
      * extension point schema for valid values.
      * @param verb the verb or the class name
      * @param handlerInterface the interface the handler is expected to implement.
      * @return the found handler
-     * @throws java.io.IOException if instantiation failed.
+     * @throws IOException if instantiation failed.
      */
     @objid ("9b7da7a4-402c-4995-b52c-9de997990b8f")
     public <T> T createHandler(final String contributionType, final String verb, final Class<T> handlerInterface) throws IOException {
@@ -182,6 +179,7 @@ public class ContributionReader {
         
             throw new IOException(msg, e);
         }
+        
     }
 
     @objid ("e89777c7-59ad-47d1-b9e0-81df3ee64da2")
@@ -207,11 +205,11 @@ public class ContributionReader {
         } catch (final RuntimeException e) {
             throw new IOException(e.toString(), e);
         }
+        
     }
 
     /**
      * Converts a list of {@link Jxbv2HParameter} to a String map.
-     * 
      * @param hParameter the JAXB handler parameters
      * @return the string parameters map.
      */

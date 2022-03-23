@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.element.multi;
 
 import java.util.List;
@@ -48,11 +47,10 @@ public class MultiElementValueEditor extends AbstractCellEditor {
 
     /**
      * Build a new editor.
-     * 
      * @param session a model session, needed to look for elements.
      */
     @objid ("1fba6f04-4a81-4268-a9fe-b75ee9f3a7b9")
-    public MultiElementValueEditor(ICoreSession session) {
+    public  MultiElementValueEditor(ICoreSession session) {
         this.session = session;
     }
 
@@ -61,6 +59,7 @@ public class MultiElementValueEditor extends AbstractCellEditor {
     public void close() {
         super.close();
         this.selectElementsPanel.dispose();
+        
     }
 
     @objid ("e863fe2a-238c-48b4-a4e0-31f2da86a187")

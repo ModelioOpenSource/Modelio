@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -71,11 +70,12 @@ public final class ProjectConfigurationDialog extends ModelioDialog {
     protected TabFolder tabFolder;
 
     @objid ("a7410968-33f6-11e2-a514-002564c97630")
-    public ProjectConfigurationDialog(final MApplication application, final GProject openedProject, final Shell parentShell) {
+    public  ProjectConfigurationDialog(final MApplication application, final GProject openedProject, final Shell parentShell) {
         super(parentShell);
         this.application = application;
         this.model = new ProjectModel(openedProject);
         this.toolkit = new FormToolkit(parentShell.getDisplay());
+        
     }
 
     @objid ("a741096d-33f6-11e2-a514-002564c97630")
@@ -106,6 +106,7 @@ public final class ProjectConfigurationDialog extends ModelioDialog {
         getShell().setText(AppProjectConf.I18N.getString("ProjectConfiguration.BoxTitle")); //$NON-NLS-1$
         setTitle(AppProjectConf.I18N.getString("ProjectConfiguration.Title")); //$NON-NLS-1$
         setMessage(AppProjectConf.I18N.getString("ProjectConfiguration.Subtitle")); //$NON-NLS-1$
+        
     }
 
     @objid ("a7410977-33f6-11e2-a514-002564c97630")
@@ -119,12 +120,12 @@ public final class ProjectConfigurationDialog extends ModelioDialog {
         for (final IConfigurationElement e : new ExtensionPointContributionManager(ProjectConfigurationDialog.CONFPAGE_EXTENSION_ID).getExtensions("confpage")) {
             parseConfPage(this, e);
         }
+        
     }
 
     /**
      * Select a specific page in the project configurator.
      * See constants for available page names.
-     * 
      * @param page the page to select.
      */
     @objid ("ae61a48e-4381-11e2-b513-002564c97630")
@@ -153,6 +154,7 @@ public final class ProjectConfigurationDialog extends ModelioDialog {
         } catch (final CoreException | NoClassDefFoundError e) {
             AppProjectConf.LOG.error(e);
         }
+        
     }
 
     @objid ("d838070f-b8f3-4e34-8176-7446b4ae5d91")
@@ -166,6 +168,7 @@ public final class ProjectConfigurationDialog extends ModelioDialog {
         if (name.equals(this.pageToSelect)) {
             this.tabFolder.setSelection(tabItem);
         }
+        
     }
 
     @objid ("5aa0afb4-6d15-4926-847c-62d2aba7e950")

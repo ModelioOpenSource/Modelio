@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta.descriptor;
 
 import java.io.Serializable;
@@ -36,35 +35,37 @@ import org.modelio.vcore.smkernel.mapi.MClass;
  */
 @objid ("a662396e-03f3-44a4-8fb3-57f91ae6acc1")
 public class MClassRef implements Serializable {
+    
     @mdl.prop
     @objid ("bbe7b040-741a-4041-a537-674317e59fbc")
-    private String className;
+    public String className;
 
     @mdl.propgetter
     public String getClassName() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.className;
     }
 
     @mdl.propsetter
     public void setClassName(String value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.className = value;
     }
 
+    
     @mdl.prop
     @objid ("9bf77ac5-3de5-4762-81b4-b56065a60216")
-    private String fragmentName;
+    public String fragmentName;
 
     @mdl.propgetter
     public String getFragmentName() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.fragmentName;
     }
 
     @mdl.propsetter
     public void setFragmentName(String value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.fragmentName = value;
     }
 
@@ -76,9 +77,10 @@ public class MClassRef implements Serializable {
      * @param mClassName the metaclass name
      */
     @objid ("1d39f7d4-fad0-4bb1-82af-5bd5c34e587b")
-    public MClassRef(String mmFragName, String mClassName) {
+    public  MClassRef(String mmFragName, String mClassName) {
         this.fragmentName = mmFragName;
         this.className = mClassName;
+        
     }
 
     @objid ("5257286f-db27-4268-b055-e530fcba3362")
@@ -92,7 +94,7 @@ public class MClassRef implements Serializable {
     }
 
     @objid ("1481776f-e8d8-4031-8416-389d8ca3ae6e")
-    public MClassRef() {
+    public  MClassRef() {
         // noop
     }
 
@@ -144,7 +146,6 @@ public class MClassRef implements Serializable {
 
     /**
      * Create a MClassRef from a qualified metaclass name.
-     * 
      * @param qualifiedName a qualified metaclass name.
      * @return a metaclass reference.
      */
@@ -163,6 +164,7 @@ public class MClassRef implements Serializable {
                     qualifiedName.substring(0, idx), 
                     qualifiedName.substring(idx+1));
         }
+        
     }
 
 }

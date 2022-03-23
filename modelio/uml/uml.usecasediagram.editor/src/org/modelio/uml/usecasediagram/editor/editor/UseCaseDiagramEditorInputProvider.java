@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.editor;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.editor.DiagramEditorInput;
 import org.modelio.diagram.editor.IDiagramEditorInputProvider;
+import org.modelio.diagram.editor.IDiagramEditorInputProvider.GmDiagramCreator;
 import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.metamodel.diagrams.UseCaseDiagram;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -33,7 +33,7 @@ import org.modelio.vcore.smkernel.mapi.MRef;
 @objid ("7b9bb527-5eff-11e2-b9cc-001ec947c8cc")
 public class UseCaseDiagramEditorInputProvider implements IDiagramEditorInputProvider {
     @objid ("7bea42e8-5eff-11e2-b9cc-001ec947c8cc")
-    public UseCaseDiagramEditorInputProvider() {
+    public  UseCaseDiagramEditorInputProvider() {
         super();
     }
 

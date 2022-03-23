@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.images;
 
 import java.net.URL;
@@ -119,37 +118,35 @@ public class ElementDecoratedStyledLabelProvider extends StyledCellLabelProvider
     @objid ("2bd7bc70-4d6f-406d-a470-9fa87df67fbe")
     private final Point referenceSize;
 
-// ------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------
     /**
      * Initialize a new styled label provider.
-     * 
      * @param baseProvider the provider used to compute the label.
      */
     @objid ("0086f894-b6e9-100f-85b1-001ec947cd2a")
-    public ElementDecoratedStyledLabelProvider(IModelioElementLabelProvider baseProvider) {
+    public  ElementDecoratedStyledLabelProvider(IModelioElementLabelProvider baseProvider) {
         this(baseProvider, true, true);
     }
 
     /**
      * Initialize a new styled label provider.
-     * 
      * @param baseProvider the provider used to compute the label.
      * @param showCms display the CMS state
      * @param showAudit display the audit state
      */
     @objid ("0086f948-b6e9-100f-85b1-001ec947cd2a")
-    public ElementDecoratedStyledLabelProvider(IModelioElementLabelProvider baseProvider, boolean showCms, boolean showAudit) {
+    public  ElementDecoratedStyledLabelProvider(IModelioElementLabelProvider baseProvider, boolean showCms, boolean showAudit) {
         this.baseProvider = baseProvider;
         
         configure(showCms, showAudit);
         
         this.cmsSize = new Point(ElementDecoratedStyledLabelProvider.cmsReadWrite.getImageData().width, ElementDecoratedStyledLabelProvider.cmsReadWrite.getImageData().height);
         this.referenceSize = new Point(ElementDecoratedStyledLabelProvider.reference.getImageData().width, ElementDecoratedStyledLabelProvider.reference.getImageData().height);
+        
     }
 
     /**
      * Reconfigure this styled provider.
-     * 
      * @param newShowCms <code>true</code> to display the CMS state.
      * @param newShowAudit <code>true</code> to display the audit state.
      */
@@ -157,6 +154,7 @@ public class ElementDecoratedStyledLabelProvider extends StyledCellLabelProvider
     public final void configure(boolean newShowCms, boolean newShowAudit) {
         this.showCms = newShowCms;
         this.showAudit = newShowAudit;
+        
     }
 
     @objid ("0086fb28-b6e9-100f-85b1-001ec947cd2a")
@@ -198,7 +196,7 @@ public class ElementDecoratedStyledLabelProvider extends StyledCellLabelProvider
         // Draw icon
         final Image icon = this.baseProvider.getImage(obj);
         
-        if (icon != null) {
+        if (icon != null && !icon.isDisposed()) {
             int iconHeight = icon.getImageData().height;
             int iconWidth = icon.getImageData().width;
             int offset = (event.height - iconHeight)/2;
@@ -233,8 +231,8 @@ public class ElementDecoratedStyledLabelProvider extends StyledCellLabelProvider
                     default:
                         break;
                     } // end switch
-                } catch (DeadObjectException e) {
-                    // event.gc.drawImage(auditError, curX - 2, curY + 2);
+                } catch (@SuppressWarnings ("unused") DeadObjectException e) {
+                    // Do not add audit flag for dead elements
                 }
             }
         }
@@ -253,14 +251,15 @@ public class ElementDecoratedStyledLabelProvider extends StyledCellLabelProvider
                     event.gc.setForeground(event.display.getSystemColor(SWT.COLOR_DARK_RED));
                     event.gc.drawString("being deleted", curX + ElementDecoratedStyledLabelProvider.invalidBeingDeleted.getBounds().width, curY + 8, true);
                 }
-            } catch (DeadObjectException e) {
+            } catch (@SuppressWarnings ("unused") DeadObjectException e) {
+                // Draw dead elements with a specific style
                 event.gc.setAlpha(200);
                 event.gc.drawImage(ElementDecoratedStyledLabelProvider.invalidDead, curX - 2, curY + 8);
                 event.gc.setForeground(event.display.getSystemColor(SWT.COLOR_DARK_RED));
                 event.gc.drawString("dead", curX + ElementDecoratedStyledLabelProvider.invalidDead.getBounds().width, curY + 8, true);
-                // event.gc.drawImage(auditError, curX - 2, curY + 10);
             }
         }
+        
     }
 
     @objid ("0086ff4c-b6e9-100f-85b1-001ec947cd2a")
@@ -297,11 +296,11 @@ public class ElementDecoratedStyledLabelProvider extends StyledCellLabelProvider
         }
         
         super.update(cell);
+        
     }
 
     /**
      * Get the decoration image to be used to reflect the CMS state of the given element.
-     * 
      * @param obj the element to be decorated.
      */
     @objid ("25104a14-4bb3-4ef2-b178-ab7f4c287885")
@@ -337,7 +336,8 @@ public class ElementDecoratedStyledLabelProvider extends StyledCellLabelProvider
             } else if (status.isCmsToAdd()) {
                 return ElementDecoratedStyledLabelProvider.cmsToAdd;
             }
-        } catch (DeadObjectException e) {
+        } catch (@SuppressWarnings ("unused") DeadObjectException e) {
+            // Do not add cms flag for dead elements
             return null;
         }
         return null;
@@ -351,7 +351,6 @@ public class ElementDecoratedStyledLabelProvider extends StyledCellLabelProvider
 
     /**
      * Get the decoration image to be used for elements that are shown as references.
-     * 
      * @param obj the element to be decorated.
      */
     @objid ("2571d843-9b20-43f9-842b-9f80d5fec1bd")

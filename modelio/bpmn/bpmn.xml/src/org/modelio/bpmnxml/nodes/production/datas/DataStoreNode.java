@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.production.datas;
 
 import java.math.BigInteger;
 import java.util.List;
 import java.util.Map;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.bind.JAXBElement;
 import javax.xml.namespace.QName;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.bpmnxml.model.ObjectFactory;
 import org.modelio.bpmnxml.model.TDataStore;
 import org.modelio.bpmnxml.model.TDataStoreReference;
@@ -47,7 +46,7 @@ import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("f46cb9b0-fb4f-4e36-a314-d47ea0d014c7")
-public class DataStoreNode implements IProductionNode<BpmnDataStore,TDataStoreReference> {
+public class DataStoreNode implements IProductionNode<BpmnDataStore, TDataStoreReference> {
     @objid ("4965c2d9-1433-4aff-9bc5-de552bae7a8f")
     private Map<String, Object> elementsMap;
 
@@ -84,6 +83,7 @@ public class DataStoreNode implements IProductionNode<BpmnDataStore,TDataStoreRe
         } else {
             return factory.create(BpmnDataStore.class, context);
         }
+        
     }
 
     @objid ("3cbefddc-3ea2-4839-a820-233a5379a878")
@@ -165,6 +165,7 @@ public class DataStoreNode implements IProductionNode<BpmnDataStore,TDataStoreRe
         } else {
             return getBpmnProcess(modelioElement.getCompositionOwner());
         }
+        
     }
 
     @objid ("15f35cf6-93da-467e-87be-d2cf0bb832a1")

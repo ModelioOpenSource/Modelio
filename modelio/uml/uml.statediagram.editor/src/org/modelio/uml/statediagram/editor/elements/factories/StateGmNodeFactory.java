@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.factories;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -95,6 +94,7 @@ public class StateGmNodeFactory implements IGmNodeFactory {
             }
             return child;
         }
+        
     }
 
     @objid ("f53c4477-55b6-11e2-877f-002564c97630")
@@ -162,9 +162,10 @@ public class StateGmNodeFactory implements IGmNodeFactory {
         private Object initialLayoutData;
 
         @objid ("f540d836-55b6-11e2-877f-002564c97630")
-        public GroupElementFactoryVisitor(IGmDiagram diagram, Object initialLayoutData) {
+        public  GroupElementFactoryVisitor(IGmDiagram diagram, Object initialLayoutData) {
             this.diagram = diagram;
             this.initialLayoutData = initialLayoutData;
+            
         }
 
         @objid ("198972d2-0438-4c2c-b56a-c5ca14908819")
@@ -199,9 +200,10 @@ public class StateGmNodeFactory implements IGmNodeFactory {
         private Object initialLayoutData;
 
         @objid ("f53dcaf1-55b6-11e2-877f-002564c97630")
-        public NodeFactoryVisitor(IGmDiagram diagram, Object initialLayoutData) {
+        public  NodeFactoryVisitor(IGmDiagram diagram, Object initialLayoutData) {
             this.diagram = diagram;
             this.initialLayoutData = initialLayoutData;
+            
         }
 
         @objid ("f53dcaf7-55b6-11e2-877f-002564c97630")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.transactions.smAction;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,9 +38,10 @@ public class EraseDependencyAction extends DependencyModificationAction {
      * l'association et le mode de propagation.
      */
     @objid ("006d3c7e-0d1e-1f20-85a5-001ec947cd2a")
-    public EraseDependencyAction(final SmObjectImpl obj, final SmDependency dep, final SmObjectImpl ref, final int index) {
+    public  EraseDependencyAction(final SmObjectImpl obj, final SmDependency dep, final SmObjectImpl ref, final int index) {
         super(obj, dep, ref);
         this.index = (index >= 0) ? index : 0;
+        
     }
 
     @objid ("006d3d14-0d1e-1f20-85a5-001ec947cd2a")
@@ -61,6 +61,7 @@ public class EraseDependencyAction extends DependencyModificationAction {
         this.refered.getMetaOf().setActionRecording(false);
         this.refered.getMetaOf().eraseObjDepVal (this.refered, this.smDep, this.ref);
         this.refered.getMetaOf().setActionRecording(true);
+        
     }
 
     /**
@@ -75,6 +76,7 @@ public class EraseDependencyAction extends DependencyModificationAction {
         this.refered.getMetaOf().setActionRecording(false);
         this.refered.getMetaOf().appendObjDepValIndex(this.refered, this.smDep, this.ref, this.index);
         this.refered.getMetaOf().setActionRecording(true);
+        
     }
 
     @objid ("b4b28c67-0094-488f-ac64-aa3ebc2254b2")

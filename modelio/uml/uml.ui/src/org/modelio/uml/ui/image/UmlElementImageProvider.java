@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.image;
 
 import java.net.URL;
@@ -67,7 +66,6 @@ public class UmlElementImageProvider implements IElementImageProvider, IMetamode
 
     /**
      * Get the icon for a metaclass and a flavor
-     * 
      * @param metaclass a metaclass
      * @param flavor a flavor to concatenate to the lookup key.
      * @return the found icon or a default unknown icon.
@@ -87,7 +85,6 @@ public class UmlElementImageProvider implements IElementImageProvider, IMetamode
 
     /**
      * Get the diagram big image for a metaclass and a flavor.
-     * 
      * @param metaclass a metaclass
      * @param flavor a flavor to concatenate to the lookup key.
      * @return the found image or null.
@@ -124,6 +121,7 @@ public class UmlElementImageProvider implements IElementImageProvider, IMetamode
             keyBuffer.append(flavor);
             return keyBuffer.toString();
         }
+        
     }
 
     @objid ("2b705211-be00-433d-98c1-07060a3a67c5")
@@ -139,7 +137,6 @@ public class UmlElementImageProvider implements IElementImageProvider, IMetamode
 
     /**
      * Get the icon for a metaclass.
-     * 
      * @param metaclassName a metaclass name.
      * @return the metaclass icon.
      */
@@ -198,6 +195,7 @@ public class UmlElementImageProvider implements IElementImageProvider, IMetamode
         } else {
             return null;
         }
+        
     }
 
     @objid ("6f641c17-7a12-4566-bd06-cbe9a092581b")
@@ -222,6 +220,7 @@ public class UmlElementImageProvider implements IElementImageProvider, IMetamode
             } else {
                 return null;
             }
+            
         }
 
         @objid ("8c011f86-1770-11e2-aa0d-002564c97630")
@@ -232,6 +231,7 @@ public class UmlElementImageProvider implements IElementImageProvider, IMetamode
             } else {
                 return visitBehavior(theStateMachine);
             }
+            
         }
 
         @objid ("8c011f8b-1770-11e2-aa0d-002564c97630")
@@ -247,6 +247,7 @@ public class UmlElementImageProvider implements IElementImageProvider, IMetamode
                 return null;
             
             }
+            
         }
 
         @objid ("8c01469a-1770-11e2-aa0d-002564c97630")
@@ -259,6 +260,7 @@ public class UmlElementImageProvider implements IElementImageProvider, IMetamode
                 // Output expansion node
                 return "outputelement";
             }
+            
         }
 
         @objid ("8c016da8-1770-11e2-aa0d-002564c97630")
@@ -272,6 +274,7 @@ public class UmlElementImageProvider implements IElementImageProvider, IMetamode
                 // Output expansion node
                 return null;
             }
+            
         }
 
         @objid ("8c016dad-1770-11e2-aa0d-002564c97630")
@@ -298,6 +301,7 @@ public class UmlElementImageProvider implements IElementImageProvider, IMetamode
                 // or 'referenced'
                 return "referenced";
             }
+            
         }
 
     }

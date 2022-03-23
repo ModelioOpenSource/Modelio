@@ -17,19 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.infrastructure.ModelTreeData;
-import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
 import org.modelio.metamodel.uml.infrastructure.ModelTree;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.vbasic.version.Version;
@@ -53,7 +51,7 @@ public class ModelTreeSmClass extends UmlModelElementSmClass {
     private SmDependency ownedElementDep;
 
     @objid ("2adda4a8-bba9-4b94-9c27-c67dfba238e2")
-    public ModelTreeSmClass(ISmMetamodelFragment origin) {
+    public  ModelTreeSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -61,6 +59,7 @@ public class ModelTreeSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "ModelTree";
+        
     }
 
     @objid ("767fe1a7-e053-4025-b753-ddeb11c28a0e")
@@ -73,18 +72,21 @@ public class ModelTreeSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ModelTree.class;
+        
     }
 
     @objid ("abacb31d-546b-4400-9a5d-e56fe28ed581")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("87af6c0d-2144-44ed-9bcd-ddacf765fdd7")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("9b270fb6-f2ff-425a-89df-bbc58569f56f")
@@ -104,6 +106,8 @@ public class ModelTreeSmClass extends UmlModelElementSmClass {
         this.ownedElementDep = new OwnedElementSmDependency();
         this.ownedElementDep.init("OwnedElement", this, metamodel.getMClass(ModelTree.MQNAME), 0, -1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.ownedElementDep);
+        
+        
     }
 
     @objid ("9daafac9-91d5-4ec9-8cbf-ddbda5a145ed")
@@ -128,7 +132,7 @@ public class ModelTreeSmClass extends UmlModelElementSmClass {
         private ModelTreeSmClass smClass;
 
         @objid ("9cd49389-fa88-40fb-9167-eb6a34d038b6")
-        public ModelTreeObjectFactory(ModelTreeSmClass smClass) {
+        public  ModelTreeObjectFactory(ModelTreeSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -170,6 +174,7 @@ public class ModelTreeSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((ModelTreeSmClass)this.getTarget()).getOwnedElementDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -189,6 +194,7 @@ public class ModelTreeSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ModelTreeData) data).mOwnedElement = values;
+            
         }
 
         @objid ("8bb8839a-e73b-4d47-9f13-1ba916d08935")
@@ -198,6 +204,7 @@ public class ModelTreeSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((ModelTreeSmClass)this.getTarget()).getOwnerDep();
             }
             return this.symetricDep;
+            
         }
 
     }

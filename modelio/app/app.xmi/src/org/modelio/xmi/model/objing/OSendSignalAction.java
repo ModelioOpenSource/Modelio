@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,10 +36,11 @@ public class OSendSignalAction extends OActivityNode {
             return UMLFactory.eINSTANCE.createBroadcastSignalAction();
         else
             return UMLFactory.eINSTANCE.createSendSignalAction();
+        
     }
 
     @objid ("162e6c88-2eea-4d10-a9ef-9682a09b7191")
-    public OSendSignalAction(SendSignalAction element) {
+    public  OSendSignalAction(SendSignalAction element) {
         super(element);
     }
 
@@ -52,6 +52,7 @@ public class OSendSignalAction extends OActivityNode {
             setSignal((org.eclipse.uml2.uml.SendSignalAction) ecoreElt);
         else  if (ecoreElt instanceof org.eclipse.uml2.uml.BroadcastSignalAction)
             setSignal((org.eclipse.uml2.uml.BroadcastSignalAction) ecoreElt);
+        
     }
 
     @objid ("0ec05a23-eb4b-46ea-a6a8-f73a2a1b3826")
@@ -63,6 +64,7 @@ public class OSendSignalAction extends OActivityNode {
             if (ecoreSignal instanceof  org.eclipse.uml2.uml.Signal)
                 action.setSignal( (org.eclipse.uml2.uml.Signal) ecoreSignal);
         }
+        
     }
 
     @objid ("7e230fa1-e778-4b9d-8afb-e1c17d4ae74a")
@@ -74,6 +76,7 @@ public class OSendSignalAction extends OActivityNode {
             if (ecoreSignal instanceof  org.eclipse.uml2.uml.Signal)
                 action.setSignal( (org.eclipse.uml2.uml.Signal) ecoreSignal);
         }
+        
     }
 
     @objid ("38c7769b-1baa-444e-9100-4520f9df3d9a")

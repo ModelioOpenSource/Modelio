@@ -17,43 +17,25 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.text.MessageFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.draw2d.AbsoluteBendpoint;
-import org.eclipse.draw2d.Bendpoint;
-import org.eclipse.draw2d.Connection;
-import org.eclipse.draw2d.ConnectionAnchor;
-import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.geometry.Point;
-import org.eclipse.draw2d.geometry.PointList;
-import org.eclipse.draw2d.geometry.PrecisionPoint;
-import org.eclipse.draw2d.geometry.PrecisionRectangle;
-import org.eclipse.draw2d.geometry.Rectangle;
-import org.eclipse.gef.EditPartViewer;
-import org.eclipse.gef.GraphicalEditPart;
-import org.eclipse.gef.handles.HandleBounds;
-import org.modelio.diagram.elements.core.figures.geometry.Direction;
-import org.modelio.diagram.elements.core.figures.geometry.GeomUtils;
-import org.modelio.diagram.elements.core.figures.geometry.Orientation;
-import org.modelio.diagram.elements.core.figures.routers.OrthogonalRouter;
 import org.modelio.diagram.elements.core.link.extensions.GmConnectionEndpoinLocator;
 import org.modelio.diagram.elements.core.link.extensions.GmFractionalConnectionLocator;
 import org.modelio.diagram.elements.core.link.extensions.IGmLocator;
-import org.modelio.diagram.elements.core.link.path.BendPointUtils;
+import org.modelio.diagram.elements.core.link.migration.LinkPathFixer;
+import org.modelio.diagram.elements.core.link.migration.OrthogonalPathFixer3_7;
+import org.modelio.diagram.elements.core.link.migration.OrthogonalPathFixer5_0_2;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.model.GmReference;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
@@ -63,16 +45,15 @@ import org.modelio.diagram.elements.core.model.IGmNode;
 import org.modelio.diagram.elements.core.model.IGmObject;
 import org.modelio.diagram.elements.core.model.IGmPath;
 import org.modelio.diagram.elements.core.model.IGmReference;
-import org.modelio.diagram.elements.core.model.IPostLoadAction;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.elements.plugin.DiagramElements;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
+import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
 import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
-import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
 
@@ -89,15 +70,15 @@ public abstract class GmLink extends GmModel implements IGmLink {
      * <ul>
      * <li>0 : initial version
      * <li>1 : extensions role must now be filled
-     * <li>2 : source and target are now IGmReferences
+     * <li>2 : source and target are now IGmReferences. Modelio 3.7 migration.
+     * <li>3 : handle new orthogonal router. Modelio 5.0.2 migration.
      * </ul>
      */
     @objid ("80127036-1dec-11e2-8cad-001ec947c8cc")
-    private static final int MINOR_VERSION = 2;
+    private static final int MINOR_VERSION = 3;
 
     /**
-     * Tells the source element changed and is inconsistent from the source
-     * node.
+     * Tells the source element changed and is inconsistent from the source node.
      */
     @objid ("8fb061e4-1e83-11e2-8cad-001ec947c8cc")
     public static final String PROP_SOURCE_EL = "Source element model changed";
@@ -109,8 +90,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
     public static final String PROP_SOURCE_GM = "Source graphic model changed";
 
     /**
-     * Tells the target element changed and is inconsistent from the terget
-     * node.
+     * Tells the target element changed and is inconsistent from the terget node.
      */
     @objid ("8fb2c43a-1e83-11e2-8cad-001ec947c8cc")
     public static final String PROP_TARGET_EL = "Target element model changed";
@@ -144,27 +124,28 @@ public abstract class GmLink extends GmModel implements IGmLink {
 
     /**
      * Initialize a new GmLink.
-     * 
      * @param diagram The diagram containing the link.
      * @param relatedRef a reference to the element this GmModel is related to.
      */
     @objid ("8012703b-1dec-11e2-8cad-001ec947c8cc")
-    public GmLink(IGmDiagram diagram, MRef relatedRef) {
+    protected  GmLink(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
         
         this.fromReferenceListener = this::fromReferenceChanged;
         this.toReferenceListener = this::toReferenceChanged;
         initGmLink();
+        
     }
 
     /**
      * Constructor for deserialization only.
      */
     @objid ("80127040-1dec-11e2-8cad-001ec947c8cc")
-    public GmLink() {
+    protected  GmLink() {
         this.fromReferenceListener = this::fromReferenceChanged;
         this.toReferenceListener = this::toReferenceChanged;
         initGmLink();
+        
     }
 
     @objid ("80127043-1dec-11e2-8cad-001ec947c8cc")
@@ -173,11 +154,11 @@ public abstract class GmLink extends GmModel implements IGmLink {
         this.endingLinks.add(new GmReference<>(this, link));
         link.setTo(this);
         firePropertyChange(IGmObject.PROPERTY_LINK_TARGET, null, link);
+        
     }
 
     /**
      * Add a link extension.
-     * 
      * @param extension The link extension.
      * @param role the role of the extension
      * @param constraint The extension layout constraint.
@@ -188,11 +169,11 @@ public abstract class GmLink extends GmModel implements IGmLink {
         extension.setParentLink(this);
         this.extensions.put(extension, constraint);
         firePropertyChange(IGmObject.PROPERTY_CHILDREN, null, extension);
+        
     }
 
     /**
      * Add a link extension.
-     * 
      * @param locationKey extension key
      * @param role the role of the extension
      * @param extension the extension to add.
@@ -205,6 +186,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
         if (getRelatedElement() != null) {
             firePropertyChange(IGmObject.PROPERTY_CHILDREN, null, getRelatedElement().getName());
         }
+        
     }
 
     @objid ("80127052-1dec-11e2-8cad-001ec947c8cc")
@@ -213,6 +195,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
         this.startingLinks.add(new GmReference<>(this, link));
         link.setFrom(this);
         firePropertyChange(IGmObject.PROPERTY_LINK_SOURCE, null, link);
+        
     }
 
     /**
@@ -236,8 +219,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
     /**
      * Delete the link from the diagram.
      * <p>
-     * Delete its links, extensions and then detach from its source and
-     * destination.
+     * Delete its links, extensions and then detach from its source and destination.
      */
     @objid ("8014d293-1dec-11e2-8cad-001ec947c8cc")
     @Override
@@ -276,11 +258,11 @@ public abstract class GmLink extends GmModel implements IGmLink {
         
         // now I can die
         super.delete();
+        
     }
 
     /**
      * Called by the anchor when its location changes.
-     * 
      * @param gmLinkAnchor The moved anchor.
      */
     @objid ("8019974a-1dec-11e2-8cad-001ec947c8cc")
@@ -290,13 +272,9 @@ public abstract class GmLink extends GmModel implements IGmLink {
     }
 
     /**
-     * Fires a
-     * {@link org.modelio.diagram.elements.core.model.IGmObject#PROPERTY_CHILDREN
-     * PROPERTY_CHILDREN} property change.
+     * Fires a {@link org.modelio.diagram.elements.core.model.IGmObject#PROPERTY_CHILDREN PROPERTY_CHILDREN} property change.
      * <p>
-     * To be called when the result of {@link GmNodeModel#isVisible()} on the
-     * given link extension changes.
-     * 
+     * To be called when the result of {@link GmNodeModel#isVisible()} on the given link extension changes.
      * @param child The link extension node whose visibility changed.
      */
     @objid ("8014d297-1dec-11e2-8cad-001ec947c8cc")
@@ -314,18 +292,17 @@ public abstract class GmLink extends GmModel implements IGmLink {
     @Override
     public final List<IGmLink> getEndingLinks() {
         return this.endingLinks
-                        .stream()
-                        .filter(IGmReference<IGmLink>::isReferencedModelValid)
-                        .map(IGmReference<IGmLink>::getReferencedModel)
-                        .collect(Collectors.toList());
+                .stream()
+                .filter(IGmReference<IGmLink>::isReferencedModelValid)
+                .map(IGmReference<IGmLink>::getReferencedModel)
+                .collect(Collectors.toList());
+        
     }
 
     /**
      * Get all link extensions.
      * <p>
-     * Link extensions are roundly all labels related to the link, eg:
-     * association role name and cardinality.
-     * 
+     * Link extensions are roundly all labels related to the link, eg: association role name and cardinality.
      * @return all link extensions.
      */
     @objid ("8014d2a7-1dec-11e2-8cad-001ec947c8cc")
@@ -368,18 +345,12 @@ public abstract class GmLink extends GmModel implements IGmLink {
     }
 
     /**
-     * Returns the element being the source of the represented link (in the Ob
-     * model).
+     * Returns the element being the source of the represented link (in the Ob model).
      * <p>
-     * May return <code>null</code> if {@link #getRelatedElement()} returns
-     * <code>null</code>.
+     * May return <code>null</code> if {@link #getRelatedElement()} returns <code>null</code>.
      * <p>
-     * <em>This method must <strong>NOT</strong> return
-     * "<code>this.getFrom().getElement();</code>" but instead must read the
-     * actual source of the link returned by {@link #getRelatedElement()}.</em>
-     * 
-     * @return the element being the source of the represented link (in the Ob
-     * model).
+     * <em>This method must <strong>NOT</strong> return "<code>this.getFrom().getElement();</code>" but instead must read the actual source of the link returned by {@link #getRelatedElement()}.</em>
+     * @return the element being the source of the represented link (in the Ob model).
      */
     @objid ("8014d2b4-1dec-11e2-8cad-001ec947c8cc")
     @Override
@@ -387,7 +358,6 @@ public abstract class GmLink extends GmModel implements IGmLink {
 
     /**
      * Get the locator model used to layout the given extension.
-     * 
      * @param extension A link extension.
      * @return The locator model.
      */
@@ -429,7 +399,6 @@ public abstract class GmLink extends GmModel implements IGmLink {
 
     /**
      * Get the source anchor model.
-     * 
      * @return the source anchor.
      */
     @objid ("8014d2ce-1dec-11e2-8cad-001ec947c8cc")
@@ -439,22 +408,21 @@ public abstract class GmLink extends GmModel implements IGmLink {
 
     /**
      * Get the links starting from this node.
-     * 
      * @return the links starting from this node.
      */
     @objid ("8014d2d3-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public final List<IGmLink> getStartingLinks() {
         return this.startingLinks
-                        .stream()
-                        .filter(r -> r.isReferencedModelValid())
-                        .map(r -> r.getReferencedModel())
-                        .collect(Collectors.toList());
+                .stream()
+                .filter(r -> r.isReferencedModelValid())
+                .map(r -> r.getReferencedModel())
+                .collect(Collectors.toList());
+        
     }
 
     /**
      * Get the target anchor model.
-     * 
      * @return the target anchor.
      */
     @objid ("8014d2db-1dec-11e2-8cad-001ec947c8cc")
@@ -472,18 +440,12 @@ public abstract class GmLink extends GmModel implements IGmLink {
     }
 
     /**
-     * Returns the element being the target of the represented link (in the Ob
-     * model).
+     * Returns the element being the target of the represented link (in the Ob model).
      * <p>
-     * <em>This methods must <strong>NOT</strong> return
-     * "<code>this.getTo().getElement();</code>" but instead must read the
-     * actual target of the link returned by {@link #getRelatedElement()}.</em>
+     * <em>This methods must <strong>NOT</strong> return "<code>this.getTo().getElement();</code>" but instead must read the actual target of the link returned by {@link #getRelatedElement()}.</em>
      * <p>
-     * May return <code>null</code> if {@link #getRelatedElement()} returns
-     * <code>null</code>.
-     * 
-     * @return the element being the target of the represented link (in the Ob
-     * model).
+     * May return <code>null</code> if {@link #getRelatedElement()} returns <code>null</code>.
+     * @return the element being the target of the represented link (in the Ob model).
      */
     @objid ("801734ec-1dec-11e2-8cad-001ec947c8cc")
     @Override
@@ -497,15 +459,9 @@ public abstract class GmLink extends GmModel implements IGmLink {
      * The returned list is a copy and may be freely modified.
      * </p>
      * <p>
-     * Default implementation returns a list of all extensions for which the
-     * isVisible method returns <code>true</code>. This method may be overridden
-     * to dynamically filter the extensions list, based on current
-     * representation mode for example.<br>
-     * In this case you must ensure that {@link #styleChanged(StyleKey, Object)}
-     * fires a {@link IGmObject#PROPERTY_CHILDREN} property change event in
-     * order for the EditParts to be informed of the change.<br>
+     * Default implementation returns a list of all extensions for which the isVisible method returns <code>true</code>. This method may be overridden to dynamically filter the extensions list, based on current representation mode for example.<br>
+     * In this case you must ensure that {@link #styleChanged(StyleKey, Object)} fires a {@link IGmObject#PROPERTY_CHILDREN} property change event in order for the EditParts to be informed of the change.<br>
      * </p>
-     * 
      * @return The visible link extension nodes.
      */
     @objid ("801734f0-1dec-11e2-8cad-001ec947c8cc")
@@ -524,21 +480,6 @@ public abstract class GmLink extends GmModel implements IGmLink {
     /**
      * Redefined to refresh also link extensions who relates the same element.
      */
-    @objid ("801734f7-1dec-11e2-8cad-001ec947c8cc")
-    @Override
-    public void obElementAdded(MObject addedEl) {
-        super.obElementAdded(addedEl);
-        
-        for (GmNodeModel m : getExtensions()) {
-            if (m.getRepresentedElement() == null) {
-                m.obElementAdded(addedEl);
-            }
-        }
-    }
-
-    /**
-     * Redefined to refresh also link extensions who relates the same element.
-     */
     @objid ("801734fc-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public void obElementResolved(MObject ev) {
@@ -549,6 +490,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
                 m.obElementResolved(ev);
             }
         }
+        
     }
 
     /**
@@ -574,13 +516,18 @@ public abstract class GmLink extends GmModel implements IGmLink {
             read_2(in);
             break;
         }
+        case 3: {
+            read_3(in);
+            break;
+        }
         default: {
-            assert (false) : "version number not covered!";
-            // reading as last handled version: 2
-            read_2(in);
+            assert false : "version number not covered!";
+            // reading as last handled version: 3
+            read_3(in);
             break;
         }
         }
+        
     }
 
     @objid ("80173506-1dec-11e2-8cad-001ec947c8cc")
@@ -589,22 +536,23 @@ public abstract class GmLink extends GmModel implements IGmLink {
         GmReference.removeFrom(this.endingLinks, gmLink);
         gmLink.setTo(null);
         firePropertyChange(IGmObject.PROPERTY_LINK_TARGET, gmLink, null);
+        
     }
 
     /**
      * Remove a link extension.
-     * 
      * @param gmNodeModel the link extension to remove.
-     * @throws java.lang.IllegalArgumentException if the link does not own this node.
+     * @throws IllegalArgumentException if the link does not own this node.
      */
     @objid ("8017350b-1dec-11e2-8cad-001ec947c8cc")
     public void removeExtension(GmNodeModel gmNodeModel) throws IllegalArgumentException {
-        assert (this.extensions.containsKey(gmNodeModel));
+        assert this.extensions.containsKey(gmNodeModel);
         
         this.extensions.remove(gmNodeModel);
         firePropertyChange(IGmObject.PROPERTY_CHILDREN, gmNodeModel, null);
         
         gmNodeModel.setParentLink(null);
+        
     }
 
     @objid ("8017350f-1dec-11e2-8cad-001ec947c8cc")
@@ -613,15 +561,13 @@ public abstract class GmLink extends GmModel implements IGmLink {
         GmReference.removeFrom(this.startingLinks, gmLink);
         gmLink.setFrom(null);
         firePropertyChange(IGmObject.PROPERTY_LINK_SOURCE, gmLink, null);
+        
     }
 
     /**
      * Update the link origin.
      * <p>
-     * This method is intended to be called only by
-     * {@link IGmLinkable#addEndingLink(IGmLink)}.
-     * It does fire {@link #PROP_SOURCE_GM} change event.
-     * 
+     * This method is intended to be called only by {@link IGmLinkable#addEndingLink(IGmLink)}. It does fire {@link #PROP_SOURCE_GM} change event.
      * @param from The new link origin
      */
     @objid ("80173514-1dec-11e2-8cad-001ec947c8cc")
@@ -629,16 +575,16 @@ public abstract class GmLink extends GmModel implements IGmLink {
     public void setFrom(IGmLinkable from) {
         IGmReference<IGmLinkable> oldFrom = this.from;
         if (from != IGmReference.resolve(oldFrom)) {
-            this.from = (from == null) ? null : new GmReference<>(this, from);
+            this.from = from == null ? null : new GmReference<>(this, from);
         
             updateFromReferenceListeners(oldFrom, this.from);
             firePropertyChange(GmLink.PROP_SOURCE_GM, oldFrom, from);
         }
+        
     }
 
     /**
      * Change the given extension location.
-     * 
      * @param extension The link extension.
      * @param layoutData The extension layout constraint.
      */
@@ -647,6 +593,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
     public final void setLayoutConstraint(IGmObject extension, IGmLocator layoutData) {
         this.extensions.put((GmNodeModel) extension, layoutData);
         firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, extension, layoutData);
+        
     }
 
     @objid ("8017351e-1dec-11e2-8cad-001ec947c8cc")
@@ -665,13 +612,17 @@ public abstract class GmLink extends GmModel implements IGmLink {
                 // Update the connection router in the style.
         
                 // Inhibit style update notification
-                getPath().setRouterKind(newPath.getRouterKind());
+                ConnectionRouterId oldRouterKind = oldPath.getRouterKind();
+                oldPath.setRouterKind(newPath.getRouterKind());
         
                 // Update the connection router in the style.
                 final StyleKey routerStyleKey = getStyleKey(MetaKey.CONNECTIONROUTER);
                 if (routerStyleKey != null && style.getProperty(routerStyleKey) != newPath.getRouterKind()) {
                     style.setProperty(routerStyleKey, newPath.getRouterKind());
                 }
+        
+                // Restore the old router to properly trigger the layout changed property
+                oldPath.setRouterKind(oldRouterKind);
             }
         }
         
@@ -707,15 +658,13 @@ public abstract class GmLink extends GmModel implements IGmLink {
         
         // Change the path
         super.setLayoutData(layoutData);
+        
     }
 
     /**
      * Update the link destination.
      * <p>
-     * This method is intended to be called only by
-     * {@link IGmLinkable#addEndingLink(IGmLink)}.
-     * It does fire {@link #PROP_TARGET_GM} change event.
-     * 
+     * This method is intended to be called only by {@link IGmLinkable#addEndingLink(IGmLink)}. It does fire {@link #PROP_TARGET_GM} change event.
      * @param to The new destination
      */
     @objid ("8017352f-1dec-11e2-8cad-001ec947c8cc")
@@ -723,11 +672,12 @@ public abstract class GmLink extends GmModel implements IGmLink {
     public void setTo(IGmLinkable to) {
         IGmReference<IGmLinkable> oldTo = this.to;
         if (to != IGmReference.resolve(oldTo)) {
-            this.to = (to == null) ? null : new GmReference<>(this, to);
+            this.to = to == null ? null : new GmReference<>(this, to);
         
             updateToReferenceListeners(oldTo, this.to);
             firePropertyChange(GmLink.PROP_TARGET_GM, oldTo, to);
         }
+        
     }
 
     @objid ("80199746-1dec-11e2-8cad-001ec947c8cc")
@@ -752,12 +702,11 @@ public abstract class GmLink extends GmModel implements IGmLink {
         
         // Write version of this Gm
         writeMinorVersion(out, "GmLink.", GmLink.MINOR_VERSION);
+        
     }
 
     /**
-     * Get the connection router id stored in the given style. If no StyleKey is
-     * found, the default value for the router is DIRECT.
-     * 
+     * Get the connection router id stored in the given style. If no StyleKey is found, the default value for the router is DIRECT.
      * @param style a style
      * @return the connection router.
      */
@@ -773,7 +722,6 @@ public abstract class GmLink extends GmModel implements IGmLink {
 
     /**
      * Helper method to find an extension from its java class.
-     * 
      * @param cls the java class of the extension to find
      * @return the found node or null.
      */
@@ -788,14 +736,11 @@ public abstract class GmLink extends GmModel implements IGmLink {
     }
 
     /**
-     * Redefinable method called by {@link GmLink#read(IDiagramReader)} before
-     * adding the link to the diagram.
+     * Redefinable method called by {@link GmLink#read(IDiagramReader)} before adding the link to the diagram.
      * <p>
-     * Subclasses should redefine this method instead of
-     * {@link #read(IDiagramReader)}.
+     * Subclasses should redefine this method instead of {@link #read(IDiagramReader)}.
      * <p>
      * The default implementation does nothing.
-     * 
      * @param in a reader to build the graphic model from.
      */
     @objid ("8019975d-1dec-11e2-8cad-001ec947c8cc")
@@ -804,25 +749,22 @@ public abstract class GmLink extends GmModel implements IGmLink {
     }
 
     /**
-     * This method must guess the link extension role from whatever is available
-     * from a GmLink with 0 as minor version.
+     * This method must guess the link extension role from whatever is available from a GmLink with 0 as minor version.
      * <p>
-     * It is called by {@link GmLink#read(IDiagramReader)} for V0 {@link GmLink}
-     * , when link extension role was not filled, to ask subclasses to fill
-     * them.
+     * It is called by {@link GmLink#read(IDiagramReader)} for V0 {@link GmLink} , when link extension role was not filled, to ask subclasses to fill them.
      */
     @objid ("27eed107-63db-4413-a6c3-bc2e2025e698")
     protected abstract void read_GmLinkV0_roles();
 
     /**
-     * Convenience implementation to call from {@link #read_GmLinkV0_roles()}
-     * when the link has only one main label.
+     * Convenience implementation to call from {@link #read_GmLinkV0_roles()} when the link has only one main label.
      */
     @objid ("7afb9eca-8a9e-4e47-af9c-5713e60e035e")
     protected final void read_GmLinkV0_roles_one_main_label() {
         for (GmNodeModel n : getExtensions()) {
             n.setRoleInComposition(IGmLink.ROLE_MAIN_LABEL);
         }
+        
     }
 
     @objid ("80199761-1dec-11e2-8cad-001ec947c8cc")
@@ -878,6 +820,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
             }
         
         }
+        
     }
 
     @objid ("180a7067-4147-4bce-a7b2-fab33dbb82d2")
@@ -890,7 +833,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
 
     @objid ("9f36e75e-aefd-4eca-8927-aa73f6119334")
     private void fromReferenceChanged(PropertyChangeEvent ev) {
-        assert (this.from == ev.getSource()) : this.to + " != " + ev.getSource();
+        assert this.from == ev.getSource() : this.to + " != " + ev.getSource();
         
         if (this.from != null) {
             final IGmLinkable node = this.from.getReferencedModel();
@@ -898,6 +841,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
                 node.addStartingLink(this);
             }
         }
+        
     }
 
     /**
@@ -908,6 +852,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
         GmPath path = new GmPath();
         path.setPathData(new ArrayList<>());
         setLayoutData(path);
+        
     }
 
     @objid ("41c31379-90a0-4494-a0d2-103269748dfe")
@@ -944,10 +889,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
         
         case ExtensionLocation.MiddleSE:
             /*
-             * final GmConnectionLocator constraint = new GmConnectionLocator();
-             * constraint.setAlignment(ConnectionLocator.MIDDLE);
-             * constraint.setRelativePosition(PositionConstants.SOUTH_EAST);
-             * constraint.setGap(5);
+             * final GmConnectionLocator constraint = new GmConnectionLocator(); constraint.setAlignment(ConnectionLocator.MIDDLE); constraint.setRelativePosition(PositionConstants.SOUTH_EAST); constraint.setGap(5);
              */
             final GmFractionalConnectionLocator constraint4 = new GmFractionalConnectionLocator();
             constraint4.setFraction(0.5);
@@ -957,10 +899,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
         
         case ExtensionLocation.MiddleNW:
             /*
-             * final GmConnectionLocator constraint = new GmConnectionLocator();
-             * constraint.setAlignment(ConnectionLocator.MIDDLE);
-             * constraint.setRelativePosition(PositionConstants.NORTH_WEST);
-             * constraint.setGap(5);
+             * final GmConnectionLocator constraint = new GmConnectionLocator(); constraint.setAlignment(ConnectionLocator.MIDDLE); constraint.setRelativePosition(PositionConstants.NORTH_WEST); constraint.setGap(5);
              */
             final GmFractionalConnectionLocator constraint5 = new GmFractionalConnectionLocator();
             constraint5.setFraction(0.5);
@@ -985,11 +924,11 @@ public abstract class GmLink extends GmModel implements IGmLink {
         default:
             throw new IllegalArgumentException("'" + locationKey + "' is not supported");
         }
+        
     }
 
     /**
-     * This method is final. Subclasses should override
-     * {@link #readLink(IDiagramReader)} instead.
+     * This method is final. Subclasses should override {@link #readLink(IDiagramReader)} instead.
      */
     @objid ("c7cd5444-9fd8-424c-a8ec-6ec6055dbd0f")
     private final void read_0(IDiagramReader in) {
@@ -997,15 +936,15 @@ public abstract class GmLink extends GmModel implements IGmLink {
         
         // Ask subclasses to fill extension roles.
         read_GmLinkV0_roles();
+        
     }
 
     /**
-     * This method is final. Subclasses should override
-     * {@link #readLink(IDiagramReader)} instead.
+     * This method is final. Subclasses should override {@link #readLink(IDiagramReader)} instead.
      */
     @objid ("80199766-1dec-11e2-8cad-001ec947c8cc")
     private final void read_1(IDiagramReader in) {
-        read_2(in);
+        read_3(in);
         
         // Make sure the link belongs to the proper diagram
         IGmPath path = getPath();
@@ -1018,13 +957,15 @@ public abstract class GmLink extends GmModel implements IGmLink {
         
         // Handle orthogonal router changes as a post load action, because it needs the figure to exist
         if (path != null && path.getRouterKind() == ConnectionRouterId.ORTHOGONAL) {
-            getDiagram().addPostLoadAction(new OrthogonalPathFixer(this));
+            getDiagram().addPostLoadAction(new OrthogonalPathFixer3_7(this));
+            getDiagram().addPostLoadAction(new OrthogonalPathFixer5_0_2(this));
         }
+        
     }
 
     @objid ("abc625fd-3461-42c9-b17f-79a33a6c14bd")
     private void toReferenceChanged(PropertyChangeEvent ev) {
-        assert (this.to == ev.getSource()) : this.to + " != " + ev.getSource();
+        assert this.to == ev.getSource() : this.to + " != " + ev.getSource();
         
         if (this.to != null) {
             final IGmLinkable node = this.to.getReferencedModel();
@@ -1032,6 +973,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
                 node.addEndingLink(this);
             }
         }
+        
     }
 
     @objid ("b1b94718-47e5-4dc4-9c26-e2544415e3d8")
@@ -1043,6 +985,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
         if (newFrom != null) {
             newFrom.addReferenceResolvedListener(this.fromReferenceListener);
         }
+        
     }
 
     @objid ("1ce8b1e4-8ff7-41e2-8faf-87412de5cf16")
@@ -1054,14 +997,30 @@ public abstract class GmLink extends GmModel implements IGmLink {
         if (newTo != null) {
             newTo.addReferenceResolvedListener(this.toReferenceListener);
         }
+        
     }
 
     /**
-     * This method is final. Subclasses should override
-     * {@link #readLink(IDiagramReader)} instead.
+     * This method is final. Subclasses should override {@link #readLink(IDiagramReader)} instead.
      */
     @objid ("1afa293a-3071-45db-b66c-9967cea02cb9")
     private final void read_2(IDiagramReader in) {
+        read_3(in);
+        
+        IGmPath path = getPath();
+        
+        // Handle orthogonal router changes as a post load action, because it needs the figure to exist
+        if (path != null && path.getRouterKind() == ConnectionRouterId.ORTHOGONAL) {
+            getDiagram().addPostLoadAction(new OrthogonalPathFixer5_0_2(this));
+        }
+        
+    }
+
+    /**
+     * This method is final. Subclasses should override {@link #readLink(IDiagramReader)} instead.
+     */
+    @objid ("818e89ec-e7c9-4e9a-b3e7-0e5f1b67cb21")
+    private final void read_3(IDiagramReader in) {
         super.read(in);
         this.from = GmReference.read(in, "Source");
         this.to = GmReference.read(in, "Dest");
@@ -1094,6 +1053,7 @@ public abstract class GmLink extends GmModel implements IGmLink {
         
         updateFromReferenceListeners(null, this.from);
         updateToReferenceListeners(null, this.to);
+        
     }
 
     @objid ("a5883e81-65bb-4f52-a8a8-97ce31b1a145")
@@ -1155,515 +1115,6 @@ public abstract class GmLink extends GmModel implements IGmLink {
             });
         }
         return true;
-    }
-
-    /**
-     * With Modelio 3.7, the orthogonal router changed a little, making it sometimes necessary to adapt the layout data before using the new router.
-     * <p>
-     * This class compares the point list gotten from {@link OrthogonalRouter} and {@link OldOrthogonalRouter}, and updates the
-     * {@link GmPath} of the {@link GmLink} if needed to keep the same looks for old orthogonal links.
-     * </p>
-     */
-    @objid ("1b9c1d23-45ce-4831-a052-0296d9ba4939")
-    private static final class OrthogonalPathFixer implements IPostLoadAction {
-        @objid ("96b4a2bf-91b6-4f89-a887-b29688936686")
-        private GmLink gmLink;
-
-        @objid ("330a7be9-8749-422b-8be8-b69a724d8931")
-        public OrthogonalPathFixer(GmLink gmLink) {
-            this.gmLink = gmLink;
-        }
-
-        @objid ("d25bf6fc-ed49-4246-9c39-85a1f3b02d77")
-        @Override
-        public void run(EditPartViewer viewer) {
-            if (this.gmLink.isValid()) {
-                GraphicalEditPart linkEditPart = (GraphicalEditPart) viewer.getEditPartRegistry().get(this.gmLink);
-                if (linkEditPart != null && linkEditPart.getFigure() instanceof Connection) {
-                    Connection connection = (Connection) linkEditPart.getFigure();
-                    List<Point> pointList = computeFixedPointList(connection);
-                    if (pointList != null) {
-                        applyLayoutData(pointList);
-                    }
-                }
-            }
-        }
-
-        /**
-         * Compares the point list gotten from {@link OrthogonalRouter} and {@link OldOrthogonalRouter}.
-         * 
-         * @param connection the connection being routed.
-         * @return a list of points when a layout fix is needed, <code>null</code> otherwise.
-         */
-        @objid ("766715e6-b676-46df-9583-d83238ce755c")
-        private static List<Point> computeFixedPointList(Connection connection) {
-            if (!(connection.getConnectionRouter() instanceof OrthogonalRouter)) {
-                return null;
-            }
-            
-            OrthogonalRouter newRouter = (OrthogonalRouter) connection.getConnectionRouter();
-            PointList newPointList = newRouter.computePointList(connection);
-            PointList oldPointList = new OldOrthogonalRouter().computePointList(connection, newRouter);
-            
-            if (oldPointList.size() >= 2 && newPointList.size() >= 2) {
-                // Keep point list unchanged when anchors are not properly initialized (aka both equals to (0, 0))
-                if (newPointList.getFirstPoint().equals(new Point()) && newPointList.getFirstPoint().equals(newPointList.getLastPoint())) {
-                    return null;
-                }
-            
-                // Remove first and last points, handled by anchors
-                oldPointList.removePoint(oldPointList.size() - 1);
-                newPointList.removePoint(newPointList.size() - 1);
-                oldPointList.removePoint(0);
-                newPointList.removePoint(0);
-            
-                // Check at least one bendpoint is different
-                if (isContentDifferent(newPointList, oldPointList)) {
-                    // Set old router points as bend points for new router
-                    List<Point> newPathData = new ArrayList<>(oldPointList.size());
-                    for (int i = 0; i < oldPointList.size(); i++) {
-                        Point point = oldPointList.getPoint(i);
-                        newPathData.add(point);
-                    }
-                    return newPathData;
-                }
-            }
-            // No fix needed
-            return null;
-        }
-
-        /**
-         * Update the layout data of the {@link #gmLink}.
-         * 
-         * @param newPathData a list of points.
-         */
-        @objid ("1a5abd92-eaaa-4782-8c7e-47bf3a2efce4")
-        private void applyLayoutData(List<Point> newPathData) {
-            GmPath newGmPath = new GmPath(this.gmLink.getPath());
-            newGmPath.setPathData(newPathData);
-            this.gmLink.setLayoutData(newGmPath);
-        }
-
-        @objid ("207bedcb-73ac-4887-9043-74a66fc1c526")
-        private static boolean isContentDifferent(PointList newPointList, PointList oldPointList) {
-            if (oldPointList.size() != newPointList.size()) {
-                return true;
-            }
-            return !Arrays.equals(newPointList.toIntArray(), oldPointList.toIntArray());
-        }
-
-        /**
-         * Pre-Modelio 3.7 of the orthogonal router, which has been replaced with {@link OrthogonalRouter}.
-         * <p>
-         * Routes {@link Connection}s through a <code>List</code> of {@link Bendpoint Bendpoints} that make an orthogonal path.
-         * </p>
-         * <p>
-         * The route constraint is modified to be made orthogonal.
-         * </p>
-         */
-        @objid ("3ac3753f-cbf9-40a7-9ed0-e06be14414cb")
-        private static final class OldOrthogonalRouter {
-            /**
-             * Temporary point used to avoid Point allocations.
-             */
-            @objid ("ab8db3b4-32d3-4405-8e1a-301a0d997d1f")
-            private static final PrecisionPoint A_POINT = new PrecisionPoint();
-
-            /**
-             * Compute a list of points to use when routing the connection.
-             * 
-             * @param connection an orthogonal connection.
-             * @param orthogonalRouter the actual orthogonal router holding the connection's constraint.
-             * @return a List of Points
-             */
-            @objid ("58f4f08d-27af-40c0-8675-4f39222ddcfa")
-            public PointList computePointList(Connection connection, OrthogonalRouter orthogonalRouter) {
-                final ConnectionAnchor sourceAnchor = connection.getSourceAnchor();
-                final ConnectionAnchor targetAnchor = connection.getTargetAnchor();
-                
-                final List<Bendpoint> allPoints = computeInitialBendpointsList(connection, sourceAnchor, targetAnchor, orthogonalRouter);
-                
-                // Source and target locations are now fixed, we are not allowed to move them anymore.
-                Point sourceLocation = allPoints.get(0).getLocation();
-                Point targetLocation = allPoints.get(allPoints.size() - 1).getLocation();
-                
-                // Now the tricky part: fix the first and last bend points to form an orthogonal path.
-                final Rectangle sourceRelativeBounds = getAnchorOwnerAbsoluteBounds(sourceAnchor).expand(1, 1);
-                connection.translateToRelative(sourceRelativeBounds);
-                final Rectangle targetRelativeBounds = getAnchorOwnerAbsoluteBounds(targetAnchor).expand(1, 1);
-                connection.translateToRelative(targetRelativeBounds);
-                Direction sourceAnchorOrientation = GeomUtils.getDirection(sourceLocation, sourceRelativeBounds);
-                Direction targetAnchorOrientation = GeomUtils.getDirection(targetLocation, targetRelativeBounds);
-                if (allPoints.size() == 2) {
-                    fixNoBendpointsLink(allPoints, sourceLocation, targetLocation, sourceAnchorOrientation, targetAnchorOrientation);
-                } else if (allPoints.size() == 3) {
-                    fixOneBendpointLink(allPoints, sourceLocation, targetLocation, sourceAnchorOrientation, targetAnchorOrientation);
-                
-                } else {
-                    fixSeveralBendpointsLink(allPoints, sourceLocation, targetLocation, sourceAnchorOrientation, targetAnchorOrientation);
-                }
-                
-                // Some cleanup of useless allPoints.
-                cleanup(allPoints);
-                
-                // Clear the old points list
-                final PointList points = new PointList(allPoints.size());
-                for (int i = 0; i < allPoints.size(); i++) {
-                    Bendpoint bp = allPoints.get(i);
-                    points.addPoint(bp.getLocation());
-                }
-                return points;
-            }
-
-            /**
-             * convenience method to get the constraint as a list of bend points.
-             * 
-             * @param connection a connection figure
-             * @return The list of bend points.
-             */
-            @objid ("21569050-7d2a-481b-a948-21435abc521f")
-            @SuppressWarnings ("unchecked")
-            private List<Bendpoint> getBendpoints(Connection connection, OrthogonalRouter orthogonalRouter) {
-                return (List<Bendpoint>) orthogonalRouter.getConstraint(connection);
-            }
-
-            /**
-             * Get the anchor owner (handle)bounds in absolute coordinates. If the anchor is not attached to a figure, returns a
-             * 1x1 sized rectangle located at the anchor reference point.
-             * 
-             * @param anchor The anchor.
-             * @return The anchor owner bounds.
-             */
-            @objid ("7d7cce30-44d2-4200-9876-d35a0664f228")
-            private Rectangle getAnchorOwnerAbsoluteBounds(ConnectionAnchor anchor) {
-                final IFigure f = anchor.getOwner();
-                if (f == null) {
-                    Point p = anchor.getReferencePoint();
-                    return new Rectangle(p.x, p.y, 1, 1);
-                } else {
-                    PrecisionRectangle bounds = new PrecisionRectangle(f instanceof HandleBounds
-                            ? ((HandleBounds) f).getHandleBounds() : f.getBounds());
-                    f.translateToAbsolute(bounds);
-                
-                    return bounds;
-                }
-            }
-
-            /**
-             * @param allPoints point list to clean unnecessary bend points from.
-             */
-            @objid ("2e45e580-401f-4a3f-8dae-7aa28491d1e1")
-            private void cleanup(final List<Bendpoint> allPoints) {
-                // Finish by removing unnecessary points:
-                // 1: overlapping points.
-                List<Integer> indexesToRemove = new ArrayList<>();
-                for (int i = 1; i < allPoints.size() - 2; ++i) {
-                    Point p1 = allPoints.get(i).getLocation();
-                    Point p2 = allPoints.get(i + 1).getLocation();
-                
-                    if (p1.getDistance(p2) < 1) {
-                        indexesToRemove.add(i);
-                    }
-                }
-                for (int i = indexesToRemove.size() - 1; i >= 0; --i) {
-                    allPoints.remove(indexesToRemove.get(i).intValue());
-                }
-                // 2: allPoints not bending
-                indexesToRemove.clear();
-                for (int i = 1; i < allPoints.size() - 1; ++i) {
-                    if (allPoints.get(i - 1).getLocation().x == allPoints.get(i + 1).getLocation().x ||
-                            allPoints.get(i - 1).getLocation().y == allPoints.get(i + 1).getLocation().y) {
-                        indexesToRemove.add(i);
-                    }
-                }
-                for (int i = indexesToRemove.size() - 1; i >= 0; --i) {
-                    allPoints.remove(indexesToRemove.get(i).intValue());
-                }
-            }
-
-            @objid ("338eb760-f58d-43fc-8b87-6deab878bd95")
-            private void fixSeveralBendpointsLink(final List<Bendpoint> bendpoints, final Point sourceLocation, final Point targetLocation, final Direction sourceAnchorOrientation, final Direction targetAnchorOrientation) {
-                // If there are at least 2 intermediary bend points, fix them to get orthogonal segments
-                Point fixedPoint = bendpoints.get(1).getLocation();
-                Point nextPoint = bendpoints.get(2).getLocation();
-                Orientation nextSegmentOrientation = Orientation.NONE;
-                if (fixedPoint.x == nextPoint.x) {
-                    nextSegmentOrientation = Orientation.VERTICAL;
-                } else if (fixedPoint.y == nextPoint.y) {
-                    nextSegmentOrientation = Orientation.HORIZONTAL;
-                } else {
-                    assert (false) : "impossible to determine orientation of start segment, something is wrong with the provided list of bendpoints!";
-                }
-                if (sourceAnchorOrientation == Direction.NONE) {
-                    if (nextSegmentOrientation == Orientation.VERTICAL) {
-                        // next segment is vertical, so first was horizontal
-                        fixedPoint.y = sourceLocation.y;
-                    } else if (nextSegmentOrientation == Orientation.HORIZONTAL) {
-                        // next segment is horizontal so first is vertical
-                        fixedPoint.x = sourceLocation.x;
-                    }
-                } else if (sourceAnchorOrientation == Direction.NORTH || sourceAnchorOrientation == Direction.SOUTH) {
-                    // First segment is vertical: align the X coordinates
-                    // check that we don't need an additional bend point (next segment must be horizontal) first
-                    if (nextSegmentOrientation != Orientation.HORIZONTAL) {
-                        // Add an additional bendpoint (null is allright, it will be replaced later anyway).
-                        bendpoints.add(1, null);
-                        fixedPoint = new Point(fixedPoint);
-                    }
-                    fixedPoint.x = sourceLocation.x;
-                } else {
-                    // First segment is horizontal: align the Y coordinates
-                    // check that we don't need an additional bend point (next segment must be vertical) first
-                    if (nextSegmentOrientation != Orientation.VERTICAL) {
-                        // Add an additional bendpoint (null is allright, it will be replaced later anyway).
-                        bendpoints.add(1, null);
-                        fixedPoint = new Point(fixedPoint);
-                    }
-                    fixedPoint.y = sourceLocation.y;
-                }
-                AbsoluteBendpoint fixedBendpoint = new AbsoluteBendpoint(fixedPoint);
-                bendpoints.set(1, fixedBendpoint);
-                
-                int lastBendpointIndex = bendpoints.size() - 2;
-                fixedPoint = bendpoints.get(lastBendpointIndex).getLocation();
-                nextPoint = bendpoints.get(lastBendpointIndex - 1).getLocation();
-                Orientation previousSegmentOrientation = Orientation.NONE;
-                if (fixedPoint.x == nextPoint.x) {
-                    previousSegmentOrientation = Orientation.VERTICAL;
-                } else if (fixedPoint.y == nextPoint.y) {
-                    previousSegmentOrientation = Orientation.HORIZONTAL;
-                } else {
-                    assert (false) : "impossible to determine orientation of last segment, something is wrong with the provided list of bendpoints!";
-                }
-                if (targetAnchorOrientation == Direction.NONE) {
-                    // Target anchor is not oriented, deduct orientation from previous segment if possible.
-                    if (previousSegmentOrientation == Orientation.VERTICAL) {
-                        // previous segment is vertical, so first was horizontal
-                        fixedPoint.y = targetLocation.y;
-                    } else if (previousSegmentOrientation == Orientation.HORIZONTAL) {
-                        // previous segment is horizontal so first is vertical
-                        fixedPoint.x = targetLocation.x;
-                    }
-                } else if (targetAnchorOrientation == Direction.NORTH || targetAnchorOrientation == Direction.SOUTH) {
-                    // Last segment is vertical: align the X coordinates
-                    // Check that we don't need an additional bend point (previous segment must be horizontal) first
-                    if (previousSegmentOrientation != Orientation.HORIZONTAL) {
-                        // Add an additional bendpoint (null is allright, it will be replaced later anyway).
-                        ++lastBendpointIndex;
-                        bendpoints.add(lastBendpointIndex, null);
-                        fixedPoint = new Point(fixedPoint);
-                    }
-                    fixedPoint.x = targetLocation.x;
-                } else {
-                    // Last segment is horizontal: align the Y coordinates
-                    // Check that we don't need an additional bend point (previous segment must be vertical) first
-                    if (previousSegmentOrientation != Orientation.VERTICAL) {
-                        // Add an additional bendpoint (null is allright, it will be replaced later anyway).
-                        ++lastBendpointIndex;
-                        bendpoints.add(lastBendpointIndex, null);
-                        fixedPoint = new Point(fixedPoint);
-                    }
-                    fixedPoint.y = targetLocation.y;
-                }
-                fixedBendpoint = new AbsoluteBendpoint(fixedPoint);
-                bendpoints.set(lastBendpointIndex, fixedBendpoint);
-            }
-
-            @objid ("7ae932ef-40bf-4c17-8758-c17339982d2a")
-            private void fixNoBendpointsLink(final List<Bendpoint> allPoints, final Point sourceLocation, final Point targetLocation, final Direction sourceAnchorOrientation, final Direction targetAnchorOrientation) {
-                // If there is no intermediary bend point, check whether the anchors location are aligned, and add bend point(s) if not.
-                if (sourceAnchorOrientation == Direction.NORTH || sourceAnchorOrientation == Direction.SOUTH) {
-                    if (targetAnchorOrientation == Direction.NORTH || targetAnchorOrientation == Direction.SOUTH) {
-                        if (sourceLocation.x != targetLocation.x) {
-                            // No luck: not aligned, we need 2 additional bend points.
-                            OldOrthogonalRouter.A_POINT.setLocation(sourceLocation.x, (sourceLocation.y + targetLocation.y) / 2);
-                            allPoints.add(1, new AbsoluteBendpoint(OldOrthogonalRouter.A_POINT));
-                            OldOrthogonalRouter.A_POINT.setLocation(targetLocation.x, (sourceLocation.y + targetLocation.y) / 2);
-                            allPoints.add(2, new AbsoluteBendpoint(OldOrthogonalRouter.A_POINT));
-                        }
-                        // else: good luck: both anchors are aligned, nothing to do!
-                    } else {
-                        // We need an additional bend point.
-                        OldOrthogonalRouter.A_POINT.setLocation(sourceLocation.x, targetLocation.y);
-                        allPoints.add(1, new AbsoluteBendpoint(OldOrthogonalRouter.A_POINT));
-                    }
-                } else {
-                    if (targetAnchorOrientation == Direction.NONE) {
-                        // Not oriented target anchor: we might need an additional bend point.
-                        if (sourceLocation.y != targetLocation.y) {
-                            // No luck, anchors are not aligned, we need a bend point.
-                            OldOrthogonalRouter.A_POINT.setLocation(targetLocation.x, sourceLocation.y);
-                            allPoints.add(1, new AbsoluteBendpoint(OldOrthogonalRouter.A_POINT));
-                        }
-                        // else: good luck, both anchors are aligned, nothing to do!
-                    } else if (targetAnchorOrientation == Direction.SOUTH ||
-                            targetAnchorOrientation == Direction.NORTH) {
-                        // We need an additional bend point
-                        OldOrthogonalRouter.A_POINT.setLocation(targetLocation.x, sourceLocation.y);
-                        allPoints.add(1, new AbsoluteBendpoint(OldOrthogonalRouter.A_POINT));
-                    } else {
-                        if (sourceLocation.y != targetLocation.y) {
-                            // No luck: not aligned, we need 2 additional bend points.
-                            OldOrthogonalRouter.A_POINT.setLocation((sourceLocation.x + targetLocation.x) / 2, sourceLocation.y);
-                            allPoints.add(1, new AbsoluteBendpoint(OldOrthogonalRouter.A_POINT));
-                            OldOrthogonalRouter.A_POINT.setLocation((sourceLocation.x + targetLocation.x) / 2, targetLocation.y);
-                            allPoints.add(2, new AbsoluteBendpoint(OldOrthogonalRouter.A_POINT));
-                        }
-                        // else: good luck: both anchors are aligned, nothing to do!
-                    }
-                }
-            }
-
-            @objid ("c52991f4-1c4a-49af-bf9d-f13dee0237df")
-            private List<Bendpoint> computeInitialBendpointsList(final Connection connection, final ConnectionAnchor sourceAnchor, final ConnectionAnchor targetAnchor, OrthogonalRouter orthogonalRouter) {
-                List<Bendpoint> origBendpoints = getBendpoints(connection, orthogonalRouter);
-                if (origBendpoints == null) {
-                    origBendpoints = Collections.emptyList();
-                }
-                final List<Bendpoint> allPoints = new ArrayList<>();
-                
-                // Let's assume the first point is the source anchor reference point (This may be modified later).
-                OldOrthogonalRouter.A_POINT.setLocation(sourceAnchor.getReferencePoint());
-                connection.translateToRelative(OldOrthogonalRouter.A_POINT);
-                allPoints.add(new AbsoluteBendpoint(OldOrthogonalRouter.A_POINT));
-                // Now assume the given allPoints are good (we'll fix them later if needed)
-                for (Bendpoint bendpoint : origBendpoints) {
-                    allPoints.add(new AbsoluteBendpoint(bendpoint.getLocation()));
-                }
-                // End with the target anchor reference point
-                OldOrthogonalRouter.A_POINT.setLocation(targetAnchor.getReferencePoint());
-                connection.translateToRelative(OldOrthogonalRouter.A_POINT);
-                allPoints.add(new AbsoluteBendpoint(OldOrthogonalRouter.A_POINT));
-                
-                final Rectangle srcBounds = getAnchorOwnerAbsoluteBounds(sourceAnchor).expand(1, 1);
-                connection.translateToRelative(srcBounds);
-                final Rectangle targetBounds = getAnchorOwnerAbsoluteBounds(targetAnchor).expand(1, 1);
-                connection.translateToRelative(targetBounds);
-                
-                // Cleanup some useless points if needed at the beginning
-                boolean sourceContainsTarget = srcBounds.contains(targetBounds);
-                if (!sourceContainsTarget) {
-                    // Remove from the beginning of the list all allPoints until the first outside the source bounds.
-                    // We want to keep at least 2 points (source and target anchor reference point)
-                    while (allPoints.size() > 2 && srcBounds.contains(allPoints.get(1).getLocation())) {
-                        allPoints.remove(1);
-                    }
-                }
-                
-                // Cleanup some useless points if needed at the end
-                boolean targetContainsSource = targetBounds.contains(srcBounds);
-                if (!targetContainsSource) {
-                    // Remove from the end of the list all allPoints until the first outside the target bounds.
-                    // We want to keep at least 2 points (source and target anchor reference point)
-                    while (allPoints.size() > 2 &&
-                            targetBounds.contains(allPoints.get(allPoints.size() - 2).getLocation())) {
-                        allPoints.remove(allPoints.size() - 2);
-                    }
-                }
-                
-                // Now compute the actual location of the source anchor, based on the next bendpoint (might be the target anchor reference point).
-                OldOrthogonalRouter.A_POINT.setLocation(allPoints.get(1).getLocation());
-                connection.translateToAbsolute(OldOrthogonalRouter.A_POINT);
-                OldOrthogonalRouter.A_POINT.setLocation(sourceAnchor.getLocation(OldOrthogonalRouter.A_POINT));
-                connection.translateToRelative(OldOrthogonalRouter.A_POINT);
-                // Use that value in the list, instead of the reference point.
-                allPoints.set(0, new AbsoluteBendpoint(OldOrthogonalRouter.A_POINT));
-                
-                // Now compute the actual location of the target anchor, based on the previous bendpoint (might be the source anchor location point).
-                int index = allPoints.size() - 1;
-                OldOrthogonalRouter.A_POINT.setLocation(allPoints.get(index - 1).getLocation());
-                connection.translateToAbsolute(OldOrthogonalRouter.A_POINT);
-                OldOrthogonalRouter.A_POINT.setLocation(targetAnchor.getLocation(OldOrthogonalRouter.A_POINT));
-                connection.translateToRelative(OldOrthogonalRouter.A_POINT);
-                // Use that value in the list, instead of the reference point.
-                allPoints.set(index, new AbsoluteBendpoint(OldOrthogonalRouter.A_POINT));
-                return allPoints;
-            }
-
-            @objid ("ef351125-9298-4a31-812f-eb5ca4b26715")
-            private void fixOneBendpointLink(final List<Bendpoint> bendpoints, final Point sourceLocation, final Point targetLocation, final Direction sourceAnchorOrientation, final Direction targetAnchorOrientation) {
-                // If there is only 1 intermediary bend point, try to fix it or add another bend point if needed
-                Point fixedPoint = bendpoints.get(1).getLocation();
-                if (sourceAnchorOrientation == Direction.NORTH || sourceAnchorOrientation == Direction.SOUTH) {
-                    fixedPoint.x = sourceLocation.x;
-                    if (targetAnchorOrientation == Direction.NORTH || targetAnchorOrientation == Direction.SOUTH) {
-                        // Unless the 3 points are aligned on the X axis, we are gonna need an additional bend point.
-                        if (targetLocation.x != fixedPoint.x) {
-                            OldOrthogonalRouter.A_POINT.setLocation(targetLocation.x, fixedPoint.y);
-                            bendpoints.add(2, new AbsoluteBendpoint(OldOrthogonalRouter.A_POINT));
-                        }
-                        // else: do nothing, the 3 points are aligned, the intermediary bendpoint will be removed during the cleanup phase.
-                    } else {
-                        fixedPoint.y = targetLocation.y;
-                    }
-                } else {
-                    fixedPoint.y = sourceLocation.y;
-                    if (targetAnchorOrientation == Direction.NORTH ||
-                            targetAnchorOrientation == Direction.SOUTH ||
-                            targetAnchorOrientation == Direction.NONE) {
-                        fixedPoint.x = targetLocation.x;
-                    } else {
-                        // Unless the 3 points are aligned on the Y axis, we are gonna need an additional bend point.
-                        if (targetLocation.y != fixedPoint.y) {
-                            OldOrthogonalRouter.A_POINT.setLocation(fixedPoint.x, targetLocation.y);
-                            bendpoints.add(2, new AbsoluteBendpoint(OldOrthogonalRouter.A_POINT));
-                        }
-                        // else: do nothing, the 3 points are aligned, the intermediary bendpoint will be removed during the cleanup phase.
-                    }
-                }
-                AbsoluteBendpoint fixedBendpoint = new AbsoluteBendpoint(fixedPoint);
-                bendpoints.add(1, fixedBendpoint);
-                bendpoints.remove(2);
-            }
-
-        }
-
-    }
-
-    @objid ("dbfa292f-29a4-45a6-8257-f7d55b3ed510")
-    private static class LinkPathFixer implements IPostLoadAction {
-        @objid ("9ab1790a-3890-4b26-a080-c456eab24cbe")
-        private GmLink gmLink;
-
-        @objid ("9a55e16e-5b69-4025-8774-bfea42af1160")
-        public LinkPathFixer(GmLink gmLink) {
-            this.gmLink = gmLink;
-        }
-
-        @objid ("1f036c46-5cf1-4601-af03-7be3428aa9a9")
-        @Override
-        public void run(EditPartViewer viewer) {
-            GraphicalEditPart linkEditPart = (GraphicalEditPart) viewer.getEditPartRegistry().get(this.gmLink);
-            if (linkEditPart != null && linkEditPart.getFigure() instanceof Connection) {
-                Connection connection = (Connection) linkEditPart.getFigure();
-                List<Bendpoint> routingConstraint = (List<Bendpoint>) connection.getRoutingConstraint();
-                if (routingConstraint.size() > 0) {
-                    IFigure figure = ((GraphicalEditPart) ((GraphicalEditPart) viewer.getEditPartRegistry().get(this.gmLink.getDiagram())).getParent()).getFigure();
-                    Rectangle originBounds = figure.getBounds().getCopy();
-                    figure.translateToAbsolute(originBounds);
-                    Point negated = originBounds.getTopLeft().getNegated();
-            
-                    List<Point> points = BendPointUtils.draw2dConstraintToModelConstraint(routingConstraint);
-                    for (Point p : points) {
-                        p.translate(negated);
-                    }
-                    applyLayoutData(points);
-                }
-            }
-        }
-
-        /**
-         * Update the layout data of the {@link #gmLink}.
-         * 
-         * @param newPathData a list of points.
-         */
-        @objid ("445b27f2-6384-479c-9045-d12762e8f5c9")
-        private void applyLayoutData(List<Point> newPathData) {
-            GmPath newGmPath = new GmPath(this.gmLink.getPath());
-            newGmPath.setPathData(newPathData);
-            this.gmLink.setLayoutData(newGmPath);
-        }
-
     }
 
 }

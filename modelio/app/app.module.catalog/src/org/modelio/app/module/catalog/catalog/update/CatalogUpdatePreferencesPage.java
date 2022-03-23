@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.module.catalog.catalog.update;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.preference.BooleanFieldEditor;
 import org.eclipse.jface.preference.DirectoryFieldEditor;
@@ -65,7 +64,7 @@ public class CatalogUpdatePreferencesPage extends FieldEditorPreferencePage {
 
     @objid ("ccc658e7-d065-4734-8168-fc42209824bf")
     @Inject
-     ModelioEnv modelioEnv;
+    ModelioEnv modelioEnv;
 
     @objid ("040af4a8-d2c2-4d51-b019-8219374a321e")
     private BooleanFieldEditor showLatestField;
@@ -80,7 +79,7 @@ public class CatalogUpdatePreferencesPage extends FieldEditorPreferencePage {
      * Public constructor.
      */
     @objid ("1be2933f-72b6-4b49-bdba-c23599147a59")
-    public CatalogUpdatePreferencesPage() {
+    public  CatalogUpdatePreferencesPage() {
         init();
     }
 
@@ -91,6 +90,7 @@ public class CatalogUpdatePreferencesPage extends FieldEditorPreferencePage {
         prefs.setDefault(CatalogUpdatePreferencesPage.CATALOG_SHOW_LATEST, true);
         setPreferenceStore(prefs);
         this.currentModulePath = Paths.get(getPreferenceStore().getString(ModelioEnv.MODULE_PATH_PREFERENCE));
+        
     }
 
     @objid ("d86fcd83-8195-4b5d-bb51-eaf5a3b1d8c6")
@@ -123,6 +123,7 @@ public class CatalogUpdatePreferencesPage extends FieldEditorPreferencePage {
         });
         
         addField(this.localCatalogPathFieldEditor);
+        
     }
 
     @objid ("19fa08d8-2016-4506-ae31-3b968694612b")
@@ -220,6 +221,7 @@ public class CatalogUpdatePreferencesPage extends FieldEditorPreferencePage {
         
         
         }
+        
     }
 
 }

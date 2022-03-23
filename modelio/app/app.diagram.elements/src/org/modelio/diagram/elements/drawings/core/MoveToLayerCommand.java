@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.drawings.core;
 
 import java.util.ArrayList;
@@ -40,12 +39,12 @@ public class MoveToLayerCommand extends Command {
      * Creates the command.
      */
     @objid ("a4daf866-77ae-4cd7-b5d7-c5709c9c6b8c")
-    public MoveToLayerCommand() {
+    public  MoveToLayerCommand() {
+        
     }
 
     /**
      * Add elements to move
-     * 
      * @param els elements to move
      */
     @objid ("d76228d6-51fd-49d2-a8af-2f0fe349244d")
@@ -55,7 +54,6 @@ public class MoveToLayerCommand extends Command {
 
     /**
      * Set the target layer.
-     * 
      * @param targetLayer the target layer.
      */
     @objid ("a8bd11f6-9468-461a-b08b-9b5a5f65532c")
@@ -84,6 +82,7 @@ public class MoveToLayerCommand extends Command {
                 }
             }
         }
+        
     }
 
     @objid ("38a858ea-36b2-4b2c-ab97-e186d6afeb91")

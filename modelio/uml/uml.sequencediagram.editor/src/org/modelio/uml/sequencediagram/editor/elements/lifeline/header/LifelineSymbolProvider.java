@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.lifeline.header;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,12 +33,12 @@ public class LifelineSymbolProvider {
      * This class is not instantiable.
      */
     @objid ("d949b9d0-55b6-11e2-877f-002564c97630")
-    private LifelineSymbolProvider() {
+    private  LifelineSymbolProvider() {
+        
     }
 
     /**
      * Get the lifeline label at the following format: "name : representedType [min..max]"
-     * 
      * @param lifeline the lifeline
      * @return the computed label
      */
@@ -71,7 +70,6 @@ public class LifelineSymbolProvider {
 
     /**
      * Get the instance label at the following format: "name : type [min..max]"
-     * 
      * @param c the instance
      * @param s Where the computed cardinality is appended.
      * @return the computed label
@@ -103,7 +101,6 @@ public class LifelineSymbolProvider {
      * <li>1..* : returns "[1..*]"
      * <li>all other a..b : returns "[a..b]"
      * </ul>
-     * 
      * @param c The instance.
      * @param s Where the computed cardinality is appended.
      */
@@ -125,6 +122,7 @@ public class LifelineSymbolProvider {
             s.append(max);
             s.append("]");
         }
+        
     }
 
     @objid ("d949b9f0-55b6-11e2-877f-002564c97630")
@@ -134,6 +132,7 @@ public class LifelineSymbolProvider {
         if (type != null) {
             s.append(type.getName());
         }
+        
     }
 
 }

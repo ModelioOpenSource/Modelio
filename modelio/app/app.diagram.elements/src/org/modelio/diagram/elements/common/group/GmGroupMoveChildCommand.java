@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.group;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,6 @@ import org.eclipse.gef.commands.Command;
 public class GmGroupMoveChildCommand extends Command {
     /**
      * Set the child to be moved.
-     * 
      * @param model the child to be moved.
      */
     @objid ("7e595d4b-1dec-11e2-8cad-001ec947c8cc")
@@ -42,7 +40,6 @@ public class GmGroupMoveChildCommand extends Command {
 
     /**
      * set the element after which the child must be moved.
-     * 
      * @param model the element after which the child must be moved.
      */
     @objid ("7e595d4f-1dec-11e2-8cad-001ec947c8cc")

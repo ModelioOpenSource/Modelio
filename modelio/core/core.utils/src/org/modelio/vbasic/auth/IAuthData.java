@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.auth;
 
 import java.util.Map;
@@ -32,7 +31,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IAuthData {
     /**
      * Get all authentication data fields
-     * 
      * @return all authentication data fields.
      */
     @objid ("f25d8277-af83-4d77-aa5e-ca43b546f724")
@@ -40,7 +38,6 @@ public interface IAuthData {
 
     /**
      * Returns a Properties containing all data to serialize.
-     * 
      * @param forceCredentials if true, put all credentials properties in the map.
      * If false, the receiver is free to put or not its secret credentials.
      * @return the datas to serialize.
@@ -50,7 +47,6 @@ public interface IAuthData {
 
     /**
      * Tells whether this authorization data is complete or some fields are missing.
-     * 
      * @return <code>true</code> if this data is complete, <code>false</code> if fields are missing.
      */
     @objid ("4c47043d-480d-427e-9052-5b735da962d7")
@@ -58,7 +54,6 @@ public interface IAuthData {
 
     /**
      * Get the authentication scheme identifier.
-     * 
      * @return the authentication scheme identifier.
      */
     @objid ("16d4f86d-96d7-4ab5-a072-35edcf3f60fd")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.core.modelshield.internal;
 
 import java.util.ArrayList;
@@ -36,7 +35,7 @@ public class ErrorReport implements IErrorReport {
     private final List<IModelError> entries;
 
     @objid ("00280b20-0000-0003-0000-000000000000")
-    public ErrorReport() {
+    public  ErrorReport() {
         this.entries = new ArrayList<>();
     }
 

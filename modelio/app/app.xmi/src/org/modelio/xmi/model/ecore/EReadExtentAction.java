@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,9 +40,10 @@ public class EReadExtentAction extends EActivityNode {
     }
 
     @objid ("6106fd33-b159-4dd7-b8f1-51bbb0833002")
-    public EReadExtentAction(org.eclipse.uml2.uml.ReadExtentAction element) {
+    public  EReadExtentAction(org.eclipse.uml2.uml.ReadExtentAction element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("9313bd01-211c-423b-9585-42a45c370be6")
@@ -51,6 +51,7 @@ public class EReadExtentAction extends EActivityNode {
     public void setProperties(Element objingElt) {
         super.setProperties(objingElt);
         setClassifier((OpaqueAction) objingElt);
+        
     }
 
     @objid ("0910ad03-2bc3-464e-b816-9fba81e21655")
@@ -65,6 +66,7 @@ public class EReadExtentAction extends EActivityNode {
                 dependency.setImpacted(objingElt);
             }
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.abstractdiagram;
 
 import java.util.ArrayList;
@@ -56,13 +55,12 @@ public class SnapEditPartAdapter {
     private Collection<Data> otherContainers = Collections.emptyList();
 
     @objid ("736740c9-05dd-4e70-8b7e-e56194033fc0")
-    public SnapEditPartAdapter(GraphicalEditPart editPart) {
+    public  SnapEditPartAdapter(GraphicalEditPart editPart) {
         this.editPart = editPart;
     }
 
     /**
      * Generates the SnapToHelper.
-     * 
      * @return a SnapToHelper
      */
     @objid ("e4012c1e-c134-468a-a879-f6e8e9cd104e")
@@ -113,7 +111,6 @@ public class SnapEditPartAdapter {
      * All the container children will be considered, with their bounds expanded by the given margin.
      * If the margin is positive, the dragged parts insets will be also added to the margin
      * so that the dragged parts may draw a frame around the snapped to graphic.
-     * 
      * @param container the container whose children geometry must be considered
      * @param margin the margin that should expand children bounds with.
      * @return this instance for calls chaining.
@@ -141,9 +138,10 @@ public class SnapEditPartAdapter {
         private Insets movedInset;
 
         @objid ("f84bbf9e-da7c-4e8f-8522-624948e9054a")
-        public ModelioSnapToGeometry(GraphicalEditPart container, int margin) {
+        public  ModelioSnapToGeometry(GraphicalEditPart container, int margin) {
             super(container);
             this.margin = margin;
+            
         }
 
         @objid ("3c26fda9-edc4-42b5-8900-f5294f9a0b78")
@@ -196,15 +194,16 @@ public class SnapEditPartAdapter {
     @objid ("ff959c86-bfb6-4324-8252-cffb2cb04cbd")
     private static final class Data {
         @objid ("545e5df5-e2df-43e8-95c5-9134c3296725")
-         final int margin;
+        final int margin;
 
         @objid ("47b6962f-d605-4538-9d07-f44b25909c72")
-         final GraphicalEditPart container;
+        final GraphicalEditPart container;
 
         @objid ("7df67877-6459-453e-afd2-8b65c7fa1e12")
-        public Data(int margin, GraphicalEditPart container) {
+        public  Data(int margin, GraphicalEditPart container) {
             this.margin = margin;
             this.container = container;
+            
         }
 
     }

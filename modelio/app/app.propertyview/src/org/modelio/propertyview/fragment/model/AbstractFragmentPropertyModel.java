@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.propertyview.fragment.model;
 
 import java.util.LinkedHashMap;
@@ -39,17 +38,15 @@ public class AbstractFragmentPropertyModel {
 
     /**
      * Create a new fragment data model from a fragment.
-     * 
      * @param fragment the fragment of which properties will be display
      */
     @objid ("67aaeadf-fd9f-49c1-9e8f-53a559525cbe")
-    public AbstractFragmentPropertyModel(AbstractFragment fragment) {
+    public  AbstractFragmentPropertyModel(AbstractFragment fragment) {
         this.type = fragment.getClass().getSimpleName();
     }
 
     /**
      * Get fragment type
-     * 
      * @return the fragment type
      */
     @objid ("78e46075-aa84-4423-a050-f920f4feebdd")
@@ -59,7 +56,6 @@ public class AbstractFragmentPropertyModel {
 
     /**
      * Set the frament type
-     * 
      * @param type the fragment type
      */
     @objid ("d0b837a1-aaad-412a-82a6-a228bbea2c58")
@@ -69,7 +65,6 @@ public class AbstractFragmentPropertyModel {
 
     /**
      * Get fragment name
-     * 
      * @return the fragment name
      */
     @objid ("a9523798-5c69-4cf6-8476-7bce598f52fb")
@@ -79,7 +74,6 @@ public class AbstractFragmentPropertyModel {
 
     /**
      * Set fragment name
-     * 
      * @param name the fragment name
      */
     @objid ("68703ac3-eed3-4289-8499-55d9e5e712d2")
@@ -89,7 +83,6 @@ public class AbstractFragmentPropertyModel {
 
     /**
      * Get all fragment properties in a Map
-     * 
      * @return a map containing all fragment properties
      */
     @objid ("7d883af0-4437-4ba9-a33b-440bc3b1bf38")

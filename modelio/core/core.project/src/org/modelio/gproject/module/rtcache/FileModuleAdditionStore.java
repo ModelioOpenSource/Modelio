@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.module.rtcache;
 
 import java.io.IOException;
@@ -51,12 +50,11 @@ class FileModuleAdditionStore extends FileModuleStore {
 
     /**
      * Instantiate a new FileModuleCatalog.
-     * 
      * @param metamodelFragments the metamodel fragments to use
      * @param cachePath the path to store unzipped .jmdacs into. Needs to be a writable directory.
      */
     @objid ("2c95c24a-f37d-11e1-a3c7-002564c97630")
-    public FileModuleAdditionStore(Collection<IGMetamodelExtension> metamodelFragments, Path cachePath) {
+    public  FileModuleAdditionStore(Collection<IGMetamodelExtension> metamodelFragments, Path cachePath) {
         super(metamodelFragments, cachePath);
     }
 
@@ -84,7 +82,6 @@ class FileModuleAdditionStore extends FileModuleStore {
 
     /**
      * Get the next available index in the store directory for a module.
-     * 
      * @param baseModuleCachePath @return
      */
     @objid ("e99e8d20-018f-4f81-8af6-1f1cb48ab164")
@@ -96,6 +93,7 @@ class FileModuleAdditionStore extends FileModuleStore {
             // Assume it's -1
             return -1;
         }
+        
     }
 
     @objid ("69f1aa55-26b6-40c4-84e9-83dd1e8e3a0b")
@@ -171,6 +169,7 @@ class FileModuleAdditionStore extends FileModuleStore {
             Log.warning(e);
             this.state = CacheState.INITIAL;
         }
+        
     }
 
 }

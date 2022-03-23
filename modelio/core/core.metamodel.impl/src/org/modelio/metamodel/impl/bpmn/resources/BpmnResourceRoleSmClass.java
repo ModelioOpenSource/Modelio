@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.resources;
 
 import java.util.ArrayList;
@@ -35,9 +35,6 @@ import org.modelio.metamodel.bpmn.resources.BpmnResourceRole;
 import org.modelio.metamodel.bpmn.rootElements.BpmnBaseElement;
 import org.modelio.metamodel.bpmn.rootElements.BpmnFlowNode;
 import org.modelio.metamodel.impl.bpmn.processCollaboration.BpmnProcessSmClass;
-import org.modelio.metamodel.impl.bpmn.resources.BpmnResourceParameterBindingSmClass;
-import org.modelio.metamodel.impl.bpmn.resources.BpmnResourceRoleData;
-import org.modelio.metamodel.impl.bpmn.resources.BpmnResourceSmClass;
 import org.modelio.metamodel.impl.bpmn.rootElements.BpmnBaseElementSmClass;
 import org.modelio.metamodel.impl.bpmn.rootElements.BpmnFlowNodeSmClass;
 import org.modelio.vbasic.version.Version;
@@ -67,7 +64,7 @@ public class BpmnResourceRoleSmClass extends BpmnBaseElementSmClass {
     private SmDependency processDep;
 
     @objid ("fe16c2c9-c4af-4c79-8a76-5042e8bfcaa2")
-    public BpmnResourceRoleSmClass(ISmMetamodelFragment origin) {
+    public  BpmnResourceRoleSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -75,6 +72,7 @@ public class BpmnResourceRoleSmClass extends BpmnBaseElementSmClass {
     @Override
     public String getName() {
         return "BpmnResourceRole";
+        
     }
 
     @objid ("072c4b40-6621-4ba1-bae9-75b82482def9")
@@ -87,18 +85,21 @@ public class BpmnResourceRoleSmClass extends BpmnBaseElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnResourceRole.class;
+        
     }
 
     @objid ("5632f85d-c5cd-40dc-830f-c02b54ce9c66")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("8f38ab06-12e0-495c-b5a3-459d58329ae9")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("d6c76a3a-b727-44e2-829e-f2ec7ace00a8")
@@ -126,6 +127,8 @@ public class BpmnResourceRoleSmClass extends BpmnBaseElementSmClass {
         this.processDep = new ProcessSmDependency();
         this.processDep.init("Process", this, metamodel.getMClass(BpmnProcess.MQNAME), 0, 1 );
         registerDependency(this.processDep);
+        
+        
     }
 
     @objid ("9530b21b-35e7-4b3f-b28f-64698effd135")
@@ -166,7 +169,7 @@ public class BpmnResourceRoleSmClass extends BpmnBaseElementSmClass {
         private BpmnResourceRoleSmClass smClass;
 
         @objid ("00710c1d-a45c-4403-9625-879fac90e4e9")
-        public BpmnResourceRoleObjectFactory(BpmnResourceRoleSmClass smClass) {
+        public  BpmnResourceRoleObjectFactory(BpmnResourceRoleSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -208,6 +211,7 @@ public class BpmnResourceRoleSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnResourceSmClass)this.getTarget()).getResourceroleRefsDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -236,6 +240,7 @@ public class BpmnResourceRoleSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnFlowNodeSmClass)this.getTarget()).getResourceDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -255,6 +260,7 @@ public class BpmnResourceRoleSmClass extends BpmnBaseElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnResourceRoleData) data).mResourceParameterBinding = values;
+            
         }
 
         @objid ("16d3cebb-4195-47a7-9882-53a726a37d8c")
@@ -264,6 +270,7 @@ public class BpmnResourceRoleSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnResourceParameterBindingSmClass)this.getTarget()).getResourceRoleDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -292,6 +299,7 @@ public class BpmnResourceRoleSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnProcessSmClass)this.getTarget()).getResourceDep();
             }
             return this.symetricDep;
+            
         }
 
     }

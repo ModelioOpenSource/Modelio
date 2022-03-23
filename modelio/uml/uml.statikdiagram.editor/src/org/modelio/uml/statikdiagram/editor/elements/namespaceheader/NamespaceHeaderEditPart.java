@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.namespaceheader;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,6 +42,7 @@ public class NamespaceHeaderEditPart extends ModelElementHeaderEditPart {
             IPenOptionsSupport headerFigure = (IPenOptionsSupport) fig;
             headerFigure.setTextFont(CoreFontRegistry.getModifiedFont(headerFigure.getTextFont(), SWT.ITALIC, 1));
         }
+        
     }
 
 }

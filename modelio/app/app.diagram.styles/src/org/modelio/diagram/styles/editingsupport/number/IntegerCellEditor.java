@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.editingsupport.number;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,13 +37,13 @@ public class IntegerCellEditor extends TextCellEditor {
     /**
      * Creates a new integer string cell editor parented under the given control. The cell editor value is the string
      * itself, which is initially the empty string. Initially, the cell editor has no cell validator.
-     * 
      * @param parent the parent control
      */
     @objid ("85ae1ff0-1926-11e2-92d2-001ec947c8cc")
-    public IntegerCellEditor(Composite parent, int style) {
+    public  IntegerCellEditor(Composite parent, int style) {
         super(parent, style);
         this.setValidator(new IntegerValidator(this));
+        
     }
 
     @objid ("85ae1ff5-1926-11e2-92d2-001ec947c8cc")
@@ -55,6 +54,7 @@ public class IntegerCellEditor extends TextCellEditor {
             stringValue = ((Integer) value).toString();
         }
         super.doSetValue(stringValue);
+        
     }
 
     @objid ("85ae1ff9-1926-11e2-92d2-001ec947c8cc")
@@ -100,12 +100,14 @@ public class IntegerCellEditor extends TextCellEditor {
                                                                   .getSystemColor(SWT.COLOR_RED));
                 return e.toString();
             }
+            
         }
 
         @objid ("85ae2008-1926-11e2-92d2-001ec947c8cc")
-        public IntegerValidator(final IntegerCellEditor integerCellEditor) {
+        public  IntegerValidator(final IntegerCellEditor integerCellEditor) {
             this.editor = integerCellEditor;
             this.defaultColor = this.editor.getControl().getForeground();
+            
         }
 
     }

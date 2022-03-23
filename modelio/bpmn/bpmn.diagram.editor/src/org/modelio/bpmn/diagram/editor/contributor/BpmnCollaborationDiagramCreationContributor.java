@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.contributor;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.swt.graphics.Image;
@@ -143,6 +142,7 @@ public class BpmnCollaborationDiagramCreationContributor extends AbstractDiagram
         } else {
             return null;
         }
+        
     }
 
     @objid ("5bc66617-6536-4389-9a66-a22ce2dc13db")
@@ -191,6 +191,7 @@ public class BpmnCollaborationDiagramCreationContributor extends AbstractDiagram
         } else {
             return this.mmServices.getMetamodel();
         }
+        
     }
 
     @objid ("026b0ec2-0b00-41e4-8c59-ce928c3cae0b")

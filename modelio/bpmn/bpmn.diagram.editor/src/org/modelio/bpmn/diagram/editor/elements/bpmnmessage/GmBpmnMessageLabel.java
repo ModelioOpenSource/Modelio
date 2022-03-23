@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnmessage;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -49,12 +48,11 @@ public class GmBpmnMessageLabel extends GmDefaultModelElementLabel {
 
     /**
      * Create a model element label
-     * 
      * @param diagram the diagram.
      * @param relatedRef a reference to the element this GmModel is related to.
      */
     @objid ("6160b43a-55b6-11e2-877f-002564c97630")
-    public GmBpmnMessageLabel(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmBpmnMessageLabel(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -62,7 +60,7 @@ public class GmBpmnMessageLabel extends GmDefaultModelElementLabel {
      * For deserialization only.
      */
     @objid ("6160b445-55b6-11e2-877f-002564c97630")
-    public GmBpmnMessageLabel() {
+    public  GmBpmnMessageLabel() {
         // serialization
     }
 
@@ -110,6 +108,7 @@ public class GmBpmnMessageLabel extends GmDefaultModelElementLabel {
             break;
         }
         }
+        
     }
 
     @objid ("61623aed-55b6-11e2-877f-002564c97630")
@@ -119,6 +118,7 @@ public class GmBpmnMessageLabel extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmBpmnMessageLabel.", GmBpmnMessageLabel.MINOR_VERSION);
+        
     }
 
     @objid ("61623af3-55b6-11e2-877f-002564c97630")

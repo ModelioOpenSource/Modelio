@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.drawings.text;
 
 import java.util.Objects;
@@ -62,7 +61,7 @@ public class ResizeableTextFigure extends GradientFigure {
      * Creates the figure.
      */
     @objid ("4c27796d-619c-4934-842f-0f709e487fb1")
-    public ResizeableTextFigure() {
+    public  ResizeableTextFigure() {
         this.contents = new FlowPage();
         this.contentsText = new TextFlow();
         this.contents.add(this.contentsText);
@@ -73,22 +72,22 @@ public class ResizeableTextFigure extends GradientFigure {
         add(this.contents);
         setLayoutManager(new FlowLayout());
         setOpaque(false);
+        
     }
 
     /**
      * Set the note text.
-     * 
      * @param contents the note text.
      */
     @objid ("cc26174a-7bfe-4fff-8a49-47f6698d2527")
     public void setContents(String contents) {
         this.contentsText.setText(contents);
         updateFont();
+        
     }
 
     /**
      * Set the text horizontal alignment.
-     * 
      * @param align the text horizontal alignment.
      */
     @objid ("54893cf2-49ea-45ab-9b6d-953aae5ba5e0")
@@ -112,6 +111,7 @@ public class ResizeableTextFigure extends GradientFigure {
         if (this.contents.getHorizontalAligment() != ialign) {
             this.contents.setHorizontalAligment(ialign);
         }
+        
     }
 
     @objid ("5440fd49-7e09-48f9-9316-0f0f31a4653b")
@@ -119,6 +119,7 @@ public class ResizeableTextFigure extends GradientFigure {
     public void setTextColor(Color textColor) {
         this.contents.setForegroundColor(textColor);
         super.setTextColor(textColor);
+        
     }
 
     @objid ("7b2c0ae8-b5c0-4066-ab78-f7adb92c606a")
@@ -129,6 +130,7 @@ public class ResizeableTextFigure extends GradientFigure {
         
             updateFont();
         }
+        
     }
 
     @objid ("cdc8b51c-c88e-419c-b0fb-c75c812b7b73")
@@ -138,6 +140,7 @@ public class ResizeableTextFigure extends GradientFigure {
             updateFont();
         
         super.validate();
+        
     }
 
     @objid ("22e1e2b5-4a68-428c-944e-cfc50690aec5")
@@ -145,6 +148,7 @@ public class ResizeableTextFigure extends GradientFigure {
         Font finalFont = computeFont(getClientArea());
         this.contents.setFont(finalFont);
         super.setTextFont(finalFont);
+        
     }
 
     @objid ("fe051950-cf3a-435c-bd82-c68355baf29d")
@@ -158,6 +162,7 @@ public class ResizeableTextFigure extends GradientFigure {
         } else {
             super.setBounds(rect);
         }
+        
     }
 
     @objid ("08384d44-dc09-4fac-8b8d-dc4721f6da9a")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import java.util.ArrayList;
@@ -36,7 +35,7 @@ public class OGate extends OMessageEnd {
     }
 
     @objid ("92922b49-d388-4fe8-9178-8b638d0ae4ac")
-    public OGate(Gate param) {
+    public  OGate(Gate param) {
         super(param);
     }
 
@@ -62,6 +61,7 @@ public class OGate extends OMessageEnd {
         }else{
             ecoreElt.destroy();
         }
+        
     }
 
     @objid ("c5af3c53-df49-48b2-96fd-2d0dbb8146f2")

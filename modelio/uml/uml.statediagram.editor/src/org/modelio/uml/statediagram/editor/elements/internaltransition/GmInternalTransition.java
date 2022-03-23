@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.internaltransition;
 
 import java.util.List;
@@ -45,9 +44,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("f54d0d1a-55b6-11e2-877f-002564c97630")
 public class GmInternalTransition extends GmModelElementLabel {
-    @objid ("f54d0d1f-55b6-11e2-877f-002564c97630")
-    private InternalTransition element = null;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -57,27 +53,30 @@ public class GmInternalTransition extends GmModelElementLabel {
     @objid ("f54d0d25-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
 
+    @objid ("f54d0d1f-55b6-11e2-877f-002564c97630")
+    private InternalTransition element = null;
+
     @objid ("fdbbc001-5a5b-11e2-9e33-00137282c51b")
     private static GmInternalTransitionStructuredStyleKeys STRUCTKEYS = new GmInternalTransitionStructuredStyleKeys();
 
     /**
      * Creates an internal transition graphic.
-     * 
      * @param diagram The diagram.
      * @param theInternalTransition The represented element, may be null.
      * @param ref The represented element reference, may not be null.
      */
     @objid ("f54d0d27-55b6-11e2-877f-002564c97630")
-    public GmInternalTransition(IGmDiagram diagram, InternalTransition theInternalTransition, MRef ref) {
+    public  GmInternalTransition(IGmDiagram diagram, InternalTransition theInternalTransition, MRef ref) {
         super(diagram, ref);
         this.element = theInternalTransition;
+        
     }
 
     /**
      * Constructor for deserialization only.
      */
     @objid ("f54d0d33-55b6-11e2-877f-002564c97630")
-    public GmInternalTransition() {
+    public  GmInternalTransition() {
         // empty
     }
 
@@ -140,6 +139,7 @@ public class GmInternalTransition extends GmModelElementLabel {
             break;
         }
         }
+        
     }
 
     @objid ("f54e9400-55b6-11e2-877f-002564c97630")
@@ -229,12 +229,14 @@ public class GmInternalTransition extends GmModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmInternalTransition.", GmInternalTransition.MINOR_VERSION);
+        
     }
 
     @objid ("f5501a63-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (InternalTransition) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("f5501a68-55b6-11e2-877f-002564c97630")

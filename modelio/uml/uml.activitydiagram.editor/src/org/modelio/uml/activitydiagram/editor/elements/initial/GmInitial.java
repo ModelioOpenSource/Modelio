@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.initial;
 
 import java.util.Collections;
@@ -31,8 +30,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.InitialNode;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -60,7 +59,7 @@ public class GmInitial extends GmPortContainer {
     private static final GmInitialImageStyleKeys IMAGE_KEYS = new GmInitialImageStyleKeys();
 
     @objid ("30df8094-58a2-11e2-9574-002564c97630")
-     static final GmInitialStructuredStyleKeys STRUCTURED_KEYS = new GmInitialStructuredStyleKeys();
+    static final GmInitialStructuredStyleKeys STRUCTURED_KEYS = new GmInitialStructuredStyleKeys();
 
     @objid ("30df8096-58a2-11e2-9574-002564c97630")
     private static final GmInitialSimpleStyleKeys SIMPLE_KEYS = new GmInitialSimpleStyleKeys();
@@ -70,13 +69,12 @@ public class GmInitial extends GmPortContainer {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the timeEvent is unmasked.
      * @param el the unmasked timeEvent.
      * @param ref a reference to the unmasked timeEvent.
      */
     @objid ("2a99e086-55b6-11e2-877f-002564c97630")
-    public GmInitial(IGmDiagram diagram, InitialNode el, MRef ref) {
+    public  GmInitial(IGmDiagram diagram, InitialNode el, MRef ref) {
         super(diagram, ref);
         
         GmInitialPrimaryNode mainNode = new GmInitialPrimaryNode(diagram, ref);
@@ -88,6 +86,7 @@ public class GmInitial extends GmPortContainer {
         label.setRoleInComposition(GmPortContainer.SATELLITE_ROLE);
         label.setLayoutData(Integer.valueOf(PositionConstants.EAST));
         this.addChild(label);
+        
     }
 
     @objid ("2a99e092-55b6-11e2-877f-002564c97630")
@@ -146,7 +145,7 @@ public class GmInitial extends GmPortContainer {
      * Empty constructor needed for deserialisation.
      */
     @objid ("2a9b6719-55b6-11e2-877f-002564c97630")
-    public GmInitial() {
+    public  GmInitial() {
         // Nothing specific to do.
     }
 
@@ -167,6 +166,7 @@ public class GmInitial extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("2a9b6722-55b6-11e2-877f-002564c97630")
@@ -188,12 +188,14 @@ public class GmInitial extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmInitial.", GmInitial.MINOR_VERSION);
+        
     }
 
     @objid ("2a9b6736-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (InitialNode) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("2a9b673b-55b6-11e2-877f-002564c97630")
@@ -204,7 +206,6 @@ public class GmInitial extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -216,7 +217,6 @@ public class GmInitial extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

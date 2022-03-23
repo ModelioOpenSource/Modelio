@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.loopnode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,57 +32,57 @@ public class GmLoopNodeSimpleStyleKeys extends ActivityAbstractStyleKeyProvider 
      * Representation mode.
      */
     @objid ("d128138a-55c0-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmLoopNodeStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmLoopNodeStructuredStyleKeys.REPMODE;
 
     /**
      * Fill color.
      */
     @objid ("d128138d-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = GmLoopNodeStructuredStyleKeys.FILLCOLOR;
+    static final StyleKey FILLCOLOR = GmLoopNodeStructuredStyleKeys.FILLCOLOR;
 
     /**
      * Fill mode: transparent, solid, gradient.
      */
     @objid ("d1299a2b-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = GmLoopNodeStructuredStyleKeys.FILLMODE;
+    static final StyleKey FILLMODE = GmLoopNodeStructuredStyleKeys.FILLMODE;
 
     /**
      * Outline color.
      */
     @objid ("d1299a2e-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = GmLoopNodeStructuredStyleKeys.LINECOLOR;
+    static final StyleKey LINECOLOR = GmLoopNodeStructuredStyleKeys.LINECOLOR;
 
     /**
      * Outline width.
      */
     @objid ("d1299a31-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = GmLoopNodeStructuredStyleKeys.LINEWIDTH;
+    static final StyleKey LINEWIDTH = GmLoopNodeStructuredStyleKeys.LINEWIDTH;
 
     /**
      * Text font.
      */
     @objid ("d1299a34-55c0-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmLoopNodeStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmLoopNodeStructuredStyleKeys.FONT;
 
     /**
      * Text color.
      */
     @objid ("d1299a37-55c0-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmLoopNodeStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmLoopNodeStructuredStyleKeys.TEXTCOLOR;
 
     /**
      * Stereotypes display mode
      */
     @objid ("d1299a3a-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmLoopNodeStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmLoopNodeStructuredStyleKeys.SHOWSTEREOTYPES;
 
     /**
      * Show tagged values.
      */
     @objid ("d1299a3d-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmLoopNodeStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmLoopNodeStructuredStyleKeys.SHOWTAGS;
 
     @objid ("d1299a40-55c0-11e2-9337-002564c97630")
-     static final StyleKey AUTOSHOWPINS = GmLoopNodeStructuredStyleKeys.AUTOSHOWPINS;
+    static final StyleKey AUTOSHOWPINS = GmLoopNodeStructuredStyleKeys.AUTOSHOWPINS;
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.freezone;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,11 +29,9 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.GraphicalEditPolicy;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.modelio.diagram.elements.core.commands.PostLayoutCommand;
-import org.modelio.diagram.elements.plugin.DiagramElements;
 
 /**
- * Edit policy that catches {@link PostLayoutCommand#REQ_TYPE} requests to translate children
- * if the request tells this edit part was resized toward left and/or top.
+ * Edit policy that catches {@link PostLayoutCommand#REQ_TYPE} requests to translate children if the request tells this edit part was resized toward left and/or top.
  * 
  * @author cmarin
  * @since 3.4
@@ -63,6 +60,7 @@ public class TranslateChildrenOnResizeEditPolicy extends GraphicalEditPolicy {
         } else {
             return new TranslateChildrenOnResizeCommand((GraphicalEditPart) getHost());
         }
+        
     }
 
     @objid ("f0edc3a0-5d78-4dbf-8f3f-74f30c70abbb")
@@ -74,10 +72,11 @@ public class TranslateChildrenOnResizeEditPolicy extends GraphicalEditPolicy {
         private GraphicalEditPart editPart;
 
         @objid ("a1da07dd-d906-4e6a-a29a-ef383ad61891")
-        public TranslateChildrenOnResizeCommand(GraphicalEditPart host) {
+        public  TranslateChildrenOnResizeCommand(GraphicalEditPart host) {
             IFigure hostFigure = host.getFigure();
             this.editPart = host;
             this.oldBounds = hostFigure.getBounds().getCopy();
+            
         }
 
         @objid ("34f80763-f162-43ae-b83d-50f7c7406e60")
@@ -114,41 +113,34 @@ public class TranslateChildrenOnResizeEditPolicy extends GraphicalEditPolicy {
             } else if (dx > 0 && dw < 0) {
                 // shrunk left border toward right
                 int curW = absNewBounds.width();
-                tx = - Math.min(dx, curW - minsize.width());
+                tx = -Math.min(dx, curW - minsize.width());
             }
             
             if (dy < 0 && dh > 0) {
                 // expanded top border toward top
                 ty = Math.min(-dy, dh);
-            }  else if (dy > 0 && dh < 0) {
+            } else if (dy > 0 && dh < 0) {
                 // shrunk top border toward bottom
                 int curW = absNewBounds.height();
-                tx = - Math.min(dy, curW - minsize.height());
+                tx = -Math.min(dy, curW - minsize.height());
             }
             
-            if (tx != 0 || ty != 0) {
-            //                DiagramElements.LOG.debug(String.format("%s: translate children by (%d, %d) because bounds changed: location += (%d, %d), size += (%d, %d)\n\t\t for %s",
-            //                        getClass().getSimpleName(), tx, ty, dx, dy, dw, dh, this.editPart));
-                ChangeBoundsRequest r = new ChangeBoundsRequest(REQ_MOVE_CHILDREN);
-                r.setEditParts(this.editPart.getChildren());
-                r.getMoveDelta().setLocation(tx, ty);
-                r.getExtendedData().put("noautoexpand", Boolean.TRUE); // to avoid some infinite loops from auto expand edit policies
+            ChangeBoundsRequest r = new ChangeBoundsRequest(REQ_MOVE_CHILDREN);
+            r.setEditParts(this.editPart.getChildren());
+            r.getMoveDelta().setLocation(tx, ty);
+            r.getExtendedData().put("noautoexpand", Boolean.TRUE); // to avoid some infinite loops from auto expand edit policies
             
-                Command cmd = this.editPart.getCommand(r);
-                if (cmd != null && cmd.canExecute()) {
-                    cmd.execute();
-                } else if (cmd==null) {
-                    DiagramElements.LOG.warning("TranslateChildrenOnResizeEditPolicy: Cannot get command for children translate of dx=%d, dy=%d on %s", dx, dy, this.editPart);
-                } else {
-                    DiagramElements.LOG.warning("TranslateChildrenOnResizeEditPolicy: {%s} command is not executable for children translate of dx=%d, dy=%d on %s", cmd, dx, dy, this.editPart);
-                }
+            Command cmd = this.editPart.getCommand(r);
+            if (cmd != null && cmd.canExecute()) {
+                cmd.execute();
             }
+            
         }
 
         @objid ("07aed917-97bb-4734-9e21-1bffdb8c6350")
         @Override
         public String toString() {
-            return getClass().getSimpleName()+" "+this.editPart+" children from "+this.oldBounds;
+            return getClass().getSimpleName() + " " + this.editPart + " children from " + this.oldBounds;
         }
 
     }

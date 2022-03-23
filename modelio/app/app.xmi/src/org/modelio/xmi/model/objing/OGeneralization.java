@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,9 +39,10 @@ public class OGeneralization extends OElement implements IOElement {
     }
 
     @objid ("2eafd1f9-3aea-450d-ad97-e967c3c4698e")
-    public OGeneralization(Generalization element) {
+    public  OGeneralization(Generalization element) {
         super(element);
         this.objingElement = element;
+        
     }
 
     @objid ("d79aef30-3b18-464b-90d8-f40646afc226")
@@ -80,6 +80,7 @@ public class OGeneralization extends OElement implements IOElement {
                 // TODO METTRE LOG
             }
         }
+        
     }
 
     @objid ("f208959b-479c-4d51-8c95-de97f094dac9")
@@ -88,12 +89,14 @@ public class OGeneralization extends OElement implements IOElement {
         if (GenerationProperties.getInstance().isRoundtripEnabled()){
             setDiscriminatorEAnnotation((org.eclipse.uml2.uml.Generalization) ecoreElt);
         }
+        
     }
 
     @objid ("b5dcff6b-25d0-48da-aece-c61d847b7233")
     private void setDiscriminatorEAnnotation(org.eclipse.uml2.uml.Generalization ecoreElt) {
         ObjingEAnnotation.setDiscriminator(ecoreElt, this.objingElement
                 .getDiscriminator());
+        
     }
 
 }

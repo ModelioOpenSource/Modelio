@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.textelement;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -27,7 +26,6 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface ITextElementSelectionListener {
     /**
      * Called when the selected element changes.
-     * 
      * @param oldElement previously selected element. May be null.
      * @param newElement newly selected element. May be null.
      */

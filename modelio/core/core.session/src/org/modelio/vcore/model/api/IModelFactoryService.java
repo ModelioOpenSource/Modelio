@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model.api;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,7 +40,6 @@ public interface IModelFactoryService extends IModelFactory {
      * Get the model factory metamodel extension point.
      * <p>
      * To be used by metamodel extensions to register themselves to this service.
-     * 
      * @return this service metamodel extension point.
      */
     @objid ("050b9b7f-9049-4492-9174-cdf568f9fd1e")
@@ -50,17 +48,15 @@ public interface IModelFactoryService extends IModelFactory {
     /**
      * Get a specific model factory.
      * <p>
-     * 
      * @param factoryCls the model factory interface class.
      * @return the matching model factory
-     * @throws java.lang.IllegalArgumentException if there is no model factory implementing the class or interface.
+     * @throws IllegalArgumentException if there is no model factory implementing the class or interface.
      */
     @objid ("ec267038-3ee3-4072-b5f9-4c0aecb26d13")
     <T extends IModelFactory> T getFactory(Class<T> factoryCls) throws IllegalArgumentException;
 
     /**
      * Get the model factory for the given metamodel
-     * 
      * @param mmf a metamodel fragment.
      * @return the matching model factory.
      */
@@ -69,7 +65,6 @@ public interface IModelFactoryService extends IModelFactory {
 
     /**
      * Get the model factory for the given metaclass metamodel.
-     * 
      * @param mc a metaclass.
      * @return the matching model factory.
      */

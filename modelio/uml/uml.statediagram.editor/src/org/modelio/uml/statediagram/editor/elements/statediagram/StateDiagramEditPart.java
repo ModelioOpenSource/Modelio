@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.statediagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -71,6 +70,7 @@ public class StateDiagramEditPart extends AbstractDiagramEditPart {
         
         // Override drop policy to add smart interactions
         installEditPolicy(ModelElementDropRequest.TYPE, new StateDiagramElementDropEditPolicy());
+        
     }
 
 }

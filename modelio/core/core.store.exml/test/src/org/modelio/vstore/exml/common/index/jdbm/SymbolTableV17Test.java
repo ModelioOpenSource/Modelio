@@ -8,8 +8,8 @@ import org.junit.ClassRule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 import org.modelio.vbasic.debug.Chronometer;
-import org.modelio.vcore.smkernel.meta.mof.MofMetamodel.MofBuilder;
 import org.modelio.vcore.smkernel.meta.mof.MofMetamodel;
+import org.modelio.vcore.smkernel.meta.mof.MofMetamodel.MofBuilder;
 import org.modelio.vcore.smkernel.meta.mof.MofSmClass;
 import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 import org.modelio.vstore.exml.common.index.jdbm.symboltablev17.SymbolTableV17;
@@ -43,6 +43,7 @@ public class SymbolTableV17Test {
         } finally {
             db.close();
         }
+        
     }
 
     @objid ("567f25d3-7d16-47b8-ac0d-f9fc8c40c32a")
@@ -99,6 +100,7 @@ public class SymbolTableV17Test {
             db.close();
         }
         chrono.logTotal("2- Total");
+        
     }
 
     @objid ("b57c611c-8726-408f-80f4-30cbd731232b")
@@ -155,6 +157,7 @@ public class SymbolTableV17Test {
             db.close();
         }
         chrono.logTotal("V16 - 2- Total");
+        
     }
 
     /**
@@ -173,7 +176,7 @@ public class SymbolTableV17Test {
         public final MofMetamodel mm;
 
         @objid ("435ec11b-5007-45d2-8166-30aeca81b00a")
-        public TestMetamodel() {
+        public  TestMetamodel() {
             this.mm = new MofMetamodel();
             try (MofBuilder mmBuilder = this.mm.builder();) {
                 this.classCls = mmBuilder.createClass("Class", "mmFrag1", true).build();
@@ -206,6 +209,7 @@ public class SymbolTableV17Test {
                 })
                 .build();
             }
+            
         }
 
     }

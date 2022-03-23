@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.elements.actor;
 
 import java.util.Collections;
@@ -84,7 +83,7 @@ public class GmActorPrimaryNode extends GmNoStyleCompositeNode implements IImage
     private GmInternalStructure internalStructure;
 
     @objid ("5e3aedd6-55b7-11e2-877f-002564c97630")
-    public GmActorPrimaryNode(IGmDiagram diagram, MRef ref) {
+    public  GmActorPrimaryNode(IGmDiagram diagram, MRef ref) {
         super(diagram, ref);
         
         this.header = new GmNamespaceHeader(diagram, ref);
@@ -105,10 +104,11 @@ public class GmActorPrimaryNode extends GmNoStyleCompositeNode implements IImage
         super.addChild(this.attributeGroup);
         super.addChild(this.methodGroup);
         super.addChild(this.internalStructure);
+        
     }
 
     @objid ("5e3aeddf-55b7-11e2-877f-002564c97630")
-    public GmActorPrimaryNode() {
+    public  GmActorPrimaryNode() {
         // Nothing to do.
     }
 
@@ -211,6 +211,7 @@ public class GmActorPrimaryNode extends GmNoStyleCompositeNode implements IImage
             break;
         
         }
+        
     }
 
     @objid ("5e3c7469-55b7-11e2-877f-002564c97630")
@@ -218,6 +219,7 @@ public class GmActorPrimaryNode extends GmNoStyleCompositeNode implements IImage
     public void refreshFromObModel() {
         // forcing visual refresh in case Image changed
         firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("5e3c746c-55b7-11e2-877f-002564c97630")
@@ -242,6 +244,7 @@ public class GmActorPrimaryNode extends GmNoStyleCompositeNode implements IImage
         default:
             return super.getVisibleChildren();
         }
+        
     }
 
     @objid ("5e3c7483-55b7-11e2-877f-002564c97630")
@@ -257,6 +260,7 @@ public class GmActorPrimaryNode extends GmNoStyleCompositeNode implements IImage
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmActorPrimaryNode.", GmActorPrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("5e3c7490-55b7-11e2-877f-002564c97630")
@@ -287,6 +291,7 @@ public class GmActorPrimaryNode extends GmNoStyleCompositeNode implements IImage
         this.attributeGroup.setRoleInComposition(GmActorPrimaryNode.ATTRIBUTE_GROUP);
         this.methodGroup.setRoleInComposition(GmActorPrimaryNode.METHOD_GROUP);
         this.internalStructure.setRoleInComposition(GmActorPrimaryNode.INTERNAL);
+        
     }
 
     @objid ("5e3c7495-55b7-11e2-877f-002564c97630")
@@ -313,6 +318,7 @@ public class GmActorPrimaryNode extends GmNoStyleCompositeNode implements IImage
             GmNodeModel oldImageModeHeader = getChildren().get(4);
             removeChild(oldImageModeHeader);
         }
+        
     }
 
     @objid ("15859d3a-1a29-4a5f-a52c-a62d4d35a98e")
@@ -323,6 +329,7 @@ public class GmActorPrimaryNode extends GmNoStyleCompositeNode implements IImage
         this.attributeGroup = (GmGroup) getFirstChild(GmActorPrimaryNode.ATTRIBUTE_GROUP);
         this.methodGroup = (GmGroup) getFirstChild(GmActorPrimaryNode.METHOD_GROUP);
         this.internalStructure = (GmInternalStructure) getFirstChild(GmActorPrimaryNode.INTERNAL);
+        
     }
 
 }

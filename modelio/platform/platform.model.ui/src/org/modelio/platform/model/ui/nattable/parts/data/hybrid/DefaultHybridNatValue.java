@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.hybrid;
 
 import java.security.InvalidParameterException;
@@ -43,29 +42,29 @@ public class DefaultHybridNatValue extends DefaultNatValue implements IHybridNat
 
     /**
      * Creates a new instance.
-     * 
      * @param value the wrapped value.
      * @param acceptNullValue whether or not <code>null</code> is a valid value for this field.
      * @param allowedClasses list of the accepted metaclasses for the value.
      * @param acceptStringValue whether or not a String is a valid value for this field.
      */
     @objid ("6979470e-3302-4679-9623-b2b6a7ec7929")
-    public DefaultHybridNatValue(Object value, boolean acceptNullValue, List<Class<? extends MObject>> allowedClasses, boolean acceptStringValue) {
+    public  DefaultHybridNatValue(Object value, boolean acceptNullValue, List<Class<? extends MObject>> allowedClasses, boolean acceptStringValue) {
         super(value, acceptNullValue);
         this.allowedClasses = allowedClasses;
         this.acceptStringValue = acceptStringValue;
+        
     }
 
     /**
      * Copy constructor, creating a new instance with the same configuration as the other.
-     * 
      * @param anotherInstance the instance to copy.
      */
     @objid ("50803805-813a-4877-b810-6646abcbfddf")
-    public DefaultHybridNatValue(DefaultHybridNatValue anotherInstance) {
+    public  DefaultHybridNatValue(DefaultHybridNatValue anotherInstance) {
         super(anotherInstance);
         this.allowedClasses = anotherInstance.allowedClasses;
         this.elementFilter = anotherInstance.elementFilter;
+        
     }
 
     @objid ("c077cdec-cb85-427d-a3e5-17ece1eacf35")
@@ -105,6 +104,7 @@ public class DefaultHybridNatValue extends DefaultNatValue implements IHybridNat
             throw new InvalidParameterException("Value must be a MObject or a String.");
         }
         super.setValue(value);
+        
     }
 
 }

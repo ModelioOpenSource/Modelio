@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.module.modelermodule.impl;
 
 import java.io.File;
@@ -43,7 +42,7 @@ public class ModelerModuleLifeCycleHandler extends DefaultModuleLifeCycleHandler
      * Constructor.
      */
     @objid ("fc86ffb4-5c1c-4812-b07f-11d2c091daf4")
-    public ModelerModuleLifeCycleHandler(final ModelerModuleModule module) {
+    public  ModelerModuleLifeCycleHandler(final ModelerModuleModule module) {
         super(module);
     }
 
@@ -111,6 +110,7 @@ public class ModelerModuleLifeCycleHandler extends DefaultModuleLifeCycleHandler
             }
             return;
         }
+        
     }
 
     @objid ("7adbc176-d89d-40dc-a8d5-792e88faf73f")
@@ -119,6 +119,7 @@ public class ModelerModuleLifeCycleHandler extends DefaultModuleLifeCycleHandler
         if (predefinedTypesRamc.exists()) {
             modelComponentService.deployModelComponent(predefinedTypesRamc, null);
         }
+        
     }
 
     @objid ("f840a3f0-4c7d-4413-a514-e678bf24cd77")
@@ -153,78 +154,14 @@ public class ModelerModuleLifeCycleHandler extends DefaultModuleLifeCycleHandler
     /**
      * Reload all MDA types references.
      * <p>
-     * Note : do not modify by hand the code, it is generated from a macro in the operation.
+     * Note : do not modify by hand the code, it is generated from a macro.
      */
     @objid ("2ff807c0-6442-4e79-9d5e-64f4ba6cc178")
     private void reinitializeProxies() {
-        // Code generated from Jython macro in the 'reinitializeProxies'{6ab169ab-0411-428f-b0f2-b89b4d4146f3} Standard.Operation operation.
+        // Code generated automatically from a Jenkins Job
+        
         final IModuleContext moduleContext = this.module.getModuleContext();
-        org.modelio.module.modelermodule.api.default_.infrastructure.abstractdiagram.AutoDiagram.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.infrastructure.dependency.Flow.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.infrastructure.dependency.ImpactModel.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.infrastructure.dependency.ImpactRoot.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.infrastructure.dependency.ImpactSubroot.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.infrastructure.dependency.Manifestation.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.infrastructure.dependency.RelatedDiagram.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.infrastructure.dependency.SeeAlso.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.infrastructure.dependency.Trace.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.infrastructure.matrixdefinition.JyMatrix.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.infrastructure.note.ExternalDocument.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.infrastructure.profile.Methodology.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.actor.Primary.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.actor.Secondary.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.actor.System.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.artifact.Directory.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.artifact.Document.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.artifact.Executable.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.artifact.File.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.artifact.Library.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.artifact.Mail.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.artifact.ModelComponentArchive.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.artifact.Url.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.association.Implicit.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.class_.DesignPattern.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.class_.ImplementationClass.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.class_.Type.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.classifier.Metaclass.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.classifier.Process.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.classifier.Utility.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.component.ModelComponent.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.constraint.Complete.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.constraint.Destroyed.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.constraint.Disjoin.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.constraint.Incomplete.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.constraint.Invariant.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.constraint.New.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.constraint.Ordered.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.constraint.Overlapping.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.constraint.Postcondition.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.constraint.Precondition.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.constraint.Subset.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.constraint.Transient.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.constraint.Xor.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.elementimport.Access.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.elementimport.Catch.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.elementimport.Create.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.elementimport.Friend.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.elementimport.Import.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.elementimport.Instantiate.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.elementimport.Throw.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.generalization.Implementation.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.interaction.Scenario.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.operation.Create.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.operation.Destroy.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.package_.Facade.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.package_.FrameWork.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.package_.Metamodel.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.package_.Stub.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.package_.Subsystem.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.package_.System.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.package_.TopLevel.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.signal.Exception.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.umlmodelelement.ModelComponentElementAlias.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.usecasedependency.Extend.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.default_.standard.usecasedependency.Include.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.analyst.analyst.analystelement.MMAnalystAnalystElement.MdaTypes.init(moduleContext);
         org.modelio.module.modelermodule.api.analyst.infrastructure.dependency.Antonym.MdaTypes.init(moduleContext);
         org.modelio.module.modelermodule.api.analyst.infrastructure.dependency.Assigned.MdaTypes.init(moduleContext);
         org.modelio.module.modelermodule.api.analyst.infrastructure.dependency.Context.MdaTypes.init(moduleContext);
@@ -246,15 +183,128 @@ public class ModelerModuleLifeCycleHandler extends DefaultModuleLifeCycleHandler
         org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.BusinessRulePropertyset.MdaTypes.init(moduleContext);
         org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.DictionaryPropertyset.MdaTypes.init(moduleContext);
         org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.GoalPropertyset.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.KpiPropertyset.MdaTypes.init(moduleContext);
         org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.RequirementPropertyset.MdaTypes.init(moduleContext);
         org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.RiskPropertyset.MdaTypes.init(moduleContext);
         org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.TestPropertyset.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.DictionaryDiagram.MdaTypes.init(moduleContext);
         org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.BusinessRuleDiagram.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.RequirementDiagram.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.DictionaryDiagram.MdaTypes.init(moduleContext);
         org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.GoalDiagram.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.KpiDiagram.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.RequirementDiagram.MdaTypes.init(moduleContext);
         org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.RiskDiagram.MdaTypes.init(moduleContext);
         org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.TestDiagram.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.archimate.archimate.element.MMArchimateElement.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.code.standard.associationend.MMStandardAssociationEnd.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.code.standard.attribute.MMStandardAttribute.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.code.standard.generalclass.MMStandardGeneralClass.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.code.standard.operation.MMStandardOperation.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.code.standard.package_.MMStandardPackage.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.code.standard.parameter.MMStandardParameter.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.analyst.analystitem.MMAnalystAnalystItem.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.infrastructure.abstractdiagram.AutoDiagram.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.infrastructure.dependency.Flow.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.infrastructure.dependency.ImpactModel.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.infrastructure.dependency.ImpactRoot.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.infrastructure.dependency.ImpactSubroot.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.infrastructure.dependency.MMInfrastructureDependency.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.infrastructure.dependency.Manifestation.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.infrastructure.dependency.RelatedDiagram.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.infrastructure.dependency.SeeAlso.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.infrastructure.dependency.Trace.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.infrastructure.matrixdefinition.JyMatrix.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.infrastructure.modelelement.MMInfrastructureModelElement.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.infrastructure.note.ExternalDocument.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.infrastructure.profile.Methodology.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.activitygroup.MMStandardActivityGroup.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.activitynode.MMStandardActivityNode.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.actor.Primary.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.actor.Secondary.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.actor.System.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.artifact.Directory.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.artifact.Document.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.artifact.Executable.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.artifact.File.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.artifact.Library.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.artifact.Mail.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.artifact.ModelComponentArchive.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.artifact.Url.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.association.Implicit.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.association.MMStandardAssociation.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.associationend.MMStandardAssociationEnd.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.attribute.MMStandardAttribute.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.behavior.MMStandardBehavior.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.bpmnbaseelement.MMStandardBpmnBaseElement.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.class_.DesignPattern.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.class_.ImplementationClass.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.class_.Type.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.classifier.MMStandardClassifier.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.classifier.Metaclass.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.classifier.Process.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.classifier.Utility.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.clause.MMStandardClause.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.collaborationuse.MMStandardCollaborationUse.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.communicationnode.MMStandardCommunicationNode.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.component.ModelComponent.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.constraint.Complete.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.constraint.Destroyed.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.constraint.Disjoin.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.constraint.Incomplete.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.constraint.Invariant.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.constraint.MMStandardConstraint.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.constraint.New.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.constraint.Ordered.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.constraint.Overlapping.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.constraint.Postcondition.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.constraint.Precondition.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.constraint.Subset.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.constraint.Transient.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.constraint.Xor.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.elementimport.Access.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.elementimport.Catch.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.elementimport.Create.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.elementimport.Friend.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.elementimport.Import.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.elementimport.Instantiate.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.elementimport.Throw.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.enumerationliteral.MMStandardEnumerationLiteral.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.generalization.Implementation.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.instance.MMStandardInstance.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.interaction.Scenario.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.interactionfragment.MMStandardInteractionFragment.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.modeltree.MMStandardModelTree.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.operation.Create.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.operation.Destroy.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.operation.MMStandardOperation.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.package_.Facade.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.package_.FrameWork.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.package_.Metamodel.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.package_.Stub.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.package_.Subsystem.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.package_.System.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.package_.TopLevel.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.providedinterface.MMStandardProvidedInterface.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.requiredinterface.MMStandardRequiredInterface.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.signal.Exception.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.statevertex.MMStandardStateVertex.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.umlmodelelement.ModelComponentElementAlias.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.usecase.MMStandardUseCase.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.usecasedependency.Extend.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.default_.standard.usecasedependency.Include.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.mda.infrastructure.dependency.MDAAssocDep.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.AbstractMethodologicalLink.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Allocated.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Called.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Event.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.PartitionElement.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Process.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Reference.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Represents.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.State.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.templateprofile.infrastructure.modelelement.MMInfrastructureModelElement.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.templateprofile.standard.package_.Pattern.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.templateprofile.standard.umlmodelelement.PatternParameter.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.templateprofile.standard.umlmodelelement.PatternRoot.MdaTypes.init(moduleContext);
         org.modelio.module.modelermodule.api.xmi.infrastructure.dependency.UML2Abstraction.MdaTypes.init(moduleContext);
         org.modelio.module.modelermodule.api.xmi.infrastructure.dependency.UML2AssociationReference.MdaTypes.init(moduleContext);
         org.modelio.module.modelermodule.api.xmi.infrastructure.dependency.UML2ClassifierReference.MdaTypes.init(moduleContext);
@@ -269,12 +319,14 @@ public class ModelerModuleLifeCycleHandler extends DefaultModuleLifeCycleHandler
         org.modelio.module.modelermodule.api.xmi.infrastructure.dependency.UML2ProtocolConformance.MdaTypes.init(moduleContext);
         org.modelio.module.modelermodule.api.xmi.infrastructure.dependency.UML2Signal.MdaTypes.init(moduleContext);
         org.modelio.module.modelermodule.api.xmi.infrastructure.dependency.UML2StructuralFeatureReference.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.xmi.infrastructure.modelelement.MMInfrastructureModelElement.MdaTypes.init(moduleContext);
         org.modelio.module.modelermodule.api.xmi.standard.activity.UML2Interaction.MdaTypes.init(moduleContext);
         org.modelio.module.modelermodule.api.xmi.standard.activitynode.UML2Body.MdaTypes.init(moduleContext);
         org.modelio.module.modelermodule.api.xmi.standard.activitynode.UML2SetUp.MdaTypes.init(moduleContext);
         org.modelio.module.modelermodule.api.xmi.standard.artifact.UML2DeploymentSpecification.MdaTypes.init(moduleContext);
         org.modelio.module.modelermodule.api.xmi.standard.association.UML2CommunicationPath.MdaTypes.init(moduleContext);
         org.modelio.module.modelermodule.api.xmi.standard.association.UML2Extension.MdaTypes.init(moduleContext);
+        org.modelio.module.modelermodule.api.xmi.standard.associationend.MMStandardAssociationEnd.MdaTypes.init(moduleContext);
         org.modelio.module.modelermodule.api.xmi.standard.associationend.UML2ExtensionEnd.MdaTypes.init(moduleContext);
         org.modelio.module.modelermodule.api.xmi.standard.attribute.UML2PropertyType.MdaTypes.init(moduleContext);
         org.modelio.module.modelermodule.api.xmi.standard.class_.UML2StereotypeProperty.MdaTypes.init(moduleContext);
@@ -347,19 +399,6 @@ public class ModelerModuleLifeCycleHandler extends DefaultModuleLifeCycleHandler
         org.modelio.module.modelermodule.api.xmi.standard.structuredactivitynode.UML2SequenceNode.MdaTypes.init(moduleContext);
         org.modelio.module.modelermodule.api.xmi.standard.templateparameter.UML2ClassifierTemplateParameter.MdaTypes.init(moduleContext);
         org.modelio.module.modelermodule.api.xmi.standard.templateparameter.UML2ConnectableElementTemplateParameter.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.templateprofile.standard.package_.Pattern.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.templateprofile.standard.umlmodelelement.PatternRoot.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.templateprofile.standard.umlmodelelement.PatternParameter.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.mda.infrastructure.dependency.MDAAssocDep.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.AbstractMethodologicalLink.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Called.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.PartitionElement.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Represents.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Event.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Process.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Reference.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Allocated.MdaTypes.init(moduleContext);
-        org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.State.MdaTypes.init(moduleContext);
     }
 
 }

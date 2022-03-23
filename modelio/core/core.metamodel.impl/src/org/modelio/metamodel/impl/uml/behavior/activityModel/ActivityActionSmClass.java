@@ -17,22 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityActionData;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityNodeSmClass;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ExceptionHandlerSmClass;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.InputPinSmClass;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.OutputPinSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityAction;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityNode;
 import org.modelio.metamodel.uml.behavior.activityModel.ExceptionHandler;
@@ -68,7 +63,7 @@ public class ActivityActionSmClass extends ActivityNodeSmClass {
     private SmDependency handlerDep;
 
     @objid ("ff75d4dc-28be-495f-9376-c7c88349120d")
-    public ActivityActionSmClass(ISmMetamodelFragment origin) {
+    public  ActivityActionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -76,6 +71,7 @@ public class ActivityActionSmClass extends ActivityNodeSmClass {
     @Override
     public String getName() {
         return "ActivityAction";
+        
     }
 
     @objid ("e00fe84e-5fe9-410c-90eb-fc9face7e583")
@@ -88,18 +84,21 @@ public class ActivityActionSmClass extends ActivityNodeSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ActivityAction.class;
+        
     }
 
     @objid ("e391522c-6648-42dd-8f6d-95428a6bb259")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("7fb532a5-a309-449c-b8a6-eaddceb36580")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("510ceec9-d68a-4e00-a8c8-90af459fa6e9")
@@ -131,6 +130,8 @@ public class ActivityActionSmClass extends ActivityNodeSmClass {
         this.handlerDep = new HandlerSmDependency();
         this.handlerDep.init("Handler", this, metamodel.getMClass(ExceptionHandler.MQNAME), 0, -1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.handlerDep);
+        
+        
     }
 
     @objid ("ab2dde0c-5726-4140-ade1-b664f3788066")
@@ -179,7 +180,7 @@ public class ActivityActionSmClass extends ActivityNodeSmClass {
         private ActivityActionSmClass smClass;
 
         @objid ("e1dbcd8d-3389-4000-9346-58fa072218d7")
-        public ActivityActionObjectFactory(ActivityActionSmClass smClass) {
+        public  ActivityActionObjectFactory(ActivityActionSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -240,6 +241,7 @@ public class ActivityActionSmClass extends ActivityNodeSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ActivityActionData) data).mOutput = values;
+            
         }
 
         @objid ("0a138036-12ed-4386-b50b-4546f02bed7a")
@@ -249,6 +251,7 @@ public class ActivityActionSmClass extends ActivityNodeSmClass {
             	this.symetricDep = ((OutputPinSmClass)this.getTarget()).getOutputingDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -268,6 +271,7 @@ public class ActivityActionSmClass extends ActivityNodeSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ActivityActionData) data).mInput = values;
+            
         }
 
         @objid ("0ad8992f-e8d3-4837-8d80-5e44d069833b")
@@ -277,6 +281,7 @@ public class ActivityActionSmClass extends ActivityNodeSmClass {
             	this.symetricDep = ((InputPinSmClass)this.getTarget()).getInputingDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -296,6 +301,7 @@ public class ActivityActionSmClass extends ActivityNodeSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ActivityActionData) data).mHandler = values;
+            
         }
 
         @objid ("3f5d8a8a-b8df-4b56-acd1-a1910299e57c")
@@ -305,6 +311,7 @@ public class ActivityActionSmClass extends ActivityNodeSmClass {
             	this.symetricDep = ((ExceptionHandlerSmClass)this.getTarget()).getProtectedNodeDep();
             }
             return this.symetricDep;
+            
         }
 
     }

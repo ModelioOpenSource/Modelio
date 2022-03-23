@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package com.sun.star.comp.beans;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,14 +43,14 @@ class JavaWindowPeerFake implements XSystemDependentWindowPeer, XWindowPeer {
 
     /**
      * Create the faked window peer.
-     * 
      * @param _hWindow the system handle to the window.
      * @param _systemType specifies the system type.
      */
     @objid ("afd3a18c-9dd8-4f83-a97c-b98ddc36680a")
-    public JavaWindowPeerFake(final Any _hWindow, final int _systemType) {
+    public  JavaWindowPeerFake(final Any _hWindow, final int _systemType) {
         this.localSystemType = _systemType;
         this.wrappedHandle = _hWindow;
+        
     }
 
     /**
@@ -69,6 +68,7 @@ class JavaWindowPeerFake implements XSystemDependentWindowPeer, XWindowPeer {
             new IllegalArgumentException(SystemType+" system type not supported").printStackTrace();
             return null;
         }
+        
     }
 
     /**
@@ -86,6 +86,7 @@ class JavaWindowPeerFake implements XSystemDependentWindowPeer, XWindowPeer {
     @objid ("7f1ddebe-0a1a-489b-9b49-d6f516180521")
     @Override
     public void setPointer(final XPointer Pointer) throws com.sun.star.uno.RuntimeException {
+        
     }
 
     /**
@@ -94,6 +95,7 @@ class JavaWindowPeerFake implements XSystemDependentWindowPeer, XWindowPeer {
     @objid ("41df8fee-4bba-4fd9-8c90-d3a4efdbbd38")
     @Override
     public void setBackground(final int Color) throws com.sun.star.uno.RuntimeException {
+        
     }
 
     /**
@@ -102,6 +104,7 @@ class JavaWindowPeerFake implements XSystemDependentWindowPeer, XWindowPeer {
     @objid ("8c4a942a-0ca4-4283-b1d0-460779797e08")
     @Override
     public void invalidate(final short Flags) throws com.sun.star.uno.RuntimeException {
+        
     }
 
     /**
@@ -110,6 +113,7 @@ class JavaWindowPeerFake implements XSystemDependentWindowPeer, XWindowPeer {
     @objid ("2d8d7e13-3ea3-4c84-9a32-046199338f21")
     @Override
     public void invalidateRect(final com.sun.star.awt.Rectangle Rect, final short Flags) throws com.sun.star.uno.RuntimeException {
+        
     }
 
     /**
@@ -118,6 +122,7 @@ class JavaWindowPeerFake implements XSystemDependentWindowPeer, XWindowPeer {
     @objid ("cc78fa2b-ad5a-4af6-98c9-8ffe4d655b3c")
     @Override
     public void dispose() throws com.sun.star.uno.RuntimeException {
+        
     }
 
     /**
@@ -126,6 +131,7 @@ class JavaWindowPeerFake implements XSystemDependentWindowPeer, XWindowPeer {
     @objid ("afaa71f0-e30c-41c6-b70e-894b13f52ac2")
     @Override
     public void addEventListener(final com.sun.star.lang.XEventListener xListener) throws com.sun.star.uno.RuntimeException {
+        
     }
 
     /**
@@ -134,6 +140,7 @@ class JavaWindowPeerFake implements XSystemDependentWindowPeer, XWindowPeer {
     @objid ("af66b4af-fa59-46d9-962b-0f9a06e80f04")
     @Override
     public void removeEventListener(final com.sun.star.lang.XEventListener aListener) throws com.sun.star.uno.RuntimeException {
+        
     }
 
 }

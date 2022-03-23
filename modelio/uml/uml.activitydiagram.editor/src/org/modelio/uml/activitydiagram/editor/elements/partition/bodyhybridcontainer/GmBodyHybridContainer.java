@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.partition.bodyhybridcontainer;
 
 import java.util.List;
@@ -57,12 +56,11 @@ public class GmBodyHybridContainer extends GmPartitionContainer {
 
     /**
      * Initialize the container.
-     * 
      * @param diagram the diagram in which this partition container is used.
      * @param relatedRef represented element reference, must not be null.
      */
     @objid ("2afb8883-55b6-11e2-877f-002564c97630")
-    public GmBodyHybridContainer(IGmDiagram diagram, MRef relatedRef) {
+    public  GmBodyHybridContainer(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -70,7 +68,7 @@ public class GmBodyHybridContainer extends GmPartitionContainer {
      * Empty constructor needed for serialisation.
      */
     @objid ("2afb888c-55b6-11e2-877f-002564c97630")
-    public GmBodyHybridContainer() {
+    public  GmBodyHybridContainer() {
         // Nothing to do.
     }
 
@@ -125,6 +123,7 @@ public class GmBodyHybridContainer extends GmPartitionContainer {
         if (parent != null && !parent.equals(oldParent)) {
             getPersistedStyle().setCascadedStyle(parent.getPersistedStyle());
         }
+        
     }
 
     @objid ("2afd0f3b-55b6-11e2-877f-002564c97630")
@@ -149,6 +148,7 @@ public class GmBodyHybridContainer extends GmPartitionContainer {
             child.setRoleInComposition(OWNED_NODE);
         }
         super.addChild(child);
+        
     }
 
     @objid ("2afd0f41-55b6-11e2-877f-002564c97630")
@@ -168,6 +168,7 @@ public class GmBodyHybridContainer extends GmPartitionContainer {
             break;
         }
         }
+        
     }
 
     @objid ("2afd0f47-55b6-11e2-877f-002564c97630")
@@ -177,6 +178,7 @@ public class GmBodyHybridContainer extends GmPartitionContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmBodyHybridContainer.", GmBodyHybridContainer.MINOR_VERSION);
+        
     }
 
     @objid ("2afd0f4d-55b6-11e2-877f-002564c97630")

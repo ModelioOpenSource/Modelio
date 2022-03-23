@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.group;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,11 +50,10 @@ public class GroupFigure extends GradientFigure {
 
     /**
      * Creates a group figure.
-     * 
      * @param stretchLastChild true to grab excess space, else false.
      */
     @objid ("7e5bbf8d-1dec-11e2-8cad-001ec947c8cc")
-    public GroupFigure(boolean stretchLastChild) {
+    public  GroupFigure(boolean stretchLastChild) {
         super();
         
         final GridLayout manager = new GridLayout(1, true);
@@ -82,11 +80,11 @@ public class GroupFigure extends GradientFigure {
         // Incomplete indicator
         this.incompleteIndicator = new Label("...");
         this.incompleteIndicator.setLabelAlignment(PositionConstants.CENTER);
+        
     }
 
     /**
      * Get the place where child figures must be added.
-     * 
      * @return the place where child figures must be added.
      */
     @objid ("7e5bbf91-1dec-11e2-8cad-001ec947c8cc")
@@ -96,7 +94,6 @@ public class GroupFigure extends GradientFigure {
 
     /**
      * Show or hide the incomplete indicator label.
-     * 
      * @param show true to show the indicator, false to hide it.
      */
     @objid ("7e5bbf98-1dec-11e2-8cad-001ec947c8cc")
@@ -108,6 +105,7 @@ public class GroupFigure extends GradientFigure {
         if (show) {
             add(this.incompleteIndicator, createIndicatorGridData());
         }
+        
     }
 
     @objid ("7e5bbf9c-1dec-11e2-8cad-001ec947c8cc")
@@ -124,6 +122,7 @@ public class GroupFigure extends GradientFigure {
         }
         
         super.setVisible(visible);
+        
     }
 
     @objid ("7e5bbfa0-1dec-11e2-8cad-001ec947c8cc")

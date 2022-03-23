@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.gui;
 
 import java.io.File;
@@ -58,7 +57,6 @@ public class FileChooserComposite extends Composite {
 
     /**
      * This method returns the chosen file
-     * 
      * @return the path of the chosen file
      */
     @objid ("4605a75d-47ce-4dd3-9e98-c8947a1015a6")
@@ -74,7 +72,6 @@ public class FileChooserComposite extends Composite {
 
     /**
      * This method allows to set the chosen file
-     * 
      * @param currentFile : the chosen file
      */
     @objid ("5d963c96-83f5-4db2-b931-e66bf48e99a7")
@@ -84,13 +81,13 @@ public class FileChooserComposite extends Composite {
 
     /**
      * This method sets the label of the composite
-     * 
      * @param label : the label of the composite
      */
     @objid ("30032f29-b646-4bc5-94b2-db3675da639c")
     public void setText(final String label) {
         if (label != null)
             this.text.setText(label);
+        
     }
 
     /**
@@ -99,13 +96,12 @@ public class FileChooserComposite extends Composite {
      * - the parent composite
      * - its SWT style
      * - the selection type of the SWT FileDialog
-     * 
      * @param parent : the SWT composite owner
      * @param style : the SWT style
      * @param typeSelection : the SWT selection type
      */
     @objid ("46e26c47-2811-4605-a7e8-35c3f9f88468")
-    public FileChooserComposite(final Shell parent, final int style, final int typeSelection) {
+    public  FileChooserComposite(final Shell parent, final int style, final int typeSelection) {
         super(parent, style);
         setLayout(new FormLayout());
         this.dialog = new FileDialog(parent, typeSelection);
@@ -119,11 +115,11 @@ public class FileChooserComposite extends Composite {
         this.text.setEnabled(true);
         this.searchButton = new Button(this, SWT.NONE);
         this.searchButton.setImage(UIImages.FILECHOOSE);
+        
     }
 
     /**
      * This method launch the folder browsing and returns the path of the chosen file
-     * 
      * @return the path of the chosen file
      */
     @objid ("19dbfc8f-30d7-4834-b884-67964dae7372")
@@ -138,7 +134,6 @@ public class FileChooserComposite extends Composite {
 
     /**
      * This method returns the search button of the composite
-     * 
      * @return the search button
      */
     @objid ("3b7cdbd2-f852-4225-91d4-932221779063")
@@ -148,7 +143,6 @@ public class FileChooserComposite extends Composite {
 
     /**
      * This methods returns the text available in the SWT FileDialog
-     * 
      * @return the text of the FileDialog
      */
     @objid ("50095e7b-1f62-40b6-8fbd-b1fd6503333a")
@@ -158,7 +152,6 @@ public class FileChooserComposite extends Composite {
 
     /**
      * This method returns the SWT Text owned by the FileChooserComposite
-     * 
      * @return the owned SWT TEXT
      */
     @objid ("006aee3c-4c2f-40ce-9c60-10df94d30594")
@@ -168,7 +161,6 @@ public class FileChooserComposite extends Composite {
 
     /**
      * This method returns the SWT FileDialog created inside the FileChooserComposite
-     * 
      * @return the owned FileDialog
      */
     @objid ("59d4f7a7-847d-437a-92c7-003226fb3d64")

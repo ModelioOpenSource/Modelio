@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.ext.handlers;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -77,6 +76,7 @@ public class ConfigurationSelectionHandler {
         }
         
         editor.getConfigurator().apply(parameters);
+        
     }
 
     @objid ("d52dcede-7699-4a9c-a529-1e37f68d8af4")

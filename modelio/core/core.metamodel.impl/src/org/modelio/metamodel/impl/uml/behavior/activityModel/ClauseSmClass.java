@@ -17,20 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityNodeSmClass;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ClauseData;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ConditionalNodeSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityNode;
 import org.modelio.metamodel.uml.behavior.activityModel.Clause;
@@ -61,7 +58,7 @@ public class ClauseSmClass extends UmlModelElementSmClass {
     private SmDependency ownerDep;
 
     @objid ("128b8551-226b-451e-8c14-1297a504eb7e")
-    public ClauseSmClass(ISmMetamodelFragment origin) {
+    public  ClauseSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -69,6 +66,7 @@ public class ClauseSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "Clause";
+        
     }
 
     @objid ("8577ff84-5509-4468-a40d-78e5e6c2ed8f")
@@ -81,18 +79,21 @@ public class ClauseSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Clause.class;
+        
     }
 
     @objid ("bc6e1b06-d664-4292-9a5a-2fc5a2a8e8c9")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("43fa3d09-875a-413a-9505-0de26f2f6352")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("6c1807cb-0218-4714-8a23-469582653025")
@@ -116,6 +117,8 @@ public class ClauseSmClass extends UmlModelElementSmClass {
         this.ownerDep = new OwnerSmDependency();
         this.ownerDep.init("Owner", this, metamodel.getMClass(ConditionalNode.MQNAME), 0, 1 );
         registerDependency(this.ownerDep);
+        
+        
     }
 
     @objid ("2d7b2602-69df-43f4-a8b2-34f530c9e918")
@@ -148,7 +151,7 @@ public class ClauseSmClass extends UmlModelElementSmClass {
         private ClauseSmClass smClass;
 
         @objid ("a8f41dce-e6a7-4783-aaac-726e728ee2fa")
-        public ClauseObjectFactory(ClauseSmClass smClass) {
+        public  ClauseObjectFactory(ClauseSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -195,6 +198,7 @@ public class ClauseSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ClauseData) data).mBody = values;
+            
         }
 
         @objid ("78f8341e-4872-438a-bb12-e95a9f51771c")
@@ -204,6 +208,7 @@ public class ClauseSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((ActivityNodeSmClass)this.getTarget()).getOwnerClauseDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -232,6 +237,7 @@ public class ClauseSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((ConditionalNodeSmClass)this.getTarget()).getOwnedClauseDep();
             }
             return this.symetricDep;
+            
         }
 
     }

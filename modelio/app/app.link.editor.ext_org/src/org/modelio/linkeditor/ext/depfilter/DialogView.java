@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.ext.depfilter;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -68,7 +67,7 @@ class DialogView extends ModelioDialog {
     private Button removeAll;
 
     @objid ("1b64076b-5e33-11e2-b81d-002564c97630")
-    protected DialogView(final Shell parentShell, final DialogModel model) {
+    protected  DialogView(final Shell parentShell, final DialogModel model) {
         super(parentShell);
         this.setModel(model);
         setShellStyle(SWT.CLOSE |
@@ -79,6 +78,7 @@ class DialogView extends ModelioDialog {
                       SWT.BORDER |
                       SWT.APPLICATION_MODAL |
                       getDefaultOrientation());
+        
     }
 
     @objid ("1b640771-5e33-11e2-b81d-002564c97630")
@@ -151,6 +151,7 @@ class DialogView extends ModelioDialog {
     public void addButtonsInButtonBar(final Composite parent) {
         createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL, true);
         createButton(parent, IDialogConstants.CANCEL_ID, IDialogConstants.CANCEL_LABEL, false);
+        
     }
 
     @objid ("1b64077d-5e33-11e2-b81d-002564c97630")
@@ -166,6 +167,7 @@ class DialogView extends ModelioDialog {
         // Set size
         this.getShell().setSize(800, 600);
         this.getShell().setMinimumSize(800, 600);
+        
     }
 
     @objid ("1b640780-5e33-11e2-b81d-002564c97630")

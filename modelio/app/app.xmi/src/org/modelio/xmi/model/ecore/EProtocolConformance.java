@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class EProtocolConformance extends EElement {
     }
 
     @objid ("f4d78669-5c4c-4504-bf76-35c6b9399a3d")
-    public EProtocolConformance(org.eclipse.uml2.uml.ProtocolConformance element) {
+    public  EProtocolConformance(org.eclipse.uml2.uml.ProtocolConformance element) {
         super(element);
     }
 

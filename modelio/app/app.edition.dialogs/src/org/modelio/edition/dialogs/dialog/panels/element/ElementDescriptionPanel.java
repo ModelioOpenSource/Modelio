@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.dialogs.dialog.panels.element;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,7 +38,7 @@ public class ElementDescriptionPanel extends TypedNotePanel {
     private static final String DESCRIPTION_NOTE = "description";
 
     @objid ("780fc09a-d564-4cc3-9ce0-233166542fb6")
-    public ElementDescriptionPanel() {
+    public  ElementDescriptionPanel() {
         super(MODELER_MODULE, DESCRIPTION_NOTE);
     }
 
@@ -54,6 +53,7 @@ public class ElementDescriptionPanel extends TypedNotePanel {
         } else {
             return obj instanceof ModelElement;
         }
+        
     }
 
     /**
@@ -64,6 +64,7 @@ public class ElementDescriptionPanel extends TypedNotePanel {
     public void setInput(Object input) {
         ModelElement me = input instanceof ModelElement ? (ModelElement) input : SelectionHelper.getFirst((ISelection) input, ModelElement.class);
         super.setInput(me);
+        
     }
 
 }

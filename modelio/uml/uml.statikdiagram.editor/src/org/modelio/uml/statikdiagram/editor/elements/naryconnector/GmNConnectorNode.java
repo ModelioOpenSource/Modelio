@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.naryconnector;
 
 import java.util.List;
@@ -57,25 +56,24 @@ public class GmNConnectorNode extends GmPortContainer {
     private static final int MAJOR_VERSION = 0;
 
     @objid ("61350504-5bd5-11e2-9e33-00137282c51b")
-     static final NConnectorStructuredStyleKeys KEYS = GmNConnectorEndLink.STRUCTURED_KEYS;
+    static final NConnectorStructuredStyleKeys KEYS = GmNConnectorEndLink.STRUCTURED_KEYS;
 
     /**
      * Empty constructor needed for deserialization.
      */
     @objid ("35d744ca-55b7-11e2-877f-002564c97630")
-    public GmNConnectorNode() {
+    public  GmNConnectorNode() {
         // Nothing specific to do.
     }
 
     /**
      * Initialize the n-ary association node.
-     * 
      * @param diagram the diagram in which the n-ary association is unmasked.
      * @param el the unmasked n-ary association.
      * @param ref a reference to the unmasked class.
      */
     @objid ("35d744cd-55b7-11e2-877f-002564c97630")
-    public GmNConnectorNode(IGmDiagram diagram, NaryConnector el, MRef ref) {
+    public  GmNConnectorNode(IGmDiagram diagram, NaryConnector el, MRef ref) {
         super(diagram, ref);
         GmNConnectorPrimaryNode mainNode = new GmNConnectorPrimaryNode(diagram, el, ref);
         mainNode.setRoleInComposition(MAIN_NODE_ROLE);
@@ -88,6 +86,7 @@ public class GmNConnectorNode extends GmPortContainer {
         label.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         
         addChild(label);
+        
     }
 
     @objid ("35d744d9-55b7-11e2-877f-002564c97630")
@@ -119,6 +118,7 @@ public class GmNConnectorNode extends GmPortContainer {
                 break;
             }
         }
+        
     }
 
     @objid ("35d8cb47-55b7-11e2-877f-002564c97630")
@@ -152,12 +152,14 @@ public class GmNConnectorNode extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmNConnectorNode.", GmNConnectorNode.MINOR_VERSION);
+        
     }
 
     @objid ("35d8cb6f-55b7-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (NaryConnector) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("35d8cb74-55b7-11e2-877f-002564c97630")
@@ -168,7 +170,6 @@ public class GmNConnectorNode extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -180,7 +181,6 @@ public class GmNConnectorNode extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

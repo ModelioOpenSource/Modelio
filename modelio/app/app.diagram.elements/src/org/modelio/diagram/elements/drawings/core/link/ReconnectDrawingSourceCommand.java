@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.drawings.core.link;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,14 +46,14 @@ public class ReconnectDrawingSourceCommand extends Command {
 
     /**
      * Create the command.
-     * 
      * @param gmLink The link to move.
      * @param dest The new source node.
      */
     @objid ("9c16a3ea-eea8-49d6-9800-a41eceece13b")
-    public ReconnectDrawingSourceCommand(IGmDrawingLink gmLink, IGmDrawingLinkable dest) {
+    public  ReconnectDrawingSourceCommand(IGmDrawingLink gmLink, IGmDrawingLinkable dest) {
         this.gmLink = gmLink;
         this.newSrcNode = dest;
+        
     }
 
     @objid ("06805a91-7527-4493-b953-ce6b23f95aeb")
@@ -70,14 +69,15 @@ public class ReconnectDrawingSourceCommand extends Command {
         updateLinkSource();
         
         if (this.anchorModel != null) {
-            this.gmLink.getPath().setSourceAnchor(this.anchorModel);
-            this.gmLink.setLayoutData(new GmPath(this.gmLink.getPath()));
+            GmPath newPath = new GmPath(this.gmLink.getPath());
+            newPath.setSourceAnchor(this.anchorModel);
+            this.gmLink.setLayoutData(newPath);
         }
+        
     }
 
     /**
      * Set the model of the source anchor of the link.
-     * 
      * @param anchorModel the model of the source anchor of the link
      */
     @objid ("c7e5c626-b9f0-4293-9f51-610762dd67a3")
@@ -93,9 +93,10 @@ public class ReconnectDrawingSourceCommand extends Command {
         
                 // Update gm model
                 oldSourceNode.removeStartingDrawingLink(this.gmLink);
-            } 
+            }
             this.newSrcNode.addStartingDrawingLink(this.gmLink);
         }
+        
     }
 
     @objid ("351bb5f5-8f42-4149-b3d7-817ef0e82a32")

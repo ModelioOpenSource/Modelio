@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,9 +39,10 @@ public class EClassifierTemplateParameter extends EElement {
     }
 
     @objid ("02ffe9ab-f6e9-4df7-bf6b-fc6cf465fd34")
-    public EClassifierTemplateParameter(org.eclipse.uml2.uml.ClassifierTemplateParameter element) {
+    public  EClassifierTemplateParameter(org.eclipse.uml2.uml.ClassifierTemplateParameter element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("29b3c19b-6b8f-4844-b8de-b097eb1bbff7")
@@ -61,6 +61,7 @@ public class EClassifierTemplateParameter extends EElement {
         } else {
             objingElt.delete();
         }
+        
     }
 
 }

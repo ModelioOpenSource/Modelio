@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.noteChooser;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -95,6 +94,7 @@ public class NoteChooserLabelProvider extends LabelProvider {
         } else {
             return element.toString();
         }
+        
     }
 
 }

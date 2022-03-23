@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.processCollaboration;
 
 import java.util.ArrayList;
@@ -36,7 +36,6 @@ import org.modelio.metamodel.bpmn.processCollaboration.BpmnCollaboration;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnParticipant;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnProcess;
 import org.modelio.metamodel.bpmn.rootElements.BpmnArtifact;
-import org.modelio.metamodel.impl.bpmn.processCollaboration.BpmnCollaborationData;
 import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.BehaviorImpl;
 import org.modelio.metamodel.visitors.IModelVisitor;
 import org.modelio.vcore.smkernel.SmConstrainedList;
@@ -80,6 +79,7 @@ public class BpmnCollaborationImpl extends BehaviorImpl implements BpmnCollabora
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("7f950d96-8249-41cd-99c2-b4701be36d5d")
@@ -101,6 +101,7 @@ public class BpmnCollaborationImpl extends BehaviorImpl implements BpmnCollabora
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("d4cab63b-053a-4959-b3ee-c0dcaefe5cba")
@@ -122,6 +123,7 @@ public class BpmnCollaborationImpl extends BehaviorImpl implements BpmnCollabora
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("0cf0b556-92ca-4051-8981-a9b64e72911a")
@@ -143,6 +145,7 @@ public class BpmnCollaborationImpl extends BehaviorImpl implements BpmnCollabora
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("ff7ced11-607d-4ecf-b901-bb1b77850f10")

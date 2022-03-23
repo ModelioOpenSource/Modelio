@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.interactionModel;
 
 import java.util.ArrayList;
@@ -31,7 +31,6 @@ import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
 import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.BehaviorImpl;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.InteractionData;
 import org.modelio.metamodel.uml.behavior.interactionModel.Gate;
 import org.modelio.metamodel.uml.behavior.interactionModel.Interaction;
 import org.modelio.metamodel.uml.behavior.interactionModel.InteractionFragment;
@@ -67,6 +66,7 @@ public class InteractionImpl extends BehaviorImpl implements Interaction {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("1a519efa-9947-4542-ac57-4a1c8f20e7d5")
@@ -88,6 +88,7 @@ public class InteractionImpl extends BehaviorImpl implements Interaction {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("0ec5fbfc-9980-4be4-9994-9e645b97fc47")
@@ -109,6 +110,7 @@ public class InteractionImpl extends BehaviorImpl implements Interaction {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("172d2e79-68c7-4333-92e4-1fc498830561")
@@ -130,6 +132,7 @@ public class InteractionImpl extends BehaviorImpl implements Interaction {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("409ad80a-bb06-486d-98cf-96a3f157c831")

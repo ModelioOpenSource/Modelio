@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.model.imp.impl.ui;
 
 import java.io.File;
@@ -88,16 +87,16 @@ public class ImportModelDialog extends ModelioDialog {
 
     /**
      * Initialize the dialog.
-     * 
      * @param parentShell The parent SWT shell
      * @param dataModel the data model of elements to import
      * @param gProjectEnvironment all needed infos to create a GProject
      */
     @objid ("50c121f9-c137-4c59-aa86-5a3838a1e211")
-    public ImportModelDialog(Shell parentShell, ModelImportDataModel dataModel, IGProjectEnv gProjectEnvironment) {
+    public  ImportModelDialog(Shell parentShell, ModelImportDataModel dataModel, IGProjectEnv gProjectEnvironment) {
         super(parentShell);
         this.dataModel = dataModel;
         this.gProjectEnvironment = gProjectEnvironment;
+        
     }
 
     @objid ("e0a03f89-eff5-4b8c-97f7-5b09bebef11a")
@@ -106,6 +105,7 @@ public class ImportModelDialog extends ModelioDialog {
         this.createButton = createButton(parent, IDialogConstants.OK_ID, AppModelImportOrg.I18N.getString("ImportModelDialog.Import"),
                 false);
         createButton(parent, IDialogConstants.CANCEL_ID, AppModelImportOrg.I18N.getString("ImportModelDialog.Cancel"), true);
+        
     }
 
     @objid ("9569fbe7-824d-4136-ac80-265718f1320c")
@@ -131,6 +131,7 @@ public class ImportModelDialog extends ModelioDialog {
         setTitle(AppModelImportOrg.I18N.getString("ImportModelDialog.MessageTitle"));
         setMessage(AppModelImportOrg.I18N.getString("ImportModelDialog.DialogMessage"));
         getShell().setMinimumSize(450, 450);
+        
     }
 
     @objid ("fd7ae863-3bf2-4235-80f6-edc23f89a593")
@@ -145,11 +146,11 @@ public class ImportModelDialog extends ModelioDialog {
     void refresh() {
         // this.contentProvider.setSrcSession(this.dataModel.getSrcSession());
         this.viewer.setInput(this.dataModel.getImportedProject());
+        
     }
 
     /**
      * Enable or disable the import button.
-     * 
      * @param canImport true to enable the import button, false to disable it.
      */
     @objid ("b5e9fa4d-d6ad-49d3-8af6-8621d821cb0d")
@@ -157,11 +158,11 @@ public class ImportModelDialog extends ModelioDialog {
         if (this.createButton != null) {
             this.createButton.setEnabled(canImport);
         }
+        
     }
 
     /**
      * Set the project path as invalid or not.
-     * 
      * @param isValid false to set the path as invalid
      */
     @objid ("a2a5075f-d7ac-4a32-ab98-9fd183f2a437")
@@ -171,6 +172,7 @@ public class ImportModelDialog extends ModelioDialog {
         } else {
             this.importedProjectText.setForeground(this.importedProjectText.getDisplay().getSystemColor(SWT.COLOR_RED));
         }
+        
     }
 
     @objid ("882054d5-beff-4102-bcfd-e75a95433f24")
@@ -206,6 +208,7 @@ public class ImportModelDialog extends ModelioDialog {
         this.dataModel.getElementsToImport().addAll(elementsToImport);
         
         super.okPressed();
+        
     }
 
     @objid ("8718f20a-c50d-4c8c-89b2-84af0fd8a85c")
@@ -232,6 +235,7 @@ public class ImportModelDialog extends ModelioDialog {
                 collectElementsToImport(result, treeItem);
             }
         }
+        
     }
 
     @objid ("e0f357ce-6b15-4745-88cc-1e44f4db8c88")
@@ -248,6 +252,7 @@ public class ImportModelDialog extends ModelioDialog {
                 collectHiddenChildren(result, (SmObjectImpl) aRoot.getDepVal(compoDep));
             }
         }
+        
     }
 
     @objid ("fce62fff-dd60-4b0a-acb8-20b0a2366dff")
@@ -323,6 +328,7 @@ public class ImportModelDialog extends ModelioDialog {
             }
         
         });
+        
     }
 
     @objid ("16552813-ce70-4345-99f3-bc6695b8d5fc")
@@ -346,6 +352,7 @@ public class ImportModelDialog extends ModelioDialog {
         
         final GridData gd_viewer = new GridData(SWT.FILL, SWT.FILL, true, true, 3, 1);
         this.viewer.getTree().setLayoutData(gd_viewer);
+        
     }
 
     @objid ("04bc9a1c-e7d8-458d-9a89-0447fdd24904")
@@ -361,7 +368,7 @@ public class ImportModelDialog extends ModelioDialog {
         private final CheckboxTreeViewer tree;
 
         @objid ("c85e7e39-cf55-4b51-8960-9c9ea3478ddb")
-        TreeviewerListener(CheckboxTreeViewer tree) {
+         TreeviewerListener(CheckboxTreeViewer tree) {
             this.tree = tree;
         }
 
@@ -405,6 +412,7 @@ public class ImportModelDialog extends ModelioDialog {
                 }
             
             }
+            
         }
 
         @objid ("0ff9b7e0-2b92-4348-90b3-fe71642bee76")
@@ -418,6 +426,7 @@ public class ImportModelDialog extends ModelioDialog {
             } else {
                 updateChildrenElements(element, newChecked, newChecked);
             }
+            
         }
 
         @objid ("56d079b7-8827-466f-b839-e5bb87f2a6a9")
@@ -434,6 +443,7 @@ public class ImportModelDialog extends ModelioDialog {
                     updateChildrenElements(child, grayed, checked);
                 }
             }
+            
         }
 
     }

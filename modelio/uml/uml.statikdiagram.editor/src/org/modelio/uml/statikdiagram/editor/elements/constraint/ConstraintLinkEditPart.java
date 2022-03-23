@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.constraint;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,7 +28,6 @@ import org.modelio.diagram.elements.core.link.LinkEditPart;
  * @author fpoyer
  */
 @objid ("811650ad-1dec-11e2-8cad-001ec947c8cc")
-public class ConstraintLinkEditPart extends LinkEditPart {
-
-// Nothing to do
+public class ConstraintLinkEditPart extends LinkEditPart {// Nothing to do
+    
 }

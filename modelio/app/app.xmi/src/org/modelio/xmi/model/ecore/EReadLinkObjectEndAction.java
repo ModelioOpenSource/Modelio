@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class EReadLinkObjectEndAction extends EActivityNode {
     }
 
     @objid ("ae076631-d97e-4505-81df-60bf0a015b6d")
-    public EReadLinkObjectEndAction(org.eclipse.uml2.uml.ReadLinkObjectEndAction element) {
+    public  EReadLinkObjectEndAction(org.eclipse.uml2.uml.ReadLinkObjectEndAction element) {
         super(element);
     }
 

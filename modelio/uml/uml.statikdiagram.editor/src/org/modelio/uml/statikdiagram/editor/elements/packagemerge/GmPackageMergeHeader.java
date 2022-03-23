@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.packagemerge;
 
 import java.util.Collections;
@@ -28,8 +27,8 @@ import org.modelio.diagram.elements.core.model.IGmDiagram;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.metamodel.uml.infrastructure.TaggedValue;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -52,12 +51,11 @@ public class GmPackageMergeHeader extends GmDefaultModelElementLabel {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
     @objid ("360fb9dd-55b7-11e2-877f-002564c97630")
-    public GmPackageMergeHeader(IGmDiagram diagram, MRef relatedRef) {
+    public  GmPackageMergeHeader(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -65,7 +63,8 @@ public class GmPackageMergeHeader extends GmDefaultModelElementLabel {
      * For deserialization only.
      */
     @objid ("360fb9e6-55b7-11e2-877f-002564c97630")
-    public GmPackageMergeHeader() {
+    public  GmPackageMergeHeader() {
+        
     }
 
     @objid ("360fb9e9-55b7-11e2-877f-002564c97630")
@@ -93,6 +92,7 @@ public class GmPackageMergeHeader extends GmDefaultModelElementLabel {
             return getParent().getStyleKey(metakey);
         else
             return null;
+        
     }
 
     @objid ("3611406f-55b7-11e2-877f-002564c97630")
@@ -124,6 +124,7 @@ public class GmPackageMergeHeader extends GmDefaultModelElementLabel {
                 break;
             }
         }
+        
     }
 
     @objid ("36114083-55b7-11e2-877f-002564c97630")
@@ -133,6 +134,7 @@ public class GmPackageMergeHeader extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmPackageMergeHeader.", GmPackageMergeHeader.MINOR_VERSION);
+        
     }
 
     @objid ("36114089-55b7-11e2-877f-002564c97630")

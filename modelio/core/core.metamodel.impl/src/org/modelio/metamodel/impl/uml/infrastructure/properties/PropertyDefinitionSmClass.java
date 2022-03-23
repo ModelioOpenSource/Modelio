@@ -17,20 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.infrastructure.ModelElementSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.properties.PropertyDefinitionData;
-import org.modelio.metamodel.impl.uml.infrastructure.properties.PropertyTableDefinitionSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.properties.PropertyTypeSmClass;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.properties.PropertyDefinition;
 import org.modelio.metamodel.uml.infrastructure.properties.PropertyTableDefinition;
@@ -62,7 +59,7 @@ public class PropertyDefinitionSmClass extends ModelElementSmClass {
     private SmDependency ownerDep;
 
     @objid ("7f3072ff-839d-4f61-9d46-6f842bca2b06")
-    public PropertyDefinitionSmClass(ISmMetamodelFragment origin) {
+    public  PropertyDefinitionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -70,6 +67,7 @@ public class PropertyDefinitionSmClass extends ModelElementSmClass {
     @Override
     public String getName() {
         return "PropertyDefinition";
+        
     }
 
     @objid ("2ff0ad41-7b59-44d9-b1ae-0b23f464545b")
@@ -82,18 +80,21 @@ public class PropertyDefinitionSmClass extends ModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return PropertyDefinition.class;
+        
     }
 
     @objid ("01030461-4caf-4803-a62c-fd882f278e85")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("63c60155-1592-4483-8816-7c5b2c396c84")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("a1c78f0b-1c56-416d-b894-768b1706d8ed")
@@ -121,6 +122,8 @@ public class PropertyDefinitionSmClass extends ModelElementSmClass {
         this.ownerDep = new OwnerSmDependency();
         this.ownerDep.init("Owner", this, metamodel.getMClass(PropertyTableDefinition.MQNAME), 1, 1 );
         registerDependency(this.ownerDep);
+        
+        
     }
 
     @objid ("b80cb051-6cb5-473e-9be9-2c505504c772")
@@ -161,7 +164,7 @@ public class PropertyDefinitionSmClass extends ModelElementSmClass {
         private PropertyDefinitionSmClass smClass;
 
         @objid ("0574fb63-064e-48f2-a24d-cfa412a277c8")
-        public PropertyDefinitionObjectFactory(PropertyDefinitionSmClass smClass) {
+        public  PropertyDefinitionObjectFactory(PropertyDefinitionSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -231,6 +234,7 @@ public class PropertyDefinitionSmClass extends ModelElementSmClass {
             	this.symetricDep = ((PropertyTypeSmClass)this.getTarget()).getTypedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -259,6 +263,7 @@ public class PropertyDefinitionSmClass extends ModelElementSmClass {
             	this.symetricDep = ((PropertyTableDefinitionSmClass)this.getTarget()).getOwnedDep();
             }
             return this.symetricDep;
+            
         }
 
     }

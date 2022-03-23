@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,9 +41,10 @@ class DummyDebugRepositoryObject extends DummyRepositoryObject {
      * Package Private constructor
      */
     @objid ("732f2af3-1032-4acb-9c36-b231f830b2dc")
-    DummyDebugRepositoryObject(ISmObjectData data) {
+     DummyDebugRepositoryObject(ISmObjectData data) {
         this.data = data;
         this.stack= new Throwable(toString());
+        
     }
 
     @objid ("197516a0-1921-41ab-8aa2-0db7bee9456a")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.portbordered;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -26,7 +25,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * IPortEditPart is the EditPart flavor that can be laid out around a PortBordered.
  */
 @objid ("7eda1c28-1dec-11e2-8cad-001ec947c8cc")
-public interface IPortEditPart {
-
-// Nothing to do
+public interface IPortEditPart {// Nothing to do
+    
 }

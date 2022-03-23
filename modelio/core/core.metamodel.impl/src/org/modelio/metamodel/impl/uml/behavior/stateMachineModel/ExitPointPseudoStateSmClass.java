@@ -17,22 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.stateMachineModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.AbstractPseudoStateSmClass;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.ConnectionPointReferenceSmClass;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.ExitPointPseudoStateData;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.StateMachineSmClass;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.StateSmClass;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.AbstractPseudoState;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.ConnectionPointReference;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.ExitPointPseudoState;
@@ -62,7 +57,7 @@ public class ExitPointPseudoStateSmClass extends AbstractPseudoStateSmClass {
     private SmDependency exitOfMachineDep;
 
     @objid ("bb2ea859-2bab-4c70-83b5-8886059fc716")
-    public ExitPointPseudoStateSmClass(ISmMetamodelFragment origin) {
+    public  ExitPointPseudoStateSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -70,6 +65,7 @@ public class ExitPointPseudoStateSmClass extends AbstractPseudoStateSmClass {
     @Override
     public String getName() {
         return "ExitPointPseudoState";
+        
     }
 
     @objid ("459caf5c-57b7-4eb3-9335-ea1b5f21b735")
@@ -82,18 +78,21 @@ public class ExitPointPseudoStateSmClass extends AbstractPseudoStateSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ExitPointPseudoState.class;
+        
     }
 
     @objid ("a07ea9df-a554-4911-9088-676fe8d9bd38")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("e3d91402-dcd5-4e92-8079-e6f6da0dd012")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("f8ad0098-2e5e-4320-9e15-56d33e3db980")
@@ -117,6 +116,8 @@ public class ExitPointPseudoStateSmClass extends AbstractPseudoStateSmClass {
         this.exitOfMachineDep = new ExitOfMachineSmDependency();
         this.exitOfMachineDep.init("ExitOfMachine", this, metamodel.getMClass(StateMachine.MQNAME), 0, 1 );
         registerDependency(this.exitOfMachineDep);
+        
+        
     }
 
     @objid ("ddd422ef-fa81-46ec-adea-d3453a940c0a")
@@ -149,7 +150,7 @@ public class ExitPointPseudoStateSmClass extends AbstractPseudoStateSmClass {
         private ExitPointPseudoStateSmClass smClass;
 
         @objid ("68fd82aa-a91c-472e-8008-7705eec5eaaf")
-        public ExitPointPseudoStateObjectFactory(ExitPointPseudoStateSmClass smClass) {
+        public  ExitPointPseudoStateObjectFactory(ExitPointPseudoStateSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -191,6 +192,7 @@ public class ExitPointPseudoStateSmClass extends AbstractPseudoStateSmClass {
             	this.symetricDep = ((StateSmClass)this.getTarget()).getExitPointDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -210,6 +212,7 @@ public class ExitPointPseudoStateSmClass extends AbstractPseudoStateSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ExitPointPseudoStateData) data).mConnection = values;
+            
         }
 
         @objid ("15f1e28f-40e9-43fc-a4e9-5aaf791b8575")
@@ -219,6 +222,7 @@ public class ExitPointPseudoStateSmClass extends AbstractPseudoStateSmClass {
             	this.symetricDep = ((ConnectionPointReferenceSmClass)this.getTarget()).getExitDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -247,6 +251,7 @@ public class ExitPointPseudoStateSmClass extends AbstractPseudoStateSmClass {
             	this.symetricDep = ((StateMachineSmClass)this.getTarget()).getExitPointDep();
             }
             return this.symetricDep;
+            
         }
 
     }

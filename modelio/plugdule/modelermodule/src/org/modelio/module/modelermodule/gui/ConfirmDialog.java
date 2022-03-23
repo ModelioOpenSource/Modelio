@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.module.modelermodule.gui;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,10 +45,11 @@ public class ConfirmDialog {
     protected Shell shell;
 
     @objid ("12474440-0321-48ff-a1c6-bb84af340409")
-    private ConfirmDialog(final Shell parent, final String label, final String title) {
+    private  ConfirmDialog(final Shell parent, final String label, final String title) {
         this.res = Values.CANCEL_OPTION;
         
         createContents(parent, label, title);
+        
     }
 
     /**
@@ -76,6 +76,7 @@ public class ConfirmDialog {
         
         this.shell.pack();
         this.shell.setSize(this.shell.getSize().x + 30, this.shell.getSize().y);
+        
     }
 
     @objid ("75426ee1-4c5c-4101-a58f-58dbf75d6249")
@@ -142,7 +143,6 @@ public class ConfirmDialog {
 
     /**
      * Opens a dialog and returns the chosen value.
-     * 
      * @param parent the parent to attach the dialog to.
      * @param label the label to display in the dialog.
      * @param title the title for the dialog.
@@ -167,15 +167,19 @@ public class ConfirmDialog {
         /**
          * Yes choice.
          */
+        @objid ("845bd1ec-daa9-4a45-9601-934e68fbe09f")
         YES_OPTION,
         /**
          * No choice.
          */
+        @objid ("2f729002-ad78-455f-9290-c26d409a78b4")
         NO_OPTION,
         /**
          * Cancel choice.
          */
+        @objid ("0ed09e86-d560-4e1f-8884-0697676701ff")
         CANCEL_OPTION;
+
     }
 
 }

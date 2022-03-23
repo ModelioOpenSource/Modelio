@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -58,13 +57,13 @@ public class EInclude extends ENamedElement {
 
     /**
      * EInclude constructor with the imported Ecore org.eclipse.uml2.uml.Include as parameter
-     * 
      * @param element : the imported Ecore include
      */
     @objid ("2b5b5601-abee-4534-8153-6ab47fb5c355")
-    public EInclude(final org.eclipse.uml2.uml.Include element) {
+    public  EInclude(final org.eclipse.uml2.uml.Include element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("48d924a7-e3c4-494a-8a92-8d59aedb9978")
@@ -85,6 +84,7 @@ public class EInclude extends ENamedElement {
             objingUseCaseDependency.setTarget(objingTarget);
         
         }
+        
     }
 
 }

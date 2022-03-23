@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.code.standard.generalclass;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("9c439d93-904a-488a-b6d6-77b9f4095f79")
 public class MMStandardGeneralClass {
-    @objid ("950909c0-d700-4235-b44a-db881d711c02")
+    @objid ("30a9f9bf-0099-4a82-8aae-0b3c3a8fe5c3")
     public static final String NOCODE_TAGTYPE = "nocode";
 
     /**
      * The underlying {@link GeneralClass} represented by this proxy, never null.
      */
-    @objid ("33b5d062-0e56-44c3-908b-430dd2598a9a")
+    @objid ("1af809c4-0265-465f-8d11-0fcd16c95f77")
     protected final GeneralClass elt;
 
     /**
      * Tells whether a {@link MMStandardGeneralClass proxy} can be instantiated from a {@link MObject} checking it is a {@link GeneralClass}.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("187f4f07-ddfd-42b4-ab6f-23c9c4be9ce3")
+    @objid ("9e46e83b-45d4-4ea6-85b4-b0544f6e9fa3")
     public static boolean canInstantiate(MObject elt) {
         return (elt instanceof GeneralClass);
     }
@@ -79,12 +77,12 @@ public class MMStandardGeneralClass {
      * @param obj a GeneralClass
      * @return a {@link MMStandardGeneralClass} proxy or <i>null</i>.
      */
-    @objid ("6d874817-ac73-42a0-9711-b55e39b8cb00")
+    @objid ("a620569c-a5c5-47fb-a8a5-25ae49b9424d")
     public static MMStandardGeneralClass instantiate(GeneralClass obj) {
         return MMStandardGeneralClass.canInstantiate(obj) ? new MMStandardGeneralClass(obj) : null;
     }
 
-    @objid ("12b2800e-ce04-4ffd-b4b4-e9eff38db850")
+    @objid ("496e01af-d153-4823-ba15-f681a6f44f88")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -104,15 +102,16 @@ public class MMStandardGeneralClass {
      * Get the underlying {@link GeneralClass}. 
      * @return the GeneralClass represented by this proxy, never null.
      */
-    @objid ("c7b1123b-8e08-4524-9c60-0be08e20cc32")
+    @objid ("22356090-4f11-45b3-9cee-a52ad5577cb8")
     public GeneralClass getElement() {
         return this.elt;
     }
 
-    @objid ("2ceed521-f640-4fe5-b77f-ff54c6bc6983")
+    @objid ("20b606e5-4c28-4d43-a185-4b4a740b6f8d")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
     /**
@@ -120,7 +119,7 @@ public class MMStandardGeneralClass {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("eb5942e3-9593-420c-898a-4771ed1ffeb7")
+    @objid ("68c70b63-e83b-4446-9f71-9ed9070af1a2")
     public boolean isNocode() {
         return this.elt.isTagged(MMStandardGeneralClass.MdaTypes.NOCODE_TAGTYPE_ELT);
     }
@@ -130,7 +129,7 @@ public class MMStandardGeneralClass {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("e264ff50-38df-42f3-86a5-5ad43acc4dc1")
+    @objid ("326dc2da-27fb-4ce3-ab7b-5ef5738a8d9b")
     public void setNocode(boolean value) {
         if (value)
           ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createTaggedValue(MMStandardGeneralClass.MdaTypes.NOCODE_TAGTYPE_ELT, this.elt);
@@ -138,35 +137,35 @@ public class MMStandardGeneralClass {
           this.elt.removeTags(MMStandardGeneralClass.MdaTypes.NOCODE_TAGTYPE_ELT);
     }
 
-    @objid ("4bf5a629-5de8-4ef9-95e4-cf07ec95f142")
-    protected MMStandardGeneralClass(GeneralClass elt) {
+    @objid ("b8e536b0-4052-4a22-ae1a-507f5d1a4109")
+    protected  MMStandardGeneralClass(GeneralClass elt) {
         this.elt = elt;
     }
 
     @objid ("59c07a9b-2659-4b4b-ab43-024238948ac3")
     public static final class MdaTypes {
-        @objid ("fcb9f53c-eb99-4160-97bf-8fce2e86ea10")
+        @objid ("4ebeed8f-92a9-47c4-bf58-8312cd7c8976")
         public static TagType NOCODE_TAGTYPE_ELT;
 
-        @objid ("de12f28f-5a13-4a85-8e12-29b4b8c615cb")
+        @objid ("b6c4092d-285c-4c15-834f-5a1ffc2386e2")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("3fdd3089-4173-4a83-9bc2-16dd0a066309")
+        @objid ("9289d844-2b83-4a1e-ba0b-a464ebd538f8")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("79f71b97-069b-4c16-b5be-72a8764e2f07")
+        @objid ("5f08066c-79b1-49fe-85a2-3991ed9b90d4")
         public static void init(IModuleContext ctx) {
             NOCODE_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "00000000-0000-36bc-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

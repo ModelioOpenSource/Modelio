@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.expansionregion;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -79,6 +78,7 @@ public class ExpansionRegionEditPart extends AbstractNodeEditPart {
         installEditPolicy(EditPolicy.NODE_ROLE, new CreateFlowEditPolicy());
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START, new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("2a5e5e20-55b6-11e2-877f-002564c97630")
@@ -86,6 +86,7 @@ public class ExpansionRegionEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         GmExpansionRegionPrimaryNode expansionregionModel = (GmExpansionRegionPrimaryNode) getModel();
         getFigure().getParent().setConstraint(getFigure(), expansionregionModel.getLayoutData());
+        
     }
 
     @objid ("2a5e5e23-55b6-11e2-877f-002564c97630")
@@ -101,6 +102,7 @@ public class ExpansionRegionEditPart extends AbstractNodeEditPart {
         if (index == 1) {
             getFigure().add(child, BorderLayout.CENTER, index);
         }
+        
     }
 
     @objid ("2a5e5e28-55b6-11e2-877f-002564c97630")
@@ -117,6 +119,7 @@ public class ExpansionRegionEditPart extends AbstractNodeEditPart {
                 super.refreshFromStyle(aFigure, style);
             }
         }
+        
     }
 
 }

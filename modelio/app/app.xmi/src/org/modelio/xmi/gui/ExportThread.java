@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.gui;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -75,6 +74,7 @@ public class ExportThread extends AbstractXMIThread implements IRunnableWithProg
             TotalExportMap.getInstance().clear();
             PartialExportMap.getInstance().clear();
         }
+        
     }
 
     /**
@@ -82,11 +82,12 @@ public class ExportThread extends AbstractXMIThread implements IRunnableWithProg
      * @param progressBar the progress bar of the XMI dialog
      */
     @objid ("6b6bf18c-e2e7-4102-a463-862e6b2743be")
-    public ExportThread(Shell shell, ProgressBarComposite progressBar) {
+    public  ExportThread(Shell shell, ProgressBarComposite progressBar) {
         super();
         this.service = new ExportServices(shell);
         this.progressBar = progressBar;
         this.shell = shell;
+        
     }
 
 }

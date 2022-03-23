@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.ui.welcome.impl;
 
 import java.io.IOException;
@@ -65,11 +64,12 @@ public class WelcomeViewController {
      * @param progressService the progress service to display example projects loading progression
      */
     @objid ("a83b1307-f034-45d2-9388-20a7e861ef95")
-    public WelcomeViewController(WelcomeView welcomeView, IModelioUiService uiService, IProjectService projectService, IModelioProgressService progressService) {
+    public  WelcomeViewController(WelcomeView welcomeView, IModelioUiService uiService, IProjectService projectService, IModelioProgressService progressService) {
         this.welcomeView = welcomeView;
         this.uiService = uiService;
         this.progressService = progressService;
         this.projectService = projectService;
+        
     }
 
     /**
@@ -126,6 +126,7 @@ public class WelcomeViewController {
             // Switch to workspace perspective
             this.uiService.switchToWorkspace();
         }
+        
     }
 
     @objid ("5426cd53-03ad-43f5-aeaf-9d42480b9716")
@@ -137,6 +138,7 @@ public class WelcomeViewController {
             AppUiWelcome.LOG.warning(FileUtils.getLocalizedMessage(e));
             AppUiWelcome.LOG.debug(e);
         }
+        
     }
 
     @objid ("2e1b5761-f845-4115-a525-11c26825ecfc")

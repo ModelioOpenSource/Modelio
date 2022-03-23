@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.freeform;
 
 import java.util.List;
@@ -51,7 +50,7 @@ public class FreeformHelper2 implements FreeformListener {
     private IExtentFilter extentFilter = IExtentFilter.NONE;
 
     @objid ("5a3782b9-4f94-4234-8fbc-6bce48023672")
-    public FreeformHelper2(FreeformFigure host) {
+    public  FreeformHelper2(FreeformFigure host) {
         this.host = host;
     }
 
@@ -97,6 +96,7 @@ public class FreeformHelper2 implements FreeformListener {
         } else {
             child.addFigureListener(this.figureListener);
         }
+        
     }
 
     @objid ("c49d8ed6-80b3-4acb-a98d-2c1869841f57")
@@ -108,6 +108,7 @@ public class FreeformHelper2 implements FreeformListener {
         } else {
             this.host.revalidate();
         }
+        
     }
 
     @objid ("fb395bdf-548e-489c-9ec6-38832bedf977")
@@ -116,6 +117,7 @@ public class FreeformHelper2 implements FreeformListener {
         // A childs freeform extent has changed, therefore this extent must be
         // recalculated
         invalidate();
+        
     }
 
     @objid ("edb9b13b-b44c-4fdf-9e46-e4919d187a90")
@@ -131,6 +133,7 @@ public class FreeformHelper2 implements FreeformListener {
                 ((FreeformFigure) child).setFreeformBounds(childrenBounds);
             }
         }
+        
     }
 
     @objid ("702d5999-05d6-490f-9519-7191bc448f14")
@@ -141,6 +144,7 @@ public class FreeformHelper2 implements FreeformListener {
         } else {
             child.removeFigureListener(this.figureListener);
         }
+        
     }
 
     @objid ("2c761fa4-486a-46d4-bf38-ec290b500878")
@@ -159,6 +163,7 @@ public class FreeformHelper2 implements FreeformListener {
         
         this.extentFilter = extentFilter;
         invalidate();
+        
     }
 
 }

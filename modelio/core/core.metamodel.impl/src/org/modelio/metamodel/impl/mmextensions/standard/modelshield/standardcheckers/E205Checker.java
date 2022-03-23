@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.modelshield.standardcheckers;
 
 import java.util.Collections;
@@ -53,6 +52,7 @@ public class E205Checker implements IChecker {
                 report.addEntry(new ModelError(ERRORID, object, Collections.emptyList()));
             }
         }
+        
     }
 
     @objid ("008f3374-e472-1f69-b3fb-001ec947cd2a")
@@ -60,6 +60,7 @@ public class E205Checker implements IChecker {
     public void register(final IModelShieldRegistry plan, MMetamodel smMetamodel) {
         plan.registerChecker(this, smMetamodel.getMClass(MObject.class), TriggerType.Move, null);
         plan.registerChecker(this, smMetamodel.getMClass(MObject.class), TriggerType.Create, null);
+        
     }
 
 }

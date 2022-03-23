@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.modelshield.standardcheckers;
 
 import java.util.Collections;
@@ -54,6 +53,7 @@ public class E270Checker implements IChecker {
         if (edge.getSource() == null || edge.getTarget() == null) {
             report.addEntry(new ModelError(ERRORID, object, Collections.emptyList()));
         }
+        
     }
 
     @objid ("009776ba-e472-1f69-b3fb-001ec947cd2a")
@@ -67,6 +67,7 @@ public class E270Checker implements IChecker {
         
         // trigger=create, metaclass=ActivityEdge, feature=Target
         plan.registerChecker(this, smMetamodel.getMClass(ActivityEdge.class), TriggerType.Create, null);
+        
     }
 
 }

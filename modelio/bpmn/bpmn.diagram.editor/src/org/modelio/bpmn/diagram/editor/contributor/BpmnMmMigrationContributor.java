@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.contributor;
 
 import java.util.Collection;
@@ -86,6 +85,7 @@ public class BpmnMmMigrationContributor implements IFragmentMigrationContributor
         
             t.commit();
         }
+        
     }
 
     /**
@@ -154,6 +154,7 @@ public class BpmnMmMigrationContributor implements IFragmentMigrationContributor
                 }
             }
         });
+        
     }
 
     /**
@@ -179,6 +180,7 @@ public class BpmnMmMigrationContributor implements IFragmentMigrationContributor
         
             reporter.getResultReporter().println(msg);
         }
+        
     }
 
     /**
@@ -246,6 +248,7 @@ public class BpmnMmMigrationContributor implements IFragmentMigrationContributor
         }
         mon.worked(1);
         mon.setWorkRemaining(5);
+        
     }
 
     @objid ("8f814e65-c66e-4397-ba8c-37fea88c97b1")

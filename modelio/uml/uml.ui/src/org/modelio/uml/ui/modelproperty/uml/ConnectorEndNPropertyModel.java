@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.util.ArrayList;
@@ -63,8 +62,8 @@ public class ConnectorEndNPropertyModel extends AbstractPropertyModel<NaryConnec
      */
     @objid ("40757553-5813-4de1-bc3a-58b7c8843547")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "LinkName", "Base",
-			"ConnectorRepresentedFeature", "Linked", "Name", "ConnectorEndRepresentedFeature", "MultiplicityMin",
-			"MultiplicityMax", "IsOrdered", "IsUnique" };
+    			"ConnectorRepresentedFeature", "Linked", "Name", "ConnectorEndRepresentedFeature", "MultiplicityMin",
+    			"MultiplicityMax", "IsOrdered", "IsUnique" };
 
     @objid ("ebdb2d4a-fa47-487d-af62-a78d1a465491")
     private List<NaryLinkEnd> displayedRoles;
@@ -74,11 +73,10 @@ public class ConnectorEndNPropertyModel extends AbstractPropertyModel<NaryConnec
 
     /**
      * Create a new <i>ConnectorEnd</i> data model from an <i>ConnectorEnd</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("27961458-187b-4234-812a-1b8964b8ff3a")
-    public ConnectorEndNPropertyModel(NaryConnectorEnd theEditedElement) {
+    public  ConnectorEndNPropertyModel(NaryConnectorEnd theEditedElement) {
         super(theEditedElement);
         
         this.theLink = theEditedElement.getNaryLink();
@@ -96,11 +94,11 @@ public class ConnectorEndNPropertyModel extends AbstractPropertyModel<NaryConnec
                 }
             }
         }
+        
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("a5c7293c-cc02-4d35-bafc-74265c47ca98")
@@ -123,6 +121,7 @@ public class ConnectorEndNPropertyModel extends AbstractPropertyModel<NaryConnec
             // else
             return ""; // Link base Association
         }
+        
     }
 
     @objid ("6158fb29-b2d5-4eeb-acf3-c4370172de57")
@@ -188,11 +187,11 @@ public class ConnectorEndNPropertyModel extends AbstractPropertyModel<NaryConnec
         default:
             return null;
         }
+        
     }
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("421a2ae6-312e-4404-879d-69b7ca301776")
@@ -205,7 +204,6 @@ public class ConnectorEndNPropertyModel extends AbstractPropertyModel<NaryConnec
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -229,6 +227,7 @@ public class ConnectorEndNPropertyModel extends AbstractPropertyModel<NaryConnec
         default:
             return getPropertyValue(row, this.displayedRoles.get(col - 1));
         }
+        
     }
 
     /**
@@ -238,7 +237,6 @@ public class ConnectorEndNPropertyModel extends AbstractPropertyModel<NaryConnec
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -306,6 +304,7 @@ public class ConnectorEndNPropertyModel extends AbstractPropertyModel<NaryConnec
                 return null;
             }
         }
+        
     }
 
     @objid ("2757ac03-c07a-4480-90e1-1b22016f3491")
@@ -384,13 +383,13 @@ public class ConnectorEndNPropertyModel extends AbstractPropertyModel<NaryConnec
         default:
             return;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -408,6 +407,7 @@ public class ConnectorEndNPropertyModel extends AbstractPropertyModel<NaryConnec
         
             return;
         }
+        
     }
 
 }

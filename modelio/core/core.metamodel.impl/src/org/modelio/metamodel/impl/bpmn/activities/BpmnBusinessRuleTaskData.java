@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.activities;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,7 +30,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 @objid ("007ec354-c4bf-1fd8-97fe-001ec947cd2a")
 public class BpmnBusinessRuleTaskData extends BpmnTaskData {
     @objid ("a130b48f-1a8e-4207-be2d-62ec5ed2de17")
-    public BpmnBusinessRuleTaskData(BpmnBusinessRuleTaskSmClass smClass) {
+    public  BpmnBusinessRuleTaskData(BpmnBusinessRuleTaskSmClass smClass) {
         super(smClass);
     }
 

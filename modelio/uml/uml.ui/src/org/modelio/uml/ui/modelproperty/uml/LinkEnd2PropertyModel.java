@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.text.MessageFormat;
@@ -57,16 +56,15 @@ public class LinkEnd2PropertyModel extends AbstractPropertyModel<LinkEnd> {
      */
     @objid ("f637da7a-03fa-4f50-8ccf-cfa39fc0a22f")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "LinkName",
-			"Link.Base", "Linked", "Name", "MultiplicityMin", "MultiplicityMax", "IsNavigable", "IsOrdered",
-			"IsUnique" };
+    			"Link.Base", "Linked", "Name", "MultiplicityMin", "MultiplicityMax", "IsNavigable", "IsOrdered",
+    			"IsUnique" };
 
     /**
      * Create a new <i>LinkEnd</i> data model from an <i>LinkEnd</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("ca2c16a9-9e80-4d47-b400-743d8ae9b9b0")
-    public LinkEnd2PropertyModel(LinkEnd theEditedElement) {
+    public  LinkEnd2PropertyModel(LinkEnd theEditedElement) {
         super(theEditedElement);
     }
 
@@ -140,6 +138,7 @@ public class LinkEnd2PropertyModel extends AbstractPropertyModel<LinkEnd> {
         default:
             return null;
         }
+        
     }
 
     @objid ("b1a68ce6-8d27-4501-a964-613250cf3b16")
@@ -180,6 +179,7 @@ public class LinkEnd2PropertyModel extends AbstractPropertyModel<LinkEnd> {
         default:
             return null;
         }
+        
     }
 
     @objid ("1bfa24e5-1ad3-4919-bce3-dbe940ef3e8a")
@@ -238,6 +238,7 @@ public class LinkEnd2PropertyModel extends AbstractPropertyModel<LinkEnd> {
         default:
             return null;
         }
+        
     }
 
     @objid ("fafb4ddf-fb47-4cdc-b2ae-59c676286cc3")
@@ -305,6 +306,7 @@ public class LinkEnd2PropertyModel extends AbstractPropertyModel<LinkEnd> {
         default:
             return;
         }
+        
     }
 
     @objid ("a1eba032-9c49-4f29-a22b-256a90394596")
@@ -325,6 +327,7 @@ public class LinkEnd2PropertyModel extends AbstractPropertyModel<LinkEnd> {
         default:
             return;
         }
+        
     }
 
     /**

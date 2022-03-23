@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.state;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,36 +31,36 @@ import org.modelio.uml.statediagram.editor.style.StateAbstractStyleKeyProvider;
 @objid ("f58708f2-55b6-11e2-877f-002564c97630")
 public class GmStateStructuredStyleKeys extends StateAbstractStyleKeyProvider {
     @objid ("81068c4c-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("STATE_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("STATE_REPMODE", MetaKey.REPMODE);
 
     @objid ("81068c4e-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("STATE_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("STATE_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("81068c50-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("STATE_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("STATE_FILLMODE", MetaKey.FILLMODE);
 
     @objid ("81068c52-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("STATE_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("STATE_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("81068c54-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("STATE_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("STATE_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("81068c56-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("STATE_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("STATE_FONT", MetaKey.FONT);
 
     @objid ("81068c58-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("STATE_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("STATE_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("81068c5a-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("STATE_SHOWSTEREOTYPES", MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("STATE_SHOWSTEREOTYPES", MetaKey.SHOWSTEREOTYPES);
 
     @objid ("81068c5c-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("STATE_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("STATE_SHOWTAGS", MetaKey.SHOWTAGS);
 
     @objid ("81068c5e-55c2-11e2-9337-002564c97630")
-     static final StyleKey AUTOSHOWPOINTS = createStyleKey("STATE_AUTOSHOWPOINTS", Boolean.class);
+    static final StyleKey AUTOSHOWPOINTS = createStyleKey("STATE_AUTOSHOWPOINTS", Boolean.class);
 
     @objid ("81068c60-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWINNER = createStyleKey("STATE_SHOWINNER", Boolean.class);
+    static final StyleKey SHOWINNER = createStyleKey("STATE_SHOWINNER", Boolean.class);
 
 }

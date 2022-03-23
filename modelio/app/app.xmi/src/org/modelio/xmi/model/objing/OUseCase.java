@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,9 +42,10 @@ public class OUseCase extends ONameSpace {
     }
 
     @objid ("06093897-1d76-4940-8c71-6ac27236e6ba")
-    public OUseCase(UseCase param) {
+    public  OUseCase(UseCase param) {
         super(param);
         this.objingElement = param;
+        
     }
 
     @objid ("8c20f1e4-2d8e-41f5-aa73-27529d8e48bd")
@@ -70,6 +70,7 @@ public class OUseCase extends ONameSpace {
                         + ecoreOwner.getClass().getSimpleName() + ") Not Found");
             }
         }
+        
     }
 
     @objid ("f792c3cb-fa40-4d2d-8de6-c6c3cbd957d0")
@@ -77,6 +78,7 @@ public class OUseCase extends ONameSpace {
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         super.setProperties(ecoreElt);
         setSubject((org.eclipse.uml2.uml.UseCase) ecoreElt);
+        
     }
 
     @objid ("b1b76ccc-99c2-4a97-8288-556236dff079")
@@ -84,6 +86,7 @@ public class OUseCase extends ONameSpace {
         org.eclipse.uml2.uml.Element ecoreOwner = GenerationProperties.getInstance().getMappedElement(this.objingElement.getOwner());
         if (ecoreOwner instanceof org.eclipse.uml2.uml.Classifier)
             ecoreElt.getSubjects().add( (org.eclipse.uml2.uml.Classifier)  ecoreOwner);
+        
     }
 
 }

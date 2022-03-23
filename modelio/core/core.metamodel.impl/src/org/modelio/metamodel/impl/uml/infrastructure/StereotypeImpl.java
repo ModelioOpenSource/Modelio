@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.ArrayList;
@@ -31,7 +31,6 @@ import java.util.List;
 import java.util.Objects;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.uml.infrastructure.StereotypeData;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.NoteType;
@@ -67,6 +66,7 @@ public class StereotypeImpl extends ModelElementImpl implements Stereotype {
         } else {
             return Objects.equals(actualParent, parent) || actualParent.hasBase(parent);
         }
+        
     }
 
     @objid ("49737d4a-186f-4704-b4b9-1dbaae0feb67")
@@ -173,6 +173,7 @@ public class StereotypeImpl extends ModelElementImpl implements Stereotype {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("4595f7f1-a584-4a8d-9bde-fac8a2f33cfd")
@@ -220,6 +221,7 @@ public class StereotypeImpl extends ModelElementImpl implements Stereotype {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("7da0ed8d-61af-479a-8394-4bd8d852ec77")
@@ -241,6 +243,7 @@ public class StereotypeImpl extends ModelElementImpl implements Stereotype {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("8358f2ca-4581-4a0a-92fb-a3cf5acf0685")
@@ -262,6 +265,7 @@ public class StereotypeImpl extends ModelElementImpl implements Stereotype {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("947016dd-026b-43f8-a26f-2219d07e3ea2")
@@ -283,6 +287,7 @@ public class StereotypeImpl extends ModelElementImpl implements Stereotype {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("aa604218-c6c7-49fa-ac1c-b7fdb5d0a79a")

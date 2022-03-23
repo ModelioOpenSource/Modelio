@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.local.loader.sax;
 
 import java.util.ArrayList;
@@ -103,6 +102,7 @@ final class ObjectDataModel implements IObjectDataModel {
                 }
             }
         }
+        
     }
 
     @objid ("2af79289-3faf-11e2-87cb-001ec947ccaf")
@@ -142,6 +142,7 @@ final class ObjectDataModel implements IObjectDataModel {
         
         this.currentDepContent = DataModel.EMPTY_DEP;
         this.currentDep = null;
+        
     }
 
     @objid ("2af79292-3faf-11e2-87cb-001ec947ccaf")
@@ -152,6 +153,7 @@ final class ObjectDataModel implements IObjectDataModel {
         if (this.currentDep == null) {
             throw new DependencyNotFoundException("'"+depName + "' dependency not found for "+this.current);
         }
+        
     }
 
     @objid ("2af79295-3faf-11e2-87cb-001ec947ccaf")
@@ -164,13 +166,13 @@ final class ObjectDataModel implements IObjectDataModel {
         }
         
         this.currentDepContent.add(obj);
+        
     }
 
     /**
      * Find the SmDependency from its name.
      * <p>
      * Modelio 2 compatibility : convert to camel case if not found
-     * 
      * @param object an object
      * @param relation the relation name
      * @return the found dependency or <code>null</code>.
@@ -201,16 +203,16 @@ final class ObjectDataModel implements IObjectDataModel {
 
     /**
      * Initialize the object data model
-     * 
      * @param dataModel TODO
      * @param obj the loaded object
      * @param isNew <code>true</code> if the object didn't exist in memory.
      */
     @objid ("0e2ec301-3fc4-11e2-87cb-001ec947ccaf")
-    public ObjectDataModel(DataModel dataModel, SmObjectImpl obj, boolean isNew) {
+    public  ObjectDataModel(DataModel dataModel, SmObjectImpl obj, boolean isNew) {
         this.dataModel = dataModel;
         this.current = obj;
         this.isNew = isNew;
+        
     }
 
 }

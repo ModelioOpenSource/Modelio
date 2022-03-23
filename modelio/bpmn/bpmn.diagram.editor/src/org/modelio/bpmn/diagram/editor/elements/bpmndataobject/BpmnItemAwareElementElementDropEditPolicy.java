@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmndataobject;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -28,8 +27,8 @@ import org.eclipse.swt.widgets.Display;
 import org.modelio.api.module.mda.IMdaExpert;
 import org.modelio.bpmn.diagram.editor.plugin.DiagramEditorBpmn;
 import org.modelio.diagram.elements.core.model.GmModel;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.policies.DefaultElementDropEditPolicy;
 import org.modelio.diagram.elements.core.requests.ModelElementDropRequest;
 import org.modelio.metamodel.bpmn.objects.BpmnItemAwareElement;
@@ -112,6 +111,7 @@ public class BpmnItemAwareElementElementDropEditPolicy extends DefaultElementDro
         } else {
             return BpmnItemAwareElementElementDropEditPolicy.getStateMachineOwnerClassifier(elt.getCompositionOwner());
         }
+        
     }
 
     @objid ("2ddcd15a-21b5-49c3-b2e3-60b3e17a910c")
@@ -150,28 +150,28 @@ public class BpmnItemAwareElementElementDropEditPolicy extends DefaultElementDro
 
         /**
          * Constructor to type the element with a {@link State} or a {@link Represents}.
-         * 
          * @param elementToType the element to type.
          * @param state the state to use. Might be <code>null</code>.
          * @param type the general class to use.
          */
         @objid ("152d851e-17d0-4b95-8dfe-f5a476d17a10")
-        public SmartTypeBpmnItemAwareElementCommand(final BpmnItemAwareElement elementToType, final ModelElement state, final ModelElement type) {
+        public  SmartTypeBpmnItemAwareElementCommand(final BpmnItemAwareElement elementToType, final ModelElement state, final ModelElement type) {
             this.elementToType = elementToType;
             this.state = state;
             this.type = type;
+            
         }
 
         /**
          * Constructor to type the element with a {@link State} or a {@link Represents}.
-         * 
          * @param elementToType the element to type.
          * @param type the general class to use.
          */
         @objid ("e09ed5d8-16ca-4098-a4f9-e17d63311b1c")
-        public SmartTypeBpmnItemAwareElementCommand(final BpmnItemAwareElement elementToType, final ModelElement type) {
+        public  SmartTypeBpmnItemAwareElementCommand(final BpmnItemAwareElement elementToType, final ModelElement type) {
             this.elementToType = elementToType;
             this.type = type;
+            
         }
 
         @objid ("5a06f1a5-2b48-43ca-95a0-67eb8aac1127")
@@ -197,6 +197,7 @@ public class BpmnItemAwareElementElementDropEditPolicy extends DefaultElementDro
                     }
                 }
             }
+            
         }
 
         @objid ("e2c549b6-78b9-42ba-982c-afd0a1cccd5e")
@@ -207,6 +208,7 @@ public class BpmnItemAwareElementElementDropEditPolicy extends DefaultElementDro
             } else if (this.type != null) {
                 Represents.setTarget(this.elementToType, null);
             }
+            
         }
 
         @objid ("bc662cfe-3f64-430b-b82b-919b5d3adc44")
@@ -218,6 +220,7 @@ public class BpmnItemAwareElementElementDropEditPolicy extends DefaultElementDro
             } else if (this.type != null) {
                 Represents.setTarget(this.elementToType, this.type);
             }
+            
         }
 
         @objid ("91e70cd8-f5e6-43b7-9db3-aea00ff5e51a")

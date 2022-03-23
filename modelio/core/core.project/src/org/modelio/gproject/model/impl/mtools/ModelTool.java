@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.model.impl.mtools;
 
 import java.util.ArrayList;
@@ -111,6 +110,7 @@ public class ModelTool implements IModelTool {
                 throw new RuntimeException("Cannot move object" + smObject.getName());
             }
         }
+        
     }
 
     @objid ("01f41c74-0000-00fe-0000-000000000000")
@@ -121,6 +121,7 @@ public class ModelTool implements IModelTool {
         for (MObject elementToMove : toMove) {
             moveTo((SmObjectImpl) elementToMove, parentInitiliazer, (SmObjectImpl) oldParentHint);
         }
+        
     }
 
     @objid ("a03dba89-24d0-11e2-ba1c-002564c97630")
@@ -128,6 +129,7 @@ public class ModelTool implements IModelTool {
     public void moveElement(MObject toMove, MObject newParent, MObject oldParentHint) {
         CompositionInitializer parentInitiliazer = new CompositionInitializer((SmObjectImpl) newParent);
         moveTo((SmObjectImpl) toMove, parentInitiliazer, (SmObjectImpl) oldParentHint);
+        
     }
 
     @objid ("514cfe7f-28b1-4637-bfd1-3cf154c66a04")

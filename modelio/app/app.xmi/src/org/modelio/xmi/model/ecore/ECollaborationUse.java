@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,9 +39,10 @@ public class ECollaborationUse extends ENamedElement {
     }
 
     @objid ("515730b2-ce0e-422a-bddc-f3d175cd90a3")
-    public ECollaborationUse(org.eclipse.uml2.uml.CollaborationUse element) {
+    public  ECollaborationUse(org.eclipse.uml2.uml.CollaborationUse element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("3eeccd90-1658-49e7-82b3-236e7d86a66a")
@@ -54,6 +54,7 @@ public class ECollaborationUse extends ENamedElement {
         
         if (objOwner instanceof NameSpace)
             ((NameSpace)objOwner).getOwnedCollaborationUse().add((CollaborationUse)objingElt);
+        
     }
 
     @objid ("c8af813f-63a9-4c72-9932-3faaab4cbda8")
@@ -61,6 +62,7 @@ public class ECollaborationUse extends ENamedElement {
     public void setProperties(Element objingElt) {
         super.setProperties(objingElt);
         setType((CollaborationUse) objingElt);
+        
     }
 
     @objid ("b6949cd3-dacf-4394-b358-bed5f75666ab")
@@ -72,6 +74,7 @@ public class ECollaborationUse extends ENamedElement {
             if (objType instanceof Collaboration)
                 objingElt.setType((Collaboration) objType);
         }
+        
     }
 
 }

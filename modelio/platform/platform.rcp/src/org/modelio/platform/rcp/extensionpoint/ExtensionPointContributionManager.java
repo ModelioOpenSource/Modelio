@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.rcp.extensionpoint;
 
 import java.util.ArrayList;
@@ -34,7 +33,7 @@ public class ExtensionPointContributionManager {
     private final String extensionPointId;
 
     @objid ("df15a26f-be56-44a6-9df1-768e0623e883")
-    public ExtensionPointContributionManager(final String extensionPointId) {
+    public  ExtensionPointContributionManager(final String extensionPointId) {
         this.extensionPointId = extensionPointId;
     }
 

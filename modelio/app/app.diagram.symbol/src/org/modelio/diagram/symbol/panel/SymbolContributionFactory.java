@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.symbol.panel;
 
 import java.util.stream.Collectors;
@@ -33,8 +32,8 @@ import org.modelio.diagram.styles.core.view.ISymbolViewItem;
 import org.modelio.diagram.styles.viewer.StyleEditPanelSelection;
 import org.modelio.diagram.symbol.plugin.DiagramSymbol;
 import org.modelio.platform.model.ui.swt.SelectionHelper;
-import org.modelio.platform.model.ui.swt.contribitem.SwtContributionItem.Style;
 import org.modelio.platform.model.ui.swt.contribitem.SwtContributionItem;
+import org.modelio.platform.model.ui.swt.contribitem.SwtContributionItem.Style;
 import org.modelio.platform.utils.i18n.BundledMessages;
 
 /**
@@ -74,7 +73,7 @@ class SymbolContributionFactory {
     private final ISymbolPanelModel symbolModel;
 
     @objid ("128d38ef-e4df-44fc-8f1c-822138f1dcfd")
-    public SymbolContributionFactory(ISymbolPanelController controller, ISymbolPanelModel symbolModel) {
+    public  SymbolContributionFactory(ISymbolPanelController controller, ISymbolPanelModel symbolModel) {
         this.symbolController = controller;
         this.symbolModel = symbolModel;
         
@@ -104,6 +103,7 @@ class SymbolContributionFactory {
             this.showHelp.setChecked(symbolModel.isShowHelp());
             this.showHelp.update();
         });
+        
     }
 
     /**
@@ -181,11 +181,11 @@ class SymbolContributionFactory {
         this.updateStyleFromAllModified.update();
         this.updateStyleFromSelected.update();
         this.showHelp.update();
+        
     }
 
     /**
      * Escape mnemonics from the given string
-     * 
      * @param s a string
      * @return a string where all '&' are escaped to '&&'.
      */
@@ -207,6 +207,7 @@ class SymbolContributionFactory {
             }
         }
         throw new IllegalArgumentException(String.format("%s style has no named style in its parent hierarchy.", s));
+        
     }
 
     /**
@@ -217,6 +218,7 @@ class SymbolContributionFactory {
         new UpdateStyleFromModifiedPropsCommand(this.symbolModel).execute();
         
         this.symbolController.refreshView();
+        
     }
 
     /**
@@ -227,6 +229,7 @@ class SymbolContributionFactory {
         new UpdateStyleFromSelectedPropsCommand(this.symbolModel).execute();
         
         this.symbolController.refreshView();
+        
     }
 
     @objid ("a6997258-b273-4d15-a17d-976760dc71c2")
@@ -235,11 +238,11 @@ class SymbolContributionFactory {
         if (gm != null) {
             new StyleEditorProxy(gm).reset();
         }
+        
     }
 
     /**
      * Command that extract a style from modified style keys
-     * 
      * @param allLocals if true, use all modified style keys, if false use only selected style keys.
      */
     @objid ("74c042c5-7415-4b78-8ad0-f36038ed1a14")
@@ -247,6 +250,7 @@ class SymbolContributionFactory {
         new ExtractStyleCommand(this.symbolModel).execute(allLocals);
         
         this.symbolController.refreshView();
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta;
 
 import java.util.ArrayList;
@@ -54,6 +53,7 @@ class SmExpert implements MExpert {
         } else {
             return false;
         }
+        
     }
 
     @objid ("71d3d093-8ebd-4e6b-a986-104524715870")
@@ -66,6 +66,7 @@ class SmExpert implements MExpert {
         } else {
             return false;
         }
+        
     }
 
     @objid ("76adc186-98d8-4285-a19f-0d5b47e3802d")
@@ -78,6 +79,7 @@ class SmExpert implements MExpert {
         } else {
             return false;
         }
+        
     }
 
     @objid ("006b7862-8679-4dfd-9c58-ff2d513183d7")
@@ -90,6 +92,7 @@ class SmExpert implements MExpert {
         } else {
             return false;
         }
+        
     }
 
     @objid ("4e773f2d-34a7-4e70-967a-ea1a49bc48c3")
@@ -102,6 +105,7 @@ class SmExpert implements MExpert {
         } else {
             return false;
         }
+        
     }
 
     @objid ("1a2cd280-aa51-4771-9507-42356b08d2b1")
@@ -114,6 +118,7 @@ class SmExpert implements MExpert {
         } else {
             return false;
         }
+        
     }
 
     @objid ("f428d598-766c-41b3-960d-54080d16ec61")
@@ -134,6 +139,7 @@ class SmExpert implements MExpert {
         } else {
             return false;
         }
+        
     }
 
     @objid ("0899e6d0-0900-4bb7-adce-f02ccb0fab25")
@@ -150,6 +156,7 @@ class SmExpert implements MExpert {
         } else {
             return false;
         }
+        
     }
 
     @objid ("8e3d0035-e5a7-42af-92c7-2869e4f13cd6")
@@ -162,6 +169,7 @@ class SmExpert implements MExpert {
         } else {
             return false;
         }
+        
     }
 
     @objid ("2e7d09a7-308c-4e4b-8553-9715b62994be")
@@ -174,6 +182,7 @@ class SmExpert implements MExpert {
         } else {
             return false;
         }
+        
     }
 
     @objid ("2fbecb8f-bd57-4181-8f69-aef545f61d9c")
@@ -186,6 +195,7 @@ class SmExpert implements MExpert {
         } else {
             return false;
         }
+        
     }
 
     @objid ("3ee41a27-69fd-46f4-a9e2-8227e7324b80")
@@ -198,6 +208,7 @@ class SmExpert implements MExpert {
         } else {
             return false;
         }
+        
     }
 
     @objid ("36983199-210b-464b-ab8c-ce0c7ca2bf0c")
@@ -234,6 +245,7 @@ class SmExpert implements MExpert {
         } else {
             return null;
         }
+        
     }
 
     @objid ("8be62254-905d-4a78-b781-0d3949b222bd")
@@ -269,6 +281,7 @@ class SmExpert implements MExpert {
         } else {
             return null;
         }
+        
     }
 
 }

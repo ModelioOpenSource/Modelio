@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.classifier.style;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -72,12 +71,11 @@ public class ClassifierInternalStructureKeys extends StaticAbstractStyleKeyProvi
 
     /**
      * Instantiates a Classifier attributes group style key provider.
-     * 
      * @param prefix a prefix for style key names.
      * It is advised to use the upper case metaclass name as prefix.
      */
     @objid ("bb785cf7-8956-4ad0-8b1c-daa9d7b414e4")
-    public ClassifierInternalStructureKeys(String prefix) {
+    public  ClassifierInternalStructureKeys(String prefix) {
         this.INTERNALSVIEWMODE = createStyleKey(prefix+"_INTERNALSVIEWMODE", MetaKey.InternalGroup.INTVIEWMODE);
         this.TEXTCOLOR = createStyleKey(prefix+"_INTERNAL_TEXTCOLOR", MetaKey.InternalGroup.INTTEXTCOLOR);
         this.FONT = createStyleKey(prefix+"_INTERNAL_FONT", MetaKey.InternalGroup.INTFONT);
@@ -85,6 +83,7 @@ public class ClassifierInternalStructureKeys extends StaticAbstractStyleKeyProvi
                     MetaKey.InternalGroup.INTSHOWSTEREOTYPES);
         this.SHOWTAGS = createStyleKey(prefix+"_INTERNAL_SHOWTAGS", MetaKey.InternalGroup.INTSHOWTAGS);
         this.AUTOUNMASK = createStyleKey(prefix+"_INTERNAL_AUTOUNMASK", MetaKey.InternalGroup.INTAUTOUNMASK);
+        
     }
 
 }

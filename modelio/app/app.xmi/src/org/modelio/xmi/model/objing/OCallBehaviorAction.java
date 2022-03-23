@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,7 +35,7 @@ public class OCallBehaviorAction extends OActivityNode {
     }
 
     @objid ("8ec8511d-63a3-4573-b2d6-3faa0c6ccf95")
-    public OCallBehaviorAction(CallBehaviorAction element) {
+    public  OCallBehaviorAction(CallBehaviorAction element) {
         super(element);
     }
 
@@ -46,6 +45,7 @@ public class OCallBehaviorAction extends OActivityNode {
         super.setProperties(ecoreElt);
         setSynchronous( (org.eclipse.uml2.uml.CallBehaviorAction) ecoreElt);
         setBehavior( (org.eclipse.uml2.uml.CallBehaviorAction) ecoreElt);
+        
     }
 
     @objid ("a066fe59-8247-4941-b763-41ac6f31036e")
@@ -71,6 +71,7 @@ public class OCallBehaviorAction extends OActivityNode {
                 }
             }
         }
+        
     }
 
     @objid ("92ced73e-14a0-41b0-8959-d1c01fd0bd86")

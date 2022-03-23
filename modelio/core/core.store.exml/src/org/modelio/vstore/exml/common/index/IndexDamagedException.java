@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /**
  * 
  */
@@ -40,7 +39,7 @@ public class IndexDamagedException extends IOException {
      * @param message
      */
     @objid ("97d36761-3b25-4e3c-980a-6caba265cab8")
-    public IndexDamagedException(String message) {
+    public  IndexDamagedException(String message) {
         super(message);
     }
 
@@ -49,7 +48,7 @@ public class IndexDamagedException extends IOException {
      * @param cause
      */
     @objid ("2f8d5374-86b9-457e-8a19-2d2e2a9a2a3b")
-    public IndexDamagedException(String message, Throwable cause) {
+    public  IndexDamagedException(String message, Throwable cause) {
         super(message, cause);
     }
 

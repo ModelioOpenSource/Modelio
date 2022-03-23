@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.script.macro;
 
 import java.util.Collection;
@@ -48,10 +47,14 @@ public interface IMacroService {
     Catalog getCatalog(Scope scope);
 
     @objid ("12a0c216-71ee-4240-a761-1f49a2c12b7b")
-    enum Scope {
+    public enum Scope {
+        @objid ("36a3a715-7f91-471c-a3b5-bddaa3013a11")
         MODELIO,
+        @objid ("b7c9e818-e291-4225-97bc-9ce402f180b2")
         WORSPACE,
+        @objid ("6745a5b5-a13f-4ed0-9884-7ce34121d3bf")
         PROJECT;
+
     }
 
 }

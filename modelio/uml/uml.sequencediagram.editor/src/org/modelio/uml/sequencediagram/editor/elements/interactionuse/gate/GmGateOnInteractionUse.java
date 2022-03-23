@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.interactionuse.gate;
 
 import java.util.Collections;
@@ -31,8 +30,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.interactionModel.Gate;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -54,37 +53,36 @@ public class GmGateOnInteractionUse extends GmPortContainer {
     private static final int MAJOR_VERSION = 0;
 
     @objid ("d9145214-55b6-11e2-877f-002564c97630")
-     static final GmGateOnInteractionUseImageStyleKeys IMAGE_KEYS = new GmGateOnInteractionUseImageStyleKeys();
+    static final GmGateOnInteractionUseImageStyleKeys IMAGE_KEYS = new GmGateOnInteractionUseImageStyleKeys();
 
     @objid ("6db47b54-677f-4759-94c3-98fba785c1f3")
-     static final GmGateOnInteractionUseStructuredStyleKeys STRUCTURED_KEYS = new GmGateOnInteractionUseStructuredStyleKeys();
+    static final GmGateOnInteractionUseStructuredStyleKeys STRUCTURED_KEYS = new GmGateOnInteractionUseStructuredStyleKeys();
 
     @objid ("c4d358c5-3dd2-47f6-b6bf-7fe86c64cd3e")
-     static final GmGateOnInteractionUseSimpleStyleKeys SIMPLE_KEYS = new GmGateOnInteractionUseSimpleStyleKeys();
+    static final GmGateOnInteractionUseSimpleStyleKeys SIMPLE_KEYS = new GmGateOnInteractionUseSimpleStyleKeys();
 
     @objid ("79653e79-a6cd-48d5-9da8-d00df7ebcca2")
     private Gate gate;
 
     @objid ("600b1e0d-1217-4faf-b8c3-ce9fcab7e490")
-     static final GmGateOnInteractionUseUserImageStyleKeys USERIMAGE_KEYS = new GmGateOnInteractionUseUserImageStyleKeys();
+    static final GmGateOnInteractionUseUserImageStyleKeys USERIMAGE_KEYS = new GmGateOnInteractionUseUserImageStyleKeys();
 
     /**
      * Empty c'tor for deserialisation.
      */
     @objid ("d914521b-55b6-11e2-877f-002564c97630")
-    public GmGateOnInteractionUse() {
+    public  GmGateOnInteractionUse() {
         super();
     }
 
     /**
      * C'tor.
-     * 
      * @param diagram the diagram in which this Gm is created.
      * @param gate the gate to represent.
      * @param relatedRef a ref to the gate.
      */
     @objid ("d915d87b-55b6-11e2-877f-002564c97630")
-    public GmGateOnInteractionUse(final IGmDiagram diagram, final Gate gate, final MRef relatedRef) {
+    public  GmGateOnInteractionUse(final IGmDiagram diagram, final Gate gate, final MRef relatedRef) {
         super(diagram, relatedRef);
         GmGateOnInteractionUsePrimaryNode mainNode = new GmGateOnInteractionUsePrimaryNode(diagram, relatedRef);
         mainNode.setRoleInComposition(MAIN_NODE_ROLE);
@@ -95,6 +93,7 @@ public class GmGateOnInteractionUse extends GmPortContainer {
         header.setRoleInComposition(GmPortContainer.SATELLITE_ROLE);
         header.setLayoutData(PositionConstants.SOUTH);
         addChild(header);
+        
     }
 
     @objid ("d915d88a-55b6-11e2-877f-002564c97630")
@@ -172,6 +171,7 @@ public class GmGateOnInteractionUse extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("d9175f19-55b6-11e2-877f-002564c97630")
@@ -181,12 +181,14 @@ public class GmGateOnInteractionUse extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmGateOnInteractionUse.", GmGateOnInteractionUse.MINOR_VERSION);
+        
     }
 
     @objid ("d9175f1f-55b6-11e2-877f-002564c97630")
     private void read_0(final IDiagramReader in) {
         super.read(in);
         this.gate = (Gate) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("d9175f25-55b6-11e2-877f-002564c97630")
@@ -197,7 +199,6 @@ public class GmGateOnInteractionUse extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -209,7 +210,6 @@ public class GmGateOnInteractionUse extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

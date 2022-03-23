@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.images;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -72,7 +71,6 @@ public class MetamodelImageService {
 
     /**
      * Get the icon for a metaclass and a flavor
-     * 
      * @param metaclass a metaclass
      * @param flavor a flavor to concatenate to the lookup key.
      * @return the found icon or a default 'unknown' icon.
@@ -85,7 +83,6 @@ public class MetamodelImageService {
 
     /**
      * Get the diagram big image for a metaclass and a flavor.
-     * 
      * @param metaclass a metaclass
      * @param flavor a flavor to concatenate to the lookup key.
      * @return the found image or a default 'unknown' image.
@@ -98,7 +95,6 @@ public class MetamodelImageService {
 
     /**
      * Get the icon for a metaclass.
-     * 
      * @param metaclassName a metaclass name.
      * @return the metaclass icon.
      * @deprecated this method is not compatible with metamodel extensions, use {@link #getIcon(MClass)} instead.
@@ -118,7 +114,6 @@ public class MetamodelImageService {
 
     /**
      * Get the icon for a metaclass
-     * 
      * @param metaclass a metaclass
      * @return the metaclass icon.
      */
@@ -129,7 +124,6 @@ public class MetamodelImageService {
 
     /**
      * Get the diagram big image for a metaclass
-     * 
      * @param metaclass a metaclass
      * @return the diagram image
      */
@@ -143,7 +137,6 @@ public class MetamodelImageService {
      * <p>
      * Usually needed when programmatically building e4 contributions.
      * </p>
-     * 
      * @param metaclass a metaclass
      * @return path to the found icon or <code>null</code>.
      * @since 3.8
@@ -162,7 +155,6 @@ public class MetamodelImageService {
      * <p>
      * Usually needed when programmatically building e4 contributions.
      * </p>
-     * 
      * @param metaclassName name of a metaclass
      * @return path to the found icon or <code>null</code>.
      * @since 3.8
@@ -203,7 +195,6 @@ public class MetamodelImageService {
      * Compute and record an image displaying the given label for the given unknown key.
      * <p>
      * This method will make best effort to draw the label into the image but it will probably not fit the image.
-     * 
      * @param key a key.
      * @param label a string to draw in the image.
      * @param baseImage an existing image to define the size of the unknown image and initialize the {@link Device}.

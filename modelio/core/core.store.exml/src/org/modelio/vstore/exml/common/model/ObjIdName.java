@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common.model;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,21 +49,20 @@ public final class ObjIdName {
 
     /**
      * Constructor.
-     * 
      * @param classof the metaclass
      * @param name the object name
      * @param id the object identifier.
      */
     @objid ("f0ec2175-1cc6-4e6e-8f66-9c0f784716df")
-    public ObjIdName(SmClass classof, final String name, final String id) {
+    public  ObjIdName(SmClass classof, final String name, final String id) {
         this.classof = classof;
         this.name = name;
         this.id = id;
+        
     }
 
     /**
      * Indicates whether some other ObjId is "equal to" this one.
-     * 
      * @param other another ObjId
      * @return <code>true</code> if they are equal else <code>false</code>
      */
@@ -139,7 +137,6 @@ public final class ObjIdName {
      * <p>
      * Warning : this access the object SmObjectData which may invoke restoration from swap
      * or the repository. Don't use this constructor in repository loading.
-     * 
      * @param object a model object.
      * @return an initialized ObjId.
      * @deprecated this access the object SmObjectData which may invoke restoration from swap
@@ -159,7 +156,6 @@ public final class ObjIdName {
 
     /**
      * Convert to MRef.
-     * 
      * @return a MRef.
      */
     @objid ("fc91e0f2-26eb-45f7-904a-a194c4c1f1c2")
@@ -169,7 +165,6 @@ public final class ObjIdName {
 
     /**
      * Convert to {@link ObjId}.
-     * 
      * @return an {@link ObjId}
      */
     @objid ("2217dac8-c73d-4077-9e28-ba0d162222cb")

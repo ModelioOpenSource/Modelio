@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.ramc.core.packaging;
 
 import java.io.IOException;
@@ -40,18 +39,18 @@ class FilesExporter {
     private final Path projectPath;
 
     @objid ("e18a5475-3b21-4cab-9233-81cffb04addb")
-    public FilesExporter(Path exportPath, Path projectPath) {
+    public  FilesExporter(Path exportPath, Path projectPath) {
         this.exportPath = exportPath;
         this.projectPath = projectPath;
+        
     }
 
     /**
      * Copy exported files in the export area and record them in the {@link Metadatas}.
-     * 
      * @param filesToExport the files to export
      * @param metadatas the metadatas to update
      * @param subMonitor a progress monitor
-     * @throws java.io.IOException on I/O failure
+     * @throws IOException on I/O failure
      */
     @objid ("8f1ef777-c37c-4d27-911d-f9b4b801b080")
     public void run(List<ExportedFileEntry> filesToExport, Metadatas metadatas, SubProgress subMonitor) throws IOException {
@@ -64,6 +63,7 @@ class FilesExporter {
                 idx++;
             }
         }
+        
     }
 
     @objid ("a14ef114-16d2-4cbe-afa8-cf133ec7ce1b")
@@ -79,6 +79,7 @@ class FilesExporter {
             Log.warning("%s - Invalid file path: %s", getClass().getSimpleName(), file.normalize());
             return false;
         }
+        
     }
 
 }

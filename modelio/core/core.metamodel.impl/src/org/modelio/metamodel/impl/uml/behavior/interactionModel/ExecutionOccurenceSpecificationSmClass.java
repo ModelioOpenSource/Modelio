@@ -17,19 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.interactionModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.ExecutionOccurenceSpecificationData;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.ExecutionSpecificationSmClass;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.MessageEndSmClass;
 import org.modelio.metamodel.uml.behavior.interactionModel.ExecutionOccurenceSpecification;
 import org.modelio.metamodel.uml.behavior.interactionModel.ExecutionSpecification;
 import org.modelio.metamodel.uml.behavior.interactionModel.MessageEnd;
@@ -53,7 +50,7 @@ public class ExecutionOccurenceSpecificationSmClass extends MessageEndSmClass {
     private SmDependency startedDep;
 
     @objid ("8a472bb6-0bc1-41f1-8964-4bfb5e563da3")
-    public ExecutionOccurenceSpecificationSmClass(ISmMetamodelFragment origin) {
+    public  ExecutionOccurenceSpecificationSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -61,6 +58,7 @@ public class ExecutionOccurenceSpecificationSmClass extends MessageEndSmClass {
     @Override
     public String getName() {
         return "ExecutionOccurenceSpecification";
+        
     }
 
     @objid ("8a29416e-fe57-4770-a1fc-43a83fe9ee04")
@@ -73,18 +71,21 @@ public class ExecutionOccurenceSpecificationSmClass extends MessageEndSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ExecutionOccurenceSpecification.class;
+        
     }
 
     @objid ("ee62e7cf-8421-4b35-9f44-3f9fd37d2eb2")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("70f67d9f-6ee6-42ab-bf72-85206191378a")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("523d9952-e6f9-4657-90ab-bcbf195c8b4a")
@@ -104,6 +105,8 @@ public class ExecutionOccurenceSpecificationSmClass extends MessageEndSmClass {
         this.startedDep = new StartedSmDependency();
         this.startedDep.init("Started", this, metamodel.getMClass(ExecutionSpecification.MQNAME), 0, 1 , SmDirective.SMCDPARTOF, SmDirective.SMCDTODELETE);
         registerDependency(this.startedDep);
+        
+        
     }
 
     @objid ("e28e2242-f862-4486-93f9-a441e5f6124d")
@@ -128,7 +131,7 @@ public class ExecutionOccurenceSpecificationSmClass extends MessageEndSmClass {
         private ExecutionOccurenceSpecificationSmClass smClass;
 
         @objid ("861968e7-4f95-42ac-8c65-5f56007941b2")
-        public ExecutionOccurenceSpecificationObjectFactory(ExecutionOccurenceSpecificationSmClass smClass) {
+        public  ExecutionOccurenceSpecificationObjectFactory(ExecutionOccurenceSpecificationSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -170,6 +173,7 @@ public class ExecutionOccurenceSpecificationSmClass extends MessageEndSmClass {
             	this.symetricDep = ((ExecutionSpecificationSmClass)this.getTarget()).getFinishDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -198,6 +202,7 @@ public class ExecutionOccurenceSpecificationSmClass extends MessageEndSmClass {
             	this.symetricDep = ((ExecutionSpecificationSmClass)this.getTarget()).getStartDep();
             }
             return this.symetricDep;
+            
         }
 
     }

@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.script.view;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.e4.core.di.annotations.Creatable;
 import org.eclipse.e4.core.di.annotations.Optional;
@@ -82,6 +81,7 @@ public class ScriptViewSelectionGetter {
                 }
             }
         }
+        
     }
 
     @objid ("003cf3de-9861-1069-96f6-001ec947cd2a")
@@ -91,6 +91,7 @@ public class ScriptViewSelectionGetter {
     void onProjectClose(@EventTopic(ModelioEventTopics.PROJECT_CLOSED) GProject project) {
         this.selectedElements = new ArrayList<>();
         this.selection = null;
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.packaze;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,17 +41,15 @@ public class ContentAsSatelliteDragTrackerProvider implements IDragTrackerProvid
 
     /**
      * Constructor.
-     * 
      * @param editPart the EditPart for which DragTracker are to be returned.
      */
     @objid ("36175ade-55b7-11e2-877f-002564c97630")
-    public ContentAsSatelliteDragTrackerProvider(final EditPart editPart) {
+    public  ContentAsSatelliteDragTrackerProvider(final EditPart editPart) {
         this.editPart = editPart;
     }
 
     /**
      * Returns a Drag Tracker.
-     * 
      * @param request current request for which a Drag Tracker is needed.
      * @return a DragTracker.
      */
@@ -64,6 +61,7 @@ public class ContentAsSatelliteDragTrackerProvider implements IDragTrackerProvid
         } else {
             return new FireNavigateEditPartTracker(this.editPart);
         }
+        
     }
 
     @objid ("07187003-56a1-412b-97a7-8aa01e8dc4ef")

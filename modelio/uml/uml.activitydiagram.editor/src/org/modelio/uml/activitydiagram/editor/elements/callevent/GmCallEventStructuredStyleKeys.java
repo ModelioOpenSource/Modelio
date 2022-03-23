@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.callevent;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,34 +30,34 @@ import org.modelio.uml.activitydiagram.editor.style.ActivityAbstractStyleKeyProv
 @objid ("29ceef82-55b6-11e2-877f-002564c97630")
 public class GmCallEventStructuredStyleKeys extends ActivityAbstractStyleKeyProvider {
     @objid ("d0ef9e6a-55c0-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("CALLEVENT_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("CALLEVENT_REPMODE", MetaKey.REPMODE);
 
     @objid ("d0ef9e6c-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("CALLEVENT_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("CALLEVENT_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("d0ef9e6e-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("CALLEVENT_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("CALLEVENT_FILLMODE", MetaKey.FILLMODE);
 
     @objid ("d0ef9e70-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("CALLEVENT_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("CALLEVENT_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("d0ef9e72-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("CALLEVENT_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("CALLEVENT_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("d0ef9e74-55c0-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("CALLEVENT_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("CALLEVENT_FONT", MetaKey.FONT);
 
     @objid ("d0ef9e76-55c0-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("CALLEVENT_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("CALLEVENT_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("d0ef9e78-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("CALLEVENT_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("CALLEVENT_SHOWSTEREOTYPES",
+                MetaKey.SHOWSTEREOTYPES);
 
     @objid ("d0ef9e7a-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("CALLEVENT_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("CALLEVENT_SHOWTAGS", MetaKey.SHOWTAGS);
 
     @objid ("d0ef9e7c-55c0-11e2-9337-002564c97630")
-     static final StyleKey AUTOSHOWPINS = createStyleKey("CALLEVENT_AUTOSHOWPINS", MetaKey.AUTOSHOWPINS);
+    static final StyleKey AUTOSHOWPINS = createStyleKey("CALLEVENT_AUTOSHOWPINS", MetaKey.AUTOSHOWPINS);
 
 }

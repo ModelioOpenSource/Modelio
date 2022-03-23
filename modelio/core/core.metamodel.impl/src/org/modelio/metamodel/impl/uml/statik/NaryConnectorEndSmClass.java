@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.statik.NaryLinkEndSmClass;
 import org.modelio.metamodel.uml.statik.NaryConnectorEnd;
 import org.modelio.metamodel.uml.statik.NaryLinkEnd;
 import org.modelio.vbasic.version.Version;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("0658041f-9f8e-4044-a285-d0ab1d710f53")
 public class NaryConnectorEndSmClass extends NaryLinkEndSmClass {
     @objid ("93a4924f-cc6d-4250-b180-ec00fdf61a39")
-    public NaryConnectorEndSmClass(ISmMetamodelFragment origin) {
+    public  NaryConnectorEndSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class NaryConnectorEndSmClass extends NaryLinkEndSmClass {
     @Override
     public String getName() {
         return "NaryConnectorEnd";
+        
     }
 
     @objid ("dd8d1148-027f-41f2-98e4-df668b61dbf1")
@@ -62,18 +62,21 @@ public class NaryConnectorEndSmClass extends NaryLinkEndSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return NaryConnectorEnd.class;
+        
     }
 
     @objid ("f1871481-8b8c-40fc-9d06-c8a46aff7481")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("b709b375-00a9-4211-8485-31830a274e96")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("90a91e90-f24e-48ab-b31b-c5ee19ba4bc6")
@@ -86,6 +89,7 @@ public class NaryConnectorEndSmClass extends NaryLinkEndSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("acff590e-f662-4755-bae5-d65d69062fe8")
@@ -94,7 +98,7 @@ public class NaryConnectorEndSmClass extends NaryLinkEndSmClass {
         private NaryConnectorEndSmClass smClass;
 
         @objid ("0d5a8b32-3812-4638-aa78-8efebbeb03c8")
-        public NaryConnectorEndObjectFactory(NaryConnectorEndSmClass smClass) {
+        public  NaryConnectorEndObjectFactory(NaryConnectorEndSmClass smClass) {
             this.smClass = smClass;
         }
 

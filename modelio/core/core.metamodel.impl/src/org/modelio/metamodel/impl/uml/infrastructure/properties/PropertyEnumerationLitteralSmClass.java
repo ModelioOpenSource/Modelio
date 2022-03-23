@@ -17,19 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.infrastructure.ModelElementSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.properties.EnumeratedPropertyTypeSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.properties.PropertyEnumerationLitteralData;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.properties.EnumeratedPropertyType;
 import org.modelio.metamodel.uml.infrastructure.properties.PropertyEnumerationLitteral;
@@ -50,7 +48,7 @@ public class PropertyEnumerationLitteralSmClass extends ModelElementSmClass {
     private SmDependency ownerDep;
 
     @objid ("e3949bf8-2420-498c-9fdc-5f902ae01392")
-    public PropertyEnumerationLitteralSmClass(ISmMetamodelFragment origin) {
+    public  PropertyEnumerationLitteralSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -58,6 +56,7 @@ public class PropertyEnumerationLitteralSmClass extends ModelElementSmClass {
     @Override
     public String getName() {
         return "PropertyEnumerationLitteral";
+        
     }
 
     @objid ("9ab8b4d9-c454-43fd-858e-f10186fb680b")
@@ -70,18 +69,21 @@ public class PropertyEnumerationLitteralSmClass extends ModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return PropertyEnumerationLitteral.class;
+        
     }
 
     @objid ("c1026bb1-33b8-4f40-af0a-5879cd66bf30")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("1f684b30-bc5b-478f-b88f-2165dd47f734")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("4d28a34e-779a-4e74-9a81-1072d8713b7a")
@@ -97,6 +99,8 @@ public class PropertyEnumerationLitteralSmClass extends ModelElementSmClass {
         this.ownerDep = new OwnerSmDependency();
         this.ownerDep.init("Owner", this, metamodel.getMClass(EnumeratedPropertyType.MQNAME), 1, 1 );
         registerDependency(this.ownerDep);
+        
+        
     }
 
     @objid ("c333513f-b6b5-4050-bbc4-f80444264afc")
@@ -113,7 +117,7 @@ public class PropertyEnumerationLitteralSmClass extends ModelElementSmClass {
         private PropertyEnumerationLitteralSmClass smClass;
 
         @objid ("cd862295-2340-4fcd-96a4-c2a4aa60a348")
-        public PropertyEnumerationLitteralObjectFactory(PropertyEnumerationLitteralSmClass smClass) {
+        public  PropertyEnumerationLitteralObjectFactory(PropertyEnumerationLitteralSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -155,6 +159,7 @@ public class PropertyEnumerationLitteralSmClass extends ModelElementSmClass {
             	this.symetricDep = ((EnumeratedPropertyTypeSmClass)this.getTarget()).getLitteralDep();
             }
             return this.symetricDep;
+            
         }
 
     }

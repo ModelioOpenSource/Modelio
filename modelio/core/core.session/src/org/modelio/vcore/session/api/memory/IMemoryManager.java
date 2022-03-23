@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.api.memory;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IMemoryManager {
     /**
      * Add a memory listener.
-     * 
      * @param listener a memory listener.
      */
     @objid ("888475a2-614b-4dbd-aa34-f464cae24b22")
@@ -40,7 +38,6 @@ public interface IMemoryManager {
 
     /**
      * Remove a memory listener.
-     * 
      * @param listener a memory listener.
      */
     @objid ("1a535b79-4663-43c8-acb8-f18f8efbfece")

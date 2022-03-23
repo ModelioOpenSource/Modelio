@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.form.models;
 
 import java.text.DateFormat;
@@ -46,9 +45,10 @@ public class PropertyFieldData implements IFormFieldData {
     private final PropertyFieldType type;
 
     @objid ("0f57de98-b88d-4f92-b903-617215291072")
-    public PropertyFieldData(IModelingSession session, ModelElement elt, PropertyDefinition pdef) {
+    public  PropertyFieldData(IModelingSession session, ModelElement elt, PropertyDefinition pdef) {
         this.elt = elt;
         this.type = new PropertyFieldType(session, pdef);
+        
     }
 
     @objid ("327b271c-f793-4533-9345-2a8f2530c973")
@@ -93,9 +93,10 @@ public class PropertyFieldData implements IFormFieldData {
         private IModelingSession session;
 
         @objid ("dee93dea-0239-4386-8e7e-befbee7e1563")
-        public PropertyFieldType(IModelingSession session, PropertyDefinition pdef) {
+        public  PropertyFieldType(IModelingSession session, PropertyDefinition pdef) {
             this.session = session;
             this.pdef = pdef;
+            
         }
 
         @objid ("bf16d227-3672-47b0-b65f-3321fc0da15c")
@@ -106,7 +107,6 @@ public class PropertyFieldData implements IFormFieldData {
 
         /**
          * Get the value of the current {@link PropertyDefinition} on an element.
-         * 
          * @param elt the element to look for a value in.
          * @return the value of the property. Might be <code>null</code>.
          */
@@ -123,7 +123,6 @@ public class PropertyFieldData implements IFormFieldData {
          * Set the value of the {@link PropertyDefinition} on an element.
          * <p/>
          * If no {@link TypedPropertyTable} exists for that property, a new one is created.
-         * 
          * @param elt the element to set a value in.
          * @param value the value to set in the element's properties.
          */
@@ -145,6 +144,7 @@ public class PropertyFieldData implements IFormFieldData {
                     Api.LOG.error(e);
                 }
             }
+            
         }
 
         @objid ("d7e0e292-ee04-41b4-8974-c1af1228de62")
@@ -216,11 +216,11 @@ public class PropertyFieldData implements IFormFieldData {
             default:
                 return false;
             }
+            
         }
 
         /**
          * Get the {@link TypedPropertyTable} typed by {@link #pdef}'s owner {@link PropertyTableDefinition}.
-         * 
          * @param elt the element to look for a {@link TypedPropertyTable} in.
          * @return a {@link TypedPropertyTable} or <code>null</code>.
          */
@@ -255,7 +255,6 @@ public class PropertyFieldData implements IFormFieldData {
          * public isStereoyped() method
          * @param stereotypeName
          * the name of another stereotype.
-         * 
          * @param stereotype a stereotype
          * @return <code>true</code> if 'stereotype' a child of the stereotype named by 'stereotypeName' else <code>false</code>.
          */

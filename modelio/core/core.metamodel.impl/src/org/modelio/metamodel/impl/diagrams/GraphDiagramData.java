@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.diagrams;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,7 +30,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 @objid ("1749232f-f478-49a8-9867-d574a842fbbf")
 public class GraphDiagramData extends AbstractDiagramData {
     @objid ("62f2c8ef-5ac0-47a6-a727-0699b29053f6")
-    public GraphDiagramData(GraphDiagramSmClass smClass) {
+    public  GraphDiagramData(GraphDiagramSmClass smClass) {
         super(smClass);
     }
 

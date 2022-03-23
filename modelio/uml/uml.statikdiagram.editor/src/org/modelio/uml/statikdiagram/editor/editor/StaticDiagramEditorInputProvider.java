@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.editor;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.editor.DiagramEditorInput;
 import org.modelio.diagram.editor.IDiagramEditorInputProvider;
+import org.modelio.diagram.editor.IDiagramEditorInputProvider.GmDiagramCreator;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.diagrams.ClassDiagram;
 import org.modelio.metamodel.diagrams.StaticDiagram;
@@ -38,7 +38,7 @@ public class StaticDiagramEditorInputProvider implements IDiagramEditorInputProv
      * Initialize the provider.
      */
     @objid ("6557991c-5bd5-11e2-9e33-00137282c51b")
-    public StaticDiagramEditorInputProvider() {
+    public  StaticDiagramEditorInputProvider() {
         super();
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,7 @@ public class EInvocationAction extends EElement {
     }
 
     @objid ("7b99eac7-252d-44f1-8f59-1d883b317232")
-    public EInvocationAction(org.eclipse.uml2.uml.Behavior element) {
+    public  EInvocationAction(org.eclipse.uml2.uml.Behavior element) {
         super(element);
     }
 

@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.module.catalog.catalog;
 
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
@@ -40,6 +39,7 @@ public class OpenCatalogHandler {
     public void execute(@Named(IServiceConstants.ACTIVE_SHELL) Shell shell, IModuleStore catalog, IModelioProgressService progressService) {
         ModuleCatalogDialog dlg = new ModuleCatalogDialog(shell, catalog, progressService);
         dlg.open();
+        
     }
 
     @objid ("264d0f22-f84b-4e71-9c20-f86b0e45fa42")

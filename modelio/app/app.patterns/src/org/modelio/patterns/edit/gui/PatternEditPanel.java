@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.edit.gui;
 
 import java.security.InvalidParameterException;
@@ -53,8 +52,8 @@ import org.eclipse.swt.widgets.TabItem;
 import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.Text;
 import org.modelio.metamodel.uml.statik.Package;
-import org.modelio.patterns.model.ProfileUtils.PatternDesignerStereotypes;
 import org.modelio.patterns.model.ProfileUtils;
+import org.modelio.patterns.model.ProfileUtils.PatternDesignerStereotypes;
 import org.modelio.patterns.model.RuntimePattern;
 import org.modelio.patterns.model.information.ConstantParameter;
 import org.modelio.patterns.model.information.ElementParameter;
@@ -73,7 +72,7 @@ public class PatternEditPanel implements IPanelProvider {
     private Controller controller;
 
     @objid ("e24888cf-0898-4931-8169-fc5ad96a57a6")
-    public PatternEditPanel() {
+    public  PatternEditPanel() {
         this.controller = new Controller();
     }
 
@@ -118,6 +117,7 @@ public class PatternEditPanel implements IPanelProvider {
         } else {
             this.controller.setData(null);
         }
+        
     }
 
     @objid ("3d076ec8-c4db-4603-a27a-e030c35bbdd2")
@@ -168,7 +168,7 @@ public class PatternEditPanel implements IPanelProvider {
         private TabItem paramsTabItem;
 
         @objid ("3cd8364b-7b64-44d3-a84f-5b88aaf228ae")
-        public PanelUI(Controller controller) {
+        public  PanelUI(Controller controller) {
             this.controller = controller;
         }
 
@@ -211,6 +211,7 @@ public class PatternEditPanel implements IPanelProvider {
                 this.categoryText.setText("");
                 this.parameters.setInput(Collections.emptyList());
             }
+            
         }
 
         @objid ("485fb606-842c-471f-989a-b8f9feaef130")
@@ -512,6 +513,7 @@ public class PatternEditPanel implements IPanelProvider {
             if (this.ui != null) {
                 this.ui.update(this.rtPattern);
             }
+            
         }
 
         @objid ("667c7ead-35c1-4073-9bba-b345c7689061")
@@ -531,6 +533,7 @@ public class PatternEditPanel implements IPanelProvider {
         public void dispose() {
             this.ui.dispose();
             this.ui = null;
+            
         }
 
         @objid ("13ce79bd-a72f-419e-a87c-f87137126386")
@@ -549,6 +552,7 @@ public class PatternEditPanel implements IPanelProvider {
                 throw new InvalidParameterException("Listener already registered");
             }
             this.listeners.add(l);
+            
         }
 
         @objid ("48302a1b-f7a7-4a15-97ea-1f468a5769c2")
@@ -559,6 +563,7 @@ public class PatternEditPanel implements IPanelProvider {
                 this.ui.update(this.rtPattern);
                 fireListeners(this.rtPattern, true);
             }
+            
         }
 
         @objid ("720b4d6c-552f-48aa-ab92-424c97495e13")
@@ -569,6 +574,7 @@ public class PatternEditPanel implements IPanelProvider {
                 this.ui.update(this.rtPattern);
                 fireListeners(this.rtPattern, true);
             }
+            
         }
 
         @objid ("db40f410-e0a6-4d60-bc46-7ba78c2a088f")
@@ -579,6 +585,7 @@ public class PatternEditPanel implements IPanelProvider {
                 this.ui.update(this.rtPattern);
                 fireListeners(this.rtPattern, true);
             }
+            
         }
 
         @objid ("bd4ecb0a-0c5b-4f30-b922-7ec0aa86d9e2")
@@ -589,6 +596,7 @@ public class PatternEditPanel implements IPanelProvider {
                 this.ui.update(this.rtPattern);
                 fireListeners(this.rtPattern, true);
             }
+            
         }
 
         @objid ("60c31e8e-20e2-4c48-8cbd-05e1a12c2e04")
@@ -599,6 +607,7 @@ public class PatternEditPanel implements IPanelProvider {
                 this.ui.update(this.rtPattern);
                 fireListeners(this.rtPattern, true);
             }
+            
         }
 
         @objid ("57a6122c-d576-4bc8-b307-9324ef319521")
@@ -609,6 +618,7 @@ public class PatternEditPanel implements IPanelProvider {
                 this.ui.update(this.rtPattern);
                 fireListeners(this.rtPattern, true);
             }
+            
         }
 
         @objid ("a10cd53b-4b29-4935-9541-4078c79a4038")
@@ -619,6 +629,7 @@ public class PatternEditPanel implements IPanelProvider {
                 this.ui.update(this.rtPattern);
                 fireListeners(this.rtPattern, true);
             }
+            
         }
 
     }
@@ -632,10 +643,11 @@ public class PatternEditPanel implements IPanelProvider {
         private final CellEditor editor;
 
         @objid ("b04cf8bc-1562-42c2-b40c-ac5ae2341c6b")
-        public ParameterLabelEditingSupport(TableViewer viewer, Controller controller) {
+        public  ParameterLabelEditingSupport(TableViewer viewer, Controller controller) {
             super(viewer);
             this.controller = controller;
             this.editor = new TextCellEditor(viewer.getTable());
+            
         }
 
         @objid ("c19c666a-4301-430b-92b3-3d5ed66fdee5")
@@ -673,10 +685,11 @@ public class PatternEditPanel implements IPanelProvider {
         private final CellEditor editor;
 
         @objid ("eb10e5a9-8dae-41e0-be4f-7d2694130c0a")
-        public ParameterDescriptionEditingSupport(TableViewer viewer, Controller controller) {
+        public  ParameterDescriptionEditingSupport(TableViewer viewer, Controller controller) {
             super(viewer);
             this.controller = controller;
             this.editor = new TextCellEditor(viewer.getTable());
+            
         }
 
         @objid ("e2e599cf-db27-4b24-a94d-7b920350bb1f")

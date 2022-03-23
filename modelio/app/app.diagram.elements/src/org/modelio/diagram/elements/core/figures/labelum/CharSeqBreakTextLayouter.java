@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.labelum;
 
 import java.util.regex.Matcher;
@@ -56,7 +55,6 @@ public class CharSeqBreakTextLayouter extends AbstractBreakTextLayouter {
     /**
      * Find a return the line break range.
      * The returned range will be replaced by a line return.
-     * 
      * @param text the text to search
      * @param beforeIndex the offset to start back from
      * @return the text range to replace by a line break
@@ -71,27 +69,27 @@ public class CharSeqBreakTextLayouter extends AbstractBreakTextLayouter {
         } else {
             return -1;
         }
+        
     }
 
     /**
      * Initialize the layouter to break after any of the given character sequences.
-     * 
      * @param breakAfter the breaking character sequences.
      */
     @objid ("fbf6177f-7b2c-4e55-a453-bc3d055a1a2f")
-    public CharSeqBreakTextLayouter(String[] breakAfter) {
+    public  CharSeqBreakTextLayouter(String[] breakAfter) {
         super();
         setBreakAfter(breakAfter);
+        
     }
 
     @objid ("acd02f40-10a5-4df6-8049-94484d5f5731")
-    public CharSeqBreakTextLayouter() {
+    public  CharSeqBreakTextLayouter() {
         super();
     }
 
     /**
      * Configure the layouter to break after any of the given character sequences.
-     * 
      * @param breakAfter the breaking character sequences.
      */
     @objid ("153e2e73-b926-4eda-a310-14a3b1c3f2a8")
@@ -112,6 +110,7 @@ public class CharSeqBreakTextLayouter extends AbstractBreakTextLayouter {
         sb.append(")");
         
         this.findLastBreakPattern = Pattern.compile(sb.toString());
+        
     }
 
 }

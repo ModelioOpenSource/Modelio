@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.ui.dialog;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -187,7 +186,7 @@ public abstract class ModelioDialog extends TrayDialog {
     private Text messageLabel;
 
     @objid ("f3037043-cbaf-44e6-90ac-bc017f032c7f")
-     Color titleAreaColor;
+    Color titleAreaColor;
 
     @objid ("27052209-d68c-4340-9df4-a1e4b8293442")
     private RGB titleAreaRGB;
@@ -227,6 +226,7 @@ public abstract class ModelioDialog extends TrayDialog {
         
         }
         super.setBlockOnOpen(shouldBlock);
+        
     }
 
     /**
@@ -234,14 +234,14 @@ public abstract class ModelioDialog extends TrayDialog {
      * <p>
      * For non modal dialogs, implementers should call <code>setBlockOnOpen(false)</code>
      * </p>
-     * 
      * @param parentShell the parent SWT shell
      */
     @objid ("00481d40-4a05-1fe0-bf4c-001ec947cd2a")
-    protected ModelioDialog(final Shell parentShell) {
+    protected  ModelioDialog(final Shell parentShell) {
         super(parentShell);
         setShellStyle(SWT.RESIZE | SWT.TITLE | SWT.CLOSE | SWT.BORDER | SWT.APPLICATION_MODAL | getDefaultOrientation());
         setBlockOnOpen(true);
+        
     }
 
     /**
@@ -262,7 +262,6 @@ public abstract class ModelioDialog extends TrayDialog {
      * Note: The common button order is: <b>{other buttons}</b>, <b>OK</b>, <b>Cancel</b>. On some platforms, {@link #initializeBounds()} will move the default button to the right.
      * </p>
      * @see #addDefaultButtons(Composite)
-     * 
      * @param parent the button bar composite
      */
     @objid ("dda6960a-3144-4e0a-929f-13c7dfbb7f38")
@@ -273,7 +272,6 @@ public abstract class ModelioDialog extends TrayDialog {
      * <p>
      * Note: The common button order is: <b>{other buttons}</b>, <b>OK</b>, <b>Cancel</b>. On some platforms, {@link #initializeBounds()} will move the default button to the right.
      * </p>
-     * 
      * @param parent the button bar composite
      */
     @objid ("00484342-4a05-1fe0-bf4c-001ec947cd2a")
@@ -281,6 +279,7 @@ public abstract class ModelioDialog extends TrayDialog {
         createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL, true);
         
         createButton(parent, IDialogConstants.CANCEL_ID, IDialogConstants.CANCEL_LABEL, false);
+        
     }
 
     @objid ("0048619c-4a05-1fe0-bf4c-001ec947cd2a")
@@ -304,7 +303,6 @@ public abstract class ModelioDialog extends TrayDialog {
      * // add controls to composite as necessary
      * return composite;
      * </pre>
-     * 
      * @param parent the parent composite to contain the dialog content area
      * @return the dialog content area control
      */
@@ -357,7 +355,6 @@ public abstract class ModelioDialog extends TrayDialog {
      * and returns a new <code>Composite</code> with no margins and spacing.
      * Subclasses should override.
      * </p>
-     * 
      * @param parent The parent composite to contain the dialog area
      * @return the dialog area control
      */
@@ -393,7 +390,6 @@ public abstract class ModelioDialog extends TrayDialog {
      * The <code>ModelioDialog</code> implementation of this
      * <code>Window</code> methods returns an initial size which is at least
      * some reasonable minimum.
-     * 
      * @return the initial size of the dialog
      */
     @objid ("00490dcc-4a05-1fe0-bf4c-001ec947cd2a")
@@ -402,6 +398,7 @@ public abstract class ModelioDialog extends TrayDialog {
         final Point shellSize = super.getInitialSize();
         return new Point(Math.max(convertHorizontalDLUsToPixels(ModelioDialog.MIN_DIALOG_WIDTH), shellSize.x),
                 Math.max(convertVerticalDLUsToPixels(ModelioDialog.MIN_DIALOG_HEIGHT), shellSize.y));
+        
     }
 
     /**
@@ -417,7 +414,6 @@ public abstract class ModelioDialog extends TrayDialog {
      * Display the given error message. The currently displayed message is saved
      * and will be redisplayed when the error message is set to
      * <code>null</code>.
-     * 
      * @param newErrorMessage the newErrorMessage to display or <code>null</code>
      */
     @objid ("00493ef0-4a05-1fe0-bf4c-001ec947cd2a")
@@ -459,11 +455,11 @@ public abstract class ModelioDialog extends TrayDialog {
             }
         }
         layoutForNewMessage(false);
+        
     }
 
     /**
      * Set the logo image that displays on the right side of the header.
-     * 
      * @param newLogoImage The new logo image.
      */
     @objid ("00495c46-4a05-1fe0-bf4c-001ec947cd2a")
@@ -486,6 +482,7 @@ public abstract class ModelioDialog extends TrayDialog {
                 this.workArea.getParent().layout(true);
             }
         }
+        
     }
 
     /**
@@ -497,7 +494,6 @@ public abstract class ModelioDialog extends TrayDialog {
      * </p>
      * This method should be called after the dialog has been opened as it
      * updates the message label immediately.
-     * 
      * @param newMessage the message, or <code>null</code> to clear the message
      */
     @objid ("004985c2-4a05-1fe0-bf4c-001ec947cd2a")
@@ -520,7 +516,6 @@ public abstract class ModelioDialog extends TrayDialog {
      * message until the error message is cleared. This method replaces the
      * current message and does not affect the error message.
      * </p>
-     * 
      * @param newMessage the message, or <code>null</code> to clear the message
      * @param newType the message type
      * @since 2.0
@@ -546,11 +541,11 @@ public abstract class ModelioDialog extends TrayDialog {
             }
         }
         showMessage(newMessage, newImage);
+        
     }
 
     /**
      * Sets the title to be shown in the title area of this dialog.
-     * 
      * @param newTitle the title show
      */
     @objid ("0049a3a4-4a05-1fe0-bf4c-001ec947cd2a")
@@ -563,6 +558,7 @@ public abstract class ModelioDialog extends TrayDialog {
             title = "";//$NON-NLS-1$
         }
         this.titleLabel.setText(title);
+        
     }
 
     /**
@@ -570,7 +566,6 @@ public abstract class ModelioDialog extends TrayDialog {
      * <p>
      * The image is aligned on the left of the header.
      * </p>
-     * 
      * @param newTitleImage the title image to be shown
      */
     @objid ("0049c1b8-4a05-1fe0-bf4c-001ec947cd2a")
@@ -589,6 +584,7 @@ public abstract class ModelioDialog extends TrayDialog {
             }
             resetWorkAreaAttachments(top);
         }
+        
     }
 
     @objid ("0049ec10-4a05-1fe0-bf4c-001ec947cd2a")
@@ -598,7 +594,6 @@ public abstract class ModelioDialog extends TrayDialog {
 
     /**
      * Creates the dialog's title area.
-     * 
      * @param parent the SWT parent for the title area widgets
      * @return Control with the highest x axis value.
      */
@@ -703,6 +698,7 @@ public abstract class ModelioDialog extends TrayDialog {
         } else {
             return this.messageLabel;
         }
+        
     }
 
     /**
@@ -729,6 +725,7 @@ public abstract class ModelioDialog extends TrayDialog {
             this.leftImageLargest = false;
             this.rightImageLargest = false;
         }
+        
     }
 
     @objid ("004b418c-4a05-1fe0-bf4c-001ec947cd2a")
@@ -747,11 +744,11 @@ public abstract class ModelioDialog extends TrayDialog {
                 }
             });
         }
+        
     }
 
     /**
      * Re-layout the labels for the new message.
-     * 
      * @param forceLayout <code>true</code> to force a layout of the shell
      */
     @objid ("004a5506-4a05-1fe0-bf4c-001ec947cd2a")
@@ -850,6 +847,7 @@ public abstract class ModelioDialog extends TrayDialog {
             tooltip.setPopupDelay(0);
             tooltip.activate();
         }
+        
     }
 
     /**
@@ -864,12 +862,12 @@ public abstract class ModelioDialog extends TrayDialog {
         childData.left = new FormAttachment(0, 0);
         childData.bottom = new FormAttachment(100, 0);
         this.workArea.setLayoutData(childData);
+        
     }
 
     /**
      * Make the label used for displaying error images visible depending on
      * boolean.
-     * 
      * @param visible If <code>true</code> make the image visible, if not then
      * make it not visible.
      */
@@ -878,12 +876,12 @@ public abstract class ModelioDialog extends TrayDialog {
         this.messageImageLabel.setVisible(visible);
         this.bottomFillerLabel.setVisible(visible);
         this.leftFillerLabel.setVisible(visible);
+        
     }
 
     /**
      * Set the layout values for the messageLabel, messageImageLabel and
      * fillerLabel for the case where there is a normal message.
-     * 
      * @param verticalSpacing int The spacing between widgets on the vertical axis.
      * @param horizontalSpacing int The spacing between widgets on the horizontal axis.
      */
@@ -919,6 +917,7 @@ public abstract class ModelioDialog extends TrayDialog {
         data.bottom = new FormAttachment(this.messageImageLabel, 0, SWT.BOTTOM);
         data.right = new FormAttachment(this.messageImageLabel, 0);
         this.leftFillerLabel.setLayoutData(data);
+        
     }
 
     /**
@@ -945,11 +944,11 @@ public abstract class ModelioDialog extends TrayDialog {
             setImageLabelVisible(this.messageImage != null);
             layoutForNewMessage(false);
         }
+        
     }
 
     /**
      * Update the contents of the messageLabel.
-     * 
      * @param newMessage the message to use
      */
     @objid ("004b297c-4a05-1fe0-bf4c-001ec947cd2a")
@@ -967,11 +966,11 @@ public abstract class ModelioDialog extends TrayDialog {
                 ACC.EVENT_TEXT_CHANGED,
                 new Object[] { Integer.valueOf(ACC.TEXT_INSERT), Integer.valueOf(0),
                         Integer.valueOf(newMessage.length()), newMessage });
+        
     }
 
     /**
      * Sets the title bar color for this dialog.
-     * 
      * @param color the title bar color
      */
     @objid ("fdcadf01-4072-4f52-93e5-40fb01b80db2")
@@ -986,7 +985,6 @@ public abstract class ModelioDialog extends TrayDialog {
      * @see #setMessage(String)
      * 
      * @since 3.6
-     * 
      * @return the error message, which may be <code>null</code>.
      */
     @objid ("b0572974-e5fa-4c33-8edd-b4e3686153ff")
@@ -1005,7 +1003,6 @@ public abstract class ModelioDialog extends TrayDialog {
      * @see #setErrorMessage(String)
      * 
      * @since 3.6
-     * 
      * @return the message text, which is never <code>null</code>.
      */
     @objid ("0c2e195c-ec53-4177-9319-d1dccb352ac1")
@@ -1015,7 +1012,6 @@ public abstract class ModelioDialog extends TrayDialog {
 
     /**
      * Returns the title image label.
-     * 
      * @return the title image label
      */
     @objid ("39137d96-b99b-44ee-b4d2-d5b19ea892bd")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.panels.selectelements;
 
 import java.util.Arrays;
@@ -91,14 +90,13 @@ public class SelectElementsPanel implements IPanelProvider {
 
     /**
      * C'tor
-     * 
      * @param session the core modeling session
      * @param searchEngine a search engine
      * @param searchCriteria some search criteria
      * @param searchMode if AUTO, the search is launched automatically ?
      */
     @objid ("0936c38a-e76f-4ab1-889a-56ee03400659")
-    public SelectElementsPanel(ICoreSession session, ISearchEngine searchEngine, ISearchCriteria searchCriteria, SearchMode searchMode) {
+    public  SelectElementsPanel(ICoreSession session, ISearchEngine searchEngine, ISearchCriteria searchCriteria, SearchMode searchMode) {
         this.controler = new PanelControler(session, searchEngine, searchCriteria, searchMode);
     }
 
@@ -146,6 +144,7 @@ public class SelectElementsPanel implements IPanelProvider {
     public void dispose() {
         this.view.dispose();
         this.controler.dispose();
+        
     }
 
     @objid ("19a44d5f-8adc-4000-a396-e34dff7fc867")
@@ -184,10 +183,11 @@ public class SelectElementsPanel implements IPanelProvider {
         private final LocalFontRegistry fontRegistry;
 
         @objid ("f443391c-fa0c-41c8-bb5c-5e53ce226f9e")
-        public PanelView(Composite parent, PanelControler controler, SearchMode searchMode) {
+        public  PanelView(Composite parent, PanelControler controler, SearchMode searchMode) {
             this.controler = controler;
             this.fontRegistry = LocalFontRegistry.create(parent);
             this.container = createGui(parent, searchMode);
+            
         }
 
         @objid ("1b7dc169-ea0e-4947-aa5d-7de8e2e50844")
@@ -438,7 +438,6 @@ public class SelectElementsPanel implements IPanelProvider {
 
         /**
          * Ensure that setting the candidates is run in the display thread
-         * 
          * @param candidatesList the candidate elements
          * @param message a message if no candidates
          */
@@ -461,11 +460,11 @@ public class SelectElementsPanel implements IPanelProvider {
                     column.pack();
                 }
             });
+            
         }
 
         /**
          * Ensure that setting the results is run in the display thread
-         * 
          * @param selected the results table input
          * @param selection the results table selected elements
          */
@@ -477,6 +476,7 @@ public class SelectElementsPanel implements IPanelProvider {
                     this.results.setSelection(new StructuredSelection(selection));
                 }
             });
+            
         }
 
         @objid ("5d9e3d86-7f9c-4da4-9227-3597e37c080e")
@@ -520,6 +520,7 @@ public class SelectElementsPanel implements IPanelProvider {
             final int nSelected = v.getTable().getSelectionCount();
             final int nTotal = v.getTable().getItemCount();
             label.setText(CoreUi.I18N.getMessage("SelectElementsPanel.ElementsStatus", nSelected, nTotal));
+            
         }
 
         @objid ("691018f0-edb5-47cc-9c6c-29de9245c6f3")
@@ -581,11 +582,12 @@ public class SelectElementsPanel implements IPanelProvider {
         private Thread searchThread;
 
         @objid ("1ea84e3c-741a-463a-ab47-32ce2ba4d937")
-        public PanelControler(ICoreSession session, ISearchEngine searcher, ISearchCriteria searchCriteria, SearchMode searchMode) {
+        public  PanelControler(ICoreSession session, ISearchEngine searcher, ISearchCriteria searchCriteria, SearchMode searchMode) {
             this.session = session;
             this.searcher = searcher;
             this.searchCriteria = searchCriteria;
             this.searchMode = searchMode;
+            
         }
 
         @objid ("10945079-5c11-4ba1-b5b2-87e47f801be3")
@@ -595,6 +597,7 @@ public class SelectElementsPanel implements IPanelProvider {
             } else {
                 this.view.setCandidates(candidates, CoreUi.I18N.getString("SelectElementsPanel.ClickForSearching"));
             }
+            
         }
 
         /**
@@ -607,7 +610,6 @@ public class SelectElementsPanel implements IPanelProvider {
 
         /**
          * Called by the dialog when selection changes in the candidates list.
-         * 
          * @param selectedCandidates the selected candidates
          */
         @objid ("25b50ea5-d8cc-4884-95c1-305b73ce61ea")
@@ -615,11 +617,11 @@ public class SelectElementsPanel implements IPanelProvider {
             // TODO could improve by checking that at least one of the selected
             // candidates is not already in the results
             this.view.enableAddCommand(!selectedCandidates.isEmpty());
+            
         }
 
         /**
          * Called when selection changes in the results list
-         * 
          * @param selectedResults the selected elements in the result list
          */
         @objid ("8c82c2d1-a6fc-4dd0-ad0e-394e317779d1")
@@ -639,6 +641,7 @@ public class SelectElementsPanel implements IPanelProvider {
                 }
             }
             this.view.setResults(this.selected, selectedCandidates);
+            
         }
 
         /**
@@ -660,6 +663,7 @@ public class SelectElementsPanel implements IPanelProvider {
                 this.selected.remove(obj);
             }
             this.view.setResults(this.selected, null);
+            
         }
 
         /**
@@ -677,12 +681,12 @@ public class SelectElementsPanel implements IPanelProvider {
                 // IModelioNavigationService s = ??? ;
                 // s.fireNavigate(selectedElements.get(0));
             }
+            
         }
 
         /**
          * Called by the panel once the view has been instantiated. Launch the
          * search thread to populate the candidates list in the view
-         * 
          * @param view the panel view
          */
         @objid ("0dd08c93-1089-4d36-9293-3c1e70917a3a")
@@ -695,6 +699,7 @@ public class SelectElementsPanel implements IPanelProvider {
                 this.view.searchConfigurationPanel.setCriteria(this.searchCriteria);
                 this.view.setCandidates(null, CoreUi.I18N.getString("SelectElementsPanel.ClickForSearching"));
             }
+            
         }
 
         @objid ("ece4c6a0-d910-4e2f-9022-fcf74526bdd9")
@@ -705,6 +710,7 @@ public class SelectElementsPanel implements IPanelProvider {
                 CoreUi.LOG.debug("SelectElementsPanel.searchCandidates() : searcher is <null> !");
                 return Collections.emptyList();
             }
+            
         }
 
         @objid ("aca7bd7a-a718-46c8-bdad-34ad779b00b9")
@@ -713,6 +719,7 @@ public class SelectElementsPanel implements IPanelProvider {
             if (this.view != null) {
                 this.view.setResults(elements, Collections.emptyList());
             }
+            
         }
 
         @objid ("ac3abca0-f7d6-4fdd-9df0-031bd01ffcce")
@@ -736,6 +743,7 @@ public class SelectElementsPanel implements IPanelProvider {
                 this.searchCriteria = this.view.searchConfigurationPanel.getCriteria();
             }
             launchSearchThread();
+            
         }
 
         @objid ("4611e6c2-0031-4b94-8f1c-bff080eb3160")
@@ -750,6 +758,7 @@ public class SelectElementsPanel implements IPanelProvider {
             }, label);
             this.searchThread.setDaemon(true);
             this.searchThread.start();
+            
         }
 
         @objid ("e2a460a9-4042-4ab1-8e79-e2b15bdcae2b")
@@ -759,14 +768,18 @@ public class SelectElementsPanel implements IPanelProvider {
                 this.searchThread.stop();
                 this.searchThread = null;
             }
+            
         }
 
     }
 
     @objid ("25cc9cf3-25a9-4a2a-a46b-56012aba8515")
     public enum SearchMode {
+        @objid ("7dcc0977-2814-47d9-afba-3318812a1bfc")
         AUTO,
+        @objid ("52bd316d-2f19-408e-927a-6cc1be4948a2")
         USER;
+
     }
 
 }

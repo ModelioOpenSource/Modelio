@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.statediagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,8 @@ public class StateDiagramFigure extends AbstractDiagramFigure {
      * Constructor.
      */
     @objid ("f5933deb-55b6-11e2-877f-002564c97630")
-    public StateDiagramFigure() {
+    public  StateDiagramFigure() {
+        
     }
 
 }

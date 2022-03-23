@@ -17,11 +17,9 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.project;
 
 import java.io.BufferedOutputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URI;
@@ -29,12 +27,13 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Collections;
 import java.util.Map.Entry;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.stream.FactoryConfigurationError;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.gproject.data.project.todo.InstallModuleDescriptor;
 import org.modelio.gproject.data.project.todo.RemoveModuleDescriptor;
 import org.modelio.gproject.data.project.todo.TodoActionDescriptor;
@@ -56,14 +55,14 @@ public class ProjectDescriptorWriter {
      * encoding of the written project.conf file.
      */
     @objid ("60039d75-073d-43af-9012-8aa7822cf00c")
-     static final String CONF_ENCRYPT_FILE = "project.conf.encrypt";
+    static final String CONF_ENCRYPT_FILE = "project.conf.encrypt";
 
     /**
      * Project property to set in order to encode the file content.
      * Only "base64" is supported for the moment.
      */
     @objid ("fc351e30-461d-4c32-a376-1e569143ad13")
-     static final String CONF_ENCRYPT_PROP = "project.conf.encrypt";
+    static final String CONF_ENCRYPT_PROP = "project.conf.encrypt";
 
     @objid ("6de7ed36-6d2c-48d0-91f7-13363e54e8de")
     private boolean withScope = true;
@@ -85,7 +84,6 @@ public class ProjectDescriptorWriter {
      * Set whether the scope is saved.
      * <p>
      * The scope is saved by default.
-     * 
      * @param withScope <code>true</code> to save the scope, <code>false</code> to ignore it.
      */
     @objid ("24ad0eec-f611-4616-9c8b-8d5b5e812415")
@@ -95,7 +93,6 @@ public class ProjectDescriptorWriter {
 
     /**
      * Set whether authentication data credentials will be written for shared scoped authentications.
-     * 
      * @param writeSharedAuthCredentials true to write shared authentication credentials
      * @return this instance to chain calls.
      * @since 4.0.0
@@ -110,39 +107,38 @@ public class ProjectDescriptorWriter {
      * Save the project descriptor to a file.
      * <p>
      * Fragments URI are made relative from the project path when possible.
-     * 
      * @param d the descriptor to save
-     * @throws java.io.IOException in case of failure.
+     * @throws IOException in case of failure.
      */
     @objid ("d34e36af-fbe6-479c-9088-8163657da49c")
     public void write(final ProjectDescriptor d) throws IOException {
         final Path projectFilePath = d.getProjectFileStructure().getProjectConfFile();
         this.projectPath = projectFilePath.getParent();
         
-        OutputStream os = Files.newOutputStream(projectFilePath);
-        
         // Setup encoding
         final String encoding = d.getProperties().getValue(ProjectDescriptorWriter.CONF_ENCRYPT_PROP, "");
-        if (encoding.equals("base64")) {
-            os = new Base64OutputSream(os);
+        boolean isEncoded = encoding.equals("base64");
+        
+        if (isEncoded) {
             // Write encoding in a parallel file
-            Files.write(this.projectPath.resolve(ProjectDescriptorWriter.CONF_ENCRYPT_FILE), encoding.getBytes());
+            Files.write(this.projectPath.resolve(ProjectDescriptorWriter.CONF_ENCRYPT_FILE), encoding.getBytes(StandardCharsets.UTF_8));
         } else {
             Files.deleteIfExists(this.projectPath.resolve(ProjectDescriptorWriter.CONF_ENCRYPT_FILE));
         }
         
         // Write configuration
-        try (final BufferedOutputStream os2 = new BufferedOutputStream(os);) {
+        try (OutputStream os = Files.newOutputStream(projectFilePath);
+                final BufferedOutputStream os2 = new BufferedOutputStream(isEncoded ? Base64.getEncoder().wrap(os): os);) {
             write(d, os2);
         }
+        
     }
 
     /**
      * Write the project descriptor to an output stream.
-     * 
      * @param d the descriptor to save
      * @param os the stream to write the project descriptor to.
-     * @throws java.io.IOException in case of failure.
+     * @throws IOException in case of failure.
      */
     @objid ("b79c9aec-7b98-4dc1-9b23-759a90d579dc")
     public void write(final ProjectDescriptor d, final OutputStream os) throws IOException {
@@ -163,6 +159,7 @@ public class ProjectDescriptorWriter {
             this.out = null;
             this.projectPath = null;
         }
+        
     }
 
     @objid ("6bd0cd88-3d3a-4ac7-9e58-548c9b66f8cf")
@@ -174,11 +171,11 @@ public class ProjectDescriptorWriter {
         } else {
             return this.projectPath.toUri().relativize(uri);
         }
+        
     }
 
     /**
      * Workaround Oracle database changing empty strings to NULL pointer.
-     * 
      * @param value the string value to check
      * @return the value if not <i>null</i>. Empty string if <i>null</i>.
      */
@@ -190,6 +187,7 @@ public class ProjectDescriptorWriter {
         } else {
             return value;
         }
+        
     }
 
     @objid ("e0471547-b256-4045-b7dc-047ddd26ca18")
@@ -199,6 +197,7 @@ public class ProjectDescriptorWriter {
         } else {
             return o.toString();
         }
+        
     }
 
     @objid ("f65ec1a6-b5db-46bb-b639-3abcda192552")
@@ -222,6 +221,7 @@ public class ProjectDescriptorWriter {
             writeScope(DefinitionScope.LOCAL);
             this.out.writeEndElement();
         }
+        
     }
 
     @objid ("86ad358c-380d-4937-9631-5897174d52f6")
@@ -239,6 +239,7 @@ public class ProjectDescriptorWriter {
         writeProperties(f.getProperties());
         
         this.out.writeEndElement();
+        
     }
 
     @objid ("9eabebb5-d8c3-4d0f-9f9b-2eb328b1aede")
@@ -263,6 +264,7 @@ public class ProjectDescriptorWriter {
         writeProperties(m.getParameters());
         
         this.out.writeEndElement();
+        
     }
 
     @objid ("cae6a381-15fa-44f9-b6fd-421e0e25abb8")
@@ -272,7 +274,10 @@ public class ProjectDescriptorWriter {
         this.out.writeAttribute("type", toStringOrEmpty(projectDescriptor.getType()));
         this.out.writeAttribute("version", String.valueOf(projectDescriptor.getFormatVersion()));
         this.out.writeAttribute("projectSpaceVersion", String.valueOf(projectDescriptor.getProjectSpaceVersion()));
-        this.out.writeAttribute("modelioVersion", toStringOrEmpty(projectDescriptor.getModelioVersion()));
+        
+        if (projectDescriptor.getModelioVersion() != null) {
+            this.out.writeAttribute("modelioVersion", projectDescriptor.getModelioVersion().toString("V.R"));
+        }
         
         boolean writeProjectPath = writeProjectPath(projectDescriptor);
         if (writeProjectPath) {
@@ -303,6 +308,7 @@ public class ProjectDescriptorWriter {
         writeTodo(projectDescriptor.getTodo());
         
         this.out.writeEndElement();
+        
     }
 
     @objid ("4334917b-dd35-4da8-b51c-66a7bef1ca8b")
@@ -317,13 +323,12 @@ public class ProjectDescriptorWriter {
      * Write a key=value style DOM element.
      * <p>
      * If the value is short it is written as a DOM attribute. In the other case it is a DOM TEXT.
-     * 
      * @param tagName the DOM element TAG name
      * @param keyAtt the key DOM attribute name
      * @param valueAtt the value DOM attribute name
      * @param key the property key
      * @param value the property value
-     * @throws javax.xml.stream.XMLStreamException on bug
+     * @throws XMLStreamException on bug
      */
     @objid ("e11115ca-034f-4cab-946e-456f9901a687")
     private void writePropValueTag(String tagName, String keyAtt, String valueAtt, String key, String value, DefinitionScope scope) throws XMLStreamException {
@@ -342,6 +347,7 @@ public class ProjectDescriptorWriter {
             if (scope != null)
                 writeScope(scope);
         }
+        
     }
 
     @objid ("b7c6922f-d9c6-42fd-a7e4-8347a4d10076")
@@ -356,6 +362,7 @@ public class ProjectDescriptorWriter {
             writePropValueTag("prop", "name", "value", e.getName(), e.getValue(), e.getScope());
         }
         this.out.writeEndElement();
+        
     }
 
     @objid ("21023e07-5a55-4443-8bd2-5c04f14b5a84")
@@ -372,6 +379,7 @@ public class ProjectDescriptorWriter {
             this.out.writeAttribute("timestamp", String.valueOf(res.getTimestamp()));
         }
         this.out.writeEndElement();
+        
     }
 
     @objid ("7c9416d8-feb7-46ee-9345-440ccb7388b1")
@@ -379,6 +387,7 @@ public class ProjectDescriptorWriter {
         if (this.withScope && scope != null) {
             this.out.writeAttribute("scope", scope.name());
         }
+        
     }
 
     @objid ("52cd96f6-51a0-47b4-a741-cffeccbd2ac4")
@@ -386,6 +395,7 @@ public class ProjectDescriptorWriter {
         this.out.writeStartElement("install_module");
         writeModuleDescriptor(action.getModuleDescriptor(), "new_module");
         this.out.writeEndElement();
+        
     }
 
     @objid ("366159b0-c76c-46f1-b791-3f247e72d067")
@@ -393,6 +403,7 @@ public class ProjectDescriptorWriter {
         this.out.writeStartElement("remove_module");
         this.out.writeAttribute("old_module", action.getModuleName());
         this.out.writeEndElement();
+        
     }
 
     @objid ("ac8af55a-9115-4c20-916d-e21b191d916d")
@@ -402,6 +413,7 @@ public class ProjectDescriptorWriter {
         
         writeModuleDescriptor(action.getNewModuleDescriptor(), "new_module");
         this.out.writeEndElement();
+        
     }
 
     @objid ("d7ddcf32-7e69-4214-943f-2a65b232ee75")
@@ -422,60 +434,7 @@ public class ProjectDescriptorWriter {
         }
         
         this.out.writeEndElement();
-    }
-
-    /**
-     * Filter output streams that encodes data to Base64.
-     * <p>
-     * Whole data is buffered. The data is converted to Base64 and written only on {@link #close()}.
-     */
-    @objid ("4ef87c8a-bb5d-4d01-84aa-fe0335fdc3bd")
-    private static class Base64OutputSream extends OutputStream {
-        @objid ("21556450-eebf-4d46-b908-9461f44d6178")
-        private OutputStream out;
-
-        @objid ("97c1a87b-fc20-4801-bfe9-57ce6d9b8afa")
-        private ByteArrayOutputStream bs = new ByteArrayOutputStream(1024);
-
-        @objid ("7d2ce6ea-6a1c-4de8-bd90-f20e5ac0c5bf")
-        public Base64OutputSream(OutputStream out) {
-            super();
-            this.out = out;
-        }
-
-        @objid ("7e552b65-1f18-41f2-8e10-9815f51d5576")
-        @Override
-        public void write(byte[] b) throws IOException {
-            this.bs.write(b);
-        }
-
-        @objid ("e27202e1-a4fb-4dc5-8ab7-6f1346fc64ed")
-        @Override
-        public void write(int b) throws IOException {
-            this.bs.write(b);
-        }
-
-        @objid ("9a998348-ff9e-4545-ba9c-8d324adc4014")
-        @Override
-        public void write(byte[] b, int off, int len) throws IOException {
-            this.bs.write(b, off, len);
-        }
-
-        @objid ("c2b568f1-2147-453e-b5b5-39dc45335a2f")
-        @Override
-        public void close() throws IOException {
-            if (this.bs != null) {
-                String conv = javax.xml.bind.DatatypeConverter.printBase64Binary(this.bs.toByteArray());
-            
-                this.out.write(conv.getBytes());
-            
-                this.out.close();
-                this.bs = null;
-            }
-            
-            super.close();
-        }
-
+        
     }
 
 }

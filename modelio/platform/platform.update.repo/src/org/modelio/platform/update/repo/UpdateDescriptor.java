@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.update.repo;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,7 +46,6 @@ public class UpdateDescriptor {
 
     /**
      * Constructor initializing all fields.
-     * 
      * @param id the item's identifier.
      * @param label the item's label.
      * @param currentVersion the current version of the item.
@@ -56,7 +54,7 @@ public class UpdateDescriptor {
      * @param downloadLink the link to download the physical item.
      */
     @objid ("bc206c0a-b5fa-4647-868f-f97694094398")
-    public UpdateDescriptor(String id, String label, String currentVersion, String newVersion, String documentationLink, String downloadLink) {
+    public  UpdateDescriptor(String id, String label, String currentVersion, String newVersion, String documentationLink, String downloadLink) {
         super();
         this.id = id;
         this.label = label;
@@ -64,6 +62,7 @@ public class UpdateDescriptor {
         this.newVersion = newVersion;
         this.documentationLink = documentationLink;
         this.downloadLink = downloadLink;
+        
     }
 
     /**

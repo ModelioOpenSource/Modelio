@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.ui;
 
 import java.lang.management.MemoryUsage;
 import java.util.List;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.Creatable;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.core.di.extensions.EventTopic;
@@ -54,6 +53,7 @@ public class ApplicationTitleUpdater implements IMemoryEventListener {
     void applicationIsThere(@Optional final MApplication application) {
         this.swapping = false;
         updateShellTitle(application, null);
+        
     }
 
     @objid ("0044c14a-cc35-1ff2-a7f4-001ec947cd2a")
@@ -105,6 +105,7 @@ public class ApplicationTitleUpdater implements IMemoryEventListener {
         }
         
         appShell.setLabel(buffer.toString());
+        
     }
 
     @objid ("b2924121-5a1d-425a-82ce-08a55fa26f0a")

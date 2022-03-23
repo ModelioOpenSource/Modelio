@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.componentRealization;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,12 +36,11 @@ public class GmComponentRealizationHeader extends GmDefaultModelElementLabel {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
     @objid ("125d52b8-3ba4-406b-9fe3-2ec1d4fca33b")
-    public GmComponentRealizationHeader(IGmDiagram diagram, MRef relatedRef) {
+    public  GmComponentRealizationHeader(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -50,7 +48,8 @@ public class GmComponentRealizationHeader extends GmDefaultModelElementLabel {
      * For deserialization only.
      */
     @objid ("a5d44ce7-be08-40a8-a1c5-886add47672e")
-    public GmComponentRealizationHeader() {
+    public  GmComponentRealizationHeader() {
+        
     }
 
     @objid ("1f9b8add-18e2-464d-b385-2c5c220d65c7")

@@ -17,22 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.mda.ModuleComponentSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.MetaclassReferenceSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.ModelElementSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.ProfileData;
-import org.modelio.metamodel.impl.uml.infrastructure.StereotypeSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.properties.PropertyTypeSmClass;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.uml.infrastructure.MetaclassReference;
@@ -67,7 +63,7 @@ public class ProfileSmClass extends ModelElementSmClass {
     private SmDependency definedTypeDep;
 
     @objid ("0d40c03f-f160-4ca4-b729-f44159df5a2d")
-    public ProfileSmClass(ISmMetamodelFragment origin) {
+    public  ProfileSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -75,6 +71,7 @@ public class ProfileSmClass extends ModelElementSmClass {
     @Override
     public String getName() {
         return "Profile";
+        
     }
 
     @objid ("21ed88a7-140f-42fd-9c04-c009b56a9485")
@@ -87,18 +84,21 @@ public class ProfileSmClass extends ModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Profile.class;
+        
     }
 
     @objid ("1d2c11aa-ce99-4e45-b98e-7625a4edccd6")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("5c3ebf60-4ad3-4a4e-8b54-6d7adc98f9c2")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("8e3a4e5f-ef0d-4756-bc74-5f18f37af648")
@@ -126,6 +126,8 @@ public class ProfileSmClass extends ModelElementSmClass {
         this.definedTypeDep = new DefinedTypeSmDependency();
         this.definedTypeDep.init("DefinedType", this, metamodel.getMClass(PropertyType.MQNAME), 0, -1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.definedTypeDep);
+        
+        
     }
 
     @objid ("5b69d537-65d2-4cca-8b68-9b338f3233c6")
@@ -166,7 +168,7 @@ public class ProfileSmClass extends ModelElementSmClass {
         private ProfileSmClass smClass;
 
         @objid ("38413c24-784b-41c0-a18d-198e5afaca0f")
-        public ProfileObjectFactory(ProfileSmClass smClass) {
+        public  ProfileObjectFactory(ProfileSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -199,6 +201,7 @@ public class ProfileSmClass extends ModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ProfileData) data).mDefinedStereotype = values;
+            
         }
 
         @objid ("bd959c74-7df4-4147-83f9-5db4c72d0bcf")
@@ -208,6 +211,7 @@ public class ProfileSmClass extends ModelElementSmClass {
             	this.symetricDep = ((StereotypeSmClass)this.getTarget()).getOwnerDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -236,6 +240,7 @@ public class ProfileSmClass extends ModelElementSmClass {
             	this.symetricDep = ((ModuleComponentSmClass)this.getTarget()).getOwnedProfileDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -255,6 +260,7 @@ public class ProfileSmClass extends ModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ProfileData) data).mOwnedReference = values;
+            
         }
 
         @objid ("30de4438-cfa0-4136-98b6-33898a9988e1")
@@ -264,6 +270,7 @@ public class ProfileSmClass extends ModelElementSmClass {
             	this.symetricDep = ((MetaclassReferenceSmClass)this.getTarget()).getOwnerProfileDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -283,6 +290,7 @@ public class ProfileSmClass extends ModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ProfileData) data).mDefinedType = values;
+            
         }
 
         @objid ("2c3fd024-01ed-4ce9-9d8c-e019897d4ab3")
@@ -292,6 +300,7 @@ public class ProfileSmClass extends ModelElementSmClass {
             	this.symetricDep = ((PropertyTypeSmClass)this.getTarget()).getAnalystOwnerDep();
             }
             return this.symetricDep;
+            
         }
 
     }

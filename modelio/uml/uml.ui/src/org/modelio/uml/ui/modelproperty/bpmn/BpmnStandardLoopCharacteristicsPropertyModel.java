@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -48,22 +47,20 @@ public class BpmnStandardLoopCharacteristicsPropertyModel extends AbstractProper
      */
     @objid ("92fd7e1c-d7bb-4514-9c2b-b5a5dc12a10e")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name", "TestBefore",
-			"LoopCondition", "LoopMaximum" };
+    			"LoopCondition", "LoopMaximum" };
 
     /**
      * Create a new <i>BpmnStandardLoopCharacteristics</i> data model from an
      * <i>BpmnStandardLoopCharacteristics</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("6c2789c1-509e-4420-840b-7e096656f02b")
-    public BpmnStandardLoopCharacteristicsPropertyModel(BpmnStandardLoopCharacteristics theEditedElement) {
+    public  BpmnStandardLoopCharacteristicsPropertyModel(BpmnStandardLoopCharacteristics theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("393efb6d-8982-4886-a507-d01c903d81a8")
@@ -74,7 +71,6 @@ public class BpmnStandardLoopCharacteristicsPropertyModel extends AbstractProper
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("225d7032-1700-4363-9aad-39f9923aee4b")
@@ -87,7 +83,6 @@ public class BpmnStandardLoopCharacteristicsPropertyModel extends AbstractProper
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -115,6 +110,7 @@ public class BpmnStandardLoopCharacteristicsPropertyModel extends AbstractProper
         default:
             return null;
         }
+        
     }
 
     /**
@@ -124,7 +120,6 @@ public class BpmnStandardLoopCharacteristicsPropertyModel extends AbstractProper
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -153,13 +148,13 @@ public class BpmnStandardLoopCharacteristicsPropertyModel extends AbstractProper
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -193,6 +188,7 @@ public class BpmnStandardLoopCharacteristicsPropertyModel extends AbstractProper
         default:
             return;
         }
+        
     }
 
 }

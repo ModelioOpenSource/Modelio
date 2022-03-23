@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.model.impl.importer.defaultimporter;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,6 +42,7 @@ public class DefaultBrokenDependencyHandler implements IBrokenDependencyHandler 
         // FIXME log error
         Log.warning(" '%s' %s missing, needed by '%s' %s on '%s' dependency", GetAbsoluteSymbol.get(missingrRefObject), missingrRefObject
                 .getMClass().getName(), GetAbsoluteSymbol.get(brokenRefObject), missingrRefObject.getMClass().getName(), smDep.getName());
+        
     }
 
     @objid ("007ae09a-d3aa-108f-8d81-001ec947cd2a")

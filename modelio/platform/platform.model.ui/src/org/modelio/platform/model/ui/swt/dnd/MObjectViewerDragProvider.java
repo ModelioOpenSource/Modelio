@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.dnd;
 
 import java.util.ArrayList;
@@ -44,7 +43,7 @@ public class MObjectViewerDragProvider implements DragSourceListener {
     private Viewer viewer;
 
     @objid ("45e956ee-c0a5-4763-aed8-1c10d584d23d")
-    public MObjectViewerDragProvider(Viewer viewer) {
+    public  MObjectViewerDragProvider(Viewer viewer) {
         this.viewer = viewer;
     }
 
@@ -53,6 +52,7 @@ public class MObjectViewerDragProvider implements DragSourceListener {
     public void dragStart(DragSourceEvent event) {
         ISelection selection = this.viewer.getSelection();
         LocalSelectionTransfer.getTransfer().setSelection(selection);
+        
     }
 
     @objid ("1275dacc-1f03-4287-8699-97d093737f72")
@@ -85,6 +85,7 @@ public class MObjectViewerDragProvider implements DragSourceListener {
                 event.doit = false;
             }
         }
+        
     }
 
     @objid ("3cee9d83-a992-4c81-9b8e-4cd6f29f212d")
@@ -92,6 +93,7 @@ public class MObjectViewerDragProvider implements DragSourceListener {
     public void dragFinished(DragSourceEvent event) {
         // Reset the local selection buffer
         LocalSelectionTransfer.getTransfer().setSelection(null);
+        
     }
 
 }

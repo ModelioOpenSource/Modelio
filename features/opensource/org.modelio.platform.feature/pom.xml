@@ -4,13 +4,12 @@
 	<parent>
 		<groupId>org.modelio</groupId>
 		<artifactId>modelio-parent</artifactId>
-		<version>4.1.0-SNAPSHOT</version>
+		<version>5.1.0-SNAPSHOT</version>
 		<relativePath>../../..</relativePath>
 	</parent>
 
 	<groupId>org.modelio</groupId>
 	<artifactId>org.modelio.platform.feature</artifactId>
 	<packaging>eclipse-feature</packaging>
-	<version>4.9.0.v20180906-1121</version>
 
 </project>

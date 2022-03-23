@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.finaliser.subplan;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.bind.JAXBElement;
 import javax.xml.namespace.QName;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.bpmnxml.model.BPMNEdge;
 import org.modelio.bpmnxml.model.BPMNPlane;
 import org.modelio.bpmnxml.model.BPMNShape;
@@ -48,7 +47,7 @@ public class ParticipantPlanFinder {
     private Map<String, Object> elementsMap;
 
     @objid ("aacc739b-2051-4799-8ef3-e6a82cffe621")
-    public ParticipantPlanFinder(Map<String, Object> elementsMap) {
+    public  ParticipantPlanFinder(Map<String, Object> elementsMap) {
         this.elementsMap = elementsMap;
     }
 
@@ -97,6 +96,7 @@ public class ParticipantPlanFinder {
                 }
             }
         }
+        
     }
 
     @objid ("bc148a37-d889-4f33-b642-992ef390b748")
@@ -162,18 +162,23 @@ public class ParticipantPlanFinder {
         for (JAXBElement<? extends DiagramElement> jaxDiag : plane.getDiagramElement()) {
             if (jaxDiag.getValue() instanceof BPMNShape) {
                 BPMNShape jaxShape = (BPMNShape) jaxDiag.getValue();
-                Object ref = this.elementsMap.get(jaxShape.getBpmnElement().getLocalPart());
-                if (ref instanceof BpmnParticipant) {
-                    BpmnParticipant participant = (BpmnParticipant) ref;
-                    BpmnProcess process = participant.getProcess();
-                    if (process != null) {
-                        for (AbstractDiagram diag : process.getProduct()) {
-                            if (diag instanceof BpmnProcessDesignDiagram) {
-                                plans.add(new ParticipantPlan((BpmnProcessDesignDiagram) diag, jaxShape.getBounds()));
+                if(jaxShape.getBpmnElement() != null) {
+                    Object ref = this.elementsMap.get(jaxShape.getBpmnElement().getLocalPart());
+                    if(jaxShape.getBpmnElement() != null) {
+                        if (ref instanceof BpmnParticipant) {
+                            BpmnParticipant participant = (BpmnParticipant) ref;
+                            BpmnProcess process = participant.getProcess();
+                            if (process != null) {
+                                for (AbstractDiagram diag : process.getProduct()) {
+                                    if (diag instanceof BpmnProcessDesignDiagram) {
+                                        plans.add(new ParticipantPlan((BpmnProcessDesignDiagram) diag, jaxShape.getBounds()));
+                                    }
+                                }
                             }
                         }
                     }
                 }
+        
             }
         }
         return plans;
@@ -184,16 +189,19 @@ public class ParticipantPlanFinder {
         for (JAXBElement<? extends DiagramElement> jaxDiag : new ArrayList<>(plane.getDiagramElement())) {
             if (jaxDiag.getValue() instanceof BPMNShape) {
                 BPMNShape jaxShape = (BPMNShape) jaxDiag.getValue();
-                Object ref = this.elementsMap.get(jaxShape.getBpmnElement().getLocalPart());
-                if (ref != null && !(ref instanceof BpmnParticipant) && !(ref instanceof BpmnMessage)) {
-                    for (ParticipantPlan subplan : plans) {
-                        if (jaxShape.getBounds() != null && subplan.isInPlan(jaxShape.getBounds().getX(), jaxShape.getBounds().getY())) {
-                            subplan.addShape(jaxShape);
-                            plane.getDiagramElement().remove(jaxDiag);
-                            break;
+                if(jaxShape.getBpmnElement() != null) {
+                    Object ref = this.elementsMap.get(jaxShape.getBpmnElement().getLocalPart());
+                    if (ref != null && !(ref instanceof BpmnParticipant) && !(ref instanceof BpmnMessage)) {
+                        for (ParticipantPlan subplan : plans) {
+                            if (jaxShape.getBounds() != null && subplan.isInPlan(jaxShape.getBounds().getX(), jaxShape.getBounds().getY())) {
+                                subplan.addShape(jaxShape);
+                                plane.getDiagramElement().remove(jaxDiag);
+                                break;
+                            }
                         }
                     }
                 }
+        
             }
         }
         
@@ -212,6 +220,7 @@ public class ParticipantPlanFinder {
                 }
             }
         }
+        
     }
 
 }

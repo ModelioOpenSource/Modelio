@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,14 +36,14 @@ public class MessageEndAnchor extends AbstractConnectionAnchor {
 
     /**
      * C'tor.
-     * 
      * @param owner the owner figure on which bounds this anchor will be placed.
      * @param yCoordinate the y coordinate used for this anchor.
      */
     @objid ("d96cd22f-55b6-11e2-877f-002564c97630")
-    public MessageEndAnchor(IFigure owner, int yCoordinate) {
+    public  MessageEndAnchor(IFigure owner, int yCoordinate) {
         super(owner);
         this.yCoordinate = yCoordinate;
+        
     }
 
     /**

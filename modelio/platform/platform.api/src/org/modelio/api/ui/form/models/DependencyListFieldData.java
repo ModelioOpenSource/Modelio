@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.form.models;
 
 import java.util.ArrayList;
@@ -43,11 +42,12 @@ public class DependencyListFieldData implements IFormFieldData {
     private final Stereotype stereotype;
 
     @objid ("e9118787-5411-430c-9f9c-a5abd42150e3")
-    public DependencyListFieldData(IModelingSession session, ModelElement e, Stereotype s, ICandidateProvider candidateProvider) {
+    public  DependencyListFieldData(IModelingSession session, ModelElement e, Stereotype s, ICandidateProvider candidateProvider) {
         this.session = session;
         this.element = e;
         this.stereotype = s;
         this.candidateProvider = candidateProvider;
+        
     }
 
     @objid ("ea13bf40-ee68-4358-987d-710507421075")
@@ -134,6 +134,7 @@ public class DependencyListFieldData implements IFormFieldData {
         } catch (final RuntimeException e) {
             Api.LOG.error(e);
         }
+        
     }
 
 }

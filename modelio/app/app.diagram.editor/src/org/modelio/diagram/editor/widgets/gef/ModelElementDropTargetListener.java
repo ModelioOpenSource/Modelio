@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.widgets.gef;
 
 import java.util.List;
@@ -51,10 +50,11 @@ public class ModelElementDropTargetListener extends AbstractTransferDropTargetLi
     private final IModel coreSession;
 
     @objid ("6664e8af-33f7-11e2-95fe-001ec947c8cc")
-    protected ModelElementDropTargetListener(EditPartViewer viewer, IModel coreSession, Transfer xfer) {
+    protected  ModelElementDropTargetListener(EditPartViewer viewer, IModel coreSession, Transfer xfer) {
         super(viewer, xfer);
         this.coreSession = coreSession;
         setEnablementDeterminedByCommand(true);
+        
     }
 
     @objid ("6664e8b3-33f7-11e2-95fe-001ec947c8cc")
@@ -71,6 +71,7 @@ public class ModelElementDropTargetListener extends AbstractTransferDropTargetLi
         //System.out.println("updateTargetRequest() for "+getTransfer().getClass().getSimpleName());
         ((ModelElementDropRequest) getTargetRequest()).setLocation(getDropLocation());
         setRequestDroppedElements(getCurrentEvent());
+        
     }
 
     @objid ("6664e8bb-33f7-11e2-95fe-001ec947c8cc")
@@ -83,11 +84,11 @@ public class ModelElementDropTargetListener extends AbstractTransferDropTargetLi
         super.handleDragOver();
         
         //System.out.println(" end handleDragOver() for "+getTransfer().getClass().getSimpleName()+" ep="+getTargetEditPart());
+        
     }
 
     /**
      * Updates the ModelElementDropRequest dragged elements.
-     * 
      * @param event the event to get the infos from.
      */
     @objid ("6664e8c1-33f7-11e2-95fe-001ec947c8cc")
@@ -124,11 +125,11 @@ public class ModelElementDropTargetListener extends AbstractTransferDropTargetLi
             ModelElementDropRequest req = (ModelElementDropRequest) getTargetRequest();
             req.setDroppedElements(droppedElements);
         }
+        
     }
 
     /**
      * Get the elements dragged from the same instance of Modelio. Uses {@link LocalSelectionTransfer}.
-     * 
      * @return the dragged elements.
      */
     @objid ("6664e8c5-33f7-11e2-95fe-001ec947c8cc")
@@ -140,7 +141,6 @@ public class ModelElementDropTargetListener extends AbstractTransferDropTargetLi
 
     /**
      * Get an instance for {@link ModelElementTransfer}.
-     * 
      * @param viewer an EditPartViewer
      * @param coreSession the Interface used to access the model
      * @return a {@link ModelElementDropTargetListener}
@@ -153,7 +153,6 @@ public class ModelElementDropTargetListener extends AbstractTransferDropTargetLi
 
     /**
      * Get an instance for {@link LocalSelectionTransfer}.
-     * 
      * @param viewer an EditPartViewer
      * @param coreSession the Interface used to access the model
      * @return a {@link ModelElementDropTargetListener}

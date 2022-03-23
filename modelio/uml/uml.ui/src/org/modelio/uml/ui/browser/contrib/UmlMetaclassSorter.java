@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.browser.contrib;
 
 import java.util.Arrays;
@@ -110,82 +109,82 @@ public class UmlMetaclassSorter implements Comparator<MObject> {
      */
     @objid ("b8bbad6f-5bf7-4808-84ec-47295516d0a9")
     private static final List<java.lang.Class<? extends MObject>> ORDERING = Arrays.asList(TemplateParameter.class, // 0
-            Package.class, // 1
-            Interface.class, // 2
-            Class.class, // 3
-            Actor.class, // 4
-            UseCase.class, // 5
-            Signal.class, // 6
-            Node.class, // 7
-            Component.class, // 8
-            Artifact.class, // 9
-            Collaboration.class, // 10
-            DataType.class, // 11
-            Enumeration.class, // 12
-            InformationItem.class, // 13
-            ActivityPartition.class, // 14
-            InterruptibleActivityRegion.class, // 15
-            LoopNode.class, // 16
-            ConditionalNode.class, // 17
-            StructuredActivityNode.class, // 18
-            OpaqueAction.class, // 19
-            AcceptSignalAction.class, // 20
-            SendSignalAction.class, // 21
-            AcceptCallEventAction.class, // 22
-            AcceptTimeEventAction.class, // 23
-            AcceptChangeEventAction.class, // 24
-            CallOperationAction.class, // 25
-            CallBehaviorAction.class, // 26
-            ForkJoinNode.class, // 27
-            DecisionMergeNode.class, // 28
-            InitialNode.class, // 29
-            FlowFinalNode.class, // 30
-            ActivityFinalNode.class, // 31
-            InstanceNode.class, // 32
-            CentralBufferNode.class, // 33
-            DataStoreNode.class, // 34
-            ActivityParameterNode.class, // 35
-            InputPin.class, // 36
-            OutputPin.class, // 37
-            ExpansionNode.class, // 38
-            ExpansionRegion.class, // 39
-            ObjectFlow.class, // 40
-            MessageFlow.class, // 41
-            ControlFlow.class, // 42
-            BpmnProcess.class, // 43
-            BpmnCollaboration.class, // 44
-            BpmnMessage.class, // 45
-            BpmnItemDefinition.class, // 46
-            BpmnInterface.class, // 47
-            BpmnEndPoint.class, // 48
-            BpmnResource.class, // 49
-            BpmnSubProcess.class, // 50
-            BpmnCallActivity.class, // 51
-            BpmnStartEvent.class, // 52
-            BpmnTask.class, // 53
-            BpmnGateway.class, // 54
-            BpmnIntermediateCatchEvent.class, // 55
-            BpmnBoundaryEvent.class, // 56
-            BpmnThrowEvent.class, // 57
-            BpmnItemAwareElement.class, // 58
-            BpmnSequenceFlow.class, // 59
-            BpmnArtifact.class, // 60
-            Instance.class, // 61
-            Port.class, // 62
-            BindableInstance.class, // 63
-            ConnectorEnd.class, // 64
-            LinkEnd.class, // 65
-            Usage.class, // 66
-            Dependency.class, // 67
-            Activity.class, // 68
-            OpaqueBehavior.class, // 69
-            Interaction.class, // 70
-            CommunicationInteraction.class, // 71
-            StateMachine.class, // 72
-            BpmnSharedDefinitions.class, // 73
-            Transition.class, // 74
-            InternalTransition.class // 75
-    );
+                Package.class, // 1
+                Interface.class, // 2
+                Class.class, // 3
+                Actor.class, // 4
+                UseCase.class, // 5
+                Signal.class, // 6
+                Node.class, // 7
+                Component.class, // 8
+                Artifact.class, // 9
+                Collaboration.class, // 10
+                DataType.class, // 11
+                Enumeration.class, // 12
+                InformationItem.class, // 13
+                ActivityPartition.class, // 14
+                InterruptibleActivityRegion.class, // 15
+                LoopNode.class, // 16
+                ConditionalNode.class, // 17
+                StructuredActivityNode.class, // 18
+                OpaqueAction.class, // 19
+                AcceptSignalAction.class, // 20
+                SendSignalAction.class, // 21
+                AcceptCallEventAction.class, // 22
+                AcceptTimeEventAction.class, // 23
+                AcceptChangeEventAction.class, // 24
+                CallOperationAction.class, // 25
+                CallBehaviorAction.class, // 26
+                ForkJoinNode.class, // 27
+                DecisionMergeNode.class, // 28
+                InitialNode.class, // 29
+                FlowFinalNode.class, // 30
+                ActivityFinalNode.class, // 31
+                InstanceNode.class, // 32
+                CentralBufferNode.class, // 33
+                DataStoreNode.class, // 34
+                ActivityParameterNode.class, // 35
+                InputPin.class, // 36
+                OutputPin.class, // 37
+                ExpansionNode.class, // 38
+                ExpansionRegion.class, // 39
+                ObjectFlow.class, // 40
+                MessageFlow.class, // 41
+                ControlFlow.class, // 42
+                BpmnProcess.class, // 43
+                BpmnCollaboration.class, // 44
+                BpmnMessage.class, // 45
+                BpmnItemDefinition.class, // 46
+                BpmnInterface.class, // 47
+                BpmnEndPoint.class, // 48
+                BpmnResource.class, // 49
+                BpmnSubProcess.class, // 50
+                BpmnCallActivity.class, // 51
+                BpmnStartEvent.class, // 52
+                BpmnTask.class, // 53
+                BpmnGateway.class, // 54
+                BpmnIntermediateCatchEvent.class, // 55
+                BpmnBoundaryEvent.class, // 56
+                BpmnThrowEvent.class, // 57
+                BpmnItemAwareElement.class, // 58
+                BpmnSequenceFlow.class, // 59
+                BpmnArtifact.class, // 60
+                Instance.class, // 61
+                Port.class, // 62
+                BindableInstance.class, // 63
+                ConnectorEnd.class, // 64
+                LinkEnd.class, // 65
+                Usage.class, // 66
+                Dependency.class, // 67
+                Activity.class, // 68
+                OpaqueBehavior.class, // 69
+                Interaction.class, // 70
+                CommunicationInteraction.class, // 71
+                StateMachine.class, // 72
+                BpmnSharedDefinitions.class, // 73
+                Transition.class, // 74
+                InternalTransition.class // 75
+        );
 
     @objid ("a3d7604b-cdd5-4079-9aaf-a9a847adca87")
     @Override
@@ -193,10 +192,9 @@ public class UmlMetaclassSorter implements Comparator<MObject> {
         return Integer.compare(-UmlMetaclassSorter.ORDERING.indexOf(mo1.getMClass().getJavaInterface()),
                         -UmlMetaclassSorter.ORDERING.indexOf(mo2.getMClass().getJavaInterface()));
     }
-
-
 static {
-        // We do not want unlisted metaclasses to go first because of indexOf == -1, so we have to reverse the stored order
-        Collections.reverse(UmlMetaclassSorter.ORDERING);
-    }
+            // We do not want unlisted metaclasses to go first because of indexOf == -1, so we have to reverse the stored order
+            Collections.reverse(UmlMetaclassSorter.ORDERING);
+        }
+    
 }

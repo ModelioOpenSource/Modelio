@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.module.modelermodule.engine;
 
 import java.util.ArrayList;
@@ -73,11 +72,10 @@ import org.modelio.module.modelermodule.impl.ModelerModuleModule;
 public class InstanceUpdater {
     /**
      * Create an attribute from an attribute link. If the class doesn't exists, it is also created.
-     * 
      * @param session The modeling session
      * @param current The attribute link to create a new attribute from.
      * @return <code>true</code> when an attribute is created.
-     * @throws org.modelio.module.modelermodule.api.ModelerModuleException when the attribute already exists, or when the base of the instance isn't a classifier.
+     * @throws ModelerModuleException when the attribute already exists, or when the base of the instance isn't a classifier.
      */
     @objid ("cd4fcf6a-9ff0-48ce-8f1b-3d0a4bd3953e")
     public boolean createAttribute(final IModelingSession session, final AttributeLink current) throws ModelerModuleException {
@@ -127,15 +125,15 @@ public class InstanceUpdater {
         
             return true;
         }
+        
     }
 
     /**
      * Create a classifier from an instance. Includes creation of: - ports from the instance ports. - attributes from attribute links. - operations from incoming messages.
-     * 
      * @param session The modeling session
      * @param current The instance to create the classifier from.
      * @return <code>true</code> when a new classifier is created.
-     * @throws org.modelio.module.modelermodule.api.ModelerModuleException When an error happens during creation.
+     * @throws ModelerModuleException When an error happens during creation.
      */
     @objid ("80f415a5-c0da-43fc-af4f-aa01cc281358")
     public boolean createClassifier(final IModelingSession session, final Instance current) throws ModelerModuleException {
@@ -144,11 +142,10 @@ public class InstanceUpdater {
 
     /**
      * Update the internal structure of a class. Updates all parts from their base classifiers, and allows creation of all missing bases. It is also possible to reference an existing classifier.
-     * 
      * @param session The modeling session
      * @param current The class to update.
      * @return <code>true</code> if the class has been modified.
-     * @throws org.modelio.module.modelermodule.api.ModelerModuleException When an error happens during the update.
+     * @throws ModelerModuleException When an error happens during the update.
      */
     @objid ("906638b8-0d60-4829-b13c-035b357132d7")
     public boolean updateInternalStructure(final IModelingSession session, final Class current) throws ModelerModuleException {
@@ -194,11 +191,10 @@ public class InstanceUpdater {
     /**
      * Create an operation from a message. An Instance might be created in the process, or a Classifier.
      * @see InstanceUpdater#createInstanceAndClassifier(IModelingSession, Lifeline)
-     * 
      * @param session The modeling session
      * @param current The message to create the operation from.
      * @return <code>true</code> if a new operation is created.
-     * @throws org.modelio.module.modelermodule.api.ModelerModuleException When an error happens during the creation.
+     * @throws ModelerModuleException When an error happens during the creation.
      */
     @objid ("095908e4-edfa-4c57-9533-448fc5a11633")
     public boolean createOperation(final IModelingSession session, final Message current) throws ModelerModuleException {
@@ -284,11 +280,10 @@ public class InstanceUpdater {
     /**
      * Create an operation from a transition. An Instance might be created in the process, or a Classifier.
      * @see InstanceUpdater#createInstanceAndClassifier(IModelingSession, Lifeline)
-     * 
      * @param session The modeling session
      * @param current The transition to create the operation from.
      * @return <code>true</code> if a new transition is created.
-     * @throws org.modelio.module.modelermodule.api.ModelerModuleException When an error happens during the creation.
+     * @throws ModelerModuleException When an error happens during the creation.
      */
     @objid ("21fe25af-cd84-4264-a7c6-69a9f5a71616")
     public boolean createOperation(final IModelingSession session, final Transition current) throws ModelerModuleException {
@@ -350,11 +345,10 @@ public class InstanceUpdater {
 
     /**
      * Update a part contents from its base classifier. Allows creation of a new classifier if no base exists, or referencing an existing classifier.
-     * 
      * @param session The modeling session.
      * @param current the instance to update.
      * @return <code>true</code> if the instance have been modified.
-     * @throws org.modelio.module.modelermodule.api.ModelerModuleException when an error occurs during the update.
+     * @throws ModelerModuleException when an error occurs during the update.
      */
     @objid ("72bd3577-c749-433b-95de-8f38ffb457c6")
     public boolean updatePartFromInstanciedClassifier(final IModelingSession session, final Instance current) throws ModelerModuleException {
@@ -407,11 +401,10 @@ public class InstanceUpdater {
 
     /**
      * Create a classifier from a lifeline. Includes creation of: - an instance represented by the lifeline. - ports from the instance ports. - attributes from attribute links. - operations from incoming messages.
-     * 
      * @param session The modeling session
      * @param current The lifeline to create the classifier from.
      * @return <code>true</code> when a new classifier is created.
-     * @throws org.modelio.module.modelermodule.api.ModelerModuleException When an error happens during creation.
+     * @throws ModelerModuleException When an error happens during creation.
      */
     @objid ("5690a2dd-7f3c-4983-a66a-7cdefbe6cd12")
     public boolean createInstanceAndClassifier(final IModelingSession session, final Lifeline current) throws ModelerModuleException {
@@ -462,14 +455,14 @@ public class InstanceUpdater {
         
             return createClassifier(session, newInst);
         }
+        
     }
 
     /**
      * Update a lifeline's represented instance contents from its base classifier. Allows creation of the instance, and of a new classifier if no base exists, or referencing an existing classifier.
-     * 
      * @param session The modeling session
      * @param current The lifeline to update the classifier from.
-     * @throws org.modelio.module.modelermodule.api.ModelerModuleException When an error happens during the update.
+     * @throws ModelerModuleException When an error happens during the update.
      */
     @objid ("1ad46ef3-115f-4bab-b864-ae38a068c356")
     public void updateInstanceAndClassifier(final IModelingSession session, final Lifeline current) throws ModelerModuleException {
@@ -517,11 +510,11 @@ public class InstanceUpdater {
         
             updatePartFromInstanciedClassifier(session, newInst);
         }
+        
     }
 
     /**
      * Update the contents of the body according to the classifier.
-     * 
      * @param inst The instance to update.
      * @param instanciedClass The classifier used for update.
      */
@@ -578,11 +571,11 @@ public class InstanceUpdater {
                 }
             }
         }
+        
     }
 
     /**
      * Create a classifier from an instance. May include creation of: - ports from ports on the instance - attributes from attribute links - operations from incoming messages
-     * 
      * @param current The instance to create a classifier from.
      * @param createContent Whether or not to update the class contents.
      * @return The created classifier.
@@ -671,7 +664,6 @@ public class InstanceUpdater {
 
     /**
      * Get the closest package owning this instance. Follows composition in the model.
-     * 
      * @param current the instance to get the corresponding parent package from.
      */
     @objid ("784c9c55-ebb7-460d-b44a-c2cee811f74d")
@@ -737,7 +729,6 @@ public class InstanceUpdater {
 
     /**
      * Update all requires and provided interfaces on a port from another one.
-     * 
      * @param current the port to update.
      * @param sourcePort the port being used as a reference.
      */
@@ -781,6 +772,7 @@ public class InstanceUpdater {
                 }
             }
         }
+        
     }
 
     /**
@@ -832,7 +824,6 @@ public class InstanceUpdater {
 
     /**
      * Create a new port on a classifier from an existing one.
-     * 
      * @param current the classifier to create the port on.
      * @param sourcePort the port being used as a reference.
      */
@@ -845,7 +836,6 @@ public class InstanceUpdater {
 
     /**
      * Update a port from an existing one.
-     * 
      * @param session the modeling session.
      * @param targetPort the port to update;
      * @param sourcePort the port being used as a reference.
@@ -866,6 +856,7 @@ public class InstanceUpdater {
         updateTaggedValues(session, sourcePort, targetPort);
         updateProvidedIntefaces(session, sourcePort, targetPort);
         updateRequiredIntefaces(session, sourcePort, targetPort);
+        
     }
 
     @objid ("1fab3d7d-fbfd-4cfe-9e91-592379fa1319")
@@ -932,6 +923,7 @@ public class InstanceUpdater {
                 piTargets.remove(matchPI);
             }
         }
+        
     }
 
     @objid ("1e82eb09-dc14-436c-abe5-bc0a6f2276f4")
@@ -983,6 +975,7 @@ public class InstanceUpdater {
                 riTargets.remove(matchedRI);
             }
         }
+        
     }
 
     @objid ("ee6a77ad-739a-46e5-8979-7076f5527640")
@@ -992,6 +985,7 @@ public class InstanceUpdater {
         }
         
         createTaggedValuesFromTaggedValues(session, sourcePort, targetPort);
+        
     }
 
     @objid ("2306f908-e78b-4ffd-b554-fe9ebdca62de")
@@ -1001,6 +995,7 @@ public class InstanceUpdater {
         }
         
         createStereotypesFromStereotypes(sourcePort, targetPort);
+        
     }
 
     @objid ("b117ad83-6e4b-4c0f-8bad-2387db7ea210")
@@ -1011,11 +1006,11 @@ public class InstanceUpdater {
         }
         
         createNotesFromNotes(session, sourcePort, targetPort);
+        
     }
 
     /**
      * Create a classifier in a container.
-     * 
      * @param toCreate type of classifier to create: Class, Component, Node or Interface.
      * @param className name of the element to create.
      * @param container the container to create the new classifier into.
@@ -1040,7 +1035,6 @@ public class InstanceUpdater {
 
     /**
      * Get a java class from a name.
-     * 
      * @param chosenClass a type name: Class, Component, Node or Interface.
      * @return the java class corresponding to the name, or <code>null</code> if it isn't a valid name.
      */
@@ -1099,6 +1093,7 @@ public class InstanceUpdater {
             // Add the stereotype to the element
             newElt.getExtension().add(stereo);
         }
+        
     }
 
     @objid ("71022310-4d3d-4c8b-b753-ae27450dc986")
@@ -1118,6 +1113,7 @@ public class InstanceUpdater {
                 ModelerModuleModule.getInstance().getModuleContext().getLogService().error(e);
             }
         }
+        
     }
 
     @objid ("633e036e-0c38-43e8-8653-a9de9bf21db3")
@@ -1131,6 +1127,7 @@ public class InstanceUpdater {
                 ModelerModuleModule.getInstance().getModuleContext().getLogService().error(e);
             }
         }
+        
     }
 
 }

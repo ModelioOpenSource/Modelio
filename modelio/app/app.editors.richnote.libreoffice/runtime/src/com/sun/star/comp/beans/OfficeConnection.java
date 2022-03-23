@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package com.sun.star.comp.beans;
 
 import java.net.MalformedURLException;
@@ -32,9 +31,8 @@ import com.sun.star.uno.XComponentContext;
 public interface OfficeConnection extends XComponent {
     /**
      * Sets a connection URL.
-     * 
      * @param url This is UNO URL which describes the type of a connection.
-     * @throws java.net.MalformedURLException if the URL is invalid
+     * @throws MalformedURLException if the URL is invalid
      */
     @objid ("2c87f254-f95b-417b-b61d-5078ac5ad4eb")
     void setUnoUrl(final String url) throws MalformedURLException;
@@ -43,7 +41,6 @@ public interface OfficeConnection extends XComponent {
      * Retrieves the UNO component context.
      * Establishes a connection if necessary and initializes the
      * UNO service manager if it has not already been initialized.
-     * 
      * @return The office UNO component context.
      */
     @objid ("30e722e8-cdde-4fb0-b7f6-220b5ece55ab")

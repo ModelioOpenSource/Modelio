@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.junction;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,12 +50,11 @@ public class GmJunctionPrimaryNode extends GmNoStyleSimpleNode implements IImage
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the element is unmasked.
      * @param relatedRef related element reference, must not be <code>null</code>.
      */
     @objid ("f56269da-55b6-11e2-877f-002564c97630")
-    public GmJunctionPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
+    public  GmJunctionPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -74,6 +72,7 @@ public class GmJunctionPrimaryNode extends GmNoStyleSimpleNode implements IImage
         }
         // forcing visual refresh in case Image changed 
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("f56269ed-55b6-11e2-877f-002564c97630")
@@ -116,13 +115,14 @@ public class GmJunctionPrimaryNode extends GmNoStyleSimpleNode implements IImage
                                                                                     }
                                                                         
                                                                                 };
+        
     }
 
     /**
      * Constructor for deserialization only.
      */
     @objid ("f5626a10-55b6-11e2-877f-002564c97630")
-    public GmJunctionPrimaryNode() {
+    public  GmJunctionPrimaryNode() {
         // empty for the serialization
     }
 
@@ -143,6 +143,7 @@ public class GmJunctionPrimaryNode extends GmNoStyleSimpleNode implements IImage
             break;
         }
         }
+        
     }
 
     @objid ("f563f079-55b6-11e2-877f-002564c97630")
@@ -152,6 +153,7 @@ public class GmJunctionPrimaryNode extends GmNoStyleSimpleNode implements IImage
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmJunctionPrimaryNode.", GmJunctionPrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("f563f07f-55b6-11e2-877f-002564c97630")

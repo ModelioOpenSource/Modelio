@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.ui.newproject.gui;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -63,15 +62,15 @@ public class ProjectCreationDialog extends ModelioDialog {
     /**
      * Initialize the dialog.
      * @param moduleCatalog
-     * 
      * @param parentShell The parent shell.
      * @param dataModel The dialog data model.
      */
     @objid ("0044ee9a-cc35-1ff2-a7f4-001ec947cd2a")
-    public ProjectCreationDialog(final Shell parentShell, final ProjectCreationDataModel dataModel, IModuleStore moduleCatalog) {
+    public  ProjectCreationDialog(final Shell parentShell, final ProjectCreationDataModel dataModel, IModuleStore moduleCatalog) {
         super(parentShell);
         this.dataModel = dataModel;
         this.moduleCatalog = moduleCatalog;
+        
     }
 
     @objid ("0044ef44-cc35-1ff2-a7f4-001ec947cd2a")
@@ -80,6 +79,7 @@ public class ProjectCreationDialog extends ModelioDialog {
         this.createButton = createButton(parent, IDialogConstants.OK_ID, AppProjectUiExt.I18N.getString("Create"), false);
         this.cancelButton = createButton(parent, IDialogConstants.CANCEL_ID, AppProjectUiExt.I18N.getString("Cancel"), true);
         updateButtons(true);
+        
     }
 
     @objid ("0044efda-cc35-1ff2-a7f4-001ec947cd2a")
@@ -115,6 +115,7 @@ public class ProjectCreationDialog extends ModelioDialog {
         getShell().setMinimumSize(450, 350);
         
         this.projectPanel.projectNameText.setText(this.dataModel.getProjectName());
+        
     }
 
     @objid ("0048e4aa-cc35-1ff2-a7f4-001ec947cd2a")
@@ -125,7 +126,6 @@ public class ProjectCreationDialog extends ModelioDialog {
 
     /**
      * Update buttons state.
-     * 
      * @param dataOk ??
      */
     @objid ("0048e540-cc35-1ff2-a7f4-001ec947cd2a")
@@ -141,6 +141,7 @@ public class ProjectCreationDialog extends ModelioDialog {
             this.createButton.setEnabled(false);
             getShell().setDefaultButton(this.cancelButton);
         }
+        
     }
 
     @objid ("00470e28-cc35-1ff2-a7f4-001ec947cd2a")
@@ -154,6 +155,7 @@ public class ProjectCreationDialog extends ModelioDialog {
     protected void okPressed() {
         this.projectController.updateDataModel();
         super.okPressed();
+        
     }
 
     @objid ("00470f72-cc35-1ff2-a7f4-001ec947cd2a")
@@ -193,17 +195,19 @@ public class ProjectCreationDialog extends ModelioDialog {
         private final IModuleStore moduleCatalog;
 
         @objid ("0044d702-cc35-1ff2-a7f4-001ec947cd2a")
-        public ProjectPanel(final Composite parent, final ProjectCreationDataModel dataModel, IModuleStore moduleCatalog) {
+        public  ProjectPanel(final Composite parent, final ProjectCreationDataModel dataModel, IModuleStore moduleCatalog) {
             super(parent, SWT.NONE);
             this.dataModel = dataModel;
             this.moduleCatalog = moduleCatalog;
             createContent();
+            
         }
 
         @objid ("0044d798-cc35-1ff2-a7f4-001ec947cd2a")
         public void addListener(final ProjectCreationController listener) {
             this.projectNameText.addListener(SWT.Modify, listener);
             this.projectDescriptionText.addListener(SWT.Modify, listener);
+            
         }
 
         @objid ("0048779a-cc35-1ff2-a7f4-001ec947cd2a")
@@ -223,18 +227,21 @@ public class ProjectCreationDialog extends ModelioDialog {
             } else {
                 this.projectNameText.setForeground(getDisplay().getSystemColor(SWT.COLOR_DARK_GREEN));
             }
+            
         }
 
         @objid ("0047271e-cc35-1ff2-a7f4-001ec947cd2a")
         public void refresh() {
             setProjectName(this.dataModel.getProjectName());
             setProjectDescription(this.dataModel.getProjectDescription());
+            
         }
 
         @objid ("0047b418-cc35-1ff2-a7f4-001ec947cd2a")
         public void removeListener(final ProjectCreationController listener) {
             this.projectNameText.removeListener(SWT.Modify, listener);
             this.projectDescriptionText.removeListener(SWT.Modify, listener);
+            
         }
 
         @objid ("0049b3d0-cc35-1ff2-a7f4-001ec947cd2a")
@@ -247,6 +254,7 @@ public class ProjectCreationDialog extends ModelioDialog {
             this.projectNameText.setText(projectName);
             this.projectNameText.setSelection(0, projectName.length());
             this.projectNameText.setFocus();
+            
         }
 
         @objid ("00472eb2-cc35-1ff2-a7f4-001ec947cd2a")
@@ -260,6 +268,7 @@ public class ProjectCreationDialog extends ModelioDialog {
             createProjectNameField();
             createProjectDescriptionField();
             createJavaProjectCheckBox();
+            
         }
 
         @objid ("00484b62-cc35-1ff2-a7f4-001ec947cd2a")
@@ -272,6 +281,7 @@ public class ProjectCreationDialog extends ModelioDialog {
             this.projectDescriptionText = new Text(this, SWT.MULTI | SWT.BORDER | SWT.WRAP | SWT.V_SCROLL);
             final GridData gd_descriptionText = new GridData(SWT.FILL, SWT.FILL, true, true);
             this.projectDescriptionText.setLayoutData(gd_descriptionText);
+            
         }
 
         @objid ("0047101c-cc35-1ff2-a7f4-001ec947cd2a")
@@ -282,6 +292,7 @@ public class ProjectCreationDialog extends ModelioDialog {
             this.projectNameText = new Text(this, SWT.BORDER);
             final GridData gd_projectNameText = new GridData(SWT.FILL, SWT.CENTER, true, false);
             this.projectNameText.setLayoutData(gd_projectNameText);
+            
         }
 
         @objid ("008ccddc-7ecb-10af-9941-001ec947cd2a")
@@ -293,6 +304,7 @@ public class ProjectCreationDialog extends ModelioDialog {
             final GridData gd = new GridData(SWT.FILL, SWT.CENTER, true, false);
             this.javaCheckBox.setLayoutData(gd);
             this.javaCheckBox.setSelection(false);
+            
         }
 
         @objid ("0092cbb0-c2c2-10b4-9941-001ec947cd2a")

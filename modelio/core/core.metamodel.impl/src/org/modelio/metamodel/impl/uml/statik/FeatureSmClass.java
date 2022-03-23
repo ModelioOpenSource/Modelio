@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
@@ -53,7 +53,7 @@ public class FeatureSmClass extends UmlModelElementSmClass {
     private SmAttribute isAbstractAtt;
 
     @objid ("f542718d-e7bb-4c22-8794-1b823de4fa91")
-    public FeatureSmClass(ISmMetamodelFragment origin) {
+    public  FeatureSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -61,6 +61,7 @@ public class FeatureSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "Feature";
+        
     }
 
     @objid ("6ecbdd03-d673-4ee7-9af3-db0e1f93db71")
@@ -73,18 +74,21 @@ public class FeatureSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Feature.class;
+        
     }
 
     @objid ("a7eac96d-7125-4653-a948-72b6ed6062e0")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("d3d08b57-4455-45ea-a197-07e0565387d5")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("b7f1ccb2-b2d8-48e1-885b-9e5d8a15e29d")
@@ -109,6 +113,7 @@ public class FeatureSmClass extends UmlModelElementSmClass {
         
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("8860fb8e-5887-41d5-ad11-3dfaadd832d8")
@@ -141,7 +146,7 @@ public class FeatureSmClass extends UmlModelElementSmClass {
         private FeatureSmClass smClass;
 
         @objid ("a767a010-8977-4861-b2bb-f1e046aa414d")
-        public FeatureObjectFactory(FeatureSmClass smClass) {
+        public  FeatureObjectFactory(FeatureSmClass smClass) {
             this.smClass = smClass;
         }
 

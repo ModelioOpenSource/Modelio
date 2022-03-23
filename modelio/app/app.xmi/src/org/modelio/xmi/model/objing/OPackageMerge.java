@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,9 +37,10 @@ public class OPackageMerge extends OElement implements IOElement {
     }
 
     @objid ("895906fa-ac90-4b32-a6a8-d26cf35d77c2")
-    public OPackageMerge(PackageMerge element) {
+    public  OPackageMerge(PackageMerge element) {
         super(element);
         this.objingElement = element;
+        
     }
 
     @objid ("94749249-9679-4613-8b11-8ba2c96e297d")
@@ -67,6 +67,7 @@ public class OPackageMerge extends OElement implements IOElement {
                 ecoreReceivingPackage.getPackageMerges().add((org.eclipse.uml2.uml.PackageMerge)ecoreElt);
             }
         }
+        
     }
 
     @objid ("68bc1620-950a-4360-bdaf-59f10fb0651f")
@@ -74,6 +75,7 @@ public class OPackageMerge extends OElement implements IOElement {
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         // setMergedPackage((org.eclipse.uml2.uml.PackageMerge)ecoreElt); -> DONE IN linkEcoreElt()
         // OPERATION
+        
     }
 
 }

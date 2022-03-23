@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.transactions.events;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.vcore.session.api.model.change.ChangeCause;
 import org.modelio.vcore.session.api.model.change.IStatusChangeEvent;
@@ -37,13 +36,13 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 @objid ("01f419b4-0000-0b8b-0000-000000000000")
 class StatusChangeEvent implements IStatusChangeEvent {
     @objid ("01f42120-0000-1a5e-0000-000000000000")
-     boolean isCommit;
+    boolean isCommit;
 
     @objid ("e61581bf-0137-4012-9226-18b8c67ea961")
     private Map<SmObjectImpl, Long> statusChanged = new HashMap<>();
 
     @objid ("ec691138-26f9-48db-a7e5-a0c5a22097f6")
-     ChangeCause cause;
+    ChangeCause cause;
 
     @objid ("00037bae-f120-1f3c-aafd-001ec947cd2a")
     private Collection<SmObjectImpl> accessChanged = null;
@@ -61,7 +60,6 @@ class StatusChangeEvent implements IStatusChangeEvent {
      * Test whether the status change event is empty.
      * <p>
      * An empty status change event does not need to be fired.
-     * 
      * @return <code>true</code> if the status change event is empty.
      */
     @objid ("da5447ea-c757-4cb6-98c7-e624c4ce0297")
@@ -108,7 +106,6 @@ class StatusChangeEvent implements IStatusChangeEvent {
 
     /**
      * Fill a collection with elements whose the given status flags changed.
-     * 
      * @param coll the collection to fill
      * @param flagsToCompare the status flags to compare.
      */
@@ -122,6 +119,7 @@ class StatusChangeEvent implements IStatusChangeEvent {
             if (SmStatus.getBits(oldStatus, flagsToCompare) != SmStatus.getBits(newStatus, flagsToCompare))
                 coll.add(obj);
         }
+        
     }
 
     @objid ("54161df3-294e-44e8-b80b-a6b806434385")
@@ -143,7 +141,6 @@ class StatusChangeEvent implements IStatusChangeEvent {
 
     /**
      * Remove a model object from the list of changed status elements.
-     * 
      * @param deletedEl the model object to remove.
      */
     @objid ("4b8d8d27-ffc2-4326-9e2f-e5f8ce04a7df")
@@ -153,7 +150,6 @@ class StatusChangeEvent implements IStatusChangeEvent {
 
     /**
      * Add a changed element.
-     * 
      * @param refered the model object whose status changed
      * @param oldStatus the old object status
      * @param newStatus the new object status
@@ -162,6 +158,7 @@ class StatusChangeEvent implements IStatusChangeEvent {
     public void add(SmObjectImpl refered, long oldStatus, long newStatus) {
         if (! this.statusChanged.containsKey(refered))
             this.statusChanged.put(refered, oldStatus);
+        
     }
 
     @objid ("742afebb-edba-4a0f-95fe-2d247a5424cf")

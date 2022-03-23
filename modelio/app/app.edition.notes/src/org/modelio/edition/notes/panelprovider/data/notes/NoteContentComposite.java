@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.panelprovider.data.notes;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,7 +50,7 @@ public class NoteContentComposite extends AbstractContentComposite {
     private final Controller controler;
 
     @objid ("c34ed728-a126-4a4d-989e-a5a37b41f3f4")
-    public NoteContentComposite(Composite parentComposite, int style, EContextService contextService) {
+    public  NoteContentComposite(Composite parentComposite, int style, EContextService contextService) {
         super(parentComposite, style, contextService);
         
         setLayout(new FillLayout());
@@ -59,6 +58,7 @@ public class NoteContentComposite extends AbstractContentComposite {
         this.controler = new Controller(this);
         this.text.addFocusListener(this.controler);
         this.text.addKeyListener(this.controler);
+        
     }
 
     @objid ("6f0754d2-84e3-432d-8017-8309a6248917")
@@ -71,6 +71,7 @@ public class NoteContentComposite extends AbstractContentComposite {
             this.text.setText("");
         }
         leaveEdition();
+        
     }
 
     @objid ("d7551a0b-e4e2-4d69-acf2-a7017dce32b3")
@@ -90,6 +91,7 @@ public class NoteContentComposite extends AbstractContentComposite {
     public void dispose() {
         this.text.dispose();
         super.dispose();
+        
     }
 
     @objid ("18539c95-f1df-424a-a920-adac1ddf07b7")
@@ -100,6 +102,7 @@ public class NoteContentComposite extends AbstractContentComposite {
         } else {
             this.text.setBackground(UIColor.TEXT_READONLY_BG);
         }
+        
     }
 
     @objid ("8f5e6031-bc00-44b6-8a3a-860cf8fcec6e")
@@ -110,6 +113,7 @@ public class NoteContentComposite extends AbstractContentComposite {
             this.text.setBackground(UIColor.TEXT_READONLY_BG);
         }
         reactivateContexts();
+        
     }
 
     @objid ("0201b08c-2af5-4767-85e6-c2effd9e98ce")
@@ -118,7 +122,7 @@ public class NoteContentComposite extends AbstractContentComposite {
         private final NoteContentComposite view;
 
         @objid ("02ad5bad-a71f-4fd0-9777-973edc86f5ab")
-        public Controller(NoteContentComposite view) {
+        public  Controller(NoteContentComposite view) {
             this.view = view;
         }
 
@@ -135,6 +139,7 @@ public class NoteContentComposite extends AbstractContentComposite {
                     transaction.commit();
                 }
             }
+            
         }
 
         /**
@@ -148,6 +153,7 @@ public class NoteContentComposite extends AbstractContentComposite {
             if (editedNote != null && editedNote.getStatus().isModifiable()) {
                 this.view.enterEdition();
             }
+            
         }
 
         @objid ("e06f8ee5-f2f2-491f-8d14-bfc55d745242")
@@ -157,6 +163,7 @@ public class NoteContentComposite extends AbstractContentComposite {
             final Note editedNote = this.view.getNoteElement();
             changeContent(editedNote, text.getText());
             this.view.leaveEdition();
+            
         }
 
         @objid ("b496bd50-eedc-4754-814a-f6bf934ae1ec")
@@ -165,6 +172,7 @@ public class NoteContentComposite extends AbstractContentComposite {
             if ((e.stateMask &= SWT.MOD1) != 0 && e.keyCode == SWT.CR) {
                 e.doit = false;
             }
+            
         }
 
         @objid ("fe7f2ca2-d0ab-47a6-83d4-0419761929bf")
@@ -185,6 +193,7 @@ public class NoteContentComposite extends AbstractContentComposite {
                 // CTRL A
                 text.selectAll();
             }
+            
         }
 
     }

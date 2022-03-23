@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.audit;
 
 import java.util.ArrayList;
@@ -77,6 +76,7 @@ public class R2540 extends AbstractUmlRule {
         plan.registerRule(InterfaceRealization.MQNAME, this, AuditTrigger.CREATE | AuditTrigger.MOVE | AuditTrigger.UPDATE);
         plan.registerRule(Generalization.MQNAME, this, AuditTrigger.CREATE | AuditTrigger.MOVE | AuditTrigger.UPDATE);
         plan.registerRule(Class.MQNAME, this, AuditTrigger.UPDATE);
+        
     }
 
     /**
@@ -110,7 +110,7 @@ public class R2540 extends AbstractUmlRule {
      * Default constructor for R2540
      */
     @objid ("1fbf8316-c1fb-424f-bbe0-1a7cf14619b1")
-    public R2540() {
+    public  R2540() {
         this.checkerInstance = new CheckR2540(this);
     }
 
@@ -123,7 +123,7 @@ public class R2540 extends AbstractUmlRule {
         private final ModelWalker<NameSpace> classAndSubClassesGetter;
 
         @objid ("671d451a-5219-461e-9db4-65b22fd4c41f")
-        public CheckR2540(IRule rule) {
+        public  CheckR2540(IRule rule) {
             super(rule);
             
             this.implementedInterfacesGetter = new ModelWalker<NameSpace>()
@@ -135,6 +135,7 @@ public class R2540 extends AbstractUmlRule {
                     .withCompositeTransition(NameSpace::getSpecialization, Generalization::getSubType)
                     .withSourcesIncluded(true)
                     ;
+            
         }
 
         @objid ("ebb02ee0-c278-4d63-9d73-b97c34841252")

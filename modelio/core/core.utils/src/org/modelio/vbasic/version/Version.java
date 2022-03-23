@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.version;
 
 import java.io.Serializable;
@@ -41,40 +40,37 @@ public class Version implements Comparable<Version>, Serializable {
     private static final long serialVersionUID = 1L;
 
     @objid ("063d79e6-c9cc-11e1-8052-001ec947ccaf")
-    private int buildVersion;
+    private final int buildVersion;
 
     @objid ("063d7a2d-c9cc-11e1-8052-001ec947ccaf")
-    private int majorVersion;
+    private final int majorVersion;
 
     @objid ("063d7a2f-c9cc-11e1-8052-001ec947ccaf")
-    private int minorVersion;
+    private final int minorVersion;
 
     /**
      * Instantiate a new Version from its component.<br>
      * The standard format is <b>Major.Minor.Build.Metamodel</b>.
-     * 
      * @param major the first component of the version.
      * @param minor the second component of the version.
      * @param build the third component of the version.
      */
     @objid ("063d7a20-c9cc-11e1-8052-001ec947ccaf")
-    public Version(int major, int minor, int build) {
+    public  Version(int major, int minor, int build) {
         this.majorVersion = major;
         this.minorVersion = minor;
         this.buildVersion = build;
+        
     }
 
     /**
      * Instantiate a new Version from a String. The standard format is
-     * <b>Major.Minor.Build.Metamodel</b>.
-     * 
+     * <b>Major.Minor.Build</b>.
      * @param versionString The String to parse to create the version.
-     * @throws java.lang.NumberFormatException thrown when the parameter doesn't have a valid format.
+     * @throws NumberFormatException thrown when the parameter doesn't have a valid format.
      */
     @objid ("063d7a24-c9cc-11e1-8052-001ec947ccaf")
-    public Version(String versionString) throws NumberFormatException {
-        // mmVersion = _getCurrentMetamodelVersion();
-        
+    public  Version(String versionString) throws NumberFormatException {
         String[] versionNumbers = versionString.trim().split("\\.", 4);
         
         if ((versionNumbers.length > 0) && (versionNumbers[0].length() != 0)) {
@@ -94,24 +90,25 @@ public class Version implements Comparable<Version>, Serializable {
         } else {
             this.buildVersion = 0;
         }
+        
     }
 
     @objid ("d17c35e0-e40b-485d-bee0-f543d66f872a")
     @Override
     public int compareTo(Version other) {
         if (this.majorVersion > other.majorVersion) {
-            return 1;
+            return 100;
         }
         if (this.majorVersion < other.majorVersion) {
-            return -1;
+            return -100;
         }
         
         // Major are the same, test minor number
         if (this.minorVersion > other.minorVersion) {
-            return 1;
+            return 10;
         }
         if (this.minorVersion < other.minorVersion) {
-            return -1;
+            return -10;
         }
         
         // Major and minor are the same, test build number
@@ -132,7 +129,6 @@ public class Version implements Comparable<Version>, Serializable {
      * <p>
      * Two Versions are considered equal if the only difference is one of their
      * metamodel version being zero.
-     * 
      * @param anObject The object to compare this Version against.
      * @return true if the given object represents a Version equivalent to this
      * Version, false otherwise.
@@ -154,7 +150,6 @@ public class Version implements Comparable<Version>, Serializable {
 
     /**
      * Get the build number of this version
-     * 
      * @return the build number of this version.
      */
     @objid ("063d7a26-c9cc-11e1-8052-001ec947ccaf")
@@ -164,7 +159,6 @@ public class Version implements Comparable<Version>, Serializable {
 
     /**
      * Get the major number of this version.
-     * 
      * @return the major number of this version.
      */
     @objid ("063d7a27-c9cc-11e1-8052-001ec947ccaf")
@@ -174,7 +168,6 @@ public class Version implements Comparable<Version>, Serializable {
 
     /**
      * Get the minor number of this version.
-     * 
      * @return the minor number of this version.
      */
     @objid ("063d7a29-c9cc-11e1-8052-001ec947ccaf")
@@ -196,21 +189,20 @@ public class Version implements Comparable<Version>, Serializable {
     /**
      * Tells whether the only difference between this version and the other
      * is that this version build is newer than the other.
-     * 
      * @param other another version to compare to.
      * @return true only if this version has just a newer build.
      */
     @objid ("5fd47d20-e3a8-480d-8411-78cb3046bf50")
     public boolean isNewerBuildOf(Version other) {
         return (other != null
-                                        && this.majorVersion == other.majorVersion 
-                                        && this.minorVersion == other.minorVersion
-                                        && this.buildVersion > other.buildVersion);
+                && this.majorVersion == other.majorVersion
+                && this.minorVersion == other.minorVersion
+                && this.buildVersion > other.buildVersion);
+        
     }
 
     /**
      * Check if this Version is same or newer than the given Version.
-     * 
      * @param other the Version object that must be compared to this Version.
      * @return <i>true</i> if this is same or newer than the given version.
      */
@@ -221,41 +213,17 @@ public class Version implements Comparable<Version>, Serializable {
 
     /**
      * Check if this Version is strictly newer than the given Version.
-     * 
      * @param other the Version object that must be compared to this Version.
      * @return <i>true</i> if this is newer than the given version.
      */
     @objid ("063d7a2a-c9cc-11e1-8052-001ec947ccaf")
     public boolean isNewerThan(Version other) {
-        if (this.majorVersion < other.majorVersion) {
-            return false;
-        }
-        if (this.majorVersion > other.majorVersion) {
-            return true;
-        }
-        
-        // Major are the same, test minor number
-        if (this.minorVersion < other.minorVersion) {
-            return false;
-        }
-        if (this.minorVersion > other.minorVersion) {
-            return true;
-        }
-        
-        // Major and minor are the same, test build number
-        if (this.buildVersion < other.buildVersion) {
-            return false;
-        }
-        if (this.buildVersion > other.buildVersion) {
-            return true;
-        }
-        return false;
+        return compareTo(other) > 0;
     }
 
     /**
      * Check if this Version is same or older than the given Version.
      * <p>
-     * 
      * @param other the Version object that must be compared to this Version.
      * @return <i>true</i> if this is older or same as the given version.
      */
@@ -266,49 +234,24 @@ public class Version implements Comparable<Version>, Serializable {
 
     /**
      * Check if this Version is strictly older than the given Version.
-     * 
      * @param other the Version object that must be compared to this Version.
      * @return <i>true</i> if this is older than the given version.
      */
     @objid ("063d7a2b-c9cc-11e1-8052-001ec947ccaf")
     public boolean isOlderThan(Version other) {
-        if (this.majorVersion > other.majorVersion) {
-            return false;
-        }
-        if (this.majorVersion < other.majorVersion) {
-            return true;
-        }
-        
-        // Major are the same, test minor number
-        if (this.minorVersion > other.minorVersion) {
-            return false;
-        }
-        if (this.minorVersion < other.minorVersion) {
-            return true;
-        }
-        
-        // Major and minor are the same, test build number
-        if (this.buildVersion > other.buildVersion) {
-            return false;
-        }
-        if (this.buildVersion < other.buildVersion) {
-            return true;
-        }
-        return false;
+        return compareTo(other) < 0;
     }
 
     /**
      * Provides a formatted string representation of the version.
      * <P>
-     * The format is: V.R.CC.mmmm where:
+     * The format is: V.R.CC where:
      * </P>
      * <UL>
      * <LI>V is the major version number (one or more digits)</LI>
      * <LI>R is the minor version number (one or more digits)</LI>
      * <LI>CC is the correction level (0-padded to 2 digits)</LI>
-     * <LI>mmmm is the metamodel version (4 digits)</LI>
      * </UL>
-     * 
      * @return the formatted string representation of the version.
      */
     @objid ("063d7a2c-c9cc-11e1-8052-001ec947ccaf")
@@ -325,22 +268,18 @@ public class Version implements Comparable<Version>, Serializable {
 
     /**
      * Provides a formatted string representation of the version.
-     * 
      * @param format <P>
-     * The format is: VRCM where:
-     * </P>
+     * The format is: VRC where:
      * <UL>
-     * <LI>V means 'prints the major version number' (one or more
-     * digits)</LI>
-     * <LI>R means 'prints the minor version number (one or more
-     * digits)</LI>
-     * <LI>C means 'print the correction level (0-padded to 2 digits)
-     * </LI>
+     * <LI>V means 'prints the major version number' (one or more digits)</LI>
+     * <LI>R means 'prints the minor version number (one or more digits)</LI>
+     * <LI>C means 'print the correction level (0-padded to 2 digits) </LI>
      * <LI>other chars are just inserted in the resulting string.
-     * There is no way of escaping characters VRC and M
+     * There is no way of escaping characters VRC
      * </UL>
+     * </P>
      * 
-     * example: if version is 3.0.01.9013
+     * example: if version is 3.0.01
      * 
      * version.toString("V.R") will produce 3.0
      * version.toString("V.R-C") will produce 3.0-01
@@ -373,19 +312,38 @@ public class Version implements Comparable<Version>, Serializable {
      * Parse the revision number. It may be a decimal number or for ascendant
      * compatibility a letter. In the second case it is parsed as a base 36
      * number.
-     * 
      * @param revision revision number
      * @return the parsed revision number
-     * @throws java.lang.NumberFormatException if the revision cannot be parsed.
+     * @throws NumberFormatException if the revision cannot be parsed.
      */
     @objid ("063d7a30-c9cc-11e1-8052-001ec947ccaf")
-    private int parseRevision(String revision) throws NumberFormatException {
+    private static int parseRevision(String revision) throws NumberFormatException {
         try {
             return Integer.parseInt(revision);
         } catch (NumberFormatException e) {
             // May be old revision number with digits
             return Integer.parseInt(revision, 36);
         }
+        
+    }
+
+    /**
+     * Return a copy of this version with the build number modified.
+     * @param newBuild the new build version.
+     * @return a modified Version.
+     */
+    @objid ("b23cec74-1bdc-4ba6-ba14-337da0d244bb")
+    public Version withBuild(int newBuild) {
+        return new Version(this.majorVersion, this.minorVersion, newBuild);
+    }
+
+    /**
+     * Return a copy of this version with the build number zeroed .
+     * @return a modified Version.
+     */
+    @objid ("68b59b12-c766-44ca-9942-8bed5110418f")
+    public Version withoutBuild() {
+        return withBuild(0);
     }
 
 }

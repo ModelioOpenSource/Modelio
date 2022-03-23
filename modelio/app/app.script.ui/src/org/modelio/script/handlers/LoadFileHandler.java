@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.script.handlers;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.e4.ui.services.IServiceConstants;
@@ -64,6 +63,7 @@ public class LoadFileHandler {
                 MessageDialog.openError(shell, Script.I18N.getMessage("LoadFileHandler.Error"), Script.I18N.getMessage("LoadFileHandler.CannotLoadFile", f.getPath(), e.getLocalizedMessage()));
             }
         }
+        
     }
 
 }

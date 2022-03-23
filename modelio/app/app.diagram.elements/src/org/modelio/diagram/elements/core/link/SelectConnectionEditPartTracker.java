@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link;
 
 import java.util.ArrayList;
@@ -91,17 +90,17 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
 
     /**
      * Initialize the tracker.
-     * 
      * @param owner Connection edit part that creates and owns the tracker object
      */
     @objid ("806aa774-1dec-11e2-8cad-001ec947c8cc")
-    public SelectConnectionEditPartTracker(ConnectionEditPart owner) {
+    public  SelectConnectionEditPartTracker(ConnectionEditPart owner) {
         super(owner);
         if (SWT.getPlatform().equals("carbon")) {
             this.MODIFIER_NO_SNAPPING = SWT.CTRL;
         } else {
             this.MODIFIER_NO_SNAPPING = SWT.ALT;
         }
+        
     }
 
     @objid ("806aa77a-1dec-11e2-8cad-001ec947c8cc")
@@ -113,6 +112,7 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
         }
         this.sourceRequest = null;
         super.deactivate();
+        
     }
 
     @objid ("806aa785-1dec-11e2-8cad-001ec947c8cc")
@@ -139,7 +139,6 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
 
     /**
      * Creates the source request that is activated when the drag operation occurs.
-     * 
      * @return a <code>Request</code> that is the newly created source request
      */
     @objid ("806d099d-1dec-11e2-8cad-001ec947c8cc")
@@ -160,6 +159,7 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
         } else {
             throw new IllegalStateException("Unknow request type:" + t);
         }
+        
     }
 
     @objid ("806d09a8-1dec-11e2-8cad-001ec947c8cc")
@@ -176,6 +176,7 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
         } else {
             return getSourceEditPart().getCommand(r);
         }
+        
     }
 
     @objid ("806d09a3-1dec-11e2-8cad-001ec947c8cc")
@@ -194,7 +195,6 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
 
     /**
      * Method getConnectionEditPart.
-     * 
      * @return ConnectionEditPart
      */
     @objid ("806d09de-1dec-11e2-8cad-001ec947c8cc")
@@ -220,7 +220,6 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
 
     /**
      * Gets the current line segment index that the user clicked on to activate the drag tracker.
-     * 
      * @return int
      */
     @objid ("806d09b3-1dec-11e2-8cad-001ec947c8cc")
@@ -236,7 +235,6 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
 
     /**
      * Determines the type of request that will be created for the drag operation.
-     * 
      * @return Object
      */
     @objid ("806d09b8-1dec-11e2-8cad-001ec947c8cc")
@@ -302,7 +300,6 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
 
     /**
      * Handle mouse button down on the given connection point.
-     * 
      * @param button the mouse button
      * @param pointIndex the index of the point in the point list
      * @param points the connection points list.
@@ -319,28 +316,29 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
             setType(RequestConstants.REQ_MOVE_BENDPOINT);
             setIndex(pointIndex - 1);
         }
+        
     }
 
     /**
      * Handle mouse button down on the source end point.
-     * 
      * @param button the mouse button.
      */
     @objid ("806f6c07-1dec-11e2-8cad-001ec947c8cc")
     protected void handleButtonDownOnSource(final int button) {
         setType(RequestConstants.REQ_RECONNECT_SOURCE);
         setIndex(0);
+        
     }
 
     /**
      * Handle mouse button down on the target end point.
-     * 
      * @param button the mouse button.
      */
     @objid ("806f6c0c-1dec-11e2-8cad-001ec947c8cc")
     protected void handleButtonDownOnTarget(final int button) {
         setType(RequestConstants.REQ_RECONNECT_TARGET);
         setIndex(0);
+        
     }
 
     @objid ("806d09c3-1dec-11e2-8cad-001ec947c8cc")
@@ -384,7 +382,6 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
 
     /**
      * Sets the current line segment index based on the location the user clicked on the connection.
-     * 
      * @param i int representing the line segment index in the connection.
      */
     @objid ("806aa77d-1dec-11e2-8cad-001ec947c8cc")
@@ -394,7 +391,6 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
 
     /**
      * Sets the type of request that will be created for the drag operation.
-     * 
      * @param type the <code>String</code> that represents the type of request.
      */
     @objid ("806aa781-1dec-11e2-8cad-001ec947c8cc")
@@ -404,7 +400,6 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
 
     /**
      * Determines if the the connection should be dragged or not.
-     * 
      * @return <code>boolean</code> <code>true</code> if dragging can occur, <code>false</code> otherwise.
      */
     @objid ("806d09d3-1dec-11e2-8cad-001ec947c8cc")
@@ -476,6 +471,7 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
         } else {
             request.setLocation(getLocation());
         }
+        
     }
 
     /**
@@ -492,13 +488,13 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
         for (EditPart editPart : editParts) {
             editPart.eraseSourceFeedback(getSourceRequest());
         }
+        
     }
 
     /**
      * Source request getter.
      * <p>
      * Lazily creates the request if needed.
-     * 
      * @return the source request.
      */
     @objid ("806d09ea-1dec-11e2-8cad-001ec947c8cc")
@@ -519,7 +515,6 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
 
     /**
      * Method setShowingFeedback.
-     * 
      * @param bSet boolean to set the feedback flag on or off.
      */
     @objid ("806f6bf5-1dec-11e2-8cad-001ec947c8cc")
@@ -537,6 +532,7 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
             editPart.showSourceFeedback(getSourceRequest());
         }
         setShowingFeedback(true);
+        
     }
 
     @objid ("6f4beb00-277d-4085-a5d0-140acc64043e")
@@ -561,6 +557,7 @@ public class SelectConnectionEditPartTracker extends SelectEditPartTracker {
     protected void handleButtonDownOnSegment(int button, int segmentIndex) {
         setIndex(segmentIndex - 1);
         setType(RequestConstants.REQ_CREATE_BENDPOINT);
+        
     }
 
 }

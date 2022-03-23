@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.flows;
 
 import java.util.ArrayList;
@@ -38,7 +38,6 @@ import org.modelio.metamodel.bpmn.flows.BpmnMessage;
 import org.modelio.metamodel.bpmn.flows.BpmnMessageFlow;
 import org.modelio.metamodel.bpmn.objects.BpmnItemDefinition;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnCollaboration;
-import org.modelio.metamodel.impl.bpmn.flows.BpmnMessageData;
 import org.modelio.metamodel.impl.bpmn.rootElements.BpmnSharedElementImpl;
 import org.modelio.metamodel.visitors.IModelVisitor;
 import org.modelio.vcore.smkernel.SmConstrainedList;
@@ -70,6 +69,7 @@ public class BpmnMessageImpl extends BpmnSharedElementImpl implements BpmnMessag
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("4e21d57b-5ab0-425a-9401-197c8db9053c")
@@ -104,6 +104,7 @@ public class BpmnMessageImpl extends BpmnSharedElementImpl implements BpmnMessag
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("8bc567d1-4b24-4af8-88a6-330aa597a4b9")
@@ -125,6 +126,7 @@ public class BpmnMessageImpl extends BpmnSharedElementImpl implements BpmnMessag
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("8a24f0c7-7bce-4ec9-ba8c-30f731bb3e0f")
@@ -146,6 +148,7 @@ public class BpmnMessageImpl extends BpmnSharedElementImpl implements BpmnMessag
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("3309cb4a-708f-4ae5-b1fd-498facdfbc4c")
@@ -167,6 +170,7 @@ public class BpmnMessageImpl extends BpmnSharedElementImpl implements BpmnMessag
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("443c8713-d49e-40f3-8d23-242e2701653b")
@@ -188,6 +192,7 @@ public class BpmnMessageImpl extends BpmnSharedElementImpl implements BpmnMessag
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("70450c81-ee17-4d22-a63f-0f047b2dce56")

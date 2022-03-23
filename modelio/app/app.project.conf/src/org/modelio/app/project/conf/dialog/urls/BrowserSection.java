@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.urls;
 
-import javax.annotation.PreDestroy;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.annotation.PreDestroy;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.swt.SWT;
@@ -50,7 +49,8 @@ public class BrowserSection {
     private Browser browser;
 
     @objid ("baab6e6a-29d6-4f88-8579-73313ea3b635")
-    public BrowserSection() {
+    public  BrowserSection() {
+        
     }
 
     /**
@@ -65,6 +65,7 @@ public class BrowserSection {
         } else {            
             this.browser.setUrl(urlEntry.url);
         }
+        
     }
 
     @objid ("1a6f9bde-4f52-434f-bc0f-691a0c964cbe")
@@ -106,6 +107,7 @@ public class BrowserSection {
     private void dispose() {
         this.browser.dispose();
         this.browser = null;
+        
     }
 
     @objid ("899ca510-4a25-4bef-9eaa-e3da0c42c1b7")

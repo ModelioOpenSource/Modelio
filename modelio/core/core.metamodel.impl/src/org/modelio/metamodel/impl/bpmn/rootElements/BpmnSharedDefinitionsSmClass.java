@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.rootElements;
 
 import java.util.ArrayList;
@@ -30,8 +30,6 @@ import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.bpmn.rootElements.BpmnSharedDefinitions;
 import org.modelio.metamodel.bpmn.rootElements.BpmnSharedElement;
-import org.modelio.metamodel.impl.bpmn.rootElements.BpmnSharedDefinitionsData;
-import org.modelio.metamodel.impl.bpmn.rootElements.BpmnSharedElementSmClass;
 import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.BehaviorSmClass;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
 import org.modelio.vbasic.version.Version;
@@ -51,7 +49,7 @@ public class BpmnSharedDefinitionsSmClass extends BehaviorSmClass {
     private SmDependency rootElementDep;
 
     @objid ("7d0c89ed-da68-4892-849e-c56993ead316")
-    public BpmnSharedDefinitionsSmClass(ISmMetamodelFragment origin) {
+    public  BpmnSharedDefinitionsSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -59,6 +57,7 @@ public class BpmnSharedDefinitionsSmClass extends BehaviorSmClass {
     @Override
     public String getName() {
         return "BpmnSharedDefinitions";
+        
     }
 
     @objid ("2f7278d0-54e6-4c9f-b30f-b25db6fd80fe")
@@ -71,18 +70,21 @@ public class BpmnSharedDefinitionsSmClass extends BehaviorSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnSharedDefinitions.class;
+        
     }
 
     @objid ("cf0a5ffb-770c-4287-b482-24069c58771f")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("62a1fe7c-fde4-4b1f-8a5d-e3cdbf44a4df")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("35263479-168e-4904-a453-db49b6ba728a")
@@ -98,6 +100,8 @@ public class BpmnSharedDefinitionsSmClass extends BehaviorSmClass {
         this.rootElementDep = new RootElementSmDependency();
         this.rootElementDep.init("RootElement", this, metamodel.getMClass(BpmnSharedElement.MQNAME), 0, -1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.rootElementDep);
+        
+        
     }
 
     @objid ("55252b82-bea9-48a1-8c64-424480c8570b")
@@ -114,7 +118,7 @@ public class BpmnSharedDefinitionsSmClass extends BehaviorSmClass {
         private BpmnSharedDefinitionsSmClass smClass;
 
         @objid ("23956304-f17c-402f-90ee-baa46556d81d")
-        public BpmnSharedDefinitionsObjectFactory(BpmnSharedDefinitionsSmClass smClass) {
+        public  BpmnSharedDefinitionsObjectFactory(BpmnSharedDefinitionsSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -147,6 +151,7 @@ public class BpmnSharedDefinitionsSmClass extends BehaviorSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnSharedDefinitionsData) data).mRootElement = values;
+            
         }
 
         @objid ("1fd9713b-735d-408e-82f1-2d916bf550c2")
@@ -156,6 +161,7 @@ public class BpmnSharedDefinitionsSmClass extends BehaviorSmClass {
             	this.symetricDep = ((BpmnSharedElementSmClass)this.getTarget()).getOwnerDep();
             }
             return this.symetricDep;
+            
         }
 
     }

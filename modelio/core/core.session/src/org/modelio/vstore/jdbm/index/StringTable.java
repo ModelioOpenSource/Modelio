@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.jdbm.index;
 
 import java.io.IOException;
@@ -37,12 +36,13 @@ public class StringTable {
     private final RecordManager db;
 
     @objid ("46b8b524-9933-4a46-9cde-33f130740b81")
-    private final PrimaryHashMap<String,Long> table;
+    private final PrimaryHashMap<String, Long> table;
 
     @objid ("c1f21d99-97f2-41eb-9c7d-b2cd465a131b")
-    public StringTable(RecordManager db, String name) {
+    public  StringTable(RecordManager db, String name) {
         this.db = db;
         this.table = db.hashMap(name, UTFSerializer.INSTANCE);
+        
     }
 
     @objid ("565a186e-8517-4dfd-9342-6d9a4d6c34a1")
@@ -63,12 +63,13 @@ public class StringTable {
         } catch (StreamException e) {
             throw e.getWrapped(IOException.class);
         }
+        
     }
 
     /**
      * @param symbol the symbol to find
      * @return the symbol ID or <i>null</i> if not found.
-     * @throws java.io.IOException on JDBM failure
+     * @throws IOException on JDBM failure
      */
     @objid ("0e99f3b2-3579-4273-a8cd-3f4a313c3032")
     public Long findKey(String symbol) throws IOException {

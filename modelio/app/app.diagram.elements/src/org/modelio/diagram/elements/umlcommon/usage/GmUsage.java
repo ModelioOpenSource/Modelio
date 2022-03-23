@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.umlcommon.usage;
 
 import java.util.List;
@@ -31,8 +30,8 @@ import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
 import org.modelio.metamodel.uml.infrastructure.Usage;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -64,18 +63,18 @@ public class GmUsage extends GmLink {
 
     /**
      * Initialize a control flow graphic model.
-     * 
      * @param diagram The owning diagram
      * @param dependency The reference flow, may be null
      * @param ref The referenced flow reference, may not be null
      */
     @objid ("d723cdcd-97ca-45c4-b950-b5b2cf2e5442")
-    public GmUsage(IGmDiagram diagram, Usage dependency, MRef ref) {
+    public  GmUsage(IGmDiagram diagram, Usage dependency, MRef ref) {
         super(diagram, ref);
         this.dependency = dependency;
         
         final GmUsageHeader header = new GmUsageHeader(diagram, ref);
         addExtension(ExtensionLocation.MiddleNW, IGmLink.ROLE_MAIN_LABEL, header);
+        
     }
 
     @objid ("df7b8940-e6e8-4bc7-826c-814ba8745b44")
@@ -94,7 +93,8 @@ public class GmUsage extends GmLink {
      * For deserialization only.
      */
     @objid ("4c2c34af-0164-4c40-9384-58ca5471fc3b")
-    public GmUsage() {
+    public  GmUsage() {
+        
     }
 
     @objid ("a161ad01-50ff-48de-83c0-48bfaa560158")
@@ -119,6 +119,7 @@ public class GmUsage extends GmLink {
             break;
         }
         }
+        
     }
 
     @objid ("57c41311-31fe-4cd8-afb0-b34b115ccb83")
@@ -151,6 +152,7 @@ public class GmUsage extends GmLink {
         super.write(out);
         
         writeMinorVersion(out, "GmUsage.", GmUsage.MINOR_VERSION);
+        
     }
 
     @objid ("87f7a6d4-342e-4f74-be0e-dee00802c6dc")
@@ -179,6 +181,7 @@ public class GmUsage extends GmLink {
             // Before 3.7.1, default value was "orthogonal router"
             style.setProperty(styleKey, ConnectionRouterId.ORTHOGONAL);
         }
+        
     }
 
     /**

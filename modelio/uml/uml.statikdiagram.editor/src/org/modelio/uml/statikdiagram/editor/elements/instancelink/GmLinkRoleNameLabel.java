@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.instancelink;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -54,21 +53,21 @@ public class GmLinkRoleNameLabel extends GmDefaultModelElementHeader {
      * Empty c'tor for deserialization.
      */
     @objid ("355eb968-55b7-11e2-877f-002564c97630")
-    public GmLinkRoleNameLabel() {
+    public  GmLinkRoleNameLabel() {
         // Nothing to do.
     }
 
     /**
      * c'tor.
-     * 
      * @param diagram the diagram in which this label is created
      * @param role the represented role, might be null.
      * @param ref a reference to the represented role. must be non null.
      */
     @objid ("355eb96b-55b7-11e2-877f-002564c97630")
-    public GmLinkRoleNameLabel(IGmDiagram diagram, LinkEnd role, MRef ref) {
+    public  GmLinkRoleNameLabel(IGmDiagram diagram, LinkEnd role, MRef ref) {
         super(diagram, ref);
         this.role = role;
+        
     }
 
     @objid ("355eb977-55b7-11e2-877f-002564c97630")
@@ -94,6 +93,7 @@ public class GmLinkRoleNameLabel extends GmDefaultModelElementHeader {
                 break;
             }
         }
+        
     }
 
     @objid ("35603fe4-55b7-11e2-877f-002564c97630")
@@ -109,6 +109,7 @@ public class GmLinkRoleNameLabel extends GmDefaultModelElementHeader {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmLinkRoleNameLabel.", GmLinkRoleNameLabel.MINOR_VERSION);
+        
     }
 
     @objid ("35603fef-55b7-11e2-877f-002564c97630")
@@ -118,6 +119,7 @@ public class GmLinkRoleNameLabel extends GmDefaultModelElementHeader {
         if (resolveRef instanceof LinkEnd) {
             this.role = (LinkEnd) resolveRef;
         }
+        
     }
 
     @objid ("35603ff4-55b7-11e2-877f-002564c97630")

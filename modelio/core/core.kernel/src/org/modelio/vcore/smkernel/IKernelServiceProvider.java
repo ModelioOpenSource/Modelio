@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,7 +29,6 @@ import org.modelio.vcore.smkernel.meta.SmMetamodel;
 public interface IKernelServiceProvider {
     /**
      * Get the swap service.
-     * 
      * @return the swap.
      */
     @objid ("0050debc-861a-1f21-85a5-001ec947cd2a")
@@ -38,7 +36,6 @@ public interface IKernelServiceProvider {
 
     /**
      * Set the kernel provider service identifier.
-     * 
      * @param newId the kernel provider service identifier.
      */
     @objid ("0044ceb0-8b3b-1f21-85a5-001ec947cd2a")
@@ -46,7 +43,6 @@ public interface IKernelServiceProvider {
 
     /**
      * Get the kernel provider service identifier.
-     * 
      * @return the kernel provider service identifier.
      */
     @objid ("0044d78e-8b3b-1f21-85a5-001ec947cd2a")
@@ -60,10 +56,9 @@ public interface IKernelServiceProvider {
 
     /**
      * Initialize the given model object data.
-     * 
      * @param smObjectImpl a model object
      * @return the model object data.
-     * @throws org.modelio.vcore.smkernel.DeadObjectException if the object has been definitively unloaded
+     * @throws DeadObjectException if the object has been definitively unloaded
      */
     @objid ("dbf5387e-4868-11e2-91c9-001ec947ccaf")
     ISmObjectData loadData(SmObjectImpl smObjectImpl) throws DeadObjectException;

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.gproject;
 
 import java.util.ArrayList;
@@ -51,7 +50,6 @@ public class GProjectMonitorSupport {
 
     /**
      * Fire a project event on all projects monitors.
-     * 
      * @param ev a project event.
      */
     @objid ("6181ee5e-08b6-11e2-b193-001ec947ccaf")
@@ -61,6 +59,7 @@ public class GProjectMonitorSupport {
         else for (IProjectMonitor m : this.monitors) {
             m.handleProjectEvent(ev);
         }
+        
     }
 
     /**
@@ -92,6 +91,7 @@ public class GProjectMonitorSupport {
             default:
                 break;
             }
+            
         }
 
     }

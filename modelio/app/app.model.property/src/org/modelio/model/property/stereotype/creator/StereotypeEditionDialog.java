@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.stereotype.creator;
 
 import java.io.File;
@@ -140,7 +139,6 @@ public class StereotypeEditionDialog extends ModelioDialog {
 
     /**
      * Default constructor.
-     * 
      * @param parentShell the parent shell.
      * @param dataModel the data model.
      * @param projectService project manipulation service
@@ -148,7 +146,7 @@ public class StereotypeEditionDialog extends ModelioDialog {
      * @param selectedElements the initially selected elements
      */
     @objid ("bf8a3af5-5f7c-454c-a3a1-d703cdebc5af")
-    public StereotypeEditionDialog(Shell parentShell, StereotypeEditionDataModel dataModel, IProjectService projectService, IMModelServices mmServices, List<ModelElement> selectedElements) {
+    public  StereotypeEditionDialog(Shell parentShell, StereotypeEditionDataModel dataModel, IProjectService projectService, IMModelServices mmServices, List<ModelElement> selectedElements) {
         super(parentShell);
         this.dataModel = dataModel;
         
@@ -163,6 +161,7 @@ public class StereotypeEditionDialog extends ModelioDialog {
                 SWT.BORDER |
                 SWT.APPLICATION_MODAL |
                 getDefaultOrientation());
+        
     }
 
     @objid ("c184e9c2-5872-4b49-9a56-dd07cadf0771")
@@ -172,6 +171,7 @@ public class StereotypeEditionDialog extends ModelioDialog {
         this.createButton.setEnabled(false);
         
         createButton(parent, IDialogConstants.CANCEL_ID, ModelProperty.I18N.getString("StereotypeCreationDialog.Cancel"), false);
+        
     }
 
     @objid ("b17889aa-5a52-46af-8969-80873fb27083")
@@ -213,6 +213,7 @@ public class StereotypeEditionDialog extends ModelioDialog {
         int y = (getShell().getSize().y / 2);
         getShell().setLocation(x, y);
         getShell().setMinimumSize(550, 450);
+        
     }
 
     /**
@@ -222,7 +223,6 @@ public class StereotypeEditionDialog extends ModelioDialog {
      * <li>invalidate == true -> text will be red.</li>
      * <li>invalidate == false -> text will be green.</li>
      * </ul>
-     * 
      * @param invalidate whether or not the note type name filed will be invalidated
      */
     @objid ("f4569d15-0c00-4ff1-9ae5-8d301d19b0a8")
@@ -232,6 +232,7 @@ public class StereotypeEditionDialog extends ModelioDialog {
         } else {
             this.stereotypeNameText.setForeground(this.stereotypeNameText.getDisplay().getSystemColor(SWT.COLOR_DARK_GREEN));
         }
+        
     }
 
     /**
@@ -356,6 +357,7 @@ public class StereotypeEditionDialog extends ModelioDialog {
         GridData gd_diagramImageSizeLabel = new GridData(SWT.CENTER, SWT.CENTER, true, false);
         gd_diagramImageSizeLabel.widthHint = 100;
         diagramImageSizeLabel.setLayoutData(gd_diagramImageSizeLabel);
+        
     }
 
     @objid ("2e73e619-78da-4469-88f5-286bef8322ab")
@@ -442,6 +444,7 @@ public class StereotypeEditionDialog extends ModelioDialog {
         GridData gd_explorerIconSizeLabel = new GridData(SWT.CENTER, SWT.CENTER, true, false);
         gd_explorerIconSizeLabel.widthHint = 100;
         explorerIconSizeLabel.setLayoutData(gd_explorerIconSizeLabel);
+        
     }
 
     @objid ("ec52b451-700b-4b5f-ad2e-ecc562b845dd")
@@ -479,6 +482,7 @@ public class StereotypeEditionDialog extends ModelioDialog {
         GridData gd_metaclassCombo = new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1);
         this.mclassSelector.getControl().setLayoutData(gd_metaclassCombo);
         this.mclassSelector.getControl().addModifyListener(this.stereotypeValidator);
+        
     }
 
     @objid ("e3c58479-36fc-4a14-be85-1b97c099cd85")
@@ -500,6 +504,7 @@ public class StereotypeEditionDialog extends ModelioDialog {
         this.stereotypeNameText.addModifyListener(this.stereotypeValidator);
         GridData gd_stereotypeNameText = new GridData(SWT.FILL, SWT.FILL, true, false);
         this.stereotypeNameText.setLayoutData(gd_stereotypeNameText);
+        
     }
 
     /**
@@ -577,6 +582,7 @@ public class StereotypeEditionDialog extends ModelioDialog {
                 this.deleteDiagramImageButton.setEnabled(false);
             }
         }
+        
     }
 
     @objid ("2f7c1279-cd75-4750-a744-7e57327c0766")
@@ -589,6 +595,7 @@ public class StereotypeEditionDialog extends ModelioDialog {
         
         createNameArea(fieldArea);
         createMetaclassArea(fieldArea);
+        
     }
 
     @objid ("dbcc878c-79ed-4955-949b-e1190d081f83")
@@ -605,6 +612,7 @@ public class StereotypeEditionDialog extends ModelioDialog {
         
         createExplorerIconArea(imageArea);
         createDiagramImageArea(imageArea);
+        
     }
 
     @objid ("06b5299a-eaf7-4e77-ae64-7faabdb273f0")
@@ -617,6 +625,7 @@ public class StereotypeEditionDialog extends ModelioDialog {
         this.applyStereotypeCheckbox.addSelectionListener(this.applyStereotypeListener);
         GridData gd_applyStereotype = new GridData(SWT.LEFT, SWT.CENTER, true, false);
         this.applyStereotypeCheckbox.setLayoutData(gd_applyStereotype);
+        
     }
 
     /**
@@ -639,6 +648,7 @@ public class StereotypeEditionDialog extends ModelioDialog {
         deleteTempFileIfExist(this.dataModel.getDefaultTempIconPath());
         deleteTempFileIfExist(this.dataModel.getDefaultTempImagePath());
         super.cancelPressed();
+        
     }
 
     @objid ("629dcb27-4478-47a2-b89b-1c326d107cb9")
@@ -649,6 +659,7 @@ public class StereotypeEditionDialog extends ModelioDialog {
                 file.delete();
             }
         }
+        
     }
 
     @objid ("1aacfd61-6208-4ced-8986-b27d10ca4d62")
@@ -669,7 +680,6 @@ public class StereotypeEditionDialog extends ModelioDialog {
 
     /**
      * Get the metaclass displayed in the metaclass field.
-     * 
      * @return the displayed metaclass .
      */
     @objid ("ead828f1-3e3d-4a84-a311-1cc55204ccf4")

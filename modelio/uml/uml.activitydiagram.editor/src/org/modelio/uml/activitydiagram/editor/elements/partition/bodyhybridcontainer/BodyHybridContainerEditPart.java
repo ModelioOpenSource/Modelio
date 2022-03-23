@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.partition.bodyhybridcontainer;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,6 +50,7 @@ public class BodyHybridContainerEditPart extends PartitionContainerEditPart {
         installEditPolicy(EditPolicy.LAYOUT_ROLE, new BodyHybridContainerLayoutEditPolicy());
         // Now just override the drop policy with our own.
         installEditPolicy(ModelElementDropRequest.TYPE, new BodyHybridContainerDropEditPolicy());
+        
     }
 
     @objid ("2af6f4c8-55b6-11e2-877f-002564c97630")
@@ -65,6 +65,7 @@ public class BodyHybridContainerEditPart extends PartitionContainerEditPart {
             }
         }
         super.refreshChildren();
+        
     }
 
     /**
@@ -93,7 +94,6 @@ public class BodyHybridContainerEditPart extends PartitionContainerEditPart {
 
     /**
      * Updates both the LayoutManager of the Figure and the behaviour state of the LayoutEditPolicy.
-     * 
      * @param newBehaviour the new behaviour to adopt.
      */
     @objid ("2af87b3b-55b6-11e2-877f-002564c97630")
@@ -132,11 +132,11 @@ public class BodyHybridContainerEditPart extends PartitionContainerEditPart {
         // Update state of hybrid policies
         ((BodyHybridContainerLayoutEditPolicy) getEditPolicy(EditPolicy.LAYOUT_ROLE)).setBehaviour(newBehaviour);
         ((BodyHybridContainerDropEditPolicy) getEditPolicy(ModelElementDropRequest.TYPE)).setBehaviour(newBehaviour);
+        
     }
 
     /**
      * Computes the behaviour to have based on the model.
-     * 
      * @return the behaviour to adopt.
      */
     @objid ("2af87b3f-55b6-11e2-877f-002564c97630")
@@ -166,6 +166,7 @@ public class BodyHybridContainerEditPart extends PartitionContainerEditPart {
             final GmPartitionContainer gmModel = (GmPartitionContainer) getModel();
             ((ToolbarLayout) fig.getLayoutManager()).setHorizontal(!gmModel.isVertical());
         }
+        
     }
 
     /**
@@ -198,6 +199,7 @@ public class BodyHybridContainerEditPart extends PartitionContainerEditPart {
         } else {
             return Behaviour.HYBRID;
         }
+        
     }
 
     @objid ("91768e2c-02ec-480a-996c-838967735057")
@@ -219,6 +221,7 @@ public class BodyHybridContainerEditPart extends PartitionContainerEditPart {
             break;
         
         }
+        
     }
 
     /**
@@ -229,15 +232,19 @@ public class BodyHybridContainerEditPart extends PartitionContainerEditPart {
         /**
          * The behaviour to use is an hybrid (or more usually a combination) of both free zone and partition container behaviours.
          */
+        @objid ("2af87b51-55b6-11e2-877f-002564c97630")
         HYBRID,
         /**
          * The behaviour to use is the one of a "regular" free zone.
          */
+        @objid ("2af87b53-55b6-11e2-877f-002564c97630")
         FREE_ZONE,
         /**
          * The behaviour to use is the one of a "regular" partition container.
          */
+        @objid ("2af87b55-55b6-11e2-877f-002564c97630")
         PARTITION_CONTAINER;
+
     }
 
 }

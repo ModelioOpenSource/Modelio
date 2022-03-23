@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.projectinfo;
 
 import java.io.IOException;
@@ -60,7 +59,8 @@ class StorageSection {
     protected Text projectDate;
 
     @objid ("a746397f-33f6-11e2-a514-002564c97630")
-    public StorageSection() {
+    public  StorageSection() {
+        
     }
 
     @objid ("a746608e-33f6-11e2-a514-002564c97630")
@@ -72,6 +72,7 @@ class StorageSection {
         } else {
             fillFields();
         }
+        
     }
 
     @objid ("a7466091-33f6-11e2-a514-002564c97630")
@@ -127,6 +128,7 @@ class StorageSection {
             this.projectDate.setText(""); //$NON-NLS-1$
         }
         this.projectDate.setEnabled(true);
+        
     }
 
     @objid ("a746879e-33f6-11e2-a514-002564c97630")
@@ -137,6 +139,7 @@ class StorageSection {
         this.storageSize.setEnabled(false);
         this.projectDate.setText(""); //$NON-NLS-1$
         this.projectDate.setEnabled(false);
+        
     }
 
     @objid ("a74687a0-33f6-11e2-a514-002564c97630")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.view.handlers;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,6 +38,7 @@ public class AuditModeHandler {
             auditService.getAuditEngine().setRunningMode(AuditRunningMode.AUTO);
             break;
         }
+        
     }
 
 }

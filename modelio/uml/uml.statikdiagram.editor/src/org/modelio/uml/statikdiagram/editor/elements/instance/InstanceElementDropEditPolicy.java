@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.instance;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -111,6 +110,7 @@ public class InstanceElementDropEditPolicy extends DefaultElementDropEditPolicy 
                 element instanceof Attribute ||
                 element instanceof Instance ||
                 element instanceof NameSpace || element instanceof Parameter));
+        
     }
 
     @objid ("8470488a-43a4-4aa8-bbdf-c1099ef59479")

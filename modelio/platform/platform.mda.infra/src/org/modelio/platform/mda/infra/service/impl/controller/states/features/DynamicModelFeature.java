@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.controller.states.features;
 
 import java.nio.file.Files;
@@ -40,9 +39,10 @@ public class DynamicModelFeature extends AbstractFeature {
      * @param module the module
      */
     @objid ("97662693-d1e4-44c6-95c0-ba9de021df28")
-    public DynamicModelFeature(IRTModuleAccess module) {
+    public  DynamicModelFeature(IRTModuleAccess module) {
         super(module);
         this.modelLoader = new DynamicModelImporter(module);
+        
     }
 
     @objid ("3d04c142-d463-4d35-acc1-e9a2eac6c854")
@@ -56,6 +56,7 @@ public class DynamicModelFeature extends AbstractFeature {
     public void disable() {
         // noop
         this.module.resetDynamicModel();
+        
     }
 
     @objid ("b4ff7337-1fcc-461d-b692-070fa01b54fe")
@@ -67,6 +68,7 @@ public class DynamicModelFeature extends AbstractFeature {
                 this.modelLoader.loadDynamicModel(dynamicModelPath);
             }
         }
+        
     }
 
     @objid ("958da678-df66-46ec-96d4-cd6aa25aba98")

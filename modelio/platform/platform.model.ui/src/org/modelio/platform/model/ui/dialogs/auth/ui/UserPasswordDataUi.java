@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.dialogs.auth.ui;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,7 +46,7 @@ public class UserPasswordDataUi extends AbstractDataUi {
     private Button memorizeButton;
 
     @objid ("76339462-38b1-483a-baa9-e34e28bc2d8a")
-    public UserPasswordDataUi(Composite parent) {
+    public  UserPasswordDataUi(Composite parent) {
         super(parent);
     }
 
@@ -77,6 +76,7 @@ public class UserPasswordDataUi extends AbstractDataUi {
         GridData gd = new GridData(SWT.RIGHT, SWT.BOTTOM, false, true);
         gd.horizontalSpan = 2;
         this.memorizeButton.setLayoutData(gd);
+        
     }
 
     @objid ("ed81d8ab-6a7b-45bc-bbce-c3c3b144f716")
@@ -88,6 +88,7 @@ public class UserPasswordDataUi extends AbstractDataUi {
             this.passwordText.setText(userPassAuthData.getPassword() != null ? userPassAuthData.getPassword() : "");
             this.memorizeButton.setSelection(userPassAuthData.isStored());
         }
+        
     }
 
     @objid ("bc4b5ab4-f2b5-409e-bc1a-83aae1a2506a")
@@ -97,6 +98,7 @@ public class UserPasswordDataUi extends AbstractDataUi {
         userPassAuthData.setUser(this.userText.getText());
         userPassAuthData.setPassword(this.passwordText.getText());
         userPassAuthData.setStored(this.memorizeButton.getSelection());
+        
     }
 
 }

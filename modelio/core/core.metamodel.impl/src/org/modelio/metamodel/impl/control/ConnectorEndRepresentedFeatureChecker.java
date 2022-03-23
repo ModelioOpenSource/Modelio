@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.control;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -48,7 +47,7 @@ public class ConnectorEndRepresentedFeatureChecker extends AbstractDependencyTyp
      * C'tor
      */
     @objid ("22a666b3-d789-493c-9e5c-9dfccdcfc2f9")
-    public ConnectorEndRepresentedFeatureChecker(SmMetamodel mm) {
+    public  ConnectorEndRepresentedFeatureChecker(SmMetamodel mm) {
         // Cached SmClass
         this.associationEndID = mm.getMClass(AssociationEnd.class);
         this.attributeID = mm.getMClass(Attribute.class);
@@ -60,6 +59,7 @@ public class ConnectorEndRepresentedFeatureChecker extends AbstractDependencyTyp
         // Symetric checker
         ModelElementRepresentedEndChecker symetricChecker = new ModelElementRepresentedEndChecker(this);
         symetricChecker.register(mm.getMClass(UmlModelElement.class), "RepresentingEnd");
+        
     }
 
     @objid ("ea2282f0-ec70-11e1-91c5-002564c97630")
@@ -83,10 +83,10 @@ public class ConnectorEndRepresentedFeatureChecker extends AbstractDependencyTyp
     @objid ("ea2282ec-ec70-11e1-91c5-002564c97630")
     static class ModelElementRepresentedEndChecker extends AbstractDependencyTypeChecker {
         @objid ("ea2282ed-ec70-11e1-91c5-002564c97630")
-         ConnectorEndRepresentedFeatureChecker symetricChecker;
+        ConnectorEndRepresentedFeatureChecker symetricChecker;
 
         @objid ("ea2282f2-ec70-11e1-91c5-002564c97630")
-        public ModelElementRepresentedEndChecker(ConnectorEndRepresentedFeatureChecker symetricChecker) {
+        public  ModelElementRepresentedEndChecker(ConnectorEndRepresentedFeatureChecker symetricChecker) {
             this.symetricChecker = symetricChecker;
         }
 

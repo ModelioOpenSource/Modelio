@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta.descriptor;
 
 import java.io.Serializable;
@@ -32,150 +31,159 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  */
 @objid ("ae5aea12-6236-40b9-952a-14067c4daf00")
 public class MDependencyDescriptor implements Serializable {
+    
     @mdl.prop
     @objid ("13f4bd6d-24fa-4ecb-ad90-d81f7cdfab18")
-    private MAggregation aggregation;
+    public MAggregation aggregation;
 
     @mdl.propgetter
     public MAggregation getAggregation() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.aggregation;
     }
 
     @mdl.propsetter
     public void setAggregation(MAggregation value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.aggregation = value;
     }
 
+    
     @mdl.prop
     @objid ("51598580-e4ea-4ecf-8631-3a92fe3b3634")
-    private boolean cascadeDelete;
+    public boolean cascadeDelete;
 
     @mdl.propgetter
     public boolean isCascadeDelete() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.cascadeDelete;
     }
 
     @mdl.propsetter
     public void setCascadeDelete(boolean value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.cascadeDelete = value;
     }
 
+    
     @mdl.prop
     @objid ("98cfcb64-0c3c-4972-b4db-29f4eda713aa")
-    private int max;
+    public int max;
 
     @mdl.propgetter
     public int getMax() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.max;
     }
 
     @mdl.propsetter
     public void setMax(int value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.max = value;
     }
 
+    
     @mdl.prop
     @objid ("d08b23ea-48d0-488d-aede-c934c2c07a2f")
-    private int min;
+    public int min;
 
     @mdl.propgetter
     public int getMin() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.min;
     }
 
     @mdl.propsetter
     public void setMin(int value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.min = value;
     }
 
+    
     @mdl.prop
     @objid ("aa596655-3d02-4d9c-ad48-35151a17e14b")
-    private String name;
+    public String name;
 
     @mdl.propgetter
     public String getName() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.name;
     }
 
     @mdl.propsetter
     public void setName(String value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.name = value;
     }
 
+    
     @mdl.prop
     @objid ("48755031-4ae1-4ef7-bbd0-d1e098fca194")
-    private boolean navigate;
+    public boolean navigate;
 
     @mdl.propgetter
     public boolean isNavigate() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.navigate;
     }
 
     @mdl.propsetter
     public void setNavigate(boolean value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.navigate = value;
     }
 
+    
     @mdl.prop
     @objid ("b1577d28-aba3-4303-bc75-20bf959ef1cc")
-    private String oppositeName;
+    public String oppositeName;
 
     @mdl.propgetter
     public String getOppositeName() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.oppositeName;
     }
 
     @mdl.propsetter
     public void setOppositeName(String value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.oppositeName = value;
     }
 
+    
     @mdl.prop
     @objid ("56c99848-563a-49c0-8640-82f09b732f49")
-    private boolean weakReference;
+    public boolean weakReference;
 
     @mdl.propgetter
     public boolean isWeakReference() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.weakReference;
     }
 
     @mdl.propsetter
     public void setWeakReference(boolean value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.weakReference = value;
     }
 
     @objid ("5870a6b8-85af-4040-8ff4-7dda771e8761")
     private static final long serialVersionUID = 1L;
 
+    
     @mdl.prop
     @objid ("212b79d4-b8dc-470a-87ba-a3f0456f6315")
-    private MClassRef target;
+    public MClassRef target;
 
     @mdl.propgetter
     public MClassRef getTarget() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.target;
     }
 
     @mdl.propsetter
     public void setTarget(MClassRef value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.target = value;
     }
 

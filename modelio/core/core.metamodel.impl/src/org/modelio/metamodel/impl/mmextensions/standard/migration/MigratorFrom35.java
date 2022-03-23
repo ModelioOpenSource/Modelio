@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.migration;
 
 import java.io.IOException;
@@ -27,8 +26,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Properties;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -59,8 +58,8 @@ import org.modelio.vcore.smkernel.meta.descriptor.MClassRef;
 import org.modelio.vcore.smkernel.meta.descriptor.MetamodelDescriptor;
 import org.modelio.vcore.smkernel.meta.descriptor.MetamodelDescriptorReader;
 import org.modelio.vcore.smkernel.meta.descriptor.MetamodelFragmentDescriptor;
-import org.modelio.vcore.smkernel.meta.mof.MofMetamodel.MofBuilder;
 import org.modelio.vcore.smkernel.meta.mof.MofMetamodel;
+import org.modelio.vcore.smkernel.meta.mof.MofMetamodel.MofBuilder;
 import org.modelio.vcore.smkernel.meta.mof.MofMetamodelFragment;
 import org.modelio.vcore.smkernel.meta.mof.MofMetamodelMerger;
 import org.modelio.vcore.smkernel.meta.mof.MofSmClass;
@@ -112,9 +111,10 @@ class MigratorFrom35 implements IMofRepositoryMigrator {
     private final MetamodelVersionDescriptor targetMetamodel;
 
     @objid ("5b1b7ef8-f401-4add-9d19-921cde3bc599")
-    public MigratorFrom35(MetamodelVersionDescriptor sourceMetamodel, MetamodelVersionDescriptor targetMetamodel) {
+    public  MigratorFrom35(MetamodelVersionDescriptor sourceMetamodel, MetamodelVersionDescriptor targetMetamodel) {
         this.sourceMetamodel = sourceMetamodel;
         this.targetMetamodel = targetMetamodel;
+        
     }
 
     @objid ("a398ff8b-a5b4-4dda-b8fa-a56658ab2d66")
@@ -137,9 +137,8 @@ class MigratorFrom35 implements IMofRepositoryMigrator {
 
     /**
      * Modify the metamodel so that it can read the source repository.
-     * 
      * @param metamodel the metamodel at the final state
-     * @throws org.modelio.vcore.model.spi.mm.MofMigrationException on fatal failure preventing migration
+     * @throws MofMigrationException on fatal failure preventing migration
      */
     @objid ("ba2c134e-7c33-4f13-9704-80f1f8f10914")
     @Override
@@ -232,6 +231,7 @@ class MigratorFrom35 implements IMofRepositoryMigrator {
         // Process metaclasses renamings
         // Read renamed classes
         prepareMetaclassesRenaming(metamodel);
+        
     }
 
     @objid ("49fdf831-b1c0-4c04-acdf-6ed93cf6c98d")
@@ -248,6 +248,7 @@ class MigratorFrom35 implements IMofRepositoryMigrator {
         } catch (MetaclassNotFoundException e) {
             throw new MofMigrationException(e.getLocalizedMessage(), e);
         }
+        
     }
 
     @objid ("3cab1379-1b10-4302-af24-39f559cacbf8")
@@ -264,6 +265,7 @@ class MigratorFrom35 implements IMofRepositoryMigrator {
         } catch (IOException e) {
             throw new MofMigrationException(FileUtils.getLocalizedMessage(e), e);
         }
+        
     }
 
     @objid ("d41ca2c3-fa12-49a3-95ab-596146be6bf4")
@@ -286,16 +288,16 @@ class MigratorFrom35 implements IMofRepositoryMigrator {
             }
             mon.worked(1);
         }
+        
     }
 
     /**
      * Transform Manifestations toward ModelElements that are not UmlModelElement
      * to Dependency stereotyped &lt;&lt;manifestation>>
      * @param reporter the migration report
-     * 
      * @param monitor a progress monitor
      * @param mofsession the migration session
-     * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException should not occur
+     * @throws MetaclassNotFoundException should not occur
      */
     @objid ("f20daf4a-70b3-4f92-8529-d546eb289860")
     private void fixManifestations(IModelioProgress monitor, IMofSession mofsession) throws MetaclassNotFoundException {
@@ -321,6 +323,7 @@ class MigratorFrom35 implements IMofRepositoryMigrator {
                 }
             }
         }
+        
     }
 
     /**
@@ -330,10 +333,9 @@ class MigratorFrom35 implements IMofRepositoryMigrator {
      * <p>
      * Requires the elements having been transmuted to the new metaclasses.
      * @param reporter the logger
-     * 
      * @param monitor a progress monitor
      * @param mofsession the session
-     * @throws org.modelio.vcore.smkernel.mapi.MetaclassNotFoundException on buggy code
+     * @throws MetaclassNotFoundException on buggy code
      */
     @objid ("58397d53-11f7-4f31-b63b-ffc0c9e6d205")
     private void fixStereotypesBaseClass(IModelioProgress monitor, IMofSession mofsession) throws MetaclassNotFoundException {
@@ -375,6 +377,7 @@ class MigratorFrom35 implements IMofRepositoryMigrator {
                 }
             }
         }
+        
     }
 
     @objid ("1ec1c744-fe14-4191-b103-cb90fdfdc9c1")
@@ -388,6 +391,7 @@ class MigratorFrom35 implements IMofRepositoryMigrator {
         } else {
             return nameToReplace;
         }
+        
     }
 
     @objid ("50d1d3cc-412f-4603-b6e7-b5e1836cbfe9")
@@ -506,6 +510,7 @@ class MigratorFrom35 implements IMofRepositoryMigrator {
         }
         
         logger.printf(" Processed 3.5 Analyst property containers.\n");
+        
     }
 
     @objid ("bf92bfe7-ccdd-4097-a24b-e49a41b7677e")
@@ -531,9 +536,8 @@ class MigratorFrom35 implements IMofRepositoryMigrator {
 
     /**
      * Prepare the metamodel for metaclasses renaming.
-     * 
      * @param metamodel the MOF metamodel.
-     * @throws org.modelio.vcore.model.spi.mm.MofMigrationException on failure
+     * @throws MofMigrationException on failure
      */
     @objid ("3c8c0f98-cdf8-4a81-82c0-9aa6eff96907")
     private void prepareMetaclassesRenaming(MofMetamodel metamodel) throws MofMigrationException {
@@ -576,12 +580,12 @@ class MigratorFrom35 implements IMofRepositoryMigrator {
         } catch (IOException e) {
             throw new MofMigrationException(FileUtils.getLocalizedMessage(e), e);
         }
+        
     }
 
     /**
      * Many dependencies were moved from ModelElement to UmlModelElement.
      * Copy back these ones.
-     * 
      * @param metamodel the metamodel
      * @param b the MOf metamodel builder
      */
@@ -592,6 +596,7 @@ class MigratorFrom35 implements IMofRepositoryMigrator {
         for (SmDependency dep : metamodel.getMClass(UmlModelElement.MQNAME).getSelfDepDef()) {
             b.createDepCopy(dep, modelElCls).build();
         }
+        
     }
 
     @objid ("f291f57f-2b1e-47aa-ac75-2f3a53ccd416")
@@ -614,6 +619,7 @@ class MigratorFrom35 implements IMofRepositoryMigrator {
                 throw new MofMigrationException(FileUtils.getLocalizedMessage(e), e);
             }
         }
+        
     }
 
 }

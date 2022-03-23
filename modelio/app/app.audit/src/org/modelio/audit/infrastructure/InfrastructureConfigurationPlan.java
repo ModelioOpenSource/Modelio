@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.infrastructure;
 
 import java.util.List;
@@ -34,7 +33,7 @@ public class InfrastructureConfigurationPlan implements IAuditConfigurationPlan 
     private List<AuditCategory> rootCategories;
 
     @objid ("6ac30efe-48e4-44dc-8d77-f1c1b00e1998")
-    public InfrastructureConfigurationPlan(List<AuditCategory> rootCategories) {
+    public  InfrastructureConfigurationPlan(List<AuditCategory> rootCategories) {
         this.rootCategories = rootCategories;
     }
 

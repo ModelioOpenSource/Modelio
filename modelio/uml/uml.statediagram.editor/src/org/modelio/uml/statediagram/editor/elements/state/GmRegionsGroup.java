@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.state;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -27,7 +26,6 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.Region;
-import org.modelio.metamodel.uml.behavior.stateMachineModel.State;
 import org.modelio.uml.statediagram.editor.elements.region.GmRegion;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -53,12 +51,11 @@ public class GmRegionsGroup extends GmResizableGroup {
 
     /**
      * C'tor.
-     * 
      * @param diagram the diagram in which this gm is created.
      * @param relatedRef a reference to the element this gm is related to.
      */
     @objid ("f57ad3dd-55b6-11e2-877f-002564c97630")
-    public GmRegionsGroup(IGmDiagram diagram, MRef relatedRef) {
+    public  GmRegionsGroup(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -66,7 +63,8 @@ public class GmRegionsGroup extends GmResizableGroup {
      * Empty c'tor for deserialization.
      */
     @objid ("f57ad3e6-55b6-11e2-877f-002564c97630")
-    public GmRegionsGroup() {
+    public  GmRegionsGroup() {
+        
     }
 
     @objid ("f57ad3e9-55b6-11e2-877f-002564c97630")
@@ -85,8 +83,9 @@ public class GmRegionsGroup extends GmResizableGroup {
     @Override
     public boolean canUnmask(MObject el) {
         return Region.class.isAssignableFrom(el.getClass()) &&
-                                                                        el.isValid() &&
-                                                                        el.getCompositionOwner().equals(this.getRelatedElement());
+                el.isValid() &&
+                el.getCompositionOwner().equals(this.getRelatedElement());
+        
     }
 
     @objid ("f57ad401-55b6-11e2-877f-002564c97630")
@@ -101,29 +100,6 @@ public class GmRegionsGroup extends GmResizableGroup {
         return this.isVisible;
     }
 
-    @objid ("f57ad40a-55b6-11e2-877f-002564c97630")
-    @Override
-    public void obElementAdded(MObject movedEl) {
-        refreshFromObModel();
-    }
-
-    @objid ("f57ad410-55b6-11e2-877f-002564c97630")
-    @Override
-    public void refreshFromObModel() {
-        super.refreshFromObModel();
-        
-        final State state = (State) getRelatedElement();
-        
-        // Unmask all missing clauses.
-        if (state != null && state.isValid()) {
-            for (Region region : state.getOwnedRegion()) {
-                if (getChild(new MRef(region)) == null)
-                    getDiagram().unmask(this, region, null);
-            }
-        
-        }
-    }
-
     @objid ("f57ad413-55b6-11e2-877f-002564c97630")
     @Override
     public void removeChild(GmNodeModel child) {
@@ -131,6 +107,7 @@ public class GmRegionsGroup extends GmResizableGroup {
         if (this.getChildren().isEmpty()) {
             setVisible(false);
         }
+        
     }
 
     @objid ("f57ad419-55b6-11e2-877f-002564c97630")
@@ -140,6 +117,7 @@ public class GmRegionsGroup extends GmResizableGroup {
             setVisible(true);
         }
         super.addChild(child);
+        
     }
 
     @objid ("f57c5a79-55b6-11e2-877f-002564c97630")
@@ -159,6 +137,7 @@ public class GmRegionsGroup extends GmResizableGroup {
             break;
         }
         }
+        
     }
 
     @objid ("f57c5a7f-55b6-11e2-877f-002564c97630")
@@ -169,12 +148,14 @@ public class GmRegionsGroup extends GmResizableGroup {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmRegionsGroup.", GmRegionsGroup.MINOR_VERSION);
+        
     }
 
     @objid ("f57c5a85-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.isVisible = ((Boolean) in.readProperty("isVisible")).booleanValue();
+        
     }
 
     @objid ("f57c5a8a-55b6-11e2-877f-002564c97630")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.gproject;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,27 +44,24 @@ public class AuthResolver {
 
     /**
      * initialize the resolver from a project
-     * 
      * @param project the project
      */
     @objid ("1f3c1fa7-c6bf-4636-afdc-e21f55f5ddf9")
-    public AuthResolver(GProject project) {
+    public  AuthResolver(GProject project) {
         this.projectAuth = project.getAuthConfiguration().getAuthData();
     }
 
     /**
      * initialize the resolver from a project descriptor.
-     * 
      * @param projDesc the project descriptor.
      */
     @objid ("a7913fab-cd75-459a-9732-ddf12b3ee788")
-    public AuthResolver(ProjectDescriptor projDesc) {
+    public  AuthResolver(ProjectDescriptor projDesc) {
         this.projectAuth = projDesc.getAuthDescriptor().getData();
     }
 
     /**
      * Get the real  authentication data to use for the given fragment.
-     * 
      * @param f the fragment
      * @return the authentication data to use.
      */
@@ -76,11 +72,11 @@ public class AuthResolver {
             return resolve(authDescriptor.getData());
         else
             return null;
+        
     }
 
     /**
      * Get the real authentication data to use for the given fragment.
-     * 
      * @param f the fragment
      * @return the authentication data to use.
      */
@@ -91,11 +87,11 @@ public class AuthResolver {
             return resolve(authDescriptor.getData());
         else
             return null;
+        
     }
 
     /**
      * Get the real authentication data to use for the given fragment.
-     * 
      * @param f the fragment
      * @return the authentication data to use.
      */
@@ -106,11 +102,11 @@ public class AuthResolver {
             return resolve(authDescriptor.getAuthData());
         else
             return null;
+        
     }
 
     /**
      * Get the real  authentication data to use for the given fragment.
-     * 
      * @param f the fragment
      * @return the authentication data to use.
      */
@@ -121,13 +117,13 @@ public class AuthResolver {
             return resolve(authDescriptor.getAuthData());
         else
             return null;
+        
     }
 
     /**
      * Get the real authentication data to use a given authentication data.
      * <p>
      * Returns the given data unless it is an {@link InheritedAuthData}.
-     * 
      * @param d the authentication data.
      * @return the authentication data to use.
      */
@@ -139,6 +135,7 @@ public class AuthResolver {
             return this.projectAuth;
         else
             return d;
+        
     }
 
 }

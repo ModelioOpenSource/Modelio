@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.interactionoperand.primarynode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -59,18 +58,17 @@ public class GmGuardLabel extends GmElementLabel {
      * Empty c'tor for deserialisation.
      */
     @objid ("d9081ce8-55b6-11e2-877f-002564c97630")
-    public GmGuardLabel() {
+    public  GmGuardLabel() {
         super();
     }
 
     /**
      * C'tor.
-     * 
      * @param diagram the diagram in which this gm is created.
      * @param relatedRef a reference to the represented element.
      */
     @objid ("d9081ceb-55b6-11e2-877f-002564c97630")
-    public GmGuardLabel(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmGuardLabel(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -91,6 +89,7 @@ public class GmGuardLabel extends GmElementLabel {
             break;
         }
         }
+        
     }
 
     @objid ("d909a389-55b6-11e2-877f-002564c97630")
@@ -100,6 +99,7 @@ public class GmGuardLabel extends GmElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmGuardLabel.", GmGuardLabel.MINOR_VERSION);
+        
     }
 
     @objid ("d909a38f-55b6-11e2-877f-002564c97630")
@@ -129,6 +129,7 @@ public class GmGuardLabel extends GmElementLabel {
                         return interactionOperand.getGuard();
                     }
                 };
+        
     }
 
 }

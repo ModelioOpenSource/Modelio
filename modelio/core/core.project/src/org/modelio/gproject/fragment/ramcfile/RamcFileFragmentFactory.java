@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.fragment.ramcfile;
 
 import java.io.IOException;
@@ -42,7 +41,8 @@ public class RamcFileFragmentFactory implements IFragmentFactory {
     private static RamcFileFragmentFactory instance = new RamcFileFragmentFactory();
 
     @objid ("3fc7e2e1-cf5e-11e1-a8eb-001ec947ccaf")
-    private RamcFileFragmentFactory() {
+    private  RamcFileFragmentFactory() {
+        
     }
 
     /**
@@ -55,11 +55,10 @@ public class RamcFileFragmentFactory implements IFragmentFactory {
 
     /**
      * Instantiate a RAMC fragment directly from an URI.
-     * 
      * @param uri an URI referring to a .ramc file.
      * @param authData authentication data, may be <code>null</code>.
      * @return the RAMC fragment.
-     * @throws java.io.IOException if the RAMC archive couldn't be read.
+     * @throws IOException if the RAMC archive couldn't be read.
      */
     @objid ("3932d1e3-45a3-4b15-972a-c72662253210")
     public static IProjectFragment instantiate(URI uri, IAuthData authData) throws IOException {
@@ -74,10 +73,9 @@ public class RamcFileFragmentFactory implements IFragmentFactory {
 
     /**
      * Instantiate a RAMC fragment directly from an RAMC file path.
-     * 
      * @param path a file path referring to a .ramc file.
      * @return the RAMC fragment.
-     * @throws java.io.IOException if the RAMC archive couldn't be read.
+     * @throws IOException if the RAMC archive couldn't be read.
      */
     @objid ("bb85971a-8870-419a-91b3-f719e579f00a")
     public static IProjectFragment instantiate(Path path) throws IOException {
@@ -91,6 +89,7 @@ public class RamcFileFragmentFactory implements IFragmentFactory {
     public IProjectFragment instantiate(FragmentDescriptor fd) {
         return new RamcFileFragment(fd.getId(), fd.getUri(), fd.getScope(), fd.getProperties(),
                         GAuthConf.from(fd.getAuthDescriptor()));
+        
     }
 
     @objid ("aa836ee9-0eed-11e2-8e4b-001ec947ccaf")
@@ -101,11 +100,10 @@ public class RamcFileFragmentFactory implements IFragmentFactory {
 
     /**
      * Instantiate a RAMC fragment descriptor directly from a .ramc file URI.
-     * 
      * @param uri a .ramc file URI.
      * @param authData authentication data
      * @return a RAMC fragment descriptor or <code>null</code> if the RAMC file couldn't be read.
-     * @throws java.io.IOException in case of failure
+     * @throws IOException in case of failure
      */
     @objid ("5f964d2e-2d52-4f2b-8b08-5d2e842f67b5")
     private static FragmentDescriptor getFragmentDescriptor(URI uri, IAuthData authData) throws IOException {
@@ -113,6 +111,7 @@ public class RamcFileFragmentFactory implements IFragmentFactory {
             ModelComponentArchive ar = new ModelComponentArchive(access.getPath(), true);
             return ar.getFragmentDescriptor();
         }
+        
     }
 
 }

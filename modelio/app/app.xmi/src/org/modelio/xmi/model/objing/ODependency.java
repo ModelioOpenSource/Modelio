@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -67,12 +66,14 @@ public class ODependency extends OModelElement {
             ecoreDependency.setName(this.objingElement.getName());
             return ecoreDependency;
         }
+        
     }
 
     @objid ("a07add4b-7d54-404b-8c7e-b69ee5fed1cc")
-    public ODependency(Dependency element) {
+    public  ODependency(Dependency element) {
         super(element);
         this.objingElement = element;
+        
     }
 
     @objid ("8094065c-4c49-406f-bae2-96cad2be47e1")
@@ -119,6 +120,7 @@ public class ODependency extends OModelElement {
             }else 
                 ecoreElt.destroy();
         }
+        
     }
 
     @objid ("2b625889-4ddd-4a7a-b84e-00f856024712")

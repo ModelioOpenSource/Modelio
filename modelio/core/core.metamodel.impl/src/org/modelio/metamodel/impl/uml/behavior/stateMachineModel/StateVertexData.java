@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.stateMachineModel;
 
 import java.util.List;
@@ -33,16 +33,16 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("0054f060-c4bf-1fd8-97fe-001ec947cd2a")
 public abstract class StateVertexData extends UmlModelElementData {
     @objid ("8d139667-d3e5-42f2-9b56-ca3e6a6d7a71")
-     List<SmObjectImpl> mOutGoing = null;
+    List<SmObjectImpl> mOutGoing = null;
 
     @objid ("65af7567-5a8f-4487-be69-3f4096334f4e")
-     List<SmObjectImpl> mIncoming = null;
+    List<SmObjectImpl> mIncoming = null;
 
     @objid ("959597ba-b7ab-44e3-a65c-22841f477eb3")
-     SmObjectImpl mParent;
+    SmObjectImpl mParent;
 
     @objid ("71c5b60c-656f-446a-8bee-ca487df34783")
-    public StateVertexData(StateVertexSmClass smClass) {
+    public  StateVertexData(StateVertexSmClass smClass) {
         super(smClass);
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,9 +40,10 @@ public class EExtensionPoint extends ENamedElement {
     }
 
     @objid ("8350fdb9-5b91-4bff-9545-2c999b37aaa9")
-    public EExtensionPoint(org.eclipse.uml2.uml.ExtensionPoint element) {
+    public  EExtensionPoint(org.eclipse.uml2.uml.ExtensionPoint element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("e2459a24-bbb4-4336-95ff-314b276d370a")
@@ -61,6 +61,7 @@ public class EExtensionPoint extends ENamedElement {
         if (objingOwner != null) {
             currentObjingElt.setOwner(objingOwner);
         }
+        
     }
 
     @objid ("3d7e1c9d-ec0f-477e-bf47-15ace26cb85d")
@@ -68,6 +69,7 @@ public class EExtensionPoint extends ENamedElement {
     public void setProperties(Element objingElt) {
         super.setProperties(objingElt);
         setVisibility((ExtensionPoint) objingElt);
+        
     }
 
     @objid ("f4f3805a-eca9-4882-876c-3427b77835c3")
@@ -92,6 +94,7 @@ public class EExtensionPoint extends ENamedElement {
         if (ObjingEAnnotation.isUndefined(this.ecoreElement))
             objingElt
             .setVisibility(VisibilityMode.VISIBILITYUNDEFINED);
+        
     }
 
 }

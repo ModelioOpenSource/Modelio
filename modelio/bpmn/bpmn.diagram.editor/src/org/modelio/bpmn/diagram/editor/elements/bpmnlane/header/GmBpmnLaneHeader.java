@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnlane.header;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -59,17 +58,16 @@ public class GmBpmnLaneHeader extends GmDefaultModelElementHeader {
      * C'tor without args for deserialization.
      */
     @objid ("6129c5e8-55b6-11e2-877f-002564c97630")
-    public GmBpmnLaneHeader() {
+    public  GmBpmnLaneHeader() {
         // Nothing to do.
     }
 
     /**
      * C'tor.
-     * 
      * @param diagram the owning diagram.
      */
     @objid ("6129c5eb-55b6-11e2-877f-002564c97630")
-    public GmBpmnLaneHeader(IGmDiagram diagram, MRef relatedRef) {
+    public  GmBpmnLaneHeader(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -90,6 +88,7 @@ public class GmBpmnLaneHeader extends GmDefaultModelElementHeader {
             break;
         }
         }
+        
     }
 
     @objid ("612b4c65-55b6-11e2-877f-002564c97630")
@@ -98,6 +97,7 @@ public class GmBpmnLaneHeader extends GmDefaultModelElementHeader {
         super.write(out);
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmBpmnLaneHeader.", GmBpmnLaneHeader.MINOR_VERSION);
+        
     }
 
     @objid ("612b4c6b-55b6-11e2-877f-002564c97630")
@@ -121,6 +121,7 @@ public class GmBpmnLaneHeader extends GmDefaultModelElementHeader {
         }
         
         super.refreshFromObModel();
+        
     }
 
     @objid ("612b4c6e-55b6-11e2-877f-002564c97630")
@@ -138,6 +139,7 @@ public class GmBpmnLaneHeader extends GmDefaultModelElementHeader {
         } else {
             return ElementImageService.getIcon(getRelatedElement());
         }
+        
     }
 
     @objid ("612b4c72-55b6-11e2-877f-002564c97630")
@@ -179,17 +181,16 @@ public class GmBpmnLaneHeader extends GmDefaultModelElementHeader {
          * Empty c'tor needed for deserialization.
          */
         @objid ("dda7d924-f57c-407a-a5fd-81ea639cd969")
-        public GmPartitionHeaderStyle() {
+        public  GmPartitionHeaderStyle() {
             super();
         }
 
         /**
          * C'tor.
-         * 
          * @param cascadedStyle the style this style should cascade on.
          */
         @objid ("70dc37a2-6215-4109-97ee-edc0be18a6da")
-        public GmPartitionHeaderStyle(IStyle cascadedStyle) {
+        public  GmPartitionHeaderStyle(IStyle cascadedStyle) {
             super(cascadedStyle);
         }
 

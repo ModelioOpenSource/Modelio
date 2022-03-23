@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnnodeheader;
 
 import java.util.Collections;
@@ -30,8 +29,8 @@ import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.metamodel.uml.infrastructure.TaggedValue;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -62,10 +61,11 @@ public class GmBpmnNodeHeader extends GmModelElementHeader {
     private List<Image> images;
 
     @objid ("617c2b95-55b6-11e2-877f-002564c97630")
-    public GmBpmnNodeHeader(IGmDiagram diagram, MRef relatedRef, boolean showIcone) {
+    public  GmBpmnNodeHeader(IGmDiagram diagram, MRef relatedRef, boolean showIcone) {
         super(diagram, relatedRef);
         this.setStackedStereotypes(true);
         this.setShowMetaclassIcon(showIcone);
+        
     }
 
     /**
@@ -79,6 +79,7 @@ public class GmBpmnNodeHeader extends GmModelElementHeader {
         }
         
         super.setParent(parent);
+        
     }
 
     @objid ("617c2ba5-55b6-11e2-877f-002564c97630")
@@ -146,7 +147,7 @@ public class GmBpmnNodeHeader extends GmModelElementHeader {
      * Empty c'tor for deserialisation.
      */
     @objid ("617db24b-55b6-11e2-877f-002564c97630")
-    public GmBpmnNodeHeader() {
+    public  GmBpmnNodeHeader() {
         // empty constructor for the serialization
     }
 
@@ -177,6 +178,7 @@ public class GmBpmnNodeHeader extends GmModelElementHeader {
             break;
         }
         }
+        
     }
 
     @objid ("617f38c3-55b6-11e2-877f-002564c97630")
@@ -186,6 +188,7 @@ public class GmBpmnNodeHeader extends GmModelElementHeader {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmBpmnNodeHeader.", MINOR_VERSION);
+        
     }
 
     @objid ("617f38c9-55b6-11e2-877f-002564c97630")

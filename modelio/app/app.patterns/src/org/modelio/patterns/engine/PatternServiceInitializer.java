@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.engine;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,7 +41,7 @@ class PatternServiceInitializer {
      * Default c'tor.
      */
     @objid ("608a9efe-0555-4976-b855-af1e14b29100")
-    public PatternServiceInitializer() {
+    public  PatternServiceInitializer() {
         // Nothing to do
     }
 

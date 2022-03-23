@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.labelum;
 
 import java.text.BreakIterator;
@@ -41,14 +40,13 @@ public class AnyCharBreakTextLayouter extends AbstractBreakTextLayouter {
      * Initialize the word breaking line layouter .
      */
     @objid ("252abd11-e95f-43b2-8f62-edaac97f2547")
-    public AnyCharBreakTextLayouter() {
+    public  AnyCharBreakTextLayouter() {
         super();
     }
 
     /**
      * Find a return the line break range.
      * The returned range will be replaced by a line return.
-     * 
      * @param text the text to search
      * @param beforeIndex the offset to start back from
      * @return the text range to replace by a line break

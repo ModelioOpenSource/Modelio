@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.ramc.core.packaging.filters;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 @objid ("48ee9754-1335-498a-8ade-ced52c73a031")
 class NaryAssociationEndFilter extends LinkTargetFilter {
     @objid ("ba31c406-b36c-4502-8d8b-81d6966af76b")
-    public NaryAssociationEndFilter(IObjectFilter targetFilter, MExpert expert) {
+    public  NaryAssociationEndFilter(IObjectFilter targetFilter, MExpert expert) {
         super(expert, targetFilter);
     }
 

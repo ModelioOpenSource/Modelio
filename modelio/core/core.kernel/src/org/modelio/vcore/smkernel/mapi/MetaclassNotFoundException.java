@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.mapi;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,7 +36,7 @@ public class MetaclassNotFoundException extends Exception {
      * @param className the missing metaclass
      */
     @objid ("8416b16d-2f0f-11e2-8f81-001ec947ccaf")
-    public MetaclassNotFoundException(String className) {
+    public  MetaclassNotFoundException(String className) {
         this.className = className;
     }
 

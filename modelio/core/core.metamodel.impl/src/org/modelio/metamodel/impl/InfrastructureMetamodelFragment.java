@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl;
 
 import java.util.ArrayList;
@@ -100,11 +99,13 @@ public final class InfrastructureMetamodelFragment extends AbstractMetamodelFrag
         
         
         return ret;
+        
     }
 
     @objid ("d56a063a-d4ff-494c-b3fb-ff78513a9e36")
-    public InfrastructureMetamodelFragment() {
+    public  InfrastructureMetamodelFragment() {
         	super("Infrastructure", new Version("2.1.03"), "Modeliosoft", "3.8.01");
+        
     }
 
     @objid ("ecf88662-ae92-4a12-b60b-808eb2b22ee0")
@@ -153,11 +154,11 @@ public final class InfrastructureMetamodelFragment extends AbstractMetamodelFrag
         	metaclasses.add(new TagParameterSmClass(this));
         
         	 return metaclasses;
+        
     }
 
     /**
      * Create all the model checker classes.
-     * 
      * @param metamodel the metamodel
      * @return the live model checkers.
      */
@@ -170,24 +171,26 @@ public final class InfrastructureMetamodelFragment extends AbstractMetamodelFrag
         
         
         return checkers;
+        
     }
 
     @objid ("3192ecfe-d843-4b6d-875f-45cd3ce22018")
     @Override
     public final boolean isExtension() {
         return false;
+        
     }
 
     /**
      * Get the model shield checkers factory.
      * @param metamodel the metamodel
-     * 
      * @return the model shield checkers factory.
      */
     @objid ("56fed41b-70b2-4c4e-9a93-6c6d351271ca")
     @Override
     public ICheckerFactory getModelShieldCheckers() {
         return new InfrastructureCheckerFactory();
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,7 @@ public class OPackage extends ONameSpace {
     }
 
     @objid ("4442262e-29ad-4963-b9aa-63f2506f7379")
-    public OPackage(org.modelio.metamodel.uml.statik.Package element) {
+    public  OPackage(org.modelio.metamodel.uml.statik.Package element) {
         super(element);
     }
 
@@ -66,6 +65,7 @@ public class OPackage extends ONameSpace {
                 }
             }
         }
+        
     }
 
     @objid ("fa0646a6-2478-4b46-94a4-be0e9eb36fe2")
@@ -79,6 +79,7 @@ public class OPackage extends ONameSpace {
             this.setRootEAnnotation((org.eclipse.uml2.uml.Package) ecoreElt);
             this.setInstantiableEAnnotation((org.eclipse.uml2.uml.Package) ecoreElt);
         }
+        
     }
 
     @objid ("54ce1f42-73ff-41c3-8a10-708626f22ae3")

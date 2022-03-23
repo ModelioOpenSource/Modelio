@@ -17,19 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.statik.ClassAssociationSmClass;
-import org.modelio.metamodel.impl.uml.statik.ClassData;
-import org.modelio.metamodel.impl.uml.statik.GeneralClassSmClass;
 import org.modelio.metamodel.uml.statik.Class;
 import org.modelio.metamodel.uml.statik.ClassAssociation;
 import org.modelio.metamodel.uml.statik.GeneralClass;
@@ -57,7 +54,7 @@ public class ClassSmClass extends GeneralClassSmClass {
     private SmDependency linkToAssociationDep;
 
     @objid ("becc93f5-69fb-43e6-8c8a-3542c7fa8da4")
-    public ClassSmClass(ISmMetamodelFragment origin) {
+    public  ClassSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -65,6 +62,7 @@ public class ClassSmClass extends GeneralClassSmClass {
     @Override
     public String getName() {
         return "Class";
+        
     }
 
     @objid ("1ef9bda8-91a9-42b3-9bc7-4b505cd47502")
@@ -77,18 +75,21 @@ public class ClassSmClass extends GeneralClassSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Class.class;
+        
     }
 
     @objid ("b42ba335-16cf-493c-8d17-15c0ab7ba133")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("f77322fc-48bd-4b60-a384-48d14c7567c0")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("74769d15-19a5-4325-99ba-0966cc7cd800")
@@ -112,6 +113,8 @@ public class ClassSmClass extends GeneralClassSmClass {
         this.linkToAssociationDep = new LinkToAssociationSmDependency();
         this.linkToAssociationDep.init("LinkToAssociation", this, metamodel.getMClass(ClassAssociation.MQNAME), 0, 1 , SmDirective.SMCDTODELETE);
         registerDependency(this.linkToAssociationDep);
+        
+        
     }
 
     @objid ("38b87dd8-9605-49aa-8ff4-a6df5bf17b92")
@@ -144,7 +147,7 @@ public class ClassSmClass extends GeneralClassSmClass {
         private ClassSmClass smClass;
 
         @objid ("9dc0bfe0-aadc-4fb2-9377-33d94d457ac9")
-        public ClassObjectFactory(ClassSmClass smClass) {
+        public  ClassObjectFactory(ClassSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -214,6 +217,7 @@ public class ClassSmClass extends GeneralClassSmClass {
             	this.symetricDep = ((ClassAssociationSmClass)this.getTarget()).getClassPartDep();
             }
             return this.symetricDep;
+            
         }
 
     }

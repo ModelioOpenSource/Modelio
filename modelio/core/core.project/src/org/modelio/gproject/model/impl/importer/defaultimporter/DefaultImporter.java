@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.model.impl.importer.defaultimporter;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import com.modeliosoft.modelio.javadesigner.annotations.mdl;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.gproject.model.impl.importer.core.AbstractImporter;
@@ -50,131 +49,139 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
  */
 @objid ("006b567a-d3aa-108f-8d81-001ec947cd2a")
 public class DefaultImporter extends AbstractImporter {
+    
     @mdl.prop
     @objid ("006c15e2-d3aa-108f-8d81-001ec947cd2a")
     private IAttributesImporter attributesImporter;
 
     @mdl.propgetter
     protected IAttributesImporter getAttributesImporter() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.attributesImporter;
     }
 
     @mdl.propsetter
     protected void setAttributesImporter(IAttributesImporter value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.attributesImporter = value;
     }
 
+    
     @mdl.prop
     @objid ("006bf4c2-d3aa-108f-8d81-001ec947cd2a")
     private IBrokenDependencyHandler brokenDependencyHandler;
 
     @mdl.propgetter
     protected IBrokenDependencyHandler getBrokenDependencyHandler() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.brokenDependencyHandler;
     }
 
     @mdl.propsetter
     protected void setBrokenDependencyHandler(IBrokenDependencyHandler value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.brokenDependencyHandler = value;
     }
 
+    
     @mdl.prop
     @objid ("006c7d34-d3aa-108f-8d81-001ec947cd2a")
     private IDependencyUpdater compositionDepUpdater;
 
     @mdl.propgetter
     protected IDependencyUpdater getCompositionDepUpdater() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.compositionDepUpdater;
     }
 
     @mdl.propsetter
     protected void setCompositionDepUpdater(IDependencyUpdater value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.compositionDepUpdater = value;
     }
 
+    
     @mdl.prop
     @objid ("006bfd50-d3aa-108f-8d81-001ec947cd2a")
     private ICompositionGetter compositionGetter;
 
     @mdl.propgetter
     protected ICompositionGetter getCompositionGetter() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.compositionGetter;
     }
 
     @mdl.propsetter
     protected void setCompositionGetter(ICompositionGetter value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.compositionGetter = value;
     }
 
+    
     @mdl.prop
     @objid ("006c0548-d3aa-108f-8d81-001ec947cd2a")
     private IDependencyGetter dependencyGetter;
 
     @mdl.propgetter
     protected IDependencyGetter getDependencyGetter() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.dependencyGetter;
     }
 
     @mdl.propsetter
     protected void setDependencyGetter(IDependencyGetter value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.dependencyGetter = value;
     }
 
+    
     @mdl.prop
     @objid ("006c912a-d3aa-108f-8d81-001ec947cd2a")
     private IImportFilter importFilter;
 
     @mdl.propgetter
     protected IImportFilter getImportFilter() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.importFilter;
     }
 
     @mdl.propsetter
     protected void setImportFilter(IImportFilter value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.importFilter = value;
     }
 
+    
     @mdl.prop
     @objid ("006c0d68-d3aa-108f-8d81-001ec947cd2a")
     private IObjectFinder objectFinder;
 
     @mdl.propgetter
     protected IObjectFinder getObjectFinder() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.objectFinder;
     }
 
     @mdl.propsetter
     protected void setObjectFinder(IObjectFinder value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.objectFinder = value;
     }
 
+    
     @mdl.prop
     @objid ("006c8766-d3aa-108f-8d81-001ec947cd2a")
     private IDependencyUpdater referenceDepUpdater;
 
     @mdl.propgetter
     protected IDependencyUpdater getReferenceDepUpdater() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.referenceDepUpdater;
     }
 
     @mdl.propsetter
     protected void setReferenceDepUpdater(IDependencyUpdater value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.referenceDepUpdater = value;
     }
 
@@ -183,6 +190,7 @@ public class DefaultImporter extends AbstractImporter {
     protected void fixElement(SmObjectImpl localObject, SmObjectImpl refObject, ICoreSession localSession, ICoreSession refSession) {
         // Copy related blobs
         localSession.getBlobSupport().fireObjectCopied(refObject, localObject);
+        
     }
 
     @objid ("006df060-d3aa-108f-8d81-001ec947cd2a")
@@ -194,6 +202,7 @@ public class DefaultImporter extends AbstractImporter {
                 this.result.addObjectToGarbage(orphan);
             }
         }
+        
     }
 
     @objid ("0003ef8a-5247-1091-8d81-001ec947cd2a")
@@ -237,6 +246,7 @@ public class DefaultImporter extends AbstractImporter {
                 this.result.addUpdatedObject(localObject, refToImport);
             }
         }
+        
     }
 
     @objid ("00045e3e-5247-1091-8d81-001ec947cd2a")
@@ -248,6 +258,7 @@ public class DefaultImporter extends AbstractImporter {
                 this.result.addObjectToGarbage(orphan);
             }
         }
+        
     }
 
     @objid ("006cc262-d3aa-108f-8d81-001ec947cd2a")
@@ -283,6 +294,7 @@ public class DefaultImporter extends AbstractImporter {
         if (this.attributesImporter == null) {
             this.attributesImporter = new DefaultAttributesImporter(this.objectFinder);
         }
+        
     }
 
     @objid ("0003a58e-5247-1091-8d81-001ec947cd2a")
@@ -299,12 +311,13 @@ public class DefaultImporter extends AbstractImporter {
                 this.result.addObjectToDelete(stillOrphan);
             }
         }
+        
     }
 
     @objid ("0086434a-e548-108f-8d81-001ec947cd2a")
     private static final class AddToRootProcessor {
         @objid ("00865c9a-e548-108f-8d81-001ec947cd2a")
-        protected AddToRootProcessor() {
+        protected  AddToRootProcessor() {
             // Nothing to do
         }
 
@@ -340,9 +353,10 @@ public class DefaultImporter extends AbstractImporter {
             private MExpert mExpert;
 
             @objid ("008700be-e548-108f-8d81-001ec947cd2a")
-            protected ImportCompositionInitializer(final SmObjectImpl aParent) {
+            protected  ImportCompositionInitializer(final SmObjectImpl aParent) {
                 this.parent = aParent;
                 this.mExpert = this.parent.getMClass().getMetamodel().getMExpert();
+                
             }
 
             @objid ("da522b09-f2a5-422a-a760-6cb9f071afc0")

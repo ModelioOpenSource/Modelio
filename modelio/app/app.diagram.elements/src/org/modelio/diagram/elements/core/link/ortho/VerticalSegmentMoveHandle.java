@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.ortho;
 
 import java.beans.PropertyChangeEvent;
@@ -41,11 +40,12 @@ public class VerticalSegmentMoveHandle extends ConnectionHandle {
     @objid ("80421f77-1dec-11e2-8cad-001ec947c8cc")
     @Override
     protected DragTracker createDragTracker() {
-        ConnectionSegmentTracker connectionSegmentTracker = new ConnectionSegmentTracker((ConnectionEditPart) getOwner(),
-                                                                                         getIndex(),
-                                                                                         Orientation.VERTICAL);
-        connectionSegmentTracker.setDefaultCursor(getCursor());
-        return connectionSegmentTracker;
+        ConnectionSegmentTracker tracker = new ConnectionSegmentTracker((ConnectionEditPart) getOwner(),
+                getIndex(),
+                Orientation.VERTICAL);
+        tracker.setDefaultCursor(getCursor());
+        tracker.setDisabledCursor(Cursors.NO);
+        return tracker;
     }
 
     @objid ("80421f7e-1dec-11e2-8cad-001ec947c8cc")
@@ -55,7 +55,6 @@ public class VerticalSegmentMoveHandle extends ConnectionHandle {
 
     /**
      * Revalidates this handle when the connection's points change.
-     * 
      * @param event the event that caused the points change
      */
     @objid ("80421f82-1dec-11e2-8cad-001ec947c8cc")
@@ -69,6 +68,7 @@ public class VerticalSegmentMoveHandle extends ConnectionHandle {
         this.index = index;
         setLocator(new SegmentLocator(getConnection(), index));
         ((ConnectionSegmentTracker) getDragTracker()).setIndex(index);
+        
     }
 
     /**
@@ -76,22 +76,24 @@ public class VerticalSegmentMoveHandle extends ConnectionHandle {
      * @param index the index.
      */
     @objid ("80421f8c-1dec-11e2-8cad-001ec947c8cc")
-    public VerticalSegmentMoveHandle(final ConnectionEditPart owner, final int index) {
+    public  VerticalSegmentMoveHandle(final ConnectionEditPart owner, final int index) {
         super();
         setOwner(owner);
         setIndex(index);
+        
     }
 
     @objid ("80421f95-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public void validate() {
-        if (getIndex() < 0 || getIndex() >= getConnection().getPoints().size() - 1)
+        if (getIndex() < 0 || getIndex() >= getConnection().getPoints().size() - 1) {
             return;
+        }
         super.validate();
+        
     }
-
-
 {
-        setCursor(Cursors.SIZEWE);
-    }
+            setCursor(Cursors.SIZEWE);
+        }
+    
 }

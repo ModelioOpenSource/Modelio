@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -28,7 +27,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 @objid ("008a4350-dbe7-1f1f-85a5-001ec947cd2a")
 public abstract class SmObjectData implements ISmObjectData {
     @objid ("00275434-117d-1f35-b94f-001ec947cd2a")
-     volatile long status;
+    volatile long status;
 
     @objid ("0022240a-fd1a-1f27-a7da-001ec947cd2a")
     private static final long serialVersionUID = 4272487596063422376L;
@@ -56,7 +55,6 @@ public abstract class SmObjectData implements ISmObjectData {
 
     /**
      * To be called before using the object.
-     * 
      * @param uuid the identifier
      * @param liveId identifier for the object in memory.
      */
@@ -66,6 +64,7 @@ public abstract class SmObjectData implements ISmObjectData {
     public final void init(final String uuid, final long liveId) {
         this.liveId = liveId;
         this.uuid = uuid;
+        
     }
 
     @objid ("0030c6d6-702c-1f21-85a5-001ec947cd2a")
@@ -110,6 +109,7 @@ public abstract class SmObjectData implements ISmObjectData {
         assert (!(repositoryObject instanceof DummyRepositoryObject));
         
         this.repositoryObject = repositoryObject;
+        
     }
 
     @objid ("00249ea6-fd1a-1f27-a7da-001ec947cd2a")
@@ -144,11 +144,11 @@ public abstract class SmObjectData implements ISmObjectData {
         }
         
         this.status = SmStatus.setFlags(this.status, flags, state);
+        
     }
 
     /**
      * Set the given persistent flags state.
-     * 
      * @param flags a combination of flags. Use the constants defined in {@link IRStatus}.
      * @param state the flags state
      */
@@ -167,6 +167,7 @@ public abstract class SmObjectData implements ISmObjectData {
         
         
         this.status = SmStatus.setFlags(this.status, flags, state);
+        
     }
 
     @objid ("d093ac00-8056-477e-8fe4-1ce4b6b46d9c")
@@ -189,6 +190,7 @@ public abstract class SmObjectData implements ISmObjectData {
         //System.err.println("Set "+this.getUuid()+" "+this.getClassOf().getName()+" status from {"+SmStatus.toString(this.status)+ "} to {"+SmStatus.toString(newStatus)+"}");
         
         this.status = newStatus;
+        
     }
 
     @objid ("3cd4ebe6-cea5-4c52-aa19-571f869b9ff3")
@@ -206,6 +208,7 @@ public abstract class SmObjectData implements ISmObjectData {
         
         
         this.status = SmStatus.setFlags(this.status, trueFlags, falseFlags, undefFlags);
+        
     }
 
     @objid ("0623aa1b-a60d-4292-acb6-9b166adfd2cb")
@@ -222,11 +225,10 @@ public abstract class SmObjectData implements ISmObjectData {
 
     /**
      * Mandatory constructor
-     * 
      * @param classof the object metaclass
      */
     @objid ("a9cc60f6-dbc2-43c6-94ab-069a4d0a3af4")
-    public SmObjectData(SmObjectSmClass classof) {
+    public  SmObjectData(SmObjectSmClass classof) {
         this.classof = classof;
     }
 

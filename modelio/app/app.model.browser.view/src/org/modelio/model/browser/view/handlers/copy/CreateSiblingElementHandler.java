@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.browser.view.handlers.copy;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
@@ -60,7 +59,6 @@ public class CreateSiblingElementHandler {
 
     /**
      * Available only when the selection contains only one modifiable element.
-     * 
      * @param selection the current modelio selection.
      * @return true if the handler can be executed.
      */
@@ -142,7 +140,6 @@ public class CreateSiblingElementHandler {
 
     /**
      * Cut the currently selected elements.
-     * 
      * @param selection the current modelio selection.
      * @param currentDisplay the display Modelio runs into.
      */
@@ -170,6 +167,7 @@ public class CreateSiblingElementHandler {
             // is not a RuntimeException.
             reportException(e);
         }
+        
     }
 
     @objid ("9351e962-c590-4a8e-bb55-213dd169d117")
@@ -180,11 +178,11 @@ public class CreateSiblingElementHandler {
         MessageDialog.openError(null, title, e.getLocalizedMessage());
         
         BrowserViewActivator.LOG.error(e);
+        
     }
 
     /**
      * Tells whether 'child' can be owned by 'parent'.
-     * 
      * @param owner The future parent element
      * @param composed a child element
      * @return true only if parent can contain the child.

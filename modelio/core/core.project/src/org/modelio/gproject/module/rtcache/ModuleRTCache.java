@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.module.rtcache;
 
 import java.io.IOException;
@@ -45,15 +44,15 @@ public class ModuleRTCache implements IModuleRTCache {
 
     /**
      * C'tor the module catalog cache.
-     * 
      * @param catalog the cached catalog
      * @param metamodelFragments the metamodel fragments to use
      * @param cachePath the cache path
      */
     @objid ("08d572ed-641d-4243-81b5-6ea4bd7fc40a")
-    public ModuleRTCache(IModuleStore catalog, Collection<IGMetamodelExtension> metamodelFragments, Path cachePath) {
+    public  ModuleRTCache(IModuleStore catalog, Collection<IGMetamodelExtension> metamodelFragments, Path cachePath) {
         this.catalog = catalog;
         this.cache = new FileModuleAdditionStore(metamodelFragments, cachePath);
+        
     }
 
     @objid ("5f6ac1b3-e763-4e70-81a4-e06123f2e5a3")

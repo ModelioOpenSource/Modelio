@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.templatecontainer;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -57,6 +56,7 @@ public class TemplateContainerEditPart extends PortContainerEditPart {
             installEditPolicy("satellite selection", new SatelliteChildrenSelectionPolicy());
             // }
         }
+        
     }
 
     @objid ("36e3d2c5-55b7-11e2-877f-002564c97630")
@@ -67,6 +67,7 @@ public class TemplateContainerEditPart extends PortContainerEditPart {
         if ("body content as satellite".equals(childModel.getRoleInComposition())) {
             ((AbstractNodeEditPart) childEditPart).setDragTrackerProvider(new ContentAsSatelliteDragTrackerProvider(childEditPart));
         }
+        
     }
 
 }

@@ -17,14 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta;
 
 import java.util.Optional;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MMetamodelFragment;
-import org.modelio.vcore.smkernel.meta.SmClass;
 import org.modelio.vcore.smkernel.meta.descriptor.MAttributeDescriptor;
 import org.modelio.vcore.smkernel.meta.descriptor.MClassDescriptor;
 import org.modelio.vcore.smkernel.meta.descriptor.MDependencyDescriptor;
@@ -52,7 +50,7 @@ public class SmMetamodelMerger extends AbstractMetamodelMerger {
      * @param metamodel the metamodel to modify
      */
     @objid ("7bc77959-08aa-499b-9706-b69fe6309294")
-    public SmMetamodelMerger(SmMetamodel metamodel) {
+    public  SmMetamodelMerger(SmMetamodel metamodel) {
         this.metamodel = metamodel;
     }
 
@@ -60,7 +58,6 @@ public class SmMetamodelMerger extends AbstractMetamodelMerger {
      * merge a {@link MetamodelDescriptor} into a {@link SmMetamodelMerger}.
      * <p>
      * Missing metamodel fragments, metaclasses and attributes are created.
-     * 
      * @param desc the descriptor to merge
      * @param target the metamodel to modify
      */
@@ -77,6 +74,7 @@ public class SmMetamodelMerger extends AbstractMetamodelMerger {
             FakeSmAttribute mofAtt = new FakeSmAttribute(mofSmClass, ad.getName());
             mofSmClass.registerAttribute(mofAtt);
         }
+        
     }
 
     @objid ("02be9b7e-c075-4d9c-a6d6-940ed5e94dbd")
@@ -86,6 +84,7 @@ public class SmMetamodelMerger extends AbstractMetamodelMerger {
             FakeSmClass fakeMClass = (FakeSmClass)m;
             fakeMClass.addDependency(new FakeSmDependency(fakeMClass,dd));
         }
+        
     }
 
     @objid ("20f65ef8-cc06-4813-85ea-e201008c99fd")
@@ -116,6 +115,7 @@ public class SmMetamodelMerger extends AbstractMetamodelMerger {
         FakeSmClass fakeSmClass = (FakeSmClass) metaclass;
         
         fakeSmClass.setParent((SmClass) parentMetaclass);
+        
     }
 
     @objid ("b3efe472-89fe-400e-8e55-bb356c50e449")
@@ -148,6 +148,7 @@ public class SmMetamodelMerger extends AbstractMetamodelMerger {
                 .ifPresent(oppDep -> fakeDep.setSymetric(oppDep));
             }
         }
+        
     }
 
     @objid ("60ea3046-226d-455e-a6c9-45a2c2241330")
@@ -157,6 +158,7 @@ public class SmMetamodelMerger extends AbstractMetamodelMerger {
             FakeSmClass mofSmClass = (FakeSmClass) m;
             mofSmClass.postInit();
         }
+        
     }
 
 }

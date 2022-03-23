@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.string.multi;
 
 import java.util.List;
@@ -44,6 +43,7 @@ public class MultiStringEditor extends AbstractCellEditor {
     public void close() {
         super.close();
         this.cdt = null;
+        
     }
 
     @objid ("b5e5a9fe-3624-460e-8cb2-79807188dfb0")

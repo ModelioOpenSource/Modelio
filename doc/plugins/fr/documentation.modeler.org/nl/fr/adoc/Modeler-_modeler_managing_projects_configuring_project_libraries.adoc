@@ -1,12 +1,14 @@
 // Disable all captions for figures.
 :!figure-caption:
+// Path to the stylesheet files
+:stylesdir: .
 
 [[Configurer-les-bibliothèques-du-projet]]
 
 [[configurer-les-bibliothèques-du-projet]]
 = Configurer les bibliothèques du projet
 
-Une *bibliothèque de modèle* ou encore *librairie de modèle* dans un projet Modelio est un ensemble d'éléments de modèle non-modifiables nécessaires au développement de votre projet, packagés dans un seul et unique artéfact.
+Une *bibliothèque de modèle* dans un projet Modelio est un ensemble d'éléments de modèle non-modifiables nécessaires au développement de votre projet, packagés dans un seul et unique artéfact.
 
 Un exemple très basique pour les projets Java est le JDK. Afin de modéliser correctement une application Java, plusieurs classes du JDK sont utilisées, soit pour l'extension par l'héritage, soit comme composants des compositions et associations de votre modèle. Ces classes du JDK sont emmenées dans votre projet par une *bibliothèque de modèle*. Votre but n'est évidemment pas d'éditer ou de modifier le modèle du JDK, et pour cette raison, les modèles fournis par les bibliothèques sont en *lecture seule*.
 

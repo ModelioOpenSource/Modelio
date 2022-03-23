@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.labelprovider;
 
 import java.net.URL;
@@ -43,10 +42,11 @@ public class LinkContainer extends AbstractContainer<MObject> {
      * C'tor.
      */
     @objid ("baaed270-4d47-4b76-9231-77b3d6bbc0b0")
-    public LinkContainer(MObject element, List<MObject> archives) {
+    public  LinkContainer(MObject element, List<MObject> archives) {
         super(element, archives);
         
         setIcon(LinkContainer.LINK_CONTAINER);
+        
     }
 
     @objid ("05374c68-5685-4254-abb4-aeef05127e96")

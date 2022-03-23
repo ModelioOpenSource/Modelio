@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.gui.creation.model;
 
 import java.security.InvalidParameterException;
@@ -48,6 +47,7 @@ class ModelPanelController {
             throw new InvalidParameterException("Listener already registered");
         }
         this.listeners.add(l);
+        
     }
 
     @objid ("23228778-3b2e-4c38-94e0-95e2d435646c")
@@ -62,6 +62,7 @@ class ModelPanelController {
     public void dispose() {
         this.ui.dispose();
         this.ui = null;
+        
     }
 
     @objid ("db671ba3-d1ff-4630-ae9a-b8c52bca1804")
@@ -86,6 +87,7 @@ class ModelPanelController {
             this.ui.update(this.data);
         }
         fireListeners(this.data, isValidate);
+        
     }
 
     @objid ("7a712fd2-add2-4516-bde4-21c0af9c1943")
@@ -97,6 +99,7 @@ class ModelPanelController {
         
         this.data.setDocumentType(value);
         fireListeners(this.data, true);
+        
     }
 
     @objid ("0bfb16d1-119e-43d0-a610-177f0dc69850")
@@ -111,6 +114,7 @@ class ModelPanelController {
             this.ui.update(this.data);
         }
         fireListeners(this.data, isValidate);
+        
     }
 
     @objid ("59c1eb85-4d96-43db-ba04-8e0350d1b8e0")
@@ -124,6 +128,7 @@ class ModelPanelController {
         if (this.ui != null) {
             this.ui.update(this.data);
         }
+        
     }
 
     @objid ("f5f08bf0-35cf-47f1-bbf9-8b4d37ef57f6")

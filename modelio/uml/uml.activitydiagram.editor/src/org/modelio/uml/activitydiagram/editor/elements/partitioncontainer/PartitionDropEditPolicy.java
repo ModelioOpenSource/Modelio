@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.partitioncontainer;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -59,7 +58,6 @@ public class PartitionDropEditPolicy extends GraphicalEditPolicy {
      * </p>
      * 
      * *
-     * 
      * @param request the drop request
      * @return the host if all dropped elements are sub partitions, <code>null</code> otherwise.
      */
@@ -189,6 +187,7 @@ public class PartitionDropEditPolicy extends GraphicalEditPolicy {
             }
         }
         super.showTargetFeedback(request);
+        
     }
 
     @objid ("2b37590c-55b6-11e2-877f-002564c97630")
@@ -202,6 +201,7 @@ public class PartitionDropEditPolicy extends GraphicalEditPolicy {
         }
         
         super.eraseTargetFeedback(request);
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class OUsage extends ODependency {
     }
 
     @objid ("c2c84faf-731e-4b48-bc97-c0ce55f99572")
-    public OUsage(Usage element) {
+    public  OUsage(Usage element) {
         super(element);
     }
 

@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.flows;
 
 import java.util.ArrayList;
@@ -41,8 +41,6 @@ import org.modelio.metamodel.impl.bpmn.activities.BpmnReceiveTaskSmClass;
 import org.modelio.metamodel.impl.bpmn.activities.BpmnSendTaskSmClass;
 import org.modelio.metamodel.impl.bpmn.bpmnService.BpmnOperationSmClass;
 import org.modelio.metamodel.impl.bpmn.events.BpmnMessageEventDefinitionSmClass;
-import org.modelio.metamodel.impl.bpmn.flows.BpmnMessageData;
-import org.modelio.metamodel.impl.bpmn.flows.BpmnMessageFlowSmClass;
 import org.modelio.metamodel.impl.bpmn.objects.BpmnItemDefinitionSmClass;
 import org.modelio.metamodel.impl.bpmn.processCollaboration.BpmnCollaborationSmClass;
 import org.modelio.metamodel.impl.bpmn.rootElements.BpmnSharedElementSmClass;
@@ -85,7 +83,7 @@ public class BpmnMessageSmClass extends BpmnSharedElementSmClass {
     private SmDependency collaborationDep;
 
     @objid ("50449c90-b8e4-4555-bbe5-70214e22068c")
-    public BpmnMessageSmClass(ISmMetamodelFragment origin) {
+    public  BpmnMessageSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -93,6 +91,7 @@ public class BpmnMessageSmClass extends BpmnSharedElementSmClass {
     @Override
     public String getName() {
         return "BpmnMessage";
+        
     }
 
     @objid ("bcdc8674-d00d-48a9-94a1-e24767827745")
@@ -105,18 +104,21 @@ public class BpmnMessageSmClass extends BpmnSharedElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnMessage.class;
+        
     }
 
     @objid ("bebe285d-e608-4f3a-a8db-105aef03ff63")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("0fb34fc1-4a2c-45ad-aee4-0b242f1b6db1")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("32d2cf2f-b50e-4770-a534-545b4b018455")
@@ -160,6 +162,8 @@ public class BpmnMessageSmClass extends BpmnSharedElementSmClass {
         this.collaborationDep = new CollaborationSmDependency();
         this.collaborationDep.init("Collaboration", this, metamodel.getMClass(BpmnCollaboration.MQNAME), 0, 1 );
         registerDependency(this.collaborationDep);
+        
+        
     }
 
     @objid ("495c2f16-00d1-4ab7-ac32-48ae5f8f5bb8")
@@ -232,7 +236,7 @@ public class BpmnMessageSmClass extends BpmnSharedElementSmClass {
         private BpmnMessageSmClass smClass;
 
         @objid ("6cfe4282-af6e-4725-96a1-f6d749742541")
-        public BpmnMessageObjectFactory(BpmnMessageSmClass smClass) {
+        public  BpmnMessageObjectFactory(BpmnMessageSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -265,6 +269,7 @@ public class BpmnMessageSmClass extends BpmnSharedElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnMessageData) data).mOutputMessage = values;
+            
         }
 
         @objid ("fd77b43e-09a4-4791-a892-08e4396575c4")
@@ -274,6 +279,7 @@ public class BpmnMessageSmClass extends BpmnSharedElementSmClass {
             	this.symetricDep = ((BpmnOperationSmClass)this.getTarget()).getOutMessageRefDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -302,6 +308,7 @@ public class BpmnMessageSmClass extends BpmnSharedElementSmClass {
             	this.symetricDep = ((BpmnItemDefinitionSmClass)this.getTarget()).getTypedMessageDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -321,6 +328,7 @@ public class BpmnMessageSmClass extends BpmnSharedElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnMessageData) data).mEventDefinition = values;
+            
         }
 
         @objid ("8fbb215f-162b-4661-9dea-c7019eb5db9e")
@@ -330,6 +338,7 @@ public class BpmnMessageSmClass extends BpmnSharedElementSmClass {
             	this.symetricDep = ((BpmnMessageEventDefinitionSmClass)this.getTarget()).getMessageRefDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -349,6 +358,7 @@ public class BpmnMessageSmClass extends BpmnSharedElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnMessageData) data).mSender = values;
+            
         }
 
         @objid ("4fc78977-0812-41f6-9948-3bbea1b29626")
@@ -358,6 +368,7 @@ public class BpmnMessageSmClass extends BpmnSharedElementSmClass {
             	this.symetricDep = ((BpmnSendTaskSmClass)this.getTarget()).getMessageRefDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -377,6 +388,7 @@ public class BpmnMessageSmClass extends BpmnSharedElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnMessageData) data).mInputMessage = values;
+            
         }
 
         @objid ("5bcac326-5074-4e1a-82ba-b42e9bc304c2")
@@ -386,6 +398,7 @@ public class BpmnMessageSmClass extends BpmnSharedElementSmClass {
             	this.symetricDep = ((BpmnOperationSmClass)this.getTarget()).getInMessageRefDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -405,6 +418,7 @@ public class BpmnMessageSmClass extends BpmnSharedElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnMessageData) data).mReceiver = values;
+            
         }
 
         @objid ("4eb3558b-c8b3-4119-9f83-441e44a067b6")
@@ -414,6 +428,7 @@ public class BpmnMessageSmClass extends BpmnSharedElementSmClass {
             	this.symetricDep = ((BpmnReceiveTaskSmClass)this.getTarget()).getMessageRefDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -433,6 +448,7 @@ public class BpmnMessageSmClass extends BpmnSharedElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnMessageData) data).mMessageFlow = values;
+            
         }
 
         @objid ("74dcaaa4-004c-4df2-86ca-d5c90e15bc47")
@@ -442,6 +458,7 @@ public class BpmnMessageSmClass extends BpmnSharedElementSmClass {
             	this.symetricDep = ((BpmnMessageFlowSmClass)this.getTarget()).getMessageRefDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -470,6 +487,7 @@ public class BpmnMessageSmClass extends BpmnSharedElementSmClass {
             	this.symetricDep = ((BpmnCollaborationSmClass)this.getTarget()).getMessagesDep();
             }
             return this.symetricDep;
+            
         }
 
     }

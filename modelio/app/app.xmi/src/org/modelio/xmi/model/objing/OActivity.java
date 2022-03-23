@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,11 +43,10 @@ public class OActivity extends OModelElement {
     /**
      * Contructor of the OActivity.
      * It takes the exported Modelio  org.eclipse.uml2.uml.Activity as parameter
-     * 
      * @param element : the exported Modelio  org.eclipse.uml2.uml.Activity
      */
     @objid ("8f3595a6-644b-4b59-932c-1abdae6386d4")
-    public OActivity(final Activity element) {
+    public  OActivity(final Activity element) {
         super(element);
     }
 
@@ -63,6 +61,7 @@ public class OActivity extends OModelElement {
             else if (ecoreOwner instanceof  org.eclipse.uml2.uml.Operation)
                 attachToOperation(ecoreElt,  (org.eclipse.uml2.uml.Operation) ecoreOwner);
         }
+        
     }
 
     @objid ("a48744af-5412-41a7-9d3b-758e1bdbca52")
@@ -72,6 +71,7 @@ public class OActivity extends OModelElement {
         setReadOnly((org.eclipse.uml2.uml.Activity) ecoreElt);
         setSingleExecution((org.eclipse.uml2.uml.Activity) ecoreElt);
         setReentrant((org.eclipse.uml2.uml.Activity) ecoreElt);
+        
     }
 
     @objid ("3c6d8d6f-a40c-443b-9f61-846494db1c58")
@@ -102,6 +102,7 @@ public class OActivity extends OModelElement {
         }else{
             ObjingEAnnotation.deleteOwner(ecoreElt);
         }
+        
     }
 
     @objid ("a2fb1a8f-42c8-4702-bcb3-1a68aeda9228")
@@ -122,6 +123,7 @@ public class OActivity extends OModelElement {
             throw new NotFoundException("Owner Class ("
                     + ecoreOpOwner.getClass().getSimpleName() + ") Not Found");
         }
+        
     }
 
     @objid ("cc473345-326c-44db-9ec7-ad96d559a915")

@@ -17,18 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityActionSmClass;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.SendSignalActionData;
 import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.SignalSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityAction;
 import org.modelio.metamodel.uml.behavior.activityModel.SendSignalAction;
@@ -50,7 +48,7 @@ public class SendSignalActionSmClass extends ActivityActionSmClass {
     private SmDependency sentDep;
 
     @objid ("2c7a5219-b44f-4833-8f54-20dd8ac54ec3")
-    public SendSignalActionSmClass(ISmMetamodelFragment origin) {
+    public  SendSignalActionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -58,6 +56,7 @@ public class SendSignalActionSmClass extends ActivityActionSmClass {
     @Override
     public String getName() {
         return "SendSignalAction";
+        
     }
 
     @objid ("4dac1f97-b260-40c8-bb43-2113ddc99ce9")
@@ -70,18 +69,21 @@ public class SendSignalActionSmClass extends ActivityActionSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return SendSignalAction.class;
+        
     }
 
     @objid ("502dae2b-267b-4831-9fb9-0ecbcfc74342")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("2bd7bff9-e69d-40e2-b1e7-88c043ef7386")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("3531f37b-9e92-4f40-b76d-171b0eaa780d")
@@ -97,6 +99,8 @@ public class SendSignalActionSmClass extends ActivityActionSmClass {
         this.sentDep = new SentSmDependency();
         this.sentDep.init("Sent", this, metamodel.getMClass(Signal.MQNAME), 0, 1 , SmDirective.SMCDPARTOF);
         registerDependency(this.sentDep);
+        
+        
     }
 
     @objid ("ff1ccfb1-0255-479d-83a4-fe3335f7f1c4")
@@ -113,7 +117,7 @@ public class SendSignalActionSmClass extends ActivityActionSmClass {
         private SendSignalActionSmClass smClass;
 
         @objid ("bc2925bd-1bdb-4454-ac4e-c6ae736f6996")
-        public SendSignalActionObjectFactory(SendSignalActionSmClass smClass) {
+        public  SendSignalActionObjectFactory(SendSignalActionSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -155,6 +159,7 @@ public class SendSignalActionSmClass extends ActivityActionSmClass {
             	this.symetricDep = ((SignalSmClass)this.getTarget()).getSenderDep();
             }
             return this.symetricDep;
+            
         }
 
     }

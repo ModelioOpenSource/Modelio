@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.naryconnector;
 
 import java.util.List;
@@ -54,25 +53,24 @@ public class GmNConnectorEndLink extends GmNLinkEndLink {
     private static final int MAJOR_VERSION = 0;
 
     @objid ("6126b6e8-5bd5-11e2-9e33-00137282c51b")
-     static final NConnectorStructuredStyleKeys STRUCTURED_KEYS = new NConnectorStructuredStyleKeys();
+    static final NConnectorStructuredStyleKeys STRUCTURED_KEYS = new NConnectorStructuredStyleKeys();
 
     /**
      * Constructor for deserialization only.
      */
     @objid ("35d5be2c-55b7-11e2-877f-002564c97630")
-    public GmNConnectorEndLink() {
+    public  GmNConnectorEndLink() {
         // Nothing to do.
     }
 
     /**
      * Creates a GmConnectorEndLink.
-     * 
      * @param diagram The diagram
      * @param role The represented Connector role, may be <code>null</code>
      * @param roleRef The represented Connector role reference, must not be <code>null</code>
      */
     @objid ("35d5be2f-55b7-11e2-877f-002564c97630")
-    public GmNConnectorEndLink(IGmDiagram diagram, NaryConnectorEnd role, MRef roleRef) {
+    public  GmNConnectorEndLink(IGmDiagram diagram, NaryConnectorEnd role, MRef roleRef) {
         super(diagram, role, roleRef);
     }
 
@@ -104,6 +102,7 @@ public class GmNConnectorEndLink extends GmNLinkEndLink {
                 break;
             }
         }
+        
     }
 
     @objid ("35d744a9-55b7-11e2-877f-002564c97630")
@@ -113,6 +112,7 @@ public class GmNConnectorEndLink extends GmNLinkEndLink {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmNConnectorEndLink.", GmNConnectorEndLink.MINOR_VERSION);
+        
     }
 
     @objid ("35d744af-55b7-11e2-877f-002564c97630")

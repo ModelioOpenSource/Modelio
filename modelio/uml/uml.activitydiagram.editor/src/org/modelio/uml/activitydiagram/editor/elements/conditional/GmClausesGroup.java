@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.conditional;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -27,8 +26,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.Clause;
 import org.modelio.metamodel.uml.behavior.activityModel.ConditionalNode;
 import org.modelio.uml.activitydiagram.editor.elements.clause.GmClause;
@@ -53,12 +52,11 @@ public class GmClausesGroup extends GmResizableGroup {
 
     /**
      * Initialize a group.
-     * 
      * @param diagram The diagram.
      * @param relatedRef a reference to the represented conditional node.
      */
     @objid ("2a108c67-55b6-11e2-877f-002564c97630")
-    public GmClausesGroup(IGmDiagram diagram, MRef relatedRef) {
+    public  GmClausesGroup(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -66,7 +64,7 @@ public class GmClausesGroup extends GmResizableGroup {
      * For deserialization only.
      */
     @objid ("2a108c70-55b6-11e2-877f-002564c97630")
-    public GmClausesGroup() {
+    public  GmClausesGroup() {
         // nothing
     }
 
@@ -90,6 +88,7 @@ public class GmClausesGroup extends GmResizableGroup {
     public boolean canUnmask(MObject el) {
         return Clause.class.isAssignableFrom(el.getClass()) &&
                                         el.getCompositionOwner().equals(this.getRelatedElement());
+        
     }
 
     @objid ("2a1212eb-55b6-11e2-877f-002564c97630")
@@ -107,6 +106,7 @@ public class GmClausesGroup extends GmResizableGroup {
             }
         
         }
+        
     }
 
     @objid ("2a1212ee-55b6-11e2-877f-002564c97630")
@@ -138,6 +138,7 @@ public class GmClausesGroup extends GmResizableGroup {
             if (key != null)
                 getParent().getDisplayedStyle().setProperty(key, RepresentationMode.STRUCTURED);
         }
+        
     }
 
     @objid ("2a121301-55b6-11e2-877f-002564c97630")
@@ -157,6 +158,7 @@ public class GmClausesGroup extends GmResizableGroup {
             break;
         }
         }
+        
     }
 
     @objid ("2a121307-55b6-11e2-877f-002564c97630")
@@ -166,6 +168,7 @@ public class GmClausesGroup extends GmResizableGroup {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmClausesGroup.", GmClausesGroup.MINOR_VERSION);
+        
     }
 
     @objid ("2a12130d-55b6-11e2-877f-002564c97630")

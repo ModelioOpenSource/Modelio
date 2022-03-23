@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.opaqueaction;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("9a9af42c-042a-4e5c-b598-80ac68b8af16")
 public class UML2DestroyLinkAction {
-    @objid ("222a711e-aa58-431d-8435-4e472e125d99")
+    @objid ("7be2c2aa-15af-4c47-89c6-63788aee234b")
     public static final String STEREOTYPE_NAME = "UML2DestroyLinkAction";
 
     /**
      * The underlying {@link OpaqueAction} represented by this proxy, never null.
      */
-    @objid ("9d05428e-caa6-44c2-8982-5e4449b7da8c")
+    @objid ("22c47d8e-a52b-44e5-bc66-ec85b345d221")
     protected final OpaqueAction elt;
 
     /**
      * Tells whether a {@link UML2DestroyLinkAction proxy} can be instantiated from a {@link MObject} checking it is a {@link OpaqueAction} stereotyped << UML2DestroyLinkAction >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("fdea3fec-5b89-440b-ad0c-dab086d1f253")
+    @objid ("008f5e01-d209-4053-9d95-5f91e36719c9")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof OpaqueAction) && ((OpaqueAction) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2DestroyLinkAction.STEREOTYPE_NAME));
     }
@@ -77,9 +75,9 @@ public class UML2DestroyLinkAction {
      * 
      * @return a {@link UML2DestroyLinkAction} proxy on the created {@link OpaqueAction}.
      */
-    @objid ("9edcf6c1-a4ff-4c88-ac90-d5b45e0f7be7")
+    @objid ("adc014b6-f516-474d-8f55-6ef63d29b247")
     public static UML2DestroyLinkAction create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("OpaqueAction");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.OpaqueAction");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2DestroyLinkAction.STEREOTYPE_NAME);
         return UML2DestroyLinkAction.instantiate((OpaqueAction)e);
     }
@@ -91,7 +89,7 @@ public class UML2DestroyLinkAction {
      * @param obj a OpaqueAction
      * @return a {@link UML2DestroyLinkAction} proxy or <i>null</i>.
      */
-    @objid ("734990d1-1ea7-4b1f-a1b9-97dcd8955220")
+    @objid ("6b733b63-3f22-4879-8aa1-78ab9b368c0d")
     public static UML2DestroyLinkAction instantiate(OpaqueAction obj) {
         return UML2DestroyLinkAction.canInstantiate(obj) ? new UML2DestroyLinkAction(obj) : null;
     }
@@ -104,7 +102,7 @@ public class UML2DestroyLinkAction {
      * @return a {@link UML2DestroyLinkAction} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("3c08f5eb-37a4-4d58-8f3f-4e58a80f433d")
+    @objid ("febc6832-378e-4b32-bb72-d27570e69925")
     public static UML2DestroyLinkAction safeInstantiate(OpaqueAction obj) throws IllegalArgumentException {
         if (UML2DestroyLinkAction.canInstantiate(obj))
         	return new UML2DestroyLinkAction(obj);
@@ -112,7 +110,7 @@ public class UML2DestroyLinkAction {
         	throw new IllegalArgumentException("UML2DestroyLinkAction: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("d94d6937-0d02-4ad7-a29f-bb528b9dc795")
+    @objid ("51df8394-6131-4764-8de8-f7d82b2f0636")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,46 +130,47 @@ public class UML2DestroyLinkAction {
      * Get the underlying {@link OpaqueAction}. 
      * @return the OpaqueAction represented by this proxy, never null.
      */
-    @objid ("7cedc841-ff5d-4c9a-925a-47385522c62a")
+    @objid ("358ea697-931b-40a8-96a2-666abb569e40")
     public OpaqueAction getElement() {
         return this.elt;
     }
 
-    @objid ("8dcf2788-8de2-4a27-86b7-deee3bd78e58")
+    @objid ("da976945-6c3c-45a8-bf8c-0a2480e73aa4")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("b4edc9fe-fa2e-4111-9a6e-a1c2251fc808")
-    protected UML2DestroyLinkAction(OpaqueAction elt) {
+    @objid ("2e30c7c7-6ff2-4ec2-9b08-470f814a0b14")
+    protected  UML2DestroyLinkAction(OpaqueAction elt) {
         this.elt = elt;
     }
 
     @objid ("32304d94-dbf4-4c93-af43-6a718691d283")
     public static final class MdaTypes {
-        @objid ("2d9d2fa3-fce9-45cc-a6ed-5d4769c8ad48")
+        @objid ("3fb267a0-7bbe-4899-b83e-82f080322d43")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("7465ce30-c889-45d9-a2f6-f11d1491a5bd")
+        @objid ("53f35f3d-b16e-456b-bd79-23f639f99160")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("b4338f4d-9352-41ac-973c-08f9b8145f56")
+        @objid ("ef9205f5-7e7c-42b2-8f1a-28f4c157a63f")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("6fdc9c40-5321-4fba-80fd-22154465c01a")
+        @objid ("cc502abb-ec65-43fd-8cf8-165a53f18e20")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "744f6321-c2f9-11de-8ac8-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

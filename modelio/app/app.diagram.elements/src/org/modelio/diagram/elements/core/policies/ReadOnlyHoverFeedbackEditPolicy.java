@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.policies;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,7 +42,7 @@ public class ReadOnlyHoverFeedbackEditPolicy extends GraphicalEditPolicy {
 
     @objid ("13281b52-d65b-46c2-b1de-f2f59767669e")
     private static Image lockImage = AbstractUIPlugin.imageDescriptorFromPlugin(DiagramElements.PLUGIN_ID, "icons/lock.png")
-			.createImage();
+    			.createImage();
 
     @objid ("f6ad27fc-c05f-4609-b82d-a823b5b2a4f8")
     @Override
@@ -83,11 +82,11 @@ public class ReadOnlyHoverFeedbackEditPolicy extends GraphicalEditPolicy {
                 this.feedback.validate();
             }
         }
+        
     }
 
     /**
      * Create the hover feedback figure.
-     * 
      * @return the hover feedback figure.
      */
     @objid ("e5852761-aec8-4a9c-a032-691b17a0ff42")
@@ -113,6 +112,7 @@ public class ReadOnlyHoverFeedbackEditPolicy extends GraphicalEditPolicy {
                 this.feedback = null;
             }
         }
+        
     }
 
     @objid ("ece171b7-b6e3-40d5-8484-8b76b884a934")
@@ -124,6 +124,7 @@ public class ReadOnlyHoverFeedbackEditPolicy extends GraphicalEditPolicy {
         }
         
         super.deactivate();
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -96,9 +95,9 @@ public interface IRStatus {
     @objid ("3856b010-820c-418e-95c6-c91626968140")
     public static final long CMSSYNC = 1L << 10;
 
-//
-// Audit status
-//
+    //
+    // Audit status
+    //
     /**
      * Audit state first bit
      */
@@ -168,11 +167,11 @@ public interface IRStatus {
     @objid ("29146a85-d0a7-48db-8b59-8dd359e12aea")
     public static final long CMSNEEDSLOCK = 1L << 41;
 
-//
-// Repository flags.
-//
-// These flags may be used or not by the repository implementation.
-//
+    //
+    // Repository flags.
+    //
+    // These flags may be used or not by the repository implementation.
+    //
     /**
      * The object has been loaded.
      * This flag may be used or not by the repository implementation.

@@ -22,37 +22,37 @@
 	      <context metaclass="Standard.ExecutionSpecification"/>
 	    </creationtool>
 	    <creationtool icon="icons/messagecreate.png" id="CREATE_CREATIONMESSAGE" interactor="link" label="%CreationMessage.label" tooltip="%CreationMessage.tooltip">
-	      <context metaclass="Standard.Message">
+	      <context metaclass="Standard.Message"  router="MESSAGE_ROUTINGMODE">
 	        <property name="messageType" value="Creation"/>
 	      </context>
 	    </creationtool>
 	    <creationtool icon="icons/messagedestroy.png" id="CREATE_DESTRUCTIONMESSAGE" interactor="link" label="%DestructionMessage.label" tooltip="%DestructionMessage.tooltip">
-	      <context metaclass="Standard.Message">
+	      <context metaclass="Standard.Message"  router="MESSAGE_ROUTINGMODE">
 	        <property name="messageType" value="Destruction"/>
 	      </context>
 	    </creationtool>
 	    <creationtool icon="icons/messageasynchronous.png" id="CREATE_ASYNCHRONOUSMESSAGE" interactor="link" label="%AsynchronousMessage.label" tooltip="%AsynchronousMessage.tooltip">
-	      <context metaclass="Standard.Message">
+	      <context metaclass="Standard.Message"  router="MESSAGE_ROUTINGMODE">
 	        <property name="messageType" value="SimpleAsynchronous"/>
 	      </context>
 	    </creationtool>
 	    <creationtool icon="icons/messagesynchronous.png" id="CREATE_SYNCHRONOUSMESSAGE" interactor="link" label="%SynchronousMessage.label" tooltip="%SynchronousMessage.tooltip">
-	      <context metaclass="Standard.Message">
+	      <context metaclass="Standard.Message"  router="MESSAGE_ROUTINGMODE">
 	        <property name="messageType" value="SimpleSynchronous"/>
 	      </context>
 	    </creationtool>
 	    <creationtool icon="icons/messageasynchronous.png" id="CREATE_ASYNCHRONOUSMESSAGE_INNEREXECUTION" interactor="link" label="%AsynchronousMessageWithInner.label" tooltip="%AsynchronousMessageWithInner.tooltip">
-	      <context metaclass="Standard.Message">
+	      <context metaclass="Standard.Message"  router="MESSAGE_ROUTINGMODE">
 	        <property name="messageType" value="InnerExecutionAsynchronous"/>
 	      </context>
 	    </creationtool>
 	    <creationtool icon="icons/messagesynchronous.png" id="CREATE_SYNCHRONOUSMESSAGE_INNEREXECUTION" interactor="link" label="%SynchronousMessageWithInner.label" tooltip="%SynchronousMessageWithInner.tooltip">
-	      <context metaclass="Standard.Message">
+	      <context metaclass="Standard.Message"  router="MESSAGE_ROUTINGMODE">
 	          <property name="messageType" value="InnerExecutionSynchronous"/>
 	      </context>
 	    </creationtool>
 	    <creationtool icon="icons/messagereply.png" id="CREATE_REPLY" interactor="link" label="%Reply.label" tooltip="%Reply.tooltip">
-	      <context metaclass="Standard.Message">
+	      <context metaclass="Standard.Message"  router="MESSAGE_ROUTINGMODE">
 	        <property name="messageType" value="Reply"/>
 	      </context>
 	    </creationtool>

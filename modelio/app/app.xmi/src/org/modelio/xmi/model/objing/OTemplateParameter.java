@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -77,15 +76,15 @@ public class OTemplateParameter extends ONameSpace {
             }
             return null;
         }
+        
     }
 
     /**
      * Constructor
-     * 
      * @param element : the exported Modelio TemplateParameter
      */
     @objid ("9b6ba6d8-d07b-4e84-a8fe-f85c19ea4de4")
-    public OTemplateParameter(final TemplateParameter element) {
+    public  OTemplateParameter(final TemplateParameter element) {
         super(element);
     }
 
@@ -127,6 +126,7 @@ public class OTemplateParameter extends ONameSpace {
         }else{
             ecoreElt.destroy();
         }
+        
     }
 
     @objid ("b0e9f1e6-df7e-4f00-8c86-ca60b6a34bf3")
@@ -138,6 +138,7 @@ public class OTemplateParameter extends ONameSpace {
         setDefaultType((org.eclipse.uml2.uml.TemplateParameter) ecoreElt);
         if (GenerationProperties.getInstance().isRoundtripEnabled())
             setIsValueParameter((org.eclipse.uml2.uml.TemplateParameter) ecoreElt);
+        
     }
 
     @objid ("0c0fd4da-33c1-43d2-a628-fffbc939c2e7")
@@ -145,6 +146,7 @@ public class OTemplateParameter extends ONameSpace {
         org.eclipse.uml2.uml.Element ecoreType = getEcoreType(getObjingElement().getType());
         if (ecoreType != null)
             setParameteredElement(ecoreElt, ecoreType);
+        
     }
 
     @objid ("179d3e8c-970c-422d-a9d3-a2b83e17435c")
@@ -173,6 +175,7 @@ public class OTemplateParameter extends ONameSpace {
                 Xmi.LOG.error(e);
             }
         }
+        
     }
 
     @objid ("7ecd9a05-0a56-45bc-9299-94e5e43a8211")
@@ -192,6 +195,7 @@ public class OTemplateParameter extends ONameSpace {
             literalString.setValue(templateParam.getDefaultValue());
             setDefault(ecoreElt, literalString);
         }
+        
     }
 
     @objid ("d574d9c7-4716-4856-9ac1-e49a0c136841")
@@ -200,6 +204,7 @@ public class OTemplateParameter extends ONameSpace {
             org.eclipse.uml2.uml.ParameterableElement parameterableElement = (org.eclipse.uml2.uml.ParameterableElement) ecoreElement;
             ecoreTemplateParam.setOwnedDefault(parameterableElement);
         }
+        
     }
 
     @objid ("079f0fb7-54ee-475a-8453-8441a68fc003")

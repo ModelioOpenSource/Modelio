@@ -1,5 +1,7 @@
 // Disable all captions for figures.
 :!figure-caption:
+// Path to the stylesheet files
+:stylesdir: .
 
 =  Diagramme de Sous-Processus image:images/attachment/bpmn41/User_Documentation_fr/BPMN_Diagrams/SubProcess_diagram/WebHome/bpmnsubprocessdiagram.png[bpmnsubprocessdiagram.png]
 

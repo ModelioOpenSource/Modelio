@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta.mof;
 
 import java.util.List;
@@ -33,17 +32,15 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface MMofObject extends MObject {
     /**
      * Get an attribute value.
-     * 
      * @param attName the attribute name.
      * @return attribute value.
-     * @throws java.lang.IllegalArgumentException if the attribute does not exist on the metaclass.
+     * @throws IllegalArgumentException if the attribute does not exist on the metaclass.
      */
     @objid ("1d52ea2c-b566-48a9-9db4-60856a09702e")
     Object getAtt(String attName) throws IllegalArgumentException;
 
     /**
      * Set an attribute value
-     * 
      * @param attName the attribute name
      * @param value the value to set.
      */
@@ -55,7 +52,6 @@ public interface MMofObject extends MObject {
      * <p>
      * The returned list reflects the model : modifying the list
      * modifies the model.
-     * 
      * @param depName the dependency name
      * @return the dependency content.
      */

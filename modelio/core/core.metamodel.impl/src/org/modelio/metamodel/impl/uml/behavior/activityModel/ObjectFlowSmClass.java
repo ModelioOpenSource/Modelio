@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityEdgeSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityEdge;
 import org.modelio.metamodel.uml.behavior.activityModel.ObjectFlow;
 import org.modelio.metamodel.uml.behavior.activityModel.ObjectFlowEffectKind;
@@ -59,7 +58,7 @@ public class ObjectFlowSmClass extends ActivityEdgeSmClass {
     private SmAttribute effectAtt;
 
     @objid ("d336ed0b-2e1f-47c8-829d-81bb9e5f394d")
-    public ObjectFlowSmClass(ISmMetamodelFragment origin) {
+    public  ObjectFlowSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -67,6 +66,7 @@ public class ObjectFlowSmClass extends ActivityEdgeSmClass {
     @Override
     public String getName() {
         return "ObjectFlow";
+        
     }
 
     @objid ("5da31af4-330d-4692-a615-78cfe995c246")
@@ -79,18 +79,21 @@ public class ObjectFlowSmClass extends ActivityEdgeSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ObjectFlow.class;
+        
     }
 
     @objid ("64e4cd48-d55e-43f4-8876-eb16b2475c0f")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("50e4b5ff-0177-4b9c-88b4-6132d9445b05")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("09d824b5-8435-41cf-a537-3fae49fe0009")
@@ -123,6 +126,7 @@ public class ObjectFlowSmClass extends ActivityEdgeSmClass {
         
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("abe6989f-bff3-45cb-a866-75195861d102")
@@ -169,6 +173,7 @@ public class ObjectFlowSmClass extends ActivityEdgeSmClass {
     @Override
     public boolean isLinkMetaclass() {
         return true;
+        
     }
 
     @objid ("696306de-fafe-4647-992c-136c5db8e194")
@@ -177,7 +182,7 @@ public class ObjectFlowSmClass extends ActivityEdgeSmClass {
         private ObjectFlowSmClass smClass;
 
         @objid ("448c23df-8875-480b-acb7-77244a9826eb")
-        public ObjectFlowObjectFactory(ObjectFlowSmClass smClass) {
+        public  ObjectFlowObjectFactory(ObjectFlowSmClass smClass) {
             this.smClass = smClass;
         }
 

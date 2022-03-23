@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.expert.standard.links.impl.creation;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -64,10 +63,11 @@ public class TemplateBindingCreationExpert extends DefaultDelegatingLinkExpert {
             // Bad target
             return false;
         }
+        
     }
 
     @objid ("3b3fc888-93f5-4293-a77c-ef16df3d6f2e")
-    public TemplateBindingCreationExpert(ILinkExpert defaultExpert) {
+    public  TemplateBindingCreationExpert(ILinkExpert defaultExpert) {
         super(defaultExpert);
     }
 

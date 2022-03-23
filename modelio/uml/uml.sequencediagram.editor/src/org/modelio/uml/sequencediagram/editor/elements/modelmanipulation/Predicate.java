@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.modelmanipulation;
 
 import java.util.Arrays;
@@ -35,9 +34,10 @@ public abstract class Predicate {
     protected Variable secondVariable;
 
     @objid ("d96e58d2-55b6-11e2-877f-002564c97630")
-    public Predicate(final Variable firstVariable, final Variable secondVariable) {
+    public  Predicate(final Variable firstVariable, final Variable secondVariable) {
         this.firstVariable = firstVariable;
         this.secondVariable = secondVariable;
+        
     }
 
     @objid ("d96e58d8-55b6-11e2-877f-002564c97630")

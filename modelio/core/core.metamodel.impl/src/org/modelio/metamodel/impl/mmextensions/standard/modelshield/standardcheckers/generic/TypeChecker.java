@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.modelshield.standardcheckers.generic;
 
 import java.util.ArrayList;
@@ -91,7 +90,7 @@ public abstract class TypeChecker implements IChecker {
     }
 
     @objid ("00962684-120f-1f6a-b3fb-001ec947cd2a")
-    public TypeChecker(final String errorId) {
+    public  TypeChecker(final String errorId) {
         this.errorId = errorId;
     }
 

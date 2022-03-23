@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.packaze;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -79,19 +78,19 @@ public class ReparentElementCommand extends Command {
 
     /**
      * Default C'tor.
-     * 
      * @param newParentElement the MObject that will be the new parent of the element represented by the reparented node.
      * @param newParent the composite node that will be the new parent of the reparented node.
      * @param reparentedChild the reparented node.
      * @param newLayoutData the new layout data of the reparented node.
      */
     @objid ("362cb7a4-55b7-11e2-877f-002564c97630")
-    public ReparentElementCommand(MObject newParentElement, GmCompositeNode newParent, GmNodeModel reparentedChild, Object newLayoutData) {
+    public  ReparentElementCommand(MObject newParentElement, GmCompositeNode newParent, GmNodeModel reparentedChild, Object newLayoutData) {
         super();
         this.newParentElement = newParentElement;
         this.newParent = newParent;
         this.reparentedChild = reparentedChild;
         this.newLayoutData = newLayoutData;
+        
     }
 
     @objid ("362cb7b1-55b7-11e2-877f-002564c97630")
@@ -201,6 +200,7 @@ public class ReparentElementCommand extends Command {
             // Delete the now unused child
             this.reparentedChild.delete();
         }
+        
     }
 
     @objid ("d4cf6a38-b9b5-41fc-a82d-0dfe84228583")

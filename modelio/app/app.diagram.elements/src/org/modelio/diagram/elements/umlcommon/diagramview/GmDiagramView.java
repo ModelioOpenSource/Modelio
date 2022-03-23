@@ -17,13 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.umlcommon.diagramview;
 
 import java.util.List;
 import java.util.Objects;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.diagram.elements.common.embeddeddiagram.GmEmbeddedDiagram;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
 import org.modelio.diagram.elements.core.model.IGmLink;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
@@ -33,8 +31,8 @@ import org.modelio.diagram.elements.umlcommon.diagramholder.GmDiagramHolderLink;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.uml.infrastructure.Dependency;
 import org.modelio.platform.ui.UIColor;
@@ -50,7 +48,7 @@ public class GmDiagramView extends GmCompositeNode {
      * Current version of this Gm.
      */
     @objid ("81486238-1dec-11e2-8cad-001ec947c8cc")
-    private static final int MINOR_VERSION = 1;
+    private static final int MINOR_VERSION = 2;
 
     @objid ("8148623b-1dec-11e2-8cad-001ec947c8cc")
     private static final int MAJOR_VERSION = 0;
@@ -71,19 +69,18 @@ public class GmDiagramView extends GmCompositeNode {
      * For deserialization only.
      */
     @objid ("8148623d-1dec-11e2-8cad-001ec947c8cc")
-    public GmDiagramView() {
+    public  GmDiagramView() {
         super();
     }
 
     /**
      * Creates a diagram model.
-     * 
      * @param diagram The diagram owning this diagram view
      * @param viewedDiagram The represented diagram.
      * @param ref The represented diagram reference.
      */
     @objid ("81486240-1dec-11e2-8cad-001ec947c8cc")
-    public GmDiagramView(final IGmDiagram diagram, AbstractDiagram viewedDiagram, MRef ref) {
+    public  GmDiagramView(final IGmDiagram diagram, AbstractDiagram viewedDiagram, MRef ref) {
         super(diagram, ref);
         this.viewedDiagram = viewedDiagram;
         
@@ -91,9 +88,10 @@ public class GmDiagramView extends GmCompositeNode {
         header.setRoleInComposition(GmDiagramView.ROLE_HEADER);
         addChild(header);
         
-        final GmEmbeddedDiagram body = new GmEmbeddedDiagram(diagram, viewedDiagram, ref);
+        final GmDiagramViewBody body = new GmDiagramViewBody(diagram, viewedDiagram, ref);
         body.setRoleInComposition(GmDiagramView.ROLE_BODY);
         addChild(body);
+        
     }
 
     @objid ("8148624a-1dec-11e2-8cad-001ec947c8cc")
@@ -134,13 +132,18 @@ public class GmDiagramView extends GmCompositeNode {
             read_1(in);
             break;
         }
+        case 2: {
+            read_2(in);
+            break;
+        }
         default: {
-            assert (false) : "version number not covered!";
-            // reading as last handled version: 1
-            read_1(in);
+            assert false : "version number not covered!";
+            // reading as last handled version: 2
+            read_2(in);
             break;
         }
         }
+        
     }
 
     @objid ("814ac465-1dec-11e2-8cad-001ec947c8cc")
@@ -152,6 +155,7 @@ public class GmDiagramView extends GmCompositeNode {
                 body.getDisplayedStyle().setProperty(getParent().getStyleKey(MetaKey.FILLCOLOR), UIColor.WHITE);
             }
         }
+        
     }
 
     @objid ("814ac46b-1dec-11e2-8cad-001ec947c8cc")
@@ -161,20 +165,18 @@ public class GmDiagramView extends GmCompositeNode {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmAbstractDiagramView.", GmDiagramView.MINOR_VERSION);
+        
     }
 
     @objid ("814ac46f-1dec-11e2-8cad-001ec947c8cc")
     private void read_0(IDiagramReader in) {
         read_1(in);
         
-        // 3.8 migration : set roles and create a GmEmbeddedDiagram
-        if (getChildren().size() == 1) {
+        // 3.8 migration: set roles and create a GmEmbeddedDiagram
+        if (getChildren().size() == 2) {
             getChildren().get(0).setRoleInComposition(GmDiagramView.ROLE_HEADER);
-        
-            final GmEmbeddedDiagram body = new GmEmbeddedDiagram(getDiagram(), this.viewedDiagram, getRepresentedRef());
-            body.setRoleInComposition(GmDiagramView.ROLE_BODY);
-            addChild(body);
         }
+        
     }
 
     @objid ("814ac472-1dec-11e2-8cad-001ec947c8cc")
@@ -188,6 +190,24 @@ public class GmDiagramView extends GmCompositeNode {
         super.read(in);
         
         this.viewedDiagram = (AbstractDiagram) resolveRef(getRepresentedRef());
+        
+        // 5.0.01 migration:
+        for (GmNodeModel body : getChildren(GmDiagramView.ROLE_BODY)) {
+            body.delete();
+        }
+        
+        final GmDiagramViewBody body = new GmDiagramViewBody(getDiagram(), this.viewedDiagram, getRepresentedRef());
+        body.setRoleInComposition(GmDiagramView.ROLE_BODY);
+        addChild(body);
+        
+    }
+
+    @objid ("74cf4b1f-e3c4-4c26-8c87-e8f4c393eaf4")
+    private void read_2(IDiagramReader in) {
+        super.read(in);
+        
+        this.viewedDiagram = (AbstractDiagram) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("92d204bd-7d36-4539-a6b3-91fd05169512")
@@ -215,7 +235,7 @@ public class GmDiagramView extends GmCompositeNode {
         if (gmLink instanceof GmDiagramHolderLink) {
             // the removed link represents the same element (the note) as this gm: delete self as well.
             Dependency linkRelatedElement = ((GmDiagramHolderLink) gmLink).getRelatedElement();
-            selfDelete = linkRelatedElement==null || !linkRelatedElement.isValid() || Objects.equals(linkRelatedElement.getDependsOn(), this.viewedDiagram);
+            selfDelete = linkRelatedElement == null || !linkRelatedElement.isValid() || Objects.equals(linkRelatedElement.getDependsOn(), this.viewedDiagram);
         }
         
         super.removeEndingLink(gmLink);
@@ -224,6 +244,7 @@ public class GmDiagramView extends GmCompositeNode {
             // the removed link represents the same element (the note) as this gm: delete self as well.
             delete();
         }
+        
     }
 
 }

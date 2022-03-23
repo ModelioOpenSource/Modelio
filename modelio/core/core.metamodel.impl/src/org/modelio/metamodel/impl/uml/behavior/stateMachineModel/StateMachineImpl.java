@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.stateMachineModel;
 
 import java.util.ArrayList;
@@ -31,7 +31,6 @@ import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
 import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.BehaviorImpl;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.StateMachineData;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.EntryPointPseudoState;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.ExitPointPseudoState;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.KindOfStateMachine;
@@ -93,6 +92,7 @@ public class StateMachineImpl extends BehaviorImpl implements StateMachine {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("10c8873e-c663-4645-856d-dccd1d1031c0")
@@ -114,6 +114,7 @@ public class StateMachineImpl extends BehaviorImpl implements StateMachine {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("1edd9b0c-c3f9-44b9-9370-2221cab3c09e")
@@ -135,6 +136,7 @@ public class StateMachineImpl extends BehaviorImpl implements StateMachine {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("3286df78-89f3-4e48-9002-f5595fbb980e")

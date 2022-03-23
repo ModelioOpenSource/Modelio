@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnsequenceflowdataassociation;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.bpmn.diagram.editor.elements.style.BpmnAbstractStyleKeyProvider;
+import org.modelio.bpmn.diagram.editor.elements.common.style.BpmnAbstractStyleKeyProvider;
 import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.diagram.styles.core.StyleKey;
 
@@ -35,35 +34,35 @@ public class GmBpmnSequenceFlowDataAssociationStyleKeys extends BpmnAbstractStyl
      */
     @objid ("e57161a5-eb37-4b68-ae88-fc5de5460713")
     public static final StyleKey CONNECTIONROUTER = createStyleKey("BPMNSEQUENCEFLOWDATAASSOCIATION_ROUTINGMODE",
-            MetaKey.CONNECTIONROUTER);
+                MetaKey.CONNECTIONROUTER);
 
     /**
      * Line color
      */
     @objid ("43f964e6-0d67-4420-b370-8cb624e10884")
     public static final StyleKey LINECOLOR = createStyleKey("BPMNSEQUENCEFLOWDATAASSOCIATION_LINECOLOR",
-            MetaKey.LINECOLOR);
+                MetaKey.LINECOLOR);
 
     /**
      * Line width
      */
     @objid ("2f3d0da6-2838-4786-aa40-20119a49fe4e")
     public static final StyleKey LINEWIDTH = createStyleKey("BPMNSEQUENCEFLOWDATAASSOCIATION_LINEWIDTH",
-            MetaKey.LINEWIDTH);
+                MetaKey.LINEWIDTH);
 
     /**
      * Line radius
      */
     @objid ("89022c7d-aec0-4fa5-aed8-90b43d84db39")
     public static final StyleKey LINERADIUS = createStyleKey("BPMNSEQUENCEFLOWDATAASSOCIATION_LINERADIUS",
-            MetaKey.LINERADIUS);
+                MetaKey.LINERADIUS);
 
     /**
      * Bridge
      */
     @objid ("882ff023-9126-4bb7-9f28-8f46447a27a6")
     public static final StyleKey DRAWLINEBRIDGES = createStyleKey("BPMNSEQUENCEFLOWDATAASSOCIATION_DRAWLINEBRIDGES",
-            MetaKey.DRAWLINEBRIDGES);
+                MetaKey.DRAWLINEBRIDGES);
 
     /**
      * Text font.
@@ -76,14 +75,14 @@ public class GmBpmnSequenceFlowDataAssociationStyleKeys extends BpmnAbstractStyl
      */
     @objid ("6dbffd0a-046b-49be-a1ea-5c2fafb8eeed")
     public static final StyleKey TEXTCOLOR = createStyleKey("BPMNSEQUENCEFLOWDATAASSOCIATION_TEXTCOLOR",
-            MetaKey.TEXTCOLOR);
+                MetaKey.TEXTCOLOR);
 
     /**
      * Stereotype display mode.
      */
     @objid ("2d604a39-6210-4bb3-b11a-4eb3b7e5b2d5")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("BPMNSEQUENCEFLOWDATAASSOCIATION_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+                MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Display tagged values
@@ -96,6 +95,6 @@ public class GmBpmnSequenceFlowDataAssociationStyleKeys extends BpmnAbstractStyl
      */
     @objid ("e2a98e75-bffb-48a7-9b14-a05020b38005")
     public static final StyleKey LINEPATTERN = createStyleKey("BPMNSEQUENCEFLOWDATAASSOCIATION_LINEPATTERN",
-            MetaKey.LINEPATTERN);
+                MetaKey.LINEPATTERN);
 
 }

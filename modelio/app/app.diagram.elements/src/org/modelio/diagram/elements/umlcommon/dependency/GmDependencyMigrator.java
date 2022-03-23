@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.umlcommon.dependency;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,6 +45,7 @@ public class GmDependencyMigrator implements IPersistentMigrator {
             return null;
         }
         }
+        
     }
 
     @objid ("f019e11a-22f9-4d64-af3e-f4d35612ec42")

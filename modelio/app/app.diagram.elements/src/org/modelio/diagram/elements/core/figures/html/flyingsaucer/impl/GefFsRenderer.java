@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.html.flyingsaucer.impl;
 
 import java.io.BufferedReader;
@@ -116,22 +115,20 @@ public class GefFsRenderer extends Figure implements UserInterface, FSCanvas {
 
     /**
      * Construct the GefFsRenderer.
-     * 
      * @param swtComposite a SWT control to allow placing SWT controls inside, not yet used.
      */
     @objid ("447bd77a-cb4a-4e2e-940f-0cc1cab7b89b")
-    public GefFsRenderer(Composite swtComposite) {
+    public  GefFsRenderer(Composite swtComposite) {
         this(swtComposite, new NaiveUserAgent(swtComposite != null ? swtComposite.getDisplay() : Display.getDefault()));
     }
 
     /**
      * Construct the GefFsRenderer.
-     * 
      * @param swtComposite a SWT control to allow placing SWT controls inside, not yet used.
      * @param uac user agent using the panel.
      */
     @objid ("2eff6df1-39c1-4801-a2d9-7e1ab9a85446")
-    public GefFsRenderer(Composite swtComposite, UserAgentCallback uac) {
+    public  GefFsRenderer(Composite swtComposite, UserAgentCallback uac) {
         // Make sure the display is not null, it happens with silent editors.
         this.display = swtComposite != null ? swtComposite.getDisplay() : Display.getDefault();
         this._sharedContext = new SharedContext(uac,
@@ -143,6 +140,7 @@ public class GefFsRenderer extends Figure implements UserInterface, FSCanvas {
         this._sharedContext.setCanvas(this);
         
         setLayoutManager(new SfLayoutManager());
+        
     }
 
     /**
@@ -263,6 +261,7 @@ public class GefFsRenderer extends Figure implements UserInterface, FSCanvas {
         this._docOrigin = null;
         
         super.invalidate();
+        
     }
 
     @objid ("4b9cb983-d992-4412-b413-7b5fa09017f0")
@@ -324,6 +323,7 @@ public class GefFsRenderer extends Figure implements UserInterface, FSCanvas {
         
         revalidate();
         repaint();
+        
     }
 
     /**
@@ -334,6 +334,7 @@ public class GefFsRenderer extends Figure implements UserInterface, FSCanvas {
     public void resetFontSize() {
         getSharedContext().getTextRenderer().setFontScale(1f);
         reload();
+        
     }
 
     @objid ("52aa77e2-b890-4b3a-b999-cf77b0b6a842")
@@ -375,6 +376,7 @@ public class GefFsRenderer extends Figure implements UserInterface, FSCanvas {
         
         revalidate();
         repaint();
+        
     }
 
     @objid ("1d2ec814-bec5-4f36-a340-aee4a3a5daa6")
@@ -382,6 +384,7 @@ public class GefFsRenderer extends Figure implements UserInterface, FSCanvas {
         Document dom = XMLResource.load(stream).getDocument();
         
         setDocument(dom, url, nsh);
+        
     }
 
     @objid ("c3e2d1bd-d547-43fa-8e40-0bdbc283a1c6")
@@ -410,6 +413,7 @@ public class GefFsRenderer extends Figure implements UserInterface, FSCanvas {
         Document dom = XMLResource.load(is).getDocument();
         
         setDocument(dom, url, nsh);
+        
     }
 
     @objid ("add8bbc3-9b83-42d4-8031-45f9e814ad11")
@@ -437,7 +441,6 @@ public class GefFsRenderer extends Figure implements UserInterface, FSCanvas {
 
     /**
      * Only our layout manager is allowed.
-     * 
      * @param manager our SfLayoutManager.
      */
     @objid ("09499821-8e1d-4597-b6b4-44059d7faf81")
@@ -446,6 +449,7 @@ public class GefFsRenderer extends Figure implements UserInterface, FSCanvas {
         assert (manager instanceof SfLayoutManager);
         
         super.setLayoutManager(manager);
+        
     }
 
     /**
@@ -474,13 +478,13 @@ public class GefFsRenderer extends Figure implements UserInterface, FSCanvas {
         this._sharedContext.setInteractive(!print);
         this._sharedContext.getReplacedElementFactory().reset();
         reload();
+        
     }
 
     /**
      * Calculates the preferred size of the figure, using width and height hints.
      * <p>
      * Called by the figure layout manager.
-     * 
      * @param wHint The width hint
      * @param hHint The height hint
      * @return the preferred size
@@ -526,6 +530,7 @@ public class GefFsRenderer extends Figure implements UserInterface, FSCanvas {
             DiagramElements.LOG.debug(e);
             return new Dimension(100, 100);
         }
+        
     }
 
     /**
@@ -567,6 +572,7 @@ public class GefFsRenderer extends Figure implements UserInterface, FSCanvas {
             DiagramElements.LOG.warning(getClass().getSimpleName()+":  "+e.toString());
             DiagramElements.LOG.debug(e);
         }
+        
     }
 
     @objid ("25d1c221-6a68-4b60-b0a4-6bba6a2163e2")
@@ -583,6 +589,7 @@ public class GefFsRenderer extends Figure implements UserInterface, FSCanvas {
                     box.getAbsX() + (int) margin.left() ,
                     box.getAbsY() + (int) margin.top());
         }
+        
     }
 
     @objid ("36a36ac7-2c1d-4ab7-8795-428c7432bb6d")
@@ -601,6 +608,7 @@ public class GefFsRenderer extends Figure implements UserInterface, FSCanvas {
             DiagramElements.LOG.debug(e);
         }
         ((GefFsOutputDevice) c.getOutputDevice()).clean();
+        
     }
 
     @objid ("26080035-3b40-485c-af5f-a960f078d627")
@@ -625,6 +633,7 @@ public class GefFsRenderer extends Figure implements UserInterface, FSCanvas {
             this._offscreen.dispose();
             this._offscreen = null;
         }
+        
     }
 
     @objid ("771f69c7-1aca-4eba-91df-3be3631c4abd")
@@ -662,7 +671,6 @@ public class GefFsRenderer extends Figure implements UserInterface, FSCanvas {
 
     /**
      * @param gc the draw2d GC
-     * 
      * @return a new {@link RenderingContext}
      */
     @objid ("f1ebe230-0a61-4422-9068-daf514dee18d")
@@ -742,13 +750,13 @@ public class GefFsRenderer extends Figure implements UserInterface, FSCanvas {
                 graphics.drawImage(this._offscreen, getClientArea().getLocation());
             }*/
         }
+        
     }
 
     /**
      * Sets the new current document, where the new document is located
      * relative, e.g using a relative URL.
      * @throws MalformedURLException
-     * 
      * @param filename The new document to load
      */
     @objid ("621f42a6-c71f-4dfc-9dd7-47ac612a8ad9")
@@ -775,6 +783,7 @@ public class GefFsRenderer extends Figure implements UserInterface, FSCanvas {
         final URL url = new URL(surl);
         Document dom = loadDocument(url);
         setDocument(dom, url);
+        
     }
 
     @objid ("59885e2e-b896-4d78-acd3-e8158876f80f")
@@ -800,6 +809,7 @@ public class GefFsRenderer extends Figure implements UserInterface, FSCanvas {
         }
         tr.setFontScale(fs);
         reload();
+        
     }
 
     /**

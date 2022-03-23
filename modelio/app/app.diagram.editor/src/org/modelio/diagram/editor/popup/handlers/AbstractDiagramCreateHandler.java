@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.popup.handlers;
 
 import java.util.Map;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.draw2d.IFigure;
@@ -64,7 +63,6 @@ public abstract class AbstractDiagramCreateHandler extends AbstractCreateHandler
     /**
      * Called by {@link com.modeliosoft.modelio.diagram.editor.createpopup.contribs.CreationContributionItem} on the handler of a
      * creation command to filter displayed items.
-     * 
      * @param context an evaluation context with the command creation parameters.
      * @return true to display the item, false to hide it.
      */
@@ -117,7 +115,6 @@ public abstract class AbstractDiagramCreateHandler extends AbstractCreateHandler
      * Find the edit part that will accept the {@link #getTargetRequest()} and that relates the {@link #getSelectedElement()}.
      * <p>
      * Will parse child edit parts of the given edit part.
-     * 
      * @param fromEditPart The edit part to start the lookup from.
      * @return the found edit part or <code>null</code>.
      */
@@ -143,7 +140,6 @@ public abstract class AbstractDiagramCreateHandler extends AbstractCreateHandler
 
     /**
      * Get the currently selected EditPart.
-     * 
      * @return the currently selected EditPart.
      */
     @objid ("668d707c-33f7-11e2-95fe-001ec947c8cc")
@@ -160,7 +156,6 @@ public abstract class AbstractDiagramCreateHandler extends AbstractCreateHandler
 
     /**
      * Lazily creates and returns the request used when communicating with the target editpart.
-     * 
      * @return the target request
      */
     @objid ("668d7081-33f7-11e2-95fe-001ec947c8cc")
@@ -179,8 +174,7 @@ public abstract class AbstractDiagramCreateHandler extends AbstractCreateHandler
 
     /**
      * @throws ElementNotUniqueException
-     * 
-     * @throws java.lang.IllegalArgumentException if the requested metaclass cannot be found.
+     * @throws IllegalArgumentException if the requested metaclass cannot be found.
      */
     @objid ("668d708a-33f7-11e2-95fe-001ec947c8cc")
     protected void updateTargetRequest() throws IllegalArgumentException, ElementNotUniqueException {
@@ -226,6 +220,7 @@ public abstract class AbstractDiagramCreateHandler extends AbstractCreateHandler
         } else {
             this.targetRequest = null;
         }
+        
     }
 
     @objid ("668d708f-33f7-11e2-95fe-001ec947c8cc")

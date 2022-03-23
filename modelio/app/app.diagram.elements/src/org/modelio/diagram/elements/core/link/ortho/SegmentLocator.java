@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.ortho;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,20 +42,19 @@ public class SegmentLocator extends ConnectionLocator {
 
     /**
      * Creates a new SegmentLocator for the segment between the points index and index + 1 of the connection.
-     * 
      * @param connection Connection associated with SegmentLocator
      * @param index index of Segment
      */
     @objid ("803fbd3e-1dec-11e2-8cad-001ec947c8cc")
-    public SegmentLocator(final Connection connection, final int index) {
+    public  SegmentLocator(final Connection connection, final int index) {
         super(connection);
         this.index = index;
+        
     }
 
     /**
      * Returns the index of this segment locator. This index is the position of the segment in this SegmentLocator's
      * {@link Connection}.
-     * 
      * @return The index
      */
     @objid ("80421f45-1dec-11e2-8cad-001ec947c8cc")

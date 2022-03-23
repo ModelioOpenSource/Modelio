@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.jdbm7;
 
 import java.io.IOException;
@@ -34,7 +33,7 @@ class JdbmMaintenanceOperations implements IJdbmRepositoryMaintenance {
     private RecordManager db;
 
     @objid ("4e769ca6-2aa5-4a0e-a3f7-34281d93caaf")
-    JdbmMaintenanceOperations(RecordManager db) {
+     JdbmMaintenanceOperations(RecordManager db) {
         this.db = db;
     }
 

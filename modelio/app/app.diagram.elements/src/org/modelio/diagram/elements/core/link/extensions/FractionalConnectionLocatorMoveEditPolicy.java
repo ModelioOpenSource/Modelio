@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.extensions;
 
 import java.util.List;
@@ -112,14 +111,15 @@ public class FractionalConnectionLocatorMoveEditPolicy extends ResizableEditPoli
                 .getConstraint(extension);
         
         this.focuslink = new PolylineConnection();
+        this.focuslink.removeAllPoints();
         ConnectionAnchor srcAnchor = new ChopboxAnchor(extension);
         ConnectionAnchor targetAnchor = new LocatorAnchor(connection, loc);
         this.focuslink.setSourceAnchor(srcAnchor);
         this.focuslink.setTargetAnchor(targetAnchor);
         this.focuslink.setLineStyle(org.eclipse.swt.SWT.LINE_DOT);
         
-        
         addFeedback(this.focuslink);
+        
     }
 
     @objid ("7fff5da7-1dec-11e2-8cad-001ec947c8cc")
@@ -130,6 +130,7 @@ public class FractionalConnectionLocatorMoveEditPolicy extends ResizableEditPoli
             removeFeedback(this.focuslink);
             this.focuslink = null;
         }
+        
     }
 
     /**
@@ -147,13 +148,14 @@ public class FractionalConnectionLocatorMoveEditPolicy extends ResizableEditPoli
         } else {
             super.showChangeBoundsFeedback(request);
         }
+        
     }
 
     /**
      * Default constructor.
      */
     @objid ("9210a3c6-209a-436c-af87-cadc7ab53da3")
-    public FractionalConnectionLocatorMoveEditPolicy() {
+    public  FractionalConnectionLocatorMoveEditPolicy() {
         // setResizeDirections(PositionConstants.EAST_WEST);
     }
 
@@ -180,6 +182,7 @@ public class FractionalConnectionLocatorMoveEditPolicy extends ResizableEditPoli
                 .withMoveDragTracker(getDragTracker())
                 .addResizeableHandles()
                 .getHandles();
+        
     }
 
     /**
@@ -191,9 +194,10 @@ public class FractionalConnectionLocatorMoveEditPolicy extends ResizableEditPoli
         private FractionalConnectionLocator loc;
 
         @objid ("7fff5db0-1dec-11e2-8cad-001ec947c8cc")
-        public LocatorAnchor(final IFigure owner, final FractionalConnectionLocator loc) {
+        public  LocatorAnchor(final IFigure owner, final FractionalConnectionLocator loc) {
             super(owner);
             this.loc = loc;
+            
         }
 
         @objid ("7fff5db8-1dec-11e2-8cad-001ec947c8cc")

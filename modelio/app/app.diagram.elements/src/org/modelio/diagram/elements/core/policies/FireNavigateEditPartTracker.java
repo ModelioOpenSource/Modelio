@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.policies;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,7 +34,7 @@ import org.modelio.diagram.elements.core.requests.NavigationRequest;
 @objid ("55ac4918-6fe0-4a7f-9bcd-3571d637aac3")
 public class FireNavigateEditPartTracker extends SelectEditPartTracker {
     @objid ("5950d12e-e497-4cd6-a4c4-a4af31821391")
-    public FireNavigateEditPartTracker(EditPart owner) {
+    public  FireNavigateEditPartTracker(EditPart owner) {
         super(owner);
     }
 
@@ -68,6 +67,7 @@ public class FireNavigateEditPartTracker extends SelectEditPartTracker {
         NavigationRequest request = new NavigationRequest();
         request.setLocation(getLocation());
         getSourceEditPart().performRequest(request);
+        
     }
 
 }

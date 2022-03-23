@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.text;
 
 import java.util.ArrayList;
@@ -67,15 +66,15 @@ public class TextWrapperForIElement implements IPickingClient, IEditorDropClient
 
     @objid ("d95dc498-5b07-11e2-9c97-002564c97630")
     private KeyAdapter keyListener = new KeyAdapter() {
-        @Override
-        public void keyPressed(KeyEvent e) {
-            try {
-                onKeyPressed(e);
-            } catch (RuntimeException ex) {
-                Api.LOG.error(ex);
+            @Override
+            public void keyPressed(KeyEvent e) {
+                try {
+                    onKeyPressed(e);
+                } catch (RuntimeException ex) {
+                    Api.LOG.error(ex);
+                }
             }
-        }
-    };
+        };
 
     @objid ("5bf2879a-911c-11e0-9de7-002564c97630")
     private Set<IElementChangeListener> listeners;
@@ -88,17 +87,17 @@ public class TextWrapperForIElement implements IPickingClient, IEditorDropClient
 
     @objid ("d95deba8-5b07-11e2-9c97-002564c97630")
     private FocusListener selectionListener = new FocusListener() {
-        @Override
-        public void focusGained(FocusEvent evt) {
-            if (evt.getSource().equals(TextWrapperForIElement.this.textField)) {
-                startPickingSession();
+            @Override
+            public void focusGained(FocusEvent evt) {
+                if (evt.getSource().equals(TextWrapperForIElement.this.textField)) {
+                    startPickingSession();
+                }
             }
-        }
-        @Override
-        public void focusLost(FocusEvent evt) {
-            // Nothing to do
-        }
-    };
+            @Override
+            public void focusLost(FocusEvent evt) {
+                // Nothing to do
+            }
+        };
 
     @objid ("3d07e27f-811d-499b-9929-bcaa8a53ab88")
     private final IModelingSession session;
@@ -108,14 +107,13 @@ public class TextWrapperForIElement implements IPickingClient, IEditorDropClient
 
     /**
      * C'tor.
-     * 
      * @param parent parent control.
      * @param initialElement initial value.
      * @param acceptNullValue whether the null value should be accepted or not.
      * @param allowedMetaclasses a collection of allowed metaclasses
      */
     @objid ("5bf39914-911c-11e0-9de7-002564c97630")
-    public TextWrapperForIElement(final Composite parent, final MObject initialElement, final boolean acceptNullValue, final Collection<Class<? extends MObject>> allowedMetaclasses) {
+    public  TextWrapperForIElement(final Composite parent, final MObject initialElement, final boolean acceptNullValue, final Collection<Class<? extends MObject>> allowedMetaclasses) {
         this.selectedElement = initialElement;
         this.acceptNullValue = acceptNullValue;
         this.allowedMetaclasses = new ArrayList<>();
@@ -126,6 +124,7 @@ public class TextWrapperForIElement implements IPickingClient, IEditorDropClient
         }
         
         createContent(parent);
+        
     }
 
     @objid ("5bf51fba-911c-11e0-9de7-002564c97630")
@@ -161,6 +160,7 @@ public class TextWrapperForIElement implements IPickingClient, IEditorDropClient
     public void addAllowedMetaclass(final Class<? extends MObject> allowedMetaclass) {
         this.allowedMetaclasses.add(allowedMetaclass);
         updateTooltip();
+        
     }
 
     /**
@@ -170,6 +170,7 @@ public class TextWrapperForIElement implements IPickingClient, IEditorDropClient
     public void addAllowedMetaclasses(final Collection<Class<? extends MObject>> metaclasses) {
         this.allowedMetaclasses.addAll(metaclasses);
         updateTooltip();
+        
     }
 
     /**
@@ -181,6 +182,7 @@ public class TextWrapperForIElement implements IPickingClient, IEditorDropClient
             this.listeners = new HashSet<>();
         }
         this.listeners.add(listener);
+        
     }
 
     /**
@@ -221,6 +223,7 @@ public class TextWrapperForIElement implements IPickingClient, IEditorDropClient
     public void pickingAborted() {
         // end our picking session;
         endPickingSession();
+        
     }
 
     /**
@@ -253,6 +256,7 @@ public class TextWrapperForIElement implements IPickingClient, IEditorDropClient
         if (this.listeners != null) {
             this.listeners.remove(listener);
         }
+        
     }
 
     /**
@@ -269,6 +273,7 @@ public class TextWrapperForIElement implements IPickingClient, IEditorDropClient
         if (acceptElement(dropedElement[0])) {
             setContent(dropedElement[0], true);
         }
+        
     }
 
     /**
@@ -279,7 +284,6 @@ public class TextWrapperForIElement implements IPickingClient, IEditorDropClient
      * Do not use this method to initialize the field value programmatically,
      * it will fire the field listeners that may modify the underlying model.
      * @see #setSelectedElement(MObject)
-     * 
      * @param target The new represented element in the field
      * @return true if the new value is valid, false in the other case.
      * @deprecated Do not use this method to initialize the field value programmatically,
@@ -314,10 +318,9 @@ public class TextWrapperForIElement implements IPickingClient, IEditorDropClient
      * Use this method to initialize the field value programmatically,
      * it won't fire the field listeners.
      * @see #setElement(MObject)
-     * 
      * @param target The new represented element in the field
      * @return true if the new value is valid, false in the other case.
-     * @throws java.lang.IllegalArgumentException if the parameter value is not accepted by the field.
+     * @throws IllegalArgumentException if the parameter value is not accepted by the field.
      * @since 4.1
      */
     @objid ("705cadd6-0aa0-437c-b48b-c3a1cc6f67ca")
@@ -339,6 +342,7 @@ public class TextWrapperForIElement implements IPickingClient, IEditorDropClient
                 target,
                 this.allowedMetaclasses,
                 this.acceptNullValue ? "accepted" : "forbidden"));
+        
     }
 
     @objid ("5bf45c69-911c-11e0-9de7-002564c97630")
@@ -390,6 +394,7 @@ public class TextWrapperForIElement implements IPickingClient, IEditorDropClient
         });
         
         initDropTarget();
+        
     }
 
     @objid ("5bf63131-911c-11e0-9de7-002564c97630")
@@ -402,6 +407,7 @@ public class TextWrapperForIElement implements IPickingClient, IEditorDropClient
         } catch (IllegalStateException e) {
             // Picking session already closed
         }
+        
     }
 
     @objid ("5bf43559-911c-11e0-9de7-002564c97630")
@@ -490,6 +496,7 @@ public class TextWrapperForIElement implements IPickingClient, IEditorDropClient
         } else if (e.character == SWT.ESC) {
             validate(false);
         }
+        
     }
 
     @objid ("5bf45c67-911c-11e0-9de7-002564c97630")
@@ -504,6 +511,7 @@ public class TextWrapperForIElement implements IPickingClient, IEditorDropClient
         if (this.pickinSession == null) {
             this.pickinSession = Modelio.getInstance().getPickingService().startPickingSession(this);
         }
+        
     }
 
     @objid ("5bf5e311-911c-11e0-9de7-002564c97630")
@@ -513,6 +521,7 @@ public class TextWrapperForIElement implements IPickingClient, IEditorDropClient
                 listener.selectedElementChanged(oldElement, newElement);
             }
         }
+        
     }
 
     @objid ("5bf4f8ac-911c-11e0-9de7-002564c97630")
@@ -524,6 +533,7 @@ public class TextWrapperForIElement implements IPickingClient, IEditorDropClient
          *
          * target.addDropListener(dropListener);
          */
+        
     }
 
     @objid ("5bf48377-911c-11e0-9de7-002564c97630")
@@ -551,6 +561,7 @@ public class TextWrapperForIElement implements IPickingClient, IEditorDropClient
                 validate(false);
             }
         }
+        
     }
 
     @objid ("6b3f5259-9746-11e0-bb39-002564c97630")
@@ -571,6 +582,7 @@ public class TextWrapperForIElement implements IPickingClient, IEditorDropClient
         helpTooltip.append(Api.I18N.getMessage("TextWrapperForIElement.HybridCellEditorTootip"));
         
         this.textField.setToolTipText(helpTooltip.toString());
+        
     }
 
     @objid ("5bf4f8a9-911c-11e0-9de7-002564c97630")
@@ -585,6 +597,7 @@ public class TextWrapperForIElement implements IPickingClient, IEditorDropClient
             fireSelectedElementChanged(oldElement, this.selectedElement);
         
         }
+        
     }
 
     /**
@@ -599,17 +612,15 @@ public class TextWrapperForIElement implements IPickingClient, IEditorDropClient
 
         /**
          * Constructor.
-         * 
          * @param session the session in which to search the elements.
          */
         @objid ("5bf65842-911c-11e0-9de7-002564c97630")
-        public ElementFinder(final IModelingSession session) {
+        public  ElementFinder(final IModelingSession session) {
             this.session = session;
         }
 
         /**
          * Search model elements by their name.
-         * 
          * @param metaclasses metaclasses of the searched elements
          * @param nameValue name of the searched elements
          * @param filter a filter that allow to restrict the result scope. can be null.
@@ -639,7 +650,6 @@ public class TextWrapperForIElement implements IPickingClient, IEditorDropClient
 
         /**
          * Search model elements by their name accordingly to a regular exception..
-         * 
          * @param metaclasses metaclasses of the searched elements
          * @param regexp a regular expression that will be matched with name of the searched elements
          * @param filter a filter that allow to restrict the result scope. Can be null.

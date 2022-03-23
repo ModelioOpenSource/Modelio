@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.objects;
 
 import java.util.ArrayList;
@@ -33,10 +33,6 @@ import org.modelio.metamodel.bpmn.objects.BpmnDataState;
 import org.modelio.metamodel.bpmn.objects.BpmnItemAwareElement;
 import org.modelio.metamodel.bpmn.objects.BpmnItemDefinition;
 import org.modelio.metamodel.bpmn.rootElements.BpmnFlowElement;
-import org.modelio.metamodel.impl.bpmn.objects.BpmnDataAssociationSmClass;
-import org.modelio.metamodel.impl.bpmn.objects.BpmnDataStateSmClass;
-import org.modelio.metamodel.impl.bpmn.objects.BpmnItemAwareElementData;
-import org.modelio.metamodel.impl.bpmn.objects.BpmnItemDefinitionSmClass;
 import org.modelio.metamodel.impl.bpmn.rootElements.BpmnFlowElementSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
@@ -65,7 +61,7 @@ public class BpmnItemAwareElementSmClass extends BpmnFlowElementSmClass {
     private SmDependency sourceOfDataAssociationDep;
 
     @objid ("7e9b9d36-8177-482c-9720-db6468db18ed")
-    public BpmnItemAwareElementSmClass(ISmMetamodelFragment origin) {
+    public  BpmnItemAwareElementSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -73,6 +69,7 @@ public class BpmnItemAwareElementSmClass extends BpmnFlowElementSmClass {
     @Override
     public String getName() {
         return "BpmnItemAwareElement";
+        
     }
 
     @objid ("f2964039-9b00-4b94-bed9-1ddf09037efe")
@@ -85,18 +82,21 @@ public class BpmnItemAwareElementSmClass extends BpmnFlowElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnItemAwareElement.class;
+        
     }
 
     @objid ("c566e7b9-2ac3-4c89-93e8-86c7630dad5f")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("032f0985-5e16-404c-8330-6d8319e7b1e0")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("da06b242-1bf2-4938-86ad-a3877d1bde61")
@@ -124,6 +124,8 @@ public class BpmnItemAwareElementSmClass extends BpmnFlowElementSmClass {
         this.sourceOfDataAssociationDep = new SourceOfDataAssociationSmDependency();
         this.sourceOfDataAssociationDep.init("SourceOfDataAssociation", this, metamodel.getMClass(BpmnDataAssociation.MQNAME), 0, -1 );
         registerDependency(this.sourceOfDataAssociationDep);
+        
+        
     }
 
     @objid ("a2f768cf-ed1d-4a7f-b70e-1e448a4c6da2")
@@ -164,7 +166,7 @@ public class BpmnItemAwareElementSmClass extends BpmnFlowElementSmClass {
         private BpmnItemAwareElementSmClass smClass;
 
         @objid ("15e81e70-95aa-42c1-a808-b83622394358")
-        public BpmnItemAwareElementObjectFactory(BpmnItemAwareElementSmClass smClass) {
+        public  BpmnItemAwareElementObjectFactory(BpmnItemAwareElementSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -197,6 +199,7 @@ public class BpmnItemAwareElementSmClass extends BpmnFlowElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnItemAwareElementData) data).mTargetOfDataAssociation = values;
+            
         }
 
         @objid ("1f2bbdb4-58db-45d1-85bb-06ffee8bbe2b")
@@ -206,6 +209,7 @@ public class BpmnItemAwareElementSmClass extends BpmnFlowElementSmClass {
             	this.symetricDep = ((BpmnDataAssociationSmClass)this.getTarget()).getTargetRefDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -234,6 +238,7 @@ public class BpmnItemAwareElementSmClass extends BpmnFlowElementSmClass {
             	this.symetricDep = ((BpmnItemDefinitionSmClass)this.getTarget()).getTypedItemDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -262,6 +267,7 @@ public class BpmnItemAwareElementSmClass extends BpmnFlowElementSmClass {
             	this.symetricDep = ((BpmnDataStateSmClass)this.getTarget()).getItemDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -281,6 +287,7 @@ public class BpmnItemAwareElementSmClass extends BpmnFlowElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnItemAwareElementData) data).mSourceOfDataAssociation = values;
+            
         }
 
         @objid ("95c90d51-88ad-4cc2-852d-91c1d0b71ae8")
@@ -290,6 +297,7 @@ public class BpmnItemAwareElementSmClass extends BpmnFlowElementSmClass {
             	this.symetricDep = ((BpmnDataAssociationSmClass)this.getTarget()).getSourceRefDep();
             }
             return this.symetricDep;
+            
         }
 
     }

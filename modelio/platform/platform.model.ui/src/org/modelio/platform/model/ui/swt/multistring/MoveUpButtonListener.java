@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.multistring;
 
 import java.util.List;
@@ -31,7 +30,7 @@ class MoveUpButtonListener implements SelectionListener {
     private MultiStringEditionComposite dialog = null;
 
     @objid ("8dc905da-c068-11e1-8c0a-002564c97630")
-    public MoveUpButtonListener(MultiStringEditionComposite dialog) {
+    public  MoveUpButtonListener(MultiStringEditionComposite dialog) {
         this.dialog = dialog;
     }
 
@@ -52,6 +51,7 @@ class MoveUpButtonListener implements SelectionListener {
         List<String> adapters = this.dialog.getSelectedAdapters();
         
         this.dialog.moveUp(adapters);
+        
     }
 
 }

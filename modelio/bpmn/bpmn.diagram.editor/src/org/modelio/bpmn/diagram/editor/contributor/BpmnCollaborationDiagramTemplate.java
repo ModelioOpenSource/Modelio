@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.contributor;
 
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.modelio.api.ui.viewtemplate.IModelViewTemplate;
@@ -131,7 +130,7 @@ public class BpmnCollaborationDiagramTemplate implements IModelViewTemplate<Abst
      * Mandatory default c'tor needed by eclipse when loading the extension point.
      */
     @objid ("6f9bf823-905e-4583-b6ef-83893ad42e17")
-    public BpmnCollaborationDiagramTemplate() {
+    public  BpmnCollaborationDiagramTemplate() {
         super();
     }
 

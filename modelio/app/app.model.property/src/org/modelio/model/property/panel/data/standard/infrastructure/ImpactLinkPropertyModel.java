@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel.data.standard.infrastructure;
 
 import java.util.Collections;
@@ -53,17 +52,15 @@ public class ImpactLinkPropertyModel extends AbstractPropertyModel<ImpactLink> {
 
     /**
      * Create a new <i>ImpactLink</i> data model from an <i>ImpactLink</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("2e93e6fb-a2d7-4787-8c6f-cf5d79c2220f")
-    public ImpactLinkPropertyModel(ImpactLink theEditedElement) {
+    public  ImpactLinkPropertyModel(ImpactLink theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("a27fa999-dd1b-4217-8c46-23bf80d64283")
@@ -74,7 +71,6 @@ public class ImpactLinkPropertyModel extends AbstractPropertyModel<ImpactLink> {
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("cf216d30-e10f-4946-a211-6fb71d294058")
@@ -87,7 +83,6 @@ public class ImpactLinkPropertyModel extends AbstractPropertyModel<ImpactLink> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -111,6 +106,7 @@ public class ImpactLinkPropertyModel extends AbstractPropertyModel<ImpactLink> {
         } else {
             return null;
         }
+        
     }
 
     /**
@@ -120,7 +116,6 @@ public class ImpactLinkPropertyModel extends AbstractPropertyModel<ImpactLink> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -139,6 +134,7 @@ public class ImpactLinkPropertyModel extends AbstractPropertyModel<ImpactLink> {
         } else {
             return null;
         }
+        
     }
 
     @objid ("23e2177b-0972-478b-aec6-bfff03d6c445")
@@ -151,7 +147,6 @@ public class ImpactLinkPropertyModel extends AbstractPropertyModel<ImpactLink> {
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.

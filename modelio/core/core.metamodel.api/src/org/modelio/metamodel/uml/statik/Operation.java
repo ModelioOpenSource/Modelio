@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.uml.statik;
 
 import java.util.List;
@@ -36,16 +36,6 @@ import org.modelio.metamodel.uml.behavior.commonBehaviors.Signal;
 import org.modelio.metamodel.uml.behavior.communicationModel.CommunicationMessage;
 import org.modelio.metamodel.uml.behavior.interactionModel.Message;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.Transition;
-import org.modelio.metamodel.uml.statik.Classifier;
-import org.modelio.metamodel.uml.statik.Collaboration;
-import org.modelio.metamodel.uml.statik.CollaborationUse;
-import org.modelio.metamodel.uml.statik.ElementImport;
-import org.modelio.metamodel.uml.statik.MethodPassingMode;
-import org.modelio.metamodel.uml.statik.PackageImport;
-import org.modelio.metamodel.uml.statik.Parameter;
-import org.modelio.metamodel.uml.statik.RaisedException;
-import org.modelio.metamodel.uml.statik.TemplateBinding;
-import org.modelio.metamodel.uml.statik.TemplateParameter;
 
 /**
  * Operation v0.0.9054

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.policies;
 
 import java.util.List;
@@ -34,14 +33,14 @@ import org.eclipse.gef.editpolicies.ResizableEditPolicy;
 import org.eclipse.gef.handles.AbstractHandle;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.modelio.diagram.elements.core.figures.FigureUtilities2;
+import org.modelio.diagram.elements.core.helpers.RequestHelper;
 import org.modelio.diagram.elements.core.model.IGmObject;
 
 /**
  * A local specialisation of {@link ResizableEditPolicy} is used by default for children. <br>
  * <br>
- * This specialisation adds a behaviour on ORPHAN requests similar to what is done in
- * {@link NonResizableEditPolicy#getMoveCommand}, meaning that it actually dispatches the request to the host's parent
- * edit part as a {@link RequestConstants#REQ_ORPHAN_CHILDREN} request. The parent's contribution is returned.<br>
+ * This specialisation adds a behaviour on ORPHAN requests similar to what is done in {@link NonResizableEditPolicy#getMoveCommand}, meaning that it actually dispatches the request to the host's parent edit part as a
+ * {@link RequestConstants#REQ_ORPHAN_CHILDREN} request. The parent's contribution is returned.<br>
  * <br>
  * Subclasses may override this method to supply a different EditPolicy.
  * 
@@ -50,13 +49,34 @@ import org.modelio.diagram.elements.core.model.IGmObject;
  */
 @objid ("80be19de-1dec-11e2-8cad-001ec947c8cc")
 public class DefaultNodeNonResizableEditPolicy extends NonResizableEditPolicy {
+    @objid ("3e68ea19-6ec0-4d09-88ea-bb7750b28653")
+    @Override
+    public void activate() {
+        super.activate();
+        
+        // Sales!!! Two policies for the price of one !
+        EditPart host = getHost();
+        host.installEditPolicy(LayoutNodeConnectionsEditPolicy.ROLE, new LayoutNodeConnectionsEditPolicy(host));
+        
+    }
+
+    @objid ("d197bec9-f46e-4674-8f61-3a76721ce3b3")
+    @Override
+    public void deactivate() {
+        getHost().removeEditPolicy(LayoutNodeConnectionsEditPolicy.ROLE);
+        
+        super.deactivate();
+        
+    }
+
     @objid ("80be19e2-1dec-11e2-8cad-001ec947c8cc")
     @Override
     protected List<AbstractHandle> createSelectionHandles() {
         return new SelectionHandlesBuilder((GraphicalEditPart) getHost())
-                        .withDragAllowed(isDragAllowed())
-                        .addNonResizeableHandles()
-                        .getHandles();
+                .withDragAllowed(isDragAllowed())
+                .addNonResizeableHandles()
+                .getHandles();
+        
     }
 
     @objid ("80c07be1-1dec-11e2-8cad-001ec947c8cc")
@@ -80,6 +100,7 @@ public class DefaultNodeNonResizableEditPolicy extends NonResizableEditPolicy {
         req.setSizeDelta(cbRequest.getSizeDelta());
         req.setLocation(cbRequest.getLocation());
         req.setExtendedData(request.getExtendedData());
+        RequestHelper.addSharedEditParts(req, cbRequest);
         return getHost().getParent().getCommand(req);
     }
 

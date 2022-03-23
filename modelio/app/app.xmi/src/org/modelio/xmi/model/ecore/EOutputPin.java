@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -48,9 +47,10 @@ public class EOutputPin extends EPin {
     }
 
     @objid ("262c60ac-aedf-4f7d-9ee1-7b565ea44506")
-    public EOutputPin(org.eclipse.uml2.uml.OutputPin element) {
+    public  EOutputPin(org.eclipse.uml2.uml.OutputPin element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("e76388ab-d56c-449f-988c-28a407e27e5e")
@@ -66,6 +66,7 @@ public class EOutputPin extends EPin {
         setSelectionBehavior((OutputPin) objingElt);
         setType((OutputPin) objingElt);
         setState((OutputPin) objingElt);
+        
     }
 
     @objid ("d8979ab3-693b-4620-be37-bdc2303c9f99")
@@ -80,6 +81,7 @@ public class EOutputPin extends EPin {
             ReverseProperties.getInstance().addError(message);
             objingElt.delete();
         }
+        
     }
 
     @objid ("1682a770-1a35-41fa-aa7d-ac27193b3143")
@@ -105,6 +107,7 @@ public class EOutputPin extends EPin {
         default:
             pin.setOrdering(ObjectNodeOrderingKind.FIFO);
         }
+        
     }
 
     @objid ("7a18bcaf-0ee1-4c40-9b4f-a597b79170b5")
@@ -121,6 +124,7 @@ public class EOutputPin extends EPin {
             if (behaviorName != null)
                 pin.setSelectionBehavior(behaviorName);
         }
+        
     }
 
     @objid ("70c1035c-f251-47a2-8847-f57bded0181f")
@@ -131,6 +135,7 @@ public class EOutputPin extends EPin {
             if (objingType instanceof GeneralClass)
                 pin.setType((GeneralClass) objingType);
         }
+        
     }
 
     @objid ("7153c12c-3e46-4c48-9bbc-0e35d3093cd9")
@@ -144,6 +149,7 @@ public class EOutputPin extends EPin {
                     pin.setInState((State) objingState);
             }
         }
+        
     }
 
     @objid ("51d0dd53-07d4-4ad9-9c66-c88dcd992505")
@@ -228,6 +234,7 @@ public class EOutputPin extends EPin {
         } catch (ElementNotUniqueException e) {
             Xmi.LOG.warning(e);
         }
+        
     }
 
 }

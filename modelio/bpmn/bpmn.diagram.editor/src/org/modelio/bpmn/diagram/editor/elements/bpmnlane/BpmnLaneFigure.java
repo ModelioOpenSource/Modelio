@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnlane;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,10 +39,11 @@ public class BpmnLaneFigure extends GradientFigure {
      * C'tor. Just a basic {@link GradientFigure} with an additional line border.
      */
     @objid ("6115efdf-55b6-11e2-877f-002564c97630")
-    public BpmnLaneFigure() {
+    public  BpmnLaneFigure() {
         super();
         this.lineBorder = new LineBorder();
         setBorder(this.lineBorder);
+        
     }
 
     @objid ("6115efe2-55b6-11e2-877f-002564c97630")
@@ -53,6 +53,7 @@ public class BpmnLaneFigure extends GradientFigure {
             this.lineBorder.setColor(lineColor);
             super.setLineColor(lineColor);
         }
+        
     }
 
     @objid ("6117763b-55b6-11e2-877f-002564c97630")
@@ -62,6 +63,7 @@ public class BpmnLaneFigure extends GradientFigure {
             this.lineBorder.setWidth(lineWidth);
             super.setLineWidth(lineWidth);
         }
+        
     }
 
     @objid ("6117763f-55b6-11e2-877f-002564c97630")
@@ -71,6 +73,7 @@ public class BpmnLaneFigure extends GradientFigure {
             this.lineBorder.setStyle(linePattern.toSWTConstant());
             super.setLinePattern(linePattern);
         }
+        
     }
 
 }

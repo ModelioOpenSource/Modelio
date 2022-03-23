@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,9 +45,10 @@ public class EControlFlow extends EActivityEdge {
     }
 
     @objid ("5e6149a4-37a8-4e66-ba8e-2ee2b1aedf25")
-    public EControlFlow(org.eclipse.uml2.uml.ControlFlow element) {
+    public  EControlFlow(org.eclipse.uml2.uml.ControlFlow element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
 }

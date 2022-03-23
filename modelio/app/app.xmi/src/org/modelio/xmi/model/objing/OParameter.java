@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -58,15 +57,15 @@ public class OParameter extends OModelElement {
         } else {
             return UMLFactory.eINSTANCE.createParameter();
         }
+        
     }
 
     /**
      * Constructor
-     * 
      * @param element : the exported Modelio Parameter
      */
     @objid ("86d59a04-e0e4-464e-9db7-3c7df19e831a")
-    public OParameter(final Parameter element) {
+    public  OParameter(final Parameter element) {
         super(element);
     }
 
@@ -88,6 +87,7 @@ public class OParameter extends OModelElement {
                 }
             }
         }
+        
     }
 
     @objid ("aa5d8023-6502-4298-8b04-dc4c45971d5e")
@@ -109,6 +109,7 @@ public class OParameter extends OModelElement {
         if (GenerationProperties.getInstance().isRoundtripEnabled()){
             setTypeConstraintEAnnotation((org.eclipse.uml2.uml.Parameter) ecoreElt);
         }
+        
     }
 
     @objid ("efe75c3a-2dde-4c2c-af3b-18af3a175b23")
@@ -129,6 +130,7 @@ public class OParameter extends OModelElement {
         if (AbstractObjingModelNavigation.isReturnParameter(getObjingElement())) {
             ecoreElt.setDirection(org.eclipse.uml2.uml.ParameterDirectionKind.RETURN_LITERAL);
         }
+        
     }
 
     @objid ("3ff0904c-43fd-4b69-b1d7-575ca4f6eea9")
@@ -153,6 +155,7 @@ public class OParameter extends OModelElement {
                 }
             }
         }
+        
     }
 
     @objid ("ecc62ff1-aa5e-4cd3-bac4-8ce55912c822")
@@ -177,12 +180,14 @@ public class OParameter extends OModelElement {
                 }
             }
         }
+        
     }
 
     @objid ("c6a498e9-5c77-4aa7-8548-9d9deed0e819")
     private void setTypeConstraintEAnnotation(org.eclipse.uml2.uml.Parameter ecoreElt) {
         ObjingEAnnotation.setTypeConstraint(ecoreElt, getObjingElement()
                 .getTypeConstraint());
+        
     }
 
     @objid ("4ae2e684-e61f-4539-971e-d59201a8e99d")
@@ -278,6 +283,7 @@ public class OParameter extends OModelElement {
                 ecoreParam.setStringDefaultValue(objingDefaultValue);
             }
         }
+        
     }
 
     @objid ("c06cd659-472c-4cfd-88b0-28a5ac56275d")
@@ -305,6 +311,7 @@ public class OParameter extends OModelElement {
         } else {
             ObjingEAnnotation.setIsNoType(ecoreElt);
         }
+        
     }
 
     @objid ("fac8013b-cabd-49d9-b4b3-557e72d38699")

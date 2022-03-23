@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.api.dg.common;
 
 import java.util.Collection;
@@ -38,7 +37,7 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 @objid ("143bee6b-7476-42c3-b64a-132446165033")
 public class LeafNodeDG extends DiagramNode {
     @objid ("14e005fc-d1b5-4b6c-bcf6-d51af93f2456")
-    public LeafNodeDG(DiagramHandle diagramHandle, GmNodeModel gmNode) {
+    public  LeafNodeDG(DiagramHandle diagramHandle, GmNodeModel gmNode) {
         super(diagramHandle, gmNode);
     }
 

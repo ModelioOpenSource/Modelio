@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.policies;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -115,6 +114,7 @@ public class DeferringCreateNodePolicy extends DefaultCreateNodeEditPolicy {
         } else {
             return null;
         }
+        
     }
 
     /**
@@ -125,7 +125,6 @@ public class DeferringCreateNodePolicy extends DefaultCreateNodeEditPolicy {
      * If no child model is found, return <tt>null</tt>.<br>
      * If the found model is not visible, return the host edit part.
      * <p>
-     * 
      * @param metaclass The metaclass to create or drop.
      * @param location The mouse location.
      * @return <ul>
@@ -182,6 +181,7 @@ public class DeferringCreateNodePolicy extends DefaultCreateNodeEditPolicy {
             FigureUtilities2.updateHighlightType(this.highlight, hightlightType);
         }
         super.showTargetFeedback(request);
+        
     }
 
     @objid ("80ceca03-1dec-11e2-8cad-001ec947c8cc")
@@ -195,6 +195,7 @@ public class DeferringCreateNodePolicy extends DefaultCreateNodeEditPolicy {
         }
         
         super.eraseTargetFeedback(request);
+        
     }
 
 }

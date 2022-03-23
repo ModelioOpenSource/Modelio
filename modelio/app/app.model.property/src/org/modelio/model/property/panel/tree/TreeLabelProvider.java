@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel.tree;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -101,6 +100,7 @@ public class TreeLabelProvider extends LabelProvider {
         } else {
             return "?" + element.toString();
         }
+        
     }
 
     @objid ("8faeec89-c068-11e1-8c0a-002564c97630")
@@ -123,7 +123,7 @@ public class TreeLabelProvider extends LabelProvider {
      * Constructor creating the images.
      */
     @objid ("8faeec90-c068-11e1-8c0a-002564c97630")
-    public TreeLabelProvider() {
+    public  TreeLabelProvider() {
         this.moduleDefaultIcon = ModelProperty.getImageDescriptor("icons/moduleproptable.png").createImage();
     }
 
@@ -136,6 +136,7 @@ public class TreeLabelProvider extends LabelProvider {
         }
         
         super.dispose();
+        
     }
 
     @objid ("c374c119-3e17-11e2-b901-002564c97630")

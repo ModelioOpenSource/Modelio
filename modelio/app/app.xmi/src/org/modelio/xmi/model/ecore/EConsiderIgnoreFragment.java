@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -25,7 +24,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 @objid ("43bed88f-0e61-4806-a0ad-84a829f57572")
 public class EConsiderIgnoreFragment extends ENamedElement {
     @objid ("918e23bf-e96e-45e8-bd1d-2ddbd2c976d0")
-    public EConsiderIgnoreFragment(org.eclipse.uml2.uml.ConsiderIgnoreFragment element) {
+    public  EConsiderIgnoreFragment(org.eclipse.uml2.uml.ConsiderIgnoreFragment element) {
         super(element);
     }
 

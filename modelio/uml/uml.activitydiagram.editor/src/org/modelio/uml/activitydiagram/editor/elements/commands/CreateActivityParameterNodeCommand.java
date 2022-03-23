@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.commands;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -58,18 +57,18 @@ public class CreateActivityParameterNodeCommand extends Command {
 
     /**
      * Initialize the command.
-     * 
      * @param dropLocation The location of the element in the diagram
      * @param toUnmask The parameter to unmask
      * @param editPart The destination edit part that will own the call operation.
      * @param parentElement The element that will own the call operation action.
      */
     @objid ("2a0bf860-55b6-11e2-877f-002564c97630")
-    public CreateActivityParameterNodeCommand(Point dropLocation, BehaviorParameter toUnmask, EditPart editPart, MObject parentElement) {
+    public  CreateActivityParameterNodeCommand(Point dropLocation, BehaviorParameter toUnmask, EditPart editPart, MObject parentElement) {
         this.toUnmask = toUnmask;
         this.dropLocation = dropLocation;
         this.parentEditPart = editPart;
         this.parentElement = parentElement;
+        
     }
 
     @objid ("2a0bf86b-55b6-11e2-877f-002564c97630")
@@ -103,11 +102,11 @@ public class CreateActivityParameterNodeCommand extends Command {
         
         // Unmask the created element
         unmaskElement(el);
+        
     }
 
     /**
      * Unmask the given element in the destination edit part.
-     * 
      * @param el The element to unmask
      */
     @objid ("2a0bf86e-55b6-11e2-877f-002564c97630")
@@ -123,6 +122,7 @@ public class CreateActivityParameterNodeCommand extends Command {
         if (cmd != null && cmd.canExecute()) {
             cmd.execute();
         }
+        
     }
 
     @objid ("2a0bf874-55b6-11e2-877f-002564c97630")

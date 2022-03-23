@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.commands;
 
 import java.util.Map;
@@ -41,7 +40,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 @objid ("7f3bdcc4-1dec-11e2-8cad-001ec947c8cc")
 public class DeferredCreateCommand extends Command {
     @objid ("7f3bdccc-1dec-11e2-8cad-001ec947c8cc")
-    private Map<?,?> editPartRegistry;
+    private Map<?, ?> editPartRegistry;
 
     @objid ("7f3bdccb-1dec-11e2-8cad-001ec947c8cc")
     private GmCompositeNode gmCompositeNode;
@@ -51,15 +50,15 @@ public class DeferredCreateCommand extends Command {
 
     /**
      * Create a deferred command.
-     * 
      * @param req The creation request.
      * @param sender The edit part sending the request
      */
     @objid ("7f3bdcd0-1dec-11e2-8cad-001ec947c8cc")
-    public DeferredCreateCommand(CreateRequest req, EditPart sender) {
+    public  DeferredCreateCommand(CreateRequest req, EditPart sender) {
         this.req = req;
         this.gmCompositeNode = (GmCompositeNode) sender.getModel();
         this.editPartRegistry = sender.getViewer().getEditPartRegistry();
+        
     }
 
     @objid ("7f3bdcd9-1dec-11e2-8cad-001ec947c8cc")
@@ -100,13 +99,13 @@ public class DeferredCreateCommand extends Command {
                 targetEditPart.getCommand(this.req).execute();
             }
         }
+        
     }
 
     /**
      * Get the composite node on which the new node must be created.
-     * 
      * @return the child node
-     * @throws java.lang.IllegalArgumentException if the metaclass name does not exist.
+     * @throws IllegalArgumentException if the metaclass name does not exist.
      */
     @objid ("7f3bdce1-1dec-11e2-8cad-001ec947c8cc")
     protected GmCompositeNode getTargetNode() throws IllegalArgumentException {
@@ -120,7 +119,6 @@ public class DeferredCreateCommand extends Command {
 
     /**
      * Get the parent composite node.
-     * 
      * @return the main node.
      */
     @objid ("7f3bdce6-1dec-11e2-8cad-001ec947c8cc")

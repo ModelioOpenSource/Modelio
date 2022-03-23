@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import java.util.List;
@@ -37,7 +36,7 @@ import org.modelio.xmi.util.EcoreModelNavigation;
 @objid ("08d3d55e-f178-4680-9292-5a9108619472")
 public class EActivityNode extends ENamedElement {
     @objid ("30c50b21-ccb2-41c8-aeb3-7fcc250fe3f0")
-    public EActivityNode(final org.eclipse.uml2.uml.ActivityNode element) {
+    public  EActivityNode(final org.eclipse.uml2.uml.ActivityNode element) {
         super(element);
     }
 
@@ -62,6 +61,7 @@ public class EActivityNode extends ENamedElement {
                 objingElt.delete();
             }
         }
+        
     }
 
     @objid ("25424326-2ee8-472e-b4e3-4276d2d3760f")
@@ -83,6 +83,7 @@ public class EActivityNode extends ENamedElement {
                 ((ActivityNode) objingElt).setOwnerPartition(objingPartition);
             }
         }
+        
     }
 
     @objid ("bd3661fe-a17a-49c3-905a-036af05fa908")
@@ -99,6 +100,7 @@ public class EActivityNode extends ENamedElement {
             }
         
         }
+        
     }
 
     @objid ("33d4b1b1-fdf9-4b4b-8177-42a2d4edfeaa")
@@ -111,6 +113,7 @@ public class EActivityNode extends ENamedElement {
                 ((ActivityNode) objingElt)
                 .setOwnerClause(objingClause);
         }
+        
     }
 
     @objid ("b3f7bbb8-5778-48b8-876c-b744b8ade233")
@@ -125,6 +128,7 @@ public class EActivityNode extends ENamedElement {
             if (objingActivity != null)
                 ((ActivityNode) objingElt).setOwner(objingActivity);
         }
+        
     }
 
     @objid ("3d10795d-7722-44fb-ade7-b9ea0899bea9")
@@ -138,6 +142,7 @@ public class EActivityNode extends ENamedElement {
             }
         
         }
+        
     }
 
 }

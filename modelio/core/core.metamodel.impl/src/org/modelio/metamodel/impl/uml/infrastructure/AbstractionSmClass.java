@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.ArrayList;
@@ -46,7 +46,7 @@ public class AbstractionSmClass extends DependencySmClass {
     private SmAttribute mappingAtt;
 
     @objid ("06287a1b-118e-48fe-a072-43c4bf259929")
-    public AbstractionSmClass(ISmMetamodelFragment origin) {
+    public  AbstractionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -54,6 +54,7 @@ public class AbstractionSmClass extends DependencySmClass {
     @Override
     public String getName() {
         return "Abstraction";
+        
     }
 
     @objid ("f4d7588d-1038-4c57-b672-521446438b53")
@@ -66,18 +67,21 @@ public class AbstractionSmClass extends DependencySmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Abstraction.class;
+        
     }
 
     @objid ("a88b563e-d70f-4916-ad97-688a5a991ecd")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("9ccb5add-273b-4d98-86e7-5d34b0ef49b6")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("163a2299-615f-4cc2-b6de-566c1f20c670")
@@ -94,6 +98,7 @@ public class AbstractionSmClass extends DependencySmClass {
         
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("4f9439d3-2aec-4163-a8cb-0fbecc0cf8f7")
@@ -108,6 +113,7 @@ public class AbstractionSmClass extends DependencySmClass {
     @Override
     public boolean isLinkMetaclass() {
         return true;
+        
     }
 
     @objid ("158ccc0a-cc32-4135-a4b1-275229311823")
@@ -116,7 +122,7 @@ public class AbstractionSmClass extends DependencySmClass {
         private AbstractionSmClass smClass;
 
         @objid ("efa6adc6-7b18-44da-abe8-91e480716eca")
-        public AbstractionObjectFactory(AbstractionSmClass smClass) {
+        public  AbstractionObjectFactory(AbstractionSmClass smClass) {
             this.smClass = smClass;
         }
 

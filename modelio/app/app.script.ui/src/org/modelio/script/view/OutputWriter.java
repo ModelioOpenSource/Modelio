@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.script.view;
 
 import java.io.IOException;
@@ -50,23 +49,22 @@ class OutputWriter extends Writer {
      * Creates an OutputWriter.
      * <p>
      * The input will be sent in green colour to the styled text.
-     * 
      * @param outputView the styled text to send the input to.
      */
     @objid ("007dd6d8-663d-105c-84ef-001ec947cd2a")
-    public OutputWriter(StyledText outputView) {
+    public  OutputWriter(StyledText outputView) {
         TextStyle style = new TextStyle(null, Display.getDefault().getSystemColor(SWT.COLOR_GREEN), null);
         this.appender = new TextAppender(outputView, style);
+        
     }
 
     /**
      * Creates an OutputWriter.
-     * 
      * @param outputView the styled text to send the input to.
      * @param style style of the text that will be sent to the styled text.
      */
     @objid ("007e00ae-663d-105c-84ef-001ec947cd2a")
-    public OutputWriter(StyledText outputView, TextStyle style) {
+    public  OutputWriter(StyledText outputView, TextStyle style) {
         this.appender = new TextAppender(outputView, style);
     }
 
@@ -76,6 +74,7 @@ class OutputWriter extends Writer {
         flush();
         this.appender = null;
         this.onFlush = null;
+        
     }
 
     /**
@@ -89,6 +88,7 @@ class OutputWriter extends Writer {
             this.onFlush.run();
             this.isToFlush = false;
         }
+        
     }
 
     @objid ("007e6b3e-663d-105c-84ef-001ec947cd2a")
@@ -97,19 +97,20 @@ class OutputWriter extends Writer {
         final String string = String.valueOf(cbuf, off, len);
         this.appender.execute(string);
         this.isToFlush = true;
+        
     }
 
     /**
      * Creates an OutputWriter.
-     * 
      * @param outputView the styled text to send the input to.
      * @param textStyle style of the text that will be sent to the styled text.
      * @param onFlush will be run each time flush() is called.
      */
     @objid ("007e9e74-663d-105c-84ef-001ec947cd2a")
-    public OutputWriter(OutputView outputView, TextStyle textStyle, Runnable onFlush) {
+    public  OutputWriter(OutputView outputView, TextStyle textStyle, Runnable onFlush) {
         this(outputView, textStyle);
         this.onFlush = onFlush;
+        
     }
 
     /**
@@ -127,15 +128,17 @@ class OutputWriter extends Writer {
         private final TextStyle style;
 
         @objid ("008d651c-663d-105c-84ef-001ec947cd2a")
-        public TextAppender(StyledText outputView, TextStyle style) {
+        public  TextAppender(StyledText outputView, TextStyle style) {
             this.outputView = outputView;
             this.style = style;
+            
         }
 
         @objid ("008d90fa-663d-105c-84ef-001ec947cd2a")
         public void execute(String aString) {
             this.stringtoAppend = aString;
             this.outputView.getDisplay().syncExec(this);
+            
         }
 
         @objid ("008dadb0-663d-105c-84ef-001ec947cd2a")
@@ -152,6 +155,7 @@ class OutputWriter extends Writer {
             this.outputView.append(this.stringtoAppend);
             this.outputView.setStyleRange(range);
             this.outputView.setSelection(this.outputView.getCharCount());
+            
         }
 
     }

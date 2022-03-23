@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
@@ -30,9 +30,6 @@ import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.behavior.communicationModel.CommunicationChannelSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
-import org.modelio.metamodel.impl.uml.statik.AssociationSmClass;
-import org.modelio.metamodel.impl.uml.statik.LinkData;
-import org.modelio.metamodel.impl.uml.statik.LinkEndSmClass;
 import org.modelio.metamodel.uml.behavior.communicationModel.CommunicationChannel;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.metamodel.uml.statik.Association;
@@ -62,7 +59,7 @@ public class LinkSmClass extends UmlModelElementSmClass {
     private SmDependency sentDep;
 
     @objid ("2d03b41e-42a9-4647-91d6-5cb6f170226d")
-    public LinkSmClass(ISmMetamodelFragment origin) {
+    public  LinkSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -70,6 +67,7 @@ public class LinkSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "Link";
+        
     }
 
     @objid ("776ce48e-ccbc-46e2-9dc5-ab8509794d74")
@@ -82,18 +80,21 @@ public class LinkSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Link.class;
+        
     }
 
     @objid ("47875c7c-7618-446b-9471-f6bcfc715c9e")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("26a937c1-72ac-4abf-a18c-81cf29bce594")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("34119191-94d3-4231-8f17-c71f556c29f0")
@@ -117,6 +118,8 @@ public class LinkSmClass extends UmlModelElementSmClass {
         this.sentDep = new SentSmDependency();
         this.sentDep.init("Sent", this, metamodel.getMClass(CommunicationChannel.MQNAME), 0, 1 );
         registerDependency(this.sentDep);
+        
+        
     }
 
     @objid ("09a82bb4-4f56-4971-91a6-8719c0e56bb6")
@@ -147,6 +150,7 @@ public class LinkSmClass extends UmlModelElementSmClass {
     @Override
     public boolean isLinkMetaclass() {
         return true;
+        
     }
 
     @objid ("1833ca8a-f3f5-4b15-8f0b-2734bb6afd57")
@@ -155,7 +159,7 @@ public class LinkSmClass extends UmlModelElementSmClass {
         private LinkSmClass smClass;
 
         @objid ("40ac2aeb-4469-42cc-97f9-60785d5132c1")
-        public LinkObjectFactory(LinkSmClass smClass) {
+        public  LinkObjectFactory(LinkSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -197,6 +201,7 @@ public class LinkSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((AssociationSmClass)this.getTarget()).getOccurenceDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -216,6 +221,7 @@ public class LinkSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((LinkData) data).mLinkEnd = values;
+            
         }
 
         @objid ("986681e1-95ee-4a8c-86d1-6d3ce95f8ed4")
@@ -225,6 +231,7 @@ public class LinkSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((LinkEndSmClass)this.getTarget()).getLinkDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -253,6 +260,7 @@ public class LinkSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((CommunicationChannelSmClass)this.getTarget()).getChannelDep();
             }
             return this.symetricDep;
+            
         }
 
     }

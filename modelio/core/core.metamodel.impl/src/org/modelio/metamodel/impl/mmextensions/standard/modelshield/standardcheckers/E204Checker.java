@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.modelshield.standardcheckers;
 
 import java.util.ArrayList;
@@ -82,6 +81,7 @@ public class E204Checker extends TypeChecker {
             }
         }
         super.check(object, report);
+        
     }
 
     @objid ("008efd96-e472-1f69-b3fb-001ec947cd2a")
@@ -108,10 +108,11 @@ public class E204Checker extends TypeChecker {
         plan.registerChecker(this, smMetamodel.getMClass(StateMachine.class), TriggerType.Create, null);
         plan.registerChecker(this, smMetamodel.getMClass(StateMachine.class), TriggerType.Create, "Owner");
         plan.registerChecker(this, smMetamodel.getMClass(StateMachine.class), TriggerType.Create, "OwnerOperation");
+        
     }
 
     @objid ("d7428979-d7f6-11e1-a4a6-002564c97630")
-    public E204Checker() {
+    public  E204Checker() {
         super(ERRORID);
     }
 

@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.labelprovider;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,6 +37,7 @@ public class ElementLabelProvider extends LabelProvider {
         } else {
             return null;
         }
+        
     }
 
     @objid ("37b70a40-02c7-43e3-bd06-72515083f91f")
@@ -48,6 +48,7 @@ public class ElementLabelProvider extends LabelProvider {
         } else {
             return (obj != null) ? obj.toString() : "";
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.model.factory;
 
 import java.util.ArrayList;
@@ -48,11 +47,10 @@ public class DelegatingGmLinkFactory implements IGmLinkFactory {
 
     /**
      * Instantiate the factory.
-     * 
      * @param factoryIds identifier of the cascaded factories needed to call the {@link DiagramFactoryRegistry}.
      */
     @objid ("c8468442-8806-418b-be1f-b9a26cf8267f")
-    public DelegatingGmLinkFactory(List<String> factoryIds) {
+    public  DelegatingGmLinkFactory(List<String> factoryIds) {
         this.cascadedFactories = new ArrayList<>();
         for (String factoryId : factoryIds) {
             IGmLinkFactory cascadedFactory = DiagramFactoryRegistry.getInstance().getLinkFactory(factoryId);
@@ -60,6 +58,7 @@ public class DelegatingGmLinkFactory implements IGmLinkFactory {
                 this.cascadedFactories.add(cascadedFactory);
             }
         }
+        
     }
 
     @objid ("7d8a4493-4d40-43b7-af3d-51a29d52ddfa")
@@ -116,7 +115,6 @@ public class DelegatingGmLinkFactory implements IGmLinkFactory {
 
     /**
      * Register a cascaded factory.
-     * 
      * @param factory the link factory extension.
      */
     @objid ("69d15b28-f955-4012-8387-5c5f94fe7832")
@@ -124,11 +122,11 @@ public class DelegatingGmLinkFactory implements IGmLinkFactory {
         if (factory != null && !this.cascadedFactories.contains(factory)) {
             this.cascadedFactories.add(factory);
         }
+        
     }
 
     /**
      * Remove a registered cascaded factory.
-     * 
      * @param factory the link factory extension.
      */
     @objid ("31b5e39f-2e5f-4b23-8deb-9d76455d9949")
@@ -138,13 +136,13 @@ public class DelegatingGmLinkFactory implements IGmLinkFactory {
 
     /**
      * Instantiate the factory.
-     * 
      * @param factory a cascaded factory.
      */
     @objid ("a51e0b48-b222-4311-b34b-7d8cf0a2ffd1")
-    public DelegatingGmLinkFactory(IGmLinkFactory factory) {
+    public  DelegatingGmLinkFactory(IGmLinkFactory factory) {
         this.cascadedFactories = new ArrayList<>();
         this.cascadedFactories.add(factory);
+        
     }
 
 }

@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.events;
 
 import java.util.ArrayList;
@@ -31,8 +31,6 @@ import org.modelio.metamodel.bpmn.activities.BpmnComplexBehaviorDefinition;
 import org.modelio.metamodel.bpmn.events.BpmnImplicitThrowEvent;
 import org.modelio.metamodel.bpmn.events.BpmnThrowEvent;
 import org.modelio.metamodel.impl.bpmn.activities.BpmnComplexBehaviorDefinitionSmClass;
-import org.modelio.metamodel.impl.bpmn.events.BpmnImplicitThrowEventData;
-import org.modelio.metamodel.impl.bpmn.events.BpmnThrowEventSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -50,7 +48,7 @@ public class BpmnImplicitThrowEventSmClass extends BpmnThrowEventSmClass {
     private SmDependency ownerDep;
 
     @objid ("b4b5660f-f689-475b-8b9a-c643cab783fc")
-    public BpmnImplicitThrowEventSmClass(ISmMetamodelFragment origin) {
+    public  BpmnImplicitThrowEventSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -58,6 +56,7 @@ public class BpmnImplicitThrowEventSmClass extends BpmnThrowEventSmClass {
     @Override
     public String getName() {
         return "BpmnImplicitThrowEvent";
+        
     }
 
     @objid ("583b946a-7f8e-4748-992c-e463a6b36b8f")
@@ -70,18 +69,21 @@ public class BpmnImplicitThrowEventSmClass extends BpmnThrowEventSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnImplicitThrowEvent.class;
+        
     }
 
     @objid ("48f2a5af-9a31-468a-9404-6994108d4351")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("963f6edb-1c68-4306-8817-bbaf70e3ed1e")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("c20a0987-ed04-4925-abf4-629ef243b2ae")
@@ -97,6 +99,8 @@ public class BpmnImplicitThrowEventSmClass extends BpmnThrowEventSmClass {
         this.ownerDep = new OwnerSmDependency();
         this.ownerDep.init("Owner", this, metamodel.getMClass(BpmnComplexBehaviorDefinition.MQNAME), 0, 1 );
         registerDependency(this.ownerDep);
+        
+        
     }
 
     @objid ("e79b77d9-3272-435c-89ab-538f880a2642")
@@ -113,7 +117,7 @@ public class BpmnImplicitThrowEventSmClass extends BpmnThrowEventSmClass {
         private BpmnImplicitThrowEventSmClass smClass;
 
         @objid ("8d4086f4-fdb9-4834-b85e-7795939a8be4")
-        public BpmnImplicitThrowEventObjectFactory(BpmnImplicitThrowEventSmClass smClass) {
+        public  BpmnImplicitThrowEventObjectFactory(BpmnImplicitThrowEventSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -155,6 +159,7 @@ public class BpmnImplicitThrowEventSmClass extends BpmnThrowEventSmClass {
             	this.symetricDep = ((BpmnComplexBehaviorDefinitionSmClass)this.getTarget()).getEventDep();
             }
             return this.symetricDep;
+            
         }
 
     }

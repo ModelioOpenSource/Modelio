@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.ui.progress;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,7 +41,6 @@ public class ModelioProgressAdapter implements IModelioProgress {
      * 
      * <p>This method should generally be called at the beginning of a method that accepts
      * an IModelioProgress in order to convert the IModelioProgress into a SubProgress.</p>
-     * 
      * @param initialMonitor to convert into a SubProgress instance or null. If given a <code>null</code> argument,
      * the resulting SubProgress will not report its progress anywhere.
      * @param taskName user readable name to pass to monitor.beginTask(). Never <code>null</code>.
@@ -62,7 +60,6 @@ public class ModelioProgressAdapter implements IModelioProgress {
      * 
      * <p>This method should generally be called at the beginning of a method that accepts
      * an IModelioProgress in order to convert the IModelioProgress into a SubProgress.</p>
-     * 
      * @param initialMonitor to convert into a SubProgress instance or null. If given a <code>null</code> argument,
      * the resulting SubProgress will not report its progress anywhere.
      * @param work initial number of ticks to allocate for children of the SubProgress
@@ -75,16 +72,16 @@ public class ModelioProgressAdapter implements IModelioProgress {
 
     /**
      * Initialize a Modelio progress monitor from an Eclipse progress monitor.
-     * 
      * @param wrapped the wrapped Eclipse progress monitor.
      */
     @objid ("1dcca0a3-3a40-490a-921e-45366db1102b")
-    public ModelioProgressAdapter(IProgressMonitor wrapped) {
+    public  ModelioProgressAdapter(IProgressMonitor wrapped) {
         if (wrapped == null) {
             this.wrapped = new NullProgressMonitor();
         } else {
             this.wrapped = wrapped;
         }
+        
     }
 
     @objid ("c9527d61-af33-4391-b5a1-76692048da06")
@@ -125,6 +122,7 @@ public class ModelioProgressAdapter implements IModelioProgress {
         if (name != null && !name.isEmpty()) {
             this.wrapped.setTaskName(name);
         }
+        
     }
 
     @objid ("84dbf2a4-1c84-4124-833f-127edc94bb07")

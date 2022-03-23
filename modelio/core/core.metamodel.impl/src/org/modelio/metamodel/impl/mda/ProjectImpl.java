@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.mda;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.mda.ProjectData;
 import org.modelio.metamodel.impl.uml.infrastructure.AbstractProjectImpl;
 import org.modelio.metamodel.mda.Project;
 import org.modelio.metamodel.uml.statik.Package;
@@ -89,6 +88,7 @@ public class ProjectImpl extends AbstractProjectImpl implements Project {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("00b97de7-9c44-4e78-9ed5-43c879476077")

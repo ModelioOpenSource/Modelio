@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.contributions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,9 +32,10 @@ public class WizardContribution {
     private ContributorCategory category;
 
     @objid ("a41cc25f-b5bc-4a36-89a5-bfa0f557e37f")
-    public WizardContribution(ContributorCategory category, IWizardContributor contributor) {
+    public  WizardContribution(ContributorCategory category, IWizardContributor contributor) {
         this.category = category;
         this.contributor = contributor;
+        
     }
 
     @objid ("7ba39f70-3da4-4f88-810e-ebc3241f76d3")

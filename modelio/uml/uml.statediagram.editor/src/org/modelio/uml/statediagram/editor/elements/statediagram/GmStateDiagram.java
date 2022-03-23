@@ -17,18 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.statediagram;
 
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.elements.common.abstractdiagram.GmAbstractDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.diagrams.StateMachineDiagram;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.Region;
@@ -47,9 +47,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("f58d2379-55b6-11e2-877f-002564c97630")
 public class GmStateDiagram extends GmAbstractDiagram {
-    @objid ("f58d237e-55b6-11e2-877f-002564c97630")
-    private StateMachineDiagram obDiagram;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -59,20 +56,23 @@ public class GmStateDiagram extends GmAbstractDiagram {
     @objid ("f58d2384-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
 
+    @objid ("f58d237e-55b6-11e2-877f-002564c97630")
+    private StateMachineDiagram obDiagram;
+
     @objid ("fe4f91ce-5a5b-11e2-9e33-00137282c51b")
     private static GmStateDiagramStyleKeys STYLEKEYS = new GmStateDiagramStyleKeys();
 
     /**
      * Initialize the diagram.
-     * 
      * @param manager The model manager
      * @param theStateDiagram the displayed diagram.
      * @param diagramRef the reference of the displayed diagram. Must reference a {@link StateMachineDiagram}.
      */
     @objid ("f58d2386-55b6-11e2-877f-002564c97630")
-    public GmStateDiagram(IModelManager manager, StateMachineDiagram theStateDiagram, MRef diagramRef) {
+    public  GmStateDiagram(IModelManager manager, StateMachineDiagram theStateDiagram, MRef diagramRef) {
         super(manager, diagramRef);
         this.obDiagram = theStateDiagram;
+        
     }
 
     @objid ("f58d2395-55b6-11e2-877f-002564c97630")
@@ -138,6 +138,7 @@ public class GmStateDiagram extends GmAbstractDiagram {
             break;
         }
         }
+        
     }
 
     @objid ("f58eaa2a-55b6-11e2-877f-002564c97630")
@@ -162,6 +163,7 @@ public class GmStateDiagram extends GmAbstractDiagram {
                 Note.class.isAssignableFrom(metaclass) ||
                 Constraint.class.isAssignableFrom(metaclass) ||
                 AbstractDiagram.class.isAssignableFrom(metaclass));
+        
     }
 
     @objid ("f58eaa3b-55b6-11e2-877f-002564c97630")
@@ -177,12 +179,14 @@ public class GmStateDiagram extends GmAbstractDiagram {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmStateDiagram.", GmStateDiagram.MINOR_VERSION);
+        
     }
 
     @objid ("f59030a1-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.obDiagram = (StateMachineDiagram) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("f59030a6-55b6-11e2-877f-002564c97630")

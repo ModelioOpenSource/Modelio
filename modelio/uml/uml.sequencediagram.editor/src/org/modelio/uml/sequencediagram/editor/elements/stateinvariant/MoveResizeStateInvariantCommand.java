@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.stateinvariant;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -49,11 +48,11 @@ public class MoveResizeStateInvariantCommand extends Command {
         stateInvariant.setLineNumber(this.startTime);
         stateInvariant.setEndLineNumber(this.finishTime);
         this.gmStateInvariant.setLayoutData(this.newLayoutData);
+        
     }
 
     /**
      * Sets the new "end time" of the StateInvariant.
-     * 
      * @param value the new "end time" of the StateInvariant.
      */
     @objid ("d99a98e1-55b6-11e2-877f-002564c97630")
@@ -63,7 +62,6 @@ public class MoveResizeStateInvariantCommand extends Command {
 
     /**
      * Sets the modified StateInvariant.
-     * 
      * @param value the modified StateInvariant.
      */
     @objid ("d99a98e5-55b6-11e2-877f-002564c97630")
@@ -73,7 +71,6 @@ public class MoveResizeStateInvariantCommand extends Command {
 
     /**
      * Sets the new "time" of the StateInvariant.
-     * 
      * @param value the new "time" of the StateInvariant.
      */
     @objid ("d99a98e9-55b6-11e2-877f-002564c97630")

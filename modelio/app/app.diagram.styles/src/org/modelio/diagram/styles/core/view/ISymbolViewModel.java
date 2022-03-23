@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.core.view;
 
 import java.util.Collections;
@@ -39,7 +38,6 @@ public interface ISymbolViewModel {
 
     /**
      * Get children entry of the given entry.
-     * 
      * @param entry a symbol view item
      * @return the children items, never null.
      */
@@ -49,7 +47,6 @@ public interface ISymbolViewModel {
     /**
      * Get the root symbol items.
      * @param input the current selection
-     * 
      * @return the root items
      */
     @objid ("e3003870-8441-4794-9492-d2e79118df97")
@@ -70,7 +67,6 @@ public interface ISymbolViewModel {
 
     /**
      * Get only visible children entry of the given entry.
-     * 
      * @param entry a symbol view item
      * @return the visible children items, never null.
      */
@@ -78,7 +74,7 @@ public interface ISymbolViewModel {
     List<? extends ISymbolViewItem> getVisibleChildren(ISymbolViewItem entry);
 
     @objid ("ef95bee9-eb4b-40da-8ef1-82cb9b0ca6db")
-    static class Empty implements ISymbolViewModel {
+    public static class Empty implements ISymbolViewModel {
         @objid ("41b88af3-b1dc-48ce-b7bb-8e606663082b")
         @Override
         public List<? extends ISymbolViewItem> getElements() {

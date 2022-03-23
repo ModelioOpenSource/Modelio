@@ -17,21 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.infrastructure.ModelElementSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.TagParameterSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.TagTypeSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.TaggedValueData;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.TagParameter;
 import org.modelio.metamodel.uml.infrastructure.TagType;
@@ -63,7 +59,7 @@ public class TaggedValueSmClass extends ModelElementSmClass {
     private SmDependency annotedDep;
 
     @objid ("00ccd356-b0a3-4a07-b1fd-fba18578ca08")
-    public TaggedValueSmClass(ISmMetamodelFragment origin) {
+    public  TaggedValueSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -71,6 +67,7 @@ public class TaggedValueSmClass extends ModelElementSmClass {
     @Override
     public String getName() {
         return "TaggedValue";
+        
     }
 
     @objid ("01159109-db8e-4e24-aa09-ea3070555dbd")
@@ -83,18 +80,21 @@ public class TaggedValueSmClass extends ModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return TaggedValue.class;
+        
     }
 
     @objid ("6d6d770a-1634-4185-8928-74e84a8f9633")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("e809dcb7-35ae-4c43-a596-4eee1ea0b7a7")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("6aef3595-6842-4311-9149-a50f79a4dfec")
@@ -122,6 +122,8 @@ public class TaggedValueSmClass extends ModelElementSmClass {
         this.annotedDep = new AnnotedSmDependency();
         this.annotedDep.init("Annoted", this, metamodel.getMClass(ModelElement.MQNAME), 0, 1 );
         registerDependency(this.annotedDep);
+        
+        
     }
 
     @objid ("2a07e55e-beec-4d2d-b8fc-b5d26c3cfe10")
@@ -162,7 +164,7 @@ public class TaggedValueSmClass extends ModelElementSmClass {
         private TaggedValueSmClass smClass;
 
         @objid ("63471103-309c-4492-809c-ddce4c8813e2")
-        public TaggedValueObjectFactory(TaggedValueSmClass smClass) {
+        public  TaggedValueObjectFactory(TaggedValueSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -204,6 +206,7 @@ public class TaggedValueSmClass extends ModelElementSmClass {
             	this.symetricDep = ((ModelElementSmClass)this.getTarget()).getTagDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -223,6 +226,7 @@ public class TaggedValueSmClass extends ModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((TaggedValueData) data).mActual = values;
+            
         }
 
         @objid ("93e0e48c-6f2a-4116-b298-b88fbaa75d22")
@@ -232,6 +236,7 @@ public class TaggedValueSmClass extends ModelElementSmClass {
             	this.symetricDep = ((TagParameterSmClass)this.getTarget()).getAnnotedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -260,6 +265,7 @@ public class TaggedValueSmClass extends ModelElementSmClass {
             	this.symetricDep = ((TagParameterSmClass)this.getTarget()).getQualifiedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -288,6 +294,7 @@ public class TaggedValueSmClass extends ModelElementSmClass {
             	this.symetricDep = ((TagTypeSmClass)this.getTarget()).getTagOccurenceDep();
             }
             return this.symetricDep;
+            
         }
 
     }

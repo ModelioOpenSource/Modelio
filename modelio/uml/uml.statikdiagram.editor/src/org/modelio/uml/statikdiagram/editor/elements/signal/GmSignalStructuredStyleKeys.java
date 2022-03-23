@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.signal;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,52 +37,52 @@ import org.modelio.uml.statikdiagram.editor.style.StaticAbstractStyleKeyProvider
 @objid ("369600bf-55b7-11e2-877f-002564c97630")
 public class GmSignalStructuredStyleKeys extends StaticAbstractStyleKeyProvider {
     @objid ("a53676c9-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("SIGNAL_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("SIGNAL_REPMODE", MetaKey.REPMODE);
 
     @objid ("a53676cb-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("SIGNAL_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("SIGNAL_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("a53676cd-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("SIGNAL_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("SIGNAL_FILLMODE", MetaKey.FILLMODE);
 
     @objid ("a5369dda-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("SIGNAL_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("SIGNAL_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("a5369ddc-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("SIGNAL_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("SIGNAL_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("a5369dde-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("SIGNAL_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("SIGNAL_FONT", MetaKey.FONT);
 
     @objid ("a536c4ea-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("SIGNAL_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("SIGNAL_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     /**
      * Name display mode: none, simple, qualified, ...
      */
     @objid ("a536c4ec-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWNAME = createStyleKey("SIGNAL_SHOWNAME", MetaKey.SHOWNAME);
+    static final StyleKey SHOWNAME = createStyleKey("SIGNAL_SHOWNAME", MetaKey.SHOWNAME);
 
     @objid ("a536ebfa-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("SIGNAL_SHOWSTEREOTYPES", MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("SIGNAL_SHOWSTEREOTYPES", MetaKey.SHOWSTEREOTYPES);
 
     @objid ("a5371309-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("SIGNAL_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("SIGNAL_SHOWTAGS", MetaKey.SHOWTAGS);
 
     /**
      * Display class visibility.
      */
     @objid ("a537130b-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWVISIBILITY = createStyleKey("SIGNAL_SHOWVISIBILITY", MetaKey.SHOWVISIBILITY);
+    static final StyleKey SHOWVISIBILITY = createStyleKey("SIGNAL_SHOWVISIBILITY", MetaKey.SHOWVISIBILITY);
 
     /**
      * Filter on features by visibility
      */
     @objid ("a5376129-55c2-11e2-9337-002564c97630")
-     static final StyleKey FEATURES = createStyleKey("SIGNAL_FEATURES", MetaKey.VISIBILITYFILTER);
+    static final StyleKey FEATURES = createStyleKey("SIGNAL_FEATURES", MetaKey.VISIBILITYFILTER);
 
     @objid ("a537883b-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWPORTS = createStyleKey("SIGNAL_SHOWPORTS", MetaKey.AUTOSHOWPORTS);
+    static final StyleKey SHOWPORTS = createStyleKey("SIGNAL_SHOWPORTS", MetaKey.AUTOSHOWPORTS);
 
     @objid ("e0077721-dd0c-46c2-918a-946c83d21e4c")
     public static final ClassifierAttributeKeys Attribute = new ClassifierAttributeKeys("SIGNAL");

@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.form.fields;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,14 +44,15 @@ public class TextField extends AbstractField {
     private Text text;
 
     @objid ("a87e467b-1375-451b-8ffa-7126244f010a")
-    public TextField(FormToolkit toolkit, Composite parent, IFormFieldData model) {
+    public  TextField(FormToolkit toolkit, Composite parent, IFormFieldData model) {
         this(toolkit, parent, model, VISIBLE_LINES_DEFAULT_NB);
     }
 
     @objid ("287ca589-2716-4448-a9da-9d1c280d0b82")
-    public TextField(FormToolkit toolkit, Composite parent, IFormFieldData model, int nVisibleLines) {
+    public  TextField(FormToolkit toolkit, Composite parent, IFormFieldData model, int nVisibleLines) {
         super(toolkit, parent, model);
         this.nVisibleLines = nVisibleLines;
+        
     }
 
     @objid ("99a4b66b-2068-481c-b01c-6811f0867154")
@@ -106,6 +106,7 @@ public class TextField extends AbstractField {
     public void refresh() {
         final Object value = getModel().getValue();
         this.text.setText(value != null ? value.toString() : EMPTY_STRING);
+        
     }
 
 }

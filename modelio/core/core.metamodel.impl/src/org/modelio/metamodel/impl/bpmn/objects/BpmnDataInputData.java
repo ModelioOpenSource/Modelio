@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.objects;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,19 +31,19 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("0006c016-c4c0-1fd8-97fe-001ec947cd2a")
 public class BpmnDataInputData extends BpmnItemAwareElementData {
     @objid ("3f1ea9d8-a2df-43a3-bf95-edbbb4454be5")
-     Object mIsCollection = false;
+    Object mIsCollection = false;
 
     @objid ("2765fcb0-beea-481b-b48d-13cf9d5d844e")
-     SmObjectImpl mOwnerLoopCharacteristics;
+    SmObjectImpl mOwnerLoopCharacteristics;
 
     @objid ("3ff63ade-6ea8-42f3-a145-6d43fef239b9")
-     SmObjectImpl mOwnerActivity;
+    SmObjectImpl mOwnerActivity;
 
     @objid ("48adbb56-15b8-4075-b54e-7c765587a37b")
-     SmObjectImpl mOwnerThrowEvent;
+    SmObjectImpl mOwnerThrowEvent;
 
     @objid ("72464398-1289-4dce-8552-b26f42ecac6a")
-    public BpmnDataInputData(BpmnDataInputSmClass smClass) {
+    public  BpmnDataInputData(BpmnDataInputSmClass smClass) {
         super(smClass);
     }
 

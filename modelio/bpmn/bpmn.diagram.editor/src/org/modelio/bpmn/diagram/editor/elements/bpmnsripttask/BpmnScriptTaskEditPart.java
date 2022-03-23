@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnsripttask;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -26,12 +25,12 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.GraphicalEditPart;
-import org.modelio.bpmn.diagram.editor.elements.policies.BpmnCreateLinkEditPolicy;
+import org.modelio.bpmn.diagram.editor.elements.common.editpart.AbstractBpmnNodeEditPart;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnCreateLinkEditPolicy;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeRequestConstants;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeStartCreationEditPolicy;
 import org.modelio.diagram.elements.core.figures.MinimumSizeLayout;
 import org.modelio.diagram.elements.core.figures.RoundedBoxFigure;
-import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
 import org.modelio.diagram.elements.core.tools.multipoint.CreateMultiPointRequest;
 import org.modelio.diagram.elements.umlcommon.constraint.ConstraintLinkEditPolicy;
 import org.modelio.diagram.styles.core.IStyle;
@@ -40,7 +39,7 @@ import org.modelio.diagram.styles.core.IStyle;
  * EditPart for an BpmnScriptTask Node.
  */
 @objid ("61ae861a-55b6-11e2-877f-002564c97630")
-public class BpmnScriptTaskEditPart extends AbstractNodeEditPart {
+public class BpmnScriptTaskEditPart extends AbstractBpmnNodeEditPart {
     @objid ("61ae861e-55b6-11e2-877f-002564c97630")
     @Override
     protected IFigure createFigure() {
@@ -66,6 +65,7 @@ public class BpmnScriptTaskEditPart extends AbstractNodeEditPart {
         installEditPolicy(EditPolicy.NODE_ROLE, new BpmnCreateLinkEditPolicy());
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START, new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("61ae8626-55b6-11e2-877f-002564c97630")
@@ -73,6 +73,7 @@ public class BpmnScriptTaskEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         GmBpmnScriptTaskPrimaryNode calloperationModel = (GmBpmnScriptTaskPrimaryNode) getModel();
         getFigure().getParent().setConstraint(getFigure(), calloperationModel.getLayoutData());
+        
     }
 
     @objid ("61ae8629-55b6-11e2-877f-002564c97630")
@@ -85,6 +86,7 @@ public class BpmnScriptTaskEditPart extends AbstractNodeEditPart {
         if (index == 1) {
             getFigure().add(child, BorderLayout.BOTTOM, index);
         }
+        
     }
 
     @objid ("61ae862e-55b6-11e2-877f-002564c97630")
@@ -101,6 +103,7 @@ public class BpmnScriptTaskEditPart extends AbstractNodeEditPart {
                 super.refreshFromStyle(aFigure, style);
             }
         }
+        
     }
 
 }

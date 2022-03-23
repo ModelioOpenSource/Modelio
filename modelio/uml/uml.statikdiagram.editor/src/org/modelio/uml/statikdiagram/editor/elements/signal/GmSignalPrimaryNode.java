@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.signal;
 
 import java.util.ArrayList;
@@ -38,9 +37,9 @@ import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
+import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey.ShowStereotypeMode;
-import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Signal;
 import org.modelio.metamodel.uml.statik.Attribute;
@@ -129,12 +128,11 @@ public class GmSignalPrimaryNode extends GmNoStyleCompositeNode implements IImag
 
     /**
      * Default constructor.
-     * 
      * @param diagram the diagram in which this node is unmasked.
      * @param ref a reference to the element this GmModel is related to, must not be null.
      */
     @objid ("368fe661-55b7-11e2-877f-002564c97630")
-    public GmSignalPrimaryNode(IGmDiagram diagram, final MRef ref) {
+    public  GmSignalPrimaryNode(IGmDiagram diagram, final MRef ref) {
         super(diagram, ref);
         
         this.header = new GmNamespaceHeader(diagram, ref);
@@ -164,6 +162,7 @@ public class GmSignalPrimaryNode extends GmNoStyleCompositeNode implements IImag
         group.addChild(this.innerElements);
         
         styleChanged(getDisplayedStyle());
+        
     }
 
     @objid ("368fe66b-55b7-11e2-877f-002564c97630")
@@ -177,6 +176,7 @@ public class GmSignalPrimaryNode extends GmNoStyleCompositeNode implements IImag
         }
         // forcing visual refresh in case Image changed
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("368fe66e-55b7-11e2-877f-002564c97630")
@@ -212,7 +212,7 @@ public class GmSignalPrimaryNode extends GmNoStyleCompositeNode implements IImag
      * Constructor for deserialization only.
      */
     @objid ("36916cea-55b7-11e2-877f-002564c97630")
-    public GmSignalPrimaryNode() {
+    public  GmSignalPrimaryNode() {
         // Nothing to do.
     }
 
@@ -244,6 +244,7 @@ public class GmSignalPrimaryNode extends GmNoStyleCompositeNode implements IImag
         // Returned result depends on current representation mode:
         List<GmNodeModel> ret;
         switch (this.getRepresentationMode()) {
+        case USER_IMAGE:
         case IMAGE:
             ret = Collections.emptyList();
             break;
@@ -291,6 +292,7 @@ public class GmSignalPrimaryNode extends GmNoStyleCompositeNode implements IImag
             break;
         }
         }
+        
     }
 
     @objid ("36916d06-55b7-11e2-877f-002564c97630")
@@ -299,6 +301,7 @@ public class GmSignalPrimaryNode extends GmNoStyleCompositeNode implements IImag
         super.styleChanged(changedStyle);
         
         refreshHeaderFromStyle(changedStyle);
+        
     }
 
     @objid ("36916d0d-55b7-11e2-877f-002564c97630")
@@ -309,6 +312,7 @@ public class GmSignalPrimaryNode extends GmNoStyleCompositeNode implements IImag
         if (property.equals(GmSignalStructuredStyleKeys.SHOWSTEREOTYPES)) {
             refreshHeaderFromStyle(getDisplayedStyle());
         }
+        
     }
 
     /**
@@ -334,6 +338,7 @@ public class GmSignalPrimaryNode extends GmNoStyleCompositeNode implements IImag
             this.header.setShowMetaclassKeyword(true);
             this.header.setShowMetaclassIcon(true);
         }
+        
     }
 
     /**
@@ -354,7 +359,6 @@ public class GmSignalPrimaryNode extends GmNoStyleCompositeNode implements IImag
 
     /**
      * Get the internal structure.
-     * 
      * @return the internal structure.
      */
     @objid ("3692f38f-55b7-11e2-877f-002564c97630")
@@ -369,6 +373,7 @@ public class GmSignalPrimaryNode extends GmNoStyleCompositeNode implements IImag
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmSignalPrimaryNode.", GmSignalPrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("3692f39a-55b7-11e2-877f-002564c97630")
@@ -415,6 +420,7 @@ public class GmSignalPrimaryNode extends GmNoStyleCompositeNode implements IImag
         group.addChild(this.internalStructure);
         group.addChild(this.innerElements);
         super.addChild(group, 1);
+        
     }
 
     @objid ("3692f39f-55b7-11e2-877f-002564c97630")
@@ -454,6 +460,7 @@ public class GmSignalPrimaryNode extends GmNoStyleCompositeNode implements IImag
         removeChild(this.innerElements);
         group.addChild(this.innerElements);
         super.addChild(group, 1);
+        
     }
 
     @objid ("3692f3aa-55b7-11e2-877f-002564c97630")
@@ -488,6 +495,7 @@ public class GmSignalPrimaryNode extends GmNoStyleCompositeNode implements IImag
         removeChild(this.innerElements);
         group.addChild(this.innerElements);
         super.addChild(group, 1);
+        
     }
 
     @objid ("3692f3b4-55b7-11e2-877f-002564c97630")
@@ -509,6 +517,7 @@ public class GmSignalPrimaryNode extends GmNoStyleCompositeNode implements IImag
         this.internalStructure = new GmInternalStructure(getDiagram(), getRepresentedRef(), internalStructureZone, internalStructureGroup);
         this.internalStructure.setRoleInComposition(INTERNAL);
         group.addChild(this.internalStructure);
+        
     }
 
     @objid ("36947a1d-55b7-11e2-877f-002564c97630")
@@ -521,6 +530,7 @@ public class GmSignalPrimaryNode extends GmNoStyleCompositeNode implements IImag
         this.methodGroup = (GmGroup) group.getFirstChild(METHOD_GROUP);
         this.internalStructure = (GmInternalStructure) group.getFirstChild(INTERNAL);
         this.innerElements = (GmInnerClass) group.getFirstChild(INNER);
+        
     }
 
 }

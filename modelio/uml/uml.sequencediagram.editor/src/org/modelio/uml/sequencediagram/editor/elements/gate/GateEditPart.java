@@ -17,24 +17,31 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.gate;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.gef.EditPart;
+import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.commands.Command;
+import org.eclipse.gef.editpolicies.SelectionEditPolicy;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
+import org.modelio.diagram.elements.common.portcontainer.AutoSizeEditPolicy2;
+import org.modelio.diagram.elements.common.portcontainer.LayoutMainNodeConnectionsEditPolicy;
 import org.modelio.diagram.elements.common.portcontainer.PortContainerEditPart;
+import org.modelio.diagram.elements.common.portcontainer.PortContainerEditPolicy;
 import org.modelio.diagram.elements.core.model.GmModel;
+import org.modelio.diagram.elements.core.policies.LayoutConnectionsConstrainedLayoutEditPolicyDecorator;
+import org.modelio.diagram.elements.core.policies.LayoutNodeConnectionsEditPolicy;
 import org.modelio.metamodel.uml.behavior.interactionModel.Gate;
 import org.modelio.uml.sequencediagram.editor.elements.sequencediagram.GmSequenceDiagram;
 import org.modelio.uml.sequencediagram.editor.elements.sequencediagram.IPlacementConstraintProvider;
 import org.modelio.uml.sequencediagram.editor.elements.sequencediagram.PlacementConstraint;
 
 /**
- * EditPart for Gate on an InteractionUse. Specialisation of a PortContainerEditPart.
+ * EditPart for a Gate. Specialisation of a PortContainerEditPart.
  * 
  * @author fpoyer
  */
@@ -42,7 +49,6 @@ import org.modelio.uml.sequencediagram.editor.elements.sequencediagram.Placement
 public class GateEditPart extends PortContainerEditPart implements IPlacementConstraintProvider {
     /**
      * Creates and returns a PlacementConstraint for the given model.
-     * 
      * @param model the graphic model for which a constraint is to be created.
      * @param x the desired X coordinate in coordinates relative to the parent figure.
      * @param y the desired Y in coordinates relative to the parent figure.
@@ -77,6 +83,35 @@ public class GateEditPart extends PortContainerEditPart implements IPlacementCon
             command = updateModelCommand.chain(command);
         }
         return command;
+    }
+
+    @objid ("4a86725e-dfda-4d2b-a23b-a336d864fe7a")
+    @Override
+    protected void createEditPolicies() {
+        super.createEditPolicies();
+        removeEditPolicy(LayoutMainNodeConnectionsEditPolicy.ROLE);
+        
+    }
+
+    @objid ("cebc9d92-463a-4b23-9cbc-058d3cf949bc")
+    @Override
+    public SelectionEditPolicy getPreferredDragRolePolicy(String requestType) {
+        return new AutoSizeEditPolicy2() {
+            @Override
+            public void activate() {
+                super.activate();
+        
+                EditPart host = getHost();
+                host.removeEditPolicy(LayoutNodeConnectionsEditPolicy.ROLE);
+            }
+        };
+        
+    }
+
+    @objid ("e497316b-aef4-41f6-976b-d33b5861edba")
+    @Override
+    protected EditPolicy createLayoutPolicyDecorator(EditPolicy layoutPolicy) {
+        return new LayoutConnectionsConstrainedLayoutEditPolicyDecorator((PortContainerEditPolicy) layoutPolicy);
     }
 
 }

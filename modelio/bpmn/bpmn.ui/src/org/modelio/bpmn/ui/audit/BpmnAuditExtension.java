@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.ui.audit;
 
 import java.net.URL;
@@ -44,11 +43,12 @@ public class BpmnAuditExtension implements IAuditExtension {
     private BpmnAuditPlan bpmnAuditPlan;
 
     @objid ("1f723c2c-f8d0-4273-a41a-c7fabf8debe4")
-    public BpmnAuditExtension() {
+    public  BpmnAuditExtension() {
         List<AuditCategory> categories = loadCategories();
         
         this.bpmnConfigurationPlan = new BpmnConfigurationPlan(categories);
         this.bpmnAuditPlan = new BpmnAuditPlan(categories);
+        
     }
 
     @objid ("d818ec91-93a4-4f86-9a9b-8e6985dac469")

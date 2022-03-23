@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.style;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,7 +39,6 @@ import org.modelio.uml.statikdiagram.editor.plugin.DiagramEditorStatik;
 public abstract class StaticAbstractStyleKeyProvider extends AbstractStyleKeyProvider {
     /**
      * Creates a StyleKey based on a MetaKey.
-     * 
      * @param key The style key.
      * @param metakey the base meta key.
      * @return a StyleKey with i18n informations filled.
@@ -52,11 +50,11 @@ public abstract class StaticAbstractStyleKeyProvider extends AbstractStyleKeyPro
                         metakey.getLabel(),
                         metakey.getTooltip(),
                         DiagramEditorStatik.I18N.getMessage(AbstractStyleKeyProvider.STYLEKEY_PREFIX + key + AbstractStyleKeyProvider.CATEGORY_SUFFIX));
+        
     }
 
     /**
      * Creates a style key.
-     * 
      * @param key The style key id.
      * @param type The type of the style key.
      * @return a StyleKey with i18n informations filled.
@@ -68,6 +66,7 @@ public abstract class StaticAbstractStyleKeyProvider extends AbstractStyleKeyPro
                         DiagramEditorStatik.I18N.getMessage(AbstractStyleKeyProvider.STYLEKEY_PREFIX + key + AbstractStyleKeyProvider.LABEL_SUFFIX),
                         DiagramEditorStatik.I18N.getMessage(AbstractStyleKeyProvider.STYLEKEY_PREFIX + key + AbstractStyleKeyProvider.TOOLTIP_SUFFIX),
                         DiagramEditorStatik.I18N.getMessage(AbstractStyleKeyProvider.STYLEKEY_PREFIX + key + AbstractStyleKeyProvider.CATEGORY_SUFFIX));
+        
     }
 
 }

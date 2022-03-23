@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.gproject.url;
 
 import java.io.IOException;
@@ -53,7 +52,7 @@ public class GUrlProject extends GRemoteProject {
      * To be called by the factory only.
      */
     @objid ("f7ea37ec-0f09-11e2-bd8d-001ec947ccaf")
-    public GUrlProject() {
+    public  GUrlProject() {
         // nothing to do.
     }
 
@@ -69,6 +68,7 @@ public class GUrlProject extends GRemoteProject {
         super.load(projectDescriptor, authData, configuration, aProgress);
         
         this.remoteUri = getRemoteUri(projectDescriptor);
+        
     }
 
     /**
@@ -76,10 +76,9 @@ public class GUrlProject extends GRemoteProject {
      * <p>
      * The default implementation directly reads the {@link ProjectDescriptor#getRemoteLocation()}
      * and converts it to an URI ending with a '/'.
-     * 
      * @param projectDescriptor a project descriptor.
      * @return the remote project URI.
-     * @throws java.io.IOException if the location in the descriptor is invalid.
+     * @throws IOException if the location in the descriptor is invalid.
      */
     @objid ("2a68c81d-2fea-4218-b800-8ef9d11b7052")
     private URI getRemoteUri(ProjectDescriptor projectDescriptor) throws IOException {

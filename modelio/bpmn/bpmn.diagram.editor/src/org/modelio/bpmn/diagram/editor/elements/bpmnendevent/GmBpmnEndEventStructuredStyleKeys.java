@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnendevent;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.bpmn.diagram.editor.elements.style.BpmnAbstractStyleKeyProvider;
+import org.modelio.bpmn.diagram.editor.elements.common.style.BpmnAbstractStyleKeyProvider;
 import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.diagram.styles.core.StyleKey;
 
@@ -31,23 +30,23 @@ import org.modelio.diagram.styles.core.StyleKey;
 @objid ("60e51bd6-55b6-11e2-877f-002564c97630")
 public class GmBpmnEndEventStructuredStyleKeys extends BpmnAbstractStyleKeyProvider {
     @objid ("71781da2-55c1-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("ENDEVENT_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("ENDEVENT_REPMODE", MetaKey.REPMODE);
 
     @objid ("71781da4-55c1-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("ENDEVENT_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("ENDEVENT_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("7179a42a-55c1-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("ENDEVENT_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("ENDEVENT_FONT", MetaKey.FONT);
 
     @objid ("7179a42c-55c1-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("ENDEVENT_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("ENDEVENT_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("7179a42e-55c1-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("ENDEVENT_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("ENDEVENT_SHOWSTEREOTYPES",
+                MetaKey.SHOWSTEREOTYPES);
 
     @objid ("7179a430-55c1-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("ENDEVENT_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("ENDEVENT_SHOWTAGS", MetaKey.SHOWTAGS);
 
     /**
      * Show the element name label.
@@ -55,6 +54,6 @@ public class GmBpmnEndEventStructuredStyleKeys extends BpmnAbstractStyleKeyProvi
      * @see MetaKey#SHOWLABEL
      */
     @objid ("7179a432-55c1-11e2-9337-002564c97630")
-     static final StyleKey SHOWLABEL = createStyleKey("ENDEVENT_SHOWLABEL", MetaKey.SHOWLABEL);
+    static final StyleKey SHOWLABEL = createStyleKey("ENDEVENT_SHOWLABEL", MetaKey.SHOWLABEL);
 
 }

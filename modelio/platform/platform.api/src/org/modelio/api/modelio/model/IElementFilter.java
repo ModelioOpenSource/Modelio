@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.model;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -27,7 +26,6 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IElementFilter {
     /**
      * This method checks if an element is accepted.
-     * 
      * @param element the model element to check.
      * @return <code>true</code> if the element is accepted.
      */

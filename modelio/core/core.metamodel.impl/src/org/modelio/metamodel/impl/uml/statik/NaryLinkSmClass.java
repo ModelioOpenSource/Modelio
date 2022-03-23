@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
@@ -31,9 +31,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.behavior.communicationModel.CommunicationChannelSmClass;
 import org.modelio.metamodel.impl.uml.informationFlow.InformationFlowSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
-import org.modelio.metamodel.impl.uml.statik.NaryAssociationSmClass;
-import org.modelio.metamodel.impl.uml.statik.NaryLinkData;
-import org.modelio.metamodel.impl.uml.statik.NaryLinkEndSmClass;
 import org.modelio.metamodel.uml.behavior.communicationModel.CommunicationChannel;
 import org.modelio.metamodel.uml.informationFlow.InformationFlow;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
@@ -67,7 +64,7 @@ public class NaryLinkSmClass extends UmlModelElementSmClass {
     private SmDependency sentDep;
 
     @objid ("70dbc32e-08de-4b09-ab93-dbbf14f22484")
-    public NaryLinkSmClass(ISmMetamodelFragment origin) {
+    public  NaryLinkSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -75,6 +72,7 @@ public class NaryLinkSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "NaryLink";
+        
     }
 
     @objid ("c13b3113-6c8d-4d32-b770-f1c6b2039279")
@@ -87,18 +85,21 @@ public class NaryLinkSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return NaryLink.class;
+        
     }
 
     @objid ("7d9a7cd6-a8ea-4090-bb23-597ea1293eb1")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("8c86a451-56ae-4ec7-8c41-7f36b1433612")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("6a842e5e-69ae-40f8-9c57-60fe7b14b88e")
@@ -126,6 +127,8 @@ public class NaryLinkSmClass extends UmlModelElementSmClass {
         this.sentDep = new SentSmDependency();
         this.sentDep.init("Sent", this, metamodel.getMClass(CommunicationChannel.MQNAME), 0, -1 );
         registerDependency(this.sentDep);
+        
+        
     }
 
     @objid ("6412642f-ae9c-41a8-af95-38a3599874fa")
@@ -166,7 +169,7 @@ public class NaryLinkSmClass extends UmlModelElementSmClass {
         private NaryLinkSmClass smClass;
 
         @objid ("9ac4857c-c4e1-4939-b06d-737decc2f25d")
-        public NaryLinkObjectFactory(NaryLinkSmClass smClass) {
+        public  NaryLinkObjectFactory(NaryLinkSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -199,6 +202,7 @@ public class NaryLinkSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((NaryLinkData) data).mNaryLinkEnd = values;
+            
         }
 
         @objid ("ca87bc6e-9163-459e-9e0d-4e93ef8bba51")
@@ -208,6 +212,7 @@ public class NaryLinkSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((NaryLinkEndSmClass)this.getTarget()).getNaryLinkDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -236,6 +241,7 @@ public class NaryLinkSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((NaryAssociationSmClass)this.getTarget()).getOccurenceDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -255,6 +261,7 @@ public class NaryLinkSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((NaryLinkData) data).mRealizedInformationFlow = values;
+            
         }
 
         @objid ("4efb64ac-a30e-49b7-99fb-c86499f48fa5")
@@ -264,6 +271,7 @@ public class NaryLinkSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((InformationFlowSmClass)this.getTarget()).getRealizingNaryLinkDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -283,6 +291,7 @@ public class NaryLinkSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((NaryLinkData) data).mSent = values;
+            
         }
 
         @objid ("398c146d-4181-42e7-85ec-f97e24a2c497")
@@ -292,6 +301,7 @@ public class NaryLinkSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((CommunicationChannelSmClass)this.getTarget()).getNaryChannelDep();
             }
             return this.symetricDep;
+            
         }
 
     }

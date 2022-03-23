@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.abstractdiagram;
 
 import java.util.Collection;
@@ -67,19 +66,19 @@ public class UnmaskNoteCommand extends Command {
 
     /**
      * C'tor.
-     * 
      * @param theNote the note to unmask.
      * @param host the edit part of the diagram in which to unmask it.
      * @param initialLayoutData the initial layout data for the node part
      * @param dropLocation the drop location retreived from the request.
      */
     @objid ("7e2c1084-1dec-11e2-8cad-001ec947c8cc")
-    public UnmaskNoteCommand(final Note theNote, final AbstractDiagramEditPart host, final Object initialLayoutData, final Point dropLocation) {
+    public  UnmaskNoteCommand(final Note theNote, final AbstractDiagramEditPart host, final Object initialLayoutData, final Point dropLocation) {
         this.theNote = theNote;
         this.host = host;
         this.diagram = (IGmDiagram) host.getModel();
         this.constraint = initialLayoutData;
         this.dropLocation = dropLocation;
+        
     }
 
     @objid ("7e2c1091-1dec-11e2-8cad-001ec947c8cc")
@@ -115,6 +114,7 @@ public class UnmaskNoteCommand extends Command {
             targetModel.addEndingLink(link);
             sourceModel.addStartingLink(link);
         }
+        
     }
 
     @objid ("7e2c1094-1dec-11e2-8cad-001ec947c8cc")
@@ -148,6 +148,7 @@ public class UnmaskNoteCommand extends Command {
         if (command != null && command.canExecute()) {
             command.execute();
         }
+        
     }
 
     @objid ("7e2c10a8-1dec-11e2-8cad-001ec947c8cc")

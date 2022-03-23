@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.model;
 
 import java.util.ArrayList;
@@ -38,10 +37,11 @@ public class AllDiagramsNode extends VirtualFolder {
     private final GProject project;
 
     @objid ("0047e6ae-0d4f-10c6-842f-001ec947cd2a")
-    public AllDiagramsNode(GProject session, AbstractProject project) {
+    public  AllDiagramsNode(GProject session, AbstractProject project) {
         super(project);
         this.project = session;
         setName(DiagramBrowser.I18N.getString("AllDiagrams"));
+        
     }
 
     @objid ("00481674-0d4f-10c6-842f-001ec947cd2a")

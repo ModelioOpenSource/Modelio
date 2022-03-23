@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.infrastructure.properties.PropertyDefinitionSmClass;
 import org.modelio.metamodel.uml.infrastructure.properties.DynamicPropertyDefinition;
 import org.modelio.metamodel.uml.infrastructure.properties.PropertyDefinition;
 import org.modelio.vbasic.version.Version;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("9212b99c-be1d-494e-af24-84c580bd7cc8")
 public class DynamicPropertyDefinitionSmClass extends PropertyDefinitionSmClass {
     @objid ("b485795d-5caa-4522-a588-92462b4dc470")
-    public DynamicPropertyDefinitionSmClass(ISmMetamodelFragment origin) {
+    public  DynamicPropertyDefinitionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class DynamicPropertyDefinitionSmClass extends PropertyDefinitionSmClass 
     @Override
     public String getName() {
         return "DynamicPropertyDefinition";
+        
     }
 
     @objid ("12a04c16-3f95-478e-b159-e9abdd8243c2")
@@ -62,18 +62,21 @@ public class DynamicPropertyDefinitionSmClass extends PropertyDefinitionSmClass 
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return DynamicPropertyDefinition.class;
+        
     }
 
     @objid ("d4603599-d34e-4b29-9add-5398765b09d2")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("a658408b-082d-44fc-bbab-873cd4e044ae")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("5f573cf2-fcc1-4114-9cab-b1f45a8b68df")
@@ -86,6 +89,7 @@ public class DynamicPropertyDefinitionSmClass extends PropertyDefinitionSmClass 
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("b7859054-bfa5-49ee-85ed-a4ebf2e0fecd")
@@ -94,7 +98,7 @@ public class DynamicPropertyDefinitionSmClass extends PropertyDefinitionSmClass 
         private DynamicPropertyDefinitionSmClass smClass;
 
         @objid ("b21b822c-2101-41eb-9b8f-c5b8df561a53")
-        public DynamicPropertyDefinitionObjectFactory(DynamicPropertyDefinitionSmClass smClass) {
+        public  DynamicPropertyDefinitionObjectFactory(DynamicPropertyDefinitionSmClass smClass) {
             this.smClass = smClass;
         }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.core.modelshield.engine.execution;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,7 +40,7 @@ public class TransactionProcessor {
     private final IModelShieldPlan plan;
 
     @objid ("006af504-13d2-1f62-8473-001ec947cd2a")
-    public TransactionProcessor(final IModelShieldPlan plan) {
+    public  TransactionProcessor(final IModelShieldPlan plan) {
         this.plan = plan;
     }
 
@@ -49,6 +48,7 @@ public class TransactionProcessor {
     public void check(final Transaction transaction, final ShieldContext context) {
         ActionVisitor visitor = new ActionVisitor(context, this.plan);
         visitor.visitTransaction(transaction);
+        
     }
 
     @objid ("006b2812-13d2-1f62-8473-001ec947cd2a")
@@ -65,6 +65,7 @@ public class TransactionProcessor {
             for (IAction action : theTransaction.getActions()) {
                 action.accept(this);
             }
+            
         }
 
         @objid ("00280c2c-0000-0491-0000-000000000000")
@@ -92,6 +93,7 @@ public class TransactionProcessor {
             if (action.getDep().isComponent() && action.getRef() != null) {
                 executeCheckersFor(action.getRef(), TriggerType.Move, null);
             }
+            
         }
 
         @objid ("00280c2c-0000-049f-0000-000000000000")
@@ -101,6 +103,7 @@ public class TransactionProcessor {
             if (action.getDep().isComponent() && action.getRef() != null) {
                 executeCheckersFor(action.getRef(), TriggerType.Move, null);
             }
+            
         }
 
         @objid ("00280c2c-0000-04a3-0000-000000000000")
@@ -110,9 +113,10 @@ public class TransactionProcessor {
         }
 
         @objid ("00280c2c-0000-04a6-0000-000000000000")
-        public ActionVisitor(final ShieldContext context, final IModelShieldPlan plan) {
+        public  ActionVisitor(final ShieldContext context, final IModelShieldPlan plan) {
             this.context = context;
             this.planExecutor = new PlanExecution(plan);
+            
         }
 
         @objid ("00280c2c-0000-04ae-0000-000000000000")
@@ -123,6 +127,7 @@ public class TransactionProcessor {
             this.planExecutor.process(this.context, obj, trigger, feature);
             // obj.accept(planExecutor);
             // }
+            
         }
 
     }

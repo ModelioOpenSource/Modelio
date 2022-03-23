@@ -3,13 +3,14 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Ui Plug-in
 Bundle-SymbolicName: org.modelio.platform.ui;singleton:=true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Bundle-Version: 4.1.0.qualifier
+Bundle-Version: 5.1.0.qualifier
 Require-Bundle: org.eclipse.ui,
  org.modelio.platform.utils,
  org.eclipse.core.runtime,
  org.eclipse.gef,
  org.modelio.core.utils,
- org.modelio.platform.rcp
+ org.modelio.platform.rcp,
+ org.eclipse.nebula.widgets.gallery
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: modelio.org
 Export-Package: org.modelio.platform.ui,
@@ -20,8 +21,10 @@ Export-Package: org.modelio.platform.ui,
  org.modelio.platform.ui.panel,
  org.modelio.platform.ui.plugin,
  org.modelio.platform.ui.progress,
- org.modelio.platform.ui.swt
+ org.modelio.platform.ui.swt,
+ org.modelio.platform.ui.swt.imagesselector
 Bundle-ClassPath: .,
+ res/,
  rte/
 Bundle-Activator: org.modelio.platform.ui.plugin.UI
 Eclipse-BundleShape: dir

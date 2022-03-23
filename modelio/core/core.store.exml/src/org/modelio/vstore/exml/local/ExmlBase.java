@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.local;
 
 import java.io.FileNotFoundException;
@@ -40,8 +39,8 @@ import org.modelio.vstore.exml.common.model.ObjId;
 import org.modelio.vstore.exml.local.loader.IExmlLoader;
 import org.modelio.vstore.exml.local.loader.sax.SaxExmlLoader;
 import org.modelio.vstore.exml.local.save.ExmlSaver;
-import org.modelio.vstore.exml.resource.IExmlResourceProvider.ExmlResource;
 import org.modelio.vstore.exml.resource.IExmlResourceProvider;
+import org.modelio.vstore.exml.resource.IExmlResourceProvider.ExmlResource;
 import org.xml.sax.InputSource;
 
 /**
@@ -57,11 +56,10 @@ public class ExmlBase extends AbstractExmlRepository {
 
     /**
      * Initialize a EXML repository from an EXML resource provider.
-     * 
      * @param resProvider an EXML resource provider.
      */
     @objid ("3e1a4116-1ea1-11e2-90db-001ec947ccaf")
-    public ExmlBase(IExmlResourceProvider resProvider) {
+    public  ExmlBase(IExmlResourceProvider resProvider) {
         super(resProvider);
     }
 
@@ -69,14 +67,13 @@ public class ExmlBase extends AbstractExmlRepository {
      * Initialize a EXML repository from a directory path.
      * <p>
      * The repository needs to be {@link #open(IModelLoaderProvider, IModelioProgress) opened} before being used.
-     * 
      * @param path a directory path.
-     * @throws java.io.IOException in case of failure.
+     * @throws IOException in case of failure.
      * @deprecated use {@link #ExmlBase(Path, String)}
      */
     @objid ("3e1a4119-1ea1-11e2-90db-001ec947ccaf")
     @Deprecated
-    public ExmlBase(Path path) throws IOException {
+    public  ExmlBase(Path path) throws IOException {
         super(path, path, path.toString());
     }
 
@@ -84,13 +81,12 @@ public class ExmlBase extends AbstractExmlRepository {
      * Initialize a EXML repository from a directory path.
      * <p>
      * The repository needs to be {@link #open(IModelLoaderProvider, IModelioProgress) opened} before being used.
-     * 
      * @param path a directory path.
      * @param name a repository identifier to use in messages.
-     * @throws java.io.IOException in case of failure.
+     * @throws IOException in case of failure.
      */
     @objid ("e1cdc0fc-80ea-4f03-965a-548bd951c657")
-    public ExmlBase(Path path, String name) throws IOException {
+    public  ExmlBase(Path path, String name) throws IOException {
         super(path, path, name);
     }
 
@@ -116,6 +112,7 @@ public class ExmlBase extends AbstractExmlRepository {
                 }
             }
         }
+        
     }
 
     @objid ("679e4b84-2e7b-11e2-8aaa-001ec947ccaf")
@@ -130,6 +127,7 @@ public class ExmlBase extends AbstractExmlRepository {
         this.loadHelper = new LoadHelper(this, isWriteable());
         //this.loader = new ExmlLoader(this.loadHelper, this.getLoadCache());
         this.loader = new SaxExmlLoader(this.loadHelper);
+        
     }
 
     @objid ("fd2458e1-5986-11e1-991a-001ec947ccaf")
@@ -142,6 +140,7 @@ public class ExmlBase extends AbstractExmlRepository {
             ExmlSaver saver = new ExmlSaver();
             saver.externalize(cmsNode, os);
         }
+        
     }
 
 }

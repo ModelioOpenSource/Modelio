@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common;
 
 import java.io.IOException;
@@ -71,17 +70,17 @@ public class ExmlStorageHandler implements IRepositoryObject {
 
     /**
      * Initialize the handler.
-     * 
      * @param base the EXML repository.
      * @param cmsNode the root CMS node
      * @param isNodeLoaded <code>true</code> if the node is already loaded else <code>false</code>.
      */
     @objid ("fd245855-5986-11e1-991a-001ec947ccaf")
-    public ExmlStorageHandler(IExmlBase base, SmObjectImpl cmsNode, final boolean isNodeLoaded) {
+    public  ExmlStorageHandler(IExmlBase base, SmObjectImpl cmsNode, final boolean isNodeLoaded) {
         this.cmsNode = cmsNode;
         this.base = base;
         this.loaded = isNodeLoaded;
         this.cmsNodeId = new ObjId(cmsNode);
+        
     }
 
     @objid ("fd24575c-5986-11e1-991a-001ec947ccaf")
@@ -101,6 +100,7 @@ public class ExmlStorageHandler implements IRepositoryObject {
                 obj.setRepositoryObject(this);
             }
         }
+        
     }
 
     @objid ("fd24575a-5986-11e1-991a-001ec947ccaf")
@@ -115,6 +115,7 @@ public class ExmlStorageHandler implements IRepositoryObject {
             // A non CMS node moved into this CMS node, fix its storage handler
             propagateHandler(val);
         }
+        
     }
 
     @objid ("fd245756-5986-11e1-991a-001ec947ccaf")
@@ -138,6 +139,7 @@ public class ExmlStorageHandler implements IRepositoryObject {
                 }
             }
         }
+        
     }
 
     @objid ("fd245759-5986-11e1-991a-001ec947ccaf")
@@ -146,6 +148,7 @@ public class ExmlStorageHandler implements IRepositoryObject {
         if (isPersistent(dep)) {
             this.dirty = true;
         }
+        
     }
 
     @objid ("fd24572b-5986-11e1-991a-001ec947ccaf")
@@ -157,13 +160,13 @@ public class ExmlStorageHandler implements IRepositoryObject {
         } catch (IOException e) {
             this.base.getErrorSupport().fireError(e);
         }
+        
     }
 
     /**
      * Get the root CMS node of this handler.
      * <p>
      * May return <i>null</i> if the node was deleted then unloaded.
-     * 
      * @return the root CMS node of this handler or <i>null</i>.
      */
     @objid ("fd245752-5986-11e1-991a-001ec947ccaf")
@@ -220,6 +223,7 @@ public class ExmlStorageHandler implements IRepositoryObject {
             // Inverse dependency not stored either, this case shouldn't occur
             return true;
         }
+        
     }
 
     /**
@@ -232,7 +236,6 @@ public class ExmlStorageHandler implements IRepositoryObject {
 
     /**
      * Tells whether the CMS node is loaded.
-     * 
      * @return <code>true</code> if the node is loaded else <code>false</code>.
      */
     @objid ("3c9891b4-2f3f-11e2-8359-001ec947ccaf")
@@ -285,11 +288,11 @@ public class ExmlStorageHandler implements IRepositoryObject {
         } catch (IndexException e) {
             this.base.getErrorSupport().fireError(e);
         }
+        
     }
 
     /**
      * Set the node as dirty or not.
-     * 
      * @param value the new dirty state.
      */
     @objid ("fd24572c-5986-11e1-991a-001ec947ccaf")
@@ -299,7 +302,6 @@ public class ExmlStorageHandler implements IRepositoryObject {
 
     /**
      * Set the node as loaded or not.
-     * 
      * @param value the new load state.
      */
     @objid ("fd245812-5986-11e1-991a-001ec947ccaf")
@@ -315,6 +317,7 @@ public class ExmlStorageHandler implements IRepositoryObject {
         }
         
         this.base.unloadObject(obj);
+        
     }
 
     @objid ("fd245806-5986-11e1-991a-001ec947ccaf")
@@ -337,12 +340,12 @@ public class ExmlStorageHandler implements IRepositoryObject {
                 this.base.getErrorSupport().fireError(new IOException("Failed loading "+this+": "+e.toString(), e));
             }
         }
+        
     }
 
     /**
      * Set the repository object of the given model object to this handler.
      * Propagates to all composition children in the same CMS node
-     * 
      * @param obj a non CMS node model object
      */
     @objid ("fd245805-5986-11e1-991a-001ec947ccaf")
@@ -354,6 +357,7 @@ public class ExmlStorageHandler implements IRepositoryObject {
         {
             child.setRepositoryObject(this);
         }
+        
     }
 
     @objid ("785dabaa-485e-11e2-91c9-001ec947ccaf")
@@ -370,14 +374,14 @@ public class ExmlStorageHandler implements IRepositoryObject {
         } else {
             return "ExmlStorageHandler {nodeid="+this.cmsNodeId+", base="+this.base.toString()+"}";
         }
+        
     }
 
     /**
      * Look for the parent CMS node in the index.
-     * 
      * @param obj the model object whose parent is wanted.
      * @return the model object parent CMS node or <code>null</code>.
-     * @throws org.modelio.vstore.exml.common.index.IndexException in case of error in the indexes.
+     * @throws IndexException in case of error in the indexes.
      */
     @objid ("a83af727-8650-44af-9572-9a71799225e8")
     private ObjId getParentCmsNode(SmObjectImpl obj) throws IndexException {
@@ -407,6 +411,7 @@ public class ExmlStorageHandler implements IRepositoryObject {
                 throw e2;
             }
         }
+        
     }
 
     @objid ("b8d57a7a-9c78-4ac7-aac7-4acaf82a2891")
@@ -426,6 +431,7 @@ public class ExmlStorageHandler implements IRepositoryObject {
                 obj.setRepositoryObject(this);
             }
         }
+        
     }
 
     @objid ("f0a06ea8-060f-4e02-9cee-2e9e378ee9ae")
@@ -433,6 +439,7 @@ public class ExmlStorageHandler implements IRepositoryObject {
     public void setToReload(SmObjectImpl obj) {
         // Set the whole CMS node as to be reloaded
         this.loaded = false;
+        
     }
 
     @objid ("a1f03963-0759-4ce9-8ea4-0a76aa868ecd")

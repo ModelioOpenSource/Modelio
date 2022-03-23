@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.core.metamodel;
 
 import java.util.ArrayList;
@@ -49,7 +48,6 @@ public class MetamodelExtensionLoader {
 
     /**
      * Load all metamodel fragments declared by plugin extensions, topologically sorted to avoid dependency problems.
-     * 
      * @return all metamodel fragments.
      */
     @objid ("9c66e6d1-ccd3-497c-8591-f1fbdc8824fd")
@@ -91,7 +89,6 @@ public class MetamodelExtensionLoader {
 
     /**
      * Get names of all "active" metamodel fragments declared by plugin extensions.
-     * 
      * @return names of the active metamodel fragments.
      */
     @objid ("b464f17d-b354-4747-8030-62a0eaa5e2c4")

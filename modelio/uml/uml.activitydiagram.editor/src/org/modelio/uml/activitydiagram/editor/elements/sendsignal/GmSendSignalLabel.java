@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.sendsignal;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,18 +45,17 @@ public class GmSendSignalLabel extends GmElementLabel {
      * Empty c'tor for deserialisation.
      */
     @objid ("2b4821ef-55b6-11e2-877f-002564c97630")
-    public GmSendSignalLabel() {
+    public  GmSendSignalLabel() {
         // Nothing to do.
     }
 
     /**
      * C'tor.
-     * 
      * @param diagram the diagram.
      * @param relatedRef ref to the related SendSignalAction
      */
     @objid ("2b4821f2-55b6-11e2-877f-002564c97630")
-    public GmSendSignalLabel(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmSendSignalLabel(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -95,6 +93,7 @@ public class GmSendSignalLabel extends GmElementLabel {
             break;
         }
         }
+        
     }
 
     @objid ("2b482209-55b6-11e2-877f-002564c97630")
@@ -104,6 +103,7 @@ public class GmSendSignalLabel extends GmElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmSendSignalLabel.", GmSendSignalLabel.MINOR_VERSION);
+        
     }
 
     @objid ("2b48220f-55b6-11e2-877f-002564c97630")

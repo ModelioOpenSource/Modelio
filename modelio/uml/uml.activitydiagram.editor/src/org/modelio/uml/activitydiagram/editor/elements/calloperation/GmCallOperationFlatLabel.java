@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.calloperation;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,12 +45,11 @@ public final class GmCallOperationFlatLabel extends GmDefaultModelElementLabel {
 
     /**
      * C'tor.
-     * 
      * @param diagram the diagram.
      * @param relatedRef ref to the related CallBehaviorAction
      */
     @objid ("29d690a9-55b6-11e2-877f-002564c97630")
-    public GmCallOperationFlatLabel(IGmDiagram diagram, MRef relatedRef) {
+    public  GmCallOperationFlatLabel(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -59,7 +57,7 @@ public final class GmCallOperationFlatLabel extends GmDefaultModelElementLabel {
      * Empty c'tor for deserialization.
      */
     @objid ("29d690b2-55b6-11e2-877f-002564c97630")
-    public GmCallOperationFlatLabel() {
+    public  GmCallOperationFlatLabel() {
         // Nothing to do.
     }
 
@@ -75,6 +73,7 @@ public final class GmCallOperationFlatLabel extends GmDefaultModelElementLabel {
         } else {
             return elName + ": call " + calledName;
         }
+        
     }
 
     @objid ("29d690b9-55b6-11e2-877f-002564c97630")
@@ -106,6 +105,7 @@ public final class GmCallOperationFlatLabel extends GmDefaultModelElementLabel {
             break;
         }
         }
+        
     }
 
     @objid ("29d81723-55b6-11e2-877f-002564c97630")
@@ -115,6 +115,7 @@ public final class GmCallOperationFlatLabel extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmCallOperationFlatLabel.", GmCallOperationFlatLabel.MINOR_VERSION);
+        
     }
 
     @objid ("29d81729-55b6-11e2-877f-002564c97630")

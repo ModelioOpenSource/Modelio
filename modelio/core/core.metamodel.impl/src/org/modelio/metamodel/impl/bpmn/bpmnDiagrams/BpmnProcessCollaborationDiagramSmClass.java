@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.bpmnDiagrams;
 
 import java.util.ArrayList;
@@ -42,7 +42,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("226a58ba-6af0-42d1-8b64-93f2d9615af2")
 public class BpmnProcessCollaborationDiagramSmClass extends BehaviorDiagramSmClass {
     @objid ("596d5f3d-dd1a-4e15-ad3f-ed26abbedd2c")
-    public BpmnProcessCollaborationDiagramSmClass(ISmMetamodelFragment origin) {
+    public  BpmnProcessCollaborationDiagramSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +50,7 @@ public class BpmnProcessCollaborationDiagramSmClass extends BehaviorDiagramSmCla
     @Override
     public String getName() {
         return "BpmnProcessCollaborationDiagram";
+        
     }
 
     @objid ("db7af395-3f4f-42e6-9537-e0d7e9e960a0")
@@ -62,18 +63,21 @@ public class BpmnProcessCollaborationDiagramSmClass extends BehaviorDiagramSmCla
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnProcessCollaborationDiagram.class;
+        
     }
 
     @objid ("c4fde8f1-e31e-4b7f-afff-034ec57531b1")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("aa2678ca-c9c4-475c-82a0-b50ec6faa761")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("08640831-91b9-4d93-b26f-a824c52cb579")
@@ -86,6 +90,7 @@ public class BpmnProcessCollaborationDiagramSmClass extends BehaviorDiagramSmCla
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("02cfe52b-cf34-43d5-a6f9-967260fe7dc7")
@@ -94,7 +99,7 @@ public class BpmnProcessCollaborationDiagramSmClass extends BehaviorDiagramSmCla
         private BpmnProcessCollaborationDiagramSmClass smClass;
 
         @objid ("dbf34ded-8c07-4ec4-899c-1860ca1e5300")
-        public BpmnProcessCollaborationDiagramObjectFactory(BpmnProcessCollaborationDiagramSmClass smClass) {
+        public  BpmnProcessCollaborationDiagramObjectFactory(BpmnProcessCollaborationDiagramSmClass smClass) {
             this.smClass = smClass;
         }
 

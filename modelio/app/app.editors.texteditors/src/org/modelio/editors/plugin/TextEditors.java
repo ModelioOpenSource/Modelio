@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.plugin;
 
 import java.util.ResourceBundle;
@@ -56,6 +55,7 @@ public class TextEditors implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), PLUGIN_ID));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("editors"));
+        
     }
 
     @objid ("7b457834-2a77-11e2-9fb9-bc305ba4815c")

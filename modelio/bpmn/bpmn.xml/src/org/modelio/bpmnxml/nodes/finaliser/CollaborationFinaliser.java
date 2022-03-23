@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.finaliser;
 
 import java.util.Map;
@@ -36,7 +35,7 @@ import org.modelio.module.modelermodule.api.methodology.infrastructure.methodolo
 import org.modelio.vcore.session.api.ICoreSession;
 
 @objid ("3b51042f-09fc-4cf6-9646-38f58ae0f59e")
-public class CollaborationFinaliser implements IFinaliseNode<BpmnCollaboration,TCollaboration> {
+public class CollaborationFinaliser implements IFinaliseNode<BpmnCollaboration, TCollaboration> {
     @objid ("b15904fa-208f-4eb1-92f0-fdeb0bdd41da")
     private Map<String, Object> elementsMap;
 
@@ -70,6 +69,7 @@ public class CollaborationFinaliser implements IFinaliseNode<BpmnCollaboration,T
                 }
             }
         }
+        
     }
 
     @objid ("16db0132-2d80-46a9-9307-3817b1f1d019")
@@ -83,6 +83,7 @@ public class CollaborationFinaliser implements IFinaliseNode<BpmnCollaboration,T
         if (modelioElement.getProduct().isEmpty()) {
             session.getModel().getGenericFactory().create(BpmnCollaborationDiagram.class, modelioElement, "Product");
         }
+        
     }
 
     @objid ("ce641aed-9354-4c69-8d5a-c9bcab3205b3")

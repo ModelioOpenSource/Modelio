@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta;
 
 import com.modeliosoft.modelio.javadesigner.annotations.mdl;
@@ -37,6 +36,7 @@ public abstract class SmFeature extends SmElement {
     /**
      * The max cardinality of the feature. The value <code>-1</code> represents '*' cardinality
      */
+    
     @mdl.prop
     @objid ("008411ce-ed97-1f1f-85a5-001ec947cd2a")
     private int max = 0;
@@ -44,13 +44,15 @@ public abstract class SmFeature extends SmElement {
     /**
      * The min cardinality of the feature
      */
+    
     @mdl.prop
     @objid ("008412b4-ed97-1f1f-85a5-001ec947cd2a")
     private int min = 0;
 
+    
     @mdl.prop
     @objid ("0083e4e2-ed97-1f1f-85a5-001ec947cd2a")
-    private String name;
+    public String name;
 
     /**
      * @return <i>true</i> if the feature is multiple valued.
@@ -70,6 +72,7 @@ public abstract class SmFeature extends SmElement {
     protected void setMax(final int value) {
         // Automatically generated method. Please do not modify this code.
         this.max = value;
+        
     }
 
     @objid ("60f6f5ef-9b6a-11e1-94a3-001ec947ccaf")
@@ -82,15 +85,15 @@ public abstract class SmFeature extends SmElement {
     protected void setMin(final int value) {
         // Automatically generated method. Please do not modify this code.
         this.min = value;
+        
     }
 
     /**
      * Check 'value' is a valid value for the feature on the given model object.
-     * 
      * @param smObjectImpl a model object
      * @param value the feature value
-     * @throws java.lang.IllegalArgumentException if the value is not valid.
-     * @throws org.modelio.vcore.smkernel.IllegalModelManipulationException if the value breaks metamodel integrity constraints.
+     * @throws IllegalArgumentException if the value is not valid.
+     * @throws IllegalModelManipulationException if the value breaks metamodel integrity constraints.
      */
     @objid ("00454f7a-dfa2-1fe9-93a7-001ec947cd2a")
     public abstract void assertValueType(final SmObjectImpl smObjectImpl, final Object value) throws IllegalArgumentException, IllegalModelManipulationException;
@@ -109,6 +112,7 @@ public abstract class SmFeature extends SmElement {
     protected void setName(final String value) {
         // Automatically generated method. Please do not modify this code.
         this.name = value;
+        
     }
 
 }

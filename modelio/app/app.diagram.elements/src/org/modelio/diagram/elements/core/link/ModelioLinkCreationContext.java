@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link;
 
 import java.util.HashMap;
@@ -72,23 +71,22 @@ public class ModelioLinkCreationContext implements CreationFactory {
 
     /**
      * Create a creation context
-     * 
      * @param metaclass Metaclass of the element to create
      * @param obstereotype an optional stereotype
      */
     @objid ("802caa13-1dec-11e2-8cad-001ec947c8cc")
-    public ModelioLinkCreationContext(MClass metaclass, Stereotype obstereotype) {
+    public  ModelioLinkCreationContext(MClass metaclass, Stereotype obstereotype) {
         this.metaclass = metaclass;
         this.stereotype = obstereotype;
+        
     }
 
     /**
      * Creates a {@link ModelioLinkCreationContext} that unmask an already existing MObject in the diagram.
-     * 
      * @param elementToUnmask The element to unmask
      */
     @objid ("802caa18-1dec-11e2-8cad-001ec947c8cc")
-    public ModelioLinkCreationContext(MObject elementToUnmask) {
+    public  ModelioLinkCreationContext(MObject elementToUnmask) {
         this.elementToUnmask = elementToUnmask;
         this.metaclass = elementToUnmask.getMClass();
         if (elementToUnmask instanceof ModelElement) {
@@ -97,6 +95,7 @@ public class ModelioLinkCreationContext implements CreationFactory {
                 this.stereotype = extension.get(0);
             }
         }
+        
     }
 
     /**
@@ -104,10 +103,9 @@ public class ModelioLinkCreationContext implements CreationFactory {
      * <p>
      * It is recommended because safer to use this methog instead of casting
      * {@link CreateRequest#getNewObject()} to <code>ModelioLinkCreationContext</code>.
-     * 
      * @param req the creation request
      * @return the creation context.
-     * @throws java.lang.ClassCastException if the request is not a <code>ModelioLinkCreationContext</code> request
+     * @throws ClassCastException if the request is not a <code>ModelioLinkCreationContext</code> request
      */
     @objid ("9ff94138-ea6d-4927-a052-e311d9cf67c8")
     public static ModelioLinkCreationContext fromRequest(CreateRequest req) throws ClassCastException {
@@ -116,7 +114,6 @@ public class ModelioLinkCreationContext implements CreationFactory {
 
     /**
      * Get the style key used to get the default connection routing mode for this link.
-     * 
      * @return the connection routing mode style key.
      */
     @objid ("802caa4e-1dec-11e2-8cad-001ec947c8cc")
@@ -128,7 +125,6 @@ public class ModelioLinkCreationContext implements CreationFactory {
      * Get the element to unmask.
      * <p>
      * If <code>null</code>, the element has to be created.
-     * 
      * @return The element to unmask.
      */
     @objid ("802caa1c-1dec-11e2-8cad-001ec947c8cc")
@@ -138,7 +134,6 @@ public class ModelioLinkCreationContext implements CreationFactory {
 
     /**
      * Get the Java interface implemented by the {@link #getMetaclass() metaclass}.
-     * 
      * @return the metaclass java interface.
      */
     @objid ("19100383-e53b-4d5a-a6bf-04f2c03fa5e0")
@@ -193,7 +188,6 @@ public class ModelioLinkCreationContext implements CreationFactory {
 
     /**
      * Get the creation custom properties.
-     * 
      * @return the creation properties or <tt>null</tt> if no property was defined.
      */
     @objid ("802caa30-1dec-11e2-8cad-001ec947c8cc")
@@ -203,7 +197,6 @@ public class ModelioLinkCreationContext implements CreationFactory {
 
     /**
      * Get the stereotype to apply, may be <tt>null</tt>.
-     * 
      * @return the stereotype to apply, may be <tt>null</tt>.
      */
     @objid ("802caa38-1dec-11e2-8cad-001ec947c8cc")
@@ -219,7 +212,6 @@ public class ModelioLinkCreationContext implements CreationFactory {
      * It is recommended because safer to use this methog instead of comparing
      * {@link CreateRequest#getNewObject()} class to <code>ModelioLinkCreationContext</code>.
      * <p>
-     * 
      * @param req the creation request
      * @return the creation context or <i>null</i>.
      */
@@ -231,11 +223,11 @@ public class ModelioLinkCreationContext implements CreationFactory {
         } else {
             return null;
         }
+        
     }
 
     /**
      * Set the creation properties.
-     * 
      * @param properties the creation properties.
      */
     @objid ("802caa3d-1dec-11e2-8cad-001ec947c8cc")
@@ -245,7 +237,6 @@ public class ModelioLinkCreationContext implements CreationFactory {
 
     /**
      * Add a custom property value.
-     * 
      * @param key The property key
      * @param value The property value.
      */
@@ -256,7 +247,6 @@ public class ModelioLinkCreationContext implements CreationFactory {
 
     /**
      * Set the style key used to get the default connection routing mode for this link.
-     * 
      * @param defaultRoutingModeKey the connection routing mode style key.
      */
     @objid ("802caa49-1dec-11e2-8cad-001ec947c8cc")

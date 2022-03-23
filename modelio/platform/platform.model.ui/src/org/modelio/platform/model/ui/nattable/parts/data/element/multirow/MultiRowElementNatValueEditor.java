@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.element.multirow;
 
 import java.util.List;
@@ -48,11 +47,10 @@ public class MultiRowElementNatValueEditor extends AbstractCellEditor {
 
     /**
      * Build a new editor.
-     * 
      * @param session a model session, needed to look for elements.
      */
     @objid ("7f8e50a4-de0a-4a12-9f85-36c4d4da7738")
-    public MultiRowElementNatValueEditor(ICoreSession session) {
+    public  MultiRowElementNatValueEditor(ICoreSession session) {
         this.session = session;
     }
 
@@ -61,6 +59,7 @@ public class MultiRowElementNatValueEditor extends AbstractCellEditor {
     public void close() {
         super.close();
         this.selectElementsPanel.dispose();
+        
     }
 
     @objid ("aa30dc5a-7718-4daa-812e-18442857a6e8")

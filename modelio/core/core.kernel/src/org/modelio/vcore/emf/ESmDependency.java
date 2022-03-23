@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.emf;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,7 +29,7 @@ public class ESmDependency extends EReferenceImpl {
     private SmDependency dep;
 
     @objid ("bbceddb0-bc87-11e1-b576-001ec947ccaf")
-    protected ESmDependency(SmDependency dep) {
+    protected  ESmDependency(SmDependency dep) {
         this.dep = dep;
     }
 

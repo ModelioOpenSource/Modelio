@@ -17,22 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.BehaviorSmClass;
-import org.modelio.metamodel.impl.uml.statik.CollaborationData;
-import org.modelio.metamodel.impl.uml.statik.CollaborationUseSmClass;
-import org.modelio.metamodel.impl.uml.statik.NameSpaceSmClass;
-import org.modelio.metamodel.impl.uml.statik.OperationSmClass;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
 import org.modelio.metamodel.uml.statik.Collaboration;
 import org.modelio.metamodel.uml.statik.CollaborationUse;
@@ -66,7 +62,7 @@ public class CollaborationSmClass extends NameSpaceSmClass {
     private SmDependency occurrenceDep;
 
     @objid ("5c6ce0b4-7c5d-4d74-a787-481a3960157a")
-    public CollaborationSmClass(ISmMetamodelFragment origin) {
+    public  CollaborationSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -74,6 +70,7 @@ public class CollaborationSmClass extends NameSpaceSmClass {
     @Override
     public String getName() {
         return "Collaboration";
+        
     }
 
     @objid ("a641a11f-ccf4-4384-9882-6157452bf30e")
@@ -86,18 +83,21 @@ public class CollaborationSmClass extends NameSpaceSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Collaboration.class;
+        
     }
 
     @objid ("1d278150-021e-4e75-aab6-5a35095915a7")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("c883a152-1268-42ab-9fd3-085a8e363848")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("65dbc4df-0791-4428-acd9-587026979333")
@@ -125,6 +125,8 @@ public class CollaborationSmClass extends NameSpaceSmClass {
         this.occurrenceDep = new OccurrenceSmDependency();
         this.occurrenceDep.init("Occurrence", this, metamodel.getMClass(CollaborationUse.MQNAME), 0, -1 );
         registerDependency(this.occurrenceDep);
+        
+        
     }
 
     @objid ("508b06cb-c4ed-40db-8eb7-91cfbfdca428")
@@ -165,7 +167,7 @@ public class CollaborationSmClass extends NameSpaceSmClass {
         private CollaborationSmClass smClass;
 
         @objid ("4c19d04a-20a6-4c49-9159-43f2307e7e66")
-        public CollaborationObjectFactory(CollaborationSmClass smClass) {
+        public  CollaborationObjectFactory(CollaborationSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -221,6 +223,7 @@ public class CollaborationSmClass extends NameSpaceSmClass {
             	this.symetricDep = ((OperationSmClass)this.getTarget()).getExampleDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -249,6 +252,7 @@ public class CollaborationSmClass extends NameSpaceSmClass {
             	this.symetricDep = ((BehaviorSmClass)this.getTarget()).getOwnedCollaborationDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -268,6 +272,7 @@ public class CollaborationSmClass extends NameSpaceSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((CollaborationData) data).mOccurrence = values;
+            
         }
 
         @objid ("7faa5ad7-5881-49f1-901d-b6c3060d034f")
@@ -277,6 +282,7 @@ public class CollaborationSmClass extends NameSpaceSmClass {
             	this.symetricDep = ((CollaborationUseSmClass)this.getTarget()).getTypeDep();
             }
             return this.symetricDep;
+            
         }
 
     }

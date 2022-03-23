@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.viewer.config.body;
 
 import java.util.Arrays;
@@ -138,15 +137,15 @@ public class BodyConfiguration extends AbstractRegistryConfiguration {
      * @param projectService the project service, to access preferences and model session.
      * @param pickingService the picking service, to manually choose elements in the model.
      * @param activationService the activation service, to open external editors.
-     * 
      * @param dataModel the table's data model.
      * @param elementLabelProvider a label provider for MObject element
      */
     @objid ("632fda9d-a888-4c35-a89b-e86a36b8db0a")
-    public BodyConfiguration(PropertyTableDataModel dataModel, INatTableViewerContext context, ILabelProvider elementLabelProvider) {
+    public  BodyConfiguration(PropertyTableDataModel dataModel, INatTableViewerContext context, ILabelProvider elementLabelProvider) {
         this.context = context;
         this.dataModel = dataModel;
         this.elementLabelProvider = elementLabelProvider;
+        
     }
 
     @objid ("d2999cea-e961-45dd-b72a-c6ab4bd5beab")
@@ -196,6 +195,7 @@ public class BodyConfiguration extends AbstractRegistryConfiguration {
                 }
             }
         }
+        
     }
 
     @objid ("1c7e8f6e-b7e6-40f0-b78b-af830a75de88")
@@ -236,6 +236,7 @@ public class BodyConfiguration extends AbstractRegistryConfiguration {
         uiBindingRegistry.registerFirstSingleClickBinding(
                 new CellPainterMouseEventMatcherWithMask(SWT.CTRL | SWT.ALT, GridRegion.BODY, MouseEventMatcher.LEFT_BUTTON, TextIconPainter.class),
                 new SelectInExplorerAction(this.context.getNavigationService()));
+        
     }
 
     /**
@@ -263,6 +264,7 @@ public class BodyConfiguration extends AbstractRegistryConfiguration {
         configRegistry.registerConfigAttribute(EditConfigAttributes.CELL_EDITOR, checkboxEditor, DisplayMode.EDIT, tag);
         
         // Validator
+        
     }
 
     /**
@@ -286,6 +288,7 @@ public class BodyConfiguration extends AbstractRegistryConfiguration {
         configRegistry.registerConfigAttribute(EditConfigAttributes.CELL_EDITOR, editor, DisplayMode.EDIT, tag);
         
         // Validator
+        
     }
 
     /**
@@ -312,6 +315,7 @@ public class BodyConfiguration extends AbstractRegistryConfiguration {
         configRegistry.registerConfigAttribute(EditConfigAttributes.CELL_EDITOR, editor, DisplayMode.EDIT, tag);
         
         // Validator
+        
     }
 
     @objid ("fd9e57d5-be1c-4bbc-9bfe-229e097ef669")
@@ -356,6 +360,7 @@ public class BodyConfiguration extends AbstractRegistryConfiguration {
         configRegistry.registerConfigAttribute(EditConfigAttributes.CELL_EDITOR, comboEditor, DisplayMode.EDIT, tag);
         
         // Validator
+        
     }
 
     /**
@@ -398,6 +403,7 @@ public class BodyConfiguration extends AbstractRegistryConfiguration {
         configRegistry.registerConfigAttribute(EditConfigAttributes.CELL_EDITOR, comboEditor, DisplayMode.EDIT, tag);
         
         // Validator
+        
     }
 
     /**
@@ -431,6 +437,7 @@ public class BodyConfiguration extends AbstractRegistryConfiguration {
             }
         };
         configRegistry.registerConfigAttribute(EditConfigAttributes.DATA_VALIDATOR, validator, DisplayMode.EDIT, tag);
+        
     }
 
     @objid ("8fe4939a-4295-4155-b839-c35379501d35")
@@ -453,6 +460,7 @@ public class BodyConfiguration extends AbstractRegistryConfiguration {
         configRegistry.registerConfigAttribute(EditConfigAttributes.CELL_EDITOR, editor, DisplayMode.EDIT, tag);
         
         // Validator
+        
     }
 
     /**
@@ -486,6 +494,7 @@ public class BodyConfiguration extends AbstractRegistryConfiguration {
             }
         };
         configRegistry.registerConfigAttribute(EditConfigAttributes.DATA_VALIDATOR, validator, DisplayMode.EDIT, tag);
+        
     }
 
     /**
@@ -522,6 +531,7 @@ public class BodyConfiguration extends AbstractRegistryConfiguration {
                 DisplayMode.EDIT, tag);
         
         // Validator
+        
     }
 
     /**
@@ -556,6 +566,7 @@ public class BodyConfiguration extends AbstractRegistryConfiguration {
                 DisplayMode.EDIT, tag);
         
         // Validator
+        
     }
 
     /**
@@ -581,6 +592,7 @@ public class BodyConfiguration extends AbstractRegistryConfiguration {
         configRegistry.registerConfigAttribute(EditConfigAttributes.CELL_EDITOR, textCellEditor, DisplayMode.EDIT, tag);
         
         // Validator
+        
     }
 
     @objid ("fb5201a7-f5b2-46d7-8a6a-14e1828a80e7")
@@ -603,6 +615,7 @@ public class BodyConfiguration extends AbstractRegistryConfiguration {
         final ComboBoxCellEditor comboEditor = new ComboBoxCellEditor(possibleValues);
         comboEditor.setFreeEdit(isEditable);
         configRegistry.registerConfigAttribute(EditConfigAttributes.CELL_EDITOR, comboEditor, DisplayMode.EDIT, tag);
+        
     }
 
     /**
@@ -641,6 +654,7 @@ public class BodyConfiguration extends AbstractRegistryConfiguration {
                 DisplayMode.EDIT, tag);
         
         // Validator
+        
     }
 
     /**
@@ -665,6 +679,7 @@ public class BodyConfiguration extends AbstractRegistryConfiguration {
         configRegistry.registerConfigAttribute(EditConfigAttributes.CELL_EDITOR, editor, DisplayMode.EDIT, tag);
         
         // Validator
+        
     }
 
     /**
@@ -701,6 +716,7 @@ public class BodyConfiguration extends AbstractRegistryConfiguration {
             }
         };
         configRegistry.registerConfigAttribute(EditConfigAttributes.DATA_VALIDATOR, validator, DisplayMode.EDIT, tag);
+        
     }
 
     @objid ("eee8cb6a-9592-47ba-ad2c-1e700bc884ef")
@@ -723,6 +739,7 @@ public class BodyConfiguration extends AbstractRegistryConfiguration {
         // configRegistry.registerConfigAttribute(EditConfigAttributes.CELL_EDITOR, editor, DisplayMode.EDIT, tag);
         
         // Validator
+        
     }
 
     /**
@@ -749,6 +766,7 @@ public class BodyConfiguration extends AbstractRegistryConfiguration {
         configRegistry.registerConfigAttribute(EditConfigAttributes.CELL_EDITOR, editor, DisplayMode.EDIT, tag);
         
         // Validator
+        
     }
 
 }

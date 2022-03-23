@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common.index.jdbm;
 
 import java.io.IOError;
@@ -41,7 +40,7 @@ class JdbmSpliterator<T> implements Spliterator<T> {
     private final Spliterator<T> wrapped;
 
     @objid ("c2f5cc94-3b4d-4f18-89b7-f863a802b2b2")
-    public JdbmSpliterator(Spliterator<T> wrapped) {
+    public  JdbmSpliterator(Spliterator<T> wrapped) {
         this.wrapped = wrapped;
     }
 
@@ -55,6 +54,7 @@ class JdbmSpliterator<T> implements Spliterator<T> {
         } catch (IOError e) {
             throw fail(JdbmIndexException.from(e));
         }
+        
     }
 
     @objid ("22a9f1c6-4aae-4418-b546-8381d98a7c00")
@@ -67,6 +67,7 @@ class JdbmSpliterator<T> implements Spliterator<T> {
         } catch (IOError e) {
             throw fail(JdbmIndexException.from(e));
         }
+        
     }
 
     @objid ("97d56428-8358-49a6-a46b-6bf06ac3fb99")
@@ -79,6 +80,7 @@ class JdbmSpliterator<T> implements Spliterator<T> {
         } catch (IOError e) {
             throw fail(JdbmIndexException.from(e));
         }
+        
     }
 
     @objid ("7c0a6c84-7c77-4af9-91d4-14953b5dcadd")
@@ -103,6 +105,7 @@ class JdbmSpliterator<T> implements Spliterator<T> {
         } catch (IOError e) {
             throw fail(JdbmIndexException.from(e));
         }
+        
     }
 
     @objid ("7fae1226-0f7e-4776-ae19-a6cfeb9db642")

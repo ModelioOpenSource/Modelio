@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.ui.about;
 
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.swt.widgets.Shell;
@@ -34,6 +33,7 @@ public class AboutHandler {
     public void execute(@Named(IServiceConstants.ACTIVE_SHELL) final Shell shell, ModelioEnv modelioEnv) {
         AboutDialog dlg = new AboutDialog(shell, modelioEnv);
         dlg.open();
+        
     }
 
 }

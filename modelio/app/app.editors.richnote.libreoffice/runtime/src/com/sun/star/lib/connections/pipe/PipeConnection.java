@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package com.sun.star.lib.connections.pipe;
 
 import java.io.IOException;
@@ -70,11 +69,10 @@ public class PipeConnection implements XConnection, XConnectionBroadcaster {
      * <p>
      * @param pipe
      * the pipe of the connection
-     * 
      * @param description the description of the connection
      */
     @objid ("9a772359-aa8f-4f5d-aff0-e76da20b1d28")
-    public PipeConnection(final String description) throws IOException {
+    public  PipeConnection(final String description) throws IOException {
         if (DEBUG)
             System.err.println("##### " + getClass().getName() + " - instantiated " + description);
         
@@ -106,6 +104,7 @@ public class PipeConnection implements XConnection, XConnectionBroadcaster {
         } catch (java.lang.Exception aE) {
             throw new IOException(aE.getMessage());
         }
+        
     }
 
     @objid ("b7868338-95b3-4451-ad84-3f5ea1415ea5")
@@ -127,6 +126,7 @@ public class PipeConnection implements XConnection, XConnectionBroadcaster {
             XStreamListener xStreamListener = elements.nextElement();
             xStreamListener.started();
         }
+        
     }
 
     @objid ("c0747758-cbf5-4ccd-ae9d-7996a2136a90")
@@ -136,6 +136,7 @@ public class PipeConnection implements XConnection, XConnectionBroadcaster {
             XStreamListener xStreamListener = elements.nextElement();
             xStreamListener.closed();
         }
+        
     }
 
     @objid ("b6ce95fe-c9c0-40ca-9eeb-3d880f8115d9")
@@ -145,6 +146,7 @@ public class PipeConnection implements XConnection, XConnectionBroadcaster {
             XStreamListener xStreamListener = elements.nextElement();
             xStreamListener.error(exception);
         }
+        
     }
 
     /**
@@ -183,7 +185,6 @@ public class PipeConnection implements XConnection, XConnectionBroadcaster {
      * @param aReadBytes
      * the outparameter, where the bytes have to be placed
      * @see com.sun.star.connections.XConnection#read
-     * 
      * @param nBytesToRead the number of bytes to read
      * @return the number of bytes read
      */
@@ -202,7 +203,6 @@ public class PipeConnection implements XConnection, XConnectionBroadcaster {
      * Write bytes.
      * <p>
      * @see com.sun.star.connections.XConnection#write
-     * 
      * @param aData the bytes to write
      */
     @objid ("e1d44d1a-8d7e-4cdc-b58f-502182e37709")
@@ -236,13 +236,13 @@ public class PipeConnection implements XConnection, XConnectionBroadcaster {
         notifyListeners_close();
         if (DEBUG)
             System.out.println("done");
+        
     }
 
     /**
      * Gives a description of the connection.
      * <p>
      * @see com.sun.star.connections.XConnection#getDescription
-     * 
      * @return the description
      */
     @objid ("12aeadf7-8f5b-4266-9f5e-3af6d66ec0a4")
@@ -250,10 +250,9 @@ public class PipeConnection implements XConnection, XConnectionBroadcaster {
     public String getDescription() throws com.sun.star.uno.RuntimeException {
         return this._aDescription;
     }
-
-
 static {
-        // load shared library for JNI code
-        NativeLibraryLoader.loadLibrary(PipeConnection.class.getClassLoader(), "jpipe");
-    }
+            // load shared library for JNI code
+            NativeLibraryLoader.loadLibrary(PipeConnection.class.getClassLoader(), "jpipe");
+        }
+    
 }

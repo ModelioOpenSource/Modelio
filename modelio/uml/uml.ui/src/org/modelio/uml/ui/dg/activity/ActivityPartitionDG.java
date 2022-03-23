@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.activity;
 
 import java.util.Collection;
@@ -48,7 +47,7 @@ public class ActivityPartitionDG extends DiagramNode {
      * @param node The gm node represented by this class.
      */
     @objid ("891a6621-b9cd-4609-86c5-4b4e2a179fdd")
-    public ActivityPartitionDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  ActivityPartitionDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 
@@ -62,6 +61,7 @@ public class ActivityPartitionDG extends DiagramNode {
         } else {
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("55547a04-d932-4eda-8d14-3129c5f2ec47")
@@ -103,6 +103,7 @@ public class ActivityPartitionDG extends DiagramNode {
             p.getViewer().getEditDomain().getCommandStack().execute(com);
             p.getFigure().getUpdateManager().performValidation();
         }
+        
     }
 
     @objid ("9ee32202-a74c-4c6a-93d6-2b247fa61dd3")
@@ -113,6 +114,7 @@ public class ActivityPartitionDG extends DiagramNode {
         } else {
             return Collections.emptyList();
         }
+        
     }
 
 }

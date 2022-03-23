@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.exit;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,33 +30,33 @@ import org.modelio.uml.statediagram.editor.style.StateAbstractStyleKeyProvider;
 @objid ("f51f4685-55b6-11e2-877f-002564c97630")
 public class GmExitSimpleStyleKeys extends StateAbstractStyleKeyProvider {
     @objid ("815d85f0-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmExitStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmExitStructuredStyleKeys.REPMODE;
 
     @objid ("815d85f2-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = GmExitStructuredStyleKeys.FILLCOLOR;
+    static final StyleKey FILLCOLOR = GmExitStructuredStyleKeys.FILLCOLOR;
 
     @objid ("815d85f4-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = GmExitStructuredStyleKeys.FILLMODE;
+    static final StyleKey FILLMODE = GmExitStructuredStyleKeys.FILLMODE;
 
     @objid ("815d85f6-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = GmExitStructuredStyleKeys.LINECOLOR;
+    static final StyleKey LINECOLOR = GmExitStructuredStyleKeys.LINECOLOR;
 
     @objid ("815f0c8a-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = GmExitStructuredStyleKeys.LINEWIDTH;
+    static final StyleKey LINEWIDTH = GmExitStructuredStyleKeys.LINEWIDTH;
 
     @objid ("815f0c8c-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmExitStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmExitStructuredStyleKeys.FONT;
 
     @objid ("815f0c8e-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmExitStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmExitStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("815f0c90-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmExitStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmExitStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("815f0c92-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmExitStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmExitStructuredStyleKeys.SHOWTAGS;
 
     @objid ("815f0c94-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWLABEL = createStyleKey("EXIT_SHOWLABEL", MetaKey.SHOWLABEL);
+    static final StyleKey SHOWLABEL = createStyleKey("EXIT_SHOWLABEL", MetaKey.SHOWLABEL);
 
 }

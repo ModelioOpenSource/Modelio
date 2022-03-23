@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.persistence;
 
 import java.util.List;
@@ -42,7 +41,6 @@ public interface IDiagramReader {
      * Get the root object being read.
      * <p>
      * The root object is the persistent object passed to {@link #readDiagram(String, IPersistent)}.
-     * 
      * @return the root object being read.
      */
     @objid ("cb6b8506-186f-11e2-92d2-001ec947c8cc")
@@ -53,7 +51,6 @@ public interface IDiagramReader {
      * @param attName
      * The attribute name
      * @throws PersistenceException
-     * 
      * @return a map with the attribute name as key and the attribute value as value.
      */
     @objid ("cb6b8509-186f-11e2-92d2-001ec947c8cc")
@@ -61,7 +58,6 @@ public interface IDiagramReader {
 
     /**
      * Deserialize all the persistent data into the given persistent object.
-     * 
      * @param data The persistent data
      * @param into The root object the data represents
      */
@@ -77,17 +73,15 @@ public interface IDiagramReader {
      * @param <V>
      * The map value type.
      * @throws PersistenceException
-     * 
      * @param mapName The map name
      * @return The map
      */
     @objid ("cb6b8513-186f-11e2-92d2-001ec947c8cc")
-    <K,V> Map<K, V> readMapProperty(String mapName) throws PersistenceException;
+    <K, V> Map<K, V> readMapProperty(String mapName) throws PersistenceException;
 
     /**
      * Read an attribute whose type is not constant.
      * @throws PersistenceException
-     * 
      * @param attName The attribute name
      * @return The attribute value or <tt>null</tt> if the attribute has no value.
      */
@@ -101,7 +95,6 @@ public interface IDiagramReader {
      * @param <T>
      * The map value type.
      * @throws PersistenceException
-     * 
      * @param listName The list name
      * @return The list
      */

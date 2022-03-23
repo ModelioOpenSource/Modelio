@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.corexp;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,7 @@ public class CompositionLinkTester extends PropertyTester {
     private static final String IS_COMPOSITON_LINK = "iscompositionlink";
 
     @objid ("f90120d9-13ad-476d-a00c-f8643e7271ef")
-    public CompositionLinkTester() {
+    public  CompositionLinkTester() {
         // nothing
     }
 
@@ -59,6 +58,7 @@ public class CompositionLinkTester extends PropertyTester {
         default:
             throw new IllegalArgumentException(property + " property not supported by " + getClass().getSimpleName());
         }
+        
     }
 
 }

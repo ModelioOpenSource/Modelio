@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.propertyview.vtabfolder;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -53,50 +52,50 @@ import org.eclipse.swt.widgets.Widget;
 @objid ("731f17a7-f467-4341-bc87-2cd84ca4414e")
 public class VTabItem extends Item {
     @objid ("a0e71e32-e7bb-42f0-9887-5edc1eb44cb9")
-     int x = 0;
+    int x = 0;
 
     @objid ("e06402a2-1344-4439-b3d3-6e940495fc69")
-     int y = 0;
+    int y = 0;
 
     @objid ("04077f4e-2cc6-44a0-b01b-baf585a333d0")
-     int width = 0;
+    int width = 0;
 
     @objid ("edf347c9-fed0-487a-992a-3dc4e29f01f7")
-     int height = 0;
+    int height = 0;
 
     @objid ("b5449e33-ae9f-4dc8-81a1-4f8bae3837df")
-     String toolTipText;
+    String toolTipText;
 
     @objid ("03c5e87d-12c1-423c-a232-a3541617271a")
-     String shortenedText;
+    String shortenedText;
 
     @objid ("25b371ab-8524-4555-a6c1-0d7c252dc886")
-     int shortenedTextWidth;
+    int shortenedTextWidth;
 
     @objid ("dc9f951c-ea35-4101-8140-b298913a4389")
-     int closeImageState = SWT.BACKGROUND;
+    int closeImageState = SWT.BACKGROUND;
 
     @objid ("e6aab95d-8a64-4eec-b381-86ca310b9699")
-     int state = SWT.NONE;
+    int state = SWT.NONE;
 
     @objid ("e291af26-c029-473a-9e90-e03cf5ca67d7")
-     boolean showClose = false;
+    boolean showClose = false;
 
     @objid ("1d1f5229-e2a3-40ea-87da-063f9d7a0585")
-     boolean showing = false;
+    boolean showing = false;
 
     @objid ("a114f2e6-f044-47a4-a100-ffe7a5592426")
-     VTabFolder parent;
+    VTabFolder parent;
 
     @objid ("79615129-f717-45c2-a694-aa867d1b8c20")
-     Control control; // the tab page
+    Control control; // the tab page
 
-// Appearance
+    // Appearance
     @objid ("193cbcac-489e-48c9-a594-61942bf9ef13")
-     Font font;
+    Font font;
 
     @objid ("600186fe-54b9-4580-b32a-5eaf26749b62")
-     Rectangle closeRect = new Rectangle(0, 0, 0, 0);
+    Rectangle closeRect = new Rectangle(0, 0, 0, 0);
 
     /**
      * Constructs a new instance of this class given its parent (which must be a
@@ -113,7 +112,6 @@ public class VTabItem extends Item {
      * </p>
      * @see SWT
      * @see Widget#getStyle()
-     * 
      * @param parent a VTabFolder which will be the parent of the new instance
      * (cannot be null)
      * @param style the style of control to construct
@@ -129,7 +127,7 @@ public class VTabItem extends Item {
      * </ul>
      */
     @objid ("7c8fea7e-6909-48de-ad0d-f16de3563884")
-    public VTabItem(VTabFolder parent, int style) {
+    public  VTabItem(VTabFolder parent, int style) {
         this(parent, style, parent.getItemCount());
     }
 
@@ -148,7 +146,6 @@ public class VTabItem extends Item {
      * </p>
      * @see SWT
      * @see Widget#getStyle()
-     * 
      * @param parent a VTabFolder which will be the parent of the new instance
      * (cannot be null)
      * @param style the style of control to construct
@@ -167,10 +164,11 @@ public class VTabItem extends Item {
      * </ul>
      */
     @objid ("38180ce1-2a67-415b-a975-a3e0466bc551")
-    public VTabItem(VTabFolder parent, int style, int index) {
+    public  VTabItem(VTabFolder parent, int style, int index) {
         super(parent, style);
         this.showClose = (style & SWT.CLOSE) != 0;
         parent.createItem(this, index);
+        
     }
 
     @objid ("2d7ceaa8-33e6-49b8-90de-d9961c7f6973")
@@ -186,12 +184,12 @@ public class VTabItem extends Item {
         this.toolTipText = null;
         this.shortenedText = null;
         this.font = null;
+        
     }
 
     /**
      * Returns a rectangle describing the receiver's size and location relative
      * to its parent.
-     * 
      * @return the receiver's bounding column rectangle
      * 
      * @exception SWTException
@@ -211,7 +209,6 @@ public class VTabItem extends Item {
 
     /**
      * Gets the control that is displayed in the content area of the tab item.
-     * 
      * @return the control
      * 
      * @exception SWTException
@@ -230,7 +227,6 @@ public class VTabItem extends Item {
 
     /**
      * Returns the font that the receiver will use to paint textual information.
-     * 
      * @return the receiver's font
      * 
      * @exception SWTException
@@ -253,7 +249,6 @@ public class VTabItem extends Item {
 
     /**
      * Returns the receiver's parent, which must be a <code>VTabFolder</code>.
-     * 
      * @return the receiver's parent
      * 
      * @exception SWTException
@@ -274,7 +269,6 @@ public class VTabItem extends Item {
      * Returns <code>true</code> to indicate that the receiver's close button
      * should be shown. Otherwise return <code>false</code>. The initial value
      * is defined by the style (SWT.CLOSE) that was used to create the receiver.
-     * 
      * @return <code>true</code> if the close button should be shown
      * 
      * @exception SWTException
@@ -295,7 +289,6 @@ public class VTabItem extends Item {
 
     /**
      * Returns the receiver's tool tip text, or null if it has not been set.
-     * 
      * @return the receiver's tool tip text
      * 
      * @exception SWTException
@@ -320,7 +313,6 @@ public class VTabItem extends Item {
     /**
      * Returns <code>true</code> if the item will be rendered in the visible
      * area of the VTabFolder. Returns false otherwise.
-     * 
      * @return <code>true</code> if the item will be rendered in the visible
      * area of the VTabFolder. Returns false otherwise.
      * 
@@ -343,7 +335,6 @@ public class VTabItem extends Item {
     /**
      * Sets the control that is used to fill the client area of the tab folder
      * when the user selects the tab item.
-     * 
      * @param control the new control (or null)
      * 
      * @exception IllegalArgumentException
@@ -390,6 +381,7 @@ public class VTabItem extends Item {
                 }
             }
         }
+        
     }
 
     @objid ("554f3a5c-e8ce-40d3-a20f-23fbe822ae99")
@@ -401,7 +393,6 @@ public class VTabItem extends Item {
      * Sets the font that the receiver will use to paint textual information for
      * this item to the font specified by the argument, or to the default font
      * for that kind of control if the argument is null.
-     * 
      * @param font the new font (or null)
      * 
      * @exception IllegalArgumentException
@@ -431,6 +422,7 @@ public class VTabItem extends Item {
             return;
         this.font = font;
         this.parent.updateFolder(VTabFolder.UPDATE_TAB_HEIGHT | VTabFolder.REDRAW_TABS);
+        
     }
 
     @objid ("bd45eb2b-d2a7-4da1-8732-c91f155c2e80")
@@ -447,13 +439,13 @@ public class VTabItem extends Item {
             return;
         super.setImage(image);
         this.parent.updateFolder(VTabFolder.UPDATE_TAB_HEIGHT | VTabFolder.REDRAW_TABS);
+        
     }
 
     /**
      * Sets to <code>true</code> to indicate that the receiver's close button
      * should be shown. If the parent (VTabFolder) was created with SWT.CLOSE
      * style, changing this value has no effect.
-     * 
      * @param close the new state of the close button
      * 
      * @exception SWTException
@@ -473,6 +465,7 @@ public class VTabItem extends Item {
             return;
         this.showClose = close;
         this.parent.updateFolder(VTabFolder.REDRAW_TABS);
+        
     }
 
     @objid ("500e29cc-08da-4722-8cf8-57c1271b9e0f")
@@ -490,6 +483,7 @@ public class VTabItem extends Item {
         this.shortenedText = null;
         this.shortenedTextWidth = 0;
         this.parent.updateFolder(VTabFolder.UPDATE_TAB_HEIGHT | VTabFolder.REDRAW_TABS);
+        
     }
 
     /**
@@ -503,7 +497,6 @@ public class VTabItem extends Item {
      * tip. To display a single '&amp;' in the tool tip, the character '&amp;'
      * can be escaped by doubling it in the string.
      * </p>
-     * 
      * @param string the new tool tip text (or null)
      * 
      * @exception SWTException
@@ -518,6 +511,7 @@ public class VTabItem extends Item {
     public void setToolTipText(String string) {
         checkWidget();
         this.toolTipText = string;
+        
     }
 
 }

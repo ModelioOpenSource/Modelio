@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.interactionoperand;
 
 import java.util.ArrayList;
@@ -27,8 +26,8 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.commands.Command;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
@@ -57,19 +56,19 @@ public class CreateInteractionOperandCommand extends Command {
 
     /**
      * Creates a node creation command.
-     * 
      * @param parentEditPart The parent editPart
      * @param context Details on the MObject and/or the node to create
      * @param insertAfter The editPart used as reference for insertion at the correct place.
      * @param newConstraint the constraint with which to create the child.
      */
     @objid ("d9020268-55b6-11e2-877f-002564c97630")
-    public CreateInteractionOperandCommand(final EditPart parentEditPart, final ModelioCreationContext context, final GmNodeModel insertAfter, final int newConstraint) {
+    public  CreateInteractionOperandCommand(final EditPart parentEditPart, final ModelioCreationContext context, final GmNodeModel insertAfter, final int newConstraint) {
         this.parentNode = (GmCompositeNode) parentEditPart.getModel();
         this.parentElement = (CombinedFragment) this.parentNode.getRelatedElement();
         this.context = context;
         this.insertAfter = insertAfter;
         this.newConstraint = newConstraint;
+        
     }
 
     @objid ("d9020277-55b6-11e2-877f-002564c97630")
@@ -84,6 +83,7 @@ public class CreateInteractionOperandCommand extends Command {
         } else {
             executeCreation(diagram);
         }
+        
     }
 
     @objid ("d902027a-55b6-11e2-877f-002564c97630")
@@ -149,6 +149,7 @@ public class CreateInteractionOperandCommand extends Command {
         }
         
         unmaskAdditionalChild(diagram, newElement);
+        
     }
 
     @objid ("d9020280-55b6-11e2-877f-002564c97630")

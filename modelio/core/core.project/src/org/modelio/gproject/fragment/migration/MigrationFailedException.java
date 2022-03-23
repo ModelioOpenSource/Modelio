@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.fragment.migration;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,7 +44,7 @@ public class MigrationFailedException extends Exception {
      * unknown.)
      */
     @objid ("0aa9397d-b659-4295-9352-4a31c21ed001")
-    public MigrationFailedException(String message, Throwable cause) {
+    public  MigrationFailedException(String message, Throwable cause) {
         super(message, cause);
     }
 
@@ -57,7 +56,7 @@ public class MigrationFailedException extends Exception {
      * later retrieval by the {@link #getMessage()} method.
      */
     @objid ("7c429a24-5b8b-4478-a526-ca6b1b63adc4")
-    public MigrationFailedException(String message) {
+    public  MigrationFailedException(String message) {
         super(message);
     }
 

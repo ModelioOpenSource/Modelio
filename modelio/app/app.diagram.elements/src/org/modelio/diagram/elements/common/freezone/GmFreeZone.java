@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.freezone;
 
 import java.util.ArrayList;
@@ -34,8 +33,8 @@ import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.diagram.styles.core.ProxyStyle;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
 
@@ -59,12 +58,11 @@ public abstract class GmFreeZone extends GmCompositeNode {
 
     /**
      * Initializes a free zone.
-     * 
      * @param diagram The diagram
      * @param relatedRef a reference to the element this GmModel is related to.
      */
     @objid ("7e3cc0ff-1dec-11e2-8cad-001ec947c8cc")
-    public GmFreeZone(IGmDiagram diagram, MRef relatedRef) {
+    public  GmFreeZone(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -72,7 +70,7 @@ public abstract class GmFreeZone extends GmCompositeNode {
      * Constructor for deserialization only.
      */
     @objid ("7e3cc104-1dec-11e2-8cad-001ec947c8cc")
-    public GmFreeZone() {
+    public  GmFreeZone() {
         super();
     }
 
@@ -161,6 +159,7 @@ public abstract class GmFreeZone extends GmCompositeNode {
         for (GmNodeModel child : toDel) {
             child.delete();
         }
+        
     }
 
     /**
@@ -177,6 +176,7 @@ public abstract class GmFreeZone extends GmCompositeNode {
         if (parent != null && !parent.equals(oldParent)) {
             getPersistedStyle().setCascadedStyle(parent.getPersistedStyle());
         }
+        
     }
 
     /**
@@ -205,6 +205,7 @@ public abstract class GmFreeZone extends GmCompositeNode {
                 break;
             }
         }
+        
     }
 
     @objid ("7e3f235c-1dec-11e2-8cad-001ec947c8cc")
@@ -214,6 +215,7 @@ public abstract class GmFreeZone extends GmCompositeNode {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmFreeZone.", MINOR_VERSION);
+        
     }
 
     @objid ("7e3f2360-1dec-11e2-8cad-001ec947c8cc")

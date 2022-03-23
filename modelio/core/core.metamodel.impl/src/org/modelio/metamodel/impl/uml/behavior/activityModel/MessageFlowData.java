@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,13 +31,13 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("00384dac-c4bf-1fd8-97fe-001ec947cd2a")
 public class MessageFlowData extends ActivityEdgeData {
     @objid ("21eb7636-07c3-4d0e-8437-5d2a1e5e6c45")
-     SmObjectImpl mTargetPartition;
+    SmObjectImpl mTargetPartition;
 
     @objid ("e6d1151c-8987-4900-839f-f4ae0784b6e6")
-     SmObjectImpl mSourcePartition;
+    SmObjectImpl mSourcePartition;
 
     @objid ("fb64fb55-fbc4-4d44-8936-a76f1d04c9f9")
-    public MessageFlowData(MessageFlowSmClass smClass) {
+    public  MessageFlowData(MessageFlowSmClass smClass) {
         super(smClass);
     }
 

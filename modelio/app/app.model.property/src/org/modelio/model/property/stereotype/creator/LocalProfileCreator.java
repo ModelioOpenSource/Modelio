@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.stereotype.creator;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,7 +34,7 @@ class LocalProfileCreator {
     private CoreSession session;
 
     @objid ("9f555dd7-a0de-4006-bd57-52ac5da19955")
-    public LocalProfileCreator(IProjectService projectService) {
+    public  LocalProfileCreator(IProjectService projectService) {
         this.session = (CoreSession) projectService.getSession();
     }
 

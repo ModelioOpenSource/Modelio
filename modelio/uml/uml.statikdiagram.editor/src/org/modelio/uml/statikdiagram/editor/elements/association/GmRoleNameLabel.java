@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.association;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,9 +38,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("33eefcc4-55b7-11e2-877f-002564c97630")
 public class GmRoleNameLabel extends GmDefaultModelElementHeader {
-    @objid ("33eefcc8-55b7-11e2-877f-002564c97630")
-    private AssociationEnd role;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -51,25 +47,28 @@ public class GmRoleNameLabel extends GmDefaultModelElementHeader {
     @objid ("33eefcce-55b7-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
 
+    @objid ("33eefcc8-55b7-11e2-877f-002564c97630")
+    private AssociationEnd role;
+
     /**
      * Constructor for deserialization only.
      */
     @objid ("33eefcd0-55b7-11e2-877f-002564c97630")
-    public GmRoleNameLabel() {
+    public  GmRoleNameLabel() {
         // Nothing to do.
     }
 
     /**
      * Creates a role name label.
-     * 
      * @param diagram the owning diagram.
      * @param role The represented role, may be null.
      * @param ref the represented role reference, must not be null.
      */
     @objid ("33eefcd3-55b7-11e2-877f-002564c97630")
-    public GmRoleNameLabel(IGmDiagram diagram, AssociationEnd role, MRef ref) {
+    public  GmRoleNameLabel(IGmDiagram diagram, AssociationEnd role, MRef ref) {
         super(diagram, ref);
         this.role = role;
+        
     }
 
     @objid ("33f08342-55b7-11e2-877f-002564c97630")
@@ -96,17 +95,18 @@ public class GmRoleNameLabel extends GmDefaultModelElementHeader {
         // Read version, defaults to 0 if not found
         int readVersion = readMinorVersion(in, "GmRoleNameLabel.");
         switch (readVersion) {
-            case 0: {
-                read_0(in);
-                break;
-            }
-            default: {
-                assert (false) : "version number not covered!";
-                // reading as last handled version: 0
-                read_0(in);
-                break;
-            }
+        case 0: {
+            read_0(in);
+            break;
         }
+        default: {
+            assert false : "version number not covered!";
+            // reading as last handled version: 0
+            read_0(in);
+            break;
+        }
+        }
+        
     }
 
     @objid ("33f0835b-55b7-11e2-877f-002564c97630")
@@ -117,12 +117,14 @@ public class GmRoleNameLabel extends GmDefaultModelElementHeader {
 
     @objid ("33f08360-55b7-11e2-877f-002564c97630")
     private String computeSignature(final AssociationEnd att) {
-        if (att == null)
+        if (att == null) {
             return "";
+        }
         
         final String name = att.getName();
-        if (name.isEmpty())
+        if (name.isEmpty()) {
             return "";
+        }
         
         StringBuilder ret = new StringBuilder();
         if (isRoleVisible()) {
@@ -137,7 +139,6 @@ public class GmRoleNameLabel extends GmDefaultModelElementHeader {
 
     /**
      * compute the visibility symbol of the role.
-     * 
      * @param att a role
      * @return the visibility symbol.
      */
@@ -145,32 +146,42 @@ public class GmRoleNameLabel extends GmDefaultModelElementHeader {
     private String computeVisibility(final AssociationEnd att) {
         String svis;
         switch (att.getVisibility()) {
-            case PUBLIC:
-                svis = "+";
-                break;
-            case PROTECTED:
-                svis = "#";
-                break;
-            case PRIVATE:
-                svis = "-";
-                break;
-            case PACKAGEVISIBILITY:
-                svis = "~";
-                break;
-            default:
-                svis = "";
+        case PUBLIC:
+            svis = "+";
+            break;
+        case PROTECTED:
+            svis = "#";
+            break;
+        case PRIVATE:
+            svis = "-";
+            break;
+        case PACKAGEVISIBILITY:
+            svis = "~";
+            break;
+        default:
+            svis = "";
         }
         return svis;
     }
 
     @objid ("33f08371-55b7-11e2-877f-002564c97630")
     private boolean isRoleVisible() {
-        return this.getDisplayedStyle().getProperty(GmAssocStructuredStyleKeys.SHOWROLES);
+        if (getParent() != null) {
+            return getDisplayedStyle().getProperty(GmAssocStructuredStyleKeys.SHOWROLES);
+        } else {
+            return false;
+        }
+        
     }
 
     @objid ("33f08375-55b7-11e2-877f-002564c97630")
     private boolean isVisibilityVisible() {
-        return this.getDisplayedStyle().getProperty(GmAssocStructuredStyleKeys.SHOWVISIBILITY);
+        if (getParent() != null) {
+            return getDisplayedStyle().getProperty(GmAssocStructuredStyleKeys.SHOWVISIBILITY);
+        } else {
+            return false;
+        }
+        
     }
 
     @objid ("33f08379-55b7-11e2-877f-002564c97630")
@@ -180,14 +191,17 @@ public class GmRoleNameLabel extends GmDefaultModelElementHeader {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmRoleNameLabel.", GmRoleNameLabel.MINOR_VERSION);
+        
     }
 
     @objid ("33f209d9-55b7-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         final MObject resolveRef = resolveRef(this.getRepresentedRef());
-        if (resolveRef instanceof AssociationEnd)
+        if (resolveRef instanceof AssociationEnd) {
             this.role = (AssociationEnd) resolveRef;
+        }
+        
     }
 
     @objid ("33f209de-55b7-11e2-877f-002564c97630")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.module;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,18 +34,22 @@ enum ModuleStartAction {
     /**
      * Ask Modelio to deploy this module on project open.
      */
+    @objid ("204cfb8d-0e89-4ad4-b743-ec74da37ae47")
     INSTALL,
     /**
      * Ask Modelio to update this module on project open.
      */
+    @objid ("c985a2fe-51f9-4674-92ed-12cb4f1c5663")
     UPDATE,
     /**
      * Ask Modelio to remove this module on project open.
      */
+    @objid ("b0158cc1-f96c-4340-a3f8-9ee628f1a8e8")
     REMOVE,
     /**
      * Ask Modelio to start normally this module on project open.
      */
+    @objid ("c0ead66b-8ec1-4447-aa30-e82b8fca88c4")
     START;
 
     /**
@@ -57,7 +60,6 @@ enum ModuleStartAction {
 
     /**
      * Get the action to do on this module on project open.
-     * 
      * @param m the module.
      * @return the action to do.
      */
@@ -72,7 +74,6 @@ enum ModuleStartAction {
 
     /**
      * Set the action to do on this module on project open.
-     * 
      * @param m the module.
      * @param f the action to do.
      */
@@ -83,7 +84,6 @@ enum ModuleStartAction {
 
     /**
      * Remove the action from the module parameters.
-     * 
      * @param m the module.
      */
     @objid ("70079ff7-afa5-46f0-bd9c-ddb31154930c")
@@ -93,7 +93,6 @@ enum ModuleStartAction {
 
     /**
      * Persist this action to do on the module on project open.
-     * 
      * @param m the module.
      */
     @objid ("995a841b-2819-496b-a251-d4a571aae834")
@@ -103,6 +102,7 @@ enum ModuleStartAction {
         } else {
             m.getParameters().setProperty(PROP, name(), DefinitionScope.LOCAL);
         }
+        
     }
 
 }

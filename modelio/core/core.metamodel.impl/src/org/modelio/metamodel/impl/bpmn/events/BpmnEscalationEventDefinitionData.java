@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.events;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,10 +30,10 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 @objid ("008c5122-c4bf-1fd8-97fe-001ec947cd2a")
 public class BpmnEscalationEventDefinitionData extends BpmnEventDefinitionData {
     @objid ("b2475185-e678-4240-9d05-fbe4da92dcfd")
-     Object mEscalationCode = "";
+    Object mEscalationCode = "";
 
     @objid ("96305585-ae46-4372-ac77-a072ef6aed4e")
-    public BpmnEscalationEventDefinitionData(BpmnEscalationEventDefinitionSmClass smClass) {
+    public  BpmnEscalationEventDefinitionData(BpmnEscalationEventDefinitionSmClass smClass) {
         super(smClass);
     }
 

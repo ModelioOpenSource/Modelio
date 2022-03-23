@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.gef.background;
 
 import java.util.ArrayList;
@@ -117,6 +116,7 @@ public class DropEditPolicy extends XYLayoutEditPolicy {
         if (this.connectionFeedback == null) {
             // add the "link" feedback.
             this.connectionFeedback = new PolylineConnection();
+            this.connectionFeedback.removeAllPoints();
             this.connectionFeedback.setVisible(true);
             this.connectionFeedback.setOpaque(true);
         
@@ -133,6 +133,7 @@ public class DropEditPolicy extends XYLayoutEditPolicy {
         getFeedbackLayer().add(this.connectionFeedback);
         
         super.showLayoutTargetFeedback(request);
+        
     }
 
     @objid ("1b93a2e1-5e33-11e2-b81d-002564c97630")
@@ -143,11 +144,11 @@ public class DropEditPolicy extends XYLayoutEditPolicy {
             getFeedbackLayer().remove(this.connectionFeedback);
             this.connectionFeedback = null;
         }
+        
     }
 
     /**
      * Return true if the drop creates a link starting from center node.
-     * 
      * @param request the creation request.
      * @return true if the drop should create a link that is originated from centerNode, false for a link that should target centerNode.
      */
@@ -159,7 +160,7 @@ public class DropEditPolicy extends XYLayoutEditPolicy {
         boolean vertical = ep.isVerticalLayout();
         
         if (vertical) {
-            if (request.getLocation().y < (centerNode.y + (centerNode.height / 2))) {
+            if (request.getLocation().y < centerNode.y + centerNode.height / 2) {
                 // drop above the centerNode => centerNode outgoing link
                 return true;
             } else {
@@ -167,7 +168,7 @@ public class DropEditPolicy extends XYLayoutEditPolicy {
                 return false;
             }
         } else {
-            if (request.getLocation().x < (centerNode.x + (centerNode.width / 2))) {
+            if (request.getLocation().x < centerNode.x + centerNode.width / 2) {
                 // drop on the left of centerNode => centerNode incoming link
                 return false;
             } else {
@@ -175,6 +176,7 @@ public class DropEditPolicy extends XYLayoutEditPolicy {
                 return true;
             }
         }
+        
     }
 
     @objid ("1b93a2eb-5e33-11e2-b81d-002564c97630")
@@ -185,6 +187,7 @@ public class DropEditPolicy extends XYLayoutEditPolicy {
             this.connectionFeedback = null;
         }
         super.eraseLayoutTargetFeedback(request);
+        
     }
 
     /**
@@ -198,7 +201,6 @@ public class DropEditPolicy extends XYLayoutEditPolicy {
 
     /**
      * Returns the possible link types for creation.
-     * 
      * @return a list of LinkTypeDescriptor
      */
     @objid ("b21b5287-7aa7-4642-9ce4-f1a12656e688")
@@ -258,7 +260,6 @@ public class DropEditPolicy extends XYLayoutEditPolicy {
      * <li>are representing a 'link'</li>
      * <li>pass the configuration filter on its meta-class criterion</li>
      * </ul>
-     * 
      * @param metamodel the metamodel.
      * @param filter the selected filter in link editor.
      * @return link metaclasses that are enabled by the filter.
@@ -278,7 +279,6 @@ public class DropEditPolicy extends XYLayoutEditPolicy {
 
     /**
      * Filter the stereotypes using the {@link ILinkEditorConfiguration} filter
-     * 
      * @param filter the selected filter in link editor.
      * @param mc a metaclass.
      * @param candidatesStereotypes stereotypes compatible with the given metaclass.
@@ -297,7 +297,6 @@ public class DropEditPolicy extends XYLayoutEditPolicy {
 
     /**
      * Get all the visible stereotypes applicable on 'mc' that are provided by active modules.
-     * 
      * @param mmService the model service to find stereotypes.
      * @param moduleService the module service to find active modules.
      * @param mc a metaclass.
@@ -323,7 +322,6 @@ public class DropEditPolicy extends XYLayoutEditPolicy {
 
     /**
      * Filter stereotype using the MDA Expert
-     * 
      * @param mdaExpert an mda expert.
      * @param mc a metaclass.
      * @param candidatesStereotypes stereotypes compatible with the given metaclass.

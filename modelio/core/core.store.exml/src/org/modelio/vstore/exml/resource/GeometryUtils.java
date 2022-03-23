@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.resource;
 
 import java.util.regex.Pattern;
@@ -34,13 +33,12 @@ final class GeometryUtils {
     private static final Pattern PATH_SPLITTER = Pattern.compile("/|\\\\");
 
     @objid ("d4fa1501-1ebb-457f-9035-55328d310c4f")
-    private GeometryUtils() {
+    private  GeometryUtils() {
         // no instance.
     }
 
     /**
      * Get the file name part of a file path.
-     * 
      * @param filePath a file path.
      * @return the file name with the extension.
      */
@@ -53,10 +51,9 @@ final class GeometryUtils {
 
     /**
      * Get the parent directory name.
-     * 
      * @param filePath a file path
      * @return the parent directory name
-     * @throws java.lang.ArrayIndexOutOfBoundsException if there is no parent directory.
+     * @throws ArrayIndexOutOfBoundsException if there is no parent directory.
      */
     @objid ("2692d693-b71f-47a1-8174-bdfce43cb69e")
     public static String getParentFileName(String filePath) throws ArrayIndexOutOfBoundsException {

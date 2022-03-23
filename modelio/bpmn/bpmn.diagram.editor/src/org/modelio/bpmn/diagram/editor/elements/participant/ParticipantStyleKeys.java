@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.participant;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.bpmn.diagram.editor.elements.style.BpmnAbstractStyleKeyProvider;
+import org.modelio.bpmn.diagram.editor.elements.common.style.BpmnAbstractStyleKeyProvider;
 import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.diagram.styles.core.StyleKey;
 
@@ -53,7 +52,7 @@ public class ParticipantStyleKeys extends BpmnAbstractStyleKeyProvider {
 
     @objid ("a559dcac-f834-44c4-af8c-34596ebd0412")
     public static final StyleKey SHOWSTEREOTYPES = BpmnAbstractStyleKeyProvider.createStyleKey("BPMNPARTICIPANT_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+                MetaKey.SHOWSTEREOTYPES);
 
     @objid ("bf45e9ae-34f2-4c99-93dd-cd8ba64b4448")
     public static final StyleKey SHOWTAGS = BpmnAbstractStyleKeyProvider.createStyleKey("BPMNPARTICIPANT_SHOWTAGS", MetaKey.SHOWTAGS);
@@ -68,7 +67,7 @@ public class ParticipantStyleKeys extends BpmnAbstractStyleKeyProvider {
      * Private constructor, use {@link #INSTANCE}.
      */
     @objid ("137d4fcd-6bdd-40ec-9788-eec74a7eb20f")
-    private ParticipantStyleKeys() {
+    private  ParticipantStyleKeys() {
         super();
     }
 

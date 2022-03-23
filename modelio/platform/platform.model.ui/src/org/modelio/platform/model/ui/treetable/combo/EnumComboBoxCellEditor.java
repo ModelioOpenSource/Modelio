@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.treetable.combo;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,21 +34,21 @@ import org.modelio.platform.model.ui.plugin.CoreUi;
 @objid ("6b33c8b2-1eba-11e2-9382-bc305ba4815c")
 public class EnumComboBoxCellEditor extends ComboBoxCellEditor2 {
     @objid ("6b33efc1-1eba-11e2-9382-bc305ba4815c")
-     Class<?> enumClass;
+    Class<?> enumClass;
 
     /**
      * Creates a new cell editor with a combo containing the enum's possible values parented under the given control.
-     * 
      * @param parent the parent control
      * @param enumClass the enumeration providing literal values for the combo box
      * @param style the style bits
      */
     @objid ("6b33efc4-1eba-11e2-9382-bc305ba4815c")
-    public EnumComboBoxCellEditor(Composite parent, Class<?> enumClass, int style) {
+    public  EnumComboBoxCellEditor(Composite parent, Class<?> enumClass, int style) {
         super(parent, getLabels(enumClass), style);
         this.enumClass = enumClass;
         ((CCombo) this.getControl()).setEditable(false);
         setActivationStyle(ComboBoxCellEditor2.DROP_DOWN_ON_MOUSE_ACTIVATION);
+        
     }
 
     @objid ("6b3416d5-1eba-11e2-9382-bc305ba4815c")
@@ -57,6 +56,7 @@ public class EnumComboBoxCellEditor extends ComboBoxCellEditor2 {
     protected void doSetValue(Object value) {
         Enum<?> enumValue = (Enum<?>) value;
         super.doSetValue(enumValue.ordinal());
+        
     }
 
     @objid ("6b343de2-1eba-11e2-9382-bc305ba4815c")

@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.List;
@@ -32,19 +32,19 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("00044bf6-c4bf-1fd8-97fe-001ec947cd2a")
 public class CollaborationData extends NameSpaceData {
     @objid ("e4bbce98-e4f5-4031-bf9b-56f6232389cd")
-     Object mIsConcurrent = false;
+    Object mIsConcurrent = false;
 
     @objid ("9a11833e-b10b-49ab-b994-7ea4b8aede5e")
-     SmObjectImpl mORepresented;
+    SmObjectImpl mORepresented;
 
     @objid ("9239ee91-3b39-4c0e-983d-5ad4668e0cb5")
-     SmObjectImpl mBRepresented;
+    SmObjectImpl mBRepresented;
 
     @objid ("da5361fd-471f-4dd3-8fa3-f1d8010d6fde")
-     List<SmObjectImpl> mOccurrence = null;
+    List<SmObjectImpl> mOccurrence = null;
 
     @objid ("3a227096-e99a-465e-8a29-37967eed161f")
-    public CollaborationData(CollaborationSmClass smClass) {
+    public  CollaborationData(CollaborationSmClass smClass) {
         super(smClass);
     }
 

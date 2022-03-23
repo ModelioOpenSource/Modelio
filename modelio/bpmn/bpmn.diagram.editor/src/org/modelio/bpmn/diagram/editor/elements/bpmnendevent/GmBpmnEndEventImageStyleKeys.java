@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnendevent;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.bpmn.diagram.editor.elements.style.BpmnAbstractStyleKeyProvider;
+import org.modelio.bpmn.diagram.editor.elements.common.style.BpmnAbstractStyleKeyProvider;
 import org.modelio.diagram.styles.core.StyleKey;
 
 /**
@@ -30,24 +29,24 @@ import org.modelio.diagram.styles.core.StyleKey;
 @objid ("60e08801-55b6-11e2-877f-002564c97630")
 public class GmBpmnEndEventImageStyleKeys extends BpmnAbstractStyleKeyProvider {
     @objid ("71707c6d-55c1-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmBpmnEndEventStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmBpmnEndEventStructuredStyleKeys.REPMODE;
 
     @objid ("71707c6f-55c1-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmBpmnEndEventStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmBpmnEndEventStructuredStyleKeys.FONT;
 
     @objid ("71707c71-55c1-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmBpmnEndEventStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmBpmnEndEventStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("71707c73-55c1-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmBpmnEndEventStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmBpmnEndEventStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("71707c75-55c1-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmBpmnEndEventStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmBpmnEndEventStructuredStyleKeys.SHOWTAGS;
 
     /**
      * Show the label.
      */
     @objid ("71707c77-55c1-11e2-9337-002564c97630")
-     static final StyleKey SHOWLABEL = GmBpmnEndEventStructuredStyleKeys.SHOWLABEL;
+    static final StyleKey SHOWLABEL = GmBpmnEndEventStructuredStyleKeys.SHOWLABEL;
 
 }

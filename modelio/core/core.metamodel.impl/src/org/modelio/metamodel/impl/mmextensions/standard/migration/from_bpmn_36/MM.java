@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.migration.from_bpmn_36;
 
 import java.util.Objects;
@@ -121,7 +120,7 @@ class MM {
     public final SmClass bpmnBaseElementMc;
 
     @objid ("b08dcf84-7782-4836-8139-11570bded790")
-    public MM(MofMetamodel metamodel) {
+    public  MM(MofMetamodel metamodel) {
         // Get pointers to used metaclasses
         this.processMclass = requireMClass(metamodel, MM.MC_BPMN_PROCESS);
         this.bpmnCollaboMC = requireMClass(metamodel, MM.MC_BPMN_COLLABO);
@@ -153,6 +152,7 @@ class MM {
         
         assert (this.processMclass.getDependency("LaneSet") != null);
         assert (this.participantDep != null);
+        
     }
 
     @objid ("f980c56b-aab6-41e0-92a8-968f061b7866")

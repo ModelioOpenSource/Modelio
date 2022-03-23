@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.objectflow;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("99f3e547-a9ff-492d-8072-1124b305e010")
 public class UML2ExceptionHandler {
-    @objid ("045b0361-2646-4054-b111-7acc0cad1c56")
+    @objid ("2b841b94-1ab4-4ab4-bd89-dee196f08765")
     public static final String STEREOTYPE_NAME = "UML2ExceptionHandler";
 
     /**
      * The underlying {@link ObjectFlow} represented by this proxy, never null.
      */
-    @objid ("b61ad08e-2da0-4bbf-9b04-c341cd7b72b3")
+    @objid ("b251ae41-b70d-41f8-95c6-04d2f0a3b862")
     protected final ObjectFlow elt;
 
     /**
      * Tells whether a {@link UML2ExceptionHandler proxy} can be instantiated from a {@link MObject} checking it is a {@link ObjectFlow} stereotyped << UML2ExceptionHandler >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("7176d2f3-758a-4097-8e9d-3d53637a42cf")
+    @objid ("2e7f2c5b-2044-4da2-b308-8287db68f35f")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof ObjectFlow) && ((ObjectFlow) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2ExceptionHandler.STEREOTYPE_NAME));
     }
@@ -77,9 +75,9 @@ public class UML2ExceptionHandler {
      * 
      * @return a {@link UML2ExceptionHandler} proxy on the created {@link ObjectFlow}.
      */
-    @objid ("4ce81d1e-13d0-4ecb-a283-20ecf9d46a79")
+    @objid ("43aa2cbb-691c-411e-830a-5f0e7d658aad")
     public static UML2ExceptionHandler create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("ObjectFlow");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.ObjectFlow");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2ExceptionHandler.STEREOTYPE_NAME);
         return UML2ExceptionHandler.instantiate((ObjectFlow)e);
     }
@@ -91,7 +89,7 @@ public class UML2ExceptionHandler {
      * @param obj a ObjectFlow
      * @return a {@link UML2ExceptionHandler} proxy or <i>null</i>.
      */
-    @objid ("dcdd3339-d89d-4737-aceb-d9708132a350")
+    @objid ("cbfde7f0-5eab-438a-85ae-1d9c908777a2")
     public static UML2ExceptionHandler instantiate(ObjectFlow obj) {
         return UML2ExceptionHandler.canInstantiate(obj) ? new UML2ExceptionHandler(obj) : null;
     }
@@ -104,7 +102,7 @@ public class UML2ExceptionHandler {
      * @return a {@link UML2ExceptionHandler} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("104b712c-305e-4ee5-907e-aad685bae902")
+    @objid ("356b57eb-7d5f-403e-aa48-a425710f1cfa")
     public static UML2ExceptionHandler safeInstantiate(ObjectFlow obj) throws IllegalArgumentException {
         if (UML2ExceptionHandler.canInstantiate(obj))
         	return new UML2ExceptionHandler(obj);
@@ -112,7 +110,7 @@ public class UML2ExceptionHandler {
         	throw new IllegalArgumentException("UML2ExceptionHandler: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("f353fd20-1adc-4bd5-8f2a-1d7389236b54")
+    @objid ("76e1f85e-ea30-4867-ac47-ad27dc86ea71")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,46 +130,47 @@ public class UML2ExceptionHandler {
      * Get the underlying {@link ObjectFlow}. 
      * @return the ObjectFlow represented by this proxy, never null.
      */
-    @objid ("7ce763f1-87b2-4559-a111-1b39127aec20")
+    @objid ("cdabee1e-d47e-4519-82ad-9e1b8d1f084d")
     public ObjectFlow getElement() {
         return this.elt;
     }
 
-    @objid ("adcc6ef9-318e-4981-bd82-1cfe2a011871")
+    @objid ("f5d81fc6-adb0-4d89-a324-9590f5c39af7")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("468d925b-11c2-4c91-9a98-ab0315203d1b")
-    protected UML2ExceptionHandler(ObjectFlow elt) {
+    @objid ("b398a389-eb98-43ee-94f9-5dc62ab247c8")
+    protected  UML2ExceptionHandler(ObjectFlow elt) {
         this.elt = elt;
     }
 
     @objid ("ed214f2b-6a8e-4515-9c8d-379b6f62a571")
     public static final class MdaTypes {
-        @objid ("972e6df7-42f7-4d44-8347-c8570ed95e69")
+        @objid ("e47d0f50-9640-4886-909c-b5b139f36d68")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("8ab9bd78-bcd6-4e44-9644-b91b9abde115")
+        @objid ("f2f0424b-97b6-432d-b171-00cee670b69d")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("f8a008af-028b-4b38-91d8-d10be058703b")
+        @objid ("bd8e3aba-f47a-40fc-8e38-a18eb57f179b")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("1acb78cd-76cd-48e0-b2e8-1949dd8ff2f1")
+        @objid ("c43a9b20-8a54-42eb-9c11-476680656497")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "1b7fd53f-205e-11df-948e-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

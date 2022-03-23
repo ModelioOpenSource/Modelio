@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.browser.view.context;
 
 import java.util.List;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.AboutToHide;
 import org.eclipse.e4.ui.di.AboutToShow;
@@ -62,6 +61,7 @@ class ModuleCommandsForModelBrowser {
                 }
             }
         }
+        
     }
 
     @objid ("263dc59b-6d6c-411e-bcd0-8c0b81e2fbb4")
@@ -82,6 +82,7 @@ class ModuleCommandsForModelBrowser {
                 ModulePopupManager.removeMenu(module, activePart);
             }
         }
+        
     }
 
 }

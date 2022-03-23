@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.activity;
 
 import java.util.Collections;
@@ -35,8 +34,8 @@ import org.modelio.diagram.elements.core.node.IImageableNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.platform.model.ui.swt.images.ElementImageService;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -63,23 +62,23 @@ public class GmActivityPrimaryNode extends GmNoStyleCompositeNode implements IIm
 
     /**
      * Default constructor.
-     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param relatedRef a reference to the represented CallBehaviorAction
      */
     @objid ("33dcad24-55b7-11e2-877f-002564c97630")
-    public GmActivityPrimaryNode(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmActivityPrimaryNode(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
         this.header = new GmDefaultModelElementHeader(diagram, relatedRef);
         this.header.setShowMetaclassIcon(true);
         addChild(this.header);
+        
     }
 
     /**
      * Empty constructor needed for the serialization.
      */
     @objid ("33dcad2f-55b7-11e2-877f-002564c97630")
-    public GmActivityPrimaryNode() {
+    public  GmActivityPrimaryNode() {
         // empty constructor for the serialization
     }
 
@@ -120,6 +119,7 @@ public class GmActivityPrimaryNode extends GmNoStyleCompositeNode implements IIm
         // Returned result depends on current representation mode:
         List<GmNodeModel> ret;
         switch (getRepresentationMode()) {
+        case USER_IMAGE:
         case IMAGE: {
             ret = Collections.emptyList();
             break;
@@ -153,6 +153,7 @@ public class GmActivityPrimaryNode extends GmNoStyleCompositeNode implements IIm
             break;
         }
         }
+        
     }
 
     @objid ("33de33c6-55b7-11e2-877f-002564c97630")
@@ -160,6 +161,7 @@ public class GmActivityPrimaryNode extends GmNoStyleCompositeNode implements IIm
     public void refreshFromObModel() {
         super.refreshFromObModel(); // forcing visual refresh in case Image changed
         firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("33de33c9-55b7-11e2-877f-002564c97630")
@@ -169,6 +171,7 @@ public class GmActivityPrimaryNode extends GmNoStyleCompositeNode implements IIm
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmActivityPrimaryNode.", GmActivityPrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("33de33cf-55b7-11e2-877f-002564c97630")
@@ -180,6 +183,7 @@ public class GmActivityPrimaryNode extends GmNoStyleCompositeNode implements IIm
         this.header = (GmDefaultModelElementHeader) this.getChildren().get(i++);
         GmNodeModel imageModeHeader = this.getChildren().get(i++);
         imageModeHeader.delete();
+        
     }
 
     @objid ("33de33d5-55b7-11e2-877f-002564c97630")
@@ -193,6 +197,7 @@ public class GmActivityPrimaryNode extends GmNoStyleCompositeNode implements IIm
         super.read(in);
         
         this.header = (GmDefaultModelElementHeader) this.getChildren().get(0);
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.packaze.v0;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,33 +32,33 @@ import org.modelio.uml.statikdiagram.editor.style.StaticAbstractStyleKeyProvider
 @objid ("363458c7-55b7-11e2-877f-002564c97630")
 class GmPackageSimpleStyleKeys extends StaticAbstractStyleKeyProvider {
     @objid ("a7488df6-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmPackageStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmPackageStructuredStyleKeys.REPMODE;
 
     @objid ("a7488df8-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = GmPackageStructuredStyleKeys.FILLCOLOR;
+    static final StyleKey FILLCOLOR = GmPackageStructuredStyleKeys.FILLCOLOR;
 
     @objid ("a7488dfa-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = GmPackageStructuredStyleKeys.FILLMODE;
+    static final StyleKey FILLMODE = GmPackageStructuredStyleKeys.FILLMODE;
 
     @objid ("a7488dfc-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = GmPackageStructuredStyleKeys.LINECOLOR;
+    static final StyleKey LINECOLOR = GmPackageStructuredStyleKeys.LINECOLOR;
 
     @objid ("a7488dfe-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = GmPackageStructuredStyleKeys.LINEWIDTH;
+    static final StyleKey LINEWIDTH = GmPackageStructuredStyleKeys.LINEWIDTH;
 
     @objid ("a7488e00-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmPackageStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmPackageStructuredStyleKeys.FONT;
 
     @objid ("a7488e02-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmPackageStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmPackageStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("a7488e04-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWNAME = GmPackageStructuredStyleKeys.SHOWNAME;
+    static final StyleKey SHOWNAME = GmPackageStructuredStyleKeys.SHOWNAME;
 
     @objid ("a7488e06-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmPackageStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmPackageStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("a7488e08-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmPackageStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmPackageStructuredStyleKeys.SHOWTAGS;
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model.api;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,6 @@ public interface IElementNamerService extends IElementNamer {
      * Get the metamodel extensions point.
      * <p>
      * Use it to register metamodel extensions to this service.
-     * 
      * @return the metamodel extensions point.
      */
     @objid ("a959e243-6474-40f2-b062-535ab878e5c0")

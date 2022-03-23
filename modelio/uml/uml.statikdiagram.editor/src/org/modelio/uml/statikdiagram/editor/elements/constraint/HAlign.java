@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.constraint;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,21 +30,24 @@ public enum HAlign {
     /**
      * Left
      */
-    Left (SWT.BEGINNING),
+    @objid ("9d1e4810-88af-4a4e-a274-5619bb98406c")
+    Left(SWT.BEGINNING),
     /**
      * Center
      */
-    Center (SWT.CENTER),
+    @objid ("2511833c-d478-4d1e-bfeb-9486c067a540")
+    Center(SWT.CENTER),
     /**
      * Right
      */
-    Right (SWT.END);
+    @objid ("9aecb241-9e52-43de-a35a-5e82ca9f9c3b")
+    Right(SWT.END);
 
     @objid ("ad5654bb-5e16-4c54-9e39-cb70e00cf155")
     private final int swtConst;
 
     @objid ("399a7944-6a56-43a1-81df-34cc4a2afc83")
-    HAlign(int swtConst) {
+     HAlign(int swtConst) {
         this.swtConst = swtConst;
     }
 

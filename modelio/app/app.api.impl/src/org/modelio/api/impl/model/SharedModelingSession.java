@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.api.impl.model;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.impl.model.change.ModelChangeEvent;
 import org.modelio.api.impl.model.change.StatusChangeEvent;
@@ -55,33 +54,33 @@ public class SharedModelingSession implements org.modelio.vcore.session.api.mode
     private String name;
 
     @objid ("166cf6f0-2581-4c4f-8595-ba427e5b7e62")
-    private List<IModelChangeHandler> modelChangeHandlers = null;
+    private final List<IModelChangeHandler> modelChangeHandlers;
 
     @objid ("4ed33d78-845c-441b-88aa-119a43464271")
-    private List<IModelChangeListener> modelChangeListeners = null;
+    private final List<IModelChangeListener> modelChangeListeners;
 
     @objid ("124db96e-65cf-40c2-af7c-d2f67de0ea88")
-    private ICoreSession session;
+    private final ICoreSession session;
 
     @objid ("4fb073ad-3889-4ac8-b5ed-52a3c0a690ec")
-    private List<IStatusChangeListener> statusChangeListeners = null;
+    private final List<IStatusChangeListener> statusChangeListeners;
 
     @objid ("57d2f05a-546b-40cb-bae3-468ba840bb86")
-    private IUmlModel umlModel;
+    private final IUmlModel umlModel;
 
     @objid ("0cfb5cfa-3d35-4f57-8188-ef08e6916a14")
-    private MetamodelExtensions metamodelExtensions;
+    private final MetamodelExtensions metamodelExtensions;
 
     /**
      * @param openedProject the project
      * @param modelService a model service working on the project.
      */
     @objid ("f72f5713-f301-4dad-9c7e-9c4013836cfb")
-    public SharedModelingSession(final GProject openedProject, final IMModelServices modelService) {
+    public  SharedModelingSession(final GProject openedProject, final IMModelServices modelService) {
         this.session = openedProject.getSession();
-        this.modelChangeListeners = new ArrayList<>();
-        this.modelChangeHandlers = new ArrayList<>();
-        this.statusChangeListeners = new ArrayList<>();
+        this.modelChangeListeners = new CopyOnWriteArrayList<>();
+        this.modelChangeHandlers = new CopyOnWriteArrayList<>();
+        this.statusChangeListeners = new CopyOnWriteArrayList<>();
         
         // Create UmlModel delegation:
         this.umlModel = new UMLModel(openedProject, modelService, this.session.getModel());
@@ -92,6 +91,7 @@ public class SharedModelingSession implements org.modelio.vcore.session.api.mode
         this.session.getModelChangeSupport().addModelChangeListener(this);
         this.session.getModelChangeSupport().addModelChangeHandler(this);
         this.session.getModelChangeSupport().addStatusChangeListener(this);
+        
     }
 
     @objid ("60763c1b-502d-477e-bfb1-7b0d9e378ad1")
@@ -150,6 +150,7 @@ public class SharedModelingSession implements org.modelio.vcore.session.api.mode
         } catch (@SuppressWarnings ("unused") IllegalArgumentException e) {
             return null;
         }
+        
     }
 
     @objid ("8f56cd02-569d-4b0c-89f6-1606ce62c63d")
@@ -160,6 +161,7 @@ public class SharedModelingSession implements org.modelio.vcore.session.api.mode
         } catch (@SuppressWarnings ("unused") IllegalArgumentException e) {
             return null;
         }
+        
     }
 
     @objid ("bd0c2a72-72dd-4726-bbb1-473c467040a4")
@@ -195,6 +197,7 @@ public class SharedModelingSession implements org.modelio.vcore.session.api.mode
         for (IModelChangeHandler listener : this.modelChangeHandlers) {
             listener.handleModelChange(this, mdaEvent);
         }
+        
     }
 
     @objid ("72917866-ee90-47d0-a961-b3394c7b114a")
@@ -205,6 +208,7 @@ public class SharedModelingSession implements org.modelio.vcore.session.api.mode
         for (IModelChangeListener listener : this.modelChangeListeners) {
             listener.modelChanged(this, mdaEvent);
         }
+        
     }
 
     @objid ("c6b0cc15-565c-4dd0-80d2-63422729ad28")
@@ -233,6 +237,7 @@ public class SharedModelingSession implements org.modelio.vcore.session.api.mode
         for (IStatusChangeListener listener : this.statusChangeListeners) {
             listener.statusChanged(this, mdaEvent);
         }
+        
     }
 
     @objid ("057a052e-3a7c-4d21-8e24-198f9c21da8c")
@@ -243,11 +248,11 @@ public class SharedModelingSession implements org.modelio.vcore.session.api.mode
         this.session.getModelChangeSupport().removeModelChangeHandler(this);
         this.session.getModelChangeSupport().removeStatusChangeListener(this);
         super.finalize();
+        
     }
 
     /**
      * Check if an element is part of a library, i.e. in a model component or an HTTP fragment.
-     * 
      * @param element the element to check.
      * @return <code>true</code> if the element is part of a library.
      */
@@ -274,6 +279,7 @@ public class SharedModelingSession implements org.modelio.vcore.session.api.mode
         } catch (@SuppressWarnings ("unused") UnknownMetaclassException e) {
             return null;
         }
+        
     }
 
 }

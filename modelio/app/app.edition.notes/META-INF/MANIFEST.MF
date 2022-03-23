@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Edition Notes
 Bundle-SymbolicName: org.modelio.app.edition.notes;singleton:=true
-Bundle-Version: 4.1.0.qualifier
+Bundle-Version: 5.1.0.qualifier
 Bundle-Localization: plugin
 Bundle-Activator: org.modelio.edition.notes.plugin.EditionNotes
 Bundle-Vendor: modelio.org

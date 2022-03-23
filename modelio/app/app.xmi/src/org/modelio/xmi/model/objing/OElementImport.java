@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,7 @@ public class OElementImport extends OElement implements IOElement {
     }
 
     @objid ("90b9243a-c22b-4bd2-aece-b4d5f1816100")
-    public OElementImport(ElementImport element) {
+    public  OElementImport(ElementImport element) {
         super(element);
     }
 
@@ -82,6 +81,7 @@ public class OElementImport extends OElement implements IOElement {
                 }
             }
         }
+        
     }
 
     @objid ("fad8e0fc-e320-468f-9fb4-e9a3c3832f84")
@@ -91,6 +91,7 @@ public class OElementImport extends OElement implements IOElement {
         setVisibility((org.eclipse.uml2.uml.ElementImport) ecoreElt);
         // setImportedElement((org.eclipse.uml2.uml.ElementImport) ecoreElt); -> DONE IN
         // linkEcoreElt() OPERATION
+        
     }
 
     @objid ("a9cacd30-1d7d-47b7-85f3-1130d6f46bbd")
@@ -105,6 +106,7 @@ public class OElementImport extends OElement implements IOElement {
         // If the name is "", then we don't export the name:
         if (!"".equals(name))
             ecoreElt.setAlias(name);
+        
     }
 
     @objid ("2aeb0323-a398-4ce3-aa1c-2032dbfe8a97")
@@ -130,6 +132,7 @@ public class OElementImport extends OElement implements IOElement {
             // a visibility not setted corresponds to a PUBLIC visibility.
             break;
         }
+        
     }
 
     @objid ("e8f09ca3-f2d2-4c2d-ba15-dba3fa940568")

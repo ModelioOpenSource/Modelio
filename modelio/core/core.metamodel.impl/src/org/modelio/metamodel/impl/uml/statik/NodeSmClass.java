@@ -17,20 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.statik.ArtifactSmClass;
-import org.modelio.metamodel.impl.uml.statik.ClassifierSmClass;
-import org.modelio.metamodel.impl.uml.statik.NodeData;
 import org.modelio.metamodel.uml.statik.Artifact;
 import org.modelio.metamodel.uml.statik.Classifier;
 import org.modelio.metamodel.uml.statik.Node;
@@ -51,7 +48,7 @@ public class NodeSmClass extends ClassifierSmClass {
     private SmDependency residentDep;
 
     @objid ("30106a16-e868-4637-bd57-0d4fe8561d71")
-    public NodeSmClass(ISmMetamodelFragment origin) {
+    public  NodeSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -59,6 +56,7 @@ public class NodeSmClass extends ClassifierSmClass {
     @Override
     public String getName() {
         return "Node";
+        
     }
 
     @objid ("8836ff79-13a5-4d6d-b2f4-206a189f9d11")
@@ -71,18 +69,21 @@ public class NodeSmClass extends ClassifierSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Node.class;
+        
     }
 
     @objid ("c0b1d8ab-63d5-4e24-a4bd-dc8c5e04256b")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("6b2203bf-c300-488c-8cb7-8d16d3daeee4")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("aa4892ed-73ac-491e-ba62-ddcf827c1395")
@@ -98,6 +99,8 @@ public class NodeSmClass extends ClassifierSmClass {
         this.residentDep = new ResidentSmDependency();
         this.residentDep.init("Resident", this, metamodel.getMClass(Artifact.MQNAME), 0, -1 , SmDirective.SMCDPARTOF);
         registerDependency(this.residentDep);
+        
+        
     }
 
     @objid ("b10afac5-6062-4352-84a6-948bb9afcad6")
@@ -114,7 +117,7 @@ public class NodeSmClass extends ClassifierSmClass {
         private NodeSmClass smClass;
 
         @objid ("268b04ee-de3d-4886-9026-550a77cd55c7")
-        public NodeObjectFactory(NodeSmClass smClass) {
+        public  NodeObjectFactory(NodeSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -147,6 +150,7 @@ public class NodeSmClass extends ClassifierSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((NodeData) data).mResident = values;
+            
         }
 
         @objid ("3e57583f-f272-4a5e-afbc-15ec4812269b")
@@ -156,6 +160,7 @@ public class NodeSmClass extends ClassifierSmClass {
             	this.symetricDep = ((ArtifactSmClass)this.getTarget()).getDeploymentLocationDep();
             }
             return this.symetricDep;
+            
         }
 
     }

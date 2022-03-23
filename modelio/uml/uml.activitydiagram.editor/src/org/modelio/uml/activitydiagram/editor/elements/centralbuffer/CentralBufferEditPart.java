@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.centralbuffer;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -57,6 +56,7 @@ public class CentralBufferEditPart extends AbstractNodeEditPart {
         }
         
         getFigure().add(child, gmAbstractObject.getLayoutData(), index);
+        
     }
 
     @objid ("29e13ee3-55b6-11e2-877f-002564c97630")
@@ -67,6 +67,7 @@ public class CentralBufferEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                 new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("29e13ee6-55b6-11e2-877f-002564c97630")
@@ -91,7 +92,6 @@ public class CentralBufferEditPart extends AbstractNodeEditPart {
      * Refresh the figure from the given style.
      * <p>
      * Often called in {@link #createFigure()} and after a style change.
-     * 
      * @param aFigure The figure to update, should be {@link #getFigure()}.
      * @param style The style to update from, usually {@link #getModelStyle()}
      */
@@ -101,6 +101,7 @@ public class CentralBufferEditPart extends AbstractNodeEditPart {
         if (!switchRepresentationMode()) {
             super.refreshFromStyle(aFigure, style);
         }
+        
     }
 
     /**
@@ -113,6 +114,7 @@ public class CentralBufferEditPart extends AbstractNodeEditPart {
         IFigure fig = getFigure();
         GmAbstractObject centralBufferModel = getModel();
         fig.getParent().setConstraint(fig, centralBufferModel.getLayoutData());
+        
     }
 
     @objid ("29e13ef7-55b6-11e2-877f-002564c97630")

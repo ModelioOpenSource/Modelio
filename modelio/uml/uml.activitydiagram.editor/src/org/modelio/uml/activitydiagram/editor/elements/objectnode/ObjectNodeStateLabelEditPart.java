@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.objectnode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,8 @@ public class ObjectNodeStateLabelEditPart extends ElementLabelEditPart {
      * Default constructor.
      */
     @objid ("2ade8ab2-55b6-11e2-877f-002564c97630")
-    public ObjectNodeStateLabelEditPart() {
+    public  ObjectNodeStateLabelEditPart() {
+        
     }
 
     @objid ("2ade8ab5-55b6-11e2-877f-002564c97630")
@@ -51,6 +51,7 @@ public class ObjectNodeStateLabelEditPart extends ElementLabelEditPart {
         
         // operation label isn't meant to be editable
         removeEditPolicy(EditPolicy.DIRECT_EDIT_ROLE);
+        
     }
 
     @objid ("2ade8abe-55b6-11e2-877f-002564c97630")

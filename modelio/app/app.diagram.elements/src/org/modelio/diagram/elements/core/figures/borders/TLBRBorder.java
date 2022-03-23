@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.borders;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -52,26 +51,24 @@ public class TLBRBorder extends LineBorder {
      * Default C'tor. Create a border with all sides visible, default color and width of 1.
      */
     @objid ("7f646493-1dec-11e2-8cad-001ec947c8cc")
-    public TLBRBorder() {
+    public  TLBRBorder() {
         this(true, true, true, true);
     }
 
     /**
      * C'tor that allows to specify which sides are visible. Uses default color and width of 1.
-     * 
      * @param drawTop true if top side should be drawn
      * @param drawLeft true if left side should be drawn
      * @param drawBottom true if bottom side should be drawn
      * @param drawRight true if right side should be drawn
      */
     @objid ("7f646496-1dec-11e2-8cad-001ec947c8cc")
-    public TLBRBorder(final boolean drawTop, final boolean drawLeft, final boolean drawBottom, final boolean drawRight) {
+    public  TLBRBorder(final boolean drawTop, final boolean drawLeft, final boolean drawBottom, final boolean drawRight) {
         this(1, drawTop, drawLeft, drawBottom, drawRight);
     }
 
     /**
      * C'tor that allows to specify the line width and which sides are visible. Uses default color.
-     * 
      * @param width the width of the border in pixels
      * @param drawTop true if top side should be drawn
      * @param drawLeft true if left side should be drawn
@@ -79,13 +76,12 @@ public class TLBRBorder extends LineBorder {
      * @param drawRight true if right side should be drawn
      */
     @objid ("7f6464a1-1dec-11e2-8cad-001ec947c8cc")
-    public TLBRBorder(final int width, final boolean drawTop, final boolean drawLeft, final boolean drawBottom, final boolean drawRight) {
+    public  TLBRBorder(final int width, final boolean drawTop, final boolean drawLeft, final boolean drawBottom, final boolean drawRight) {
         this(null, width, drawTop, drawLeft, drawBottom, drawRight);
     }
 
     /**
      * C'tor that allows to specify the line color, the line width and which sides are visible.
-     * 
      * @param color the color of the border
      * @param width the width of the border in pixels
      * @param drawTop true if top side should be drawn
@@ -94,12 +90,13 @@ public class TLBRBorder extends LineBorder {
      * @param drawRight true if right side should be drawn
      */
     @objid ("7f6464ae-1dec-11e2-8cad-001ec947c8cc")
-    public TLBRBorder(final Color color, final int width, final boolean drawTop, final boolean drawLeft, final boolean drawBottom, final boolean drawRight) {
+    public  TLBRBorder(final Color color, final int width, final boolean drawTop, final boolean drawLeft, final boolean drawBottom, final boolean drawRight) {
         super(color, width);
         this.drawTop = drawTop;
         this.drawLeft = drawLeft;
         this.drawBottom = drawBottom;
         this.drawRight = drawRight;
+        
     }
 
     @objid ("7f6464bd-1dec-11e2-8cad-001ec947c8cc")
@@ -143,11 +140,11 @@ public class TLBRBorder extends LineBorder {
             graphics.drawLine(AbstractBorder.tempRect.right(), AbstractBorder.tempRect.y,
                     AbstractBorder.tempRect.right(), AbstractBorder.tempRect.bottom() + lineWidth / 2);
         }
+        
     }
 
     /**
      * Changes whether the top side should be drawn or not.
-     * 
      * @param drawTop true if the top side should be drawn.
      */
     @objid ("7f6464cc-1dec-11e2-8cad-001ec947c8cc")
@@ -157,7 +154,6 @@ public class TLBRBorder extends LineBorder {
 
     /**
      * Changes whether the left side should be drawn or not.
-     * 
      * @param drawLeft true if the left side should be drawn.
      */
     @objid ("7f66c6e7-1dec-11e2-8cad-001ec947c8cc")
@@ -167,7 +163,6 @@ public class TLBRBorder extends LineBorder {
 
     /**
      * Changes whether the bottom side should be drawn or not.
-     * 
      * @param drawBottom true if the bottom side should be drawn.
      */
     @objid ("7f66c6ec-1dec-11e2-8cad-001ec947c8cc")
@@ -177,7 +172,6 @@ public class TLBRBorder extends LineBorder {
 
     /**
      * Changes whether the right side should be drawn or not.
-     * 
      * @param drawRight true if the right side should be drawn.
      */
     @objid ("7f66c6f1-1dec-11e2-8cad-001ec947c8cc")
@@ -242,6 +236,7 @@ public class TLBRBorder extends LineBorder {
                 hasDrawnLeft() ? getWidth() : 0,
                 hasDrawnBottom() ? getWidth() : 0,
                 hasDrawnRight() ? getWidth() : 0);
+        
     }
 
 }

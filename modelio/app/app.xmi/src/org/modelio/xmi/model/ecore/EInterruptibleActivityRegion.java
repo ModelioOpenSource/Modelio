@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,9 +40,10 @@ public class EInterruptibleActivityRegion extends EElement {
     }
 
     @objid ("e4e7f45f-fe18-4ceb-a0bb-3ea23933a995")
-    public EInterruptibleActivityRegion(org.eclipse.uml2.uml.InterruptibleActivityRegion element) {
+    public  EInterruptibleActivityRegion(org.eclipse.uml2.uml.InterruptibleActivityRegion element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("7ef0e2e1-bb6a-4052-86fb-164072fb831e")
@@ -58,6 +58,7 @@ public class EInterruptibleActivityRegion extends EElement {
                 ((InterruptibleActivityRegion) objingElt)
                         .setInActivity((Activity) objingOwner);
         }
+        
     }
 
     @objid ("61eeb31f-88fd-4f9a-b077-3f9e99ae44d8")
@@ -67,6 +68,7 @@ public class EInterruptibleActivityRegion extends EElement {
         setName((InterruptibleActivityRegion) objingElt);
         
         super.setProperties(objingElt);
+        
     }
 
     @objid ("243c50fc-4d3d-455f-bea0-ad21eb8c0a17")
@@ -77,12 +79,14 @@ public class EInterruptibleActivityRegion extends EElement {
             if (objingInterruptingEdge instanceof ActivityEdge)
                 ((ActivityEdge) objingInterruptingEdge).setInterrupts(region);
         }
+        
     }
 
     @objid ("758e80cf-a955-477e-83eb-627f96b0726d")
     private void setName(InterruptibleActivityRegion region) {
         if (ReverseProperties.getInstance().isRoundtripEnabled())
         region.setName(ObjingEAnnotation.getName(this.ecoreElement));
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -57,9 +56,10 @@ public class EInstanceValue extends ENamedElement {
     }
 
     @objid ("ddefe9b5-3431-4c99-a207-f8163749c937")
-    public EInstanceValue(InstanceValue element) {
+    public  EInstanceValue(InstanceValue element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
 }

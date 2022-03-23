@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.core;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -84,7 +83,6 @@ public class FactoryStyleDefaults {
     /**
      * Provide a default value for 'sKey'. The default value resolution is based on Metakey matching if sKey has a MetaKey,otherwise
      * it is based on sKey required type for the value. Note that in this latter case, only a few 'types' support default values
-     * 
      * @param sKey @return
      */
     @objid ("8551244f-1926-11e2-92d2-001ec947c8cc")
@@ -94,6 +92,7 @@ public class FactoryStyleDefaults {
         } else {
             return FactoryStyleDefaults.getDefaultValue(sKey.getType());
         }
+        
     }
 
     @objid ("85512454-1926-11e2-92d2-001ec947c8cc")

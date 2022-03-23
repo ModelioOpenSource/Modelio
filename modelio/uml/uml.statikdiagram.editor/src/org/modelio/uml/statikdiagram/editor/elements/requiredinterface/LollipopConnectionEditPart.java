@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.requiredinterface;
 
 import java.beans.PropertyChangeEvent;
@@ -79,6 +78,7 @@ public class LollipopConnectionEditPart extends AbstractNodeEditPart {
         super.createEditPolicies();
         
         installEditPolicy(LinkToVoidConstants.REQ_LINKTOVOID_END, new LollipopConnectionLinksEditPolicy());
+        
     }
 
     @objid ("367a89b7-55b7-11e2-877f-002564c97630")
@@ -98,6 +98,7 @@ public class LollipopConnectionEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         final GmLollipopConnection gmNode = (GmLollipopConnection) this.getModel();
         this.getFigure().getParent().setConstraint(this.getFigure(), gmNode.getLayoutData());
+        
     }
 
     @objid ("367c1023-55b7-11e2-877f-002564c97630")
@@ -140,6 +141,7 @@ public class LollipopConnectionEditPart extends AbstractNodeEditPart {
         
         // In any case apply the super routine.
         super.propertyChange(evt);
+        
     }
 
     @objid ("82e84bbd-dfbb-41b6-a2dd-4cfa71a2d52f")
@@ -167,6 +169,7 @@ public class LollipopConnectionEditPart extends AbstractNodeEditPart {
         
             return newbranches;
         }
+        
     }
 
 }

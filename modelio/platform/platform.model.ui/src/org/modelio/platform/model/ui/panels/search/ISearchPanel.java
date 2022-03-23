@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.panels.search;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,7 +43,6 @@ public interface ISearchPanel {
      * @since Modelio 3.8
      * 
      * Whether or not this search panel should be displayed or not (implementors may analyze any condition they want to decide  upon)
-     * 
      * @param session @return
      */
     @objid ("79555ee2-5889-45ec-a43c-db504247af54")

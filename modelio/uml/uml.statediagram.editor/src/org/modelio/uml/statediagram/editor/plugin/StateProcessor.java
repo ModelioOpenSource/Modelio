@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.plugin;
 
 import java.net.URL;
@@ -71,6 +70,7 @@ public class StateProcessor extends AbstractDiagramInitializationProcessor {
         factoryRegistry.registerDiagramFactories(StateMachineDiagram.MNAME, new StateGmNodeFactory(), new StateGmLinkFactory(), new StateEditPartFactory());
         
         factoryRegistry.registerExtensions(StaticDiagram.MNAME, StateMachineDiagram.MNAME);
+        
     }
 
     @objid ("ca1f656f-0421-48bf-bb03-d12780242178")
@@ -109,6 +109,7 @@ public class StateProcessor extends AbstractDiagramInitializationProcessor {
         factoryStyle.declareProvider(GmJoinStructuredStyleKeys.class);
         // transition
         factoryStyle.declareProvider(GmTransitionStyleKeys.class);
+        
     }
 
     @objid ("1ae9e4b8-fe5f-4182-886d-e2d0437c833f")
@@ -122,6 +123,7 @@ public class StateProcessor extends AbstractDiagramInitializationProcessor {
         loader.load(url);
         
         factoryStyle.injectDefaultValues(loader.getStyleProperties());
+        
     }
 
 }

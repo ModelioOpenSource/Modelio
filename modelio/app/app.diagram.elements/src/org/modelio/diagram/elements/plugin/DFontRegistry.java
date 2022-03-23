@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.plugin;
 
 import java.util.HashMap;
@@ -36,7 +35,7 @@ public class DFontRegistry {
     private Display display;
 
     @objid ("810cc739-1dec-11e2-8cad-001ec947c8cc")
-    public DFontRegistry(Display display) {
+    public  DFontRegistry(Display display) {
         this.display = display;
     }
 
@@ -55,6 +54,7 @@ public class DFontRegistry {
             this.fonts.get(key).dispose();
         }
         this.fonts.clear();
+        
     }
 
     @objid ("810cc744-1dec-11e2-8cad-001ec947c8cc")
@@ -62,6 +62,7 @@ public class DFontRegistry {
     protected void finalize() throws Throwable {
         cleanCache();
         super.finalize();
+        
     }
 
 }

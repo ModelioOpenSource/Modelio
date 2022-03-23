@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.texteditors.mdd.partitions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,10 +34,11 @@ public class CommentRule extends EndOfLineRule {
     private IToken roToken;
 
     @objid ("7b5c5bb1-2a77-11e2-9fb9-bc305ba4815c")
-    public CommentRule(String startSequence, IToken commentToken, IToken roToken, MDDPartitionScanner scanner) {
+    public  CommentRule(String startSequence, IToken commentToken, IToken roToken, MDDPartitionScanner scanner) {
         super(startSequence, commentToken);
         this._scanner = scanner;
         this.roToken = roToken;
+        
     }
 
     @objid ("7b5c5bb7-2a77-11e2-9fb9-bc305ba4815c")
@@ -67,6 +67,7 @@ public class CommentRule extends EndOfLineRule {
             while (swallowedCharNb-- > 0) scanner.unread();
             return Token.UNDEFINED;
         }
+        
     }
 
     @objid ("7b5c5bbc-2a77-11e2-9fb9-bc305ba4815c")
@@ -94,6 +95,7 @@ public class CommentRule extends EndOfLineRule {
             while (swallowedCharNb-- > 0) scanner.unread();
             return Token.UNDEFINED;
         }
+        
     }
 
     @objid ("7b5c5bc0-2a77-11e2-9fb9-bc305ba4815c")

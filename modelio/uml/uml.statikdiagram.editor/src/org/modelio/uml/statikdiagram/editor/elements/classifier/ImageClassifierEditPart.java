@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.classifier;
 
 import java.util.ArrayList;
@@ -87,6 +86,7 @@ public class ImageClassifierEditPart extends NonSelectableLabelledImageEditPart 
         // Add specific policy to handle requests to redraw composition links.
         installEditPolicy("RedrawCompositionLinkEditPolicy", new RedrawCompositionLinkEditPolicy());
         installEditPolicy(EditPolicy.LAYOUT_ROLE, new SimpleModeOwnedElementCreationEditPolicy());
+        
     }
 
     @objid ("3436b413-55b7-11e2-877f-002564c97630")
@@ -130,6 +130,7 @@ public class ImageClassifierEditPart extends NonSelectableLabelledImageEditPart 
         if (!switchRepresentationMode()) {
             super.refreshFromStyle(aFigure, style);
         }
+        
     }
 
 }

@@ -17,9 +17,9 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.anchors;
 
+import java.util.Objects;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.XYAnchor;
@@ -33,18 +33,18 @@ import org.eclipse.draw2d.geometry.Point;
 @objid ("7f5adb49-1dec-11e2-8cad-001ec947c8cc")
 public class PointAnchor extends XYAnchor {
     @objid ("40f51053-71d5-43b4-a6ed-eb9c4e24f467")
-    private IFigure owner;
+    private final IFigure owner;
 
     /**
      * Constructs an anchor at the point p.
-     * 
      * @param owner the owner figure
      * @param p The anchor location in coordinates relative to the owner.
      */
     @objid ("7f5adb50-1dec-11e2-8cad-001ec947c8cc")
-    public PointAnchor(IFigure owner, Point p) {
+    public  PointAnchor(IFigure owner, Point p) {
         super(p);
         this.owner = owner;
+        
     }
 
     @objid ("7f5adb59-1dec-11e2-8cad-001ec947c8cc")
@@ -63,12 +63,33 @@ public class PointAnchor extends XYAnchor {
 
     /**
      * Get the reference point in coordinates <i>relative</i> to the owner.
-     * 
      * @return the reference point in coordinates <i>relative</i> to the owner.
      */
     @objid ("1907e416-fd58-46a3-aa2b-0ed76200dfd1")
     public Point getRelativeReferencePoint() {
         return super.getReferencePoint();
+    }
+
+    @objid ("1bf43f4c-d976-4822-9022-26504e18a531")
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.owner, getRelativeReferencePoint());
+    }
+
+    @objid ("f203d36e-69aa-4e1a-8e5b-9d1de3791d1d")
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        PointAnchor other = (PointAnchor) obj;
+        return Objects.equals(this.owner, other.owner) && Objects.equals(getRelativeReferencePoint(), other.getRelativeReferencePoint());
     }
 
 }

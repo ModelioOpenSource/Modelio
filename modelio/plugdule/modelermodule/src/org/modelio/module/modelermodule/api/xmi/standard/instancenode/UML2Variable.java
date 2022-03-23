@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.instancenode;
 
@@ -50,33 +49,32 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("a009a5d3-00b8-46b7-ad7a-a22b170ab56e")
 public class UML2Variable {
-    @objid ("6a9edf6b-9b44-436a-be06-504cf891850e")
+    @objid ("36fd3d63-81cb-4457-9823-a104112146c5")
     public static final String STEREOTYPE_NAME = "UML2Variable";
 
-    @objid ("93790c5e-a9bf-44f6-857d-c4e9bff88672")
+    @objid ("1c6dac00-1f03-443b-995e-8b46b2ae741f")
     public static final String LOWER_TAGTYPE = "Lower";
 
-    @objid ("94f213bf-b1b5-4645-8946-4c74ec6df22c")
+    @objid ("0d624225-8bd7-4532-ba40-40e43d608aa9")
     public static final String ORDERED_TAGTYPE = "Ordered";
 
-    @objid ("c7ef4bc5-f582-442d-b1db-0e5c675de4d8")
+    @objid ("e2ddc974-91fc-411b-b057-2542c781985a")
     public static final String UNIQUE_TAGTYPE = "Unique";
 
     /**
      * The underlying {@link InstanceNode} represented by this proxy, never null.
      */
-    @objid ("f8f0a6dd-22be-492e-a9ab-a3da592e6d23")
+    @objid ("b6fc197d-063d-45c4-8f9f-cc2a7c9a62b6")
     protected final InstanceNode elt;
 
     /**
      * Tells whether a {@link UML2Variable proxy} can be instantiated from a {@link MObject} checking it is a {@link InstanceNode} stereotyped << UML2Variable >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("0c7b260d-c73a-42ab-b282-6631fd8d2d1b")
+    @objid ("76b08973-474f-46ed-942e-e637a2e407a2")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof InstanceNode) && ((InstanceNode) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2Variable.STEREOTYPE_NAME));
     }
@@ -86,9 +84,9 @@ public class UML2Variable {
      * 
      * @return a {@link UML2Variable} proxy on the created {@link InstanceNode}.
      */
-    @objid ("d03d364c-cac7-45ee-a33e-55e47c5653e1")
+    @objid ("ef178bdf-21b0-4a28-bbec-cda7868aff95")
     public static UML2Variable create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("InstanceNode");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.InstanceNode");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2Variable.STEREOTYPE_NAME);
         return UML2Variable.instantiate((InstanceNode)e);
     }
@@ -100,7 +98,7 @@ public class UML2Variable {
      * @param obj a InstanceNode
      * @return a {@link UML2Variable} proxy or <i>null</i>.
      */
-    @objid ("cf7bb899-9847-4773-95a7-eb71ac14932e")
+    @objid ("c7e2a0d8-d943-4122-854c-bd33b6005d68")
     public static UML2Variable instantiate(InstanceNode obj) {
         return UML2Variable.canInstantiate(obj) ? new UML2Variable(obj) : null;
     }
@@ -113,7 +111,7 @@ public class UML2Variable {
      * @return a {@link UML2Variable} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("3736c82b-cf3d-493f-9c71-a9bd687e3b63")
+    @objid ("03ec2ffa-abc3-414e-9290-455bdbce63f1")
     public static UML2Variable safeInstantiate(InstanceNode obj) throws IllegalArgumentException {
         if (UML2Variable.canInstantiate(obj))
         	return new UML2Variable(obj);
@@ -121,7 +119,7 @@ public class UML2Variable {
         	throw new IllegalArgumentException("UML2Variable: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("8b6def6c-3e98-4f1d-b720-74ba8b659020")
+    @objid ("de8ae003-ee12-44a1-9614-59c641fea560")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -141,7 +139,7 @@ public class UML2Variable {
      * Get the underlying {@link InstanceNode}. 
      * @return the InstanceNode represented by this proxy, never null.
      */
-    @objid ("5d3d15f7-e78a-4d4c-b2ab-da11be092ac5")
+    @objid ("9ade344a-1143-4af1-8efd-2247d4e60c2d")
     public InstanceNode getElement() {
         return this.elt;
     }
@@ -151,15 +149,16 @@ public class UML2Variable {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("136a7911-db93-4b96-9f3c-959acd295ba7")
+    @objid ("155ad389-80dd-46df-b274-a2feea47d2e0")
     public String getLower() {
         return this.elt.getTagValue(UML2Variable.MdaTypes.LOWER_TAGTYPE_ELT);
     }
 
-    @objid ("c6606c2d-fe44-402d-825a-27e0093ed3c1")
+    @objid ("81b887ae-e947-46d5-a0e4-fcfa03ce5f74")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
     /**
@@ -167,7 +166,7 @@ public class UML2Variable {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("f199708e-f8d5-446c-a0ea-a3cd293190ce")
+    @objid ("17496807-4560-4679-aa4c-e39d8601ddb7")
     public boolean isOrdered() {
         return this.elt.isTagged(UML2Variable.MdaTypes.ORDERED_TAGTYPE_ELT);
     }
@@ -177,7 +176,7 @@ public class UML2Variable {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("8fbf0b95-84a0-4663-8a47-1b7d6f588f43")
+    @objid ("12d787af-efd0-4bde-bc38-aa248f2aca21")
     public boolean isUnique() {
         return this.elt.isTagged(UML2Variable.MdaTypes.UNIQUE_TAGTYPE_ELT);
     }
@@ -187,7 +186,7 @@ public class UML2Variable {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("9cfefc38-8cdf-4dcd-92b4-1fc519f118ef")
+    @objid ("edc4e4e9-0d0a-49b4-9b45-c334fde3ff5c")
     public void setLower(String value) {
         this.elt.putTagValue(UML2Variable.MdaTypes.LOWER_TAGTYPE_ELT, value);
     }
@@ -197,7 +196,7 @@ public class UML2Variable {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("d1f21035-d47e-4fb4-9c77-d7f05226e190")
+    @objid ("96f63903-95f6-41c1-bc81-f312a0430704")
     public void setOrdered(boolean value) {
         if (value)
           ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createTaggedValue(UML2Variable.MdaTypes.ORDERED_TAGTYPE_ELT, this.elt);
@@ -210,7 +209,7 @@ public class UML2Variable {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("ff16ac21-8966-46ca-bf71-4b72de5e0327")
+    @objid ("0eb46318-4613-4679-a153-2bdea846912b")
     public void setUnique(boolean value) {
         if (value)
           ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createTaggedValue(UML2Variable.MdaTypes.UNIQUE_TAGTYPE_ELT, this.elt);
@@ -218,32 +217,32 @@ public class UML2Variable {
           this.elt.removeTags(UML2Variable.MdaTypes.UNIQUE_TAGTYPE_ELT);
     }
 
-    @objid ("094a3434-e862-452b-b7e7-e5d7bddef9ad")
-    protected UML2Variable(InstanceNode elt) {
+    @objid ("147deef5-69b4-4143-b376-b09f8fb430ef")
+    protected  UML2Variable(InstanceNode elt) {
         this.elt = elt;
     }
 
     @objid ("cde1a32f-53c8-43d5-bcef-de80f475ded2")
     public static final class MdaTypes {
-        @objid ("b32c0b98-f67a-417d-8909-656d2c41cc67")
+        @objid ("2b9c73c8-7517-41c9-b1bf-849634bb7026")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("7ab18fb9-7395-49a0-a7ec-dbef68975777")
+        @objid ("d7181679-fa87-4e7e-8335-dd3cde3636ff")
         public static TagType ORDERED_TAGTYPE_ELT;
 
-        @objid ("fc36032d-9e7b-4228-9ed8-9b5e829b121b")
+        @objid ("e9252ff2-df04-416a-97cf-6983a5ca2e01")
         public static TagType UNIQUE_TAGTYPE_ELT;
 
-        @objid ("03901688-39a2-49fd-9e8a-1b014b3aa1db")
+        @objid ("c82291e6-edf1-479f-9d4a-787ed5ce710c")
         public static TagType LOWER_TAGTYPE_ELT;
 
-        @objid ("af04ec32-a3a6-4d7e-bcff-0912de03f758")
+        @objid ("22f27b86-1bbf-40d8-be57-db750c50679b")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("be30bf3e-8634-4142-919f-b642bf26e635")
+        @objid ("95baafb1-eabe-445b-9908-3a91b215457a")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("e3f2259b-a57d-45f3-a6e0-386e36e84567")
+        @objid ("c49eac11-f961-4c70-8ecb-26a0c709e7f5")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "de38398e-c746-11e1-8624-0027103f347d");
             ORDERED_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "03791167-cf3b-11e1-928c-0027103f347d");
@@ -251,14 +250,14 @@ public class UML2Variable {
             LOWER_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "269fc5ec-cf40-11e1-b123-0027103f347d");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

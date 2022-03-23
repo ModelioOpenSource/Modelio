@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.packaze.v0;
 
 import java.util.ArrayList;
@@ -33,8 +32,8 @@ import org.modelio.diagram.elements.core.node.IImageableNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
 import org.modelio.metamodel.uml.statik.Instance;
 import org.modelio.metamodel.uml.statik.NameSpace;
@@ -98,13 +97,12 @@ public class _GmPackage extends GmCompositeNode implements IImageableNode {
 
     /**
      * Creates a GmPackage.
-     * 
      * @param diagram The diagram.
      * @param thePackage The represented package, may be <tt>null</tt>
      * @param ref The represented package reference, may not be <tt>null</tt>.
      */
     @objid ("3637660c-55b7-11e2-877f-002564c97630")
-    public _GmPackage(IGmDiagram diagram, Package thePackage, MRef ref) {
+    public  _GmPackage(IGmDiagram diagram, Package thePackage, MRef ref) {
         super(diagram, ref);
         
         this.element = thePackage;
@@ -117,13 +115,15 @@ public class _GmPackage extends GmCompositeNode implements IImageableNode {
         
         super.addChild(this.header);
         super.addChild(this.body);
+        
     }
 
     /**
      * For deserialization only.
      */
     @objid ("36376618-55b7-11e2-877f-002564c97630")
-    public _GmPackage() {
+    public  _GmPackage() {
+        
     }
 
     @objid ("3637661b-55b7-11e2-877f-002564c97630")
@@ -134,6 +134,7 @@ public class _GmPackage extends GmCompositeNode implements IImageableNode {
             this.body.addChild(child);
         else
             super.addChild(child);
+        
     }
 
     @objid ("36376621-55b7-11e2-877f-002564c97630")
@@ -177,6 +178,7 @@ public class _GmPackage extends GmCompositeNode implements IImageableNode {
         } else {
             return false;
         }
+        
     }
 
     /**
@@ -224,6 +226,7 @@ public class _GmPackage extends GmCompositeNode implements IImageableNode {
         default:
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("3638ecbb-55b7-11e2-877f-002564c97630")
@@ -243,6 +246,7 @@ public class _GmPackage extends GmCompositeNode implements IImageableNode {
             break;
         }
         }
+        
     }
 
     @objid ("3638ecc1-55b7-11e2-877f-002564c97630")
@@ -259,7 +263,6 @@ public class _GmPackage extends GmCompositeNode implements IImageableNode {
 
     /**
      * Get the stereotype image to display.
-     * 
      * @return the stereotype image to display. Must not be <i>null</i>.
      */
     @objid ("3638eccf-55b7-11e2-877f-002564c97630")
@@ -274,6 +277,7 @@ public class _GmPackage extends GmCompositeNode implements IImageableNode {
         // Returned result depends on current representation mode:
         List<GmNodeModel> ret;
         switch (this.getRepresentationMode()) {
+        case USER_IMAGE:
         case IMAGE:
             ret = new ArrayList<>(1);
             ret.add(this.header);
@@ -294,8 +298,9 @@ public class _GmPackage extends GmCompositeNode implements IImageableNode {
     @Override
     public void refreshFromObModel() {
         super.refreshFromObModel();
-        // forcing visual refresh in case Image changed 
+        // forcing visual refresh in case Image changed
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("363a7343-55b7-11e2-877f-002564c97630")
@@ -305,6 +310,7 @@ public class _GmPackage extends GmCompositeNode implements IImageableNode {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmPackage.", _GmPackage.MINOR_VERSION);
+        
     }
 
     @objid ("363a7349-55b7-11e2-877f-002564c97630")
@@ -315,6 +321,7 @@ public class _GmPackage extends GmCompositeNode implements IImageableNode {
         
         this.header = (GmModelElementHeader) getFirstChild("header");
         this.body = (GmPackageBody) getFirstChild("body");
+        
     }
 
     @objid ("363a734e-55b7-11e2-877f-002564c97630")

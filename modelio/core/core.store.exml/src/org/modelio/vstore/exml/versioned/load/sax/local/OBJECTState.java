@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.versioned.load.sax.local;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,8 @@ class OBJECTState extends AbstractState {
     private ObjIdName id;
 
     @objid ("b5c58e99-3fbb-11e2-87cb-001ec947ccaf")
-    OBJECTState() {
+     OBJECTState() {
+        
     }
 
     @objid ("b5c58e90-3fbb-11e2-87cb-001ec947ccaf")
@@ -48,6 +48,7 @@ class OBJECTState extends AbstractState {
         {
             this.stateHandler.enterDocumentState();
         }
+        
     }
 
     @objid ("b5c58e85-3fbb-11e2-87cb-001ec947ccaf")
@@ -65,6 +66,7 @@ class OBJECTState extends AbstractState {
         default:
             throwInvalidTag(localName);
         }
+        
     }
 
 }

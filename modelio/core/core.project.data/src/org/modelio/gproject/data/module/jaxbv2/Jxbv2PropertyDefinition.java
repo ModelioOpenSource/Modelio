@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.module.jaxbv2;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
  * <p>Java class for _PropertyDefinition complex type.
@@ -123,7 +122,6 @@ public class Jxbv2PropertyDefinition {
 
     /**
      * Sets the value of the typeRef property.
-     * 
      * @param value allowed object is
      * {@link PropertyDefinition.TypeRef }
      */
@@ -145,7 +143,6 @@ public class Jxbv2PropertyDefinition {
 
     /**
      * Sets the value of the id property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -167,7 +164,6 @@ public class Jxbv2PropertyDefinition {
 
     /**
      * Sets the value of the label property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -189,7 +185,6 @@ public class Jxbv2PropertyDefinition {
 
     /**
      * Sets the value of the defaultValue property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -211,11 +206,11 @@ public class Jxbv2PropertyDefinition {
         } else {
             return this.isEditable;
         }
+        
     }
 
     /**
      * Sets the value of the isEditable property.
-     * 
      * @param value allowed object is
      * {@link Boolean }
      */
@@ -237,7 +232,6 @@ public class Jxbv2PropertyDefinition {
 
     /**
      * Sets the value of the uid property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -259,7 +253,6 @@ public class Jxbv2PropertyDefinition {
 
     /**
      * Sets the value of the description property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -332,7 +325,6 @@ public class Jxbv2PropertyDefinition {
 
         /**
          * Sets the value of the id property.
-         * 
          * @param value allowed object is
          * {@link String }
          */
@@ -384,7 +376,6 @@ public class Jxbv2PropertyDefinition {
 
         /**
          * Sets the value of the name property.
-         * 
          * @param value allowed object is
          * {@link String }
          */
@@ -406,7 +397,6 @@ public class Jxbv2PropertyDefinition {
 
         /**
          * Sets the value of the value property.
-         * 
          * @param value allowed object is
          * {@link String }
          */

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.gproject;
 
 import java.io.IOException;
@@ -42,8 +41,8 @@ import org.modelio.gproject.data.project.DefinitionScope;
 import org.modelio.gproject.data.project.DescriptorServices;
 import org.modelio.gproject.data.project.FragmentDescriptor;
 import org.modelio.gproject.data.project.GAuthConf;
-import org.modelio.gproject.data.project.GProperties.Entry;
 import org.modelio.gproject.data.project.GProperties;
+import org.modelio.gproject.data.project.GProperties.Entry;
 import org.modelio.gproject.data.project.ModuleDescriptor;
 import org.modelio.gproject.data.project.ProjectDescriptor;
 import org.modelio.gproject.data.project.ResourceDescriptor;
@@ -93,12 +92,12 @@ public class GProjectConfigurer {
      * @param project an opened project.
      */
     @objid ("59b929ba-abcb-4e5c-8ffa-c9ed636e1d07")
-    public GProjectConfigurer() {
+    public  GProjectConfigurer() {
+        
     }
 
     /**
      * Get the list of fragments or modules that couldn't be installed/removed or modified.
-     * 
      * @return the failures list.
      */
     @objid ("97df6319-296e-4234-b887-8c0941659964")
@@ -108,7 +107,6 @@ public class GProjectConfigurer {
 
     /**
      * Get the modules modified by the last synchronization.
-     * 
      * @return the module changes.
      */
     @objid ("51292fd2-af65-4427-9381-d57e982ea91b")
@@ -120,12 +118,11 @@ public class GProjectConfigurer {
      * Reconfigure the project with the given new descriptor.
      * <p>
      * Replaces the project content. Old fragments will be removed, new ones will be added and mount.
-     * 
      * @param aProject The project to synchronize
      * @param newDesc the new project description
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be reported and that the
      * operation cannot be cancelled.
-     * @throws java.io.IOException in case of failure preventing synchronization
+     * @throws IOException in case of failure preventing synchronization
      */
     @objid ("cb5025f3-61d6-4aed-9e1a-55dc13c2b4be")
     public final void reconfigure(GProject aProject, ProjectDescriptor newDesc, IModelioProgress monitor) throws IOException {
@@ -176,13 +173,13 @@ public class GProjectConfigurer {
         
         mon.subTask("");
         mon.done();
+        
     }
 
     /**
      * Set the callback that will be called if authentication fails for a fragment or a module.
      * <p>
      * The implementation is expected to prompt the user for new authentication data.
-     * 
      * @param accessDeniedHandler the callback.
      * @since 3.7
      */
@@ -195,13 +192,12 @@ public class GProjectConfigurer {
      * Synchronize the project against its remote configuration.
      * <p>
      * Does nothing on local projects.
-     * 
      * @param aProject The project to synchronize
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be reported and that the
      * operation cannot be cancelled.
      * @return <code>true</code> if the configuration was changed, <code>false</code> if no change was made.
-     * @throws java.io.IOException in case of failure preventing synchronization.
-     * @throws org.modelio.gproject.gproject.GProjectAuthenticationException in case of authentication error.
+     * @throws IOException in case of failure preventing synchronization.
+     * @throws GProjectAuthenticationException in case of authentication error.
      */
     @objid ("cd85e181-73c6-4b4b-9f6e-10cd4e201570")
     public boolean synchronize(GProject aProject, IModuleStore moduleCatalog, IModelioProgress monitor) throws IOException, GProjectAuthenticationException {
@@ -240,27 +236,26 @@ public class GProjectConfigurer {
 
     /**
      * Download synchronized resources to update.
-     * 
      * @param mon a progress monitor
      * @param aProject the project to synchronize.
      * @param resourcesToDownload The descriptors of the resources to download, with their target location.
-     * @throws java.io.IOException on I/O failure
+     * @throws IOException on I/O failure
      */
     @objid ("3200cc6e-d7e0-476c-893a-e2d1d371a824")
     protected void downloadResources(IModelioProgress mon, GProject aProject, Collection<ResourceDescriptor> resourcesToDownload) throws IOException {
         // to be redefined
         throw new UnsupportedOperationException();
+        
     }
 
     /**
      * Fetch a module handle for the given descriptor.
      * <p>
      * Prompt for authentication if needed.
-     * 
      * @param md a module descriptor
      * @return the module handle
-     * @throws java.nio.file.FileSystemException in case of failure
-     * @throws java.io.IOException in case of failure
+     * @throws FileSystemException in case of failure
+     * @throws IOException in case of failure
      */
     @objid ("6bd85c21-db36-429e-af73-a810237123e2")
     protected IModuleHandle fetchModuleHandle(IModelioProgress mon, ModuleDescriptor md) throws FileSystemException, IOException {
@@ -280,17 +275,17 @@ public class GProjectConfigurer {
             }
             throw e;
         }
+        
     }
 
     /**
      * Install a new module.
      * <p>
      * May be redefined.
-     * 
      * @param fd the new module descriptor.
      * @param mon the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be reported and that the
      * operation cannot be cancelled.
-     * @throws java.io.IOException in case of failure
+     * @throws IOException in case of failure
      */
     @objid ("ea6f1023-85dd-4f21-816a-090fee511246")
     protected void installModule(ModuleDescriptor fd, IModelioProgress mon) throws IOException {
@@ -300,18 +295,18 @@ public class GProjectConfigurer {
         
         desc.setDescriptor(fd);
         this.todo.getActions().add(desc);
+        
     }
 
     /**
      * Default implementation replaces share scoped parameters with the news.
      * <p>
      * Local scope parameters are left untouched. To be redefined for a better behavior.
-     * 
      * @param m the module to update
      * @param desc the new module parameters.
      * @param mon the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be reported and that the
      * operation cannot be cancelled.
-     * @throws java.io.IOException in case of failure
+     * @throws IOException in case of failure
      */
     @objid ("5b042a6f-1415-4f2c-95ce-7010b25d1e09")
     protected void reconfigureModule(GModule m, ModuleDescriptor desc, IModelioProgress mon) throws IOException {
@@ -340,6 +335,7 @@ public class GProjectConfigurer {
                 p.setScope(DefinitionScope.LOCAL);
             }
         }
+        
     }
 
     @objid ("b1f40ad6-421b-4f4e-8f75-26baf1b405cc")
@@ -422,23 +418,24 @@ public class GProjectConfigurer {
                 callUpgradeModule(entry, mon.newChild(1));
             }
         }
+        
     }
 
     /**
      * Uninstall a module.
      * <p>
      * By default postpone the action in the to-do descriptor. To be redefined to add other behavior.
-     * 
      * @param m the module to remove.
      * @param mon the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be reported and that the
      * operation cannot be cancelled.
-     * @throws java.io.IOException in case of failure
+     * @throws IOException in case of failure
      */
     @objid ("27503c90-5d40-4bbf-a76d-02a69d9db936")
     protected void removeModule(GModule m, IModelioProgress mon) throws IOException {
         RemoveModuleDescriptor desc = new RemoveModuleDescriptor();
         desc.setModuleName(m.getName());
         this.todo.getActions().add(desc);
+        
     }
 
     /**
@@ -447,12 +444,11 @@ public class GProjectConfigurer {
      * May be redefined.
      * <p>
      * By default postpone the operation in the project to-do list.
-     * 
      * @param oldModule the module to update
      * @param md the new module descriptor
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be reported and that the
      * operation cannot be cancelled.
-     * @throws java.io.IOException in case of failure
+     * @throws IOException in case of failure
      */
     @objid ("f7e455f8-2eed-4888-b017-baaa46ffb9c5")
     protected void upgradeModule(GModule oldModule, ModuleDescriptor md, IModelioProgress monitor) throws IOException {
@@ -461,11 +457,11 @@ public class GProjectConfigurer {
         desc.setOldModuleName(oldModule.getName());
         
         this.todo.getActions().add(desc);
+        
     }
 
     /**
      * Record failure to synchronize a module.
-     * 
      * @param moduleDescriptor a module descriptor if available
      * @param module the module if available
      * @param cause the error
@@ -477,7 +473,6 @@ public class GProjectConfigurer {
 
     /**
      * Record failure to synchronize a fragment.
-     * 
      * @param f the fragment if available
      * @param fd a fragment descriptor if available
      * @param cause the error
@@ -501,6 +496,7 @@ public class GProjectConfigurer {
             Log.warning(e);
             this.failures.add(new GProblem(e));
         }
+        
     }
 
     @objid ("289fd0a5-9690-48cf-8e1b-80aac5a6c6a7")
@@ -512,6 +508,7 @@ public class GProjectConfigurer {
         } catch (IOException | RuntimeException e) {
             addFailure(entry.newDesc, null, e);
         }
+        
     }
 
     @objid ("61098f30-1054-4e06-9088-15b447fa0ba8")
@@ -523,6 +520,7 @@ public class GProjectConfigurer {
         } catch (Exception e) {
             addFailure(f, fd, e);
         }
+        
     }
 
     @objid ("fff74949-a51e-4e31-a32a-3886cf44e49e")
@@ -532,6 +530,7 @@ public class GProjectConfigurer {
         } catch (IOException | RuntimeException e) {
             addFailure(fd, m, e);
         }
+        
     }
 
     @objid ("cd5fa51e-1823-463d-abdb-e133715bcdc7")
@@ -543,6 +542,7 @@ public class GProjectConfigurer {
         } catch (IOException | RuntimeException e) {
             addFailure(null, m, e);
         }
+        
     }
 
     @objid ("0d2ee5da-eb51-44c0-b4a7-80b839df1679")
@@ -552,6 +552,7 @@ public class GProjectConfigurer {
         } catch (IOException | RuntimeException e) {
             addFailure(ch.newDesc, ch.oldModule, e);
         }
+        
     }
 
     @objid ("19824abe-e648-436a-a315-dd4f9000695c")
@@ -571,13 +572,13 @@ public class GProjectConfigurer {
             }
             mon.worked(1);
         }
+        
     }
 
     /**
      * Sort the module handles by dependency order.
      * <p>
      * Reports and does best effort in case of dependency cycle.
-     * 
      * @param allModuleHandles the handles to sort
      * @param map the changes map for failure reporting
      * @return the sorted handle.
@@ -615,7 +616,6 @@ public class GProjectConfigurer {
      * Called when authentication fails on a fragment or a module.
      * <p>
      * Not redefinable anymore since 3.7, subclasses or caller may either set a callback with {@link #setAccessDeniedHandler(IAccessDeniedHandler)}.
-     * 
      * @param name the name of the module/fragment that cannot be accessed
      * @param uri the location of the element
      * @param data the failed authentication data
@@ -630,6 +630,7 @@ public class GProjectConfigurer {
             // abort
             return null;
         }
+        
     }
 
     @objid ("4585b512-ab72-444c-bb5d-5eb0ac31118d")
@@ -685,6 +686,7 @@ public class GProjectConfigurer {
                 this.project.getMonitorSupport().fireMonitors(GProjectEvent.buildWarning(e));
             }
         }
+        
     }
 
     @objid ("9efc62a3-6dc9-4081-a051-b76eadc9f4f1")
@@ -745,15 +747,15 @@ public class GProjectConfigurer {
         if (!resourcesToDownload.isEmpty()) {
             callDownloadResources(mon, this.project, resourcesToDownload);
         }
+        
     }
 
     /**
      * Complete the {@link ProjectDescriptor} by adding missing mandatory modules.
-     * 
      * @param monitor a progress monitor
      * @param projDesc the descriptor to complete
      * @param moduleCatalog the module catalog
-     * @throws java.io.IOException on I/O failure
+     * @throws IOException on I/O failure
      */
     @objid ("b674f2ee-6a31-4edd-97a6-18ca58221b22")
     protected void addMandatoryModules(IModelioProgress monitor, ProjectDescriptor projDesc, IModuleStore moduleCatalog) throws IOException {
@@ -774,6 +776,7 @@ public class GProjectConfigurer {
             }
         
         }
+        
     }
 
     /**
@@ -790,7 +793,6 @@ public class GProjectConfigurer {
          * Called when authentication fails on a fragment or a module.
          * <p>
          * Implementations should prompt the user for new authentication data.
-         * 
          * @param name the name of the module/fragment that cannot be accessed
          * @param uri the location of the element
          * @param data the failed authentication data
@@ -808,13 +810,13 @@ public class GProjectConfigurer {
     @objid ("f23595d2-e710-49ae-8ed3-23310ba619ef")
     private static class ModuleChange {
         @objid ("e93c6b8b-3b63-4147-886d-486502b1118c")
-         ModuleDescriptor newDesc;
+        ModuleDescriptor newDesc;
 
         @objid ("8b081b1d-9829-47c3-b826-f77907477005")
-         GModule oldModule;
+        GModule oldModule;
 
         @objid ("8fa8fde9-9eb6-4668-9a4c-0db51cea420c")
-         IModuleHandle newHandle;
+        IModuleHandle newHandle;
 
         /**
          * @param newDesc new module descriptor
@@ -822,11 +824,12 @@ public class GProjectConfigurer {
          * @param newHandle new module handle
          */
         @objid ("1313212f-7dc8-4df3-9d65-f9915a9f9fb0")
-        ModuleChange(ModuleDescriptor newDesc, GModule oldModule, IModuleHandle newHandle) {
+         ModuleChange(ModuleDescriptor newDesc, GModule oldModule, IModuleHandle newHandle) {
             super();
             this.newDesc = newDesc;
             this.oldModule = oldModule;
             this.newHandle = newHandle;
+            
         }
 
     }

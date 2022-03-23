@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.communicationdiagram.editor.plugin;
 
 import java.net.URL;
@@ -52,6 +51,7 @@ public class CommunicationProcessor extends AbstractDiagramInitializationProcess
         
         // Static UML elements should be usable in Communication diagrams
         factoryRegistry.registerExtensions(StaticDiagram.MNAME, CommunicationDiagram.MNAME);
+        
     }
 
     @objid ("059657d2-599a-11e2-ae45-002564c97630")
@@ -66,6 +66,7 @@ public class CommunicationProcessor extends AbstractDiagramInitializationProcess
         
         // Communication node
         factoryStyle.declareProvider(GmCommunicationNodeStructuredStyleKeys.class);
+        
     }
 
     @objid ("059657d4-599a-11e2-ae45-002564c97630")
@@ -78,6 +79,7 @@ public class CommunicationProcessor extends AbstractDiagramInitializationProcess
         loader.load(url);
         
         factoryStyle.injectDefaultValues(loader.getStyleProperties());
+        
     }
 
     @objid ("df3f520e-ee65-445b-bbaf-f690f6d2db19")

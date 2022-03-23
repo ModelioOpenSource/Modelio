@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.bpmnbaseelement;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("217e7460-6f7c-42ee-b6b0-b61ffc75b657")
 public class MMStandardBpmnBaseElement {
-    @objid ("9dc8550e-daae-4a26-ab63-0aa7b7ae2cbc")
+    @objid ("30560143-e1f0-4cc6-8053-59919ac6a725")
     public static final String USERDIAGRAMIMAGE_TAGTYPE = "userDiagramImage";
 
     /**
      * The underlying {@link BpmnBaseElement} represented by this proxy, never null.
      */
-    @objid ("b5135a30-b9bd-4694-bb2a-cc36bc71f380")
+    @objid ("b05784f4-3503-4c85-974f-54d0c213e481")
     protected final BpmnBaseElement elt;
 
     /**
      * Tells whether a {@link MMStandardBpmnBaseElement proxy} can be instantiated from a {@link MObject} checking it is a {@link BpmnBaseElement}.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("6b032ef7-c5ae-4875-8297-0580abfb402a")
+    @objid ("0b119d56-31c5-4819-8067-87b0ecf93b99")
     public static boolean canInstantiate(MObject elt) {
         return (elt instanceof BpmnBaseElement);
     }
@@ -79,12 +77,12 @@ public class MMStandardBpmnBaseElement {
      * @param obj a BpmnBaseElement
      * @return a {@link MMStandardBpmnBaseElement} proxy or <i>null</i>.
      */
-    @objid ("eee9128e-6bdb-4fe7-a807-bd862f9a1737")
+    @objid ("47d30a8c-ad11-49dd-bbd6-5200967213fc")
     public static MMStandardBpmnBaseElement instantiate(BpmnBaseElement obj) {
         return MMStandardBpmnBaseElement.canInstantiate(obj) ? new MMStandardBpmnBaseElement(obj) : null;
     }
 
-    @objid ("b00840c5-a65f-41c1-8c7b-744af70ee9bf")
+    @objid ("cd38c50d-9e9f-4b1a-8237-cf02ca6773fa")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -104,7 +102,7 @@ public class MMStandardBpmnBaseElement {
      * Get the underlying {@link BpmnBaseElement}. 
      * @return the BpmnBaseElement represented by this proxy, never null.
      */
-    @objid ("d55b52e5-66a3-468f-b3a5-3c07acc8fb9e")
+    @objid ("6b66e426-e39e-4a9b-86f8-1cf43c5086c1")
     public BpmnBaseElement getElement() {
         return this.elt;
     }
@@ -116,15 +114,16 @@ public class MMStandardBpmnBaseElement {
      * 
      * The file path must be either absolute or relative to the project path.</i></p>
      */
-    @objid ("a309a397-687c-43d9-ace8-1c9538fe2035")
+    @objid ("badc8931-0cbf-47d7-b3a4-9db3e46dde18")
     public String getUserDiagramImage() {
         return this.elt.getTagValue(MMStandardBpmnBaseElement.MdaTypes.USERDIAGRAMIMAGE_TAGTYPE_ELT);
     }
 
-    @objid ("b77b4e08-a1af-4cd4-adb4-409073a8a2da")
+    @objid ("8c5feb2e-91c9-41b5-8968-dfea6a2f43cc")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
     /**
@@ -134,40 +133,40 @@ public class MMStandardBpmnBaseElement {
      * 
      * The file path must be either absolute or relative to the project path.</i></p>
      */
-    @objid ("276f2d06-2894-4be9-9924-470512fdb526")
+    @objid ("e0f38786-8c50-40b7-9156-dc825ae0b7a6")
     public void setUserDiagramImage(String value) {
         this.elt.putTagValue(MMStandardBpmnBaseElement.MdaTypes.USERDIAGRAMIMAGE_TAGTYPE_ELT, value);
     }
 
-    @objid ("96110001-6742-4e55-b808-8146c1f8dfc2")
-    protected MMStandardBpmnBaseElement(BpmnBaseElement elt) {
+    @objid ("4a5cfdb2-97ba-4c71-865d-7056a93feefb")
+    protected  MMStandardBpmnBaseElement(BpmnBaseElement elt) {
         this.elt = elt;
     }
 
     @objid ("980aa497-96a4-4509-83df-a5d6279e37ef")
     public static final class MdaTypes {
-        @objid ("c101d083-05ed-448e-b5f0-876dfee592b3")
+        @objid ("0b387c30-3a41-49c6-b5f7-c77c23e034ee")
         public static TagType USERDIAGRAMIMAGE_TAGTYPE_ELT;
 
-        @objid ("168fbb64-7db6-454d-bda8-b37c00c7f1c7")
+        @objid ("13640aa9-cfc7-4794-b67d-043a21160408")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("b07e94f8-3f2e-4926-b7da-aa1a9a810dcf")
+        @objid ("81e96530-4791-46a1-ae7e-ae1e609aab0c")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("b48f5278-4609-47d1-9c25-800f21793c6c")
+        @objid ("2d94905a-6ec0-4416-8b01-3df22fa6662f")
         public static void init(IModuleContext ctx) {
             USERDIAGRAMIMAGE_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "df51d048-0ab9-48fd-8432-78e73a9a9ec4");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

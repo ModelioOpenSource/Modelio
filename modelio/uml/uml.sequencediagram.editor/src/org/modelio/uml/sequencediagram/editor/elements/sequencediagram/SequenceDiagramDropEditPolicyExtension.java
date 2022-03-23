@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.sequencediagram;
 
 import java.util.Deque;
@@ -131,6 +130,7 @@ public class SequenceDiagramDropEditPolicyExtension extends AbstractDiagramEleme
             // No interaction, return null
             return null;
         }
+        
     }
 
     @objid ("d980a87f-55b6-11e2-877f-002564c97630")
@@ -150,9 +150,10 @@ public class SequenceDiagramDropEditPolicyExtension extends AbstractDiagramEleme
         private DiagramElementDropEditPolicy dropPolicy;
 
         @objid ("5edcc9b7-c8ce-46fb-9994-08743c2667b9")
-        public StandardVisitorImpl(DiagramElementDropEditPolicy dropPolicy, Point dropLocation) {
+        public  StandardVisitorImpl(DiagramElementDropEditPolicy dropPolicy, Point dropLocation) {
             this.dropPolicy = dropPolicy;
             this.dropLocation = dropLocation;
+            
         }
 
         @objid ("6f1ea738-9f0a-45d6-9939-9ce564db1494")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl;
 
 import java.util.ArrayList;
@@ -51,7 +50,6 @@ class ModuleRegistry implements IModuleRegistryAccess {
 
     /**
      * Get the started modules.
-     * 
      * @return The started modules.
      */
     @objid ("1e683a96-edc3-11e1-88ee-001ec947c8cc")
@@ -65,7 +63,6 @@ class ModuleRegistry implements IModuleRegistryAccess {
 
     /**
      * Get the started {@link IRTModule} corresponding to the given {@link ModuleComponent}.
-     * 
      * @param model the module model.
      * @return the matching started module or <i>null</i> if no started module matches the <i>IRTModule</i>
      */
@@ -78,7 +75,6 @@ class ModuleRegistry implements IModuleRegistryAccess {
 
     /**
      * Adds a module to the list of started modules
-     * 
      * @param module the started module.
      */
     @objid ("1e683aa5-edc3-11e1-88ee-001ec947c8cc")
@@ -92,11 +88,11 @@ class ModuleRegistry implements IModuleRegistryAccess {
             
             this.startedModules.put(model, module);
         }
+        
     }
 
     /**
      * Remove a module from the list of started modules.
-     * 
      * @param module the stopped module.
      */
     @objid ("1e6a9ceb-edc3-11e1-88ee-001ec947c8cc")
@@ -105,11 +101,11 @@ class ModuleRegistry implements IModuleRegistryAccess {
         checkOpen();
         
         this.startedModules.remove(module.getGModule());
+        
     }
 
     /**
      * Adds a module to the list of loaded modules
-     * 
      * @param module the loaded module.
      */
     @objid ("1e6a9cf0-edc3-11e1-88ee-001ec947c8cc")
@@ -121,11 +117,11 @@ class ModuleRegistry implements IModuleRegistryAccess {
         if (model != null) {
             this.deployedModules.put(model, module);
         }
+        
     }
 
     /**
      * Get the loaded {@link IRTModule} corresponding to the given {@link ModuleComponent}.
-     * 
      * @param model the module model.
      * @return the matching loaded module or <i>null</i> if no loaded module matches the <i>IRTModule</i>
      */
@@ -142,6 +138,7 @@ class ModuleRegistry implements IModuleRegistryAccess {
         checkOpen();
         
         this.deployedModules.remove(module.getGModule());
+        
     }
 
     @objid ("bc47fc61-f37d-11e1-9458-001ec947c8cc")
@@ -161,7 +158,6 @@ class ModuleRegistry implements IModuleRegistryAccess {
 
     /**
      * Get the started {@link IRTModule} which name correspond to the given {@link ModuleId} name and which version is newer or equal to the given version.
-     * 
      * @param moduleId the Id of the searched module.
      * @return the matching started module or <code>null</code> if no started module matches the ModuleId.
      */
@@ -184,7 +180,7 @@ class ModuleRegistry implements IModuleRegistryAccess {
      * Default c'tor
      */
     @objid ("fa606801-66d1-4026-959f-360db1ac559a")
-    public ModuleRegistry() {
+    public  ModuleRegistry() {
         // Empty
     }
 
@@ -215,6 +211,7 @@ class ModuleRegistry implements IModuleRegistryAccess {
     public void dispose() {
         this.deployedModules = null;
         this.startedModules = null;
+        
     }
 
     @objid ("7db7e844-5b73-47bf-b2fb-7087ab575c74")
@@ -225,14 +222,14 @@ class ModuleRegistry implements IModuleRegistryAccess {
 
     /**
      * Check the registry is in the right state before using it.
-     * 
-     * @throws java.lang.IllegalStateException if the registry is not yet open or is disposed.
+     * @throws IllegalStateException if the registry is not yet open or is disposed.
      */
     @objid ("5e5db267-fef5-417b-a51e-d5325d43f3d1")
     protected void checkOpen() throws IllegalStateException {
         if (this.deployedModules == null) {
             throw new IllegalStateException(String.format("'%s' project module registry is disposed.", this.projectName));
         }
+        
     }
 
 }

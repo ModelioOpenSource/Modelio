@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.ramcs.plugin;
 
 import java.util.ResourceBundle;
@@ -51,6 +50,7 @@ public class AppRamcs implements BundleActivator {
         final ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger((String)null));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("appramcs"));
+        
     }
 
     @objid ("8d10286c-631c-44f0-a355-58275493f34a")

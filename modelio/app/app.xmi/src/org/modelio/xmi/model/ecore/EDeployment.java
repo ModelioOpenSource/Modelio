@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import java.util.ArrayList;
@@ -37,9 +36,10 @@ public class EDeployment extends EDependency {
     private org.eclipse.uml2.uml.Deployment ecoreElement = null;
 
     @objid ("3c6c2660-e5be-4b57-bef1-02ca1a26bb73")
-    public EDeployment(org.eclipse.uml2.uml.Deployment element) {
+    public  EDeployment(org.eclipse.uml2.uml.Deployment element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("b680fed5-ab3b-44cb-9ae8-eba2d1ea8abb")

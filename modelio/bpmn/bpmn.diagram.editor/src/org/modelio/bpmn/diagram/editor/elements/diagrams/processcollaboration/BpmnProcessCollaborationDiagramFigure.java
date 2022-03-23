@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.diagrams.processcollaboration;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,7 +28,8 @@ import org.modelio.diagram.elements.common.abstractdiagram.AbstractDiagramFigure
 @objid ("61f33079-55b6-11e2-877f-002564c97630")
 public class BpmnProcessCollaborationDiagramFigure extends AbstractDiagramFigure {
     @objid ("61f3307d-55b6-11e2-877f-002564c97630")
-    public BpmnProcessCollaborationDiagramFigure() {
+    public  BpmnProcessCollaborationDiagramFigure() {
+        
     }
 
 }

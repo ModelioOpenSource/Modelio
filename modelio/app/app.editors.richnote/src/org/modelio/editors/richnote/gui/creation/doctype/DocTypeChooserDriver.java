@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.gui.creation.doctype;
 
 import java.util.ArrayList;
@@ -54,7 +53,7 @@ public class DocTypeChooserDriver {
     private DocTypeChooserSelectionListener selectionListener = null;
 
     @objid ("3bc31b48-5f40-4407-a51a-4e7793700b53")
-    public DocTypeChooserDriver() {
+    public  DocTypeChooserDriver() {
         this.selectionListener = new DocTypeChooserSelectionListener();
     }
 
@@ -88,6 +87,7 @@ public class DocTypeChooserDriver {
             this.leftViewer.setInput(this.leftModel);
             setExpandedState();
         }
+        
     }
 
     @objid ("96b96b79-555c-405b-a322-bbe5c0832c64")
@@ -95,6 +95,7 @@ public class DocTypeChooserDriver {
     protected void finalize() throws Throwable {
         this.leftViewer.removeSelectionChangedListener(this.selectionListener);
         super.finalize();
+        
     }
 
     @objid ("7f0f13f2-e157-4d2c-85d6-927dd60c39dd")
@@ -112,6 +113,7 @@ public class DocTypeChooserDriver {
                 }
             }
         }
+        
     }
 
     @objid ("efc4a075-75b9-4471-b599-9a603ff8cbd9")
@@ -149,6 +151,7 @@ public class DocTypeChooserDriver {
                 }
                 this.enable = true;
             }
+            
         }
 
         @objid ("2749e4fb-7fd5-4e33-8025-3f2127f5ed24")
@@ -164,7 +167,7 @@ public class DocTypeChooserDriver {
         }
 
         @objid ("3a12c6f7-b594-414e-ba12-2aded9f0dba8")
-        public DocTypeChooserSelectionListener() {
+        public  DocTypeChooserSelectionListener() {
             super();
         }
 

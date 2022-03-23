@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.decorations;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,10 +41,10 @@ import org.modelio.diagram.styles.core.StyleKey.LinePattern;
 @objid ("7f72b2ce-1dec-11e2-8cad-001ec947c8cc")
 public class DefaultPolylineDecoration extends PolylineDecoration implements IPenOptionsSupport {
     @objid ("7f72b2d2-1dec-11e2-8cad-001ec947c8cc")
-     double scalex = 1;
+    double scalex = 1;
 
     @objid ("7f72b2d3-1dec-11e2-8cad-001ec947c8cc")
-     double scaley = 1;
+    double scaley = 1;
 
     @objid ("7f751501-1dec-11e2-8cad-001ec947c8cc")
     @Override
@@ -89,6 +88,7 @@ public class DefaultPolylineDecoration extends PolylineDecoration implements IPe
         ZoomDrawer.setLineWidth(g, getLineWidth());
         
         super.outlineShape(g);
+        
     }
 
     /**
@@ -102,6 +102,7 @@ public class DefaultPolylineDecoration extends PolylineDecoration implements IPe
         this.scalex = x;
         this.scaley = y;
         super.setScale(x + 2 * getLineWidth() - 2, y + 2 * getLineWidth() - 2);
+        
     }
 
     /**
@@ -114,6 +115,7 @@ public class DefaultPolylineDecoration extends PolylineDecoration implements IPe
     public void setLineWidth(int w) {
         super.setScale(this.scalex + 2 * w - 2, this.scaley + 2 * w - 2);
         super.setLineWidth(w);
+        
     }
 
     @objid ("7f77775b-1dec-11e2-8cad-001ec947c8cc")

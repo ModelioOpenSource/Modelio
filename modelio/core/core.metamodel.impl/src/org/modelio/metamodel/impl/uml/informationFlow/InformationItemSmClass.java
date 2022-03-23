@@ -17,18 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.informationFlow;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.informationFlow.InformationItemData;
 import org.modelio.metamodel.impl.uml.statik.ClassifierSmClass;
 import org.modelio.metamodel.uml.informationFlow.InformationItem;
 import org.modelio.metamodel.uml.statik.Classifier;
@@ -49,7 +48,7 @@ public class InformationItemSmClass extends ClassifierSmClass {
     private SmDependency representedDep;
 
     @objid ("f087acc2-939a-4336-bae2-5c948276e293")
-    public InformationItemSmClass(ISmMetamodelFragment origin) {
+    public  InformationItemSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -57,6 +56,7 @@ public class InformationItemSmClass extends ClassifierSmClass {
     @Override
     public String getName() {
         return "InformationItem";
+        
     }
 
     @objid ("7042e941-3a72-4dfc-84db-912c5322a509")
@@ -69,18 +69,21 @@ public class InformationItemSmClass extends ClassifierSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return InformationItem.class;
+        
     }
 
     @objid ("4ee6a268-21af-4aeb-ad7d-3886d3189e44")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("d68f7216-74b6-4f09-a562-fccaaedbffbc")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("f174c3d4-ea92-41a7-adfd-8e3b1906faa3")
@@ -96,6 +99,8 @@ public class InformationItemSmClass extends ClassifierSmClass {
         this.representedDep = new RepresentedSmDependency();
         this.representedDep.init("Represented", this, metamodel.getMClass(Classifier.MQNAME), 0, -1 , SmDirective.SMCDPARTOF);
         registerDependency(this.representedDep);
+        
+        
     }
 
     @objid ("3f34ecfe-f38e-478d-8d48-bf70ce620148")
@@ -112,7 +117,7 @@ public class InformationItemSmClass extends ClassifierSmClass {
         private InformationItemSmClass smClass;
 
         @objid ("416f69f1-dbcb-415d-9878-b3f32636087f")
-        public InformationItemObjectFactory(InformationItemSmClass smClass) {
+        public  InformationItemObjectFactory(InformationItemSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -145,6 +150,7 @@ public class InformationItemSmClass extends ClassifierSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((InformationItemData) data).mRepresented = values;
+            
         }
 
         @objid ("5b79f020-7da2-4aa3-8c4e-ee7bd534202d")
@@ -154,6 +160,7 @@ public class InformationItemSmClass extends ClassifierSmClass {
             	this.symetricDep = ((ClassifierSmClass)this.getTarget()).getRepresentationDep();
             }
             return this.symetricDep;
+            
         }
 
     }

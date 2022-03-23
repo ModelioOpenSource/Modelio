@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.module.jaxbv2;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
  * <p>Java class for _PropertyTableDefinition complex type.
@@ -134,7 +133,6 @@ public class Jxbv2PropertyTableDefinition {
 
     /**
      * Sets the value of the id property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -156,7 +154,6 @@ public class Jxbv2PropertyTableDefinition {
 
     /**
      * Sets the value of the label property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -178,7 +175,6 @@ public class Jxbv2PropertyTableDefinition {
 
     /**
      * Sets the value of the uid property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -200,7 +196,6 @@ public class Jxbv2PropertyTableDefinition {
 
     /**
      * Sets the value of the description property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -222,7 +217,6 @@ public class Jxbv2PropertyTableDefinition {
 
     /**
      * Sets the value of the extensions property.
-     * 
      * @param value allowed object is
      * {@link PropertyTableDefinition.Extensions }
      */
@@ -251,8 +245,8 @@ public class Jxbv2PropertyTableDefinition {
     @objid ("229cd5fc-7508-41ba-b99d-43028c7caa89")
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "stereotypeRef"
-    })
+            "stereotypeRef"
+        })
     public static class Jxbv2Extensions {
         @objid ("c8705e6a-fb2b-4717-ae4b-e4253dfe9607")
         @XmlElement(name = "StereotypeRef")

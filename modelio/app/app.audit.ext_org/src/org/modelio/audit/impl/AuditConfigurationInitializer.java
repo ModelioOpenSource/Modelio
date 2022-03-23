@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.impl;
 
 import java.io.File;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.UIEventTopic;
@@ -54,6 +53,7 @@ public class AuditConfigurationInitializer {
         // Set project configuration file
         final File projFile = openedProject.getProjectFileStructure().getProjectDataPath().resolve(AuditConfigurationInitializer.PROJECT_AUDIT_CONF_PATH).toFile();
         auditService.setConfigurationFile(projFile);
+        
     }
 
     @objid ("1be96549-a76b-473a-94f7-072e1b87b8e5")
@@ -61,6 +61,7 @@ public class AuditConfigurationInitializer {
     void execute() {
         // Store current instance to avoid garbage collecting
         AuditConfigurationInitializer.INSTANCE = this;
+        
     }
 
     /**

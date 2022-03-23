@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.net;
 
 import java.io.IOException;
@@ -27,11 +26,11 @@ import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.Map;
 import java.util.Properties;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLPeerUnverifiedException;
 import javax.net.ssl.SSLSession;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.apache.http.HttpHost;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
@@ -89,12 +88,9 @@ public class ApacheHttpClients {
      * @see <a href="http://stackoverflow.com/questions/1626549/authenticated-http-proxy-with-java">stackoverflow: Authenticated HTTP proxy with Java</a>
      * @see <a href="http://docs.oracle.com/javase/7/docs/api/java/net/doc-files/net-properties.html">Java documentation: Networking Properties</a>
      * @see org.eclipse.core.internal.net.ProxyType
-     * 
      * @param props configuration source
      * @param protocol "http" or "https"
      * @param credsProvider the credential provider to fill
-     * 
-     * 
      * @see org.eclipse.core.internal.net.ProxyType 
      */
     @objid ("fbda3db8-0195-4690-81dc-81ecfe95a586")
@@ -139,11 +135,11 @@ public class ApacheHttpClients {
                     credentials);
         
         }
+        
     }
 
     /**
      * Create a configured but still customizable {@link HttpClientBuilder}.
-     * 
      * @return a HttpClientBuilder
      */
     @objid ("bc1f0a0d-8efc-424f-ae30-745413b75e5e")
@@ -155,11 +151,11 @@ public class ApacheHttpClients {
                 .setRedirectStrategy(null)
                 .setRetryHandler(new RetryHandler())
                 .setSSLHostnameVerifier(hostnameVerifier);
+        
     }
 
     /**
      * Get the default Apache HTTP client to be used inside Modelio.
-     * 
      * @return a ready to use {@link CloseableHttpClient}.
      */
     @objid ("65d4178b-287b-4e04-a887-477100021c0b")
@@ -174,12 +170,11 @@ public class ApacheHttpClients {
 
     /**
      * Creates an {@link HttpClientContext} for the given URI and authentication data
-     * 
      * @param uri an URI to access
      * @param auth authentication for the URI. <i>null</i> if not authentication required.
      * @param configBuilder an optional RequestConfig builder to setup for proxy settings.
      * @return a configured {@link HttpClientContext}
-     * @throws org.modelio.vbasic.net.UriAuthenticationException if the authentication data is not handled.
+     * @throws UriAuthenticationException if the authentication data is not handled.
      */
     @objid ("d8a251bb-eb0a-410d-8d25-351b0f8e0730")
     public static HttpClientContext createHttpContext(URI uri, IAuthData auth, Builder configBuilder) throws UriAuthenticationException {
@@ -221,7 +216,6 @@ public class ApacheHttpClients {
      * Proxy configuration for a connection.
      * <p>
      * Configure the proxy if specified in the connection and set proxy authentication data from user settings and Eclipse preferences stored in System properties..
-     * 
      * @param credsProvider the credential provider to fill.
      * @param auth the authentication data for custom proxy settings
      * @param configBuilder an optional RequestConfig.Builder for proxy setup.
@@ -251,6 +245,7 @@ public class ApacheHttpClients {
         // see : org.eclipse.core.internal.net.ProxyType
         configProxyCredentials(System.getProperties(), "http", credsProvider);
         configProxyCredentials(System.getProperties(), "https", credsProvider);
+        
     }
 
     /**
@@ -280,18 +275,18 @@ public class ApacheHttpClients {
                     return false;
                 }
             }
+            
         }
 
         /**
          * Asks {@link SslManager#getTrustManager()} to check the certificate is manually trusted by the user. In this case return normally.
          * <p>
          * I the other case augment the passed exception by adding a suppressed {@link InvalidCertificateException} that will be found by {@link SslManager#fixUntrustedServer(SSLException, URI)}.
-         * 
          * @param host the host name
          * @param ex the exception to handle
          * @param session the SSL session
-         * @throws javax.net.ssl.SSLPeerUnverifiedException if the SSL session is not in valid state, should not occur.
-         * @throws javax.net.ssl.SSLException the augmented <i>exception</i>.
+         * @throws SSLPeerUnverifiedException if the SSL session is not in valid state, should not occur.
+         * @throws SSLException the augmented <i>exception</i>.
          */
         @objid ("1828252d-3495-46a7-b8c9-c13791fe3e05")
         private void handleSslFailure(String host, SSLException ex, SSLSession session) throws SSLPeerUnverifiedException, SSLException {
@@ -313,10 +308,11 @@ public class ApacheHttpClients {
                 Log.trace(ex);
                 throw ex;
             }
+            
         }
 
         @objid ("774f3770-2d3b-4899-8bbd-cad288d11dc7")
-        public HostNameVerifier() {
+        public  HostNameVerifier() {
             super();
         }
 
@@ -328,7 +324,7 @@ public class ApacheHttpClients {
     @objid ("9453ebe9-8193-4264-b09f-dfb4ab856a7c")
     public static class RetryHandler extends DefaultHttpRequestRetryHandler {
         @objid ("00f3dd92-08d0-4053-829a-1c52d7ec5267")
-        public RetryHandler() {
+        public  RetryHandler() {
             super();
         }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.objectflow;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -56,6 +55,7 @@ public class ObjectFlowEditPart extends LinkEditPart {
         super.createEditPolicies();
         
         installEditPolicy("CreateInfoFlows", new DefaultCreateInfoFlowOnLinkEditPolicy());
+        
     }
 
 }

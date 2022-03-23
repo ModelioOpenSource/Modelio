@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnstartevent;
 
 import java.util.Collections;
@@ -59,7 +58,7 @@ public class GmBpmnStartEvent extends GmPortContainer {
     private static final GmBpmnStartEventSimpleStyleKeys SIMPLE_KEYS = new GmBpmnStartEventSimpleStyleKeys();
 
     @objid ("c50c008d-59a6-11e2-ae45-002564c97630")
-     static final GmBpmnStartEventStructuredStyleKeys STRUCTURED_KEYS = new GmBpmnStartEventStructuredStyleKeys();
+    static final GmBpmnStartEventStructuredStyleKeys STRUCTURED_KEYS = new GmBpmnStartEventStructuredStyleKeys();
 
     @objid ("d6cd040e-2436-4b8e-bde9-56310a18fb97")
     private static final GmBpmnStartEventUserImageStyleKeys USERIMAGE_KEYS = new GmBpmnStartEventUserImageStyleKeys();
@@ -69,13 +68,12 @@ public class GmBpmnStartEvent extends GmPortContainer {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the timeEvent is unmasked.
      * @param el the unmasked timeEvent.
      * @param ref a reference to the unmasked timeEvent.
      */
     @objid ("61b93480-55b6-11e2-877f-002564c97630")
-    public GmBpmnStartEvent(IGmDiagram diagram, BpmnStartEvent el, MRef ref) {
+    public  GmBpmnStartEvent(IGmDiagram diagram, BpmnStartEvent el, MRef ref) {
         super(diagram, ref);
         
         GmBpmnStartEventPrimaryNode mainNode = new GmBpmnStartEventPrimaryNode(diagram, ref);
@@ -87,13 +85,14 @@ public class GmBpmnStartEvent extends GmPortContainer {
         label.setRoleInComposition(GmPortContainer.SATELLITE_ROLE);
         label.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         this.addChild(label);
+        
     }
 
     /**
      * Empty constructor needed for deserialisation.
      */
     @objid ("61b934ad-55b6-11e2-877f-002564c97630")
-    public GmBpmnStartEvent() {
+    public  GmBpmnStartEvent() {
         // Nothing specific to do.
     }
 
@@ -142,6 +141,7 @@ public class GmBpmnStartEvent extends GmPortContainer {
         default:
             return null;
         }
+        
     }
 
     @objid ("61b934a5-55b6-11e2-877f-002564c97630")
@@ -159,6 +159,7 @@ public class GmBpmnStartEvent extends GmPortContainer {
         default:
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("7e69bfdc-c4ca-4077-8d98-6d23b2310e12")
@@ -170,7 +171,6 @@ public class GmBpmnStartEvent extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -182,7 +182,6 @@ public class GmBpmnStartEvent extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -209,6 +208,7 @@ public class GmBpmnStartEvent extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("61babb2d-55b6-11e2-877f-002564c97630")
@@ -218,12 +218,14 @@ public class GmBpmnStartEvent extends GmPortContainer {
         
         // Write version of this Gm if different of 0.
         writeMinorVersion(out, "GmBpmnStartEvent.", MINOR_VERSION);
+        
     }
 
     @objid ("61babb33-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (BpmnStartEvent) resolveRef(this.getRepresentedRef());
+        
     }
 
 }

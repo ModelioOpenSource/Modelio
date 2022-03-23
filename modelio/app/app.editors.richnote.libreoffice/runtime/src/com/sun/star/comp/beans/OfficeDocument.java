@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package com.sun.star.comp.beans;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -54,11 +53,10 @@ public class OfficeDocument extends Wrapper implements com.sun.star.frame.XModel
 
     /**
      * Create the document
-     * 
      * @param xModel XModel of the document.
      */
     @objid ("88d65d68-31da-4dff-bb61-8637cddf0258")
-    public OfficeDocument(final com.sun.star.frame.XModel xModel) {
+    public  OfficeDocument(final com.sun.star.frame.XModel xModel) {
         super( xModel );
         
         this.xModel = xModel;
@@ -69,6 +67,7 @@ public class OfficeDocument extends Wrapper implements com.sun.star.frame.XModel
         this.xStorable = UnoRuntime.queryInterface( 
                                                    com.sun.star.frame.XStorable.class, xModel );
         this.xCloseable = UnoRuntime.queryInterface(XCloseable.class, xModel );
+        
     }
 
     /**
@@ -174,6 +173,7 @@ public class OfficeDocument extends Wrapper implements com.sun.star.frame.XModel
             e.printStackTrace();
             return false;
         }
+        
     }
 
     @objid ("f46fc226-0917-401b-b571-6f67a203f898")
@@ -281,6 +281,7 @@ public class OfficeDocument extends Wrapper implements com.sun.star.frame.XModel
         this.xModel = null;
         this.xPrintable = null;
         this.xStorable = null;
+        
     }
 
 }

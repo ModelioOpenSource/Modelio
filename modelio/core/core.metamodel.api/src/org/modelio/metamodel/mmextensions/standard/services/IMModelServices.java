@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.mmextensions.standard.services;
 
 import java.util.Collection;
@@ -50,7 +49,6 @@ public interface IMModelServices {
      * <p>
      * If <code>Element</code> is given, every elements in the model will be checked.
      * </p>
-     * 
      * @param metaclass the metaclass to look for.
      * @param att the name of the meta attribute to check the value in.
      * @param value the value to look for in the attribute.
@@ -61,7 +59,6 @@ public interface IMModelServices {
 
     /**
      * Get all elements in the model from their metaclass.
-     * 
      * @param metaclass the metaclass to look for.
      * @return A list of all model elements, or null if no match is found.
      */
@@ -70,7 +67,6 @@ public interface IMModelServices {
 
     /**
      * Get an element in the model from its id and metaclass.
-     * 
      * @param metaclass the java interface of the metaclass to look for.
      * @param id the id to look for.
      * @return A model element, or null if no match is found.
@@ -80,10 +76,9 @@ public interface IMModelServices {
 
     /**
      * Get an element in the model from an {@link org.modelio.vcore.smkernel.mapi.MRef}.<br>
-     * 
      * @param ref a model object reference.
      * @return A model element, or null if no match is found.
-     * @throws org.modelio.vcore.session.UnknownMetaclassException when the reference's metaclass can't be resolved as a {@link MClass}
+     * @throws UnknownMetaclassException when the reference's metaclass can't be resolved as a {@link MClass}
      */
     @objid ("112d9d82-1772-11e2-aa0d-002564c97630")
     MObject findByRef(MRef ref) throws UnknownMetaclassException;
@@ -102,7 +97,6 @@ public interface IMModelServices {
 
     /**
      * Get the model object creation factory.
-     * 
      * @return the model factory.
      */
     @objid ("0083559a-030f-1035-9f91-001ec947cd2a")
@@ -110,20 +104,18 @@ public interface IMModelServices {
 
     /**
      * Find a note type by name and metaclass.
-     * 
      * @param moduleName the name of the module owing the note type, or a regular expression for module name matching. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any module.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param noteTypeName the note type name, or a regular expression. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any note type.
      * @param metaclass a metaclass the note type must be applicable to.
      * @return the found note type. Might be <code>null</code> is no element matches the given parameters.
-     * @throws org.modelio.metamodel.mmextensions.infrastructure.ElementNotUniqueException when resolution is ambiguous and several note types match the given parameters
+     * @throws ElementNotUniqueException when resolution is ambiguous and several note types match the given parameters
      */
     @objid ("0085e42c-030f-1035-9f91-001ec947cd2a")
     NoteType getNoteType(String moduleName, String ownerName, String noteTypeName, MClass metaclass) throws ElementNotUniqueException;
 
     /**
      * Find note types by name and metaclass
-     * 
      * @param moduleName the name of the module owing the note type, or a regular expression for module name matching. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any module.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param noteTypeName the note type name, or a regular expression. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any note type.
@@ -135,20 +127,18 @@ public interface IMModelServices {
 
     /**
      * Find a resource type by name and metaclass.
-     * 
      * @param moduleName the name of the module owing the resource type, or a regular expression for module name matching. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any module.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param resourceTypeName the resource type name, or a regular expression. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any resource type.
      * @param metaclass a metaclass the resource type must be applicable to.
      * @return the found resource type. Might be <code>null</code> is no element matches the given parameters.
-     * @throws org.modelio.metamodel.mmextensions.infrastructure.ElementNotUniqueException when resolution is ambiguous and several resource types match the given parameters
+     * @throws ElementNotUniqueException when resolution is ambiguous and several resource types match the given parameters
      */
     @objid ("00870aaa-030f-1035-9f91-001ec947cd2a")
     ResourceType getResourceType(String moduleName, String ownerName, String resourceTypeName, MClass metaclass) throws ElementNotUniqueException;
 
     /**
      * Find resource types by name and metaclass
-     * 
      * @param moduleName the name of the module owing the resource type, or a regular expression for module name matching. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any module.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param externDocumentTypeName the resource type name, or a regular expression. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any resource type.
@@ -160,25 +150,23 @@ public interface IMModelServices {
 
     /**
      * Find a stereotype by name and metaclass.
-     * 
      * @param moduleName the name of the module owing the stereotype, or a regular expression for module name matching. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any module.
      * @param stereotypeName the stereotype name, or a regular expression. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any stereotype.
      * @param metaclass a metaclass the stereotype must be applicable to.
      * @return the found stereotype. Might be <code>null</code> is no element matches the given parameters.
-     * @throws org.modelio.metamodel.mmextensions.infrastructure.ElementNotUniqueException when resolution is ambiguous and several stereotypes match the given parameters
+     * @throws ElementNotUniqueException when resolution is ambiguous and several stereotypes match the given parameters
      */
     @objid ("3afd10ed-9b88-4971-9a1e-5a7a167f8cbb")
     Stereotype getStereotype(String moduleName, String stereotypeName, MClass metaclass) throws ElementNotUniqueException;
 
     /**
      * Find a stereotype by name and metaclass.
-     * 
      * @param moduleName the name of the module owing the stereotype, or a regular expression for module name matching. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any module.
      * @param stereotypeName the stereotype name, or a regular expression. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any stereotype.
      * @param metaclass a metaclass the stereotype must be applicable to.
      * @return the found stereotype. Might be <code>null</code> is no element matches the given parameters.
-     * @throws org.modelio.metamodel.mmextensions.infrastructure.ElementNotUniqueException when resolution is ambiguous and several stereotypes match the given parameters
-     * @throws org.modelio.vcore.session.UnknownMetaclassException when metaclass can't be resolved as a {@link MClass}
+     * @throws ElementNotUniqueException when resolution is ambiguous and several stereotypes match the given parameters
+     * @throws UnknownMetaclassException when metaclass can't be resolved as a {@link MClass}
      */
     @objid ("59f03700-2573-4d19-9d7a-64b19b3dc89c")
     @Deprecated
@@ -186,7 +174,6 @@ public interface IMModelServices {
 
     /**
      * Find stereotypes by name and metaclass
-     * 
      * @param moduleName the name of the module owing the stereotype, or a regular expression for module name matching. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any module.
      * @param stereotypeName the stereotype name, or a regular expression. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any stereotype.
      * @param metaclass the metaclass .
@@ -197,12 +184,11 @@ public interface IMModelServices {
 
     /**
      * Find stereotypes by name and metaclass
-     * 
      * @param moduleName the name of the module owing the stereotype, or a regular expression for module name matching. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any module.
      * @param stereotypeName the stereotype name, or a regular expression. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any stereotype.
      * @param metaclass the metaclass name. Using a qualified name is strongly recommended.
      * @return the found stereotypes.
-     * @throws org.modelio.vcore.session.UnknownMetaclassException if the metaclass name does not match an existing metaclass.
+     * @throws UnknownMetaclassException if the metaclass name does not match an existing metaclass.
      */
     @objid ("c8d8eda1-adb8-4075-aa6c-3522a9cf12e0")
     @Deprecated
@@ -210,20 +196,18 @@ public interface IMModelServices {
 
     /**
      * Find a tag type by name and metaclass.
-     * 
      * @param moduleName the name of the module owing the tag type, or a regular expression for module name matching. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any module.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param tagTypeName the tag type name, or a regular expression. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any tag type.
      * @param metaclass a metaclass the tag type must be applicable to.
      * @return the found tag type. Might be <code>null</code> is no element matches the given parameters.
-     * @throws org.modelio.metamodel.mmextensions.infrastructure.ElementNotUniqueException when resolution is ambiguous and several tag types match the given parameters
+     * @throws ElementNotUniqueException when resolution is ambiguous and several tag types match the given parameters
      */
     @objid ("0087f366-030f-1035-9f91-001ec947cd2a")
     TagType getTagType(String moduleName, String ownerName, String tagTypeName, MClass metaclass) throws ElementNotUniqueException;
 
     /**
      * Find tag types by name and metaclass
-     * 
      * @param moduleName the name of the module owing the tag type, or a regular expression for module name matching. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any module.
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param tagTypeName the tag type name, or a regular expression. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any tag type.

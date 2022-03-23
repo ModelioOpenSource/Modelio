@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.operation;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,12 +33,12 @@ public class GmOperationStyleKeys extends StaticAbstractStyleKeyProvider {
      * Text font.
      */
     @objid ("90502dd0-16cf-44ac-9feb-d76830e5ea77")
-     static final StyleKey FONT = createStyleKey("OPERATION_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("OPERATION_FONT", MetaKey.FONT);
 
     /**
      * Text color.
      */
     @objid ("d70d7d98-64fc-485b-9714-78e87e4919fd")
-     static final StyleKey TEXTCOLOR = createStyleKey("OPERATION_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("OPERATION_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.gproject.remote;
 
 import java.io.IOException;
@@ -37,28 +36,33 @@ public abstract class GRemoteProject extends GProject {
      * <p>
      * Checks the Modelio version matches the server defined version.
      * For server project Modelio version must be same or build compatible with the server version.
-     * 
-     * @throws java.io.IOException if the Modelio version does not match.
+     * @throws IOException if the Modelio version does not match.
      */
     @objid ("7de7e182-677e-4146-8aec-f1181b72f81c")
     @Override
     protected void validateModelioVersion() throws IOException {
-        Version expectedVersion = getExpectedModelioVersion();
+        Version expectedVersion = getExpectedModelioVersion().withoutBuild();
         
         if (expectedVersion == null) {
             // Suppose old 3.3.x project
             expectedVersion = new Version(3, 3, 0);
         }
         
-        if (expectedVersion.isNewerThan(ModelioVersion.VERSION)) {
-            throw new IOException(CoreProject.I18N.getMessage("GProject.modelioTooOld", getName(), expectedVersion, ModelioVersion.VERSION));
-        } else {
+        if (expectedVersion.isNewerThan(ModelioVersion.MAJOR_MINOR)) {
+            throw new IOException(CoreProject.I18N.getMessage(
+                    "GProject.modelioTooOld",
+                    getName(),
+                    expectedVersion.toString("V.R"),
+                    ModelioVersion.MAJOR_MINOR.toString("V.R")));
+        } else if (!expectedVersion.equals(ModelioVersion.MAJOR_MINOR)) {
             // For server project Modelio must be build compatible
-            if (expectedVersion.getMajorVersion() != ModelioVersion.VERSION.getMajorVersion() ||
-                    expectedVersion.getMinorVersion() != ModelioVersion.VERSION.getMinorVersion()) {
-                throw new IOException(CoreProject.I18N.getMessage("GProject.serverVersionDoesNotMatch", getName(), expectedVersion, ModelioVersion.VERSION));
-            }
+            throw new IOException(CoreProject.I18N.getMessage(
+                    "GProject.serverVersionDoesNotMatch",
+                    getName(),
+                    expectedVersion.toString("V.R"),
+                    ModelioVersion.MAJOR_MINOR.toString("V.R")));
         }
+        
     }
 
 }

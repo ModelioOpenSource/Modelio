@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.centralbuffer;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,31 +30,31 @@ import org.modelio.uml.activitydiagram.editor.style.ActivityAbstractStyleKeyProv
 @objid ("29ea66d5-55b6-11e2-877f-002564c97630")
 public class GmCentralBufferStructuredStyleKeys extends ActivityAbstractStyleKeyProvider {
     @objid ("d1a3ac3b-55c0-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("CENTRALBUFFER_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("CENTRALBUFFER_REPMODE", MetaKey.REPMODE);
 
     @objid ("d1a3ac3d-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("CENTRALBUFFER_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("CENTRALBUFFER_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("d1a3ac3f-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("CENTRALBUFFER_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("CENTRALBUFFER_FILLMODE", MetaKey.FILLMODE);
 
     @objid ("d1a3ac41-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("CENTRALBUFFER_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("CENTRALBUFFER_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("d1a3ac43-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("CENTRALBUFFER_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("CENTRALBUFFER_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("d1a3ac45-55c0-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("CENTRALBUFFER_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("CENTRALBUFFER_FONT", MetaKey.FONT);
 
     @objid ("d1a3ac47-55c0-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("CENTRALBUFFER_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("CENTRALBUFFER_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("d1a3ac49-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("CENTRALBUFFER_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("CENTRALBUFFER_SHOWSTEREOTYPES",
+                MetaKey.SHOWSTEREOTYPES);
 
     @objid ("d1a3ac4b-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("CENTRALBUFFER_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("CENTRALBUFFER_SHOWTAGS", MetaKey.SHOWTAGS);
 
 }

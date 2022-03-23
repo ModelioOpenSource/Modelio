@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.contributor;
 
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.modelio.api.ui.viewtemplate.IModelViewTemplate;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
@@ -46,7 +45,7 @@ public class ClassDiagramTemplate implements IModelViewTemplate<AbstractDiagram>
      * Mandatory default c'tor needed by eclipse when loading the extension point.
      */
     @objid ("0663e01c-6553-491f-b3f6-26a2cc265b0e")
-    public ClassDiagramTemplate() {
+    public  ClassDiagramTemplate() {
         super();
     }
 

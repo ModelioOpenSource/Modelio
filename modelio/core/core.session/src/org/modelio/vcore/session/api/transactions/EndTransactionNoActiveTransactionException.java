@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.api.transactions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,7 +34,7 @@ public class EndTransactionNoActiveTransactionException extends TransactionExcep
      * later retrieval by the {@link #getMessage()} method.
      */
     @objid ("006eeaec-0d1e-1f20-85a5-001ec947cd2a")
-    public EndTransactionNoActiveTransactionException(final String msg) {
+    public  EndTransactionNoActiveTransactionException(final String msg) {
         super(msg);
     }
 

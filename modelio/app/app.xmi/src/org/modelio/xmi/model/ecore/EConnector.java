@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,9 +39,10 @@ public class EConnector extends EFeature {
     }
 
     @objid ("20f3c4be-139e-4248-88bb-0ce10e586bb1")
-    public EConnector(org.eclipse.uml2.uml.Connector element) {
+    public  EConnector(org.eclipse.uml2.uml.Connector element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("9c6bc7a8-73b0-4b2e-91dd-e65ee4c7cf63")
@@ -64,6 +64,7 @@ public class EConnector extends EFeature {
         
         if (nbEnds != 2)
             objingElt.delete();
+        
     }
 
     @objid ("5a22e57d-2e96-44ac-bc34-60d0d5b2ace5")
@@ -71,6 +72,7 @@ public class EConnector extends EFeature {
     public void setProperties(Element objingElt) {
         super.setProperties(objingElt);
         setBase((Link) objingElt);
+        
     }
 
     @objid ("aa8e8bdf-7c02-4717-8084-32ad2bf24f06")
@@ -82,6 +84,7 @@ public class EConnector extends EFeature {
             if (objAssociation instanceof Association)
                 objingElt.setModel((Association)objAssociation);
         }
+        
     }
 
 }

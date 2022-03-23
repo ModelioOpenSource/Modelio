@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.communicationdiagram.editor.elements.communicationmessage;
 
 import java.util.List;
@@ -54,22 +53,23 @@ public class GmCommunicationMessageLabel extends GmDefaultModelElementLabel {
      * Constructor for deserialization only.
      */
     @objid ("7a469b2b-55b6-11e2-877f-002564c97630")
-    public GmCommunicationMessageLabel() {
+    public  GmCommunicationMessageLabel() {
+        
     }
 
     /**
      * Constructor.
-     * 
      * @param diagram The diagram
      * @param el The represented element, may be null.
      * @param ref The represented element reference, may not be null.
      */
     @objid ("7a469b2e-55b6-11e2-877f-002564c97630")
-    public GmCommunicationMessageLabel(final IGmDiagram diagram, final CommunicationMessage el, final MRef ref) {
+    public  GmCommunicationMessageLabel(final IGmDiagram diagram, final CommunicationMessage el, final MRef ref) {
         super(diagram, ref);
         this.element = el;
         
         init();
+        
     }
 
     @objid ("7a469b3d-55b6-11e2-877f-002564c97630")
@@ -100,6 +100,7 @@ public class GmCommunicationMessageLabel extends GmDefaultModelElementLabel {
                     }
         
                 };
+        
     }
 
     @objid ("7a4821bb-55b6-11e2-877f-002564c97630")
@@ -131,6 +132,7 @@ public class GmCommunicationMessageLabel extends GmDefaultModelElementLabel {
             break;
         }
         }
+        
     }
 
     @objid ("7a49a83e-55b6-11e2-877f-002564c97630")
@@ -148,6 +150,7 @@ public class GmCommunicationMessageLabel extends GmDefaultModelElementLabel {
             if (parent != null)
                 getPersistedStyle().setCascadedStyle(parent.getPersistedStyle());
         }
+        
     }
 
     @objid ("7a49a84a-55b6-11e2-877f-002564c97630")
@@ -178,6 +181,7 @@ public class GmCommunicationMessageLabel extends GmDefaultModelElementLabel {
     private void init() {
         setShowMetaclassKeyword(false);
         setShowMetaclassIcon(false);
+        
     }
 
     @objid ("7a49a854-55b6-11e2-877f-002564c97630")
@@ -187,12 +191,14 @@ public class GmCommunicationMessageLabel extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmCommunicationMessageLabel.", GmCommunicationMessageLabel.MINOR_VERSION);
+        
     }
 
     @objid ("7a49a85a-55b6-11e2-877f-002564c97630")
     private void read_0(final IDiagramReader in) {
         super.read(in);
         this.element = (CommunicationMessage) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("7a49a860-55b6-11e2-877f-002564c97630")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.portbordered;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -69,7 +68,6 @@ public abstract class PortBorderedEditPart extends AbstractNodeEditPart {
 
     /**
      * Creates the primary figure.
-     * 
      * @return the primary figure.
      */
     @objid ("7edc7e85-1dec-11e2-8cad-001ec947c8cc")
@@ -90,6 +88,7 @@ public abstract class PortBorderedEditPart extends AbstractNodeEditPart {
             // Add to the primary figure
             ((PortBorderedFigure) getFigure()).addToPrimaryFigure(childFigure, index);
         }
+        
     }
 
     /**
@@ -108,6 +107,7 @@ public abstract class PortBorderedEditPart extends AbstractNodeEditPart {
             // Add to the primary figure
             ((PortBorderedFigure) getFigure()).removeFromPrimaryFigure(childFigure);
         }
+        
     }
 
     @objid ("7edc7e99-1dec-11e2-8cad-001ec947c8cc")
@@ -117,6 +117,7 @@ public abstract class PortBorderedEditPart extends AbstractNodeEditPart {
         portFigure.setBackgroundColor(ColorConstants.red /* style.getColor(StyleKey.CLASS_FILLCOLOR)*/);
         portFigure.setForegroundColor(ColorConstants.red /* style.getColor(StyleKey.CLASS_LINECOLOR)*/);
         //figure.setFont(style.getFont(StyleKey.CLASS_FONT));
+        
     }
 
     @objid ("7edc7e9d-1dec-11e2-8cad-001ec947c8cc")
@@ -130,11 +131,11 @@ public abstract class PortBorderedEditPart extends AbstractNodeEditPart {
         } else {
             super.refreshFromStyle(figure, style);
         }
+        
     }
 
     /**
      * Returns the primary figure.
-     * 
      * @return the primary figure.
      */
     @objid ("7edc7ea4-1dec-11e2-8cad-001ec947c8cc")

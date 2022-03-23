@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
 
 import java.util.ArrayList;
@@ -31,7 +31,6 @@ import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
 import org.modelio.metamodel.impl.uml.infrastructure.ModelElementImpl;
-import org.modelio.metamodel.impl.uml.infrastructure.properties.PropertyTypeData;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.uml.infrastructure.Profile;
 import org.modelio.metamodel.uml.infrastructure.properties.PropertyBaseType;
@@ -92,6 +91,7 @@ public class PropertyTypeImpl extends ModelElementImpl implements PropertyType {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("bbec81c4-58dd-4927-a52d-4a3746a5c50b")

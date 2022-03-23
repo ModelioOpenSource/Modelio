@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.statik;
 
 import java.util.Collections;
@@ -38,7 +37,7 @@ public class BpmnCollaborationDG extends PortContainerDG {
      * @param node The gm node represented by this class.
      */
     @objid ("f249c8d2-e5ce-42ab-a6c2-f7b122e96118")
-    public BpmnCollaborationDG(final DiagramHandle diagramHandle, final GmNodeModel node) {
+    public  BpmnCollaborationDG(final DiagramHandle diagramHandle, final GmNodeModel node) {
         super(diagramHandle, node);
     }
 

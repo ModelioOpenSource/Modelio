@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.emf;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,7 +29,7 @@ public class ESmAttribute extends EAttributeImpl {
     private SmAttribute att;
 
     @objid ("bbcedd9d-bc87-11e1-b576-001ec947ccaf")
-    protected ESmAttribute(SmAttribute att) {
+    protected  ESmAttribute(SmAttribute att) {
         this.att = att;
     }
 

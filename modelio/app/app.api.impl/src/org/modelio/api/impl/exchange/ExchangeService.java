@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.api.impl.exchange;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -59,16 +58,16 @@ public class ExchangeService implements IExchangeService {
 
     /**
      * C'tor.
-     * 
      * @param eclipseContext the eclipse context to initialize services from.
      * @param metamodel the metamodel of the currently opened project.
      */
     @objid ("d982e768-b426-42c9-8813-7b97f3450322")
-    public ExchangeService(final IEclipseContext eclipseContext, MMetamodel metamodel) {
+    public  ExchangeService(final IEclipseContext eclipseContext, MMetamodel metamodel) {
         this.xmiservice = new XMIService();
         this.modelServices = eclipseContext.get(IMModelServices.class);
         this.navigationServices = eclipseContext.get(IModelioNavigationService.class);
         this.metamodel = metamodel;
+        
     }
 
     @objid ("8fb90118-1c5c-439c-9b53-45ce49a454f9")
@@ -90,6 +89,7 @@ public class ExchangeService implements IExchangeService {
         } catch (Exception e) {
             throw new XmiException(e);
         }
+        
     }
 
     @objid ("8018f414-9ae1-4060-953d-7742aa67ffdb")
@@ -111,6 +111,7 @@ public class ExchangeService implements IExchangeService {
         } catch (Exception e) {
             throw new XmiException(e);
         }
+        
     }
 
 }

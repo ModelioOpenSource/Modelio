@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.commands;
 
 import java.util.Map;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.SmMetamodel;
 @objid ("7f3e3ef0-1dec-11e2-8cad-001ec947c8cc")
 public class DeferredGroupCommand extends Command {
     @objid ("7f3e3ef8-1dec-11e2-8cad-001ec947c8cc")
-    private Map<?,?> editPartRegistry;
+    private Map<?, ?> editPartRegistry;
 
     @objid ("7f3e3ef7-1dec-11e2-8cad-001ec947c8cc")
     private GmCompositeNode gmComposite;
@@ -52,15 +51,15 @@ public class DeferredGroupCommand extends Command {
 
     /**
      * Create a deferred command.
-     * 
      * @param req The creation request.
      * @param sender The edit part sending the request
      */
     @objid ("7f3e3efc-1dec-11e2-8cad-001ec947c8cc")
-    public DeferredGroupCommand(GroupRequest req, EditPart sender) {
+    public  DeferredGroupCommand(GroupRequest req, EditPart sender) {
         this.req = req;
         this.gmComposite = (GmCompositeNode) sender.getModel();
         this.editPartRegistry = sender.getViewer().getEditPartRegistry();
+        
     }
 
     @objid ("7f3e3f05-1dec-11e2-8cad-001ec947c8cc")
@@ -94,12 +93,12 @@ public class DeferredGroupCommand extends Command {
                 }
             }
         }
+        
     }
 
     /**
      * Get the node model where all the request must be handled or <tt>null</tt> if the request cannot be executed in a
      * single node (the selection is not homogeneous).
-     * 
      * @return the node model where the request must be handled.
      */
     @objid ("7f3e3f0d-1dec-11e2-8cad-001ec947c8cc")

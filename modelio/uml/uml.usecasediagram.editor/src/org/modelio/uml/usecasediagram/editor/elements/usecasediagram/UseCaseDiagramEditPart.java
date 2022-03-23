@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.elements.usecasediagram;
 
 import java.beans.PropertyChangeEvent;
@@ -77,6 +76,7 @@ public class UseCaseDiagramEditPart extends AbstractDiagramEditPart {
         // Policy to add bend points to connections being created
         installEditPolicy(CreateLinkConstants.REQ_CONNECTION_ADD_BENDPOINT,
                 new CreateLinkIntermediateEditPolicy());
+        
     }
 
     @objid ("5e88bf99-55b7-11e2-877f-002564c97630")
@@ -86,6 +86,7 @@ public class UseCaseDiagramEditPart extends AbstractDiagramEditPart {
             refreshUseCaseOwnership();
         }
         super.propertyChange(evt);
+        
     }
 
     @objid ("5e88bf9e-55b7-11e2-877f-002564c97630")
@@ -158,6 +159,7 @@ public class UseCaseDiagramEditPart extends AbstractDiagramEditPart {
         
             }
         }
+        
     }
 
     @objid ("5e88bfa0-55b7-11e2-877f-002564c97630")

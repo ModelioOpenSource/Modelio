@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.bpmnbehavior;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,30 +30,30 @@ import org.modelio.uml.statikdiagram.editor.style.StaticAbstractStyleKeyProvider
 @objid ("341fd0da-55b7-11e2-877f-002564c97630")
 public class GmBpmnBehaviorSimpleStyleKeys extends StaticAbstractStyleKeyProvider {
     @objid ("a5fd222c-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmBpmnBehaviorStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmBpmnBehaviorStructuredStyleKeys.REPMODE;
 
     @objid ("a5fd222e-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = GmBpmnBehaviorStructuredStyleKeys.FILLCOLOR;
+    static final StyleKey FILLCOLOR = GmBpmnBehaviorStructuredStyleKeys.FILLCOLOR;
 
     @objid ("a5fd2230-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = GmBpmnBehaviorStructuredStyleKeys.FILLMODE;
+    static final StyleKey FILLMODE = GmBpmnBehaviorStructuredStyleKeys.FILLMODE;
 
     @objid ("a5fd2232-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = GmBpmnBehaviorStructuredStyleKeys.LINECOLOR;
+    static final StyleKey LINECOLOR = GmBpmnBehaviorStructuredStyleKeys.LINECOLOR;
 
     @objid ("a5fd2234-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = GmBpmnBehaviorStructuredStyleKeys.LINEWIDTH;
+    static final StyleKey LINEWIDTH = GmBpmnBehaviorStructuredStyleKeys.LINEWIDTH;
 
     @objid ("a5fd2236-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmBpmnBehaviorStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmBpmnBehaviorStructuredStyleKeys.FONT;
 
     @objid ("a5fd2238-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmBpmnBehaviorStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmBpmnBehaviorStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("a5fd223a-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmBpmnBehaviorStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmBpmnBehaviorStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("a5fd223c-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmBpmnBehaviorStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmBpmnBehaviorStructuredStyleKeys.SHOWTAGS;
 
 }

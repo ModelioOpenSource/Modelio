@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.jmx;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -48,7 +47,6 @@ public interface ICoreSessionMXBean {
 
     /**
      * Returns the number of SmObjectImpl currently in memory.
-     * 
      * @return the loaded objects count.
      */
     @objid ("b2e05929-49c5-11e2-91c9-001ec947ccaf")
@@ -56,7 +54,6 @@ public interface ICoreSessionMXBean {
 
     /**
      * Get the number of deleted SmObjectImpl in memory.
-     * 
      * @return the deleted objects count.
      */
     @objid ("b2e0592b-49c5-11e2-91c9-001ec947ccaf")

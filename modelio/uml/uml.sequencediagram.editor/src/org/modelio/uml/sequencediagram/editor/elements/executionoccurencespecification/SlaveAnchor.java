@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.executionoccurencespecification;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,15 +33,15 @@ class SlaveAnchor extends AbstractConnectionAnchor implements AnchorListener {
 
     /**
      * C'tor.
-     * 
      * @param masterAnchor the anchor this anchor is a slave of.
      * @param owner the owner figure on which bounds this anchor will be placed.
      */
     @objid ("d8e1f742-55b6-11e2-877f-002564c97630")
-    public SlaveAnchor(final MasterExecutionOccurrenceSpecificationAnchor masterAnchor, final IFigure owner) {
+    public  SlaveAnchor(final MasterExecutionOccurrenceSpecificationAnchor masterAnchor, final IFigure owner) {
         super(owner);
         this.masterAnchor = masterAnchor;
         this.masterAnchor.addAnchorListener(this);
+        
     }
 
     @objid ("d8e1f749-55b6-11e2-877f-002564c97630")

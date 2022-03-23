@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl;
 
 import java.io.IOException;
@@ -63,12 +62,12 @@ public class ModuleServiceInitializer {
         ModuleServiceInitializer.initModuleCache(context);
         
         ModuleI18NService.init(moduleService);
+        
     }
 
     /**
      * initialize the module cache and register it in the context as
      * {@link IModuleStore}.
-     * 
      * @param context the context to initialize.
      */
     @objid ("85f146e7-5f64-4268-a140-9cef33804584")
@@ -103,6 +102,7 @@ public class ModuleServiceInitializer {
         // Register the module catalog cache as the module catalog
         final CompositeModuleCache aggregateCache = new CompositeModuleCache(pluginCache, moduleCache);
         context.set(IModuleRTCache.class, aggregateCache);
+        
     }
 
     @objid ("f2bf5c46-4be2-4a53-b009-3493ab650efd")
@@ -114,10 +114,11 @@ public class ModuleServiceInitializer {
         private final IModuleRTCache modulesCache;
 
         @objid ("d7b69173-4d3c-4abe-a828-209150fc492f")
-        public CompositeModuleCache(final IModuleRTCache pluginCache, final IModuleRTCache modulesCache) {
+        public  CompositeModuleCache(final IModuleRTCache pluginCache, final IModuleRTCache modulesCache) {
             super();
             this.pluginCache = pluginCache;
             this.modulesCache = modulesCache;
+            
         }
 
         @objid ("53bc41f1-d436-4ad2-b192-c2d9ae2ad13e")

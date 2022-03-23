@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.path;
 
 import java.util.ArrayList;
@@ -52,11 +51,11 @@ public class ObliqueConnectionHelper implements IConnectionHelper {
     public void updateFrom(final RawPathData rawData) {
         this.bendPoints.clear();
         readRawPoints(rawData);
+        
     }
 
     /**
      * Get the path routing mode.
-     * 
      * @return the path routing mode.
      */
     @objid ("8049468e-1dec-11e2-8cad-001ec947c8cc")
@@ -70,21 +69,28 @@ public class ObliqueConnectionHelper implements IConnectionHelper {
      * @param connection the connection for which this helper is created.
      */
     @objid ("804ba8a6-1dec-11e2-8cad-001ec947c8cc")
-    public ObliqueConnectionHelper(final RawPathData rawData, final Connection connection) {
+    public  ObliqueConnectionHelper(final RawPathData rawData, final Connection connection) {
         this.connection = connection;
         readRawPoints(rawData);
+        
     }
 
     /**
      * constructor from a list of points (in coordinates relative to the connection).
-     * 
      * @param points the list of point.
      * @param connection the connection for which this helper is created.
      */
     @objid ("804ba8af-1dec-11e2-8cad-001ec947c8cc")
-    public ObliqueConnectionHelper(final List<Point> points, final Connection connection) {
+    public  ObliqueConnectionHelper(final List<Point> points, final Connection connection) {
         this.connection = connection;
         this.bendPoints = points;
+        
+    }
+
+    @objid ("548942b8-a0fa-4daf-8975-8a17be50f9be")
+    @Override
+    public boolean isUsable() {
+        return this.connection != null && this.connection.getParent() != null;
     }
 
     @objid ("804ba8c2-1dec-11e2-8cad-001ec947c8cc")
@@ -98,6 +104,7 @@ public class ObliqueConnectionHelper implements IConnectionHelper {
         }
         
         this.bendPoints = BendPointUtils.draw2dPointsToModelConstraint(this.bendPoints);
+        
     }
 
     @objid ("2a569448-22ae-4092-830d-62ce8fcc88b0")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.widgets.swt;
 
 import java.util.ArrayList;
@@ -70,7 +69,7 @@ public class SidePanelsContainerPanel {
     private final List<FlyoutHolder> rightPanels;
 
     @objid ("8d020341-d196-4237-9102-1f9d000ac75b")
-    public SidePanelsContainerPanel(Composite parent) {
+    public  SidePanelsContainerPanel(Composite parent) {
         this.container = new Composite(parent, SWT.NONE);
         this.container.setLayout(new LLayout());
         
@@ -78,13 +77,13 @@ public class SidePanelsContainerPanel {
         this.mainPanel.setLayout(new FillLayout());
         
         this.rightPanels = new ArrayList<>(3);
+        
     }
 
     /**
      * Get the main panel composite.
      * <p>
      * This composite is never collapsed.
-     * 
      * @return the main panel.
      */
     @objid ("d4efd66f-f8ab-45bf-bd35-99fcc376041c")
@@ -94,7 +93,6 @@ public class SidePanelsContainerPanel {
 
     /**
      * Add a lateral panel.
-     * 
      * @param panel the panel provider
      * @param title the panel title
      * @param icon an optional icon
@@ -146,11 +144,11 @@ public class SidePanelsContainerPanel {
         });
         
         holder.getSash().addListener(SWT.Selection, ev -> onSashDragged(ev, holder));
+        
     }
 
     /**
      * Listener method called when dragging {@link Sash}.
-     * 
      * @param event the drag event
      * @param holder the resized side pane.
      */
@@ -162,6 +160,7 @@ public class SidePanelsContainerPanel {
         d.width += shift;
         this.container.layout(true);
         holder.layout();
+        
     }
 
     @objid ("b6483945-3d06-46bd-ae3d-d95d8aae8042")
@@ -169,18 +168,21 @@ public class SidePanelsContainerPanel {
         if (holder.getState() == FlyoutState.collapsed) {
             setHolderExpanded(holder);
         }
+        
     }
 
     @objid ("22eb7cb1-e713-497c-a41b-fa42e848f147")
     private void setHolderCollapsed(FlyoutHolder holder) {
         holder.setState(FlyoutState.collapsed);
         this.container.layout(true);
+        
     }
 
     @objid ("e2d6a203-7853-46c3-a0d2-622317ace920")
     private void setHolderExpanded(FlyoutHolder holder) {
         holder.setState(FlyoutState.expanded);
         this.container.layout(true);
+        
     }
 
     @objid ("93afe354-680c-4307-bbc7-a6a4731ce645")
@@ -207,6 +209,7 @@ public class SidePanelsContainerPanel {
                 }
             });
         }
+        
     }
 
     @objid ("a9fe8ad2-fc34-4ba1-aca7-61973821bbf1")
@@ -295,7 +298,19 @@ public class SidePanelsContainerPanel {
             }
             
             SidePanelsContainerPanel.this.mainPanel.setBounds(area.x, area.y, x, area.height - 1);
+            
         }
+
+    }
+
+    @objid ("1a7a6357-3958-44bf-abb6-0180b31b29af")
+    public enum FlyoutState {
+        @objid ("bcd14059-55a0-476f-ae73-b99beeff5c1b")
+        collapsed,
+        @objid ("bfc26ea3-0da4-43ce-a089-ff7673868061")
+        expanded,
+        @objid ("b55ebc42-b931-4f45-83d3-8c240fa98950")
+        pinned;
 
     }
 
@@ -323,7 +338,7 @@ public class SidePanelsContainerPanel {
         private ArrowButtonCanvas expandButton2;
 
         @objid ("5bab66ec-587c-44b8-b825-6692ac2f3e0a")
-        public FlyoutHolder(Composite parent, String title, Image icon) {
+        public  FlyoutHolder(Composite parent, String title, Image icon) {
             super(parent, SWT.NONE);
             this.state = FlyoutState.pinned;
             this.title = title;
@@ -354,6 +369,7 @@ public class SidePanelsContainerPanel {
             this.clientPane = new Composite(this, SWT.NONE);
             GridDataFactory.fillDefaults().grab(true, true).applyTo(this.clientPane);
             this.clientPane.setLayout(new FillLayout());
+            
         }
 
         @objid ("0bad5a3e-7cd9-4bd9-8ca4-77eb322a8673")
@@ -369,6 +385,7 @@ public class SidePanelsContainerPanel {
                         .grab(true, true)
                         .applyTo(this.titleBar);
             }
+            
         }
 
         @objid ("931422ab-801a-4fbc-a537-7df5e863f5d1")
@@ -417,6 +434,7 @@ public class SidePanelsContainerPanel {
                 gc.setFont(getFont());
                 gc.drawText(this.title, btSize.x + 5, 0, true);
             }
+            
         }
 
         @objid ("57ddbacc-524e-4abf-b97a-4d876bc401d8")
@@ -444,6 +462,7 @@ public class SidePanelsContainerPanel {
             default:
                 return true;
             }
+            
         }
 
         @objid ("9c964668-9467-473f-90fb-8dcd0638742e")
@@ -469,6 +488,7 @@ public class SidePanelsContainerPanel {
             }
             
             updatePanelLayout(!isOpen());
+            
         }
 
         @objid ("0b92044c-698e-4703-8d6e-b63f67859d00")
@@ -478,7 +498,6 @@ public class SidePanelsContainerPanel {
 
         /**
          * Return the client area.
-         * 
          * @return the panel that contain client SWT component.
          */
         @objid ("3aea081e-dd52-4c85-b762-0bbeebfc3e62")
@@ -491,15 +510,9 @@ public class SidePanelsContainerPanel {
         public String toString() {
             return getClass().getSimpleName() + "[state=" + this.state + ", layout=" +
                     getLayoutData() + "]";
+            
         }
 
-    }
-
-    @objid ("1a7a6357-3958-44bf-abb6-0180b31b29af")
-    public enum FlyoutState {
-        collapsed,
-        expanded,
-        pinned;
     }
 
 }

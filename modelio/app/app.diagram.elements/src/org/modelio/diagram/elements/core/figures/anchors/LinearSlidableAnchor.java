@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.anchors;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,8 +50,6 @@ public class LinearSlidableAnchor extends AbstractConnectionAnchor implements IS
 
     /**
      * Calculates the relative location of the reference point with respect to the bounds of the figure. If point p is not inside of the figure's bounds then the point is mapped on the bounds and the point relative location is calculated
-     * @param bounds
-     * 
      * @param p the <code>Point</code> that is relative coordinates of the point
      * @return <Code>PrecisionPoint</Code>, i.e. the relative reference for <Code>SlidableAnchor</Code>
      */
@@ -88,9 +85,6 @@ public class LinearSlidableAnchor extends AbstractConnectionAnchor implements IS
 
     /**
      * Assumption: Points in the <Code>PointList</Code> and <Code>Point</Code> p lie on the same line. Returns the <Code>Point</Code> from the <Code>PointList</Code> closest to
-     * @param p
-     * @param p
-     * 
      * @param points - the list of points to select the result from
      * @param p - the point to which the closest point must be found
      * @return the <Code>Point</Code> from the <Code>PointList</Code> closest to
@@ -116,30 +110,29 @@ public class LinearSlidableAnchor extends AbstractConnectionAnchor implements IS
      * Empty constructor
      */
     @objid ("7f53b43b-1dec-11e2-8cad-001ec947c8cc")
-    public LinearSlidableAnchor() {
+    public  LinearSlidableAnchor() {
         // empty constructor
     }
 
     /**
      * Default constructor. The anchor will have the center of the figure as the reference point
-     * 
      * @param f <code>IFigure</code> that this anchor is associated with.
      */
     @objid ("7f53b43e-1dec-11e2-8cad-001ec947c8cc")
-    public LinearSlidableAnchor(IFigure f) {
+    public  LinearSlidableAnchor(IFigure f) {
         super(f);
     }
 
     /**
      * Constructor. Takes point p to store the reference point
-     * 
      * @param f <code>IFigure</code> that this anchor is associated with.
      * @param p the <code>PrecisionPoint</code> that the anchor will initially attach to.
      */
     @objid ("7f53b444-1dec-11e2-8cad-001ec947c8cc")
-    public LinearSlidableAnchor(IFigure f, PrecisionPoint p) {
+    public  LinearSlidableAnchor(IFigure f, PrecisionPoint p) {
         super(f);
         this.relativeReference = new PrecisionPoint(p.preciseX(), p.preciseY());
+        
     }
 
     @objid ("7f53b44d-1dec-11e2-8cad-001ec947c8cc")
@@ -216,14 +209,14 @@ public class LinearSlidableAnchor extends AbstractConnectionAnchor implements IS
         if (this.relativeReference == null) {
             return figureHashCode;
         }
-        return new Double(this.relativeReference.preciseX()).hashCode() ^
-                        new Double(this.relativeReference.preciseY()).hashCode() ^
+        return Double.valueOf(this.relativeReference.preciseX()).hashCode() ^
+                        Double.valueOf(this.relativeReference.preciseY()).hashCode() ^
                         figureHashCode;
+        
     }
 
     /**
      * Returns true if the <Code>SlidableAnchor</Code> is default one with a reference at the center
-     * 
      * @return <code>boolean</code> <code>true</code> is the <code>SlidableAnchor</code> is default one, <code>false</code> otherwise
      */
     @objid ("7f53b46a-1dec-11e2-8cad-001ec947c8cc")
@@ -233,7 +226,6 @@ public class LinearSlidableAnchor extends AbstractConnectionAnchor implements IS
 
     /**
      * Calculates intersection points of the figure and the line that passes through ownReference and foreignReference points
-     * 
      * @param ownReference the reference <code>Point</code> on or inside the shape that is being anchored to.
      * @param foreignReference the outside reference <code>Point</code> point that is the terminal end of the line formed by the two parameters.
      * @return intersection points of the figure and the line that passes through ownReference and foreignReference points
@@ -246,7 +238,6 @@ public class LinearSlidableAnchor extends AbstractConnectionAnchor implements IS
 
     /**
      * Calculates the location of the anchor depending on the anchors own reference and foreign reference points
-     * 
      * @param ownReference - the own reference of the anchor
      * @param foreignReference - foreign reference that comes in
      * @return the location of the anchor depending on the anchors own reference and foreign reference points
@@ -263,7 +254,6 @@ public class LinearSlidableAnchor extends AbstractConnectionAnchor implements IS
 
     /**
      * Returns the list of all the vertices of the figure. The created list must form a polygon, i.e. closed polyline, for figures hence the starting and ending points must be the same
-     * 
      * @return the <code>PointList</code> list of all the vertices of the figure.
      */
     @objid ("7f56168a-1dec-11e2-8cad-001ec947c8cc")
@@ -280,7 +270,6 @@ public class LinearSlidableAnchor extends AbstractConnectionAnchor implements IS
 
     /**
      * Returns a new owned reference point that is normalized to be with-in a straight-line tolerance value.
-     * 
      * @param foreignReference <code>Point</code> that is the foreign reference point used to calculate the interfection anchor point on the shape in absolute coordinates.
      * @param ownReference <code>Point</code> that is the reference point with-in the shape in absolute coordinates
      * @param tolerance <code>int</code> value that is the difference in absolute coordinates where the two points would be considered straight and then adjusted.
@@ -315,7 +304,6 @@ public class LinearSlidableAnchor extends AbstractConnectionAnchor implements IS
 
     /**
      * Gets the anchors associated figure's bounding box in absolute coordinates.
-     * 
      * @return a <code>Rectangle</code> that is the bounding box of the owner figure in absolute coordinates
      */
     @objid ("7f5616a6-1dec-11e2-8cad-001ec947c8cc")
@@ -351,6 +339,7 @@ public class LinearSlidableAnchor extends AbstractConnectionAnchor implements IS
         final double w = newlocation.x - bounds.x;
         final double h = newlocation.y - bounds.y;
         this.relativeReference = new PrecisionPoint(w / bounds.width, h / bounds.height);
+        
     }
 
 }

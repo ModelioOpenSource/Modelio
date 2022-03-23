@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,17 +50,15 @@ public class BpmnSubProcessDiagramPropertyModel extends AbstractPropertyModel<Bp
     /**
      * Create a new <i>BpmnSubProcessDiagram</i> data model from an
      * <i>BpmnSubProcessDiagram</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("609ee1c2-fb57-496d-9724-458dae8683e1")
-    public BpmnSubProcessDiagramPropertyModel(BpmnSubProcessDiagram theEditedElement) {
+    public  BpmnSubProcessDiagramPropertyModel(BpmnSubProcessDiagram theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("a26c84a8-364e-4d28-b821-b42a88cedb71")
@@ -72,7 +69,6 @@ public class BpmnSubProcessDiagramPropertyModel extends AbstractPropertyModel<Bp
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("28371dd6-8fe5-4cb9-b339-a6ec97f693d5")
@@ -85,7 +81,6 @@ public class BpmnSubProcessDiagramPropertyModel extends AbstractPropertyModel<Bp
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -107,6 +102,7 @@ public class BpmnSubProcessDiagramPropertyModel extends AbstractPropertyModel<Bp
         default:
             return null;
         }
+        
     }
 
     /**
@@ -116,7 +112,6 @@ public class BpmnSubProcessDiagramPropertyModel extends AbstractPropertyModel<Bp
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -139,13 +134,13 @@ public class BpmnSubProcessDiagramPropertyModel extends AbstractPropertyModel<Bp
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -170,6 +165,7 @@ public class BpmnSubProcessDiagramPropertyModel extends AbstractPropertyModel<Bp
         default:
             return;
         }
+        
     }
 
 }

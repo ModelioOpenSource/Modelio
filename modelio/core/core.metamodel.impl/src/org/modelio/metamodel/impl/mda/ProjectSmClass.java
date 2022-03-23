@@ -17,18 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.mda;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.mda.ProjectData;
 import org.modelio.metamodel.impl.uml.infrastructure.AbstractProjectSmClass;
 import org.modelio.metamodel.impl.uml.statik.PackageSmClass;
 import org.modelio.metamodel.mda.Project;
@@ -58,7 +57,7 @@ public class ProjectSmClass extends AbstractProjectSmClass {
     private SmDependency modelDep;
 
     @objid ("2a6d8ece-5330-4cc5-a41e-a28f52240814")
-    public ProjectSmClass(ISmMetamodelFragment origin) {
+    public  ProjectSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -66,6 +65,7 @@ public class ProjectSmClass extends AbstractProjectSmClass {
     @Override
     public String getName() {
         return "Project";
+        
     }
 
     @objid ("9115168c-18a5-42ff-bba2-2c4d4103a824")
@@ -78,18 +78,21 @@ public class ProjectSmClass extends AbstractProjectSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Project.class;
+        
     }
 
     @objid ("219d913a-4f83-47f1-bdbd-4f18d9d1ad2f")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("00554c17-a6ab-4bb8-95a5-70735035cd95")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("431b72a2-70a4-4ee2-996e-b56594c71689")
@@ -113,6 +116,8 @@ public class ProjectSmClass extends AbstractProjectSmClass {
         this.modelDep = new ModelSmDependency();
         this.modelDep.init("Model", this, metamodel.getMClass(Package.MQNAME), 0, -1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.modelDep);
+        
+        
     }
 
     @objid ("24ec0304-827e-49f0-8424-bc13e2f2105e")
@@ -143,6 +148,7 @@ public class ProjectSmClass extends AbstractProjectSmClass {
     @Override
     public boolean areOrphansAllowed() {
         return true;
+        
     }
 
     @objid ("8184752d-2599-450a-9246-e93681627a23")
@@ -151,7 +157,7 @@ public class ProjectSmClass extends AbstractProjectSmClass {
         private ProjectSmClass smClass;
 
         @objid ("dde8c122-7c6a-4602-b321-444292d87e2b")
-        public ProjectObjectFactory(ProjectSmClass smClass) {
+        public  ProjectObjectFactory(ProjectSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -212,6 +218,7 @@ public class ProjectSmClass extends AbstractProjectSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ProjectData) data).mModel = values;
+            
         }
 
         @objid ("afa59242-a77e-42c2-875c-2bcaa691ab30")
@@ -221,6 +228,7 @@ public class ProjectSmClass extends AbstractProjectSmClass {
             	this.symetricDep = ((PackageSmClass)this.getTarget()).getRepresentedDep();
             }
             return this.symetricDep;
+            
         }
 
     }

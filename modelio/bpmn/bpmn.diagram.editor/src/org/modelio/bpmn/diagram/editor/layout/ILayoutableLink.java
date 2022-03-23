@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.layout;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -72,22 +71,35 @@ public interface ILayoutableLink {
     double getSlope();
 
     @objid ("89d9a76c-6205-4dd8-8140-ca0f85487ced")
-    enum Shape {
+    public enum Shape {
+        @objid ("cda9827c-c2eb-44c8-9679-2395fcfd68f5")
         HorizontalDirect,
+        @objid ("0da54419-e424-4f94-b0b1-b6b66aea97cf")
         VerticalDirect,
+        @objid ("fc28c05e-dc68-498f-a528-07d8f89b9898")
         HorizontalBridge,
+        @objid ("1e46ab29-a9e9-4661-869f-d21225c15979")
         VerticalBridge,
+        @objid ("a1668701-7c85-4206-afd5-af18dec6cc65")
         VerticalZ,
+        @objid ("2b2c6241-4ba1-47da-923f-c4d71c26f8d1")
         Direct,
+        @objid ("70af7df5-9a88-48e4-bbab-5e276d84db8d")
         Corner;
+
     }
 
     @objid ("75bebaac-9029-4568-a8c7-c055907cfb9b")
-    enum AnchorDirection {
+    public enum AnchorDirection {
+        @objid ("34f74dec-5d7e-48ff-a155-e72e3ae7681b")
         North,
+        @objid ("bd24de54-2780-439f-b64d-f388d8f66263")
         South,
+        @objid ("c1d53687-7721-4220-924a-874f7f27d7c1")
         West,
+        @objid ("030c2dcd-2609-4076-bd87-32e564e8820c")
         East;
+
     }
 
 }

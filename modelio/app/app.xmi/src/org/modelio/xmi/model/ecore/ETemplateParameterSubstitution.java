@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,7 +38,7 @@ public class ETemplateParameterSubstitution extends EElement {
     }
 
     @objid ("1ca3342b-64a1-4a0f-bcb3-1880c3c34417")
-    public ETemplateParameterSubstitution(org.eclipse.uml2.uml.TemplateParameterSubstitution element) {
+    public  ETemplateParameterSubstitution(org.eclipse.uml2.uml.TemplateParameterSubstitution element) {
         super(element);
     }
 
@@ -53,6 +52,7 @@ public class ETemplateParameterSubstitution extends EElement {
         }else{
             objingElt.delete();
         }
+        
     }
 
     @objid ("3c88d005-358f-4f42-a44a-2d80f3c512ed")
@@ -61,6 +61,7 @@ public class ETemplateParameterSubstitution extends EElement {
         setValue(objingElt);
         setActual(objingElt);
         setFormal(objingElt);
+        
     }
 
     @objid ("1b2143bd-9620-4c08-966a-e0f089d109b4")
@@ -72,6 +73,7 @@ public class ETemplateParameterSubstitution extends EElement {
                 ((TemplateParameterSubstitution) objingElt).setFormalParameter((TemplateParameter) objFormal);
             }
         }
+        
     }
 
     @objid ("8498eb67-5757-4d46-b6cc-b70c8c0ce662")
@@ -81,6 +83,7 @@ public class ETemplateParameterSubstitution extends EElement {
         if ((objActual != null) && (objActual instanceof UmlModelElement)){
             ((TemplateParameterSubstitution) objingElt).setActual((UmlModelElement) objActual);
         }
+        
     }
 
     @objid ("4c787212-2a86-420b-bf52-8f5f3a36e753")

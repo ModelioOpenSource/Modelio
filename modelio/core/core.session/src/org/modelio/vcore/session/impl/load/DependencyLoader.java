@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.load;
 
 import java.text.MessageFormat;
@@ -66,7 +65,7 @@ class DependencyLoader {
     private SmObjectImpl obj;
 
     @objid ("fd24579d-5986-11e1-991a-001ec947ccaf")
-    public DependencyLoader() {
+    public  DependencyLoader() {
         this.depCache = new HashMap<>();
     }
 
@@ -80,6 +79,7 @@ class DependencyLoader {
         if (!this.depCache.isEmpty()) {
             this.depCache = new HashMap<>();
         }
+        
     }
 
     @objid ("fd24579a-5986-11e1-991a-001ec947ccaf")
@@ -109,11 +109,11 @@ class DependencyLoader {
         } finally {
             reset();
         }
+        
     }
 
     /**
      * Hook to notify a dependency change.
-     * 
      * @param anObj the modified object
      * @param aDep the modified relation
      * @param value the added value
@@ -125,7 +125,6 @@ class DependencyLoader {
 
     /**
      * Hook to notify a dependency change.
-     * 
      * @param anObj the modified object
      * @param aDep the modified relation
      * @param value the removed value
@@ -137,7 +136,6 @@ class DependencyLoader {
 
     /**
      * Get the current dependencies values
-     * 
      * @return the current dependencies values
      */
     @objid ("0095ff7e-20a4-10be-92d7-001ec947cd2a")
@@ -160,6 +158,7 @@ class DependencyLoader {
                 return Collections.singletonList(value);
             }
         }
+        
     }
 
     @objid ("524c828d-064d-11e2-9eb7-001ec947ccaf")
@@ -177,6 +176,7 @@ class DependencyLoader {
                 Log.trace("   + added: '%s' %s {%s}", GetAbsoluteSymbol.get(value), value.getClassOf().getName(), value.getUuid());
             }
         }
+        
     }
 
     @objid ("fd245792-5986-11e1-991a-001ec947ccaf")
@@ -205,6 +205,7 @@ class DependencyLoader {
         
         // If the dependency is symmetric and have to propagate
         propagateAppendToOpposite(anObj, aDep, value);
+        
     }
 
     @objid ("fd245791-5986-11e1-991a-001ec947ccaf")
@@ -219,6 +220,7 @@ class DependencyLoader {
             // update the symetric dependency
             propagateEraseToOpposite(anObj, aDep, value);
         }
+        
     }
 
     @objid ("526d9dbc-75ee-4461-9436-5af4679503da")
@@ -257,11 +259,11 @@ class DependencyLoader {
             }
             return "(" + obj.getMClass().getName() + ")";
         }
+        
     }
 
     /**
      * Compute an error message telling wich part couldn't be loaded.
-     * 
      * @param destObject the object that couldn't be added
      * @param e the error
      * @return the error message.
@@ -309,6 +311,7 @@ class DependencyLoader {
         if (value.isShell() && this.obj.hasStatus(IRStatus.USERWRITE)) {
             Log.trace("DependencyLoader: Loading %s unresolved reference into %s.%s relation.", getDebugSymbol(value, null), getDebugSymbol(this.obj, null), this.dep.getName());
         }
+        
     }
 
     @objid ("fd24578f-5986-11e1-991a-001ec947ccaf")
@@ -351,6 +354,7 @@ class DependencyLoader {
                 }
             }
         }
+        
     }
 
     @objid ("fd245790-5986-11e1-991a-001ec947ccaf")
@@ -367,6 +371,7 @@ class DependencyLoader {
                 depValErased(value, oppDep, anObj);
             }
         }
+        
     }
 
     /**
@@ -376,6 +381,7 @@ class DependencyLoader {
     private void reset() {
         this.obj = null;
         this.dep = null;
+        
     }
 
     @objid ("5e23d777-afc4-4f07-ab6d-3a4cd52a71a5")
@@ -407,6 +413,7 @@ class DependencyLoader {
                 + "): already loading {"
                 + this.obj.getUuid() + "} " + this.obj.getClassOf().getName()
                 + "." + this.dep);
+        
     }
 
     @objid ("fd245798-5986-11e1-991a-001ec947ccaf")
@@ -428,6 +435,7 @@ class DependencyLoader {
                 throw new RuntimeException(err, e);
             }
         }
+        
     }
 
     @objid ("fd245796-5986-11e1-991a-001ec947ccaf")
@@ -450,6 +458,7 @@ class DependencyLoader {
         } else {
             updateDefaultDependency(currentValues, newValues);
         }
+        
     }
 
     @objid ("4f5efff6-6353-4b02-895d-db50a09bd9a9")
@@ -461,10 +470,11 @@ class DependencyLoader {
         private final ISmObjectData owner;
 
         @objid ("3568d877-401a-4252-afbd-3f64fcc055eb")
-        public CacheKey(ISmObjectData owner, SmDependency orig) {
+        public  CacheKey(ISmObjectData owner, SmDependency orig) {
             super();
             this.orig = orig;
             this.owner = owner;
+            
         }
 
         @objid ("679554fd-c786-44e0-80dd-7a970d68b44f")
@@ -523,7 +533,7 @@ class DependencyLoader {
         private static final Object SYNC = new Object();
 
         @objid ("6bf68b71-4bbe-47ba-af38-a3828082e544")
-        public CachedDep(SmDependency orig) {
+        public  CachedDep(SmDependency orig) {
             this.orig = orig;
             
             init(orig.getName(),
@@ -533,6 +543,7 @@ class DependencyLoader {
                     orig.getMaxCardinality(),
                     orig.getDirectives().toArray(new SmDirective[0]));
             postInit();
+            
         }
 
         @objid ("1b41afe3-d11a-4a31-88de-4529f7e6fe73")
@@ -549,6 +560,7 @@ class DependencyLoader {
                     return false;
                 }
             }
+            
         }
 
         @objid ("2878eec0-8589-42e3-bead-572e316bb585")
@@ -571,6 +583,7 @@ class DependencyLoader {
             } else {
                 return this.orig.getValueAsCollection(object);
             }
+            
         }
 
         @objid ("ede2dd83-710f-4e17-8274-abc275ff1545")
@@ -603,6 +616,7 @@ class DependencyLoader {
                     return this.orig.remove(obj, value);
                 }
             }
+            
         }
 
         @objid ("00bb7d3c-0175-4e76-90de-e9a3a8d0fdb7")
@@ -639,6 +653,7 @@ class DependencyLoader {
                     }
                 }
             }
+            
         }
 
     }

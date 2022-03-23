@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.project.services.createproject;
 
 import java.io.IOException;
@@ -52,6 +51,7 @@ public class ProjectCreator2 implements IProjectCreator2 {
         } else {
             doCreateProject(projectCreator, data, monitor);
         }
+        
     }
 
     @objid ("d1563f4d-8dea-4e0b-968a-da2e964f6770")
@@ -59,6 +59,7 @@ public class ProjectCreator2 implements IProjectCreator2 {
     public void createProject(final IProjectCreationData data, final IProgressMonitor monitor) throws IOException {
         Objects.requireNonNull(data);
         doCreateProject(this.projectCreatorFactory.getProjectCreator(data), data, monitor);
+        
     }
 
     @objid ("8f8c398f-4b25-43c5-8005-76b0eba53c85")
@@ -68,10 +69,11 @@ public class ProjectCreator2 implements IProjectCreator2 {
         final IModelioProgress progress = monitor == null ? null : new ModelioProgressAdapter(monitor);
         projectCreator.createProject(data, getProjectFactoryConfiguration(), progress);
         this.projectServiceAccess.postAsyncEvent(ModelioEvent.WORKSPACE_CONTENTS, this.projectServiceAccess.getWorkspace());
+        
     }
 
     @objid ("267289b1-6d1a-4059-bb11-5121861c787a")
-    public ProjectCreator2(IProjectCreatorFactory projectCreatorFactory) {
+    public  ProjectCreator2(IProjectCreatorFactory projectCreatorFactory) {
         this.projectCreatorFactory = projectCreatorFactory;
     }
 
@@ -81,6 +83,7 @@ public class ProjectCreator2 implements IProjectCreator2 {
         return new GProjectEnvironment().addMetamodelExtensions(env.getActiveMetamodelExtensions())
                 .setModulesCache(this.projectServiceAccess.getEclipseContext().get(IModuleRTCache.class))
                 .setRamcCache(env.getRamcCachePath());
+        
     }
 
     @objid ("f8a9bc2f-ad71-456c-a67d-8661e693f200")

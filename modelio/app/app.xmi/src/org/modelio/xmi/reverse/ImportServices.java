@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.reverse;
 
 import java.io.File;
@@ -142,6 +141,7 @@ public class ImportServices {
         if (partialImportMap.size() != 0) {
             attachExternalElements(visitEcoreModel);
         }
+        
     }
 
     /**
@@ -227,7 +227,6 @@ public class ImportServices {
 
     /**
      * @return false if any errors occurs
-     * 
      * @param resource : the Ecore resource
      * @param progressBar : the progressBar
      * @param shell : the parent Shell
@@ -247,6 +246,7 @@ public class ImportServices {
             }
         
         }
+        
     }
 
     @objid ("a30d057e-ac4d-4783-b9a1-9a28874b4c29")
@@ -267,6 +267,7 @@ public class ImportServices {
             if (elt instanceof org.eclipse.uml2.uml.Namespace)
                 countOwnedElements((org.eclipse.uml2.uml.Namespace) elt);
         }
+        
     }
 
     @objid ("ce85c084-ca87-47d4-8bff-ee6c2e9c6794")
@@ -283,12 +284,12 @@ public class ImportServices {
         
             totalImportMap.put(externalElt, partialImportMap.remove(externalElt));
         }
+        
     }
 
     /**
      * This Method export a given profile in a given Ecore Resource
      * @param root : the root of the export
-     * 
      * @param resource : the Ecore Resource
      * @param progressBar : the progressBar
      * @param shell : the current shell
@@ -415,6 +416,7 @@ public class ImportServices {
             progressBar.addFinalValue();
         
         revProp.clean();
+        
     }
 
     @objid ("3cf1765e-63aa-4aa5-8cfe-9d4004cf51a4")
@@ -424,6 +426,7 @@ public class ImportServices {
         if ((result != null) && (result.getErrors() != null) && (result.getErrors().size() != 0)){
             XMIFileUtils.removeReferences(currentfile.getAbsolutePath(),result.getErrors());
         }
+        
     }
 
     @objid ("b91a9b44-fef8-4131-8ff1-5822664649be")
@@ -605,6 +608,7 @@ public class ImportServices {
                     }
             }
         }
+        
     }
 
     @objid ("1c3328b1-3903-42fb-94e5-b70aade9416e")
@@ -710,6 +714,7 @@ public class ImportServices {
                 e.printStackTrace(System.err);
             }
         }
+        
     }
 
     @objid ("bf52dd5f-619e-4a57-8e05-e4cc99f95a3c")
@@ -746,6 +751,7 @@ public class ImportServices {
         } catch (Exception e) {
             e.printStackTrace(System.err);
         }
+        
     }
 
 }

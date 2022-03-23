@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.ui.browser.handlers;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -61,6 +60,7 @@ public class CreateBpmnFlowElement extends CreateElementHandler {
         } else {
             return super.doCanExecute(owner, metaclass, dependency, stereotype);
         }
+        
     }
 
     @objid ("c0b2c7eb-7f6f-4770-ad77-666dbfbc917c")

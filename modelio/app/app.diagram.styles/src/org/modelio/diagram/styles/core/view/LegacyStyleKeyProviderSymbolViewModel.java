@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.core.view;
 
 import java.util.ArrayList;
@@ -33,6 +32,7 @@ import org.modelio.diagram.styles.core.AbstractStyleKeyProvider;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.NamedStyle;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.view.ISymbolViewItem.Choice;
 import org.modelio.diagram.styles.manager.StyleManager;
 import org.modelio.diagram.styles.plugin.DiagramStyles;
 
@@ -64,30 +64,30 @@ public class LegacyStyleKeyProviderSymbolViewModel implements ISymbolViewModel {
      * Constructor for graphic model style edition.
      * <p>
      * Adds a style chooser at first position.
-     * 
      * @param input the style key provider.
      * @param diagramStyle the diagram style, added as choice in the style chooser combo.
      */
     @objid ("7cf8b9cd-f91e-4ec9-92a7-a6bcca21e990")
-    public LegacyStyleKeyProviderSymbolViewModel(AbstractStyleKeyProvider input, IStyle diagramStyle) {
+    public  LegacyStyleKeyProviderSymbolViewModel(AbstractStyleKeyProvider input, IStyle diagramStyle) {
         this.diagramStyle = diagramStyle;
         this.styleKeys = input.getStyleKeys();
         this.label = input.getStyleKeys().get(0).getCategory();
+        
     }
 
     /**
      * Constructor for Named style edition.
-     * 
      * @param label the root label
      * @param styleKeys all style keys to display
      * @param diagramStyle the diagram style, added as choice in the style chooser combo.
      */
     @objid ("21587e9a-8e37-468e-bcb1-3e76865c9962")
-    public LegacyStyleKeyProviderSymbolViewModel(String label, List<StyleKey> styleKeys, IStyle diagramStyle) {
+    public  LegacyStyleKeyProviderSymbolViewModel(String label, List<StyleKey> styleKeys, IStyle diagramStyle) {
         super();
         this.label = label;
         this.styleKeys = styleKeys;
         this.diagramStyle = diagramStyle;
+        
     }
 
     @objid ("b54fb919-75a7-434c-9ca5-67d6db27de34")
@@ -165,7 +165,7 @@ public class LegacyStyleKeyProviderSymbolViewModel implements ISymbolViewModel {
          * @param diagramStyle the GmXxxDiagram style
          */
         @objid ("be72df27-e611-4cc5-84dc-b827a6eb8837")
-        public ChooseStyleEntry(IStyle diagramStyle) {
+        public  ChooseStyleEntry(IStyle diagramStyle) {
             this.diagramStyle = diagramStyle;
         }
 
@@ -284,7 +284,7 @@ public class LegacyStyleKeyProviderSymbolViewModel implements ISymbolViewModel {
         private final LegacyEntry parent;
 
         @objid ("d114920e-b418-4712-a5b4-4289130dd70b")
-        public LegacyEntry(StyleKey styleKey, String label, LegacyEntry parent) {
+        public  LegacyEntry(StyleKey styleKey, String label, LegacyEntry parent) {
             this.styleKey = styleKey;
             this.label = label;
             this.parent = parent;
@@ -293,6 +293,7 @@ public class LegacyStyleKeyProviderSymbolViewModel implements ISymbolViewModel {
             } else {
                 this.children = Collections.emptyList();
             }
+            
         }
 
         @objid ("7716f741-3b26-424c-98b1-8ec19268aa49")
@@ -374,6 +375,7 @@ public class LegacyStyleKeyProviderSymbolViewModel implements ISymbolViewModel {
             } else {
                 input.setProperty(this.styleKey, newValue);
             }
+            
         }
 
         @objid ("f4ae6b57-1d5e-4e9c-a46f-1dbc0e33959b")
@@ -384,6 +386,7 @@ public class LegacyStyleKeyProviderSymbolViewModel implements ISymbolViewModel {
             } else {
                 return input.getProperty(this.styleKey);
             }
+            
         }
 
         @objid ("ae2031c1-37a7-4a69-a7c9-c9e31a0c7bf9")

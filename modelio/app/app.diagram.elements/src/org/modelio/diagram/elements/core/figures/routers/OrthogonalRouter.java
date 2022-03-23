@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.routers;
 
 import java.util.ArrayList;
@@ -29,16 +28,13 @@ import org.eclipse.draw2d.Bendpoint;
 import org.eclipse.draw2d.BendpointConnectionRouter;
 import org.eclipse.draw2d.Connection;
 import org.eclipse.draw2d.ConnectionAnchor;
-import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.PointList;
 import org.eclipse.draw2d.geometry.PrecisionPoint;
-import org.eclipse.draw2d.geometry.PrecisionRectangle;
-import org.eclipse.draw2d.geometry.Rectangle;
-import org.eclipse.gef.handles.HandleBounds;
 import org.modelio.diagram.elements.core.figures.geometry.Direction;
 import org.modelio.diagram.elements.core.figures.geometry.GeomUtils;
 import org.modelio.diagram.elements.core.figures.geometry.Orientation;
+import org.modelio.diagram.elements.core.link.MPoint;
 
 /**
  * Routes {@link Connection}s through a <code>List</code> of {@link Bendpoint Bendpoints} that make an orthogonal path.
@@ -54,16 +50,19 @@ public class OrthogonalRouter extends BendpointConnectionRouter {
     @objid ("6354815d-1e83-11e2-8cad-001ec947c8cc")
     private static final PrecisionPoint A_POINT = new PrecisionPoint();
 
+    @objid ("00909fef-4c9b-4e4c-afb5-c085425976ed")
+    private static final AnchorBounds anchorBounds = new AnchorBounds();
+
     @objid ("7fb57488-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public void route(Connection connection) {
         PointList newPointList = computePointList(connection);
         connection.setPoints(newPointList);
+        
     }
 
     /**
      * convenience method to get the constraint as a list of bend points.
-     * 
      * @param connection a connection figure
      * @return The list of bend points.
      */
@@ -71,28 +70,6 @@ public class OrthogonalRouter extends BendpointConnectionRouter {
     @SuppressWarnings ("unchecked")
     private List<Bendpoint> getBendpoints(Connection connection) {
         return (List<Bendpoint>) getConstraint(connection);
-    }
-
-    /**
-     * Get the anchor owner (handle)bounds in absolute coordinates. If the anchor is not attached to a figure, returns a
-     * 1x1 sized rectangle located at the anchor reference point.
-     * 
-     * @param anchor The anchor.
-     * @return The anchor owner bounds.
-     */
-    @objid ("7fb5749b-1dec-11e2-8cad-001ec947c8cc")
-    private Rectangle getAnchorOwnerAbsoluteBounds(ConnectionAnchor anchor) {
-        final IFigure f = anchor.getOwner();
-        if (f == null) {
-            Point p = anchor.getReferencePoint();
-            return new Rectangle(p.x, p.y, 1, 1);
-        } else {
-            PrecisionRectangle bounds = new PrecisionRectangle(f instanceof HandleBounds
-                    ? ((HandleBounds) f).getHandleBounds() : f.getBounds());
-            f.translateToAbsolute(bounds);
-        
-            return bounds;
-        }
     }
 
     /**
@@ -116,11 +93,13 @@ public class OrthogonalRouter extends BendpointConnectionRouter {
             allPoints.remove(indexesToRemove.get(i).intValue());
             pointsRemoved = true;
         }
+        
         // 2: allPoints not bending
         indexesToRemove.clear();
         for (int i = 1; i < allPoints.size() - 1; ++i) {
-            if (allPoints.get(i - 1).getLocation().x == allPoints.get(i + 1).getLocation().x ||
-                    allPoints.get(i - 1).getLocation().y == allPoints.get(i + 1).getLocation().y) {
+            Point p1 = allPoints.get(i - 1).getLocation();
+            Point p2 = allPoints.get(i + 1).getLocation();
+            if (p1.x == p2.x || p1.y == p2.y) {
                 indexesToRemove.add(i);
             }
         }
@@ -133,6 +112,7 @@ public class OrthogonalRouter extends BendpointConnectionRouter {
             // Some points were removed, try cleaning the new point list again
             cleanup(allPoints);
         }
+        
     }
 
     @objid ("7fb574ad-1dec-11e2-8cad-001ec947c8cc")
@@ -146,7 +126,8 @@ public class OrthogonalRouter extends BendpointConnectionRouter {
         } else if (fixedPoint.y == nextPoint.y) {
             nextSegmentOrientation = Orientation.HORIZONTAL;
         } else {
-            assert (false) : "impossible to determine orientation of start segment, something is wrong with the provided list of bendpoints!";
+            assert false : String.format("Impossible to determine orientation of start segment [%s ; %s], invalid bendpoints list:%n %s!",
+                    fixedPoint, nextPoint, bendpoints);
         }
         if (sourceAnchorOrientation == Direction.NONE) {
             if (nextSegmentOrientation == Orientation.VERTICAL) {
@@ -175,7 +156,7 @@ public class OrthogonalRouter extends BendpointConnectionRouter {
             }
             fixedPoint.y = sourceLocation.y;
         }
-        AbsoluteBendpoint fixedBendpoint = new AbsoluteBendpoint(fixedPoint);
+        AbsoluteBendpoint fixedBendpoint = new MPoint(fixedPoint, false);
         bendpoints.set(1, fixedBendpoint);
         
         int lastBendpointIndex = bendpoints.size() - 2;
@@ -187,7 +168,7 @@ public class OrthogonalRouter extends BendpointConnectionRouter {
         } else if (fixedPoint.y == nextPoint.y) {
             previousSegmentOrientation = Orientation.HORIZONTAL;
         } else {
-            assert (false) : "impossible to determine orientation of last segment, something is wrong with the provided list of bendpoints!";
+            assert false : "impossible to determine orientation of last segment, something is wrong with the provided list of bendpoints!";
         }
         if (targetAnchorOrientation == Direction.NONE) {
             // Target anchor is not oriented, deduct orientation from previous segment if possible.
@@ -219,8 +200,9 @@ public class OrthogonalRouter extends BendpointConnectionRouter {
             }
             fixedPoint.y = targetLocation.y;
         }
-        fixedBendpoint = new AbsoluteBendpoint(fixedPoint);
+        fixedBendpoint = new MPoint(fixedPoint, false);
         bendpoints.set(lastBendpointIndex, fixedBendpoint);
+        
     }
 
     @objid ("7fb574d7-1dec-11e2-8cad-001ec947c8cc")
@@ -231,15 +213,15 @@ public class OrthogonalRouter extends BendpointConnectionRouter {
                 if (sourceLocation.x != targetLocation.x) {
                     // No luck: not aligned, we need 2 additional bend points.
                     OrthogonalRouter.A_POINT.setLocation(sourceLocation.x, (sourceLocation.y + targetLocation.y) / 2);
-                    allPoints.add(allPoints.size() - 1, new AbsoluteBendpoint(OrthogonalRouter.A_POINT));
+                    allPoints.add(allPoints.size() - 1, new MPoint(OrthogonalRouter.A_POINT, false));
                     OrthogonalRouter.A_POINT.setLocation(targetLocation.x, (sourceLocation.y + targetLocation.y) / 2);
-                    allPoints.add(allPoints.size() - 1, new AbsoluteBendpoint(OrthogonalRouter.A_POINT));
+                    allPoints.add(allPoints.size() - 1, new MPoint(OrthogonalRouter.A_POINT, false));
                 }
                 // else: good luck: both anchors are aligned, nothing to do!
             } else {
                 // We need an additional bend point.
                 OrthogonalRouter.A_POINT.setLocation(sourceLocation.x, targetLocation.y);
-                allPoints.add(allPoints.size() - 1, new AbsoluteBendpoint(OrthogonalRouter.A_POINT));
+                allPoints.add(allPoints.size() - 1, new MPoint(OrthogonalRouter.A_POINT, false));
             }
         } else {
             if (targetAnchorOrientation == Direction.NONE) {
@@ -247,25 +229,26 @@ public class OrthogonalRouter extends BendpointConnectionRouter {
                 if (sourceLocation.y != targetLocation.y) {
                     // No luck, anchors are not aligned, we need a bend point.
                     OrthogonalRouter.A_POINT.setLocation(targetLocation.x, sourceLocation.y);
-                    allPoints.add(allPoints.size() - 1, new AbsoluteBendpoint(OrthogonalRouter.A_POINT));
+                    allPoints.add(allPoints.size() - 1, new MPoint(OrthogonalRouter.A_POINT, false));
                 }
                 // else: good luck, both anchors are aligned, nothing to do!
             } else if (targetAnchorOrientation == Direction.SOUTH ||
                     targetAnchorOrientation == Direction.NORTH) {
                 // We need an additional bend point
                 OrthogonalRouter.A_POINT.setLocation(targetLocation.x, sourceLocation.y);
-                allPoints.add(allPoints.size() - 1, new AbsoluteBendpoint(OrthogonalRouter.A_POINT));
+                allPoints.add(allPoints.size() - 1, new MPoint(OrthogonalRouter.A_POINT, false));
             } else {
                 if (sourceLocation.y != targetLocation.y) {
                     // No luck: not aligned, we need 2 additional bend points.
                     OrthogonalRouter.A_POINT.setLocation((sourceLocation.x + targetLocation.x) / 2, sourceLocation.y);
-                    allPoints.add(allPoints.size() - 1, new AbsoluteBendpoint(OrthogonalRouter.A_POINT));
+                    allPoints.add(allPoints.size() - 1, new MPoint(OrthogonalRouter.A_POINT, false));
                     OrthogonalRouter.A_POINT.setLocation((sourceLocation.x + targetLocation.x) / 2, targetLocation.y);
-                    allPoints.add(allPoints.size() - 1, new AbsoluteBendpoint(OrthogonalRouter.A_POINT));
+                    allPoints.add(allPoints.size() - 1, new MPoint(OrthogonalRouter.A_POINT, false));
                 }
                 // else: good luck: both anchors are aligned, nothing to do!
             }
         }
+        
     }
 
     @objid ("7fb7d6e7-1dec-11e2-8cad-001ec947c8cc")
@@ -279,40 +262,21 @@ public class OrthogonalRouter extends BendpointConnectionRouter {
         // Let's assume the first point is the source anchor reference point (This may be modified later).
         OrthogonalRouter.A_POINT.setLocation(sourceAnchor.getReferencePoint());
         connection.translateToRelative(OrthogonalRouter.A_POINT);
-        allPoints.add(new AbsoluteBendpoint(OrthogonalRouter.A_POINT));
+        allPoints.add(new MPoint(OrthogonalRouter.A_POINT, false));
         // Now assume the given allPoints are good (we'll fix them later if needed)
         for (Bendpoint bendpoint : origBendpoints) {
-            allPoints.add(new AbsoluteBendpoint(bendpoint.getLocation()));
+            allPoints.add(new MPoint(bendpoint.getLocation(), false));
         }
         // End with the target anchor reference point
         OrthogonalRouter.A_POINT.setLocation(targetAnchor.getReferencePoint());
         connection.translateToRelative(OrthogonalRouter.A_POINT);
-        allPoints.add(new AbsoluteBendpoint(OrthogonalRouter.A_POINT));
+        allPoints.add(new MPoint(OrthogonalRouter.A_POINT, false));
         
-        final Rectangle srcBounds = getAnchorOwnerAbsoluteBounds(sourceAnchor).expand(1, 1);
-        connection.translateToRelative(srcBounds);
-        final Rectangle targetBounds = getAnchorOwnerAbsoluteBounds(targetAnchor).expand(1, 1);
-        connection.translateToRelative(targetBounds);
-        
-        // Cleanup some useless points if needed at the beginning
-        boolean sourceContainsTarget = srcBounds.contains(targetBounds);
-        if (!sourceContainsTarget) {
-            // Remove from the beginning of the list all allPoints until the first outside the source bounds.
-            // We want to keep at least 2 points (source and target anchor reference point)
-            while (allPoints.size() > 2 && srcBounds.contains(allPoints.get(1).getLocation())) {
-                allPoints.remove(1);
-            }
-        }
-        
-        // Cleanup some useless points if needed at the end
-        boolean targetContainsSource = targetBounds.contains(srcBounds);
-        if (!targetContainsSource) {
-            // Remove from the end of the list all allPoints until the first outside the target bounds.
-            // We want to keep at least 2 points (source and target anchor reference point)
-            while (allPoints.size() > 2 &&
-                    targetBounds.contains(allPoints.get(allPoints.size() - 2).getLocation())) {
-                allPoints.remove(allPoints.size() - 2);
-            }
+        if (!origBendpoints.isEmpty()) {
+            anchorBounds.fromConnectionAbs(connection)
+            .expand(1)
+            .toRelative(connection)
+            .trimContainedBendPoints(allPoints.subList(1, allPoints.size() - 1), false);
         }
         
         // Now compute the actual location of the source anchor, based on the next bendpoint (might be the target anchor reference point).
@@ -321,7 +285,7 @@ public class OrthogonalRouter extends BendpointConnectionRouter {
         OrthogonalRouter.A_POINT.setLocation(sourceAnchor.getLocation(OrthogonalRouter.A_POINT));
         connection.translateToRelative(OrthogonalRouter.A_POINT);
         // Use that value in the list, instead of the reference point.
-        allPoints.set(0, new AbsoluteBendpoint(OrthogonalRouter.A_POINT));
+        allPoints.set(0, new MPoint(OrthogonalRouter.A_POINT, false));
         
         // Now compute the actual location of the target anchor, based on the previous bendpoint (might be the source anchor location point).
         int index = allPoints.size() - 1;
@@ -330,7 +294,7 @@ public class OrthogonalRouter extends BendpointConnectionRouter {
         OrthogonalRouter.A_POINT.setLocation(targetAnchor.getLocation(OrthogonalRouter.A_POINT));
         connection.translateToRelative(OrthogonalRouter.A_POINT);
         // Use that value in the list, instead of the reference point.
-        allPoints.set(index, new AbsoluteBendpoint(OrthogonalRouter.A_POINT));
+        allPoints.set(index, new MPoint(OrthogonalRouter.A_POINT, false));
         return allPoints;
     }
 
@@ -351,11 +315,11 @@ public class OrthogonalRouter extends BendpointConnectionRouter {
             direction = Direction.NONE;
         }
         fixNoBendpointsLink(allPoints, lastLocation, targetLocation, direction, targetAnchorOrientation);
+        
     }
 
     /**
      * Compute a list of points to use when routing the connection.
-     * 
      * @param connection an orthogonal connection.
      * @return a List of Points
      */
@@ -371,12 +335,10 @@ public class OrthogonalRouter extends BendpointConnectionRouter {
         Point targetLocation = allPoints.get(allPoints.size() - 1).getLocation();
         
         // Now the tricky part: fix the first and last bend points to form an orthogonal path.
-        final Rectangle sourceRelativeBounds = getAnchorOwnerAbsoluteBounds(sourceAnchor).expand(1, 1);
-        connection.translateToRelative(sourceRelativeBounds);
-        final Rectangle targetRelativeBounds = getAnchorOwnerAbsoluteBounds(targetAnchor).expand(1, 1);
-        connection.translateToRelative(targetRelativeBounds);
-        Direction sourceAnchorOrientation = GeomUtils.getDirection(sourceLocation, sourceRelativeBounds);
-        Direction targetAnchorOrientation = GeomUtils.getDirection(targetLocation, targetRelativeBounds);
+        anchorBounds.fromConnectionAbs(connection).expand(1).toRelative(connection);
+        
+        Direction sourceAnchorOrientation = GeomUtils.getDirection(sourceLocation, anchorBounds.source);
+        Direction targetAnchorOrientation = GeomUtils.getDirection(targetLocation, anchorBounds.target);
         
         if (allPoints.size() == 2) {
             fixNoBendpointsLink(allPoints, sourceLocation, targetLocation, sourceAnchorOrientation, targetAnchorOrientation);

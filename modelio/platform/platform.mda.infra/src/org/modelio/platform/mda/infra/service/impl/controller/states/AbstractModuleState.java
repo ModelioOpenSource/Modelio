@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.controller.states;
 
 import java.util.ArrayList;
@@ -51,14 +50,14 @@ public class AbstractModuleState {
      * @param name the state name
      */
     @objid ("abff2224-c0a3-4536-98f0-b35cf0edf994")
-    public AbstractModuleState(IRTModule rtModule, String name) {
+    public  AbstractModuleState(IRTModule rtModule, String name) {
         this.name = name;
         this.rtModule = rtModule;
+        
     }
 
     /**
      * Add features that must be active in this state
-     * 
      * @param pfeatures the features to be active
      */
     @objid ("b8eb8ed2-ed2b-4cde-b19f-5a8fa1e7bc92")
@@ -73,9 +72,8 @@ public class AbstractModuleState {
 
     /**
      * Called when entering state, just before current state is set.
-     * 
      * @param oldState the old state.
-     * @throws org.modelio.api.module.lifecycle.ModuleException if state change is refused and the previous state must be restored.
+     * @throws ModuleException if state change is refused and the previous state must be restored.
      */
     @objid ("75d05c17-fca6-425f-9553-9413e011a93a")
     public void enterState(AbstractModuleState oldState) throws ModuleException {
@@ -84,7 +82,6 @@ public class AbstractModuleState {
 
     /**
      * Called before exiting state.
-     * 
      * @param newState the new state
      */
     @objid ("b6683ac5-c762-40a3-9a46-241cf28bc352")
@@ -95,7 +92,7 @@ public class AbstractModuleState {
     /**
      * @param message a message
      * @return the matching transition
-     * @throws java.lang.IllegalStateException if there is no such transition
+     * @throws IllegalStateException if there is no such transition
      */
     @objid ("19e5f228-1c29-41b1-a66e-90640c741dab")
     public Transition getTransition(Object message) throws IllegalStateException {
@@ -108,7 +105,6 @@ public class AbstractModuleState {
 
     /**
      * Register a transition
-     * 
      * @param t a transition
      */
     @objid ("182185a1-41c8-49e6-b6db-bd01779f05db")

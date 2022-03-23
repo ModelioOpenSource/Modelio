@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.commands;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,7 +35,6 @@ public interface ICreationCommand<T extends IGmLinkable> {
      * <p>
      * This method should be called only once the command has been executed.
      * in the other case the result is not specified.
-     * 
      * @return the created graphic model.
      */
     @objid ("3dbaba78-e52e-450b-8b0f-b6dd15fb4b86")

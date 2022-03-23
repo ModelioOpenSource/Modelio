@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.events;
 
 import java.util.ArrayList;
@@ -30,8 +30,6 @@ import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.bpmn.events.BpmnEventDefinition;
 import org.modelio.metamodel.bpmn.events.BpmnLinkEventDefinition;
-import org.modelio.metamodel.impl.bpmn.events.BpmnEventDefinitionSmClass;
-import org.modelio.metamodel.impl.bpmn.events.BpmnLinkEventDefinitionData;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -53,7 +51,7 @@ public class BpmnLinkEventDefinitionSmClass extends BpmnEventDefinitionSmClass {
     private SmDependency targetDep;
 
     @objid ("288a2943-8c52-4bb9-b99c-81ad474ca6fb")
-    public BpmnLinkEventDefinitionSmClass(ISmMetamodelFragment origin) {
+    public  BpmnLinkEventDefinitionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -61,6 +59,7 @@ public class BpmnLinkEventDefinitionSmClass extends BpmnEventDefinitionSmClass {
     @Override
     public String getName() {
         return "BpmnLinkEventDefinition";
+        
     }
 
     @objid ("dc6089e8-1af3-481f-9008-e60896444054")
@@ -73,18 +72,21 @@ public class BpmnLinkEventDefinitionSmClass extends BpmnEventDefinitionSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnLinkEventDefinition.class;
+        
     }
 
     @objid ("2c46092f-4bd7-4398-b511-c3f70bf6a83e")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("91a95afc-979d-4cef-a5e9-f3da968ee774")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("7e346bfa-126f-42da-8051-7b491e3b6c03")
@@ -104,6 +106,8 @@ public class BpmnLinkEventDefinitionSmClass extends BpmnEventDefinitionSmClass {
         this.targetDep = new TargetSmDependency();
         this.targetDep.init("Target", this, metamodel.getMClass(BpmnLinkEventDefinition.MQNAME), 1, 1 , SmDirective.SMCDPARTOF);
         registerDependency(this.targetDep);
+        
+        
     }
 
     @objid ("94156334-e3d5-45ea-acca-c0e91d104dd6")
@@ -128,7 +132,7 @@ public class BpmnLinkEventDefinitionSmClass extends BpmnEventDefinitionSmClass {
         private BpmnLinkEventDefinitionSmClass smClass;
 
         @objid ("5a1d2eef-afad-41c5-81cf-9a2fc68154e6")
-        public BpmnLinkEventDefinitionObjectFactory(BpmnLinkEventDefinitionSmClass smClass) {
+        public  BpmnLinkEventDefinitionObjectFactory(BpmnLinkEventDefinitionSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -161,6 +165,7 @@ public class BpmnLinkEventDefinitionSmClass extends BpmnEventDefinitionSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnLinkEventDefinitionData) data).mSource = values;
+            
         }
 
         @objid ("b3e47875-1c6d-47a2-b0d6-ac785ea776d0")
@@ -170,6 +175,7 @@ public class BpmnLinkEventDefinitionSmClass extends BpmnEventDefinitionSmClass {
             	this.symetricDep = ((BpmnLinkEventDefinitionSmClass)this.getTarget()).getTargetDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -198,6 +204,7 @@ public class BpmnLinkEventDefinitionSmClass extends BpmnEventDefinitionSmClass {
             	this.symetricDep = ((BpmnLinkEventDefinitionSmClass)this.getTarget()).getSourceDep();
             }
             return this.symetricDep;
+            
         }
 
     }

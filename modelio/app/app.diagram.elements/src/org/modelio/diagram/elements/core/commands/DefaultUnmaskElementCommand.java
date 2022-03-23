@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.commands;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -49,18 +48,18 @@ public class DefaultUnmaskElementCommand extends Command {
 
     /**
      * Constructor.
-     * 
      * @param parentNode The parent node
      * @param toUnmask the element to unmask
      * @param location the location of the element to unmask.
      * @param size the size of the unmasked element.
      */
     @objid ("7f3bdcac-1dec-11e2-8cad-001ec947c8cc")
-    public DefaultUnmaskElementCommand(GmCompositeNode parentNode, MObject toUnmask, Point location, Dimension size) {
+    public  DefaultUnmaskElementCommand(GmCompositeNode parentNode, MObject toUnmask, Point location, Dimension size) {
         this.parentNode = parentNode;
         this.location = location;
         this.size = size;
         this.toUnmask = toUnmask;
+        
     }
 
     @objid ("7f3bdcb7-1dec-11e2-8cad-001ec947c8cc")
@@ -73,6 +72,7 @@ public class DefaultUnmaskElementCommand extends Command {
                 : new Rectangle(this.location, new Dimension(-1, -1));
         
         diagram.unmask(this.parentNode, this.toUnmask, rect);
+        
     }
 
     @objid ("7f3bdcba-1dec-11e2-8cad-001ec947c8cc")

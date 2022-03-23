@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import java.util.List;
@@ -43,7 +42,7 @@ public class EBehavioralFeature extends EFeature {
     }
 
     @objid ("ca7dcf1e-3b9b-4578-8530-af0eb3183640")
-    public EBehavioralFeature(org.eclipse.uml2.uml.BehavioralFeature element) {
+    public  EBehavioralFeature(org.eclipse.uml2.uml.BehavioralFeature element) {
         super(element);
     }
 
@@ -59,6 +58,7 @@ public class EBehavioralFeature extends EFeature {
             setConcurrency((Operation) objingElt);
             setRaisedException((Operation) objingElt);
         }
+        
     }
 
     @objid ("4dbe1760-f743-42f9-88f8-3a4b04140b15")
@@ -94,6 +94,7 @@ public class EBehavioralFeature extends EFeature {
                 }
             }
         }
+        
     }
 
     @objid ("7ce41ee6-22fc-4b9f-8288-0e77a8ddb5a3")
@@ -134,6 +135,7 @@ public class EBehavioralFeature extends EFeature {
         default:
             objingElt.setConcurrency(false);
         }
+        
     }
 
     @objid ("3292b3f6-f0e1-45c7-b450-b93f12b40c01")
@@ -160,6 +162,7 @@ public class EBehavioralFeature extends EFeature {
                 }
             }
         }
+        
     }
 
 }

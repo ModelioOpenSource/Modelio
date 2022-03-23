@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.drawings.line;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -27,8 +26,13 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  */
 @objid ("35a8eedc-89fb-4154-a149-b88d41800935")
 public enum LineDecoration {
+    @objid ("c00de1c5-2689-4511-a987-0cb9e099b541")
     ARROW,
+    @objid ("e8ad1bfe-4a45-45fa-ba5b-3e9c29787442")
     TRIANGLE,
+    @objid ("bbcf4d68-0fc5-4a1f-8e53-fc92104b15b0")
     LOSANGE,
+    @objid ("bad05062-b83f-43ac-927d-5801be23fa6d")
     NONE;
+
 }

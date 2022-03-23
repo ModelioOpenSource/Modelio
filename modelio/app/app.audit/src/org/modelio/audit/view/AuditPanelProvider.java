@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.view;
 
 import java.io.PrintStream;
@@ -58,8 +57,8 @@ import org.modelio.audit.view.dialog.auditEntry.AuditEntryDialog;
 import org.modelio.audit.view.model.AuditElementModel;
 import org.modelio.audit.view.model.AuditRuleModel;
 import org.modelio.audit.view.model.AuditTypeModel;
-import org.modelio.audit.view.providers.AuditProviderFactory.AuditViewMode;
 import org.modelio.audit.view.providers.AuditProviderFactory;
+import org.modelio.audit.view.providers.AuditProviderFactory.AuditViewMode;
 import org.modelio.audit.view.statusbar.StatusBar;
 import org.modelio.metamodel.mmextensions.standard.services.IMModelServices;
 import org.modelio.platform.core.navigate.IModelioNavigationService;
@@ -70,7 +69,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 @objid ("62d0667f-0a56-4df6-91b0-3bfb5195a2f8")
 public class AuditPanelProvider implements IPanelProvider, IAuditListener, IAuditMonitor {
     @objid ("7fb2c34e-5b76-46ab-916e-27f53c94a904")
-     volatile boolean redrawScheduled = false;
+    volatile boolean redrawScheduled = false;
 
     @objid ("2d0198fb-6e14-4171-9f6b-ab2fcdfe711f")
     private MApplication application;
@@ -85,7 +84,7 @@ public class AuditPanelProvider implements IPanelProvider, IAuditListener, IAudi
     private Composite area;
 
     @objid ("1f9b28c8-2fc9-4087-90f2-72789e1a5ce0")
-     TreeViewer auditTable = null;
+    TreeViewer auditTable = null;
 
     @objid ("a10bd229-2bc4-40ae-a060-d9811c12af3a")
     private List<TreeViewerColumn> columns;
@@ -94,7 +93,7 @@ public class AuditPanelProvider implements IPanelProvider, IAuditListener, IAudi
     private String jobId;
 
     @objid ("fa78603f-c9fc-4e62-918b-b9493b9b4440")
-     ICoreSession modelingSession;
+    ICoreSession modelingSession;
 
     @objid ("cf28f2f1-cf87-4845-82ce-d9e22434eb59")
     private IMModelServices modelService;
@@ -103,7 +102,7 @@ public class AuditPanelProvider implements IPanelProvider, IAuditListener, IAudi
     private AuditDiagnostic auditDiagnostic;
 
     @objid ("458d715e-45aa-4969-899a-c2eb271ff9af")
-     StatusBar auditStatus;
+    StatusBar auditStatus;
 
     @objid ("9411252a-40e4-4cc5-bf5a-9caecdc79a7a")
     public IModelioNavigationService navigationService;
@@ -121,7 +120,7 @@ public class AuditPanelProvider implements IPanelProvider, IAuditListener, IAudi
     private List<MObject> scope;
 
     @objid ("89485182-43f9-4265-9401-27972fff1177")
-    public AuditPanelProvider(IAuditService auditService, ICoreSession newModelingSession, IMModelServices newModelService, IModelioNavigationService newNavigationService, MApplication application, EModelService emService) {
+    public  AuditPanelProvider(IAuditService auditService, ICoreSession newModelingSession, IMModelServices newModelService, IModelioNavigationService newNavigationService, MApplication application, EModelService emService) {
         this.modelingSession = newModelingSession;
         this.modelService = newModelService;
         this.navigationService = newNavigationService;
@@ -132,6 +131,7 @@ public class AuditPanelProvider implements IPanelProvider, IAuditListener, IAudi
         
         this.jobId = ALL_JOBS;
         this.columns = new ArrayList<>();
+        
     }
 
     @objid ("ed7e239b-2e76-4505-a921-981c45e8d74f")
@@ -173,6 +173,7 @@ public class AuditPanelProvider implements IPanelProvider, IAuditListener, IAudi
         this.auditDiagnostic.removeAuditListener(this);
         this.auditService.removeAuditMonitor(this);
         this.modelingSession = null;
+        
     }
 
     /**
@@ -192,6 +193,7 @@ public class AuditPanelProvider implements IPanelProvider, IAuditListener, IAudi
                 part.setIconURI("platform:/plugin/org.modelio.audit/" + path);
             }
         }
+        
     }
 
     @objid ("5a8f4d61-4e70-4eb9-9980-deabba7f244c")
@@ -217,6 +219,7 @@ public class AuditPanelProvider implements IPanelProvider, IAuditListener, IAudi
             this.auditService.addAuditMonitor(this);
             this.auditTable.setInput(this.auditDiagnostic);
         }
+        
     }
 
     @objid ("042aadf4-92de-4340-90cd-0f75b70ffe94")
@@ -253,6 +256,7 @@ public class AuditPanelProvider implements IPanelProvider, IAuditListener, IAudi
                 }
             });
         }
+        
     }
 
     @objid ("64014652-828c-4b75-b1c4-abf04a87ec97")
@@ -273,6 +277,7 @@ public class AuditPanelProvider implements IPanelProvider, IAuditListener, IAudi
                 });
             }
         }
+        
     }
 
     @objid ("c6420205-1e5b-433f-acba-5b5e488dafd3")
@@ -375,11 +380,12 @@ public class AuditPanelProvider implements IPanelProvider, IAuditListener, IAudi
                 out.println(formatter.getText(e, entry));
             }
         }
+        
     }
 
-/*
-     * Re-configure the table columns, content and label providers
-     */
+    /*
+         * Re-configure the table columns, content and label providers
+         */
     @objid ("b9c7f5b7-4396-4ede-b74d-7fa2e190c814")
     private void reconfigure() {
         this.auditTable.setContentProvider(getProviderFactory().getContentProvider());
@@ -396,6 +402,7 @@ public class AuditPanelProvider implements IPanelProvider, IAuditListener, IAudi
         refresh(this.auditDiagnostic);
         
         this.auditTable.refresh(true);
+        
     }
 
     @objid ("61b574b0-1c0c-4e3c-bad8-13cd4d23da16")
@@ -407,11 +414,11 @@ public class AuditPanelProvider implements IPanelProvider, IAuditListener, IAudi
         } else {
             return String.format(Audit.I18N.getMessage("Audit.StatusBar.SelectedElements", this.scope.size()));
         }
+        
     }
 
     /**
      * Set the scope of the displayed audit results.
-     * 
      * @param scope the list of elements that are in the scope of the displayed audit. <null> value means no scope ie global audit contents are displayed.
      * @param jobId only contents matching 'jobId' are displayed. Should be null when scope is null.
      */
@@ -426,17 +433,18 @@ public class AuditPanelProvider implements IPanelProvider, IAuditListener, IAudi
         }
         
         reconfigure();
+        
     }
 
     @objid ("5b6f27db-873e-4234-a37f-4138d858167f")
     public void setViewMode(AuditViewMode mode) {
         getProviderFactory().setViewMode(mode);
         reconfigure();
+        
     }
 
     /**
      * Lazy accessor to provider factory.
-     * 
      * @return the initialized provider factory
      */
     @objid ("3e3e017a-d2e7-443d-a2e9-0ab330d09ad9")
@@ -456,7 +464,7 @@ public class AuditPanelProvider implements IPanelProvider, IAuditListener, IAudi
         private IAuditConfigurationPlan auditConfigurationPlan;
 
         @objid ("3ddb8c95-9b4a-434b-a9a0-62b9949f2902")
-        public AuditEntryLineFormatter(IAuditConfigurationPlan auditConfigurationPlan) {
+        public  AuditEntryLineFormatter(IAuditConfigurationPlan auditConfigurationPlan) {
             this.auditConfigurationPlan = auditConfigurationPlan;
         }
 
@@ -484,6 +492,7 @@ public class AuditPanelProvider implements IPanelProvider, IAuditListener, IAudi
                 return String.format("%-8s %-8s %-7s %s %s", timeString, severityString, ruleIdString, elementString, messageString);
             else
                 return String.format("%s", entry.toString());
+            
         }
 
         @objid ("c8028a47-d03f-4149-a1a4-43f126491d7c")

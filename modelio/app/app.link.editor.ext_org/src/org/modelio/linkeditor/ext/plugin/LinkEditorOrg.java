@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.ext.plugin;
 
 import java.util.ResourceBundle;
@@ -65,6 +64,7 @@ public final class LinkEditorOrg implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         LinkEditorOrg.LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), LinkEditorOrg.PLUGIN_ID));
         LinkEditorOrg.I18N = new BundledMessages(LinkEditorOrg.LOG, ResourceBundle.getBundle("linkeditororg"));
+        
     }
 
     @objid ("01bd39fb-2eff-4e29-bcb1-294204b2ced4")

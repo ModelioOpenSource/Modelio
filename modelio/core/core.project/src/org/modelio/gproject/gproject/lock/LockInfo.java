@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.gproject.lock;
 
 import java.text.DateFormat;
@@ -61,23 +60,23 @@ public class LockInfo implements ILockInfo {
      * @param date the lock date
      */
     @objid ("87703fc3-1b21-4208-acf9-3311b6731d3f")
-    public LockInfo(boolean isSelf, String user, String hostName, String jvmIdentifier, Date date) {
+    public  LockInfo(boolean isSelf, String user, String hostName, String jvmIdentifier, Date date) {
         super();
         this.isSelf = isSelf;
         this.user = user;
         this.hostName = hostName;
         this.vmIdentifier = jvmIdentifier;
         this.date = date;
+        
     }
 
     /**
      * Constructor from a {@link Properties}.
-     * 
      * @param p java properties
      * @param thisVmIdentifier this Java virtual machine identifier
      */
     @objid ("9fa84816-5067-4f57-91de-19a65f3712a0")
-    public LockInfo(Properties p, String thisVmIdentifier) {
+    public  LockInfo(Properties p, String thisVmIdentifier) {
         int readV = Integer.parseInt(p.getProperty("version"));
         if (readV > VERSION) {
             Log.warning(new ParseException("Future version "+readV+" of lock informations: "+p.toString(), 0));
@@ -95,6 +94,7 @@ public class LockInfo implements ILockInfo {
         } catch (ParseException e) {
             Log.warning(e);
         }
+        
     }
 
     @objid ("8807fae3-8261-4e39-89d3-9c088afc48b2")
@@ -129,7 +129,6 @@ public class LockInfo implements ILockInfo {
 
     /**
      * Serializes the lock information in a java {@link Properties}.
-     * 
      * @return the saved lock infos.
      */
     @objid ("e7d17c86-ac26-406e-b1f1-ef86dd715028")
@@ -153,6 +152,7 @@ public class LockInfo implements ILockInfo {
     public String toString() {
         return "LockInfo [date=" + this.date + ", hostName=" + this.hostName + ", isSelf=" + this.isSelf + ", user=" + this.user + ", vmIdentifier="
                                 + this.vmIdentifier + "]";
+        
     }
 
     @objid ("19c395e6-169f-4b3e-acf8-bb21286c6aaa")

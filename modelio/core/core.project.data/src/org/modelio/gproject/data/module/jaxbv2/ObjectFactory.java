@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.module.jaxbv2;
 
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
 import javax.xml.namespace.QName;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
  * This object contains factory methods for each
@@ -52,7 +51,8 @@ public class ObjectFactory {
      * Create a new Jxbv2ObjectFactory that can be used to create new Jxbv2instances of schema derived classes for package: org.modelio.gproject.data.module.jaxbv2
      */
     @objid ("01d0e650-b21f-43e4-8f66-7a7df44b85fd")
-    public ObjectFactory() {
+    public  ObjectFactory() {
+        
     }
 
     /**

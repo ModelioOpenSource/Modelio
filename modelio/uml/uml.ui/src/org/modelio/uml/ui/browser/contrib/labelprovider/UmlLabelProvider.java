@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.browser.contrib.labelprovider;
 
 import java.util.List;
 import java.util.Stack;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.LabelProvider;
-import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.jface.viewers.StyledString;
+import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.swt.graphics.Image;
 import org.modelio.metamodel.bpmn.activities.BpmnCallActivity;
 import org.modelio.metamodel.bpmn.flows.BpmnMessage;
@@ -141,7 +140,7 @@ public class UmlLabelProvider extends LabelProvider implements IModelioElementLa
      * Default c'tor.
      */
     @objid ("913792d9-9b96-427c-97db-e74381555f93")
-    public UmlLabelProvider() {
+    public  UmlLabelProvider() {
         this.umlLabelService = new BrowserLabelService();
     }
 
@@ -188,7 +187,6 @@ public class UmlLabelProvider extends LabelProvider implements IModelioElementLa
 
     /**
      * Enable or disable display of feature visibility.
-     * 
      * @param showFeatureVisibility <code>true</code> to enable, <code>false</code> to disable.
      */
     @objid ("815b6533-5514-4850-af5c-30f78ba12775")
@@ -206,7 +204,6 @@ public class UmlLabelProvider extends LabelProvider implements IModelioElementLa
 
     /**
      * Enable or disable display of namespace visibility.
-     * 
      * @param showFeatureVisibility <code>true</code> to enable, <code>false</code> to disable.
      */
     @objid ("973f6fbb-41a2-4b54-a84e-ae595076cdcb")
@@ -238,13 +235,12 @@ public class UmlLabelProvider extends LabelProvider implements IModelioElementLa
         private final Stack<MObject> elementStack;
 
         @objid ("3c2b90de-c749-4695-9254-51a8b2793aa8")
-        public BrowserLabelService() {
+        public  BrowserLabelService() {
             this(new Stack<MObject>());
         }
 
         /**
          * Get the explorer label for the given element.
-         * 
          * @param element The element to get symbol
          * @param featuresVisibility Whether or not to show the visibility in feature's labels.
          * @param namespaceVisibility Whether or not to show the visibility in namespace's labels.
@@ -281,6 +277,7 @@ public class UmlLabelProvider extends LabelProvider implements IModelioElementLa
                 this.showNamespaceVisibility = oldNamespaceVisibility;
                 this.elementStack.pop();
             }
+            
         }
 
         @objid ("2ed8a6ba-2a9d-40f5-ac7c-0e81be1a9069")
@@ -1165,6 +1162,7 @@ public class UmlLabelProvider extends LabelProvider implements IModelioElementLa
             
                 return symbol;
             }
+            
         }
 
         @objid ("75dd74aa-4a68-4548-bd5b-cea434facffa")
@@ -1701,18 +1699,17 @@ public class UmlLabelProvider extends LabelProvider implements IModelioElementLa
 
         /**
          * Initialize the label service.
-         * 
          * @param elementStack a stack to use for recursive calls.
          */
         @objid ("d6e66939-b8e4-466b-9fa0-7d433f498493")
-        BrowserLabelService(final Stack<MObject> elementStack) {
+         BrowserLabelService(final Stack<MObject> elementStack) {
             super();
             this.elementStack = elementStack;
+            
         }
 
         /**
          * Append <code>"(from xxxx)"</code> to the symbol
-         * 
          * @param symbol the symbol to modify
          * @param srcObj the source object, used to compute the style of <code>'xxxx'</code>
          * @param owner the object to display in <code>'xxxx'</code>
@@ -1727,6 +1724,7 @@ public class UmlLabelProvider extends LabelProvider implements IModelioElementLa
                 symbol.append(owner.getName(), ElementStyler.getStyler(srcObj, owner));
                 symbol.append(")", styler);
             }
+            
         }
 
         @objid ("01d4174c-eaaf-424b-955c-32bc911e8f4e")
@@ -1955,6 +1953,7 @@ public class UmlLabelProvider extends LabelProvider implements IModelioElementLa
             default:
                 return "";
             }
+            
         }
 
         @objid ("0466abdb-d63c-4842-a811-54d0a160398a")

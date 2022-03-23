@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.shallowhistory;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,34 +31,34 @@ import org.modelio.uml.statediagram.editor.style.StateAbstractStyleKeyProvider;
 @objid ("f574b976-55b6-11e2-877f-002564c97630")
 public class GmShallowHistoryStructuredStyleKeys extends StateAbstractStyleKeyProvider {
     @objid ("818420bb-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("SHALLOWHISTORY_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("SHALLOWHISTORY_REPMODE", MetaKey.REPMODE);
 
     @objid ("818447ca-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("SHALLOWHISTORY_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("SHALLOWHISTORY_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("818447cc-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("SHALLOWHISTORY_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("SHALLOWHISTORY_FILLMODE", MetaKey.FILLMODE);
 
     @objid ("818447ce-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("SHALLOWHISTORY_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("SHALLOWHISTORY_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("81846eda-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("SHALLOWHISTORY_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("SHALLOWHISTORY_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("81846edc-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("SHALLOWHISTORY_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("SHALLOWHISTORY_FONT", MetaKey.FONT);
 
     @objid ("818495e9-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("SHALLOWHISTORY_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("SHALLOWHISTORY_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("818495eb-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("SHALLOWHISTORY_SHOWSTEREOTYPES",
-                                                           MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("SHALLOWHISTORY_SHOWSTEREOTYPES",
+                                                                   MetaKey.SHOWSTEREOTYPES);
 
     @objid ("8184bcf9-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("SHALLOWHISTORY_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("SHALLOWHISTORY_SHOWTAGS", MetaKey.SHOWTAGS);
 
     @objid ("8184bcfb-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWLABEL = createStyleKey("SHALLOWHISTORY_SHOWLABEL", MetaKey.SHOWLABEL);
+    static final StyleKey SHOWLABEL = createStyleKey("SHALLOWHISTORY_SHOWLABEL", MetaKey.SHOWLABEL);
 
 }

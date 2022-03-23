@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.panel.model;
 
 import java.beans.PropertyChangeEvent;
@@ -54,7 +53,8 @@ public class BackgroundModel extends CompoundDirectedGraph {
      * C'tor.
      */
     @objid ("1b8ee014-5e33-11e2-b81d-002564c97630")
-    public BackgroundModel() {
+    public  BackgroundModel() {
+        
     }
 
     @objid ("1b8ee017-5e33-11e2-b81d-002564c97630")
@@ -67,6 +67,7 @@ public class BackgroundModel extends CompoundDirectedGraph {
         // Making sure a listener is only added once.
         this.listeners.removePropertyChangeListener(listener);
         this.listeners.addPropertyChangeListener(listener);
+        
     }
 
     @objid ("1b8ee01d-5e33-11e2-b81d-002564c97630")
@@ -76,7 +77,6 @@ public class BackgroundModel extends CompoundDirectedGraph {
 
     /**
      * Adds the given node to the graph. Does not add its incoming and outgoing edges.
-     * 
      * @param node the node to add to the graph.
      */
     @objid ("1b8ee021-5e33-11e2-b81d-002564c97630")
@@ -84,11 +84,11 @@ public class BackgroundModel extends CompoundDirectedGraph {
         // Make sure a node is not twice in the list.
         this.nodes.remove(node);
         this.nodes.add(node);
+        
     }
 
     /**
      * Adds the given edge to the graph. Does not add its source and target nodes NOR its virtual nodes (if any).
-     * 
      * @param edge the edge to add to the graph.
      */
     @objid ("1b8ee031-5e33-11e2-b81d-002564c97630")
@@ -96,6 +96,7 @@ public class BackgroundModel extends CompoundDirectedGraph {
         // Make sure the edge is not twice in the list.
         this.edges.remove(edge);
         this.edges.add(edge);
+        
     }
 
     @objid ("1b8ee041-5e33-11e2-b81d-002564c97630")
@@ -118,12 +119,14 @@ public class BackgroundModel extends CompoundDirectedGraph {
         this.config = config;
         
         rebuild();
+        
     }
 
     @objid ("ff058861-250c-457a-813d-0c48d1a0fc89")
     public void setInput(final MObject element) {
         this.input = element;
         rebuild();
+        
     }
 
     @objid ("c483f8cb-a596-45e9-8334-c3f68d8dd1e6")
@@ -145,6 +148,7 @@ public class BackgroundModel extends CompoundDirectedGraph {
         } else {
             setCenter(null);
         }
+        
     }
 
 }

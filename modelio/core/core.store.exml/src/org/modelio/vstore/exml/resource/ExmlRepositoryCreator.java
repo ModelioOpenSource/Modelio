@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.resource;
 
 import java.io.IOException;
@@ -43,16 +42,16 @@ class ExmlRepositoryCreator {
     private final Path repositoryPath;
 
     @objid ("03bd06db-6132-11e1-a535-001ec947ccaf")
-    public ExmlRepositoryCreator(Path repositoryPath, final IExmlRepositoryGeometry geometry, MMetamodel metamodel) {
+    public  ExmlRepositoryCreator(Path repositoryPath, final IExmlRepositoryGeometry geometry, MMetamodel metamodel) {
         this.repositoryPath = Objects.requireNonNull(repositoryPath);
         this.geometry = Objects.requireNonNull(geometry);
         this.metamodel = Objects.requireNonNull(metamodel);
+        
     }
 
     /**
      * Create the repository directory structure in the given directory
-     * 
-     * @throws java.io.IOException in case of error creating the repository structure.
+     * @throws IOException in case of error creating the repository structure.
      */
     @objid ("03fb0397-6132-11e1-a535-001ec947ccaf")
     public void createRepositoryStructure() throws IOException {
@@ -63,12 +62,12 @@ class ExmlRepositoryCreator {
         
         // Create index directory.
         Files.createDirectories(this.repositoryPath.resolve(IExmlRepositoryGeometry.INDEX_DIRNAME));
+        
     }
 
     /**
      * Delete the repository
-     * 
-     * @throws java.io.IOException in case of failure
+     * @throws IOException in case of failure
      */
     @objid ("03ffc844-6132-11e1-a535-001ec947ccaf")
     public void delete() throws IOException {

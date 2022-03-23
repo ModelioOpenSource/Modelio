@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.naryassoc;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -53,7 +52,7 @@ public class NAssocEndLinkEditPart extends LinkEditPart {
 
     @objid ("9b4c6b55-74e6-4c1f-af3a-ef0713dbeffd")
     private static final PointList NAVIG_AGGREG_TIP = new PointList(new int[] { -1, 1, 0, 0, -1, -1, -2, 0,
-            -3, -1, -2, 0, -3, 1, -2, 0 });
+                -3, -1, -2, 0, -3, 1, -2, 0 });
 
     @objid ("35c9892c-55b7-11e2-877f-002564c97630")
     @Override
@@ -70,6 +69,7 @@ public class NAssocEndLinkEditPart extends LinkEditPart {
         }
         
         refreshDecorationsFromStyle((LinkFigure) aFigure, style);
+        
     }
 
     @objid ("35c98933-55b7-11e2-877f-002564c97630")
@@ -83,6 +83,7 @@ public class NAssocEndLinkEditPart extends LinkEditPart {
         createDecorations(connection);
         
         refreshDecorationsFromStyle(connection, getModelStyle());
+        
     }
 
     @objid ("35c98936-55b7-11e2-877f-002564c97630")
@@ -91,6 +92,7 @@ public class NAssocEndLinkEditPart extends LinkEditPart {
         
         deco = createDecoration(false);
         connection.setTargetDecoration(deco);
+        
     }
 
     @objid ("35c9893a-55b7-11e2-877f-002564c97630")
@@ -106,6 +108,7 @@ public class NAssocEndLinkEditPart extends LinkEditPart {
         } else {
             return null;
         }
+        
     }
 
     @objid ("35cb0f9d-55b7-11e2-877f-002564c97630")
@@ -146,6 +149,7 @@ public class NAssocEndLinkEditPart extends LinkEditPart {
             pennable.setLinePattern(linePattern);
             pennable.setLineWidth(lineWidth);
         }
+        
     }
 
     @objid ("35cb0fa5-55b7-11e2-877f-002564c97630")
@@ -155,6 +159,7 @@ public class NAssocEndLinkEditPart extends LinkEditPart {
         
         installEditPolicy("CreateInfoFlow", new DefaultCreateInfoFlowOnLinkEditPolicy());
         removeEditPolicy("rake");
+        
     }
 
 }

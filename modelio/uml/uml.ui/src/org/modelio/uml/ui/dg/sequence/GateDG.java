@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.sequence;
 
 import java.util.Collections;
@@ -39,7 +38,7 @@ public class GateDG extends PortContainerDG {
      * @param node The gm node represented by this class.
      */
     @objid ("b95bc7b8-722d-4e2f-bf5f-9dfe4a083b53")
-    public GateDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  GateDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 

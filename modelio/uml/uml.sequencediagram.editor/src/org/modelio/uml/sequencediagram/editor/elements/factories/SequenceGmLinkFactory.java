@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.factories;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -115,7 +114,7 @@ public final class SequenceGmLinkFactory implements IGmLinkFactory {
         private IGmDiagram diagram;
 
         @objid ("d9884966-55b6-11e2-877f-002564c97630")
-        public ImplVisitor(final IGmDiagram diagram) {
+        public  ImplVisitor(final IGmDiagram diagram) {
             this.diagram = diagram;
         }
 

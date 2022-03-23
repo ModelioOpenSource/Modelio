@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.commands;
 
 import java.util.Map;
@@ -48,7 +47,7 @@ import org.modelio.vcore.smkernel.meta.SmMetamodel;
 @objid ("7f47c89f-1dec-11e2-8cad-001ec947c8cc")
 public class SimpleModeDeferredGroupCommand extends Command {
     @objid ("7f47c8a7-1dec-11e2-8cad-001ec947c8cc")
-    private Map<?,?> editPartRegistry;
+    private Map<?, ?> editPartRegistry;
 
     @objid ("7f47c8a6-1dec-11e2-8cad-001ec947c8cc")
     private GmCompositeNode gmComposite;
@@ -58,15 +57,15 @@ public class SimpleModeDeferredGroupCommand extends Command {
 
     /**
      * Create a deferred command.
-     * 
      * @param req The creation request.
      * @param sender The edit part sending the request
      */
     @objid ("7f47c8ab-1dec-11e2-8cad-001ec947c8cc")
-    public SimpleModeDeferredGroupCommand(GroupRequest req, EditPart sender) {
+    public  SimpleModeDeferredGroupCommand(GroupRequest req, EditPart sender) {
         this.req = req;
         this.gmComposite = (GmCompositeNode) sender.getModel();
         this.editPartRegistry = sender.getViewer().getEditPartRegistry();
+        
     }
 
     @objid ("7f4a2ab3-1dec-11e2-8cad-001ec947c8cc")
@@ -108,12 +107,12 @@ public class SimpleModeDeferredGroupCommand extends Command {
             final EditPart p = (EditPart) this.editPartRegistry.get(gmTarget);
             autoSizeNode(p);
         }
+        
     }
 
     /**
      * Get the node model where all the request must be handled or <tt>null</tt> if the request cannot be executed in a single node
      * (the selection is not homogeneous).
-     * 
      * @return the node model where the request must be handled.
      */
     @objid ("7f4a2abb-1dec-11e2-8cad-001ec947c8cc")
@@ -195,6 +194,7 @@ public class SimpleModeDeferredGroupCommand extends Command {
             // Run fit to content to the found edit part.
             new FitToMinSizeCommand(graphicEditPart).execute();
         }
+        
     }
 
 }

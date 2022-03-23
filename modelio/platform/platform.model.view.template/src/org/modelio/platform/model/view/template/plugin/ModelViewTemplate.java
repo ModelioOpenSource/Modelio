@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.view.template.plugin;
 
 import java.util.ResourceBundle;
@@ -63,6 +62,7 @@ public class ModelViewTemplate implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), PLUGIN_ID));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("modelviewtemplate"));
+        
     }
 
     @objid ("3f134164-21f5-48c2-9896-d2f418fe0712")

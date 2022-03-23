@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.participant;
 
 import java.util.Objects;
@@ -29,8 +28,8 @@ import org.eclipse.swt.widgets.Display;
 import org.modelio.api.module.mda.IMdaExpert;
 import org.modelio.bpmn.diagram.editor.plugin.DiagramEditorBpmn;
 import org.modelio.diagram.elements.core.model.GmModel;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.policies.DefaultElementDropEditPolicy;
 import org.modelio.diagram.elements.core.requests.ModelElementDropRequest;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnCollaboration;
@@ -106,6 +105,7 @@ public class BpmnParticipantElementDropEditPolicy extends DefaultElementDropEdit
         IModelManager modelManager = gmDiagram.getModelManager();
         return BpmnParticipantElementDropEditPolicy.isMethodologicalLinkTarget(droppedElement, Represents.MdaTypes.STEREOTYPE_ELT, modelManager)
                 || BpmnParticipantElementDropEditPolicy.isMethodologicalLinkTarget(droppedElement, Reference.MdaTypes.STEREOTYPE_ELT, modelManager);
+        
     }
 
     @objid ("9cfd9def-b0e0-416d-8201-8ea9b2a81d0b")
@@ -134,15 +134,15 @@ public class BpmnParticipantElementDropEditPolicy extends DefaultElementDropEdit
 
         /**
          * Constructor to type the element.
-         * 
          * @param elementToType the element to type.
          * @param newType the type to use.
          */
         @objid ("2bf7965e-4f87-41db-bc0e-9dced6f3b49b")
-        public SmartTypeBpmnParticipantCommand(final BpmnParticipant elementToType, final ModelElement newType, final IModelManager modelManager) {
+        public  SmartTypeBpmnParticipantCommand(final BpmnParticipant elementToType, final ModelElement newType, final IModelManager modelManager) {
             this.elementToType = elementToType;
             this.newType = newType;
             this.modelManager = modelManager;
+            
         }
 
         @objid ("76d06edb-cae3-472c-8c99-5dd558b09d28")
@@ -158,6 +158,7 @@ public class BpmnParticipantElementDropEditPolicy extends DefaultElementDropEdit
             if (isChangeConfirmed()) {
                 changeType();
             }
+            
         }
 
         @objid ("80168013-f8da-4f35-a481-d825609b2e7c")
@@ -230,6 +231,7 @@ public class BpmnParticipantElementDropEditPolicy extends DefaultElementDropEdit
                 Reference.setTarget(this.elementToType, this.newType);
                 this.elementToType.setProcess(null);
             }
+            
         }
 
         @objid ("8dcc293a-fc71-43c3-bf13-57c96346c910")

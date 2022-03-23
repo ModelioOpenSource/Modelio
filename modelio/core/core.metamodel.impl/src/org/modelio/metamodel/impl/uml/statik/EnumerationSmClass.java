@@ -17,20 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.statik.EnumerationData;
-import org.modelio.metamodel.impl.uml.statik.EnumerationLiteralSmClass;
-import org.modelio.metamodel.impl.uml.statik.GeneralClassSmClass;
 import org.modelio.metamodel.uml.statik.Enumeration;
 import org.modelio.metamodel.uml.statik.EnumerationLiteral;
 import org.modelio.metamodel.uml.statik.GeneralClass;
@@ -51,7 +48,7 @@ public class EnumerationSmClass extends GeneralClassSmClass {
     private SmDependency valueDep;
 
     @objid ("e046e931-d82d-4cd9-ac65-90d2e95337de")
-    public EnumerationSmClass(ISmMetamodelFragment origin) {
+    public  EnumerationSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -59,6 +56,7 @@ public class EnumerationSmClass extends GeneralClassSmClass {
     @Override
     public String getName() {
         return "Enumeration";
+        
     }
 
     @objid ("1460dc89-1468-4e7f-883a-b5059b9f959d")
@@ -71,18 +69,21 @@ public class EnumerationSmClass extends GeneralClassSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Enumeration.class;
+        
     }
 
     @objid ("e8e41722-0e5f-4952-8039-6153e48341c8")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("ce2421ac-5fdb-4fcc-8739-4ee69e75f4c8")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("dfce23ed-a7bc-4285-a56f-872cae981df6")
@@ -98,6 +99,8 @@ public class EnumerationSmClass extends GeneralClassSmClass {
         this.valueDep = new ValueSmDependency();
         this.valueDep.init("Value", this, metamodel.getMClass(EnumerationLiteral.MQNAME), 0, -1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.valueDep);
+        
+        
     }
 
     @objid ("6dd9b59d-3c1b-46eb-976a-c13029303cf9")
@@ -114,7 +117,7 @@ public class EnumerationSmClass extends GeneralClassSmClass {
         private EnumerationSmClass smClass;
 
         @objid ("acc97915-f5ac-4001-a485-0407e4600f44")
-        public EnumerationObjectFactory(EnumerationSmClass smClass) {
+        public  EnumerationObjectFactory(EnumerationSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -147,6 +150,7 @@ public class EnumerationSmClass extends GeneralClassSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((EnumerationData) data).mValue = values;
+            
         }
 
         @objid ("e3d27941-f5d9-414b-a24c-f6d083e549b9")
@@ -156,6 +160,7 @@ public class EnumerationSmClass extends GeneralClassSmClass {
             	this.symetricDep = ((EnumerationLiteralSmClass)this.getTarget()).getValuatedDep();
             }
             return this.symetricDep;
+            
         }
 
     }

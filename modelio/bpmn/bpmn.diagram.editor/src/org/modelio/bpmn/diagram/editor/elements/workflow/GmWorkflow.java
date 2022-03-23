@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.workflow;
 
 import java.util.List;
@@ -91,17 +90,17 @@ public class GmWorkflow extends GmBodyFreeZone {
      */
     @objid ("14c96ebe-48ec-4ae5-a1ce-582f9a2b1648")
     public static final Predicate<GmNodeModel> REMOVE_ANNOTATIONS = gm -> {
-        Class<? extends MObject> type = gm.getRelatedMClass().getJavaInterface();
-        return Note.class.isAssignableFrom(type)
-                || AbstractResource.class.isAssignableFrom(type);
-    };
+            Class<? extends MObject> type = gm.getRelatedMClass().getJavaInterface();
+            return Note.class.isAssignableFrom(type)
+                    || AbstractResource.class.isAssignableFrom(type);
+        };
 
     /**
      * @param diagram the diagram in which this workflow is used.
      * @param relatedRef ref
      */
     @objid ("61a9dd83-94a1-4a83-85c8-52008182a7b2")
-    public GmWorkflow(IGmDiagram diagram, MRef relatedRef) {
+    public  GmWorkflow(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -109,7 +108,7 @@ public class GmWorkflow extends GmBodyFreeZone {
      * Empty constructor needed for serialisation.
      */
     @objid ("4a84789b-ca11-4c57-a99d-2e08917af467")
-    public GmWorkflow() {
+    public  GmWorkflow() {
         // Nothing to do.
     }
 
@@ -125,6 +124,7 @@ public class GmWorkflow extends GmBodyFreeZone {
             child.setRoleInComposition(GmWorkflow.OWNED_NODE);
             super.addChild(child);
         }
+        
     }
 
     @objid ("089a308b-5c8a-429d-9aa9-67de5c7797e5")
@@ -220,6 +220,7 @@ public class GmWorkflow extends GmBodyFreeZone {
             read_0(in);
             break;
         }
+        
     }
 
     @objid ("22572272-8266-4d24-b298-13c1dedcdb53")
@@ -236,6 +237,7 @@ public class GmWorkflow extends GmBodyFreeZone {
         
         // Ask the edit part to refresh the model.
         firePropertyChange(GmModel.PROP_REFRESH_FROM_OBMODEL, null, this);
+        
     }
 
     @objid ("98b11b5d-3d0a-46df-8501-e83ade7c0bed")
@@ -245,6 +247,7 @@ public class GmWorkflow extends GmBodyFreeZone {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, GmWorkflow.MINOR_PREFIX, GmWorkflow.MINOR_VERSION);
+        
     }
 
     @objid ("22cc3fc8-fa63-46f6-81b3-afc911b0d8fa")
@@ -258,6 +261,7 @@ public class GmWorkflow extends GmBodyFreeZone {
             }
             super.doSetVisible(visible);
         }
+        
     }
 
     @objid ("59299a81-0cfb-440b-b633-ed3bebdecb63")
@@ -282,6 +286,7 @@ public class GmWorkflow extends GmBodyFreeZone {
         } else {
             return false;
         }
+        
     }
 
     /**
@@ -296,6 +301,7 @@ public class GmWorkflow extends GmBodyFreeZone {
         } else {
             return isInWorkflow(elt.getCompositionOwner());
         }
+        
     }
 
     @objid ("a84da23b-c5e7-4258-a43c-c79951d9dbcb")
@@ -305,7 +311,6 @@ public class GmWorkflow extends GmBodyFreeZone {
 
     /**
      * Tells whether this workflow is embedded and contains Lanes.
-     * 
      * @return true if this workflow is embedded and contains Lanes.
      */
     @objid ("c213ebd5-42e5-4f4e-b4f9-33915c603b39")
@@ -353,6 +358,7 @@ public class GmWorkflow extends GmBodyFreeZone {
             // Right now, not sure what to decide here...
             return true;
         }
+        
     }
 
     @objid ("7519aec5-d056-46f3-8e96-abbbd728ce63")
@@ -364,6 +370,7 @@ public class GmWorkflow extends GmBodyFreeZone {
         } else {
             return ls.getSubProcess();
         }
+        
     }
 
     @objid ("24b34ebf-a18a-440c-b67f-ec1b331e8378")
@@ -384,7 +391,6 @@ public class GmWorkflow extends GmBodyFreeZone {
     /**
      * Add a filter that removes graphic nodes from the visible children.
      * @see #REMOVE_ANNOTATIONS
-     * 
      * @param filter a predicates that returns true to hide a child node. null to disable filtering.
      */
     @objid ("a1ef7fbb-6255-4d3f-b00f-1195eddef17f")
@@ -393,6 +399,7 @@ public class GmWorkflow extends GmBodyFreeZone {
             this.hideChildrenFilter = filter;
             firePropertyChange(IGmObject.PROPERTY_CHILDREN, null, null);
         }
+        
     }
 
 }

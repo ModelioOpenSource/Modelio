@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.templateparameter;
 
 import java.util.Collections;
@@ -35,7 +34,6 @@ import org.modelio.metamodel.uml.statik.Class;
 import org.modelio.metamodel.uml.statik.Generalization;
 import org.modelio.metamodel.uml.statik.NameSpace;
 import org.modelio.metamodel.uml.statik.TemplateParameter;
-import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
 
 /**
@@ -57,15 +55,15 @@ public class GmTemplateSignature extends GmDefaultModelElementLabel {
 
     /**
      * Initializes a model element header.
-     * 
      * @param diagram the owning diagram.
      * @param related the related namespace, may be null.
      * @param relatedRef a reference to the element this GmModel is related to.
      */
     @objid ("36e6dfe6-55b7-11e2-877f-002564c97630")
-    public GmTemplateSignature(final IGmDiagram diagram, final NameSpace related, final MRef relatedRef) {
+    public  GmTemplateSignature(final IGmDiagram diagram, final NameSpace related, final MRef relatedRef) {
         super(diagram, relatedRef);
         this.related = related;
+        
     }
 
     /**
@@ -74,7 +72,7 @@ public class GmTemplateSignature extends GmDefaultModelElementLabel {
      * Use {@link #GmTemplateSignature(GmAbstractDiagram, NameSpace, MRef)} for regular instantiation.
      */
     @objid ("36e6dff5-55b7-11e2-877f-002564c97630")
-    public GmTemplateSignature() {
+    public  GmTemplateSignature() {
         super();
     }
 
@@ -120,7 +118,6 @@ public class GmTemplateSignature extends GmDefaultModelElementLabel {
 
     /**
      * Compute label of the given template parameter and add it to the given string builder.
-     * 
      * @param t the template parameter
      * @param s the string builder
      */
@@ -153,6 +150,7 @@ public class GmTemplateSignature extends GmDefaultModelElementLabel {
                 s.append(t.getDefaultValue());
             }
         }
+        
     }
 
     @objid ("36e866b1-55b7-11e2-877f-002564c97630")
@@ -181,11 +179,11 @@ public class GmTemplateSignature extends GmDefaultModelElementLabel {
             s.append(" = ");
             s.append(t.getDefaultValue());
         }
+        
     }
 
     /**
      * Compute label of the given template parameter and add it to the given string builder.
-     * 
      * @param t the template parameter
      * @param s the string builder
      */
@@ -200,6 +198,7 @@ public class GmTemplateSignature extends GmDefaultModelElementLabel {
             s.append("=");
             s.append(t.getDefaultValue());
         }
+        
     }
 
     @objid ("36e9ed24-55b7-11e2-877f-002564c97630")
@@ -219,19 +218,7 @@ public class GmTemplateSignature extends GmDefaultModelElementLabel {
                 break;
             }
         }
-    }
-
-    /**
-     * Refresh the signature if template parameters are added.
-     */
-    @objid ("36e9ed2b-55b7-11e2-877f-002564c97630")
-    @Override
-    public void obElementAdded(final MObject addedEl) {
-        if (addedEl instanceof TemplateParameter) {
-            refreshFromObModel();
-        } else {
-            super.obElementAdded(addedEl);
-        }
+        
     }
 
     @objid ("36e9ed33-55b7-11e2-877f-002564c97630")
@@ -241,12 +228,14 @@ public class GmTemplateSignature extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmTemplateSignature.", GmTemplateSignature.MINOR_VERSION);
+        
     }
 
     @objid ("36e9ed39-55b7-11e2-877f-002564c97630")
     private void read_0(final IDiagramReader in) {
         super.read(in);
         this.related = (NameSpace) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("36e9ed3f-55b7-11e2-877f-002564c97630")

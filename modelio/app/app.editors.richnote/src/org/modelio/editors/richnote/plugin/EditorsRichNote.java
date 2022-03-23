@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.plugin;
 
 import java.util.ResourceBundle;
@@ -67,6 +66,7 @@ public class EditorsRichNote implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), PLUGIN_ID));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("editors_richnote"));
+        
     }
 
     @objid ("0456aa9f-7c86-4609-a599-82e9df6e7ed3")
@@ -86,7 +86,6 @@ public class EditorsRichNote implements BundleActivator {
     /**
      * Returns an image descriptor for the image file at the given plug-in
      * relative path
-     * 
      * @param path the path
      * @return the image descriptor
      */

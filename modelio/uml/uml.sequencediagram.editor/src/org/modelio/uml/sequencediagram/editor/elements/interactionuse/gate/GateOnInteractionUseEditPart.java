@@ -17,16 +17,23 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.interactionuse.gate;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.IFigure;
+import org.eclipse.gef.EditPart;
+import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.commands.Command;
+import org.eclipse.gef.editpolicies.SelectionEditPolicy;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
+import org.modelio.diagram.elements.common.portcontainer.AutoSizeEditPolicy2;
+import org.modelio.diagram.elements.common.portcontainer.LayoutMainNodeConnectionsEditPolicy;
 import org.modelio.diagram.elements.common.portcontainer.PortContainerEditPart;
+import org.modelio.diagram.elements.common.portcontainer.PortContainerEditPolicy;
+import org.modelio.diagram.elements.core.policies.LayoutConnectionsConstrainedLayoutEditPolicyDecorator;
+import org.modelio.diagram.elements.core.policies.LayoutNodeConnectionsEditPolicy;
 import org.modelio.metamodel.uml.behavior.interactionModel.Gate;
 
 /**
@@ -60,6 +67,35 @@ public class GateOnInteractionUseEditPart extends PortContainerEditPart {
             command = updateModelCommand.chain(command);
         }
         return command;
+    }
+
+    @objid ("705b9199-4325-49b4-a8d8-860695273555")
+    @Override
+    protected void createEditPolicies() {
+        super.createEditPolicies();
+        removeEditPolicy(LayoutMainNodeConnectionsEditPolicy.ROLE);
+        
+    }
+
+    @objid ("a29e29ce-177e-4d66-ba19-f6c93b5e0a10")
+    @Override
+    public SelectionEditPolicy getPreferredDragRolePolicy(String requestType) {
+        return new AutoSizeEditPolicy2() {
+            @Override
+            public void activate() {
+                super.activate();
+        
+                EditPart host = getHost();
+                host.removeEditPolicy(LayoutNodeConnectionsEditPolicy.ROLE);
+            }
+        };
+        
+    }
+
+    @objid ("e802b362-026b-448e-b6f7-a010ac6b878b")
+    @Override
+    protected EditPolicy createLayoutPolicyDecorator(EditPolicy layoutPolicy) {
+        return new LayoutConnectionsConstrainedLayoutEditPolicyDecorator((PortContainerEditPolicy) layoutPolicy);
     }
 
 }

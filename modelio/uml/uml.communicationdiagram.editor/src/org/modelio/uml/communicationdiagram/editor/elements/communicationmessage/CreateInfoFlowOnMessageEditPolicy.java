@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.communicationdiagram.editor.elements.communicationmessage;
 
 import java.util.ArrayList;
@@ -123,7 +122,6 @@ public class CreateInfoFlowOnMessageEditPolicy extends DeferringCreateNodePolicy
 
     /**
      * Look in the given list for a node of the given class relating the given element reference.
-     * 
      * @param nodes the list to search into
      * @param cl the node class
      * @param relatedRef the represented element reference
@@ -141,7 +139,7 @@ public class CreateInfoFlowOnMessageEditPolicy extends DeferringCreateNodePolicy
     @objid ("7a40807a-55b6-11e2-877f-002564c97630")
     class DeferredCommand extends Command {
         @objid ("7a40807f-55b6-11e2-877f-002564c97630")
-        private Map<?,?> editPartRegistry;
+        private Map<?, ?> editPartRegistry;
 
         @objid ("9c9938f9-55c1-11e2-9337-002564c97630")
         private GmNodeModel gmNode;
@@ -151,15 +149,15 @@ public class CreateInfoFlowOnMessageEditPolicy extends DeferringCreateNodePolicy
 
         /**
          * Create a deferred command.
-         * 
          * @param req The creation request.
          * @param sender The edit part sending the request
          */
         @objid ("7a408083-55b6-11e2-877f-002564c97630")
-        public DeferredCommand(final Request req, final EditPart sender) {
+        public  DeferredCommand(final Request req, final EditPart sender) {
             this.req = req;
             this.gmNode = (GmNodeModel) sender.getModel();
             this.editPartRegistry = sender.getViewer().getEditPartRegistry();
+            
         }
 
         @objid ("7a40808a-55b6-11e2-877f-002564c97630")
@@ -181,6 +179,7 @@ public class CreateInfoFlowOnMessageEditPolicy extends DeferringCreateNodePolicy
             Command cmd = createCommand();
             if (cmd != null && cmd.canExecute())
                 cmd.execute();
+            
         }
 
         @objid ("7a408092-55b6-11e2-877f-002564c97630")
@@ -207,6 +206,7 @@ public class CreateInfoFlowOnMessageEditPolicy extends DeferringCreateNodePolicy
                 return targetPart.getCommand(this.req);
             else
                 return null;
+            
         }
 
         /**
@@ -257,6 +257,7 @@ public class CreateInfoFlowOnMessageEditPolicy extends DeferringCreateNodePolicy
             
             // Should never reach this point.
             throw new IllegalArgumentException("No common namespace between " + aSource + " and " + aTarget);
+            
         }
 
     }

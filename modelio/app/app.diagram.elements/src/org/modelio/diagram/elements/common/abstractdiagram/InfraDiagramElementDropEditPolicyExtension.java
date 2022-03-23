@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.abstractdiagram;
 
 import java.util.Deque;
@@ -40,7 +39,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 @objid ("a7335059-6042-4f5d-a3d5-143cb8ec837a")
 public class InfraDiagramElementDropEditPolicyExtension extends AbstractDiagramElementDropEditPolicyExtension {
     @objid ("d81e8c60-14ae-4f4f-833d-477d3524ef58")
-    public InfraDiagramElementDropEditPolicyExtension() {
+    public  InfraDiagramElementDropEditPolicyExtension() {
         super();
     }
 
@@ -69,9 +68,10 @@ public class InfraDiagramElementDropEditPolicyExtension extends AbstractDiagramE
         private DiagramElementDropEditPolicy dropPolicy;
 
         @objid ("c7949d9c-f734-4f27-8b03-c61a0569bb9d")
-        public InfraVisitorImpl(Point dropLocation, DiagramElementDropEditPolicy dropPolicy) {
+        public  InfraVisitorImpl(Point dropLocation, DiagramElementDropEditPolicy dropPolicy) {
             this.dropLocation = dropLocation;
             this.dropPolicy = dropPolicy;
+            
         }
 
         @objid ("7e143900-1dec-11e2-8cad-001ec947c8cc")
@@ -82,6 +82,7 @@ public class InfraDiagramElementDropEditPolicyExtension extends AbstractDiagramE
             } else {
                 return visitModelElement(theDependency);
             }
+            
         }
 
         @objid ("7e143922-1dec-11e2-8cad-001ec947c8cc")

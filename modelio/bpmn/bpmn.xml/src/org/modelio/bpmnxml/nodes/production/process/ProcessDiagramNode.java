@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.production.process;
 
 import java.util.ArrayList;
@@ -40,7 +39,7 @@ import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("fdfda389-6b18-40e1-973a-42ddd2d6dc95")
-public class ProcessDiagramNode implements IProductionNode<BpmnProcessDesignDiagram,BPMNDiagram> {
+public class ProcessDiagramNode implements IProductionNode<BpmnProcessDesignDiagram, BPMNDiagram> {
     @objid ("89280623-017a-4ffb-8525-3d94a8bf9f70")
     private Map<String, Object> elementsMap;
 
@@ -72,6 +71,7 @@ public class ProcessDiagramNode implements IProductionNode<BpmnProcessDesignDiag
         } else {
             return factory.create(BpmnProcessDesignDiagram.class, context);
         }
+        
     }
 
     @objid ("2b6c816f-04fb-418a-9594-fa4970e4694b")

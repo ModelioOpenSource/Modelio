@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.message;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -81,12 +80,14 @@ public class MoveMessageCommand extends Command {
             }
             transaction.commit();
         }
+        
     }
 
     @objid ("d969c50b-55b6-11e2-877f-002564c97630")
     public void setMessage(final Message message) {
         // Automatically generated method. Please delete this comment before entering specific code.
         this.message = message;
+        
     }
 
     @objid ("d969c511-55b6-11e2-877f-002564c97630")

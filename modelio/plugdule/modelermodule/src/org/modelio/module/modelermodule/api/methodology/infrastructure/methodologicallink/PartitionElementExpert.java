@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink;
 
@@ -61,28 +60,28 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("4db80c7c-ad0f-452f-80b3-0d024ff66c60")
 public class PartitionElementExpert implements IMdaExpert {
-    @objid ("8bef9824-1edf-4be3-a77d-a2656678a70d")
+    @objid ("d8662c20-3fe6-4fb8-8462-d23dc9251598")
     @Override
     public boolean canSource(Stereotype linkStereotype, MClass linkMetaclass, MClass fromMetaclass) {
         MMetamodel metamodel = linkMetaclass.getMetamodel();
         return (fromMetaclass.hasBase(metamodel.getMClass("Standard.BpmnLane")));
     }
 
-    @objid ("193f7e46-79ee-4c33-9644-40b84dc90007")
+    @objid ("995344ce-cc07-447d-b661-6dd5f7175851")
     @Override
     public boolean canSource(Stereotype linkStereotype, MObject linkElement, MObject fromElement) {
         MMetamodel metamodel = linkElement.getMClass().getMetamodel();
         return (fromElement.getMClass().hasBase(metamodel.getMClass("Standard.BpmnLane")));
     }
 
-    @objid ("44790491-afa6-4d0c-8093-41e27f386724")
+    @objid ("1fd6c6ff-1bcd-4dd9-af25-e1398344ec5c")
     @Override
     public boolean canSource(ElementScope linkScope, MObject fromElement) {
         MMetamodel metamodel = linkScope.getMetaclass().getMetamodel();
         return (fromElement.getMClass().hasBase(metamodel.getMClass("Standard.BpmnLane")));
     }
 
-    @objid ("4af551ff-4855-42c9-b476-77efdfb39e92")
+    @objid ("58d9d454-afce-43f5-abed-572765b22b9b")
     @Override
     public boolean canTarget(Stereotype linkStereotype, MClass linkMetaclass, MClass toMetaclass) {
         MMetamodel metamodel = linkMetaclass.getMetamodel();
@@ -96,7 +95,7 @@ public class PartitionElementExpert implements IMdaExpert {
         (toMetaclass.hasBase(metamodel.getMClass("Archimate.ApplicationComponent")));
     }
 
-    @objid ("0fa820ae-f38a-49e1-88b4-17e2ad335511")
+    @objid ("511f4526-103c-4132-80e4-541aa43061c9")
     @Override
     public boolean canTarget(Stereotype linkStereotype, MObject linkElement, MObject toElement) {
         MMetamodel metamodel = linkElement.getMClass().getMetamodel();
@@ -110,7 +109,7 @@ public class PartitionElementExpert implements IMdaExpert {
         (toElement.getMClass().hasBase(metamodel.getMClass("Archimate.ApplicationComponent")));
     }
 
-    @objid ("3afe5a0b-1d35-4d24-ba76-493c816dd6c1")
+    @objid ("6fa4d784-8929-4a9b-b848-95f2143bc391")
     @Override
     public boolean canLink(Stereotype linkStereotype, MClass linkMetaclass, MClass fromMetaclass, MClass toMetaclass) {
         MMetamodel metamodel = linkMetaclass.getMetamodel();
@@ -124,7 +123,7 @@ public class PartitionElementExpert implements IMdaExpert {
         ((fromMetaclass.hasBase(metamodel.getMClass("Standard.BpmnLane"))) && (toMetaclass.hasBase(metamodel.getMClass("Archimate.ApplicationComponent"))));
     }
 
-    @objid ("f9222815-c8c8-40d5-be03-25ab55dc0177")
+    @objid ("800c2e9e-e9d5-4f09-aa18-68216e65fe52")
     @Override
     public boolean canLink(Stereotype linkStereotype, MClass linkMetaclass, MObject fromElement, MObject toElement) {
         MMetamodel metamodel = linkMetaclass.getMetamodel();
@@ -138,7 +137,7 @@ public class PartitionElementExpert implements IMdaExpert {
         ((fromElement.getMClass().hasBase(metamodel.getMClass("Standard.BpmnLane"))) && (toElement.getMClass().hasBase(metamodel.getMClass("Archimate.ApplicationComponent"))));
     }
 
-    @objid ("5a1d2f3a-6d07-41c2-b2fc-6f167d3a5758")
+    @objid ("064d571f-5ad6-4100-8401-e191c29e5543")
     @Override
     public Collection<MClass> getPossibleSourceMetaclasses(Stereotype linkStereotype, MClass targetMetaclass) {
         MMetamodel metamodel = linkStereotype.getMClass().getMetamodel();
@@ -186,7 +185,7 @@ public class PartitionElementExpert implements IMdaExpert {
         return metaclasses;
     }
 
-    @objid ("023b1344-6c79-4a6f-8eac-9d33be065c37")
+    @objid ("a5c85fa1-0be7-459a-b89e-3af231370a6b")
     @Override
     public Collection<MClass> getPossibleTargetMetaclasses(Stereotype linkStereotype, MClass sourceMetaclass) {
         MMetamodel metamodel = linkStereotype.getMClass().getMetamodel();
@@ -234,7 +233,7 @@ public class PartitionElementExpert implements IMdaExpert {
         return metaclasses;
     }
 
-    @objid ("1a95e757-4f72-443b-88b1-07738b785499")
+    @objid ("f07fa1ef-9f28-4393-ac27-1fd693676ba6")
     @Override
     public boolean isMultiple(Stereotype linkStereotype) {
         return false;

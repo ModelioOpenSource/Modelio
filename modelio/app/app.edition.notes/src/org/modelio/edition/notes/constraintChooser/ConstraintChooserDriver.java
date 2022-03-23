@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.constraintChooser;
 
 import java.util.ArrayList;
@@ -75,12 +74,13 @@ public class ConstraintChooserDriver implements IElementChooserDriver {
     protected Object selectedAnnotationAdapter = null;
 
     @objid ("26d53d98-186f-11e2-bc4e-002564c97630")
-    public ConstraintChooserDriver(ICoreSession session, IMModelServices modelServices, Object selectedAnnotationAdapter) {
+    public  ConstraintChooserDriver(ICoreSession session, IMModelServices modelServices, Object selectedAnnotationAdapter) {
         this.session = session;
         this.modelServices = modelServices;
         this.selectedAnnotationAdapter = selectedAnnotationAdapter;
         this.initialContent = EditionNotes.I18N.getString("EnterConstraintBody");
         this.constraintSelectionListener = new ConstraintChooserSelectionListener();
+        
     }
 
     @objid ("26d53d9d-186f-11e2-bc4e-002564c97630")
@@ -98,7 +98,6 @@ public class ConstraintChooserDriver implements IElementChooserDriver {
     /**
      * Get the constraint created after the user has selected the note type. This method will return null until the user has
      * validated the dialog box.
-     * 
      * @return the created note if any.
      */
     @objid ("26d53da3-186f-11e2-bc4e-002564c97630")
@@ -126,6 +125,7 @@ public class ConstraintChooserDriver implements IElementChooserDriver {
             this.leftModel = new ConstraintChooserModel(this.modelServices, this.session.getMetamodel());
             this.treeViewer.setInput(this.leftModel);
         }
+        
     }
 
     @objid ("26d79ec6-186f-11e2-bc4e-002564c97630")
@@ -150,6 +150,7 @@ public class ConstraintChooserDriver implements IElementChooserDriver {
             }
             transaction.commit();
         }
+        
     }
 
     @objid ("26d79ed0-186f-11e2-bc4e-002564c97630")
@@ -169,6 +170,7 @@ public class ConstraintChooserDriver implements IElementChooserDriver {
     protected void finalize() throws Throwable {
         this.treeViewer.removeSelectionChangedListener(this.constraintSelectionListener);
         super.finalize();
+        
     }
 
     @objid ("26d79edd-186f-11e2-bc4e-002564c97630")
@@ -177,7 +179,7 @@ public class ConstraintChooserDriver implements IElementChooserDriver {
         private boolean enable = true;
 
         @objid ("26d79edf-186f-11e2-bc4e-002564c97630")
-        public ConstraintChooserSelectionListener() {
+        public  ConstraintChooserSelectionListener() {
             // Emtpy c'tor
         }
 
@@ -197,6 +199,7 @@ public class ConstraintChooserDriver implements IElementChooserDriver {
                 }
                 this.enable = true;
             }
+            
         }
 
         @objid ("26d79ee5-186f-11e2-bc4e-002564c97630")

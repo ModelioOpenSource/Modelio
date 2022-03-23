@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnlane.hibridcontainer;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,14 +29,14 @@ import org.eclipse.gef.editpolicies.AbstractEditPolicy;
 import org.eclipse.gef.editpolicies.GraphicalEditPolicy;
 import org.modelio.api.module.mda.IMdaExpert;
 import org.modelio.bpmn.diagram.editor.elements.bpmnlane.hibridcontainer.BodyHybridContainerEditPart.Behaviour;
-import org.modelio.bpmn.diagram.editor.elements.policies.BpmnLaneSetDropEditPolicy;
-import org.modelio.bpmn.diagram.editor.elements.policies.CreateCallActivityCommand;
-import org.modelio.bpmn.diagram.editor.elements.policies.CreateDataObjectCommand;
-import org.modelio.bpmn.diagram.editor.elements.policies.CreateEventCommand;
-import org.modelio.bpmn.diagram.editor.elements.policies.CreateServiceTaskCommand;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnLaneSetDropEditPolicy;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.CreateCallActivityCommand;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.CreateDataObjectCommand;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.CreateEventCommand;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.CreateServiceTaskCommand;
 import org.modelio.diagram.elements.core.model.GmModel;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.elements.core.policies.DefaultElementDropEditPolicy;
 import org.modelio.diagram.elements.core.requests.ModelElementDropRequest;
@@ -92,11 +91,12 @@ class BodyHybridContainerDropEditPolicy extends AbstractEditPolicy {
      * C'tor.
      */
     @objid ("612e59a2-55b6-11e2-877f-002564c97630")
-    public BodyHybridContainerDropEditPolicy() {
+    public  BodyHybridContainerDropEditPolicy() {
         super();
         // Create an instance of both free zone and lane container policies.
         this.freeZonePolicy = new SmartDropEditPolicy();
         this.laneSetPolicy = new BpmnLaneSetDropEditPolicy();
+        
     }
 
     @objid ("612e59a5-55b6-11e2-877f-002564c97630")
@@ -123,6 +123,7 @@ class BodyHybridContainerDropEditPolicy extends AbstractEditPolicy {
             assert false : "Invalid behaviour : " + this.behaviour;
         }
         }
+        
     }
 
     @objid ("612e59a8-55b6-11e2-877f-002564c97630")
@@ -147,6 +148,7 @@ class BodyHybridContainerDropEditPolicy extends AbstractEditPolicy {
         }
         }
         super.deactivate();
+        
     }
 
     @objid ("612e59ab-55b6-11e2-877f-002564c97630")
@@ -173,6 +175,7 @@ class BodyHybridContainerDropEditPolicy extends AbstractEditPolicy {
             assert false : "Invalid behaviour : " + this.behaviour;
         }
         }
+        
     }
 
     @objid ("612e59b0-55b6-11e2-877f-002564c97630")
@@ -199,6 +202,7 @@ class BodyHybridContainerDropEditPolicy extends AbstractEditPolicy {
             assert false : "Invalid behaviour : " + this.behaviour;
         }
         }
+        
     }
 
     @objid ("612e59b5-55b6-11e2-877f-002564c97630")
@@ -261,6 +265,7 @@ class BodyHybridContainerDropEditPolicy extends AbstractEditPolicy {
         super.setHost(editpart);
         this.freeZonePolicy.setHost(editpart);
         this.laneSetPolicy.setHost(editpart);
+        
     }
 
     @objid ("612e59c8-55b6-11e2-877f-002564c97630")
@@ -286,6 +291,7 @@ class BodyHybridContainerDropEditPolicy extends AbstractEditPolicy {
             assert false : "Invalid behaviour : " + this.behaviour;
         }
         }
+        
     }
 
     @objid ("612e59cc-55b6-11e2-877f-002564c97630")
@@ -311,6 +317,7 @@ class BodyHybridContainerDropEditPolicy extends AbstractEditPolicy {
             assert false : "Invalid behaviour : " + this.behaviour;
         }
         }
+        
     }
 
     @objid ("612fe03b-55b6-11e2-877f-002564c97630")
@@ -340,7 +347,6 @@ class BodyHybridContainerDropEditPolicy extends AbstractEditPolicy {
 
     /**
      * Sets the behaviour to adopt.
-     * 
      * @param value the new behaviour.
      */
     @objid ("612fe042-55b6-11e2-877f-002564c97630")
@@ -384,6 +390,7 @@ class BodyHybridContainerDropEditPolicy extends AbstractEditPolicy {
             }
             }
         }
+        
     }
 
     @objid ("612fe047-55b6-11e2-877f-002564c97630")
@@ -416,7 +423,6 @@ class BodyHybridContainerDropEditPolicy extends AbstractEditPolicy {
 
     /**
      * Returns the current behaviour.
-     * 
      * @return the current behaviour.
      */
     @objid ("612fe056-55b6-11e2-877f-002564c97630")
@@ -511,6 +517,7 @@ class BodyHybridContainerDropEditPolicy extends AbstractEditPolicy {
             } else {
                 return null;
             }
+            
         }
 
         @objid ("14dc2c99-6d6e-4996-8758-305636222af0")
@@ -547,6 +554,7 @@ class BodyHybridContainerDropEditPolicy extends AbstractEditPolicy {
             IMdaExpert mdaExpert = modelManager.getMdaExpert();
             return mdaExpert.canLink(Represents.MdaTypes.STEREOTYPE_ELT, linkMetaclass, sourceMetaclass, droppedElement.getMClass()) ||
                     mdaExpert.canLink(State.MdaTypes.STEREOTYPE_ELT, linkMetaclass, sourceMetaclass, droppedElement.getMClass());
+            
         }
 
         @objid ("22b53325-bd37-4785-b1c8-1730f2d803bb")

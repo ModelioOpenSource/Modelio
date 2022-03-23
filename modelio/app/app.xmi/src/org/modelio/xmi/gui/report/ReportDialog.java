@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.gui.report;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,7 +50,7 @@ class ReportDialog extends ModelioDialog {
     private ReportModel model;
 
     @objid ("89a54956-dcbb-4cd4-b6d8-b162f5abd7d4")
-     IModelioNavigationService navigationService;
+    IModelioNavigationService navigationService;
 
     @objid ("4b35c0e3-b802-4907-a0c4-f75735c3aeda")
     private Image warningImage;
@@ -60,19 +59,20 @@ class ReportDialog extends ModelioDialog {
     private Image errorImage;
 
     @objid ("fe4eab92-7654-4879-aee9-de8ecf1d4bde")
-     Table table;
+    Table table;
 
     @objid ("2a9e4d7e-66d3-425e-961c-8f89f5d24588")
     private Image infoImage;
 
     @objid ("18c99799-5cf0-42cd-87ea-ba205ca90e37")
-     Text descriptionText;
+    Text descriptionText;
 
     @objid ("4320b9da-9b24-4f43-a607-4ef8aa345f07")
-    public ReportDialog(Shell parentShell, final IModelioNavigationService iModelioNavigationService) {
+    public  ReportDialog(Shell parentShell, final IModelioNavigationService iModelioNavigationService) {
         super (parentShell);
         setShellStyle (SWT.DIALOG_TRIM | getDefaultOrientation ());
         this.navigationService = iModelioNavigationService;
+        
     }
 
     @objid ("00856ef6-e513-4f86-8045-b3b24d9e54ab")
@@ -188,12 +188,14 @@ class ReportDialog extends ModelioDialog {
         
             this.table.getColumn (0).pack ();
         }
+        
     }
 
     @objid ("e6907d4d-2738-4d18-8fd5-9795de19ef6f")
     public void setModel(ReportModel model) {
         this.model = model;
         updateViewFromModel ();
+        
     }
 
     @objid ("35a20a5c-4e7d-43e0-b09c-e212c1ce145d")
@@ -212,6 +214,7 @@ class ReportDialog extends ModelioDialog {
         shell.setText (Xmi.I18N.getString ("Gui.Export.ReportDialogTitle")); 
         setTitle (Xmi.I18N.getString ("Gui.Export.ReportDialogTitle")); 
         setMessage (Xmi.I18N.getString ("Gui.Export.ReportDialogMessage"));
+        
     }
 
     @objid ("a4ea5946-ef41-47b0-aef3-2ff504ac05d8")

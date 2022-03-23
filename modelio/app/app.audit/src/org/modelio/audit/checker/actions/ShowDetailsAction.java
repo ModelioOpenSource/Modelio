@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.checker.actions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -49,13 +48,14 @@ public class ShowDetailsAction extends Action {
     private IAuditConfigurationPlan configurationPlan;
 
     @objid ("23068af3-abd9-40a7-aa21-5caff3464983")
-    public ShowDetailsAction(IAuditService auditService, IProjectService projectService, IModelioNavigationService navigationService, TreeViewer tree) {
+    public  ShowDetailsAction(IAuditService auditService, IProjectService projectService, IModelioNavigationService navigationService, TreeViewer tree) {
         this.tree = tree;
         this.projectService = projectService;
         this.navigationService = navigationService;
         this.configurationPlan = auditService.getConfigurationModel().getAuditConfigurationPlan();
         setText(Audit.I18N.getString("Audit.CheckerView.Contextual.Show"));
         setImageDescriptor(Audit.getImageDescriptor("icons/details.png"));
+        
     }
 
     @objid ("90077217-793a-4321-b441-66d9543bd403")
@@ -65,6 +65,7 @@ public class ShowDetailsAction extends Action {
         IAuditEntry entry = (IAuditEntry) item[0].getData();
         AuditEntryDialog dialog = new AuditEntryDialog(Display.getCurrent().getActiveShell(), entry, this.projectService.getSession(), this.navigationService, this.configurationPlan);
         dialog.open();
+        
     }
 
     @objid ("2fb22aad-076a-4bed-ba34-49e00a66d91c")

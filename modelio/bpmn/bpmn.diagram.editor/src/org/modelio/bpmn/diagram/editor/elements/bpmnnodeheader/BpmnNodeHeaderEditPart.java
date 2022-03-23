@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnnodeheader;
 
 import java.util.List;
@@ -63,6 +62,7 @@ public class BpmnNodeHeaderEditPart extends ModelElementHeaderEditPart {
         } else {
             super.refreshMetaclassIcon(headerFigure, gm, mode);
         }
+        
     }
 
 }

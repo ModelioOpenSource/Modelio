@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.mapi;
 
 import java.io.BufferedReader;
@@ -29,8 +28,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.EnumSet;
 import java.util.Iterator;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.TreeMap;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -53,29 +52,28 @@ public class MetamodelVersionDescriptor implements Iterable<VersionedItem<?>> {
      * Initialize an empty descriptor.
      */
     @objid ("97118bf2-9f48-450f-b0fa-3413553b5da1")
-    public MetamodelVersionDescriptor() {
+    public  MetamodelVersionDescriptor() {
         this.content = new TreeMap<>();
     }
 
     /**
      * Builds a set from a version.
-     * 
      * @param v a version.
      */
     @objid ("e612a835-21cc-4e4c-9d63-5d7b9ec81fa1")
-    public MetamodelVersionDescriptor(VersionedItem<?> v) {
+    public  MetamodelVersionDescriptor(VersionedItem<?> v) {
         this.content = new TreeMap<>();
         this.content.put(v.getName(), v);
+        
     }
 
     /**
      * Read a collection of version descriptors written by write()
-     * 
      * @param is the input reader
-     * @throws java.io.IOException in case of I/O error.
+     * @throws IOException in case of I/O error.
      */
     @objid ("3bb32d7a-04c1-4abf-81b6-13473c7985e8")
-    public MetamodelVersionDescriptor(Reader is) throws IOException {
+    public  MetamodelVersionDescriptor(Reader is) throws IOException {
         this();
         
         BufferedReader r = new BufferedReader(is);
@@ -89,22 +87,21 @@ public class MetamodelVersionDescriptor implements Iterable<VersionedItem<?>> {
         
             s = r.readLine();
         }
+        
     }
 
     /**
      * copy constructor.
-     * 
      * @param other the descriptor to copy.
      */
     @objid ("e80d3b29-e055-41ba-9fdc-9e4d77ba9892")
-    public MetamodelVersionDescriptor(MetamodelVersionDescriptor other) {
+    public  MetamodelVersionDescriptor(MetamodelVersionDescriptor other) {
         this.content = new TreeMap<>(other.content);
     }
 
     /**
      * Add a descriptor.
      * @see #put(String, Version)
-     * 
      * @param d a descriptor.
      * @return this instance to chain calls.
      */
@@ -128,6 +125,7 @@ public class MetamodelVersionDescriptor implements Iterable<VersionedItem<?>> {
         } else {
             return false;
         }
+        
     }
 
     /**
@@ -163,7 +161,6 @@ public class MetamodelVersionDescriptor implements Iterable<VersionedItem<?>> {
 
     /**
      * Keep only elements that satisfy the given test.
-     * 
      * @param test a test matching elements to keep
      * @return this modified instance.
      */
@@ -185,7 +182,6 @@ public class MetamodelVersionDescriptor implements Iterable<VersionedItem<?>> {
      * and version differences. Fragments in this metamodel but not in the other are ignored.
      * <p>
      * If 'allowBuildCompatible' is true, ignore if own version is newer by build number
-     * 
      * @param other the other metamodel
      * @param allowBuildCompatible ignore if own version is newer by build number
      * @return the found incompatibilities, empty if no problem.
@@ -200,7 +196,6 @@ public class MetamodelVersionDescriptor implements Iterable<VersionedItem<?>> {
 
     /**
      * Get the version for the given metamodel.
-     * 
      * @param mmname a metamodel name
      * @return its version or -1 if there is no such metamodel.
      */
@@ -212,11 +207,11 @@ public class MetamodelVersionDescriptor implements Iterable<VersionedItem<?>> {
         } else {
             return item.getVersion();
         }
+        
     }
 
     /**
      * To make compatibility tests.
-     * 
      * @param name the metamodel to look for
      * @param minVersion the required minimum version
      * @return whether this descriptor contains the given metamodel with at least the required version.
@@ -241,7 +236,6 @@ public class MetamodelVersionDescriptor implements Iterable<VersionedItem<?>> {
      * <p>
      * This metamodel is "build" compatible if the only differences are that the build numbers are
      * more recent in this current metamodel, or this metamodel has more fragments than the other.
-     * 
      * @param requirements the metamodel requirements
      * @param allowBuildCompatible whether to allow build compatible
      * @return whether the metamodel is "build compatible" with the other metamodel.
@@ -261,7 +255,6 @@ public class MetamodelVersionDescriptor implements Iterable<VersionedItem<?>> {
 
     /**
      * Test whether the descriptor does not contain anything.
-     * 
      * @return <i>true</i> if the descriptor is empty.
      */
     @objid ("f0fa6ce4-a4b4-445c-820a-b8f73e4e0fe2")
@@ -271,7 +264,6 @@ public class MetamodelVersionDescriptor implements Iterable<VersionedItem<?>> {
 
     /**
      * Tells whether this set is the same as the given one.
-     * 
      * @param other another version set.
      * @return <i>true</i> only if they contain the same versions.
      */
@@ -316,9 +308,8 @@ public class MetamodelVersionDescriptor implements Iterable<VersionedItem<?>> {
 
     /**
      * Write the versions to a java {@link Writer}.
-     * 
      * @param out the target writer
-     * @throws java.io.IOException in case of I/O error
+     * @throws IOException in case of I/O error
      */
     @objid ("228b03cf-634a-4ec8-8905-342a245bb296")
     public void write(Writer out) throws IOException {
@@ -328,22 +319,21 @@ public class MetamodelVersionDescriptor implements Iterable<VersionedItem<?>> {
             out.append(String.valueOf(v.getVersion()));
             out.append("\n");
         }
+        
     }
 
     /**
      * Internal constructor.
-     * 
      * @param aContent the map to directly use.
      */
     @objid ("850ce6e0-fa6b-429d-abbe-5279149acb60")
-    protected MetamodelVersionDescriptor(Map<String, VersionedItem<?>> aContent) {
+    protected  MetamodelVersionDescriptor(Map<String, VersionedItem<?>> aContent) {
         this.content = aContent;
     }
 
     /**
      * Compares the given fragment version descriptor with this metamodel and
      * gives the compatibility state of the requirement.
-     * 
      * @param fragVersionRequirement a metamodel fragment version descriptor.
      * @return the compatibility of the given fragment version relative to this descriptor.
      */
@@ -366,6 +356,7 @@ public class MetamodelVersionDescriptor implements Iterable<VersionedItem<?>> {
             //throw new IOException(CoreProject.getMessage("AbstractFragment.MmVersionNotSupported", getId(), neededMmFragment, curVersion));
             return DiffType.older;
         }
+        
     }
 
     /**
@@ -374,7 +365,6 @@ public class MetamodelVersionDescriptor implements Iterable<VersionedItem<?>> {
      * A version is "build" compatible if the only difference is that the build number is
      * more recent in the current metamodel.
      * @param neededFragment the needed metamodel fragment with its version
-     * 
      * @param curVersion the available version
      * @return <i>true</i> if the fragment is build compatible else <i>false</i>.
      */
@@ -392,7 +382,6 @@ public class MetamodelVersionDescriptor implements Iterable<VersionedItem<?>> {
      * and version differences. Fragments in this metamodel but not in the other are ignored.
      * <p>
      * The differences
-     * 
      * @param other the other metamodel
      * @param filter the wanted differences type
      * @return the found incompatibilities, empty if none matching the filter.
@@ -420,6 +409,40 @@ public class MetamodelVersionDescriptor implements Iterable<VersionedItem<?>> {
     }
 
     /**
+     * Compatibility diagnostic
+     */
+    @objid ("88279d2c-f8fb-45ce-9584-31793b497a7e")
+    public enum DiffType {
+        /**
+         * Same version, no problem
+         */
+        @objid ("b8ca4199-1cb0-40d1-ab59-5da37bba6e99")
+        same,
+        /**
+         * no problem: the other version is only lower by build number.
+         */
+        @objid ("d632a898-ea7a-4e6e-88a1-71ec1abfb6c2")
+        olderCompatibleBuild,
+        /**
+         * This metamodel misses a fragment.
+         */
+        @objid ("944f858a-df6b-4bdd-ab97-d466097c21e1")
+        missing,
+        /**
+         * The other metamodel has a fragment with a newer version.
+         */
+        @objid ("e5e49c5a-131f-4cd2-8afa-ce1d89290779")
+        newer,
+        /**
+         * The other metamodel has a fragment with a version too old:
+         * its minor or major version is older.
+         */
+        @objid ("d608f238-a998-4ae1-8b40-21f27cce671a")
+        older;
+
+    }
+
+    /**
      * We really miss C++ std::pair<A,B> ...
      */
     @objid ("bf5e3d1e-a975-4122-9597-fa078a753660")
@@ -432,9 +455,10 @@ public class MetamodelVersionDescriptor implements Iterable<VersionedItem<?>> {
         public final VersionedItem<?> neededMmFragment;
 
         @objid ("875165a8-0f27-49e7-bab5-759d251fda32")
-        public Difference(VersionedItem<?> neededMmFragment, DiffType compat) {
+        public  Difference(VersionedItem<?> neededMmFragment, DiffType compat) {
             this.neededMmFragment = neededMmFragment;
             this.type = compat;
+            
         }
 
         @objid ("e7baaaad-2489-4aa1-8d35-fb84f2d8cd30")
@@ -443,34 +467,6 @@ public class MetamodelVersionDescriptor implements Iterable<VersionedItem<?>> {
             return this.neededMmFragment+" "+this.type;
         }
 
-    }
-
-    /**
-     * Compatibility diagnostic
-     */
-    @objid ("88279d2c-f8fb-45ce-9584-31793b497a7e")
-    public enum DiffType {
-        /**
-         * Same version, no problem
-         */
-        same,
-        /**
-         * no problem: the other version is only lower by build number.
-         */
-        olderCompatibleBuild,
-        /**
-         * This metamodel misses a fragment.
-         */
-        missing,
-        /**
-         * The other metamodel has a fragment with a newer version.
-         */
-        newer,
-        /**
-         * The other metamodel has a fragment with a version too old:
-         * its minor or major version is older.
-         */
-        older;
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.migration.from_bpmn_36;
 
 import java.io.PrintWriter;
@@ -41,10 +40,11 @@ class DataAssociationFixer {
     private PrintWriter logger;
 
     @objid ("845e51a8-8121-455b-aa9a-cccdf68b7e34")
-    public DataAssociationFixer(IMofSession mofSession, MM mm) {
+    public  DataAssociationFixer(IMofSession mofSession, MM mm) {
         this.mofSession = mofSession;
         this.mm = mm;
         this.logger = mofSession.getReport().getLogger();
+        
     }
 
     @objid ("0569f997-bf6e-4d21-ad68-969caeb06a5c")
@@ -74,6 +74,7 @@ class DataAssociationFixer {
             }
         }
         this.logger.println("  Fixing BpmnDataAssociations done.");
+        
     }
 
     @objid ("6ea88221-8cd5-4964-8585-05f06b526746")
@@ -90,6 +91,7 @@ class DataAssociationFixer {
         this.logger.format("         - EndingEvent : %s .\n",  dataAssoc.getSingleDep("EndingEvent"));
         this.logger.format("         - SourceRef : %s .\n",  SourceRef);
         this.logger.format("         - TargetRef : %s .\n",  TargetRef);
+        
     }
 
 }

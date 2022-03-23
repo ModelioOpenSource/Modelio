@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.number.date;
 
 import java.security.InvalidParameterException;
@@ -32,21 +31,19 @@ import org.modelio.platform.model.ui.nattable.parts.data.DefaultNatValue;
 public class DefaultDateNatValue extends DefaultNatValue implements IDateNatValue {
     /**
      * Creates a new instance.
-     * 
      * @param value the wrapped value.
      */
     @objid ("4aa07473-bd53-414c-b6fd-11677ff2c58b")
-    public DefaultDateNatValue(Date value) {
+    public  DefaultDateNatValue(Date value) {
         super(value, false);
     }
 
     /**
      * Copy constructor, creating a new instance with the same configuration as the other.
-     * 
      * @param anotherInstance the instance to copy.
      */
     @objid ("cee72ea3-b28d-4ca4-8d5f-1174efad4d9c")
-    public DefaultDateNatValue(DefaultDateNatValue anotherInstance) {
+    public  DefaultDateNatValue(DefaultDateNatValue anotherInstance) {
         super(anotherInstance);
     }
 
@@ -63,6 +60,7 @@ public class DefaultDateNatValue extends DefaultNatValue implements IDateNatValu
             throw new InvalidParameterException("Value must be a Date.");
         }
         super.setValue(value);
+        
     }
 
 }

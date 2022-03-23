@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.semantic.browser.panel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.jface.viewers.StyledString;
+import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
@@ -67,7 +66,7 @@ public class SmBrowserLabelProvider extends UniversalLabelProvider2 {
      * Default c'tor.
      */
     @objid ("8638e297-970a-4584-b3e7-199c1b8a5177")
-    public SmBrowserLabelProvider() {
+    public  SmBrowserLabelProvider() {
         super();
         
         this.metaStyler =  new Styler() {
@@ -77,6 +76,7 @@ public class SmBrowserLabelProvider extends UniversalLabelProvider2 {
                 textStyle.font = SmBrowserLabelProvider.italicFont;
             }
         };
+        
     }
 
     @objid ("bd101365-36a2-46eb-89b7-1470af39b21b")
@@ -94,6 +94,7 @@ public class SmBrowserLabelProvider extends UniversalLabelProvider2 {
         } else {
             return super.getImage(obj);
         }
+        
     }
 
     @objid ("94c5dd09-4e59-40a6-b1f9-69dd895cf950")

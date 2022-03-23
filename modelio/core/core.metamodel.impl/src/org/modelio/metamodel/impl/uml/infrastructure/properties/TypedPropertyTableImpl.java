@@ -17,19 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.uml.infrastructure.properties.TypedPropertyTableData;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.properties.PropertyDefinition;
 import org.modelio.metamodel.uml.infrastructure.properties.PropertyTableDefinition;
@@ -68,6 +67,7 @@ public class TypedPropertyTableImpl extends PropertyTableImpl implements TypedPr
         // assert the property definition belongs to the table type
         assert (getType() != null && pdef.getOwner().equals(getType())) : pdef+" does not belong to "+getType();
         setProperty(pdef.getName(), value);
+        
     }
 
     @objid ("dcabea63-bd75-41ac-a24e-b9a053e89a0d")
@@ -76,6 +76,7 @@ public class TypedPropertyTableImpl extends PropertyTableImpl implements TypedPr
         // Delegate conversion to the PropertyDefinition
         String storedValue = pdef.convertToString(value, (ModelElement) getCompositionOwner());
         setProperty(pdef, storedValue);
+        
     }
 
     @objid ("268f7fd8-f06d-4e57-9c91-f1bca9975dc7")

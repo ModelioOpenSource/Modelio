@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.modelshield.standardcheckers;
 
 import java.util.Arrays;
@@ -57,6 +56,7 @@ public class E275Checker implements IChecker {
             checkForLifeline((Lifeline) object, report);
         else if (object instanceof InteractionFragment)
             checkForFragment((InteractionFragment) object, report);
+        
     }
 
     @objid ("0000f37a-e473-1f69-b3fb-001ec947cd2a")
@@ -70,6 +70,7 @@ public class E275Checker implements IChecker {
         
         // trigger=create, metaclass=InteractionFragment, feature=Covered
         plan.registerChecker(this, smMetamodel.getMClass(InteractionFragment.class), TriggerType.Move, "Covered");
+        
     }
 
     @objid ("0016fee0-d3b8-1f71-90c1-001ec947cd2a")
@@ -79,6 +80,7 @@ public class E275Checker implements IChecker {
         for (Lifeline lifelineToCheck : fragmentToCheck.getCovered()) {
             checkForLifeline(lifelineToCheck, report);
         }
+        
     }
 
     @objid ("00172348-d3b8-1f71-90c1-001ec947cd2a")
@@ -114,6 +116,7 @@ public class E275Checker implements IChecker {
                 }
             }
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.preferences.model;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,19 +37,21 @@ public class AuditRule {
     private String implClass;
 
     @objid ("09bf2625-960a-456e-8575-5f12917db9e9")
-    public AuditRule(String id, AuditSeverity severity, boolean enabled, String implClass) {
+    public  AuditRule(String id, AuditSeverity severity, boolean enabled, String implClass) {
         this.id = id;
         this.severity = severity;
         this.enabled = enabled;
         this.implClass = implClass;
+        
     }
 
     @objid ("fa25e98e-e51f-4c0c-b934-1d242d38a43d")
-    public AuditRule(AuditRule anotherRule) {
+    public  AuditRule(AuditRule anotherRule) {
         this.id = anotherRule.id;
         this.severity = anotherRule.severity;
         this.enabled = anotherRule.enabled;
         this.implClass = anotherRule.implClass;
+        
     }
 
     @objid ("86be4dee-1ccc-4edf-928a-66845666c654")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model.impl;
 
 import java.util.Map;
@@ -70,11 +69,12 @@ public class ModelFactory extends AbstractModelFactory implements IModelFactoryS
     }
 
     @objid ("8dbe6281-dc9f-44ec-88b3-c04255a3f0da")
-    public ModelFactory(ICoreSession session) {
+    public  ModelFactory(ICoreSession session) {
         super(session.getMetamodel());
         
         this.session = session;
         this.metamodelExtensionPoint = new MetamodelExtensionPoint<>();
+        
     }
 
     @objid ("b361d1d8-7bd6-4227-8633-77d99625edf3")
@@ -105,10 +105,9 @@ public class ModelFactory extends AbstractModelFactory implements IModelFactoryS
 
     /**
      * Get the specific model factory implementing the given java class/interface.
-     * 
      * @param factoryCls the model factory java interface/
      * @return the found model factory
-     * @throws java.lang.IllegalArgumentException if there is no model factory implementing the class or interface.
+     * @throws IllegalArgumentException if there is no model factory implementing the class or interface.
      */
     @objid ("abe97b9b-437a-4d38-a9ce-6d7a0ea8780e")
     @Override
@@ -126,6 +125,7 @@ public class ModelFactory extends AbstractModelFactory implements IModelFactoryS
         }
         
         throw new IllegalArgumentException("No model factory typed "+factoryCls.getName());
+        
     }
 
     @objid ("23a14d4b-7207-4ad7-8daa-1aa74fec0e01")

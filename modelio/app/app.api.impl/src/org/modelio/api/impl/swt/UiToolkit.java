@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.api.impl.swt;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,16 +49,16 @@ public class UiToolkit implements IUiToolkit {
 
     /**
      * C'tor.
-     * 
      * @param modelioServices modelio services.
      * @param gProject the currently opened project.
      * @param eclipseContext the eclipse context.
      */
     @objid ("46ef2267-6bbf-4fb0-95f2-45527958e057")
-    public UiToolkit(IModelioServices modelioServices, GProject gProject, IEclipseContext eclipseContext) {
+    public  UiToolkit(IModelioServices modelioServices, GProject gProject, IEclipseContext eclipseContext) {
         this.modelioServices = modelioServices;
         this.gProject = gProject;
         this.eclipseContext = eclipseContext;
+        
     }
 
     @objid ("9336132a-ed42-43f4-b831-b89d4518cef2")

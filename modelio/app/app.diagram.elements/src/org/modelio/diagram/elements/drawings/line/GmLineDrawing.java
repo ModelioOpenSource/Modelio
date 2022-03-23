@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.drawings.line;
 
 import java.util.List;
@@ -33,24 +32,23 @@ import org.modelio.diagram.styles.core.StyleKey;
 @objid ("0aec4d4a-5f9a-4a0a-b8dd-61949de35f59")
 public class GmLineDrawing extends GmAbstractLinkDrawing {
     @objid ("309b9c37-b27e-4e87-82fa-4588892d28a6")
-     static final GmLineStyleKeys KEYS = new GmLineStyleKeys();
+    static final GmLineStyleKeys KEYS = new GmLineStyleKeys();
 
     /**
      * Deserialization only constructor.
      */
     @objid ("20280cc7-5d55-4161-9bf0-f0b14f79c23c")
-    public GmLineDrawing() {
+    public  GmLineDrawing() {
         super();
     }
 
     /**
      * Default constructor.
-     * 
      * @param diagram the owner diagram.
      * @param identifier drawing identifier, must be unique in the diagram.
      */
     @objid ("b80e1074-cd61-499c-8683-72055dc619e4")
-    public GmLineDrawing(IGmDiagram diagram, String identifier) {
+    public  GmLineDrawing(IGmDiagram diagram, String identifier) {
         super(diagram, identifier);
     }
 

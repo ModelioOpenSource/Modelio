@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.local.loader;
 
 import java.io.IOException;
@@ -35,13 +34,12 @@ import org.xml.sax.InputSource;
 public interface IExmlLoader {
     /**
      * Load an EXML resource from an XML {@link InputSource}.
-     * 
      * @param is the EXML source.
      * @param loader the API to use to load the content.
      * @return the loaded CMS node.
-     * @throws java.io.IOException in case of failure
-     * @throws org.modelio.vcore.model.DuplicateObjectException if another object with the same identifier as a loaded object already exists in another repository.
-     * @throws org.modelio.vstore.exml.common.index.IndexException in case of error accessing the indexes
+     * @throws IOException in case of failure
+     * @throws DuplicateObjectException if another object with the same identifier as a loaded object already exists in another repository.
+     * @throws IndexException in case of error accessing the indexes
      */
     @objid ("2b11cbb4-3faf-11e2-87cb-001ec947ccaf")
     SmObjectImpl load(final InputSource is, IModelLoader loader) throws IOException, DuplicateObjectException, IndexException;

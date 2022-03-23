@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.sequence;
 
 import java.util.Collections;
@@ -39,7 +38,7 @@ public class InteractionUseDG extends PortContainerDG {
      * @param node The gm node represented by this class.
      */
     @objid ("370e909a-1165-41e0-8682-81917c7f25f5")
-    public InteractionUseDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  InteractionUseDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 
@@ -51,6 +50,7 @@ public class InteractionUseDG extends PortContainerDG {
                                       currentBounds.y(),
                                       newBounds.width(),
                                       currentBounds.height()));
+        
     }
 
     @objid ("5009aff3-8437-489b-827e-69b299667f55")

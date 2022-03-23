@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.freezone;
 
 import java.util.Collection;
@@ -45,7 +44,6 @@ public interface ILayoutAssistant {
 
     /**
      * Get the requests to apply to avoid connection intersections with changed nodes.
-     * 
      * @return the bend point requests to apply.
      */
     @objid ("eeec8036-f6c1-47ba-b244-1ec521a5ac5a")
@@ -53,7 +51,6 @@ public interface ILayoutAssistant {
 
     /**
      * Get the requests to apply to avoid node intersections.
-     * 
      * @return the requests to apply.
      */
     @objid ("3e9cd1f0-6eae-4cec-bfe3-a44796476f9b")
@@ -63,7 +60,6 @@ public interface ILayoutAssistant {
      * Record a command to execute.
      * <p>
      * The recorded commands will be garbaged if the helper is modified after this call.
-     * 
      * @param cmd a command to execute.
      */
     @objid ("ff275aeb-e045-47c1-a478-a3d3c443f68c")
@@ -73,7 +69,6 @@ public interface ILayoutAssistant {
      * Create a new command that will execute the commands recorded by {@link #addCommand(Command)}.
      * <p>
      * The returned command will be invalidated to do nothing if the helper is modified after this call.
-     * 
      * @return an intersection remover command.
      */
     @objid ("8725ca20-73c6-492c-835e-c9f620fdad58")
@@ -81,7 +76,6 @@ public interface ILayoutAssistant {
 
     /**
      * Record a moved/resized node
-     * 
      * @param movedEp the changed node.
      * @param oldRect its old bounding rectangle in absolute coordinates.
      * @param newRect its new bounding rectangle in absolute coordinates.

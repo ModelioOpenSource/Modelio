@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.plugin;
 
 import java.net.URL;
@@ -79,6 +78,7 @@ public class ActivityProcessor extends AbstractDiagramInitializationProcessor {
         
         // Static UML elements should be usable in Activity diagrams
         factoryRegistry.registerExtensions(StaticDiagram.MNAME, ActivityDiagram.MNAME);
+        
     }
 
     @objid ("2ed78933-58a7-11e2-9574-002564c97630")
@@ -148,6 +148,7 @@ public class ActivityProcessor extends AbstractDiagramInitializationProcessor {
         factoryStyle.declareProvider(GmPartitionStructuredStyleKeys.class);
         // Interruptible region
         factoryStyle.declareProvider(GmInterruptibleStructuredStyleKeys.class);
+        
     }
 
     @objid ("a4d67dc4-58d3-11e2-be0b-002564c97630")
@@ -160,6 +161,7 @@ public class ActivityProcessor extends AbstractDiagramInitializationProcessor {
         loader.load(url);
         
         factoryStyle.injectDefaultValues(loader.getStyleProperties());
+        
     }
 
     @objid ("13b303e3-e8ae-48c1-9393-917916fa204d")

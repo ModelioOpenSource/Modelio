@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.texteditors.rt;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,7 @@ import org.modelio.editors.texteditors.rt.partitions.TextAttributeManager;
 @objid ("7b66bbef-2a77-11e2-9fb9-bc305ba4815c")
 public class RTConfiguration extends SourceViewerConfiguration {
     @objid ("7b66bbf0-2a77-11e2-9fb9-bc305ba4815c")
-    public RTConfiguration() {
+    public  RTConfiguration() {
         super();
     }
 

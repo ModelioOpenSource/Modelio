@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,7 +50,6 @@ public final class GenericFactory {
      * <p>
      * The new object will belong to the same repository as the 'referent' object. The 'referent' object is NOT the composition
      * owner of the created object.
-     * 
      * @param metaclass the metaclass of the object to create.
      * @param referent the referent object
      * @return the created object
@@ -65,7 +63,6 @@ public final class GenericFactory {
      * Create an instance of 'metaclass'.
      * <p>
      * The new object will belong to the given repository .
-     * 
      * @param metaclass the metaclass of the object to create.
      * @param repository the repository
      * @return the created object
@@ -78,7 +75,6 @@ public final class GenericFactory {
     /**
      * Create an instance of 'metaclass'. The new object will belong to the same repository as the 'referent' object. The 'referent'
      * object is NOT the composition owner of the created object.
-     * 
      * @param metaclass the metaclass name of the object to create.
      * @param referent the referent object
      * @return the created object
@@ -91,7 +87,6 @@ public final class GenericFactory {
 
     /**
      * Create an instance of 'metaclass'. The new object will belong to the given repository.
-     * 
      * @param metaclass the metaclass name of the object to create.
      * @param repository the repository that will contain the object.
      * @return the created object
@@ -108,7 +103,6 @@ public final class GenericFactory {
      * Create an instance of 'metaclass' and define 'parent' as its composition owner using the dependency 'dep'.
      * <p>
      * The new object will belong to the same repository as the 'parent' object.
-     * 
      * @param metaclass the metaclass name
      * @param parent the composition owner
      * @param depName the name of the metamodel relation from the owner to the created element.
@@ -132,7 +126,6 @@ public final class GenericFactory {
     /**
      * Create an instance of 'metaclass' and define 'parent' as its composition owner using the dependency 'depName'.
      * The new object will belong to the same repository as the 'parent' object.
-     * 
      * @param metaclass a metamodel class java interface
      * @param parent the new element owner
      * @param depName the metamodel relation from the owner to the created element.
@@ -148,7 +141,6 @@ public final class GenericFactory {
     /**
      * Create an instance of 'metaclass' and define 'parent' as its composition owner using the dependency 'dep'. The new object
      * will belong to the same repository as the 'parent' object.
-     * 
      * @param metaclass a metamodel class
      * @param parent the new element owner
      * @param dep the metamodel relation from the owner to the created element.
@@ -165,7 +157,6 @@ public final class GenericFactory {
      * Create an instance of 'metaclass'. The new object will belong to the given repository.
      * @param <T>
      * the metaclass interface of the object to create.
-     * 
      * @param metaclass the metaclass of the object to create.
      * @param repository the repository where the model object will be stored.
      * @return the created object
@@ -181,7 +172,6 @@ public final class GenericFactory {
      * object is NOT the composition owner of the created object.
      * @param <T>
      * the metaclass interface of the object to create.
-     * 
      * @param metaclass the metaclass of the object to create.
      * @param referent the referent object
      * @return the created object
@@ -194,15 +184,15 @@ public final class GenericFactory {
 
     /**
      * Initialize a generic factory.
-     * 
      * @param smFactory a core factory.
      * @param repoSupport a repository support.
      */
     @objid ("a204b0ca-caa4-11e1-8052-001ec947ccaf")
-    GenericFactory(SmFactory smFactory, IRepositorySupport repoSupport, SmMetamodel metamodel) {
+     GenericFactory(SmFactory smFactory, IRepositorySupport repoSupport, SmMetamodel metamodel) {
         this.repoSupport = repoSupport;
         this.smFactory = smFactory;
         this.metamodel = metamodel;
+        
     }
 
     @objid ("f923f3c4-b15a-4fb5-b10b-d58dce4e4a42")

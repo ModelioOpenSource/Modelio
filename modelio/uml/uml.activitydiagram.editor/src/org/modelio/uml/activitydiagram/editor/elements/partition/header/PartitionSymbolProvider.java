@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.partition.header;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,12 +32,12 @@ public class PartitionSymbolProvider {
      * This class is not instanciable.
      */
     @objid ("2b168a8a-55b6-11e2-877f-002564c97630")
-    private PartitionSymbolProvider() {
+    private  PartitionSymbolProvider() {
+        
     }
 
     /**
      * Get the partition label at the following format: "name : type"
-     * 
      * @param c the partition
      * @return the computed label
      */
@@ -60,6 +59,7 @@ public class PartitionSymbolProvider {
         if (type != null) {
             s.append(type.getName());
         }
+        
     }
 
 }

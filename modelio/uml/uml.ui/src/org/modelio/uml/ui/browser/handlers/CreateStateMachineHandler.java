@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.browser.handlers;
 
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
 import org.eclipse.swt.widgets.Display;
 import org.modelio.metamodel.diagrams.StateMachineDiagram;
@@ -39,7 +38,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class CreateStateMachineHandler extends CreateCmsElementHandler {
     @objid ("a197d766-79d1-483f-b33e-65854ed282dc")
     @Inject
-     IModelioEventService eventService;
+    IModelioEventService eventService;
 
     @objid ("4e57e2b6-ccde-11e1-97e5-001ec947c8cc")
     @Override
@@ -54,6 +53,7 @@ public class CreateStateMachineHandler extends CreateCmsElementHandler {
         StateMachineDiagram diagram = modelFactory.createStateMachineDiagram();
         stateMachine.getProduct().add(diagram);
         diagram.setName(mmServices.getElementNamer().getUniqueName(diagram));
+        
     }
 
     @objid ("4e57e2ba-ccde-11e1-97e5-001ec947c8cc")
@@ -71,6 +71,7 @@ public class CreateStateMachineHandler extends CreateCmsElementHandler {
                 }, ModelioEvent.EDIT_ELEMENT, param);
             }
         });
+        
     }
 
 }

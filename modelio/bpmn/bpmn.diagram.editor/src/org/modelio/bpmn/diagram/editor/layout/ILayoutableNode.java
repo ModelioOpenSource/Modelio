@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.layout;
 
 import java.util.List;
@@ -41,70 +40,70 @@ public interface ILayoutableNode {
      */
     @objid ("e34474f8-86b7-4ef6-a5e8-19c6f7e038ac")
     public static final ILayoutableNode NullNode = new ILayoutableNode() {
-        @Override
-        public void setRow(int row) {
-            throw new UnsupportedOperationException();
-        }
-        @Override
-        public void setLocation(int x, int y) {
-            throw new UnsupportedOperationException();
-        }
-        @Override
-        public void setCol(int col) {
-            throw new UnsupportedOperationException();
-        }
-        @Override
-        public void setRightDepth(int computeRightDepth) {
-            throw new UnsupportedOperationException();
-        }
-        @Override
-        public List<ILayoutableNode> getSuccessors() {
-            return java.util.Collections.EMPTY_LIST;
-        }
-        @Override
-        public int getRow() {
-            return 0;
-        }
-        @Override
-        public List<ILayoutableNode> getPredecessors() {
-            return java.util.Collections.EMPTY_LIST;
-        }
-        @Override
-        public List<IDiagramLink> getFromLinks() {
-            return java.util.Collections.EMPTY_LIST;
-        }
-        @Override
-        public int getCol() {
-            return 0;
-        }
-        @Override
-        public Rectangle getBounds() {
-            return new Rectangle(0, 0, 0, 0);
-        }
-        @Override
-        public String getName() {
-            return "NullNode";
-        }
-        @Override
-        public int getRightDepth() {
-            return 0;
-        }
-        @Override
-        public List<IDiagramLink> getToLinks() {
-            return java.util.Collections.EMPTY_LIST;
-        }
-        @Override
-        public List<ILayoutableLink> getInLinks(AnchorDirection anchorDirection) {
-            return java.util.Collections.EMPTY_LIST;
-        }
-        @Override
-        public List<ILayoutableLink> getOutLinks(AnchorDirection anchorDirection) {
-            return java.util.Collections.EMPTY_LIST;
-        }
-    };
+            @Override
+            public void setRow(int row) {
+                throw new UnsupportedOperationException();
+            }
+            @Override
+            public void setLocation(int x, int y) {
+                throw new UnsupportedOperationException();
+            }
+            @Override
+            public void setCol(int col) {
+                throw new UnsupportedOperationException();
+            }
+            @Override
+            public void setRightDepth(int computeRightDepth) {
+                throw new UnsupportedOperationException();
+            }
+            @Override
+            public List<ILayoutableNode> getSuccessors() {
+                return java.util.Collections.EMPTY_LIST;
+            }
+            @Override
+            public int getRow() {
+                return 0;
+            }
+            @Override
+            public List<ILayoutableNode> getPredecessors() {
+                return java.util.Collections.EMPTY_LIST;
+            }
+            @Override
+            public List<IDiagramLink> getFromLinks() {
+                return java.util.Collections.EMPTY_LIST;
+            }
+            @Override
+            public int getCol() {
+                return 0;
+            }
+            @Override
+            public Rectangle getBounds() {
+                return new Rectangle(0, 0, 0, 0);
+            }
+            @Override
+            public String getName() {
+                return "NullNode";
+            }
+            @Override
+            public int getRightDepth() {
+                return 0;
+            }
+            @Override
+            public List<IDiagramLink> getToLinks() {
+                return java.util.Collections.EMPTY_LIST;
+            }
+            @Override
+            public List<ILayoutableLink> getInLinks(AnchorDirection anchorDirection) {
+                return java.util.Collections.EMPTY_LIST;
+            }
+            @Override
+            public List<ILayoutableLink> getOutLinks(AnchorDirection anchorDirection) {
+                return java.util.Collections.EMPTY_LIST;
+            }
+        };
 
-// @objid ("497ca9e9-8085-4345-be57-92c253d41df1")
-// IDiagramNode getDiagramNode();
+    // @objid ("497ca9e9-8085-4345-be57-92c253d41df1")
+    // IDiagramNode getDiagramNode();
     @objid ("3e7bd7dd-fa05-4733-b3cc-3cb6d8618ff5")
     List<ILayoutableNode> getPredecessors();
 

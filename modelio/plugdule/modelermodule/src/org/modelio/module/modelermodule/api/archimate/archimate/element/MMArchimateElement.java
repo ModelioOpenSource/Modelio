@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.archimate.archimate.element;
 
@@ -33,30 +32,29 @@ import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
- * Proxy class to handle a Element metaclass.
+ * Proxy class to handle a Archimate.Element metaclass.
  * <p>Description:
  * <br/><i>MMArchimateElement</i></p>
  */
 @objid ("f08f1ee5-dc12-493b-aefe-06163fcd33d9")
 public class MMArchimateElement {
-    @objid ("dd78bf13-7714-4784-b2aa-8827cc8d1cd6")
+    @objid ("201c97cf-d290-45d7-ba18-d4c75f8c4037")
     public static final String USERDIAGRAMIMAGE_TAGTYPE = "userDiagramImage";
 
     /**
      * The underlying {@link Element} represented by this proxy, never null.
      */
-    @objid ("a0b638ae-82c1-409c-b006-f9c57c366a3c")
+    @objid ("bcf63b06-307e-4350-9f23-4dc2bfecaea3")
     protected final ModelElement elt;
 
     /**
-     * Tells whether a {@link MMArchimateElement proxy} can be instantiated from a {@link MObject} checking it is a Element.
+     * Tells whether a {@link MMArchimateElement proxy} can be instantiated from a {@link MObject} checking it is a Archimate.Element.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("fce00869-c133-4471-b1a3-cd5e64b2215b")
+    @objid ("1ffad4a6-1368-45d7-a56b-4d80a58a8fae")
     public static boolean canInstantiate(MObject elt) {
         if (elt == null) {
             return false;
@@ -66,19 +64,18 @@ public class MMArchimateElement {
     }
 
     /**
-     * Tries to instantiate a {@link MMArchimateElement} proxy from a Element checking its metaclass.
+     * Tries to instantiate a {@link MMArchimateElement} proxy from a Archimate.Element checking its metaclass.
      * <p>
      * The method returns <i>null</i> if the instantiation cannot be carried out.
-     * 
      * @param obj a Element
      * @return a {@link MMArchimateElement} proxy or <i>null</i>.
      */
-    @objid ("42b313dc-dd41-4cb0-88dd-8c3494276516")
+    @objid ("d2972821-3866-42e8-b7e9-0f228421e644")
     public static MMArchimateElement instantiate(ModelElement obj) {
         return MMArchimateElement.canInstantiate(obj) ? new MMArchimateElement(obj) : null;
     }
 
-    @objid ("eea3e5de-ba26-49de-b147-4520cb2b3281")
+    @objid ("508fbb8f-f939-4b34-a60a-9f9d66c6a31f")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -95,11 +92,10 @@ public class MMArchimateElement {
     }
 
     /**
-     * Get the underlying Element.
-     * 
+     * Get the underlying Archimate.Element.
      * @return the Element represented by this proxy, never null.
      */
-    @objid ("121cc320-fd55-4a79-91c2-438593f61143")
+    @objid ("eef4b46d-0fe7-46ae-938e-1aa0a7e04ef7")
     public ModelElement getElement() {
         return this.elt;
     }
@@ -111,15 +107,15 @@ public class MMArchimateElement {
      * 
      * The file path must be either absolute or relative to the project path.</i></p>
      */
-    @objid ("09bd3b5e-2482-4d1c-b849-e602dfe5f83a")
+    @objid ("47e89d23-18b7-4570-a968-9b1b5ff39214")
     public String getUserDiagramImage() {
         return this.elt.getTagValue(MMArchimateElement.MdaTypes.USERDIAGRAMIMAGE_TAGTYPE_ELT);
     }
 
-    @objid ("b970c19d-aa6f-4201-845b-11bdd3f72be0")
+    @objid ("859538c5-57b8-4e72-8288-382ae14e7d90")
     @Override
     public int hashCode() {
-        return 23 + (this.elt == null ? 0 : this.elt.hashCode());
+        return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
     }
 
     /**
@@ -129,40 +125,40 @@ public class MMArchimateElement {
      * 
      * The file path must be either absolute or relative to the project path.</i></p>
      */
-    @objid ("647c3eae-5d1f-48d9-bbd8-859a047b94a4")
+    @objid ("b3c80936-4ab5-4612-a68c-088fcdac6e7b")
     public void setUserDiagramImage(String value) {
         this.elt.putTagValue(MMArchimateElement.MdaTypes.USERDIAGRAMIMAGE_TAGTYPE_ELT, value);
     }
 
-    @objid ("296b9c5e-2f45-4342-8086-015c5cc5d817")
-    protected MMArchimateElement(ModelElement elt) {
+    @objid ("7c7a22c3-8365-461c-877c-52f4469d26d3")
+    protected  MMArchimateElement(ModelElement elt) {
         this.elt = elt;
     }
 
     @objid ("5f5d64b1-9d12-4192-9d23-938c76e9d8f5")
     public static final class MdaTypes {
-        @objid ("8fbff9ce-6640-4ad9-9dad-1376fb08013d")
+        @objid ("41b8fe9c-54ea-40fb-bb04-4f5dd494781e")
         public static TagType USERDIAGRAMIMAGE_TAGTYPE_ELT;
 
-        @objid ("435617ed-514a-44dd-b5d0-a65c4a9148e0")
+        @objid ("cc7a5319-201d-4231-bc6f-a7d0cd0f5e7e")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("e7409566-3443-4ae6-8fb4-2bda1c88149e")
+        @objid ("29d9a00e-f91c-4ec9-a38c-a928636bb1a0")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("f2cb7e5e-2d0f-413b-b286-ad4c9787399c")
+        @objid ("a89c8834-c2d2-49f4-b6ee-dcc8e0ac8f75")
         public static void init(IModuleContext ctx) {
             USERDIAGRAMIMAGE_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "4e937f83-ad13-4869-8ba0-ac698e1c0762");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 static {
-            if(ModelerModuleModule.getInstance() != null) {
-                init(ModelerModuleModule.getInstance().getModuleContext());
+                if(ModelerModuleModule.getInstance() != null) {
+                    init(ModelerModuleModule.getInstance().getModuleContext());
+                }
             }
-        }
+        
     }
 
 }

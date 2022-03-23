@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.commands;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,11 +40,11 @@ public class NodeChangeLayoutCommand extends Command {
         if (this.model != null) {
             this.model.setLayoutData(this.layoutData);
         }
+        
     }
 
     /**
      * Set the constraint that will be the new layoutData.
-     * 
      * @param constraint the new constraint.
      */
     @objid ("7f47c85a-1dec-11e2-8cad-001ec947c8cc")
@@ -65,11 +64,11 @@ public class NodeChangeLayoutCommand extends Command {
          * }
          * }
          */
+        
     }
 
     /**
      * Set the model that will be updated.
-     * 
      * @param model the model to update. Must be a {@link GmAbstractObject}
      */
     @objid ("7f47c85e-1dec-11e2-8cad-001ec947c8cc")
@@ -81,6 +80,7 @@ public class NodeChangeLayoutCommand extends Command {
          * return;
          * }
          */
+        
     }
 
     @objid ("7f47c862-1dec-11e2-8cad-001ec947c8cc")

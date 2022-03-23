@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.usecase;
 
 import java.util.ArrayList;
@@ -45,7 +44,7 @@ public class ActorDG extends PortContainerDG {
      * @param node The gm node represented by this class.
      */
     @objid ("291666ab-6cae-42fa-b971-e086ac6880a3")
-    public ActorDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  ActorDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 

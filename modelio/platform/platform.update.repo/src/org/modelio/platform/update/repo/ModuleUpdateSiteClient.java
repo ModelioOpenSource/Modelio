@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.update.repo;
 
 import java.net.URI;
@@ -44,14 +43,15 @@ public class ModuleUpdateSiteClient {
     private final IAuthData authData;
 
     @objid ("11e97318-b155-4818-9659-3880da38ef2e")
-    public ModuleUpdateSiteClient(String updateSite) {
+    public  ModuleUpdateSiteClient(String updateSite) {
         this(updateSite, null);
     }
 
     @objid ("c40ae9f0-09d0-4155-b4e5-07f06cac372e")
-    public ModuleUpdateSiteClient(String updateSite, IAuthData auth) {
+    public  ModuleUpdateSiteClient(String updateSite, IAuthData auth) {
         this.updateSite = updateSite;
         this.authData = auth;
+        
     }
 
     @objid ("d3aa89b5-edb5-44b3-b2dd-8c5eb87cef8f")

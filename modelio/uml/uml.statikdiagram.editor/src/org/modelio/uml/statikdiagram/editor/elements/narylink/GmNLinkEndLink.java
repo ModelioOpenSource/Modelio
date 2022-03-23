@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.narylink;
 
 import java.util.List;
@@ -76,7 +75,7 @@ public class GmNLinkEndLink extends GmLink {
     public static final String ROLE_INFOFLOW_ARROW = "infoflow_arrow";
 
     @objid ("6164b40f-5bd5-11e2-9e33-00137282c51b")
-     static final NLinkStructuredStyleKeys STRUCTURED_KEYS = new NLinkStructuredStyleKeys();
+    static final NLinkStructuredStyleKeys STRUCTURED_KEYS = new NLinkStructuredStyleKeys();
 
     @objid ("b024fe96-585d-4a59-b0d0-53f910b6ede0")
     private NaryLinkEnd role;
@@ -85,19 +84,18 @@ public class GmNLinkEndLink extends GmLink {
      * Constructor for deserialization only.
      */
     @objid ("35e5003f-55b7-11e2-877f-002564c97630")
-    public GmNLinkEndLink() {
+    public  GmNLinkEndLink() {
         // Nothing to do.
     }
 
     /**
      * Creates a GmAssociation.
-     * 
      * @param diagram The diagram
      * @param role The represented association role, may be null
      * @param roleRef The represented association role reference, must not be null
      */
     @objid ("35e50042-55b7-11e2-877f-002564c97630")
-    public GmNLinkEndLink(IGmDiagram diagram, NaryLinkEnd role, MRef roleRef) {
+    public  GmNLinkEndLink(IGmDiagram diagram, NaryLinkEnd role, MRef roleRef) {
         super(diagram, roleRef);
         this.role = role;
         
@@ -114,6 +112,7 @@ public class GmNLinkEndLink extends GmLink {
             addExtension(new GmInformationFlowArrow(diagram, roleRef), GmNLinkEndLink.ROLE_INFOFLOW_ARROW, constraint);
         
         }
+        
     }
 
     @objid ("35e5004e-55b7-11e2-877f-002564c97630")
@@ -138,7 +137,6 @@ public class GmNLinkEndLink extends GmLink {
      * Get the represented association role.
      * <p>
      * Returns null if the represented role is not in the model.
-     * 
      * @return the represented association role.
      */
     @objid ("35e50063-55b7-11e2-877f-002564c97630")
@@ -171,6 +169,7 @@ public class GmNLinkEndLink extends GmLink {
         
         // post change event
         firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, null, this);
+        
     }
 
     @objid ("35e686f2-55b7-11e2-877f-002564c97630")
@@ -197,6 +196,7 @@ public class GmNLinkEndLink extends GmLink {
             break;
         }
         }
+        
     }
 
     @objid ("35e686f8-55b7-11e2-877f-002564c97630")
@@ -212,6 +212,7 @@ public class GmNLinkEndLink extends GmLink {
         if (from != null) {
             getPersistedStyle().setCascadedStyle(from.getPersistedStyle());
         }
+        
     }
 
     @objid ("35e6870a-55b7-11e2-877f-002564c97630")
@@ -221,6 +222,7 @@ public class GmNLinkEndLink extends GmLink {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmNLinkEndLink.", GmNLinkEndLink.MINOR_VERSION);
+        
     }
 
     @objid ("35e68710-55b7-11e2-877f-002564c97630")
@@ -274,6 +276,7 @@ public class GmNLinkEndLink extends GmLink {
             removeExtension(oldCardinalityLabel);
             oldCardinalityLabel.delete();
         }
+        
     }
 
     /**
@@ -295,6 +298,7 @@ public class GmNLinkEndLink extends GmLink {
                 }
             }
         }
+        
     }
 
     @objid ("591bd5eb-15c3-4030-9d4d-5fcb8db27f0f")
@@ -311,6 +315,7 @@ public class GmNLinkEndLink extends GmLink {
                 n.setRoleInComposition(GmNLinkEndLink.ROLE_INFOFLOW_ARROW);
             }
         }
+        
     }
 
     @objid ("59baa0ba-bbf3-48a1-b98e-7e29f197896c")

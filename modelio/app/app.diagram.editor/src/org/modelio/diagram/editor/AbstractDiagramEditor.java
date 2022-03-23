@@ -17,27 +17,24 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Deque;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.inject.Inject;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
 import org.eclipse.core.runtime.preferences.InstanceScope;
-import org.eclipse.draw2d.BendpointConnectionRouter;
 import org.eclipse.draw2d.ColorConstants;
-import org.eclipse.draw2d.ConnectionRouter;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.LightweightSystem;
 import org.eclipse.draw2d.PositionConstants;
@@ -88,25 +85,24 @@ import org.modelio.diagram.editor.plugin.DiagramEditor;
 import org.modelio.diagram.editor.plugin.DiagramEditorsManager;
 import org.modelio.diagram.editor.plugin.IDiagramConfigurer;
 import org.modelio.diagram.editor.plugin.IDiagramConfigurerRegistry;
+import org.modelio.diagram.editor.plugin.ModuleDiagramCustomizer;
 import org.modelio.diagram.editor.plugin.ToolRegistry;
 import org.modelio.diagram.editor.tools.PanSelectionTool;
 import org.modelio.diagram.editor.tools.PickingSelectionTool;
 import org.modelio.diagram.editor.widgets.draw2d.DeferredUpdateManagerWithWatchDog;
 import org.modelio.diagram.editor.widgets.gef.ModelElementDropTargetListener;
 import org.modelio.diagram.editor.widgets.gef.OutlinePage;
-import org.modelio.diagram.editor.widgets.swt.FlyoutPaletteComposite2.FlyoutPreferences;
 import org.modelio.diagram.editor.widgets.swt.FlyoutPaletteComposite2;
+import org.modelio.diagram.editor.widgets.swt.FlyoutPaletteComposite2.FlyoutPreferences;
 import org.modelio.diagram.editor.widgets.swt.SidePanelsContainerPanel;
 import org.modelio.diagram.elements.common.abstractdiagram.AbstractDiagramElementDropEditPolicyExtension;
 import org.modelio.diagram.elements.common.abstractdiagram.DiagramElementDropEditPolicy;
 import org.modelio.diagram.elements.common.abstractdiagram.IDiagramElementDropEditPolicyExtension;
 import org.modelio.diagram.elements.common.abstractdiagram.InfraDiagramElementDropEditPolicyExtension;
 import org.modelio.diagram.elements.common.root.ScalableFreeformRootEditPart2;
-import org.modelio.diagram.elements.core.figures.routers.OrthogonalRouter;
-import org.modelio.diagram.elements.core.link.ConnectionRouterRegistry;
+import org.modelio.diagram.elements.core.link.ConnectionRoutingServices;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
 import org.modelio.diagram.elements.factories.StandardEditPartFactory;
-import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
@@ -147,26 +143,26 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
     private static final String DROPPOLICYEXTENSION_ID = "org.modelio.app.diagram.editor.droppolicy.extensions";
 
     @objid ("ca2fb77c-e418-46e4-a412-604cb01e9f83")
-    private static final String PALETTE_LOCATION = "com.modeliosoft.modelio.diagram.editor.palettedock"; // $NON-NLS-1$
+    private static final String PALETTE_LOCATION = "com.modeliosoft.modelio.diagram.editor.palettedock";
 
     @objid ("4e7baaed-a64b-45a7-9a78-d577084c6e4b")
-    private static final String PALETTE_SIZE = "com.modeliosoft.modelio.diagram.editor.palettesize"; // $NON-NLS-1$
+    private static final String PALETTE_SIZE = "com.modeliosoft.modelio.diagram.editor.palettesize";
 
     @objid ("617557b4-3db2-4efa-a742-84f5437d9159")
-    private static final String PALETTE_STATE = "com.modeliosoft.modelio.diagram.editor.palettestate"; // $NON-NLS-1$
+    private static final String PALETTE_STATE = "com.modeliosoft.modelio.diagram.editor.palettestate";
 
     @objid ("6ced2780-3682-4d61-a6af-97179bb2cd18")
-    private static final String SYMBOL_FLYOUT_LOCATION = "com.modeliosoft.modelio.diagram.editor.flyout.symbol.dock"; // $NON-NLS-1$
+    private static final String SYMBOL_FLYOUT_LOCATION = "com.modeliosoft.modelio.diagram.editor.flyout.symbol.dock";
 
     @objid ("b8029364-94ca-4493-b2dc-fdb4265e4583")
-    private static final String SYMBOL_FLYOUT_SIZE = "com.modeliosoft.modelio.diagram.editor.flyout.symbol.size"; // $NON-NLS-1$
+    private static final String SYMBOL_FLYOUT_SIZE = "com.modeliosoft.modelio.diagram.editor.flyout.symbol.size";
 
     @objid ("e449f9c9-6767-40eb-ae18-03b7a426c59b")
-    private static final String SYMBOL_FLYOUT_STATE = "com.modeliosoft.modelio.diagram.editor.flyout.symbol.state"; // $NON-NLS-1$
+    private static final String SYMBOL_FLYOUT_STATE = "com.modeliosoft.modelio.diagram.editor.flyout.symbol.state";
 
     @objid ("0afdbf2c-7844-42cd-9d03-9d3238d67724")
     private static final double[] ZOOM_LEVELS = { 0.25, 0.50, 0.75, 1.0, 1.25, 1.5, 1.75, 2.0, 2.25, 2.5, 2.75, 3.0,
-            3.25, 3.5, 3.75, 4.0 };
+                                3.25, 3.5, 3.75, 4.0 };
 
     @objid ("faad5e29-1cb9-4a73-bb62-fa1c3a66b770")
     @Inject
@@ -241,7 +237,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
     private ESelectionService selectionService;
 
     @objid ("9a433b9c-436f-4c2c-8115-e810f7654627")
-     FlyoutPaletteComposite2 splitter;
+    FlyoutPaletteComposite2 splitter;
 
     /**
      * The selection synchronizer object, which can be used to sync the selection of 2 or more EditPartViewers.
@@ -257,7 +253,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
      * Constructor. Registers the editor as {@link IPickingProvider}.
      */
     @objid ("15c3abf7-f412-4250-b7ce-5390776065de")
-    public AbstractDiagramEditor() {
+    public  AbstractDiagramEditor() {
         super();
     }
 
@@ -312,6 +308,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
             DiagramEditor.LOG.error("Unable to properly close %s diagram editor: %s", this, e.toString());
             DiagramEditor.LOG.error(e);
         }
+        
     }
 
     /**
@@ -363,7 +360,6 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
 
     /**
      * Returns the graphical viewer.
-     * 
      * @return the graphical viewer
      */
     @objid ("defd22b5-d3fa-46d8-9105-e9aae99739a1")
@@ -373,7 +369,6 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
 
     /**
      * Get the diagram's {@link MPart}.
-     * 
      * @return the eclipse part displaying the diagram.
      */
     @objid ("4a025d78-9396-4c09-9300-947cabb6bbcb")
@@ -383,7 +378,6 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
 
     /**
      * Return the root edit part of this editor.
-     * 
      * @return the root edit part of this editor.
      */
     @objid ("23af25bb-115b-41fa-9aba-8d08ba22e371")
@@ -413,7 +407,6 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
 
     /**
      * Make the {@link PickingSelectionTool} active when a picking session starts.
-     * 
      * @param session the picking session.
      */
     @objid ("db0fd136-fd76-421c-bd86-648ca6f148b3")
@@ -425,7 +418,6 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
 
     /**
      * Make the {@link PanSelectionTool} active when a picking session ends.
-     * 
      * @param session the picking session.
      */
     @objid ("254c7d48-b2d3-41fe-910f-2413833b4eed")
@@ -539,6 +531,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
             MessageDialog.openError(composite.getShell(), DiagramEditor.I18N.getMessage("InvalidDiagram.title"),
                     DiagramEditor.I18N.getMessage("InvalidDiagram.message"));
         }
+        
     }
 
     /**
@@ -551,11 +544,11 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
         if (viewer != null) {
             viewer.getControl().setFocus();
         }
+        
     }
 
     /**
      * Hide/show the diagram's palette.
-     * 
      * @param onOff <code>true</code> to display the palette, <code>false</code> otherwise.
      */
     @objid ("48f48e41-34e8-46c8-8d75-aba77e3ba3ed")
@@ -571,6 +564,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
         } catch (RuntimeException | Error e) {
             return getClass().getSimpleName();
         }
+        
     }
 
     @objid ("b674cc29-2966-44bd-abdd-8be03fbdff4e")
@@ -581,6 +575,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
         if (element.equals(diagram)) {
             Display.getDefault().asyncExec(() -> AbstractDiagramEditor.this.partService.activate(AbstractDiagramEditor.this.part));
         }
+        
     }
 
     @objid ("874260af-45ae-432f-bf18-526e19c0853e")
@@ -590,6 +585,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
         if (elements.size() == 1) {
             onNavigateElement(elements.get(0));
         }
+        
     }
 
     @objid ("1450de0f-6bd3-4e5d-ab43-25d8bf2840d6")
@@ -651,11 +647,11 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
         final MoveKeyHandler kh = new MoveKeyHandler(viewer);
         kh.setParent(viewer.getKeyHandler());
         viewer.setKeyHandler(kh);
+        
     }
 
     /**
      * Creates the GraphicalViewer on the specified <code>Composite</code>.
-     * 
      * @param parent the parent composite
      */
     @objid ("52976cc9-9bbc-48a0-a74b-307caff0bd62")
@@ -698,6 +694,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
                 DiagramEditor.LOG.error(e);
             }
         }
+        
     }
 
     /**
@@ -710,7 +707,6 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
 
     /**
      * Get the modeling session.
-     * 
      * @return The modeling session.
      */
     @objid ("2a2f72a2-0cbf-4b52-9d34-40bc9422593d")
@@ -740,18 +736,14 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
                 p.setInput(event.getSelection());
             }
         });
+        
     }
 
     @objid ("4ab61e21-a719-49f7-a91f-fd0309ecaa22")
-    protected void initializeGraphicalViewer(final GraphicalViewer viewer) {
+    protected final void initializeGraphicalViewer(final GraphicalViewer viewer) {
         this.splitter.hookDropTargetListener(viewer);
         
-        // Initialize connection routers
-        final ConnectionRouterRegistry routersRegistry = new ConnectionRouterRegistry();
-        routersRegistry.put(StyleKey.ConnectionRouterId.DIRECT, ConnectionRouter.NULL);
-        routersRegistry.put(StyleKey.ConnectionRouterId.BENDPOINT, new BendpointConnectionRouter());
-        routersRegistry.put(StyleKey.ConnectionRouterId.ORTHOGONAL, new OrthogonalRouter());
-        viewer.setProperty(ConnectionRouterRegistry.ID, routersRegistry);
+        viewer.setProperty(ConnectionRoutingServices.ID, initializeConnectionRoutingServices());
         
         // Set the viewer content
         if (getEditorInput() != null) {
@@ -760,6 +752,22 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
             viewer.setProperty(DiagramElementDropEditPolicy.DROP_EXTENSIONS, loadDropExtensions());
         
         }
+        
+    }
+
+    /**
+     * Initialize connection routing services:
+     * <ul>
+     * <li>routers</li>
+     * <li>connection helper factory</li>
+     * </ul>
+     */
+    @objid ("f39f9fa8-b6c7-4e9f-9403-0ead0ca3848d")
+    protected ConnectionRoutingServices initializeConnectionRoutingServices() {
+        return ConnectionRoutingServices.builder()
+                .withLegacyDefaults()
+                .build();
+        
     }
 
     /**
@@ -776,6 +784,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
         if (replacementPalette != null) {
             this.paletteRoot.setChildren(replacementPalette.getChildren());
         }
+        
     }
 
     /**
@@ -790,18 +799,17 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
         // Ensure figures are layouted before beginning firing notifications in the Gm model (mantis 0013360)
         ((GraphicalEditPart) getGraphicalViewer().getRootEditPart()).getFigure().getUpdateManager().performValidation();
         
-        final Stereotype firstStereotype = editedDiagram.getExtension().stream()
+        final List<String> stereotypes = editedDiagram.getExtension().stream()
                 // Ignore shell stereotypes
                 .filter(Stereotype::isValid)
                 // Ignore orphan stereotypes
                 .filter(stereotype -> stereotype.getModule() != null)
                 // Sort stereotypes according to the "started modules" order
                 .sorted((stereotype1, stereotype2) -> Integer.compare(getModulePriority(stereotype1.getModule()), getModulePriority(stereotype2.getModule())))
-                // Get the first stereotype
-                .findFirst()
-                .orElse(null);
+                .map(s -> s.getName())
+                .collect(Collectors.toList());
         
-        if (firstStereotype == null) {
+        if (stereotypes.isEmpty()) {
             // Use metaclass configurer
             final IDiagramConfigurer diagramConfigurer = this.configurerRegistry.getConfigurer(editedDiagram.getMClass().getName());
             if (diagramConfigurer != null) {
@@ -809,12 +817,24 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
                 this.input.getGmDiagram().setDynamicStyler(diagramConfigurer.getDynamicStyler());
             }
         } else {
-            // Use configurer from metaclass and first stereotype
-            for (final IDiagramConfigurer configurer : this.configurerRegistry.getConfigurers(editedDiagram.getMClass().getName(), Arrays.asList(firstStereotype.getName()))) {
-                changePaletteContents(configurer.initPalette(this, this.toolRegistry));
-                this.input.getGmDiagram().setDynamicStyler(configurer.getDynamicStyler());
+            // Use configurer from metaclass and stereotype
+            IDiagramConfigurer current = null;
+            for (final IDiagramConfigurer configurer : this.configurerRegistry.getConfigurers(editedDiagram.getMClass().getName(), stereotypes)) {
+                if (current == null || !(configurer instanceof ModuleDiagramCustomizer)) {
+                    current = configurer;
+                    // Only the first configurer declares a dynamic styler
+                    this.input.getGmDiagram().setDynamicStyler(current.getDynamicStyler());
+                } else {
+                    // Chain the odule customizers
+                    ModuleDiagramCustomizer mdc = (ModuleDiagramCustomizer) configurer;
+                    current = new ModuleDiagramCustomizer(current, mdc.getModuleCustomizer(), mdc.getDynamicStyler());
+                }
+            }
+            if (current != null) {
+                changePaletteContents(current.initPalette(this, this.toolRegistry));
             }
         }
+        
     }
 
     @objid ("413b80f2-9075-4ffe-a195-fd108e45df76")
@@ -853,7 +873,6 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
     /**
      * Returns the palette viewer provider that is used to create palettes for the view and the flyout. Creates one if it doesn't already exist.
      * @see #createPaletteViewerProvider()
-     * 
      * @return the PaletteViewerProvider that can be used to create PaletteViewers for this editor
      */
     @objid ("abe78536-b635-463a-9292-d189d52f43c6")
@@ -938,10 +957,11 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
         private final String stateKey;
 
         @objid ("53004142-b4fc-4c4d-a018-02bad01bcc50")
-        EditorFlyoutPreferences(final String locationKey, final String sizeKey, final String stateKey) {
+         EditorFlyoutPreferences(final String locationKey, final String sizeKey, final String stateKey) {
             this.locationKey = locationKey;
             this.sizeKey = sizeKey;
             this.stateKey = stateKey;
+            
         }
 
         @objid ("0346cac5-3805-4115-a405-6905bddb5339")
@@ -950,6 +970,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
             return getDiagramPreferences().getInt(
                     this.locationKey,
                     PositionConstants.WEST);
+            
         }
 
         @objid ("6865e36c-7d4d-4af1-a27c-09f81abe26b2")
@@ -958,6 +979,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
             return getDiagramPreferences().getInt(
                     this.stateKey,
                     FlyoutPaletteComposite.STATE_PINNED_OPEN);
+            
         }
 
         @objid ("4202f687-f4c8-4e29-bab9-979a555fdba5")
@@ -966,6 +988,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
             return getDiagramPreferences().getInt(
                     this.sizeKey,
                     FlyoutPaletteComposite2.DEFAULT_PALETTE_SIZE);
+            
         }
 
         @objid ("207fafec-3a75-4fc9-a943-bceaffe6ceba")
@@ -976,6 +999,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
                         this.locationKey,
                         location);
             }
+            
         }
 
         @objid ("ba8c4ceb-0a44-4e87-90fa-0c1b04eab7cc")
@@ -1006,7 +1030,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
         private Image decoratedIcon = null;
 
         @objid ("8cd35c74-3d0a-480f-85b1-380ac0c6288e")
-        public IsModifiableIndicator() {
+        public  IsModifiableIndicator() {
             // Nothing specific to do here.
         }
 
@@ -1019,6 +1043,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
                     setIcon(part, getReadOnlylDecoratedIcon(diagram));
                 }
             }
+            
         }
 
         @objid ("b283c52a-5211-41a2-8504-1bf5d304f8ae")
@@ -1027,6 +1052,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
                 this.decoratedIcon.dispose();
                 this.decoratedIcon = null;
             }
+            
         }
 
         @objid ("e55e207f-9cd9-4a2d-a607-0fd225311619")
@@ -1070,7 +1096,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
         private final AbstractDiagramEditor editor;
 
         @objid ("57bf5df2-61d4-42b4-a455-3da9ff5ceacb")
-        public ModelChangeController(final AbstractDiagramEditor editor) {
+        public  ModelChangeController(final AbstractDiagramEditor editor) {
             this.editor = editor;
         }
 
@@ -1088,7 +1114,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
          * <p>
          * <ul>
          * <li>Refresh the diagram title</li>
-         * <li>Refresh the 'read-only' indicator in th eeditor tab </li>
+         * <li>Refresh the 'read-only' indicator in th eeditor tab</li>
          * <li>Close the diagram editor if deleted from the model.</li>
          * <li>Refresh the palette (configurers) if needed</li>
          * </ul>
@@ -1126,10 +1152,8 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
                     this.referenceStereotypes = newStereotypes;
                 }
             
-            
-            
-            
             });
+            
         }
 
         @objid ("ea32a405-82c5-43fc-a2f6-395caeb326b3")
@@ -1156,6 +1180,7 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
                     this.editor.showPalette(diagram.isModifiable());
                 }
             });
+            
         }
 
         @objid ("52f15bf9-523e-463d-b4bb-bcb6bed6b8c6")
@@ -1165,15 +1190,15 @@ public abstract class AbstractDiagramEditor implements IDiagramEditor {
 
         /**
          * Execute the runnable asynchronously in the SWT thread unless no SWT control for the editor exist.
-         * 
          * @param r the code to execute in the SWT thread.
          */
         @objid ("9595b16a-d5da-4d4b-ac39-f0daa0c16fb7")
         private void swtAsyncExec(final Runnable r) {
             java.util.Optional.ofNullable(this.editor.getGraphicalViewer())
-            .map(GraphicalViewer::getControl)
-            .map(Control::getDisplay)
-            .ifPresent(d -> d.asyncExec(r));
+                    .map(GraphicalViewer::getControl)
+                    .map(Control::getDisplay)
+                    .ifPresent(d -> d.asyncExec(r));
+            
         }
 
     }

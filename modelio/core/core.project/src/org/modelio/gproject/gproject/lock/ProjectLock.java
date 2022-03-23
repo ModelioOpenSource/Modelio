@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.gproject.lock;
 
 import java.io.FileNotFoundException;
@@ -94,21 +93,20 @@ public class ProjectLock {
      * Initialize the lock.
      * <p>
      * Call {@link #lock()} to acquire the lock.
-     * 
      * @param directory the lock directory.
      * @param projectName the project name.
      */
     @objid ("fe4c5ce8-659e-4f77-b296-82424bebbd85")
-    private ProjectLock(Path directory, String projectName) {
+    private  ProjectLock(Path directory, String projectName) {
         this.projectName = projectName;
         this.lockFile = directory.resolve("lock.dat");
         this.lockInfoFile = directory.resolve("lock.info");
+        
     }
 
     /**
      * Release the lock.
-     * 
-     * @throws java.io.IOException If an I/O error occurs
+     * @throws IOException If an I/O error occurs
      */
     @objid ("a6f9da52-06de-496f-bdc4-c27c0291c903")
     public synchronized void close() throws IOException {
@@ -156,13 +154,13 @@ public class ProjectLock {
                 throw err;
             }
         }
+        
     }
 
     /**
      * Acquires the lock.
-     * 
-     * @throws org.modelio.gproject.gproject.GProjectLockedException if the project is already open somewhere else or this lock instance is already acquired.
-     * @throws java.io.IOException in case of I/O failure
+     * @throws GProjectLockedException if the project is already open somewhere else or this lock instance is already acquired.
+     * @throws IOException in case of I/O failure
      */
     @objid ("709d2133-0d55-4318-a2c8-c06f58ceccd0")
     public synchronized void lock() throws GProjectLockedException, IOException {
@@ -205,13 +203,13 @@ public class ProjectLock {
         } catch (IOException e) {
             throw new IOException(CoreProject.I18N.getMessage("ProjectLock.failure", this.projectName, FileUtils.getLocalizedMessage(e)), e);
         }
+        
     }
 
     /**
      * Test whether the project is locked
-     * 
      * @return a lock information if the project is locked else <i>null</i>.
-     * @throws java.io.IOException in case of I/O error.
+     * @throws IOException in case of I/O error.
      */
     @objid ("ffa48c7f-6b33-4cbe-a7f6-1f0d3651c268")
     public synchronized ILockInfo test() throws IOException {
@@ -235,6 +233,7 @@ public class ProjectLock {
             // Locked in same VM
             return getLockInfo();
         }
+        
     }
 
     @objid ("3d0b7117-836b-450d-aaa8-d76d907ced65")
@@ -296,17 +295,17 @@ public class ProjectLock {
         } catch (IOException e) {
             return new GProjectLockedException(FileUtils.getLocalizedMessage(e), e);
         }
+        
     }
 
     /**
      * Get a project lock for a project directory.
      * <p>
      * Call {@link #lock()} then to acquire the lock.
-     * 
      * @param directory the lock directory.
      * @param projectName the project name.
      * @return the matching project lock
-     * @throws java.io.IOException if the path cannot be resolved
+     * @throws IOException if the path cannot be resolved
      */
     @objid ("8a2e5430-e8fa-4830-a0cc-26e806dc0947")
     public static ProjectLock get(Path directory, String projectName) throws IOException {
@@ -325,6 +324,7 @@ public class ProjectLock {
             
             return instance;
         }
+        
     }
 
     @objid ("bad37bb5-a194-4dbd-8664-56a1bd1e692f")
@@ -342,6 +342,7 @@ public class ProjectLock {
         }
         
         super.finalize();
+        
     }
 
 }

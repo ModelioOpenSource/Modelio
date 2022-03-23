@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta;
 
 import java.text.MessageFormat;
@@ -106,7 +105,7 @@ public class SmMetamodel implements MMetamodel {
      * Default constructor.
      */
     @objid ("dd1f7d4e-2e99-4518-9767-8e1fba21ff10")
-    public SmMetamodel() {
+    public  SmMetamodel() {
         initKernelFragment();
     }
 
@@ -115,7 +114,6 @@ public class SmMetamodel implements MMetamodel {
      * <p>
      * Returns the fake metaclasses that already existed. These metaclasses have been replaced by real ones.
      * Model objects instantiated from old fake metaclasses are not valid anymore.
-     * 
      * @param mmFragment the metamodel fragment to add
      * @return the fake metaclasses that already were replaced.
      */
@@ -181,7 +179,6 @@ public class SmMetamodel implements MMetamodel {
 
     /**
      * Get a builder to create fake metaclasses.
-     * 
      * @return a fake metaclasses builder.
      */
     @objid ("ff2f1d77-ed65-4a1c-9a5d-2945f093fda5")
@@ -193,7 +190,6 @@ public class SmMetamodel implements MMetamodel {
      * Look for a metamodel fragment from its name.
      * <p>
      * The returned fragment may be a fake fragment.
-     * 
      * @param fragmentName a metamodel fragment name
      * @return the found metamodel fragment or null.
      */
@@ -206,7 +202,6 @@ public class SmMetamodel implements MMetamodel {
      * Get the registered metamodel fragments.
      * <p>
      * The returned list is not modifiable.
-     * 
      * @return the metamodel fragments.
      */
     @objid ("2e718cc5-6a63-447d-993e-4a6bd4784b82")
@@ -223,12 +218,11 @@ public class SmMetamodel implements MMetamodel {
         } else {
             return Collections.<ISmMetamodelFragment>unmodifiableCollection(this.regularFragments);
         }
+        
     }
 
     /**
      * Get a meta class by its name
-     * @param name
-     * 
      * @return the meta class named by 'name', null if it does not exist.
      */
     @objid ("a47b0c3e-43ea-4dde-9a82-5acddb06bdaf")
@@ -247,7 +241,6 @@ public class SmMetamodel implements MMetamodel {
 
     /**
      * Get a meta class by its internal id
-     * 
      * @param classid a metaclass internal id
      * @return the meta class number 'id', throws IndexOutOfBoundsException - if the index is out of range
      */
@@ -258,8 +251,6 @@ public class SmMetamodel implements MMetamodel {
 
     /**
      * Get a meta class by its java interface
-     * @param interf
-     * 
      * @return the meta class corresponding to the 'interf' Java interface class, null if it cannot be found
      */
     @objid ("c2a385bd-81ea-4096-a2b9-21ab9fd1cce6")
@@ -276,7 +267,6 @@ public class SmMetamodel implements MMetamodel {
 
     /**
      * Get the list of meta classes currently composing the runtime metamodel
-     * 
      * @return an unmodifiable list of the currently registered meta classes
      */
     @objid ("f75313e0-49b8-41c9-8807-dc25109998d5")
@@ -287,7 +277,6 @@ public class SmMetamodel implements MMetamodel {
 
     /**
      * Get the metaclasses registered by a metamodel fragment.
-     * 
      * @param mmFragment a metamodel fragment.
      * @return the registered fragment metaclasses.
      */
@@ -313,13 +302,13 @@ public class SmMetamodel implements MMetamodel {
         } catch (CyclicDependencyException e) {
             throw new IllegalStateException(e.getLocalizedMessage(), e);
         }
+        
     }
 
     /**
      * Merge the given metamodel descriptor into this metamodel
      * in order to make best effort to make it compatible with both the initial
      * metamodel and the described one.
-     * 
      * @param mmDesc the metamodel to merge.
      */
     @objid ("80d6dfe4-4a14-49ac-b6b0-98ab41c107f5")
@@ -329,7 +318,6 @@ public class SmMetamodel implements MMetamodel {
 
     /**
      * Remove a fake metaclass from the metamodel.
-     * 
      * @param smClass a fake metaclass.
      */
     @objid ("8b3385ee-8638-4372-bd2e-7293ba4d2117")
@@ -339,11 +327,11 @@ public class SmMetamodel implements MMetamodel {
         }
         
         unregisterMetaclass(smClass);
+        
     }
 
     /**
      * Remove a metamodel fragment and forget all its metaclasses.
-     * 
      * @param removedMm a metamodel fragment to remove.
      */
     @objid ("1f3eb837-c215-460f-8706-e023b185e0a5")
@@ -354,11 +342,11 @@ public class SmMetamodel implements MMetamodel {
         
         this.fragments.remove(removedMm.getName());
         this.regularFragments.remove(removedMm);
+        
     }
 
     /**
      * Produce a {@link MetamodelDescriptor} of this metamodel
-     * 
      * @return a metamodel descriptor.
      */
     @objid ("254dcdcc-ab6f-4542-96c5-dba9d8facfc0")
@@ -370,7 +358,6 @@ public class SmMetamodel implements MMetamodel {
      * To be called only by {@link FakeSmClassBuilder}.
      * <p>
      * Register a new fake metaclass.
-     * 
      * @param cls a fake metaclass
      */
     @objid ("ba1f9079-7818-4acb-9dbb-e013502cd86d")
@@ -388,34 +375,31 @@ public class SmMetamodel implements MMetamodel {
         
         cls.load(this);
         cls.postInit();
+        
     }
 
     /**
      * Get or create a fake metamodel fragment.
      * <p>
      * Used only by {@link FakeSmClassBuilder}.
-     * 
      * @param fragmentName the metamodel fragment name.
      * @param version the metamodel fragment version. Will be used if the fragment has to be created.
      * @return the found or created metamodel fragment.
      */
     @objid ("6508dca0-f432-4840-9717-4cd30b9ce4d7")
     ISmMetamodelFragment getFakeFragment(String fragmentName, Version version) {
-        ISmMetamodelFragment f = this.fragments.get(fragmentName);
-        if (f == null) {
-            f = new FakeMetamodelFragment(fragmentName, version);
-            this.fragments.put(fragmentName, f);
-        }
+        ISmMetamodelFragment f = this.fragments.computeIfAbsent(
+                fragmentName,
+                name -> new FakeMetamodelFragment(name, version));
         return f;
     }
 
     /**
      * Register the metaclass in internal maps.
-     * 
      * @param smClass the metaclass to register.
      * @return the metaclass id number.
-     * @throws java.lang.IllegalStateException if no metaclass id left
-     * @throws java.lang.IllegalArgumentException on duplicate metaclasses
+     * @throws IllegalStateException if no metaclass id left
+     * @throws IllegalArgumentException on duplicate metaclasses
      */
     @objid ("93c01cf5-e9ef-43f4-ab4c-148d6af18ef8")
     protected synchronized short registerMetaclass(final SmClass smClass) throws IllegalStateException, IllegalArgumentException {
@@ -476,6 +460,7 @@ public class SmMetamodel implements MMetamodel {
                         mmFragment.getName(), ref.getName(), ref.getVersion()));
             }
         }
+        
     }
 
     /**
@@ -485,6 +470,7 @@ public class SmMetamodel implements MMetamodel {
     private final void initKernelFragment() {
         ISmMetamodelFragment mf = new KernelMetamodelFragment();
         addMetamodelFragment(mf);
+        
     }
 
     @objid ("68389c69-99dd-453c-8fe7-40fe6a8ebd36")
@@ -492,6 +478,7 @@ public class SmMetamodel implements MMetamodel {
         this.byShortNameCache.remove(smClass.getName());
         this.byQualifiedNameCache.remove(smClass.getQualifiedName());
         this.byInterfaceCache.remove(smClass.getJavaInterface());
+        
     }
 
 }

@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.usecaseModel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,7 +31,7 @@ import org.modelio.metamodel.impl.uml.statik.GeneralClassData;
 @objid ("00585d72-c4bf-1fd8-97fe-001ec947cd2a")
 public class ActorData extends GeneralClassData {
     @objid ("4369c244-d1eb-41b0-b6a7-43495b728c01")
-    public ActorData(ActorSmClass smClass) {
+    public  ActorData(ActorSmClass smClass) {
         super(smClass);
     }
 

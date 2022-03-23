@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.update.repo;
 
 import java.io.BufferedReader;
@@ -73,11 +72,10 @@ public class UpdateChecker {
 
     /**
      * Computes the list of proposed updates available for the given module map.
-     * 
      * @param referenceModules a map of module names & versions serving as a reference for the update.
      * @param strict if <code>true</code> the proposed updates will be strictly limited to the modules declared in the reference modules (no new modules proposed)
      * @return a list of possible updates, i.e. all module newest versions that do not already belong to the referenceModules map.
-     * @throws java.io.IOException if the update site couldn't be contacted.
+     * @throws IOException if the update site couldn't be contacted.
      */
     @objid ("6085c73f-4297-44db-adab-e762a5ce2e8d")
     public List<UpdateDescriptor> getModuleUpdates(Map<String, Version> referenceModules, boolean strict) throws IOException {
@@ -90,11 +88,10 @@ public class UpdateChecker {
 
     /**
      * Computes the list of proposed updates available for the given ramc map.
-     * 
      * @param referenceRamcs a map of ramc names & versions serving as a reference for the update.
      * @param strict if <code>true</code> the proposed updates will be strictly limited to the ramcs declared in the reference ramcs (no new ramcs proposed)
      * @return a list of possible updates, i.e. all ramc newest versions that do not already belong to the referenceRamcs map.
-     * @throws java.io.IOException if the update site couldn't be contacted.
+     * @throws IOException if the update site couldn't be contacted.
      */
     @objid ("0205b7cd-413b-42e3-a8cc-bf23a25be1ee")
     public List<UpdateDescriptor> getRamcsUpdates(Map<String, Version> referenceRamcs, boolean strict) throws IOException {
@@ -107,11 +104,10 @@ public class UpdateChecker {
 
     /**
      * Computes the list of proposed updates available for the given template map.
-     * 
      * @param referenceTemplates a map of template names & versions serving as a reference for the update.
      * @param strict if <code>true</code> the proposed updates will be strictly limited to the templates declared in the reference templates (no new templates proposed)
      * @return a list of possible updates, i.e. all template newest versions that do not already belong to the referenceTemplates map.
-     * @throws java.io.IOException if the update site couldn't be contacted.
+     * @throws IOException if the update site couldn't be contacted.
      */
     @objid ("3624603a-199c-4cae-bd8c-beefe24934ac")
     public List<UpdateDescriptor> getTemplateUpdates(Map<String, Version> referenceTemplates, boolean strict) throws IOException {
@@ -149,7 +145,6 @@ public class UpdateChecker {
 
     /**
      * Get the configured modules update site from the preferences. since Modelio 3.5 this path is defined as: $BASE/$VRC/modules $BASE = path/url from Modelio global preferences $VRC = modelio version
-     * 
      * @return the modules update URL
      */
     @objid ("692f7365-842d-48e0-954a-8745f925a09c")
@@ -160,7 +155,6 @@ public class UpdateChecker {
 
     /**
      * Get the configured ramcs update site from the preferences. since Modelio 3.5 this path is defined as: $BASE/$VRC/ramcs $BASE = path/url from Modelio global preferences $VRC = modelio version
-     * 
      * @return the ramcs update URL
      */
     @objid ("4ec2d007-f355-4205-88cb-bc083a5961f7")
@@ -171,7 +165,6 @@ public class UpdateChecker {
 
     /**
      * Get the configured templates update site from the preferences. since Modelio 3.5 this path is defined as: $BASE/$VRC/templates $BASE = path/url from Modelio global preferences $VRC = modelio version
-     * 
      * @return the templates update URL
      */
     @objid ("dea2a99b-03ad-4324-91e6-4ef534b9f199")
@@ -183,16 +176,15 @@ public class UpdateChecker {
     @objid ("185a6b92-1322-45b1-b618-d9ed373314c6")
     public static String getUpdateSite() {
         IPreferenceStore appPreferences = Preferences.getPreferences();
-        String versionSubdir = String.format("/%d.%d.%d", ModelioVersion.VERSION.getMajorVersion(), ModelioVersion.VERSION.getMinorVersion(), ModelioVersion.VERSION.getBuildVersion());
+        String versionSubdir = String.format("/%s", ModelioVersion.VERSION.toString("V.R"));
         String updateSite = appPreferences.getString(AppSharedPreferencesKeys.UPDATESITE_PREFKEY) + versionSubdir;
         return updateSite;
     }
 
     /**
      * Checks the update file for the current version of Modelio.
-     * 
      * @return the list of all updates available in the update file.
-     * @throws java.io.IOException if the update site couldn't be contacted
+     * @throws IOException if the update site couldn't be contacted
      */
     @objid ("c4de2b63-cadc-4450-af4c-3673fa369971")
     private List<UpdateDescriptor> readUpdatePlan(String updateFile) throws IOException {

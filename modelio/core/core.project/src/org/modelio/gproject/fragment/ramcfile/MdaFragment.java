@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.fragment.ramcfile;
 
 import java.net.URI;
@@ -36,7 +35,6 @@ import org.modelio.gproject.data.project.GProperties;
 public class MdaFragment extends RamcFileFragment {
     /**
      * Initialize the MDA fragment
-     * 
      * @param id the fragment ID
      * @param uri the .ram file URI
      * @param definitionScope the definition scope
@@ -44,7 +42,7 @@ public class MdaFragment extends RamcFileFragment {
      * @param authConf the authentication data
      */
     @objid ("351c5428-2114-4712-920f-c6fd12251f5d")
-    public MdaFragment(String id, URI uri, DefinitionScope definitionScope, GProperties properties, GAuthConf authConf) {
+    public  MdaFragment(String id, URI uri, DefinitionScope definitionScope, GProperties properties, GAuthConf authConf) {
         super(id, uri, definitionScope, properties, authConf);
     }
 

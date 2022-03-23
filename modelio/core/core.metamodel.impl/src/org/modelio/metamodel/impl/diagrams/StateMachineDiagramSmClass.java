@@ -17,19 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.diagrams;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.diagrams.BehaviorDiagram;
 import org.modelio.metamodel.diagrams.StateMachineDiagram;
-import org.modelio.metamodel.impl.diagrams.BehaviorDiagramSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("05f971dc-3b59-4a75-b579-a10e410a0d7e")
 public class StateMachineDiagramSmClass extends BehaviorDiagramSmClass {
     @objid ("6b90f24b-e0a0-4e7e-9295-6099290abe7b")
-    public StateMachineDiagramSmClass(ISmMetamodelFragment origin) {
+    public  StateMachineDiagramSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class StateMachineDiagramSmClass extends BehaviorDiagramSmClass {
     @Override
     public String getName() {
         return "StateMachineDiagram";
+        
     }
 
     @objid ("583e2c37-f2b8-40ac-9b26-4b178833ad7f")
@@ -62,18 +62,21 @@ public class StateMachineDiagramSmClass extends BehaviorDiagramSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return StateMachineDiagram.class;
+        
     }
 
     @objid ("c257384a-6b4d-46cb-a001-245a077935fa")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("e6d20fa9-09eb-47f6-9310-44681c4747d8")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("4cf83674-24a1-4c0b-befe-9fdba163da6b")
@@ -86,6 +89,7 @@ public class StateMachineDiagramSmClass extends BehaviorDiagramSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("1fac7ed7-da96-4b14-80a1-35e56d04cbf7")
@@ -94,7 +98,7 @@ public class StateMachineDiagramSmClass extends BehaviorDiagramSmClass {
         private StateMachineDiagramSmClass smClass;
 
         @objid ("cb666b5d-c9ea-4ddc-9fc7-b432cdacde19")
-        public StateMachineDiagramObjectFactory(StateMachineDiagramSmClass smClass) {
+        public  StateMachineDiagramObjectFactory(StateMachineDiagramSmClass smClass) {
             this.smClass = smClass;
         }
 

@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.communicationdiagram.editor.contributor;
 
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.modelio.api.ui.viewtemplate.IModelViewTemplate;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
@@ -71,7 +70,6 @@ public class CommunicationDiagramTemplate implements IModelViewTemplate<Abstract
 
     /**
      * Create a Communication diagram under 'interaction' and sets its default name.
-     * 
      * @return the created Communication diagram or null in case of problems.
      */
     @objid ("9b0b5ed4-b556-4ccc-b533-1dd92babc462")
@@ -211,7 +209,7 @@ public class CommunicationDiagramTemplate implements IModelViewTemplate<Abstract
      * Mandatory default c'tor needed by eclipse when loading the extension point.
      */
     @objid ("fc50f9e1-b49f-4d00-957e-84271987c998")
-    public CommunicationDiagramTemplate() {
+    public  CommunicationDiagramTemplate() {
         super();
     }
 

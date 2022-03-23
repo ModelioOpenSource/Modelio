@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.diagrams;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.elements.common.abstractdiagram.GmAbstractDiagram;
 import org.modelio.diagram.elements.common.abstractdiagram.LayoutAssistantStyleKeys;
 import org.modelio.diagram.elements.plugin.DiagramElements;
-import org.modelio.diagram.elements.style.SymbolViewContentBuilder.IEntryFilter;
 import org.modelio.diagram.elements.style.SymbolViewContentBuilder;
+import org.modelio.diagram.elements.style.SymbolViewContentBuilder.IEntryFilter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.view.ISymbolViewModel;
 import org.modelio.metamodel.bpmn.bpmnDiagrams.BpmnProcessDesignDiagram;

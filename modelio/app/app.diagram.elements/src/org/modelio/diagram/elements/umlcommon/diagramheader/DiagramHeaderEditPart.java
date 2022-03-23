@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.umlcommon.diagramheader;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,6 +44,7 @@ public class DiagramHeaderEditPart extends ModelElementLabelEditPart {
         super.refreshFromStyle(headerFigure, style);
         
         updateFigureBorder(headerFigure);
+        
     }
 
     @objid ("812bc5bd-1dec-11e2-8cad-001ec947c8cc")
@@ -53,6 +53,7 @@ public class DiagramHeaderEditPart extends ModelElementLabelEditPart {
             final IPenOptionsSupport fig = (IPenOptionsSupport) aFigure;
             aFigure.setBorder(new ShapedBorder(fig.getLineColor(), fig.getLineWidth(), new DiagramHeaderShaper(fig.getLineWidth())));
         }
+        
     }
 
     @objid ("812bc5c3-1dec-11e2-8cad-001ec947c8cc")
@@ -85,7 +86,7 @@ public class DiagramHeaderEditPart extends ModelElementLabelEditPart {
         private int lineWidth;
 
         @objid ("812bc5cb-1dec-11e2-8cad-001ec947c8cc")
-        public DiagramHeaderShaper(int lineWidth) {
+        public  DiagramHeaderShaper(int lineWidth) {
             this.lineWidth = lineWidth;
         }
 
@@ -97,7 +98,6 @@ public class DiagramHeaderEditPart extends ModelElementLabelEditPart {
 
         /**
          * Computes the fold size for a rectangle.
-         * 
          * @param rect a rectangle
          * @return the fold size for this rectangle.
          */
@@ -108,7 +108,7 @@ public class DiagramHeaderEditPart extends ModelElementLabelEditPart {
 
         @objid ("812bc5e1-1dec-11e2-8cad-001ec947c8cc")
         @Override
-        public Path getShapePath(final Rectangle r) {
+        public Path createShapePath(final Rectangle r) {
             final Path ret = new Path(Display.getCurrent());
             final int foldSize = getFoldSize(r);
             

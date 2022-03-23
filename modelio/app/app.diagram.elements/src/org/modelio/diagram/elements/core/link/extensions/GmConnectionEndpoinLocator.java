@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.extensions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -52,7 +51,6 @@ public class GmConnectionEndpoinLocator extends GmAbstractLocator {
 
     /**
      * Returns the distance in pixels from the anchor's owner.
-     * 
      * @return the offset distance from the endpoint figure
      */
     @objid ("8001bfda-1dec-11e2-8cad-001ec947c8cc")
@@ -62,7 +60,6 @@ public class GmConnectionEndpoinLocator extends GmAbstractLocator {
 
     /**
      * Returns the distance in pixels from the connection
-     * 
      * @return the offset from the connection itself
      */
     @objid ("8001bfdf-1dec-11e2-8cad-001ec947c8cc")
@@ -73,7 +70,6 @@ public class GmConnectionEndpoinLocator extends GmAbstractLocator {
     /**
      * If <i>isEnd</i> is <code>true</code>, the location is relative to the Connection's end (or target) point. If
      * <i>isEnd</i> is <code>false</code> , the location is relative to the Connection's start (or source) point.
-     * 
      * @return <code>true</code> is location is relative to target point.
      */
     @objid ("8001bfe4-1dec-11e2-8cad-001ec947c8cc")
@@ -95,12 +91,12 @@ public class GmConnectionEndpoinLocator extends GmAbstractLocator {
         this.uDistance = (Integer) in.readProperty("u");
         this.vDistance = (Integer) in.readProperty("v");
         this.end = (Boolean) in.readProperty("end");
+        
     }
 
     /**
      * If <i>isEnd</i> is <code>true</code>, the location is relative to the Connection's end (or target) point. If
      * <i>isEnd</i> is <code>false</code> , the location is relative to the Connection's start (or source) point.
-     * 
      * @param isEnd whether the location is relative to the target end or not.
      */
     @objid ("8001bff3-1dec-11e2-8cad-001ec947c8cc")
@@ -110,7 +106,6 @@ public class GmConnectionEndpoinLocator extends GmAbstractLocator {
 
     /**
      * Sets the distance in pixels from the Connection's owner.
-     * 
      * @param distance Number of pixels to place the ConnectionEndpointLocator from its owner.
      * @since 2.0
      */
@@ -121,7 +116,6 @@ public class GmConnectionEndpoinLocator extends GmAbstractLocator {
 
     /**
      * Sets the distance in pixels from the Connection.
-     * 
      * @param distance Number of pixels to place the ConnectionEndpointLocator from its Connection.
      * @since 2.0
      */
@@ -138,6 +132,7 @@ public class GmConnectionEndpoinLocator extends GmAbstractLocator {
         out.writeProperty("u", this.uDistance);
         out.writeProperty("v", this.vDistance);
         out.writeProperty("end", this.end);
+        
     }
 
     @objid ("8001c003-1dec-11e2-8cad-001ec947c8cc")
@@ -148,16 +143,16 @@ public class GmConnectionEndpoinLocator extends GmAbstractLocator {
 
     /**
      * Copy constructor.
-     * 
      * @param source the locator to copy.
      */
     @objid ("0cfbb86a-3f6d-4f9f-8214-66d2704a1a99")
-    public GmConnectionEndpoinLocator(GmConnectionEndpoinLocator source) {
+    public  GmConnectionEndpoinLocator(GmConnectionEndpoinLocator source) {
         super(source);
         
         this.end = source.end;
         this.uDistance = source.uDistance;
         this.vDistance = source.vDistance;
+        
     }
 
     /**
@@ -166,7 +161,7 @@ public class GmConnectionEndpoinLocator extends GmAbstractLocator {
      * The figure will be located at the connection source.
      */
     @objid ("4c3c3f06-de5b-4694-8061-4a44b7bf9e8c")
-    public GmConnectionEndpoinLocator() {
+    public  GmConnectionEndpoinLocator() {
         super();
     }
 

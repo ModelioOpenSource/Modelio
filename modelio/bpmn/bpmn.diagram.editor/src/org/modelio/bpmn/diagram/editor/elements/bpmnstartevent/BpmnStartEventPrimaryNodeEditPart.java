@@ -17,26 +17,22 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnstartevent;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPolicy;
-import org.eclipse.gef.RequestConstants;
-import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.SelectionEditPolicy;
-import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.eclipse.swt.graphics.Color;
-import org.modelio.bpmn.diagram.editor.elements.policies.BpmnCreateLinkEditPolicy;
-import org.modelio.bpmn.diagram.editor.elements.policies.MethodologicalLinkUpdateDropEditPolicy;
+import org.modelio.bpmn.diagram.editor.elements.common.editpart.AbstractCircleNodeEditPart;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnCreateLinkEditPolicy;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.KeepNodeRatioResizableEditPolicy;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.MethodologicalLinkUpdateDropEditPolicy;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeRequestConstants;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeStartCreationEditPolicy;
 import org.modelio.diagram.elements.core.figures.ColorizableImageFigure;
 import org.modelio.diagram.elements.core.model.GmModel;
-import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
-import org.modelio.diagram.elements.core.policies.DefaultNodeResizableEditPolicy;
 import org.modelio.diagram.elements.core.requests.ModelElementDropRequest;
 import org.modelio.diagram.elements.core.tools.multipoint.CreateMultiPointRequest;
 import org.modelio.diagram.elements.umlcommon.constraint.ConstraintLinkEditPolicy;
@@ -48,7 +44,7 @@ import org.modelio.module.modelermodule.api.methodology.infrastructure.methodolo
  * EditPart for an {@link GmBpmnStartEventPrimaryNode}.
  */
 @objid ("61b6273a-55b6-11e2-877f-002564c97630")
-public final class BpmnStartEventPrimaryNodeEditPart extends AbstractNodeEditPart {
+public final class BpmnStartEventPrimaryNodeEditPart extends AbstractCircleNodeEditPart {
     @objid ("61b7adda-55b6-11e2-877f-002564c97630")
     @Override
     public boolean isSelectable() {
@@ -63,6 +59,7 @@ public final class BpmnStartEventPrimaryNodeEditPart extends AbstractNodeEditPar
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START, new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
         installEditPolicy(ModelElementDropRequest.TYPE, new MethodologicalLinkUpdateDropEditPolicy(Event.MdaTypes.STEREOTYPE_ELT, true));
+        
     }
 
     @objid ("61b7ade2-55b6-11e2-877f-002564c97630")
@@ -92,6 +89,7 @@ public final class BpmnStartEventPrimaryNodeEditPart extends AbstractNodeEditPar
                 cFigure.setColor(color);
             }
         }
+        
     }
 
     @objid ("61b7adee-55b6-11e2-877f-002564c97630")
@@ -99,44 +97,13 @@ public final class BpmnStartEventPrimaryNodeEditPart extends AbstractNodeEditPar
     protected void refreshVisuals() {
         GmBpmnStartEventPrimaryNode initialNodeModel = getModel();
         getFigure().getParent().setConstraint(getFigure(), initialNodeModel.getLayoutData());
+        
     }
 
     @objid ("61b7adf1-55b6-11e2-877f-002564c97630")
     @Override
     public SelectionEditPolicy getPreferredDragRolePolicy(final String requestType) {
-        return new DefaultNodeResizableEditPolicy() {
-            @Override
-            protected Command getResizeCommand(ChangeBoundsRequest request) {
-                ChangeBoundsRequest req = new ChangeBoundsRequest(RequestConstants.REQ_RESIZE_CHILDREN);
-                req.setEditParts(getHost());
-        
-                req.setMoveDelta(request.getMoveDelta());
-        
-                int dimension = 0;
-                int x = request.getSizeDelta().height;
-                int y = request.getSizeDelta().width;
-        
-                if (x >= 0 && y >= 0) {
-                    if (x > y) {
-                        dimension = x;
-                    } else {
-                        dimension = y;
-                    }
-                } else {
-                    if (x < y) {
-                        dimension = x;
-                    } else {
-                        dimension = y;
-                    }
-                }
-        
-                req.setSizeDelta(new Dimension(dimension, dimension));
-                req.setLocation(request.getLocation());
-                req.setExtendedData(request.getExtendedData());
-                req.setResizeDirection(request.getResizeDirection());
-                return getHost().getParent().getCommand(req);
-            }
-        };
+        return new KeepNodeRatioResizableEditPolicy();
     }
 
     @objid ("1b0a2841-5657-44f9-b845-ce88c748470c")

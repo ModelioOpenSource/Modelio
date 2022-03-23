@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel;
 
 import java.util.ArrayList;
@@ -46,8 +45,8 @@ import org.modelio.platform.model.ui.dialogs.elementChooser.ElementChooserDlg;
 import org.modelio.platform.model.ui.nattable.viewer.model.INatTableViewerContext;
 import org.modelio.platform.model.ui.nattable.viewer.model.NatTableViewerCompleteContext;
 import org.modelio.platform.model.ui.nattable.viewer.model.NatTableViewerContext;
-import org.modelio.platform.model.ui.swt.copy.PasteElementObject.PasteType;
 import org.modelio.platform.model.ui.swt.copy.PasteElementObject;
+import org.modelio.platform.model.ui.swt.copy.PasteElementObject.PasteType;
 import org.modelio.platform.model.ui.swt.copy.PasteElementTransfer;
 import org.modelio.platform.model.ui.swt.copy.TransferItem;
 import org.modelio.platform.preferences.AppSharedPreferencesKeys;
@@ -94,6 +93,7 @@ public class ElementPropertyController {
         dialog.setBlockOnOpen(true);
         // Open the main window
         dialog.open();
+        
     }
 
     @objid ("5c777bab-e39a-4831-88cb-882f864dd3a9")
@@ -133,6 +133,7 @@ public class ElementPropertyController {
             // is not a RuntimeException.
             ElementPropertyController.reportException(ModelProperty.I18N.getMessage("CannotRemoveStereotype"), e);
         }
+        
     }
 
     @objid ("4cf5a279-2c40-48c5-8262-5a4d9fb4648f")
@@ -207,6 +208,7 @@ public class ElementPropertyController {
             // is not a RuntimeException.
             ElementPropertyController.reportException(ModelProperty.I18N.getMessage("CannotMoveStereotypeUp"), e);
         }
+        
     }
 
     @objid ("e556064b-3170-437f-af36-7f3d579496cc")
@@ -279,6 +281,7 @@ public class ElementPropertyController {
             // is not a RuntimeException.
             ElementPropertyController.reportException(ModelProperty.I18N.getMessage("CannotMoveStereotypeDown"), e);
         }
+        
     }
 
     /**
@@ -288,6 +291,7 @@ public class ElementPropertyController {
     public void onHorizontalLayout() {
         this.ui.disableAutoLayout();
         this.ui.setHorizontalLayout();
+        
     }
 
     /**
@@ -297,6 +301,7 @@ public class ElementPropertyController {
     public void onVerticalLayout() {
         this.ui.disableAutoLayout();
         this.ui.setVerticalLayout();
+        
     }
 
     /**
@@ -316,13 +321,15 @@ public class ElementPropertyController {
         this.treeInput.setDisplayHiddenAnnotations(this.showHiddenAnnotations);
         this.dataInput.setShowHiddenAnnotations(this.showHiddenAnnotations);
         this.ui.refreshView();
+        
     }
 
     @objid ("f3e58b98-45ca-4194-85c6-00877f1be81e")
-    public ElementPropertyController(IEclipseContext context) {
+    public  ElementPropertyController(IEclipseContext context) {
         this.context = context;
         this.treeInput = createTreeInput(null);
         this.dataInput = createDataInput(null, null);
+        
     }
 
     @objid ("08fa0692-6359-4149-a506-d767dd4b13e1")
@@ -362,6 +369,7 @@ public class ElementPropertyController {
             this.dataInput.setTypingElement(selectedAnnotation);
         }
         this.ui.setInputs(this.treeInput, this.dataInput);
+        
     }
 
     @objid ("ee6fd575-e193-4aec-b774-875c968552e9")
@@ -421,7 +429,6 @@ public class ElementPropertyController {
 
     /**
      * Called when the selection change in the annotation tree. Sets the given tagged values set (from Stereotype or Module) in the data panel.
-     * 
      * @param typeItem : the type item whose contents is to be displayed in the content panel. May be null
      */
     @objid ("d4e66867-b90b-4a92-9232-555393019dd8")
@@ -431,11 +438,11 @@ public class ElementPropertyController {
             this.treeInput.setPreselectedTypingElement(typeItem);
             this.ui.setInputs(this.treeInput, this.dataInput);
         }
+        
     }
 
     /**
      * Get the selected elements in the left tree.
-     * 
      * @return the selected elements.
      */
     @objid ("8faa29b8-c068-11e1-8c0a-002564c97630")
@@ -452,6 +459,7 @@ public class ElementPropertyController {
         // Show an error box
         MessageDialog.openError(null, title, e.getLocalizedMessage());
         ModelProperty.LOG.error(e);
+        
     }
 
     @objid ("35cba603-0b49-491e-a283-5003bb9c5ec7")
@@ -519,6 +527,7 @@ public class ElementPropertyController {
         }
         Clipboard clipboard = new Clipboard(this.ui.getComposite().getDisplay());
         clipboard.setContents(new Object[] { toCopy }, new Transfer[] { PasteElementTransfer.getInstance() });
+        
     }
 
     @objid ("25a498f6-cad2-4438-834e-5f51bd6f46d3")
@@ -556,6 +565,7 @@ public class ElementPropertyController {
         
         Clipboard clipboard = new Clipboard(this.ui.getComposite().getDisplay());
         clipboard.setContents(new Object[] { toCopy }, new Transfer[] { PasteElementTransfer.getInstance() });
+        
     }
 
     @objid ("e09fd019-e489-4da8-b2f3-99b9c36dc710")
@@ -659,6 +669,7 @@ public class ElementPropertyController {
                 ElementPropertyController.reportException(ModelProperty.I18N.getMessage("CannotPasteClipboard"), e);
             }
         }
+        
     }
 
 }

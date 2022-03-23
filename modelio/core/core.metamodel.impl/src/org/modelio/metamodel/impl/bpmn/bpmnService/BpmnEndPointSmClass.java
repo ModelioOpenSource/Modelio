@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.bpmnService;
 
 import java.util.ArrayList;
@@ -31,7 +31,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.bpmn.bpmnService.BpmnEndPoint;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnParticipant;
 import org.modelio.metamodel.bpmn.rootElements.BpmnSharedElement;
-import org.modelio.metamodel.impl.bpmn.bpmnService.BpmnEndPointData;
 import org.modelio.metamodel.impl.bpmn.processCollaboration.BpmnParticipantSmClass;
 import org.modelio.metamodel.impl.bpmn.rootElements.BpmnSharedElementSmClass;
 import org.modelio.vbasic.version.Version;
@@ -51,7 +50,7 @@ public class BpmnEndPointSmClass extends BpmnSharedElementSmClass {
     private SmDependency participantRefsDep;
 
     @objid ("aaa93156-97c1-426d-9db9-5db7daff1fac")
-    public BpmnEndPointSmClass(ISmMetamodelFragment origin) {
+    public  BpmnEndPointSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -59,6 +58,7 @@ public class BpmnEndPointSmClass extends BpmnSharedElementSmClass {
     @Override
     public String getName() {
         return "BpmnEndPoint";
+        
     }
 
     @objid ("aa4080f8-be36-4462-a8c2-ca3df2151b0d")
@@ -71,18 +71,21 @@ public class BpmnEndPointSmClass extends BpmnSharedElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnEndPoint.class;
+        
     }
 
     @objid ("11ebece1-eb0f-4baf-a616-e152beecab28")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("fa7a2a3d-ee3b-4989-92d5-fd17d2075863")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("09e96bad-522b-4b90-bba2-99a1f0065c50")
@@ -98,6 +101,8 @@ public class BpmnEndPointSmClass extends BpmnSharedElementSmClass {
         this.participantRefsDep = new ParticipantRefsSmDependency();
         this.participantRefsDep.init("ParticipantRefs", this, metamodel.getMClass(BpmnParticipant.MQNAME), 0, -1 );
         registerDependency(this.participantRefsDep);
+        
+        
     }
 
     @objid ("ee96e4f2-98f5-485b-ae0b-ffd208c02e9f")
@@ -114,7 +119,7 @@ public class BpmnEndPointSmClass extends BpmnSharedElementSmClass {
         private BpmnEndPointSmClass smClass;
 
         @objid ("bb42a1f8-2469-45ac-8a1b-8effcec5dcf7")
-        public BpmnEndPointObjectFactory(BpmnEndPointSmClass smClass) {
+        public  BpmnEndPointObjectFactory(BpmnEndPointSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -147,6 +152,7 @@ public class BpmnEndPointSmClass extends BpmnSharedElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnEndPointData) data).mParticipantRefs = values;
+            
         }
 
         @objid ("53f64879-811e-431f-a29f-ecb6a1432d6a")
@@ -156,6 +162,7 @@ public class BpmnEndPointSmClass extends BpmnSharedElementSmClass {
             	this.symetricDep = ((BpmnParticipantSmClass)this.getTarget()).getEndPointRefsDep();
             }
             return this.symetricDep;
+            
         }
 
     }

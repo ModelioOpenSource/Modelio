@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,11 +43,12 @@ public class IllegalModelManipulationException extends RuntimeException {
     private final Object closure;
 
     @objid ("006bb1a6-3b26-1036-812a-001ec947cd2a")
-    public IllegalModelManipulationException(int errorCode, MObject object, Object closure) {
+    public  IllegalModelManipulationException(int errorCode, MObject object, Object closure) {
         super();
         this.errorCode = errorCode;
         this.object = object;
         this.closure = closure;
+        
     }
 
     @objid ("00539fbc-3b6b-1037-812a-001ec947cd2a")

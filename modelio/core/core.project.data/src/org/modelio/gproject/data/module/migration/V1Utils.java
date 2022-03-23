@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.module.migration;
 
 import java.util.ArrayList;
@@ -26,22 +25,22 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.gproject.data.module.jaxbv1.JxbClasspath;
 import org.modelio.gproject.data.module.jaxbv1.JxbContextualCommand.Contribution;
 import org.modelio.gproject.data.module.jaxbv1.JxbDocpath;
+import org.modelio.gproject.data.module.jaxbv1.JxbModule;
+import org.modelio.gproject.data.module.jaxbv1.JxbModule.Dependencies;
 import org.modelio.gproject.data.module.jaxbv1.JxbModule.Dependencies.Optional;
 import org.modelio.gproject.data.module.jaxbv1.JxbModule.Dependencies.Required;
-import org.modelio.gproject.data.module.jaxbv1.JxbModule.Dependencies;
+import org.modelio.gproject.data.module.jaxbv1.JxbModule.Gui;
 import org.modelio.gproject.data.module.jaxbv1.JxbModule.Gui.Command;
+import org.modelio.gproject.data.module.jaxbv1.JxbModule.Gui.CustomizedDiagram;
 import org.modelio.gproject.data.module.jaxbv1.JxbModule.Gui.CustomizedDiagram.Palette;
 import org.modelio.gproject.data.module.jaxbv1.JxbModule.Gui.CustomizedDiagram.Style;
-import org.modelio.gproject.data.module.jaxbv1.JxbModule.Gui.CustomizedDiagram;
 import org.modelio.gproject.data.module.jaxbv1.JxbModule.Gui.ElementCreationCommand;
 import org.modelio.gproject.data.module.jaxbv1.JxbModule.Gui.PropertyPage;
-import org.modelio.gproject.data.module.jaxbv1.JxbModule.Gui;
-import org.modelio.gproject.data.module.jaxbv1.JxbModule.JxbParameter.JxbEnumeration;
 import org.modelio.gproject.data.module.jaxbv1.JxbModule.JxbParameter;
+import org.modelio.gproject.data.module.jaxbv1.JxbModule.JxbParameter.JxbEnumeration;
+import org.modelio.gproject.data.module.jaxbv1.JxbModule.JxbProfile;
 import org.modelio.gproject.data.module.jaxbv1.JxbModule.JxbProfile.JxbAnonymousStereotype;
 import org.modelio.gproject.data.module.jaxbv1.JxbModule.JxbProfile.JxbStereotype;
-import org.modelio.gproject.data.module.jaxbv1.JxbModule.JxbProfile;
-import org.modelio.gproject.data.module.jaxbv1.JxbModule;
 
 @objid ("80818a5e-b506-4d84-9c5b-5f78df3f3b6d")
 class V1Utils {

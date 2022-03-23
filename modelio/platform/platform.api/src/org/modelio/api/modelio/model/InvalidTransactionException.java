@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.model;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,39 +37,36 @@ public class InvalidTransactionException extends RuntimeException {
      * detail message.
      */
     @objid ("00d00158-0001-632e-0000-000000000000")
-    public InvalidTransactionException() {
+    public  InvalidTransactionException() {
         super();
     }
 
     /**
      * Constructs a new runtime exception with the specified detail message.
-     * 
      * @param message the detail message.
      */
     @objid ("00d00158-0001-6330-0000-000000000000")
-    public InvalidTransactionException(String message) {
+    public  InvalidTransactionException(String message) {
         super(message);
     }
 
     /**
      * Constructs a new runtime exception with the specified detail message and
      * cause.
-     * 
      * @param message the detail message.
      * @param cause the cause of the exception.
      */
     @objid ("00d00158-0001-6333-0000-000000000000")
-    public InvalidTransactionException(String message, Throwable cause) {
+    public  InvalidTransactionException(String message, Throwable cause) {
         super(message, cause);
     }
 
     /**
      * Constructs a new runtime exception with the specified cause.
-     * 
      * @param cause the cause of the exception.
      */
     @objid ("00d00158-0001-6337-0000-000000000000")
-    public InvalidTransactionException(Throwable cause) {
+    public  InvalidTransactionException(Throwable cause) {
         super(cause);
     }
 

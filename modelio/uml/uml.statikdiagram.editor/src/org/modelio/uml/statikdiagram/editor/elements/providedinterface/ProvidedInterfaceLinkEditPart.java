@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.providedinterface;
 
 import java.beans.PropertyChangeEvent;
@@ -70,6 +69,7 @@ public class ProvidedInterfaceLinkEditPart extends LinkToVoidEditPart {
         super.createEditPolicies();
         
         installEditPolicy(EditPolicy.NODE_ROLE, new ConnectReqToProvEditPolicy());
+        
     }
 
     /**
@@ -118,6 +118,7 @@ public class ProvidedInterfaceLinkEditPart extends LinkToVoidEditPart {
         
         // Set style dependent properties
         refreshFromStyle(conn, getModelStyle());
+        
     }
 
     @objid ("3658f7ba-55b7-11e2-877f-002564c97630")
@@ -129,6 +130,7 @@ public class ProvidedInterfaceLinkEditPart extends LinkToVoidEditPart {
         if (evt.getPropertyName().equals(GmLink.PROP_TARGET_GM)) {
             refreshDecoration();
         }
+        
     }
 
     @objid ("3658f7bf-55b7-11e2-877f-002564c97630")
@@ -136,6 +138,7 @@ public class ProvidedInterfaceLinkEditPart extends LinkToVoidEditPart {
     public void refresh() {
         super.refresh();
         refreshDecoration();
+        
     }
 
     /**
@@ -156,12 +159,14 @@ public class ProvidedInterfaceLinkEditPart extends LinkToVoidEditPart {
                 addTargetDecoration(conn);
             }
         }
+        
     }
 
     @objid ("3658f7c5-55b7-11e2-877f-002564c97630")
     private static class CircleDeco extends EllipseFigure implements RotatableDecoration {
         @objid ("3658f7c9-55b7-11e2-877f-002564c97630")
-        public CircleDeco() {
+        public  CircleDeco() {
+            
         }
 
         @objid ("3658f7cb-55b7-11e2-877f-002564c97630")
@@ -175,6 +180,7 @@ public class ProvidedInterfaceLinkEditPart extends LinkToVoidEditPart {
         public void setLocation(final Point p) {
             Dimension dim = getBounds().getSize().scale(0.5);
             super.setLocation(new Point(p.x - dim.width, p.y - dim.height));
+            
         }
 
     }

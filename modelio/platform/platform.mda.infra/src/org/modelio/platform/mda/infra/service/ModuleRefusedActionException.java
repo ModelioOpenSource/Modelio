@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,7 +42,7 @@ public class ModuleRefusedActionException extends ModuleException {
      * later retrieval by the {@link #getMessage()} method.
      */
     @objid ("bc67face-b142-43e9-afdf-d762bd278980")
-    public ModuleRefusedActionException(String message) {
+    public  ModuleRefusedActionException(String message) {
         super(message);
     }
 
@@ -61,7 +60,7 @@ public class ModuleRefusedActionException extends ModuleException {
      * @since  1.4
      */
     @objid ("7410cd9a-7f5d-45fa-b16e-b2bd3d4ecf57")
-    public ModuleRefusedActionException(String message, Throwable cause) {
+    public  ModuleRefusedActionException(String message, Throwable cause) {
         super(message, cause);
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.api.impl.plugin;
 
 import java.util.ResourceBundle;
@@ -51,6 +50,7 @@ public class ApiImpl implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger((String)null));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("apiimpl"));
+        
     }
 
     @objid ("f0bc1f3a-1cf8-47f0-850e-c5f8d8eda754")

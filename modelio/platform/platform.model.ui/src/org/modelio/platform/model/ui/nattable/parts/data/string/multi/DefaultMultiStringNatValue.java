@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.string.multi;
 
 import java.security.InvalidParameterException;
@@ -33,22 +32,20 @@ import org.modelio.platform.model.ui.nattable.parts.data.DefaultNatValue;
 public class DefaultMultiStringNatValue extends DefaultNatValue implements IMultiStringNatValue {
     /**
      * Creates a new instance.
-     * 
      * @param value the wrapped value.
      * @param acceptNullValue whether or not <code>null</code> is a valid value for this field.
      */
     @objid ("aee1d8fe-6fb4-498b-9551-b40e0622e233")
-    public DefaultMultiStringNatValue(List<String> value, boolean acceptNullValue) {
+    public  DefaultMultiStringNatValue(List<String> value, boolean acceptNullValue) {
         super(new ArrayList<>(value), acceptNullValue);
     }
 
     /**
      * Copy constructor, creating a new instance with the same configuration as the other.
-     * 
      * @param anotherInstance the instance to copy.
      */
     @objid ("dbfed6dc-5129-45de-a34c-df2b74478bc3")
-    public DefaultMultiStringNatValue(DefaultMultiStringNatValue anotherInstance) {
+    public  DefaultMultiStringNatValue(DefaultMultiStringNatValue anotherInstance) {
         super(anotherInstance);
     }
 
@@ -66,6 +63,7 @@ public class DefaultMultiStringNatValue extends DefaultNatValue implements IMult
             throw new InvalidParameterException("Value must be a String List.");
         }
         super.setValue(value);
+        
     }
 
 }

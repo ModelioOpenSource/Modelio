@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.loopnode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -74,6 +73,7 @@ public class LoopNodeEditPart extends AbstractNodeEditPart {
         }
         
         getContentPane().add(child, index);
+        
     }
 
     @objid ("2ac620c4-55b6-11e2-877f-002564c97630")
@@ -88,6 +88,7 @@ public class LoopNodeEditPart extends AbstractNodeEditPart {
                 new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(ModelElementDropRequest.TYPE, new SmartDropEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("2ac620c7-55b6-11e2-877f-002564c97630")
@@ -119,6 +120,7 @@ public class LoopNodeEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         GmLoopNodePrimaryNode loopnodeModel = (GmLoopNodePrimaryNode) getModel();
         getFigure().getParent().setConstraint(getFigure(), loopnodeModel.getLayoutData());
+        
     }
 
     @objid ("2ac620d0-55b6-11e2-877f-002564c97630")
@@ -129,6 +131,7 @@ public class LoopNodeEditPart extends AbstractNodeEditPart {
                 super.refreshFromStyle(aFigure, style);
             }
         }
+        
     }
 
 }

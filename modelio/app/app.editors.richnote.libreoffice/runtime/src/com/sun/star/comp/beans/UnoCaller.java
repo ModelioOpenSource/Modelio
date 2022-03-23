@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package com.sun.star.comp.beans;
 
 import java.io.IOException;
@@ -127,13 +126,12 @@ public final class UnoCaller {
      * <p>
      * If called from the SWT Display thread, run an inner event loop while waiting.
      * @throws com.sun.star.uno.RuntimeException if the task couldn't be scheduled.
-     * 
      * @param r the task to call
      * @return the result of the task.
-     * @throws java.lang.reflect.InvocationTargetException if the task thrown an exception, it is encapsulated in this exception.
+     * @throws InvocationTargetException if the task thrown an exception, it is encapsulated in this exception.
      */
     @objid ("4053a2ed-cbf9-466a-abc7-7db2852d6c36")
-    public <T> T call(final Callable<T> r) throws com.sun.star.uno.RuntimeException, InvocationTargetException {
+    public <T> T call(final Callable<T> r) throws InvocationTargetException, com.sun.star.uno.RuntimeException {
         return call(r, true);
     }
 
@@ -146,6 +144,7 @@ public final class UnoCaller {
             while (Display.getCurrent().readAndDispatch()) {
             }
         }
+        
     }
 
     /**
@@ -155,9 +154,8 @@ public final class UnoCaller {
      * <p>
      * Necessary because it seems OpenOffice fails answering calls launched from the SWT thread on Windows OS.
      * It also seems that the SWT thread must be able to answer windows event.
-     * 
      * @param t the operation to call. The operation may return an IOException if it fails.
-     * @throws java.io.IOException in case of failure.
+     * @throws IOException in case of failure.
      */
     @objid ("5887bbf4-d274-48f7-8c9d-da98cb2bb8d5")
     public static void callOtherThread(final Callable<IOException> t) throws IOException {
@@ -189,6 +187,7 @@ public final class UnoCaller {
         } catch (ExecutionException e) {
             throw new IOException(e.getCause().getLocalizedMessage(), e);
         }
+        
     }
 
     /**
@@ -196,14 +195,13 @@ public final class UnoCaller {
      * <p>
      * If called from the SWT Display thread, run an inner event loop while waiting.
      * @throws com.sun.star.uno.RuntimeException if the task couldn't be scheduled.
-     * 
      * @param r the task to call
      * @param refreshDisplay if <code>true</code> and called from the SWT Display thread, run an inner event loop while waiting.
      * @return the result of the task.
-     * @throws java.lang.reflect.InvocationTargetException if the task thrown an exception, it is encapsulated in this exception.
+     * @throws InvocationTargetException if the task thrown an exception, it is encapsulated in this exception.
      */
     @objid ("7e9f7fb6-e456-4870-bd73-a1fedc0a3344")
-    public <T> T call(final Callable<T> r, boolean refreshDisplay) throws com.sun.star.uno.RuntimeException, InvocationTargetException {
+    public <T> T call(final Callable<T> r, boolean refreshDisplay) throws InvocationTargetException, com.sun.star.uno.RuntimeException {
         if (this.disposed) {
             throw new IllegalStateException("Disposed");
         }
@@ -242,13 +240,14 @@ public final class UnoCaller {
         } catch (ExecutionException e) {
             throw new InvocationTargetException(e);
         }
+        
     }
 
     /**
      * @param xContext the OpenOffice context.
      */
     @objid ("4e31db6c-d804-42b1-a2c9-455a23c01dad")
-    public UnoCaller(XComponentContext xContext) {
+    public  UnoCaller(XComponentContext xContext) {
         this.xContext = xContext;
     }
 
@@ -272,7 +271,6 @@ public final class UnoCaller {
      * Call asynchronously an operation in the OpenOffice main thread.
      * <p>
      * @throws com.sun.star.uno.RuntimeException if the task couldn't be scheduled.
-     * 
      * @param r the task to submit
      * @return the future result of the task.
      */
@@ -309,20 +307,20 @@ public final class UnoCaller {
     @objid ("5e6c9075-2b81-4a1d-bfb3-8dd9856bd8b2")
     private static final class UnoCallback<T> implements XCallback {
         @objid ("425fe539-4d20-448c-adc7-8c872c3605d2")
-         final CompletableFuture<T> res;
+        final CompletableFuture<T> res;
 
         @objid ("afb5698c-cc07-4ecf-b562-a1fd23c916ac")
         private final Callable<T> callable;
 
         @objid ("fdd4738f-f464-4702-9673-e313b7676519")
-        protected UnoCallback(final Callable<T> r) {
+        protected  UnoCallback(final Callable<T> r) {
             this.callable = r;
             this.res = new CompletableFuture<>();
+            
         }
 
         /**
          * notifies the callback implementation
-         * 
          * @param aData private data which was provided when the callback was requested.
          */
         @objid ("7e4ff865-6604-4499-8b14-f6b9062f3d33")
@@ -336,6 +334,7 @@ public final class UnoCaller {
                     this.res.completeExceptionally(t);
                 }
             }
+            
         }
 
     }

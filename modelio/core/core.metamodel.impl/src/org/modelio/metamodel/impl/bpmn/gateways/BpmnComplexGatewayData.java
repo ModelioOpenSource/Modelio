@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.gateways;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,13 +31,13 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("0097a93c-c4bf-1fd8-97fe-001ec947cd2a")
 public class BpmnComplexGatewayData extends BpmnGatewayData {
     @objid ("ab6d839b-56f8-4d1f-9b12-0661bcf52b5f")
-     Object mActivationExpression = "";
+    Object mActivationExpression = "";
 
     @objid ("33a392fc-1afe-447c-a9db-b1f45138a66c")
-     SmObjectImpl mDefaultFlow;
+    SmObjectImpl mDefaultFlow;
 
     @objid ("d58e8df2-3362-40c3-8688-fa3c829d02cf")
-    public BpmnComplexGatewayData(BpmnComplexGatewaySmClass smClass) {
+    public  BpmnComplexGatewayData(BpmnComplexGatewaySmClass smClass) {
         super(smClass);
     }
 

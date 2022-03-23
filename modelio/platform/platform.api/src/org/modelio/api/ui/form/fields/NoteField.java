@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.form.fields;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,7 +45,7 @@ public class NoteField extends AbstractField {
     private Text text;
 
     @objid ("e566485e-d8c9-4e17-94d6-430fb6afa4a0")
-    public NoteField(FormToolkit toolkit, Composite parent, NoteFieldData model) {
+    public  NoteField(FormToolkit toolkit, Composite parent, NoteFieldData model) {
         super(toolkit, parent, model);
     }
 
@@ -58,6 +57,7 @@ public class NoteField extends AbstractField {
         } else if (this.htmlComposer != null) {
             getModel().setValue(this.htmlComposer.getHtml());
         }
+        
     }
 
     @objid ("16c1870e-4ca6-44ab-b64b-9366ce9d2eb4")
@@ -75,6 +75,7 @@ public class NoteField extends AbstractField {
         } else {
             return createPlainTextControl(toolkit, parent, initialValue);
         }
+        
     }
 
     @objid ("d698eb8a-1ff8-4281-b419-d6a8fffc1dc5")
@@ -87,6 +88,7 @@ public class NoteField extends AbstractField {
         } else {
             ((Text) getControl()).setText(value);
         }
+        
     }
 
     @objid ("e3503075-f859-4d93-9816-df90727bd409")

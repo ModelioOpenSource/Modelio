@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.core.modelshield.engine.plan;
 
 import java.util.ArrayList;
@@ -33,7 +32,7 @@ import org.modelio.vcore.smkernel.mapi.modelshield.spi.IChecker;
 @objid ("3e6d4cfb-42a4-4cd7-b920-a4f206cbea80")
 public class CompositePlan implements IModelShieldPlan {
     @objid ("e5a6573c-2210-44cb-a765-9eb3c6dee43a")
-     Map<MMetamodelFragment, IModelShieldPlan> plans = new HashMap<>();
+    Map<MMetamodelFragment, IModelShieldPlan> plans = new HashMap<>();
 
     @objid ("7315423e-29b1-442e-86a1-f004335a0758")
     public void addPlan(MMetamodelFragment frag, IModelShieldPlan plan) {

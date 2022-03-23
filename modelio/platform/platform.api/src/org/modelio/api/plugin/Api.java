@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.plugin;
 
 import java.util.ResourceBundle;
@@ -60,6 +59,7 @@ public class Api implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), PLUGIN_ID));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("api"));
+        
     }
 
     @objid ("5bf50587-d1b3-4eea-819a-515d6ceb7e77")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.ui.openproject;
 
 import java.io.IOException;
@@ -26,9 +25,9 @@ import java.net.URI;
 import java.nio.file.AccessDeniedException;
 import java.util.ArrayList;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.e4.core.di.annotations.CanExecute;
@@ -73,11 +72,12 @@ public class OpenProjectHandler {
     @objid ("d967aed1-0beb-4ce8-925c-e9617e82dfb3")
     @Inject
     @Optional
-     IModuleManagementService moduleService;
+    IModuleManagementService moduleService;
 
     @objid ("5b2674b8-5be0-4710-9c1c-485178781df4")
     @CanExecute
-    boolean canExecute(final IProjectService projectService, @Optional @Named (IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
+    boolean canExecute(final IProjectService projectService, @Optional
+    @Named (IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
         if (selection == null || projectService.getOpenedProject() != null) {
             return false;
         }
@@ -175,6 +175,7 @@ public class OpenProjectHandler {
                 more = false;
             }
         }
+        
     }
 
     @objid ("a66fd3f1-603a-4541-9cdd-25cb6ad29b10")
@@ -195,7 +196,6 @@ public class OpenProjectHandler {
 
     /**
      * Check authentication data on the project and all fragments before the project is opened.
-     * 
      * @param shell a SWT shell
      * @param projectToOpen a project descriptor
      * @return the project authentication data on success, <i>null</i> if the user aborts open.
@@ -240,7 +240,6 @@ public class OpenProjectHandler {
      * Check authentication status on the project and all its fragments.
      * <p>
      * Ask the user for authentication data if needed and possible. Try to mount again fragments after the user changed authentication data.
-     * 
      * @param monitor a progress monitor, may be null.
      * @param shell a SWT shell
      * @param openedProject the opened project
@@ -313,6 +312,7 @@ public class OpenProjectHandler {
             mon.worked(1);
             monCount--;
         }
+        
     }
 
     @objid ("0ff863fc-c3c0-4b45-b430-2859ebd9a8fd")
@@ -336,6 +336,7 @@ public class OpenProjectHandler {
         } else {
             return e.getLocalizedMessage();
         }
+        
     }
 
     @objid ("31847f92-bd76-48c6-b983-806e1c372dea")
@@ -354,7 +355,6 @@ public class OpenProjectHandler {
 
     /**
      * A fragment needs authentication prompting if it is down with a {@link FragmentAuthenticationException} or a {@link AccessDeniedException}.
-     * 
      * @param f the module to check
      * @return true if authentication needs to be prompted
      */
@@ -367,11 +367,11 @@ public class OpenProjectHandler {
         } else {
             return false;
         }
+        
     }
 
     /**
      * A module needs authentication prompting if its model component fragment is down with a {@link FragmentAuthenticationException} or a {@link AccessDeniedException}.
-     * 
      * @param f the module to check
      * @return true if authentication needs to be prompted
      */
@@ -428,6 +428,7 @@ public class OpenProjectHandler {
         default:
             return null;
         }
+        
     }
 
 }

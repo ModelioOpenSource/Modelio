@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta;
 
 import java.util.Arrays;
@@ -55,7 +54,6 @@ public final class KernelMetamodelFragment implements ISmMetamodelFragment {
 
     /**
      * Create the metaclasses.
-     * 
      * @return the metaclasses.
      */
     @objid ("54a0fc04-d1e2-44fb-8fd3-77aefa661257")
@@ -118,7 +116,6 @@ public final class KernelMetamodelFragment implements ISmMetamodelFragment {
      * or a standard Modelio metamodel fragment.
      * <p>
      * Standard Modelio metamodel fragments are guaranteed to have no metaclass name collisions.
-     * 
      * @return <i>true</i> if the fragment is an extension, <i>false</i> if it is a Modelio standard fragment.
      */
     @objid ("fc2c77a9-669d-46ac-af8a-948662af7693")

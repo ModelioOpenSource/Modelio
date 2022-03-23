@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.form.models;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,12 +32,12 @@ import org.modelio.metamodel.uml.infrastructure.TagType;
 @objid ("04dbd9a6-b14d-487e-aa3d-22f22aefe033")
 public class BooleanTagFieldData extends AbstractTagFieldData {
     @objid ("9232ec59-95b1-498e-beed-36b6c8e53387")
-    public BooleanTagFieldData(IModelingSession session, ModelElement me, String moduleName, String tagTypeName) {
+    public  BooleanTagFieldData(IModelingSession session, ModelElement me, String moduleName, String tagTypeName) {
         super(session, me, moduleName, tagTypeName);
     }
 
     @objid ("24cc65c6-0e14-4751-9707-7f6766b1f9bd")
-    public BooleanTagFieldData(IModelingSession session, ModelElement me, TagType tagType) {
+    public  BooleanTagFieldData(IModelingSession session, ModelElement me, TagType tagType) {
         super(session, me, tagType);
     }
 
@@ -61,6 +60,7 @@ public class BooleanTagFieldData extends AbstractTagFieldData {
         } catch (final ExtensionNotFoundException e) {
             Api.LOG.error(e);
         }
+        
     }
 
 }

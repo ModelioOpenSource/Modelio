@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.genericnode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,27 +30,27 @@ import org.modelio.diagram.styles.core.StyleKey;
 @objid ("31050303-ecfc-4bff-926a-b97fbfa0e62c")
 public class GmGenericNodeStyleKeys extends ElementsAbstractStyleKeyProvider {
     @objid ("d3bd3490-f20e-4ac8-92ec-e7066c66c268")
-     static final StyleKey FILLCOLOR = createStyleKey("GENERICNODE_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("GENERICNODE_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("9b7190a0-67ed-4770-b021-30d4ecce7fea")
-     static final StyleKey FILLMODE = createStyleKey("GENERICNODE_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("GENERICNODE_FILLMODE", MetaKey.FILLMODE);
 
     @objid ("668b115b-2500-4f25-943b-0b46d55f1492")
-     static final StyleKey LINECOLOR = createStyleKey("GENERICNODE_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("GENERICNODE_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("c16d88a2-03a6-4254-956e-519e265b768f")
-     static final StyleKey LINEWIDTH = createStyleKey("GENERICNODE_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("GENERICNODE_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("2f62d753-aab6-41fa-8717-f2bcb2fae2cb")
-     static final StyleKey FONT = createStyleKey("GENERICNODE_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("GENERICNODE_FONT", MetaKey.FONT);
 
     @objid ("77a23a44-7071-4fee-a9dc-7c060d29754b")
-     static final StyleKey TEXTCOLOR = createStyleKey("GENERICNODE_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("GENERICNODE_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("98d67c93-e439-40f9-ae88-f4f7ea15572e")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("GENERICNODE_SHOWSTEREOTYPES", MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("GENERICNODE_SHOWSTEREOTYPES", MetaKey.SHOWSTEREOTYPES);
 
     @objid ("b3ab2d5c-9d41-43ee-9583-cb628a396b1d")
-     static final StyleKey SHOWTAGS = createStyleKey("GENERICNODE_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("GENERICNODE_SHOWTAGS", MetaKey.SHOWTAGS);
 
 }

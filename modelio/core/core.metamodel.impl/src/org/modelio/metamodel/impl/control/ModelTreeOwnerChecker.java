@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.control;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -185,7 +184,7 @@ public class ModelTreeOwnerChecker extends AbstractDependencyTypeChecker {
      * C'tor
      */
     @objid ("33142dec-82de-4fad-9cfe-58ad3b15d715")
-    public ModelTreeOwnerChecker(SmMetamodel mm) {
+    public  ModelTreeOwnerChecker(SmMetamodel mm) {
         // Cached SmClass
         this.actorID = mm.getMClass(Actor.class);
         this.artifactID = mm.getMClass(Artifact.class);
@@ -210,6 +209,7 @@ public class ModelTreeOwnerChecker extends AbstractDependencyTypeChecker {
         // Symetric checker
         ModelTreeOwnedElementChecker symetricChecker = new ModelTreeOwnedElementChecker(this);
         symetricChecker.register(mm.getMClass(ModelTree.class), "OwnedElement");
+        
     }
 
     /**
@@ -218,10 +218,10 @@ public class ModelTreeOwnerChecker extends AbstractDependencyTypeChecker {
     @objid ("00411c98-5f5e-1032-829a-001ec947cd2a")
     static class ModelTreeOwnedElementChecker extends AbstractDependencyTypeChecker {
         @objid ("004300c6-5f5e-1032-829a-001ec947cd2a")
-         ModelTreeOwnerChecker symetricChecker;
+        ModelTreeOwnerChecker symetricChecker;
 
         @objid ("00431796-5f5e-1032-829a-001ec947cd2a")
-        public ModelTreeOwnedElementChecker(ModelTreeOwnerChecker symetricChecker) {
+        public  ModelTreeOwnedElementChecker(ModelTreeOwnerChecker symetricChecker) {
             this.symetricChecker = symetricChecker;
         }
 

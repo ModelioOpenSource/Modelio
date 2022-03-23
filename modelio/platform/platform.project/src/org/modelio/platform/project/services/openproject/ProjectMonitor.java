@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.project.services.openproject;
 
 import java.nio.file.FileSystemException;
@@ -46,9 +45,10 @@ final class ProjectMonitor implements IProjectMonitor {
     private IProjectServiceAccess projectServiceAccess;
 
     @objid ("6bca6931-37b3-11e2-82ed-001ec947ccaf")
-    ProjectMonitor(IProjectServiceAccess projectService, StatusReporter reporter) {
+     ProjectMonitor(IProjectServiceAccess projectService, StatusReporter reporter) {
         this.projectServiceAccess = projectService;
         this.reporter = reporter;
+        
     }
 
     @objid ("6bca6933-37b3-11e2-82ed-001ec947ccaf")
@@ -94,6 +94,7 @@ final class ProjectMonitor implements IProjectMonitor {
             break;
         
         }
+        
     }
 
     @objid ("ff9cf99a-5c5e-47ba-8ea7-57daa521a97b")
@@ -110,6 +111,7 @@ final class ProjectMonitor implements IProjectMonitor {
         } else {
             return ev.throwable.getLocalizedMessage();
         }
+        
     }
 
     @objid ("357af83e-da98-41b2-8095-e74ddcdffa42")
@@ -128,6 +130,7 @@ final class ProjectMonitor implements IProjectMonitor {
                 statusReporter.report(s1, StatusReporter.SHOW, ev);
             });
         }
+        
     }
 
     @objid ("6391ece3-5887-4453-b4bb-e6a6d77a9735")

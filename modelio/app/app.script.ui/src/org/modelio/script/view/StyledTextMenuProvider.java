@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.script.view;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,7 +40,7 @@ import org.modelio.script.plugin.Script;
 @objid ("007ce2e6-663d-105c-84ef-001ec947cd2a")
 class StyledTextMenuProvider {
     @objid ("007cf43e-663d-105c-84ef-001ec947cd2a")
-    StyledTextMenuProvider(StyledText text) {
+     StyledTextMenuProvider(StyledText text) {
         createMenu(text);
     }
 
@@ -63,6 +62,7 @@ class StyledTextMenuProvider {
         
             }
         });
+        
     }
 
     @objid ("007d38a4-663d-105c-84ef-001ec947cd2a")
@@ -140,6 +140,7 @@ class StyledTextMenuProvider {
                 text.selectAll();
             }
         });
+        
     }
 
 }

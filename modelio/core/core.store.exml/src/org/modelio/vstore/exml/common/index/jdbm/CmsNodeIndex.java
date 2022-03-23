@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common.index.jdbm;
 
 import java.io.IOError;
@@ -27,8 +26,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,13 +50,13 @@ import org.modelio.vstore.exml.common.model.ObjIdName;
 @objid ("e1ee6207-5c83-11e1-863f-001ec947ccaf")
 public class CmsNodeIndex implements ICmsNodeIndex {
     @objid ("d554d657-7f1a-11e1-ba70-001ec947ccaf")
-    private PrimaryHashMap<Long,StoreReference<Collection<Long>>> cmsNodeContent;
+    private PrimaryHashMap<Long, StoreReference<Collection<Long>>> cmsNodeContent;
 
     @objid ("d554d65c-7f1a-11e1-ba70-001ec947ccaf")
     private RecordManager db;
 
     @objid ("d554d652-7f1a-11e1-ba70-001ec947ccaf")
-    private InverseHashView<Long,Long> inverseParent;
+    private InverseHashView<Long, Long> inverseParent;
 
     /**
      * 'model object -> CMS node' index.
@@ -67,13 +66,13 @@ public class CmsNodeIndex implements ICmsNodeIndex {
      * it is stored into. A CMS node is stored into itself.
      */
     @objid ("d55273fe-7f1a-11e1-ba70-001ec947ccaf")
-    private Map<MClass , PrimaryHashMap<String,ObjectIndexValue>> objectsIndex;
+    private Map<MClass , PrimaryHashMap<String, ObjectIndexValue>> objectsIndex;
 
     /**
      * Child CMS node -> parent CMS node index.
      */
     @objid ("d554d64c-7f1a-11e1-ba70-001ec947ccaf")
-    private PrimaryHashMap<Long,Long> parentIndex;
+    private PrimaryHashMap<Long, Long> parentIndex;
 
     @objid ("fdfe958c-883f-4278-ab20-09b7a5eb0026")
     private final ObjectIndexValueSerializer objIndexValueSerializer;
@@ -84,12 +83,11 @@ public class CmsNodeIndex implements ICmsNodeIndex {
     /**
      * Initialize the index.
      * @param objIdTable
-     * 
      * @param db the JDBM database string the index.
-     * @throws org.modelio.vstore.exml.common.index.IndexException if the index is broken
+     * @throws IndexException if the index is broken
      */
     @objid ("e1ee620c-5c83-11e1-863f-001ec947ccaf")
-    public CmsNodeIndex(final RecordManager db, SymbolTable<ObjId> objIdTable) throws IndexException {
+    public  CmsNodeIndex(final RecordManager db, SymbolTable<ObjId> objIdTable) throws IndexException {
         try {
             this.objIdTable = objIdTable;
             this.db = db;
@@ -109,6 +107,7 @@ public class CmsNodeIndex implements ICmsNodeIndex {
         } catch (IOError e) {
             throw JdbmIndexException.from(e);
         }
+        
     }
 
     @objid ("e1ee620e-5c83-11e1-863f-001ec947ccaf")
@@ -128,6 +127,7 @@ public class CmsNodeIndex implements ICmsNodeIndex {
         } catch (IOException e) {
             throw JdbmIndexException.from(e);
         }
+        
     }
 
     @objid ("e1ee620d-5c83-11e1-863f-001ec947ccaf")
@@ -145,6 +145,7 @@ public class CmsNodeIndex implements ICmsNodeIndex {
         } catch (IOException e) {
             throw JdbmIndexException.from(e);
         }
+        
     }
 
     @objid ("e1ee61ff-5c83-11e1-863f-001ec947ccaf")
@@ -164,6 +165,7 @@ public class CmsNodeIndex implements ICmsNodeIndex {
         } catch (IOException e) {
             throw JdbmIndexException.from(e);
         }
+        
     }
 
     @objid ("e1ee6212-5c83-11e1-863f-001ec947ccaf")
@@ -183,6 +185,7 @@ public class CmsNodeIndex implements ICmsNodeIndex {
         } catch (IOException e) {
             throw JdbmIndexException.from(e);
         }
+        
     }
 
     @objid ("e7ff26c9-55ba-11e2-81b0-001ec947ccaf")
@@ -202,6 +205,7 @@ public class CmsNodeIndex implements ICmsNodeIndex {
         } catch (IOException e) {
             throw JdbmIndexException.from(e);
         }
+        
     }
 
     @objid ("e1ee620f-5c83-11e1-863f-001ec947ccaf")
@@ -222,6 +226,7 @@ public class CmsNodeIndex implements ICmsNodeIndex {
         } catch (IOException e) {
             throw JdbmIndexException.from(e);
         }
+        
     }
 
     @objid ("82d690c7-5ca7-11e1-863f-001ec947ccaf")
@@ -237,6 +242,7 @@ public class CmsNodeIndex implements ICmsNodeIndex {
         } catch (IOError e) {
             throw JdbmIndexException.from(e);
         }
+        
     }
 
     @objid ("e1ee61fd-5c83-11e1-863f-001ec947ccaf")
@@ -252,6 +258,7 @@ public class CmsNodeIndex implements ICmsNodeIndex {
         } catch (IOException e) {
             throw JdbmIndexException.from(e);
         }
+        
     }
 
     @objid ("e1ee61fe-5c83-11e1-863f-001ec947ccaf")
@@ -295,6 +302,7 @@ public class CmsNodeIndex implements ICmsNodeIndex {
         } catch (IOException e) {
             throw JdbmIndexException.from(e);
         }
+        
     }
 
     @objid ("e1ee6210-5c83-11e1-863f-001ec947ccaf")
@@ -307,6 +315,7 @@ public class CmsNodeIndex implements ICmsNodeIndex {
         } catch (IOException e) {
             throw JdbmIndexException.from(e);
         }
+        
     }
 
     @objid ("690abc20-4b8b-11e2-91c9-001ec947ccaf")
@@ -324,6 +333,7 @@ public class CmsNodeIndex implements ICmsNodeIndex {
             l.add(childLid);
             this.db.update(ref.getRecId(), l);
         }
+        
     }
 
     @objid ("86140e47-797c-11e1-9633-001ec947ccaf")
@@ -345,19 +355,19 @@ public class CmsNodeIndex implements ICmsNodeIndex {
         Log.warning("  %d elements in parentIndex", this.parentIndex.size());
         //Log.warning("  " + this.inverseParent.size()+" elements in inverseParent");
         //Log.warning("  " + this.inverseObjectToNode.size()+" elements in inverseObjectToNode");
+        
     }
 
     /**
      * Get the object index where this metaclass elements should be stored.
      * <p>
      * Return <i>null</i> if the index is missing.
-     * 
      * @param cls a metaclass
      * @return its index or <i>null</i>.
-     * @throws java.io.IOException in case of I/O error
+     * @throws IOException in case of I/O error
      */
     @objid ("a30fd2d3-d388-4c6e-ae38-91874118a257")
-    private PrimaryHashMap<String,ObjectIndexValue> findObjectIndex(MClass cls) throws IOException {
+    private PrimaryHashMap<String, ObjectIndexValue> findObjectIndex(MClass cls) throws IOException {
         PrimaryHashMap<String, ObjectIndexValue> idx = this.objectsIndex.get(cls);
         if (idx == null && !this.objectsIndex.containsKey(cls)) {
             long r = this.db.getNamedObject("objectsIndex."+cls.getQualifiedName());
@@ -376,10 +386,9 @@ public class CmsNodeIndex implements ICmsNodeIndex {
      * Find the object index entry.
      * <p>
      * Return <i>null</i> if the object is not in the index.
-     * 
      * @param id the object identifier
      * @return the index entry or <i>null</i>.
-     * @throws java.io.IOException in case of I/O error.
+     * @throws IOException in case of I/O error.
      */
     @objid ("1cdc4679-716e-4998-8622-b18745d7e5d6")
     private ObjectIndexValue findObjectIndexEntry(final ObjId id) throws IOException {
@@ -389,18 +398,18 @@ public class CmsNodeIndex implements ICmsNodeIndex {
         } else {
             return objectIndex.find(id.id);
         }
+        
     }
 
     /**
      * Get the object index for a metaclass.
      * <p>
      * The index is created if missing.
-     * 
      * @param cls a metaclass
      * @return the metaclass objects index.
      */
     @objid ("483c4f74-89a9-4ff6-93ed-f28dd157cf3d")
-    private PrimaryHashMap<String,ObjectIndexValue> getClassObjIndex(MClass cls) {
+    private PrimaryHashMap<String, ObjectIndexValue> getClassObjIndex(MClass cls) {
         PrimaryHashMap<String, ObjectIndexValue> ret = this.objectsIndex.get(cls);
         if (ret == null) {
             ret = this.db.hashMap("objectsIndex."+cls.getQualifiedName(), null, this.objIndexValueSerializer);
@@ -414,6 +423,7 @@ public class CmsNodeIndex implements ICmsNodeIndex {
     private void initReverseIndexes() {
         //ObjIdIterableSerializer s = new ObjIdIterableSerializer(this.idCollSerializer);
         this.inverseParent = SecondaryKeyHelper.inverseHashView(this.parentIndex, "inverseParent", null);
+        
     }
 
     @objid ("82d690cd-5ca7-11e1-863f-001ec947ccaf")
@@ -423,6 +433,7 @@ public class CmsNodeIndex implements ICmsNodeIndex {
         } else {
             return storeReference.get(this.db);
         }
+        
     }
 
     @objid ("690abc25-4b8b-11e2-91c9-001ec947ccaf")
@@ -438,6 +449,7 @@ public class CmsNodeIndex implements ICmsNodeIndex {
                 this.db.update(ref.getRecId(), l);
             }
         }
+        
     }
 
     @objid ("38572aad-c546-41d9-999b-b223c4a24323")
@@ -459,6 +471,7 @@ public class CmsNodeIndex implements ICmsNodeIndex {
         } catch (IOException e) {
             throw JdbmIndexException.from(e);
         }
+        
     }
 
     @objid ("b3a50054-f423-48a3-8ec2-27aa2e25b140")
@@ -477,6 +490,7 @@ public class CmsNodeIndex implements ICmsNodeIndex {
                 return idk + ": " + e.toString();
             }
         }
+        
     }
 
     @objid ("a5fcee23-9ff0-4260-8954-ef749038555e")
@@ -519,6 +533,7 @@ public class CmsNodeIndex implements ICmsNodeIndex {
         } catch (IOException e) {
             throw JdbmIndexException.from(e);
         }
+        
     }
 
 }

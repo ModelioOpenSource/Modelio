@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.admtool.handlers;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.file.FileSystemException;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
@@ -82,6 +81,7 @@ public class DefragIndexesHandler implements IRunnableWithProgress {
                 statusReporter.show(StatusReporter.ERROR, AdmTool.I18N.getMessage("DefragIndexesHandler.Failed"), e);
             }
         }
+        
     }
 
     @objid ("ec4c626f-aa28-4184-8039-9c0d1ccac26d")
@@ -96,6 +96,7 @@ public class DefragIndexesHandler implements IRunnableWithProgress {
         } catch (RuntimeException e) {
             throw new InvocationTargetException(e, e.toString());
         }
+        
     }
 
 }

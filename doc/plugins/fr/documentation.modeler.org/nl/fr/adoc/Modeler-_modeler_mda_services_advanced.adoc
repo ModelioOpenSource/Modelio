@@ -1,5 +1,7 @@
 // Disable all captions for figures.
 :!figure-caption:
+// Path to the stylesheet files
+:stylesdir: .
 
 [[Le-niveau-avancé-ndash-Travailler-dans-le-modèle-MDA]]
 

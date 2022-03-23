@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.project.services.openproject;
 
 import java.io.FileNotFoundException;
@@ -53,15 +52,15 @@ class TodoRunner extends TodoActionsRunner {
 
     /**
      * Initialize the project configurer.
-     * 
      * @param project the project to synchronize
      * @param moduleService the module service used to install and remove modules.
      */
     @objid ("2a248da2-da07-4866-9ead-3f7bbba0bf30")
-    public TodoRunner(GProject project, IModuleManagementService moduleService, IAuthenticationPrompter authPrompter) {
+    public  TodoRunner(GProject project, IModuleManagementService moduleService, IAuthenticationPrompter authPrompter) {
         super(project);
         this.moduleService = moduleService;
         this.authPrompter = authPrompter;
+        
     }
 
     @objid ("b0e7c795-84a6-48d4-ac84-eca1f5817df2")
@@ -83,6 +82,7 @@ class TodoRunner extends TodoActionsRunner {
         } catch (ModuleException e) {
             throw new IOException(e.getLocalizedMessage(), e);
         }
+        
     }
 
     @objid ("d0837faa-1407-4209-8b2d-887a9d07aed3")
@@ -95,6 +95,7 @@ class TodoRunner extends TodoActionsRunner {
         } catch (ModuleException e) {
             throw new IOException(e.getLocalizedMessage(), e);
         }
+        
     }
 
     @objid ("42b5e0d1-c942-4ccf-a1c1-b5979f91863b")
@@ -120,11 +121,11 @@ class TodoRunner extends TodoActionsRunner {
             reconfigureModule(newGModule, fd, monitor);
         
         }
+        
     }
 
     /**
      * Report failures to user
-     * 
      * @param shell a SWT shell
      */
     @objid ("457984e9-466e-40de-8cdd-1f9598bab209")
@@ -134,7 +135,6 @@ class TodoRunner extends TodoActionsRunner {
 
     /**
      * Concatenates failures in a string builder.
-     * 
      * @return the failures
      */
     @objid ("4214d867-d139-479e-b085-958a0d1be488")
@@ -182,6 +182,7 @@ class TodoRunner extends TodoActionsRunner {
                 }
             }
         } while (true) ;
+        
     }
 
 }

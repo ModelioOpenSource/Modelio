@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.StructuredActivityNodeSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.LoopNode;
 import org.modelio.metamodel.uml.behavior.activityModel.StructuredActivityNode;
 import org.modelio.vbasic.version.Version;
@@ -52,7 +51,7 @@ public class LoopNodeSmClass extends StructuredActivityNodeSmClass {
     private SmAttribute testAtt;
 
     @objid ("e209ece6-7daa-468e-97b4-2fbaf4391334")
-    public LoopNodeSmClass(ISmMetamodelFragment origin) {
+    public  LoopNodeSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -60,6 +59,7 @@ public class LoopNodeSmClass extends StructuredActivityNodeSmClass {
     @Override
     public String getName() {
         return "LoopNode";
+        
     }
 
     @objid ("06273b77-34f3-4523-b35c-ec641b887940")
@@ -72,18 +72,21 @@ public class LoopNodeSmClass extends StructuredActivityNodeSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return LoopNode.class;
+        
     }
 
     @objid ("53171e4b-135d-4d19-8bb9-472f886f4ac3")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("7ffed83d-8eea-4206-82e3-ce5e42459b44")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("0df093fa-ecca-43c6-b230-28758e929230")
@@ -108,6 +111,7 @@ public class LoopNodeSmClass extends StructuredActivityNodeSmClass {
         
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("c24300b8-6d12-4561-b3ca-b1ff9e7914af")
@@ -140,7 +144,7 @@ public class LoopNodeSmClass extends StructuredActivityNodeSmClass {
         private LoopNodeSmClass smClass;
 
         @objid ("cfb9f485-d338-42e3-8b24-ef53fe6bbeee")
-        public LoopNodeObjectFactory(LoopNodeSmClass smClass) {
+        public  LoopNodeObjectFactory(LoopNodeSmClass smClass) {
             this.smClass = smClass;
         }
 

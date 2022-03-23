@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.interactionModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.OccurrenceSpecificationSmClass;
 import org.modelio.metamodel.uml.behavior.interactionModel.OccurrenceSpecification;
 import org.modelio.metamodel.uml.behavior.interactionModel.StateInvariant;
 import org.modelio.vbasic.version.Version;
@@ -49,7 +48,7 @@ public class StateInvariantSmClass extends OccurrenceSpecificationSmClass {
     private SmAttribute endLineNumberAtt;
 
     @objid ("be0654d8-5292-4255-a3d7-ea7eb46dc43f")
-    public StateInvariantSmClass(ISmMetamodelFragment origin) {
+    public  StateInvariantSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -57,6 +56,7 @@ public class StateInvariantSmClass extends OccurrenceSpecificationSmClass {
     @Override
     public String getName() {
         return "StateInvariant";
+        
     }
 
     @objid ("e28ffef4-32c6-47d0-aa0d-2ec44e9721e1")
@@ -69,18 +69,21 @@ public class StateInvariantSmClass extends OccurrenceSpecificationSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return StateInvariant.class;
+        
     }
 
     @objid ("620871bd-017f-46fb-94d2-1b99b153e695")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("10284b98-f8e2-4368-ba8d-a3b9efac1ca2")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("0ea76f47-ea77-48e0-aa86-99120d864656")
@@ -101,6 +104,7 @@ public class StateInvariantSmClass extends OccurrenceSpecificationSmClass {
         
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("48c72b0f-07f1-48c5-aaa9-fad5914d693c")
@@ -125,7 +129,7 @@ public class StateInvariantSmClass extends OccurrenceSpecificationSmClass {
         private StateInvariantSmClass smClass;
 
         @objid ("4213999d-c4f4-442e-8478-e5970544e1d5")
-        public StateInvariantObjectFactory(StateInvariantSmClass smClass) {
+        public  StateInvariantObjectFactory(StateInvariantSmClass smClass) {
             this.smClass = smClass;
         }
 

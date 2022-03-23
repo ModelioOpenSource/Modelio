@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml.templateparameter;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -48,18 +47,17 @@ public class TemplateParameterPropertyModel extends AbstractPropertyModel<Templa
     /**
      * Create a new <i>TemplateParameter</i> data model from an
      * <i>TemplateParameter</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("ea7d69ae-3b0e-43f5-b392-ce0a593390d8")
-    public TemplateParameterPropertyModel(TemplateParameter theEditedElement) {
+    public  TemplateParameterPropertyModel(TemplateParameter theEditedElement) {
         super(theEditedElement);
         this.initDelegate();
+        
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("5429d367-3903-4695-9f39-aac28fa44cee")
@@ -70,7 +68,6 @@ public class TemplateParameterPropertyModel extends AbstractPropertyModel<Templa
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("a273fa94-d9eb-4b92-b332-db497f0c243e")
@@ -86,7 +83,6 @@ public class TemplateParameterPropertyModel extends AbstractPropertyModel<Templa
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -110,6 +106,7 @@ public class TemplateParameterPropertyModel extends AbstractPropertyModel<Templa
         } else {
             this.delegate = new TypeTemplateParameterPropertyModel(this.theEditedElement);
         }
+        
     }
 
     @objid ("db00b0d8-4c99-4813-bed8-9dfe21fba27b")
@@ -122,7 +119,6 @@ public class TemplateParameterPropertyModel extends AbstractPropertyModel<Templa
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -132,6 +128,7 @@ public class TemplateParameterPropertyModel extends AbstractPropertyModel<Templa
     public void setValueAt(int row, int col, Object value) {
         this.delegate.setValueAt(row, col, value);
         initDelegate();
+        
     }
 
 }

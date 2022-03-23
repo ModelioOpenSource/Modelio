@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.diagram.tools;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -22,6 +21,7 @@ import org.modelio.api.modelio.diagram.IDiagramGraphic;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
 import org.modelio.api.modelio.diagram.IDiagramLink.LinkRouterKind;
 import org.modelio.api.modelio.diagram.ILinkPath;
+import org.modelio.api.modelio.diagram.ILinkRoute;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
@@ -60,7 +60,6 @@ public abstract class DefaultLinkTool extends DefaultDiagramTool implements ILin
      * 
      * This method is called until the user clicks on an element.<br>
      * This default implementation always accept the interaction.
-     * 
      * @param diagramHandle the representation of the diagram in which the interaction occurs.
      * @param targetNode the graphic that is below the mouse pointer.
      * @return an boolean that represents the result of the acceptFirstElement method.
@@ -75,7 +74,6 @@ public abstract class DefaultLinkTool extends DefaultDiagramTool implements ILin
      * 
      * This method is called after the user has choosen the origin of the link.<br>
      * This default implementation always accept the interaction.
-     * 
      * @param diagramHandle the representation of the diagram in which the interaction occurs.
      * @param originNode the graphic that is the origin of the link.
      * @param targetNode the graphic the is below the mouse pointer.
@@ -94,7 +92,6 @@ public abstract class DefaultLinkTool extends DefaultDiagramTool implements ILin
      * This default implementation does nothing.
      * <p>
      * @see IDiagramHandle#unmask(MObject, int, int)
-     * 
      * @param diagramHandle the representation of the diagram where the command has been triggered.
      * @param originNode the origin graphic of the link to create.
      * @param targetNode the destination graphic of the link to create.
@@ -102,6 +99,6 @@ public abstract class DefaultLinkTool extends DefaultDiagramTool implements ILin
      */
     @objid ("01e402b4-0000-6bd0-0000-000000000000")
     @Override
-    public abstract void actionPerformed(final IDiagramHandle diagramHandle, IDiagramGraphic originNode, IDiagramGraphic targetNode, LinkRouterKind touterType, ILinkPath path);
+    public abstract void actionPerformed(final IDiagramHandle diagramHandle, IDiagramGraphic originNode, IDiagramGraphic targetNode, LinkRouterKind touterType, ILinkRoute path);
 
 }

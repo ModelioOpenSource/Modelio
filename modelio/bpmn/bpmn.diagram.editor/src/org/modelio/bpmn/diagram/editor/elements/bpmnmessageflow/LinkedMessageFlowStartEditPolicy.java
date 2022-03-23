@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnmessageflow;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,6 +50,7 @@ public class LinkedMessageFlowStartEditPolicy extends LinkedNodeStartCreationEdi
         } else {
             return super.getConnectionCreateCommand(request);
         }
+        
     }
 
     @objid ("616ff6b1-55b6-11e2-877f-002564c97630")

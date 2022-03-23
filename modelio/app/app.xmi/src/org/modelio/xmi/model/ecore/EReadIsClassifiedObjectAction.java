@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class EReadIsClassifiedObjectAction extends EActivityNode {
     }
 
     @objid ("4efa63db-c06f-4077-96cd-f9c3f5252231")
-    public EReadIsClassifiedObjectAction(org.eclipse.uml2.uml.ReadIsClassifiedObjectAction element) {
+    public  EReadIsClassifiedObjectAction(org.eclipse.uml2.uml.ReadIsClassifiedObjectAction element) {
         super(element);
     }
 

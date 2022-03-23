@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.dnd;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,7 @@ public class DiagramBrowserDragListener implements DragSourceListener {
     private final TreeViewer viewer;
 
     @objid ("14c4dc81-12c5-49cd-9a46-15ed59341e0e")
-    public DiagramBrowserDragListener(TreeViewer viewer) {
+    public  DiagramBrowserDragListener(TreeViewer viewer) {
         this.viewer = viewer;
     }
 
@@ -48,6 +47,7 @@ public class DiagramBrowserDragListener implements DragSourceListener {
         if (LocalSelectionTransfer.getTransfer().isSupportedType(event.dataType)) {           
             event.data=LocalSelectionTransfer.getTransfer().getSelection();
         }
+        
     }
 
     @objid ("ad527feb-3cfc-4fa6-b120-5b1e383b771c")

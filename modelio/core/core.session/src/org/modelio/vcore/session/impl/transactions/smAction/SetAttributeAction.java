@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.transactions.smAction;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -49,6 +48,7 @@ public class SetAttributeAction extends SimpleAction {
     public void undo(final boolean rollback) {
         // Affectation de la nouvelle valeur
         this.smAtt.setValue(this.refered.getData(), this.oldValue);
+        
     }
 
     /**
@@ -60,17 +60,19 @@ public class SetAttributeAction extends SimpleAction {
     public void redo() {
         // Affectation de la nouvelle valeur
         this.smAtt.setValue(this.refered.getData(), this.newValue);
+        
     }
 
     /**
      * Constructeur de l'action de modification d'un attribut d'un objet. L'objet est sauvegarde dans l'associartion "Refer", l'attribut concerne dans l'association "smAtt" on sauvegarde aussi l'ancienne et la nouvelle valeur de l'attribut.
      */
     @objid ("006d3710-0d1e-1f20-85a5-001ec947cd2a")
-    public SetAttributeAction(final SmObjectImpl obj, final SmAttribute smAtt, final Object oldValue, final Object newValue) {
+    public  SetAttributeAction(final SmObjectImpl obj, final SmAttribute smAtt, final Object oldValue, final Object newValue) {
         super(obj);
         this.smAtt = smAtt;
         this.oldValue = oldValue;
         this.newValue = newValue;
+        
     }
 
     @objid ("006d37a6-0d1e-1f20-85a5-001ec947cd2a")
@@ -102,6 +104,7 @@ public class SetAttributeAction extends SimpleAction {
         } else {
             return String.format("Set %s.%s from %s to %s action", this.refered, this.smAtt.getName(), this.oldValue, this.newValue);
         }
+        
     }
 
 }

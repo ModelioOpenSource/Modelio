@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.infrastructure.modelelement;
 
@@ -50,33 +49,32 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("888cc0d8-e375-4a2b-9aa5-10f145741ded")
 public class MMInfrastructureModelElement {
-    @objid ("ea1b4060-3625-47dc-9b95-82659c754198")
+    @objid ("5893eab1-4ca7-4eaf-955e-bc1baa699c2a")
     public static final String NODOC_TAGTYPE = "nodoc";
 
-    @objid ("94cae03d-e364-4ca2-b731-0c2b5bf62d30")
+    @objid ("6cd2b16d-1631-48fb-8e76-64c878223cee")
     public static final String COMMENT_NOTETYPE = "comment";
 
-    @objid ("573d7047-d9b1-4ffb-8245-b24407aa4ebc")
+    @objid ("2ba2542f-e6d2-453b-aec7-66261c440ec8")
     public static final String DESCRIPTION_NOTETYPE = "description";
 
-    @objid ("2e952d37-68f4-4ff3-af29-3406260e4f1b")
+    @objid ("67a370f7-ffa5-4fed-99bc-6c56cacf6497")
     public static final String UNDEFINED_NOTETYPE = "undefined";
 
     /**
      * The underlying {@link ModelElement} represented by this proxy, never null.
      */
-    @objid ("e9c006dc-1c55-41a3-84c4-8cd89c7a365a")
+    @objid ("60b11620-bb72-41b7-b0af-4fa80f5fcb8d")
     protected final ModelElement elt;
 
     /**
      * Tells whether a {@link MMInfrastructureModelElement proxy} can be instantiated from a {@link MObject} checking it is a {@link ModelElement}.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("5af6da5f-3c57-4d08-b8b1-c675c8e91e1e")
+    @objid ("73fd0e34-655d-4a10-815d-a08f14f562b0")
     public static boolean canInstantiate(MObject elt) {
         return (elt instanceof ModelElement);
     }
@@ -88,12 +86,12 @@ public class MMInfrastructureModelElement {
      * @param obj a ModelElement
      * @return a {@link MMInfrastructureModelElement} proxy or <i>null</i>.
      */
-    @objid ("1e1e8878-41e5-4b0f-aebc-f3612db141a3")
+    @objid ("3ebd4766-f007-45d3-bda7-ada619d8182a")
     public static MMInfrastructureModelElement instantiate(ModelElement obj) {
         return MMInfrastructureModelElement.canInstantiate(obj) ? new MMInfrastructureModelElement(obj) : null;
     }
 
-    @objid ("ead245ca-e038-4837-8fcd-b32420facd4c")
+    @objid ("5e5978ec-845a-44c6-b52e-9a080a42b1d9")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -114,7 +112,7 @@ public class MMInfrastructureModelElement {
      * <p>Note description:
      * <br/><i></i></p>
      */
-    @objid ("588450b7-d011-4a46-9b7a-d6af8f94b386")
+    @objid ("244130d8-1613-4fd4-95b2-27d6e60d9027")
     public String getCommentNote() {
         return this.elt.getNoteContent(MMInfrastructureModelElement.MdaTypes.COMMENT_NOTETYPE_ELT);
     }
@@ -124,7 +122,7 @@ public class MMInfrastructureModelElement {
      * <p>Note description:
      * <br/><i></i></p>
      */
-    @objid ("c35100c4-f8a6-4ad5-bfe0-6dac1a763adc")
+    @objid ("58b44109-e0f9-45e3-a719-0cfcb2c62be0")
     public String getDescriptionNote() {
         return this.elt.getNoteContent(MMInfrastructureModelElement.MdaTypes.DESCRIPTION_NOTETYPE_ELT);
     }
@@ -133,7 +131,7 @@ public class MMInfrastructureModelElement {
      * Get the underlying {@link ModelElement}. 
      * @return the ModelElement represented by this proxy, never null.
      */
-    @objid ("1abf3f1c-fd22-492e-8c07-6da86e8558dd")
+    @objid ("6ce23044-5cf9-4439-b6ec-7806b33dd077")
     public ModelElement getElement() {
         return this.elt;
     }
@@ -143,15 +141,16 @@ public class MMInfrastructureModelElement {
      * <p>Note description:
      * <br/><i></i></p>
      */
-    @objid ("f3624215-921c-4679-93fc-5153ded43609")
+    @objid ("922dda55-df50-44c7-a14d-8c102cfdeedf")
     public String getUndefinedNote() {
         return this.elt.getNoteContent(MMInfrastructureModelElement.MdaTypes.UNDEFINED_NOTETYPE_ELT);
     }
 
-    @objid ("8546b43a-3388-4dcc-9659-f3df3a8c2b58")
+    @objid ("f4b8bfa3-e5ea-4d47-8a1d-e37906e6c3af")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
     /**
@@ -159,7 +158,7 @@ public class MMInfrastructureModelElement {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("3d10e2e0-6c87-4c1e-ad3e-21cfc1264671")
+    @objid ("e75b1117-553f-4b97-8191-c8143d26c910")
     public boolean isNodoc() {
         return this.elt.isTagged(MMInfrastructureModelElement.MdaTypes.NODOC_TAGTYPE_ELT);
     }
@@ -169,7 +168,7 @@ public class MMInfrastructureModelElement {
      * <p>Note description:
      * <br/><i></i></p>
      */
-    @objid ("d8302eb3-a738-462e-8a32-ea5d4a482bbb")
+    @objid ("e212cbe9-69d4-45a0-8cc7-585bb66c3d5e")
     public void setCommentNote(String value) {
         this.elt.putNoteContent(MMInfrastructureModelElement.MdaTypes.COMMENT_NOTETYPE_ELT, value);
     }
@@ -179,7 +178,7 @@ public class MMInfrastructureModelElement {
      * <p>Note description:
      * <br/><i></i></p>
      */
-    @objid ("36fe6a33-1eed-4b35-94de-218ae742687b")
+    @objid ("71ad8144-75d1-4f00-8ac5-3c20602ab292")
     public void setDescriptionNote(String value) {
         this.elt.putNoteContent(MMInfrastructureModelElement.MdaTypes.DESCRIPTION_NOTETYPE_ELT, value);
     }
@@ -189,7 +188,7 @@ public class MMInfrastructureModelElement {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("0a310c5a-03f9-4c0e-8da4-97add86c74b1")
+    @objid ("0572a990-75a0-49be-99b5-b90dea63cc50")
     public void setNodoc(boolean value) {
         if (value)
           ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createTaggedValue(MMInfrastructureModelElement.MdaTypes.NODOC_TAGTYPE_ELT, this.elt);
@@ -202,37 +201,37 @@ public class MMInfrastructureModelElement {
      * <p>Note description:
      * <br/><i></i></p>
      */
-    @objid ("9e842f34-6197-48e5-ae6f-b209d30fb052")
+    @objid ("db9e95b8-ae9a-4980-8612-c25b18697deb")
     public void setUndefinedNote(String value) {
         this.elt.putNoteContent(MMInfrastructureModelElement.MdaTypes.UNDEFINED_NOTETYPE_ELT, value);
     }
 
-    @objid ("c6b570a2-f115-4169-9557-4e438c2c5f2f")
-    protected MMInfrastructureModelElement(ModelElement elt) {
+    @objid ("68d4cdfa-85a9-451d-b661-4f69a576fe35")
+    protected  MMInfrastructureModelElement(ModelElement elt) {
         this.elt = elt;
     }
 
     @objid ("09cad016-8b4d-4c38-a591-02566b729239")
     public static final class MdaTypes {
-        @objid ("7ef0da14-2a27-49a0-a706-9e1f08b2022c")
+        @objid ("92fd3a5d-b992-43d6-957b-0afbeefce901")
         public static TagType NODOC_TAGTYPE_ELT;
 
-        @objid ("fbebf697-4086-4ebb-abff-a2b75813de7b")
+        @objid ("0f914dd1-645d-4efe-8c1a-5e6c266797ec")
         public static NoteType DESCRIPTION_NOTETYPE_ELT;
 
-        @objid ("34a4f9fe-87ac-48f4-8948-386c4421a89f")
+        @objid ("f52fa789-4d68-4a92-a8e0-4b87d49bd4e6")
         public static NoteType UNDEFINED_NOTETYPE_ELT;
 
-        @objid ("3a0f2331-6ae9-464b-a65c-fef9c7627fb5")
+        @objid ("1bde2452-f636-4358-9b34-a99a233a375b")
         public static NoteType COMMENT_NOTETYPE_ELT;
 
-        @objid ("8bd335d0-f129-4d47-aa48-43bbdfd2f4eb")
+        @objid ("88e88145-92fa-4270-9895-5eef5322682c")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("a73d2fcf-9a6a-41ac-95fb-d56dbb06b808")
+        @objid ("cfd40fd9-a89c-425c-9946-ca9373d1df71")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("e08a6f3b-4073-45f5-86ec-7ffba67d64dc")
+        @objid ("974898b8-b63f-4491-ad13-0cbd87594224")
         public static void init(IModuleContext ctx) {
             NODOC_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "c40494de-2182-11e1-85ce-002564c97630");
             DESCRIPTION_NOTETYPE_ELT = ctx.getModelingSession().findElementById(NoteType.class, "00000000-0000-3e81-0000-000000000000");
@@ -240,14 +239,14 @@ public class MMInfrastructureModelElement {
             COMMENT_NOTETYPE_ELT = ctx.getModelingSession().findElementById(NoteType.class, "00000000-0000-3e80-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

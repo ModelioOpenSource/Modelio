@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.api.model;
 
 import java.util.Collection;
@@ -38,37 +37,36 @@ public interface IModel {
      */
     @objid ("158ef48a-aed6-4746-a113-8d9f740481b4")
     public static final IMObjectFilter ISVALID = new IMObjectFilter() {
-		@Override
-		public boolean accept(MObject obj) {
-			return obj != null && obj.isValid();
-		}
-	};
+    		@Override
+    		public boolean accept(MObject obj) {
+    			return obj != null && obj.isValid();
+    		}
+    	};
 
     /**
      * Filter that accepts only not deleted objects.
      */
     @objid ("f85615e6-6ad2-4a7a-9784-cf8d466faa65")
     public static final IMObjectFilter NODELETED = new IMObjectFilter() {
-		@Override
-		public boolean accept(MObject obj) {
-			return obj != null && ! obj.isDeleted();
-		}
-	};
+    		@Override
+    		public boolean accept(MObject obj) {
+    			return obj != null && ! obj.isDeleted();
+    		}
+    	};
 
     /**
      * Filter that accepts only non shell objects.
      */
     @objid ("899f8ec3-25d4-4441-b499-c889c4e125a7")
     public static final IMObjectFilter NOSHELL = new IMObjectFilter() {
-		@Override
-		public boolean accept(MObject obj) {
-			return obj != null && ! obj.isShell();
-		}
-	};
+    		@Override
+    		public boolean accept(MObject obj) {
+    			return obj != null && ! obj.isShell();
+    		}
+    	};
 
     /**
      * Find elements by a metaclass an an attribute value.
-     * 
      * @param cls the metaclass.
      * @param att the attribute to search
      * @param val the attribute value
@@ -80,7 +78,6 @@ public interface IModel {
 
     /**
      * Find elements by a metaclass an an attribute value.
-     * 
      * @param cls the metaclass.
      * @param att the attribute to search
      * @param val the attribute value
@@ -93,7 +90,6 @@ public interface IModel {
 
     /**
      * Find elements by a metaclass an an attribute value.
-     * 
      * @param metaclass the metaclass.
      * @param att the attribute to search
      * @param val the attribute value
@@ -105,7 +101,6 @@ public interface IModel {
 
     /**
      * Find elements by a metaclass an an attribute value.
-     * 
      * @param metaclass the metaclass.
      * @param att the attribute to search
      * @param val the attribute value
@@ -116,7 +111,6 @@ public interface IModel {
 
     /**
      * Find elements by a metaclass an an attribute value.
-     * 
      * @param cls the metaclass.
      * @param withSubClasses if true look into subclasses hierarchy too.
      * @param att the attribute to search
@@ -129,7 +123,6 @@ public interface IModel {
 
     /**
      * Get all elements of a given class and the class descendants.
-     * 
      * @param cls a metaclass.
      * @param filter a filter
      * @return all elements of this class.
@@ -139,7 +132,6 @@ public interface IModel {
 
     /**
      * Get all elements of a given class and the class descendants.
-     * 
      * @param cls a metaclass
      * @return all elements typed by this metaclass
      */
@@ -148,7 +140,6 @@ public interface IModel {
 
     /**
      * Get all elements of a given class and the class descendants.
-     * 
      * @param metaclass a metaclass
      * @param filter a filter to apply to the result
      * @return all elements typed by this metaclass
@@ -158,7 +149,6 @@ public interface IModel {
 
     /**
      * Get all elements of a given class and the class descendants.
-     * 
      * @param metaclass a metaclass
      * @return all elements typed by this metaclass
      */
@@ -167,7 +157,6 @@ public interface IModel {
 
     /**
      * Get all elements of a given class and optionally the class descendants.
-     * 
      * @param cls a metaclass
      * @param withSubClasses true to look into subclasses hierarchy
      * @return all elements typed by this metaclass
@@ -177,7 +166,6 @@ public interface IModel {
 
     /**
      * Get all elements of a given class and optionally the class descendants.
-     * 
      * @param metaclass a metaclass
      * @param withSubClasses true to look into subclasses hierarchy
      * @return all elements typed by this metaclass
@@ -187,7 +175,6 @@ public interface IModel {
 
     /**
      * Find an element from its MClass and its identifier.
-     * 
      * @param cls a metaclass
      * @param siteIdentifier an String
      * @param filter a filter
@@ -198,7 +185,6 @@ public interface IModel {
 
     /**
      * Find an element from its MClass and its identifier.
-     * 
      * @param cls a metaclass
      * @param siteIdentifier an String
      * @return the found element or <code>null</code>.
@@ -208,7 +194,6 @@ public interface IModel {
 
     /**
      * Find an element from its metaclass interface and its identifier.
-     * 
      * @param metaclass a metaclass
      * @param siteIdentifier an String
      * @param filter a filter
@@ -219,7 +204,6 @@ public interface IModel {
 
     /**
      * Find an element from its MClass and its identifier.
-     * 
      * @param metaclass a metaclass
      * @param siteIdentifier an String
      * @return the found element or <code>null</code>.
@@ -229,28 +213,25 @@ public interface IModel {
 
     /**
      * Find an element from a reference.
-     * 
      * @param ref an element reference
      * @param filter a filter
      * @return the found element or <code>null</code>.
-     * @throws org.modelio.vcore.session.UnknownMetaclassException if the referenced metaclass does not exist.
+     * @throws UnknownMetaclassException if the referenced metaclass does not exist.
      */
     @objid ("10a41285-16e7-11e2-b24b-001ec947ccaf")
     MObject findByRef(MRef ref, IMObjectFilter filter) throws UnknownMetaclassException;
 
     /**
      * Find an element from a reference.
-     * 
      * @param ref an element reference
      * @return the found element or <code>null</code>.
-     * @throws org.modelio.vcore.session.UnknownMetaclassException if the referenced metaclass does not exist.
+     * @throws UnknownMetaclassException if the referenced metaclass does not exist.
      */
     @objid ("33fb2113-b8a3-4b3b-95ed-3481c65d2881")
     MObject findByRef(MRef ref) throws UnknownMetaclassException;
 
     /**
      * Get the generic factory.
-     * 
      * @return the generic factory.
      */
     @objid ("0078ca26-5a20-10c8-842f-001ec947cd2a")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -52,10 +51,11 @@ public class ETransition extends ENamedElement {
     }
 
     @objid ("4dd69ba2-0f10-44f4-8e4a-bf31c0b67df2")
-    public ETransition(org.eclipse.uml2.uml.Transition element) {
+    public  ETransition(org.eclipse.uml2.uml.Transition element) {
         super(element);
         this.ecoreElement = element;
         this.isInternalTransition = EcoreModelNavigation.isInternalTransition(element);
+        
     }
 
     @objid ("260e89b6-971a-4788-bc50-9bf69c533fa4")
@@ -79,6 +79,7 @@ public class ETransition extends ENamedElement {
             setSentEvents((Transition) objingElt);
             setEffect((Transition) objingElt);        
         }
+        
     }
 
     @objid ("d181841b-524b-4eba-97ce-100ef751f7ba")
@@ -86,6 +87,7 @@ public class ETransition extends ENamedElement {
         String effect = ObjingEAnnotation.getEffect(this.ecoreElement);
         if (effect != null)
             objingElt.setEffect(effect);
+        
     }
 
     @objid ("6d08a826-bb72-4ada-80ca-94d003589b2d")
@@ -93,6 +95,7 @@ public class ETransition extends ENamedElement {
         String signalString = ObjingEAnnotation.getSignal(this.ecoreElement);
         if (signalString != null)
             objingElt.setSentEvents(signalString);
+        
     }
 
     @objid ("9bc783a3-94a8-49b5-8e07-b50ce0d96042")
@@ -101,6 +104,7 @@ public class ETransition extends ENamedElement {
         if (receivedEvent != null){
             objingElt.setReceivedEvents(receivedEvent);
         }
+        
     }
 
     @objid ("56ed689a-827e-4cf0-bd77-9888cd4eaae9")
@@ -121,6 +125,7 @@ public class ETransition extends ENamedElement {
         
             objingElt.setGuard(guard);
         }
+        
     }
 
     @objid ("6aa87f31-5aeb-414f-be44-fb28413ac836")
@@ -137,6 +142,7 @@ public class ETransition extends ENamedElement {
         }else if (ReverseProperties.getInstance().isRoundtripEnabled()){
             objingElt.setPostCondition(ObjingEAnnotation.getPostCondition(this.ecoreElement));
         }
+        
     }
 
     @objid ("6946ba99-5c76-4602-8879-f99bec8dbb1d")
@@ -153,6 +159,7 @@ public class ETransition extends ENamedElement {
                     transition.setSource((StateVertex) objingSource);
             }
         }
+        
     }
 
     @objid ("6a9063ea-7e2f-4fbf-9198-76746c639e2b")
@@ -164,6 +171,7 @@ public class ETransition extends ENamedElement {
             if (objingTarget instanceof StateVertex)
                 transition.setTarget((StateVertex) objingTarget);
         }
+        
     }
 
     @objid ("0c46887c-e3bb-4a87-a1fc-f518ff196d2c")
@@ -192,6 +200,7 @@ public class ETransition extends ENamedElement {
                 transition.setEffect(signal);
             }
         }
+        
     }
 
     @objid ("43d0212d-8fb7-4918-b1cc-13d365fbbe0c")
@@ -208,18 +217,21 @@ public class ETransition extends ENamedElement {
                 }
             }
         }
+        
     }
 
     @objid ("4bd00279-bfdf-41e6-bdb7-0f6a7d3b0b19")
     private void setReceivedEvent(Transition transition, org.eclipse.uml2.uml.ChangeEvent event) {
         Event objEvent = (Event) ReverseProperties.getInstance().getMappedElement(event);
         transition.setTrigger(objEvent);
+        
     }
 
     @objid ("46c25802-58d0-440d-a193-6395ebf61f24")
     private void setEvent(final Transition transition, final org.eclipse.uml2.uml.Event ecoreEvent) {
         Event objEvent = (Event) ReverseProperties.getInstance().getMappedElement(ecoreEvent);
         transition.setTrigger(objEvent);
+        
     }
 
 }

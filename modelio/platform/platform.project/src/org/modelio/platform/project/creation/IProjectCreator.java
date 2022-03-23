@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.project.creation;
 
 import java.io.IOException;
@@ -29,10 +28,9 @@ import org.modelio.vbasic.progress.IModelioProgress;
 public interface IProjectCreator {
     /**
      * @param projFactory a GProject factory
-     * 
      * @param data the project creation data model.
      * @param monitor a progress monitor, can be null
-     * @throws java.io.IOException in case of I/O error.
+     * @throws IOException in case of I/O error.
      */
     @objid ("00179d0a-7311-10b7-9941-001ec947cd2a")
     void createProject(IProjectCreationData data, IGProjectEnv configuration, IModelioProgress monitor) throws IOException;

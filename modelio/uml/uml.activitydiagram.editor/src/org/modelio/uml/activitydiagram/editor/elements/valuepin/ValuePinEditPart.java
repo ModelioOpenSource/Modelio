@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.valuepin;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -79,6 +78,7 @@ public class ValuePinEditPart extends AbstractNodeEditPart {
         
         // Add constraint policy
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("2b7154cb-55b6-11e2-877f-002564c97630")
@@ -86,6 +86,7 @@ public class ValuePinEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         GmValuePinPrimaryNode valuepinModel = (GmValuePinPrimaryNode) this.getModel();
         this.getFigure().getParent().setConstraint(this.getFigure(), valuepinModel.getLayoutData());
+        
     }
 
     @objid ("2b7154ce-55b6-11e2-877f-002564c97630")
@@ -98,6 +99,7 @@ public class ValuePinEditPart extends AbstractNodeEditPart {
         } else {
             super.refreshFromStyle(aFigure, style);
         }
+        
     }
 
     @objid ("2b7154d5-55b6-11e2-877f-002564c97630")

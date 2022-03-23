@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.images;
 
 import java.net.URL;
@@ -75,7 +74,6 @@ public class FragmentImageService {
 
     /**
      * Get the image for a model fragment, taking its {@link FragmentState} into account.
-     * 
      * @param fragment a model fragment.
      * @return an image or <code>null</code> for a <code>null</code> fragment.
      */
@@ -101,6 +99,7 @@ public class FragmentImageService {
             }
             return image;
         }
+        
     }
 
     @objid ("0c09451c-4624-4144-b180-38daa29ba685")
@@ -126,7 +125,6 @@ public class FragmentImageService {
 
     /**
      * Get the image for {@link FragmentState}.
-     * 
      * @param fragmentState a fragment state.
      * @return an image or <code>null</code> for a <code>null</code> state.
      */
@@ -149,11 +147,11 @@ public class FragmentImageService {
         default:
             return null;
         }
+        
     }
 
     /**
      * Get the image for a fragment descriptor.
-     * 
      * @param fragment a fragment descriptor.
      * @return an image or <code>null</code> for a <code>null</code> descriptor.
      */
@@ -165,11 +163,11 @@ public class FragmentImageService {
         } else {
             return getImage(fragment.getType());
         }
+        
     }
 
     /**
      * Get the image for a fragment type.
-     * 
      * @param type a fragment type.
      * @return an image.
      */
@@ -182,45 +180,44 @@ public class FragmentImageService {
         }
         return image;
     }
-
-
 static {
-        UNDEFINED_FRAGMENT_IMAGE = loadImage("undefinedfragment.png");
-
-        FragmentImageService.upImages.put(FragmentType.EXML, loadImage("exmlfragment.png"));
-        FragmentImageService.upImages.put(FragmentType.RAMC, loadImage("ramcfragment.png"));
-        FragmentImageService.upImages.put(FragmentType.MDA, loadImage("mdafragment.png"));
-        FragmentImageService.upImages.put(FragmentType.EXML_URL, loadImage("httpfragment.png"));
-        FragmentImageService.upImages.put(FragmentType.EXML_SVN, loadImage("svnfragment.png"));
-
-        final IPath downOverlayPath = new Path(FragmentImageService.IMAGES_PATH + "down_indicator.png");
-        final URL downOverlayUrl = FileLocator.find(FragmentImageService.bundle, downOverlayPath, null);
-        assert (downOverlayUrl != null) : "missing file icons/down_indicator.png";
-
-        final ImageDescriptor downOverlay = ImageDescriptor.createFromURL(downOverlayUrl);
-
-        UNDEFINED_FRAGMENT_DOWN_IMAGE = (new DecorationOverlayIcon(FragmentImageService.UNDEFINED_FRAGMENT_IMAGE, downOverlay,
-                IDecoration.BOTTOM_RIGHT)).createImage();
-
-        FragmentImageService.downImages.put(FragmentType.EXML, (new DecorationOverlayIcon(FragmentImageService.upImages.get(FragmentType.EXML), downOverlay,
-                IDecoration.BOTTOM_RIGHT)).createImage());
-
-        FragmentImageService.downImages.put(FragmentType.RAMC, (new DecorationOverlayIcon(FragmentImageService.upImages.get(FragmentType.RAMC), downOverlay,
-                IDecoration.BOTTOM_RIGHT)).createImage());
-
-        FragmentImageService.downImages.put(FragmentType.MDA, (new DecorationOverlayIcon(FragmentImageService.upImages.get(FragmentType.MDA), downOverlay,
-                IDecoration.BOTTOM_RIGHT)).createImage());
-
-        FragmentImageService.downImages.put(FragmentType.EXML_URL, (new DecorationOverlayIcon(FragmentImageService.upImages.get(FragmentType.EXML_URL), downOverlay,
-                IDecoration.BOTTOM_RIGHT)).createImage());
-
-        FragmentImageService.downImages.put(FragmentType.EXML_SVN, (new DecorationOverlayIcon(FragmentImageService.upImages.get(FragmentType.EXML_SVN), downOverlay,
-                IDecoration.BOTTOM_RIGHT)).createImage());
-
-        // fragment state images
-        FRAG_STATE_DOWN = loadImage("fragment_state_down.png");
-        FRAG_STATE_MOUNTING = loadImage("fragment_state_mounting.png");
-        FRAG_STATE_UP = loadImage("fragment_state_up.png");
-        FRAG_STATE_UP_LIGHT = loadImage("fragment_state_up_light.png");
-    }
+            UNDEFINED_FRAGMENT_IMAGE = loadImage("undefinedfragment.png");
+    
+            FragmentImageService.upImages.put(FragmentType.EXML, loadImage("exmlfragment.png"));
+            FragmentImageService.upImages.put(FragmentType.RAMC, loadImage("ramcfragment.png"));
+            FragmentImageService.upImages.put(FragmentType.MDA, loadImage("mdafragment.png"));
+            FragmentImageService.upImages.put(FragmentType.EXML_URL, loadImage("httpfragment.png"));
+            FragmentImageService.upImages.put(FragmentType.EXML_SVN, loadImage("svnfragment.png"));
+    
+            final IPath downOverlayPath = new Path(FragmentImageService.IMAGES_PATH + "down_indicator.png");
+            final URL downOverlayUrl = FileLocator.find(FragmentImageService.bundle, downOverlayPath, null);
+            assert (downOverlayUrl != null) : "missing file icons/down_indicator.png";
+    
+            final ImageDescriptor downOverlay = ImageDescriptor.createFromURL(downOverlayUrl);
+    
+            UNDEFINED_FRAGMENT_DOWN_IMAGE = (new DecorationOverlayIcon(FragmentImageService.UNDEFINED_FRAGMENT_IMAGE, downOverlay,
+                    IDecoration.BOTTOM_RIGHT)).createImage();
+    
+            FragmentImageService.downImages.put(FragmentType.EXML, (new DecorationOverlayIcon(FragmentImageService.upImages.get(FragmentType.EXML), downOverlay,
+                    IDecoration.BOTTOM_RIGHT)).createImage());
+    
+            FragmentImageService.downImages.put(FragmentType.RAMC, (new DecorationOverlayIcon(FragmentImageService.upImages.get(FragmentType.RAMC), downOverlay,
+                    IDecoration.BOTTOM_RIGHT)).createImage());
+    
+            FragmentImageService.downImages.put(FragmentType.MDA, (new DecorationOverlayIcon(FragmentImageService.upImages.get(FragmentType.MDA), downOverlay,
+                    IDecoration.BOTTOM_RIGHT)).createImage());
+    
+            FragmentImageService.downImages.put(FragmentType.EXML_URL, (new DecorationOverlayIcon(FragmentImageService.upImages.get(FragmentType.EXML_URL), downOverlay,
+                    IDecoration.BOTTOM_RIGHT)).createImage());
+    
+            FragmentImageService.downImages.put(FragmentType.EXML_SVN, (new DecorationOverlayIcon(FragmentImageService.upImages.get(FragmentType.EXML_SVN), downOverlay,
+                    IDecoration.BOTTOM_RIGHT)).createImage());
+    
+            // fragment state images
+            FRAG_STATE_DOWN = loadImage("fragment_state_down.png");
+            FRAG_STATE_MOUNTING = loadImage("fragment_state_mounting.png");
+            FRAG_STATE_UP = loadImage("fragment_state_up.png");
+            FRAG_STATE_UP_LIGHT = loadImage("fragment_state_up_light.png");
+        }
+    
 }

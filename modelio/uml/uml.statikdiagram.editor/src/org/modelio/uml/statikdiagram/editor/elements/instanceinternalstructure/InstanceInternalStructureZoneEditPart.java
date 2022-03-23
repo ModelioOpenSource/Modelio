@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.instanceinternalstructure;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,6 +36,7 @@ public class InstanceInternalStructureZoneEditPart extends FreeZoneEditPart {
         super.createEditPolicies();
         
         installEditPolicy(EditPolicy.LAYOUT_ROLE, new InstanceZoneLayoutEditPolicy());
+        
     }
 
 }

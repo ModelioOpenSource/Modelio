@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.routers;
 
 import java.util.HashMap;
@@ -85,11 +84,11 @@ public class RakeRouter implements ConnectionRouter {
         if (old != null) {
             old.removeListener((AnchorListener) connection);
         }
+        
     }
 
     /**
      * Route the connection with the rake on the target side on the connection.
-     * 
      * @param conn the connection to route.
      */
     @objid ("7fcae9c8-1dec-11e2-8cad-001ec947c8cc")
@@ -113,10 +112,15 @@ public class RakeRouter implements ConnectionRouter {
         RakeRouter.rakePos.setLocation(c.getTargetRakeAnchor().getReferencePoint());
         conn.translateToAbsolute(RakeRouter.rakePos);
         
-        // Align intermediate points on anchor reference point.
-        Direction rakeDir = GeomUtils.getDirection(conn.getTargetAnchor().getLocation(RakeRouter.rakePos), targetBounds);
-        Orientation rakeOrientation = GeomUtils.getOrientation(rakeDir);
+        // Get or guess rake orientation
+        Orientation rakeOrientation = c.getOrientation();
+        if (rakeOrientation==null) {
+            Direction rakeDir = GeomUtils.getDirection(conn.getTargetAnchor().getLocation(RakeRouter.rakePos), targetBounds);
+            rakeOrientation = GeomUtils.getOrientation(rakeDir);
+            c.setOrientation(rakeOrientation);
+        }
         
+        // Align intermediate points on anchor reference point.
         if (rakeOrientation == Orientation.VERTICAL) {
             srcRef = new Point(sourceAnchor.getReferencePoint().x, RakeRouter.rakePos.y);
             RakeRouter.rakePos.x = targetAnchor.getReferencePoint().x;
@@ -156,11 +160,11 @@ public class RakeRouter implements ConnectionRouter {
         points.addPoint(RakeRouter.P3);
         points.addPoint(RakeRouter.P4);
         conn.setPoints(points);
+        
     }
 
     /**
      * Route the connection with the rake on the source side on the connection.
-     * 
      * @param conn the connection to route.
      */
     @objid ("7fcae9ce-1dec-11e2-8cad-001ec947c8cc")
@@ -229,12 +233,12 @@ public class RakeRouter implements ConnectionRouter {
         points.addPoint(RakeRouter.P4);
         
         conn.setPoints(points);
+        
     }
 
     /**
      * Get the anchor owner bounds in absolute coordinates. If the anchor is not attached to a figure, returns a 1x1
      * sized rectangle located at the anchor reference point.
-     * 
      * @param anchor The anchor.
      * @return The anchor bounds in absolute coordinates.
      */
@@ -250,6 +254,7 @@ public class RakeRouter implements ConnectionRouter {
         
             return bounds;
         }
+        
     }
 
     @objid ("7fcae9dd-1dec-11e2-8cad-001ec947c8cc")
@@ -268,6 +273,7 @@ public class RakeRouter implements ConnectionRouter {
         this.constraints.put(connection, rakeConstraint);
         
         rakeConstraint.addListener((AnchorListener) connection);
+        
     }
 
     @objid ("7fcae9e4-1dec-11e2-8cad-001ec947c8cc")
@@ -283,6 +289,7 @@ public class RakeRouter implements ConnectionRouter {
         } else {
             routeToTarget(connection);
         }
+        
     }
 
 }

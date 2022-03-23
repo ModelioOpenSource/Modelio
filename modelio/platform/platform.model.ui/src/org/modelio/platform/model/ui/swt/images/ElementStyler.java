@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.images;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -66,11 +65,11 @@ public class ElementStyler extends Styler {
 
     @objid ("24c14b30-5f2a-48b4-8957-fa958b75dcee")
     public static final Styler NORMAL = new Styler() {
-        @Override
-        public void applyStyles(TextStyle textStyle) {
-            //right now, nothing to do
-        }
-    };
+            @Override
+            public void applyStyles(TextStyle textStyle) {
+                //right now, nothing to do
+            }
+        };
 
     @objid ("34d9373e-9cd7-48ad-a552-adcfd863a0b6")
     private final MObject element;
@@ -87,6 +86,7 @@ public class ElementStyler extends Styler {
         } else {
             return new ElementStyler(element, subElement.isShell(), subElement.getStatus().isRamc(), subElement.isModifiable());
         }
+        
     }
 
     @objid ("c2722cb1-2a1b-4733-8149-249f55dccb28")
@@ -101,6 +101,7 @@ public class ElementStyler extends Styler {
         textStyle.underline = isUnderlined(this.element);
         textStyle.underlineColor = textStyle.foreground;
         textStyle.font = isItalic(this.element) ? italicFont : null;
+        
     }
 
     /**
@@ -111,7 +112,6 @@ public class ElementStyler extends Styler {
      * <li>Incomplete model elements font color is light red #FF8080.</li>
      * <li>Ramc model elements font color is modified yellow #A0A000.</li>
      * </ul>
-     * 
      * @return a Color.
      */
     @objid ("b39b363e-d878-4ff1-a17c-b8efd05263ea")
@@ -131,11 +131,11 @@ public class ElementStyler extends Styler {
         } catch (DeadObjectException ex) {
             return UIColor.SHELL_ELEMENT_FG;
         }
+        
     }
 
     /**
      * Get the background color for the given element in the given state.
-     * 
      * @param e the element
      * @return its background color
      */
@@ -174,11 +174,12 @@ public class ElementStyler extends Styler {
     }
 
     @objid ("30a7077e-73a7-4fa8-bad9-b048b0ba02ff")
-    private ElementStyler(MObject e, boolean shellVariant, boolean ramcVariant, boolean isModifiable) {
+    private  ElementStyler(MObject e, boolean shellVariant, boolean ramcVariant, boolean isModifiable) {
         this.element = e;
         this.shellVariant = shellVariant;
         this.ramcVariant = ramcVariant;
         this.isModifiable = isModifiable;
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.linktovoid;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -61,6 +60,7 @@ public class LinkToVoidStartCreationEditPolicy extends AbstractLinkToVoidCreatio
                 ((Request) request).getExtendedData().remove(HIGHLIGHTKEY);
             }
         }
+        
     }
 
     @objid ("7ed7b9e7-1dec-11e2-8cad-001ec947c8cc")
@@ -124,6 +124,7 @@ public class LinkToVoidStartCreationEditPolicy extends AbstractLinkToVoidCreatio
         }
         // configure the highlight figure
         FigureUtilities2.updateHighlightType(highlight, hightlightType);
+        
     }
 
     /**
@@ -149,6 +150,7 @@ public class LinkToVoidStartCreationEditPolicy extends AbstractLinkToVoidCreatio
         } else {
             return null; // TODO handle non IAnchorModelProvider
         }
+        
     }
 
 }

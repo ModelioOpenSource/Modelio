@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data;
 
 import java.util.Objects;
@@ -43,7 +42,7 @@ public class NatValueWrappingLabelProvider extends LabelProvider implements ISty
     private final IStyledLabelProvider styledLabelProvider;
 
     @objid ("5930f286-8199-4291-bc39-e893d91d022a")
-    public NatValueWrappingLabelProvider(ILabelProvider labelProvider) {
+    public  NatValueWrappingLabelProvider(ILabelProvider labelProvider) {
         super();
         this.labelProvider = Objects.requireNonNull(labelProvider);
         if (labelProvider instanceof IStyledLabelProvider) {
@@ -51,6 +50,7 @@ public class NatValueWrappingLabelProvider extends LabelProvider implements ISty
         } else {
             this.styledLabelProvider = null;
         }
+        
     }
 
     @objid ("4a95c936-23d0-4bdc-9b1e-d2afe3be704d")

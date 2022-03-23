@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.handlers;
 
 import java.util.Collections;
 import java.util.List;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
@@ -77,7 +76,6 @@ public abstract class AbstractBrwModelHandler {
 
     @objid ("001c9756-0d4f-10c6-842f-001ec947cd2a")
     protected List<Object> getSelected(IStructuredSelection selection) {
-        
         return selection != null ? selection.toList() : Collections.emptyList();
     }
 
@@ -85,7 +83,7 @@ public abstract class AbstractBrwModelHandler {
     protected abstract void doExecute(DiagramBrowserView browserView, List<Object> selectedObjects, ICoreSession session);
 
     @objid ("c9f9b044-4b58-11e2-a4d3-002564c97630")
-    public AbstractBrwModelHandler() {
+    public  AbstractBrwModelHandler() {
         super();
     }
 

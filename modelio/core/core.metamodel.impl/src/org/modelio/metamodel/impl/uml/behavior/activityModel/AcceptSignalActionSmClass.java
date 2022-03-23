@@ -17,19 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.AcceptSignalActionData;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityActionSmClass;
 import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.SignalSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.AcceptSignalAction;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityAction;
@@ -51,7 +49,7 @@ public class AcceptSignalActionSmClass extends ActivityActionSmClass {
     private SmDependency acceptedDep;
 
     @objid ("e2afc334-9a78-46a6-9100-682ae2e54e79")
-    public AcceptSignalActionSmClass(ISmMetamodelFragment origin) {
+    public  AcceptSignalActionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -59,6 +57,7 @@ public class AcceptSignalActionSmClass extends ActivityActionSmClass {
     @Override
     public String getName() {
         return "AcceptSignalAction";
+        
     }
 
     @objid ("296c2152-ed8e-462d-808a-ee58983a6b96")
@@ -71,18 +70,21 @@ public class AcceptSignalActionSmClass extends ActivityActionSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return AcceptSignalAction.class;
+        
     }
 
     @objid ("00a189f8-65f1-4e0a-bc0e-f460de17c3db")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("cb1afb25-daca-499e-a4e2-a0f716822a52")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("ffff984c-5335-4371-95cf-b19f879a3296")
@@ -98,6 +100,8 @@ public class AcceptSignalActionSmClass extends ActivityActionSmClass {
         this.acceptedDep = new AcceptedSmDependency();
         this.acceptedDep.init("Accepted", this, metamodel.getMClass(Signal.MQNAME), 0, -1 , SmDirective.SMCDPARTOF);
         registerDependency(this.acceptedDep);
+        
+        
     }
 
     @objid ("b72cfe27-cfb8-4338-b029-825540c8d575")
@@ -114,7 +118,7 @@ public class AcceptSignalActionSmClass extends ActivityActionSmClass {
         private AcceptSignalActionSmClass smClass;
 
         @objid ("c8c1c080-0431-492b-800f-addb2cfd6cf5")
-        public AcceptSignalActionObjectFactory(AcceptSignalActionSmClass smClass) {
+        public  AcceptSignalActionObjectFactory(AcceptSignalActionSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -147,6 +151,7 @@ public class AcceptSignalActionSmClass extends ActivityActionSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((AcceptSignalActionData) data).mAccepted = values;
+            
         }
 
         @objid ("cacd251c-be41-4f99-9b98-0e32631580de")
@@ -156,6 +161,7 @@ public class AcceptSignalActionSmClass extends ActivityActionSmClass {
             	this.symetricDep = ((SignalSmClass)this.getTarget()).getReceiverDep();
             }
             return this.symetricDep;
+            
         }
 
     }

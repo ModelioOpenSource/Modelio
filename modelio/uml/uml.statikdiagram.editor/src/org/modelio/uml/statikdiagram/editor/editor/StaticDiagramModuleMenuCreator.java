@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /**
  *
  */
@@ -41,6 +40,7 @@ public class StaticDiagramModuleMenuCreator extends ModuleMenuCreator {
         if (getSelectedElement() != null) {
             super.aboutToShow(items);
         }
+        
     }
 
     @objid ("6c7da2b2-8d82-4327-aabb-ca6990533424")

@@ -17,10 +17,11 @@ public class JdbmNamedObject<T> {
     private final Serializer<T> serializer;
 
     @objid ("76cb261e-8ab3-4562-9e05-c14f26cefba9")
-    public JdbmNamedObject(RecordManager db, String objectKey, Serializer<T> serializer) {
+    public  JdbmNamedObject(RecordManager db, String objectKey, Serializer<T> serializer) {
         this.db = db;
         this.objectKey = objectKey;
         this.serializer = serializer;
+        
     }
 
     @objid ("d32cf9da-977a-44e2-a196-5104db9aef39")
@@ -31,6 +32,7 @@ public class JdbmNamedObject<T> {
         } else {
             return this.db.fetch(recId, this.serializer);
         }
+        
     }
 
     @objid ("28b73902-63f4-4447-9e8e-6e53ab60b781")
@@ -43,6 +45,7 @@ public class JdbmNamedObject<T> {
             this.db.update(recId, value,this.serializer);
         }
         this.db.commit();
+        
     }
 
 }

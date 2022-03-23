@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.group;
 
 import java.beans.PropertyChangeEvent;
@@ -78,6 +77,7 @@ public class GroupEditPart extends AbstractNodeEditPart {
             final GroupFigure aFigure = (GroupFigure) getFigure();
             aFigure.showIncompleteIndicator(gmGroup.hasHiddenFeatures());
         }
+        
     }
 
     @objid ("7e595d2d-1dec-11e2-8cad-001ec947c8cc")
@@ -93,6 +93,7 @@ public class GroupEditPart extends AbstractNodeEditPart {
         
         // Draw rectangle on hover
         installEditPolicy("hover", new HoverFeedbackEditPolicy());
+        
     }
 
     @objid ("7e595d30-1dec-11e2-8cad-001ec947c8cc")
@@ -117,11 +118,11 @@ public class GroupEditPart extends AbstractNodeEditPart {
         super.refreshFromStyle(aFigure, style);
         
         updateVisibility((GroupFigure) aFigure);
+        
     }
 
     /**
      * Show or hide the group figure depending on {@link GmNodeModel#isVisible()} result.
-     * 
      * @return <i>true</i> if the group is visible, <i>false</i> in the other case.
      */
     @objid ("7e595d3e-1dec-11e2-8cad-001ec947c8cc")

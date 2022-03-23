@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model.spi.mtools;
 
 import java.util.List;
@@ -31,7 +30,6 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IModelTool {
     /**
      * Clone a model element.
-     * 
      * @param toClone a model element
      * @return the clone
      */

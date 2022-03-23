@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.load;
 
 import java.util.Collection;
@@ -60,15 +59,15 @@ public class StorageHandle implements IStorageHandle {
 
     /**
      * initialize the storage helper.
-     * 
      * @param repoSupport a view of all connected repositories.
      * @param blobSupport the BLOB support
      */
     @objid ("1fe03503-3a2d-11e2-bf6c-001ec947ccaf")
-    public StorageHandle(IRepositorySupport repoSupport, IBlobSupport blobSupport) {
+    public  StorageHandle(IRepositorySupport repoSupport, IBlobSupport blobSupport) {
         this.repoSupport = repoSupport;
         this.blobSupport = blobSupport;
         this.newBornRepo = this.repoSupport.getRepository(IRepositorySupport.REPOSITORY_KEY_SCRATCH);
+        
     }
 
     @objid ("1fe03509-3a2d-11e2-bf6c-001ec947ccaf")
@@ -77,6 +76,7 @@ public class StorageHandle implements IStorageHandle {
         if (!data.getRepositoryObject().isAttLoaded(obj, att)) {
             data.getRepositoryObject().loadAtt(obj, att);
         }
+        
     }
 
     @objid ("1fe03510-3a2d-11e2-bf6c-001ec947ccaf")
@@ -100,6 +100,7 @@ public class StorageHandle implements IStorageHandle {
                 r.loadDynamicDep(obj, dep);
             }
         }
+        
     }
 
     @objid ("1fe2974f-3a2d-11e2-bf6c-001ec947ccaf")
@@ -116,6 +117,7 @@ public class StorageHandle implements IStorageHandle {
             // Ask all repositories.
             loadNonStoredDep(obj, dep);
         }
+        
     }
 
     @objid ("1fe29759-3a2d-11e2-bf6c-001ec947ccaf")
@@ -148,6 +150,7 @@ public class StorageHandle implements IStorageHandle {
         }
         
         data.getRepositoryObject().depValAppended(obj, dep, dep_val);
+        
     }
 
     @objid ("1fe29769-3a2d-11e2-bf6c-001ec947ccaf")
@@ -158,11 +161,11 @@ public class StorageHandle implements IStorageHandle {
         }
         
         obj.getRepositoryObject().depValErased(obj, dep, dep_val);
+        
     }
 
     /**
      * Fix the repository handler of 'obj' and its composition tree to be contained in 'destRepo' repository.
-     * 
      * @param toMove the object to fix
      * @param destRepoHandle the destination repository object.
      */
@@ -179,12 +182,12 @@ public class StorageHandle implements IStorageHandle {
         // Move related blobs
         IRepository destRepo = this.repoSupport.getRepository(toMove);
         doMoveBlobs(moved, fromRepo, destRepo);
+        
     }
 
     /**
      * Tells whether appending the given object to the given dependency means
      * moving the object to another IRepository.
-     * 
      * @param dep the dependency where the object will be appended
      * @param appended the appended object
      * @return <code>true</code> if it is a move across repositories else <code>false</code>.
@@ -200,7 +203,6 @@ public class StorageHandle implements IStorageHandle {
 
     /**
      * Tells whether any IRepository should store the given {@link SmDependency}.
-     * 
      * @param dep a dependency
      * @return <code>true</code> if the dependency is stored for sure, else <code>false</code>.
      */
@@ -222,7 +224,6 @@ public class StorageHandle implements IStorageHandle {
     /**
      * Tells whether appending the given object to the given dependency means
      * moving the object.
-     * 
      * @param dep the dependency where the object will be appended
      * @param appended the appended object
      * @return <code>true</code> if it is a move else <code>false</code>.
@@ -256,7 +257,6 @@ public class StorageHandle implements IStorageHandle {
      * To be called only by {@link #moveToRepository(SmObjectImpl, IRepositoryObject)}.
      * <p>
      * Fix the repository handler of 'obj' and its composition tree to be contained in 'destRepo' repository.
-     * 
      * @param toMove the object to fix
      * @param destRepoHandle the destination repository object.
      * @param moved will contain all objects moved by this method. Shield against composition cycles.
@@ -298,6 +298,7 @@ public class StorageHandle implements IStorageHandle {
         for (SmObjectImpl child : children) {
             doMoveToRepository(child, newRepoHandle, moved, fromNewBorn);
         }
+        
     }
 
     @objid ("11757475-befa-4133-828b-91cb7838201f")

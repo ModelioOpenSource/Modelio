@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.view.handlers;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,6 +41,7 @@ public class ShowDetailsHandler extends AbstractAuditEntryHandler {
             AuditEntryDialog dialog = new AuditEntryDialog(Display.getCurrent().getActiveShell(), entry, projectService.getSession(), navigationService, auditService.getConfigurationModel().getAuditConfigurationPlan());
             dialog.open();
         }
+        
     }
 
     @objid ("c1513c14-a279-4e00-b589-f8f5a20df052")

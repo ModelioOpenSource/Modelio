@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.ui.swt;
 
 import java.io.ByteArrayInputStream;
@@ -51,7 +50,8 @@ public class PngTransfer extends ByteArrayTransfer {
     private static PngTransfer _instance = new PngTransfer();
 
     @objid ("b9e99bd4-1ec2-4586-a0f4-b08c729e3327")
-    private PngTransfer() {
+    private  PngTransfer() {
+        
     }
 
     @objid ("2ba408e6-9de7-490c-bc16-1a8ba4d3d5aa")
@@ -95,6 +95,7 @@ public class PngTransfer extends ByteArrayTransfer {
                  throw new UncheckedIOException(e);
              }
          }
+        
     }
 
     @objid ("9be531ef-d7f6-440e-8d87-24ecbf287231")

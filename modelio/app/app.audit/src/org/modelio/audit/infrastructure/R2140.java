@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.infrastructure;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.audit.engine.core.AbstractControl;
 import org.modelio.audit.engine.core.AbstractRule;
@@ -75,6 +74,7 @@ public class R2140 extends AbstractInfrastructureRule {
         plan.registerRule(PropertyType.MQNAME, this, AuditTrigger.CREATE |
                 AuditTrigger.MOVE |
                 AuditTrigger.UPDATE);
+        
     }
 
     /**
@@ -108,14 +108,14 @@ public class R2140 extends AbstractInfrastructureRule {
      * Default constructor for R2140
      */
     @objid ("828cfa60-8cfa-449e-8f49-72ae1350cadf")
-    public R2140() {
+    public  R2140() {
         this.checkerInstance = new CheckR2140(this);
     }
 
     @objid ("61381293-9c7a-4201-921f-5f9127255942")
     private static class CheckR2140 extends AbstractControl {
         @objid ("4b197f74-05b7-433d-bb3d-040a00cf27ce")
-        public CheckR2140(IRule rule) {
+        public  CheckR2140(IRule rule) {
             super(rule);
         }
 

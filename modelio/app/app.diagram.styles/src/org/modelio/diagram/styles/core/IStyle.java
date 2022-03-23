@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.core;
 
 import java.util.Set;
@@ -42,7 +41,6 @@ public interface IStyle {
      * <p>
      * The listener will be fired each time a property is changed or removed.<br>
      * Registering 2 times a listener will make it fired 2 times.
-     * 
      * @param l The style change listener.
      */
     @objid ("855386a8-1926-11e2-92d2-001ec947c8cc")
@@ -52,7 +50,6 @@ public interface IStyle {
      * Get the cascaded style used where property values are looked for when not defined on this style.
      * <p>
      * The base style may be the cascaded style or the cascaded of the cascaded style ...
-     * 
      * @return The cascaded style.
      */
     @objid ("01735af4-3422-47e4-bf98-2c09deb4ab27")
@@ -60,7 +57,6 @@ public interface IStyle {
 
     /**
      * Convenience method to get a boolean property.
-     * 
      * @param propertyKey The property key
      * @return The boolean value.
      */
@@ -69,7 +65,6 @@ public interface IStyle {
 
     /**
      * Get the style where property values are looked for when not defined on this style.
-     * 
      * @return The cascaded style.
      */
     @objid ("855386b4-1926-11e2-92d2-001ec947c8cc")
@@ -77,7 +72,6 @@ public interface IStyle {
 
     /**
      * Convenience method to get a Color property.
-     * 
      * @param propertyKey The property key
      * @return The Color value.
      */
@@ -86,7 +80,6 @@ public interface IStyle {
 
     /**
      * Convenience method to get a Font property.
-     * 
      * @param propertyKey The property key
      * @return The Font value.
      */
@@ -95,7 +88,6 @@ public interface IStyle {
 
     /**
      * Convenience method to get an integer property.
-     * 
      * @param propertyKey The property key
      * @return The integer value.
      */
@@ -104,7 +96,6 @@ public interface IStyle {
 
     /**
      * Get all style keys for which a value has been locally set.
-     * 
      * @return locally defined style keys.
      */
     @objid ("855386b7-1926-11e2-92d2-001ec947c8cc")
@@ -112,9 +103,7 @@ public interface IStyle {
 
     /**
      * Get a style property
-     * @param <T>
-     * The wanted property value type .
-     * 
+     * @param <T> The wanted property value type .
      * @param propertyKey The property key
      * @return The property value
      */
@@ -138,22 +127,19 @@ public interface IStyle {
     boolean isLocal(StyleKey propertyKey);
 
     /**
-     * Normalizing a style consists in removing from its local definitions the values that are currently the same as the value in
-     * cascaded style.
+     * Normalizing a style consists in removing from its local definitions the values that are currently the same as the value in cascaded style.
      */
     @objid ("8555e8eb-1926-11e2-92d2-001ec947c8cc")
     void normalize();
 
     /**
-     * Normalizing a style key consists in removing from thes local definitions when its values is currently the same as the value
-     * in cascaded style.
+     * Normalizing a style key consists in removing from thes local definitions when its values is currently the same as the value in cascaded style.
      */
     @objid ("6a41e8f2-bdef-4fad-bb82-8a70229f52e5")
     void normalize(StyleKey skey);
 
     /**
      * Remove a style change listener.
-     * 
      * @param l a style change listener to remove.
      */
     @objid ("855386ab-1926-11e2-92d2-001ec947c8cc")
@@ -161,7 +147,6 @@ public interface IStyle {
 
     /**
      * Remove a property value and fires style changes listeners.
-     * 
      * @param key The property to remove
      */
     @objid ("85538692-1926-11e2-92d2-001ec947c8cc")
@@ -177,9 +162,7 @@ public interface IStyle {
     /**
      * Set the style to use to get a property value when it is not defined on this style.
      * <p>
-     * Basic implementations will set the baseStyle as cascaded style. Proxy implementations will call the
-     * same method on their cascaded style.
-     * 
+     * Basic implementations will set the baseStyle as cascaded style. Proxy implementations will call the same method on their cascaded style.
      * @param baseStyle The new base style.
      */
     @objid ("fbf305fa-a108-4453-a3d9-79c710e644a8")
@@ -187,7 +170,6 @@ public interface IStyle {
 
     /**
      * Set the parent style used to get a property value when it is not defined on this style.
-     * 
      * @param style The new parent style.
      */
     @objid ("855386a5-1926-11e2-92d2-001ec947c8cc")
@@ -195,7 +177,6 @@ public interface IStyle {
 
     /**
      * Change a style property and fires the style listeners.
-     * 
      * @param key The property key.
      * @param value The new value.
      */
@@ -209,5 +190,11 @@ public interface IStyle {
     default boolean isTheme() {
         return getCascadedStyle() != null && getCascadedStyle().isTheme();
     }
+
+    /**
+     * Clean the style listeners, cascaded style and handles to avoid leaks.
+     */
+    @objid ("d311d8aa-6c59-4341-a322-6e94c0ffbf46")
+    void dispose();
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.enumliteral;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -56,21 +55,22 @@ public class GmEnumLitteral extends GmDefaultModelElementLabel {
      * Constructor for deserialization only.
      */
     @objid ("34e320a6-55b7-11e2-877f-002564c97630")
-    public GmEnumLitteral() {
+    public  GmEnumLitteral() {
+        
     }
 
     /**
      * Create an attribute representation.
-     * 
      * @param diagram The diagram
      * @param el The represented attribute, may be null.
      * @param ref The represented attribute reference, may not be null.
      */
     @objid ("34e320a9-55b7-11e2-877f-002564c97630")
-    public GmEnumLitteral(IGmDiagram diagram, EnumerationLiteral el, MRef ref) {
+    public  GmEnumLitteral(IGmDiagram diagram, EnumerationLiteral el, MRef ref) {
         super(diagram, ref);
         this.element = el;
         init();
+        
     }
 
     @objid ("34e4a74d-55b7-11e2-877f-002564c97630")
@@ -109,6 +109,7 @@ public class GmEnumLitteral extends GmDefaultModelElementLabel {
     private void init() {
         setShowMetaclassKeyword(false);
         setShowMetaclassIcon(false);
+        
     }
 
     @objid ("34e4a77d-55b7-11e2-877f-002564c97630")
@@ -134,6 +135,7 @@ public class GmEnumLitteral extends GmDefaultModelElementLabel {
                 break;
             }
         }
+        
     }
 
     @objid ("34e62de5-55b7-11e2-877f-002564c97630")
@@ -143,12 +145,14 @@ public class GmEnumLitteral extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmEnumLitteral.", GmEnumLitteral.MINOR_VERSION);
+        
     }
 
     @objid ("34e62deb-55b7-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (EnumerationLiteral) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("34e62df0-55b7-11e2-877f-002564c97630")

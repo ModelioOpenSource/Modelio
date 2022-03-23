@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,7 +36,7 @@ import org.modelio.xmi.util.AbstractObjingModelNavigation;
 @objid ("b0e9e7eb-6719-4187-8206-69317f63105d")
 public class OActivityEdge extends OModelElement {
     @objid ("aa1476f7-d428-4424-b614-31d708a0adc5")
-    public OActivityEdge(ActivityEdge element) {
+    public  OActivityEdge(ActivityEdge element) {
         super(element);
     }
 
@@ -50,6 +49,7 @@ public class OActivityEdge extends OModelElement {
         setGuard((org.eclipse.uml2.uml.ActivityEdge) ecoreElt);
         setWeight((org.eclipse.uml2.uml.ActivityEdge) ecoreElt);
         setInterrupts((org.eclipse.uml2.uml.ActivityEdge) ecoreElt);
+        
     }
 
     @objid ("dcd86028-9545-4b63-936a-05531564bd32")
@@ -95,6 +95,7 @@ public class OActivityEdge extends OModelElement {
                 flow.setSource((org.eclipse.uml2.uml.ActivityNode) ecoreSource);
             }
         }
+        
     }
 
     @objid ("bf6d6c9b-fba4-4c65-b4ea-3b693419489f")
@@ -106,6 +107,7 @@ public class OActivityEdge extends OModelElement {
             ecoreGuard.getBodies().add(guard);
             flow.setGuard(ecoreGuard);
         }
+        
     }
 
     @objid ("486b7034-595f-4656-a678-77e8ea1932ae")
@@ -127,6 +129,7 @@ public class OActivityEdge extends OModelElement {
                 flow.setTarget((org.eclipse.uml2.uml.ActivityNode) ecoreTarget);
             }
         }
+        
     }
 
     @objid ("2ae193c6-a7fe-460b-a848-184f2f93dd4f")
@@ -145,6 +148,7 @@ public class OActivityEdge extends OModelElement {
                 flow.setWeight(ecoreWeight);
             }
         }
+        
     }
 
     @objid ("657d3ee0-9856-4b5f-8a76-b9e8b008ae69")
@@ -157,6 +161,7 @@ public class OActivityEdge extends OModelElement {
             if (ecoreRegion instanceof org.eclipse.uml2.uml.InterruptibleActivityRegion)
                 flow.setInterrupts((org.eclipse.uml2.uml.InterruptibleActivityRegion) ecoreRegion);
         }
+        
     }
 
     @objid ("07740bfe-2ed4-4383-9d5c-9707704b124f")
@@ -181,6 +186,7 @@ public class OActivityEdge extends OModelElement {
                 ecoreElt.destroy();
             }
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.util.ArrayList;
@@ -105,7 +104,6 @@ class LinkUtils {
 
     /**
      * Tells whether child is same or sub type of 'parent'.
-     * 
      * @param child a namespace
      * @param parent a namespace potentially parent of child
      * @return whether child is same or sub type of 'parent'.

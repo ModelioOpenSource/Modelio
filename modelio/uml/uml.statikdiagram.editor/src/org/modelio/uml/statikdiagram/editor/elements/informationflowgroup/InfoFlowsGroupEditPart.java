@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.informationflowgroup;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,6 +43,7 @@ public class InfoFlowsGroupEditPart extends GroupEditPart {
         } else {
             return selectableOnlyWithParent();
         }
+        
     }
 
     @objid ("81734c45-1dec-11e2-8cad-001ec947c8cc")
@@ -53,6 +53,7 @@ public class InfoFlowsGroupEditPart extends GroupEditPart {
         
         installEditPolicy(EditPolicy.LAYOUT_ROLE, new InfoFlowsGroupCreatePolicy());
         installEditPolicy("hover", new HoverFeedbackEditPolicy());
+        
     }
 
 }

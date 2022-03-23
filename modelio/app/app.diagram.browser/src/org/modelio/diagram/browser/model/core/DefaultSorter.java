@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.model.core;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,6 +46,7 @@ public class DefaultSorter extends ViewerSorter {
         } else {
             return super.compare(viewer, e1TypeWeight, e2TypeWeight);
         }
+        
     }
 
     @objid ("00352c26-0d4f-10c6-842f-001ec947cd2a")

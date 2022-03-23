@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.deploymentdiagram.editor.elements.artifact;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -64,6 +63,7 @@ public class ArtifactEditPart extends AbstractNodeEditPart {
         
         updateSeparations(getFigure());
         updateFigureBorder(getFigure());
+        
     }
 
     @objid ("97113609-55b6-11e2-877f-002564c97630")
@@ -77,6 +77,7 @@ public class ArtifactEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                 new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("9711360c-55b6-11e2-877f-002564c97630")
@@ -111,6 +112,7 @@ public class ArtifactEditPart extends AbstractNodeEditPart {
                 updateFigureBorder((GradientFigure) aFigure);
             }
         }
+        
     }
 
     @objid ("9712bc9e-55b6-11e2-877f-002564c97630")
@@ -120,6 +122,7 @@ public class ArtifactEditPart extends AbstractNodeEditPart {
         GmArtifactPrimaryNode classModel = (GmArtifactPrimaryNode) getModel();
         
         classFigure.getParent().setConstraint(classFigure, classModel.getLayoutData());
+        
     }
 
     @objid ("9712bca1-55b6-11e2-877f-002564c97630")
@@ -129,11 +132,11 @@ public class ArtifactEditPart extends AbstractNodeEditPart {
         
         updateSeparations(getFigure());
         updateFigureBorder(getFigure());
+        
     }
 
     /**
      * Update the separation lines between zones.
-     * 
      * @param stateFig the composite figure to update.
      */
     @objid ("9712bca5-55b6-11e2-877f-002564c97630")
@@ -147,6 +150,7 @@ public class ArtifactEditPart extends AbstractNodeEditPart {
                 false);
         
         ChildFigureLineSeparator.updateSeparation(stateFig, zoneBorder);
+        
     }
 
     @objid ("9712bca9-55b6-11e2-877f-002564c97630")
@@ -156,6 +160,7 @@ public class ArtifactEditPart extends AbstractNodeEditPart {
         final CompoundBorder b = new CompoundBorder(outer, inner);
         
         classFig.setBorder(b);
+        
     }
 
     @objid ("b7ee5cd4-9511-43e8-809e-906c7e62c1d0")

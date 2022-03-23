@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.diagram.tools;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -23,7 +22,7 @@ import org.eclipse.draw2d.geometry.Rectangle;
 import org.modelio.api.modelio.diagram.IDiagramGraphic;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
 import org.modelio.api.modelio.diagram.IDiagramLink.LinkRouterKind;
-import org.modelio.api.modelio.diagram.ILinkPath;
+import org.modelio.api.modelio.diagram.ILinkRoute;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
@@ -67,7 +66,6 @@ public interface IAttachedBoxTool extends IDiagramTool {
      * If the interaction is not allowed the method <code>return new InteractionStatus(false, "Tooltip message");</code>
      * . In this case the mouse pointer is changed to a "forbiden" icon and the tooltip message is displayed in a
      * tooltip near the mouse pointer<br>
-     * 
      * @param diagramHandle the representation of the diagram in which the interaction occurs.
      * @param targetNode the graphic that is below the mouse pointer.
      * @return an InteractionStatus that represents the result of the acceptElement method.
@@ -88,7 +86,6 @@ public interface IAttachedBoxTool extends IDiagramTool {
      * The rect argument is the rectangle that result from the user interaction with the diagram. This rect should be
      * used to manage the unmasking of the model element in the diagram.
      * @see IDiagramHandle#unmask(MObject, int, int)
-     * 
      * @param diagramHandle the representation of the diagram where the command has been triggered.
      * @param originNode the graphic parent where the user has clicked.
      * @param routerType the router type that is currently defined to compute the path of the link.
@@ -96,7 +93,7 @@ public interface IAttachedBoxTool extends IDiagramTool {
      * @param point the point of the second user click.
      */
     @objid ("01ec00d8-0000-5a6e-0000-000000000000")
-    void actionPerformed(final IDiagramHandle diagramHandle, IDiagramGraphic originNode, LinkRouterKind routerType, ILinkPath path, Point point);
+    void actionPerformed(final IDiagramHandle diagramHandle, IDiagramGraphic originNode, LinkRouterKind routerType, ILinkRoute path, Point point);
 
     /**
      * This method is called when the user click in the diagram background.
@@ -108,7 +105,6 @@ public interface IAttachedBoxTool extends IDiagramTool {
      * The rect argument is the rectangle that result from the user interaction with the diagram background. This rect
      * should be used to manage the unmasking of the model element in the diagram.
      * @see IDiagramHandle#unmask(MObject, int, int)
-     * 
      * @param diagramHandle the representation of the diagram where the command has been triggered.
      * @param rect the rectangle of the object to create.
      */

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.control;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -80,7 +79,7 @@ public class TemplateParameterParametrizedChecker extends AbstractDependencyType
      * C'tor
      */
     @objid ("78634c7c-b078-40c1-8233-67ac92216069")
-    public TemplateParameterParametrizedChecker(SmMetamodel mm) {
+    public  TemplateParameterParametrizedChecker(SmMetamodel mm) {
         // Cached SmClass
         this.artifactID = mm.getMClass(Artifact.class);
         this.classID = mm.getMClass(Class.class);
@@ -100,6 +99,7 @@ public class TemplateParameterParametrizedChecker extends AbstractDependencyType
         // Symetric checker
         NameSpaceTemplateChecker symetricChecker = new NameSpaceTemplateChecker(this);
         symetricChecker.register(mm.getMClass(NameSpace.class), "Template");
+        
     }
 
     @objid ("b9ca795a-ec6f-11e1-91c5-002564c97630")
@@ -128,10 +128,10 @@ public class TemplateParameterParametrizedChecker extends AbstractDependencyType
     @objid ("b9ca7966-ec6f-11e1-91c5-002564c97630")
     static class NameSpaceTemplateChecker extends AbstractDependencyTypeChecker {
         @objid ("b9ca7969-ec6f-11e1-91c5-002564c97630")
-         TemplateParameterParametrizedChecker symetricChecker;
+        TemplateParameterParametrizedChecker symetricChecker;
 
         @objid ("b9ca796a-ec6f-11e1-91c5-002564c97630")
-        public NameSpaceTemplateChecker(TemplateParameterParametrizedChecker symetricChecker) {
+        public  NameSpaceTemplateChecker(TemplateParameterParametrizedChecker symetricChecker) {
             this.symetricChecker = symetricChecker;
         }
 

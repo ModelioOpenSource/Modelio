@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.production.looptypes;
 
 import java.io.Serializable;
@@ -36,7 +35,7 @@ import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("d27d2639-2f15-4758-99e1-575ecb9d3236")
-public class MultiInstanceLoopNode implements IProductionNode<BpmnMultiInstanceLoopCharacteristics,TMultiInstanceLoopCharacteristics> {
+public class MultiInstanceLoopNode implements IProductionNode<BpmnMultiInstanceLoopCharacteristics, TMultiInstanceLoopCharacteristics> {
     @objid ("85872c0a-bad1-4124-9db9-f9288f7670ff")
     private Map<String, Object> elementsMap;
 
@@ -65,6 +64,7 @@ public class MultiInstanceLoopNode implements IProductionNode<BpmnMultiInstanceL
         } else {
             return factory.create(BpmnMultiInstanceLoopCharacteristics.class, context);
         }
+        
     }
 
     @objid ("ce9ba144-7c65-4360-a2ed-aae794fc538b")

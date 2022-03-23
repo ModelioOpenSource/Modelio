@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.model;
 
 import java.util.List;
@@ -46,7 +45,6 @@ import org.modelio.vcore.smkernel.mapi.MClass;
 public interface IMetamodelExtensions {
     /**
      * Find stereotypes by name and metaclass
-     * 
      * @param stereotypeName the stereotype name, or a regular expression. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any stereotype.
      * @param metaclass the metaclass .
      * @return the found stereotypes. Might be empty.
@@ -59,7 +57,6 @@ public interface IMetamodelExtensions {
 
     /**
      * Find stereotypes by name and metaclass
-     * 
      * @param moduleName the name of the module owing the stereotype, or a regular expression for module name matching. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any module.
      * @param stereotypeName the stereotype name, or a regular expression. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any stereotype.
      * @param metaclass the metaclass .
@@ -73,7 +70,6 @@ public interface IMetamodelExtensions {
 
     /**
      * Find note types by metaclass
-     * 
      * @param noteTypeName the note type name, or a regular expression. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any note type.
      * @param metaclass the metaclass .
      * @return the found note types. Might be empty.
@@ -86,7 +82,6 @@ public interface IMetamodelExtensions {
 
     /**
      * Find note types by name and metaclass
-     * 
      * @param moduleName the name of the module owing the note type, or a regular expression for module name matching. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any module.
      * @param noteTypeName the note type name, or a regular expression. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any note type.
      * @param metaclass the metaclass .
@@ -100,7 +95,6 @@ public interface IMetamodelExtensions {
 
     /**
      * Find resource types by name
-     * 
      * @param externDocumentTypeName the resource type name, or a regular expression. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any resource type.
      * @param metaclass the metaclass .
      * @return the found resource types. Might be empty.
@@ -110,7 +104,6 @@ public interface IMetamodelExtensions {
 
     /**
      * Find resource types by name and metaclass
-     * 
      * @param moduleName the name of the module owing the resource type, or a regular expression for module name matching. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any module.
      * @param externDocumentTypeName the resource type name, or a regular expression. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any resource type.
      * @param metaclass the metaclass .
@@ -127,7 +120,6 @@ public interface IMetamodelExtensions {
 
     /**
      * Find note types by name
-     * 
      * @param tagTypeName the note type name, or a regular expression. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any note type.
      * @param metaclass the metaclass .
      * @return the found note types. Might be empty.
@@ -137,7 +129,6 @@ public interface IMetamodelExtensions {
 
     /**
      * Find note types by name and metaclass
-     * 
      * @param moduleName the name of the module owing the tag type, or a regular expression for module name matching. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any module.
      * @param tagTypeName the note type name, or a regular expression. <code>null</code> or <code>""</code> are interpreted as <code>".*"</code>, i.e. any note type.
      * @param metaclass the metaclass .
@@ -154,7 +145,6 @@ public interface IMetamodelExtensions {
 
     /**
      * Get the I18n'ed label for a {@link Stereotype}.
-     * 
      * @param stereotype the stereotype to get the label for.
      * @return the stereotype's label, computed by its module.
      */
@@ -163,7 +153,6 @@ public interface IMetamodelExtensions {
 
     /**
      * Get the I18n'ed label for a {@link TagType}.
-     * 
      * @param tagType the tag type to get the label for.
      * @return the tag type's label, computed by its module.
      */
@@ -172,7 +161,6 @@ public interface IMetamodelExtensions {
 
     /**
      * Get the I18n'ed label for a {@link NoteType}.
-     * 
      * @param noteType the note type to get the label for.
      * @return the note type's label, computed by its module.
      */
@@ -181,7 +169,6 @@ public interface IMetamodelExtensions {
 
     /**
      * Get the I18n'ed label for a {@link ResourceType}.
-     * 
      * @param resourceType the resource type to get the label for.
      * @return the resource type's label, computed by its module.
      */
@@ -190,7 +177,6 @@ public interface IMetamodelExtensions {
 
     /**
      * Get the I18n'ed label for a {@link PropertyDefinition}.
-     * 
      * @param pdef the property definition to get the label for.
      * @return the property definition's label, computed by its module.
      */

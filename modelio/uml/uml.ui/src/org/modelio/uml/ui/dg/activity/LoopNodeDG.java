@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.activity;
 
 import java.util.List;
@@ -39,7 +38,7 @@ public class LoopNodeDG extends PortContainerDG {
      * @param node The gm node represented by this class.
      */
     @objid ("de35766e-c581-4202-9a40-913e8ceec7c7")
-    public LoopNodeDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  LoopNodeDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 

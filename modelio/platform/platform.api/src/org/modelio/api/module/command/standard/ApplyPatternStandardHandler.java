@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.command.standard;
 
 import java.nio.file.Path;
@@ -27,8 +26,8 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.modelio.api.modelio.IModelioServices;
 import org.modelio.api.modelio.model.ITransaction;
-import org.modelio.api.modelio.pattern.IPatternService.PatternException;
 import org.modelio.api.modelio.pattern.IPatternService;
+import org.modelio.api.modelio.pattern.IPatternService.PatternException;
 import org.modelio.api.module.IModule;
 import org.modelio.api.module.command.DefaultModuleCommandHandler;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -111,6 +110,7 @@ public class ApplyPatternStandardHandler extends DefaultModuleCommandHandler {
         } catch (PatternException e) {
             MessageDialog.openError(current, module.getLabel(), e.getLocalizedMessage());
         }
+        
     }
 
     /**
@@ -123,7 +123,6 @@ public class ApplyPatternStandardHandler extends DefaultModuleCommandHandler {
      * <li>selection : the selectedElements selection
      * <li>module : the IModule.
      * </ul>
-     * 
      * @param selectedElements the current selection in Modelio
      * @param module the module owning the command handler.
      */
@@ -144,7 +143,6 @@ public class ApplyPatternStandardHandler extends DefaultModuleCommandHandler {
      * Hook called once the pattern is applied and before the transaction is committed.
      * <p>
      * Does nothing by default. Sub classes may redefine this method to make additional modifications.
-     * 
      * @param selectedElements the current selection in Modelio
      * @param module the module owning the command handler.
      */

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.creation.wizard.dialog.treeview;
 
 import java.util.ArrayList;
@@ -43,9 +42,10 @@ public class ContributorTreeContentProvider implements ITreeContentProvider {
     private Category[] categories;
 
     @objid ("7d440f2a-cfa0-4d8c-bcdf-64d9a2c33a8e")
-    public ContributorTreeContentProvider(ModelElement context, boolean showInvalid) {
+    public  ContributorTreeContentProvider(ModelElement context, boolean showInvalid) {
         this.context = context;
         this.showInvalid = showInvalid;
+        
     }
 
     @objid ("527b1dc3-a015-4604-8a79-04a632b3dbb3")
@@ -82,6 +82,7 @@ public class ContributorTreeContentProvider implements ITreeContentProvider {
                 this.categories =  cat.toArray(new Category[0]);
             }
         }
+        
     }
 
     @objid ("635b2cf2-39e8-476c-8595-caaa8c9e55dc")
@@ -145,6 +146,7 @@ public class ContributorTreeContentProvider implements ITreeContentProvider {
             this.showInvalid = showInvalid;
             this.categories = null;
         }
+        
     }
 
     /**

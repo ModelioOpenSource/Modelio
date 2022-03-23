@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.util.ArrayList;
@@ -57,22 +56,20 @@ public class PortPropertyModel extends AbstractPropertyModel<Port> {
      */
     @objid ("6b0e6057-a562-446d-8d33-e3a535a45e1e")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name", "Base",
-			"Value", "MultiplicityMin", "MultiplicityMax", "IsBehavior", "IsService",
-			"IsConstant", "RepresentedFeature", "IsConjugated", "Direction" };
+    			"Value", "MultiplicityMin", "MultiplicityMax", "IsBehavior", "IsService",
+    			"IsConstant", "RepresentedFeature", "IsConjugated", "Direction" };
 
     /**
      * Create a new <i>Port</i> data model from an <i>Port</i>.
-     * 
      * @param theEditedElement the port to build a model for
      */
     @objid ("79aa73f6-f30b-44e7-9db4-b99548f48ae3")
-    public PortPropertyModel(Port theEditedElement) {
+    public  PortPropertyModel(Port theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("5cfac5f1-2d2d-4217-9593-513063feb161")
@@ -83,7 +80,6 @@ public class PortPropertyModel extends AbstractPropertyModel<Port> {
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("e6ee3968-0ff3-4eb0-8878-4220e963eb84")
@@ -96,7 +92,6 @@ public class PortPropertyModel extends AbstractPropertyModel<Port> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -138,6 +133,7 @@ public class PortPropertyModel extends AbstractPropertyModel<Port> {
         default:
             return null;
         }
+        
     }
 
     /**
@@ -147,7 +143,6 @@ public class PortPropertyModel extends AbstractPropertyModel<Port> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -200,13 +195,13 @@ public class PortPropertyModel extends AbstractPropertyModel<Port> {
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -261,6 +256,7 @@ public class PortPropertyModel extends AbstractPropertyModel<Port> {
         default:
             return;
         }
+        
     }
 
 }

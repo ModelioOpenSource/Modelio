@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.creation.wizard.ext.handler;
 
 import java.util.ArrayList;
@@ -26,9 +25,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
@@ -92,7 +91,8 @@ public class DiagramCreationHandler {
      */
     @objid ("cba0745d-2d74-45f3-867d-3a09fd25c73a")
     @CanExecute
-    public boolean canExecute(@Named (IServiceConstants.ACTIVE_SELECTION) final Object selection, @Optional @Named ("contributor") final String contributorName) {
+    public boolean canExecute(@Named (IServiceConstants.ACTIVE_SELECTION) final Object selection, @Optional
+    @Named ("contributor") final String contributorName) {
         // Sanity checks
         if (this.projectService.getSession() == null) {
             return false;
@@ -121,14 +121,14 @@ public class DiagramCreationHandler {
 
     /**
      * The command has been executed, so extract the needed information from the application context.
-     * 
      * @param selection the E4 selection
      * @param contributorName the asked "contributor" name
      * @param activeShell the application's active shell.
      */
     @objid ("063fc6cc-b682-4692-8a18-93244d60445d")
     @Execute
-    public void execute(@Named (IServiceConstants.ACTIVE_SELECTION) final Object selection, @Optional @Named ("contributor") final String contributorName, @Named (IServiceConstants.ACTIVE_SHELL) final Shell activeShell) {
+    public void execute(@Named (IServiceConstants.ACTIVE_SELECTION) final Object selection, @Optional
+    @Named ("contributor") final String contributorName, @Named (IServiceConstants.ACTIVE_SHELL) final Shell activeShell) {
         ModelElement selectedElement = DiagramCreationHandler.getSelectedElement(selection);
         // As the dialog box is NOT modal because it supports picking, this
         // handler might be called while the dialog is opened
@@ -174,6 +174,7 @@ public class DiagramCreationHandler {
             // dialog already opened
             this.dialog.getShell().setFocus();
         }
+        
     }
 
     @objid ("b1a6a0fa-f9e6-4f57-9d96-6dafd25dd943")
@@ -183,6 +184,7 @@ public class DiagramCreationHandler {
                         () -> "openEditor",
                         ModelioEvent.EDIT_ELEMENT,
                         elt));
+        
     }
 
     @objid ("fb2a9037-b820-45a7-a878-1c06c9138828")
@@ -236,6 +238,7 @@ public class DiagramCreationHandler {
         } else {
             return null;
         }
+        
     }
 
     @objid ("0ec1e7de-264c-45d3-8905-819bbddbc52d")

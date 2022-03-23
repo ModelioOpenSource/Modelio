@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,10 +44,11 @@ public class OValuePin extends OInputPin {
         if (!(ecoreElt instanceof org.eclipse.uml2.uml.ExpansionNode)){
             setValue((org.eclipse.uml2.uml.InputPin) ecoreElt);
         }
+        
     }
 
     @objid ("493a581b-5f4d-4431-8e00-19618ffe4220")
-    public OValuePin(final ValuePin element) {
+    public  OValuePin(final ValuePin element) {
         super(element);
     }
 
@@ -61,6 +61,7 @@ public class OValuePin extends OInputPin {
             literal.setValue(objingValue);
             ((org.eclipse.uml2.uml.ValuePin) pin).setValue(literal);
         }
+        
     }
 
 }

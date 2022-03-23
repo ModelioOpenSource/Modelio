@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.plugin;
 
 import java.util.ResourceBundle;
@@ -53,6 +52,7 @@ public class CoreUi implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), PLUGIN_ID));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("coreui"));
+        
     }
 
     @objid ("003c14aa-8800-1ffd-ba14-001ec947cd2a")
@@ -69,7 +69,6 @@ public class CoreUi implements BundleActivator {
     /**
      * Returns an image descriptor for the image file at the given plug-in
      * relative path
-     * 
      * @param path the path
      * @return the image descriptor
      */

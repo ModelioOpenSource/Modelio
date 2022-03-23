@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.form.fields;
 
 import java.util.function.Function;
@@ -45,10 +44,10 @@ public class StringField extends AbstractField {
     private Text text;
 
     @objid ("be785f1b-7675-4398-8928-7ee349efb649")
-    private Function<String,String> validator = s -> null;
+    private Function<String, String> validator = s -> null;
 
     @objid ("cffedb32-fe5a-4759-a495-657c076bad92")
-    public StringField(FormToolkit toolkit, Composite parent, IFormFieldData model) {
+    public  StringField(FormToolkit toolkit, Composite parent, IFormFieldData model) {
         super(toolkit, parent, model);
     }
 
@@ -62,6 +61,7 @@ public class StringField extends AbstractField {
         } else {
             throw new IllegalStateException(err);
         }
+        
     }
 
     @objid ("dbfe9592-eabd-4f0c-8994-11471e8a14bb")
@@ -104,16 +104,16 @@ public class StringField extends AbstractField {
     public void refresh() {
         final Object value = getModel().getValue();
         this.text.setText(value != null ? value.toString() : EMPTY_STRING);
+        
     }
 
     /**
      * Set a value validator.
-     * 
      * @param validator the validator that will be called with the new value.
      * @since Valkyrie 3.8
      */
     @objid ("e8bb54bf-2261-4eac-8ba1-64bac53612d9")
-    public void setValidator(Function<String,String> validator) {
+    public void setValidator(Function<String, String> validator) {
         this.validator = validator == null ? s->null : validator;
     }
 
@@ -125,6 +125,7 @@ public class StringField extends AbstractField {
         } else {
             this.text.setForeground(UIColor.RED);
         }
+        
     }
 
     @objid ("ed143876-7b7c-4fe6-839a-9c77922e8e73")

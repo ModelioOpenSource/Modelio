@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.panel;
 
 import java.util.Objects;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.inject.Inject;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.EclipseContextFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
@@ -105,6 +104,7 @@ public class LinkEditorPanelProvider implements ILinkEditor {
         if (! Objects.equals(mObj, curInput)) {
             this.controller.setInput(mObj);
         }
+        
     }
 
     @objid ("41a856b2-381d-492b-b384-7f789f194fb2")
@@ -114,11 +114,11 @@ public class LinkEditorPanelProvider implements ILinkEditor {
             this.ui.getComposite().dispose();
         }
         preDestroy();
+        
     }
 
     /**
      * Build a controller with injected fields.
-     * 
      * @param context an Eclipse 4 context
      */
     @objid ("ea3c6550-e3f9-470d-9980-90f6db6616fb")
@@ -136,6 +136,7 @@ public class LinkEditorPanelProvider implements ILinkEditor {
         this.configurator = new LinkEditorConfigurator(configurationData);
         this.configurator.addPropertyChangeListener(
                 evt -> this.controller.onConfigurationChanged());
+        
     }
 
     /**
@@ -155,7 +156,6 @@ public class LinkEditorPanelProvider implements ILinkEditor {
 
     /**
      * Get the configurator for this link editor
-     * 
      * @return the configurator for this link editor
      */
     @objid ("4c11f62e-6cab-47fc-b8ef-15a7a8c2d1a5")
@@ -180,7 +180,8 @@ public class LinkEditorPanelProvider implements ILinkEditor {
     @objid ("ff087b18-b88c-45d6-9304-6849ea4683d3")
     @Inject
     @Optional
-    void onPickingStop(@SuppressWarnings("unused") @EventTopic(ModelioEventTopics.PICKING_STOP) final IPickingSession session) {
+    void onPickingStop(@SuppressWarnings("unused")
+    @EventTopic(ModelioEventTopics.PICKING_STOP) final IPickingSession session) {
         this.controller.stopPicking(session);
     }
 
@@ -190,6 +191,7 @@ public class LinkEditorPanelProvider implements ILinkEditor {
         this.configurator = null;
         this.controller = null;
         this.ui = null;
+        
     }
 
     @objid ("b37fc864-8bf0-428a-b1a5-ece8c1bb5860")

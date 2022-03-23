@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.local.loader.sax;
 
 import java.util.ArrayDeque;
@@ -53,13 +52,13 @@ class DataModel implements ExmlTags {
     private int version;
 
     @objid ("2af7925e-3faf-11e2-87cb-001ec947ccaf")
-     ExmlStorageHandler nodeStorageHandler;
+    ExmlStorageHandler nodeStorageHandler;
 
     @objid ("2af7925f-3faf-11e2-87cb-001ec947ccaf")
-     final ILoadHelper loadHelper;
+    final ILoadHelper loadHelper;
 
     @objid ("2af79261-3faf-11e2-87cb-001ec947ccaf")
-     IModelLoader modelLoader;
+    IModelLoader modelLoader;
 
     @objid ("2af79264-3faf-11e2-87cb-001ec947ccaf")
     private IObjectDataModel currentModel;
@@ -74,20 +73,20 @@ class DataModel implements ExmlTags {
     private SmObjectImpl rootObject;
 
     @objid ("2af79278-3faf-11e2-87cb-001ec947ccaf")
-     static final List<SmObjectImpl> EMPTY_DEP = Collections.emptyList();
+    static final List<SmObjectImpl> EMPTY_DEP = Collections.emptyList();
 
     @objid ("ddf3cc53-407a-11e2-87cb-001ec947ccaf")
-     IDependencyContentHook depContentHook;
+    IDependencyContentHook depContentHook;
 
     /**
      * initialize the loader
-     * 
      * @param loadHelper a load helper
      */
     @objid ("2af7926a-3faf-11e2-87cb-001ec947ccaf")
-    public DataModel(ILoadHelper loadHelper) {
+    public  DataModel(ILoadHelper loadHelper) {
         this.loadHelper = loadHelper;
         this.objStack = new ArrayDeque<>(30);
+        
     }
 
     /**
@@ -123,6 +122,7 @@ class DataModel implements ExmlTags {
         this.objStack.clear();
         this.currentModel = null;
         this.rootObject = null;
+        
     }
 
     @objid ("2af792a9-3faf-11e2-87cb-001ec947ccaf")
@@ -134,6 +134,7 @@ class DataModel implements ExmlTags {
         }
         
         getCurrent().addToDep (obj);
+        
     }
 
     @objid ("2af9f4be-3faf-11e2-87cb-001ec947ccaf")
@@ -157,6 +158,7 @@ class DataModel implements ExmlTags {
             final SAXParseException cause = new SAXParseException("assertion failed", getLocator());
             throw new AssertionError(cause.getMessage(), cause);
         }
+        
     }
 
     @objid ("2af792b2-3faf-11e2-87cb-001ec947ccaf")
@@ -165,11 +167,11 @@ class DataModel implements ExmlTags {
             final SAXParseException cause = new SAXParseException(msg, getLocator());
             throw new AssertionError(cause.getMessage(), cause);
         }
+        
     }
 
     /**
      * Pop an object model from the stack.
-     * 
      * @return the removed object model.
      */
     @objid ("2af9f4c6-3faf-11e2-87cb-001ec947ccaf")
@@ -229,6 +231,7 @@ class DataModel implements ExmlTags {
         
             return obj;
         }
+        
     }
 
     @objid ("2af9f4b0-3faf-11e2-87cb-001ec947ccaf")
@@ -267,7 +270,6 @@ class DataModel implements ExmlTags {
 
     /**
      * Initialize the document locator.
-     * 
      * @param aLocator a SAX locator.
      */
     @objid ("2af9f4cd-3faf-11e2-87cb-001ec947ccaf")
@@ -277,7 +279,6 @@ class DataModel implements ExmlTags {
 
     /**
      * initialize the model loader.
-     * 
      * @param modelLoader a model loader.
      */
     @objid ("2af9f4d1-3faf-11e2-87cb-001ec947ccaf")
@@ -287,7 +288,6 @@ class DataModel implements ExmlTags {
 
     /**
      * Set the file format version.
-     * 
      * @param v the file format version.
      */
     @objid ("2af9f4d8-3faf-11e2-87cb-001ec947ccaf")
@@ -297,7 +297,6 @@ class DataModel implements ExmlTags {
 
     /**
      * Set a hook that can modify the content of a dependency.
-     * 
      * @param depContentHook a dependency content hook. May be <code>null</code>.
      */
     @objid ("ddf3cc54-407a-11e2-87cb-001ec947ccaf")
@@ -317,6 +316,7 @@ class DataModel implements ExmlTags {
         } catch (IndexException e) {
             throw new SAXParseException(e.getLocalizedMessage(), getLocator(), e);
         }
+        
     }
 
 }

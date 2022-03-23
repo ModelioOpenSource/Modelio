@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.model.scope;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,7 +43,6 @@ public class StereotypeSpecReader {
      * <li> <i>module regex<b>#</b>stereotype regex</i>
      * </ul>
      * Returns <i>null</i> if the specification is <i>null</i> or the stereotype is not found.
-     * 
      * @param session the modeling session
      * @param metaclass the metaclass to look from
      * @param stereotypeSpec the stereotype specification
@@ -64,6 +62,7 @@ public class StereotypeSpecReader {
         } else {
             return session.getMetamodelExtensions().getStereotype(stereotypeSpec, metaclass);
         }
+        
     }
 
 }

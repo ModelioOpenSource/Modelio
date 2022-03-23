@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.stateMachineModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.AbstractPseudoStateSmClass;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.AbstractPseudoState;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.DeepHistoryPseudoState;
 import org.modelio.vbasic.version.Version;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("e9c56d81-716f-45be-aff4-213f05dba235")
 public class DeepHistoryPseudoStateSmClass extends AbstractPseudoStateSmClass {
     @objid ("6b9ac15a-6061-4b8b-b4f3-3039ad4870b9")
-    public DeepHistoryPseudoStateSmClass(ISmMetamodelFragment origin) {
+    public  DeepHistoryPseudoStateSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class DeepHistoryPseudoStateSmClass extends AbstractPseudoStateSmClass {
     @Override
     public String getName() {
         return "DeepHistoryPseudoState";
+        
     }
 
     @objid ("786b96b3-dcaf-492b-a252-5366192cbc77")
@@ -62,18 +62,21 @@ public class DeepHistoryPseudoStateSmClass extends AbstractPseudoStateSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return DeepHistoryPseudoState.class;
+        
     }
 
     @objid ("188e5621-a5a6-46b4-b1cc-2bb0d51a657a")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("e0f8031c-8396-4220-976a-7a49baed8357")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("1458878e-98bc-428f-9223-6f5eaeb971e6")
@@ -86,6 +89,7 @@ public class DeepHistoryPseudoStateSmClass extends AbstractPseudoStateSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("da8f2c61-8306-4e23-b813-5fb03a2eca69")
@@ -94,7 +98,7 @@ public class DeepHistoryPseudoStateSmClass extends AbstractPseudoStateSmClass {
         private DeepHistoryPseudoStateSmClass smClass;
 
         @objid ("2387694d-7f35-40f8-ba62-08689017bda3")
-        public DeepHistoryPseudoStateObjectFactory(DeepHistoryPseudoStateSmClass smClass) {
+        public  DeepHistoryPseudoStateObjectFactory(DeepHistoryPseudoStateSmClass smClass) {
             this.smClass = smClass;
         }
 

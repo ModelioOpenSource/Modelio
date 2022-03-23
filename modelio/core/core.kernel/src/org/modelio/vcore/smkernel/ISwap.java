@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,7 +29,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface ISwap {
     /**
      * Save the object.
-     * 
      * @param data the object data to save.
      */
     @objid ("006b1f34-861a-1f21-85a5-001ec947cd2a")
@@ -38,7 +36,6 @@ public interface ISwap {
 
     /**
      * Restore a saved object data.
-     * 
      * @param uuid the object identifier
      * @return the restored data.
      */

@@ -2,8 +2,8 @@
 <?eclipse version="3.4"?>
 <plugin>
 	<extension point="org.eclipse.e4.workbench.model" id="modelContribution">
-		<fragment
-        uri="e4model/propertyview.e4xmi"/>
+		<fragment uri="e4model/propertyview.e4xmi"/>
+		<processor beforefragment="false" class="org.modelio.propertyview.plugin.PropertyViewProcessor"/>
 	</extension>
 
 	<extension-point id="org.modelio.app.propertyview.panels" name="Property view panels" schema="schema/org.modelio.app.propertyview.panels.exsd"/>

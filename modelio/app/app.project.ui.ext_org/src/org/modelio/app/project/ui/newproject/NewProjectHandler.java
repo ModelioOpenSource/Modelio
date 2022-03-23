@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.ui.newproject;
 
 import java.io.IOException;
@@ -25,8 +24,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.nio.file.FileSystemException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.e4.core.contexts.IEclipseContext;
@@ -135,6 +134,7 @@ public class NewProjectHandler {
         } catch (InterruptedException e) {
             AppProjectUiExt.LOG.error(e);
         }
+        
     }
 
     @objid ("0046f8d4-cc35-1ff2-a7f4-001ec947cd2a")
@@ -243,6 +243,7 @@ public class NewProjectHandler {
             return false;
               
         }
+        
     }
 
     @objid ("8aa5dc99-8e60-40ab-baa0-e4563e1d1abc")

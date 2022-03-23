@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.elementRealization;
 
 import java.util.List;
@@ -61,18 +60,18 @@ public class GmElementRealization extends GmLink {
 
     /**
      * Initialize a control flow graphic model.
-     * 
      * @param diagram The owning diagram
      * @param dependency The reference flow, may be null
      * @param ref The referenced flow reference, may not be null
      */
     @objid ("10ab6553-9427-47bd-8c9d-cdc425ad4e01")
-    public GmElementRealization(IGmDiagram diagram, ElementRealization dependency, MRef ref) {
+    public  GmElementRealization(IGmDiagram diagram, ElementRealization dependency, MRef ref) {
         super(diagram, ref);
         this.dependency = dependency;
         
         final GmDefaultModelElementHeader header = new GmDefaultModelElementHeader(diagram, ref);
         addExtension(ExtensionLocation.MiddleNW, ROLE_MAIN_LABEL, header);
+        
     }
 
     @objid ("3c216b90-b374-4b7b-99d2-caf53c4a5ad3")
@@ -91,7 +90,8 @@ public class GmElementRealization extends GmLink {
      * For deserialization only.
      */
     @objid ("132d4c2e-9153-484d-a413-1c528986010f")
-    public GmElementRealization() {
+    public  GmElementRealization() {
+        
     }
 
     @objid ("f8d548e8-2d69-44a4-bae3-ccb706b45ec3")
@@ -99,6 +99,7 @@ public class GmElementRealization extends GmLink {
     protected void readLink(IDiagramReader in) {
         super.readLink(in);
         this.dependency = (ElementRealization) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("07fdaa4d-f1c6-4fee-8fa2-2537c55fcb17")
@@ -132,6 +133,7 @@ public class GmElementRealization extends GmLink {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmElementRealization.", GmElementRealization.MINOR_VERSION);
+        
     }
 
     @objid ("8bfcacd2-10a0-4aea-9a15-59e529b895ad")

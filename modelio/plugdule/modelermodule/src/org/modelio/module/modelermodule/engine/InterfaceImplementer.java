@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.module.modelermodule.engine;
 
 import java.util.ArrayList;
@@ -53,7 +52,6 @@ import org.modelio.vcore.smkernel.mapi.MMetamodel;
 public class InterfaceImplementer {
     /**
      * For all classifiers implementing this interface, synchronize all operation signatures. Missing operations are created.
-     * 
      * @param session the current modeling session.
      * @param theInterface the interface to update operations from.
      * @return <code>true</code> if the model has been modified.
@@ -74,7 +72,6 @@ public class InterfaceImplementer {
 
     /**
      * Create Operations in the Class from those defined in the implemented Interfaces.
-     * 
      * @param session the current modeling session.
      * @param futureOperationOwner The Class to create the Operations in.
      * @return <code>true</code> if the model has been modified.
@@ -93,7 +90,6 @@ public class InterfaceImplementer {
 
     /**
      * Create Operations in the Class from those defined in the Interface.
-     * 
      * @param futureOperationOwner The Class to create the Operations in.
      * @param itf The Interface containing the Operations to redefine.
      * @return <code>true</code> if the model has been modified.
@@ -125,11 +121,11 @@ public class InterfaceImplementer {
         } catch (Exception e) {
             return false;
         }
+        
     }
 
     /**
      * Delete Operations in a Classifier from those defined in the implemented Interfaces.
-     * 
      * @param current The Classifier to delete the Operations from.
      * @return <code>true</code> if the model has been modified.
      */
@@ -258,11 +254,11 @@ public class InterfaceImplementer {
         return ((p1 == null && p2 == null) // both null
                 || (p1 != null && p1.getType() == null && p2 != null && p2.getType() == null) // null type
                 || (p1 != null && p1.getType() != null && p1.getType().equals(p2.getType()))); // same type
+        
     }
 
     /**
      * Report all the content of the original Operation in the new Operation.
-     * 
      * @param originalOperation The operation to copy.
      * @param newOperation The owner of the Operation to create.
      */
@@ -302,6 +298,7 @@ public class InterfaceImplementer {
         copyStereotypes(session, originalOperation, newOperation);
         copyTaggedValues(session, originalOperation, newOperation);
         newOperation.setVisibility(originalOperation.getVisibility());
+        
     }
 
     @objid ("e769b115-c345-4cf5-a50c-7bef6465db7e")
@@ -321,6 +318,7 @@ public class InterfaceImplementer {
             copyStereotypes(session, oldException, newException);
             copyTaggedValues(session, oldException, newException);
         }
+        
     }
 
     @objid ("173a91b3-258d-4170-a139-1c7e1cfa5ef5")
@@ -337,6 +335,7 @@ public class InterfaceImplementer {
                 }
             }
         }
+        
     }
 
     @objid ("3b0cebbb-0013-45cc-93b7-9f66e5568bfe")
@@ -387,6 +386,7 @@ public class InterfaceImplementer {
                 ModelerModuleModule.getInstance().getModuleContext().getLogService().error(e);
             }
         }
+        
     }
 
     @objid ("a279b90f-452d-4884-956a-e5035d885454")
@@ -424,6 +424,7 @@ public class InterfaceImplementer {
                 ModelerModuleModule.getInstance().getModuleContext().getLogService().error(e);
             }
         }
+        
     }
 
     @objid ("75fa3147-95a7-45fa-a7a2-ebbc73e10e93")
@@ -446,6 +447,7 @@ public class InterfaceImplementer {
         } else {
             newParameter.setParameterPassing(PassingMode.OUT);
         }
+        
     }
 
     @objid ("d8f79e7a-c89b-4d90-bbf3-b6cbad37ae3e")
@@ -505,11 +507,11 @@ public class InterfaceImplementer {
                 copyTaggedValues(session, originalImport, newImport);
             }
         }
+        
     }
 
     /**
      * Checks all operations to remove redefine links bound to interfaces no more implemented.
-     * 
      * @param operationsOwner The classifier owning the operations.
      * @return <code>true</code> if the model has been modified.
      */

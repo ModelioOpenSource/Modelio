@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.symbol.panel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,7 @@ class UpdateStyleFromSelectedPropsCommand {
     private final ISymbolPanelModel model;
 
     @objid ("57cc7a28-a1e6-4131-97e2-4e957dfa010c")
-    public UpdateStyleFromSelectedPropsCommand(ISymbolPanelModel model) {
+    public  UpdateStyleFromSelectedPropsCommand(ISymbolPanelModel model) {
         this.model = model;
     }
 
@@ -58,6 +57,7 @@ class UpdateStyleFromSelectedPropsCommand {
                 });
         
         DiagramStyles.getStyleManager().save(parentStyle);
+        
     }
 
 }

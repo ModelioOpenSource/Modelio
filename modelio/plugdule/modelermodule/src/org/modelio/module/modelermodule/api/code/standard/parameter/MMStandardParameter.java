@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.code.standard.parameter;
 
@@ -51,24 +50,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("0bba591e-fca4-4488-bb02-0a40a836082c")
 public class MMStandardParameter {
-    @objid ("26fe43cd-d5dc-422c-bca7-a79c05d7cd31")
+    @objid ("2adc2a5e-6733-4ab7-9d31-1aa66ffad909")
     public static final String TYPE_TAGTYPE = "type";
 
     /**
      * The underlying {@link Parameter} represented by this proxy, never null.
      */
-    @objid ("ce537034-9b68-437d-b51b-65668aa205d6")
+    @objid ("6e24af63-c723-4cf2-babf-d4b9b66901df")
     protected final Parameter elt;
 
     /**
      * Tells whether a {@link MMStandardParameter proxy} can be instantiated from a {@link MObject} checking it is a {@link Parameter}.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("df4f9c77-645a-47dd-92a3-64d22eae6c7a")
+    @objid ("c11bf79c-ba9a-44b8-b27d-3936ded59f82")
     public static boolean canInstantiate(MObject elt) {
         return (elt instanceof Parameter);
     }
@@ -80,12 +78,12 @@ public class MMStandardParameter {
      * @param obj a Parameter
      * @return a {@link MMStandardParameter} proxy or <i>null</i>.
      */
-    @objid ("4b2f3642-e143-4f97-b34f-653d2e9621d4")
+    @objid ("f8dcc789-a015-45dd-813b-ae1586825834")
     public static MMStandardParameter instantiate(Parameter obj) {
         return MMStandardParameter.canInstantiate(obj) ? new MMStandardParameter(obj) : null;
     }
 
-    @objid ("13e85293-6e68-4e71-8032-35d3617925fe")
+    @objid ("7833b63c-3b63-4919-927d-19dff124749b")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -105,7 +103,7 @@ public class MMStandardParameter {
      * Get the underlying {@link Parameter}. 
      * @return the Parameter represented by this proxy, never null.
      */
-    @objid ("f470b8a7-4f74-49fe-8727-05413e0f1a53")
+    @objid ("ce459ed6-a576-47dc-bc31-cc694f75e1e3")
     public Parameter getElement() {
         return this.elt;
     }
@@ -115,15 +113,16 @@ public class MMStandardParameter {
      * <p>Property description:<br/>
      * <i></i></p>
      */
-    @objid ("442d9d5d-202c-42f4-b067-9c3199229947")
+    @objid ("82572ddf-c650-46dc-8997-9f476e38aa41")
     public List<String> getType() {
         return this.elt.getTagValues(MMStandardParameter.MdaTypes.TYPE_TAGTYPE_ELT);
     }
 
-    @objid ("a8186651-60e7-4ca3-bff8-0cfbfba63810")
+    @objid ("1b8b6652-229e-4f18-bcd0-03453abc1898")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
     /**
@@ -131,40 +130,40 @@ public class MMStandardParameter {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("37f45df7-c75e-41ce-ba0f-eac1d141ff01")
+    @objid ("f3f5db2f-09c4-4b3d-86bb-fc8a8f3ac70e")
     public void setType(List<String> values) {
         this.elt.putTagValues(MMStandardParameter.MdaTypes.TYPE_TAGTYPE_ELT, values);
     }
 
-    @objid ("ac728f36-ad17-4eae-95e4-23a21e4ea601")
-    protected MMStandardParameter(Parameter elt) {
+    @objid ("f0ceeb7a-8dc1-4807-94c6-65436e6c067f")
+    protected  MMStandardParameter(Parameter elt) {
         this.elt = elt;
     }
 
     @objid ("8093b41e-c7dc-406d-9558-1505bdc41a5d")
     public static final class MdaTypes {
-        @objid ("03d1dbbe-d872-49f7-af21-8cf4c21e2b51")
+        @objid ("9572ba2c-6a91-42f4-b59f-6496141cce7f")
         public static TagType TYPE_TAGTYPE_ELT;
 
-        @objid ("e1ef99bb-b20d-4513-ae29-272113713a6f")
+        @objid ("f3fcec75-6d9d-42d4-add7-ae1abedc1bfe")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("d1aee125-a6fa-492e-8b38-6664065d1ada")
+        @objid ("fa044520-1076-4b85-aefb-582d1362460a")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("a1bc37a9-e40d-47fa-9c7d-2b5a6efe2088")
+        @objid ("d5e9f3d7-5e0d-408f-a286-115593cf6d8d")
         public static void init(IModuleContext ctx) {
             TYPE_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "00000000-0000-3767-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

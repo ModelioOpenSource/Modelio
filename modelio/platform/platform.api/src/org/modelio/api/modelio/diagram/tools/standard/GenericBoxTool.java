@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.diagram.tools.standard;
 
 import java.util.List;
@@ -129,13 +128,13 @@ public class GenericBoxTool extends DefaultBoxTool {
         } catch (RuntimeException e) {
             getModule().getModuleContext().getLogService().error(e);
         }
+        
     }
 
     /**
      * Hook called once the element is created, configured, unmasked and before the transaction is committed.
      * <p>
      * Does nothing by default. Sub classes may redefine this method to make additional modifications.
-     * 
      * @param diagramHandle the diagram handle
      * @param parentGraphic the graphic under which the element was unmasked
      * @param rect the new graphic bounds.

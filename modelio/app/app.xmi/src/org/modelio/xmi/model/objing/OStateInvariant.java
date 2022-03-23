@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import java.util.List;
@@ -38,7 +37,7 @@ public class OStateInvariant extends OOccurrenceSpecification {
     }
 
     @objid ("f2477bcd-4e06-40a7-9dab-e0b254edddef")
-    public OStateInvariant(StateInvariant param) {
+    public  OStateInvariant(StateInvariant param) {
         super(param);
     }
 
@@ -54,6 +53,7 @@ public class OStateInvariant extends OOccurrenceSpecification {
         super.setProperties(ecoreElt);
         setInvariant((org.eclipse.uml2.uml.StateInvariant) ecoreElt);
         setEndLineNumber(ecoreElt);
+        
     }
 
     @objid ("8f49a960-4300-41e8-b0bf-19628a1d0d78")
@@ -96,6 +96,7 @@ public class OStateInvariant extends OOccurrenceSpecification {
             // set the constraint
             ecoreElt.setInvariant(constraint);
         }
+        
     }
 
     @objid ("6f9a43fb-9009-4b60-badb-1c58042366fc")
@@ -103,6 +104,7 @@ public class OStateInvariant extends OOccurrenceSpecification {
         if (GenerationProperties.getInstance().isRoundtripEnabled()){
             ObjingEAnnotation.setEndLineNumber(ecoreElt, ((StateInvariant) getObjingElement()).getEndLineNumber());
         }
+        
     }
 
 }

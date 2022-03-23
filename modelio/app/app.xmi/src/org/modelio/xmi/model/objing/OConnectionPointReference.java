@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -48,7 +47,7 @@ public class OConnectionPointReference extends OModelElement {
     }
 
     @objid ("7b8c2712-5d37-4988-9234-998a28b3fb73")
-    public OConnectionPointReference(ConnectionPointReference objingElt) {
+    public  OConnectionPointReference(ConnectionPointReference objingElt) {
         super(objingElt);
     }
 
@@ -87,6 +86,7 @@ public class OConnectionPointReference extends OModelElement {
             ecoreElt.destroy();
             throw new NotFoundException("Owner Class of FinalState Not Found");
         }
+        
     }
 
     @objid ("cf7cd0f2-3128-497a-9355-58a73470f5fa")
@@ -95,6 +95,7 @@ public class OConnectionPointReference extends OModelElement {
         super.setProperties(ecoreElt);
         setExit((org.eclipse.uml2.uml.ConnectionPointReference) ecoreElt);
         setEntry((org.eclipse.uml2.uml.ConnectionPointReference) ecoreElt);
+        
     }
 
     @objid ("4839afaa-c792-4f00-bff1-424e28839c46")
@@ -113,6 +114,7 @@ public class OConnectionPointReference extends OModelElement {
                         + ecoreElt.getName() + ") Not Found");
             }
         }
+        
     }
 
     @objid ("280e826e-6fe5-47ba-8825-647684b454f7")
@@ -131,6 +133,7 @@ public class OConnectionPointReference extends OModelElement {
                         + ecoreElt.getName() + ") Not Found");
             }
         }
+        
     }
 
     @objid ("cbcbf84b-6cf4-4eb5-ad03-d542c6433dc2")

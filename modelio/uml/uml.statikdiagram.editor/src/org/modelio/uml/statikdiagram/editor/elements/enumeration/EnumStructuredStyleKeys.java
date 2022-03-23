@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.enumeration;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -92,7 +91,7 @@ public final class EnumStructuredStyleKeys extends StaticAbstractStyleKeyProvide
      */
     @objid ("a6609ef1-55c2-11e2-9337-002564c97630")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("ENUM_SHOWSTEREOTYPES",
-                                                                  MetaKey.SHOWSTEREOTYPES);
+                                                                      MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Show tagged values.
@@ -105,7 +104,7 @@ public final class EnumStructuredStyleKeys extends StaticAbstractStyleKeyProvide
      */
     @objid ("a6609ef7-55c2-11e2-9337-002564c97630")
     public static final StyleKey SHOWVISIBILITY = createStyleKey("ENUM_SHOWVISIBILITY",
-                                                                 MetaKey.SHOWVISIBILITY);
+                                                                     MetaKey.SHOWVISIBILITY);
 
     /**
      * Display enumeration literals.
@@ -159,7 +158,7 @@ public final class EnumStructuredStyleKeys extends StaticAbstractStyleKeyProvide
          */
         @objid ("a6609f0f-55c2-11e2-9337-002564c97630")
         public static final StyleKey SHOWSTEREOTYPES = createStyleKey("ENUM_LIT_SHOWSTEREOTYPES",
-                                                                      MetaKey.SHOWSTEREOTYPES);
+                                                                              MetaKey.SHOWSTEREOTYPES);
 
         /**
          * Display attributes tagged values.

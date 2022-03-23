@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.context;
 
 import java.io.IOException;
@@ -27,11 +26,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.editor.plugin.DiagramEditor;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -87,6 +86,7 @@ class CreationPopupXmlLoader {
                 parsePopupNode(node);
             }
         }
+        
     }
 
     @objid ("ed7e838c-6313-4194-a697-caded32ad654")
@@ -126,11 +126,11 @@ class CreationPopupXmlLoader {
             }
         
         }
+        
     }
 
     /**
      * Add a popup entry to display on a specific metaclass.
-     * 
      * @param sourceMetaclass The metaclass to display the popup for.
      * @param item the entry to add.
      */
@@ -141,6 +141,7 @@ class CreationPopupXmlLoader {
         }
         
         this.popupEntries.get(sourceMetaclass).add(item);
+        
     }
 
     @objid ("2bb01469-c094-470a-a3b3-0f575e69e44f")
@@ -189,6 +190,7 @@ class CreationPopupXmlLoader {
             }
             entryDescriptor.parameters.put(name, value);
         }
+        
     }
 
 }

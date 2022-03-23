@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import java.util.ArrayList;
@@ -131,7 +130,7 @@ public class EProperty extends EStructuralFeature {
     }
 
     @objid ("aea527ae-2968-4862-a929-0e3afe7a7dc0")
-    public EProperty(Property element) {
+    public  EProperty(Property element) {
         super(element);
     }
 
@@ -168,6 +167,7 @@ public class EProperty extends EStructuralFeature {
         }else{
             objingElt.delete();
         }
+        
     }
 
     @objid ("7c9ae24e-cadd-4129-b7aa-5ba8452ff4e2")
@@ -187,6 +187,7 @@ public class EProperty extends EStructuralFeature {
                 }
             }
         }
+        
     }
 
     @objid ("6e4bfc73-fe60-42d4-8032-c16a8fa790a1")
@@ -217,6 +218,7 @@ public class EProperty extends EStructuralFeature {
             setOwner(naryAssocEnd);
             setNaryAssociationKind(naryAssocEnd);
         }
+        
     }
 
     @objid ("10535903-9334-4b5b-9307-8a1bbe521731")
@@ -265,6 +267,7 @@ public class EProperty extends EStructuralFeature {
         }else{
             objEnd.delete();
         }
+        
     }
 
     @objid ("23bd6341-e7ed-4e88-9cf1-d82e92c1f149")
@@ -280,6 +283,7 @@ public class EProperty extends EStructuralFeature {
         }else{
             objingElt.setType(null);
         }
+        
     }
 
     @objid ("1c934eb7-6fab-4293-b397-c33abf2a7df0")
@@ -300,6 +304,7 @@ public class EProperty extends EStructuralFeature {
                 break;
             }
         }
+        
     }
 
     @objid ("3a3fcf74-1097-4d70-84cd-084a31bb377d")
@@ -312,6 +317,7 @@ public class EProperty extends EStructuralFeature {
         String value = ObjingEAnnotation.getValue(getEcoreElement());
         if ((value != null) && (!value.equals("")))
             attribute.setValue(value);
+        
     }
 
     @objid ("50789a5d-e4c1-455d-a3e1-0d3d6beb3842")
@@ -329,12 +335,14 @@ public class EProperty extends EStructuralFeature {
             else if (!((Property) getEcoreElement()).isReadOnly())
                 objingElt.setChangeable(KindOfAccess.ACCESNONE);
         }
+        
     }
 
     @objid ("b74bb45f-0314-4466-a789-de7ddebcaf35")
     private void setTargetIsClassEAnnotation(Attribute attribute) {
         attribute.setTargetIsClass(ObjingEAnnotation
                 .isTargetIsClass(getEcoreElement()));
+        
     }
 
     @objid ("de8fc352-0d90-4891-bb92-45d895e07ba5")
@@ -342,6 +350,7 @@ public class EProperty extends EStructuralFeature {
         String typeConstraint = ObjingEAnnotation.getTypeConstraint(getEcoreElement());
         if (typeConstraint != null)
             attribute.setTypeConstraint(typeConstraint);
+        
     }
 
     @objid ("abb7b465-98e1-4889-a667-fa19d11c43a3")
@@ -370,6 +379,7 @@ public class EProperty extends EStructuralFeature {
                 attribute.setValue(EcoreModelNavigation.getValue(value));
             }
         }
+        
     }
 
     @objid ("d608a602-2862-46c0-9e2e-0af5579c55e0")
@@ -390,6 +400,7 @@ public class EProperty extends EStructuralFeature {
             }
         
         }
+        
     }
 
     @objid ("d598d38c-7c23-414b-a0d7-22dd63ad828b")
@@ -469,6 +480,7 @@ public class EProperty extends EStructuralFeature {
                 }
             }
         }
+        
     }
 
     @objid ("b016659d-952e-46d1-858c-407bac359307")
@@ -479,6 +491,7 @@ public class EProperty extends EStructuralFeature {
             attachClassifier((Classifier) classifier, type);
             objingElt.setOwner((Classifier) classifier);
         }
+        
     }
 
     @objid ("09f2cb4e-44ed-453a-a64b-7dbd35313ed3")
@@ -488,6 +501,7 @@ public class EProperty extends EStructuralFeature {
             objingElt.setNaryAssociation((NaryAssociation) naryassociation);
             ((NaryAssociation) naryassociation).getNaryEnd().add(objingElt);
         }
+        
     }
 
     @objid ("63905105-e1a2-4868-b9ce-2fa3a3bea72b")
@@ -514,6 +528,7 @@ public class EProperty extends EStructuralFeature {
         } else {
             objingClass.setOwner(ReverseProperties.getInstance().getExternalPackage());
         }
+        
     }
 
     @objid ("5f2daf59-3b20-4568-a4c7-6f8feb501e9e")
@@ -529,6 +544,7 @@ public class EProperty extends EStructuralFeature {
         
             objEnd.setSource(classifier);
         }
+        
     }
 
     @objid ("5a11fcaf-0d8c-4521-8709-de281c7c3cab")
@@ -540,6 +556,7 @@ public class EProperty extends EStructuralFeature {
                 objingElt.setBase((NameSpace) base);
             }
         }
+        
     }
 
 }

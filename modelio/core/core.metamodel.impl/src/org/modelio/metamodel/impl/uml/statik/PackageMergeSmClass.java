@@ -17,19 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
-import org.modelio.metamodel.impl.uml.statik.PackageMergeData;
-import org.modelio.metamodel.impl.uml.statik.PackageSmClass;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.metamodel.uml.statik.Package;
 import org.modelio.metamodel.uml.statik.PackageMerge;
@@ -53,7 +51,7 @@ public class PackageMergeSmClass extends UmlModelElementSmClass {
     private SmDependency receivingPackageDep;
 
     @objid ("88217766-2aa8-430c-bd06-a7b8b909b06d")
-    public PackageMergeSmClass(ISmMetamodelFragment origin) {
+    public  PackageMergeSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -61,6 +59,7 @@ public class PackageMergeSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "PackageMerge";
+        
     }
 
     @objid ("412dda85-776c-45ea-91a1-b226b0a09c78")
@@ -73,18 +72,21 @@ public class PackageMergeSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return PackageMerge.class;
+        
     }
 
     @objid ("c2b1bc39-f147-46e7-826f-2a03ab299adf")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("af941351-cf87-40ae-bd02-0e9a955ac3e2")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("00ef0302-080b-41ac-9241-b2000000b165")
@@ -104,6 +106,8 @@ public class PackageMergeSmClass extends UmlModelElementSmClass {
         this.receivingPackageDep = new ReceivingPackageSmDependency();
         this.receivingPackageDep.init("ReceivingPackage", this, metamodel.getMClass(Package.MQNAME), 1, 1 , SmDirective.SMCDLINKSOURCE);
         registerDependency(this.receivingPackageDep);
+        
+        
     }
 
     @objid ("2984f63f-9de0-444e-aa5d-baba136727c2")
@@ -126,6 +130,7 @@ public class PackageMergeSmClass extends UmlModelElementSmClass {
     @Override
     public boolean isLinkMetaclass() {
         return true;
+        
     }
 
     @objid ("2add88da-cc1c-463c-af98-45d1d6876f43")
@@ -134,7 +139,7 @@ public class PackageMergeSmClass extends UmlModelElementSmClass {
         private PackageMergeSmClass smClass;
 
         @objid ("8bf3bc5f-020a-4240-aabc-f6f1f5d45590")
-        public PackageMergeObjectFactory(PackageMergeSmClass smClass) {
+        public  PackageMergeObjectFactory(PackageMergeSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -176,6 +181,7 @@ public class PackageMergeSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((PackageSmClass)this.getTarget()).getReceivingMergeDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -204,6 +210,7 @@ public class PackageMergeSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((PackageSmClass)this.getTarget()).getMergeDep();
             }
             return this.symetricDep;
+            
         }
 
     }

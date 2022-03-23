@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.handlers;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.PrecisionDimension;
@@ -61,6 +60,7 @@ public class AutoSizeHandler {
     public void execute(@Named (IServiceConstants.ACTIVE_SELECTION) ISelection selection) {
         // Resize the elements
         execute(parseAndFilterSelection(selection));
+        
     }
 
     @objid ("65ad538e-33f7-11e2-95fe-001ec947c8cc")
@@ -93,7 +93,6 @@ public class AutoSizeHandler {
      * Filter the selection: when an ancestor is also in selection, remove the child.
      * That is done because any translation/resizing applied to the ancestor will already have an
      * impact on the child.
-     * 
      * @param primarySelection the primary selection
      * @param otherSelections the secondary selection that will be filtered
      * @return the selected edit parts, or an empty list
@@ -145,7 +144,6 @@ public class AutoSizeHandler {
 
     /**
      * This method returns the effective bounds (those seen by the end user) of a figure.
-     * 
      * @param figure the figure which bounds are to be returned.
      * @return the effective bounds of the figure. This object must NOT be modified.
      */
@@ -176,11 +174,11 @@ public class AutoSizeHandler {
         } else if (viewer == null) {
             DiagramEditor.LOG.warning("AutosizeHandler#align : could not reach a valid EditPartViewer");
         }
+        
     }
 
     /**
      * Extract and filter the GEF selection from the Eclipse selection
-     * 
      * @param selection the Eclipse selection
      * @return the selected edit parts, or an empty list
      */

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmndataobject.dataobject;
 
 import java.util.Collections;
@@ -46,9 +45,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("60bbe8c3-55b6-11e2-877f-002564c97630")
 public class GmBpmnDataObject extends GmPortContainer {
-    @objid ("60bbe8c7-55b6-11e2-877f-002564c97630")
-    private BpmnDataObject theElement;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -57,6 +53,9 @@ public class GmBpmnDataObject extends GmPortContainer {
 
     @objid ("60bbe8d3-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
+
+    @objid ("60bbe8c7-55b6-11e2-877f-002564c97630")
+    private BpmnDataObject theElement;
 
     @objid ("c4da03af-59a6-11e2-ae45-002564c97630")
     public static final GmBpmnDataObjectStyleKeys STRUCTURED_KEYS = new GmBpmnDataObjectStyleKeys();
@@ -74,19 +73,18 @@ public class GmBpmnDataObject extends GmPortContainer {
      * Constructor to use only for deserialization.
      */
     @objid ("60bbe8d5-55b6-11e2-877f-002564c97630")
-    public GmBpmnDataObject() {
+    public  GmBpmnDataObject() {
         super();
     }
 
     /**
      * Creates a GmNote.
-     * 
      * @param diagram The diagram owning the node
      * @param theElement The represented note element
      * @param ref The represented note reference
      */
     @objid ("60bbe8d8-55b6-11e2-877f-002564c97630")
-    public GmBpmnDataObject(IGmDiagram diagram, BpmnDataObject theElement, MRef ref) {
+    public  GmBpmnDataObject(IGmDiagram diagram, BpmnDataObject theElement, MRef ref) {
         super(diagram, ref);
         
         GmBpmnDataObjectPrimaryNode mainNode = new GmBpmnDataObjectPrimaryNode(diagram, ref);
@@ -98,6 +96,7 @@ public class GmBpmnDataObject extends GmPortContainer {
         label.setRoleInComposition(GmPortContainer.SATELLITE_ROLE);
         label.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         this.addChild(label);
+        
     }
 
     @objid ("60bbe8e4-55b6-11e2-877f-002564c97630")
@@ -121,6 +120,7 @@ public class GmBpmnDataObject extends GmPortContainer {
         default:
             return null;
         }
+        
     }
 
     @objid ("60bbe8f3-55b6-11e2-877f-002564c97630")
@@ -138,6 +138,7 @@ public class GmBpmnDataObject extends GmPortContainer {
         default:
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("60bbe8fb-55b6-11e2-877f-002564c97630")
@@ -157,6 +158,7 @@ public class GmBpmnDataObject extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("60bbe901-55b6-11e2-877f-002564c97630")
@@ -165,6 +167,7 @@ public class GmBpmnDataObject extends GmPortContainer {
         if (this.theElement != null) {
             firePropertyChange(PROPERTY_LABEL, null, this.theElement.getName());
         }
+        
     }
 
     @objid ("60bbe904-55b6-11e2-877f-002564c97630")
@@ -192,12 +195,14 @@ public class GmBpmnDataObject extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmBpmnDataObject.", MINOR_VERSION);
+        
     }
 
     @objid ("60bd6f84-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.theElement = (BpmnDataObject) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("60bd6f89-55b6-11e2-877f-002564c97630")
@@ -208,7 +213,6 @@ public class GmBpmnDataObject extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -220,7 +224,6 @@ public class GmBpmnDataObject extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

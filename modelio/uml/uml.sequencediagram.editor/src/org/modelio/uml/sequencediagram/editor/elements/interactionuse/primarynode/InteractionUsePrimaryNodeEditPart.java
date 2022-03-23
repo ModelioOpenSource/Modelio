@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.interactionuse.primarynode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -99,6 +98,7 @@ public class InteractionUsePrimaryNodeEditPart extends AbstractNodeEditPart {
         } else {
             getContentPane().add(child, BorderLayout.CENTER, index);
         }
+        
     }
 
     @objid ("d929aeb5-55b6-11e2-877f-002564c97630")
@@ -119,6 +119,7 @@ public class InteractionUsePrimaryNodeEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         super.refreshVisuals();
         getFigure().getParent().setConstraint(getFigure(), ((GmAbstractObject) getModel()).getLayoutData());
+        
     }
 
     @objid ("d929aebd-55b6-11e2-877f-002564c97630")
@@ -129,6 +130,7 @@ public class InteractionUsePrimaryNodeEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                 new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
 }

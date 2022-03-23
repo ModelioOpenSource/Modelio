@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.policies;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -26,8 +25,8 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.GraphicalEditPolicy;
-import org.modelio.diagram.elements.core.figures.FigureUtilities2.HighlightType;
 import org.modelio.diagram.elements.core.figures.FigureUtilities2;
+import org.modelio.diagram.elements.core.figures.FigureUtilities2.HighlightType;
 import org.modelio.diagram.elements.core.requests.ModelElementDropRequest;
 
 /**
@@ -108,6 +107,7 @@ public abstract class AbstractElementDropEditPolicy extends GraphicalEditPolicy 
         
         }
         super.showTargetFeedback(request);
+        
     }
 
     @objid ("8e320550-5798-4440-beb6-85130024e1cb")
@@ -118,6 +118,7 @@ public abstract class AbstractElementDropEditPolicy extends GraphicalEditPolicy 
         }
         
         super.eraseTargetFeedback(request);
+        
     }
 
     /**
@@ -127,7 +128,6 @@ public abstract class AbstractElementDropEditPolicy extends GraphicalEditPolicy 
      * <p>
      * Subclasses should redefine this method to provide "smart interactions".
      * </p>
-     * 
      * @param request the drop request
      * @return the host if all dropped elements can be unmasked by the Gm,
      * <code>null</code> otherwise.
@@ -137,7 +137,6 @@ public abstract class AbstractElementDropEditPolicy extends GraphicalEditPolicy 
 
     /**
      * Creates the Command to handle a ModelElementDropRequest.
-     * 
      * @param request The drop request.
      * @return the created command.
      */
@@ -149,7 +148,6 @@ public abstract class AbstractElementDropEditPolicy extends GraphicalEditPolicy 
      * <p>
      * Subclasses must redefine this method to provide "smart interactions".
      * </p>
-     * 
      * @param request The drop request.
      * @return the created command, or <code>null</code> when there is no smart interaction for this request.
      */
@@ -163,6 +161,7 @@ public abstract class AbstractElementDropEditPolicy extends GraphicalEditPolicy 
         removeFeedback();
         
         super.deactivate();
+        
     }
 
     @objid ("47fcee01-86f8-4f00-b1ff-25cbb7e7e0bf")
@@ -172,6 +171,7 @@ public abstract class AbstractElementDropEditPolicy extends GraphicalEditPolicy 
             this.highlight = null;
             this.highlightType = null;
         }
+        
     }
 
 }

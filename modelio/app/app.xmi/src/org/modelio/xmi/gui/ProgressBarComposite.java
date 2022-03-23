@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.gui;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -114,6 +113,7 @@ public class ProgressBarComposite extends Composite {
                 }
             }
         });
+        
     }
 
     /**
@@ -132,6 +132,7 @@ public class ProgressBarComposite extends Composite {
                 ProgressBarComposite.this.progressBar.setSelection(ProgressBarComposite.this.max);
             }
         });
+        
     }
 
     /**
@@ -151,6 +152,7 @@ public class ProgressBarComposite extends Composite {
                 setTextGroup(v, true);
             }
         });
+        
     }
 
     /**
@@ -177,6 +179,7 @@ public class ProgressBarComposite extends Composite {
                     setTextGroup(Xmi.I18N.getMessage("progressBar.setValueSingular", String.valueOf(ProgressBarComposite.this.totalElement)), true);
             }
         });
+        
     }
 
     /**
@@ -194,12 +197,14 @@ public class ProgressBarComposite extends Composite {
     public void setNumberElement(int numberElement) {
         this.numberElement = numberElement;
         this.incrementation = (numberElement) / this.max;
+        
     }
 
     @objid ("e6f03ef8-195c-479f-8b08-b28ab17ac70d")
     private void abortProcess() throws AbortProcessException {
         AbstractSwtWizardWindow.setCancellation(true);
         throw new AbortProcessException();
+        
     }
 
     @objid ("a19b603f-3cf0-4a3f-841f-836e4389e7a7")
@@ -209,6 +214,7 @@ public class ProgressBarComposite extends Composite {
         } else {
             this.group.setText(" " + this.title + " : " + text + " ");
         }
+        
     }
 
     @objid ("4f7fc5e0-6169-4bcf-a047-6302d81fcb34")
@@ -221,7 +227,7 @@ public class ProgressBarComposite extends Composite {
      * @param style The SWT style
      */
     @objid ("47f013dd-9e9b-404a-86ab-e3bea85b4cfe")
-    public ProgressBarComposite(Composite parent, int style) {
+    public  ProgressBarComposite(Composite parent, int style) {
         super(parent, style);
         setLayout(new FormLayout());
         this.group = new Group(this, SWT.NONE);
@@ -245,6 +251,7 @@ public class ProgressBarComposite extends Composite {
         
         this.progressBar.setLayoutData(fd_progressBar);
         this.max = this.progressBar.getMaximum();
+        
     }
 
     /**
@@ -263,6 +270,7 @@ public class ProgressBarComposite extends Composite {
                 ProgressBarComposite.this.progressBar.setSelection(0);
             }
         });
+        
     }
 
 }

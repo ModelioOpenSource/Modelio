@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,7 +41,7 @@ public class OStereotype extends OElement implements IOElement {
     }
 
     @objid ("3bd9d597-4bd5-4fe4-a507-52d0cab50e3c")
-    public OStereotype(Stereotype param) {
+    public  OStereotype(Stereotype param) {
         super(param);
     }
 

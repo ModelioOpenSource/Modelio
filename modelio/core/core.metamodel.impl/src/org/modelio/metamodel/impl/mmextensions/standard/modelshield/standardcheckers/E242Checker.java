@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.modelshield.standardcheckers;
 
 import java.util.ArrayList;
@@ -59,6 +58,7 @@ public class E242Checker implements IChecker {
             objects.add(owner);
             report.addEntry(new ModelError(ERRORID, object, objects));
         }
+        
     }
 
     @objid ("009328bc-e472-1f69-b3fb-001ec947cd2a")
@@ -72,6 +72,7 @@ public class E242Checker implements IChecker {
         
         // trigger=create, metaclass=Manifestation, feature=Owner
         plan.registerChecker(this, smMetamodel.getMClass(Manifestation.class), TriggerType.Create, "Owner");
+        
     }
 
 }

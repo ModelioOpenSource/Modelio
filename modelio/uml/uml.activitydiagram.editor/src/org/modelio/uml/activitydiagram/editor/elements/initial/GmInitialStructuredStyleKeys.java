@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.initial;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,28 +30,28 @@ import org.modelio.uml.activitydiagram.editor.style.ActivityAbstractStyleKeyProv
 @objid ("2aa48ed9-55b6-11e2-877f-002564c97630")
 public class GmInitialStructuredStyleKeys extends ActivityAbstractStyleKeyProvider {
     @objid ("d21f92fe-55c0-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("INITIAL_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("INITIAL_REPMODE", MetaKey.REPMODE);
 
     @objid ("d21f9300-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("INITIAL_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("INITIAL_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("d21f9302-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("INITIAL_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("INITIAL_FILLMODE", MetaKey.FILLMODE);
 
     @objid ("d21f9304-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("INITIAL_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("INITIAL_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("d21f9306-55c0-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("INITIAL_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("INITIAL_FONT", MetaKey.FONT);
 
     @objid ("d21f9308-55c0-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("INITIAL_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("INITIAL_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("d21f930a-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("INITIAL_SHOWSTEREOTYPES", MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("INITIAL_SHOWSTEREOTYPES", MetaKey.SHOWSTEREOTYPES);
 
     @objid ("d21f930c-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("INITIAL_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("INITIAL_SHOWTAGS", MetaKey.SHOWTAGS);
 
     /**
      * Show the element name label.
@@ -60,6 +59,6 @@ public class GmInitialStructuredStyleKeys extends ActivityAbstractStyleKeyProvid
      * @see MetaKey#SHOWLABEL
      */
     @objid ("d21f930e-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWLABEL = createStyleKey("INITIAL_SHOWLABEL", MetaKey.SHOWLABEL);
+    static final StyleKey SHOWLABEL = createStyleKey("INITIAL_SHOWLABEL", MetaKey.SHOWLABEL);
 
 }

@@ -17,13 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.abstractdiagram;
 
 import java.beans.PropertyChangeEvent;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Files;
@@ -57,7 +55,9 @@ import org.eclipse.gef.Request;
 import org.eclipse.gef.SnapToGeometry;
 import org.eclipse.gef.SnapToGrid;
 import org.eclipse.gef.SnapToHelper;
+import org.eclipse.gef.editparts.AbstractGraphicalEditPart;
 import org.eclipse.gef.editpolicies.AbstractEditPolicy;
+import org.eclipse.gef.editpolicies.ConstrainedLayoutEditPolicy;
 import org.eclipse.gef.editpolicies.SnapFeedbackPolicy;
 import org.eclipse.gef.requests.DropRequest;
 import org.eclipse.gef.requests.ReconnectRequest;
@@ -74,12 +74,15 @@ import org.modelio.diagram.elements.core.model.GmAbstractObject;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
 import org.modelio.diagram.elements.core.model.IPostLoadAction;
 import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
+import org.modelio.diagram.elements.core.policies.LayoutConnectionsConstrainedLayoutEditPolicyDecorator;
 import org.modelio.diagram.elements.core.requests.ModelElementDropRequest;
 import org.modelio.diagram.elements.drawings.core.IGmDrawingLayer;
 import org.modelio.diagram.elements.drawings.layer.DrawingLayerEditPart;
+import org.modelio.diagram.elements.plugin.DiagramElements;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.uml.infrastructure.Constraint;
+import org.modelio.vbasic.files.FileUtils;
 
 /**
  * Default Edit part for GmDiagram.
@@ -140,7 +143,7 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
      * Default constructor.
      */
     @objid ("7e05eaeb-1dec-11e2-8cad-001ec947c8cc")
-    public AbstractDiagramEditPart() {
+    public  AbstractDiagramEditPart() {
         // Nothing to do yet.
     }
 
@@ -155,6 +158,7 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
     public void activate() {
         super.activate();
         runPostLoadActions();
+        
     }
 
     /**
@@ -189,6 +193,7 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
             return new XYAnchor(p);
         }
         throw new IllegalArgumentException(request + " not handled.");
+        
     }
 
     /**
@@ -204,6 +209,24 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
             return false;
         }
         return super.isSelectable();
+    }
+
+    @objid ("67085f02-7375-4a44-8551-22dd1c7c6e22")
+    @Override
+    public void propertyChange(PropertyChangeEvent evt) {
+        switch (evt.getPropertyName()) {
+        case GmAbstractDiagram.PROP_UIDATA_VERSION:
+            updatePreviewData();
+            break;
+        case GmAbstractDiagram.PROP_DIAGRAM_LOAD_END:
+            // When the diagram reloads, make sure there are no pending load actions
+            if (isActive()) {
+                runPostLoadActions();
+            }
+        }
+        
+        super.propertyChange(evt);
+        
     }
 
     /**
@@ -227,6 +250,7 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
         } else {
             doAddChildVisual(childEditPart, index);
         }
+        
     }
 
     @objid ("7e05eb0c-1dec-11e2-8cad-001ec947c8cc")
@@ -239,22 +263,9 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
     }
 
     /**
-     * Convert a dimension from inches to pixel
-     * @param d
-     * 
-     * @return the dimension in pixels
-     */
-    @objid ("7e05eb15-1dec-11e2-8cad-001ec947c8cc")
-    protected final PrecisionDimension convertToPixel(PrecisionDimension d) {
-        org.eclipse.swt.graphics.Point dpi = Display.getCurrent().getDPI();
-        return new PrecisionDimension(d.preciseWidth() * dpi.x, d.preciseHeight() * dpi.y);
-    }
-
-    /**
      * Creates the layer pane where drawing layers are put.
      * <p>
      * The layer pane is put on top of the {@link LayerConstants#PRINTABLE_LAYERS} layer.
-     * 
      * @return the drawings layer pane.
      */
     @objid ("a7c40bc5-f7d4-42c6-b604-273fc07d900b")
@@ -264,7 +275,6 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
         
         // Create the drawing layer on top of the diagram layer.
         FreeformLayeredPane drawLayerPane = new FreeformLayeredPane();
-        // getViewer().getEditPartRegistry().put(drawLayerPane, LAYER_PANE_DRAWING);
         LayeredPane pane = (LayeredPane) getLayer(LayerConstants.PRINTABLE_LAYERS);
         pane.add(drawLayerPane, DRAWING_LAYER);
         return drawLayerPane;
@@ -294,6 +304,7 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
         
         // Snap to Geometry feedback
         installEditPolicy("Snap Feedback", new SnapFeedbackPolicy()); //$NON-NLS-1$
+        
     }
 
     /**
@@ -312,11 +323,35 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
         return diagramFigure;
     }
 
+    /**
+     * Encapsulate layout edit policies into {@link #createLayoutPolicyDecorator(EditPolicy)}.
+     * <p>
+     * May be redefined by sub classes.
+     * @param layoutPolicy the layout edit policy. expected to be a {@link ConstrainedLayoutEditPolicy} by default implementation.
+     * @return the created policy.
+     * @since 5.1.0
+     */
+    @objid ("4b3ae5f6-e70b-485f-9105-56790cd7c6a5")
+    @Override
+    protected EditPolicy createLayoutPolicyDecorator(EditPolicy layoutPolicy) {
+        return layoutPolicy instanceof ConstrainedLayoutEditPolicy ? new LayoutConnectionsConstrainedLayoutEditPolicyDecorator((ConstrainedLayoutEditPolicy) layoutPolicy) : layoutPolicy;
+    }
+
+    /**
+     * Hook for sub classes to redefine {@link #addChildVisual(EditPart, int)}.
+     * <p>
+     * By default calls {@link AbstractGraphicalEditPart#addChildVisual(EditPart, int)}
+     */
     @objid ("e13d5a6e-f507-4d36-834c-e75a3cbe351d")
     protected void doAddChildVisual(EditPart childEditPart, int index) {
         super.addChildVisual(childEditPart, index);
     }
 
+    /**
+     * Hook for sub classes to redefine {@link #removeChildVisual(EditPart)}.
+     * <p>
+     * By default calls {@link AbstractGraphicalEditPart#removeChildVisual(EditPart)}
+     */
     @objid ("18a001e2-2d25-40da-9873-644e28ddd622")
     protected void doRemoveChildVisual(EditPart childEditPart) {
         super.removeChildVisual(childEditPart);
@@ -324,7 +359,6 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
 
     /**
      * Get the layer pane where drawing layers are put.
-     * 
      * @return the drawings layer pane.
      */
     @objid ("2b7373ed-b77c-4cd3-bbae-8887dba3c516")
@@ -358,87 +392,10 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
         return ret;
     }
 
-    @objid ("7e05eb1f-1dec-11e2-8cad-001ec947c8cc")
-    protected static final PrecisionDimension parsePageSize(String value) {
-        if (value == null || value.isEmpty()) {
-            return null;
-        }
-        
-        final float oneInch = 25.4f; // mm
-        String s = value.replaceAll(" ", "");
-        
-        // This might be replaced by a lookup table in the future ?
-        if ("A0H".equals(s)) {
-            return convertMmToInch(new PrecisionDimension(1189, 841));
-        }
-        if ("A0V".equals(s)) {
-            return convertMmToInch(new PrecisionDimension(841, 1189));
-        }
-        if ("A1H".equals(s)) {
-            return convertMmToInch(new PrecisionDimension(841, 594));
-        }
-        if ("A1V".equals(s)) {
-            return convertMmToInch(new PrecisionDimension(594, 841));
-        }
-        if ("A2H".equals(s)) {
-            return convertMmToInch(new PrecisionDimension(594, 420));
-        }
-        if ("A2V".equals(s)) {
-            return convertMmToInch(new PrecisionDimension(420, 594));
-        }
-        if ("A3H".equals(s)) {
-            return convertMmToInch(new PrecisionDimension(420, 297));
-        }
-        if ("A3V".equals(s)) {
-            return convertMmToInch(new PrecisionDimension(297, 420));
-        }
-        if ("A4H".equals(s)) {
-            return convertMmToInch(new PrecisionDimension(297, 210));
-        }
-        if ("A4V".equals(s)) {
-            return convertMmToInch(new PrecisionDimension(210, 297));
-        }
-        if ("A5H".equals(s)) {
-            return convertMmToInch(new PrecisionDimension(210, 148));
-        }
-        if ("A5V".equals(s)) {
-            return convertMmToInch(new PrecisionDimension(148, 210));
-        }
-        
-        // try to parse
-        Pattern whR = Pattern.compile("(\\d+\\.?\\d*.*)(x|X)(\\d+\\.?\\d*.*)", Pattern.CASE_INSENSITIVE);
-        
-        Matcher whM = whR.matcher(s);
-        
-        if (whM.matches()) {
-            String widthString = whM.group(1);
-            String heightString = whM.group(3);
-            float width;
-            float height;
-        
-            if (widthString.endsWith("\"")) {
-                // inches
-        
-                width = Float.parseFloat(widthString.replaceAll("[^0-9\\.]", ""));
-            } else {
-                width = Float.parseFloat(widthString.replaceAll("[^0-9\\.]", "")) / oneInch; // 1 inch = 25,4 mm
-            }
-            if (heightString.endsWith("\"")) {
-                // inches
-                height = Float.parseFloat(heightString.replaceAll("[^0-9\\.]", ""));
-            } else {
-                height = Float.parseFloat(heightString.replaceAll("[^0-9\\.]", "")) / oneInch; // 1 inch = 25,4 mm
-            }
-            return new PrecisionDimension(width, height);
-        }
-        return null;
-    }
-
     /**
      * Refresh the figure from the given style.
      * <p>
      * Often called in {@link #createFigure()} and after a style change.
-     * 
      * @param aFigure The figure to update, should be {@link #getFigure()}.
      * @param style The style to update from, usually {@link #getModelStyle()}
      */
@@ -462,11 +419,7 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
         // TODO: in the future this parsing might become the responsibility of the property view,
         // ie the property view would propose a 'Dimension' editor returning the proper 'in pixel' dimension value...
         String pageSize = (String) style.getProperty(GmAbstractDiagramStyleKeys.PAGE_SIZE);
-        Dimension pixelPageSize = null;
-        PrecisionDimension inchPageSize = parsePageSize(pageSize);
-        if (inchPageSize != null) {
-            pixelPageSize = convertToPixel(inchPageSize);
-        }
+        Dimension pixelPageSize = PageSizeParser.parseInPixels(pageSize);
         
         //
         EditPartViewer v = getRoot().getViewer();
@@ -486,6 +439,7 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
         //
         v.setProperty(AbstractDiagramEditPart.PROPERTY_FILL_TILE_SIZE, pixelPageSize);
         diagramFigure.setPageBoundaries(pixelPageSize);
+        
     }
 
     /**
@@ -501,13 +455,13 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
         } else {
             doRemoveChildVisual(childEditPart);
         }
+        
     }
 
     /**
      * Resolve the given path against the project directory if it is a relative file path or a relative URL.
      * <p>
      * Returns the given string in all other cases.
-     * 
      * @param aPath a path
      * @return the resolved path.
      */
@@ -528,7 +482,7 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
                 // it is an URL, return string unmodified
                 return aPath;
             }
-        } catch (MalformedURLException e1) {
+        } catch (@SuppressWarnings ("unused") MalformedURLException e1) {
             // ignore and next try
         }
         
@@ -541,7 +495,7 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
                 p = getModel().getDiagram().getModelManager().getProjectPath().resolve(p);
                 return p.toUri().toString();
             }
-        } catch (InvalidPathException e) {
+        } catch (@SuppressWarnings ("unused") InvalidPathException e) {
             // ignore and return string unmodified
         }
         return path;
@@ -554,8 +508,8 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
      */
     @objid ("63960f32-4c68-40b8-b32a-1c350c22fb7a")
     protected final void runPostLoadActions() {
-        GmAbstractDiagram dg = (GmAbstractDiagram) getModel();
-        List<IPostLoadAction> postLoadActions = dg.getPostLoadActions();
+        GmAbstractDiagram gm = (GmAbstractDiagram) getModel();
+        List<IPostLoadAction> postLoadActions = gm.getPostLoadActions();
         
         if (!postLoadActions.isEmpty()) {
             final EditPartViewer viewer = getViewer();
@@ -564,16 +518,10 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
             }
             postLoadActions.clear();
         }
-    }
-
-    @objid ("67085f02-7375-4a44-8551-22dd1c7c6e22")
-    @Override
-    public void propertyChange(PropertyChangeEvent evt) {
-        switch (evt.getPropertyName()) {
-        case GmAbstractDiagram.PROP_UIDATA_VERSION:
-            updatePreviewData();
-        }
-        super.propertyChange(evt);
+        
+        // Fire a property change event
+        gm.firePropertyChange(GmAbstractDiagram.PROP_POSTLOADACTIONS_END);
+        
     }
 
     /**
@@ -588,31 +536,29 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
                 ImageLoader imgLoader = new ImageLoader();
                 imgLoader.data = new ImageData[] { img.getImageData() };
         
-                ByteArrayOutputStream bos = new ByteArrayOutputStream(img.getImageData().data.length);
-                imgLoader.save(bos, SWT.IMAGE_PNG);
+                try (ByteArrayOutputStream bos = new ByteArrayOutputStream(img.getImageData().data.length)) {
+                    imgLoader.save(bos, SWT.IMAGE_PNG);
         
-                StringBuilder pngPreviewString = new StringBuilder("data:image/png;base64,");
-                pngPreviewString.append(Base64.getEncoder().encodeToString(bos.toByteArray()));
+                    StringBuilder pngPreviewString = new StringBuilder("data:image/png;base64,");
+                    pngPreviewString.append(Base64.getEncoder().encodeToString(bos.toByteArray()));
         
-                bos.flush();
-                bos.close();
+                    bos.flush();
+                    bos.close();
         
-                AbstractDiagram diagram = (AbstractDiagram) this.getModel().getRelatedElement();
-                if (diagram != null)
-                    diagram.setPreviewData(pngPreviewString.toString());
+                    AbstractDiagram diagram = (AbstractDiagram) this.getModel().getRelatedElement();
+                    if (diagram != null) {
+                        diagram.setPreviewData(pngPreviewString.toString());
+                    }
         
-                img.dispose();
-                
-        
-            } catch (UnsupportedEncodingException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                    img.dispose();
+                }
             } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                DiagramElements.LOG.warning("Failed saving %s preview: %s", getModel().getRelatedElement(), FileUtils.getLocalizedMessage(e));
+                DiagramElements.LOG.warning(e);
             }
         
         }
+        
     }
 
     /**
@@ -623,7 +569,7 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
     @objid ("4d6b7bcf-d62e-4126-a0b9-8879a9f841ce")
     protected static class AskDrawingLayerEditPolicy extends AbstractEditPolicy {
         @objid ("2e8345e9-2a0a-491b-9b04-3992e964db70")
-        public AskDrawingLayerEditPolicy() {
+        public  AskDrawingLayerEditPolicy() {
             super();
         }
 
@@ -640,6 +586,127 @@ public class AbstractDiagramEditPart extends AbstractNodeEditPart {
                         return target;
                     }
                 }
+            }
+            return null;
+        }
+
+    }
+
+    @objid ("40520ac9-ef07-431c-8684-c2ab74230ea4")
+    protected static class PageSizeParser {
+        @objid ("ffd7767c-2777-45fe-8a2e-184cebe5982e")
+        private static final Pattern NOT_A_NUMBER = Pattern.compile("[^0-9\\.]");
+
+        @objid ("fad8119a-a879-4cbb-9664-41f81553bc9b")
+        private static final Pattern PAGE_FORMAT = Pattern.compile("(\\d+\\.?\\d*.*)(x)(\\d+\\.?\\d*.*)", Pattern.CASE_INSENSITIVE);
+
+        /**
+         * No instance
+         */
+        @objid ("6a6bb624-1d3a-461b-b4e2-948efcaf5d31")
+        private  PageSizeParser() {
+            
+        }
+
+        /**
+         * Parse the page size and returns it as inches
+         * @param value the page size string
+         * @return the page size in inches
+         */
+        @objid ("7e05eb1f-1dec-11e2-8cad-001ec947c8cc")
+        private static final PrecisionDimension parsePageSize(String value) {
+            if (value == null || value.isEmpty()) {
+                return null;
+            }
+            
+            final float oneInch = 25.4f; // mm
+            String s = value.replace(" ", "");
+            
+            // This might be replaced by a lookup table in the future ?
+            if ("A0H".equals(s)) {
+                return convertMmToInch(new PrecisionDimension(1189, 841));
+            }
+            if ("A0V".equals(s)) {
+                return convertMmToInch(new PrecisionDimension(841, 1189));
+            }
+            if ("A1H".equals(s)) {
+                return convertMmToInch(new PrecisionDimension(841, 594));
+            }
+            if ("A1V".equals(s)) {
+                return convertMmToInch(new PrecisionDimension(594, 841));
+            }
+            if ("A2H".equals(s)) {
+                return convertMmToInch(new PrecisionDimension(594, 420));
+            }
+            if ("A2V".equals(s)) {
+                return convertMmToInch(new PrecisionDimension(420, 594));
+            }
+            if ("A3H".equals(s)) {
+                return convertMmToInch(new PrecisionDimension(420, 297));
+            }
+            if ("A3V".equals(s)) {
+                return convertMmToInch(new PrecisionDimension(297, 420));
+            }
+            if ("A4H".equals(s)) {
+                return convertMmToInch(new PrecisionDimension(297, 210));
+            }
+            if ("A4V".equals(s)) {
+                return convertMmToInch(new PrecisionDimension(210, 297));
+            }
+            if ("A5H".equals(s)) {
+                return convertMmToInch(new PrecisionDimension(210, 148));
+            }
+            if ("A5V".equals(s)) {
+                return convertMmToInch(new PrecisionDimension(148, 210));
+            }
+            
+            // try to parse
+            Pattern whR = PAGE_FORMAT;
+            
+            Matcher whM = whR.matcher(s);
+            
+            if (whM.matches()) {
+                String widthString = whM.group(1);
+                String heightString = whM.group(3);
+                float width;
+                float height;
+            
+                if (widthString.endsWith("\"")) {
+                    // '"' character means inches
+            
+                    width = Float.parseFloat(NOT_A_NUMBER.matcher(widthString).replaceAll(""));
+                } else {
+                    // convert mm to inches
+                    width = Float.parseFloat(NOT_A_NUMBER.matcher(widthString).replaceAll("")) / oneInch; // 1 inch = 25,4 mm
+                }
+                if (heightString.endsWith("\"")) {
+                    // '"' character means inches
+            
+                    height = Float.parseFloat(NOT_A_NUMBER.matcher(heightString).replaceAll(""));
+                } else {
+                    // convert mm to inches
+                    height = Float.parseFloat(NOT_A_NUMBER.matcher(heightString).replaceAll("")) / oneInch; // 1 inch = 25,4 mm
+                }
+                return new PrecisionDimension(width, height);
+            }
+            return null;
+        }
+
+        /**
+         * Convert a dimension from inches to pixel
+         * @return the dimension in pixels
+         */
+        @objid ("7e05eb15-1dec-11e2-8cad-001ec947c8cc")
+        private static final PrecisionDimension convertToPixel(PrecisionDimension d) {
+            org.eclipse.swt.graphics.Point dpi = Display.getCurrent().getDPI();
+            return new PrecisionDimension(d.preciseWidth() * dpi.x, d.preciseHeight() * dpi.y);
+        }
+
+        @objid ("dc914ea1-7ad8-4d07-847d-9afce6f6c16c")
+        public static Dimension parseInPixels(String pageSize) {
+            PrecisionDimension inchPageSize = parsePageSize(pageSize);
+            if (inchPageSize != null) {
+                return convertToPixel(inchPageSize);
             }
             return null;
         }

@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.uml.statik.OperationData;
 import org.modelio.metamodel.uml.behavior.activityModel.AcceptCallEventAction;
 import org.modelio.metamodel.uml.behavior.activityModel.CallOperationAction;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
@@ -116,6 +115,7 @@ public class OperationImpl extends BehavioralFeatureImpl implements Operation {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("66e3ef24-6d9d-4359-b578-993993006c43")
@@ -137,6 +137,7 @@ public class OperationImpl extends BehavioralFeatureImpl implements Operation {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("5ae8e68f-fe99-44e8-9c7b-d95444904053")
@@ -158,6 +159,7 @@ public class OperationImpl extends BehavioralFeatureImpl implements Operation {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("8e2d7ad7-ea4e-4b47-8d5a-278894cd6d36")
@@ -179,6 +181,7 @@ public class OperationImpl extends BehavioralFeatureImpl implements Operation {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("b6e8e5a1-53a7-4410-9272-31f26794d8b3")
@@ -200,6 +203,7 @@ public class OperationImpl extends BehavioralFeatureImpl implements Operation {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("22c7e3e4-8103-49b2-b476-816f902774fe")
@@ -221,6 +225,7 @@ public class OperationImpl extends BehavioralFeatureImpl implements Operation {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("7e72dca1-f9e6-4be4-8631-62e47edaa12c")
@@ -242,6 +247,7 @@ public class OperationImpl extends BehavioralFeatureImpl implements Operation {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("d3d9891d-4c62-4101-a948-643f1cb099cb")
@@ -263,6 +269,7 @@ public class OperationImpl extends BehavioralFeatureImpl implements Operation {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("3d24df3f-ac61-42da-9227-e836d2a61714")
@@ -297,6 +304,7 @@ public class OperationImpl extends BehavioralFeatureImpl implements Operation {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("12398c92-48f3-4272-a7e1-4e1c683d6622")
@@ -331,6 +339,7 @@ public class OperationImpl extends BehavioralFeatureImpl implements Operation {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("62680231-b264-4812-be6f-5183356f77a5")
@@ -352,6 +361,7 @@ public class OperationImpl extends BehavioralFeatureImpl implements Operation {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("d600c138-8566-450e-90fc-cf492f2114ec")
@@ -373,6 +383,7 @@ public class OperationImpl extends BehavioralFeatureImpl implements Operation {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("e8a35e72-d48c-4ea4-af81-b0a74bcc6f95")
@@ -394,6 +405,7 @@ public class OperationImpl extends BehavioralFeatureImpl implements Operation {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("4b6aa7a3-a6ef-4bb2-b9b1-614bae16bcec")
@@ -415,6 +427,7 @@ public class OperationImpl extends BehavioralFeatureImpl implements Operation {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("4c34d2c2-9768-482b-98fc-9214ce956c68")
@@ -436,6 +449,7 @@ public class OperationImpl extends BehavioralFeatureImpl implements Operation {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("de2967b7-523a-4042-963b-c7e750836f8b")
@@ -457,6 +471,7 @@ public class OperationImpl extends BehavioralFeatureImpl implements Operation {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("ee2326e3-c130-401b-9473-8ad70526b0c7")
@@ -491,6 +506,7 @@ public class OperationImpl extends BehavioralFeatureImpl implements Operation {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("1f926e7a-ed93-42a0-b684-bd96b2c0136f")
@@ -512,6 +528,7 @@ public class OperationImpl extends BehavioralFeatureImpl implements Operation {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("ee9d36e4-842a-4da2-abe4-95c980b54b08")

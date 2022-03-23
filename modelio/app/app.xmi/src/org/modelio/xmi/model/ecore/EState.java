@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,9 +39,10 @@ public class EState extends ENamedElement {
     }
 
     @objid ("9bfe93e2-7acf-45b5-9cac-e04d35788b08")
-    public EState(org.eclipse.uml2.uml.State element) {
+    public  EState(org.eclipse.uml2.uml.State element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("f3bce808-f774-430c-9341-99f67ee6e0c0")
@@ -66,6 +66,7 @@ public class EState extends ENamedElement {
             String message = "The state named " + this.ecoreElement.getName() + " has not owner";
             ReverseProperties.getInstance().addError(message);
         }
+        
     }
 
     @objid ("220ff27e-36c0-42be-850a-6b07057e9939")
@@ -75,6 +76,7 @@ public class EState extends ENamedElement {
         if (objingElt instanceof State) {            
             setSubMachine((State) objingElt);
         }
+        
     }
 
     @objid ("77423b40-cd10-45de-9f31-731366346113")
@@ -86,6 +88,7 @@ public class EState extends ENamedElement {
                 state.setSubMachine((StateMachine) objingSubMachine);
             }
         }
+        
     }
 
 }

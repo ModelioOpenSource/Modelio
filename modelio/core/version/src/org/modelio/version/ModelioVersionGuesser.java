@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.version;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,11 +31,10 @@ import org.modelio.vbasic.version.Version;
 public class ModelioVersionGuesser {
     /**
      * Guess the Modelio version from the Standard metamodel version.
-     * 
      * @param v The "Standard" metamodel version
      * @return the Modelio version.
-     * @throws java.lang.IllegalArgumentException on invalid Modelio version
-     * @throws java.lang.UnsupportedOperationException on future Modelio metamodel
+     * @throws IllegalArgumentException on invalid Modelio version
+     * @throws UnsupportedOperationException on future Modelio metamodel
      */
     @objid ("9df8fafa-86c1-41f6-a44e-294e769d2490")
     public static Version guessFromStandardMmVersion(Version v) throws IllegalArgumentException, UnsupportedOperationException {
@@ -130,6 +128,7 @@ public class ModelioVersionGuesser {
                 throw new IllegalArgumentException(v.toString());
             }
         }
+        
     }
 
 }

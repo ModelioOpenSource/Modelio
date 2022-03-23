@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.elements.actor;
 
 import java.util.Collections;
@@ -75,6 +74,7 @@ public class SimpleActorEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                           new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("5e441586-55b7-11e2-877f-002564c97630")
@@ -89,6 +89,7 @@ public class SimpleActorEditPart extends AbstractNodeEditPart {
                 super.refreshFromStyle(aFigure, style);
             }
         }
+        
     }
 
     @objid ("5e44158e-55b7-11e2-877f-002564c97630")
@@ -96,6 +97,7 @@ public class SimpleActorEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         GmActorPrimaryNode model = (GmActorPrimaryNode) this.getModel();
         this.getFigure().getParent().setConstraint(this.getFigure(), model.getLayoutData());
+        
     }
 
     @objid ("5e441592-55b7-11e2-877f-002564c97630")

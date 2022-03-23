@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.search.engine.searchers.model;
 
 import java.util.ArrayList;
@@ -33,92 +32,100 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("1a9d1962-724e-4515-8968-0963140b4b70")
 public class ModelSearchCriteria implements ISearchCriteria {
+    
     @mdl.prop
     @objid ("0006df38-c59e-10ab-8258-001ec947cd2a")
     private boolean includeRamc;
 
     @mdl.propgetter
     public boolean isIncludeRamc() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.includeRamc;
     }
 
     @mdl.propsetter
     public void setIncludeRamc(boolean value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.includeRamc = value;
     }
 
+    
     @mdl.prop
     @objid ("135d0ab1-aeaf-4275-afdd-048d1b84408d")
     private String expression = ".*";
 
     @mdl.propgetter
     public String getExpression() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.expression;
     }
 
     @mdl.propsetter
     public void setExpression(String value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.expression = value;
     }
 
+    
     @mdl.prop
     @objid ("00516f6c-c5a4-10ab-8258-001ec947cd2a")
     private String stereotype = "";
 
     @mdl.propgetter
     public String getStereotype() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.stereotype;
     }
 
     @mdl.propsetter
     public void setStereotype(String value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.stereotype = value;
     }
 
+    
     @mdl.prop
     @objid ("11b84168-66b5-4215-b4d0-c8c875acc69b")
     private boolean caseSensitive;
 
     @mdl.propgetter
     public boolean isCaseSensitive() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.caseSensitive;
     }
 
     @mdl.propsetter
     public void setCaseSensitive(boolean value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.caseSensitive = value;
     }
 
     @objid ("f8beebe2-8966-4d67-9cde-a5d1497533a4")
     private final List<Class<? extends MObject>> metaclasses = new ArrayList<>();
 
+    
     @mdl.prop
     @objid ("9e7bea95-3871-4427-8c1e-298a2c03990f")
-    private IMObjectFilter filter;
+    public IMObjectFilter filter;
 
     @mdl.propgetter
     public IMObjectFilter getFilter() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.filter;
     }
 
     @mdl.propsetter
     public void setFilter(IMObjectFilter value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.filter = value;
     }
 
     @objid ("e69b5b62-d496-493a-8597-3524dfe50050")
     public void addMetaclass(MClass metaclass) {
-        this.metaclasses.add(metaclass.getJavaInterface());
+        if (metaclass != null) {
+            this.metaclasses.add(metaclass.getJavaInterface());
+        }
+        
     }
 
     @objid ("460e1645-7275-4455-8bd2-83d3229b2e11")
@@ -128,6 +135,7 @@ public class ModelSearchCriteria implements ISearchCriteria {
         this.includeRamc = true;
         this.stereotype = null;
         this.filter = null;
+        
     }
 
     @objid ("46b5f8e4-a1dc-4156-b6d9-75d7dccdcd3c")
@@ -144,6 +152,7 @@ public class ModelSearchCriteria implements ISearchCriteria {
         } catch (final PatternSyntaxException e) {
             return false;
         }
+        
     }
 
     @objid ("070a9c97-c843-4075-adac-9b8e9eddae5e")

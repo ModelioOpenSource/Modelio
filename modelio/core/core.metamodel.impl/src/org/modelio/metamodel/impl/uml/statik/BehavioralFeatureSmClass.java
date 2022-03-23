@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.statik.FeatureSmClass;
 import org.modelio.metamodel.uml.statik.BehavioralFeature;
 import org.modelio.metamodel.uml.statik.Feature;
 import org.modelio.vbasic.version.Version;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("91104596-96f5-4349-af9b-a9f073e341b1")
 public class BehavioralFeatureSmClass extends FeatureSmClass {
     @objid ("832b6bbd-4e3b-4128-b0a5-4a339b8f9d56")
-    public BehavioralFeatureSmClass(ISmMetamodelFragment origin) {
+    public  BehavioralFeatureSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class BehavioralFeatureSmClass extends FeatureSmClass {
     @Override
     public String getName() {
         return "BehavioralFeature";
+        
     }
 
     @objid ("7aadb651-3127-4c76-8e7f-00e0cd699401")
@@ -62,18 +62,21 @@ public class BehavioralFeatureSmClass extends FeatureSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BehavioralFeature.class;
+        
     }
 
     @objid ("2272a0f8-fdab-43a2-aea4-70fdf60fe412")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("76d0cf88-3353-46d8-8e3d-3f9511ddc6a7")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("979db336-7c31-4db8-a5dc-fb93cce05e3b")
@@ -86,6 +89,7 @@ public class BehavioralFeatureSmClass extends FeatureSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("a50b7489-6d70-4547-a4a7-7c314167f60d")
@@ -94,7 +98,7 @@ public class BehavioralFeatureSmClass extends FeatureSmClass {
         private BehavioralFeatureSmClass smClass;
 
         @objid ("b2e16873-18aa-4d02-84a1-173659d86972")
-        public BehavioralFeatureObjectFactory(BehavioralFeatureSmClass smClass) {
+        public  BehavioralFeatureObjectFactory(BehavioralFeatureSmClass smClass) {
             this.smClass = smClass;
         }
 

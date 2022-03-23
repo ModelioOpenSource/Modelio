@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model.spi.mm;
 
 import java.util.ArrayDeque;
@@ -53,15 +52,15 @@ public class MigrationChainResolver {
      * @param candidates migration candidates
      */
     @objid ("717ef400-ef95-4f68-9480-dec549059849")
-    public MigrationChainResolver(MetamodelVersionDescriptor from, MetamodelVersionDescriptor to, Collection<IMigrationProvider> candidates) {
+    public  MigrationChainResolver(MetamodelVersionDescriptor from, MetamodelVersionDescriptor to, Collection<IMigrationProvider> candidates) {
         this.from = from.unmodifiable();
         this.to = to;
         this.initCandidates = new ArrayList<>(candidates);
+        
     }
 
     /**
      * Look for a chain of migrators .
-     * 
      * @return the migration chain, never <i>null</i>.
      */
     @objid ("ab036867-2ddd-4e17-997f-d59e45ea1d95")
@@ -72,6 +71,7 @@ public class MigrationChainResolver {
         } else {
             return new MigrationChain(this.chain, false);
         }
+        
     }
 
     @objid ("5ff1d67d-2f93-4aaa-8dfd-e5d0b1622039")
@@ -121,11 +121,11 @@ public class MigrationChainResolver {
                                 .withTarget(this.to)
                                 .withMissingRemoved()
                                 .isTargetCompatible(true);
+        
     }
 
     /**
      * Look for a chain of migrator from a source toward a target metamodel.
-     * 
      * @param from the source metamodel
      * @param to the target metamodel
      * @param candidates Candidate migration tools.

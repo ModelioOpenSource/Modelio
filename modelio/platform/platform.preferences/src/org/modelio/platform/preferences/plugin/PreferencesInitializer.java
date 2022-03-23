@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.preferences.plugin;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -81,6 +80,7 @@ public class PreferencesInitializer extends AbstractPreferenceInitializer {
         } finally {
             PluginLogger.setLogLevel(oldLevel);
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common.index.jdbm;
 
 import java.io.IOError;
@@ -88,8 +87,7 @@ public class JdbmIndex implements IIndexDb {
 
     /**
      * Commit pending changes now, and reset internal counter.
-     * 
-     * @throws org.modelio.vstore.exml.common.index.IndexException in case of JDBM failure.
+     * @throws IndexException in case of JDBM failure.
      */
     @objid ("ea23dd5d-a9ba-4aae-96e0-51b10def6e74")
     @Override
@@ -104,6 +102,7 @@ public class JdbmIndex implements IIndexDb {
         } catch (IOException e) {
             throw JdbmIndexException.from(e);
         }
+        
     }
 
     @objid ("ffb1f476-6aae-4279-a6a5-d4652ff92c04")
@@ -129,6 +128,7 @@ public class JdbmIndex implements IIndexDb {
         } catch (IOException e) {
             throw JdbmIndexException.from(e);
         }
+        
     }
 
     @objid ("4cad4d71-2c3c-4e29-8442-15a9acfa124d")
@@ -146,13 +146,13 @@ public class JdbmIndex implements IIndexDb {
                 throw JdbmIndexException.from(e);
             } 
         }
+        
     }
 
     /**
      * Read the index format version.
-     * 
      * @return the index format version
-     * @throws org.modelio.vstore.exml.common.index.IndexException in case of I/O failure
+     * @throws IndexException in case of I/O failure
      */
     @objid ("367bd1fd-6a8b-4a07-90c3-ba79a5517541")
     @Override
@@ -171,6 +171,7 @@ public class JdbmIndex implements IIndexDb {
         } catch (IOException e) {
             throw JdbmIndexException.from(e);
         }
+        
     }
 
     @objid ("b53f76c7-1502-47e3-a97f-de585fb23903")
@@ -192,6 +193,7 @@ public class JdbmIndex implements IIndexDb {
         } catch (IOException e) {
             throw JdbmIndexException.from(e);
         }
+        
     }
 
     @objid ("c8da44c2-fcef-4836-892d-cf46b60dbab1")
@@ -211,12 +213,12 @@ public class JdbmIndex implements IIndexDb {
         } catch (IOException e) {
             throw JdbmIndexException.from(e);
         }
+        
     }
 
     /**
      * Save the index format version.
-     * 
-     * @throws org.modelio.vstore.exml.common.index.IndexException in case of I/O failure.
+     * @throws IndexException in case of I/O failure.
      */
     @objid ("e19e13cc-f742-449e-a654-27f2b1d27616")
     @Override
@@ -235,15 +237,15 @@ public class JdbmIndex implements IIndexDb {
         } catch (IOException e) {
             throw JdbmIndexException.from(e);
         }
+        
     }
 
     /**
      * Defragments the index, so it consumes less space. This commits any uncommitted data.
-     * 
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call done()
      * on the given monitor. Accepts null, indicating that no progress should be reported and that the operation cannot
      * be cancelled.
-     * @throws org.modelio.vstore.exml.common.index.IndexException in case of failure
+     * @throws IndexException in case of failure
      */
     @objid ("bfd527e3-0871-4bfb-9f39-7ff936d05d91")
     @Override
@@ -258,6 +260,7 @@ public class JdbmIndex implements IIndexDb {
         } catch (IOException e) {
             throw JdbmIndexException.from(e);
         }
+        
     }
 
     @objid ("6fb3045d-f237-48fb-9e03-58a39ef79b67")
@@ -290,6 +293,7 @@ public class JdbmIndex implements IIndexDb {
                     storedVersion,
                     INDEX_FORMAT_VERSION));
         }
+        
     }
 
 }

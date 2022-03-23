@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.mapi.modelshield.spi;
 
 import java.util.Arrays;
@@ -62,6 +61,7 @@ public class LinkExpertChecker implements IChecker {
             IModelError anEntry = new ModelError(this.ruleId, object, Arrays.<Object>asList(src, target));
             report.addEntry(anEntry);
         }
+        
     }
 
     @objid ("2f6715ff-3f2f-4752-bf56-cb25f279f35f")
@@ -84,6 +84,7 @@ public class LinkExpertChecker implements IChecker {
         for (MDependency dep : cls.getLinkMetaclassTargets()) {
             plan.registerChecker(this, cls, TriggerType.Update, dep.getName());
         }
+        
     }
 
     /**
@@ -91,9 +92,10 @@ public class LinkExpertChecker implements IChecker {
      * @param linkClass the java interface of the link metaclass.
      */
     @objid ("ad7cb240-f9bd-4c4d-bc5e-140bd8dab595")
-    public LinkExpertChecker(String ruleId, Class<? extends MObject> linkClass) {
+    public  LinkExpertChecker(String ruleId, Class<? extends MObject> linkClass) {
         this.ruleId = ruleId;
         this.linkClass = linkClass;
+        
     }
 
 }

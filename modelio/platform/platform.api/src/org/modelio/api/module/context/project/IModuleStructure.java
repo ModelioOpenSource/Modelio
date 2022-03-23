@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.context.project;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,7 +29,6 @@ import org.modelio.vbasic.version.Version;
 public interface IModuleStructure {
     /**
      * Get the module name.
-     * 
      * @return a name.
      */
     @objid ("5af8b46e-d5cc-11de-884b-001ec947cd2a")
@@ -38,7 +36,6 @@ public interface IModuleStructure {
 
     /**
      * Get the module version.
-     * 
      * @return a version
      */
     @objid ("5af8b470-d5cc-11de-884b-001ec947cd2a")
@@ -46,7 +43,6 @@ public interface IModuleStructure {
 
     /**
      * The path to the current module archive.
-     * 
      * @return an url for the module archive. Might be <code>null</code>.
      */
     @objid ("5af8b472-d5cc-11de-884b-001ec947cd2a")

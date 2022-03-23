@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.deploymentdiagram.editor.elements.deploymentdiagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -80,6 +79,7 @@ public class DeploymentDiagramEditPart extends AbstractDiagramEditPart {
         
         installEditPolicy("nary-link", new NLinkFinalizationEditPolicy());
         installEditPolicy("nary-connector", new NConnectorFinalizationEditPolicy());
+        
     }
 
 }

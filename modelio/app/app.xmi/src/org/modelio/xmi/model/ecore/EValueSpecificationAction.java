@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,9 +49,10 @@ public class EValueSpecificationAction extends EActivityNode {
     }
 
     @objid ("d82583ae-51ac-4c6a-9a02-4f1a83394b69")
-    public EValueSpecificationAction(org.eclipse.uml2.uml.ValueSpecificationAction element) {
+    public  EValueSpecificationAction(org.eclipse.uml2.uml.ValueSpecificationAction element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("61dfd7e4-696d-40ff-b4db-862728d05d35")
@@ -60,6 +60,7 @@ public class EValueSpecificationAction extends EActivityNode {
     public void setProperties(Element objingElt) {
         super.setProperties(objingElt);
         setValue((OpaqueAction) objingElt);
+        
     }
 
     @objid ("75131771-5310-419a-a5bc-6e3d57a67eeb")
@@ -88,6 +89,7 @@ public class EValueSpecificationAction extends EActivityNode {
         } catch (ElementNotUniqueException e) {
             Xmi.LOG.warning(e);
         }
+        
     }
 
 }

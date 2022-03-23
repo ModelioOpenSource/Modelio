@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.util;
 
 import java.io.BufferedReader;
@@ -43,13 +42,13 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.xmi.UnresolvedReferenceException;
 import org.modelio.gproject.gproject.GProject;
@@ -66,7 +65,6 @@ import org.modelio.xmi.plugin.Xmi;
 public class XMIFileUtils {
     /**
      * This service copies a file content into another file.
-     * 
      * @param source The source file
      * @param target The target file
      */
@@ -86,11 +84,11 @@ public class XMIFileUtils {
                 Xmi.LOG.error(Xmi.PLUGIN_ID, e);
             }
         }
+        
     }
 
     /**
      * This method converts an EMF UML file into the desired UML OMG format
-     * 
      * @param filePath The file location
      */
     @objid ("9e98fff9-cece-4466-a272-62b11828b02b")
@@ -196,11 +194,11 @@ public class XMIFileUtils {
         if (tempFolder.exists()) {
             tempFolder.delete();
         }
+        
     }
 
     /**
      * remove wrong references listed in the listErrors
-     * 
      * @param filePath The location of the file
      * @param listErrors The list of unavailable references
      */
@@ -269,12 +267,12 @@ public class XMIFileUtils {
                 Xmi.LOG.error(Xmi.PLUGIN_ID, e);
             }
         }
+        
     }
 
     /**
      * Apply the XSL Transformation (located in XSLTFile file) to the file located in oldFilePath.
      * The result is stored in newFilePath location.
-     * 
      * @param oldFilePath The file location on which the XSL will be applied
      * @param newFilePath The result location
      * @param XSLTFile The file containing the XSL Transformation
@@ -308,7 +306,6 @@ public class XMIFileUtils {
 
     /**
      * replace all oldPatterns[i] by newPatterns[i] in the file located in filePath.
-     * 
      * @param filePath The file location
      * @param oldPatterns The strings to replace
      * @param newPatterns The new strings
@@ -374,7 +371,6 @@ public class XMIFileUtils {
 
     /**
      * Test if the file contains at least one of the patterns.
-     * 
      * @param file The file to test
      * @param patterns The list of patterns
      * @return
@@ -416,7 +412,6 @@ public class XMIFileUtils {
 
     /**
      * Replace all the oldPatterns[i] by the newPatterns[i] from the oldFile to the newFile
-     * 
      * @param oldFilePath The location of the oldFile
      * @param newFilePath The location of the newFile i.e. the result file
      * @param oldPatterns The list of patterns to be replaced
@@ -452,11 +447,11 @@ public class XMIFileUtils {
         } catch (IOException e) {
             Xmi.LOG.error(Xmi.PLUGIN_ID, e);
         }
+        
     }
 
     /**
      * This service returns the list of applied profiles present
-     * 
      * @param filePath The location of the file
      * @return
      * The list of applied profile
@@ -509,6 +504,7 @@ public class XMIFileUtils {
         } catch (IOException e) {
             Xmi.LOG.error(Xmi.PLUGIN_ID, e);
         }
+        
     }
 
     @objid ("91cecbc1-1ac2-4666-84b7-9e916f19a706")
@@ -565,6 +561,7 @@ public class XMIFileUtils {
             bw.write(stringBuilder.toString());
             bw.close();
         }
+        
     }
 
     @objid ("aeac1ed9-8c34-46fe-8013-6a4ab32e556e")
@@ -589,6 +586,7 @@ public class XMIFileUtils {
         
             return stringBuilder.toString();
         }
+        
     }
 
     @objid ("b882b35c-e237-45ce-80de-c4cd000f6d26")
@@ -635,7 +633,6 @@ public class XMIFileUtils {
 
     /**
      * Create an Ecore Resource in the resourcePath location
-     * 
      * @param resourcePath The desired location of the Ecore Resource
      * @return
      * The Ecore Resource located in resourcePath

@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.rootElements;
 
 import java.util.ArrayList;
@@ -33,7 +33,6 @@ import org.eclipse.emf.common.util.EList;
 import org.modelio.metamodel.bpmn.flows.BpmnSequenceFlow;
 import org.modelio.metamodel.bpmn.resources.BpmnResourceRole;
 import org.modelio.metamodel.bpmn.rootElements.BpmnFlowNode;
-import org.modelio.metamodel.impl.bpmn.rootElements.BpmnFlowNodeData;
 import org.modelio.metamodel.visitors.IModelVisitor;
 import org.modelio.vcore.smkernel.SmConstrainedList;
 import org.modelio.vcore.smkernel.SmDepVal;
@@ -64,6 +63,7 @@ public abstract class BpmnFlowNodeImpl extends BpmnFlowElementImpl implements Bp
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("5456b411-f301-491d-91be-0429b0c5a2c9")
@@ -85,6 +85,7 @@ public abstract class BpmnFlowNodeImpl extends BpmnFlowElementImpl implements Bp
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("ab309742-cb94-436a-b948-42e4202324fe")
@@ -106,6 +107,7 @@ public abstract class BpmnFlowNodeImpl extends BpmnFlowElementImpl implements Bp
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("27d03faf-0d77-4170-89a5-a83af12f4513")

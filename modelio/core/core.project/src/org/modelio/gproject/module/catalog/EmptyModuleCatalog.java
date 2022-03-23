@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.module.catalog;
 
 import java.io.IOException;
@@ -47,7 +46,7 @@ public class EmptyModuleCatalog implements IModuleStore {
     }
 
     @objid ("57cd5c34-06f3-11e2-9469-001ec947ccaf")
-    private EmptyModuleCatalog() {
+    private  EmptyModuleCatalog() {
         // Nothing
     }
 

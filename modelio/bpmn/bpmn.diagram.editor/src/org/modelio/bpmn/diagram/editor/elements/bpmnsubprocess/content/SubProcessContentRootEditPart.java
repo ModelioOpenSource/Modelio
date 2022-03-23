@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnsubprocess.content;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,10 +35,11 @@ public class SubProcessContentRootEditPart extends EmbeddedDiagramRootEditPart {
         super.createEditPolicies();
         
         installEditPolicy(AutoExpandLayoutEditPolicy.class, new AutoExpandLayoutEditPolicy());
+        
     }
 
     @objid ("4e1e5d20-9b24-4a5b-a5a8-f13ba78e6788")
-    public SubProcessContentRootEditPart(EditPart parent, Object model) {
+    public  SubProcessContentRootEditPart(EditPart parent, Object model) {
         super(parent, model);
     }
 

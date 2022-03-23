@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.command.standard;
 
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.modelio.IModelioServices;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
@@ -63,7 +62,7 @@ public class DiagramCreationStandardHandler extends ElementCreationStandardHandl
      * Default constructor.
      */
     @objid ("2371011f-6d06-43e8-9e9f-bb79693d176f")
-    public DiagramCreationStandardHandler() {
+    public  DiagramCreationStandardHandler() {
         super();
     }
 
@@ -97,6 +96,7 @@ public class DiagramCreationStandardHandler extends ElementCreationStandardHandl
                 modelioServices.getEditionService().openEditor(diagram);
             }
         }
+        
     }
 
     @objid ("8f33aae2-7678-4482-8528-5c74cf6519a1")
@@ -116,6 +116,7 @@ public class DiagramCreationStandardHandler extends ElementCreationStandardHandl
                 continue;
             }
         }
+        
     }
 
     /**

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.communicationdiagram.editor.elements.communicationnode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,12 +33,12 @@ public class CommunicationNodeSymbolProvider {
      * This class is not instantiable.
      */
     @objid ("7a514986-55b6-11e2-877f-002564c97630")
-    private CommunicationNodeSymbolProvider() {
+    private  CommunicationNodeSymbolProvider() {
+        
     }
 
     /**
      * Get the communication node label at the following format: "name : representedType [min..max]"
-     * 
      * @param c the communication node
      * @return the computed label
      */
@@ -59,7 +58,6 @@ public class CommunicationNodeSymbolProvider {
 
     /**
      * Get the instance label at the following format: "name : type [min..max]"
-     * 
      * @param c the instance
      * @param s Where the computed cardinality is appended.
      * @return the computed label
@@ -85,7 +83,6 @@ public class CommunicationNodeSymbolProvider {
      * <li>1..* : returns "[1..*]"
      * <li>all other a..b : returns "[a..b]"
      * </ul>
-     * 
      * @param c The instance.
      * @param s Where the computed cardinality is appended.
      */
@@ -107,6 +104,7 @@ public class CommunicationNodeSymbolProvider {
             s.append(max);
             s.append("]");
         }
+        
     }
 
     @objid ("7a52d011-55b6-11e2-877f-002564c97630")
@@ -116,6 +114,7 @@ public class CommunicationNodeSymbolProvider {
         if (type != null) {
             s.append(type.getName());
         }
+        
     }
 
 }

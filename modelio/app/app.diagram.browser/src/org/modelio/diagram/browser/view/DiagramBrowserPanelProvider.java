@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.view;
 
 import java.util.ArrayList;
@@ -96,7 +95,7 @@ public class DiagramBrowserPanelProvider implements IPanelProvider {
     private RelatedModel relatedModel;
 
     @objid ("85b73aaf-54b9-11e2-85c1-002564c97630")
-    public DiagramBrowserPanelProvider(GProject project, IModelioNavigationService navigationService) {
+    public  DiagramBrowserPanelProvider(GProject project, IModelioNavigationService navigationService) {
         this.project = project;
         this.navigationService = navigationService;
         
@@ -105,6 +104,7 @@ public class DiagramBrowserPanelProvider implements IPanelProvider {
         this.byTypeModel = new ByTypeModel(project);
         this.byCtxModel = new ByCtxModel(project);
         this.relatedModel = new RelatedModel();
+        
     }
 
     @objid ("85b73ab2-54b9-11e2-85c1-002564c97630")
@@ -159,6 +159,7 @@ public class DiagramBrowserPanelProvider implements IPanelProvider {
                 this.treeViewer.setInput(input);
             }
         }
+        
     }
 
     @objid ("85b73ac1-54b9-11e2-85c1-002564c97630")
@@ -200,6 +201,7 @@ public class DiagramBrowserPanelProvider implements IPanelProvider {
             doSwitchBrowserModel(this.byTypeModel);
             break;
         }
+        
     }
 
     @objid ("000e7f72-0d4f-10c6-842f-001ec947cd2a")
@@ -218,6 +220,7 @@ public class DiagramBrowserPanelProvider implements IPanelProvider {
         // install label edition
         initEditor();
         // this.treeViewer.setCellModifier(this.model.getLabelEditor(this.treeViewer));
+        
     }
 
     @objid ("000ee9bc-0d4f-10c6-842f-001ec947cd2a")
@@ -289,6 +292,7 @@ public class DiagramBrowserPanelProvider implements IPanelProvider {
         TreeViewerEditor.create(this.treeViewer, null, this.actSupport, ColumnViewerEditor.TABBING_HORIZONTAL
                 | ColumnViewerEditor.TABBING_MOVE_TO_ROW_NEIGHBOR | ColumnViewerEditor.TABBING_VERTICAL
                 | ColumnViewerEditor.KEYBOARD_ACTIVATION);
+        
     }
 
     @objid ("3ad87aea-1000-42b1-9d2f-68020cbae703")
@@ -317,6 +321,7 @@ public class DiagramBrowserPanelProvider implements IPanelProvider {
             this.treeViewer.refresh();
             this.treeViewer.expandToLevel(2);
         }
+        
     }
 
     @objid ("cd4213f2-54c7-11e2-ae63-002564c97630")
@@ -330,6 +335,7 @@ public class DiagramBrowserPanelProvider implements IPanelProvider {
                     event.getTreeViewer().update(event.getElement(), null);
                 }
             });
+            
         }
 
         @objid ("cd4213f8-54c7-11e2-ae63-002564c97630")
@@ -341,6 +347,7 @@ public class DiagramBrowserPanelProvider implements IPanelProvider {
                     event.getTreeViewer().update(event.getElement(), null);
                 }
             });
+            
         }
 
     }

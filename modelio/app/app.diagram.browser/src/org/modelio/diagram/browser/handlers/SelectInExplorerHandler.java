@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.handlers;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.ui.services.IServiceConstants;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -43,7 +42,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class SelectInExplorerHandler extends AbstractBrwModelHandler {
     @objid ("a321bd45-c59d-4f93-b4f9-c1d4aea8b911")
     @Inject
-     IModelioNavigationService navigationService;
+    IModelioNavigationService navigationService;
 
     @objid ("97634cfd-1566-4a0f-a570-52fb1af17d39")
     @Override

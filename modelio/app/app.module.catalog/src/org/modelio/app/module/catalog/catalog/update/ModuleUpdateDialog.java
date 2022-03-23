@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.module.catalog.catalog.update;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,9 +40,10 @@ class ModuleUpdateDialog extends ModelioDialog {
     private UpdatePanel panel;
 
     @objid ("cc78bdff-9021-4b14-aa0a-f2826efbd913")
-    public ModuleUpdateDialog(Shell parentShell, UpdatePanelDataModel model) {
+    public  ModuleUpdateDialog(Shell parentShell, UpdatePanelDataModel model) {
         super(parentShell);
         this.model = model;
+        
     }
 
     @objid ("67e6c5f5-995f-4cb8-9b21-0337980af059")
@@ -65,6 +65,7 @@ class ModuleUpdateDialog extends ModelioDialog {
     public void addButtonsInButtonBar(Composite parent) {
         createButton(parent, OK, AppModules.I18N.getString("ModuleUpdateDialog.Update"), true);
         createButton(parent, CANCEL, AppModules.I18N.getString("ModuleUpdateDialog.Close"), true);
+        
     }
 
     @objid ("4a98a9b5-8949-4c2e-8a42-63a1dfa29c29")
@@ -84,6 +85,7 @@ class ModuleUpdateDialog extends ModelioDialog {
         getShell().layout(true);
         
         getShell().setBounds(refBounds.x + ((refBounds.width - width) / 2), refBounds.y + ((refBounds.height - height) / 2), width, height);
+        
     }
 
     @objid ("0644d8db-b0f6-40a2-93f6-19f5ff0dcf7a")

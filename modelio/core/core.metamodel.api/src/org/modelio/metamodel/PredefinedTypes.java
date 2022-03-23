@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -165,7 +164,7 @@ public final class PredefinedTypes {
     public static final String UNDEFINED_UID = "00000004-0000-000f-0000-000000000000";
 
     @objid ("5c7889e3-6f7d-4413-adc0-abf0f9b3835d")
-    private PredefinedTypes() {
+    private  PredefinedTypes() {
         // no instance
     }
 

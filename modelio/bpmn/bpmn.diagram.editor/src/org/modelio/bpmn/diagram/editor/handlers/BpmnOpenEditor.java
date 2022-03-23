@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.handlers;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -49,6 +48,7 @@ public class BpmnOpenEditor extends OpenEditor {
         } else {
             return super.isHandled(elt);
         }
+        
     }
 
     @objid ("ff31201d-e1fe-475a-8faf-2d9d1e97678e")
@@ -70,6 +70,7 @@ public class BpmnOpenEditor extends OpenEditor {
         } else {
             return super.getMapping(elt);
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.datastore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,6 +44,7 @@ public class GmDataStoreMigrator implements IPersistentMigrator {
             return null;
         }
         }
+        
     }
 
     @objid ("2a2c037b-55b6-11e2-877f-002564c97630")

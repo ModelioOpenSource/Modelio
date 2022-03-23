@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.drawings.core.node;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -56,9 +55,10 @@ class NodeLabelDirectEditPolicy extends DirectEditPolicy {
         private GmNodeDrawing gm;
 
         @objid ("4f5ed59a-1ce3-4f40-b005-bc4f77031961")
-        public EditCommand(GmNodeDrawing gm, String text) {
+        public  EditCommand(GmNodeDrawing gm, String text) {
             this.gm = gm;
             this.text = text;
+            
         }
 
         @objid ("437a798a-95b4-4f88-823f-79c5ade08b66")

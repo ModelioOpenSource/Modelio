@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,17 +49,15 @@ public class AssociationPropertyModel extends AbstractPropertyModel<Association>
 
     /**
      * Create a new <i>Association</i> data model from an <i>Association</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("6cf9886f-a5fb-4111-8d31-f01ea2aa215e")
-    public AssociationPropertyModel(Association theEditedElement) {
+    public  AssociationPropertyModel(Association theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("782f58e9-5c78-459f-889d-97bbe4630d7c")
@@ -71,7 +68,6 @@ public class AssociationPropertyModel extends AbstractPropertyModel<Association>
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("eaecccf0-f74c-4fdd-9359-cfbb8fd0f852")
@@ -84,7 +80,6 @@ public class AssociationPropertyModel extends AbstractPropertyModel<Association>
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -106,6 +101,7 @@ public class AssociationPropertyModel extends AbstractPropertyModel<Association>
         default:
             return null;
         }
+        
     }
 
     /**
@@ -115,7 +111,6 @@ public class AssociationPropertyModel extends AbstractPropertyModel<Association>
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -138,13 +133,13 @@ public class AssociationPropertyModel extends AbstractPropertyModel<Association>
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -169,6 +164,7 @@ public class AssociationPropertyModel extends AbstractPropertyModel<Association>
         default:
             return;
         }
+        
     }
 
 }

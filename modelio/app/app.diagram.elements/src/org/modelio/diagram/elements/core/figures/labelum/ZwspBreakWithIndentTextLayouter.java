@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.labelum;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,11 +45,12 @@ public class ZwspBreakWithIndentTextLayouter extends CharSeqBreakTextLayouter {
     public static final ZwspBreakWithIndentTextLayouter INSTANCE = new ZwspBreakWithIndentTextLayouter();
 
     @objid ("dce481f3-5221-438e-9e50-b35daa8d53d8")
-    public ZwspBreakWithIndentTextLayouter() {
+    public  ZwspBreakWithIndentTextLayouter() {
         super();
         setBreakAfter(ZERO_WIDTH_SPACE);
         setIndent("    ");
         setBreakAll(true);
+        
     }
 
 }

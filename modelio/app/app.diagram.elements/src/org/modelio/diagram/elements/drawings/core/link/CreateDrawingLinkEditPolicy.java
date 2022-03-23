@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.drawings.core.link;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,7 +42,6 @@ import org.eclipse.gef.requests.DropRequest;
 import org.eclipse.gef.requests.ReconnectRequest;
 import org.modelio.diagram.elements.core.figures.FigureUtilities2;
 import org.modelio.diagram.elements.core.link.CreateBendedConnectionRequest;
-import org.modelio.diagram.elements.core.link.path.ConnectionHelperFactory;
 import org.modelio.diagram.elements.core.link.path.ConnectionPolicyUtils;
 import org.modelio.diagram.elements.core.link.path.IConnectionHelper;
 import org.modelio.diagram.elements.core.model.IGmPath;
@@ -64,15 +62,12 @@ public class CreateDrawingLinkEditPolicy extends GraphicalNodeEditPolicy {
 
     /**
      * <p>
-     * This boolean is used to determine the behavior to adopt when receiving a request about a link metaclass that is not handled
-     * because the CreationExpert does not allow it.
+     * This boolean is used to determine the behavior to adopt when receiving a request about a link metaclass that is not handled because the CreationExpert does not allow it.
      * </p>
      * <ul>
-     * <li>When <code>true</code>, the policy will still return the host in the "getTargetEditPart" method and it will return a non
-     * executable command in the getCommand method. This will in effect prevent the tool from proposing the request to the host's
+     * <li>When <code>true</code>, the policy will still return the host in the "getTargetEditPart" method and it will return a non executable command in the getCommand method. This will in effect prevent the tool from proposing the request to the host's
      * parent edit part, meaning the host is "opaque".</li>
-     * <li>When <code>false</code> on the other hand, the getTargetEditPart method will return <code>null</code>, giving a chance to
-     * the tool to propose the request to the host's parent edit part, meaning the host is "transparent".</li>
+     * <li>When <code>false</code> on the other hand, the getTargetEditPart method will return <code>null</code>, giving a chance to the tool to propose the request to the host's parent edit part, meaning the host is "transparent".</li>
      * </ul>
      */
     @objid ("b1319d6c-bfc3-4fc5-a5f3-3bb364bcbfce")
@@ -89,7 +84,7 @@ public class CreateDrawingLinkEditPolicy extends GraphicalNodeEditPolicy {
      * @see #CreateDrawingLinkEditPolicy(boolean)
      */
     @objid ("f8035320-96b3-46c9-97d4-a5b58018dc7a")
-    public CreateDrawingLinkEditPolicy() {
+    public  CreateDrawingLinkEditPolicy() {
         this(true);
     }
 
@@ -100,24 +95,21 @@ public class CreateDrawingLinkEditPolicy extends GraphicalNodeEditPolicy {
      * <p>
      * <string><em>Note about isOpaque effect:</em></strong>
      * <p>
-     * This boolean is used to determine the behavior to adopt when receiving a request about a link metaclass that is not handled
-     * because the CreationExpert does not allow it.
+     * This boolean is used to determine the behavior to adopt when receiving a request about a link metaclass that is not handled because the CreationExpert does not allow it.
      * </p>
      * <ul>
-     * <li>When <code>true</code>, the policy will still return the host in the "getTargetEditPart" method and it will return a non
-     * executable command in the getCommand method. This will in effect prevent the tool from proposing the request to the host's
+     * <li>When <code>true</code>, the policy will still return the host in the "getTargetEditPart" method and it will return a non executable command in the getCommand method. This will in effect prevent the tool from proposing the request to the host's
      * parent edit part, meaning the host is "opaque".</li>
-     * <li>When <code>false</code> on the other hand, the getTargetEditPart method will return <code>null</code>, giving a chance to
-     * the tool to propose the request to the host's parent edit part, meaning the host is "transparent".</li>
+     * <li>When <code>false</code> on the other hand, the getTargetEditPart method will return <code>null</code>, giving a chance to the tool to propose the request to the host's parent edit part, meaning the host is "transparent".</li>
      * </ul>
      * </p>
-     * 
      * @param isOpaque determines the behavior of this policy on request where the creation expert doesn't allow. See Note.
      */
     @objid ("07670c82-1127-4184-b55f-baf4a5e8667d")
-    public CreateDrawingLinkEditPolicy(final boolean isOpaque) {
+    public  CreateDrawingLinkEditPolicy(final boolean isOpaque) {
         super();
         this.isOpaque = isOpaque;
+        
     }
 
     @objid ("a7c83a97-fdd7-4aff-abae-f93cc6775b68")
@@ -128,6 +120,7 @@ public class CreateDrawingLinkEditPolicy extends GraphicalNodeEditPolicy {
         } else {
             super.eraseSourceFeedback(request);
         }
+        
     }
 
     @objid ("6a45c223-ac00-446c-a25e-1ce88ba0c77f")
@@ -138,6 +131,7 @@ public class CreateDrawingLinkEditPolicy extends GraphicalNodeEditPolicy {
         } else {
             super.eraseTargetFeedback(request);
         }
+        
     }
 
     @objid ("5034db51-7e92-43af-bb04-8421ea9941a0")
@@ -164,6 +158,7 @@ public class CreateDrawingLinkEditPolicy extends GraphicalNodeEditPolicy {
         } else {
             super.showSourceFeedback(request);
         }
+        
     }
 
     @objid ("e2980085-0a68-494c-ad10-ace32edf1a1b")
@@ -174,12 +169,14 @@ public class CreateDrawingLinkEditPolicy extends GraphicalNodeEditPolicy {
         } else {
             super.showTargetFeedback(request);
         }
+        
     }
 
     @objid ("64b18ff3-83ff-4a8a-b0c2-609c40e61252")
     @Override
     protected Connection createDummyConnection(Request req) {
         final PolylineConnection ret = new PolylineConnection();
+        ret.removeAllPoints();
         
         // Add an arrow
         final PolylineDecoration arrow = new PolylineDecoration();
@@ -195,7 +192,6 @@ public class CreateDrawingLinkEditPolicy extends GraphicalNodeEditPolicy {
 
     /**
      * Create a serializable path model from the given connection creation request.
-     * 
      * @param req a connection creation request.
      * @return A serializable path model.
      */
@@ -221,6 +217,7 @@ public class CreateDrawingLinkEditPolicy extends GraphicalNodeEditPolicy {
             feedbackLayer.remove(this.highlight);
             this.highlight = null;
         }
+        
     }
 
     @objid ("5e1a1492-d03b-447f-aa97-1e04650a40b2")
@@ -335,7 +332,7 @@ public class CreateDrawingLinkEditPolicy extends GraphicalNodeEditPolicy {
             getFeedbackHelper(request);
         
             // Set/update the router
-            final ConnectionRouter router = ConnectionPolicyUtils.getRouterRegistry(getHost()).get(req.getData().getRoutingMode());
+            final ConnectionRouter router = ConnectionPolicyUtils.getRoutingServices(getHost()).getRouter(req.getData().getRoutingMode());
             this.connectionFeedback.setConnectionRouter(router);
         
             // Set/update the source anchor
@@ -352,12 +349,13 @@ public class CreateDrawingLinkEditPolicy extends GraphicalNodeEditPolicy {
             this.connectionFeedback.setTargetAnchor(targetAnchor);
         
             // Set/update the routing constraint.
-            IConnectionHelper connHelper = ConnectionHelperFactory.getUpdatedConnectionHelper(req, this.connectionFeedback);
+            IConnectionHelper connHelper = ConnectionPolicyUtils.getRoutingServices(getHost()).getConnectionHelperFactory().getUpdatedConnectionHelper(req, this.connectionFeedback);
             this.connectionFeedback.setRoutingConstraint(connHelper.getRoutingConstraint());
         
         } else {
             super.showCreationFeedback(request);
         }
+        
     }
 
     @objid ("f7bb2384-3588-41b9-b2d2-d1efd3dc3528")
@@ -392,11 +390,11 @@ public class CreateDrawingLinkEditPolicy extends GraphicalNodeEditPolicy {
             // configure the highlight figure
             FigureUtilities2.updateHighlightType(this.highlight, hightlightType);
         }
+        
     }
 
     /**
      * Returns the host if the given request can be handled, <code>null</code> otherwise.
-     * 
      * @param request a Source Reconnect request.
      * @return the host edit part or <code>null</code>.
      */
@@ -427,11 +425,11 @@ public class CreateDrawingLinkEditPolicy extends GraphicalNodeEditPolicy {
         } else {
             return null;
         }
+        
     }
 
     /**
      * Returns the host if the given request can be handled, <code>null</code> otherwise.
-     * 
      * @param request a Target Reconnect request.
      * @return the host edit part or <code>null</code>.
      */
@@ -463,11 +461,11 @@ public class CreateDrawingLinkEditPolicy extends GraphicalNodeEditPolicy {
         } else {
             return null;
         }
+        
     }
 
     /**
      * Returns the host if the given request can be handled, <code>null</code> otherwise.
-     * 
      * @param request a complete Connection creation request.
      * @return the host edit part or <code>null</code>.
      */
@@ -486,7 +484,6 @@ public class CreateDrawingLinkEditPolicy extends GraphicalNodeEditPolicy {
 
     /**
      * Returns the host if the given request can be handled, <code>null</code> otherwise.
-     * 
      * @param request a starting Connection creation request.
      * @return the host edit part or <code>null</code>.
      */
@@ -514,6 +511,7 @@ public class CreateDrawingLinkEditPolicy extends GraphicalNodeEditPolicy {
         } else {
             return false;
         }
+        
     }
 
     @objid ("cc7ebfac-35ba-48f3-87b4-19a82e031294")

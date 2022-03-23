@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package com.sun.star.lib.loader;
 
 import java.lang.reflect.InvocationTargetException;
@@ -99,7 +98,8 @@ public class WinRegistry {
     private static Class<? extends Preferences> userClass = userRoot.getClass();
 
     @objid ("10ba0134-4b7e-462c-ab73-7908f55dfc2f")
-    private WinRegistry() {
+    private  WinRegistry() {
+        
     }
 
     /**
@@ -109,7 +109,6 @@ public class WinRegistry {
      * @throws IllegalArgumentException
      * @throws IllegalAccessException
      * @throws InvocationTargetException
-     * 
      * @param hkey HKEY_CURRENT_USER/HKEY_LOCAL_MACHINE
      * @return the value
      */
@@ -122,6 +121,7 @@ public class WinRegistry {
         } else {
             throw new IllegalArgumentException("hkey=" + hkey);
         }
+        
     }
 
     /**
@@ -130,7 +130,6 @@ public class WinRegistry {
      * @throws IllegalArgumentException
      * @throws IllegalAccessException
      * @throws InvocationTargetException
-     * 
      * @param hkey HKEY_CURRENT_USER/HKEY_LOCAL_MACHINE
      * @return the value name(s) plus the value(s)
      */
@@ -143,6 +142,7 @@ public class WinRegistry {
         } else {
             throw new IllegalArgumentException("hkey=" + hkey);
         }
+        
     }
 
     /**
@@ -151,7 +151,6 @@ public class WinRegistry {
      * @throws IllegalArgumentException
      * @throws IllegalAccessException
      * @throws InvocationTargetException
-     * 
      * @param hkey HKEY_CURRENT_USER/HKEY_LOCAL_MACHINE
      * @return the value name(s)
      */
@@ -164,6 +163,7 @@ public class WinRegistry {
         } else {
             throw new IllegalArgumentException("hkey=" + hkey);
         }
+        
     }
 
     /**
@@ -172,7 +172,6 @@ public class WinRegistry {
      * @throws IllegalArgumentException
      * @throws IllegalAccessException
      * @throws InvocationTargetException
-     * 
      * @param hkey HKEY_CURRENT_USER/HKEY_LOCAL_MACHINE
      */
     @objid ("e6a7e733-e5e1-4bad-a279-4332ef3b09f3")
@@ -190,6 +189,7 @@ public class WinRegistry {
         if (ret[1] != REG_SUCCESS) {
             throw new IllegalArgumentException("rc=" + ret[1] + "  key=" + key);
         }
+        
     }
 
     /**
@@ -211,6 +211,7 @@ public class WinRegistry {
         } else {
             throw new IllegalArgumentException("hkey=" + hkey);
         }
+        
     }
 
     /**
@@ -232,6 +233,7 @@ public class WinRegistry {
         if (rc != REG_SUCCESS) {
             throw new IllegalArgumentException("rc=" + rc + "  key=" + key);
         }
+        
     }
 
     /**
@@ -254,9 +256,10 @@ public class WinRegistry {
         if (rc != REG_SUCCESS) {
             throw new IllegalArgumentException("rc=" + rc + "  key=" + key + "  value=" + value);
         }
+        
     }
 
-// =====================
+    // =====================
     @objid ("7cfeff5b-9a5e-478a-a80b-7964829e473f")
     private static int deleteValue(Preferences root, int hkey, String key, String value) throws IllegalArgumentException, InvocationTargetException, IllegalAccessException {
         int[] handles = (int[]) regOpenKey.invoke(root, new Object[] { new Integer(hkey), toCstr(key),
@@ -344,9 +347,10 @@ public class WinRegistry {
         
         regSetValueEx.invoke(root, new Object[] { new Integer(handles[0]), toCstr(valueName), toCstr(value) });
         regCloseKey.invoke(root, new Object[] { new Integer(handles[0]) });
+        
     }
 
-// utility
+    // utility
     @objid ("fbb4f73e-cb07-4f9e-98e3-3a17a811463d")
     private static byte[] toCstr(String str) {
         byte[] result = new byte[str.length() + 1];
@@ -357,41 +361,40 @@ public class WinRegistry {
         result[str.length()] = 0;
         return result;
     }
-
-
 static {
-        try {
-            regOpenKey = userClass.getDeclaredMethod("WindowsRegOpenKey", new Class[] { int.class,
-                    byte[].class, int.class });
-            regOpenKey.setAccessible(true);
-            regCloseKey = userClass.getDeclaredMethod("WindowsRegCloseKey", new Class[] { int.class });
-            regCloseKey.setAccessible(true);
-            regQueryValueEx = userClass.getDeclaredMethod("WindowsRegQueryValueEx", new Class[] { int.class,
-                    byte[].class });
-            regQueryValueEx.setAccessible(true);
-            regEnumValue = userClass.getDeclaredMethod("WindowsRegEnumValue", new Class[] { int.class,
-                    int.class, int.class });
-            regEnumValue.setAccessible(true);
-            regQueryInfoKey = userClass.getDeclaredMethod("WindowsRegQueryInfoKey1",
-                                                          new Class[] { int.class });
-            regQueryInfoKey.setAccessible(true);
-            regEnumKeyEx = userClass.getDeclaredMethod("WindowsRegEnumKeyEx", new Class[] { int.class,
-                    int.class, int.class });
-            regEnumKeyEx.setAccessible(true);
-            regCreateKeyEx = userClass.getDeclaredMethod("WindowsRegCreateKeyEx", new Class[] { int.class,
-                    byte[].class });
-            regCreateKeyEx.setAccessible(true);
-            regSetValueEx = userClass.getDeclaredMethod("WindowsRegSetValueEx", new Class[] { int.class,
-                    byte[].class, byte[].class });
-            regSetValueEx.setAccessible(true);
-            regDeleteValue = userClass.getDeclaredMethod("WindowsRegDeleteValue", new Class[] { int.class,
-                    byte[].class });
-            regDeleteValue.setAccessible(true);
-            regDeleteKey = userClass.getDeclaredMethod("WindowsRegDeleteKey", new Class[] { int.class,
-                    byte[].class });
-            regDeleteKey.setAccessible(true);
-        } catch (Exception e) {
-            e.printStackTrace();
+            try {
+                regOpenKey = userClass.getDeclaredMethod("WindowsRegOpenKey", new Class[] { int.class,
+                        byte[].class, int.class });
+                regOpenKey.setAccessible(true);
+                regCloseKey = userClass.getDeclaredMethod("WindowsRegCloseKey", new Class[] { int.class });
+                regCloseKey.setAccessible(true);
+                regQueryValueEx = userClass.getDeclaredMethod("WindowsRegQueryValueEx", new Class[] { int.class,
+                        byte[].class });
+                regQueryValueEx.setAccessible(true);
+                regEnumValue = userClass.getDeclaredMethod("WindowsRegEnumValue", new Class[] { int.class,
+                        int.class, int.class });
+                regEnumValue.setAccessible(true);
+                regQueryInfoKey = userClass.getDeclaredMethod("WindowsRegQueryInfoKey1",
+                                                              new Class[] { int.class });
+                regQueryInfoKey.setAccessible(true);
+                regEnumKeyEx = userClass.getDeclaredMethod("WindowsRegEnumKeyEx", new Class[] { int.class,
+                        int.class, int.class });
+                regEnumKeyEx.setAccessible(true);
+                regCreateKeyEx = userClass.getDeclaredMethod("WindowsRegCreateKeyEx", new Class[] { int.class,
+                        byte[].class });
+                regCreateKeyEx.setAccessible(true);
+                regSetValueEx = userClass.getDeclaredMethod("WindowsRegSetValueEx", new Class[] { int.class,
+                        byte[].class, byte[].class });
+                regSetValueEx.setAccessible(true);
+                regDeleteValue = userClass.getDeclaredMethod("WindowsRegDeleteValue", new Class[] { int.class,
+                        byte[].class });
+                regDeleteValue.setAccessible(true);
+                regDeleteKey = userClass.getDeclaredMethod("WindowsRegDeleteKey", new Class[] { int.class,
+                        byte[].class });
+                regDeleteKey.setAccessible(true);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-    }
+    
 }

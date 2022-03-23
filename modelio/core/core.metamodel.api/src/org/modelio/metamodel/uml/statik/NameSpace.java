@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.uml.statik;
 
 import java.util.List;
@@ -32,15 +32,6 @@ import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
 import org.modelio.metamodel.uml.informationFlow.DataFlow;
 import org.modelio.metamodel.uml.informationFlow.InformationFlow;
 import org.modelio.metamodel.uml.infrastructure.ModelTree;
-import org.modelio.metamodel.uml.statik.CollaborationUse;
-import org.modelio.metamodel.uml.statik.ElementImport;
-import org.modelio.metamodel.uml.statik.Generalization;
-import org.modelio.metamodel.uml.statik.Instance;
-import org.modelio.metamodel.uml.statik.InterfaceRealization;
-import org.modelio.metamodel.uml.statik.PackageImport;
-import org.modelio.metamodel.uml.statik.TemplateBinding;
-import org.modelio.metamodel.uml.statik.TemplateParameter;
-import org.modelio.metamodel.uml.statik.VisibilityMode;
 
 /**
  * NameSpace v0.0.9054

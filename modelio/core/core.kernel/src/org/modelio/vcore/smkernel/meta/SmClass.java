@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta;
 
 import java.util.ArrayList;
@@ -193,7 +192,6 @@ public abstract class SmClass extends SmElement implements MClass {
      * <p>
      * The typical usage of 'extEquals' is to compare metaclasses in checkers or audit rules while taking into account the extension
      * metamodel fragments and their resulting extended inheritance tree!
-     * 
      * @param other another metaclass
      * @return true if this class is the same as the other, or is a sub class of the other in another fragment.
      */
@@ -204,12 +202,12 @@ public abstract class SmClass extends SmElement implements MClass {
         } else {
             return hasBase(other);
         }
+        
     }
 
     /**
      * Get self and inherited attribute definitions.
      * <p>
-     * 
      * @return attribute definitions.
      */
     @objid ("0083ee2e-ed97-1f1f-85a5-001ec947cd2a")
@@ -220,7 +218,6 @@ public abstract class SmClass extends SmElement implements MClass {
     /**
      * Get self and inherited composition and shared composition dependencies.
      * <p>
-     * 
      * @return composition and shared composition dependencies.
      */
     @objid ("ef85e9e0-bea9-11e1-b576-001ec947ccaf")
@@ -232,7 +229,6 @@ public abstract class SmClass extends SmElement implements MClass {
      * Get self and inherited composition dependencies.
      * <p>
      * Excludes shared compositions.
-     * 
      * @return composition dependencies.
      */
     @objid ("0083eec4-ed97-1f1f-85a5-001ec947cd2a")
@@ -242,7 +238,6 @@ public abstract class SmClass extends SmElement implements MClass {
 
     /**
      * Get all defined dependencies.
-     * 
      * @return all dependencies.
      */
     @objid ("0083ef82-ed97-1f1f-85a5-001ec947cd2a")
@@ -254,7 +249,6 @@ public abstract class SmClass extends SmElement implements MClass {
      * Get self and inherited reference dependencies.
      * <p>
      * Excludes compositions, shared compositions, and "non navigable" dependencies..
-     * 
      * @return composition dependencies.
      */
     @objid ("0083f0b8-ed97-1f1f-85a5-001ec947cd2a")
@@ -264,7 +258,6 @@ public abstract class SmClass extends SmElement implements MClass {
 
     /**
      * Get self and inherited shared composition dependencies.
-     * 
      * @return self and inherited shared composition dependencies.
      */
     @objid ("f2e7fb1e-bfa2-11e1-b511-001ec947ccaf")
@@ -274,7 +267,6 @@ public abstract class SmClass extends SmElement implements MClass {
 
     /**
      * Get all the sub classes recursively.
-     * 
      * @return all the sub classes.
      */
     @objid ("0083f1e4-ed97-1f1f-85a5-001ec947cd2a")
@@ -300,7 +292,6 @@ public abstract class SmClass extends SmElement implements MClass {
      * Get the attribute definition with the given name.
      * <p>
      * Look into the class attributes and inherited attributes.
-     * 
      * @param att_name the attribute name
      * @return the found attribute or <code>null</code> if none has the given name.
      */
@@ -322,6 +313,7 @@ public abstract class SmClass extends SmElement implements MClass {
         } else {
             return Collections.unmodifiableList(getSelfAttDef());
         }
+        
     }
 
     @objid ("0003d806-4c5f-1ffc-8433-001ec947cd2a")
@@ -332,6 +324,7 @@ public abstract class SmClass extends SmElement implements MClass {
         } else {
             return Collections.unmodifiableList(getSelfDepDef());
         }
+        
     }
 
     @objid ("000391d4-4c5f-1ffc-8433-001ec947cd2a")
@@ -346,7 +339,6 @@ public abstract class SmClass extends SmElement implements MClass {
      * Look into the class dependency and inherited dependency.
      * <p>
      * Some implementations may choose to create a SmDependency if none exist.
-     * 
      * @param dep_name the dependency name
      * @return the found dependency or <code>null</code> if none has the given name.
      */
@@ -357,7 +349,6 @@ public abstract class SmClass extends SmElement implements MClass {
 
     /**
      * Get the EMF adapter for this class.
-     * 
      * @return the EMF class.
      */
     @objid ("ef9437fd-bea9-11e1-b576-001ec947ccaf")
@@ -369,7 +360,6 @@ public abstract class SmClass extends SmElement implements MClass {
      * Get the metaclass id.
      * <p>
      * This identifier must not be used in long term storage as may change at each metamodel change.
-     * 
      * @return the metaclass id.
      */
     @objid ("0056e398-fd1a-1f27-a7da-001ec947cd2a")
@@ -385,7 +375,6 @@ public abstract class SmClass extends SmElement implements MClass {
 
     /**
      * Get the factory to use to instantiate model objects of this class.
-     * 
      * @return the model object factory.
      */
     @objid ("0054a61e-fd1a-1f27-a7da-001ec947cd2a")
@@ -395,7 +384,6 @@ public abstract class SmClass extends SmElement implements MClass {
 
     /**
      * Get the metamodel fragment owning this metaclass.
-     * 
      * @return the metamodel fragment.
      */
     @objid ("8dda2d7a-5750-4d6c-b375-b3c525533a9c")
@@ -407,7 +395,6 @@ public abstract class SmClass extends SmElement implements MClass {
 
     /**
      * Get the parent class.
-     * 
      * @return the parent class.
      */
     @objid ("00840936-ed97-1f1f-85a5-001ec947cd2a")
@@ -423,7 +410,6 @@ public abstract class SmClass extends SmElement implements MClass {
 
     /**
      * Get the attributes defined on this class excluding inherited attributes.
-     * 
      * @return the class attribute definitions.
      */
     @objid ("0083f5f4-ed97-1f1f-85a5-001ec947cd2a")
@@ -433,7 +419,6 @@ public abstract class SmClass extends SmElement implements MClass {
 
     /**
      * Get the metamodel dependencies defined on this class.
-     * 
      * @return the metamodel dependencies.
      */
     @objid ("0083f680-ed97-1f1f-85a5-001ec947cd2a")
@@ -449,6 +434,7 @@ public abstract class SmClass extends SmElement implements MClass {
         } else {
             return Collections.unmodifiableList(this.subClasses);
         }
+        
     }
 
     @objid ("00046a1e-4c5f-1ffc-8433-001ec947cd2a")
@@ -472,11 +458,11 @@ public abstract class SmClass extends SmElement implements MClass {
         /*
          * SmClass cls = this; while (cls != null && !cls.equals(parent)) { cls = cls.parentClass; } return cls == parent;
          */
+        
     }
 
     /**
      * Tells whether this class or an inherited class has the given {@link SmDirective}.
-     * 
      * @param flag a flag to test
      * @return <code>true</code> if the class has the flag, else <code>false</code>
      */
@@ -517,7 +503,6 @@ public abstract class SmClass extends SmElement implements MClass {
      * Load the metaclass content.
      * <p>
      * Note implementers should <b>never</b> call super implementation.
-     * 
      * @param m the metamodel asking for loading.
      */
     @objid ("0083fbda-ed97-1f1f-85a5-001ec947cd2a")
@@ -543,11 +528,11 @@ public abstract class SmClass extends SmElement implements MClass {
         }
         
         initCache();
+        
     }
 
     /**
      * Initialize the EMF EClass adapter.
-     * 
      * @param emfAdapter the EMS EClass adapter
      */
     @objid ("ef943802-bea9-11e1-b576-001ec947ccaf")
@@ -563,7 +548,6 @@ public abstract class SmClass extends SmElement implements MClass {
 
     /**
      * Note: package visibility, method to used only locally
-     * @param id
      */
     @objid ("ec5ce1d3-b0aa-4486-bda6-68eed1ad47d9")
     void setMetaclassId(short id) {
@@ -574,7 +558,6 @@ public abstract class SmClass extends SmElement implements MClass {
      * Initialize the metamodel.
      * <p>
      * This method must be called once for each SmClass.
-     * 
      * @param metamodel the metamodel.
      */
     @objid ("ab0d29a0-d4f1-4346-bde6-8e413dea6f38")
@@ -582,22 +565,19 @@ public abstract class SmClass extends SmElement implements MClass {
         assert (this.metamodel == null);
         
         this.metamodel = metamodel;
+        
     }
 
     /**
      * Package visibility C'tor (usage reserved for Metamodel class)
-     * @param interf
-     * @param name
-     * @param mmFragment
      */
     @objid ("0083fb12-ed97-1f1f-85a5-001ec947cd2a")
-    protected SmClass(ISmMetamodelFragment origin) {
+    protected  SmClass(ISmMetamodelFragment origin) {
         this.origin = origin;
     }
 
     /**
      * Register an attribute.
-     * 
      * @param att an attribute
      */
     @objid ("232293ad-b284-4e0f-b537-97a2325d66d7")
@@ -605,18 +585,18 @@ public abstract class SmClass extends SmElement implements MClass {
         checkNoPostInit();
         
         this.selfAttributes.add(att);
+        
     }
 
     /**
      * Register a dependency.
-     * 
      * @param dep a dependency.
      */
     @objid ("cbb63344-16ef-4d9c-b6e5-dfc1b729e28b")
     protected final void registerDependency(SmDependency dep) {
         checkNoPostInit();
         
-        assert (! this.selfDependencies.stream().filter(d -> d.getName().equals(dep.getName())).findAny().isPresent()) : this.selfDependencies.toString();
+        assert (! this.selfDependencies.stream().anyMatch(d -> d.getName().equals(dep.getName()))) : this.selfDependencies.toString();
         
         this.selfDependencies.add(dep);
         
@@ -629,13 +609,13 @@ public abstract class SmClass extends SmElement implements MClass {
         } else if (dep.isPartOf()) {
             this.selfReferenceDep.add(dep);
         }
+        
     }
 
     /**
      * Initialize the object factory.
      * <p>
      * Must be called once for each SmClass.
-     * 
      * @param iSmObjectFactory the object factory.
      */
     @objid ("d0e6502b-d210-4983-9def-37b5b4167233")
@@ -645,18 +625,19 @@ public abstract class SmClass extends SmElement implements MClass {
         }
         
         this.objectFactory = iSmObjectFactory;
+        
     }
 
     /**
      * Asserts that {@link #postInit()} has not yet been called.
-     * 
-     * @throws java.lang.IllegalStateException if {@link #postInit()} has already been called.
+     * @throws IllegalStateException if {@link #postInit()} has already been called.
      */
     @objid ("b6a848da-03a0-468e-832c-17636715421f")
     protected void checkNoPostInit() throws IllegalStateException {
         if (isPostInitialized()) {
             throw new IllegalStateException("postInit() already called on " + this);
         }
+        
     }
 
     /**
@@ -706,6 +687,7 @@ public abstract class SmClass extends SmElement implements MClass {
                 .stream()
                 .filter(dep -> dep.hasDirective(SmDirective.SMCDLINKTARGET))
                 .collect(Collectors.<MDependency>toList());
+        
     }
 
     /**
@@ -713,7 +695,6 @@ public abstract class SmClass extends SmElement implements MClass {
      * <p>
      * A relationship metaclass elements represents links between other objects. They have source and target MDependencies.
      * @since toutatis
-     * 
      * @return true if this metaclass is fake.
      */
     @objid ("8bfce0f9-9e32-4fb4-9cb1-3d5497f57ad9")
@@ -725,7 +706,6 @@ public abstract class SmClass extends SmElement implements MClass {
     /**
      * Tells whether this metaclass may have orphan model objects.
      * @since 3.6
-     * 
      * @return true if orphan are allowed.
      */
     @objid ("0b74a4f7-c317-45cf-b0ac-9ed800332ee7")
@@ -739,7 +719,6 @@ public abstract class SmClass extends SmElement implements MClass {
      * <p>
      * Also return inherited target dependencies.
      * Returns an empty collection for node metaclasses.
-     * 
      * @return all target dependencies.
      */
     @objid ("20ff16f4-c869-40ce-9530-9bdc4e84e320")
@@ -753,7 +732,6 @@ public abstract class SmClass extends SmElement implements MClass {
      * <p>
      * Also return inherited source dependencies.
      * Returns an empty collection for node metaclasses.
-     * 
      * @return all source dependencies.
      */
     @objid ("b79f3f8e-683b-4383-aea6-4cc5ab3c5ca3")
@@ -776,7 +754,7 @@ public abstract class SmClass extends SmElement implements MClass {
     protected void resetCache() {
         if (isPostInitialized() || ! this.allAttributes.isEmpty()) {
             this.postInitialized = false;
-            
+        
             this.allAttributes.clear();
             this.allDependencies.clear();
             this.allComponentDep.clear();
@@ -784,6 +762,7 @@ public abstract class SmClass extends SmElement implements MClass {
             this.allSharedDep.clear();
             this.allComponentAndSharedDep.clear();
         }
+        
     }
 
     @objid ("9f44b918-1a96-41cf-bfad-dbfda959bb8c")
@@ -806,7 +785,6 @@ public abstract class SmClass extends SmElement implements MClass {
      * Look for the dependency definition with the given name.
      * <p>
      * Look into the class dependency and inherited dependency.
-     * 
      * @param dep_name the dependency name
      * @return the found dependency or <code>null</code> if none has the given name.
      * @since 3.7
@@ -827,7 +805,6 @@ public abstract class SmClass extends SmElement implements MClass {
      * Do not mess with it.
      * @author cma
      * @since 3.7
-     * 
      * @return the internal cache access.
      */
     @objid ("21229e80-1538-4afe-8c1d-9a636ae766a0")
@@ -837,25 +814,25 @@ public abstract class SmClass extends SmElement implements MClass {
                                     public void reset() {
                                         resetCache();
                                     }
-                                    
+        
                                     @Override
                                     public void init() {
                                         initCache();
                                     }
-                        
+        
                                     @Override
                                     public void remake() {
                                         resetCache();
                                         initCache();
                                     }
                                 };
+        
     }
 
     /**
      * Remove a SmDependency.
      * <p>
      * <b>Do not mess with this method.</b>
-     * 
      * @param dep the dependency to remove
      * @param withOpposite whether to delete the oppostie too.
      */
@@ -882,6 +859,7 @@ public abstract class SmClass extends SmElement implements MClass {
             SmDependency symetric = dep.getSymetric();
             symetric.getOwner().removeDependency(symetric, false);
         }
+        
     }
 
     /**

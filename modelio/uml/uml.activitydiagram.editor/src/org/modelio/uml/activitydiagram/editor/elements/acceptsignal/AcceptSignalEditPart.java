@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.acceptsignal;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -70,6 +69,7 @@ public class AcceptSignalEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                 new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     /**
@@ -81,6 +81,7 @@ public class AcceptSignalEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         final GmAcceptSignalPrimaryNode acceptsignalModel = (GmAcceptSignalPrimaryNode) getModel();
         getFigure().getParent().setConstraint(getFigure(), acceptsignalModel.getLayoutData());
+        
     }
 
     @objid ("297054ab-55b6-11e2-877f-002564c97630")
@@ -98,6 +99,7 @@ public class AcceptSignalEditPart extends AbstractNodeEditPart {
             throw new IllegalArgumentException("AcceptSignalEditPart#addChildVisual: unknown index " + index);
         }
         getFigure().add(child, gmAbstractObject.getLayoutData(), index);
+        
     }
 
     @objid ("2971db39-55b6-11e2-877f-002564c97630")
@@ -112,6 +114,7 @@ public class AcceptSignalEditPart extends AbstractNodeEditPart {
         if (!switchRepresentationMode()) {
             super.refreshFromStyle(aFigure, style);
         }
+        
     }
 
 }

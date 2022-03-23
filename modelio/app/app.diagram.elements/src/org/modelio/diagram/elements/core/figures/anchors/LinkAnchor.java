@@ -17,9 +17,9 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.anchors;
 
+import java.util.Objects;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.AbstractConnectionAnchor;
 import org.eclipse.draw2d.Connection;
@@ -35,19 +35,42 @@ public class LinkAnchor extends AbstractConnectionAnchor {
     private final GmFractionalConnectionLocator locator;
 
     @objid ("7f5878e1-1dec-11e2-8cad-001ec947c8cc")
-    public LinkAnchor(final Connection connection, final GmFractionalConnectionLocator locator) {
+    public  LinkAnchor(final Connection connection, final GmFractionalConnectionLocator locator) {
         super(connection);
         this.locator = locator;
+        
     }
 
     @objid ("7f5878e9-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public Point getLocation(final Point reference) {
-        Locator x = LocatorFactory.getInstance().getLocator((Connection) getOwner(), this.locator);
-        // FIXME was //x = new FractionalConnectionLocator((Connection) this.getOwner(), this.locator.getFraction(), false);
-        Point ret = ((FractionalConnectionLocator) x).getLocation(getOwner());
-        getOwner().translateToAbsolute(ret);
+        Connection connOwner = (Connection) getOwner();
+        Locator x = LocatorFactory.getInstance().getLocator(connOwner, this.locator);
+        Point ret = ((FractionalConnectionLocator) x).getLocation(connOwner);
+        connOwner.translateToAbsolute(ret);
         return ret;
+    }
+
+    @objid ("ff0f4f93-118f-477a-8eae-5ca5db248fd4")
+    @Override
+    public int hashCode() {
+        return Objects.hash(getOwner(), this.locator);
+    }
+
+    @objid ("731193a5-a53a-4ffe-90b6-2a3aac4a1457")
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        LinkAnchor other = (LinkAnchor) obj;
+        return Objects.equals(this.locator, other.locator) && Objects.equals(getOwner(), other.getOwner());
     }
 
 }

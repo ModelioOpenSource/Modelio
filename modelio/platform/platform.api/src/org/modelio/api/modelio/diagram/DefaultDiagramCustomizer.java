@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.diagram;
 
 import java.util.ArrayList;
@@ -33,9 +32,10 @@ import org.modelio.api.module.context.i18n.I18nSupport;
 
 @objid ("2bc36fee-ce64-4be4-bcb9-b680f9403631")
 public class DefaultDiagramCustomizer implements IDiagramCustomizer {
+    
     @mdl.prop
     @objid ("dd520d3e-4254-4590-9c7b-604bc0af7201")
-    private boolean keepBasePalette = true;
+    public boolean keepBasePalette = true;
 
     @objid ("f9efb3dc-4843-4c1c-8659-047ffd90e26e")
     private Map<String, String> parameters;
@@ -43,9 +43,10 @@ public class DefaultDiagramCustomizer implements IDiagramCustomizer {
     @objid ("77b38e4b-df10-45ba-891b-e66b06f9e2d9")
     private IModule module;
 
+    
     @mdl.prop
     @objid ("08bc1954-4c23-4f8b-8bfe-6ca147319c89")
-    private List<PaletteEntry> tools = new ArrayList<>();
+    public List<PaletteEntry> tools = new ArrayList<>();
 
     @objid ("85663442-c66b-4015-aca9-f7adee5f5e78")
     @Override
@@ -74,6 +75,7 @@ public class DefaultDiagramCustomizer implements IDiagramCustomizer {
             }
             palette.add(toolRegistry.getRegisteredTool(tool.toolId));
         }
+        
     }
 
     @objid ("ba5f41e8-732a-4f63-9250-77e305e4f80b")
@@ -94,6 +96,7 @@ public class DefaultDiagramCustomizer implements IDiagramCustomizer {
         this.tools = paletteTools;
         this.parameters = hParameters;
         this.keepBasePalette = keepPalette;
+        
     }
 
     @objid ("1726e5c8-3207-4c08-a093-29ff91ab19e0")

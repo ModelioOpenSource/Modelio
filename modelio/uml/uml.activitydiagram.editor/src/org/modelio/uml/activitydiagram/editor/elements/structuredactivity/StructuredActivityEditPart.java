@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.structuredactivity;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -78,6 +77,7 @@ public class StructuredActivityEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START, new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(ModelElementDropRequest.TYPE, new SmartDropEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("2b5a7183-55b6-11e2-877f-002564c97630")
@@ -85,6 +85,7 @@ public class StructuredActivityEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         GmStructuredActivityPrimaryNode structuredactivityModel = (GmStructuredActivityPrimaryNode) getModel();
         getFigure().getParent().setConstraint(getFigure(), structuredactivityModel.getLayoutData());
+        
     }
 
     @objid ("2b5a7186-55b6-11e2-877f-002564c97630")
@@ -100,6 +101,7 @@ public class StructuredActivityEditPart extends AbstractNodeEditPart {
         if (index == 1) {
             getFigure().add(child, BorderLayout.CENTER, index);
         }
+        
     }
 
     @objid ("2b5a718b-55b6-11e2-877f-002564c97630")
@@ -118,6 +120,7 @@ public class StructuredActivityEditPart extends AbstractNodeEditPart {
         } else {
             super.refreshFromStyle(aFigure, style);
         }
+        
     }
 
 }

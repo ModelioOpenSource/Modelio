@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import java.util.ArrayList;
@@ -44,9 +43,10 @@ public class EManifestation extends ENamedElement {
     }
 
     @objid ("78ad4974-a577-45e7-9659-048c5245fcbe")
-    public EManifestation(org.eclipse.uml2.uml.Manifestation element) {
+    public  EManifestation(org.eclipse.uml2.uml.Manifestation element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("04862d70-e9b8-4c2b-a0fd-f3e02420826e")

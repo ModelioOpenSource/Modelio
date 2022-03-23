@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,9 +39,10 @@ public class EUseCase extends ENamedElement {
     }
 
     @objid ("bc7d746d-be3f-4357-ac96-e231ca3fd29e")
-    public EUseCase(org.eclipse.uml2.uml.UseCase element) {
+    public  EUseCase(org.eclipse.uml2.uml.UseCase element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("2c484edf-f20c-4323-9cdb-533f9b34cf2d")
@@ -61,6 +61,7 @@ public class EUseCase extends ENamedElement {
         }else{
             ((UseCase) objingElt).setOwner(revProp.getExternalPackage());
         }
+        
     }
 
 }

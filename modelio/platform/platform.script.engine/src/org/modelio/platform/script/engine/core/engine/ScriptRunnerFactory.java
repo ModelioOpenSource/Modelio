@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.script.engine.core.engine;
 
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineFactory;
 import javax.script.ScriptEngineManager;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.platform.script.engine.plugin.ScriptEnginePlugin;
 import org.python.core.Options;
 
@@ -43,7 +42,6 @@ public class ScriptRunnerFactory {
 
     /**
      * Get the factory.
-     * 
      * @return the factory.
      */
     @objid ("0075b64c-cbcd-1065-a2b8-001ec947cd2a")
@@ -55,18 +53,18 @@ public class ScriptRunnerFactory {
     }
 
     @objid ("0075a864-cbcd-1065-a2b8-001ec947cd2a")
-    private ScriptRunnerFactory() {
+    private  ScriptRunnerFactory() {
         this.scriptEngineManager = new ScriptEngineManager(ScriptEnginePlugin.class.getClassLoader());
         
         for (ScriptEngineFactory ef : this.scriptEngineManager.getEngineFactories()) {
             ScriptEnginePlugin.LOG.debug("script engine : %s %S (%s %s)", ef.getLanguageName(), ef.getLanguageVersion(),
                     ef.getEngineName(), ef.getEngineVersion());
         }
+        
     }
 
     /**
      * Get a script runner
-     * 
      * @param scriptingLanguage a script language
      * @return the script runner.
      */
@@ -84,11 +82,11 @@ public class ScriptRunnerFactory {
         default:
             return null;
         }
+        
     }
 
     /**
      * Get a script runner that runs the scripts in a transaction.
-     * 
      * @param scriptingLanguage a script language
      * @return the script runner.
      */

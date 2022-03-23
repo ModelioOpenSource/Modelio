@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.browser.view.handlers.create;
 
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.core.di.annotations.Optional;
@@ -56,7 +55,8 @@ public abstract class AbstractCreateElementHandler {
     @objid ("9ec61c0b-ccde-11e1-97e5-001ec947c8cc")
     @SuppressWarnings("javadoc")
     @CanExecute
-    public boolean canExecute(@Named(IServiceConstants.ACTIVE_SELECTION) final Object selection, @Named("metaclass") final String metaclassName, @Named("dependency") final String dependencyName, @Optional @Named("stereotype") final String stereotypeName, @Optional IMModelServices mmServices) {
+    public boolean canExecute(@Named(IServiceConstants.ACTIVE_SELECTION) final Object selection, @Named("metaclass") final String metaclassName, @Named("dependency") final String dependencyName, @Optional
+    @Named("stereotype") final String stereotypeName, @Optional IMModelServices mmServices) {
         // Sanity checks
         if (this.projectService.getSession() == null) {
             return false;
@@ -96,7 +96,8 @@ public abstract class AbstractCreateElementHandler {
     @objid ("0065e154-9025-1006-9c1d-001ec947cd2a")
     @SuppressWarnings("javadoc")
     @Execute
-    public final void execute(final MPart part, @Named(IServiceConstants.ACTIVE_SELECTION) final Object selection, @Named("metaclass") final String metaclassName, @Named("dependency") final String dependencyName, @Optional @Named("stereotype") final String stereotypeName, @Optional IMModelServices mmServices) {
+    public final void execute(final MPart part, @Named(IServiceConstants.ACTIVE_SELECTION) final Object selection, @Named("metaclass") final String metaclassName, @Named("dependency") final String dependencyName, @Optional
+    @Named("stereotype") final String stereotypeName, @Optional IMModelServices mmServices) {
         // Sanity checks
         if (this.projectService.getSession() == null) {
             return;
@@ -146,6 +147,7 @@ public abstract class AbstractCreateElementHandler {
         } catch (Exception e) {
             logFailure(metaclassName, dependencyName, selectedOwner, e);
         }
+        
     }
 
     @objid ("00667542-9025-1006-9c1d-001ec947cd2a")
@@ -173,7 +175,6 @@ public abstract class AbstractCreateElementHandler {
      * May return <code>null</code> in which case the command is not available.
      * <p>
      * Default implementation returns the selected element. May be redefined by sub classes.
-     * 
      * @param selection the E4 selection. By default only {@link MObject} and {@link IStructuredSelection} are supported.
      * @param metaclass the metaclass of the element to create
      * @return the element that must be the owner of the created element
@@ -197,6 +198,7 @@ public abstract class AbstractCreateElementHandler {
         if (view instanceof IElementNameEditor) {
             ((IElementNameEditor) view).edit(elementToSelect);
         }
+        
     }
 
     @objid ("00677cb2-9025-1006-9c1d-001ec947cd2a")
@@ -215,6 +217,7 @@ public abstract class AbstractCreateElementHandler {
         if (exception != null) {
             BrowserViewActivator.LOG.error(exception);
         }
+        
     }
 
 }

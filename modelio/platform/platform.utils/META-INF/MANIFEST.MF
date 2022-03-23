@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Modelio platform utils
 Bundle-SymbolicName: org.modelio.platform.utils;singleton:=true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
-Bundle-Version: 4.1.0.qualifier
+Bundle-Version: 5.1.0.qualifier
 Bundle-Vendor: modelio.org
 Require-Bundle: org.modelio.core.utils,
  org.eclipse.core.runtime

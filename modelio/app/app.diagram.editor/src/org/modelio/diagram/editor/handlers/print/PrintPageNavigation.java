@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.handlers.print;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -77,9 +76,10 @@ public class PrintPageNavigation {
     }
 
     @objid ("65b93f2f-33f7-11e2-95fe-001ec947c8cc")
-    public PrintPageNavigation(int nbPagesX, int nbPagesY) {
+    public  PrintPageNavigation(int nbPagesX, int nbPagesY) {
         this.nbPagesX = nbPagesX;
         this.nbPagesY = nbPagesY;
+        
     }
 
     @objid ("65b93f33-33f7-11e2-95fe-001ec947c8cc")
@@ -88,6 +88,7 @@ public class PrintPageNavigation {
             return true;
         else
             return false;
+        
     }
 
     @objid ("65b93f36-33f7-11e2-95fe-001ec947c8cc")
@@ -96,6 +97,7 @@ public class PrintPageNavigation {
             return true;
         else
             return false;
+        
     }
 
     /**
@@ -114,6 +116,7 @@ public class PrintPageNavigation {
                     this.y = this.y + 1;
             }
         }
+        
     }
 
     /**
@@ -133,6 +136,7 @@ public class PrintPageNavigation {
                 }
             }
         }
+        
     }
 
     @objid ("65b93f3f-33f7-11e2-95fe-001ec947c8cc")

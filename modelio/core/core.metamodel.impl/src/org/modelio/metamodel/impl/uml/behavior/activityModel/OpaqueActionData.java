@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,10 +30,10 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 @objid ("003a6c18-c4bf-1fd8-97fe-001ec947cd2a")
 public class OpaqueActionData extends ActivityActionData {
     @objid ("be0f9b74-75fd-42d5-97ad-7f39528356a7")
-     Object mBody = "";
+    Object mBody = "";
 
     @objid ("a144fefa-f5d3-41ba-9bde-9a511618b8a2")
-    public OpaqueActionData(OpaqueActionSmClass smClass) {
+    public  OpaqueActionData(OpaqueActionSmClass smClass) {
         super(smClass);
     }
 

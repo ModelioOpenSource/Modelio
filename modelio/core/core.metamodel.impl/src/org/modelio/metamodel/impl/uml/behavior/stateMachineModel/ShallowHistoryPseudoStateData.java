@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.stateMachineModel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,7 +30,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 @objid ("00534670-c4bf-1fd8-97fe-001ec947cd2a")
 public class ShallowHistoryPseudoStateData extends AbstractPseudoStateData {
     @objid ("2e41c7eb-3e27-4698-b0b5-b035fc4d1c6e")
-    public ShallowHistoryPseudoStateData(ShallowHistoryPseudoStateSmClass smClass) {
+    public  ShallowHistoryPseudoStateData(ShallowHistoryPseudoStateSmClass smClass) {
         super(smClass);
     }
 

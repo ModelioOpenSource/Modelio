@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.api;
 
 import java.io.IOException;
@@ -60,7 +59,8 @@ public class RichNoteCreator {
      * No instance.
      */
     @objid ("dac062b7-e7eb-43ff-a7f9-8f69d71786c6")
-    private RichNoteCreator() {
+    private  RichNoteCreator() {
+        
     }
 
     /**
@@ -77,10 +77,9 @@ public class RichNoteCreator {
      * All invalid characters for a file name in the document type and MIME type
      * are replaced by '_' when looked for the file.
      * </ol>
-     * 
      * @param docToInitialize The document to initialize
-     * @throws java.io.IOException in case of error trying to create the file.
-     * @throws java.net.UnknownServiceException if no default content could be found.
+     * @throws IOException in case of error trying to create the file.
+     * @throws UnknownServiceException if no default content could be found.
      */
     @objid ("a5e5a6cb-270b-4f58-92bb-7d55192f0b15")
     public static void createRichNote(final Document docToInitialize) throws IOException, UnknownServiceException {
@@ -111,6 +110,7 @@ public class RichNoteCreator {
         }
         
         editor.createEmptyFile(docToInitialize, format, fileRepo);
+        
     }
 
     /**
@@ -127,11 +127,10 @@ public class RichNoteCreator {
      * All invalid characters for a file name in the document type and MIME type
      * are replaced by '_' when looked for the file.
      * </ol>
-     * 
      * @param docToInitialize The document to initialize
      * @param extension the file extension
      * @return <code>true</code> if the file was created, false if no default content could be found.
-     * @throws java.io.IOException in case of error trying to create the file.
+     * @throws IOException in case of error trying to create the file.
      */
     @objid ("2d42e648-4d15-4799-afb6-714f4dfb1fd6")
     private static Path getTemplate(final AbstractResource docToInitialize, final String extension) throws IOException {
@@ -175,7 +174,6 @@ public class RichNoteCreator {
      * </ol>
      * All invalid characters for a file name in the document type and MIME type
      * are replaced by '_' when looked for the file.
-     * 
      * @param dir the directory to search
      * @param docToInitialize the document to initialize
      * @param extension the file extension
@@ -200,7 +198,6 @@ public class RichNoteCreator {
     /**
      * Replace illegal characters in a filename with "_".<br>
      * Illegal characters : * : \ / * ? | < >
-     * 
      * @param name the file name to sanitize
      * @return the valid file name
      */

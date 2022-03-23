@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.transactions;
 
 import java.util.ArrayDeque;
@@ -115,20 +114,19 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
 
     /**
      * Constructor for the transaction manager.
-     * 
      * @param changeSupport the model change support.
      */
     @objid ("006ec4b8-0d1e-1f20-85a5-001ec947cd2a")
-    public TransactionManager(ModelChangeSupport changeSupport) {
+    public  TransactionManager(ModelChangeSupport changeSupport) {
         this.actionHandle = new ActionHandle(this);
         this.changeSupport = changeSupport;
+        
     }
 
     /**
      * Add an action to the active transaction. The 'undone' stack is also emptied. Action creation is triggered by methods on
      * 'semantic' objects such as "set_", "append_" and "erase_").
-     * 
-     * @throws org.modelio.vcore.session.impl.transactions.smAction.AddActionNoActiveTransactionException when no active transaction exists.
+     * @throws AddActionNoActiveTransactionException when no active transaction exists.
      */
     @objid ("006ecce2-0d1e-1f20-85a5-001ec947cd2a")
     @Override
@@ -146,11 +144,11 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
                 throw new AddActionNoActiveTransactionException(msg);
             }
         }
+        
     }
 
     /**
      * Check transaction recording is enabled.
-     * 
      * @return <code>true</code> only if transaction recording is enabled.
      */
     @objid ("006ecf3a-0d1e-1f20-85a5-001ec947cd2a")
@@ -171,10 +169,9 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
      * therefore let stack the closed transaction in
      * the "undo" stack (only if it is 'undoable' otherwise just delete it).
      * <p>
-     * 
      * @param toCommit the transaction to commit.
-     * @throws org.modelio.vcore.session.api.transactions.EndTransactionBadIdException if the transaction being committed is not the currently active one (Sequence error)
-     * @throws org.modelio.vcore.session.api.transactions.EndTransactionNoActiveTransactionException if there is no currently active transaction.
+     * @throws EndTransactionBadIdException if the transaction being committed is not the currently active one (Sequence error)
+     * @throws EndTransactionNoActiveTransactionException if there is no currently active transaction.
      */
     @objid ("006ed0d4-0d1e-1f20-85a5-001ec947cd2a")
     public void commit(final Transaction toCommit) throws EndTransactionBadIdException, EndTransactionNoActiveTransactionException {
@@ -271,6 +268,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
                 this.sync.unlock();
             }
         }
+        
     }
 
     @objid ("006ed048-0d1e-1f20-85a5-001ec947cd2a")
@@ -322,6 +320,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
                 this.sync.unlock();
             }
         }
+        
     }
 
     /**
@@ -334,7 +333,6 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
 
     /**
      * Get the currently opened transaction.
-     * 
      * @return a transaction. Might be <code>null</code>.
      */
     @objid ("006ed318-0d1e-1f20-85a5-001ec947cd2a")
@@ -344,7 +342,6 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
 
     /**
      * Returns the name of the first transaction available for a 'redo' or <code>null</code> if none.
-     * 
      * @return the name of the transaction.
      */
     @objid ("006ed3ae-0d1e-1f20-85a5-001ec947cd2a")
@@ -354,7 +351,6 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
 
     /**
      * Returns the name of the first transaction available for a 'undo' or <code>null</code> if none.
-     * 
      * @return the name of the transaction.
      */
     @objid ("006ed4f8-0d1e-1f20-85a5-001ec947cd2a")
@@ -372,7 +368,6 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
 
     /**
      * Return <code>true</code> if there is a transaction currently active.
-     * 
      * @return whether or not a transaction is active.
      */
     @objid ("006ed5a2-0d1e-1f20-85a5-001ec947cd2a")
@@ -383,7 +378,6 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
 
     /**
      * Return <code>true</code> if a 'redo' transaction is available.
-     * 
      * @return whether or not the 'redo' is active.
      */
     @objid ("006ed64c-0d1e-1f20-85a5-001ec947cd2a")
@@ -400,7 +394,6 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
      * <li>the last recorder action is a closed transaction (no pending opened transaction) or the active transaction stack is empty
      * and the undo stack is not empty.</li>
      * </ul>
-     * 
      * @return <code>true</code> if 'undo' is possible.
      */
     @objid ("006ed6e2-0d1e-1f20-85a5-001ec947cd2a")
@@ -419,8 +412,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
      * Run a 'Redo' on the top transaction of the 'undone' stack.
      * <p>
      * Remove it from the 'undone' stack.
-     * 
-     * @throws org.modelio.vcore.session.api.transactions.RedoNoUndoneTransactionException if the undone stack is empty, or a transaction is in progress.
+     * @throws RedoNoUndoneTransactionException if the undone stack is empty, or a transaction is in progress.
      */
     @objid ("006ed80e-0d1e-1f20-85a5-001ec947cd2a")
     @Override
@@ -458,6 +450,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
         } finally {
             this.sync.unlock();
         }
+        
     }
 
     /**
@@ -476,16 +469,16 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
         } finally {
             this.sync.unlock();
         }
+        
     }
 
     /**
      * Rollback the currently active transaction.
      * <p>
      * The actions of the currently active transaction are undo and the transaction removed from he active stack
-     * 
      * @param toRollback whether or not this transaction can be undone.
-     * @throws org.modelio.vcore.session.api.transactions.EndTransactionBadIdException the transaction to rollback is not the currently active one
-     * @throws org.modelio.vcore.session.api.transactions.EndTransactionNoActiveTransactionException if there is no active transaction
+     * @throws EndTransactionBadIdException the transaction to rollback is not the currently active one
+     * @throws EndTransactionNoActiveTransactionException if there is no active transaction
      */
     @objid ("006edaf2-0d1e-1f20-85a5-001ec947cd2a")
     public void rollback(final Transaction toRollback) throws EndTransactionBadIdException, EndTransactionNoActiveTransactionException {
@@ -527,11 +520,11 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
                 this.sync.unlock();
             }
         }
+        
     }
 
     /**
      * Disable/Enable transaction recording.
-     * 
      * @param value the new status of transaction recording.
      * @return the old status of transaction recording.
      */
@@ -545,6 +538,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
         } finally {
             this.sync.unlock();
         }
+        
     }
 
     @objid ("976fd806-aef4-427c-8603-fa1cfd0ba507")
@@ -555,7 +549,6 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
 
     /**
      * Set a {@link ITransactionValidator} to check transaction contents before committing.
-     * 
      * @param value the transaction validator.
      */
     @objid ("009408cc-841a-1033-9188-001ec947cd2a")
@@ -567,6 +560,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
         } finally {
             this.sync.unlock();
         }
+        
     }
 
     /**
@@ -576,9 +570,8 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
      * the undo stack if some.
      * <p>
      * The undone transaction is stacked on the redo stack.
-     * 
-     * @throws org.modelio.vcore.session.api.transactions.UndoNoDoneTransactionException if there is no transaction to undo.
-     * @throws org.modelio.vcore.session.api.transactions.UndoActiveTransactionException if no active transaction exists.
+     * @throws UndoNoDoneTransactionException if there is no transaction to undo.
+     * @throws UndoActiveTransactionException if no active transaction exists.
      */
     @objid ("006edcb4-0d1e-1f20-85a5-001ec947cd2a")
     @Override
@@ -613,6 +606,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
         } finally {
             this.sync.unlock();
         }
+        
     }
 
     @objid ("c70a5ac5-aea4-4781-8ef2-1d3dc346c415")
@@ -624,7 +618,6 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
      * Fires model and status change listeners.
      * <p>
      * Transactions are forbidden for model change listeners, ie model change listeners are not allowed to modify the model
-     * 
      * @param evFact the factory to use to create the model change events.
      */
     @objid ("00938c12-702b-1f21-85a5-001ec947cd2a")
@@ -640,6 +633,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
         } finally {
             setTransactionsForbidden(false);
         }
+        
     }
 
     /**
@@ -651,6 +645,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
             it.handleModelChange(evFact.getEvent());
             evFact.updateCommitEvent(toCommit);
         }
+        
     }
 
     /**
@@ -661,6 +656,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
         for (IPersistentViewModelChangeListener it : this.changeSupport.getPersistentViewChangeListeners()) {
             it.updateView(event);
         }
+        
     }
 
     /**
@@ -715,6 +711,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
             
             throw e2;
         }
+        
     }
 
     @objid ("123cbcc0-0652-4756-816a-e6fb737f0e22")
@@ -744,6 +741,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
                     this.sync);
             throw new TransactionCreationException(msg, e);
         }
+        
     }
 
     @objid ("d030a11c-7ae0-49cc-8597-04de91f6f6f0")
@@ -761,6 +759,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
             s.append("\n");
         }
         Log.error(s.toString());
+        
     }
 
     /**
@@ -789,7 +788,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
         private final Queue<Runnable> deffered = new ConcurrentLinkedQueue<>();
 
         @objid ("b693f00b-414e-4405-bea6-09e7d7f1c062")
-        public SyncSupport() {
+        public  SyncSupport() {
             // nothing
         }
 
@@ -806,6 +805,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
             }
             
             super.unlock();
+            
         }
 
         @objid ("40d409a4-753f-46c4-b797-f849c84bfe3d")
@@ -823,6 +823,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
             }
             
             setTransactionsForbidden(false);
+            
         }
 
         /**
@@ -830,7 +831,6 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
          * <p>
          * No transaction will be open until the runnable has finished execution.
          * The given runnable should execute as quickly as possible in order to not clock Modelio.
-         * 
          * @param runnable a runnable
          */
         @objid ("d8bfc9a8-5e52-4c6b-9f14-3eec54eb6ebf")
@@ -849,6 +849,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
             
             // If we reach this statement, add the action to the deferred ones
             this.deffered.add(runnable);
+            
         }
 
         /**
@@ -860,6 +861,7 @@ public class TransactionManager implements IActionManager, ITransactionSupport {
         public void fastUnlock() {
             assert isHeldByCurrentThread() : this;
             super.unlock();
+            
         }
 
     }

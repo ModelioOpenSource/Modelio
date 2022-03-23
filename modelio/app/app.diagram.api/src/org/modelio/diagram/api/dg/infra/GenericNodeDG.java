@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.api.dg.infra;
 
 import java.util.Collection;
@@ -25,6 +24,7 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.modelio.diagram.IDiagramNode;
+import org.modelio.api.modelio.diagram.IDiagramNode.Role;
 import org.modelio.diagram.api.services.DiagramHandle;
 import org.modelio.diagram.api.services.DiagramNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
@@ -39,7 +39,7 @@ public class GenericNodeDG extends DiagramNode {
      * @param node The gm node represented by this class.
      */
     @objid ("fa9130ce-2e8a-401b-abf9-ec05fb312ae4")
-    public GenericNodeDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  GenericNodeDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 

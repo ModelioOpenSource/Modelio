@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.objects;
 
 import java.util.ArrayList;
@@ -30,8 +30,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.bpmn.objects.BpmnDataState;
 import org.modelio.metamodel.bpmn.objects.BpmnItemAwareElement;
 import org.modelio.metamodel.bpmn.rootElements.BpmnBaseElement;
-import org.modelio.metamodel.impl.bpmn.objects.BpmnDataStateData;
-import org.modelio.metamodel.impl.bpmn.objects.BpmnItemAwareElementSmClass;
 import org.modelio.metamodel.impl.bpmn.rootElements.BpmnBaseElementSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
@@ -50,7 +48,7 @@ public class BpmnDataStateSmClass extends BpmnBaseElementSmClass {
     private SmDependency itemDep;
 
     @objid ("6516dd09-a582-4057-a249-d89d884ec02f")
-    public BpmnDataStateSmClass(ISmMetamodelFragment origin) {
+    public  BpmnDataStateSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -58,6 +56,7 @@ public class BpmnDataStateSmClass extends BpmnBaseElementSmClass {
     @Override
     public String getName() {
         return "BpmnDataState";
+        
     }
 
     @objid ("2f33674b-3533-4b66-bd3c-373caa082fa1")
@@ -70,18 +69,21 @@ public class BpmnDataStateSmClass extends BpmnBaseElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnDataState.class;
+        
     }
 
     @objid ("19f21578-e5ed-4c68-bd7f-4eb5a6f19156")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("86596344-ecdc-4cd8-8e19-3140531c1b29")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("f5259fc1-002c-4cdd-9915-e165b8e0f6c4")
@@ -97,6 +99,8 @@ public class BpmnDataStateSmClass extends BpmnBaseElementSmClass {
         this.itemDep = new ItemSmDependency();
         this.itemDep.init("Item", this, metamodel.getMClass(BpmnItemAwareElement.MQNAME), 1, 1 );
         registerDependency(this.itemDep);
+        
+        
     }
 
     @objid ("37f1c238-10b2-4183-baed-63f2c24a3989")
@@ -113,7 +117,7 @@ public class BpmnDataStateSmClass extends BpmnBaseElementSmClass {
         private BpmnDataStateSmClass smClass;
 
         @objid ("97cc36db-f5c6-4fea-a0af-22cb03095bb7")
-        public BpmnDataStateObjectFactory(BpmnDataStateSmClass smClass) {
+        public  BpmnDataStateObjectFactory(BpmnDataStateSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -155,6 +159,7 @@ public class BpmnDataStateSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnItemAwareElementSmClass)this.getTarget()).getDataStateDep();
             }
             return this.symetricDep;
+            
         }
 
     }

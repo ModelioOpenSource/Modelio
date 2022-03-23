@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.model;
 
 import java.util.Map;
@@ -33,11 +32,10 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IPattern {
     /**
      * Apply a pattern on the model.
-     * 
      * @param root the element to create the model in.
      * @param coreSession the current model manipulation session.
      * @param parameters the parameters to configure the pattern from.
-     * @throws org.modelio.api.modelio.pattern.IPatternService.PatternException if the pattern creation fails.
+     * @throws PatternException if the pattern creation fails.
      */
     @objid ("ca011653-4be0-4d01-80d2-e0af28bb62af")
     void createModel(MObject root, ICoreSession coreSession, Map<String, Object> parameters) throws PatternException;

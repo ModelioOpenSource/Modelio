@@ -17,19 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.objects;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.bpmn.objects.BpmnDataStore;
 import org.modelio.metamodel.bpmn.objects.BpmnItemAwareElement;
-import org.modelio.metamodel.impl.bpmn.objects.BpmnItemAwareElementSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -49,7 +48,7 @@ public class BpmnDataStoreSmClass extends BpmnItemAwareElementSmClass {
     private SmAttribute isUnlimitedAtt;
 
     @objid ("79efa508-f67c-4813-881a-11f31bb3e119")
-    public BpmnDataStoreSmClass(ISmMetamodelFragment origin) {
+    public  BpmnDataStoreSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -57,6 +56,7 @@ public class BpmnDataStoreSmClass extends BpmnItemAwareElementSmClass {
     @Override
     public String getName() {
         return "BpmnDataStore";
+        
     }
 
     @objid ("5bbb7271-79b7-4e86-ae06-f22de6fb8077")
@@ -69,18 +69,21 @@ public class BpmnDataStoreSmClass extends BpmnItemAwareElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnDataStore.class;
+        
     }
 
     @objid ("5b2902bc-650f-4d70-b6c9-b7f580cf042e")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("6c3aa58a-3381-431d-9b7c-d6ce6c3fe5f6")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("61979f5b-7f63-4ad5-ab84-73162941d4d3")
@@ -101,6 +104,7 @@ public class BpmnDataStoreSmClass extends BpmnItemAwareElementSmClass {
         
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("bc67cd85-27ae-4654-936f-0da7b3e419b9")
@@ -125,7 +129,7 @@ public class BpmnDataStoreSmClass extends BpmnItemAwareElementSmClass {
         private BpmnDataStoreSmClass smClass;
 
         @objid ("a2386cd2-f6c7-4b3c-903b-24d91cede7a5")
-        public BpmnDataStoreObjectFactory(BpmnDataStoreSmClass smClass) {
+        public  BpmnDataStoreObjectFactory(BpmnDataStoreSmClass smClass) {
             this.smClass = smClass;
         }
 

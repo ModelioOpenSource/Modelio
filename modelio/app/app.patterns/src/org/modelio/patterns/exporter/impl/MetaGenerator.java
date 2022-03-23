@@ -17,12 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.exporter.impl;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
@@ -32,14 +33,17 @@ import org.modelio.metamodel.uml.infrastructure.TaggedValue;
 import org.modelio.metamodel.uml.statik.NaryConnector;
 import org.modelio.metamodel.uml.statik.Package;
 import org.modelio.patterns.exporter.PatternModelAnalysis;
-import org.modelio.patterns.model.ProfileUtils.PatternDesignerStereotypes;
 import org.modelio.patterns.model.ProfileUtils;
+import org.modelio.patterns.model.ProfileUtils.PatternDesignerStereotypes;
 import org.modelio.vcore.smkernel.mapi.MAttribute;
 import org.modelio.vcore.smkernel.mapi.MDependency;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("6a149e04-4311-41c8-b672-91370b0ee49d")
 class MetaGenerator {
+    @objid ("eb602da9-786e-4eae-b057-f63c4aa8bb57")
+    private Set<String> ignoredMetaAttributes;
+
     @objid ("0bc47bf3-1a92-4dd6-9b1e-12adaae3ac06")
     private RelationGenerator relationGenerator;
 
@@ -56,11 +60,18 @@ class MetaGenerator {
     private PatternModelAnalysis report;
 
     @objid ("c2395b0f-40bc-4d00-96af-5fc48c6841dc")
-    public MetaGenerator() {
+    public  MetaGenerator() {
         this.report = new PatternModelAnalysis();
         this.diagramGenerator = new DiagramGenerator();
         this.paramManager = new ParameterManager(this.report);
         this.relationGenerator = new RelationGenerator(this.report, this.paramManager);
+        
+        this.ignoredMetaAttributes = new HashSet<>();
+        // Diagrams are recreated by DiagramGenerator, no need to store UiData & Preview
+        this.ignoredMetaAttributes.add("UiData");
+        this.ignoredMetaAttributes.add("UiDataVersion");
+        this.ignoredMetaAttributes.add("PreviewData");
+        
     }
 
     @objid ("69e7397b-e2b3-425f-9104-1615955389a1")
@@ -68,16 +79,14 @@ class MetaGenerator {
         generateElementCode(filewriter, element);
         
         /**
-         * Bug Workaround
-         * getCompositionChildren() for NaryConnector node is cycling
+         * Bug Workaround getCompositionChildren() for NaryConnector node is cycling
          */
         if (!(element instanceof NaryConnector)) {
             for (MObject children : element.getCompositionChildren()) {
-        
                 generatePatternCode(filewriter, children);
             }
-        
         }
+        
     }
 
     @objid ("8d72eba4-8838-4868-b468-ca1ed32c107d")
@@ -87,12 +96,11 @@ class MetaGenerator {
             String metaclass = element.getMClass().getJavaInterface().getName();
         
             // Element Creation
-        
             filewriter.countWrite("this.elements.add(this.model.create(" + metaclass + ".class, this.root));");
         
             // Attribute Creation
             for (MAttribute attribute : element.getMClass().getAttributes(true)) {
-                if (!attribute.getName().equals("UiData")) {
+                if (!this.ignoredMetaAttributes.contains(attribute.getName())) {
                     generateAttribute(filewriter, element, attribute, elementsIndex);
                 }
             }
@@ -106,6 +114,7 @@ class MetaGenerator {
                 this.diagramGenerator.addDiagram((AbstractDiagram) element);
             }
         }
+        
     }
 
     @objid ("ff7893e4-f4ae-46a3-9892-c418d03dfc75")
@@ -116,7 +125,8 @@ class MetaGenerator {
             // Identifier is already set, don't read it twice and don't
             // reidentify elements.
         } else if (attType == String.class) {
-            filewriter.countWrite("this.elements.get(" + elementsIndex + ").mSet(this.elements.get(" + elementsIndex + ").getMClass().getAttribute(\"" + attribute.getName() + "\"),\"" + this.paramManager.parameterFormater(attValue.toString(), element) + "\");");
+            filewriter.countWrite(
+                    "this.elements.get(" + elementsIndex + ").mSet(this.elements.get(" + elementsIndex + ").getMClass().getAttribute(\"" + attribute.getName() + "\"),\"" + this.paramManager.parameterFormater(attValue.toString(), element) + "\");");
         } else if (attType == Integer.class) {
             filewriter.countWrite("this.elements.get(" + elementsIndex + ").mSet(this.elements.get(" + elementsIndex + ").getMClass().getAttribute(\"" + attribute.getName() + "\"),Integer.valueOf(\"" + attValue.toString() + "\"));");
         } else if (attType == Long.class) {
@@ -128,8 +138,10 @@ class MetaGenerator {
         } else if (attType == Boolean.class) {
             filewriter.countWrite("this.elements.get(" + elementsIndex + ").mSet(this.elements.get(" + elementsIndex + ").getMClass().getAttribute(\"" + attribute.getName() + "\"),Boolean.valueOf(\"" + attValue.toString() + "\"));");
         } else if (attType.isEnum()) {
-            filewriter.countWrite("this.elements.get(" + elementsIndex + ").mSet(this.elements.get(" + elementsIndex + ").getMClass().getAttribute(\"" + attribute.getName() + "\"),Enum.valueOf((java.lang.Class<? extends Enum>)this.elements.get(" + elementsIndex + ").getMClass().getAttribute(\"" + attribute.getName() + "\").getType(), \"" + this.paramManager.parameterFormater(((Enum<?>) attValue).name(), element) + "\"));");
+            filewriter.countWrite("this.elements.get(" + elementsIndex + ").mSet(this.elements.get(" + elementsIndex + ").getMClass().getAttribute(\"" + attribute.getName() + "\"),Enum.valueOf((java.lang.Class<? extends Enum>)this.elements.get("
+                    + elementsIndex + ").getMClass().getAttribute(\"" + attribute.getName() + "\").getType(), \"" + this.paramManager.parameterFormater(((Enum<?>) attValue).name(), element) + "\"));");
         }
+        
     }
 
     @objid ("1b878b64-9e2e-4371-9f4e-2adeb19f709d")
@@ -153,11 +165,11 @@ class MetaGenerator {
             this.report.addRootParameter(root);
             generatePatternCode(filewriter, root);
         }
+        
     }
 
     /**
-     * Compute exported roots for a pattern. They are the first elements in the
-     * composition tree that must be exported fully.
+     * Compute exported roots for a pattern. They are the first elements in the composition tree that must be exported fully.
      */
     @objid ("1501c806-f847-4d73-ab9e-9bf03592e795")
     private List<ModelElement> computeRoots(Package modelPattern) {
@@ -190,8 +202,7 @@ class MetaGenerator {
         }
         
         /**
-         * Bug Workaround
-         * getCompositionChildren() for NaryConnector node is cycling
+         * Bug Workaround getCompositionChildren() for NaryConnector node is cycling
          */
         
         if (!(element instanceof NaryConnector)) {
@@ -201,6 +212,7 @@ class MetaGenerator {
                 }
             }
         }
+        
     }
 
 }

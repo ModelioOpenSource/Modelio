@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,17 +50,15 @@ public class TerminatePseudoStatePropertyModel extends AbstractPropertyModel<Ter
     /**
      * Create a new <i>TerminatePseudoState</i> data model from an
      * <i>TerminatePseudoState</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("f93f0284-a701-4584-892e-95624be10603")
-    public TerminatePseudoStatePropertyModel(TerminatePseudoState theEditedElement) {
+    public  TerminatePseudoStatePropertyModel(TerminatePseudoState theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("0ea08d69-601b-48d5-aec3-d7aedbc9a6f4")
@@ -72,7 +69,6 @@ public class TerminatePseudoStatePropertyModel extends AbstractPropertyModel<Ter
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("14867d05-d5a8-43ed-bdec-19507cd4b27d")
@@ -85,7 +81,6 @@ public class TerminatePseudoStatePropertyModel extends AbstractPropertyModel<Ter
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -107,6 +102,7 @@ public class TerminatePseudoStatePropertyModel extends AbstractPropertyModel<Ter
         default:
             return null;
         }
+        
     }
 
     /**
@@ -116,7 +112,6 @@ public class TerminatePseudoStatePropertyModel extends AbstractPropertyModel<Ter
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -139,13 +134,13 @@ public class TerminatePseudoStatePropertyModel extends AbstractPropertyModel<Ter
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -170,6 +165,7 @@ public class TerminatePseudoStatePropertyModel extends AbstractPropertyModel<Ter
         default:
             return;
         }
+        
     }
 
 }

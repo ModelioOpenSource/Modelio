@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.common;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,10 +39,11 @@ class BrokenPeerModule implements IPeerModule {
     private Version moduleVersion;
 
     @objid ("8d79926d-2f2d-11e2-8f16-002564c97630")
-    BrokenPeerModule(String moduleName, Version moduleVersion, IModuleAPIConfiguration configuration) {
+     BrokenPeerModule(String moduleName, Version moduleVersion, IModuleAPIConfiguration configuration) {
         this.moduleName = moduleName;
         this.moduleVersion = moduleVersion;
         this.configuration = configuration;
+        
     }
 
     @objid ("8d799272-2f2d-11e2-8f16-002564c97630")

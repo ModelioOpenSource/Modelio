@@ -17,19 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.interactionModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.InteractionUseSmClass;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.LifelineSmClass;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.PartDecompositionData;
 import org.modelio.metamodel.uml.behavior.interactionModel.InteractionUse;
 import org.modelio.metamodel.uml.behavior.interactionModel.Lifeline;
 import org.modelio.metamodel.uml.behavior.interactionModel.PartDecomposition;
@@ -50,7 +47,7 @@ public class PartDecompositionSmClass extends InteractionUseSmClass {
     private SmDependency decomposedDep;
 
     @objid ("817518ef-076b-42f2-bc0a-f865dbd1f63a")
-    public PartDecompositionSmClass(ISmMetamodelFragment origin) {
+    public  PartDecompositionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -58,6 +55,7 @@ public class PartDecompositionSmClass extends InteractionUseSmClass {
     @Override
     public String getName() {
         return "PartDecomposition";
+        
     }
 
     @objid ("37219420-1a3f-4f8c-ba47-e065a876ca58")
@@ -70,18 +68,21 @@ public class PartDecompositionSmClass extends InteractionUseSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return PartDecomposition.class;
+        
     }
 
     @objid ("5f74085d-1776-4561-8003-35f418ea29ff")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("f1d56a1e-f294-4e83-a805-77b1c762b44a")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("c727d5c0-6f9d-4c40-a107-41e47f7f4a61")
@@ -97,6 +98,8 @@ public class PartDecompositionSmClass extends InteractionUseSmClass {
         this.decomposedDep = new DecomposedSmDependency();
         this.decomposedDep.init("Decomposed", this, metamodel.getMClass(Lifeline.MQNAME), 1, 1 );
         registerDependency(this.decomposedDep);
+        
+        
     }
 
     @objid ("d3d8ae4f-4d20-42f0-b4aa-dd4f1e84f01f")
@@ -113,7 +116,7 @@ public class PartDecompositionSmClass extends InteractionUseSmClass {
         private PartDecompositionSmClass smClass;
 
         @objid ("a7a31bdf-7793-477e-bf2f-1a56bc4c6747")
-        public PartDecompositionObjectFactory(PartDecompositionSmClass smClass) {
+        public  PartDecompositionObjectFactory(PartDecompositionSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -155,6 +158,7 @@ public class PartDecompositionSmClass extends InteractionUseSmClass {
             	this.symetricDep = ((LifelineSmClass)this.getTarget()).getDecomposedAsDep();
             }
             return this.symetricDep;
+            
         }
 
     }

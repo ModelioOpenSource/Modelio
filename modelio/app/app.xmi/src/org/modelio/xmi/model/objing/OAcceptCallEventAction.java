@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,7 +34,7 @@ public class OAcceptCallEventAction extends OActivityNode {
     }
 
     @objid ("2ea9c940-e432-4c17-ab94-a2c987dae40c")
-    public OAcceptCallEventAction(AcceptCallEventAction element) {
+    public  OAcceptCallEventAction(AcceptCallEventAction element) {
         super(element);
     }
 
@@ -50,6 +49,7 @@ public class OAcceptCallEventAction extends OActivityNode {
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         super.setProperties(ecoreElt);
         setCalled( (org.eclipse.uml2.uml.AcceptEventAction) ecoreElt);
+        
     }
 
     @objid ("4cee1025-a3e3-4d98-a9fc-d4b6cfb44435")
@@ -70,6 +70,7 @@ public class OAcceptCallEventAction extends OActivityNode {
                 nearestPkg.getPackagedElements().add(event);
             }
         }
+        
     }
 
     @objid ("0bbe0780-af72-45a1-b028-8b79ccca7696")

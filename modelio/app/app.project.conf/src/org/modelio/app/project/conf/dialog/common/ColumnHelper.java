@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.common;
 
 import java.io.IOException;
@@ -40,7 +39,6 @@ import org.modelio.vbasic.files.FileUtils;
 public class ColumnHelper {
     /**
      * Create a fragment name table column viewer.
-     * 
      * @param viewer the table viewer
      * @return the column
      */
@@ -73,7 +71,6 @@ public class ColumnHelper {
 
     /**
      * Create a fragment scope table column viewer.
-     * 
      * @param viewer the table viewer
      * @return the column
      */
@@ -98,7 +95,6 @@ public class ColumnHelper {
 
     /**
      * Create a fragment metamodel version table column viewer.
-     * 
      * @param viewer the table viewer
      * @return the column
      */

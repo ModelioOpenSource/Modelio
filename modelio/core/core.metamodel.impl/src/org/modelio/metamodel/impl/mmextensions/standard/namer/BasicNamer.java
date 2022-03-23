@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.namer;
 
 import java.util.Set;
@@ -32,9 +31,9 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("9645f297-5a09-40f5-aad9-c8bc9728fa7a")
 class BasicNamer implements IElementNamer {
-/*
-     * This implementation simply returns the metaclass name.
-     */
+    /*
+         * This implementation simply returns the metaclass name.
+         */
     @objid ("14ba5eb0-312a-43cf-a036-927b48ed2ad0")
     @Override
     public String getBaseName(MClass metaclass) {

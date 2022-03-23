@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.project.services;
 
 import java.io.IOException;
@@ -39,8 +38,8 @@ import org.modelio.gproject.module.GModule;
 import org.modelio.gproject.module.IModuleHandle;
 import org.modelio.gproject.module.IModuleStore;
 import org.modelio.gproject.module.ModuleSorter;
-import org.modelio.platform.mda.infra.service.CompatibilityHelper.CompatibilityLevel;
 import org.modelio.platform.mda.infra.service.CompatibilityHelper;
+import org.modelio.platform.mda.infra.service.CompatibilityHelper.CompatibilityLevel;
 import org.modelio.platform.mda.infra.service.IModuleManagementService;
 import org.modelio.platform.mda.infra.service.IRTModule;
 import org.modelio.platform.project.plugin.AppProjectCore;
@@ -76,21 +75,20 @@ public class ModulesUpdater {
 
     /**
      * C'tor
-     * 
      * @param project the project to work on.
      * @param withConfirmation whether to ask user for confirmation.
      */
     @objid ("26c9a208-ec68-472e-b5a8-667df7e45fca")
-    public ModulesUpdater(IModuleManagementService moduleSvc, IModuleStore modulesCatalog, GProject project, boolean withConfirmation) {
+    public  ModulesUpdater(IModuleManagementService moduleSvc, IModuleStore modulesCatalog, GProject project, boolean withConfirmation) {
         this.modulesCatalog = modulesCatalog;
         this.project = Objects.requireNonNull(project);
         this.moduleSvc = moduleSvc;
         this.results = new ArrayList<>();
+        
     }
 
     /**
      * Update all modules to last version and add missing mandatory modules.
-     * 
      * @param monitor a progress monitor
      */
     @objid ("481caa61-d023-4be9-8475-dbbbf9ba8cc9")
@@ -122,6 +120,7 @@ public class ModulesUpdater {
         }
         
         installUpdates(toInstall, mon.newChild(10));
+        
     }
 
     @objid ("dded2287-ac4f-4872-a614-9a90c0c374bb")
@@ -182,6 +181,7 @@ public class ModulesUpdater {
         for (IModuleHandle h : sorted) {
             installUpdate(h, monitor.newChild(1));
         }
+        
     }
 
     @objid ("e9bbc5f5-3cc2-41ce-b092-a38cc3ca3691")
@@ -206,6 +206,7 @@ public class ModulesUpdater {
             this.results.add(new Status(IStatus.WARNING, ModulesUpdater.pluginId, msg, e));
         
         }
+        
     }
 
     /**
@@ -226,6 +227,7 @@ public class ModulesUpdater {
         } catch (IOException e) {
             this.results.add(new Status(IStatus.WARNING, ModulesUpdater.pluginId, FileUtils.getLocalizedMessage(e), e));
         }
+        
     }
 
     @objid ("37d6ebe9-db51-46e0-b7a4-f5ba8400e770")

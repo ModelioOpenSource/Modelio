@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.ui;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -58,11 +57,10 @@ public class LocalFontRegistry {
 
     /**
      * Create a font registry that uses the given resources registry.
-     * 
      * @param rm a registry that handles resource allocation
      */
     @objid ("16835627-75d8-4c3c-8903-05ffccad463e")
-    public LocalFontRegistry(ResourceManager rm) {
+    public  LocalFontRegistry(ResourceManager rm) {
         this.rm = rm;
     }
 
@@ -71,7 +69,6 @@ public class LocalFontRegistry {
      * <p>
      * It is not necessary to call {@link FontBuilder#withAllocator(ResourceManager)} on the
      * returned FontBuilder.
-     * 
      * @param font the font to be based on.
      * @return a font builder.
      */
@@ -88,7 +85,6 @@ public class LocalFontRegistry {
      * It is not necessary to call {@link FontBuilder#withAllocator(ResourceManager)} on the
      * returned FontBuilder.
      * @param font the font to be based on.
-     * 
      * @return a font builder.
      */
     @objid ("448c273a-d30d-4502-a679-f29590e6e52a")
@@ -104,7 +100,6 @@ public class LocalFontRegistry {
      * <p>
      * Note that registries created in this way should not
      * be used to allocate any font that must outlive the given control.
-     * 
      * @param parentRegistry global registry that handles resource allocation
      * @param owner control whose disposal will trigger cleanup of everything
      * in the registry.
@@ -123,7 +118,6 @@ public class LocalFontRegistry {
      * Note that registries created in this way should not
      * be used to allocate any font that must outlive the given control.
      * @param parentRegistry global registry that handles resource allocation
-     * 
      * @param owner control whose disposal will trigger cleanup of everything
      * in the registry.
      */
@@ -136,7 +130,6 @@ public class LocalFontRegistry {
      * Get a font given a device and font data which describes the desired font's appearance.
      * <p>
      * {@link #getFont(FontData[])} should better be used to be fully compatible on Unix.
-     * 
      * @param fontdata describes the desired font (must not be null)
      * @return the matching font
      */
@@ -147,7 +140,6 @@ public class LocalFontRegistry {
 
     /**
      * Get a font given an array of font data which describes the desired font's appearance.
-     * 
      * @param fontdatas the array of FontData that describes the desired font (must not be null)
      * @return the matching font
      */

@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.constraint;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("5f98eedb-1fd0-40e9-8dd9-638944831a91")
 public class Destroyed {
-    @objid ("a1a83736-e0c1-49b1-8173-23770138e17a")
+    @objid ("8944b14f-46e4-47c2-ab96-a7a52e491326")
     public static final String STEREOTYPE_NAME = "destroyed";
 
     /**
      * The underlying {@link Constraint} represented by this proxy, never null.
      */
-    @objid ("0af86a17-8f42-4959-aa24-d28658b83323")
+    @objid ("8cd81c59-c6c8-4460-b66e-aed9c58d9b51")
     protected final Constraint elt;
 
     /**
      * Tells whether a {@link Destroyed proxy} can be instantiated from a {@link MObject} checking it is a {@link Constraint} stereotyped << destroyed >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("acf8c6a6-0965-4d80-a19f-88a119f12660")
+    @objid ("a64f5310-39b3-49ae-9d5b-55a2c09c358c")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Constraint) && ((Constraint) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Destroyed.STEREOTYPE_NAME));
     }
@@ -77,9 +75,9 @@ public class Destroyed {
      * 
      * @return a {@link Destroyed} proxy on the created {@link Constraint}.
      */
-    @objid ("3895d646-a5d8-4452-9074-51ba9d4910ca")
+    @objid ("d2ce909b-66d2-43ba-80cb-0d2e25aa93dc")
     public static Destroyed create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Constraint");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.Constraint");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Destroyed.STEREOTYPE_NAME);
         return Destroyed.instantiate((Constraint)e);
     }
@@ -91,7 +89,7 @@ public class Destroyed {
      * @param obj a Constraint
      * @return a {@link Destroyed} proxy or <i>null</i>.
      */
-    @objid ("fa6f4fd0-d8f7-4fed-bf69-c2626f3ded31")
+    @objid ("9dc686ad-f488-4bd0-8375-232b74b9334a")
     public static Destroyed instantiate(Constraint obj) {
         return Destroyed.canInstantiate(obj) ? new Destroyed(obj) : null;
     }
@@ -104,7 +102,7 @@ public class Destroyed {
      * @return a {@link Destroyed} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("d73837ae-ed24-4cce-88ff-4da3ee80bc73")
+    @objid ("e5d06323-133c-43e7-8820-4756c1df38fd")
     public static Destroyed safeInstantiate(Constraint obj) throws IllegalArgumentException {
         if (Destroyed.canInstantiate(obj))
         	return new Destroyed(obj);
@@ -112,7 +110,7 @@ public class Destroyed {
         	throw new IllegalArgumentException("Destroyed: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("6fd7f5ec-863e-4987-bbd4-eef3d5d1ae00")
+    @objid ("c4708c70-554f-4712-a6e2-6bac87eac256")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,46 +130,47 @@ public class Destroyed {
      * Get the underlying {@link Constraint}. 
      * @return the Constraint represented by this proxy, never null.
      */
-    @objid ("eab32f09-bcff-45ed-bbfa-3b019e4828ba")
+    @objid ("c7b38486-be3d-422f-a21b-bfd2d7034ffe")
     public Constraint getElement() {
         return this.elt;
     }
 
-    @objid ("b56a9b71-ed5b-4ca3-82d5-8c4ca0e6e405")
+    @objid ("2494641c-5c71-45a5-89b1-3ef48f3be52a")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("a79176c6-2a45-49b3-b0cc-d5a1f7f82509")
-    protected Destroyed(Constraint elt) {
+    @objid ("fb0b4573-e3ac-4890-bbed-49526f8f0162")
+    protected  Destroyed(Constraint elt) {
         this.elt = elt;
     }
 
     @objid ("74ba3d8d-a1db-491d-89b9-617b42eb8014")
     public static final class MdaTypes {
-        @objid ("6a36a790-82b0-4840-9f9f-986b2e0e21d1")
+        @objid ("8cb70684-2fcf-477a-8945-cfbc55b6c5dd")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("a4cf8a19-d90a-4ce8-b0e2-781aa9416120")
+        @objid ("d914b968-f05f-4eab-874b-86fc5275ae88")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("c5bcfd1b-6f3a-4e32-82a7-416b06ea5b89")
+        @objid ("d49bfd76-7d70-43e6-b19d-22c96c875d16")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("9447627c-07e8-4312-9531-681fb0f814be")
+        @objid ("d1d723cf-63b1-425f-ba3d-e671603ae7b9")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "00700680-0000-01f3-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

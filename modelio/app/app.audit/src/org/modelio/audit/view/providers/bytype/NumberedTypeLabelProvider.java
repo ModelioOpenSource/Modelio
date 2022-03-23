@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.view.providers.bytype;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -64,6 +63,7 @@ public class NumberedTypeLabelProvider extends StyledCellLabelProvider {
         cell.setStyleRanges(text.getStyleRanges());
         
         super.update(cell);
+        
     }
 
 }

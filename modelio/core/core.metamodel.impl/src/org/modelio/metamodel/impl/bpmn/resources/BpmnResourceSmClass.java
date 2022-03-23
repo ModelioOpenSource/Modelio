@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.resources;
 
 import java.util.ArrayList;
@@ -32,9 +32,6 @@ import org.modelio.metamodel.bpmn.resources.BpmnResource;
 import org.modelio.metamodel.bpmn.resources.BpmnResourceParameter;
 import org.modelio.metamodel.bpmn.resources.BpmnResourceRole;
 import org.modelio.metamodel.bpmn.rootElements.BpmnSharedElement;
-import org.modelio.metamodel.impl.bpmn.resources.BpmnResourceData;
-import org.modelio.metamodel.impl.bpmn.resources.BpmnResourceParameterSmClass;
-import org.modelio.metamodel.impl.bpmn.resources.BpmnResourceRoleSmClass;
 import org.modelio.metamodel.impl.bpmn.rootElements.BpmnSharedElementSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
@@ -56,7 +53,7 @@ public class BpmnResourceSmClass extends BpmnSharedElementSmClass {
     private SmDependency parameterDep;
 
     @objid ("97ff7eeb-52e1-4e06-8b72-ab94c476afbb")
-    public BpmnResourceSmClass(ISmMetamodelFragment origin) {
+    public  BpmnResourceSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -64,6 +61,7 @@ public class BpmnResourceSmClass extends BpmnSharedElementSmClass {
     @Override
     public String getName() {
         return "BpmnResource";
+        
     }
 
     @objid ("0749d2d4-b9ce-4b70-b648-204da4a2a437")
@@ -76,18 +74,21 @@ public class BpmnResourceSmClass extends BpmnSharedElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnResource.class;
+        
     }
 
     @objid ("16bdc9ec-3370-4861-8465-404e3e24aa10")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("d3d0dbba-625e-4160-8bfc-2486f976f5af")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("c3c2ca11-88c1-47f8-868e-4e73f26fe742")
@@ -107,6 +108,8 @@ public class BpmnResourceSmClass extends BpmnSharedElementSmClass {
         this.parameterDep = new ParameterSmDependency();
         this.parameterDep.init("Parameter", this, metamodel.getMClass(BpmnResourceParameter.MQNAME), 0, -1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.parameterDep);
+        
+        
     }
 
     @objid ("4d0db960-0315-437c-9a11-bd3c0496112f")
@@ -131,7 +134,7 @@ public class BpmnResourceSmClass extends BpmnSharedElementSmClass {
         private BpmnResourceSmClass smClass;
 
         @objid ("1b92e459-0194-4e4c-9463-ee354f4c016c")
-        public BpmnResourceObjectFactory(BpmnResourceSmClass smClass) {
+        public  BpmnResourceObjectFactory(BpmnResourceSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -164,6 +167,7 @@ public class BpmnResourceSmClass extends BpmnSharedElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnResourceData) data).mResourceroleRefs = values;
+            
         }
 
         @objid ("26978cea-3414-49bd-af28-676a7b253efd")
@@ -173,6 +177,7 @@ public class BpmnResourceSmClass extends BpmnSharedElementSmClass {
             	this.symetricDep = ((BpmnResourceRoleSmClass)this.getTarget()).getResourceRefDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -192,6 +197,7 @@ public class BpmnResourceSmClass extends BpmnSharedElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnResourceData) data).mParameter = values;
+            
         }
 
         @objid ("7ae17772-4105-45db-8be8-9b7790157217")
@@ -201,6 +207,7 @@ public class BpmnResourceSmClass extends BpmnSharedElementSmClass {
             	this.symetricDep = ((BpmnResourceParameterSmClass)this.getTarget()).getResourceDep();
             }
             return this.symetricDep;
+            
         }
 
     }

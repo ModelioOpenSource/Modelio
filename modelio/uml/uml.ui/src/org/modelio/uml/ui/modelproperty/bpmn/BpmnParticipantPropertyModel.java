@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import java.util.Arrays;
@@ -61,25 +60,24 @@ public class BpmnParticipantPropertyModel extends AbstractPropertyModel<BpmnPart
      */
     @objid ("ad03e07d-cb76-43c7-b343-9ceb5d82b641")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name",
-            "Process", "MultiplicityMin", "MultiplicityMax", "Represents", "Reference" };
+                "Process", "MultiplicityMin", "MultiplicityMax", "Represents", "Reference" };
 
     @objid ("6fe5ede3-6d49-4e09-978d-1ad4a0f5c57e")
     private IMdaExpert mdaExpert;
 
     /**
      * Create a new <i>BpmnParticipant</i> data model from an <i>BpmnParticipant</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("2a202e1e-57a5-45bd-90e5-b6d135f5c89d")
-    public BpmnParticipantPropertyModel(BpmnParticipant theEditedElement, IMdaExpert mdaExpert) {
+    public  BpmnParticipantPropertyModel(BpmnParticipant theEditedElement, IMdaExpert mdaExpert) {
         super(theEditedElement);
         this.mdaExpert = mdaExpert;
+        
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("1c78d8b0-29db-46ba-b00f-543a6d3f515f")
@@ -90,7 +88,6 @@ public class BpmnParticipantPropertyModel extends AbstractPropertyModel<BpmnPart
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("0a85b291-907d-4912-9e65-eccabf5c51bb")
@@ -103,7 +100,6 @@ public class BpmnParticipantPropertyModel extends AbstractPropertyModel<BpmnPart
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -137,6 +133,7 @@ public class BpmnParticipantPropertyModel extends AbstractPropertyModel<BpmnPart
         default:
             return null;
         }
+        
     }
 
     /**
@@ -145,7 +142,6 @@ public class BpmnParticipantPropertyModel extends AbstractPropertyModel<BpmnPart
      * This type will be used to choose an editor and a renderer for each cell of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -216,13 +212,13 @@ public class BpmnParticipantPropertyModel extends AbstractPropertyModel<BpmnPart
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -272,6 +268,7 @@ public class BpmnParticipantPropertyModel extends AbstractPropertyModel<BpmnPart
         default:
             return;
         }
+        
     }
 
     @objid ("d8caeb97-cd01-48e3-8394-ef72c5c73a28")
@@ -284,6 +281,7 @@ public class BpmnParticipantPropertyModel extends AbstractPropertyModel<BpmnPart
         } else {
             return isEditable;
         }
+        
     }
 
     /**

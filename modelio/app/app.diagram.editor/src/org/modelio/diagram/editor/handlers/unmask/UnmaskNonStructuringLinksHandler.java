@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.handlers.unmask;
 
 import java.util.List;
@@ -46,6 +45,7 @@ public class UnmaskNonStructuringLinksHandler extends AbstractUnmaskHandler {
         } catch (Exception e) {
             DiagramEditor.LOG.error(e);
         }
+        
     }
 
 }

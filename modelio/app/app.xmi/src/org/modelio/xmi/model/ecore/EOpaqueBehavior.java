@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -54,12 +53,14 @@ public class EOpaqueBehavior extends ENamedElement {
             return null;
         }else
             return ReverseProperties.getInstance().getMModelServices().getModelFactory().getFactory(IStandardModelFactory.class).createOpaqueBehavior();
+        
     }
 
     @objid ("cb8f2e40-7e47-4f14-b43c-830f47819bc4")
-    public EOpaqueBehavior(org.eclipse.uml2.uml.OpaqueBehavior element) {
+    public  EOpaqueBehavior(org.eclipse.uml2.uml.OpaqueBehavior element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("41ce48fa-5f97-4480-9ecf-c8ef1d83be51")
@@ -72,6 +73,7 @@ public class EOpaqueBehavior extends ENamedElement {
         }else{
             objingElt.delete();
         }
+        
     }
 
     @objid ("ce06d0ae-3c51-4625-abcc-ff61f22b45a9")
@@ -80,6 +82,7 @@ public class EOpaqueBehavior extends ENamedElement {
         super.setProperties(objingElt);
         setBehaviorEffect((OpaqueBehavior) objingElt);
         setBody((OpaqueBehavior) objingElt);
+        
     }
 
     @objid ("2ae49882-00a3-4511-ab93-63f69685c7bd")
@@ -92,6 +95,7 @@ public class EOpaqueBehavior extends ENamedElement {
         if (objingElt != null){
             objingElt.setBody(body.toString());
         }
+        
     }
 
     @objid ("6ced2331-33dd-45e7-b14e-c7a5585269d3")
@@ -104,6 +108,7 @@ public class EOpaqueBehavior extends ENamedElement {
                 ((Transition) objingOwner).setBehaviorEffect(objingElt);
             }
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.lifeline;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,31 +30,31 @@ import org.modelio.uml.sequencediagram.editor.style.SequenceAbstractStyleKeyProv
 @objid ("d93f0b5e-55b6-11e2-877f-002564c97630")
 public class GmLifelineSimpleStyleKeys extends SequenceAbstractStyleKeyProvider {
     @objid ("50426ac9-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("LIFELINE_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("LIFELINE_REPMODE", MetaKey.REPMODE);
 
     @objid ("50426acb-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("LIFELINE_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("LIFELINE_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("50426acd-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("LIFELINE_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("LIFELINE_FILLMODE", MetaKey.FILLMODE);
 
     @objid ("50426acf-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("LIFELINE_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("LIFELINE_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("50426ad1-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("LIFELINE_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("LIFELINE_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("50426ad3-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("LIFELINE_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("LIFELINE_FONT", MetaKey.FONT);
 
     @objid ("50426ad5-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("LIFELINE_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("LIFELINE_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("50426ad7-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("LIFELINE_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("LIFELINE_SHOWSTEREOTYPES",
+                MetaKey.SHOWSTEREOTYPES);
 
     @objid ("50426ad9-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("LIFELINE_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("LIFELINE_SHOWTAGS", MetaKey.SHOWTAGS);
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.partition.header;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -54,6 +53,7 @@ public class PartitionHeaderEditPart extends ModelElementHeaderEditPart {
             // Create an horizontal version of the HeaderFigure
             return new RotatedFigureContainer(super.createFigure(), 90);
         }
+        
     }
 
     @objid ("2b09e059-55b6-11e2-877f-002564c97630")
@@ -90,6 +90,7 @@ public class PartitionHeaderEditPart extends ModelElementHeaderEditPart {
         } else {
             super.performRequest(req);
         }
+        
     }
 
     @objid ("29560b9e-1d75-4806-878d-3213bcec408d")
@@ -102,6 +103,7 @@ public class PartitionHeaderEditPart extends ModelElementHeaderEditPart {
         } else {
             return getHeaderFigure((IFigure) aFigure.getChildren().get(0));
         }
+        
     }
 
 }

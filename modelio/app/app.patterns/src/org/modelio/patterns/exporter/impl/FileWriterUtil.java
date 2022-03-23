@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.exporter.impl;
 
 import java.io.BufferedWriter;
@@ -68,6 +67,7 @@ class FileWriterUtil implements AutoCloseable {
         } catch (IOException e) {
             Patterns.LOG.debug(e);
         }
+        
     }
 
     @objid ("0f096d26-eb93-4a93-b4d4-65d9aea6c153")
@@ -83,6 +83,7 @@ class FileWriterUtil implements AutoCloseable {
         } catch (IOException e) {
             Patterns.LOG.debug(e);
         }
+        
     }
 
     @objid ("98de30f0-ba8f-408d-b434-4283c19f047b")
@@ -115,6 +116,7 @@ class FileWriterUtil implements AutoCloseable {
         } catch (IOException e) {
             Patterns.LOG.debug(e);
         }
+        
     }
 
     @objid ("6555e2ab-90f1-421f-b657-e022eca4f8fd")
@@ -128,10 +130,11 @@ class FileWriterUtil implements AutoCloseable {
         } catch (IOException e) {
             Patterns.LOG.debug(e);
         }
+        
     }
 
     @objid ("4b7093e7-01cc-4484-b1fa-f15b8c1c7f9e")
-    public FileWriterUtil(Path path) {
+    public  FileWriterUtil(Path path) {
         if (path != null) {
             try {
                 if (Files.exists(path)) {
@@ -144,6 +147,7 @@ class FileWriterUtil implements AutoCloseable {
         }
         this.counter = 0;
         this.methodIndex = 1;
+        
     }
 
 }

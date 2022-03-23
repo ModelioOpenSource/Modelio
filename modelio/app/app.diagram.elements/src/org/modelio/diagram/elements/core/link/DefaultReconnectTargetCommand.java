@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link;
 
 import java.util.Objects;
@@ -38,6 +37,9 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("7ff10f5a-1dec-11e2-8cad-001ec947c8cc")
 public class DefaultReconnectTargetCommand extends Command {
+    @objid ("a5e937d6-61e1-4fdc-9f91-3db6c2695005")
+    private boolean gmModelOnly;
+
     @objid ("7ff10f5e-1dec-11e2-8cad-001ec947c8cc")
     private Object anchorModel;
 
@@ -49,14 +51,16 @@ public class DefaultReconnectTargetCommand extends Command {
 
     /**
      * Create the command.
-     * 
      * @param gmLink The link to move.
      * @param newTarget The new target node.
+     * @param gmModelOnly if <code>true</code>, only the Gm model changes after executing the command.
      */
     @objid ("7ff10f63-1dec-11e2-8cad-001ec947c8cc")
-    public DefaultReconnectTargetCommand(GmLink gmLink, IGmLinkable newTarget) {
+    public  DefaultReconnectTargetCommand(GmLink gmLink, IGmLinkable newTarget, Boolean gmModelOnly) {
         this.gmLink = gmLink;
         this.newTargetNode = newTarget;
+        this.gmModelOnly = Boolean.TRUE.equals(gmModelOnly);
+        
     }
 
     @objid ("7ff10f68-1dec-11e2-8cad-001ec947c8cc")
@@ -97,6 +101,7 @@ public class DefaultReconnectTargetCommand extends Command {
                 return isModifableElement(oldTargetNode) && isModifableElement(this.gmLink) && expert.canTarget(link, newDest);
             }
         }
+        
     }
 
     @objid ("7ff10f6c-1dec-11e2-8cad-001ec947c8cc")
@@ -105,14 +110,16 @@ public class DefaultReconnectTargetCommand extends Command {
         updateLinkTarget();
         
         if (this.anchorModel != null) {
-            this.gmLink.getPath().setTargetAnchor(this.anchorModel);
-            this.gmLink.setLayoutData(new GmPath(this.gmLink.getPath()));
+            GmPath newPath = new GmPath(this.gmLink.getPath());
+            newPath.setTargetAnchor(this.anchorModel);
+            newPath.setTargetRake(null); // unrake from source
+            this.gmLink.setLayoutData(newPath);
         }
+        
     }
 
     /**
      * Set the model of the target anchor of the link.
-     * 
      * @param anchorModel the model of the target anchor of the link
      */
     @objid ("7ff10f6f-1dec-11e2-8cad-001ec947c8cc")
@@ -131,17 +138,27 @@ public class DefaultReconnectTargetCommand extends Command {
             if (oldTargetNode != null) {
                 final MObject oldDest = oldTargetNode.getRelatedElement();
                 if (!newDest.equals(oldDest)) {
-                    // Update Ob model
-                    expert.setTarget(link, oldDest, newDest);
+                    updateObModel(expert, link, oldDest, newDest);
                 }
+        
+                // Update gm model
                 oldTargetNode.removeEndingLink(this.gmLink);
             } else {
-                expert.setTarget(link, null, newDest);
+                updateObModel(expert, link, null, newDest);
             }
         
             // Update gm model
             this.newTargetNode.addEndingLink(this.gmLink);
         }
+        
+    }
+
+    @objid ("6466bedf-d0c6-4f01-9f6f-ce9e21c7731c")
+    private void updateObModel(final MExpert expert, final MObject link, final MObject oldDest, final MObject newDest) {
+        if (!this.gmModelOnly) {
+            expert.setTarget(link, oldDest, newDest);
+        }
+        
     }
 
     @objid ("7ff10f76-1dec-11e2-8cad-001ec947c8cc")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.bpmn.activities;
 
 import java.util.Arrays;
@@ -33,65 +32,68 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  */
 @objid ("00558606-91e1-1f74-804b-001ec947cd2a")
 public enum TransactionMethod {
-    COMPENSATETRANSACTION (0, "compensateTransaction", "compensateTransaction"),
-    STORETRANSACTION (1, "storeTransaction", "storeTransaction"),
-    IMAGETRANSACTION (2, "imageTransaction", "imageTransaction");
-
+    @objid ("de35dbcd-1266-49de-b35d-1fff499cd47d")
+    COMPENSATETRANSACTION(0, "compensateTransaction", "compensateTransaction"),
+    @objid ("40accce2-365c-4552-805a-bea4625edd18")
+    STORETRANSACTION(1, "storeTransaction", "storeTransaction"),
+    @objid ("c7e5d6ca-5384-4241-ba28-1ee89760f75c")
+    IMAGETRANSACTION(2, "imageTransaction", "imageTransaction");
 public static final int COMPENSATETRANSACTION_VALUE = 0;
-public static final int STORETRANSACTION_VALUE = 1;
-public static final int IMAGETRANSACTION_VALUE = 2;
-private static final TransactionMethod[] VALUES_ARRAY =
-new TransactionMethod[] {
-COMPENSATETRANSACTION,
-STORETRANSACTION,
-IMAGETRANSACTION,
-};
-public static final List<TransactionMethod> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
-public static TransactionMethod get(String literal) {
-  for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-    TransactionMethod result = VALUES_ARRAY[i];
-    if (result.toString().equals(literal)) {
-       return result;
+    public static final int STORETRANSACTION_VALUE = 1;
+    public static final int IMAGETRANSACTION_VALUE = 2;
+    private static final TransactionMethod[] VALUES_ARRAY =
+    new TransactionMethod[] {
+    COMPENSATETRANSACTION,
+    STORETRANSACTION,
+    IMAGETRANSACTION,
+    };
+    public static final List<TransactionMethod> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static TransactionMethod get(String literal) {
+      for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+        TransactionMethod result = VALUES_ARRAY[i];
+        if (result.toString().equals(literal)) {
+           return result;
+        }
+      }
+      return null;
     }
-  }
-  return null;
-}
-public static TransactionMethod getByName(String name) {
-    for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-TransactionMethod result = VALUES_ARRAY[i];
-if (result.getName().equals(name)) {
-return result;
-}
-}
-return null;
-}
-public static TransactionMethod get(int value) {
-    switch (value) {
-        case COMPENSATETRANSACTION_VALUE: return COMPENSATETRANSACTION;
-        case STORETRANSACTION_VALUE: return STORETRANSACTION;
-        case IMAGETRANSACTION_VALUE: return IMAGETRANSACTION;
+    public static TransactionMethod getByName(String name) {
+        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+    TransactionMethod result = VALUES_ARRAY[i];
+    if (result.getName().equals(name)) {
+    return result;
+    }
     }
     return null;
-}
-private final int value;
-private final String name;
-private final String literal;
-private TransactionMethod(int value, String name, String literal) {
-  this.value = value;
-  this.name = name;
-  this.literal = literal;
-}
-public int getValue() {
-   return value;
-}
- public String getName() {
-    return name;
-}
-public String getLiteral() {
-  return literal;
-}
- @Override
-public String toString() {
-   return literal;
-}
+    }
+    public static TransactionMethod get(int value) {
+        switch (value) {
+            case COMPENSATETRANSACTION_VALUE: return COMPENSATETRANSACTION;
+            case STORETRANSACTION_VALUE: return STORETRANSACTION;
+            case IMAGETRANSACTION_VALUE: return IMAGETRANSACTION;
+        }
+        return null;
+    }
+    private final int value;
+    private final String name;
+    private final String literal;
+    private TransactionMethod(int value, String name, String literal) {
+      this.value = value;
+      this.name = name;
+      this.literal = literal;
+    }
+    public int getValue() {
+       return value;
+    }
+     public String getName() {
+        return name;
+    }
+    public String getLiteral() {
+      return literal;
+    }
+     @Override
+    public String toString() {
+       return literal;
+    }
+    
 }

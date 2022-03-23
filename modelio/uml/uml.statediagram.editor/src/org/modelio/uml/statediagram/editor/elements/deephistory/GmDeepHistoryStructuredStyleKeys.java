@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.deephistory;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,34 +31,34 @@ import org.modelio.uml.statediagram.editor.style.StateAbstractStyleKeyProvider;
 @objid ("f50b705e-55b6-11e2-877f-002564c97630")
 public class GmDeepHistoryStructuredStyleKeys extends StateAbstractStyleKeyProvider {
     @objid ("8158f20b-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("DEEPHISTORY_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("DEEPHISTORY_REPMODE", MetaKey.REPMODE);
 
     @objid ("8158f20d-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("DEEPHISTORY_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("DEEPHISTORY_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("8158f20f-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("DEEPHISTORY_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("DEEPHISTORY_FILLMODE", MetaKey.FILLMODE);
 
     @objid ("8158f211-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("DEEPHISTORY_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("DEEPHISTORY_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("8158f213-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("DEEPHISTORY_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("DEEPHISTORY_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("8158f215-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("DEEPHISTORY_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("DEEPHISTORY_FONT", MetaKey.FONT);
 
     @objid ("8158f217-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("DEEPHISTORY_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("DEEPHISTORY_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("8158f219-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("DEEPHISTORY_SHOWSTEREOTYPES",
-                                                           MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("DEEPHISTORY_SHOWSTEREOTYPES",
+                                                                   MetaKey.SHOWSTEREOTYPES);
 
     @objid ("8158f21b-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("DEEPHISTORY_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("DEEPHISTORY_SHOWTAGS", MetaKey.SHOWTAGS);
 
     @objid ("8158f21d-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWLABEL = createStyleKey("DEEPHISTORY_SHOWLABEL", MetaKey.SHOWLABEL);
+    static final StyleKey SHOWLABEL = createStyleKey("DEEPHISTORY_SHOWLABEL", MetaKey.SHOWLABEL);
 
 }

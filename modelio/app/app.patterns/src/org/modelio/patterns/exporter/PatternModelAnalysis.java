@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.exporter;
 
 import java.util.ArrayList;
@@ -108,9 +107,10 @@ public class PatternModelAnalysis {
         public MRef mRef;
 
         @objid ("8b090354-1caa-4ffe-af7b-b65b248805e8")
-        public ReportStringParameter(String name, MRef mRef) {
+        public  ReportStringParameter(String name, MRef mRef) {
             this.name = name;
             this.mRef = mRef;
+            
         }
 
     }

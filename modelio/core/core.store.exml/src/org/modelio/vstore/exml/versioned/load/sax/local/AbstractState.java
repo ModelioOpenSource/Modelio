@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.versioned.load.sax.local;
 
 import java.text.MessageFormat;
@@ -35,7 +34,7 @@ abstract class AbstractState implements ExmlTags {
     protected DocumentContentHandler stateHandler;
 
     @objid ("b5c32b9a-3fbb-11e2-87cb-001ec947ccaf")
-    protected AbstractState() {
+    protected  AbstractState() {
         // Empty protected constructor.
     }
 
@@ -46,16 +45,13 @@ abstract class AbstractState implements ExmlTags {
      * method to take specific actions for each chunk of character data
      * (such as adding the data to a node or buffer, or printing it to
      * a file).</p>
-     * 
      * @param chars The characters.
      * @param start The start position in the character array.
      * @param length The number of characters to use from the
      * character array.
      * @exception org.xml.sax.SAXException Any SAX exception, possibly
      * wrapping another exception.
-     * 
-     * 
-     * @see org.xml.sax.ContentHandler#characters [op] characters 
+     * @see org.xml.sax.ContentHandler#characters [op]
      */
     @objid ("b5c32ba6-3fbb-11e2-87cb-001ec947ccaf")
     public void characters(final char[] chars, final int start, final int length) throws SAXException {
@@ -69,7 +65,6 @@ abstract class AbstractState implements ExmlTags {
      * method in a subclass to take specific actions at the end of
      * each element (such as finalising a tree node or writing
      * output to a file).</p>
-     * 
      * @param uri The Namespace URI, or the empty string if the
      * element has no Namespace URI or if Namespace
      * processing is not being performed.
@@ -80,9 +75,7 @@ abstract class AbstractState implements ExmlTags {
      * empty string if qualified names are not available.
      * @exception org.xml.sax.SAXException Any SAX exception, possibly
      * wrapping another exception.
-     * 
-     * 
-     * @see org.xml.sax.ContentHandler#endElement [op] endElement 
+     * @see org.xml.sax.ContentHandler#endElement [op]
      */
     @objid ("b5c32bb8-3fbb-11e2-87cb-001ec947ccaf")
     public void endElement(final String uri, final String localName, final String qName) throws SAXException {
@@ -96,7 +89,6 @@ abstract class AbstractState implements ExmlTags {
      * method in a subclass to take specific actions at the start of
      * each element (such as allocating a new tree node or writing
      * output to a file).</p>
-     * 
      * @param uri The Namespace URI, or the empty string if the
      * element has no Namespace URI or if Namespace
      * processing is not being performed.
@@ -110,9 +102,7 @@ abstract class AbstractState implements ExmlTags {
      * Attributes object.
      * @exception org.xml.sax.SAXException Any SAX exception, possibly
      * wrapping another exception.
-     * 
-     * 
-     * @see org.xml.sax.ContentHandler#startElement [op] startElement 
+     * @see org.xml.sax.ContentHandler#startElement [op]
      */
     @objid ("b5c32b9b-3fbb-11e2-87cb-001ec947ccaf")
     public void startElement(final String uri, final String localName, final String qName, final Attributes attrs) throws SAXException {
@@ -127,7 +117,6 @@ abstract class AbstractState implements ExmlTags {
 
     /**
      * Initialize the state handler.
-     * 
      * @param value the state handler.
      */
     @objid ("b5c32b6c-3fbb-11e2-87cb-001ec947ccaf")
@@ -137,7 +126,6 @@ abstract class AbstractState implements ExmlTags {
 
     /**
      * Get the data model.
-     * 
      * @return the data model
      */
     @objid ("b5c32b96-3fbb-11e2-87cb-001ec947ccaf")
@@ -166,9 +154,8 @@ abstract class AbstractState implements ExmlTags {
 
     /**
      * Embeds the {@link Exception} in a {@link SAXParseException} and throw it.
-     * 
      * @param e the exception.
-     * @throws org.xml.sax.SAXParseException the encapsulating exception
+     * @throws SAXParseException the encapsulating exception
      */
     @objid ("b5c32bcb-3fbb-11e2-87cb-001ec947ccaf")
     protected final void rethrowException(Exception e) throws SAXParseException {
@@ -177,9 +164,8 @@ abstract class AbstractState implements ExmlTags {
 
     /**
      * Throw a SAXParseException telling the given tag name is unexpected.
-     * 
      * @param localName the tag name
-     * @throws org.xml.sax.SAXParseException the thrown exception
+     * @throws SAXParseException the thrown exception
      */
     @objid ("b5c32bc1-3fbb-11e2-87cb-001ec947ccaf")
     protected void throwInvalidTag(final String localName) throws SAXParseException {

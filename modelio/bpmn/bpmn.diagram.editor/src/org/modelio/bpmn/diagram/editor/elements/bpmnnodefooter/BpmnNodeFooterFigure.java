@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnnodefooter;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,7 +49,7 @@ public class BpmnNodeFooterFigure extends Figure {
     private ImageFigure nonemptySubProcessFigure;
 
     @objid ("617303f1-55b6-11e2-877f-002564c97630")
-    public BpmnNodeFooterFigure() {
+    public  BpmnNodeFooterFigure() {
         this.emptySubProcessFigure = new ImageFigure();
         this.emptySubProcessFigure.setIcon(DiagramEditorBpmn
                 .getImageRegistry()
@@ -85,6 +84,7 @@ public class BpmnNodeFooterFigure extends Figure {
         this.copensationFigure.setIcon(DiagramEditorBpmn
                 .getImageRegistry()
                 .getImage(BpmnSharedImages.COMPENSATION));
+        
     }
 
     @objid ("617303f3-55b6-11e2-877f-002564c97630")
@@ -96,6 +96,7 @@ public class BpmnNodeFooterFigure extends Figure {
         } else if (this.getChildren().contains(this.emptySubProcessFigure)) {
             this.remove(this.emptySubProcessFigure);
         }
+        
     }
 
     @objid ("617303f6-55b6-11e2-877f-002564c97630")
@@ -107,6 +108,7 @@ public class BpmnNodeFooterFigure extends Figure {
         } else if (this.getChildren().contains(this.parallelFigure)) {
             this.remove(this.parallelFigure);
         }
+        
     }
 
     @objid ("617303f9-55b6-11e2-877f-002564c97630")
@@ -118,6 +120,7 @@ public class BpmnNodeFooterFigure extends Figure {
         } else if (this.getChildren().contains(this.sequentialFigure)) {
             this.remove(this.sequentialFigure);
         }
+        
     }
 
     @objid ("617303fc-55b6-11e2-877f-002564c97630")
@@ -129,6 +132,7 @@ public class BpmnNodeFooterFigure extends Figure {
         } else if (this.getChildren().contains(this.adhocFigure)) {
             this.remove(this.adhocFigure);
         }
+        
     }
 
     @objid ("61748a5b-55b6-11e2-877f-002564c97630")
@@ -140,6 +144,7 @@ public class BpmnNodeFooterFigure extends Figure {
         } else if (this.getChildren().contains(this.copensationFigure)) {
             this.remove(this.copensationFigure);
         }
+        
     }
 
     @objid ("61748a5e-55b6-11e2-877f-002564c97630")
@@ -151,6 +156,7 @@ public class BpmnNodeFooterFigure extends Figure {
         } else if (this.getChildren().contains(this.loopFigure)) {
             this.remove(this.loopFigure);
         }
+        
     }
 
     @objid ("61748a61-55b6-11e2-877f-002564c97630")
@@ -162,6 +168,7 @@ public class BpmnNodeFooterFigure extends Figure {
         } else if (this.getChildren().contains(this.nonemptySubProcessFigure)) {
             this.remove(this.nonemptySubProcessFigure);
         }
+        
     }
 
 }

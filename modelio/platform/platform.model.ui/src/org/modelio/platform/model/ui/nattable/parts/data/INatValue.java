@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data;
 
 import java.security.InvalidParameterException;
@@ -40,7 +39,6 @@ public interface INatValue extends Cloneable {
 
     /**
      * Gets the data associated with the cell.
-     * 
      * @return the cell's underlying value. Might be <code>null</code> as long as {@link #acceptNullValue()} is set to <code>true</code>.
      */
     @objid ("d1bdab27-fa30-480c-a5df-afc5e598fb91")
@@ -49,16 +47,14 @@ public interface INatValue extends Cloneable {
     /**
      * Sets the data associated with the cell.
      * Arbitrary objects may be put in this field.
-     * 
      * @param value the new cell's value.
-     * @throws java.security.InvalidParameterException if value is <code>null</code> and {@link #acceptNullValue()} is set to <code>false</code>.
+     * @throws InvalidParameterException if value is <code>null</code> and {@link #acceptNullValue()} is set to <code>false</code>.
      */
     @objid ("1b035b15-0e7a-423a-9366-6b24109b454f")
     void setValue(Object value) throws InvalidParameterException;
 
     /**
      * Get the argument value if it is a {@link INatValue}.
-     * 
      * @param valueOrNatValue may be a {@link INatValue} or anything else.
      * @return the {@link INatValue#getValue()} or the argument if it is not a {@link INatValue}.
      */
@@ -69,6 +65,7 @@ public interface INatValue extends Cloneable {
         } else {
             return valueOrNatValue;
         }
+        
     }
 
 }

@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.propertiesPage;
 
 import java.util.Collection;
@@ -31,7 +30,6 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IModulePropertyTable {
     /**
      * Add an "integer" typed property in the model.
-     * 
      * @param key the name of the property.
      * @param value the value of the property.
      */
@@ -40,7 +38,6 @@ public interface IModulePropertyTable {
 
     /**
      * Add a "string" typed property in the model.
-     * 
      * @param key the name of the property.
      * @param value the value of the property.
      */
@@ -49,7 +46,6 @@ public interface IModulePropertyTable {
 
     /**
      * Add a "boolean" typed property in the model.
-     * 
      * @param key the name of the property.
      * @param value the value of the property.
      */
@@ -58,7 +54,6 @@ public interface IModulePropertyTable {
 
     /**
      * Add an "enumeration" typed property in the model.
-     * 
      * @param key the name of the property.
      * @param value the value of the property.
      * @param enumValues the values of the property.
@@ -68,7 +63,6 @@ public interface IModulePropertyTable {
 
     /**
      * Add a read only property in the model.
-     * 
      * @param key the name of the property.
      * @param value the value of the property.
      */
@@ -83,7 +77,6 @@ public interface IModulePropertyTable {
 
     /**
      * Add a "MObject" typed property in the model.
-     * 
      * @param key the name of the property.
      * @param value the value of the property.
      * @param acceptedMetaclasses a list of metaclasses that can be set in this property.

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.flowfinal;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,8 +28,8 @@ import org.modelio.diagram.elements.core.node.IImageableNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.FlowFinalNode;
 import org.modelio.platform.model.ui.swt.images.ElementImageService;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -52,12 +51,11 @@ public class GmFlowFinalPrimaryNode extends GmNoStyleSimpleNode implements IImag
 
     /**
      * Create a flow final graphic node.
-     * 
      * @param diagram The diagram
      * @param relatedRef The related element reference, must not be null.
      */
     @objid ("2a79d562-55b6-11e2-877f-002564c97630")
-    public GmFlowFinalPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
+    public  GmFlowFinalPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -69,6 +67,7 @@ public class GmFlowFinalPrimaryNode extends GmNoStyleSimpleNode implements IImag
         }
         // forcing visual refresh in case Image changed
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("2a79d56e-55b6-11e2-877f-002564c97630")
@@ -85,7 +84,6 @@ public class GmFlowFinalPrimaryNode extends GmNoStyleSimpleNode implements IImag
 
     /**
      * Get the parent model representation mode.
-     * 
      * @return the parent representation mode or null if the node has still no parent.
      */
     @objid ("2a79d57e-55b6-11e2-877f-002564c97630")
@@ -117,13 +115,14 @@ public class GmFlowFinalPrimaryNode extends GmNoStyleSimpleNode implements IImag
                     }
         
                 };
+        
     }
 
     /**
      * For deserialization only.
      */
     @objid ("2a79d592-55b6-11e2-877f-002564c97630")
-    public GmFlowFinalPrimaryNode() {
+    public  GmFlowFinalPrimaryNode() {
         // for the serialization
     }
 
@@ -144,6 +143,7 @@ public class GmFlowFinalPrimaryNode extends GmNoStyleSimpleNode implements IImag
             break;
         }
         }
+        
     }
 
     @objid ("2a7b5bfd-55b6-11e2-877f-002564c97630")
@@ -159,6 +159,7 @@ public class GmFlowFinalPrimaryNode extends GmNoStyleSimpleNode implements IImag
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmFlowFinalPrimaryNode.", GmFlowFinalPrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("2a7b5c0a-55b6-11e2-877f-002564c97630")

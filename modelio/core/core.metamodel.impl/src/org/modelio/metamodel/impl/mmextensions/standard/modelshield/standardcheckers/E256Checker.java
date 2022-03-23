@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.modelshield.standardcheckers;
 
 import java.util.Collections;
@@ -55,6 +54,7 @@ public class E256Checker implements IChecker {
         if (activityAction.getInput().size() > 0) {
             report.addEntry(new ModelError(ERRORID, object, Collections.emptyList()));
         }
+        
     }
 
     @objid ("0095d116-e472-1f69-b3fb-001ec947cd2a")
@@ -62,6 +62,7 @@ public class E256Checker implements IChecker {
     public void register(final IModelShieldRegistry plan, MMetamodel smMetamodel) {
         // trigger=*, metaclass=AcceptSignalAction, feature=Input
         plan.registerChecker(this, smMetamodel.getMClass(AcceptSignalAction.class), TriggerType.AnyTrigger, "Input");
+        
     }
 
 }

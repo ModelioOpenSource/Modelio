@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.datastore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -57,6 +56,7 @@ public class DataStoreEditPart extends AbstractNodeEditPart {
         }
         
         getFigure().add(child, gmAbstractObject.getLayoutData(), index);
+        
     }
 
     @objid ("2a246263-55b6-11e2-877f-002564c97630")
@@ -67,6 +67,7 @@ public class DataStoreEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                 new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("2a246266-55b6-11e2-877f-002564c97630")
@@ -94,6 +95,7 @@ public class DataStoreEditPart extends AbstractNodeEditPart {
         if (!switchRepresentationMode()) {
             super.refreshFromStyle(aFigure, style);
         }
+        
     }
 
     /**
@@ -106,6 +108,7 @@ public class DataStoreEditPart extends AbstractNodeEditPart {
         IFigure fig = getFigure();
         GmAbstractObject dataStoreModel = getModel();
         fig.getParent().setConstraint(fig, dataStoreModel.getLayoutData());
+        
     }
 
     @objid ("2a25e902-55b6-11e2-877f-002564c97630")

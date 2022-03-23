@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel.tree;
 
 import java.util.ArrayList;
@@ -88,6 +87,7 @@ public class TreeContentProvider implements ITreeContentProvider {
     public void inputChanged(final Viewer viewer, final Object oldInput, final Object newInput) {
         // Nothing to do
         this.inputElement = (ModelElement) (newInput instanceof ModelElement ? newInput : null);
+        
     }
 
     @objid ("8faeec55-c068-11e1-8c0a-002564c97630")
@@ -130,7 +130,6 @@ public class TreeContentProvider implements ITreeContentProvider {
      * <li>it is started</li>
      * </ul>
      * @param element
-     * 
      * @return a collection of Modules
      */
     @objid ("8faeec69-c068-11e1-8c0a-002564c97630")

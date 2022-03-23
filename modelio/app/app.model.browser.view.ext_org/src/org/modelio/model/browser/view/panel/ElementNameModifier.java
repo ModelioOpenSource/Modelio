@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.browser.view.panel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -54,9 +53,10 @@ class ElementNameModifier implements ICellModifier {
     private ICoreSession modelingSession;
 
     @objid ("1fbd7565-1de3-11e2-bcbe-002564c97630")
-    public ElementNameModifier(ICoreSession modelingSession) {
+    public  ElementNameModifier(ICoreSession modelingSession) {
         super();
         this.modelingSession = modelingSession;
+        
     }
 
     @objid ("1fbfd6c6-1de3-11e2-bcbe-002564c97630")
@@ -67,6 +67,7 @@ class ElementNameModifier implements ICellModifier {
         } else {
             return false;
         }
+        
     }
 
     @objid ("1fbfd6cc-1de3-11e2-bcbe-002564c97630")
@@ -166,6 +167,7 @@ class ElementNameModifier implements ICellModifier {
                 }
             }
         }
+        
     }
 
     @objid ("1fbfd6d9-1de3-11e2-bcbe-002564c97630")
@@ -182,6 +184,7 @@ class ElementNameModifier implements ICellModifier {
             return element.getStatus().isModifiable();
         
         }
+        
     }
 
     @objid ("1fbfd6dd-1de3-11e2-bcbe-002564c97630")

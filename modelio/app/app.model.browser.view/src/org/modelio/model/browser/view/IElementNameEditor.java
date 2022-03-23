@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.browser.view;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -27,7 +26,6 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IElementNameEditor {
     /**
      * Selects and edits the given element if possible.
-     * 
      * @param elementToEdit the element to select and edit.
      */
     @objid ("e3308685-c4a0-4e43-a71f-891ec2cd926b")

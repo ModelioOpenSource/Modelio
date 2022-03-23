@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.util;
 
 import java.util.ArrayList;
@@ -68,6 +67,7 @@ public class EcoreModelNavigation {
         if (nearestEcorePkg instanceof Package) {
             ((Package) nearestEcorePkg).getPackagedElements().add(ecoreAssoc);
         }
+        
     }
 
     @objid ("bb270031-fc68-4345-8705-3cb5042b3757")
@@ -177,6 +177,7 @@ public class EcoreModelNavigation {
         }else{
             return getMatchedParameters((org.eclipse.uml2.uml.OutputPin) pin);
         }
+        
     }
 
     @objid ("2dfe9914-1547-4ea4-a036-0ea77924411b")
@@ -245,6 +246,7 @@ public class EcoreModelNavigation {
         }else{
             return "1";
         }
+        
     }
 
     @objid ("b1999565-dbdc-47d4-a52f-e2aaad5f3954")
@@ -260,6 +262,7 @@ public class EcoreModelNavigation {
         }else {
             return "1";
         }
+        
     }
 
     @objid ("3b970927-6b5e-4853-b452-1201691f5135")
@@ -499,6 +502,7 @@ public class EcoreModelNavigation {
             throw new AssociationNotFoundException("The Property \""
                     + p1.getName() + "\" is not connected to an org.eclipse.uml2.uml.Association.");
         }
+        
     }
 
     @objid ("5d7bf35d-bbf4-4bff-92d3-0e5f2036a89d")
@@ -792,6 +796,7 @@ public class EcoreModelNavigation {
         }else {
             return ecorePackage;
         }
+        
     }
 
     @objid ("0957512f-21aa-4bbe-987c-008897f0289c")
@@ -1083,6 +1088,7 @@ public class EcoreModelNavigation {
         org.eclipse.uml2.uml.Element owner = ecoreClass.getOwner();
         return ((owner instanceof Model ) &&
                         ((Model)owner).getName().equals(UMLMetamodel.getInstance().getUMLMetamodel().getName()));
+        
     }
 
     @objid ("ce8493b2-fe4f-47af-a50c-81c5aa4775ae")
@@ -1172,6 +1178,7 @@ public class EcoreModelNavigation {
                 eltName, eltClassName, ownerClassName);
         
         ReverseProperties.getInstance().addError(message);
+        
     }
 
     @objid ("1c41c9f1-871b-4598-a90f-95bd1d995669")

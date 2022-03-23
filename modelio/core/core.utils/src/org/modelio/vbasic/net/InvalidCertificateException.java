@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.net;
 
 import java.security.cert.CertificateException;
@@ -40,12 +39,11 @@ public class InvalidCertificateException extends CertificateException {
 
     /**
      * initialize the exception.
-     * 
      * @param chain the invalid certificate chain
      * @param e the exception cause
      */
     @objid ("0a7a49a1-46f7-4fcb-80eb-652ebd0f1fb5")
-    public InvalidCertificateException(X509Certificate[] chain, Throwable e) {
+    public  InvalidCertificateException(X509Certificate[] chain, Throwable e) {
         super(e);
         this.chain = chain;
         
@@ -56,6 +54,7 @@ public class InvalidCertificateException extends CertificateException {
             if (e.getCause() != null)
                 this.msg = e.getCause().getLocalizedMessage(); 
         }
+        
     }
 
     @objid ("a0eb6c2f-21ba-4fb3-bec1-34726752c77f")
@@ -66,7 +65,6 @@ public class InvalidCertificateException extends CertificateException {
 
     /**
      * Get the certificate chain whose validation failed.
-     * 
      * @return in invalid certificate chain.
      */
     @objid ("8f29fa9a-2e64-4f27-8eab-d713ada8c0a8")

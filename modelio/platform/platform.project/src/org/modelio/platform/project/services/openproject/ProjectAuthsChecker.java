@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.project.services.openproject;
 
 import java.io.IOException;
@@ -71,11 +70,12 @@ class ProjectAuthsChecker {
     private final IAuthData projectAuth;
 
     @objid ("bdd08bcf-d7f8-4bb2-9bba-c67bc6adafd9")
-    public ProjectAuthsChecker(IAuthenticationPrompter authPrompter, IModuleManagementService moduleService, IAuthData projectAuth) {
+    public  ProjectAuthsChecker(IAuthenticationPrompter authPrompter, IModuleManagementService moduleService, IAuthData projectAuth) {
         super();
         this.authPrompter = authPrompter;
         this.moduleService = moduleService;
         this.projectAuth = projectAuth;
+        
     }
 
     /**
@@ -87,7 +87,6 @@ class ProjectAuthsChecker {
      * TODO : this method might be useless now {@link OpenProjectService} and {@link TodoRunner}
      * nearly catches everywhere authentication problems and uses {@link IAuthenticationPrompter}
      * to resolve them real time.
-     * 
      * @param monitor a progress monitor, may be null.
      * @param openedProject the opened project
      */
@@ -160,11 +159,11 @@ class ProjectAuthsChecker {
             mon.worked(1);
             monCount--;
         }
+        
     }
 
     /**
      * Check authentication data on the project and all fragments before the project is opened.
-     * 
      * @param projectToOpen a project descriptor
      * @return the project authentication data on success, <i>null</i> if the user aborts open.
      */
@@ -210,7 +209,6 @@ class ProjectAuthsChecker {
 
     /**
      * Display a SWT dialog that prompts authentication .
-     * 
      * @param authData the authentication to complete
      * @param name the project or fragment name to authenticate.
      * @param location the location of the element to authenticate , usually an URL.
@@ -259,12 +257,12 @@ class ProjectAuthsChecker {
         } else {
             return e.getLocalizedMessage();
         }
+        
     }
 
     /**
      * A fragment needs authentication prompting if it is down with
      * a {@link FragmentAuthenticationException} or a {@link AccessDeniedException}.
-     * 
      * @param f the module to check
      * @return true if authentication needs to be prompted
      */
@@ -277,12 +275,12 @@ class ProjectAuthsChecker {
         } else {
             return false;
         }
+        
     }
 
     /**
      * A module needs authentication prompting if its model component fragment is down
      * with a {@link FragmentAuthenticationException} or a {@link AccessDeniedException}.
-     * 
      * @param f the module to check
      * @return true if authentication needs to be prompted
      */

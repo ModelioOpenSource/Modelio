@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.root;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -52,10 +51,11 @@ class GridLayer2 extends GridLayer {
     private Color gridColor;
 
     @objid ("65aaf11a-33f7-11e2-95fe-001ec947c8cc")
-    public GridLayer2() {
+    public  GridLayer2() {
         super();
         this.gridColor = ColorConstants.lightGray;
         this.gridAlpha = 255;
+        
     }
 
     @objid ("65aaf11c-33f7-11e2-95fe-001ec947c8cc")
@@ -77,6 +77,7 @@ class GridLayer2 extends GridLayer {
         
         graphics.drawLine(-size, 0, size, 0);
         graphics.drawLine(0, -size, 0, size);
+        
     }
 
     @objid ("65aaf120-33f7-11e2-95fe-001ec947c8cc")
@@ -95,12 +96,14 @@ class GridLayer2 extends GridLayer {
     public void setGridAlpha(int value) {
         // Automatically generated method. Please delete this comment before entering specific code.
         this.gridAlpha = value;
+        
     }
 
     @objid ("65aaf12b-33f7-11e2-95fe-001ec947c8cc")
     public void setGridColor(Color value) {
         // Automatically generated method. Please delete this comment before entering specific code.
         this.gridColor = value;
+        
     }
 
 }

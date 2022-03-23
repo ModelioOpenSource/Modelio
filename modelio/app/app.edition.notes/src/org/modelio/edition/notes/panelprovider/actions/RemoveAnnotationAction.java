@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.panelprovider.actions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,10 +31,11 @@ public class RemoveAnnotationAction extends Action {
     private NotesPanelController controller;
 
     @objid ("78063f3f-b8a9-444c-822a-9173a6698d06")
-    public RemoveAnnotationAction(NotesPanelController controller) {
+    public  RemoveAnnotationAction(NotesPanelController controller) {
         this.controller = controller;
         this.setText(EditionNotes.I18N.getString("RemoveAnnotation.label"));
         this.setImageDescriptor(UI.getImageDescriptor("icons/delete.png"));
+        
     }
 
     @objid ("221a8cbd-f7d1-4a7c-a774-761a8df7381d")

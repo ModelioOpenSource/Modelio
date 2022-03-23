@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.style;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,7 +35,6 @@ import org.modelio.diagram.styles.core.StyleKey;
 public abstract class ElementsAbstractStyleKeyProvider extends AbstractStyleKeyProvider {
     /**
      * Creates a StyleKey based on a MetaKey.
-     * 
      * @param key The style key.
      * @param metakey the base meta key.
      * @return a StyleKey with i18n informations filled.
@@ -52,7 +50,6 @@ public abstract class ElementsAbstractStyleKeyProvider extends AbstractStyleKeyP
 
     /**
      * Creates a style key.
-     * 
      * @param key The style key id.
      * @param type The type of the style key.
      * @return a StyleKey with i18n informations filled.

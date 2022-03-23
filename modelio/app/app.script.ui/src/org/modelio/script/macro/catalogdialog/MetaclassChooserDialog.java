@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.script.macro.catalogdialog;
 
 import java.util.ArrayList;
@@ -69,11 +68,12 @@ class MetaclassChooserDialog extends ModelioDialog {
 
     @objid ("8c0d2a3e-65c4-486c-a4e7-3dfba63b9927")
     private Comparator<MClass> metaclassSorter = new Comparator<MClass>() {
-		@Override
-		public int compare(MClass o1, MClass o2) {
-			return o1.getName().compareTo(o2.getName());
-		}
-	};
+    
+    		@Override
+    		public int compare(MClass o1, MClass o2) {
+    			return o1.getName().compareTo(o2.getName());
+    		}
+    	};
 
     @objid ("006aab6c-c497-106a-bf4f-001ec947cd2a")
     void handleAdd() {
@@ -92,6 +92,7 @@ class MetaclassChooserDialog extends ModelioDialog {
         
             i.dispose();
         }
+        
     }
 
     @objid ("006aac16-c497-106a-bf4f-001ec947cd2a")
@@ -112,11 +113,11 @@ class MetaclassChooserDialog extends ModelioDialog {
             i.dispose();
         
         }
+        
     }
 
     /**
      * Get the selected metaclasses.
-     * 
      * @return the selected metaclasses.
      */
     @objid ("006aacc0-c497-106a-bf4f-001ec947cd2a")
@@ -125,7 +126,7 @@ class MetaclassChooserDialog extends ModelioDialog {
     }
 
     @objid ("00697b8e-c497-106a-bf4f-001ec947cd2a")
-    public MetaclassChooserDialog(Shell parentShell, Collection<String> initValues, MMetamodel metamodel) {
+    public  MetaclassChooserDialog(Shell parentShell, Collection<String> initValues, MMetamodel metamodel) {
         super(parentShell);
         if (metamodel != null) {
             for (MClass smClass : metamodel.getRegisteredMClasses()) {
@@ -139,6 +140,7 @@ class MetaclassChooserDialog extends ModelioDialog {
         
         Collections.sort(this.leftValues, this.metaclassSorter);
         Collections.sort(this.rightValues, this.metaclassSorter);
+        
     }
 
     /**
@@ -162,6 +164,7 @@ class MetaclassChooserDialog extends ModelioDialog {
             item.setText(s.getName());
             item.setImage(getMetaclassImage(s));
         }
+        
     }
 
     @objid ("0069aaf0-c497-106a-bf4f-001ec947cd2a")
@@ -174,6 +177,7 @@ class MetaclassChooserDialog extends ModelioDialog {
     public void addButtonsInButtonBar(Composite parent) {
         createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL, true);
         createButton(parent, IDialogConstants.CANCEL_ID, IDialogConstants.CANCEL_LABEL, true);
+        
     }
 
     @objid ("0069ae38-c497-106a-bf4f-001ec947cd2a")
@@ -238,6 +242,7 @@ class MetaclassChooserDialog extends ModelioDialog {
         this.setMessage(Script.I18N.getString("MetaclassChooserDialog.Description"));
         
         getShell().setMinimumSize(600, 400);
+        
     }
 
     @objid ("55171f9b-173c-437f-bd8a-ada62af38147")

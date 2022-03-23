@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common.index;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,7 +36,7 @@ public class IndexException extends Exception {
      * @param cause
      */
     @objid ("61153996-9b70-45e2-9a8a-9429ccbabea7")
-    public IndexException(String message, Throwable cause) {
+    public  IndexException(String message, Throwable cause) {
         super(message, cause);
     }
 

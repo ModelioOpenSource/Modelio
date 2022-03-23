@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.files;
 
 import java.io.BufferedInputStream;
@@ -57,11 +56,10 @@ import org.modelio.vbasic.plugin.CoreUtils;
 public final class FileUtils {
     /**
      * Compute the size of all files stored in a directory tree.
-     * 
      * @param path a directory path.
      * @return the size of the directory.
-     * @throws java.io.IOException if an I/O error occurs. call {@linkplain IOException#getMessage()} to get the error cause.
-     * @throws java.nio.file.FileSystemException if a file system exception occurs. <b>Note:</b> {@linkplain FileSystemException#getMessage() getMessage()}
+     * @throws IOException if an I/O error occurs. call {@linkplain IOException#getMessage()} to get the error cause.
+     * @throws FileSystemException if a file system exception occurs. <b>Note:</b> {@linkplain FileSystemException#getMessage() getMessage()}
      * usually does not return a user friendly message. Call
      * {@linkplain FileUtils#getLocalizedMessage(FileSystemException)} to get a user friendly error message.
      */
@@ -76,11 +74,10 @@ public final class FileUtils {
      * Copy recursively the given directory to (not into) the destination directory.
      * <p>
      * The destination directory does not have to exist.
-     * 
      * @param from the directory to copy
      * @param toDir the directory copy path
-     * @throws java.io.IOException in case of failure
-     * @throws java.nio.file.FileSystemException if a file system exception occurs.
+     * @throws IOException in case of failure
+     * @throws FileSystemException if a file system exception occurs.
      * <b>Note:</b> {@linkplain FileSystemException#getMessage() getMessage()} usually does not return a user friendly message.
      * Call {@linkplain FileUtils#getLocalizedMessage(FileSystemException)} to get a user friendly error message.
      */
@@ -88,6 +85,7 @@ public final class FileUtils {
     public static void copyDirectoryTo(Path from, Path toDir) throws IOException, FileSystemException {
         CopyDirVisitor copyVisitor = new CopyDirVisitor(from, toDir, StandardCopyOption.REPLACE_EXISTING);
         Files.walkFileTree(from, copyVisitor);
+        
     }
 
     /**
@@ -96,21 +94,20 @@ public final class FileUtils {
      * 
      * <p>
      * If this method fails, then it may do so after creating some, but not all, of the parent directories.
-     * 
      * @param dir the directory to create
-     * @throws java.io.IOException if an I/O error occurs. call {@linkplain IOException#getMessage()} to get the error cause.
-     * @throws java.nio.file.FileSystemException if a file system exception occurs. <b>Note:</b> {@linkplain FileSystemException#getMessage()} usually does not
+     * @throws IOException if an I/O error occurs. call {@linkplain IOException#getMessage()} to get the error cause.
+     * @throws FileSystemException if a file system exception occurs. <b>Note:</b> {@linkplain FileSystemException#getMessage()} usually does not
      * return a user friendly message. Call {@linkplain #getLocalizedMessage(FileSystemException)} to get a user
      * friendly error message.
-     * @throws java.lang.SecurityException in the case of the default provider, and a security manager is installed, the
+     * @throws SecurityException in the case of the default provider, and a security manager is installed, the
      * {@link SecurityManager#checkWrite(String) checkWrite} method is invoked prior to attempting to create a directory
      * and its {@link SecurityManager#checkRead(String) checkRead} is invoked for each parent directory that is checked.
      * If {@code dir} is not an absolute path then its {@link Path#toAbsolutePath toAbsolutePath} may need to be invoked
      * to get its absolute path. This may invoke the security manager's
      * {@link SecurityManager#checkPropertyAccess(String) checkPropertyAccess} method to check access to the system
      * property {@code user.dir}
-     * @throws java.nio.file.FileAlreadyExistsException if {@code dir} exists but is not a directory <i>(optional specific exception)</i>
-     * @throws java.nio.file.InvalidPathException - if a Path object cannot be constructed from the abstract path (see FileSystem.getPath)
+     * @throws FileAlreadyExistsException if {@code dir} exists but is not a directory <i>(optional specific exception)</i>
+     * @throws InvalidPathException - if a Path object cannot be constructed from the abstract path (see FileSystem.getPath)
      */
     @objid ("e9ac671b-8541-11e1-afeb-001ec947ccaf")
     public static void createDir(final File dir) throws IOException, FileSystemException, SecurityException, FileAlreadyExistsException, InvalidPathException {
@@ -119,7 +116,6 @@ public final class FileUtils {
 
     /**
      * Decode a string from a file name encoded with {@link #encodeFileName(String, StringBuilder)}.
-     * 
      * @param fileName a file name with/without extension
      * @param sb the string builder to use to build the decoded string. The decoded file name will be appended to the buffer.
      * @return the string builder for convenience.
@@ -149,20 +145,19 @@ public final class FileUtils {
      * Deletes the given file or directory recursively.
      * <p>
      * If the path denotes a directory, tries to delete it with all its content.
-     * 
      * @param path the path to the file or directory to delete
-     * @throws java.io.IOException if an I/O error occurs. call {@linkplain IOException#getMessage()} to
+     * @throws IOException if an I/O error occurs. call {@linkplain IOException#getMessage()} to
      * get the error cause.
-     * @throws java.nio.file.FileSystemException if a file system exception occurs.
+     * @throws FileSystemException if a file system exception occurs.
      * <b>Note:</b> {@linkplain FileSystemException#getMessage()} usually does not return a user friendly message.
      * Call {@linkplain #getLocalizedMessage(FileSystemException)} to get a user friendly error message.
-     * @throws java.lang.SecurityException In the case of the default provider, and a security manager
+     * @throws SecurityException In the case of the default provider, and a security manager
      * is installed, the {@link SecurityManager#checkDelete(String)}
      * method is invoked to check delete access to the file
-     * @throws java.nio.file.DirectoryNotEmptyException if the file is a directory and could not otherwise be deleted
+     * @throws DirectoryNotEmptyException if the file is a directory and could not otherwise be deleted
      * because the directory is not empty <i>(optional specific
      * exception)</i>
-     * @throws java.nio.file.NoSuchFileException if the file does not exist <i>(optional specific
+     * @throws NoSuchFileException if the file does not exist <i>(optional specific
      * exception)</i>
      */
     @objid ("00974b68-bdb5-1ffa-8e11-001ec947cd2a")
@@ -191,23 +186,23 @@ public final class FileUtils {
         } else {
             Files.deleteIfExists(path);
         }
+        
     }
 
     /**
      * Deletes the given file or directory recursively.
      * <p>
      * If the path denotes a directory, tries to delete it with all its content.
-     * 
      * @param path the path to the file or directory to delete
-     * @throws java.io.IOException if an I/O error occurs. call {@linkplain IOException#getMessage()} to get the error cause.
-     * @throws java.nio.file.FileSystemException if a file system exception occurs. <b>Note:</b> {@linkplain FileSystemException#getMessage()} usually does not
+     * @throws IOException if an I/O error occurs. call {@linkplain IOException#getMessage()} to get the error cause.
+     * @throws FileSystemException if a file system exception occurs. <b>Note:</b> {@linkplain FileSystemException#getMessage()} usually does not
      * return a user friendly message. Call {@linkplain #getLocalizedMessage(FileSystemException)} to get a user
      * friendly error message.
-     * @throws java.lang.SecurityException In the case of the default provider, and a security manager is installed, the
+     * @throws SecurityException In the case of the default provider, and a security manager is installed, the
      * {@link SecurityManager#checkDelete(String)} method is invoked to check delete access to the file
-     * @throws java.nio.file.DirectoryNotEmptyException if the file is a directory and could not otherwise be deleted because the directory is not empty <i>(optional
+     * @throws DirectoryNotEmptyException if the file is a directory and could not otherwise be deleted because the directory is not empty <i>(optional
      * specific exception)</i>
-     * @throws java.nio.file.NoSuchFileException if the file does not exist <i>(optional specific exception)</i>
+     * @throws NoSuchFileException if the file does not exist <i>(optional specific exception)</i>
      */
     @objid ("e9ac6713-8541-11e1-afeb-001ec947ccaf")
     public static void delete(final String path) throws IOException, FileSystemException, SecurityException, DirectoryNotEmptyException, NoSuchFileException {
@@ -218,11 +213,10 @@ public final class FileUtils {
      * Deletes the given file or directory recursively.
      * <p>
      * If the path denotes a directory, tries to delete it with all its content.
-     * 
      * @param file the file or directory to delete.
-     * @throws java.io.IOException if an I/O error occurs. call {@linkplain IOException#getMessage()} to
+     * @throws IOException if an I/O error occurs. call {@linkplain IOException#getMessage()} to
      * get the error cause.
-     * @throws java.nio.file.FileSystemException if a file system exception occurs.
+     * @throws FileSystemException if a file system exception occurs.
      * <b>Note:</b> {@linkplain FileSystemException#getMessage()} usually does not return a user friendly message.
      * Call {@linkplain #getLocalizedMessage(FileSystemException)} to get a user friendly error message.
      */
@@ -235,7 +229,6 @@ public final class FileUtils {
      * Encode any string to a legal file name.
      * <p>
      * Illegal characters are encoded by '%' followed by the hex value of the character.
-     * 
      * @param s a string to encode
      * @param sb the string builder to use to build the encoded string. The encoded file name will be appended to the buffer.
      * @return the string builder for convenience.
@@ -266,7 +259,6 @@ public final class FileUtils {
 
     /**
      * Make best effort to compute a user friendly message from the given {@link IOException}.
-     * 
      * @param e the exception.
      * @return a message, won't be null.
      */
@@ -308,6 +300,7 @@ public final class FileUtils {
         } else {
             return e.toString();
         }
+        
     }
 
     /**
@@ -316,28 +309,27 @@ public final class FileUtils {
      * Avoids {@link DirectoryNotEmptyException} thrown by the standard {@link Files#move(Path, Path, java.nio.file.CopyOption...)} method
      * when moving a directory tree by copying each file and then deleting the directory tree itself.
      * </p>
-     * 
      * @param source the path to the file to move
      * @param target the path to the target file (may be associated with a different provider to the source path)
-     * @throws java.io.IOException in case of failure
+     * @throws IOException in case of failure
      */
     @objid ("84716b03-7e4a-40a1-9c50-4c764587aad0")
     public static void move(Path source, Path target) throws IOException {
         copyDirectoryTo(source, target);
         delete(source);
+        
     }
 
     /**
      * Read the whole content of an input stream and returns it as a string.
      * <p>
      * To be used for small files.
-     * 
      * @param is an input stream
      * @param charset The encoding type used to convert bytes from the stream into characters.
      * @return the read string
-     * @throws java.io.IOException if an I/O error occurs. call {@linkplain IOException#getMessage()} to
+     * @throws IOException if an I/O error occurs. call {@linkplain IOException#getMessage()} to
      * get the error cause.
-     * @throws java.nio.file.FileSystemException if a file system exception occurs.
+     * @throws FileSystemException if a file system exception occurs.
      * <b>Note:</b> {@linkplain FileSystemException#getMessage()} usually does not return a user friendly message.
      * Call {@linkplain #getLocalizedMessage(FileSystemException)} to get a user friendly error message.
      */
@@ -352,19 +344,19 @@ public final class FileUtils {
             }
             return ret;
         }
+        
     }
 
     /**
      * Read the whole content of a file and returns it as a string.
      * <p>
      * To be used for small files.
-     * 
      * @param file a file path.
      * @param charset The encoding type used to convert bytes from the stream into characters.
      * @return the read string
-     * @throws java.io.IOException if an I/O error occurs. call {@linkplain IOException#getMessage()} to
+     * @throws IOException if an I/O error occurs. call {@linkplain IOException#getMessage()} to
      * get the error cause.
-     * @throws java.nio.file.FileSystemException if a file system exception occurs.
+     * @throws FileSystemException if a file system exception occurs.
      * <b>Note:</b> {@linkplain FileSystemException#getMessage()} usually does not return a user friendly message.
      * Call {@linkplain #getLocalizedMessage(FileSystemException)} to get a user friendly error message.
      */
@@ -373,13 +365,15 @@ public final class FileUtils {
         try (InputStream is = new BufferedInputStream(Files.newInputStream(file))) {
             return readWhole(is, charset);
         }
+        
     }
 
     /**
      * No instance.
      */
     @objid ("d4576141-cc12-11e1-a564-001ec947ccaf")
-    private FileUtils() {
+    private  FileUtils() {
+        
     }
 
     /**
@@ -403,7 +397,6 @@ public final class FileUtils {
      * 
      * <pre>Cannot convert host to URI: http://www.m&lt;odeliosoft.com
      * Illegal character in authority at index 7: http://www.m&lt;odeliosoft.com</pre>
-     * 
      * @param e the Apache exception
      */
     @objid ("9cd5ba5d-6fef-4fb3-ad00-fff9da570869")
@@ -437,11 +430,11 @@ public final class FileUtils {
             return sb.toString();
         
         }
+        
     }
 
     /**
      * Compute and return a user friendly message from the given FileSystemException.
-     * 
      * @param e the exception.
      * @return a message, won't be null.
      */
@@ -466,10 +459,11 @@ public final class FileUtils {
         private Path toPath;
 
         @objid ("aba7abf6-8815-47a5-8da9-f2d8540e5c64")
-        public CopyDirVisitor(Path fromPath, Path toPath, StandardCopyOption copyOption) {
+        public  CopyDirVisitor(Path fromPath, Path toPath, StandardCopyOption copyOption) {
             this.fromPath = fromPath;
             this.toPath = toPath;
             this.copyOption = copyOption;
+            
         }
 
         @objid ("b71dd485-fb86-40ae-bf42-d9af6b659f82")
@@ -506,19 +500,19 @@ public final class FileUtils {
          * Total size of the directory.
          */
         @objid ("002920b6-b977-1ffa-8e11-001ec947cd2a")
-         long totalSize = 0;
+        long totalSize = 0;
 
         /**
          * Total number of files.
          */
         @objid ("00293ca4-b977-1ffa-8e11-001ec947cd2a")
-         long nFiles = 0;
+        long nFiles = 0;
 
         /**
          * Total number of directories.
          */
         @objid ("00294514-b977-1ffa-8e11-001ec947cd2a")
-         long nDirectory = 0;
+        long nDirectory = 0;
 
         @objid ("00294bfe-b977-1ffa-8e11-001ec947cd2a")
         public void compute(Path path) throws IOException {
@@ -527,6 +521,7 @@ public final class FileUtils {
             this.nDirectory = 0;
             
             Files.walkFileTree(path, this);
+            
         }
 
         @objid ("00295fae-b977-1ffa-8e11-001ec947cd2a")
@@ -543,7 +538,8 @@ public final class FileUtils {
         }
 
         @objid ("d37455dc-c9bf-11e1-8052-001ec947ccaf")
-        public DirectorySizeVisitor() {
+        public  DirectorySizeVisitor() {
+            
         }
 
     }

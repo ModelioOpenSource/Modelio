@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.sequencediagram;
 
 import java.util.ArrayList;
@@ -77,6 +76,7 @@ public class SequenceDiagramLayoutPolicy extends DiagramEditLayoutPolicy {
         } else {
             return super.createChangeConstraintCommand(request, child, constraint);
         }
+        
     }
 
     @objid ("d97f2199-55b6-11e2-877f-002564c97630")
@@ -89,6 +89,7 @@ public class SequenceDiagramLayoutPolicy extends DiagramEditLayoutPolicy {
         } else {
             return super.createChildEditPolicy(child);
         }
+        
     }
 
     /**
@@ -154,6 +155,7 @@ public class SequenceDiagramLayoutPolicy extends DiagramEditLayoutPolicy {
         } else {
             return super.getCreateCommand(request);
         }
+        
     }
 
     @objid ("d97f21a5-55b6-11e2-877f-002564c97630")
@@ -168,6 +170,7 @@ public class SequenceDiagramLayoutPolicy extends DiagramEditLayoutPolicy {
         } else {
             return null;
         }
+        
     }
 
     /**
@@ -249,6 +252,7 @@ public class SequenceDiagramLayoutPolicy extends DiagramEditLayoutPolicy {
             allChildren.add(child);
             getAllChildren(child, allChildren);
         }
+        
     }
 
     @objid ("d97f21d3-55b6-11e2-877f-002564c97630")
@@ -262,6 +266,7 @@ public class SequenceDiagramLayoutPolicy extends DiagramEditLayoutPolicy {
                 }
             }
         }
+        
     }
 
     /**
@@ -273,7 +278,7 @@ public class SequenceDiagramLayoutPolicy extends DiagramEditLayoutPolicy {
         private final ILayoutAssistant l;
 
         @objid ("cc87b903-843f-431d-ac49-f58afef340c9")
-        public SeqDgLayoutAssistantWrapper(ILayoutAssistant l) {
+        public  SeqDgLayoutAssistantWrapper(ILayoutAssistant l) {
             this.l = l;
         }
 
@@ -310,6 +315,7 @@ public class SequenceDiagramLayoutPolicy extends DiagramEditLayoutPolicy {
             if (movedEp instanceof LifelineEditPart) {
                 this.l.addBoundsChange(movedEp, oldRect, newRect);
             }
+            
         }
 
     }

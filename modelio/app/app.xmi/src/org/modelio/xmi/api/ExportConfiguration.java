@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.api;
 
 import java.io.File;
@@ -88,6 +87,7 @@ public class ExportConfiguration {
         if (file.exists()){
             this.xmiFile = file;
         }
+        
     }
 
     @objid ("254a50f2-b28e-4350-89a1-75e0c72000a1")
@@ -99,12 +99,14 @@ public class ExportConfiguration {
     public void setEntryPoint(final Package entryPoint) {
         this.entryPoints = new ArrayList<>();
         this.entryPoints.add(entryPoint);
+        
     }
 
     @objid ("6ddbfd4e-8eea-4add-9473-92ad19536035")
     public void setEntryPoint(final Profile entryPoint) {
         this.entryPoints = new ArrayList<>();
         this.entryPoints.add(entryPoint);
+        
     }
 
 }

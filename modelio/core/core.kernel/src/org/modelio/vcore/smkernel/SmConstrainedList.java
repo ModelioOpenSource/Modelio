@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel;
 
 import java.util.Arrays;
@@ -35,16 +34,16 @@ public class SmConstrainedList<T> extends SmList<T> {
 
     /**
      * Constructor.
-     * 
      * @param owner the list owner
      * @param dep the navigated model dependency
      * @param filter the filter
      */
     @objid ("0003d572-edd6-1f86-ba49-001ec947cd2a")
-    public SmConstrainedList(final SmObjectImpl owner, final SmDependency dep, final Class<?>[] filter) {
+    public  SmConstrainedList(final SmObjectImpl owner, final SmDependency dep, final Class<?>[] filter) {
         super(owner, dep);
         
         this.filter = filter;
+        
     }
 
     @objid ("00043512-edd6-1f86-ba49-001ec947cd2a")
@@ -56,6 +55,7 @@ public class SmConstrainedList<T> extends SmList<T> {
             }
         }
         throw new IllegalArgumentException(value+" is not a " + Arrays.toString(this.filter));
+        
     }
 
     @objid ("000466cc-edd6-1f86-ba49-001ec947cd2a")
@@ -68,6 +68,7 @@ public class SmConstrainedList<T> extends SmList<T> {
             }
         }
         throw new IllegalArgumentException(value + " is not a " + Arrays.toString(this.filter));
+        
     }
 
     @objid ("0004a5f6-edd6-1f86-ba49-001ec947cd2a")
@@ -79,6 +80,7 @@ public class SmConstrainedList<T> extends SmList<T> {
             }
         }
         throw new IllegalArgumentException(value + " is not a " + Arrays.toString(this.filter));
+        
     }
 
 }

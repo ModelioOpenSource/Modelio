@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel;
 
-import javax.annotation.PostConstruct;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.annotation.PostConstruct;
 import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.jface.viewers.ISelection;
@@ -70,27 +69,26 @@ public class ElementPropertyPanelProvider implements IPanelProvider {
      * For E4 injection only, use #ElementPropertyPanelProvider(IEclipseContext) instead.
      */
     @objid ("869933f7-cf24-11e1-80a9-002564c97630")
-    public ElementPropertyPanelProvider() {
+    public  ElementPropertyPanelProvider() {
         // Empty
     }
 
     /**
      * Constructor to use if you don't use Eclipse E4 injection.
-     * 
      * @param context the E4 context service, null allowed (null => read only panel).
      */
     @objid ("afd40f98-1ad0-46c2-be26-db55f91d28c2")
-    public ElementPropertyPanelProvider(IEclipseContext context) {
+    public  ElementPropertyPanelProvider(IEclipseContext context) {
         if (context != null) {
             ContextInjectionFactory.inject(this, context);
         }
         
         postConstruct(context);
+        
     }
 
     /**
      * Called by the framework to create the view and initialize it.
-     * 
      * @return the SashForm containing the property panel.
      */
     @objid ("8fa7c87e-c068-11e1-8c0a-002564c97630")
@@ -114,7 +112,6 @@ public class ElementPropertyPanelProvider implements IPanelProvider {
 
     /**
      * Get the current element displayed by the view.
-     * 
      * @return the model element whose content is listed in the property panel.
      * May be null.
      */
@@ -139,7 +136,6 @@ public class ElementPropertyPanelProvider implements IPanelProvider {
      * Tells whether the view is "pinned".
      * <p>
      * A pinned view doesn't update on selection changes or navigation events.
-     * 
      * @return <code>true</code> if the view is pinned, else <code>false</code>.
      */
     @objid ("8faa29c2-c068-11e1-8c0a-002564c97630")
@@ -155,6 +151,7 @@ public class ElementPropertyPanelProvider implements IPanelProvider {
         } else {
             return obj instanceof Element;
         }
+        
     }
 
     @objid ("6cf76242-4f95-411f-bc6c-748073600281")
@@ -164,17 +161,18 @@ public class ElementPropertyPanelProvider implements IPanelProvider {
         } else {
             this.ui.disableAutoLayout();
         }
+        
     }
 
     @objid ("8fa7c882-c068-11e1-8c0a-002564c97630")
     public void setHorizontalLayout() {
         this.ui.disableAutoLayout();
         this.ui.setHorizontalLayout();
+        
     }
 
     /**
      * Set the current element displayed by the view.
-     * 
      * @param input the ISelection whose content is listed in the property panel.
      * May be null or empty.
      */
@@ -187,13 +185,13 @@ public class ElementPropertyPanelProvider implements IPanelProvider {
             // Just delegate to the controller
             this.controller.setInputs(me, null);
         }
+        
     }
 
     /**
      * Pin or unpin the view.
      * <p>
      * A pinned view doesn't update on selection changes or navigation events.
-     * 
      * @param pinned <code>true</code> if the view must be pinned, else
      * <code>false</code>.
      */
@@ -211,6 +209,7 @@ public class ElementPropertyPanelProvider implements IPanelProvider {
     public void setVerticalLayout() {
         this.ui.disableAutoLayout();
         this.ui.setVerticalLayout();
+        
     }
 
     @objid ("af968b88-f000-4f3f-9f6c-25dc3e76246a")

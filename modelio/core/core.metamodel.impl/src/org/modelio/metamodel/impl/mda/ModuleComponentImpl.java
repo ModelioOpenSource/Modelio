@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.mda;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.mda.ModuleComponentData;
 import org.modelio.metamodel.impl.uml.infrastructure.AbstractProjectImpl;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.mda.ModuleParameter;
@@ -138,6 +137,7 @@ public class ModuleComponentImpl extends AbstractProjectImpl implements ModuleCo
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("757d3260-793b-4f1e-afeb-e0b4687130c7")
@@ -159,6 +159,7 @@ public class ModuleComponentImpl extends AbstractProjectImpl implements ModuleCo
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("61a48e08-91a2-47c7-b468-d9cf69f728eb")
@@ -180,6 +181,7 @@ public class ModuleComponentImpl extends AbstractProjectImpl implements ModuleCo
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("791022a2-87db-480e-8c12-b677aa91c537")
@@ -201,6 +203,7 @@ public class ModuleComponentImpl extends AbstractProjectImpl implements ModuleCo
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("c3c5489f-34de-4b5e-b1e8-93d689a04faf")
@@ -222,6 +225,7 @@ public class ModuleComponentImpl extends AbstractProjectImpl implements ModuleCo
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("5ec32d00-0e8b-4497-93b1-530491428dcb")

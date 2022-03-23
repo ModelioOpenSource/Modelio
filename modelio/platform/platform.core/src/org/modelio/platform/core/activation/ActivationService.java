@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.core.activation;
 
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.swt.widgets.Display;
 import org.modelio.platform.core.IModelioEventService;
 import org.modelio.platform.core.events.ModelioEvent;
@@ -55,6 +54,7 @@ public class ActivationService implements IActivationService {
                 ActivationService.this.eventService.postAsyncEvent(ActivationService.this, ModelioEvent.EDIT_PROPERTIES, objectToActivate);
             }
         });
+        
     }
 
 }

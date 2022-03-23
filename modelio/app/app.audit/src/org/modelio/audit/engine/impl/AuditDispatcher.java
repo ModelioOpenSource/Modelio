@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.engine.impl;
 
 import java.util.ArrayList;
@@ -25,8 +24,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.audit.engine.core.IAuditExecutionPlan.AuditTrigger;
 import org.modelio.audit.engine.core.IAuditExecutionPlan;
+import org.modelio.audit.engine.core.IAuditExecutionPlan.AuditTrigger;
 import org.modelio.audit.engine.core.IRule;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
@@ -130,12 +129,14 @@ public class AuditDispatcher implements IModelChangeListener, IStatusChangeListe
                         moveEvent.getOldParent(), AuditDispatcher.MODELCHANGE_JOB);
             }
         }
+        
     }
 
     @objid ("3495341e-94af-457a-8053-59f40ae6c7ce")
-    public AuditDispatcher(CheckProgram controlProgram) {
+    public  AuditDispatcher(CheckProgram controlProgram) {
         this.controlProgram = controlProgram;
         this.plan = new EmptyAuditPlan();
+        
     }
 
     @objid ("faadbc73-95db-4c5e-8383-798340550543")
@@ -153,6 +154,7 @@ public class AuditDispatcher implements IModelChangeListener, IStatusChangeListe
         stop();
         this.plan = activePlan;
         start();
+        
     }
 
     @objid ("10215047-1e6a-40ff-b323-8314090ce373")
@@ -175,6 +177,7 @@ public class AuditDispatcher implements IModelChangeListener, IStatusChangeListe
             IRule rule = this.plan.getRuleById("R3260");
             this.controlProgram.postControl(rule.getUpdateControl(elementToCheck), elementToCheck, jobId);
         }
+        
     }
 
     /**
@@ -182,7 +185,6 @@ public class AuditDispatcher implements IModelChangeListener, IStatusChangeListe
      * element has at least one stereotype, it returns all the rules concerned
      * by each stereotype. Else it returns all the rules concerned by the
      * element's metaclass.
-     * 
      * @param element The element
      * @param trigger The type of event that happened to the element.
      * @return The list of rules to check.
@@ -219,6 +221,7 @@ public class AuditDispatcher implements IModelChangeListener, IStatusChangeListe
         } else {
             return returnedRules;
         }
+        
     }
 
     @objid ("25ce9e58-934d-465a-86b4-333fa704d781")
@@ -234,6 +237,7 @@ public class AuditDispatcher implements IModelChangeListener, IStatusChangeListe
             IRule rule = this.plan.getRuleById("R3260");
             this.controlProgram.postControl(rule.getUpdateControl(element), element, AuditDispatcher.MODELCHANGE_JOB);
         }
+        
     }
 
     @objid ("72309508-9fdf-40eb-873c-7ebfaf6449d1")

@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model;
 
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.vcore.smkernel.IRepositoryObject;
 import org.modelio.vcore.smkernel.ISmObjectData;
@@ -52,7 +51,7 @@ public class DuplicateObjectException extends Exception {
     private final SmObjectImpl origObj;
 
     @objid ("b4589a8b-c804-42d2-b354-76a25468a11c")
-    private Map<Thread,StackTraceElement[]> threadDump;
+    private Map<Thread, StackTraceElement[]> threadDump;
 
     /**
      * Just to keep a reference on the data and avoid it to be garbaged.
@@ -70,13 +69,12 @@ public class DuplicateObjectException extends Exception {
 
     /**
      * Initialize the exception.
-     * 
      * @param oid the common UUID
      * @param origObj the original object
      * @param dupObj the duplicate object
      */
     @objid ("f53b838d-08b1-11e2-b33c-001ec947ccaf")
-    public DuplicateObjectException(String oid, SmObjectImpl origObj, SmObjectImpl dupObj) {
+    public  DuplicateObjectException(String oid, SmObjectImpl origObj, SmObjectImpl dupObj) {
         this.oid = oid;
         this.dupObj = dupObj;
         this.dupData = dupObj.getData();
@@ -86,6 +84,7 @@ public class DuplicateObjectException extends Exception {
         if (WITH_THREAD_DUMP) {
             this.threadDump = Thread.getAllStackTraces();
         }
+        
     }
 
     @objid ("f53b8393-08b1-11e2-b33c-001ec947ccaf")
@@ -106,6 +105,7 @@ public class DuplicateObjectException extends Exception {
                     + ".\n\n"
                     + getThreadDump());
         }
+        
     }
 
     /**
@@ -134,7 +134,6 @@ public class DuplicateObjectException extends Exception {
 
     /**
      * Get the stack trace of all threads at the time where the exception was created.
-     * 
      * @return all threads stack trace.
      */
     @objid ("eba19efc-e22a-44d6-a83a-f103ddffd956")
@@ -156,6 +155,7 @@ public class DuplicateObjectException extends Exception {
         } else {
             return "";
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,7 +36,7 @@ public class EPartDecomposition extends EInteractionUse {
     }
 
     @objid ("c47d7fdf-5d13-473c-bc03-0f3652e57f6f")
-    public EPartDecomposition(org.eclipse.uml2.uml.PartDecomposition element) {
+    public  EPartDecomposition(org.eclipse.uml2.uml.PartDecomposition element) {
         super(element);
     }
 
@@ -48,6 +47,7 @@ public class EPartDecomposition extends EInteractionUse {
         if ((ecoreOwner.size() > 0) && (objingElt instanceof PartDecomposition)){
             ((PartDecomposition) objingElt).setDecomposed((Lifeline) ReverseProperties.getInstance().getMappedElement(ecoreOwner.get(0)));
         }
+        
     }
 
 }

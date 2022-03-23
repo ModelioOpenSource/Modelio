@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.ui.login;
 
 import java.util.ResourceBundle;
@@ -58,7 +57,7 @@ public class Splash {
      * C'tor.
      */
     @objid ("2fec1ef4-28e3-4554-b5e3-ee823eb1ed33")
-    public Splash() {
+    public  Splash() {
         this.shell = new Shell(SWT.INHERIT_NONE | SWT.NO_TRIM);
         
         final ImageDescriptor imageDescriptor = AbstractUIPlugin.imageDescriptorFromPlugin(AppUi.PLUGIN_ID, "images/splash600x376.png");
@@ -71,6 +70,7 @@ public class Splash {
         this.shell.setLayout(formLayout);
         
         createControls(this.shell);
+        
     }
 
     /**
@@ -80,6 +80,7 @@ public class Splash {
     public void open() {
         setCentered();
         this.shell.open();
+        
     }
 
     /**
@@ -94,6 +95,7 @@ public class Splash {
             this.splashImage.dispose();
             this.splashImage = null;
         }
+        
     }
 
     @objid ("47470b03-4559-433b-8cdd-1db53d0ff89f")
@@ -128,6 +130,7 @@ public class Splash {
         
         BundledMessages b = new BundledMessages(AppUi.LOG, ResourceBundle.getBundle("appui-about"));
         this.copyright.setText(b.getString("Splash.copyright"));
+        
     }
 
     @objid ("1abc433f-7a2b-4800-80a7-f84428998616")
@@ -135,11 +138,11 @@ public class Splash {
         // Positioning in the center of the screen.
         final Rectangle bounds = Display.getCurrent().getPrimaryMonitor().getBounds();
         this.shell.setLocation((bounds.width - this.shell.getSize().x) / 2, (bounds.height - this.shell.getSize().y) / 2);
+        
     }
 
     /**
      * Set a progress message in the splash screen.
-     * 
      * @param message the message to display.
      */
     @objid ("5cef6e5a-cebe-4874-b06d-798afa0b1ed2")
@@ -150,6 +153,7 @@ public class Splash {
         while (this.shell.getDisplay().readAndDispatch()) {
             // nothing
         }
+        
     }
 
 }

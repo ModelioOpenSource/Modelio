@@ -1,4 +1,4 @@
 Bundle-SymbolicName: org.modelio.documentation.copyright;singleton=true
-Bundle-Version: 4.1.0.qualifier
+Bundle-Version: 5.1.0.qualifier
 Bundle-Name: copyright
 Bundle-Vendor: modelio.org

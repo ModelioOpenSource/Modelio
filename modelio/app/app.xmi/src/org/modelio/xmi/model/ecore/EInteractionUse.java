@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,7 @@ public class EInteractionUse extends EInteractionFragment {
     }
 
     @objid ("f2b2af4b-e8a4-4823-ab98-45b013b2a55a")
-    public EInteractionUse(org.eclipse.uml2.uml.InteractionUse element) {
+    public  EInteractionUse(org.eclipse.uml2.uml.InteractionUse element) {
         super(element);
     }
 

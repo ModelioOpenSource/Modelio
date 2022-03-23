@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.constraint;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,7 +34,7 @@ public class ConstraintDG extends LeafNodeDG {
      * @param node The gm node represented by this class.
      */
     @objid ("1d3a4006-3723-49e1-bc48-1ba5169a2e5a")
-    public ConstraintDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  ConstraintDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 

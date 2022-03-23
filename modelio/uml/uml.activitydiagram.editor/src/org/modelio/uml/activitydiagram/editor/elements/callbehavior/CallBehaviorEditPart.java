@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.callbehavior;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -56,6 +55,7 @@ public class CallBehaviorEditPart extends AbstractNodeEditPart {
         // See Gm constructor for detail
         IFigure child = ((GraphicalEditPart) childEditPart).getFigure();
         getFigure().add(child, BorderLayout.CENTER, index);
+        
     }
 
     @objid ("29b4fec8-55b6-11e2-877f-002564c97630")
@@ -67,6 +67,7 @@ public class CallBehaviorEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                 new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("29b4fecb-55b6-11e2-877f-002564c97630")
@@ -94,6 +95,7 @@ public class CallBehaviorEditPart extends AbstractNodeEditPart {
                 super.refreshFromStyle(aFigure, style);
             }
         }
+        
     }
 
     @objid ("29b4fed7-55b6-11e2-877f-002564c97630")
@@ -101,6 +103,7 @@ public class CallBehaviorEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         GmCallBehaviorPrimaryNode callBehaviorModel = (GmCallBehaviorPrimaryNode) getModel();
         getFigure().getParent().setConstraint(getFigure(), callBehaviorModel.getLayoutData());
+        
     }
 
 }

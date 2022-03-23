@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.activities;
 
 import java.util.ArrayList;
@@ -30,8 +30,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.bpmn.activities.BpmnServiceTask;
 import org.modelio.metamodel.bpmn.activities.BpmnTask;
 import org.modelio.metamodel.bpmn.bpmnService.BpmnOperation;
-import org.modelio.metamodel.impl.bpmn.activities.BpmnServiceTaskData;
-import org.modelio.metamodel.impl.bpmn.activities.BpmnTaskSmClass;
 import org.modelio.metamodel.impl.bpmn.bpmnService.BpmnOperationSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
@@ -54,7 +52,7 @@ public class BpmnServiceTaskSmClass extends BpmnTaskSmClass {
     private SmDependency operationRefDep;
 
     @objid ("b667b60a-6ae6-4d4f-9779-e651e9c3b3dd")
-    public BpmnServiceTaskSmClass(ISmMetamodelFragment origin) {
+    public  BpmnServiceTaskSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -62,6 +60,7 @@ public class BpmnServiceTaskSmClass extends BpmnTaskSmClass {
     @Override
     public String getName() {
         return "BpmnServiceTask";
+        
     }
 
     @objid ("328060af-aea1-4201-a102-aef29d5968a2")
@@ -74,18 +73,21 @@ public class BpmnServiceTaskSmClass extends BpmnTaskSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnServiceTask.class;
+        
     }
 
     @objid ("9174099a-28a8-4e30-a750-af4c39b2ee3c")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("c2c7b9df-79f5-423d-9777-21e248491db2")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("7a0342d6-41a9-43e2-943b-53e45a472298")
@@ -105,6 +107,8 @@ public class BpmnServiceTaskSmClass extends BpmnTaskSmClass {
         this.operationRefDep = new OperationRefSmDependency();
         this.operationRefDep.init("OperationRef", this, metamodel.getMClass(BpmnOperation.MQNAME), 0, 1 , SmDirective.SMCDPARTOF);
         registerDependency(this.operationRefDep);
+        
+        
     }
 
     @objid ("f51d0e7d-6789-4c99-82cb-8960cde7fd65")
@@ -129,7 +133,7 @@ public class BpmnServiceTaskSmClass extends BpmnTaskSmClass {
         private BpmnServiceTaskSmClass smClass;
 
         @objid ("4e4778cf-dd7f-49e5-9201-3e925826c0c7")
-        public BpmnServiceTaskObjectFactory(BpmnServiceTaskSmClass smClass) {
+        public  BpmnServiceTaskObjectFactory(BpmnServiceTaskSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -185,6 +189,7 @@ public class BpmnServiceTaskSmClass extends BpmnTaskSmClass {
             	this.symetricDep = ((BpmnOperationSmClass)this.getTarget()).getCallerDep();
             }
             return this.symetricDep;
+            
         }
 
     }

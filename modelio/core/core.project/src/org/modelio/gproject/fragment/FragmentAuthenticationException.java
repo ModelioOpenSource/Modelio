@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.fragment;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,32 +28,29 @@ public class FragmentAuthenticationException extends Exception {
 
     /**
      * Constructs a new exception.
-     * 
      * @param message a message
      * @param cause a cause
      */
     @objid ("3b84b15f-80be-4211-8b21-8b17478988df")
-    public FragmentAuthenticationException(String message, Throwable cause) {
+    public  FragmentAuthenticationException(String message, Throwable cause) {
         super(message, cause);
     }
 
     /**
      * Constructs a new exception.
-     * 
      * @param message a message
      */
     @objid ("5bd69df1-b7cd-4a0b-81d9-05dd9d3d42aa")
-    public FragmentAuthenticationException(String message) {
+    public  FragmentAuthenticationException(String message) {
         super(message);
     }
 
     /**
      * Constructs a new exception.
-     * 
      * @param cause a cause
      */
     @objid ("af327b35-7aa2-4892-8f05-a8bc093525b8")
-    public FragmentAuthenticationException(Throwable cause) {
+    public  FragmentAuthenticationException(Throwable cause) {
         super(cause);
     }
 

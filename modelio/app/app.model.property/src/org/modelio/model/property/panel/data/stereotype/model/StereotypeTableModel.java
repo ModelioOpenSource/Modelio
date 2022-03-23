@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel.data.stereotype.model;
 
 import java.util.ArrayList;
@@ -71,32 +70,32 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
 
     /**
      * Create a new property model for a Stereotype.
-     * 
      * @param editedElement the element currently edited in the Element's view.
      * @param stereotype the stereotype to load the {@link TagType} & {@link PropertyDefinition} list from.
      * @param modelService the model service needed to find TagTypes.
      * @param showHiddenAnnotations whether or not to show 'hidden' TagTypes.
      */
     @objid ("1c3f1397-e9ee-4108-a3ab-3a427e4c46c3")
-    public StereotypeTableModel(ModelElement editedElement, Stereotype stereotype, IMModelServices modelService, boolean showHiddenAnnotations) {
+    public  StereotypeTableModel(ModelElement editedElement, Stereotype stereotype, IMModelServices modelService, boolean showHiddenAnnotations) {
         super(editedElement);
         this.tagModel = new TagDataHelper(editedElement, stereotype, modelService, showHiddenAnnotations);
         this.tableModel = new PropertyTableHelper(editedElement, stereotype.getModule(), stereotype, CoreSession.getSession(editedElement));
+        
     }
 
     /**
      * Create a new property model for a ModuleComponent.
-     * 
      * @param editedElement the element currently edited in the Element's view.
      * @param module the module to load the {@link TagType} & {@link PropertyDefinition} list from.
      * @param modelService the model service needed to find TagTypes.
      * @param showHiddenAnnotations whether or not to show 'hidden' TagTypes.
      */
     @objid ("c90dbb6b-5a0e-4011-9b48-88518d0adc1f")
-    public StereotypeTableModel(ModelElement editedElement, ModuleComponent module, IMModelServices modelService, boolean showHiddenAnnotations) {
+    public  StereotypeTableModel(ModelElement editedElement, ModuleComponent module, IMModelServices modelService, boolean showHiddenAnnotations) {
         super(editedElement);
         this.tagModel = new TagDataHelper(editedElement, module, modelService, showHiddenAnnotations);
         this.tableModel = new PropertyTableHelper(editedElement, module, null, CoreSession.getSession(editedElement));
+        
     }
 
     @objid ("873ab9ad-02d3-4703-8064-c9d124542bec")
@@ -178,6 +177,7 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
                 throw new IllegalArgumentException("Invalid row number");
             }
         }
+        
     }
 
     @objid ("a1a3ccea-76a9-4eff-8672-6b6d4e824542")
@@ -211,6 +211,7 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
                 }
             }
         }
+        
     }
 
     @objid ("2c996070-429f-462b-ae94-916b5ad10fd8")
@@ -256,6 +257,7 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
                 throw new IllegalArgumentException("Invalid row number");
             }
         }
+        
     }
 
     /**
@@ -286,7 +288,7 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
         private ICoreSession session;
 
         @objid ("5e306554-40db-4ab3-a51f-abd90df212dd")
-        private PropertyTableHelper(ModelElement typedElement, ModuleComponent module, Stereotype stereotype, ICoreSession session) {
+        private  PropertyTableHelper(ModelElement typedElement, ModuleComponent module, Stereotype stereotype, ICoreSession session) {
             this.module = module;
             this.session = session;
             
@@ -295,6 +297,7 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
             } else {
                 this.properties.addAll(getModulePropertyTablesForMetaclass(typedElement.getMClass()));
             }
+            
         }
 
         @objid ("ecbff81c-1528-4e18-9302-2a6d07174ed4")
@@ -389,7 +392,7 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
         private ModelElement typedElement;
 
         @objid ("a3b4a960-2700-4e28-82e7-a72666a089bb")
-        private TagDataHelper(ModelElement typedElement, ModuleComponent typingElement, IMModelServices modelService, boolean showHiddenAnnotations) {
+        private  TagDataHelper(ModelElement typedElement, ModuleComponent typingElement, IMModelServices modelService, boolean showHiddenAnnotations) {
             this(typedElement, modelService, showHiddenAnnotations);
             
             // Compute the tag type list
@@ -398,17 +401,19 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
             } else {
                 this.tagTypes = getModuleTagTypesForMetaclass(typingElement, this.typedElement.getMClass());
             }
+            
         }
 
         @objid ("840e45c6-381d-46b4-b7b0-72ae7d725d8d")
-        private TagDataHelper(ModelElement typedElement, IMModelServices modelService, boolean showHiddenAnnotations) {
+        private  TagDataHelper(ModelElement typedElement, IMModelServices modelService, boolean showHiddenAnnotations) {
             this.typedElement = typedElement;
             this.modelService = modelService;
             this.showHiddenAnnotations = showHiddenAnnotations;
+            
         }
 
         @objid ("21621774-5128-44fe-aeda-2135d76eb87c")
-        private TagDataHelper(ModelElement typedElement, Stereotype typingElement, IMModelServices modelService, boolean showHiddenAnnotations) {
+        private  TagDataHelper(ModelElement typedElement, Stereotype typingElement, IMModelServices modelService, boolean showHiddenAnnotations) {
             this(typedElement, modelService, showHiddenAnnotations);
             
             // Compute the tag type list
@@ -429,6 +434,7 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
                     s = s.getParent();
                 }
             }
+            
         }
 
         @objid ("74b2ebbc-761d-4967-bf66-4a733d29617b")
@@ -475,6 +481,7 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
             } else {
                 return new DefaultMultiStringNatValue((List<String>) getPropertyValue(index), false);
             }
+            
         }
 
         @objid ("e7c014b9-ecd8-4978-8906-7793ddcd2992")
@@ -517,11 +524,11 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
                     return new ArrayList<>();
                 }
             }
+            
         }
 
         /**
          * This operation returns the tagged value with the corresponding type.
-         * 
          * @param element IModelElement on which the tagged value is search for.
          * @param type The tagged value type name
          * @return The tag or null if it can't be found
@@ -551,7 +558,6 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
          * This operation sets the parameters of the tagged value with the given type on the &lt;element&gt; IModelElement.<br/>
          * The tagged value and the parameter are created if they don't exist.<br/>
          * If values is <tt>null</tt> or empty the existing tag is deleted.
-         * 
          * @param element IModelElement on which the tagged value is created or updated.
          * @param tagType The tagged value type name.
          * @param value The values to store on the first tag parameter. If values is <tt>null</tt> the tag is deleted.
@@ -594,13 +600,13 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
                     cpt++;
                 }
             }
+            
         }
 
         /**
          * This operation sets the parameters of the tagged value with the given type on the &lt;element&gt; IModelElement.<br/>
          * The tagged value and the parameter are created if they don't exist.<br/>
          * If values is <tt>null</tt> or empty the existing tag is deleted.
-         * 
          * @param element IModelElement on which the tagged value is created or updated.
          * @param type The tagged value type name.
          * @param values The values to store on the tag parameters. If values is <tt>null</tt> or empty the tag is deleted.
@@ -644,11 +650,11 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
                     cpt++;
                 }
             }
+            
         }
 
         /**
          * This operation deletes the tagged value having this type from the given element.
-         * 
          * @param element IModelElement on which the tagged value is removed.
          * @param type The tagged value type name
          */
@@ -658,6 +664,7 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
             if (tag != null) {
                 tag.delete();
             }
+            
         }
 
         @objid ("5322c6c9-d3f9-45ae-899a-a2bed4cac7ed")
@@ -675,6 +682,7 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
                 // paramNumber > 1 and paramNumber == -1 (param number no limit)
                 updateStringListTaggedValue(this.typedElement, tagType, (List<String>) value);
             }
+            
         }
 
         @objid ("f2806e1a-f85d-48e6-a8b5-ae7e0c03cc49")
@@ -689,6 +697,7 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
             } else {
                 removeTag(element, tagType);
             }
+            
         }
 
         @objid ("932207af-6ce5-42b1-b5bc-927579e2319a")
@@ -698,6 +707,7 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
             } catch (Exception e) {
                 ModelProperty.LOG.error(e);
             }
+            
         }
 
         @objid ("de0f7775-450e-4b69-b9d5-39c005fd8e30")
@@ -707,6 +717,7 @@ public class StereotypeTableModel extends AbstractPropertyModel<ModelElement> {
             } catch (Exception e) {
                 ModelProperty.LOG.error(e);
             }
+            
         }
 
     }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.selectmetaclass;
 
 import java.util.ArrayList;
@@ -82,19 +81,20 @@ public class MetaclassSelector {
     @objid ("e4964504-be5d-4526-9c46-c5f9952e343a")
     private final Text text;
 
+    
     @mdl.prop
     @objid ("92660e38-1c61-4ab5-a65b-b92b11819618")
-    private IMetaclassSelectorFilter metaclassFilter;
+    public IMetaclassSelectorFilter metaclassFilter;
 
     @mdl.propgetter
     public IMetaclassSelectorFilter getMetaclassFilter() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.metaclassFilter;
     }
 
     @mdl.propsetter
     public void setMetaclassFilter(IMetaclassSelectorFilter value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.metaclassFilter = value;
     }
 
@@ -102,15 +102,16 @@ public class MetaclassSelector {
     private MMetamodel metamodel;
 
     @objid ("1768c632-1189-4bf3-a171-f30f159d1b13")
-    public MetaclassSelector(Composite parent, int style, MMetamodel metamodel) {
+    public  MetaclassSelector(Composite parent, int style, MMetamodel metamodel) {
         this(parent, style, metamodel, null);
     }
 
     @objid ("4473cd28-07c5-44dd-93c9-e4df3526b9fc")
-    public MetaclassSelector(Composite parent, int style, MMetamodel metamodel, IMetaclassSelectorFilter filter) {
+    public  MetaclassSelector(Composite parent, int style, MMetamodel metamodel, IMetaclassSelectorFilter filter) {
         this.text = createControl(parent, style);
         this.metaclassFilter = filter;
         this.metamodel = metamodel;
+        
     }
 
     @objid ("b01e5868-3de8-4767-af72-8c8ba9eccb59")
@@ -147,6 +148,7 @@ public class MetaclassSelector {
             this.text.setData(null);
             this.text.setText("");
         }
+        
     }
 
     @objid ("5660494b-17d2-4f1a-b525-9e74de48ade9")
@@ -242,6 +244,7 @@ public class MetaclassSelector {
         for (final IMetaclassSelectorListener listener : this.listeners) {
             listener.selectMetaclass(mClass);
         }
+        
     }
 
     @objid ("816c8d8e-37b4-4698-8113-f5b2d2c30205")
@@ -259,6 +262,7 @@ public class MetaclassSelector {
         if (currentData == null || !((MClass) currentData).getName().equals(metaclassName)) {
             this.text.setData(mClass);
         }
+        
     }
 
     @objid ("14efd48a-82a1-4d99-8c1a-ae0e3aafcec8")
@@ -267,7 +271,7 @@ public class MetaclassSelector {
         private MClass mClass;
 
         @objid ("5208c5f6-6558-48ab-83bf-e744d3332084")
-        public MetaclassProposal(MClass mClass) {
+        public  MetaclassProposal(MClass mClass) {
             this.mClass = mClass;
         }
 
@@ -340,10 +344,11 @@ public class MetaclassSelector {
                     return o1.getName().compareTo(o2.getName());
                 }
             });
+            
         }
 
         @objid ("5c328c18-63a1-4c8b-9b2c-df5dd7f07f6d")
-        public SelectMetaclassContentProposalProvider(MetaclassSelector metaclassSelector) {
+        public  SelectMetaclassContentProposalProvider(MetaclassSelector metaclassSelector) {
             this.metaclassSelector = metaclassSelector;
         }
 

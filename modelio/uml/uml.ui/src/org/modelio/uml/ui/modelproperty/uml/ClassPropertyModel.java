@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -49,21 +48,19 @@ public class ClassPropertyModel extends AbstractPropertyModel<Class> {
      */
     @objid ("b9db0739-2ee3-4a4e-96b0-a8756adc066f")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name", "Visibility",
-			"IsAbstract", "IsElementary", "IsActive", "IsLeaf", "IsRoot", "IsMain" };
+    			"IsAbstract", "IsElementary", "IsActive", "IsLeaf", "IsRoot", "IsMain" };
 
     /**
      * Create a new <i>Class</i> data model from an <i>Class</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("777f63a0-dd84-4ef9-84ed-c53f43e9372b")
-    public ClassPropertyModel(Class theEditedElement) {
+    public  ClassPropertyModel(Class theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("6c62adb5-60b4-4509-9644-08e6a100ccfc")
@@ -74,7 +71,6 @@ public class ClassPropertyModel extends AbstractPropertyModel<Class> {
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("d42747f4-2dfd-492a-8a2b-1de525cac019")
@@ -87,7 +83,6 @@ public class ClassPropertyModel extends AbstractPropertyModel<Class> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -125,6 +120,7 @@ public class ClassPropertyModel extends AbstractPropertyModel<Class> {
         default:
             return null;
         }
+        
     }
 
     /**
@@ -134,7 +130,6 @@ public class ClassPropertyModel extends AbstractPropertyModel<Class> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -171,13 +166,13 @@ public class ClassPropertyModel extends AbstractPropertyModel<Class> {
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -231,6 +226,7 @@ public class ClassPropertyModel extends AbstractPropertyModel<Class> {
         default:
             return;
         }
+        
     }
 
 }

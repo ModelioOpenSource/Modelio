@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.swap;
 
 import java.io.File;
@@ -91,6 +90,7 @@ public class JdbmSwap implements ISwap {
         } catch (IOException e) {
             throw new IOError(e);
         }
+        
     }
 
     @objid ("d8dc15ed-8499-11e1-b644-001ec947ccaf")
@@ -123,18 +123,18 @@ public class JdbmSwap implements ISwap {
         } catch (IOException e) {
             throw new IOError(e);
         }
+        
     }
 
     /**
      * Initializes the swap to the given directory.
      * <p>
      * The directory will be deleted on close.
-     * 
      * @param metamodel the metamodel
      * @param swapDirectory The swap path. Must be a directory, preferably empty.
      */
     @objid ("f5f214d7-84b5-11e1-b644-001ec947ccaf")
-    public JdbmSwap(SmMetamodel metamodel, final File swapDirectory) {
+    public  JdbmSwap(SmMetamodel metamodel, final File swapDirectory) {
         this.swapPath = swapDirectory.getAbsolutePath();
         this.dataSerializer = new CacheEntrySerializer(metamodel);
         
@@ -152,6 +152,7 @@ public class JdbmSwap implements ISwap {
         }
         
         //        Log.trace("Swap initialized to:"+swapDirectory);
+        
     }
 
     @objid ("f5f214dd-84b5-11e1-b644-001ec947ccaf")
@@ -164,6 +165,7 @@ public class JdbmSwap implements ISwap {
         
             this.opCount = 0;
         }
+        
     }
 
     @objid ("f5f214df-84b5-11e1-b644-001ec947ccaf")
@@ -172,6 +174,8 @@ public class JdbmSwap implements ISwap {
         close();
         
         super.finalize();
+        
+        
     }
 
     @objid ("f5f214e2-84b5-11e1-b644-001ec947ccaf")
@@ -187,13 +191,13 @@ public class JdbmSwap implements ISwap {
                 Log.warning(e);
             }
         }
+        
     }
 
     /**
      * Set the commit to disk frequency.
      * <p>
      * The value is the number of call to {@link #swap(SmObjectData)} leading to one commit.
-     * 
      * @return the commit to swap frequency.
      */
     @objid ("dcbc24f5-493b-11e2-91c9-001ec947ccaf")
@@ -205,7 +209,6 @@ public class JdbmSwap implements ISwap {
      * Set the commit to disk frequency.
      * <p>
      * The value is the number of call to {@link #swap(SmObjectData)} leading to one commit.
-     * 
      * @param commitFreq the commit to swap frequency
      */
     @objid ("dcbc24fa-493b-11e2-91c9-001ec947ccaf")
@@ -216,19 +219,19 @@ public class JdbmSwap implements ISwap {
     @objid ("f5f214d2-84b5-11e1-b644-001ec947ccaf")
     static class CacheEntry implements Serializable {
         @objid ("f5f214d5-84b5-11e1-b644-001ec947ccaf")
-         int metaId;
+        int metaId;
 
         @objid ("f5f214d6-84b5-11e1-b644-001ec947ccaf")
-         int storeHandleId;
+        int storeHandleId;
 
         @objid ("a387c84c-84b6-11e1-b644-001ec947ccaf")
         private static final long serialVersionUID = 941804254816339523L;
 
         @objid ("f5f214d4-84b5-11e1-b644-001ec947ccaf")
-         SmObjectData data;
+        SmObjectData data;
 
         @objid ("dd913d06-cb55-11e1-87f1-001ec947ccaf")
-        public CacheEntry() {
+        public  CacheEntry() {
             // nothing to do
         }
 
@@ -278,7 +281,7 @@ public class JdbmSwap implements ISwap {
         }
 
         @objid ("dd913d08-cb55-11e1-87f1-001ec947ccaf")
-        public Index() {
+        public  Index() {
             // nothing to do
         }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.gui.creation.file;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,7 @@ class FilePanel implements IPanelProvider {
     private FilePanelController controller;
 
     @objid ("8ecba590-9afe-463b-8bfa-4b3003b073a7")
-    public FilePanel() {
+    public  FilePanel() {
         this.controller = new FilePanelController();
     }
 
@@ -94,6 +93,7 @@ class FilePanel implements IPanelProvider {
         } else {
             this.controller.setData(null);
         }
+        
     }
 
     @objid ("ab7b49b3-da1f-4e92-82f2-6d597cd888e6")

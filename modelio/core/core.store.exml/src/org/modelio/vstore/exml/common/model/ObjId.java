@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common.model;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,30 +46,29 @@ public final class ObjId implements Comparable<ObjId> {
     /**
      * Constructor from a {@link SmObjectImpl}.
      * <p>
-     * 
      * @param object a model object.
      */
     @objid ("fd24575e-5986-11e1-991a-001ec947ccaf")
-    public ObjId(SmObjectImpl object) {
+    public  ObjId(SmObjectImpl object) {
         this.id = object.getUuid();
         this.classof = object.getClassOf();
+        
     }
 
     /**
      * Constructor.
-     * 
      * @param classof the metaclass
      * @param id the object identifier.
      */
     @objid ("fd24574d-5986-11e1-991a-001ec947ccaf")
-    public ObjId(SmClass classof, final String id) {
+    public  ObjId(SmClass classof, final String id) {
         this.classof = classof;
         this.id = id;
+        
     }
 
     /**
      * Indicates whether some other ObjId is "equal to" this one.
-     * 
      * @param other another ObjId
      * @return <code>true</code> if they are equal else <code>false</code>
      */
@@ -139,7 +137,6 @@ public final class ObjId implements Comparable<ObjId> {
      * Convert to MRef.
      * <p>
      * The MRef will have null pointer as name.
-     * 
      * @return a MRef.
      */
     @objid ("86d71357-8714-4194-859d-f3b32df5d31f")

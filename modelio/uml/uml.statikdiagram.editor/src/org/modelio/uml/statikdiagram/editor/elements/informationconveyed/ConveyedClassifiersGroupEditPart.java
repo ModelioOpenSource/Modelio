@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.informationconveyed;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,6 +49,7 @@ public class ConveyedClassifiersGroupEditPart extends GroupEditPart {
         
         installEditPolicy(EditPolicy.LAYOUT_ROLE, new LayoutPolicy());
         installEditPolicy("hover", new HoverFeedbackEditPolicy());
+        
     }
 
     /**
@@ -60,7 +60,8 @@ public class ConveyedClassifiersGroupEditPart extends GroupEditPart {
     @objid ("34fa0406-55b7-11e2-877f-002564c97630")
     private static class LayoutPolicy extends DefaultGroupLayoutEditPolicy {
         @objid ("34fa040b-55b7-11e2-877f-002564c97630")
-        public LayoutPolicy() {
+        public  LayoutPolicy() {
+            
         }
 
         @objid ("34fa040d-55b7-11e2-877f-002564c97630")

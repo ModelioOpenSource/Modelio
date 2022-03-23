@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.informationflowlink;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -95,6 +94,7 @@ public class InformationFlowLinkEditPart extends LinkEditPart {
             if (gmModel.getStyleKey(MetaKey.LINECOLOR) != null)
                 this.deco.setFillColor(style.getColor(gmModel.getStyleKey(MetaKey.LINECOLOR)));
         }
+        
     }
 
     @objid ("35094668-55b7-11e2-877f-002564c97630")
@@ -105,6 +105,7 @@ public class InformationFlowLinkEditPart extends LinkEditPart {
         installEditPolicy(EditPolicy.NODE_ROLE, new DefaultCreateLinkEditPolicy());
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START, new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("1ac0d31e-9146-4f4f-9a76-64e16825d496")
@@ -120,6 +121,7 @@ public class InformationFlowLinkEditPart extends LinkEditPart {
         
         FractionalConnectionLocator locator = new FractionalConnectionLocator(connection, 0.66, true);
         connection.add(this.deco, locator);
+        
     }
 
     @objid ("d4a7fe11-317d-45a3-84b1-954f3770bb3c")
@@ -128,6 +130,7 @@ public class InformationFlowLinkEditPart extends LinkEditPart {
             connection.remove(this.deco);
             this.deco = null;
         }
+        
     }
 
 }

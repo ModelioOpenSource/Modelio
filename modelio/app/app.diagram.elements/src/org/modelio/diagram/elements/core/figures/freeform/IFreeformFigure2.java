@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.freeform;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,6 @@ public interface IFreeformFigure2 extends FreeformFigure {
      * Set a filter to use when computing {@link #getFreeformExtent()}.
      * <p>
      * Filtered out figures won't be used to compute the extent, that may result to the figures being cropped.
-     * 
      * @param f an extent filter.
      */
     @objid ("e9c0598f-f65b-4d48-a3fb-240b3f752340")
@@ -44,7 +42,6 @@ public interface IFreeformFigure2 extends FreeformFigure {
      * Get the filter used when computing {@link #getFreeformExtent()}.
      * <p>
      * Filtered out figures won't be used to compute the extent, that may result to the figures being cropped.
-     * 
      * @return an extent filter.
      */
     @objid ("cad7beb4-7ecb-4ce2-b1ac-3160cd31e73b")

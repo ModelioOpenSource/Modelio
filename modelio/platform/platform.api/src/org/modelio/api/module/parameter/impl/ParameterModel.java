@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.parameter.impl;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,12 +38,13 @@ public abstract class ParameterModel implements IParameterModel {
     private IModuleUserConfiguration config = null;
 
     @objid ("45200ffa-feb0-11dd-8b31-0014222a9f79")
-    public ParameterModel(IModuleUserConfiguration conf, String name, String label, String description, String defaultValue) {
+    public  ParameterModel(IModuleUserConfiguration conf, String name, String label, String description, String defaultValue) {
         this.name = name;
         this.label = label;
         this.description = description;
         this.config = conf;
         this.defaultValue = defaultValue;
+        
     }
 
     @objid ("c47c3ab2-8f9f-11dd-bbe0-001ec947ccaf")

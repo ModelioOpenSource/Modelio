@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.bool;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,16 +50,16 @@ public class CheckBoxPainter2 extends CheckBoxPainter {
     private final Image uncheckedDisabled;
 
     @objid ("63f35540-26f8-4775-b2a0-ab18e55460d4")
-    public CheckBoxPainter2() {
+    public  CheckBoxPainter2() {
         this.uncheckedDisabled = GUIHelper.getImage("unchecked_disabled");
         this.checkedDisabled = GUIHelper.getImage("checked_disabled");
+        
     }
 
     /**
      * Redefined to handle values not convertible to boolean.
      * <p>
      * In this case it returns <i>null</i>.
-     * 
      * @return a Boolean or <i>null</i>.
      */
     @objid ("431282ae-585f-44e2-a8d3-153bf2d7b9f7")
@@ -98,6 +97,7 @@ public class CheckBoxPainter2 extends CheckBoxPainter {
         } else {
             return this.uncheckedDisabled;
         }
+        
     }
 
     @objid ("09aa1771-950a-4a34-9153-6fb10750532e")
@@ -107,6 +107,7 @@ public class CheckBoxPainter2 extends CheckBoxPainter {
         } else {
             return this.uncheckedDisabled;
         }
+        
     }
 
 }

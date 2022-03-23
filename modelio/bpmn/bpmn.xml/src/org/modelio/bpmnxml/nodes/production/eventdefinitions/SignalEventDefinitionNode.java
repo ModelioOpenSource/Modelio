@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.production.eventdefinitions;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import javax.xml.bind.JAXBElement;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.xml.bind.JAXBElement;
 import org.modelio.bpmnxml.model.ObjectFactory;
 import org.modelio.bpmnxml.model.TCatchEvent;
 import org.modelio.bpmnxml.model.TEvent;
@@ -41,7 +40,7 @@ import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("78874c40-8035-48e8-bedc-2117e460a0eb")
-public class SignalEventDefinitionNode implements IProductionNode<BpmnSignalEventDefinition,TSignalEventDefinition> {
+public class SignalEventDefinitionNode implements IProductionNode<BpmnSignalEventDefinition, TSignalEventDefinition> {
     @objid ("894e199d-d7cb-4e71-aa8d-2063a9a041ad")
     private Map<String, Object> elementsMap;
 
@@ -72,6 +71,7 @@ public class SignalEventDefinitionNode implements IProductionNode<BpmnSignalEven
         } else {
             return factory.create(BpmnSignalEventDefinition.class, context, "EventDefinitions");
         }
+        
     }
 
     @objid ("6b076cab-8947-4a30-b9f6-020c8c105fad")

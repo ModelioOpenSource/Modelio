@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.dialogs.auth.ui;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,10 +30,11 @@ public abstract class AbstractDataUi implements IAuthDataUi {
     private Composite top;
 
     @objid ("bca157a0-1317-42db-812a-280cffa5cacc")
-    public AbstractDataUi(Composite parent) {
+    public  AbstractDataUi(Composite parent) {
         this.top = new Composite(parent, SWT.BORDER);
         this.top.setLayout(new FillLayout());
         createContents(this.top);
+        
     }
 
     @objid ("8a14c1d2-f663-4d61-b712-8558ecbcf28b")

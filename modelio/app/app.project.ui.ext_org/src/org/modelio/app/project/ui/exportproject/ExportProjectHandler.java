@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.ui.exportproject;
 
 import java.io.IOException;
@@ -26,8 +25,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.core.di.annotations.Optional;
@@ -102,11 +101,13 @@ public class ExportProjectHandler {
                 MessageDialog.openError(shell, AppProjectUiExt.I18N.getString("ExportProjectHandler.ExportError"), e.getCause().toString());
             }
         }
+        
     }
 
     @objid ("51338a00-c621-499a-ac12-f7a9e1bdaada")
     @CanExecute
-    public boolean canExecute(final IProjectService projectService, @Optional @Named (IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
+    public boolean canExecute(final IProjectService projectService, @Optional
+    @Named (IServiceConstants.ACTIVE_SELECTION) final IStructuredSelection selection) {
         List<ProjectDescriptor> projectDescriptors = SelectionHelper.toList(selection, ProjectDescriptor.class);
         if (projectDescriptors.size() != 1) {
             return false;

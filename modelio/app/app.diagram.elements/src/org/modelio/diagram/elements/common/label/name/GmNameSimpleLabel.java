@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.label.name;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,12 +44,11 @@ public final class GmNameSimpleLabel extends GmElementLabel implements IEditable
 
     /**
      * Creates a name label.
-     * 
      * @param diagram The diagram
      * @param relatedRef The reference to the related elements.
      */
     @objid ("7ea80ae9-1dec-11e2-8cad-001ec947c8cc")
-    public GmNameSimpleLabel(IGmDiagram diagram, MRef relatedRef) {
+    public  GmNameSimpleLabel(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -58,7 +56,7 @@ public final class GmNameSimpleLabel extends GmElementLabel implements IEditable
      * Constructor for deserialization only.
      */
     @objid ("7ea80aee-1dec-11e2-8cad-001ec947c8cc")
-    public GmNameSimpleLabel() {
+    public  GmNameSimpleLabel() {
         // Empty c'tor.
     }
 
@@ -91,6 +89,7 @@ public final class GmNameSimpleLabel extends GmElementLabel implements IEditable
                 break;
             }
         }
+        
     }
 
     @objid ("7ea80aff-1dec-11e2-8cad-001ec947c8cc")
@@ -112,6 +111,7 @@ public final class GmNameSimpleLabel extends GmElementLabel implements IEditable
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmNameSimpleLabel.", MINOR_VERSION);
+        
     }
 
     @objid ("7ea80b0c-1dec-11e2-8cad-001ec947c8cc")

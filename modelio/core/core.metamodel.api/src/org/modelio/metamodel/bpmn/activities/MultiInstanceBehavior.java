@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.bpmn.activities;
 
 import java.util.Arrays;
@@ -39,69 +38,73 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  */
 @objid ("00556e64-91e1-1f74-804b-001ec947cd2a")
 public enum MultiInstanceBehavior {
-    NONEBEHAVIOR (0, "NoneBehavior", "NoneBehavior"),
-    ONEBEHAVIOR (1, "OneBehavior", "OneBehavior"),
-    ALLBEHAVIOR (2, "AllBehavior", "AllBehavior"),
-    COMPLEXBEHAVIOR (3, "ComplexBehavior", "ComplexBehavior");
-
+    @objid ("454315bc-9f09-4898-b7aa-a5b575d0fbed")
+    NONEBEHAVIOR(0, "NoneBehavior", "NoneBehavior"),
+    @objid ("19fb862b-968a-4736-b9b1-dff9d7cfb0f5")
+    ONEBEHAVIOR(1, "OneBehavior", "OneBehavior"),
+    @objid ("9f0801b4-e7e0-44fb-a7c6-dced01ea17b1")
+    ALLBEHAVIOR(2, "AllBehavior", "AllBehavior"),
+    @objid ("548defe1-732f-44b8-aef0-c261e5b6e50a")
+    COMPLEXBEHAVIOR(3, "ComplexBehavior", "ComplexBehavior");
 public static final int NONEBEHAVIOR_VALUE = 0;
-public static final int ONEBEHAVIOR_VALUE = 1;
-public static final int ALLBEHAVIOR_VALUE = 2;
-public static final int COMPLEXBEHAVIOR_VALUE = 3;
-private static final MultiInstanceBehavior[] VALUES_ARRAY =
-new MultiInstanceBehavior[] {
-NONEBEHAVIOR,
-ONEBEHAVIOR,
-ALLBEHAVIOR,
-COMPLEXBEHAVIOR,
-};
-public static final List<MultiInstanceBehavior> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
-public static MultiInstanceBehavior get(String literal) {
-  for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-    MultiInstanceBehavior result = VALUES_ARRAY[i];
-    if (result.toString().equals(literal)) {
-       return result;
+    public static final int ONEBEHAVIOR_VALUE = 1;
+    public static final int ALLBEHAVIOR_VALUE = 2;
+    public static final int COMPLEXBEHAVIOR_VALUE = 3;
+    private static final MultiInstanceBehavior[] VALUES_ARRAY =
+    new MultiInstanceBehavior[] {
+    NONEBEHAVIOR,
+    ONEBEHAVIOR,
+    ALLBEHAVIOR,
+    COMPLEXBEHAVIOR,
+    };
+    public static final List<MultiInstanceBehavior> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static MultiInstanceBehavior get(String literal) {
+      for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+        MultiInstanceBehavior result = VALUES_ARRAY[i];
+        if (result.toString().equals(literal)) {
+           return result;
+        }
+      }
+      return null;
     }
-  }
-  return null;
-}
-public static MultiInstanceBehavior getByName(String name) {
-    for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-MultiInstanceBehavior result = VALUES_ARRAY[i];
-if (result.getName().equals(name)) {
-return result;
-}
-}
-return null;
-}
-public static MultiInstanceBehavior get(int value) {
-    switch (value) {
-        case NONEBEHAVIOR_VALUE: return NONEBEHAVIOR;
-        case ONEBEHAVIOR_VALUE: return ONEBEHAVIOR;
-        case ALLBEHAVIOR_VALUE: return ALLBEHAVIOR;
-        case COMPLEXBEHAVIOR_VALUE: return COMPLEXBEHAVIOR;
+    public static MultiInstanceBehavior getByName(String name) {
+        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+    MultiInstanceBehavior result = VALUES_ARRAY[i];
+    if (result.getName().equals(name)) {
+    return result;
+    }
     }
     return null;
-}
-private final int value;
-private final String name;
-private final String literal;
-private MultiInstanceBehavior(int value, String name, String literal) {
-  this.value = value;
-  this.name = name;
-  this.literal = literal;
-}
-public int getValue() {
-   return value;
-}
- public String getName() {
-    return name;
-}
-public String getLiteral() {
-  return literal;
-}
- @Override
-public String toString() {
-   return literal;
-}
+    }
+    public static MultiInstanceBehavior get(int value) {
+        switch (value) {
+            case NONEBEHAVIOR_VALUE: return NONEBEHAVIOR;
+            case ONEBEHAVIOR_VALUE: return ONEBEHAVIOR;
+            case ALLBEHAVIOR_VALUE: return ALLBEHAVIOR;
+            case COMPLEXBEHAVIOR_VALUE: return COMPLEXBEHAVIOR;
+        }
+        return null;
+    }
+    private final int value;
+    private final String name;
+    private final String literal;
+    private MultiInstanceBehavior(int value, String name, String literal) {
+      this.value = value;
+      this.name = name;
+      this.literal = literal;
+    }
+    public int getValue() {
+       return value;
+    }
+     public String getName() {
+        return name;
+    }
+    public String getLiteral() {
+      return literal;
+    }
+     @Override
+    public String toString() {
+       return literal;
+    }
+    
 }

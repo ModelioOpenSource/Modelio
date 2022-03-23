@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.view.statusbar;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -48,7 +47,7 @@ public class ProgressBar2 extends Composite {
     private Color textColor;
 
     @objid ("ee231947-41c9-4716-b17e-fc930ea6ad15")
-    public ProgressBar2(Composite parent, int style) {
+    public  ProgressBar2(Composite parent, int style) {
         super(parent, style);
         
         // Set a default size
@@ -87,6 +86,7 @@ public class ProgressBar2 extends Composite {
         
             }
         });
+        
     }
 
     /**
@@ -102,6 +102,7 @@ public class ProgressBar2 extends Composite {
     public void setSelection(int value) {
         this.selection = value;
         this.redraw();
+        
     }
 
     @objid ("1cbaf69d-a844-4d88-a3b7-952db8e47a10")

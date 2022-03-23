@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.ui.application.saveproject;
 
 import java.io.IOException;
@@ -45,6 +44,7 @@ public class SaveProjectHandler {
         assert (projectService.getOpenedProject() != null);
         
         saveProject(AppProjectUi.I18N.getMessage("SaveProjectTitle"), projectService, progressSvc, statusReporter);
+        
     }
 
     @objid ("0046fb54-cc35-1ff2-a7f4-001ec947cd2a")
@@ -59,7 +59,6 @@ public class SaveProjectHandler {
      * Displays the progress in a progress dialog.
      * Reports failure to the user using the given status reporter.
      * Returns <code>false</code> on failure.
-     * 
      * @param title the progress monitor dialog title
      * @param projectService the project service. Get one on the Eclipse context.
      * @param progressSvc the service to use to report progress. Get one on the Eclipse context.
@@ -80,6 +79,7 @@ public class SaveProjectHandler {
             AppProjectUi.LOG.error(e);
             return false;
         }
+        
     }
 
     @objid ("03cea0c6-99b3-4b25-bbe1-e53c673a102a")
@@ -99,6 +99,7 @@ public class SaveProjectHandler {
         };
         
         svc.run(title, true, false, runnable);
+        
     }
 
 }

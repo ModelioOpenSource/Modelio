@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.statik.GeneralClassSmClass;
 import org.modelio.metamodel.uml.statik.DataType;
 import org.modelio.metamodel.uml.statik.GeneralClass;
 import org.modelio.vbasic.version.Version;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("1648b8b3-570e-4f03-92ab-6e61b22d1b02")
 public class DataTypeSmClass extends GeneralClassSmClass {
     @objid ("6e734bd1-b24b-4fd2-846f-01c7337f61ee")
-    public DataTypeSmClass(ISmMetamodelFragment origin) {
+    public  DataTypeSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class DataTypeSmClass extends GeneralClassSmClass {
     @Override
     public String getName() {
         return "DataType";
+        
     }
 
     @objid ("5eb3fbf2-9ee4-4ff4-91a4-9a3f1d2e3ae7")
@@ -62,18 +62,21 @@ public class DataTypeSmClass extends GeneralClassSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return DataType.class;
+        
     }
 
     @objid ("2af514db-befa-4b82-8f9f-5c2effa1fd12")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("832c6d86-3a9e-4b9f-9b54-0d493ac6889e")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("375b81a7-2291-4089-8552-4f6c6513d92b")
@@ -86,6 +89,7 @@ public class DataTypeSmClass extends GeneralClassSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("ff678c24-3df3-4959-91c5-f18f480c12ba")
@@ -94,7 +98,7 @@ public class DataTypeSmClass extends GeneralClassSmClass {
         private DataTypeSmClass smClass;
 
         @objid ("029e8820-4876-4455-8302-39d5fd60b4dc")
-        public DataTypeObjectFactory(DataTypeSmClass smClass) {
+        public  DataTypeObjectFactory(DataTypeSmClass smClass) {
             this.smClass = smClass;
         }
 

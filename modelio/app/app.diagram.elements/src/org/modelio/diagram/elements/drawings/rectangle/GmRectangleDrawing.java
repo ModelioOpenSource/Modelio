@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.drawings.rectangle;
 
 import java.util.List;
@@ -33,24 +32,23 @@ import org.modelio.diagram.styles.core.StyleKey;
 @objid ("5125b1b4-5530-41af-9128-697599f167e3")
 public class GmRectangleDrawing extends GmNodeDrawing {
     @objid ("c588bd1e-4d40-432b-bc64-4f1e05839617")
-     static final GmRectangleStyleKeys KEYS = new GmRectangleStyleKeys();
+    static final GmRectangleStyleKeys KEYS = new GmRectangleStyleKeys();
 
     /**
      * Deserialization only constructor.
      */
     @objid ("d4121d2c-b734-4794-9a65-10ed558db20a")
-    public GmRectangleDrawing() {
+    public  GmRectangleDrawing() {
         super();
     }
 
     /**
      * Default constructor.
-     * 
      * @param diagram the owner diagram.
      * @param identifier drawing identifier, must be unique in the diagram.
      */
     @objid ("38be2d33-6373-47e0-9d55-af69c20b547f")
-    public GmRectangleDrawing(IGmDiagram diagram, String identifier) {
+    public  GmRectangleDrawing(IGmDiagram diagram, String identifier) {
         super(diagram, identifier);
     }
 

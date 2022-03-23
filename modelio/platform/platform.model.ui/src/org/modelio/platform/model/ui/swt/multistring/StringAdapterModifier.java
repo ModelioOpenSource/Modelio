@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.multistring;
 
 import java.util.List;
@@ -36,7 +35,7 @@ class StringAdapterModifier implements ICellModifier, KeyListener {
     private MultiStringEditionComposite dialog = null;
 
     @objid ("8dca8c76-c068-11e1-8c0a-002564c97630")
-    public StringAdapterModifier(MultiStringEditionComposite dialog) {
+    public  StringAdapterModifier(MultiStringEditionComposite dialog) {
         this.dialog = dialog;
     }
 
@@ -78,6 +77,7 @@ class StringAdapterModifier implements ICellModifier, KeyListener {
                 }
             }
         }
+        
     }
 
     @objid ("8dcc12f4-c068-11e1-8c0a-002564c97630")
@@ -91,6 +91,7 @@ class StringAdapterModifier implements ICellModifier, KeyListener {
             this.dialog.getContent().set(index, (String) value);
             this.dialog.refresh();
         }
+        
     }
 
 }

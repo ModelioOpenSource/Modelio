@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.dialogs.dialog.panels.usecase;
 
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.PostConstruct;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.annotation.PostConstruct;
 import org.eclipse.e4.core.di.annotations.Creatable;
 import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.viewers.ISelection;
@@ -151,6 +150,7 @@ public class UseCaseEditPanel implements IPanelProvider {
         } else {
             return obj instanceof UseCase;
         }
+        
     }
 
     @objid ("2891b980-cddb-420c-8674-7f9d7e0add5f")
@@ -211,6 +211,7 @@ public class UseCaseEditPanel implements IPanelProvider {
         this.form.setText(this.uc.getName());
         
         // update();
+        
     }
 
     @objid ("5e03ab04-4672-4d24-a76d-0ea6de3478a8")
@@ -356,6 +357,7 @@ public class UseCaseEditPanel implements IPanelProvider {
         
         this.form.reflow(true);
         // this.form.layout(true, true);
+        
     }
 
     @objid ("70457223-567d-483e-baea-09645de35596")
@@ -378,6 +380,7 @@ public class UseCaseEditPanel implements IPanelProvider {
             this.nonFuncConstraints.getModel().setValue("");
         }
         setReadOnly();
+        
     }
 
     @objid ("5d7cc02e-9cd2-4fba-8b52-daeb04394873")
@@ -390,12 +393,12 @@ public class UseCaseEditPanel implements IPanelProvider {
         this.exceptions.setEditable(editable);
         this.constraints.setEditable(editable);
         this.nonFuncConstraints.setEditable(editable);
+        
     }
 
     /**
      * E4 Constructor.
      * @param genericModulecontext a generic module context
-     * 
      * @param projectService the project service
      */
     @objid ("0d778af1-ea9a-4637-9d18-1413cf2018f5")
@@ -403,6 +406,7 @@ public class UseCaseEditPanel implements IPanelProvider {
     void postConstruct(ICurrentProjectService projectService, IModuleContext genericModuleContext) {
         this.projectService = projectService;
         this.genericModuleContext = genericModuleContext;
+        
     }
 
     @objid ("7f68bbb7-2451-4d96-9ddd-4c6ff66e06e1")
@@ -414,9 +418,10 @@ public class UseCaseEditPanel implements IPanelProvider {
         private final UseCase uc;
 
         @objid ("6541a1cf-f92d-4dcf-ab16-316e6a714e5f")
-        public UseCaseFieldData(UseCase uc, FieldID fid) {
+        public  UseCaseFieldData(UseCase uc, FieldID fid) {
             this.uc = uc;
             this.fid = fid;
+            
         }
 
         @objid ("10c16a17-f479-4e2f-96a0-199dfcf43bc0")
@@ -457,6 +462,7 @@ public class UseCaseEditPanel implements IPanelProvider {
             } catch (final ExtensionNotFoundException e) {
                 EditionDialogs.LOG.error(e);
             }
+            
         }
 
         @objid ("f6b0a2c3-20ae-4fe9-9147-4bf791dac8af")
@@ -480,6 +486,7 @@ public class UseCaseEditPanel implements IPanelProvider {
             default:
                 return this.fid.toString();
             }
+            
         }
 
         @objid ("86f6a895-cf77-4f11-aca8-ac3d15e91239")
@@ -504,6 +511,7 @@ public class UseCaseEditPanel implements IPanelProvider {
                 return this.fid.toString();
             
             }
+            
         }
 
         @objid ("7df9713a-7ae9-4f6d-8c1f-9508cca4e825")
@@ -525,18 +533,27 @@ public class UseCaseEditPanel implements IPanelProvider {
                                             return value != null;
                                         }
                                     };
+            
         }
 
-//
+        //
         @objid ("f2bc0b0b-f7f3-4460-b5ea-e13b84693292")
         enum FieldID {
+            @objid ("4059a3e5-616b-4996-9107-e911d73e090a")
             NAME,
+            @objid ("36044e6c-cd12-48bd-95cc-6bfb4dea92b6")
             DESCRIPTION,
+            @objid ("b26240bc-ae47-4ce8-bfab-3ae9d7c0b87e")
             PRECOND,
+            @objid ("e01e2e8a-9ce3-45f4-9b74-9b819736aded")
             POSTCOND,
+            @objid ("aaad6cde-e3a7-4848-9581-37ae23c2aa2f")
             EXCEPTIONS,
+            @objid ("0e927aa3-2eea-487a-842b-7c1c111d8d4d")
             CONSTRAINTS,
+            @objid ("15d359f4-cc04-407b-9c18-59d4e663bfa3")
             NFCONSTRAINTS;
+
         }
 
     }

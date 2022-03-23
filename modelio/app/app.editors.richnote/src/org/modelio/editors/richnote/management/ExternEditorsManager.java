@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.management;
 
 import java.io.IOException;
@@ -28,8 +27,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.UIEventTopic;
 import org.modelio.editors.richnote.plugin.EditorsRichNote;
@@ -100,6 +99,7 @@ public class ExternEditorsManager {
                 EditorsRichNote.LOG.error("Unable to open editor for " + artifact);
             }
         }
+        
     }
 
     @objid ("96f2c025-0c45-4b61-a047-648e0488539f")
@@ -127,7 +127,7 @@ public class ExternEditorsManager {
     }
 
     @objid ("d2a2673b-2028-4e11-b65f-dee0bdae3aa7")
-    public ExternEditorsManager() {
+    public  ExternEditorsManager() {
         ExternEditorsManager.instance = this;
     }
 

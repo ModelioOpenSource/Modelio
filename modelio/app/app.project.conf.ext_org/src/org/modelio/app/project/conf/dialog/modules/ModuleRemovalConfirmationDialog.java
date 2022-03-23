@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.modules;
 
 import java.io.IOException;
@@ -49,7 +48,7 @@ public class ModuleRemovalConfirmationDialog extends ModelioDialog {
     private static final int WIDTH = 600;
 
     @objid ("b8fc0c21-1500-488c-b49a-bd0cb1b123dc")
-    public ModuleRemovalConfirmationDialog(Shell parentShell) {
+    public  ModuleRemovalConfirmationDialog(Shell parentShell) {
         super(parentShell);
     }
 
@@ -76,6 +75,7 @@ public class ModuleRemovalConfirmationDialog extends ModelioDialog {
     public void addButtonsInButtonBar(Composite parent) {
         createButton(parent, IDialogConstants.OK_ID, IDialogConstants.YES_LABEL, false);
         createButton(parent, IDialogConstants.CANCEL_ID, IDialogConstants.NO_LABEL, true);
+        
     }
 
     @objid ("36011b57-042e-4e7f-beca-da43363f3746")
@@ -89,6 +89,7 @@ public class ModuleRemovalConfirmationDialog extends ModelioDialog {
         
         final Rectangle b = getShell().getParent().getBounds();
         getShell().setBounds(b.x + (b.width - WIDTH) / 2, b.y + (b.height - HEIGHT) / 2, WIDTH, HEIGHT);
+        
     }
 
 }

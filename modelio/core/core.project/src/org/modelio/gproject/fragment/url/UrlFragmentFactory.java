@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.fragment.url;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,7 +38,8 @@ public class UrlFragmentFactory implements IFragmentFactory {
      * Singleton
      */
     @objid ("e77dec8b-03f8-11e2-9ef9-001ec947ccaf")
-    private UrlFragmentFactory() {
+    private  UrlFragmentFactory() {
+        
     }
 
     /**
@@ -55,6 +55,7 @@ public class UrlFragmentFactory implements IFragmentFactory {
     public IProjectFragment instantiate(FragmentDescriptor fd) {
         return new UrlFragment(fd.getId(), fd.getUri(), fd.getScope(), fd.getProperties(), 
                         GAuthConf.from(fd.getAuthDescriptor()));
+        
     }
 
     @objid ("aa85d143-0eed-11e2-8e4b-001ec947ccaf")

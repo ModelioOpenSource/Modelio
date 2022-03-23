@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.plugin;
 
 import java.util.ResourceBundle;
@@ -66,6 +65,7 @@ public final class DiagramEditorUseCase implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), PLUGIN_ID));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("diagrameditorusecase"));
+        
     }
 
     @objid ("e9f8dfa4-b29e-4dd7-b88d-048c71e9c4cb")

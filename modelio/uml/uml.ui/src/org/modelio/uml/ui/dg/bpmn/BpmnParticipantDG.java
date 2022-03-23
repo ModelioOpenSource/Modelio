@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.bpmn;
 
 import java.util.Collection;
@@ -27,6 +26,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.GraphicalEditPart;
 import org.modelio.api.modelio.diagram.IDiagramNode;
+import org.modelio.api.modelio.diagram.IDiagramNode.Role;
 import org.modelio.bpmn.diagram.editor.elements.participant.GmBpmnParticipantPortContainer;
 import org.modelio.bpmn.diagram.editor.elements.workflow.GmWorkflow;
 import org.modelio.diagram.api.dg.DGFactory;
@@ -44,7 +44,7 @@ public class BpmnParticipantDG extends DiagramNode {
      * @param node The gm node represented by this class.
      */
     @objid ("ebe57050-83cd-4e4c-bc0b-345eb118b421")
-    public BpmnParticipantDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  BpmnParticipantDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 
@@ -57,6 +57,7 @@ public class BpmnParticipantDG extends DiagramNode {
         } else {
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("3b89f941-5f63-4535-8608-0fb3a569474d")
@@ -75,6 +76,7 @@ public class BpmnParticipantDG extends DiagramNode {
         } else {
             return Collections.emptyList();
         }
+        
     }
 
 }

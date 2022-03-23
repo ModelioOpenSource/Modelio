@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.persistence;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,6 @@ public interface IExtReferenceResolver {
      * readXxxxAtt(String)} methods can be called to get more informations.
      * <p>
      * This method may create a new instance or return an existing one.
-     * 
      * @param type The element type.
      * @param dbId The location of the external element. May be empty.
      * @param extId The external element id.

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.texteditors.mdd.partitions;
 
 import java.util.HashMap;
@@ -33,28 +32,29 @@ public class KeywordRule implements IPredicateRule {
     private MDDPartitionScanner _scanner;
 
     @objid ("7b5c5bc6-2a77-11e2-9fb9-bc305ba4815c")
-     IToken roToken;
+    IToken roToken;
 
     @objid ("7b5c5bc7-2a77-11e2-9fb9-bc305ba4815c")
-     IToken rwToken;
+    IToken rwToken;
 
     @objid ("7b5c5bc8-2a77-11e2-9fb9-bc305ba4815c")
-     IToken keywordToken;
+    IToken keywordToken;
 
     @objid ("7b5c5bc9-2a77-11e2-9fb9-bc305ba4815c")
-     HashMap<String, IToken> keywords;
+    HashMap<String, IToken> keywords;
 
     @objid ("7b5c5bcd-2a77-11e2-9fb9-bc305ba4815c")
     private StringBuffer buffer;
 
     @objid ("7b5c5bce-2a77-11e2-9fb9-bc305ba4815c")
-    public KeywordRule(IToken roToken, IToken rwToken, IToken keywordToken, MDDPartitionScanner scanner) {
+    public  KeywordRule(IToken roToken, IToken rwToken, IToken keywordToken, MDDPartitionScanner scanner) {
         this.roToken = roToken;
         this.rwToken = rwToken;
         this.keywordToken = keywordToken;
         this._scanner = scanner;
         this.buffer = new StringBuffer();
         this.keywords = new HashMap<>();
+        
     }
 
     @objid ("7b5c5bd4-2a77-11e2-9fb9-bc305ba4815c")
@@ -108,6 +108,7 @@ public class KeywordRule implements IPredicateRule {
             return Token.UNDEFINED;
         } else
             return  (this._scanner.editableArea)? token:this.roToken;
+        
     }
 
 }

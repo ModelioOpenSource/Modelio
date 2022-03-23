@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.modeltree;
 
@@ -51,27 +50,26 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("baa544d0-f02c-4448-af0f-f4f47fc570c8")
 public class MMStandardModelTree {
-    @objid ("219b155d-611c-473d-b43a-b005815a2308")
+    @objid ("d65b4184-b146-4c6c-b3d0-207ee6a37fe1")
     public static final String USERDIAGRAMIMAGE_TAGTYPE = "userDiagramImage";
 
-    @objid ("b56f112a-a46c-4f66-a094-12e2dabf939e")
+    @objid ("416c5706-6067-44e2-86a7-5a195f7e72c1")
     public static final String SUMMARY_NOTETYPE = "summary";
 
     /**
      * The underlying {@link ModelTree} represented by this proxy, never null.
      */
-    @objid ("8c4b8a2e-445a-4919-ae5f-b97b66cc85da")
+    @objid ("4232ed54-2b8a-4c46-a900-714ff1eac264")
     protected final ModelTree elt;
 
     /**
      * Tells whether a {@link MMStandardModelTree proxy} can be instantiated from a {@link MObject} checking it is a {@link ModelTree}.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("ec7bd8e4-321c-444d-8699-ad6ed58ec3af")
+    @objid ("7a6f9f40-e691-4c2b-b3ff-7b7c60d4ec90")
     public static boolean canInstantiate(MObject elt) {
         return (elt instanceof ModelTree);
     }
@@ -83,12 +81,12 @@ public class MMStandardModelTree {
      * @param obj a ModelTree
      * @return a {@link MMStandardModelTree} proxy or <i>null</i>.
      */
-    @objid ("28777314-2f5c-421a-ab4d-1761458a779d")
+    @objid ("f7041d35-b4c4-4bd4-bb81-4d1db7cd80ce")
     public static MMStandardModelTree instantiate(ModelTree obj) {
         return MMStandardModelTree.canInstantiate(obj) ? new MMStandardModelTree(obj) : null;
     }
 
-    @objid ("c6de0d59-29b3-4801-9120-2e36bdb2e877")
+    @objid ("f5270fd3-a8db-47ba-9f16-5f656cbcaa1b")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -108,7 +106,7 @@ public class MMStandardModelTree {
      * Get the underlying {@link ModelTree}. 
      * @return the ModelTree represented by this proxy, never null.
      */
-    @objid ("49d2b86c-0192-4760-a024-f3f882b909a2")
+    @objid ("f8228192-2c51-49fe-b911-81fdafc999c0")
     public ModelTree getElement() {
         return this.elt;
     }
@@ -118,7 +116,7 @@ public class MMStandardModelTree {
      * <p>Note description:
      * <br/><i></i></p>
      */
-    @objid ("0fe77477-fd01-4cb8-a521-ff4d4e8d3dd5")
+    @objid ("03f7c614-2fe7-42a5-8a55-84929f526cde")
     public String getSummaryNote() {
         return this.elt.getNoteContent(MMStandardModelTree.MdaTypes.SUMMARY_NOTETYPE_ELT);
     }
@@ -130,15 +128,16 @@ public class MMStandardModelTree {
      * 
      * The file path must be either absolute or relative to the project path.</i></p>
      */
-    @objid ("9cb5f357-241f-4e0e-b7d9-fe4c48b01207")
+    @objid ("954dd683-ae55-4380-8c66-bd427f65b2a2")
     public String getUserDiagramImage() {
         return this.elt.getTagValue(MMStandardModelTree.MdaTypes.USERDIAGRAMIMAGE_TAGTYPE_ELT);
     }
 
-    @objid ("20737bde-0cb4-4482-9059-6667653ee72c")
+    @objid ("70fabd82-dc68-4de2-b26d-c1233f6a7c88")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
     /**
@@ -146,7 +145,7 @@ public class MMStandardModelTree {
      * <p>Note description:
      * <br/><i></i></p>
      */
-    @objid ("de084a1d-9a53-49a1-b2e2-11acf637734c")
+    @objid ("5f4dcb75-0f47-462c-9fda-6ca3da73957d")
     public void setSummaryNote(String value) {
         this.elt.putNoteContent(MMStandardModelTree.MdaTypes.SUMMARY_NOTETYPE_ELT, value);
     }
@@ -158,44 +157,44 @@ public class MMStandardModelTree {
      * 
      * The file path must be either absolute or relative to the project path.</i></p>
      */
-    @objid ("579261a5-ce0c-4c31-8519-4916811bdf2f")
+    @objid ("4c120f8a-d601-4509-8430-b4e56477d4ca")
     public void setUserDiagramImage(String value) {
         this.elt.putTagValue(MMStandardModelTree.MdaTypes.USERDIAGRAMIMAGE_TAGTYPE_ELT, value);
     }
 
-    @objid ("2888226c-fe2a-4243-8245-e7362c43bbb6")
-    protected MMStandardModelTree(ModelTree elt) {
+    @objid ("203d92db-76ca-4ff6-9598-1d50cc59f99a")
+    protected  MMStandardModelTree(ModelTree elt) {
         this.elt = elt;
     }
 
     @objid ("cfb7543a-2527-4217-9c51-756155a8762a")
     public static final class MdaTypes {
-        @objid ("4d3b9de9-b58f-40a6-a174-11ee4b9b0abf")
+        @objid ("5b6f49c1-6893-48a4-8f78-89a622f2cdd9")
         public static TagType USERDIAGRAMIMAGE_TAGTYPE_ELT;
 
-        @objid ("ae1723c1-3b6c-414b-8c08-e24030decd19")
+        @objid ("56eb243d-ea8f-498d-a6e3-9ef451586687")
         public static NoteType SUMMARY_NOTETYPE_ELT;
 
-        @objid ("d6970d84-8eb5-4441-baaa-1282630edeed")
+        @objid ("9b876efe-0d51-4579-90ad-3a5846c6469c")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("ed45ae45-b98d-4b53-8033-7e08ee3148dc")
+        @objid ("7f0bfc07-473f-4ef3-919d-5bfd72d89e39")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("b79061a4-d63b-472c-8459-b83ac75ec7d4")
+        @objid ("5596acfa-0830-4f19-8553-916a473a4cfd")
         public static void init(IModuleContext ctx) {
             USERDIAGRAMIMAGE_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "706d4a6a-3306-46c4-9ce8-af23457cc2ef");
             SUMMARY_NOTETYPE_ELT = ctx.getModelingSession().findElementById(NoteType.class, "00000000-0000-3e84-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

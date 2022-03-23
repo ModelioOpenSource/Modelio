@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.utils.metamodel.experts;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,7 +45,6 @@ public interface ILinkExpertHelper {
 
     /**
      * Get a model link source
-     * 
      * @param aLink a model link.
      * @return the link source
      */
@@ -55,7 +53,6 @@ public interface ILinkExpertHelper {
 
     /**
      * Get a model link target.
-     * 
      * @param aLink a model link.
      * @return the link target.
      */
@@ -64,22 +61,20 @@ public interface ILinkExpertHelper {
 
     /**
      * Change a model link source.
-     * 
      * @param link a model link.
      * @param oldSource the old source.
      * @param newSource the new source.
-     * @throws java.lang.IllegalArgumentException if the new destination is illegal or the link is not a model link.
+     * @throws IllegalArgumentException if the new destination is illegal or the link is not a model link.
      */
     @objid ("fd428f48-04fb-46ca-a385-6deed17be35d")
     void setSource(MObject link, MObject oldSource, MObject newSource) throws IllegalArgumentException;
 
     /**
      * Change a model link target.
-     * 
      * @param link a model link.
      * @param oldTarget the old target.
      * @param newTarget the new target.
-     * @throws java.lang.IllegalArgumentException if the new destination is illegal or the link is not a model link.
+     * @throws IllegalArgumentException if the new destination is illegal or the link is not a model link.
      */
     @objid ("99932bc7-fd26-4404-9a76-a67b8fece59c")
     void setTarget(MObject link, MObject oldTarget, MObject newTarget) throws IllegalArgumentException;

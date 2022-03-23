@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.modelshield.standardcheckers;
 
 import java.util.ArrayList;
@@ -54,6 +53,7 @@ public class E280Checker implements IChecker {
             // Post the audit entry
             report.addEntry(new ModelError(ERRORID, (MObject) cycle.get(0), cycle));
         }
+        
     }
 
     @objid ("00984a2c-e472-1f69-b3fb-001ec947cd2a")
@@ -61,6 +61,7 @@ public class E280Checker implements IChecker {
     public void register(final IModelShieldRegistry plan, MMetamodel smMetamodel) {
         // trigger=*, metaclass=Stereotype, feature=Parent
         plan.registerChecker(this, smMetamodel.getMClass(Stereotype.class), TriggerType.Update, "Parent");
+        
     }
 
     @objid ("00802e74-51cf-1f6b-b3fb-001ec947cd2a")

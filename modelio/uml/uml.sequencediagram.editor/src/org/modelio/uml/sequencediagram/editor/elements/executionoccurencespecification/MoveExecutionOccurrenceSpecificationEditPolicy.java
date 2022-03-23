@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.executionoccurencespecification;
 
 import java.util.ArrayList;
@@ -33,6 +32,7 @@ import org.eclipse.gef.handles.MoveHandle;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.policies.DefaultNodeNonResizableEditPolicy;
+import org.modelio.diagram.elements.core.policies.LayoutNodeConnectionsEditPolicy;
 import org.modelio.diagram.elements.core.policies.SelectionHandlesBuilder;
 import org.modelio.metamodel.uml.behavior.interactionModel.ExecutionOccurenceSpecification;
 import org.modelio.metamodel.uml.behavior.interactionModel.ExecutionSpecification;
@@ -62,12 +62,14 @@ public class MoveExecutionOccurrenceSpecificationEditPolicy extends DefaultNodeN
         } else {
             return UnexecutableCommand.INSTANCE;
         }
+        
     }
 
     @objid ("d8e070cc-55b6-11e2-877f-002564c97630")
     private void computePredicatesForHost() {
         ExecutionOccurenceSpecification executionOccurrenceSpecification = (ExecutionOccurenceSpecification) ((GmExecutionOccurenceSpecification) getHost().getModel()).getRelatedElement();
         this.manipHelper.computePredicatesForHost(executionOccurrenceSpecification);
+        
     }
 
     @objid ("d8e070ce-55b6-11e2-877f-002564c97630")
@@ -139,6 +141,7 @@ public class MoveExecutionOccurrenceSpecificationEditPolicy extends DefaultNodeN
         
             }
         }
+        
     }
 
     @objid ("237cd2d6-9fc0-4fba-95e4-28ec89bc4ce9")
@@ -146,7 +149,11 @@ public class MoveExecutionOccurrenceSpecificationEditPolicy extends DefaultNodeN
     public void activate() {
         super.activate();
         
+        // Remove the LayoutNodeConnectionsEditPolicy to avoid infinite loops at feedback
+        getHost().removeEditPolicy(LayoutNodeConnectionsEditPolicy.ROLE);
+        
         this.manipHelper = new ManipulationHelper((GraphicalEditPart) getHost());
+        
     }
 
     @objid ("6aee83a4-6d27-4422-94fe-1df86fa7d8d8")
@@ -161,6 +168,7 @@ public class MoveExecutionOccurrenceSpecificationEditPolicy extends DefaultNodeN
             super.showSourceFeedback(request);
             this.manipHelper.eraseFeedback(getFeedbackLayer());
         }
+        
     }
 
     @objid ("febe3e69-f8b0-481e-857f-989b5fb90db6")
@@ -172,6 +180,7 @@ public class MoveExecutionOccurrenceSpecificationEditPolicy extends DefaultNodeN
         if (type.equals(REQ_MOVE) || type.equals(REQ_RESIZE)) {
             this.manipHelper.eraseFeedback(getFeedbackLayer());
         }
+        
     }
 
     /**

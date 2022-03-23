@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.bpmncollaboration;
 
 import java.util.Collections;
@@ -35,8 +34,8 @@ import org.modelio.diagram.elements.core.node.IImageableNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.platform.model.ui.swt.images.ElementImageService;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -63,23 +62,23 @@ public class GmBpmnCollaborationPrimaryNode extends GmNoStyleCompositeNode imple
 
     /**
      * Default constructor.
-     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param relatedRef a reference to the represented CallBehaviorAction
      */
     @objid ("98fe5fcb-fd99-4feb-9adc-a3849efa167f")
-    public GmBpmnCollaborationPrimaryNode(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmBpmnCollaborationPrimaryNode(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
         this.header = new GmDefaultModelElementHeader(diagram, relatedRef);
         this.header.setShowMetaclassIcon(true);
         addChild(this.header);
+        
     }
 
     /**
      * Empty constructor needed for the serialization.
      */
     @objid ("ab26e5b4-1277-4b90-abf2-a6a14ef2dc5f")
-    public GmBpmnCollaborationPrimaryNode() {
+    public  GmBpmnCollaborationPrimaryNode() {
         // empty constructor for the serialization
     }
 
@@ -120,6 +119,7 @@ public class GmBpmnCollaborationPrimaryNode extends GmNoStyleCompositeNode imple
         // Returned result depends on current representation mode:
         List<GmNodeModel> ret;
         switch (getRepresentationMode()) {
+        case USER_IMAGE:
         case IMAGE: {
             ret = Collections.emptyList();
             break;
@@ -153,6 +153,7 @@ public class GmBpmnCollaborationPrimaryNode extends GmNoStyleCompositeNode imple
             break;
         }
         }
+        
     }
 
     @objid ("a90b4f5f-58dc-42a7-a7d0-2cdaf33865b4")
@@ -160,6 +161,7 @@ public class GmBpmnCollaborationPrimaryNode extends GmNoStyleCompositeNode imple
     public void refreshFromObModel() {
         super.refreshFromObModel(); // forcing visual refresh in case Image changed
         firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("3b26b1ec-4516-4461-857e-6d6f3c9ddeda")
@@ -169,6 +171,7 @@ public class GmBpmnCollaborationPrimaryNode extends GmNoStyleCompositeNode imple
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmBpmnCollaborationPrimaryNode.", GmBpmnCollaborationPrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("ecbd870c-72e8-4da1-a236-34db2817e665")
@@ -180,6 +183,7 @@ public class GmBpmnCollaborationPrimaryNode extends GmNoStyleCompositeNode imple
         this.header = (GmDefaultModelElementHeader) this.getChildren().get(i++);
         GmNodeModel imageModeHeader = this.getChildren().get(i++);
         imageModeHeader.delete();
+        
     }
 
     @objid ("919b1136-453f-438e-8d07-6d1a8dba0b9a")
@@ -193,6 +197,7 @@ public class GmBpmnCollaborationPrimaryNode extends GmNoStyleCompositeNode imple
         super.read(in);
         
         this.header = (GmDefaultModelElementHeader) this.getChildren().get(0);
+        
     }
 
 }

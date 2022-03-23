@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.handlers.print;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -87,11 +86,12 @@ public class PrintPreviewDialog extends Dialog {
     private PrintMargin margin;
 
     @objid ("62c49fd0-687c-44cc-9c70-93d613f94ad8")
-    public PrintPreviewDialog(Shell parent, ILinkEditor linkEditor) {
+    public  PrintPreviewDialog(Shell parent, ILinkEditor linkEditor) {
         super(parent);
         this.editor = linkEditor;
         this.image = linkEditor.getImage();
         this.shell = new Shell(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL | SWT.RESIZE);
+        
     }
 
     @objid ("1ff807f9-1a5e-4e9d-8a94-3fd5d83d39c2")
@@ -430,6 +430,7 @@ public class PrintPreviewDialog extends Dialog {
         if (this.image != null) {
             this.image.dispose();
         }
+        
     }
 
     @objid ("b2e96d60-4a0c-482e-a8fb-d4ee92de7f5b")
@@ -449,6 +450,7 @@ public class PrintPreviewDialog extends Dialog {
         }
         this.margin = PrintMargin.getPrintMargin(this.printer, marginSize);
         this.canvas.redraw();
+        
     }
 
     @objid ("a9955a88-828c-4003-8c0f-c4d4ec73517b")
@@ -493,6 +495,7 @@ public class PrintPreviewDialog extends Dialog {
         }
         
         updatePageCounter();
+        
     }
 
 }

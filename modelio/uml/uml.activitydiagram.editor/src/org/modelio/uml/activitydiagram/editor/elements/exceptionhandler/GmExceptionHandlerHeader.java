@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.exceptionhandler;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -49,12 +48,11 @@ public class GmExceptionHandlerHeader extends GmDefaultModelElementLabel {
 
     /**
      * Constructor
-     * 
      * @param diagram the diagram
      * @param relatedRef related element reference, must not be <code>null</code>.
      */
     @objid ("2a4c0ed1-55b6-11e2-877f-002564c97630")
-    public GmExceptionHandlerHeader(IGmDiagram diagram, MRef relatedRef) {
+    public  GmExceptionHandlerHeader(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -62,7 +60,7 @@ public class GmExceptionHandlerHeader extends GmDefaultModelElementLabel {
      * For deserialization only.
      */
     @objid ("2a4c0eda-55b6-11e2-877f-002564c97630")
-    public GmExceptionHandlerHeader() {
+    public  GmExceptionHandlerHeader() {
         // serialization
     }
 
@@ -105,6 +103,7 @@ public class GmExceptionHandlerHeader extends GmDefaultModelElementLabel {
         } else {
             super.styleChanged(property, newValue);
         }
+        
     }
 
     @objid ("2a4d9571-55b6-11e2-877f-002564c97630")
@@ -124,6 +123,7 @@ public class GmExceptionHandlerHeader extends GmDefaultModelElementLabel {
             break;
         }
         }
+        
     }
 
     @objid ("2a4d9577-55b6-11e2-877f-002564c97630")
@@ -133,6 +133,7 @@ public class GmExceptionHandlerHeader extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmExceptionHandlerHeader.", GmExceptionHandlerHeader.MINOR_VERSION);
+        
     }
 
     @objid ("2a4f1bd9-55b6-11e2-877f-002564c97630")

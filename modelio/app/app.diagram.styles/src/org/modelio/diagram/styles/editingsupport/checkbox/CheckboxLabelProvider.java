@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.editingsupport.checkbox;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,7 +38,7 @@ public class CheckboxLabelProvider extends ColumnLabelProvider {
     private final ColumnViewer viewer;
 
     @objid ("858cbf09-1926-11e2-92d2-001ec947c8cc")
-    public CheckboxLabelProvider(final ColumnViewer viewer) {
+    public  CheckboxLabelProvider(final ColumnViewer viewer) {
         this.viewer = viewer;
     }
 
@@ -53,6 +52,7 @@ public class CheckboxLabelProvider extends ColumnLabelProvider {
         } else {
             return UIImages.UNCHECKED;
         }
+        
     }
 
     @objid ("858cbf11-1926-11e2-92d2-001ec947c8cc")

@@ -17,22 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.infrastructure.AbstractResourceSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.MetaclassReferenceSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.ModelElementSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.ResourceTypeData;
-import org.modelio.metamodel.impl.uml.infrastructure.StereotypeSmClass;
 import org.modelio.metamodel.uml.infrastructure.AbstractResource;
 import org.modelio.metamodel.uml.infrastructure.MetaclassReference;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
@@ -75,7 +70,7 @@ public class ResourceTypeSmClass extends ModelElementSmClass {
     private SmDependency typedResourceDep;
 
     @objid ("34ad9de7-271d-49d0-9166-821da871262b")
-    public ResourceTypeSmClass(ISmMetamodelFragment origin) {
+    public  ResourceTypeSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -83,6 +78,7 @@ public class ResourceTypeSmClass extends ModelElementSmClass {
     @Override
     public String getName() {
         return "ResourceType";
+        
     }
 
     @objid ("42c254d2-0c89-4b12-a88b-65d6deeff6ab")
@@ -95,18 +91,21 @@ public class ResourceTypeSmClass extends ModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ResourceType.class;
+        
     }
 
     @objid ("ae9c8211-4c2e-4bc2-990d-c5286ff4a577")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("586445c1-fba0-40c7-b6f6-c42d7910c6ba")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("ad949703-3ae4-4072-a3a0-1d84380281fa")
@@ -146,6 +145,8 @@ public class ResourceTypeSmClass extends ModelElementSmClass {
         this.typedResourceDep = new TypedResourceSmDependency();
         this.typedResourceDep.init("TypedResource", this, metamodel.getMClass(AbstractResource.MQNAME), 0, -1 , SmDirective.SMCDDYNAMIC, SmDirective.SMCDTODELETE);
         registerDependency(this.typedResourceDep);
+        
+        
     }
 
     @objid ("352fe225-3c29-4f3c-b85f-31f580ccd7c0")
@@ -284,6 +285,7 @@ public class ResourceTypeSmClass extends ModelElementSmClass {
             	this.symetricDep = ((StereotypeSmClass)this.getTarget()).getDefinedResourceTypeDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -312,6 +314,7 @@ public class ResourceTypeSmClass extends ModelElementSmClass {
             	this.symetricDep = ((MetaclassReferenceSmClass)this.getTarget()).getDefinedResourceTypeDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -322,7 +325,7 @@ public class ResourceTypeSmClass extends ModelElementSmClass {
         private ResourceTypeSmClass smClass;
 
         @objid ("9bca9151-341c-419d-9693-9fad44229a12")
-        public ResourceTypeObjectFactory(ResourceTypeSmClass smClass) {
+        public  ResourceTypeObjectFactory(ResourceTypeSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -355,6 +358,7 @@ public class ResourceTypeSmClass extends ModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ResourceTypeData) data).mTypedResource = values;
+            
         }
 
         @objid ("c6696a1d-96e8-4083-b3a2-5ae98f786d6d")
@@ -364,6 +368,7 @@ public class ResourceTypeSmClass extends ModelElementSmClass {
             	this.symetricDep = ((AbstractResourceSmClass)this.getTarget()).getTypeDep();
             }
             return this.symetricDep;
+            
         }
 
     }

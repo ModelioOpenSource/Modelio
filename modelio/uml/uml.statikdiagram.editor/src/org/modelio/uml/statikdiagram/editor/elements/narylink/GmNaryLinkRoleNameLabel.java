@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.narylink;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -53,21 +52,21 @@ public class GmNaryLinkRoleNameLabel extends GmDefaultModelElementHeader {
      * Empty c'tor for deserialization.
      */
     @objid ("df99b2c3-32e4-40af-b373-5e27a4d9bf24")
-    public GmNaryLinkRoleNameLabel() {
+    public  GmNaryLinkRoleNameLabel() {
         // Nothing to do.
     }
 
     /**
      * c'tor.
-     * 
      * @param diagram the diagram in which this label is created
      * @param role the represented role, might be null.
      * @param ref a reference to the represented role. must be non null.
      */
     @objid ("218e8de6-0c3c-4c06-97b2-060c04465b05")
-    public GmNaryLinkRoleNameLabel(IGmDiagram diagram, NaryLinkEnd role, MRef ref) {
+    public  GmNaryLinkRoleNameLabel(IGmDiagram diagram, NaryLinkEnd role, MRef ref) {
         super(diagram, ref);
         this.role = role;
+        
     }
 
     @objid ("6e07e5b7-8e6e-430e-b7bd-77c797467c87")
@@ -93,6 +92,7 @@ public class GmNaryLinkRoleNameLabel extends GmDefaultModelElementHeader {
                 break;
             }
         }
+        
     }
 
     @objid ("b2ec5a40-6c94-48f4-80f5-87878f75b5b7")
@@ -114,12 +114,14 @@ public class GmNaryLinkRoleNameLabel extends GmDefaultModelElementHeader {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmNaryLinkRoleNameLabel.", GmNaryLinkRoleNameLabel.MINOR_VERSION);
+        
     }
 
     @objid ("12522e04-332d-4de1-a142-fb7a9038e51f")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.role = (NaryLinkEnd) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("f3ff15a3-8703-4cfd-b4fa-debb1c96b966")

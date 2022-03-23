@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.project.services;
 
 import java.io.IOException;
@@ -49,8 +48,8 @@ import org.modelio.platform.utils.i18n.BundledMessages;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.model.spi.mm.IMigrationStepDescription;
 import org.modelio.vcore.model.spi.mm.MmVersionComparator;
-import org.modelio.vcore.smkernel.mapi.MetamodelVersionDescriptor.Difference;
 import org.modelio.vcore.smkernel.mapi.MetamodelVersionDescriptor;
+import org.modelio.vcore.smkernel.mapi.MetamodelVersionDescriptor.Difference;
 
 /**
  * Dialog box that asks for migration of a model fragment.
@@ -64,13 +63,13 @@ class ConfirmMigrationDialog extends ModelioDialog {
 
     /**
      * @param toMigrate the migration informations
-     * 
      * @param parentShell a parent SWT shell
      */
     @objid ("2da6a151-9a2f-4645-b3e2-747e533a77e2")
-    public ConfirmMigrationDialog(Shell parentShell, Data data) {
+    public  ConfirmMigrationDialog(Shell parentShell, Data data) {
         super(parentShell);
         this.data = Objects.requireNonNull(data);
+        
     }
 
     @objid ("45f4f366-ee8e-40f8-a605-838a1345f0b4")
@@ -80,6 +79,7 @@ class ConfirmMigrationDialog extends ModelioDialog {
         setTitle(AppProjectCore.I18N.getMessage("ConfirmMigrationDialog.header",
                 this.data.fragmentId,
                 this.data.summary));
+        
     }
 
     @objid ("922537cd-c58d-4649-84c7-00e8838ded10")
@@ -169,6 +169,7 @@ class ConfirmMigrationDialog extends ModelioDialog {
         // createButton(parent, IDialogConstants.NO_TO_ALL_ID, i18n.getMessage("ConfirmMigrationDialog.button.no_all"), false);
         createButton(parent, IDialogConstants.CANCEL_ID, i18n.getMessage("ConfirmMigrationDialog.button.abort"), true)
                 .setToolTipText(i18n.getMessage("ConfirmMigrationDialog.button.abort.tooltip"));
+        
     }
 
     @objid ("d75f59bf-a160-42c9-ab4c-796d4625acd2")
@@ -176,10 +177,11 @@ class ConfirmMigrationDialog extends ModelioDialog {
     protected void buttonPressed(int buttonId) {
         setReturnCode(buttonId);
         close();
+        
     }
 
     @objid ("9e086005-699b-410b-b1f8-e17702e58b73")
-    public ConfirmMigrationDialog(Shell parentShell, IProjectFragment toMigrate, MetamodelVersionDescriptor targetMetamodel) throws IOException {
+    public  ConfirmMigrationDialog(Shell parentShell, IProjectFragment toMigrate, MetamodelVersionDescriptor targetMetamodel) throws IOException {
         this(parentShell, new Data(toMigrate, targetMetamodel));
     }
 
@@ -192,13 +194,13 @@ class ConfirmMigrationDialog extends ModelioDialog {
     @objid ("0da929b8-a81b-4ed3-9221-2eee61cdeb7c")
     public static class Data {
         @objid ("5c05fd34-30c0-46e1-8231-788a251e8cc1")
-         final String fragmentId;
+        final String fragmentId;
 
         @objid ("cfdd9e64-5e55-4792-bdc1-15c5c7c34d0a")
-         final String summary;
+        final String summary;
 
         @objid ("e505556c-4227-40b2-a6bb-38fa2c697be5")
-         final String requiredUserActions;
+        final String requiredUserActions;
 
         @objid ("e3d70c2d-4307-4729-9afb-4cbc2425ebb7")
         private final String details;
@@ -207,7 +209,7 @@ class ConfirmMigrationDialog extends ModelioDialog {
         private final List<IMigrationStepDescription> steps;
 
         @objid ("f9ad6f2a-39b4-4613-827d-e036acd3894b")
-        public Data(IProjectFragment toMigrate, MetamodelVersionDescriptor targetMmVersion) throws IOException {
+        public  Data(IProjectFragment toMigrate, MetamodelVersionDescriptor targetMmVersion) throws IOException {
             FragmentMigrationNeededException ex = (FragmentMigrationNeededException) toMigrate.getDownError();
             IFragmentMigrator migrator = toMigrate.getMigrator(targetMmVersion);
             
@@ -216,6 +218,7 @@ class ConfirmMigrationDialog extends ModelioDialog {
             this.steps = migrator.getStepsDescription();
             this.summary = computeSummary(ex);
             this.details = computeDetails(ex.getFragmentVersion(), targetMmVersion);
+            
         }
 
         @objid ("3aa962f7-3a7d-4554-a81f-16367b724af0")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.plugin;
 
 import java.util.HashMap;
@@ -36,7 +35,7 @@ public class DColorRegistry {
     private Display display;
 
     @objid ("810cc725-1dec-11e2-8cad-001ec947c8cc")
-    public DColorRegistry(Display display) {
+    public  DColorRegistry(Display display) {
         this.display = display;
     }
 
@@ -55,6 +54,7 @@ public class DColorRegistry {
             this.colors.get(key).dispose();
         }
         this.colors.clear();
+        
     }
 
     @objid ("810cc730-1dec-11e2-8cad-001ec947c8cc")
@@ -62,6 +62,7 @@ public class DColorRegistry {
     protected void finalize() throws Throwable {
         cleanCache();
         super.finalize();
+        
     }
 
 }

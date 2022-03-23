@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.ramc.core.packaging;
 
 import java.util.ArrayList;
@@ -39,8 +38,8 @@ import org.modelio.metamodel.uml.infrastructure.NoteType;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.metamodel.uml.infrastructure.TagType;
 import org.modelio.metamodel.uml.infrastructure.TaggedValue;
-import org.modelio.vcore.model.CompositionGetter.IStopFilter;
 import org.modelio.vcore.model.CompositionGetter;
+import org.modelio.vcore.model.CompositionGetter.IStopFilter;
 import org.modelio.vcore.model.api.MTools;
 import org.modelio.vcore.model.filter.IObjectFilter;
 import org.modelio.vcore.session.api.ICoreSession;
@@ -61,8 +60,8 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 
 @objid ("5ff5fb2f-9e9e-11e1-a22d-001ec947ccaf")
 class ModelExporter {
-    @objid ("bb83a292-4467-11e2-b513-002564c97630")
-    private final ICoreSession targetSession;
+    @objid ("a1764caa-bb63-4323-9c8b-cc796f2d40e3")
+    private final CoreSession targetSession;
 
     @objid ("f4801d3c-ae27-4ec4-af64-820b6adf6500")
     private final Map<String, MObject> aliases = new HashMap<>();
@@ -89,21 +88,22 @@ class ModelExporter {
     private final Set<MMetamodelFragment> mmFragments = new HashSet<>();
 
     @objid ("662ae273-f403-466e-bf03-887e3fd1da89")
-    private final ICoreSession srcSession;
+    private final CoreSession srcSession;
 
     @objid ("1e2f0f8d-c916-4efd-ae68-9ab5d0a08ebc")
     private final MClass MODELELEMENT_MCLASS;
 
     @objid ("c2e03fe8-a5b8-11e1-aa98-001ec947ccaf")
-    public ModelExporter(final ICoreSession srcSession, final ICoreSession targetSession, final IRepository targetRepository) {
-        assert (srcSession != null);
-        assert (targetSession != null);
-        assert (targetRepository != null);
+    public  ModelExporter(final ICoreSession srcSession, final ICoreSession targetSession, final IRepository targetRepository) {
+        assert srcSession != null;
+        assert targetSession != null;
+        assert targetRepository != null;
         
-        this.srcSession = srcSession;
-        this.targetSession = targetSession;
+        this.srcSession = (CoreSession) srcSession;
+        this.targetSession = (CoreSession) targetSession;
         this.targetRepository = targetRepository;
         this.MODELELEMENT_MCLASS = this.srcSession.getMetamodel().getMClass(ModelElement.class);
+        
     }
 
     @objid ("ac6e882e-a419-11e1-aa98-001ec947ccaf")
@@ -152,11 +152,12 @@ class ModelExporter {
         
         // Filter configured by contributors
         setModelFilter(builder.getModelFilter());
+        
     }
 
     @objid ("ac70ea45-a419-11e1-aa98-001ec947ccaf")
     public void run(Metadatas metadatas) {
-        assert (this.modelFilter != null);
+        assert this.modelFilter != null;
         
         createEmptyObjects();
         
@@ -182,6 +183,7 @@ class ModelExporter {
         
         // Save used metamodel fragments in metadatas
         metadatas.setUsedMetamodelFragments(this.mmFragments);
+        
     }
 
     @objid ("e61232c9-d02c-11e1-a8eb-001ec947ccaf")
@@ -191,8 +193,6 @@ class ModelExporter {
 
     /**
      * Compute and return the stub objects to export. Register the found roots in metadatas.
-     * 
-     * @param metadatas @return
      */
     @objid ("c2e03fee-a5b8-11e1-aa98-001ec947ccaf")
     private Set<MObject> computeStubObjectsToExport(Metadatas metadatas) {
@@ -238,7 +238,7 @@ class ModelExporter {
     @objid ("42bb3384-e5d5-4842-accb-ed7904d4e868")
     private void createEmptyObjects() {
         final SmFactory smFactory = getSmFactory();
-        IModel modelService = ((CoreSession) this.targetSession).getModel();
+        IModel modelService = this.targetSession.getModel();
         for (MObject obj : this.objectsToExternalize) {
             SmClass mClass = (SmClass) obj.getMClass();
         
@@ -269,6 +269,7 @@ class ModelExporter {
                 smFactory.createObject(metaclass, this.targetRepository, uuid);
             }
         }
+        
     }
 
     @objid ("ac70ea4a-a419-11e1-aa98-001ec947ccaf")
@@ -302,7 +303,7 @@ class ModelExporter {
         for (MDependency desc : this.depWalker.getCompositionDeps(obj)) {
             SmDependency smDep = (SmDependency) desc;
             for (MObject val : obj.mGet(smDep)) {
-                if (this.modelFilter.accept(val)) {
+                if (this.objectsToExternalize.contains(val) || this.modelFilter.accept(val)) {
                     MObject targetVal = externalizeObject(val);
                     targetObj.mGet(smDep).add(targetVal);
                 }
@@ -311,10 +312,19 @@ class ModelExporter {
         
         // Export non-composition dependencies
         for (MDependency desc : this.depWalker.getReferenceDeps(obj)) {
+            byte objRepoId = ((SmObjectImpl) obj).getRepositoryObject().getRepositoryId();
             SmDependency smDep = (SmDependency) desc;
             for (MObject val : obj.mGet(smDep)) {
-                MObject targetVal = getTargetObject(val);
-                targetObj.mGet(smDep).add(targetVal);
+                byte valRepoId = ((SmObjectImpl) val).getRepositoryObject().getRepositoryId();
+                if (valRepoId != objRepoId // target is in another repository, keep the dep
+                        || this.objectsToExternalize.contains(val) // target is already exported, keep the dep
+                        || this.modelFilter.accept(val) // make sure the target is not filtered
+                        ) {
+                    MObject targetVal = getTargetObject(val);
+                    if (!smDep.isCompositionOpposite() || targetVal.isValid()) {
+                        targetObj.mGet(smDep).add(targetVal);
+                    }
+                }
             }
         }
         return targetObj;
@@ -420,6 +430,7 @@ class ModelExporter {
             // }
         
         }
+        
     }
 
     @objid ("ac70ea4f-a419-11e1-aa98-001ec947ccaf")
@@ -429,7 +440,7 @@ class ModelExporter {
 
     @objid ("7aa2da43-4fdd-4a1d-aaab-5f69898411ac")
     private SmFactory getSmFactory() {
-        return ((CoreSession) this.targetSession).getSmFactory();
+        return this.targetSession.getSmFactory();
     }
 
     @objid ("bc08eef2-d369-40c7-8a83-1a28ed412943")
@@ -442,7 +453,6 @@ class ModelExporter {
 
         /**
          * Get the metamodel relation to use as composition for a given object.
-         * 
          * @param srcObject an object
          * @return the relations to use as composition.
          */
@@ -466,7 +476,6 @@ class ModelExporter {
 
         /**
          * Get the metamodel relation to use as reference for a given object.
-         * 
          * @param srcObject an object
          * @return the relations to use as reference.
          */
@@ -489,7 +498,7 @@ class ModelExporter {
         }
 
         @objid ("e1f6f405-b0d4-4881-ae46-b324d8436371")
-        public DepWalker() {
+        public  DepWalker() {
             super();
         }
 

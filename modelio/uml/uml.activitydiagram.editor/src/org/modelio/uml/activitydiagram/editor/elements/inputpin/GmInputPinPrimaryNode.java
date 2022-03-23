@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.inputpin;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,8 +28,8 @@ import org.modelio.diagram.elements.core.node.IImageableNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.InputPin;
 import org.modelio.platform.model.ui.swt.images.ElementImageService;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -52,12 +51,11 @@ public class GmInputPinPrimaryNode extends GmNoStyleSimpleNode implements IImage
 
     /**
      * Initializes an input pin.
-     * 
      * @param diagram The diagram owning the node.
      * @param relatedRef Represented element reference, must not be null.
      */
     @objid ("2aac2fff-55b6-11e2-877f-002564c97630")
-    public GmInputPinPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
+    public  GmInputPinPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -75,6 +73,7 @@ public class GmInputPinPrimaryNode extends GmNoStyleSimpleNode implements IImage
         }
         // forcing visual refresh in case Image changed
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("2aac3012-55b6-11e2-877f-002564c97630")
@@ -106,7 +105,7 @@ public class GmInputPinPrimaryNode extends GmNoStyleSimpleNode implements IImage
      * Empty constructor needed for deserialisation.
      */
     @objid ("2aac302e-55b6-11e2-877f-002564c97630")
-    public GmInputPinPrimaryNode() {
+    public  GmInputPinPrimaryNode() {
         // Empty constructor needed for deserialisation.
     }
 
@@ -126,6 +125,7 @@ public class GmInputPinPrimaryNode extends GmNoStyleSimpleNode implements IImage
                     }
         
                 };
+        
     }
 
     @objid ("2aac3038-55b6-11e2-877f-002564c97630")
@@ -145,6 +145,7 @@ public class GmInputPinPrimaryNode extends GmNoStyleSimpleNode implements IImage
             break;
         }
         }
+        
     }
 
     @objid ("2aadb69a-55b6-11e2-877f-002564c97630")
@@ -154,6 +155,7 @@ public class GmInputPinPrimaryNode extends GmNoStyleSimpleNode implements IImage
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmInputPinPrimaryNode.", GmInputPinPrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("2aadb6a0-55b6-11e2-877f-002564c97630")

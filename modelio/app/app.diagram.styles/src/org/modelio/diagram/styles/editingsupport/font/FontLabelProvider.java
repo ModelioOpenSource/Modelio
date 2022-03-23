@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.editingsupport.font;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,7 +45,7 @@ public class FontLabelProvider extends ColumnLabelProvider {
     }
 
     @objid ("85a496cd-1926-11e2-92d2-001ec947c8cc")
-    public FontLabelProvider(ColumnViewer viewer) {
+    public  FontLabelProvider(ColumnViewer viewer) {
         this.viewer = viewer;
     }
 

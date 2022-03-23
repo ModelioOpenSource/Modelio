@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.ui.audit;
 
 import java.util.ArrayList;
@@ -66,6 +65,7 @@ public class R3150 extends AbstractBpmnRule {
         plan.registerRule(BpmnMessageFlow.MQNAME, this, AuditTrigger.CREATE |
                 AuditTrigger.MOVE |
                 AuditTrigger.UPDATE);
+        
     }
 
     @objid ("b2cd320e-b6d0-464f-87b9-8329b6ebdc07")
@@ -105,7 +105,7 @@ public class R3150 extends AbstractBpmnRule {
      * Default constructor for R3150
      */
     @objid ("74df0014-35f2-47ac-9d4e-3c8dc27c5c62")
-    public R3150() {
+    public  R3150() {
         this.checkerInstance = new CheckR3150(this);
     }
 
@@ -116,11 +116,10 @@ public class R3150 extends AbstractBpmnRule {
     private static class CheckR3150 extends AbstractControl {
         /**
          * C'tor.
-         * 
          * @param rule the rule to check.
          */
         @objid ("390d3a76-ca84-417f-ad59-bf4075ae4de8")
-        public CheckR3150(final IRule rule) {
+        public  CheckR3150(final IRule rule) {
             super(rule);
         }
 
@@ -185,7 +184,6 @@ public class R3150 extends AbstractBpmnRule {
 
         /**
          * Return the top-lane, starting from a lane.
-         * 
          * @param lane The current lane.
          * @return The top-lane.
          */
@@ -198,6 +196,7 @@ public class R3150 extends AbstractBpmnRule {
             } else {
                 return lane;
             }
+            
         }
 
     }

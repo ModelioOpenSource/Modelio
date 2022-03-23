@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.handlers;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
@@ -81,6 +80,7 @@ public class SequenceDeleteInModelHandler {
             EditDomain editDomain = selected.get(0).getViewer().getEditDomain();
             editDomain.getCommandStack().execute(cmd);
         }
+        
     }
 
     @objid ("b05db157-b4a5-43c6-a93f-af21849b24f9")
@@ -137,7 +137,6 @@ public class SequenceDeleteInModelHandler {
 
     /**
      * Collect the edit parts to mask by analyzing the selected edit parts.
-     * 
      * @param selected the selected edit parts to analyze
      */
     @objid ("86b35685-00c6-4711-96cb-01d173617870")
@@ -161,7 +160,6 @@ public class SequenceDeleteInModelHandler {
 
     /**
      * Collect the element to delete by analyzing the selected edit parts.
-     * 
      * @param selected the selected edit parts to analyze
      * @return <code>null</code> to indicate that the delete operation is not possible due to read only element(s). Otherwise the effective of the elements to delete is returned.
      */

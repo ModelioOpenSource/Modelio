@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,17 +50,15 @@ public class BpmnEventDefinitionPropertyModel extends AbstractPropertyModel<Bpmn
     /**
      * Create a new <i>BpmnEventDefinition</i> data model from an
      * <i>BpmnEventDefinition</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("84ffb477-2eca-43c3-8fcc-ba96ced9df20")
-    public BpmnEventDefinitionPropertyModel(BpmnEventDefinition theEditedElement) {
+    public  BpmnEventDefinitionPropertyModel(BpmnEventDefinition theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("948be96d-e9fb-4c4a-a43f-1a5e0de8beca")
@@ -72,7 +69,6 @@ public class BpmnEventDefinitionPropertyModel extends AbstractPropertyModel<Bpmn
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("29bb153b-3379-4cff-8792-20f2baeb5065")
@@ -85,7 +81,6 @@ public class BpmnEventDefinitionPropertyModel extends AbstractPropertyModel<Bpmn
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -107,6 +102,7 @@ public class BpmnEventDefinitionPropertyModel extends AbstractPropertyModel<Bpmn
         default:
             return null;
         }
+        
     }
 
     /**
@@ -116,7 +112,6 @@ public class BpmnEventDefinitionPropertyModel extends AbstractPropertyModel<Bpmn
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -139,13 +134,13 @@ public class BpmnEventDefinitionPropertyModel extends AbstractPropertyModel<Bpmn
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -170,6 +165,7 @@ public class BpmnEventDefinitionPropertyModel extends AbstractPropertyModel<Bpmn
         default:
             return;
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.project;
 
 import com.modeliosoft.modelio.javadesigner.annotations.mdl;
@@ -38,57 +37,60 @@ public class ResourceDescriptor {
     /**
      * Remote path of the project for shared projects.
      */
+    
     @mdl.prop
     @objid ("87406901-4be3-4f51-bb95-648649849552")
-    private String id;
+    public String id;
 
     @mdl.propgetter
     public String getId() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.id;
     }
 
     @mdl.propsetter
     public void setId(String value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.id = value;
     }
 
     /**
      * Remote path of the project for shared projects.
      */
+    
     @mdl.prop
     @objid ("44a22277-3502-42b9-b186-569a9e3fffc7")
-    private String targetLocation;
+    public String targetLocation;
 
     @mdl.propgetter
     public String getTargetLocation() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.targetLocation;
     }
 
     @mdl.propsetter
     public void setTargetLocation(String value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.targetLocation = value;
     }
 
     /**
      * Remote path of the project for shared projects.
      */
+    
     @mdl.prop
     @objid ("79878d9a-0900-40fd-ae94-5022bbea3e4d")
-    private long timestamp;
+    public long timestamp;
 
     @mdl.propgetter
     public long getTimestamp() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.timestamp;
     }
 
     @mdl.propsetter
     public void setTimestamp(long value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.timestamp = value;
     }
 

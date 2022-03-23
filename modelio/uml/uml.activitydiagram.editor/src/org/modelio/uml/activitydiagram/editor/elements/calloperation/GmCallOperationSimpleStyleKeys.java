@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.calloperation;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,33 +29,33 @@ import org.modelio.uml.activitydiagram.editor.style.ActivityAbstractStyleKeyProv
 @objid ("29dcab31-55b6-11e2-877f-002564c97630")
 public class GmCallOperationSimpleStyleKeys extends ActivityAbstractStyleKeyProvider {
     @objid ("d198fdca-55c0-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmCallOperationStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmCallOperationStructuredStyleKeys.REPMODE;
 
     @objid ("d198fdcc-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = GmCallOperationStructuredStyleKeys.FILLCOLOR;
+    static final StyleKey FILLCOLOR = GmCallOperationStructuredStyleKeys.FILLCOLOR;
 
     @objid ("d198fdce-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = GmCallOperationStructuredStyleKeys.FILLMODE;
+    static final StyleKey FILLMODE = GmCallOperationStructuredStyleKeys.FILLMODE;
 
     @objid ("d198fdd0-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = GmCallOperationStructuredStyleKeys.LINECOLOR;
+    static final StyleKey LINECOLOR = GmCallOperationStructuredStyleKeys.LINECOLOR;
 
     @objid ("d19a846a-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = GmCallOperationStructuredStyleKeys.LINEWIDTH;
+    static final StyleKey LINEWIDTH = GmCallOperationStructuredStyleKeys.LINEWIDTH;
 
     @objid ("d19a846c-55c0-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmCallOperationStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmCallOperationStructuredStyleKeys.FONT;
 
     @objid ("d19a846e-55c0-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmCallOperationStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmCallOperationStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("d19a8470-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmCallOperationStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmCallOperationStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("d19a8472-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmCallOperationStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmCallOperationStructuredStyleKeys.SHOWTAGS;
 
     @objid ("d19a8474-55c0-11e2-9337-002564c97630")
-     static final StyleKey AUTOSHOWPINS = GmCallOperationStructuredStyleKeys.AUTOSHOWPINS;
+    static final StyleKey AUTOSHOWPINS = GmCallOperationStructuredStyleKeys.AUTOSHOWPINS;
 
 }

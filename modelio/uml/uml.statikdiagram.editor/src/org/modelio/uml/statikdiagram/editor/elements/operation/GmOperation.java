@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.operation;
 
 import java.util.List;
@@ -63,16 +62,16 @@ public class GmOperation extends GmDefaultModelElementHeader {
 
     /**
      * Creates a GmMethod.
-     * 
      * @param diagram the owning diagram
      * @param op the represented operation, may be <tt>null</tt>.
      * @param ref the represented operation reference, may not be <tt>null</tt>.
      */
     @objid ("35f74fc6-55b7-11e2-877f-002564c97630")
-    public GmOperation(IGmDiagram diagram, Operation op, MRef ref) {
+    public  GmOperation(IGmDiagram diagram, Operation op, MRef ref) {
         super(diagram, ref);
         this.element = op;
         init();
+        
     }
 
     @objid ("35f74fd2-55b7-11e2-877f-002564c97630")
@@ -87,6 +86,7 @@ public class GmOperation extends GmDefaultModelElementHeader {
         } else {
             return "<no type>";
         }
+        
     }
 
     @objid ("35f74fd8-55b7-11e2-877f-002564c97630")
@@ -173,6 +173,7 @@ public class GmOperation extends GmDefaultModelElementHeader {
                     }
         
                 };
+        
     }
 
     @objid ("35f8d66d-55b7-11e2-877f-002564c97630")
@@ -191,13 +192,14 @@ public class GmOperation extends GmDefaultModelElementHeader {
         } else {
             return GmOperation.OPERATION_KEYS.getStyleKey(metakey);
         }
+        
     }
 
     /**
      * constructor to be used only for deserialization
      */
     @objid ("35f8d676-55b7-11e2-877f-002564c97630")
-    public GmOperation() {
+    public  GmOperation() {
         init();
     }
 
@@ -214,6 +216,7 @@ public class GmOperation extends GmDefaultModelElementHeader {
     private void init() {
         setShowMetaclassKeyword(false);
         setShowMetaclassIcon(false);
+        
     }
 
     @objid ("35fa5d04-55b7-11e2-877f-002564c97630")
@@ -239,11 +242,11 @@ public class GmOperation extends GmDefaultModelElementHeader {
             break;
         }
         }
+        
     }
 
     /**
      * Compute the operation signature and append it to the given string builder.
-     * 
      * @param op the operation
      * @param s the string builder
      */
@@ -264,13 +267,13 @@ public class GmOperation extends GmDefaultModelElementHeader {
             s.append(getParameterTypeName(p));
             s.append(getParameterCard(p));
         }
+        
     }
 
     /**
      * Compute and return the visibility symbol of the operation.
      * <p>
      * Returns empty string if visibility display is disabled.
-     * 
      * @param op an operation
      * @return the visibility symbol
      */
@@ -326,12 +329,14 @@ public class GmOperation extends GmDefaultModelElementHeader {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmOperation.", GmOperation.MINOR_VERSION);
+        
     }
 
     @objid ("35fa5d31-55b7-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (Operation) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("35fa5d36-55b7-11e2-877f-002564c97630")

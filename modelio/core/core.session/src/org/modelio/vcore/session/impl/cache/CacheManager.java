@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.cache;
 
 import java.util.Collection;
@@ -54,19 +53,19 @@ public class CacheManager extends MObjectCache implements ISmObjectDataCache {
      * @param metamodel
      */
     @objid ("9c73fcee-354d-11e2-985b-001ec947ccaf")
-    public CacheManager(SmMetamodel metamodel) {
+    public  CacheManager(SmMetamodel metamodel) {
         super(metamodel);
         this.deletedObjects = new HashSet<>();
         this.dataCache = new ConcurrentHashMap<>(1000, 0.85f, 1);
         
         MemoryManager.get().addManagedCache(this.dataCache);
+        
     }
 
     /**
      * Add an object to the cache.
-     * 
      * @param obj the object to add
-     * @throws org.modelio.vcore.model.DuplicateObjectException if another object with the same identifier is already in the cache.
+     * @throws DuplicateObjectException if another object with the same identifier is already in the cache.
      */
     @objid ("9c73fcef-354d-11e2-985b-001ec947ccaf")
     @Override
@@ -95,11 +94,11 @@ public class CacheManager extends MObjectCache implements ISmObjectDataCache {
         
         // Add to cache
         super.addToCache(obj);
+        
     }
 
     /**
      * Register a deleted object.
-     * 
      * @param obj a deleted object
      */
     @objid ("9c73fcf0-354d-11e2-985b-001ec947ccaf")
@@ -107,6 +106,7 @@ public class CacheManager extends MObjectCache implements ISmObjectDataCache {
         synchronized(this.deletedObjects) {
             this.deletedObjects.add(obj);
         }
+        
     }
 
     /**
@@ -121,11 +121,11 @@ public class CacheManager extends MObjectCache implements ISmObjectDataCache {
         
             this.deletedObjects.clear();
         }
+        
     }
 
     /**
      * Get the deleted objects.
-     * 
      * @return the deleted objects.
      */
     @objid ("9c73fcf5-354d-11e2-985b-001ec947ccaf")
@@ -144,11 +144,11 @@ public class CacheManager extends MObjectCache implements ISmObjectDataCache {
     public synchronized void removeFromCache(SmObjectImpl obj) {
         super.removeFromCache(obj);
         this.dataCache.remove(obj.getUuid());
+        
     }
 
     /**
      * Remove an object from the deleted objects list.
-     * 
      * @param obj a not deleted anymore object.
      */
     @objid ("9c73fcf7-354d-11e2-985b-001ec947ccaf")
@@ -156,6 +156,7 @@ public class CacheManager extends MObjectCache implements ISmObjectDataCache {
         synchronized (this.deletedObjects) {
             this.deletedObjects.remove(obj);
         }
+        
     }
 
     @objid ("9c73fcfb-354d-11e2-985b-001ec947ccaf")
@@ -187,6 +188,7 @@ public class CacheManager extends MObjectCache implements ISmObjectDataCache {
             impl.init(data.getUuid(), data.getLiveId());
             impl.initData(data);
         }*/
+        
     }
 
     /**
@@ -205,6 +207,7 @@ public class CacheManager extends MObjectCache implements ISmObjectDataCache {
         dispose();
         
         super.finalize();
+        
     }
 
     /**
@@ -219,6 +222,7 @@ public class CacheManager extends MObjectCache implements ISmObjectDataCache {
     public void removeFromCache(MClass cls, String uuid) {
         super.removeFromCache(cls, uuid);
         this.dataCache.remove(uuid);
+        
     }
 
 }

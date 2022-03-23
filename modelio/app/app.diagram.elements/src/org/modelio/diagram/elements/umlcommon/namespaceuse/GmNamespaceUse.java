@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.umlcommon.namespaceuse;
 
 import java.util.List;
@@ -57,24 +56,25 @@ public class GmNamespaceUse extends GmLink {
 
     /**
      * Initialize a namespaceuse graphic model.
-     * 
      * @param diagram The owning diagram
      * @param nsu The namespaceuse, may be null
      * @param ref The namespaceuse reference, may not be null
      */
     @objid ("817a7356-1dec-11e2-8cad-001ec947c8cc")
-    public GmNamespaceUse(IGmDiagram diagram, final ImpactLink nsu, MRef ref) {
+    public  GmNamespaceUse(IGmDiagram diagram, final ImpactLink nsu, MRef ref) {
         super(diagram, ref);
         this.nsu = nsu;
         
         addExtension(ExtensionLocation.MiddleNW, ROLE_MAIN_LABEL, new GmNamespaceUseLabel(diagram, ref));
+        
     }
 
     /**
      * For deserialization only.
      */
     @objid ("817a736a-1dec-11e2-8cad-001ec947c8cc")
-    public GmNamespaceUse() {
+    public  GmNamespaceUse() {
+        
     }
 
     @objid ("817a735d-1dec-11e2-8cad-001ec947c8cc")
@@ -119,6 +119,7 @@ public class GmNamespaceUse extends GmLink {
                 }
             }
         }
+        
     }
 
     @objid ("817a7371-1dec-11e2-8cad-001ec947c8cc")
@@ -154,6 +155,7 @@ public class GmNamespaceUse extends GmLink {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmNamespaceUse.", MINOR_VERSION);
+        
     }
 
     @objid ("817a7389-1dec-11e2-8cad-001ec947c8cc")

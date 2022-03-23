@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,7 @@ public class EGeneralOrdering extends ENamedElement {
     }
 
     @objid ("459b5623-4e3c-4e10-9468-e756b6ff3d0a")
-    public EGeneralOrdering(org.eclipse.uml2.uml.GeneralOrdering element) {
+    public  EGeneralOrdering(org.eclipse.uml2.uml.GeneralOrdering element) {
         super(element);
     }
 

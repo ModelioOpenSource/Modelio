@@ -17,20 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
-import org.modelio.metamodel.impl.uml.statik.TemplateBindingSmClass;
-import org.modelio.metamodel.impl.uml.statik.TemplateParameterSmClass;
-import org.modelio.metamodel.impl.uml.statik.TemplateParameterSubstitutionData;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.metamodel.uml.statik.TemplateBinding;
 import org.modelio.metamodel.uml.statik.TemplateParameter;
@@ -62,7 +59,7 @@ public class TemplateParameterSubstitutionSmClass extends UmlModelElementSmClass
     private SmDependency formalParameterDep;
 
     @objid ("a496d087-0a30-4583-9dd9-b43d899bd4e6")
-    public TemplateParameterSubstitutionSmClass(ISmMetamodelFragment origin) {
+    public  TemplateParameterSubstitutionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -70,6 +67,7 @@ public class TemplateParameterSubstitutionSmClass extends UmlModelElementSmClass
     @Override
     public String getName() {
         return "TemplateParameterSubstitution";
+        
     }
 
     @objid ("7e656be2-68ab-4859-a7b3-c33f2f5410c7")
@@ -82,18 +80,21 @@ public class TemplateParameterSubstitutionSmClass extends UmlModelElementSmClass
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return TemplateParameterSubstitution.class;
+        
     }
 
     @objid ("3b06991f-5b33-4f0e-a04c-95bfc21ee83f")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("71e94a98-2b9b-49f2-a297-b4c6fb6945a8")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("883ab253-d26d-469e-ad2f-e61648d2b62c")
@@ -121,6 +122,8 @@ public class TemplateParameterSubstitutionSmClass extends UmlModelElementSmClass
         this.formalParameterDep = new FormalParameterSmDependency();
         this.formalParameterDep.init("FormalParameter", this, metamodel.getMClass(TemplateParameter.MQNAME), 1, 1 , SmDirective.SMCDPARTOF);
         registerDependency(this.formalParameterDep);
+        
+        
     }
 
     @objid ("bf696bae-58ac-41f9-a5ac-214f0a9fb5cf")
@@ -161,7 +164,7 @@ public class TemplateParameterSubstitutionSmClass extends UmlModelElementSmClass
         private TemplateParameterSubstitutionSmClass smClass;
 
         @objid ("67708d76-3585-4144-bd88-9e967a11e51f")
-        public TemplateParameterSubstitutionObjectFactory(TemplateParameterSubstitutionSmClass smClass) {
+        public  TemplateParameterSubstitutionObjectFactory(TemplateParameterSubstitutionSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -217,6 +220,7 @@ public class TemplateParameterSubstitutionSmClass extends UmlModelElementSmClass
             	this.symetricDep = ((TemplateBindingSmClass)this.getTarget()).getParameterSubstitutionDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -245,6 +249,7 @@ public class TemplateParameterSubstitutionSmClass extends UmlModelElementSmClass
             	this.symetricDep = ((UmlModelElementSmClass)this.getTarget()).getTemplateSubstitutionDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -273,6 +278,7 @@ public class TemplateParameterSubstitutionSmClass extends UmlModelElementSmClass
             	this.symetricDep = ((TemplateParameterSmClass)this.getTarget()).getParameterSubstitutionDep();
             }
             return this.symetricDep;
+            
         }
 
     }

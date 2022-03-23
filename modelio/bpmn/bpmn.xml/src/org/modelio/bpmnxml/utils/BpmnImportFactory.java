@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.utils;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -53,17 +52,17 @@ public final class BpmnImportFactory {
      * @param repoSupport a repository support.
      */
     @objid ("fa561a35-a73e-48aa-90a1-0b722183fd2b")
-    public BpmnImportFactory(CoreSession session) {
+    public  BpmnImportFactory(CoreSession session) {
         this.repoSupport = session.getRepositorySupport();
         this.smFactory = session.getSmFactory();
         this.metamodel = session.getMetamodel();
         this.session = session;
+        
     }
 
     /**
      * Create an instance of 'metaclass' and define 'parent' as its composition owner using the dependency 'depName'.
      * The new object will belong to the same repository as the 'parent' object.
-     * 
      * @param metaclass a metamodel class java interface
      * @param parent the new element owner
      * @param depName the metamodel relation from the owner to the created element.
@@ -96,7 +95,6 @@ public final class BpmnImportFactory {
      * object is NOT the composition owner of the created object.
      * @param <T>
      * the metaclass interface of the object to create.
-     * 
      * @param metaclass the metaclass of the object to create.
      * @param referent the referent object
      * @
@@ -125,7 +123,6 @@ public final class BpmnImportFactory {
     /**
      * Create an instance of 'metaclass' and define 'parent' as its composition owner using the dependency 'depName'.
      * The new object will belong to the same repository as the 'parent' object.
-     * 
      * @param metaclass a metamodel class java interface
      * @param parent the new element owner
      * @param depName the metamodel relation from the owner to the created element.
@@ -144,7 +141,6 @@ public final class BpmnImportFactory {
      * object is NOT the composition owner of the created object.
      * @param <T>
      * the metaclass interface of the object to create.
-     * 
      * @param metaclass the metaclass of the object to create.
      * @param referent the referent object
      * @

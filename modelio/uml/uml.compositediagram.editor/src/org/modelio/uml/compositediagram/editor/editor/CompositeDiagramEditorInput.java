@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.compositediagram.editor.editor;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,13 +34,12 @@ public class CompositeDiagramEditorInput extends DiagramEditorInput {
      * Initialize the editor input.
      * <p>
      * Creates the diagram graphic model and load it from the diagram model element.
-     * 
      * @param modelManager the link between the Gm model and the Ob model.
      * @param diagram the diagram to edit.
      * @param gmDiagramCreator a small factory to instanciate the Gm diagram itself.
      */
     @objid ("85f098f8-c3fb-4ba8-9ad3-08cc7061255d")
-    public CompositeDiagramEditorInput(IModelManager modelManager, AbstractDiagram diagram, GmDiagramCreator gmDiagramCreator) {
+    public  CompositeDiagramEditorInput(IModelManager modelManager, AbstractDiagram diagram, GmDiagramCreator gmDiagramCreator) {
         super(diagram, modelManager, gmDiagramCreator);
     }
 

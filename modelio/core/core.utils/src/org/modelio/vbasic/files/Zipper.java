@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.files;
 
 import java.io.IOException;
@@ -95,17 +94,17 @@ public class Zipper {
      * of the compress methods. Each time a compress method is called the
      * complete archive contents are replaced.
      * </p>
-     * 
      * @param archive the full pathname of the archive to be produced by this class.
      * @param archiverName the archive name, i.e. "ar", "arj", "zip", "tar", "jar", "cpio", "dump" or "7z".
      * @param compressorName the compressor name, i.e. "gz", "bzip2", "xz", "lzma", "pack200", "snappy-raw", "snappy-framed", "z", "lz4-block", "lz4-framed", "zstd", "deflate64" or "deflate". Might also be <code>null</code>.
      */
     @objid ("e9ea54de-3a54-4761-bea2-10e2d42ade90")
-    public Zipper(final Path archive, final String archiverName, final String compressorName) {
+    public  Zipper(final Path archive, final String archiverName, final String compressorName) {
         this.archive = archive;
         this.progressLabel = new MessageFormat(CoreUtils.I18N.getString("Zipper.progressLabel"));
         this.archiverName = archiverName;
         this.compressorName = compressorName;
+        
     }
 
     /**
@@ -116,21 +115,19 @@ public class Zipper {
      * of the compress methods. Each time a compress method is called the
      * complete archive contents are replaced.
      * </p>
-     * 
      * @param archive the full pathname of the archive to be produced by this class.
      */
     @objid ("c98cef12-a5a3-11e1-aa98-001ec947ccaf")
-    public Zipper(final Path archive) {
+    public  Zipper(final Path archive) {
         this(archive, ArchiveStreamFactory.ZIP, null);
     }
 
     /**
      * Compress the directory or file given by 'path'.
-     * 
      * @param path the pathname of the directory or file to compress
      * @param monitor an IModelioProgress object to report compression progression. Can be null.
      * @param title the title displayed for the compression task. Requires a 'monitor' instance. Can be null.
-     * @throws java.io.IOException on I/O error
+     * @throws IOException on I/O error
      */
     @objid ("c98cef24-a5a3-11e1-aa98-001ec947ccaf")
     public void compress(final Path path, final IModelioProgress monitor, final String title) throws IOException {
@@ -139,13 +136,12 @@ public class Zipper {
 
     /**
      * Compress the directory or file given by 'path'.
-     * 
      * @param path the pathname of the directory or file to compress
      * @param skipDirectoryMatchers matchers to skip directories and their content
      * @param skipFileMatchers matchers to skip files
      * @param monitor an IModelioProgress object to report compression progression. Can be null.
      * @param title the title displayed for the compression task. Requires a 'monitor' instance. Can be null.
-     * @throws java.io.IOException on I/O error
+     * @throws IOException on I/O error
      */
     @objid ("c98cef2a-a5a3-11e1-aa98-001ec947ccaf")
     public void compress(final Path path, final List<PathMatcher> skipDirectoryMatchers, final List<PathMatcher> skipFileMatchers, final IModelioProgress monitor, final String title) throws IOException {
@@ -154,13 +150,12 @@ public class Zipper {
 
     /**
      * Compress the contents of the directories list 'paths'.
-     * 
      * @param pathes a list of directories or files (full paths)
      * @param skipDirectoryMatchers matchers to skip directories and their content
      * @param skipFileMatchers matchers to skip files
      * @param initialMonitor an IModelioProgress object to report compression progression. Can be null.
      * @param title the title displayed for the compression task. Requires a 'monitor' instance. Can be null.
-     * @throws java.io.IOException on I/O error
+     * @throws IOException on I/O error
      */
     @objid ("ce7a5c79-78ab-4448-88b4-c7f98eaae65d")
     public void compress(final Iterable<Path> pathes, final List<PathMatcher> skipDirectoryMatchers, final List<PathMatcher> skipFileMatchers, IModelioProgress initialMonitor, final String title) throws IOException {
@@ -179,15 +174,15 @@ public class Zipper {
                 Files.deleteIfExists(this.archive);
             }
         }
+        
     }
 
     /**
      * Compress the directory content or file given by 'path'.
-     * 
      * @param path the pathname of the directory or file to compress
      * @param monitor an IModelioProgress object to report compression progression. Can be null.
      * @param title the title displayed for the compression task. Requires a 'monitor' instance. Can be null.
-     * @throws java.io.IOException on I/O error
+     * @throws IOException on I/O error
      */
     @objid ("c98cef16-a5a3-11e1-aa98-001ec947ccaf")
     public void compressContent(final Path path, final IModelioProgress monitor, final String title) throws IOException {
@@ -196,11 +191,10 @@ public class Zipper {
 
     /**
      * Compress the contents of the directories list 'pathes' in the same zip directory.
-     * 
      * @param pathes a list of directories or files (full pathes)
      * @param progressMonitor an IModelioProgress object to report compression progression. Can be null.
      * @param title the title displayed for the compression task. Requires a 'monitor' instance. Can be null.
-     * @throws java.io.IOException on I/O error
+     * @throws IOException on I/O error
      */
     @objid ("c98cef1c-a5a3-11e1-aa98-001ec947ccaf")
     public void compressContent(final Iterable<Path> pathes, IModelioProgress progressMonitor, final String title) throws IOException {
@@ -218,6 +212,7 @@ public class Zipper {
                 Files.deleteIfExists(this.archive);
             }
         }
+        
     }
 
     @objid ("c98cef42-a5a3-11e1-aa98-001ec947ccaf")
@@ -234,7 +229,6 @@ public class Zipper {
 
     /**
      * {@linkplain Normalizer Normalize} to {@link java.text.Normalizer.Form#NFC} and remove all non ASCII characters from the given string.
-     * 
      * @param s the string to clean
      * @return a cleaned string
      */
@@ -249,7 +243,6 @@ public class Zipper {
      * 
      * The path directory itself will not be part of the compressed file.
      * Only the files and directories that it contains will be compressed.
-     * 
      * @param srcPath the pathname of the directory or file to compress
      * @param intoDir the destination directory inside the zip file.
      * @param skipDirectoryMatchers the list of PathMatchers to use to skip some directories to compress.
@@ -375,6 +368,7 @@ public class Zipper {
         if (monitor.isCanceled()) {
             this.aborted = true;
         }
+        
     }
 
     @objid ("c98cef32-a5a3-11e1-aa98-001ec947ccaf")
@@ -418,6 +412,7 @@ public class Zipper {
         } else {
             return title;
         }
+        
     }
 
     @objid ("0adde6a3-e1fe-4a48-8307-b7f68b67395b")
@@ -439,6 +434,7 @@ public class Zipper {
         } catch (ArchiveException | CompressorException e) {
             throw new IOException(e);
         }
+        
     }
 
 }

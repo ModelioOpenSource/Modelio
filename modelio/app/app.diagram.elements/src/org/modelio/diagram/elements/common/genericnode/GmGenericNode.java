@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.genericnode;
 
 import java.util.List;
@@ -30,8 +29,8 @@ import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.view.ISymbolViewModel;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -67,19 +66,18 @@ public class GmGenericNode extends GmCompositeNode {
      * Constructor for deserialization only.
      */
     @objid ("f4f77505-9dde-4b21-a5f1-5034131a2c6e")
-    public GmGenericNode() {
+    public  GmGenericNode() {
         super();
     }
 
     /**
      * Initializes the node.
-     * 
      * @param diagram The diagram owning the node.
      * @param elt the represented model element.
      * @param relatedRef a reference to the element this GmModel is related to.
      */
     @objid ("a98f17e2-1bde-4447-875b-7a1ec7684a52")
-    public GmGenericNode(IGmDiagram diagram, ModelElement elt, MRef relatedRef) {
+    public  GmGenericNode(IGmDiagram diagram, ModelElement elt, MRef relatedRef) {
         super(diagram, relatedRef);
         this.elt = elt;
         
@@ -88,6 +86,7 @@ public class GmGenericNode extends GmCompositeNode {
         this.header.setShowMetaclassIcon(true);
         
         super.addChild(this.header);
+        
     }
 
     @objid ("37e4ab6d-7193-473c-844c-2960faa30519")
@@ -122,6 +121,7 @@ public class GmGenericNode extends GmCompositeNode {
         String oldLabel = this.header.getMainLabel();
         this.header.refreshFromObModel();
         firePropertyChange(IGmObject.PROPERTY_LABEL, oldLabel, this.header.getMainLabel());
+        
     }
 
     @objid ("6e884843-e6ec-4b88-b82e-7b26938561c6")
@@ -165,6 +165,7 @@ public class GmGenericNode extends GmCompositeNode {
         break;
         }
         }
+        
     }
 
     @objid ("a1c9f5df-8483-4316-9158-175b4922119c")
@@ -174,6 +175,7 @@ public class GmGenericNode extends GmCompositeNode {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmGenericNode.", GmGenericNode.MINOR_VERSION);
+        
     }
 
     @objid ("98f42de9-f0a9-4619-81e5-9e7afe4cd6f2")
@@ -182,6 +184,7 @@ public class GmGenericNode extends GmCompositeNode {
         
         this.elt = (ModelElement) resolveRef(getRepresentedRef());
         this.header = (GmModelElementHeader) getFirstChild(GmGenericNode.HEADER);
+        
     }
 
     @objid ("45aa8165-b2bd-486a-ac96-b5cbb9588776")

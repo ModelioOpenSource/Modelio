@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.module.propertytab.ui.panel.treeview.editingsupport.empty;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,8 @@ import org.modelio.platform.ui.UIColor;
 @objid ("04256101-1ebb-11e2-9382-bc305ba4815c")
 public class EmptyLabelProvider extends ColumnLabelProvider {
     @objid ("04258810-1ebb-11e2-9382-bc305ba4815c")
-    public EmptyLabelProvider() {
+    public  EmptyLabelProvider() {
+        
     }
 
     @objid ("04258812-1ebb-11e2-9382-bc305ba4815c")
@@ -55,6 +55,7 @@ public class EmptyLabelProvider extends ColumnLabelProvider {
                 cell.setBackground(UIColor.TABLE_ODDROW_BG);
             }
         }
+        
     }
 
     @objid ("0425d630-1ebb-11e2-9382-bc305ba4815c")

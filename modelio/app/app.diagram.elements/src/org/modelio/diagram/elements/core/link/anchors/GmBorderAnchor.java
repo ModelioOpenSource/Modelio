@@ -17,10 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.anchors;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.modelio.diagram.elements.core.figures.geometry.Direction;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.persistence.IPersistent;
@@ -44,6 +44,7 @@ public class GmBorderAnchor implements IPersistent {
     public void read(IDiagramReader in) {
         this.border = (Integer) in.readProperty("border");
         this.offset = (Integer) in.readProperty("offset");
+        
     }
 
     @objid ("7fddfc81-1dec-11e2-8cad-001ec947c8cc")
@@ -51,6 +52,7 @@ public class GmBorderAnchor implements IPersistent {
     public void write(IDiagramWriter out) {
         out.writeProperty("border", this.border);
         out.writeProperty("offset", this.offset);
+        
     }
 
     @objid ("7fddfc85-1dec-11e2-8cad-001ec947c8cc")
@@ -61,18 +63,19 @@ public class GmBorderAnchor implements IPersistent {
 
     /**
      * Constructor.
-     * 
      * @param border border.
      * @param offset offset
      */
     @objid ("7fddfc8b-1dec-11e2-8cad-001ec947c8cc")
-    public GmBorderAnchor(final int border, final int offset) {
+    public  GmBorderAnchor(final int border, final int offset) {
         this.offset = offset;
         this.border = border;
+        
     }
 
     @objid ("7fddfc92-1dec-11e2-8cad-001ec947c8cc")
-    public GmBorderAnchor() {
+    public  GmBorderAnchor() {
+        
     }
 
     @objid ("7fddfc94-1dec-11e2-8cad-001ec947c8cc")
@@ -99,6 +102,41 @@ public class GmBorderAnchor implements IPersistent {
     @Override
     public int getMajorVersion() {
         return MAJOR_VERSION;
+    }
+
+    @objid ("68c83379-f157-4f98-9203-054e3fe84d18")
+    @Override
+    public String toString() {
+        return String.format("%s [border=%s, offset=%s]",
+                getClass().getSimpleName(),
+                Direction.fromPositionConstant(getBorder(), null),
+                getOffset());
+        
+    }
+
+    @objid ("f9e03d6f-a641-4889-9134-65fab99c9ef5")
+    @Override
+    public boolean equals(Object obj) {
+        // Automatically generated method.Please delete this comment before entering specific code.
+        
+        if (this == obj) return true;
+        if (this.getClass() != obj.getClass()) return false;
+        
+        GmBorderAnchor other = (GmBorderAnchor)obj;
+        if (this.border != other.border) return false;
+        if (this.offset != other.offset) return false;
+        return true;
+        
+    }
+
+    @objid ("10861650-33ba-429a-8a8d-3c89008dad98")
+    @Override
+    public int hashCode() {
+        // Automatically generated method.Please delete this comment before entering specific code.
+        int result = super.hashCode();
+        result = 31 * result + this.border;
+        result = 31 * result + this.offset;
+        return result;
     }
 
 }

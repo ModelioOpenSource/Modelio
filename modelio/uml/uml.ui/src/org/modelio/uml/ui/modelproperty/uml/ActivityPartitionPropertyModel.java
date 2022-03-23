@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.util.Collections;
@@ -52,22 +51,20 @@ public class ActivityPartitionPropertyModel extends AbstractPropertyModel<Activi
      */
     @objid ("77d285e1-12e7-4b63-a5cb-65f96ecc44f6")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name", "IsDimension",
-			"IsExternal", "Represented" };
+    			"IsExternal", "Represented" };
 
     /**
      * Create a new <i>ActivityPartition</i> data model from an
      * <i>ActivityPartition</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("baa62a67-17bb-4c3f-8ffc-22370b78bea2")
-    public ActivityPartitionPropertyModel(ActivityPartition theEditedElement) {
+    public  ActivityPartitionPropertyModel(ActivityPartition theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("eb6177f6-46a7-4254-92a9-ee5a66017e24")
@@ -78,7 +75,6 @@ public class ActivityPartitionPropertyModel extends AbstractPropertyModel<Activi
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("351cfe00-038a-42f6-a22b-81cb83ad5998")
@@ -91,7 +87,6 @@ public class ActivityPartitionPropertyModel extends AbstractPropertyModel<Activi
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -119,6 +114,7 @@ public class ActivityPartitionPropertyModel extends AbstractPropertyModel<Activi
         default:
             return null;
         }
+        
     }
 
     /**
@@ -128,7 +124,6 @@ public class ActivityPartitionPropertyModel extends AbstractPropertyModel<Activi
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -158,13 +153,13 @@ public class ActivityPartitionPropertyModel extends AbstractPropertyModel<Activi
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -198,6 +193,7 @@ public class ActivityPartitionPropertyModel extends AbstractPropertyModel<Activi
         default:
             return;
         }
+        
     }
 
 }

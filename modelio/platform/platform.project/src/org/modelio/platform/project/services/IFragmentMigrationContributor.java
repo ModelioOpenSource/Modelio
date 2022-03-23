@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.project.services;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,7 +41,6 @@ public interface IFragmentMigrationContributor {
      * <p>
      * The fragment is mount, and you need to open a transaction if you need to modify the model.
      * the project is accessible with IProjectFragment#get
-     * 
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility
      * to call done() on the given monitor. Accepts <i>null</i>, indicating that no progress should be
      * reported and that the operation cannot be cancelled.
@@ -51,7 +49,7 @@ public interface IFragmentMigrationContributor {
      * @param f the migrated project fragment.
      * @param fromVersion the initial metamodel version
      * @param eclipseContext The Eclipse context
-     * @throws org.modelio.gproject.fragment.migration.MigrationFailedException to cancel the migration.
+     * @throws MigrationFailedException to cancel the migration.
      */
     @objid ("b55f9044-6832-48c5-bb0b-d12f55af6e48")
     void contributeMigration(IModelioProgress monitor, IMigrationReporter reporter, GProject gproject, IProjectFragment f, MetamodelVersionDescriptor fromVersion, IEclipseContext eclipseContext) throws MigrationFailedException;

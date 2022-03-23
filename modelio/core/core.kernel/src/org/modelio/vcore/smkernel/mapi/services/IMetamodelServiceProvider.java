@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.mapi.services;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,7 +35,6 @@ import org.modelio.vcore.smkernel.mapi.MMetamodelFragment;
 public interface IMetamodelServiceProvider<S> {
     /**
      * Get the service for a metamodel fragment.
-     * 
      * @param metamodelFragment a metamodel fragment.
      * @return the service, never <i>null</i>.
      */
@@ -51,7 +49,6 @@ public interface IMetamodelServiceProvider<S> {
      * from other metamodel fragments.
      * <p>
      * Will return null if no matching service provider was found.
-     * 
      * @param cls a metaclass
      * @return the found service or null.
      */

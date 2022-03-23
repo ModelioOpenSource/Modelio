@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.api.impl.module;
 
 import java.nio.file.Path;
@@ -54,7 +53,7 @@ public class ProjectStructure implements IProjectStructure {
     private List<IFragmentStructure> fragments = new ArrayList<>();
 
     @objid ("8320d3e3-eab6-4349-ba2a-36cf6b0b272e")
-    ProjectStructure(GProject project) {
+     ProjectStructure(GProject project) {
         if (project != null) {
             this.name = project.getName();
             this.type = project.getType().toString();
@@ -74,6 +73,7 @@ public class ProjectStructure implements IProjectStructure {
                 this.fragments.add(new FragmentStructure(f));
             }
         }
+        
     }
 
     @objid ("55033493-bb26-4f4e-a9b7-ddd3d1acc5a1")
@@ -124,10 +124,11 @@ public class ProjectStructure implements IProjectStructure {
         private final Version version;
 
         @objid ("c5619bd4-31c6-42f8-95ee-023eecbe4042")
-        public ModuleDescriptorImpl(String name, Version version, String archive) {
+        public  ModuleDescriptorImpl(String name, Version version, String archive) {
             this.name = name;
             this.version = version;
             this.archive = archive;
+            
         }
 
         @objid ("4c8d1268-413a-4a1a-a1b2-a0a927f4e2a8")

@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnintermediatethrowevent;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.bpmn.diagram.editor.elements.style.BpmnAbstractStyleKeyProvider;
+import org.modelio.bpmn.diagram.editor.elements.common.style.BpmnAbstractStyleKeyProvider;
 import org.modelio.diagram.styles.core.StyleKey;
 
 /**
@@ -30,24 +29,24 @@ import org.modelio.diagram.styles.core.StyleKey;
 @objid ("c58ef36c-0f2a-46b0-ae56-deabb99c664a")
 public class GmBpmnIntermediateThrowEventUserImageStyleKeys extends BpmnAbstractStyleKeyProvider {
     @objid ("e4bd865c-4db1-4dc0-a8f6-a4f307fa2f4b")
-     static final StyleKey REPMODE = GmBpmnIntermediateThrowEventStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmBpmnIntermediateThrowEventStructuredStyleKeys.REPMODE;
 
     @objid ("f7b72f2d-716a-4c02-8c3c-255c220a21f9")
-     static final StyleKey FONT = GmBpmnIntermediateThrowEventStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmBpmnIntermediateThrowEventStructuredStyleKeys.FONT;
 
     @objid ("eba67805-4c1a-4762-851e-f443f8a93998")
-     static final StyleKey TEXTCOLOR = GmBpmnIntermediateThrowEventStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmBpmnIntermediateThrowEventStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("bd74a843-12df-43ff-9523-7944b7674b72")
-     static final StyleKey SHOWSTEREOTYPES = GmBpmnIntermediateThrowEventStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmBpmnIntermediateThrowEventStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("6c09a51d-7011-4f31-9c58-d47eedf6ef9b")
-     static final StyleKey SHOWTAGS = GmBpmnIntermediateThrowEventStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmBpmnIntermediateThrowEventStructuredStyleKeys.SHOWTAGS;
 
     /**
      * Show the label.
      */
     @objid ("0c325512-c166-4367-8519-f25690631310")
-     static final StyleKey SHOWLABEL = GmBpmnIntermediateThrowEventStructuredStyleKeys.SHOWLABEL;
+    static final StyleKey SHOWLABEL = GmBpmnIntermediateThrowEventStructuredStyleKeys.SHOWLABEL;
 
 }

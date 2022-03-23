@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model.impl;
 
 import java.util.ArrayList;
@@ -45,13 +44,12 @@ public class UmlFragmentContentInitializer implements IRepositoryContentInitiali
      * C'tor.
      */
     @objid ("49bc2adb-ab3f-11e1-8392-001ec947ccaf")
-    public UmlFragmentContentInitializer() {
+    public  UmlFragmentContentInitializer() {
         this.metamodelExtensionPoint = new MetamodelExtensionPoint<>();
     }
 
     /**
      * Populate the given repository using the given session.
-     * 
      * @param fragmentName the fragment name
      * @param s the session to use
      * @param repository the repository to populate.

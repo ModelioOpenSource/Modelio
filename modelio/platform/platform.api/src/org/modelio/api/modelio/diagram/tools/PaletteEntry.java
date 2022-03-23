@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.diagram.tools;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -28,9 +27,10 @@ public class PaletteEntry {
     public String toolId;
 
     @objid ("271cdf73-6d62-427c-9590-d0e4dd068534")
-    public PaletteEntry(String toolId, String group) {
+    public  PaletteEntry(String toolId, String group) {
         this.toolId = toolId;
         this.group = group;
+        
     }
 
 }

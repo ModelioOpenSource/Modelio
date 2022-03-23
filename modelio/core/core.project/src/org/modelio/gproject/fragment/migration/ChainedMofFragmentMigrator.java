@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.fragment.migration;
 
 import java.io.IOException;
@@ -32,6 +31,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.gproject.fragment.AbstractFragment;
 import org.modelio.gproject.fragment.FragmentAuthenticationException;
 import org.modelio.gproject.fragment.VersionHelper;
+import org.modelio.gproject.fragment.migration.IFragmentMigrator.IMigrationProcess;
 import org.modelio.gproject.gproject.GProject;
 import org.modelio.gproject.plugin.CoreProject;
 import org.modelio.vbasic.files.FileUtils;
@@ -128,17 +128,17 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
      * @param repositoryFactory a way to instantiate a IRepository from the fragment.
      */
     @objid ("3822581e-1845-4aad-bc5f-a500869fdd54")
-    public ChainedMofFragmentMigrator(GProject project, AbstractFragment fragToMigrate, RepositorySupplier repositoryFactory) {
+    public  ChainedMofFragmentMigrator(GProject project, AbstractFragment fragToMigrate, RepositorySupplier repositoryFactory) {
         this.project = project;
         this.fragToMigrate = fragToMigrate;
         this.repositoryFactory = repositoryFactory;
         this.migrationAccessManager = new BasicAccessManager();
         this.migrationCandidates = new ArrayList<>();
+        
     }
 
     /**
      * Add a MOF migration candidate.
-     * 
      * @param migrator a MOF migration candidate.
      * @return this instance
      */
@@ -152,7 +152,6 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
      * Get the migration reporter.
      * <p>
      * Works only once {@link #run(IModelioProgress, IMigrationReporter)} has been called.
-     * 
      * @return the migration reporter.
      */
     @objid ("5ad975aa-6053-4f49-b632-30e5db683625")
@@ -173,13 +172,12 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
      * Run the MOF migrator at the given index in the chain.
      * @param reporter
      * an object to report migration process and result to.
-     * 
      * @param monitor the progress monitor to use for reporting progress to the user.
      * It is the caller's responsibility to call {@link IModelioProgress#done() done()} on the given monitor.
      * Accepts <i>null</i>, indicating that no progress should be reported and that the operation cannot be cancelled.
      * @param migratorIndex the index of the migrator for {@link #getMigrationChainElement(int)}
-     * @throws org.modelio.gproject.fragment.FragmentAuthenticationException on authentication error
-     * @throws org.modelio.gproject.fragment.migration.MigrationFailedException on failure
+     * @throws FragmentAuthenticationException on authentication error
+     * @throws MigrationFailedException on failure
      */
     @objid ("ee8e1870-716c-43cb-801b-3bb3d9d99988")
     protected final void runMofMigrator(IModelioProgress monitor, int migratorIndex) throws FragmentAuthenticationException, MigrationFailedException {
@@ -231,6 +229,7 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
         } catch (IOException e) {
             throw new MigrationFailedException(FileUtils.getLocalizedMessage(e), e);
         }
+        
     }
 
     @objid ("bc572b21-d12c-4f7a-b670-12116ec40665")
@@ -264,6 +263,7 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
             this.userMessage = computeUserMessage();
             this.stepsDescription = computeStepsDescription();
         }
+        
     }
 
     @objid ("86b63f6b-1356-4b2b-8dd4-a8c96c82ad32")
@@ -294,6 +294,7 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
         
             prevMmChanges = mofMigrator.getMetamodelChanges();
         }
+        
     }
 
     @objid ("868525d3-45ee-4188-990d-a88490786cc0")
@@ -319,11 +320,10 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
      * Hook called before {@link IMofRepositoryMigrator#run(IModelioProgress, org.modelio.vcore.session.api.ICoreSession, IRepository)}.
      * <p>
      * May be redefined by subclasses to to some post processing.
-     * 
      * @param mon a progress monitor with 2 ticks available.
      * @param migrationSession the migration session
      * @param mofMigrator the run migrator.
-     * @throws org.modelio.vcore.model.spi.mm.MofMigrationException on failure
+     * @throws MofMigrationException on failure
      */
     @objid ("9dbcc505-5c3d-40e3-8ed9-60f3b58630d4")
     protected void preMofMigration(Supplier<SubProgress> mon, MofSession migrationSession, IMofRepositoryMigrator mofMigrator) throws MofMigrationException {
@@ -334,11 +334,10 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
      * Hook called after {@link IMofRepositoryMigrator#run(IModelioProgress, org.modelio.vcore.session.api.ICoreSession, IRepository)}.
      * <p>
      * May be redefined by subclasses to to some post processing.
-     * 
      * @param mon a progress monitor with 2 ticks available.
      * @param migrationSession the migration session
      * @param mofMigrator the run migrator.
-     * @throws org.modelio.vcore.model.spi.mm.MofMigrationException on failure
+     * @throws MofMigrationException on failure
      */
     @objid ("d8c3cfc7-7d3b-4238-8fdf-c038f088a367")
     protected void postMofMigration(Supplier<SubProgress> mon, MofSession migrationSession, IMofRepositoryMigrator mofMigrator) throws MofMigrationException {
@@ -347,7 +346,7 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
 
     /**
      * @return the computed migration chain.
-     * @throws java.io.IOException on failure computing the migration chain
+     * @throws IOException on failure computing the migration chain
      */
     @objid ("67b0ffa3-1bd9-4920-85e9-9ca2315943f6")
     public final MigrationChain getMigrationChain() throws IOException {
@@ -359,15 +358,14 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
 
     /**
      * Creates a {@link MofSession} connected to the repository to migrate.
-     * 
      * @param monitor a progress monitor
      * @param migratorIndex the index of the migrators to use to prepare the metamodel.
      * All migrators from the last index to the given one will be called with {@link IMofRepositoryMigrator#prepareMetamodel(MofMetamodel)}.
      * If -1, no migrator will be called.
      * @return the ready MOF session.
-     * @throws java.io.IOException in case of I/O error
-     * @throws org.modelio.gproject.fragment.FragmentAuthenticationException in case of authentication error
-     * @throws org.modelio.vcore.model.spi.mm.MofMigrationException in case of other error.
+     * @throws IOException in case of I/O error
+     * @throws FragmentAuthenticationException in case of authentication error
+     * @throws MofMigrationException in case of other error.
      */
     @objid ("88c169d6-99f2-4ab2-9339-94b65601a556")
     protected final MofSession prepareMofSession(IModelioProgress monitor, int migratorIndex) throws IOException, FragmentAuthenticationException, MofMigrationException {
@@ -394,6 +392,7 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
                 session.close();
             }
         }
+        
     }
 
     @objid ("f623256d-2b20-46cf-87c6-ec30ccc75fb4")
@@ -404,10 +403,9 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
 
     /**
      * Run all MOF migrators in order.
-     * 
      * @param monitor the progress monitor
-     * @throws org.modelio.gproject.fragment.FragmentAuthenticationException on authentication error
-     * @throws org.modelio.gproject.fragment.migration.MigrationFailedException on failure
+     * @throws FragmentAuthenticationException on authentication error
+     * @throws MigrationFailedException on failure
      */
     @objid ("6f4ca4b3-25f1-47ad-97a1-353e53850681")
     protected final void runMofMigrators(IModelioProgress monitor) throws FragmentAuthenticationException, MigrationFailedException {
@@ -417,13 +415,13 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
         for (int i = 0; i < migrationChainSize; i++) {
             runMofMigrator(mon.newChild(1), i);
         }
+        
     }
 
     /**
      * Compute a warning message to display to the user if needed.
      * @param fromMetamodel the source metamodel
      * @param targetMetamodel the target metamodel
-     * 
      * @return a warning message or empty string, never <i>null</i>.
      */
     @objid ("65caaf3b-cbf5-4abd-ba79-ce0e7087d8cf")
@@ -435,7 +433,6 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
      * Build a migration chain between the 2 given metamodels.
      * <p>
      * May be redefined.
-     * 
      * @param fromMetamodel the source metamodel
      * @param targetMetamodelDesc the target metamodel
      * @param migrationProviders all known migration providers.
@@ -447,15 +444,15 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
                                         fromMetamodel,
                                         targetMetamodelDesc,
                                         migrationProviders);
+        
     }
 
     /**
      * Prepare a {@link ICoreSession} connected to the repository to migrate with the final metamodel.
-     * 
      * @param monitor a progress monitor
      * @return the ICoreSession
-     * @throws org.modelio.gproject.fragment.FragmentAuthenticationException in case of authentication error
-     * @throws org.modelio.gproject.fragment.migration.MigrationFailedException in case of failure
+     * @throws FragmentAuthenticationException in case of authentication error
+     * @throws MigrationFailedException in case of failure
      */
     @objid ("cb1b86da-e5d1-452f-be6e-87597d2f6505")
     protected final ICoreSession prepareCoreSession(IModelioProgress monitor) throws FragmentAuthenticationException, MigrationFailedException {
@@ -480,6 +477,7 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
         } catch (IOException e) {
             throw new MigrationFailedException(FileUtils.getLocalizedMessage(e), e);
         }
+        
     }
 
     @objid ("50928092-28d6-492e-995b-948fcd3dacb0")
@@ -573,12 +571,11 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
      * Hook called by {@link #start(IModelioProgress, IMigrationReporter)} for sub classes.
      * <p>
      * Does nothing by default. May be redefined by sub classes.
-     * 
      * @param monitor the progress monitor to use for reporting progress to the user.
      * It is the caller's responsibility to call {@link IModelioProgress#done() done()} on the given monitor.
      * Accepts <i>null</i>, indicating that no progress should be reported and that the operation cannot be cancelled.
-     * @throws org.modelio.gproject.fragment.FragmentAuthenticationException on authentication failure
-     * @throws org.modelio.gproject.fragment.migration.MigrationFailedException on failure
+     * @throws FragmentAuthenticationException on authentication failure
+     * @throws MigrationFailedException on failure
      */
     @objid ("8f6b6253-0b9f-48e6-967e-49371e7c242f")
     protected void doStart(IModelioProgress monitor) throws FragmentAuthenticationException, MigrationFailedException {
@@ -604,15 +601,15 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
         
         // Record process finished
         this.terminalCalled = true;
+        
     }
 
     /**
      * Hook called by {@link #finish(IModelioProgress)} for sub classes.
-     * 
      * @param monitor the progress monitor to use for reporting progress to the user.
      * It is the caller's responsibility to call {@link IModelioProgress#done() done()} on the given monitor.
      * Accepts <i>null</i>, indicating that no progress should be reported and that the operation cannot be cancelled.
-     * @throws org.modelio.gproject.fragment.migration.MigrationFailedException to abort migration
+     * @throws MigrationFailedException to abort migration
      */
     @objid ("1937c5e1-969b-4e8a-b60d-ed06ce3dc3fc")
     protected void doFinish(IModelioProgress monitor) throws MigrationFailedException {
@@ -631,13 +628,13 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
             this.terminalCalled = true;
             Log.setLogger(this.oldVCoreLogger);
         }
+        
     }
 
     /**
      * Hook called by {@link #close()}, to be redefined by sub classes if they have something not done in {@link #doFinish(IModelioProgress)}
      * and {@link #doAbort(IModelioProgress)}.
-     * 
-     * @throws org.modelio.gproject.fragment.migration.MigrationFailedException on failure.
+     * @throws MigrationFailedException on failure.
      */
     @objid ("dfdaf2aa-11f2-4a31-96ad-976722f95b74")
     protected void doClose() throws MigrationFailedException {
@@ -654,21 +651,22 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
         } finally {
             this.terminalCalled = true;
         }
+        
     }
 
     /**
      * @param monitor the progress monitor to use for reporting progress to the user.
      * It is the caller's responsibility to call {@link IModelioProgress#done() done()} on the given monitor.
      * Accepts <i>null</i>, indicating that no progress should be reported and that the operation cannot be cancelled.
-     * @throws org.modelio.gproject.fragment.migration.MigrationFailedException on failure
+     * @throws MigrationFailedException on failure
      */
     @objid ("1f7cae3d-c14c-4e47-9722-41a03be07801")
     protected void doAbort(IModelioProgress monitor) throws MigrationFailedException {
+        
     }
 
     /**
      * Computes the migration steps descriptions from the migration chain.
-     * 
      * @return the migration steps descriptions.
      */
     @objid ("284bc8f1-c616-4448-9d04-620d15f718cf")
@@ -727,11 +725,10 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
          * Instantiate the repository.
          * <p>
          * Does not open it.
-         * 
          * @param session the modeling session the repository will be connected to
          * @return the repository
-         * @throws org.modelio.gproject.fragment.FragmentAuthenticationException on authentication error
-         * @throws java.io.IOException on failure
+         * @throws FragmentAuthenticationException on authentication error
+         * @throws IOException on failure
          */
         @objid ("2cd90fbb-bbc7-45f6-b57a-40fe0f345165")
         IRepository intantiateRepository(ICoreSession session) throws FragmentAuthenticationException, IOException;
@@ -761,6 +758,7 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
                 this.logger.printf("Repository warning: %s\n", e.toString());
                 e.printStackTrace(this.logger);
             }
+            
         }
 
         @objid ("6a963df8-e69b-4007-8e0b-6607c6d54a5a")
@@ -772,6 +770,7 @@ public class ChainedMofFragmentMigrator implements IFragmentMigrator, org.modeli
                 this.logger.printf("Repository ERROR: %s\n", e.toString());
             }
             e.printStackTrace(this.logger);
+            
         }
 
     }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.naryassoc;
 
 import java.beans.PropertyChangeEvent;
@@ -84,6 +83,7 @@ public class NAssocNodeEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         final GmAbstractObject model = this.getModel();
         getFigure().getParent().setConstraint(getFigure(), model.getLayoutData());
+        
     }
 
     @objid ("35cc9662-55b7-11e2-877f-002564c97630")
@@ -113,6 +113,7 @@ public class NAssocNodeEditPart extends AbstractNodeEditPart {
         
             }
         }
+        
     }
 
     @objid ("35cc9678-55b7-11e2-877f-002564c97630")
@@ -125,6 +126,7 @@ public class NAssocNodeEditPart extends AbstractNodeEditPart {
         
         // Allow links
         installEditPolicy(EditPolicy.NODE_ROLE, new DefaultCreateLinkEditPolicy());
+        
     }
 
     @objid ("35cc967b-55b7-11e2-877f-002564c97630")
@@ -178,6 +180,7 @@ public class NAssocNodeEditPart extends AbstractNodeEditPart {
         
         // In any case apply the super routine.
         super.propertyChange(evt);
+        
     }
 
     /**
@@ -196,6 +199,7 @@ public class NAssocNodeEditPart extends AbstractNodeEditPart {
             }
             return newbranches;
         }
+        
     }
 
     @objid ("35ce1d05-55b7-11e2-877f-002564c97630")
@@ -207,6 +211,7 @@ public class NAssocNodeEditPart extends AbstractNodeEditPart {
                 (AbstractDiagramEditPart) getRoot().getContents(),
                 dropLocation);
         cmd.execute();
+        
     }
 
 }

@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,13 +31,13 @@ import org.modelio.metamodel.uml.behavior.activityModel.DecisionNodeKind;
 @objid ("0030401c-c4bf-1fd8-97fe-001ec947cd2a")
 public class DecisionMergeNodeData extends ControlNodeData {
     @objid ("3684c061-654f-4eda-99ca-2afd1ddbb8f7")
-     Object mDecisionKind = DecisionNodeKind.EXCLUSIVEDECISION;
+    Object mDecisionKind = DecisionNodeKind.EXCLUSIVEDECISION;
 
     @objid ("942cfb4d-9b69-42c4-b33d-bc2ce2556dcb")
-     Object mDecisionInputBehavior = "";
+    Object mDecisionInputBehavior = "";
 
     @objid ("b154ab90-fd3f-4ded-8acb-ebabea804f36")
-    public DecisionMergeNodeData(DecisionMergeNodeSmClass smClass) {
+    public  DecisionMergeNodeData(DecisionMergeNodeSmClass smClass) {
         super(smClass);
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.commands;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -48,11 +47,10 @@ public class FitToMinSizeCommand extends Command {
 
     /**
      * Initialize the command.
-     * 
      * @param editPart The graphic edit part to resize.
      */
     @objid ("7f4303af-1dec-11e2-8cad-001ec947c8cc")
-    public FitToMinSizeCommand(final GraphicalEditPart editPart) {
+    public  FitToMinSizeCommand(final GraphicalEditPart editPart) {
         this.editPart = editPart;
     }
 
@@ -64,11 +62,11 @@ public class FitToMinSizeCommand extends Command {
         if (resizeCommand != null && resizeCommand.canExecute()) {
             resizeCommand.execute();
         }
+        
     }
 
     /**
      * Ask for the command that will resize the node to its preferred size.
-     * 
      * @return The resize command. May return <tt>null</tt>.
      */
     @objid ("7f4303b9-1dec-11e2-8cad-001ec947c8cc")

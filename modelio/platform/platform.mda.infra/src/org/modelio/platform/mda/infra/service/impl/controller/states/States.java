@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.controller.states;
 
 import java.util.ArrayList;
@@ -171,11 +170,10 @@ public class States {
 
     /**
      * Initialize the state machine.
-     * 
      * @param rtModule the module controller
      */
     @objid ("99cea2e7-63bf-4465-b0bd-6b2667966f65")
-    public States(IRTModuleAccess rtModule) {
+    public  States(IRTModuleAccess rtModule) {
         this.rtModule = rtModule;
         
         // First initialize features
@@ -330,17 +328,18 @@ public class States {
         setNoEffect(MSGDISABLE, this.disabled);
         setNoEffect(MSGLOADACTIVATED, this.activated, starting, this.started);
         setNoEffect(MSGLOADDISABLED, this.disabled);
+        
     }
 
     /**
      * Add the transition to the state graph
-     * 
      * @param tb the transition descriptor
      */
     @objid ("1cd3721f-4434-4d85-a89c-347f7eb9c3d0")
     private void add(org.modelio.platform.mda.infra.service.impl.controller.states.Transition.Builder tb) {
         Transition t = tb.create();
         t.getSource().addTransition(t);
+        
     }
 
     /**
@@ -348,8 +347,7 @@ public class States {
      * <p>
      * Executes all exit() and enter() on state change.
      * @param newState
-     * 
-     * @throws org.modelio.api.module.lifecycle.ModuleException on failure
+     * @throws ModuleException on failure
      */
     @objid ("53444d26-82fb-4297-9ae3-55bd6657b82e")
     public void changeState(AbstractModuleState newState) throws ModuleException {
@@ -417,24 +415,24 @@ public class States {
             // throw new exception
             throw moduleException;
         }
+        
     }
 
     /**
      * Force the current state.
-     * 
      * @param newState the new state
      */
     @objid ("a68aa1b7-8856-40e4-bc94-a3c6433bd3bd")
     public void forceCurrentState(AbstractModuleState newState) {
         // Record state
         this.currentState = newState;
+        
     }
 
     /**
      * Handle a message.
-     * 
      * @param message the received message
-     * @throws org.modelio.api.module.lifecycle.ModuleException on failure
+     * @throws ModuleException on failure
      */
     @objid ("0a0cdd18-cad5-4abd-8fc9-467939f0422a")
     public void handleMessage(Object message) throws ModuleException {
@@ -458,6 +456,7 @@ public class States {
         if (postTransitionMessage != null) {
             handleMessage(postTransitionMessage);
         }
+        
     }
 
     @objid ("57b76af8-3295-4342-89a2-7a875dba6472")
@@ -499,6 +498,7 @@ public class States {
         } catch (ModuleException  e) {
             forceCurrentState(this.unloaded);
         }
+        
     }
 
     @objid ("6c686694-c1b5-4093-898e-d31ff7ec709a")
@@ -507,6 +507,7 @@ public class States {
         for (AbstractModuleState s : states) {
             add(builder.from(s).to(s));
         }
+        
     }
 
     @objid ("7a11d515-3ace-41d0-bfc1-b78c370bc34f")
@@ -514,13 +515,13 @@ public class States {
         for (AbstractModuleState st : states) {
             st.addFeatures(feature);
         }
+        
     }
 
     /**
      * Update currently activated features from the new state.
-     * 
      * @param newState the new state
-     * @throws org.modelio.api.module.lifecycle.ModuleException if state change is refused by a feature, in case of breaking error
+     * @throws ModuleException if state change is refused by a feature, in case of breaking error
      */
     @objid ("7c2b7d77-6966-4d95-97d5-f74d3d59ca84")
     private void updateFeatures(AbstractModuleState newState) throws ModuleException {
@@ -592,6 +593,7 @@ public class States {
                 }
             }
         }
+        
     }
 
 }

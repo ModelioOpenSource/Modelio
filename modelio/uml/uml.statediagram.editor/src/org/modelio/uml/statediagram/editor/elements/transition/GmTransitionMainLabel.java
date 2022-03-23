@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.transition;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,12 +49,11 @@ public class GmTransitionMainLabel extends GmDefaultModelElementLabel {
 
     /**
      * C'tor.
-     * 
      * @param diagram the diagram.
      * @param relatedRef related element reference, must not be null.
      */
     @objid ("f5ad2ea1-55b6-11e2-877f-002564c97630")
-    public GmTransitionMainLabel(IGmDiagram diagram, MRef relatedRef) {
+    public  GmTransitionMainLabel(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -121,7 +119,7 @@ public class GmTransitionMainLabel extends GmDefaultModelElementLabel {
      * Empty c'tor for deserialization.
      */
     @objid ("f5ad2eaf-55b6-11e2-877f-002564c97630")
-    public GmTransitionMainLabel() {
+    public  GmTransitionMainLabel() {
         // Nothing to do.
     }
 
@@ -142,6 +140,7 @@ public class GmTransitionMainLabel extends GmDefaultModelElementLabel {
             break;
         }
         }
+        
     }
 
     @objid ("f5ad2ebd-55b6-11e2-877f-002564c97630")
@@ -151,6 +150,7 @@ public class GmTransitionMainLabel extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmTransitionMainLabel.", GmTransitionMainLabel.MINOR_VERSION);
+        
     }
 
     @objid ("f5aeb51d-55b6-11e2-877f-002564c97630")

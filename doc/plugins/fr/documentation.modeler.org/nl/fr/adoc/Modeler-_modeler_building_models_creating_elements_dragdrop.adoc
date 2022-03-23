@@ -1,5 +1,7 @@
 // Disable all captions for figures.
 :!figure-caption:
+// Path to the stylesheet files
+:stylesdir: .
 
 [[Démasquer-des-éléments-dans-les-diagrammes-par-glisser-déposer]]
 

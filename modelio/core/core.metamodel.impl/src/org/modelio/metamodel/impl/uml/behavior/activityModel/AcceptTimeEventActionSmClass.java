@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityActionSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.AcceptTimeEventAction;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityAction;
 import org.modelio.vbasic.version.Version;
@@ -46,7 +45,7 @@ public class AcceptTimeEventActionSmClass extends ActivityActionSmClass {
     private SmAttribute timeExpresionAtt;
 
     @objid ("61e3c2cd-116e-4ea9-852b-e51294f07d17")
-    public AcceptTimeEventActionSmClass(ISmMetamodelFragment origin) {
+    public  AcceptTimeEventActionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -54,6 +53,7 @@ public class AcceptTimeEventActionSmClass extends ActivityActionSmClass {
     @Override
     public String getName() {
         return "AcceptTimeEventAction";
+        
     }
 
     @objid ("411b46b7-204a-49df-903b-a6e73b2f2d57")
@@ -66,18 +66,21 @@ public class AcceptTimeEventActionSmClass extends ActivityActionSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return AcceptTimeEventAction.class;
+        
     }
 
     @objid ("80536f32-11f4-4f87-8b1d-b58632e561b5")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("e5d34ba1-b19c-474f-ae48-fb7f5fd3f59a")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("bc464060-e539-481b-bbb0-0567ac2a78e9")
@@ -94,6 +97,7 @@ public class AcceptTimeEventActionSmClass extends ActivityActionSmClass {
         
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("58eb47b8-2efc-44cf-a73b-cb85f8992b18")
@@ -110,7 +114,7 @@ public class AcceptTimeEventActionSmClass extends ActivityActionSmClass {
         private AcceptTimeEventActionSmClass smClass;
 
         @objid ("781177f2-0ddf-4440-8ec4-4be54618ed80")
-        public AcceptTimeEventActionObjectFactory(AcceptTimeEventActionSmClass smClass) {
+        public  AcceptTimeEventActionObjectFactory(AcceptTimeEventActionSmClass smClass) {
             this.smClass = smClass;
         }
 

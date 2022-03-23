@@ -17,15 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.module.commands;
 
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 @objid ("4b84ffb3-13bb-11e2-825e-001ec947c8cc")
-@java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
-@java.lang.annotation.Target({java.lang.annotation.ElementType.METHOD})
-public @interface IsVisible  {
-
-// Left empty on purpose.
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.METHOD})
+public @interface IsVisible {// Left empty on purpose.
+    
 }

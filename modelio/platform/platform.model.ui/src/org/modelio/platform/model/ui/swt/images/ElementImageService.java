@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.images;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -48,7 +47,6 @@ public class ElementImageService {
      * <li>first stereotype icon found on the element. Note that 'first' is the order of the modules as returned by mda.infra, ie based on workbench</li>
      * <li>if no stereotype icon is found, return the metaclass icon</li>
      * </ul>
-     * 
      * @param element a model object.
      * @return an 'application' icon for the element.
      */
@@ -64,7 +62,6 @@ public class ElementImageService {
      * <li>first stereotype image found on the element. Note that 'first' is the order of the modules as returned by mda.infra, ie based on workbench</li>
      * <li>if no stereotype image is found, return the metaclass image</li>
      * </ul>
-     * 
      * @param element a model object.
      * @return an 'application' image for the element.
      */
@@ -97,6 +94,7 @@ public class ElementImageService {
         } catch (DeadObjectException e) {
             return MetamodelImageService.getQualifiedIcon(element.getMClass(), null);
         }
+        
     }
 
     @objid ("662f9841-6a96-4b6e-a215-987a71e1a290")
@@ -117,6 +115,7 @@ public class ElementImageService {
         } catch (DeadObjectException e) {
             return MetamodelImageService.getQualifiedImage(element.getMClass(), null);
         }
+        
     }
 
 }

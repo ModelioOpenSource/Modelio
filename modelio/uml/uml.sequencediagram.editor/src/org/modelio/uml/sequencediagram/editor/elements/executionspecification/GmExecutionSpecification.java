@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.executionspecification;
 
 import java.util.List;
@@ -29,8 +28,8 @@ import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.interactionModel.ExecutionSpecification;
 import org.modelio.metamodel.uml.behavior.interactionModel.InteractionFragment;
 import org.modelio.metamodel.uml.behavior.interactionModel.Lifeline;
@@ -59,22 +58,22 @@ public class GmExecutionSpecification extends GmCompositeNode {
 
     /**
      * Create an execution rectangle
-     * 
      * @param diagram The owning diagram
      * @param element the represented execution, may be null
      * @param ref the represented execution reference, may not be null
      */
     @objid ("d8eca59d-55b6-11e2-877f-002564c97630")
-    public GmExecutionSpecification(IGmDiagram diagram, ExecutionSpecification element, MRef ref) {
+    public  GmExecutionSpecification(IGmDiagram diagram, ExecutionSpecification element, MRef ref) {
         super(diagram, ref);
         this.element = element;
+        
     }
 
     /**
      * For deserialization only
      */
     @objid ("d8eca5a9-55b6-11e2-877f-002564c97630")
-    public GmExecutionSpecification() {
+    public  GmExecutionSpecification() {
         // Nothing to do
     }
 
@@ -103,6 +102,7 @@ public class GmExecutionSpecification extends GmCompositeNode {
         } else {
             return null;
         }
+        
     }
 
     @objid ("d8eca5c5-55b6-11e2-877f-002564c97630")
@@ -152,6 +152,7 @@ public class GmExecutionSpecification extends GmCompositeNode {
             break;
         }
         }
+        
     }
 
     @objid ("d8ee2c4e-55b6-11e2-877f-002564c97630")
@@ -161,6 +162,7 @@ public class GmExecutionSpecification extends GmCompositeNode {
         if (this.element != null) {
             firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, this.getLayoutData(), null);
         }
+        
     }
 
     @objid ("d8ee2c51-55b6-11e2-877f-002564c97630")
@@ -170,12 +172,14 @@ public class GmExecutionSpecification extends GmCompositeNode {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmExecutionSpecification.", GmExecutionSpecification.MINOR_VERSION);
+        
     }
 
     @objid ("d8ee2c57-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (ExecutionSpecification) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("d8ee2c5c-55b6-11e2-877f-002564c97630")

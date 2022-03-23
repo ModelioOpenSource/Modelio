@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.templateprofile.standard.umlmodelelement;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("57d27015-260c-4a65-ab1b-01cc7c60f0d1")
 public class PatternRoot {
-    @objid ("e4ccfab2-7378-456a-98b9-79bde36b2ee1")
+    @objid ("221a6fd3-1174-4252-af37-86b2798cf376")
     public static final String STEREOTYPE_NAME = "PatternRoot";
 
     /**
      * The underlying {@link UmlModelElement} represented by this proxy, never null.
      */
-    @objid ("5af7c893-b78f-4ffc-b125-405de81d8803")
+    @objid ("7c531bdf-61f7-41d9-a04c-dc19ee9070a2")
     protected final UmlModelElement elt;
 
     /**
      * Tells whether a {@link PatternRoot proxy} can be instantiated from a {@link MObject} checking it is a {@link UmlModelElement} stereotyped << PatternRoot >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("42c986af-f0b6-4a8f-9c8d-827f3289bd22")
+    @objid ("afc9f978-d444-49b1-bc94-e236cc3d74b0")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof UmlModelElement) && ((UmlModelElement) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, PatternRoot.STEREOTYPE_NAME));
     }
@@ -77,9 +75,9 @@ public class PatternRoot {
      * 
      * @return a {@link PatternRoot} proxy on the created {@link UmlModelElement}.
      */
-    @objid ("ae76ea39-a0d2-4114-9f45-a11684fe15ef")
+    @objid ("49fa240a-0135-41f0-865a-3c06b320fdf7")
     public static PatternRoot create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("UmlModelElement");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.UmlModelElement");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, PatternRoot.STEREOTYPE_NAME);
         return PatternRoot.instantiate((UmlModelElement)e);
     }
@@ -91,7 +89,7 @@ public class PatternRoot {
      * @param obj a UmlModelElement
      * @return a {@link PatternRoot} proxy or <i>null</i>.
      */
-    @objid ("9d03b197-5849-48c5-84b1-055ff5347d50")
+    @objid ("21b293d9-90e0-4866-9951-0673e5159f5c")
     public static PatternRoot instantiate(UmlModelElement obj) {
         return PatternRoot.canInstantiate(obj) ? new PatternRoot(obj) : null;
     }
@@ -104,7 +102,7 @@ public class PatternRoot {
      * @return a {@link PatternRoot} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("f30107d4-0d2a-454f-8b8b-290ca4975eec")
+    @objid ("9750722d-b42f-4094-9062-34dc51939cb7")
     public static PatternRoot safeInstantiate(UmlModelElement obj) throws IllegalArgumentException {
         if (PatternRoot.canInstantiate(obj))
         	return new PatternRoot(obj);
@@ -112,7 +110,7 @@ public class PatternRoot {
         	throw new IllegalArgumentException("PatternRoot: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("cac2d401-e65a-477e-95ef-6bc10c22658d")
+    @objid ("943e2236-257a-4253-8b66-dc00d66bce22")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,46 +130,47 @@ public class PatternRoot {
      * Get the underlying {@link UmlModelElement}. 
      * @return the UmlModelElement represented by this proxy, never null.
      */
-    @objid ("704aec9b-9a52-4ed0-9689-45126f37494c")
+    @objid ("b1373793-fca6-4c5c-9995-6f2a54569ba9")
     public UmlModelElement getElement() {
         return this.elt;
     }
 
-    @objid ("f33a30a6-748c-468c-85b5-0727f2f4d7a0")
+    @objid ("478ef5e1-e34f-435a-8c42-effa794b2751")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("db9d3719-6a1f-49dc-9bcb-182f49aaf49c")
-    protected PatternRoot(UmlModelElement elt) {
+    @objid ("300ce93c-dfd4-41d3-9eee-c2098ce20c27")
+    protected  PatternRoot(UmlModelElement elt) {
         this.elt = elt;
     }
 
     @objid ("8ff5a629-6135-49ff-a514-232f119963bc")
     public static final class MdaTypes {
-        @objid ("8a614290-2ae3-4af0-a92c-a3d51a7454e7")
+        @objid ("10a6d27c-add0-45c7-aec1-669022e266ee")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("1bdc8f01-93a9-4a13-bc46-9630a09a05d7")
+        @objid ("9baa6ac6-f3ed-4b3a-995e-96eff1878c7b")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("094e001b-7f6f-47d2-a769-64f7827fd687")
+        @objid ("5bd2bc17-9e80-492a-a280-f1a0ef8c6837")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("c5a3265f-0fe8-481a-ab4a-f3d8356f3cc2")
+        @objid ("288fd425-8859-4340-a183-2f5dc6536c63")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "ad46ab04-9310-11df-a4cf-0014224f9977");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

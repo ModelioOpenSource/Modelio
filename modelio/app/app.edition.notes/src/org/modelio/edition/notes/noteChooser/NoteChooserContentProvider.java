@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.noteChooser;
 
 import java.util.HashSet;
@@ -154,6 +153,7 @@ public class NoteChooserContentProvider implements ITreeContentProvider {
         } else {
             return null;
         }
+        
     }
 
     @objid ("26e1243c-186f-11e2-bc4e-002564c97630")
@@ -208,11 +208,10 @@ public class NoteChooserContentProvider implements ITreeContentProvider {
 
     /**
      * Constructor initializing the model service.
-     * 
      * @param modelService the model service needed to find elements.
      */
     @objid ("42b4c367-1917-11e2-bc4e-002564c97630")
-    public NoteChooserContentProvider(IMModelServices modelService) {
+    public  NoteChooserContentProvider(IMModelServices modelService) {
         this.modelService = modelService;
     }
 

@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.ui.progress;
 
 import java.lang.reflect.InvocationTargetException;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.jobs.ISchedulingRule;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.e4.ui.services.IServiceConstants;
@@ -43,7 +42,8 @@ public class ModelioProgressService implements IModelioProgressService {
     public Shell activeShell;
 
     @objid ("9e9dd821-6b03-4a88-990a-659f61ab4f52")
-    public ModelioProgressService() {
+    public  ModelioProgressService() {
+        
     }
 
     @objid ("c1a2d77c-0c86-4be2-877c-2a39ddc892ee")
@@ -98,6 +98,7 @@ public class ModelioProgressService implements IModelioProgressService {
                 shell.setText(title);
             }
         }.run(fork, cancelable, runnable);
+        
     }
 
 }

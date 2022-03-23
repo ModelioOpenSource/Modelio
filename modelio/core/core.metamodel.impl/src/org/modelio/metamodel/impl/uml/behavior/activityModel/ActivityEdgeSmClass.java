@@ -17,20 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityEdgeData;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityNodeSmClass;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.InterruptibleActivityRegionSmClass;
 import org.modelio.metamodel.impl.uml.informationFlow.InformationFlowSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityEdge;
@@ -72,7 +69,7 @@ public class ActivityEdgeSmClass extends UmlModelElementSmClass {
     private SmDependency realizedInformationFlowDep;
 
     @objid ("4693c9ad-247c-405d-b69e-0777ee63eaf9")
-    public ActivityEdgeSmClass(ISmMetamodelFragment origin) {
+    public  ActivityEdgeSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -80,6 +77,7 @@ public class ActivityEdgeSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "ActivityEdge";
+        
     }
 
     @objid ("de6f5101-a559-4a58-b8ed-7200d129dcab")
@@ -92,18 +90,21 @@ public class ActivityEdgeSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ActivityEdge.class;
+        
     }
 
     @objid ("2e46210e-1431-4eb0-b02c-0ab9927d5ee5")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("e3adbd69-5181-4432-99ed-d8e280b630ad")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("ccec8c90-2f20-4ef0-ac68-8d5a33452a71")
@@ -139,6 +140,8 @@ public class ActivityEdgeSmClass extends UmlModelElementSmClass {
         this.realizedInformationFlowDep = new RealizedInformationFlowSmDependency();
         this.realizedInformationFlowDep.init("RealizedInformationFlow", this, metamodel.getMClass(InformationFlow.MQNAME), 0, -1 );
         registerDependency(this.realizedInformationFlowDep);
+        
+        
     }
 
     @objid ("f87aad65-989e-43a2-ac92-ccfa22e47194")
@@ -193,6 +196,7 @@ public class ActivityEdgeSmClass extends UmlModelElementSmClass {
     @Override
     public boolean isLinkMetaclass() {
         return true;
+        
     }
 
     @objid ("fabbc42a-95dc-4161-9ee3-3256d9f69cd1")
@@ -201,7 +205,7 @@ public class ActivityEdgeSmClass extends UmlModelElementSmClass {
         private ActivityEdgeSmClass smClass;
 
         @objid ("7e3de592-cd26-4777-8e6c-9faf8a8a3294")
-        public ActivityEdgeObjectFactory(ActivityEdgeSmClass smClass) {
+        public  ActivityEdgeObjectFactory(ActivityEdgeSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -271,6 +275,7 @@ public class ActivityEdgeSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((ActivityNodeSmClass)this.getTarget()).getIncomingDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -299,6 +304,7 @@ public class ActivityEdgeSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((ActivityNodeSmClass)this.getTarget()).getOutgoingDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -327,6 +333,7 @@ public class ActivityEdgeSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((InterruptibleActivityRegionSmClass)this.getTarget()).getInterruptingEdgeDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -346,6 +353,7 @@ public class ActivityEdgeSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ActivityEdgeData) data).mRealizedInformationFlow = values;
+            
         }
 
         @objid ("4aa02970-632c-4217-9d0b-f3538eefcfa5")
@@ -355,6 +363,7 @@ public class ActivityEdgeSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((InformationFlowSmClass)this.getTarget()).getRealizingActivityEdgeDep();
             }
             return this.symetricDep;
+            
         }
 
     }

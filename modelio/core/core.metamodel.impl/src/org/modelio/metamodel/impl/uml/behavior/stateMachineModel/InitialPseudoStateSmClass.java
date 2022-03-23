@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.stateMachineModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.AbstractPseudoStateSmClass;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.AbstractPseudoState;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.InitialPseudoState;
 import org.modelio.vbasic.version.Version;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("644df315-fea1-40b6-95e5-cc683ce071c7")
 public class InitialPseudoStateSmClass extends AbstractPseudoStateSmClass {
     @objid ("d8f9be6d-513e-4be2-a521-88764c2f2701")
-    public InitialPseudoStateSmClass(ISmMetamodelFragment origin) {
+    public  InitialPseudoStateSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class InitialPseudoStateSmClass extends AbstractPseudoStateSmClass {
     @Override
     public String getName() {
         return "InitialPseudoState";
+        
     }
 
     @objid ("46327344-79bc-47e0-adde-55dc5fab351b")
@@ -62,18 +62,21 @@ public class InitialPseudoStateSmClass extends AbstractPseudoStateSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return InitialPseudoState.class;
+        
     }
 
     @objid ("7bb68d82-7357-4ee8-be36-05ac3d2b6a93")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("8a9a363c-099d-4361-b620-e01c9460a87d")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("06b2fbdf-99dd-44ae-8f75-04d41af020c7")
@@ -86,6 +89,7 @@ public class InitialPseudoStateSmClass extends AbstractPseudoStateSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("e05b04d4-15d5-4973-8dc5-671677246c65")
@@ -94,7 +98,7 @@ public class InitialPseudoStateSmClass extends AbstractPseudoStateSmClass {
         private InitialPseudoStateSmClass smClass;
 
         @objid ("254926cd-8964-431f-891d-aa0f07e404e7")
-        public InitialPseudoStateObjectFactory(InitialPseudoStateSmClass smClass) {
+        public  InitialPseudoStateObjectFactory(InitialPseudoStateSmClass smClass) {
             this.smClass = smClass;
         }
 

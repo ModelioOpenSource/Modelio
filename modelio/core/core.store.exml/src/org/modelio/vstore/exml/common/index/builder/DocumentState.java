@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common.index.builder;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -59,6 +58,7 @@ class DocumentState extends AbstractState {
         {
             this.stateHandler.enterOBJECTState();
         }
+        
     }
 
 }

@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.uml.infrastructure.properties;
 
 import java.util.Properties;
@@ -54,7 +54,6 @@ public interface PropertyTable extends Element {
 
     /**
      * Get a property value.
-     * 
      * @param key a property
      * @return its value or <code>null</code>.
      */
@@ -63,7 +62,6 @@ public interface PropertyTable extends Element {
 
     /**
      * Set the property table content.
-     * 
      * @param newContent the new table content.
      */
     @objid ("12071b01-282d-11e2-bf07-001ec947ccaf")
@@ -71,7 +69,6 @@ public interface PropertyTable extends Element {
 
     /**
      * Set a property value.
-     * 
      * @param key a property.
      * @param value its value.
      */
@@ -83,9 +80,8 @@ public interface PropertyTable extends Element {
      * <p>
      * Modifying the returned Properties will not have any effect on
      * the PropertyTable.
-     * 
      * @return a copy of the properties.
-     * @throws java.lang.IllegalStateException if the 'Content' attribute has an illegal format.
+     * @throws IllegalStateException if the 'Content' attribute has an illegal format.
      * This can only happen if {@link #setContent(String)} is called directly.
      */
     @objid ("5652fdb3-2826-11e2-bf07-001ec947ccaf")

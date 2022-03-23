@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,7 +41,7 @@ public class OTagType extends OElement implements IOElement {
     }
 
     @objid ("f033b5d8-878e-446c-8ff8-6999cfcfa614")
-    public OTagType(TagType param) {
+    public  OTagType(TagType param) {
         super(param);
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.bindinglink;
 
 import java.util.List;
@@ -57,19 +56,18 @@ public class GmBindingLink extends GmLink {
      * Constructor for deserialization.
      */
     @objid ("34121524-55b7-11e2-877f-002564c97630")
-    public GmBindingLink() {
+    public  GmBindingLink() {
         // Nothing to do.
     }
 
     /**
      * Creates a GmElementImport.
-     * 
      * @param diagram The diagram containing the link.
      * @param role The represented element.
      * @param ref The represented element reference. May not be null.
      */
     @objid ("34121527-55b7-11e2-877f-002564c97630")
-    public GmBindingLink(IGmDiagram diagram, Binding role, MRef ref) {
+    public  GmBindingLink(IGmDiagram diagram, Binding role, MRef ref) {
         super(diagram, ref);
         
         this.element = role;
@@ -79,6 +77,7 @@ public class GmBindingLink extends GmLink {
         
             addExtension(ExtensionLocation.TargetNW, ROLE_MAIN_LABEL, new GmBindingLinkHeader(diagram, ref));
         }
+        
     }
 
     @objid ("34121533-55b7-11e2-877f-002564c97630")
@@ -122,6 +121,7 @@ public class GmBindingLink extends GmLink {
     protected void readLink(IDiagramReader in) {
         super.readLink(in);
         this.element = (Binding) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("34139bc8-55b7-11e2-877f-002564c97630")
@@ -131,6 +131,7 @@ public class GmBindingLink extends GmLink {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmBindingLink.", GmBindingLink.MINOR_VERSION);
+        
     }
 
     @objid ("34139bce-55b7-11e2-877f-002564c97630")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common.index;
 
 import java.io.IOException;
@@ -34,8 +33,8 @@ import org.modelio.vstore.exml.common.index.builder.InvalidExmlException;
 import org.modelio.vstore.exml.common.index.jdbm.JdbmIndex;
 import org.modelio.vstore.exml.common.model.ObjId;
 import org.modelio.vstore.exml.plugin.VStoreExml;
-import org.modelio.vstore.exml.resource.IExmlResourceProvider.ExmlResource;
 import org.modelio.vstore.exml.resource.IExmlResourceProvider;
+import org.modelio.vstore.exml.resource.IExmlResourceProvider.ExmlResource;
 import org.xml.sax.InputSource;
 
 /**
@@ -79,24 +78,23 @@ public class ExmlIndex {
 
     /**
      * Instantiate the indexes and open them.
-     * 
      * @param resProvider the EXML resources provider.
      * @param errSupport error reporter
      */
     @objid ("f778d0bd-d023-11e1-bf59-001ec947ccaf")
-    public ExmlIndex(IExmlResourceProvider resProvider, StorageErrorSupport errSupport) {
+    public  ExmlIndex(IExmlResourceProvider resProvider, StorageErrorSupport errSupport) {
         this.resProvider = resProvider;
         this.errSupport = errSupport;
+        
     }
 
     /**
      * Build the indexes from scratch.
      * <p>
      * The index must be empty.
-     * 
      * @param aMonitor a progress monitor
-     * @throws java.io.IOException in case of failure reading EXML files.
-     * @throws org.modelio.vstore.exml.common.index.IndexException in case of error writing the index.
+     * @throws IOException in case of failure reading EXML files.
+     * @throws IndexException in case of error writing the index.
      */
     @objid ("d5c90dd1-6231-11e1-b31a-001ec947ccaf")
     public void buildIndexes(IModelioProgress aMonitor) throws IOException, IndexException {
@@ -141,12 +139,12 @@ public class ExmlIndex {
         
         
         monitor.done();
+        
     }
 
     /**
      * Close the indexes.
-     * 
-     * @throws org.modelio.vstore.exml.common.index.IndexException in case of failure.
+     * @throws IndexException in case of failure.
      */
     @objid ("f778d0d2-d023-11e1-bf59-001ec947ccaf")
     public void close() throws IndexException {
@@ -157,14 +155,14 @@ public class ExmlIndex {
             this.userNodeIndex = null;
             this.builder = null;
         }
+        
     }
 
     /**
      * Check the indexes are up to date.
-     * 
-     * @throws java.io.IOException in case of stamp reading error
-     * @throws org.modelio.vstore.exml.common.index.IndexOutdatedException if the indexes are out of date.
-     * @throws org.modelio.vstore.exml.common.index.IndexException in case of read error.
+     * @throws IOException in case of stamp reading error
+     * @throws IndexOutdatedException if the indexes are out of date.
+     * @throws IndexException in case of read error.
      */
     @objid ("6905f779-4b8b-11e2-91c9-001ec947ccaf")
     public void checkUptodate() throws IOException, IndexOutdatedException, IndexException {
@@ -184,12 +182,12 @@ public class ExmlIndex {
                     getStoredStamp(),
                     stamp));
         }
+        
     }
 
     /**
      * Commit pending changes now, and reset internal counter.
-     * 
-     * @throws org.modelio.vstore.exml.common.index.IndexException in case of index writing failure.
+     * @throws IndexException in case of index writing failure.
      */
     @objid ("43dbc287-3879-11e2-920a-001ec947ccaf")
     public void commitDb() throws IndexException {
@@ -197,12 +195,12 @@ public class ExmlIndex {
         
         this.db.commit();
         this.commitCounter = 0;
+        
     }
 
     /**
      * Close and delete completely the indexes.
-     * 
-     * @throws org.modelio.vstore.exml.common.index.IndexException in case of failure.
+     * @throws IndexException in case of failure.
      */
     @objid ("cf3179b2-03e4-11e2-b5bf-001ec947ccaf")
     public void deleteIndexes() throws IndexException {
@@ -214,13 +212,13 @@ public class ExmlIndex {
         } catch (IOException e) {
             throw convert(e);
         }
+        
     }
 
     /**
      * Get a <i>try-with-resource</i> shield that closes the index on close() unless success() has been called.
      * <p>
      * To be used to close the index when an operation on the resource fails with an exception.
-     * 
      * @return a shield that closes the index on close() unless success() has been called.
      */
     @objid ("39c250ba-1b58-4ff9-91a7-ab79ce48ce2b")
@@ -246,10 +244,9 @@ public class ExmlIndex {
 
     /**
      * Open the indexes and rebuild them if necessary.
-     * 
      * @param aMonitor a progress monitor to report index building and opening.
      * @param metamodel the metamodel
-     * @throws org.modelio.vstore.exml.common.index.IndexException if unable to open and unable to recreate indexes.
+     * @throws IndexException if unable to open and unable to recreate indexes.
      */
     @objid ("f778d0ce-d023-11e1-bf59-001ec947ccaf")
     public void open(IModelioProgress aMonitor, SmMetamodel metamodel) throws IndexException {
@@ -280,15 +277,15 @@ public class ExmlIndex {
         } catch (IOException e) {
             throw convert(e);
         }
+        
     }
 
     /**
      * Remove an object from all indexes.
      * <p>
      * If the object is a CMS node all its content is removed too.
-     * 
      * @param id the identifier to remove
-     * @throws org.modelio.vstore.exml.common.index.IndexException in case of I/O failure.
+     * @throws IndexException in case of I/O failure.
      */
     @objid ("f778d0c2-d023-11e1-bf59-001ec947ccaf")
     public void removeFromIndexes(final ObjId id) throws IndexException {
@@ -303,13 +300,13 @@ public class ExmlIndex {
         getUserNodeIndex().remove(id);
         
         commitSometimes();
+        
     }
 
     /**
      * Update the indexes for the given CMS node.
-     * 
      * @param cmsNodeId a CMS node identifier
-     * @throws org.modelio.vstore.exml.common.index.IndexException if the indexes cannot be modified.
+     * @throws IndexException if the indexes cannot be modified.
      */
     @objid ("fbb237ba-1e83-11e2-90db-001ec947ccaf")
     public void updateIndexes(ObjId cmsNodeId) throws IndexException {
@@ -333,6 +330,7 @@ public class ExmlIndex {
         } catch (IOException e) {
             throw convert(e);
         }
+        
     }
 
     /**
@@ -347,6 +345,7 @@ public class ExmlIndex {
             this.db.commit();
             this.commitCounter = 0;
         }
+        
     }
 
     @objid ("b878a549-e62a-472d-a363-745026388a29")
@@ -357,13 +356,13 @@ public class ExmlIndex {
         } catch (IOException e) {
             throw convert(e);
         }
+        
     }
 
     /**
      * Read the index stamp.
-     * 
      * @return the index stamp.
-     * @throws org.modelio.vstore.exml.common.index.IndexException in case of I/O failure
+     * @throws IndexException in case of I/O failure
      */
     @objid ("964bbe53-b4c1-4b2e-94f5-c478909b5928")
     private String getStoredStamp() throws IndexException {
@@ -372,11 +371,10 @@ public class ExmlIndex {
 
     /**
      * Defragments the index, so it consumes less space. This commits any uncommitted data.
-     * 
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call done()
      * on the given monitor. Accepts null, indicating that no progress should be reported and that the operation cannot
      * be cancelled.
-     * @throws org.modelio.vstore.exml.common.index.IndexException in case of failure
+     * @throws IndexException in case of failure
      */
     @objid ("3fa2dfbe-6770-41c1-be4c-6955841eefb9")
     public void compress(IModelioProgress monitor) throws IndexException {
@@ -400,11 +398,10 @@ public class ExmlIndex {
 
         /**
          * Initialize the shield
-         * 
          * @param resource the resource to close on failure
          */
         @objid ("0007ff9f-57f7-4450-9960-cf7200662e10")
-        public CloseOnFail(ExmlIndex resource) {
+        public  CloseOnFail(ExmlIndex resource) {
             this.resource = resource;
         }
 
@@ -425,6 +422,7 @@ public class ExmlIndex {
                 this.resource.close();
                 this.resource = null;
             }
+            
         }
 
     }

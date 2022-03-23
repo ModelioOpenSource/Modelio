@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnstartevent;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,8 +33,8 @@ import org.modelio.diagram.elements.core.node.IImageableNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.bpmn.events.BpmnStartEvent;
 import org.modelio.metamodel.bpmn.gateways.BpmnComplexGateway;
 import org.modelio.platform.model.ui.swt.images.ElementImageService;
@@ -47,57 +46,34 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("61bc41e4-55b6-11e2-877f-002564c97630")
 public final class GmBpmnStartEventPrimaryNode extends GmNoStyleSimpleNode implements IImageableNode {
+    @objid ("61bc41ee-55b6-11e2-877f-002564c97630")
+    private static final int MAJOR_VERSION = 0;
+
     /**
      * Current version of this Gm. Defaults to 0.
      */
     @objid ("61bc41eb-55b6-11e2-877f-002564c97630")
     private static final int MINOR_VERSION = 0;
 
-    @objid ("61bc41ee-55b6-11e2-877f-002564c97630")
-    private static final int MAJOR_VERSION = 0;
-
     @objid ("fac7c0e7-d9bf-47ec-8176-f4004fa807c8")
     private BpmnImageRefHolder imageHolder = new BpmnImageRefHolder();
 
     /**
      * Create a initial graphic node.
-     * 
      * @param diagram The diagram
      * @param relatedRef The related element reference, may not be null.
      */
     @objid ("61bc41f0-55b6-11e2-877f-002564c97630")
-    public GmBpmnStartEventPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
+    public  GmBpmnStartEventPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
-    @objid ("61bc41f9-55b6-11e2-877f-002564c97630")
-    @Override
-    public BpmnStartEvent getRelatedElement() {
-        return (BpmnStartEvent) super.getRelatedElement();
-    }
-
-    @objid ("61bc4200-55b6-11e2-877f-002564c97630")
-    @Override
-    public void refreshFromObModel() {
-        if (getRelatedElement() != null) {
-            firePropertyChange(IGmObject.PROPERTY_LABEL, null, getRelatedElement().getName());
-        }
-        
-        if (this.imageHolder.updateImageRef(getRelatedElement())) {
-            GmCompositeNode gm_parent = getParentNode();
-            if (gm_parent != null) {
-                gm_parent.removeChild(this);
-                gm_parent.addChild(this);
-            }
-        }
-        // forcing visual refresh in case Image changed
-        firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, null, getLayoutData());
-    }
-
-    @objid ("61bdc85a-55b6-11e2-877f-002564c97630")
-    @Override
-    public void obElementAdded(MObject movedEl) {
-        refreshFromObModel();
+    /**
+     * Constructor for deserialization only.
+     */
+    @objid ("61bdc884-55b6-11e2-877f-002564c97630")
+    public  GmBpmnStartEventPrimaryNode() {
+        // for the serialization
     }
 
     @objid ("61bdc860-55b6-11e2-877f-002564c97630")
@@ -110,24 +86,6 @@ public final class GmBpmnStartEventPrimaryNode extends GmNoStyleSimpleNode imple
     @Override
     public boolean canUnmask(MObject el) {
         return false;
-    }
-
-    /**
-     * Get the parent model representation mode.
-     * 
-     * @return the parent representation mode or null if the node has still no parent.
-     */
-    @objid ("61bdc870-55b6-11e2-877f-002564c97630")
-    @Override
-    public RepresentationMode getRepresentationMode() {
-        final StyleKey repModeKey = GmBpmnStartEvent.STRUCTURED_KEYS.getStyleKey(MetaKey.REPMODE);
-        return getDisplayedStyle().getProperty(repModeKey);
-    }
-
-    @objid ("61bdc878-55b6-11e2-877f-002564c97630")
-    @Override
-    public Image getImage() {
-        return ElementImageService.getImage(getRelatedElement());
     }
 
     @objid ("61bdc87d-55b6-11e2-877f-002564c97630")
@@ -146,14 +104,45 @@ public final class GmBpmnStartEventPrimaryNode extends GmNoStyleSimpleNode imple
                             }
                 
                         };
+        
+    }
+
+    @objid ("c1a73c2e-f5c9-4735-8658-02910c30c5cd")
+    public Image getEventImage() {
+        Image image = DiagramEditorBpmn.getImageRegistry().getImage(this.imageHolder.getImageRef(getRelatedElement()));
+        if (image == null) {
+            image = DiagramEditorBpmn.getImageRegistry().getImage(BpmnStartEvent.MNAME);
+        }
+        return image;
+    }
+
+    @objid ("61bdc878-55b6-11e2-877f-002564c97630")
+    @Override
+    public Image getImage() {
+        return ElementImageService.getImage(getRelatedElement());
+    }
+
+    @objid ("61bdc898-55b6-11e2-877f-002564c97630")
+    @Override
+    public int getMajorVersion() {
+        return GmBpmnStartEventPrimaryNode.MAJOR_VERSION;
+    }
+
+    @objid ("61bc41f9-55b6-11e2-877f-002564c97630")
+    @Override
+    public BpmnStartEvent getRelatedElement() {
+        return (BpmnStartEvent) super.getRelatedElement();
     }
 
     /**
-     * Constructor for deserialization only.
+     * Get the parent model representation mode.
+     * @return the parent representation mode or null if the node has still no parent.
      */
-    @objid ("61bdc884-55b6-11e2-877f-002564c97630")
-    public GmBpmnStartEventPrimaryNode() {
-        // for the serialization
+    @objid ("61bdc870-55b6-11e2-877f-002564c97630")
+    @Override
+    public RepresentationMode getRepresentationMode() {
+        final StyleKey repModeKey = GmBpmnStartEvent.STRUCTURED_KEYS.getStyleKey(MetaKey.REPMODE);
+        return getDisplayedStyle().getProperty(repModeKey);
     }
 
     @objid ("61bdc887-55b6-11e2-877f-002564c97630")
@@ -173,6 +162,26 @@ public final class GmBpmnStartEventPrimaryNode extends GmNoStyleSimpleNode imple
             break;
         }
         }
+        
+    }
+
+    @objid ("61bc4200-55b6-11e2-877f-002564c97630")
+    @Override
+    public void refreshFromObModel() {
+        if (getRelatedElement() != null) {
+            firePropertyChange(IGmObject.PROPERTY_LABEL, null, getRelatedElement().getName());
+        }
+        
+        if (this.imageHolder.updateImageRef(getRelatedElement())) {
+            GmCompositeNode gm_parent = getParentNode();
+            if (gm_parent != null) {
+                gm_parent.removeChild(this);
+                gm_parent.addChild(this);
+            }
+        }
+        // forcing visual refresh in case Image changed
+        firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("61bdc88d-55b6-11e2-877f-002564c97630")
@@ -182,26 +191,12 @@ public final class GmBpmnStartEventPrimaryNode extends GmNoStyleSimpleNode imple
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmBpmnStartEventPrimaryNode.", GmBpmnStartEventPrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("61bdc893-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
-    }
-
-    @objid ("61bdc898-55b6-11e2-877f-002564c97630")
-    @Override
-    public int getMajorVersion() {
-        return GmBpmnStartEventPrimaryNode.MAJOR_VERSION;
-    }
-
-    @objid ("c1a73c2e-f5c9-4735-8658-02910c30c5cd")
-    public Image getEventImage() {
-        Image image = DiagramEditorBpmn.getImageRegistry().getImage(this.imageHolder.getImageRef(getRelatedElement()));
-        if (image == null) {
-            image = DiagramEditorBpmn.getImageRegistry().getImage(BpmnStartEvent.MNAME);
-        }
-        return image;
     }
 
 }

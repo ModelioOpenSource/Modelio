@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.finaliser.subplan;
 
 import java.util.ArrayList;
@@ -47,12 +46,13 @@ public class SubProcessActivityPlan {
     private BPMNPlane jaxPlan;
 
     @objid ("ca5161bb-057f-40d8-8fdc-34bbafae11ba")
-    public SubProcessActivityPlan(BehaviorDiagram modelioDiagram, Bounds bounds) {
+    public  SubProcessActivityPlan(BehaviorDiagram modelioDiagram, Bounds bounds) {
         this.modelioDiagram = modelioDiagram;
         this.jaxbDiagram = new BPMNDiagram();
         this.jaxPlan = new BPMNPlane();
         this.jaxbDiagram.setBPMNPlane(this.jaxPlan);
         this.bounds = bounds;
+        
     }
 
     @objid ("8179e1bd-27a5-45e3-84a6-112242c5cef4")
@@ -76,6 +76,7 @@ public class SubProcessActivityPlan {
         
         ObjectFactory factory = new ObjectFactory();
         this.jaxPlan.getDiagramElement().add(factory.createBPMNShape(jaxShape));
+        
     }
 
     @objid ("1239c951-becf-4c0d-9afa-fe11d23c61e2")
@@ -95,6 +96,7 @@ public class SubProcessActivityPlan {
         
         ObjectFactory factory = new ObjectFactory();
         this.jaxPlan.getDiagramElement().add(factory.createBPMNEdge(jaxEdge));
+        
     }
 
     @objid ("aa115d45-51cb-42aa-9399-4bff8ecdfe03")

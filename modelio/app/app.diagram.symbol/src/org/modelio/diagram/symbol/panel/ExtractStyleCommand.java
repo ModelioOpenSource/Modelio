@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.symbol.panel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,9 +42,10 @@ class ExtractStyleCommand {
     private Shell shell;
 
     @objid ("ace8a2f6-0eac-4e11-a3f2-263ce1c2e110")
-    public ExtractStyleCommand(ISymbolPanelModel model) {
+    public  ExtractStyleCommand(ISymbolPanelModel model) {
         this.model = model;
         this.shell = model.getSwtShell();
+        
     }
 
     @objid ("5bfaf6a9-7470-47fc-943a-0bde7d17d9e7")
@@ -82,10 +82,12 @@ class ExtractStyleCommand {
             return;
         }
         
+        // Create the style
         final NamedStyle newStyle = DiagramStyles.getStyleManager().createStyle(name, parentStyle.getName(), createTheme);
         if (newStyle != null) {
             editedStyle.setBaseStyle(newStyle);
         
+            // Add local properties
             StyleKey[] styleKeysToExtract;
             if (allLocals) {
                 styleKeysToExtract = editedStyle.getLocalKeys().toArray(new StyleKey[0]);
@@ -102,7 +104,10 @@ class ExtractStyleCommand {
                 editedStyle.normalize(styleKey);
             }
         
+            // Persist the style
+            DiagramStyles.getStyleManager().save(newStyle);
         }
+        
     }
 
 }

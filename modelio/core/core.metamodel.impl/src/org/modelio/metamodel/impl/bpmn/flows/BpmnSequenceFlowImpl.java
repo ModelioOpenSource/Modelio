@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.flows;
 
 import java.util.ArrayList;
@@ -37,7 +37,6 @@ import org.modelio.metamodel.bpmn.gateways.BpmnExclusiveGateway;
 import org.modelio.metamodel.bpmn.gateways.BpmnInclusiveGateway;
 import org.modelio.metamodel.bpmn.objects.BpmnSequenceFlowDataAssociation;
 import org.modelio.metamodel.bpmn.rootElements.BpmnFlowNode;
-import org.modelio.metamodel.impl.bpmn.flows.BpmnSequenceFlowData;
 import org.modelio.metamodel.impl.bpmn.rootElements.BpmnFlowElementImpl;
 import org.modelio.metamodel.visitors.IModelVisitor;
 import org.modelio.vcore.smkernel.SmConstrainedList;
@@ -158,6 +157,7 @@ public class BpmnSequenceFlowImpl extends BpmnFlowElementImpl implements BpmnSeq
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("9ac3f569-5329-402c-a286-ab8ff584cc2e")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.bpmn.processCollaboration;
 
 import java.util.Arrays;
@@ -33,65 +32,68 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  */
 @objid ("003a17f4-91e1-1f74-804b-001ec947cd2a")
 public enum BpmnProcessType {
-    NONEPROCESS (0, "NoneProcess", "NoneProcess"),
-    PUBLICPROCESS (1, "PublicProcess", "PublicProcess"),
-    PRIVATEPROCESS (2, "PrivateProcess", "PrivateProcess");
-
+    @objid ("d980125a-6cf1-4780-83c2-c9ac19f09f1d")
+    NONEPROCESS(0, "NoneProcess", "NoneProcess"),
+    @objid ("8379b669-28b7-4ae6-b480-4f1f026a7b2c")
+    PUBLICPROCESS(1, "PublicProcess", "PublicProcess"),
+    @objid ("e4da0601-caa7-4b7d-aad2-37d70aa36061")
+    PRIVATEPROCESS(2, "PrivateProcess", "PrivateProcess");
 public static final int NONEPROCESS_VALUE = 0;
-public static final int PUBLICPROCESS_VALUE = 1;
-public static final int PRIVATEPROCESS_VALUE = 2;
-private static final BpmnProcessType[] VALUES_ARRAY =
-new BpmnProcessType[] {
-NONEPROCESS,
-PUBLICPROCESS,
-PRIVATEPROCESS,
-};
-public static final List<BpmnProcessType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
-public static BpmnProcessType get(String literal) {
-  for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-    BpmnProcessType result = VALUES_ARRAY[i];
-    if (result.toString().equals(literal)) {
-       return result;
+    public static final int PUBLICPROCESS_VALUE = 1;
+    public static final int PRIVATEPROCESS_VALUE = 2;
+    private static final BpmnProcessType[] VALUES_ARRAY =
+    new BpmnProcessType[] {
+    NONEPROCESS,
+    PUBLICPROCESS,
+    PRIVATEPROCESS,
+    };
+    public static final List<BpmnProcessType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static BpmnProcessType get(String literal) {
+      for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+        BpmnProcessType result = VALUES_ARRAY[i];
+        if (result.toString().equals(literal)) {
+           return result;
+        }
+      }
+      return null;
     }
-  }
-  return null;
-}
-public static BpmnProcessType getByName(String name) {
-    for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-BpmnProcessType result = VALUES_ARRAY[i];
-if (result.getName().equals(name)) {
-return result;
-}
-}
-return null;
-}
-public static BpmnProcessType get(int value) {
-    switch (value) {
-        case NONEPROCESS_VALUE: return NONEPROCESS;
-        case PUBLICPROCESS_VALUE: return PUBLICPROCESS;
-        case PRIVATEPROCESS_VALUE: return PRIVATEPROCESS;
+    public static BpmnProcessType getByName(String name) {
+        for (int i = 0; i < VALUES_ARRAY.length; ++i) {
+    BpmnProcessType result = VALUES_ARRAY[i];
+    if (result.getName().equals(name)) {
+    return result;
+    }
     }
     return null;
-}
-private final int value;
-private final String name;
-private final String literal;
-private BpmnProcessType(int value, String name, String literal) {
-  this.value = value;
-  this.name = name;
-  this.literal = literal;
-}
-public int getValue() {
-   return value;
-}
- public String getName() {
-    return name;
-}
-public String getLiteral() {
-  return literal;
-}
- @Override
-public String toString() {
-   return literal;
-}
+    }
+    public static BpmnProcessType get(int value) {
+        switch (value) {
+            case NONEPROCESS_VALUE: return NONEPROCESS;
+            case PUBLICPROCESS_VALUE: return PUBLICPROCESS;
+            case PRIVATEPROCESS_VALUE: return PRIVATEPROCESS;
+        }
+        return null;
+    }
+    private final int value;
+    private final String name;
+    private final String literal;
+    private BpmnProcessType(int value, String name, String literal) {
+      this.value = value;
+      this.name = name;
+      this.literal = literal;
+    }
+    public int getValue() {
+       return value;
+    }
+     public String getName() {
+        return name;
+    }
+    public String getLiteral() {
+      return literal;
+    }
+     @Override
+    public String toString() {
+       return literal;
+    }
+    
 }

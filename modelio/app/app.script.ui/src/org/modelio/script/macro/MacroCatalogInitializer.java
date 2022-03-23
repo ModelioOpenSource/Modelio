@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.script.macro;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,6 +35,7 @@ class MacroCatalogInitializer {
     private static void execute(IEclipseContext context) {
         context.set(org.modelio.script.macro.IMacroService.class,
                 ContextInjectionFactory.make(org.modelio.script.macro.MacroService.class, context));
+        
     }
 
 }

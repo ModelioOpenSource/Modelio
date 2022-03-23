@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.form.fields;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,7 +35,7 @@ public class BooleanField extends AbstractField {
     private Button checkbox;
 
     @objid ("9bf1e227-3381-46cb-8897-ae676651a934")
-    public BooleanField(FormToolkit toolkit, Composite parent, IFormFieldData model) {
+    public  BooleanField(FormToolkit toolkit, Composite parent, IFormFieldData model) {
         super(toolkit, parent, model);
     }
 

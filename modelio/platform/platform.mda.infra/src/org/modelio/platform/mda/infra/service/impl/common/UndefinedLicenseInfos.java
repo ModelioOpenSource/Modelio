@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.common;
 
 import java.util.Date;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.module.license.ILicenseInfos;
+import org.modelio.api.module.license.ILicenseInfos.Status;
 
 @objid ("c359952a-6f33-4b47-9986-ac739b63c8ad")
 public class UndefinedLicenseInfos implements ILicenseInfos {

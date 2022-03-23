@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.load;
 
 import java.util.List;
@@ -43,7 +42,7 @@ class AccessManagerModelLoader implements IModelLoader {
     private IModelLoader origin;
 
     @objid ("a8d99b55-42ee-11e2-91c9-001ec947ccaf")
-    AccessManagerModelLoader(ModelLoader modelLoader) {
+     AccessManagerModelLoader(ModelLoader modelLoader) {
         this.origin = modelLoader;
     }
 
@@ -77,6 +76,7 @@ class AccessManagerModelLoader implements IModelLoader {
         assert (att == obj.getClassOf().statusAtt()) : att + " is not the status attribute.";
         
         att.setValue(obj.getData(), newValue);
+        
     }
 
     @objid ("a8d99b7d-42ee-11e2-91c9-001ec947ccaf")

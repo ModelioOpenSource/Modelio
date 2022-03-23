@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.api;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,6 @@ public interface IRichNoteDiffMerger {
      * Compare the first element with the second one.
      * <p>
      * The merge result is saved in the first element.
-     * 
      * @param element The element to diff/merge into.
      * @param compareWith The element compared with.
      */

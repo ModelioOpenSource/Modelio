@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,14 +33,17 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
  */
 @objid ("d382b938-47a9-479e-a55d-85e21c3f1348")
 enum LoopType {
+    @objid ("1154e8e0-72ea-4a6c-a54e-9ea971c97cb9")
     MultiInstanceParallel,
+    @objid ("5d938e38-4642-41e2-908e-bae3c5bfb75b")
     MultiInstanceSequential,
+    @objid ("f7ed7e8c-24f2-42de-8fcb-b80973375ff0")
     None,
+    @objid ("8d5e3d20-998d-4b9f-a07b-ab99f0695f30")
     Standard;
 
     /**
      * Get Loop Characteristics of an activity.
-     * 
      * @param activity the edited activity.
      * @return a LoopType.
      */
@@ -64,7 +66,6 @@ enum LoopType {
     /**
      * Update Loop Characteristics
      * @param modelService model services, to create elements.
-     * 
      * @param type type
      * @param activity activity
      */
@@ -98,6 +99,7 @@ enum LoopType {
         default:
             break;
         }
+        
     }
 
 }

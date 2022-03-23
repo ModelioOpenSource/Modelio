@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.lifeline;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,7 +43,6 @@ import org.modelio.uml.sequencediagram.editor.elements.sequencediagram.Placement
 public class LifelineEditPart extends AbstractNodeEditPart implements IPlacementConstraintProvider {
     /**
      * Creates and returns a PlacementConstraint for the given model.
-     * 
      * @param model the graphic model for which a constraint is to be created.
      * @param x the desired X coordinate in coordinates relative to the parent figure.
      * @param y the desired Y coordinate in coordinates relative to the parent figure.
@@ -61,6 +59,7 @@ public class LifelineEditPart extends AbstractNodeEditPart implements IPlacement
                                 width,
                                 height,
                                 (GmSequenceDiagram) model.getDiagram());
+        
     }
 
     @objid ("d94b408d-55b6-11e2-877f-002564c97630")
@@ -78,6 +77,7 @@ public class LifelineEditPart extends AbstractNodeEditPart implements IPlacement
             childModel.setLayoutData(BorderLayout.CENTER);
         }
         getContentPane().add(child, childModel.getLayoutData(), index);
+        
     }
 
     @objid ("d94b4092-55b6-11e2-877f-002564c97630")
@@ -99,6 +99,7 @@ public class LifelineEditPart extends AbstractNodeEditPart implements IPlacement
     protected void refreshVisuals() {
         GmLifeline lifelineModel = (GmLifeline) getModel();
         getFigure().getParent().setConstraint(getFigure(), lifelineModel.getLayoutData());
+        
     }
 
     /**
@@ -110,6 +111,7 @@ public class LifelineEditPart extends AbstractNodeEditPart implements IPlacement
         IFigure childFigure = ((GraphicalEditPart) child).getFigure();
         super.reorderChild(child, index);
         setLayoutConstraint(child, childFigure, ((GmAbstractObject) child.getModel()).getLayoutData());
+        
     }
 
     @objid ("3f75c074-6fc1-41a5-9692-f14509f56479")
@@ -118,6 +120,7 @@ public class LifelineEditPart extends AbstractNodeEditPart implements IPlacement
         super.createEditPolicies();
         
         installEditPolicy(EditPolicy.LAYOUT_ROLE, new AutoExpandLayoutEditPolicy());
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.gef.tools;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -103,7 +102,6 @@ public class PanSelectionTool extends SelectionTool {
     /**
      * Returns the cursor used under normal conditions.
      * @see #setDefaultCursor(Cursor)
-     * 
      * @return the default cursor
      */
     @objid ("1bb75786-5e33-11e2-b81d-002564c97630")
@@ -155,6 +153,7 @@ public class PanSelectionTool extends SelectionTool {
             return false;
         } else
             return super.handleButtonDown(which);
+        
     }
 
     /**
@@ -169,6 +168,7 @@ public class PanSelectionTool extends SelectionTool {
         } else {
             return super.handleButtonUp(which);
         }
+        
     }
 
     /**
@@ -215,6 +215,7 @@ public class PanSelectionTool extends SelectionTool {
         } else {
             return super.handleDrag();
         }
+        
     }
 
     /**
@@ -233,7 +234,7 @@ public class PanSelectionTool extends SelectionTool {
     }
 
     @objid ("cfd08ae1-1be6-4bdd-b882-5ca78c02a142")
-    public PanSelectionTool(IModelioNavigationService navigationService) {
+    public  PanSelectionTool(IModelioNavigationService navigationService) {
         this.navigationService = navigationService;
     }
 

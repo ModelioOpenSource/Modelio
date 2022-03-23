@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.view.providers.byrules;
 
 import java.util.HashMap;
@@ -39,9 +38,10 @@ public class ByRuleContentProvider implements ITreeContentProvider {
     private Map<String, AuditRuleModel> elementsMap;
 
     @objid ("0c3d56ce-b71c-45d1-8cfe-6cc3e097db70")
-    public ByRuleContentProvider(String jobId) {
+    public  ByRuleContentProvider(String jobId) {
         this.jobId = jobId;
         this.elementsMap = new HashMap<>();
+        
     }
 
     @objid ("50cb486a-67bc-46f2-a0a7-3b0bd190cc72")

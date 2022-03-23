@@ -14,13 +14,11 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.context.project;
 
 import java.nio.file.Path;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.api.module.context.project.IModuleStructure;
 
 /**
  * This interface describes the Modelio project itself: ie its name, path, type...
@@ -34,7 +32,6 @@ import org.modelio.api.module.context.project.IModuleStructure;
 public interface IProjectStructure {
     /**
      * Get the project's name.
-     * 
      * @return the project's name.
      */
     @objid ("22daa599-ccdd-4c45-a054-fb3bc6f54d15")
@@ -42,7 +39,6 @@ public interface IProjectStructure {
 
     /**
      * Get the project type, either <b>LOCAL</b> or <b>HTTP</b>.
-     * 
      * @return the project type.
      */
     @objid ("93510ff2-68ee-42d1-a1fe-a3123ee56fc2")
@@ -50,7 +46,6 @@ public interface IProjectStructure {
 
     /**
      * Get the project directory i.e. the project.conf location.
-     * 
      * @return the directory containing the project.conf.
      */
     @objid ("dc8ba239-9da0-4a89-83c5-1cabf44c58d4")
@@ -62,7 +57,6 @@ public interface IProjectStructure {
      * Returns <code>null</code> for <b>LOCAL</b> projects.
      * </p>
      * @see #getType()
-     * 
      * @return the project remote location.
      */
     @objid ("ac3b1702-359f-4746-95a7-54743ff04a59")
@@ -73,7 +67,6 @@ public interface IProjectStructure {
      * <p>
      * The returned list is not modifiable.
      * </p>
-     * 
      * @return all model fragments.
      */
     @objid ("c6c92167-5308-44f3-8b97-47d60b2e72bd")
@@ -84,7 +77,6 @@ public interface IProjectStructure {
      * <p>
      * The returned list is not modifiable.
      * </p>
-     * 
      * @return all model fragments.
      */
     @objid ("31f17644-a9a3-41cd-85c7-3106358e992a")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.viewer;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -52,7 +51,7 @@ public class ModelioDefaultBodyLayerStack extends AbstractIndexLayerTransform {
     private final ViewportLayer viewportLayer;
 
     @objid ("19b323e3-8298-4144-a1cc-ca1107792d0d")
-    public ModelioDefaultBodyLayerStack(IUniqueIndexLayer underlyingLayer) {
+    public  ModelioDefaultBodyLayerStack(IUniqueIndexLayer underlyingLayer) {
         this.columnReorderLayer = new ColumnReorderLayer(underlyingLayer);
         this.columnHideShowLayer = new ColumnHideShowLayer(this.columnReorderLayer);
         
@@ -64,6 +63,7 @@ public class ModelioDefaultBodyLayerStack extends AbstractIndexLayerTransform {
         setUnderlyingLayer(this.viewportLayer);
         
         registerCommandHandler(new CopyDataCommandHandler(this.selectionLayer));
+        
     }
 
     @objid ("db64b221-a8c9-42ca-9c69-1b26543a2918")

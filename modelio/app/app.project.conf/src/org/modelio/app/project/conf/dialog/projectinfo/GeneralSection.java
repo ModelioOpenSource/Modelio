@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.projectinfo;
 
 import java.io.File;
@@ -129,11 +128,10 @@ class GeneralSection {
 
     /**
      * C'tor
-     * 
      * @param msgManager message manager to report validation errors
      */
     @objid ("a7459d5d-33f6-11e2-a514-002564c97630")
-    public GeneralSection(IMessageManager msgManager) {
+    public  GeneralSection(IMessageManager msgManager) {
         this.msgManager = msgManager;
     }
 
@@ -221,6 +219,7 @@ class GeneralSection {
         } else {
             fillFields(projectAdapter);
         }
+        
     }
 
     @objid ("a745c449-33f6-11e2-a514-002564c97630")
@@ -240,6 +239,7 @@ class GeneralSection {
         this.deleteProjectIconBtn.setEnabled(this.projectIcon != null && isPropertyModifiable(GeneralSection.INFO_PROJECT_ICON_NAME));
         this.selectProjectLogoBtn.setEnabled(isPropertyModifiable(GeneralSection.INFO_PROJECT_LOGO_NAME));
         this.selectProjectIconBtn.setEnabled(isPropertyModifiable(GeneralSection.INFO_PROJECT_ICON_NAME));
+        
     }
 
     @objid ("a745c44c-33f6-11e2-a514-002564c97630")
@@ -250,11 +250,11 @@ class GeneralSection {
         this.projectDescription.setEnabled(false);
         this.projectContact.setText(""); //$NON-NLS-1$
         this.projectContact.setEnabled(false);
+        
     }
 
     /**
      * Loads and display the icon matching a project property.
-     * 
      * @param propertyName a project property name
      */
     @objid ("fdfe9f7b-571a-4ef2-9d8f-faeb39461f3f")
@@ -276,6 +276,7 @@ class GeneralSection {
         }
         
         setImageToLabel(label, image);
+        
     }
 
     /**
@@ -304,6 +305,7 @@ class GeneralSection {
             iconLabel.setImage(aIcon);
             iconLabel.setVisible(aIcon != null);
         }
+        
     }
 
     @objid ("7f5308ca-d826-400c-9ebc-e6f91b48316d")
@@ -436,6 +438,7 @@ class GeneralSection {
         }
         
         this.displayedProject.getProperties().remove(propertyName);
+        
     }
 
     @objid ("19efde6b-b55e-4ede-8782-90540bb904ec")
@@ -508,6 +511,7 @@ class GeneralSection {
             }
         
         });
+        
     }
 
     /**
@@ -542,6 +546,7 @@ class GeneralSection {
             this.projectIcon.dispose();
             this.projectIcon = null;
         }
+        
     }
 
     @objid ("7aae0861-481f-4404-a61b-d120c4b426e5")
@@ -573,6 +578,7 @@ class GeneralSection {
         } else {
             return createImageFromUrl(imageName);
         }
+        
     }
 
     @objid ("f0b7b07e-e796-4a52-95cb-e08de1fc0a08")
@@ -584,6 +590,7 @@ class GeneralSection {
             // ignore exception and return null
             return null;
         }
+        
     }
 
     /**
@@ -596,7 +603,6 @@ class GeneralSection {
      * <li>the resolved path matches an existing file.
      * </ul>
      * Returns <i>null</i> in all other cases.
-     * 
      * @param propertyName a project property name
      * @return the image path if found, else <i>null</i>.
      */
@@ -608,6 +614,7 @@ class GeneralSection {
         } else {
             return null;
         }
+        
     }
 
     @objid ("d1069c82-e62b-48be-85cd-04810bcf7d29")
@@ -619,7 +626,7 @@ class GeneralSection {
     @objid ("8b8c5b38-3ec5-11e2-8121-002564c97630")
     private class GeneralModificationListener implements ModifyListener {
         @objid ("8b8c5b39-3ec5-11e2-8121-002564c97630")
-        public GeneralModificationListener() {
+        public  GeneralModificationListener() {
             // Empty constructor
         }
 
@@ -631,6 +638,7 @@ class GeneralSection {
             } else if (e.widget == GeneralSection.this.projectContact) {
                 GeneralSection.this.displayedProject.getProperties().setProperty(GeneralSection.INFO_CONTACT, GeneralSection.this.projectContact.getText(), DefinitionScope.LOCAL);
             }
+            
         }
 
     }

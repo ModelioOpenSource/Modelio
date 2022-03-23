@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Diagram Elements
 Bundle-SymbolicName: org.modelio.app.diagram.elements;singleton:=true
-Bundle-Version: 4.1.0.qualifier
+Bundle-Version: 5.1.0.qualifier
 Require-Bundle: org.eclipse.core.runtime,
  org.modelio.platform.utils,
  org.modelio.platform.ui,
@@ -26,7 +26,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.modelio.app.editors.richnote,
  org.eclipse.ui.workbench,
  org.modelio.core.project.data,
- org.modelio.platform.rcp
+ org.modelio.platform.rcp,
+ org.modelio.app.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ClassPath: res/,
  .,
@@ -73,10 +74,12 @@ Export-Package: org.modelio.diagram.elements.common.abstractdiagram,
  org.modelio.diagram.elements.core.helpers.palapi,
  org.modelio.diagram.elements.core.link,
  org.modelio.diagram.elements.core.link.anchors,
+ org.modelio.diagram.elements.core.link.anchors.fixed,
  org.modelio.diagram.elements.core.link.createhandle,
  org.modelio.diagram.elements.core.link.extensions,
  org.modelio.diagram.elements.core.link.linknode,
  org.modelio.diagram.elements.core.link.ortho,
+ org.modelio.diagram.elements.core.link.ortho.edit,
  org.modelio.diagram.elements.core.link.path,
  org.modelio.diagram.elements.core.link.rake,
  org.modelio.diagram.elements.core.model,

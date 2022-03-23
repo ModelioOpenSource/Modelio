@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.admtool.handlers;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.nio.file.FileSystemException;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
@@ -79,6 +78,7 @@ public class RebuildIndexesHandler implements IRunnableWithProgress {
                 statusReporter.show(StatusReporter.ERROR, AdmTool.I18N.getMessage("RebuildIndexesHandler.Failed"), e);
             }
         }
+        
     }
 
     @objid ("19c03ccc-14fd-4207-b574-a8637c4de960")
@@ -93,6 +93,7 @@ public class RebuildIndexesHandler implements IRunnableWithProgress {
         } catch (RuntimeException e) {
             throw new InvocationTargetException(e, e.toString());
         }
+        
     }
 
 }

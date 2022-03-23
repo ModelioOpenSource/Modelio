@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.choice;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,12 +50,11 @@ public class GmChoicePrimaryNode extends GmNoStyleSimpleNode implements IImageab
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the sendSignal is unmasked.
      * @param relatedRef related element reference, must not be <code>null</code>.
      */
     @objid ("f4f48ce5-55b6-11e2-877f-002564c97630")
-    public GmChoicePrimaryNode(IGmDiagram diagram, MRef relatedRef) {
+    public  GmChoicePrimaryNode(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -74,6 +72,7 @@ public class GmChoicePrimaryNode extends GmNoStyleSimpleNode implements IImageab
         }
         // forcing visual refresh in case Image changed 
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("f4f48cf8-55b6-11e2-877f-002564c97630")
@@ -116,13 +115,14 @@ public class GmChoicePrimaryNode extends GmNoStyleSimpleNode implements IImageab
                                                                                     }
                                                                         
                                                                                 };
+        
     }
 
     /**
      * Constructor for deserialization only.
      */
     @objid ("f4f48d1b-55b6-11e2-877f-002564c97630")
-    public GmChoicePrimaryNode() {
+    public  GmChoicePrimaryNode() {
         // empty for the serialization
     }
 
@@ -143,6 +143,7 @@ public class GmChoicePrimaryNode extends GmNoStyleSimpleNode implements IImageab
             break;
         }
         }
+        
     }
 
     @objid ("f4f6137f-55b6-11e2-877f-002564c97630")
@@ -152,6 +153,7 @@ public class GmChoicePrimaryNode extends GmNoStyleSimpleNode implements IImageab
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmChoicePrimaryNode.", GmChoicePrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("f4f61385-55b6-11e2-877f-002564c97630")

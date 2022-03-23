@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.generalization;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -65,6 +64,7 @@ public class GeneralizationEditPart extends LinkEditPart {
         if (genFigure.getTargetDecoration() != null && gmModel.getStyleKey(MetaKey.FILLCOLOR) != null)
             genFigure.getTargetDecoration()
                      .setBackgroundColor(style.getColor(gmModel.getStyleKey(MetaKey.FILLCOLOR)));
+        
     }
 
 }

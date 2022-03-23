@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,17 +49,15 @@ public class BpmnFlowNodePropertyModel extends AbstractPropertyModel<BpmnFlowNod
 
     /**
      * Create a new <i>BpmnFlowNode</i> data model from an <i>BpmnFlowNode</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("b23ef9be-2254-4fe2-9343-2b8a2c9af635")
-    public BpmnFlowNodePropertyModel(BpmnFlowNode theEditedElement) {
+    public  BpmnFlowNodePropertyModel(BpmnFlowNode theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("6e58892b-98fb-42b9-9eb1-2bb9f07c2fe9")
@@ -71,7 +68,6 @@ public class BpmnFlowNodePropertyModel extends AbstractPropertyModel<BpmnFlowNod
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("f1124493-e291-42ec-bd09-68b68a40a53e")
@@ -84,7 +80,6 @@ public class BpmnFlowNodePropertyModel extends AbstractPropertyModel<BpmnFlowNod
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -106,6 +101,7 @@ public class BpmnFlowNodePropertyModel extends AbstractPropertyModel<BpmnFlowNod
         default:
             return null;
         }
+        
     }
 
     /**
@@ -115,7 +111,6 @@ public class BpmnFlowNodePropertyModel extends AbstractPropertyModel<BpmnFlowNod
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -138,13 +133,13 @@ public class BpmnFlowNodePropertyModel extends AbstractPropertyModel<BpmnFlowNod
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -169,6 +164,7 @@ public class BpmnFlowNodePropertyModel extends AbstractPropertyModel<BpmnFlowNod
         default:
             return;
         }
+        
     }
 
 }

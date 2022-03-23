@@ -17,20 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure.matrix;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.infrastructure.ElementSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.ExternProcessorSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.matrix.MatrixDefinitionSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.matrix.MatrixValueDefinitionData;
 import org.modelio.metamodel.impl.uml.infrastructure.properties.PropertyTableSmClass;
 import org.modelio.metamodel.uml.infrastructure.Element;
 import org.modelio.metamodel.uml.infrastructure.ExternProcessor;
@@ -60,7 +58,7 @@ public class MatrixValueDefinitionSmClass extends ElementSmClass {
     private SmDependency matrixDep;
 
     @objid ("1bf5a708-04a6-4bbf-84ed-91d06b41d6f3")
-    public MatrixValueDefinitionSmClass(ISmMetamodelFragment origin) {
+    public  MatrixValueDefinitionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -68,6 +66,7 @@ public class MatrixValueDefinitionSmClass extends ElementSmClass {
     @Override
     public String getName() {
         return "MatrixValueDefinition";
+        
     }
 
     @objid ("0e102f2b-6f7c-4eb1-8ae9-48f5ad53b61b")
@@ -80,18 +79,21 @@ public class MatrixValueDefinitionSmClass extends ElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return MatrixValueDefinition.class;
+        
     }
 
     @objid ("62d18237-c9da-4855-997f-1c64bf5dcb31")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("e4d523ac-a0bd-40f4-be92-744107f5d4da")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("dd1f3228-f704-4590-88d0-de6a8b6a6378")
@@ -115,6 +117,8 @@ public class MatrixValueDefinitionSmClass extends ElementSmClass {
         this.matrixDep = new MatrixSmDependency();
         this.matrixDep.init("Matrix", this, metamodel.getMClass(MatrixDefinition.MQNAME), 1, 1 );
         registerDependency(this.matrixDep);
+        
+        
     }
 
     @objid ("5ddd0fe1-0ae5-4b31-94c0-de5328d0120f")
@@ -147,7 +151,7 @@ public class MatrixValueDefinitionSmClass extends ElementSmClass {
         private MatrixValueDefinitionSmClass smClass;
 
         @objid ("03c12a9f-d934-4802-8e28-284768eedf0d")
-        public MatrixValueDefinitionObjectFactory(MatrixValueDefinitionSmClass smClass) {
+        public  MatrixValueDefinitionObjectFactory(MatrixValueDefinitionSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -189,6 +193,7 @@ public class MatrixValueDefinitionSmClass extends ElementSmClass {
             	this.symetricDep = ((ExternProcessorSmClass)this.getTarget()).getOwnerValDefDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -217,6 +222,7 @@ public class MatrixValueDefinitionSmClass extends ElementSmClass {
             	this.symetricDep = ((PropertyTableSmClass)this.getTarget()).getOwnerValDefDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -245,6 +251,7 @@ public class MatrixValueDefinitionSmClass extends ElementSmClass {
             	this.symetricDep = ((MatrixDefinitionSmClass)this.getTarget()).getValuesDefinitionDep();
             }
             return this.symetricDep;
+            
         }
 
     }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.label.name;
 
 import java.beans.PropertyChangeEvent;
@@ -44,19 +43,19 @@ public class NameSimpleLabelEditPart extends AbstractNodeEditPart {
      * Default constructor for deserialization.
      */
     @objid ("7eaa6d2d-1dec-11e2-8cad-001ec947c8cc")
-    public NameSimpleLabelEditPart() {
+    public  NameSimpleLabelEditPart() {
         super();
     }
 
     /**
      * Initialize the edit part.
-     * 
      * @param gmLabel The label model
      */
     @objid ("7eaa6d30-1dec-11e2-8cad-001ec947c8cc")
-    public NameSimpleLabelEditPart(GmNameSimpleLabel gmLabel) {
+    public  NameSimpleLabelEditPart(GmNameSimpleLabel gmLabel) {
         super();
         setModel(gmLabel);
+        
     }
 
     @objid ("7eaa6d34-1dec-11e2-8cad-001ec947c8cc")
@@ -67,6 +66,7 @@ public class NameSimpleLabelEditPart extends AbstractNodeEditPart {
         } else {
             super.propertyChange(evt);
         }
+        
     }
 
     @objid ("7eaa6d38-1dec-11e2-8cad-001ec947c8cc")
@@ -102,6 +102,7 @@ public class NameSimpleLabelEditPart extends AbstractNodeEditPart {
         
         aFigure.setForegroundColor(style.getColor(model.getStyleKey(MetaKey.TEXTCOLOR)));
         aFigure.setFont(style.getFont(model.getStyleKey(MetaKey.FONT)));
+        
     }
 
     @objid ("7eaa6d4a-1dec-11e2-8cad-001ec947c8cc")
@@ -117,6 +118,7 @@ public class NameSimpleLabelEditPart extends AbstractNodeEditPart {
         
         // Label text
         labelFigure.setText(model.getLabel());
+        
     }
 
 }

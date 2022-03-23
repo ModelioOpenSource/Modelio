@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,6 @@ public interface IModelioServicesRegistry {
      * <p>
      * Usually called when opening a project.
      * </p>
-     * 
      * @param serviceInterface the interface implemented by the service. Should not be <code>null</code>.
      * @param service an instance of the service itself. Should not be <code>null</code>.
      */
@@ -46,7 +44,6 @@ public interface IModelioServicesRegistry {
      * <p>
      * Usually called when closing a project.
      * </p>
-     * 
      * @param serviceInterface the interface implemented by the service. Should not be <code>null</code>.
      */
     @objid ("f7560138-06d6-4b76-b50a-7b023c15b79a")

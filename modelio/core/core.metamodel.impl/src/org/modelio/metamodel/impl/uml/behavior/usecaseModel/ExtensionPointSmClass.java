@@ -17,20 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.usecaseModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.usecaseModel.ExtensionPointData;
-import org.modelio.metamodel.impl.uml.behavior.usecaseModel.UseCaseDependencySmClass;
-import org.modelio.metamodel.impl.uml.behavior.usecaseModel.UseCaseSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
 import org.modelio.metamodel.uml.behavior.usecaseModel.ExtensionPoint;
 import org.modelio.metamodel.uml.behavior.usecaseModel.UseCase;
@@ -62,7 +59,7 @@ public class ExtensionPointSmClass extends UmlModelElementSmClass {
     private SmDependency ownerDep;
 
     @objid ("4148fe2b-e6db-4812-8ad2-1c1c69c371d3")
-    public ExtensionPointSmClass(ISmMetamodelFragment origin) {
+    public  ExtensionPointSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -70,6 +67,7 @@ public class ExtensionPointSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "ExtensionPoint";
+        
     }
 
     @objid ("667ee811-ec4e-40d4-b3bd-c84cd4bafe62")
@@ -82,18 +80,21 @@ public class ExtensionPointSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ExtensionPoint.class;
+        
     }
 
     @objid ("161824b5-5a48-472e-af2b-c10e7d781b69")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("63fa686e-c745-4016-b7e3-aa3cef06c3a2")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("86bb0a49-3adb-4527-987e-89cffe9ec445")
@@ -117,6 +118,8 @@ public class ExtensionPointSmClass extends UmlModelElementSmClass {
         this.ownerDep = new OwnerSmDependency();
         this.ownerDep.init("Owner", this, metamodel.getMClass(UseCase.MQNAME), 0, 1 );
         registerDependency(this.ownerDep);
+        
+        
     }
 
     @objid ("af6a3953-ca80-48c3-acaf-2b41b6877832")
@@ -149,7 +152,7 @@ public class ExtensionPointSmClass extends UmlModelElementSmClass {
         private ExtensionPointSmClass smClass;
 
         @objid ("2070cad9-6c89-49a1-9c06-2a5b1a01f206")
-        public ExtensionPointObjectFactory(ExtensionPointSmClass smClass) {
+        public  ExtensionPointObjectFactory(ExtensionPointSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -196,6 +199,7 @@ public class ExtensionPointSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ExtensionPointData) data).mExtended = values;
+            
         }
 
         @objid ("d873c3ca-734d-4cea-acc5-6b89d8133c42")
@@ -205,6 +209,7 @@ public class ExtensionPointSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((UseCaseDependencySmClass)this.getTarget()).getExtensionLocationDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -233,6 +238,7 @@ public class ExtensionPointSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((UseCaseSmClass)this.getTarget()).getOwnedExtensionDep();
             }
             return this.symetricDep;
+            
         }
 
     }

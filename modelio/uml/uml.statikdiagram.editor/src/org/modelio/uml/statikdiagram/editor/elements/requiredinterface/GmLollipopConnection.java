@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.requiredinterface;
 
 import java.beans.PropertyChangeEvent;
@@ -35,8 +34,8 @@ import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.diagram.styles.core.ProxyStyle;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.statik.Connector;
 import org.modelio.metamodel.uml.statik.ConnectorEnd;
 import org.modelio.metamodel.uml.statik.NaryConnector;
@@ -65,13 +64,13 @@ public class GmLollipopConnection extends GmSimpleNode {
     private static final int MAJOR_VERSION = 0;
 
     @objid ("8cfc6013-c7f6-4740-9a37-e874807085c6")
-     static String PROP_REFRESH_BRANCHES = "refresh branches";
+    static String PROP_REFRESH_BRANCHES = "refresh branches";
 
     /**
      * Default and deserialization constructor.
      */
     @objid ("367161e3-55b7-11e2-877f-002564c97630")
-    public GmLollipopConnection() {
+    public  GmLollipopConnection() {
         super();
     }
 
@@ -80,20 +79,21 @@ public class GmLollipopConnection extends GmSimpleNode {
     protected void refreshFromObModel() {
         refreshStyleFromModel();
         firePropertyChange(PROP_REFRESH_BRANCHES, null, this);
+        
     }
 
     /**
      * Initialize a lollipop connection.
-     * 
      * @param diagram The diagram.
      * @param element The represented connector, may be null.
      */
     @objid ("367161e9-55b7-11e2-877f-002564c97630")
-    public GmLollipopConnection(final IGmDiagram diagram, final NaryConnector element) {
+    public  GmLollipopConnection(final IGmDiagram diagram, final NaryConnector element) {
         super(diagram, new MRef(element));
         this.element = element;
         
         addPropertyChangeListener(new LinkListener());
+        
     }
 
     @objid ("3672e85d-55b7-11e2-877f-002564c97630")
@@ -154,6 +154,7 @@ public class GmLollipopConnection extends GmSimpleNode {
             break;
         
         }
+        
     }
 
     @objid ("3672e88d-55b7-11e2-877f-002564c97630")
@@ -170,6 +171,7 @@ public class GmLollipopConnection extends GmSimpleNode {
         } else {
             getPersistedStyle().setCascadedStyle(getDiagram().getPersistedStyle());
         }
+        
     }
 
     @objid ("3672e89a-55b7-11e2-877f-002564c97630")
@@ -185,11 +187,11 @@ public class GmLollipopConnection extends GmSimpleNode {
         
         // Call inherited
         super.obElementDeleted();
+        
     }
 
     /**
      * Get the first provided interface link connected to this node.
-     * 
      * @return the first provided interface link.
      */
     @objid ("36746efa-55b7-11e2-877f-002564c97630")
@@ -209,6 +211,7 @@ public class GmLollipopConnection extends GmSimpleNode {
         
         // Write version of this Gm.
         writeMinorVersion(out, "GmLollipopConnection.", Integer.valueOf(MINOR_VERSION));
+        
     }
 
     @objid ("36746f07-55b7-11e2-877f-002564c97630")
@@ -217,6 +220,7 @@ public class GmLollipopConnection extends GmSimpleNode {
         
         MObject el = resolveRef(getRepresentedRef());
         this.element = (NaryConnector) el;
+        
     }
 
     @objid ("36746f0d-55b7-11e2-877f-002564c97630")
@@ -241,6 +245,7 @@ public class GmLollipopConnection extends GmSimpleNode {
         } else {
             throw new IllegalArgumentException(el.toString());
         }
+        
     }
 
     /**
@@ -249,7 +254,7 @@ public class GmLollipopConnection extends GmSimpleNode {
     @objid ("36746f12-55b7-11e2-877f-002564c97630")
     private class LinkListener implements PropertyChangeListener {
         @objid ("36746f14-55b7-11e2-877f-002564c97630")
-        public LinkListener() {
+        public  LinkListener() {
             super();
         }
 

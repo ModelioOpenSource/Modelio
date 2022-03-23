@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.policies;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -62,11 +61,11 @@ public class HoverFeedbackEditPolicy extends GraphicalEditPolicy {
             this.feedback.setBounds(bounds);
             this.feedback.validate();
         }
+        
     }
 
     /**
      * Create the hover feedback figure.
-     * 
      * @return the hover feedback figure.
      */
     @objid ("7a81d425-e077-4292-a2b6-009366c00573")
@@ -90,6 +89,7 @@ public class HoverFeedbackEditPolicy extends GraphicalEditPolicy {
                 this.feedback = null;
             }
         }
+        
     }
 
     @objid ("1d82b4d1-3b74-4fa4-84b0-b1302652f182")
@@ -101,6 +101,7 @@ public class HoverFeedbackEditPolicy extends GraphicalEditPolicy {
         }
         
         super.deactivate();
+        
     }
 
 }

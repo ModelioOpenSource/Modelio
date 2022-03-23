@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,7 +41,7 @@ public class OOpaqueBehavior extends OElement implements IOElement {
     }
 
     @objid ("79d63fc5-93cf-4c59-84a9-c52cc7d47bb4")
-    public OOpaqueBehavior(OpaqueBehavior param) {
+    public  OOpaqueBehavior(OpaqueBehavior param) {
         super(param);
     }
 

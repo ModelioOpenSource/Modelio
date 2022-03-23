@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.informationflowgroup;
 
 import java.util.Map;
@@ -102,7 +101,6 @@ public class DefaultCreateInfoFlowOnLinkEditPolicy extends DeferringCreateNodePo
      * Looks for and return the first {@link GmInfoFlowsGroup} extension on the link.
      * <p>
      * Subclasses may override this method.
-     * 
      * @param gmLink The model link
      * @param location The mouse location
      * @return The composite node where the label must be added.
@@ -146,7 +144,7 @@ public class DefaultCreateInfoFlowOnLinkEditPolicy extends DeferringCreateNodePo
     @objid ("816039b3-1dec-11e2-8cad-001ec947c8cc")
     class DeferredCommand extends Command {
         @objid ("816039ba-1dec-11e2-8cad-001ec947c8cc")
-        private Map<?,?> editPartRegistry;
+        private Map<?, ?> editPartRegistry;
 
         @objid ("816039b9-1dec-11e2-8cad-001ec947c8cc")
         private GmLink gmLink;
@@ -156,15 +154,15 @@ public class DefaultCreateInfoFlowOnLinkEditPolicy extends DeferringCreateNodePo
 
         /**
          * Create a deferred command.
-         * 
          * @param req The creation request.
          * @param sender The edit part sending the request
          */
         @objid ("816039be-1dec-11e2-8cad-001ec947c8cc")
-        public DeferredCommand(final Request req, final EditPart sender) {
+        public  DeferredCommand(final Request req, final EditPart sender) {
             this.req = req;
             this.gmLink = (GmLink) sender.getModel();
             this.editPartRegistry = sender.getViewer().getEditPartRegistry();
+            
         }
 
         @objid ("81629bcb-1dec-11e2-8cad-001ec947c8cc")
@@ -180,6 +178,7 @@ public class DefaultCreateInfoFlowOnLinkEditPolicy extends DeferringCreateNodePo
             Command cmd = createCommand();
             if (cmd != null && cmd.canExecute())
                 cmd.execute();
+            
         }
 
         @objid ("81629bd3-1dec-11e2-8cad-001ec947c8cc")
@@ -202,6 +201,7 @@ public class DefaultCreateInfoFlowOnLinkEditPolicy extends DeferringCreateNodePo
                 return targetPart.getCommand(this.req);
             else
                 return null;
+            
         }
 
     }

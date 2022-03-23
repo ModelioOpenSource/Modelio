@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.controller.load.property;
 
 import java.lang.reflect.Constructor;
@@ -29,8 +28,8 @@ import org.modelio.api.module.command.ActionLocation;
 import org.modelio.api.module.command.IModuleAction;
 import org.modelio.api.module.lifecycle.ModuleException;
 import org.modelio.api.module.propertiesPage.IModulePropertyPanel;
-import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2Views.Jxbv2PropertyPage.Jxbv2CommandRef;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2Views.Jxbv2PropertyPage;
+import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2Views.Jxbv2PropertyPage.Jxbv2CommandRef;
 import org.modelio.platform.mda.infra.plugin.MdaInfra;
 import org.modelio.platform.mda.infra.service.impl.IRTModuleAccess;
 
@@ -72,6 +71,7 @@ public class PropertyPageReader {
                 MdaInfra.LOG.error("Unresolved property view command ref for %s v%s module : '%s'.", module.getName(), module.getVersion(), ref.getRefid());
             }
         }
+        
     }
 
 }

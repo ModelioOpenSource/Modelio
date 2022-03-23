@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.timeevent;
 
 import java.util.Collections;
@@ -31,8 +30,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.AcceptTimeEventAction;
 import org.modelio.metamodel.uml.behavior.activityModel.InputPin;
 import org.modelio.metamodel.uml.behavior.activityModel.OutputPin;
@@ -61,7 +60,7 @@ public class GmTimeEvent extends GmPinContainer {
     private static final int MAJOR_VERSION = 0;
 
     @objid ("31a775b8-58a2-11e2-9574-002564c97630")
-     static final GmTimeEventStructuredStyleKeys STRUCTURED_KEYS = new GmTimeEventStructuredStyleKeys();
+    static final GmTimeEventStructuredStyleKeys STRUCTURED_KEYS = new GmTimeEventStructuredStyleKeys();
 
     @objid ("31a775ba-58a2-11e2-9574-002564c97630")
     private static final GmTimeEventSimpleStyleKeys SIMPLE_KEYS = new GmTimeEventSimpleStyleKeys();
@@ -74,13 +73,12 @@ public class GmTimeEvent extends GmPinContainer {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the timeEvent is unmasked.
      * @param el the unmasked timeEvent.
      * @param ref a reference to the unmasked timeEvent.
      */
     @objid ("2b5d7eaa-55b6-11e2-877f-002564c97630")
-    public GmTimeEvent(IGmDiagram diagram, AcceptTimeEventAction el, MRef ref) {
+    public  GmTimeEvent(IGmDiagram diagram, AcceptTimeEventAction el, MRef ref) {
         super(diagram, ref);
         this.element = el;
         
@@ -92,6 +90,7 @@ public class GmTimeEvent extends GmPinContainer {
         label.setRoleInComposition(GmPortContainer.SATELLITE_ROLE);
         label.setLayoutData(Integer.valueOf(PositionConstants.EAST));
         this.addChild(label);
+        
     }
 
     @objid ("2b5d7eb6-55b6-11e2-877f-002564c97630")
@@ -106,6 +105,7 @@ public class GmTimeEvent extends GmPinContainer {
         return ((InputPin.class.isAssignableFrom(el.getClass()) ||
                         ValuePin.class.isAssignableFrom(el.getClass()) || OutputPin.class.isAssignableFrom(el.getClass())) && el.getCompositionOwner()
                                 .equals(this.element));
+        
     }
 
     @objid ("2b5f053a-55b6-11e2-877f-002564c97630")
@@ -152,7 +152,7 @@ public class GmTimeEvent extends GmPinContainer {
      * Empty constructor needed for deserialization.
      */
     @objid ("2b5f054d-55b6-11e2-877f-002564c97630")
-    public GmTimeEvent() {
+    public  GmTimeEvent() {
         // Nothing specific to do.
     }
 
@@ -173,6 +173,7 @@ public class GmTimeEvent extends GmPinContainer {
             break;
         }
         }
+        
     }
 
     @objid ("2b5f0556-55b6-11e2-877f-002564c97630")
@@ -194,12 +195,14 @@ public class GmTimeEvent extends GmPinContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmTimeEvent.", GmTimeEvent.MINOR_VERSION);
+        
     }
 
     @objid ("2b5f056a-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (AcceptTimeEventAction) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("2b5f056f-55b6-11e2-877f-002564c97630")
@@ -210,7 +213,6 @@ public class GmTimeEvent extends GmPinContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -222,7 +224,6 @@ public class GmTimeEvent extends GmPinContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

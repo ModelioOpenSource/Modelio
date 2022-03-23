@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.helpers.palapi;
 
 import java.util.ArrayList;
@@ -46,10 +45,11 @@ import org.modelio.diagram.elements.core.link.CreateBendedConnectionRequest;
 import org.modelio.diagram.elements.core.link.ModelioLinkCreationContext;
 import org.modelio.diagram.elements.core.link.createhandle.ICreationActionDescriptor;
 import org.modelio.diagram.elements.core.link.createhandle.ICreationActionProvider;
+import org.modelio.diagram.elements.core.link.path.RawPathData;
 import org.modelio.diagram.elements.core.model.IGmObject;
 import org.modelio.diagram.elements.core.requests.CreateLinkConstants;
-import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
 import org.modelio.vcore.smkernel.mapi.MClass;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
@@ -59,18 +59,18 @@ public class PaletteActionProvider implements ICreationActionProvider {
     private EditPart editPart;
 
     @objid ("7b0d8cb1-c46f-4338-a04a-035adf807ac8")
-     Predicate<PaletteEntry> filter;
+    Predicate<PaletteEntry> filter;
 
     @objid ("4ff8d2c5-6439-4589-b909-64283cc51693")
-     List<PaletteEntry> tools = new ArrayList<>();
+    List<PaletteEntry> tools = new ArrayList<>();
 
     @objid ("7ef0268b-1099-47cb-91d3-1a85329e8fd9")
     public static final Predicate<PaletteEntry> IS_LINK_TOOL = entry -> ((entry instanceof ConnectionCreationToolEntry)
-			&& ((ConnectionCreationToolEntry) entry).getToolProperty(CreationTool.PROPERTY_CREATION_FACTORY) instanceof ModelioLinkCreationContext);
+        			&& ((ConnectionCreationToolEntry) entry).getToolProperty(CreationTool.PROPERTY_CREATION_FACTORY) instanceof ModelioLinkCreationContext);
 
     @objid ("bcf3d35a-f695-4148-b547-7bb363e2888d")
     public static final Predicate<PaletteEntry> IS_NODE_TOOL = entry -> ((entry instanceof CreationToolEntry)
-			&& ((CreationToolEntry) entry).getToolProperty(CreationTool.PROPERTY_CREATION_FACTORY) instanceof ModelioCreationContext);
+        			&& ((CreationToolEntry) entry).getToolProperty(CreationTool.PROPERTY_CREATION_FACTORY) instanceof ModelioCreationContext);
 
     @objid ("9f95e194-5bb5-4e13-b76a-1f44c56ed353")
     public static final Predicate<PaletteEntry> IS_ACCEPTABLE_METACLASS(Collection<Class<? extends MObject>> metaclasses) {
@@ -88,11 +88,11 @@ public class PaletteActionProvider implements ICreationActionProvider {
         
                     return false;
                 };
+        
     }
 
     /**
      * Convenience method proposed to PaleteActionProvider users to help them building 'filters'.
-     * 
      * @param entry a palette entry
      * @return the metaclass of the object that this entry creates (whatever the tool kind: link or node, excepted module tools) , null otherwise.
      */
@@ -116,7 +116,6 @@ public class PaletteActionProvider implements ICreationActionProvider {
 
     /**
      * Convenience method proposed to PaleteActionProvider users to help them building 'filters'.
-     * 
      * @param entry a palette entry
      * @return the link creation context that this entry uses to create an object, null if the entry does not create a link
      */
@@ -134,7 +133,6 @@ public class PaletteActionProvider implements ICreationActionProvider {
 
     /**
      * Convenience method proposed to PaleteActionProvider users to help them building 'filters'.
-     * 
      * @param entry a palette entry
      * @return the node creation context that this entry uses to create an object, null if the entry does not create a node
      */
@@ -150,14 +148,15 @@ public class PaletteActionProvider implements ICreationActionProvider {
     }
 
     @objid ("665c8658-cfb6-41d9-b08e-af344b5a0fa2")
-    public PaletteActionProvider(EditPart editPart) {
+    public  PaletteActionProvider(EditPart editPart) {
         this(editPart, null);
     }
 
     @objid ("ea5a4b66-8571-4f2e-90a9-b0ea9ad3785f")
-    public PaletteActionProvider(EditPart editPart, Predicate<PaletteEntry> filter) {
+    public  PaletteActionProvider(EditPart editPart, Predicate<PaletteEntry> filter) {
         this.editPart = editPart;
         this.filter = filter != null ? filter : e -> true;
+        
     }
 
     @objid ("6f56f15c-8fc5-4516-aa66-e10ed204cedf")
@@ -169,6 +168,7 @@ public class PaletteActionProvider implements ICreationActionProvider {
         return this.tools.stream()
                         .map(entry -> createAction(entry, this.editPart, req))
                         .filter(action -> action != null);
+        
     }
 
     @objid ("dd067cd7-a0bb-4de7-9e32-9bbc5a79c066")
@@ -176,6 +176,7 @@ public class PaletteActionProvider implements ICreationActionProvider {
         return getSubEntryRec(paletteContainer)
                         .map(entry -> createAction(entry, this.editPart, req))
                         .filter(action -> action != null);
+        
     }
 
     @objid ("08b892c0-361b-40e9-8858-10bafb37c0a4")
@@ -184,6 +185,7 @@ public class PaletteActionProvider implements ICreationActionProvider {
                         .getChildren()
                         .stream()
                         .flatMap(e -> (e instanceof PaletteContainer) ? getSubEntryRec((PaletteContainer) e) : Stream.of(e));
+        
     }
 
     @objid ("c93cb5e6-f3a6-4bb0-98cb-df9b6e9b7385")
@@ -236,6 +238,7 @@ public class PaletteActionProvider implements ICreationActionProvider {
                     .distinct()
                     .collect(Collectors.toList());
         }
+        
     }
 
     @objid ("b6003e8e-3690-4139-af2f-a61c71605e21")
@@ -252,6 +255,7 @@ public class PaletteActionProvider implements ICreationActionProvider {
     @objid ("a22414f3-049f-4582-912b-02b5a4b9c18c")
     private ICreationActionDescriptor createLinkAction(PaletteEntry entry, EditPart ep, CreateConnectionRequest req, ModelioLinkCreationContext linkCreationContext) {
         CreateBendedConnectionRequest createConReq = new CreateBendedConnectionRequest();
+        RawPathData createConnReqData = createConReq.getData();
         Command finishCom = null;
         
         switch ((String) req.getType()) {
@@ -261,12 +265,12 @@ public class PaletteActionProvider implements ICreationActionProvider {
             createConReq.setSourceEditPart(ep);
             createConReq.setTargetEditPart(ep);
             createConReq.setLocation(req.getLocation().getCopy());
-            createConReq.getData().setRoutingMode(getDefaultRoutingMode(ep, linkCreationContext));
-            createConReq.getData().setLastPoint(req.getLocation().getCopy());
+            createConnReqData.setRoutingMode(getDefaultRoutingMode(ep, linkCreationContext));
+            createConnReqData.setLastPoint(req.getLocation().getCopy());
             finishCom = ep.getCommand(createConReq);
             createConReq.setStartCommand(finishCom);
             break;
-            
+        
         case RequestConstants.REQ_CONNECTION_END:
         case CreateLinkConstants.REQ_CONNECTION_CREATE_LINK_CHOOSENODE:
             // Branch both ends
@@ -278,17 +282,27 @@ public class PaletteActionProvider implements ICreationActionProvider {
             startRequest.setFactory(linkCreationContext);
             startRequest.setSourceEditPart(srcEditPart);
             startRequest.setTargetEditPart(srcEditPart);
-            
-            Point pt = srcEditPart.getFigure().getBounds().getCenter();
-            srcEditPart.getFigure().translateToAbsolute(pt);
-            startRequest.setLocation(pt);
-            startRequest.getData().setSrcPoint(pt);
+        
+            final Point srcLoc;
+            final RawPathData origData;
+            if (req instanceof CreateBendedConnectionRequest) {
+                CreateBendedConnectionRequest bendedReq = (CreateBendedConnectionRequest)req;
+                origData = bendedReq.getData();
+                srcLoc = origData.getSrcPoint().getCopy();
+            } else {
+                origData = null;
+                srcLoc = srcEditPart.getFigure().getBounds().getCenter();
+                srcEditPart.getFigure().translateToAbsolute(srcLoc);
+            }
+        
+            startRequest.setLocation(srcLoc);
+            startRequest.getData().setSrcPoint(srcLoc);
             startRequest.getData().setRoutingMode(getDefaultRoutingMode(srcEditPart, linkCreationContext));
             startRequest.getData().setLastPoint(req.getLocation().getCopy());
-            
+        
             Command startCmd = srcEditPart.getCommand(startRequest);
             startRequest = null; // get rid of it
-            
+        
             // Now we have a valid startCommand
             // we can setup the final request to end the link creation
             createConReq.setType(req.getType());
@@ -296,12 +310,17 @@ public class PaletteActionProvider implements ICreationActionProvider {
             createConReq.setSourceEditPart(srcEditPart);
             createConReq.setTargetEditPart(targetEditPart);
             createConReq.setLocation(req.getLocation().getCopy());
-            createConReq.getData().setSrcPoint(pt);
-            createConReq.getData().setRoutingMode(getDefaultRoutingMode(srcEditPart, linkCreationContext));
-            createConReq.getData().setLastPoint(req.getLocation().getCopy());
-            if (req instanceof CreateBendedConnectionRequest)
-                createConReq.getData().getPath().addAll( ((CreateBendedConnectionRequest)req).getData().getPath());
-            
+            if (origData != null) {
+                createConnReqData.getPath().addAll( origData.getPath());
+                createConnReqData.setSrcPoint(srcLoc);
+                createConnReqData.setLastPoint(origData.getLastPoint().getCopy());
+                createConnReqData.setRoutingMode(origData.getRoutingMode());
+            } else {
+                createConnReqData.setSrcPoint(srcLoc);
+                createConnReqData.setRoutingMode(getDefaultRoutingMode(srcEditPart, linkCreationContext));
+                createConnReqData.setLastPoint(req.getLocation().getCopy());
+            }
+        
             createConReq.setStartCommand(startCmd);
             if (startCmd != null && targetEditPart != null) {
                 finishCom = targetEditPart.getCommand(createConReq);

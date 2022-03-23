@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.common;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.swt.widgets.Control;
 import org.modelio.app.project.conf.plugin.AppProjectConf;
 import org.modelio.gproject.data.project.DefinitionScope;
-import org.modelio.gproject.data.project.GProperties.Entry;
 import org.modelio.gproject.data.project.GProperties;
+import org.modelio.gproject.data.project.GProperties.Entry;
 
 /**
  * Helper class to handle fields enablement following
@@ -35,14 +34,13 @@ import org.modelio.gproject.data.project.GProperties;
 @objid ("68838577-944c-4ece-ad21-41782b49d74f")
 public class ScopeHelper {
     @objid ("b369ecfa-d2d2-4dec-a175-8c788dbb8161")
-    private ScopeHelper() {
+    private  ScopeHelper() {
         // nothing
     }
 
     /**
      * Return LOCAL if the control is enabled, SHARED if
      * the control is disabled.
-     * 
      * @param c a SWT control
      * @return the matching definition scope.
      */
@@ -52,12 +50,12 @@ public class ScopeHelper {
             return DefinitionScope.LOCAL;
         else
             return DefinitionScope.SHARED;
+        
     }
 
     /**
      * Returns <code>true</code> if the property is not defined or defined locally,
      * <code>false</code> if the property value is shared.
-     * 
      * @param props the property container.
      * @param propName a property name.
      * @return <code>true</code> for local scope, <code>false</code> for shared.
@@ -70,7 +68,6 @@ public class ScopeHelper {
 
     /**
      * Get a localized label for the given scope.
-     * 
      * @param scope a definition scope.
      * @return a label for the definition scope.
      */
@@ -84,6 +81,7 @@ public class ScopeHelper {
         default:
             return scope.toString();
         }
+        
     }
 
 }

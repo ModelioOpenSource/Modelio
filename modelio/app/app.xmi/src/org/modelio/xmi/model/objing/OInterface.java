@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,9 +39,10 @@ public class OInterface extends ONameSpace {
     }
 
     @objid ("f7a98697-0a6f-4c53-aa48-f9e811a99169")
-    public OInterface(Interface element) {
+    public  OInterface(Interface element) {
         super(element);
         this.objingElement = element;
+        
     }
 
     @objid ("cc5d9103-f2d7-4358-9195-3dda125ed941")
@@ -80,6 +80,7 @@ public class OInterface extends ONameSpace {
             // create one through the
             // MMI (man-machine interface).
         }
+        
     }
 
     @objid ("da112940-e8e5-4b93-a77a-52db11ce7021")
@@ -92,6 +93,7 @@ public class OInterface extends ONameSpace {
         if (GenerationProperties.getInstance().isRoundtripEnabled()) {
             setPrimitiveEAnnotation((org.eclipse.uml2.uml.Interface) ecoreElt);
         }
+        
     }
 
     @objid ("06417056-54e7-4afc-aea2-16ed12ac07f3")

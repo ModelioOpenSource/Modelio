@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.communication;
 
 import java.util.Collections;
@@ -38,7 +37,7 @@ public class CommunicationNodeDG extends PortContainerDG {
      * @param node The gm node represented by this class.
      */
     @objid ("7ab3bb16-dd35-402a-9c8b-b9446c3de1c3")
-    public CommunicationNodeDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  CommunicationNodeDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 

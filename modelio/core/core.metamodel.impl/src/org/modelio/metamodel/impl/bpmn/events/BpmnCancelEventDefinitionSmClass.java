@@ -17,19 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.events;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.bpmn.events.BpmnCancelEventDefinition;
 import org.modelio.metamodel.bpmn.events.BpmnEventDefinition;
-import org.modelio.metamodel.impl.bpmn.events.BpmnEventDefinitionSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("91036f21-67af-4bbc-b98d-6a3bcdf755fc")
 public class BpmnCancelEventDefinitionSmClass extends BpmnEventDefinitionSmClass {
     @objid ("d30d6b06-c62d-499f-9c3d-12e54d0d8567")
-    public BpmnCancelEventDefinitionSmClass(ISmMetamodelFragment origin) {
+    public  BpmnCancelEventDefinitionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class BpmnCancelEventDefinitionSmClass extends BpmnEventDefinitionSmClass
     @Override
     public String getName() {
         return "BpmnCancelEventDefinition";
+        
     }
 
     @objid ("4261b342-cc28-4a36-8e2d-1da774ea825a")
@@ -62,18 +62,21 @@ public class BpmnCancelEventDefinitionSmClass extends BpmnEventDefinitionSmClass
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnCancelEventDefinition.class;
+        
     }
 
     @objid ("97ad4e07-f22a-445a-8630-84fbb0117abc")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("2056f8f7-ddf0-4c2d-a2ac-2428ab0f3983")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("6b450e99-21e5-40e1-a941-cf66be982db0")
@@ -86,6 +89,7 @@ public class BpmnCancelEventDefinitionSmClass extends BpmnEventDefinitionSmClass
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("c1cb4099-8018-4ca7-90c3-d9c2e70d6bd1")
@@ -94,7 +98,7 @@ public class BpmnCancelEventDefinitionSmClass extends BpmnEventDefinitionSmClass
         private BpmnCancelEventDefinitionSmClass smClass;
 
         @objid ("0cca24c8-8ff2-4da9-9e27-f89f721f00b9")
-        public BpmnCancelEventDefinitionObjectFactory(BpmnCancelEventDefinitionSmClass smClass) {
+        public  BpmnCancelEventDefinitionObjectFactory(BpmnCancelEventDefinitionSmClass smClass) {
             this.smClass = smClass;
         }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,7 @@ public class EQualifierValue extends EElement {
     }
 
     @objid ("c28bb672-57a8-4e09-bb62-e378f8329ed5")
-    public EQualifierValue(org.eclipse.uml2.uml.QualifierValue element) {
+    public  EQualifierValue(org.eclipse.uml2.uml.QualifierValue element) {
         super(element);
     }
 

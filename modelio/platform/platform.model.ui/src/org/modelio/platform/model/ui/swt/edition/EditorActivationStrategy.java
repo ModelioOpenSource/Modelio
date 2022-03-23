@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.edition;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -61,11 +60,10 @@ public class EditorActivationStrategy extends ColumnViewerEditorActivationStrate
      * Instantiates the strategy.
      * <p>
      * Edition will be triggered with two clicks on the same object in a duration comprised between 0.3 and 1 second.
-     * 
      * @param viewer the column viewer
      */
     @objid ("1fc23827-1de3-11e2-bcbe-002564c97630")
-    public EditorActivationStrategy(ColumnViewer viewer) {
+    public  EditorActivationStrategy(ColumnViewer viewer) {
         this (viewer, true);
     }
 
@@ -74,13 +72,12 @@ public class EditorActivationStrategy extends ColumnViewerEditorActivationStrate
      * <p>
      * If <i>withTimeDelta</i> is <i>true</i>, edition will be triggered with two clicks on the same object in a duration comprised between 0.3 and 1 second.<br>
      * If <i>withTimeDelta</i> is <i>false</i> edition will be triggered on second click on the same object whatever the delay.
-     * 
      * @param viewer the column viewer
      * @param withTimeDelta whether to test time delta on second click to activate the editor.
      * @since 3.7.1
      */
     @objid ("df27e739-0ae5-4268-8026-846706f614fa")
-    public EditorActivationStrategy(ColumnViewer viewer, boolean withTimeDelta) {
+    public  EditorActivationStrategy(ColumnViewer viewer, boolean withTimeDelta) {
         super(viewer);
         this.viewer = viewer;
         if (withTimeDelta) {
@@ -92,6 +89,7 @@ public class EditorActivationStrategy extends ColumnViewerEditorActivationStrate
         }
         
         viewer.getControl().addMouseListener(this);
+        
     }
 
     /**
@@ -161,6 +159,7 @@ public class EditorActivationStrategy extends ColumnViewerEditorActivationStrate
                 return;
             }
         }
+        
     }
 
     @objid ("1fc2382a-1de3-11e2-bcbe-002564c97630")

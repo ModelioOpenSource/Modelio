@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.number._unsigned;
 
 import java.security.InvalidParameterException;
@@ -31,21 +30,19 @@ import org.modelio.platform.model.ui.nattable.parts.data.DefaultNatValue;
 public class DefaultUnsignedNatValue extends DefaultNatValue implements IUnsignedNatValue {
     /**
      * Creates a new instance.
-     * 
      * @param value the wrapped value.
      */
     @objid ("9b6d05bd-6fba-4faa-9f99-e575c7e284b1")
-    public DefaultUnsignedNatValue(Integer value) {
+    public  DefaultUnsignedNatValue(Integer value) {
         super(value, false);
     }
 
     /**
      * Copy constructor, creating a new instance with the same configuration as the other.
-     * 
      * @param anotherInstance the instance to copy.
      */
     @objid ("d107bad3-bfa8-4ce4-ab4d-23d746b88367")
-    public DefaultUnsignedNatValue(DefaultUnsignedNatValue anotherInstance) {
+    public  DefaultUnsignedNatValue(DefaultUnsignedNatValue anotherInstance) {
         super(anotherInstance);
     }
 
@@ -64,6 +61,7 @@ public class DefaultUnsignedNatValue extends DefaultNatValue implements IUnsigne
             throw new InvalidParameterException("Value must be a positive Integer.");
         }
         super.setValue(value);
+        
     }
 
 }

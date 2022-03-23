@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common.index;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,7 +39,7 @@ public class CannotOpenIndexException extends Exception {
      * @param cause
      */
     @objid ("843b518a-04b5-4143-8fea-5712c1e58651")
-    public CannotOpenIndexException(String message, Throwable cause) {
+    public  CannotOpenIndexException(String message, Throwable cause) {
         super(message, cause);
     }
 

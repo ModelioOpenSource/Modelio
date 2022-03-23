@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.properties;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.module.propertiesPage.IModulePropertyTable;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
-import org.modelio.patterns.model.ProfileUtils.PatternDesignerStereotypes;
 import org.modelio.patterns.model.ProfileUtils;
+import org.modelio.patterns.model.ProfileUtils.PatternDesignerStereotypes;
 import org.modelio.patterns.plugin.Patterns;
 
 @objid ("e8144402-5ba0-4f78-bdba-1daa5c8858f9")
@@ -41,6 +40,7 @@ public class PatternRootProperty implements IPropertyContent {
         } catch (Exception e) {
             Patterns.LOG.debug(e);
         }
+        
     }
 
     @objid ("4043c58a-68a6-4cb8-8261-4dce72b72ec0")
@@ -48,6 +48,7 @@ public class PatternRootProperty implements IPropertyContent {
     public void update(ModelElement element, IModulePropertyTable table) {
         table.addProperty(Patterns.I18N.getString("PropertyDefinition.IsPatternRoot"), element.isStereotyped(ProfileUtils.MODULE_NAME,PatternDesignerStereotypes.PATTERNROOT));
         table.addProperty(Patterns.I18N.getString("PropertyDefinition.Name"), element.getName());
+        
     }
 
 }

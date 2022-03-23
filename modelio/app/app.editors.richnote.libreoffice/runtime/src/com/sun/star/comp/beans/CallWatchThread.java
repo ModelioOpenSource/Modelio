@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package com.sun.star.comp.beans;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,22 +49,20 @@ public class CallWatchThread extends Thread {
 
     /**
      * Initialize and starts the thread watcher.
-     * 
      * @param nTimeout timeout in milliseconds
      */
     @objid ("9b990e2b-8f71-4303-be52-ded6feffa29b")
-    public CallWatchThread(final long nTimeout) {
+    public  CallWatchThread(final long nTimeout) {
         this(nTimeout, "");
     }
 
     /**
      * Initialize and starts the thread watcher.
-     * 
      * @param nTimeout timeout in milliseconds
      * @param aTag name of the watcher for debug.
      */
     @objid ("03595517-79e5-44ed-9db3-331423c7f050")
-    public CallWatchThread(final long nTimeout, final String aTag) {
+    public  CallWatchThread(final long nTimeout, final String aTag) {
         super("CallWatchThread: " + aTag);
         this.aWatchedThread = Thread.currentThread();
         this.nTimeout = nTimeout;
@@ -74,6 +71,7 @@ public class CallWatchThread extends Thread {
         setDaemon(true);
         dbgPrint("CallWatchThread(" + this + ").start(" + aTag + ")");
         start();
+        
     }
 
     /**
@@ -87,12 +85,12 @@ public class CallWatchThread extends Thread {
         }
         
         this.aWatchedThread = null;
+        
     }
 
     /**
      * Reset the counter and watch the thread again.
-     * 
-     * @throws java.lang.InterruptedException if the thread was interrupted.
+     * @throws InterruptedException if the thread was interrupted.
      */
     @objid ("d69e6950-4b51-44c1-ab7a-0fa52ab8fc9e")
     public synchronized void restart() throws InterruptedException {
@@ -107,6 +105,7 @@ public class CallWatchThread extends Thread {
             throw new InterruptedException();
         }
         notify();
+        
     }
 
     @objid ("d02567fa-b5f6-482f-8dbc-0ab782f95f9e")
@@ -142,6 +141,7 @@ public class CallWatchThread extends Thread {
         }
         
         dbgPrint("CallWatchThread(" + this + ").run(" + this.aTag + ") terminated");
+        
     }
 
     @objid ("31db19c3-e1c4-4f34-b5c4-5cdfce16e4ba")
@@ -149,6 +149,7 @@ public class CallWatchThread extends Thread {
         if (CallWatchThread.DEBUG) {
             System.err.println("OOoBean: " + aMessage);
         }
+        
     }
 
 }

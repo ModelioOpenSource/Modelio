@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.inputpin;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -73,6 +72,7 @@ public class InputPinEditPart extends AbstractNodeEditPart {
         GmAbstractObject model = getModel();
         getFigure().getParent().setConstraint(getFigure(), model.getLayoutData());
         refreshOrientation();
+        
     }
 
     @objid ("2ab0c3e6-55b6-11e2-877f-002564c97630")
@@ -86,6 +86,7 @@ public class InputPinEditPart extends AbstractNodeEditPart {
         installEditPolicy(EditPolicy.NODE_ROLE, new CreateFlowEditPolicy());
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START, new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("2ab0c3e9-55b6-11e2-877f-002564c97630")
@@ -103,6 +104,7 @@ public class InputPinEditPart extends AbstractNodeEditPart {
                 fig.setOrientation(border);
             }
         }
+        
     }
 
     @objid ("2ab0c3eb-55b6-11e2-877f-002564c97630")
@@ -115,6 +117,7 @@ public class InputPinEditPart extends AbstractNodeEditPart {
         } else {
             super.refreshFromStyle(aFigure, style);
         }
+        
     }
 
     @objid ("2ab0c3f2-55b6-11e2-877f-002564c97630")

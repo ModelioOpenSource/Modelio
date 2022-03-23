@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.signal;
 
 import java.util.Collections;
@@ -70,26 +69,25 @@ public class GmSignal extends GmTemplateContainer {
     private static final String BODY_CONTENT_AS_SATELLITE = "body content as satellite";
 
     @objid ("a797e671-55c2-11e2-9337-002564c97630")
-     static final AbstractStyleKeyProvider IMAGE_KEYS = new GmSignalImageStyleKeys();
+    static final AbstractStyleKeyProvider IMAGE_KEYS = new GmSignalImageStyleKeys();
 
     @objid ("a797e66f-55c2-11e2-9337-002564c97630")
-     static final AbstractStyleKeyProvider SIMPLE_KEYS = new GmSignalSimpleStyleKeys();
+    static final AbstractStyleKeyProvider SIMPLE_KEYS = new GmSignalSimpleStyleKeys();
 
     @objid ("a797e66d-55c2-11e2-9337-002564c97630")
-     static final AbstractStyleKeyProvider STRUCTURED_KEYS = new GmSignalStructuredStyleKeys();
+    static final AbstractStyleKeyProvider STRUCTURED_KEYS = new GmSignalStructuredStyleKeys();
 
     @objid ("4129a3ff-c76a-498a-b41a-c4f9d7097958")
-     static final AbstractStyleKeyProvider USERIMAGE_KEYS = new GmSignalUserImageStyleKeys();
+    static final AbstractStyleKeyProvider USERIMAGE_KEYS = new GmSignalUserImageStyleKeys();
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the sendSignal is unmasked.
      * @param el the unmasked sendSignal.
      * @param ref a reference to the unmasked sendSignal.
      */
     @objid ("368b5263-55b7-11e2-877f-002564c97630")
-    public GmSignal(IGmDiagram diagram, Signal el, MRef ref) {
+    public  GmSignal(IGmDiagram diagram, Signal el, MRef ref) {
         super(diagram, new GmSignalPrimaryNode(diagram, ref), ref);
         this.element = el;
         
@@ -98,13 +96,14 @@ public class GmSignal extends GmTemplateContainer {
         imageModeHeader.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         
         super.addChild(imageModeHeader);
+        
     }
 
     /**
      * Empty constructor needed for deserialisation.
      */
     @objid ("368b5291-55b7-11e2-877f-002564c97630")
-    public GmSignal() {
+    public  GmSignal() {
         // Nothing specific to do.
     }
 
@@ -170,6 +169,7 @@ public class GmSignal extends GmTemplateContainer {
         default:
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("368cd92a-55b7-11e2-877f-002564c97630")
@@ -185,6 +185,7 @@ public class GmSignal extends GmTemplateContainer {
                 ret.remove(imageModeHeader);
                 break;
             }
+            case USER_IMAGE:
             case IMAGE:
             default: {
                 break;
@@ -197,7 +198,6 @@ public class GmSignal extends GmTemplateContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -209,7 +209,6 @@ public class GmSignal extends GmTemplateContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -220,6 +219,7 @@ public class GmSignal extends GmTemplateContainer {
         return GmSignal.BODY_CONTENT_AS_SATELLITE.equals(role)
                                                                 || GmPortContainer.SATELLITE_ROLE.equals(role)
                                                                 || GmSignal.IMAGE_LABEL_ROLE.equals(role);
+        
     }
 
     @objid ("368b5294-55b7-11e2-877f-002564c97630")
@@ -247,6 +247,7 @@ public class GmSignal extends GmTemplateContainer {
             break;
         
         }
+        
     }
 
     @objid ("368cd90b-55b7-11e2-877f-002564c97630")
@@ -255,6 +256,7 @@ public class GmSignal extends GmTemplateContainer {
         super.refreshFromObModel();
         
         refreshPortsFromObModel();
+        
     }
 
     @objid ("368cd914-55b7-11e2-877f-002564c97630")
@@ -264,6 +266,7 @@ public class GmSignal extends GmTemplateContainer {
         
         // Write version of this Gm if different of 0.
         GmAbstractObject.writeMinorVersion(out, "GmSignal.", Integer.valueOf(GmSignal.MINOR_VERSION));
+        
     }
 
     /**
@@ -284,6 +287,7 @@ public class GmSignal extends GmTemplateContainer {
         imageModeHeader.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         
         super.addChild(imageModeHeader, 1);
+        
     }
 
     @objid ("368cd924-55b7-11e2-877f-002564c97630")
@@ -300,6 +304,7 @@ public class GmSignal extends GmTemplateContainer {
         imageModeHeader.setRoleInComposition(GmSignal.IMAGE_LABEL_ROLE);
         imageModeHeader.setLayoutData(oldLayoutData);
         super.addChild(imageModeHeader);
+        
     }
 
     /**
@@ -318,6 +323,7 @@ public class GmSignal extends GmTemplateContainer {
                 }
             }
         }
+        
     }
 
     @objid ("72d6c3ef-abe4-48b2-a410-94c404d8bd9b")
@@ -331,6 +337,7 @@ public class GmSignal extends GmTemplateContainer {
     private void read_3(IDiagramReader in) {
         super.read(in);
         this.element = (Signal) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("e4264063-d9ba-4bb2-894e-d4b53406e773")
@@ -347,6 +354,7 @@ public class GmSignal extends GmTemplateContainer {
         imageModeHeader.setRoleInComposition(GmSignal.IMAGE_LABEL_ROLE);
         imageModeHeader.setLayoutData(oldLayoutData);
         super.addChild(imageModeHeader);
+        
     }
 
     @objid ("0428f47f-9fdf-4a63-8eb7-d02e417a0e91")

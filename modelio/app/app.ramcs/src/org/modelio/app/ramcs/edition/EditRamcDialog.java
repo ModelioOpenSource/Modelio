@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.ramcs.edition;
 
 import java.nio.file.Path;
@@ -73,12 +72,11 @@ public class EditRamcDialog extends ViewRamcDialog {
 
     /**
      * C'tor.
-     * 
      * @param parentShell the parent shell, or <code>null</code> to create a top-level shell.
      * @param dataModel the data model of the ramc to be edited.
      */
     @objid ("0e4f1cd0-1389-4be0-8b2a-b9401232fcd9")
-    public EditRamcDialog(Shell parentShell, RamcModel dataModel) {
+    public  EditRamcDialog(Shell parentShell, RamcModel dataModel) {
         super(parentShell, dataModel);
     }
 
@@ -107,6 +105,7 @@ public class EditRamcDialog extends ViewRamcDialog {
         
         // The super method will add the cancel button
         super.addButtonsInButtonBar(parent);
+        
     }
 
     @objid ("c168bbd7-fcf8-4eaf-8158-8ceb445f0cb3")
@@ -146,6 +145,7 @@ public class EditRamcDialog extends ViewRamcDialog {
             // Reconfigure contributors list
             reconfigureContributorsList();
         }
+        
     }
 
     @objid ("7fcb2865-d1d0-4b20-8f9a-49800d770442")
@@ -159,6 +159,7 @@ public class EditRamcDialog extends ViewRamcDialog {
                 EditRamcDialog.this.controller.onModifyDescription(EditRamcDialog.this.ramcDescriptionText.getHtml());
             }
         });
+        
     }
 
     @objid ("1b086034-24c8-4baa-9aae-27c5a9db88f8")
@@ -172,6 +173,7 @@ public class EditRamcDialog extends ViewRamcDialog {
                 EditRamcDialog.this.controller.onModifyVersion(EditRamcDialog.this.ramcVersionText.getText());
             }
         });
+        
     }
 
     @objid ("f22264bd-2fe3-4887-946d-8368efccbc1b")
@@ -185,6 +187,7 @@ public class EditRamcDialog extends ViewRamcDialog {
                 EditRamcDialog.this.controller.onModifyName(EditRamcDialog.this.ramcNameText.getText());
             }
         });
+        
     }
 
     @objid ("5004bbb8-2947-4aab-a1ff-cd76077abb25")
@@ -217,6 +220,7 @@ public class EditRamcDialog extends ViewRamcDialog {
                 EditRamcDialog.this.refresh();
             }
         });
+        
     }
 
     @objid ("34a5e65c-4537-4567-98f0-930b744b842d")
@@ -250,6 +254,7 @@ public class EditRamcDialog extends ViewRamcDialog {
                 EditRamcDialog.this.refresh();
             }
         });
+        
     }
 
     @objid ("71126fd9-4965-45db-acf8-9e5267b6bc54")
@@ -322,6 +327,7 @@ public class EditRamcDialog extends ViewRamcDialog {
             }
             refresh();
         });
+        
     }
 
     @objid ("a1fcf8fd-40d7-4b4c-b109-253f2924ec1d")
@@ -334,6 +340,7 @@ public class EditRamcDialog extends ViewRamcDialog {
             this.controller.onContributorChange(this.contributorsTable.getCheckedElements());
             this.contributorsTable.refresh(true);
         });
+        
     }
 
     @objid ("6e711dca-8e33-4809-baaa-a7b526e599e8")
@@ -348,6 +355,7 @@ public class EditRamcDialog extends ViewRamcDialog {
         
         this.ramcDescriptionText.setEditable(true);
         this.ramcDescriptionText.setEnabled(true);
+        
     }
 
     @objid ("e81c7f87-9184-4923-92c2-8cdf8d4749fa")
@@ -363,6 +371,7 @@ public class EditRamcDialog extends ViewRamcDialog {
         this.ramcProviderText.setBackground(UIColor.TEXT_WRITABLE_BG);
         this.ramcProviderText.addModifyListener(
                 e -> this.controller.onModifyProvider(this.ramcProviderText.getText()));
+        
     }
 
     @objid ("b81c0413-566c-44e8-b446-04c47d3aa097")
@@ -375,16 +384,16 @@ public class EditRamcDialog extends ViewRamcDialog {
 
         /**
          * C'tor.
-         * 
          * @param viewer - the viewer this drop listener is attached to
          * @param controler - the edition controller.
          * @param model - access to the model in order to be able to find model element from their MRef
          */
         @objid ("39f417f7-0c9e-49ad-bca6-762fc8731436")
-        public ManifestationsDropListener(Viewer viewer, Controller controler, IModel model) {
+        public  ManifestationsDropListener(Viewer viewer, Controller controler, IModel model) {
             super(viewer);
             this.controler = controler;
             this.model = model;
+            
         }
 
         /**
@@ -392,7 +401,6 @@ public class EditRamcDialog extends ViewRamcDialog {
          * <p>
          * Metamodel rules are checked, as well as manipulation rights for both the target and dropped elements.
          * </p>
-         * 
          * @param target the targeted element, must be a MObject.
          * @param operation the d&d operation, must be {@link DND#DROP_COPY} or {@link DND#DROP_MOVE}.
          * @param transferType the contents of data being dropped.
@@ -449,7 +457,6 @@ public class EditRamcDialog extends ViewRamcDialog {
 
         /**
          * Check the given elements can be dragged.
-         * 
          * @param elements The dragged elements
          * @return true if the given elements can be dragged.
          */
@@ -492,7 +499,7 @@ public class EditRamcDialog extends ViewRamcDialog {
 
     }
 
-// end class ManifestationDropListener
+    // end class ManifestationDropListener
     @objid ("16a40f61-2722-4495-a71e-e9e60e4877a4")
     private static class DependenciesDropListener extends ViewerDropAdapter {
         @objid ("d4ad2f8f-4988-463e-87bd-2ffe5240bdc7")
@@ -503,16 +510,16 @@ public class EditRamcDialog extends ViewRamcDialog {
 
         /**
          * C'tor.
-         * 
          * @param viewer the viewer this drop listener is attached to
          * @param controller the edition controller.
          * @param model access to the model in order to be able to find model element from their MRef.
          */
         @objid ("4352c32e-f82d-4590-b3ab-d60d9a5ada26")
-        public DependenciesDropListener(Viewer viewer, Controller controller, IModel model) {
+        public  DependenciesDropListener(Viewer viewer, Controller controller, IModel model) {
             super(viewer);
             this.controller = controller;
             this.model = model;
+            
         }
 
         /**
@@ -520,7 +527,6 @@ public class EditRamcDialog extends ViewRamcDialog {
          * <p>
          * Metamodel rules are checked, as well as manipulation rights for both the target and dropped elements.
          * </p>
-         * 
          * @param target the targeted element, must be a MObject.
          * @param operation the d&d operation, must be {@link DND#DROP_COPY} or {@link DND#DROP_MOVE}.
          * @param transferType the contents of data being dropped.
@@ -583,7 +589,6 @@ public class EditRamcDialog extends ViewRamcDialog {
          * <li>Elements must be Artifact, stereotyped 'ModelComponentArchive'</li>
          * <li>Dropped ramcs must not cause a dependency cycle</li>
          * </ul>
-         * 
          * @param elements The dragged elements
          * @return true if the given elements can be dragged.
          */

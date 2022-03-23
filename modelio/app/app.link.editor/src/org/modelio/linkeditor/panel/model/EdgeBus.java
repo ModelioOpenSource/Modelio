@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.panel.model;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,10 +31,11 @@ public class EdgeBus extends Subgraph {
      * C'tor.
      */
     @objid ("1badd246-5e33-11e2-b81d-002564c97630")
-    public EdgeBus() {
+    public  EdgeBus() {
         super(null);
         this.width = 3;
         this.height = 3;
+        
     }
 
 }

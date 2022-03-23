@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.mmextensions.infrastructure;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,7 @@ public class ExtensionNotFoundException extends IllegalArgumentException {
      * call to {@link #initCause}.
      */
     @objid ("389c36af-ad52-4070-9cf8-d87264f985ea")
-    public ExtensionNotFoundException() {
+    public  ExtensionNotFoundException() {
         super();
     }
 
@@ -50,7 +49,7 @@ public class ExtensionNotFoundException extends IllegalArgumentException {
      * later retrieval by the {@link #getMessage()} method.
      */
     @objid ("5e67672e-a504-412e-b0f1-53e249be362f")
-    public ExtensionNotFoundException(String message) {
+    public  ExtensionNotFoundException(String message) {
         super(message);
     }
 
@@ -67,7 +66,7 @@ public class ExtensionNotFoundException extends IllegalArgumentException {
      * unknown.)
      */
     @objid ("404596e2-2113-4620-a111-8737bd9f333d")
-    public ExtensionNotFoundException(String message, Throwable cause) {
+    public  ExtensionNotFoundException(String message, Throwable cause) {
         super(message, cause);
     }
 
@@ -84,7 +83,7 @@ public class ExtensionNotFoundException extends IllegalArgumentException {
      * unknown.)
      */
     @objid ("85553e9b-080d-4f81-866a-44ea7fc491ba")
-    public ExtensionNotFoundException(Throwable cause) {
+    public  ExtensionNotFoundException(Throwable cause) {
         super(cause);
     }
 

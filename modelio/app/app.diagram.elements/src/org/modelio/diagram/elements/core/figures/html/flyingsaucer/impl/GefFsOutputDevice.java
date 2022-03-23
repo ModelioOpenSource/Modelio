@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.html.flyingsaucer.impl;
 
 import java.awt.BasicStroke;
-import java.awt.RenderingHints.Key;
 import java.awt.RenderingHints;
+import java.awt.RenderingHints.Key;
 import java.awt.Stroke;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Area;
@@ -71,7 +70,7 @@ class GefFsOutputDevice extends AbstractOutputDevice {
     @objid ("fd0b2510-2d83-4908-a9ae-d7a19fa024ab")
     private Color _color = null;
 
-// private Transform _transform = null;
+    // private Transform _transform = null;
     @objid ("0190f551-08a3-4a14-ab9f-a13b2de76644")
     private Stroke _stroke = null;
 
@@ -86,9 +85,10 @@ class GefFsOutputDevice extends AbstractOutputDevice {
      * @param device a SWT Device
      */
     @objid ("9981f317-8feb-48d6-a835-7d05718d5d1a")
-    public GefFsOutputDevice(Graphics graphics, Device device) {
+    public  GefFsOutputDevice(Graphics graphics, Device device) {
         this._gc = graphics;
         this.device = device;
+        
     }
 
     /**
@@ -117,6 +117,7 @@ class GefFsOutputDevice extends AbstractOutputDevice {
         /*
          * if (this._transform != null) { this._gc.setTransform(null); this._transform.dispose(); }
          */
+        
     }
 
     @objid ("6cc380f9-a869-4fe6-8a17-bfeca7d44546")
@@ -132,6 +133,7 @@ class GefFsOutputDevice extends AbstractOutputDevice {
             a.intersect(new Area(s));
             setClip(a);
         }
+        
     }
 
     @objid ("e18558de-bf46-4ffb-abe7-a0cf3ae8fe31")
@@ -148,6 +150,7 @@ class GefFsOutputDevice extends AbstractOutputDevice {
         }
         this._clippingPath = path;
         this._clippingArea = (s == null ? null : new Area(s));
+        
     }
 
     @objid ("108790e9-8df5-474f-a32a-b88647a4e375")
@@ -189,6 +192,7 @@ class GefFsOutputDevice extends AbstractOutputDevice {
             }
             drawLine(x, y + h - offset, x + w - adj, y + h - offset);
         }
+        
     }
 
     @objid ("376c36bc-08c8-4fbd-9c0d-20c0dea5ce60")
@@ -213,6 +217,7 @@ class GefFsOutputDevice extends AbstractOutputDevice {
             this._gc.drawImage(img, 0, 0, bounds.width, bounds.height, x, y, image
                     .getWidth(), image.getHeight());
         }
+        
     }
 
     @objid ("609618bd-14d5-41b8-951d-6280cfc6795a")
@@ -238,6 +243,7 @@ class GefFsOutputDevice extends AbstractOutputDevice {
         Path p = convertToPath(s);
         this._gc.fillPath(p);
         p.dispose();
+        
     }
 
     @objid ("19e1ed78-f548-4736-a726-217091878790")
@@ -264,6 +270,7 @@ class GefFsOutputDevice extends AbstractOutputDevice {
             org.xhtmlrenderer.simple.xhtml.swt.SWTFormControl swtControl = ((FormControlReplacementElement) replaced).getControl();
             swtControl.getSWTControl().setVisible(true);
         }
+        
     }
 
     @objid ("d2f64f96-a458-484a-a1c2-cdaac9c72cbb")
@@ -282,6 +289,7 @@ class GefFsOutputDevice extends AbstractOutputDevice {
         }
         this._color = col;
         this._awt_color = color;
+        
     }
 
     @objid ("cd170c01-bd47-4dcf-bce3-ec0def031fdd")
@@ -299,6 +307,7 @@ class GefFsOutputDevice extends AbstractOutputDevice {
         } else {
             throw new IllegalArgumentException("unsupported color class " + color.getClass().getName());
         }
+        
     }
 
     @objid ("d1e9da89-7d5a-4cbe-a666-8dc48aed2c03")
@@ -372,6 +381,7 @@ class GefFsOutputDevice extends AbstractOutputDevice {
             dashes[i] = (int) d[i];
         }
         this._gc.setLineDash(dashes);
+        
     }
 
     @objid ("9e23bdba-1ef3-4e8f-ae12-e4cb2361ecf6")
@@ -384,6 +394,7 @@ class GefFsOutputDevice extends AbstractOutputDevice {
             t.translate(-tx, -ty);
             this._clippingArea.transform(t);
         }
+        
     }
 
     @objid ("fe677246-53ad-4722-9a4c-d9e5482d5105")
@@ -415,11 +426,11 @@ class GefFsOutputDevice extends AbstractOutputDevice {
             }
             this._gc.setAntialias(antialias);
         }
+        
     }
 
     /**
      * Convert an AWT Shape to an SWT Path.
-     * 
      * @param shape an AWT Shape
      * @return the SWT Path or <code>null</code> if <code>shape == null</code>
      */

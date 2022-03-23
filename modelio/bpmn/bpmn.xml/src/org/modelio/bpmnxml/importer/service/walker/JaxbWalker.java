@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.importer.service.walker;
 
-import javax.xml.bind.JAXBElement;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.xml.bind.JAXBElement;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.modelio.bpmnxml.importer.service.processor.IBPMNImportProcessor;
 import org.modelio.bpmnxml.model.BPMNDiagram;
@@ -62,9 +61,10 @@ public class JaxbWalker {
     private TDefinitions jaxbRoot;
 
     @objid ("0184886f-7269-4727-a7d7-8823b37cea4d")
-    public JaxbWalker(TDefinitions jaxbRoot, IBPMNImportProcessor processor) {
+    public  JaxbWalker(TDefinitions jaxbRoot, IBPMNImportProcessor processor) {
         this.processor = processor;
         this.jaxbRoot = jaxbRoot;
+        
     }
 
     @objid ("bfbbc56b-1216-4c27-a50a-66f6876b41a2")
@@ -169,6 +169,7 @@ public class JaxbWalker {
         for (TLane jaxLane : jaxElement.getLane()) {
             walkLane(result, jaxLane);
         }
+        
     }
 
     @objid ("5ddb4bed-eb73-4f32-812a-cb06eb6a4735")
@@ -180,6 +181,7 @@ public class JaxbWalker {
                 walkLaneSet(result, lanset);
             }
         }
+        
     }
 
     @objid ("1c910d85-bd8d-4426-be4b-6885f675b50a")
@@ -195,6 +197,7 @@ public class JaxbWalker {
                 walkEvent(result, (TEvent) jaxElement);
             }
         }
+        
     }
 
     @objid ("7bd01583-e18d-444d-9d95-e75dfa8b205c")
@@ -226,6 +229,7 @@ public class JaxbWalker {
         for (TDataAssociation jaxDataAsso : jaxElement.getDataOutputAssociation()) {
             walkDataAssociation(context, jaxDataAsso);
         }
+        
     }
 
     @objid ("0c0338a2-944d-448b-9eb2-45f8b1892b0f")
@@ -237,6 +241,7 @@ public class JaxbWalker {
         for (TDataOutput jaxoutput : iospecification.getDataOutput()) {
             this.processor.process(context, jaxoutput);
         }
+        
     }
 
     @objid ("0199fe7f-5e8a-48fd-a9ac-841f8cb58c5d")
@@ -256,6 +261,7 @@ public class JaxbWalker {
                 this.processor.process(context, jaxArt.getValue());
             }
         }
+        
     }
 
     @objid ("93989f63-bbea-497f-b363-b437645a56c1")
@@ -271,6 +277,7 @@ public class JaxbWalker {
         } else if (jaxEvent instanceof TThrowEvent) {
             walkThrowEvent(context, (TThrowEvent) jaxEvent);
         }
+        
     }
 
     @objid ("54602768-1a0d-4a67-af84-a05893c7b120")
@@ -288,6 +295,7 @@ public class JaxbWalker {
         for (TDataAssociation jaxDataAsso : jaxThrowEvent.getDataInputAssociation()) {
             walkDataAssociation(context, jaxDataAsso);
         }
+        
     }
 
     @objid ("07fa8798-2b93-4ae7-b618-6f596b57cc53")
@@ -305,6 +313,7 @@ public class JaxbWalker {
         for (TDataAssociation jaxDataAsso : jaxCatchEvent.getDataOutputAssociation()) {
             walkDataAssociation(context, jaxDataAsso);
         }
+        
     }
 
     @objid ("4610687d-fd1b-4d09-aaed-98c8cbe24431")

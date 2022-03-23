@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.message.label;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,12 +31,12 @@ public class MessageLabelProvider {
      * This class is not instantiable.
      */
     @objid ("d95a82cb-55b6-11e2-877f-002564c97630")
-    private MessageLabelProvider() {
+    private  MessageLabelProvider() {
+        
     }
 
     /**
      * Get the Message label at the following format: "name : representedType [min..max]"
-     * 
      * @param m the Message
      * @return the computed label
      */

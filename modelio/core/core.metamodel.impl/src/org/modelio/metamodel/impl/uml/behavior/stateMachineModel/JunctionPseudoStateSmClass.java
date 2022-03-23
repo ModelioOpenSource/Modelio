@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.stateMachineModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.AbstractPseudoStateSmClass;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.AbstractPseudoState;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.JunctionPseudoState;
 import org.modelio.vbasic.version.Version;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("4b1536d5-b513-4b9d-a47b-8fd194150113")
 public class JunctionPseudoStateSmClass extends AbstractPseudoStateSmClass {
     @objid ("7be357a5-ea38-41b9-9bb9-354fafbbd2ee")
-    public JunctionPseudoStateSmClass(ISmMetamodelFragment origin) {
+    public  JunctionPseudoStateSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class JunctionPseudoStateSmClass extends AbstractPseudoStateSmClass {
     @Override
     public String getName() {
         return "JunctionPseudoState";
+        
     }
 
     @objid ("0e718888-87bc-4883-811d-c18de0a96234")
@@ -62,18 +62,21 @@ public class JunctionPseudoStateSmClass extends AbstractPseudoStateSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return JunctionPseudoState.class;
+        
     }
 
     @objid ("5ac07fa9-1a0a-4bbe-8d4b-2c3e2936f080")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("4abda032-2d8e-4a4f-8e57-e5f0acf31b06")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("dfc6c01d-6ee5-48b5-a893-bac4952d1b59")
@@ -86,6 +89,7 @@ public class JunctionPseudoStateSmClass extends AbstractPseudoStateSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("a46d59d5-77d7-496b-b76c-510283274503")
@@ -94,7 +98,7 @@ public class JunctionPseudoStateSmClass extends AbstractPseudoStateSmClass {
         private JunctionPseudoStateSmClass smClass;
 
         @objid ("e25b747b-fb46-4434-9030-8a96d7f0af66")
-        public JunctionPseudoStateObjectFactory(JunctionPseudoStateSmClass smClass) {
+        public  JunctionPseudoStateObjectFactory(JunctionPseudoStateSmClass smClass) {
             this.smClass = smClass;
         }
 

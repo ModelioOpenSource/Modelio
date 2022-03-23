@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.elementimport;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("18da7ea1-47b8-4eef-93d1-8ff145826e37")
 public class Throw {
-    @objid ("c9bb80b0-d81f-418e-8b6d-3922bb449502")
+    @objid ("906d4a58-6e79-4129-bff0-03dfe381b55e")
     public static final String STEREOTYPE_NAME = "throw";
 
     /**
      * The underlying {@link ElementImport} represented by this proxy, never null.
      */
-    @objid ("63e2b227-a7dc-4330-bcd8-75e70a6b184e")
+    @objid ("75c8e889-f1d3-465c-b3bd-0baac230bbfd")
     protected final ElementImport elt;
 
     /**
      * Tells whether a {@link Throw proxy} can be instantiated from a {@link MObject} checking it is a {@link ElementImport} stereotyped << throw >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("ef3a8146-4972-4ecf-91ec-c526c3e343c5")
+    @objid ("b184a722-5a61-4eb5-b50b-83fd6558be1a")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof ElementImport) && ((ElementImport) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Throw.STEREOTYPE_NAME));
     }
@@ -77,9 +75,9 @@ public class Throw {
      * 
      * @return a {@link Throw} proxy on the created {@link ElementImport}.
      */
-    @objid ("2df10fbc-0c0d-4a48-9793-4814a644a03d")
+    @objid ("85f769a9-d1f7-48c5-b31b-1412544e0361")
     public static Throw create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("ElementImport");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.ElementImport");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Throw.STEREOTYPE_NAME);
         return Throw.instantiate((ElementImport)e);
     }
@@ -91,7 +89,7 @@ public class Throw {
      * @param obj a ElementImport
      * @return a {@link Throw} proxy or <i>null</i>.
      */
-    @objid ("dc7da546-3ae1-4dde-a450-15d3104e4fb1")
+    @objid ("c472c4d4-8386-46f0-b5ea-e287697ace36")
     public static Throw instantiate(ElementImport obj) {
         return Throw.canInstantiate(obj) ? new Throw(obj) : null;
     }
@@ -104,7 +102,7 @@ public class Throw {
      * @return a {@link Throw} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("e09a57b5-7bc6-45fd-8a0d-1cd0a781a431")
+    @objid ("a3306353-5895-40d2-9248-e4e62bf46187")
     public static Throw safeInstantiate(ElementImport obj) throws IllegalArgumentException {
         if (Throw.canInstantiate(obj))
         	return new Throw(obj);
@@ -112,7 +110,7 @@ public class Throw {
         	throw new IllegalArgumentException("Throw: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("84d23756-5ac6-4e1f-903e-1fa6094cd2d3")
+    @objid ("db7b94fd-247a-4709-8ada-b2b140856147")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,46 +130,47 @@ public class Throw {
      * Get the underlying {@link ElementImport}. 
      * @return the ElementImport represented by this proxy, never null.
      */
-    @objid ("a095a4cf-a9d9-459d-86de-636f66794439")
+    @objid ("44940bb1-b585-4d9c-8e3d-7050fec18709")
     public ElementImport getElement() {
         return this.elt;
     }
 
-    @objid ("00b561f0-cdb8-4742-b590-840d81c5fa89")
+    @objid ("82b214a7-7fce-4958-9083-8c947e6ec0a5")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("51377ac5-9cce-4034-8d2e-e2824271306f")
-    protected Throw(ElementImport elt) {
+    @objid ("094b15fd-35a9-466e-8d5e-3edcdceb1499")
+    protected  Throw(ElementImport elt) {
         this.elt = elt;
     }
 
     @objid ("1f8f9f45-0963-4c94-b96b-4765073e15e0")
     public static final class MdaTypes {
-        @objid ("de26df36-0577-487a-9ec4-9b92dd18c393")
+        @objid ("f1ef490a-7265-4ac9-b33b-0f6efef36881")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("9fa50254-eb9e-4199-91c2-33f0426cc4a8")
+        @objid ("7fb6fc19-c9c2-4512-b79c-b4f118ef68a5")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("c69a2ef5-eebd-406d-9a64-73c868c09ad3")
+        @objid ("059931e1-e3b4-4f98-a710-dc802f71ad9c")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("cc99bf49-e901-48b4-aeaf-8afea9a06a9b")
+        @objid ("15403442-cb4f-4c13-9cc0-4a6dc810dd14")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "0054070c-0000-005d-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

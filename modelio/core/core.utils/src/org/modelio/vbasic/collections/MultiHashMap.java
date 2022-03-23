@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.collections;
 
 import java.util.ArrayList;
@@ -33,7 +32,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * @param <V> the type of mapped values
  */
 @objid ("8d6e5627-1f4a-11e2-8814-001ec947c8cc")
-public class MultiHashMap<K, V> extends HashMap<K,List<V>> {
+public class MultiHashMap<K, V> extends HashMap<K, List<V>> {
     @objid ("9e939f64-1f4a-11e2-8814-001ec947c8cc")
     private static final long serialVersionUID = 1L;
 
@@ -46,7 +45,6 @@ public class MultiHashMap<K, V> extends HashMap<K,List<V>> {
      * if the value is of an inappropriate type for this map (optional)
      * @throws NullPointerException
      * if the specified value is null and this map does not permit null values (optional)
-     * 
      * @param value value whose presence in this map is to be tested
      * @return <tt>true</tt> if this map maps one or more keys to the specified value
      */
@@ -70,7 +68,6 @@ public class MultiHashMap<K, V> extends HashMap<K,List<V>> {
      * if the specified key or value is null and this map does not permit null keys or values
      * @throws IllegalArgumentException
      * if some property of the specified key or value prevents it from being stored in this map
-     * 
      * @param key key with which the specified value is to be associated
      * @param value value to be associated with the specified key
      * @return true if the value was added or false if it was already present in the map.
@@ -93,7 +90,6 @@ public class MultiHashMap<K, V> extends HashMap<K,List<V>> {
 
     /**
      * Remove the following pair from the map.
-     * 
      * @param key The key where the value is mapped
      * @param value The value to remove
      * @return true if the value was removed, false if it was not mapped to the given key.

@@ -17,22 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.infrastructure.MetaclassReferenceSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.ModelElementSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.StereotypeSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.TagTypeData;
-import org.modelio.metamodel.impl.uml.infrastructure.TaggedValueSmClass;
 import org.modelio.metamodel.uml.infrastructure.MetaclassReference;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
@@ -78,7 +73,7 @@ public class TagTypeSmClass extends ModelElementSmClass {
     private SmDependency ownerReferenceDep;
 
     @objid ("b89af138-3c1a-4e40-8cf7-06c78baedae8")
-    public TagTypeSmClass(ISmMetamodelFragment origin) {
+    public  TagTypeSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -86,6 +81,7 @@ public class TagTypeSmClass extends ModelElementSmClass {
     @Override
     public String getName() {
         return "TagType";
+        
     }
 
     @objid ("80ceca48-f405-4dbd-89ae-40f573729f3c")
@@ -98,18 +94,21 @@ public class TagTypeSmClass extends ModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return TagType.class;
+        
     }
 
     @objid ("ad0a1b6c-2b68-41f8-9007-1988fa44b390")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("381b3c57-2d05-4c19-92b7-1e01e5ef4b9f")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("798b27b5-b195-4d2b-bc4a-04bca030c457")
@@ -153,6 +152,8 @@ public class TagTypeSmClass extends ModelElementSmClass {
         this.ownerReferenceDep = new OwnerReferenceSmDependency();
         this.ownerReferenceDep.init("OwnerReference", this, metamodel.getMClass(MetaclassReference.MQNAME), 0, 1 );
         registerDependency(this.ownerReferenceDep);
+        
+        
     }
 
     @objid ("be369116-ec84-42ad-824b-7a9eaa3dc989")
@@ -225,7 +226,7 @@ public class TagTypeSmClass extends ModelElementSmClass {
         private TagTypeSmClass smClass;
 
         @objid ("ce9639f6-ee11-47db-9937-8b5daf6ff973")
-        public TagTypeObjectFactory(TagTypeSmClass smClass) {
+        public  TagTypeObjectFactory(TagTypeSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -328,6 +329,7 @@ public class TagTypeSmClass extends ModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((TagTypeData) data).mTagOccurence = values;
+            
         }
 
         @objid ("f2889aae-1bcc-478b-ae24-e5e7c1cc1189")
@@ -337,6 +339,7 @@ public class TagTypeSmClass extends ModelElementSmClass {
             	this.symetricDep = ((TaggedValueSmClass)this.getTarget()).getDefinitionDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -365,6 +368,7 @@ public class TagTypeSmClass extends ModelElementSmClass {
             	this.symetricDep = ((StereotypeSmClass)this.getTarget()).getDefinedTagTypeDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -393,6 +397,7 @@ public class TagTypeSmClass extends ModelElementSmClass {
             	this.symetricDep = ((MetaclassReferenceSmClass)this.getTarget()).getDefinedTagTypeDep();
             }
             return this.symetricDep;
+            
         }
 
     }

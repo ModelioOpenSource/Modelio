@@ -17,12 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.rake;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.elements.core.link.DefaultCreateLinkCommand;
-import org.modelio.diagram.elements.core.link.GmLink;
 import org.modelio.diagram.elements.core.link.GmPath;
 import org.modelio.diagram.elements.core.link.ModelioLinkCreationContext;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
@@ -39,19 +37,19 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 @objid ("8059f6c9-1dec-11e2-8cad-001ec947c8cc")
 public class CreateRakedLinkCommand extends DefaultCreateLinkCommand {
     @objid ("8059f6cb-1dec-11e2-8cad-001ec947c8cc")
-    private GmLink otherLink;
+    private IGmLink otherLink;
 
     /**
      * Initialize the command.
-     * 
      * @param context the creation context.
      * @param otherLink the link to rake to.
      */
     @objid ("8059f6cc-1dec-11e2-8cad-001ec947c8cc")
-    public CreateRakedLinkCommand(final ModelioLinkCreationContext context, final GmLink otherLink) {
+    public  CreateRakedLinkCommand(final ModelioLinkCreationContext context, final IGmLink otherLink) {
         super(context);
         this.otherLink = otherLink;
         setTarget(otherLink.getTo());
+        
     }
 
     @objid ("8059f6d3-1dec-11e2-8cad-001ec947c8cc")

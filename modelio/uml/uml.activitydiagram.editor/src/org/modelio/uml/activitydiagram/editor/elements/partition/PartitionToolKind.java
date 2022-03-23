@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.partition;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,17 +31,22 @@ public enum PartitionToolKind {
     /**
      * A tool of this kind requests the creation of an ActivityPartition that is a "sibling" (ie on the same nesting level) of the designated ActivityPartition.
      */
+    @objid ("2b1b6c8a-55b6-11e2-877f-002564c97630")
     SIBLING,
     /**
      * A tool of this kind requests the creation of an ActivityPartition that is nested in (ie a sub partition of) the designated ActivityPartition.
      */
+    @objid ("2b1b6c8c-55b6-11e2-877f-002564c97630")
     INNER,
     /**
      * A tool of this kind requests the creation of an ActivityPartition container on the diagram background, with orientation being horizontal (contained partitions will be on top of each other).
      */
+    @objid ("2b1b6c8e-55b6-11e2-877f-002564c97630")
     HORIZONTAL_CONTAINER,
     /**
      * A tool of this kind requests the creation of an ActivityPartition container on the diagram background, with orientation being vertical (contained partitions will side by side).
      */
+    @objid ("2b1b9399-55b6-11e2-877f-002564c97630")
     VERTICAL_CONTAINER;
+
 }

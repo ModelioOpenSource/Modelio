@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
@@ -32,15 +32,6 @@ import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.BehaviorSmClass;
 import org.modelio.metamodel.impl.uml.informationFlow.DataFlowSmClass;
 import org.modelio.metamodel.impl.uml.informationFlow.InformationFlowSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.ModelTreeSmClass;
-import org.modelio.metamodel.impl.uml.statik.CollaborationUseSmClass;
-import org.modelio.metamodel.impl.uml.statik.ElementImportSmClass;
-import org.modelio.metamodel.impl.uml.statik.GeneralizationSmClass;
-import org.modelio.metamodel.impl.uml.statik.InstanceSmClass;
-import org.modelio.metamodel.impl.uml.statik.InterfaceRealizationSmClass;
-import org.modelio.metamodel.impl.uml.statik.NameSpaceData;
-import org.modelio.metamodel.impl.uml.statik.PackageImportSmClass;
-import org.modelio.metamodel.impl.uml.statik.TemplateBindingSmClass;
-import org.modelio.metamodel.impl.uml.statik.TemplateParameterSmClass;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
 import org.modelio.metamodel.uml.informationFlow.DataFlow;
 import org.modelio.metamodel.uml.informationFlow.InformationFlow;
@@ -133,7 +124,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
     private SmDependency ownedImportDep;
 
     @objid ("87055698-9ac9-4601-a3de-4de993f9e1b0")
-    public NameSpaceSmClass(ISmMetamodelFragment origin) {
+    public  NameSpaceSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -141,6 +132,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
     @Override
     public String getName() {
         return "NameSpace";
+        
     }
 
     @objid ("923a2bfd-0e17-4b84-8ec9-74dbbcce6510")
@@ -153,18 +145,21 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return NameSpace.class;
+        
     }
 
     @objid ("dcf04889-9c35-4e9b-974f-b95296d6ca35")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("5ed2122e-0d78-485b-8c8b-85443012e84f")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("810cb867-1ad2-43c6-9946-71b11aadfee2")
@@ -260,6 +255,8 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
         this.ownedImportDep = new OwnedImportSmDependency();
         this.ownedImportDep.init("OwnedImport", this, metamodel.getMClass(ElementImport.MQNAME), 0, -1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.ownedImportDep);
+        
+        
     }
 
     @objid ("5cc33061-829a-456b-ab62-5ef3c52d3346")
@@ -436,7 +433,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
         private NameSpaceSmClass smClass;
 
         @objid ("b79281ea-9e4b-4317-a98f-c3fb1664fce8")
-        public NameSpaceObjectFactory(NameSpaceSmClass smClass) {
+        public  NameSpaceObjectFactory(NameSpaceSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -525,6 +522,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((NameSpaceData) data).mParent = values;
+            
         }
 
         @objid ("ac0c26f7-9533-409e-a762-34ee05c36fd4")
@@ -534,6 +532,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
             	this.symetricDep = ((GeneralizationSmClass)this.getTarget()).getSubTypeDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -553,6 +552,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((NameSpaceData) data).mTemplateInstanciation = values;
+            
         }
 
         @objid ("51e6c362-02e7-43a5-a359-8f4875e09389")
@@ -562,6 +562,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
             	this.symetricDep = ((TemplateBindingSmClass)this.getTarget()).getBoundElementDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -581,6 +582,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((NameSpaceData) data).mRepresenting = values;
+            
         }
 
         @objid ("d3e8cd17-c7c1-40e4-9712-a84c210a88bb")
@@ -590,6 +592,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
             	this.symetricDep = ((InstanceSmClass)this.getTarget()).getBaseDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -609,6 +612,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((NameSpaceData) data).mOwnedBehavior = values;
+            
         }
 
         @objid ("4b0ddd48-492d-4a35-a6ba-e69c3dc87244")
@@ -618,6 +622,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
             	this.symetricDep = ((BehaviorSmClass)this.getTarget()).getOwnerDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -637,6 +642,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((NameSpaceData) data).mReceived = values;
+            
         }
 
         @objid ("98f7fec8-c94c-4e49-ad2a-cb552a617ccd")
@@ -646,6 +652,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
             	this.symetricDep = ((DataFlowSmClass)this.getTarget()).getDestinationDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -665,6 +672,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((NameSpaceData) data).mOwnedInformationFlow = values;
+            
         }
 
         @objid ("3e208f99-ccba-4acd-b84a-1feea97cf202")
@@ -674,6 +682,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
             	this.symetricDep = ((InformationFlowSmClass)this.getTarget()).getOwnerDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -693,6 +702,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((NameSpaceData) data).mImporting = values;
+            
         }
 
         @objid ("5a57211b-da58-4b8a-850b-e200584be5ad")
@@ -702,6 +712,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
             	this.symetricDep = ((ElementImportSmClass)this.getTarget()).getImportedElementDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -721,6 +732,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((NameSpaceData) data).mSent = values;
+            
         }
 
         @objid ("55e4d88e-e7bc-4613-844c-ebe546e24a9a")
@@ -730,6 +742,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
             	this.symetricDep = ((DataFlowSmClass)this.getTarget()).getOriginDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -749,6 +762,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((NameSpaceData) data).mOwnedDataFlow = values;
+            
         }
 
         @objid ("89da0c30-b672-4f2e-8b6a-0b757cbdf658")
@@ -758,6 +772,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
             	this.symetricDep = ((DataFlowSmClass)this.getTarget()).getOwnerDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -777,6 +792,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((NameSpaceData) data).mOwnedCollaborationUse = values;
+            
         }
 
         @objid ("f572c58e-e5f3-4edc-a073-825970d01be3")
@@ -786,6 +802,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
             	this.symetricDep = ((CollaborationUseSmClass)this.getTarget()).getNRepresentedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -805,6 +822,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((NameSpaceData) data).mOwnedPackageImport = values;
+            
         }
 
         @objid ("cffb7bdd-4b3a-40a6-9bc3-28c5eea56d69")
@@ -814,6 +832,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
             	this.symetricDep = ((PackageImportSmClass)this.getTarget()).getImportingNameSpaceDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -833,6 +852,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((NameSpaceData) data).mTemplate = values;
+            
         }
 
         @objid ("a4f50937-3ed2-48e8-8eff-f1615fb3e720")
@@ -842,6 +862,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
             	this.symetricDep = ((TemplateParameterSmClass)this.getTarget()).getParameterizedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -861,6 +882,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((NameSpaceData) data).mSpecialization = values;
+            
         }
 
         @objid ("5170266f-9f21-436c-84b0-65548db5c70f")
@@ -870,6 +892,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
             	this.symetricDep = ((GeneralizationSmClass)this.getTarget()).getSuperTypeDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -889,6 +912,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((NameSpaceData) data).mRealized = values;
+            
         }
 
         @objid ("61127fea-a324-44c8-9b49-3d43d7cfb79f")
@@ -898,6 +922,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
             	this.symetricDep = ((InterfaceRealizationSmClass)this.getTarget()).getImplementerDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -917,6 +942,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((NameSpaceData) data).mDeclared = values;
+            
         }
 
         @objid ("53d5f84e-9b4d-45da-9c5d-da7dae28ed79")
@@ -926,6 +952,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
             	this.symetricDep = ((InstanceSmClass)this.getTarget()).getOwnerDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -945,6 +972,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((NameSpaceData) data).mInstanciatingBinding = values;
+            
         }
 
         @objid ("ec5d3bea-b3dc-4303-bbb9-e0e0fe8851f7")
@@ -954,6 +982,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
             	this.symetricDep = ((TemplateBindingSmClass)this.getTarget()).getInstanciatedTemplateDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -973,6 +1002,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((NameSpaceData) data).mOwnedImport = values;
+            
         }
 
         @objid ("53680c4e-da60-4f32-b4d4-598ca7dab4a2")
@@ -982,6 +1012,7 @@ public class NameSpaceSmClass extends ModelTreeSmClass {
             	this.symetricDep = ((ElementImportSmClass)this.getTarget()).getImportingNameSpaceDep();
             }
             return this.symetricDep;
+            
         }
 
     }

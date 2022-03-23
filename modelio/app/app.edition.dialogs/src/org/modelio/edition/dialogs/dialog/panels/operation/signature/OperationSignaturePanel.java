@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.dialogs.dialog.panels.operation.signature;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.resource.FontDescriptor;
 import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.resource.LocalResourceManager;
-import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.jface.viewers.StyledString;
+import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.StyleRange;
 import org.eclipse.swt.custom.StyledText;
@@ -58,7 +57,7 @@ public class OperationSignaturePanel implements IPanelProvider {
     private StyledText previewLabel;
 
     @objid ("b82541ff-af0b-4f2d-a4b5-3dc95c946283")
-     Label previewIcon;
+    Label previewIcon;
 
     @objid ("3cfe2de5-29ab-46ce-8200-bf30d59ee2bb")
     private IOperationPropertyModel opModel;
@@ -118,6 +117,7 @@ public class OperationSignaturePanel implements IPanelProvider {
         }
         // As the label can wrap or unwrap depending on its contents length, fire a layout on the container parent in order to adapt the layout to the new size.
         this.container.getParent().layout(true, true);
+        
     }
 
     @objid ("56aea30f-f43c-4fa8-a4e1-58ed7122d111")
@@ -221,10 +221,11 @@ public class OperationSignaturePanel implements IPanelProvider {
             default:
                 return "";
             }
+            
         }
 
         @objid ("7cbab773-07d5-4623-b399-10edf4eb4e1c")
-        public OpSignatureBuilder(IOperationPropertyModel opModel) {
+        public  OpSignatureBuilder(IOperationPropertyModel opModel) {
             this.opModel = opModel;
             
             this.nameStyler = new Styler() {
@@ -259,6 +260,7 @@ public class OperationSignaturePanel implements IPanelProvider {
                     textStyle.foreground = UIColor.BROWN;
                 }
             };
+            
         }
 
         @objid ("cb14b989-685c-4c9d-a210-1fd072a19c61")
@@ -324,6 +326,7 @@ public class OperationSignaturePanel implements IPanelProvider {
             default:
                 return "";
             }
+            
         }
 
         @objid ("e2d24868-488b-4108-b6a7-4fb649240dc8")
@@ -360,7 +363,7 @@ public class OperationSignaturePanel implements IPanelProvider {
         }
 
         @objid ("73d1a55b-44cf-4ab1-855a-40ff24c20767")
-        public IOParamSignatureBuilder(OpSignatureBuilder opSignatureBuilder) {
+        public  IOParamSignatureBuilder(OpSignatureBuilder opSignatureBuilder) {
             this.opSignatureBuilder = opSignatureBuilder;
         }
 

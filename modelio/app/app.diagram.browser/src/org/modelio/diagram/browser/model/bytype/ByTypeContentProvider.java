@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.model.bytype;
 
 import java.util.ArrayList;
@@ -97,7 +96,7 @@ public class ByTypeContentProvider implements ITreeContentProvider {
      * Constructor.
      */
     @objid ("00421d46-0d4f-10c6-842f-001ec947cd2a")
-    public ByTypeContentProvider(GProject project) {
+    public  ByTypeContentProvider(GProject project) {
         this.project = project;
     }
 
@@ -160,6 +159,7 @@ public class ByTypeContentProvider implements ITreeContentProvider {
                 this.types.put(type, newFolder);
             }
         }
+        
     }
 
     @objid ("00425586-0d4f-10c6-842f-001ec947cd2a")

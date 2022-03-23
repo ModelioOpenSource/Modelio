@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.diagrams.processcollaboration;
 
 import java.util.List;
@@ -32,13 +31,14 @@ import org.modelio.bpmn.diagram.editor.elements.factories.BpmnGmLinkFactory;
 import org.modelio.bpmn.diagram.editor.elements.participant.GmBpmnParticipantPortContainer;
 import org.modelio.diagram.elements.common.abstractdiagram.GmAbstractDiagram;
 import org.modelio.diagram.elements.core.model.GmAbstractObject;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.view.ISymbolViewModel;
 import org.modelio.metamodel.bpmn.bpmnDiagrams.BpmnCollaborationDiagram;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnParticipant;
@@ -82,15 +82,15 @@ public class GmBpmnProcessCollaborationDiagram extends GmAbstractDiagram {
 
     /**
      * Default constructor.
-     * 
      * @param manager the manager needed make the link between the Ob and Gm models.
      * @param diagram the diagram itself.
      * @param diagramRef a reference to the diagram.
      */
     @objid ("61f4b6e8-55b6-11e2-877f-002564c97630")
-    public GmBpmnProcessCollaborationDiagram(IModelManager manager, BpmnCollaborationDiagram diagram, MRef diagramRef) {
+    public  GmBpmnProcessCollaborationDiagram(IModelManager manager, BpmnCollaborationDiagram diagram, MRef diagramRef) {
         super(manager, diagramRef);
         this.obDiagram = diagram;
+        
     }
 
     @objid ("61f4b6f7-55b6-11e2-877f-002564c97630")
@@ -104,6 +104,7 @@ public class GmBpmnProcessCollaborationDiagram extends GmAbstractDiagram {
         } else {
             return (BpmnParticipant.class.isAssignableFrom(metaclass) || BpmnProcess.class.isAssignableFrom(metaclass));
         }
+        
     }
 
     @objid ("61f4b6ff-55b6-11e2-877f-002564c97630")
@@ -121,6 +122,7 @@ public class GmBpmnProcessCollaborationDiagram extends GmAbstractDiagram {
             MMetamodel metamodel = getModelManager().getMetamodel();
             return mdaExpert.canLink(Process.MdaTypes.STEREOTYPE_ELT, metamodel.getMClass(MethodologicalLink.class), metamodel.getMClass(BpmnProcess.class), el.getMClass());
         }
+        
     }
 
     @objid ("61f4b707-55b6-11e2-877f-002564c97630")
@@ -167,6 +169,7 @@ public class GmBpmnProcessCollaborationDiagram extends GmAbstractDiagram {
             break;
         }
         }
+        
     }
 
     @objid ("61f63d97-55b6-11e2-877f-002564c97630")
@@ -188,6 +191,7 @@ public class GmBpmnProcessCollaborationDiagram extends GmAbstractDiagram {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmBpmnProcessCollaborationDiagram.", GmBpmnProcessCollaborationDiagram.MINOR_VERSION);
+        
     }
 
     @objid ("61f63dab-55b6-11e2-877f-002564c97630")
@@ -215,6 +219,7 @@ public class GmBpmnProcessCollaborationDiagram extends GmAbstractDiagram {
                 child.delete();
             }
         }
+        
     }
 
     @objid ("61f63db0-55b6-11e2-877f-002564c97630")
@@ -250,6 +255,7 @@ public class GmBpmnProcessCollaborationDiagram extends GmAbstractDiagram {
         } else {
             return super.isValidChild(node);
         }
+        
     }
 
     @objid ("97596a36-f2ff-4acb-911e-68ac450aed3d")

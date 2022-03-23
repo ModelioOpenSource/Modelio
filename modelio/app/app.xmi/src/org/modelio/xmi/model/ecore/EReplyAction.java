@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class EReplyAction extends EActivityNode {
     }
 
     @objid ("e333994d-379f-4145-ad9f-859533806f19")
-    public EReplyAction(org.eclipse.uml2.uml.ReplyAction element) {
+    public  EReplyAction(org.eclipse.uml2.uml.ReplyAction element) {
         super(element);
     }
 

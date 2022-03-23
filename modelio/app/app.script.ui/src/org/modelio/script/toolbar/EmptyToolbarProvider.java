@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.script.toolbar;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,13 +35,12 @@ import org.modelio.platform.model.ui.swt.trimbarcomponent.TrimBarComponent;
 @objid ("f690e5c9-6ba7-47d6-9e9a-68ff9dda641a")
 public class EmptyToolbarProvider extends TrimBarComponent {
     @objid ("ee4bfdb0-392e-452c-8c14-9ae116f9ac0b")
-    public EmptyToolbarProvider() {
+    public  EmptyToolbarProvider() {
         super("PLACEHOLDER");
     }
 
     /**
      * Initialize the SWT control.
-     * 
      * @param parent a widget which will be the parent of the new SWT components.
      */
     @objid ("d56402b9-2bb3-4c92-a090-44f1ed536a93")

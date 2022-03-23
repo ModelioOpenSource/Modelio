@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.module.propertytab.plugin;
 
 import java.util.ResourceBundle;
@@ -56,6 +55,7 @@ public class ModulePropertyTab implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), PLUGIN_ID));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("modulepropertytab"));
+        
     }
 
     @objid ("c88084e1-1eba-11e2-9382-bc305ba4815c")

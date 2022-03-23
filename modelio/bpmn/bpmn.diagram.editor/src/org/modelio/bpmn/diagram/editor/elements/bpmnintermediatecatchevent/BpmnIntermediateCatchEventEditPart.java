@@ -17,20 +17,20 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnintermediatecatchevent;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.bpmn.diagram.editor.elements.bpmnintermediatethrowevent.ThrowCatchEventMatchingFeedbackEditPolicy;
-import org.modelio.diagram.elements.common.portcontainer.PortContainerEditPart;
+import org.modelio.bpmn.diagram.editor.elements.common.editpart.BpmnPortContainerEditPart;
 
 @objid ("b9410114-e4eb-435d-b0e3-70c735d967cd")
-public class BpmnIntermediateCatchEventEditPart extends PortContainerEditPart {
+public class BpmnIntermediateCatchEventEditPart extends BpmnPortContainerEditPart {
     @objid ("6924f621-893d-43dc-b699-bc49b8150a00")
     @Override
     protected void createEditPolicies() {
         super.createEditPolicies();
         installEditPolicy(ThrowCatchEventMatchingFeedbackEditPolicy.class.getName(), new ThrowCatchEventMatchingFeedbackEditPolicy());
+        
     }
 
 }

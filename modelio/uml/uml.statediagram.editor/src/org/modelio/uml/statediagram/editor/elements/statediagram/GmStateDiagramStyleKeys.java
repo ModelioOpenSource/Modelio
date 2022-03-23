@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.statediagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,7 +35,7 @@ public class GmStateDiagramStyleKeys extends StateAbstractStyleKeyProvider {
      * Snap to geometry.
      */
     @objid ("1b2d834b-08cd-4359-8fc4-f8ed52308663")
-     static final StyleKey SNAPTOGEOMETRY = GmAbstractDiagramStyleKeys.SNAPTOGEOMETRY;
+    static final StyleKey SNAPTOGEOMETRY = GmAbstractDiagramStyleKeys.SNAPTOGEOMETRY;
 
     /**
      * View grid.
@@ -102,9 +101,9 @@ public class GmStateDiagramStyleKeys extends StateAbstractStyleKeyProvider {
     public static final StyleKey PAGE_SIZE = GmAbstractDiagramStyleKeys.PAGE_SIZE;
 
     @objid ("81191c33-9f28-4ab3-9722-5ba96a6b1997")
-     static final LayoutAssistantStyleKeys autoLayoutStyle = GmAbstractDiagramStyleKeys.autoLayoutStyle;
+    static final LayoutAssistantStyleKeys autoLayoutStyle = GmAbstractDiagramStyleKeys.autoLayoutStyle;
 
     @objid ("ef3226b6-7821-48e9-9ee7-0c9b2af4925a")
-     static final StyleKey SHOW_SMARTLINK_HANDLE = GmAbstractDiagramStyleKeys.SHOW_SMARTLINK_HANDLE;
+    static final StyleKey SHOW_SMARTLINK_HANDLE = GmAbstractDiagramStyleKeys.SHOW_SMARTLINK_HANDLE;
 
 }

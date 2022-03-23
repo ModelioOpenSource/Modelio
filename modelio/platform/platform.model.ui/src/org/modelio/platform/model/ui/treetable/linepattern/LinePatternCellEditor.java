@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.treetable.linepattern;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,10 +40,11 @@ public class LinePatternCellEditor extends CellEditor {
     private Slider slider;
 
     @objid ("6b3bb7f2-1eba-11e2-9382-bc305ba4815c")
-    public LinePatternCellEditor(Composite parent, int min, int max) {
+    public  LinePatternCellEditor(Composite parent, int min, int max) {
         super(parent);
         this.min = min;
         this.max = max;
+        
     }
 
     @objid ("6b3bdf00-1eba-11e2-9382-bc305ba4815c")

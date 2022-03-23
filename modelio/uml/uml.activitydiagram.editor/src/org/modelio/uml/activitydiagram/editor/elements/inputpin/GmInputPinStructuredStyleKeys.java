@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.inputpin;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,34 +30,34 @@ import org.modelio.uml.activitydiagram.editor.style.ActivityAbstractStyleKeyProv
 @objid ("2aaf3d39-55b6-11e2-877f-002564c97630")
 public class GmInputPinStructuredStyleKeys extends ActivityAbstractStyleKeyProvider {
     @objid ("d22426dc-55c0-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("INPUTPIN_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("INPUTPIN_REPMODE", MetaKey.REPMODE);
 
     @objid ("d22426de-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("INPUTPIN_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("INPUTPIN_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("d22426e0-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("INPUTPIN_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("INPUTPIN_FILLMODE", MetaKey.FILLMODE);
 
     @objid ("d22426e2-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("INPUTPIN_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("INPUTPIN_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("d22426e4-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("INPUTPIN_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("INPUTPIN_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("d22426e6-55c0-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("INPUTPIN_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("INPUTPIN_FONT", MetaKey.FONT);
 
     @objid ("d22426e8-55c0-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("INPUTPIN_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("INPUTPIN_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("d22426ea-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("INPUTPIN_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("INPUTPIN_SHOWSTEREOTYPES",
+                MetaKey.SHOWSTEREOTYPES);
 
     @objid ("d22426ec-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("INPUTPIN_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("INPUTPIN_SHOWTAGS", MetaKey.SHOWTAGS);
 
     @objid ("d22426ee-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWLABEL = createStyleKey("INPUTPIN_SHOWLABEL", MetaKey.SHOWLABEL);
+    static final StyleKey SHOWLABEL = createStyleKey("INPUTPIN_SHOWLABEL", MetaKey.SHOWLABEL);
 
 }

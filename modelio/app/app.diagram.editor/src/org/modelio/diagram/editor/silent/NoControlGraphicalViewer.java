@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.silent;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -61,6 +60,7 @@ final class NoControlGraphicalViewer extends GraphicalViewerImpl {
     public void setRootEditPart(final RootEditPart editpart) {
         super.setRootEditPart(editpart);
         editpart.activate();
+        
     }
 
     @objid ("e95d4808-7690-452a-8a59-c1e17c027a39")
@@ -74,6 +74,7 @@ final class NoControlGraphicalViewer extends GraphicalViewerImpl {
         // If validation is done on each revalidate() call AbstractDiagramLayout.layout() does not work: the preferred size cannot be computed because
         // child figures have not been added yet.
         ((SynchronousUpdateManager) getLightweightSystem().getUpdateManager()).setSyncValidationEnabled(true);
+        
     }
 
     /**
@@ -91,7 +92,6 @@ final class NoControlGraphicalViewer extends GraphicalViewerImpl {
 
     /**
      * Called if and when the viewer is disposed.
-     * 
      * @param e the dispose event
      */
     @objid ("181313f7-fec1-44a9-9a16-47e3a1df6670")
@@ -101,6 +101,7 @@ final class NoControlGraphicalViewer extends GraphicalViewerImpl {
         if (this.resources != null) {
             this.resources.dispose();
         }
+        
     }
 
 }

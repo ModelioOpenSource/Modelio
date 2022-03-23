@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import java.util.ArrayList;
@@ -49,6 +48,7 @@ public class OInputPin extends OPin {
         else{
             return UMLFactory.eINSTANCE.createInputPin();
         }
+        
     }
 
     @objid ("a9533fc9-7f6a-436d-bdcd-27b555baad2b")
@@ -90,9 +90,10 @@ public class OInputPin extends OPin {
     }
 
     @objid ("1360b06b-8d80-4d89-962a-0e29ef0bfcbe")
-    public OInputPin(InputPin element) {
+    public  OInputPin(InputPin element) {
         super(element);
         this.ecoreOwnerElt = GenerationProperties.getInstance().getMappedElement(element.getInputing());
+        
     }
 
     @objid ("b076ce85-3bfa-445f-897a-0c0e41df20e0")
@@ -113,6 +114,7 @@ public class OInputPin extends OPin {
                     super.attach(ecoreElt);
             }
         }
+        
     }
 
     @objid ("e641653c-f001-4ff9-9545-cc04aa62014a")
@@ -124,12 +126,14 @@ public class OInputPin extends OPin {
         
         if (ecoreElt instanceof  org.eclipse.uml2.uml.ActionInputPin)
             setAction( (org.eclipse.uml2.uml.ActionInputPin) ecoreElt);
+        
     }
 
     @objid ("754c8fdb-cd5d-4f2e-a928-3007fd0c57c3")
     private void attachToActivityAction(org.eclipse.uml2.uml.Element ecoreElt, org.eclipse.uml2.uml.Element ecoreOwner) {
         AttachInputPinToOwnerVisitor attachInputPin = new AttachInputPinToOwnerVisitor();
         attachInputPin.attachInputPin((org.eclipse.uml2.uml.InputPin) ecoreElt, ecoreOwner, ((InputPin)getObjingElement()));
+        
     }
 
     @objid ("6953abda-95cc-4b3f-ad24-7136ad30549d")
@@ -153,6 +157,7 @@ public class OInputPin extends OPin {
                 Xmi.LOG.error(e);
             }
         }
+        
     }
 
     @objid ("73635a7f-ba89-4eba-a732-97963adb608a")
@@ -174,6 +179,7 @@ public class OInputPin extends OPin {
                 Xmi.LOG.error(Xmi.PLUGIN_ID, e);
             }
         }
+        
     }
 
 }

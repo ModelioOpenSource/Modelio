@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.modelshield.standardcheckers;
 
 import java.util.ArrayList;
@@ -73,6 +72,7 @@ public class E245Checker implements IChecker {
         if (parents.size() > 1) {
             report.addEntry(new ModelError(ERRORID, object, Arrays.asList(String.join(", ", parents))));
         }
+        
     }
 
     @objid ("00937844-e472-1f69-b3fb-001ec947cd2a")
@@ -89,6 +89,7 @@ public class E245Checker implements IChecker {
         
         // trigger=create, metaclass=BindableInstance, feature=Owner
         plan.registerChecker(this, smMetamodel.getMClass(BindableInstance.class), TriggerType.Create, "Owner");
+        
     }
 
 }

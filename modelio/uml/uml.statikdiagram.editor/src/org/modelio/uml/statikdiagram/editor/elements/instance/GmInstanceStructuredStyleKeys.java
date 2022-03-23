@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.instance;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -85,7 +84,7 @@ public final class GmInstanceStructuredStyleKeys extends StaticAbstractStyleKeyP
      */
     @objid ("a69172f5-55c2-11e2-9337-002564c97630")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("INSTANCE_SHOWSTEREOTYPES",
-                                                                  MetaKey.SHOWSTEREOTYPES);
+                                                                      MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Show tagged values.
@@ -98,14 +97,14 @@ public final class GmInstanceStructuredStyleKeys extends StaticAbstractStyleKeyP
      */
     @objid ("a69172fb-55c2-11e2-9337-002564c97630")
     public static final StyleKey INTERNALSVIEWMODE = createStyleKey("INSTANCE_INTERNALSVIEWMODE",
-                                                                    MetaKey.InnerGroup.INNERVIEWMODE);
+                                                                        MetaKey.InnerGroup.INNERVIEWMODE);
 
     /**
      * Display attributes.
      */
     @objid ("a69172fe-55c2-11e2-9337-002564c97630")
     public static final StyleKey SLOTGROUPVISIBLE = createStyleKey("INSTANCE_SLOT_GROUPVISIBLE",
-                                                                   Boolean.class);
+                                                                       Boolean.class);
 
     /**
      * Slots style keys.
@@ -120,7 +119,7 @@ public final class GmInstanceStructuredStyleKeys extends StaticAbstractStyleKeyP
          */
         @objid ("a6917301-55c2-11e2-9337-002564c97630")
         public static final StyleKey TEXTCOLOR = createStyleKey("INSTANCE_SLOT_TEXTCOLOR",
-                                                                MetaKey.AttGroup.ATTTEXTCOLOR);
+                                                                        MetaKey.AttGroup.ATTTEXTCOLOR);
 
         /**
          * Slots font.
@@ -133,14 +132,14 @@ public final class GmInstanceStructuredStyleKeys extends StaticAbstractStyleKeyP
          */
         @objid ("a6917307-55c2-11e2-9337-002564c97630")
         public static final StyleKey SHOWSTEREOTYPES = createStyleKey("INSTANCE_SLOT_SHOWSTEREOTYPES",
-                                                                      MetaKey.AttGroup.ATTSHOWSTEREOTYPES);
+                                                                              MetaKey.AttGroup.ATTSHOWSTEREOTYPES);
 
         /**
          * Display slots tagged values.
          */
         @objid ("a691730a-55c2-11e2-9337-002564c97630")
         public static final StyleKey SHOWTAGS = createStyleKey("INSTANCE_SLOT_SHOWTAGS",
-                                                               MetaKey.AttGroup.ATTSHOWTAGS);
+                                                                       MetaKey.AttGroup.ATTSHOWTAGS);
 
     }
 
@@ -159,35 +158,35 @@ public final class GmInstanceStructuredStyleKeys extends StaticAbstractStyleKeyP
          */
         @objid ("a691730d-55c2-11e2-9337-002564c97630")
         public static final StyleKey AUTOUNMASK = createStyleKey("INSTANCE_INTERNAL_AUTOUNMASK",
-                                                                 MetaKey.InternalGroup.INTAUTOUNMASK);
+                                                                         MetaKey.InternalGroup.INTAUTOUNMASK);
 
         /**
          * Text color.
          */
         @objid ("a6917310-55c2-11e2-9337-002564c97630")
         public static final StyleKey TEXTCOLOR = createStyleKey("INSTANCE_INTERNAL_TEXTCOLOR",
-                                                                MetaKey.InternalGroup.INTTEXTCOLOR);
+                                                                        MetaKey.InternalGroup.INTTEXTCOLOR);
 
         /**
          * Font
          */
         @objid ("a6917313-55c2-11e2-9337-002564c97630")
         public static final StyleKey FONT = createStyleKey("INSTANCE_INTERNAL_FONT",
-                                                           MetaKey.InternalGroup.INTFONT);
+                                                                   MetaKey.InternalGroup.INTFONT);
 
         /**
          * Stereotype display mode.
          */
         @objid ("a692f98b-55c2-11e2-9337-002564c97630")
         public static final StyleKey SHOWSTEREOTYPES = createStyleKey("INSTANCE_INTERNAL_SHOWSTEREOTYPES",
-                                                                      MetaKey.InternalGroup.INTSHOWSTEREOTYPES);
+                                                                              MetaKey.InternalGroup.INTSHOWSTEREOTYPES);
 
         /**
          * Display tagged values.
          */
         @objid ("a692f98e-55c2-11e2-9337-002564c97630")
         public static final StyleKey SHOWTAGS = createStyleKey("INSTANCE_INTERNAL_SHOWTAGS",
-                                                               MetaKey.InternalGroup.INTSHOWTAGS);
+                                                                       MetaKey.InternalGroup.INTSHOWTAGS);
 
     }
 

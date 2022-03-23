@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.packaze;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.gef.commands.Command;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
@@ -61,33 +60,33 @@ public class CreateElementCommand extends Command {
 
     /**
      * Creates a node creation command.
-     * 
      * @param parentNode The parent node
      * @param context Details on the MObject and/or the node to create
      * @param constraint The initial constraint of the created node.
      */
     @objid ("36175af8-55b7-11e2-877f-002564c97630")
-    public CreateElementCommand(GmCompositeNode parentNode, ModelioCreationContext context, Object constraint) {
+    public  CreateElementCommand(GmCompositeNode parentNode, ModelioCreationContext context, Object constraint) {
         this.parentNode = parentNode;
         this.parentElement = parentNode.getRelatedElement();
         this.context = context;
         this.constraint = constraint;
+        
     }
 
     /**
      * Creates a node creation command.
-     * 
      * @param parentElement The parent MObject of the MObject to create
      * @param parentNode The parent node
      * @param context Details on the MObject and/or the node to create
      * @param constraint The initial constraint of the created node.
      */
     @objid ("36175b02-55b7-11e2-877f-002564c97630")
-    public CreateElementCommand(MObject parentElement, GmCompositeNode parentNode, ModelioCreationContext context, Object constraint) {
+    public  CreateElementCommand(MObject parentElement, GmCompositeNode parentNode, ModelioCreationContext context, Object constraint) {
         this.parentNode = parentNode;
         this.parentElement = parentElement;
         this.context = context;
         this.constraint = constraint;
+        
     }
 
     @objid ("36175b0f-55b7-11e2-877f-002564c97630")
@@ -155,11 +154,11 @@ public class CreateElementCommand extends Command {
                 this.parentNode.getRepresentedRef());
         this.parentNode.addStartingLink(link);
         gmModel.addEndingLink(link);
+        
     }
 
     /**
      * Get the creation context (parent element, parent dependency, stereotype).
-     * 
      * @return the creation context.
      */
     @objid ("36175b12-55b7-11e2-877f-002564c97630")
@@ -169,7 +168,6 @@ public class CreateElementCommand extends Command {
 
     /**
      * Get the initial layout constraint.
-     * 
      * @return the initial layout constraint.
      */
     @objid ("3618e17a-55b7-11e2-877f-002564c97630")
@@ -179,7 +177,6 @@ public class CreateElementCommand extends Command {
 
     /**
      * Get the parent model element.
-     * 
      * @return the parent model element.
      */
     @objid ("3618e17f-55b7-11e2-877f-002564c97630")
@@ -189,7 +186,6 @@ public class CreateElementCommand extends Command {
 
     /**
      * Get the parent graphic node.
-     * 
      * @return the parent graphic node.
      */
     @objid ("3618e186-55b7-11e2-877f-002564c97630")

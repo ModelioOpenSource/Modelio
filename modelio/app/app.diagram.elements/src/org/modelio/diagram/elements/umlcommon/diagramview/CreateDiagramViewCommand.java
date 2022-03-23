@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.umlcommon.diagramview;
 
 import java.util.Collection;
@@ -46,11 +45,10 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public final class CreateDiagramViewCommand extends CreateLinkedNodeCommand {
     /**
      * Creates a node creation command.
-     * 
      * @param context Details on the MObject and/or the node to create
      */
     @objid ("b7c9c5b2-57be-4605-a6cd-d0b98edf3bc5")
-    public CreateDiagramViewCommand(ModelioCreationContext context) {
+    public  CreateDiagramViewCommand(ModelioCreationContext context) {
         super(context);
     }
 

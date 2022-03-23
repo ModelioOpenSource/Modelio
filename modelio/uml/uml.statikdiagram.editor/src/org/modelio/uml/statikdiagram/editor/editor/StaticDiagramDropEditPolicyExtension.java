@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.editor;
 
 import java.util.Deque;
@@ -65,7 +64,7 @@ public class StaticDiagramDropEditPolicyExtension extends AbstractDiagramElement
      * c'tor.
      */
     @objid ("7e11d6dd-1dec-11e2-8cad-001ec947c8cc")
-    public StaticDiagramDropEditPolicyExtension() {
+    public  StaticDiagramDropEditPolicyExtension() {
         super();
     }
 
@@ -118,9 +117,10 @@ public class StaticDiagramDropEditPolicyExtension extends AbstractDiagramElement
         private DiagramElementDropEditPolicy dropPolicy;
 
         @objid ("05030594-ad7e-4f2b-9dac-20f2fd7df187")
-        public StandardVisitorImpl(DiagramElementDropEditPolicy dropPolicy, Point dropLocation) {
+        public  StandardVisitorImpl(DiagramElementDropEditPolicy dropPolicy, Point dropLocation) {
             this.dropPolicy = dropPolicy;
             this.dropLocation = dropLocation;
+            
         }
 
         @objid ("7e11d6ed-1dec-11e2-8cad-001ec947c8cc")

@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.compositediagram.editor.contributor;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.swt.graphics.Image;
 import org.modelio.api.modelio.model.scope.ElementScope;
@@ -82,6 +81,7 @@ public class CompositeDiagramCreationContributor extends AbstractDiagramWizardCo
         } else {
             return null;
         }
+        
     }
 
     @objid ("fde1bd1b-2a0d-4383-b9f7-cb1eb6224794")
@@ -119,6 +119,7 @@ public class CompositeDiagramCreationContributor extends AbstractDiagramWizardCo
         } else {
             return this.mmServices.getMetamodel();
         }
+        
     }
 
     @objid ("24366dc5-6000-4b41-adfd-e193c590881f")

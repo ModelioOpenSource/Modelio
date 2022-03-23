@@ -17,19 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.diagrams;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.diagrams.ClassDiagram;
 import org.modelio.metamodel.diagrams.StaticDiagram;
-import org.modelio.metamodel.impl.diagrams.StaticDiagramSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("9c163ab9-ebb8-4cba-afa9-cc99ba5c68b0")
 public class ClassDiagramSmClass extends StaticDiagramSmClass {
     @objid ("6233d31b-1713-4885-a1b1-9d47b5fc8bd7")
-    public ClassDiagramSmClass(ISmMetamodelFragment origin) {
+    public  ClassDiagramSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class ClassDiagramSmClass extends StaticDiagramSmClass {
     @Override
     public String getName() {
         return "ClassDiagram";
+        
     }
 
     @objid ("62524fcb-ab88-41dc-91fc-c94f7fe19f64")
@@ -62,18 +62,21 @@ public class ClassDiagramSmClass extends StaticDiagramSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ClassDiagram.class;
+        
     }
 
     @objid ("47bab0a1-b7db-407d-8dbf-91e35d32d5b2")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("090c39b7-e973-444d-9710-31a89af7dee5")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("4fb2ddf5-a9c4-4eb0-96f6-272e7234aad0")
@@ -86,6 +89,7 @@ public class ClassDiagramSmClass extends StaticDiagramSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("ba3a511c-6d1f-4a6c-acc5-a3f8cad06792")
@@ -94,7 +98,7 @@ public class ClassDiagramSmClass extends StaticDiagramSmClass {
         private ClassDiagramSmClass smClass;
 
         @objid ("896996e7-9f51-4008-93c1-de63ff0b248c")
-        public ClassDiagramObjectFactory(ClassDiagramSmClass smClass) {
+        public  ClassDiagramObjectFactory(ClassDiagramSmClass smClass) {
             this.smClass = smClass;
         }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.tools.multipoint;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,21 +37,19 @@ public class AcceptModifiableNodeCommand extends Command {
 
     /**
      * Constructor
-     * 
      * @param m the accepted node model.
      */
     @objid ("80e6a185-1dec-11e2-8cad-001ec947c8cc")
-    public AcceptModifiableNodeCommand(final GmModel m) {
+    public  AcceptModifiableNodeCommand(final GmModel m) {
         this.model = m;
     }
 
     /**
      * Convenience constructor with an edit part.
-     * 
      * @param editPart the accepted edit part. The edit part must have a {@link GmModel} as model.
      */
     @objid ("80e6a18a-1dec-11e2-8cad-001ec947c8cc")
-    public AcceptModifiableNodeCommand(final EditPart editPart) {
+    public  AcceptModifiableNodeCommand(final EditPart editPart) {
         this.model = (GmModel) editPart.getModel();
     }
 

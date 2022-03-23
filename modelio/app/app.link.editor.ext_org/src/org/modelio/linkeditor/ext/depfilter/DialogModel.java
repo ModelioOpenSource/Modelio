@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.ext.depfilter;
 
 import java.beans.PropertyChangeListener;
@@ -66,7 +65,7 @@ class DialogModel {
     }
 
     @objid ("1b61a624-5e33-11e2-b81d-002564c97630")
-    public DialogModel(final List<Stereotype> enabledStereotypes, IMModelServices modelServices) {
+    public  DialogModel(final List<Stereotype> enabledStereotypes, IMModelServices modelServices) {
         this.modelServices = modelServices;
         
         // Build the list of all stereotypes brought by mdacs for Dependency.
@@ -90,11 +89,11 @@ class DialogModel {
                 set.add(stereo);
             }
         }
+        
     }
 
     /**
      * Adds a specific stereotype to the filter.
-     * 
      * @param stereotype the stereotype to add to the filter.
      */
     @objid ("1b61a62a-5e33-11e2-b81d-002564c97630")
@@ -114,11 +113,11 @@ class DialogModel {
         }
         set.add(stereotype);
         this.listeners.firePropertyChange(FILTER, null, stereotype);
+        
     }
 
     /**
      * Removes a specific stereotype from the filter.
-     * 
      * @param stereotype the stereotype to remove from the filter.
      */
     @objid ("1b61a62f-5e33-11e2-b81d-002564c97630")
@@ -138,11 +137,11 @@ class DialogModel {
         }
         set.add(stereotype);
         this.listeners.firePropertyChange(FILTER, null, stereotype);
+        
     }
 
     /**
      * Adds all stereotypes of a module to the filter.
-     * 
      * @param module the module which stereotypes are to be added to the filter.
      */
     @objid ("1b61a634-5e33-11e2-b81d-002564c97630")
@@ -160,11 +159,11 @@ class DialogModel {
             this.notFilterStereotypes.remove(module);
             this.listeners.firePropertyChange(FILTER, null, module);
         }
+        
     }
 
     /**
      * Removes all stereotypes of a module from the filter.
-     * 
      * @param module the module which stereotypes are to be removed from the filter.
      */
     @objid ("1b61a639-5e33-11e2-b81d-002564c97630")
@@ -182,6 +181,7 @@ class DialogModel {
             this.filterStereotypes.remove(module);
             this.listeners.firePropertyChange(FILTER, null, module);
         }
+        
     }
 
     @objid ("1b61a63e-5e33-11e2-b81d-002564c97630")
@@ -198,6 +198,7 @@ class DialogModel {
     public void addPropertyChangeListener(final PropertyChangeListener listener) {
         this.listeners.removePropertyChangeListener(listener);
         this.listeners.addPropertyChangeListener(listener);
+        
     }
 
     @objid ("1b61a654-5e33-11e2-b81d-002564c97630")

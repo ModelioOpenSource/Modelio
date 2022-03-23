@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.timeevent;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,8 +28,8 @@ import org.modelio.diagram.elements.core.node.IImageableNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.AcceptTimeEventAction;
 import org.modelio.platform.model.ui.swt.images.ElementImageService;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -52,12 +51,11 @@ public class GmTimeEventPrimaryNode extends GmNoStyleSimpleNode implements IImag
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the timeEvent is unmasked.
      * @param relatedRef related element reference, must not be null.
      */
     @objid ("2b62127f-55b6-11e2-877f-002564c97630")
-    public GmTimeEventPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
+    public  GmTimeEventPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -75,6 +73,7 @@ public class GmTimeEventPrimaryNode extends GmNoStyleSimpleNode implements IImag
         }
         // forcing visual refresh in case Image changed
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("2b621292-55b6-11e2-877f-002564c97630")
@@ -118,13 +117,14 @@ public class GmTimeEventPrimaryNode extends GmNoStyleSimpleNode implements IImag
                     }
         
                 };
+        
     }
 
     /**
      * For deserialization only.
      */
     @objid ("2b639919-55b6-11e2-877f-002564c97630")
-    public GmTimeEventPrimaryNode() {
+    public  GmTimeEventPrimaryNode() {
         // for the serialization
     }
 
@@ -145,6 +145,7 @@ public class GmTimeEventPrimaryNode extends GmNoStyleSimpleNode implements IImag
             break;
         }
         }
+        
     }
 
     @objid ("2b639922-55b6-11e2-877f-002564c97630")
@@ -154,6 +155,7 @@ public class GmTimeEventPrimaryNode extends GmNoStyleSimpleNode implements IImag
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmTimeEventPrimaryNode.", GmTimeEventPrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("2b639928-55b6-11e2-877f-002564c97630")

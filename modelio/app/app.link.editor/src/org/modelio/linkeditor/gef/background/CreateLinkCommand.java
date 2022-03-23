@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.gef.background;
 
 import java.util.Set;
@@ -69,7 +68,6 @@ public class CreateLinkCommand extends Command {
 
     /**
      * C'tor. the type(s) of the link to create, can be any mix of {@link AssociationEnd}.class, {@link ElementImport} .class, {@link Generalization}.class, {@link Dependency}.class and Stereotype(s) that can be applied to a dependency;
-     * 
      * @param refElement the center element in the link editor.
      * @param droppedElements the dropped elements.
      * @param isFrom whether the refElement should be a source or a target for the new link.
@@ -77,12 +75,13 @@ public class CreateLinkCommand extends Command {
      * @param mdaExpert the module expert for stereotypes.
      */
     @objid ("e6088f98-5efd-11e2-a8be-00137282c51b")
-    public CreateLinkCommand(final MObject refElement, final MObject[] droppedElements, boolean isFrom, Set<LinkTypeDescriptor> candidates, IMdaExpert mdaExpert) {
+    public  CreateLinkCommand(final MObject refElement, final MObject[] droppedElements, boolean isFrom, Set<LinkTypeDescriptor> candidates, IMdaExpert mdaExpert) {
         this.refElement = refElement;
         this.droppedElements = droppedElements;
         this.isFrom = isFrom;
         this.typeModel = new TypeSelectionModel(refElement, droppedElements, isFrom, candidates);
         this.mdaExpert = mdaExpert;
+        
     }
 
     @objid ("e6088fa3-5efd-11e2-a8be-00137282c51b")
@@ -199,6 +198,7 @@ public class CreateLinkCommand extends Command {
                 }
             }
         }
+        
     }
 
     /**
@@ -220,6 +220,7 @@ public class CreateLinkCommand extends Command {
             // User cancelled.
             return null;
         }
+        
     }
 
 }

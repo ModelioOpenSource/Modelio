@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.centralbuffer;
 
 import java.util.Collections;
@@ -59,7 +58,7 @@ public class GmCentralBuffer extends GmPortContainer {
     private static final String IMAGE_MODE_HEADER = "image mode header";
 
     @objid ("2ff637eb-58a2-11e2-9574-002564c97630")
-     static GmCentralBufferSimpleStyleKeys SIMPLEKEYS = new GmCentralBufferSimpleStyleKeys();
+    static GmCentralBufferSimpleStyleKeys SIMPLEKEYS = new GmCentralBufferSimpleStyleKeys();
 
     @objid ("2ff637ec-58a2-11e2-9574-002564c97630")
     private static GmCentralBufferStructuredStyleKeys STRUCTKEYS = new GmCentralBufferStructuredStyleKeys();
@@ -72,13 +71,12 @@ public class GmCentralBuffer extends GmPortContainer {
 
     /**
      * Default constructor.
-     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param theCentralBuffer the represented central buffer, may be null.
      * @param ref a reference to the represented central buffer.
      */
     @objid ("29e2c57c-55b6-11e2-877f-002564c97630")
-    public GmCentralBuffer(IGmDiagram diagram, CentralBufferNode theCentralBuffer, MRef ref) {
+    public  GmCentralBuffer(IGmDiagram diagram, CentralBufferNode theCentralBuffer, MRef ref) {
         super(diagram, ref);
         this.element = theCentralBuffer;
         
@@ -90,13 +88,14 @@ public class GmCentralBuffer extends GmPortContainer {
         imageModeHeader.setRoleInComposition(IMAGE_MODE_HEADER);
         imageModeHeader.setLayoutData(PositionConstants.SOUTH);
         addChild(imageModeHeader);
+        
     }
 
     /**
      * Empty constructor, needed for serialisation.
      */
     @objid ("29e2c588-55b6-11e2-877f-002564c97630")
-    public GmCentralBuffer() {
+    public  GmCentralBuffer() {
         // empty constructor for the serialization
     }
 
@@ -142,6 +141,7 @@ public class GmCentralBuffer extends GmPortContainer {
         } else {
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("29e2c5a5-55b6-11e2-877f-002564c97630")
@@ -161,6 +161,7 @@ public class GmCentralBuffer extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("29e2c5ab-55b6-11e2-877f-002564c97630")
@@ -181,6 +182,7 @@ public class GmCentralBuffer extends GmPortContainer {
                 GmNodeModel imageModeHeader = getFirstChild(IMAGE_MODE_HEADER);
                 ret.remove(imageModeHeader);
                 break;
+            case USER_IMAGE:
             case IMAGE:
             default:
                 break;
@@ -203,12 +205,14 @@ public class GmCentralBuffer extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmCentralBuffer.", GmCentralBuffer.MINOR_VERSION);
+        
     }
 
     @objid ("29e44c2a-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (CentralBufferNode) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("29e44c2f-55b6-11e2-877f-002564c97630")
@@ -219,11 +223,10 @@ public class GmCentralBuffer extends GmPortContainer {
 
     /**
      * Migration constructor from major version 0, should only be called by migrator.
-     * 
      * @param oldVersionGm the instance to migrate from.
      */
     @objid ("29e44c34-55b6-11e2-877f-002564c97630")
-    GmCentralBuffer(final _GmCentralBuffer oldVersionGm) {
+     GmCentralBuffer(final _GmCentralBuffer oldVersionGm) {
         super(oldVersionGm.getDiagram(), oldVersionGm.getRepresentedRef());
         this.element = (CentralBufferNode) oldVersionGm.getRelatedElement();
         
@@ -236,6 +239,7 @@ public class GmCentralBuffer extends GmPortContainer {
         imageModeHeader.setRoleInComposition(IMAGE_MODE_HEADER);
         imageModeHeader.setLayoutData(PositionConstants.SOUTH);
         addChild(imageModeHeader);
+        
     }
 
     @objid ("29e44c3e-55b6-11e2-877f-002564c97630")
@@ -258,6 +262,7 @@ public class GmCentralBuffer extends GmPortContainer {
         } else {
             super.addStartingLink(link);
         }
+        
     }
 
     @objid ("29e5d2be-55b6-11e2-877f-002564c97630")
@@ -268,6 +273,7 @@ public class GmCentralBuffer extends GmPortContainer {
         } else {
             super.addEndingLink(link);
         }
+        
     }
 
     @objid ("36419428-dcd4-42e8-be56-63891c974d89")

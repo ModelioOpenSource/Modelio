@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.bpmn;
 
 import java.util.Collections;
@@ -57,12 +56,11 @@ public class BpmnSubProcessDiagramDG extends DiagramDG {
 
     /**
      * Initialize the activity diagram graphic element.
-     * 
      * @param diagramHandle The diagram handle
      * @param node The internal graphic node representing the diagram.
      */
     @objid ("8a8aba4f-5a2b-4697-acfb-767473a77474")
-    public BpmnSubProcessDiagramDG(final DiagramHandle diagramHandle, final GmNodeModel node) {
+    public  BpmnSubProcessDiagramDG(final DiagramHandle diagramHandle, final GmNodeModel node) {
         super(diagramHandle, node);
     }
 

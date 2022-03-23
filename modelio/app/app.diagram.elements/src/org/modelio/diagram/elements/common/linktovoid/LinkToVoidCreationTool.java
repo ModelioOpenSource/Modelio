@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.linktovoid;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,6 +37,7 @@ public class LinkToVoidCreationTool extends ConnectionCreationTool {
             return LinkToVoidConstants.REQ_LINKTOVOID_END;
         else
             return LinkToVoidConstants.REQ_LINKTOVOID_START;
+        
     }
 
 }

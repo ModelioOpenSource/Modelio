@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.panelprovider.helpers;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,9 +40,10 @@ public class AddNoteHelper extends AbstractHelper {
     private IMModelServices modelServices;
 
     @objid ("c1bebdb1-aa25-4fea-a178-188bce23f211")
-    public AddNoteHelper(ICoreSession session, IMModelServices modelServices) {
+    public  AddNoteHelper(ICoreSession session, IMModelServices modelServices) {
         this.session = session;
         this.modelServices = modelServices;
+        
     }
 
     @objid ("4f71f6b8-9659-4643-80cb-671da420d540")
@@ -71,6 +71,7 @@ public class AddNoteHelper extends AbstractHelper {
             EditionNotes.LOG.warning(e);
             return null;
         }
+        
     }
 
     @objid ("4ee48b5a-c60f-4c43-976a-026a4820f783")
@@ -80,6 +81,7 @@ public class AddNoteHelper extends AbstractHelper {
         } else {
             return createNoteFromType(element, moduleName, ownerName, noteTypeName);
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.symbol.panel;
 
 import java.beans.PropertyChangeEvent;
@@ -70,7 +69,7 @@ public class SymbolPanelProvider implements IPanelProvider, PropertyChangeListen
      * C'tor
      */
     @objid ("57f2f94b-b80e-44ff-8b98-4ffd298c5ac2")
-    public SymbolPanelProvider() {
+    public  SymbolPanelProvider() {
         this.styleEditPanel = StyleEditPanel.newTablePanel();
     }
 
@@ -131,6 +130,7 @@ public class SymbolPanelProvider implements IPanelProvider, PropertyChangeListen
         if (this.selectedSymbol != null) {
             this.selectedSymbol.removePropertyChangeListener(this);
         }
+        
     }
 
     @objid ("9519e5a6-cba0-431e-91a5-9eaaac2d2371")
@@ -172,7 +172,6 @@ public class SymbolPanelProvider implements IPanelProvider, PropertyChangeListen
      * <li>setting the cascaded style of the gmObject to the style of the owning diagram (unless the gmObject is the diagram itself)
      * <li>cleaning all local properties
      * </ul>
-     * 
      * @param style the style to apply.
      */
     @objid ("ac5129ba-55b7-11e2-877f-002564c97630")
@@ -192,6 +191,7 @@ public class SymbolPanelProvider implements IPanelProvider, PropertyChangeListen
             }
         
         }
+        
     }
 
     @objid ("30f573b7-abb4-4151-bc73-d342db1c0816")
@@ -210,6 +210,7 @@ public class SymbolPanelProvider implements IPanelProvider, PropertyChangeListen
                 setSelectedSymbol(getSelectedSymbol());
             }
         }
+        
     }
 
     /**
@@ -221,6 +222,7 @@ public class SymbolPanelProvider implements IPanelProvider, PropertyChangeListen
         IGmObject gmObject = SelectionHelper.getFirst((ISelection) input, IGmObject.class);
         setSelectedSymbol(gmObject);
         updateToolbar();
+        
     }
 
     @objid ("46210cc7-98e5-43cb-a146-b02be31ea1b6")
@@ -276,6 +278,7 @@ public class SymbolPanelProvider implements IPanelProvider, PropertyChangeListen
             updateToolbar();
             // this.styleViewer.getTreeViewer().refresh();
         }
+        
     }
 
     @objid ("84f27aaf-780f-48be-a20d-d4437d8b811c")
@@ -285,6 +288,7 @@ public class SymbolPanelProvider implements IPanelProvider, PropertyChangeListen
         } else {
             return null;
         }
+        
     }
 
     @objid ("866adac4-4d31-4a51-a28f-0b2f23f7fb4c")
@@ -295,6 +299,7 @@ public class SymbolPanelProvider implements IPanelProvider, PropertyChangeListen
             }
         }
         throw new IllegalArgumentException(String.format("%s style has no named style in its parent hierarchy.", s));
+        
     }
 
     @objid ("f30c960c-5b49-4713-9669-a425bb519d74")
@@ -312,6 +317,7 @@ public class SymbolPanelProvider implements IPanelProvider, PropertyChangeListen
         this.toolbarContribs.refresh();
         this.toolBarManager.update(true);
         this.top.layout(true, true);
+        
     }
 
     @objid ("8c2425de-9229-440e-906a-b3ee4d43acae")
@@ -359,6 +365,7 @@ public class SymbolPanelProvider implements IPanelProvider, PropertyChangeListen
         public void onShowHelp() {
             SymbolPanelProvider.this.showHelp = !SymbolPanelProvider.this.showHelp;
             getStyleEditPanel().showHelpPanel(SymbolPanelProvider.this.showHelp);
+            
         }
 
         @objid ("a9944eab-3fa6-49d8-8d16-319a58cab484")

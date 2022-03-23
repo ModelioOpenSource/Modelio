@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.texteditors.input;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,7 @@ public interface IInput {
     IStatus save();
 
     @objid ("7b54ba86-2a77-11e2-9fb9-bc305ba4815c")
-    interface Listener {
+    public interface Listener {
         @objid ("7b54ba87-2a77-11e2-9fb9-bc305ba4815c")
         void propertyChanged(String property, Object oldValue, Object newValue);
 

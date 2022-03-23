@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmntransaction;
 
 import java.util.Collections;
@@ -25,10 +24,10 @@ import java.util.List;
 import java.util.Objects;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.PositionConstants;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnSubProcessImageStyleKeys;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnSubProcessSimpleStyleKeys;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnSubProcessStructuredStyleKeys;
-import org.modelio.bpmn.diagram.editor.elements.style.GmBpmnSubProcessUserImageStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnSubProcessImageStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnSubProcessSimpleStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnSubProcessStructuredStyleKeys;
+import org.modelio.bpmn.diagram.editor.elements.common.style.GmBpmnSubProcessUserImageStyleKeys;
 import org.modelio.diagram.elements.common.label.modelelement.GmDefaultModelElementLabel;
 import org.modelio.diagram.elements.common.portcontainer.GmPortContainer;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
@@ -63,26 +62,25 @@ public class GmBpmnTransaction extends GmPortContainer {
     private BpmnTransaction element;
 
     @objid ("c45e3c32-59a6-11e2-ae45-002564c97630")
-     static final GmBpmnSubProcessImageStyleKeys IMAGE_KEYS = new GmBpmnSubProcessImageStyleKeys();
+    static final GmBpmnSubProcessImageStyleKeys IMAGE_KEYS = new GmBpmnSubProcessImageStyleKeys();
 
     @objid ("c45e3c30-59a6-11e2-ae45-002564c97630")
-     static final GmBpmnSubProcessSimpleStyleKeys SIMPLE_KEYS = new GmBpmnSubProcessSimpleStyleKeys();
+    static final GmBpmnSubProcessSimpleStyleKeys SIMPLE_KEYS = new GmBpmnSubProcessSimpleStyleKeys();
 
     @objid ("c45e3c2e-59a6-11e2-ae45-002564c97630")
-     static final GmBpmnSubProcessStructuredStyleKeys STRUCTURED_KEYS = new GmBpmnSubProcessStructuredStyleKeys();
+    static final GmBpmnSubProcessStructuredStyleKeys STRUCTURED_KEYS = new GmBpmnSubProcessStructuredStyleKeys();
 
     @objid ("5da40729-56e2-4bb0-b8e8-e793f02b1d56")
-     static final GmBpmnSubProcessUserImageStyleKeys USERIMAGE_KEYS = new GmBpmnSubProcessUserImageStyleKeys();
+    static final GmBpmnSubProcessUserImageStyleKeys USERIMAGE_KEYS = new GmBpmnSubProcessUserImageStyleKeys();
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the BpmnReceiveTask is unmasked.
      * @param element the unmasked BpmnReceiveTask.
      * @param ref a reference to the unmasked callOperation.
      */
     @objid ("61d93fd1-55b6-11e2-877f-002564c97630")
-    public GmBpmnTransaction(IGmDiagram diagram, BpmnTransaction element, MRef ref) {
+    public  GmBpmnTransaction(IGmDiagram diagram, BpmnTransaction element, MRef ref) {
         super(diagram, ref);
         this.element = element;
         
@@ -95,13 +93,14 @@ public class GmBpmnTransaction extends GmPortContainer {
         
         super.addChild(mainNode);
         super.addChild(imageModeHeader);
+        
     }
 
     /**
      * Empty constructor needed for deserialisation.
      */
     @objid ("61dac655-55b6-11e2-877f-002564c97630")
-    public GmBpmnTransaction() {
+    public  GmBpmnTransaction() {
         // Nothing specific to do.
     }
 
@@ -159,6 +158,7 @@ public class GmBpmnTransaction extends GmPortContainer {
         default:
             return null;
         }
+        
     }
 
     @objid ("61dac64d-55b6-11e2-877f-002564c97630")
@@ -176,6 +176,7 @@ public class GmBpmnTransaction extends GmPortContainer {
         default:
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("61dc4cde-55b6-11e2-877f-002564c97630")
@@ -211,7 +212,6 @@ public class GmBpmnTransaction extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -223,7 +223,6 @@ public class GmBpmnTransaction extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -233,6 +232,7 @@ public class GmBpmnTransaction extends GmPortContainer {
         String role = childNode.getRoleInComposition();
         return GmPortContainer.SATELLITE_ROLE.equals(role)
                         || GmBpmnTransaction.IMAGE_LABEL_ROLE.equals(role);
+        
     }
 
     @objid ("61dac658-55b6-11e2-877f-002564c97630")
@@ -256,6 +256,7 @@ public class GmBpmnTransaction extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("61dac66c-55b6-11e2-877f-002564c97630")
@@ -265,6 +266,7 @@ public class GmBpmnTransaction extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmBpmnTransaction.", GmBpmnTransaction.MINOR_VERSION);
+        
     }
 
     @objid ("61dac672-55b6-11e2-877f-002564c97630")
@@ -277,12 +279,14 @@ public class GmBpmnTransaction extends GmPortContainer {
         imageModeHeader.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         
         super.addChild(imageModeHeader, 1);
+        
     }
 
     @objid ("61dac67c-55b6-11e2-877f-002564c97630")
     private void read_1(final IDiagramReader in) {
         super.read(in);
         this.element = (BpmnTransaction) resolveRef(getRepresentedRef());
+        
     }
 
 }

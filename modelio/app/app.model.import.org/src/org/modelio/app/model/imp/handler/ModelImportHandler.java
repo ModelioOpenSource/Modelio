@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.model.imp.handler;
 
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
@@ -61,7 +60,7 @@ import org.modelio.vcore.smkernel.mapi.MStatus;
 public class ModelImportHandler {
     @objid ("ea307279-3a00-4f16-84a2-e965f87579dc")
     @Inject
-     ModelioEnv modelioEnv;
+    ModelioEnv modelioEnv;
 
     @objid ("8269f820-4e0c-4406-9a27-dd7757ce9197")
     @Execute
@@ -88,6 +87,7 @@ public class ModelImportHandler {
             AppModelImportOrg.LOG.error(e);
             // Nothing specific to do: transaction will be rolled back in the finally block.
         }
+        
     }
 
     /**
@@ -98,7 +98,6 @@ public class ModelImportHandler {
      * <li>the selection may contain only one element of each metaclass.
      * <li>all elements must be in the same fragment
      * </ul>
-     * 
      * @param projectService the project service
      * @param selection the Eclipse selection
      * @return whether the command is available.
@@ -167,6 +166,7 @@ public class ModelImportHandler {
         } else {
             return false;
         }
+        
     }
 
     @objid ("ab9b20d6-d733-4c27-970d-ed0e9c7e8fb0")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.inputpin;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,18 +29,18 @@ import org.modelio.uml.activitydiagram.editor.style.ActivityAbstractStyleKeyProv
 @objid ("2aaaa980-55b6-11e2-877f-002564c97630")
 public class GmInputPinImageStyleKeys extends ActivityAbstractStyleKeyProvider {
     @objid ("d221198b-55c0-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmInputPinStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmInputPinStructuredStyleKeys.REPMODE;
 
     @objid ("d221198d-55c0-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmInputPinStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmInputPinStructuredStyleKeys.FONT;
 
     @objid ("d221198f-55c0-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmInputPinStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmInputPinStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("d2211991-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmInputPinStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmInputPinStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("d2211993-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmInputPinStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmInputPinStructuredStyleKeys.SHOWTAGS;
 
 }

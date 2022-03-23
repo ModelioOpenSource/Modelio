@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.attributegroup;
 
 import java.util.Comparator;
@@ -56,6 +55,7 @@ public class AttributeGroupEditPart extends GroupEditPart {
         if (model.getLayoutData() != null) {
             getFigure().getParent().setConstraint(getFigure(), model.getLayoutData());
         }
+        
     }
 
     @objid ("3404595e-55b7-11e2-877f-002564c97630")
@@ -77,6 +77,7 @@ public class AttributeGroupEditPart extends GroupEditPart {
             border.setWidth(style.getInteger(gmModel.getStyleKey(MetaKey.LINEWIDTH)));
         }
         aFigure.setBorder(border);
+        
     }
 
     @objid ("57bbb2d4-c167-4d53-a601-470fb9e20a63")
@@ -85,6 +86,7 @@ public class AttributeGroupEditPart extends GroupEditPart {
         super.createEditPolicies();
         
         installEditPolicy(GmModel.PROP_REFRESH_FROM_OBMODEL, new GroupRefreshFromModelEditPolicy(this::getExpectedChildren));
+        
     }
 
     @objid ("8af90ebf-b540-4491-9c0d-d430890223b1")
@@ -124,6 +126,7 @@ public class AttributeGroupEditPart extends GroupEditPart {
             // do nothing.
             return null;
         }
+        
     }
 
 }

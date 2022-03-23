@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.libreoffice.plugin;
 
 import java.io.IOException;
@@ -74,6 +73,7 @@ public class LibreOfficeEditorProvider extends AbstractRichNoteEditorProvider {
         } catch (IllegalAccessException e) {
             throw new IOException(e);
         }
+        
     }
 
     @objid ("9a8e1420-0cb0-4341-bdbd-f9cb0429a361")
@@ -115,6 +115,7 @@ public class LibreOfficeEditorProvider extends AbstractRichNoteEditorProvider {
     void resetProvider() {
         this.usable = null;
         RichNoteFormatRegistry.getInstance().reset();
+        
     }
 
     @objid ("62470fd6-3e61-43e0-bc64-e65c8b6a3659")
@@ -158,6 +159,7 @@ public class LibreOfficeEditorProvider extends AbstractRichNoteEditorProvider {
             log.warning(e);
             return false;
         }
+        
     }
 
 }

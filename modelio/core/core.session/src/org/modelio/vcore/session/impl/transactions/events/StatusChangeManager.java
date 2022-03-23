@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.transactions.events;
 
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -58,12 +57,12 @@ public class StatusChangeManager {
      * The manager won't be usable until {@link #init(ScheduledExecutorService, ITransactionSupport, ModelChangeSupport)} is called.
      */
     @objid ("30e6855f-9078-4492-a89a-fbae521044a3")
-    public StatusChangeManager() {
+    public  StatusChangeManager() {
+        
     }
 
     /**
      * Initialize the service.
-     * 
      * @param taskService a task scheduling service.
      * @param tmgr the transaction manager.
      * @param chgSupport the model change support used to fire status change events
@@ -73,11 +72,11 @@ public class StatusChangeManager {
         this.changed = new HashMap<>();
         this.modelChangeSupport = chgSupport;
         this.eventFirer = new EventFirer(tmgr, taskService);
+        
     }
 
     /**
      * To be called when a model object status changed.
-     * 
      * @param obj the model object whose status changed.
      * @param oldStatus the old status value for the model object.
      */
@@ -93,11 +92,11 @@ public class StatusChangeManager {
             this.eventFirer.schedule();
             this.scheduled = true;
         }
+        
     }
 
     /**
      * Retrieves and removes all status changes model objects and reset the recorded set.
-     * 
      * @return the record of changed model objects.
      */
     @objid ("56e6837c-42d9-461d-840c-cef8fc8e86df")
@@ -114,6 +113,7 @@ public class StatusChangeManager {
             this.changed = new HashMap<>();
             return ret;
         }
+        
     }
 
     @objid ("2221d1ca-0847-466b-a9f8-9f6a1e371f9f")
@@ -139,6 +139,7 @@ public class StatusChangeManager {
         
             this.modelChangeSupport.fireStatusChangeListeners(f.getStatusEvent());
         }
+        
     }
 
     /**
@@ -155,9 +156,10 @@ public class StatusChangeManager {
         private ScheduledExecutorService taskService;
 
         @objid ("87d6cd15-e313-44dc-9391-d722dd611779")
-        public EventFirer(ITransactionSupport tmgr, ScheduledExecutorService taskService) {
+        public  EventFirer(ITransactionSupport tmgr, ScheduledExecutorService taskService) {
             this.tmgr = tmgr;
             this.taskService = taskService;
+            
         }
 
         @objid ("7bbb978a-7cd2-406d-ae61-fc8889a5c420")
@@ -187,6 +189,7 @@ public class StatusChangeManager {
             
                 this.taskService.schedule(r, 2, TimeUnit.SECONDS);
             }
+            
         }
 
         @objid ("2b25c514-a660-45ff-9279-9c3ddedc6025")

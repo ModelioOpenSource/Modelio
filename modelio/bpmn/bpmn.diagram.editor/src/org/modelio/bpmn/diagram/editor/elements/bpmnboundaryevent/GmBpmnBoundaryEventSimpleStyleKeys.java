@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnboundaryevent;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.bpmn.diagram.editor.elements.style.BpmnAbstractStyleKeyProvider;
+import org.modelio.bpmn.diagram.editor.elements.common.style.BpmnAbstractStyleKeyProvider;
 import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.diagram.styles.core.StyleKey;
 
@@ -31,36 +30,36 @@ import org.modelio.diagram.styles.core.StyleKey;
 @objid ("608b14cc-55b6-11e2-877f-002564c97630")
 public class GmBpmnBoundaryEventSimpleStyleKeys extends BpmnAbstractStyleKeyProvider {
     @objid ("71220e4b-55c1-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmBpmnBoundaryEventStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmBpmnBoundaryEventStructuredStyleKeys.REPMODE;
 
     @objid ("71220e4d-55c1-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("BOUNDARYEVENT_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("BOUNDARYEVENT_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("7122355a-55c1-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("BOUNDARYEVENT_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("BOUNDARYEVENT_FILLMODE", MetaKey.FILLMODE);
 
     @objid ("7122355c-55c1-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("BOUNDARYEVENT_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("BOUNDARYEVENT_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("71225c6a-55c1-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("BOUNDARYEVENT_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("BOUNDARYEVENT_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("71225c6c-55c1-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmBpmnBoundaryEventStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmBpmnBoundaryEventStructuredStyleKeys.FONT;
 
     @objid ("7122837a-55c1-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmBpmnBoundaryEventStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmBpmnBoundaryEventStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("7122837c-55c1-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmBpmnBoundaryEventStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmBpmnBoundaryEventStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("7122aa8a-55c1-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmBpmnBoundaryEventStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmBpmnBoundaryEventStructuredStyleKeys.SHOWTAGS;
 
     /**
      * Show the label.
      */
     @objid ("7122aa8c-55c1-11e2-9337-002564c97630")
-     static final StyleKey SHOWLABEL = GmBpmnBoundaryEventStructuredStyleKeys.SHOWLABEL;
+    static final StyleKey SHOWLABEL = GmBpmnBoundaryEventStructuredStyleKeys.SHOWLABEL;
 
 }

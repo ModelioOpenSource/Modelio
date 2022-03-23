@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.treetable.font;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -54,10 +53,11 @@ public final class FontService {
             return fData.getName() + ", " + fontDescription + ", " + fData.getHeight();
         } else
             return "";
+        
     }
 
     @objid ("6b39bc20-1eba-11e2-9382-bc305ba4815c")
-    private FontService() {
+    private  FontService() {
         // private constructor to forbid class instantiation
     }
 

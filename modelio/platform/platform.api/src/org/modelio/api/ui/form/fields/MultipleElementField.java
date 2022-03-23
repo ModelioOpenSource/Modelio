@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.form.fields;
 
 import java.util.ArrayList;
@@ -91,11 +90,12 @@ public class MultipleElementField extends AbstractField {
     private List<Class<? extends MObject>> allowedMetaclasses = new ArrayList<>();
 
     @objid ("8c057806-e91e-4b1d-a227-2ba7d3dcdd8e")
-    public MultipleElementField(IModuleContext moduleContext, FormToolkit toolkit, Composite parent, IFormFieldData model) {
+    public  MultipleElementField(IModuleContext moduleContext, FormToolkit toolkit, Composite parent, IFormFieldData model) {
         super(toolkit, parent, model);
         this.editable = true;
         this.navigationService = moduleContext.getModelioServices().getNavigationService();
         this.session = moduleContext.getModelingSession();
+        
     }
 
     @objid ("6cf0a95b-ea2c-4f32-9064-724f6266d184")
@@ -134,6 +134,7 @@ public class MultipleElementField extends AbstractField {
         if (this.text != null) {
             this.text.setText(computeStringRepresentation());
         }
+        
     }
 
     @objid ("5048f559-bd8f-4b5c-9914-936d55a22399")
@@ -141,6 +142,7 @@ public class MultipleElementField extends AbstractField {
     public void setEditable(boolean onoff) {
         super.setEditable(onoff);
         this.editable = onoff;
+        
     }
 
     /**
@@ -179,6 +181,7 @@ public class MultipleElementField extends AbstractField {
         };
         
         td.open();
+        
     }
 
     @objid ("97ec09d2-3491-4fa4-b160-26e6da33ab69")
@@ -189,9 +192,10 @@ public class MultipleElementField extends AbstractField {
     }
 
     @objid ("6d82905e-69ef-4074-beb1-10f725702343")
-    public MultipleElementField(IModuleContext moduleContext, FormToolkit toolkit, Composite parent, IFormFieldData model, List<Class<? extends MObject>> allowedMetaclasses) {
+    public  MultipleElementField(IModuleContext moduleContext, FormToolkit toolkit, Composite parent, IFormFieldData model, List<Class<? extends MObject>> allowedMetaclasses) {
         this(moduleContext, toolkit, parent, model);
         this.allowedMetaclasses.addAll(allowedMetaclasses);
+        
     }
 
     /**
@@ -220,22 +224,22 @@ public class MultipleElementField extends AbstractField {
 
         /**
          * C'tor
-         * 
          * @param candidates the candidates
          * @param labelProvider the label provider for candidates
          * @param navigationService the Modelio navigation service.
          */
         @objid ("62be9c23-2e0a-41e8-be57-3e4120d8bc41")
-        public SelectElementsPanel(Collection<MObject> candidates, ILabelProvider labelProvider, INavigationService navigationService) {
+        public  SelectElementsPanel(Collection<MObject> candidates, ILabelProvider labelProvider, INavigationService navigationService) {
             this.controler = new Controller(navigationService, candidates);
             this.labelProvider = labelProvider != null ? labelProvider : new LabelProvider();
+            
         }
 
         /**
          * C'tor
          */
         @objid ("4c4ba4b2-9656-4883-837d-67bba0c9ee8e")
-        public SelectElementsPanel(Collection<MObject> candidates, INavigationService navigationService) {
+        public  SelectElementsPanel(Collection<MObject> candidates, INavigationService navigationService) {
             this(candidates, null, navigationService);
         }
 
@@ -325,10 +329,11 @@ public class MultipleElementField extends AbstractField {
             private Button downButton;
 
             @objid ("30b4e4f1-b182-4352-ba89-8c9864dbd3b5")
-            public View(Composite parent, ILabelProvider labelProvider, Controller controler) {
+            public  View(Composite parent, ILabelProvider labelProvider, Controller controler) {
                 this.controler = controler;
                 this.labelProvider = labelProvider;
                 this.container = createGui(parent);
+                
             }
 
             @objid ("686ef68d-93e0-46be-bc63-1d712bf3fe6a")
@@ -531,6 +536,7 @@ public class MultipleElementField extends AbstractField {
             public void setCandidates(final Collection<MObject> candidates, final List<MObject> selection) {
                 this.container.getDisplay().asyncExec(
                         () -> doSetCandidates(candidates, selection));
+                
             }
 
             /**
@@ -549,6 +555,7 @@ public class MultipleElementField extends AbstractField {
                         this.candidates.setSelection(new StructuredSelection(selection));
                     }
                 }
+                
             }
 
             /**
@@ -562,6 +569,7 @@ public class MultipleElementField extends AbstractField {
                         this.results.setSelection(new StructuredSelection(selection));
                     }
                 });
+                
             }
 
             @objid ("a0493ef1-d71a-43b0-8f22-a945c7b146c5")
@@ -574,6 +582,7 @@ public class MultipleElementField extends AbstractField {
                 this.removeButton.setEnabled(onOff);
                 this.upButton.setEnabled(onOff);
                 this.downButton.setEnabled(onOff);
+                
             }
 
             @objid ("37fd941c-4834-46f2-82c1-979f167e9bf2")
@@ -612,6 +621,7 @@ public class MultipleElementField extends AbstractField {
                 final int nSelected = v.getTable().getSelectionCount();
                 final int nTotal = v.getTable().getItemCount();
                 label.setText(Api.I18N.getMessage("MultipleElementsField.ElementsStatus", nSelected, nTotal));
+                
             }
 
         }
@@ -631,9 +641,10 @@ public class MultipleElementField extends AbstractField {
             private final INavigationService navigationService;
 
             @objid ("94fe19e3-f4d0-416a-9721-74bd85d4b2e9")
-            public Controller(INavigationService navigationService, Collection<MObject> candidates) {
+            public  Controller(INavigationService navigationService, Collection<MObject> candidates) {
                 this.navigationService = navigationService;
                 this.candidates = candidates;
+                
             }
 
             @objid ("503753e7-5f72-4772-bab0-9cebf61a1de3")
@@ -673,6 +684,7 @@ public class MultipleElementField extends AbstractField {
                     }
                 }
                 this.view.setResults(this.selected, selectedCandidates);
+                
             }
 
             @objid ("5fda4d54-ae2e-4cd8-955f-8c12f86512f5")
@@ -686,6 +698,7 @@ public class MultipleElementField extends AbstractField {
                     this.selected.remove(obj);
                 }
                 this.view.setResults(this.selected, null);
+                
             }
 
             @objid ("b1089e27-4e20-4421-9ce0-f67296bb4233")
@@ -698,6 +711,7 @@ public class MultipleElementField extends AbstractField {
                 if (!selectedElements.isEmpty()) {
                     this.navigationService.fireNavigate(selectedElements);
                 }
+                
             }
 
             /**
@@ -715,6 +729,7 @@ public class MultipleElementField extends AbstractField {
                 Thread t = new Thread(() -> initCandidates(this.candidates));
                 
                 t.start();
+                
             }
 
             @objid ("71feb306-8deb-4f40-af96-90c6103622c8")
@@ -723,6 +738,7 @@ public class MultipleElementField extends AbstractField {
                 if (this.view != null) {
                     this.view.setResults(this.selected, Collections.emptyList());
                 }
+                
             }
 
             @objid ("54599fd2-6616-4f9c-b4b3-4751e3ece2a0")
@@ -747,6 +763,7 @@ public class MultipleElementField extends AbstractField {
                     }
                 }
                 this.view.setResults(this.selected, selectedResults);
+                
             }
 
             @objid ("4cb5641d-2e96-4dd1-bb31-a81fe8f02bb5")
@@ -765,6 +782,7 @@ public class MultipleElementField extends AbstractField {
                     }
                 }
                 this.view.setResults(this.selected, selectedResults);
+                
             }
 
             @objid ("91c1443d-2740-418b-bfe4-99a205300a38")
@@ -788,9 +806,10 @@ public class MultipleElementField extends AbstractField {
         private Shell slaveShell;
 
         @objid ("658d49ff-0a0d-4c62-a86a-e95d27ecfe0a")
-        public ThinDialog(Control masterControl, IPanelProvider panelProvider) {
+        public  ThinDialog(Control masterControl, IPanelProvider panelProvider) {
             this.masterControl = masterControl;
             this.panelProvider = panelProvider;
+            
         }
 
         @objid ("edd1cd28-2d60-4013-b111-807c304b7c6f")
@@ -804,6 +823,7 @@ public class MultipleElementField extends AbstractField {
                 this.slaveShell.close();
                 this.slaveShell.dispose();
             }
+            
         }
 
         @objid ("33f7c299-1443-4bd5-acdb-5c32c4cbaa0b")
@@ -812,6 +832,7 @@ public class MultipleElementField extends AbstractField {
                 this.slaveShell.close();
                 this.slaveShell.dispose();
             }
+            
         }
 
         @objid ("66744620-32ab-4dea-a1e1-3cf0621ce721")

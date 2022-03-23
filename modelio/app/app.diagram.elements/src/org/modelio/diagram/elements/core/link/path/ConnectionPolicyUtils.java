@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.path;
 
 import java.util.ArrayDeque;
@@ -34,7 +33,7 @@ import org.eclipse.gef.NodeEditPart;
 import org.eclipse.gef.editparts.LayerManager;
 import org.eclipse.gef.requests.CreateConnectionRequest;
 import org.modelio.diagram.elements.core.figures.RoundedLinkFigure;
-import org.modelio.diagram.elements.core.link.ConnectionRouterRegistry;
+import org.modelio.diagram.elements.core.link.ConnectionRoutingServices;
 import org.modelio.diagram.elements.core.link.CreateBendedConnectionRequest;
 import org.modelio.diagram.elements.core.link.GmPath;
 import org.modelio.diagram.elements.core.link.IAnchorModelProvider;
@@ -43,6 +42,7 @@ import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
 
 /**
  * Utilities needed by link edit policies to build a {@link IGmPath} from connection creation requests .
+ * 
  * @author cma
  * @since 3.7
  */
@@ -50,10 +50,8 @@ import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
 public class ConnectionPolicyUtils {
     /**
      * Build a {@link IGmPath} from a request and a Connection figure.
-     * 
      * @param req a connection creation request.
-     * @param tmpConnection a temporary Connection figure. This figure will be setup to reflect the request result and is used to compute
-     * the result path.
+     * @param tmpConnection a temporary Connection figure. This figure will be setup to reflect the request result and is used to compute the result path.
      * @return the built path model.
      */
     @objid ("07f85ee8-4d72-4e49-a810-bc2369bf0b25")
@@ -75,17 +73,17 @@ public class ConnectionPolicyUtils {
         // If the request specifies so, extract more data
         if (req instanceof CreateBendedConnectionRequest) {
             CreateBendedConnectionRequest request = (CreateBendedConnectionRequest) req;
-            
+        
             // Set the real router
             ConnectionRouterId routerId = request.getData().getRoutingMode();
             ret.setRouterKind(routerId);
         
             // Compute the path constraint
-            IConnectionHelper connPath = ConnectionHelperFactory.createFromRawData(request, tmpConnection);
+            IConnectionHelper connPath = getRoutingServices(targetPart).getConnectionHelperFactory().createFromRawData(request, tmpConnection);
         
             // Convert it to serializable model.
             ret.setPathData(connPath.getModelPathData());
-            
+        
             // Note : the temp connection is still in the layer
         }
         return ret;
@@ -93,7 +91,6 @@ public class ConnectionPolicyUtils {
 
     /**
      * Get the anchor model for the given anchor.
-     * 
      * @param editpart a node edit part.
      * @param anchor a draw2d anchor
      * @return the anchor model, may be <code>null</code>
@@ -101,15 +98,15 @@ public class ConnectionPolicyUtils {
     @objid ("99b1da79-7881-41ad-89a2-2d6413c15d1b")
     public static Object getAnchorModel(final NodeEditPart editpart, final ConnectionAnchor anchor) {
         if (editpart instanceof IAnchorModelProvider) {
-            return (((IAnchorModelProvider) editpart).createAnchorModel(anchor));
+            return ((IAnchorModelProvider) editpart).createAnchorModel(anchor);
         } else {
-            return (null); // TODO handle non IAnchorModelProvider
+            return null; // TODO handle non IAnchorModelProvider
         }
+        
     }
 
     /**
      * Get the connection layer for an edit part.
-     * 
      * @param ep an edit part
      * @return the the connection layer to use.
      */
@@ -121,9 +118,7 @@ public class ConnectionPolicyUtils {
     /**
      * Get a common edit part owning the source and target edit part of the request.
      * <p>
-     * If the source and target are in the same diagram, return the root edit part.
-     * In the other case, return the common edit part in both roots ownership chain.
-     * 
+     * If the source and target are in the same diagram, return the root edit part. In the other case, return the common edit part in both roots ownership chain.
      * @param req a connection creation request.
      * @return the common edit part.
      */
@@ -143,9 +138,7 @@ public class ConnectionPolicyUtils {
     /**
      * Get the common edit part in the parent composition hierarchy.
      * <p>
-     * If the source and target are in the same diagram, return the root edit part.
-     * In the other case, return the common edit part in the ownership chain.
-     * 
+     * If the source and target are in the same diagram, return the root edit part. In the other case, return the common edit part in the ownership chain.
      * @param sourceEp an edit part
      * @param targetEp an edit part
      * @return the edit part containing both.
@@ -162,12 +155,12 @@ public class ConnectionPolicyUtils {
             targetStack.add(d);
         }
         
-        EditPart a = sourceStack.pollLast(); 
+        EditPart a = sourceStack.pollLast();
         EditPart b = targetStack.pollLast();
         EditPart common = null;
         while (a == b) {
             common = a;
-            a = sourceStack.pollLast(); 
+            a = sourceStack.pollLast();
             b = targetStack.pollLast();
         }
         return common;
@@ -178,13 +171,12 @@ public class ConnectionPolicyUtils {
      * @return the connection routers registry.
      */
     @objid ("d93ec40a-b727-4a82-a0ab-d54675166d6f")
-    public static ConnectionRouterRegistry getRouterRegistry(EditPart ep) {
-        return (ConnectionRouterRegistry) ep.getViewer().getProperty(ConnectionRouterRegistry.ID);
+    public static ConnectionRoutingServices getRoutingServices(EditPart ep) {
+        return (ConnectionRoutingServices) ep.getViewer().getProperty(ConnectionRoutingServices.ID);
     }
 
     /**
      * Setup the Connection figure to reflects the result of the request.
-     * 
      * @param req a connection creation request.
      * @param tmpConnection a Connection figure.
      */
@@ -209,20 +201,19 @@ public class ConnectionPolicyUtils {
         // If the request specifies so, extract more data
         if (req instanceof CreateBendedConnectionRequest) {
             CreateBendedConnectionRequest request = (CreateBendedConnectionRequest) req;
-            
+        
             // Set the real router
             ConnectionRouterId routerId = request.getData().getRoutingMode();
-            final ConnectionRouter router = getRouterRegistry(commonRoot).get(routerId);
+            final ConnectionRouter router = getRoutingServices(commonRoot).getCreationRouter(routerId);
             tmpConnection.setConnectionRouter(router);
         }
+        
     }
 
     /**
      * Get the collections of all diagram connections.
      * <p>
-     * This collection is used by {@link RoundedLinkFigure} to find connections intersections to draw bridges.
-     * The collection is returned by reference to be updated by the connection figures.
-     * 
+     * This collection is used by {@link RoundedLinkFigure} to find connections intersections to draw bridges. The collection is returned by reference to be updated by the connection figures.
      * @return all diagram connections.
      * @since 3.7
      */
@@ -239,7 +230,7 @@ public class ConnectionPolicyUtils {
                 // 'rootRoot' is still an embedded diagram root
                 rootRoot = rootRoot.getParent().getRoot();
             }
-            rootRoot.getViewer().setProperty("allDiagramConnections", allDiagramConnections );
+            rootRoot.getViewer().setProperty("allDiagramConnections", allDiagramConnections);
         }
         return allDiagramConnections;
     }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.templateparameter;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -57,6 +56,7 @@ public class TemplateSignatureEditPart extends ModelElementLabelEditPart {
         inner.setStyle(Graphics.LINE_DASH);
         
         aFigure.setBorder(inner);
+        
     }
 
     @objid ("36e9ed60-55b7-11e2-877f-002564c97630")
@@ -93,6 +93,7 @@ public class TemplateSignatureEditPart extends ModelElementLabelEditPart {
         }
         
         updateFigureBorder((TemplateSignatureFigure) fig);
+        
     }
 
     @objid ("36eb73c0-55b7-11e2-877f-002564c97630")
@@ -115,6 +116,7 @@ public class TemplateSignatureEditPart extends ModelElementLabelEditPart {
                 this.penOptions.lineColor = lineColor;
                 this.repaint();
             }
+            
         }
 
         @objid ("36eb73cf-55b7-11e2-877f-002564c97630")
@@ -124,6 +126,7 @@ public class TemplateSignatureEditPart extends ModelElementLabelEditPart {
                 this.penOptions.lineWidth = lineWidth;
                 this.repaint();
             }
+            
         }
 
         @objid ("36eb73d4-55b7-11e2-877f-002564c97630")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.lifeline.header;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,10 +42,11 @@ public class LifelineHeaderFigure extends WrappedHeaderFigure {
      * Creates a new rectangular figure.
      */
     @objid ("d9483357-55b6-11e2-877f-002564c97630")
-    public LifelineHeaderFigure() {
+    public  LifelineHeaderFigure() {
         super();
         this.lineBorder = new LineBorder();
         this.setBorder(new CompoundBorder(this.lineBorder, new MarginBorder(MARGIN)));
+        
     }
 
     @objid ("d949b9ba-55b6-11e2-877f-002564c97630")
@@ -54,6 +54,7 @@ public class LifelineHeaderFigure extends WrappedHeaderFigure {
     public void setLineColor(final Color lineColor) {
         this.lineBorder.setColor(lineColor);
         super.setLineColor(lineColor);
+        
     }
 
     @objid ("d949b9bf-55b6-11e2-877f-002564c97630")
@@ -61,6 +62,7 @@ public class LifelineHeaderFigure extends WrappedHeaderFigure {
     public void setLinePattern(final LinePattern linePattern) {
         this.lineBorder.setStyle(linePattern.toSWTConstant());
         super.setLinePattern(linePattern);
+        
     }
 
     @objid ("d949b9c6-55b6-11e2-877f-002564c97630")
@@ -68,6 +70,7 @@ public class LifelineHeaderFigure extends WrappedHeaderFigure {
     public void setLineWidth(final int lineWidth) {
         this.lineBorder.setWidth(lineWidth);
         super.setLineWidth(lineWidth);
+        
     }
 
 }

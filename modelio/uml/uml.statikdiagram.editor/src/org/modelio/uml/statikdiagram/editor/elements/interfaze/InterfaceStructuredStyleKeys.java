@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.interfaze;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,77 +41,77 @@ public final class InterfaceStructuredStyleKeys extends StaticAbstractStyleKeyPr
      * Representation model.
      */
     @objid ("a5aabc89-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("INTERFACE_REPRES_MODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("INTERFACE_REPRES_MODE", MetaKey.REPMODE);
 
     /**
      * Fill color.
      */
     @objid ("a5aabc8c-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("INTERFACE_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("INTERFACE_FILLCOLOR", MetaKey.FILLCOLOR);
 
     /**
      * Fill mode.
      */
     @objid ("a5aabc8f-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("INTERFACE_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("INTERFACE_FILLMODE", MetaKey.FILLMODE);
 
     /**
      * Lines color.
      */
     @objid ("a5aabc92-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("INTERFACE_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("INTERFACE_LINECOLOR", MetaKey.LINECOLOR);
 
     /**
      * Lines width.
      */
     @objid ("a5aabc95-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("INTERFACE_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("INTERFACE_LINEWIDTH", MetaKey.LINEWIDTH);
 
     /**
      * Text font.
      */
     @objid ("a5ac4309-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("INTERFACE_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("INTERFACE_FONT", MetaKey.FONT);
 
     /**
      * Text color.
      */
     @objid ("a5ac430c-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("INTERFACE_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("INTERFACE_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     /**
      * Name display mode: none, simple, qualified, ...
      */
     @objid ("a5ac430f-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWNAME = createStyleKey("INTERFACE_SHOWNAME", MetaKey.SHOWNAME);
+    static final StyleKey SHOWNAME = createStyleKey("INTERFACE_SHOWNAME", MetaKey.SHOWNAME);
 
     /**
      * Stereotype display mode.
      */
     @objid ("a5ac4312-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("INTERFACE_SHOWSTEREOTYPES",
-                                                           MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("INTERFACE_SHOWSTEREOTYPES",
+                                                               MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Show tagged values.
      */
     @objid ("a5ac4315-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("INTERFACE_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("INTERFACE_SHOWTAGS", MetaKey.SHOWTAGS);
 
     /**
      * Display visibility.
      */
     @objid ("a5ac4318-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWVISIBILITY = createStyleKey("INTERFACE_SHOWVISIBILITY", MetaKey.SHOWVISIBILITY);
+    static final StyleKey SHOWVISIBILITY = createStyleKey("INTERFACE_SHOWVISIBILITY", MetaKey.SHOWVISIBILITY);
 
     /**
      * Filter on features
      */
     @objid ("a5ac4321-55c2-11e2-9337-002564c97630")
-     static final StyleKey FEATURES = createStyleKey("INTERFACE_FEATURES", MetaKey.VISIBILITYFILTER);
+    static final StyleKey FEATURES = createStyleKey("INTERFACE_FEATURES", MetaKey.VISIBILITYFILTER);
 
     @objid ("a5ac4327-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWPORTS = createStyleKey("INTERFACE_SHOWPORTS", MetaKey.AUTOSHOWPORTS);
+    static final StyleKey SHOWPORTS = createStyleKey("INTERFACE_SHOWPORTS", MetaKey.AUTOSHOWPORTS);
 
     @objid ("d6c95933-02d5-4c69-a6a6-bdfd0c39a641")
     public static final ClassifierAttributeKeys Attribute = new ClassifierAttributeKeys("INTERFACE");

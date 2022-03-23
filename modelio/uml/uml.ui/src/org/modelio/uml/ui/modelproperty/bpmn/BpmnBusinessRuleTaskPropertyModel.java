@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import java.util.ArrayList;
@@ -56,20 +55,19 @@ public class BpmnBusinessRuleTaskPropertyModel extends AbstractPropertyModel<Bpm
     /**
      * Create a new <i>BpmnBusinessRuleTask</i> data model from an
      * <i>BpmnBusinessRuleTask</i>.
-     * 
      * @param theEditedElement the model to edit.
      * @param modelService the model service needed to find elements.
      */
     @objid ("f9ddb10e-09c8-44ed-a60b-8cf36d9084cd")
-    public BpmnBusinessRuleTaskPropertyModel(BpmnBusinessRuleTask theEditedElement, IMModelServices modelService) {
+    public  BpmnBusinessRuleTaskPropertyModel(BpmnBusinessRuleTask theEditedElement, IMModelServices modelService) {
         super(theEditedElement);
         this.modelService = modelService;
         initPropertyModel();
+        
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("b51c9526-3ed7-4943-8157-2a5f027d28a0")
@@ -80,7 +78,6 @@ public class BpmnBusinessRuleTaskPropertyModel extends AbstractPropertyModel<Bpm
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("0b67d942-3f29-423a-a515-f48f4b19c731")
@@ -95,7 +92,6 @@ public class BpmnBusinessRuleTaskPropertyModel extends AbstractPropertyModel<Bpm
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -160,7 +156,6 @@ public class BpmnBusinessRuleTaskPropertyModel extends AbstractPropertyModel<Bpm
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -238,13 +233,13 @@ public class BpmnBusinessRuleTaskPropertyModel extends AbstractPropertyModel<Bpm
             this.properties.add("CompletionCondition");
             this.properties.add("EventDefinition");
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -300,6 +295,7 @@ public class BpmnBusinessRuleTaskPropertyModel extends AbstractPropertyModel<Bpm
                 }
             }
         }
+        
     }
 
 }

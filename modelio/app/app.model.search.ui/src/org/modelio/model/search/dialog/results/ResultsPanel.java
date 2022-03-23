@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.search.dialog.results;
 
 import java.util.ArrayList;
@@ -83,6 +82,7 @@ public class ResultsPanel {
             final int nMatch = res.size();
             this.topGroup.setText(ModelSearch.I18N.getMessage("SearchDialog.results", Integer.toString(nMatch))); //$NON-NLS-1$
         }
+        
     }
 
     @objid ("15ad13fd-3d61-4c9e-b22b-d6682a0bc662")
@@ -91,7 +91,7 @@ public class ResultsPanel {
     }
 
     @objid ("c38077f7-43fd-4680-89fd-9ad83f4cc64d")
-    public ResultsPanel(Composite parent, IModelioNavigationService navigationService) {
+    public  ResultsPanel(Composite parent, IModelioNavigationService navigationService) {
         this.navigationService = navigationService;
         this.topGroup = new Group(parent, SWT.NONE);
         this.topGroup.setText(ModelSearch.I18N.getMessage("SearchDialog.initial")); //$NON-NLS-1$
@@ -269,6 +269,7 @@ public class ResultsPanel {
         
         this.resultsViewer.setComparator(comparator);
         this.resultsViewer.setInput(null);
+        
     }
 
     @objid ("dba7645d-f47f-45d3-91de-f39986a22d85")
@@ -300,6 +301,7 @@ public class ResultsPanel {
         @objid ("47bc9640-b9ed-435b-9f1d-9ffbbe54c2db")
         @Override
         public void dispose() {
+            
         }
 
         @objid ("76a63686-5db6-447d-a9f2-2ae2366d827b")
@@ -310,7 +312,7 @@ public class ResultsPanel {
         }
 
         @objid ("eb39915e-5668-48bd-9647-704e31a3966b")
-        public ResultsViewerContentProvider(List<Element> results) {
+        public  ResultsViewerContentProvider(List<Element> results) {
             this.results = results;
         }
 
@@ -385,9 +387,10 @@ public class ResultsPanel {
         }
 
         @objid ("5ff72c61-ba18-4aaa-ad17-11550a64fe8b")
-        public ResultsViewerComparator() {
+        public  ResultsViewerComparator() {
             this.propertyIndex = 1;
             this.direction = 0;
+            
         }
 
         @objid ("f92a5da6-7f49-47fe-8d12-79b8df940c33")
@@ -405,6 +408,7 @@ public class ResultsPanel {
                 this.propertyIndex = column;
                 this.direction = 0;
             }
+            
         }
 
         @objid ("90ff36a7-c7f9-40cf-bf76-9397f318a8bf")
@@ -448,6 +452,7 @@ public class ResultsPanel {
             } else {
                 return obj.toString();
             }
+            
         }
 
         @objid ("f3b016e4-b59e-4c3a-a1a8-2effde927343")

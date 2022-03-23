@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package com.sun.star.lib.loader;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,7 @@ final class WinRegKeyException extends java.lang.Exception {
      * Constructs a <code>WinRegKeyException</code>.
      */
     @objid ("3dddc885-dc0d-4102-85e7-8b07a832416a")
-    public WinRegKeyException() {
+    public  WinRegKeyException() {
         super();
     }
 
@@ -44,7 +43,7 @@ final class WinRegKeyException extends java.lang.Exception {
      * @param  message   the detail message
      */
     @objid ("83006bd9-bd9c-4971-bbea-a06fa31d9d42")
-    public WinRegKeyException(final String message) {
+    public  WinRegKeyException(final String message) {
         super( message );
     }
 

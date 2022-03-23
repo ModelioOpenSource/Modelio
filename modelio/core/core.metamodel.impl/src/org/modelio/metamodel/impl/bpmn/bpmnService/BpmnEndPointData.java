@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.bpmnService;
 
 import java.util.List;
@@ -33,10 +33,10 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("000ef07e-c4c0-1fd8-97fe-001ec947cd2a")
 public class BpmnEndPointData extends BpmnSharedElementData {
     @objid ("e4b80f5d-7dff-4908-bda2-f3b84e91241a")
-     List<SmObjectImpl> mParticipantRefs = null;
+    List<SmObjectImpl> mParticipantRefs = null;
 
     @objid ("62f14718-08dc-4b26-a0cf-246fe477d6c0")
-    public BpmnEndPointData(BpmnEndPointSmClass smClass) {
+    public  BpmnEndPointData(BpmnEndPointSmClass smClass) {
         super(smClass);
     }
 

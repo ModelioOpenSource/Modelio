@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.labelprovider;
 
 import java.util.HashMap;
@@ -26,8 +25,8 @@ import java.util.Map;
 import java.util.Stack;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.viewers.LabelProvider;
-import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.jface.viewers.StyledString;
+import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Font;
 import org.eclipse.swt.graphics.Image;
@@ -79,7 +78,7 @@ public class BrowserLabelProvider extends LabelProvider implements IModelioEleme
      * Default c'tor.
      */
     @objid ("c13d663d-d63b-11e1-9955-002564c97630")
-    public BrowserLabelProvider() {
+    public  BrowserLabelProvider() {
         this.umlLabelService = new BrowserLabelService();
     }
 
@@ -213,7 +212,7 @@ public class BrowserLabelProvider extends LabelProvider implements IModelioEleme
         private final Stack<MObject> elementStack;
 
         @objid ("d4a49a92-5199-4f9c-9f9b-b93c2a9a0ec3")
-        public BrowserLabelService() {
+        public  BrowserLabelService() {
             this(new Stack<MObject>());
         }
 
@@ -222,7 +221,6 @@ public class BrowserLabelProvider extends LabelProvider implements IModelioEleme
          * @param featuresVisibility Whether or not to show the visibility in feature's labels.
          * @param namespaceVisibility Whether or not to show the visibility in namespace's
          * labels.
-         * 
          * @param element The element to get symbol
          * @return The element symbol.
          */
@@ -247,6 +245,7 @@ public class BrowserLabelProvider extends LabelProvider implements IModelioEleme
             } finally {
                 this.elementStack.pop();
             }
+            
         }
 
         @objid ("c141fa0c-d63b-11e1-9955-002564c97630")
@@ -280,6 +279,7 @@ public class BrowserLabelProvider extends LabelProvider implements IModelioEleme
             } else {
                 return new StyledString("<null>", styler);
             }
+            
         }
 
         @objid ("c1468dcc-d63b-11e1-9955-002564c97630")
@@ -369,19 +369,18 @@ public class BrowserLabelProvider extends LabelProvider implements IModelioEleme
 
         /**
          * Initialize the label service.
-         * 
          * @param elementStack a stack to use for recursive calls to
          * {@link #getLabel(Element, boolean)}
          */
         @objid ("c13eecbb-d63b-11e1-9955-002564c97630")
-        BrowserLabelService(Stack<MObject> elementStack) {
+         BrowserLabelService(Stack<MObject> elementStack) {
             super();
             this.elementStack = elementStack;
+            
         }
 
         /**
          * Append <code>"(from xxxx)"</code> to the symbol
-         * 
          * @param symbol the symbol to modify
          * @param srcObj the source object, used to compute the style of
          * <code>'xxxx'</code>
@@ -395,6 +394,7 @@ public class BrowserLabelProvider extends LabelProvider implements IModelioEleme
                 symbol.append(owner.getName(), ElementStyler.getStyler(srcObj, owner));
                 symbol.append(")", styler);
             }
+            
         }
 
         @objid ("48eaf5dc-f40d-4707-9419-495caec4ed77")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.model;
 
 import java.util.ArrayList;
@@ -126,6 +125,7 @@ public class ProfileUtils {
             }
         
         }
+        
     }
 
     /**
@@ -161,13 +161,14 @@ public class ProfileUtils {
         } else {
             return getPatternModel(element.getCompositionOwner());
         }
+        
     }
 
     /**
      * Private c'tor to prevent class instantiation.
      */
     @objid ("de972673-a0f8-412b-885f-70639b59eb20")
-    private ProfileUtils() {
+    private  ProfileUtils() {
         // Empty
     }
 
@@ -202,6 +203,7 @@ public class ProfileUtils {
             }
             patternModel.putTagValues(ProfileUtils.MODULE_NAME, PatternDesignerTagTypes.PATTERN_TEMPLATE_PARAMETERS, params);
         }
+        
     }
 
     /**

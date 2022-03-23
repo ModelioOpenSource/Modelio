@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.decisionmerge;
 
 import java.util.Collections;
@@ -31,8 +30,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.DecisionMergeNode;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -60,7 +59,7 @@ public class GmDecisionMerge extends GmPortContainer {
     private static final GmDecisionMergeSimpleStyleKeys SIMPLE_KEYS = new GmDecisionMergeSimpleStyleKeys();
 
     @objid ("30876cfe-58a2-11e2-9574-002564c97630")
-     static final GmDecisionMergeStructuredStyleKeys STRUCTURED_KEYS = new GmDecisionMergeStructuredStyleKeys();
+    static final GmDecisionMergeStructuredStyleKeys STRUCTURED_KEYS = new GmDecisionMergeStructuredStyleKeys();
 
     @objid ("30876d00-58a2-11e2-9574-002564c97630")
     private static final GmDecisionMergeImageStyleKeys IMAGE_KEYS = new GmDecisionMergeImageStyleKeys();
@@ -70,13 +69,12 @@ public class GmDecisionMerge extends GmPortContainer {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the timeEvent is unmasked.
      * @param el the unmasked timeEvent.
      * @param ref a reference to the unmasked timeEvent.
      */
     @objid ("2a3ccc69-55b6-11e2-877f-002564c97630")
-    public GmDecisionMerge(IGmDiagram diagram, DecisionMergeNode el, MRef ref) {
+    public  GmDecisionMerge(IGmDiagram diagram, DecisionMergeNode el, MRef ref) {
         super(diagram, ref);
         
         GmDecisionMergePrimaryNode mainNode = new GmDecisionMergePrimaryNode(diagram, ref);
@@ -93,6 +91,7 @@ public class GmDecisionMerge extends GmPortContainer {
         inputLabel.setRoleInComposition(GmPortContainer.SATELLITE_ROLE);
         inputLabel.setLayoutData(Integer.valueOf(PositionConstants.SOUTH_EAST));
         this.addChild(inputLabel);
+        
     }
 
     @objid ("2a3ccc75-55b6-11e2-877f-002564c97630")
@@ -151,7 +150,7 @@ public class GmDecisionMerge extends GmPortContainer {
      * Empty constructor needed for deserialisation.
      */
     @objid ("2a3ccc98-55b6-11e2-877f-002564c97630")
-    public GmDecisionMerge() {
+    public  GmDecisionMerge() {
         // Nothing specific to do.
     }
 
@@ -172,6 +171,7 @@ public class GmDecisionMerge extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("2a3e52fd-55b6-11e2-877f-002564c97630")
@@ -193,12 +193,14 @@ public class GmDecisionMerge extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmDecisionMerge.", GmDecisionMerge.MINOR_VERSION);
+        
     }
 
     @objid ("2a3e5311-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (DecisionMergeNode) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("2a3e5316-55b6-11e2-877f-002564c97630")
@@ -209,7 +211,6 @@ public class GmDecisionMerge extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -221,7 +222,6 @@ public class GmDecisionMerge extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

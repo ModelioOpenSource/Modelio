@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,13 +49,13 @@ public class OInformationItem extends ONameSpace {
 
     /**
      * Constructor
-     * 
      * @param param : the exported Modelio InformationItem
      */
     @objid ("093d257d-bb01-4aa5-b297-240a23e81dff")
-    public OInformationItem(final InformationItem param) {
+    public  OInformationItem(final InformationItem param) {
         super(param);
         this.objElement = param;
+        
     }
 
     @objid ("df033634-8835-482a-ae67-eefb67676a66")
@@ -76,6 +75,7 @@ public class OInformationItem extends ONameSpace {
         }else{
             AbstractObjingModelNavigation.infoOfUnsupportedOwnedWithEMF(objOwner, this.objElement, ecoreElt);
         }
+        
     }
 
     @objid ("3e630334-980c-450e-86f8-f933344f11ae")
@@ -91,6 +91,7 @@ public class OInformationItem extends ONameSpace {
             setLeaf((org.eclipse.uml2.uml.InformationItem) ecoreElt);
             setRoot((org.eclipse.uml2.uml.InformationItem) ecoreElt);         
         }
+        
     }
 
     @objid ("d101f29c-dc8e-42e0-b057-30a5a3e97376")
@@ -120,6 +121,7 @@ public class OInformationItem extends ONameSpace {
                 GenerationProperties.getInstance().addWarning(message, this.objElement, description);
             }
         }
+        
     }
 
 }

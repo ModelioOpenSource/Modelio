@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.browser.view.plugin;
 
 import java.util.ResourceBundle;
@@ -59,6 +58,7 @@ public class ModelBrowserExtOrg extends AbstractUIPlugin {
         ExtendedLogService service = bundleContext.getService(ref);
         ModelBrowserExtOrg.LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), ModelBrowserExtOrg.PLUGIN_ID));
         ModelBrowserExtOrg.I18N = new BundledMessages(ModelBrowserExtOrg.LOG, ResourceBundle.getBundle("modelbrowser"));
+        
     }
 
     @objid ("001c89b4-dd16-1fab-b27f-001ec947cd2a")
@@ -70,7 +70,6 @@ public class ModelBrowserExtOrg extends AbstractUIPlugin {
     /**
      * Returns an image descriptor for the image file at the given plug-in
      * relative path
-     * 
      * @param path the path
      * @return the image descriptor
      */

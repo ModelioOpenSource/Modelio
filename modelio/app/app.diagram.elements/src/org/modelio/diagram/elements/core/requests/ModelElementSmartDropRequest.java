@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.requests;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,9 +33,10 @@ public class ModelElementSmartDropRequest extends Request {
     private ModelElementDropRequest dropRequest;
 
     @objid ("80dd1837-1dec-11e2-8cad-001ec947c8cc")
-    public ModelElementSmartDropRequest(ModelElementDropRequest dropRequest) {
+    public  ModelElementSmartDropRequest(ModelElementDropRequest dropRequest) {
         super(TYPE);
         this.dropRequest = dropRequest;
+        
     }
 
     @objid ("80dd183a-1dec-11e2-8cad-001ec947c8cc")

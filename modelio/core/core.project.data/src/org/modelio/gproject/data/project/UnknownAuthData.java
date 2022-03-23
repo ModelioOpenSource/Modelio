@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.project;
 
 import java.util.Map;
@@ -39,11 +38,10 @@ public class UnknownAuthData extends AuthData {
 
     /**
      * Initialize the authentication data.
-     * 
      * @param scheme the unknown scheme identifier.
      */
     @objid ("b7ec47a6-54b1-4e9f-b9e5-aa7ab0df411a")
-    public UnknownAuthData(String scheme) {
+    public  UnknownAuthData(String scheme) {
         this.scheme = scheme;
     }
 

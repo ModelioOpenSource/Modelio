@@ -17,64 +17,63 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.module.migration;
 
-import javax.xml.bind.JAXBElement;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.gproject.data.module.jaxbv1.JxbClasspath.Entry;
+import javax.xml.bind.JAXBElement;
 import org.modelio.gproject.data.module.jaxbv1.JxbClasspath;
-import org.modelio.gproject.data.module.jaxbv1.JxbContextualCommand.Contribution;
+import org.modelio.gproject.data.module.jaxbv1.JxbClasspath.Entry;
 import org.modelio.gproject.data.module.jaxbv1.JxbContextualCommand;
+import org.modelio.gproject.data.module.jaxbv1.JxbContextualCommand.Contribution;
 import org.modelio.gproject.data.module.jaxbv1.JxbDiagramCommand;
 import org.modelio.gproject.data.module.jaxbv1.JxbDiagramCommandBox;
 import org.modelio.gproject.data.module.jaxbv1.JxbDiagramCommandLink;
 import org.modelio.gproject.data.module.jaxbv1.JxbDocpath;
 import org.modelio.gproject.data.module.jaxbv1.JxbExterndocumenttype;
 import org.modelio.gproject.data.module.jaxbv1.JxbHandler;
+import org.modelio.gproject.data.module.jaxbv1.JxbModule;
 import org.modelio.gproject.data.module.jaxbv1.JxbModule.Dependencies.Optional;
 import org.modelio.gproject.data.module.jaxbv1.JxbModule.Dependencies.Required;
-import org.modelio.gproject.data.module.jaxbv1.JxbModule.Gui.CustomizedDiagram.Palette;
-import org.modelio.gproject.data.module.jaxbv1.JxbModule.Gui.CustomizedDiagram;
-import org.modelio.gproject.data.module.jaxbv1.JxbModule.Gui.ElementCreationCommand;
 import org.modelio.gproject.data.module.jaxbv1.JxbModule.Gui;
-import org.modelio.gproject.data.module.jaxbv1.JxbModule.JxbParameter.JxbEnumeration;
+import org.modelio.gproject.data.module.jaxbv1.JxbModule.Gui.CustomizedDiagram;
+import org.modelio.gproject.data.module.jaxbv1.JxbModule.Gui.CustomizedDiagram.Palette;
+import org.modelio.gproject.data.module.jaxbv1.JxbModule.Gui.ElementCreationCommand;
 import org.modelio.gproject.data.module.jaxbv1.JxbModule.JxbParameter;
+import org.modelio.gproject.data.module.jaxbv1.JxbModule.JxbParameter.JxbEnumeration;
+import org.modelio.gproject.data.module.jaxbv1.JxbModule.JxbProfile;
 import org.modelio.gproject.data.module.jaxbv1.JxbModule.JxbProfile.JxbAnonymousStereotype;
+import org.modelio.gproject.data.module.jaxbv1.JxbModule.JxbProfile.JxbStereotype;
+import org.modelio.gproject.data.module.jaxbv1.JxbModule.JxbProfile.JxbStereotype.Icons;
 import org.modelio.gproject.data.module.jaxbv1.JxbModule.JxbProfile.JxbStereotype.Icons.Diagram;
 import org.modelio.gproject.data.module.jaxbv1.JxbModule.JxbProfile.JxbStereotype.Icons.Explorer;
 import org.modelio.gproject.data.module.jaxbv1.JxbModule.JxbProfile.JxbStereotype.Icons.Small;
-import org.modelio.gproject.data.module.jaxbv1.JxbModule.JxbProfile.JxbStereotype.Icons;
-import org.modelio.gproject.data.module.jaxbv1.JxbModule.JxbProfile.JxbStereotype;
-import org.modelio.gproject.data.module.jaxbv1.JxbModule.JxbProfile;
-import org.modelio.gproject.data.module.jaxbv1.JxbModule;
 import org.modelio.gproject.data.module.jaxbv1.JxbNotetype;
 import org.modelio.gproject.data.module.jaxbv1.JxbScope;
 import org.modelio.gproject.data.module.jaxbv1.JxbTaggedvalues;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Command;
-import org.modelio.gproject.data.module.jaxbv2.Jxbv2Enumeration.Jxbv2Literal;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Enumeration;
+import org.modelio.gproject.data.module.jaxbv2.Jxbv2Enumeration.Jxbv2Literal;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2ExternDocumentType;
-import org.modelio.gproject.data.module.jaxbv2.Jxbv2Handler.Jxbv2HParameter;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Handler;
+import org.modelio.gproject.data.module.jaxbv2.Jxbv2Handler.Jxbv2HParameter;
+import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Dependencies.Jxbv2Optional;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Dependencies.Jxbv2Required;
-import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2ContextualMenu.Jxbv2CommandRef;
-import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2ContextualMenu;
-import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2Diagrams.Jxbv2DiagramType.Jxbv2Palette.Jxbv2ToolRef;
-import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2Diagrams.Jxbv2DiagramType.Jxbv2Palette;
-import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2Diagrams.Jxbv2DiagramType;
-import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2Views.Jxbv2PropertyPage;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui;
+import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2ContextualMenu;
+import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2ContextualMenu.Jxbv2CommandRef;
+import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2Diagrams.Jxbv2DiagramType;
+import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2Diagrams.Jxbv2DiagramType.Jxbv2Palette;
+import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2Diagrams.Jxbv2DiagramType.Jxbv2Palette.Jxbv2ToolRef;
+import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2Views.Jxbv2PropertyPage;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Parameters.Jxbv2Parameter;
+import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Profiles.Jxbv2Profile;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Profiles.Jxbv2Profile.Jxbv2MetaclassReference;
+import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Profiles.Jxbv2Profile.Jxbv2Stereotype;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Profiles.Jxbv2Profile.Jxbv2Stereotype.Jxbv2Icon;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Profiles.Jxbv2Profile.Jxbv2Stereotype.Jxbv2Image;
-import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Profiles.Jxbv2Profile.Jxbv2Stereotype;
-import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Profiles.Jxbv2Profile;
-import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module;
-import org.modelio.gproject.data.module.jaxbv2.Jxbv2MultiPathes.Jxbv2PathEntry;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2MultiPathes;
+import org.modelio.gproject.data.module.jaxbv2.Jxbv2MultiPathes.Jxbv2PathEntry;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2NoteType;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Scope;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2TagType;
@@ -144,6 +143,7 @@ public class Migrator {
             }
             moduleV2.setClassPath(classpathV2);
         }
+        
     }
 
     @objid ("600e1364-503e-4978-b9af-13ee48b52997")
@@ -163,6 +163,7 @@ public class Migrator {
             }
             moduleV2.getResources().setDocFiles(docpathV2);
         }
+        
     }
 
     @objid ("4c78031a-f9b2-400b-84d1-b2a357ec850e")
@@ -183,6 +184,7 @@ public class Migrator {
             depV2.setVersion(depV1.getVersion());
             moduleV2.getDependencies().getRequired().add(depV2);
         }
+        
     }
 
     @objid ("23228bcf-fa56-43c7-9b9e-3d2d45a67734")
@@ -220,6 +222,7 @@ public class Migrator {
             // Add V2 parameter
             moduleV2.getParameters().getParameter().add(paramV2);
         }
+        
     }
 
     @objid ("8bb48769-f0f5-4142-9340-cc8e65f80921")
@@ -232,6 +235,7 @@ public class Migrator {
             migrateOneProfile(profileV1, profileV2);
             moduleV2.getProfiles().getProfile().add(profileV2);
         }
+        
     }
 
     @objid ("35b0c00d-2aab-49da-aa0c-e3091638574c")
@@ -245,6 +249,7 @@ public class Migrator {
         
         // MetaclassReferences
         migrateMetaclassReferences(profileV1, profileV2);
+        
     }
 
     @objid ("1059a9f9-5b94-4412-aa5e-5cc21c246528")
@@ -254,6 +259,7 @@ public class Migrator {
             migrateOneStereotype(stV1, stV2);
             profileV2.getStereotype().add(stV2);
         }
+        
     }
 
     @objid ("e8a1fb6a-0759-469f-96c4-4b8f0bb6bf10")
@@ -263,6 +269,7 @@ public class Migrator {
             migrateOneMetaclassReference(stV1, stV2);
             profileV2.getMetaclassReference().add(stV2);
         }
+        
     }
 
     @objid ("1a05deb5-69e1-4e5c-8bde-945696b8082c")
@@ -336,6 +343,7 @@ public class Migrator {
             // nothing to do since PropertyTable did not exist in V1
         
         }
+        
     }
 
     /**
@@ -364,6 +372,7 @@ public class Migrator {
                 stV2.setImage(imageV2);
             }
         }
+        
     }
 
     @objid ("f37f44c8-9c5e-469e-8c88-64d044973089")
@@ -425,6 +434,7 @@ public class Migrator {
                 stV2.getExternDocumentTypes().getExternDocumentType().add(noteTypeV2);
             }
         }
+        
     }
 
     /**
@@ -457,6 +467,7 @@ public class Migrator {
         
         // Views
         migrateViews(guiV1, guiV2);
+        
     }
 
     @objid ("dbec51e2-3bc4-4c30-86be-4df91104a860")
@@ -489,6 +500,7 @@ public class Migrator {
         
             guiV2.getDiagrams().getDiagramType().add(diagramV2);
         }
+        
     }
 
     @objid ("d5ac771b-3634-481c-8dc2-4ae389785d99")
@@ -517,6 +529,7 @@ public class Migrator {
             toolrefV2.setGroup(toolGroupV1);
             paletteV2.getToolRef().add(toolrefV2);
         }
+        
     }
 
     @objid ("665e4b5f-a2fb-45cd-9c6f-c449ef9ebe8d")
@@ -541,6 +554,7 @@ public class Migrator {
                 menuV2.getCommandRef().add(ref);
             }
         }
+        
     }
 
     /**
@@ -580,6 +594,7 @@ public class Migrator {
                 }
             }
         }
+        
     }
 
     @objid ("f04c89f5-b5e0-45a3-8ede-b3a74614709f")
@@ -611,6 +626,7 @@ public class Migrator {
             targetScopeV2.setStereotype(targetScopeV1.getStereotype());
             cmdV2.getScopeTarget().add(targetScopeV2);
         }
+        
     }
 
     @objid ("566baee7-8620-4448-bfb6-b834c7e0fd67")
@@ -638,6 +654,7 @@ public class Migrator {
                 cmdV2.getScopeTarget().add(scopeV2);
             }
         }
+        
     }
 
     @objid ("eea5c2e1-98f4-421d-a5da-4266002d1bb2")
@@ -653,6 +670,7 @@ public class Migrator {
         final Jxbv2Handler handlerV2 = this.factoryV2.createHandler();
         migrateToolHandler(handlerV1, handlerV2, "Box");
         cmdV2.setHandler(handlerV2);
+        
     }
 
     @objid ("c478a154-caa9-429a-ab7a-1fb026ca67d0")
@@ -680,6 +698,7 @@ public class Migrator {
                 handlerV2.getHParameter().add(relation);
             }
         }
+        
     }
 
     /**
@@ -703,6 +722,7 @@ public class Migrator {
             migrateOneCreationCommand(commandV1, commandV2);
             guiV2.getCommands().getCommand().add(commandV2);
         }
+        
     }
 
     /**
@@ -737,6 +757,7 @@ public class Migrator {
         commandV2.setLabel(commandV1.getLabel());
         commandV2.setModifyModel(commandV1.getModifyModel());
         commandV2.setTooltip(commandV1.getTooltip());
+        
     }
 
     /**
@@ -772,6 +793,7 @@ public class Migrator {
         commandV2.setImage(commandV1.getImage());
         commandV2.setTooltip(commandV1.getTooltip());
         commandV2.setModifyModel(commandV1.getModifyModel());
+        
     }
 
     @objid ("c1721027-ff82-4f0d-af99-f07456d92ad0")
@@ -809,6 +831,7 @@ public class Migrator {
         
             guiV2.getViews().getPropertyPage().add(propertyPageV2);
         }
+        
     }
 
     @objid ("7e00bcde-1bde-49dc-b373-1635da1a11f7")
@@ -819,6 +842,7 @@ public class Migrator {
             literalV2.setValue(literalV1.getName());
             enumV2.getLiteral().add(literalV2);
         }
+        
     }
 
     @objid ("1ea4da3a-eb74-4eb6-99d4-10c84e27589b")
@@ -845,6 +869,7 @@ public class Migrator {
             relation.setValue(handlerV1.getRelation());
             handlerV2.getHParameter().add(relation);
         }
+        
     }
 
 }

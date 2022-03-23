@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.stereotype.creator;
 
 import java.util.List;
@@ -52,16 +51,16 @@ public class StereotypeValidator implements ModifyListener {
 
     /**
      * Instantiates a new stereotype validator for this dialog and data model.
-     * 
      * @param dialog the dialog containing the text to color red or green, and the button to enable/disable.
      * @param dataModel the data model of the dialog, to save the infos into.
      * @param mmServices model services
      */
     @objid ("23095ec1-2b3a-48e7-9f1a-1cdb829389d0")
-    public StereotypeValidator(StereotypeEditionDialog dialog, StereotypeEditionDataModel dataModel, IMModelServices mmServices) {
+    public  StereotypeValidator(StereotypeEditionDialog dialog, StereotypeEditionDataModel dataModel, IMModelServices mmServices) {
         this.dialog = dialog;
         this.dataModel = dataModel;
         this.mmServices = mmServices;
+        
     }
 
     @objid ("920a7409-b0d4-491d-9d03-50f83d63c3e0")
@@ -90,11 +89,11 @@ public class StereotypeValidator implements ModifyListener {
         }
         
         this.dataModel.setStereotypeName(stereotypeName);
+        
     }
 
     /**
      * @param stereotypeMetaclass
-     * 
      * @param stereotypeName @return
      */
     @objid ("6ca03d00-d66a-4ba6-950e-47dc079b5c0c")

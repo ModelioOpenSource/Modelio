@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.umlcommon.note;
 
 import java.beans.PropertyChangeEvent;
@@ -63,7 +62,7 @@ import org.modelio.vcore.smkernel.mapi.MRef;
 @objid ("818b23fe-1dec-11e2-8cad-001ec947c8cc")
 public class NoteEditPart extends AbstractNodeEditPart {
     @objid ("d4c65ef5-6cab-426f-8af6-c68fc8cd99d0")
-     static final Dimension HTML_EDITOR_MIN_SIZE = new Dimension(400, 300);
+    static final Dimension HTML_EDITOR_MIN_SIZE = new Dimension(400, 300);
 
     @objid ("818b2400-1dec-11e2-8cad-001ec947c8cc")
     @Override
@@ -107,6 +106,7 @@ public class NoteEditPart extends AbstractNodeEditPart {
         } else {
             super.performRequest(req);
         }
+        
     }
 
     @objid ("818d861e-1dec-11e2-8cad-001ec947c8cc")
@@ -125,6 +125,7 @@ public class NoteEditPart extends AbstractNodeEditPart {
         } else {
             super.propertyChange(evt);
         }
+        
     }
 
     @objid ("818d8622-1dec-11e2-8cad-001ec947c8cc")
@@ -135,6 +136,7 @@ public class NoteEditPart extends AbstractNodeEditPart {
         installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE, new DefaultElementDirectEditPolicy());
         installEditPolicy(EditPolicy.NODE_ROLE, new DefaultCreateLinkEditPolicy());
         installEditPolicy("notelink", new LinkedNodeEndReconnectEditPolicy());
+        
     }
 
     @objid ("818d8625-1dec-11e2-8cad-001ec947c8cc")
@@ -158,7 +160,6 @@ public class NoteEditPart extends AbstractNodeEditPart {
 
     /**
      * Get the note figure.
-     * 
      * @return The note figure.
      */
     @objid ("818d862c-1dec-11e2-8cad-001ec947c8cc")
@@ -182,11 +183,11 @@ public class NoteEditPart extends AbstractNodeEditPart {
         
         noteFigure.setContents(contents, noteModel.isHtml());
         noteFigure.setType(noteModel.getType());
+        
     }
 
     /**
      * Recreate the link between the {@link Note} and its annoted element through a reconnect request.
-     * 
      * @param source the annoted element.
      */
     @objid ("c2e9147a-5562-4179-a9de-1c46e889df02")
@@ -226,12 +227,13 @@ public class NoteEditPart extends AbstractNodeEditPart {
         
         // Unable to find a valid source, delete link
         gmLink.delete();
+        
     }
 
     @objid ("4e087a9c-3234-43e5-ac5b-92e071bdb8b1")
     private static final class HtmlTextEditManager extends DirectEditManager2 {
         @objid ("04c5a293-ae68-43aa-ac4d-fe9e24c9b12b")
-        HtmlTextEditManager(GraphicalEditPart source, CellEditorLocator locator) {
+         HtmlTextEditManager(GraphicalEditPart source, CellEditorLocator locator) {
             super(source, HtmlTextCellEditor.class, locator);
         }
 
@@ -249,6 +251,7 @@ public class NoteEditPart extends AbstractNodeEditPart {
             textControl.setFont(((NoteFigure) getEditPart().getFigure()).getTextFont());
             
             super.initCellEditor();
+            
         }
 
     }

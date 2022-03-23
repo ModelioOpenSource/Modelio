@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.audit;
 
 import java.util.ArrayList;
@@ -72,6 +71,7 @@ public class R1300 extends AbstractUmlRule {
     public void autoRegister(UmlAuditPlan plan) {
         plan.registerRule(InstanceNode.MQNAME, this, AuditTrigger.UPDATE);
         plan.registerRule(ObjectFlow.MQNAME, this, AuditTrigger.CREATE | AuditTrigger.MOVE | AuditTrigger.UPDATE);
+        
     }
 
     /**
@@ -105,14 +105,14 @@ public class R1300 extends AbstractUmlRule {
      * Default constructor for R1300
      */
     @objid ("aa29be11-dadf-4ac5-a4a2-d2661812a6ca")
-    public R1300() {
+    public  R1300() {
         this.checkerInstance = new CheckR1300(this);
     }
 
     @objid ("c7808566-c4a6-4d3d-b61a-050459fcc51e")
     private static class CheckR1300 extends AbstractControl {
         @objid ("04de4f90-932a-4a0c-8f78-55c17981604d")
-        public CheckR1300(IRule rule) {
+        public  CheckR1300(IRule rule) {
             super(rule);
         }
 
@@ -170,7 +170,6 @@ public class R1300 extends AbstractUmlRule {
 
         /**
          * If an object node is modified, its upper bound is potentially modified, so we need to check all the upstream and downstream flows connecting to ObjectNodes. An object node can also be updated if a flow is moved or deleted, potentially creating or removing paths between object nodes, so we need to check both upstream and downstream path to update concerned flows.
-         * 
          * @param objectNode The object node that was updated.
          * @return A list of audit entries of all concerned flows.
          */
@@ -201,7 +200,6 @@ public class R1300 extends AbstractUmlRule {
 
         /**
          * Finds all the ObjectFlows connecting the given ObjectNode to another ObjectNode, except for ObjectNodes that are controls.
-         * 
          * @param node The Object node to search from
          * @param objectFlows The list of found ObjectFlow
          * @param visitedFlows The list of visited ObjectFlows
@@ -228,11 +226,11 @@ public class R1300 extends AbstractUmlRule {
                     findSourceFlows(sourceNode, objectFlows, visitedFlows);
                 }
             }
+            
         }
 
         /**
          * Finds all the ObjectFlows connecting the given ObjectNode to another ObjectNode, except for ObjectNodes that are controls.
-         * 
          * @param node The Object node to search from
          * @param objectFlows The list of found ObjectFlow
          * @param visitedFlows The list of visited ObjectFlows
@@ -259,6 +257,7 @@ public class R1300 extends AbstractUmlRule {
                     findTargetFlows(targetNode, objectFlows, visitedFlows);
                 }
             }
+            
         }
 
         @objid ("2f0ea0cb-e4c6-4a1c-98e0-d8b3f0c903a7")

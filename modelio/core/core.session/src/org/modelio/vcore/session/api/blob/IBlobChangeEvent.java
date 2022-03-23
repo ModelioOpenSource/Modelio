@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.api.blob;
 
 import java.util.Collection;
@@ -30,7 +29,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IBlobChangeEvent {
     /**
      * Get the new blobs.
-     * 
      * @return the identifier of created blobs.
      */
     @objid ("4bb33d1f-c76f-4fcd-954c-21ea5b31fd52")
@@ -38,7 +36,6 @@ public interface IBlobChangeEvent {
 
     /**
      * Get the deleted blobs.
-     * 
      * @return the identifier of deleted blobs.
      */
     @objid ("28ee8742-7fc6-4781-ae85-2efeaf44168d")
@@ -46,7 +43,6 @@ public interface IBlobChangeEvent {
 
     /**
      * Get the modified blobs.
-     * 
      * @return the identifier of modified blobs.
      */
     @objid ("6b3ea614-e83c-4720-bf2c-4a143a86234a")

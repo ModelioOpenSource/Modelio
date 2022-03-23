@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.informationitem;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -85,7 +84,7 @@ public final class InformationItemStructuredStyleKeys extends StaticAbstractStyl
      */
     @objid ("a680aa11-55c2-11e2-9337-002564c97630")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("INFOITEM_SHOWSTEREOTYPES",
-                                                                  MetaKey.SHOWSTEREOTYPES);
+                                                                      MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Show tagged values.

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.operationgroup;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,8 +29,8 @@ import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.statik.Classifier;
 import org.modelio.metamodel.uml.statik.Feature;
 import org.modelio.metamodel.uml.statik.Operation;
@@ -57,20 +56,20 @@ public class GmOperationGroup extends GmGroup {
      * Constructor for deserialization only.
      */
     @objid ("35fef0e1-55b7-11e2-877f-002564c97630")
-    public GmOperationGroup() {
+    public  GmOperationGroup() {
         super();
     }
 
     /**
      * Creates an operation group.
-     * 
      * @param diagram The diagram.
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
     @objid ("35fef0e4-55b7-11e2-877f-002564c97630")
-    public GmOperationGroup(IGmDiagram diagram, MRef relatedRef) {
+    public  GmOperationGroup(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
         refreshFromObModel();
+        
     }
 
     @objid ("35fef0ed-55b7-11e2-877f-002564c97630")
@@ -91,11 +90,12 @@ public class GmOperationGroup extends GmGroup {
         return false;
     }
 
-    @objid ("35fef0fb-55b7-11e2-877f-002564c97630")
+    @objid ("39f2ddc2-beee-4ff9-be91-be547a0794bb")
     @Override
     public void refreshFromObModel() {
         //TODO : move this in parent class
         firePropertyChange(PROP_REFRESH_FROM_OBMODEL, null, this);
+        
     }
 
     @objid ("35fef0fe-55b7-11e2-877f-002564c97630")
@@ -108,6 +108,7 @@ public class GmOperationGroup extends GmGroup {
         } else {
             super.styleChanged(property, newValue);
         }
+        
     }
 
     @objid ("35fef105-55b7-11e2-877f-002564c97630")
@@ -116,6 +117,7 @@ public class GmOperationGroup extends GmGroup {
         refreshFromObModel();
         fireVisibilityChanged();
         super.styleChanged(style);
+        
     }
 
     @objid ("3600777c-55b7-11e2-877f-002564c97630")
@@ -125,6 +127,7 @@ public class GmOperationGroup extends GmGroup {
             getParent().getDisplayedStyle().setProperty(getStyleKey(MetaKey.REPMODE), RepresentationMode.STRUCTURED);
         }
         getDisplayedStyle().setProperty(getGroupVisibleStyleKey(), visible);
+        
     }
 
     @objid ("36007780-55b7-11e2-877f-002564c97630")
@@ -191,6 +194,7 @@ public class GmOperationGroup extends GmGroup {
             setHiddenFeature(hasHiddenFeature);
         
         }
+        
     }
 
     /**
@@ -229,6 +233,7 @@ public class GmOperationGroup extends GmGroup {
             break;
         }
         }
+        
     }
 
     @objid ("360077a6-55b7-11e2-877f-002564c97630")
@@ -238,6 +243,7 @@ public class GmOperationGroup extends GmGroup {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmOperationGroup.", GmOperationGroup.MINOR_VERSION);
+        
     }
 
     @objid ("360077ac-55b7-11e2-877f-002564c97630")

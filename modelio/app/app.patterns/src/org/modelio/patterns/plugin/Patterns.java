@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.plugin;
 
 import java.nio.file.Path;
@@ -58,6 +57,7 @@ public class Patterns implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         Patterns.LOG = new PluginLogger(service.getLogger((String)null));
         Patterns.I18N = new BundledMessages(Patterns.LOG, ResourceBundle.getBundle("patterns"));
+        
     }
 
     @objid ("7201dcca-c4e9-4553-90c4-3542a6589977")
@@ -73,7 +73,6 @@ public class Patterns implements BundleActivator {
 
     /**
      * Returns an image descriptor for the image file in the plug-in relative path.
-     * 
      * @param path a path relative to this plugin.
      * @return the image descriptor.
      */

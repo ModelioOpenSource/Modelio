@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.util.Collections;
@@ -52,22 +51,20 @@ public class ComponentRealizationPropertyModel extends AbstractPropertyModel<Com
      */
     @objid ("46576cb9-9f29-4edd-9ee2-1de44940056b")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name", "Abstraction",
-			"RealizingClassifier" };
+    			"RealizingClassifier" };
 
     /**
      * Create a new <i>ComponentRealization</i> data model from an
      * <i>ComponentRealization</i>.
-     * 
      * @param theEditedElement edited element
      */
     @objid ("34ab932a-a138-4528-903e-494972e4ddb4")
-    public ComponentRealizationPropertyModel(ComponentRealization theEditedElement) {
+    public  ComponentRealizationPropertyModel(ComponentRealization theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("9ff71df6-dba7-4cb7-bd2b-7fc1eb38c13e")
@@ -78,7 +75,6 @@ public class ComponentRealizationPropertyModel extends AbstractPropertyModel<Com
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("48427a3a-736e-462f-9ab0-1cf7aab9ae93")
@@ -91,7 +87,6 @@ public class ComponentRealizationPropertyModel extends AbstractPropertyModel<Com
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -117,6 +112,7 @@ public class ComponentRealizationPropertyModel extends AbstractPropertyModel<Com
         default:
             return null;
         }
+        
     }
 
     /**
@@ -126,7 +122,6 @@ public class ComponentRealizationPropertyModel extends AbstractPropertyModel<Com
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -155,13 +150,13 @@ public class ComponentRealizationPropertyModel extends AbstractPropertyModel<Com
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -192,6 +187,7 @@ public class ComponentRealizationPropertyModel extends AbstractPropertyModel<Com
         default:
             return;
         }
+        
     }
 
 }

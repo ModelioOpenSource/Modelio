@@ -17,13 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.edition;
 
 import java.text.MessageFormat;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.Assert;
 import org.eclipse.jface.viewers.CellEditor;
+import org.eclipse.jface.viewers.CellEditor.LayoutData;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.SWTException;
 import org.eclipse.swt.browser.Browser;
@@ -87,7 +87,7 @@ public class HtmlTextCellEditor extends CellEditor {
      * @since 2.1
      */
     @objid ("debbc622-6573-46e5-920f-01591d5d78ab")
-    public HtmlTextCellEditor() {
+    public  HtmlTextCellEditor() {
         setStyle(defaultStyle);
     }
 
@@ -95,11 +95,10 @@ public class HtmlTextCellEditor extends CellEditor {
      * Creates a new text string cell editor parented under the given control.
      * The cell editor value is the string itself, which is initially the empty string.
      * Initially, the cell editor has no cell validator.
-     * 
      * @param parent the parent control
      */
     @objid ("0f1b4827-ccf4-4f03-8fcd-5790406f0a0a")
-    public HtmlTextCellEditor(Composite parent) {
+    public  HtmlTextCellEditor(Composite parent) {
         this(parent, defaultStyle);
     }
 
@@ -107,13 +106,12 @@ public class HtmlTextCellEditor extends CellEditor {
      * Creates a new text string cell editor parented under the given control.
      * The cell editor value is the string itself, which is initially the empty string.
      * Initially, the cell editor has no cell validator.
-     * 
      * @param parent the parent control
      * @param style the style bits
      * @since 2.1
      */
     @objid ("1c5336e1-b0c8-448d-b4a0-9748176201d0")
-    public HtmlTextCellEditor(Composite parent, int style) {
+    public  HtmlTextCellEditor(Composite parent, int style) {
         super(parent, style);
     }
 
@@ -188,7 +186,6 @@ public class HtmlTextCellEditor extends CellEditor {
 
     /**
      * Check if save all is enabled
-     * 
      * @return true if it is
      */
     @objid ("e71f02fd-e8f0-4424-a861-91bab06658f2")
@@ -209,7 +206,6 @@ public class HtmlTextCellEditor extends CellEditor {
      * <p>
      * Subclasses may override
      * </p>
-     * 
      * @return <code>true</code> if select all is possible,
      * <code>false</code> otherwise
      */
@@ -234,6 +230,7 @@ public class HtmlTextCellEditor extends CellEditor {
     public void performCopy() {
         getBrowser().execute("execCommand('copy')");
         //this.text.copy();
+        
     }
 
     /**
@@ -249,6 +246,7 @@ public class HtmlTextCellEditor extends CellEditor {
         checkSelection();
         checkDeleteable();
         checkSelectable();
+        
     }
 
     /**
@@ -275,6 +273,7 @@ public class HtmlTextCellEditor extends CellEditor {
         checkSelection();
         checkDeleteable();
         checkSelectable();
+        
     }
 
     /**
@@ -290,6 +289,7 @@ public class HtmlTextCellEditor extends CellEditor {
         checkSelection();
         checkDeleteable();
         checkSelectable();
+        
     }
 
     /**
@@ -304,6 +304,7 @@ public class HtmlTextCellEditor extends CellEditor {
         getBrowser().execute("execCommand('selectAll')");
         checkSelection();
         checkDeleteable();
+        
     }
 
     @objid ("3f2b6cfd-7ded-4fa1-a128-e7e587c93def")
@@ -386,7 +387,6 @@ public class HtmlTextCellEditor extends CellEditor {
      * The <code>TextCellEditor</code> implementation of
      * this <code>CellEditor</code> framework method returns
      * the text string.
-     * 
      * @return the text string
      */
     @objid ("b7f20f38-ea8c-411e-9723-b43e558a8a14")
@@ -406,13 +406,13 @@ public class HtmlTextCellEditor extends CellEditor {
             checkDeleteable();
             checkSelectable();
         }
+        
     }
 
     /**
      * The <code>TextCellEditor</code> implementation of
      * this <code>CellEditor</code> framework method accepts
      * a text string (type <code>String</code>).
-     * 
      * @param value a text string (type <code>String</code>)
      */
     @objid ("31e96cd4-b640-4613-be78-902179345eb5")
@@ -422,6 +422,7 @@ public class HtmlTextCellEditor extends CellEditor {
         this.text.removeModifyListener(getModifyListener());
         this.text.setHtml((String) value);
         this.text.addModifyListener(getModifyListener());
+        
     }
 
     /**
@@ -430,7 +431,6 @@ public class HtmlTextCellEditor extends CellEditor {
      * accordingly, and then reports a change via <code>fireEditorValueChanged</code>.
      * Subclasses should call this method at appropriate times. Subclasses
      * may extend or reimplement.
-     * 
      * @param e the SWT modify event
      */
     @objid ("e387f1db-6975-4e9f-9836-a03172a0b0e9")
@@ -448,12 +448,12 @@ public class HtmlTextCellEditor extends CellEditor {
                     new Object[] { value }));
         }
         valueChanged(oldValidState, newValidState);
+        
     }
 
     /**
      * Handles a default selection event from the text control by applying the editor
      * value and deactivating this cell editor.
-     * 
      * @param event the selection event
      * 
      * @since 3.0
@@ -463,6 +463,7 @@ public class HtmlTextCellEditor extends CellEditor {
         // same with enter-key handling code in keyReleaseOccured(e);
         fireApplyEditorValue();
         deactivate();
+        
     }
 
     /**
@@ -474,7 +475,6 @@ public class HtmlTextCellEditor extends CellEditor {
      * An exception is made for Ctrl+Enter for multi-line texts, since
      * a default selection event is not sent in this case.
      * </p>
-     * 
      * @param keyEvent the key event
      */
     @objid ("73629437-39ea-4051-84fc-b4c8247eb3b9")
@@ -498,6 +498,7 @@ public class HtmlTextCellEditor extends CellEditor {
             return;
         }
         super.keyReleaseOccured(keyEvent);
+        
     }
 
     /**
@@ -512,6 +513,7 @@ public class HtmlTextCellEditor extends CellEditor {
         if (oldIsDeleteable != this.isDeleteable) {
             fireEnablementChanged(DELETE);
         }
+        
     }
 
     /**
@@ -525,6 +527,7 @@ public class HtmlTextCellEditor extends CellEditor {
         if (oldIsSelectable != this.isSelectable) {
             fireEnablementChanged(SELECT_ALL);
         }
+        
     }
 
     /**
@@ -540,6 +543,7 @@ public class HtmlTextCellEditor extends CellEditor {
             fireEnablementChanged(COPY);
             fireEnablementChanged(CUT);
         }
+        
     }
 
     @objid ("99e6a6ea-da13-42ef-9c45-fdd989c10d4c")
@@ -572,6 +576,7 @@ public class HtmlTextCellEditor extends CellEditor {
             // Ignore SWT exception
             return "";
         }
+        
     }
 
 }

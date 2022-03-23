@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.activities;
 
 import java.util.ArrayList;
@@ -31,8 +31,6 @@ import org.modelio.metamodel.bpmn.activities.BpmnComplexBehaviorDefinition;
 import org.modelio.metamodel.bpmn.activities.BpmnMultiInstanceLoopCharacteristics;
 import org.modelio.metamodel.bpmn.events.BpmnImplicitThrowEvent;
 import org.modelio.metamodel.bpmn.rootElements.BpmnBaseElement;
-import org.modelio.metamodel.impl.bpmn.activities.BpmnComplexBehaviorDefinitionData;
-import org.modelio.metamodel.impl.bpmn.activities.BpmnMultiInstanceLoopCharacteristicsSmClass;
 import org.modelio.metamodel.impl.bpmn.events.BpmnImplicitThrowEventSmClass;
 import org.modelio.metamodel.impl.bpmn.rootElements.BpmnBaseElementSmClass;
 import org.modelio.vbasic.version.Version;
@@ -59,7 +57,7 @@ public class BpmnComplexBehaviorDefinitionSmClass extends BpmnBaseElementSmClass
     private SmDependency eventDep;
 
     @objid ("003dd13f-d857-4448-bdf8-ba94899c1644")
-    public BpmnComplexBehaviorDefinitionSmClass(ISmMetamodelFragment origin) {
+    public  BpmnComplexBehaviorDefinitionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -67,6 +65,7 @@ public class BpmnComplexBehaviorDefinitionSmClass extends BpmnBaseElementSmClass
     @Override
     public String getName() {
         return "BpmnComplexBehaviorDefinition";
+        
     }
 
     @objid ("8084b8e2-e3d7-4b02-891f-1c2d2c9a6e28")
@@ -79,18 +78,21 @@ public class BpmnComplexBehaviorDefinitionSmClass extends BpmnBaseElementSmClass
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnComplexBehaviorDefinition.class;
+        
     }
 
     @objid ("d7bbc34d-0ecf-4c2b-b814-bdc8c63b553b")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("744105e7-8467-445d-bc4b-4b9d2ccb6247")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("3b8ceb34-436e-4d28-9c08-4db03a90729f")
@@ -114,6 +116,8 @@ public class BpmnComplexBehaviorDefinitionSmClass extends BpmnBaseElementSmClass
         this.eventDep = new EventSmDependency();
         this.eventDep.init("Event", this, metamodel.getMClass(BpmnImplicitThrowEvent.MQNAME), 0, 1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.eventDep);
+        
+        
     }
 
     @objid ("6bf6f68c-75d9-41e8-951f-b1df68ccba0a")
@@ -146,7 +150,7 @@ public class BpmnComplexBehaviorDefinitionSmClass extends BpmnBaseElementSmClass
         private BpmnComplexBehaviorDefinitionSmClass smClass;
 
         @objid ("149b6fe4-cd48-46d8-8ea5-8944cad813f2")
-        public BpmnComplexBehaviorDefinitionObjectFactory(BpmnComplexBehaviorDefinitionSmClass smClass) {
+        public  BpmnComplexBehaviorDefinitionObjectFactory(BpmnComplexBehaviorDefinitionSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -202,6 +206,7 @@ public class BpmnComplexBehaviorDefinitionSmClass extends BpmnBaseElementSmClass
             	this.symetricDep = ((BpmnMultiInstanceLoopCharacteristicsSmClass)this.getTarget()).getComplexBehaviorDefinitionDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -230,6 +235,7 @@ public class BpmnComplexBehaviorDefinitionSmClass extends BpmnBaseElementSmClass
             	this.symetricDep = ((BpmnImplicitThrowEventSmClass)this.getTarget()).getOwnerDep();
             }
             return this.symetricDep;
+            
         }
 
     }

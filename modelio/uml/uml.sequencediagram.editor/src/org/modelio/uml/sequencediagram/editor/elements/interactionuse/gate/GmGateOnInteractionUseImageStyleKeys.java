@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.interactionuse.gate;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,21 +32,21 @@ import org.modelio.uml.sequencediagram.editor.style.SequenceAbstractStyleKeyProv
 @objid ("d9175f53-55b6-11e2-877f-002564c97630")
 public class GmGateOnInteractionUseImageStyleKeys extends SequenceAbstractStyleKeyProvider {
     @objid ("4f9784cc-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("GATE_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("GATE_REPMODE", MetaKey.REPMODE);
 
     @objid ("4f9784ce-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("GATE_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("GATE_FONT", MetaKey.FONT);
 
     @objid ("4f9784d0-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("GATE_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("GATE_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("4f9784d2-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("GATE_SHOWSTEREOTYPES", MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("GATE_SHOWSTEREOTYPES", MetaKey.SHOWSTEREOTYPES);
 
     @objid ("4f9784d4-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("GATE_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("GATE_SHOWTAGS", MetaKey.SHOWTAGS);
 
     @objid ("4f9784d6-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWLABEL = createStyleKey("GATE_SHOWLABEL", MetaKey.SHOWLABEL);
+    static final StyleKey SHOWLABEL = createStyleKey("GATE_SHOWLABEL", MetaKey.SHOWLABEL);
 
 }

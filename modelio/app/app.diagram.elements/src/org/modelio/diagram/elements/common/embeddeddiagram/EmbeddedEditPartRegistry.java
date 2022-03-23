@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.embeddeddiagram;
 
 import java.util.Collection;
@@ -36,7 +35,7 @@ import org.eclipse.gef.editparts.LayerManager;
  * @since 3.7
  */
 @objid ("b9e9e1a6-9ab8-4ace-a601-ccb42b12b479")
-class EmbeddedEditPartRegistry implements Map<Object,Object> {
+class EmbeddedEditPartRegistry implements Map<Object, Object> {
     @objid ("af6fe73d-be14-47d8-8a34-b1e3f7a027ff")
     private final LayerManager localLayerManager;
 
@@ -48,9 +47,10 @@ class EmbeddedEditPartRegistry implements Map<Object,Object> {
      * @param localLayerManager the embedded diagram layer manager.
      */
     @objid ("fb9507a0-3cff-450a-a5b8-c0e671de37ca")
-    public EmbeddedEditPartRegistry(Map<Object, Object> registry, LayerManager localLayerManager) {
+    public  EmbeddedEditPartRegistry(Map<Object, Object> registry, LayerManager localLayerManager) {
         this.registry = registry;
         this.localLayerManager = localLayerManager;
+        
     }
 
     @objid ("268056db-ac88-4042-8fee-7e3dd6807c99")
@@ -73,7 +73,7 @@ class EmbeddedEditPartRegistry implements Map<Object,Object> {
 
     @objid ("813ee0a9-1229-4ca5-807a-cec9ed6e5f89")
     @Override
-    public Set<java.util.Map.Entry<Object,Object>> entrySet() {
+    public Set<java.util.Map.Entry<Object, Object>> entrySet() {
         return this.registry.entrySet();
     }
 
@@ -106,7 +106,7 @@ class EmbeddedEditPartRegistry implements Map<Object,Object> {
 
     @objid ("0f591292-f86b-46ee-bd1c-4ffdc33371e5")
     @Override
-    public void putAll(Map<?,?> m) {
+    public void putAll(Map<?, ?> m) {
         this.registry.putAll(m);
     }
 

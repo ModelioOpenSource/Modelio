@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.browser.contrib;
 
 import java.util.ArrayList;
@@ -110,6 +109,7 @@ public class UmlContentProvider implements ITreeContentProvider {
     public void inputChanged(final Viewer viewer, final Object oldInput, final Object newInput) {
         // This content provider being only a contributor to the browser model content provider
         // it does not deal with input => nothing to do
+        
     }
 
     /**

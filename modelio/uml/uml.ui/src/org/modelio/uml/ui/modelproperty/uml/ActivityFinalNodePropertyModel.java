@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,17 +50,15 @@ public class ActivityFinalNodePropertyModel extends AbstractPropertyModel<Activi
     /**
      * Create a new <i>ActivityFinalNode</i> data model from an
      * <i>ActivityFinalNode</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("cd0aee7c-da27-4036-94b0-1a29c060c502")
-    public ActivityFinalNodePropertyModel(ActivityFinalNode theEditedElement) {
+    public  ActivityFinalNodePropertyModel(ActivityFinalNode theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("7b202aa7-8af9-46a5-b4a2-2cdf58db2a61")
@@ -72,7 +69,6 @@ public class ActivityFinalNodePropertyModel extends AbstractPropertyModel<Activi
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("a1addc19-9f2b-4d1b-befb-57d653e82cf8")
@@ -85,7 +81,6 @@ public class ActivityFinalNodePropertyModel extends AbstractPropertyModel<Activi
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -107,6 +102,7 @@ public class ActivityFinalNodePropertyModel extends AbstractPropertyModel<Activi
         default:
             return null;
         }
+        
     }
 
     /**
@@ -116,7 +112,6 @@ public class ActivityFinalNodePropertyModel extends AbstractPropertyModel<Activi
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -139,13 +134,13 @@ public class ActivityFinalNodePropertyModel extends AbstractPropertyModel<Activi
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -170,6 +165,7 @@ public class ActivityFinalNodePropertyModel extends AbstractPropertyModel<Activi
         default:
             return;
         }
+        
     }
 
 }

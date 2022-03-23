@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.editingsupport;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -53,13 +52,13 @@ public class StylePropertyEditingSupport extends EditingSupport {
 
     /**
      * Initialize the StylePropertyEditingSupport.
-     * 
      * @param treeViewer The style viewer.
      */
     @objid ("85b2e4b6-1926-11e2-92d2-001ec947c8cc")
-    public StylePropertyEditingSupport(ColumnViewer treeViewer) {
+    public  StylePropertyEditingSupport(ColumnViewer treeViewer) {
         super(treeViewer);
         this.viewer = treeViewer;
+        
     }
 
     @objid ("85b2e4ba-1926-11e2-92d2-001ec947c8cc")
@@ -162,6 +161,7 @@ public class StylePropertyEditingSupport extends EditingSupport {
                 item.setValue(editedStyle, value);
             }
         }
+        
     }
 
     @objid ("80ae4efc-d720-4e38-81b1-8d512e1b59e4")

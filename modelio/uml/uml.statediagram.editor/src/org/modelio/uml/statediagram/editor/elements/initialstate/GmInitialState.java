@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.initialstate;
 
 import java.util.Collections;
@@ -31,8 +30,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.InitialPseudoState;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -44,9 +43,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("f5425eba-55b6-11e2-877f-002564c97630")
 public class GmInitialState extends GmPortContainer {
-    @objid ("f5425ebe-55b6-11e2-877f-002564c97630")
-    private InitialPseudoState element;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -56,11 +52,14 @@ public class GmInitialState extends GmPortContainer {
     @objid ("f543e559-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
 
+    @objid ("f5425ebe-55b6-11e2-877f-002564c97630")
+    private InitialPseudoState element;
+
     @objid ("f5425ec3-55b6-11e2-877f-002564c97630")
     private static final GmInitialStateSimpleStyleKeys SIMPLE_KEYS = new GmInitialStateSimpleStyleKeys();
 
     @objid ("fda64ad6-5a5b-11e2-9e33-00137282c51b")
-     static final GmInitialStateStructuredStyleKeys STRUCTURED_KEYS = new GmInitialStateStructuredStyleKeys();
+    static final GmInitialStateStructuredStyleKeys STRUCTURED_KEYS = new GmInitialStateStructuredStyleKeys();
 
     @objid ("fda64ad8-5a5b-11e2-9e33-00137282c51b")
     private static final GmInitialStateImageStyleKeys IMAGE_KEYS = new GmInitialStateImageStyleKeys();
@@ -70,13 +69,12 @@ public class GmInitialState extends GmPortContainer {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the timeEvent is unmasked.
      * @param el the unmasked timeEvent.
      * @param ref a reference to the unmasked timeEvent.
      */
     @objid ("f543e55b-55b6-11e2-877f-002564c97630")
-    public GmInitialState(IGmDiagram diagram, InitialPseudoState el, MRef ref) {
+    public  GmInitialState(IGmDiagram diagram, InitialPseudoState el, MRef ref) {
         super(diagram, ref);
         
         GmInitialStatePrimaryNode mainNode = new GmInitialStatePrimaryNode(diagram, ref);
@@ -89,6 +87,7 @@ public class GmInitialState extends GmPortContainer {
         
         this.addChild(mainNode);
         this.addChild(label);
+        
     }
 
     @objid ("f543e567-55b6-11e2-877f-002564c97630")
@@ -147,7 +146,7 @@ public class GmInitialState extends GmPortContainer {
      * Empty constructor needed for deserialisation.
      */
     @objid ("f543e58a-55b6-11e2-877f-002564c97630")
-    public GmInitialState() {
+    public  GmInitialState() {
         // Nothing specific to do.
     }
 
@@ -168,6 +167,7 @@ public class GmInitialState extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("f543e593-55b6-11e2-877f-002564c97630")
@@ -189,12 +189,14 @@ public class GmInitialState extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmInitialState.", GmInitialState.MINOR_VERSION);
+        
     }
 
     @objid ("f5456c00-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (InitialPseudoState) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("f5456c05-55b6-11e2-877f-002564c97630")
@@ -205,7 +207,6 @@ public class GmInitialState extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -217,7 +218,6 @@ public class GmInitialState extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

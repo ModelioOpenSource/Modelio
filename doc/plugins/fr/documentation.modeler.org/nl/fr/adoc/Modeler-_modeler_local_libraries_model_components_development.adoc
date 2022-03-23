@@ -1,5 +1,7 @@
 // Disable all captions for figures.
 :!figure-caption:
+// Path to the stylesheet files
+:stylesdir: .
 
 [[Développer-et-produire-un-composant-de-modèle]]
 
@@ -59,7 +61,7 @@ Si votre composant de modèle dépend d'un autre composant de modèle, cette dé
 [[définition-des-fichiers-externes-à-inclure-dans-le-composant-de-modèle]]
 ===== Définition des fichiers externes à inclure dans le composant de modèle
 
-Il est également possible d'inclure des fichiers externes dans un composant de modèle. Ceci est particulièrement utile lorsque vous voulez que composant de modèle installe des fichiers spécifiques tels que des librairies, des fichiers .jar ou des fichiers de ressources lors de son déploiement.
+Il est également possible d'inclure des fichiers externes dans un composant de modèle. Ceci est particulièrement utile lorsque vous voulez que composant de modèle installe des fichiers spécifiques tels que des bibliothèques, des fichiers .jar ou des fichiers de ressources lors de son déploiement.
 
 Imaginons par exemple que vous avez reversé le JDK afin d'en faire un composant réutilisable. Ce type de composant de modèle, lorsqu'il sera déployé, permettra le développement d'applications Java, y compris la compilation, ce qui signifie que les fichiers .jar du JDK devront être déployés par le composant de modèle.
 

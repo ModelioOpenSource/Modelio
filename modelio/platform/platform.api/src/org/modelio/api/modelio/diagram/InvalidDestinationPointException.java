@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.diagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -23,7 +22,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * Thrown when the destination point of a {@link ILinkPath} is invalid.
  */
 @objid ("01e402b4-0000-21ab-0000-000000000000")
-public class InvalidDestinationPointException extends Exception {
+public class InvalidDestinationPointException extends InvalidLinkPathException {
     @objid ("01e402b4-0000-21b3-0000-000000000000")
     private static final long serialVersionUID = 1L;
 
@@ -35,7 +34,7 @@ public class InvalidDestinationPointException extends Exception {
      * later retrieval by the {@link #getMessage()} method.
      */
     @objid ("01e402b4-0000-21b0-0000-000000000000")
-    public InvalidDestinationPointException(String message) {
+    public  InvalidDestinationPointException(String message) {
         super(message);
     }
 

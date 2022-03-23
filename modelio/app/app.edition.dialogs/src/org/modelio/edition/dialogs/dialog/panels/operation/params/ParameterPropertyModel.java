@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.dialogs.dialog.panels.operation.params;
 
 import java.util.Objects;
@@ -38,10 +37,10 @@ import org.modelio.vcore.session.impl.CoreSession;
 @objid ("77e6695e-24c6-40c4-a802-61e1db5df249")
 public class ParameterPropertyModel {
     @objid ("7a363ee5-4747-4c06-bb94-31448bba8260")
-     boolean isReturn;
+    boolean isReturn;
 
     @objid ("5bea9709-83b7-4316-98e2-9a5c2cd3a16f")
-     Parameter parameter;
+    Parameter parameter;
 
     /**
      * Default c'tor.
@@ -49,7 +48,8 @@ public class ParameterPropertyModel {
      * the parameter's owner operation model.
      */
     @objid ("d6c3565f-cba8-439b-8264-bff284934f3a")
-    public ParameterPropertyModel() {
+    public  ParameterPropertyModel() {
+        
     }
 
     @objid ("b3fed7df-5f5d-44c0-9097-80addf7086fe")
@@ -64,12 +64,14 @@ public class ParameterPropertyModel {
         } else {
             return multiplicityMin + ".." + multiplicityMax;
         }
+        
     }
 
     @objid ("bcc18b92-ce7c-47db-b7cd-939015f98efa")
-    public ParameterPropertyModel(Parameter parameter, boolean isReturn) {
+    public  ParameterPropertyModel(Parameter parameter, boolean isReturn) {
         this.parameter = parameter;
         this.isReturn = isReturn;
+        
     }
 
     @objid ("3813c3a8-f26d-45d8-95c8-8e24e6e06bea")
@@ -119,6 +121,7 @@ public class ParameterPropertyModel {
                 // Ignore error
             }
         }
+        
     }
 
     @objid ("fb2693a8-ffa2-4ed8-89c5-45dd50286ed2")
@@ -132,6 +135,7 @@ public class ParameterPropertyModel {
                 // Ignore error
             }
         }
+        
     }
 
     @objid ("d10684fc-ad39-4837-9f35-a2768fb424b7")
@@ -145,6 +149,7 @@ public class ParameterPropertyModel {
                 // Ignore error
             }
         }
+        
     }
 
     @objid ("c043d70f-3db9-4988-b217-658494ae36b0")
@@ -166,6 +171,7 @@ public class ParameterPropertyModel {
         } catch (final Exception e) {
             // Ignore error
         }
+        
     }
 
     @objid ("389cb65b-3eb6-4b08-a9b5-293ae2848ed4")
@@ -179,6 +185,7 @@ public class ParameterPropertyModel {
                 // Ignore error
             }
         }
+        
     }
 
     @objid ("2367eab8-acda-4a18-85f2-7489e1626093")

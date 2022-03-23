@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.plugin;
 
 import java.util.ResourceBundle;
@@ -54,6 +53,7 @@ public class DiagramElements implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), PLUGIN_ID));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("diagramelements"));
+        
     }
 
     @objid ("ce9a244e-19f9-11e2-92d2-001ec947c8cc")

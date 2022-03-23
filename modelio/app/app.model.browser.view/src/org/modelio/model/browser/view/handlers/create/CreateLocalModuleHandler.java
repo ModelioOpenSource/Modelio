@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.browser.view.handlers.create;
 
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
@@ -45,7 +44,6 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class CreateLocalModuleHandler {
     /**
      * Creates a local ModuleComponent in the selected editable fragment.
-     * 
      * @param selection the current platform selection.
      * @param projectService the project service, to get session and metamodel from.
      * @param selectionService the selection service, to update the platform selection with.
@@ -69,6 +67,7 @@ public class CreateLocalModuleHandler {
             BrowserViewActivator.LOG.error("CreateLocalModuleHandler: \n\tCannot create a Local Module");
             BrowserViewActivator.LOG.error(e);
         }
+        
     }
 
     /**

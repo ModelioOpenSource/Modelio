@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.portbordered;
 
 import java.util.Iterator;
@@ -37,13 +36,13 @@ import org.eclipse.draw2d.geometry.Rectangle;
 @objid ("7ee14356-1dec-11e2-8cad-001ec947c8cc")
 class PortContainerFigure extends Figure {
     @objid ("9d2b48ae-975d-4710-b410-c554cfb87578")
-     FigureListener portListener = null;
+    FigureListener portListener = null;
 
     @objid ("66423199-f162-46e9-845f-ab4e651ca12f")
-     Rectangle overallBounds = null;
+    Rectangle overallBounds = null;
 
     @objid ("7ee1435f-1dec-11e2-8cad-001ec947c8cc")
-    public PortContainerFigure() {
+    public  PortContainerFigure() {
         super();
         setLayoutManager(new DelegatingLayout());
         
@@ -56,6 +55,7 @@ class PortContainerFigure extends Figure {
             }
         
         };
+        
     }
 
     @objid ("7ee14361-1dec-11e2-8cad-001ec947c8cc")
@@ -123,6 +123,7 @@ class PortContainerFigure extends Figure {
         
         super.add(figure, l, index);
         // helper.hookChild(figure);
+        
     }
 
     @objid ("7ee14369-1dec-11e2-8cad-001ec947c8cc")
@@ -130,6 +131,7 @@ class PortContainerFigure extends Figure {
     public void remove(IFigure figure) {
         figure.removeFigureListener(this.portListener);
         super.remove(figure);
+        
     }
 
     @objid ("7ee1436f-1dec-11e2-8cad-001ec947c8cc")
@@ -161,6 +163,7 @@ class PortContainerFigure extends Figure {
             // getViewport().repaint(rectBounds);
             // }
         }
+        
     }
 
     @objid ("7ee14378-1dec-11e2-8cad-001ec947c8cc")
@@ -196,6 +199,7 @@ class PortContainerFigure extends Figure {
         paintChildren(graphics);
         graphics.popState();
         graphics.restoreState();
+        
     }
 
     @objid ("7ee14385-1dec-11e2-8cad-001ec947c8cc")
@@ -282,6 +286,7 @@ class PortContainerFigure extends Figure {
                 return;
             repaint();
         }
+        
     }
 
     @objid ("7ee3a5c6-1dec-11e2-8cad-001ec947c8cc")
@@ -290,6 +295,7 @@ class PortContainerFigure extends Figure {
         this.overallBounds = null;
         super.invalidate();
         // ??? updateLayerExtents(); ???
+        
     }
 
     @objid ("7ee3a5c9-1dec-11e2-8cad-001ec947c8cc")
@@ -297,6 +303,7 @@ class PortContainerFigure extends Figure {
     public void validate() {
         this.overallBounds = null;
         super.validate();
+        
     }
 
 }

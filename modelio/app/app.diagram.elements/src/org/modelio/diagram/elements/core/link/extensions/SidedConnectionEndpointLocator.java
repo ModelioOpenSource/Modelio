@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.extensions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -75,21 +74,20 @@ public class SidedConnectionEndpointLocator implements IResizableFigureLocator {
      * . If <i>isEnd</i> is <code>true</code>, the location is relative to the
      * Connection's end (or target) point. If <i>isEnd</i> is <code>false</code>
      * , the location is relative to the Connection's start (or source) point.
-     * 
      * @param c The Connection
      * @param isEnd <code>true</code> is location is relative to end point
      */
     @objid ("800daba4-1dec-11e2-8cad-001ec947c8cc")
-    public SidedConnectionEndpointLocator(Connection c, boolean isEnd) {
+    public  SidedConnectionEndpointLocator(Connection c, boolean isEnd) {
         this.end = isEnd;
         this.connection = c;
         this.uDistance = 14;
         this.vDistance = 4;
+        
     }
 
     /**
      * Return <i>true</i> if the figure is located at the target end, <i>false</i> if the figure is located at the source end.
-     * 
      * @return <i>true</i> if the figure is located at the target end, <i>false</i> if the figure is located at the source end.
      */
     @objid ("800dabab-1dec-11e2-8cad-001ec947c8cc")
@@ -100,7 +98,6 @@ public class SidedConnectionEndpointLocator implements IResizableFigureLocator {
     /**
      * Returns an integer representing the side of the passed Rectangle that a
      * point lies on. 1 == Top 2 == Right 3 == Bottom 4 == Left
-     * 
      * @param loc The point that is to be located
      */
     @objid ("f5e0edee-7442-4318-b481-e8254e6edcba")
@@ -134,15 +131,16 @@ public class SidedConnectionEndpointLocator implements IResizableFigureLocator {
                 return 1;
             }
         }
+        
     }
 
-/*
-     * This method is used to calculate the "quadrant" value of a connection
-     * that does not have an owner on its starting point.
-     * 1 == Top 2 == Right 3 == Bottom 4 == Left
-     * @param startPoint The starting point of the connection.
-     * @param endPoint The end point of the connection.
-     */
+    /*
+         * This method is used to calculate the "quadrant" value of a connection
+         * that does not have an owner on its starting point.
+         * 1 == Top 2 == Right 3 == Bottom 4 == Left
+         * @param startPoint The starting point of the connection.
+         * @param endPoint The end point of the connection.
+         */
     @objid ("f52360da-3d1f-4011-9966-5deb07276286")
     private int calculateConnectionLocation(Point startPoint, Point endPoint) {
         if (Math.abs(endPoint.x - startPoint.x) > Math.abs(endPoint.y
@@ -159,16 +157,17 @@ public class SidedConnectionEndpointLocator implements IResizableFigureLocator {
                 return 3;
             }
         }
+        
     }
 
-/*
-     * Calculates 'tan' which is used as a factor for y adjustment when placing
-     * the connection label. 'tan' is capped at 1.0 in the positive direction
-     * and -1.0 in the negative direction.
-     * @param startPoint The starting point of the connection.
-     * @param endPoint The end point of the connection.
-     * @since 2.0
-     */
+    /*
+         * Calculates 'tan' which is used as a factor for y adjustment when placing
+         * the connection label. 'tan' is capped at 1.0 in the positive direction
+         * and -1.0 in the negative direction.
+         * @param startPoint The starting point of the connection.
+         * @param endPoint The end point of the connection.
+         * @since 2.0
+         */
     @objid ("c05e9db2-401c-469a-97d4-d2855896b036")
     private double calculateTan(Point startPoint, Point endPoint) {
         double tan = 0;
@@ -218,7 +217,6 @@ public class SidedConnectionEndpointLocator implements IResizableFigureLocator {
 
     /**
      * Returns the distance in pixels from the anchor's owner.
-     * 
      * @return the offset distance from the endpoint figure
      */
     @objid ("e16a78be-1b24-4455-9a7e-44ca40649f6c")
@@ -228,7 +226,6 @@ public class SidedConnectionEndpointLocator implements IResizableFigureLocator {
 
     /**
      * Returns the distance in pixels from the connection
-     * 
      * @return the offset from the connection itself
      */
     @objid ("4b9626a7-fdd0-4624-87fb-d26c471b6ae5")
@@ -240,7 +237,6 @@ public class SidedConnectionEndpointLocator implements IResizableFigureLocator {
      * Relocates the given IFigure at either the source or target end of the
      * Connection, based on the <code>boolean</code> given in the constructor
      * {@link #SidedConnectionEndpointLocator(Connection, boolean)}.
-     * 
      * @param figure The figure to relocate
      */
     @objid ("5630b531-5aaa-45b5-a4db-be3211ceb8b1")
@@ -308,12 +304,12 @@ public class SidedConnectionEndpointLocator implements IResizableFigureLocator {
         figureBounds.setSize(this.transposer.t(figureSize));
         figureBounds.setLocation(this.transposer.t(figurePoint));
         figure.setBounds(figureBounds);
+        
     }
 
     /**
      * Calculate the figure size from this locator
      * @param target the figure to relocate.
-     * 
      * @return the figure size to set.
      */
     @objid ("efe6a76d-e7f7-44f9-805f-eb15cb63a061")
@@ -323,7 +319,6 @@ public class SidedConnectionEndpointLocator implements IResizableFigureLocator {
 
     /**
      * Sets the distance in pixels from the Connection's owner.
-     * 
      * @param distance Number of pixels to place the ConnectionEndpointLocator from
      * its owner.
      * @since 2.0
@@ -335,7 +330,6 @@ public class SidedConnectionEndpointLocator implements IResizableFigureLocator {
 
     /**
      * Sets the distance in pixels from the Connection.
-     * 
      * @param distance Number of pixels to place the ConnectionEndpointLocator from
      * its Connection.
      * @since 2.0
@@ -349,7 +343,6 @@ public class SidedConnectionEndpointLocator implements IResizableFigureLocator {
      * Get the width constraint.
      * <p>
      * -1 means no constraint.
-     * 
      * @return the width constraint.
      */
     @objid ("fd56bd88-b2a9-4809-a228-633443663d21")
@@ -362,7 +355,6 @@ public class SidedConnectionEndpointLocator implements IResizableFigureLocator {
      * Set the width constraint.
      * <p>
      * -1 means no constraint.
-     * 
      * @param fixedWidth the width constraint.
      */
     @objid ("fc6b2254-5db2-42c7-89a4-c960f682f376")
@@ -375,7 +367,6 @@ public class SidedConnectionEndpointLocator implements IResizableFigureLocator {
      * Get the height constraint.
      * <p>
      * -1 means no constraint.
-     * 
      * @return the height constraint.
      */
     @objid ("bdfe5240-7580-4f2e-9dc5-223d47615e76")
@@ -388,7 +379,6 @@ public class SidedConnectionEndpointLocator implements IResizableFigureLocator {
      * Set the height constraint.
      * <p>
      * -1 means no constraint.
-     * 
      * @param fixedHeight the height constraint.
      */
     @objid ("280cc6a2-a9ed-4766-9f21-0d94b8363a2d")

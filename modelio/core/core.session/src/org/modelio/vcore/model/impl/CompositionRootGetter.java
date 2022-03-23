@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model.impl;
 
 import java.util.ArrayList;
@@ -48,13 +47,13 @@ public class CompositionRootGetter implements IRepositoryRootGetterService {
 
     /**
      * @param rootGetters the metamodel service provider
-     * 
      * @param proj the project
      */
     @objid ("62093964-a33b-4650-8a39-7b35b1344e9f")
-    public CompositionRootGetter(ICoreSession proj) {
+    public  CompositionRootGetter(ICoreSession proj) {
         this.session = proj;
         this.metamodelExtensionPoint = new MetamodelExtensionPoint<>();
+        
     }
 
     @objid ("628259be-8514-4ad1-b9be-95d9b8c197c6")

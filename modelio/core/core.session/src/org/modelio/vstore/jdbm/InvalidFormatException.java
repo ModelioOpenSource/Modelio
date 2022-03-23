@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.jdbm;
 
 import java.io.File;
@@ -49,18 +48,18 @@ public class InvalidFormatException extends IOException {
 
     /**
      * Constructor
-     * 
      * @param repoName the repository user friendly name
      * @param repositoryPath the repository path
      * @param readVersion the read version
      * @param expectedVersion the expected format version
      */
     @objid ("65ce0aa0-f385-4e09-bb26-e2825da9d464")
-    public InvalidFormatException(String repoName, File repositoryPath, int readVersion, int expectedVersion) {
+    public  InvalidFormatException(String repoName, File repositoryPath, int readVersion, int expectedVersion) {
         this.repoName = repoName;
         this.readVersion = readVersion;
         this.expectedVersion = expectedVersion;
         this.repositoryPath = repositoryPath;
+        
     }
 
     @objid ("bd9d0f7d-41f3-4684-9fc1-c24e155a594e")
@@ -71,6 +70,7 @@ public class InvalidFormatException extends IOException {
                                                 this.readVersion, 
                                                 this.expectedVersion, 
                                                 this.repositoryPath);
+        
     }
 
     /**

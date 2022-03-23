@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,9 +44,10 @@ public class EInteractionFragment extends ENamedElement {
     }
 
     @objid ("45f99f0b-df85-4837-8378-96dc157638a5")
-    public EInteractionFragment(org.eclipse.uml2.uml.InteractionFragment element) {
+    public  EInteractionFragment(org.eclipse.uml2.uml.InteractionFragment element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("7fa73463-24c0-4535-ae51-e30bf4caac8e")
@@ -69,6 +69,7 @@ public class EInteractionFragment extends ENamedElement {
                 ((CombinedFragment) owner).getOperand().add((InteractionOperand) interFrag);
             }
         }
+        
     }
 
     @objid ("541b5212-a3e3-4607-8814-5f78091daafa")
@@ -79,6 +80,7 @@ public class EInteractionFragment extends ENamedElement {
         //        if (ReverseProperties.getInstance().isRoundtripEnabled()){
         //            setLineNumbers(objingElt);
         //        }
+        
     }
 
     @objid ("fb81bf2f-6bd2-4c39-89cb-9fc0b383b2c4")
@@ -92,26 +94,26 @@ public class EInteractionFragment extends ENamedElement {
                 }
             }
         }
+        
     }
-
-
 //    @objid ("34cbfcbb-8fe7-4a95-9dcb-0dfeea02cfc5")
-//    private void setLineNumbers(Element objingElt) {
-//        ((InteractionFragment) objingElt).setLineNumber(ObjingEAnnotation.getLineNumber(getEcoreElement()) );
-//
-//        //InteractionUse Case
-//        if (objingElt instanceof InteractionUse){
-//            ((InteractionUse) objingElt).setEndLineNumber(ObjingEAnnotation.getEndLineNumber(getEcoreElement()) );
-//        }
-//
-//        //InteractionOperand Case
-//        if  (objingElt instanceof InteractionOperand){
-//            ((InteractionUse) objingElt).setEndLineNumber(ObjingEAnnotation.getEndLineNumber(getEcoreElement()) );
-//        }
-//
-//        //StateInvariant Case
-//        if  (objingElt instanceof StateInvariant){
-//            ((StateInvariant) objingElt).setEndLineNumber(ObjingEAnnotation.getEndLineNumber(getEcoreElement()) );
-//        }
-//    }
+    //    private void setLineNumbers(Element objingElt) {
+    //        ((InteractionFragment) objingElt).setLineNumber(ObjingEAnnotation.getLineNumber(getEcoreElement()) );
+    //
+    //        //InteractionUse Case
+    //        if (objingElt instanceof InteractionUse){
+    //            ((InteractionUse) objingElt).setEndLineNumber(ObjingEAnnotation.getEndLineNumber(getEcoreElement()) );
+    //        }
+    //
+    //        //InteractionOperand Case
+    //        if  (objingElt instanceof InteractionOperand){
+    //            ((InteractionUse) objingElt).setEndLineNumber(ObjingEAnnotation.getEndLineNumber(getEcoreElement()) );
+    //        }
+    //
+    //        //StateInvariant Case
+    //        if  (objingElt instanceof StateInvariant){
+    //            ((StateInvariant) objingElt).setEndLineNumber(ObjingEAnnotation.getEndLineNumber(getEcoreElement()) );
+    //        }
+    //    }
+    
 }

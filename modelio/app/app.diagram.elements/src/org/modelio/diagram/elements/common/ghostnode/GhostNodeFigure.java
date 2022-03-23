@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.ghostnode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -49,7 +48,7 @@ public class GhostNodeFigure extends Figure {
      * Constructor
      */
     @objid ("7e4b0f55-1dec-11e2-8cad-001ec947c8cc")
-    public GhostNodeFigure() {
+    public  GhostNodeFigure() {
         this.setOpaque(true);
         this.setForegroundColor(ColorConstants.gray);
         this.setBackgroundColor(ColorConstants.lightGray);
@@ -77,6 +76,7 @@ public class GhostNodeFigure extends Figure {
         this.add(this.idLabel, BorderLayout.BOTTOM);
         
         this.setBorder(new LineBorder(ColorConstants.lightGray));
+        
     }
 
     @objid ("7e4b0f58-1dec-11e2-8cad-001ec947c8cc")
@@ -85,11 +85,11 @@ public class GhostNodeFigure extends Figure {
         graphics.setAlpha(64);
         super.paintFigure(graphics);
         //graphics.restoreState();
+        
     }
 
     /**
      * Sets the metaclass label of the figure.
-     * 
      * @param label the new label.
      */
     @objid ("7e4b0f5f-1dec-11e2-8cad-001ec947c8cc")
@@ -99,7 +99,6 @@ public class GhostNodeFigure extends Figure {
 
     /**
      * Sets the name label of the figure.
-     * 
      * @param label the new label.
      */
     @objid ("7e4d716b-1dec-11e2-8cad-001ec947c8cc")
@@ -109,7 +108,6 @@ public class GhostNodeFigure extends Figure {
 
     /**
      * Sets the id label of the figure.
-     * 
      * @param label the new label.
      */
     @objid ("7e4d7170-1dec-11e2-8cad-001ec947c8cc")

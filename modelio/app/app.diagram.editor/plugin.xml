@@ -47,6 +47,9 @@
 		<definition id="org.modelio.diagram.editor.corexp.is-gmdiagramview.id">
         	<test property="org.modelio.diagram.editor.corexp.is-gmdiagramview"/>
 		</definition>
+		<definition id="org.modelio.diagram.editor.corexp.is-gmnode-custommode.id">
+        	<test property="org.modelio.diagram.editor.corexp.is-gmnode-custommode"/>
+		</definition>
 		<definition id="org.modelio.diagram.editor.corexp.is-gmnodedrawing.id">
      <with
            variable="org.eclipse.ui.selection">
@@ -79,7 +82,7 @@
 			class="org.modelio.diagram.editor.corexp.GmTester"
 			id="org.modelio.diagram.editor.corexp.GmTester.id"
 			namespace="org.modelio.diagram.editor.corexp"
-			properties="is-gmlink, is-gmnode, is-gmnsu, is-gmdiagramview"
+			properties="is-gmlink, is-gmnode, is-gmnsu, is-gmdiagramview, is-gmnode-custommode"
 			type="org.eclipse.jface.viewers.ISelection">
 		</propertyTester>
 </extension>

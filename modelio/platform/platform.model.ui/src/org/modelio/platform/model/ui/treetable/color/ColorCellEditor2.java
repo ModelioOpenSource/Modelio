@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.treetable.color;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -139,37 +138,36 @@ public class ColorCellEditor2 extends DialogCellEditor {
         this.colorLabel.setImage(this.image);
         
         this.rgbLabel.setText("(" + rgb.red + "," + rgb.green + "," + rgb.blue + ")");//$NON-NLS-4$//$NON-NLS-3$//$NON-NLS-2$//$NON-NLS-1$
+        
     }
 
     /**
      * Creates a new color cell editor parented under the given control. The cell editor value is black (
      * <code>RGB(0,0,0)</code>) initially, and has no validator.
-     * 
      * @param parent the parent control
      */
     @objid ("6b2c2793-1eba-11e2-9382-bc305ba4815c")
-    public ColorCellEditor2(final Composite parent) {
+    public  ColorCellEditor2(final Composite parent) {
         this(parent, SWT.NONE);
     }
 
     /**
      * Creates a new color cell editor parented under the given control. The cell editor value is black (
      * <code>RGB(0,0,0)</code>) initially, and has no validator.
-     * 
      * @param parent the parent control
      * @param style the style bits
      * @since 2.1
      */
     @objid ("6b2c75b1-1eba-11e2-9382-bc305ba4815c")
-    public ColorCellEditor2(final Composite parent, final int style) {
+    public  ColorCellEditor2(final Composite parent, final int style) {
         super(parent, style);
         doSetValue(new RGB(0, 0, 0));
+        
     }
 
     /**
      * Creates and returns the color image data for the given control and RGB value. The image's size is either the
      * control's item extent or the cell editor's default extent, which is 16 pixels square.
-     * 
      * @param w the control
      * @param color the color
      */
@@ -226,6 +224,7 @@ public class ColorCellEditor2 extends DialogCellEditor {
             this.image = null;
         }
         super.dispose();
+        
     }
 
     /**
@@ -256,6 +255,7 @@ public class ColorCellEditor2 extends DialogCellEditor {
             }
             ColorCellEditor2.this.colorLabel.setBounds(-1, 0, colorSize.x, colorSize.y);
             ColorCellEditor2.this.rgbLabel.setBounds(colorSize.x + ColorCellEditor2.GAP - 1, ty, bounds.width - colorSize.x - ColorCellEditor2.GAP, bounds.height);
+            
         }
 
     }

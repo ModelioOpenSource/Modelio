@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,17 +35,15 @@ public class ShellObjectException extends IllegalStateException {
 
     /**
      * Initialize the exception.
-     * 
      * @param obj the shell object.
      */
     @objid ("8f7cadaf-3d36-11e2-ab11-001ec947ccaf")
-    public ShellObjectException(MObject obj) {
+    public  ShellObjectException(MObject obj) {
         this.shellObj = obj;
     }
 
     /**
      * Get the unresolved object.
-     * 
      * @return the unresolved reference.
      */
     @objid ("8f7cadb3-3d36-11e2-ab11-001ec947ccaf")

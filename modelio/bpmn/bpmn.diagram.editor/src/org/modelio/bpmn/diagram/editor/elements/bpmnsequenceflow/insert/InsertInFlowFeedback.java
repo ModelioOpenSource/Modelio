@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnsequenceflow.insert;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,8 +32,10 @@ import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.draw2d.geometry.Translatable;
 import org.eclipse.gef.editparts.ZoomManager;
 import org.eclipse.swt.SWT;
+import org.modelio.bpmn.diagram.editor.elements.bpmnsequenceflow.insert.InsertInFlowEditPolicy.BpmnNodeType;
 import org.modelio.diagram.elements.core.figures.geometry.GeomUtils;
 
 /**
@@ -42,9 +43,6 @@ import org.modelio.diagram.elements.core.figures.geometry.GeomUtils;
  */
 @objid ("3e7c9948-9401-451e-bb40-32a92bc19224")
 class InsertInFlowFeedback {
-    @objid ("d868256f-683b-4f53-9403-3bc8df3340ac")
-    private static final int FEEDBACK_NODE_WIDTH = 60;
-
     @objid ("a1da135c-d25e-4fd0-ba8d-9fdc56ea63f4")
     private final IFigure feedbackLayer;
 
@@ -61,19 +59,19 @@ class InsertInFlowFeedback {
     private ZoomManager zoomManager;
 
     @objid ("020eb172-dc30-4e18-8f7a-83e9ce63252c")
-    public InsertInFlowFeedback(IFigure feedbackLayer, ZoomManager zoomManager) {
+    public  InsertInFlowFeedback(IFigure feedbackLayer, ZoomManager zoomManager) {
         this.feedbackLayer = feedbackLayer;
         this.zoomManager = zoomManager;
+        
     }
 
     /**
      * Shows the creation feedback.
-     * 
      * @param flowFigure the sequence flow to insert the node in.
-     * @param mouseLocation the current mouse location.
+     * @param insertLocation the place to use use as a center for the new node.
      */
     @objid ("feaa4601-3908-48ce-a8af-1a3f0a771063")
-    public void show(IFigure flowFigure, Point mouseLocation, int type) {
+    public void show(IFigure flowFigure, Point insertLocation, BpmnNodeType type) {
         // Make sure the figure is a proper link
         if (!(flowFigure instanceof AbstractPointListShape)) {
             return;
@@ -85,12 +83,11 @@ class InsertInFlowFeedback {
         }
         
         if (this.insertedNodeFeedback == null) {
-            // location is mouse coord here
-            Point location = mouseLocation.getCopy();
+            Point location = insertLocation.getCopy();
             this.feedbackLayer.translateToRelative(location);
         
             // Draw the feedback elements in absolute coordinates first
-            this.insertedNodeFeedback = getNodeFigure(type);
+            this.insertedNodeFeedback = getNodeFigure(flowFigure, type);
             Rectangle nodeBounds = this.insertedNodeFeedback.getBounds();
             this.insertedNodeFeedback.setForegroundColor(ColorConstants.blue);
             this.insertedNodeFeedback.setBackgroundColor(ColorConstants.blue);
@@ -139,6 +136,7 @@ class InsertInFlowFeedback {
         this.feedbackLayer.add(this.flowInFeedback);
         this.feedbackLayer.add(this.flowOutFeedback);
         this.feedbackLayer.add(this.insertedNodeFeedback);
+        
     }
 
     /**
@@ -158,21 +156,38 @@ class InsertInFlowFeedback {
             this.feedbackLayer.remove(this.flowOutFeedback);
             this.flowOutFeedback = null;
         }
+        
+    }
+
+    @objid ("3612b999-5803-423e-8768-eb64f9c8f4b6")
+    private void scaleToRelative(IFigure flowFigure, Translatable t) {
+        flowFigure.translateToAbsolute(t);
+        this.feedbackLayer.translateToRelative(t);
+        
     }
 
     @objid ("3b08f38e-0da7-4fd9-815c-405ec3aaa050")
-    private Shape getNodeFigure(int type) {
+    private Shape getNodeFigure(IFigure flowFigure, BpmnNodeType type) {
+        Dimension nodeSize;
         switch (type) {
-        case 0:
-            Dimension nodeSize = new Dimension(InsertInFlowFeedback.FEEDBACK_NODE_WIDTH, InsertInFlowFeedback.FEEDBACK_NODE_WIDTH / 2);
-            nodeSize.scale(this.zoomManager.getZoom()); // take zoom into account
+        case ACTIVITY:
+            nodeSize = new Dimension(type.width, type.height);
+            scaleToRelative(flowFigure, nodeSize);
+            //nodeSize.scale(this.zoomManager.getZoom()); // take zoom into account
         
             RoundedRectangle rr = new RoundedRectangle();
             rr.setSize(nodeSize);
             return rr;
-        case 1:
-            int a = InsertInFlowFeedback.FEEDBACK_NODE_WIDTH / 2;
-            a = (int) (Math.floor(a * this.zoomManager.getZoom())); // take zoom into account
+        case GATEWAY:
+            int a;
+            if (false) {
+                a = type.width;
+                a = (int) Math.floor(a * this.zoomManager.getZoom()); // take zoom into account
+            } else {
+                nodeSize = new Dimension(type.width, type.width);
+                scaleToRelative(flowFigure, nodeSize);
+                a = nodeSize.width;
+            }
         
             PolygonShape diamond = new PolygonShape();
             diamond.setStart(new Point(a, a / 2));
@@ -183,23 +198,31 @@ class InsertInFlowFeedback {
             diamond.setEnd(new Point(a, a / 2));
             diamond.setSize(a, a);
             return diamond;
-        case 2:
-            nodeSize = new Dimension(InsertInFlowFeedback.FEEDBACK_NODE_WIDTH / 2, InsertInFlowFeedback.FEEDBACK_NODE_WIDTH / 2);
-            nodeSize.scale(this.zoomManager.getZoom()); // take zoom into account
+        case EVENT:
+            nodeSize = new Dimension(type.width, type.height);
+            if (false) {
+                nodeSize.scale(this.zoomManager.getZoom()); // take zoom into account
+            } else {
+                scaleToRelative(flowFigure, nodeSize);
+            }
         
             Ellipse circle = new Ellipse();
             circle.setSize(nodeSize);
             return circle;
-        
         default:
-            nodeSize = new Dimension(InsertInFlowFeedback.FEEDBACK_NODE_WIDTH, InsertInFlowFeedback.FEEDBACK_NODE_WIDTH);
-            nodeSize.scale(this.zoomManager.getZoom()); // take zoom into account
+            nodeSize = new Dimension(type.width, type.height);
+            if (false) {
+                nodeSize.scale(this.zoomManager.getZoom()); // take zoom into account
+            } else {
+                scaleToRelative(flowFigure, nodeSize);
+            }
         
             RectangleFigure r = new RectangleFigure();
             r.setSize(nodeSize);
             return r;
         
         }
+        
     }
 
 }

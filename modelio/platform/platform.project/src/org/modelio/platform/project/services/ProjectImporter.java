@@ -17,13 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.project.services;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Objects;
+import java.util.concurrent.CompletableFuture;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.apache.commons.compress.archivers.ArchiveEntry;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -32,7 +32,6 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.modelio.platform.project.plugin.AppProjectCore;
 import org.modelio.platform.ui.progress.ModelioProgressAdapter;
-import org.modelio.platform.ui.swt.SwtThreadHelper;
 import org.modelio.vbasic.files.FileUtils;
 import org.modelio.vbasic.files.Unzipper;
 import org.modelio.vbasic.progress.IModelioProgress;
@@ -51,15 +50,15 @@ public class ProjectImporter {
     private final Shell parentShell;
 
     @objid ("0f418b95-3ebf-4100-8783-0961d619c8f4")
-    public ProjectImporter(IProjectService projSvc, Shell parentShell) {
+    public  ProjectImporter(IProjectService projSvc, Shell parentShell) {
         this.projSvc = Objects.requireNonNull(projSvc);
         this.parentShell = Objects.requireNonNull(parentShell);
+        
     }
 
     /**
      * Import the archive.
      * @param the name of the created project. <code>null</code> when an error occurs.
-     * 
      * @param archiveFile the archive file.
      * @param progress a progress monitor.
      */
@@ -84,10 +83,11 @@ public class ProjectImporter {
             // Checks for an already existing project
             final String projectName = projectConf[0].getName().substring(0, projectConf[0].getName().indexOf("/"));
             if (this.projSvc.getWorkspace().resolve(projectName).toFile().exists()) {
-                if (!SwtThreadHelper.syncSupply(display, ()
-                        -> MessageDialog.openQuestion(this.parentShell,
+                if (! CompletableFuture.supplyAsync(
+                        () -> MessageDialog.openQuestion(this.parentShell,
                                 AppProjectCore.I18N.getString("CannotImportExistingProjectTitle"),
-                                AppProjectCore.I18N.getMessage("CannotImportExistingProjectMsg", projectName)))) {
+                                AppProjectCore.I18N.getMessage("CannotImportExistingProjectMsg", projectName))
+                        , display::syncExec).join() ) {
                     // Fast exit
                     return null;
                 }
@@ -116,6 +116,7 @@ public class ProjectImporter {
                     );
             return null;
         }
+        
     }
 
     @objid ("aa138a29-c435-4f86-8922-7a2c1ae24321")
@@ -126,6 +127,7 @@ public class ProjectImporter {
             AppProjectCore.LOG.debug(e);
             return -1;
         }
+        
     }
 
     @objid ("0855ec03-eb0e-4d75-b86c-df54ee1525d3")
@@ -135,6 +137,7 @@ public class ProjectImporter {
                 -> MessageDialog.openError(this.parentShell,
                         AppProjectCore.I18N.getMessage("ImportingProject", projectName),
                         FileUtils.getLocalizedMessage(e)));
+        
     }
 
 }

@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.analyst.standard.staticdiagram;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("d48cb628-f2fd-4e33-96f1-a085f4eea318")
 public class RequirementDiagram {
-    @objid ("8af542aa-7634-4e0c-8c70-49bd86cdd456")
+    @objid ("aa632075-7f5c-4cf3-ab34-d762c0f26358")
     public static final String STEREOTYPE_NAME = "requirement_diagram";
 
     /**
      * The underlying {@link StaticDiagram} represented by this proxy, never null.
      */
-    @objid ("7c01266b-a3b5-4c93-b217-505d7a6b9a34")
+    @objid ("7f378549-a064-403e-9a74-35389e1bad8e")
     protected final StaticDiagram elt;
 
     /**
      * Tells whether a {@link RequirementDiagram proxy} can be instantiated from a {@link MObject} checking it is a {@link StaticDiagram} stereotyped << requirement_diagram >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("03622d5d-a651-4164-8bfd-14fc25620e9f")
+    @objid ("fd263818-59c5-432d-8b98-86a4dc7853c7")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof StaticDiagram) && ((StaticDiagram) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, RequirementDiagram.STEREOTYPE_NAME));
     }
@@ -77,9 +75,9 @@ public class RequirementDiagram {
      * 
      * @return a {@link RequirementDiagram} proxy on the created {@link StaticDiagram}.
      */
-    @objid ("53585e05-0ac1-41ca-a387-eee24528f486")
+    @objid ("64c6f913-6005-4a09-8208-11d30836d9e2")
     public static RequirementDiagram create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("StaticDiagram");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.StaticDiagram");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, RequirementDiagram.STEREOTYPE_NAME);
         return RequirementDiagram.instantiate((StaticDiagram)e);
     }
@@ -91,7 +89,7 @@ public class RequirementDiagram {
      * @param obj a StaticDiagram
      * @return a {@link RequirementDiagram} proxy or <i>null</i>.
      */
-    @objid ("77eb6d7e-e9b2-4d9d-b215-59ec44cfe340")
+    @objid ("893974b8-3506-4578-b3c6-b96cd1917833")
     public static RequirementDiagram instantiate(StaticDiagram obj) {
         return RequirementDiagram.canInstantiate(obj) ? new RequirementDiagram(obj) : null;
     }
@@ -104,7 +102,7 @@ public class RequirementDiagram {
      * @return a {@link RequirementDiagram} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("e606354f-f713-4299-962f-8d26c1ef3201")
+    @objid ("cb50158c-4dbe-4413-a6c2-858d713483b4")
     public static RequirementDiagram safeInstantiate(StaticDiagram obj) throws IllegalArgumentException {
         if (RequirementDiagram.canInstantiate(obj))
         	return new RequirementDiagram(obj);
@@ -112,7 +110,7 @@ public class RequirementDiagram {
         	throw new IllegalArgumentException("RequirementDiagram: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("587f50a7-eecf-4349-9137-ce211d5f9a6c")
+    @objid ("85c22a20-40b5-411b-86f7-6e1aeade8013")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,46 +130,47 @@ public class RequirementDiagram {
      * Get the underlying {@link StaticDiagram}. 
      * @return the StaticDiagram represented by this proxy, never null.
      */
-    @objid ("bd82e753-0081-410e-a81e-0704c757f35c")
+    @objid ("7cae712b-bb73-47e4-87e1-4121fc120f79")
     public StaticDiagram getElement() {
         return this.elt;
     }
 
-    @objid ("3a0fee2e-0ab7-4431-a3e5-ab1be6559a6e")
+    @objid ("97f84ba0-4397-4a8d-94c4-ed66a398394f")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("0e0a2f55-5023-4840-a656-d1c2ddafd671")
-    protected RequirementDiagram(StaticDiagram elt) {
+    @objid ("7c66a276-18f6-4607-94ec-d52052c50ae0")
+    protected  RequirementDiagram(StaticDiagram elt) {
         this.elt = elt;
     }
 
     @objid ("857134ec-82ed-42fe-a6bb-b747f67e61ff")
     public static final class MdaTypes {
-        @objid ("0df27875-2860-4130-a50f-42a4dd6fc95f")
+        @objid ("f92d5823-5ec8-406b-8b80-7ccc8e1a5311")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("8b34ca09-cc0a-4dcf-9ff9-7421d6caedeb")
+        @objid ("d397c9b8-af74-43be-b8ee-d96657fae4e4")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("76bba261-290a-4cd4-bfaa-2b840be0021d")
+        @objid ("95684814-e307-4055-ba57-4b05d27b7d7f")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("6c96df14-1a9c-4c9b-bea7-dad11efebfb6")
+        @objid ("f204fee0-154a-438e-865a-b924166ceeb6")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "01ec12fc-0000-0bfd-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

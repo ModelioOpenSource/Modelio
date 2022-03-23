@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -48,9 +47,10 @@ public class SmDepVal {
      * @param value the dependency value
      */
     @objid ("0082e0f6-b5bf-1f33-94a4-001ec947cd2a")
-    public SmDepVal(final SmDependency dep, final MObject value) {
+    public  SmDepVal(final SmDependency dep, final MObject value) {
         this.dep = dep;
         this.value = value;
+        
     }
 
 }

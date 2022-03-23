@@ -17,21 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.commonBehaviors;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.behavior.activityModel.CallBehaviorActionSmClass;
-import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.BehaviorData;
-import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.BehaviorParameterSmClass;
-import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.EventSmClass;
 import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.TransitionSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
 import org.modelio.metamodel.impl.uml.statik.CollaborationSmClass;
@@ -86,7 +83,7 @@ public class BehaviorSmClass extends UmlModelElementSmClass {
     private SmDependency effectOfDep;
 
     @objid ("8dd8f75a-65f6-476f-8903-296af69e5932")
-    public BehaviorSmClass(ISmMetamodelFragment origin) {
+    public  BehaviorSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -94,6 +91,7 @@ public class BehaviorSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "Behavior";
+        
     }
 
     @objid ("2e39be2b-69b3-4d7e-8dff-8e7aca4de639")
@@ -106,18 +104,21 @@ public class BehaviorSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Behavior.class;
+        
     }
 
     @objid ("a93cde29-7ccc-4666-a495-50e6b007c79f")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("f7f3a9a4-4bcd-40b0-af55-a1efa99b5f7b")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("a8a6a597-9aa3-41db-a13a-35fbb87f0513")
@@ -161,6 +162,8 @@ public class BehaviorSmClass extends UmlModelElementSmClass {
         this.effectOfDep = new EffectOfSmDependency();
         this.effectOfDep.init("EffectOf", this, metamodel.getMClass(Transition.MQNAME), 0, -1 );
         registerDependency(this.effectOfDep);
+        
+        
     }
 
     @objid ("81d5efe7-92c7-45f3-8a23-3f302499fe0d")
@@ -233,7 +236,7 @@ public class BehaviorSmClass extends UmlModelElementSmClass {
         private BehaviorSmClass smClass;
 
         @objid ("9724a944-e384-43e6-b623-b99de241fbe2")
-        public BehaviorObjectFactory(BehaviorSmClass smClass) {
+        public  BehaviorObjectFactory(BehaviorSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -289,6 +292,7 @@ public class BehaviorSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((NameSpaceSmClass)this.getTarget()).getOwnedBehaviorDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -308,6 +312,7 @@ public class BehaviorSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BehaviorData) data).mParameter = values;
+            
         }
 
         @objid ("d3a22d5a-11ab-454a-a125-86bf53c38a35")
@@ -317,6 +322,7 @@ public class BehaviorSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((BehaviorParameterSmClass)this.getTarget()).getOwnerDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -345,6 +351,7 @@ public class BehaviorSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((OperationSmClass)this.getTarget()).getOwnedBehaviorDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -364,6 +371,7 @@ public class BehaviorSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BehaviorData) data).mOwnedCollaboration = values;
+            
         }
 
         @objid ("069f42e2-abb6-4bff-bc0c-f223396b75d9")
@@ -373,6 +381,7 @@ public class BehaviorSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((CollaborationSmClass)this.getTarget()).getBRepresentedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -392,6 +401,7 @@ public class BehaviorSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BehaviorData) data).mCaller = values;
+            
         }
 
         @objid ("dc85e338-76d7-4599-80ff-558c1de64764")
@@ -401,6 +411,7 @@ public class BehaviorSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((CallBehaviorActionSmClass)this.getTarget()).getCalledDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -420,6 +431,7 @@ public class BehaviorSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BehaviorData) data).mEComponent = values;
+            
         }
 
         @objid ("48f4a520-2d35-4568-a529-c2f2636a30fc")
@@ -429,6 +441,7 @@ public class BehaviorSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((EventSmClass)this.getTarget()).getComposedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -448,6 +461,7 @@ public class BehaviorSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BehaviorData) data).mEffectOf = values;
+            
         }
 
         @objid ("2ef1fbf8-9146-4195-8edb-2f66f60c59d8")
@@ -457,6 +471,7 @@ public class BehaviorSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((TransitionSmClass)this.getTarget()).getBehaviorEffectDep();
             }
             return this.symetricDep;
+            
         }
 
     }

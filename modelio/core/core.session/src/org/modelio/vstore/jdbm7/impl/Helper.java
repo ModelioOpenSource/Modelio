@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.jdbm7.impl;
 
 import java.io.Closeable;
@@ -33,13 +32,12 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 @objid ("f029c775-b6e7-4145-b0b7-66cf6a47e44d")
 public class Helper {
     @objid ("1a029106-390e-485e-b6eb-d1a2cd3fb57f")
-    private Helper() {
+    private  Helper() {
         // no instance
     }
 
     /**
      * Tells whether the given model dependency is stored in the repository.
-     * 
      * @param dep a model dependency.
      * @return <code>true</code> if stored else <code>false</code>.
      */

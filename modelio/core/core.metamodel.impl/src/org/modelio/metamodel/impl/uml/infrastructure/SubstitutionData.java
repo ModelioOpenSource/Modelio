@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,13 +31,13 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("008e4b26-c4be-1fd8-97fe-001ec947cd2a")
 public class SubstitutionData extends UmlModelElementData {
     @objid ("f91bcb35-afa1-4dc1-bc88-bef5ee62cb48")
-     SmObjectImpl mContract;
+    SmObjectImpl mContract;
 
     @objid ("012e0b5c-309d-4136-a8be-b419dac64548")
-     SmObjectImpl mSubstitutingClassifier;
+    SmObjectImpl mSubstitutingClassifier;
 
     @objid ("ab26d66d-9763-4c80-adc2-8a9eee7678cd")
-    public SubstitutionData(SubstitutionSmClass smClass) {
+    public  SubstitutionData(SubstitutionSmClass smClass) {
         super(smClass);
     }
 

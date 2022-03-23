@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.diagram.tools;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -55,7 +54,6 @@ public interface IBoxTool extends IDiagramTool {
      * If the interaction is allowed the method returns <code>true</code><br>
      * If the interaction is not allowed the method return <code>false</code>. In this case the mouse pointer is changed
      * to a "forbidden" icon<br>
-     * 
      * @param diagramHandle a handle of the diagram in which the interaction occurs.
      * @param targetNode the graphic that is below the mouse pointer.
      * @return a boolean
@@ -77,7 +75,6 @@ public interface IBoxTool extends IDiagramTool {
      * The rect argument is the rectangle that result from the user interaction with the diagram. This rect should be
      * used to manage the unmasking of the model element in the diagram.
      * @see IDiagramHandle#unmask(MObject, int, int)
-     * 
      * @param diagramHandle the representation of the diagram where the command has been triggered.
      * @param parent the graphic parent where the user has clicked.
      * @param rect the rectangle of the object to create.

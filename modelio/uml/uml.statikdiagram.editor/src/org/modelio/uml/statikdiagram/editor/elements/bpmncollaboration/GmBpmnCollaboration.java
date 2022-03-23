@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.bpmncollaboration;
 
 import java.util.Collections;
@@ -32,8 +31,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnCollaboration;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -59,26 +58,25 @@ public class GmBpmnCollaboration extends GmPortContainer {
     private static final String IMAGE_LABEL_ROLE = "ImageLabel";
 
     @objid ("4e3ceb03-676a-4aec-bef5-e2b1dcf01a86")
-     static final GmBpmnCollaborationStructuredStyleKeys STRUCTURED_KEYS = new GmBpmnCollaborationStructuredStyleKeys();
+    static final GmBpmnCollaborationStructuredStyleKeys STRUCTURED_KEYS = new GmBpmnCollaborationStructuredStyleKeys();
 
     @objid ("419439ce-b70d-48ed-8293-a0f5ec9844fa")
-     static final GmBpmnCollaborationSimpleStyleKeys SIMPLE_KEYS = new GmBpmnCollaborationSimpleStyleKeys();
+    static final GmBpmnCollaborationSimpleStyleKeys SIMPLE_KEYS = new GmBpmnCollaborationSimpleStyleKeys();
 
     @objid ("d2e3f146-d8d2-40a8-b342-4ca70a41c13f")
-     static final GmBpmnCollaborationImageStyleKeys IMAGE_KEYS = new GmBpmnCollaborationImageStyleKeys();
+    static final GmBpmnCollaborationImageStyleKeys IMAGE_KEYS = new GmBpmnCollaborationImageStyleKeys();
 
     @objid ("40c36e8a-e28c-4f3b-a7fb-b22db92086b0")
-     static final GmBpmnCollaborationUserImageStyleKeys USERIMAGE_KEYS = new GmBpmnCollaborationUserImageStyleKeys();
+    static final GmBpmnCollaborationUserImageStyleKeys USERIMAGE_KEYS = new GmBpmnCollaborationUserImageStyleKeys();
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the callBehavior is unmasked.
      * @param el the unmasked callBehavior.
      * @param ref a reference to the unmasked callBehavior.
      */
     @objid ("6acb1609-b7df-46cc-abfc-723ca77768ca")
-    public GmBpmnCollaboration(final IGmDiagram diagram, final BpmnCollaboration el, final MRef ref) {
+    public  GmBpmnCollaboration(final IGmDiagram diagram, final BpmnCollaboration el, final MRef ref) {
         super(diagram, ref);
         this.element = el;
         
@@ -91,13 +89,14 @@ public class GmBpmnCollaboration extends GmPortContainer {
         
         super.addChild(mainNode);
         super.addChild(imageModeHeader);
+        
     }
 
     /**
      * Empty constructor needed for deserialisation.
      */
     @objid ("7383a840-8489-45b9-8a74-032e87e2dce8")
-    public GmBpmnCollaboration() {
+    public  GmBpmnCollaboration() {
         // Nothing specific to do.
     }
 
@@ -186,6 +185,7 @@ public class GmBpmnCollaboration extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("03472b29-7aff-4e81-9395-a405364bbae2")
@@ -195,6 +195,7 @@ public class GmBpmnCollaboration extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmBpmnCollaboration.", GmBpmnCollaboration.MINOR_VERSION);
+        
     }
 
     @objid ("6178219b-c202-49cc-ba3a-8569f5c40c26")
@@ -207,6 +208,7 @@ public class GmBpmnCollaboration extends GmPortContainer {
         imageModeHeader.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         
         super.addChild(imageModeHeader, 1);
+        
     }
 
     @objid ("3a920db2-a70d-4f8f-9407-7b8baa2ef9da")
@@ -219,6 +221,7 @@ public class GmBpmnCollaboration extends GmPortContainer {
     private void read_1(final IDiagramReader in) {
         super.read(in);
         this.element = (BpmnCollaboration) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("88330b20-4ac7-44e5-8ef1-fbc90e62293e")
@@ -234,6 +237,7 @@ public class GmBpmnCollaboration extends GmPortContainer {
                 ret.remove(imageModeHeader);
                 break;
             }
+            case USER_IMAGE:
             case IMAGE:
             default: {
                 break;
@@ -246,7 +250,6 @@ public class GmBpmnCollaboration extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -256,11 +259,11 @@ public class GmBpmnCollaboration extends GmPortContainer {
         String role = childNode.getRoleInComposition();
         return GmPortContainer.SATELLITE_ROLE.equals(role)
                         || GmBpmnCollaboration.IMAGE_LABEL_ROLE.equals(role);
+        
     }
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */

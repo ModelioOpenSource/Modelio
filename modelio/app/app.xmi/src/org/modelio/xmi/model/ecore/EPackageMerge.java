@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,9 +43,10 @@ public class EPackageMerge extends EElement {
     }
 
     @objid ("691ad382-3c3a-47b4-ae58-3c72a77e3c5b")
-    public EPackageMerge(org.eclipse.uml2.uml.PackageMerge element) {
+    public  EPackageMerge(org.eclipse.uml2.uml.PackageMerge element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("c70db464-db13-4995-9196-0b55a7b7175b")
@@ -68,6 +68,7 @@ public class EPackageMerge extends EElement {
             objingPMImport.setMergedPackage(objingMergedPackage);
             objingPMImport.setReceivingPackage(objingReceivingPackage);
         }
+        
     }
 
     @objid ("868c76d5-fd0d-49eb-ac5e-5de3c65e054b")
@@ -75,6 +76,7 @@ public class EPackageMerge extends EElement {
     public void setProperties(Element objingElt) {
         super.setProperties(objingElt);
         setName((PackageMerge) objingElt);
+        
     }
 
     @objid ("30062852-0ed4-45d4-9ddf-9af841b36e35")

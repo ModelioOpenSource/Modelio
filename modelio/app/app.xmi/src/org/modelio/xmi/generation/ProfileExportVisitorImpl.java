@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.generation;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,12 +36,13 @@ public class ProfileExportVisitorImpl implements IProfileExportVisitor {
     private ProgressBarComposite theProgressBar = null;
 
     @objid ("b1836d16-e25c-444d-b74e-ff4e54b8e64c")
-    public ProfileExportVisitorImpl(ProgressBarComposite progressBar) {
+    public  ProfileExportVisitorImpl(ProgressBarComposite progressBar) {
         this.theProgressBar = progressBar;
     }
 
     @objid ("39d10706-08ac-4bc8-a232-abb2db4cf813")
-    public ProfileExportVisitorImpl() {
+    public  ProfileExportVisitorImpl() {
+        
     }
 
     @objid ("aa37cf99-81fb-469a-9b77-9d6c4a346bcf")
@@ -80,6 +80,7 @@ public class ProfileExportVisitorImpl implements IProfileExportVisitor {
                 this.theProgressBar.addElement();    
             }
         }
+        
     }
 
     @objid ("b38dbc96-032e-41ff-99bf-0ff253193464")
@@ -99,6 +100,7 @@ public class ProfileExportVisitorImpl implements IProfileExportVisitor {
         
         for (PExportNoteType noteType : stereotype.getNoteTypes())
             noteType.accept(this);
+        
     }
 
     @objid ("4b2b6394-be4d-4c16-8c89-d6796d4c08cb")
@@ -123,6 +125,7 @@ public class ProfileExportVisitorImpl implements IProfileExportVisitor {
         
         for (PExportNoteType noteType : reference.getNoteTypes())
             noteType.accept(this);
+        
     }
 
     @objid ("308daab6-0f78-4cd3-aa2f-5f44cc5feff3")

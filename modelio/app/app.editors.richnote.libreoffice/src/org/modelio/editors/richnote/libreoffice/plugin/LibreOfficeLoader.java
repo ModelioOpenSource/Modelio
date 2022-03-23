@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /**
  *
  */
@@ -65,9 +64,8 @@ public class LibreOfficeLoader {
      * <p>
      * This loader will find LibreOffice installation and can load OOoBean.
      * Returns <code>null</code> if LibreOffice or OpenOffice is not installed.
-     * 
      * @return the LibreOffice class loader or <code>null</code>.
-     * @throws java.io.IOException if the LibreOffice/OpenOffice installation is broken or incomplete.
+     * @throws IOException if the LibreOffice/OpenOffice installation is broken or incomplete.
      */
     @objid ("faeac460-cd9e-41af-a5bd-15982db897fa")
     public static ClassLoader getClassLoader() throws IOException {
@@ -159,6 +157,7 @@ public class LibreOfficeLoader {
                 installPreferenceListener();
             }
         }
+        
     }
 
     @objid ("e372b30f-d6dc-40bd-b3cd-bc572254e0dc")
@@ -195,10 +194,9 @@ public class LibreOfficeLoader {
      * <li>file:/usr/lib/libreoffice/program/../basis-link/program/classes/unoil.jar,
      * <li>file:/usr/lib/libreoffice/program/
      * </ul>
-     * 
      * @param urls The directory URLS to search
      * @return the found library path.
-     * @throws java.io.FileNotFoundException if the library was not found.
+     * @throws FileNotFoundException if the library was not found.
      */
     @objid ("5776e13d-2f57-4ff1-b9b0-783323aa5654")
     private static URL lookForOfficeBeanLib(final List<URL> urls) throws FileNotFoundException {
@@ -212,6 +210,7 @@ public class LibreOfficeLoader {
         } else {
             throw getFileNotFoundIn("officebean native library not found in the class path:\n", urls);
         }
+        
     }
 
     /**
@@ -228,7 +227,6 @@ public class LibreOfficeLoader {
      * <li>file:/usr/lib/libreoffice/program/../basis-link/program/classes/unoil.jar,
      * <li>file:/usr/lib/libreoffice/program/
      * </ul>
-     * 
      * @param ooClassPath The directory URLS to search
      * @return the found library path or NULL.
      */
@@ -285,6 +283,7 @@ public class LibreOfficeLoader {
                 }
             }
         });
+        
     }
 
     /**
@@ -299,6 +298,7 @@ public class LibreOfficeLoader {
         if (installPath != null && InstallationFinder.isProgramPathValid(new File(installPath))) {
             System.setProperty(InstallationFinder.SYSPROP_NAME, installPath);
         }
+        
     }
 
     @objid ("7042d344-614e-4624-9553-f5e45c23cbc7")
@@ -329,7 +329,6 @@ public class LibreOfficeLoader {
      * <li>file:/usr/lib/libreoffice/program/../basis-link/program/classes/unoil.jar,
      * <li>file:/usr/lib/libreoffice/program/
      * </ul>
-     * 
      * @param urls The directory URLS to search
      * @return the found library path or <code>null</code>.
      */
@@ -367,9 +366,8 @@ public class LibreOfficeLoader {
     /**
      * Get the {@link IEditedDocumentViewer} implementation class in the
      * OpenOffice class loader space.
-     * 
      * @return the {@link IEditedDocumentViewer} implementation class.
-     * @throws java.io.IOException if the LibreOffice/OpenOffice installation is broken or incomplete.
+     * @throws IOException if the LibreOffice/OpenOffice installation is broken or incomplete.
      */
     @objid ("dbb71ee1-8846-43f8-ac00-5cc80294677a")
     @SuppressWarnings ("unchecked")
@@ -416,9 +414,10 @@ public class LibreOfficeLoader {
         private final ClassLoader fallBackClassLoader;
 
         @objid ("01acd189-67c1-4a97-a8f7-9fd2242b2d94")
-        private LibreOfficeInternalClassLoader(URL[] urls, ClassLoader fallbackClassLoader) {
+        private  LibreOfficeInternalClassLoader(URL[] urls, ClassLoader fallbackClassLoader) {
             super(urls);
             this.fallBackClassLoader = fallbackClassLoader;
+            
         }
 
         @objid ("ce7073b4-4d04-4c10-bc48-40b358fedb3e")
@@ -435,6 +434,7 @@ public class LibreOfficeLoader {
                     throw e;
                 }
             }
+            
         }
 
         @objid ("25e74062-0f31-4a76-a74b-de6ffd76e7ed")

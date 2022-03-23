@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /*
  *
  * This file is part of Modelio.
@@ -48,9 +47,9 @@ import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
+import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.diagram.styles.core.StyleKey.InternalsViewMode;
 import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
-import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.metamodel.uml.statik.BindableInstance;
 import org.modelio.metamodel.uml.statik.Classifier;
 import org.modelio.metamodel.uml.statik.CollaborationUse;
@@ -76,12 +75,11 @@ public final class GmInternalStructureZone extends GmFreeZone {
 
     /**
      * Creates the zone
-     * 
      * @param diagram The diagram
      * @param relatedRef a reference to the element this GmModel is related to.
      */
     @objid ("35911407-55b7-11e2-877f-002564c97630")
-    public GmInternalStructureZone(IGmDiagram diagram, MRef relatedRef) {
+    public  GmInternalStructureZone(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -121,6 +119,7 @@ public final class GmInternalStructureZone extends GmFreeZone {
         // The visibility may have changed so fires a notification.
         fireVisibilityChanged();
         super.styleChanged(style);
+        
     }
 
     @objid ("35911424-55b7-11e2-877f-002564c97630")
@@ -130,6 +129,7 @@ public final class GmInternalStructureZone extends GmFreeZone {
             fireVisibilityChanged();
         else
             super.styleChanged(property, newValue);
+        
     }
 
     @objid ("35929a7e-55b7-11e2-877f-002564c97630")
@@ -142,7 +142,7 @@ public final class GmInternalStructureZone extends GmFreeZone {
      * For deserialization only.
      */
     @objid ("35929a86-55b7-11e2-877f-002564c97630")
-    public GmInternalStructureZone() {
+    public  GmInternalStructureZone() {
         // Nothing to do.
     }
 
@@ -154,6 +154,7 @@ public final class GmInternalStructureZone extends GmFreeZone {
             ((GmInternalStructure) getParent()).setVisible(true);
         } else
             getDisplayedStyle().setProperty(getViewModeStyleKey(), InternalsViewMode.NONE);
+        
     }
 
     @objid ("35929a8d-55b7-11e2-877f-002564c97630")
@@ -226,6 +227,7 @@ public final class GmInternalStructureZone extends GmFreeZone {
                 }
             }
         }
+        
     }
 
     @objid ("35929a9f-55b7-11e2-877f-002564c97630")
@@ -245,6 +247,7 @@ public final class GmInternalStructureZone extends GmFreeZone {
                 break;
             }
         }
+        
     }
 
     @objid ("35929aa5-55b7-11e2-877f-002564c97630")
@@ -254,6 +257,7 @@ public final class GmInternalStructureZone extends GmFreeZone {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmInternalStructureZone.", GmInternalStructureZone.MINOR_VERSION);
+        
     }
 
     @objid ("35929aab-55b7-11e2-877f-002564c97630")

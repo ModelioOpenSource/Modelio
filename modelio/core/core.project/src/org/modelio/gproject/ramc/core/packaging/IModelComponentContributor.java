@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.ramc.core.packaging;
 
 import java.nio.file.Path;
@@ -81,7 +80,7 @@ public interface IModelComponentContributor {
      * Since 3.8, the <i>fileToExport</i> may be a path relative to the project directory.
      */
     @objid ("8b102bf7-bb62-4faa-a047-e44f0d0c134a")
-    static class ExportedFileEntry implements Comparable<ExportedFileEntry> {
+    public static class ExportedFileEntry implements Comparable<ExportedFileEntry> {
         @objid ("10ea84ab-79cd-44b5-a86c-75a0505cb935")
         private Path fileToExport;
 
@@ -107,7 +106,6 @@ public interface IModelComponentContributor {
          * Set the export path.
          * <p>
          * The export path must be relative to the project path.
-         * 
          * @param exportPath the path to deploy the file into. This path must a relative path.
          */
         @objid ("54f5401f-9e9e-4734-a1bb-8c66d78f87d2")
@@ -161,15 +159,15 @@ public interface IModelComponentContributor {
          * The export path must be relative to the project path.
          * If the provided path does not match a file in the project, it will be ignored.
          * </p>
-         * 
          * @param fileToExport the file to package in the model component.
          * @param exportPath the path to deploy the file into. This path must a relative path.
          * @since 3.6
          */
         @objid ("deac7d4e-775c-460f-97cb-fe94b7240989")
-        public ExportedFileEntry(Path fileToExport, String exportPath) {
+        public  ExportedFileEntry(Path fileToExport, String exportPath) {
             this.fileToExport = Objects.requireNonNull(fileToExport);
             this.exportPath = (exportPath != null) ? exportPath : "";
+            
         }
 
         /**
@@ -183,7 +181,6 @@ public interface IModelComponentContributor {
 
         /**
          * Set the file to export.
-         * 
          * @param fileToExport the file to export.
          */
         @objid ("e30d3d15-41aa-4a9c-9623-25b4da1ddd37")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.jdbm7.impl.migration.v4;
 
 import java.io.IOException;
@@ -41,6 +40,7 @@ class V4MRefCollectionSerializer implements Serializer<Collection<MRef>> {
         for (MRef o : obj) {
             V4MRefSerializer.instance.serialize(out, o);
         }
+        
     }
 
     @objid ("97e05177-ad55-48eb-8d57-e187c22a4848")
@@ -60,7 +60,8 @@ class V4MRefCollectionSerializer implements Serializer<Collection<MRef>> {
      * Don't instantiate directly, use singleton.
      */
     @objid ("d595dbc3-1911-4154-b1ad-84a2c0adb619")
-    private V4MRefCollectionSerializer() {
+    private  V4MRefCollectionSerializer() {
+        
     }
 
 }

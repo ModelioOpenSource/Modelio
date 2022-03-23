@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityPartitionData;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityNode;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityPartition;
 import org.modelio.metamodel.uml.behavior.activityModel.MessageFlow;
@@ -102,6 +101,7 @@ public class ActivityPartitionImpl extends ActivityGroupImpl implements Activity
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("79d90f2b-5ae5-4654-8666-2b8ce9cd83eb")
@@ -123,6 +123,7 @@ public class ActivityPartitionImpl extends ActivityGroupImpl implements Activity
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("afc18a61-f817-4fd7-8753-b45ba5b6a1e0")
@@ -157,6 +158,7 @@ public class ActivityPartitionImpl extends ActivityGroupImpl implements Activity
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("e7938d10-d3df-4c98-81db-30bede640494")
@@ -178,6 +180,7 @@ public class ActivityPartitionImpl extends ActivityGroupImpl implements Activity
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("ad8619a0-4ee9-4254-933e-d2ec50aa9e90")

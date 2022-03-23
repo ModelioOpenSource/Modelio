@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.mmextensions.standard.services;
 
 import java.text.MessageFormat;
@@ -67,11 +66,12 @@ public class MModelServices implements IMModelServices {
      * @param session a core modeling session.
      */
     @objid ("007930ce-030f-1035-9f91-001ec947cd2a")
-    public MModelServices(ICoreSession session) {
+    public  MModelServices(ICoreSession session) {
         Objects.requireNonNull(session);
         this.session = session;
         this.tools = MTools.get(session);
         this.extensionCache = new ExtensionCache(session.getMetamodel());
+        
     }
 
     @objid ("113984af-1772-11e2-aa0d-002564c97630")
@@ -320,6 +320,7 @@ public class MModelServices implements IMModelServices {
         } else {
             throw new ElementNotUniqueException(MessageFormat.format("''{0}'' is not a unique NoteType for ''{1}'' metaclass in ''{2}'' module.", noteTypeName, metaclass.getQualifiedName(), moduleName));
         }
+        
     }
 
     @objid ("007f9838-030f-1035-9f91-001ec947cd2a")
@@ -340,6 +341,7 @@ public class MModelServices implements IMModelServices {
         } else {
             throw new ElementNotUniqueException(MessageFormat.format("''{0}'' is not a unique ResourceType for ''{1}'' metaclass in ''{2}'' module.", resourceTypeName, metaclass.getQualifiedName(), moduleName));
         }
+        
     }
 
     @objid ("5a88b537-7d84-42a0-ad2a-1b48243e17e5")
@@ -353,6 +355,7 @@ public class MModelServices implements IMModelServices {
         } else {
             throw new ElementNotUniqueException(stereotypeName + " is not a unique Stereotype for " + metaclass.getName());
         }
+        
     }
 
     @objid ("5d5198bb-ac79-4cb1-a304-4d44e649cae7")
@@ -380,17 +383,18 @@ public class MModelServices implements IMModelServices {
         } else {
             throw new ElementNotUniqueException(tagTypeName + " is not a unique TagType for " + metaclass.getName() + " in " + moduleName);
         }
+        
     }
 
     /**
      * Invalidate the service and prevent further usage.
-     * 
      * @param object a dummy parameter
      */
     @objid ("00913a16-0eae-1035-9f91-001ec947cd2a")
     public void invalidateProject(Object object) {
         this.session = null;
         this.tools = null;
+        
     }
 
     @objid ("00819d40-030f-1035-9f91-001ec947cd2a")
@@ -406,6 +410,7 @@ public class MModelServices implements IMModelServices {
                 }
             }
         }
+        
     }
 
     @objid ("c3282876-edee-11e1-84b0-002564c97630")
@@ -465,11 +470,11 @@ public class MModelServices implements IMModelServices {
         } else {
             throw new UnknownMetaclassException(metaclass);
         }
+        
     }
 
     /**
      * Answer to the question: does 'stereotype' or one of its inheritance parent matches the given 'stereotypeName'.
-     * 
      * @param stereotype a stereotype
      * @param stereotypeName the name of a stereotype.
      * @return <code>true</code> if 'stereotype' or one of its inheritance parent matches the given 'stereotypeName'.
@@ -490,7 +495,6 @@ public class MModelServices implements IMModelServices {
 
     /**
      * Answer to the question: does 'metaclass' or one of its inheritance parent matches the given 'metaclassName'.
-     * 
      * @param metaclass a metaclass
      * @param metaclassName the name of a metaclass.
      * @return <code>true</code> if 'metaclass' or one of its inheritance parent matches the given 'metaclassName'.

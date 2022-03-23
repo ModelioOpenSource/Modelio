@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.transactions.smAction;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,7 +38,7 @@ public class AddActionNoActiveTransactionException extends TransactionException 
      * later retrieval by the {@link #getMessage()} method.
      */
     @objid ("006d48a4-0d1e-1f20-85a5-001ec947cd2a")
-    public AddActionNoActiveTransactionException(final String msg) {
+    public  AddActionNoActiveTransactionException(final String msg) {
         super(msg);
     }
 

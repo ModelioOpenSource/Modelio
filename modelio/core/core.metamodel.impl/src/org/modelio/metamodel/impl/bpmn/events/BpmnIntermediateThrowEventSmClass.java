@@ -17,19 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.events;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.bpmn.events.BpmnIntermediateThrowEvent;
 import org.modelio.metamodel.bpmn.events.BpmnThrowEvent;
-import org.modelio.metamodel.impl.bpmn.events.BpmnThrowEventSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("1cc3ec74-19cc-4a07-b45c-7f1e553dc4da")
 public class BpmnIntermediateThrowEventSmClass extends BpmnThrowEventSmClass {
     @objid ("5f28b827-e382-4e61-9183-28c285808fea")
-    public BpmnIntermediateThrowEventSmClass(ISmMetamodelFragment origin) {
+    public  BpmnIntermediateThrowEventSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class BpmnIntermediateThrowEventSmClass extends BpmnThrowEventSmClass {
     @Override
     public String getName() {
         return "BpmnIntermediateThrowEvent";
+        
     }
 
     @objid ("e90f01c1-44be-4afd-b2cd-20edcfa46c4b")
@@ -62,18 +62,21 @@ public class BpmnIntermediateThrowEventSmClass extends BpmnThrowEventSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnIntermediateThrowEvent.class;
+        
     }
 
     @objid ("40c48ed8-c516-459e-a36d-28533e13c37c")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("bd776d85-5e5d-4166-b829-fb8fd13545f9")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("d4498c84-352e-456a-bc7e-cfb390930830")
@@ -86,6 +89,7 @@ public class BpmnIntermediateThrowEventSmClass extends BpmnThrowEventSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("d2504228-b459-4e42-9913-7b85d41d67e7")
@@ -94,7 +98,7 @@ public class BpmnIntermediateThrowEventSmClass extends BpmnThrowEventSmClass {
         private BpmnIntermediateThrowEventSmClass smClass;
 
         @objid ("700ab714-490e-4e56-ba99-cb2ef41a80a7")
-        public BpmnIntermediateThrowEventObjectFactory(BpmnIntermediateThrowEventSmClass smClass) {
+        public  BpmnIntermediateThrowEventObjectFactory(BpmnIntermediateThrowEventSmClass smClass) {
             this.smClass = smClass;
         }
 

@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.handlers;
 
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
@@ -37,7 +36,7 @@ import org.modelio.platform.project.services.IProjectService;
 @objid ("65c0aea4-4ece-408b-bbb4-1cd600ead190")
 public class CutAnnotationHandler {
     @objid ("05ac3c5d-b435-4a6c-8db1-981e7adf2451")
-     boolean ctrlFlag;
+    boolean ctrlFlag;
 
     @objid ("4842c180-e06a-450c-8aef-bc1d47b5145e")
     @Inject
@@ -45,7 +44,6 @@ public class CutAnnotationHandler {
 
     /**
      * Available only when the selected elements are modifiable.
-     * 
      * @param part the current active part.
      * @return true if the handler can be executed.
      */
@@ -77,7 +75,6 @@ public class CutAnnotationHandler {
 
     /**
      * Cut the currently selected elements.
-     * 
      * @param part the current active part.
      * @param currentDisplay the display Modelio runs into.
      */
@@ -87,6 +84,7 @@ public class CutAnnotationHandler {
         NotesPanelProvider notesPanel = ((NotesView) part.getObject()).getNotesPanel();
         NotesPanelController controller = notesPanel.getController();
         controller.onCut();
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,7 @@ public class EInitialNode extends EActivityNode {
     }
 
     @objid ("2f893b1d-1869-4a82-91f9-0d3e3f2a024a")
-    public EInitialNode(org.eclipse.uml2.uml.InitialNode element) {
+    public  EInitialNode(org.eclipse.uml2.uml.InitialNode element) {
         super(element);
     }
 

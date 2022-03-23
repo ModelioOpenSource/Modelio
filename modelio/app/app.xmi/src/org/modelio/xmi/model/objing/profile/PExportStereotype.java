@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing.profile;
 
 import java.nio.file.Path;
@@ -53,7 +52,7 @@ public class PExportStereotype implements IExportProfileElement {
     private ProfileExportVisitorImpl _visitor = null;
 
     @objid ("f4dddec1-04c0-493c-b74e-daf6ebbc26b0")
-    public PExportStereotype(Stereotype stereotype) {
+    public  PExportStereotype(Stereotype stereotype) {
         this.objingElt = stereotype;
     }
 
@@ -62,6 +61,7 @@ public class PExportStereotype implements IExportProfileElement {
     public void accept(ProfileExportVisitorImpl visitor) {
         this._visitor = visitor;
         visitor.visit(this);
+        
     }
 
     @objid ("a84e6d62-d897-4f3c-8eca-0004e87a3ba9")
@@ -81,6 +81,7 @@ public class PExportStereotype implements IExportProfileElement {
             setBaseClass(stereotype);
         
         }
+        
     }
 
     @objid ("9c4790b4-eb9e-460f-ac72-83abc816f37e")
@@ -111,6 +112,7 @@ public class PExportStereotype implements IExportProfileElement {
                     ProfileUtils.setStereotypeImage( moduleResPath,  iconPath, stereotype);
             }
         }
+        
     }
 
     @objid ("d247064c-3133-4a3a-8e4e-cbe2cdeb009f")
@@ -138,6 +140,7 @@ public class PExportStereotype implements IExportProfileElement {
             if (!stereotype.getSuperClasses().contains(parentEcore))
                 stereotype.getSuperClasses().add(parentEcore);
         }
+        
     }
 
     @objid ("7d1456a4-5d57-4231-a4c4-d7b101275b3b")
@@ -166,6 +169,7 @@ public class PExportStereotype implements IExportProfileElement {
             this.totalMap.put(this.objingElt.getUuid().toString(), ecoreElt);
             setProperties(ecoreElt);
         }
+        
     }
 
     @objid ("577b5cea-8ec0-4a04-af6a-257706de5c22")

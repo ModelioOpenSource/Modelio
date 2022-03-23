@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.command.standard;
 
 import java.util.List;
-import javax.script.ScriptEngine;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.script.ScriptEngine;
 import org.modelio.api.module.IModule;
 import org.modelio.vcore.smkernel.mapi.MObject;
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.exit;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,21 +29,21 @@ import org.modelio.uml.statediagram.editor.style.StateAbstractStyleKeyProvider;
 @objid ("f5192c06-55b6-11e2-877f-002564c97630")
 public class GmExitImageStyleKeys extends StateAbstractStyleKeyProvider {
     @objid ("8158f221-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmExitStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmExitStructuredStyleKeys.REPMODE;
 
     @objid ("8158f223-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmExitStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmExitStructuredStyleKeys.FONT;
 
     @objid ("8158f225-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmExitStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmExitStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("8158f227-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmExitStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmExitStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("8158f229-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmExitStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmExitStructuredStyleKeys.SHOWTAGS;
 
     @objid ("a27d94b8-8b44-4c79-8e75-a8941bc24bf4")
-     static final StyleKey SHOWLABEL = GmExitStructuredStyleKeys.SHOWLABEL;
+    static final StyleKey SHOWLABEL = GmExitStructuredStyleKeys.SHOWLABEL;
 
 }

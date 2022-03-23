@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.events;
 
 import java.util.ArrayList;
@@ -32,8 +32,6 @@ import org.modelio.metamodel.bpmn.events.BpmnEvent;
 import org.modelio.metamodel.bpmn.events.BpmnThrowEvent;
 import org.modelio.metamodel.bpmn.objects.BpmnDataAssociation;
 import org.modelio.metamodel.bpmn.objects.BpmnDataInput;
-import org.modelio.metamodel.impl.bpmn.events.BpmnEventSmClass;
-import org.modelio.metamodel.impl.bpmn.events.BpmnThrowEventData;
 import org.modelio.metamodel.impl.bpmn.objects.BpmnDataAssociationSmClass;
 import org.modelio.metamodel.impl.bpmn.objects.BpmnDataInputSmClass;
 import org.modelio.vbasic.version.Version;
@@ -57,7 +55,7 @@ public class BpmnThrowEventSmClass extends BpmnEventSmClass {
     private SmDependency dataInputDep;
 
     @objid ("33e72da7-515c-472a-9537-4afb9f329e32")
-    public BpmnThrowEventSmClass(ISmMetamodelFragment origin) {
+    public  BpmnThrowEventSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -65,6 +63,7 @@ public class BpmnThrowEventSmClass extends BpmnEventSmClass {
     @Override
     public String getName() {
         return "BpmnThrowEvent";
+        
     }
 
     @objid ("22308cb4-39f9-4635-aaf5-52f11ac5657a")
@@ -77,18 +76,21 @@ public class BpmnThrowEventSmClass extends BpmnEventSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnThrowEvent.class;
+        
     }
 
     @objid ("f543b718-852e-4cfb-80c5-1914bd09091d")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("df2e4869-c479-467b-9aaa-1936a34462ff")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("5f1997ea-4bcc-4cbb-bf88-ca14ec085a08")
@@ -108,6 +110,8 @@ public class BpmnThrowEventSmClass extends BpmnEventSmClass {
         this.dataInputDep = new DataInputSmDependency();
         this.dataInputDep.init("DataInput", this, metamodel.getMClass(BpmnDataInput.MQNAME), 0, 1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.dataInputDep);
+        
+        
     }
 
     @objid ("fb982e8d-fdd7-4d11-b52d-ffa18f335773")
@@ -132,7 +136,7 @@ public class BpmnThrowEventSmClass extends BpmnEventSmClass {
         private BpmnThrowEventSmClass smClass;
 
         @objid ("d1387782-1f94-486e-8778-70ea5cb4ed83")
-        public BpmnThrowEventObjectFactory(BpmnThrowEventSmClass smClass) {
+        public  BpmnThrowEventObjectFactory(BpmnThrowEventSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -165,6 +169,7 @@ public class BpmnThrowEventSmClass extends BpmnEventSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnThrowEventData) data).mDataInputAssociation = values;
+            
         }
 
         @objid ("9f5a91d7-55ef-4ca0-a7f6-373c0ca6545f")
@@ -174,6 +179,7 @@ public class BpmnThrowEventSmClass extends BpmnEventSmClass {
             	this.symetricDep = ((BpmnDataAssociationSmClass)this.getTarget()).getStartingEventDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -202,6 +208,7 @@ public class BpmnThrowEventSmClass extends BpmnEventSmClass {
             	this.symetricDep = ((BpmnDataInputSmClass)this.getTarget()).getOwnerThrowEventDep();
             }
             return this.symetricDep;
+            
         }
 
     }

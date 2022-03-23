@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.log;
 
 import java.io.File;
@@ -57,6 +56,7 @@ public class ShowLogHandler {
         final Path logPath = Paths.get(PluginLogger.getLogFile());
         IMDATextEditor editor = EditionManager.services().openEditor(null, logPath.toFile(), EditorType.TXTEditor, true, EditionManager.DEFAULT_CHARSET_NAME, "Modelio log", null);
         new LogFileWatcher(logPath, editor).start();
+        
     }
 
     @objid ("a0bbd7c0-587a-441f-babf-3f70061e513e")
@@ -74,7 +74,7 @@ public class ShowLogHandler {
         private final TextViewer textViewer;
 
         @objid ("bacba304-7a7f-4c18-b964-b4589f7d4bd8")
-        public LogFileWatcher(Path logPath, IMDATextEditor editor) {
+        public  LogFileWatcher(Path logPath, IMDATextEditor editor) {
             this.logPath = logPath;
             this.editor = editor;
             this.textViewer = ((TXTEditor) ((MDATextEditor) editor).getEditor().getObject()).getViewer();
@@ -95,6 +95,7 @@ public class ShowLogHandler {
                     // Nothing to do
                 }
             });
+            
         }
 
         @objid ("6263074d-801e-4fea-bf22-c853756d4636")
@@ -146,6 +147,7 @@ public class ShowLogHandler {
                     e.printStackTrace();
                 }
             });
+            
         }
 
         @objid ("223e884c-94ed-454a-aefc-08140f4583ab")
@@ -187,6 +189,7 @@ public class ShowLogHandler {
             } catch (Throwable e) {
                 // Ignore error, just end the thread
             }
+            
         }
 
     }

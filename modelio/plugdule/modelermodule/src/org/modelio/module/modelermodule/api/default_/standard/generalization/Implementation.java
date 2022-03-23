@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.generalization;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("537f865d-60d7-49df-a0f5-0faa2f98dc42")
 public class Implementation {
-    @objid ("dfbd6694-71b4-4a29-ae4d-0915bd7a46ed")
+    @objid ("034380d2-bc21-407e-84b8-b27666585cac")
     public static final String STEREOTYPE_NAME = "implementation";
 
     /**
      * The underlying {@link Generalization} represented by this proxy, never null.
      */
-    @objid ("2d4b32a2-88e1-41e6-946b-15f93eeca12d")
+    @objid ("748fbb9c-fc2e-48a3-87dd-5498d82e4e9d")
     protected final Generalization elt;
 
     /**
      * Tells whether a {@link Implementation proxy} can be instantiated from a {@link MObject} checking it is a {@link Generalization} stereotyped << implementation >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("ba0e8a8d-f511-45a7-a941-c497ed36f1b9")
+    @objid ("335c73c0-5596-4a01-adc3-5dad3659fcd2")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Generalization) && ((Generalization) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Implementation.STEREOTYPE_NAME));
     }
@@ -77,9 +75,9 @@ public class Implementation {
      * 
      * @return a {@link Implementation} proxy on the created {@link Generalization}.
      */
-    @objid ("5cef2585-7c4b-42b5-985e-f5b0327a9679")
+    @objid ("6d2fa81f-3fcb-4fd5-a7f7-fd1e7f1fad24")
     public static Implementation create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Generalization");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.Generalization");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Implementation.STEREOTYPE_NAME);
         return Implementation.instantiate((Generalization)e);
     }
@@ -91,7 +89,7 @@ public class Implementation {
      * @param obj a Generalization
      * @return a {@link Implementation} proxy or <i>null</i>.
      */
-    @objid ("54e490ae-b4aa-4ec8-9ca7-bdc02d0f65c7")
+    @objid ("181e0a7f-9d72-4c48-8983-1e71164096fd")
     public static Implementation instantiate(Generalization obj) {
         return Implementation.canInstantiate(obj) ? new Implementation(obj) : null;
     }
@@ -104,7 +102,7 @@ public class Implementation {
      * @return a {@link Implementation} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("0b1d2b26-5bad-486d-a7ca-6cfa411297cd")
+    @objid ("07a00915-3fde-4fe8-b155-de225c5c3d45")
     public static Implementation safeInstantiate(Generalization obj) throws IllegalArgumentException {
         if (Implementation.canInstantiate(obj))
         	return new Implementation(obj);
@@ -112,7 +110,7 @@ public class Implementation {
         	throw new IllegalArgumentException("Implementation: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("d3f5476a-2afa-4674-98db-c9cc0797c0f8")
+    @objid ("1b17c0e7-97e9-4b6d-a991-a53c4558974c")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,46 +130,47 @@ public class Implementation {
      * Get the underlying {@link Generalization}. 
      * @return the Generalization represented by this proxy, never null.
      */
-    @objid ("5f81d9bf-c5db-4e81-85e6-31c3a66c0de5")
+    @objid ("75f00a0f-32c3-4542-81f7-1a504fe4e8fe")
     public Generalization getElement() {
         return this.elt;
     }
 
-    @objid ("39a155c0-d3b1-4949-bdfe-7f49e606f4f1")
+    @objid ("c42b00df-dec0-4ba2-b0eb-e4e6c6801c06")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("8194cb04-d8cb-4e49-9f50-910396b20226")
-    protected Implementation(Generalization elt) {
+    @objid ("c917d7fc-90da-4e9e-ad9f-fed033129b07")
+    protected  Implementation(Generalization elt) {
         this.elt = elt;
     }
 
     @objid ("38988b48-d6c0-416a-a9ab-c1d8cde9859c")
     public static final class MdaTypes {
-        @objid ("8d423656-116c-453a-b0bc-df6f41681054")
+        @objid ("63070b2c-4bd4-45b0-a706-3e07678b407a")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("a6c7b655-caf9-4103-bdb7-97fecb786c32")
+        @objid ("c265c9be-ac1a-4a49-8c38-7b5abab70dcb")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("f226b812-c64b-41d6-8c89-33fa6543da7e")
+        @objid ("04e13e41-c95b-4a31-a57f-2e955ff488fe")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("9710cb73-cd7a-458c-8b54-c74b17dfbce3")
+        @objid ("7f66934e-955a-41ed-816a-68695aa7ca03")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "00700680-0000-01c7-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

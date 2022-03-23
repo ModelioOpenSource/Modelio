@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.ui.lifecycle;
 
 import java.util.Arrays;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.di.annotations.Creatable;
 import org.eclipse.e4.core.services.events.IEventBroker;
 import org.eclipse.e4.ui.model.application.MApplication;
@@ -54,7 +53,7 @@ public class PerspectiveManager implements EventHandler, IModelioUiService {
 
     @objid ("69e0498b-55e8-4e01-b765-cae30f8b57f8")
     @Inject
-     MApplication application;
+    MApplication application;
 
     @objid ("2b19e231-042a-424a-86c9-79961d35e456")
     @Inject
@@ -62,7 +61,7 @@ public class PerspectiveManager implements EventHandler, IModelioUiService {
 
     @objid ("3cb6ebee-4b0e-4a55-890b-e130d186843a")
     @Inject
-     IProjectService projectService;
+    IProjectService projectService;
 
     @objid ("3e3731c9-ac74-42a3-8a6b-7ecc5fcc7517")
     @Override
@@ -77,6 +76,7 @@ public class PerspectiveManager implements EventHandler, IModelioUiService {
         final MPerspective switchTo = perspective != null ? perspective : getDefaultPerspective();
         
         stack.setSelectedElement(switchTo);
+        
     }
 
     @objid ("7a04d6e5-0c96-4c45-bec1-7d14095edb1a")
@@ -84,6 +84,7 @@ public class PerspectiveManager implements EventHandler, IModelioUiService {
     public void switchToWorkspace() {
         final MPerspective workspacePerspective = getWorkspacePerspectives().get(0);
         switchToPerspective(workspacePerspective);
+        
     }
 
     @objid ("242445c1-b0ac-4807-ad59-8713310fecda")
@@ -98,6 +99,7 @@ public class PerspectiveManager implements EventHandler, IModelioUiService {
         if (pStack != null) {
             pStack.setVisible(!onOff);
         }
+        
     }
 
     @objid ("8e84dec0-c251-4114-896d-e662a7c12dab")
@@ -131,11 +133,11 @@ public class PerspectiveManager implements EventHandler, IModelioUiService {
         default:
             // Nothing to do
         }
+        
     }
 
     /**
      * Get the application perspective stack
-     * 
      * @return the current perspective stack.
      */
     @objid ("8dedeadf-68a8-420d-a605-bdc755f2fffc")
@@ -152,7 +154,6 @@ public class PerspectiveManager implements EventHandler, IModelioUiService {
 
     /**
      * Get the workspace perspective, ie the (unique) perspective tagged "workspace"
-     * 
      * @return the workspace perspective.
      */
     @objid ("3b0b48a7-b3ea-414f-a2c9-76386b635d7c")
@@ -163,7 +164,6 @@ public class PerspectiveManager implements EventHandler, IModelioUiService {
 
     /**
      * Get the "workable" perspective, ie all the perspectives tagged "project"
-     * 
      * @return the project perspective
      */
     @objid ("0174474f-003b-4ffb-97e8-68c83a723cc4")
@@ -174,7 +174,6 @@ public class PerspectiveManager implements EventHandler, IModelioUiService {
 
     /**
      * Get the default perspective
-     * 
      * @return the "workspace" perspective if a project is already opened is <code>null</code>, the "project" perspective otherwise.
      */
     @objid ("1ec8ab45-99b4-4a0e-9334-e4ba1e0e8349")
@@ -184,6 +183,7 @@ public class PerspectiveManager implements EventHandler, IModelioUiService {
         } else {
             return getWorkspacePerspectives().get(0);
         }
+        
     }
 
     /**

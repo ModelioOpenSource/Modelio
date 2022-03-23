@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.deploymentdiagram.editor.elements.artifact;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -59,7 +58,7 @@ public class GmArtifactUserImageStyleKeys extends DeploymentAbstractStyleKeyProv
      */
     @objid ("2adf2422-52a1-4104-920e-e0b2ed6066b7")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("ARTIFACT_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+                MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Display tagged values.

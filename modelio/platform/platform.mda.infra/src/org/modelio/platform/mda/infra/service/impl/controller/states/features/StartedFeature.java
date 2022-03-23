@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.controller.states.features;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.module.lifecycle.ModuleException;
 import org.modelio.platform.mda.infra.plugin.MdaInfra;
 import org.modelio.platform.mda.infra.service.AbstractIRTModuleListener;
-import org.modelio.platform.mda.infra.service.IRTModule.ModuleRuntimeState;
 import org.modelio.platform.mda.infra.service.IRTModule;
+import org.modelio.platform.mda.infra.service.IRTModule.ModuleRuntimeState;
 import org.modelio.platform.mda.infra.service.IRTModuleListener;
 import org.modelio.platform.mda.infra.service.ModuleRefusedActionException;
 import org.modelio.platform.mda.infra.service.impl.IRTModuleAccess;
@@ -42,13 +41,13 @@ public class StartedFeature extends AbstractFeature {
     private IRTModuleListener optionalListener;
 
     @objid ("1ae08b6d-c20c-427c-8dc4-0bde436200ec")
-     IRTModuleListener restartListener;
+    IRTModuleListener restartListener;
 
     /**
      * @param myModule the module
      */
     @objid ("6fb51ead-d0fb-4340-a3e2-42d47d1d1c59")
-    public StartedFeature(IRTModuleAccess myModule) {
+    public  StartedFeature(IRTModuleAccess myModule) {
         super(myModule);
         
         // Create listeners that stop the module when a required one is stopped.
@@ -122,6 +121,7 @@ public class StartedFeature extends AbstractFeature {
         
             }
         };
+        
     }
 
     @objid ("89c4baab-297f-4142-b39e-ca9aff1d885e")
@@ -156,6 +156,7 @@ public class StartedFeature extends AbstractFeature {
         
         // Fire start listener
         IRTModuleListener.Poster.moduleStarted(this.module);
+        
     }
 
     @objid ("0af0c3ae-5590-4be0-9325-e8b8b410afaf")
@@ -177,6 +178,7 @@ public class StartedFeature extends AbstractFeature {
         
         // fire stop listener
         IRTModuleListener.Poster.moduleStopped(this.module);
+        
     }
 
     @objid ("1581326e-3629-41e7-8750-49f864685bf3")
@@ -213,6 +215,7 @@ public class StartedFeature extends AbstractFeature {
                 }
             }
         }
+        
     }
 
     @objid ("cfe4e120-4d54-49fb-9698-719b2968dbe3")
@@ -233,6 +236,7 @@ public class StartedFeature extends AbstractFeature {
         for (IRTModule reqModule : this.module.getOptionalDependencies()) {
             reqModule.getListeners().add(this.optionalListener);
         }
+        
     }
 
     @objid ("08f2e6a3-bb57-4fb7-98d4-5de9c650a585")
@@ -245,11 +249,11 @@ public class StartedFeature extends AbstractFeature {
         for (IRTModule reqModule : this.module.getOptionalDependencies()) {
             reqModule.getListeners().remove(this.optionalListener);
         }
+        
     }
 
     /**
      * fire listeners on dependent modules first then on the given module.
-     * 
      * @param amodule the module being unloaded
      */
     @objid ("acab238a-3001-40dd-ac92-d1bee452d308")
@@ -269,6 +273,7 @@ public class StartedFeature extends AbstractFeature {
                 MdaInfra.LOG.warning(e);
             }
         }
+        
     }
 
 }

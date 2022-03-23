@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.util.ArrayList;
@@ -54,16 +53,15 @@ public class InterruptibleActivityRegionPropertyModel extends AbstractPropertyMo
      */
     @objid ("e4c69809-cc95-4337-b02e-3268f990247b")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name",
-			"InterruptingEdge" };
+    			"InterruptingEdge" };
 
     /**
      * Create a new <i>InterruptibleActivityRegion</i> data model from an
      * <i>InterruptibleActivityRegion</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("460f67fa-b15b-460c-9c0c-3ccd88f28fd8")
-    public InterruptibleActivityRegionPropertyModel(InterruptibleActivityRegion theEditedElement) {
+    public  InterruptibleActivityRegionPropertyModel(InterruptibleActivityRegion theEditedElement) {
         super(theEditedElement);
     }
 
@@ -109,6 +107,7 @@ public class InterruptibleActivityRegionPropertyModel extends AbstractPropertyMo
         default:
             return null;
         }
+        
     }
 
     /**
@@ -141,6 +140,7 @@ public class InterruptibleActivityRegionPropertyModel extends AbstractPropertyMo
         default:
             return null;
         }
+        
     }
 
     /**
@@ -181,6 +181,7 @@ public class InterruptibleActivityRegionPropertyModel extends AbstractPropertyMo
         default:
             return;
         }
+        
     }
 
 }

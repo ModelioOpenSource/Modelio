@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.jdbm7.impl.migration.v4;
 
 import java.io.ByteArrayOutputStream;
@@ -81,11 +80,12 @@ public class V4Migrator {
      * @param metamodel the metamodel to use for migration. Must match the old database format.
      */
     @objid ("51505e5e-137c-438c-9086-e2f958d1f874")
-    public V4Migrator(File dbPath, String dbName, SmMetamodel metamodel) {
+    public  V4Migrator(File dbPath, String dbName, SmMetamodel metamodel) {
         this.oldDbPath = dbPath;
         this.dbName = dbName;
         this.metamodel = metamodel;
         this.newDbTempPath = new File (dbPath.getParentFile(), "tmp_new");
+        
     }
 
     @objid ("86c86f2a-770b-46bd-b08c-810653276605")
@@ -102,6 +102,7 @@ public class V4Migrator {
             monitor.subTask(VCoreSession.I18N.getMessage("jdbm.V4Migrator.ResetAbortedMigration", this.dbName));
             FileUtils.delete(this.newDbTempPath);
         }
+        
     }
 
     @objid ("1512c98a-b8ac-4848-b97b-988e34a4a8c4")
@@ -113,6 +114,7 @@ public class V4Migrator {
             
         JdbmIndex indexes = new JdbmIndex(this.newDb);
         this.v4Transcoder = new V4Transcoder(this.metamodel, indexes);
+        
     }
 
     @objid ("6333dae6-66dc-4426-b262-e4e955de5f03")
@@ -132,6 +134,7 @@ public class V4Migrator {
         
         Log.trace("JDBM migration successful.");
         monitor.done();
+        
     }
 
     /**
@@ -165,6 +168,7 @@ public class V4Migrator {
             Log.trace(" JDBM migration: delete old database in '%s' temp place...", oldDbTmpPath);
             FileUtils.delete(oldDbTmpPath);
         }
+        
     }
 
     @objid ("088f666f-ce56-462e-8718-b5c1902f0550")
@@ -231,6 +235,7 @@ public class V4Migrator {
         mon.subTask(VCoreSession.I18N.getMessage("jdbm.V4Migrator.Converting.finish", this.dbName, i));
         this.newDb.commit();
         mon.worked(1);
+        
     }
 
     /**
@@ -267,6 +272,7 @@ public class V4Migrator {
             if (err != null) {
                 throw err;
             }
+            
         }
 
     }

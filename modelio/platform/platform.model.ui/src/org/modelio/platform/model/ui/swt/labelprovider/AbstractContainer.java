@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.labelprovider;
 
 import java.util.Collections;
@@ -97,9 +96,10 @@ public abstract class AbstractContainer<T> implements IModelContainer<T> {
     }
 
     @objid ("8d503a4b-b5cc-4575-bebe-dee5c2d11fee")
-    public AbstractContainer(MObject owner, List<T> contents) {
+    public  AbstractContainer(MObject owner, List<T> contents) {
         this.owner = owner;
         this.contents = contents;
+        
     }
 
     @objid ("334ea458-0863-4fa4-af0d-a7439c78823b")

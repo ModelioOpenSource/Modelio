@@ -17,17 +17,19 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.corexp;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.expressions.PropertyTester;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.modelio.diagram.elements.common.abstractdiagram.AbstractDiagramEditPart;
+import org.modelio.diagram.elements.common.portcontainer.GmPortContainer;
 import org.modelio.diagram.elements.core.link.LinkEditPart;
 import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
+import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.elements.umlcommon.diagramview.DiagramViewEditPart;
 import org.modelio.diagram.elements.umlcommon.namespaceuse.GmNamespaceUse;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 
 /**
  * Core Expression property tester for diagram nodes and links.
@@ -56,8 +58,11 @@ public class GmTester extends PropertyTester {
     @objid ("71eb1e10-e0a3-480d-8816-1e8882f5c586")
     private static final String IS_GMDIAGRAMVIEW = "is-gmdiagramview";
 
+    @objid ("ebdf75bf-8670-4e16-8f7f-6d3b09fd5d10")
+    private static final String IS_GMNODE_CUSTOMMODE = "is-gmnode-custommode";
+
     @objid ("8247ab73-74c2-458d-a9a9-843e5ca2cf49")
-    public GmTester() {
+    public  GmTester() {
         // nothing
     }
 
@@ -103,9 +108,27 @@ public class GmTester extends PropertyTester {
                 }
             }
             return true;
+        case IS_GMNODE_CUSTOMMODE:
+            // true is all selected element are GmNodes
+            for (Object element : elements) {
+                if (!(element instanceof AbstractNodeEditPart) || (element instanceof AbstractDiagramEditPart)) {
+                    return false;
+                } else {
+                    GmNodeModel gmModel = ((AbstractNodeEditPart) element).getModel();
+                    if (gmModel instanceof GmPortContainer) {
+                        if (((GmPortContainer) gmModel).getMainNode().getRepresentationMode() != RepresentationMode.USER_IMAGE) {
+                            return false;
+                        }
+                    } else if (gmModel.getRepresentationMode() != RepresentationMode.USER_IMAGE) {
+                        return false;
+                    }
+                }
+            }
+            return true;
         default:
             throw new IllegalArgumentException(property + " property not supported by " + getClass().getSimpleName());
         }
+        
     }
 
     @objid ("823cdaaf-cdb0-4bfb-a9ae-6d4efc923db1")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.decisionmerge;
 
 import java.beans.PropertyChangeEvent;
@@ -97,6 +96,7 @@ public class InputBehaviourTextEditPart extends AbstractNodeEditPart {
             manager.show();
         }
         super.performRequest(req);
+        
     }
 
     /**
@@ -131,6 +131,7 @@ public class InputBehaviourTextEditPart extends AbstractNodeEditPart {
         } else {
             super.propertyChange(evt);
         }
+        
     }
 
     @objid ("2a477aed-55b6-11e2-877f-002564c97630")
@@ -141,6 +142,7 @@ public class InputBehaviourTextEditPart extends AbstractNodeEditPart {
         if (((GmModel) getModel()).getEditableText() != null) {
             installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE, new DefaultElementDirectEditPolicy());
         }
+        
     }
 
     @objid ("2a477af0-55b6-11e2-877f-002564c97630")
@@ -155,6 +157,7 @@ public class InputBehaviourTextEditPart extends AbstractNodeEditPart {
         if (layoutData != null) {
             labelFigure.getParent().setConstraint(labelFigure, layoutData);
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.gproject;
 
 import java.io.FileNotFoundException;
@@ -63,17 +62,15 @@ public class TodoActionsRunner {
 
     /**
      * Initialize a project configurer with an open project
-     * 
      * @param project an opened project.
      */
     @objid ("2472947b-a249-420d-949f-1716db09fdf5")
-    public TodoActionsRunner(GProject project) {
+    public  TodoActionsRunner(GProject project) {
         this.project = project;
     }
 
     /**
      * Execute the project to-do actions.
-     * 
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be reported and that the
      * operation cannot be cancelled.
      */
@@ -120,11 +117,11 @@ public class TodoActionsRunner {
                 }
             }
         } while (!actions.isEmpty() && workdone);
+        
     }
 
     /**
      * Get to actions execution failures.
-     * 
      * @return execution failures.
      */
     @objid ("d4b53dad-014b-4a21-adad-5546d5679b8c")
@@ -143,7 +140,7 @@ public class TodoActionsRunner {
     /**
      * @param name a module name.
      * @return the {@link GModule} with the given name
-     * @throws java.util.NoSuchElementException if no GModule with the given name
+     * @throws NoSuchElementException if no GModule with the given name
      */
     @objid ("e9f68115-229b-4f49-be1b-d1655cd886cc")
     protected final GModule getModule(String name) throws NoSuchElementException {
@@ -159,11 +156,10 @@ public class TodoActionsRunner {
      * Install a new module.
      * <p>
      * May be redefined.
-     * 
      * @param md the new module descriptor.
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be reported and that the
      * operation cannot be cancelled.
-     * @throws java.io.IOException in case of failure
+     * @throws IOException in case of failure
      */
     @objid ("cf6db2cb-a424-499a-a716-a15e4d31a80a")
     protected void installModule(ModuleDescriptor md, IModelioProgress monitor) throws IOException {
@@ -180,18 +176,18 @@ public class TodoActionsRunner {
         // Note: 'm' is invalid after installModule(...)
         GModule newGModule = getModule(md.getName());
         reconfigureModule(newGModule, md, mon.newChild(1));
+        
     }
 
     /**
      * Default implementation replaces share scoped parameters with the news.
      * <p>
      * Local scope parameters are left untouched. To be redefined for a better behavior.
-     * 
      * @param m the module to update
      * @param desc the new module parameters.
      * @param mon the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be reported and that the
      * operation cannot be cancelled.
-     * @throws java.io.IOException in case of failure
+     * @throws IOException in case of failure
      */
     @objid ("2805553c-e7dd-48e2-8bb3-9cf5fadd2eaa")
     protected void reconfigureModule(GModule m, ModuleDescriptor desc, IModelioProgress mon) throws IOException {
@@ -219,17 +215,17 @@ public class TodoActionsRunner {
                 p.setScope(DefinitionScope.LOCAL);
             }
         }
+        
     }
 
     /**
      * Uninstall a module.
      * <p>
      * To be redefined to add other behavior.
-     * 
      * @param m the module to remove.
      * @param mon the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be reported and that the
      * operation cannot be cancelled.
-     * @throws java.io.IOException in case of failure
+     * @throws IOException in case of failure
      */
     @objid ("3c2e7adf-d545-4b59-a806-359cac491966")
     protected void removeModule(GModule m, IModelioProgress mon) throws IOException {
@@ -240,12 +236,11 @@ public class TodoActionsRunner {
      * Update a module to another version.
      * <p>
      * May be redefined.
-     * 
      * @param m the module to update
      * @param md the new module descriptor
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be reported and that the
      * operation cannot be cancelled.
-     * @throws java.io.IOException in case of failure
+     * @throws IOException in case of failure
      */
     @objid ("59be1f0e-aac2-4d4b-8dd8-99fe120ccbba")
     protected void upgradeModule(GModule m, ModuleDescriptor md, IModelioProgress monitor) throws IOException {
@@ -256,11 +251,11 @@ public class TodoActionsRunner {
         installModule(md, mon.newChild(10));
         
         reconfigureModule(m, md, mon.newChild(10));
+        
     }
 
     /**
      * Record failure to synchronize a module.
-     * 
      * @param desc a module descriptor if available
      * @param cause the error
      */
@@ -274,6 +269,7 @@ public class TodoActionsRunner {
         }
         
         this.failures.add(new GProblem(desc.getLocalizedLabel(), cause));
+        
     }
 
     @objid ("3cc8ca71-4bb9-465a-8387-604aca080f2f")
@@ -293,6 +289,7 @@ public class TodoActionsRunner {
             addFailure(desc, e);
             return false;
         }
+        
     }
 
     @objid ("4b0bcc91-8910-4dee-ba93-1704198dac27")
@@ -308,6 +305,7 @@ public class TodoActionsRunner {
             addFailure(desc, e);
             return false;
         }
+        
     }
 
     @objid ("c1612e1a-a02b-4b5d-a127-8d30a71c632c")
@@ -331,6 +329,7 @@ public class TodoActionsRunner {
             addFailure(desc, e);
             return false;
         }
+        
     }
 
     @objid ("680cb347-9f31-495d-9609-d3065b7a5c37")
@@ -350,6 +349,7 @@ public class TodoActionsRunner {
             addFailure(desc, e);
             return false;
         }
+        
     }
 
     @objid ("cdbacc0f-d1f6-4e77-9060-f1c23e4e4882")
@@ -361,14 +361,13 @@ public class TodoActionsRunner {
      * Get a module handle for the given {@link ModuleDescriptor}.
      * <p>
      * If the descriptor has an archive location, try to use it first. If the archive location is null or invalid, look into the project {@link IModuleRTCache module cache}. If nothing in the module cache throws FileNotFoundException or NoSuchFileException
-     * 
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be reported and that the
      * operation cannot be cancelled.
      * @param md a module descriptor
      * @return the found module handle, never <code>null</code>.
-     * @throws java.io.FileNotFoundException if no module handle could be found
-     * @throws java.nio.file.NoSuchFileException if no module handle could be found
-     * @throws java.io.IOException on I/O error
+     * @throws FileNotFoundException if no module handle could be found
+     * @throws NoSuchFileException if no module handle could be found
+     * @throws IOException on I/O error
      * @since 3.8
      */
     @objid ("e239832d-b14d-4e1b-abcc-df28336e08fa")
@@ -403,6 +402,7 @@ public class TodoActionsRunner {
         }
         
         throw new FileNotFoundException(md.toString());
+        
     }
 
     /**

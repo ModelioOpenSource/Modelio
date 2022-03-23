@@ -17,13 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.diagramauto.tools.groups;
 
 import java.util.Collection;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.modelio.api.modelio.diagram.IDiagramNode;
+import org.modelio.diagram.diagramauto.tools.DgUtils;
 
 /**
  * Implementation of a (virtual) group of {@link IDiagramNode} as a layout helper used to manipulate a set of DG as a unique entity.
@@ -43,17 +43,15 @@ public class DgNodeGroup {
 
     /**
      * C'tor
-     * 
      * @param dgs the diagram nodes belonging to the group
      */
     @objid ("25065737-becf-4e9f-936d-1aefb2bccf47")
-    public DgNodeGroup(Collection<IDiagramNode> dgs) {
+    public  DgNodeGroup(Collection<IDiagramNode> dgs) {
         this.dgs = dgs;
     }
 
     /**
      * Move the group to the (x,y) position, applying the correct delta-move to each of its children to maintain the relative position of the children in the group.
-     * 
      * @return the new bounds of the group.
      */
     @objid ("d27daf87-55ff-437e-b3b0-24ca370b4605")
@@ -69,7 +67,6 @@ public class DgNodeGroup {
 
     /**
      * Get the rectangle enclosing the group children.
-     * 
      * @return the group children enclosing rectangle
      */
     @objid ("cd63c9c1-a03c-4bf5-b37f-8a2ddbde63f4")
@@ -99,7 +96,6 @@ public class DgNodeGroup {
 
     /**
      * Layout the children as a column. The first child will be laid out at position (x,y) and the next ones below it. The vertical spacing between two children is given by the spacing parameter. All children are left-aligned on the x coordinates
-     * 
      * @param alignment 0 = left aligned nodes, 1 = horizontally centered nodes, 2 = right aligned nodes
      */
     @objid ("3e47ae82-4f72-45be-9b6a-94ccf10e3112")
@@ -110,7 +106,7 @@ public class DgNodeGroup {
         
         // Layout the nodes vertically
         for (IDiagramNode dg : this.dgs) {
-            dg.setLocation(curX, curY);
+            DgUtils.setLocation(dg, curX, curY);
             curY += dg.getBounds().height + spacing;
             maxWidth = Math.max(maxWidth, dg.getBounds().width);
         }
@@ -121,14 +117,14 @@ public class DgNodeGroup {
             for (IDiagramNode dg : this.dgs) {
                 int alignedX = dg.getBounds().x + (maxWidth - dg.getBounds().width) / 2;
                 int alignedY = dg.getBounds().y;
-                dg.setLocation(alignedX, alignedY);
+                DgUtils.setLocation(dg, alignedX, alignedY);
             }
             break;
         case 2: // right aligned
             for (IDiagramNode dg : this.dgs) {
-                int alignedX = dg.getBounds().x + (maxWidth - dg.getBounds().width);
+                int alignedX = dg.getBounds().x + maxWidth - dg.getBounds().width;
                 int alignedY = dg.getBounds().y;
-                dg.setLocation(alignedX, alignedY);
+                DgUtils.setLocation(dg, alignedX, alignedY);
             }
             break;
         case 0: // left aligned
@@ -136,11 +132,11 @@ public class DgNodeGroup {
             // Nothing to change
         
         }
+        
     }
 
     /**
      * Layout the children as a row. The first child will be laid out at position (x,y) and the next ones on its right. The horizontal spacing between two children is given by the spacing parameter. All children are top-aligned on the y coordinates
-     * 
      * @param alignment 0 = top aligned nodes, 1 = vertically centered nodes, 2 = bottom aligned nodes
      */
     @objid ("23b4b3f6-eda2-4b53-afb2-29bbf1193435")
@@ -151,7 +147,7 @@ public class DgNodeGroup {
         
         // Layout the nodes horizontally
         for (IDiagramNode dg : this.dgs) {
-            dg.setLocation(curX, curY);
+            DgUtils.setLocation(dg, curX, curY);
             curX += dg.getBounds().width + spacing;
             maxHeight = Math.max(maxHeight, dg.getBounds().height);
         }
@@ -162,20 +158,21 @@ public class DgNodeGroup {
             for (IDiagramNode dg : this.dgs) {
                 int alignedX = dg.getBounds().x;
                 int alignedY = dg.getBounds().y + (maxHeight - dg.getBounds().height) / 2;
-                dg.setLocation(alignedX, alignedY);
+                DgUtils.setLocation(dg, alignedX, alignedY);
             }
             break;
         case 2: // right aligned
             for (IDiagramNode dg : this.dgs) {
                 int alignedX = dg.getBounds().x;
-                int alignedY = dg.getBounds().y + (maxHeight - dg.getBounds().height);
-                dg.setLocation(alignedX, alignedY);
+                int alignedY = dg.getBounds().y + maxHeight - dg.getBounds().height;
+                DgUtils.setLocation(dg, alignedX, alignedY);
             }
             break;
         case 0: // top aligned
         default:
             // Nothing to change
         }
+        
     }
 
 }

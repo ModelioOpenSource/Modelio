@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.audit;
 
 import java.util.ArrayList;
@@ -98,6 +97,7 @@ public class R2250 extends AbstractUmlRule {
         
         // Classifier.GeneralClass.Class
         plan.registerRule(Component.MQNAME, this, AuditTrigger.UPDATE);
+        
     }
 
     /**
@@ -131,14 +131,14 @@ public class R2250 extends AbstractUmlRule {
      * Default constructor for R2250
      */
     @objid ("088abd77-b193-4604-9793-82b2149dd31e")
-    public R2250() {
+    public  R2250() {
         this.checkerInstance = new CheckR2250(this);
     }
 
     @objid ("283534fa-b35c-4e38-9fd8-af1794ed02c5")
     private static class CheckR2250 extends AbstractControl {
         @objid ("aecc4cee-35df-45ff-8d20-51564c5f2bb3")
-        public CheckR2250(IRule rule) {
+        public  CheckR2250(IRule rule) {
             super(rule);
         }
 
@@ -239,7 +239,6 @@ public class R2250 extends AbstractUmlRule {
 
         /**
          * This methods checks if the given classifier is an .Interface, in which case the appropriate method is called.
-         * 
          * @param classifier The Classifier.
          * @return A list of AuditEntries.
          */
@@ -250,11 +249,11 @@ public class R2250 extends AbstractUmlRule {
             } else {
                 return checkAllClassifier(classifier, new ArrayList<Classifier>());
             }
+            
         }
 
         /**
          * This method recursively navigates the .Interface realizations until it find Classifiers and then call the appropriate method that check Classifiers.
-         * 
          * @param interfaze The .Interface to check.
          * @return A list of AuditEntries.
          */
@@ -286,7 +285,6 @@ public class R2250 extends AbstractUmlRule {
 
         /**
          * This method recursively checks the given Classifier as well as all Classifier that inherits from it.
-         * 
          * @param classifier The given Classifier.
          * @return A list of AuditEntries.
          */
@@ -351,6 +349,7 @@ public class R2250 extends AbstractUmlRule {
                     fetchAllOpSignatures((Classifier) ns, accessibleOpSignatures, classifiers);
                 }
             }
+            
         }
 
         @objid ("4cee6843-8b3f-4353-9f80-f650904f8d80")
@@ -377,6 +376,7 @@ public class R2250 extends AbstractUmlRule {
             } else {
                 return tp.getMClass().getName();
             }
+            
         }
 
         @objid ("2ceb1f7e-448d-4271-b34c-94b52df24008")

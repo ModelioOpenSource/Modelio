@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.stereotype.creator;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,9 +32,10 @@ class ApplyStereotypeListener implements SelectionListener {
     private StereotypeEditionDataModel dataModel = null;
 
     @objid ("8fc9893f-0e0b-43ca-ab58-841782fd3e6c")
-    public ApplyStereotypeListener(StereotypeEditionDialog dialog, StereotypeEditionDataModel dataModel) {
+    public  ApplyStereotypeListener(StereotypeEditionDialog dialog, StereotypeEditionDataModel dataModel) {
         this.dialog = dialog;
         this.dataModel = dataModel;
+        
     }
 
     @objid ("a2e20ffc-d54e-4899-ad36-eff9f9ff7ebd")

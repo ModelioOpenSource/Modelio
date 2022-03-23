@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.events;
 
 import java.util.ArrayList;
@@ -32,8 +32,6 @@ import org.modelio.metamodel.bpmn.events.BpmnCatchEvent;
 import org.modelio.metamodel.bpmn.events.BpmnEvent;
 import org.modelio.metamodel.bpmn.objects.BpmnDataAssociation;
 import org.modelio.metamodel.bpmn.objects.BpmnDataOutput;
-import org.modelio.metamodel.impl.bpmn.events.BpmnCatchEventData;
-import org.modelio.metamodel.impl.bpmn.events.BpmnEventSmClass;
 import org.modelio.metamodel.impl.bpmn.objects.BpmnDataAssociationSmClass;
 import org.modelio.metamodel.impl.bpmn.objects.BpmnDataOutputSmClass;
 import org.modelio.vbasic.version.Version;
@@ -61,7 +59,7 @@ public class BpmnCatchEventSmClass extends BpmnEventSmClass {
     private SmDependency dataOutputDep;
 
     @objid ("8ffeb6be-1820-460c-b371-ced6e0b40f70")
-    public BpmnCatchEventSmClass(ISmMetamodelFragment origin) {
+    public  BpmnCatchEventSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -69,6 +67,7 @@ public class BpmnCatchEventSmClass extends BpmnEventSmClass {
     @Override
     public String getName() {
         return "BpmnCatchEvent";
+        
     }
 
     @objid ("9ddc1fbc-50c4-448d-bdda-cf92e491e2d5")
@@ -81,18 +80,21 @@ public class BpmnCatchEventSmClass extends BpmnEventSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnCatchEvent.class;
+        
     }
 
     @objid ("3c1b1b12-fb62-4337-9d9e-95f7c7b187e2")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("289fa0d2-254b-4ea9-8aea-b6020ba74378")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("12cf58ea-fc05-4742-a6a5-e22959f3c374")
@@ -116,6 +118,8 @@ public class BpmnCatchEventSmClass extends BpmnEventSmClass {
         this.dataOutputDep = new DataOutputSmDependency();
         this.dataOutputDep.init("DataOutput", this, metamodel.getMClass(BpmnDataOutput.MQNAME), 0, 1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.dataOutputDep);
+        
+        
     }
 
     @objid ("1c7f22a0-8a6e-4ae9-a667-b1749efea647")
@@ -148,7 +152,7 @@ public class BpmnCatchEventSmClass extends BpmnEventSmClass {
         private BpmnCatchEventSmClass smClass;
 
         @objid ("c384b61e-30ef-4280-b374-069d2382e2ae")
-        public BpmnCatchEventObjectFactory(BpmnCatchEventSmClass smClass) {
+        public  BpmnCatchEventObjectFactory(BpmnCatchEventSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -195,6 +199,7 @@ public class BpmnCatchEventSmClass extends BpmnEventSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnCatchEventData) data).mDataOutputAssociation = values;
+            
         }
 
         @objid ("364e2033-14e9-40a5-95db-f4e04cd48832")
@@ -204,6 +209,7 @@ public class BpmnCatchEventSmClass extends BpmnEventSmClass {
             	this.symetricDep = ((BpmnDataAssociationSmClass)this.getTarget()).getEndingEventDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -232,6 +238,7 @@ public class BpmnCatchEventSmClass extends BpmnEventSmClass {
             	this.symetricDep = ((BpmnDataOutputSmClass)this.getTarget()).getCatchedDep();
             }
             return this.symetricDep;
+            
         }
 
     }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.core;
 
 import java.io.IOException;
@@ -65,26 +64,26 @@ public class StyleLoader {
      * A Map of already loaded fonts.
      */
     @objid ("31e2533c-2a5b-448e-af39-f43b83e90eb3")
-     Map<String, Font> fontMap;
+    Map<String, Font> fontMap;
 
     /**
      * A map of already loaded colors.
      */
     @objid ("388ce631-8d50-4827-bcce-d32f63bedd40")
-     Map<String, Color> colorMap;
+    Map<String, Color> colorMap;
 
     /**
      * Constructor.
      */
     @objid ("85859858-1926-11e2-92d2-001ec947c8cc")
-    public StyleLoader() {
+    public  StyleLoader() {
         this.fontMap = new HashMap<>();
         this.colorMap = new HashMap<>();
+        
     }
 
     /**
      * Load property values from the default settings resource file.
-     * 
      * @param url the url of the file to load the style from.
      */
     @objid ("8587fa4f-1926-11e2-92d2-001ec947c8cc")
@@ -94,6 +93,7 @@ public class StyleLoader {
         } catch (IOException e) {
             DiagramStyles.LOG.error(e);
         }
+        
     }
 
     @objid ("d7bf0029-bbd1-4301-bcd3-188be6616c7a")
@@ -103,7 +103,6 @@ public class StyleLoader {
 
     /**
      * Load property values from the default settings resource file.
-     * 
      * @param source the InputStream to load the style from.
      */
     @objid ("0f01ff96-9443-43d4-89fd-8f2ea17d4765")
@@ -138,16 +137,16 @@ public class StyleLoader {
                 }
             }
         });
+        
     }
 
     /**
      * This method tries to extract a value for the StyleKey 'sKey' from the raw properties 'loadedValues' that have been read from a property file.<br>
      * When no value can directly be extracted from 'loadedValue' the method tries to analyze 'sKey' as a MetaKey to guess a reasonable default value (asking the defaults provider if some). If nothing work, it returns null.
-     * 
      * @param loadedValues the raw loaded values from the property file
      * @param sKey the StyleKey for which the method is expected to fetch a value
      * @return the value for 'sKey' or null if none.
-     * @throws java.io.IOException If the parsing of the value failed.
+     * @throws IOException If the parsing of the value failed.
      */
     @objid ("8587fa53-1926-11e2-92d2-001ec947c8cc")
     private static Object loadValue(Properties loadedValues, StyleKey sKey) throws IOException {
@@ -196,6 +195,7 @@ public class StyleLoader {
             // ie a property file that do not define all possible values
             return null;
         }
+        
     }
 
     @objid ("8587fa59-1926-11e2-92d2-001ec947c8cc")
@@ -224,6 +224,7 @@ public class StyleLoader {
         } else {
             return null;
         }
+        
     }
 
     @objid ("8587fa62-1926-11e2-92d2-001ec947c8cc")

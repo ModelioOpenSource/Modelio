@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.editingsupport;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,7 +38,6 @@ public interface IOwnerDrawLabelProvider {
     /**
      * Handle the measure event.
      * @see SWT#MeasureItem
-     * 
      * @param event the measure event
      * @param element the model element
      */
@@ -49,7 +47,6 @@ public interface IOwnerDrawLabelProvider {
     /**
      * Handle the paint event.
      * @see SWT#PaintItem
-     * 
      * @param event the paint event
      * @param element the model element
      */

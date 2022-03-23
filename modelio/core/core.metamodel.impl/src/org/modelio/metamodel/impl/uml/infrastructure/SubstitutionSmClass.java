@@ -17,18 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.infrastructure.SubstitutionData;
-import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
 import org.modelio.metamodel.impl.uml.statik.ClassifierSmClass;
 import org.modelio.metamodel.uml.infrastructure.Substitution;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
@@ -53,7 +51,7 @@ public class SubstitutionSmClass extends UmlModelElementSmClass {
     private SmDependency substitutingClassifierDep;
 
     @objid ("31c5a9ec-67a4-4086-8927-407aaab5d56b")
-    public SubstitutionSmClass(ISmMetamodelFragment origin) {
+    public  SubstitutionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -61,6 +59,7 @@ public class SubstitutionSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "Substitution";
+        
     }
 
     @objid ("4d0e53fa-b599-447c-b1c4-8a40f1af71fb")
@@ -73,18 +72,21 @@ public class SubstitutionSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Substitution.class;
+        
     }
 
     @objid ("5a87f95f-8512-4af7-8202-54bb26b7a4b9")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("6cb87f6a-c7c3-4fbf-9146-880efb4d383d")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("068121eb-f964-4047-8245-d7abc2a9169a")
@@ -104,6 +106,8 @@ public class SubstitutionSmClass extends UmlModelElementSmClass {
         this.substitutingClassifierDep = new SubstitutingClassifierSmDependency();
         this.substitutingClassifierDep.init("SubstitutingClassifier", this, metamodel.getMClass(Classifier.MQNAME), 0, 1 , SmDirective.SMCDLINKSOURCE);
         registerDependency(this.substitutingClassifierDep);
+        
+        
     }
 
     @objid ("375fbd1b-d22d-430f-8da0-46495c48e694")
@@ -126,6 +130,7 @@ public class SubstitutionSmClass extends UmlModelElementSmClass {
     @Override
     public boolean isLinkMetaclass() {
         return true;
+        
     }
 
     @objid ("936be856-0eee-482c-bf5f-0fd72c031c62")
@@ -134,7 +139,7 @@ public class SubstitutionSmClass extends UmlModelElementSmClass {
         private SubstitutionSmClass smClass;
 
         @objid ("6a50b367-06eb-43d3-bbaf-2e3e84f52e56")
-        public SubstitutionObjectFactory(SubstitutionSmClass smClass) {
+        public  SubstitutionObjectFactory(SubstitutionSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -176,6 +181,7 @@ public class SubstitutionSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((ClassifierSmClass)this.getTarget()).getSubstitutingSubstitutionDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -204,6 +210,7 @@ public class SubstitutionSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((ClassifierSmClass)this.getTarget()).getSubstituedDep();
             }
             return this.symetricDep;
+            
         }
 
     }

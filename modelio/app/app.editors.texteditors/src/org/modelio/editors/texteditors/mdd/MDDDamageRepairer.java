@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.texteditors.mdd;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,7 +50,7 @@ public class MDDDamageRepairer implements IPresentationDamager, IPresentationRep
      * Constructor for NonRuleBasedDamagerRepairer.
      */
     @objid ("7b564129-2a77-11e2-9fb9-bc305ba4815c")
-    public MDDDamageRepairer(TextAttribute defaultTextAttribute) {
+    public  MDDDamageRepairer(TextAttribute defaultTextAttribute) {
         this.fDefaultTextAttribute = defaultTextAttribute;
     }
 
@@ -67,7 +66,6 @@ public class MDDDamageRepairer implements IPresentationDamager, IPresentationRep
     /**
      * Returns the end offset of the line that contains the specified offset or if the offset is inside a line delimiter, the end
      * offset of the next line.
-     * 
      * @param offset the offset whose line end offset must be computed
      * @return the line end offset for the given offset
      * @exception BadLocationException
@@ -86,6 +84,7 @@ public class MDDDamageRepairer implements IPresentationDamager, IPresentationRep
         } catch (BadLocationException x) {
             return this.fDocument.getLength();
         }
+        
     }
 
     /**
@@ -129,7 +128,6 @@ public class MDDDamageRepairer implements IPresentationDamager, IPresentationRep
 
     /**
      * Adds style information to the given text presentation.
-     * 
      * @param presentation the text presentation to be extended
      * @param offset the offset of the range to be styled
      * @param length the length of the range to be styled
@@ -139,6 +137,7 @@ public class MDDDamageRepairer implements IPresentationDamager, IPresentationRep
     protected void addRange(TextPresentation presentation, int offset, int length, TextAttribute attr) {
         if (attr != null)
             presentation.addStyleRange(new StyleRange(offset, length, attr.getForeground(), attr.getBackground(), attr.getStyle()));
+        
     }
 
 }

@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.module.modelermodule.engine;
 
 import java.util.ArrayList;
@@ -43,7 +42,7 @@ public class StateMachineCreator {
     private State selectedState;
 
     @objid ("ff5a8f2b-b15f-470d-9613-c4d9ab983310")
-    public StateMachineCreator(final State selectedElement) {
+    public  StateMachineCreator(final State selectedElement) {
         this.selectedState = selectedElement;
     }
 
@@ -85,6 +84,7 @@ public class StateMachineCreator {
         }
         
         createDiagram(session, stateMachine, exits, entries);
+        
     }
 
     @objid ("c407eaa1-ec28-41f3-984a-20cee47a5ef9")
@@ -99,6 +99,7 @@ public class StateMachineCreator {
             rep.save();
             rep.close();
         }
+        
     }
 
     @objid ("cfd98a38-4f23-4eb4-a76a-b4b6faa7342e")
@@ -117,6 +118,7 @@ public class StateMachineCreator {
                         
             currentY += 100;                        
         }
+        
     }
 
 }

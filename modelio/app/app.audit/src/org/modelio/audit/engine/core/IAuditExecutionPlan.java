@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.engine.core;
 
 import java.util.Collection;
@@ -39,7 +38,7 @@ public interface IAuditExecutionPlan {
     void disableRule(IRule rule);
 
     @objid ("b16595a2-f678-4826-ad25-b24f67b06292")
-    final class AuditTrigger {
+    public final class AuditTrigger {
         @objid ("aefdcfab-7a65-4544-af6a-a7611c122622")
         public static final int CREATE = 1;
 
@@ -79,7 +78,7 @@ public interface IAuditExecutionPlan {
          * Make default constructor private, this is a pure utility class.
          */
         @objid ("ae8c6527-4c81-49cf-af2b-b1617314cbb6")
-        private AuditTrigger() {
+        private  AuditTrigger() {
             super();
         }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.instancelink;
 
 import java.util.List;
@@ -106,20 +105,19 @@ public class GmInstanceLink extends GmLink {
      * Constructor for deserialization.
      */
     @objid ("355a2566-55b7-11e2-877f-002564c97630")
-    public GmInstanceLink() {
+    public  GmInstanceLink() {
         // Nothing to do.
     }
 
     /**
      * Creates a GmLink.
-     * 
      * @param diagram The diagram containing the link.
      * @param theRole The represented element.
      * @param roleRef The represented role reference. May not be null.
      * @param linkRef The represented link reference. May not be null.
      */
     @objid ("355a2569-55b7-11e2-877f-002564c97630")
-    public GmInstanceLink(IGmDiagram diagram, LinkEnd theRole, MRef roleRef, MRef linkRef) {
+    public  GmInstanceLink(IGmDiagram diagram, LinkEnd theRole, MRef roleRef, MRef linkRef) {
         super(diagram, linkRef);
         
         this.roleEl = theRole;
@@ -155,6 +153,7 @@ public class GmInstanceLink extends GmLink {
             addExtension(ExtensionLocation.MiddleSE, IGmLink.ROLE_MAIN_LABEL, new GmLinkLabel(diagram, linkRef));
         
         }
+        
     }
 
     @objid ("355a2578-55b7-11e2-877f-002564c97630")
@@ -184,6 +183,7 @@ public class GmInstanceLink extends GmLink {
         
         // post change event
         firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, null, this);
+        
     }
 
     /**
@@ -196,7 +196,6 @@ public class GmInstanceLink extends GmLink {
 
     /**
      * Get the source side navigability.
-     * 
      * @return true if the source side is navigable.
      */
     @objid ("355babf9-55b7-11e2-877f-002564c97630")
@@ -206,7 +205,6 @@ public class GmInstanceLink extends GmLink {
 
     /**
      * Get the target side navigability.
-     * 
      * @return true if the target side of the link is navigable.
      */
     @objid ("355babfe-55b7-11e2-877f-002564c97630")
@@ -234,11 +232,11 @@ public class GmInstanceLink extends GmLink {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmInstanceLink.", GmInstanceLink.MINOR_VERSION);
+        
     }
 
     /**
      * Get the represented link role.
-     * 
      * @return the link role.
      */
     @objid ("355bac28-55b7-11e2-877f-002564c97630")
@@ -267,6 +265,7 @@ public class GmInstanceLink extends GmLink {
             this.fromNavigable = false;
             this.toNavigable = false;
         }
+        
     }
 
     @objid ("eee8ce21-1a32-451e-a590-2ded2bc75706")
@@ -293,6 +292,7 @@ public class GmInstanceLink extends GmLink {
             break;
         }
         }
+        
     }
 
     @objid ("4262e390-8259-46a0-8381-72364232c272")
@@ -331,6 +331,7 @@ public class GmInstanceLink extends GmLink {
             }
         
         }
+        
     }
 
     /**
@@ -360,6 +361,7 @@ public class GmInstanceLink extends GmLink {
             removeExtension(oldLabel);
             oldLabel.delete();
         }
+        
     }
 
     /**
@@ -383,6 +385,7 @@ public class GmInstanceLink extends GmLink {
                 }
             }
         }
+        
     }
 
     @objid ("355bac11-55b7-11e2-877f-002564c97630")
@@ -397,6 +400,7 @@ public class GmInstanceLink extends GmLink {
             this.fromNavigable = false;
             this.toNavigable = true;
         }
+        
     }
 
 }

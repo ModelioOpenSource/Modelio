@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.plugin;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -59,7 +58,6 @@ public abstract class AbstractDiagramConfigurer implements IDiagramConfigurer {
 
     /**
      * Creates a drawings palette group.
-     * 
      * @param toolRegistry the tool registry
      * @return the created drawings palette group.
      */
@@ -90,7 +88,6 @@ public abstract class AbstractDiagramConfigurer implements IDiagramConfigurer {
      * Get the identifier of the palette to look for in the plugin.xml .
      * <p>
      * By default it is {@link #getContributionURI()}, may be redefined by sub classes.
-     * 
      * @return the palette identifier.
      */
     @objid ("719927b7-86c6-4758-874f-d70e6c79a310")
@@ -100,14 +97,13 @@ public abstract class AbstractDiagramConfigurer implements IDiagramConfigurer {
 
     /**
      * Read the palette content from plugin.xml.
-     * 
      * @param toolRegistry the tool registry
      * @return the created palette .
      */
     @objid ("b3861798-3002-44fa-ab8f-9c30b23301cf")
     protected PaletteRoot readPaletteFromPlugin(final AbstractDiagramEditor diagram, final ToolRegistry toolRegistry) {
         PaletteRoot paletteRoot = new PaletteRoot();
-        paletteRoot = new PaletteRoot();
+        paletteRoot.setId(getPaletteId());
         
         for (final IConfigurationElement e : new ExtensionPointContributionManager(PALETTEEXTENSION_ID).getExtensions("palette")) {
             if (e.getAttribute("id").equals(getPaletteId())) {
@@ -122,6 +118,7 @@ public abstract class AbstractDiagramConfigurer implements IDiagramConfigurer {
         for (final IConfigurationElement child : el.getChildren()) {
             parsePaletteEntry(container, toolRegistry, paletteRoot, child);
         }
+        
     }
 
     @objid ("7a16daeb-e080-4651-84b2-25b7274aaddb")
@@ -190,6 +187,7 @@ public abstract class AbstractDiagramConfigurer implements IDiagramConfigurer {
         if (createdToolEntry != null && "true".equalsIgnoreCase(child.getAttribute("default"))) {
             paletteRoot.setDefaultEntry(createdToolEntry);
         }
+        
     }
 
 }

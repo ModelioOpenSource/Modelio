@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.script.plugin;
 
 import java.util.ResourceBundle;
@@ -51,6 +50,7 @@ public class Script implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger((String)null));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("script"));
+        
     }
 
     @objid ("00843226-681e-105c-84ef-001ec947cd2a")

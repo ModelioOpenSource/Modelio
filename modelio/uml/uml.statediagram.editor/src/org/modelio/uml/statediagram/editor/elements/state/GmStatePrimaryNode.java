@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.state;
 
 import java.util.Collections;
@@ -34,8 +33,8 @@ import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.InternalTransition;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.Region;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.State;
@@ -78,12 +77,11 @@ public class GmStatePrimaryNode extends GmNoStyleCompositeNode implements IImage
 
     /**
      * Default constructor.
-     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param relatedRef a reference to the represented state.
      */
     @objid ("f582753a-55b6-11e2-877f-002564c97630")
-    public GmStatePrimaryNode(IGmDiagram diagram, MRef relatedRef) {
+    public  GmStatePrimaryNode(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
         
         this.header = new GmStateLabel(diagram, relatedRef);
@@ -98,13 +96,14 @@ public class GmStatePrimaryNode extends GmNoStyleCompositeNode implements IImage
         this.regionsGroup.setRoleInComposition("regions");
         this.regionsGroup.setVertical(true);
         addChild(this.regionsGroup);
+        
     }
 
     /**
      * Empty constructor needed for deserialization.
      */
     @objid ("f583fba1-55b6-11e2-877f-002564c97630")
-    public GmStatePrimaryNode() {
+    public  GmStatePrimaryNode() {
         // empty
     }
 
@@ -141,6 +140,7 @@ public class GmStatePrimaryNode extends GmNoStyleCompositeNode implements IImage
         } else {
             return this;
         }
+        
     }
 
     @objid ("f583fbbd-55b6-11e2-877f-002564c97630")
@@ -176,6 +176,7 @@ public class GmStatePrimaryNode extends GmNoStyleCompositeNode implements IImage
             break;
         }
         }
+        
     }
 
     @objid ("f583fbcf-55b6-11e2-877f-002564c97630")
@@ -183,6 +184,7 @@ public class GmStatePrimaryNode extends GmNoStyleCompositeNode implements IImage
     public void refreshFromObModel() {
         // forcing visual refresh in case Image changed
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("f583fbd2-55b6-11e2-877f-002564c97630")
@@ -196,6 +198,7 @@ public class GmStatePrimaryNode extends GmNoStyleCompositeNode implements IImage
         // Returned result depends on current representation mode:
         List<GmNodeModel> ret;
         switch (this.getRepresentationMode()) {
+        case USER_IMAGE:
         case IMAGE: {
             ret = Collections.emptyList();
             break;
@@ -218,6 +221,7 @@ public class GmStatePrimaryNode extends GmNoStyleCompositeNode implements IImage
         
         // Write version of this Gm if different of 0.
         writeMinorVersion(out, "GmStatePrimaryNode.", Integer.valueOf(GmStatePrimaryNode.MINOR_VERSION));
+        
     }
 
     @objid ("f5858240-55b6-11e2-877f-002564c97630")
@@ -230,6 +234,7 @@ public class GmStatePrimaryNode extends GmNoStyleCompositeNode implements IImage
         
         GmNodeModel imageModeHeader =  this.getChildren().get(3);
         imageModeHeader.delete();
+        
     }
 
     @objid ("f5858245-55b6-11e2-877f-002564c97630")
@@ -245,6 +250,7 @@ public class GmStatePrimaryNode extends GmNoStyleCompositeNode implements IImage
         this.header = (GmDefaultModelElementHeader) this.getFirstChild("header");
         this.internalTransitionsZone = (GmInternalTransitionsGroup) getFirstChild("transitions");
         this.regionsGroup = (GmRegionsGroup) getFirstChild("regions");
+        
     }
 
     @objid ("f5858250-55b6-11e2-877f-002564c97630")
@@ -252,6 +258,7 @@ public class GmStatePrimaryNode extends GmNoStyleCompositeNode implements IImage
     public void styleChanged(IStyle changedStyle) {
         super.styleChanged(changedStyle);
         firePropertyChange(PROPERTY_CHILDREN, null, getVisibleChildren());
+        
     }
 
     @objid ("f5858256-55b6-11e2-877f-002564c97630")
@@ -259,6 +266,7 @@ public class GmStatePrimaryNode extends GmNoStyleCompositeNode implements IImage
     public void styleChanged(StyleKey property, Object newValue) {
         super.styleChanged(property, newValue);
         firePropertyChange(PROPERTY_CHILDREN, null, getVisibleChildren());
+        
     }
 
 }

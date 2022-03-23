@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmndataassociation;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.bpmn.diagram.editor.elements.style.BpmnAbstractStyleKeyProvider;
+import org.modelio.bpmn.diagram.editor.elements.common.style.BpmnAbstractStyleKeyProvider;
 import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.diagram.styles.core.StyleKey;
 
@@ -35,35 +34,35 @@ public class GmBpmnDataAssociationStyleKeys extends BpmnAbstractStyleKeyProvider
      */
     @objid ("71474991-55c1-11e2-9337-002564c97630")
     public static final StyleKey CONNECTIONROUTER = createStyleKey("BPMNDATAASSOCIATION_ROUTINGMODE",
-            MetaKey.CONNECTIONROUTER);
+                MetaKey.CONNECTIONROUTER);
 
     /**
      * Line color
      */
     @objid ("71474994-55c1-11e2-9337-002564c97630")
     public static final StyleKey LINECOLOR = createStyleKey("BPMNDATAASSOCIATION_LINECOLOR",
-            MetaKey.LINECOLOR);
+                MetaKey.LINECOLOR);
 
     /**
      * Line width
      */
     @objid ("71474997-55c1-11e2-9337-002564c97630")
     public static final StyleKey LINEWIDTH = createStyleKey("BPMNDATAASSOCIATION_LINEWIDTH",
-            MetaKey.LINEWIDTH);
+                MetaKey.LINEWIDTH);
 
     /**
      * Line radius
      */
     @objid ("7147499a-55c1-11e2-9337-002564c97630")
     public static final StyleKey LINERADIUS = createStyleKey("BPMNDATAASSOCIATION_LINERADIUS",
-            MetaKey.LINERADIUS);
+                MetaKey.LINERADIUS);
 
     /**
      * Bridge
      */
     @objid ("7148d02b-55c1-11e2-9337-002564c97630")
     public static final StyleKey DRAWLINEBRIDGES = createStyleKey("BPMNDATAASSOCIATION_DRAWLINEBRIDGES",
-            MetaKey.DRAWLINEBRIDGES);
+                MetaKey.DRAWLINEBRIDGES);
 
     /**
      * Text font.
@@ -76,14 +75,14 @@ public class GmBpmnDataAssociationStyleKeys extends BpmnAbstractStyleKeyProvider
      */
     @objid ("7148d031-55c1-11e2-9337-002564c97630")
     public static final StyleKey TEXTCOLOR = createStyleKey("BPMNDATAASSOCIATION_TEXTCOLOR",
-            MetaKey.TEXTCOLOR);
+                MetaKey.TEXTCOLOR);
 
     /**
      * Stereotype display mode.
      */
     @objid ("7148d034-55c1-11e2-9337-002564c97630")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("BPMNDATAASSOCIATION_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+                MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Display tagged values
@@ -96,6 +95,6 @@ public class GmBpmnDataAssociationStyleKeys extends BpmnAbstractStyleKeyProvider
      */
     @objid ("7148d03a-55c1-11e2-9337-002564c97630")
     public static final StyleKey LINEPATTERN = createStyleKey("BPMNDATAASSOCIATION_LINEPATTERN",
-            MetaKey.LINEPATTERN);
+                MetaKey.LINEPATTERN);
 
 }

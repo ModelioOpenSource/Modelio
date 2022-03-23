@@ -17,18 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.staticdiagram;
 
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.elements.common.abstractdiagram.GmAbstractDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.bpmn.flows.BpmnMessage;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnProcess;
 import org.modelio.metamodel.diagrams.StaticDiagram;
@@ -73,15 +73,15 @@ public class GmStaticDiagram extends GmAbstractDiagram {
 
     /**
      * Creates a diagram model.
-     * 
      * @param modelManager The model manager.
      * @param el The represented diagram.
      * @param ref The represented diagram reference.
      */
     @objid ("36b2fea9-55b7-11e2-877f-002564c97630")
-    public GmStaticDiagram(IModelManager modelManager, StaticDiagram el, MRef ref) {
+    public  GmStaticDiagram(IModelManager modelManager, StaticDiagram el, MRef ref) {
         super(modelManager, ref);
         this.obDiagram = el;
+        
     }
 
     @objid ("36b2feb5-55b7-11e2-877f-002564c97630")
@@ -94,6 +94,7 @@ public class GmStaticDiagram extends GmAbstractDiagram {
                 ProvidedInterface.class.isAssignableFrom(type) ||
                 NaryAssociation.class.isAssignableFrom(type) ||
                 Behavior.class.isAssignableFrom(type) || BpmnProcess.class.isAssignableFrom(type));
+        
     }
 
     @objid ("36b2febd-55b7-11e2-877f-002564c97630")
@@ -105,6 +106,7 @@ public class GmStaticDiagram extends GmAbstractDiagram {
                 el instanceof ActivityNode ||
                 el instanceof ActivityEdge ||
                 el instanceof InteractionFragment || el instanceof Message || el instanceof BpmnMessage);
+        
     }
 
     @objid ("36b4853f-55b7-11e2-877f-002564c97630")
@@ -142,6 +144,7 @@ public class GmStaticDiagram extends GmAbstractDiagram {
             break;
         }
         }
+        
     }
 
     @objid ("36b4855f-55b7-11e2-877f-002564c97630")
@@ -179,6 +182,7 @@ public class GmStaticDiagram extends GmAbstractDiagram {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmStaticDiagram.", GmStaticDiagram.MINOR_VERSION);
+        
     }
 
     @objid ("36b60bd9-55b7-11e2-877f-002564c97630")
@@ -186,6 +190,7 @@ public class GmStaticDiagram extends GmAbstractDiagram {
         super.read(in);
         
         this.obDiagram = (StaticDiagram) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("36b60bde-55b7-11e2-877f-002564c97630")

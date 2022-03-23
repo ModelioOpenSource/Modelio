@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
@@ -32,12 +32,6 @@ import org.modelio.metamodel.impl.uml.behavior.activityModel.ObjectNodeSmClass;
 import org.modelio.metamodel.impl.uml.behavior.communicationModel.CommunicationNodeSmClass;
 import org.modelio.metamodel.impl.uml.behavior.interactionModel.LifelineSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
-import org.modelio.metamodel.impl.uml.statik.AttributeLinkSmClass;
-import org.modelio.metamodel.impl.uml.statik.BindableInstanceSmClass;
-import org.modelio.metamodel.impl.uml.statik.InstanceData;
-import org.modelio.metamodel.impl.uml.statik.LinkEndSmClass;
-import org.modelio.metamodel.impl.uml.statik.NameSpaceSmClass;
-import org.modelio.metamodel.impl.uml.statik.NaryLinkEndSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.ObjectNode;
 import org.modelio.metamodel.uml.behavior.communicationModel.CommunicationNode;
 import org.modelio.metamodel.uml.behavior.interactionModel.Lifeline;
@@ -106,7 +100,7 @@ public class InstanceSmClass extends UmlModelElementSmClass {
     private SmDependency targetingEndDep;
 
     @objid ("4a65a225-ab66-4fe3-b936-ad4d85d1ce91")
-    public InstanceSmClass(ISmMetamodelFragment origin) {
+    public  InstanceSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -114,6 +108,7 @@ public class InstanceSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "Instance";
+        
     }
 
     @objid ("caf96c3e-0fac-4118-92b4-f5ba8b413575")
@@ -126,18 +121,21 @@ public class InstanceSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Instance.class;
+        
     }
 
     @objid ("853cdf2f-9e7b-4ab8-9dab-44082391cf19")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("6f3776de-7ae2-43a3-872b-31b2ca2da06c")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("ce0daa3b-984e-4bf2-ae7b-00450cefa193")
@@ -205,6 +203,8 @@ public class InstanceSmClass extends UmlModelElementSmClass {
         this.targetingEndDep = new TargetingEndSmDependency();
         this.targetingEndDep.init("TargetingEnd", this, metamodel.getMClass(LinkEnd.MQNAME), 0, -1 , SmDirective.SMCDTODELETE);
         registerDependency(this.targetingEndDep);
+        
+        
     }
 
     @objid ("ebde7609-8474-48e9-b0f7-b8e30adbd668")
@@ -325,7 +325,7 @@ public class InstanceSmClass extends UmlModelElementSmClass {
         private InstanceSmClass smClass;
 
         @objid ("38bc121a-3d61-46e7-a360-e7074e6b774c")
-        public InstanceObjectFactory(InstanceSmClass smClass) {
+        public  InstanceObjectFactory(InstanceSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -414,6 +414,7 @@ public class InstanceSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((InstanceData) data).mRepresentedCommunicationNode = values;
+            
         }
 
         @objid ("ea114270-d397-43f8-ad10-b2a3ebf6f818")
@@ -423,6 +424,7 @@ public class InstanceSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((CommunicationNodeSmClass)this.getTarget()).getRepresentedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -442,6 +444,7 @@ public class InstanceSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((InstanceData) data).mOwnedEnd = values;
+            
         }
 
         @objid ("ea6f3db5-056b-4be6-8167-6031da682c91")
@@ -451,6 +454,7 @@ public class InstanceSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((LinkEndSmClass)this.getTarget()).getSourceDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -479,6 +483,7 @@ public class InstanceSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((NameSpaceSmClass)this.getTarget()).getRepresentingDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -498,6 +503,7 @@ public class InstanceSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((InstanceData) data).mRepresentingObjectNode = values;
+            
         }
 
         @objid ("141791cd-4557-4358-8e5e-3226083b6b90")
@@ -507,6 +513,7 @@ public class InstanceSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((ObjectNodeSmClass)this.getTarget()).getRepresentedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -535,6 +542,7 @@ public class InstanceSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((NameSpaceSmClass)this.getTarget()).getDeclaredDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -554,6 +562,7 @@ public class InstanceSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((InstanceData) data).mOwnedNaryEnd = values;
+            
         }
 
         @objid ("aa9b8ab3-1070-4df0-a46d-b35b2ae86273")
@@ -563,6 +572,7 @@ public class InstanceSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((NaryLinkEndSmClass)this.getTarget()).getSourceDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -582,6 +592,7 @@ public class InstanceSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((InstanceData) data).mRepresentedLifeLine = values;
+            
         }
 
         @objid ("474afdee-7279-4edd-8b9d-68f03218a480")
@@ -591,6 +602,7 @@ public class InstanceSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((LifelineSmClass)this.getTarget()).getRepresentedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -610,6 +622,7 @@ public class InstanceSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((InstanceData) data).mSlot = values;
+            
         }
 
         @objid ("fc3007f7-3ef2-4c04-bb2e-399e33714c92")
@@ -619,6 +632,7 @@ public class InstanceSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((AttributeLinkSmClass)this.getTarget()).getAttributedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -638,6 +652,7 @@ public class InstanceSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((InstanceData) data).mPart = values;
+            
         }
 
         @objid ("adc45403-674a-49ec-9963-dabb76e4b077")
@@ -647,6 +662,7 @@ public class InstanceSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((BindableInstanceSmClass)this.getTarget()).getClusterDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -666,6 +682,7 @@ public class InstanceSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((InstanceData) data).mTargetingEnd = values;
+            
         }
 
         @objid ("d739c4ba-259b-4b09-a4c0-f252bf7d3900")
@@ -675,6 +692,7 @@ public class InstanceSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((LinkEndSmClass)this.getTarget()).getTargetDep();
             }
             return this.symetricDep;
+            
         }
 
     }

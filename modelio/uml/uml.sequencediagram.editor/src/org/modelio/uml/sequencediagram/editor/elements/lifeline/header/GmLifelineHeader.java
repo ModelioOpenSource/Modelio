@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.lifeline.header;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -54,18 +53,17 @@ public class GmLifelineHeader extends GmDefaultModelElementHeader {
      * Empty c'tor for deserialisation.
      */
     @objid ("d94218a3-55b6-11e2-877f-002564c97630")
-    public GmLifelineHeader() {
+    public  GmLifelineHeader() {
         super();
     }
 
     /**
      * Default c'tor.
-     * 
      * @param diagram the diagram in which this Gm is created.
      * @param ref a reference to the related element.
      */
     @objid ("d94218a6-55b6-11e2-877f-002564c97630")
-    public GmLifelineHeader(final IGmDiagram diagram, final MRef ref) {
+    public  GmLifelineHeader(final IGmDiagram diagram, final MRef ref) {
         super(diagram, ref);
     }
 
@@ -77,6 +75,7 @@ public class GmLifelineHeader extends GmDefaultModelElementHeader {
         } else {
             return RepresentationMode.STRUCTURED;
         }
+        
     }
 
     @objid ("d94218b7-55b6-11e2-877f-002564c97630")
@@ -96,6 +95,7 @@ public class GmLifelineHeader extends GmDefaultModelElementHeader {
             setShowMetaclassIcon(false);
         }
         super.refreshFromObModel();
+        
     }
 
     /**
@@ -120,7 +120,6 @@ public class GmLifelineHeader extends GmDefaultModelElementHeader {
      * The secondary label of a Lifeline is the represented PartDecomposition if any.
      * <p>
      * This method may be redefined by subclasses.
-     * 
      * @return The secondary label of the header.
      */
     @objid ("d94218c5-55b6-11e2-877f-002564c97630")
@@ -149,6 +148,7 @@ public class GmLifelineHeader extends GmDefaultModelElementHeader {
             break;
         }
         }
+        
     }
 
     @objid ("d9439f3c-55b6-11e2-877f-002564c97630")
@@ -158,6 +158,7 @@ public class GmLifelineHeader extends GmDefaultModelElementHeader {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmLifelineHeader.", GmLifelineHeader.MINOR_VERSION);
+        
     }
 
     @objid ("d9439f42-55b6-11e2-877f-002564c97630")

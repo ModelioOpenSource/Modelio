@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.model;
 
 import java.nio.file.Path;
@@ -76,11 +75,10 @@ public class ModelManager implements IModelManager {
 
     /**
      * Create a model manager.
-     * 
      * @param context the Eclipse 4 context
      */
     @objid ("80874372-1dec-11e2-8cad-001ec947c8cc")
-    public ModelManager(IEclipseContext context) {
+    public  ModelManager(IEclipseContext context) {
         IProjectService projectService = context.get(IProjectService.class);
         this.projectPath = projectService.getOpenedProject().getProjectFileStructure().getProjectPath();
         this.session = projectService.getSession();
@@ -91,6 +89,7 @@ public class ModelManager implements IModelManager {
         this.mdaExpert = context.get(IModuleService.class).getMdaExpert();
         this.modelLinkFactory = new ModelLinkFactory(this.modelServices);
         this.context = context;
+        
     }
 
     /**
@@ -113,7 +112,6 @@ public class ModelManager implements IModelManager {
 
     /**
      * Get the MDA expert to ask for example whether a stereotyped element can be put under an element.
-     * 
      * @return the MDA expert.
      * @since Modelio 3.4
      */
@@ -125,7 +123,6 @@ public class ModelManager implements IModelManager {
 
     /**
      * Get the diagram project metamodel.
-     * 
      * @return the project metamodel.
      */
     @objid ("ca6379a1-405d-4ac6-919c-0ff23c094e40")
@@ -137,7 +134,6 @@ public class ModelManager implements IModelManager {
     /**
      * Get the model factory used to create a model object
      * in the same repository as the given object.
-     * 
      * @return a model factory.
      */
     @objid ("8087438a-1dec-11e2-8cad-001ec947c8cc")
@@ -148,7 +144,6 @@ public class ModelManager implements IModelManager {
 
     /**
      * Get the Ob link factory.
-     * 
      * @return the link factory.
      */
     @objid ("80874378-1dec-11e2-8cad-001ec947c8cc")
@@ -159,7 +154,6 @@ public class ModelManager implements IModelManager {
 
     /**
      * Get the Modelio model services.
-     * 
      * @return the model services.
      */
     @objid ("78b5a580-598c-11e2-8539-00137282c51b")
@@ -170,7 +164,6 @@ public class ModelManager implements IModelManager {
 
     /**
      * Get the modeling session.
-     * 
      * @return the modeling session.
      */
     @objid ("8087437d-1dec-11e2-8cad-001ec947c8cc")
@@ -192,7 +185,6 @@ public class ModelManager implements IModelManager {
      * Resolve an MRef.
      * @param <E>
      * the type of the element, makes an automatic cast.
-     * 
      * @param ref The reference to resolve
      * @return the found MObject or <i>null</i> if the element is not present in the project.
      */
@@ -205,11 +197,11 @@ public class ModelManager implements IModelManager {
         } catch (UnknownMetaclassException e) {
             return null;
         }
+        
     }
 
     /**
      * Get the project directory path.
-     * 
      * @return the project directory path.
      */
     @objid ("7be8cb01-accf-412a-b3b9-0583785bf23c")
@@ -220,7 +212,6 @@ public class ModelManager implements IModelManager {
 
     /**
      * Returns the service associated with the given class.
-     * 
      * @param clazz the class that needs to be found in the context
      * @return an object corresponding to the given class, or <code>null</code>
      */

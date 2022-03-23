@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.classifier;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,21 +45,21 @@ public class GmClassifierResizableGroup extends GmResizableGroup {
 
     /**
      * C'tor.
-     * 
      * @param diagram the diagram in which this Gm is created.
      * @param relatedRef the reference of the represented element.
      */
     @objid ("3433a700-55b7-11e2-877f-002564c97630")
-    public GmClassifierResizableGroup(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmClassifierResizableGroup(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
         setVertical(true);
+        
     }
 
     /**
      * Deserialisation c'tor.
      */
     @objid ("34352d5c-55b7-11e2-877f-002564c97630")
-    public GmClassifierResizableGroup() {
+    public  GmClassifierResizableGroup() {
         super();
     }
 
@@ -89,6 +88,7 @@ public class GmClassifierResizableGroup extends GmResizableGroup {
         
         // Write version of this Gm if different of 0.
         writeMinorVersion(out, "GmClassifierResizableGroup.", Integer.valueOf(GmClassifierResizableGroup.MINOR_VERSION));
+        
     }
 
     @objid ("34352d81-55b7-11e2-877f-002564c97630")
@@ -108,6 +108,7 @@ public class GmClassifierResizableGroup extends GmResizableGroup {
                 break;
             }
         }
+        
     }
 
     @objid ("34352d88-55b7-11e2-877f-002564c97630")
@@ -133,6 +134,7 @@ public class GmClassifierResizableGroup extends GmResizableGroup {
         // Only visible if no parent or parent is in structured mode.
         return super.isVisible() &&
                                                                        (getParentNode() == null || getParentNode().getRepresentationMode() == RepresentationMode.STRUCTURED);
+        
     }
 
 }

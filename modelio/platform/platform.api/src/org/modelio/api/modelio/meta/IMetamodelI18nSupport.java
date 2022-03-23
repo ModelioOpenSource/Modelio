@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.meta;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,6 @@ import org.modelio.vcore.smkernel.mapi.MDependency;
 public interface IMetamodelI18nSupport {
     /**
      * Get the I18n'ed label for a MClass.
-     * 
      * @param mClass the metaclass to get the label for.
      * @return the metaclass' label.
      */
@@ -42,7 +40,6 @@ public interface IMetamodelI18nSupport {
 
     /**
      * Get the I18n'ed label for a MClass.
-     * 
      * @param mDep the meta-dependency to get the label for.
      * @return the meta-dependency' label.
      */
@@ -51,7 +48,6 @@ public interface IMetamodelI18nSupport {
 
     /**
      * Get the I18n'ed label for a MClass.
-     * 
      * @param mAtt the meta-attribute to get the label for.
      * @return the meta-attribute's label.
      */

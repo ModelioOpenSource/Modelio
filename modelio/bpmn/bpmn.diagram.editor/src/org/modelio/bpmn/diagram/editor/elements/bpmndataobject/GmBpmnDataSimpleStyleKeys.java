@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmndataobject;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.bpmn.diagram.editor.elements.style.BpmnAbstractStyleKeyProvider;
+import org.modelio.bpmn.diagram.editor.elements.common.style.BpmnAbstractStyleKeyProvider;
 import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.diagram.styles.core.StyleKey;
 
@@ -31,10 +30,10 @@ import org.modelio.diagram.styles.core.StyleKey;
 @objid ("60d8e6c0-55b6-11e2-877f-002564c97630")
 public class GmBpmnDataSimpleStyleKeys extends BpmnAbstractStyleKeyProvider {
     @objid ("7168db64-55c1-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmBpmnDataObjectStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmBpmnDataObjectStyleKeys.REPMODE;
 
     @objid ("7168db66-55c1-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("DATA_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("DATA_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("7168db68-55c1-11e2-9337-002564c97630")
     public static final StyleKey FILLMODE = createStyleKey("DATA_FILLMODE", MetaKey.FILLMODE);
@@ -46,15 +45,15 @@ public class GmBpmnDataSimpleStyleKeys extends BpmnAbstractStyleKeyProvider {
     public static final StyleKey LINEWIDTH = createStyleKey("DATA_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("7168db6e-55c1-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmBpmnDataObjectStyleKeys.FONT;
+    static final StyleKey FONT = GmBpmnDataObjectStyleKeys.FONT;
 
     @objid ("7168db70-55c1-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmBpmnDataObjectStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmBpmnDataObjectStyleKeys.TEXTCOLOR;
 
     @objid ("7168db72-55c1-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmBpmnDataObjectStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmBpmnDataObjectStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("7168db74-55c1-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmBpmnDataObjectStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmBpmnDataObjectStyleKeys.SHOWTAGS;
 
 }

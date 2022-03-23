@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common.index.builder;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -53,6 +52,7 @@ class LINKState extends AbstractState {
         } catch (IndexException | RuntimeException e) {
             this.stateHandler.throwError(e);
         }
+        
     }
 
     @objid ("cf582774-2601-44e0-bd88-f2a240530ec2")
@@ -63,6 +63,7 @@ class LINKState extends AbstractState {
         {
             this.stateHandler.enterOBJECTState();
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.infrastructure.configurator;
 
 import java.util.Map;
@@ -47,6 +46,7 @@ public class InfrastructureElementConfigurator implements IElementConfigurator {
                 properties);
         
         element.accept(visitor);*/
+        
     }
 
 }

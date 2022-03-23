@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityEdgeSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityEdge;
 import org.modelio.metamodel.uml.behavior.activityModel.ControlFlow;
 import org.modelio.vbasic.version.Version;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("bcf8c7a8-f5f2-4aa2-8d40-afaac0e29e40")
 public class ControlFlowSmClass extends ActivityEdgeSmClass {
     @objid ("1c8acb54-e203-44bb-bee6-9685f6940808")
-    public ControlFlowSmClass(ISmMetamodelFragment origin) {
+    public  ControlFlowSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class ControlFlowSmClass extends ActivityEdgeSmClass {
     @Override
     public String getName() {
         return "ControlFlow";
+        
     }
 
     @objid ("77d9346a-5eeb-4dae-9f5f-c9d5a64062ce")
@@ -62,18 +62,21 @@ public class ControlFlowSmClass extends ActivityEdgeSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ControlFlow.class;
+        
     }
 
     @objid ("d1d85574-9cb1-442c-9df0-0746edb744f9")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("330534c1-14e1-436f-b609-6bac6df05d98")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("b6865597-7c22-4ad0-940e-5d5ceb742f8f")
@@ -86,12 +89,14 @@ public class ControlFlowSmClass extends ActivityEdgeSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("b768d67b-dca4-4262-9c1d-62a84924e1be")
     @Override
     public boolean isLinkMetaclass() {
         return true;
+        
     }
 
     @objid ("63f8d176-7c1a-43d6-b93d-bfb1902e73d0")
@@ -100,7 +105,7 @@ public class ControlFlowSmClass extends ActivityEdgeSmClass {
         private ControlFlowSmClass smClass;
 
         @objid ("2a5e61f9-e1c2-4636-a32d-dc07a542e288")
-        public ControlFlowObjectFactory(ControlFlowSmClass smClass) {
+        public  ControlFlowObjectFactory(ControlFlowSmClass smClass) {
             this.smClass = smClass;
         }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.ui.views.infos;
 
 import java.io.IOException;
@@ -47,10 +46,11 @@ class ProjectAdapter {
     private final ProjectDescriptor projectDescriptor;
 
     @objid ("07bcf207-9996-470a-b8f3-4992701c52b0")
-    public ProjectAdapter(ProjectDescriptor projectDescriptor) {
+    public  ProjectAdapter(ProjectDescriptor projectDescriptor) {
         this.projectDescriptor = projectDescriptor;
         
         this.propertiesUrlAdapter = new PropertiesUrlAdapter(projectDescriptor.getProperties());
+        
     }
 
     @objid ("97aeecbd-8d55-408e-93b4-2abba9274347")

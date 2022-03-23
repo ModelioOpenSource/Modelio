@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package com.sun.star.lib.connections.pipe;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -68,7 +67,6 @@ public final class pipeConnector implements XConnector {
      * 
      * <p>This method is called by the <code>JavaLoader</code>.</p>
      * @see com.sun.star.comp.loader.JavaLoader
-     * 
      * @param implName the name of the implementation for which a service is
      * requested.
      * @param multiFactory the service manager to be used (if needed).
@@ -82,6 +80,7 @@ public final class pipeConnector implements XConnector {
                                               __serviceName, multiFactory,
                                               regKey)
             : null;
+        
     }
 
     /**
@@ -102,7 +101,6 @@ public final class pipeConnector implements XConnector {
      * </p>
      * @see com.sun.star.connections.XAcceptor
      * @see com.sun.star.connections.XConnection
-     * 
      * @param connectionDescription the description of the connection.
      * @return an <code>XConnection</code> to the server.
      */
@@ -121,6 +119,7 @@ public final class pipeConnector implements XConnector {
             // Modifies original source here: attach the cause to the exception
             throw (NoConnectException) new NoConnectException(e.getMessage()).initCause(e);
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.audit;
 
 import java.util.ArrayList;
@@ -101,6 +100,7 @@ public class R2180 extends AbstractUmlRule {
         plan.registerRule(UseCase.MQNAME, this, AuditTrigger.UPDATE);
         plan.registerRule(Node.MQNAME, this, AuditTrigger.UPDATE);
         plan.registerRule(Component.MQNAME, this, AuditTrigger.UPDATE);
+        
     }
 
     /**
@@ -134,14 +134,14 @@ public class R2180 extends AbstractUmlRule {
      * Default constructor for R2180
      */
     @objid ("d907a3da-1502-4fea-a51d-6c6c3f07ba95")
-    public R2180() {
+    public  R2180() {
         this.checkerInstance = new CheckR2180(this);
     }
 
     @objid ("d288d867-ff68-49f5-a617-fd655f67df19")
     private static class CheckR2180 extends AbstractControl {
         @objid ("17c81356-dd56-4cbb-bc5e-f622df410190")
-        public CheckR2180(IRule rule) {
+        public  CheckR2180(IRule rule) {
             super(rule);
         }
 
@@ -168,7 +168,6 @@ public class R2180 extends AbstractUmlRule {
 
         /**
          * This checks a single NameSpace to find if it is part of a inheritance cycle.
-         * 
          * @param nameSpace The NameSpace to check.
          * @return The audit result.
          */
@@ -204,7 +203,6 @@ public class R2180 extends AbstractUmlRule {
 
         /**
          * This method search for a cycle in the super types inheritance graph.
-         * 
          * @param nameSpace The NameSpace to start from.
          * @param foundNameSpaces A list of found NameSpaces to avoid cycling.
          * @return True is a cycle was found, false otherwise.

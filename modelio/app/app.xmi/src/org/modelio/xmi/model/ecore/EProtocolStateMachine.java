@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,7 @@ public class EProtocolStateMachine extends EStateMachine {
     }
 
     @objid ("ff0831a5-b408-4788-a1ed-4b5d65c55898")
-    public EProtocolStateMachine(org.eclipse.uml2.uml.ProtocolStateMachine element) {
+    public  EProtocolStateMachine(org.eclipse.uml2.uml.ProtocolStateMachine element) {
         super(element);
     }
 

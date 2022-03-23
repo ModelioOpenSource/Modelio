@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.creation.wizard.ext.plugin;
 
 import java.util.ResourceBundle;
@@ -57,6 +56,7 @@ public class CreationWizardOrg implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         CreationWizardOrg.LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), CreationWizardOrg.PLUGIN_ID));
         CreationWizardOrg.I18N = new BundledMessages(CreationWizardOrg.LOG, ResourceBundle.getBundle("creationwizard"));
+        
     }
 
     @objid ("4706ab6c-aef4-4dfd-a9d2-85101d8b5d43")

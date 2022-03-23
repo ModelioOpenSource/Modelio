@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.objectflow;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,64 +35,64 @@ public class GmObjectFlowStyleKeys extends ActivityAbstractStyleKeyProvider {
      * Routing mode: bendpoint, orthogonal, ...
      */
     @objid ("d23c90d0-55c0-11e2-9337-002564c97630")
-     static final StyleKey CONNECTIONROUTER = createStyleKey("OBJECTFLOW_ROUTINGMODE",
-            MetaKey.CONNECTIONROUTER);
+    static final StyleKey CONNECTIONROUTER = createStyleKey("OBJECTFLOW_ROUTINGMODE",
+                MetaKey.CONNECTIONROUTER);
 
     /**
      * Line color
      */
     @objid ("d23c90d3-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("OBJECTFLOW_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("OBJECTFLOW_LINECOLOR", MetaKey.LINECOLOR);
 
     /**
      * Line width
      */
     @objid ("d23e176b-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("OBJECTFLOW_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("OBJECTFLOW_LINEWIDTH", MetaKey.LINEWIDTH);
 
     /**
      * Line corners radius
      */
     @objid ("d23e176e-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINERADIUS = createStyleKey("OBJECTFLOW_LINERADIUS", MetaKey.LINERADIUS);
+    static final StyleKey LINERADIUS = createStyleKey("OBJECTFLOW_LINERADIUS", MetaKey.LINERADIUS);
 
     /**
      * Draw bridge where vertical segments cross horizontal ones.
      */
     @objid ("d23e1771-55c0-11e2-9337-002564c97630")
-     static final StyleKey DRAWLINEBRIDGES = createStyleKey("OBJECTFLOW_DRAWLINEBRIDGES",
-            MetaKey.DRAWLINEBRIDGES);
+    static final StyleKey DRAWLINEBRIDGES = createStyleKey("OBJECTFLOW_DRAWLINEBRIDGES",
+                MetaKey.DRAWLINEBRIDGES);
 
     /**
      * Text font.
      */
     @objid ("d23e1774-55c0-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("OBJECTFLOW_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("OBJECTFLOW_FONT", MetaKey.FONT);
 
     /**
      * Text color.
      */
     @objid ("d23e1777-55c0-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("OBJECTFLOW_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("OBJECTFLOW_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     /**
      * Stereotype display mode.
      */
     @objid ("d23e177a-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("OBJECTFLOW_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("OBJECTFLOW_SHOWSTEREOTYPES",
+                MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Display tagged values
      */
     @objid ("d23e177d-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("OBJECTFLOW_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("OBJECTFLOW_SHOWTAGS", MetaKey.SHOWTAGS);
 
     /**
      * Show the main label with name, tags and stereotypes.
      */
     @objid ("d23e1780-55c0-11e2-9337-002564c97630")
-     static final StyleKey NAMEVISIBLE = createStyleKey("OBJECTFLOW_NAMEVISIBLE", MetaKey.SHOWLABEL);
+    static final StyleKey NAMEVISIBLE = createStyleKey("OBJECTFLOW_NAMEVISIBLE", MetaKey.SHOWLABEL);
 
     /**
      * show the guard label.
@@ -111,10 +110,10 @@ public class GmObjectFlowStyleKeys extends ActivityAbstractStyleKeyProvider {
      * Line pattern
      */
     @objid ("d23e1789-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINEPATTERN = createStyleKey("OBJECTFLOW_LINEPATTERN", MetaKey.LINEPATTERN);
+    static final StyleKey LINEPATTERN = createStyleKey("OBJECTFLOW_LINEPATTERN", MetaKey.LINEPATTERN);
 
     @objid ("d23e178c-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWFLOWS = createStyleKey("OBJECTFLOW_SHOWFLOWS", MetaKey.SHOWINFORMATIONFLOWS);
+    static final StyleKey SHOWFLOWS = createStyleKey("OBJECTFLOW_SHOWFLOWS", MetaKey.SHOWINFORMATIONFLOWS);
 
     /**
      * Information flows
@@ -125,29 +124,29 @@ public class GmObjectFlowStyleKeys extends ActivityAbstractStyleKeyProvider {
          * Text color.
          */
         @objid ("d23e178e-55c0-11e2-9337-002564c97630")
-         static final StyleKey FLOWTEXTCOLOR = createStyleKey("OBJECTFLOW_FLOWS_TEXTCOLOR",
-                MetaKey.InformationItemGroup.INFTEXTCOLOR);
+        static final StyleKey FLOWTEXTCOLOR = createStyleKey("OBJECTFLOW_FLOWS_TEXTCOLOR",
+                        MetaKey.InformationItemGroup.INFTEXTCOLOR);
 
         /**
          * Font
          */
         @objid ("d23e1791-55c0-11e2-9337-002564c97630")
-         static final StyleKey FLOWFONT = createStyleKey("OBJECTFLOW_FLOWS_FONT",
-                MetaKey.InformationItemGroup.INFFONT);
+        static final StyleKey FLOWFONT = createStyleKey("OBJECTFLOW_FLOWS_FONT",
+                        MetaKey.InformationItemGroup.INFFONT);
 
         /**
          * Stereotype display mode.
          */
         @objid ("d23e1794-55c0-11e2-9337-002564c97630")
-         static final StyleKey FLOWSHOWSTEREOTYPES = createStyleKey("OBJECTFLOW_FLOWS_SHOWSTEREOTYPES",
-                MetaKey.InformationItemGroup.INFSHOWSTEREOTYPES);
+        static final StyleKey FLOWSHOWSTEREOTYPES = createStyleKey("OBJECTFLOW_FLOWS_SHOWSTEREOTYPES",
+                        MetaKey.InformationItemGroup.INFSHOWSTEREOTYPES);
 
         /**
          * Display tagged values.
          */
         @objid ("d23e1797-55c0-11e2-9337-002564c97630")
-         static final StyleKey FLOWSHOWTAGS = createStyleKey("OBJECTFLOW_FLOWS_SHOWTAGS",
-                MetaKey.InformationItemGroup.INFSHOWTAGS);
+        static final StyleKey FLOWSHOWTAGS = createStyleKey("OBJECTFLOW_FLOWS_SHOWTAGS",
+                        MetaKey.InformationItemGroup.INFSHOWTAGS);
 
     }
 

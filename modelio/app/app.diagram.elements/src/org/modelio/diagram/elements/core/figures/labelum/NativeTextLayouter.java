@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.labelum;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -57,18 +56,17 @@ public class NativeTextLayouter implements ILabelumTextLayouter {
     public static final NativeTextLayouter INSTANCE = new NativeTextLayouter();
 
     @objid ("bcb53c09-fdff-459f-ac5e-8922462171e1")
-    public NativeTextLayouter() {
+    public  NativeTextLayouter() {
         this("");
     }
 
     /**
      * Initialize the word breaking line layouter .
-     * 
      * @param lineEndSymbol the symbol to add at end of broken lines.
      * See {@value #CR_END_SYMB1} or {@value #CR_END_SYMB2}.
      */
     @objid ("17204efb-fecc-416d-909c-2d636b6876cc")
-    public NativeTextLayouter(String lineEndSymbol) {
+    public  NativeTextLayouter(String lineEndSymbol) {
         this.lineEndSymbol = lineEndSymbol;
     }
 
@@ -137,7 +135,6 @@ public class NativeTextLayouter implements ILabelumTextLayouter {
 
     /**
      * get the symbol that will be added as line wrapping symbol.
-     * 
      * @return the line wrap symbol.
      */
     @objid ("eea4b592-fa1d-465d-8811-0c421df16013")

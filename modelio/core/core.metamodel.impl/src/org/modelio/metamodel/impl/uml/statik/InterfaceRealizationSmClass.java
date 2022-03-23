@@ -17,20 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
-import org.modelio.metamodel.impl.uml.statik.InterfaceRealizationData;
-import org.modelio.metamodel.impl.uml.statik.InterfaceSmClass;
-import org.modelio.metamodel.impl.uml.statik.NameSpaceSmClass;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.metamodel.uml.statik.Interface;
 import org.modelio.metamodel.uml.statik.InterfaceRealization;
@@ -55,7 +52,7 @@ public class InterfaceRealizationSmClass extends UmlModelElementSmClass {
     private SmDependency implementerDep;
 
     @objid ("1dd59abe-e20b-4caa-93c5-e01f83155aba")
-    public InterfaceRealizationSmClass(ISmMetamodelFragment origin) {
+    public  InterfaceRealizationSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -63,6 +60,7 @@ public class InterfaceRealizationSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "InterfaceRealization";
+        
     }
 
     @objid ("f5347e37-669d-426e-96e3-9220e17a6be8")
@@ -75,18 +73,21 @@ public class InterfaceRealizationSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return InterfaceRealization.class;
+        
     }
 
     @objid ("2b397d97-4ae5-4a34-9949-2af68cbfb18d")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("5b1b6556-2e2d-45f0-8410-a63a4eb7f887")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("7aecd5a0-5b24-4bf9-a243-37b834ed6871")
@@ -106,6 +107,8 @@ public class InterfaceRealizationSmClass extends UmlModelElementSmClass {
         this.implementerDep = new ImplementerSmDependency();
         this.implementerDep.init("Implementer", this, metamodel.getMClass(NameSpace.MQNAME), 0, 1 , SmDirective.SMCDLINKSOURCE);
         registerDependency(this.implementerDep);
+        
+        
     }
 
     @objid ("fc9d2929-29b5-4492-b999-885774f08f8e")
@@ -128,6 +131,7 @@ public class InterfaceRealizationSmClass extends UmlModelElementSmClass {
     @Override
     public boolean isLinkMetaclass() {
         return true;
+        
     }
 
     @objid ("90b653a6-2e0e-4edf-ae85-6fe1aa11da73")
@@ -136,7 +140,7 @@ public class InterfaceRealizationSmClass extends UmlModelElementSmClass {
         private InterfaceRealizationSmClass smClass;
 
         @objid ("6f780ad1-5810-43ed-b3f7-e6e55625b781")
-        public InterfaceRealizationObjectFactory(InterfaceRealizationSmClass smClass) {
+        public  InterfaceRealizationObjectFactory(InterfaceRealizationSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -178,6 +182,7 @@ public class InterfaceRealizationSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((InterfaceSmClass)this.getTarget()).getImplementedLinkDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -206,6 +211,7 @@ public class InterfaceRealizationSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((NameSpaceSmClass)this.getTarget()).getRealizedDep();
             }
             return this.symetricDep;
+            
         }
 
     }

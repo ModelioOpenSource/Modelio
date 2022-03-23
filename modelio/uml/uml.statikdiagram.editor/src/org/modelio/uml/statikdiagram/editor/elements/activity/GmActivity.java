@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.activity;
 
 import java.util.Collections;
@@ -32,8 +31,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.Activity;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -59,26 +58,25 @@ public class GmActivity extends GmPortContainer {
     private static final String IMAGE_LABEL_ROLE = "ImageLabel";
 
     @objid ("33d81949-55b7-11e2-877f-002564c97630")
-     static final GmActivityStructuredStyleKeys STRUCTURED_KEYS = new GmActivityStructuredStyleKeys();
+    static final GmActivityStructuredStyleKeys STRUCTURED_KEYS = new GmActivityStructuredStyleKeys();
 
     @objid ("33d8194d-55b7-11e2-877f-002564c97630")
-     static final GmActivityImageStyleKeys IMAGE_KEYS = new GmActivityImageStyleKeys();
+    static final GmActivityImageStyleKeys IMAGE_KEYS = new GmActivityImageStyleKeys();
 
     @objid ("5a25ce88-5bd5-11e2-9e33-00137282c51b")
-     static final GmActivitySimpleStyleKeys SIMPLE_KEYS = new GmActivitySimpleStyleKeys();
+    static final GmActivitySimpleStyleKeys SIMPLE_KEYS = new GmActivitySimpleStyleKeys();
 
     @objid ("dd5ab8d1-29f3-435b-b6e3-f45b891bb6c6")
-     static final GmActivityUserImageStyleKeys USERIMAGE_KEYS = new GmActivityUserImageStyleKeys();
+    static final GmActivityUserImageStyleKeys USERIMAGE_KEYS = new GmActivityUserImageStyleKeys();
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the activity is unmasked.
      * @param el the unmasked activity.
      * @param ref a reference to the unmasked activity.
      */
     @objid ("33d81956-55b7-11e2-877f-002564c97630")
-    public GmActivity(final IGmDiagram diagram, final Activity el, final MRef ref) {
+    public  GmActivity(final IGmDiagram diagram, final Activity el, final MRef ref) {
         super(diagram, ref);
         this.element = el;
         
@@ -91,13 +89,14 @@ public class GmActivity extends GmPortContainer {
         
         super.addChild(mainNode);
         super.addChild(imageModeHeader);
+        
     }
 
     /**
      * Empty constructor needed for deserialisation.
      */
     @objid ("33d81965-55b7-11e2-877f-002564c97630")
-    public GmActivity() {
+    public  GmActivity() {
         // Nothing specific to do.
     }
 
@@ -186,6 +185,7 @@ public class GmActivity extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("33d99ffb-55b7-11e2-877f-002564c97630")
@@ -195,6 +195,7 @@ public class GmActivity extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmActivity.", GmActivity.MINOR_VERSION);
+        
     }
 
     @objid ("33d9a001-55b7-11e2-877f-002564c97630")
@@ -207,6 +208,7 @@ public class GmActivity extends GmPortContainer {
         imageModeHeader.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         
         super.addChild(imageModeHeader, 1);
+        
     }
 
     @objid ("33d9a007-55b7-11e2-877f-002564c97630")
@@ -219,6 +221,7 @@ public class GmActivity extends GmPortContainer {
     private void read_1(final IDiagramReader in) {
         super.read(in);
         this.element = (Activity) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("33d9a012-55b7-11e2-877f-002564c97630")
@@ -236,7 +239,6 @@ public class GmActivity extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -249,7 +251,6 @@ public class GmActivity extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */

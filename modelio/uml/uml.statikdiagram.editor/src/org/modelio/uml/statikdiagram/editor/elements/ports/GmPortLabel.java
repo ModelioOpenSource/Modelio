@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.ports;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -48,7 +47,8 @@ public class GmPortLabel extends GmDefaultModelElementLabel {
      * Deserialisation c'tor.
      */
     @objid ("36439b21-55b7-11e2-877f-002564c97630")
-    public GmPortLabel() {
+    public  GmPortLabel() {
+        
     }
 
     @objid ("364521ae-55b7-11e2-877f-002564c97630")
@@ -89,12 +89,11 @@ public class GmPortLabel extends GmDefaultModelElementLabel {
 
     /**
      * C'tor.
-     * 
      * @param diagram the diagram in which this gm is created.
      * @param relatedRef a reference to the element represented.
      */
     @objid ("364521c3-55b7-11e2-877f-002564c97630")
-    public GmPortLabel(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmPortLabel(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -115,6 +114,7 @@ public class GmPortLabel extends GmDefaultModelElementLabel {
                 break;
             }
         }
+        
     }
 
     @objid ("3646a83f-55b7-11e2-877f-002564c97630")
@@ -124,6 +124,7 @@ public class GmPortLabel extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmPortLabel.", GmPortLabel.MINOR_VERSION);
+        
     }
 
     @objid ("3646a845-55b7-11e2-877f-002564c97630")

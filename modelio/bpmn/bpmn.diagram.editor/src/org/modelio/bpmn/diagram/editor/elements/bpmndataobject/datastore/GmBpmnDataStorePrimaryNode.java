@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmndataobject.datastore;
 
 import java.util.ArrayList;
@@ -33,8 +32,8 @@ import org.modelio.diagram.elements.core.node.IImageableNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.bpmn.objects.BpmnDataOutput;
 import org.modelio.metamodel.bpmn.objects.BpmnDataStore;
 import org.modelio.metamodel.bpmn.objects.BpmnItemDefinition;
@@ -62,12 +61,11 @@ public final class GmBpmnDataStorePrimaryNode extends GmNoStyleSimpleNode implem
 
     /**
      * Create a initial graphic node.
-     * 
      * @param diagram The diagram
      * @param relatedRef The related element reference, may not be null.
      */
     @objid ("60d145b9-55b6-11e2-877f-002564c97630")
-    public GmBpmnDataStorePrimaryNode(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmBpmnDataStorePrimaryNode(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -82,7 +80,11 @@ public final class GmBpmnDataStorePrimaryNode extends GmNoStyleSimpleNode implem
     public void refreshFromObModel() {
         if (getRelatedElement() != null) {
             firePropertyChange(IGmObject.PROPERTY_LABEL, null, getRelatedElement().getName());
+        
+            // forcing visual refresh in case Image changed
+            firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
         }
+        
     }
 
     @objid ("60d2cc25-55b6-11e2-877f-002564c97630")
@@ -99,7 +101,6 @@ public final class GmBpmnDataStorePrimaryNode extends GmNoStyleSimpleNode implem
 
     /**
      * Get the parent model representation mode.
-     * 
      * @return the parent representation mode or null if the node has still no parent.
      */
     @objid ("60d2cc37-55b6-11e2-877f-002564c97630")
@@ -131,13 +132,14 @@ public final class GmBpmnDataStorePrimaryNode extends GmNoStyleSimpleNode implem
             }
         
         };
+        
     }
 
     /**
      * Constructor for deserialization only.
      */
     @objid ("60d2cc4b-55b6-11e2-877f-002564c97630")
-    public GmBpmnDataStorePrimaryNode() {
+    public  GmBpmnDataStorePrimaryNode() {
         // for the serialization
     }
 
@@ -183,6 +185,7 @@ public final class GmBpmnDataStorePrimaryNode extends GmNoStyleSimpleNode implem
             break;
         }
         }
+        
     }
 
     @objid ("60d452bd-55b6-11e2-877f-002564c97630")
@@ -192,6 +195,7 @@ public final class GmBpmnDataStorePrimaryNode extends GmNoStyleSimpleNode implem
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmBpmnDataStorePrimaryNode.", GmBpmnDataStorePrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("60d452c3-55b6-11e2-877f-002564c97630")

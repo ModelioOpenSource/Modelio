@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.api.tools;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,7 +30,6 @@ import org.modelio.api.modelio.diagram.tools.IDiagramTool;
 public class MultiLinkToolEntry extends ConnectionCreationToolEntry {
     /**
      * Constructor for MultiLinkToolEntry.
-     * 
      * @param label the label
      * @param shortDesc the description
      * @param factory the CreationFactory
@@ -39,13 +37,14 @@ public class MultiLinkToolEntry extends ConnectionCreationToolEntry {
      * @param iconLarge the large icon
      */
     @objid ("0b4ebe1d-7669-4c22-acc7-5f2976930c7a")
-    public MultiLinkToolEntry(final String label, final String shortDesc, final CreationFactory factory, final ImageDescriptor iconSmall, final ImageDescriptor iconLarge, final IDiagramTool handler) {
+    public  MultiLinkToolEntry(final String label, final String shortDesc, final CreationFactory factory, final ImageDescriptor iconSmall, final ImageDescriptor iconLarge, final IDiagramTool handler) {
         super(label, shortDesc, factory, iconSmall, iconLarge);
         setToolClass(MultiLinkTool.class);
         this.setToolProperty(LinkTool.PROPERTY_HANDLER, handler);
         
         // Return to default selection tool after finished
         setToolProperty(AbstractTool.PROPERTY_UNLOAD_WHEN_FINISHED, Boolean.TRUE);
+        
     }
 
 }

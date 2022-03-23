@@ -17,27 +17,23 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmneventbasedgateway;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gef.EditPolicy;
-import org.eclipse.gef.RequestConstants;
-import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.editpolicies.SelectionEditPolicy;
-import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
-import org.modelio.bpmn.diagram.editor.elements.policies.BpmnCreateLinkEditPolicy;
+import org.modelio.bpmn.diagram.editor.elements.common.editpart.AbstractBpmnSmallNodeEditPart;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnCreateLinkEditPolicy;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.KeepNodeRatioResizableEditPolicy;
 import org.modelio.bpmn.diagram.editor.plugin.DiagramEditorBpmn;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeRequestConstants;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeStartCreationEditPolicy;
 import org.modelio.diagram.elements.core.figures.ColorizableImageFigure;
 import org.modelio.diagram.elements.core.model.GmModel;
-import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
-import org.modelio.diagram.elements.core.policies.DefaultNodeResizableEditPolicy;
 import org.modelio.diagram.elements.core.tools.multipoint.CreateMultiPointRequest;
 import org.modelio.diagram.elements.umlcommon.constraint.ConstraintLinkEditPolicy;
 import org.modelio.diagram.styles.core.IStyle;
@@ -48,7 +44,7 @@ import org.modelio.metamodel.bpmn.gateways.BpmnEventBasedGateway;
  * EditPart for an {@link GmBpmnEventBasedGatewayPrimaryNode}.
  */
 @objid ("60e828da-55b6-11e2-877f-002564c97630")
-public final class BpmnEventBasedGatewayEditPart extends AbstractNodeEditPart {
+public final class BpmnEventBasedGatewayEditPart extends AbstractBpmnSmallNodeEditPart {
     @objid ("60e828de-55b6-11e2-877f-002564c97630")
     @Override
     public boolean isSelectable() {
@@ -62,6 +58,7 @@ public final class BpmnEventBasedGatewayEditPart extends AbstractNodeEditPart {
         installEditPolicy(EditPolicy.NODE_ROLE, new BpmnCreateLinkEditPolicy());
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START, new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("60e828e6-55b6-11e2-877f-002564c97630")
@@ -93,6 +90,7 @@ public final class BpmnEventBasedGatewayEditPart extends AbstractNodeEditPart {
                 cFigure.setColor(color);
             }
         }
+        
     }
 
     @objid ("60e828f2-55b6-11e2-877f-002564c97630")
@@ -100,44 +98,13 @@ public final class BpmnEventBasedGatewayEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         GmBpmnEventBasedGatewayPrimaryNode initialNodeModel = (GmBpmnEventBasedGatewayPrimaryNode) this.getModel();
         getFigure().getParent().setConstraint(getFigure(), initialNodeModel.getLayoutData());
+        
     }
 
     @objid ("60e828f5-55b6-11e2-877f-002564c97630")
     @Override
     public SelectionEditPolicy getPreferredDragRolePolicy(final String requestType) {
-        return new DefaultNodeResizableEditPolicy() {
-                                    @Override
-                                    protected Command getResizeCommand(ChangeBoundsRequest request) {
-                                        ChangeBoundsRequest req = new ChangeBoundsRequest(RequestConstants.REQ_RESIZE_CHILDREN);
-                                        req.setEditParts(getHost());
-                        
-                                        req.setMoveDelta(request.getMoveDelta());
-                        
-                                        int dimension = 0;
-                                        int x = request.getSizeDelta().height;
-                                        int y = request.getSizeDelta().width;
-                        
-                                        if (x >= 0 && y >= 0) {
-                                            if (x > y) {
-                                                dimension = x;
-                                            } else {
-                                                dimension = y;
-                                            }
-                                        } else {
-                                            if (x < y) {
-                                                dimension = x;
-                                            } else {
-                                                dimension = y;
-                                            }
-                                        }
-                        
-                                        req.setSizeDelta(new Dimension(dimension, dimension));
-                                        req.setLocation(request.getLocation());
-                                        req.setExtendedData(request.getExtendedData());
-                                        req.setResizeDirection(request.getResizeDirection());
-                                        return getHost().getParent().getCommand(req);
-                                    }
-                                };
+        return new KeepNodeRatioResizableEditPolicy();
     }
 
 }

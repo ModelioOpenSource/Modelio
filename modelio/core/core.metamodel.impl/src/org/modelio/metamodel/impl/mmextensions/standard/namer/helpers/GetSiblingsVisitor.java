@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.namer.helpers;
 
 import java.util.HashSet;
@@ -103,7 +102,7 @@ public class GetSiblingsVisitor extends DefaultModelVisitor {
     private Set<String> results;
 
     @objid ("00690578-030f-1035-9f91-001ec947cd2a")
-    public GetSiblingsVisitor() {
+    public  GetSiblingsVisitor() {
         this(new GetSiblingsInfraVisitor());
     }
 
@@ -789,10 +788,11 @@ public class GetSiblingsVisitor extends DefaultModelVisitor {
     }
 
     @objid ("c9e982cd-1dcf-4560-bc90-465cb0e161bc")
-    private GetSiblingsVisitor(GetSiblingsInfraVisitor infraVisitor) {
+    private  GetSiblingsVisitor(GetSiblingsInfraVisitor infraVisitor) {
         super(infraVisitor);
         infraVisitor.gsv = this;
         this.results = null;
+        
     }
 
     @objid ("a899ebec-f107-4ba3-bfb8-4c94baa1ab78")

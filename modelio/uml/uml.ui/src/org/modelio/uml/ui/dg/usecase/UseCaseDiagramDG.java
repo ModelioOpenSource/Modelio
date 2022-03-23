@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.usecase;
 
 import java.util.Collections;
@@ -36,12 +35,11 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 public class UseCaseDiagramDG extends DiagramDG {
     /**
      * Initialize the activity diagram graphic element.
-     * 
      * @param diagramHandle The diagram handle
      * @param node The internal graphic node representing the diagram.
      */
     @objid ("4b35ec3e-58d1-4eca-a1d7-feafd2f32887")
-    public UseCaseDiagramDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  UseCaseDiagramDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 

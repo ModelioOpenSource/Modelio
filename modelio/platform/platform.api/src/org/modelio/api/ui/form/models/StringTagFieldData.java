@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.form.models;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,12 +34,12 @@ import org.modelio.metamodel.uml.infrastructure.TaggedValue;
 @objid ("5d1c25c5-63f6-42b2-9b51-032695c16ff4")
 public class StringTagFieldData extends AbstractTagFieldData {
     @objid ("1502a944-79ca-49f8-b2c4-0523ba93cc1b")
-    public StringTagFieldData(IModelingSession session, ModelElement me, String moduleName, String tagTypeName) {
+    public  StringTagFieldData(IModelingSession session, ModelElement me, String moduleName, String tagTypeName) {
         super(session, me, moduleName, tagTypeName);
     }
 
     @objid ("49119367-31e1-4d3d-9295-9001d881600a")
-    public StringTagFieldData(IModelingSession session, ModelElement me, TagType tagType) {
+    public  StringTagFieldData(IModelingSession session, ModelElement me, TagType tagType) {
         super(session, me, tagType);
     }
 
@@ -60,6 +59,7 @@ public class StringTagFieldData extends AbstractTagFieldData {
         } catch (final ExtensionNotFoundException e) {
             Api.LOG.error(e);
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.infrastructure;
 
 import java.util.ArrayList;
@@ -90,6 +89,7 @@ public class R2240 extends AbstractInfrastructureRule {
                 AuditTrigger.UPDATE);
         
         // plan.registerRule(Usage.MQNAME, this, AuditTrigger.CREATE | AuditTrigger.MOVE | AuditTrigger.UPDATE);
+        
     }
 
     /**
@@ -123,14 +123,14 @@ public class R2240 extends AbstractInfrastructureRule {
      * Default constructor for R2240
      */
     @objid ("c4515e73-35f9-4a47-b8ac-b17f323d46d5")
-    public R2240() {
+    public  R2240() {
         this.checkerInstance = new CheckR2240(this);
     }
 
     @objid ("71494054-7f05-455c-84db-eee7b596aac7")
     private static class CheckR2240 extends AbstractControl {
         @objid ("282c4f88-eb4c-446c-82d5-2fb912e4ae95")
-        public CheckR2240(IRule rule) {
+        public  CheckR2240(IRule rule) {
             super(rule);
         }
 

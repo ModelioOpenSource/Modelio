@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.bpmnDiagrams;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,7 +30,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 @objid ("26a88c35-d9e0-4641-86f5-e8f09443f7de")
 public class BpmnProcessDesignDiagramData extends BpmnProcessCollaborationDiagramData {
     @objid ("af157b75-0712-4dce-b9af-33226133e753")
-    public BpmnProcessDesignDiagramData(BpmnProcessDesignDiagramSmClass smClass) {
+    public  BpmnProcessDesignDiagramData(BpmnProcessDesignDiagramSmClass smClass) {
         super(smClass);
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.activitydiagram;
 
 import java.util.Deque;
@@ -137,6 +136,7 @@ public class ActivityDiagramDropEditPolicyExtension extends AbstractDiagramEleme
                 element instanceof Attribute ||
                 element instanceof Instance ||
                 element instanceof GeneralClass || element instanceof Parameter);
+        
     }
 
     @objid ("ed85cd82-45bf-4899-8019-66139156994b")
@@ -191,9 +191,10 @@ public class ActivityDiagramDropEditPolicyExtension extends AbstractDiagramEleme
         private DiagramElementDropEditPolicy dropPolicy;
 
         @objid ("7ffce151-b0af-49c4-ba77-0a80d0c828fd")
-        public StandardVisitorImpl(DiagramElementDropEditPolicy dropPolicy, Point dropLocation) {
+        public  StandardVisitorImpl(DiagramElementDropEditPolicy dropPolicy, Point dropLocation) {
             this.dropPolicy = dropPolicy;
             this.dropLocation = dropLocation;
+            
         }
 
         @objid ("3ee100c4-6e5f-44c6-8638-691059e1a2ba")

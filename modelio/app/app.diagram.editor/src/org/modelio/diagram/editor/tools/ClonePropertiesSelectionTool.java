@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.tools;
 
 import java.util.List;
@@ -53,18 +52,17 @@ public class ClonePropertiesSelectionTool extends PanSelectionTool {
 
     @objid ("66a547ff-33f7-11e2-95fe-001ec947c8cc")
     private static final MetaKey[] graphicProperties = { MetaKey.FILLCOLOR, MetaKey.FILLMODE, MetaKey.FONT, MetaKey.LINECOLOR,
-			MetaKey.LINEPATTERN, MetaKey.LINEWIDTH, MetaKey.LINERADIUS, MetaKey.TEXTCOLOR };
+    			MetaKey.LINEPATTERN, MetaKey.LINEWIDTH, MetaKey.LINERADIUS, MetaKey.TEXTCOLOR };
 
     @objid ("e3aaa21e-8a56-4eb7-acbc-6d3f11a50411")
     private GraphicalEditPart refEditPart = null;
 
     /**
      * C'tor.
-     * 
      * @param refEditPart the edit part used as reference.
      */
     @objid ("66a54802-33f7-11e2-95fe-001ec947c8cc")
-    public ClonePropertiesSelectionTool(final GraphicalEditPart refEditPart) {
+    public  ClonePropertiesSelectionTool(final GraphicalEditPart refEditPart) {
         this.refEditPart = refEditPart;
     }
 
@@ -77,6 +75,7 @@ public class ClonePropertiesSelectionTool extends PanSelectionTool {
         } else {
             return this.fullMode ? SharedCursors2.CURSOR_CLONE_ALL_OPTIONS : SharedCursors2.CURSOR_CLONE_GRAPHIC_OPTIONS;
         }
+        
     }
 
     @objid ("66a5480b-33f7-11e2-95fe-001ec947c8cc")
@@ -134,6 +133,7 @@ public class ClonePropertiesSelectionTool extends PanSelectionTool {
             }
         }
         targetStyle.normalize();
+        
     }
 
     @objid ("66a54816-33f7-11e2-95fe-001ec947c8cc")
@@ -158,6 +158,7 @@ public class ClonePropertiesSelectionTool extends PanSelectionTool {
         
         }
         targetStyle.normalize();
+        
     }
 
     /**
@@ -214,7 +215,6 @@ public class ClonePropertiesSelectionTool extends PanSelectionTool {
     /**
      * Returns the GraphicalEditPart being hovered by the mouse however
      * excluding the root edit part.
-     * 
      * @return the hovered GraphicalEditPart or null
      */
     @objid ("66a7aa5e-33f7-11e2-95fe-001ec947c8cc")
@@ -229,6 +229,7 @@ public class ClonePropertiesSelectionTool extends PanSelectionTool {
         } else {
             return null;
         }
+        
     }
 
     @objid ("66a7aa63-33f7-11e2-95fe-001ec947c8cc")
@@ -265,6 +266,7 @@ public class ClonePropertiesSelectionTool extends PanSelectionTool {
         setState(oldState);
         
         super.mouseDown(e, viewer);
+        
     }
 
 }

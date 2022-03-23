@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.production.events;
 
 import java.util.List;
 import java.util.Map;
-import javax.xml.bind.JAXBElement;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.xml.bind.JAXBElement;
 import org.modelio.bpmnxml.model.ObjectFactory;
 import org.modelio.bpmnxml.model.TEndEvent;
 import org.modelio.bpmnxml.model.TFlowElement;
@@ -41,7 +40,7 @@ import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("9bdadb6d-a1f2-4dbb-a4f1-5dcc8ad1a1bb")
-public class EndEventNode implements IProductionNode<BpmnEndEvent,TEndEvent> {
+public class EndEventNode implements IProductionNode<BpmnEndEvent, TEndEvent> {
     @objid ("71e45297-ecb9-48e7-8b15-1e76c8525bbd")
     private Map<String, Object> elementsMap;
 
@@ -78,6 +77,7 @@ public class EndEventNode implements IProductionNode<BpmnEndEvent,TEndEvent> {
         } else {
             return factory.create(BpmnEndEvent.class, context);
         }
+        
     }
 
     @objid ("87a232de-f554-4330-8f4f-e999c8d8dd8a")

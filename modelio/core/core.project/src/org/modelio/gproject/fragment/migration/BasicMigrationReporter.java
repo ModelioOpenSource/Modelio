@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.fragment.migration;
 
 import java.io.BufferedWriter;
@@ -53,10 +52,10 @@ public class BasicMigrationReporter implements IMigrationReporter, Closeable {
 
     /**
      * @param reportFile the log file path
-     * @throws java.io.IOException on failure opening the log file.
+     * @throws IOException on failure opening the log file.
      */
     @objid ("39d1ba8d-7e4f-4b85-824b-6dcad22de91e")
-    public BasicMigrationReporter(Path reportFile) throws IOException {
+    public  BasicMigrationReporter(Path reportFile) throws IOException {
         this.result = new StringWriter();
         this.resultWriter = new PrintWriter(this.result);
         
@@ -65,6 +64,7 @@ public class BasicMigrationReporter implements IMigrationReporter, Closeable {
         this.logger = new PrintWriter(this.fileWriter);
         
         this.resultWriter.println(CoreProject.I18N.getMessage("BasicMigrationReporter.logFileWritten", reportFile));
+        
     }
 
     @objid ("c9ea383a-4e55-4ed9-ac91-c6b3d63e3499")
@@ -99,6 +99,7 @@ public class BasicMigrationReporter implements IMigrationReporter, Closeable {
             this.fileWriter.close();
             this.fileWriter = null;
         }
+        
     }
 
 }

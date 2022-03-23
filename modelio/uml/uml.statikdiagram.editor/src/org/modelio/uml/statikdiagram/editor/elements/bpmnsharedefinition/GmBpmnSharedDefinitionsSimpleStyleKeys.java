@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.bpmnsharedefinition;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,30 +30,30 @@ import org.modelio.uml.statikdiagram.editor.style.StaticAbstractStyleKeyProvider
 @objid ("76d3a49f-ddc7-416b-b82e-2e8ef97e4d5b")
 public class GmBpmnSharedDefinitionsSimpleStyleKeys extends StaticAbstractStyleKeyProvider {
     @objid ("85d91aab-c99d-46e5-9a78-8283f4236b8f")
-     static final StyleKey REPMODE = GmBpmnSharedDefinitionsStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmBpmnSharedDefinitionsStructuredStyleKeys.REPMODE;
 
     @objid ("11f810ae-3e45-44b4-bc6d-51c4afd20991")
-     static final StyleKey FILLCOLOR = GmBpmnSharedDefinitionsStructuredStyleKeys.FILLCOLOR;
+    static final StyleKey FILLCOLOR = GmBpmnSharedDefinitionsStructuredStyleKeys.FILLCOLOR;
 
     @objid ("75ffd811-f2b4-4f07-a907-d6fc5dc6847d")
-     static final StyleKey FILLMODE = GmBpmnSharedDefinitionsStructuredStyleKeys.FILLMODE;
+    static final StyleKey FILLMODE = GmBpmnSharedDefinitionsStructuredStyleKeys.FILLMODE;
 
     @objid ("3645c636-5a02-45bd-b598-a93ad1fd400e")
-     static final StyleKey LINECOLOR = GmBpmnSharedDefinitionsStructuredStyleKeys.LINECOLOR;
+    static final StyleKey LINECOLOR = GmBpmnSharedDefinitionsStructuredStyleKeys.LINECOLOR;
 
     @objid ("678a56d3-f05d-42c1-a5cf-9c7fc50d291e")
-     static final StyleKey LINEWIDTH = GmBpmnSharedDefinitionsStructuredStyleKeys.LINEWIDTH;
+    static final StyleKey LINEWIDTH = GmBpmnSharedDefinitionsStructuredStyleKeys.LINEWIDTH;
 
     @objid ("9efce3fd-e197-447a-8a45-75340588d8c0")
-     static final StyleKey FONT = GmBpmnSharedDefinitionsStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmBpmnSharedDefinitionsStructuredStyleKeys.FONT;
 
     @objid ("68dd87f8-4dd5-408c-a71a-8626591096ad")
-     static final StyleKey TEXTCOLOR = GmBpmnSharedDefinitionsStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmBpmnSharedDefinitionsStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("13af49b3-0f38-4c78-bccb-2f506070dd25")
-     static final StyleKey SHOWSTEREOTYPES = GmBpmnSharedDefinitionsStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmBpmnSharedDefinitionsStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("60be05fc-192f-4f3a-8806-eb2a1cb4f66c")
-     static final StyleKey SHOWTAGS = GmBpmnSharedDefinitionsStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmBpmnSharedDefinitionsStructuredStyleKeys.SHOWTAGS;
 
 }

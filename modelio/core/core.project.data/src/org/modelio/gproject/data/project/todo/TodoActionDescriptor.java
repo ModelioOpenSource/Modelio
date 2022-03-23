@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.project.todo;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,7 +29,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public abstract class TodoActionDescriptor {
     /**
      * Get a user friendly label for this action.
-     * 
      * @return a label string.
      */
     @objid ("bd8f6af5-d15e-4b72-a8e7-ac2dadabd484")

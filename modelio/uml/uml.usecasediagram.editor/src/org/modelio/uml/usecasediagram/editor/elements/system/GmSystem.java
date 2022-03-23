@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.elements.system;
 
 import java.util.ArrayList;
@@ -31,8 +30,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.diagrams.UseCaseDiagram;
 import org.modelio.metamodel.uml.behavior.usecaseModel.UseCase;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
@@ -59,7 +58,7 @@ public class GmSystem extends GmCompositeNode {
     private GmSystemFreeZone body;
 
     @objid ("5e4bb6aa-55b7-11e2-877f-002564c97630")
-    public GmSystem(final IGmDiagram diagram, final MRef ref) {
+    public  GmSystem(final IGmDiagram diagram, final MRef ref) {
         super(diagram, ref);
         this.header = new GmDefaultModelElementHeader(diagram, ref);
         this.header.setRoleInComposition("header");
@@ -69,10 +68,11 @@ public class GmSystem extends GmCompositeNode {
         
         super.addChild(this.header);
         super.addChild(this.body);
+        
     }
 
     @objid ("5e4bb6b5-55b7-11e2-877f-002564c97630")
-    public GmSystem() {
+    public  GmSystem() {
         // empty constructor for the serialization
     }
 
@@ -88,6 +88,7 @@ public class GmSystem extends GmCompositeNode {
         return el instanceof UseCase &&
                                                                                el.isValid() &&
                                                                                el.getCompositionOwner().equals(getRepresentedElement());
+        
     }
 
     @objid ("5e4d3d40-55b7-11e2-877f-002564c97630")
@@ -145,6 +146,7 @@ public class GmSystem extends GmCompositeNode {
                 break;
             }
         }
+        
     }
 
     @objid ("5e4d3d74-55b7-11e2-877f-002564c97630")
@@ -162,6 +164,7 @@ public class GmSystem extends GmCompositeNode {
         } else {
             super.addChild(child);
         }
+        
     }
 
     @objid ("5e4ec3d9-55b7-11e2-877f-002564c97630")
@@ -173,6 +176,7 @@ public class GmSystem extends GmCompositeNode {
         } else {
             super.removeChild(child);
         }
+        
     }
 
     @objid ("5e4ec3e0-55b7-11e2-877f-002564c97630")
@@ -212,6 +216,7 @@ public class GmSystem extends GmCompositeNode {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmSystem.", GmSystem.MINOR_VERSION);
+        
     }
 
     @objid ("5e4ec3f9-55b7-11e2-877f-002564c97630")
@@ -219,6 +224,7 @@ public class GmSystem extends GmCompositeNode {
     public void fireChildVisibilityChanged(final GmNodeModel child) {
         fireVisibilityChanged();
         firePropertyChange(PROPERTY_CHILDREN, null, child);
+        
     }
 
     @objid ("5e4ec400-55b7-11e2-877f-002564c97630")
@@ -226,6 +232,7 @@ public class GmSystem extends GmCompositeNode {
         super.read(in);
         this.header = (GmModelElementHeader) getFirstChild("header");
         this.body = (GmSystemFreeZone) getFirstChild("body");
+        
     }
 
     @objid ("5e4ec406-55b7-11e2-877f-002564c97630")
@@ -236,6 +243,7 @@ public class GmSystem extends GmCompositeNode {
         this.header.setRoleInComposition("header");
         this.body = (GmSystemFreeZone) getChildren().get(1);
         this.body.setRoleInComposition("body");
+        
     }
 
     @objid ("5e4ec40c-55b7-11e2-877f-002564c97630")

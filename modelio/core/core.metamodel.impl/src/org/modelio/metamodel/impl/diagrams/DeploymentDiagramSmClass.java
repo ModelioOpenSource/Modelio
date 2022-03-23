@@ -17,19 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.diagrams;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.diagrams.DeploymentDiagram;
 import org.modelio.metamodel.diagrams.StaticDiagram;
-import org.modelio.metamodel.impl.diagrams.StaticDiagramSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("102f51de-ac14-432f-9fbf-c09f03c0fdb2")
 public class DeploymentDiagramSmClass extends StaticDiagramSmClass {
     @objid ("352ab7af-3114-4721-b775-209eed6eebaf")
-    public DeploymentDiagramSmClass(ISmMetamodelFragment origin) {
+    public  DeploymentDiagramSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class DeploymentDiagramSmClass extends StaticDiagramSmClass {
     @Override
     public String getName() {
         return "DeploymentDiagram";
+        
     }
 
     @objid ("10b0f60b-0891-4218-b316-e5357c4ece59")
@@ -62,18 +62,21 @@ public class DeploymentDiagramSmClass extends StaticDiagramSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return DeploymentDiagram.class;
+        
     }
 
     @objid ("b5fb1312-12a7-49c5-a5a8-f9fd6d444801")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("0714ef1f-0279-49f9-9904-4e250b129953")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("82bb2333-7568-4ea5-bb21-9353b0a925a5")
@@ -86,6 +89,7 @@ public class DeploymentDiagramSmClass extends StaticDiagramSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("b183f986-d5d8-4505-9f87-8cd50f540b93")
@@ -94,7 +98,7 @@ public class DeploymentDiagramSmClass extends StaticDiagramSmClass {
         private DeploymentDiagramSmClass smClass;
 
         @objid ("8e323146-8dfc-4885-a8af-b3fc20e20ac6")
-        public DeploymentDiagramObjectFactory(DeploymentDiagramSmClass smClass) {
+        public  DeploymentDiagramObjectFactory(DeploymentDiagramSmClass smClass) {
             this.smClass = smClass;
         }
 

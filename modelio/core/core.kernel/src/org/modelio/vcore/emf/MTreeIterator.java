@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.emf;
 
 import java.util.ArrayDeque;
@@ -56,10 +55,11 @@ public class MTreeIterator<E extends EObject> implements TreeIterator<E> {
      * @param start the iteration start
      */
     @objid ("cb8fc5b7-bc83-11e1-b576-001ec947ccaf")
-    public MTreeIterator(SmObjectImpl start) {
+    public  MTreeIterator(SmObjectImpl start) {
         this.current = new State(start);
         this.previousState = null;
         this.nextObj = this.current.next();
+        
     }
 
     @objid ("cb8fc5ba-bc83-11e1-b576-001ec947ccaf")
@@ -97,6 +97,7 @@ public class MTreeIterator<E extends EObject> implements TreeIterator<E> {
             this.previousState = null;
             walkToNext();
         }
+        
     }
 
     @objid ("bbd3a25b-bc87-11e1-b576-001ec947ccaf")
@@ -146,6 +147,7 @@ public class MTreeIterator<E extends EObject> implements TreeIterator<E> {
                 }
             }
         } while (this.nextObj!=null && cycle);*/
+        
     }
 
     @objid ("eff85a91-bea9-11e1-b576-001ec947ccaf")
@@ -176,22 +178,23 @@ public class MTreeIterator<E extends EObject> implements TreeIterator<E> {
     @objid ("cb8d6350-bc83-11e1-b576-001ec947ccaf")
     private static class State {
         @objid ("cb8d6352-bc83-11e1-b576-001ec947ccaf")
-         SmObjectImpl obj;
+        SmObjectImpl obj;
 
         @objid ("cb8fc5a9-bc83-11e1-b576-001ec947ccaf")
-         Iterator<SmDependency> depit;
+        Iterator<SmDependency> depit;
 
         @objid ("cb8fc5ac-bc83-11e1-b576-001ec947ccaf")
-         Iterator<SmObjectImpl> depvalIt;
+        Iterator<SmObjectImpl> depvalIt;
 
         @objid ("cb8fc5af-bc83-11e1-b576-001ec947ccaf")
-        public State(SmObjectImpl obj) {
+        public  State(SmObjectImpl obj) {
             this.depit = obj.getClassOf().getAllComponentAndSharedDepDef().iterator();
             this.obj = obj;
             if (this.depit.hasNext())
                 this.depvalIt = obj.getDepValList(this.depit.next()).iterator();
             else
                 this.depvalIt = Collections.emptyListIterator();
+            
         }
 
         @objid ("cb8fc5b2-bc83-11e1-b576-001ec947ccaf")
@@ -206,6 +209,7 @@ public class MTreeIterator<E extends EObject> implements TreeIterator<E> {
                     return null;
                 }
             }
+            
         }
 
         @objid ("08258859-3060-45cd-b395-684ebc5fee5c")

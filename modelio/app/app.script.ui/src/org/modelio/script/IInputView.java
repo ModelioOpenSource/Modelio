@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.script;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,7 +28,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IInputView {
     /**
      * Get the input view content.
-     * 
      * @return the content
      */
     @objid ("00086b96-6478-105c-84ef-001ec947cd2a")
@@ -37,7 +35,6 @@ public interface IInputView {
 
     /**
      * Append a string to the input view.
-     * 
      * @param content The string to append
      */
     @objid ("00088676-6478-105c-84ef-001ec947cd2a")

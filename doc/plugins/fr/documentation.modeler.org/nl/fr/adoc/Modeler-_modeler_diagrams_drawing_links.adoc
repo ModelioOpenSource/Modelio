@@ -1,5 +1,7 @@
 // Disable all captions for figures.
 :!figure-caption:
+// Path to the stylesheet files
+:stylesdir: .
 
 [[Tracer-des-liens-dans-un-diagramme]]
 
@@ -21,7 +23,6 @@ Dans les diagrammes Modelio, il existe quatre façons de tracer un lien :
 Tous les diagrammes Modelio bénéficient de la fonctionnalité "expert de modélisation", qui fournit une aide à la création de liens en temps réel. Si vous essayez de créer un lien autorisé (par exemple, une association entre deux classes), l'expert de modélisation affiche l'élément concerné en vert, indiquant ainsi que l'opération de création est autorisée. En revanche, si vous essayez de créer un lien non-autorisé (par exemple, une association entre un package et une classe), l'expert de modélisation affiche l'élément concerné en rouge, indiquant ainsi que l'opération de création n'est pas autorisée.
 
 [[Tracer-un-lien-en-mode-orthogonal]]
-
 [[tracer-un-lien-en-mode-orthogonal]]
 ===== Tracer un lien en mode orthogonal
 
@@ -32,7 +33,7 @@ image::images/Modeler-_modeler_diagrams_drawing_links_CreateLink.png[2]
 
 1. Cliquez sur l'icône "Créer une association" dans la palette du diagramme.
 2. Cliquez sur la classe d'origine.
-3. Tracez votre lien, avec des points intermédiaires, si vous le désirez, puis cliquez sur la classe de destination.
+3. Tracez votre lien, avec des points de routage image:images/RoutingPoint.png[RoutingPoint], si vous le désirez, puis cliquez sur la classe de destination.
 
 [[Tracer-un-lien-en-mode-libre]]
 
@@ -64,7 +65,21 @@ image::images/Modeler-_modeler_diagrams_drawing_links_CreateRakeLink.png[4]
 
 1. Cliquez sur l'icône "Créer une généralisation" dans la palette du diagramme.
 2. Cliquez sur la classe d'origine.
-3. Tracez votre lien avec autant de points intermédiaires que nécessaire, puis cliquez sur le lien de généralisation existant.
+3. Tracez votre lien avec autant de points de routage que nécessaire, puis cliquez sur le lien de généralisation existant.
+
+[[Ancres-fixes]]
+
+[[ancres-fixes]]
+===== Ancres fixes
+
+Certains éléments (comme les éléments BPMN, State ou ArchiMate) disposent de points d'ancrage fixes, qui permettent d'y accrocher les liens de sorte à ce que leur points d'origines/destinations ne changent pas par la suite, lors des déplacements ou du retaillage de ces éléments. Le nombre d’ancres fixes dépend de la taille de l’élément.
+
+.Ancres fixes sur un petit élément du diagramme d'état
+image::images/FixedAnchors.png[FixedAnchors]
+
+.Ancres fixes sur un élément plus large du diagramme d'état
+image::images/FixedAnchors2.png[FixedAnchors2]
+
 
 [[Loutil-Smart-links]]
 
@@ -93,10 +108,11 @@ image::images/Modeler-_modeler_diagrams_drawing_links_creating_link-type_element
 *Étapes :*
 
 1. Placer le curseur de la souris sur la classe d'origine et attendre une seconde +
-2. Lorsque la poignée Smart links image:images/Modeler-_modeler_diagrams_drawing_links_SmartLinks_handle.png[8] apparaît, cliquer dessus et maintenir enfoncé le bouton de la souris +
+2. Lorsque les ancres image:images/Modeler-_modeler_diagrams_drawing_links_SmartLinks_handle.png[8] apparaissent, cliquer sur l'une d'elle et maintenir enfoncé le bouton de la souris +
 3. Déplacer le curseur vers la classe de destination comme pour glisser-déposer le lien dessus +
 4. Relâcher le bouton lorsque le curseur est sur la classe de destination, puis choisir un type de lien dans la liste
 
-*Note :* Si vous ne voulez pas voir apparaître les poignées Smart links handles (flèches vertes) sur vos éléments, vous pouvez les désactiver dans la vue *Symbole* du diagramme: image:images/Modeler-_modeler_diagrams_drawing_links_creating_link-type_elements_in_diagrams_4_FR.png[7]
+*Note :* Si vous ne voulez pas voir apparaître les ancres lors du survol des éléments, vous pouvez les désactiver dans la vue *Symbole* du diagramme : 
+image::images/Modeler-_modeler_diagrams_drawing_links_creating_link-type_elements_in_diagrams_4_FR.png[7]
 
 

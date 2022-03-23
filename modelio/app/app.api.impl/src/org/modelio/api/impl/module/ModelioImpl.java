@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.api.impl.module;
 
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.core.di.annotations.Optional;
@@ -135,7 +134,6 @@ public class ModelioImpl extends Modelio {
      * <p>
      * The navigation service allow to force selection in all the view/dialog
      * that are registered has NavigationListener.
-     * 
      * @return the navigation service.
      */
     @objid ("ee682731-1eaf-4ed3-9a1f-25cc0c15f615")
@@ -203,7 +201,6 @@ public class ModelioImpl extends Modelio {
 
     /**
      * Called by E4 injection to initialize the instance
-     * 
      * @param context the eclipse context.
      */
     @objid ("42b90af5-1701-49d6-bb27-315df2f68a70")
@@ -211,6 +208,7 @@ public class ModelioImpl extends Modelio {
     void initialize(final IEclipseContext context) {
         this.eclipseContext = context;
         Modelio.instance = this;
+        
     }
 
     @objid ("64d34c74-89d2-4563-999e-2889f7f3e111")
@@ -224,7 +222,8 @@ public class ModelioImpl extends Modelio {
      * Package private constructor.
      */
     @objid ("e290b87e-70bd-4f42-9e3d-2466409ecdbb")
-    ModelioImpl() {
+     ModelioImpl() {
+        
     }
 
     @objid ("2b27227a-0b07-4d78-a8aa-d7d70e871539")
@@ -238,6 +237,7 @@ public class ModelioImpl extends Modelio {
                 provider.enterPickingMode(new PickingSessionProxy(session));
             }
         });
+        
     }
 
     @objid ("9cd03e62-28d2-462c-ae55-ead92df7ab6a")
@@ -256,6 +256,7 @@ public class ModelioImpl extends Modelio {
                 provider.leavePickingMode(new PickingSessionProxy(session));
             }
         });
+        
     }
 
 }

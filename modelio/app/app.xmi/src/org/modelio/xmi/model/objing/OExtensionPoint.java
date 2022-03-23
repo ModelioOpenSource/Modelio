@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import java.util.List;
@@ -39,12 +38,14 @@ public class OExtensionPoint extends OModelElement {
     public org.eclipse.uml2.uml.Element createEcoreElt() {
         return UMLFactory.eINSTANCE
                                                                  .createExtensionPoint();
+        
     }
 
     @objid ("d6e22db1-0bf1-4091-ab62-6169c547f570")
-    public OExtensionPoint(ExtensionPoint param) {
+    public  OExtensionPoint(ExtensionPoint param) {
         super(param);
         this.objingElement = param;
+        
     }
 
     @objid ("484e486f-cd72-4b6b-853d-58e00691e895")
@@ -58,6 +59,7 @@ public class OExtensionPoint extends OModelElement {
         if (ecoreOwner != null) {
             currentExtensionPoint.setUseCase(ecoreOwner);
         }
+        
     }
 
     @objid ("17e7c2e5-7eaf-4907-bf32-5560d4739cc0")
@@ -66,6 +68,7 @@ public class OExtensionPoint extends OModelElement {
         super.setProperties(ecoreElt);
         setVisibility((org.eclipse.uml2.uml.ExtensionPoint) ecoreElt);
         setUseCaseDependency((org.eclipse.uml2.uml.ExtensionPoint) ecoreElt);
+        
     }
 
     @objid ("c88248aa-9372-4712-b5b7-1caa487e3657")
@@ -80,6 +83,7 @@ public class OExtensionPoint extends OModelElement {
                 ((org.eclipse.uml2.uml.Extend) ecoreUseCaseDep).getExtensionLocations().add(point);
             }
         }
+        
     }
 
     @objid ("f15a20a1-3bf1-4276-a963-1ba557e93ae8")
@@ -103,6 +107,7 @@ public class OExtensionPoint extends OModelElement {
             // a visibility not setted corresponds to a PUBLIC visibility.
             break;
         }
+        
     }
 
 }

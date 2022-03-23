@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -58,6 +57,7 @@ public class DeletedMetaObject implements IMetaOf {
     public void createObject(SmObjectImpl obj) {
         // This code should never ever be called.
         throw throwDeletedObject(obj);
+        
     }
 
     @objid ("000513c4-0dbb-1f20-85a5-001ec947cd2a")
@@ -102,6 +102,7 @@ public class DeletedMetaObject implements IMetaOf {
         // as it's to him (or this) to tell the storage handler the element
         // is undeleted
         obj.getData().getMetaOf().objUndeleted(obj);
+        
     }
 
     @objid ("00050820-0dbb-1f20-85a5-001ec947cd2a")
@@ -130,7 +131,6 @@ public class DeletedMetaObject implements IMetaOf {
 
     /**
      * Set the initial meta object of deleted objects.
-     * 
      * @param initialMetaObject the initial meta object
      */
     @objid ("002c7b62-eb1c-1f22-8c06-001ec947cd2a")
@@ -142,12 +142,12 @@ public class DeletedMetaObject implements IMetaOf {
      * Initialize the meta object.
      */
     @objid ("002c91ce-eb1c-1f22-8c06-001ec947cd2a")
-    public DeletedMetaObject() {
+    public  DeletedMetaObject() {
+        
     }
 
     /**
      * Builds an AccessDeniedException for the given model object.
-     * 
      * @param smObject a model object
      * @return AccessDeniedException a ready to throw exception
      */
@@ -167,6 +167,7 @@ public class DeletedMetaObject implements IMetaOf {
     public void importObject(SmObjectImpl obj) {
         // This code should never ever be called.
         throw throwDeletedObject(obj);
+        
     }
 
 }

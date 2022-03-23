@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.form;
 
 import java.util.List;
@@ -33,7 +32,6 @@ import org.modelio.metamodel.uml.infrastructure.ModelElement;
 public interface IFieldFactory {
     /**
      * Create form field pages from a specific {@link ModelElement}.
-     * 
      * @param input the element to build the pages for.
      */
     @objid ("0e6d1232-b61f-46f5-b8da-a806fdcc0620")
@@ -41,7 +39,6 @@ public interface IFieldFactory {
 
     /**
      * Fill a form field page from a specific {@link ModelElement}.
-     * 
      * @param parent a widget which will be the parent of the new field instance (cannot be null)
      * @param input the element to build the form field for.
      */

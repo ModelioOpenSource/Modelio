@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.communicationdiagram.editor.elements.factories;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -144,9 +143,10 @@ public final class CommunicationGmNodeFactory implements IGmNodeFactory {
         private Object initialLayoutData;
 
         @objid ("7a344b89-55b6-11e2-877f-002564c97630")
-        public GmLabelFactoryVisitor(IGmDiagram diagram, Object initialLayoutData) {
+        public  GmLabelFactoryVisitor(IGmDiagram diagram, Object initialLayoutData) {
             this.diagram = diagram;
             this.initialLayoutData = initialLayoutData;
+            
         }
 
         @objid ("8f8aa6e8-f15f-457e-8d05-6e632d771537")
@@ -179,9 +179,10 @@ public final class CommunicationGmNodeFactory implements IGmNodeFactory {
         private Object initialLayoutData;
 
         @objid ("7a32c513-55b6-11e2-877f-002564c97630")
-        public NodeFactoryVisitor(IGmDiagram diagram, Object initialLayoutData) {
+        public  NodeFactoryVisitor(IGmDiagram diagram, Object initialLayoutData) {
             this.diagram = diagram;
             this.initialLayoutData = initialLayoutData;
+            
         }
 
         @objid ("06a713e8-59a5-11e2-80d8-00137282c51b")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.linkednode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -113,6 +112,7 @@ public class LinkedNodeStartCreationEditPolicy extends AbstractLinkedNodeCreatio
                 ((Request) request).getExtendedData().remove(LinkedNodeStartCreationEditPolicy.HIGHLIGHTKEY);
             }
         }
+        
     }
 
     @objid ("7ebfe285-1dec-11e2-8cad-001ec947c8cc")
@@ -182,6 +182,7 @@ public class LinkedNodeStartCreationEditPolicy extends AbstractLinkedNodeCreatio
         
         // configure the highlight figure
         FigureUtilities2.updateHighlightType(highlight, hightlightType);
+        
     }
 
     @objid ("7ebfe2a1-1dec-11e2-8cad-001ec947c8cc")
@@ -203,6 +204,7 @@ public class LinkedNodeStartCreationEditPolicy extends AbstractLinkedNodeCreatio
         super.eraseCreationFeedback(request);
         
         eraseTargetConnectionFeedback(request);
+        
     }
 
 }

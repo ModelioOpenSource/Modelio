@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.ui.swt;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,7 +34,6 @@ import org.eclipse.swt.widgets.Shell;
 public class ColoredInputDialog extends InputDialog {
     /**
      * C'tor.
-     * 
      * @param parentShell the parent shell, or <code>null</code> to create a top-level shell
      * @param dialogTitle the dialog title, or <code>null</code> if none
      * @param dialogMessage the dialog message, or <code>null</code> if none
@@ -43,7 +41,7 @@ public class ColoredInputDialog extends InputDialog {
      * @param validator an input validator, or <code>null</code> if none
      */
     @objid ("571df895-48fa-4b68-8836-f0d46eab450c")
-    public ColoredInputDialog(Shell parentShell, String dialogTitle, String dialogMessage, String initialValue, IInputValidator validator) {
+    public  ColoredInputDialog(Shell parentShell, String dialogTitle, String dialogMessage, String initialValue, IInputValidator validator) {
         super(parentShell, dialogTitle, dialogMessage, initialValue, validator);
     }
 
@@ -57,6 +55,7 @@ public class ColoredInputDialog extends InputDialog {
         } else {
             getText().setForeground(getShell().getDisplay().getSystemColor(SWT.COLOR_RED));
         }
+        
     }
 
 }

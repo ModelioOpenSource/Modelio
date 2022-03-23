@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.search.dialog;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,7 +43,7 @@ class SearchController implements ISearchController {
     private final ICoreSession session;
 
     @objid ("6d7dc2e8-ee06-4d4c-b215-d7e0d7f2c08f")
-    public SearchController(final ICoreSession session, final SearchDialog searchDialog) {
+    public  SearchController(final ICoreSession session, final SearchDialog searchDialog) {
         this.session = session;
         this.searchDialog = searchDialog;
         
@@ -56,6 +55,7 @@ class SearchController implements ISearchController {
                 }
             }
         });
+        
     }
 
     @objid ("500b7fa8-de64-4903-b5bc-051f25f8894b")
@@ -67,6 +67,7 @@ class SearchController implements ISearchController {
         if (panel != null && engine != null) {
             doRunSearch(engine, panel);
         }
+        
     }
 
     @objid ("955a8e12-ab81-4818-8d32-42a580b3ed6b")
@@ -91,6 +92,7 @@ class SearchController implements ISearchController {
                 dialog.showResults(panel, engine.search(curSession, panel.getCriteria()));
             }
         });
+        
     }
 
     @objid ("0514ffd1-b119-4c78-9958-98fa4b396bff")
@@ -110,6 +112,7 @@ class SearchController implements ISearchController {
         } catch (final CoreException e) {
             ModelSearch.LOG.error(e);
         }
+        
     }
 
 }

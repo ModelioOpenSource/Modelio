@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.reverse;
 
 import java.util.Collection;
@@ -36,7 +35,7 @@ public class PartialImportMap {
     private Map<Element, Object> modelMap;
 
     @objid ("2f5742e1-aae2-4ebb-93b0-c3d22f550fc7")
-    private PartialImportMap() {
+    private  PartialImportMap() {
         this.modelMap = new HashMap <>();
     }
 

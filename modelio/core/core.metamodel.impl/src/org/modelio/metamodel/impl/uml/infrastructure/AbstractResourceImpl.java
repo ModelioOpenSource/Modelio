@@ -17,19 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.uml.infrastructure.AbstractResourceData;
 import org.modelio.metamodel.uml.infrastructure.AbstractResource;
 import org.modelio.metamodel.uml.infrastructure.IResourceHandle;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
@@ -52,7 +51,6 @@ public class AbstractResourceImpl extends ModelElementImpl implements AbstractRe
      * Get access to the represented resource.
      * <p>
      * Returns null if the element is not yet initialized.
-     * 
      * @return an access to the represented resource.
      */
     @objid ("1660e785-cba2-44d2-b6e7-c6e9e0ddd351")
@@ -66,13 +64,13 @@ public class AbstractResourceImpl extends ModelElementImpl implements AbstractRe
         } else {
             return new UriResourceHandle(this);
         }
+        
     }
 
     /**
      * Initialize the element to embed a resource.
      * <p>
      * Use the returned handle to store the resource content.
-     * 
      * @param fileName a file name that will be used in case of file extraction.
      * @return a handle to write the resource content.
      */

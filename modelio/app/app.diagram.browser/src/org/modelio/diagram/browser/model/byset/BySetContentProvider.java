@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.model.byset;
 
 import java.util.ArrayList;
@@ -165,13 +164,13 @@ public class BySetContentProvider implements ITreeContentProvider {
     /**
      * Constructor initializing the project.
      * @param showFragments
-     * 
      * @param project an opened GProject.
      */
     @objid ("0046b8ce-0d4f-10c6-842f-001ec947cd2a")
-    public BySetContentProvider(GProject project) {
+    public  BySetContentProvider(GProject project) {
         this.project = project;
         this.allDiagramsFolder = new AllDiagramsNode(this.project, null);
+        
     }
 
     /**
@@ -185,7 +184,7 @@ public class BySetContentProvider implements ITreeContentProvider {
     @objid ("0046dff2-0d4f-10c6-842f-001ec947cd2a")
     static class ParentProvider extends DefaultInfrastructureVisitor {
         @objid ("0047086a-0d4f-10c6-842f-001ec947cd2a")
-         static ParentProvider _instance = new ParentProvider();
+        static ParentProvider _instance = new ParentProvider();
 
         @objid ("0047110c-0d4f-10c6-842f-001ec947cd2a")
         public static Object getParent(Element e) {

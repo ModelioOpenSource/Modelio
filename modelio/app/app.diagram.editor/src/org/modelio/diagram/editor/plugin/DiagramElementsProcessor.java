@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.plugin;
 
 import java.net.URL;
@@ -60,6 +59,7 @@ public class DiagramElementsProcessor extends AbstractDiagramInitializationProce
         loader.load(url);
         
         factoryStyle.injectDefaultValues(loader.getStyleProperties());
+        
     }
 
     @objid ("f73b9f9d-58d3-11e2-be0b-002564c97630")
@@ -100,6 +100,7 @@ public class DiagramElementsProcessor extends AbstractDiagramInitializationProce
         // Generic Gms
         factoryStyle.declareProvider(GmGenericNodeStyleKeys.class);
         factoryStyle.declareProvider(GmGenericLinkStyleKeys.class);
+        
     }
 
     @objid ("8b5deda7-d139-41c1-b8b2-7ff3c4fbcef8")

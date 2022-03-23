@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.deploymentdiagram.editor.elements.artifact;
 
 import java.util.Collections;
@@ -126,18 +125,17 @@ public class GmArtifactPrimaryNode extends GmNoStyleCompositeNode implements IIm
      * Constructor for deserialization only.
      */
     @objid ("971a5dc6-55b6-11e2-877f-002564c97630")
-    public GmArtifactPrimaryNode() {
+    public  GmArtifactPrimaryNode() {
         // Nothing to do.
     }
 
     /**
      * Creates a GmClass.
-     * 
      * @param diagram The owner diagram.
      * @param ref a reference to the element this GmModel is related to, must not be null.
      */
     @objid ("971a5dc9-55b6-11e2-877f-002564c97630")
-    public GmArtifactPrimaryNode(IGmDiagram diagram, final MRef ref) {
+    public  GmArtifactPrimaryNode(IGmDiagram diagram, final MRef ref) {
         super(diagram, ref);
         
         this.header = new GmNamespaceHeader(diagram, ref);
@@ -164,6 +162,7 @@ public class GmArtifactPrimaryNode extends GmNoStyleCompositeNode implements IIm
         super.addChild(this.innerElements);
         
         styleChanged(getDisplayedStyle());
+        
     }
 
     @objid ("971a5dd3-55b6-11e2-877f-002564c97630")
@@ -180,7 +179,6 @@ public class GmArtifactPrimaryNode extends GmNoStyleCompositeNode implements IIm
 
     /**
      * Get the group where <tt>GmAttributes</tt> are unmasked.
-     * 
      * @return the attributes group.
      */
     @objid ("971be459-55b6-11e2-877f-002564c97630")
@@ -216,7 +214,6 @@ public class GmArtifactPrimaryNode extends GmNoStyleCompositeNode implements IIm
 
     /**
      * Get the internal structure.
-     * 
      * @return the internal structure.
      */
     @objid ("971be46f-55b6-11e2-877f-002564c97630")
@@ -226,7 +223,6 @@ public class GmArtifactPrimaryNode extends GmNoStyleCompositeNode implements IIm
 
     /**
      * Get the group where {@link Operation} are unmasked.
-     * 
      * @return the operations group.
      */
     @objid ("971be474-55b6-11e2-877f-002564c97630")
@@ -275,6 +271,7 @@ public class GmArtifactPrimaryNode extends GmNoStyleCompositeNode implements IIm
             break;
         }
         }
+        
     }
 
     @objid ("971be48f-55b6-11e2-877f-002564c97630")
@@ -286,6 +283,7 @@ public class GmArtifactPrimaryNode extends GmNoStyleCompositeNode implements IIm
         firePropertyChange(IGmObject.PROPERTY_LABEL, oldLabel, this.header.getMainLabel());
         // forcing visual refresh in case Image changed
         firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("971be492-55b6-11e2-877f-002564c97630")
@@ -294,6 +292,7 @@ public class GmArtifactPrimaryNode extends GmNoStyleCompositeNode implements IIm
         // Returned result depends on current representation mode:
         List<GmNodeModel> ret;
         switch (this.getRepresentationMode()) {
+        case USER_IMAGE:
         case IMAGE: {
             ret = Collections.emptyList();
             break;
@@ -313,6 +312,7 @@ public class GmArtifactPrimaryNode extends GmNoStyleCompositeNode implements IIm
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmArtifactPrimaryNode.", GmArtifactPrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("971d6afd-55b6-11e2-877f-002564c97630")
@@ -353,6 +353,7 @@ public class GmArtifactPrimaryNode extends GmNoStyleCompositeNode implements IIm
         this.methodGroup.setRoleInComposition(GmArtifactPrimaryNode.METHOD_GROUP);
         this.internalStructure.setRoleInComposition(GmArtifactPrimaryNode.INTERNAL);
         this.innerElements.setRoleInComposition(GmArtifactPrimaryNode.INNER);
+        
     }
 
     @objid ("971d6b02-55b6-11e2-877f-002564c97630")
@@ -384,6 +385,7 @@ public class GmArtifactPrimaryNode extends GmNoStyleCompositeNode implements IIm
         // Delete image mode label
         GmDefaultModelElementLabel imageModeHeader = (GmDefaultModelElementLabel) getFirstChild("ImageHeader");
         imageModeHeader.delete();
+        
     }
 
     @objid ("971d6b0d-55b6-11e2-877f-002564c97630")
@@ -410,6 +412,7 @@ public class GmArtifactPrimaryNode extends GmNoStyleCompositeNode implements IIm
         this.internalStructure.setRoleInComposition(GmArtifactPrimaryNode.INTERNAL);
         
         addChild(this.internalStructure);
+        
     }
 
     @objid ("971d6b17-55b6-11e2-877f-002564c97630")
@@ -421,6 +424,7 @@ public class GmArtifactPrimaryNode extends GmNoStyleCompositeNode implements IIm
         this.methodGroup = (GmGroup) getFirstChild(GmArtifactPrimaryNode.METHOD_GROUP);
         this.internalStructure = (GmInternalStructure) getFirstChild(GmArtifactPrimaryNode.INTERNAL);
         this.innerElements = (GmInnerClass) getFirstChild(GmArtifactPrimaryNode.INNER);
+        
     }
 
 }

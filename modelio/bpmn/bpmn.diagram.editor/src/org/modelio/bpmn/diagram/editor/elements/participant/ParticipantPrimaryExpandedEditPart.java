@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.participant;
 
 import java.beans.PropertyChangeEvent;
@@ -29,7 +28,6 @@ import java.util.Objects;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.BorderLayout;
 import org.eclipse.draw2d.Connection;
-import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.gef.ConnectionEditPart;
@@ -37,16 +35,20 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.RequestConstants;
+import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.requests.ReconnectRequest;
 import org.modelio.bpmn.diagram.editor.elements.bpmnlane.BpmnLaneFigure;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnCreateLinkEditPolicy;
 import org.modelio.bpmn.diagram.editor.elements.diagrams.processdesign.GmBpmnProcessDesignDiagram;
 import org.modelio.bpmn.diagram.editor.elements.participant.content.GmBpmnParticipantContent;
-import org.modelio.bpmn.diagram.editor.elements.policies.BpmnCreateLinkEditPolicy;
 import org.modelio.bpmn.diagram.editor.plugin.DiagramEditorBpmn;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeRequestConstants;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeStartCreationEditPolicy;
+import org.modelio.diagram.elements.common.portcontainer.PortContainerEditPart;
 import org.modelio.diagram.elements.core.figures.MinimumSizeLayout;
 import org.modelio.diagram.elements.core.figures.borders.TLBRBorder;
+import org.modelio.diagram.elements.core.link.anchors.INodeAnchorProvider;
+import org.modelio.diagram.elements.core.link.anchors.RectangleNodeAnchorProvider;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
 import org.modelio.diagram.elements.core.model.IGmLink;
@@ -55,6 +57,7 @@ import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.elements.core.policies.AutoExpandEditPolicy;
 import org.modelio.diagram.elements.core.requests.ModelElementDropRequest;
+import org.modelio.diagram.elements.core.requests.RequestProperty;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.metamodel.bpmn.flows.BpmnMessageFlow;
@@ -83,6 +86,12 @@ public class ParticipantPrimaryExpandedEditPart extends AbstractNodeEditPart {
     @Override
     public boolean isSelectable() {
         return false;
+    }
+
+    @objid ("692cfdb5-fb57-493f-a531-f1a4f6b90cd5")
+    @Override
+    protected INodeAnchorProvider getNodeAnchorProvider() {
+        return RectangleNodeAnchorProvider.getNonSlidable();
     }
 
     @objid ("8a4a7aec-126b-4e15-9c77-12ff36f87668")
@@ -122,6 +131,7 @@ public class ParticipantPrimaryExpandedEditPart extends AbstractNodeEditPart {
             throw new IllegalArgumentException(String.format("Unexpected '%s' child at index %d.", childEditPart, index));
         
         }
+        
     }
 
     @objid ("550f7afc-eb02-484c-a506-49f4c3c90782")
@@ -175,6 +185,7 @@ public class ParticipantPrimaryExpandedEditPart extends AbstractNodeEditPart {
         }
         
         super.afterSwitchRepresentationMode();
+        
     }
 
     /**
@@ -216,6 +227,7 @@ public class ParticipantPrimaryExpandedEditPart extends AbstractNodeEditPart {
                 }
             }
         }
+        
     }
 
     @objid ("84dedea0-c634-48ca-9885-0b8b4c24acaa")
@@ -229,6 +241,7 @@ public class ParticipantPrimaryExpandedEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START, new LinkedNodeStartCreationEditPolicy());
         // Override the default DROP policy
         installEditPolicy(ModelElementDropRequest.TYPE, null);
+        
     }
 
     @objid ("312a4dc4-328d-4378-94bf-2a56bae3e5ee")
@@ -269,6 +282,7 @@ public class ParticipantPrimaryExpandedEditPart extends AbstractNodeEditPart {
         } else {
             super.refreshFromStyle(aFigure, style);
         }
+        
     }
 
     /**
@@ -280,45 +294,73 @@ public class ParticipantPrimaryExpandedEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         GmBpmnParticipantPrimaryNode partitionModel = getModel();
         getFigure().getParent().setConstraint(getFigure(), partitionModel.getLayoutData());
+        
     }
 
     @objid ("8d0d1b17-f569-40e3-a9c4-d6e730d9c746")
     private void reconnectSourceTo(IGmLink gmLink, AbstractNodeEditPart newSourceEp) {
-        ReconnectRequest req = new ReconnectRequest(RequestConstants.REQ_RECONNECT_SOURCE);
+        EditPart realSourceEp = newSourceEp instanceof PortContainerEditPart ? ((PortContainerEditPart) newSourceEp).getMainNodeEditPart() : newSourceEp;
+        
         ConnectionEditPart connEp = (ConnectionEditPart) getViewer().getEditPartRegistry().get(gmLink);
         Connection connFig = (Connection) connEp.getFigure();
-        
-        req.setConnectionEditPart(connEp);
         final Point firstPoint = connFig.getPoints().getFirstPoint();
         connFig.translateToAbsolute(firstPoint);
-        req.setLocation(firstPoint);
-        req.setTargetEditPart(newSourceEp);
         
-        ConnectionAnchor newAnchor = newSourceEp.getSourceConnectionAnchor(req);
-        Object newAnchorModel = newSourceEp.createAnchorModel(newAnchor);
-        gmLink.getPath().setSourceAnchor(newAnchorModel);
-        gmLink.getFrom().removeStartingLink(gmLink);
-        newSourceEp.getModel().addStartingLink(gmLink);
+        ReconnectRequest req = new ReconnectRequest(RequestConstants.REQ_RECONNECT_SOURCE);
+        req.setConnectionEditPart(connEp);
+        req.setLocation(firstPoint);
+        
+        RequestProperty.PROP_SKIP_MODELCHANGE.set(req, true);
+        
+        realSourceEp = realSourceEp.getTargetEditPart(req);
+        if (realSourceEp != null) {
+            req.setTargetEditPart(realSourceEp);
+        
+            // Emulate feedback to make the router do its job
+            connEp.showSourceFeedback(req);
+            Command command = realSourceEp.getCommand(req);
+        
+            // Erase feedback to reset the connection before executing the command
+            connEp.eraseSourceFeedback(req);
+        
+            if (command != null && command.canExecute()) {
+                command.execute();
+            }
+        }
+        
     }
 
     @objid ("7628abeb-2af3-4e05-8905-2e5b443f0614")
     private void reconnectTargetTo(IGmLink gmLink, AbstractNodeEditPart newTargetEp) {
-        ReconnectRequest req = new ReconnectRequest(RequestConstants.REQ_RECONNECT_TARGET);
+        EditPart realTargetEp = newTargetEp instanceof PortContainerEditPart ? ((PortContainerEditPart) newTargetEp).getMainNodeEditPart() : newTargetEp;
+        
         ConnectionEditPart connEp = (ConnectionEditPart) getViewer().getEditPartRegistry().get(gmLink);
         Connection connFig = (Connection) connEp.getFigure();
+        final Point lastPoint = connFig.getPoints().getLastPoint();
+        connFig.translateToAbsolute(lastPoint);
         
+        ReconnectRequest req = new ReconnectRequest(RequestConstants.REQ_RECONNECT_TARGET);
         req.setConnectionEditPart(connEp);
-        final Point firstPoint = connFig.getPoints().getLastPoint();
-        connFig.translateToAbsolute(firstPoint);
-        req.setLocation(firstPoint);
-        req.setTargetEditPart(newTargetEp);
+        req.setLocation(lastPoint);
         
-        ConnectionAnchor newAnchor = newTargetEp.getTargetConnectionAnchor(req);
-        Object newAnchorModel = createAnchorModel(newAnchor);
-        gmLink.getPath().setTargetAnchor(newAnchorModel);
-        gmLink.getTo().removeEndingLink(gmLink);
+        RequestProperty.PROP_SKIP_MODELCHANGE.set(req, true);
         
-        newTargetEp.getModel().addEndingLink(gmLink);
+        realTargetEp = realTargetEp.getTargetEditPart(req);
+        if (realTargetEp != null) {
+            req.setTargetEditPart(realTargetEp);
+        
+            // Emulate feedback to make the router do its job
+            connEp.showSourceFeedback(req);
+        
+            Command command = realTargetEp.getCommand(req);
+        
+            // Erase feedback to reset the connection before executing the command
+            connEp.eraseSourceFeedback(req);
+            if (command != null && command.canExecute()) {
+                command.execute();
+            }
+        }
+        
     }
 
     @objid ("bdb135b6-dd84-4f41-897c-f389631a38ac")
@@ -329,6 +371,7 @@ public class ParticipantPrimaryExpandedEditPart extends AbstractNodeEditPart {
         if (evt.getPropertyName().equals(GmBpmnParticipantPrimaryNode.CHECK_ORIENTATION)) {
             switchRepresentationMode();
         }
+        
     }
 
     /**
@@ -351,12 +394,19 @@ public class ParticipantPrimaryExpandedEditPart extends AbstractNodeEditPart {
         } else {
             return super.needsRepresentationModeSwitch();
         }
+        
     }
 
     @objid ("076e8fe7-cce2-4a81-b401-7ea43f489492")
     @Override
     protected void autoSizeNode(EditPart newEditPart) {
         // Orientation is changing, do not apply FitToMinSize
+    }
+
+    @objid ("b0731cb9-84cc-4358-9bc3-f9802f28891c")
+    @Override
+    protected void setFigure(IFigure figure) {
+        super.setFigure(figure);
     }
 
 }

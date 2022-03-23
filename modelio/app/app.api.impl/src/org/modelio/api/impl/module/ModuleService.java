@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.api.impl.module;
 
 import java.nio.file.Path;
@@ -42,7 +41,7 @@ public class ModuleService implements IModuleService {
     private IModuleManagementService coreModuleService;
 
     @objid ("94d42a01-22b9-4b8a-9398-614371e0823a")
-    public ModuleService(final IModuleManagementService coreModuleService) {
+    public  ModuleService(final IModuleManagementService coreModuleService) {
         this.coreModuleService = coreModuleService;
     }
 

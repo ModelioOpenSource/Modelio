@@ -17,20 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ClauseSmClass;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ConditionalNodeData;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.StructuredActivityNodeSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.Clause;
 import org.modelio.metamodel.uml.behavior.activityModel.ConditionalNode;
 import org.modelio.metamodel.uml.behavior.activityModel.StructuredActivityNode;
@@ -58,7 +55,7 @@ public class ConditionalNodeSmClass extends StructuredActivityNodeSmClass {
     private SmDependency ownedClauseDep;
 
     @objid ("3fec8d50-6020-4186-91cf-e4a3a0785bfb")
-    public ConditionalNodeSmClass(ISmMetamodelFragment origin) {
+    public  ConditionalNodeSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -66,6 +63,7 @@ public class ConditionalNodeSmClass extends StructuredActivityNodeSmClass {
     @Override
     public String getName() {
         return "ConditionalNode";
+        
     }
 
     @objid ("5b49fda4-12f2-4f30-bf2b-2344a982e35d")
@@ -78,18 +76,21 @@ public class ConditionalNodeSmClass extends StructuredActivityNodeSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ConditionalNode.class;
+        
     }
 
     @objid ("87e9612a-a887-4177-a9e8-b3c091b52476")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("b2348342-5953-470a-a98f-f0f152c24387")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("2a7def09-aee7-41ce-9eec-af9d5d49085b")
@@ -113,6 +114,8 @@ public class ConditionalNodeSmClass extends StructuredActivityNodeSmClass {
         this.ownedClauseDep = new OwnedClauseSmDependency();
         this.ownedClauseDep.init("OwnedClause", this, metamodel.getMClass(Clause.MQNAME), 0, -1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.ownedClauseDep);
+        
+        
     }
 
     @objid ("ce0d2039-e7b3-4c44-b223-6c95c99a22a9")
@@ -145,7 +148,7 @@ public class ConditionalNodeSmClass extends StructuredActivityNodeSmClass {
         private ConditionalNodeSmClass smClass;
 
         @objid ("13029773-8c93-4c9a-a47e-7b8f56cc2538")
-        public ConditionalNodeObjectFactory(ConditionalNodeSmClass smClass) {
+        public  ConditionalNodeObjectFactory(ConditionalNodeSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -206,6 +209,7 @@ public class ConditionalNodeSmClass extends StructuredActivityNodeSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ConditionalNodeData) data).mOwnedClause = values;
+            
         }
 
         @objid ("d3596f2e-69cd-4702-92ab-1e8db57cf8c1")
@@ -215,6 +219,7 @@ public class ConditionalNodeSmClass extends StructuredActivityNodeSmClass {
             	this.symetricDep = ((ClauseSmClass)this.getTarget()).getOwnerDep();
             }
             return this.symetricDep;
+            
         }
 
     }

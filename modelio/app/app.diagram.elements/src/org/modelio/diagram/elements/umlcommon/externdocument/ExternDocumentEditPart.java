@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.umlcommon.externdocument;
 
 import java.beans.PropertyChangeEvent;
@@ -107,6 +106,7 @@ public class ExternDocumentEditPart extends AbstractNodeEditPart {
         } else {
             super.performRequest(req);
         }
+        
     }
 
     @objid ("814d26b5-1dec-11e2-8cad-001ec947c8cc")
@@ -125,6 +125,7 @@ public class ExternDocumentEditPart extends AbstractNodeEditPart {
         } else {
             super.propertyChange(evt);
         }
+        
     }
 
     @objid ("814d26ba-1dec-11e2-8cad-001ec947c8cc")
@@ -134,6 +135,7 @@ public class ExternDocumentEditPart extends AbstractNodeEditPart {
         installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE, new DefaultElementDirectEditPolicy());
         installEditPolicy(EditPolicy.NODE_ROLE, new DefaultCreateLinkEditPolicy());
         installEditPolicy("notelink", new LinkedNodeEndReconnectEditPolicy());
+        
     }
 
     @objid ("814d26bd-1dec-11e2-8cad-001ec947c8cc")
@@ -155,7 +157,6 @@ public class ExternDocumentEditPart extends AbstractNodeEditPart {
 
     /**
      * Get the extern document figure.
-     * 
      * @return The extern document figure.
      */
     @objid ("814f88fb-1dec-11e2-8cad-001ec947c8cc")
@@ -179,6 +180,7 @@ public class ExternDocumentEditPart extends AbstractNodeEditPart {
         documentFigure.setContents(gmDocument.getContents());
         documentFigure.setType(gmDocument.getType());
         documentFigure.setType(gmDocument.getMimeType());
+        
     }
 
     @objid ("1f527fc6-415a-4cc4-9770-94966201c316")
@@ -189,7 +191,6 @@ public class ExternDocumentEditPart extends AbstractNodeEditPart {
 
     /**
      * Recreate the link between the {@link Document} and its annoted element through a reconnect request.
-     * 
      * @param source the annoted element.
      */
     @objid ("febced4a-d2cd-46b6-9148-0d0133d70697")
@@ -229,6 +230,7 @@ public class ExternDocumentEditPart extends AbstractNodeEditPart {
         
         // Unable to find a valid source, delete link
         gmLink.delete();
+        
     }
 
 }

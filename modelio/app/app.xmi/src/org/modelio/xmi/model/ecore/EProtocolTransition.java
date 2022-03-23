@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,11 +45,12 @@ public class EProtocolTransition extends ETransition {
     }
 
     @objid ("5fed398d-4ddf-4256-8a78-306e5be46cb1")
-    public EProtocolTransition(org.eclipse.uml2.uml.ProtocolTransition element) {
+    public  EProtocolTransition(org.eclipse.uml2.uml.ProtocolTransition element) {
         super(element);
         this.ecoreElement = element;
         this.isInternalTransition = EcoreModelNavigation
         .isInternalTransition(element);
+        
     }
 
     @objid ("cfd0c66c-1d13-4ee6-868d-70e561509540")
@@ -58,6 +58,7 @@ public class EProtocolTransition extends ETransition {
     public void setProperties(Element objingElt) {
         super.setProperties(objingElt);
         setProcessed((Transition) objingElt);
+        
     }
 
     @objid ("d7579e1e-fe82-4d54-a98d-c4f7f7e1e055")
@@ -70,6 +71,7 @@ public class EProtocolTransition extends ETransition {
                 transition.setProcessed((Operation) objingOp);
             }
         }
+        
     }
 
 }

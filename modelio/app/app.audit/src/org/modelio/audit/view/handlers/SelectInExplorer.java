@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.view.handlers;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,6 +45,7 @@ public class SelectInExplorer extends AbstractAuditEntryHandler {
         if (element != null) {
             navigationService.fireNavigate(element);
         }
+        
     }
 
     @objid ("ce5efdcc-ab12-4924-952f-cdc2ca3cfb2e")

@@ -17,19 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.diagrams.processcollaboration;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Dimension;
-import org.eclipse.draw2d.geometry.PrecisionDimension;
 import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.SnapToGeometry;
 import org.eclipse.gef.SnapToGrid;
 import org.eclipse.swt.graphics.Color;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnDiagramElementDropEditPolicy;
 import org.modelio.bpmn.diagram.editor.elements.diagrams.GmBpmnDiagramStyleKeys;
 import org.modelio.diagram.elements.common.abstractdiagram.AbstractDiagramEditPart;
 import org.modelio.diagram.elements.common.abstractdiagram.AbstractDiagramFigure;
@@ -37,6 +36,7 @@ import org.modelio.diagram.elements.common.linkednode.LinkedNodeRequestConstants
 import org.modelio.diagram.elements.core.model.GmAbstractObject;
 import org.modelio.diagram.elements.core.policies.CreateLinkIntermediateEditPolicy;
 import org.modelio.diagram.elements.core.requests.CreateLinkConstants;
+import org.modelio.diagram.elements.core.requests.ModelElementDropRequest;
 import org.modelio.diagram.styles.core.IStyle;
 
 /**
@@ -62,6 +62,8 @@ public class BpmnProcessCollaborationDiagramEditPart extends AbstractDiagramEdit
     protected void createEditPolicies() {
         super.createEditPolicies();
         
+        installEditPolicy(ModelElementDropRequest.TYPE, new BpmnDiagramElementDropEditPolicy());
+        
         // Policy to add nodes on the diagram
         installEditPolicy(EditPolicy.LAYOUT_ROLE, new BpmnProcessCollaborationDiagramLayoutEditPolicy());
         
@@ -70,6 +72,7 @@ public class BpmnProcessCollaborationDiagramEditPart extends AbstractDiagramEdit
         
         // Policy to add bend points to connections being created
         installEditPolicy(CreateLinkConstants.REQ_CONNECTION_ADD_BENDPOINT, new CreateLinkIntermediateEditPolicy());
+        
     }
 
     @objid ("61f33054-55b6-11e2-877f-002564c97630")
@@ -92,13 +95,7 @@ public class BpmnProcessCollaborationDiagramEditPart extends AbstractDiagramEdit
         // TODO: in the future this parsing might become the responsability of the property view,
         // ie the property view would propose a 'Dimension' editor returning the proper 'in pixel' dimension value...
         String pageSize = (String) style.getProperty(GmBpmnDiagramStyleKeys.PAGE_SIZE);
-        Dimension pixelPageSize = null;
-        if (pageSize != null && !pageSize.isEmpty()) {
-            PrecisionDimension inchPageSize = parsePageSize(pageSize);
-            if (inchPageSize != null) {
-                pixelPageSize = convertToPixel(inchPageSize);
-            }
-        }
+        Dimension pixelPageSize = PageSizeParser.parseInPixels(pageSize);
         
         //
         EditPartViewer v = getRoot().getViewer();
@@ -114,6 +111,7 @@ public class BpmnProcessCollaborationDiagramEditPart extends AbstractDiagramEdit
         diagramFigure.showPageBoundaries(style.getBoolean(GmBpmnDiagramStyleKeys.SHOW_PAGES));
         v.setProperty(AbstractDiagramEditPart.PROPERTY_FILL_TILE_SIZE, pixelPageSize);
         diagramFigure.setPageBoundaries(pixelPageSize);
+        
     }
 
 }

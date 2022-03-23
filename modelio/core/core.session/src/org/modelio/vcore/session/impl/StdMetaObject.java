@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl;
 
 import java.util.List;
@@ -68,7 +67,6 @@ public class StdMetaObject implements IMetaOf {
 
     /**
      * Initialize the meta object.
-     * 
      * @param storageHandle the storage handle.
      * @param accessHandle the access handle
      * @param actionHandle the transaction handle
@@ -77,13 +75,14 @@ public class StdMetaObject implements IMetaOf {
      * @param statusChangeManager the status change manager.
      */
     @objid ("002a4a2c-19b6-1f18-8b7a-001ec947cd2a")
-    public StdMetaObject(IStorageHandle storageHandle, IAccessHandle accessHandle, ActionHandle actionHandle, CacheHandle cacheHandle, DeletedMetaObject deletedMetaObject, StatusChangeManager statusChangeManager) {
+    public  StdMetaObject(IStorageHandle storageHandle, IAccessHandle accessHandle, ActionHandle actionHandle, CacheHandle cacheHandle, DeletedMetaObject deletedMetaObject, StatusChangeManager statusChangeManager) {
         this.storageHandle = storageHandle;
         this.accessHandle = accessHandle;
         this.cacheHandle = cacheHandle;
         this.actionHandle = actionHandle;
         this.deletedMetaObject = deletedMetaObject;
         this.statusChangeManager = statusChangeManager;
+        
     }
 
     @objid ("002a3f3c-19b6-1f18-8b7a-001ec947cd2a")
@@ -137,6 +136,7 @@ public class StdMetaObject implements IMetaOf {
                 }
             }
         }
+        
     }
 
     @objid ("002a3fdc-19b6-1f18-8b7a-001ec947cd2a")
@@ -188,6 +188,7 @@ public class StdMetaObject implements IMetaOf {
             }
         
         }
+        
     }
 
     @objid ("002a4252-19b6-1f18-8b7a-001ec947cd2a")
@@ -229,6 +230,7 @@ public class StdMetaObject implements IMetaOf {
                 }
             }
         }
+        
     }
 
     @objid ("002a42f2-19b6-1f18-8b7a-001ec947cd2a")
@@ -284,6 +286,7 @@ public class StdMetaObject implements IMetaOf {
                 }
             }
         }
+        
     }
 
     @objid ("002a4388-19b6-1f18-8b7a-001ec947cd2a")
@@ -330,6 +333,7 @@ public class StdMetaObject implements IMetaOf {
                 }
             }
         }
+        
     }
 
     @objid ("002a4428-19b6-1f18-8b7a-001ec947cd2a")
@@ -392,6 +396,7 @@ public class StdMetaObject implements IMetaOf {
                 }
             }
         }
+        
     }
 
     @objid ("002a4694-19b6-1f18-8b7a-001ec947cd2a")
@@ -437,6 +442,7 @@ public class StdMetaObject implements IMetaOf {
                 }
             }
         }
+        
     }
 
     @objid ("633ad50f-2b0a-44d7-be7f-b25642be2a39")
@@ -484,6 +490,7 @@ public class StdMetaObject implements IMetaOf {
                 //}
             }
         }
+        
     }
 
     @objid ("002a47ca-19b6-1f18-8b7a-001ec947cd2a")
@@ -545,6 +552,7 @@ public class StdMetaObject implements IMetaOf {
                 }
             }
         }
+        
     }
 
     @objid ("0004df4e-702c-1f21-85a5-001ec947cd2a")
@@ -594,6 +602,7 @@ public class StdMetaObject implements IMetaOf {
             }
         
         }
+        
     }
 
     @objid ("002a48f6-19b6-1f18-8b7a-001ec947cd2a")
@@ -639,6 +648,7 @@ public class StdMetaObject implements IMetaOf {
                 }
             }
         }
+        
     }
 
     @objid ("c8dbff94-0de3-498d-af2e-60792a001f8f")

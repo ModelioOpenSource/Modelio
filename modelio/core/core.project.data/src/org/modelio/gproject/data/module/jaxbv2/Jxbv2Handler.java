@@ -17,18 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.module.jaxbv2;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
  * <p>
@@ -104,7 +103,6 @@ public class Jxbv2Handler {
 
     /**
      * Gets the value of the clazz property.
-     * 
      * @return possible object is {@link String }
      */
     @objid ("b33b8577-9b2e-4fe5-86e6-d552ce97a345")
@@ -114,7 +112,6 @@ public class Jxbv2Handler {
 
     /**
      * Sets the value of the clazz property.
-     * 
      * @param value allowed object is {@link String }
      */
     @objid ("33f315ad-8aaa-4e58-9656-521e8796f16b")
@@ -154,7 +151,6 @@ public class Jxbv2Handler {
 
         /**
          * Gets the value of the name property.
-         * 
          * @return possible object is {@link String }
          */
         @objid ("21062c30-0b0b-4c0f-9e1d-4bd075bdc688")
@@ -164,7 +160,6 @@ public class Jxbv2Handler {
 
         /**
          * Sets the value of the name property.
-         * 
          * @param value allowed object is {@link String }
          */
         @objid ("434b07b3-d830-4538-90b7-347587bfbc25")
@@ -174,7 +169,6 @@ public class Jxbv2Handler {
 
         /**
          * Gets the value of the value property.
-         * 
          * @return possible object is {@link String }
          */
         @objid ("a8fbc511-e414-4739-87ba-7fb600183ff1")
@@ -184,7 +178,6 @@ public class Jxbv2Handler {
 
         /**
          * Sets the value of the value property.
-         * 
          * @param value allowed object is {@link String }
          */
         @objid ("24e2e402-8cba-4e4e-8cae-8a0c327e03dd")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.api.dg;
 
 import java.util.ArrayList;
@@ -71,20 +70,21 @@ public class DGFactory implements IDGFactory {
      */
     @objid ("bf25d51a-8191-4f24-86a4-e187767bc013")
     private static final Comparator<? super IDGFactory> DEFAULT_FACTORY_COMPARATOR = new Comparator<IDGFactory>() {
-        @Override
-        public int compare(IDGFactory o1, IDGFactory o2) {
-            if (o1 instanceof InfrastructureDGFactory) {
-                return Integer.MAX_VALUE;
-            } else if (o2 instanceof InfrastructureDGFactory) {
-                return Integer.MIN_VALUE;
-            } else {
-                return 0;
+            @Override
+            public int compare(IDGFactory o1, IDGFactory o2) {
+                if (o1 instanceof InfrastructureDGFactory) {
+                    return Integer.MAX_VALUE;
+                } else if (o2 instanceof InfrastructureDGFactory) {
+                    return Integer.MIN_VALUE;
+                } else {
+                    return 0;
+                }
             }
-        }
-    };
+        };
 
     @objid ("dbe693bf-71c0-4df6-ad31-7324ef842dd5")
-    private DGFactory() {
+    private  DGFactory() {
+        
     }
 
     /**
@@ -97,7 +97,6 @@ public class DGFactory implements IDGFactory {
 
     /**
      * Returns a DiagramGraphic for the given model. Can be either a DiagramNode or a DiagramLink.
-     * 
      * @param diagramHandle a handle to the diagram
      * @param gmModel the model.
      * @return a {@link DiagramGraphic}
@@ -120,7 +119,6 @@ public class DGFactory implements IDGFactory {
 
     /**
      * Return a list of DiagramGraphics for each given model. Can be mixed {@link DiagramNode}s and {@link DiagramLink}s
-     * 
      * @param diagramHandle a handle to the diagram
      * @param models the models
      * @return a list of {@link DiagramGraphic}
@@ -137,9 +135,9 @@ public class DGFactory implements IDGFactory {
         return list;
     }
 
-/* (non-Javadoc)
-     * @see org.modelio.diagram.api.dg.IDGFactory#getDiagramLink(org.modelio.diagram.api.services.IDiagramHandle, org.modelio.diagram.elements.core.model.IGmLink)
-     */
+    /* (non-Javadoc)
+         * @see org.modelio.diagram.api.dg.IDGFactory#getDiagramLink(org.modelio.diagram.api.services.IDiagramHandle, org.modelio.diagram.elements.core.model.IGmLink)
+         */
     @objid ("9ece0dd2-718f-486e-aa45-34e751fd9203")
     @Override
     public IDiagramLink getDiagramLink(IDiagramHandle diagramHandle, IGmLink gmLink) {
@@ -154,9 +152,9 @@ public class DGFactory implements IDGFactory {
         return ret;
     }
 
-/* (non-Javadoc)
-     * @see org.modelio.diagram.api.dg.IDGFactory#getDiagramNode(org.modelio.diagram.api.services.IDiagramHandle, org.modelio.diagram.elements.core.node.GmNodeModel)
-     */
+    /* (non-Javadoc)
+         * @see org.modelio.diagram.api.dg.IDGFactory#getDiagramNode(org.modelio.diagram.api.services.IDiagramHandle, org.modelio.diagram.elements.core.node.GmNodeModel)
+         */
     @objid ("0c99b06f-a207-4b03-b535-a1f176b81570")
     @Override
     public IDiagramNode getDiagramNode(IDiagramHandle diagramHandle, GmNodeModel gmNodeModel) {
@@ -177,7 +175,6 @@ public class DGFactory implements IDGFactory {
 
     /**
      * Return a list of DiagramNode for each given model.
-     * 
      * @param diagramHandle a handle to the diagram
      * @param models the models
      * @return a list of {@link DiagramNode}
@@ -196,7 +193,6 @@ public class DGFactory implements IDGFactory {
 
     /**
      * Returns a DiagramGraphic for the given model. Can be either a DiagramNode or a DiagramLink.
-     * 
      * @param diagramHandle a handle to the diagram
      * @param gmModel the model.
      * @return a {@link DiagramGraphic}
@@ -229,7 +225,6 @@ public class DGFactory implements IDGFactory {
 
     /**
      * Return a list of {@link IDiagramLayer} for each given model.
-     * 
      * @param diagramHandle a handle to the diagram
      * @param models the models
      * @return a list of {@link IDiagramLayer}
@@ -248,7 +243,6 @@ public class DGFactory implements IDGFactory {
 
     /**
      * Returns a {@link IDiagramLayer} for the given model.
-     * 
      * @param diagramHandle the diagram in which the model is shown.
      * @param gm the model.
      * @return a {@link IDiagramLayer}
@@ -260,7 +254,6 @@ public class DGFactory implements IDGFactory {
 
     /**
      * Returns a {@link IDiagramLink} for the given drawing link model.
-     * 
      * @param diagramHandle the diagram in which the model is shown.
      * @param gmLinkModel the drawing link model.
      * @return a {@link IDiagramLink}

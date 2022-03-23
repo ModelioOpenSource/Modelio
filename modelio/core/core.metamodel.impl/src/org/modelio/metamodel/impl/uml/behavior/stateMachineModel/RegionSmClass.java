@@ -17,21 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.stateMachineModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.RegionData;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.StateMachineSmClass;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.StateSmClass;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.StateVertexSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.Region;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.State;
@@ -62,7 +58,7 @@ public class RegionSmClass extends UmlModelElementSmClass {
     private SmDependency subDep;
 
     @objid ("98925097-cce4-476c-a2fc-786aa8f220e7")
-    public RegionSmClass(ISmMetamodelFragment origin) {
+    public  RegionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -70,6 +66,7 @@ public class RegionSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "Region";
+        
     }
 
     @objid ("e4df9036-22fd-4a6a-9f34-e3b0c4448051")
@@ -82,18 +79,21 @@ public class RegionSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Region.class;
+        
     }
 
     @objid ("d60f01e8-fb80-438c-aba7-d8b82491eaca")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("afb39839-b589-4145-af41-f9ab8bd9d53e")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("4e721374-1aa6-493a-a086-706e2b7a77ad")
@@ -117,6 +117,8 @@ public class RegionSmClass extends UmlModelElementSmClass {
         this.subDep = new SubSmDependency();
         this.subDep.init("Sub", this, metamodel.getMClass(StateVertex.MQNAME), 0, -1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.subDep);
+        
+        
     }
 
     @objid ("1a55f249-d131-4604-95ad-96dda4343bca")
@@ -149,7 +151,7 @@ public class RegionSmClass extends UmlModelElementSmClass {
         private RegionSmClass smClass;
 
         @objid ("e3d93175-ce51-4085-a979-b77850813d0f")
-        public RegionObjectFactory(RegionSmClass smClass) {
+        public  RegionObjectFactory(RegionSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -191,6 +193,7 @@ public class RegionSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((StateSmClass)this.getTarget()).getOwnedRegionDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -219,6 +222,7 @@ public class RegionSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((StateMachineSmClass)this.getTarget()).getTopDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -238,6 +242,7 @@ public class RegionSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((RegionData) data).mSub = values;
+            
         }
 
         @objid ("9f125abc-0df0-4d78-8887-2d1efcc8494f")
@@ -247,6 +252,7 @@ public class RegionSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((StateVertexSmClass)this.getTarget()).getParentDep();
             }
             return this.symetricDep;
+            
         }
 
     }

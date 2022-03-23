@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.lifeline;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -62,7 +61,6 @@ public class LifelinePlacementConstraint extends PlacementConstraint {
 
     /**
      * Constructor.
-     * 
      * @param lifeline the represented lifeline
      * @param x the desired X coordinate in relative coordinates.
      * @param y the desired Y coordinate in relative coordinates.
@@ -71,17 +69,18 @@ public class LifelinePlacementConstraint extends PlacementConstraint {
      * @param diagram the diagram in which this constraint is used.
      */
     @objid ("d94cc722-55b6-11e2-877f-002564c97630")
-    public LifelinePlacementConstraint(final Lifeline lifeline, final int x, final int y, final int width, final int height, final GmSequenceDiagram diagram) {
+    public  LifelinePlacementConstraint(final Lifeline lifeline, final int x, final int y, final int width, final int height, final GmSequenceDiagram diagram) {
         // Y and height are meaningless for a lifeline (these coordinates are computed from the ObModel)
         super(x, y, width, height, diagram);
         this.lifeline = lifeline;
+        
     }
 
     /**
      * Empty constructor for deserialisation. Do not use!
      */
     @objid ("d94cc733-55b6-11e2-877f-002564c97630")
-    public LifelinePlacementConstraint() {
+    public  LifelinePlacementConstraint() {
         super();
     }
 
@@ -103,6 +102,7 @@ public class LifelinePlacementConstraint extends PlacementConstraint {
     public void read(final IDiagramReader reader) {
         super.read(reader);
         this.lifeline = resolveRef((MRef) reader.readProperty("lifeline"));
+        
     }
 
     @objid ("d94e4da7-55b6-11e2-877f-002564c97630")
@@ -110,6 +110,7 @@ public class LifelinePlacementConstraint extends PlacementConstraint {
     public void write(final IDiagramWriter writer) {
         super.write(writer);
         writer.writeProperty("lifeline", new MRef(this.lifeline));
+        
     }
 
     @objid ("d94e4dae-55b6-11e2-877f-002564c97630")

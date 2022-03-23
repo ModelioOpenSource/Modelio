@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.module.modelermodule.engine;
 
 import java.util.ArrayList;
@@ -44,7 +43,6 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class StateUpdater {
     /**
      * Create a sub state machine from a composite state having entry/exit points.
-     * 
      * @param session The modeling session
      * @param state The source state
      * @return : The created StateMachine
@@ -154,7 +152,6 @@ public class StateUpdater {
 
     /**
      * Updates a sub state machine(entry, exit points)
-     * 
      * @param session the Modelio modeling session
      * @param state the state to update.
      */
@@ -198,6 +195,7 @@ public class StateUpdater {
         
         
         }
+        
     }
 
     @objid ("c5913403-e5a8-414f-a4a3-8f99f75ce430")
@@ -292,6 +290,7 @@ public class StateUpdater {
                 }
             }
         }
+        
     }
 
     @objid ("36de419c-95dc-4628-b9db-401499599520")

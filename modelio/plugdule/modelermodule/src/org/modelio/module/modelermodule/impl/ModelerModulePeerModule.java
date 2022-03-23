@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.module.modelermodule.impl;
 
 import java.nio.file.Path;
@@ -62,10 +61,11 @@ public class ModelerModulePeerModule implements IModelerModulePeerModule {
     private IModuleAPIConfiguration peerConfiguration;
 
     @objid ("a4d64196-cd60-4470-866b-7b1525d6666a")
-    public ModelerModulePeerModule(final ModelerModuleModule statModuleModule, final IModuleAPIConfiguration peerConfiguration) {
+    public  ModelerModulePeerModule(final ModelerModuleModule statModuleModule, final IModuleAPIConfiguration peerConfiguration) {
         super();
         this.module = statModuleModule;
         this.peerConfiguration = peerConfiguration;
+        
     }
 
     /**
@@ -106,10 +106,9 @@ public class ModelerModulePeerModule implements IModelerModulePeerModule {
 
     /**
      * Create an attribute from an attribute link. If the class doesn't exists, it is also created.
-     * 
      * @param attr The attribute link to create a new attribute from.
      * @return <code>true</code> when an attribute is created.
-     * @throws org.modelio.module.modelermodule.api.ModelerModuleException when the attribute already exists, or when the base of the instance isn't a classifier.
+     * @throws ModelerModuleException when the attribute already exists, or when the base of the instance isn't a classifier.
      */
     @objid ("d9e8531d-fd67-4fde-9d3c-18b7a752355c")
     @Override
@@ -132,10 +131,9 @@ public class ModelerModulePeerModule implements IModelerModulePeerModule {
      * - ports from the instance ports.
      * - attributes from attribute links.
      * - operations from incoming messages.
-     * 
      * @param inst The instance to create the classifier from.
      * @return <code>true</code> when a new classifier is created.
-     * @throws org.modelio.module.modelermodule.api.ModelerModuleException When an error happens during creation.
+     * @throws ModelerModuleException When an error happens during creation.
      */
     @objid ("77c2dfaa-d10e-4d96-adf7-95c209abcd39")
     @Override
@@ -161,10 +159,9 @@ public class ModelerModulePeerModule implements IModelerModulePeerModule {
      * - ports from the instance ports.
      * - attributes from attribute links.
      * - operations from incoming messages.
-     * 
      * @param ll The lifeline to create the classifier from.
      * @return <code>true</code> when a new classifier is created.
-     * @throws org.modelio.module.modelermodule.api.ModelerModuleException When an error happens during creation.
+     * @throws ModelerModuleException When an error happens during creation.
      */
     @objid ("55fd1660-19f4-402c-aaef-dfdc189f51a7")
     @Override
@@ -189,10 +186,9 @@ public class ModelerModulePeerModule implements IModelerModulePeerModule {
     /**
      * Create an operation from a message.
      * An Instance might be created in the process, or a Classifier.
-     * 
      * @param message The message to create the operation from.
      * @return <code>true</code> if a new operation is created.
-     * @throws org.modelio.module.modelermodule.api.ModelerModuleException When an error happens during the creation.
+     * @throws ModelerModuleException When an error happens during the creation.
      */
     @objid ("37254160-5f95-4cf4-8535-a8b446b10eb5")
     @Override
@@ -213,10 +209,9 @@ public class ModelerModulePeerModule implements IModelerModulePeerModule {
     /**
      * Create an operation from a transition.
      * An Instance might be created in the process, or a Classifier.
-     * 
      * @param transition The transition to create the operation from.
      * @return <code>true</code> if a new transition is created.
-     * @throws org.modelio.module.modelermodule.api.ModelerModuleException When an error happens during the creation.
+     * @throws ModelerModuleException When an error happens during the creation.
      */
     @objid ("094fa721-d9e9-48ec-b205-5464b63b9126")
     @Override
@@ -236,7 +231,6 @@ public class ModelerModulePeerModule implements IModelerModulePeerModule {
 
     /**
      * Create a sub state machine from a state having entry and exit points.
-     * 
      * @param state the state to create the sub state machine from.
      * @return the create sub state machine.
      */
@@ -257,7 +251,6 @@ public class ModelerModulePeerModule implements IModelerModulePeerModule {
 
     /**
      * Create Operations in those Classifiers from those defined in their implemented Interfaces.
-     * 
      * @param classifiers The Classifiers to create the Operations in.
      */
     @objid ("e9eb9c44-826e-4f3f-8385-5159592284f3")
@@ -281,11 +274,11 @@ public class ModelerModulePeerModule implements IModelerModulePeerModule {
                 transaction.rollback();
             }
         }
+        
     }
 
     /**
      * Delete Operations in Classifiers from those defined in their implemented Interfaces.
-     * 
      * @param classifiers The Classifiers to remove the Operations from.
      */
     @objid ("0b6b5453-4f0b-45f5-9de1-69e2821fad8a")
@@ -307,12 +300,12 @@ public class ModelerModulePeerModule implements IModelerModulePeerModule {
                 transaction.rollback();
             }
         }
+        
     }
 
     /**
      * For all classifiers implementing those interfaces, synchronize all operation signatures.
      * Missing operations are created.
-     * 
      * @param interfaces the interfaces to update operations from.
      */
     @objid ("53d5c32d-d61b-4851-bc60-e712b6444f70")
@@ -335,14 +328,14 @@ public class ModelerModulePeerModule implements IModelerModulePeerModule {
                 transaction.rollback();
             }
         }
+        
     }
 
     /**
      * Update a part contents from its base classifier.
      * Allows creation of a new classifier if no base exists, or referencing an existing classifier.
-     * 
      * @param inst the instance to update.
-     * @throws org.modelio.module.modelermodule.api.ModelerModuleException when an error occurs during the update.
+     * @throws ModelerModuleException when an error occurs during the update.
      */
     @objid ("c4b42f06-70fb-433c-a6a9-6d1a2e7ce86d")
     @Override
@@ -355,14 +348,14 @@ public class ModelerModulePeerModule implements IModelerModulePeerModule {
         
             transaction.commit();
         }
+        
     }
 
     /**
      * Update a lifeline's represented instance contents from its base classifier.
      * Allows creation of the instance, and of a new classifier if no base exists, or referencing an existing classifier.
-     * 
      * @param ll the lifeline to update.
-     * @throws org.modelio.module.modelermodule.api.ModelerModuleException when an error occurs during the update.
+     * @throws ModelerModuleException when an error occurs during the update.
      */
     @objid ("a2596171-fa75-4f84-a7b7-e2504db13885")
     @Override
@@ -382,15 +375,15 @@ public class ModelerModulePeerModule implements IModelerModulePeerModule {
         
             transaction.commit();
         }
+        
     }
 
     /**
      * Update the internal structure of a class.
      * Updates all parts from their base classifiers, and allows creation of all missing bases.
      * It is also possible to reference an existing classifier.
-     * 
      * @param classToUpdate The class to update.
-     * @throws org.modelio.module.modelermodule.api.ModelerModuleException When an error happens during the update.
+     * @throws ModelerModuleException When an error happens during the update.
      */
     @objid ("1b03f204-c85b-4c20-9d6d-817a5364deff")
     @Override
@@ -403,11 +396,11 @@ public class ModelerModulePeerModule implements IModelerModulePeerModule {
         
             transaction.commit();
         }
+        
     }
 
     /**
      * Updates a state machine from a sub state machine. (entry, exit points)
-     * 
      * @param state the state to update.
      */
     @objid ("d5c469b0-6f73-4336-b366-0da6363234bd")
@@ -421,6 +414,7 @@ public class ModelerModulePeerModule implements IModelerModulePeerModule {
         
             transaction.commit();
         }
+        
     }
 
     @objid ("260c5256-6d64-41b1-b7c0-1aa461202cb0")

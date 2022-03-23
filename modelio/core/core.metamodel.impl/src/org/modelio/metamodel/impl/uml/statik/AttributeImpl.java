@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.uml.statik.AttributeData;
 import org.modelio.metamodel.uml.behavior.activityModel.ObjectNode;
 import org.modelio.metamodel.uml.statik.AssociationEnd;
 import org.modelio.metamodel.uml.statik.Attribute;
@@ -129,6 +128,7 @@ public class AttributeImpl extends StructuralFeatureImpl implements Attribute {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("468331ec-9bd6-4b58-91bb-d251b4e1c39f")
@@ -150,6 +150,7 @@ public class AttributeImpl extends StructuralFeatureImpl implements Attribute {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("da04b36e-4fac-4117-9648-cdafa65f9473")

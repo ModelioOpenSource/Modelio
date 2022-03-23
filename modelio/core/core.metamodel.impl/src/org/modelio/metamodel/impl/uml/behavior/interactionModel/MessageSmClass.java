@@ -17,20 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.interactionModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.SignalSmClass;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.MessageData;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.MessageEndSmClass;
 import org.modelio.metamodel.impl.uml.informationFlow.InformationFlowSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
 import org.modelio.metamodel.impl.uml.statik.OperationSmClass;
@@ -85,7 +83,7 @@ public class MessageSmClass extends UmlModelElementSmClass {
     private SmDependency realizedInformationFlowDep;
 
     @objid ("a472c443-d965-457a-8ade-9f6720539706")
-    public MessageSmClass(ISmMetamodelFragment origin) {
+    public  MessageSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -93,6 +91,7 @@ public class MessageSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "Message";
+        
     }
 
     @objid ("3a07ab3d-4071-447a-bd8a-5448887eecdd")
@@ -105,18 +104,21 @@ public class MessageSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Message.class;
+        
     }
 
     @objid ("150a7964-7151-4255-aaa5-b04cb8acbc0e")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("125122a5-2aac-49aa-b31b-880052a5e951")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("d8a81dcc-9c27-45e3-9f25-9ed96ad59236")
@@ -164,6 +166,8 @@ public class MessageSmClass extends UmlModelElementSmClass {
         this.realizedInformationFlowDep = new RealizedInformationFlowSmDependency();
         this.realizedInformationFlowDep.init("RealizedInformationFlow", this, metamodel.getMClass(InformationFlow.MQNAME), 0, -1 );
         registerDependency(this.realizedInformationFlowDep);
+        
+        
     }
 
     @objid ("42d107ad-b482-4de8-a6d5-9383d5b47fb2")
@@ -242,6 +246,7 @@ public class MessageSmClass extends UmlModelElementSmClass {
     @Override
     public boolean isLinkMetaclass() {
         return true;
+        
     }
 
     @objid ("3696f803-b9db-470b-9da9-0a35b59ad657")
@@ -250,7 +255,7 @@ public class MessageSmClass extends UmlModelElementSmClass {
         private MessageSmClass smClass;
 
         @objid ("d0ee593f-0bc6-49c8-98ed-0a2b53aad389")
-        public MessageObjectFactory(MessageSmClass smClass) {
+        public  MessageObjectFactory(MessageSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -334,6 +339,7 @@ public class MessageSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((SignalSmClass)this.getTarget()).getUsageDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -362,6 +368,7 @@ public class MessageSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((MessageEndSmClass)this.getTarget()).getReceivedMessageDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -390,6 +397,7 @@ public class MessageSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((MessageEndSmClass)this.getTarget()).getSentMessageDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -418,6 +426,7 @@ public class MessageSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((OperationSmClass)this.getTarget()).getUsageDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -437,6 +446,7 @@ public class MessageSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((MessageData) data).mRealizedInformationFlow = values;
+            
         }
 
         @objid ("00e2be58-d588-4115-a651-4b856ea28bcc")
@@ -446,6 +456,7 @@ public class MessageSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((InformationFlowSmClass)this.getTarget()).getRealizingMessageDep();
             }
             return this.symetricDep;
+            
         }
 
     }

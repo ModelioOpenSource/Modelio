@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -49,7 +48,7 @@ public class ETestIdentityAction extends EActivityNode {
     }
 
     @objid ("bf242e5e-e9ec-4b15-a5f0-128398e91bd4")
-    public ETestIdentityAction(org.eclipse.uml2.uml.TestIdentityAction element) {
+    public  ETestIdentityAction(org.eclipse.uml2.uml.TestIdentityAction element) {
         super(element);
     }
 

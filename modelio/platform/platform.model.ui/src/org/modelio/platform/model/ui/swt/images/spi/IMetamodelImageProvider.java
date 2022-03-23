@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.images.spi;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,6 @@ import org.modelio.vcore.smkernel.mapi.MClass;
 public interface IMetamodelImageProvider {
     /**
      * Get the icon for a metaclass and a flavor
-     * 
      * @param mClass a metaclass.
      * @param flavor a flavor to concatenate to the lookup key.
      * @return the metaclass browser icon.
@@ -44,7 +42,6 @@ public interface IMetamodelImageProvider {
 
     /**
      * Get the image for a metaclass and a flavor
-     * 
      * @param mClass a metaclass.
      * @param flavor a flavor to concatenate to the lookup key.
      * @return the metaclass diagram image.
@@ -54,7 +51,6 @@ public interface IMetamodelImageProvider {
 
     /**
      * Get the icon for a metaclass.
-     * 
      * @param metaclassName a metaclass name.
      * @return the metaclass icon.
      * @deprecated this method is not fully compatible with metamodel extensions, use {@link #getIcon(MClass, String)} instead.
@@ -68,7 +64,6 @@ public interface IMetamodelImageProvider {
      * <p>
      * Usually needed when programmatically building e4 contributions.
      * </p>
-     * 
      * @param metaclassName name of a metaclass
      * @return path to the found icon or <code>null</code>.
      * @since 3.8
@@ -81,7 +76,6 @@ public interface IMetamodelImageProvider {
      * <p>
      * Usually needed when programmatically building e4 contributions.
      * </p>
-     * 
      * @param metaclass a metaclass
      * @return path to the found icon or <code>null</code>.
      * @since 3.8

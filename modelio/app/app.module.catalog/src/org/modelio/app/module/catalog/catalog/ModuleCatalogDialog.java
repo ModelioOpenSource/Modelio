@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.module.catalog.catalog;
 
 import java.io.File;
@@ -62,13 +61,13 @@ import org.modelio.platform.ui.progress.IModelioProgressService;
 @objid ("9749de58-5677-4846-9609-115da4110982")
 public class ModuleCatalogDialog extends ModelioDialog {
     @objid ("f3a7ed6b-536c-48a1-aaa4-1952106a65f6")
-     ModuleCatalogPanel panel;
+    ModuleCatalogPanel panel;
 
     @objid ("7ecefd9c-de00-4dbf-a886-80a297eebcac")
-     Controller controller;
+    Controller controller;
 
     @objid ("26c59f6e-9f3f-43b4-8f62-b457b10e6398")
-     Button deleteButton;
+    Button deleteButton;
 
     @objid ("a6e50e09-f595-43d6-8d3a-dc34defb66a4")
     private Button addButton;
@@ -94,11 +93,12 @@ public class ModuleCatalogDialog extends ModelioDialog {
      * @param progressService a progress service.
      */
     @objid ("6cfffb59-1769-4820-8416-4db028b5bdd1")
-    public ModuleCatalogDialog(Shell parentShell, IModuleStore moduleCatalog, IModelioProgressService progressService) {
+    public  ModuleCatalogDialog(Shell parentShell, IModuleStore moduleCatalog, IModelioProgressService progressService) {
         super(parentShell);
         this.controller = new Controller(this);
         this.panel = new ModuleCatalogPanel(moduleCatalog);
         this.progressService = progressService;
+        
     }
 
     @objid ("32b61d9a-27a5-4958-ba01-5b29a8498a38")
@@ -123,6 +123,7 @@ public class ModuleCatalogDialog extends ModelioDialog {
         getShell().layout(true);
         
         getShell().setBounds(refBounds.x + ((refBounds.width - width) / 2), refBounds.y + ((refBounds.height - height) / 2), width, height);
+        
     }
 
     @objid ("789b01b9-e296-4aa2-808e-89ad5bcfa5c8")
@@ -284,7 +285,7 @@ public class ModuleCatalogDialog extends ModelioDialog {
         private final ModuleCatalogDialog dlg;
 
         @objid ("e5cf273a-bd49-442d-b527-9cdcae5bc088")
-        public Controller(ModuleCatalogDialog dlg) {
+        public  Controller(ModuleCatalogDialog dlg) {
             this.dlg = dlg;
         }
 
@@ -302,6 +303,7 @@ public class ModuleCatalogDialog extends ModelioDialog {
                 }
             }
             this.dlg.deleteButton.setEnabled(!selectedModules.isEmpty());
+            
         }
 
         @objid ("a7c63e2e-2d9a-42a6-9bb1-ee2e04e21f15")
@@ -334,6 +336,7 @@ public class ModuleCatalogDialog extends ModelioDialog {
             } catch (InvocationTargetException | InterruptedException e) {
                 AppModules.LOG.error(e);
             }
+            
         }
 
         @objid ("e912f6d4-c4c9-47b5-8067-a8952552f828")
@@ -380,6 +383,7 @@ public class ModuleCatalogDialog extends ModelioDialog {
             } catch (InvocationTargetException | InterruptedException e) {
                 AppModules.LOG.error(e);
             }
+            
         }
 
     }

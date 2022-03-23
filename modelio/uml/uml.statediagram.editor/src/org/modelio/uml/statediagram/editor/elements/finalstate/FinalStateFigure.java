@@ -17,13 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.finalstate;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Path;
 import org.modelio.diagram.elements.core.figures.EllipseShaper;
 import org.modelio.diagram.elements.core.figures.ShapedFigure;
 import org.modelio.diagram.elements.core.figures.borders.ShapedBorder;
@@ -47,14 +48,15 @@ public class FinalStateFigure extends ShapedFigure {
      * Creates the figure.
      */
     @objid ("f5256108-55b6-11e2-877f-002564c97630")
-    public FinalStateFigure() {
+    public  FinalStateFigure() {
         super(new EllipseShaper());
         setSize(20, 20);
         setOpaque(true);
         this.shapedBorder = new ShapedBorder(this.penOptions.lineColor,
-                                             this.penOptions.lineWidth,
-                                             this.shaper);
+                this.penOptions.lineWidth,
+                this.shaper);
         setBorder(this.shapedBorder);
+        
     }
 
     /**
@@ -68,6 +70,7 @@ public class FinalStateFigure extends ShapedFigure {
             super.setLineColor(lineColor);
             super.setFillColor(lineColor);
         }
+        
     }
 
     @objid ("f5256110-55b6-11e2-877f-002564c97630")
@@ -77,36 +80,46 @@ public class FinalStateFigure extends ShapedFigure {
             this.shapedBorder.setWidth(lineWidth);
             super.setLineWidth(lineWidth);
         }
+        
     }
 
     @objid ("f5256114-55b6-11e2-877f-002564c97630")
     @Override
     protected void paintFigure(Graphics graphics) {
+        graphics.setAdvanced(true);
+        graphics.setAntialias(SWT.ON);
+        
         // Shrink the bounds to draw the inner circle (therefore fooling the shaper)
         Rectangle innerRect = getBounds().getCopy().shrink(MARGIN, MARGIN);
-        graphics.setClip(this.shaper.getShapePath(innerRect));
+        Path shapePath = this.shaper.createShapePath(innerRect);
+        try {
+            graphics.setClip(shapePath);
         
-        // Draw the (gradient) background 
-        // do not call the super method as it would restore a full sized shaped clip
-        final Color fillColor = getFillColor();
-        if (isOpaque() && fillColor != null) {
-            Color base = fillColor;
+            // Draw the (gradient) background
+            // do not call the super method as it would restore a full sized shaped clip
+            final Color fillColor = getFillColor();
+            if (isOpaque() && fillColor != null) {
+                Color base = fillColor;
         
-            if (this.brushOptions.useGradient) {
-                final Color gradientColor = computeGradientColor(base);
-                graphics.setBackgroundColor(gradientColor);
-                graphics.setForegroundColor(base);
+                if (this.brushOptions.useGradient) {
+                    final Color gradientColor = computeGradientColor(base);
+                    graphics.setBackgroundColor(gradientColor);
+                    graphics.setForegroundColor(base);
         
-                graphics.fillGradient(innerRect, false);
+                    graphics.fillGradient(innerRect, false);
         
-                gradientColor.dispose();
-            } else {
-                graphics.setBackgroundColor(base);
-                graphics.fillRectangle(innerRect);
+                    gradientColor.dispose();
+                } else {
+                    graphics.setBackgroundColor(base);
+                    graphics.fillRectangle(innerRect);
+                }
             }
+        
+            graphics.restoreState();
+        } finally {
+            shapePath.dispose();
         }
         
-        graphics.restoreState();
     }
 
     /**

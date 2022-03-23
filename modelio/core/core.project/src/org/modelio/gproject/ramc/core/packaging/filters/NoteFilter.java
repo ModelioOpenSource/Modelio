@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.ramc.core.packaging.filters;
 
 import java.util.Collection;
@@ -53,7 +52,7 @@ class NoteFilter implements IObjectFilter {
     }
 
     @objid ("e9d8993c-41d1-422d-8c9e-c4e5da052353")
-    public NoteFilter(Artifact artifact) {
+    public  NoteFilter(Artifact artifact) {
         this.artifact = artifact;
     }
 

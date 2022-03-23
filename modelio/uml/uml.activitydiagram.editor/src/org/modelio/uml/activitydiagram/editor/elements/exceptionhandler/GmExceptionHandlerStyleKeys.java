@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.exceptionhandler;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,7 +36,7 @@ public class GmExceptionHandlerStyleKeys extends ActivityAbstractStyleKeyProvide
      */
     @objid ("d1e57019-55c0-11e2-9337-002564c97630")
     public static final StyleKey CONNECTIONROUTER = createStyleKey("EXCEPTIONHANDLER_ROUTINGMODE",
-            MetaKey.CONNECTIONROUTER);
+                MetaKey.CONNECTIONROUTER);
 
     /**
      * Line color
@@ -56,14 +55,14 @@ public class GmExceptionHandlerStyleKeys extends ActivityAbstractStyleKeyProvide
      */
     @objid ("d1e57022-55c0-11e2-9337-002564c97630")
     public static final StyleKey LINERADIUS = createStyleKey("EXCEPTIONHANDLER_LINERADIUS",
-            MetaKey.LINERADIUS);
+                MetaKey.LINERADIUS);
 
     /**
      * Draw bridge where vertical segments cross horizontal ones.
      */
     @objid ("d1e57025-55c0-11e2-9337-002564c97630")
     public static final StyleKey DRAWLINEBRIDGES = createStyleKey("EXCEPTIONHANDLER_DRAWLINEBRIDGES",
-            MetaKey.DRAWLINEBRIDGES);
+                MetaKey.DRAWLINEBRIDGES);
 
     /**
      * Text font.
@@ -82,7 +81,7 @@ public class GmExceptionHandlerStyleKeys extends ActivityAbstractStyleKeyProvide
      */
     @objid ("d1e5702e-55c0-11e2-9337-002564c97630")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("EXCEPTIONHANDLER_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+                MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Display tagged values
@@ -101,6 +100,6 @@ public class GmExceptionHandlerStyleKeys extends ActivityAbstractStyleKeyProvide
      */
     @objid ("d1e57037-55c0-11e2-9337-002564c97630")
     public static final StyleKey LINEPATTERN = createStyleKey("EXCEPTIONHANDLER_LINEPATTERN",
-            MetaKey.LINEPATTERN);
+                MetaKey.LINEPATTERN);
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.model;
 
 import java.beans.PropertyChangeListener;
@@ -80,7 +79,6 @@ public interface IGmObject extends IStyleProvider, IPersistent {
 
     /**
      * Add a listener that is fired when a graphic model property change.
-     * 
      * @param listener a property change listener.
      */
     @objid ("8084e11a-1dec-11e2-8cad-001ec947c8cc")
@@ -90,7 +88,6 @@ public interface IGmObject extends IStyleProvider, IPersistent {
      * Get the diagram containing this element.
      * <p>
      * May return <i>null</i> if the graphic model is not valid anymore.
-     * 
      * @return the diagram.
      */
     @objid ("8084e11d-1dec-11e2-8cad-001ec947c8cc")
@@ -100,7 +97,6 @@ public interface IGmObject extends IStyleProvider, IPersistent {
      * Get the data used by the parent node layout manager to set this element position and size.
      * <p>
      * Usually only the parent node layout manager has an idea of the expected type of the layout data.
-     * 
      * @return The element layout data. May be <tt>null</tt>
      */
     @objid ("8084e120-1dec-11e2-8cad-001ec947c8cc")
@@ -108,7 +104,6 @@ public interface IGmObject extends IStyleProvider, IPersistent {
 
     /**
      * Remove a model change listener.
-     * 
      * @param listener a property change listener.
      */
     @objid ("8084e123-1dec-11e2-8cad-001ec947c8cc")
@@ -116,7 +111,6 @@ public interface IGmObject extends IStyleProvider, IPersistent {
 
     /**
      * Set the data used by the parent node layout manager to set this element position and size.
-     * 
      * @param layoutData The element layout data. May be <tt>null</tt>
      */
     @objid ("8084e126-1dec-11e2-8cad-001ec947c8cc")
@@ -148,7 +142,6 @@ public interface IGmObject extends IStyleProvider, IPersistent {
      * <li>also call {@link #updateDiagram()} on all graphic models it owns so that they update
      * the diagram.
      * </ul>
-     * 
      * @return true if the diagram has changed, else false.
      * @since 3.7
      */
@@ -169,7 +162,6 @@ public interface IGmObject extends IStyleProvider, IPersistent {
      * Usually, the result is equivalent to the user editable status of the owner diagram.
      * <p>
      * A non user editable graphic model might still be modified by automatic refresh.
-     * 
      * @return true if the graphic model can be edited by the user.
      */
     @objid ("9096a68a-de99-48dc-adc5-7039607cddfd")

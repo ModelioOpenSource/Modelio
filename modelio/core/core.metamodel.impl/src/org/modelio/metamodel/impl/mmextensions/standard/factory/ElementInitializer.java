@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.factory;
 
 import java.util.ArrayList;
@@ -40,13 +39,16 @@ import org.modelio.metamodel.uml.statik.ElementImport;
 import org.modelio.metamodel.uml.statik.Enumeration;
 import org.modelio.metamodel.uml.statik.GeneralClass;
 import org.modelio.metamodel.uml.statik.Interface;
+import org.modelio.metamodel.uml.statik.KindOfAccess;
 import org.modelio.metamodel.uml.statik.LinkEnd;
 import org.modelio.metamodel.uml.statik.NameSpace;
+import org.modelio.metamodel.uml.statik.NaryAssociationEnd;
 import org.modelio.metamodel.uml.statik.Operation;
 import org.modelio.metamodel.uml.statik.Package;
 import org.modelio.metamodel.uml.statik.PackageImport;
 import org.modelio.metamodel.uml.statik.Parameter;
 import org.modelio.metamodel.uml.statik.Port;
+import org.modelio.metamodel.uml.statik.StructuralFeature;
 import org.modelio.metamodel.uml.statik.TemplateBinding;
 import org.modelio.metamodel.uml.statik.TemplateParameter;
 import org.modelio.metamodel.uml.statik.TemplateParameterSubstitution;
@@ -63,11 +65,15 @@ public class ElementInitializer implements IElementInitializer {
     @objid ("85fdcd2d-f732-4c9d-a536-8e813523a41e")
     private final ElementInitializerVisitor visitor;
 
+    /**
+     * @param standardFactory the model factory
+     */
     @objid ("ebca2674-3a06-4781-84c0-814cb7baada6")
-    public ElementInitializer(final IStandardModelFactory standardFactory) {
+    public  ElementInitializer(final IStandardModelFactory standardFactory) {
         final Geometry geometry = new Geometry();
         
         this.visitor = new ElementInitializerVisitor(standardFactory, geometry);
+        
     }
 
     @objid ("7561bc40-1ca4-49a0-bad9-9210a4cea736")
@@ -95,6 +101,7 @@ public class ElementInitializer implements IElementInitializer {
         default:
             // unknown key
         }
+        
     }
 
     @objid ("59e9e4d9-cc4f-4007-abf2-da46b28cc8a0")
@@ -109,23 +116,29 @@ public class ElementInitializer implements IElementInitializer {
         private final IStandardModelFactory standardFactory;
 
         @objid ("a340fee5-19dd-430c-9594-1a7a183e06ea")
-        public ElementInitializerVisitor(final IStandardModelFactory modelFactory, final Geometry geometry) {
+        public  ElementInitializerVisitor(final IStandardModelFactory modelFactory, final Geometry geometry) {
             this.standardFactory = modelFactory;
             this.geometry = geometry;
+            
         }
 
         @objid ("2e657745-1c33-4ba7-a8b0-d1b2a5b803ba")
         @Override
         public Object visitAssociationEnd(final AssociationEnd theAssociationEnd) {
+            super.visitAssociationEnd(theAssociationEnd);
+            
             if (this.geometry.defaultAttributeVisibility != null) {
                 theAssociationEnd.setVisibility(this.geometry.defaultAttributeVisibility);
             }
-            return super.visitAssociationEnd(theAssociationEnd);
+            return theAssociationEnd;
         }
 
         @objid ("f5ccb62c-5538-4557-8cff-a3cac1b671f0")
         @Override
         public Object visitAttribute(final Attribute theAttribute) {
+            // Call inherited behavior first
+            super.visitAttribute(theAttribute);
+            
             if (this.geometry.defaultAttributeVisibility != null) {
                 theAttribute.setVisibility(this.geometry.defaultAttributeVisibility);
             }
@@ -313,6 +326,24 @@ public class ElementInitializer implements IElementInitializer {
             return super.visitProject(theProject);
         }
 
+        @objid ("bbac6683-8703-4347-b630-185cd5585283")
+        @Override
+        public Object visitNaryAssociationEnd(NaryAssociationEnd obj) {
+            super.visitNaryAssociationEnd(obj);
+            
+            if (this.geometry.defaultAttributeVisibility != null) {
+                obj.setVisibility(this.geometry.defaultAttributeVisibility);
+            }
+            return obj;
+        }
+
+        @objid ("7180b7cc-74c9-455b-a0cb-f04756335dc0")
+        @Override
+        public Object visitStructuralFeature(StructuralFeature obj) {
+            obj.setChangeable(KindOfAccess.ACCESNONE);
+            return super.visitStructuralFeature(obj);
+        }
+
     }
 
     /**
@@ -322,49 +353,48 @@ public class ElementInitializer implements IElementInitializer {
      */
     @objid ("2f6980b7-0b44-4272-96d9-2e22d5045fda")
     private static class Geometry {
+        
         @mdl.prop
         @objid ("3dc85bd8-12f1-4cf7-b604-cfeced71c8b6")
-        private VisibilityMode defaultAttributeVisibility = null;
+        public VisibilityMode defaultAttributeVisibility = null;
 
         @mdl.propsetter
         public void setDefaultAttributeVisibility(VisibilityMode value) {
-            // Automatically generated method. Please do not modify this code.
+            // Automatically generated method. Please delete this comment before entering specific code.
             this.defaultAttributeVisibility = value;
         }
 
+        
         @mdl.prop
         @objid ("9829d7c2-4381-430d-94cf-9cb8c79e833c")
         private GeneralClass defaultAttributeType = null;
 
         @mdl.propsetter
         public void setDefaultAttributeType(GeneralClass value) {
-            // Automatically generated method. Please do not modify this code.
+            // Automatically generated method. Please delete this comment before entering specific code.
             this.defaultAttributeType = value;
         }
 
+        
         @mdl.prop
         @objid ("8cddabd5-993b-47f7-879b-b93991079984")
         private GeneralClass defaultParameterType = null;
 
         @mdl.propsetter
         public void setDefaultParameterType(GeneralClass value) {
-            // Automatically generated method. Please do not modify this code.
+            // Automatically generated method. Please delete this comment before entering specific code.
             this.defaultParameterType = value;
         }
 
+        
         @mdl.prop
         @objid ("95e11a9b-4828-4d62-9835-90bca017f5f6")
         private GeneralClass defaultReturnType = null;
 
         @mdl.propsetter
         public void setDefaultReturnType(GeneralClass value) {
-            // Automatically generated method. Please do not modify this code.
+            // Automatically generated method. Please delete this comment before entering specific code.
             this.defaultReturnType = value;
-        }
-
-        @objid ("f0e5a23e-573e-448d-88cd-55814eeb2040")
-        public Geometry() {
-            // Empty
         }
 
     }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.images;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -56,17 +55,16 @@ public class BasicModelElementLabelProvider extends AbstractModelioElementLabelP
      * </p>
      */
     @objid ("e78018ef-762d-4be3-aff3-a6449ca76c56")
-    public BasicModelElementLabelProvider() {
+    public  BasicModelElementLabelProvider() {
         this(false);
     }
 
     /**
      * C'tor
-     * 
      * @param withFromClause if <code>true</code>,  the label provider adds a '(from namespace)' clause to the element name.
      */
     @objid ("73f4d743-12ab-4e8d-ae04-6d91d6e13b58")
-    public BasicModelElementLabelProvider(boolean withFromClause) {
+    public  BasicModelElementLabelProvider(boolean withFromClause) {
         this.withFromClause = withFromClause;
     }
 
@@ -76,6 +74,7 @@ public class BasicModelElementLabelProvider extends AbstractModelioElementLabelP
         final MObject element = (MObject) obj;
         return this.baseLabelProvider.getImage(element);
         //return ElementImageService.getIcon(element);
+        
     }
 
     @objid ("85f45c86-cba0-482f-a733-f1a25aedfe50")

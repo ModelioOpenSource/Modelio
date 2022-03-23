@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.exchange;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,10 +30,9 @@ public interface IExchangeService {
      * This service exports a part of the model into an XMI file.
      * TODO progress monitor is unused yet.
      * @see XmiExportConfiguration for more info about the format and which element to export.
-     * 
      * @param configuration the configuration of export process.
      * @param monitor a monitor for progress infos. Might be <code>null</code>.
-     * @throws org.modelio.api.modelio.exchange.XmiException the first occurring exception
+     * @throws XmiException the first occurring exception
      */
     @objid ("a3ba28c9-0ecc-11e2-96c4-002564c97630")
     void exportXmiFile(final XmiExportConfiguration configuration, final IProgressMonitor monitor) throws XmiException;
@@ -43,10 +41,9 @@ public interface IExchangeService {
      * This service imports a model from an XMI file into Modelio.
      * TODO progress monitor is unused yet.
      * @see XmiExportConfiguration for more info.
-     * 
      * @param configuration the configuration of import process.
      * @param monitor a monitor for progress infos. Might be <code>null</code>.
-     * @throws org.modelio.api.modelio.exchange.XmiException the first occurring exception
+     * @throws XmiException the first occurring exception
      */
     @objid ("a3ba4fdd-0ecc-11e2-96c4-002564c97630")
     void importXmiFile(final XmiImportConfiguration configuration, final IProgressMonitor monitor) throws XmiException;

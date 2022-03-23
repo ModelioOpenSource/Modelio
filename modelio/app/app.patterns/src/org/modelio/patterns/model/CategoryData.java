@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.model;
 
 import java.net.URL;
@@ -45,7 +44,7 @@ public class CategoryData implements Comparable<CategoryData> {
     private Set<RuntimePattern> patterns = new TreeSet<>();
 
     @objid ("e26dba75-4795-4b30-bdc4-685b5d7a38f8")
-    public CategoryData(Category category) {
+    public  CategoryData(Category category) {
         this.infos = category;
     }
 

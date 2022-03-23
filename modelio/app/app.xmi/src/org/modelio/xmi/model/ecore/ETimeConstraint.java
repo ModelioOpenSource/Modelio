@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,7 @@ public class ETimeConstraint extends ENamedElement {
     }
 
     @objid ("b8d4a559-6527-43a3-b091-209588644301")
-    public ETimeConstraint(org.eclipse.uml2.uml.TimeConstraint element) {
+    public  ETimeConstraint(org.eclipse.uml2.uml.TimeConstraint element) {
         super(element);
     }
 

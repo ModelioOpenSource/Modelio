@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta.descriptor;
 
 import java.io.Serializable;
@@ -90,7 +89,6 @@ public class MetamodelDescriptor implements Serializable {
 
     /**
      * Add a metamodel fragment.
-     * 
      * @param fd a metamodel fragment.
      */
     @objid ("43667447-0251-4f42-9ee5-f14bb537faa1")
@@ -99,6 +97,7 @@ public class MetamodelDescriptor implements Serializable {
         if (prev != null) {
             throw new IllegalArgumentException(prev+" already registered.");
         }
+        
     }
 
     /**

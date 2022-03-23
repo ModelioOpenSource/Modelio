@@ -17,26 +17,25 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.finaliser;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.UUID;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.bind.JAXBElement;
 import javax.xml.namespace.QName;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.modelio.api.modelio.diagram.IDiagramGraphic;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
-import org.modelio.api.modelio.diagram.IDiagramLink.ExtensionRole;
 import org.modelio.api.modelio.diagram.IDiagramLink;
-import org.modelio.api.modelio.diagram.IDiagramNode.Role;
+import org.modelio.api.modelio.diagram.IDiagramLink.ExtensionRole;
 import org.modelio.api.modelio.diagram.IDiagramNode;
+import org.modelio.api.modelio.diagram.IDiagramNode.Role;
 import org.modelio.api.modelio.diagram.IDiagramService;
 import org.modelio.bpmnxml.model.BPMNDiagram;
 import org.modelio.bpmnxml.model.BPMNEdge;
@@ -53,6 +52,7 @@ import org.modelio.bpmnxml.nodes.finaliser.subplan.ParticipantPlan;
 import org.modelio.bpmnxml.nodes.finaliser.subplan.ParticipantPlanFinder;
 import org.modelio.bpmnxml.nodes.finaliser.subplan.SubProcessActivityPlan;
 import org.modelio.bpmnxml.nodes.finaliser.subplan.SubProcessPlanFinder;
+import org.modelio.bpmnxml.plugin.BPMNXml;
 import org.modelio.bpmnxml.utils.IDUtils;
 import org.modelio.metamodel.bpmn.activities.BpmnActivity;
 import org.modelio.metamodel.bpmn.activities.BpmnSubProcess;
@@ -74,7 +74,7 @@ import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("602f166a-54bc-4c2a-876a-26ec5e7ac504")
-public class DiagramFinaliser implements IFinaliseNode<BehaviorDiagram,BPMNDiagram> {
+public class DiagramFinaliser implements IFinaliseNode<BehaviorDiagram, BPMNDiagram> {
     @objid ("adc88ba1-10a1-42db-86fc-02ce476ddd7c")
     private Map<String, Object> elementsMap;
 
@@ -127,7 +127,6 @@ public class DiagramFinaliser implements IFinaliseNode<BehaviorDiagram,BPMNDiagr
         // First, trigger the auto-unmask and save the diagram to avoid refresh issues
         try (IDiagramHandle handle = diagramService.getDiagramHandle(modelioDiagram)) {
             handle.save();
-            handle.close();
         }
         
         // Then, properly layout the diagram itself
@@ -142,13 +141,13 @@ public class DiagramFinaliser implements IFinaliseNode<BehaviorDiagram,BPMNDiagr
             unmaskLinks(plane, handle);
         
             handle.save();
-            handle.close();
         }
+        
     }
 
     @objid ("3060f92a-4bd9-4618-af8d-d2cb5906a3f7")
     private String isHorizontal(BPMNShape jaxShape) {
-        if (jaxShape.isIsHorizontal() != null && jaxShape.isIsHorizontal() == false) {
+        if (Boolean.FALSE.equals(jaxShape.isIsHorizontal())) {
             return "false";
         }
         return "true";
@@ -164,38 +163,36 @@ public class DiagramFinaliser implements IFinaliseNode<BehaviorDiagram,BPMNDiagr
         for (JAXBElement<? extends DiagramElement> jaxDiag : plane.getDiagramElement()) {
             if (jaxDiag.getValue() instanceof BPMNShape) {
                 BPMNShape jaxShape = (BPMNShape) jaxDiag.getValue();
-                MObject modelioNode = (MObject) this.elementsMap.get(jaxShape.getBpmnElement().getLocalPart());
+                if(jaxShape.getBpmnElement() != null) {
+                    MObject modelioNode = (MObject) this.elementsMap.get(jaxShape.getBpmnElement().getLocalPart());
         
-                if (modelioNode instanceof BpmnLane) {
-                    Bounds bounds = jaxShape.getBounds();
-                    Rectangle rect = new Rectangle();
-                    rect.width = new Double(bounds.getWidth()).intValue();
-                    rect.height = new Double(bounds.getHeight()).intValue();
-                    rect.x = new Double(bounds.getX()).intValue();
-                    rect.y = new Double(bounds.getY()).intValue();
-                    unmaskNode(modelioNode, rect, handle);
-                    BpmnLaneSet lanset = ((BpmnLane) modelioNode).getLaneSet();
-                    if (lanset.getProcess() != null && rootLanSet == null) {
-                        rootLanSet = lanset;
-                        topLeft = new Point(rect.x, rect.y);
-                        bottomRight = new Point(rect.x + rect.width, rect.y + rect.height);
-                    } else {
-                        if (rect.x < topLeft.x) {
-                            topLeft.x = rect.x;
+                    if (modelioNode instanceof BpmnLane) {
+                        Bounds bounds = jaxShape.getBounds();
+                        Rectangle rect = toGefRectangle(bounds);
+                        unmaskNode(modelioNode, rect, handle);
+                        BpmnLaneSet lanset = ((BpmnLane) modelioNode).getLaneSet();
+                        if (lanset.getProcess() != null && rootLanSet == null) {
+                            rootLanSet = lanset;
+                            topLeft = new Point(rect.x, rect.y);
+                            bottomRight = new Point(rect.x + rect.width, rect.y + rect.height);
+                        } else {
+                            if (rect.x < topLeft.x) {
+                                topLeft.x = rect.x;
+                            }
+        
+                            if (rect.y < topLeft.y) {
+                                topLeft.y = rect.y;
+                            }
+        
+                            if (rect.x + rect.width > bottomRight.x) {
+                                bottomRight.x = rect.x + rect.width;
+                            }
+        
+                            if (rect.y + rect.height > bottomRight.y) {
+                                bottomRight.y = rect.y + rect.height;
+                            }
+        
                         }
-        
-                        if (rect.y < topLeft.y) {
-                            topLeft.y = rect.y;
-                        }
-        
-                        if (rect.x + rect.width > bottomRight.x) {
-                            bottomRight.x = rect.x + rect.width;
-                        }
-        
-                        if (rect.y + rect.height > bottomRight.y) {
-                            bottomRight.y = rect.y + rect.height;
-                        }
-        
                     }
                 }
             }
@@ -207,16 +204,24 @@ public class DiagramFinaliser implements IFinaliseNode<BehaviorDiagram,BPMNDiagr
                 ((IDiagramNode) lanSetGr.get(0)).setBounds(rect);
             }
         }
+        
     }
 
     @objid ("84d22696-36ca-47cb-88fe-7d6d1ba2da04")
     private void unmaskLane(MObject modelioNode, Bounds bounds, IDiagramHandle handle) {
-        Rectangle rect = new Rectangle();
-        rect.width = new Double(bounds.getWidth()).intValue();
-        rect.height = new Double(bounds.getHeight()).intValue();
-        rect.x = new Double(bounds.getX()).intValue();
-        rect.y = new Double(bounds.getY()).intValue();
+        Rectangle rect = toGefRectangle(bounds);
         unmaskNode(modelioNode, rect, handle);
+        
+    }
+
+    @objid ("4d7027b5-2705-4d81-9333-c7355211b7e0")
+    private Rectangle toGefRectangle(Bounds bounds) {
+        Rectangle rect = new Rectangle();
+        rect.width = (int) bounds.getWidth();
+        rect.height = (int) bounds.getHeight();
+        rect.x = (int) bounds.getX();
+        rect.y = (int) bounds.getY();
+        return rect;
     }
 
     @objid ("82cc6c9d-7b8f-4062-88cd-ad09a2a90a57")
@@ -230,14 +235,14 @@ public class DiagramFinaliser implements IFinaliseNode<BehaviorDiagram,BPMNDiagr
         
                     List<Point> points = new ArrayList<>();
                     for (org.modelio.bpmnxml.model.Point p : jaxEdge.getWaypoint()) {
-                        points.add(new Point(new Double(p.getX()).intValue(), new Double(p.getY()).intValue()));
+                        points.add(new Point((int) p.getX(), (int) p.getY()));
                     }
                     IDiagramLink dgLink = unmaskLink(modelioLink, points, handle);
                     BPMNLabel jaxLabel = jaxEdge.getBPMNLabel();
                     if (dgLink != null && jaxLabel != null) {
                         List<IDiagramNode> labels = new ArrayList<>(dgLink.getExtensions(ExtensionRole.EDGE_GUARD));
-                        labels.addAll(new ArrayList<>(dgLink.getExtensions(ExtensionRole.MAIN)));
-                        if (labels.size() > 0) {
+                        labels.addAll(dgLink.getExtensions(ExtensionRole.MAIN));
+                        if (! labels.isEmpty()) {
                             unmaskLabel(labels.get(0), jaxLabel);
                         }
                     }
@@ -248,6 +253,7 @@ public class DiagramFinaliser implements IFinaliseNode<BehaviorDiagram,BPMNDiagr
                 }
             }
         }
+        
     }
 
     @objid ("bf2d3a32-6a78-40cd-ac43-a4b850b9ef7e")
@@ -256,33 +262,31 @@ public class DiagramFinaliser implements IFinaliseNode<BehaviorDiagram,BPMNDiagr
             if (jaxDiag.getValue() instanceof BPMNShape) {
                 BPMNShape jaxShape = (BPMNShape) jaxDiag.getValue();
         
-                MObject modelioNode = (MObject) this.elementsMap.get(jaxShape.getBpmnElement().getLocalPart());
+                if(jaxShape.getBpmnElement() != null) {
+                    MObject modelioNode = (MObject) this.elementsMap.get(jaxShape.getBpmnElement().getLocalPart());
         
-                if (modelioNode != null && !(modelioNode instanceof BpmnLaneSet) && !(modelioNode instanceof BpmnLane)) {
+                    if (modelioNode != null && !(modelioNode instanceof BpmnLaneSet) && !(modelioNode instanceof BpmnLane)) {
         
-                    Rectangle rect = new Rectangle();
-                    Bounds bounds = jaxShape.getBounds();
+                        Bounds bounds = jaxShape.getBounds();
+                        Rectangle rect = toGefRectangle(bounds);
+                        IDiagramNode dgNode = unmaskNode(modelioNode, rect, handle);
         
-                    rect.width = new Double(bounds.getWidth()).intValue();
-                    rect.height = new Double(bounds.getHeight()).intValue();
-                    rect.x = new Double(bounds.getX()).intValue();
-                    rect.y = new Double(bounds.getY()).intValue();
-                    IDiagramNode dgNode = unmaskNode(modelioNode, rect, handle);
-        
-                    if (dgNode == null) {
-                        dgNode = fixBounds(handle, modelioNode, rect);
-                    } else if (dgNode.getElement() instanceof BpmnSubProcess) {
-                        if (jaxShape.isIsExpanded() != null && jaxShape.isIsExpanded()) {
-                            dgNode.setProperty("SUBPROCESS_SHOWCONTENT", "true");
-                        } else {
-                            dgNode.setProperty("SUBPROCESS_SHOWCONTENT", "false");
+                        if (dgNode == null) {
+                            dgNode = fixBounds(handle, modelioNode, rect);
+                        } else if (dgNode.getElement() instanceof BpmnSubProcess) {
+                            if (jaxShape.isIsExpanded() != null && jaxShape.isIsExpanded()) {
+                                dgNode.setProperty("SUBPROCESS_SHOWCONTENT", "true");
+                            } else {
+                                dgNode.setProperty("SUBPROCESS_SHOWCONTENT", "false");
+                            }
                         }
-                    }
         
-                    unmaskLabel(jaxShape, rect, dgNode, labelStyle);
+                        unmaskLabel(jaxShape, rect, dgNode, labelStyle);
+                    }
                 }
             }
         }
+        
     }
 
     @objid ("f634b3d4-7bf5-40d2-b130-1763002c1422")
@@ -291,23 +295,20 @@ public class DiagramFinaliser implements IFinaliseNode<BehaviorDiagram,BPMNDiagr
             if (rect.width == 0 && rect.height == 0) {
                 return null;
             }
+        
             List<IDiagramGraphic> graphics = handle.getDiagramGraphics(modelioElement);
             if (graphics.isEmpty()) {
                 graphics = handle.unmask(modelioElement, rect.x, rect.y);
             }
         
-            try {
-                if (graphics.size() > 0 && graphics.get(0) instanceof IDiagramNode) {
-                    IDiagramNode dgNode = (IDiagramNode) graphics.get(0);
-                    dgNode.setBounds(rect);
+            if (!graphics.isEmpty() && graphics.get(0) instanceof IDiagramNode) {
+                IDiagramNode dgNode = (IDiagramNode) graphics.get(0);
+                dgNode.setBounds(rect);
         
-                    return dgNode;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+                return dgNode;
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (RuntimeException e) {
+            BPMNXml.LOG.warning(e);
         }
         return null;
     }
@@ -324,13 +325,18 @@ public class DiagramFinaliser implements IFinaliseNode<BehaviorDiagram,BPMNDiagr
             if (!graphics.isEmpty()) {
                 IDiagramGraphic linkDG = graphics.get(0);
                 if (linkDG instanceof IDiagramLink) {
-                    ((IDiagramLink) linkDG).setPath(points);
+                    //((IDiagramLink) linkDG).setPath(points);
+        
+                    ((IDiagramLink) linkDG).buildRoute()
+                    .setSourceAnchor(points.get(0), true)
+                    .setTargetAnchor(points.get(points.size()-1), true)
+                    .addBendPoints(points)
+                    .apply();
                     return (IDiagramLink) linkDG;
                 }
             }
-        
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (RuntimeException e) {
+            BPMNXml.LOG.warning(e);
         }
         return null;
     }
@@ -348,18 +354,17 @@ public class DiagramFinaliser implements IFinaliseNode<BehaviorDiagram,BPMNDiagr
         
             for (MObject graphElement : getGraphicElements(modelioElement)) {
                 List<IDiagramGraphic> grs = handle.getDiagramGraphics(graphElement);
-                if (grs.size() > 0) {
-                    if (grs.get(0) instanceof IDiagramNode) {
-                        exportNode(handle.getDiagramNode(), (IDiagramNode) grs.get(0), plane, labelStyle);
-                    } else if (grs.get(0) instanceof IDiagramLink) {
-                        exportLink((IDiagramLink) grs.get(0), plane);
+                if (!grs.isEmpty()) {
+                    IDiagramGraphic dg = grs.get(0);
+                    if (dg instanceof IDiagramNode) {
+                        exportNode(handle.getDiagramNode(), (IDiagramNode) dg, plane, labelStyle);
+                    } else if (dg instanceof IDiagramLink) {
+                        exportLink((IDiagramLink) dg, plane);
                     }
                 }
             }
         
             exportStyles(jaxbElement, labelStyle);
-        
-            handle.close();
         }
         return jaxbElement;
     }
@@ -401,6 +406,7 @@ public class DiagramFinaliser implements IFinaliseNode<BehaviorDiagram,BPMNDiagr
         
         ObjectFactory factory = new ObjectFactory();
         jaxContent.add(factory.createBPMNEdge(jaxbEdge));
+        
     }
 
     @objid ("ba9ccf2a-43fa-4148-8d10-021a2a7f4a07")
@@ -425,14 +431,15 @@ public class DiagramFinaliser implements IFinaliseNode<BehaviorDiagram,BPMNDiagr
         jaxContent.add(factory.createBPMNShape(jaxbShape));
         
         List<IDiagramNode> nodes = new ArrayList<>(dgNode.getNodes(Role.LABEL));
-        if (nodes.size() > 0) {
+        if (!nodes.isEmpty()) {
             BPMNLabel jaxLabel = new BPMNLabel();
         
             Bounds bondLabel = new Bounds();
-            bondLabel.setX(nodes.get(0).getBounds().x);
-            bondLabel.setY(nodes.get(0).getBounds().y);
-            bondLabel.setWidth(nodes.get(0).getBounds().width);
-            bondLabel.setHeight(nodes.get(0).getBounds().height);
+            Rectangle gefBounds = nodes.get(0).getBounds();
+            bondLabel.setX(gefBounds.x);
+            bondLabel.setY(gefBounds.y);
+            bondLabel.setWidth(gefBounds.width);
+            bondLabel.setHeight(gefBounds.height);
             jaxLabel.setBounds(bondLabel);
         
             jaxbShape.setBPMNLabel(jaxLabel);
@@ -467,6 +474,7 @@ public class DiagramFinaliser implements IFinaliseNode<BehaviorDiagram,BPMNDiagr
         if (dgNode.getElement() instanceof BpmnSubProcess) {
             jaxbShape.setIsExpanded("true".equals(dgNode.getProperty("SUBPROCESS_SHOWCONTENT")));
         }
+        
     }
 
     @objid ("8467d508-bf1f-4e3c-a446-5d0ff08d0ac2")
@@ -613,6 +621,7 @@ public class DiagramFinaliser implements IFinaliseNode<BehaviorDiagram,BPMNDiagr
         
             unmaskNode(message, new Rectangle(x, y, 0, 0), handle);
         }
+        
     }
 
     @objid ("d79e2210-e752-4d41-ae67-131a3bd8b817")
@@ -627,7 +636,7 @@ public class DiagramFinaliser implements IFinaliseNode<BehaviorDiagram,BPMNDiagr
     @objid ("b4a97cd9-8d8a-4ed8-9874-9cf7a9a163a8")
     private void exportParticipant(BpmnParticipant participant, IDiagramHandle handle, BPMNPlane plane) {
         List<IDiagramGraphic> grs = handle.getDiagramGraphics(participant);
-        if (grs.size() > 0 && grs.get(0) instanceof IDiagramNode) {
+        if (!grs.isEmpty() && grs.get(0) instanceof IDiagramNode) {
             IDiagramNode dgNode = (IDiagramNode) grs.get(0);
             BPMNShape jaxbShape = new BPMNShape();
             Bounds bonds = new Bounds();
@@ -647,6 +656,7 @@ public class DiagramFinaliser implements IFinaliseNode<BehaviorDiagram,BPMNDiagr
             ObjectFactory factory = new ObjectFactory();
             jaxContent.add(factory.createBPMNShape(jaxbShape));
         }
+        
     }
 
     @objid ("90f76bd9-071e-49ab-a542-1cdfe869af29")
@@ -655,15 +665,11 @@ public class DiagramFinaliser implements IFinaliseNode<BehaviorDiagram,BPMNDiagr
         if (label != null) {
             bounds = jaxLabel.getBounds();
             if (bounds != null) {
-                Rectangle rect = new Rectangle();
-                rect.width = new Double(bounds.getWidth()).intValue();
-                rect.height = new Double(bounds.getHeight()).intValue();
-                rect.x = new Double(bounds.getX()).intValue();
-                rect.y = new Double(bounds.getY()).intValue();
-        
+                Rectangle rect = toGefRectangle(bounds);
                 label.setBounds(rect);
             }
         }
+        
     }
 
     @objid ("246a37d0-25b4-44ce-b34b-f50cc6a533e4")
@@ -671,13 +677,16 @@ public class DiagramFinaliser implements IFinaliseNode<BehaviorDiagram,BPMNDiagr
         for (JAXBElement<? extends DiagramElement> jaxDiag : plane.getDiagramElement()) {
             if (jaxDiag.getValue() instanceof BPMNShape) {
                 BPMNShape jaxShape = (BPMNShape) jaxDiag.getValue();
-                MObject modelioNode = (MObject) this.elementsMap.get(jaxShape.getBpmnElement().getLocalPart());
-                if (modelioNode instanceof BpmnLane) {
-                    handle.getDiagramNode().setProperty("DIAGRAM_HORIZONTAL_LANES", isHorizontal(jaxShape));
-                    break;
+                if(jaxShape.getBpmnElement() != null) {
+                    MObject modelioNode = (MObject) this.elementsMap.get(jaxShape.getBpmnElement().getLocalPart());
+                    if (modelioNode instanceof BpmnLane) {
+                        handle.getDiagramNode().setProperty("DIAGRAM_HORIZONTAL_LANES", isHorizontal(jaxShape));
+                        break;
+                    }
                 }
             }
         }
+        
     }
 
     @objid ("dd8bc0b4-cf66-4262-975e-2e012362c08f")
@@ -688,11 +697,12 @@ public class DiagramFinaliser implements IFinaliseNode<BehaviorDiagram,BPMNDiagr
         
             if (ownergr != null && !ownergr.isEmpty() && ownergr.get(0) instanceof IDiagramNode) {
                 IDiagramNode ownerNode = (IDiagramNode) ownergr.get(0);
-                if (rect.x < ownerNode.getBounds().x || rect.x > ownerNode.getBounds().x + ownerNode.getBounds().width) {
-                    rect.x = ownerNode.getBounds().x;
+                Rectangle ownerBounds = ownerNode.getBounds();
+                if (rect.x < ownerBounds.x || rect.x > ownerBounds.x + ownerBounds.width) {
+                    rect.x = ownerBounds.x;
                 }
-                if (rect.y < ownerNode.getBounds().y || rect.y > ownerNode.getBounds().y + ownerNode.getBounds().height) {
-                    rect.y = ownerNode.getBounds().y;
+                if (rect.y < ownerBounds.y || rect.y > ownerBounds.y + ownerBounds.height) {
+                    rect.y = ownerBounds.y;
                 }
                 return unmaskNode(modelioNode, rect, handle);
             }
@@ -707,14 +717,14 @@ public class DiagramFinaliser implements IFinaliseNode<BehaviorDiagram,BPMNDiagr
         
             List<IDiagramNode> labels = new ArrayList<>(dgNode.getNodes(Role.LABEL));
             if (jaxLabel != null) {
-                if (labels.size() > 0) {
+                if (!labels.isEmpty()) {
                     unmaskLabel(labels.get(0), jaxLabel);
                     if (jaxLabel.getLabelStyle() != null && labelStyle.get(jaxLabel.getLabelStyle().getLocalPart()) != null) {
                         dgNode.setFont(labelStyle.get(jaxLabel.getLabelStyle().getLocalPart()));
                     }
                 }
             } else {
-                if (labels.size() > 0) {
+                if (!labels.isEmpty()) {
                     Rectangle rectLabel = new Rectangle(rect);
                     rectLabel.x = rectLabel.x - 10;
                     rectLabel.y = rectLabel.y + rectLabel.height;
@@ -723,6 +733,7 @@ public class DiagramFinaliser implements IFinaliseNode<BehaviorDiagram,BPMNDiagr
                 }
             }
         }
+        
     }
 
     @objid ("b2ac3b3a-e466-4a38-a288-87c776848ef1")
@@ -758,18 +769,8 @@ public class DiagramFinaliser implements IFinaliseNode<BehaviorDiagram,BPMNDiagr
                     Font jaxFont = new Font();
                     jaxFont.setName(stylespart[0]);
                     jaxFont.setSize(Double.valueOf(stylespart[2]));
-        
-                    if ("bold".equals(stylespart[1])) {
-                        jaxFont.setIsBold(true);
-                    } else {
-                        jaxFont.setIsBold(false);
-                    }
-        
-                    if ("italic".equals(stylespart[1])) {
-                        jaxFont.setIsItalic(true);
-                    } else {
-                        jaxFont.setIsItalic(false);
-                    }
+                    jaxFont.setIsBold("bold".equals(stylespart[1]));
+                    jaxFont.setIsItalic("italic".equals(stylespart[1]));
         
                     BPMNLabelStyle jaxStyle = new BPMNLabelStyle();
                     jaxStyle.setId(style.getKey());
@@ -779,6 +780,7 @@ public class DiagramFinaliser implements IFinaliseNode<BehaviorDiagram,BPMNDiagr
                 }
             }
         }
+        
     }
 
 }

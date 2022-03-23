@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.root;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -59,6 +58,7 @@ public class BackgroundLayer extends FreeformLayer2 {
                 //  a significative tile size is defined => use tiling for the image
                 drawBackgroundTiles(graphics, this.bgImage, this.tileSize);
         }
+        
     }
 
     @objid ("6582691c-33f7-11e2-95fe-001ec947c8cc")
@@ -91,12 +91,14 @@ public class BackgroundLayer extends FreeformLayer2 {
         if (newImage != null) {
             setImage(id, newImage);
         }
+        
     }
 
     @objid ("65826923-33f7-11e2-95fe-001ec947c8cc")
     private void setImage(ImageDescriptor id, Image newImage) {
         this.bgDescriptor = id;
         this.bgImage = newImage;
+        
     }
 
     @objid ("65826927-33f7-11e2-95fe-001ec947c8cc")
@@ -106,6 +108,7 @@ public class BackgroundLayer extends FreeformLayer2 {
             this.bgImage = null;
             this.bgDescriptor = null;
         }
+        
     }
 
     @objid ("65826929-33f7-11e2-95fe-001ec947c8cc")
@@ -113,6 +116,7 @@ public class BackgroundLayer extends FreeformLayer2 {
     protected void finalize() throws Throwable {
         removeBgImage();
         super.finalize();
+        
     }
 
     @objid ("6582692c-33f7-11e2-95fe-001ec947c8cc")
@@ -140,6 +144,7 @@ public class BackgroundLayer extends FreeformLayer2 {
             }
             y += size.height;
         }
+        
     }
 
     /**

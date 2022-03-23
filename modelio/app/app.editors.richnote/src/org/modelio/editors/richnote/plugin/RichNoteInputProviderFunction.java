@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.plugin;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -65,11 +64,12 @@ public class RichNoteInputProviderFunction extends ContextFunction {
         private IRichNoteFileRepository fileManager;
 
         @objid ("a5021c8d-321e-46c6-ae3d-acd39deec464")
-        public RichNoteInput(ICoreSession session, IRichNoteFileRepository fileManager, String uri) {
+        public  RichNoteInput(ICoreSession session, IRichNoteFileRepository fileManager, String uri) {
             MRef ref = new MRef(uri);
             this.obj = session.getModel().findByRef(ref);
             this.session = session;
             this.fileManager = fileManager;
+            
         }
 
         @objid ("85eb3fba-2046-4001-a13d-2a89388b0203")

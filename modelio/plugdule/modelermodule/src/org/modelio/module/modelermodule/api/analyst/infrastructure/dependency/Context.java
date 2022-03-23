@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.analyst.infrastructure.dependency;
 
@@ -49,24 +48,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("9adbf168-2b19-4e82-afe0-a6337867d437")
 public class Context {
-    @objid ("a813fb18-aa1d-489a-ad75-6e1a4d147023")
+    @objid ("5cf1e859-2f64-4151-a998-777c1fa929b2")
     public static final String STEREOTYPE_NAME = "context";
 
     /**
      * The underlying {@link Dependency} represented by this proxy, never null.
      */
-    @objid ("e9a4fe1f-a4ca-4422-8bf5-18e60e757e70")
+    @objid ("7073fa7b-f5cf-43cf-a50f-5f1798d437a2")
     protected final Dependency elt;
 
     /**
      * Tells whether a {@link Context proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << context >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("dd163272-932d-454f-953a-72d1f757f849")
+    @objid ("cfc65428-ede9-4044-b61d-dc0b96b95cb7")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Dependency) && ((Dependency) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Context.STEREOTYPE_NAME));
     }
@@ -76,9 +74,9 @@ public class Context {
      * 
      * @return a {@link Context} proxy on the created {@link Dependency}.
      */
-    @objid ("39d4f9a3-5f0c-4575-b894-5a1d7b26ab76")
+    @objid ("9dc7eb43-8d57-4f76-9379-35091dcdc8eb")
     public static Context create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Dependency");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Infrastructure.Dependency");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Context.STEREOTYPE_NAME);
         return Context.instantiate((Dependency)e);
     }
@@ -90,7 +88,7 @@ public class Context {
      * @param obj a Dependency
      * @return a {@link Context} proxy or <i>null</i>.
      */
-    @objid ("19f1b09b-3cd9-472c-b2c0-197b272a4550")
+    @objid ("5163327a-c9c1-4c63-b1bb-24be5f92d2a4")
     public static Context instantiate(Dependency obj) {
         return Context.canInstantiate(obj) ? new Context(obj) : null;
     }
@@ -103,7 +101,7 @@ public class Context {
      * @return a {@link Context} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("23e4124a-8414-415f-9e53-366e4cdd032e")
+    @objid ("85d65c16-fb83-4416-81a6-56e8be531c0f")
     public static Context safeInstantiate(Dependency obj) throws IllegalArgumentException {
         if (Context.canInstantiate(obj))
         	return new Context(obj);
@@ -111,7 +109,7 @@ public class Context {
         	throw new IllegalArgumentException("Context: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("3ee8c745-17de-4671-9294-cb619efb13a3")
+    @objid ("43d4ab12-1bc5-4b24-ac52-5bac9ea2e501")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -131,46 +129,47 @@ public class Context {
      * Get the underlying {@link Dependency}. 
      * @return the Dependency represented by this proxy, never null.
      */
-    @objid ("4bda4df3-18ce-44c1-846a-e0a6938f8572")
+    @objid ("6a42592c-674e-4487-9b11-5111c87a941c")
     public Dependency getElement() {
         return this.elt;
     }
 
-    @objid ("c97fb9ca-1092-44be-8b39-0f3b0ad522d8")
+    @objid ("6d1b48b9-45cf-42aa-9e27-30c9824c61d6")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("fa38fcf6-5c68-4ccd-b45e-e2b6da96b3eb")
-    protected Context(Dependency elt) {
+    @objid ("9b0abd55-7a58-43ec-848b-40dd903a7561")
+    protected  Context(Dependency elt) {
         this.elt = elt;
     }
 
     @objid ("b5192799-2b87-4173-932c-3e67df3991ab")
     public static final class MdaTypes {
-        @objid ("21f827e3-088b-4ed5-94be-82de42db863a")
+        @objid ("66aad3ed-4182-4416-a4fd-bd4fb3ce6c2d")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("4b0259c4-81e3-4267-b149-d28f8ef2aed3")
+        @objid ("08b11df8-3c28-4feb-8886-8355d4db76b7")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("ff735e13-6160-4bf0-8ef2-8fff7101a7f8")
+        @objid ("44326e25-6d61-434d-b19c-4924bcc2f2e2")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("1d8a9b62-771d-40ea-bcad-1a3bb1fb0fe3")
+        @objid ("05d2ce4e-615c-4bc2-b363-02273fa84c7d")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "01ec12fc-0000-0242-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

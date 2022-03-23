@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.panelprovider.actions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,10 +31,11 @@ public class CutAction extends Action {
     private NotesPanelController controller;
 
     @objid ("b633d031-1163-443b-a400-f8f1d514b53e")
-    public CutAction(NotesPanelController controller) {
+    public  CutAction(NotesPanelController controller) {
         this.controller = controller;
         this.setText(EditionNotes.I18N.getString("CutAnnotation.label"));
         this.setImageDescriptor(UI.getImageDescriptor("icons/cut.png"));
+        
     }
 
     @objid ("3d9036aa-fd2c-4db4-91d3-fdce2161cef7")

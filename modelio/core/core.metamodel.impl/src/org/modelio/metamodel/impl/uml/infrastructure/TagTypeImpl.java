@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.uml.infrastructure.TagTypeData;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.uml.infrastructure.MetaclassReference;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
@@ -59,6 +58,7 @@ public class TagTypeImpl extends ModelElementImpl implements TagType {
             return st.getOwner().getOwnerModule();
         } else
             return null;
+        
     }
 
     @objid ("d048387a-e164-48a7-8921-31ddd6c6f124")
@@ -140,6 +140,7 @@ public class TagTypeImpl extends ModelElementImpl implements TagType {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("e4edba70-cfb0-48bc-8595-c638e0952504")

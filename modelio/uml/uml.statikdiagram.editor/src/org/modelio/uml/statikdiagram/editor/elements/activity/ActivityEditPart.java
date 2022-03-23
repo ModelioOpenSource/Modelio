@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.activity;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -64,6 +63,7 @@ public class ActivityEditPart extends AbstractNodeEditPart {
             throw new IllegalArgumentException("CallBehaviorEditPart#addChildVisual: unknown index " + index);
         }
         getFigure().add(child, gmAbstractObject.getLayoutData(), index);
+        
     }
 
     @objid ("33d692aa-55b7-11e2-877f-002564c97630")
@@ -74,6 +74,7 @@ public class ActivityEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                           new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("33d692ad-55b7-11e2-877f-002564c97630")
@@ -103,6 +104,7 @@ public class ActivityEditPart extends AbstractNodeEditPart {
                 super.refreshFromStyle(aFigure, style);
             }
         }
+        
     }
 
     @objid ("33d692bb-55b7-11e2-877f-002564c97630")
@@ -110,6 +112,7 @@ public class ActivityEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         GmActivityPrimaryNode callBehaviorModel = (GmActivityPrimaryNode) getModel();
         getFigure().getParent().setConstraint(getFigure(), callBehaviorModel.getLayoutData());
+        
     }
 
 }

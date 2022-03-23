@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,7 @@ public class EFunctionBehavior extends ENamedElement {
     }
 
     @objid ("8dc0943a-df9b-4c1c-a6ef-66c7a873614c")
-    public EFunctionBehavior(org.eclipse.uml2.uml.FunctionBehavior element) {
+    public  EFunctionBehavior(org.eclipse.uml2.uml.FunctionBehavior element) {
         super(element);
     }
 

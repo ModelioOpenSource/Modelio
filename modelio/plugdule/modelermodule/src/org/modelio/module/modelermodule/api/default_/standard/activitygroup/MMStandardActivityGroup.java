@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.activitygroup;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("0bddf189-e8ce-4d25-a76d-638e2465787a")
 public class MMStandardActivityGroup {
-    @objid ("db42218f-6f6a-4b9c-b359-ef34d3eee27c")
+    @objid ("8115d8d4-8d96-4ba8-b62a-2da9e0461868")
     public static final String USERDIAGRAMIMAGE_TAGTYPE = "userDiagramImage";
 
     /**
      * The underlying {@link ActivityGroup} represented by this proxy, never null.
      */
-    @objid ("a7ca63a6-6e13-490d-81c2-34edbb9ffafc")
+    @objid ("9f6ab43a-6396-44ba-8c86-778e7439b4db")
     protected final ActivityGroup elt;
 
     /**
      * Tells whether a {@link MMStandardActivityGroup proxy} can be instantiated from a {@link MObject} checking it is a {@link ActivityGroup}.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("88aa29a1-1402-4a80-8e9d-11fd22776eec")
+    @objid ("0a3fe672-d6d2-42c2-9ca2-d5be49666e66")
     public static boolean canInstantiate(MObject elt) {
         return (elt instanceof ActivityGroup);
     }
@@ -79,12 +77,12 @@ public class MMStandardActivityGroup {
      * @param obj a ActivityGroup
      * @return a {@link MMStandardActivityGroup} proxy or <i>null</i>.
      */
-    @objid ("1450f8bf-8081-4e47-95a8-7bb840ab8c23")
+    @objid ("8057662d-eaa4-4382-baff-be302e8f9dfb")
     public static MMStandardActivityGroup instantiate(ActivityGroup obj) {
         return MMStandardActivityGroup.canInstantiate(obj) ? new MMStandardActivityGroup(obj) : null;
     }
 
-    @objid ("82216940-7eb1-4d39-b110-a20808647afd")
+    @objid ("2d31712a-ec75-46b9-860f-3f173662e046")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -104,7 +102,7 @@ public class MMStandardActivityGroup {
      * Get the underlying {@link ActivityGroup}. 
      * @return the ActivityGroup represented by this proxy, never null.
      */
-    @objid ("b6403018-4c39-409b-8cbf-39716e7d3769")
+    @objid ("7528fb66-0657-4ba2-a48f-0fa648f00d6d")
     public ActivityGroup getElement() {
         return this.elt;
     }
@@ -116,15 +114,16 @@ public class MMStandardActivityGroup {
      * 
      * The file path must be either absolute or relative to the project path.</i></p>
      */
-    @objid ("45c25923-237d-4c2e-9556-3fe0ff3cf777")
+    @objid ("3feaa27f-27a2-4418-adfd-f022f340ecaf")
     public String getUserDiagramImage() {
         return this.elt.getTagValue(MMStandardActivityGroup.MdaTypes.USERDIAGRAMIMAGE_TAGTYPE_ELT);
     }
 
-    @objid ("04517e8b-8599-4636-8456-376734548c0c")
+    @objid ("aeec09c6-7055-44a8-abdf-79cc9c0c8d86")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
     /**
@@ -134,40 +133,40 @@ public class MMStandardActivityGroup {
      * 
      * The file path must be either absolute or relative to the project path.</i></p>
      */
-    @objid ("aa8de955-e664-47cf-9e53-5afac7f2df8d")
+    @objid ("fbbe807a-091b-46fd-800a-c1b6b80299c2")
     public void setUserDiagramImage(String value) {
         this.elt.putTagValue(MMStandardActivityGroup.MdaTypes.USERDIAGRAMIMAGE_TAGTYPE_ELT, value);
     }
 
-    @objid ("06655dd9-f263-4905-a00c-7e92eefea1c9")
-    protected MMStandardActivityGroup(ActivityGroup elt) {
+    @objid ("c33f5d10-a415-4de0-99f8-de5179ece08d")
+    protected  MMStandardActivityGroup(ActivityGroup elt) {
         this.elt = elt;
     }
 
     @objid ("343ed21d-76d6-48fb-b12e-4ffab5eacf51")
     public static final class MdaTypes {
-        @objid ("6ee4a817-7a85-4cf1-a815-442b292dd61f")
+        @objid ("24c53769-0fbd-4649-bc6f-fdeabdd4964a")
         public static TagType USERDIAGRAMIMAGE_TAGTYPE_ELT;
 
-        @objid ("475506fd-8e95-4a30-b979-276e158dd016")
+        @objid ("a7417216-16c7-4dfe-a152-66fa3f9575a9")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("567e1151-4673-42cf-a37f-24467bbab070")
+        @objid ("1f896a0d-c8c0-43f5-b5ae-9873e499023f")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("77308ae5-7076-4441-b8a6-d2f33576adaf")
+        @objid ("837b16f6-19cc-4b31-b429-52fb67c63f01")
         public static void init(IModuleContext ctx) {
             USERDIAGRAMIMAGE_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "1d89eb4d-8c5e-4ce0-b836-0d4f2d4a86e1");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

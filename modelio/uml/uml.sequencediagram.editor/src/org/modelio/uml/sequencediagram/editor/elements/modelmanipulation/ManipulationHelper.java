@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.modelmanipulation;
 
 import java.util.ArrayList;
@@ -78,17 +77,15 @@ public class ManipulationHelper {
 
     /**
      * Initialize the helper.
-     * 
      * @param host the host edit part.
      */
     @objid ("25cf255d-1267-4a12-a8f2-a57dd6ba3f0d")
-    public ManipulationHelper(GraphicalEditPart host) {
+    public  ManipulationHelper(GraphicalEditPart host) {
         this.host = host;
     }
 
     /**
      * Reset the helper and computes predicates that must be valid.
-     * 
      * @param objs the interaction element(s) handled by the host edit part.
      */
     @objid ("ddb5ecb0-a980-4f34-88f5-c8c3b839890f")
@@ -105,13 +102,13 @@ public class ManipulationHelper {
                 throw new UnsupportedOperationException(obj.toString());
             }
         }
+        
     }
 
     /**
      * Show source feed back on the given feedback layer.
      * <p>
      * Display rectangles in red where predicates fail.
-     * 
      * @param fbLayer the feedback layer.
      */
     @objid ("c86dd748-832c-4c1f-b3cf-feab04b57f05")
@@ -153,6 +150,7 @@ public class ManipulationHelper {
                 this.fbRectangles.add(rf);
             }
         }
+        
     }
 
     @objid ("0f5e6d35-8ef6-44ca-aa4b-947c0eff6cca")
@@ -176,7 +174,6 @@ public class ManipulationHelper {
      * Update the {@link Variable} for a {@link MObject}.
      * <p>
      * In case of initialization the variable is created if non existent.
-     * 
      * @param ref the time reference
      * @param value the new line value
      * @return the found or created variable.
@@ -190,7 +187,6 @@ public class ManipulationHelper {
      * Update the {@link Variable} for a {@link TimeReference}.
      * <p>
      * In case of initialization the variable is created if non existent.
-     * 
      * @param ref the time reference
      * @param value the new line value
      * @return the found or created variable.
@@ -211,7 +207,6 @@ public class ManipulationHelper {
 
     /**
      * Tests whether the move is valid.
-     * 
      * @return <i>true</i> if the move is valid else <i>false</i>.
      */
     @objid ("d9683e49-55b6-11e2-877f-002564c97630")
@@ -257,6 +252,7 @@ public class ManipulationHelper {
                 }
             }
         }
+        
     }
 
     @objid ("d9683e4d-55b6-11e2-877f-002564c97630")
@@ -310,13 +306,13 @@ public class ManipulationHelper {
         }
         
         computeCreateDestroyPredicates(messageEnd, variable);
+        
     }
 
     /**
      * Initialize a {@link Variable} for a {@link TimeReference}.
      * <p>
      * The variable is created if non existent. If the variable already exists it is directly returned.
-     * 
      * @param ref the time reference
      * @param value the new line value
      * @return the found or created variable.
@@ -337,7 +333,6 @@ public class ManipulationHelper {
 
     /**
      * Erase source feedback.
-     * 
      * @param fbLayer The feedback layer.
      */
     @objid ("88f80ce7-aac5-445f-91d5-a149ad2d2e13")
@@ -346,11 +341,11 @@ public class ManipulationHelper {
             fbLayer.remove(fig);
         }
         this.fbRectangles.clear();
+        
     }
 
     /**
      * Ensure forMessageEnd is not moved before a creation message or after a destroy message received on its lifeline.
-     * 
      * @param forMessageEnd a message end
      * @param forVariable the message end variable
      * @since 3.7.1
@@ -409,6 +404,7 @@ public class ManipulationHelper {
                 }
             }
         }
+        
     }
 
 }

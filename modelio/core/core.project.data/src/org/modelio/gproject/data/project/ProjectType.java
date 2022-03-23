@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.project;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,13 +31,17 @@ public enum ProjectType {
     /**
      * Local project.
      */
+    @objid ("e79139a2-0985-11e2-bed6-001ec947ccaf")
     LOCAL,
     /**
      * Project located on a SVN repository.
      */
+    @objid ("ea2cc69a-0985-11e2-bed6-001ec947ccaf")
     SVN,
     /**
      * Project located on a HTTP server.
      */
+    @objid ("edce9418-0985-11e2-bed6-001ec947ccaf")
     HTTP;
+
 }

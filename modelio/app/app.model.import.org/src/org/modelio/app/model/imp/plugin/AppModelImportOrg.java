@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.model.imp.plugin;
 
 import java.util.ResourceBundle;
@@ -51,6 +50,7 @@ public class AppModelImportOrg implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         AppModelImportOrg.LOG = new PluginLogger(service.getLogger((String)null));
         AppModelImportOrg.I18N = new BundledMessages(AppModelImportOrg.LOG, ResourceBundle.getBundle("appmodelimport"));
+        
     }
 
     @objid ("b45a0502-c0d7-4c1d-9e46-db289742ea32")

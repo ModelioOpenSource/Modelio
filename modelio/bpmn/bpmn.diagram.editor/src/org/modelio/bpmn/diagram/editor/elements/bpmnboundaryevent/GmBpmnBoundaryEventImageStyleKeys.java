@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnboundaryevent;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.bpmn.diagram.editor.elements.style.BpmnAbstractStyleKeyProvider;
+import org.modelio.bpmn.diagram.editor.elements.common.style.BpmnAbstractStyleKeyProvider;
 import org.modelio.diagram.styles.core.StyleKey;
 
 /**
@@ -30,24 +29,24 @@ import org.modelio.diagram.styles.core.StyleKey;
 @objid ("60880787-55b6-11e2-877f-002564c97630")
 public class GmBpmnBoundaryEventImageStyleKeys extends BpmnAbstractStyleKeyProvider {
     @objid ("7120d5cf-55c1-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmBpmnBoundaryEventStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmBpmnBoundaryEventStructuredStyleKeys.REPMODE;
 
     @objid ("7120d5d1-55c1-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmBpmnBoundaryEventStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmBpmnBoundaryEventStructuredStyleKeys.FONT;
 
     @objid ("7120d5d3-55c1-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmBpmnBoundaryEventStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmBpmnBoundaryEventStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("7120d5d5-55c1-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmBpmnBoundaryEventStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmBpmnBoundaryEventStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("7120d5d7-55c1-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmBpmnBoundaryEventStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmBpmnBoundaryEventStructuredStyleKeys.SHOWTAGS;
 
     /**
      * Show the label.
      */
     @objid ("7120fcd9-55c1-11e2-9337-002564c97630")
-     static final StyleKey SHOWLABEL = GmBpmnBoundaryEventStructuredStyleKeys.SHOWLABEL;
+    static final StyleKey SHOWLABEL = GmBpmnBoundaryEventStructuredStyleKeys.SHOWLABEL;
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,11 +34,10 @@ public class GmMessageEndAnchor implements IPersistent {
 
     /**
      * Constructor
-     * 
      * @param ref the Y reference position in coordinates relative to the owner.
      */
     @objid ("d8fef54c-55b6-11e2-877f-002564c97630")
-    public GmMessageEndAnchor(final int ref) {
+    public  GmMessageEndAnchor(final int ref) {
         this.ref = ref;
     }
 
@@ -47,12 +45,12 @@ public class GmMessageEndAnchor implements IPersistent {
      * For deserialization.
      */
     @objid ("d8fef551-55b6-11e2-877f-002564c97630")
-    public GmMessageEndAnchor() {
+    public  GmMessageEndAnchor() {
+        
     }
 
     /**
      * Get the anchor Y location.
-     * 
      * @return the Y position of the anchor in coordinates relative to the owner.
      */
     @objid ("d9007bba-55b6-11e2-877f-002564c97630")
@@ -66,7 +64,6 @@ public class GmMessageEndAnchor implements IPersistent {
      * This method can use {@link IDiagramWriter#getRoot()} if needed to know whether it is internal or external.
      * <p>
      * If this is the case, {@link #write(IDiagramWriter)} will be called, which will have to call {@link IDiagramWriter#writeExtRef(IPersistent, String, String)} only.
-     * 
      * @param out the writer where the model is saved.
      * @return true if this element is external, false if the element is to be saved in this writer.
      */
@@ -78,7 +75,6 @@ public class GmMessageEndAnchor implements IPersistent {
 
     /**
      * Read the element properties from a serialized form.
-     * 
      * @param in a reader to build the graphic model from.
      */
     @objid ("d9007bc7-55b6-11e2-877f-002564c97630")
@@ -93,7 +89,6 @@ public class GmMessageEndAnchor implements IPersistent {
      * If the element is external to the writer, this method must only call {@link IDiagramWriter#writeExtRef(IPersistent, String, String)}.
      * <p>
      * In the other case it can call any {@link IDiagramWriter IDiagramWriter.writeXxxx(...)} method except <tt>writeExtRef(...)</tt>.
-     * 
      * @param out a writer to save the model to.
      */
     @objid ("d9007bcd-55b6-11e2-877f-002564c97630")

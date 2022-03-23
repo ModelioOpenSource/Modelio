@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.instance;
 
 import java.util.ArrayList;
@@ -33,8 +32,8 @@ import org.eclipse.gef.requests.CreateRequest;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
 import org.modelio.diagram.elements.core.helpers.UnmaskHelper;
 import org.modelio.diagram.elements.core.model.GmModel;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.metamodel.uml.statik.AssociationEnd;
@@ -79,12 +78,13 @@ public class SmartCreatePartCommand extends Command {
      * @param parentElement the element that will own the new ObjectNode
      */
     @objid ("34383aba-55b7-11e2-877f-002564c97630")
-    public SmartCreatePartCommand(final Point dropLocation, final MObject toUnmask, final EditPart parentEditPart, final MObject parentElement) {
+    public  SmartCreatePartCommand(final Point dropLocation, final MObject toUnmask, final EditPart parentEditPart, final MObject parentElement) {
         this.location = dropLocation;
         this.toUnmask = toUnmask;
         this.parentEditPart = parentEditPart;
         this.parentElement = parentElement;
         this.viewer = parentEditPart.getViewer();
+        
     }
 
     @objid ("34383ac9-55b7-11e2-877f-002564c97630")
@@ -155,11 +155,11 @@ public class SmartCreatePartCommand extends Command {
                 cmd.execute();
             }
         }
+        
     }
 
     /**
      * Copy the Ports of the base class to the instance.
-     * 
      * @param part the part where Ports are to be added.
      * @return the created ports.
      */
@@ -195,6 +195,7 @@ public class SmartCreatePartCommand extends Command {
         if (cmd != null && cmd.canExecute()) {
             cmd.execute();
         }
+        
     }
 
 }

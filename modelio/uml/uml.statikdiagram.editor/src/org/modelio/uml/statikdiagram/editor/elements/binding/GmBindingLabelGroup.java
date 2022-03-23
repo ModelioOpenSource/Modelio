@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.binding;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -54,17 +53,17 @@ public class GmBindingLabelGroup extends GmGroup {
      * Constructor for deserialization only.
      */
     @objid ("340bfa9f-55b7-11e2-877f-002564c97630")
-    public GmBindingLabelGroup() {
+    public  GmBindingLabelGroup() {
+        
     }
 
     /**
      * Creates a binding group.
-     * 
      * @param diagram The diagram.
      * @param relatedRef The related element reference, must not be null.
      */
     @objid ("340bfaa2-55b7-11e2-877f-002564c97630")
-    public GmBindingLabelGroup(IGmDiagram diagram, MRef relatedRef) {
+    public  GmBindingLabelGroup(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -101,12 +100,6 @@ public class GmBindingLabelGroup extends GmGroup {
         return (Boolean) getDisplayedStyle().getProperty(getViewModeStyleKey());
     }
 
-    @objid ("340d811f-55b7-11e2-877f-002564c97630")
-    @Override
-    public void obElementAdded(MObject movedEl) {
-        refreshFromObModel();
-    }
-
     @objid ("340d8125-55b7-11e2-877f-002564c97630")
     @Override
     public void refreshFromObModel() {
@@ -120,6 +113,7 @@ public class GmBindingLabelGroup extends GmGroup {
                 }
             }
         }
+        
     }
 
     @objid ("340d8128-55b7-11e2-877f-002564c97630")
@@ -130,6 +124,7 @@ public class GmBindingLabelGroup extends GmGroup {
         } else {
             super.styleChanged(property, newValue);
         }
+        
     }
 
     @objid ("340d812f-55b7-11e2-877f-002564c97630")
@@ -138,6 +133,7 @@ public class GmBindingLabelGroup extends GmGroup {
         refreshFromObModel();
         fireVisibilityChanged();
         super.styleChanged(style);
+        
     }
 
     @objid ("340d8135-55b7-11e2-877f-002564c97630")
@@ -150,7 +146,6 @@ public class GmBindingLabelGroup extends GmGroup {
      * Checks whether the given model element can be and still be displayed here.
      * <p>
      * Check all conditions except the case where it is already unmasked.
-     * 
      * @param el The element to unmask
      * @return true if it satisfies all conditions, else false.
      */
@@ -197,6 +192,7 @@ public class GmBindingLabelGroup extends GmGroup {
             break;
         }
         }
+        
     }
 
     @objid ("340d8152-55b7-11e2-877f-002564c97630")
@@ -206,6 +202,7 @@ public class GmBindingLabelGroup extends GmGroup {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmBindingLabelGroup.", GmBindingLabelGroup.MINOR_VERSION);
+        
     }
 
     @objid ("340f07b9-55b7-11e2-877f-002564c97630")

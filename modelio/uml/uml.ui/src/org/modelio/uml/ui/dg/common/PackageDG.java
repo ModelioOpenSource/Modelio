@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.common;
 
 import java.util.Collections;
@@ -41,7 +40,7 @@ public class PackageDG extends PortContainerDG {
      * @param node The gm node represented by this class.
      */
     @objid ("26747c65-554a-4992-b424-24336ed95e0b")
-    public PackageDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  PackageDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 
@@ -55,6 +54,7 @@ public class PackageDG extends PortContainerDG {
         } else {
             return Collections.emptyList();
         }
+        
     }
 
 }

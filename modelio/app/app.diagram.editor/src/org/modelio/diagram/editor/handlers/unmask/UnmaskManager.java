@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.handlers.unmask;
 
 import java.util.ArrayList;
@@ -63,7 +62,6 @@ public class UnmaskManager {
     /**
      * Unmask child generalizations and realizations.<br>
      * The represented element must be at least an NameSpace.
-     * 
      * @param viewer the viewer to unmask the elements on.
      * @param gmModel the gmModel representing the model element to work from.
      */
@@ -104,12 +102,12 @@ public class UnmaskManager {
             layoutHorizontal(initialPosition, viewer, toUnmask);
         
         }
+        
     }
 
     /**
      * Unmask all constraints in a column, next to the given element, on the right.<br>
      * The represented element must be an ModelElement.
-     * 
      * @param viewer the viewer to unmask the elements on.
      * @param gmModel the gmModel representing the model element to work from.
      */
@@ -133,11 +131,11 @@ public class UnmaskManager {
         
             layoutVertical(initialPosition, viewer, toUnmask);
         }
+        
     }
 
     /**
      * Unmask all non structuring links around the element.
-     * 
      * @param viewer The viewer to unmask elements into.
      * @param gmModel the gmModel representing the model element to work from.
      * @param unmaskNewNodes indicates if new nodes could be unmasked.
@@ -156,12 +154,12 @@ public class UnmaskManager {
         
             unmaskLinkPositionSet(viewer, linkPositionSet, bounds);
         }
+        
     }
 
     /**
      * Unmask all notes in a column, next to the given element, on the left.<br>
      * The represented element must be an ModelElement.
-     * 
      * @param viewer the viewer to unmask the elements on.
      * @param gmModel the gmModel representing the model element to work from.
      */
@@ -184,12 +182,12 @@ public class UnmaskManager {
         
             layoutVertical(initialPosition, viewer, toUnmask);
         }
+        
     }
 
     /**
      * Unmask parent generalizations and realizations.<br>
      * The represented element must be an NameSpace.
-     * 
      * @param viewer the viewer to unmask the elements on.
      * @param gmModel the gmModel representing the model element to work from.
      */
@@ -223,11 +221,11 @@ public class UnmaskManager {
         
             layoutHorizontal(initialPosition, viewer, toUnmask);
         }
+        
     }
 
     /**
      * Unmask all structuring links around the element.
-     * 
      * @param viewer The viewer to unmask elements into.
      * @param gmModel the gmModel representing the model element to work from.
      * @param unmaskNewNodes indicates if new nodes could be unmasked.
@@ -246,11 +244,11 @@ public class UnmaskManager {
         
             unmaskLinkPositionSet(viewer, linkPositionSet, bounds);
         }
+        
     }
 
     /**
      * Return the element location and size as a Rectangle.
-     * 
      * @return the element bounds.
      */
     @objid ("665b5f45-33f7-11e2-95fe-001ec947c8cc")
@@ -261,6 +259,7 @@ public class UnmaskManager {
         } else {
             return p.getFigure().getBounds().getCopy();
         }
+        
     }
 
     /**
@@ -281,7 +280,6 @@ public class UnmaskManager {
 
     /**
      * Unmasks all elements in a line.
-     * 
      * @param initialPosition The upper left corner of the unmask zone.
      * @param viewer The viewer to unmask elements into.
      * @param toUnmask List of all elements to unmask.
@@ -303,7 +301,6 @@ public class UnmaskManager {
 
     /**
      * Unmask all elements in a column.
-     * 
      * @param initialPosition The upper left corner of the unmask zone.
      * @param viewer The viewer to unmask elements into.
      * @param toUnmask List of all elements to unmask.
@@ -324,7 +321,6 @@ public class UnmaskManager {
     /**
      * Unmask an element in this viewer at the given coordinates.<br>
      * Uses a ModelElementDropRequest, to emulate a standard drag & drop of the element.
-     * 
      * @param viewer the viewer to unmask the element on.
      * @param element the element to unmask.
      * @param x the x coordinate for the unmasking location.
@@ -355,6 +351,7 @@ public class UnmaskManager {
                 targetEditPart.getViewer().getEditDomain().getCommandStack().execute(com);
             }
         }
+        
     }
 
     @objid ("665dc199-33f7-11e2-95fe-001ec947c8cc")
@@ -398,6 +395,7 @@ public class UnmaskManager {
         ((ScalableFreeformRootEditPart2) viewer.getRootEditPart()).getFigure()
                 .translateToParent(leftInitialPosition);
         layoutVertical(leftInitialPosition, viewer, linkPositionSet.getLeftLinks());
+        
     }
 
 }

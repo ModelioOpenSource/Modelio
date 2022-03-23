@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.api.impl.module;
 
 import java.io.IOException;
@@ -30,8 +29,8 @@ import java.util.Locale;
 import java.util.MissingResourceException;
 import java.util.Objects;
 import java.util.ResourceBundle;
-import javax.script.ScriptEngine;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.script.ScriptEngine;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.modelio.api.impl.app.ModelioContext;
 import org.modelio.api.impl.log.LogService;
@@ -91,13 +90,14 @@ public final class ModuleContext implements IModuleContext {
     private final IModuleAPIConfiguration peerConfiguration;
 
     @objid ("c9501288-da8e-456e-aaca-a56ac281b5ec")
-    public ModuleContext(ModuleComponent moduleElement, IModuleUserConfiguration moduleUserConfiguration, IModuleAPIConfiguration moduleApiConfiguration, IEclipseContext eclipseContext) {
+    public  ModuleContext(ModuleComponent moduleElement, IModuleUserConfiguration moduleUserConfiguration, IModuleAPIConfiguration moduleApiConfiguration, IEclipseContext eclipseContext) {
         this.moduleComponent = moduleElement;
         this.configuration = moduleUserConfiguration;
         this.peerConfiguration = moduleApiConfiguration;
         this.logService = new LogService(moduleElement != null ? moduleElement.getName() : "");
         this.i18nSupport = new I18nSupportImpl(getManifestBundle(), this.logService);
         this.eclipseContext = eclipseContext;
+        
     }
 
     @objid ("5b9f5073-d8d4-4723-922c-b603d2dd3b81")
@@ -180,9 +180,8 @@ public final class ModuleContext implements IModuleContext {
 
     /**
      * Get the {@link ResourceBundle} corresponding to the localized module.properties file in the module resources.
-     * 
      * @return the resource bundle
-     * @throws java.util.MissingResourceException if the file is not found
+     * @throws MissingResourceException if the file is not found
      */
     @objid ("21f5581f-e179-4598-bc60-ac1f67cfd149")
     private ResourceBundle getManifestBundle() throws MissingResourceException {
@@ -226,9 +225,10 @@ public final class ModuleContext implements IModuleContext {
         private final ILogService logService;
 
         @objid ("0018e7b7-35e2-4eba-bbcb-920221421f0b")
-        public I18nSupportImpl(ResourceBundle b, ILogService logService) {
+        public  I18nSupportImpl(ResourceBundle b, ILogService logService) {
             this.I18N = b;
             this.logService = logService;
+            
         }
 
         @objid ("a8be668e-3b67-494c-81a9-aedf35453e57")
@@ -238,6 +238,7 @@ public final class ModuleContext implements IModuleContext {
             return getString("%propertydefinition."
                                 + (table != null ? table.getName() : "") + "."
                                 + pdef.getName() + ".description");
+            
         }
 
         @objid ("da3d69b3-2569-4ebf-96dc-bc535aa60e88")
@@ -297,6 +298,7 @@ public final class ModuleContext implements IModuleContext {
             return getString("%propertydefinition."
                                 + (table != null ? table.getName() : "") + "."
                                 + pdef.getName() + ".label");
+            
         }
 
         @objid ("4f00ca6e-3e96-40f2-a49a-fcab5486454e")

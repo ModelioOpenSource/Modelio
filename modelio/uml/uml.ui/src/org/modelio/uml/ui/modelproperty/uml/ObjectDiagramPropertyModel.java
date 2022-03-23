@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.util.ArrayList;
@@ -64,17 +63,15 @@ public class ObjectDiagramPropertyModel extends AbstractPropertyModel<ObjectDiag
     /**
      * Create a new <i>ObjectDiagram</i> data model from an <i>ObjectDiagram</i>
      * .
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("f7319acb-d7b5-41cd-bcfc-07920830ace3")
-    public ObjectDiagramPropertyModel(final ObjectDiagram theEditedElement) {
+    public  ObjectDiagramPropertyModel(final ObjectDiagram theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("d9cc661a-fe6a-40fb-8511-08ea19509b36")
@@ -85,7 +82,6 @@ public class ObjectDiagramPropertyModel extends AbstractPropertyModel<ObjectDiag
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("e6f880c0-566a-4e42-aaab-af0833bc7d63")
@@ -98,7 +94,6 @@ public class ObjectDiagramPropertyModel extends AbstractPropertyModel<ObjectDiag
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -122,6 +117,7 @@ public class ObjectDiagramPropertyModel extends AbstractPropertyModel<ObjectDiag
         default:
             return null;
         }
+        
     }
 
     /**
@@ -131,7 +127,6 @@ public class ObjectDiagramPropertyModel extends AbstractPropertyModel<ObjectDiag
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -166,13 +161,13 @@ public class ObjectDiagramPropertyModel extends AbstractPropertyModel<ObjectDiag
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -200,6 +195,7 @@ public class ObjectDiagramPropertyModel extends AbstractPropertyModel<ObjectDiag
         default:
             return;
         }
+        
     }
 
 }

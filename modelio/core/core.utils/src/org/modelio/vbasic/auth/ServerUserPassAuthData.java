@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.auth;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,23 +36,23 @@ public class ServerUserPassAuthData extends UserPasswordAuthData {
 
     /**
      * C'tor
-     * 
      * @param server the server part of this authentication data
      * @param user the user part of this authentication data
      * @param pass the password part of this authentication data
      */
     @objid ("41e57eeb-4c6d-4b96-9e65-86587255481a")
-    public ServerUserPassAuthData(String server, String user, String pass) {
+    public  ServerUserPassAuthData(String server, String user, String pass) {
         super(user, pass, false);
         if (server != null)
             getData().put(ServerUserPassAuthData.TARGETSERVER, server);
+        
     }
 
     /**
      * C'tor default equivalent to ServerUserPasswordAuthData(null, "", "")
      */
     @objid ("a2d6eecc-130a-44fb-ab69-e417e5c79cdf")
-    public ServerUserPassAuthData() {
+    public  ServerUserPassAuthData() {
         super("", "", false);
     }
 
@@ -73,7 +72,6 @@ public class ServerUserPassAuthData extends UserPasswordAuthData {
 
     /**
      * Set the server part of this authentication data.
-     * 
      * @param server the server. Can be null.
      */
     @objid ("98c71e4a-9390-4387-ae17-1c261be63d40")
@@ -83,6 +81,7 @@ public class ServerUserPassAuthData extends UserPasswordAuthData {
         } else {
             getData().put(ServerUserPassAuthData.TARGETSERVER, server);
         }
+        
     }
 
     @objid ("a995e366-ba87-496d-89b7-af823a6f17c8")

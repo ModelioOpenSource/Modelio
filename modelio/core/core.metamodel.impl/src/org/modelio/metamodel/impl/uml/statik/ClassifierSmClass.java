@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
@@ -31,15 +31,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.informationFlow.InformationFlowSmClass;
 import org.modelio.metamodel.impl.uml.informationFlow.InformationItemSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.SubstitutionSmClass;
-import org.modelio.metamodel.impl.uml.statik.AssociationEndSmClass;
-import org.modelio.metamodel.impl.uml.statik.AttributeSmClass;
-import org.modelio.metamodel.impl.uml.statik.BindableInstanceSmClass;
-import org.modelio.metamodel.impl.uml.statik.ClassifierData;
-import org.modelio.metamodel.impl.uml.statik.ComponentRealizationSmClass;
-import org.modelio.metamodel.impl.uml.statik.NameSpaceSmClass;
-import org.modelio.metamodel.impl.uml.statik.NaryAssociationEndSmClass;
-import org.modelio.metamodel.impl.uml.statik.OperationSmClass;
-import org.modelio.metamodel.impl.uml.statik.RaisedExceptionSmClass;
 import org.modelio.metamodel.uml.informationFlow.InformationFlow;
 import org.modelio.metamodel.uml.informationFlow.InformationItem;
 import org.modelio.metamodel.uml.infrastructure.Substitution;
@@ -102,7 +93,7 @@ public class ClassifierSmClass extends NameSpaceSmClass {
     private SmDependency realizedComponentDep;
 
     @objid ("4e4c7d7d-5efa-4a74-a34b-da65feceb565")
-    public ClassifierSmClass(ISmMetamodelFragment origin) {
+    public  ClassifierSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -110,6 +101,7 @@ public class ClassifierSmClass extends NameSpaceSmClass {
     @Override
     public String getName() {
         return "Classifier";
+        
     }
 
     @objid ("f76d205e-6051-4a68-8137-2ee36f812ce2")
@@ -122,18 +114,21 @@ public class ClassifierSmClass extends NameSpaceSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Classifier.class;
+        
     }
 
     @objid ("fdefd40c-f66c-417b-84cf-45496026dadd")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("615efdc9-243f-46d0-8069-7c2b92bdce2c")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("06bec0ae-426b-4d61-a35a-1947bf1830a4")
@@ -193,6 +188,8 @@ public class ClassifierSmClass extends NameSpaceSmClass {
         this.realizedComponentDep = new RealizedComponentSmDependency();
         this.realizedComponentDep.init("RealizedComponent", this, metamodel.getMClass(ComponentRealization.MQNAME), 0, -1 , SmDirective.SMCDTODELETE);
         registerDependency(this.realizedComponentDep);
+        
+        
     }
 
     @objid ("2c37f8d9-3a5c-471e-9258-251471f80c38")
@@ -297,7 +294,7 @@ public class ClassifierSmClass extends NameSpaceSmClass {
         private ClassifierSmClass smClass;
 
         @objid ("ce73ff47-a9a9-495f-91ec-fbe072d3cda2")
-        public ClassifierObjectFactory(ClassifierSmClass smClass) {
+        public  ClassifierObjectFactory(ClassifierSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -330,6 +327,7 @@ public class ClassifierSmClass extends NameSpaceSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ClassifierData) data).mOwnedOperation = values;
+            
         }
 
         @objid ("8f031908-991b-4ae6-8b90-64b36d7fed5c")
@@ -339,6 +337,7 @@ public class ClassifierSmClass extends NameSpaceSmClass {
             	this.symetricDep = ((OperationSmClass)this.getTarget()).getOwnerDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -358,6 +357,7 @@ public class ClassifierSmClass extends NameSpaceSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ClassifierData) data).mRepresentation = values;
+            
         }
 
         @objid ("e4522630-452f-458f-8cf5-db81797da45d")
@@ -367,6 +367,7 @@ public class ClassifierSmClass extends NameSpaceSmClass {
             	this.symetricDep = ((InformationItemSmClass)this.getTarget()).getRepresentedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -386,6 +387,7 @@ public class ClassifierSmClass extends NameSpaceSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ClassifierData) data).mSubstitued = values;
+            
         }
 
         @objid ("6951cac7-4ddd-440c-957c-4d05f1bda523")
@@ -395,6 +397,7 @@ public class ClassifierSmClass extends NameSpaceSmClass {
             	this.symetricDep = ((SubstitutionSmClass)this.getTarget()).getSubstitutingClassifierDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -414,6 +417,7 @@ public class ClassifierSmClass extends NameSpaceSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ClassifierData) data).mOwnedAttribute = values;
+            
         }
 
         @objid ("c5e396ca-b583-4db9-9c65-56e6ba5002f7")
@@ -423,6 +427,7 @@ public class ClassifierSmClass extends NameSpaceSmClass {
             	this.symetricDep = ((AttributeSmClass)this.getTarget()).getOwnerDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -442,6 +447,7 @@ public class ClassifierSmClass extends NameSpaceSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ClassifierData) data).mOwnedNaryEnd = values;
+            
         }
 
         @objid ("15607171-50e0-4f49-86d5-0282e7c59da0")
@@ -451,6 +457,7 @@ public class ClassifierSmClass extends NameSpaceSmClass {
             	this.symetricDep = ((NaryAssociationEndSmClass)this.getTarget()).getOwnerDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -470,6 +477,7 @@ public class ClassifierSmClass extends NameSpaceSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ClassifierData) data).mConveyer = values;
+            
         }
 
         @objid ("7382f45e-5da9-430a-9169-3271909ad6a3")
@@ -479,6 +487,7 @@ public class ClassifierSmClass extends NameSpaceSmClass {
             	this.symetricDep = ((InformationFlowSmClass)this.getTarget()).getConveyedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -498,6 +507,7 @@ public class ClassifierSmClass extends NameSpaceSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ClassifierData) data).mSubstitutingSubstitution = values;
+            
         }
 
         @objid ("01b3ac30-ff34-4607-b2b2-00ee77e2ba33")
@@ -507,6 +517,7 @@ public class ClassifierSmClass extends NameSpaceSmClass {
             	this.symetricDep = ((SubstitutionSmClass)this.getTarget()).getContractDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -526,6 +537,7 @@ public class ClassifierSmClass extends NameSpaceSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ClassifierData) data).mTargetingEnd = values;
+            
         }
 
         @objid ("c54b7062-ac58-482b-b21a-c1585eb3fae5")
@@ -535,6 +547,7 @@ public class ClassifierSmClass extends NameSpaceSmClass {
             	this.symetricDep = ((AssociationEndSmClass)this.getTarget()).getTargetDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -554,6 +567,7 @@ public class ClassifierSmClass extends NameSpaceSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ClassifierData) data).mOwnedEnd = values;
+            
         }
 
         @objid ("3921584d-3eff-4ac4-9d9a-9895926fbfee")
@@ -563,6 +577,7 @@ public class ClassifierSmClass extends NameSpaceSmClass {
             	this.symetricDep = ((AssociationEndSmClass)this.getTarget()).getSourceDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -582,6 +597,7 @@ public class ClassifierSmClass extends NameSpaceSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ClassifierData) data).mThrowing = values;
+            
         }
 
         @objid ("b411f2ea-eef4-4d02-995a-5960dc5646f6")
@@ -591,6 +607,7 @@ public class ClassifierSmClass extends NameSpaceSmClass {
             	this.symetricDep = ((RaisedExceptionSmClass)this.getTarget()).getThrownTypeDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -610,6 +627,7 @@ public class ClassifierSmClass extends NameSpaceSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ClassifierData) data).mInternalStructure = values;
+            
         }
 
         @objid ("25d4111f-9bb1-4c2f-a368-b407d2dda0b1")
@@ -619,6 +637,7 @@ public class ClassifierSmClass extends NameSpaceSmClass {
             	this.symetricDep = ((BindableInstanceSmClass)this.getTarget()).getInternalOwnerDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -638,6 +657,7 @@ public class ClassifierSmClass extends NameSpaceSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ClassifierData) data).mRealizedComponent = values;
+            
         }
 
         @objid ("4c409f6b-a26c-4740-80f0-dd7bf7d6c435")
@@ -647,6 +667,7 @@ public class ClassifierSmClass extends NameSpaceSmClass {
             	this.symetricDep = ((ComponentRealizationSmClass)this.getTarget()).getRealizingClassifierDep();
             }
             return this.symetricDep;
+            
         }
 
     }

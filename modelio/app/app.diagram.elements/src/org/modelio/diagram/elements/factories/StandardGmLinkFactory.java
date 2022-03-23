@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.factories;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -57,16 +56,16 @@ public final class StandardGmLinkFactory implements IGmLinkFactory {
 
     /**
      * Instantiate the factory.
-     * 
      * @param factoryId identifier of the main factory.
      * @param useGenericFactory whether or not the generic factory should be used as fallback.
      */
     @objid ("aa475681-82d9-44a8-ace2-154dc4d23e60")
-    public StandardGmLinkFactory(String factoryId, boolean useGenericFactory) {
+    public  StandardGmLinkFactory(String factoryId, boolean useGenericFactory) {
         this.mainFactory = DiagramFactoryRegistry.getInstance().getLinkFactory(factoryId);
         this.secondaryFactories = new DelegatingGmLinkFactory(DiagramFactoryRegistry.getInstance().getExtensions(factoryId));
         this.diagramElementsFactory = new DiagramElementsGmLinkFactory();
         this.genericFactory = useGenericFactory ? new GenericGmFactory() : null;
+        
     }
 
     @objid ("5c2e682f-3982-4f24-9894-7218f52dbe05")
@@ -95,6 +94,7 @@ public final class StandardGmLinkFactory implements IGmLinkFactory {
         } else {
             return null;
         }
+        
     }
 
     @objid ("6477dbf7-22fa-4ee3-9680-2e5953c975bb")
@@ -120,6 +120,7 @@ public final class StandardGmLinkFactory implements IGmLinkFactory {
         } else {
             return null;
         }
+        
     }
 
     @objid ("8e922d3d-9000-4741-aa37-7d2d95207bad")
@@ -144,6 +145,7 @@ public final class StandardGmLinkFactory implements IGmLinkFactory {
         } else {
             return null;
         }
+        
     }
 
     @objid ("a96bb8b7-96ba-427c-9d45-a213884dfeff")
@@ -168,6 +170,7 @@ public final class StandardGmLinkFactory implements IGmLinkFactory {
         } else {
             return null;
         }
+        
     }
 
     @objid ("227bbfa2-fd17-4610-83c0-9955b4bc3f3f")

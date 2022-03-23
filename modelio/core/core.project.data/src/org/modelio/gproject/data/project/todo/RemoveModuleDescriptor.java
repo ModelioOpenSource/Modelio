@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.project.todo;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,6 +36,7 @@ public class RemoveModuleDescriptor extends TodoActionDescriptor {
     public String getLocalizedLabel() {
         return GProjectData.I18N.getMessage("TodoDescriptor.remove",
                                 this.moduleName);
+        
     }
 
     @objid ("388af171-b600-451e-83ee-e4f083a3153e")
@@ -49,6 +49,7 @@ public class RemoveModuleDescriptor extends TodoActionDescriptor {
         assert (moduleName != null && !moduleName.isEmpty());
         
         this.moduleName = moduleName;
+        
     }
 
     @objid ("275ce389-a030-458d-b4c8-8522c35098dc")

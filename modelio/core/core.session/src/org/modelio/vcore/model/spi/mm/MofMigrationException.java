@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model.spi.mm;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,12 +33,12 @@ public class MofMigrationException extends Exception {
     private static final long serialVersionUID = 1L;
 
     @objid ("7ee2eaba-3605-4e43-aa4c-96561e9bd22e")
-    public MofMigrationException(String message, Throwable cause) {
+    public  MofMigrationException(String message, Throwable cause) {
         super(message, cause);
     }
 
     @objid ("f49a8b64-6e94-47b0-ad4a-29fa6765ad28")
-    public MofMigrationException(String message) {
+    public  MofMigrationException(String message) {
         super(message);
     }
 

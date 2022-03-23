@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.model;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,17 +30,16 @@ public class InvalidUuidException extends RuntimeException {
      * Constructs an InvalidPathException with no detail message
      */
     @objid ("5376f3f3-7592-11e0-8651-001ec947cd2a")
-    public InvalidUuidException() {
+    public  InvalidUuidException() {
         super();
     }
 
     /**
      * Constructs an InvalidPathException with the specified detail message.
-     * 
      * @param message the detail message.
      */
     @objid ("5376f3f4-7592-11e0-8651-001ec947cd2a")
-    public InvalidUuidException(String message) {
+    public  InvalidUuidException(String message) {
         super(message);
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.util;
 
 import java.io.File;
@@ -105,11 +104,11 @@ public abstract class XMIProperties {
         for (ModelElement newRoot : newRoots) {
             this.rootElements.add(newRoot);
         }
+        
     }
 
     /**
      * This methods specify the path of the imported file
-     * 
      * @param file : the imported file
      */
     @objid ("9e69c6c6-178e-499a-802e-e41acc667838")
@@ -119,7 +118,6 @@ public abstract class XMIProperties {
 
     /**
      * This methods returns the path of the imported file
-     * 
      * @return the imported file path
      */
     @objid ("11b6416d-b815-4e3a-9bb7-e002a8832e6e")
@@ -135,7 +133,6 @@ public abstract class XMIProperties {
 
     /**
      * This method returns the model services
-     * 
      * @return the model services
      */
     @objid ("b4d1d6d1-7dfb-4246-b605-038b26afd7c4")
@@ -150,7 +147,6 @@ public abstract class XMIProperties {
 
     /**
      * This methods returns the path of the imported file
-     * 
      * @return the imported file path
      */
     @objid ("32481333-7de8-4a00-a7e9-8f4ecb5e0048")
@@ -160,7 +156,6 @@ public abstract class XMIProperties {
 
     /**
      * Create ecore resoureSet with UML resource Factory
-     * 
      * @return resoureSet
      */
     @objid ("f59a1ad2-cc9f-4eda-9b95-b76f407f1d3c")
@@ -193,6 +188,7 @@ public abstract class XMIProperties {
     public void setRootElement(final ModelElement newRoot) {
         this.rootElements = new ArrayList<>();
         this.rootElements.add(newRoot);
+        
     }
 
     @objid ("ac98651d-1a32-4150-b7d0-29f1fc56f983")
@@ -307,6 +303,7 @@ public abstract class XMIProperties {
             this.tempFolder = null;
         
         }
+        
     }
 
     @objid ("97f4459f-e6fc-4c13-aba9-348bb06d85e1")
@@ -317,6 +314,7 @@ public abstract class XMIProperties {
         
         initUMLClassTabConvertion();
         initInfraClassTabConvertion();
+        
     }
 
     @objid ("b25f7648-d1f0-405c-96d2-58d3a156e3bd")

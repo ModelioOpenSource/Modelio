@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common.index;
 
 import java.util.Collection;
@@ -32,29 +31,26 @@ public interface IUserNodeIndex {
     /**
      * Remove a CMS node from the indexes.
      * @param id
-     * 
-     * @throws org.modelio.vstore.exml.common.index.IndexException in case of IO failure.
+     * @throws IndexException in case of IO failure.
      */
     @objid ("32337f90-5c7b-11e1-863f-001ec947ccaf")
     void remove(final ObjId id) throws IndexException;
 
     /**
      * Add a used object.
-     * 
      * @param userNodeId the user CMS node
      * @param depName the dependency from user to used.
      * @param usedObjectId the used object.
-     * @throws org.modelio.vstore.exml.common.index.IndexException in case of IO failure.
+     * @throws IndexException in case of IO failure.
      */
     @objid ("32337f93-5c7b-11e1-863f-001ec947ccaf")
     void addUsed(final ObjId userNodeId, String depName, final ObjId usedObjectId) throws IndexException;
 
     /**
      * Get the CMS nodes using the given object.
-     * 
      * @param objectId an object ID.
      * @return The ID of all CMS nodes using it.
-     * @throws org.modelio.vstore.exml.common.index.IndexException in case of IO failure.
+     * @throws IndexException in case of IO failure.
      */
     @objid ("32337f98-5c7b-11e1-863f-001ec947ccaf")
     Collection<ObjId> getObjectUsers(final ObjId objectId, String depName) throws IndexException;

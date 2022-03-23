@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.fragment.migration;
 
 import java.io.IOException;
@@ -27,6 +26,7 @@ import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.gproject.fragment.AbstractFragment;
 import org.modelio.gproject.fragment.FragmentAuthenticationException;
+import org.modelio.gproject.fragment.migration.IFragmentMigrator.IMigrationProcess;
 import org.modelio.gproject.plugin.CoreProject;
 import org.modelio.vbasic.files.FileUtils;
 import org.modelio.vbasic.progress.IModelioProgress;
@@ -58,9 +58,10 @@ public class FragmentMigratorWithBackup implements IFragmentMigrator {
      * @param wrapped the wrapped migrator
      */
     @objid ("ec41b5d4-413b-44fc-bb07-b7e416cea17b")
-    public FragmentMigratorWithBackup(AbstractFragment fragToMigrate, IFragmentMigrator wrapped) {
+    public  FragmentMigratorWithBackup(AbstractFragment fragToMigrate, IFragmentMigrator wrapped) {
         this.fragToMigrate = fragToMigrate;
         this.wrapped = wrapped;
+        
     }
 
     @objid ("b715ec0e-ab99-46d0-88cf-80f0bbe2d2e1")
@@ -76,6 +77,7 @@ public class FragmentMigratorWithBackup implements IFragmentMigrator {
         getMigrationReporter().getLogger().println(msg);
         
         FileUtils.delete(getBackupDirectory());
+        
     }
 
     @objid ("9f99c5bf-f03d-4e55-8733-3674d66baf98")
@@ -88,6 +90,7 @@ public class FragmentMigratorWithBackup implements IFragmentMigrator {
         Files.createDirectories(getBackupDirectory());
         
         FileUtils.copyDirectoryTo(this.fragToMigrate.getDataDirectory(), getBackupDirectory());
+        
     }
 
     @objid ("1a1271ef-549d-4ed9-8b6f-324c0789df57")
@@ -113,6 +116,7 @@ public class FragmentMigratorWithBackup implements IFragmentMigrator {
             getMigrationReporter().getLogger().println(msg);
             getMigrationReporter().getResultReporter().println(msg);
         }
+        
     }
 
     @objid ("46f5c7b8-1443-4470-98af-42fcab2e2b75")
@@ -138,6 +142,7 @@ public class FragmentMigratorWithBackup implements IFragmentMigrator {
             FileUtils.copyDirectoryTo(toMove, newPath);
             FileUtils.delete(toMove);
         }
+        
     }
 
     @objid ("7f20e27d-3d95-438f-a5f2-63e18fc71e5a")
@@ -151,6 +156,7 @@ public class FragmentMigratorWithBackup implements IFragmentMigrator {
         
             FileUtils.delete(backArchiveDir);
         }
+        
     }
 
     @objid ("71df1091-0df4-45f5-82f0-88a288e4fb5e")
@@ -166,6 +172,7 @@ public class FragmentMigratorWithBackup implements IFragmentMigrator {
         this.migrationReporter.getLogger().println(taskName);
         
         FragmentMigratorWithBackup.moveDirectory(backDir, archiveDir);
+        
     }
 
     @objid ("749f20c0-1b88-4b99-ac60-22b23893004a")
@@ -214,7 +221,7 @@ public class FragmentMigratorWithBackup implements IFragmentMigrator {
         private final IMigrationProcess wrappedProcess;
 
         @objid ("18828c59-b270-4766-bd6e-0d64c82a1694")
-        public MigrationProcess(IModelioProgress monitor, IMigrationReporter reporter) throws FragmentAuthenticationException, MigrationFailedException {
+        public  MigrationProcess(IModelioProgress monitor, IMigrationReporter reporter) throws FragmentAuthenticationException, MigrationFailedException {
             this.wrappedProcess = FragmentMigratorWithBackup.this.wrapped.start(monitor, reporter);
         }
 
@@ -244,6 +251,7 @@ public class FragmentMigratorWithBackup implements IFragmentMigrator {
                 
                 SmMetamodel.TRACE_SHORT_METACLASSNAMES = true;
             }
+            
         }
 
         @objid ("e1255d95-99b6-469e-97ed-f39db3556c03")
@@ -254,6 +262,7 @@ public class FragmentMigratorWithBackup implements IFragmentMigrator {
             } finally {
                 restoreBackupOnFail(null);
             }
+            
         }
 
         @objid ("357f05e6-3814-4a3c-ac3a-5deec7b1d16e")
@@ -265,6 +274,7 @@ public class FragmentMigratorWithBackup implements IFragmentMigrator {
             } finally {
                 restoreBackupOnFail(mon.newChild(1));
             }
+            
         }
 
         @objid ("589c8e9e-d326-468d-a6c2-15a9381483a6")
@@ -284,6 +294,7 @@ public class FragmentMigratorWithBackup implements IFragmentMigrator {
             
                 }
             }
+            
         }
 
     }

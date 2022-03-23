@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.namespacinglink.redraw;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,7 @@ public class RedrawLinkCommandPropertyTester extends PropertyTester {
      * Default constructor.
      */
     @objid ("1afd3424-916b-4682-a51f-2106df48a524")
-    public RedrawLinkCommandPropertyTester() {
+    public  RedrawLinkCommandPropertyTester() {
         // nothing
     }
 
@@ -60,6 +59,7 @@ public class RedrawLinkCommandPropertyTester extends PropertyTester {
         default:
             throw new IllegalArgumentException(property + " property not supported by " + getClass().getSimpleName());
         }
+        
     }
 
     @objid ("e824f5ff-2471-41f5-85b0-ce5c670cc8da")

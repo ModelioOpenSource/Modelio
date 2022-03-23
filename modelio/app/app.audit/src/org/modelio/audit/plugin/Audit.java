@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.plugin;
 
 import java.io.File;
@@ -63,6 +62,7 @@ public class Audit implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         Audit.LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), Audit.PLUGIN_ID));
         Audit.I18N = new BundledMessages(Audit.LOG, ResourceBundle.getBundle("audit"));
+        
     }
 
     @objid ("653e449b-ff0e-46be-88d4-82148f2c8ed0")
@@ -83,10 +83,9 @@ public class Audit implements BundleActivator {
 
     /**
      * Get the path of a file bundled with the plugin.
-     * 
      * @param relPath the path relative to the plugin.
      * @return the found file
-     * @throws java.io.IOException if the file is not found or cannot be copied on the file system, should never occur.
+     * @throws IOException if the file is not found or cannot be copied on the file system, should never occur.
      */
     @objid ("d1a8268b-dff5-4398-936a-ef1cb1e69102")
     public static File getBundleFile(final String relPath) throws IOException {
@@ -97,6 +96,7 @@ public class Audit implements BundleActivator {
         } catch (IOException | URISyntaxException | RuntimeException e) {
             throw new IOException("'" + relPath + "' not found in plugin.", e);
         }
+        
     }
 
 }

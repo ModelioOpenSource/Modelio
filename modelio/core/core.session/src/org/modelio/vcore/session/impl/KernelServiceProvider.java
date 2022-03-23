@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,17 +49,19 @@ final class KernelServiceProvider implements IKernelServiceProvider {
     private CoreSession session;
 
     @objid ("002cface-eb1c-1f22-8c06-001ec947cd2a")
-    KernelServiceProvider(CoreSession session, ISwap swap, ISmObjectDataCache cacheManager) {
+     KernelServiceProvider(CoreSession session, ISwap swap, ISmObjectDataCache cacheManager) {
         KernelRegistry.registerService(this);
         this.swap = swap;
         this.dataCache = cacheManager;
         this.session = session;
+        
     }
 
     @objid ("002d0e1a-eb1c-1f22-8c06-001ec947cd2a")
     public void dispose() {
         KernelRegistry.removeService(this.kid);
         this.swap.close();
+        
     }
 
     @objid ("002d1cb6-eb1c-1f22-8c06-001ec947cd2a")
@@ -94,7 +95,6 @@ final class KernelServiceProvider implements IKernelServiceProvider {
 
     /**
      * Get the underlying CoreSession.
-     * 
      * @return the CoreSession.
      */
     @objid ("6c4d3cac-176e-11e2-ac36-001ec947ccaf")

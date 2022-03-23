@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.generation;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,32 +40,32 @@ public class ExportModel {
 
     @objid ("d901cafc-dd97-42ca-a279-7f41589ece9a")
     private ScopeChecker scopeChecker = new ScopeChecker(GenerationProperties
-            .getInstance().getRootElements());
+                .getInstance().getRootElements());
 
     /**
      * A constructor with a given progress bar
-     * 
      * @param progressBar : the given progress bar
      */
     @objid ("2a876bbb-84e9-4f01-af2b-707ec30ea781")
-    public ExportModel(ProgressBarComposite progressBar) {
+    public  ExportModel(ProgressBarComposite progressBar) {
         super();
         this.progressBar = progressBar;
         GenerationProperties.getInstance().setScopeChecker(this.scopeChecker);
+        
     }
 
     /**
      * The default constructor
      */
     @objid ("233df95f-b62d-4197-86b6-1af38502efb3")
-    public ExportModel() {
+    public  ExportModel() {
         super();
         this.progressBar = null;
+        
     }
 
     /**
      * The export method is in charge of the export sequence for a given IOElement
-     * 
      * @param ioelem : the IOElement to export
      */
     @objid ("a8f52dfc-a415-46e4-8049-14b04aa5bdb4")
@@ -132,6 +131,7 @@ public class ExportModel {
                 }
             }
         }
+        
     }
 
     @objid ("9e1f9b7a-0542-4173-b2e3-a0f9cfce1779")

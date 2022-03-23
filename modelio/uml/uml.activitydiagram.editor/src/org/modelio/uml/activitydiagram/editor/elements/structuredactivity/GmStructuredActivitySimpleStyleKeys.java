@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.structuredactivity;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,33 +29,33 @@ import org.modelio.uml.activitydiagram.editor.style.ActivityAbstractStyleKeyProv
 @objid ("2b58eac0-55b6-11e2-877f-002564c97630")
 public class GmStructuredActivitySimpleStyleKeys extends ActivityAbstractStyleKeyProvider {
     @objid ("d29b2b8a-55c0-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmStructuredActivityStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmStructuredActivityStructuredStyleKeys.REPMODE;
 
     @objid ("d29b2b8c-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = GmStructuredActivityStructuredStyleKeys.FILLCOLOR;
+    static final StyleKey FILLCOLOR = GmStructuredActivityStructuredStyleKeys.FILLCOLOR;
 
     @objid ("d29b2b8e-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = GmStructuredActivityStructuredStyleKeys.FILLMODE;
+    static final StyleKey FILLMODE = GmStructuredActivityStructuredStyleKeys.FILLMODE;
 
     @objid ("d29b2b90-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = GmStructuredActivityStructuredStyleKeys.LINECOLOR;
+    static final StyleKey LINECOLOR = GmStructuredActivityStructuredStyleKeys.LINECOLOR;
 
     @objid ("d29b2b92-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = GmStructuredActivityStructuredStyleKeys.LINEWIDTH;
+    static final StyleKey LINEWIDTH = GmStructuredActivityStructuredStyleKeys.LINEWIDTH;
 
     @objid ("d29b2b94-55c0-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmStructuredActivityStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmStructuredActivityStructuredStyleKeys.FONT;
 
     @objid ("d29b2b96-55c0-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmStructuredActivityStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmStructuredActivityStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("d29b2b98-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmStructuredActivityStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmStructuredActivityStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("d29b2b9a-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmStructuredActivityStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmStructuredActivityStructuredStyleKeys.SHOWTAGS;
 
     @objid ("d29b2b9c-55c0-11e2-9337-002564c97630")
-     static final StyleKey AUTOSHOWPINS = GmStructuredActivityStructuredStyleKeys.AUTOSHOWPINS;
+    static final StyleKey AUTOSHOWPINS = GmStructuredActivityStructuredStyleKeys.AUTOSHOWPINS;
 
 }

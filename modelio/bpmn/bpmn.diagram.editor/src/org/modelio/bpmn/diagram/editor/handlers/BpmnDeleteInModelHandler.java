@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.handlers;
 
 import java.util.ArrayList;
@@ -27,8 +26,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
@@ -95,6 +94,7 @@ public class BpmnDeleteInModelHandler {
             EditDomain editDomain = selected.get(0).getViewer().getEditDomain();
             editDomain.getCommandStack().execute(cmd);
         }
+        
     }
 
     @objid ("06d9d953-6299-4dea-95ec-ff39f8093bd4")
@@ -209,7 +209,6 @@ public class BpmnDeleteInModelHandler {
 
     /**
      * Collect the edit parts to mask by analyzing the selected edit parts.
-     * 
      * @param selected the selected edit parts to analyze
      */
     @objid ("86540063-d98c-446b-af73-48d5d2c6b709")
@@ -233,7 +232,6 @@ public class BpmnDeleteInModelHandler {
 
     /**
      * Collect the element to delete by analyzing the selected edit parts.
-     * 
      * @param selected the selected edit parts to analyze
      * @return the effective elements to delete.
      */
@@ -261,7 +259,6 @@ public class BpmnDeleteInModelHandler {
 
     /**
      * In some cases, deleting a specific element must also delete others, which are not properly handled at metamodel level.
-     * 
      * @param el the element being deleted
      * @return the effective elements to delete.
      */
@@ -299,6 +296,7 @@ public class BpmnDeleteInModelHandler {
         } else {
             return Arrays.asList(el);
         }
+        
     }
 
 }

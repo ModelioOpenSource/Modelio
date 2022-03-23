@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.versioned.save;
 
 import java.io.IOException;
@@ -26,10 +25,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.stream.FactoryConfigurationError;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.vbasic.xml.CloseableXMLStreamWriter;
 import org.modelio.vcore.session.api.repository.StorageErrorSupport;
 import org.modelio.vcore.session.impl.storage.nullz.NullRepository;
@@ -76,21 +75,19 @@ public class VersionedExmlSaver implements ExmlTags {
 
     /**
      * Constructor.
-     * 
      * @param errSupport to report errors.
      */
     @objid ("3de290ff-121a-11e2-816a-001ec947ccaf")
-    public VersionedExmlSaver(StorageErrorSupport errSupport) {
+    public  VersionedExmlSaver(StorageErrorSupport errSupport) {
         this.errSupport = errSupport;
     }
 
     /**
      * Save the given CMS node.
-     * 
      * @param object a CMS node
      * @param os an output stream for the versioned part
      * @param localResource an output stream for the non versioned part
-     * @throws java.io.IOException in case of failure.
+     * @throws IOException in case of failure.
      */
     @objid ("3de29100-121a-11e2-816a-001ec947ccaf")
     public void externalize(final SmObjectImpl object, final OutputStream os, final ExmlResource localResource) throws IOException {
@@ -115,6 +112,7 @@ public class VersionedExmlSaver implements ExmlTags {
             this.out = null;
             this.localSaver = null;
         }
+        
     }
 
     @objid ("3de29101-121a-11e2-816a-001ec947ccaf")
@@ -145,6 +143,7 @@ public class VersionedExmlSaver implements ExmlTags {
         
         // // Processed, remove from context
         // recursionContext.remove(object);
+        
     }
 
     @objid ("3de29102-121a-11e2-816a-001ec947ccaf")
@@ -166,6 +165,7 @@ public class VersionedExmlSaver implements ExmlTags {
             }
         }
         this.out.writeEndElement();
+        
     }
 
     @objid ("3de29103-121a-11e2-816a-001ec947ccaf")
@@ -176,6 +176,7 @@ public class VersionedExmlSaver implements ExmlTags {
             dumpATT(object, att);
         }
         this.out.writeEndElement();
+        
     }
 
     @objid ("3de29104-121a-11e2-816a-001ec947ccaf")
@@ -225,14 +226,14 @@ public class VersionedExmlSaver implements ExmlTags {
         if (localTargets != null) {
             this.localSaver.dumpCompId(object, dep, localTargets);
         }
+        
     }
 
     /**
      * Write the object SmDependencies.
-     * 
      * @param object the CMS node
      * @param recursionContext to avoid cycles.
-     * @throws javax.xml.stream.XMLStreamException in case of XML writing error.
+     * @throws XMLStreamException in case of XML writing error.
      */
     @objid ("3de29105-121a-11e2-816a-001ec947ccaf")
     private void dumpDEPENDENCIES(final SmObjectImpl object, Collection<SmObjectImpl> recursionContext) throws XMLStreamException {
@@ -254,13 +255,13 @@ public class VersionedExmlSaver implements ExmlTags {
         }
         
         this.out.writeEndElement();
+        
     }
 
     /**
      * Write the root {@link ExmlTags#TAG_EXT} node.
-     * 
      * @param object the CMS node
-     * @throws javax.xml.stream.XMLStreamException on failure
+     * @throws XMLStreamException on failure
      */
     @objid ("3de29107-121a-11e2-816a-001ec947ccaf")
     private void dumpEXT(final SmObjectImpl object) throws XMLStreamException {
@@ -273,6 +274,7 @@ public class VersionedExmlSaver implements ExmlTags {
         dumpCmsNodeOBJECT(object);
         
         this.out.writeEndElement();
+        
     }
 
     @objid ("3de29109-121a-11e2-816a-001ec947ccaf")
@@ -287,6 +289,7 @@ public class VersionedExmlSaver implements ExmlTags {
         this.out.writeAttribute(ATT_ID_MC, object.getMClass().getQualifiedName());
         this.out.writeAttribute(ATT_ID_UID, object.getUuid().toString());
         //out.writeEndElement();
+        
     }
 
     @objid ("3de2910a-121a-11e2-816a-001ec947ccaf")
@@ -303,6 +306,7 @@ public class VersionedExmlSaver implements ExmlTags {
             }
         }
         this.out.writeEndElement();
+        
     }
 
     @objid ("3de2910b-121a-11e2-816a-001ec947ccaf")
@@ -335,6 +339,7 @@ public class VersionedExmlSaver implements ExmlTags {
             // Write always the id.
             dumpID(TAG_ID, object);
         }
+        
     }
 
     /**
@@ -344,7 +349,6 @@ public class VersionedExmlSaver implements ExmlTags {
      * <p><code>
      * "&#x5d; &#x5d;&gt;" <b>---></b> "]"(1) <b>+</b> "&#x5d; &#x5d;&gt;&lt;![CDATA[" <b>+</b> "]&gt;"(2)
      * </code>
-     * 
      * @param aString a future CDATA string
      * @return a CDATA ready string
      */
@@ -363,15 +367,15 @@ public class VersionedExmlSaver implements ExmlTags {
         
         Throwable err = new IllegalArgumentException(msg);
         this.errSupport.fireWarning(err);
+        
     }
 
     /**
      * Write the COMP tag begin if not already done.
-     * 
      * @param written whether the tag has already been written.
      * @param dep the dependency
      * @return always <code>true</code>
-     * @throws javax.xml.stream.XMLStreamException in case of XML writing error.
+     * @throws XMLStreamException in case of XML writing error.
      */
     @objid ("2f8c0032-a3c1-4d74-bab3-129bf4a54c62")
     private boolean writeCompTag(final boolean written, final SmDependency dep) throws XMLStreamException {
@@ -389,6 +393,7 @@ public class VersionedExmlSaver implements ExmlTags {
         } catch (DeadObjectException e) {
             return  NullRepository.getInstance();
         }
+        
     }
 
 }

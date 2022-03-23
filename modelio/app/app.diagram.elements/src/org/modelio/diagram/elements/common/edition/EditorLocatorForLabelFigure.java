@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.edition;
 
 import java.util.function.Consumer;
@@ -69,15 +68,15 @@ public final class EditorLocatorForLabelFigure implements CellEditorLocator {
 
     /**
      * Standard constructor.
-     * 
      * @param figure the label figure to overwrite
      * @param figureLabelSetter a lambda that must set the label figure text.
      * This method will be called at each {@link #relocate(CellEditor)} just after having called 'figureLabelSetter'.
      */
     @objid ("8b9f7a06-695e-45c8-a0b6-51e7717d5963")
-    public EditorLocatorForLabelFigure(IFigure figure, Consumer<String> figureLabelSetter) {
+    public  EditorLocatorForLabelFigure(IFigure figure, Consumer<String> figureLabelSetter) {
         this.figure = figure;
         this.figureLabelSetter = figureLabelSetter;
+        
     }
 
     @objid ("83ddab97-2e53-4bd3-a049-82f9d70d2328")
@@ -109,6 +108,7 @@ public final class EditorLocatorForLabelFigure implements CellEditorLocator {
                 absLabelRect.y,
                 absLabelRect.width + EditorLocatorForLabelFigure.MARGINS.width,
                 absLabelRect.height + EditorLocatorForLabelFigure.MARGINS.height);
+        
     }
 
     /**
@@ -127,7 +127,6 @@ public final class EditorLocatorForLabelFigure implements CellEditorLocator {
      * This method will be called at each {@link #relocate(CellEditor)}
      * just after having called 'figureLabelSetter'.
      * This useful when edited figures adjust their font to the text and available size.
-     * 
      * @param fontGetter lambda that returns the font the editor must use.
      * @return this instance to chain calls.
      */
@@ -139,7 +138,6 @@ public final class EditorLocatorForLabelFigure implements CellEditorLocator {
 
     /**
      * Set the minimum editor size.
-     * 
      * @param d the minimum editor size.
      * @return this instance to chain calls.
      */

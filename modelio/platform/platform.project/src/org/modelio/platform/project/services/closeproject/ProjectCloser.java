@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.project.services.closeproject;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -86,6 +85,7 @@ public class ProjectCloser implements IProjectCloser {
         }
         
         this.projectServiceAccess.setOpeningEventSent(false);
+        
     }
 
     @objid ("0f4795fc-8ecb-462f-8920-5978cba5c5d8")

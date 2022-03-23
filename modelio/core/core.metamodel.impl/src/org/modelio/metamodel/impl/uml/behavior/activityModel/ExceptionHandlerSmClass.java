@@ -17,20 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityActionSmClass;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ExceptionHandlerData;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.InputPinSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
 import org.modelio.metamodel.impl.uml.statik.GeneralClassSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityAction;
@@ -69,7 +66,7 @@ public class ExceptionHandlerSmClass extends UmlModelElementSmClass {
     private SmDependency exceptionTypeDep;
 
     @objid ("152c567a-4fe9-45e6-a130-b92b94cdd370")
-    public ExceptionHandlerSmClass(ISmMetamodelFragment origin) {
+    public  ExceptionHandlerSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -77,6 +74,7 @@ public class ExceptionHandlerSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "ExceptionHandler";
+        
     }
 
     @objid ("4e2cc18d-d127-4518-b490-f9b36622e756")
@@ -89,18 +87,21 @@ public class ExceptionHandlerSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ExceptionHandler.class;
+        
     }
 
     @objid ("a954ae0a-40cf-4048-92ed-db217686f009")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("7fed656a-f774-478d-ab87-e3feeef8f782")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("901b6005-47a6-4a8a-bcfd-8025589eaa4d")
@@ -132,6 +133,8 @@ public class ExceptionHandlerSmClass extends UmlModelElementSmClass {
         this.exceptionTypeDep = new ExceptionTypeSmDependency();
         this.exceptionTypeDep.init("ExceptionType", this, metamodel.getMClass(GeneralClass.MQNAME), 0, -1 , SmDirective.SMCDPARTOF);
         registerDependency(this.exceptionTypeDep);
+        
+        
     }
 
     @objid ("c58bcd32-374b-4f51-b57c-22c53b7229ff")
@@ -180,7 +183,7 @@ public class ExceptionHandlerSmClass extends UmlModelElementSmClass {
         private ExceptionHandlerSmClass smClass;
 
         @objid ("22c4fcd1-ab74-4762-9ddf-218606ada106")
-        public ExceptionHandlerObjectFactory(ExceptionHandlerSmClass smClass) {
+        public  ExceptionHandlerObjectFactory(ExceptionHandlerSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -250,6 +253,7 @@ public class ExceptionHandlerSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((ActivityActionSmClass)this.getTarget()).getHandlerDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -278,6 +282,7 @@ public class ExceptionHandlerSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((InputPinSmClass)this.getTarget()).getHandlerDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -297,6 +302,7 @@ public class ExceptionHandlerSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ExceptionHandlerData) data).mExceptionType = values;
+            
         }
 
         @objid ("f1f298c7-8964-4cf7-bd54-d2b3fa6308e1")
@@ -306,6 +312,7 @@ public class ExceptionHandlerSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((GeneralClassSmClass)this.getTarget()).getExceptionInputDep();
             }
             return this.symetricDep;
+            
         }
 
     }

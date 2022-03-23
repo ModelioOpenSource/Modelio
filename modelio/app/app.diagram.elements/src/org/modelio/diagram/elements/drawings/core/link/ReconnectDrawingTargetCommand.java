@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.drawings.core.link;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,14 +44,14 @@ public class ReconnectDrawingTargetCommand extends Command {
 
     /**
      * Create the command.
-     * 
      * @param gmLink The link to move.
      * @param newTarget The new target node.
      */
     @objid ("d2153680-f28b-4260-9362-ed7229ba8dc3")
-    public ReconnectDrawingTargetCommand(IGmDrawingLink gmLink, IGmDrawingLinkable newTarget) {
+    public  ReconnectDrawingTargetCommand(IGmDrawingLink gmLink, IGmDrawingLinkable newTarget) {
         this.gmLink = gmLink;
         this.newTargetNode = newTarget;
+        
     }
 
     @objid ("7d8b6200-69d0-42dc-8a47-b10f166e3906")
@@ -68,14 +67,15 @@ public class ReconnectDrawingTargetCommand extends Command {
         updateLinkTarget();
         
         if (this.anchorModel != null) {
-            this.gmLink.getPath().setTargetAnchor(this.anchorModel);
-            this.gmLink.setLayoutData(new GmPath(this.gmLink.getPath()));
+            GmPath newPath = new GmPath(this.gmLink.getPath());
+            newPath.setTargetAnchor(this.anchorModel);
+            this.gmLink.setLayoutData(newPath);
         }
+        
     }
 
     /**
      * Set the model of the target anchor of the link.
-     * 
      * @param anchorModel the model of the target anchor of the link
      */
     @objid ("0acf1b13-0348-410c-aa22-44f670ba1857")
@@ -90,6 +90,7 @@ public class ReconnectDrawingTargetCommand extends Command {
             // Update gm model
             this.newTargetNode.addEndingDrawingLink(this.gmLink);
         }
+        
     }
 
 }

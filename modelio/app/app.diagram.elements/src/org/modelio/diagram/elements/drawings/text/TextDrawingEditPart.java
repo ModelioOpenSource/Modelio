@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.drawings.text;
 
 import java.beans.PropertyChangeEvent;
@@ -80,6 +79,7 @@ public class TextDrawingEditPart extends NodeDrawingEditPart {
         ResizeableTextFigure f = (ResizeableTextFigure) aFigure;
         HAlign align = style.getProperty(GmTextStyleKeys.ALIGNMENT);
         f.setHorizontalAligment(align);
+        
     }
 
     @objid ("28d8ab32-c70b-4b3d-ad0c-b15a5d8674bc")
@@ -91,6 +91,7 @@ public class TextDrawingEditPart extends NodeDrawingEditPart {
         aFigure.getParent().setConstraint(aFigure, noteModel.getLayoutData());
         
         aFigure.setContents(noteModel.getLabel());
+        
     }
 
     @objid ("35428fac-573f-4316-9961-d53dcec990d3")
@@ -105,6 +106,7 @@ public class TextDrawingEditPart extends NodeDrawingEditPart {
         super.createEditPolicies();
         
         installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE, new TextDrawingDirectEditPolicy());
+        
     }
 
     @objid ("763f7fa4-9077-45e7-aebb-77ae04fad199")
@@ -122,6 +124,7 @@ public class TextDrawingEditPart extends NodeDrawingEditPart {
         } else {
             super.propertyChange(evt);
         }
+        
     }
 
     @objid ("581f316f-cdb8-45dc-b4bc-d7a1ff5d797a")
@@ -155,6 +158,7 @@ public class TextDrawingEditPart extends NodeDrawingEditPart {
         } else {
             super.performRequest(req);
         }
+        
     }
 
 }

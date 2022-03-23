@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.handlers;
 
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
@@ -43,7 +42,7 @@ public class SaveImageHandler {
     private static final int[] filterFormats = { SWT.IMAGE_PNG, SWT.IMAGE_BMP, SWT.IMAGE_JPEG, SWT.IMAGE_GIF };
 
     @objid ("65c52b32-33f7-11e2-95fe-001ec947c8cc")
-     static int initialFilterIndex = 0; // PNG
+    static int initialFilterIndex = 0; // PNG
 
     @objid ("c2ce5a68-3896-11e2-95fe-001ec947c8cc")
     private static final String[] filterExtensions = { "*.png", "*.bmp", "*.jpg", "*.gif" };
@@ -52,7 +51,7 @@ public class SaveImageHandler {
     private static final String[] filterNames = { "PNG", "BMP", "JPEG", "GIF" };
 
     @objid ("c2e16d38-3896-11e2-95fe-001ec947c8cc")
-     static String initialFilterPath = System.getenv("USERPROFILE");
+    static String initialFilterPath = System.getenv("USERPROFILE");
 
     @objid ("65c78d49-33f7-11e2-95fe-001ec947c8cc")
     @Execute
@@ -80,6 +79,7 @@ public class SaveImageHandler {
             imgLoader.save(saveInfo.location, saveInfo.format);
             img.dispose();
         }
+        
     }
 
     @objid ("65c78d5d-33f7-11e2-95fe-001ec947c8cc")
@@ -114,6 +114,7 @@ public class SaveImageHandler {
             return saveLocation;
         else
             return saveLocation + fileExtension;
+        
     }
 
     @objid ("7a7b7b93-5e25-11e2-a8be-00137282c51b")
@@ -132,9 +133,10 @@ public class SaveImageHandler {
         public String location;
 
         @objid ("65c78d69-33f7-11e2-95fe-001ec947c8cc")
-        public SaveInfo(String location, int format) {
+        public  SaveInfo(String location, int format) {
             this.location = location;
             this.format = format;
+            
         }
 
     }

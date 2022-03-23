@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.artifact;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("598e9650-6e45-49b6-90c3-c582c258cc1a")
 public class Document {
-    @objid ("24c7b1ea-b5c5-4325-97c9-3d89cfa9be20")
+    @objid ("1f6cb7a8-7cba-4e41-8c0c-60083114f246")
     public static final String STEREOTYPE_NAME = "document";
 
     /**
      * The underlying {@link Artifact} represented by this proxy, never null.
      */
-    @objid ("605854af-7339-4ddc-b166-bae376a8c0ff")
+    @objid ("8d974f95-981a-49d4-b711-532c9530f621")
     protected final Artifact elt;
 
     /**
      * Tells whether a {@link Document proxy} can be instantiated from a {@link MObject} checking it is a {@link Artifact} stereotyped << document >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("5a5e5310-d897-4d85-b6e3-6378d6aecf40")
+    @objid ("8ac1145c-a2b4-413c-8bd5-c172d7a62655")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Artifact) && ((Artifact) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Document.STEREOTYPE_NAME));
     }
@@ -77,9 +75,9 @@ public class Document {
      * 
      * @return a {@link Document} proxy on the created {@link Artifact}.
      */
-    @objid ("d86c7e45-38b4-4d29-8340-623c8473af7a")
+    @objid ("e1c40ce8-19b0-46b1-b603-76f0fb4d9e99")
     public static Document create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Artifact");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.Artifact");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Document.STEREOTYPE_NAME);
         return Document.instantiate((Artifact)e);
     }
@@ -91,7 +89,7 @@ public class Document {
      * @param obj a Artifact
      * @return a {@link Document} proxy or <i>null</i>.
      */
-    @objid ("e6d493d9-24f5-42ff-b1d7-26e5499d0274")
+    @objid ("02ae75de-a825-480d-baaf-a48d396380b4")
     public static Document instantiate(Artifact obj) {
         return Document.canInstantiate(obj) ? new Document(obj) : null;
     }
@@ -104,7 +102,7 @@ public class Document {
      * @return a {@link Document} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("9b928f5a-e206-465a-a0bb-ab8e916a4528")
+    @objid ("f1e6b4f6-6839-43e6-8e63-890e35f25eae")
     public static Document safeInstantiate(Artifact obj) throws IllegalArgumentException {
         if (Document.canInstantiate(obj))
         	return new Document(obj);
@@ -112,7 +110,7 @@ public class Document {
         	throw new IllegalArgumentException("Document: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("8940aaad-4620-4793-a113-8d7b8f63a6a3")
+    @objid ("67ba5309-0602-4115-86bc-6ba1fb40a570")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,46 +130,47 @@ public class Document {
      * Get the underlying {@link Artifact}. 
      * @return the Artifact represented by this proxy, never null.
      */
-    @objid ("dbbf7fe2-a439-43dc-aa83-fd4e894adb98")
+    @objid ("a322aec7-440c-48e3-b956-c1f6f8ea93c9")
     public Artifact getElement() {
         return this.elt;
     }
 
-    @objid ("6de5ea25-59b9-4f40-9a2f-c8c31c35e452")
+    @objid ("a9636d7e-d652-433d-95bb-67eed2c3a6c8")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("309aa417-e08c-4edb-b976-d55e63122052")
-    protected Document(Artifact elt) {
+    @objid ("2b32f73b-40f3-48fb-ab4d-41677de80ae2")
+    protected  Document(Artifact elt) {
         this.elt = elt;
     }
 
     @objid ("fe2f2ca6-6273-4ced-825f-6e1d068d5a3b")
     public static final class MdaTypes {
-        @objid ("ae21b288-2201-4d82-82d4-0e7d96977465")
+        @objid ("f5fd4f71-7ff3-401f-8f19-e3e27ef42f23")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("fc7ae342-f574-492a-b9d9-226909859901")
+        @objid ("c528ee7e-5113-4eb5-a881-5b472f664841")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("4043a1f4-c8a0-4187-ace7-d2337a8c978c")
+        @objid ("e128ed00-e6b6-4bd7-8d29-6df338c760e0")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("2cf3c9ca-7621-4cd1-9858-6e26a1958996")
+        @objid ("2e4c1dac-139b-4a91-9f7e-541590a16955")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "388ba911-9fb3-4117-80af-6099142d7816");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

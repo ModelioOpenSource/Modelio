@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface ISmStorable {
     /**
      * Set the repository handler.
-     * 
      * @param storageHandle the repository handler.
      */
     @objid ("006196e4-b2b0-1f4f-9c13-001ec947cd2a")

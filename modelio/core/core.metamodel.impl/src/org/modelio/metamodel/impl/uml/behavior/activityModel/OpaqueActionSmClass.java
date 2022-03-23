@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityActionSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityAction;
 import org.modelio.metamodel.uml.behavior.activityModel.OpaqueAction;
 import org.modelio.vbasic.version.Version;
@@ -46,7 +45,7 @@ public class OpaqueActionSmClass extends ActivityActionSmClass {
     private SmAttribute bodyAtt;
 
     @objid ("f31bc6ff-41de-4d2c-b74d-524cd7c59b08")
-    public OpaqueActionSmClass(ISmMetamodelFragment origin) {
+    public  OpaqueActionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -54,6 +53,7 @@ public class OpaqueActionSmClass extends ActivityActionSmClass {
     @Override
     public String getName() {
         return "OpaqueAction";
+        
     }
 
     @objid ("c409b57f-51bd-4629-9a20-842c66c7516e")
@@ -66,18 +66,21 @@ public class OpaqueActionSmClass extends ActivityActionSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return OpaqueAction.class;
+        
     }
 
     @objid ("505e3913-d164-4e7e-973a-5d0be5d486b6")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("9550b1dd-1b22-4cd7-9571-097a41dadf41")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("efb7d1fb-92a6-4763-b304-28c678a120ef")
@@ -94,6 +97,7 @@ public class OpaqueActionSmClass extends ActivityActionSmClass {
         
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("988ce2ab-449f-4787-9e6c-347cdcd76d1f")
@@ -110,7 +114,7 @@ public class OpaqueActionSmClass extends ActivityActionSmClass {
         private OpaqueActionSmClass smClass;
 
         @objid ("e744f604-23f3-4257-9429-aec854f5a7ab")
-        public OpaqueActionObjectFactory(OpaqueActionSmClass smClass) {
+        public  OpaqueActionObjectFactory(OpaqueActionSmClass smClass) {
             this.smClass = smClass;
         }
 

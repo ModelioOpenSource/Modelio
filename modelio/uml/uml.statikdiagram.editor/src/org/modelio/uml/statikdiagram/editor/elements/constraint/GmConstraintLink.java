@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.constraint;
 
 import java.util.List;
@@ -63,23 +62,23 @@ public class GmConstraintLink extends GmLink {
      * Empty c'tor for deserialisation.
      */
     @objid ("811fda09-1dec-11e2-8cad-001ec947c8cc")
-    public GmConstraintLink() {
+    public  GmConstraintLink() {
         super();
     }
 
     /**
      * C'tor.
-     * 
      * @param diagram diagram in which this gm is created.
      * @param relatedRef a reference to the represented constraint. Must not be null.
      * @param constrainedElement the constrained element. may be null.
      * @param constrainedRef a reference to the constrained element. May NOT be null.
      */
     @objid ("811fda0c-1dec-11e2-8cad-001ec947c8cc")
-    public GmConstraintLink(final IGmDiagram diagram, final MRef relatedRef, final ModelElement constrainedElement, final MRef constrainedRef) {
+    public  GmConstraintLink(final IGmDiagram diagram, final MRef relatedRef, final ModelElement constrainedElement, final MRef constrainedRef) {
         super(diagram, relatedRef);
         this.constrainedElement = constrainedElement;
         this.constrainedElementRef = constrainedRef;
+        
     }
 
     @objid ("811fda17-1dec-11e2-8cad-001ec947c8cc")
@@ -114,6 +113,7 @@ public class GmConstraintLink extends GmLink {
         } else {
             return null;
         }
+        
     }
 
     @objid ("81223c52-1dec-11e2-8cad-001ec947c8cc")
@@ -125,6 +125,7 @@ public class GmConstraintLink extends GmLink {
         if (getFrom() instanceof GmAbstractObject) {
             refreshStyle((GmAbstractObject) getFrom());
         }
+        
     }
 
     @objid ("81223c57-1dec-11e2-8cad-001ec947c8cc")
@@ -135,6 +136,7 @@ public class GmConstraintLink extends GmLink {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmConstraintLink.", GmConstraintLink.MINOR_VERSION);
+        
     }
 
     @objid ("81223c5c-1dec-11e2-8cad-001ec947c8cc")
@@ -144,11 +146,11 @@ public class GmConstraintLink extends GmLink {
         if (from instanceof GmAbstractObject) {
             refreshStyle((GmAbstractObject) from);
         }
+        
     }
 
     /**
      * Updates the proxy style to point to the given node style.
-     * 
      * @param ref the reference node, may be null.
      */
     @objid ("81223c61-1dec-11e2-8cad-001ec947c8cc")
@@ -159,6 +161,7 @@ public class GmConstraintLink extends GmLink {
         } else {
             getPersistedStyle().setCascadedStyle(getDiagram().getPersistedStyle());
         }
+        
     }
 
     @objid ("81223c66-1dec-11e2-8cad-001ec947c8cc")

@@ -17,13 +17,15 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml.templateparameter;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 @objid ("e96f1e7b-2c0a-48fc-9aba-1ee9dd806c42")
 enum TemplateKind {
+    @objid ("20ca0d3f-60ce-4cc6-a37f-06ecc8019ca8")
     TypeTemplate,
+    @objid ("a54eac42-0070-4cf6-85f8-4821bea73efa")
     ValueTemplate;
+
 }

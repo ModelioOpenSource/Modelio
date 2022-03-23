@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.api.impl.module;
 
 import java.util.ArrayList;
@@ -50,7 +49,7 @@ public class FragmentStructure implements IFragmentStructure {
     private final List<Element> roots = new ArrayList<>();
 
     @objid ("19e5e7da-eb9f-4584-81fe-3924d3f168fd")
-    FragmentStructure(IProjectFragment f) {
+     FragmentStructure(IProjectFragment f) {
         this.name = f.getId();
         this.type = String.valueOf(f.getType());
         this.remoteLocation = String.valueOf(f.getUri());
@@ -62,6 +61,7 @@ public class FragmentStructure implements IFragmentStructure {
                 this.roots.add((Element) o);
             }
         }
+        
     }
 
     @objid ("2fc1fd2a-92a7-4003-8aee-02b444c18e63")

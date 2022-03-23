@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.viewer;
 
 import java.security.InvalidParameterException;
@@ -59,6 +58,7 @@ class StyleEditPanelController {
             throw new InvalidParameterException("Listener already registered");
         }
         this.listeners.add(l);
+        
     }
 
     @objid ("826a9574-1fd8-49e3-a6ec-23f044ed1b33")
@@ -67,7 +67,7 @@ class StyleEditPanelController {
     }
 
     @objid ("5f698368-cefe-4366-a26b-daaaf14e791c")
-    public StyleEditPanelController() {
+    public  StyleEditPanelController() {
         // nothing
     }
 
@@ -92,6 +92,7 @@ class StyleEditPanelController {
         if (this.ui != null) {
             this.ui.update(this.data);
         }
+        
     }
 
     @objid ("45515e54-6d9c-44c9-826c-5cb231f7a1db")
@@ -103,6 +104,7 @@ class StyleEditPanelController {
     public void dispose() {
         this.ui.dispose();
         this.ui = null;
+        
     }
 
     @objid ("1193c365-884c-4187-90e3-649dbbb3a1c9")
@@ -114,6 +116,7 @@ class StyleEditPanelController {
             this.ui.getSash().setWeights(new int[] { 100, 0 });
         }
         this.ui.getSash().layout(true);
+        
     }
 
     @objid ("05e661e6-5156-4995-bae8-5fdbf4c9700e")
@@ -125,6 +128,7 @@ class StyleEditPanelController {
     public void onNormalize(ISelection selection) {
         toStyleKeys(selection)
         .forEach(skey -> this.data.getStyleData().normalize(skey));
+        
     }
 
     @objid ("6e9f32fa-a651-40f0-b327-2f887e9b187d")
@@ -132,6 +136,7 @@ class StyleEditPanelController {
         // Process StyleKey
         toStyleKeys(selection)
         .forEach(skey -> this.data.getStyleData().removeProperty(skey));
+        
     }
 
     @objid ("9b2327f4-705c-4cfa-acb7-d8756d41d6ae")
@@ -150,6 +155,7 @@ class StyleEditPanelController {
             applyTo.setProperty(skey, value);
             styleData.removeProperty(skey);
         });
+        
     }
 
 }

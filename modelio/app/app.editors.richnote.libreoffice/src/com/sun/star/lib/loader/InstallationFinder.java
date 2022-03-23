@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package com.sun.star.lib.loader;
 
 import java.io.BufferedReader;
@@ -76,13 +75,13 @@ public final class InstallationFinder {
     private static final String SOFFICE = "soffice"; // Unix/Linux only
 
     @objid ("1e1e28ed-db83-417c-bb9e-816cd1b201a0")
-    private InstallationFinder() {
+    private  InstallationFinder() {
+        
     }
 
     /**
      * do not instantiate
      * Gets the path of a UNO installation.
-     * 
      * @return the installation path or <code>null</code>, if no installation
      * was specified or found, or if an error occurred
      */
@@ -133,7 +132,6 @@ public final class InstallationFinder {
      * The Java system property can be passed into the application by using
      * the -D flag, e.g.
      * java -D<property name>=<installation path> -jar application.jar.</p>
-     * 
      * @return the installation path or <code>null</code>, if no installation
      * was specified in the Java system property or if an error occurred
      */
@@ -156,7 +154,6 @@ public final class InstallationFinder {
      * Note, that in Java 1.3.1 and Java 1.4 System.getenv() throws
      * java.lang.Error and therefore this method returns null for those
      * Java versions.</p>
-     * 
      * @return the installation path or <code>null</code>, if no installation
      * was specified in the environment variable or if an error occurred
      */
@@ -179,7 +176,6 @@ public final class InstallationFinder {
      * Gets the installation path from the Windows Registry.
      * 
      * <p>This method is called on the Windows platform only.</p>
-     * 
      * @return the installation path or <code>null</code>, if no installation
      * was found or if an error occurred
      */
@@ -193,6 +189,7 @@ public final class InstallationFinder {
             return ret;
         else
             return getPathFromWindowsRegistry(LIBREOKEYNAME);
+        
     }
 
     /**
@@ -204,7 +201,6 @@ public final class InstallationFinder {
      * Note, that in Java 1.3.1 and Java 1.4 System.getenv() throws
      * java.lang.Error and therefore this method returns null for those
      * Java versions.</p>
-     * 
      * @return the installation path or <code>null</code>, if no installation
      * was found or if an error occurred
      */
@@ -262,7 +258,6 @@ public final class InstallationFinder {
      * <p>This method is called on Unix/Linux platforms only.
      * An installation is found, if the executable 'soffice' or a symbolic link
      * is in one of the directories listed in the PATH environment variable.</p>
-     * 
      * @return the installation path or <code>null</code>, if no installation
      * was found or if an error occurred
      */
@@ -347,7 +342,6 @@ public final class InstallationFinder {
      * <p>This method is called on Unix/Linux platforms only.
      * The .sversionrc file is written during setup and will be omitted for
      * OOo 2.0.</p>
-     * 
      * @return the installation path or <code>null</code>, if no installation
      * was found or if an error occurred
      */
@@ -404,7 +398,6 @@ public final class InstallationFinder {
     /**
      * Translates an OOo-internal absolute file URL reference (encoded using
      * UTF-8) into a Java canonical pathname.
-     * 
      * @param oooUrl any URL reference; any fragment part is ignored
      * @return if the given URL is a valid absolute, local (that is, the host
      * part is empty or equal to "localhost", ignoring case) file URL, it is
@@ -514,7 +507,6 @@ public final class InstallationFinder {
      * Gets the installation path from a Windows Registry key path.
      * 
      * <p>This method is called on the Windows platform only.</p>
-     * 
      * @param subKeyName The key path where the installation path is stored.
      * @return the installation path or <code>null</code>, if no installation
      * was found or if an error occurred
@@ -555,7 +547,6 @@ public final class InstallationFinder {
     /**
      * Tells whether the given directory is a valid OpenOffice
      * or LibreOffice installation directory.
-     * 
      * @param installDir A directory.
      * @return true for a valid installation directory, false in all other cases.
      */
@@ -569,7 +560,6 @@ public final class InstallationFinder {
      * or LibreOffice program directory.
      * <p>
      * The directory is valid if it contains the OpenOffice executable.
-     * 
      * @param programDir A directory.
      * @return true for a valid program directory, false in all other cases.
      */
@@ -596,7 +586,6 @@ public final class InstallationFinder {
      * Gets the installation path from a Windows Registry key path.
      * 
      * <p>This method is called on the Windows platform only.</p>
-     * 
      * @param subKeyName The key path where the installation path is stored.
      * @return the installation path or <code>null</code>, if no installation
      * was found or if an error occurred
@@ -629,10 +618,10 @@ public final class InstallationFinder {
     @objid ("54a39742-6b06-44d0-84ae-e09abb93a4d9")
     private static final class StreamGobbler extends Thread {
         @objid ("7f632318-71ed-496a-8bc3-bb579890583d")
-         InputStream m_istream;
+        InputStream m_istream;
 
         @objid ("5843ba61-7ba5-4da7-bed2-88606b6521a6")
-        StreamGobbler(final InputStream istream) {
+         StreamGobbler(final InputStream istream) {
             this.m_istream = istream;
         }
 
@@ -648,6 +637,7 @@ public final class InstallationFinder {
             } catch ( IOException e ) {
                 // stop reading from input stream
             }
+            
         }
 
     }

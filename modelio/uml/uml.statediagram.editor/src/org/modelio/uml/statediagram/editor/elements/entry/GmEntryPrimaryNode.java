@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.entry;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,12 +50,11 @@ public class GmEntryPrimaryNode extends GmNoStyleSimpleNode implements IImageabl
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the element is unmasked.
      * @param relatedRef related element reference, must not be null.
      */
     @objid ("f5131162-55b6-11e2-877f-002564c97630")
-    public GmEntryPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
+    public  GmEntryPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -74,6 +72,7 @@ public class GmEntryPrimaryNode extends GmNoStyleSimpleNode implements IImageabl
         }
         // forcing visual refresh in case Image changed 
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("f5131175-55b6-11e2-877f-002564c97630")
@@ -116,13 +115,14 @@ public class GmEntryPrimaryNode extends GmNoStyleSimpleNode implements IImageabl
                                                                                     }
                                                                         
                                                                                 };
+        
     }
 
     /**
      * Deserialization constructor.
      */
     @objid ("f5131198-55b6-11e2-877f-002564c97630")
-    public GmEntryPrimaryNode() {
+    public  GmEntryPrimaryNode() {
         // empty for the serialization
     }
 
@@ -143,6 +143,7 @@ public class GmEntryPrimaryNode extends GmNoStyleSimpleNode implements IImageabl
             break;
         }
         }
+        
     }
 
     @objid ("f51497fc-55b6-11e2-877f-002564c97630")
@@ -152,6 +153,7 @@ public class GmEntryPrimaryNode extends GmNoStyleSimpleNode implements IImageabl
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmEntryPrimaryNode.", GmEntryPrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("f5149802-55b6-11e2-877f-002564c97630")

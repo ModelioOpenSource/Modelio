@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.ext.plugin;
 
 import java.util.ResourceBundle;
@@ -63,6 +62,7 @@ public class UmlUiOrg extends AbstractUIPlugin {
         ExtendedLogService service = bundleContext.getService(ref);
         UmlUiOrg.LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), UmlUiOrg.PLUGIN_ID));
         UmlUiOrg.I18N = new BundledMessages(UmlUiOrg.LOG, ResourceBundle.getBundle("umlui"));
+        
     }
 
     @objid ("e16fdd25-671a-4922-ac9f-ebf130b3e51f")

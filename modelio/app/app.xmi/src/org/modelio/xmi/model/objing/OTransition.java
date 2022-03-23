@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -68,13 +67,13 @@ public class OTransition extends OModelElement {
 
     /**
      * Constructor with the exported Transition as parameter
-     * 
      * @param param : the exported Transition
      */
     @objid ("067c4414-3af8-4475-aec1-23ca0b7d47fb")
-    public OTransition(Transition param) {
+    public  OTransition(Transition param) {
         super(param);
         this.isProtocolTransition = AbstractObjingModelNavigation.isProtocolTransition(param);
+        
     }
 
     @objid ("6da3591b-cc9f-4793-a748-8ac20c7a3670")
@@ -126,6 +125,7 @@ public class OTransition extends OModelElement {
         }else{
             ecoreElt.destroy();
         }
+        
     }
 
     @objid ("718d084e-b2d5-47f7-8bb4-08023eed9c8a")
@@ -158,6 +158,7 @@ public class OTransition extends OModelElement {
             setSentEvents(ecoreElt);
         
         }
+        
     }
 
     @objid ("3c29161c-455f-43e3-826e-fa865b11cfa0")
@@ -176,6 +177,7 @@ public class OTransition extends OModelElement {
                 ((org.eclipse.uml2.uml.ProtocolTransition) ecoreElt).setPreCondition(guard);
             }
         }
+        
     }
 
     @objid ("bb5eb835-93ff-4b0c-bf86-54250869024e")
@@ -203,6 +205,7 @@ public class OTransition extends OModelElement {
         
             }
         }
+        
     }
 
     @objid ("02465362-e4ea-4e56-b4aa-72e951e14f6a")
@@ -210,6 +213,7 @@ public class OTransition extends OModelElement {
         String signalString = getObjingElement().getSentEvents();
         if (signalString != null)
             ObjingEAnnotation.setSignal(ecoreElt, signalString);
+        
     }
 
     @objid ("7622b4d5-6695-4451-bdf0-84b0e0c26c13")
@@ -222,6 +226,7 @@ public class OTransition extends OModelElement {
             }
         
         }
+        
     }
 
     @objid ("ed54ec13-8cff-491d-b1a9-5020e2c4126e")
@@ -233,6 +238,7 @@ public class OTransition extends OModelElement {
                 transition.setTarget((Vertex) ecoreTarget);
             }
         }
+        
     }
 
     @objid ("9f47f02b-bae2-468b-9eba-b3b487c2e748")
@@ -270,6 +276,7 @@ public class OTransition extends OModelElement {
                 }
             }
         }
+        
     }
 
     @objid ("ed37a9d2-45e2-454e-8333-36fcec10901a")
@@ -278,6 +285,7 @@ public class OTransition extends OModelElement {
         if (event != null) {
             setEventTrigger(transition, event);
         }
+        
     }
 
     @objid ("72f92d0a-02bd-4554-87d7-1b55a5d6fd99")
@@ -293,6 +301,7 @@ public class OTransition extends OModelElement {
                 }
             }
         }
+        
     }
 
     @objid ("5c9e5d84-d094-4df8-bd5f-9b541139d944")
@@ -312,6 +321,7 @@ public class OTransition extends OModelElement {
                     ObjingEAnnotation.setPostCondition(ecoreElt, objPost);
             }
         }
+        
     }
 
     @objid ("7d6f234e-0274-4b14-8498-087138ae333b")
@@ -319,6 +329,7 @@ public class OTransition extends OModelElement {
         String receivedEvent = getObjingElement().getReceivedEvents();
         if (receivedEvent != null)
             ObjingEAnnotation.setReceivedEvent(ecoreElt, receivedEvent);
+        
     }
 
     @objid ("8fc1bd32-9dc9-4e95-980f-9794400e2b5b")
@@ -331,6 +342,7 @@ public class OTransition extends OModelElement {
             transition.getTriggers().add(trigger);
             trigger.setEvent((org.eclipse.uml2.uml.Event) ecoreEvent);
         }
+        
     }
 
     @objid ("09fc5c0a-4e57-47a2-8b0e-37070a89a34a")
@@ -351,6 +363,7 @@ public class OTransition extends OModelElement {
         
             }
         }
+        
     }
 
     @objid ("312e13c7-f5aa-4b9d-9c0f-ede9340acf10")
@@ -362,6 +375,7 @@ public class OTransition extends OModelElement {
             ecoreElt.setSource((Vertex) ecoreSource);
             ecoreElt.setTarget((Vertex) ecoreSource);
         }
+        
     }
 
     @objid ("82bc8d83-b6bc-47da-bead-78e7db478a36")

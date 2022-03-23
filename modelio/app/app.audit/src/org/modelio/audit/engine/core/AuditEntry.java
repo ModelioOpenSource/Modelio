@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.engine.core;
 
 import java.util.Calendar;
@@ -47,13 +46,14 @@ public final class AuditEntry implements IAuditEntry {
     private List<Object> linkedObjects = null;
 
     @objid ("fc5e199f-decb-40ec-8a4a-d3173c23bd62")
-    public AuditEntry(String ruleId, AuditSeverity severity, MObject element, List<Object> linkedObjects) {
+    public  AuditEntry(String ruleId, AuditSeverity severity, MObject element, List<Object> linkedObjects) {
         this.ruleId = ruleId;
         this.severity = severity;
         this.element = element;
         this.linkedObjects = linkedObjects;
         this.timestamp = Calendar.getInstance().getTimeInMillis();
         this.jobId = "";
+        
     }
 
     @objid ("54b41b5d-7fd7-4f08-8527-ff9c20552e08")

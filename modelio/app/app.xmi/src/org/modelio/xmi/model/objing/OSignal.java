@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -52,7 +51,7 @@ public class OSignal extends ONameSpace {
      * @param param : the exported Signal
      */
     @objid ("7644b6bd-a2eb-4ac1-b605-a89bd006c25f")
-    public OSignal(final Signal param) {
+    public  OSignal(final Signal param) {
         super(param);
     }
 
@@ -81,6 +80,7 @@ public class OSignal extends ONameSpace {
                         + ecoreOwner.getClass().getSimpleName() + ") Not Found");
             }
         }
+        
     }
 
     @objid ("dfc59042-07f2-4f78-84c4-05be69a132ef")
@@ -98,6 +98,7 @@ public class OSignal extends ONameSpace {
             setIsEventEAnnotation( (org.eclipse.uml2.uml.Signal) ecoreElt);
             setIsExceptionEAnnotation( (org.eclipse.uml2.uml.Signal) ecoreElt);
         }
+        
     }
 
     @objid ("64ca1160-77bd-4b96-9010-351096c1a43a")
@@ -109,6 +110,7 @@ public class OSignal extends ONameSpace {
             String   description = Xmi.I18N.getMessage("logFile.warning.unsupportedTypeExport.message");             
             GenerationProperties.getInstance().addWarning(message, getObjingElement(), description);
         }
+        
     }
 
     @objid ("f7d87123-b60d-473d-b148-83c5c80d306d")
@@ -140,6 +142,7 @@ public class OSignal extends ONameSpace {
             }
         
         }
+        
     }
 
     @objid ("e406a2f3-16aa-4929-8e2f-03bad04d0e14")
@@ -171,6 +174,7 @@ public class OSignal extends ONameSpace {
             }
         
         }
+        
     }
 
     @objid ("106d9024-1ed4-40d0-908a-66e7adb1d859")

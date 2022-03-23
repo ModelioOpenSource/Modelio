@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.control;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,6 +46,7 @@ public class ControlRegistry {
         // new TaggedValueAnnotedChecker().register();
         // new TemplateBindingBoundElementChecker().register();
         // new TemplateParameterParametrizedChecker().register();
+        
     }
 
 }

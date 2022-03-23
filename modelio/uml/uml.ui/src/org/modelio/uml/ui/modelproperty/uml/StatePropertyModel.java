@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.util.Collections;
@@ -53,11 +52,10 @@ public class StatePropertyModel extends AbstractPropertyModel<State> {
 
     /**
      * Create a new <i>State</i> data model from an <i>State</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("db227385-f4a2-41cc-bd88-c48e0f3f2fca")
-    public StatePropertyModel(State theEditedElement) {
+    public  StatePropertyModel(State theEditedElement) {
         super(theEditedElement);
     }
 
@@ -103,6 +101,7 @@ public class StatePropertyModel extends AbstractPropertyModel<State> {
         default:
             return null;
         }
+        
     }
 
     /**
@@ -134,6 +133,7 @@ public class StatePropertyModel extends AbstractPropertyModel<State> {
         default:
             return null;
         }
+        
     }
 
     /**
@@ -164,6 +164,7 @@ public class StatePropertyModel extends AbstractPropertyModel<State> {
         default:
             return;
         }
+        
     }
 
 }

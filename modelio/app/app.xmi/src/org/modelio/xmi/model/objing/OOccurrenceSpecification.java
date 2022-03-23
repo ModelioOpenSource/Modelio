@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,7 @@ public class OOccurrenceSpecification extends OInteractionFragment {
     }
 
     @objid ("3d323a97-7223-43d5-9e2a-f5abea969a1b")
-    public OOccurrenceSpecification(OccurrenceSpecification param) {
+    public  OOccurrenceSpecification(OccurrenceSpecification param) {
         super(param);
     }
 

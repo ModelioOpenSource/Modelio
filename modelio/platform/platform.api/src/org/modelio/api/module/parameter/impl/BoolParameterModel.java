@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.parameter.impl;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -23,7 +22,7 @@ import org.modelio.api.module.context.configuration.IModuleUserConfiguration;
 @objid ("a09e6ea3-905c-11dd-bbe0-001ec947ccaf")
 public class BoolParameterModel extends ParameterModel {
     @objid ("e434d6d2-feb1-11dd-8b31-0014222a9f79")
-    public BoolParameterModel(IModuleUserConfiguration conf, String name, String label, String description, String defaultValue) {
+    public  BoolParameterModel(IModuleUserConfiguration conf, String name, String label, String description, String defaultValue) {
         super(conf, name, label, description, defaultValue);
     }
 

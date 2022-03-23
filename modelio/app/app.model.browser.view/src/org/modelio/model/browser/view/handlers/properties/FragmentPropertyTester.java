@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.browser.view.handlers.properties;
 
 import java.util.Objects;
@@ -78,6 +77,7 @@ public class FragmentPropertyTester extends PropertyTester {
             throw new IllegalArgumentException(property);
         
         }
+        
     }
 
     @objid ("db4a31c3-f71e-4026-907f-5ce4d49996f8")
@@ -86,6 +86,7 @@ public class FragmentPropertyTester extends PropertyTester {
             return value;
         else
             return expectedValue.equals(value);
+        
     }
 
 }

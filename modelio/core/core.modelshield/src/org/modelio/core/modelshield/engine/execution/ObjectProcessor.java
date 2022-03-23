@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.core.modelshield.engine.execution;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,7 +39,6 @@ public class ObjectProcessor {
 
     /**
      * Check the object and its composition children.
-     * 
      * @param obj the object to check.
      */
     @objid ("00281ea8-0000-130b-0000-000000000000")
@@ -54,12 +52,14 @@ public class ObjectProcessor {
         for (MObject child : obj.getCompositionChildren()) {
             check(child);
         }
+        
     }
 
     @objid ("00281ea8-0000-1310-0000-000000000000")
-    public ObjectProcessor(final ShieldContext context, final IModelShieldPlan plan) {
+    public  ObjectProcessor(final ShieldContext context, final IModelShieldPlan plan) {
         this.context = context;
         this.planExecutor = new PlanExecution(plan);
+        
     }
 
 }

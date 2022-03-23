@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.elements.usecasediagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -162,9 +161,10 @@ public class UseCaseDiagramLayoutEditPolicy extends DiagramEditLayoutPolicy {
         private Object layoutdata;
 
         @objid ("5e8a463e-55b7-11e2-877f-002564c97630")
-        public InitializeSystemBoundariesCommand(final GmSystem system, final Object layoutdata) {
+        public  InitializeSystemBoundariesCommand(final GmSystem system, final Object layoutdata) {
             this.system = system;
             this.layoutdata = layoutdata;
+            
         }
 
         @objid ("5e8a4644-55b7-11e2-877f-002564c97630")

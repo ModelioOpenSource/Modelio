@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,10 +31,10 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("002b4f08-c4bf-1fd8-97fe-001ec947cd2a")
 public class CallBehaviorActionData extends CallActionData {
     @objid ("84b88231-f947-4324-85fc-f07ce1f1a1a3")
-     SmObjectImpl mCalled;
+    SmObjectImpl mCalled;
 
     @objid ("c05f5152-07c9-41d9-9f63-9250f7faa524")
-    public CallBehaviorActionData(CallBehaviorActionSmClass smClass) {
+    public  CallBehaviorActionData(CallBehaviorActionSmClass smClass) {
         super(smClass);
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -58,22 +57,23 @@ public class EParameter extends ENamedElement {
         }else{ 
             return ReverseProperties.getInstance().getMModelServices().getModelFactory().getFactory(IStandardModelFactory.class).createParameter();
         }
+        
     }
 
     /**
      * Constructor of EParameter.
      * It takes the imported Ecore org.eclipse.uml2.uml.Parameter as parameter
-     * 
      * @param element : the imported Ecore org.eclipse.uml2.uml.Parameter
      */
     @objid ("7317f0af-0d1c-4839-9c21-3867c7da209e")
-    public EParameter(final org.eclipse.uml2.uml.Parameter element) {
+    public  EParameter(final org.eclipse.uml2.uml.Parameter element) {
         super(element);
         
         org.eclipse.uml2.uml.Element owner = element.getOwner();
         if (owner != null){
             this.isBehavior = !(ReverseProperties.getInstance().getMappedElement(owner) instanceof Operation);
         }
+        
     }
 
     @objid ("9141f934-8c71-4a7c-9970-65e94bed4595")
@@ -145,6 +145,7 @@ public class EParameter extends ENamedElement {
                 }
             }
         }
+        
     }
 
     @objid ("7187731d-1eb7-4d67-87e5-9abb5d357094")
@@ -171,6 +172,7 @@ public class EParameter extends ENamedElement {
                 setIsStream((BehaviorParameter) objingElt);
             }
         }
+        
     }
 
     @objid ("d2fe5d26-f243-4086-812c-cd865a0d60f1")
@@ -202,6 +204,7 @@ public class EParameter extends ENamedElement {
             if (value != null)
                 objingElt.setDefaultValue(value);
         }
+        
     }
 
     @objid ("1af1b0c6-3072-4d79-9799-7bda02e9a92f")
@@ -225,6 +228,7 @@ public class EParameter extends ENamedElement {
             objingElt.setParameterPassing(PassingMode.INOUT);
             break;
         }
+        
     }
 
     @objid ("8df8b299-3de2-439c-8372-b6ef97e16ae2")
@@ -233,6 +237,7 @@ public class EParameter extends ENamedElement {
         
         
         objingElt.setMultiplicityMax(EcoreModelNavigation.getMultiplicityMax((org.eclipse.uml2.uml.Parameter)this.getEcoreElement()));
+        
     }
 
     @objid ("4e3ab1fc-c488-48a7-b90a-b9f4409282a3")
@@ -264,6 +269,7 @@ public class EParameter extends ENamedElement {
             else
                 objingElt.setType(null);
         }
+        
     }
 
     @objid ("14641a50-f708-47e6-adc2-1c29c8620fe8")
@@ -272,6 +278,7 @@ public class EParameter extends ENamedElement {
                 .getTypeConstraint((getEcoreElement()));
         if (typeConstraint != null)
             objingElt.setTypeConstraint(typeConstraint);
+        
     }
 
     @objid ("570edac3-0145-4e79-86eb-8fdaaef7e8dd")
@@ -304,6 +311,7 @@ public class EParameter extends ENamedElement {
             break;
         
         }
+        
     }
 
     @objid ("4e01aaae-cdc6-4da4-8e33-324f17084b86")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.bpmn;
 
 import java.util.Collections;
@@ -38,7 +37,7 @@ public class BpmnInclusiveGatewayDG extends PortContainerDG {
      * @param node The gm node represented by this class.
      */
     @objid ("d97bf517-fbe4-4662-8fe8-79a81a755ff5")
-    public BpmnInclusiveGatewayDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  BpmnInclusiveGatewayDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.libraries.local;
 
 import java.io.IOException;
@@ -69,7 +68,7 @@ import org.modelio.vbasic.files.FileUtils;
 @objid ("7d5357e9-3adc-11e2-916e-002564c97630")
 public final class AddLocalLibraryDialog extends ModelioDialog {
     @objid ("d9f30cf3-ff30-488b-b707-a751cbfa785c")
-     List<String> existingFragmentIds;
+    List<String> existingFragmentIds;
 
     @objid ("7d5357f0-3adc-11e2-916e-002564c97630")
     private RamcFragmentPanel panel;
@@ -87,7 +86,7 @@ public final class AddLocalLibraryDialog extends ModelioDialog {
     private IModelComponentInfos fragmentInfos;
 
     @objid ("6c5d9c12-91fc-4f02-9c11-1eae3e85fe23")
-     Composite area;
+    Composite area;
 
     @objid ("f3c1958d-d5e8-4bd6-a747-469b071b9139")
     private Button addBtn;
@@ -96,10 +95,11 @@ public final class AddLocalLibraryDialog extends ModelioDialog {
     private final ProjectModel projectAdapter;
 
     @objid ("7d5357f1-3adc-11e2-916e-002564c97630")
-    public AddLocalLibraryDialog(final Shell parentShell, final ProjectModel projectAdapter) {
+    public  AddLocalLibraryDialog(final Shell parentShell, final ProjectModel projectAdapter) {
         super(parentShell);
         this.projectAdapter = projectAdapter;
         this.existingFragmentIds = projectAdapter.getFragmentIdList();
+        
     }
 
     @objid ("7d5357f4-3adc-11e2-916e-002564c97630")
@@ -144,6 +144,7 @@ public final class AddLocalLibraryDialog extends ModelioDialog {
         createButton(parent, Window.CANCEL, IDialogConstants.CANCEL_LABEL, true);
         this.addBtn = createButton(parent, Window.OK, AppProjectConfExt.I18N.getString("AddLocalLibraryDialog.AddFragment"), true); //$NON-NLS-1$
         this.addBtn.setEnabled(false);
+        
     }
 
     @objid ("7d5357fe-3adc-11e2-916e-002564c97630")
@@ -157,6 +158,7 @@ public final class AddLocalLibraryDialog extends ModelioDialog {
         getShell().setLocation(parentLocation.x + 100, parentLocation.y + 100);
         getShell().setSize(600, 700);
         getShell().setMinimumSize(600, 700);
+        
     }
 
     @objid ("7d535807-3adc-11e2-916e-002564c97630")
@@ -185,6 +187,7 @@ public final class AddLocalLibraryDialog extends ModelioDialog {
         }
         
         super.okPressed();
+        
     }
 
     @objid ("7d53580a-3adc-11e2-916e-002564c97630")
@@ -205,6 +208,7 @@ public final class AddLocalLibraryDialog extends ModelioDialog {
             this.propertyComposite.refresh();
         }
         this.area.layout();
+        
     }
 
     @objid ("6fc7d5f2-6ed1-4536-8ec3-a49322fe7587")
@@ -241,6 +245,7 @@ public final class AddLocalLibraryDialog extends ModelioDialog {
             this.addBtn.setEnabled(false);
             this.panel.text.setForeground(this.panel.text.getDisplay().getSystemColor(SWT.COLOR_RED));
         }
+        
     }
 
     @objid ("12aade3b-8453-4487-b8b1-d59d97e7b334")
@@ -259,15 +264,15 @@ public final class AddLocalLibraryDialog extends ModelioDialog {
 
         /**
          * Initialize the panel.
-         * 
          * @param parent the parent composite.
          * @param style the style of widget to construct
          */
         @objid ("7d55b965-3adc-11e2-916e-002564c97630")
-        public RamcFragmentPanel(final Composite parent, final int style) {
+        public  RamcFragmentPanel(final Composite parent, final int style) {
             super(parent, style);
             
             createContents(this);
+            
         }
 
         @objid ("7d55b96e-3adc-11e2-916e-002564c97630")

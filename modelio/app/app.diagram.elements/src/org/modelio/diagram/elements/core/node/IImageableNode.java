@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.node;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,6 @@ import org.eclipse.swt.graphics.Image;
 public interface IImageableNode {
     /**
      * Get the stereotype image to display.
-     * 
      * @return the stereotype image to display. Must not be <i>null</i>.
      */
     @objid ("80a17d85-1dec-11e2-8cad-001ec947c8cc")

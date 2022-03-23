@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.commands;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,7 +39,8 @@ public final class NoopCommand extends Command {
      * Create a do nothing command.
      */
     @objid ("4a4adbf8-06c2-451d-8f97-9b63c3604a0f")
-    public NoopCommand() {
+    public  NoopCommand() {
+        
     }
 
     @objid ("5768fb05-deb1-45df-8d43-8d900d3b5621")
@@ -61,6 +61,7 @@ public final class NoopCommand extends Command {
         } else {
             return this;
         }
+        
     }
 
 }

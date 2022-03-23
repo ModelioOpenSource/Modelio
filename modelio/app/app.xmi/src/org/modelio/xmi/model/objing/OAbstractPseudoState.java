@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,7 +29,7 @@ import org.modelio.xmi.util.NotFoundException;
 @objid ("627cf5ca-7898-45ae-91ed-72f5bbd3eb18")
 public class OAbstractPseudoState extends OModelElement {
     @objid ("40993cb5-08f5-4f9c-b7d0-db030ee5f323")
-    public OAbstractPseudoState(AbstractPseudoState param) {
+    public  OAbstractPseudoState(AbstractPseudoState param) {
         super(param);
     }
 
@@ -60,6 +59,7 @@ public class OAbstractPseudoState extends OModelElement {
             ecoreElt.destroy();
             throw new NotFoundException("Owner Class of "+ this.getObjingElement().getClass().getSimpleName() + " Not Found");
         }
+        
     }
 
     @objid ("11f500d4-97b0-4edb-a2a0-b1e8abe9b069")

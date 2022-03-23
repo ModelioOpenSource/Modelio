@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,7 +39,7 @@ public class OExecutionOccurenceSpecification extends OMessageEnd {
     }
 
     @objid ("a44acb1b-b6f1-4e50-9826-1b717d9b3781")
-    public OExecutionOccurenceSpecification(ExecutionOccurenceSpecification param) {
+    public  OExecutionOccurenceSpecification(ExecutionOccurenceSpecification param) {
         super(param);
     }
 
@@ -56,6 +55,7 @@ public class OExecutionOccurenceSpecification extends OMessageEnd {
         super.setProperties(ecoreElt);       
         setStarted(ecoreElt);
         setFinished(ecoreElt);
+        
     }
 
     @objid ("f0c2c2bd-05ca-4815-a48a-28cd5cef4765")
@@ -72,6 +72,7 @@ public class OExecutionOccurenceSpecification extends OMessageEnd {
                 .setStart((org.eclipse.uml2.uml.OccurrenceSpecification)ecoreElt);
             }  
         }
+        
     }
 
     @objid ("43c11555-b4a0-4230-925b-5907a70fb378")
@@ -88,6 +89,7 @@ public class OExecutionOccurenceSpecification extends OMessageEnd {
                 .setFinish((org.eclipse.uml2.uml.OccurrenceSpecification)ecoreElt);
             }   
         }
+        
     }
 
 }

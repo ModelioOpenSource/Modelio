@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.browser.view.handlers.move;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
@@ -57,7 +56,6 @@ public class MoveElementDownHandler {
 
     /**
      * Available only when the selection contains only one modifiable element.
-     * 
      * @param selection the current modelio selection.
      * @return true if the handler can be executed.
      */
@@ -153,7 +151,6 @@ public class MoveElementDownHandler {
 
     /**
      * Cut the currently selected elements.
-     * 
      * @param selection the current modelio selection.
      * @param currentDisplay the display Modelio runs into.
      */
@@ -218,6 +215,7 @@ public class MoveElementDownHandler {
             // is not a RuntimeException.
             MoveElementDownHandler.reportException(e);
         }
+        
     }
 
     @objid ("25481845-43a4-11e2-b513-002564c97630")
@@ -229,7 +227,8 @@ public class MoveElementDownHandler {
             while (index < listToReorder.size() && !(listToReorder.get(index) instanceof BpmnFlowElement)) {
                 index++;
             }
-        
+        } else if (element.getMClass().getOrigin().getName().equals("Archimate")) {
+            // Thanks TMA!
         } else {
             // Iterate until we find an element of the same metaclass or until we
             // find the end of the list.
@@ -255,6 +254,7 @@ public class MoveElementDownHandler {
         MessageDialog.openError(null, title, e.getLocalizedMessage());
         
         BrowserViewActivator.LOG.error(e);
+        
     }
 
     @objid ("c5c9f34f-9753-4816-8905-d9a1c93b0b3b")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.instanceinternalstructure;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,9 +29,9 @@ import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
+import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.diagram.styles.core.StyleKey.InternalsViewMode;
 import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
-import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.metamodel.uml.statik.BindableInstance;
 import org.modelio.metamodel.uml.statik.Instance;
 import org.modelio.metamodel.uml.statik.Port;
@@ -56,12 +55,11 @@ public final class GmInstanceInternalStructureZone extends GmFreeZone {
 
     /**
      * Creates the zone.
-     * 
      * @param diagram The diagram
      * @param relatedRef a reference to the element this zone is related to, must not be null.
      */
     @objid ("35528473-55b7-11e2-877f-002564c97630")
-    public GmInstanceInternalStructureZone(IGmDiagram diagram, MRef relatedRef) {
+    public  GmInstanceInternalStructureZone(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -97,6 +95,7 @@ public final class GmInstanceInternalStructureZone extends GmFreeZone {
     public void styleChanged(IStyle style) {
         fireVisibilityChanged();
         super.styleChanged(style);
+        
     }
 
     @objid ("35540ae4-55b7-11e2-877f-002564c97630")
@@ -106,6 +105,7 @@ public final class GmInstanceInternalStructureZone extends GmFreeZone {
             fireVisibilityChanged();
         else
             super.styleChanged(property, newValue);
+        
     }
 
     @objid ("35540aeb-55b7-11e2-877f-002564c97630")
@@ -118,7 +118,7 @@ public final class GmInstanceInternalStructureZone extends GmFreeZone {
      * For deserialization only.
      */
     @objid ("35540af3-55b7-11e2-877f-002564c97630")
-    public GmInstanceInternalStructureZone() {
+    public  GmInstanceInternalStructureZone() {
         // Nothing to do yet.
     }
 
@@ -131,6 +131,7 @@ public final class GmInstanceInternalStructureZone extends GmFreeZone {
         } else {
             getDisplayedStyle().setProperty(GmInstanceStructuredStyleKeys.INTERNALSVIEWMODE, InternalsViewMode.NONE);
         }
+        
     }
 
     @objid ("35540afa-55b7-11e2-877f-002564c97630")
@@ -164,6 +165,7 @@ public final class GmInstanceInternalStructureZone extends GmFreeZone {
                 }
             }
         }
+        
     }
 
     @objid ("35540b05-55b7-11e2-877f-002564c97630")
@@ -183,6 +185,7 @@ public final class GmInstanceInternalStructureZone extends GmFreeZone {
                 break;
             }
         }
+        
     }
 
     @objid ("35540b0b-55b7-11e2-877f-002564c97630")
@@ -192,6 +195,7 @@ public final class GmInstanceInternalStructureZone extends GmFreeZone {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmInstanceInternalStructureZone.", GmInstanceInternalStructureZone.MINOR_VERSION);
+        
     }
 
     @objid ("35540b11-55b7-11e2-877f-002564c97630")

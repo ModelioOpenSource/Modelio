@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.api.dg;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,7 +35,6 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 public interface IDGFactory {
     /**
      * Returns a DiagramLink from the given model.
-     * 
      * @param diagramHandle a handle to the diagram.
      * @param gmLink the model.
      * @return a {@link DiagramLink}
@@ -46,7 +44,6 @@ public interface IDGFactory {
 
     /**
      * Returns a Diagram Node for the given model.
-     * 
      * @param diagramHandle the diagram in which the model is shown.
      * @param gmNodeModel the model.
      * @return a {@link DiagramNode}

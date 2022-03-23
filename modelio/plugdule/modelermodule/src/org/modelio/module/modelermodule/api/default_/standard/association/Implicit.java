@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.association;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("a2291f1c-9e40-4062-b1f6-c4ef88ee02eb")
 public class Implicit {
-    @objid ("90809629-e681-464b-89c5-0decacd5f26d")
+    @objid ("65651209-1c5a-42bd-8d33-cf917f9bf225")
     public static final String STEREOTYPE_NAME = "implicit";
 
     /**
      * The underlying {@link Association} represented by this proxy, never null.
      */
-    @objid ("0db6c80b-393e-491f-8d29-b78d00e3a3c5")
+    @objid ("7c5621bf-2cbf-491f-b704-b0d7cc846ed3")
     protected final Association elt;
 
     /**
      * Tells whether a {@link Implicit proxy} can be instantiated from a {@link MObject} checking it is a {@link Association} stereotyped << implicit >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("01b6c29a-f9b8-46a7-b2ff-1b939301ba96")
+    @objid ("288c1444-e79a-4e40-9287-b8ab79cd3342")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Association) && ((Association) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Implicit.STEREOTYPE_NAME));
     }
@@ -77,9 +75,9 @@ public class Implicit {
      * 
      * @return a {@link Implicit} proxy on the created {@link Association}.
      */
-    @objid ("13ed194a-d08e-4c6e-8caf-5d2a12c6ef40")
+    @objid ("c21b8f05-83df-4621-b5cf-ad1ab55750dd")
     public static Implicit create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Association");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.Association");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Implicit.STEREOTYPE_NAME);
         return Implicit.instantiate((Association)e);
     }
@@ -91,7 +89,7 @@ public class Implicit {
      * @param obj a Association
      * @return a {@link Implicit} proxy or <i>null</i>.
      */
-    @objid ("400852ba-183b-4360-916f-37889e0bb19c")
+    @objid ("8e822d98-6169-44e0-827a-e6e4fecfdb49")
     public static Implicit instantiate(Association obj) {
         return Implicit.canInstantiate(obj) ? new Implicit(obj) : null;
     }
@@ -104,7 +102,7 @@ public class Implicit {
      * @return a {@link Implicit} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("0f10c8e8-a81d-461d-bb88-aa1390654211")
+    @objid ("63e218bb-c8a5-4baa-82d4-dfca2b936c4c")
     public static Implicit safeInstantiate(Association obj) throws IllegalArgumentException {
         if (Implicit.canInstantiate(obj))
         	return new Implicit(obj);
@@ -112,7 +110,7 @@ public class Implicit {
         	throw new IllegalArgumentException("Implicit: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("aa501c8f-b62b-4d27-bb8b-5177e75c0635")
+    @objid ("e1544cf1-2e44-4b9b-95f7-b864509f21c4")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,46 +130,47 @@ public class Implicit {
      * Get the underlying {@link Association}. 
      * @return the Association represented by this proxy, never null.
      */
-    @objid ("0d9a50de-5918-47ab-bdd8-87237b5ebac2")
+    @objid ("a91828b5-abb3-40d0-be4f-12426c7dcc45")
     public Association getElement() {
         return this.elt;
     }
 
-    @objid ("c4877405-87b9-4c42-bb12-75132300fdb1")
+    @objid ("3e2ed014-353c-484b-9193-040ae7c69601")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("90d50349-bfac-4b3f-95e0-a719e7ba6645")
-    protected Implicit(Association elt) {
+    @objid ("4a62adfe-0288-490e-9c80-3b49a963972e")
+    protected  Implicit(Association elt) {
         this.elt = elt;
     }
 
     @objid ("6e6fdf9c-fd6f-4767-bf30-7a823cf4cd32")
     public static final class MdaTypes {
-        @objid ("05478203-c964-4084-9e2b-fa2d277345ec")
+        @objid ("535b9210-b686-4c11-abb5-89b1b2e4e8c6")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("ad5b78f2-df06-4c6a-ba5e-632fa023a2f6")
+        @objid ("ea4cff97-6f4d-4c65-9575-ed08cb665c25")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("9fcb1493-2df2-4a77-b691-a14dcac2d0b5")
+        @objid ("6342ac39-dd08-45d3-b744-0fbe29c9ea9f")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("6c230c60-9e76-4c7e-8bf5-8403a87d4cb9")
+        @objid ("7140911f-dd26-4534-8330-ce11fb7683a4")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "00700680-0000-01b8-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

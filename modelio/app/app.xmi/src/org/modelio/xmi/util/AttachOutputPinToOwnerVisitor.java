@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.util;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,16 +29,16 @@ import org.modelio.xmi.plugin.Xmi;
 @objid ("d6fe86ea-dfc0-4f62-9712-0f93aeef3d4a")
 public class AttachOutputPinToOwnerVisitor {
     @objid ("c9916c76-e5bb-4023-9496-f9efde8c94fd")
-     org.modelio.metamodel.uml.behavior.activityModel.OutputPin _obOutputPin = null;
+    org.modelio.metamodel.uml.behavior.activityModel.OutputPin _obOutputPin = null;
 
     @objid ("8d19c955-48c3-4ed4-a18d-f6987468462f")
-     OutputPinLinker linker = null;
+    OutputPinLinker linker = null;
 
     @objid ("581b746c-8a6b-4cc6-8749-ea43312b33c3")
-     org.eclipse.uml2.uml.OutputPin _outputPin = null;
+    org.eclipse.uml2.uml.OutputPin _outputPin = null;
 
     @objid ("02271e0a-b358-4230-8938-83cc5faa68ea")
-    public AttachOutputPinToOwnerVisitor() {
+    public  AttachOutputPinToOwnerVisitor() {
         this.linker = new OutputPinLinker();
     }
 
@@ -48,6 +47,7 @@ public class AttachOutputPinToOwnerVisitor {
         this._outputPin = outputPin;
         this._obOutputPin = obOutputPin;
         this.linker.accept(owner);
+        
     }
 
     @objid ("5b088e5a-0bb4-4a7c-a1e8-01b904a33992")

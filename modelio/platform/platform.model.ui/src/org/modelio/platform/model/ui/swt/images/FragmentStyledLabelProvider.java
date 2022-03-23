@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.images;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.jface.viewers.StyledString;
+import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.TextStyle;
 import org.modelio.gproject.fragment.FragmentState;
@@ -62,6 +61,7 @@ public class FragmentStyledLabelProvider {
             }
             textStyle.foreground = getForeground(this.fragment);
             textStyle.background = getBackground(this.fragment);
+            
         }
 
         /**
@@ -72,7 +72,6 @@ public class FragmentStyledLabelProvider {
          * <li>Incomplete model elements font color is light red #FF8080.</li>
          * <li>Ramc model elements font color is modified yellow #A0A000.</li>
          * </ul>
-         * 
          * @return a Color.
          */
         @objid ("8d26a3b5-12e7-4d5b-92a5-0ab3dd8dbcd4")
@@ -102,7 +101,6 @@ public class FragmentStyledLabelProvider {
 
         /**
          * Get the background color for the given element
-         * 
          * @param aFragment a Fragment
          * @return its background color
          */
@@ -112,7 +110,7 @@ public class FragmentStyledLabelProvider {
         }
 
         @objid ("a2ae9eff-bb4f-47db-8ac6-02e8b076d66a")
-        public FragmentStyler(IProjectFragment fragment) {
+        public  FragmentStyler(IProjectFragment fragment) {
             this.fragment = fragment;
         }
 

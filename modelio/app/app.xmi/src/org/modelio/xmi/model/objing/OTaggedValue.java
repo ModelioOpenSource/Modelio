@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -61,9 +60,10 @@ public class OTaggedValue extends OElement implements IOElement {
     }
 
     @objid ("b23c089b-1dbd-4e9c-9770-42d570d3deec")
-    public OTaggedValue(TaggedValue element) {
+    public  OTaggedValue(TaggedValue element) {
         super(element);
         this.objingElement = element;
+        
     }
 
     @objid ("9f1684ea-5320-4e84-90de-cb49b802acba")
@@ -85,6 +85,7 @@ public class OTaggedValue extends OElement implements IOElement {
         }else{
             return createValue();
         }
+        
     }
 
     @objid ("d439fa99-1d1e-426f-bf26-1a99f1b1e759")

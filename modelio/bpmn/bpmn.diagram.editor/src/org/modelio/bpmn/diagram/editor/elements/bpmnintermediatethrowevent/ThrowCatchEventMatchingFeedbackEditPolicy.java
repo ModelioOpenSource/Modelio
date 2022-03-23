@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnintermediatethrowevent;
 
 import java.util.ArrayList;
@@ -58,6 +57,7 @@ public class ThrowCatchEventMatchingFeedbackEditPolicy extends SelectionHelperLi
             return throwEventEditPart != null ? getLinkedParts(throwEventEditPart) : Collections.EMPTY_MAP;
         } else
             return Collections.EMPTY_MAP;
+        
     }
 
     @objid ("14d6783c-7433-45c7-b18c-f38792ce36a4")

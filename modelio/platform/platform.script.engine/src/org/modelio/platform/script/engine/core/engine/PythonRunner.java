@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.script.engine.core.engine;
 
 import java.io.FileNotFoundException;
@@ -28,12 +27,12 @@ import java.io.Reader;
 import java.net.URL;
 import java.nio.file.Path;
 import java.util.Collection;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.script.Bindings;
 import javax.script.ScriptContext;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineFactory;
 import javax.script.ScriptException;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.jface.viewers.ISelection;
 import org.modelio.api.modelio.Modelio;
@@ -62,12 +61,13 @@ public class PythonRunner implements IScriptRunner {
     private PrintWriter commandWriter;
 
     @objid ("00763f36-cbcd-1065-a2b8-001ec947cd2a")
-    PythonRunner(ScriptEngine scriptEngine) {
+     PythonRunner(ScriptEngine scriptEngine) {
         this.engine = new ClassLoaderScriptEngine(scriptEngine);
         
         this.outputWriter = new PrintWriter(System.out);
         this.commandWriter = this.outputWriter;
         this.errorWriter = this.outputWriter;
+        
     }
 
     @objid ("0076521e-cbcd-1065-a2b8-001ec947cd2a")
@@ -109,6 +109,7 @@ public class PythonRunner implements IScriptRunner {
             this.errorWriter.flush();
             this.commandWriter.flush();
         }
+        
     }
 
     @objid ("00767370-cbcd-1065-a2b8-001ec947cd2a")
@@ -136,6 +137,7 @@ public class PythonRunner implements IScriptRunner {
             this.outputWriter.flush();
             this.errorWriter.flush();
         }
+        
     }
 
     @objid ("007694f4-cbcd-1065-a2b8-001ec947cd2a")
@@ -149,6 +151,7 @@ public class PythonRunner implements IScriptRunner {
     public void setOutputStream(PrintWriter writer) {
         this.outputWriter = writer;
         this.engine.getContext().setWriter(this.outputWriter);
+        
     }
 
     @objid ("0076ceec-cbcd-1065-a2b8-001ec947cd2a")
@@ -156,6 +159,7 @@ public class PythonRunner implements IScriptRunner {
     public void setErrorStream(PrintWriter writer) {
         this.errorWriter = writer;
         this.engine.getContext().setErrorWriter(this.errorWriter);
+        
     }
 
     @objid ("00770c72-cbcd-1065-a2b8-001ec947cd2a")
@@ -194,6 +198,7 @@ public class PythonRunner implements IScriptRunner {
             this.engine.eval(this.engine.getFactory().getOutputStatement(retvar));
             this.engine.getContext().removeAttribute(retvar, ScriptContext.ENGINE_SCOPE);
         }
+        
     }
 
     @objid ("0007df82-99ab-10ed-8812-001ec947cd2a")
@@ -234,9 +239,9 @@ public class PythonRunner implements IScriptRunner {
          */
         @objid ("a86a1791-9fca-478a-8dbf-8c04a0d61cfe")
         private static final String INIT_SCRIPT = new StringBuilder("import sys\n")
-        .append("if  sys.path.count('__pyclasspath__/Lib') == 0:\n")
-        .append("\tsys.path.append('__pyclasspath__/Lib')\n")
-        .append("sys.prefix = '.'\n").toString();
+                .append("if  sys.path.count('__pyclasspath__/Lib') == 0:\n")
+                .append("\tsys.path.append('__pyclasspath__/Lib')\n")
+                .append("sys.prefix = '.'\n").toString();
 
         /**
          * Classloader initialization script.
@@ -247,9 +252,9 @@ public class PythonRunner implements IScriptRunner {
          */
         @objid ("0ae8469c-da4c-4ec2-91f4-72984c01e97b")
         private static final String SETCLASSLOADER_SCRIPT = new StringBuilder("import sys\n")
-        .append("sys.setClassLoader (")
-        .append(ClassLoaderScriptEngine.CLASSLOADER_VARIABLE)
-        .append(")\n").toString();
+                .append("sys.setClassLoader (")
+                .append(ClassLoaderScriptEngine.CLASSLOADER_VARIABLE)
+                .append(")\n").toString();
 
         /**
          * Relative path for the script engine initialization script in the plugin's resources.
@@ -264,7 +269,7 @@ public class PythonRunner implements IScriptRunner {
         private ScriptClassLoader classLoader;
 
         @objid ("ef0961fd-3c4d-4143-b397-5d0af5e4c64d")
-        private ClassLoaderScriptEngine(ScriptEngine scriptEngine) {
+        private  ClassLoaderScriptEngine(ScriptEngine scriptEngine) {
             this.engine = scriptEngine;
             
             try {
@@ -274,6 +279,7 @@ public class PythonRunner implements IScriptRunner {
                 ScriptEnginePlugin.LOG.debug(ClassLoaderScriptEngine.INIT_SCRIPT);
                 ScriptEnginePlugin.LOG.error(e);
             }
+            
         }
 
         @objid ("53fcc78d-6096-4da6-9ce1-8f1eef2ff56c")
@@ -390,6 +396,7 @@ public class PythonRunner implements IScriptRunner {
                     ScriptEnginePlugin.LOG.error(e);
                 }
             }
+            
         }
 
         @objid ("b52975bd-4af2-4121-b059-b67018bf2946")
@@ -398,6 +405,7 @@ public class PythonRunner implements IScriptRunner {
                 initClassLoader();
             }
             this.classLoader.add(base);
+            
         }
 
         /**
@@ -420,6 +428,7 @@ public class PythonRunner implements IScriptRunner {
                 ScriptEnginePlugin.LOG.error(e);
                 return null;
             }
+            
         }
 
         /**
@@ -430,6 +439,7 @@ public class PythonRunner implements IScriptRunner {
             if (this.classLoader != null && Py.defaultSystemState.getClassLoader() != this.classLoader) {
                 Py.defaultSystemState.setClassLoader(this.classLoader);
             }
+            
         }
 
         @objid ("268b8821-dda6-4917-92e6-1bc729c5f379")
@@ -443,6 +453,7 @@ public class PythonRunner implements IScriptRunner {
                 ScriptEnginePlugin.LOG.debug("Initialization of the script engine failed");
                 ScriptEnginePlugin.LOG.error(e);
             }
+            
         }
 
         @objid ("0096ff5a-9860-1069-96f6-001ec947cd2a")
@@ -460,6 +471,7 @@ public class PythonRunner implements IScriptRunner {
             }
             this.engine.put("selection", selection);
             this.engine.put("session", modelingSession);
+            
         }
 
     }

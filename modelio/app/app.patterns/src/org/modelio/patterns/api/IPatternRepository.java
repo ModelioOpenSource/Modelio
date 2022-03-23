@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.api;
 
 import java.nio.file.Path;
@@ -39,17 +38,15 @@ public interface IPatternRepository {
      * <p>
      * If the pattern already exists in the repository, it is replaced.
      * </p>
-     * 
      * @param patternPath a valid <i>.umlt<i> file.
      * @return a pattern loaded from the given file.
-     * @throws org.modelio.api.modelio.pattern.IPatternService.PatternException when the pattern metadatas are invalid or the given file doesn't contain a valid {@link RuntimePattern}.
+     * @throws PatternException when the pattern metadatas are invalid or the given file doesn't contain a valid {@link RuntimePattern}.
      */
     @objid ("60c42e0d-043b-4a77-9ee3-54a59b24fe9c")
     RuntimePattern addPattern(Path patternPath) throws PatternException;
 
     /**
      * Get the names of all libraries installed in the project.
-     * 
      * @return a collection of library names.
      */
     @objid ("117f0773-81ae-4ace-b309-badbcf81f098")
@@ -57,7 +54,6 @@ public interface IPatternRepository {
 
     /**
      * Get the names of all started modules in the project.
-     * 
      * @return a collection of module names.
      */
     @objid ("9df60c7f-a1c1-45c2-acf4-74767e9aa5ba")
@@ -65,7 +61,6 @@ public interface IPatternRepository {
 
     /**
      * Get all categories containing at least one pattern applicable on these elements, from the repository.
-     * 
      * @param elements the model elements to filter the categories with.
      * @return a collection of pattern categories.
      */
@@ -74,7 +69,6 @@ public interface IPatternRepository {
 
     /**
      * Get all pattern categories, from the repository.
-     * 
      * @return a collection of pattern categories.
      */
     @objid ("5a65ec1e-6ec3-42d3-8577-2c92c8453983")
@@ -82,7 +76,6 @@ public interface IPatternRepository {
 
     /**
      * Get a pattern from its name.
-     * 
      * @param name the name of the pattern to look for.
      * @return the pattern having the given name.
      */
@@ -91,7 +84,6 @@ public interface IPatternRepository {
 
     /**
      * Get patterns applicable on these elements, from the repository.
-     * 
      * @param elements the model elements to filter the patterns with.
      * @return a collection of patterns.
      */
@@ -100,7 +92,6 @@ public interface IPatternRepository {
 
     /**
      * Get all patterns, from the repository.
-     * 
      * @return a collection of patterns.
      */
     @objid ("06ae55ac-a25b-4e62-b46a-d076dd5abea6")
@@ -108,7 +99,6 @@ public interface IPatternRepository {
 
     /**
      * Get the repository path.
-     * 
      * @return the directory containing all patterns.
      */
     @objid ("084eb73d-247e-4d1b-851f-4f2997b2a95b")
@@ -122,7 +112,6 @@ public interface IPatternRepository {
 
     /**
      * Remove a pattern from the repository.
-     * 
      * @param pattern the pattern to remove.
      */
     @objid ("cff7163c-cb39-4c89-9a1a-419f84fda785")

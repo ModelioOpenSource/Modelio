@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.audit;
 
 import java.net.URL;
@@ -44,11 +43,12 @@ public class UmlAuditExtension implements IAuditExtension {
     private UmlAuditPlan umlAuditPlan;
 
     @objid ("43eb0ee4-cf90-4a65-a3b1-24ad23492b22")
-    public UmlAuditExtension() {
+    public  UmlAuditExtension() {
         List<AuditCategory> categories = loadCategories();
         
         this.umlConfigurationPlan = new UmlConfigurationPlan(categories);
         this.umlAuditPlan = new UmlAuditPlan(categories);
+        
     }
 
     @objid ("c5905e33-4e32-466e-a3fa-ced9640a9e0f")

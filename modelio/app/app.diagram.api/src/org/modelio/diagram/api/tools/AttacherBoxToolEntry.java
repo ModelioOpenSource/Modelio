@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.api.tools;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,7 +30,6 @@ import org.modelio.api.modelio.diagram.tools.IDiagramTool;
 public class AttacherBoxToolEntry extends ConnectionCreationToolEntry {
     /**
      * Constructor for LinkToolEntry.
-     * 
      * @param label the label
      * @param shortDesc the description
      * @param factory the CreationFactory
@@ -39,13 +37,14 @@ public class AttacherBoxToolEntry extends ConnectionCreationToolEntry {
      * @param iconLarge the large icon
      */
     @objid ("d73f9ac3-b810-4bb7-bb86-b1d9ee98478d")
-    public AttacherBoxToolEntry(final String label, final String shortDesc, final CreationFactory factory, final ImageDescriptor iconSmall, final ImageDescriptor iconLarge, final IDiagramTool handler) {
+    public  AttacherBoxToolEntry(final String label, final String shortDesc, final CreationFactory factory, final ImageDescriptor iconSmall, final ImageDescriptor iconLarge, final IDiagramTool handler) {
         super(label, shortDesc, factory, iconSmall, iconLarge);
         setToolClass(AttachedBoxTool.class);
         this.setToolProperty(LinkTool.PROPERTY_HANDLER, handler);
         
         // Return to default selection tool after finished
         setToolProperty(AbstractTool.PROPERTY_UNLOAD_WHEN_FINISHED, Boolean.TRUE);
+        
     }
 
 }

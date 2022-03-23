@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.compositediagram.editor.editor;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,7 +40,7 @@ public class CompositeDiagramEditor extends AbstractDiagramEditor {
      * C'tor.
      */
     @objid ("817b186f-37f3-4044-b9fc-7cc4ce5b80db")
-    public CompositeDiagramEditor() {
+    public  CompositeDiagramEditor() {
         super();
     }
 

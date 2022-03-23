@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.audit;
 
 import java.util.ArrayList;
@@ -100,14 +99,14 @@ public class R2350 extends AbstractUmlRule {
      * Default constructor for R2350
      */
     @objid ("58340c49-0db9-457a-98e6-42de72094a24")
-    public R2350() {
+    public  R2350() {
         this.checkerInstance = new CheckR2350(this);
     }
 
     @objid ("a2e00828-af48-476e-8cc9-c8c18fa0a003")
     private static class CheckR2350 extends AbstractControl {
         @objid ("1ba8aa89-a659-41ed-8012-97e8bff74a49")
-        public CheckR2350(IRule rule) {
+        public  CheckR2350(IRule rule) {
             super(rule);
         }
 

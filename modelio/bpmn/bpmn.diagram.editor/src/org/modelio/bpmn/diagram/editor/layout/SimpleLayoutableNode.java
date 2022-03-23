@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.layout;
 
 import java.util.ArrayList;
@@ -28,10 +27,12 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.modelio.api.modelio.diagram.IDiagramLink;
-import org.modelio.api.modelio.diagram.IDiagramNode.Role;
 import org.modelio.api.modelio.diagram.IDiagramNode;
+import org.modelio.api.modelio.diagram.IDiagramNode.Role;
 import org.modelio.bpmn.diagram.editor.layout.ILayoutableLink.AnchorDirection;
 import org.modelio.diagram.api.dg.common.PortContainerDG;
+import org.modelio.metamodel.bpmn.events.BpmnEvent;
+import org.modelio.metamodel.bpmn.gateways.BpmnGateway;
 
 @objid ("3e0e98a2-9f6d-425a-9378-efa17e3bbaf7")
 public class SimpleLayoutableNode implements ILayoutableNode {
@@ -60,7 +61,7 @@ public class SimpleLayoutableNode implements ILayoutableNode {
     private Map<org.modelio.bpmn.diagram.editor.layout.ILayoutableLink.AnchorDirection, List<ILayoutableLink>> outLinks = new HashMap<>();
 
     @objid ("66fd47b9-05e4-4c7a-ac55-29d193474705")
-    public SimpleLayoutableNode(IDiagramNode nodeDG) {
+    public  SimpleLayoutableNode(IDiagramNode nodeDG) {
         this.nodeDG = nodeDG;
         this.predecessors = new ArrayList<>();
         this.successors = new ArrayList<>();
@@ -71,6 +72,7 @@ public class SimpleLayoutableNode implements ILayoutableNode {
             this.inLinks.put(ad, new ArrayList<>(0));
             this.outLinks.put(ad, new ArrayList<>(0));
         }
+        
     }
 
     @objid ("41527c50-1380-4c0b-8344-9f1c81525a6c")
@@ -130,7 +132,14 @@ public class SimpleLayoutableNode implements ILayoutableNode {
     @objid ("8ad10349-808a-42b6-a536-9fe3e6896f50")
     @Override
     public void setLocation(int x, int y) {
-        this.nodeDG.setLocation(x, y);
+        // Fiddle with the y coordinate a little to keep links aligned for nodes having different height
+        if (this.nodeDG.getElement() instanceof BpmnEvent) {
+            this.nodeDG.setLocation(x, y + 7);
+        } else if (this.nodeDG.getElement() instanceof BpmnGateway) {
+            this.nodeDG.setLocation(x, y + 3);
+        } else {
+            this.nodeDG.setLocation(x, y);
+        }
         
         // Fix label coordinates
         if (this.nodeDG instanceof PortContainerDG) {
@@ -142,18 +151,19 @@ public class SimpleLayoutableNode implements ILayoutableNode {
                 Rectangle labelBounds = label.getBounds();
         
                 // Make sure the label is not on the node
-                if (labelBounds.y != containerBounds.height) {
+                if (labelBounds.y < containerBounds.height) {
                     labelBounds.y = containerBounds.height;
                 }
         
                 // Center label and node
                 Point labelCenter = labelBounds.getCenter();
                 if (labelCenter.x != containerCenter.x) {
-                    labelBounds.x += (containerCenter.x - labelCenter.x);
+                    labelBounds.x += containerCenter.x - labelCenter.x;
                 }
                 label.setLocation(labelBounds.x, labelBounds.y);
             }
         }
+        
     }
 
     @objid ("19ce9a07-690c-4198-9006-117341079768")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model;
 
 import java.util.ArrayDeque;
@@ -74,22 +73,22 @@ public class ModelWalker<A extends MObject> {
     private final Predicate<A> filter;
 
     @objid ("bbd30dbc-2ab6-405b-ad04-b310364766f3")
-    private final Collection<Transition<A,A>> transitions;
+    private final Collection<Transition<A, A>> transitions;
 
     /**
      * Initialize a new model walker.
      */
     @objid ("b7218d80-efd0-4cc5-88e0-d82ea092efb0")
-    public ModelWalker() {
+    public  ModelWalker() {
         this.from = Collections.emptyList();
         this.transitions= Collections.emptyList();
         this.filter = null ;
         this.addSources = false;
+        
     }
 
     /**
      * Add a model element to walk from.
-     * 
      * @param el a model element
      * @return another instance
      */
@@ -104,7 +103,6 @@ public class ModelWalker<A extends MObject> {
      * Applies the transition transitively and return all found elements.
      * <p>
      * The elements are returned in breadth first order.
-     * 
      * @return all found elements.
      */
     @objid ("9c0f5fc5-3500-41a5-a609-e8c92eb7a104")
@@ -124,13 +122,12 @@ public class ModelWalker<A extends MObject> {
      * Add a composite transition to walk.
      * <p>
      * The function is applied to each transition result and gives the real next element.
-     * 
      * @param t1 a transition
      * @param t2 a function applied to each transition result.
      * @return the new walker to use.
      */
     @objid ("342a30f5-7fa8-442b-9daa-709a46169ca7")
-    public <B> ModelWalker<A> withCompositeTransition(Transition<A,B> t1, Function<B,A> t2) {
+    public <B> ModelWalker<A> withCompositeTransition(Transition<A, B> t1, Function<B, A> t2) {
         Transition<A, A> compositeTransition = a -> {
             Collection<B> t1Res = t1.walk(a);
             if (t1Res.isEmpty()) {
@@ -154,13 +151,12 @@ public class ModelWalker<A extends MObject> {
      * Add a composite transition to walk.
      * <p>
      * The second transition is applied to each transition result and gives the real next elements.
-     * 
      * @param t1 a transition
      * @param t2 a second transition applied to each transition result.
      * @return the new walker to use.
      */
     @objid ("0aef2223-1dd5-46de-a04e-2a9bd3c18730")
-    public <B> ModelWalker<A> withCompositeTransition(Transition<A,B> t1, Transition<B,A> t2) {
+    public <B> ModelWalker<A> withCompositeTransition(Transition<A, B> t1, Transition<B, A> t2) {
         Transition<A, A> compositeTransition = a -> {
             Collection<B> t1Res = t1.walk(a);
             if (t1Res.isEmpty()) {
@@ -184,7 +180,6 @@ public class ModelWalker<A extends MObject> {
      * Set a filter on the returned result.
      * <p>
      * The filter does not stop iteration on transition.
-     * 
      * @param aFilter a filter on results
      * @return a new instance
      */
@@ -195,7 +190,6 @@ public class ModelWalker<A extends MObject> {
 
     /**
      * Set whether initial model elements added with {@link #from(MObject)} will be included in results.
-     * 
      * @param includesources true to include initial nodes
      * @return the new walker to use.
      */
@@ -206,12 +200,11 @@ public class ModelWalker<A extends MObject> {
 
     /**
      * Add a transition to walk.
-     * 
      * @param transition the transition to walk.
      * @return this instance
      */
     @objid ("dee974e0-9aeb-4a08-a410-1ebb8a68423e")
-    public ModelWalker<A> withTransition(Transition<A,A> transition) {
+    public ModelWalker<A> withTransition(Transition<A, A> transition) {
         ArrayList<Transition<A,A>> nt = new ArrayList<>(this.transitions);
         nt.add(transition);
         return new ModelWalker<>(this.from, nt, this.filter, this.addSources);
@@ -221,7 +214,6 @@ public class ModelWalker<A extends MObject> {
      * Add a {@link MVisitor} as transition.
      * <p>
      * The visitor is expected to return a Collection of A or <i>null</i>.
-     * 
      * @param transitionVisitor a visitor that returns a collection.
      * @return the new walker to use.
      */
@@ -233,25 +225,24 @@ public class ModelWalker<A extends MObject> {
 
     /**
      * Immutable design pattern constructor.
-     * 
      * @param from initial elements
      * @param transitions transitions
      * @param filter result filter
      */
     @objid ("74f76f93-7987-4f0b-9e4e-570d240a28c4")
-    protected ModelWalker(List<A> from, Collection<Transition<A,A>> transitions, Predicate<A> filter, boolean withSources) {
+    protected  ModelWalker(List<A> from, Collection<Transition<A, A>> transitions, Predicate<A> filter, boolean withSources) {
         super();
         this.from = from;
         this.transitions = transitions;
         this.filter = filter;
         this.addSources = withSources;
+        
     }
 
     /**
      * Applies t to each element of <i>from</i> and return the result in a new collection.
      * <p>
      * Equivalent to <code>from.stream().map(t).collect(Collectors.toList())</code> without using streams.
-     * 
      * @param from a source collection
      * @param t the function to apply to each element.
      * @return the result.
@@ -259,7 +250,7 @@ public class ModelWalker<A extends MObject> {
      */
     @objid ("f55bd0b9-942e-44fa-808e-cd882e09522b")
     @Deprecated
-    private static <A,B> Collection<B> composeFunc(Collection<A> from, Function<A,B> t) {
+    private static <A, B> Collection<B> composeFunc(Collection<A> from, Function<A, B> t) {
         Collection<B> ret = new ArrayList<>(from.size());
         for (A a : from) {
             B next = t.apply(a);
@@ -276,14 +267,13 @@ public class ModelWalker<A extends MObject> {
      * Equivalent to:
      * <pre>
      * <code>from.stream().flatMap(a -> t.apply(a).stream()).collect(Collectors.toList())</code></pre> without using streams.
-     * 
      * @param from a source collection
      * @param t the function to apply to each element.
      * @return the result.
      */
     @objid ("611d0d62-a695-49ca-b646-c1c56318909a")
     @Deprecated
-    private static <A,B> Collection<B> composeTransition(Collection<A> from, Transition<A,B> t) {
+    private static <A, B> Collection<B> composeTransition(Collection<A> from, Transition<A, B> t) {
         Collection<B> ret = new ArrayList<>(from.size() * 2);
         for (A a : from) {
             Collection<? extends B> next = t.walk(a);
@@ -299,7 +289,6 @@ public class ModelWalker<A extends MObject> {
      * <p>
      * The elements are returned in breadth first order.
      * @param filter a filter that can stop the iteration.
-     * 
      * @param roots the model objects to iterate.
      * @param traversed a set where all walked elements will be added.
      * @deprecated reimplemented in {@link #getTraversed(Collection, Set)}
@@ -342,6 +331,7 @@ public class ModelWalker<A extends MObject> {
             directChildren = new ArrayList<>();
         
         }
+        
     }
 
     @objid ("a8a93216-2fe5-4fc0-91ab-daee74f1c65d")
@@ -363,6 +353,7 @@ public class ModelWalker<A extends MObject> {
                 }
             }
         }
+        
     }
 
     /**

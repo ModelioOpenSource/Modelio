@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /*
  * Handler to open up a configured preferences dialog.
  * Written by Brian de Alwis, Manumitting Technologies.
@@ -25,8 +24,8 @@
  */
 package org.modelio.platform.preferences;
 
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
@@ -49,6 +48,7 @@ public class ShowPreferencesHandler {
     public void execute(final MApplication app, @Named(IServiceConstants.ACTIVE_SHELL) final Shell shell, final IEclipseContext context) {
         final ModelioPreferenceDialog dialog = new ModelioPreferenceDialog(shell, context);
         dialog.open();
+        
     }
 
 }

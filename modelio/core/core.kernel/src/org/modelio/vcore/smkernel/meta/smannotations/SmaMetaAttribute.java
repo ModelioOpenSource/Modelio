@@ -17,9 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta.smannotations;
 
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.vcore.smkernel.meta.SmAttribute;
 
@@ -38,8 +39,8 @@ import org.modelio.vcore.smkernel.meta.SmAttribute;
  */
 @objid ("000923a6-f99c-1f1f-85a5-001ec947cd2a")
 @Deprecated
-@java.lang.annotation.Retention(java.lang.annotation.RetentionPolicy.RUNTIME)
-public @interface SmaMetaAttribute  {
+@Retention(RetentionPolicy.RUNTIME)
+public @interface SmaMetaAttribute {
     /**
      * 
      * @return the attribute name
@@ -66,13 +67,13 @@ public @interface SmaMetaAttribute  {
      * @return the attribute type.
      */
     @objid ("001d7446-7c3b-1f32-acd1-001ec947cd2a")
-    boolean einoexternalize() default false;
+    boolean einoexternalize();
 
     /**
      * 
      * @return the attribute type.
      */
     @objid ("0085a9f8-7c51-1f32-acd1-001ec947cd2a")
-    boolean fpindexed() default false;
+    boolean fpindexed();
 
 }

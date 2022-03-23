@@ -17,12 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.layout;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.geometry.Point;
 import org.modelio.api.modelio.diagram.IDiagramLink;
+import org.modelio.bpmn.diagram.editor.layout.ILayoutableLink.AnchorDirection;
+import org.modelio.bpmn.diagram.editor.layout.ILayoutableLink.Shape;
 import org.modelio.diagram.elements.core.figures.geometry.LineSeg;
 
 @objid ("edbe09a7-d0f9-4c9c-a768-dc199aabcb2a")
@@ -52,10 +53,11 @@ class LayoutableLink implements ILayoutableLink {
     private Point targetPoint;
 
     @objid ("66cb4f21-268b-4e5f-82d5-d92b34156a2e")
-    public LayoutableLink(IDiagramLink linkDG, ILayoutableNode from, ILayoutableNode to) {
+    public  LayoutableLink(IDiagramLink linkDG, ILayoutableNode from, ILayoutableNode to) {
         this.linkDG = linkDG;
         this.from = from;
         this.to = to;
+        
     }
 
     @objid ("64c901fe-f1e8-4936-85c0-78f838e09983")

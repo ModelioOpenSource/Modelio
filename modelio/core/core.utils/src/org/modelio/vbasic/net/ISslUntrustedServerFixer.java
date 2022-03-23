@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.net;
 
 import java.net.URI;
 import java.security.cert.X509Certificate;
-import javax.net.ssl.SSLHandshakeException;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.net.ssl.SSLHandshakeException;
 
 /**
  * Service interface to use when SSL certificate validation for a server fails with a {@link SSLHandshakeException}.
@@ -37,7 +36,6 @@ public interface ISslUntrustedServerFixer {
      * Allows the user to fix the server trust problem.
      * <p>
      * If the method returns <code>true</code> the caller may try the connection again.
-     * 
      * @param uri the server URI
      * @param chain the invalid certificate chain
      * @param ex the connection error.

@@ -17,14 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.diagrams.processdesign;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.Figure;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Dimension;
-import org.eclipse.draw2d.geometry.PrecisionDimension;
 import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.SnapToGeometry;
@@ -75,6 +73,7 @@ public class BpmnProcessDesignDiagramEditPart extends AbstractDiagramEditPart {
         
         // Policy to add bend points to connections being created
         installEditPolicy(CreateLinkConstants.REQ_CONNECTION_ADD_BENDPOINT, new CreateLinkIntermediateEditPolicy());
+        
     }
 
     @objid ("1d87bd2f-b3df-48e3-a559-590ccbfbfbf2")
@@ -97,13 +96,7 @@ public class BpmnProcessDesignDiagramEditPart extends AbstractDiagramEditPart {
         // TODO: in the future this parsing might become the responsibility of the property view,
         // ie the property view would propose a 'Dimension' editor returning the proper 'in pixel' dimension value...
         String pageSize = (String) style.getProperty(GmBpmnDiagramStyleKeys.PAGE_SIZE);
-        Dimension pixelPageSize = null;
-        if (pageSize != null && !pageSize.isEmpty()) {
-            PrecisionDimension inchPageSize = parsePageSize(pageSize);
-            if (inchPageSize != null) {
-                pixelPageSize = convertToPixel(inchPageSize);
-            }
-        }
+        Dimension pixelPageSize = PageSizeParser.parseInPixels(pageSize);
         
         //
         EditPartViewer v = getRoot().getViewer();
@@ -119,6 +112,7 @@ public class BpmnProcessDesignDiagramEditPart extends AbstractDiagramEditPart {
         diagramFigure.showPageBoundaries(style.getBoolean(GmBpmnDiagramStyleKeys.SHOW_PAGES));
         v.setProperty(AbstractDiagramEditPart.PROPERTY_FILL_TILE_SIZE, pixelPageSize);
         diagramFigure.setPageBoundaries(pixelPageSize);
+        
     }
 
     @objid ("6aa587d1-6f42-4aa5-b03c-591e5d50dae4")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.interactionuse.primarynode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -98,6 +97,7 @@ public class CreateLinkEditPolicy extends DefaultCreateLinkEditPolicy {
         } else {
             return super.getReconnectSourceCommand(req);
         }
+        
     }
 
     @objid ("467257ef-3e6b-4015-84d4-9a9494e272c9")
@@ -108,6 +108,7 @@ public class CreateLinkEditPolicy extends DefaultCreateLinkEditPolicy {
         } else {
             return super.getReconnectTargetCommand(req);
         }
+        
     }
 
     @objid ("94d5eac9-b1ce-4a18-96ed-66dafddcd0f8")
@@ -142,6 +143,7 @@ public class CreateLinkEditPolicy extends DefaultCreateLinkEditPolicy {
         } else {
             super.showCreationFeedback(request);
         }
+        
     }
 
 }

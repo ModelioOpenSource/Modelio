@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.packaze;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -72,6 +71,7 @@ public class PackageEditPart extends AbstractNodeEditPart {
             msg.append(" child edit part to PackageEditPart");
             throw new IllegalArgumentException(msg.toString());
         }
+        
     }
 
     @objid ("362823d7-55b7-11e2-877f-002564c97630")
@@ -88,6 +88,7 @@ public class PackageEditPart extends AbstractNodeEditPart {
             msg.append(" child edit part from PackageEditPart");
             throw new IllegalArgumentException(msg.toString());
         }
+        
     }
 
     @objid ("362823db-55b7-11e2-877f-002564c97630")
@@ -104,6 +105,7 @@ public class PackageEditPart extends AbstractNodeEditPart {
         installEditPolicy("RedrawCompositionLinkEditPolicy", new RedrawCompositionLinkEditPolicy());
         
         installEditPolicy(EditPolicy.LAYOUT_ROLE, new AutoExpandLayoutEditPolicy());
+        
     }
 
     @objid ("362823de-55b7-11e2-877f-002564c97630")
@@ -126,7 +128,6 @@ public class PackageEditPart extends AbstractNodeEditPart {
      * Refresh the figure from the given style.
      * <p>
      * Often called in {@link #createFigure()} and after a style change.
-     * 
      * @param aFigure The figure to update, should be {@link #getFigure()}.
      * @param style The style to update from, usually {@link #getModelStyle()}
      */
@@ -136,6 +137,7 @@ public class PackageEditPart extends AbstractNodeEditPart {
         if (!switchRepresentationMode()) {
             super.refreshFromStyle(aFigure, style);
         }
+        
     }
 
     @objid ("362823eb-55b7-11e2-877f-002564c97630")
@@ -145,11 +147,11 @@ public class PackageEditPart extends AbstractNodeEditPart {
         final GmAbstractObject model = getModel();
         
         fig.getParent().setConstraint(fig, model.getLayoutData());
+        
     }
 
     /**
      * Get the casted package figure.
-     * 
      * @return the package figure.
      */
     @objid ("362823ee-55b7-11e2-877f-002564c97630")
@@ -198,6 +200,7 @@ public class PackageEditPart extends AbstractNodeEditPart {
         }
         
         model.addPropertyChangeListener(this);
+        
     }
 
 }

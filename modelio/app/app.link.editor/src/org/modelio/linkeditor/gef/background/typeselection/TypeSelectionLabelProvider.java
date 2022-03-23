@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.gef.background.typeselection;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -26,8 +25,8 @@ import org.eclipse.jface.resource.JFaceResources;
 import org.eclipse.jface.resource.LocalResourceManager;
 import org.eclipse.jface.viewers.DelegatingStyledCellLabelProvider.IStyledLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
-import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.jface.viewers.StyledString;
+import org.eclipse.jface.viewers.StyledString.Styler;
 import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Font;
@@ -84,7 +83,7 @@ class TypeSelectionLabelProvider extends LabelProvider implements IStyledLabelPr
     }
 
     @objid ("c3d57e8c-b3f6-49ca-99f5-e1e910df1fb2")
-    public TypeSelectionLabelProvider(Viewer viewer) {
+    public  TypeSelectionLabelProvider(Viewer viewer) {
         LocalResourceManager res = new LocalResourceManager(JFaceResources.getResources(), viewer.getControl());
         Font auxFont = res.createFont(FontDescriptor.createFrom(viewer.getControl().getFont()).withStyle(SWT.ITALIC));
         
@@ -95,6 +94,7 @@ class TypeSelectionLabelProvider extends LabelProvider implements IStyledLabelPr
                 textStyle.foreground = UIColor.LABEL_TIP_FG;
             }
         };
+        
     }
 
     @objid ("77c4193b-4ede-40a4-87b3-79fc8edf7eda")
@@ -109,6 +109,7 @@ class TypeSelectionLabelProvider extends LabelProvider implements IStyledLabelPr
         } else {
             return new StyledString(element.toString());
         }
+        
     }
 
     @objid ("269f0a59-5d52-4cfb-b26d-35fce0f62749")

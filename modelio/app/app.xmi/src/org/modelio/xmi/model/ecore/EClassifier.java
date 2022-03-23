@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -25,7 +24,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 @objid ("86424d20-11ca-487f-9b3d-5b769336a4a7")
 public class EClassifier extends EElement {
     @objid ("8bda2bc2-1034-492a-a97f-4bc2b425b00c")
-    public EClassifier(org.eclipse.uml2.uml.Behavior element) {
+    public  EClassifier(org.eclipse.uml2.uml.Behavior element) {
         super(element);
     }
 

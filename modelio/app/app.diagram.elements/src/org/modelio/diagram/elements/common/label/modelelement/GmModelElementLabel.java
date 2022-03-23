@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.label.modelelement;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,12 +49,11 @@ public abstract class GmModelElementLabel extends GmModelElementHeader {
 
     /**
      * Initializes a model element header.
-     * 
      * @param diagram the owning diagram.
      * @param relatedRef a reference to the element this GmModel is related to.
      */
     @objid ("7e975a90-1dec-11e2-8cad-001ec947c8cc")
-    public GmModelElementLabel(IGmDiagram diagram, MRef relatedRef) {
+    public  GmModelElementLabel(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -65,7 +63,7 @@ public abstract class GmModelElementLabel extends GmModelElementHeader {
      * Use {@link #GmModelElementFlatHeader(GmAbstractDiagram, MRef)} for regular instantiation.
      */
     @objid ("7e99bcac-1dec-11e2-8cad-001ec947c8cc")
-    public GmModelElementLabel() {
+    public  GmModelElementLabel() {
         // Empty constructor to use only for deserialization.
     }
 
@@ -80,6 +78,7 @@ public abstract class GmModelElementLabel extends GmModelElementHeader {
     public void read(IDiagramReader in) {
         // nothing to be read anymore
         super.read(in);
+        
     }
 
     @objid ("7e9c1f09-1dec-11e2-8cad-001ec947c8cc")
@@ -95,6 +94,7 @@ public abstract class GmModelElementLabel extends GmModelElementHeader {
                 fireVisibilityChanged();
             }
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.helpers;
 
 import java.util.Collection;
@@ -38,7 +37,6 @@ public class UnmaskHelper {
     /**
      * Unmask an element in this viewer at the given coordinates.<br>
      * Uses a ModelElementDropRequest, to emulate a standard drag & drop of the element.
-     * 
      * @param viewer the viewer to unmask the element on.
      * @param element the element to unmask.
      * @param dropLocation the unmasking location.
@@ -58,7 +56,6 @@ public class UnmaskHelper {
      * Get a command that unmask an element in this viewer at the given coordinates.
      * <p>
      * Uses a {@link ModelElementDropRequest}, to emulate a standard drag & drop of the element.
-     * 
      * @param viewer the viewer to unmask the element on.
      * @param element the element to unmask.
      * @param dropLocation the unmasking location.
@@ -91,7 +88,6 @@ public class UnmaskHelper {
      * Get a command that unmask many elements in this viewer at the given coordinates.
      * <p>
      * Uses a {@link ModelElementDropRequest}, to emulate a standard drag & drop of the element.
-     * 
      * @param viewer the viewer to unmask the element on.
      * @param elements the element to unmask.
      * @param dropLocation the unmasking location.

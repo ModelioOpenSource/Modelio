@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.label.base;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -101,10 +100,11 @@ public class AutoFitOnEditEditPolicy extends GraphicalEditPolicy {
                     cmd.execute();
                 }
             }
+            
         }
 
         @objid ("110d35a3-61bb-42a4-80ef-9b79fd843eb9")
-        public AutoFitCommand(GraphicalEditPart editPart) {
+        public  AutoFitCommand(GraphicalEditPart editPart) {
             this.editPart = editPart;
         }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.core;
 
 import java.io.IOException;
@@ -26,10 +25,10 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Collection;
 import java.util.stream.Collectors;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Singleton;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 import org.eclipse.e4.core.di.annotations.Creatable;
@@ -136,6 +135,7 @@ public class ModelioEnv {
             AppCore.LOG.error("Failed to create Modelio runtime directories: " + FileUtils.getLocalizedMessage(e));
             AppCore.LOG.error(e);
         }
+        
     }
 
     /**
@@ -148,7 +148,6 @@ public class ModelioEnv {
 
     /**
      * Get the Modelio runtime data path inside user home directory.
-     * 
      * @return the Modelio runtime data path.
      */
     @objid ("00017610-dde4-1040-a120-001ec947cd2a")
@@ -182,7 +181,6 @@ public class ModelioEnv {
 
     /**
      * FIXME : it seems the language variant was planned to be stripped out but it is not done. I don't know whether this is intentional or not.
-     * 
      * @return Returns the string name of the current locale
      */
     @objid ("14b921c9-a69a-4e38-bb78-d860e415e682")
@@ -197,7 +195,6 @@ public class ModelioEnv {
 
     /**
      * Get all metamodel fragments provided by Modelio plugins.
-     * 
      * @return all default metamodel fragments.
      * @since 4.0
      */
@@ -211,7 +208,6 @@ public class ModelioEnv {
 
     /**
      * Get "active" metamodel fragments provided by Modelio plugins.
-     * 
      * @return a subset of the metamodel fragments returned by {@link #getAllMetamodelExtensions()}
      * @since 3.6
      */

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.collections;
 
 import java.util.ArrayList;
@@ -38,7 +37,7 @@ public class CompoundCollection<E> implements Collection<E> {
      * Initialize a new compound collection.
      */
     @objid ("ff2b1088-c1ef-11e1-92d5-001ec947ccaf")
-    public CompoundCollection() {
+    public  CompoundCollection() {
         this.content = new ArrayList<>(2);
     }
 
@@ -134,6 +133,7 @@ public class CompoundCollection<E> implements Collection<E> {
             return true;
         else
             throw new IllegalArgumentException("Argument is not part of this compound collection");
+        
     }
 
     @objid ("ff2d7306-c1ef-11e1-92d5-001ec947ccaf")

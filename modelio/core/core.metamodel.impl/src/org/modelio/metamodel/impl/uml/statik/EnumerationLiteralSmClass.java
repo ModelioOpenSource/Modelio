@@ -17,19 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
-import org.modelio.metamodel.impl.uml.statik.EnumerationLiteralData;
-import org.modelio.metamodel.impl.uml.statik.EnumerationSmClass;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.metamodel.uml.statik.Enumeration;
 import org.modelio.metamodel.uml.statik.EnumerationLiteral;
@@ -50,7 +48,7 @@ public class EnumerationLiteralSmClass extends UmlModelElementSmClass {
     private SmDependency valuatedDep;
 
     @objid ("3643d3e9-d86f-40c6-ae41-7819f95ee7c5")
-    public EnumerationLiteralSmClass(ISmMetamodelFragment origin) {
+    public  EnumerationLiteralSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -58,6 +56,7 @@ public class EnumerationLiteralSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "EnumerationLiteral";
+        
     }
 
     @objid ("1c4fdac7-9c59-4198-a272-88f94e707547")
@@ -70,18 +69,21 @@ public class EnumerationLiteralSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return EnumerationLiteral.class;
+        
     }
 
     @objid ("cf91af7e-73e1-4d8d-9250-9353c9363dda")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("9548607c-3e65-44ca-a625-f576b8841678")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("1ece4a03-ac4e-4261-9187-ac7a9183ab89")
@@ -97,6 +99,8 @@ public class EnumerationLiteralSmClass extends UmlModelElementSmClass {
         this.valuatedDep = new ValuatedSmDependency();
         this.valuatedDep.init("Valuated", this, metamodel.getMClass(Enumeration.MQNAME), 1, 1 );
         registerDependency(this.valuatedDep);
+        
+        
     }
 
     @objid ("a4a9bfbc-c6a5-4e7c-a3cd-31a57359d5ef")
@@ -113,7 +117,7 @@ public class EnumerationLiteralSmClass extends UmlModelElementSmClass {
         private EnumerationLiteralSmClass smClass;
 
         @objid ("f68a3871-eacb-4ae3-9a33-52a607456dea")
-        public EnumerationLiteralObjectFactory(EnumerationLiteralSmClass smClass) {
+        public  EnumerationLiteralObjectFactory(EnumerationLiteralSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -155,6 +159,7 @@ public class EnumerationLiteralSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((EnumerationSmClass)this.getTarget()).getValueDep();
             }
             return this.symetricDep;
+            
         }
 
     }

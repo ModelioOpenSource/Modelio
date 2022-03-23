@@ -17,19 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityActionSmClass;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.OutputPinData;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.PinSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityAction;
 import org.modelio.metamodel.uml.behavior.activityModel.OutputPin;
 import org.modelio.metamodel.uml.behavior.activityModel.Pin;
@@ -50,7 +47,7 @@ public class OutputPinSmClass extends PinSmClass {
     private SmDependency outputingDep;
 
     @objid ("eb3a60b8-d8f7-40ee-9768-4bedbd0b6f67")
-    public OutputPinSmClass(ISmMetamodelFragment origin) {
+    public  OutputPinSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -58,6 +55,7 @@ public class OutputPinSmClass extends PinSmClass {
     @Override
     public String getName() {
         return "OutputPin";
+        
     }
 
     @objid ("6744cca4-f5fb-484c-9af0-ca9a1068d21a")
@@ -70,18 +68,21 @@ public class OutputPinSmClass extends PinSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return OutputPin.class;
+        
     }
 
     @objid ("5de9a49f-7ea3-4c3a-8496-c33fc1d4a1df")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("bd6dc9a5-fb30-4641-9724-5e59deecd2bc")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("92cde2cb-0a11-4831-87fc-027be8863d7a")
@@ -97,6 +98,8 @@ public class OutputPinSmClass extends PinSmClass {
         this.outputingDep = new OutputingSmDependency();
         this.outputingDep.init("Outputing", this, metamodel.getMClass(ActivityAction.MQNAME), 0, 1 );
         registerDependency(this.outputingDep);
+        
+        
     }
 
     @objid ("39e0d501-0a60-4ae4-a32a-08217c111741")
@@ -113,7 +116,7 @@ public class OutputPinSmClass extends PinSmClass {
         private OutputPinSmClass smClass;
 
         @objid ("11c4b9ea-72c5-43e0-836a-0f5817cd8126")
-        public OutputPinObjectFactory(OutputPinSmClass smClass) {
+        public  OutputPinObjectFactory(OutputPinSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -155,6 +158,7 @@ public class OutputPinSmClass extends PinSmClass {
             	this.symetricDep = ((ActivityActionSmClass)this.getTarget()).getOutputDep();
             }
             return this.symetricDep;
+            
         }
 
     }

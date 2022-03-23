@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.participant;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -26,7 +25,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  * This class provides the StyleKey constants for a {@link GmBpmnParticipantPortContainer} when its representation mode is RepresentationMode.STRUCTURED
  */
 @objid ("04049d16-512b-4361-b03d-1ff7204e722a")
-class ParticipantSymbolViewModel {
-
-// FIXME to be filled
+class ParticipantSymbolViewModel {// FIXME to be filled
+    
 }

@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.handlers.copy;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
@@ -39,8 +38,8 @@ import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.metamodel.uml.statik.Operation;
 import org.modelio.metamodel.uml.statik.Parameter;
-import org.modelio.platform.model.ui.swt.copy.PasteElementObject.PasteType;
 import org.modelio.platform.model.ui.swt.copy.PasteElementObject;
+import org.modelio.platform.model.ui.swt.copy.PasteElementObject.PasteType;
 import org.modelio.platform.model.ui.swt.copy.PasteElementTransfer;
 import org.modelio.platform.model.ui.swt.copy.TransferItem;
 import org.modelio.platform.project.services.IProjectService;
@@ -63,7 +62,6 @@ public class PasteElementHandler {
 
     /**
      * Available only when the selection contains only one modifiable element.
-     * 
      * @param selection the current modelio selection.
      * @param currentDisplay the SWT display
      * @return true if the handler can be executed.
@@ -144,7 +142,6 @@ public class PasteElementHandler {
 
     /**
      * Cut the currently selected elements.
-     * 
      * @param selection the current modelio selection.
      * @param currentDisplay the display Modelio runs into.
      */
@@ -255,6 +252,7 @@ public class PasteElementHandler {
                 }
             }
         }
+        
     }
 
     @objid ("b1f0a348-54c7-11e2-ae63-002564c97630")
@@ -265,6 +263,7 @@ public class PasteElementHandler {
         MessageDialog.openError(null, title, e.getLocalizedMessage());
         
         DiagramBrowser.LOG.error(e);
+        
     }
 
     @objid ("b1f0a34b-54c7-11e2-ae63-002564c97630")

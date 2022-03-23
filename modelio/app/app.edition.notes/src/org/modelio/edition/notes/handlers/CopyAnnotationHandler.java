@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.handlers;
 
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.model.application.ui.basic.MPart;
@@ -37,7 +36,7 @@ import org.modelio.platform.project.services.IProjectService;
 @objid ("28109be5-70e7-4767-9f6e-1de540602928")
 public class CopyAnnotationHandler {
     @objid ("34878d76-645c-4962-84d2-59325c79d360")
-     boolean ctrlFlag;
+    boolean ctrlFlag;
 
     @objid ("72df8357-313e-4e84-a22e-95ab20fa4246")
     @Inject
@@ -45,7 +44,6 @@ public class CopyAnnotationHandler {
 
     /**
      * Available only when the selected elements is not empty.
-     * 
      * @param part the current active part.
      * @return true if the handler can be executed.
      */
@@ -77,7 +75,6 @@ public class CopyAnnotationHandler {
 
     /**
      * Copy the currently selected elements.
-     * 
      * @param part the current active part.
      * @param currentDisplay the display Modelio runs into.
      */
@@ -87,6 +84,7 @@ public class CopyAnnotationHandler {
         NotesPanelProvider notesPanel = ((NotesView) part.getObject()).getNotesPanel();
         NotesPanelController controller = notesPanel.getController();
         controller.onCopy();
+        
     }
 
 }

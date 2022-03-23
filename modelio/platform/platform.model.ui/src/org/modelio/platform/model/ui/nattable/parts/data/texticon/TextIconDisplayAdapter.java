@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.texticon;
 
 import java.util.Date;
@@ -95,7 +94,6 @@ import org.modelio.vcore.smkernel.meta.SmDependency;
 public class TextIconDisplayAdapter {
     /**
      * Convert a String value to an actual object.
-     * 
      * @param type value's class type. Might be <code>null</code>, using String
      * as default type.
      * @param value the value to convert. Might be <code>null</code>.
@@ -175,11 +173,11 @@ public class TextIconDisplayAdapter {
             return value;
         
         }
+        
     }
 
     /**
      * Convert an object to a String representation.
-     * 
      * @param type value's class type. Might be <code>null</code>, using
      * <code>value.getClass()</code> as default type.
      * @param value the value to convert. Might be <code>null</code>.
@@ -246,6 +244,7 @@ public class TextIconDisplayAdapter {
                 return value.toString();
             }
         }
+        
     }
 
 }

@@ -14,14 +14,14 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.command.standard;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.modelio.api.modelio.model.IDefaultNameService;
 import org.modelio.api.modelio.model.IModelingSession;
 import org.modelio.api.modelio.model.ITransaction;
 import org.modelio.api.modelio.model.IUmlModel;
@@ -32,6 +32,14 @@ import org.modelio.api.module.context.IModuleContext;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
+import org.modelio.metamodel.uml.statik.Association;
+import org.modelio.metamodel.uml.statik.AssociationEnd;
+import org.modelio.metamodel.uml.statik.BindableInstance;
+import org.modelio.metamodel.uml.statik.Classifier;
+import org.modelio.metamodel.uml.statik.Connector;
+import org.modelio.metamodel.uml.statik.ConnectorEnd;
+import org.modelio.metamodel.uml.statik.Link;
+import org.modelio.metamodel.uml.statik.LinkEnd;
 import org.modelio.vcore.model.api.MTools;
 import org.modelio.vcore.smkernel.mapi.MDependency;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -89,7 +97,8 @@ public class ElementCreationStandardHandler extends DefaultModuleCommandHandler 
      * Default constructor.
      */
     @objid ("a93e0001-2d2a-49e7-b274-37e1add6fdb7")
-    public ElementCreationStandardHandler() {
+    public  ElementCreationStandardHandler() {
+        
     }
 
     @objid ("eb1d0f60-bd1f-479b-ad33-d44900eb029e")
@@ -100,13 +109,41 @@ public class ElementCreationStandardHandler extends DefaultModuleCommandHandler 
         String handlerLabel = moduleContext.getI18nSupport().getString(getName());
         
         try (ITransaction tr = modelingSession.createTransaction("Create <<" + getStereotype() + ">> " + getMetaclass())) {
+            ModelElement parent = (ModelElement) selectedElements.get(0);
+            IUmlModel modelFactory = modelingSession.getModel();
+            IDefaultNameService mmNamer = modelFactory.getDefaultNameService();
         
             // Create new instance of the element
-            IUmlModel modelFactory = modelingSession.getModel();
-            MObject newElement = modelFactory.createElement(getMetaclass());
+            MObject newElement = null;
+            if (getMetaclass().equals(AssociationEnd.MQNAME)) {
+                Association association = modelFactory.createAssociation((Classifier) parent, (Classifier) parent, "");
+                for (AssociationEnd end : association.getEnd()) {
+                    if (end.isNavigable()) {
+                        newElement = end;
+                        break;
+                    }
+                }
+            } else if (getMetaclass().equals(LinkEnd.MQNAME)) {
+                Link link = modelFactory.createLink((BindableInstance) parent, (BindableInstance) parent, "");
+                for (LinkEnd end : link.getLinkEnd()) {
+                    if (end.isNavigable()) {
+                        newElement = end;
+                        break;
+                    }
+                }
+            } else if (getMetaclass().equals(ConnectorEnd.MQNAME)) {
+                Connector connector = modelFactory.createConnector((BindableInstance) parent, (BindableInstance) parent, "");
+                for (LinkEnd end : connector.getLinkEnd()) {
+                    if (end.isNavigable()) {
+                        newElement = end;
+                        break;
+                    }
+                }
+            } else {
+                newElement = modelFactory.createElement(getMetaclass());
+            }
         
             // Put new instance "under" its parent.
-            ModelElement parent = (ModelElement) selectedElements.get(0);
             if (newElement instanceof AbstractDiagram) {
                 ((AbstractDiagram) newElement).setOrigin(parent);
                 // Apply stereotype (if any).
@@ -117,10 +154,10 @@ public class ElementCreationStandardHandler extends DefaultModuleCommandHandler 
                     }
                 }
         
-                modelFactory.getDefaultNameService().setDefaultName((ModelElement) newElement, handlerLabel);
+                mmNamer.setDefaultName((ModelElement) newElement, handlerLabel);
         
                 postConfigureElement(newElement, module);
-            } else {
+            } else if (newElement != null) {
                 // Get dependency by name.
                 MDependency dependency = parent.getMClass().getDependency(getRelation());
                 if (dependency == null) {
@@ -146,7 +183,7 @@ public class ElementCreationStandardHandler extends DefaultModuleCommandHandler 
                         }
                     }
         
-                    modelFactory.getDefaultNameService().setDefaultName((ModelElement) newElement, handlerLabel);
+                    mmNamer.setDefaultName((ModelElement) newElement, handlerLabel);
         
                     MTools.get(newElement).getConfigurator().configure(newElement, new HashMap<String, Object>());
         
@@ -164,6 +201,7 @@ public class ElementCreationStandardHandler extends DefaultModuleCommandHandler 
                 tr.rollback();
             }
         }
+        
     }
 
     @objid ("4161d8db-de05-4aa4-88de-ff5ce1cbbdf7")
@@ -183,7 +221,6 @@ public class ElementCreationStandardHandler extends DefaultModuleCommandHandler 
      * <p>
      * Deleting "newElement" in this method triggers an automatic rollback for the current transaction.
      * </p>
-     * 
      * @param newElement the new created element
      * @param module the module
      */
@@ -215,6 +252,7 @@ public class ElementCreationStandardHandler extends DefaultModuleCommandHandler 
                 continue;
             }
         }
+        
     }
 
     /**

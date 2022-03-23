@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.naryassoc;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -54,21 +53,21 @@ public class GmNaryRoleNameLabel extends GmDefaultModelElementLabel {
      * Constructor for deserialization only.
      */
     @objid ("a64ca64e-08bf-4d10-9847-b27fd1666610")
-    public GmNaryRoleNameLabel() {
+    public  GmNaryRoleNameLabel() {
         // Nothing to do.
     }
 
     /**
      * Creates a role name label.
-     * 
      * @param diagram the owning diagram.
      * @param role The represented role, may be null.
      * @param ref the represented role reference, must not be null.
      */
     @objid ("931f701c-4921-4e3d-a157-e99968139f57")
-    public GmNaryRoleNameLabel(IGmDiagram diagram, NaryAssociationEnd role, MRef ref) {
+    public  GmNaryRoleNameLabel(IGmDiagram diagram, NaryAssociationEnd role, MRef ref) {
         super(diagram, ref);
         this.role = role;
+        
     }
 
     @objid ("f2d43777-6569-4617-a7e1-000635789242")
@@ -100,12 +99,13 @@ public class GmNaryRoleNameLabel extends GmDefaultModelElementLabel {
             break;
         }
         default: {
-            assert (false) : "version number not covered!";
+            assert false : "version number not covered!";
             // reading as last handled version: 0
             read_0(in);
             break;
         }
         }
+        
     }
 
     @objid ("ddc2376a-40bc-4ed9-aaf6-a83c7e088165")
@@ -130,7 +130,12 @@ public class GmNaryRoleNameLabel extends GmDefaultModelElementLabel {
 
     @objid ("d98a08a4-5ddf-4bed-ad75-6766cf3c25e9")
     private boolean isRoleVisible() {
-        return this.getDisplayedStyle().getProperty(NAssocStructuredStyleKeys.SHOWROLES);
+        if (getParent() != null) {
+            return getDisplayedStyle().getProperty(NAssocStructuredStyleKeys.SHOWROLES);
+        } else {
+            return false;
+        }
+        
     }
 
     @objid ("3fd71ed5-1c43-42bb-9eab-58d71a39c624")
@@ -140,12 +145,14 @@ public class GmNaryRoleNameLabel extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmNaryRoleNameLabel.", GmNaryRoleNameLabel.MINOR_VERSION);
+        
     }
 
     @objid ("6167c3c0-0cd7-470d-a292-654df9a59ad2")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.role = (NaryAssociationEnd) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("9d2bc021-82b4-4b42-a56a-3707c41632e1")

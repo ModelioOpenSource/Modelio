@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.join;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -57,7 +56,7 @@ public class GmJoinStructuredStyleKeys extends StateAbstractStyleKeyProvider {
 
     @objid ("817839d9-55c2-11e2-9337-002564c97630")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("JOIN_SHOWSTEREOTYPES",
-                                                                  MetaKey.SHOWSTEREOTYPES);
+                                                                          MetaKey.SHOWSTEREOTYPES);
 
     @objid ("817839db-55c2-11e2-9337-002564c97630")
     public static final StyleKey SHOWTAGS = createStyleKey("JOIN_SHOWTAGS", MetaKey.SHOWTAGS);

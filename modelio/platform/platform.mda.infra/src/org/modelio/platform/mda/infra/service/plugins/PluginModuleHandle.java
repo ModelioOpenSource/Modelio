@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.plugins;
 
 import java.io.IOException;
@@ -56,7 +55,7 @@ public class PluginModuleHandle implements IModuleHandle, Comparable<Object> {
     private final Bundle plugin;
 
     @objid ("2b1ec1e5-d03a-4357-a261-b892a3bcbc26")
-    public PluginModuleHandle(Bundle plugin, IModuleHandle fileHandle, boolean isMandatory) throws IOException {
+    public  PluginModuleHandle(Bundle plugin, IModuleHandle fileHandle, boolean isMandatory) throws IOException {
         this.plugin = plugin;
         this.fileHandle = fileHandle;
         this.isMandatory = isMandatory;
@@ -72,6 +71,7 @@ public class PluginModuleHandle implements IModuleHandle, Comparable<Object> {
         } catch (URISyntaxException e) {
             throw (MalformedURLException) new MalformedURLException(e.getMessage()).initCause(e);
         }
+        
     }
 
     @objid ("cac33caa-b40d-4bce-ba91-a95141cbe924")

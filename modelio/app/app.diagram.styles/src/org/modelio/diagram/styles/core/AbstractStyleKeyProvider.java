@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.core;
 
 import java.lang.reflect.AccessibleObject;
@@ -63,7 +62,6 @@ public abstract class AbstractStyleKeyProvider {
 
     /**
      * Get the {@link StyleKey} corresponding to the given {@link MetaKey}.
-     * 
      * @param metakey The meta key, must not be null.
      * @return the found style key, or null if none found.
      */
@@ -79,7 +77,6 @@ public abstract class AbstractStyleKeyProvider {
 
     /**
      * Get all declared style keys.
-     * 
      * @return all declared style keys.
      */
     @objid ("85479adb-1926-11e2-92d2-001ec947c8cc")
@@ -94,7 +91,6 @@ public abstract class AbstractStyleKeyProvider {
 
     /**
      * Build a symbol view model for this style key provider to edit a named/shared style.
-     * 
      * @param style the edited style
      * @return the built symbol view model.
      */
@@ -105,7 +101,6 @@ public abstract class AbstractStyleKeyProvider {
 
     /**
      * Find the declared style keys in the class and its inner classes, and add them to the {@link #allKeys} list.
-     * 
      * @param obj The AbstractStyleKeyProvider object or class to scan
      */
     @objid ("85479ae8-1926-11e2-92d2-001ec947c8cc")
@@ -148,6 +143,7 @@ public abstract class AbstractStyleKeyProvider {
         for (final Class<?> innerClass : aClass.getClasses()) {
             scanForStyleKeys(innerClass);
         }
+        
     }
 
 }

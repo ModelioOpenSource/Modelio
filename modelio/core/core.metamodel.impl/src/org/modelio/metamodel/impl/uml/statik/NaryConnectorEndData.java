@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,7 +30,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 @objid ("00789d08-17e8-10a1-88a0-001ec947cd2a")
 public class NaryConnectorEndData extends NaryLinkEndData {
     @objid ("03eebe74-1e9b-487e-b7b5-4f1d1ffd86ba")
-    public NaryConnectorEndData(NaryConnectorEndSmClass smClass) {
+    public  NaryConnectorEndData(NaryConnectorEndSmClass smClass) {
         super(smClass);
     }
 

@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.handlers;
 
 import java.util.List;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
@@ -60,6 +59,7 @@ public class ImportProfile {
         
         final SwtWizardImportProfile dialog = new SwtWizardImportProfile(activeShell, progressService, projectService);
         dialog.open();
+        
     }
 
     @objid ("125143f3-0d73-4016-a5b4-20967d8f90a6")
@@ -79,6 +79,7 @@ public class ImportProfile {
         return ((! selectedElements.isEmpty())
                 && (selectedElements.size() == 1)
                 && (selectedElements.get(0) instanceof ModuleComponent));
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.bpmn;
 
 import java.util.Collection;
@@ -37,7 +36,7 @@ public class BpmnMessageFlowDG extends DiagramLink {
      * @param link The graphic model link represented by this class.
      */
     @objid ("57028a04-1032-4918-a607-87c290d2feed")
-    public BpmnMessageFlowDG(DiagramHandle diagramHandle, IGmLink link) {
+    public  BpmnMessageFlowDG(DiagramHandle diagramHandle, IGmLink link) {
         super(diagramHandle, link);
     }
 

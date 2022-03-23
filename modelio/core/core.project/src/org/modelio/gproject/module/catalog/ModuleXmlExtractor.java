@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.module.catalog;
 
 import java.io.IOException;
@@ -32,14 +31,14 @@ import java.util.List;
 import java.util.Map;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.gproject.data.module.JaxbModelPersistence;
+import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Dependencies.Jxbv2Optional;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Dependencies.Jxbv2Required;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2MetamodelFragments.Jxbv2MetamodelFragment;
-import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Resources.Jxbv2Styles.Jxbv2Style;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Resources;
-import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module;
-import org.modelio.gproject.data.module.jaxbv2.Jxbv2MultiPathes.Jxbv2PathEntry;
+import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Resources.Jxbv2Styles.Jxbv2Style;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2MultiPathes;
+import org.modelio.gproject.data.module.jaxbv2.Jxbv2MultiPathes.Jxbv2PathEntry;
 import org.modelio.gproject.module.IMetamodelFragmentHandle;
 import org.modelio.gproject.module.IModuleHandle;
 import org.modelio.gproject.module.MetamodelFragmentHandle;
@@ -78,15 +77,15 @@ public class ModuleXmlExtractor {
 
     /**
      * @param datapath the module path : the directory containing module.xml
-     * 
      * @param targetPath the path where to extract the files
      * @param metamodelFragments the metamodel fragments
      */
     @objid ("839ddfdb-fe54-4c46-b1d9-0e97ff465367")
-    public ModuleXmlExtractor(Path moduleXmlPath, Path targetPath, Collection<IGMetamodelExtension> metamodelFragments) {
+    public  ModuleXmlExtractor(Path moduleXmlPath, Path targetPath, Collection<IGMetamodelExtension> metamodelFragments) {
         this.moduleXmlPath = moduleXmlPath;
         this.targetPath = targetPath;
         this.metamodelExtensions = metamodelFragments;
+        
     }
 
     @objid ("89d27df9-7e59-4afd-bcb5-be273838a107")
@@ -101,6 +100,7 @@ public class ModuleXmlExtractor {
                             FileUtils.getLocalizedMessage(e)),
                     e);
         }
+        
     }
 
     @objid ("fe467c75-d4a3-41dc-b368-23b4b56bd1c5")
@@ -140,6 +140,7 @@ public class ModuleXmlExtractor {
         
         // Save simplified xml file
         JaxbModelPersistence.saveJaxbModel(infosModel, infosPath);
+        
     }
 
     /**
@@ -206,15 +207,15 @@ public class ModuleXmlExtractor {
             e2.initCause(e);
             throw e2;
         }
+        
     }
 
     /**
      * Extract the dynamic part of the module model in another file ?
-     * 
      * @param moduleDynamicModelPath path of the file to write
      * @param loadedModule the JAXB module model
      * @param monitor a progress monitor
-     * @throws java.io.IOException in case of failure
+     * @throws IOException in case of failure
      */
     @objid ("d2a6a04b-1e3b-4732-98f9-d5fe779faaa1")
     private void extractDynamicModel(Path moduleDynamicModelPath, Jxbv2Module loadedModule, IModelioProgress monitor) throws IOException {
@@ -244,17 +245,17 @@ public class ModuleXmlExtractor {
         JaxbModelPersistence.saveJaxbModel(dynamicModel, moduleDynamicModelPath);
         
         monitor.done();
+        
     }
 
     /**
      * Get a module handle for a module cache directory containing "moduleInfos.xml".
-     * 
      * @param monitor the progress monitor to use for reporting progress to the user.
      * It is the caller's responsibility to call <code>done()</code> on the given monitor.
      * Accepts <code>null</code>, indicating that no progress should be reported and that
      * the operation cannot be cancelled.
      * @return the module handle
-     * @throws java.io.IOException in case of failure.
+     * @throws IOException in case of failure.
      */
     @objid ("aac13b45-ced4-4242-9bb3-f54dea2087ba")
     public IModuleHandle getModuleHandle(IModelioProgress monitor) throws IOException {
@@ -306,14 +307,13 @@ public class ModuleXmlExtractor {
     private static class HandleFactory {
         /**
          * Get the module handle for a module cache directory containing "moduleInfos.xml"
-         * 
          * @param monitor the progress monitor to use for reporting progress to the user.
          * It is the caller's responsibility to call <code>done()</code> on the given monitor.
          * Accepts <code>null</code>, indicating that no progress should be reported and that
          * the operation cannot be cancelled.
          * @param moduleCachePath the directory containing moduleInfos.xml .
          * @return the module handle
-         * @throws java.io.IOException in case of failure.
+         * @throws IOException in case of failure.
          */
         @objid ("a777d26f-257e-4193-a318-37218dfda44c")
         public IModuleHandle getModuleHandle(IModelioProgress monitor, Path moduleCachePath) throws IOException {
@@ -330,6 +330,7 @@ public class ModuleXmlExtractor {
                 e2.initCause(e);
                 throw e2;
             }
+            
         }
 
         @objid ("2c95c277-f37d-11e1-a3c7-002564c97630")
@@ -404,6 +405,7 @@ public class ModuleXmlExtractor {
             monitor.done();
             return new FileModuleStoreHandle(moduleCachePath, name, moduleVersion, uid, mainClassName, binaryVersion,
                                 dependencies, weakDependencies, docPaths, jarPaths, stylePaths, metamodelFragments);
+            
         }
 
         @objid ("90f5289c-e966-471d-b494-68f9e12ba9e6")
@@ -420,6 +422,7 @@ public class ModuleXmlExtractor {
             
                 throw new IOException(msg, e);
             }
+            
         }
 
     }
@@ -427,7 +430,7 @@ public class ModuleXmlExtractor {
     @objid ("3a72a3bb-d75d-4c8a-8bb5-ffdd9baa960d")
     static class LazyModelioProgress implements IModelioProgress {
         @objid ("4fc8c649-d2f3-43a0-a7d4-3067386512cb")
-         boolean parentStarted;
+        boolean parentStarted;
 
         @objid ("951296f3-cb2a-440f-bb2c-d7ea6d6de527")
         private IModelioProgress parent;
@@ -441,6 +444,7 @@ public class ModuleXmlExtractor {
             this.startData = new Data();
             this.startData.name = name;
             this.startData.totalWork = totalWork;
+            
         }
 
         @objid ("ee149759-99c5-4f57-8896-d8674c816d08")
@@ -449,6 +453,7 @@ public class ModuleXmlExtractor {
             if (this.parentStarted) {
                 this.parent.done();
             }
+            
         }
 
         @objid ("0b007c99-4037-4675-86d1-8f47430426d9")
@@ -456,6 +461,7 @@ public class ModuleXmlExtractor {
         public void internalWorked(double work) {
             startParent();
             this.parent.internalWorked(work);
+            
         }
 
         @objid ("79bbd72a-2d20-4d78-90f5-c32375873daa")
@@ -469,6 +475,7 @@ public class ModuleXmlExtractor {
             if (this.startData.subTask != null) {
                 this.parent.subTask(this.startData.subTask);
             }
+            
         }
 
         @objid ("780f4051-c3c1-4423-aea1-894523a1d55c")
@@ -491,6 +498,7 @@ public class ModuleXmlExtractor {
             } else {
                 this.startData.name = name;
             }
+            
         }
 
         @objid ("39915d3e-6c0e-46f2-b21b-019afa329453")
@@ -501,6 +509,7 @@ public class ModuleXmlExtractor {
             } else {
                 this.startData.subTask = name;
             }
+            
         }
 
         @objid ("c1454c63-df2c-4cba-8667-8809fd50217f")
@@ -508,18 +517,19 @@ public class ModuleXmlExtractor {
         public void worked(int work) {
             startParent();
             this.parent.worked(work);
+            
         }
 
         @objid ("72bc6466-4452-4b2d-b934-e023b47380a8")
         private static class Data {
             @objid ("093b601f-dfca-49e1-945f-ad5b7b2ebb12")
-             String name;
+            String name;
 
             @objid ("6017216b-02bf-43ca-a93f-104308ce05b8")
-             String subTask;
+            String subTask;
 
             @objid ("41fe3fa8-520f-49b9-8172-42c3e3b90ec8")
-             int totalWork;
+            int totalWork;
 
         }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.fragment.ramcfile;
 
 import java.io.IOException;
@@ -45,14 +44,13 @@ import org.modelio.vcore.smkernel.mapi.MetamodelVersionDescriptor;
 public class UnsupportedMdaFragment extends AbstractFragment {
     /**
      * Initialize the MDA fragment
-     * 
      * @param id the fragment ID
      * @param definitionScope the definition scope
      * @param properties the properties
      * @param authConf the authentication data
      */
     @objid ("08d11feb-2dc9-4fb7-be22-73c5f2af387c")
-    public UnsupportedMdaFragment(final String id, final DefinitionScope definitionScope, final GProperties properties, final GAuthConf authConf) {
+    public  UnsupportedMdaFragment(final String id, final DefinitionScope definitionScope, final GProperties properties, final GAuthConf authConf) {
         super(id, definitionScope, properties, authConf);
     }
 

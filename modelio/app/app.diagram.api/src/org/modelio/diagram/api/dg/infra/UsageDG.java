@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.api.dg.infra;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,7 @@ public class UsageDG extends DependencyDG {
      * @param link The gm link represented by this class.
      */
     @objid ("90e7915d-f819-4745-9995-c33fe969d210")
-    public UsageDG(DiagramHandle diagramHandle, IGmLink link) {
+    public  UsageDG(DiagramHandle diagramHandle, IGmLink link) {
         super(diagramHandle, link);
     }
 

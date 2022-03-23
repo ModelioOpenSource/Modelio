@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.project;
 
 import java.io.Serializable;
@@ -132,11 +131,10 @@ public final class ModuleDescriptor implements Serializable {
 
     /**
      * Copy descriptor.
-     * 
      * @param md the descriptor to copy.
      */
     @objid ("6b3e8a2e-115c-11e2-8a4f-001ec947ccaf")
-    public ModuleDescriptor(ModuleDescriptor md) {
+    public  ModuleDescriptor(ModuleDescriptor md) {
         this.name = md.name;
         this.version = md.version;
         this.archiveLocation = md.archiveLocation;
@@ -150,13 +148,14 @@ public final class ModuleDescriptor implements Serializable {
         else {
             this.auth = new AuthDescriptor(null, DefinitionScope.LOCAL); // should not happen
         }
+        
     }
 
     /**
      * Package private default constructor.
      */
     @objid ("6b3e8a32-115c-11e2-8a4f-001ec947ccaf")
-    public ModuleDescriptor() {
+    public  ModuleDescriptor() {
         // nothing
     }
 
@@ -164,7 +163,6 @@ public final class ModuleDescriptor implements Serializable {
      * Get the definition scope.
      * <p>
      * The module may be defined locally or on a server.
-     * 
      * @return the definition scope.
      */
     @objid ("6389bb8d-3004-11e2-8f81-001ec947ccaf")
@@ -174,7 +172,6 @@ public final class ModuleDescriptor implements Serializable {
 
     /**
      * Set the definition scope.
-     * 
      * @param scope the definition scope.
      */
     @objid ("6389bb92-3004-11e2-8f81-001ec947ccaf")
@@ -190,6 +187,7 @@ public final class ModuleDescriptor implements Serializable {
         return this.name != null && ! this.name.isEmpty() &&
                         this.scope != null &&
                         this.version != null ;
+        
     }
 
     @objid ("33ed38cc-e3d8-4963-96c8-7f3a2e6878cb")
@@ -271,7 +269,6 @@ public final class ModuleDescriptor implements Serializable {
      * Get the authentication data descriptor.
      * <p>
      * Never return <i><code>null</code></i> .
-     * 
      * @return the authentication data descriptor.
      */
     @objid ("09d6655e-b593-4e55-9bd0-031c4c5e2905")
@@ -281,7 +278,6 @@ public final class ModuleDescriptor implements Serializable {
 
     /**
      * Set the authentication descriptor.
-     * 
      * @param auth the authentication descriptor
      */
     @objid ("c48a676c-e88f-4de6-bf15-a365fdd4d4e1")
@@ -299,7 +295,6 @@ public final class ModuleDescriptor implements Serializable {
 
     /**
      * Set whether the module is activated.
-     * 
      * @param activated whether the module is activated.
      */
     @objid ("e67e65e5-c4f4-4237-b973-670b49e9a33f")

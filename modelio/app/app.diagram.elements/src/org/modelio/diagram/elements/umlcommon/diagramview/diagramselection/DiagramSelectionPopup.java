@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.umlcommon.diagramview.diagramselection;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -62,12 +61,11 @@ public class DiagramSelectionPopup extends ModelioDialog {
 
     /**
      * C'tor.
-     * 
      * @param shell The shell to use to create this dialog.
      * @param model The model to use for this popup.
      */
     @objid ("c9ccdcf3-dcef-4a78-af5f-bfc7e9d06d41")
-    public DiagramSelectionPopup(final Shell shell, final DiagramSelectionModel model) {
+    public  DiagramSelectionPopup(final Shell shell, final DiagramSelectionModel model) {
         super(shell);
         this.model = model;
         setShellStyle(SWT.TITLE |
@@ -75,6 +73,7 @@ public class DiagramSelectionPopup extends ModelioDialog {
                 SWT.BORDER |
                 SWT.APPLICATION_MODAL |
                 Window.getDefaultOrientation());
+        
     }
 
     @objid ("bf427f04-6d1f-4653-ac00-35318d97dc66")
@@ -118,6 +117,7 @@ public class DiagramSelectionPopup extends ModelioDialog {
     public void addButtonsInButtonBar(final Composite parent) {
         this.okButton = createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL, true);
         createButton(parent, IDialogConstants.CANCEL_ID, IDialogConstants.CANCEL_LABEL, false);
+        
     }
 
     @objid ("fb594973-30de-4142-afc9-4481a362932a")
@@ -130,6 +130,7 @@ public class DiagramSelectionPopup extends ModelioDialog {
         
         // Set minimum size
         getShell().setMinimumSize(400, 300);
+        
     }
 
     @objid ("b6d2e91e-e3b5-48fb-ab79-6d5f71075216")
@@ -150,7 +151,7 @@ public class DiagramSelectionPopup extends ModelioDialog {
     @objid ("9c7c0f83-1419-443e-bde8-a0dd143b8c37")
     private static class TypeSelectionLabelProvider extends LabelProvider {
         @objid ("7623c44e-0182-4e76-91fa-234c1d1e3a27")
-        public TypeSelectionLabelProvider() {
+        public  TypeSelectionLabelProvider() {
             super();
         }
 
@@ -180,7 +181,7 @@ public class DiagramSelectionPopup extends ModelioDialog {
     @objid ("76ef302b-abcf-43d4-9b7c-d70421f1d1b4")
     private static class TypeSelectionContentProvider implements ITreeContentProvider {
         @objid ("8b4d786f-1ae3-4bba-a9da-320663e2714b")
-        public TypeSelectionContentProvider() {
+        public  TypeSelectionContentProvider() {
             super();
         }
 

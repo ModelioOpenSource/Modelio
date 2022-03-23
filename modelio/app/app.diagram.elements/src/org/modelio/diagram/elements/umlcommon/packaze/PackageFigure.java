@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.umlcommon.packaze;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -75,7 +74,7 @@ public class PackageFigure extends Figure implements IPenOptionsSupport, IBrushO
      * Creates a package figure.
      */
     @objid ("8194ad3b-1dec-11e2-8cad-001ec947c8cc")
-    public PackageFigure() {
+    public  PackageFigure() {
         // init text and line pen support
         this.penOptions = new PenOptions();
         
@@ -113,6 +112,7 @@ public class PackageFigure extends Figure implements IPenOptionsSupport, IBrushO
         updateBorders();
         
         setOpaque(false);
+        
     }
 
     @objid ("81970f87-1dec-11e2-8cad-001ec947c8cc")
@@ -159,7 +159,6 @@ public class PackageFigure extends Figure implements IPenOptionsSupport, IBrushO
 
     /**
      * Set the content figure that will be placed in the content area.
-     * 
      * @param figure the content figure.
      */
     @objid ("81970fb1-1dec-11e2-8cad-001ec947c8cc")
@@ -171,6 +170,7 @@ public class PackageFigure extends Figure implements IPenOptionsSupport, IBrushO
         if (figure != null) {
             this.contentsArea.add(figure, BorderLayout.CENTER);
         }
+        
     }
 
     @objid ("81970fb7-1dec-11e2-8cad-001ec947c8cc")
@@ -178,13 +178,13 @@ public class PackageFigure extends Figure implements IPenOptionsSupport, IBrushO
     public void setFillColor(Color fillColor) {
         this.headerArea.setFillColor(fillColor);
         this.contentsArea.setFillColor(fillColor);
+        
     }
 
     /**
      * Set the header figure.
      * <p>
      * The header figure will be placed in the header area.
-     * 
      * @param figure the new header figure.
      */
     @objid ("81970fbb-1dec-11e2-8cad-001ec947c8cc")
@@ -197,6 +197,7 @@ public class PackageFigure extends Figure implements IPenOptionsSupport, IBrushO
             this.headerArea.add(figure, BorderLayout.LEFT);
             figure.setBackgroundColor(ColorConstants.red);
         }
+        
     }
 
     @objid ("81970fc1-1dec-11e2-8cad-001ec947c8cc")
@@ -204,6 +205,7 @@ public class PackageFigure extends Figure implements IPenOptionsSupport, IBrushO
     public void setLineColor(Color lineColor) {
         this.penOptions.lineColor = lineColor;
         updateBorders();
+        
     }
 
     @objid ("81970fc5-1dec-11e2-8cad-001ec947c8cc")
@@ -211,6 +213,7 @@ public class PackageFigure extends Figure implements IPenOptionsSupport, IBrushO
     public void setLinePattern(LinePattern linePattern) {
         this.penOptions.linePattern = linePattern;
         updateBorders();
+        
     }
 
     @objid ("81970fc9-1dec-11e2-8cad-001ec947c8cc")
@@ -218,6 +221,7 @@ public class PackageFigure extends Figure implements IPenOptionsSupport, IBrushO
     public void setLineWidth(int lineWidth) {
         this.penOptions.lineWidth = lineWidth;
         updateBorders();
+        
     }
 
     @objid ("81970fcd-1dec-11e2-8cad-001ec947c8cc")
@@ -237,6 +241,7 @@ public class PackageFigure extends Figure implements IPenOptionsSupport, IBrushO
     public void setUseGradient(boolean useGradient) {
         this.contentsArea.setUseGradient(useGradient);
         this.headerArea.setUseGradient(useGradient);
+        
     }
 
     @objid ("81970fd9-1dec-11e2-8cad-001ec947c8cc")
@@ -249,6 +254,7 @@ public class PackageFigure extends Figure implements IPenOptionsSupport, IBrushO
         final LineBorder contentLineBorder = new LineBorder(this.penOptions.lineColor, this.penOptions.lineWidth);
         contentLineBorder.setStyle(getLinePattern().toSWTConstant());
         this.contentsArea.setBorder(new CompoundBorder(contentLineBorder, new MarginBorder(1)));
+        
     }
 
     @objid ("81970fdb-1dec-11e2-8cad-001ec947c8cc")
@@ -326,6 +332,7 @@ public class PackageFigure extends Figure implements IPenOptionsSupport, IBrushO
             
                 headerAreaFigure.setBounds(headerAreaBounds);
             }
+            
         }
 
         @objid ("819971ed-1dec-11e2-8cad-001ec947c8cc")
@@ -361,6 +368,7 @@ public class PackageFigure extends Figure implements IPenOptionsSupport, IBrushO
             } else {
                 return new Dimension(0, 0);
             }
+            
         }
 
         /**
@@ -386,7 +394,7 @@ public class PackageFigure extends Figure implements IPenOptionsSupport, IBrushO
          * Needed empty constructor.
          */
         @objid ("54349f11-32ea-404d-968f-516fc8b755fe")
-        public HeaderAreaLayout() {
+        public  HeaderAreaLayout() {
             super();
         }
 

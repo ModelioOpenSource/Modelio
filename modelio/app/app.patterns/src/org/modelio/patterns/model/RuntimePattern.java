@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.model;
 
 import java.io.File;
@@ -37,10 +36,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.jar.JarEntry;
 import java.util.jar.JarInputStream;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.URIUtil;
@@ -51,8 +50,8 @@ import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.mda.Project;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.statik.Package;
-import org.modelio.patterns.exporter.PatternModelAnalysis.ReportStringParameter;
 import org.modelio.patterns.exporter.PatternModelAnalysis;
+import org.modelio.patterns.exporter.PatternModelAnalysis.ReportStringParameter;
 import org.modelio.patterns.exporter.impl.PatternExporter;
 import org.modelio.patterns.model.ProfileUtils.ParameterModelData;
 import org.modelio.patterns.model.ProfileUtils.PatternDesignerTagTypes;
@@ -94,27 +93,26 @@ public class RuntimePattern implements Comparable<RuntimePattern> {
 
     /**
      * Build a new PatternData instance from a model element.
-     * 
      * @param modelPattern can be an existing model pattern or any other element.
      */
     @objid ("9ec8fa2d-024f-4796-bec4-43863a731b22")
-    public RuntimePattern(Package modelPattern) {
+    public  RuntimePattern(Package modelPattern) {
         this.modelPattern = modelPattern;
         this.jaxbPattern = createJaxbModelFromUmlModel(modelPattern);
         
         GProject openedProject = GProject.getProject(modelPattern);
         this.patternPath = Patterns.getProjectPatternsDirectory(openedProject)
                 .resolve(this.jaxbPattern.getName() + "_" + this.jaxbPattern.getVersion() + ".umlt");
+        
     }
 
     /**
      * Build a new PatternData instance from a deployed pattern.
-     * 
      * @param patternPath the file to load the pattern from.
-     * @throws org.modelio.api.modelio.pattern.IPatternService.PatternException when the pattern metadata are invalid or can't be loaded.
+     * @throws PatternException when the pattern metadata are invalid or can't be loaded.
      */
     @objid ("40231e6d-0350-4e8d-bf10-340ea4f9b276")
-    public RuntimePattern(Path patternPath) throws PatternException {
+    public  RuntimePattern(Path patternPath) throws PatternException {
         this.patternPath = patternPath;
         
         try (FileSystem fs = FileSystems.newFileSystem(this.patternPath, this.getClass().getClassLoader())) {
@@ -129,6 +127,7 @@ public class RuntimePattern implements Comparable<RuntimePattern> {
         } catch (IOException | JAXBException e) {
             throw new PatternException(e);
         }
+        
     }
 
     @objid ("41d731d1-b620-4606-838c-befcbc7050b7")
@@ -175,6 +174,7 @@ public class RuntimePattern implements Comparable<RuntimePattern> {
         jaxbConstantParameter.setDescription(description);
         
         jaxbPattern.getCategoryAndExternalDependencyAndParameter().add(jaxbConstantParameter);
+        
     }
 
     @objid ("03cec0be-42a0-4b8e-9fa0-a7b3d20026bf")
@@ -221,6 +221,7 @@ public class RuntimePattern implements Comparable<RuntimePattern> {
         jaxbElementParameter.setDescription(description);
         
         jaxbPattern.getCategoryAndExternalDependencyAndParameter().add(jaxbElementParameter);
+        
     }
 
     @objid ("517f03df-6b14-4415-a51d-5dec0cc98b64")
@@ -244,6 +245,7 @@ public class RuntimePattern implements Comparable<RuntimePattern> {
         eDependency.setVersion(element.getMajVersion() + "." + element.getMinVersion() + "." + element.getMinMinVersion());
         
         jaxbPattern.getCategoryAndExternalDependencyAndParameter().add(eDependency);
+        
     }
 
     @objid ("5ef62b56-8247-4feb-a671-634f756510e3")
@@ -253,18 +255,21 @@ public class RuntimePattern implements Comparable<RuntimePattern> {
         Project ramcomponent = getRamComponent(element);
         
         // Do not create a new ramc dependency if one this the same name already exists
-        for (Object sub : jaxbPattern.getCategoryAndExternalDependencyAndParameter()) {
-            if (sub instanceof RAMCDependency) {
-                RAMCDependency dcElement = (RAMCDependency) sub;
-                if (dcElement.getName().equals(ramcomponent.getName())) {
-                    return;
+        if (ramcomponent != null) {
+            for (Object sub : jaxbPattern.getCategoryAndExternalDependencyAndParameter()) {
+                if (sub instanceof RAMCDependency) {
+                    RAMCDependency dcElement = (RAMCDependency) sub;
+                    if (dcElement.getName().equals(ramcomponent.getName())) {
+                        return;
+                    }
                 }
             }
+        
+            RAMCDependency eDependency = new RAMCDependency();
+            eDependency.setName(ramcomponent.getName());
+            jaxbPattern.getCategoryAndExternalDependencyAndParameter().add(eDependency);
         }
         
-        RAMCDependency eDependency = new RAMCDependency();
-        eDependency.setName(ramcomponent.getName());
-        jaxbPattern.getCategoryAndExternalDependencyAndParameter().add(eDependency);
     }
 
     @objid ("b01b8e9a-f4a3-48de-a3c0-95f352fe356a")
@@ -304,13 +309,13 @@ public class RuntimePattern implements Comparable<RuntimePattern> {
         sParameter.setDescription(description);
         
         jaxbPattern.getCategoryAndExternalDependencyAndParameter().add(sParameter);
+        
     }
 
     /**
      * Execute a pattern with the given parameters.
-     * 
      * @param parameters the parameters for the pattern to run.
-     * @throws org.modelio.api.modelio.pattern.IPatternService.PatternException when the pattern execution fails.
+     * @throws PatternException when the pattern execution fails.
      */
     @objid ("3057cba5-8c8f-4874-a3db-38ecbd28e325")
     public void applyPattern(Map<String, Object> parameters, ICoreSession coreSession, MObject refElement) throws PatternException {
@@ -342,6 +347,7 @@ public class RuntimePattern implements Comparable<RuntimePattern> {
         } catch (IOException e) {
             throw new PatternException(e);
         }
+        
     }
 
     @objid ("23f34053-353c-4573-ba60-07522dbfde5f")
@@ -400,15 +406,15 @@ public class RuntimePattern implements Comparable<RuntimePattern> {
 
     /**
      * Load the executable part of a pattern.
-     * 
      * @return a {@link IPattern} ready to use.
-     * @throws java.io.IOException when pattern loading fails.
+     * @throws IOException when pattern loading fails.
      */
     @objid ("6b7c4853-8523-4efa-9787-d1f3305680cf")
     private IPattern getExecutablePattern() throws IOException {
         try (FileSystem fs = FileSystems.newFileSystem(this.patternPath, this.getClass().getClassLoader())) {
             return loadPatternFromJar(fs.getPath("Pattern.jar"));
         }
+        
     }
 
     @objid ("c4dab12b-a47d-4ae6-82a4-5b0bfaf0580a")
@@ -538,7 +544,7 @@ public class RuntimePattern implements Comparable<RuntimePattern> {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((this.jaxbPattern == null) ? 0 : this.jaxbPattern.getName().hashCode());
+        result = prime * result + (this.jaxbPattern == null ? 0 : this.jaxbPattern.getName().hashCode());
         return result;
     }
 
@@ -627,6 +633,7 @@ public class RuntimePattern implements Comparable<RuntimePattern> {
                 this.jaxbPattern.getCategoryAndExternalDependencyAndParameter().remove(category);
             }
         }
+        
     }
 
     @objid ("c73831f2-dd37-494a-9646-d8d455b6c603")
@@ -639,6 +646,7 @@ public class RuntimePattern implements Comparable<RuntimePattern> {
                 }
             }
         }
+        
     }
 
     @objid ("3f3edfa3-3563-42c7-9d1a-f0685f1f5a6e")
@@ -780,6 +788,7 @@ public class RuntimePattern implements Comparable<RuntimePattern> {
         } catch (IOException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {
             throw new IOException("Unable to load pattern ", e);
         }
+        
     }
 
     @objid ("26d8aed3-da86-4811-8942-7c09e6284999")
@@ -853,6 +862,7 @@ public class RuntimePattern implements Comparable<RuntimePattern> {
         
         // Add it to Jaxb model
         jaxbPattern.getCategoryAndExternalDependencyAndParameter().add(jaxbRootParameter);
+        
     }
 
     /**
@@ -921,6 +931,7 @@ public class RuntimePattern implements Comparable<RuntimePattern> {
                 Patterns.LOG.debug(e);
             }
         }
+        
     }
 
 }

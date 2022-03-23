@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.state;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -49,17 +48,17 @@ public class GmStateLabel extends GmDefaultModelElementHeader {
      * constructor to be used only for deserialization
      */
     @objid ("f580eea0-55b6-11e2-877f-002564c97630")
-    public GmStateLabel() {
+    public  GmStateLabel() {
+        
     }
 
     /**
      * Creates an State label.
-     * 
      * @param diagram the owning graphic diagram, may not be <tt>null</tt>.
      * @param ref the represented State reference, may not be <tt>null</tt>.
      */
     @objid ("f58274f9-55b6-11e2-877f-002564c97630")
-    public GmStateLabel(final IGmDiagram diagram, final MRef ref) {
+    public  GmStateLabel(final IGmDiagram diagram, final MRef ref) {
         super(diagram, ref);
     }
 
@@ -93,6 +92,7 @@ public class GmStateLabel extends GmDefaultModelElementHeader {
             break;
         }
         }
+        
     }
 
     @objid ("f582750f-55b6-11e2-877f-002564c97630")
@@ -102,6 +102,7 @@ public class GmStateLabel extends GmDefaultModelElementHeader {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmStateLabel.", GmStateLabel.MINOR_VERSION);
+        
     }
 
     @objid ("f5827515-55b6-11e2-877f-002564c97630")

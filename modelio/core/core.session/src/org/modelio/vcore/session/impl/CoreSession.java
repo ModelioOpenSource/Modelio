@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl;
 
 import java.io.File;
@@ -31,8 +30,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
@@ -175,39 +174,37 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
 
     /**
      * Initialize the core session.
-     * 
-     * @throws java.io.IOException if the swap failed to initialize.
+     * @throws IOException if the swap failed to initialize.
      */
     @objid ("0005fa6e-6ebe-1f22-8c06-001ec947cd2a")
-    public CoreSession() throws IOException {
+    public  CoreSession() throws IOException {
         CoreSessionBuilder builder = new CoreSessionBuilder().createSwapSpace();
         this.metamodel = builder.getMetamodel();
         init(builder);
+        
     }
 
     /**
      * Initialize the core session.
-     * 
      * @param aMetamodel the metamodel to use. It is stored by reference, no copy is done.
-     * @throws java.io.IOException if the swap failed to initialize.
+     * @throws IOException if the swap failed to initialize.
      * @deprecated since 3.6 use {@link CoreSessionBuilder}
      */
     @objid ("c295ebe8-91ba-45c2-93a8-ecafee94dd10")
     @Deprecated
-    public CoreSession(SmMetamodel aMetamodel) throws IOException {
+    public  CoreSession(SmMetamodel aMetamodel) throws IOException {
         this(new CoreSessionBuilder().createSwapSpace().withMetamodel(aMetamodel));
     }
 
     /**
      * Initialize the core session.
-     * 
      * @param swapPath An empty directory where the swap can be stored.
-     * @throws java.io.IOException if the swap failed to initialize.
+     * @throws IOException if the swap failed to initialize.
      * @deprecated since 3.6 use {@link CoreSessionBuilder}
      */
     @objid ("ec98a3c0-9a00-4428-96c9-4c3d2933934c")
     @Deprecated
-    public CoreSession(File swapPath) throws IOException {
+    public  CoreSession(File swapPath) throws IOException {
         this(new CoreSessionBuilder().withSwapDirectory(swapPath));
     }
 
@@ -271,6 +268,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
         this.transactionManager = null;
         this.refreshEventService = null;
         this.repositoryChangeListeners = null;
+        
     }
 
     @objid ("006d6c80-6ebd-1f22-8c06-001ec947cd2a")
@@ -281,10 +279,9 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
 
     /**
      * Connect a repository to this modeling session.
-     * 
      * @param aBase the repository to add.
      * @param accessManager the access rights manager that will set access rights on loaded objects.
-     * @throws java.io.IOException in case of failure.
+     * @throws IOException in case of failure.
      */
     @objid ("014123b4-8952-49e1-8c40-01dd2ddb0cd0")
     @Override
@@ -331,13 +328,13 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
         } finally {
             this.repositoriesLock.unlock();
         }
+        
     }
 
     /**
      * Close and remove the given model repository from the connected repositories.
-     * 
      * @param toRemove the repository to disconnect.
-     * @throws java.lang.IllegalArgumentException if the repository is not connected to this session
+     * @throws IllegalArgumentException if the repository is not connected to this session
      */
     @objid ("6703d8f2-07e5-11e2-b33c-001ec947ccaf")
     @Override
@@ -369,6 +366,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
         } finally {
             this.repositoriesLock.unlock();
         }
+        
     }
 
     @objid ("9a5a7e82-d7d2-42fc-a2dd-df7b8e5729b0")
@@ -377,6 +375,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
         for (IRepositoryChangeListener listener : this.repositoryChangeListeners) {
             listener.repositoryChanged(event);
         }
+        
     }
 
     @objid ("8d51e75a-cff0-4e0b-bcd6-6f403dc28c4a")
@@ -397,7 +396,6 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
 
     /**
      * Get the default meta object to attach to model objects.
-     * 
      * @return the meta object.
      */
     @objid ("0061abc0-fd1a-1f27-a7da-001ec947cd2a")
@@ -407,7 +405,6 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
 
     /**
      * Get the session metamodel.
-     * 
      * @return the session metamodel.
      */
     @objid ("26dd1014-d9f6-466e-90a0-7ad7093939b6")
@@ -436,7 +433,6 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
      * <p>
      * This object manages model and status change listeners. It is used to add and remove listeners and to fire model change
      * events.
-     * 
      * @return the model change support.
      */
     @objid ("7dc92792-1c43-11e2-8eb9-001ec947ccaf")
@@ -456,7 +452,6 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
      * Get the repository where the given object is stored.
      * <p>
      * Returns <code>null</code> if the object is not assigned to a repository or the repository does not belong to this session.
-     * 
      * @param anObject an object
      * @return its repository, or <code>null</code>.
      */
@@ -485,6 +480,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
         } finally {
             this.repositoriesLock.unlock();
         }
+        
     }
 
     @objid ("008c201c-5f00-10c8-842f-001ec947cd2a")
@@ -501,7 +497,6 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
 
     /**
      * Get the core session owning the given model object.
-     * 
      * @param obj a model object.
      * @return its core session.
      */
@@ -514,7 +509,6 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
 
     /**
      * Get the repository where unresolved references are located until they are resolved.
-     * 
      * @return the shell objects repository.
      */
     @objid ("bda036e0-92d7-11e1-81e9-001ec947ccaf")
@@ -524,7 +518,6 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
 
     /**
      * Get the low level model object factory.
-     * 
      * @return the model object factory.
      */
     @objid ("006d6884-6ebd-1f22-8c06-001ec947cd2a")
@@ -561,12 +554,12 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
         if (isValid()) {
             this.repositoryChangeListeners.remove(listener);
         }
+        
     }
 
     /**
      * Save the model.
-     * 
-     * @throws java.io.IOException if a repository failed to save.
+     * @throws IOException if a repository failed to save.
      */
     @objid ("006d69b0-6ebd-1f22-8c06-001ec947cd2a")
     @Override
@@ -604,11 +597,11 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
         
         // Clear the cache
         this.cacheManager.clearDeletedObjects();
+        
     }
 
     /**
      * Set the session access manager.
-     * 
      * @param sessionAccessManager Set the session access manager.
      */
     @objid ("273d99d3-ac46-49b4-86d8-b0503b0d7785")
@@ -623,11 +616,11 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
         for (SmObjectImpl o : this.cacheManager.getIterable()) {
             o.getRepositoryObject().setToReload(o);
         }
+        
     }
 
     /**
      * Get the session access manager if one defined.
-     * 
      * @return the session access manager or <code>null</code>.
      */
     @objid ("648db53a-49f3-4125-89e1-e730894ca936")
@@ -640,12 +633,12 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
     protected void finalize() throws Throwable {
         close();
         super.finalize();
+        
     }
 
     /**
      * Initialize the session.
-     * 
-     * @throws java.io.IOException if the swap failed to initialize.
+     * @throws IOException if the swap failed to initialize.
      */
     @objid ("006188c0-fd1a-1f27-a7da-001ec947cd2a")
     protected void init(CoreSessionBuilder builder) throws IOException {
@@ -711,6 +704,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
         this.model.setGenericFactory(new GenericFactory(this.ssFactory, getRepositorySupport(), this.metamodel));
         
         this.jmxBean.register();
+        
     }
 
     @objid ("67063b47-07e5-11e2-b33c-001ec947ccaf")
@@ -718,13 +712,13 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
         if (! isValid()) {
             throw new IllegalStateException(String.format("%s is closed.", this));
         }
+        
     }
 
     /**
      * Create and empties the swap directory.
      * @throws java.io.IOError
      * in case of failure
-     * 
      * @return the swap directory path
      */
     @objid ("3f1d5b36-7e46-11e1-bee3-001ec947ccaf")
@@ -741,8 +735,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
      * <li>scratch repository that may be used to create objects
      * <li>shell repository : stores unresolved references.
      * </ul>
-     * 
-     * @throws java.io.IOException in case of failure.
+     * @throws IOException in case of failure.
      */
     @objid ("bda036dd-92d7-11e1-81e9-001ec947ccaf")
     private void initBuiltinRepositories(CoreSessionBuilder builder) throws IOException {
@@ -754,11 +747,11 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
         this.scratchRepository = new ScratchRepository();
         accessManager = new BasicAccessManager();
         connectRepository(this.scratchRepository, REPOSITORY_KEY_SCRATCH, accessManager, new NullProgress());
+        
     }
 
     /**
      * Initialize the scheduled executor service.
-     * 
      * @return the scheduled executor service.
      */
     @objid ("8e065238-1de9-4a5f-a00a-7288ed0a787b")
@@ -803,15 +796,15 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
      * Create a CoreSession from a builder.
      * <p>
      * To be called only internally of from {@link CoreSessionBuilder#build()}.
-     * 
      * @param builder the session descriptor.
-     * @throws java.io.IOException on failure.
+     * @throws IOException on failure.
      * @since 3.6
      */
     @objid ("46d905d6-ebcb-4659-8090-128934bcb851")
-    protected CoreSession(CoreSessionBuilder builder) throws IOException {
+    protected  CoreSession(CoreSessionBuilder builder) throws IOException {
         this.metamodel = builder.getMetamodel();
         init(builder);
+        
     }
 
     @objid ("708c7d06-89dc-4a82-b0b9-34956bb9b185")
@@ -829,7 +822,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
         private IAccessManager accessManager;
 
         @objid ("d6b1f973-8f04-4b81-945f-e0e1811a2443")
-        public CompositeAccessManager(IAccessManager accessManager) {
+        public  CompositeAccessManager(IAccessManager accessManager) {
             this.accessManager = accessManager;
         }
 
@@ -842,6 +835,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
             }
             
             this.accessManager.initStatus(obj, loader);
+            
         }
 
     }
@@ -849,7 +843,7 @@ public class CoreSession implements ICoreSession, IRepositorySupport {
     @objid ("2037383f-8296-478e-a7f0-8cbd8f9675a0")
     private static class ScratchRepository extends MemoryRepository {
         @objid ("3a9d1b1b-d111-4dac-80d0-777f51a6114d")
-        ScratchRepository() {
+         ScratchRepository() {
             super();
         }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.callevent;
 
 import java.util.Collections;
@@ -32,8 +31,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.AcceptCallEventAction;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityAction;
 import org.modelio.metamodel.uml.behavior.activityModel.InputPin;
@@ -66,26 +65,25 @@ public class GmCallEvent extends GmPinContainer {
     private static final String IMAGE_LABEL_ROLE = "ImageLabel";
 
     @objid ("29c5c7b2-55b6-11e2-877f-002564c97630")
-     static final GmCallEventStructuredStyleKeys STRUCTURED_KEYS = new GmCallEventStructuredStyleKeys();
+    static final GmCallEventStructuredStyleKeys STRUCTURED_KEYS = new GmCallEventStructuredStyleKeys();
 
     @objid ("2fc43aa2-58a2-11e2-9574-002564c97630")
-     static final GmCallEventSimpleStyleKeys SIMPLE_KEYS = new GmCallEventSimpleStyleKeys();
+    static final GmCallEventSimpleStyleKeys SIMPLE_KEYS = new GmCallEventSimpleStyleKeys();
 
     @objid ("2fc43aa4-58a2-11e2-9574-002564c97630")
-     static final GmCallEventImageStyleKeys IMAGE_KEYS = new GmCallEventImageStyleKeys();
+    static final GmCallEventImageStyleKeys IMAGE_KEYS = new GmCallEventImageStyleKeys();
 
     @objid ("dacf0605-07fa-4808-bdfd-201056ba8a94")
-     static final GmCallEventUserImageStyleKeys USERIMAGE_KEYS = new GmCallEventUserImageStyleKeys();
+    static final GmCallEventUserImageStyleKeys USERIMAGE_KEYS = new GmCallEventUserImageStyleKeys();
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the callEvent is unmasked.
      * @param el the unmasked callEvent.
      * @param ref a reference to the unmasked callEvent.
      */
     @objid ("29c5c7bf-55b6-11e2-877f-002564c97630")
-    public GmCallEvent(IGmDiagram diagram, AcceptCallEventAction el, MRef ref) {
+    public  GmCallEvent(IGmDiagram diagram, AcceptCallEventAction el, MRef ref) {
         super(diagram, ref);
         this.element = el;
         
@@ -98,6 +96,7 @@ public class GmCallEvent extends GmPinContainer {
         
         super.addChild(mainNode);
         super.addChild(imageModeHeader);
+        
     }
 
     @objid ("29c5c7cb-55b6-11e2-877f-002564c97630")
@@ -112,6 +111,7 @@ public class GmCallEvent extends GmPinContainer {
         return ((InputPin.class.isAssignableFrom(el.getClass()) ||
                         ValuePin.class.isAssignableFrom(el.getClass()) || OutputPin.class.isAssignableFrom(el.getClass())) && el.getCompositionOwner()
                                 .equals(this.element));
+        
     }
 
     @objid ("29c5c7db-55b6-11e2-877f-002564c97630")
@@ -158,7 +158,7 @@ public class GmCallEvent extends GmPinContainer {
      * Empty constructor needed for deserialisation.
      */
     @objid ("29c74e4b-55b6-11e2-877f-002564c97630")
-    public GmCallEvent() {
+    public  GmCallEvent() {
         // Nothing specific to do.
     }
 
@@ -183,6 +183,7 @@ public class GmCallEvent extends GmPinContainer {
             break;
         }
         }
+        
     }
 
     @objid ("29c74e54-55b6-11e2-877f-002564c97630")
@@ -204,6 +205,7 @@ public class GmCallEvent extends GmPinContainer {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmCallEvent.", GmCallEvent.MINOR_VERSION);
+        
     }
 
     @objid ("29c74e68-55b6-11e2-877f-002564c97630")
@@ -216,6 +218,7 @@ public class GmCallEvent extends GmPinContainer {
         imageModeHeader.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         
         super.addChild(imageModeHeader, 1);
+        
     }
 
     @objid ("29c74e6d-55b6-11e2-877f-002564c97630")
@@ -228,6 +231,7 @@ public class GmCallEvent extends GmPinContainer {
     private void read_1(final IDiagramReader in) {
         super.read(in);
         this.element = (AcceptCallEventAction) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("29c8d4db-55b6-11e2-877f-002564c97630")
@@ -243,6 +247,7 @@ public class GmCallEvent extends GmPinContainer {
                 ret.remove(imageModeHeader);
                 break;
             }
+            case USER_IMAGE:
             case IMAGE:
             default: {
                 break;
@@ -255,7 +260,6 @@ public class GmCallEvent extends GmPinContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -265,11 +269,11 @@ public class GmCallEvent extends GmPinContainer {
         String role = childNode.getRoleInComposition();
         return GmPortContainer.SATELLITE_ROLE.equals(role)
                         || GmCallEvent.IMAGE_LABEL_ROLE.equals(role);
+        
     }
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */

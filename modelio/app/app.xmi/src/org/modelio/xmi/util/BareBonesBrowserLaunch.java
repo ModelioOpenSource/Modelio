@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.util;
 
 import java.lang.reflect.Method;
@@ -66,6 +65,7 @@ public class BareBonesBrowserLaunch {
         } catch (Exception e) {
             displayErrorMessage(e, shell);
         }
+        
     }
 
     @objid ("b9e8333e-8c3c-4c8e-bc35-dc5cdccd3017")
@@ -81,6 +81,7 @@ public class BareBonesBrowserLaunch {
         messageBox.setText(Xmi.I18N.getString("warning.helpDocNotFound.title"));
         messageBox.setMessage(errorMsg);
         messageBox.open();
+        
     }
 
 }

@@ -40,6 +40,9 @@
   <imports xsi:type="commands:Command" xmi:id="_sPuBcO4XEeaDZJqnhFLKuA" elementId="org.modelio.app.ui.command.openproperties"/>
   <imports xsi:type="commands:Command" xmi:id="_sVXWcO4XEeaDZJqnhFLKuA" elementId="org.modelio.app.ui.command.opendiagram"/>
   <imports xsi:type="commands:Command" xmi:id="_F0O1gFKJEeeBzqa3idqVZA" elementId="diagram.editor.command.opengmdebugger"/>
+  <imports xsi:type="commands:Command" xmi:id="_X3uMAPZqEeqaga_r_8J0-Q" elementId="org.modelio.diagram.editor.command.ChangeCustomImageCommand"/>
+  <imports xsi:type="commands:Command" xmi:id="_qgGUsMnGEeuPAIIekqN8LA" elementId="org.modelio.diagram.editor.resetlink"/>
+  <imports xsi:type="commands:Command" xmi:id="_d4LrgMqCEeu67MNW4rjdAw" elementId="org.modelio.diagram.editor.fullresetlink"/>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_gcB_cIfNEeWj6a9oyLXySQ" featurename="descriptors" parentElementId="org.modelio.app.application">
     <elements xsi:type="basic:PartDescriptor" xmi:id="_cz8MgIfPEeWj6a9oyLXySQ" elementId="org.modelio.bpmn.diagram.editor.BpmnDiagramEditorID" label="%BpmnEditor.label" tooltip="%BpmnEditor.tooltip" bindingContexts="_RnHuEOIyEeKWx8-qQ2OLqA" allowMultiple="true" category="TEST_EDITOR" closeable="true" dirtyable="true" contributionURI="bundleclass://org.modelio.bpmn.diagram.editor/org.modelio.bpmn.diagram.editor.editor.BpmnDiagramEditor">
       <handlers xmi:id="_eW2pQID8EeKKLZZAYaz6Sg" elementId="diagram.editor.bpmn.handler.createelement" contributionURI="bundleclass://org.modelio.app.diagram.editor/org.modelio.diagram.editor.popup.handlers.CreateElementHandler" command="_c0mzYID8EeKKLZZAYaz6Sg"/>
@@ -93,6 +96,16 @@
         <children xsi:type="menu:MenuSeparator" xmi:id="_-G54MB61EeO9r6b_vtRk6A" elementId="diagram.editor.bpmn.menuseparator.2"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_y6RzQIJrEeKtkfwbSBQBAQ" elementId="org.modelio.bpmn.diagram.editor.handledmenuitem.redrawlink" label="%RedrawLink.label" iconURI="platform:/plugin/org.modelio.app.diagram.editor/icons/redrawlink.png" tooltip="%RedrawLink.tooltip" command="_2Vt_YIJrEeKtkfwbSBQBAQ">
           <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_FvO3YO0lEeKWx8-qQ2OLqA" coreExpressionId="org.modelio.diagram.editor.corexp.is-gmlink.id"/>
+        </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_uVf48MnGEeuPAIIekqN8LA" elementId="org.modelio.bpmn.diagram.editor.handledmenuitem.resetlink" label="%ResetLink.label" iconURI="platform:/plugin/org.modelio.app.diagram.editor/icons/resetlink.png" tooltip="%ResetLink.tooltip" command="_qgGUsMnGEeuPAIIekqN8LA">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_uVf48cnGEeuPAIIekqN8LA" coreExpressionId="org.modelio.diagram.editor.corexp.is-gmlink.id"/>
+        </children>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_ZGuusMqCEeu67MNW4rjdAw" elementId="org.modelio.bpmn.diagram.editor.handledmenuitem.fullresetlink" label="%FullResetLink.label" iconURI="platform:/plugin/org.modelio.app.diagram.editor/icons/fullresetlink.png" tooltip="%FullResetLink.tooltip" command="_d4LrgMqCEeu67MNW4rjdAw">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_ZGuuscqCEeu67MNW4rjdAw" coreExpressionId="org.modelio.diagram.editor.corexp.is-gmlink.id"/>
+        </children>
+        <children xsi:type="menu:MenuSeparator" xmi:id="_uzOoAPZ2Eeqaga_r_8J0-Q" elementId="bpmn.diagram.editor.menuseparator.0"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_vRkw4PZ2Eeqaga_r_8J0-Q" elementId="bpmn.diagram.editor.handledmenuitem.changecustomimage" label="%ChangeCustomImage.label" iconURI="platform:/plugin/org.modelio.app.diagram.editor/icons/select_image.png" tooltip="%ChangeCustomImage.tooltip" command="_X3uMAPZqEeqaga_r_8J0-Q">
+          <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_zBle0PZ2Eeqaga_r_8J0-Q" coreExpressionId="org.modelio.diagram.editor.corexp.is-gmnode-custommode.id"/>
         </children>
       </menus>
       <toolbar xmi:id="_w_6IsGOoEeKZr6syzOEatQ" elementId="diagram.editor.bpmn.toolbar.0">
@@ -149,6 +162,7 @@
     <elements xsi:type="commands:BindingTable" xmi:id="_j7LwwOIxEeKWx8-qQ2OLqA" elementId="org.modelio.bpmn.diagram.editor.bindings.table" bindingContext="_RnHuEOIyEeKWx8-qQ2OLqA">
       <bindings xmi:id="_qPvpoOIyEeKWx8-qQ2OLqA" elementId="" keySequence="DEL" command="_zpO14IJpEeKtkfwbSBQBAQ"/>
       <bindings xmi:id="_VpqEgOI0EeKWx8-qQ2OLqA" elementId="" keySequence="F2" command="_iNRKwMRTEeKCjMeZ4YvH5A"/>
+      <bindings xmi:id="_9FDdoMnGEeuPAIIekqN8LA" elementId="" keySequence="F5" command="_qgGUsMnGEeuPAIIekqN8LA"/>
       <bindings xmi:id="_eTMtMOI0EeKWx8-qQ2OLqA" elementId="" keySequence="N" command="_cXOTQOI1EeKWx8-qQ2OLqA">
         <parameters xmi:id="_eTMtMeI0EeKWx8-qQ2OLqA" elementId="toolId" name="toolId" value="CREATE_NOTE"/>
       </bindings>
@@ -157,6 +171,8 @@
       </bindings>
       <bindings xmi:id="_XYhaEOI0EeKWx8-qQ2OLqA" elementId="" keySequence="M1+A" command="_s5534OI0EeKWx8-qQ2OLqA"/>
       <bindings xmi:id="_X4t9EOI0EeKWx8-qQ2OLqA" elementId="" keySequence="M1+ENTER" command="_atUx8IJpEeKtkfwbSBQBAQ"/>
+      <bindings xmi:id="_0nH_QMqbEeu67MNW4rjdAw" elementId="" keySequence="M1+F5" command="_d4LrgMqCEeu67MNW4rjdAw"/>
+      <bindings xmi:id="_P2EG0FKJEeeBzqa3idqVZA" elementId="" keySequence="M1+G M1+D M1+B" command="_F0O1gFKJEeeBzqa3idqVZA"/>
       <bindings xmi:id="_YgZBEOI0EeKWx8-qQ2OLqA" elementId="" keySequence="M1+M" command="_y45G4IfOEeWj6a9oyLXySQ"/>
       <bindings xmi:id="_GojkYOJWEeKWx8-qQ2OLqA" elementId="" keySequence="M1+N M1+N" command="_c0mzYID8EeKKLZZAYaz6Sg">
         <parameters xmi:id="_GojkYeJWEeKWx8-qQ2OLqA" elementId="metaclass" name="metaclass" value="Infrastructure.Note"/>
@@ -173,10 +189,9 @@
       <bindings xmi:id="_Acfo8GP2EeOKPIEepcCqnQ" elementId="" keySequence="-" command="_OlsxYIkdEeWbO4MnNK7ogg"/>
       <bindings xmi:id="_Azw5cGP2EeOKPIEepcCqnQ" elementId="" keySequence="*" command="_H0vB0GP2EeOKPIEepcCqnQ"/>
       <bindings xmi:id="_BKVmYGP2EeOKPIEepcCqnQ" elementId="" keySequence="/" command="_bPLXMIkZEeWbO4MnNK7ogg"/>
-      <bindings xmi:id="_2CGb0IP7EeaNosWhbgFNKg" elementId="diagram.editor.bpmn.keybinding.0" keySequence="SPACE" command="_cXOTQOI1EeKWx8-qQ2OLqA">
+      <bindings xmi:id="_2CGb0IP7EeaNosWhbgFNKg" elementId="" keySequence="SPACE" command="_cXOTQOI1EeKWx8-qQ2OLqA">
         <parameters xmi:id="_6tJ1sIP7EeaNosWhbgFNKg" elementId="toolId" name="toolId" value="POPUPMENU_CREATELINK_TOOL"/>
       </bindings>
-      <bindings xmi:id="_P2EG0FKJEeeBzqa3idqVZA" elementId="diagram.editor.bpmn.keybinding.1" keySequence="M1+G M1+D M1+B" command="_F0O1gFKJEeeBzqa3idqVZA"/>
     </elements>
   </fragments>
   <fragments xsi:type="fragment:StringModelFragment" xmi:id="_JlgoEOIyEeKWx8-qQ2OLqA" featurename="children" parentElementId="org.eclipse.ui.contexts.window">

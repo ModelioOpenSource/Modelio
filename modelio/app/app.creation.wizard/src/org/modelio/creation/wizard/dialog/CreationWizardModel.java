@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.creation.wizard.dialog;
 
 import java.util.ArrayList;
@@ -110,6 +109,7 @@ public class CreationWizardModel {
     public boolean isValid() {
         return (this.selectedContributor != null && this.context != null && this.selectedContributor.accept(this.context))
                         && this.name != null && !this.name.isEmpty();
+        
     }
 
     @objid ("db69ad6c-b846-4d67-8390-bb9af6167aeb")
@@ -123,7 +123,7 @@ public class CreationWizardModel {
     }
 
     @objid ("5d1345d8-4001-45cd-bf43-8e6ee9ba853c")
-    public CreationWizardModel(Map<ContributorCategory, List<IWizardContributor>> map) {
+    public  CreationWizardModel(Map<ContributorCategory, List<IWizardContributor>> map) {
         this.contributors = map;
     }
 
@@ -138,7 +138,6 @@ public class CreationWizardModel {
 
     /**
      * Get all contributors by type (Diagram or Matrix)
-     * 
      * @param filter the type of contributors specified by its Java interface
      * class. Cannot be null.
      * @param nameFilter optional name for further filtering based on strict string
@@ -163,7 +162,6 @@ public class CreationWizardModel {
 
     /**
      * Get all contributors by type (Diagram or Matrix)
-     * 
      * @param filter the type of contributors specified by its Java interface
      * class. Cannot be null.
      * @return the filtered contributors

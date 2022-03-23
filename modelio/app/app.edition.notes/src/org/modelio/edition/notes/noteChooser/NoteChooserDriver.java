@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.noteChooser;
 
 import java.util.ArrayList;
@@ -72,12 +71,13 @@ public class NoteChooserDriver implements IElementChooserDriver {
     protected NoteChooserSelectionListener noteSelectionListener = null;
 
     @objid ("26e1244a-186f-11e2-bc4e-002564c97630")
-    public NoteChooserDriver(ICoreSession session, IMModelServices modelService) {
+    public  NoteChooserDriver(ICoreSession session, IMModelServices modelService) {
         this.session = session;
         this.modelService = modelService;
         this.createdNote = null;
         this.initialContent = EditionNotes.I18N.getString("EnterNoteBody");
         this.noteSelectionListener = new NoteChooserSelectionListener();
+        
     }
 
     @objid ("26e1244e-186f-11e2-bc4e-002564c97630")
@@ -95,7 +95,6 @@ public class NoteChooserDriver implements IElementChooserDriver {
     /**
      * Get the note created after the user has selected the note type. This method will return null until the user has validated the
      * dialog box.
-     * 
      * @return the created note if any.
      */
     @objid ("26e12454-186f-11e2-bc4e-002564c97630")
@@ -124,6 +123,7 @@ public class NoteChooserDriver implements IElementChooserDriver {
             this.leftViewer.setInput(this.leftModel);
             setExpandedState();
         }
+        
     }
 
     @objid ("26e12467-186f-11e2-bc4e-002564c97630")
@@ -145,6 +145,7 @@ public class NoteChooserDriver implements IElementChooserDriver {
             }
             transaction.commit();
         }
+        
     }
 
     @objid ("26e12471-186f-11e2-bc4e-002564c97630")
@@ -164,6 +165,7 @@ public class NoteChooserDriver implements IElementChooserDriver {
     protected void finalize() throws Throwable {
         this.leftViewer.removeSelectionChangedListener(this.noteSelectionListener);
         super.finalize();
+        
     }
 
     @objid ("26e38580-186f-11e2-bc4e-002564c97630")
@@ -193,6 +195,7 @@ public class NoteChooserDriver implements IElementChooserDriver {
                 }
                 this.enable = true;
             }
+            
         }
 
         @objid ("26e38588-186f-11e2-bc4e-002564c97630")
@@ -208,7 +211,8 @@ public class NoteChooserDriver implements IElementChooserDriver {
         }
 
         @objid ("26e38591-186f-11e2-bc4e-002564c97630")
-        NoteChooserSelectionListener() {
+         NoteChooserSelectionListener() {
+            
         }
 
     }

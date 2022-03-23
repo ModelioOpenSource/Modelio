@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import java.util.ArrayList;
@@ -76,17 +75,17 @@ public class BpmnStartEventPropertyModel extends AbstractPropertyModel<BpmnStart
 
     /**
      * Create a new <i>BpmnStartEvent</i> data model from an <i>BpmnStartEvent</i>.
-     * 
      * @param theEditedElement the model to edit.
      * @param modelService the model service needed to find elements.
      * @param umlPropertyModelVisitor the property model visitor, needed for the event definition.
      */
     @objid ("f143090b-ee22-411f-be18-7cddd111f7be")
-    public BpmnStartEventPropertyModel(BpmnStartEvent theEditedElement, IMModelServices modelService, UmlPropertyModelVisitor umlPropertyModelVisitor) {
+    public  BpmnStartEventPropertyModel(BpmnStartEvent theEditedElement, IMModelServices modelService, UmlPropertyModelVisitor umlPropertyModelVisitor) {
         super(theEditedElement);
         this.modelService = modelService;
         this.umlPropertyModelVisitor = umlPropertyModelVisitor;
         updateFieldsLists();
+        
     }
 
     @objid ("82e6a1d0-dddc-4663-978d-886a7c98a9d8")
@@ -110,6 +109,7 @@ public class BpmnStartEventPropertyModel extends AbstractPropertyModel<BpmnStart
         } else {
             return this.fieldList.get(row);
         }
+        
     }
 
     @objid ("d99b629a-075a-4417-aee1-b06a03912ac3")
@@ -154,6 +154,7 @@ public class BpmnStartEventPropertyModel extends AbstractPropertyModel<BpmnStart
             // Row not found in event types, update ParallelMultiple
             this.theEditedElement.setParallelMultiple(Boolean.parseBoolean(Objects.toString(value)));
         }
+        
     }
 
     @objid ("0337b611-208e-4984-a1a3-c10dbd1de8d3")
@@ -200,6 +201,7 @@ public class BpmnStartEventPropertyModel extends AbstractPropertyModel<BpmnStart
             this.labelList.add(new DefaultStringNatValue(getPropertyI18n("ParallelMultiple"), false)); // ParallelMultiple
             this.fieldList.add(new DefaultBooleanNatValue(this.theEditedElement.isParallelMultiple()));
         }
+        
     }
 
     @objid ("5ec4b475-cdaf-44f6-9322-b8dd4b07ae5e")
@@ -208,16 +210,24 @@ public class BpmnStartEventPropertyModel extends AbstractPropertyModel<BpmnStart
         BpmnEventDefinition event_definition = (BpmnEventDefinition) modelFactory.createElement(EventType.getMetaclass(evt));
         event_definition.setName(this.modelService.getElementNamer().getBaseName(event_definition.getMClass()));
         event_definition.setDefined(this.theEditedElement);
+        
     }
 
     @objid ("c5f0279c-c4ef-48fd-923a-ea0a9bf36843")
     private enum EventType {
+        @objid ("985c8575-0803-4833-99e2-2e388f9a17ea")
         Message,
+        @objid ("92cd3ea5-bf79-48ec-8231-c594b1a55c0b")
         Timer,
+        @objid ("c6485d56-7c1b-4bdb-802a-63dd52f319c6")
         Conditional,
+        @objid ("6b1c0917-8da2-4a99-98d6-576353d76ec3")
         Signal,
+        @objid ("dae1e0bf-ab72-4354-bdb7-178e485b5905")
         Error,
+        @objid ("1cd28747-a40e-49be-bb7d-fd7ff9998355")
         Escalation,
+        @objid ("e3d8242c-e7f9-4ef5-a334-bd17b36d34b4")
         Compensation;
 
         @objid ("7f66e5a7-a587-4796-b72a-b22c289509ee")

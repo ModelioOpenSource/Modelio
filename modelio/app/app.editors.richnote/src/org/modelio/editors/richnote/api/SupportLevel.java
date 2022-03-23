@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.api;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,13 +29,17 @@ public enum SupportLevel {
     /**
      * The format is not supported.
      */
+    @objid ("00aad22e-7ec5-4308-8c36-9ea2ee2be9c0")
     None,
     /**
      * The format is supported natively.
      */
+    @objid ("2447d8d6-2fb2-4a59-81d9-ede7448ee5a2")
     Primary,
     /**
      * The format is supported as an alternate one. Another editor might support it better.
      */
+    @objid ("bdc5e56d-598e-42a0-9a06-7864295a1c44")
     Alternate;
+
 }

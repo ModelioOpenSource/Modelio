@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.freezone;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -27,8 +26,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
 
@@ -51,18 +50,17 @@ public class GmBodyFreeZone extends GmFreeZone {
      * C'tor.
      */
     @objid ("7e3a5eb1-1dec-11e2-8cad-001ec947c8cc")
-    public GmBodyFreeZone() {
+    public  GmBodyFreeZone() {
         // Nothing to do.
     }
 
     /**
      * C'tor.
-     * 
      * @param diagram the diagram in which this Gm is created.
      * @param relatedRef a reference to the element this GmModel is related to. never <i>null</i>.
      */
     @objid ("7e3a5eb4-1dec-11e2-8cad-001ec947c8cc")
-    public GmBodyFreeZone(IGmDiagram diagram, MRef relatedRef) {
+    public  GmBodyFreeZone(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -96,6 +94,7 @@ public class GmBodyFreeZone extends GmFreeZone {
                 getParent().getDisplayedStyle().setProperty(key, RepresentationMode.STRUCTURED);
             }
         }
+        
     }
 
     @objid ("7e3a5ed0-1dec-11e2-8cad-001ec947c8cc")
@@ -122,6 +121,7 @@ public class GmBodyFreeZone extends GmFreeZone {
                 break;
             }
         }
+        
     }
 
     @objid ("7e3a5eda-1dec-11e2-8cad-001ec947c8cc")
@@ -131,6 +131,7 @@ public class GmBodyFreeZone extends GmFreeZone {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmBodyFreeZone.", MINOR_VERSION);
+        
     }
 
     @objid ("7e3a5ede-1dec-11e2-8cad-001ec947c8cc")

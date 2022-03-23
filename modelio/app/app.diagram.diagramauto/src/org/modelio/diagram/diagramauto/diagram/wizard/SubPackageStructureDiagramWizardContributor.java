@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.diagramauto.diagram.wizard;
 
 import java.util.ArrayList;
@@ -26,6 +25,7 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.api.modelio.model.scope.ElementScope;
 import org.modelio.api.module.contributor.ElementDescriptor;
 import org.modelio.metamodel.diagrams.ClassDiagram;
+import org.modelio.metamodel.uml.statik.Component;
 import org.modelio.metamodel.uml.statik.Package;
 import org.modelio.module.modelermodule.api.default_.infrastructure.abstractdiagram.AutoDiagram;
 import org.modelio.vcore.smkernel.mapi.MClass;
@@ -37,6 +37,7 @@ public class SubPackageStructureDiagramWizardContributor extends AbstractAutoDia
     public List<ElementScope> getScopes() {
         List<ElementScope> allowedScopes = new ArrayList<>();
         allowedScopes.add(new ElementScope(getMetamodel().getMClass(Package.class), true, null, true));
+        allowedScopes.add(new ElementScope(getMetamodel().getMClass(Component.class), true, null, true));
         return allowedScopes;
     }
 
@@ -49,6 +50,7 @@ public class SubPackageStructureDiagramWizardContributor extends AbstractAutoDia
         } else {
             return null;
         }
+        
     }
 
     @objid ("c7c18fd1-80cf-451a-9bf6-ae3f6cc606b6")

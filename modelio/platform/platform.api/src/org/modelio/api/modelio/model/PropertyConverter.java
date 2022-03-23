@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.model;
 
 import java.util.Date;
@@ -175,6 +174,7 @@ public class PropertyConverter {
             return value;
         
         }
+        
     }
 
     @objid ("498cc454-6b6b-48e4-8cf4-64a1cedd1c80")
@@ -209,6 +209,7 @@ public class PropertyConverter {
         default:
             return "?" + value.getClass().getSimpleName() + "?";
         }
+        
     }
 
     @objid ("f75fcdca-81ea-4e9c-a5da-0e872e42d139")

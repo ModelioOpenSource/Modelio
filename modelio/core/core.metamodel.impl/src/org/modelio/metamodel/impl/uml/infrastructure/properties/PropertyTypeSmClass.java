@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure.properties;
 
 import java.util.ArrayList;
@@ -31,8 +31,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.mda.ModuleComponentSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.ModelElementSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.ProfileSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.properties.PropertyDefinitionSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.properties.PropertyTypeData;
 import org.modelio.metamodel.mda.ModuleComponent;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.Profile;
@@ -67,7 +65,7 @@ public class PropertyTypeSmClass extends ModelElementSmClass {
     private SmDependency analystOwnerDep;
 
     @objid ("8f547a95-35b9-4783-bfe0-15c160ed37fc")
-    public PropertyTypeSmClass(ISmMetamodelFragment origin) {
+    public  PropertyTypeSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -75,6 +73,7 @@ public class PropertyTypeSmClass extends ModelElementSmClass {
     @Override
     public String getName() {
         return "PropertyType";
+        
     }
 
     @objid ("374409bf-37d7-483e-9ee7-86bcd3dd8fb2")
@@ -87,18 +86,21 @@ public class PropertyTypeSmClass extends ModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return PropertyType.class;
+        
     }
 
     @objid ("a6d745d3-895a-4d56-b9be-1ef44a02e245")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("7faa42cc-d0ed-4a32-b834-177f168b6a51")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("fa87cd72-52e4-4bce-a2b1-ee89a1fb51a8")
@@ -126,6 +128,8 @@ public class PropertyTypeSmClass extends ModelElementSmClass {
         this.analystOwnerDep = new AnalystOwnerSmDependency();
         this.analystOwnerDep.init("AnalystOwner", this, metamodel.getMClass(Profile.MQNAME), 1, 1 );
         registerDependency(this.analystOwnerDep);
+        
+        
     }
 
     @objid ("e2eb6773-e8ae-49ec-a0cd-c7a6b4fce628")
@@ -166,7 +170,7 @@ public class PropertyTypeSmClass extends ModelElementSmClass {
         private PropertyTypeSmClass smClass;
 
         @objid ("8e592f07-9a25-44db-8b4c-0590707709d8")
-        public PropertyTypeObjectFactory(PropertyTypeSmClass smClass) {
+        public  PropertyTypeObjectFactory(PropertyTypeSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -222,6 +226,7 @@ public class PropertyTypeSmClass extends ModelElementSmClass {
             	this.symetricDep = ((ProfileSmClass)this.getTarget()).getDefinedTypeDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -241,6 +246,7 @@ public class PropertyTypeSmClass extends ModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((PropertyTypeData) data).mTyped = values;
+            
         }
 
         @objid ("be7da4f4-1f46-4dda-8d36-806d2be4f606")
@@ -250,6 +256,7 @@ public class PropertyTypeSmClass extends ModelElementSmClass {
             	this.symetricDep = ((PropertyDefinitionSmClass)this.getTarget()).getTypeDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -278,6 +285,7 @@ public class PropertyTypeSmClass extends ModelElementSmClass {
             	this.symetricDep = ((ModuleComponentSmClass)this.getTarget()).getDefinedPropertyTypeDep();
             }
             return this.symetricDep;
+            
         }
 
     }

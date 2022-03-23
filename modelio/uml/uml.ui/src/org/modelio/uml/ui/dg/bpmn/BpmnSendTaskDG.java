@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.bpmn;
 
 import java.util.Collections;
@@ -38,7 +37,7 @@ public class BpmnSendTaskDG extends PortContainerDG {
      * @param node The gm node represented by this class.
      */
     @objid ("e4dd46d7-0bec-4952-9c62-97241a654d9d")
-    public BpmnSendTaskDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  BpmnSendTaskDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 

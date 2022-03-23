@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmndataobject.datastore;
 
 import java.beans.PropertyChangeEvent;
@@ -31,7 +30,8 @@ import org.eclipse.swt.graphics.Color;
 import org.modelio.bpmn.diagram.editor.editor.BpmnSharedImages;
 import org.modelio.bpmn.diagram.editor.elements.bpmndataobject.BpmnDataFigure;
 import org.modelio.bpmn.diagram.editor.elements.bpmndataobject.BpmnItemAwareElementElementDropEditPolicy;
-import org.modelio.bpmn.diagram.editor.elements.policies.BpmnCreateLinkEditPolicy;
+import org.modelio.bpmn.diagram.editor.elements.common.editpart.AbstractBpmnSmallNodeEditPart;
+import org.modelio.bpmn.diagram.editor.elements.common.policies.BpmnCreateLinkEditPolicy;
 import org.modelio.bpmn.diagram.editor.plugin.DiagramEditorBpmn;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeRequestConstants;
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeStartCreationEditPolicy;
@@ -50,7 +50,7 @@ import org.modelio.diagram.styles.core.MetaKey;
  * Edit part for {@link GmBpmnDataStorePrimaryNode}.
  */
 @objid ("60ccb19a-55b6-11e2-877f-002564c97630")
-public class BpmnDataStoreEditPart extends AbstractNodeEditPart {
+public class BpmnDataStoreEditPart extends AbstractBpmnSmallNodeEditPart {
     @objid ("60ccb19e-55b6-11e2-877f-002564c97630")
     @Override
     public void activate() {
@@ -74,6 +74,7 @@ public class BpmnDataStoreEditPart extends AbstractNodeEditPart {
         } else {
             super.propertyChange(evt);
         }
+        
     }
 
     /**
@@ -87,6 +88,7 @@ public class BpmnDataStoreEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START, new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
         installEditPolicy(ModelElementDropRequest.TYPE, new BpmnItemAwareElementElementDropEditPolicy());
+        
     }
 
     /**
@@ -114,7 +116,6 @@ public class BpmnDataStoreEditPart extends AbstractNodeEditPart {
 
     /**
      * Get the note figure.
-     * 
      * @return The note figure.
      */
     @objid ("60ccb1b3-55b6-11e2-877f-002564c97630")
@@ -134,6 +135,7 @@ public class BpmnDataStoreEditPart extends AbstractNodeEditPart {
         final GmBpmnDataStorePrimaryNode gm = (GmBpmnDataStorePrimaryNode) getModel();
         fig.getParent().setConstraint(fig, gm.getLayoutData());
         fig.setTopIcons(gm.getReferenceIcone());
+        
     }
 
     @objid ("60ccb1bc-55b6-11e2-877f-002564c97630")
@@ -143,6 +145,7 @@ public class BpmnDataStoreEditPart extends AbstractNodeEditPart {
         if (index == 0) {
             getFigure().add(child, BorderLayout.CENTER, index);
         }
+        
     }
 
     @objid ("60ccb1c1-55b6-11e2-877f-002564c97630")
@@ -164,6 +167,7 @@ public class BpmnDataStoreEditPart extends AbstractNodeEditPart {
                 cFigure.setColor(color);
             }
         }
+        
     }
 
 }

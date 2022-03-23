@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import java.util.List;
@@ -33,7 +32,7 @@ public class EUsage extends EDependency {
     }
 
     @objid ("cae944c9-6288-4573-a786-00ee39ffd6c4")
-    public EUsage(org.eclipse.uml2.uml.Usage element) {
+    public  EUsage(org.eclipse.uml2.uml.Usage element) {
         super(element);
     }
 

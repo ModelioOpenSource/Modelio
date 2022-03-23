@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.artifact;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("a5115a85-757b-44ec-a53a-583442d3e59e")
 public class UML2DeploymentSpecification {
-    @objid ("acf077dc-fc1b-468c-8785-162480c8f398")
+    @objid ("32191595-eb7a-4e90-97e6-99d0b580dd0d")
     public static final String STEREOTYPE_NAME = "UML2DeploymentSpecification";
 
     /**
      * The underlying {@link Artifact} represented by this proxy, never null.
      */
-    @objid ("dd96f242-855a-4470-a8fb-79a9f38970b5")
+    @objid ("1feb98de-a13c-49a4-be18-b98e5eeefeeb")
     protected final Artifact elt;
 
     /**
      * Tells whether a {@link UML2DeploymentSpecification proxy} can be instantiated from a {@link MObject} checking it is a {@link Artifact} stereotyped << UML2DeploymentSpecification >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("99bed33e-3275-4bbd-a270-50b79fb4aaa3")
+    @objid ("6a385521-30a7-4b31-8f44-5a83a31c3cec")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Artifact) && ((Artifact) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2DeploymentSpecification.STEREOTYPE_NAME));
     }
@@ -77,9 +75,9 @@ public class UML2DeploymentSpecification {
      * 
      * @return a {@link UML2DeploymentSpecification} proxy on the created {@link Artifact}.
      */
-    @objid ("af6db794-5c49-4b4e-a2f9-212e47c66ab9")
+    @objid ("a8ad5669-9249-4ab8-adb7-0e7e47083b20")
     public static UML2DeploymentSpecification create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Artifact");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.Artifact");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2DeploymentSpecification.STEREOTYPE_NAME);
         return UML2DeploymentSpecification.instantiate((Artifact)e);
     }
@@ -91,7 +89,7 @@ public class UML2DeploymentSpecification {
      * @param obj a Artifact
      * @return a {@link UML2DeploymentSpecification} proxy or <i>null</i>.
      */
-    @objid ("7404e030-8a0f-4601-8d7c-8e29ec959ba8")
+    @objid ("93a7ee96-a3da-44c7-a245-087f8ce6a685")
     public static UML2DeploymentSpecification instantiate(Artifact obj) {
         return UML2DeploymentSpecification.canInstantiate(obj) ? new UML2DeploymentSpecification(obj) : null;
     }
@@ -104,7 +102,7 @@ public class UML2DeploymentSpecification {
      * @return a {@link UML2DeploymentSpecification} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("9ca1e803-0c62-429f-8221-408995a6b95d")
+    @objid ("3bac3422-3c89-4f50-ba47-822815a70710")
     public static UML2DeploymentSpecification safeInstantiate(Artifact obj) throws IllegalArgumentException {
         if (UML2DeploymentSpecification.canInstantiate(obj))
         	return new UML2DeploymentSpecification(obj);
@@ -112,7 +110,7 @@ public class UML2DeploymentSpecification {
         	throw new IllegalArgumentException("UML2DeploymentSpecification: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("990f64c6-8c28-4fa3-97ca-2b246dd5166b")
+    @objid ("388771be-3530-4152-b3fa-d9a8547a966c")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,46 +130,47 @@ public class UML2DeploymentSpecification {
      * Get the underlying {@link Artifact}. 
      * @return the Artifact represented by this proxy, never null.
      */
-    @objid ("a5bab06f-2afa-4fa6-89b6-f6b2fe73c003")
+    @objid ("2ad6de2a-169c-420e-afb5-81a649ab46a9")
     public Artifact getElement() {
         return this.elt;
     }
 
-    @objid ("1578d0df-9081-48e7-9000-c5d2ea3f5003")
+    @objid ("aaa3fce3-d460-4b3a-8d60-3ea4c656683f")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("8d4b8b4e-0bea-4a9f-8896-205686d4fcbb")
-    protected UML2DeploymentSpecification(Artifact elt) {
+    @objid ("21497b1b-4f28-497f-aeb8-043572d63590")
+    protected  UML2DeploymentSpecification(Artifact elt) {
         this.elt = elt;
     }
 
     @objid ("573ae85e-4d62-4b49-b9e5-9267a47f1a8d")
     public static final class MdaTypes {
-        @objid ("273cf199-1b17-4a71-b825-183b1f781d2d")
+        @objid ("02d597dc-707b-441c-9951-ac02bc2c5112")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("fcbdd866-5e90-4995-a72b-bbefdce373ae")
+        @objid ("b2b85481-9e4c-4311-8c29-e0b7e5e1d759")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("579667b7-865a-4694-92ad-7ff68ed96528")
+        @objid ("e5396d7d-e4eb-43cc-8453-266c73185a9a")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("15cd298b-5f84-4797-8faf-4272cafe7e50")
+        @objid ("c46ebf5b-2ed1-4f4b-bf89-c2c42c5d1330")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "8c44d73d-5d0b-11df-a996-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

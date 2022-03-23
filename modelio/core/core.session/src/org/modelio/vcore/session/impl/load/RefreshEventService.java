@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.load;
 
 import java.util.ArrayList;
@@ -56,13 +55,12 @@ public class RefreshEventService {
 
     /**
      * Initialize the refresh event support
-     * 
      * @param changeSupport the model change support
      * @param transactionSupport the model transaction support
      * @param schedulerService a scheduler executor service
      */
     @objid ("95a7ff6d-1ef7-414e-9adc-f0d6b65c9c10")
-    public RefreshEventService(ModelChangeSupport changeSupport, final ITransactionSupport transactionSupport, ScheduledExecutorService schedulerService) {
+    public  RefreshEventService(ModelChangeSupport changeSupport, final ITransactionSupport transactionSupport, ScheduledExecutorService schedulerService) {
         this.svcData = new SvcData(changeSupport, schedulerService, transactionSupport);
     }
 
@@ -70,7 +68,6 @@ public class RefreshEventService {
      * Add a refresh event to process.
      * <p>
      * Add the event to a queue and returns immediately.
-     * 
      * @param actions all model refresh changes.
      * @param newDeletedData deleted model object data to keep from garbage collection.
      */
@@ -91,6 +88,7 @@ public class RefreshEventService {
         if (oldQueue == null) {
             this.svcData.schedulerService.schedule(new EventRequestProcessor(this.svcData), 500, TimeUnit.MILLISECONDS);
         }
+        
     }
 
     /**
@@ -110,7 +108,7 @@ public class RefreshEventService {
          * later retrieval by the {@link #getMessage()} method.
          */
         @objid ("cc842533-7da9-420f-ae5a-84bb58c345c7")
-        public EventQueueOverflowError(String message) {
+        public  EventQueueOverflowError(String message) {
             super(message);
         }
 
@@ -122,25 +120,26 @@ public class RefreshEventService {
     @objid ("1c6fd857-ff8f-4d9d-9b27-689eb8fae2cc")
     private static class SvcData {
         @objid ("a8d4d6ac-42ee-11e2-91c9-001ec947ccaf")
-         final ModelChangeSupport changeSupport;
+        final ModelChangeSupport changeSupport;
 
         @objid ("a39df791-cc1e-4607-8ede-d6272b63e4df")
-         final ScheduledExecutorService schedulerService;
+        final ScheduledExecutorService schedulerService;
 
         @objid ("85c5aba4-9774-430e-8dc0-02210f6f087f")
-         final ITransactionSupport transactionSupport;
+        final ITransactionSupport transactionSupport;
 
         /**
          * Event processing requests queue.
          */
         @objid ("13862c79-3b49-4c78-9035-60f4876e34e3")
-         final AtomicReference<Queue<EventRequest>> requestQueue = new AtomicReference<>(null);
+        final AtomicReference<Queue<EventRequest>> requestQueue = new AtomicReference<>(null);
 
         @objid ("a0263671-c533-44a2-a5f7-2ddb983d49a2")
-        public SvcData(ModelChangeSupport changeSupport, ScheduledExecutorService schedulerService, ITransactionSupport transactionSupport) {
+        public  SvcData(ModelChangeSupport changeSupport, ScheduledExecutorService schedulerService, ITransactionSupport transactionSupport) {
             this.changeSupport = changeSupport;
             this.schedulerService = schedulerService;
             this.transactionSupport = transactionSupport;
+            
         }
 
     }
@@ -153,15 +152,16 @@ public class RefreshEventService {
     @objid ("97c80d8d-9ad7-4d65-8fff-1b1375fbb2e2")
     private static class EventRequest {
         @objid ("d63f4c8b-b0e0-49d8-a721-6386ccb44314")
-         final Collection<IAction> actions;
+        final Collection<IAction> actions;
 
         @objid ("e5c6bd7f-d195-4732-b873-1d433ad2612d")
-         final Collection<ISmObjectData> newDeletedData;
+        final Collection<ISmObjectData> newDeletedData;
 
         @objid ("703a90e9-4d64-4340-8a03-f0f96fc0bfca")
-        public EventRequest(Collection<IAction> actions, Collection<ISmObjectData> newDeletedData) {
+        public  EventRequest(Collection<IAction> actions, Collection<ISmObjectData> newDeletedData) {
             this.actions = actions;
             this.newDeletedData = newDeletedData;
+            
         }
 
     }
@@ -189,7 +189,7 @@ public class RefreshEventService {
         private final SvcData svcData;
 
         @objid ("a7142b06-97cc-4e6c-98aa-89d05fdfecb7")
-        public EventRequestProcessor(SvcData svcData) {
+        public  EventRequestProcessor(SvcData svcData) {
             this.svcData = svcData;
         }
 
@@ -215,6 +215,7 @@ public class RefreshEventService {
                     doFireRefresh();
                 }
             });
+            
         }
 
         @objid ("886b48b0-c4d7-4aac-b326-92d7f1bb2733")
@@ -230,6 +231,7 @@ public class RefreshEventService {
                 this.eventFactory.process(a);
                 this.actionCount ++;
             }
+            
         }
 
         /**
@@ -248,6 +250,7 @@ public class RefreshEventService {
             if (! statusEvent.isEmpty()) {
                 this.svcData.changeSupport.fireStatusChangeListeners(statusEvent);
             }
+            
         }
 
     }

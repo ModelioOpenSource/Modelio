@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.script.toolbar;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.services.IServiceConstants;
@@ -67,13 +66,12 @@ public class MacroToolbarProvider extends TrimBarComponent {
     private EPartService partService;
 
     @objid ("4d380049-a0e9-4700-b6c8-6251ed111daf")
-    public MacroToolbarProvider() {
+    public  MacroToolbarProvider() {
         super(Script.I18N.getString("MacroToolbarProvider.MacrosZone.label"));
     }
 
     /**
      * Initialize the SWT control.
-     * 
      * @param parent a widget which will be the parent of the new SWT components.
      */
     @objid ("86a0b24e-5c5f-4caa-9fa2-e2c79c974a0b")
@@ -96,11 +94,11 @@ public class MacroToolbarProvider extends TrimBarComponent {
         for (ToolItem item : getControl().getItems()) {
             deleteToolItem(item);
         }
+        
     }
 
     /**
      * Create a new tool item from a macro.
-     * 
      * @param entry the macro to create the tool item from.
      * @return a new toolbar item.
      */
@@ -150,6 +148,7 @@ public class MacroToolbarProvider extends TrimBarComponent {
             image.dispose();
         }
         item.dispose();
+        
     }
 
     /**
@@ -157,7 +156,6 @@ public class MacroToolbarProvider extends TrimBarComponent {
      * <p>
      * Only macros shown in the toolbar are returned.
      * </p>
-     * 
      * @param entries the macros to build the toolbar.
      * @return a list of menu elements.
      */
@@ -191,6 +189,7 @@ public class MacroToolbarProvider extends TrimBarComponent {
                 setVisible(newIsVisible);
             }
         }
+        
     }
 
 }

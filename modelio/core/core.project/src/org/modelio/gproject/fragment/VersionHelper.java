@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.fragment;
 
 import java.io.IOException;
@@ -45,7 +44,6 @@ import org.modelio.version.ModelioVersionGuesser;
 public class VersionHelper {
     /**
      * Convert an old metamodel version to the new format
-     * 
      * @param mmVersion the old metamodel version
      * @return the metamodel version with the new format.
      */
@@ -56,7 +54,6 @@ public class VersionHelper {
 
     /**
      * Convert a potential pre Modelio 3.4 metamodel descriptor.
-     * 
      * @param input the source descriptor
      * @return another converted one.
      */
@@ -87,7 +84,6 @@ public class VersionHelper {
 
     /**
      * Build a {@link MetamodelVersionDescriptor} from an old metamodel version.
-     * 
      * @param oldMmVersion an old Modelio metamodel version.
      * @return the matching VersionDescriptors
      */
@@ -99,7 +95,6 @@ public class VersionHelper {
 
     /**
      * Build a {@link MetamodelVersionDescriptor} from a metamodel .
-     * 
      * @param mm a metamodel
      * @return its descriptor
      */
@@ -116,11 +111,10 @@ public class VersionHelper {
 
     /**
      * Guess the Modelio version of a loaded project from the loaded (but not opened) project and its descriptor.
-     * 
      * @param projDesc the project descriptor
      * @param loadedProject the project in loaded state. Should not be opened.
      * @return the guessed Modelio version
-     * @throws java.io.IOException in case of I/O error
+     * @throws IOException in case of I/O error
      */
     @objid ("e8b249d4-f96d-4a11-b294-76811dd58279")
     public static Version guessModelioVersion(ProjectDescriptor projDesc, GProject loadedProject) throws IOException {
@@ -167,10 +161,11 @@ public class VersionHelper {
         } else {
             return null;
         }
+        
     }
 
     @objid ("6d743e8f-b92b-48f6-9337-82845fb9a1a2")
-    private VersionHelper() {
+    private  VersionHelper() {
         // no instance
     }
 

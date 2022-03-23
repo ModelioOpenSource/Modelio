@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.importer.commands;
 
 import java.io.File;
@@ -64,11 +63,12 @@ class BPMImportDialog extends ModelioDialog {
     private Button okButton;
 
     @objid ("7e9ce11a-7231-4bf3-884d-a80edd012bae")
-    public BPMImportDialog(Shell parentShell, BPMImportModel model) {
+    public  BPMImportDialog(Shell parentShell, BPMImportModel model) {
         super(parentShell);
         this.setShellStyle(SWT.APPLICATION_MODAL | SWT.DIALOG_TRIM | SWT.RESIZE | SWT.MAX);
         this.controller = new Controller(this, model);
         this.model = model;
+        
     }
 
     @objid ("b2a95830-940f-4bf3-92b4-59254522149b")
@@ -77,6 +77,7 @@ class BPMImportDialog extends ModelioDialog {
         this.okButton = createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL, true);
         this.okButton.setEnabled(false);
         createButton(parent, IDialogConstants.CANCEL_ID, IDialogConstants.CANCEL_LABEL, false);
+        
     }
 
     @objid ("92b15b49-f7cd-4939-8029-fabef7f8fef8")
@@ -106,6 +107,7 @@ class BPMImportDialog extends ModelioDialog {
             setMessage(BPMNXml.I18N.getMessage("ui.command.import.message"));
         }
         addListeners();
+        
     }
 
     @objid ("85c576b8-3e65-48b0-84d0-790b0a8dccdd")
@@ -116,6 +118,7 @@ class BPMImportDialog extends ModelioDialog {
         } else {
             this.okButton.setEnabled(false);
         }
+        
     }
 
     @objid ("b1211528-5292-46d9-9fb7-b8b80cdc020e")
@@ -139,6 +142,7 @@ class BPMImportDialog extends ModelioDialog {
                 BPMImportDialog.this.controller.onSelectSelectFile();
             }
         });
+        
     }
 
     @objid ("0cd2016c-b859-4f52-ab60-6b85f8666197")
@@ -186,9 +190,10 @@ class BPMImportDialog extends ModelioDialog {
         private BPMImportModel model;
 
         @objid ("b02709c6-7a8a-4f6a-8065-61178edb9f80")
-        public Controller(BPMImportDialog dlg, BPMImportModel model) {
+        public  Controller(BPMImportDialog dlg, BPMImportModel model) {
             this.dlg = dlg;
             this.model = model;
+            
         }
 
         @objid ("43059de8-a65b-4bd1-a2e2-959e4cc0aa4a")
@@ -207,12 +212,14 @@ class BPMImportDialog extends ModelioDialog {
                 }
             }
             this.dlg.update();
+            
         }
 
         @objid ("5296ff2f-1cfe-44f8-aed8-29d4a4b568e8")
         public void onSelectKeepId(boolean keepIdCkeckbox) {
             this.model.setKeeyId(keepIdCkeckbox);
             this.dlg.update();
+            
         }
 
     }

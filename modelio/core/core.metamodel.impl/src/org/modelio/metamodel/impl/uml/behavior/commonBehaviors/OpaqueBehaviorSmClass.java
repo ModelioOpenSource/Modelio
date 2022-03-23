@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.commonBehaviors;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.BehaviorSmClass;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.OpaqueBehavior;
 import org.modelio.vbasic.version.Version;
@@ -46,7 +45,7 @@ public class OpaqueBehaviorSmClass extends BehaviorSmClass {
     private SmAttribute bodyAtt;
 
     @objid ("51240300-395e-4454-87f9-d4f0b6a408ed")
-    public OpaqueBehaviorSmClass(ISmMetamodelFragment origin) {
+    public  OpaqueBehaviorSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -54,6 +53,7 @@ public class OpaqueBehaviorSmClass extends BehaviorSmClass {
     @Override
     public String getName() {
         return "OpaqueBehavior";
+        
     }
 
     @objid ("fff14c2b-ac53-4122-9010-04d8f936bc44")
@@ -66,18 +66,21 @@ public class OpaqueBehaviorSmClass extends BehaviorSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return OpaqueBehavior.class;
+        
     }
 
     @objid ("cfd52edd-fc03-46bd-aa25-0fa893a8656e")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("62d9cda9-eae5-4018-b800-753230711074")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("cf293e14-9028-4b51-9f08-6f494ec49ca5")
@@ -94,6 +97,7 @@ public class OpaqueBehaviorSmClass extends BehaviorSmClass {
         
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("b8f7eb20-11ba-4520-932c-7ed690235ef5")
@@ -110,7 +114,7 @@ public class OpaqueBehaviorSmClass extends BehaviorSmClass {
         private OpaqueBehaviorSmClass smClass;
 
         @objid ("99dc9ef2-8134-43bf-96bd-61eeb5cda5be")
-        public OpaqueBehaviorObjectFactory(OpaqueBehaviorSmClass smClass) {
+        public  OpaqueBehaviorObjectFactory(OpaqueBehaviorSmClass smClass) {
             this.smClass = smClass;
         }
 

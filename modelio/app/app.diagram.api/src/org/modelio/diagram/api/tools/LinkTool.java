@@ -17,14 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.api.tools;
 
-import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.PolylineConnection;
-import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.tools.AbstractConnectionCreationTool;
 import org.eclipse.gef.tools.AbstractTool;
@@ -32,13 +28,11 @@ import org.modelio.api.modelio.diagram.IDiagramGraphic;
 import org.modelio.api.modelio.diagram.IDiagramLink.LinkRouterKind;
 import org.modelio.api.modelio.diagram.tools.ILinkTool;
 import org.modelio.diagram.api.dg.DGFactory;
-import org.modelio.diagram.api.dg.LinkPath;
+import org.modelio.diagram.api.dg.LinkRoute;
 import org.modelio.diagram.api.services.DiagramHandle;
 import org.modelio.diagram.editor.IDiagramEditor;
 import org.modelio.diagram.editor.plugin.DiagramEditorsManager;
 import org.modelio.diagram.elements.core.link.CreateBendedConnectionRequest;
-import org.modelio.diagram.elements.core.link.path.BendPointUtils;
-import org.modelio.diagram.elements.core.link.path.ConnectionHelperFactory;
 import org.modelio.diagram.elements.core.link.path.ConnectionPolicyUtils;
 import org.modelio.diagram.elements.core.link.path.IConnectionHelper;
 import org.modelio.diagram.elements.core.model.GmModel;
@@ -70,7 +64,7 @@ public class LinkTool extends BendedConnectionCreationTool {
      * C'tor, used by platform to instantiate the tool by reflexion.
      */
     @objid ("7e47695b-1980-441c-9115-9006327f1b80")
-    public LinkTool() {
+    public  LinkTool() {
         this.linkCommand = null;
     }
 
@@ -82,6 +76,7 @@ public class LinkTool extends BendedConnectionCreationTool {
             this.diagramHandle.close();
             this.diagramHandle = null;
         }
+        
     }
 
     @objid ("5d8a333a-5aa5-4a95-ac2a-289bf3a89c4e")
@@ -94,6 +89,7 @@ public class LinkTool extends BendedConnectionCreationTool {
             return;
         }
         super.applyProperty(key, value);
+        
     }
 
     @objid ("e38f67e9-9c66-4d72-9609-5d3f470c2f80")
@@ -117,6 +113,7 @@ public class LinkTool extends BendedConnectionCreationTool {
         } else {
             return this.linkCommand.acceptFirstElement(this.diagramHandle, dg);
         }
+        
     }
 
     @objid ("25eb4915-37a4-48d2-a7c8-d79b6fd47f9a")
@@ -141,46 +138,19 @@ public class LinkTool extends BendedConnectionCreationTool {
         // Additional step: add the optional bend points.
         // Create a "dummy" connection to translate the coordinates of points in the request (absolute) to relative to the connection layer
         PolylineConnection dummyConnection = new PolylineConnection();
+        dummyConnection.removeAllPoints();
         ConnectionPolicyUtils.setupConnection(request, dummyConnection);
         
-        IConnectionHelper connPath = ConnectionHelperFactory.createFromRawData(request, dummyConnection);
+        IConnectionHelper connPath = ConnectionPolicyUtils.getRoutingServices(targetEditPart)
+                .getConnectionHelperFactory()
+                .createFromRawData(request, dummyConnection);
         dummyConnection.setRoutingConstraint(connPath.getRoutingConstraint());
         dummyConnection.layout();
         
-        List<Point> points = BendPointUtils.getConnectionPoints(dummyConnection);
-        
-        ConnectionAnchor targetAnchor = dummyConnection.getTargetAnchor();
-        ConnectionAnchor sourceAnchor = dummyConnection.getSourceAnchor();
-        
-        // Add source anchor position
-        final Point TMPP = Point.SINGLETON;
-        if (points.isEmpty()) {
-            TMPP.setLocation(sourceAnchor.getLocation(targetAnchor.getReferencePoint()));
-            dummyConnection.translateToRelative(TMPP);
-            points.add(0, TMPP.getCopy());
-        } else {
-            TMPP.setLocation(points.get(0));
-            dummyConnection.translateToAbsolute(TMPP);
-            TMPP.setLocation(sourceAnchor.getLocation(TMPP));
-            dummyConnection.translateToRelative(TMPP);
-            if (!points.contains(TMPP)) {
-                points.add(0, TMPP.getCopy());
-            }
-        }
-        
-        // Add target anchor position
-        TMPP.setLocation(points.get(points.size() - 1));
-        dummyConnection.translateToAbsolute(TMPP);
-        TMPP.setLocation(targetAnchor.getLocation(TMPP));
-        dummyConnection.translateToRelative(TMPP);
-        if (!points.contains(TMPP)) {
-            points.add(TMPP.getCopy());
-        }
+        LinkRoute path = new LinkRoute(dummyConnection);
         
         // the connection is not needed anymore
         dummyConnection.getParent().remove(dummyConnection);
-        
-        LinkPath path = new LinkPath(points);
         
         // Delegate the execution to the linkCommand handler
         LinkRouterKind routerKind;
@@ -204,22 +174,23 @@ public class LinkTool extends BendedConnectionCreationTool {
         this.linkCommand.actionPerformed(this.diagramHandle, sourceDg, dg, routerKind, path);
         
         setCurrentCommand(null);
+        
     }
 
     @objid ("f1561a77-728a-49ba-b922-cb9dcda57ca9")
     @Override
     protected org.eclipse.gef.EditPartViewer.Conditional getTargetingConditional() {
         return editpart -> {
-                                    if (LinkTool.super.getTargetingConditional().evaluate(editpart)) {
-                                        return doAccept(editpart);
-                                    }
-                                    return false;
-                                };
+            if (LinkTool.super.getTargetingConditional().evaluate(editpart)) {
+                return doAccept(editpart);
+            }
+            return false;
+        };
+        
     }
 
     /**
      * Sets the tools state.
-     * 
      * @param state the new state
      */
     @objid ("f5a26eb0-323d-45f7-9f17-fef60bf0eea0")
@@ -230,13 +201,11 @@ public class LinkTool extends BendedConnectionCreationTool {
         if (state == AbstractConnectionCreationTool.STATE_CONNECTION_STARTED) {
             this.sourceGm = (GmModel) getTargetEditPart().getModel();
         }
+        
     }
 
     /**
-     * Updates the target editpart and returns <code>true</code> if the target changes. The target is updated by using
-     * the target conditional and the target request. If the target has been locked, this method does nothing and
-     * returns <code>false</code>.
-     * 
+     * Updates the target editpart and returns <code>true</code> if the target changes. The target is updated by using the target conditional and the target request. If the target has been locked, this method does nothing and returns <code>false</code>.
      * @return <code>true</code> if the target was changed
      */
     @objid ("edb15184-9ccb-4ff8-8d15-bbbf55aed856")
@@ -257,6 +226,7 @@ public class LinkTool extends BendedConnectionCreationTool {
         } else {
             return false;
         }
+        
     }
 
     @objid ("7e8e7602-bf91-4e39-b770-0642b9814e79")
@@ -271,9 +241,7 @@ public class LinkTool extends BendedConnectionCreationTool {
     }
 
     /**
-     * Find the target editpart and returns it. The target is searched by using the target conditional and the target
-     * request.
-     * 
+     * Find the target editpart and returns it. The target is searched by using the target conditional and the target request.
      * @return the edit part that can handle the request under the mouse.
      */
     @objid ("7bdc4ca2-520d-4e1a-812c-a5e8c2bc1003")
@@ -303,6 +271,7 @@ public class LinkTool extends BendedConnectionCreationTool {
         
             this.diagramHandle = DiagramHandle.create(editor, true);
         }
+        
     }
 
 }

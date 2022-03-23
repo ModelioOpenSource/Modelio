@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.gate;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,7 +44,7 @@ import org.modelio.vcore.smkernel.mapi.MRef;
 @objid ("d8fbe7e6-55b6-11e2-877f-002564c97630")
 public class GmGatePrimaryNode extends GmNoStyleSimpleNode implements IImageableNode {
     @objid ("d8fbe7ec-55b6-11e2-877f-002564c97630")
-     static final String PROPERTY_MODEL_UPDATE = "ModelUpdate";
+    static final String PROPERTY_MODEL_UPDATE = "ModelUpdate";
 
     /**
      * Current version of this Gm. Defaults to 0.
@@ -60,18 +59,17 @@ public class GmGatePrimaryNode extends GmNoStyleSimpleNode implements IImageable
      * Empty c'tor for deserialisation.
      */
     @objid ("d8fbe7f3-55b6-11e2-877f-002564c97630")
-    public GmGatePrimaryNode() {
+    public  GmGatePrimaryNode() {
         super();
     }
 
     /**
      * C'tor.
-     * 
      * @param diagram diagram in which this gm is created.
      * @param relatedRef a ref of the gate.
      */
     @objid ("d8fbe7f6-55b6-11e2-877f-002564c97630")
-    public GmGatePrimaryNode(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmGatePrimaryNode(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -110,6 +108,7 @@ public class GmGatePrimaryNode extends GmNoStyleSimpleNode implements IImageable
         
             firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, this.getLayoutData(), null);
         }
+        
     }
 
     @objid ("d8fbe80b-55b6-11e2-877f-002564c97630")
@@ -135,6 +134,7 @@ public class GmGatePrimaryNode extends GmNoStyleSimpleNode implements IImageable
             break;
         }
         }
+        
     }
 
     @objid ("d8fbe815-55b6-11e2-877f-002564c97630")
@@ -144,6 +144,7 @@ public class GmGatePrimaryNode extends GmNoStyleSimpleNode implements IImageable
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmGatePrimaryNode.", GmGatePrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("d8fd6e7c-55b6-11e2-877f-002564c97630")

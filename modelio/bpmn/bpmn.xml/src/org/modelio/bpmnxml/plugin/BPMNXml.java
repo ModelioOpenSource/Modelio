@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.plugin;
 
 import java.util.ResourceBundle;
@@ -56,6 +55,7 @@ public class BPMNXml implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), PLUGIN_ID));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("bpmn-xml"));
+        
     }
 
     @objid ("206c15ef-f233-44dd-aa72-73ffea3e12e0")
@@ -71,7 +71,6 @@ public class BPMNXml implements BundleActivator {
 
     /**
      * Returns an image descriptor for the image file at the given plug-in relative path
-     * 
      * @param path the path
      * @return the image descriptor
      */

@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.module;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.vbasic.collections.TopologicalSorter.CyclicDependencyException;
 import org.modelio.vbasic.collections.TopologicalSorter;
+import org.modelio.vbasic.collections.TopologicalSorter.CyclicDependencyException;
 import org.modelio.vbasic.version.VersionedItem;
 
 /**
@@ -38,16 +37,15 @@ import org.modelio.vbasic.version.VersionedItem;
 @objid ("4e989610-2900-4af3-9df9-43ae9423faaf")
 public final class ModuleSorter {
     @objid ("67a5ffd0-fc90-4012-8e01-0ef279dbaf3c")
-    private ModuleSorter() {
+    private  ModuleSorter() {
         // no instance
     }
 
     /**
      * Sort handles by dependencies, the first ones having no dependencies.
-     * 
      * @param modules module handles to sort. This collection is not modified.
      * @return the sorted list.
-     * @throws org.modelio.vbasic.collections.TopologicalSorter.CyclicDependencyException in case of cyclic dependency.
+     * @throws CyclicDependencyException in case of cyclic dependency.
      */
     @objid ("44f96df5-3521-4ed9-bc6d-5a6718c15e1c")
     public static List<IModuleHandle> sortHandles(Collection<IModuleHandle> modules) throws CyclicDependencyException {
@@ -56,10 +54,9 @@ public final class ModuleSorter {
 
     /**
      * Sort handles by dependencies, the first ones having no dependencies.
-     * 
      * @param modules module to sort. This collection is not modified.
      * @return the sorted list.
-     * @throws org.modelio.vbasic.collections.TopologicalSorter.CyclicDependencyException in case of cyclic dependency.
+     * @throws CyclicDependencyException in case of cyclic dependency.
      */
     @objid ("1702582e-4ff2-4e17-ac97-025230430121")
     public static List<GModule> sortModules(Collection<GModule> modules) throws CyclicDependencyException {
@@ -72,7 +69,7 @@ public final class ModuleSorter {
         private Collection<IModuleHandle> modules;
 
         @objid ("a772f0b0-e48a-4731-ad86-50226ac0935d")
-        public HTopoSorter(Collection<IModuleHandle> modules) {
+        public  HTopoSorter(Collection<IModuleHandle> modules) {
             this.modules = modules;
         }
 
@@ -123,7 +120,7 @@ public final class ModuleSorter {
         private Collection<GModule> modules;
 
         @objid ("1a5f1e08-a8bf-4992-9297-7b956009c8c6")
-        public MTopoSorter(Collection<GModule> modules) {
+        public  MTopoSorter(Collection<GModule> modules) {
             this.modules = modules;
         }
 

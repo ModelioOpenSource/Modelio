@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.packagemerge;
 
 import java.util.List;
@@ -57,19 +56,18 @@ public final class GmPackageMerge extends GmLink {
      * Constructor for deserialization.
      */
     @objid ("360e331d-55b7-11e2-877f-002564c97630")
-    public GmPackageMerge() {
+    public  GmPackageMerge() {
         // Nothing to do.
     }
 
     /**
      * Creates a GmElementImport.
-     * 
      * @param diagram The diagram containing the link.
      * @param role The represented element.
      * @param ref The represented element reference. May not be null.
      */
     @objid ("360e3320-55b7-11e2-877f-002564c97630")
-    public GmPackageMerge(IGmDiagram diagram, PackageMerge role, MRef ref) {
+    public  GmPackageMerge(IGmDiagram diagram, PackageMerge role, MRef ref) {
         super(diagram, ref);
         
         this.element = role;
@@ -78,6 +76,7 @@ public final class GmPackageMerge extends GmLink {
             // Create extensions
             addExtension(ExtensionLocation.MiddleSE, ROLE_MAIN_LABEL, new GmPackageMergeHeader(diagram, ref));
         }
+        
     }
 
     @objid ("360e332c-55b7-11e2-877f-002564c97630")
@@ -121,6 +120,7 @@ public final class GmPackageMerge extends GmLink {
     protected void readLink(IDiagramReader in) {
         super.readLink(in);
         this.element = (PackageMerge) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("360fb9be-55b7-11e2-877f-002564c97630")
@@ -130,6 +130,7 @@ public final class GmPackageMerge extends GmLink {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmPackageMerge.", GmPackageMerge.MINOR_VERSION);
+        
     }
 
     @objid ("360fb9c4-55b7-11e2-877f-002564c97630")

@@ -17,22 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
-import org.modelio.metamodel.impl.uml.statik.BindableInstanceData;
-import org.modelio.metamodel.impl.uml.statik.BindingSmClass;
-import org.modelio.metamodel.impl.uml.statik.ClassifierSmClass;
-import org.modelio.metamodel.impl.uml.statik.InstanceSmClass;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.metamodel.uml.statik.BindableInstance;
 import org.modelio.metamodel.uml.statik.Binding;
@@ -65,7 +61,7 @@ public class BindableInstanceSmClass extends InstanceSmClass {
     private SmDependency representedFeatureDep;
 
     @objid ("2ba0b527-1d56-4de4-bfb5-507e5c24b0e9")
-    public BindableInstanceSmClass(ISmMetamodelFragment origin) {
+    public  BindableInstanceSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -73,6 +69,7 @@ public class BindableInstanceSmClass extends InstanceSmClass {
     @Override
     public String getName() {
         return "BindableInstance";
+        
     }
 
     @objid ("f243f473-1372-450c-9dd8-5db5c3705a11")
@@ -85,18 +82,21 @@ public class BindableInstanceSmClass extends InstanceSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BindableInstance.class;
+        
     }
 
     @objid ("cf82cb8c-c499-4d6a-964e-17f528e05b4d")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("0464bf38-ca7a-4593-9f6f-d719cdb4a64a")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("a14ce21f-9bcb-4bf2-8cff-9385770216d2")
@@ -124,6 +124,8 @@ public class BindableInstanceSmClass extends InstanceSmClass {
         this.representedFeatureDep = new RepresentedFeatureSmDependency();
         this.representedFeatureDep.init("RepresentedFeature", this, metamodel.getMClass(UmlModelElement.MQNAME), 0, 1 , SmDirective.SMCDPARTOF);
         registerDependency(this.representedFeatureDep);
+        
+        
     }
 
     @objid ("829a5ce7-bb6c-495a-9379-bd8d09ca6711")
@@ -164,7 +166,7 @@ public class BindableInstanceSmClass extends InstanceSmClass {
         private BindableInstanceSmClass smClass;
 
         @objid ("a699ad29-13c6-4347-b9f3-94284f244e21")
-        public BindableInstanceObjectFactory(BindableInstanceSmClass smClass) {
+        public  BindableInstanceObjectFactory(BindableInstanceSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -206,6 +208,7 @@ public class BindableInstanceSmClass extends InstanceSmClass {
             	this.symetricDep = ((InstanceSmClass)this.getTarget()).getPartDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -234,6 +237,7 @@ public class BindableInstanceSmClass extends InstanceSmClass {
             	this.symetricDep = ((ClassifierSmClass)this.getTarget()).getInternalStructureDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -253,6 +257,7 @@ public class BindableInstanceSmClass extends InstanceSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BindableInstanceData) data).mRepresentation = values;
+            
         }
 
         @objid ("f4aa3e90-0f7e-4196-bad6-5f24d00e5ac1")
@@ -262,6 +267,7 @@ public class BindableInstanceSmClass extends InstanceSmClass {
             	this.symetricDep = ((BindingSmClass)this.getTarget()).getRoleDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -290,6 +296,7 @@ public class BindableInstanceSmClass extends InstanceSmClass {
             	this.symetricDep = ((UmlModelElementSmClass)this.getTarget()).getRepresentingInstanceDep();
             }
             return this.symetricDep;
+            
         }
 
     }

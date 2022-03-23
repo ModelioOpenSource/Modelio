@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.bindinglink;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -49,12 +48,11 @@ public class GmBindingLinkHeader extends GmDefaultModelElementLabel {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
     @objid ("3415223d-55b7-11e2-877f-002564c97630")
-    public GmBindingLinkHeader(IGmDiagram diagram, MRef relatedRef) {
+    public  GmBindingLinkHeader(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -62,7 +60,8 @@ public class GmBindingLinkHeader extends GmDefaultModelElementLabel {
      * For deserialization only.
      */
     @objid ("34152246-55b7-11e2-877f-002564c97630")
-    public GmBindingLinkHeader() {
+    public  GmBindingLinkHeader() {
+        
     }
 
     /**
@@ -101,6 +100,7 @@ public class GmBindingLinkHeader extends GmDefaultModelElementLabel {
         } else {
             return role.getName();
         }
+        
     }
 
     @objid ("3416a8e5-55b7-11e2-877f-002564c97630")
@@ -120,6 +120,7 @@ public class GmBindingLinkHeader extends GmDefaultModelElementLabel {
                 break;
             }
         }
+        
     }
 
     @objid ("3416a8eb-55b7-11e2-877f-002564c97630")
@@ -129,6 +130,7 @@ public class GmBindingLinkHeader extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmBindingLinkHeader.", GmBindingLinkHeader.MINOR_VERSION);
+        
     }
 
     @objid ("3416a8f1-55b7-11e2-877f-002564c97630")

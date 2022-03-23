@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.drawings.core.link;
 
 import java.lang.reflect.InvocationTargetException;
@@ -51,14 +50,14 @@ public class CreateDrawingLinkCommand extends Command {
 
     /**
      * Command constructor
-     * 
      * @param newLinkType the class of the drawing link to create.
      * @param drawingIdentifier the drawing identifier
      */
     @objid ("3ed48b95-2df2-419f-99b0-03914a05b97e")
-    public CreateDrawingLinkCommand(Class<? extends IGmDrawingLink> newLinkType, String drawingIdentifier) {
+    public  CreateDrawingLinkCommand(Class<? extends IGmDrawingLink> newLinkType, String drawingIdentifier) {
         this.newLinkType = newLinkType;
         this.drawingIdentifier = drawingIdentifier;
+        
     }
 
     @objid ("e9f572f9-196e-4628-8392-81c23f402e10")
@@ -103,11 +102,11 @@ public class CreateDrawingLinkCommand extends Command {
         this.targetNode.addEndingDrawingLink(linkElement);
         
         linkElement.setLayoutData(this.path);
+        
     }
 
     /**
      * Set the link source.
-     * 
      * @param sourceNode the link source.
      */
     @objid ("7b809b84-fce0-447e-b1a1-c207b02a4c6b")
@@ -117,7 +116,6 @@ public class CreateDrawingLinkCommand extends Command {
 
     /**
      * Set the link destination.
-     * 
      * @param targetNode the link destination.
      */
     @objid ("c404ec28-2049-4a14-9a97-35d196a17abd")
@@ -127,7 +125,6 @@ public class CreateDrawingLinkCommand extends Command {
 
     /**
      * Set the path of the link.
-     * 
      * @param path the link path.
      */
     @objid ("4fccf952-0bdd-4afc-95f9-9aa0a7be63ff")

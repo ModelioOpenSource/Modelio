@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.ramc.core.packaging.filters;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -62,21 +61,20 @@ public class RamcFilterBuilder {
 
     /**
      * Initialize the builder.
-     * 
      * @param smMetamodel the modelio metamodel.
      * @param artifact the model component artifact.
      */
     @objid ("61790927-c746-11e1-96e9-001ec947ccaf")
-    public RamcFilterBuilder(SmMetamodel smMetamodel, Artifact artifact) {
+    public  RamcFilterBuilder(SmMetamodel smMetamodel, Artifact artifact) {
         this.smMetamodel = smMetamodel;
         this.dependencyFilter = new DependencyFilter(null, this.smMetamodel.getMExpert());
         this.noteFilter = new NoteFilter(artifact);
         this.tagFilter = new TaggedValueFilter(artifact);
+        
     }
 
     /**
      * Tells to accept {@link Dependency UML Dependencies} with the given stereotype.
-     * 
      * @param type a stereotype on {@link Dependency} metaclass.
      */
     @objid ("6179078e-c746-11e1-96e9-001ec947ccaf")
@@ -86,7 +84,6 @@ public class RamcFilterBuilder {
 
     /**
      * Add a type of notes to accept.
-     * 
      * @param type a note type
      */
     @objid ("617907d6-c746-11e1-96e9-001ec947ccaf")
@@ -96,7 +93,6 @@ public class RamcFilterBuilder {
 
     /**
      * Add a type of tags to accept.
-     * 
      * @param type a tag type.
      */
     @objid ("6179090a-c746-11e1-96e9-001ec947ccaf")
@@ -106,7 +102,6 @@ public class RamcFilterBuilder {
 
     /**
      * Build the RAMC packaging model filter.
-     * 
      * @return the RAMC model filter.
      */
     @objid ("f166aaa3-c9a1-11e1-96e9-001ec947ccaf")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.migration;
 
 import java.io.PrintWriter;
@@ -51,8 +50,8 @@ import org.modelio.vcore.smkernel.mapi.MDependency;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MetamodelVersionDescriptor;
 import org.modelio.vcore.smkernel.meta.SmClass;
-import org.modelio.vcore.smkernel.meta.mof.MofMetamodel.MofBuilder;
 import org.modelio.vcore.smkernel.meta.mof.MofMetamodel;
+import org.modelio.vcore.smkernel.meta.mof.MofMetamodel.MofBuilder;
 import org.modelio.vcore.smkernel.meta.mof.MofSmClass;
 import org.modelio.vcore.smkernel.meta.mof.MofSmDependency;
 import org.modelio.vcore.smkernel.meta.mof.MofSmObjectImpl;
@@ -116,10 +115,10 @@ class BpmnMigratorFromV210 implements IMofRepositoryMigrator {
     private MofSmClass bpmnProcessDesignDiagramMC;
 
     @objid ("42c93e9f-fe12-4116-8c67-ef04c94e3d0d")
-     MofSmClass bpmnProcessMC;
+    MofSmClass bpmnProcessMC;
 
     @objid ("ed80c829-8bbc-41f4-99a7-029c4b7a95cd")
-     MofSmClass collaboMclass;
+    MofSmClass collaboMclass;
 
     @objid ("d730dc85-1e72-4a0b-90ac-cfdfd24cd758")
     private MofSmClass messageMClass;
@@ -131,7 +130,7 @@ class BpmnMigratorFromV210 implements IMofRepositoryMigrator {
     private MofSmClass umlBehaviorMC;
 
     @objid ("aa6b1ce1-0390-455e-80ef-ec375f5034f6")
-     MofSmClass umlPackageMC;
+    MofSmClass umlPackageMC;
 
     @objid ("8c1b87f4-6904-4ec0-91d1-70ca76c20d50")
     private MofSmDependency laneSetDep;
@@ -152,9 +151,10 @@ class BpmnMigratorFromV210 implements IMofRepositoryMigrator {
     private static final Pattern processDummyName = Pattern.compile("(Process(\\s*[0-9]*))");
 
     @objid ("5879ec25-fef9-41ce-a9c0-6eab55a3418a")
-    public BpmnMigratorFromV210(MetamodelVersionDescriptor sourceMetamodel, MetamodelVersionDescriptor targetMetamodel) {
+    public  BpmnMigratorFromV210(MetamodelVersionDescriptor sourceMetamodel, MetamodelVersionDescriptor targetMetamodel) {
         this.sourceMetamodel = sourceMetamodel;
         this.targetMetamodel = targetMetamodel;
+        
     }
 
     @objid ("925c4c1e-1c41-4bf4-aebc-b94abcd37c1c")
@@ -181,9 +181,8 @@ class BpmnMigratorFromV210 implements IMofRepositoryMigrator {
 
     /**
      * Modify the metamodel so that it can read the source repository.
-     * 
      * @param metamodel the metamodel at the final state
-     * @throws org.modelio.vcore.model.spi.mm.MofMigrationException on fatal failure preventing migration
+     * @throws MofMigrationException on fatal failure preventing migration
      */
     @objid ("d36f4cec-b792-4a7c-a092-e8d5f64cff15")
     @Override
@@ -302,6 +301,7 @@ class BpmnMigratorFromV210 implements IMofRepositoryMigrator {
         
         assert (assertDependencyConsistent(this.umlBehaviorMC, "Caller", CallBehaviorActionMc, "Called"));
         assert (assertDependencyConsistent(CallBehaviorActionMc, "Called", this.umlBehaviorMC, "Caller"));
+        
     }
 
     @objid ("8906b954-7a6c-48e2-a45d-ce827b07eb0c")
@@ -345,6 +345,7 @@ class BpmnMigratorFromV210 implements IMofRepositoryMigrator {
         }
         
         assert (checkMigration(mofSession, existingBpmn));
+        
     }
 
     @objid ("f8ba2837-37cc-457b-b6a7-14d1c0071fd9")
@@ -376,7 +377,6 @@ class BpmnMigratorFromV210 implements IMofRepositoryMigrator {
 
     /**
      * Move all Collaborations and Processes to parent Namespace or Operation then delete BpmnBehavior .
-     * 
      * @param mofSession the MOF session
      * @param bpmnBehavior the BPMN behavior to process
      */
@@ -442,6 +442,7 @@ class BpmnMigratorFromV210 implements IMofRepositoryMigrator {
             mofSession.getReport().getLogger().format("   %s still has roots, transmute it to BpmnSharedDefinitions : %s\n", bpmnBehavior, rootElements);
             mofSession.transmute(bpmnBehavior, this.bpmnDefinitionsMC);
         }
+        
     }
 
     /**
@@ -451,7 +452,6 @@ class BpmnMigratorFromV210 implements IMofRepositoryMigrator {
      * - b.BpmnCaller : BpmnCallActivity.CalledBehavior
      * 
      * So that they point to the contained Process or Collaboration.
-     * 
      * @param bpmnBehavior the BPMN Behavior to migrate
      * @param content its initial content
      */
@@ -493,6 +493,7 @@ class BpmnMigratorFromV210 implements IMofRepositoryMigrator {
             logger.format("   Change %s target to %s\n", o, newTarget);
             o.getDep("CalledBehavior").add(newTarget);
         }
+        
     }
 
     @objid ("4a90c5c2-310d-411b-994f-18314b7e1f9e")
@@ -509,6 +510,7 @@ class BpmnMigratorFromV210 implements IMofRepositoryMigrator {
             newDep.addAll(new ArrayList<>(oldDep));
             oldDep.clear();
         }
+        
     }
 
     @objid ("6b8ed274-ca8c-4cf4-a134-0a32a1497526")
@@ -534,6 +536,7 @@ class BpmnMigratorFromV210 implements IMofRepositoryMigrator {
                 }
             }
         }
+        
     }
 
     @objid ("2ecabdbc-a627-425d-bbab-4553a47ea4a5")
@@ -599,6 +602,7 @@ class BpmnMigratorFromV210 implements IMofRepositoryMigrator {
         
             newPackage.getDep("OwnedBehavior").add(bpmnDefs);
         }
+        
     }
 
     @objid ("77d0d555-5d9f-4e10-b30d-c5c59d8e4339")
@@ -648,7 +652,7 @@ class BpmnMigratorFromV210 implements IMofRepositoryMigrator {
         public final List<MofSmObjectImpl> ownedOthers;
 
         @objid ("52e59ca0-ec3e-49c1-9dbd-2ce2d11802e1")
-        public BehaviorContent(MofSmObjectImpl bpmnBehavior) {
+        public  BehaviorContent(MofSmObjectImpl bpmnBehavior) {
             this.rootElements = new ArrayList<>(bpmnBehavior.getDep("RootElement"));
             this.ownedProcesses = new ArrayList<>();
             this.ownedCollaborations = new ArrayList<>();
@@ -670,6 +674,7 @@ class BpmnMigratorFromV210 implements IMofRepositoryMigrator {
                     this.ownedOthers.add(o);
                 }
             }
+            
         }
 
     }

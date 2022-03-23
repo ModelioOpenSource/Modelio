@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.activitydiagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -69,11 +68,12 @@ public class SmartObjectNodeCommand extends Command {
      * @param parentElement the element that will own the new ObjectNode
      */
     @objid ("299800e3-55b6-11e2-877f-002564c97630")
-    public SmartObjectNodeCommand(final Point dropLocation, final MObject toUnmask, final EditPart parentEditPart, final MObject parentElement) {
+    public  SmartObjectNodeCommand(final Point dropLocation, final MObject toUnmask, final EditPart parentEditPart, final MObject parentElement) {
         this.location = dropLocation;
         this.toUnmask = toUnmask;
         this.parentEditPart = parentEditPart;
         this.parentElement = parentElement;
+        
     }
 
     @objid ("299800f2-55b6-11e2-877f-002564c97630")
@@ -131,6 +131,7 @@ public class SmartObjectNodeCommand extends Command {
         }
         
         unmaskElement(instanceNode);
+        
     }
 
     @objid ("299800f5-55b6-11e2-877f-002564c97630")
@@ -146,6 +147,7 @@ public class SmartObjectNodeCommand extends Command {
         if (cmd != null && cmd.canExecute()) {
             cmd.execute();
         }
+        
     }
 
     @objid ("299800fb-55b6-11e2-877f-002564c97630")

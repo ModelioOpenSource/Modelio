@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.anchors;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,11 +36,10 @@ public class GmPointAnchor extends GmAbstractLinkAnchor {
 
     /**
      * Creates a link anchor.
-     * 
      * @param location The anchor reference point location relative to the anchored node location.
      */
     @objid ("7fe05efa-1dec-11e2-8cad-001ec947c8cc")
-    public GmPointAnchor(Dimension location) {
+    public  GmPointAnchor(Dimension location) {
         super(location);
     }
 
@@ -49,7 +47,8 @@ public class GmPointAnchor extends GmAbstractLinkAnchor {
      * Constructor for deserialization.
      */
     @objid ("7fe05f00-1dec-11e2-8cad-001ec947c8cc")
-    public GmPointAnchor() {
+    public  GmPointAnchor() {
+        
     }
 
     @objid ("7fe05f03-1dec-11e2-8cad-001ec947c8cc")

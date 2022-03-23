@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.commonBehaviors;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.SignalData;
 import org.modelio.metamodel.impl.uml.statik.GeneralClassImpl;
 import org.modelio.metamodel.uml.behavior.activityModel.AcceptSignalAction;
 import org.modelio.metamodel.uml.behavior.activityModel.SendSignalAction;
@@ -97,6 +96,7 @@ public class SignalImpl extends GeneralClassImpl implements Signal {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("ec287bc5-b424-4375-9afb-221e4f090a05")
@@ -118,6 +118,7 @@ public class SignalImpl extends GeneralClassImpl implements Signal {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("7ce4193e-e886-419b-8be4-1ade61aad0d6")
@@ -139,6 +140,7 @@ public class SignalImpl extends GeneralClassImpl implements Signal {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("8ac39c74-a4c1-4d15-8665-0fcca967581b")
@@ -186,6 +188,7 @@ public class SignalImpl extends GeneralClassImpl implements Signal {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("3baeb1a7-009f-403b-85a4-a19516812177")
@@ -207,6 +210,7 @@ public class SignalImpl extends GeneralClassImpl implements Signal {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("6c6135d8-4be1-42e3-871d-4aed3241af0d")
@@ -228,6 +232,7 @@ public class SignalImpl extends GeneralClassImpl implements Signal {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("d44dca6e-99dc-41b5-b4c5-9455f0a97a4b")
@@ -262,6 +267,7 @@ public class SignalImpl extends GeneralClassImpl implements Signal {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("3170e988-a2f4-4040-b43a-5305e255b53f")

@@ -17,22 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
-import org.modelio.metamodel.impl.uml.statik.NameSpaceSmClass;
-import org.modelio.metamodel.impl.uml.statik.OperationSmClass;
-import org.modelio.metamodel.impl.uml.statik.TemplateBindingData;
-import org.modelio.metamodel.impl.uml.statik.TemplateParameterSubstitutionSmClass;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.metamodel.uml.statik.NameSpace;
 import org.modelio.metamodel.uml.statik.Operation;
@@ -68,7 +64,7 @@ public class TemplateBindingSmClass extends UmlModelElementSmClass {
     private SmDependency boundElementDep;
 
     @objid ("7156b5c9-f9da-4042-8c5e-347bcf899037")
-    public TemplateBindingSmClass(ISmMetamodelFragment origin) {
+    public  TemplateBindingSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -76,6 +72,7 @@ public class TemplateBindingSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "TemplateBinding";
+        
     }
 
     @objid ("7b8fbecb-daa6-455e-ac39-3ab119fffb9a")
@@ -88,18 +85,21 @@ public class TemplateBindingSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return TemplateBinding.class;
+        
     }
 
     @objid ("c52b1c5b-8721-409b-8e4d-e0da67aebcf5")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("1847c9f3-195e-4eeb-93a9-2730e459172d")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("7d7703bb-903d-4408-a2e0-60a86d83a4dc")
@@ -131,6 +131,8 @@ public class TemplateBindingSmClass extends UmlModelElementSmClass {
         this.boundElementDep = new BoundElementSmDependency();
         this.boundElementDep.init("BoundElement", this, metamodel.getMClass(NameSpace.MQNAME), 0, 1 , SmDirective.SMCDLINKSOURCE);
         registerDependency(this.boundElementDep);
+        
+        
     }
 
     @objid ("ca664615-31a9-4fcf-ae8a-f8b8b3294c4c")
@@ -177,6 +179,7 @@ public class TemplateBindingSmClass extends UmlModelElementSmClass {
     @Override
     public boolean isLinkMetaclass() {
         return true;
+        
     }
 
     @objid ("b8cd215f-0433-4ad5-862d-93d9b8b8a1ed")
@@ -185,7 +188,7 @@ public class TemplateBindingSmClass extends UmlModelElementSmClass {
         private TemplateBindingSmClass smClass;
 
         @objid ("7759e5e8-7265-453e-a175-1c8b72b3e4ae")
-        public TemplateBindingObjectFactory(TemplateBindingSmClass smClass) {
+        public  TemplateBindingObjectFactory(TemplateBindingSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -218,6 +221,7 @@ public class TemplateBindingSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((TemplateBindingData) data).mParameterSubstitution = values;
+            
         }
 
         @objid ("1d456bf1-aadb-47ff-a297-4d2f275256d8")
@@ -227,6 +231,7 @@ public class TemplateBindingSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((TemplateParameterSubstitutionSmClass)this.getTarget()).getOwnerDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -255,6 +260,7 @@ public class TemplateBindingSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((OperationSmClass)this.getTarget()).getTemplateInstanciationDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -283,6 +289,7 @@ public class TemplateBindingSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((OperationSmClass)this.getTarget()).getInstanciatingBindingDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -311,6 +318,7 @@ public class TemplateBindingSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((NameSpaceSmClass)this.getTarget()).getInstanciatingBindingDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -339,6 +347,7 @@ public class TemplateBindingSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((NameSpaceSmClass)this.getTarget()).getTemplateInstanciationDep();
             }
             return this.symetricDep;
+            
         }
 
     }

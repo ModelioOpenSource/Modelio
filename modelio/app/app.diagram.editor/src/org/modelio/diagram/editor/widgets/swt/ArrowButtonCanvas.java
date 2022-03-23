@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.widgets.swt;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,10 +43,11 @@ import org.modelio.diagram.editor.widgets.draw2d.ArrowButton;
 @objid ("8a66a3d1-5ccf-4f60-9c10-f182376f5968")
 public class ArrowButtonCanvas extends Draw2dCanvas {
     @objid ("df18ce34-9537-430a-a06a-26437223d429")
-    public ArrowButtonCanvas(Composite parent) {
+    public  ArrowButtonCanvas(Composite parent) {
         super(parent);
         init();
         provideAccSupport();
+        
     }
 
     @objid ("873dbb30-e65b-4e1d-aab1-cf621f59ca0a")
@@ -70,6 +70,7 @@ public class ArrowButtonCanvas extends Draw2dCanvas {
             
             notifyListeners(SWT.Selection, swtEvent);
         });
+        
     }
 
     @objid ("285b76d8-0e83-4757-a08f-d33924f59738")
@@ -96,6 +97,7 @@ public class ArrowButtonCanvas extends Draw2dCanvas {
                 e.detail = ACC.ROLE_PUSHBUTTON;
             }
         });
+        
     }
 
     /**
@@ -113,7 +115,6 @@ public class ArrowButtonCanvas extends Draw2dCanvas {
      * Possible values are
      * {@link PositionConstants#NORTH}, {@link PositionConstants#SOUTH},
      * {@link PositionConstants#EAST} and {@link PositionConstants#WEST}.
-     * 
      * @param direction The direction
      */
     @objid ("60305305-ed96-4ea8-baff-450c150bb6ec")
@@ -123,7 +124,6 @@ public class ArrowButtonCanvas extends Draw2dCanvas {
 
     /**
      * Add an {@link ActionListener} to react to button click.
-     * 
      * @param l the listener
      */
     @objid ("197bc09e-bd70-4595-bb57-8b3c28ec8ede")

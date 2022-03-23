@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.interactionModel;
 
 import java.util.List;
@@ -32,13 +32,13 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("004ab5e6-c4bf-1fd8-97fe-001ec947cd2a")
 public abstract class OccurrenceSpecificationData extends InteractionFragmentData {
     @objid ("2b7243fa-fe80-40f1-a3fe-0667a7771d6b")
-     List<SmObjectImpl> mToAfter = null;
+    List<SmObjectImpl> mToAfter = null;
 
     @objid ("546e42fc-84a2-4c2b-9c71-eee9093d7d8b")
-     List<SmObjectImpl> mToBefore = null;
+    List<SmObjectImpl> mToBefore = null;
 
     @objid ("50db8b77-5116-46ba-b800-bbf746dda9a8")
-    public OccurrenceSpecificationData(OccurrenceSpecificationSmClass smClass) {
+    public  OccurrenceSpecificationData(OccurrenceSpecificationSmClass smClass) {
         super(smClass);
     }
 

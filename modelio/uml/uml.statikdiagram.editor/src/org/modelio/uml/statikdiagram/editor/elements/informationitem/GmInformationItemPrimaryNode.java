@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.informationitem;
 
 import java.util.Collections;
@@ -64,18 +63,17 @@ public class GmInformationItemPrimaryNode extends GmNoStyleCompositeNode impleme
      * Constructor for deserialization only.
      */
     @objid ("351888b4-55b7-11e2-877f-002564c97630")
-    public GmInformationItemPrimaryNode() {
+    public  GmInformationItemPrimaryNode() {
         // Nothing to do.
     }
 
     /**
      * Creates a GmClass.
-     * 
      * @param diagram The owner diagram.
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
     @objid ("351888b7-55b7-11e2-877f-002564c97630")
-    public GmInformationItemPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
+    public  GmInformationItemPrimaryNode(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
         
         this.header = new GmInformationItemHeader(diagram, relatedRef);
@@ -84,6 +82,7 @@ public class GmInformationItemPrimaryNode extends GmNoStyleCompositeNode impleme
         super.addChild(this.header);
         
         styleChanged(getDisplayedStyle());
+        
     }
 
     @objid ("351888c0-55b7-11e2-877f-002564c97630")
@@ -122,14 +121,15 @@ public class GmInformationItemPrimaryNode extends GmNoStyleCompositeNode impleme
         // Returned result depends on current representation mode:
         List<GmNodeModel> ret;
         switch (this.getRepresentationMode()) {
-            case IMAGE: {
-                ret = Collections.emptyList();
-                break;
-            }
-            default: {
-                ret = super.getVisibleChildren();
-                break;
-            }
+        case USER_IMAGE:
+        case IMAGE: {
+            ret = Collections.emptyList();
+            break;
+        }
+        default: {
+            ret = super.getVisibleChildren();
+            break;
+        }
         }
         return ret;
     }
@@ -140,21 +140,22 @@ public class GmInformationItemPrimaryNode extends GmNoStyleCompositeNode impleme
         // Read version, defaults to 0 if not found
         int readVersion = readMinorVersion(in, "GmInformationItemPrimaryNode.");
         switch (readVersion) {
-            case 0: {
-                read_0(in);
-                break;
-            }
-            case 1: {
-                read_1(in);
-                break;
-            }
-            default: {
-                assert (false) : "version number not covered!";
-                // reading as last handled version: 1
-                read_1(in);
-                break;
-            }
+        case 0: {
+            read_0(in);
+            break;
         }
+        case 1: {
+            read_1(in);
+            break;
+        }
+        default: {
+            assert (false) : "version number not covered!";
+            // reading as last handled version: 1
+            read_1(in);
+            break;
+        }
+        }
+        
     }
 
     @objid ("351a0f47-55b7-11e2-877f-002564c97630")
@@ -168,6 +169,7 @@ public class GmInformationItemPrimaryNode extends GmNoStyleCompositeNode impleme
         firePropertyChange(PROPERTY_LABEL, oldLabel, this.header.getMainLabel());
         // forcing visual refresh in case Image changed
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("351a0f4a-55b7-11e2-877f-002564c97630")
@@ -177,6 +179,7 @@ public class GmInformationItemPrimaryNode extends GmNoStyleCompositeNode impleme
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmInformationItemPrimaryNode.", GmInformationItemPrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("351a0f50-55b7-11e2-877f-002564c97630")
@@ -189,6 +192,7 @@ public class GmInformationItemPrimaryNode extends GmNoStyleCompositeNode impleme
         
         GmNodeModel imageModeHeader = this.getChildren().get(1);
         imageModeHeader.delete();
+        
     }
 
     @objid ("351a0f55-55b7-11e2-877f-002564c97630")
@@ -204,6 +208,7 @@ public class GmInformationItemPrimaryNode extends GmNoStyleCompositeNode impleme
         final List<GmNodeModel> children = getChildren();
         
         this.header = (GmInformationItemHeader) children.get(0);
+        
     }
 
 }

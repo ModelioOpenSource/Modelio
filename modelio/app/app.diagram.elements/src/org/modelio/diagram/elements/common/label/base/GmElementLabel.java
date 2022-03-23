@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.label.base;
 
 import java.util.Collections;
@@ -32,8 +31,8 @@ import org.modelio.diagram.elements.core.node.GmSimpleNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.vcore.smkernel.mapi.MRef;
 
 /**
@@ -59,18 +58,17 @@ public abstract class GmElementLabel extends GmSimpleNode {
      * Constructor for deserialization only.
      */
     @objid ("7e8dd0f0-1dec-11e2-8cad-001ec947c8cc")
-    public GmElementLabel() {
+    public  GmElementLabel() {
         // empty for the serialization
     }
 
     /**
      * Creates a label
-     * 
      * @param diagram The diagram
      * @param relatedRef a reference to the element this GmModel is related to.
      */
     @objid ("7e8dd0f3-1dec-11e2-8cad-001ec947c8cc")
-    public GmElementLabel(IGmDiagram diagram, MRef relatedRef) {
+    public  GmElementLabel(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -78,7 +76,6 @@ public abstract class GmElementLabel extends GmSimpleNode {
      * Get the label to display.
      * <p>
      * If the label is not initialized yet, calls {@link #refreshFromObModel()}.
-     * 
      * @return The label to display.
      */
     @objid ("7e8dd0f8-1dec-11e2-8cad-001ec947c8cc")
@@ -118,6 +115,7 @@ public abstract class GmElementLabel extends GmSimpleNode {
         } else {
             return getParent().getStyleKeys();
         }
+        
     }
 
     @objid ("7e903351-1dec-11e2-8cad-001ec947c8cc")
@@ -137,6 +135,7 @@ public abstract class GmElementLabel extends GmSimpleNode {
             break;
         }
         }
+        
     }
 
     @objid ("7e903355-1dec-11e2-8cad-001ec947c8cc")
@@ -145,6 +144,7 @@ public abstract class GmElementLabel extends GmSimpleNode {
         if (updateLabelFromModel()) {
             firePropertyChange(IGmObject.PROPERTY_LABEL, null, this.label);
         }
+        
     }
 
     @objid ("7e903358-1dec-11e2-8cad-001ec947c8cc")
@@ -154,6 +154,7 @@ public abstract class GmElementLabel extends GmSimpleNode {
             getPersistedStyle().setCascadedStyle(parentLink.getPersistedStyle());
         }
         super.setParentLink(parentLink);
+        
     }
 
     @objid ("7e90336e-1dec-11e2-8cad-001ec947c8cc")
@@ -163,23 +164,23 @@ public abstract class GmElementLabel extends GmSimpleNode {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmElementLabel.", GmElementLabel.MINOR_VERSION);
+        
     }
 
     /**
      * Computes the displayed element symbol.
      * <p>
      * This method is called by {@link #refreshFromObModel()}.
-     * 
      * @return the displayed main label.
      */
     @objid ("7e90335c-1dec-11e2-8cad-001ec947c8cc")
     protected abstract String computeLabel();
 
-// @objid ("7e90335f-1dec-11e2-8cad-001ec947c8cc")
-// @Override
-// protected IStyle createStyle(GmAbstractDiagram aDiagram) {
-// return new ProxyStyle(aDiagram.getStyle());
-// }
+    // @objid ("7e90335f-1dec-11e2-8cad-001ec947c8cc")
+    // @Override
+    // protected IStyle createStyle(GmAbstractDiagram aDiagram) {
+    // return new ProxyStyle(aDiagram.getStyle());
+    // }
     @objid ("7e903365-1dec-11e2-8cad-001ec947c8cc")
     @Override
     protected void setParent(GmCompositeNode newParent) throws IllegalStateException {
@@ -190,6 +191,7 @@ public abstract class GmElementLabel extends GmSimpleNode {
         if (newParent != null && oldParent != newParent) {
             getPersistedStyle().setCascadedStyle(newParent.getPersistedStyle());
         }
+        
     }
 
     @objid ("7e903372-1dec-11e2-8cad-001ec947c8cc")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.plugin;
 
 import java.util.ResourceBundle;
@@ -57,6 +56,7 @@ public class DiagramEditor implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), PLUGIN_ID));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("diagrameditor"));
+        
     }
 
     @objid ("150b14cc-21a7-11e2-95fe-001ec947c8cc")

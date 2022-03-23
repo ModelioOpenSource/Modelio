@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.panelprovider.data.constraints;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,13 +50,14 @@ public class ConstraintContentComposite extends AbstractContentComposite {
     private final Controler controler;
 
     @objid ("5cd6ab34-6d18-43a8-ab10-f16b82522bb3")
-    public ConstraintContentComposite(Composite parentComposite, int style, EContextService contextService) {
+    public  ConstraintContentComposite(Composite parentComposite, int style, EContextService contextService) {
         super(parentComposite, style, contextService);
         setLayout(new FillLayout());
         this.text = new Text(this, SWT.BORDER | SWT.BORDER | SWT.V_SCROLL | SWT.WRAP);
         this.controler = new Controler(this);
         this.text.addFocusListener(this.controler);
         this.text.addKeyListener(this.controler);
+        
     }
 
     @objid ("124a8259-0a36-4ac9-9085-a72132116c51")
@@ -83,6 +83,7 @@ public class ConstraintContentComposite extends AbstractContentComposite {
             this.text.setText("");
         }
         leaveEdition();
+        
     }
 
     @objid ("84435744-a9fd-4c6a-a593-9af4d86c82ad")
@@ -90,6 +91,7 @@ public class ConstraintContentComposite extends AbstractContentComposite {
     public void dispose() {
         this.text.dispose();
         super.dispose();
+        
     }
 
     @objid ("766cb9f6-f91e-4b4d-8691-61ba89a6e86b")
@@ -100,6 +102,7 @@ public class ConstraintContentComposite extends AbstractContentComposite {
         } else {
             this.text.setBackground(UIColor.TEXT_READONLY_BG);
         }
+        
     }
 
     @objid ("b3363697-c589-495a-9d07-21ecfe7cfa24")
@@ -110,6 +113,7 @@ public class ConstraintContentComposite extends AbstractContentComposite {
             this.text.setBackground(UIColor.TEXT_READONLY_BG);
         }
         reactivateContexts();
+        
     }
 
     @objid ("86ea5e10-3fff-4d11-a22c-6bb302a1f03b")
@@ -118,7 +122,7 @@ public class ConstraintContentComposite extends AbstractContentComposite {
         private final ConstraintContentComposite view;
 
         @objid ("c11088ad-c2ad-4e7f-a911-f509827ffb2d")
-        public Controler(ConstraintContentComposite view) {
+        public  Controler(ConstraintContentComposite view) {
             this.view = view;
         }
 
@@ -135,6 +139,7 @@ public class ConstraintContentComposite extends AbstractContentComposite {
                     transaction.commit();
                 }
             }
+            
         }
 
         /**
@@ -148,6 +153,7 @@ public class ConstraintContentComposite extends AbstractContentComposite {
             if (editedconstraint != null && editedconstraint.getStatus().isModifiable()) {
                 this.view.enterEdition();
             }
+            
         }
 
         @objid ("11bd81fd-8972-49f7-bd41-9dbcea02625b")
@@ -157,6 +163,7 @@ public class ConstraintContentComposite extends AbstractContentComposite {
             final Constraint editedConstraint = this.view.getNoteElement();
             changeContent(editedConstraint, text.getText());
             this.view.leaveEdition();
+            
         }
 
         @objid ("7a67b624-e09a-4b41-9ec8-ef350f86e6e6")
@@ -165,6 +172,7 @@ public class ConstraintContentComposite extends AbstractContentComposite {
             if ((e.stateMask &= SWT.MOD1) != 0 && e.keyCode == SWT.CR) {
                 e.doit = false;
             }
+            
         }
 
         @objid ("24f192d9-68c8-4468-a047-29d7d2ee0959")
@@ -186,6 +194,7 @@ public class ConstraintContentComposite extends AbstractContentComposite {
                 // CTRL A
                 text.selectAll();
             }
+            
         }
 
     }

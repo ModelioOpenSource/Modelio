@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.api.impl.mc;
 
 import java.io.IOException;
@@ -43,12 +42,13 @@ public class ModelComponentDescriptor implements IModelComponentDescriptor {
     private List<Path> deployedResources;
 
     @objid ("b66881dd-1698-4096-8f31-08d3bc03115c")
-    public ModelComponentDescriptor(final String name, final String version, List<ExportedFile> resources) {
+    public  ModelComponentDescriptor(final String name, final String version, List<ExportedFile> resources) {
         this.name = name;
         this.version = version;
         this.deployedResources = Collections.unmodifiableList(resources.stream()
                 .map(resource -> resource.getPath())
                 .collect(Collectors.toList()));
+        
     }
 
     @objid ("abf77703-4fca-4291-9a90-9959862c97c9")

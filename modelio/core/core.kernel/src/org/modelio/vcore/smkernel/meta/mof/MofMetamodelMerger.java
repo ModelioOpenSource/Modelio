@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta.mof;
 
 import java.util.Collections;
@@ -59,7 +58,7 @@ public class MofMetamodelMerger extends AbstractMetamodelMerger {
      * @param metamodel the metamodel to modify
      */
     @objid ("1f7f603c-d5f6-4dd7-86b5-5898eb22fa4b")
-    public MofMetamodelMerger(MofMetamodel metamodel) {
+    public  MofMetamodelMerger(MofMetamodel metamodel) {
         this.metamodel = metamodel;
     }
 
@@ -88,6 +87,7 @@ public class MofMetamodelMerger extends AbstractMetamodelMerger {
             .map(mc -> (SmDependency) mc.getDependency(dd.getOppositeName()))
             .ifPresent(oppDep -> mofd.setSymetric(oppDep));
         }
+        
     }
 
     @objid ("b293a956-22fc-4165-a367-40ce00c9675a")
@@ -110,6 +110,7 @@ public class MofMetamodelMerger extends AbstractMetamodelMerger {
                                                 .createClass(md.getName(), fd.getName(), md.isCmsNode())
                                                 .setVersion(md.getVersion())
                                                 .build();
+        
     }
 
     @objid ("b864f1b2-44d2-4042-ac10-29e6e482c4b8")
@@ -153,6 +154,7 @@ public class MofMetamodelMerger extends AbstractMetamodelMerger {
         }
         
         depBuilder.build();
+        
     }
 
     @objid ("51ad3d93-a49c-4eb9-ae53-e07fa1f7e3b0")
@@ -162,6 +164,7 @@ public class MofMetamodelMerger extends AbstractMetamodelMerger {
         MofSmAttribute mofAtt = new MofSmAttribute(mofSmClass, ad.getName());
         mofAtt.setTemporary(this.temporary);
         mofSmClass.addAttribute(mofAtt);
+        
     }
 
     @objid ("8a8501f9-2cf1-408c-97f5-1de4858495f2")
@@ -181,13 +184,13 @@ public class MofMetamodelMerger extends AbstractMetamodelMerger {
     protected void postMergeMetaclass(MClassDescriptor md, MClass m) {
         MofSmClass mofSmClass = (MofSmClass) m;
         mofSmClass.ensurePostInit();
+        
     }
 
     /**
      * Set whether created meta elements are temporary.
      * <p>
      * Temporary meta elements are not serialized in {@link MofMetamodel#serialize()}.
-     * 
      * @param temporary whether created meta elements are temporary.
      * @return this instance.
      */

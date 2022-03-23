@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.node;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,6 @@ import org.eclipse.gef.Request;
 public interface IDragTrackerProvider {
     /**
      * Returns a Drag Tracker.
-     * 
      * @param request current request for which a Drag Tracker is needed.
      * @return a DragTracker.
      */

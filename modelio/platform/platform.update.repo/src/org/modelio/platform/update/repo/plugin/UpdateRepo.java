@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.update.repo.plugin;
 
 import java.util.ResourceBundle;
@@ -53,6 +52,7 @@ public class UpdateRepo implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         UpdateRepo.LOG = new PluginLogger(service.getLogger((String) null));
         UpdateRepo.I18N = new BundledMessages(UpdateRepo.LOG, ResourceBundle.getBundle("appupdaterepo"));
+        
     }
 
     @objid ("3d7cc374-f834-4e46-8f0f-ee96e55a4cc9")
@@ -68,7 +68,6 @@ public class UpdateRepo implements BundleActivator {
 
     /**
      * Get the image descriptor for an image stored in this plugin.
-     * 
      * @param path a path relative to the plugin
      * @return the image descriptor.
      */

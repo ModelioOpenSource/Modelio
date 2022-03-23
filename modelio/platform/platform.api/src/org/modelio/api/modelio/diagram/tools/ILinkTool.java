@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.diagram.tools;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -22,6 +21,7 @@ import org.modelio.api.modelio.diagram.IDiagramGraphic;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
 import org.modelio.api.modelio.diagram.IDiagramLink.LinkRouterKind;
 import org.modelio.api.modelio.diagram.ILinkPath;
+import org.modelio.api.modelio.diagram.ILinkRoute;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
@@ -60,7 +60,6 @@ public interface ILinkTool extends IDiagramTool {
      * If the interaction is not allowed the method <code>return new InteractionStatus(false, "Tooltip message");</code>
      * . In this case the mouse pointer is changed to a "forbidden" icon and the tooltip message is displayed in a
      * tooltip near the mouse pointer<br>
-     * 
      * @param diagramHandle the representation of the diagram in which the interaction occurs.
      * @param targetNode the graphic that is below the mouse pointer.
      * @return an InteractionStatus that represents the result of the acceptFirstElement method.
@@ -78,7 +77,6 @@ public interface ILinkTool extends IDiagramTool {
      * . In this case the mouse pointer is changed to a "forbidden" icon and the tooltip message is displayed in a
      * tooltip near the mouse pointer<br>
      * The acceptSecondElement method will be called until the user choose the destination of the link.
-     * 
      * @param diagramHandle the representation of the diagram in which the interaction occurs.
      * @param originNode the graphic that is the origin of the link.
      * @param targetNode the graphic the is below the mouse pointer.
@@ -98,7 +96,6 @@ public interface ILinkTool extends IDiagramTool {
      * 
      * <code>originNode</code> and <code>targetNode</code> are the origin and the destination of the link.
      * @see IDiagramHandle#unmask(MObject, int, int)
-     * 
      * @param diagramHandle the representation of the diagram where the command has been triggered.
      * @param originNode the origin graphic of the link to create.
      * @param targetNode the destination graphic of the link to create.
@@ -106,6 +103,6 @@ public interface ILinkTool extends IDiagramTool {
      * @param path the link path deduced from the user interactions.
      */
     @objid ("01e402b4-0000-68dc-0000-000000000000")
-    void actionPerformed(final IDiagramHandle diagramHandle, IDiagramGraphic originNode, IDiagramGraphic targetNode, LinkRouterKind routerType, ILinkPath path);
+    void actionPerformed(final IDiagramHandle diagramHandle, IDiagramGraphic originNode, IDiagramGraphic targetNode, LinkRouterKind routerType, ILinkRoute path);
 
 }

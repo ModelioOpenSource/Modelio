@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.stereotype.creator;
 
 import java.io.File;
@@ -51,10 +50,11 @@ class BrowserIconChooserListener implements SelectionListener {
     private IProjectService projectService = null;
 
     @objid ("4a26e38d-a9b7-4e0c-b01e-2a88e490beb9")
-    public BrowserIconChooserListener(StereotypeEditionDialog dialog, IProjectService projectService, StereotypeEditionDataModel dataModel) {
+    public  BrowserIconChooserListener(StereotypeEditionDialog dialog, IProjectService projectService, StereotypeEditionDataModel dataModel) {
         this.dialog = dialog;
         this.dataModel = dataModel;
         this.projectService = projectService;
+        
     }
 
     @objid ("430dc3cd-7d6f-4d0f-9e7f-d7990e29f34f")
@@ -106,6 +106,7 @@ class BrowserIconChooserListener implements SelectionListener {
         }
         
         this.dialog.refresh();
+        
     }
 
     @objid ("fe37d721-6f34-4a84-a88c-2345bbe630d9")
@@ -130,6 +131,7 @@ class BrowserIconChooserListener implements SelectionListener {
                         ModelProperty.I18N.getMessage("BrowserIconChooser.ImageIsTooBig.Message", fileName));
             }
         }
+        
     }
 
 }

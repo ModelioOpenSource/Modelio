@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.texteditors.mdd.partitions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,9 +31,10 @@ public class MDDTagRule extends EndOfLineRule {
     private MDDPartitionScanner _scanner;
 
     @objid ("7b5f6915-2a77-11e2-9fb9-bc305ba4815c")
-    public MDDTagRule(String startSequence, IToken token, MDDPartitionScanner scanner) {
+    public  MDDTagRule(String startSequence, IToken token, MDDPartitionScanner scanner) {
         super(startSequence, token);
         this._scanner = scanner;
+        
     }
 
     @objid ("7b5f691a-2a77-11e2-9fb9-bc305ba4815c")

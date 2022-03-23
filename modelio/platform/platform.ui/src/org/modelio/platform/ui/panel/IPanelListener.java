@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.ui.panel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,7 +36,6 @@ import org.eclipse.swt.widgets.Text;
 public interface IPanelListener {
     /**
      * Notifies this listener that the panel's data model has changed.
-     * 
      * @param changedData the changed data model.
      * @param isValidate whether or not this change is terminal or not.
      * For example, typing text in a {@link Text} usually triggers non-validating changes for each

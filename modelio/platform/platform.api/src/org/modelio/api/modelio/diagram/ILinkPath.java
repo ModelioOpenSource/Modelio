@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.diagram;
 
 import java.util.Collection;
@@ -23,17 +22,16 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.geometry.Point;
 
 /**
- * Interface for a connection path.
+ * <p>Interface for a connection path.</p>
  */
 @objid ("4bae6102-644c-11e0-b650-001ec947cd2a")
 public interface ILinkPath {
     /**
-     * Get all bend points of the connection.
+     * Get all points of the connection.
      * <p>
      * The returned list is a copy and can be freely be modified.<br>
      * To apply changes to the returned list, call {@link #setPoints(Collection)} with the returned
      * list as parameter.
-     * 
      * @return the bend points in coordinates relative to the diagram...
      */
     @objid ("6d18692e-69b5-11e0-adf3-002564c97630")
@@ -43,7 +41,6 @@ public interface ILinkPath {
      * Removes the point at the specified position in this point list.
      * <p>
      * Shifts any subsequent elements to the left (subtracts one from their indices).
-     * 
      * @param index the index of the element to be removed.
      */
     @objid ("6d18de62-69b5-11e0-adf3-002564c97630")
@@ -51,7 +48,7 @@ public interface ILinkPath {
 
     /**
      * Discards all points from the point list, then add all specified points in it.
-     * 
+     * All points will be added as automatic points.
      * @param points the new point list for this connection.
      */
     @objid ("6d190573-69b5-11e0-adf3-002564c97630")
@@ -59,7 +56,6 @@ public interface ILinkPath {
 
     /**
      * Change the coordinates of a specific bend point of the connection.
-     * 
      * @param index the index of the point to move in the point list.
      * @param point the new coordinates for this point.
      */
@@ -67,8 +63,7 @@ public interface ILinkPath {
     void movePoint(final int index, final Point point);
 
     /**
-     * Change the coordinates of a specific bend point of the connection.
-     * 
+     * Change the coordinates of a specific point of the connection.
      * @param index the index of the point to move in the point list.
      * @param x the new x coordinate
      * @param y the new y coordinate

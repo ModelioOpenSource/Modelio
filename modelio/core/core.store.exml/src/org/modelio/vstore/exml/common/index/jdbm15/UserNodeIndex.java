@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common.index.jdbm15;
 
 import java.io.IOError;
@@ -26,8 +25,8 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import jdbm.PrimaryHashMap;
 import jdbm.RecordManager;
@@ -51,7 +50,7 @@ class UserNodeIndex implements IUserNodeIndex {
      * value = collection of user CMS nodes id.
      */
     @objid ("98759fc8-70b5-455d-af9b-59ec4e9ee0d2")
-    private PrimaryHashMap<ObjId,StoreReference<Collection<ObjId>>> users;
+    private PrimaryHashMap<ObjId, StoreReference<Collection<ObjId>>> users;
 
     @objid ("ecf8ed73-bd82-4220-aa10-39571fabf829")
     private RecordManager db;
@@ -65,12 +64,11 @@ class UserNodeIndex implements IUserNodeIndex {
     /**
      * Initialize the index.
      * @param metamodel
-     * 
      * @param db the JDBM database.
-     * @throws org.modelio.vstore.exml.common.index.IndexException if the index is broken
+     * @throws IndexException if the index is broken
      */
     @objid ("b0393a03-3bf0-4f22-9fe6-b8a73ca124ea")
-    public UserNodeIndex(final RecordManager db, SmMetamodel metamodel) throws IndexException {
+    public  UserNodeIndex(final RecordManager db, SmMetamodel metamodel) throws IndexException {
         this.db = db;
         this.objIdSerializer = new ObjIdSerializer(metamodel);
         this.idCollSerializer = new ObjIdCollectionSerializer(this.objIdSerializer);
@@ -82,6 +80,7 @@ class UserNodeIndex implements IUserNodeIndex {
         } catch (IOError e) {
             throw JdbmIndexException.from(e);
         }
+        
     }
 
     @objid ("d853b634-4027-4680-a4f0-f47362643b26")
@@ -101,6 +100,7 @@ class UserNodeIndex implements IUserNodeIndex {
             dumpUsers(System.err);
             throw e;
         }
+        
     }
 
     @objid ("e38bbb7d-fdd5-4fe4-9c7d-505f2470b45c")
@@ -114,6 +114,7 @@ class UserNodeIndex implements IUserNodeIndex {
         } catch (IOException e) {
             throw JdbmIndexException.from(e);
         }
+        
     }
 
     @objid ("68660f8e-acb0-45af-88cf-3e223edab386")
@@ -134,6 +135,7 @@ class UserNodeIndex implements IUserNodeIndex {
         } catch (IOException e) {
             throw JdbmIndexException.from(e);
         }
+        
     }
 
     @objid ("145778e9-9ff1-4a59-8151-d1e26cb7f8b5")
@@ -155,6 +157,7 @@ class UserNodeIndex implements IUserNodeIndex {
                 this.users,
                 this.objIdSerializer,
                 iterableSerializer);
+        
     }
 
     @objid ("41f7326d-10d5-41ae-9cb4-4bc0feef38e2")
@@ -176,6 +179,7 @@ class UserNodeIndex implements IUserNodeIndex {
             l.add(v);
             this.db.update(ref.getRecId(), l, this.idCollSerializer);
         }
+        
     }
 
     @objid ("0a730636-1b0f-43e1-b94a-b7ee2442d639")
@@ -186,6 +190,7 @@ class UserNodeIndex implements IUserNodeIndex {
             l.remove(v);
             this.db.update(ref.getRecId(), l, this.idCollSerializer);
         }
+        
     }
 
     @objid ("833ee005-7770-4168-a553-2477cb11037d")
@@ -197,6 +202,7 @@ class UserNodeIndex implements IUserNodeIndex {
                 out.println("   - "+user);
             }
         }
+        
     }
 
     @objid ("51c8b388-bbd3-4a01-87d0-62487ee44723")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.multistring;
 
 import java.util.List;
@@ -38,7 +37,7 @@ class ContentTableListener implements ISelectionChangedListener, KeyListener, Co
     private MultiStringEditionComposite dialog = null;
 
     @objid ("8dc905ab-c068-11e1-8c0a-002564c97630")
-    public ContentTableListener(MultiStringEditionComposite dialog) {
+    public  ContentTableListener(MultiStringEditionComposite dialog) {
         this.dialog = dialog;
     }
 
@@ -56,6 +55,7 @@ class ContentTableListener implements ISelectionChangedListener, KeyListener, Co
         
         TableColumn[] columns = table.getColumns();
         columns[0].setWidth(tableWidth);
+        
     }
 
     @objid ("8dc905b6-c068-11e1-8c0a-002564c97630")
@@ -81,6 +81,7 @@ class ContentTableListener implements ISelectionChangedListener, KeyListener, Co
             List<String> adapters = this.dialog.getSelectedAdapters();
             this.dialog.moveDown(adapters);
         }
+        
     }
 
     @objid ("8dc905be-c068-11e1-8c0a-002564c97630")
@@ -93,6 +94,7 @@ class ContentTableListener implements ISelectionChangedListener, KeyListener, Co
         this.dialog.getMoveUpParameterButton().setEnabled(enable);
         this.dialog.getMoveDownParameterButton().setEnabled(enable);
         this.dialog.getRemoveParameterButton().setEnabled(enable);
+        
     }
 
 }

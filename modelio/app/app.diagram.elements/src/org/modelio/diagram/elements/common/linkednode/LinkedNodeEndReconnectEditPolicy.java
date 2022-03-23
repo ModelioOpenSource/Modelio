@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.linkednode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,6 +32,7 @@ import org.modelio.diagram.elements.core.helpers.AnchorModelHelper;
 import org.modelio.diagram.elements.core.link.DefaultReconnectTargetCommand;
 import org.modelio.diagram.elements.core.link.GmLink;
 import org.modelio.diagram.elements.core.model.IGmLinkable;
+import org.modelio.diagram.elements.core.requests.RequestProperty;
 
 /**
  * Edit policy that allow moving the node link end.
@@ -61,6 +61,7 @@ public class LinkedNodeEndReconnectEditPolicy extends AbstractLinkedNodeCreation
                 request2.getExtendedData().remove(HIGHLIGHTKEY);
             }
         }
+        
     }
 
     @objid ("7ebb1d9f-1dec-11e2-8cad-001ec947c8cc")
@@ -80,21 +81,22 @@ public class LinkedNodeEndReconnectEditPolicy extends AbstractLinkedNodeCreation
     protected void showTargetConnectionFeedback(DropRequest request) {
         super.showTargetConnectionFeedback(request);
         /*
-        if (((Request) request).getType() != REQ_RECONNECT_TARGET)
-            return;
-        
-        final ReconnectRequest req = (ReconnectRequest) request;
-        
-        // Additional feedback: highlight the node.
-         
+         * if (((Request) request).getType() != REQ_RECONNECT_TARGET) return;
+         * 
+         * final ReconnectRequest req = (ReconnectRequest) request;
+         * 
+         * // Additional feedback: highlight the node.
+         * 
          */
+        
     }
 
     @objid ("7ebb1db9-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public EditPart getTargetEditPart(Request request) {
-        if (isHandled(request) || LinkedNodeRequestConstants.REQ_LINKEDNODE_END.equals(request.getType()))
+        if (isHandled(request) || LinkedNodeRequestConstants.REQ_LINKEDNODE_END.equals(request.getType())) {
             return getHost();
+        }
         return null;
     }
 
@@ -102,13 +104,14 @@ public class LinkedNodeEndReconnectEditPolicy extends AbstractLinkedNodeCreation
     @Override
     protected Command getReconnectTargetCommand(final ReconnectRequest request) {
         // Forbid changing the target of the link
-        if (request.getTarget() != request.getConnectionEditPart().getTarget())
+        if (request.getTarget() != request.getConnectionEditPart().getTarget()) {
             return null;
+        }
         
         GmLink gmLink = (GmLink) request.getConnectionEditPart().getModel();
         IGmLinkable newTarget = (IGmLinkable) getHost().getModel();
         
-        DefaultReconnectTargetCommand cmd = new DefaultReconnectTargetCommand(gmLink, newTarget);
+        DefaultReconnectTargetCommand cmd = new DefaultReconnectTargetCommand(gmLink, newTarget, RequestProperty.PROP_SKIP_MODELCHANGE.get(request));
         cmd.setAnchorModel(AnchorModelHelper.getTargetAnchorModel(request));
         return cmd;
     }

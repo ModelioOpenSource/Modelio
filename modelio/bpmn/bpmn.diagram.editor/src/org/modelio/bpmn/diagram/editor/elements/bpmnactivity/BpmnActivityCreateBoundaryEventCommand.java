@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnactivity;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.elements.core.commands.DefaultCreateElementCommand;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.metamodel.bpmn.activities.BpmnActivity;
 import org.modelio.metamodel.bpmn.events.BpmnBoundaryEvent;
@@ -40,7 +39,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 @objid ("60773e9b-55b6-11e2-877f-002564c97630")
 public class BpmnActivityCreateBoundaryEventCommand extends DefaultCreateElementCommand {
     @objid ("60773ea8-55b6-11e2-877f-002564c97630")
-    public BpmnActivityCreateBoundaryEventCommand(MObject parentElement, GmCompositeNode parentNode, ModelioCreationContext context, Object constraint) {
+    public  BpmnActivityCreateBoundaryEventCommand(MObject parentElement, GmCompositeNode parentNode, ModelioCreationContext context, Object constraint) {
         super(parentElement, parentNode, context, constraint);
     }
 
@@ -57,6 +56,7 @@ public class BpmnActivityCreateBoundaryEventCommand extends DefaultCreateElement
         
         // Show the new element in the diagram (ie create its Gm )
         diagram.unmask(this.getParentNode(), newElement, this.getConstraint());
+        
     }
 
     @objid ("6078c544-55b6-11e2-877f-002564c97630")

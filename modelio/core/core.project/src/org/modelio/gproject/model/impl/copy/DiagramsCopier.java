@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.model.impl.copy;
 
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.vcore.smkernel.SmObjectImpl;
@@ -37,7 +36,6 @@ class DiagramsCopier {
      * <p>
      * The given map contains pairs of elements: the original element and its
      * copy.
-     * 
      * @param localDiagram the diagram to modify
      * @param pairs pairs of {source, dest} elements.
      */
@@ -57,6 +55,7 @@ class DiagramsCopier {
         }
         
         localDiagram.setUiData(org.modelio.vcore.utils.UUBase64Compressor.compress(content));
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.instance;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,12 +36,12 @@ public class InstanceSymbolProvider {
      * This class is not instantiable.
      */
     @objid ("3544c8a1-55b7-11e2-877f-002564c97630")
-    private InstanceSymbolProvider() {
+    private  InstanceSymbolProvider() {
+        
     }
 
     /**
      * Get the instance label at the following format: "name : type [min..max]"
-     * 
      * @param c the instance
      * @return the computed label
      */
@@ -69,7 +68,6 @@ public class InstanceSymbolProvider {
      * <li>1..* : returns "[1..*]"
      * <li>all other a..b : returns "[a..b]"
      * </ul>
-     * 
      * @param c The instance.
      * @param s Where the computed cardinality is appended.
      */
@@ -91,11 +89,11 @@ public class InstanceSymbolProvider {
             s.append(max);
             s.append("]");
         }
+        
     }
 
     /**
      * Return the absolute path of the instance with its type and cardinality.
-     * 
      * @param c An instance
      * @return its fully qualified symbol.
      */
@@ -120,7 +118,6 @@ public class InstanceSymbolProvider {
 
     /**
      * Return the path of the instance relative to its namespace with its type and cardinality.
-     * 
      * @param c An instance
      * @return its symbol relative to its namespace.
      */
@@ -145,7 +142,6 @@ public class InstanceSymbolProvider {
 
     /**
      * Tells whether the given element is the root package a the project.
-     * 
      * @param el the element to test
      * @return true if the given element is the root package a the project, else false.
      */
@@ -169,6 +165,7 @@ public class InstanceSymbolProvider {
         if (type != null) {
             s.append(type.getName());
         }
+        
     }
 
 }

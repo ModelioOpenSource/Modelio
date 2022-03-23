@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,7 @@ public class ETimeExpression extends ENamedElement {
     }
 
     @objid ("1914c4f0-073b-4ca8-9514-cccde3a55374")
-    public ETimeExpression(org.eclipse.uml2.uml.TimeExpression element) {
+    public  ETimeExpression(org.eclipse.uml2.uml.TimeExpression element) {
         super(element);
     }
 

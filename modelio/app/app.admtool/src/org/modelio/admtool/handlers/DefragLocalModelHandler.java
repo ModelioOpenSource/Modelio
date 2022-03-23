@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.admtool.handlers;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
@@ -51,7 +50,8 @@ public class DefragLocalModelHandler implements IRunnableWithProgress {
 
     @objid ("4676a59a-9772-4024-9897-957c67c17f44")
     @Execute
-    void execute(@Optional @Named(IServiceConstants.ACTIVE_SELECTION) IStructuredSelection sel, IModelioProgressService progressSvc, StatusReporter reporter) {
+    void execute(@Optional
+    @Named(IServiceConstants.ACTIVE_SELECTION) IStructuredSelection sel, IModelioProgressService progressSvc, StatusReporter reporter) {
         IProjectFragment frag = (IProjectFragment) sel.iterator().next();
         this.project = GProject.getProject(frag.getRoots().iterator().next());
         
@@ -64,6 +64,7 @@ public class DefragLocalModelHandler implements IRunnableWithProgress {
         } catch (InterruptedException e) {
             AdmTool.LOG.error(e);
         }
+        
     }
 
     @objid ("b0ffee2e-0057-48d1-8f65-ed0bd7ba77e6")
@@ -76,6 +77,7 @@ public class DefragLocalModelHandler implements IRunnableWithProgress {
         } catch (IOException e) {
             throw new InvocationTargetException(e, e.getLocalizedMessage());
         }
+        
     }
 
     @objid ("c9cd2290-497b-4e46-a89b-316cf0e198dd")

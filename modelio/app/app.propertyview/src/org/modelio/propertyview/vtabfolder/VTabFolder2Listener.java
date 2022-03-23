@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.propertyview.vtabfolder;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,7 +49,6 @@ public interface VTabFolder2Listener extends SWTEventListener {
      * When the CTabItem is closed, it is disposed.  The contents of the
      * CTabItem (see CTabItem.setControl) will be made not visible when
      * the CTabItem is closed.
-     * 
      * @param event an event indicating the item being closed
      */
     @objid ("61dec5ea-4753-4bb9-a8c1-87416412af94")
@@ -64,7 +62,6 @@ public interface VTabFolder2Listener extends SWTEventListener {
      * @see CTabFolder#getMinimized()
      * @see CTabFolder#setMinimized(boolean)
      * @see CTabFolder#setMinimizeVisible(boolean)
-     * 
      * @param event an event containing information about the minimize
      */
     @objid ("741f11db-eb34-4758-b017-6573742c68df")
@@ -78,7 +75,6 @@ public interface VTabFolder2Listener extends SWTEventListener {
      * @see CTabFolder#getMaximized()
      * @see CTabFolder#setMaximized(boolean)
      * @see CTabFolder#setMaximizeVisible(boolean)
-     * 
      * @param event an event containing information about the maximize
      */
     @objid ("50cb4d17-5495-444e-871b-eb5cacd9dc4f")
@@ -100,7 +96,6 @@ public interface VTabFolder2Listener extends SWTEventListener {
      * @see CTabFolder#setMinimizeVisible(boolean)
      * @see CTabFolder#setMaximized(boolean)
      * @see CTabFolder#setMaximizeVisible(boolean)
-     * 
      * @param event an event containing information about the restore
      */
     @objid ("63a7efb8-912a-4406-9d29-54438d0009ee")
@@ -116,7 +111,6 @@ public interface VTabFolder2Listener extends SWTEventListener {
      * visible, however, the application can provide its own list by setting
      * the event.doit field to <code>false</code> and displaying a selection list.
      * @see CTabFolder#setSelection(CTabItem)
-     * 
      * @param event an event containing information about the show list
      */
     @objid ("ca58b2d5-67c7-4444-a7e1-bcbbfeff9cc8")

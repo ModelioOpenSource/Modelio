@@ -14,11 +14,9 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.report;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.mdl;
@@ -31,63 +29,69 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("4cd977bb-d65d-4fae-8ae6-0ad5db09a6bd")
 public class ReportEntry implements Comparable<ReportEntry> {
+    
     @mdl.prop
     @objid ("c8697d71-6369-40eb-9836-b64868dcb978")
-    private final String helpUrl;
+    public final String helpUrl;
 
     @mdl.propgetter
     public String getHelpUrl() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.helpUrl;
     }
 
+    
     @mdl.prop
     @objid ("02ca2386-bf07-4145-98c1-60613263abe4")
-    private final String message;
+    public final String message;
 
     @mdl.propgetter
     public String getMessage() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.message;
     }
 
+    
     @mdl.prop
     @objid ("7dc99828-4a20-4bf1-9264-9902733f4b49")
-    private final EntryKind kind;
+    public final EntryKind kind;
 
     @mdl.propgetter
     public EntryKind getKind() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.kind;
     }
 
+    
     @mdl.prop
     @objid ("24d57205-ad83-47c0-8ef8-a4b424b7dfe0")
-    private final String category;
+    public final String category;
 
     @mdl.propgetter
     public String getCategory() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.category;
     }
 
+    
     @mdl.prop
     @objid ("8ad7015b-0ae6-4270-a071-9b6f579b0646")
-    private final int code;
+    public final String code;
 
     @mdl.propgetter
-    public int getCode() {
-        // Automatically generated method. Please do not modify this code.
+    public String getCode() {
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.code;
     }
 
+    
     @mdl.prop
     @objid ("f6ab7d67-7e41-4e6d-9118-09c751ea9795")
-    private List<MObject> linkedObjects;
+    public List<MObject> linkedObjects;
 
     @mdl.propgetter
     public List<MObject> getLinkedObjects() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.linkedObjects;
     }
 
@@ -98,7 +102,7 @@ public class ReportEntry implements Comparable<ReportEntry> {
     }
 
     @objid ("241c9cf9-f0d1-4a18-b241-d776332d47e1")
-    public ReportEntry(EntryKind kind, int code, String category, String helpUrl, String message, MObject[] linkedObjects) {
+    public  ReportEntry(EntryKind kind, String code, String category, String helpUrl, String message, MObject[] linkedObjects) {
         this.code = code;
         this.kind = kind;
         this.category = category;
@@ -106,11 +110,16 @@ public class ReportEntry implements Comparable<ReportEntry> {
         this.helpUrl = helpUrl;
         
         if (linkedObjects != null) {
-            List<MObject> values = Arrays.asList(linkedObjects);
-            this.linkedObjects = new ArrayList<>(values);
+            this.linkedObjects = new ArrayList<>();
+            for (MObject linkedObject : linkedObjects) {
+                if (linkedObject != null) {
+                    this.linkedObjects.add(linkedObject);
+                }
+            }
         } else {
-            this.linkedObjects = Collections.EMPTY_LIST;
+            this.linkedObjects = Collections.emptyList();
         }
+        
     }
 
     @objid ("8259bf0e-7559-447a-ae61-61740778958a")
@@ -131,6 +140,12 @@ public class ReportEntry implements Comparable<ReportEntry> {
     @objid ("b55c7c29-7998-4bbb-9258-977c16db0f1a")
     public boolean isInfo() {
         return this.kind == EntryKind.INFO;
+    }
+
+    @objid ("0fd95361-03bb-40e3-8517-377bbe298925")
+    @Deprecated
+    public  ReportEntry(EntryKind kind, int code, String category, String helpUrl, String message, MObject[] linkedObjects) {
+        this(kind, Integer.toString(code), category, helpUrl, message, linkedObjects);
     }
 
 }

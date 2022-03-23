@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.audit;
 
 import java.util.ArrayList;
@@ -88,6 +87,7 @@ public class R1110 extends AbstractUmlRule {
                 | AuditTrigger.CREATE | AuditTrigger.MOVE);
         plan.registerRule(InputPin.MQNAME, this, AuditTrigger.UPDATE
                 | AuditTrigger.CREATE | AuditTrigger.MOVE);
+        
     }
 
     /**
@@ -121,14 +121,14 @@ public class R1110 extends AbstractUmlRule {
      * Default constructor for R1110
      */
     @objid ("08417c97-7b22-4423-bf7b-f17ee9ffa1d4")
-    public R1110() {
+    public  R1110() {
         this.checkerInstance = new CheckR1110(this);
     }
 
     @objid ("725ca2c9-c061-4091-8500-f3ac8ec1f8c7")
     private static class CheckR1110 extends AbstractControl {
         @objid ("12962898-0496-4273-b4d1-82808650f015")
-        public CheckR1110(IRule rule) {
+        public  CheckR1110(IRule rule) {
             super(rule);
         }
 
@@ -157,7 +157,6 @@ public class R1110 extends AbstractUmlRule {
 
         /**
          * UML 2.3, CallBehaviorAction, Constraints [1] & [2]
-         * 
          * @param callBehaviorAction The CallBehaviorAction to check.
          * @return An audit entry.
          */
@@ -256,7 +255,6 @@ public class R1110 extends AbstractUmlRule {
 
         /**
          * A Pin was either created, moved or updated, we need to check if this Pin belong to a CallBehaviorAction and check it if it does.
-         * 
          * @param pin The Pin to check.
          * @return An audit entry.
          */
@@ -271,7 +269,6 @@ public class R1110 extends AbstractUmlRule {
 
         /**
          * A BehaviorParameter was either created, moved, or updated, wee need to check the Behavior it belongs to.
-         * 
          * @param parameter The parameter to check.
          * @return A list of audit entries.
          */
@@ -282,7 +279,6 @@ public class R1110 extends AbstractUmlRule {
 
         /**
          * A Behavior was updated, we need to check if it has registered callers and check the rule on these CallBehaviorAction.
-         * 
          * @param behavior The Behavior to check.
          * @return A list of audit entries.
          */

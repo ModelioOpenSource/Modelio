@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnsequenceflow.throwcatch;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -58,14 +57,14 @@ class InsertThrowCatchFeedback {
     private ZoomManager zoomManager;
 
     @objid ("922e76f7-1038-4acc-8cb1-81f6c605b27e")
-    public InsertThrowCatchFeedback(IFigure feedbackLayer, ZoomManager zoomManager) {
+    public  InsertThrowCatchFeedback(IFigure feedbackLayer, ZoomManager zoomManager) {
         this.feedbackLayer = feedbackLayer;
         this.zoomManager = zoomManager;
+        
     }
 
     /**
      * Shows the creation feedback.
-     * 
      * @param flowFigure the sequence flow to insert the node in.
      * @param mouseLocation the current mouse location.
      */
@@ -140,6 +139,7 @@ class InsertThrowCatchFeedback {
         this.feedbackLayer.add(this.flowInFeedback);
         this.feedbackLayer.add(this.flowOutFeedback);
         this.feedbackLayer.add(this.insertedNodeFeedback);
+        
     }
 
     /**
@@ -159,6 +159,7 @@ class InsertThrowCatchFeedback {
             this.feedbackLayer.remove(this.flowOutFeedback);
             this.flowOutFeedback = null;
         }
+        
     }
 
     @objid ("d6545742-bc90-4e34-a501-edf62e7109ce")

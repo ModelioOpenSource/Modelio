@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.ui.lifecycle;
 
 import java.io.File;
@@ -26,8 +25,8 @@ import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.MessageFormat;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.core.internal.preferences.PreferencesOSGiUtils;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.preferences.IEclipsePreferences;
@@ -180,11 +179,11 @@ public class OsLifeCycleManager {
             context.set(IModelioProgressService.class, modelioProgressService);
             context.set(IProgressService.class, modelioProgressService);
         }
+        
     }
 
     /**
      * This method is be called once the application model is loaded.
-     * 
      * @param application the application model
      */
     @objid ("ab606429-1892-408d-9739-071039297c1c")
@@ -274,6 +273,7 @@ public class OsLifeCycleManager {
         
             eventBroker.subscribe(UIEvents.UILifeCycle.APP_STARTUP_COMPLETE, eventHandler);
         }
+        
     }
 
     @objid ("68684452-09b9-43cc-8187-12587debedd4")
@@ -281,6 +281,7 @@ public class OsLifeCycleManager {
     void onProcessRemovals() {
         // Called after @ProcessAdditions but for removals.
         // final MApplication application
+        
     }
 
     @objid ("4021a0d4-a0af-4d87-b82d-eac07a7f0ef6")
@@ -288,6 +289,7 @@ public class OsLifeCycleManager {
     void onPreSave() {
         // Is called before the application model is saved. You can modify the
         // model before it is persisted.
+        
     }
 
     @objid ("61c57b6e-4aac-477f-b313-244e7115779a")
@@ -304,6 +306,7 @@ public class OsLifeCycleManager {
         } catch (final IOException e) {
             AppUi.LOG.debug(e);
         }
+        
     }
 
     /**
@@ -337,7 +340,8 @@ public class OsLifeCycleManager {
     @objid ("e13f3f34-f507-4e62-a421-6589bd205f52")
     @Optional
     @Inject
-    void onApplicationStarted(@SuppressWarnings ("unused") @UIEventTopic (UIEvents.UILifeCycle.APP_STARTUP_COMPLETE) final MApplication mApp, final Display display) {
+    void onApplicationStarted(@SuppressWarnings ("unused")
+    @UIEventTopic (UIEvents.UILifeCycle.APP_STARTUP_COMPLETE) final MApplication mApp, final Display display) {
         DefaultSWTExceptionHandler.setup(display);
     }
 

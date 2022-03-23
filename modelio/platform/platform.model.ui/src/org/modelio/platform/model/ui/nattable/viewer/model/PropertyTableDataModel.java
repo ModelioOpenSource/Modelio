@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.viewer.model;
 
 import java.util.ArrayList;
@@ -65,7 +64,7 @@ public class PropertyTableDataModel {
     }
 
     @objid ("a0d0db31-5f05-4730-9e8d-a2845a5958d0")
-    public PropertyTableDataModel(IPropertyModel<?> propertyModel) {
+    public  PropertyTableDataModel(IPropertyModel<?> propertyModel) {
         this.propertyModel = propertyModel;
         
         this.bodyDataProvider = new BodyDataProvider(this);
@@ -74,6 +73,7 @@ public class PropertyTableDataModel {
         
         // set data
         rebuildData();
+        
     }
 
     @objid ("fe641d0e-2df1-4f53-904d-a9d134aaca80")
@@ -118,6 +118,7 @@ public class PropertyTableDataModel {
         for (final Integer elt : getColumns()) {
             this.columns.add(elt);
         }
+        
     }
 
     @objid ("f64a89b8-4b2b-4be9-9eec-6af620de4d34")
@@ -156,7 +157,7 @@ public class PropertyTableDataModel {
         private final PropertyTableDataModel base;
 
         @objid ("c5b33121-ea4f-4338-a2f5-774d25cebb0e")
-        public BodyDataProvider(PropertyTableDataModel base) {
+        public  BodyDataProvider(PropertyTableDataModel base) {
             this.base = base;
         }
 
@@ -196,6 +197,7 @@ public class PropertyTableDataModel {
                 CoreUi.LOG.error(e);
                 throw e;
             }
+            
         }
 
     }
@@ -209,7 +211,7 @@ public class PropertyTableDataModel {
         private final PropertyTableDataModel base;
 
         @objid ("e35f7928-85ef-4afb-b7b8-f04214f84410")
-        public ColumnHeaderDataProvider(PropertyTableDataModel base) {
+        public  ColumnHeaderDataProvider(PropertyTableDataModel base) {
             this.base = base;
         }
 
@@ -246,7 +248,7 @@ public class PropertyTableDataModel {
         private final PropertyTableDataModel base;
 
         @objid ("e22304ca-75a6-41e6-99e2-ba12a7dbb338")
-        public RowHeaderDataProvider(PropertyTableDataModel base) {
+        public  RowHeaderDataProvider(PropertyTableDataModel base) {
             this.base = base;
         }
 

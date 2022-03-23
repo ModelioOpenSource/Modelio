@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.gui;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -77,12 +76,11 @@ public class OptionComposite extends Composite {
 
     /**
      * The constructor of the OptionComposite
-     * 
      * @param parent : the parent composite
      * @param style : the SWT style of the returned composite
      */
     @objid ("ff77c766-2014-4379-8435-d87cfa32294e")
-    public OptionComposite(final Shell parent, final int style, final int typeSelection, IProjectService projectService) {
+    public  OptionComposite(final Shell parent, final int style, final int typeSelection, IProjectService projectService) {
         super(parent, style);       
         
         setLayout(new FormLayout());
@@ -178,11 +176,11 @@ public class OptionComposite extends Composite {
         this.xmi.setToolTipText(Xmi.I18N.getString("fileChooser.options.export.description.xmi"));
         
         this.groupOwner.pack();
+        
     }
 
     /**
      * This method returns the UML radio button
-     * 
      * @return SWT Button
      */
     @objid ("a2ca9326-6b1e-49c4-9183-51452e8bb1a4")
@@ -192,7 +190,6 @@ public class OptionComposite extends Composite {
 
     /**
      * This method returns the XMI radio button
-     * 
      * @return SWT Button
      */
     @objid ("382784ac-738f-4456-a08d-453fa58ff4d0")
@@ -202,7 +199,6 @@ public class OptionComposite extends Composite {
 
     /**
      * This method returns the specified file extension
-     * 
      * @return the file extension .xmi or .uml
      */
     @objid ("010bcdad-d248-42eb-a9b0-5b4bbd1f9d4a")
@@ -211,11 +207,11 @@ public class OptionComposite extends Composite {
             return XMIExtension.UML;
         else
             return XMIExtension.XMI;
+        
     }
 
     /**
      * This method returns the compatibility checkbox
-     * 
      * @return SWT CheckBox
      */
     @objid ("2e28c92d-1bbe-45b5-9779-64a430585274")
@@ -230,6 +226,7 @@ public class OptionComposite extends Composite {
     public void setUMLSelected() {
         this.uml.setSelection(true);
         this.xmi.setSelection(false);
+        
     }
 
     /**
@@ -239,11 +236,11 @@ public class OptionComposite extends Composite {
     public void setXMISelected() {
         this.xmi.setSelection(true);
         this.uml.setSelection(false);
+        
     }
 
     /**
      * This method returns the availability of the annotation export
-     * 
      * @return true if the annotation must be exported
      */
     @objid ("f6b952fe-1cfc-464b-8655-7d0b7462c2a6")
@@ -253,7 +250,6 @@ public class OptionComposite extends Composite {
 
     /**
      * This method returns the SWT FileDialog created inside the FileChooserComposite
-     * 
      * @return the owned FileDialog
      */
     @objid ("9aec9821-32f0-4b9d-8bbf-ba02a6e9d549")
@@ -263,7 +259,6 @@ public class OptionComposite extends Composite {
 
     /**
      * This method returns the format selected
-     * 
      * @return FormatExport
      */
     @objid ("53763a56-229f-414e-a035-20263beb1e2c")

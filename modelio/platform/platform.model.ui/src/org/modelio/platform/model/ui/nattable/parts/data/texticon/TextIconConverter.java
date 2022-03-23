@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.texticon;
 
 import java.util.Objects;
@@ -41,11 +40,10 @@ public class TextIconConverter extends DisplayConverter {
 
     /**
      * Create a new TextIconConverter.
-     * 
      * @param labelProvider the label provider to use when converting to display.
      */
     @objid ("c4b569c8-6868-419a-9c13-3e2c3d69e3ab")
-    public TextIconConverter(ILabelProvider labelProvider) {
+    public  TextIconConverter(ILabelProvider labelProvider) {
         this.labelProvider = Objects.requireNonNull(labelProvider);
     }
 

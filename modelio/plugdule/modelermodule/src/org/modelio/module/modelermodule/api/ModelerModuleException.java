@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.module.modelermodule.api;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,11 +28,10 @@ public class ModelerModuleException extends Exception {
 
     /**
      * Default constructor.
-     * 
      * @param message the error message.
      */
     @objid ("2cd32773-20c0-41aa-a51c-777bb4113692")
-    public ModelerModuleException(final String message) {
+    public  ModelerModuleException(final String message) {
         super(message);
     }
 

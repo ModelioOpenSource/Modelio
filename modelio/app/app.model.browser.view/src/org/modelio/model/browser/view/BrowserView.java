@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.browser.view;
 
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.inject.Inject;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionRegistry;
@@ -123,6 +122,7 @@ public class BrowserView {
                 onProjectOpened(project);
             }
         }
+        
     }
 
     @objid ("8e13286f-89b9-4614-9102-e0f25c408cbb")
@@ -132,6 +132,7 @@ public class BrowserView {
             this.contributedPanel.dispose();
             this.contributedPanel = null;
         }
+        
     }
 
     @objid ("041f6a72-ce7c-43ba-ac6e-cb5f41b0f0f9")
@@ -143,6 +144,7 @@ public class BrowserView {
                 panel.setFocus();
             }
         }
+        
     }
 
     @objid ("b8580884-a6ce-4f91-85a4-49bd00f91fa3")
@@ -154,6 +156,7 @@ public class BrowserView {
                 && !((Control) this.contributedPanel.getPanel()).isDisposed()) {
             this.contributedPanel.setInput(BrowserView.this.contributedPanel.getInput());
         }
+        
     }
 
     @objid ("912b01d1-f1f7-4f02-8ef8-8068e8f027c1")
@@ -165,12 +168,14 @@ public class BrowserView {
                 && !((Control) this.contributedPanel.getPanel()).isDisposed()) {
             this.contributedPanel.setInput(BrowserView.this.contributedPanel.getInput());
         }
+        
     }
 
     @objid ("7c518f29-5c40-46e8-a281-adada704a8df")
     @Inject
     @Optional
-    void onProjectClosed(@SuppressWarnings("unused") @UIEventTopic(ModelioEventTopics.PROJECT_CLOSED) final GProject project) {
+    void onProjectClosed(@SuppressWarnings("unused")
+    @UIEventTopic(ModelioEventTopics.PROJECT_CLOSED) final GProject project) {
         this.contributedPanel.setInput(null);
     }
 

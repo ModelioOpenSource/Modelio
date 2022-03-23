@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures;
 
 import java.lang.reflect.InvocationTargetException;
@@ -98,6 +97,7 @@ public class FigureDumper {
             this.out.append(p);
         }
         this.out.append(")\n");
+        
     }
 
     @objid ("164cb1d8-ef62-4629-b90e-bd2c10b74ff4")
@@ -111,6 +111,7 @@ public class FigureDumper {
                     sourceAnchor.getReferencePoint(),
                     getFigureResume(sourceAnchor.getOwner())));
         }
+        
     }
 
     @objid ("222b1cda-da25-4afc-a643-80f9504b8748")
@@ -153,6 +154,7 @@ public class FigureDumper {
                 dump(c, childindent);
             }
         }
+        
     }
 
     @objid ("911d2966-2ca8-4f26-aade-bf5660867e8f")
@@ -166,6 +168,7 @@ public class FigureDumper {
                 this.out.append(constraint);
             }
         }
+        
     }
 
     @objid ("b19bb3fb-1672-4807-ae15-49ef388449e0")
@@ -218,6 +221,7 @@ public class FigureDumper {
         this.out.append("layout=");
         this.out.append(lm);
         this.out.append("\n");
+        
     }
 
     @objid ("f0651cba-785e-4e9f-baba-912dff33dd66")
@@ -226,7 +230,7 @@ public class FigureDumper {
         private Method m;
 
         @objid ("4507f45b-1eb7-4dc2-a20b-e7c3a5bbca36")
-        public IsValidatedFigSelector() {
+        public  IsValidatedFigSelector() {
             try {
                 this.m = Figure.class.getDeclaredMethod("isValid");
                 this.m.setAccessible(true);
@@ -234,6 +238,7 @@ public class FigureDumper {
             } catch (NoSuchMethodException | SecurityException e) {
                 throw new ExceptionInInitializerError(e);
             }
+            
         }
 
         @objid ("fc8906d3-015e-4f9a-9b28-66731f112cc8")
@@ -244,6 +249,7 @@ public class FigureDumper {
             } catch (IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
                 throw new LinkageError(e.toString(), e);
             }
+            
         }
 
     }

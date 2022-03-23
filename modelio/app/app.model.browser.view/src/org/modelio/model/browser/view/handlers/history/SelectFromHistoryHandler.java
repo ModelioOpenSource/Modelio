@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.browser.view.handlers.history;
 
 import java.security.InvalidParameterException;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.core.di.annotations.Optional;
@@ -64,6 +63,7 @@ public class SelectFromHistoryHandler {
         } else {
             throw new InvalidParameterException("Invalid direction for the selection history");
         }
+        
     }
 
     @objid ("47b1ae3d-4603-11e2-960d-002564c97630")
@@ -79,6 +79,7 @@ public class SelectFromHistoryHandler {
         } else {
             return false;
         }
+        
     }
 
     /**
@@ -95,7 +96,8 @@ public class SelectFromHistoryHandler {
     @objid ("4c60eebb-192f-47ce-a9be-8d4e708f6534")
     @Inject
     @Optional
-    void onProjectClosed(@SuppressWarnings("unused") @UIEventTopic(ModelioEventTopics.PROJECT_CLOSING) final GProject project) {
+    void onProjectClosed(@SuppressWarnings("unused")
+    @UIEventTopic(ModelioEventTopics.PROJECT_CLOSING) final GProject project) {
         SelectFromHistoryHandler.selectionHistory.clear();
     }
 

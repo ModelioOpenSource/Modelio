@@ -17,13 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.factories;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPartFactory;
-import org.modelio.bpmn.diagram.editor.elements.bpmnactivity.BpmnPortContainerEditPart;
 import org.modelio.bpmn.diagram.editor.elements.bpmnadhocsubprocess.BpmnAdHocSubProcessEditPart;
 import org.modelio.bpmn.diagram.editor.elements.bpmnadhocsubprocess.GmBpmnAdHocSubProcess;
 import org.modelio.bpmn.diagram.editor.elements.bpmnadhocsubprocess.GmBpmnAdHocSubProcessPrimaryNode;
@@ -141,6 +139,8 @@ import org.modelio.bpmn.diagram.editor.elements.bpmntransaction.GmBpmnTransactio
 import org.modelio.bpmn.diagram.editor.elements.bpmnusertask.BpmnUserTaskEditPart;
 import org.modelio.bpmn.diagram.editor.elements.bpmnusertask.GmBpmnUserTask;
 import org.modelio.bpmn.diagram.editor.elements.bpmnusertask.GmBpmnUserTaskPrimaryNode;
+import org.modelio.bpmn.diagram.editor.elements.common.editpart.BpmnNonSelectableImageEditPart;
+import org.modelio.bpmn.diagram.editor.elements.common.editpart.BpmnPortContainerEditPart;
 import org.modelio.bpmn.diagram.editor.elements.diagrams.processcollaboration.BpmnProcessCollaborationDiagramEditPart;
 import org.modelio.bpmn.diagram.editor.elements.diagrams.processcollaboration.GmBpmnProcessCollaborationDiagram;
 import org.modelio.bpmn.diagram.editor.elements.diagrams.processdesign.BpmnProcessDesignDiagramEditPart;
@@ -160,10 +160,13 @@ import org.modelio.bpmn.diagram.editor.elements.workflow.WorkflowEditPart;
 import org.modelio.diagram.elements.common.freezone.FreeZoneEditPart;
 import org.modelio.diagram.elements.common.freezone.GmBodyFreeZone;
 import org.modelio.diagram.elements.common.header.ModelElementHeaderEditPart;
+import org.modelio.diagram.elements.common.image.LabelledImageEditPart;
 import org.modelio.diagram.elements.common.label.base.ElementLabelEditPart;
 import org.modelio.diagram.elements.common.label.modelelement.ModelElementLabelEditPart;
-import org.modelio.diagram.elements.common.portcontainer.PortContainerEditPart;
+import org.modelio.diagram.elements.common.portcontainer.GmPortContainer;
+import org.modelio.diagram.elements.core.model.factory.GenericUserImageModeEditPartFactory;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
+import org.modelio.diagram.elements.core.node.IImageableNode;
 import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 
 /**
@@ -182,6 +185,12 @@ public class BpmnEditPartFactory implements EditPartFactory {
     @objid ("fd8ccee8-38b4-4969-af28-6e0cca39a475")
     private static final SimpleModeEditPartFactory simpleModeEditPartFactory = new SimpleModeEditPartFactory();
 
+    @objid ("2c6f2e97-d3c7-4f2c-8106-0e5cd3ee991c")
+    private static final ImageModeEditPartFactory imageModeEditPartFactory = new ImageModeEditPartFactory();
+
+    @objid ("b50d3089-37d3-4c9b-aad7-890a08d498ce")
+    private final EditPartFactory userImageModeEditPartFactory = new GenericUserImageModeEditPartFactory(this.imageModeEditPartFactory);
+
     @objid ("60da6d50-55b6-11e2-877f-002564c97630")
     @Override
     public EditPart createEditPart(EditPart context, Object model) {
@@ -198,7 +207,11 @@ public class BpmnEditPartFactory implements EditPartFactory {
                 editPart = BpmnEditPartFactory.structuredModeEditPartFactory.createEditPart(context, model);
                 break;
             case IMAGE:
+                editPart = BpmnEditPartFactory.imageModeEditPartFactory.createEditPart(context, model);
+                break;
             case USER_IMAGE:
+                editPart = this.userImageModeEditPartFactory.createEditPart(context, model);
+                break;
             default:
                 break;
             }
@@ -371,13 +384,13 @@ public class BpmnEditPartFactory implements EditPartFactory {
             }
             
             if (modelClass == GmBpmnStartEvent.class) {
-                editPart = new PortContainerEditPart();
+                editPart = new BpmnPortContainerEditPart();
                 editPart.setModel(model);
                 return editPart;
             }
             
             if (modelClass == GmBpmnBoundaryEvent.class) {
-                editPart = new PortContainerEditPart();
+                editPart = new BpmnPortContainerEditPart();
                 editPart.setModel(model);
                 return editPart;
             }
@@ -389,7 +402,7 @@ public class BpmnEditPartFactory implements EditPartFactory {
             }
             
             if (modelClass == GmBpmnEndEvent.class) {
-                editPart = new PortContainerEditPart();
+                editPart = new BpmnPortContainerEditPart();
                 editPart.setModel(model);
                 return editPart;
             }
@@ -401,31 +414,31 @@ public class BpmnEditPartFactory implements EditPartFactory {
             }
             
             if (modelClass == GmBpmnExclusiveGateway.class) {
-                editPart = new PortContainerEditPart();
+                editPart = new BpmnPortContainerEditPart();
                 editPart.setModel(model);
                 return editPart;
             }
             
             if (modelClass == GmBpmnInclusiveGateway.class) {
-                editPart = new PortContainerEditPart();
+                editPart = new BpmnPortContainerEditPart();
                 editPart.setModel(model);
                 return editPart;
             }
             
             if (modelClass == GmBpmnComplexGateway.class) {
-                editPart = new PortContainerEditPart();
+                editPart = new BpmnPortContainerEditPart();
                 editPart.setModel(model);
                 return editPart;
             }
             
             if (modelClass == GmBpmnParallelGateway.class) {
-                editPart = new PortContainerEditPart();
+                editPart = new BpmnPortContainerEditPart();
                 editPart.setModel(model);
                 return editPart;
             }
             
             if (modelClass == GmBpmnEventBasedGateway.class) {
-                editPart = new PortContainerEditPart();
+                editPart = new BpmnPortContainerEditPart();
                 editPart.setModel(model);
                 return editPart;
             }
@@ -627,25 +640,25 @@ public class BpmnEditPartFactory implements EditPartFactory {
             }
             
             if (modelClass == GmBpmnDataObject.class) {
-                editPart = new PortContainerEditPart();
+                editPart = new BpmnPortContainerEditPart();
                 editPart.setModel(model);
                 return editPart;
             }
             
             if (modelClass == GmBpmnDataInput.class) {
-                editPart = new PortContainerEditPart();
+                editPart = new BpmnPortContainerEditPart();
                 editPart.setModel(model);
                 return editPart;
             }
             
             if (modelClass == GmBpmnDataOutput.class) {
-                editPart = new PortContainerEditPart();
+                editPart = new BpmnPortContainerEditPart();
                 editPart.setModel(model);
                 return editPart;
             }
             
             if (modelClass == GmBpmnDataStore.class) {
-                editPart = new PortContainerEditPart();
+                editPart = new BpmnPortContainerEditPart();
                 editPart.setModel(model);
                 return editPart;
             }
@@ -723,7 +736,7 @@ public class BpmnEditPartFactory implements EditPartFactory {
             }
             
             if (modelClass == GmBpmnParticipantPortContainer.class) {
-                editPart = new PortContainerEditPart();
+                editPart = new BpmnPortContainerEditPart();
                 editPart.setModel(model);
                 return editPart;
             
@@ -762,6 +775,38 @@ public class BpmnEditPartFactory implements EditPartFactory {
             
             // No "simple" edit part found, fallback to structured edit part.
             return super.createEditPart(context, model);
+        }
+
+    }
+
+    /**
+     * EditPart factory for node models in stereotype image mode.
+     */
+    @objid ("e3a731e4-9552-447e-b174-94cd337a5795")
+    private static final class ImageModeEditPartFactory implements EditPartFactory {
+        @objid ("f43fcd1d-ec5c-4428-b318-c06bfa184d82")
+        @Override
+        public EditPart createEditPart(EditPart context, Object model) {
+            // Port containers stay a port container in image mode
+            if (model instanceof GmPortContainer) {
+                new IllegalStateException("Ports containers should never be in image mode.").printStackTrace();
+            
+                final EditPart editPart = new BpmnPortContainerEditPart();
+                editPart.setModel(model);
+                return editPart;
+            }
+            if (model instanceof IImageableNode && model instanceof GmNodeModel) {
+                if (((GmNodeModel) model).getParent() instanceof GmPortContainer) {
+                    final EditPart editPart = new BpmnNonSelectableImageEditPart();
+                    editPart.setModel(model);
+                    return editPart;
+                } else {
+                    final EditPart editPart = new LabelledImageEditPart();
+                    editPart.setModel(model);
+                    return editPart;
+                }
+            }
+            return null;
         }
 
     }

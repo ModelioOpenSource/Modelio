@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.staticdiagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -76,6 +75,7 @@ public class StaticDiagramEditPart extends AbstractDiagramEditPart {
         installEditPolicy("nary-association", new NAssocFinalizationEditPolicy());
         installEditPolicy("nary-link", new NLinkFinalizationEditPolicy());
         installEditPolicy("nary-connector", new NConnectorFinalizationEditPolicy());
+        
     }
 
 }

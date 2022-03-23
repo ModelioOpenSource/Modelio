@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.viewer.config.columnheader;
 
 import java.util.Arrays;
@@ -84,14 +83,14 @@ public class ColumnHeaderConfiguration implements IConfiguration {
 
     /**
      * Create a new ColumnHeaderConfiguration.
-     * 
      * @param dataModel the table's data model.
      * @param columnHeaderDataLayer the layer associated with this configuration.
      */
     @objid ("ad29c8b1-6e68-4915-aa36-ea3c7b88dbf5")
-    public ColumnHeaderConfiguration(PropertyTableDataModel dataModel, final DataLayer columnHeaderDataLayer) {
+    public  ColumnHeaderConfiguration(PropertyTableDataModel dataModel, final DataLayer columnHeaderDataLayer) {
         this.dataModel = dataModel;
         this.columnHeaderDataLayer = columnHeaderDataLayer;
+        
     }
 
     @objid ("07d614d7-5283-465f-ae7b-cc09eab00a42")
@@ -107,6 +106,7 @@ public class ColumnHeaderConfiguration implements IConfiguration {
         }
         
         acc.registerOverridesOnTop(Arrays.asList(HSTRING, CUSTOM));
+        
     }
 
     @objid ("04fad7a4-c9f3-4442-91b5-ae7b20a3d7a6")
@@ -114,6 +114,7 @@ public class ColumnHeaderConfiguration implements IConfiguration {
     public void configureRegistry(IConfigRegistry configRegistry) {
         configureRegistryForHSTRING(configRegistry);
         configureRegistryForCUSTOM(configRegistry);
+        
     }
 
     @objid ("46b778a4-cadd-4e4b-a39d-b87b10e31708")
@@ -131,6 +132,7 @@ public class ColumnHeaderConfiguration implements IConfiguration {
                 new ColumnResizeEventMatcher(SWT.NONE, GridRegion.COLUMN_HEADER, 1), new ColumnResizeDragMode());
         uiBindingRegistry.registerDoubleClickBinding(
                 new ColumnResizeEventMatcher(SWT.NONE, GridRegion.COLUMN_HEADER, 1), new AutoResizeColumnAction());
+        
     }
 
     @objid ("206fbefc-e2b9-43b0-81d7-9d07c9092e13")
@@ -156,6 +158,7 @@ public class ColumnHeaderConfiguration implements IConfiguration {
         
         configRegistry.registerConfigAttribute(CellConfigAttributes.CELL_STYLE, hCellStyle, DisplayMode.NORMAL, HSTRING);
         configRegistry.registerConfigAttribute(EditConfigAttributes.CELL_EDITABLE_RULE, IEditableRule.NEVER_EDITABLE, DisplayMode.EDIT, HSTRING);
+        
     }
 
     @objid ("0fcce662-9553-42a7-a6ff-79d0d5e7f970")
@@ -180,6 +183,7 @@ public class ColumnHeaderConfiguration implements IConfiguration {
                 new TextIconConverter(labelProvider),
                 DisplayMode.NORMAL, 
                 tag);
+        
     }
 
 }

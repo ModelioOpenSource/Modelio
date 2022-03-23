@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.elements.usecasedependency;
 
 import java.util.List;
@@ -54,7 +53,7 @@ public class GmUseCaseDependency extends GmLink {
     private static final GmUseCaseDependencyStyleKeys styleKeyProvider = new GmUseCaseDependencyStyleKeys();
 
     @objid ("5e7e1155-55b7-11e2-877f-002564c97630")
-    public GmUseCaseDependency(IGmDiagram diagram, UseCaseDependency usecasedependency, MRef ref) {
+    public  GmUseCaseDependency(IGmDiagram diagram, UseCaseDependency usecasedependency, MRef ref) {
         super(diagram, ref);
         this.theUseCaseDependency = usecasedependency;
         
@@ -64,10 +63,12 @@ public class GmUseCaseDependency extends GmLink {
         
         GmExtensionPointLabel extensionPointLabel = new GmExtensionPointLabel(diagram, ref);
         addExtension(ExtensionLocation.MiddleSE, GmUseCaseDependency.ROLE_EXTENSIONPOINTS, extensionPointLabel);
+        
     }
 
     @objid ("5e7e1161-55b7-11e2-877f-002564c97630")
-    public GmUseCaseDependency() {
+    public  GmUseCaseDependency() {
+        
     }
 
     @objid ("5e7e1164-55b7-11e2-877f-002564c97630")
@@ -112,6 +113,7 @@ public class GmUseCaseDependency extends GmLink {
         super.readLink(in);
         
         this.theUseCaseDependency = (UseCaseDependency) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("5e7f97ef-55b7-11e2-877f-002564c97630")
@@ -121,6 +123,7 @@ public class GmUseCaseDependency extends GmLink {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmUseCaseDependency.", GmUseCaseDependency.MINOR_VERSION);
+        
     }
 
     @objid ("5e7f97f5-55b7-11e2-877f-002564c97630")
@@ -139,6 +142,7 @@ public class GmUseCaseDependency extends GmLink {
                 n.setRoleInComposition(GmUseCaseDependency.ROLE_EXTENSIONPOINTS);
             }
         }
+        
     }
 
 }

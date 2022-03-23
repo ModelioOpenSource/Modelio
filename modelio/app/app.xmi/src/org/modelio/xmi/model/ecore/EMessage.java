@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,7 +40,7 @@ public class EMessage extends ENamedElement {
     }
 
     @objid ("b1b41ab9-dfa8-4789-bea6-4206027f5ba8")
-    public EMessage(org.eclipse.uml2.uml.Message element) {
+    public  EMessage(org.eclipse.uml2.uml.Message element) {
         super(element);
     }
 
@@ -58,6 +57,7 @@ public class EMessage extends ENamedElement {
                 setLineNumbers((Message) objingElt);
             }
         }
+        
     }
 
     @objid ("f5ba587c-e1aa-44ca-b379-c8efe4698c6c")
@@ -76,6 +76,7 @@ public class EMessage extends ENamedElement {
                 message.setInvoked((Operation) objingSignature);
             }
         }
+        
     }
 
     @objid ("e5e6ca84-53ee-42be-9ab3-5b53114d4608")
@@ -103,6 +104,7 @@ public class EMessage extends ENamedElement {
         } else if (EcoreModelNavigation.isLostMessage(ecoreMessage)) {
             message.setKindOfMessage(MessageKind.LOSTKIND);
         }
+        
     }
 
     @objid ("aa38b881-68a4-4600-8084-d873493fdd46")
@@ -131,6 +133,7 @@ public class EMessage extends ENamedElement {
             message.setSortOfMessage(MessageSort.ASYNCCALL);
             break;
         }
+        
     }
 
     @objid ("bb082897-d74d-424a-aca8-cf86b50a91d8")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.statemachine;
 
 import java.util.Collections;
@@ -32,8 +31,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.StateMachine;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -59,26 +58,25 @@ public class GmStateMachine extends GmPortContainer {
     private static final String IMAGE_LABEL_ROLE = "ImageLabel";
 
     @objid ("36a54301-55b7-11e2-877f-002564c97630")
-     static final GmStateMachineStructuredStyleKeys STRUCTURED_KEYS = new GmStateMachineStructuredStyleKeys();
+    static final GmStateMachineStructuredStyleKeys STRUCTURED_KEYS = new GmStateMachineStructuredStyleKeys();
 
     @objid ("64587d7e-5bd5-11e2-9e33-00137282c51b")
-     static final GmStateMachineSimpleStyleKeys SIMPLE_KEYS = new GmStateMachineSimpleStyleKeys();
+    static final GmStateMachineSimpleStyleKeys SIMPLE_KEYS = new GmStateMachineSimpleStyleKeys();
 
     @objid ("64587d80-5bd5-11e2-9e33-00137282c51b")
-     static final GmStateMachineImageStyleKeys IMAGE_KEYS = new GmStateMachineImageStyleKeys();
+    static final GmStateMachineImageStyleKeys IMAGE_KEYS = new GmStateMachineImageStyleKeys();
 
     @objid ("40b86459-72b0-499b-9b37-f766a0dcb241")
-     static final GmStateMachineUserImageStyleKeys USERIMAGE_KEYS = new GmStateMachineUserImageStyleKeys();
+    static final GmStateMachineUserImageStyleKeys USERIMAGE_KEYS = new GmStateMachineUserImageStyleKeys();
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the state machine is unmasked.
      * @param el the unmasked state machine.
      * @param ref a reference to the unmasked state machine.
      */
     @objid ("36a5430e-55b7-11e2-877f-002564c97630")
-    public GmStateMachine(final IGmDiagram diagram, final StateMachine el, final MRef ref) {
+    public  GmStateMachine(final IGmDiagram diagram, final StateMachine el, final MRef ref) {
         super(diagram, ref);
         this.element = el;
         
@@ -91,13 +89,14 @@ public class GmStateMachine extends GmPortContainer {
         
         super.addChild(mainNode);
         super.addChild(imageModeHeader);
+        
     }
 
     /**
      * Empty constructor needed for deserialisation.
      */
     @objid ("36a5431d-55b7-11e2-877f-002564c97630")
-    public GmStateMachine() {
+    public  GmStateMachine() {
         // Nothing specific to do.
     }
 
@@ -186,6 +185,7 @@ public class GmStateMachine extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("36a6c9d0-55b7-11e2-877f-002564c97630")
@@ -195,6 +195,7 @@ public class GmStateMachine extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmStateMachine.", GmStateMachine.MINOR_VERSION);
+        
     }
 
     @objid ("36a8503a-55b7-11e2-877f-002564c97630")
@@ -207,6 +208,7 @@ public class GmStateMachine extends GmPortContainer {
         imageModeHeader.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         
         super.addChild(imageModeHeader, 1);
+        
     }
 
     @objid ("36a85040-55b7-11e2-877f-002564c97630")
@@ -219,6 +221,7 @@ public class GmStateMachine extends GmPortContainer {
     private void read_1(final IDiagramReader in) {
         super.read(in);
         this.element = (StateMachine) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("36a8504b-55b7-11e2-877f-002564c97630")
@@ -234,6 +237,7 @@ public class GmStateMachine extends GmPortContainer {
                 ret.remove(imageModeHeader);
                 break;
             }
+            case USER_IMAGE:
             case IMAGE:
             default: {
                 break;
@@ -246,7 +250,6 @@ public class GmStateMachine extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -256,11 +259,11 @@ public class GmStateMachine extends GmPortContainer {
         String role = childNode.getRoleInComposition();
         return GmPortContainer.SATELLITE_ROLE.equals(role)
                                         || GmStateMachine.IMAGE_LABEL_ROLE.equals(role);
+        
     }
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */

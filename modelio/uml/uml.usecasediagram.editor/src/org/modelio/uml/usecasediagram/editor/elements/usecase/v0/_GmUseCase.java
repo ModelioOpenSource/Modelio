@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.elements.usecase.v0;
 
 import java.util.ArrayList;
@@ -37,8 +36,8 @@ import org.modelio.diagram.elements.core.node.IImageableNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.usecaseModel.ExtensionPoint;
 import org.modelio.metamodel.uml.behavior.usecaseModel.UseCase;
 import org.modelio.metamodel.uml.statik.Attribute;
@@ -134,7 +133,7 @@ public class _GmUseCase extends GmCompositeNode implements IImageableNode {
     private static final GmUseCaseUserImageStyleKeys USERIMAGE_KEYS = new GmUseCaseUserImageStyleKeys();
 
     @objid ("5e77f6ba-55b7-11e2-877f-002564c97630")
-    public _GmUseCase(IGmDiagram diagram, UseCase theUseCase, MRef ref) {
+    public  _GmUseCase(IGmDiagram diagram, UseCase theUseCase, MRef ref) {
         super(diagram, ref);
         this.useCase = theUseCase;
         this.header = new GmNamespaceHeader(diagram, ref);
@@ -169,10 +168,11 @@ public class _GmUseCase extends GmCompositeNode implements IImageableNode {
         super.addChild(this.internalStructureZone);
         super.addChild(this.innerElements);
         addChild(this.imageModeHeader);
+        
     }
 
     @objid ("5e77f6c6-55b7-11e2-877f-002564c97630")
-    public _GmUseCase() {
+    public  _GmUseCase() {
         // empty constructor for the serialization
     }
 
@@ -312,6 +312,7 @@ public class _GmUseCase extends GmCompositeNode implements IImageableNode {
         default:
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("5e797d64-55b7-11e2-877f-002564c97630")
@@ -335,6 +336,7 @@ public class _GmUseCase extends GmCompositeNode implements IImageableNode {
             break;
         }
         }
+        
     }
 
     @objid ("5e797d6a-55b7-11e2-877f-002564c97630")
@@ -343,6 +345,7 @@ public class _GmUseCase extends GmCompositeNode implements IImageableNode {
         super.refreshFromObModel();
         // forcing visual refresh in case Image changed
         firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("5e797d6d-55b7-11e2-877f-002564c97630")
@@ -351,6 +354,7 @@ public class _GmUseCase extends GmCompositeNode implements IImageableNode {
         // Returned result depends on current representation mode:
         List<GmNodeModel> ret;
         switch (this.getRepresentationMode()) {
+        case USER_IMAGE:
         case IMAGE: {
             ret = new ArrayList<>(1);
             ret.add(this.imageModeHeader);
@@ -379,6 +383,7 @@ public class _GmUseCase extends GmCompositeNode implements IImageableNode {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmUseCase.", _GmUseCase.MINOR_VERSION);
+        
     }
 
     @objid ("5e797d83-55b7-11e2-877f-002564c97630")
@@ -415,6 +420,7 @@ public class _GmUseCase extends GmCompositeNode implements IImageableNode {
         this.innerElements.setRoleInComposition(_GmUseCase.INNER);
         this.imageModeHeader.setRoleInComposition(_GmUseCase.IMAGE_HEADER);
         this.extensionPointGroup.setRoleInComposition(_GmUseCase.EXTENSIONS);
+        
     }
 
     @objid ("5e797d88-55b7-11e2-877f-002564c97630")
@@ -437,6 +443,7 @@ public class _GmUseCase extends GmCompositeNode implements IImageableNode {
         this.innerElements = (GmInnerClass) getFirstChild(_GmUseCase.INNER);
         this.imageModeHeader = (GmDefaultModelElementLabel) getFirstChild(_GmUseCase.IMAGE_HEADER);
         this.extensionPointGroup = (GmGroup) getFirstChild(_GmUseCase.EXTENSIONS);
+        
     }
 
     @objid ("5e797d93-55b7-11e2-877f-002564c97630")

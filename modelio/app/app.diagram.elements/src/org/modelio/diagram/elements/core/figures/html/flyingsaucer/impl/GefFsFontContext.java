@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.figures.html.flyingsaucer.impl;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,9 +28,8 @@ import org.xhtmlrenderer.extend.FontContext;
  * @author cmarin
  */
 @objid ("d674349e-1f3a-4bd5-9e39-4d28cc384b02")
-class GefFsFontContext implements FontContext {
-
-/*
-    * Empty implementation, we don't need anything.
-    */
+class GefFsFontContext implements FontContext {/*
+        * Empty implementation, we don't need anything.
+        */
+    
 }

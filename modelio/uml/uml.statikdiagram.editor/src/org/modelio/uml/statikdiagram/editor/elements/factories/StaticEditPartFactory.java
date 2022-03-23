@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.factories;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -28,9 +27,9 @@ import org.modelio.diagram.elements.common.label.base.ElementLabelEditPart;
 import org.modelio.diagram.elements.common.label.modelelement.ModelElementLabelEditPart;
 import org.modelio.diagram.elements.common.portcontainer.PortContainerEditPart;
 import org.modelio.diagram.elements.common.resizablegroup.ResizableGroupEditPart;
+import org.modelio.diagram.elements.core.model.factory.GenericUserImageModeEditPartFactory;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.elements.umlcommon.dependency.DependencyEditPart;
-import org.modelio.diagram.elements.umlcommon.diagramview.DiagramViewEditPart;
 import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.uml.statikdiagram.editor.elements.abstraction.GmAbstraction;
 import org.modelio.uml.statikdiagram.editor.elements.activity.ActivityEditPart;
@@ -223,13 +222,16 @@ import org.modelio.uml.statikdiagram.editor.elements.templateparameter.TemplateS
 @objid ("36b792a2-55b7-11e2-877f-002564c97630")
 public class StaticEditPartFactory implements EditPartFactory {
     @objid ("36b792a6-55b7-11e2-877f-002564c97630")
-    private static final StructuredModeEditPartFactory structuredModeEditPartFactory = new StructuredModeEditPartFactory();
+    private final StructuredModeEditPartFactory structuredModeEditPartFactory = new StructuredModeEditPartFactory();
 
     @objid ("36b792a7-55b7-11e2-877f-002564c97630")
-    private static final SimpleModeEditPartFactory simpleModeEditPartFactory = new SimpleModeEditPartFactory();
+    private final SimpleModeEditPartFactory simpleModeEditPartFactory = new SimpleModeEditPartFactory();
 
     @objid ("36b792a8-55b7-11e2-877f-002564c97630")
-    private static final ImageModeEditPartFactory imageModeEditPartFactory = new ImageModeEditPartFactory();
+    private final ImageModeEditPartFactory imageModeEditPartFactory = new ImageModeEditPartFactory();
+
+    @objid ("14af03ed-b102-4770-8479-daa108e2aef9")
+    private final EditPartFactory userImageModeEditPartFactory = new GenericUserImageModeEditPartFactory(this.imageModeEditPartFactory);
 
     @objid ("36b792b0-55b7-11e2-877f-002564c97630")
     @Override
@@ -239,14 +241,17 @@ public class StaticEditPartFactory implements EditPartFactory {
             // For node models, delegates according the representation model.
             GmNodeModel node = (GmNodeModel) model;
             switch (node.getRepresentationMode()) {
+            case USER_IMAGE:
+                editPart = this.userImageModeEditPartFactory.createEditPart(context, model);
+                break;
             case SIMPLE:
-                editPart = StaticEditPartFactory.simpleModeEditPartFactory.createEditPart(context, model);
+                editPart = this.simpleModeEditPartFactory.createEditPart(context, model);
                 break;
             case STRUCTURED:
-                editPart = StaticEditPartFactory.structuredModeEditPartFactory.createEditPart(context, model);
+                editPart = this.structuredModeEditPartFactory.createEditPart(context, model);
                 break;
             case IMAGE:
-                editPart = StaticEditPartFactory.imageModeEditPartFactory.createEditPart(context, model);
+                editPart = this.imageModeEditPartFactory.createEditPart(context, model);
                 break;
             default:
                 editPart = null; // generically supported by standard factory
@@ -255,9 +260,10 @@ public class StaticEditPartFactory implements EditPartFactory {
             return editPart;
         } else {
             // Link models are always in structured mode.
-            editPart = StaticEditPartFactory.structuredModeEditPartFactory.createEditPart(context, model);
+            editPart = this.structuredModeEditPartFactory.createEditPart(context, model);
             return editPart;
         }
+        
     }
 
     /**

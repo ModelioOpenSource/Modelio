@@ -17,11 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.linktovoid;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.ConnectionLocator;
+import org.eclipse.draw2d.Cursors;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.RotatableDecoration;
 import org.eclipse.draw2d.geometry.Dimension;
@@ -41,17 +41,16 @@ public class LinkToVoidEndPointHandle extends ConnectionEndpointHandle {
     private static final Rectangle DRAW_RECT = new Rectangle();
 
     /**
-     * Creates a new LinkToVoidEndPointHandle, sets its owner to <code>owner</code> , and sets its locator to a
-     * {@link ConnectionLocator}.
-     * 
+     * Creates a new LinkToVoidEndPointHandle, sets its owner to <code>owner</code> , and sets its locator to a {@link ConnectionLocator}.
      * @param owner the ConnectionEditPart owner
      * @param endPoint one of {@link ConnectionLocator#SOURCE} or {@link ConnectionLocator#TARGET}.
      */
     @objid ("7ed092ea-1dec-11e2-8cad-001ec947c8cc")
-    public LinkToVoidEndPointHandle(final ConnectionEditPart owner, final int endPoint) {
+    public  LinkToVoidEndPointHandle(final ConnectionEditPart owner, final int endPoint) {
         super(owner, endPoint);
         
         initPreferredSize();
+        
     }
 
     /**
@@ -78,13 +77,15 @@ public class LinkToVoidEndPointHandle extends ConnectionEndpointHandle {
             decSize.union(getPreferredSize());
             setPreferredSize(decSize);
         }
+        
     }
 
     @objid ("7ed092f6-1dec-11e2-8cad-001ec947c8cc")
     @Override
     protected DragTracker createDragTracker() {
-        if (isFixed())
+        if (isFixed()) {
             return null;
+        }
         
         ConnectionEndpointTracker tracker;
         tracker = new ConnectionEndpointTracker((ConnectionEditPart) getOwner());
@@ -96,27 +97,26 @@ public class LinkToVoidEndPointHandle extends ConnectionEndpointHandle {
         }
         
         tracker.setDefaultCursor(getCursor());
+        tracker.setDisabledCursor(Cursors.NO);
         return tracker;
     }
 
     /**
      * Returns the alpha for the outside of the handle.
-     * 
      * @return the alpha for the border
      */
     @objid ("7ed092fd-1dec-11e2-8cad-001ec947c8cc")
     protected int getBorderAlpha() {
-        return (isPrimary()) ? 100 : 255;
+        return isPrimary() ? 100 : 255;
     }
 
     /**
      * Returns the alpha for the inside of the handle.
-     * 
      * @return the alpha for the inside
      */
     @objid ("7ed09302-1dec-11e2-8cad-001ec947c8cc")
     protected int getFillAlpha() {
-        return (isPrimary()) ? 255 : 100;
+        return isPrimary() ? 255 : 100;
     }
 
     @objid ("7ed09307-1dec-11e2-8cad-001ec947c8cc")
@@ -124,7 +124,7 @@ public class LinkToVoidEndPointHandle extends ConnectionEndpointHandle {
     public void paintFigure(final Graphics g) {
         DRAW_RECT.setBounds(getBounds());
         
-        //DRAW_RECT.shrink(1, 1);
+        // DRAW_RECT.shrink(1, 1);
         DRAW_RECT.resize(-1, -1);
         g.setForegroundColor(getBorderColor());
         g.setAlpha(getBorderAlpha());
@@ -139,6 +139,7 @@ public class LinkToVoidEndPointHandle extends ConnectionEndpointHandle {
         g.setForegroundColor(getFillColor());
         g.setAlpha(getFillAlpha());
         g.drawRectangle(DRAW_RECT);
+        
     }
 
 }

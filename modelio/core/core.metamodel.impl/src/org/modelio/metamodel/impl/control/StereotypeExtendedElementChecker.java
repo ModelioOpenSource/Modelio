@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.control;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,7 +36,7 @@ public class StereotypeExtendedElementChecker extends AbstractDependencyTypeChec
      * C'tor
      */
     @objid ("11c09960-56cb-40a0-aff0-3f85b20e324c")
-    public StereotypeExtendedElementChecker(SmMetamodel mm) {
+    public  StereotypeExtendedElementChecker(SmMetamodel mm) {
         // Cached SmClass
         // none
         
@@ -47,6 +46,7 @@ public class StereotypeExtendedElementChecker extends AbstractDependencyTypeChec
         // Symetric checker
         ModelElementExtensionChecker symetricChecker = new ModelElementExtensionChecker(this);
         symetricChecker.register(mm.getMClass(ModelElement.class), "Extension");
+        
     }
 
     @objid ("02ffc7f8-f027-11e1-8bdc-002564c97630")
@@ -69,10 +69,10 @@ public class StereotypeExtendedElementChecker extends AbstractDependencyTypeChec
     @objid ("03014e98-f027-11e1-8bdc-002564c97630")
     static class ModelElementExtensionChecker extends AbstractDependencyTypeChecker {
         @objid ("03014e9b-f027-11e1-8bdc-002564c97630")
-         StereotypeExtendedElementChecker symetricChecker;
+        StereotypeExtendedElementChecker symetricChecker;
 
         @objid ("03014e9c-f027-11e1-8bdc-002564c97630")
-        public ModelElementExtensionChecker(StereotypeExtendedElementChecker symetricChecker) {
+        public  ModelElementExtensionChecker(StereotypeExtendedElementChecker symetricChecker) {
             this.symetricChecker = symetricChecker;
         }
 

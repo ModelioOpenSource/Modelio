@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.fork;
 
 import java.util.Collections;
@@ -31,8 +30,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.ForkPseudoState;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -44,9 +43,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("f5300f76-55b6-11e2-877f-002564c97630")
 public class GmForkState extends GmPortContainer {
-    @objid ("f53195dc-55b6-11e2-877f-002564c97630")
-    private ForkPseudoState element;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -56,8 +52,11 @@ public class GmForkState extends GmPortContainer {
     @objid ("f53195e8-55b6-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
 
+    @objid ("f53195dc-55b6-11e2-877f-002564c97630")
+    private ForkPseudoState element;
+
     @objid ("fd7dc2e9-5a5b-11e2-9e33-00137282c51b")
-     static final GmForkStateStructuredStyleKeys STRUCTURED_KEYS = new GmForkStateStructuredStyleKeys();
+    static final GmForkStateStructuredStyleKeys STRUCTURED_KEYS = new GmForkStateStructuredStyleKeys();
 
     @objid ("fd7dc2eb-5a5b-11e2-9e33-00137282c51b")
     private static final GmForkStateSimpleStyleKeys SIMPLE_KEYS = new GmForkStateSimpleStyleKeys();
@@ -70,13 +69,12 @@ public class GmForkState extends GmPortContainer {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the timeEvent is unmasked.
      * @param el the unmasked timeEvent.
      * @param ref a reference to the unmasked timeEvent.
      */
     @objid ("f53195ea-55b6-11e2-877f-002564c97630")
-    public GmForkState(IGmDiagram diagram, ForkPseudoState el, MRef ref) {
+    public  GmForkState(IGmDiagram diagram, ForkPseudoState el, MRef ref) {
         super(diagram, ref);
         
         GmForkStatePrimaryNode mainNode = new GmForkStatePrimaryNode(diagram, ref);
@@ -89,6 +87,7 @@ public class GmForkState extends GmPortContainer {
         
         this.addChild(mainNode);
         this.addChild(label);
+        
     }
 
     @objid ("f53195f6-55b6-11e2-877f-002564c97630")
@@ -147,7 +146,7 @@ public class GmForkState extends GmPortContainer {
      * Empty constructor needed for deserialisation.
      */
     @objid ("f5319619-55b6-11e2-877f-002564c97630")
-    public GmForkState() {
+    public  GmForkState() {
         // Nothing specific to do.
     }
 
@@ -168,6 +167,7 @@ public class GmForkState extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("f5331c7d-55b6-11e2-877f-002564c97630")
@@ -189,12 +189,14 @@ public class GmForkState extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmForkState.", GmForkState.MINOR_VERSION);
+        
     }
 
     @objid ("f5331c91-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (ForkPseudoState) resolveRef(this.getRepresentedRef());
+        
     }
 
     @objid ("f5331c96-55b6-11e2-877f-002564c97630")
@@ -205,7 +207,6 @@ public class GmForkState extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -217,7 +218,6 @@ public class GmForkState extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

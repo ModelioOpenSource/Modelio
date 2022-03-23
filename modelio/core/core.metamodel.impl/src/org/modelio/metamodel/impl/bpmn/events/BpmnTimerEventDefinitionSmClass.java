@@ -17,19 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.events;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.bpmn.events.BpmnEventDefinition;
 import org.modelio.metamodel.bpmn.events.BpmnTimerEventDefinition;
-import org.modelio.metamodel.impl.bpmn.events.BpmnEventDefinitionSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -52,7 +51,7 @@ public class BpmnTimerEventDefinitionSmClass extends BpmnEventDefinitionSmClass 
     private SmAttribute timeDurationAtt;
 
     @objid ("139b1770-cd9e-45cd-8adc-612c348eec2f")
-    public BpmnTimerEventDefinitionSmClass(ISmMetamodelFragment origin) {
+    public  BpmnTimerEventDefinitionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -60,6 +59,7 @@ public class BpmnTimerEventDefinitionSmClass extends BpmnEventDefinitionSmClass 
     @Override
     public String getName() {
         return "BpmnTimerEventDefinition";
+        
     }
 
     @objid ("1cd42db5-ee54-4d73-a33f-0acf8c35fdc8")
@@ -72,18 +72,21 @@ public class BpmnTimerEventDefinitionSmClass extends BpmnEventDefinitionSmClass 
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnTimerEventDefinition.class;
+        
     }
 
     @objid ("6543c4c9-2320-4c76-9d49-1846783107c7")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("6b007c67-23f6-4d48-af27-fd4f331df7d5")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("6c424a99-dd8e-4029-ad3f-4ebd1c8ca7ac")
@@ -108,6 +111,7 @@ public class BpmnTimerEventDefinitionSmClass extends BpmnEventDefinitionSmClass 
         
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("9c284ee3-9231-44a9-bf0c-660b7495514d")
@@ -140,7 +144,7 @@ public class BpmnTimerEventDefinitionSmClass extends BpmnEventDefinitionSmClass 
         private BpmnTimerEventDefinitionSmClass smClass;
 
         @objid ("823d60e6-9396-4867-94a1-9a566bfbbb69")
-        public BpmnTimerEventDefinitionObjectFactory(BpmnTimerEventDefinitionSmClass smClass) {
+        public  BpmnTimerEventDefinitionObjectFactory(BpmnTimerEventDefinitionSmClass smClass) {
             this.smClass = smClass;
         }
 

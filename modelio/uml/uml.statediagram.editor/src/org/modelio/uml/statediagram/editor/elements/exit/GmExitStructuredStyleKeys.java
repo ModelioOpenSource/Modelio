@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.exit;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,33 +30,33 @@ import org.modelio.uml.statediagram.editor.style.StateAbstractStyleKeyProvider;
 @objid ("f520cd0a-55b6-11e2-877f-002564c97630")
 public class GmExitStructuredStyleKeys extends StateAbstractStyleKeyProvider {
     @objid ("810505ab-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("EXIT_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("EXIT_REPMODE", MetaKey.REPMODE);
 
     @objid ("810505ad-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("EXIT_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("EXIT_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("810505af-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("EXIT_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("EXIT_FILLMODE", MetaKey.FILLMODE);
 
     @objid ("810505b1-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("EXIT_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("EXIT_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("810505b3-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("EXIT_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("EXIT_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("810505b5-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("EXIT_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("EXIT_FONT", MetaKey.FONT);
 
     @objid ("810505b7-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("EXIT_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("EXIT_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("810505b9-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("EXIT_SHOWSTEREOTYPES", MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("EXIT_SHOWSTEREOTYPES", MetaKey.SHOWSTEREOTYPES);
 
     @objid ("810505bb-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("EXIT_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("EXIT_SHOWTAGS", MetaKey.SHOWTAGS);
 
     @objid ("810505bd-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWLABEL = createStyleKey("EXIT_SHOWLABEL", MetaKey.SHOWLABEL);
+    static final StyleKey SHOWLABEL = createStyleKey("EXIT_SHOWLABEL", MetaKey.SHOWLABEL);
 
 }

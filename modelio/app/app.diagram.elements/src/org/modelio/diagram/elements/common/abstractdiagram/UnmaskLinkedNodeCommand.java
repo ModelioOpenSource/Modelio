@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.abstractdiagram;
 
 import java.util.Collection;
@@ -63,19 +62,19 @@ public class UnmaskLinkedNodeCommand extends Command {
 
     /**
      * C'tor.
-     * 
      * @param theElement the linked node element to unmask.
      * @param host the edit part of the diagram in which to unmask it.
      * @param initialLayoutData the initial layout data for the node part
      * @param dropLocation the drop location retrieved from the request.
      */
     @objid ("7e274bcb-1dec-11e2-8cad-001ec947c8cc")
-    public UnmaskLinkedNodeCommand(final MObject theElement, final AbstractDiagramEditPart host, final Object initialLayoutData, final Point dropLocation) {
+    public  UnmaskLinkedNodeCommand(final MObject theElement, final AbstractDiagramEditPart host, final Object initialLayoutData, final Point dropLocation) {
         this.theElement = theElement;
         this.host = host;
         this.diagram = (IGmDiagram) host.getModel();
         this.constraint = initialLayoutData;
         this.dropLocation = dropLocation;
+        
     }
 
     @objid ("7e274bd8-1dec-11e2-8cad-001ec947c8cc")
@@ -119,6 +118,7 @@ public class UnmaskLinkedNodeCommand extends Command {
         // Attach the link to the source and target nodes
         targetModel.addEndingLink(link);
         sourceModel.addStartingLink(link);
+        
     }
 
     @objid ("7e274be0-1dec-11e2-8cad-001ec947c8cc")
@@ -151,6 +151,7 @@ public class UnmaskLinkedNodeCommand extends Command {
         if (command != null && command.canExecute()) {
             command.execute();
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.jdbm;
 
 import java.io.ByteArrayInputStream;
@@ -136,7 +135,7 @@ public class JdbmRepository implements IRepository {
     private RecordManager db;
 
     @objid ("903136db-c15a-4eda-8a06-404e8ba9e9ef")
-    private PrimaryHashMap<String,byte[]> dbContent;
+    private PrimaryHashMap<String, byte[]> dbContent;
 
     /**
      * A user friendly repository name.
@@ -191,16 +190,16 @@ public class JdbmRepository implements IRepository {
 
     /**
      * Initialize the repository.
-     * 
      * @param repositoryPath the repository directory.
      */
     @objid ("d4d947ae-788f-48ce-a107-811e3932a350")
-    public JdbmRepository(File repositoryPath) {
+    public  JdbmRepository(File repositoryPath) {
         this.emfRes = new JdbmEmfResource(this);
         this.errSupport = new StorageErrorSupport(this);
         this.repositoryPath = repositoryPath;
         this.dirtyLock = new Object();
         this.dbLock = new ReentrantReadWriteLock();
+        
     }
 
     @objid ("2fb7f2b9-9004-457d-850f-c3e99f1da9dd")
@@ -231,6 +230,7 @@ public class JdbmRepository implements IRepository {
         
         this.db = null;
         this.baseOpen = false;
+        
     }
 
     @objid ("3480752c-8aa6-434c-a912-8c5998677439")
@@ -301,7 +301,6 @@ public class JdbmRepository implements IRepository {
 
     /**
      * Get access to the maintenance operations.
-     * 
      * @return the maintenance operations.
      */
     @objid ("95931d5f-7e09-49b2-8508-ecd0a7f9ec74")
@@ -322,7 +321,6 @@ public class JdbmRepository implements IRepository {
      * Get the repository name.
      * <p>
      * The repository name is intended to be displayed to the user.
-     * 
      * @return the repository name.
      */
     @objid ("967b98e7-177f-439e-b16b-249768b1c61b")
@@ -346,7 +344,7 @@ public class JdbmRepository implements IRepository {
      * @param dbDir the database directory
      * @param dbName the database name
      * @return the JDBM entry point
-     * @throws java.io.IOException on failure
+     * @throws IOException on failure
      */
     @objid ("778f3003-2bae-44da-997e-93820eb15621")
     public static RecordManager instantiateDb(File dbDir, String dbName) throws IOException {
@@ -365,6 +363,7 @@ public class JdbmRepository implements IRepository {
         synchronized(this.dirtyLock) {
             return ! this.dirty.isEmpty();
         }
+        
     }
 
     @objid ("2dee4288-dd83-4d61-99a3-8e5940ae0cd6")
@@ -424,6 +423,7 @@ public class JdbmRepository implements IRepository {
         } finally {
             this.dbLock.readLock().unlock();
         }
+        
     }
 
     @objid ("917875d1-2875-438a-a354-15d21a544fc0")
@@ -456,6 +456,7 @@ public class JdbmRepository implements IRepository {
         } finally {
             this.dbLock.readLock().unlock();
         }
+        
     }
 
     @objid ("4fdcca0e-121b-4956-94e9-8fc362d446a7")
@@ -492,6 +493,7 @@ public class JdbmRepository implements IRepository {
         } catch (IOError e) {
             throw new IOException(e);
         }
+        
     }
 
     @objid ("e17631e5-69a5-4020-8fcf-728743fdc38d")
@@ -634,13 +636,13 @@ public class JdbmRepository implements IRepository {
                 }
             }
         }
+        
     }
 
     /**
      * Set the repository name.
      * <p>
      * The repository name is intended to be displayed to the user.
-     * 
      * @param name the repository name.
      */
     @objid ("a651e65c-899a-4572-8fdd-07432ec8c44d")
@@ -659,6 +661,7 @@ public class JdbmRepository implements IRepository {
         synchronized (this.dirtyLock) {
             this.dirty.add(obj);
         }
+        
     }
 
     @objid ("a8430ea0-8fc5-4487-8ee8-517e5fea74c7")
@@ -672,7 +675,6 @@ public class JdbmRepository implements IRepository {
 
     /**
      * Get the EMF mapping.
-     * 
      * @return the EMF mapping.
      */
     @objid ("202c1e20-fca4-4720-bbcc-32b0f909a5f2")
@@ -692,7 +694,6 @@ public class JdbmRepository implements IRepository {
 
     /**
      * Tells whether the identifier is one of the stored objects.
-     * 
      * @param uuid the object identifier.
      * @return true if stored else false.
      */
@@ -730,22 +731,22 @@ public class JdbmRepository implements IRepository {
         } catch (InternalError e) {
             getErrorSupport().fireWarning(e);
         }
+        
     }
 
     /**
      * Remove the object from the repository.
-     * 
      * @param obj the object to remove.
      */
     @objid ("db0a3e6a-612b-41ca-a405-de1e02871e25")
     void removeObj(SmObjectImpl obj) {
         addDirty(obj);
         //getLoadCache().removeFromCache(obj); : keep the object in the load cache because it is referenced in indexes
+        
     }
 
     /**
      * Unload a model object.
-     * 
      * @param obj a model object to forget.
      */
     @objid ("c77433b1-c3c1-47b1-a861-ef8cdc86f0f8")
@@ -756,6 +757,7 @@ public class JdbmRepository implements IRepository {
         synchronized (this.dirtyLock) {
             this.dirty.remove(obj);
         }
+        
     }
 
     @objid ("0fe8dd39-828e-4a53-b907-97df15b7f9d3")
@@ -790,16 +792,16 @@ public class JdbmRepository implements IRepository {
         if (! this.baseOpen) {
             throw new IllegalStateException("The '"+this.repositoryPath+"' repository is not open.");
         }
+        
     }
 
     /**
      * Find all instances of the given metaclass with its sub classes if asked.
      * <p>
      * The model objects are not loaded, only stubs are instantiated.
-     * 
      * @param cls a metamodel class
      * @param recursive <code>true</code> to load all sub classes too.
-     * @throws org.modelio.vcore.model.DuplicateObjectException when adding to the cache an object with the same identifier as another one.
+     * @throws DuplicateObjectException when adding to the cache an object with the same identifier as another one.
      */
     @objid ("5c036afc-79f4-485b-8238-a676f8c87d18")
     private void findAll(SmClass cls, IModelLoader modelLoader, final boolean recursive) throws DuplicateObjectException {
@@ -819,6 +821,7 @@ public class JdbmRepository implements IRepository {
         } catch (IOError e) {
             getErrorSupport().fireWarning(e);
         }
+        
     }
 
     /**
@@ -828,10 +831,9 @@ public class JdbmRepository implements IRepository {
      * its content lazily.
      * <p>
      * The model objects are not loaded, only stubs are instantiated lazily.
-     * 
      * @param cls a metamodel class
      * @param recursive <code>true</code> to load all sub classes too.
-     * @throws java.lang.IllegalStateException when adding to the cache an object with the same identifier as another one.
+     * @throws IllegalStateException when adding to the cache an object with the same identifier as another one.
      */
     @objid ("dd6a13f7-f4d8-4acf-82e7-424a0e1b6689")
     private Collection<? super SmObjectImpl> findAllLazy(SmClass cls, final boolean recursive) throws IllegalStateException {
@@ -849,6 +851,7 @@ public class JdbmRepository implements IRepository {
         } else {
             return new FilteredContent(cls);
         }
+        
     }
 
     @objid ("8f0dd637-cff1-47b0-8d1d-ed8776676811")
@@ -860,6 +863,7 @@ public class JdbmRepository implements IRepository {
         } else if (readFormat != FORMAT_VERSION) {
             throw new InvalidFormatException(getName(), this.repositoryPath, readFormat, FORMAT_VERSION);
         }
+        
     }
 
     @objid ("582200ab-4428-4c6d-be47-c6ab171ece94")
@@ -876,6 +880,7 @@ public class JdbmRepository implements IRepository {
             getErrorSupport().fireWarning(e);
             return null;
         }
+        
     }
 
     @objid ("88d00449-1b6f-4af0-a720-f3f21b4c0133")
@@ -911,6 +916,7 @@ public class JdbmRepository implements IRepository {
                 loader.setRStatus(obj, IRStatus.SHELL, 0, 0);
             }
         }
+        
     }
 
     @objid ("7bc99723-7c18-4efc-9d0e-e60408dd1f10")
@@ -926,12 +932,12 @@ public class JdbmRepository implements IRepository {
         } else {
             return this.db.fetch(recId);
         }
+        
     }
 
     /**
      * Save a descriptor of the current metamodel.
-     * 
-     * @throws java.io.IOException on failure
+     * @throws IOException on failure
      */
     @objid ("5bd03f16-9ce8-4983-8259-6afcafe715f4")
     private void saveMetamodelDescriptor() throws IOException {
@@ -939,6 +945,7 @@ public class JdbmRepository implements IRepository {
         String str = MetamodelDescriptorWriter.dumpToString(desc);
         writeNamedObject("metamodel_descriptor.xml", str);
         this.storedMetamodelDescriptor = desc;
+        
     }
 
     @objid ("1d0ee461-148c-4a3d-a6c4-06150b1e58a2")
@@ -956,6 +963,7 @@ public class JdbmRepository implements IRepository {
             this.db.update(recId, value);
         }
         this.db.commit();
+        
     }
 
     @objid ("20f31b90-006d-4d56-bfca-138983df0b16")
@@ -978,9 +986,10 @@ public class JdbmRepository implements IRepository {
 
         @objid ("d734755e-5d3f-40db-be63-004cee22ecc5")
         @SuppressWarnings("synthetic-access")
-        public FilteredContent(SmClass cls) {
+        public  FilteredContent(SmClass cls) {
             this.coll = JdbmRepository.this.index.getByMClass(cls);
             this.cls = cls;
+            
         }
 
         @objid ("47a8c2ab-496c-4012-8eae-b55fcee43c3c")
@@ -998,7 +1007,6 @@ public class JdbmRepository implements IRepository {
          * If this collection contains more than Integer.MAX_VALUE elements, returns Integer.MAX_VALUE.
          * <p>
          * <b>Note: Iterates the whole collection content, avoid calling it. </b>
-         * 
          * @return the collection size.
          */
         @objid ("e15a6764-ada7-4802-b05e-897d39eee933")
@@ -1045,10 +1053,11 @@ public class JdbmRepository implements IRepository {
             private final SmClass itCls;
 
             @objid ("cdffb948-79d6-4c3e-9610-8c915e845fe2")
-            IteratorImp(Iterator<String> it, IModelLoaderProvider loaderProvider, final SmClass cls) {
+             IteratorImp(Iterator<String> it, IModelLoaderProvider loaderProvider, final SmClass cls) {
                 this.it = it;
                 this.loaderProvider = loaderProvider;
                 this.itCls = cls;
+                
             }
 
             @objid ("2762ba06-6d20-4a2c-9cd7-7bea47cc7331")
@@ -1085,7 +1094,7 @@ public class JdbmRepository implements IRepository {
     @objid ("a07ae555-e9bd-436d-98c8-9cfc9a50db53")
     private class LoadHelper implements ILoadHelper {
         @objid ("b158403a-5658-47fc-8386-e7574bc546b9")
-        public LoadHelper() {
+        public  LoadHelper() {
             // Nothing
         }
 

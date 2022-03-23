@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.activity;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,31 +31,31 @@ import org.modelio.uml.statikdiagram.editor.style.StaticAbstractStyleKeyProvider
 @objid ("33dfba6e-55b7-11e2-877f-002564c97630")
 public class GmActivityStructuredStyleKeys extends StaticAbstractStyleKeyProvider {
     @objid ("a5c940eb-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("ACTIVITY_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("ACTIVITY_REPMODE", MetaKey.REPMODE);
 
     @objid ("a5c940ed-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("ACTIVITY_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("ACTIVITY_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("a5c940ef-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("ACTIVITY_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("ACTIVITY_FILLMODE", MetaKey.FILLMODE);
 
     @objid ("a5c940f1-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("ACTIVITY_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("ACTIVITY_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("a5c940f3-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("ACTIVITY_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("ACTIVITY_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("a5c940f5-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("ACTIVITY_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("ACTIVITY_FONT", MetaKey.FONT);
 
     @objid ("a5c940f7-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("ACTIVITY_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("ACTIVITY_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("a5c940f9-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("ACTIVITY_SHOWSTEREOTYPES",
-                                                           MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("ACTIVITY_SHOWSTEREOTYPES",
+                                                               MetaKey.SHOWSTEREOTYPES);
 
     @objid ("a5c940fb-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("ACTIVITY_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("ACTIVITY_SHOWTAGS", MetaKey.SHOWTAGS);
 
 }

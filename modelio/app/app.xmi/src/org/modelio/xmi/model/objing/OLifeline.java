@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,7 @@ public class OLifeline extends OModelElement {
     }
 
     @objid ("477df7b7-afe1-4707-a46d-549dae06c9a3")
-    public OLifeline(Lifeline param) {
+    public  OLifeline(Lifeline param) {
         super(param);
     }
 
@@ -52,6 +51,7 @@ public class OLifeline extends OModelElement {
         if (ecoreOwner != null) {
             ecoreOwner.getLifelines().add((org.eclipse.uml2.uml.Lifeline)ecoreElt);
         }
+        
     }
 
     @objid ("c9fc9ebf-0714-4ad1-8395-07792739877f")
@@ -60,6 +60,7 @@ public class OLifeline extends OModelElement {
         super.setProperties(ecoreElt);
         setSelector((org.eclipse.uml2.uml.Lifeline) ecoreElt);
         setRepresented((org.eclipse.uml2.uml.Lifeline) ecoreElt);
+        
     }
 
     @objid ("f949947f-6f00-441e-bc72-6a36c36ca324")
@@ -82,6 +83,7 @@ public class OLifeline extends OModelElement {
             }
         
         }
+        
     }
 
     @objid ("5a61716e-a363-4a2a-9957-84a4905c1139")
@@ -93,6 +95,7 @@ public class OLifeline extends OModelElement {
             valueSpecification.setValue(selector);
             lifeline.setSelector(valueSpecification);
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.gproject.url;
 
 import java.io.IOException;
@@ -68,6 +67,7 @@ public class GUrlProjectFactory extends GRemoteProjectFactory {
         } catch (UriAuthenticationException e) {
             throw new GProjectAuthenticationException(FileUtils.getLocalizedMessage(e), e);
         }
+        
     }
 
     @objid ("f11a47b0-e529-4c11-93ca-dbf2b63edf5a")
@@ -79,6 +79,7 @@ public class GUrlProjectFactory extends GRemoteProjectFactory {
             e2.initCause(e);
             throw e2;
         }
+        
     }
 
 }

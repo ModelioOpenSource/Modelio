@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.api.impl.model;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -52,7 +51,7 @@ public class UMLTypes implements IUMLTypes {
     private IModel model;
 
     @objid ("5db2e093-c984-4026-b33a-2bf1597065b0")
-    UMLTypes(final IModel model) {
+     UMLTypes(final IModel model) {
         this.model = model;
     }
 

@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnstartevent;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.bpmn.diagram.editor.elements.style.BpmnAbstractStyleKeyProvider;
+import org.modelio.bpmn.diagram.editor.elements.common.style.BpmnAbstractStyleKeyProvider;
 import org.modelio.diagram.styles.core.StyleKey;
 
 /**
@@ -30,24 +29,24 @@ import org.modelio.diagram.styles.core.StyleKey;
 @objid ("61bc41c7-55b6-11e2-877f-002564c97630")
 public class GmBpmnStartEventImageStyleKeys extends BpmnAbstractStyleKeyProvider {
     @objid ("7235530f-55c1-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmBpmnStartEventStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmBpmnStartEventStructuredStyleKeys.REPMODE;
 
     @objid ("72355311-55c1-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmBpmnStartEventStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmBpmnStartEventStructuredStyleKeys.FONT;
 
     @objid ("72355313-55c1-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmBpmnStartEventStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmBpmnStartEventStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("72355315-55c1-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmBpmnStartEventStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmBpmnStartEventStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("72355317-55c1-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmBpmnStartEventStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmBpmnStartEventStructuredStyleKeys.SHOWTAGS;
 
     /**
      * Show the label.
      */
     @objid ("7236d9a9-55c1-11e2-9337-002564c97630")
-     static final StyleKey SHOWLABEL = GmBpmnStartEventStructuredStyleKeys.SHOWLABEL;
+    static final StyleKey SHOWLABEL = GmBpmnStartEventStructuredStyleKeys.SHOWLABEL;
 
 }

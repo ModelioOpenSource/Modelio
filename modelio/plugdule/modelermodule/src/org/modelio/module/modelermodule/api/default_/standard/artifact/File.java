@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.artifact;
 
@@ -50,30 +49,29 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("e6570b85-f019-476d-af0a-f5b65c28d70c")
 public class File {
-    @objid ("19c1171f-de02-4702-94df-d172f4bb2677")
+    @objid ("c9be7ab6-9af9-4e1f-ba20-ce3a610a0f56")
     public static final String STEREOTYPE_NAME = "file";
 
-    @objid ("ec07e79b-7ed5-43a8-94aa-db991db1ef72")
+    @objid ("64273510-0546-4c61-95af-08d07909254f")
     public static final String AUTHOR_TAGTYPE = "author";
 
-    @objid ("66505a61-942c-49da-9601-1c086191a336")
+    @objid ("0430f8dd-7930-4378-a409-a91d127f96d5")
     public static final String DATE_TAGTYPE = "date";
 
     /**
      * The underlying {@link Artifact} represented by this proxy, never null.
      */
-    @objid ("5a8f03d8-4f96-4ca4-b9c3-aadd7145e4cc")
+    @objid ("a30ebbfd-7f37-460c-a005-14d577394dd4")
     protected final Artifact elt;
 
     /**
      * Tells whether a {@link File proxy} can be instantiated from a {@link MObject} checking it is a {@link Artifact} stereotyped << file >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("18dd653f-e90e-44b6-b755-7e84b50e00e6")
+    @objid ("89d5b466-d905-486d-9053-f1f72239a7b4")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Artifact) && ((Artifact) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, File.STEREOTYPE_NAME));
     }
@@ -83,9 +81,9 @@ public class File {
      * 
      * @return a {@link File} proxy on the created {@link Artifact}.
      */
-    @objid ("8f8f4458-1a2e-462a-b726-f576133f3be3")
+    @objid ("8b027010-9e60-4c2d-bdbb-b8554dfe29ac")
     public static File create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Artifact");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.Artifact");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, File.STEREOTYPE_NAME);
         return File.instantiate((Artifact)e);
     }
@@ -97,7 +95,7 @@ public class File {
      * @param obj a Artifact
      * @return a {@link File} proxy or <i>null</i>.
      */
-    @objid ("6e38ad10-d282-43e9-a843-0ebf3f702cd9")
+    @objid ("f9057a04-3453-491f-8902-f293e168cb3c")
     public static File instantiate(Artifact obj) {
         return File.canInstantiate(obj) ? new File(obj) : null;
     }
@@ -110,7 +108,7 @@ public class File {
      * @return a {@link File} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("c69b3b46-91e1-4e3e-b116-b2eca1d70f11")
+    @objid ("4b8164e3-6ea0-4303-9f82-f8c36f2cca80")
     public static File safeInstantiate(Artifact obj) throws IllegalArgumentException {
         if (File.canInstantiate(obj))
         	return new File(obj);
@@ -118,7 +116,7 @@ public class File {
         	throw new IllegalArgumentException("File: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("7197078d-4024-4aa9-8d23-9c99c924cc3d")
+    @objid ("149fb398-56ef-4181-9b9b-2c4c6e0d1bfd")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -139,7 +137,7 @@ public class File {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("5fb25a9c-7585-4917-9bcc-f15d9ef39174")
+    @objid ("c2e093db-35ea-4e65-93f1-a0ae8987374e")
     public String getAuthor() {
         return this.elt.getTagValue(File.MdaTypes.AUTHOR_TAGTYPE_ELT);
     }
@@ -149,7 +147,7 @@ public class File {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("ffb8012d-2eac-45ee-b25b-059311b7354e")
+    @objid ("8f309452-291e-4ec4-bea6-d7515e72edde")
     public String getDate() {
         return this.elt.getTagValue(File.MdaTypes.DATE_TAGTYPE_ELT);
     }
@@ -158,15 +156,16 @@ public class File {
      * Get the underlying {@link Artifact}. 
      * @return the Artifact represented by this proxy, never null.
      */
-    @objid ("a3ba6476-de72-4eee-a26c-6a4bf0588e2b")
+    @objid ("d3e50e31-aa37-402f-bbb8-6a709549a90d")
     public Artifact getElement() {
         return this.elt;
     }
 
-    @objid ("ea5b0d06-b64d-4fc1-9a0b-a614fd03a306")
+    @objid ("b3303566-21c3-4f77-b315-5cf537d8b548")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
     /**
@@ -174,7 +173,7 @@ public class File {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("2fb4f8a3-97f4-425e-aee9-e008198aa30a")
+    @objid ("745fc0b7-881d-4417-b1ba-7c434dcb2177")
     public void setAuthor(String value) {
         this.elt.putTagValue(File.MdaTypes.AUTHOR_TAGTYPE_ELT, value);
     }
@@ -184,48 +183,48 @@ public class File {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("5e84a39a-bce0-4376-b413-8b3d740edaf6")
+    @objid ("afb8576b-b9f0-49ca-9f97-71e0bb201399")
     public void setDate(String value) {
         this.elt.putTagValue(File.MdaTypes.DATE_TAGTYPE_ELT, value);
     }
 
-    @objid ("2401ca3c-4394-4d28-877d-20970a8fee33")
-    protected File(Artifact elt) {
+    @objid ("caaca43f-c80c-4149-8dfa-a4d2707f8513")
+    protected  File(Artifact elt) {
         this.elt = elt;
     }
 
     @objid ("7570829c-8959-497c-80cf-9a9640b7fb25")
     public static final class MdaTypes {
-        @objid ("9da4f9c4-7f54-47e9-813b-6d3cc3d1a762")
+        @objid ("db7a989a-c107-4558-9e44-cc2113ca9646")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("7b26a47b-54f3-4ef1-b0ce-d1c6d6e7614f")
+        @objid ("41db67b8-1529-4c8f-9f75-6767b8966e95")
         public static TagType AUTHOR_TAGTYPE_ELT;
 
-        @objid ("13efa062-c5a5-4145-b724-3534df2bc94d")
+        @objid ("d3e910fc-51df-4ea5-8908-b4a4f70e447a")
         public static TagType DATE_TAGTYPE_ELT;
 
-        @objid ("ac7dbf12-6656-4caa-a3d6-c68994624d6c")
+        @objid ("fc67cb94-2c7c-433f-b6ab-c3918023aa92")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("36826643-65ff-4f1f-8839-0bffafb4eab1")
+        @objid ("ffdb0dd1-db7b-4d36-9a3b-519da9f02b8c")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("093e7380-2119-4665-8574-30b689f798d2")
+        @objid ("e1ad9413-0bf7-4ea2-b7dd-0d340f43ebe1")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "0226fd5c-caf5-4cb4-b25c-06e493b37b2d");
             AUTHOR_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "58d3ae88-5b5e-44ba-9bb7-0b6ed000fbb9");
             DATE_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "fe23d1eb-75d1-48f5-abab-2248ad1d0dbf");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.interactionuse;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,13 +37,12 @@ public class InteractionUsePlacementConstraint extends PlacementConstraint {
      * Empty c'tor for deserialisation.
      */
     @objid ("d9220d9c-55b6-11e2-877f-002564c97630")
-    public InteractionUsePlacementConstraint() {
+    public  InteractionUsePlacementConstraint() {
         super();
     }
 
     /**
      * C'tor.
-     * 
      * @param x x coordinate.
      * @param y y coordinate.
      * @param width width.
@@ -52,7 +50,7 @@ public class InteractionUsePlacementConstraint extends PlacementConstraint {
      * @param diagram diagram in which this happens.
      */
     @objid ("d9220d9f-55b6-11e2-877f-002564c97630")
-    public InteractionUsePlacementConstraint(final int x, final int y, final int width, final int height, final GmSequenceDiagram diagram) {
+    public  InteractionUsePlacementConstraint(final int x, final int y, final int width, final int height, final GmSequenceDiagram diagram) {
         super(x, y, width, height, diagram);
     }
 

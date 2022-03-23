@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.plugin;
 
 import java.util.ResourceBundle;
@@ -51,6 +50,7 @@ public class DiagramEditorSequence implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), PLUGIN_ID));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("diagrameditorsequence"));
+        
     }
 
     @objid ("7b8d6cde-5eff-11e2-b9cc-001ec947c8cc")

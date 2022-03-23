@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.requiredinterface;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -76,6 +75,7 @@ public class LollipopConnectionLinksEditPolicy extends LinkToVoidFinishCreationE
         } else {
             return null;
         }
+        
     }
 
     @objid ("367c1040-55b7-11e2-877f-002564c97630")
@@ -87,6 +87,7 @@ public class LollipopConnectionLinksEditPolicy extends LinkToVoidFinishCreationE
         } else {
             return false;
         }
+        
     }
 
     /**
@@ -101,9 +102,10 @@ public class LollipopConnectionLinksEditPolicy extends LinkToVoidFinishCreationE
         private GmNodeModel gmTarget;
 
         @objid ("367c104f-55b7-11e2-877f-002564c97630")
-        public ReconnectRequiredInterfaceCommand(final GmLink gmLink, final GmNodeModel newTarget) {
+        public  ReconnectRequiredInterfaceCommand(final GmLink gmLink, final GmNodeModel newTarget) {
             this.gmLink = gmLink;
             this.gmTarget = newTarget;
+            
         }
 
         @objid ("367d96bd-55b7-11e2-877f-002564c97630")
@@ -111,6 +113,7 @@ public class LollipopConnectionLinksEditPolicy extends LinkToVoidFinishCreationE
         public void execute() {
             updateModel();
             updateGmLink();
+            
         }
 
         @objid ("367d96c0-55b7-11e2-877f-002564c97630")
@@ -133,6 +136,7 @@ public class LollipopConnectionLinksEditPolicy extends LinkToVoidFinishCreationE
             } else {
                 disconnect(requiredLink);
             }
+            
         }
 
         /**
@@ -147,11 +151,11 @@ public class LollipopConnectionLinksEditPolicy extends LinkToVoidFinishCreationE
             this.gmLink.setLayoutData(p);
             
             this.gmTarget.addEndingLink(this.gmLink);
+            
         }
 
         /**
          * Disconnect the required interface from any lollipop.
-         * 
          * @param link The required interface link to disconnect.
          */
         @objid ("367d96c5-55b7-11e2-877f-002564c97630")
@@ -161,7 +165,6 @@ public class LollipopConnectionLinksEditPolicy extends LinkToVoidFinishCreationE
 
         /**
          * Tells whether the required interface is connected to the given lollipop Connector
-         * 
          * @param link The required interface
          * @param target the lollipop, should be a Connector.
          * @return <code>true</code> only if the required interface is connected to the lollipop Connector
@@ -231,9 +234,10 @@ public class LollipopConnectionLinksEditPolicy extends LinkToVoidFinishCreationE
         private GmNodeModel gmTarget;
 
         @objid ("367d96ef-55b7-11e2-877f-002564c97630")
-        public ReconnectProvidedInterfaceCommand(final GmLink gmLink, final GmNodeModel newTarget) {
+        public  ReconnectProvidedInterfaceCommand(final GmLink gmLink, final GmNodeModel newTarget) {
             this.gmLink = gmLink;
             this.gmTarget = newTarget;
+            
         }
 
         @objid ("367d96f9-55b7-11e2-877f-002564c97630")
@@ -241,6 +245,7 @@ public class LollipopConnectionLinksEditPolicy extends LinkToVoidFinishCreationE
         public void execute() {
             updateModel();
             updateGmLink();
+            
         }
 
         @objid ("367d96fc-55b7-11e2-877f-002564c97630")
@@ -263,6 +268,7 @@ public class LollipopConnectionLinksEditPolicy extends LinkToVoidFinishCreationE
             } else {
                 disconnect(providedLink);
             }
+            
         }
 
         /**
@@ -277,11 +283,11 @@ public class LollipopConnectionLinksEditPolicy extends LinkToVoidFinishCreationE
             this.gmLink.setLayoutData(p);
             
             this.gmTarget.addEndingLink(this.gmLink);
+            
         }
 
         /**
          * Disconnect the required interface from any lollipop.
-         * 
          * @param link The required interface link to disconnect.
          */
         @objid ("367f1d5c-55b7-11e2-877f-002564c97630")
@@ -291,7 +297,6 @@ public class LollipopConnectionLinksEditPolicy extends LinkToVoidFinishCreationE
 
         /**
          * Tells whether the provided interface is connected to the given lollipop Connector
-         * 
          * @param link The required interface
          * @param target the lollipop, should be a Connector.
          * @return <code>true</code> only if the provided interface is connected to the lollipop Connector

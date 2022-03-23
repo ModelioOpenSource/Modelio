@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.linktovoid;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -69,6 +68,7 @@ public abstract class AbstractLinkToVoidCreationEditPolicy extends GraphicalEdit
             this.connectionFeedback = null;
         }
         super.deactivate();
+        
     }
 
     /**
@@ -78,8 +78,10 @@ public abstract class AbstractLinkToVoidCreationEditPolicy extends GraphicalEdit
     @objid ("7ec4a70e-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public void eraseSourceFeedback(Request request) {
-        if (REQ_LINKTOVOID_END.equals(request.getType()))
+        if (REQ_LINKTOVOID_END.equals(request.getType())) {
             eraseCreationFeedback((CreateConnectionRequest) request);
+        }
+        
     }
 
     /**
@@ -90,10 +92,12 @@ public abstract class AbstractLinkToVoidCreationEditPolicy extends GraphicalEdit
     @Override
     public void eraseTargetFeedback(Request request) {
         if (REQ_LINKTOVOID_START.equals(request.getType()) ||
-            REQ_LINKTOVOID_END.equals(request.getType()) ||
-            REQ_LINKTOVOID_RECONNECT_SOURCE.equals(request.getType()) ||
-            REQ_LINKTOVOID_RECONNECT_TARGET.equals(request.getType()))
+                REQ_LINKTOVOID_END.equals(request.getType()) ||
+                REQ_LINKTOVOID_RECONNECT_SOURCE.equals(request.getType()) ||
+                REQ_LINKTOVOID_RECONNECT_TARGET.equals(request.getType())) {
             eraseTargetConnectionFeedback((DropRequest) request);
+        }
+        
     }
 
     /**
@@ -103,14 +107,17 @@ public abstract class AbstractLinkToVoidCreationEditPolicy extends GraphicalEdit
     @objid ("7ec4a71c-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public Command getCommand(Request request) {
-        if (REQ_LINKTOVOID_START.equals(request.getType()))
+        if (REQ_LINKTOVOID_START.equals(request.getType())) {
             return getConnectionCreateCommand((CreateConnectionRequest) request);
-        if (REQ_LINKTOVOID_END.equals(request.getType()))
+        }
+        if (REQ_LINKTOVOID_END.equals(request.getType())) {
             return getConnectionCompleteCommand((CreateConnectionRequest) request);
-        if (REQ_LINKTOVOID_RECONNECT_TARGET.equals(request.getType()))
+        }
+        if (REQ_LINKTOVOID_RECONNECT_TARGET.equals(request.getType())) {
             return getReconnectTargetCommand((ReconnectRequest) request);
-        //if (REQ_LINKTOVOID_RECONNECT_SOURCE.equals(request.getType()))
-        //        return getReconnectSourceCommand((ReconnectRequest)request);
+        }
+        // if (REQ_LINKTOVOID_RECONNECT_SOURCE.equals(request.getType()))
+        // return getReconnectSourceCommand((ReconnectRequest)request);
         return null;
     }
 
@@ -121,8 +128,10 @@ public abstract class AbstractLinkToVoidCreationEditPolicy extends GraphicalEdit
     @objid ("7ec70957-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public void showSourceFeedback(Request request) {
-        if (REQ_LINKTOVOID_END.equals(request.getType()))
+        if (REQ_LINKTOVOID_END.equals(request.getType())) {
             showCreationFeedback((CreateConnectionRequest) request);
+        }
+        
     }
 
     /**
@@ -133,26 +142,28 @@ public abstract class AbstractLinkToVoidCreationEditPolicy extends GraphicalEdit
     @Override
     public void showTargetFeedback(Request request) {
         if (REQ_LINKTOVOID_START.equals(request.getType()) ||
-            REQ_LINKTOVOID_END.equals(request.getType()) ||
-            REQ_LINKTOVOID_RECONNECT_SOURCE.equals(request.getType()) ||
-            REQ_LINKTOVOID_RECONNECT_TARGET.equals(request.getType()))
+                REQ_LINKTOVOID_END.equals(request.getType()) ||
+                REQ_LINKTOVOID_RECONNECT_SOURCE.equals(request.getType()) ||
+                REQ_LINKTOVOID_RECONNECT_TARGET.equals(request.getType())) {
             showTargetConnectionFeedback((DropRequest) request);
+        }
+        
     }
 
     /**
      * Returns a connection to be used as feedback during creates.
-     * 
      * @param req the operation being performed
      * @return a connection to use as feedback
      */
     @objid ("7ec70965-1dec-11e2-8cad-001ec947c8cc")
     protected Connection createDummyConnection(Request req) {
-        return new PolylineConnection();
+        PolylineConnection dummy = new PolylineConnection();
+        dummy.removeAllPoints();
+        return dummy;
     }
 
     /**
      * Erases connection feedback if necessary. Frees unused fields.
-     * 
      * @param request the CreateLinkedNodeRequest
      */
     @objid ("7ec7096f-1dec-11e2-8cad-001ec947c8cc")
@@ -162,11 +173,11 @@ public abstract class AbstractLinkToVoidCreationEditPolicy extends GraphicalEdit
             this.feedbackHelper = null;
             this.connectionFeedback = null;
         }
+        
     }
 
     /**
      * Override to erase target feedback. Does nothing by default.
-     * 
      * @param request the DropRequest
      */
     @objid ("7ec70975-1dec-11e2-8cad-001ec947c8cc")
@@ -175,10 +186,7 @@ public abstract class AbstractLinkToVoidCreationEditPolicy extends GraphicalEdit
     }
 
     /**
-     * Returns the Command that will create the connection. This is second part of creation.
-     * {@link CreateConnectionRequest#getStartCommand()} is used here to obtain the contribution from the EditPart from
-     * which the User started the <i>creation</i>.
-     * 
+     * Returns the Command that will create the connection. This is second part of creation. {@link CreateConnectionRequest#getStartCommand()} is used here to obtain the contribution from the EditPart from which the User started the <i>creation</i>.
      * @param request the CreateLinkedNodeRequest
      * @return the complete command to create a connection
      */
@@ -186,11 +194,8 @@ public abstract class AbstractLinkToVoidCreationEditPolicy extends GraphicalEdit
     protected abstract Command getConnectionCompleteCommand(CreateConnectionRequest request);
 
     /**
-     * Returns the Command that represents the first half of creating a connection. This Command will be passed to the
-     * target node EditPart. The target node may do anything necessary to create a Command that represents the entire
-     * creation.
+     * Returns the Command that represents the first half of creating a connection. This Command will be passed to the target node EditPart. The target node may do anything necessary to create a Command that represents the entire creation.
      * @see #getConnectionCompleteCommand(CreateConnectionRequest)
-     * 
      * @param request the CreateLinkedNodeRequest
      * @return a Command representing half of a connection creation
      */
@@ -199,7 +204,6 @@ public abstract class AbstractLinkToVoidCreationEditPolicy extends GraphicalEdit
 
     /**
      * Returns the ConnectionRouter for the creation feedback's connection.
-     * 
      * @param request the create request
      * @return a connection router
      * @since 3.2
@@ -210,9 +214,7 @@ public abstract class AbstractLinkToVoidCreationEditPolicy extends GraphicalEdit
     }
 
     /**
-     * Returns the FeedbackHelper that is ready to use. The feedback helper must be configured with the connection that
-     * will be used to display feedback, and that connection must be added to the appropriate layer in the diagram.
-     * 
+     * Returns the FeedbackHelper that is ready to use. The feedback helper must be configured with the connection that will be used to display feedback, and that connection must be added to the appropriate layer in the diagram.
      * @param request the CreateLinkedNodeRequest
      * @return a FeedbackHelper
      */
@@ -233,7 +235,6 @@ public abstract class AbstractLinkToVoidCreationEditPolicy extends GraphicalEdit
 
     /**
      * Called during the display of creation feedback to snap the feedback to the nearest source ConnectionAnchor.
-     * 
      * @param request CreateLinkedNodeRequest
      * @return <code>null</code> or the nearest source ConnectionAnchor
      */
@@ -241,12 +242,12 @@ public abstract class AbstractLinkToVoidCreationEditPolicy extends GraphicalEdit
     protected ConnectionAnchor getSourceConnectionAnchor(CreateConnectionRequest request) {
         EditPart source = request.getSourceEditPart();
         return source instanceof NodeEditPart ? ((NodeEditPart) source).getSourceConnectionAnchor(request)
-                                                : null;
+                : null;
+        
     }
 
     /**
      * Called during the display of creation feedback to snap the feedback to the nearest target ConnectionAnchor.
-     * 
      * @param request CreateLinkedNodeRequest
      * @return <code>null</code> or the nearest target ConnectionAnchor
      */
@@ -254,12 +255,12 @@ public abstract class AbstractLinkToVoidCreationEditPolicy extends GraphicalEdit
     protected ConnectionAnchor getTargetConnectionAnchor(CreateConnectionRequest request) {
         EditPart target = request.getTargetEditPart();
         return target instanceof NodeEditPart ? ((NodeEditPart) target).getTargetConnectionAnchor(request)
-                                                : null;
+                : null;
+        
     }
 
     /**
      * Shows feedback during a creation.
-     * 
      * @param request CreateLinkedNodeRequest
      */
     @objid ("7ec96bb1-1dec-11e2-8cad-001ec947c8cc")
@@ -267,11 +268,11 @@ public abstract class AbstractLinkToVoidCreationEditPolicy extends GraphicalEdit
         FeedbackHelper helper = getFeedbackHelper(request);
         Point p = new Point(request.getLocation());
         helper.update(getTargetConnectionAnchor(request), p);
+        
     }
 
     /**
      * Override to show target connection feedback. Does nothing by default.
-     * 
      * @param request the DropRequest
      */
     @objid ("7ec96bb7-1dec-11e2-8cad-001ec947c8cc")
@@ -281,7 +282,6 @@ public abstract class AbstractLinkToVoidCreationEditPolicy extends GraphicalEdit
 
     /**
      * Returns the command that reconnect the target end of the connection.
-     * 
      * @param request The reconnect request.
      * @return The command.
      */

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.bpmnbehavior;
 
 import java.util.Collections;
@@ -32,8 +31,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -60,26 +59,25 @@ public class GmBpmnBehavior extends GmPortContainer {
     private static final String IMAGE_LABEL_ROLE = "ImageLabel";
 
     @objid ("5afec487-5bd5-11e2-9e33-00137282c51b")
-     static final GmBpmnBehaviorStructuredStyleKeys STRUCTURED_KEYS = new GmBpmnBehaviorStructuredStyleKeys();
+    static final GmBpmnBehaviorStructuredStyleKeys STRUCTURED_KEYS = new GmBpmnBehaviorStructuredStyleKeys();
 
     @objid ("5afec489-5bd5-11e2-9e33-00137282c51b")
-     static final GmBpmnBehaviorSimpleStyleKeys SIMPLE_KEYS = new GmBpmnBehaviorSimpleStyleKeys();
+    static final GmBpmnBehaviorSimpleStyleKeys SIMPLE_KEYS = new GmBpmnBehaviorSimpleStyleKeys();
 
     @objid ("5afec48b-5bd5-11e2-9e33-00137282c51b")
-     static final GmBpmnBehaviorImageStyleKeys IMAGE_KEYS = new GmBpmnBehaviorImageStyleKeys();
+    static final GmBpmnBehaviorImageStyleKeys IMAGE_KEYS = new GmBpmnBehaviorImageStyleKeys();
 
     @objid ("080a6d38-d9bd-4844-984e-c193c4e5b6ce")
-     static final GmBpmnBehaviorUserImageStyleKeys USERIMAGE_KEYS = new GmBpmnBehaviorUserImageStyleKeys();
+    static final GmBpmnBehaviorUserImageStyleKeys USERIMAGE_KEYS = new GmBpmnBehaviorUserImageStyleKeys();
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the callBehavior is unmasked.
      * @param el the unmasked callBehavior.
      * @param ref a reference to the unmasked callBehavior.
      */
     @objid ("3419b63e-55b7-11e2-877f-002564c97630")
-    public GmBpmnBehavior(final IGmDiagram diagram, final ModelElement el, final MRef ref) {
+    public  GmBpmnBehavior(final IGmDiagram diagram, final ModelElement el, final MRef ref) {
         super(diagram, ref);
         this.element = el;
         
@@ -92,13 +90,14 @@ public class GmBpmnBehavior extends GmPortContainer {
         
         super.addChild(mainNode);
         super.addChild(imageModeHeader);
+        
     }
 
     /**
      * Empty constructor needed for deserialisation.
      */
     @objid ("3419b64d-55b7-11e2-877f-002564c97630")
-    public GmBpmnBehavior() {
+    public  GmBpmnBehavior() {
         // Nothing specific to do.
     }
 
@@ -187,6 +186,7 @@ public class GmBpmnBehavior extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("341b3ce6-55b7-11e2-877f-002564c97630")
@@ -196,6 +196,7 @@ public class GmBpmnBehavior extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmBpmnBehavior.", GmBpmnBehavior.MINOR_VERSION);
+        
     }
 
     @objid ("341b3cec-55b7-11e2-877f-002564c97630")
@@ -208,6 +209,7 @@ public class GmBpmnBehavior extends GmPortContainer {
         imageModeHeader.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         
         super.addChild(imageModeHeader, 1);
+        
     }
 
     @objid ("341b3cf2-55b7-11e2-877f-002564c97630")
@@ -220,6 +222,7 @@ public class GmBpmnBehavior extends GmPortContainer {
     private void read_1(final IDiagramReader in) {
         super.read(in);
         this.element = (ModelElement) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("341cc359-55b7-11e2-877f-002564c97630")
@@ -235,6 +238,7 @@ public class GmBpmnBehavior extends GmPortContainer {
                 ret.remove(imageModeHeader);
                 break;
             }
+            case USER_IMAGE:
             case IMAGE:
             default: {
                 break;
@@ -247,7 +251,6 @@ public class GmBpmnBehavior extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -257,11 +260,11 @@ public class GmBpmnBehavior extends GmPortContainer {
         String role = childNode.getRoleInComposition();
         return GmPortContainer.SATELLITE_ROLE.equals(role)
                         || GmBpmnBehavior.IMAGE_LABEL_ROLE.equals(role);
+        
     }
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */

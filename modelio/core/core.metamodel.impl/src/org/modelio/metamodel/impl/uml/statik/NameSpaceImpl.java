@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
@@ -31,7 +31,6 @@ import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
 import org.modelio.metamodel.impl.uml.infrastructure.ModelTreeImpl;
-import org.modelio.metamodel.impl.uml.statik.NameSpaceData;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
 import org.modelio.metamodel.uml.informationFlow.DataFlow;
 import org.modelio.metamodel.uml.informationFlow.InformationFlow;
@@ -123,6 +122,7 @@ public abstract class NameSpaceImpl extends ModelTreeImpl implements NameSpace {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("08074add-44cc-4c52-ac1c-33b980ce133c")
@@ -144,6 +144,7 @@ public abstract class NameSpaceImpl extends ModelTreeImpl implements NameSpace {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("f14a9c77-7414-433f-b198-6d65bc6a7959")
@@ -165,6 +166,7 @@ public abstract class NameSpaceImpl extends ModelTreeImpl implements NameSpace {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("de2f2062-f6a0-4aee-9201-3d865efba4f7")
@@ -186,6 +188,7 @@ public abstract class NameSpaceImpl extends ModelTreeImpl implements NameSpace {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("51a4840d-0c5e-49a9-bbed-4b783cee8f1d")
@@ -207,6 +210,7 @@ public abstract class NameSpaceImpl extends ModelTreeImpl implements NameSpace {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("2f482dbe-1386-4bde-9329-c00951527d62")
@@ -228,6 +232,7 @@ public abstract class NameSpaceImpl extends ModelTreeImpl implements NameSpace {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("700d6130-f7b0-4ca6-8868-870f9be1172b")
@@ -249,6 +254,7 @@ public abstract class NameSpaceImpl extends ModelTreeImpl implements NameSpace {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("3f70fc13-fdcb-40fd-a9d8-8a96f2ac0602")
@@ -270,6 +276,7 @@ public abstract class NameSpaceImpl extends ModelTreeImpl implements NameSpace {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("67a2d9a8-2620-4ebc-904f-5f1bfb4d282b")
@@ -291,6 +298,7 @@ public abstract class NameSpaceImpl extends ModelTreeImpl implements NameSpace {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("90c6b09d-eca8-456b-b791-341c0fe37a8b")
@@ -312,6 +320,7 @@ public abstract class NameSpaceImpl extends ModelTreeImpl implements NameSpace {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("85e15bca-8ea6-40ee-9e99-16bc37c0b0da")
@@ -333,6 +342,7 @@ public abstract class NameSpaceImpl extends ModelTreeImpl implements NameSpace {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("426eff8b-8805-4a3c-b2cf-131956f6f500")
@@ -354,6 +364,7 @@ public abstract class NameSpaceImpl extends ModelTreeImpl implements NameSpace {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("91f6263d-37c0-494d-88e3-f0f27b5a15a7")
@@ -375,6 +386,7 @@ public abstract class NameSpaceImpl extends ModelTreeImpl implements NameSpace {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("2c92e1de-3b23-4cfe-8549-fc0e3fbb53c4")
@@ -396,6 +408,7 @@ public abstract class NameSpaceImpl extends ModelTreeImpl implements NameSpace {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("11cb622d-9684-4c7b-b7a5-46a262ce39fd")
@@ -417,6 +430,7 @@ public abstract class NameSpaceImpl extends ModelTreeImpl implements NameSpace {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("81f043f1-6c66-49d3-a0ca-4df8671dbe47")
@@ -438,6 +452,7 @@ public abstract class NameSpaceImpl extends ModelTreeImpl implements NameSpace {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("0c40485b-b067-4a0a-a234-de3b5b0b52d9")
@@ -459,6 +474,7 @@ public abstract class NameSpaceImpl extends ModelTreeImpl implements NameSpace {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("b9cad71e-a2be-4dc3-b333-3ed94aa31308")

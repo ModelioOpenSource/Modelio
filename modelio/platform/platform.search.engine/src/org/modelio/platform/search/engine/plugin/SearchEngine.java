@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.search.engine.plugin;
 
 import java.util.ResourceBundle;
@@ -51,6 +50,7 @@ public class SearchEngine implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger((String)null));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("modelsearch"));
+        
     }
 
     @objid ("8f1b14b3-ea91-4edf-9995-f1ef94a48012")

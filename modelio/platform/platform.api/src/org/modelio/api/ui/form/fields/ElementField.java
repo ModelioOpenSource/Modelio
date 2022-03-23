@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.form.fields;
 
 import java.util.ArrayList;
@@ -54,15 +53,17 @@ public class ElementField extends AbstractField {
     private TextWrapperForIElement textElement;
 
     @objid ("d7308fc7-94d3-4f7f-8400-b8d50c68ed4d")
-    public ElementField(FormToolkit toolkit, Composite parent, IFormFieldData model, List<Class<? extends MObject>> allowedMetaclasses) {
+    public  ElementField(FormToolkit toolkit, Composite parent, IFormFieldData model, List<Class<? extends MObject>> allowedMetaclasses) {
         super(toolkit, parent, model);
         this.allowedMetaclasses.addAll(allowedMetaclasses);
+        
     }
 
     @objid ("3c0f47d4-a8e3-4de8-9c78-7ea5adac54d7")
-    public ElementField(FormToolkit toolkit, Composite parent, IFormFieldData model) {
+    public  ElementField(FormToolkit toolkit, Composite parent, IFormFieldData model) {
         super(toolkit, parent, model);
         this.allowedMetaclasses.add(ModelElement.class);
+        
     }
 
     @objid ("b4493d3c-3fd6-4997-97f0-58f3b862dfea")
@@ -75,6 +76,7 @@ public class ElementField extends AbstractField {
         } else {
             throw new IllegalStateException(validationError);
         }
+        
     }
 
     /**
@@ -131,6 +133,7 @@ public class ElementField extends AbstractField {
         if (!Objects.equals(oldElement, newElement)) {
             fireValueChanged(oldElement, newElement);
         }
+        
     }
 
 }

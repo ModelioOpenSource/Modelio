@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import java.util.ArrayList;
@@ -56,20 +55,19 @@ public class BpmnSubProcessPropertyModel extends AbstractPropertyModel<BpmnSubPr
     /**
      * Create a new <i>BpmnSubProcess</i> data model from an
      * <i>BpmnSubProcess</i>.
-     * 
      * @param theEditedElement the model to edit.
      * @param modelService the model service needed to find elements.
      */
     @objid ("5d71ad89-2e1b-4a77-83be-c552397a9213")
-    public BpmnSubProcessPropertyModel(BpmnSubProcess theEditedElement, IMModelServices modelService) {
+    public  BpmnSubProcessPropertyModel(BpmnSubProcess theEditedElement, IMModelServices modelService) {
         super(theEditedElement);
         this.modelService = modelService;
         initPropertyModel();
+        
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("b24c9a0b-40c6-4fa7-8325-09de81b51033")
@@ -80,7 +78,6 @@ public class BpmnSubProcessPropertyModel extends AbstractPropertyModel<BpmnSubPr
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("2edcb198-1701-497d-8839-cee5df79df8d")
@@ -95,7 +92,6 @@ public class BpmnSubProcessPropertyModel extends AbstractPropertyModel<BpmnSubPr
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -160,7 +156,6 @@ public class BpmnSubProcessPropertyModel extends AbstractPropertyModel<BpmnSubPr
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -238,13 +233,13 @@ public class BpmnSubProcessPropertyModel extends AbstractPropertyModel<BpmnSubPr
             this.properties.add("CompletionCondition");
             this.properties.add("EventDefinition");
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -300,6 +295,7 @@ public class BpmnSubProcessPropertyModel extends AbstractPropertyModel<BpmnSubPr
                 }
             }
         }
+        
     }
 
 }

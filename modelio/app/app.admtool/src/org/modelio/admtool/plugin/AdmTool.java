@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.admtool.plugin;
 
 import java.util.ResourceBundle;
@@ -66,6 +65,7 @@ public class AdmTool extends AbstractUIPlugin {
         AdmTool.I18N = new BundledMessages(AdmTool.LOG, ResourceBundle.getBundle("admtool"));
         
         Preferences.getPreferences().addPropertyChangeListener(new LogLevelPreferenceListener());
+        
     }
 
     @objid ("a5fef189-2227-40b0-8d45-c67df88b2ee1")
@@ -80,7 +80,7 @@ public class AdmTool extends AbstractUIPlugin {
     @objid ("a6b15699-4f7a-4421-b141-41dc0b2e03c9")
     private static final class LogLevelPreferenceListener implements IPropertyChangeListener {
         @objid ("70b89178-1219-44b7-91fa-3aef99a25a46")
-        public LogLevelPreferenceListener() {
+        public  LogLevelPreferenceListener() {
             super();
         }
 
@@ -93,6 +93,7 @@ public class AdmTool extends AbstractUIPlugin {
                  */
                 LogLevelUpdater.setLogLevelFromPreferences();
             }
+            
         }
 
     }

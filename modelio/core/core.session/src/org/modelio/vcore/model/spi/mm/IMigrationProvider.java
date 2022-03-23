@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model.spi.mm;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,7 +38,6 @@ public interface IMigrationProvider {
      * some by other ...
      * <p>
      * If no migrator is applicable it must return null.
-     * 
      * @param fromMetamodel the given metamodel
      * @param targetMetamodel the target metamodel
      * @return the metamodel after this migrator would run.

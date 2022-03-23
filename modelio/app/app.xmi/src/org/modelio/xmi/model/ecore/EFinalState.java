@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,7 +34,7 @@ public class EFinalState extends EState {
     }
 
     @objid ("121c0159-8306-417b-b46e-29157958e015")
-    public EFinalState(FinalState element) {
+    public  EFinalState(FinalState element) {
         super(element);
     }
 

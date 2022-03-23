@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.controller.states;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,14 +30,13 @@ public interface IModuleFeature {
     /**
      * Returns normally if the state can be changed,
      * throws ModuleException if state change must be aborted.
-     * 
-     * @throws org.modelio.api.module.lifecycle.ModuleException on error
+     * @throws ModuleException on error
      */
     @objid ("5d10a286-c53f-49bd-bb7e-e67e397d822a")
     void enable() throws ModuleException;
 
     /**
-     * @throws org.modelio.api.module.lifecycle.ModuleException error to report to the user without blocking state exit
+     * @throws ModuleException error to report to the user without blocking state exit
      */
     @objid ("3c84d350-a238-4535-a3ca-46fa46a2d2ab")
     void disable() throws ModuleException;

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.util.Collections;
@@ -55,17 +54,15 @@ public class AcceptCallEventActionPropertyModel extends AbstractPropertyModel<Ac
     /**
      * Create a new <i>AcceptCallEventAction</i> data model from an
      * <i>AcceptCallEventAction</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("c5b2ed8a-6bef-4b6b-af95-2f5b402e37ad")
-    public AcceptCallEventActionPropertyModel(AcceptCallEventAction theEditedElement) {
+    public  AcceptCallEventActionPropertyModel(AcceptCallEventAction theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("b300929d-6a1e-425a-ab34-59caa123391b")
@@ -76,7 +73,6 @@ public class AcceptCallEventActionPropertyModel extends AbstractPropertyModel<Ac
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("f3915d1e-8dd3-4226-9766-df21cd48cdd4")
@@ -89,7 +85,6 @@ public class AcceptCallEventActionPropertyModel extends AbstractPropertyModel<Ac
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -113,6 +108,7 @@ public class AcceptCallEventActionPropertyModel extends AbstractPropertyModel<Ac
         default:
             return null;
         }
+        
     }
 
     /**
@@ -122,7 +118,6 @@ public class AcceptCallEventActionPropertyModel extends AbstractPropertyModel<Ac
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -148,13 +143,13 @@ public class AcceptCallEventActionPropertyModel extends AbstractPropertyModel<Ac
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -182,6 +177,7 @@ public class AcceptCallEventActionPropertyModel extends AbstractPropertyModel<Ac
         default:
             return;
         }
+        
     }
 
 }

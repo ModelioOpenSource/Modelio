@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.propertiesPage;
 
 import java.nio.file.Path;
@@ -51,18 +50,18 @@ public abstract class AbstractModulePropertyPage implements IModulePropertyPage 
 
     /**
      * Constructors of this abstract property page.
-     * 
      * @param module module that is associated to the property page
      * @param name the name of the property page.
      * @param label the label of the property page.
      * @param icon a relative path to the image to display for the property page.
      */
     @objid ("00d00158-0001-a520-0000-000000000000")
-    public AbstractModulePropertyPage(IModule module, String name, String label, String icon) {
+    public  AbstractModulePropertyPage(IModule module, String name, String label, String icon) {
         this.module = module;
         this.name = name;
         this.label = label;
         this.icon = icon.isEmpty() ? null : module.getModuleContext().getConfiguration().getModuleResourcesPath().resolve(icon);
+        
     }
 
     @objid ("00d00158-0001-a528-0000-000000000000")

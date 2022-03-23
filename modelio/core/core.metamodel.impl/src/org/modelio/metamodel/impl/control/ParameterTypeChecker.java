@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.control;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -60,7 +59,7 @@ public class ParameterTypeChecker extends AbstractDependencyTypeChecker {
      * C'tor
      */
     @objid ("a00951d8-de17-4895-8e46-040ac267c901")
-    public ParameterTypeChecker(SmMetamodel mm) {
+    public  ParameterTypeChecker(SmMetamodel mm) {
         // Cached SmClass
         this.classID = mm.getMClass(Class.class);
         this.componentID = mm.getMClass(Component.class);
@@ -75,6 +74,7 @@ public class ParameterTypeChecker extends AbstractDependencyTypeChecker {
         // Symetric checker
         GeneralClassOccurenceChecker symetricChecker = new GeneralClassOccurenceChecker(this);
         symetricChecker.register(mm.getMClass(GeneralClass.class), "Occurence");
+        
     }
 
     @objid ("cd955be1-ec4a-11e1-91c5-002564c97630")
@@ -99,10 +99,10 @@ public class ParameterTypeChecker extends AbstractDependencyTypeChecker {
     @objid ("5eef1750-ec3b-11e1-91c5-002564c97630")
     static class GeneralClassOccurenceChecker extends AbstractDependencyTypeChecker {
         @objid ("cd955bef-ec4a-11e1-91c5-002564c97630")
-         ParameterTypeChecker symetricChecker;
+        ParameterTypeChecker symetricChecker;
 
         @objid ("cd955bf0-ec4a-11e1-91c5-002564c97630")
-        public GeneralClassOccurenceChecker(ParameterTypeChecker symetricChecker) {
+        public  GeneralClassOccurenceChecker(ParameterTypeChecker symetricChecker) {
             this.symetricChecker = symetricChecker;
         }
 

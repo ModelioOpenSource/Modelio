@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.diagrams;
 
 import java.util.ArrayList;
@@ -42,7 +42,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("cfdce8a3-a136-4b46-ab5e-4b3c7dea4698")
 public class StaticDiagramSmClass extends AbstractDiagramSmClass {
     @objid ("29230476-fdc0-4c89-a192-ad5db1ba4f65")
-    public StaticDiagramSmClass(ISmMetamodelFragment origin) {
+    public  StaticDiagramSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +50,7 @@ public class StaticDiagramSmClass extends AbstractDiagramSmClass {
     @Override
     public String getName() {
         return "StaticDiagram";
+        
     }
 
     @objid ("d391df70-f064-4243-8515-730d96485fb5")
@@ -62,18 +63,21 @@ public class StaticDiagramSmClass extends AbstractDiagramSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return StaticDiagram.class;
+        
     }
 
     @objid ("daf4df01-ae0c-4bee-bf41-05ae9c8e492e")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("42556fa3-82d8-470c-a36c-b07c403f7b93")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("15265555-5624-40da-a42c-e57485b8c136")
@@ -86,6 +90,7 @@ public class StaticDiagramSmClass extends AbstractDiagramSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("d761e3d8-2deb-4602-8c17-146ae1cce6fd")
@@ -94,7 +99,7 @@ public class StaticDiagramSmClass extends AbstractDiagramSmClass {
         private StaticDiagramSmClass smClass;
 
         @objid ("3e914ca3-066c-47d1-9b0d-051965045eb3")
-        public StaticDiagramObjectFactory(StaticDiagramSmClass smClass) {
+        public  StaticDiagramObjectFactory(StaticDiagramSmClass smClass) {
             this.smClass = smClass;
         }
 

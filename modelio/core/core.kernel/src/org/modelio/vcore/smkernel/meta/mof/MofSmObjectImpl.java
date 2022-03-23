@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta.mof;
 
 import java.lang.reflect.InvocationHandler;
@@ -75,14 +74,14 @@ public class MofSmObjectImpl extends SmObjectImpl implements MMofObject {
                     new Class[]{cls, MObject.class, ISmMeta.class, ISmStorable.class},
                     handler);
         }
+        
     }
 
     /**
      * Get an attribute value.
-     * 
      * @param attName the attribute name.
      * @return attribute value.
-     * @throws java.lang.IllegalArgumentException if the attribute does not exist on the metaclass.
+     * @throws IllegalArgumentException if the attribute does not exist on the metaclass.
      */
     @objid ("36b943bf-fe48-4885-a1df-b6d2d197a872")
     @Override
@@ -120,6 +119,7 @@ public class MofSmObjectImpl extends SmObjectImpl implements MMofObject {
                                                                         .filter(owner -> getCompositionOwners(owner).noneMatch(this::equals))
                                                                         .findFirst()
                                                                         .orElse(null);
+        
     }
 
     @objid ("db54e5da-8e85-41a6-8599-76873f58f394")
@@ -141,7 +141,6 @@ public class MofSmObjectImpl extends SmObjectImpl implements MMofObject {
      * <p>
      * <b>Note:</b> The returned list reflects the content of the dependency at any moment.
      * Modifying the returned list will modify the dependency content.
-     * 
      * @param depName the dependency name
      * @return the dependency content.
      */
@@ -176,10 +175,9 @@ public class MofSmObjectImpl extends SmObjectImpl implements MMofObject {
 
     /**
      * Get a 0..1 dependency content.
-     * 
      * @param depName the dependency name.
      * @return null or the dependency content.
-     * @throws java.lang.IllegalArgumentException if the dependency contains many elements or the dependency does not exist.
+     * @throws IllegalArgumentException if the dependency contains many elements or the dependency does not exist.
      */
     @objid ("075a3dac-16aa-4ec2-adeb-4afe9138fb0b")
     public MofSmObjectImpl getSingleDep(String depName) throws IllegalArgumentException {
@@ -191,14 +189,14 @@ public class MofSmObjectImpl extends SmObjectImpl implements MMofObject {
         } else {
             throw new IllegalArgumentException(String.format("%s.%s contains many elements: %s", this, depName, content));
         }
+        
     }
 
     /**
      * Set an attribute value
-     * 
      * @param attName the attribute name
      * @param value the value to set.
-     * @throws java.lang.IllegalArgumentException if the attribute does not exist on the metaclass.
+     * @throws IllegalArgumentException if the attribute does not exist on the metaclass.
      */
     @objid ("d1108a39-5534-48e6-8744-1182324dc721")
     @Override
@@ -206,12 +204,13 @@ public class MofSmObjectImpl extends SmObjectImpl implements MMofObject {
         SmAttribute att = getClassOf().getAttributeDef(attName);
         if (att == null) {
             throw new IllegalArgumentException(String.format(
-                    "'%s' attribute not found on %s", 
+                    "'%s' attribute not found on %s",
                     attName,
                     this));
         }
         
         setAttVal(att, value);
+        
     }
 
     @objid ("9ce15fff-9e83-442a-9305-ea23ad96f1da")
@@ -223,6 +222,7 @@ public class MofSmObjectImpl extends SmObjectImpl implements MMofObject {
         } else {
             throw new UnsupportedOperationException(this+" has no name attribute.");
         }
+        
     }
 
     @objid ("3c35d3f8-7c4a-45c5-9de7-5bf87af48188")
@@ -232,6 +232,7 @@ public class MofSmObjectImpl extends SmObjectImpl implements MMofObject {
                                                                 .filter(SmDependency::isCompositionOpposite)
                                                                 .flatMap(dep -> obj.getDepValList(dep).stream())
                                                                 ;
+        
     }
 
     /**
@@ -263,12 +264,13 @@ public class MofSmObjectImpl extends SmObjectImpl implements MMofObject {
          * Java classes for which method calls are directly forwarded to the fake object
          */
         @objid ("49e35319-e499-4a72-a3a9-9dc126a7b8e1")
-         static final List<Class<? extends Object>> directClasses = Arrays.asList(Object.class, MObject.class, ISmMeta.class, ISmStorable.class);
+        static final List<Class<? extends Object>> directClasses = Arrays.asList(Object.class, MObject.class, ISmMeta.class, ISmStorable.class);
 
         @objid ("324f4f4f-2e09-4615-a84c-d41fe94043fb")
-        public ProxyObj(MofSmObjectImpl obj, MClass targetClass) {
+        public  ProxyObj(MofSmObjectImpl obj, MClass targetClass) {
             this.obj = obj;
             this.targetClass = targetClass;
+            
         }
 
         @objid ("8229b330-c557-40f6-8be7-56c689026bb9")
@@ -280,7 +282,6 @@ public class MofSmObjectImpl extends SmObjectImpl implements MMofObject {
                 String visitMethodName = "visit"+this.targetClass.getName();
                 Method m = args[0].getClass().getDeclaredMethod(visitMethodName, this.targetClass.getJavaInterface());
                 if (m != null) {
-                    m.setAccessible(true);
                     return m.invoke(args[0], proxy);
                 } else {
                     throw new UnsupportedOperationException(method.toString()+" on "+args[0]+": no "+visitMethodName+" on "+args[0]);
@@ -344,6 +345,7 @@ public class MofSmObjectImpl extends SmObjectImpl implements MMofObject {
             }
             
             throw new UnsupportedOperationException(method.toString()+" on "+this.obj.toString());
+            
         }
 
         @objid ("ba14ad27-5d25-4f0e-a303-92f522fa20aa")

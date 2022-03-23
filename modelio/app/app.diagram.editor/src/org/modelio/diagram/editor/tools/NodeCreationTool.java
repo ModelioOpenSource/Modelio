@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.tools;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -61,6 +60,7 @@ public class NodeCreationTool extends CreationTool {
             request.setLocation(newStart);
             
         }
+        
     }
 
     @objid ("a8843052-7286-4808-a274-3238d8c90cd9")

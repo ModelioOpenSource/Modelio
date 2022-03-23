@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common.index.builder;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,6 +39,7 @@ class EXTIDState extends AbstractState {
         } catch (IndexException e) {
             this.stateHandler.throwError(e);
         }
+        
     }
 
     @objid ("fd21f675-5986-11e1-991a-001ec947ccaf")
@@ -50,6 +50,7 @@ class EXTIDState extends AbstractState {
         {
             this.stateHandler.enterOBJECTState();
         }
+        
     }
 
 }

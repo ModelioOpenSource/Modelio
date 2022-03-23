@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.stateMachineModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.stateMachineModel.AbstractPseudoStateSmClass;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.AbstractPseudoState;
 import org.modelio.metamodel.uml.behavior.stateMachineModel.ForkPseudoState;
 import org.modelio.vbasic.version.Version;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("51ce5a8b-d368-44e6-9660-4fa2d173b067")
 public class ForkPseudoStateSmClass extends AbstractPseudoStateSmClass {
     @objid ("7d2ed97d-04e5-43d3-a1d5-61330e4a331c")
-    public ForkPseudoStateSmClass(ISmMetamodelFragment origin) {
+    public  ForkPseudoStateSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class ForkPseudoStateSmClass extends AbstractPseudoStateSmClass {
     @Override
     public String getName() {
         return "ForkPseudoState";
+        
     }
 
     @objid ("1c169033-73a8-41f8-9c29-921fde97a9df")
@@ -62,18 +62,21 @@ public class ForkPseudoStateSmClass extends AbstractPseudoStateSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ForkPseudoState.class;
+        
     }
 
     @objid ("0cfdfa13-a2fe-4d0f-94e4-e53bb151d053")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("fdab6fa7-2d6e-45df-95d1-e92b1a783247")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("7b0f11bd-b8a2-4fdc-919d-118a8cc0b500")
@@ -86,6 +89,7 @@ public class ForkPseudoStateSmClass extends AbstractPseudoStateSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("b8eec8d2-7d8f-4091-89a4-ebf89f675fc3")
@@ -94,7 +98,7 @@ public class ForkPseudoStateSmClass extends AbstractPseudoStateSmClass {
         private ForkPseudoStateSmClass smClass;
 
         @objid ("7be20556-3390-4ccc-831c-39955936f1b5")
-        public ForkPseudoStateObjectFactory(ForkPseudoStateSmClass smClass) {
+        public  ForkPseudoStateObjectFactory(ForkPseudoStateSmClass smClass) {
             this.smClass = smClass;
         }
 

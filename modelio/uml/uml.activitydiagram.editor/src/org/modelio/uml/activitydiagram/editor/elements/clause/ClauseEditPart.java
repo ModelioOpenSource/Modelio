@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.clause;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -59,6 +58,7 @@ public class ClauseEditPart extends AbstractNodeEditPart {
             child.setBorder(newBorder);
         }
         getFigure().add(child, index);
+        
     }
 
     @objid ("2a02d0a8-55b6-11e2-877f-002564c97630")
@@ -74,6 +74,7 @@ public class ClauseEditPart extends AbstractNodeEditPart {
         // Unlike most nodes, the clause is not meant to be masked: un-install the default masking policy.
         installEditPolicy(EditPolicy.COMPONENT_ROLE, null);
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("2a04573a-55b6-11e2-877f-002564c97630")
@@ -98,6 +99,7 @@ public class ClauseEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         GmAbstractObject clauseModel = getModel();
         getFigure().getParent().setConstraint(getFigure(), clauseModel.getLayoutData());
+        
     }
 
 }

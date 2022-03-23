@@ -1,4 +1,0 @@
-Bundle-SymbolicName: org.modelio.documentation.metamodel.archimate;singleton=true
-Bundle-Version: 4.1.0.qualifier
-Bundle-Name: Metamodel documentation
-Bundle-Vendor: modelio.org

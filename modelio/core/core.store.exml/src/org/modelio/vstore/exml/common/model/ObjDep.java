@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common.model;
 
 import java.util.ArrayList;
@@ -51,14 +50,14 @@ public class ObjDep {
 
     /**
      * Constructor.
-     * 
      * @param src the object
      * @param dep the dependency.
      */
     @objid ("fd245746-5986-11e1-991a-001ec947ccaf")
-    public ObjDep(SmObjectImpl src, SmDependency dep) {
+    public  ObjDep(SmObjectImpl src, SmDependency dep) {
         this.src = src;
         this.dep = dep;
+        
     }
 
 }

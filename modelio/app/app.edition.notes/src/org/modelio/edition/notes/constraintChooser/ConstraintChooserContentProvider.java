@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.constraintChooser;
 
 import java.util.HashSet;
@@ -93,6 +92,7 @@ public class ConstraintChooserContentProvider implements ITreeContentProvider {
         } else {
             return null;
         }
+        
     }
 
     @objid ("26d53d89-186f-11e2-bc4e-002564c97630")
@@ -103,11 +103,10 @@ public class ConstraintChooserContentProvider implements ITreeContentProvider {
 
     /**
      * Constructor initializing the model service.
-     * 
      * @param modelService the model service needed to find elements.
      */
     @objid ("868017bb-1924-11e2-bc4e-002564c97630")
-    public ConstraintChooserContentProvider(IMModelServices modelService) {
+    public  ConstraintChooserContentProvider(IMModelServices modelService) {
         this.modelService = modelService;
     }
 

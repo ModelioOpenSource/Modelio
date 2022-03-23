@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.microsoft.plugin;
 
 import java.util.ResourceBundle;
@@ -66,6 +65,7 @@ public class MicrosoftEditors implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), PLUGIN_ID));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("edition_extern_microsoft"));
+        
     }
 
     @objid ("5da942cf-0ca1-422b-9abb-302882e0d6b5")

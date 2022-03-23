@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,7 +34,7 @@ public class OActivityPartition extends OActivityGroup {
     }
 
     @objid ("64488dba-8e85-4869-8021-cbce84d6aa12")
-    public OActivityPartition(ActivityPartition element) {
+    public  OActivityPartition(ActivityPartition element) {
         super(element);
     }
 
@@ -46,6 +45,7 @@ public class OActivityPartition extends OActivityGroup {
         setDimension((org.eclipse.uml2.uml.ActivityPartition) ecoreElt);
         setExternal((org.eclipse.uml2.uml.ActivityPartition) ecoreElt);
         setRepresented((org.eclipse.uml2.uml.ActivityPartition) ecoreElt);
+        
     }
 
     @objid ("2ab7b618-e59d-4fab-bddc-205375f360fe")
@@ -66,6 +66,7 @@ public class OActivityPartition extends OActivityGroup {
             if (ecoreRepresentation != null)
                 partition.setRepresents(ecoreRepresentation);
         }
+        
     }
 
     @objid ("3434f68d-0e6b-4857-af8a-b584b1ea440c")

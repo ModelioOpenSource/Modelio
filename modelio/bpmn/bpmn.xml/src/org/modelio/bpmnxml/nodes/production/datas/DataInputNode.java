@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.production.datas;
 
 import java.util.List;
 import java.util.Map;
-import javax.xml.bind.JAXBElement;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.xml.bind.JAXBElement;
 import org.modelio.bpmnxml.model.ObjectFactory;
 import org.modelio.bpmnxml.model.TActivity;
 import org.modelio.bpmnxml.model.TDataInput;
@@ -43,7 +42,7 @@ import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("0b737586-cc95-42e1-adc9-7829d306ed46")
-public class DataInputNode implements IProductionNode<BpmnDataInput,TDataInput> {
+public class DataInputNode implements IProductionNode<BpmnDataInput, TDataInput> {
     @objid ("b376fd23-62a6-4a51-a4dd-35d7a84d2817")
     private Map<String, Object> elementsMap;
 
@@ -74,6 +73,7 @@ public class DataInputNode implements IProductionNode<BpmnDataInput,TDataInput> 
         }else{
             return factory.create(BpmnDataInput.class,context);
         }
+        
     }
 
     @objid ("b1fc6a6f-aa0e-4db3-b3a8-c4dfbe284782")

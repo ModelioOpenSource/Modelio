@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -67,9 +66,10 @@ public class OConnectorEnd extends OLinkEnd {
     }
 
     @objid ("a5b7652f-d7a9-432a-8126-b530632cb7b0")
-    public OConnectorEnd(ConnectorEnd param) {
+    public  OConnectorEnd(ConnectorEnd param) {
         super(param);
         this.objElt = param;
+        
     }
 
     @objid ("daa48618-8f38-4bd0-9a35-98b8af6c6942")
@@ -82,6 +82,7 @@ public class OConnectorEnd extends OLinkEnd {
                 attachSlot((org.eclipse.uml2.uml.Slot) ecoreElt);
             }
         }
+        
     }
 
     @objid ("dd11fffa-098b-4a3b-b014-f8ab0265763c")
@@ -110,6 +111,7 @@ public class OConnectorEnd extends OLinkEnd {
                 ordered((org.eclipse.uml2.uml.ConnectorEnd) ecoreElt);
             }
         }
+        
     }
 
     @objid ("7e80f0ee-e5f8-4b86-9341-77e4a2479c3c")
@@ -123,6 +125,7 @@ public class OConnectorEnd extends OLinkEnd {
         if (role instanceof org.eclipse.uml2.uml.ConnectableElement) {
             connectorEnd.setRole((org.eclipse.uml2.uml.ConnectableElement) role);
         }
+        
     }
 
     @objid ("ca99e9da-be7f-45ad-becd-07eb5ee7b16a")
@@ -131,6 +134,7 @@ public class OConnectorEnd extends OLinkEnd {
         if (owner instanceof InstanceSpecification) {
             ((InstanceSpecification) owner).getSlots().add(slot);
         }
+        
     }
 
     @objid ("6466163b-27ec-4508-a068-a611930a65a6")
@@ -152,6 +156,7 @@ public class OConnectorEnd extends OLinkEnd {
         }
         
         ObjingEAnnotation.setOwner(ecoreElt, String.valueOf(this.objElt.getOwner().getUuid().toString()));
+        
     }
 
     @objid ("4e56c1f8-599f-4acf-8a9c-e70607cf008d")
@@ -167,6 +172,7 @@ public class OConnectorEnd extends OLinkEnd {
                 }
             }
         }
+        
     }
 
     @objid ("af93f357-c4df-4948-9261-91bce6de6aa8")
@@ -187,6 +193,7 @@ public class OConnectorEnd extends OLinkEnd {
                 }
             }
         }
+        
     }
 
     @objid ("125c610d-0ede-45b0-b978-98ae89ea723a")
@@ -194,6 +201,7 @@ public class OConnectorEnd extends OLinkEnd {
         if (AbstractObjingModelNavigation.isNotNullOrEmpty(this.objElt.getName())) {
             ObjingEAnnotation.setName(ecoreElt, this.objElt.getName());
         }
+        
     }
 
     @objid ("2c876be9-8412-47d4-ac40-420ed9f9d2cd")
@@ -234,6 +242,7 @@ public class OConnectorEnd extends OLinkEnd {
                 }
             }
         }
+        
     }
 
     @objid ("f752bd02-e66a-4f31-b141-abbaf4fce989")
@@ -258,6 +267,7 @@ public class OConnectorEnd extends OLinkEnd {
                 }
             }
         }
+        
     }
 
     @objid ("daf7c8a9-69a9-40e9-822b-a048ad0eea4b")
@@ -271,6 +281,7 @@ public class OConnectorEnd extends OLinkEnd {
             }
         
         }
+        
     }
 
 }

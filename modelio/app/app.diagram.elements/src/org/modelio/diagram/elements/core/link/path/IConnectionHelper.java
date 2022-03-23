@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.path;
 
 import java.util.List;
@@ -35,7 +34,6 @@ import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
 public interface IConnectionHelper {
     /**
      * Updates this path from the given connection creation raw data.
-     * 
      * @param req The connection creation raw data (in absolute coordinates).
      */
     @objid ("80494662-1dec-11e2-8cad-001ec947c8cc")
@@ -43,7 +41,6 @@ public interface IConnectionHelper {
 
     /**
      * Get all bend points without extremity points as stored in the model.
-     * 
      * @return the bend points in coordinates relative to the connection.
      */
     @objid ("80494666-1dec-11e2-8cad-001ec947c8cc")
@@ -51,7 +48,6 @@ public interface IConnectionHelper {
 
     /**
      * Get the path routing mode.
-     * 
      * @return the path routing mode.
      */
     @objid ("8049466d-1dec-11e2-8cad-001ec947c8cc")
@@ -59,7 +55,6 @@ public interface IConnectionHelper {
 
     /**
      * Get the draw2d routing constraint to apply to the connection figure.
-     * 
      * @return the draw2d routing constraint.
      */
     @objid ("7ebe34c5-7485-47bd-96e1-c9ac6401554e")
@@ -68,12 +63,21 @@ public interface IConnectionHelper {
     /**
      * Get the constraint to store in the graphic model.
      * @see IGmPath#setPathData(Object)
-     * 
      * @return the model constraint.
      */
     @objid ("7e2d91f4-5e9f-4b06-8b71-3ae188eee5af")
     default Object getModelPathData() {
         return getModelBendPoints();
     }
+
+    /**
+     * Tells whether this instance is usable or some needed resource has been disposed.
+     * <p>
+     * If this method returns false the behavior of other methods is undefined and
+     * they may throw runtime exceptions.
+     * @return true if this instance may be used.
+     */
+    @objid ("7c519ac1-f42a-4b27-9ac8-7d112ddaa595")
+    boolean isUsable();
 
 }

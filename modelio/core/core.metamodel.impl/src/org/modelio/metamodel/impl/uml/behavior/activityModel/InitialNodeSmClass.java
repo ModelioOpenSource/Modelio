@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ControlNodeSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.ControlNode;
 import org.modelio.metamodel.uml.behavior.activityModel.InitialNode;
 import org.modelio.vbasic.version.Version;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("094a69f0-ca69-4bf2-a30b-3e7a335c2488")
 public class InitialNodeSmClass extends ControlNodeSmClass {
     @objid ("da18ea44-3ea6-4ecb-889b-15980fd0361d")
-    public InitialNodeSmClass(ISmMetamodelFragment origin) {
+    public  InitialNodeSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class InitialNodeSmClass extends ControlNodeSmClass {
     @Override
     public String getName() {
         return "InitialNode";
+        
     }
 
     @objid ("6d9c40d2-38e9-47f8-b0ed-7f1c2ec85de8")
@@ -62,18 +62,21 @@ public class InitialNodeSmClass extends ControlNodeSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return InitialNode.class;
+        
     }
 
     @objid ("2c3b4e8b-f194-4599-80ed-9703ce4af709")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("6366d71e-6746-45cb-8513-3d44eed34012")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("5f9abdaa-0702-4e35-af72-59e9b7546446")
@@ -86,6 +89,7 @@ public class InitialNodeSmClass extends ControlNodeSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("7cd33510-8e9b-49a1-b1bb-7e1458304a18")
@@ -94,7 +98,7 @@ public class InitialNodeSmClass extends ControlNodeSmClass {
         private InitialNodeSmClass smClass;
 
         @objid ("3b7ba8d7-7ad7-4e4d-9c8b-bc62015a07ac")
-        public InitialNodeObjectFactory(InitialNodeSmClass smClass) {
+        public  InitialNodeObjectFactory(InitialNodeSmClass smClass) {
             this.smClass = smClass;
         }
 

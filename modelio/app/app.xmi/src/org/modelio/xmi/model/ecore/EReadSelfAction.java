@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class EReadSelfAction extends EActivityNode {
     }
 
     @objid ("81fc2d5f-c8ac-4f90-af3d-d00b9ce6f50a")
-    public EReadSelfAction(org.eclipse.uml2.uml.ReadSelfAction element) {
+    public  EReadSelfAction(org.eclipse.uml2.uml.ReadSelfAction element) {
         super(element);
     }
 

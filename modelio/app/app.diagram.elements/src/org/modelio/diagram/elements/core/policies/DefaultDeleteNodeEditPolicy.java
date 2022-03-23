@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.policies;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,6 +33,7 @@ import org.modelio.diagram.elements.common.ghostnode.GhostNodeEditPart;
 import org.modelio.diagram.elements.core.commands.DeleteInDiagramCommand;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.model.IGmObject;
+import org.modelio.diagram.elements.core.requests.RequestTypes;
 import org.modelio.diagram.elements.drawings.core.IGmDrawing;
 
 /**
@@ -76,7 +76,6 @@ public class DefaultDeleteNodeEditPolicy extends AbstractEditPolicy {
      * Create a DeleteInDiagramCommand if the edit part is selectable.
      * <p>
      * Forwards the request to its parent if the edit part is not selectable.
-     * 
      * @param request the DeleteRequest
      * @return a delete command
      */
@@ -94,6 +93,7 @@ public class DefaultDeleteNodeEditPolicy extends AbstractEditPolicy {
                         || host instanceof GhostLinkEditPart)) {
                     DeleteInDiagramCommand ret = new DeleteInDiagramCommand();
                     ret.setNodetoDelete((IGmObject) model);
+        
                     // Since 3.7 : "notify" the parent about removal so that it can
                     // auto resize itself.
                     final Command removeFromParentCommand = getRemoveFromParentCommand(request);
@@ -111,12 +111,17 @@ public class DefaultDeleteNodeEditPolicy extends AbstractEditPolicy {
 
     @objid ("1edefe50-a5b4-4352-8b2d-0f883f4a0e09")
     private Command getRemoveFromParentCommand(GroupRequest request) {
-        // Hack: REQ_ORPHAN_CHILDREN is not meant to be used for this, we should create
-        // another request type in a place accessible from everywhere.
-        GroupRequest req2 = new GroupRequest(RequestConstants.REQ_ORPHAN_CHILDREN);
-        req2.setEditParts(request.getEditParts());
         EditPart parent = getHost().getParent();
-        return parent != null ? parent.getCommand(req2) : null;
+        if (parent == null)
+            return null;
+        
+        // REQ_ORPHAN_CHILDREN is not meant to be used to "notify destruction", we use
+        // another request type in a place accessible from everywhere.
+        GroupRequest req2 = new GroupRequest(RequestTypes.REQ_DELETING_CHILDREN);
+        req2.setEditParts(request.getEditParts());
+        
+        Command command = parent.getCommand(req2);
+        return command ;
     }
 
 }

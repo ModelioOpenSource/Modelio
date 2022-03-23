@@ -17,19 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.infrastructure.ExternElementData;
-import org.modelio.metamodel.impl.uml.infrastructure.MethodologicalLinkSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.ModelElementSmClass;
 import org.modelio.metamodel.uml.infrastructure.ExternElement;
 import org.modelio.metamodel.uml.infrastructure.MethodologicalLink;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
@@ -60,7 +57,7 @@ public class ExternElementSmClass extends ModelElementSmClass {
     private SmDependency ownerDep;
 
     @objid ("9d740594-ae06-4e52-80fa-caa59a75840e")
-    public ExternElementSmClass(ISmMetamodelFragment origin) {
+    public  ExternElementSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -68,6 +65,7 @@ public class ExternElementSmClass extends ModelElementSmClass {
     @Override
     public String getName() {
         return "ExternElement";
+        
     }
 
     @objid ("9ea255b7-3c90-4517-88a7-2f4775cd0fc0")
@@ -80,18 +78,21 @@ public class ExternElementSmClass extends ModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ExternElement.class;
+        
     }
 
     @objid ("452f0dbc-af3f-4a96-92fe-a378d446436e")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("2643d9cc-dd18-48df-b035-1aaaf3f94137")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("ecbcbcc9-58c8-4a78-97f1-d0e8112b3025")
@@ -119,6 +120,8 @@ public class ExternElementSmClass extends ModelElementSmClass {
         this.ownerDep = new OwnerSmDependency();
         this.ownerDep.init("Owner", this, metamodel.getMClass(MethodologicalLink.MQNAME), 1, 1 );
         registerDependency(this.ownerDep);
+        
+        
     }
 
     @objid ("e5494e0b-d13e-48b0-a225-ce92cca719f2")
@@ -159,7 +162,7 @@ public class ExternElementSmClass extends ModelElementSmClass {
         private ExternElementSmClass smClass;
 
         @objid ("462d53ac-cf37-42e1-a4f3-ab6b46912a4a")
-        public ExternElementObjectFactory(ExternElementSmClass smClass) {
+        public  ExternElementObjectFactory(ExternElementSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -243,6 +246,7 @@ public class ExternElementSmClass extends ModelElementSmClass {
             	this.symetricDep = ((MethodologicalLinkSmClass)this.getTarget()).getExternElementDep();
             }
             return this.symetricDep;
+            
         }
 
     }

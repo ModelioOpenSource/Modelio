@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta;
 
 import java.util.Collection;
@@ -51,7 +50,6 @@ import org.modelio.vcore.smkernel.mapi.modelshield.spi.ICheckerFactory;
 public interface ISmMetamodelFragment extends MMetamodelFragment {
     /**
      * Create all the model checker classes.
-     * 
      * @param metamodel the metamodel
      * @return the live model checkers.
      */
@@ -62,7 +60,6 @@ public interface ISmMetamodelFragment extends MMetamodelFragment {
      * <p>
      * Instantiate and initialize the metamodel expert.
      * </p>
-     * 
      * @param mm the metamodel.
      */
     @objid ("fbd51d94-815e-4e48-b896-6fe4c2eb26de")
@@ -70,7 +67,6 @@ public interface ISmMetamodelFragment extends MMetamodelFragment {
 
     /**
      * Create the metaclasses.
-     * 
      * @return the metaclasses.
      */
     @objid ("8610b15d-2b92-41c6-9e01-228404be8a59")
@@ -79,7 +75,6 @@ public interface ISmMetamodelFragment extends MMetamodelFragment {
     /**
      * Get the model shield checkers factory.
      * @param metamodel the metamodel
-     * 
      * @return the model shield checkers factory.
      */
     @objid ("ee775503-e151-4bb7-9921-40692858641e")
@@ -89,7 +84,6 @@ public interface ISmMetamodelFragment extends MMetamodelFragment {
      * Tells whether this metamodel fragment is an extension or a standard Modelio metamodel fragment.
      * <p>
      * Standard Modelio metamodel fragments are guaranteed to have no metaclass name collisions.
-     * 
      * @return <i>true</i> if the fragment is an extension, <i>false</i> if it is a Modelio standard fragment.
      */
     @objid ("e20e1709-9e0b-4c6a-bf6c-3f3e7b57cdfe")

@@ -14,14 +14,17 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.editor;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 @objid ("3555ad26-2a6b-11e2-9fb9-bc305ba4815c")
 public enum EditorType {
+    @objid ("3555ad27-2a6b-11e2-9fb9-bc305ba4815c")
     TXTEditor,
+    @objid ("3555ad28-2a6b-11e2-9fb9-bc305ba4815c")
     MDDEditor,
+    @objid ("3555ad29-2a6b-11e2-9fb9-bc305ba4815c")
     RTEditor;
+
 }

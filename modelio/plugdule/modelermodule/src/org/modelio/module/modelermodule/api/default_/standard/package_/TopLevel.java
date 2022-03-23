@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.package_;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("18369814-6a88-4ede-86be-c5df9aba56d3")
 public class TopLevel {
-    @objid ("6beb43a9-45ae-4d7e-aa51-aae370195f70")
+    @objid ("28dddad8-5162-4ba8-8c80-b56512adf7a7")
     public static final String STEREOTYPE_NAME = "topLevel";
 
     /**
      * The underlying {@link Package} represented by this proxy, never null.
      */
-    @objid ("23a73ab7-3cc4-4f38-82ad-925339a57267")
+    @objid ("6df96d2b-bf81-4cdc-954b-ebb63ad4f02e")
     protected final Package elt;
 
     /**
      * Tells whether a {@link TopLevel proxy} can be instantiated from a {@link MObject} checking it is a {@link Package} stereotyped << topLevel >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("2977ddc9-f06e-4760-8467-8ff8f841394c")
+    @objid ("ea2052e0-7ed6-4d04-8a32-18fe1b2dbb9e")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Package) && ((Package) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, TopLevel.STEREOTYPE_NAME));
     }
@@ -77,9 +75,9 @@ public class TopLevel {
      * 
      * @return a {@link TopLevel} proxy on the created {@link Package}.
      */
-    @objid ("be7c08bb-9c09-4b7c-af48-f711be8b3a44")
+    @objid ("72d6b4db-bd2b-4b60-900e-0c891b3a3990")
     public static TopLevel create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Package");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.Package");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, TopLevel.STEREOTYPE_NAME);
         return TopLevel.instantiate((Package)e);
     }
@@ -91,7 +89,7 @@ public class TopLevel {
      * @param obj a Package
      * @return a {@link TopLevel} proxy or <i>null</i>.
      */
-    @objid ("3d1eaca2-e21d-4018-ab9d-97afe49751d5")
+    @objid ("07e0b2d1-ec98-4f22-a410-e680cc7a6e8c")
     public static TopLevel instantiate(Package obj) {
         return TopLevel.canInstantiate(obj) ? new TopLevel(obj) : null;
     }
@@ -104,7 +102,7 @@ public class TopLevel {
      * @return a {@link TopLevel} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("c6375eb0-4182-44d8-b24e-4f1b6be0c213")
+    @objid ("c6d42123-d492-4f05-badc-bc63b24e7ea1")
     public static TopLevel safeInstantiate(Package obj) throws IllegalArgumentException {
         if (TopLevel.canInstantiate(obj))
         	return new TopLevel(obj);
@@ -112,7 +110,7 @@ public class TopLevel {
         	throw new IllegalArgumentException("TopLevel: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("3a8a0c73-c2e4-4500-8a9d-bf958d9b5d45")
+    @objid ("5ba51406-53d8-4fbe-bf32-877857469585")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,46 +130,47 @@ public class TopLevel {
      * Get the underlying {@link Package}. 
      * @return the Package represented by this proxy, never null.
      */
-    @objid ("5c7b8d4d-7630-4e90-9c89-6cd9d7a76926")
+    @objid ("f616f542-6bc6-4371-9fdf-de7d572e17e9")
     public Package getElement() {
         return this.elt;
     }
 
-    @objid ("604d7e8a-1473-43c1-aef3-212040626296")
+    @objid ("0c247611-1b08-4459-8120-11e74cf9a075")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("d64d663e-d1bf-450e-85b0-090f32831984")
-    protected TopLevel(Package elt) {
+    @objid ("8f006924-fbc6-45cf-a69a-39849d2bdf04")
+    protected  TopLevel(Package elt) {
         this.elt = elt;
     }
 
     @objid ("8002304f-2a7d-47cc-b5a1-1cda6ca608d8")
     public static final class MdaTypes {
-        @objid ("572db9bb-a9e0-4e49-a1b5-cf23eaf26c6f")
+        @objid ("264078f5-3951-43d7-a5a6-ed75b38744f5")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("a1458a85-d005-4de7-98cc-42e6f35a91b1")
+        @objid ("adcc5db4-5482-4915-af32-d91d4b6803ca")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("e306ce90-076c-402a-aca2-578728713756")
+        @objid ("161417dd-3700-4f8e-a62b-9c7586e28baa")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("c699648b-0c60-459f-afa3-fa17cfeb7cfd")
+        @objid ("557e8d00-c444-4017-9d51-d333fd776131")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "00700680-0000-01d9-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.decisionmerge;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,15 +36,16 @@ public class InputBehaviourText extends MultilineTextFigure {
 
     @objid ("2a477acc-55b6-11e2-877f-002564c97630")
     private static final PointList foldTemplate = new PointList(new int[] { 0, 0, 0,
-            InputBehaviourText.FOLDSIZE, InputBehaviourText.FOLDSIZE, InputBehaviourText.FOLDSIZE });
+                InputBehaviourText.FOLDSIZE, InputBehaviourText.FOLDSIZE, InputBehaviourText.FOLDSIZE });
 
     /**
      * @param text the text to display.
      */
     @objid ("2a477ad0-55b6-11e2-877f-002564c97630")
-    public InputBehaviourText(String text) {
+    public  InputBehaviourText(String text) {
         super(text);
         setBorder(new ShapedBorder(this.getLineColor(), getLineWidth(), new NoteFigure.NoteShaper()));
+        
     }
 
     @objid ("2a477ad4-55b6-11e2-877f-002564c97630")

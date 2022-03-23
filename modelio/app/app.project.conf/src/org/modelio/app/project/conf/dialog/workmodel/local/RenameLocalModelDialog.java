@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.workmodel.local;
 
 import java.util.List;
@@ -48,16 +47,16 @@ import org.modelio.platform.ui.dialog.ModelioDialog;
 @objid ("57d57d5d-540b-4315-84f7-16a8f0dacf4f")
 public final class RenameLocalModelDialog extends ModelioDialog {
     @objid ("fd012737-0b39-4053-819d-b276ff6dbba4")
-     List<String> invalidIds;
+    List<String> invalidIds;
 
     @objid ("14b634a9-879a-40cf-9433-573d8f64b849")
     private String result = null;
 
     @objid ("e120b171-f78d-439f-a966-1037cecc7576")
-     Text fragmentIdText;
+    Text fragmentIdText;
 
     @objid ("d50174b1-596d-4b14-8aa8-344a2650952f")
-     Button addBtn;
+    Button addBtn;
 
     @objid ("5831b8b2-6fad-4001-b55e-1b1681418af6")
     public String getResult() {
@@ -65,9 +64,10 @@ public final class RenameLocalModelDialog extends ModelioDialog {
     }
 
     @objid ("fcccbcd1-9157-4e0a-af91-de936fe01c38")
-    public RenameLocalModelDialog(Shell parentShell, List<String> allFragmentsIds) {
+    public  RenameLocalModelDialog(Shell parentShell, List<String> allFragmentsIds) {
         super(parentShell);
         this.invalidIds = allFragmentsIds;
+        
     }
 
     @objid ("3a743f1c-90df-49b6-92a6-04bba01d133d")
@@ -109,6 +109,7 @@ public final class RenameLocalModelDialog extends ModelioDialog {
         createButton(parent, Window.CANCEL, IDialogConstants.CANCEL_LABEL, true);
         this.addBtn = createButton(parent, Window.OK, AppProjectConf.I18N.getString("RenameLocalModelDialog.AddFragment"), true); //$NON-NLS-1$
         this.addBtn.setEnabled(false);
+        
     }
 
     @objid ("fb6d12ce-f50c-46fd-9985-9e3d5c862893")
@@ -117,6 +118,7 @@ public final class RenameLocalModelDialog extends ModelioDialog {
         getShell().setText(AppProjectConf.I18N.getString("RenameLocalModelDialog.ShellTitle")); //$NON-NLS-1$
         setTitle(AppProjectConf.I18N.getString("RenameLocalModelDialog.Title")); //$NON-NLS-1$
         setMessage(AppProjectConf.I18N.getString("RenameLocalModelDialog.Message")); //$NON-NLS-1$
+        
     }
 
     @objid ("700355a0-6946-4fc6-83ca-f494e6596593")
@@ -125,6 +127,7 @@ public final class RenameLocalModelDialog extends ModelioDialog {
         this.result = this.fragmentIdText.getText();
         
         super.okPressed();
+        
     }
 
     @objid ("7de4da1e-e250-4098-8426-a20343a4e00b")
@@ -139,6 +142,7 @@ public final class RenameLocalModelDialog extends ModelioDialog {
             this.addBtn.setEnabled(true);
             this.fragmentIdText.setForeground(this.fragmentIdText.getDisplay().getSystemColor(SWT.COLOR_DARK_GREEN));
         }
+        
     }
 
     @objid ("832bb7e8-6fe5-4ebb-a58e-36a4b1a32710")

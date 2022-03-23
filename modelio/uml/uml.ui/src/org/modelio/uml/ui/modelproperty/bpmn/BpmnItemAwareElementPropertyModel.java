@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,17 +50,15 @@ public class BpmnItemAwareElementPropertyModel extends AbstractPropertyModel<Bpm
     /**
      * Create a new <i>BpmnItemAwareElement</i> data model from an
      * <i>BpmnItemAwareElement</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("c3862736-7246-4773-a7c3-04f9123bc2ba")
-    public BpmnItemAwareElementPropertyModel(BpmnItemAwareElement theEditedElement) {
+    public  BpmnItemAwareElementPropertyModel(BpmnItemAwareElement theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("a96527f9-6851-4d26-a997-4c5725ac66a2")
@@ -72,7 +69,6 @@ public class BpmnItemAwareElementPropertyModel extends AbstractPropertyModel<Bpm
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("82ee647a-12b0-405b-a95c-894ad3aa58a4")
@@ -85,7 +81,6 @@ public class BpmnItemAwareElementPropertyModel extends AbstractPropertyModel<Bpm
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -107,6 +102,7 @@ public class BpmnItemAwareElementPropertyModel extends AbstractPropertyModel<Bpm
         default:
             return null;
         }
+        
     }
 
     /**
@@ -116,7 +112,6 @@ public class BpmnItemAwareElementPropertyModel extends AbstractPropertyModel<Bpm
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -139,13 +134,13 @@ public class BpmnItemAwareElementPropertyModel extends AbstractPropertyModel<Bpm
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -170,6 +165,7 @@ public class BpmnItemAwareElementPropertyModel extends AbstractPropertyModel<Bpm
         default:
             return;
         }
+        
     }
 
 }

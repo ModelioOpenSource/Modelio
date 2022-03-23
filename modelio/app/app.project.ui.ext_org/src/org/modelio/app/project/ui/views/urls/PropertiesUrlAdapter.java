@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.ui.views.urls;
 
 import java.util.ArrayList;
@@ -53,11 +52,10 @@ public class PropertiesUrlAdapter {
 
     /**
      * C'tor.
-     * 
      * @param gProperties the properties to display
      */
     @objid ("d1c0a705-515b-4539-979c-7d1e42b4ef7f")
-    public PropertiesUrlAdapter(GProperties gProperties) {
+    public  PropertiesUrlAdapter(GProperties gProperties) {
         this.properties = gProperties;
         
         // Populate the 'entries' cache
@@ -72,28 +70,29 @@ public class PropertiesUrlAdapter {
                 def = this.properties.getValue(prefix + Integer.toString(index));
             }
         }
+        
     }
 
     /**
      * Add an URL entry.
-     * 
      * @param entry the entry to add.
      */
     @objid ("f9a4d13d-d415-4678-b31b-a5a31d7cae41")
     public void addUrlEntry(UrlEntry entry) {
         this.entries.add(entry);
         applyChanges();
+        
     }
 
     /**
      * Remove an URL entry.
-     * 
      * @param entry the entry to remove
      */
     @objid ("3feb19d0-33ae-4112-bf77-adf7b9095e2c")
     public void removeUrlEntry(UrlEntry entry) {
         this.entries.remove(entry);
         applyChanges();
+        
     }
 
     /**
@@ -132,6 +131,7 @@ public class PropertiesUrlAdapter {
             this.properties.setProperty(key, entry.name + "=" + entry.url, DefinitionScope.LOCAL);
             index++;
         }
+        
     }
 
     @objid ("febd755a-7707-448c-9d74-2668bc7b9a46")

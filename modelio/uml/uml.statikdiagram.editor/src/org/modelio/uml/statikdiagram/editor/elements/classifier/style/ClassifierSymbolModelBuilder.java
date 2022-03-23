@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.classifier.style;
 
 import java.util.Objects;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.diagram.elements.style.SymbolViewContentBuilder.ItemBuilder;
 import org.modelio.diagram.elements.style.SymbolViewContentBuilder;
+import org.modelio.diagram.elements.style.SymbolViewContentBuilder.ItemBuilder;
 import org.modelio.diagram.styles.core.StyleKey.InternalsViewMode;
 import org.modelio.platform.utils.i18n.BundledMessages;
 import org.modelio.uml.statikdiagram.editor.plugin.DiagramEditorStatik;
@@ -48,6 +47,7 @@ public class ClassifierSymbolModelBuilder {
                                         .add(builder.createStyleItem(Inner.SHOWTAGS))
                                         .add(builder.createStyleItem(Inner.SHOWVISIBILITY))
                                         .add(builder.createStyleItem(Inner.TEXTCOLOR)).filter(builder.structuredModeFilter);
+        
     }
 
     @objid ("f43f3be9-ab37-4797-ac32-531080dbc4f1")
@@ -60,6 +60,7 @@ public class ClassifierSymbolModelBuilder {
                                         .add(builder.createStyleItem(Attribute.SHOWTAGS))
                                         .add(builder.createStyleItem(Attribute.SHOWVISIBILITY))
                                         .filter(builder.structuredModeFilter);
+        
     }
 
     @objid ("69baa1f4-fca1-4b6d-812c-2aa12b59f984")
@@ -74,6 +75,7 @@ public class ClassifierSymbolModelBuilder {
                                         .add(builder.createStyleItem(Operation.SHOWVISIBILITY))
                                         .add(builder.createStyleItem(Operation.WRAPLABEL))
                                         .filter(builder.structuredModeFilter);
+        
     }
 
     @objid ("b24b4076-62ce-414b-988a-f8408ac33221")
@@ -90,6 +92,7 @@ public class ClassifierSymbolModelBuilder {
                                         .add(builder.createStyleItem(InternalStructure.SHOWTAGS))
                                         .add(builder.createStyleItem(InternalStructure.TEXTCOLOR))
                                         .filter(builder.structuredModeFilter);
+        
     }
 
 }

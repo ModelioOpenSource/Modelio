@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.uml.infrastructure.properties;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -81,13 +81,12 @@ public interface DynamicPropertyDefinition extends PropertyDefinition {
      * @since 3.8
      */
     @objid ("f64aa10f-d083-4cd7-bcd2-7dd9d1b81396")
-    interface IDynamicPropertyResolver {
+    public interface IDynamicPropertyResolver {
         /**
          * Convert a value from a string, using the property definition's base type.
          * <p>
          * Used after reading a persisted string value in a property table.
          * </p>
-         * 
          * @param pdef definition of the property being edited.
          * @param value the initial string value. Might be <code>null</code>.
          * @param element the element this conversion is done for.
@@ -101,7 +100,6 @@ public interface DynamicPropertyDefinition extends PropertyDefinition {
          * <p>
          * Used before writing a persisted string value in a property table.
          * </p>
-         * 
          * @param pdef definition of the property being edited.
          * @param value a value. Might be <code>null</code>.
          * @param object the element this conversion is done for.

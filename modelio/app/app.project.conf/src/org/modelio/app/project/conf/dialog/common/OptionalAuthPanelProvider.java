@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.common;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -62,7 +61,6 @@ public class OptionalAuthPanelProvider implements IPanelProvider {
 
     /**
      * Instantiate the panel graphical elements.
-     * 
      * @param parent the composite to create the new graphical elements into.
      * @return the created panel.
      */
@@ -92,7 +90,6 @@ public class OptionalAuthPanelProvider implements IPanelProvider {
 
     /**
      * Get the panel graphical elements, a {@link Composite}.
-     * 
      * @return the created panel. <code>null</code> until IPanelProvided#create is called.
      */
     @objid ("995d638b-4fe1-45f3-bd8a-b1ed2996ce59")
@@ -103,7 +100,6 @@ public class OptionalAuthPanelProvider implements IPanelProvider {
 
     /**
      * Set a new input for the panel.
-     * 
      * @param input the new input for the panel.
      */
     @objid ("fddd87ee-1335-4b32-9e43-6b2716ed32cd")
@@ -121,11 +117,11 @@ public class OptionalAuthPanelProvider implements IPanelProvider {
             this.authPanel.setInput(data);
         }
         updateVisibility();
+        
     }
 
     /**
      * Get the current input of the panel.
-     * 
      * @return the panel's input.
      */
     @objid ("0090f1a8-1229-4dc8-b943-e38da86b37f2")
@@ -136,13 +132,13 @@ public class OptionalAuthPanelProvider implements IPanelProvider {
 
     /**
      * Initialize the panel.
-     * 
      * @param allowUseProjectAuth Allow "Use project authentication"
      */
     @objid ("a5f50cbb-760e-469e-b866-f9b7c2004e32")
-    public OptionalAuthPanelProvider(boolean allowUseProjectAuth) {
+    public  OptionalAuthPanelProvider(boolean allowUseProjectAuth) {
         this.authPanel = new AuthDataPanel();
         this.allowUseProjectAuth = allowUseProjectAuth;
+        
     }
 
     @objid ("5350938d-ef80-41ff-b543-520baf4be470")
@@ -161,11 +157,11 @@ public class OptionalAuthPanelProvider implements IPanelProvider {
             }
         }
         this.top.getShell().layout(new Control[]{composite, this.top});
+        
     }
 
     /**
      * Update the given fragment descriptor with the data of this panel.
-     * 
      * @param fragmentDescriptor the fragment to update.
      */
     @objid ("143fc66d-8989-4f2e-9ad2-efbc6c4038f7")
@@ -181,11 +177,11 @@ public class OptionalAuthPanelProvider implements IPanelProvider {
             DefinitionScope authScope = authDesc==null ? DefinitionScope.LOCAL : authDesc.getScope();
             fragmentDescriptor.setAuthDescriptor(new AuthDescriptor(newData, authScope));
         }
+        
     }
 
     /**
      * Enable or disable edition on the panel.
-     * 
      * @param b <code>true</code> to enable edition, <code>false</code> to disable it.
      */
     @objid ("cc956ea7-dd23-4cca-9afa-20540fb51698")
@@ -197,6 +193,7 @@ public class OptionalAuthPanelProvider implements IPanelProvider {
     void setWidgetVisible(Control composite, boolean visible) {
         composite.setVisible(visible);
         ((GridData)composite.getLayoutData()).exclude = !visible;
+        
     }
 
     @objid ("13881cf4-7a13-4e92-b9fe-4156a065f393")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.creation.wizard.dialog.treeview;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,7 +36,7 @@ public class ContributorSorter extends ViewerComparator {
     private ModelElement context;
 
     @objid ("bb6a521e-570f-47bb-84b1-93cb916f75d9")
-    public ContributorSorter(ModelElement context) {
+    public  ContributorSorter(ModelElement context) {
         this.context = context;
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.local.loader.sax;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -67,7 +66,7 @@ class DocumentContentHandler extends DefaultHandler {
     private final AbstractState attState;
 
     @objid ("2af9f4ec-3faf-11e2-87cb-001ec947ccaf")
-    public DocumentContentHandler(DataModel dataModel) {
+    public  DocumentContentHandler(DataModel dataModel) {
         this.objectState = new OBJECTState();
         this.relationState = new RelationState();
         this.extDepState = new EXTDEPState();
@@ -85,6 +84,7 @@ class DocumentContentHandler extends DefaultHandler {
         this.currentState = (this.documentState);
         this.errorEncountered = false;
         this.dataModel = dataModel;
+        
     }
 
     @objid ("2af9f4f3-3faf-11e2-87cb-001ec947ccaf")
@@ -95,6 +95,7 @@ class DocumentContentHandler extends DefaultHandler {
         } catch (RuntimeException e) {
             throw parseRuntimeException(e);
         }
+        
     }
 
     @objid ("2afc56f7-3faf-11e2-87cb-001ec947ccaf")
@@ -105,6 +106,7 @@ class DocumentContentHandler extends DefaultHandler {
         } catch (RuntimeException e) {
             throw parseRuntimeException(e);
         }
+        
     }
 
     @objid ("2afc570c-3faf-11e2-87cb-001ec947ccaf")
@@ -129,6 +131,7 @@ class DocumentContentHandler extends DefaultHandler {
     public void setDocumentLocator(final Locator aLocator) {
         this.locator = aLocator;
         this.dataModel.setDocumentLocator(aLocator);
+        
     }
 
     @objid ("2afc5725-3faf-11e2-87cb-001ec947ccaf")
@@ -139,6 +142,7 @@ class DocumentContentHandler extends DefaultHandler {
         } catch (RuntimeException e) {
             throw parseRuntimeException(e);
         }
+        
     }
 
     @objid ("2afc5739-3faf-11e2-87cb-001ec947ccaf")
@@ -156,6 +160,7 @@ class DocumentContentHandler extends DefaultHandler {
     void enterEXTDEPState() {
         this.currentState =  this.extDepState;
         this.dataModel.getCurrent().setCurrentState(this.currentState);
+        
     }
 
     @objid ("2afc5708-3faf-11e2-87cb-001ec947ccaf")
@@ -172,6 +177,7 @@ class DocumentContentHandler extends DefaultHandler {
     void enterRelationState() {
         this.currentState =  this.relationState;
         this.dataModel.getCurrent().setCurrentState(this.currentState);
+        
     }
 
     @objid ("2af9f4ef-3faf-11e2-87cb-001ec947ccaf")
@@ -197,6 +203,7 @@ class DocumentContentHandler extends DefaultHandler {
             this.currentState = currentModel.getCurrentState();
             currentModel.addToDep(oldModel.getObject());
         }
+        
     }
 
     /**
@@ -206,6 +213,7 @@ class DocumentContentHandler extends DefaultHandler {
     public void reset() {
         this.errorEncountered = false;
         enterDocumentState();
+        
     }
 
     @objid ("2afc5723-3faf-11e2-87cb-001ec947ccaf")

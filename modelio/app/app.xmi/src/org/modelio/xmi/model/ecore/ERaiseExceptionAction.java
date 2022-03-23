@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class ERaiseExceptionAction extends EActivityNode {
     }
 
     @objid ("544f9ef9-1853-4028-a275-af342aaa4cb7")
-    public ERaiseExceptionAction(org.eclipse.uml2.uml.RaiseExceptionAction element) {
+    public  ERaiseExceptionAction(org.eclipse.uml2.uml.RaiseExceptionAction element) {
         super(element);
     }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.forkjoin;
 
 import java.util.Collections;
@@ -31,8 +30,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.ForkJoinNode;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -57,7 +56,7 @@ public class GmForkJoin extends GmPortContainer {
     private static final int MAJOR_VERSION = 0;
 
     @objid ("2a817687-55b6-11e2-877f-002564c97630")
-     static final GmForkJoinStructuredStyleKeys STRUCTURED_KEYS = new GmForkJoinStructuredStyleKeys();
+    static final GmForkJoinStructuredStyleKeys STRUCTURED_KEYS = new GmForkJoinStructuredStyleKeys();
 
     @objid ("2dcdf462-58a2-11e2-9574-002564c97630")
     private static final GmForkJoinImageStyleKeys IMAGE_KEYS = new GmForkJoinImageStyleKeys();
@@ -70,13 +69,12 @@ public class GmForkJoin extends GmPortContainer {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the timeEvent is unmasked.
      * @param el the unmasked timeEvent.
      * @param ref a reference to the unmasked timeEvent.
      */
     @objid ("2a817691-55b6-11e2-877f-002564c97630")
-    public GmForkJoin(IGmDiagram diagram, ForkJoinNode el, MRef ref) {
+    public  GmForkJoin(IGmDiagram diagram, ForkJoinNode el, MRef ref) {
         super(diagram, ref);
         
         GmForkJoinPrimaryNode mainNode = new GmForkJoinPrimaryNode(diagram, ref);
@@ -88,13 +86,14 @@ public class GmForkJoin extends GmPortContainer {
         label.setRoleInComposition(GmPortContainer.SATELLITE_ROLE);
         label.setLayoutData(Integer.valueOf(PositionConstants.EAST));
         this.addChild(label);
+        
     }
 
     /**
      * Empty constructor needed for deserialisation.
      */
     @objid ("2a82fd19-55b6-11e2-877f-002564c97630")
-    public GmForkJoin() {
+    public  GmForkJoin() {
         // Nothing specific to do.
     }
 
@@ -167,6 +166,7 @@ public class GmForkJoin extends GmPortContainer {
             break;
         }
         }
+        
     }
 
     @objid ("2a82fd45-55b6-11e2-877f-002564c97630")
@@ -188,12 +188,14 @@ public class GmForkJoin extends GmPortContainer {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmForkJoin.", GmForkJoin.MINOR_VERSION);
+        
     }
 
     @objid ("2a82fd59-55b6-11e2-877f-002564c97630")
     private void read_0(IDiagramReader in) {
         super.read(in);
         this.element = (ForkJoinNode) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("2a8483bd-55b6-11e2-877f-002564c97630")
@@ -204,7 +206,6 @@ public class GmForkJoin extends GmPortContainer {
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */
@@ -216,7 +217,6 @@ public class GmForkJoin extends GmPortContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */

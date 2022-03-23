@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.rootElements;
 
 import java.util.ArrayList;
@@ -34,7 +34,6 @@ import org.modelio.metamodel.bpmn.flows.BpmnMessageFlow;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnLane;
 import org.modelio.metamodel.bpmn.rootElements.BpmnAssociation;
 import org.modelio.metamodel.bpmn.rootElements.BpmnBaseElement;
-import org.modelio.metamodel.impl.bpmn.rootElements.BpmnBaseElementData;
 import org.modelio.metamodel.impl.uml.infrastructure.ModelElementImpl;
 import org.modelio.metamodel.uml.statik.NameSpace;
 import org.modelio.metamodel.uml.statik.Operation;
@@ -66,6 +65,7 @@ public abstract class BpmnBaseElementImpl extends ModelElementImpl implements Bp
         } else {
             return getBpmnContext(elt.getCompositionOwner());
         }
+        
     }
 
     @objid ("c8f8d019-fd8b-4a49-a476-269caf7c8745")
@@ -87,6 +87,7 @@ public abstract class BpmnBaseElementImpl extends ModelElementImpl implements Bp
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("659659e0-4792-403c-b924-0a94331d1f61")
@@ -108,6 +109,7 @@ public abstract class BpmnBaseElementImpl extends ModelElementImpl implements Bp
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("f2d4b90b-1f4c-4db6-b3f7-371173127b46")
@@ -129,6 +131,7 @@ public abstract class BpmnBaseElementImpl extends ModelElementImpl implements Bp
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("a893b455-09ea-42f9-8ec2-95c292a92348")
@@ -150,6 +153,7 @@ public abstract class BpmnBaseElementImpl extends ModelElementImpl implements Bp
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("7f41c329-686f-4445-b28d-dd7c7657f3d0")
@@ -171,6 +175,7 @@ public abstract class BpmnBaseElementImpl extends ModelElementImpl implements Bp
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("75a4137d-033b-4ce1-b9a8-a658dd3548e3")

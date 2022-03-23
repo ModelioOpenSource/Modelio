@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.browser.view.content;
 
 import java.util.ArrayList;
@@ -104,6 +103,7 @@ public class InfrastructureContentProvider implements ITreeContentProvider {
         } else {
             return false;
         }
+        
     }
 
     @objid ("62547cfb-8263-4f9f-9f37-367f8c080782")
@@ -114,7 +114,6 @@ public class InfrastructureContentProvider implements ITreeContentProvider {
 
     /**
      * Get children for a MObject
-     * 
      * @param parent @return
      */
     @objid ("1c431ccf-5d0b-4e13-9518-6725f63cd2a9")
@@ -133,7 +132,6 @@ public class InfrastructureContentProvider implements ITreeContentProvider {
 
     /**
      * Has children? for a MObject
-     * 
      * @param parent @return
      */
     @objid ("c28725f9-e27d-4ffb-b8c8-f65ce0608e91")
@@ -144,6 +142,7 @@ public class InfrastructureContentProvider implements ITreeContentProvider {
         } else {
             return getChildren(parent).size() > 0;
         }
+        
     }
 
     /**
@@ -228,7 +227,7 @@ public class InfrastructureContentProvider implements ITreeContentProvider {
         private List<MObject> links;
 
         @objid ("9f93e994-15e2-4ab1-8f03-ea697319d76d")
-        public InfrastructureVisitor() {
+        public  InfrastructureVisitor() {
             // nothing to do
         }
 
@@ -359,7 +358,6 @@ public class InfrastructureContentProvider implements ITreeContentProvider {
 
         /**
          * Avoid having a duplicated element in the result, but preserves order unlike a Set.
-         * 
          * @param elt the element to add.
          */
         @objid ("eaa45a42-d9ef-49c6-9ff7-c66aef099e3e")
@@ -367,11 +365,11 @@ public class InfrastructureContentProvider implements ITreeContentProvider {
             if (elt != null && !this.elements.contains(elt)) {
                 this.elements.add(elt);
             }
+            
         }
 
         /**
          * Avoid having duplicated elements in the result, but preserves order unlike a Set.
-         * 
          * @param elts the element to add.
          */
         @objid ("8ddb65b6-4ac0-47bc-a0bf-42bfaa496887")
@@ -380,11 +378,11 @@ public class InfrastructureContentProvider implements ITreeContentProvider {
                 // 'new ArrayList()' Shields against most concurrent modifications
                 new ArrayList<>(elts).forEach(this::addElementResult);
             }
+            
         }
 
         /**
          * Avoid having a duplicated element in the result, but preserves order unlike a Set.
-         * 
          * @param elt the element to add.
          */
         @objid ("f8a12327-9202-468d-81d7-a102bebfc2ff")
@@ -392,11 +390,11 @@ public class InfrastructureContentProvider implements ITreeContentProvider {
             if (elt != null && !this.links.contains(elt)) {
                 this.links.add(elt);
             }
+            
         }
 
         /**
          * Avoid having duplicated elements in the result, but preserves order unlike a Set.
-         * 
          * @param elts the element to add.
          */
         @objid ("f064358f-833d-4fed-8be6-cac71f968de0")
@@ -405,11 +403,11 @@ public class InfrastructureContentProvider implements ITreeContentProvider {
                 // 'new ArrayList()' Shields against most concurrent modifications
                 new ArrayList<>(elts).forEach(this::addLinkResult);
             }
+            
         }
 
         /**
          * Get the non-links children to display into the given element.
-         * 
          * @param parent the element where children will be looked for
          * @return The children to display when expanding the tree node.
          */
@@ -424,7 +422,6 @@ public class InfrastructureContentProvider implements ITreeContentProvider {
 
         /**
          * Get the link children to display into the given element.
-         * 
          * @param parent the element where children will be looked for
          * @return The children to display when expanding the tree node.
          */

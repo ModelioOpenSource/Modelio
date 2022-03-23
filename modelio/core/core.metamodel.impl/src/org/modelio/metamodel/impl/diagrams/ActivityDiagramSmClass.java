@@ -17,19 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.diagrams;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.diagrams.ActivityDiagram;
 import org.modelio.metamodel.diagrams.BehaviorDiagram;
-import org.modelio.metamodel.impl.diagrams.BehaviorDiagramSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -46,7 +45,7 @@ public class ActivityDiagramSmClass extends BehaviorDiagramSmClass {
     private SmAttribute isVerticalAtt;
 
     @objid ("5c7cc3a7-a5af-4bcc-b25c-bd2e1445fb76")
-    public ActivityDiagramSmClass(ISmMetamodelFragment origin) {
+    public  ActivityDiagramSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -54,6 +53,7 @@ public class ActivityDiagramSmClass extends BehaviorDiagramSmClass {
     @Override
     public String getName() {
         return "ActivityDiagram";
+        
     }
 
     @objid ("d60836e4-1af6-494c-b937-27770aeb44d4")
@@ -66,18 +66,21 @@ public class ActivityDiagramSmClass extends BehaviorDiagramSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ActivityDiagram.class;
+        
     }
 
     @objid ("c0a6544e-4cb6-48d0-a75d-3545d314f6b9")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("6fb3e243-dcfb-46f0-8f52-271356cdcf5f")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("ca490925-09be-4daa-9532-b064f6f89002")
@@ -94,6 +97,7 @@ public class ActivityDiagramSmClass extends BehaviorDiagramSmClass {
         
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("97a719c4-c426-4363-a091-34b07c07c7ff")
@@ -110,7 +114,7 @@ public class ActivityDiagramSmClass extends BehaviorDiagramSmClass {
         private ActivityDiagramSmClass smClass;
 
         @objid ("c780937a-dfd7-48c6-aedc-9212f088bb42")
-        public ActivityDiagramObjectFactory(ActivityDiagramSmClass smClass) {
+        public  ActivityDiagramObjectFactory(ActivityDiagramSmClass smClass) {
             this.smClass = smClass;
         }
 

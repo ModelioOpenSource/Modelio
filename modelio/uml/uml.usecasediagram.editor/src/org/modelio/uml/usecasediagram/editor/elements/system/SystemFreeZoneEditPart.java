@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.usecasediagram.editor.elements.system;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -27,7 +26,7 @@ import org.modelio.diagram.elements.common.freezone.FreeZoneEditPart;
 @objid ("5e54de5f-55b7-11e2-877f-002564c97630")
 public class SystemFreeZoneEditPart extends FreeZoneEditPart {
     @objid ("5e54de63-55b7-11e2-877f-002564c97630")
-    public SystemFreeZoneEditPart() {
+    public  SystemFreeZoneEditPart() {
         super();
     }
 
@@ -37,6 +36,7 @@ public class SystemFreeZoneEditPart extends FreeZoneEditPart {
         super.createEditPolicies();
         
         installEditPolicy(EditPolicy.LAYOUT_ROLE, new SystemFreeZoneLayoutEditPolicy());
+        
     }
 
 }

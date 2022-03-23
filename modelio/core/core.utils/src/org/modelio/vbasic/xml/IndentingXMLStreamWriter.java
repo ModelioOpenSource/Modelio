@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.xml;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /*
  * DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
@@ -97,17 +96,15 @@ public class IndentingXMLStreamWriter extends DelegatingXMLStreamWriter {
 
     /**
      * Construct an indenting XML writer.
-     * 
      * @param writer the underlying XML writer.
      */
     @objid ("7856cd1c-3010-11e2-8359-001ec947ccaf")
-    public IndentingXMLStreamWriter(XMLStreamWriter writer) {
+    public  IndentingXMLStreamWriter(XMLStreamWriter writer) {
         super(writer);
     }
 
     /**
      * Set the indentation.
-     * 
      * @param s the indentation. Please use only spaces or tabs.
      */
     @objid ("7856cd20-3010-11e2-8359-001ec947ccaf")
@@ -124,6 +121,7 @@ public class IndentingXMLStreamWriter extends DelegatingXMLStreamWriter {
         }
         doIndent();
         this.depth++;
+        
     }
 
     @objid ("7856cd26-3010-11e2-8359-001ec947ccaf")
@@ -134,6 +132,7 @@ public class IndentingXMLStreamWriter extends DelegatingXMLStreamWriter {
             doIndent();
         }
         this.state = this.stateStack.pop();
+        
     }
 
     @objid ("7856cd28-3010-11e2-8359-001ec947ccaf")
@@ -143,6 +142,7 @@ public class IndentingXMLStreamWriter extends DelegatingXMLStreamWriter {
             super.writeCharacters("\n");
         }
         doIndent();
+        
     }
 
     /**
@@ -157,6 +157,7 @@ public class IndentingXMLStreamWriter extends DelegatingXMLStreamWriter {
             for (int i = 0; i < this.depth; i++)
                 super.writeCharacters(this.indentStep);
         }
+        
     }
 
     @objid ("7856cd2d-3010-11e2-8359-001ec947ccaf")
@@ -164,6 +165,7 @@ public class IndentingXMLStreamWriter extends DelegatingXMLStreamWriter {
     public void writeStartDocument() throws XMLStreamException {
         super.writeStartDocument();
         super.writeCharacters("\n");
+        
     }
 
     @objid ("78592f1c-3010-11e2-8359-001ec947ccaf")
@@ -171,6 +173,7 @@ public class IndentingXMLStreamWriter extends DelegatingXMLStreamWriter {
     public void writeStartDocument(String version) throws XMLStreamException {
         super.writeStartDocument(version);
         super.writeCharacters("\n");
+        
     }
 
     @objid ("78592f20-3010-11e2-8359-001ec947ccaf")
@@ -178,6 +181,7 @@ public class IndentingXMLStreamWriter extends DelegatingXMLStreamWriter {
     public void writeStartDocument(String encoding, String version) throws XMLStreamException {
         super.writeStartDocument(encoding, version);
         super.writeCharacters("\n");
+        
     }
 
     @objid ("78592f25-3010-11e2-8359-001ec947ccaf")
@@ -185,6 +189,7 @@ public class IndentingXMLStreamWriter extends DelegatingXMLStreamWriter {
     public void writeStartElement(String localName) throws XMLStreamException {
         onStartElement();
         super.writeStartElement(localName);
+        
     }
 
     @objid ("78592f29-3010-11e2-8359-001ec947ccaf")
@@ -192,6 +197,7 @@ public class IndentingXMLStreamWriter extends DelegatingXMLStreamWriter {
     public void writeStartElement(String namespaceURI, String localName) throws XMLStreamException {
         onStartElement();
         super.writeStartElement(namespaceURI, localName);
+        
     }
 
     @objid ("78592f2e-3010-11e2-8359-001ec947ccaf")
@@ -199,6 +205,7 @@ public class IndentingXMLStreamWriter extends DelegatingXMLStreamWriter {
     public void writeStartElement(String prefix, String localName, String namespaceURI) throws XMLStreamException {
         onStartElement();
         super.writeStartElement(prefix, localName, namespaceURI);
+        
     }
 
     @objid ("78592f34-3010-11e2-8359-001ec947ccaf")
@@ -206,6 +213,7 @@ public class IndentingXMLStreamWriter extends DelegatingXMLStreamWriter {
     public void writeEmptyElement(String namespaceURI, String localName) throws XMLStreamException {
         onEmptyElement();
         super.writeEmptyElement(namespaceURI, localName);
+        
     }
 
     @objid ("78592f39-3010-11e2-8359-001ec947ccaf")
@@ -213,6 +221,7 @@ public class IndentingXMLStreamWriter extends DelegatingXMLStreamWriter {
     public void writeEmptyElement(String prefix, String localName, String namespaceURI) throws XMLStreamException {
         onEmptyElement();
         super.writeEmptyElement(prefix, localName, namespaceURI);
+        
     }
 
     @objid ("78592f3f-3010-11e2-8359-001ec947ccaf")
@@ -220,6 +229,7 @@ public class IndentingXMLStreamWriter extends DelegatingXMLStreamWriter {
     public void writeEmptyElement(String localName) throws XMLStreamException {
         onEmptyElement();
         super.writeEmptyElement(localName);
+        
     }
 
     @objid ("78592f43-3010-11e2-8359-001ec947ccaf")
@@ -227,6 +237,7 @@ public class IndentingXMLStreamWriter extends DelegatingXMLStreamWriter {
     public void writeEndElement() throws XMLStreamException {
         onEndElement();
         super.writeEndElement();
+        
     }
 
     @objid ("78592f46-3010-11e2-8359-001ec947ccaf")
@@ -234,6 +245,7 @@ public class IndentingXMLStreamWriter extends DelegatingXMLStreamWriter {
     public void writeCharacters(String text) throws XMLStreamException {
         this.state = SEEN_DATA;
         super.writeCharacters(text);
+        
     }
 
     @objid ("78592f4a-3010-11e2-8359-001ec947ccaf")
@@ -241,6 +253,7 @@ public class IndentingXMLStreamWriter extends DelegatingXMLStreamWriter {
     public void writeCharacters(char[] text, int start, int len) throws XMLStreamException {
         this.state = SEEN_DATA;
         super.writeCharacters(text, start, len);
+        
     }
 
     @objid ("78592f52-3010-11e2-8359-001ec947ccaf")
@@ -248,6 +261,7 @@ public class IndentingXMLStreamWriter extends DelegatingXMLStreamWriter {
     public void writeCData(String data) throws XMLStreamException {
         this.state = SEEN_DATA;
         super.writeCData(data);
+        
     }
 
 }

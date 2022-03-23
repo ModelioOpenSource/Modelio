@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class OElementRealization extends OAbstraction {
     }
 
     @objid ("ac33c6cd-eb42-4bc5-8001-f260790e8a45")
-    public OElementRealization(ElementRealization element) {
+    public  OElementRealization(ElementRealization element) {
         super(element);
     }
 

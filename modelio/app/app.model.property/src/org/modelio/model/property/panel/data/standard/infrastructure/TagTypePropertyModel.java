@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel.data.standard.infrastructure;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,15 +35,14 @@ import org.modelio.platform.model.ui.nattable.viewer.model.AbstractPropertyModel
 public class TagTypePropertyModel extends AbstractPropertyModel<TagType> {
     @objid ("7e8e5d75-0bd1-47c3-a403-af335f5ab88c")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name", "Label",
-	        "ParamNumber", "IsHidden", "BelongToPrototype" };
+    	        "ParamNumber", "IsHidden", "BelongToPrototype" };
 
     /**
      * Instantiate the tag type properties view.
-     * 
      * @param theEditedElement the current tag type.
      */
     @objid ("b926989c-67c0-4f3d-9b21-265a1737b0a6")
-    public TagTypePropertyModel(TagType theEditedElement) {
+    public  TagTypePropertyModel(TagType theEditedElement) {
         super(theEditedElement);
     }
 
@@ -85,6 +83,7 @@ public class TagTypePropertyModel extends AbstractPropertyModel<TagType> {
         default:
             return null;
         }
+        
     }
 
     @objid ("c2601e2d-eb95-463b-94ac-eca7fe7893c0")
@@ -113,6 +112,7 @@ public class TagTypePropertyModel extends AbstractPropertyModel<TagType> {
         default:
             return null;
         }
+        
     }
 
     @objid ("28e2306b-7a3d-4593-99ec-63c728cd7ac8")
@@ -146,6 +146,7 @@ public class TagTypePropertyModel extends AbstractPropertyModel<TagType> {
         default:
             return;
         }
+        
     }
 
 }

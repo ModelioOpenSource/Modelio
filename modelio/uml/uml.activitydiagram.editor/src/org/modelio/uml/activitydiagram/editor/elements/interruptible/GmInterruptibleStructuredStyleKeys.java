@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.interruptible;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,9 +30,9 @@ import org.modelio.uml.activitydiagram.editor.style.ActivityAbstractStyleKeyProv
 @objid ("2ab557e8-55b6-11e2-877f-002564c97630")
 public class GmInterruptibleStructuredStyleKeys extends ActivityAbstractStyleKeyProvider {
     @objid ("d225ad6a-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("INTERRUPTIBLE_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("INTERRUPTIBLE_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("d225ad6c-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("INTERRUPTIBLE_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("INTERRUPTIBLE_LINEWIDTH", MetaKey.LINEWIDTH);
 
 }

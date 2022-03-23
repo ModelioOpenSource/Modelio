@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.assocqualifier;
 
 import java.beans.PropertyChangeEvent;
@@ -71,6 +70,7 @@ public class QualifierGroupEditPart extends GroupEditPart {
         }
         
         super.propertyChange(evt);
+        
     }
 
     @objid ("33fb31da-55b7-11e2-877f-002564c97630")
@@ -83,6 +83,7 @@ public class QualifierGroupEditPart extends GroupEditPart {
         super.activate();
         
         refreshFromStyle(getFigure(), getModelStyle());
+        
     }
 
     @objid ("33fb31dd-55b7-11e2-877f-002564c97630")
@@ -95,6 +96,7 @@ public class QualifierGroupEditPart extends GroupEditPart {
         if (parentLink != null) {
             parentLink.removePropertyChangeListener(this.styleUpdater);
         }
+        
     }
 
     @objid ("33fb31e0-55b7-11e2-877f-002564c97630")
@@ -121,6 +123,7 @@ public class QualifierGroupEditPart extends GroupEditPart {
     private void updateFigureBorder(final GradientFigure classFig) {
         final Border inner = new ZoomableLineBorder(classFig.getLineColor(), classFig.getLineWidth());
         classFig.setBorder(inner);
+        
     }
 
     @objid ("33fcb83d-55b7-11e2-877f-002564c97630")
@@ -133,6 +136,7 @@ public class QualifierGroupEditPart extends GroupEditPart {
                 updateFigureBorder((GradientFigure) aFigure);
             }
         }
+        
     }
 
     /**
@@ -141,7 +145,8 @@ public class QualifierGroupEditPart extends GroupEditPart {
     @objid ("33fcb846-55b7-11e2-877f-002564c97630")
     private class StyleUpdater implements PropertyChangeListener {
         @objid ("33fcb848-55b7-11e2-877f-002564c97630")
-        public StyleUpdater() {
+        public  StyleUpdater() {
+            
         }
 
         @objid ("33fcb84a-55b7-11e2-877f-002564c97630")
@@ -158,6 +163,7 @@ public class QualifierGroupEditPart extends GroupEditPart {
                 GmQualifierGroup gmModel = (GmQualifierGroup) getModel();
                 gmModel.updateStyle(gmModel.getParentLink());
             }
+            
         }
 
     }

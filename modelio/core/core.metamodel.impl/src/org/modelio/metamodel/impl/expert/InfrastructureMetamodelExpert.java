@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.expert;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,10 +37,11 @@ public class InfrastructureMetamodelExpert extends InfrastructureGeneratedMetamo
      * @param mm the metamodel.
      */
     @objid ("8fe1f4d0-3cce-41f0-a068-3479c4e372ab")
-    public InfrastructureMetamodelExpert(MMetamodel mm) {
+    public  InfrastructureMetamodelExpert(MMetamodel mm) {
         super(mm);
         
         register();
+        
     }
 
     @objid ("765824fe-69ce-444b-b942-7f62529d626f")
@@ -63,6 +63,7 @@ public class InfrastructureMetamodelExpert extends InfrastructureGeneratedMetamo
         super.registerMetaExpertForGraphDiagram();
         
         this.ruleMetaExpert.addCompositionRule(ModelElement.class, GraphDiagram.class, "Product");
+        
     }
 
 }

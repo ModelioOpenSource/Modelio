@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.policies;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -82,7 +81,6 @@ public class AutoExpandEditPolicy extends GraphicalEditPolicy {
      * Called by an edit part listener when a child edit part is added.
      * <p>
      * Try to expand the container to fit all children.
-     * 
      * @param child the added edit part
      */
     @objid ("ab42772c-e03e-4f28-866c-3789253bbaff")
@@ -100,6 +98,7 @@ public class AutoExpandEditPolicy extends GraphicalEditPolicy {
             DiagramElements.LOG.debug("%s.onChildAdded(%s) : unable to expand <%s>. Command = <%s>",
                     getClass().getSimpleName(), child, getHost(), cmd);
         }
+        
     }
 
     /**
@@ -118,6 +117,7 @@ public class AutoExpandEditPolicy extends GraphicalEditPolicy {
         };
         
         getHost().addEditPartListener(this.listener );
+        
     }
 
     @objid ("6c53c486-18aa-489d-a95f-9f98e9b3f44e")
@@ -127,6 +127,7 @@ public class AutoExpandEditPolicy extends GraphicalEditPolicy {
         this.listener = null;
         
         super.deactivate();
+        
     }
 
 }

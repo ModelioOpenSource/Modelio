@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.project.todo;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,6 +43,7 @@ public class UpdateModuleDescriptor extends TodoActionDescriptor {
                                 this.newDescriptor.getName(),
                                 this.newDescriptor.getVersion(),
                                 this.newDescriptor.getArchiveLocation());
+        
     }
 
     @objid ("00e3dda7-3dfa-4454-b22b-f7e7689e3b91")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.portcontainer;
 
 import java.util.ArrayList;
@@ -28,8 +27,8 @@ import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PolylineConnection;
 import org.eclipse.gef.EditPart;
-import org.eclipse.gef.EditPartListener.Stub;
 import org.eclipse.gef.EditPartListener;
+import org.eclipse.gef.EditPartListener.Stub;
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.RequestConstants;
@@ -62,8 +61,7 @@ public class SatelliteChildrenSelectionPolicy extends GraphicalEditPolicy {
     private List<PolylineConnection> focuslinks = new ArrayList<>();
 
     /**
-     * Extends activate to hook the appropriate listener and to initialize the visual changes for representing
-     * selection/focus.
+     * Extends activate to hook the appropriate listener and to initialize the visual changes for representing selection/focus.
      * @see org.eclipse.gef.EditPolicy#activate()
      */
     @objid ("7f0041ee-1dec-11e2-8cad-001ec947c8cc")
@@ -72,11 +70,11 @@ public class SatelliteChildrenSelectionPolicy extends GraphicalEditPolicy {
         super.activate();
         addSelectionListener();
         setSelectedState(getHost().getSelected());
+        
     }
 
     /**
-     * Extends deactivate to unhook the seleciton listener and to remove the visual changes for representing
-     * selection/focus.
+     * Extends deactivate to unhook the seleciton listener and to remove the visual changes for representing selection/focus.
      * @see org.eclipse.gef.EditPolicy#deactivate()
      */
     @objid ("7f0041f2-1dec-11e2-8cad-001ec947c8cc")
@@ -85,6 +83,7 @@ public class SatelliteChildrenSelectionPolicy extends GraphicalEditPolicy {
         removeSelectionListener();
         setSelectedState(EditPart.SELECTED_NONE);
         super.deactivate();
+        
     }
 
     /**
@@ -122,11 +121,11 @@ public class SatelliteChildrenSelectionPolicy extends GraphicalEditPolicy {
                 this.mainEditPart = c;
             }
         }
+        
     }
 
     /**
      * Get the selection listener used to show satellite links.
-     * 
      * @return the selection listener.
      */
     @objid ("7f004205-1dec-11e2-8cad-001ec947c8cc")
@@ -140,6 +139,7 @@ public class SatelliteChildrenSelectionPolicy extends GraphicalEditPolicy {
             removeFeedback(l);
         }
         this.focuslinks.clear();
+        
     }
 
     @objid ("7f00420e-1dec-11e2-8cad-001ec947c8cc")
@@ -178,6 +178,7 @@ public class SatelliteChildrenSelectionPolicy extends GraphicalEditPolicy {
                 c.removeEditPartListener(this.selectionListener);
             }
         }
+        
     }
 
     @objid ("7f02a425-1dec-11e2-8cad-001ec947c8cc")
@@ -186,9 +187,7 @@ public class SatelliteChildrenSelectionPolicy extends GraphicalEditPolicy {
     }
 
     /**
-     * Sets the internal selection value. This method is called automatically by the listener. If the selection value is
-     * changed, the appropriate method is called to show the specified selection type.
-     * 
+     * Sets the internal selection value. This method is called automatically by the listener. If the selection value is changed, the appropriate method is called to show the specified selection type.
      * @param type the type of selection the EditPolicy should display
      */
     @objid ("7f02a42b-1dec-11e2-8cad-001ec947c8cc")
@@ -204,6 +203,7 @@ public class SatelliteChildrenSelectionPolicy extends GraphicalEditPolicy {
         } else {
             hideSelection();
         }
+        
     }
 
     /**
@@ -229,6 +229,7 @@ public class SatelliteChildrenSelectionPolicy extends GraphicalEditPolicy {
                 final IFigure childFig = ((GraphicalEditPart) childPart).getFigure();
                 final ConnectionAnchor srcAnchor = new ChopboxAnchor(childFig);
                 PolylineConnection focuslink = new PolylineConnection();
+                focuslink.removeAllPoints();
                 focuslink.setSourceAnchor(srcAnchor);
                 focuslink.setTargetAnchor(targetAnchor);
                 focuslink.setLineStyle(org.eclipse.swt.SWT.LINE_DOT);
@@ -236,6 +237,7 @@ public class SatelliteChildrenSelectionPolicy extends GraphicalEditPolicy {
                 this.focuslinks.add(focuslink);
             }
         }
+        
     }
 
     /**
@@ -246,7 +248,8 @@ public class SatelliteChildrenSelectionPolicy extends GraphicalEditPolicy {
     @objid ("7f02a435-1dec-11e2-8cad-001ec947c8cc")
     private class SelectionListener extends Stub {
         @objid ("7f02a439-1dec-11e2-8cad-001ec947c8cc")
-        public SelectionListener() {
+        public  SelectionListener() {
+            
         }
 
         @objid ("7f02a43b-1dec-11e2-8cad-001ec947c8cc")
@@ -265,7 +268,8 @@ public class SatelliteChildrenSelectionPolicy extends GraphicalEditPolicy {
     @objid ("7f02a442-1dec-11e2-8cad-001ec947c8cc")
     private class CompositionListener extends Stub {
         @objid ("7f02a446-1dec-11e2-8cad-001ec947c8cc")
-        public CompositionListener() {
+        public  CompositionListener() {
+            
         }
 
         @objid ("7f02a448-1dec-11e2-8cad-001ec947c8cc")
@@ -277,6 +281,7 @@ public class SatelliteChildrenSelectionPolicy extends GraphicalEditPolicy {
             } else if (isSatellitePart(child)) {
                 child.addEditPartListener(getSelectionListener());
             }
+            
         }
 
         @objid ("7f02a451-1dec-11e2-8cad-001ec947c8cc")
@@ -289,6 +294,7 @@ public class SatelliteChildrenSelectionPolicy extends GraphicalEditPolicy {
             if (isMainPart(child)) {
                 setMainEditPart(null);
             }
+            
         }
 
     }

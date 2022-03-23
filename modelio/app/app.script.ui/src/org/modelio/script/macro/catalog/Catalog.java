@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.script.macro.catalog;
 
 import java.io.File;
@@ -31,14 +30,14 @@ import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.mdl;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
-import com.modeliosoft.modelio.javadesigner.annotations.mdl;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.script.plugin.Script;
 import org.modelio.vcore.smkernel.mapi.MMetamodel;
 import org.w3c.dom.Document;
@@ -64,9 +63,10 @@ public class Catalog {
     /**
      * Catalog name.
      */
+    
     @mdl.prop
     @objid ("0035502a-ead5-106a-bf4f-001ec947cd2a")
-    private final String name;
+    public final String name;
 
     @objid ("5ceeb325-c3f0-4028-af7f-92382596af8d")
     private boolean isReadOnly = false;
@@ -77,6 +77,7 @@ public class Catalog {
     /**
      * The base location of all scripts. Must be a directory.
      */
+    
     @mdl.prop
     @objid ("008f953a-b6e0-106a-bf4f-001ec947cd2a")
     private Path path = null;
@@ -85,7 +86,7 @@ public class Catalog {
     private MMetamodel metamodel;
 
     @objid ("008f9b3e-b6e0-106a-bf4f-001ec947cd2a")
-    public Catalog(String name, Path aPath, boolean readOnly, MMetamodel metamodel) {
+    public  Catalog(String name, Path aPath, boolean readOnly, MMetamodel metamodel) {
         this.name = name;
         this.path = aPath;
         this.isReadOnly = readOnly;
@@ -97,11 +98,11 @@ public class Catalog {
         } catch (IOException e) {
             Script.LOG.error(e);
         }
+        
     }
 
     /**
      * Add a macro to the catalog.
-     * 
      * @param macro the macro to add.
      */
     @objid ("008f9850-b6e0-106a-bf4f-001ec947cd2a")
@@ -131,11 +132,11 @@ public class Catalog {
         }
         
         this.macros.add(macro);
+        
     }
 
     /**
      * Get the macros in the catalog.
-     * 
      * @return the stored macros.
      */
     @objid ("008f9792-b6e0-106a-bf4f-001ec947cd2a")
@@ -145,7 +146,6 @@ public class Catalog {
 
     /**
      * Get the catalog name.
-     * 
      * @return the name
      */
     @objid ("008f9986-b6e0-106a-bf4f-001ec947cd2a")
@@ -155,7 +155,6 @@ public class Catalog {
 
     /**
      * Get the catalog base path. The base path is the location where all macros should be stored.
-     * 
      * @return the catalog base path.
      */
     @objid ("008f9bd4-b6e0-106a-bf4f-001ec947cd2a")
@@ -165,7 +164,6 @@ public class Catalog {
 
     /**
      * The catalog is modifiable if the file is modifiable or can be created.
-     * 
      * @return whether the catalog is modifiable.
      */
     @objid ("008f9aa8-b6e0-106a-bf4f-001ec947cd2a")
@@ -193,6 +191,7 @@ public class Catalog {
             // Ignore error, but consider the catalog as read only
             return false;
         }
+        
     }
 
     /**
@@ -208,11 +207,11 @@ public class Catalog {
         } catch (IOException e) {
             Script.LOG.error(e);
         }
+        
     }
 
     /**
      * Remove the macro from the catalog.
-     * 
      * @param macro a macro owned by the catalog.
      */
     @objid ("00269ada-fb5e-106b-bf4f-001ec947cd2a")
@@ -230,7 +229,6 @@ public class Catalog {
 
     /**
      * Set the current metamodel.
-     * 
      * @param metamodel a metamodel instance.
      */
     @objid ("dfe7f87c-080a-4b9b-a4e0-60b11b414f7c")
@@ -250,7 +248,8 @@ public class Catalog {
         private Catalog catalog;
 
         @objid ("0010d150-e6fb-106a-bf4f-001ec947cd2a")
-        public CatalogReader() {
+        public  CatalogReader() {
+            
         }
 
         @objid ("0010df06-e6fb-106a-bf4f-001ec947cd2a")
@@ -279,6 +278,7 @@ public class Catalog {
             } catch (ParserConfigurationException e) {
                 throw new IOException(e.getLocalizedMessage(), e);
             }
+            
         }
 
         @objid ("0010f6e4-e6fb-106a-bf4f-001ec947cd2a")
@@ -290,6 +290,7 @@ public class Catalog {
                     this.catalog.addMacro(readMacro(this.catalog, (Element) node));
                 }
             }
+            
         }
 
         @objid ("00110972-e6fb-106a-bf4f-001ec947cd2a")
@@ -330,13 +331,14 @@ public class Catalog {
     @objid ("0002e25c-eae6-106a-bf4f-001ec947cd2a")
     private static class CatalogWriter {
         @objid ("0002e3d8-eae6-106a-bf4f-001ec947cd2a")
-         OutputStream output;
+        OutputStream output;
 
         @objid ("0002e568-eae6-106a-bf4f-001ec947cd2a")
-         Catalog catalog;
+        Catalog catalog;
 
         @objid ("0002e69e-eae6-106a-bf4f-001ec947cd2a")
-        public CatalogWriter() {
+        public  CatalogWriter() {
+            
         }
 
         @objid ("0002e770-eae6-106a-bf4f-001ec947cd2a")
@@ -361,6 +363,7 @@ public class Catalog {
                 writer.writeEndDocument();
                 writer.close();
             }
+            
         }
 
         @objid ("0002e806-eae6-106a-bf4f-001ec947cd2a")
@@ -403,6 +406,7 @@ public class Catalog {
             }
             
             writer.writeEndElement();
+            
         }
 
         @objid ("0002e8b0-eae6-106a-bf4f-001ec947cd2a")
@@ -413,6 +417,7 @@ public class Catalog {
             } else {
                 return this.catalog.getPath().relativize(iconPath).toString();
             }
+            
         }
 
     }

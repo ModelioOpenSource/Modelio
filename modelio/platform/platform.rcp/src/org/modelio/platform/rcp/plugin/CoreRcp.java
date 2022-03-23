@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.rcp.plugin;
 
 import java.util.ResourceBundle;
@@ -51,6 +50,7 @@ public class CoreRcp implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger((String)null));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("corehelp"));
+        
     }
 
     @objid ("65ddda0d-ad99-4b0d-86bf-81cba31841b4")

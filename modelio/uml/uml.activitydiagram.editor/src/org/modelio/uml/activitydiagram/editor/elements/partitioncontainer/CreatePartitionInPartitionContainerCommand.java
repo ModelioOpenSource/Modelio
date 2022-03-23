@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.partitioncontainer;
 
 import java.util.Map;
@@ -26,8 +25,8 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.requests.CreateRequest;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
@@ -53,7 +52,7 @@ public class CreatePartitionInPartitionContainerCommand extends Command {
     private int newConstraint;
 
     @objid ("2b1e79cf-55b6-11e2-877f-002564c97630")
-    private Map<?,?> editPartRegistry;
+    private Map<?, ?> editPartRegistry;
 
     @objid ("2b1e79ce-55b6-11e2-877f-002564c97630")
     private CreateRequest originalRequest;
@@ -69,7 +68,6 @@ public class CreatePartitionInPartitionContainerCommand extends Command {
 
     /**
      * Creates a node creation command.
-     * 
      * @param originalRequest the request that lead to this command.
      * @param parentEditPart The parent editPart
      * @param context Details on the MObject and/or the node to create
@@ -77,7 +75,7 @@ public class CreatePartitionInPartitionContainerCommand extends Command {
      * @param newConstraint the constraint with which to create the child.
      */
     @objid ("2b1ea0dc-55b6-11e2-877f-002564c97630")
-    public CreatePartitionInPartitionContainerCommand(CreateRequest originalRequest, EditPart parentEditPart, ModelioCreationContext context, GmNodeModel insertAfter, int newConstraint) {
+    public  CreatePartitionInPartitionContainerCommand(CreateRequest originalRequest, EditPart parentEditPart, ModelioCreationContext context, GmNodeModel insertAfter, int newConstraint) {
         this.originalRequest = originalRequest;
         this.editPartRegistry = parentEditPart.getViewer().getEditPartRegistry();
         this.parentNode = (GmCompositeNode) parentEditPart.getModel();
@@ -88,6 +86,7 @@ public class CreatePartitionInPartitionContainerCommand extends Command {
         this.context = context;
         this.insertAfter = insertAfter;
         this.newConstraint = newConstraint;
+        
     }
 
     @objid ("2b1ec7f0-55b6-11e2-877f-002564c97630")
@@ -102,6 +101,7 @@ public class CreatePartitionInPartitionContainerCommand extends Command {
         } else {
             executeCreation(diagram);
         }
+        
     }
 
     @objid ("2b1eeefb-55b6-11e2-877f-002564c97630")
@@ -130,6 +130,7 @@ public class CreatePartitionInPartitionContainerCommand extends Command {
                 command.execute();
             }
         }
+        
     }
 
     @objid ("2b1f160e-55b6-11e2-877f-002564c97630")
@@ -190,6 +191,7 @@ public class CreatePartitionInPartitionContainerCommand extends Command {
             // No subsequent actions expected here, just return.
             return;
         }
+        
     }
 
     @objid ("2b1f3d1d-55b6-11e2-877f-002564c97630")
@@ -241,6 +243,7 @@ public class CreatePartitionInPartitionContainerCommand extends Command {
         // Show the new elements in the diagram (ie create their Gm )
         diagram.unmask(this.parentNode, newElement, Integer.valueOf(this.newConstraint));
         diagram.unmask(this.parentNode, newElement2, Integer.valueOf(this.newConstraint));
+        
     }
 
     @objid ("2b1f8b3b-55b6-11e2-877f-002564c97630")
@@ -277,6 +280,7 @@ public class CreatePartitionInPartitionContainerCommand extends Command {
         } else {
             return MTools.getAuthTool().canAdd(this.parentElement, ActivityPartition.MQNAME);
         }
+        
     }
 
 }

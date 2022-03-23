@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.List;
@@ -33,16 +33,16 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("0086e58e-c4be-1fd8-97fe-001ec947cd2a")
 public abstract class ElementData extends SmObjectData {
     @objid ("dad0833d-ed91-4997-b1e9-747e458bec25")
-     List<SmObjectImpl> mDiagramElement = null;
+    List<SmObjectImpl> mDiagramElement = null;
 
     @objid ("733fd795-66ac-41f5-b77c-decbbbd73761")
-     List<SmObjectImpl> mAddedToQuery = null;
+    List<SmObjectImpl> mAddedToQuery = null;
 
     @objid ("ab6bd510-c09a-4142-8548-1e4be3c1e811")
-     List<SmObjectImpl> mCausedImpact = null;
+    List<SmObjectImpl> mCausedImpact = null;
 
     @objid ("b9206fa6-82d2-4d12-84e1-ba4708c9e306")
-    public ElementData(ElementSmClass smClass) {
+    public  ElementData(ElementSmClass smClass) {
         super(smClass);
     }
 

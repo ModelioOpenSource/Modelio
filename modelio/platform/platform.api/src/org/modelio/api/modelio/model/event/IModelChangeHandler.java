@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.model.event;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -57,7 +56,6 @@ public interface IModelChangeHandler {
      * The <code>session</code> parameter is the modeling session where the event has occured. modifications. The event
      * parameter provide the changes made in the model.
      * </p>
-     * 
      * @param session The modeling session.
      * @param event Delta between the beginning and the end of the transaction.
      */

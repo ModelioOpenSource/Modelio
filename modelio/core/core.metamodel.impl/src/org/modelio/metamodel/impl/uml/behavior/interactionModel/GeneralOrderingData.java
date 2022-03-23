@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.interactionModel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,13 +32,13 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("0046463c-c4bf-1fd8-97fe-001ec947cd2a")
 public class GeneralOrderingData extends ElementData {
     @objid ("cbc74461-dc56-46fe-a0c9-4b3a6fa78794")
-     SmObjectImpl mBefore;
+    SmObjectImpl mBefore;
 
     @objid ("9ed25b48-8ca8-48d7-a150-7755b733412b")
-     SmObjectImpl mAfter;
+    SmObjectImpl mAfter;
 
     @objid ("56f0646f-1e09-4e29-b27d-dfeb31df16d5")
-    public GeneralOrderingData(GeneralOrderingSmClass smClass) {
+    public  GeneralOrderingData(GeneralOrderingSmClass smClass) {
         super(smClass);
     }
 

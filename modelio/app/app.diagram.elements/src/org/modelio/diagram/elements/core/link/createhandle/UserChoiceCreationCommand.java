@@ -17,11 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.createhandle;
 
 import java.util.Objects;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.eclipse.gef.EditDomain;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gef.commands.Command;
@@ -39,8 +39,7 @@ import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 
 /**
- * Command that first display a popup menu with all allowed links
- * found in the diagram palette, let the user choose one and do the creation.
+ * Command that first display a popup menu with all allowed links found in the diagram palette, let the user choose one and do the creation.
  */
 @objid ("c0ef1e86-dd9d-49ca-a4ac-1c8a140738a5")
 public class UserChoiceCreationCommand extends Command {
@@ -54,15 +53,17 @@ public class UserChoiceCreationCommand extends Command {
     private EditPartViewer viewer;
 
     @objid ("1b735e96-7c25-4bc9-93b7-3e9aeb981863")
-    public UserChoiceCreationCommand(EditPartViewer viewer, ICreationActionProvider actionProvider) {
+    public  UserChoiceCreationCommand(EditPartViewer viewer, ICreationActionProvider actionProvider) {
         this.viewer = viewer;
         this.actionProvider = actionProvider;
+        
     }
 
     @objid ("e9cbcd98-07b5-4a04-83ce-847a685c84b9")
     public void update(CreateConnectionRequest newReq) {
         Objects.requireNonNull(newReq);
         this.finalRequest = newReq;
+        
     }
 
     @objid ("ea2f2746-b877-4405-8a15-91909c9e49a0")
@@ -95,7 +96,7 @@ public class UserChoiceCreationCommand extends Command {
                     ImageDescriptor icon = action.getIcon();
                     item.addSelectionListener(listener);
                     if (icon != null) {
-                        item.setImage((Image)paletteRes.get(icon));
+                        item.setImage((Image) paletteRes.get(icon));
                     }
                 });
         
@@ -124,11 +125,16 @@ public class UserChoiceCreationCommand extends Command {
             }
         } finally {
             pop.dispose();
-            
+        
             // Make sure the "link" feedback is cleared
             sourceEditPart.eraseSourceFeedback(this.finalRequest);
             targetEditPart.eraseTargetFeedback(this.finalRequest);
+        
+            // Opening a menu fucks up the active tool, manually select the default tool to end the interaction.
+            EditDomain editDomain = sourceEditPart.getViewer().getEditDomain();
+            editDomain.setActiveTool(editDomain.getDefaultTool());
         }
+        
     }
 
     @objid ("ac143616-fb7a-4429-916f-dd1a2c5bfd91")
@@ -136,6 +142,7 @@ public class UserChoiceCreationCommand extends Command {
         MenuItem item = (MenuItem) event.widget;
         ICreationActionDescriptor action = (ICreationActionDescriptor) item.getData();
         action.execute(this.viewer);
+        
     }
 
     @objid ("99304b5b-155d-4acd-b5af-a65f8303b49c")

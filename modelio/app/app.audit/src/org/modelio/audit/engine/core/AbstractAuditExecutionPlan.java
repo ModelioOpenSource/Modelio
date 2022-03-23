@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.engine.core;
 
 import java.io.FileNotFoundException;
@@ -29,8 +28,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.IPath;
@@ -59,11 +58,12 @@ public abstract class AbstractAuditExecutionPlan implements IAuditExecutionPlan 
     private Map<String, List<IRule>> deleteRules = new HashMap<>();
 
     @objid ("398ebddc-3f03-435d-969d-a6d964cb363a")
-    public AbstractAuditExecutionPlan(List<AuditCategory> rootCategories) {
+    public  AbstractAuditExecutionPlan(List<AuditCategory> rootCategories) {
         super();
         for (AuditCategory category : rootCategories) {
             initRules(category);
         }
+        
     }
 
     @objid ("3dfba011-abf2-42cd-9f7f-5f529022b36f")
@@ -71,6 +71,7 @@ public abstract class AbstractAuditExecutionPlan implements IAuditExecutionPlan 
         for (AuditRule rule : rules) {
             initRule(rule);
         }
+        
     }
 
     @objid ("2dc14f58-0c62-44b1-8fd7-0ddac33534ed")
@@ -103,6 +104,7 @@ public abstract class AbstractAuditExecutionPlan implements IAuditExecutionPlan 
             }
             this.deleteRules.get(metaclass).add(rule);
         }
+        
     }
 
     @objid ("24780ae0-a3db-4308-bd05-dd713f0f7d9d")
@@ -125,6 +127,7 @@ public abstract class AbstractAuditExecutionPlan implements IAuditExecutionPlan 
         } else {
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("a045ef61-3e12-404d-be10-ff191beb0c86")
@@ -146,6 +149,7 @@ public abstract class AbstractAuditExecutionPlan implements IAuditExecutionPlan 
         } else {
             return Collections.emptyMap();
         }
+        
     }
 
     @objid ("1bd250a1-bf28-447a-933c-05c24fd5332e")
@@ -178,6 +182,7 @@ public abstract class AbstractAuditExecutionPlan implements IAuditExecutionPlan 
             out.println();
         }
         out.println("-- --");
+        
     }
 
     @objid ("91f177a8-b1d1-425e-b515-f0f41f2666db")
@@ -190,6 +195,7 @@ public abstract class AbstractAuditExecutionPlan implements IAuditExecutionPlan 
         } catch (FileNotFoundException e) {
             Audit.LOG.debug(e);
         }
+        
     }
 
     @objid ("b0c47dc7-5f5c-471d-884d-2f5ebb316deb")
@@ -253,6 +259,7 @@ public abstract class AbstractAuditExecutionPlan implements IAuditExecutionPlan 
         // for (AuditCategory subCategory : category.getSubCategories()) {
         // initRules(subCategory);
         // }
+        
     }
 
     @objid ("692f71ff-e0ff-46d3-82b0-48d4c0b862e7")
@@ -268,6 +275,7 @@ public abstract class AbstractAuditExecutionPlan implements IAuditExecutionPlan 
             ruleList.remove(rule);
         }
         this.rulesWithoutTrigger.remove(rule.getRuleId());
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.files;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,7 +35,7 @@ public class StreamException extends RuntimeException {
      * @param wrapped the exception to wrap.
      */
     @objid ("8adb1976-6964-42ae-9221-b36980645ddc")
-    public StreamException(Exception wrapped) {
+    public  StreamException(Exception wrapped) {
         super(wrapped);
     }
 
@@ -46,8 +45,6 @@ public class StreamException extends RuntimeException {
      * Though exception will be anyway re-thrown during first rethrow() call (oh, Java generics...),
      * this way allows to get a strict static definition of possible exceptions
      * (requires to declare them in throws). And no instanceof or something is needed.
-     * 
-     * @throws T the original exception type.
      */
     @objid ("f4bf50a1-3854-4718-816d-c24bc11230ef")
     @SuppressWarnings("unchecked")
@@ -57,10 +54,9 @@ public class StreamException extends RuntimeException {
 
     /**
      * Get the wrapped exception casted to the given type
-     * 
      * @param cls the expected wrapped exception type
      * @return the wrapped exception
-     * @throws java.lang.ClassCastException if the wrapped exception does not match the type.
+     * @throws ClassCastException if the wrapped exception does not match the type.
      */
     @objid ("6c568165-9168-4a9f-b8d2-98c50b19b2f4")
     public <T extends Exception> T getWrapped(Class<T> cls) throws ClassCastException {
@@ -70,6 +66,7 @@ public class StreamException extends RuntimeException {
             e2.addSuppressed(getCause());
             throw e2;
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service;
 
 import java.util.Collection;
@@ -44,7 +43,6 @@ public interface IModuleRegistry {
     /**
      * Get the started {@link IRTModule} corresponding to the given
      * {@link ModuleComponent}.
-     * 
      * @param model the module model.
      * @return the matching started module or <i>null</i> if no started module
      * matches the <i>IRTModule</i>
@@ -55,7 +53,6 @@ public interface IModuleRegistry {
     /**
      * Get the {@link IRTModule} corresponding to the given
      * {@link GModule}.
-     * 
      * @param model the module model.
      * @return the matching <code>IRTModule</code> or <i>null</i> if no module
      * matches the <i>GModule</i>
@@ -67,7 +64,6 @@ public interface IModuleRegistry {
      * Get the {@link IRTModule} which name correspond to the given
      * {@link ModuleId} name and which version is newer or equal to the given
      * version.
-     * 
      * @param moduleId the Id of the searched module.
      * @return the matching module or <code>null</code> if no module
      * matches the ModuleId.
@@ -77,7 +73,6 @@ public interface IModuleRegistry {
 
     /**
      * Get the registered modules.
-     * 
      * @return the registered modules.
      */
     @objid ("943a41cf-9a7a-406a-ae6a-f11d8c1eaa52")
@@ -87,7 +82,6 @@ public interface IModuleRegistry {
      * Get the started {@link IRTModule} which name correspond to the given
      * {@link ModuleId} name and which version is newer or equal to the given
      * version.
-     * 
      * @param moduleId the Id of the searched module.
      * @return the matching started module or <code>null</code> if no started module
      * matches the ModuleId.
@@ -97,7 +91,6 @@ public interface IModuleRegistry {
 
     /**
      * Get the started modules.
-     * 
      * @return The started modules.
      */
     @objid ("1e6375df-edc3-11e1-88ee-001ec947c8cc")

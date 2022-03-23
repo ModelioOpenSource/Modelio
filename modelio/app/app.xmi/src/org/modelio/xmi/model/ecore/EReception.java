@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,7 @@ public class EReception extends EBehavioralFeature {
     }
 
     @objid ("c14d5829-b582-4ac4-bd63-e6f51fb0a031")
-    public EReception(org.eclipse.uml2.uml.Reception element) {
+    public  EReception(org.eclipse.uml2.uml.Reception element) {
         super(element);
     }
 
@@ -56,6 +55,7 @@ public class EReception extends EBehavioralFeature {
         else {
             objingElt.delete();
         }
+        
     }
 
     @objid ("b264e5a3-3bbc-44bc-a082-d05a17cf48dc")
@@ -63,6 +63,7 @@ public class EReception extends EBehavioralFeature {
     public void setProperties(Element objingElt) {
         super.setProperties(objingElt);
         setSignal((Operation) objingElt);
+        
     }
 
     @objid ("443d3281-5d3b-4575-a6de-fe12968df304")
@@ -74,6 +75,7 @@ public class EReception extends EBehavioralFeature {
                 objingElt.getSRepresentation().add((Signal)objSignal);
             }
         }
+        
     }
 
 }

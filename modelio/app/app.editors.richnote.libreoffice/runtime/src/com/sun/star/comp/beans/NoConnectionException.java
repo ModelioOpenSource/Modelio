@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package com.sun.star.comp.beans;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,7 +45,7 @@ public class NoConnectionException extends Exception {
      * unknown.)
      */
     @objid ("ef232ec3-9446-4380-a649-90bcd0e773ca")
-    public NoConnectionException(final Throwable cause) {
+    public  NoConnectionException(final Throwable cause) {
         super(cause);
     }
 
@@ -56,7 +55,7 @@ public class NoConnectionException extends Exception {
      * call to {@link #initCause}.
      */
     @objid ("57985f70-d116-492c-9795-73254025dd8a")
-    public NoConnectionException() {
+    public  NoConnectionException() {
         super();
     }
 
@@ -68,7 +67,7 @@ public class NoConnectionException extends Exception {
      * later retrieval by the {@link #getMessage()} method.
      */
     @objid ("695d11fd-e8d7-4cff-b552-8f031f72d779")
-    public NoConnectionException(final String message) {
+    public  NoConnectionException(final String message) {
         super(message);
     }
 
@@ -86,7 +85,7 @@ public class NoConnectionException extends Exception {
      * @since  Modelio 3.7
      */
     @objid ("b199dac8-5b6b-4908-ad8b-73a388972579")
-    public NoConnectionException(String message, final Throwable cause) {
+    public  NoConnectionException(String message, final Throwable cause) {
         super(message, cause);
     }
 

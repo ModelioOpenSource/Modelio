@@ -17,20 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.communicationModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.BehaviorSmClass;
-import org.modelio.metamodel.impl.uml.behavior.communicationModel.CommunicationInteractionData;
-import org.modelio.metamodel.impl.uml.behavior.communicationModel.CommunicationNodeSmClass;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
 import org.modelio.metamodel.uml.behavior.communicationModel.CommunicationInteraction;
 import org.modelio.metamodel.uml.behavior.communicationModel.CommunicationNode;
@@ -51,7 +49,7 @@ public class CommunicationInteractionSmClass extends BehaviorSmClass {
     private SmDependency ownedDep;
 
     @objid ("2c85ff40-07dc-45b8-9779-0386cfb05cbe")
-    public CommunicationInteractionSmClass(ISmMetamodelFragment origin) {
+    public  CommunicationInteractionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -59,6 +57,7 @@ public class CommunicationInteractionSmClass extends BehaviorSmClass {
     @Override
     public String getName() {
         return "CommunicationInteraction";
+        
     }
 
     @objid ("5a631e1b-d1e2-46a5-9d7e-d68a12c9d37a")
@@ -71,18 +70,21 @@ public class CommunicationInteractionSmClass extends BehaviorSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return CommunicationInteraction.class;
+        
     }
 
     @objid ("d3c6811e-a580-47e8-9faa-222ee52eab4a")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("29b81563-d9c3-42a3-b165-2e928a3d86ff")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("43957448-a6a0-4ee8-bd4f-167b236ac235")
@@ -98,6 +100,8 @@ public class CommunicationInteractionSmClass extends BehaviorSmClass {
         this.ownedDep = new OwnedSmDependency();
         this.ownedDep.init("Owned", this, metamodel.getMClass(CommunicationNode.MQNAME), 0, -1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.ownedDep);
+        
+        
     }
 
     @objid ("0479014b-2132-46ff-a58a-1bd525a94df1")
@@ -114,7 +118,7 @@ public class CommunicationInteractionSmClass extends BehaviorSmClass {
         private CommunicationInteractionSmClass smClass;
 
         @objid ("a6d1272d-e5c3-4358-89b2-8a803957acab")
-        public CommunicationInteractionObjectFactory(CommunicationInteractionSmClass smClass) {
+        public  CommunicationInteractionObjectFactory(CommunicationInteractionSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -147,6 +151,7 @@ public class CommunicationInteractionSmClass extends BehaviorSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((CommunicationInteractionData) data).mOwned = values;
+            
         }
 
         @objid ("dc17be00-d76b-4937-b63e-4fd310430a9d")
@@ -156,6 +161,7 @@ public class CommunicationInteractionSmClass extends BehaviorSmClass {
             	this.symetricDep = ((CommunicationNodeSmClass)this.getTarget()).getOwnerDep();
             }
             return this.symetricDep;
+            
         }
 
     }

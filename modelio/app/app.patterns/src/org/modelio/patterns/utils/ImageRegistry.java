@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.utils;
 
 import java.io.File;
@@ -60,7 +59,6 @@ public class ImageRegistry {
 
     /**
      * Returns an {@link Image} encoded by the specified {@link InputStream}.
-     * 
      * @param stream the {@link InputStream} encoding the image data
      * @return the {@link Image} encoded by the specified input stream
      */
@@ -76,7 +74,6 @@ public class ImageRegistry {
 
     /**
      * Returns an {@link Image} stored in the file at the specified path.
-     * 
      * @param path the path to the image file
      * @return the {@link Image} stored in the file at the specified path
      */
@@ -121,7 +118,6 @@ public class ImageRegistry {
 
     /**
      * Returns an {@link Image} stored in the file at the specified path.
-     * 
      * @param path The file path as a string
      * @return the {@link Image} stored in the file at the specified path
      */

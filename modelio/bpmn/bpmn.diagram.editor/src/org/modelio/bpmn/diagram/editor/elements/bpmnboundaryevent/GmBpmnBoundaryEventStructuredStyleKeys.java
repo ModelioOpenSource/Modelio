@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnboundaryevent;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.bpmn.diagram.editor.elements.style.BpmnAbstractStyleKeyProvider;
+import org.modelio.bpmn.diagram.editor.elements.common.style.BpmnAbstractStyleKeyProvider;
 import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.diagram.styles.core.StyleKey;
 
@@ -31,23 +30,23 @@ import org.modelio.diagram.styles.core.StyleKey;
 @objid ("608b14fa-55b6-11e2-877f-002564c97630")
 public class GmBpmnBoundaryEventStructuredStyleKeys extends BpmnAbstractStyleKeyProvider {
     @objid ("7122f8ab-55c1-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("BOUNDARYEVENT_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("BOUNDARYEVENT_REPMODE", MetaKey.REPMODE);
 
     @objid ("7122f8ad-55c1-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("BOUNDARYEVENT_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("BOUNDARYEVENT_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("71231fba-55c1-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("BOUNDARYEVENT_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("BOUNDARYEVENT_FONT", MetaKey.FONT);
 
     @objid ("71231fbc-55c1-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("BOUNDARYEVENT_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("BOUNDARYEVENT_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("712346ca-55c1-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("BOUNDARYEVENT_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("BOUNDARYEVENT_SHOWSTEREOTYPES",
+                MetaKey.SHOWSTEREOTYPES);
 
     @objid ("712346cc-55c1-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("BOUNDARYEVENT_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("BOUNDARYEVENT_SHOWTAGS", MetaKey.SHOWTAGS);
 
     /**
      * Show the element name label.
@@ -55,6 +54,6 @@ public class GmBpmnBoundaryEventStructuredStyleKeys extends BpmnAbstractStyleKey
      * @see MetaKey#SHOWLABEL
      */
     @objid ("712346ce-55c1-11e2-9337-002564c97630")
-     static final StyleKey SHOWLABEL = createStyleKey("BOUNDARYEVENT_SHOWLABEL", MetaKey.SHOWLABEL);
+    static final StyleKey SHOWLABEL = createStyleKey("BOUNDARYEVENT_SHOWLABEL", MetaKey.SHOWLABEL);
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.util;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -101,7 +100,8 @@ public class UMLMetamodel {
     }
 
     @objid ("338abb04-cc6d-4cec-8617-1d9b9b963112")
-    private UMLMetamodel() {
+    private  UMLMetamodel() {
+        
     }
 
     @objid ("9483ea34-680e-4e81-9f2f-64806208d8e8")
@@ -110,11 +110,10 @@ public class UMLMetamodel {
             INSTANCE = new UMLMetamodel();
         return INSTANCE;
     }
-
-
 static{
-        umlMetamodel = load(URI.createURI(UMLResource.UML_METAMODEL_URI));
-        umlLibrary = load(URI.createURI(UMLResource.UML_PRIMITIVE_TYPES_LIBRARY_URI));
-        ecoreLibrary = load(URI.createURI(UMLResource.ECORE_PRIMITIVE_TYPES_LIBRARY_URI));
-    }
+            umlMetamodel = load(URI.createURI(UMLResource.UML_METAMODEL_URI));
+            umlLibrary = load(URI.createURI(UMLResource.UML_PRIMITIVE_TYPES_LIBRARY_URI));
+            ecoreLibrary = load(URI.createURI(UMLResource.ECORE_PRIMITIVE_TYPES_LIBRARY_URI));
+        }
+    
 }

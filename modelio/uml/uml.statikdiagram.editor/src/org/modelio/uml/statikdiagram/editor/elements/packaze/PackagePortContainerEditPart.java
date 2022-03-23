@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.packaze;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,6 +38,7 @@ public class PackagePortContainerEditPart extends PortContainerEditPart {
         super.createEditPolicies();
         // We don't want the dashed line appearing when selecting one of the children, we already have the composition link for that!
         removeEditPolicy("satellite selection");
+        
     }
 
     @objid ("3629aa86-55b7-11e2-877f-002564c97630")
@@ -49,6 +49,7 @@ public class PackagePortContainerEditPart extends PortContainerEditPart {
         if (GmPackage.BODY_CONTENT_AS_SATELLITE.equals(childModel.getRoleInComposition())) {
             ((AbstractNodeEditPart) childEditPart).setDragTrackerProvider(new ContentAsSatelliteDragTrackerProvider(childEditPart));
         }
+        
     }
 
 }

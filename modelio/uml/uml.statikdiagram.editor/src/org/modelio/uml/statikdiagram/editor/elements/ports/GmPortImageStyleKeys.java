@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.ports;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,21 +32,21 @@ import org.modelio.uml.statikdiagram.editor.style.StaticAbstractStyleKeyProvider
 @objid ("3642149e-55b7-11e2-877f-002564c97630")
 public class GmPortImageStyleKeys extends StaticAbstractStyleKeyProvider {
     @objid ("a751b5a9-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("PORT_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("PORT_REPMODE", MetaKey.REPMODE);
 
     @objid ("a751b5ab-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmPortStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmPortStructuredStyleKeys.FONT;
 
     @objid ("a751b5ad-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmPortStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmPortStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("a751b5af-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmPortStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmPortStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("a751b5b1-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmPortStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmPortStructuredStyleKeys.SHOWTAGS;
 
     @objid ("a751b5b3-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWLABEL = GmPortStructuredStyleKeys.SHOWLABEL;
+    static final StyleKey SHOWLABEL = GmPortStructuredStyleKeys.SHOWLABEL;
 
 }

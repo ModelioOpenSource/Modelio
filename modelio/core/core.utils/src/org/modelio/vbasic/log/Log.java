@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.log;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -53,7 +52,6 @@ public class Log {
 
     /**
      * The logging methods
-     * 
      * @param message the message
      */
     @objid ("000bfba8-e3a3-1f33-b94f-001ec947cd2a")
@@ -72,7 +70,6 @@ public class Log {
 
     /**
      * Log an exception with its stack trace as error.
-     * 
      * @param ex the exception
      */
     @objid ("000c842e-e3a3-1f33-b94f-001ec947cd2a")
@@ -82,7 +79,6 @@ public class Log {
 
     /**
      * Log a warning message.
-     * 
      * @param message the message
      */
     @objid ("000c96e4-e3a3-1f33-b94f-001ec947cd2a")
@@ -101,7 +97,6 @@ public class Log {
 
     /**
      * Log an exception with its stack trace as warning.
-     * 
      * @param ex the exception
      */
     @objid ("000cddca-e3a3-1f33-b94f-001ec947cd2a")
@@ -111,7 +106,6 @@ public class Log {
 
     /**
      * Log a trace message
-     * 
      * @param message the message
      */
     @objid ("000cf198-e3a3-1f33-b94f-001ec947cd2a")
@@ -130,7 +124,6 @@ public class Log {
 
     /**
      * Log an exception with its stack trace as trace.
-     * 
      * @param ex the exception
      */
     @objid ("000d3a9a-e3a3-1f33-b94f-001ec947cd2a")
@@ -139,18 +132,19 @@ public class Log {
     }
 
     @objid ("000d6cf4-e3a3-1f33-b94f-001ec947cd2a")
-    private Log() {
+    private  Log() {
+        
     }
 
     /**
      * Set the service used to log messages.
-     * 
      * @param value the logging service.
      */
     @objid ("63967127-59d8-471f-a406-dd9ea8bb6787")
     public static void setLogger(IBasicLogger value) {
         // Automatically generated method. Please delete this comment before entering specific code.
         logger = value;
+        
     }
 
     @objid ("c093f537-ec73-4608-82ca-fedd1296a756")

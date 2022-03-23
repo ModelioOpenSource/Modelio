@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,7 +41,7 @@ public class OCollaboration extends ONameSpace {
     }
 
     @objid ("75ac470c-1106-4ea9-8b36-d5d9fb43d48d")
-    public OCollaboration(Collaboration param) {
+    public  OCollaboration(Collaboration param) {
         super(param);
     }
 
@@ -81,6 +80,7 @@ public class OCollaboration extends ONameSpace {
             String errorMsg = "Owner Class Not Found";
             throw new NotFoundException(errorMsg);
         }
+        
     }
 
     @objid ("43b49293-5abb-4942-b5ab-8d344b6571c4")
@@ -96,6 +96,7 @@ public class OCollaboration extends ONameSpace {
             setConcurrentEAnnotation( (org.eclipse.uml2.uml.Collaboration) ecoreElt);
             setRootEAnnotation( (org.eclipse.uml2.uml.Collaboration)ecoreElt);
         }
+        
     }
 
     @objid ("502cb179-7623-4efc-b4f9-8a5914784434")
@@ -119,6 +120,7 @@ public class OCollaboration extends ONameSpace {
             org.eclipse.uml2.uml. Behavior ownerIsBehavior = (org.eclipse.uml2.uml.Behavior) ecoreOwner;
             ownerIsBehavior.getNestedClassifiers().add(ecoreCollab);
         }
+        
     }
 
     @objid ("8b85ccd5-4524-4f6b-a998-666a86e557e7")
@@ -139,6 +141,7 @@ public class OCollaboration extends ONameSpace {
             ecoreCollab.destroy();
             throw new NotFoundException("Owner Class not found.");
         }
+        
     }
 
     @objid ("012a1f88-c5f1-49b6-b402-5067cb2e3125")
@@ -159,6 +162,7 @@ public class OCollaboration extends ONameSpace {
             AbstractObjingModelNavigation.infoOfUnsupportedOwnedWithEMF(objingMdlTree,
                     getObjingElement(),ecoreCollab);
         }
+        
     }
 
     @objid ("c7758aa3-c457-4288-b79d-d555ef2747ab")

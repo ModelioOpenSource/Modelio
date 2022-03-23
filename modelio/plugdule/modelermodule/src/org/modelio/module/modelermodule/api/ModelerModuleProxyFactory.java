@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api;
 
@@ -282,18 +281,17 @@ import org.modelio.metamodel.visitors.IInfrastructureVisitor;
  */
 @objid ("9727a3e0-3939-4e5f-b6ab-b5e301fb587a")
 public class ModelerModuleProxyFactory {
-    @objid ("106e34e9-803a-41b6-a43d-08a902f7d13a")
+    @objid ("fabf12d2-dfa9-4d6a-b8d4-8f6fa9d26530")
     private static final InstantiateVisitor instantiateVisitor = new InstantiateVisitor();
 
     /**
      * Instantiates the right proxy class the given element.
      * <br/>The model element must be stereotyped by a 'ModelerModule' module stereotype.
      * <br/>In the other case the method will return <i>null</i>.
-     * 
      * @param e A model element
      * @return the right proxy or <i>null</i>.
      */
-    @objid ("5ba268ef-b8dc-450f-85f0-a5b5679a1d2b")
+    @objid ("37f86995-ddf8-49af-a94c-0a539280e161")
     public static final Object instantiate(ModelElement e) {
         for (Stereotype s : e.getExtension()) {
               ModuleComponent module = s.getModule();
@@ -308,109 +306,139 @@ public class ModelerModuleProxyFactory {
      * Instantiates the right proxy class the given element with a stereotype name.
      * The stereotype must be one of the 'ModelerModule' module stereotypes.
      * In the other case the method will return <i>null</i>.
-     * 
      * @param e A model element.
      * @param stName A stereotype name.
      * @return the right proxy or <i>null</i>.
      */
-    @objid ("86d3df37-a0a6-4d85-801d-a2272624cfde")
+    @objid ("293d3baf-298b-49bf-b536-32278e5fae5d")
     public static final Object instantiate(Element e, String stName) {
         instantiateVisitor.setStereotype(stName);
         return e.accept(instantiateVisitor);
     }
 
-    @objid ("eff11579-5141-4517-8529-26c953fbef8b")
+    @objid ("0a5850de-2454-49da-ae1a-35e46ee6ca7c")
     private static class InstantiateVisitor implements IDefaultModelVisitor, IDefaultInfrastructureVisitor {
-        @objid ("97a2432c-520a-479a-a6eb-137925bed089")
+        @objid ("07da25c5-8691-453a-b848-3d4c5d451258")
         private String stName;
 
-        @objid ("170c8ead-e2b3-4c35-b91f-99af89691e22")
+        /**
+         * Get the visitor to delegate to when a {@link IInfrastructureVisitor} is needed.
+         * <p>If null is returned the caller will return null.
+         * @return the {@link IInfrastructureVisitor} visitor or <i>null</i>.
+         */
+        @objid ("ad09e419-93b7-4116-ba28-4a4ce6761b17")
+        @Override
+        public IInfrastructureVisitor getInfrastructureVisitor() {
+            return this;
+        }
+
+        @objid ("350501b9-bc02-475e-8381-9699045639cf")
         public final void setStereotype(String stName) {
             this.stName = stName;
         }
 
-        @objid ("ff4cc874-bb11-4827-a958-8f485935c60e")
+        @objid ("2be20c07-9808-49a1-8cee-c89566a550d1")
         @Override
-        public final Object visitPackage(Package obj) {
+        public final Object visitAbstractDiagram(AbstractDiagram obj) {
             switch (this.stName) {
-                case org.modelio.module.modelermodule.api.default_.standard.package_.Facade.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.package_.Facade.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.package_.FrameWork.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.package_.FrameWork.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.package_.Metamodel.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.package_.Metamodel.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.package_.Stub.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.package_.Stub.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.package_.Subsystem.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.package_.Subsystem.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.package_.System.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.package_.System.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.package_.TopLevel.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.package_.TopLevel.instantiate(obj);
-                case org.modelio.module.modelermodule.api.templateprofile.standard.package_.Pattern.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.templateprofile.standard.package_.Pattern.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.infrastructure.abstractdiagram.AutoDiagram.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.infrastructure.abstractdiagram.AutoDiagram.instantiate(obj);
                 default:
                     break;
             }
-            return IDefaultModelVisitor.super.visitPackage(obj);
+            return IDefaultInfrastructureVisitor.super.visitAbstractDiagram(obj);
         }
 
-        @objid ("c294c10f-a975-4747-9317-71dd2e874c71")
+        @objid ("2115ccc5-c701-4339-b8b7-0aad0522715c")
         @Override
-        public final Object visitPin(Pin obj) {
+        public final Object visitActivity(Activity obj) {
             switch (this.stName) {
-                case org.modelio.module.modelermodule.api.xmi.standard.pin.UML2ExpansionNode.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.pin.UML2ExpansionNode.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.pin.UML2ReturnInformation.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.pin.UML2ReturnInformation.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.activity.UML2Interaction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.activity.UML2Interaction.instantiate(obj);
                 default:
                     break;
             }
-            return IDefaultModelVisitor.super.visitPin(obj);
+            return IDefaultModelVisitor.super.visitActivity(obj);
         }
 
-        @objid ("02b9cdbc-0bd5-4e0b-a489-143052a18475")
+        @objid ("056ea624-92a6-4185-a50b-b705c6b516b8")
         @Override
-        public final Object visitObjectFlow(ObjectFlow obj) {
+        public final Object visitActivityNode(ActivityNode obj) {
             switch (this.stName) {
-                case org.modelio.module.modelermodule.api.xmi.standard.objectflow.UML2ExceptionHandler.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.objectflow.UML2ExceptionHandler.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.activitynode.UML2Body.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.activitynode.UML2Body.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.activitynode.UML2SetUp.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.activitynode.UML2SetUp.instantiate(obj);
                 default:
                     break;
             }
-            return IDefaultModelVisitor.super.visitObjectFlow(obj);
+            return IDefaultModelVisitor.super.visitActivityNode(obj);
         }
 
-        @objid ("8a866ccb-e0a2-4775-ae45-702640f06528")
+        @objid ("f7cadd2b-e482-4b8b-bf85-f90425b7cd5a")
         @Override
-        public final Object visitSignal(Signal obj) {
+        public final Object visitActor(Actor obj) {
             switch (this.stName) {
-                case org.modelio.module.modelermodule.api.default_.standard.signal.Exception.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.signal.Exception.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.actor.Primary.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.actor.Primary.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.actor.Secondary.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.actor.Secondary.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.actor.System.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.actor.System.instantiate(obj);
                 default:
                     break;
             }
-            return IDefaultModelVisitor.super.visitSignal(obj);
+            return IDefaultModelVisitor.super.visitActor(obj);
         }
 
-        @objid ("771cf0d1-6390-4e03-a982-600a51fc774d")
+        @objid ("56d9814a-41f9-4733-b114-e236aeddf4ac")
         @Override
-        public final Object visitMethodologicalLink(MethodologicalLink obj) {
+        public final Object visitArtifact(Artifact obj) {
             switch (this.stName) {
-                case org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Allocated.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Allocated.instantiate(obj);
-                case org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Called.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Called.instantiate(obj);
-                case org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Event.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Event.instantiate(obj);
-                case org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.PartitionElement.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.PartitionElement.instantiate(obj);
-                case org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Process.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Process.instantiate(obj);
-                case org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Reference.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Reference.instantiate(obj);
-                case org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Represents.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Represents.instantiate(obj);
-                case org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.State.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.State.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.artifact.ModelComponentArchive.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.artifact.ModelComponentArchive.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.artifact.Executable.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.artifact.Executable.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.artifact.Library.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.artifact.Library.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.artifact.Directory.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.artifact.Directory.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.artifact.File.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.artifact.File.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.artifact.Url.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.artifact.Url.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.artifact.Mail.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.artifact.Mail.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.artifact.Document.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.artifact.Document.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.artifact.UML2DeploymentSpecification.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.artifact.UML2DeploymentSpecification.instantiate(obj);
                 default:
                     break;
             }
-            return IDefaultInfrastructureVisitor.super.visitMethodologicalLink(obj);
+            return IDefaultModelVisitor.super.visitArtifact(obj);
         }
 
-        @objid ("21d1b576-7e14-45c9-857d-e92daebab815")
+        @objid ("ec190ee7-83a3-4a78-9e09-27e38c028571")
         @Override
-        public final Object visitInstanceNode(InstanceNode obj) {
+        public final Object visitAssociation(Association obj) {
             switch (this.stName) {
-                case org.modelio.module.modelermodule.api.xmi.standard.instancenode.UML2Variable.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.instancenode.UML2Variable.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.association.Implicit.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.association.Implicit.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.association.UML2CommunicationPath.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.association.UML2CommunicationPath.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.association.UML2Extension.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.association.UML2Extension.instantiate(obj);
                 default:
                     break;
             }
-            return IDefaultModelVisitor.super.visitInstanceNode(obj);
+            return IDefaultModelVisitor.super.visitAssociation(obj);
         }
 
-        @objid ("da19b249-05c6-466f-9678-8b38d6e97c23")
+        @objid ("469f0402-77a2-4d4e-84e0-0bc7baf5ba1f")
+        @Override
+        public final Object visitAssociationEnd(AssociationEnd obj) {
+            switch (this.stName) {
+                case org.modelio.module.modelermodule.api.xmi.standard.associationend.UML2ExtensionEnd.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.associationend.UML2ExtensionEnd.instantiate(obj);
+                default:
+                    break;
+            }
+            return IDefaultModelVisitor.super.visitAssociationEnd(obj);
+        }
+
+        @objid ("767b0f73-c23e-4511-b5ca-92b6680c2c8f")
+        @Override
+        public final Object visitAttribute(Attribute obj) {
+            switch (this.stName) {
+                case org.modelio.module.modelermodule.api.xmi.standard.attribute.UML2PropertyType.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.attribute.UML2PropertyType.instantiate(obj);
+                default:
+                    break;
+            }
+            return IDefaultModelVisitor.super.visitAttribute(obj);
+        }
+
+        @objid ("e5525660-bda5-4441-b8a7-2185206b5ab3")
         @Override
         public final Object visitClass(Class obj) {
             switch (this.stName) {
@@ -424,128 +452,20 @@ public class ModelerModuleProxyFactory {
             return IDefaultModelVisitor.super.visitClass(obj);
         }
 
-        @objid ("a0e5597c-8116-4cc1-b2ca-54deccf86784")
+        @objid ("9f339a78-cc76-4215-810b-6cc079de25ab")
         @Override
-        public final Object visitAttribute(Attribute obj) {
+        public final Object visitClassifier(Classifier obj) {
             switch (this.stName) {
-                case org.modelio.module.modelermodule.api.xmi.standard.attribute.UML2PropertyType.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.attribute.UML2PropertyType.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.classifier.Metaclass.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.classifier.Metaclass.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.classifier.Process.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.classifier.Process.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.classifier.Utility.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.classifier.Utility.instantiate(obj);
                 default:
                     break;
             }
-            return IDefaultModelVisitor.super.visitAttribute(obj);
+            return IDefaultModelVisitor.super.visitClassifier(obj);
         }
 
-        @objid ("9512ccd9-aac6-4c98-aa96-8dc1e90940df")
-        @Override
-        public final Object visitOpaqueAction(OpaqueAction obj) {
-            switch (this.stName) {
-                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2AddStructuralFeatureValueAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2AddStructuralFeatureValueAction.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2AddVariableValueAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2AddVariableValueAction.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ClearAssociationAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ClearAssociationAction.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ClearStructuralFeatureAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ClearStructuralFeatureAction.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ClearVariableAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ClearVariableAction.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2CreateLinkAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2CreateLinkAction.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2CreateLinkObjectAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2CreateLinkObjectAction.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2CreateObjectAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2CreateObjectAction.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2DestroyLinkAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2DestroyLinkAction.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2DestroyObjectAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2DestroyObjectAction.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2RaiseExceptionAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2RaiseExceptionAction.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadExtentAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadExtentAction.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadIsClassifierObjectAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadIsClassifierObjectAction.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadLinkAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadLinkAction.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadLinkObjectEndAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadLinkObjectEndAction.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadLinkObjectEndQualifierAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadLinkObjectEndQualifierAction.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadSelfAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadSelfAction.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadStructuralFeatureAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadStructuralFeatureAction.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadVariableAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadVariableAction.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReclassifyObjectAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReclassifyObjectAction.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReduceAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReduceAction.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2RemoveStructuralFeatureAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2RemoveStructuralFeatureAction.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2RemoveVariableValueAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2RemoveVariableValueAction.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReplyAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReplyAction.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2SendObjectAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2SendObjectAction.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2StartClassifierBehaviorAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2StartClassifierBehaviorAction.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2StartObjectBehaviorAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2StartObjectBehaviorAction.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2TestIdentityAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2TestIdentityAction.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2UnmarshallAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2UnmarshallAction.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ValueSpecificationAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ValueSpecificationAction.instantiate(obj);
-                default:
-                    break;
-            }
-            return IDefaultModelVisitor.super.visitOpaqueAction(obj);
-        }
-
-        @objid ("692eec74-db4c-4cc0-8430-bdc3183875fa")
-        @Override
-        public final Object visitStructuredActivityNode(StructuredActivityNode obj) {
-            switch (this.stName) {
-                case org.modelio.module.modelermodule.api.xmi.standard.structuredactivitynode.UML2ExpansionRegion.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.structuredactivitynode.UML2ExpansionRegion.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.structuredactivitynode.UML2SequenceNode.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.structuredactivitynode.UML2SequenceNode.instantiate(obj);
-                default:
-                    break;
-            }
-            return IDefaultModelVisitor.super.visitStructuredActivityNode(obj);
-        }
-
-        @objid ("1fe610fb-b1e2-46a0-8c49-ab7085539cbd")
-        @Override
-        public final Object visitElementImport(ElementImport obj) {
-            switch (this.stName) {
-                case org.modelio.module.modelermodule.api.default_.standard.elementimport.Access.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.elementimport.Access.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.elementimport.Catch.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.elementimport.Catch.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.elementimport.Create.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.elementimport.Create.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.elementimport.Friend.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.elementimport.Friend.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.elementimport.Import.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.elementimport.Import.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.elementimport.Instantiate.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.elementimport.Instantiate.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.elementimport.Throw.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.elementimport.Throw.instantiate(obj);
-                default:
-                    break;
-            }
-            return IDefaultModelVisitor.super.visitElementImport(obj);
-        }
-
-        @objid ("fad4fb30-5a5d-464b-a06a-0f6ff53edbba")
-        @Override
-        public final Object visitPropertyTableDefinition(PropertyTableDefinition obj) {
-            switch (this.stName) {
-                case org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.BusinessRulePropertyset.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.BusinessRulePropertyset.instantiate(obj);
-                case org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.DictionaryPropertyset.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.DictionaryPropertyset.instantiate(obj);
-                case org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.GoalPropertyset.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.GoalPropertyset.instantiate(obj);
-                case org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.KpiPropertyset.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.KpiPropertyset.instantiate(obj);
-                case org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.RequirementPropertyset.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.RequirementPropertyset.instantiate(obj);
-                case org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.RiskPropertyset.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.RiskPropertyset.instantiate(obj);
-                case org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.TestPropertyset.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.TestPropertyset.instantiate(obj);
-                default:
-                    break;
-            }
-            return IDefaultInfrastructureVisitor.super.visitPropertyTableDefinition(obj);
-        }
-
-        @objid ("21985f77-9312-4780-a9d5-9287ac796723")
-        @Override
-        public final Object visitMatrixDefinition(MatrixDefinition obj) {
-            switch (this.stName) {
-                case org.modelio.module.modelermodule.api.default_.infrastructure.matrixdefinition.JyMatrix.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.infrastructure.matrixdefinition.JyMatrix.instantiate(obj);
-                default:
-                    break;
-            }
-            return IDefaultInfrastructureVisitor.super.visitMatrixDefinition(obj);
-        }
-
-        @objid ("ba3c1437-e52f-4eeb-b105-e709cf47802a")
-        @Override
-        public final Object visitAssociation(Association obj) {
-            switch (this.stName) {
-                case org.modelio.module.modelermodule.api.default_.standard.association.Implicit.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.association.Implicit.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.association.UML2CommunicationPath.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.association.UML2CommunicationPath.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.association.UML2Extension.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.association.UML2Extension.instantiate(obj);
-                default:
-                    break;
-            }
-            return IDefaultModelVisitor.super.visitAssociation(obj);
-        }
-
-        @objid ("c5ae1f2e-ca54-43d8-8ddb-665a9b131287")
+        @objid ("d3d867dd-e24a-418c-8675-44ff6ee9daca")
         @Override
         public final Object visitComponent(Component obj) {
             switch (this.stName) {
@@ -556,37 +476,30 @@ public class ModelerModuleProxyFactory {
             return IDefaultModelVisitor.super.visitComponent(obj);
         }
 
-        @objid ("63fa25bc-607e-4a8c-966d-0630f2c36e79")
+        @objid ("b2c0c6e6-8f04-46b7-86a3-7ba6c9bd9ac9")
         @Override
-        public final Object visitStaticDiagram(StaticDiagram obj) {
+        public final Object visitConstraint(Constraint obj) {
             switch (this.stName) {
-                case org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.BusinessRuleDiagram.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.BusinessRuleDiagram.instantiate(obj);
-                case org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.DictionaryDiagram.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.DictionaryDiagram.instantiate(obj);
-                case org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.GoalDiagram.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.GoalDiagram.instantiate(obj);
-                case org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.KpiDiagram.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.KpiDiagram.instantiate(obj);
-                case org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.RequirementDiagram.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.RequirementDiagram.instantiate(obj);
-                case org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.RiskDiagram.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.RiskDiagram.instantiate(obj);
-                case org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.TestDiagram.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.TestDiagram.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.staticdiagram.UML2InteractionOverviewDiagram.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.staticdiagram.UML2InteractionOverviewDiagram.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.constraint.Complete.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.constraint.Complete.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.constraint.Destroyed.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.constraint.Destroyed.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.constraint.Disjoin.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.constraint.Disjoin.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.constraint.Incomplete.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.constraint.Incomplete.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.constraint.Invariant.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.constraint.Invariant.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.constraint.New.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.constraint.New.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.constraint.Ordered.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.constraint.Ordered.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.constraint.Overlapping.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.constraint.Overlapping.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.constraint.Postcondition.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.constraint.Postcondition.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.constraint.Precondition.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.constraint.Precondition.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.constraint.Subset.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.constraint.Subset.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.constraint.Transient.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.constraint.Transient.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.constraint.Xor.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.constraint.Xor.instantiate(obj);
                 default:
                     break;
             }
-            return IDefaultModelVisitor.super.visitStaticDiagram(obj);
+            return IDefaultModelVisitor.super.visitConstraint(obj);
         }
 
-        @objid ("28925a61-8cf9-4018-9098-f94cef488ed2")
-        @Override
-        public final Object visitNode(Node obj) {
-            switch (this.stName) {
-                case org.modelio.module.modelermodule.api.xmi.standard.node.UML2Device.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.node.UML2Device.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.node.UML2ExecutionEnvironment.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.node.UML2ExecutionEnvironment.instantiate(obj);
-                default:
-                    break;
-            }
-            return IDefaultModelVisitor.super.visitNode(obj);
-        }
-
-        @objid ("c9b0e02d-424a-462e-8f99-3978c548115d")
+        @objid ("96123eba-62b6-4eee-8216-72be6a1cd3d6")
         @Override
         public final Object visitDependency(Dependency obj) {
             switch (this.stName) {
@@ -637,56 +550,49 @@ public class ModelerModuleProxyFactory {
             return IDefaultInfrastructureVisitor.super.visitDependency(obj);
         }
 
-        @objid ("3aa528b3-80d5-4167-8518-2f0db00d2a90")
+        @objid ("67fbdf2b-54a9-4e7d-be6a-6909aae06d6a")
         @Override
-        public final Object visitActivity(Activity obj) {
+        public final Object visitElementImport(ElementImport obj) {
             switch (this.stName) {
-                case org.modelio.module.modelermodule.api.xmi.standard.activity.UML2Interaction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.activity.UML2Interaction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.elementimport.Access.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.elementimport.Access.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.elementimport.Catch.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.elementimport.Catch.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.elementimport.Create.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.elementimport.Create.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.elementimport.Friend.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.elementimport.Friend.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.elementimport.Import.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.elementimport.Import.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.elementimport.Instantiate.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.elementimport.Instantiate.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.elementimport.Throw.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.elementimport.Throw.instantiate(obj);
                 default:
                     break;
             }
-            return IDefaultModelVisitor.super.visitActivity(obj);
+            return IDefaultModelVisitor.super.visitElementImport(obj);
         }
 
-        @objid ("ff1209e4-4b67-4565-b0d7-abc64358bf48")
+        @objid ("b0e404fb-9293-4da3-8dbf-188c3e2be5e3")
         @Override
-        public final Object visitAssociationEnd(AssociationEnd obj) {
+        public final Object visitEvent(Event obj) {
             switch (this.stName) {
-                case org.modelio.module.modelermodule.api.xmi.standard.associationend.UML2ExtensionEnd.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.associationend.UML2ExtensionEnd.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.event.UML2CreationEvent.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.event.UML2CreationEvent.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.event.UML2DestructionEvent.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.event.UML2DestructionEvent.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.event.UML2ExecutionEvent.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.event.UML2ExecutionEvent.instantiate(obj);
                 default:
                     break;
             }
-            return IDefaultModelVisitor.super.visitAssociationEnd(obj);
+            return IDefaultModelVisitor.super.visitEvent(obj);
         }
 
-        @objid ("b6d65dd0-05f6-4fd6-adc8-8023c7514e43")
+        @objid ("451294d1-6459-42b6-b57e-cabc0bdcab57")
         @Override
-        public final Object visitOperation(Operation obj) {
+        public final Object visitGeneralization(Generalization obj) {
             switch (this.stName) {
-                case org.modelio.module.modelermodule.api.default_.standard.operation.Create.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.operation.Create.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.operation.Destroy.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.operation.Destroy.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.operation.UML2Reception.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.operation.UML2Reception.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.operation.UML2RedefinableTemplateSignature.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.operation.UML2RedefinableTemplateSignature.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.operation.UML2TemplateSignature.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.operation.UML2TemplateSignature.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.generalization.Implementation.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.generalization.Implementation.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.generalization.UML2GeneralizationSet.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.generalization.UML2GeneralizationSet.instantiate(obj);
                 default:
                     break;
             }
-            return IDefaultModelVisitor.super.visitOperation(obj);
+            return IDefaultModelVisitor.super.visitGeneralization(obj);
         }
 
-        @objid ("57f70c7f-0a90-473b-885f-817db22935ff")
-        @Override
-        public final Object visitActivityNode(ActivityNode obj) {
-            switch (this.stName) {
-                case org.modelio.module.modelermodule.api.xmi.standard.activitynode.UML2Body.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.activitynode.UML2Body.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.activitynode.UML2SetUp.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.activitynode.UML2SetUp.instantiate(obj);
-                default:
-                    break;
-            }
-            return IDefaultModelVisitor.super.visitActivityNode(obj);
-        }
-
-        @objid ("11d1c52a-4512-4e22-ad7f-5c26e1b86ea1")
+        @objid ("376affd1-d95c-41b3-954a-5852ac26b549")
         @Override
         public final Object visitInputPin(InputPin obj) {
             switch (this.stName) {
@@ -712,18 +618,147 @@ public class ModelerModuleProxyFactory {
             return IDefaultModelVisitor.super.visitInputPin(obj);
         }
 
-        @objid ("3c0abed2-6c4a-4541-b2db-d3e852d55119")
+        @objid ("0016f189-d5cf-4708-83dd-a2eeb5e16742")
         @Override
-        public final Object visitSendSignalAction(SendSignalAction obj) {
+        public final Object visitInstanceNode(InstanceNode obj) {
             switch (this.stName) {
-                case org.modelio.module.modelermodule.api.xmi.standard.sendsignalaction.UML2BroadcastSignalAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.sendsignalaction.UML2BroadcastSignalAction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.instancenode.UML2Variable.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.instancenode.UML2Variable.instantiate(obj);
                 default:
                     break;
             }
-            return IDefaultModelVisitor.super.visitSendSignalAction(obj);
+            return IDefaultModelVisitor.super.visitInstanceNode(obj);
         }
 
-        @objid ("ffb8e0c9-e41b-4c5e-9703-e55b355a2924")
+        @objid ("c2a9bb95-42de-4194-a6d8-9de40a1f13e4")
+        @Override
+        public final Object visitInteraction(Interaction obj) {
+            switch (this.stName) {
+                case org.modelio.module.modelermodule.api.default_.standard.interaction.Scenario.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.interaction.Scenario.instantiate(obj);
+                default:
+                    break;
+            }
+            return IDefaultModelVisitor.super.visitInteraction(obj);
+        }
+
+        @objid ("2f1e1b2f-2f00-4bcc-b29c-fdd059a6a3ea")
+        @Override
+        public final Object visitMatrixDefinition(MatrixDefinition obj) {
+            switch (this.stName) {
+                case org.modelio.module.modelermodule.api.default_.infrastructure.matrixdefinition.JyMatrix.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.infrastructure.matrixdefinition.JyMatrix.instantiate(obj);
+                default:
+                    break;
+            }
+            return IDefaultInfrastructureVisitor.super.visitMatrixDefinition(obj);
+        }
+
+        @objid ("56cef2e5-3f68-45a4-98e6-b1f9f596bd91")
+        @Override
+        public final Object visitMethodologicalLink(MethodologicalLink obj) {
+            switch (this.stName) {
+                case org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Allocated.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Allocated.instantiate(obj);
+                case org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Called.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Called.instantiate(obj);
+                case org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Event.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Event.instantiate(obj);
+                case org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.PartitionElement.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.PartitionElement.instantiate(obj);
+                case org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Process.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Process.instantiate(obj);
+                case org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Reference.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Reference.instantiate(obj);
+                case org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Represents.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.Represents.instantiate(obj);
+                case org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.State.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.State.instantiate(obj);
+                default:
+                    break;
+            }
+            return IDefaultInfrastructureVisitor.super.visitMethodologicalLink(obj);
+        }
+
+        @objid ("3ce3782d-bcc4-403f-aa15-6ceff6cb2cc5")
+        @Override
+        public final Object visitNode(Node obj) {
+            switch (this.stName) {
+                case org.modelio.module.modelermodule.api.xmi.standard.node.UML2Device.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.node.UML2Device.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.node.UML2ExecutionEnvironment.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.node.UML2ExecutionEnvironment.instantiate(obj);
+                default:
+                    break;
+            }
+            return IDefaultModelVisitor.super.visitNode(obj);
+        }
+
+        @objid ("520eeb45-324d-438d-b67a-ca4443227262")
+        @Override
+        public final Object visitNote(Note obj) {
+            switch (this.stName) {
+                case org.modelio.module.modelermodule.api.default_.infrastructure.note.ExternalDocument.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.infrastructure.note.ExternalDocument.instantiate(obj);
+                default:
+                    break;
+            }
+            return IDefaultInfrastructureVisitor.super.visitNote(obj);
+        }
+
+        @objid ("fa791235-4c29-4b4b-81cf-31c930fa5aea")
+        @Override
+        public final Object visitObjectFlow(ObjectFlow obj) {
+            switch (this.stName) {
+                case org.modelio.module.modelermodule.api.xmi.standard.objectflow.UML2ExceptionHandler.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.objectflow.UML2ExceptionHandler.instantiate(obj);
+                default:
+                    break;
+            }
+            return IDefaultModelVisitor.super.visitObjectFlow(obj);
+        }
+
+        @objid ("1e41b1ff-13af-44b1-b127-07290d4acd15")
+        @Override
+        public final Object visitOpaqueAction(OpaqueAction obj) {
+            switch (this.stName) {
+                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2AddStructuralFeatureValueAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2AddStructuralFeatureValueAction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2AddVariableValueAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2AddVariableValueAction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ClearAssociationAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ClearAssociationAction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ClearStructuralFeatureAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ClearStructuralFeatureAction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ClearVariableAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ClearVariableAction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2CreateLinkAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2CreateLinkAction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2CreateLinkObjectAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2CreateLinkObjectAction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2CreateObjectAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2CreateObjectAction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2DestroyLinkAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2DestroyLinkAction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2DestroyObjectAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2DestroyObjectAction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2RaiseExceptionAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2RaiseExceptionAction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadExtentAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadExtentAction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadIsClassifierObjectAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadIsClassifierObjectAction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadLinkAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadLinkAction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadLinkObjectEndAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadLinkObjectEndAction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadLinkObjectEndQualifierAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadLinkObjectEndQualifierAction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadSelfAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadSelfAction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadStructuralFeatureAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadStructuralFeatureAction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadVariableAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReadVariableAction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReclassifyObjectAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReclassifyObjectAction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReduceAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReduceAction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2RemoveStructuralFeatureAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2RemoveStructuralFeatureAction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2RemoveVariableValueAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2RemoveVariableValueAction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReplyAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ReplyAction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2SendObjectAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2SendObjectAction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2StartClassifierBehaviorAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2StartClassifierBehaviorAction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2StartObjectBehaviorAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2StartObjectBehaviorAction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2TestIdentityAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2TestIdentityAction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2UnmarshallAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2UnmarshallAction.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ValueSpecificationAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.opaqueaction.UML2ValueSpecificationAction.instantiate(obj);
+                default:
+                    break;
+            }
+            return IDefaultModelVisitor.super.visitOpaqueAction(obj);
+        }
+
+        @objid ("4fe92f92-bb1a-4bb1-924d-48b6cd37b949")
+        @Override
+        public final Object visitOperation(Operation obj) {
+            switch (this.stName) {
+                case org.modelio.module.modelermodule.api.default_.standard.operation.Create.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.operation.Create.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.operation.Destroy.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.operation.Destroy.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.operation.UML2Reception.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.operation.UML2Reception.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.operation.UML2RedefinableTemplateSignature.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.operation.UML2RedefinableTemplateSignature.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.operation.UML2TemplateSignature.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.operation.UML2TemplateSignature.instantiate(obj);
+                default:
+                    break;
+            }
+            return IDefaultModelVisitor.super.visitOperation(obj);
+        }
+
+        @objid ("de3ced4f-1192-4102-bccb-53030dc431ae")
         @Override
         public final Object visitOutputPin(OutputPin obj) {
             switch (this.stName) {
@@ -736,18 +771,25 @@ public class ModelerModuleProxyFactory {
             return IDefaultModelVisitor.super.visitOutputPin(obj);
         }
 
-        @objid ("e14751c0-48d6-4593-b509-08ed152d5a92")
+        @objid ("48f8a8b2-60ea-4e72-aed9-83112a2ec78e")
         @Override
-        public final Object visitInteraction(Interaction obj) {
+        public final Object visitPackage(Package obj) {
             switch (this.stName) {
-                case org.modelio.module.modelermodule.api.default_.standard.interaction.Scenario.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.interaction.Scenario.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.package_.Facade.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.package_.Facade.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.package_.FrameWork.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.package_.FrameWork.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.package_.Metamodel.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.package_.Metamodel.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.package_.Stub.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.package_.Stub.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.package_.Subsystem.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.package_.Subsystem.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.package_.System.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.package_.System.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.package_.TopLevel.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.package_.TopLevel.instantiate(obj);
+                case org.modelio.module.modelermodule.api.templateprofile.standard.package_.Pattern.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.templateprofile.standard.package_.Pattern.instantiate(obj);
                 default:
                     break;
             }
-            return IDefaultModelVisitor.super.visitInteraction(obj);
+            return IDefaultModelVisitor.super.visitPackage(obj);
         }
 
-        @objid ("25ffa931-b53a-4593-9c00-527712f205d0")
+        @objid ("2164de17-3393-4d31-8481-6defcdc4f250")
         @Override
         public final Object visitParameter(Parameter obj) {
             switch (this.stName) {
@@ -758,43 +800,99 @@ public class ModelerModuleProxyFactory {
             return IDefaultModelVisitor.super.visitParameter(obj);
         }
 
-        @objid ("f7f56ddd-867c-4e46-a787-0ff22a8e14a0")
+        @objid ("02119d07-b514-4e13-8a3d-b356d17a25ad")
         @Override
-        public final Object visitConstraint(Constraint obj) {
+        public final Object visitPin(Pin obj) {
             switch (this.stName) {
-                case org.modelio.module.modelermodule.api.default_.standard.constraint.Complete.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.constraint.Complete.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.constraint.Destroyed.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.constraint.Destroyed.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.constraint.Disjoin.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.constraint.Disjoin.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.constraint.Incomplete.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.constraint.Incomplete.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.constraint.Invariant.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.constraint.Invariant.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.constraint.New.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.constraint.New.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.constraint.Ordered.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.constraint.Ordered.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.constraint.Overlapping.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.constraint.Overlapping.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.constraint.Postcondition.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.constraint.Postcondition.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.constraint.Precondition.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.constraint.Precondition.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.constraint.Subset.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.constraint.Subset.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.constraint.Transient.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.constraint.Transient.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.constraint.Xor.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.constraint.Xor.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.pin.UML2ExpansionNode.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.pin.UML2ExpansionNode.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.pin.UML2ReturnInformation.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.pin.UML2ReturnInformation.instantiate(obj);
                 default:
                     break;
             }
-            return IDefaultModelVisitor.super.visitConstraint(obj);
+            return IDefaultModelVisitor.super.visitPin(obj);
         }
 
-        @objid ("0569c6a6-d07f-4745-b3b2-b5fb1c9b7372")
+        @objid ("42f04502-454c-4e12-b4a4-3b138f777c1b")
         @Override
-        public final Object visitActor(Actor obj) {
+        public final Object visitProfile(Profile obj) {
             switch (this.stName) {
-                case org.modelio.module.modelermodule.api.default_.standard.actor.Primary.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.actor.Primary.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.actor.Secondary.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.actor.Secondary.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.actor.System.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.actor.System.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.infrastructure.profile.Methodology.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.infrastructure.profile.Methodology.instantiate(obj);
                 default:
                     break;
             }
-            return IDefaultModelVisitor.super.visitActor(obj);
+            return IDefaultInfrastructureVisitor.super.visitProfile(obj);
         }
 
-        @objid ("4ec8529a-6551-4113-a8fb-55f68cf4280a")
+        @objid ("3ab935b5-cf80-4fb5-bde7-1cfc34f3f244")
+        @Override
+        public final Object visitPropertyTableDefinition(PropertyTableDefinition obj) {
+            switch (this.stName) {
+                case org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.BusinessRulePropertyset.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.BusinessRulePropertyset.instantiate(obj);
+                case org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.DictionaryPropertyset.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.DictionaryPropertyset.instantiate(obj);
+                case org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.GoalPropertyset.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.GoalPropertyset.instantiate(obj);
+                case org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.KpiPropertyset.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.KpiPropertyset.instantiate(obj);
+                case org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.RequirementPropertyset.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.RequirementPropertyset.instantiate(obj);
+                case org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.RiskPropertyset.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.RiskPropertyset.instantiate(obj);
+                case org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.TestPropertyset.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.analyst.infrastructure.propertytabledefinition.TestPropertyset.instantiate(obj);
+                default:
+                    break;
+            }
+            return IDefaultInfrastructureVisitor.super.visitPropertyTableDefinition(obj);
+        }
+
+        @objid ("e461e91d-bf1d-4af4-9423-972f03411b75")
+        @Override
+        public final Object visitSendSignalAction(SendSignalAction obj) {
+            switch (this.stName) {
+                case org.modelio.module.modelermodule.api.xmi.standard.sendsignalaction.UML2BroadcastSignalAction.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.sendsignalaction.UML2BroadcastSignalAction.instantiate(obj);
+                default:
+                    break;
+            }
+            return IDefaultModelVisitor.super.visitSendSignalAction(obj);
+        }
+
+        @objid ("993450db-6eb6-41c7-a936-6127672e5b9d")
+        @Override
+        public final Object visitSignal(Signal obj) {
+            switch (this.stName) {
+                case org.modelio.module.modelermodule.api.default_.standard.signal.Exception.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.signal.Exception.instantiate(obj);
+                default:
+                    break;
+            }
+            return IDefaultModelVisitor.super.visitSignal(obj);
+        }
+
+        @objid ("8539ee3f-b58b-4bb4-a35b-4fe08a8c99c8")
+        @Override
+        public final Object visitStaticDiagram(StaticDiagram obj) {
+            switch (this.stName) {
+                case org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.BusinessRuleDiagram.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.BusinessRuleDiagram.instantiate(obj);
+                case org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.DictionaryDiagram.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.DictionaryDiagram.instantiate(obj);
+                case org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.GoalDiagram.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.GoalDiagram.instantiate(obj);
+                case org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.KpiDiagram.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.KpiDiagram.instantiate(obj);
+                case org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.RequirementDiagram.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.RequirementDiagram.instantiate(obj);
+                case org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.RiskDiagram.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.RiskDiagram.instantiate(obj);
+                case org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.TestDiagram.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.analyst.standard.staticdiagram.TestDiagram.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.staticdiagram.UML2InteractionOverviewDiagram.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.staticdiagram.UML2InteractionOverviewDiagram.instantiate(obj);
+                default:
+                    break;
+            }
+            return IDefaultModelVisitor.super.visitStaticDiagram(obj);
+        }
+
+        @objid ("dc878a01-a415-4964-b5ec-ed09d8cdb6fd")
+        @Override
+        public final Object visitStructuredActivityNode(StructuredActivityNode obj) {
+            switch (this.stName) {
+                case org.modelio.module.modelermodule.api.xmi.standard.structuredactivitynode.UML2ExpansionRegion.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.structuredactivitynode.UML2ExpansionRegion.instantiate(obj);
+                case org.modelio.module.modelermodule.api.xmi.standard.structuredactivitynode.UML2SequenceNode.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.structuredactivitynode.UML2SequenceNode.instantiate(obj);
+                default:
+                    break;
+            }
+            return IDefaultModelVisitor.super.visitStructuredActivityNode(obj);
+        }
+
+        @objid ("5a016580-c7e9-41d9-aa83-0546c98b2a16")
         @Override
         public final Object visitTemplateParameter(TemplateParameter obj) {
             switch (this.stName) {
@@ -806,84 +904,7 @@ public class ModelerModuleProxyFactory {
             return IDefaultModelVisitor.super.visitTemplateParameter(obj);
         }
 
-        @objid ("54c43e05-8d59-43c5-8c40-5ec95b6ba164")
-        @Override
-        public final Object visitArtifact(Artifact obj) {
-            switch (this.stName) {
-                case org.modelio.module.modelermodule.api.default_.standard.artifact.ModelComponentArchive.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.artifact.ModelComponentArchive.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.artifact.Executable.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.artifact.Executable.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.artifact.Library.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.artifact.Library.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.artifact.Directory.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.artifact.Directory.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.artifact.File.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.artifact.File.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.artifact.Url.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.artifact.Url.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.artifact.Mail.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.artifact.Mail.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.artifact.Document.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.artifact.Document.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.artifact.UML2DeploymentSpecification.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.artifact.UML2DeploymentSpecification.instantiate(obj);
-                default:
-                    break;
-            }
-            return IDefaultModelVisitor.super.visitArtifact(obj);
-        }
-
-        @objid ("7560ec90-eb63-462a-b0b2-1e9085a17333")
-        @Override
-        public final Object visitUseCaseDependency(UseCaseDependency obj) {
-            switch (this.stName) {
-                case org.modelio.module.modelermodule.api.default_.standard.usecasedependency.Extend.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.usecasedependency.Extend.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.usecasedependency.Include.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.usecasedependency.Include.instantiate(obj);
-                default:
-                    break;
-            }
-            return IDefaultModelVisitor.super.visitUseCaseDependency(obj);
-        }
-
-        @objid ("2d5ca95c-98af-49d7-88fc-25a1ccde7e86")
-        @Override
-        public final Object visitNote(Note obj) {
-            switch (this.stName) {
-                case org.modelio.module.modelermodule.api.default_.infrastructure.note.ExternalDocument.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.infrastructure.note.ExternalDocument.instantiate(obj);
-                default:
-                    break;
-            }
-            return IDefaultInfrastructureVisitor.super.visitNote(obj);
-        }
-
-        @objid ("403da3c7-16ea-4b3f-a6c2-e54f428b0245")
-        @Override
-        public final Object visitAbstractDiagram(AbstractDiagram obj) {
-            switch (this.stName) {
-                case org.modelio.module.modelermodule.api.default_.infrastructure.abstractdiagram.AutoDiagram.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.infrastructure.abstractdiagram.AutoDiagram.instantiate(obj);
-                default:
-                    break;
-            }
-            return IDefaultInfrastructureVisitor.super.visitAbstractDiagram(obj);
-        }
-
-        @objid ("5c2339e3-b156-42da-86c8-9f1b23b1ddd8")
-        @Override
-        public final Object visitProfile(Profile obj) {
-            switch (this.stName) {
-                case org.modelio.module.modelermodule.api.default_.infrastructure.profile.Methodology.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.infrastructure.profile.Methodology.instantiate(obj);
-                default:
-                    break;
-            }
-            return IDefaultInfrastructureVisitor.super.visitProfile(obj);
-        }
-
-        @objid ("c901a2c8-20ad-435a-a5ee-0ba63526c822")
-        @Override
-        public final Object visitClassifier(Classifier obj) {
-            switch (this.stName) {
-                case org.modelio.module.modelermodule.api.default_.standard.classifier.Metaclass.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.classifier.Metaclass.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.classifier.Process.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.classifier.Process.instantiate(obj);
-                case org.modelio.module.modelermodule.api.default_.standard.classifier.Utility.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.classifier.Utility.instantiate(obj);
-                default:
-                    break;
-            }
-            return IDefaultModelVisitor.super.visitClassifier(obj);
-        }
-
-        @objid ("e43331dd-8682-4c24-ab69-24287f0a15db")
+        @objid ("e6ea7af8-b095-499b-8be3-bec0792ec5a9")
         @Override
         public final Object visitUmlModelElement(UmlModelElement obj) {
             switch (this.stName) {
@@ -896,41 +917,16 @@ public class ModelerModuleProxyFactory {
             return IDefaultModelVisitor.super.visitUmlModelElement(obj);
         }
 
-        @objid ("74126591-4749-4a80-9752-9a2e478dca49")
+        @objid ("993c804c-18ba-42be-8c81-db322fefa48a")
         @Override
-        public final Object visitGeneralization(Generalization obj) {
+        public final Object visitUseCaseDependency(UseCaseDependency obj) {
             switch (this.stName) {
-                case org.modelio.module.modelermodule.api.default_.standard.generalization.Implementation.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.generalization.Implementation.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.generalization.UML2GeneralizationSet.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.generalization.UML2GeneralizationSet.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.usecasedependency.Extend.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.usecasedependency.Extend.instantiate(obj);
+                case org.modelio.module.modelermodule.api.default_.standard.usecasedependency.Include.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.default_.standard.usecasedependency.Include.instantiate(obj);
                 default:
                     break;
             }
-            return IDefaultModelVisitor.super.visitGeneralization(obj);
-        }
-
-        @objid ("87f77ed0-e603-41db-a506-ca2a1195271c")
-        @Override
-        public final Object visitEvent(Event obj) {
-            switch (this.stName) {
-                case org.modelio.module.modelermodule.api.xmi.standard.event.UML2CreationEvent.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.event.UML2CreationEvent.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.event.UML2DestructionEvent.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.event.UML2DestructionEvent.instantiate(obj);
-                case org.modelio.module.modelermodule.api.xmi.standard.event.UML2ExecutionEvent.STEREOTYPE_NAME: return org.modelio.module.modelermodule.api.xmi.standard.event.UML2ExecutionEvent.instantiate(obj);
-                default:
-                    break;
-            }
-            return IDefaultModelVisitor.super.visitEvent(obj);
-        }
-
-        /**
-         * Get the visitor to delegate to when a {@link IInfrastructureVisitor} is needed.
-         * <p>If null is returned the caller will return null.
-         * 
-         * @return the {@link IInfrastructureVisitor} visitor or <i>null</i>.
-         */
-        @objid ("3dc82743-949e-4ef6-bcf8-dddd2e3572be")
-        @Override
-        public IInfrastructureVisitor getInfrastructureVisitor() {
-            return this;
+            return IDefaultModelVisitor.super.visitUseCaseDependency(obj);
         }
 
     }

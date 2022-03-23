@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.helpers.palapi;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -40,11 +39,12 @@ class NodeToolActionDescriptor implements ICreationActionDescriptor {
     private final Command command;
 
     @objid ("9551d04a-bd9b-4cba-b906-94a02164f46e")
-    public NodeToolActionDescriptor(PaletteEntry tool, CreateRequest request, Command command) {
+    public  NodeToolActionDescriptor(PaletteEntry tool, CreateRequest request, Command command) {
         super();
         this.tool = tool;
         this.request = request;
         this.command = command;
+        
     }
 
     @objid ("2af5375e-1422-45b5-a6f4-a569605b0ca8")
@@ -53,6 +53,7 @@ class NodeToolActionDescriptor implements ICreationActionDescriptor {
         if (this.command != null && this.command.canExecute()) {
             viewer.getEditDomain().getCommandStack().execute(this.command);
         }
+        
     }
 
     @objid ("7ed5b2f7-ed88-4b15-bdc5-005d564a2614")

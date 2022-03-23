@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.requests;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,17 +29,49 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 @objid ("80dab5be-1dec-11e2-8cad-001ec947c8cc")
 public interface CreateLinkConstants {
     /**
+     * Request property whose presence tells the Request is a user interaction request.
+     * <p>
+     * The edit policy may then deny interaction if a required diagram graphic is not editable by the user.
+     */
+    @objid ("a3626875-5552-4a6e-99c2-6861e3319797")
+    public static final String PROP_USER_INTERACTION = "is user interaction";
+
+    /**
+     * REQ_RECONNECT_XXX Request property requesting an anchor on the same face than the given anchor.
+     * <p>
+     * The value is expected to be a compatible {@link org.eclipse.draw2d.ConnectionAnchor ConnectionAnchor}.
+     */
+    @objid ("60d0afd8-c1c3-46ba-a9f8-107f86d0dd94")
+    public static final String PROP_RECONNECT_ON_SAME_FACE = "on same face than given anchor";
+
+    /**
+     * REQ_RECONNECT_XXX Request property requesting an anchor on the given figure instead of the
+     * target edit part figure.
+     * <p>
+     * The value is expected to be a {@link org.eclipse.draw2d.IFigure IFigure}.
+     * <p>
+     * Used for feedback display when the feedback figure is not the main figure.
+     */
+    @objid ("c7edf5fe-35fb-4c10-ba77-5dcb6b0c9ff3")
+    public static final String PROP_RECONNECT_ON_FIGURE = "reconnect on given figure";
+
+    /**
+     * Connection creation and reconnection Request property requesting a slidable anchor.
+     * <p>
+     * The value is expected to be a boolean.
+     */
+    @objid ("5c743a72-312c-4b9a-ad40-91ea579b95ba")
+    public static final String PROP_NEED_SLIDABLE_ANCHOR = "need slidable anchor";
+
+    /**
      * Request type for {@link org.eclipse.gef.requests.CreateConnectionRequest CreateConnectionRequest} asking to add a
      * bend point.
      */
     @objid ("9367ac25-1e83-11e2-8cad-001ec947c8cc")
     public static final String REQ_CONNECTION_ADD_BENDPOINT = "add bendpoint to future connection";
 
-    /**
-     * Key to retrieve the link path in the request.
-     */
-    @objid ("9367ac2b-1e83-11e2-8cad-001ec947c8cc")
-    public static final String PROP_PATH = "link path";
+    @objid ("9a89c394-60a4-4370-a4e1-795331b3c0d7")
+    public static final String REQ_CONNECTION_CREATE_LINK_CHOOSENODE = "propose node creation at the end of the link";
 
     /**
      * Request type for {@link org.eclipse.gef.requests.CreateConnectionRequest CreateConnectionRequest} asking to set
@@ -49,15 +80,22 @@ public interface CreateLinkConstants {
     @objid ("9367ac31-1e83-11e2-8cad-001ec947c8cc")
     public static final String REQ_CONNECTION_SET_LAST_BENDPOINT = "set last bendpoint of future connection";
 
-    @objid ("9a89c394-60a4-4370-a4e1-795331b3c0d7")
-    public static final String REQ_CONNECTION_CREATE_LINK_CHOOSENODE = "propose node creation at the end of the link";
+    /**
+     * Request type asking the ConnectionEditPart to update the routing constraint in the model.
+     * <p>
+     * Emitted by DefaultCreateLinkPolicy.
+     * Implemented by the AutoOrthoConnEndPointEditPolicy to update the routing constraint from the feedback figure.
+     */
+    @objid ("72989dda-85fe-4c64-864d-307be1edf52d")
+    public static final String REQ_CONNECTION_UPDATE_ROUTING_CONSTRAINT = "Update connection routing constraint";
 
     /**
-     * Request property whose presence tells the Request is a user interaction request.
+     * Request type asking to move a ConnectionEditPart segment.
      * <p>
-     * The edit policy may then deny interaction if a required diagram graphic is not editable by the user.
+     * Emitted by ConnectionSegmentTracker.
+     * Implemented by connection bend point edit policies .
      */
-    @objid ("a3626875-5552-4a6e-99c2-6861e3319797")
-    public static final String PROP_USER_INTERACTION = "is user interaction";
+    @objid ("65a26ec8-3e99-4081-ae74-19b47c543e09")
+    public static final String REQ_CONNECTION_MOVE_SEGMENT = "move connection segment";
 
 }

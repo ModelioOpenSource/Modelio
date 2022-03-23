@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.cert;
 
 import java.io.PrintWriter;
@@ -35,12 +34,12 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.naming.NamingException;
 import javax.naming.directory.Attribute;
 import javax.naming.ldap.LdapName;
 import javax.naming.ldap.Rdn;
 import javax.security.auth.x500.X500Principal;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.nebula.widgets.pgroup.PGroup;
@@ -105,7 +104,7 @@ public class UntrustedServerDialog extends ModelioDialog {
      * @param error the error
      */
     @objid ("ade4fc4d-e4ae-47f7-9b7d-498fdab65c9f")
-    public UntrustedServerDialog(Shell parentShell, URI uri, X509Certificate[] chain, Throwable error) {
+    public  UntrustedServerDialog(Shell parentShell, URI uri, X509Certificate[] chain, Throwable error) {
         super(parentShell);
         this.error = error;
         this.uri = uri;
@@ -114,6 +113,7 @@ public class UntrustedServerDialog extends ModelioDialog {
         // FANO 0014264: [SaaS][Linux] At first launch, the 'Unsecured connection' window appears behind the splash screen
         // Copy parent shell SWT.ON_TOP state
         setShellStyle(getShellStyle() | (getParentShell().getStyle() & (SWT.ON_TOP)));
+        
     }
 
     @objid ("af3961dc-a96e-465d-926f-70ee31ef257c")
@@ -285,6 +285,7 @@ public class UntrustedServerDialog extends ModelioDialog {
         default:
             super.buttonPressed(buttonId);
         }
+        
     }
 
     @objid ("3fdadaa1-2b09-4ede-ac0a-9361a887c363")
@@ -293,6 +294,7 @@ public class UntrustedServerDialog extends ModelioDialog {
         getShell().setText(CoreUi.I18N.getMessage("UntrustedServerDialog.title"));
         setTitle(CoreUi.I18N.getString("UntrustedServerDialog.header"));
         setMessage(this.uri.getHost());
+        
     }
 
     @objid ("b857902a-c6a1-4352-a817-c54257455fe8")
@@ -381,6 +383,7 @@ public class UntrustedServerDialog extends ModelioDialog {
         } catch (NamingException e) {
             return e.toString() + "( from " + pr.toString() + ")";
         }
+        
     }
 
     @objid ("3fe1a65c-7a87-4a90-9400-51f34dc5e18b")
@@ -428,6 +431,7 @@ public class UntrustedServerDialog extends ModelioDialog {
                 ret.x = wHint;
             return ret;
             //return composite.getSize();
+            
         }
 
         @objid ("68a45e70-9713-4a44-9504-d293670b61d1")
@@ -504,6 +508,7 @@ public class UntrustedServerDialog extends ModelioDialog {
                     y += b.height + this.vSpacing;
                 }
             }
+            
         }
 
     }

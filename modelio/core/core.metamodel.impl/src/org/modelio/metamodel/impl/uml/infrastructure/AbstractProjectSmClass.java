@@ -17,20 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.diagrams.DiagramSet;
 import org.modelio.metamodel.impl.diagrams.DiagramSetSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.AbstractProjectData;
-import org.modelio.metamodel.impl.uml.infrastructure.ModelElementSmClass;
 import org.modelio.metamodel.uml.infrastructure.AbstractProject;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.vbasic.version.Version;
@@ -50,7 +48,7 @@ public class AbstractProjectSmClass extends ModelElementSmClass {
     private SmDependency diagramRootDep;
 
     @objid ("a0f88ae2-b60a-4f24-b659-29b4681ac428")
-    public AbstractProjectSmClass(ISmMetamodelFragment origin) {
+    public  AbstractProjectSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -58,6 +56,7 @@ public class AbstractProjectSmClass extends ModelElementSmClass {
     @Override
     public String getName() {
         return "AbstractProject";
+        
     }
 
     @objid ("9f6d49fa-e503-41e0-8ef2-ff6b40881d31")
@@ -70,18 +69,21 @@ public class AbstractProjectSmClass extends ModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return AbstractProject.class;
+        
     }
 
     @objid ("890e0f5d-bdaa-4ead-a7e3-38c89b6830d9")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("8184a3fa-da9b-49a8-97d7-20cba0466b19")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("3d6adf62-5c45-497e-98e4-c4b8b2e4fa66")
@@ -97,6 +99,8 @@ public class AbstractProjectSmClass extends ModelElementSmClass {
         this.diagramRootDep = new DiagramRootSmDependency();
         this.diagramRootDep.init("DiagramRoot", this, metamodel.getMClass(DiagramSet.MQNAME), 1, 1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.diagramRootDep);
+        
+        
     }
 
     @objid ("e5ce6da7-3422-46c3-986a-b142e002455e")
@@ -113,7 +117,7 @@ public class AbstractProjectSmClass extends ModelElementSmClass {
         private AbstractProjectSmClass smClass;
 
         @objid ("6a3635ad-20cf-4ae7-a2da-17b3dd7c095f")
-        public AbstractProjectObjectFactory(AbstractProjectSmClass smClass) {
+        public  AbstractProjectObjectFactory(AbstractProjectSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -155,6 +159,7 @@ public class AbstractProjectSmClass extends ModelElementSmClass {
             	this.symetricDep = ((DiagramSetSmClass)this.getTarget()).getOwnerDep();
             }
             return this.symetricDep;
+            
         }
 
     }

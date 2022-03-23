@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.util.Collections;
@@ -55,17 +54,15 @@ public class PartDecompositionPropertyModel extends AbstractPropertyModel<PartDe
     /**
      * Create a new <i>PartDecomposition</i> data model from an
      * <i>PartDecomposition</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("ee49f5ef-b740-47e5-9cc7-46fd89c72ad7")
-    public PartDecompositionPropertyModel(PartDecomposition theEditedElement) {
+    public  PartDecompositionPropertyModel(PartDecomposition theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("327ef688-1919-40b7-872a-f4bdcb6d7f2d")
@@ -76,7 +73,6 @@ public class PartDecompositionPropertyModel extends AbstractPropertyModel<PartDe
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("08e2568c-ac48-4269-8b72-3ec646e59f69")
@@ -89,7 +85,6 @@ public class PartDecompositionPropertyModel extends AbstractPropertyModel<PartDe
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -113,6 +108,7 @@ public class PartDecompositionPropertyModel extends AbstractPropertyModel<PartDe
         default:
             return null;
         }
+        
     }
 
     /**
@@ -122,7 +118,6 @@ public class PartDecompositionPropertyModel extends AbstractPropertyModel<PartDe
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -148,13 +143,13 @@ public class PartDecompositionPropertyModel extends AbstractPropertyModel<PartDe
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -182,6 +177,7 @@ public class PartDecompositionPropertyModel extends AbstractPropertyModel<PartDe
         default:
             return;
         }
+        
     }
 
 }

@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.opaqueaction;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("252a50bd-33e4-44b6-8714-24f08fe1b5b4")
 public class UML2ReclassifyObjectAction {
-    @objid ("81eee219-49f3-4db6-a91a-266def1018f1")
+    @objid ("2ecd74bd-bcc6-4a8e-a06a-72b04dd7e600")
     public static final String STEREOTYPE_NAME = "UML2ReclassifyObjectAction";
 
     /**
      * The underlying {@link OpaqueAction} represented by this proxy, never null.
      */
-    @objid ("ada2f356-a17d-4b1e-9baf-cbcecc7ff3b7")
+    @objid ("69912e80-c78c-4cf6-bea1-64a34e72123d")
     protected final OpaqueAction elt;
 
     /**
      * Tells whether a {@link UML2ReclassifyObjectAction proxy} can be instantiated from a {@link MObject} checking it is a {@link OpaqueAction} stereotyped << UML2ReclassifyObjectAction >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("ab433618-24c1-4d12-bc76-3cf4c8a9d7c7")
+    @objid ("dd47dcad-9fc6-45fa-9f60-8ceb67039b1b")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof OpaqueAction) && ((OpaqueAction) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2ReclassifyObjectAction.STEREOTYPE_NAME));
     }
@@ -77,9 +75,9 @@ public class UML2ReclassifyObjectAction {
      * 
      * @return a {@link UML2ReclassifyObjectAction} proxy on the created {@link OpaqueAction}.
      */
-    @objid ("893ad383-9a63-40b0-a747-ce4bcea4f3b2")
+    @objid ("77a8a6f1-19b4-4ab1-b6eb-65e77187042e")
     public static UML2ReclassifyObjectAction create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("OpaqueAction");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.OpaqueAction");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2ReclassifyObjectAction.STEREOTYPE_NAME);
         return UML2ReclassifyObjectAction.instantiate((OpaqueAction)e);
     }
@@ -91,7 +89,7 @@ public class UML2ReclassifyObjectAction {
      * @param obj a OpaqueAction
      * @return a {@link UML2ReclassifyObjectAction} proxy or <i>null</i>.
      */
-    @objid ("86cac7c7-164e-4548-9f13-90f614a68c73")
+    @objid ("37a85460-4a84-47fb-951b-1a4a626b0afe")
     public static UML2ReclassifyObjectAction instantiate(OpaqueAction obj) {
         return UML2ReclassifyObjectAction.canInstantiate(obj) ? new UML2ReclassifyObjectAction(obj) : null;
     }
@@ -104,7 +102,7 @@ public class UML2ReclassifyObjectAction {
      * @return a {@link UML2ReclassifyObjectAction} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("19780e3d-915f-4ee8-8d7d-ab390b971729")
+    @objid ("fcfa0b2e-2d2b-4c82-9d06-b2a9a38c16c8")
     public static UML2ReclassifyObjectAction safeInstantiate(OpaqueAction obj) throws IllegalArgumentException {
         if (UML2ReclassifyObjectAction.canInstantiate(obj))
         	return new UML2ReclassifyObjectAction(obj);
@@ -112,7 +110,7 @@ public class UML2ReclassifyObjectAction {
         	throw new IllegalArgumentException("UML2ReclassifyObjectAction: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("b85a87b0-141d-47b2-a0ef-f0951d09b1a5")
+    @objid ("e93e4e8f-349a-4478-8bc6-145c74b0b49f")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,46 +130,47 @@ public class UML2ReclassifyObjectAction {
      * Get the underlying {@link OpaqueAction}. 
      * @return the OpaqueAction represented by this proxy, never null.
      */
-    @objid ("0195d11a-434b-4812-872b-d04ad9ad0311")
+    @objid ("8eec5539-c70f-40fa-a751-c7bfe1def0c1")
     public OpaqueAction getElement() {
         return this.elt;
     }
 
-    @objid ("15de86b9-9102-4c24-a4a7-cdda4d6919ac")
+    @objid ("1a8bd9cc-664c-4a23-80a5-90df2a648281")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("c2c27098-c464-4024-9b3a-89a2dcc87167")
-    protected UML2ReclassifyObjectAction(OpaqueAction elt) {
+    @objid ("68b19048-388b-406d-bbf1-f5efbc87b908")
+    protected  UML2ReclassifyObjectAction(OpaqueAction elt) {
         this.elt = elt;
     }
 
     @objid ("f677dc83-6f25-4b5e-9fdf-c82ec9c91bd4")
     public static final class MdaTypes {
-        @objid ("5ea93b14-dbb6-4b0a-9818-d2dc5b1c9aba")
+        @objid ("e49ec5aa-41c8-492e-b958-5935ff21007c")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("2e7d83e9-8031-40d0-ae51-b25c2c526e63")
+        @objid ("d3766f7f-ecd0-4fe0-b54d-d4bc78e6452b")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("f71e85e6-7769-441e-a577-376201781555")
+        @objid ("67d914e6-05b4-4cb8-8a1f-735753cdcfa9")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("829c8464-04ae-4006-87d7-e3b5e9291019")
+        @objid ("b6125c4f-6b75-47cb-8e03-70fe3fe820f8")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "229bc921-c2fd-11de-8ac8-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

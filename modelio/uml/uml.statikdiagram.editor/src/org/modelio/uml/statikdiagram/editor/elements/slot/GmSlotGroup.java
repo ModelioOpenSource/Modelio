@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.slot;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -28,8 +27,8 @@ import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.statik.AttributeLink;
 import org.modelio.metamodel.uml.statik.Instance;
 import org.modelio.uml.statikdiagram.editor.elements.instance.GmInstanceStructuredStyleKeys;
@@ -56,17 +55,17 @@ public class GmSlotGroup extends GmGroup {
      * Constructor for deserialization only.
      */
     @objid ("369f28bd-55b7-11e2-877f-002564c97630")
-    public GmSlotGroup() {
+    public  GmSlotGroup() {
+        
     }
 
     /**
      * Creates an attribute group.
-     * 
      * @param diagram The diagram.
      * @param relatedRef The related element reference, must not be null.
      */
     @objid ("36a0af19-55b7-11e2-877f-002564c97630")
-    public GmSlotGroup(IGmDiagram diagram, MRef relatedRef) {
+    public  GmSlotGroup(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -106,12 +105,7 @@ public class GmSlotGroup extends GmGroup {
         } else {
             return false;
         }
-    }
-
-    @objid ("36a0af40-55b7-11e2-877f-002564c97630")
-    @Override
-    public void obElementAdded(MObject movedEl) {
-        refreshFromObModel();
+        
     }
 
     @objid ("36a0af46-55b7-11e2-877f-002564c97630")
@@ -127,6 +121,7 @@ public class GmSlotGroup extends GmGroup {
                     getDiagram().unmask(this, part, null);
             }
         }
+        
     }
 
     @objid ("36a0af49-55b7-11e2-877f-002564c97630")
@@ -137,6 +132,7 @@ public class GmSlotGroup extends GmGroup {
         } else {
             super.styleChanged(property, newValue);
         }
+        
     }
 
     @objid ("36a0af50-55b7-11e2-877f-002564c97630")
@@ -145,6 +141,7 @@ public class GmSlotGroup extends GmGroup {
         refreshFromObModel();
         fireVisibilityChanged();
         super.styleChanged(style);
+        
     }
 
     @objid ("36a235b9-55b7-11e2-877f-002564c97630")
@@ -154,13 +151,13 @@ public class GmSlotGroup extends GmGroup {
             getParent().getDisplayedStyle().setProperty(getStyleKey(MetaKey.REPMODE), RepresentationMode.STRUCTURED);
         }
         getDisplayedStyle().setProperty(GmInstanceStructuredStyleKeys.SLOTGROUPVISIBLE, visible);
+        
     }
 
     /**
      * Checks whether the given model element can be and still be displayed here.
      * <p>
      * Check all conditions except the case where it is already unmasked.
-     * 
      * @param el The element to unmask
      * @return true if it satisfies all conditions, else false.
      */
@@ -187,6 +184,7 @@ public class GmSlotGroup extends GmGroup {
             setHiddenFeature(hasHiddenFeature);
         
         }
+        
     }
 
     @objid ("36a235c9-55b7-11e2-877f-002564c97630")
@@ -206,6 +204,7 @@ public class GmSlotGroup extends GmGroup {
                 break;
             }
         }
+        
     }
 
     @objid ("36a235cf-55b7-11e2-877f-002564c97630")
@@ -215,6 +214,7 @@ public class GmSlotGroup extends GmGroup {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmSlotGroup.", GmSlotGroup.MINOR_VERSION);
+        
     }
 
     @objid ("36a235d5-55b7-11e2-877f-002564c97630")

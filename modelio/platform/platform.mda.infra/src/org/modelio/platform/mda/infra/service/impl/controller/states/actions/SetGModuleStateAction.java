@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.controller.states.actions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,9 +41,10 @@ public class SetGModuleStateAction implements IModuleStateAction {
      * @param state the activation state
      */
     @objid ("d7051218-9269-47a0-b2a8-c74a1375101e")
-    public SetGModuleStateAction(IRTModule module, boolean state) {
+    public  SetGModuleStateAction(IRTModule module, boolean state) {
         this.module = module;
         this.state = state;
+        
     }
 
     @objid ("ce1c3e68-9f00-4b88-8009-7fdf4f287c94")

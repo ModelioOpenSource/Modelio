@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.interactionoperand;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -25,9 +24,17 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.gef.EditPart;
+import org.eclipse.gef.EditPolicy;
+import org.eclipse.gef.editpolicies.SelectionEditPolicy;
+import org.modelio.diagram.elements.common.portcontainer.AutoSizeEditPolicy2;
+import org.modelio.diagram.elements.common.portcontainer.LayoutMainNodeConnectionsEditPolicy;
 import org.modelio.diagram.elements.common.portcontainer.PortConstraint;
 import org.modelio.diagram.elements.common.portcontainer.PortContainerEditPart;
+import org.modelio.diagram.elements.common.portcontainer.PortContainerEditPolicy;
 import org.modelio.diagram.elements.common.portcontainer.PortContainerLayout;
+import org.modelio.diagram.elements.core.policies.LayoutConnectionsConstrainedLayoutEditPolicyDecorator;
+import org.modelio.diagram.elements.core.policies.LayoutNodeConnectionsEditPolicy;
 
 /**
  * EditPart for InteractionOperand. Handles specificity of gates.
@@ -43,6 +50,35 @@ public class InteractionOperandEditPart extends PortContainerEditPart {
         IFigure fig = super.createFigure();
         fig.setLayoutManager(new InteractionOperandPortLayout());
         return fig;
+    }
+
+    @objid ("482c00d5-95d8-4783-b75b-03cc37a99234")
+    @Override
+    protected void createEditPolicies() {
+        super.createEditPolicies();
+        removeEditPolicy(LayoutMainNodeConnectionsEditPolicy.ROLE);
+        
+    }
+
+    @objid ("565765ef-4b44-4e4f-a7ec-83ba2774d05f")
+    @Override
+    public SelectionEditPolicy getPreferredDragRolePolicy(String requestType) {
+        return new AutoSizeEditPolicy2() {
+            @Override
+            public void activate() {
+                super.activate();
+        
+                EditPart host = getHost();
+                host.removeEditPolicy(LayoutNodeConnectionsEditPolicy.ROLE);
+            }
+        };
+        
+    }
+
+    @objid ("cc726d27-d96b-4512-8cae-a40a3f02449c")
+    @Override
+    protected EditPolicy createLayoutPolicyDecorator(EditPolicy layoutPolicy) {
+        return new LayoutConnectionsConstrainedLayoutEditPolicyDecorator((PortContainerEditPolicy) layoutPolicy);
     }
 
     /**
@@ -91,6 +127,7 @@ public class InteractionOperandEditPart extends PortContainerEditPart {
                     child.setSize(child.getPreferredSize());
                 }
             }
+            
         }
 
     }

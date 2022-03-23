@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.contributor;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.swt.graphics.Image;
 import org.modelio.api.modelio.model.scope.ElementScope;
@@ -82,6 +81,7 @@ public class ClassDiagramCreationContributor extends AbstractDiagramWizardContri
         } else {
             return null;
         }
+        
     }
 
     @objid ("6c417de3-8a3a-4df2-bfff-f68afedc86d3")
@@ -110,6 +110,7 @@ public class ClassDiagramCreationContributor extends AbstractDiagramWizardContri
         } else {
             return this.mmServices.getMetamodel();
         }
+        
     }
 
     @objid ("1db20c1e-e4df-4f1f-9dc1-da9f8a4368de")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.semantic.browser.panel;
 
 import java.util.Collection;
@@ -43,36 +42,40 @@ import org.modelio.vcore.smkernel.meta.SmFeature;
  */
 @objid ("67025aae-5345-4814-93f7-6f250c3f0ef6")
 public class SmNode {
+    
     @mdl.prop
     @objid ("eceed66b-9a89-48d0-bf0b-9ebcfb997dc2")
     private final MObject obj;
 
     @mdl.propgetter
     public MObject getObj() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.obj;
     }
 
+    
     @mdl.prop
     @objid ("7288d630-5664-4935-b15e-afb7733e1cc6")
     private final SmFeature feature;
 
     @mdl.propgetter
     public SmFeature getFeature() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.feature;
     }
 
     @objid ("3a97d441-b17d-44bd-968c-00081249f4e6")
-    public SmNode(MObject mObj, MDependency mDep) {
+    public  SmNode(MObject mObj, MDependency mDep) {
         this.obj = mObj;
         this.feature = (SmFeature) mDep;
+        
     }
 
     @objid ("221b0728-6c6d-4d5d-ac91-1717dfc4b843")
-    public SmNode(MObject mObj, MAttribute mAtt) {
+    public  SmNode(MObject mObj, MAttribute mAtt) {
         this.obj = mObj;
         this.feature = (SmFeature)mAtt;
+        
     }
 
     @objid ("8f3644f9-7f00-4140-b819-746a38c28735")
@@ -118,7 +121,6 @@ public class SmNode {
     /**
      * For a SmDependency, return its contents.
      * For a SmAttribute return nothing.
-     * 
      * @return the tree node children
      */
     @objid ("2f8fc558-4e88-47b2-afb7-605daf6eda20")

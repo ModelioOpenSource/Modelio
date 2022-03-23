@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel.data.standard.infrastructure;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,11 +35,10 @@ public class ProfilePropertyModel extends AbstractPropertyModel<Profile> {
 
     /**
      * Instantiate the profile properties view.
-     * 
      * @param theEditedElement the current profile.
      */
     @objid ("46ca4c30-6f85-4cb3-8ab0-deb41fe62e87")
-    public ProfilePropertyModel(Profile theEditedElement) {
+    public  ProfilePropertyModel(Profile theEditedElement) {
         super(theEditedElement);
     }
 
@@ -73,6 +71,7 @@ public class ProfilePropertyModel extends AbstractPropertyModel<Profile> {
         default:
             return null;
         }
+        
     }
 
     @objid ("39bed1c1-f483-47a7-8bc4-f0240a7839ce")
@@ -93,6 +92,7 @@ public class ProfilePropertyModel extends AbstractPropertyModel<Profile> {
         default:
             return null;
         }
+        
     }
 
     @objid ("5d9a43d0-904f-4766-9e46-625281bf0d91")
@@ -127,6 +127,7 @@ public class ProfilePropertyModel extends AbstractPropertyModel<Profile> {
         default:
             return;
         }
+        
     }
 
 }

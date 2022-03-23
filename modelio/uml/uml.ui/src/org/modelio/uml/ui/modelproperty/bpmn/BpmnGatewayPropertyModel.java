@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -49,21 +48,19 @@ public class BpmnGatewayPropertyModel extends AbstractPropertyModel<BpmnGateway>
      */
     @objid ("43da79ae-dad6-4ce2-ae22-14d71ecc6b1b")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name",
-			"GatewayDirection" };
+    			"GatewayDirection" };
 
     /**
      * Create a new <i>BpmnGateway</i> data model from an <i>BpmnGateway</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("92874b09-3be6-4595-835e-05eee023e38d")
-    public BpmnGatewayPropertyModel(BpmnGateway theEditedElement) {
+    public  BpmnGatewayPropertyModel(BpmnGateway theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("da864ec9-5e82-4da2-80fe-50ebb4e3d33f")
@@ -74,7 +71,6 @@ public class BpmnGatewayPropertyModel extends AbstractPropertyModel<BpmnGateway>
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("986bf948-2f0c-4f61-ae8c-89e4e048c6dc")
@@ -87,7 +83,6 @@ public class BpmnGatewayPropertyModel extends AbstractPropertyModel<BpmnGateway>
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -111,6 +106,7 @@ public class BpmnGatewayPropertyModel extends AbstractPropertyModel<BpmnGateway>
         default:
             return null;
         }
+        
     }
 
     /**
@@ -120,7 +116,6 @@ public class BpmnGatewayPropertyModel extends AbstractPropertyModel<BpmnGateway>
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -145,13 +140,13 @@ public class BpmnGatewayPropertyModel extends AbstractPropertyModel<BpmnGateway>
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -179,6 +174,7 @@ public class BpmnGatewayPropertyModel extends AbstractPropertyModel<BpmnGateway>
         default:
             return;
         }
+        
     }
 
 }

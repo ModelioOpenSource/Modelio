@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.gproject;
 
 import java.io.IOException;
@@ -51,15 +50,14 @@ public class GProjectFactory {
 
     /**
      * Get the remote project descriptor for a project descriptor.
-     * 
      * @param projectDescriptor a project descriptor.
      * @param authData authentication data.
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call
      * <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be
      * reported and that the operation cannot be cancelled.
      * @return the remote project descriptor.
-     * @throws java.io.IOException in case of failure
-     * @throws org.modelio.gproject.gproject.GProjectAuthenticationException in case of authentication failure.
+     * @throws IOException in case of failure
+     * @throws GProjectAuthenticationException in case of authentication failure.
      */
     @objid ("96d74dc5-cf49-4d1a-8670-fdb5001db4ab")
     public static ProjectDescriptor getRemoteDescriptor(ProjectDescriptor projectDescriptor, IAuthData authData, IModelioProgress monitor) throws IOException, GProjectAuthenticationException {
@@ -71,11 +69,11 @@ public class GProjectFactory {
             // No remote descriptor for local projects
             return null;
         }
+        
     }
 
     /**
      * Tells whether the given path is a project space path.
-     * 
      * @param projectPath a directory path
      * @return <code>true</code> if it is a project space path, else
      * <code>false</code>.
@@ -88,7 +86,6 @@ public class GProjectFactory {
 
     /**
      * Register a project factory.
-     * 
      * @param f a project factory.
      */
     @objid ("da64af38-0e3b-11e2-8e4b-001ec947ccaf")
@@ -98,10 +95,9 @@ public class GProjectFactory {
 
     /**
      * Create a ProjectDescriptor from a project directory.
-     * 
      * @param projectDir the project directory.
      * @return the read project descriptor.
-     * @throws java.io.IOException in case of error reading the configuration file.
+     * @throws IOException in case of error reading the configuration file.
      */
     @objid ("ea6edf6a-d50f-4f48-a07c-7bf27a487875")
     public static ProjectDescriptor readProjectDirectory(final Path projectDir) throws IOException {
@@ -129,7 +125,6 @@ public class GProjectFactory {
      * Get the custom factory supporting the given descriptor.
      * <p>
      * Returns <code>null</code> if no such factory is found.
-     * 
      * @param desc the project descriptor to load
      * @return the found factory or <code>null</code>.
      */
@@ -153,10 +148,9 @@ public class GProjectFactory {
 
     /**
      * Test whether a project is locked.
-     * 
      * @param desc a project descriptor.
      * @return lock informations if the project is locked, else <i>null</i>.
-     * @throws java.io.IOException in case of I/O failure
+     * @throws IOException in case of I/O failure
      */
     @objid ("2730c29a-29f2-48da-bf37-e87126767e2b")
     public static ILockInfo getLockInformations(final ProjectDescriptor desc) throws IOException {
@@ -170,13 +164,12 @@ public class GProjectFactory {
      * No instance.
      */
     @objid ("b9e9ef93-f4b0-4a03-bb48-fc37f1f6cfa5")
-    private GProjectFactory() {
+    private  GProjectFactory() {
         // No instance
     }
 
     /**
      * Initialize a GProject builder.
-     * 
      * @param projectDescriptor a project descriptor.
      * @return a GProject builder to be configured.
      */
@@ -187,21 +180,19 @@ public class GProjectFactory {
 
     /**
      * Initialize a GProject builder from a project directory.
-     * 
      * @param projectDir the project directory
      * @return a GProject builder to be configured.
-     * @throws java.io.IOException in case of error reading the configuration file.
+     * @throws IOException in case of error reading the configuration file.
      */
     @objid ("da9e65b6-370b-4475-8934-b625221dcc8a")
     public static IBuilderMissingMetamodel fromProjectDirectory(Path projectDir) throws IOException {
         return new Builder(GProjectFactory.readProjectDirectory(projectDir));
     }
-
-
 static {
-        // Register the URI project factory.
-        GProjectFactory.factories.add(new GUrlProjectFactory());
-    }
+            // Register the URI project factory.
+            GProjectFactory.factories.add(new GUrlProjectFactory());
+        }
+    
     /**
      * Interface for {@link Builder} to force the caller to initialize the metamodel fragments
      * before calling optional methods.
@@ -220,7 +211,6 @@ static {
 
         /**
          * Set the module catalog and the metamodel fragments from an existing project environment.
-         * 
          * @param configuration an already configured project environment to copy.
          * @return this builder with new methods accessible.
          */
@@ -229,7 +219,6 @@ static {
 
         /**
          * Use the same modules catalog and metamodel fragments as another project.
-         * 
          * @param aProject another project. The project must be open.
          * @return this builder with new methods accessible.
          */
@@ -262,7 +251,7 @@ static {
          * @param projectDescriptor the mandatory project descriptor
          */
         @objid ("d92fa5ec-2fe2-4378-92aa-8c0e00ef33e8")
-        public Builder(ProjectDescriptor projectDescriptor) {
+        public  Builder(ProjectDescriptor projectDescriptor) {
             this.projectDescriptor = projectDescriptor;
         }
 
@@ -289,7 +278,6 @@ static {
 
         /**
          * Set the module catalog and the metamodel fragments from an existing project environment.
-         * 
          * @param configuration2 an already configured project environment to copy.
          * @return this builder to chain calls.
          */
@@ -314,7 +302,6 @@ static {
 
         /**
          * Use the same modules catalog and metamodel fragments as another project.
-         * 
          * @param aProject another project. The project must be open.
          * @return this builder to chain calls.
          */
@@ -334,7 +321,6 @@ static {
          * The monitor will remain once the project is open.
          * If it is not your intended behavior you have to remove it from the project manually
          * after having opened it.
-         * 
          * @param aeventListener a project event monitor
          * @return this builder to chain calls.
          */
@@ -348,12 +334,11 @@ static {
          * Create a GProject from a project descriptor without opening it.
          * <p>
          * Next step is either to synchronize it or opening it.
-         * 
          * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call
          * <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be
          * reported and that the operation cannot be cancelled.
          * @return the loaded project.
-         * @throws java.io.IOException on failure
+         * @throws IOException on failure
          */
         @objid ("7222be4b-d8bb-4d19-ba62-bd3afedd4029")
         public GProject load(IModelioProgress monitor) throws IOException {
@@ -383,6 +368,7 @@ static {
                 project.load(this.projectDescriptor, this.authData, this.configuration, monitor);
                 return project;
             }
+            
         }
 
         /**
@@ -390,7 +376,7 @@ static {
          * <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be
          * reported and that the operation cannot be cancelled.
          * @return the loaded project.
-         * @throws java.io.IOException on failure
+         * @throws IOException on failure
          */
         @objid ("589297ac-354f-4dae-b085-e73abe887143")
         public GProject open(IModelioProgress monitor) throws IOException {

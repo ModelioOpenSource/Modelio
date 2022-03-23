@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.textelement;
 
 import java.util.ArrayList;
@@ -92,28 +91,27 @@ public class PopupChooser extends PopupDialog {
     protected Composite parent;
 
     @objid ("ab7ee49d-e6e2-4d2f-b802-bbbb6a6e6026")
-     MObject selected;
+    MObject selected;
 
     @objid ("3e7809d8-bc20-408c-9878-58465efaaa46")
-     TableViewer tableViewer;
+    TableViewer tableViewer;
 
-/*
-     * Auxialiary popup showing detailed information about the selected
-     * proposal..
-     */
+    /*
+         * Auxialiary popup showing detailed information about the selected
+         * proposal..
+         */
     @objid ("7ad9227d-057c-4cd0-b352-61be67e243da")
     private InfoPopup infoPopup;
 
     /**
      * Constructor initializing a ProposalPopup.
-     * 
      * @param control the swt control displaying the popup.
      * @param elements the elements to display in the popup.
      * @param proposeNullValue indicates whether or not the "null" value must be shown in the
      * popup.
      */
     @objid ("535d4103-ad37-4e13-95c5-da5f85edcff9")
-    public PopupChooser(final Control control, final List<? extends MObject> elements, final boolean proposeNullValue) {
+    public  PopupChooser(final Control control, final List<? extends MObject> elements, final boolean proposeNullValue) {
         super(control.getShell(), PopupDialog.INFOPOPUPRESIZE_SHELLSTYLE,
                 /* take focus */true,
                 /* persist size */false,
@@ -144,11 +142,11 @@ public class PopupChooser extends PopupDialog {
             height = PopupChooser.POPUP_MIN_HEIGHT;
         }
         this.listRectangle = control.getDisplay().map(this.parent, null, new Rectangle(posX, posY, width, height));
+        
     }
 
     /**
      * Open a popup to choose elements from.
-     * 
      * @param previousSelectedElt The initial selection
      * @return the element chosen in the popup. Might be <code>null</code>.
      */
@@ -319,7 +317,6 @@ public class PopupChooser extends PopupDialog {
 
     /**
      * Build the element description that is displayed in the info popup
-     * 
      * @param element @return
      */
     @objid ("e0d440de-72f1-4e47-a2dd-b1c855d4950d")
@@ -353,6 +350,7 @@ public class PopupChooser extends PopupDialog {
                 () -> doShowInfoPopup());
         
         this.infoPopupIsPending = true;
+        
     }
 
     /**
@@ -380,6 +378,7 @@ public class PopupChooser extends PopupDialog {
             this.infoPopup.close();
         }
         this.infoPopupIsPending = false;
+        
     }
 
     /**
@@ -407,7 +406,7 @@ public class PopupChooser extends PopupDialog {
          * Construct an info-popup with the specified parent.
          */
         @objid ("1f06a357-9c2c-4f75-b61b-211cffcd7905")
-        InfoPopup(Shell parent) {
+         InfoPopup(Shell parent) {
             super(parent, 
                     PopupDialog.HOVER_SHELLSTYLE | SWT.RESIZE, 
                     /* takefocusOnOpen */false, 
@@ -417,6 +416,7 @@ public class PopupChooser extends PopupDialog {
                     /* showPersistActions */false, 
                     /* titleText */null, 
                     /* infoText */null);
+            
         }
 
         @objid ("d8dc3933-d23c-4112-bc20-922dfefd5292")
@@ -477,6 +477,7 @@ public class PopupChooser extends PopupDialog {
                 proposedBounds = rightProposedBounds;
             }
             getShell().setBounds(proposedBounds);
+            
         }
 
         @objid ("cf265123-70ac-42fc-b25d-7ad805898c72")
@@ -505,6 +506,7 @@ public class PopupChooser extends PopupDialog {
             if (this.text != null && !this.text.isDisposed()) {
                 this.text.setText(this.contents);
             }
+            
         }
 
         /**

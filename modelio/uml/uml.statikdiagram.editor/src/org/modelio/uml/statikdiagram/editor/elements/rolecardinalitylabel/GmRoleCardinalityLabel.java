@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.rolecardinalitylabel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,9 +38,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
  */
 @objid ("368537da-55b7-11e2-877f-002564c97630")
 public class GmRoleCardinalityLabel extends GmElementLabel {
-    @objid ("368537de-55b7-11e2-877f-002564c97630")
-    private AssociationEnd role;
-
     /**
      * Current version of this Gm. Defaults to 0.
      */
@@ -51,17 +47,20 @@ public class GmRoleCardinalityLabel extends GmElementLabel {
     @objid ("368537e4-55b7-11e2-877f-002564c97630")
     private static final int MAJOR_VERSION = 0;
 
+    @objid ("368537de-55b7-11e2-877f-002564c97630")
+    private AssociationEnd role;
+
     /**
      * Creates a role cardinality label.
-     * 
      * @param diagram The diagram
      * @param role The represented role, may be null
      * @param roleRef The represented role reference, may not be null
      */
     @objid ("368537e6-55b7-11e2-877f-002564c97630")
-    public GmRoleCardinalityLabel(IGmDiagram diagram, AssociationEnd role, MRef roleRef) {
+    public  GmRoleCardinalityLabel(IGmDiagram diagram, AssociationEnd role, MRef roleRef) {
         super(diagram, roleRef);
         this.role = role;
+        
     }
 
     @objid ("368537f2-55b7-11e2-877f-002564c97630")
@@ -94,7 +93,8 @@ public class GmRoleCardinalityLabel extends GmElementLabel {
      * Constructor for deserialization only.
      */
     @objid ("3686be7d-55b7-11e2-877f-002564c97630")
-    public GmRoleCardinalityLabel() {
+    public  GmRoleCardinalityLabel() {
+        
     }
 
     @objid ("3686be80-55b7-11e2-877f-002564c97630")
@@ -120,12 +120,13 @@ public class GmRoleCardinalityLabel extends GmElementLabel {
             break;
         }
         default: {
-            assert (false) : "version number not covered!";
+            assert false : "version number not covered!";
             // reading as last handled version: 0
             read_0(in);
             break;
         }
         }
+        
     }
 
     @objid ("3686be92-55b7-11e2-877f-002564c97630")
@@ -137,7 +138,12 @@ public class GmRoleCardinalityLabel extends GmElementLabel {
     @objid ("3686be99-55b7-11e2-877f-002564c97630")
     @Override
     public boolean isVisible() {
-        return this.getDisplayedStyle().getProperty(GmAssocStructuredStyleKeys.SHOWCARD);
+        if (getParent() != null) {
+            return this.getDisplayedStyle().getProperty(GmAssocStructuredStyleKeys.SHOWCARD);
+        } else {
+            return false;
+        }
+        
     }
 
     @objid ("3686be9e-55b7-11e2-877f-002564c97630")
@@ -148,27 +154,28 @@ public class GmRoleCardinalityLabel extends GmElementLabel {
             return null;
         }
         return new IEditableText() {
-                    @Override
-                    public String getText() {
-                        return computeLabel();
-                    }
+            @Override
+            public String getText() {
+                return computeLabel();
+            }
         
-                    @Override
-                    public void setText(String text) {
-                        String[] values = text.split("\\.\\.");
+            @Override
+            public void setText(String text) {
+                String[] values = text.split("\\.\\.");
         
-                        if (values.length == 1 && values[0].equals("*")) {
-                            assocEnd.setMultiplicityMin("0");
-                            assocEnd.setMultiplicityMax(values[0]);
-                        } else if (values.length == 1) {
-                            assocEnd.setMultiplicityMin(values[0]);
-                            assocEnd.setMultiplicityMax(values[0]);
-                        } else if (values.length == 2) {
-                            assocEnd.setMultiplicityMin(values[0]);
-                            assocEnd.setMultiplicityMax(values[1]);
-                        }
-                    }
-                };
+                if (values.length == 1 && values[0].equals("*")) {
+                    assocEnd.setMultiplicityMin("0");
+                    assocEnd.setMultiplicityMax(values[0]);
+                } else if (values.length == 1) {
+                    assocEnd.setMultiplicityMin(values[0]);
+                    assocEnd.setMultiplicityMax(values[0]);
+                } else if (values.length == 2) {
+                    assocEnd.setMultiplicityMin(values[0]);
+                    assocEnd.setMultiplicityMax(values[1]);
+                }
+            }
+        };
+        
     }
 
     @objid ("3686bea5-55b7-11e2-877f-002564c97630")
@@ -178,6 +185,7 @@ public class GmRoleCardinalityLabel extends GmElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmRoleCardinalityLabel.", GmRoleCardinalityLabel.MINOR_VERSION);
+        
     }
 
     @objid ("3686beab-55b7-11e2-877f-002564c97630")
@@ -187,6 +195,7 @@ public class GmRoleCardinalityLabel extends GmElementLabel {
         if (resolveRef instanceof AssociationEnd) {
             this.role = (AssociationEnd) resolveRef;
         }
+        
     }
 
     @objid ("36884519-55b7-11e2-877f-002564c97630")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.patterns.properties;
 
 import java.util.List;
@@ -26,14 +25,14 @@ import org.modelio.api.module.IModule;
 import org.modelio.api.module.propertiesPage.AbstractModulePropertyPage;
 import org.modelio.api.module.propertiesPage.IModulePropertyTable;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
-import org.modelio.patterns.model.ProfileUtils.PatternDesignerStereotypes;
 import org.modelio.patterns.model.ProfileUtils;
+import org.modelio.patterns.model.ProfileUtils.PatternDesignerStereotypes;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("51548822-22c4-40ee-935c-2240ef5fd947")
 public class PatternPropertyPage extends AbstractModulePropertyPage {
     @objid ("cc9eca8a-b143-42b6-88f8-ba18e9fea600")
-    public PatternPropertyPage(IModule module, String name, String label, String bitmap) {
+    public  PatternPropertyPage(IModule module, String name, String label, String bitmap) {
         super(module, name, label, bitmap);
     }
 
@@ -51,6 +50,7 @@ public class PatternPropertyPage extends AbstractModulePropertyPage {
             ModelElement element = (ModelElement) selectedElements.get(0);
             getContent(element).changeProperty(element, row, value);
         }
+        
     }
 
     /**
@@ -67,6 +67,7 @@ public class PatternPropertyPage extends AbstractModulePropertyPage {
             ModelElement element = (ModelElement) selectedElements.get(0);
             getContent(element).update(element, table);
         }
+        
     }
 
     @objid ("32ccb059-1e69-4241-b0d6-5940c1eaf04a")

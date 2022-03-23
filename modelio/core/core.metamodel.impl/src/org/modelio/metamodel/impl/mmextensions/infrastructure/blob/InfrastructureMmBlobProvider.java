@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.infrastructure.blob;
 
 import java.util.Collection;
@@ -58,6 +57,7 @@ public class InfrastructureMmBlobProvider implements IBlobProvider {
                 BlobCopier.copy(fromBlobKey, fromRepo, toBlobInfo, toRepo);
             }
         }
+        
     }
 
     @objid ("d58965b1-3a05-4a3a-aa5c-a2eb8d670d9a")
@@ -72,6 +72,7 @@ public class InfrastructureMmBlobProvider implements IBlobProvider {
                 }
             }
         }
+        
     }
 
     @objid ("35325788-6445-499a-9e7d-53db4b4a557e")

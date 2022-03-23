@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.decisionmerge;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,8 +28,8 @@ import org.modelio.diagram.elements.core.node.IImageableNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.DecisionMergeNode;
 import org.modelio.platform.model.ui.swt.images.ElementImageService;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -52,12 +51,11 @@ public class GmDecisionMergePrimaryNode extends GmNoStyleSimpleNode implements I
 
     /**
      * Initialize the graphic node.
-     * 
      * @param diagram The diagram.
      * @param relatedRef the related element reference, may not be null.
      */
     @objid ("2a3fd9cf-55b6-11e2-877f-002564c97630")
-    public GmDecisionMergePrimaryNode(IGmDiagram diagram, MRef relatedRef) {
+    public  GmDecisionMergePrimaryNode(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -65,7 +63,7 @@ public class GmDecisionMergePrimaryNode extends GmNoStyleSimpleNode implements I
      * Constructor for deserialization only.
      */
     @objid ("2a416039-55b6-11e2-877f-002564c97630")
-    public GmDecisionMergePrimaryNode() {
+    public  GmDecisionMergePrimaryNode() {
         // for the serialization
     }
 
@@ -97,6 +95,7 @@ public class GmDecisionMergePrimaryNode extends GmNoStyleSimpleNode implements I
                     }
         
                 };
+        
     }
 
     @objid ("2a416053-55b6-11e2-877f-002564c97630")
@@ -113,7 +112,6 @@ public class GmDecisionMergePrimaryNode extends GmNoStyleSimpleNode implements I
 
     /**
      * Get the parent model representation mode.
-     * 
      * @return the parent representation mode or null if the node has still no parent.
      */
     @objid ("2a41605f-55b6-11e2-877f-002564c97630")
@@ -131,6 +129,7 @@ public class GmDecisionMergePrimaryNode extends GmNoStyleSimpleNode implements I
         }
         // forcing visual refresh in case Image changed
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("2a41606a-55b6-11e2-877f-002564c97630")
@@ -150,6 +149,7 @@ public class GmDecisionMergePrimaryNode extends GmNoStyleSimpleNode implements I
             break;
         }
         }
+        
     }
 
     @objid ("2a416070-55b6-11e2-877f-002564c97630")
@@ -159,6 +159,7 @@ public class GmDecisionMergePrimaryNode extends GmNoStyleSimpleNode implements I
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmDecisionMergePrimaryNode.", GmDecisionMergePrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("2a416076-55b6-11e2-877f-002564c97630")

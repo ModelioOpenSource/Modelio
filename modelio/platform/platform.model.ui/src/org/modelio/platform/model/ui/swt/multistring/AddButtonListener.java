@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.multistring;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,7 +30,7 @@ class AddButtonListener implements SelectionListener {
     private MultiStringEditionComposite dialog = null;
 
     @objid ("8dc77f24-c068-11e1-8c0a-002564c97630")
-    public AddButtonListener(MultiStringEditionComposite dialog) {
+    public  AddButtonListener(MultiStringEditionComposite dialog) {
         this.dialog = dialog;
     }
 
@@ -53,6 +52,7 @@ class AddButtonListener implements SelectionListener {
         String text = addStringText.getText();
         this.dialog.addAdapter(text);
         addStringText.setText("");
+        
     }
 
 }

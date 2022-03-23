@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.module;
 
 import java.nio.file.Path;
@@ -41,14 +40,14 @@ public class EmptyModuleHandle implements IModuleHandle {
 
     /**
      * C'tor
-     * 
      * @param moduleName the module name
      * @param moduleVersion the module version
      */
     @objid ("cbf0c071-2f2b-11e2-8f16-002564c97630")
-    public EmptyModuleHandle(String moduleName, Version moduleVersion) {
+    public  EmptyModuleHandle(String moduleName, Version moduleVersion) {
         this.moduleName = moduleName;
         this.moduleVersion = moduleVersion;
+        
     }
 
     @objid ("cbf0c07a-2f2b-11e2-8f16-002564c97630")

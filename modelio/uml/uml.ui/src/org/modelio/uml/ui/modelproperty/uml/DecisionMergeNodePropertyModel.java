@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,22 +46,20 @@ public class DecisionMergeNodePropertyModel extends AbstractPropertyModel<Decisi
      */
     @objid ("6eb84773-bce7-4cd1-a238-783145d1d9f7")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name",
-			"DecisionInputBehavior" };
+    			"DecisionInputBehavior" };
 
     /**
      * Create a new <i>DecisionMergeNode</i> data model from an
      * <i>DecisionMergeNode</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("2455bf2a-efb0-4ba7-8036-bdd2f33e43e6")
-    public DecisionMergeNodePropertyModel(DecisionMergeNode theEditedElement) {
+    public  DecisionMergeNodePropertyModel(DecisionMergeNode theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("add6cf5a-2ee6-4de8-951d-c08ca4b1c9ea")
@@ -73,7 +70,6 @@ public class DecisionMergeNodePropertyModel extends AbstractPropertyModel<Decisi
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("36e4a49c-eec4-4d2a-92ff-5d691242fdeb")
@@ -86,7 +82,6 @@ public class DecisionMergeNodePropertyModel extends AbstractPropertyModel<Decisi
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -110,6 +105,7 @@ public class DecisionMergeNodePropertyModel extends AbstractPropertyModel<Decisi
         default:
             return null;
         }
+        
     }
 
     /**
@@ -119,7 +115,6 @@ public class DecisionMergeNodePropertyModel extends AbstractPropertyModel<Decisi
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -144,13 +139,13 @@ public class DecisionMergeNodePropertyModel extends AbstractPropertyModel<Decisi
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -178,6 +173,7 @@ public class DecisionMergeNodePropertyModel extends AbstractPropertyModel<Decisi
         default:
             return;
         }
+        
     }
 
 }

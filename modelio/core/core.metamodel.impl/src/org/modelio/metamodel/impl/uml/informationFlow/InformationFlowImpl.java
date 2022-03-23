@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.informationFlow;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.uml.informationFlow.InformationFlowData;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementImpl;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityEdge;
 import org.modelio.metamodel.uml.behavior.communicationModel.CommunicationMessage;
@@ -86,6 +85,7 @@ public class InformationFlowImpl extends UmlModelElementImpl implements Informat
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("9c160718-a344-49c9-9b35-8f3e7131a5b7")
@@ -107,6 +107,7 @@ public class InformationFlowImpl extends UmlModelElementImpl implements Informat
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("3b7ad87e-05f0-441f-9f49-c2fd573987af")
@@ -128,6 +129,7 @@ public class InformationFlowImpl extends UmlModelElementImpl implements Informat
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("5ba73d1c-62da-4488-8cba-d915be5f4141")
@@ -149,6 +151,7 @@ public class InformationFlowImpl extends UmlModelElementImpl implements Informat
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("01c2e323-369d-4a2f-9874-f21bef56c5b8")
@@ -170,6 +173,7 @@ public class InformationFlowImpl extends UmlModelElementImpl implements Informat
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("6461e2b9-f92f-4947-b7b8-2e620ec30262")
@@ -191,6 +195,7 @@ public class InformationFlowImpl extends UmlModelElementImpl implements Informat
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("9ae471bc-ff4d-4fcb-9a3f-8ab16367ec16")
@@ -212,6 +217,7 @@ public class InformationFlowImpl extends UmlModelElementImpl implements Informat
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("f9936b87-d25b-4fd1-a7a4-b1470e9fc6b8")
@@ -233,6 +239,7 @@ public class InformationFlowImpl extends UmlModelElementImpl implements Informat
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("fd4ccf2d-28c2-4fc3-ad27-eec514807cc9")
@@ -254,6 +261,7 @@ public class InformationFlowImpl extends UmlModelElementImpl implements Informat
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("c8848472-0416-44d6-9390-da4984cb7f09")

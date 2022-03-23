@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.deploymentdiagram.editor.elements.node;
 
 import java.util.Collections;
@@ -126,18 +125,17 @@ public class GmNodePrimaryNode extends GmNoStyleCompositeNode implements IImagea
      * Constructor for deserialization only.
      */
     @objid ("973d7637-55b6-11e2-877f-002564c97630")
-    public GmNodePrimaryNode() {
+    public  GmNodePrimaryNode() {
         // Nothing to do.
     }
 
     /**
      * Creates a GmClass.
-     * 
      * @param diagram The owner diagram.
      * @param ref a reference to the element this GmModel is related to, must not be null.
      */
     @objid ("973d763a-55b6-11e2-877f-002564c97630")
-    public GmNodePrimaryNode(IGmDiagram diagram, final MRef ref) {
+    public  GmNodePrimaryNode(IGmDiagram diagram, final MRef ref) {
         super(diagram, ref);
         
         this.header = new GmNamespaceHeader(diagram, ref);
@@ -162,6 +160,7 @@ public class GmNodePrimaryNode extends GmNoStyleCompositeNode implements IImagea
         super.addChild(this.innerElements);
         
         styleChanged(getDisplayedStyle());
+        
     }
 
     @objid ("973d7644-55b6-11e2-877f-002564c97630")
@@ -178,7 +177,6 @@ public class GmNodePrimaryNode extends GmNoStyleCompositeNode implements IImagea
 
     /**
      * Get the group where <tt>GmAttributes</tt> are unmasked.
-     * 
      * @return the attributes group.
      */
     @objid ("973d7654-55b6-11e2-877f-002564c97630")
@@ -214,7 +212,6 @@ public class GmNodePrimaryNode extends GmNoStyleCompositeNode implements IImagea
 
     /**
      * Get the internal structure.
-     * 
      * @return the internal structure.
      */
     @objid ("973efccc-55b6-11e2-877f-002564c97630")
@@ -224,7 +221,6 @@ public class GmNodePrimaryNode extends GmNoStyleCompositeNode implements IImagea
 
     /**
      * Get the group where {@link Operation} are unmasked.
-     * 
      * @return the operations group.
      */
     @objid ("973efcd1-55b6-11e2-877f-002564c97630")
@@ -273,6 +269,7 @@ public class GmNodePrimaryNode extends GmNoStyleCompositeNode implements IImagea
             break;
         }
         }
+        
     }
 
     @objid ("973efcec-55b6-11e2-877f-002564c97630")
@@ -284,6 +281,7 @@ public class GmNodePrimaryNode extends GmNoStyleCompositeNode implements IImagea
         firePropertyChange(IGmObject.PROPERTY_LABEL, oldLabel, this.header.getMainLabel());
         // forcing visual refresh in case Image changed
         firePropertyChange(IGmObject.PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("973efcef-55b6-11e2-877f-002564c97630")
@@ -292,6 +290,7 @@ public class GmNodePrimaryNode extends GmNoStyleCompositeNode implements IImagea
         // Returned result depends on current representation mode:
         List<GmNodeModel> ret;
         switch (this.getRepresentationMode()) {
+        case USER_IMAGE:
         case IMAGE: {
             ret = Collections.emptyList();
             break;
@@ -311,6 +310,7 @@ public class GmNodePrimaryNode extends GmNoStyleCompositeNode implements IImagea
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmNodePrimaryNode.", GmNodePrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("97408359-55b6-11e2-877f-002564c97630")
@@ -351,6 +351,7 @@ public class GmNodePrimaryNode extends GmNoStyleCompositeNode implements IImagea
         this.methodGroup.setRoleInComposition(GmNodePrimaryNode.METHOD_GROUP);
         this.internalStructure.setRoleInComposition(GmNodePrimaryNode.INTERNAL);
         this.innerElements.setRoleInComposition(GmNodePrimaryNode.INNER);
+        
     }
 
     @objid ("9740835e-55b6-11e2-877f-002564c97630")
@@ -382,6 +383,7 @@ public class GmNodePrimaryNode extends GmNoStyleCompositeNode implements IImagea
         // Delete image mode label
         GmDefaultModelElementLabel imageModeHeader = (GmDefaultModelElementLabel) getFirstChild("ImageHeader");
         imageModeHeader.delete();
+        
     }
 
     @objid ("97408369-55b6-11e2-877f-002564c97630")
@@ -408,6 +410,7 @@ public class GmNodePrimaryNode extends GmNoStyleCompositeNode implements IImagea
         this.internalStructure.setRoleInComposition(GmNodePrimaryNode.INTERNAL);
         
         addChild(this.internalStructure);
+        
     }
 
     @objid ("97408373-55b6-11e2-877f-002564c97630")
@@ -419,6 +422,7 @@ public class GmNodePrimaryNode extends GmNoStyleCompositeNode implements IImagea
         this.methodGroup = (GmGroup) getFirstChild(GmNodePrimaryNode.METHOD_GROUP);
         this.internalStructure = (GmInternalStructure) getFirstChild(GmNodePrimaryNode.INTERNAL);
         this.innerElements = (GmInnerClass) getFirstChild(GmNodePrimaryNode.INNER);
+        
     }
 
 }

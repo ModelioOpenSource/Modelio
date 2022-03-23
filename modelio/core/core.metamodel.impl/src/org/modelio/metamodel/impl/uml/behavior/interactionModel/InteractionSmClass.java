@@ -17,23 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.interactionModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.BehaviorSmClass;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.GateSmClass;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.InteractionData;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.InteractionFragmentSmClass;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.InteractionUseSmClass;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.LifelineSmClass;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
 import org.modelio.metamodel.uml.behavior.interactionModel.Gate;
 import org.modelio.metamodel.uml.behavior.interactionModel.Interaction;
@@ -66,7 +61,7 @@ public class InteractionSmClass extends BehaviorSmClass {
     private SmDependency referedUseDep;
 
     @objid ("b66254aa-5051-4441-bbee-bf7db689391f")
-    public InteractionSmClass(ISmMetamodelFragment origin) {
+    public  InteractionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -74,6 +69,7 @@ public class InteractionSmClass extends BehaviorSmClass {
     @Override
     public String getName() {
         return "Interaction";
+        
     }
 
     @objid ("22012ae8-20bb-4fa7-83bb-59ade7a39e71")
@@ -86,18 +82,21 @@ public class InteractionSmClass extends BehaviorSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Interaction.class;
+        
     }
 
     @objid ("5275254d-7860-45c1-97d4-7ce1ee1f298c")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("98ceab73-6d73-4b25-9861-250a55a3d734")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("9d83cb89-ddaf-4288-ba0c-b995fbe3c581")
@@ -125,6 +124,8 @@ public class InteractionSmClass extends BehaviorSmClass {
         this.referedUseDep = new ReferedUseSmDependency();
         this.referedUseDep.init("ReferedUse", this, metamodel.getMClass(InteractionUse.MQNAME), 0, -1 );
         registerDependency(this.referedUseDep);
+        
+        
     }
 
     @objid ("bb6189fd-606c-4ad4-a4da-7153954be8b4")
@@ -165,7 +166,7 @@ public class InteractionSmClass extends BehaviorSmClass {
         private InteractionSmClass smClass;
 
         @objid ("8acfcfb4-c7db-49ca-baf2-337a7cc16fe0")
-        public InteractionObjectFactory(InteractionSmClass smClass) {
+        public  InteractionObjectFactory(InteractionSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -198,6 +199,7 @@ public class InteractionSmClass extends BehaviorSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((InteractionData) data).mFormalGate = values;
+            
         }
 
         @objid ("cd887624-d4c7-4ae6-acfe-b67a974ac4b4")
@@ -207,6 +209,7 @@ public class InteractionSmClass extends BehaviorSmClass {
             	this.symetricDep = ((GateSmClass)this.getTarget()).getOwnerInteractionDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -226,6 +229,7 @@ public class InteractionSmClass extends BehaviorSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((InteractionData) data).mFragment = values;
+            
         }
 
         @objid ("d3e6cb28-1ef8-4ddb-8da9-a3eec85d06d9")
@@ -235,6 +239,7 @@ public class InteractionSmClass extends BehaviorSmClass {
             	this.symetricDep = ((InteractionFragmentSmClass)this.getTarget()).getEnclosingInteractionDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -254,6 +259,7 @@ public class InteractionSmClass extends BehaviorSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((InteractionData) data).mOwnedLine = values;
+            
         }
 
         @objid ("5d0b528c-884e-4a83-b603-68236f885c4a")
@@ -263,6 +269,7 @@ public class InteractionSmClass extends BehaviorSmClass {
             	this.symetricDep = ((LifelineSmClass)this.getTarget()).getOwnerDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -282,6 +289,7 @@ public class InteractionSmClass extends BehaviorSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((InteractionData) data).mReferedUse = values;
+            
         }
 
         @objid ("60bc079d-d661-4ab8-9c10-0e7c7418c402")
@@ -291,6 +299,7 @@ public class InteractionSmClass extends BehaviorSmClass {
             	this.symetricDep = ((InteractionUseSmClass)this.getTarget()).getRefersToDep();
             }
             return this.symetricDep;
+            
         }
 
     }

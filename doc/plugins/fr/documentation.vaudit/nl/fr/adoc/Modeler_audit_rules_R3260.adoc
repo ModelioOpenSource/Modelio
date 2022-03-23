@@ -1,5 +1,7 @@
 // Disable all captions for figures.
 :!figure-caption:
+// Path to the stylesheet files
+:stylesdir: .
 
 [[R3260]]
 
@@ -27,6 +29,6 @@ Lorsque la cause de l'apparition des éléments manquants est résolue (connexio
 [[conseils]]
 ===== Conseils
 
-Vérifiez qu'un module, un modèle de travail ou une librairie n'a pas été supprimé du projet, ou qu'il est toujours accessible via le réseau. Vous pouvez aussi utiliser l'affichage des NamespaceUses dans l'éditeur de lien pour repérer les références à des éléments manquants et les remplacer par des éléments existants.
+Vérifiez qu'un module, un modèle de travail ou une bibliothèques n'a pas été supprimé du projet, ou qu'il est toujours accessible via le réseau. Vous pouvez aussi utiliser l'affichage des NamespaceUses dans l'éditeur de lien pour repérer les références à des éléments manquants et les remplacer par des éléments existants.
 
 

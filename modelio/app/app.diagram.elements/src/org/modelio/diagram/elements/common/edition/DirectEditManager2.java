@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.edition;
 
 import java.util.ArrayList;
@@ -44,20 +43,18 @@ public abstract class DirectEditManager2 extends DirectEditManager {
     /**
      * Constructs a new DirectEditManager2 for the given source edit part. The cell editor will be created by
      * instantiating the type <i>editorType</i>. The cell editor will be placed using the given CellEditorLocator.
-     * 
      * @param source the source edit part
      * @param editorType the cell editor type
      * @param locator the locator
      */
     @objid ("7e2e72dc-1dec-11e2-8cad-001ec947c8cc")
-    public DirectEditManager2(GraphicalEditPart source, Class<? extends CellEditor> editorType, CellEditorLocator locator) {
+    public  DirectEditManager2(GraphicalEditPart source, Class<? extends CellEditor> editorType, CellEditorLocator locator) {
         super(source, editorType, locator);
     }
 
     /**
      * Constructs a new DirectEditManager2 for the given source edit part. The cell editor will be created by
      * instantiating the type <i>editorType</i>. The cell editor will be placed using the given CellEditorLocator.
-     * 
      * @param source the source edit part
      * @param editorType the cell editor type
      * @param locator the locator
@@ -66,7 +63,7 @@ public abstract class DirectEditManager2 extends DirectEditManager {
      * @since phv
      */
     @objid ("7e2e72e8-1dec-11e2-8cad-001ec947c8cc")
-    public DirectEditManager2(GraphicalEditPart source, Class<? extends CellEditor> editorType, CellEditorLocator locator, Object feature) {
+    public  DirectEditManager2(GraphicalEditPart source, Class<? extends CellEditor> editorType, CellEditorLocator locator, Object feature) {
         super(source, editorType, locator, feature);
     }
 
@@ -84,6 +81,7 @@ public abstract class DirectEditManager2 extends DirectEditManager {
         for (String contextId : this.activeContexts) {
             contextService.deactivateContext(contextId);
         }
+        
     }
 
     @objid ("7e30d532-1dec-11e2-8cad-001ec947c8cc")
@@ -97,6 +95,7 @@ public abstract class DirectEditManager2 extends DirectEditManager {
         this.activeContexts = null;
         
         super.bringDown();
+        
     }
 
 }

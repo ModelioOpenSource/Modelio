@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.simple;
 
 import java.beans.PropertyChangeEvent;
@@ -62,6 +61,7 @@ public class SimpleEditPart extends AbstractNodeEditPart {
         // This edit part is way too generic to afford being smart: on any property change event, refresh all!
         refresh();
         refreshFromStyle(getFigure(), getModelStyle());
+        
     }
 
     @objid ("7f240517-1dec-11e2-8cad-001ec947c8cc")
@@ -88,6 +88,7 @@ public class SimpleEditPart extends AbstractNodeEditPart {
         if (!switchRepresentationMode()) {
             super.refreshFromStyle(aFigure, style);
         }
+        
     }
 
     @objid ("7f240525-1dec-11e2-8cad-001ec947c8cc")
@@ -100,6 +101,7 @@ public class SimpleEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                 new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("7f240528-1dec-11e2-8cad-001ec947c8cc")
@@ -112,6 +114,7 @@ public class SimpleEditPart extends AbstractNodeEditPart {
         if (parent != null) {
             parent.setConstraint(aFigure, model.getLayoutData());
         }
+        
     }
 
     /**
@@ -133,6 +136,7 @@ public class SimpleEditPart extends AbstractNodeEditPart {
     protected void addChildVisual(EditPart childEditPart, int index) {
         IFigure childFig = ((AbstractGraphicalEditPart) childEditPart).getFigure();
         getContentPane().add(childFig, BorderLayout.CENTER);
+        
     }
 
 }

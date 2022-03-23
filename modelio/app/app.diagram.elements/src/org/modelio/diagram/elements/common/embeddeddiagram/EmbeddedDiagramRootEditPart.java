@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.embeddeddiagram;
 
 import java.beans.PropertyChangeEvent;
@@ -82,7 +81,7 @@ public class EmbeddedDiagramRootEditPart extends ScalableFreeformRootEditPart2 i
     private GmEmbeddedDiagram model;
 
     @objid ("1e4a518b-f2fe-40a8-9da9-8a9694d28064")
-    public EmbeddedDiagramRootEditPart(EditPart parent, Object model) {
+    public  EmbeddedDiagramRootEditPart(EditPart parent, Object model) {
         super();
         
         setModel(model);
@@ -91,6 +90,7 @@ public class EmbeddedDiagramRootEditPart extends ScalableFreeformRootEditPart2 i
         
         // Ensure max zoom level is 1.0
         getLocalZoomManager().setZoomLevels(new double[] { 0.1, 0.2, 0.3, 0.5, 0.7, 0.8, 0.9, 1.0 });
+        
     }
 
     @objid ("9a3380fe-7046-421e-a205-7acd113c0a3b")
@@ -131,6 +131,7 @@ public class EmbeddedDiagramRootEditPart extends ScalableFreeformRootEditPart2 i
         }
         
         getModel().addPropertyChangeListener(this);
+        
     }
 
     @objid ("a9eda506-5942-4c6d-b08b-065fb6da63b8")
@@ -145,6 +146,7 @@ public class EmbeddedDiagramRootEditPart extends ScalableFreeformRootEditPart2 i
         }
         
         super.deactivate();
+        
     }
 
     @objid ("bf7730e0-0a92-4a18-9983-43ce582a94b7")
@@ -169,7 +171,6 @@ public class EmbeddedDiagramRootEditPart extends ScalableFreeformRootEditPart2 i
 
     /**
      * Get the zoom manager for the embedded diagram.
-     * 
      * @return the local zoom manager.
      */
     @objid ("e5c93b60-67c1-4f11-a0f3-46686b3a99a9")
@@ -188,7 +189,6 @@ public class EmbeddedDiagramRootEditPart extends ScalableFreeformRootEditPart2 i
 
     /**
      * Get the root edit part of the parent EditPart.
-     * 
      * @return the owner RootEditPart.
      */
     @objid ("2654b85b-27cf-441c-8d34-b7520aca414e")
@@ -208,7 +208,6 @@ public class EmbeddedDiagramRootEditPart extends ScalableFreeformRootEditPart2 i
 
     /**
      * Get the zoom manager for the embedded diagram.
-     * 
      * @return the local zoom manager.
      */
     @objid ("ebeb7434-8418-48a6-b1eb-8844c6850bec")
@@ -246,6 +245,7 @@ public class EmbeddedDiagramRootEditPart extends ScalableFreeformRootEditPart2 i
         
         }
         super.performRequest(req);
+        
     }
 
     @objid ("76748a0e-ecd0-4fde-8d8b-8bb430e7235d")
@@ -265,6 +265,7 @@ public class EmbeddedDiagramRootEditPart extends ScalableFreeformRootEditPart2 i
                 newViewedDiagram.addPropertyChangeListener(this.diagramListener);
             }
         }
+        
     }
 
     @objid ("5f3c2f06-8db5-4e45-a65c-4acd816fc5a7")
@@ -272,6 +273,7 @@ public class EmbeddedDiagramRootEditPart extends ScalableFreeformRootEditPart2 i
     public void setModel(Object model) {
         this.model = (GmEmbeddedDiagram) model;
         super.setModel(model);
+        
     }
 
     @objid ("44bacba2-592f-41d9-97d5-c646984524ea")
@@ -279,6 +281,7 @@ public class EmbeddedDiagramRootEditPart extends ScalableFreeformRootEditPart2 i
     public void setViewer(EditPartViewer newViewer) {
         // The viewer is set on construction
         throw new UnsupportedOperationException();
+        
     }
 
     /**
@@ -301,6 +304,7 @@ public class EmbeddedDiagramRootEditPart extends ScalableFreeformRootEditPart2 i
         installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE, new ReadOnlyHoverFeedbackEditPolicy());
         
         // installEditPolicy(TranslateChildrenOnResizeEditPolicy.class, new TranslateChildrenOnResizeEditPolicy());
+        
     }
 
     @objid ("c5dbb896-6350-4ae7-b538-7c2738fce6fa")
@@ -310,11 +314,11 @@ public class EmbeddedDiagramRootEditPart extends ScalableFreeformRootEditPart2 i
         
         // Remove the guides layer
         layeredPane.remove(layeredPane.getLayer(LayerConstants.GUIDE_LAYER));
+        
     }
 
     /**
      * Creates a layered pane and the layers that should be scaled.
-     * 
      * @return a new freeform layered pane containing the scalable layers
      */
     @objid ("c790bb2d-745e-488d-a220-28ed7106edb0")
@@ -324,6 +328,7 @@ public class EmbeddedDiagramRootEditPart extends ScalableFreeformRootEditPart2 i
         layers.remove(layers.getLayer(LayerConstants.GRID_LAYER));
         
         // Auto fit to content
+        if (false) {
         layers.addLayoutListener(new LayoutListener.Stub() {
             protected boolean scheduled;
         
@@ -333,16 +338,23 @@ public class EmbeddedDiagramRootEditPart extends ScalableFreeformRootEditPart2 i
                     this.scheduled = true;
                     layers.getUpdateManager().runWithUpdate(() -> {
                         this.scheduled = false;
-                        if (isActive()) {
-                            EmbeddedZoomManager zm = getLocalZoomManager();
-                            zm.setCenterView(getModel().isViewToCenter());
-                            zm.fitToContent();
-                        }
+                        fitToContent();
                     });
                 }
             }
         });
+        }
         return layers;
+    }
+
+    @objid ("d4ef4098-1f4d-4d5f-9ef4-b4ad1e46712c")
+    protected void fitToContent() {
+        if (isActive()) {
+            EmbeddedZoomManager zm = getLocalZoomManager();
+            zm.setCenterView(getModel().isViewToCenter());
+            zm.fitToContent();
+        }
+        
     }
 
     @objid ("64ec8cec-e8a9-46bf-801f-b33cd67a29fc")
@@ -350,12 +362,19 @@ public class EmbeddedDiagramRootEditPart extends ScalableFreeformRootEditPart2 i
     protected FreeformViewport createViewport() {
         EmbeddedDiagramViewport viewport = new EmbeddedDiagramViewport();
         viewport.setLayoutManager(new EmbeddedDiagramViewportLayout());
+        
+        // Auto fit to content
+        viewport.addLayoutListener(new LayoutListener.Stub() {
+            @Override
+            public void postLayout(IFigure container) {
+                fitToContent();
+            }
+        });
         return viewport;
     }
 
     /**
      * Responsible of creating a {@link ZoomManager} to be used by this {@link ScalableRootEditPart}.
-     * 
      * @return A new {@link ZoomManager} bound to the given {@link ScalableFigure} and {@link Viewport}.
      * @since 3.10
      */
@@ -394,11 +413,13 @@ public class EmbeddedDiagramRootEditPart extends ScalableFreeformRootEditPart2 i
         } else {
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("217aac8d-ddb0-47f1-b985-ba0f597ff67c")
     @Override
     protected void refreshGridLayer() {
+        
     }
 
     /**
@@ -423,6 +444,7 @@ public class EmbeddedDiagramRootEditPart extends ScalableFreeformRootEditPart2 i
                     // .union(0, 0)
                     // .union(wHint - 1, hHint - 1)
                     .getSize();
+            
         }
 
         @objid ("0a04fa34-c837-4426-9ec4-24a81f1612bd")
@@ -435,6 +457,7 @@ public class EmbeddedDiagramRootEditPart extends ScalableFreeformRootEditPart2 i
                     .scale(1 / getZoomManager().getZoom())
                     .expand(parent.getInsets())
                     .getSize();
+            
         }
 
         @objid ("d8b6b2ea-147f-4f66-8c58-d12fa48c268e")

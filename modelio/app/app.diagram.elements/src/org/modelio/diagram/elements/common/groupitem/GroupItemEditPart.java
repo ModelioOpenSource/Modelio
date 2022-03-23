@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.groupitem;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,7 +41,8 @@ public class GroupItemEditPart extends ModelElementLabelEditPart {
      * Default constructor.
      */
     @objid ("7e5e21e2-1dec-11e2-8cad-001ec947c8cc")
-    public GroupItemEditPart() {
+    public  GroupItemEditPart() {
+        
     }
 
     @objid ("7e5e21e5-1dec-11e2-8cad-001ec947c8cc")
@@ -55,6 +55,7 @@ public class GroupItemEditPart extends ModelElementLabelEditPart {
                           new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
         installEditPolicy("hover", new HoverFeedbackEditPolicy());
+        
     }
 
     /**
@@ -71,6 +72,7 @@ public class GroupItemEditPart extends ModelElementLabelEditPart {
         } else {
             return super.isSelectable();
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.persistence;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,6 @@ public interface IInstanceFactory {
      * <p>
      * This method may create a new instance or return an existing one.
      * </p>
-     * 
      * @param classNamespace The java namespace of class inheriting from {@link IPersistent}. This class must have an accessible default (no parameter) constructor.
      * @return The created instance.
      * 
@@ -45,19 +43,17 @@ public interface IInstanceFactory {
 
     /**
      * Get the enumeration class of the given java namespace.
-     * 
      * @param enumNamespace The java namespace of an enumeration class
      * @return The enumeration namespace
      */
     @objid ("cb7049ab-186f-11e2-92d2-001ec947c8cc")
-    <T extends  Enum<T>> Class<T> getEnumClass(String enumNamespace);
+    <T extends Enum<T>> Class<T> getEnumClass(String enumNamespace);
 
     /**
      * Get the migrator class of the given java namespace.
      * <p>
      * This method may create a new instance or return an existing one.
      * </p>
-     * 
      * @param classNamespace The java namespace of class inheriting from {@link IPersistentMigrator}. This class must have an accessible default (no parameter) constructor.
      * @return The created instance.
      * 

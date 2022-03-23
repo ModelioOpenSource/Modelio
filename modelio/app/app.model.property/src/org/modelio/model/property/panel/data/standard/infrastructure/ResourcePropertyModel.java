@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel.data.standard.infrastructure;
 
 import java.util.Collections;
@@ -51,11 +50,10 @@ public class ResourcePropertyModel extends AbstractPropertyModel<Resource> {
 
     /**
      * Instantiate the externResource type properties view.
-     * 
      * @param theEditedElement the current externResource type.
      */
     @objid ("914c027a-2e29-482b-a9ff-8e4fc9051813")
-    public ResourcePropertyModel(final Resource theEditedElement) {
+    public  ResourcePropertyModel(final Resource theEditedElement) {
         super(theEditedElement);
     }
 
@@ -100,6 +98,7 @@ public class ResourcePropertyModel extends AbstractPropertyModel<Resource> {
         default:
             return null;
         }
+        
     }
 
     /**
@@ -155,6 +154,7 @@ public class ResourcePropertyModel extends AbstractPropertyModel<Resource> {
         default:
             return null;
         }
+        
     }
 
     /**
@@ -181,6 +181,7 @@ public class ResourcePropertyModel extends AbstractPropertyModel<Resource> {
         default:
             return;
         }
+        
     }
 
 }

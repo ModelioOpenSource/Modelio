@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.component;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,36 +31,36 @@ import org.modelio.uml.statikdiagram.editor.style.StaticAbstractStyleKeyProvider
 @objid ("349ffd25-55b7-11e2-877f-002564c97630")
 public class ComponentSimpleStyleKeys extends StaticAbstractStyleKeyProvider {
     @objid ("a5bb854b-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = ComponentStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = ComponentStructuredStyleKeys.REPMODE;
 
     @objid ("a5bb854d-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = ComponentStructuredStyleKeys.FILLCOLOR;
+    static final StyleKey FILLCOLOR = ComponentStructuredStyleKeys.FILLCOLOR;
 
     @objid ("a5bb854f-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = ComponentStructuredStyleKeys.FILLMODE;
+    static final StyleKey FILLMODE = ComponentStructuredStyleKeys.FILLMODE;
 
     @objid ("a5bb8551-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = ComponentStructuredStyleKeys.LINECOLOR;
+    static final StyleKey LINECOLOR = ComponentStructuredStyleKeys.LINECOLOR;
 
     @objid ("a5bb8553-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = ComponentStructuredStyleKeys.LINEWIDTH;
+    static final StyleKey LINEWIDTH = ComponentStructuredStyleKeys.LINEWIDTH;
 
     @objid ("a5bb8555-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = ComponentStructuredStyleKeys.FONT;
+    static final StyleKey FONT = ComponentStructuredStyleKeys.FONT;
 
     @objid ("a5bb8557-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = ComponentStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = ComponentStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("a5bb8559-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWNAME = ComponentStructuredStyleKeys.SHOWNAME;
+    static final StyleKey SHOWNAME = ComponentStructuredStyleKeys.SHOWNAME;
 
     @objid ("a5bb855b-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = ComponentStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = ComponentStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("a5bb855d-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = ComponentStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = ComponentStructuredStyleKeys.SHOWTAGS;
 
     @objid ("a5bb855f-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWPORTS = ComponentStructuredStyleKeys.SHOWPORTS;
+    static final StyleKey SHOWPORTS = ComponentStructuredStyleKeys.SHOWPORTS;
 
 }

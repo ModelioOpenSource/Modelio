@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.images;
 
 import java.io.IOException;
@@ -43,15 +42,16 @@ public class ModelBlobImageDescriptor extends ImageDescriptor {
     private final IRepository repository;
 
     @objid ("0d8bef00-afa1-4a4e-9ea5-61d7a5d62d9c")
-    public ModelBlobImageDescriptor(MObject obj, String blobKey) {
+    public  ModelBlobImageDescriptor(MObject obj, String blobKey) {
         this (CoreSession.getSession(obj).getRepository(obj), blobKey);
     }
 
     @objid ("016ea926-25fe-481a-8200-efe3ec25cdff")
-    public ModelBlobImageDescriptor(IRepository repository, String blobKey) {
+    public  ModelBlobImageDescriptor(IRepository repository, String blobKey) {
         super();
         this.repository = repository;
         this.blobKey = blobKey;
+        
     }
 
     @objid ("f1df8561-1d75-4ac2-a5cc-3f31ee0ced34")

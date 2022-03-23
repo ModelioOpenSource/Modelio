@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.richnote.plugin;
 
 import java.io.IOException;
@@ -51,6 +50,7 @@ public class ImageEditorProvider extends AbstractRichNoteEditorProvider {
         Files.createFile(newPath);
         
         richNoteRepository.saveRichNote(richNote, newPath);
+        
     }
 
     @objid ("6123c9ce-0d38-447a-85b8-f615566da4e4")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.modules;
 
 import java.io.File;
@@ -55,10 +54,10 @@ import org.modelio.platform.ui.progress.IModelioProgressService;
 @objid ("6ed29531-b75e-4aac-af8c-ae48b16d1a0b")
 public class ModuleSelectDialog extends ModelioDialog {
     @objid ("e515deb2-2259-42d0-8b19-a457f53cf25c")
-     ModuleCatalogPanel panel;
+    ModuleCatalogPanel panel;
 
     @objid ("49d076d9-17ea-42c3-b84d-f9fe2827e9ec")
-     Controller controller;
+    Controller controller;
 
     @objid ("cde84b3d-2a6f-47ce-ae17-b96e548cfdc7")
     protected IModelioProgressService progressService;
@@ -68,11 +67,12 @@ public class ModuleSelectDialog extends ModelioDialog {
      * @param progressService a progress service.
      */
     @objid ("11c6cddf-7d46-4702-acd4-ea8995a668a2")
-    public ModuleSelectDialog(Shell parentShell, IModuleStore catalog, GProject gProject, IModelioProgressService progressService) {
+    public  ModuleSelectDialog(Shell parentShell, IModuleStore catalog, GProject gProject, IModelioProgressService progressService) {
         super(parentShell);
         this.controller = new Controller(this);
         this.panel = new ModuleCatalogPanel(catalog);
         this.progressService = progressService;
+        
     }
 
     @objid ("2b9bd32f-ba87-4d7d-973b-6bfacfee3e2b")
@@ -81,6 +81,7 @@ public class ModuleSelectDialog extends ModelioDialog {
         createButton(parent, Window.OK, AppProjectConfExt.I18N.getString("ModuleSelectDialog.AddToProject"), false)
                 .setEnabled(false);
         createButton(parent, Window.CANCEL, AppProjectConfExt.I18N.getString("ModuleSelectDialog.Cancel"), true);
+        
     }
 
     @objid ("5ae0e22d-5fa7-4003-bf60-739906a84146")
@@ -100,6 +101,7 @@ public class ModuleSelectDialog extends ModelioDialog {
         
         getShell().setBounds(refBounds.x + ((refBounds.width - width) / 2),
                 refBounds.y + ((refBounds.height - height) / 2), width, height);
+        
     }
 
     @objid ("16ef9213-c017-4e3b-a859-653f58d8e18c")
@@ -156,6 +158,7 @@ public class ModuleSelectDialog extends ModelioDialog {
     protected void cancelPressed() {
         this.controller.selectedModules.clear();
         super.cancelPressed();
+        
     }
 
     @objid ("eb07fb20-b60b-4b36-b8ca-53fab47a500f")
@@ -167,7 +170,7 @@ public class ModuleSelectDialog extends ModelioDialog {
         private ArrayList<IModuleHandle> selectedModules = new ArrayList<>();
 
         @objid ("0465e24b-1ffa-4935-86cd-7938652c01a9")
-        public Controller(ModuleSelectDialog dlg) {
+        public  Controller(ModuleSelectDialog dlg) {
             this.dlg = dlg;
         }
 
@@ -190,6 +193,7 @@ public class ModuleSelectDialog extends ModelioDialog {
             }
             
             this.dlg.getButton(Window.OK).setEnabled(!this.selectedModules.isEmpty());
+            
         }
 
         @objid ("301a99d0-208e-4695-9842-e0931bda2649")
@@ -224,6 +228,7 @@ public class ModuleSelectDialog extends ModelioDialog {
             } catch (InvocationTargetException | InterruptedException e) {
                 AppProjectConfExt.LOG.error(e);
             }
+            
         }
 
         @objid ("781865dc-68c0-4b5b-8e4d-9162e054e9e4")
@@ -271,6 +276,7 @@ public class ModuleSelectDialog extends ModelioDialog {
             } catch (InvocationTargetException | InterruptedException e) {
                 AppProjectConfExt.LOG.error(e);
             }
+            
         }
 
     }

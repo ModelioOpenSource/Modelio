@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.ramc.core.packaging.filters;
 
 import java.util.Collection;
@@ -56,7 +55,7 @@ class DependencyFilter extends LinkTargetFilter {
     }
 
     @objid ("e63dd756-9a89-4fae-a768-d719d6232403")
-    public DependencyFilter(IObjectFilter targetFilter, MExpert expert) {
+    public  DependencyFilter(IObjectFilter targetFilter, MExpert expert) {
         super(expert, targetFilter);
     }
 

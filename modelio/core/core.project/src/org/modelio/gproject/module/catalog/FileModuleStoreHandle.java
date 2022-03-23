@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.module.catalog;
 
 import java.nio.file.Path;
@@ -76,7 +75,6 @@ public class FileModuleStoreHandle implements IModuleHandle, Comparable<Object> 
      * Public constructor.
      * <p>
      * This object takes ownership of all passed collections.
-     * 
      * @param moduleCachePath the module cache path
      * @param name the module name
      * @param version the moduel version
@@ -91,7 +89,7 @@ public class FileModuleStoreHandle implements IModuleHandle, Comparable<Object> 
      * @param metamodelFragments the provided metamodel fragments
      */
     @objid ("2c9748ff-f37d-11e1-a3c7-002564c97630")
-    FileModuleStoreHandle(Path moduleCachePath, String name, Version version, String uid, String mainClassName, Version binaryVersion, List<VersionedItem<?>> dependencies, List<VersionedItem<?>> weakDependencies, List<Path> docPaths, List<Path> jarPaths, Map<String, Path> stylePaths, List<IMetamodelFragmentHandle> metamodelFragments) {
+     FileModuleStoreHandle(Path moduleCachePath, String name, Version version, String uid, String mainClassName, Version binaryVersion, List<VersionedItem<?>> dependencies, List<VersionedItem<?>> weakDependencies, List<Path> docPaths, List<Path> jarPaths, Map<String, Path> stylePaths, List<IMetamodelFragmentHandle> metamodelFragments) {
         this.moduleCachePath = moduleCachePath;
         this.name = name;
         this.version = version;
@@ -105,6 +103,7 @@ public class FileModuleStoreHandle implements IModuleHandle, Comparable<Object> 
         this.jarPaths = jarPaths;
         this.stylePaths = stylePaths;
         this.metamodelFragments = metamodelFragments;
+        
     }
 
     @objid ("2c974914-f37d-11e1-a3c7-002564c97630")
@@ -197,7 +196,6 @@ public class FileModuleStoreHandle implements IModuleHandle, Comparable<Object> 
      * Get the root path where all module files are extracted or created.
      * <p>
      * This directory can be copied then a new handle can be created on the directory copy.
-     * 
      * @return the module root path.
      */
     @objid ("44c6c46d-615b-470e-bead-2176e0d438fb")

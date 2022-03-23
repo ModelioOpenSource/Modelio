@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.mmextensions.infrastructure;
 
 import java.io.IOException;
@@ -50,18 +49,16 @@ public interface IResourceBuilder {
 
     /**
      * Creates the embedded document.
-     * 
      * @return the created document.
-     * @throws java.io.IOException if embedding fails with an I/O error.
+     * @throws IOException if embedding fails with an I/O error.
      */
     @objid ("53558423-3c18-4c6a-926b-449c537d92af")
     Document createEmbeddedDocument() throws IOException;
 
     /**
      * Creates the embedded resource.
-     * 
      * @return the created resource.
-     * @throws java.io.IOException if embedding fails with an I/O error.
+     * @throws IOException if embedding fails with an I/O error.
      */
     @objid ("e8e74b45-a33d-4377-92d1-19628d1f22ec")
     Resource createEmbeddedResource() throws IOException;
@@ -98,13 +95,12 @@ public interface IResourceBuilder {
 
     /**
      * Set the resource role.
-     * 
      * @param moduleName the module name or regex pattern
      * @param ownerName the name of the {@link Stereotype} or {@link MetaclassReference} owning the type. Cannot be <code>null</code>.
      * @param typeName the role name
      * @return this builder
-     * @throws org.modelio.metamodel.mmextensions.infrastructure.ExtensionNotFoundException if the role was not found.
-     * @throws java.lang.IllegalStateException if {@link #withOwner(ModelElement)} was not called before.
+     * @throws ExtensionNotFoundException if the role was not found.
+     * @throws IllegalStateException if {@link #withOwner(ModelElement)} was not called before.
      */
     @objid ("799a7c4d-274a-4477-83fe-c33c337d1266")
     IResourceBuilder withRole(String moduleName, String ownerName, String typeName) throws ExtensionNotFoundException, IllegalStateException;
@@ -127,7 +123,6 @@ public interface IResourceBuilder {
      * use the given authentication data to at least probe the content type.
      * <p>
      * The password will never be stored in any case. The current implementation does not store the authentication data.
-     * 
      * @param auth authentication data.
      * @return this builder.
      * @since 3.7.1

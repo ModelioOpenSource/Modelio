@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package com.sun.star.comp.beans;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,17 +40,17 @@ public class Frame extends Wrapper implements com.sun.star.frame.XFrame, com.sun
 
     /**
      * Constructor.
-     * 
      * @param xFrame the wrapped XFrame
      */
     @objid ("87fb604a-59ba-43cd-b7dd-ea7da63c34ac")
-    public Frame(final com.sun.star.frame.XFrame xFrame) {
+    public  Frame(final com.sun.star.frame.XFrame xFrame) {
         super( xFrame );
         this.xFrame = xFrame;
         this.xDispatchProvider = UnoRuntime.queryInterface( com.sun.star.frame.XDispatchProvider.class,
             xFrame );
         this.xDispatchProviderInterception = UnoRuntime.queryInterface( com.sun.star.frame.XDispatchProviderInterception.class,
             xFrame );
+        
     }
 
     /**

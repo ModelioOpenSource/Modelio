@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.form.fields;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -48,14 +47,15 @@ public class HtmlTextField extends AbstractField {
     private HtmlComposer text;
 
     @objid ("3b2b2253-0c38-4e52-a24d-e6f3ec833129")
-    public HtmlTextField(FormToolkit toolkit, Composite parent, IFormFieldData model) {
+    public  HtmlTextField(FormToolkit toolkit, Composite parent, IFormFieldData model) {
         this(toolkit, parent, model, -1);
     }
 
     @objid ("cf91f222-8298-4a7e-a5cf-17c8bdbb0da8")
-    public HtmlTextField(FormToolkit toolkit, Composite parent, IFormFieldData model, int heightHint) {
+    public  HtmlTextField(FormToolkit toolkit, Composite parent, IFormFieldData model, int heightHint) {
         super(toolkit, parent, model);
         this.heightHint = heightHint;
+        
     }
 
     @objid ("f170dc0a-8865-4619-a24d-74a74d69e70d")
@@ -104,6 +104,7 @@ public class HtmlTextField extends AbstractField {
         if (this.heightHint > 0) {
             ((FormData) control.getLayoutData()).height = this.heightHint;
         }
+        
     }
 
     /**
@@ -114,6 +115,7 @@ public class HtmlTextField extends AbstractField {
     public void refresh() {
         final Object value = getModel().getValue();
         this.text.setHtml(value != null ? value.toString() : EMPTY_STRING);
+        
     }
 
 }

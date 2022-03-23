@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -48,21 +47,19 @@ public class ArtifactPropertyModel extends AbstractPropertyModel<Artifact> {
      */
     @objid ("79a59ca4-ac79-46fd-a896-d7c74151a055")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name", "FileName",
-	        "Visibility" };
+    	        "Visibility" };
 
     /**
      * Create a new <i>Artifact</i> data model from an <i>Artifact</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("f85bf52b-688f-47db-9014-1a81f09184dd")
-    public ArtifactPropertyModel(Artifact theEditedElement) {
+    public  ArtifactPropertyModel(Artifact theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("0c0b3422-3c23-4b68-ae8f-ba76ab1bec7d")
@@ -73,7 +70,6 @@ public class ArtifactPropertyModel extends AbstractPropertyModel<Artifact> {
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("c5fd9305-7840-4133-bed7-c2000b9ac778")
@@ -86,7 +82,6 @@ public class ArtifactPropertyModel extends AbstractPropertyModel<Artifact> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -112,6 +107,7 @@ public class ArtifactPropertyModel extends AbstractPropertyModel<Artifact> {
         default:
             return null;
         }
+        
     }
 
     /**
@@ -121,7 +117,6 @@ public class ArtifactPropertyModel extends AbstractPropertyModel<Artifact> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -148,13 +143,13 @@ public class ArtifactPropertyModel extends AbstractPropertyModel<Artifact> {
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -185,6 +180,7 @@ public class ArtifactPropertyModel extends AbstractPropertyModel<Artifact> {
         default:
             return;
         }
+        
     }
 
 }

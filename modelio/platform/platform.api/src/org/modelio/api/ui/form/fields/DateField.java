@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.ui.form.fields;
 
 import java.util.Calendar;
@@ -46,7 +45,7 @@ public class DateField extends AbstractField {
     private Button nullCheckBox;
 
     @objid ("e79c580b-d0c3-45b1-a70b-72f7c082a944")
-    public DateField(FormToolkit toolkit, Composite parent, IFormFieldData model) {
+    public  DateField(FormToolkit toolkit, Composite parent, IFormFieldData model) {
         super(toolkit, parent, model);
     }
 
@@ -112,6 +111,7 @@ public class DateField extends AbstractField {
             this.nullCheckBox.setSelection(false);
             this.date.setVisible(false);
         }
+        
     }
 
     @objid ("6db63148-1fd8-43c8-8ed0-303b537bad85")
@@ -123,6 +123,7 @@ public class DateField extends AbstractField {
         } else {
             return null;
         }
+        
     }
 
     @objid ("96a45c5a-4745-4716-9d74-fe9c27422b46")
@@ -130,6 +131,7 @@ public class DateField extends AbstractField {
         this.date.setVisible(this.nullCheckBox.getSelection());
         
         fireValueChanged(null, getLocalValue());
+        
     }
 
 }

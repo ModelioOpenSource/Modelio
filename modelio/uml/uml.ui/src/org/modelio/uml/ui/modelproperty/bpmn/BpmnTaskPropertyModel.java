@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import java.util.ArrayList;
@@ -54,20 +53,19 @@ public class BpmnTaskPropertyModel extends AbstractPropertyModel<BpmnTask> {
 
     /**
      * Create a new <i>BpmnTask</i> data model from an <i>BpmnTask</i>.
-     * 
      * @param theEditedElement the model to edit.
      * @param modelService the model service needed to find elements.
      */
     @objid ("f597f642-70d5-4e0b-a25c-738d6f98c619")
-    public BpmnTaskPropertyModel(BpmnTask theEditedElement, IMModelServices modelService) {
+    public  BpmnTaskPropertyModel(BpmnTask theEditedElement, IMModelServices modelService) {
         super(theEditedElement);
         this.modelService = modelService;
         initPropertyModel();
+        
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("c001ca60-0f38-4e9b-9375-1b75a3961399")
@@ -78,7 +76,6 @@ public class BpmnTaskPropertyModel extends AbstractPropertyModel<BpmnTask> {
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("0d61f07e-98be-4126-ac88-820cf3462d13")
@@ -93,7 +90,6 @@ public class BpmnTaskPropertyModel extends AbstractPropertyModel<BpmnTask> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -158,7 +154,6 @@ public class BpmnTaskPropertyModel extends AbstractPropertyModel<BpmnTask> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -236,13 +231,13 @@ public class BpmnTaskPropertyModel extends AbstractPropertyModel<BpmnTask> {
             this.properties.add("CompletionCondition");
             this.properties.add("EventDefinition");
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -298,6 +293,7 @@ public class BpmnTaskPropertyModel extends AbstractPropertyModel<BpmnTask> {
                 }
             }
         }
+        
     }
 
 }

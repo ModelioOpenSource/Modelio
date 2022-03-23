@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.panels.search.model;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -190,6 +189,7 @@ public class ModelSearchPanel implements ISearchPanel {
         defaultCriteria.setIncludeRamc(false);
         defaultCriteria.addMetaclass(this.metamodel.getMClass(NameSpace.class));
         setCriteria(defaultCriteria);
+        
     }
 
     @objid ("2085432e-37ae-4207-ba2c-b183395a0477")
@@ -225,6 +225,7 @@ public class ModelSearchPanel implements ISearchPanel {
         
         this.stereotypeText.setText(criteria.getStereotype() != null ? criteria.getStereotype() : "");
         this.caseSensitiveCheckBox.setSelection(this.searchCriteria.isCaseSensitive());
+        
     }
 
 }

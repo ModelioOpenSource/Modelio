@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnlane;
 
 import java.util.ArrayList;
@@ -67,6 +66,7 @@ public class GmBpmnLaneMigrator implements IPersistentMigrator {
             return null;
         }
         }
+        
     }
 
     @objid ("c91ee51d-b89d-4f17-917e-faf25007da3f")
@@ -84,10 +84,9 @@ public class GmBpmnLaneMigrator implements IPersistentMigrator {
      * <li>{@link GmBpmnLaneV0} representing a {@link BpmnLane} are handled by {@link #migrateLaneToLane(GmBpmnLaneV0)}</li>
      * <li>{@link GmBpmnLaneV0} representing a {@link BpmnParticipant} or {@link NullPointerException} are handled by {@link #migrateLaneToParticipant(GmBpmnLaneV0)}</li>
      * </ul>
-     * 
      * @param oldGmLane the gm being migrated.
      * @return the migrated gm, replacing the given one.
-     * @throws org.modelio.diagram.persistence.PersistenceException if the lane do not represents a {@link BpmnLane} nor a {@link BpmnParticipant}.
+     * @throws PersistenceException if the lane do not represents a {@link BpmnLane} nor a {@link BpmnParticipant}.
      */
     @objid ("ce1604e0-77e7-43ad-aec1-9c1e5417dec4")
     private IPersistent migrateFromV0(final GmBpmnLaneV0 oldGmLane) throws PersistenceException {
@@ -103,6 +102,7 @@ public class GmBpmnLaneMigrator implements IPersistentMigrator {
             // Should never happen, maybe
             throw new PersistenceException("Unable to migrate " + oldGmLane);
         }
+        
     }
 
     /**
@@ -212,6 +212,7 @@ public class GmBpmnLaneMigrator implements IPersistentMigrator {
                 ownedNode.delete();
             }
         }
+        
     }
 
     @objid ("6f4b4023-6355-4db8-9f3d-9c17790faca6")
@@ -271,12 +272,12 @@ public class GmBpmnLaneMigrator implements IPersistentMigrator {
                 ownedNode.delete();
             }
         }
+        
     }
 
     /**
      * Old GmBpmnLane layout data was buggily the width instead of the height, and was interpreted as a weight.
      * Interpret all of them as a weight and translate to height.
-     * 
      * @param gmLaneContainer the laneset container
      * @param containerBounds the bounds of the container
      */
@@ -308,6 +309,7 @@ public class GmBpmnLaneMigrator implements IPersistentMigrator {
                 gmBpmnLane.setLayoutData(-1);
             }
         }
+        
     }
 
     @objid ("a948f0c7-6578-4fc0-9e97-8b06cfc535ec")
@@ -379,6 +381,7 @@ public class GmBpmnLaneMigrator implements IPersistentMigrator {
         
             workflow.addChild(newContainer);
         }
+        
     }
 
     @objid ("2c35565f-aa83-4c87-a397-a43cc7d0a074")

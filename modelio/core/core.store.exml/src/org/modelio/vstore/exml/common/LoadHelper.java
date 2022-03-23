@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common;
 
 import java.util.Locale;
@@ -59,16 +58,16 @@ public class LoadHelper implements ILoadHelper {
 
     /**
      * Initialize the loading helper.
-     * 
      * @param exmlBase the EXML repository
      * @param loadReadWrite <code>true</code> if the repository is read/write, <code>false</code> if read only.
      */
     @objid ("67841280-2e7b-11e2-8aaa-001ec947ccaf")
-    public LoadHelper(IExmlBase exmlBase, boolean loadReadWrite) {
+    public  LoadHelper(IExmlBase exmlBase, boolean loadReadWrite) {
         this.exmlBase = exmlBase;
         this.loadCache = exmlBase.getLoadCache();
         this.loadReadWrite = loadReadWrite;
         this.metamodel = exmlBase.getModelLoaderProvider().getMetamodel();
+        
     }
 
     @objid ("678412b7-2e7b-11e2-8aaa-001ec947ccaf")
@@ -171,6 +170,7 @@ public class LoadHelper implements ILoadHelper {
             this.exmlBase.setIndexesDamaged(e);
             throw e;
         }
+        
     }
 
     @objid ("678412a6-2e7b-11e2-8aaa-001ec947ccaf")
@@ -216,6 +216,7 @@ public class LoadHelper implements ILoadHelper {
                 reportProblem( obj, "Unknown type:"+attType.getSimpleName()+" for "+att.getName()+" attribute.");
             }
         }
+        
     }
 
     @objid ("e6be93c2-cae0-4fa0-87b6-22b3364bd2e1")
@@ -267,6 +268,7 @@ public class LoadHelper implements ILoadHelper {
         } else {
             return getForeignObject(modelLoader, id);
         }
+        
     }
 
     @objid ("bafffe7f-7dc9-44b1-94c8-0b1395f6b758")
@@ -290,7 +292,6 @@ public class LoadHelper implements ILoadHelper {
 
     /**
      * Initialize the model object status flags.
-     * 
      * @param modelLoader the model loader to use to initialize flags.
      * @param obj the model object to initialize.
      */
@@ -302,6 +303,7 @@ public class LoadHelper implements ILoadHelper {
             falseFlags |= IRStatus.USERWRITE;
         }
         modelLoader.setRStatus(obj, 0, falseFlags, 0);
+        
     }
 
     @objid ("678412be-2e7b-11e2-8aaa-001ec947ccaf")
@@ -314,7 +316,6 @@ public class LoadHelper implements ILoadHelper {
      * Method to be called when loading fails with an exception.
      * <p>
      * Fires a warning to repository monitors and set the object as shell.
-     * 
      * @param obj the CMS node unable to be loaded.
      * @param modelLoader the model loader
      * @param e the exception
@@ -328,6 +329,7 @@ public class LoadHelper implements ILoadHelper {
                 this.exmlBase.getErrorSupport().fireWarning(e);
             }
         }
+        
     }
 
     @objid ("1d8fdab5-122c-11e2-816a-001ec947ccaf")
@@ -341,12 +343,12 @@ public class LoadHelper implements ILoadHelper {
         if (Log.ENABLED) {
             Log.warning("EXML loading problem on %s %s: %s ",obj.getClassOf().getName(),obj.getUuid(),msg);
         }
+        
     }
 
     /**
      * initialize the object  name from the {@link ObjId#name} if non null, from the index in the other case.
      * @param id the name holder
-     * 
      * @param modelLoader a model loader
      * @param newObject the object to initialize
      */
@@ -361,6 +363,7 @@ public class LoadHelper implements ILoadHelper {
         if (nameAtt != null) {
             modelLoader.loadAttribute(newObject, nameAtt, name == null ? "" : name);
         }
+        
     }
 
     @objid ("7ba3f20f-55c1-49e0-a3dc-62be9c7c48b0")
@@ -372,6 +375,7 @@ public class LoadHelper implements ILoadHelper {
             this.exmlBase.setIndexesDamaged(e);
             return new ObjIdName(id.classof, "", id.id);
         }
+        
     }
 
     @objid ("5a204c11-0852-476c-ba1c-4ccf9a01fe5a")
@@ -382,6 +386,7 @@ public class LoadHelper implements ILoadHelper {
             this.exmlBase.setIndexesDamaged(e);
             return defaultName;
         }
+        
     }
 
 }

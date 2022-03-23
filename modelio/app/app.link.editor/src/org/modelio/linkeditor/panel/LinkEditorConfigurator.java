@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.panel;
 
 import java.beans.PropertyChangeEvent;
@@ -41,7 +40,7 @@ class LinkEditorConfigurator implements ILinkEditorConfigurator {
     private PropertyChangeSupport listeners = new PropertyChangeSupport(this);
 
     @objid ("8bf02c63-0dff-455e-916d-8d606ef000a3")
-    public LinkEditorConfigurator(LinkEditorConfiguration config) {
+    public  LinkEditorConfigurator(LinkEditorConfiguration config) {
         this.config = config;
     }
 
@@ -62,6 +61,7 @@ class LinkEditorConfigurator implements ILinkEditorConfigurator {
     public void setLeftDepth(int depth) {
         this.config.setLeftDepth(depth);
         refreshLinkEditor();
+        
     }
 
     @objid ("220a989a-8299-4c28-bb06-4ec475483b9e")
@@ -69,6 +69,7 @@ class LinkEditorConfigurator implements ILinkEditorConfigurator {
     public void setRightDepth(int depth) {
         this.config.setRightDepth(depth);
         refreshLinkEditor();
+        
     }
 
     @objid ("f57a76aa-4e9d-4b5c-8378-cbbdff18bbf7")
@@ -92,6 +93,7 @@ class LinkEditorConfigurator implements ILinkEditorConfigurator {
         }
         
         refreshLinkEditor();
+        
     }
 
     @objid ("1bc506bb-df83-4d12-a397-24327103136c")
@@ -105,6 +107,7 @@ class LinkEditorConfigurator implements ILinkEditorConfigurator {
     public void setLinkFilter(ILinkEditorFilter linkFilter) {
         this.config.setLinkFilter(linkFilter);
         refreshLinkEditor();
+        
     }
 
     @objid ("fac662da-1a07-48dd-bf2c-7dc7a361566f")
@@ -112,6 +115,7 @@ class LinkEditorConfigurator implements ILinkEditorConfigurator {
         if (!this.batch) {
             firePropertyChange();
         }
+        
     }
 
     @objid ("6db8979f-1408-4816-a581-2878a4c5a669")
@@ -126,12 +130,14 @@ class LinkEditorConfigurator implements ILinkEditorConfigurator {
         // Now let's refresh once
         this.batch = false;
         refreshLinkEditor();
+        
     }
 
     @objid ("30dc6a2c-48d3-46f3-9a61-5b7edf72c3ca")
     private void firePropertyChange() {
         // FIXME fire a relevant event
         this.listeners.firePropertyChange(new PropertyChangeEvent(this, "CONFIG", null, null));
+        
     }
 
     @objid ("34d41839-09bd-4122-bd10-3716e14b5ebd")
@@ -140,6 +146,7 @@ class LinkEditorConfigurator implements ILinkEditorConfigurator {
         // Making sure a listener is only added once.
         this.listeners.removePropertyChangeListener(listener);
         this.listeners.addPropertyChangeListener(listener);
+        
     }
 
     @objid ("03362eec-2c69-4849-9ec7-770ffe3c102f")

@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.group;
 
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -29,202 +28,220 @@ import java.util.Map;
 import java.util.function.Function;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.gef.EditPart;
+import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.commands.Command;
+import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gef.editparts.AbstractEditPart;
-import org.eclipse.gef.editpolicies.GraphicalEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gef.requests.GroupRequest;
+import org.modelio.diagram.elements.core.commands.DeleteInDiagramCommand;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
-import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
+import org.modelio.diagram.elements.core.policies.DefaultRefreshFromModelEditPolicy;
+import org.modelio.diagram.elements.core.policies.LayoutChildrenNodeConnectionsHelper;
+import org.modelio.diagram.elements.core.requests.RequestProperty;
 import org.modelio.diagram.elements.plugin.DiagramElements;
 import org.modelio.vcore.smkernel.mapi.MObject;
-import org.modelio.vcore.smkernel.mapi.MRef;
 
 /**
  * Edit policy that waits for {@link GmGroup#PROP_REFRESH_FROM_OBMODEL} property change event
  * to refresh a {@link GmGroup} content from the model, by using requests and commands.
  * <p>
- * This will allow a GmGroup to better autosize when its content change, depending on onther edit policies
+ * This will allow a GmGroup to better autosize when its content change, depending on on other edit policies
  * installed on the {@link GroupEditPart}.
  * <p>
- * GmGroup does not currently fire {@link GmGroup#PROP_REFRESH_FROM_OBMODEL} property change event.
- * You have to fire it yourself from GmGroup subclass in your {@link GmGroup#refreshFromObModel()} redefinition.
+ * GmGroup fires {@link GmGroup#PROP_REFRESH_FROM_OBMODEL} property change event in its {@link GmGroup#refreshFromObModel()} method.
  * 
  * @author cma
- * @since 3.7
+ * @since 3.7, remade in 5.1.0 to handle connections layout
  * @see org.modelio.diagram.elements.core.policies.AutoFitToContentEditPolicy
+ * @version 3.7 : initial implementation modified the gm model directly when possible
+ * @version 5.1.0 : remade to handle connections layout, aggregates plenty commands then execute them
  */
 @objid ("0f11e132-ba7a-4791-9c97-f508b55190ca")
-public class GroupRefreshFromModelEditPolicy extends GraphicalEditPolicy implements PropertyChangeListener {
-    @objid ("a8d91b0b-9b7d-47bd-8b4e-d291d96c1588")
-    private final Function<MObject,List<? extends MObject>> expectedChildren;
+public class GroupRefreshFromModelEditPolicy extends DefaultRefreshFromModelEditPolicy {
+    @objid ("148b2456-aede-4332-bfea-a00f8f4cd853")
+    private final boolean ordered;
 
-    @objid ("971583ea-5ebe-4581-aa91-5f8ecb013857")
-    public GroupRefreshFromModelEditPolicy(Function<MObject,List<? extends MObject>> expectedChildren) {
+    @objid ("75d9afdb-d75e-4142-b8cc-143037e3ff62")
+    private final Function<MObject, List<? extends MObject>> expectedChildren;
+
+    /**
+     * Calls {@link #GroupRefreshFromModelEditPolicy(Function, boolean) GroupRefreshFromModelEditPolicy(Function, true)}.
+     * @param expectedChildren a function that return the model elements that must be displayed, in order
+     * @deprecated Use {@link #GroupRefreshFromModelEditPolicy(Function, boolean)}
+     */
+    @objid ("13057b14-0a99-4bed-993f-d7f5fe722060")
+    @Deprecated
+    public  GroupRefreshFromModelEditPolicy(Function<MObject, List<? extends MObject>> expectedChildren) {
+        this(expectedChildren, true);
+    }
+
+    /**
+     * @param expectedChildren a function that return the model elements that must be displayed, in order
+     * @param ordered whether the Gm order must be synchronized from the Ob model
+     */
+    @objid ("9a2c8055-6cb8-4cee-8760-6839fbc02533")
+    public  GroupRefreshFromModelEditPolicy(Function<MObject, List<? extends MObject>> expectedChildren, boolean ordered) {
         super();
         this.expectedChildren = expectedChildren;
-    }
-
-    @objid ("ee7f5c02-2ccf-46fb-84d8-c79473739794")
-    @Override
-    public void activate() {
-        super.activate();
+        this.ordered = ordered;
         
-        GmGroup grp = getModel();
-        grp.addPropertyChangeListener(this);
-    }
-
-    @objid ("0a5bbf28-d119-43f6-8346-a94052b0c7f7")
-    @Override
-    public void deactivate() {
-        GmGroup grp = getModel();
-        grp.removePropertyChangeListener(this);
-        
-        super.deactivate();
-    }
-
-    @objid ("3c0f0d13-d3d8-4d93-9def-a9e3d429a8ca")
-    private GmGroup getModel() {
-        return (GmGroup) getHost().getModel();
-    }
-
-    @objid ("e6eccefd-58fe-4632-ae29-57ecc9c374ed")
-    @Override
-    public void propertyChange(PropertyChangeEvent ev) {
-        if (GmModel.PROP_REFRESH_FROM_OBMODEL.equals(ev.getPropertyName())) {
-            final GmGroup model = getModel();
-            MObject el = model.getRelatedElement();
-            if (el != null && el.isValid()) {
-                refreshChildren();
-            }
-        }
     }
 
     /**
      * Updates the set of children GmNodeModel so that it is in sync with the
-     * OB model children. This method is called from {@link #propertyChange()}. This method
-     * requires linear time to complete. Clients should call this method as few
-     * times as possible.
+     * OB model children. This method is called from {@link #propertyChange(java.beans.PropertyChangeEvent)}. This method
+     * requires linear time to complete.
      * <P>
      * The update is performed by comparing the existing GmNodeModel with the set
      * of model children returned from {@link #expectedChildren}. GmNodeModel
-     * whose models no longer exist are {@link #removeChild(GmNodeModel) removed}.
-     * New models have their GmNodeModel {@link #createChild(MObject) created}.
+     * whose models no longer exist are {@link #getRemoveChildCommand(GmNodeModel, Map) removed}.
+     * New models have their GmNodeModel {@link #getCreateChildCommand(MObject, int) created}.
      * <p>
-     * @author Copied from {@link AbstractEditPart#refreshChildren()}
+     * @author Inspired from {@link AbstractEditPart#refreshChildren()}
      */
-    @objid ("bfb52940-c577-4914-8d51-4a0fbbd291f6")
-    protected final void refreshChildren() {
+    @objid ("86517e8c-7fd9-452d-8184-bb24c4b3834f")
+    protected final Command getRefreshCommand() {
         final GmGroup gmGroup = getModel();
         
         List<? extends MObject> obChildren = this.expectedChildren.apply(gmGroup.getRelatedElement());
         if (obChildren == null) {
             // Abort refresh
-            return;
+            return null;
         }
         
-        List<GmNodeModel> gmChildren = gmGroup.getChildren();
-        int i;
+        final CompoundCommand command = new CompoundCommand();
         
-        int size = gmChildren.size();
-        Map<MObject, GmNodeModel> obToGm = Collections.EMPTY_MAP;
-        if (size > 0) {
-            obToGm = new HashMap<>(size);
+        final Map<Object, EditPart> editPartRegistry = getHost().getViewer().getEditPartRegistry();
+        final List<GmNodeModel> gmChildren = gmGroup.getChildren();
+        
+        int gmSize = gmChildren.size();
+        Map<MObject, GmNodeModel> obToGm = Collections.emptyMap();
+        if (gmSize > 0) {
+            obToGm = new HashMap<>(gmSize);
             for (GmNodeModel gmChild : gmChildren) {
                 obToGm.put(gmChild.getRelatedElement(), gmChild);
             }
         }
         
-        for (i = 0; i < obChildren.size(); i++) {
-            MObject model = obChildren.get(i);
+        int obSize = obChildren.size();
+        int obIndex = 0;
+        while (obIndex < obSize) {
+            MObject obElement = obChildren.get(obIndex);
         
             // Do a quick check to see if gmChildren[i] == obChildren[i]
-            if (i < gmChildren.size()
-                    && model.equals((gmChildren.get(i)).getRelatedElement())) {
+            if (obIndex < gmSize
+                    && obElement.equals((gmChildren.get(obIndex)).getRelatedElement())) {
+                obIndex++;
+                obToGm.remove(obElement);
                 continue;
             }
         
             // Look to see if the GmNodeModel is already around but in the
             // wrong location
-            GmNodeModel gmChild = obToGm.get(model);
+            GmNodeModel gmChild = obToGm.remove(obElement);
         
             if (gmChild != null) {
-                reorderChild(gmChild, i);
+                if (this.ordered) {
+                    command.add(getReorderChildCommand(gmChild, obIndex));
+                }
             } else {
-                // An GmNodeModel for this model doesn't exist yet. Create and
+                // A GmNodeModel for this model doesn't exist yet. Create and
                 // insert one.
-                gmChild = createChild(model);
-                addChild(gmChild, i);
+                command.add(getCreateChildCommand(obElement, obIndex));
+            }
+        
+            obIndex++;
+        }
+        
+        Collection<GraphicalEditPart> deletedEp = Collections.emptyList();
+        // Remove the remaining GmNodeModel
+        if (! obToGm.isEmpty()) {
+            deletedEp = new ArrayList<>();
+        
+            for (GmNodeModel gmToDelete : obToGm.values()) {
+                command.add(getRemoveChildCommand(gmToDelete, editPartRegistry));
+                deletedEp.add((GraphicalEditPart) editPartRegistry.get(gmToDelete));
             }
         }
         
-        // Remove the remaining GmNodeModel
-        gmChildren = gmGroup.getChildren(); // Get new snapshot
-        size = gmChildren.size();
-        if (i < size) {
-            for (GmNodeModel ep : gmChildren.subList(i, size)) {
-                removeChild(ep);
-            }
-        }
+        if (command.size()==0)
+            return null;
+        
+        // Add layout links command
+        LayoutChildrenNodeConnectionsHelper.forRequest(null)
+        .addEditPart((GraphicalEditPart) getHost())
+        .removeEditParts(deletedEp)
+        .createCommands(command);
+        return command.unwrap();
     }
 
-    @objid ("b7ac1cfe-fa5c-454c-8395-fb092ffd1f1f")
-    private void addChild(GmNodeModel gmChild, int i) {
-        getModel().moveChild(gmChild, i);
-    }
-
-    @objid ("41e84f02-7e55-4b9c-91f2-68e26764f868")
-    private GmNodeModel createChild(MObject model) {
+    @objid ("fbdeaa73-c0b9-44c8-a386-2a070cb7c55c")
+    private Command getCreateChildCommand(MObject model, int index) {
         // Create unmask request
         CreateRequest req = new CreateRequest();
         ModelioCreationContext ctx = new ModelioCreationContext(model);
         req.setFactory(ctx);
+        RequestProperty.PROP_GROUP_ITEM_INDEX.set(req, index);
         
         Command cmd = getHost().getCommand(req);
-        if (cmd != null && cmd.canExecute()) {
-            // Warning: do not use the command stack, it would use a transaction and potentially break the undo/redo
-            cmd.execute();
-        
-            // look for created GM
-            final GmNodeModel createdChild = getModel().getChild(new MRef(model));
-        
-            assert (createdChild != null);
-        
-            return createdChild;
-        } else {
+        if (cmd == null || !cmd.canExecute()) {
             DiagramElements.LOG.debug("%s: Unable to unmask %s under %s, command = %s", getClass().getSimpleName(), model, getHost(), cmd);
             DiagramElements.LOG.debug(new Throwable("stack trace"));
-        
-            return null;
         }
+        return cmd;
     }
 
-    @objid ("e8bbd475-f5ce-4d5b-b561-060377a8abb0")
-    private void removeChild(GmNodeModel gmChild) {
-        EditPart ep = (EditPart) getHost().getViewer().getEditPartRegistry().get(gmChild);
+    @objid ("41d615dc-21e6-4d2a-ac6f-a0fcd759fa4f")
+    private Command getRemoveChildCommand(GmNodeModel gmChild, Map<Object, EditPart> editPartRegistry) {
+        EditPart ep = editPartRegistry.get(gmChild);
         if (ep != null) {
             GroupRequest deleteReq = new GroupRequest(RequestConstants.REQ_DELETE);
             deleteReq.setEditParts(ep);
             Command cmd = ep.getCommand(deleteReq);
-            if (cmd != null && cmd.canExecute()) {
-                // Warning: do not use the command stack, it would use a transaction and potentially break the undo/redo
-                cmd.execute();
-        
-                assert (gmChild.getParent() == null);
-            } else {
+            if (cmd == null || ! cmd.canExecute()) {
                 DiagramElements.LOG.debug("%s: Unable to mask %s under %s, command = %s", getClass().getSimpleName(), gmChild, getHost(), cmd);
                 DiagramElements.LOG.debug(new Throwable("stack trace"));
             }
+            return cmd;
         } else {
-            gmChild.delete();
+            return new DeleteInDiagramCommand().setNodetoDelete(gmChild);
         }
+        
     }
 
-    @objid ("2700d476-40b7-492b-8040-5adeda724643")
-    private void reorderChild(GmNodeModel gmChild, int i) {
-        getModel().moveChild(gmChild, i);
+    @objid ("131b8474-1ef0-4d31-b0b3-f7c7359cf9cf")
+    protected Command getReorderChildCommand(GmNodeModel gmChild, int i) {
+        return new ReorderChildCommand(getModel(), gmChild, i);
+    }
+
+    @objid ("a7641aee-bf57-4eec-a34c-bebbd4b5ce2c")
+    protected static class ReorderChildCommand extends Command {
+        @objid ("74b958ed-1eee-410d-9d93-db3bb134775f")
+        protected final int i;
+
+        @objid ("286f466c-274a-407b-aea2-c8f23cfec947")
+        protected final GmGroup group;
+
+        @objid ("5e6fc550-a837-4bda-b905-806dfdf79983")
+        protected final GmNodeModel gmChild;
+
+        @objid ("c5d674c5-0b53-467b-9aee-fa0efc354a2f")
+        public  ReorderChildCommand(GmGroup group, GmNodeModel gmChild, int i) {
+            this.group = group;
+            this.gmChild = gmChild;
+            this.i = i;
+            
+        }
+
+        @objid ("e11351d3-4aac-4abc-aa3f-321013469566")
+        @Override
+        public void execute() {
+            this.group.moveChild(this.gmChild, this.i);
+        }
+
     }
 
 }

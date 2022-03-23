@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.core.modelshield.engine.plan;
 
 import java.util.ArrayList;
@@ -52,6 +51,7 @@ public class Plan implements IModelShieldRegistry, IModelShieldPlan {
         for (MClass sc : mc.getSub(false)) {
             registerChecker(checker, sc, trigger, feature);
         }
+        
     }
 
     @objid ("00446bf0-f904-1f61-8473-001ec947cd2a")
@@ -85,6 +85,7 @@ public class Plan implements IModelShieldRegistry, IModelShieldPlan {
             assert (false);
             return metaclassPlan.getAllCheckers();
         }
+        
     }
 
     @objid ("0044c6fe-f904-1f61-8473-001ec947cd2a")
@@ -149,6 +150,7 @@ public class Plan implements IModelShieldRegistry, IModelShieldPlan {
             default:
                 // Do nothing, we should not be here.
             }
+            
         }
 
         @objid ("000d7834-0abf-1f62-8473-001ec947cd2a")
@@ -179,6 +181,7 @@ public class Plan implements IModelShieldRegistry, IModelShieldPlan {
             } else {
                 return this.updateCheckers.get(feature);
             }
+            
         }
 
         @objid ("33e89de6-e980-423b-9789-e851b6c8592b")

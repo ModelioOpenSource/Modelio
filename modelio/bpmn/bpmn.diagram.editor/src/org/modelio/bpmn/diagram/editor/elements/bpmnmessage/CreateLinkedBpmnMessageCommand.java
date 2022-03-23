@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnmessage;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,11 +45,10 @@ import org.modelio.metamodel.uml.infrastructure.ModelElement;
 public class CreateLinkedBpmnMessageCommand extends CreateLinkedNodeCommand {
     /**
      * Creates a node creation command.
-     * 
      * @param context Details on the MObject and/or the node to create
      */
     @objid ("615a99fd-55b6-11e2-877f-002564c97630")
-    public CreateLinkedBpmnMessageCommand(final ModelioCreationContext context) {
+    public  CreateLinkedBpmnMessageCommand(final ModelioCreationContext context) {
         super(context);
     }
 
@@ -107,6 +105,7 @@ public class CreateLinkedBpmnMessageCommand extends CreateLinkedNodeCommand {
         // path.setPathData(new ArrayList<Bendpoint>());
         // gmlink.setLayoutData(path);
         // }
+        
     }
 
 }

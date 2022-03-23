@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.bpmnDiagrams;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,7 +31,7 @@ import org.modelio.metamodel.impl.diagrams.BehaviorDiagramData;
 @objid ("000cee8c-c4c0-1fd8-97fe-001ec947cd2a")
 public class BpmnSubProcessDiagramData extends BehaviorDiagramData {
     @objid ("5096d32d-6666-4625-aa5d-a48ee15206d4")
-    public BpmnSubProcessDiagramData(BpmnSubProcessDiagramSmClass smClass) {
+    public  BpmnSubProcessDiagramData(BpmnSubProcessDiagramSmClass smClass) {
         super(smClass);
     }
 

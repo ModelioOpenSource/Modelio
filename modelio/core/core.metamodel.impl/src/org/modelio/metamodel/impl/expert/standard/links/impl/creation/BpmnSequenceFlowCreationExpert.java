@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.expert.standard.links.impl.creation;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,7 +40,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 @objid ("7e99a2b9-1eb2-11e2-8009-002564c97630")
 public class BpmnSequenceFlowCreationExpert extends DefaultDelegatingLinkExpert {
     @objid ("f92825f6-49d5-426a-bdc5-76d79a78a49e")
-    public BpmnSequenceFlowCreationExpert(ILinkExpert defaultExpert) {
+    public  BpmnSequenceFlowCreationExpert(ILinkExpert defaultExpert) {
         super(defaultExpert);
     }
 
@@ -71,16 +70,12 @@ public class BpmnSequenceFlowCreationExpert extends DefaultDelegatingLinkExpert 
         if (!(toElement instanceof BpmnFlowNode)) {
             return false;
         }
-        
-        if (isSameContext(fromElement, toElement)) {
-            return true;
-        }
-        return false;
+        return isSameContext(fromElement, toElement);
     }
 
     @objid ("7e99a2c9-1eb2-11e2-8009-002564c97630")
     @Override
-    public boolean canSource(final MObject fromElement, final MObject ownerElement) {
+    public boolean canSource(final MObject linkElement, final MObject fromElement) {
         if (fromElement instanceof BpmnEndEvent) {
             return false;
         }
@@ -96,14 +91,14 @@ public class BpmnSequenceFlowCreationExpert extends DefaultDelegatingLinkExpert 
     }
 
     @objid ("7e99a2d2-1eb2-11e2-8009-002564c97630")
-    private boolean isSameContext(final MObject fromElement, final MObject toElement) {
-        MObject formContext = getContext(fromElement, true);
+    private static boolean isSameContext(final MObject fromElement, final MObject toElement) {
+        MObject fromContext = getContext(fromElement, true);
         MObject toContext = getContext(toElement, true);
-        return formContext.equals(toContext);
+        return fromContext.equals(toContext);
     }
 
     @objid ("7e99a2da-1eb2-11e2-8009-002564c97630")
-    private MObject getContext(final MObject element, final boolean rec) {
+    private static MObject getContext(final MObject element, final boolean rec) {
         if (element instanceof BpmnProcess) {
             return element;
         } else if (element instanceof BpmnSubProcess) {
@@ -117,7 +112,7 @@ public class BpmnSequenceFlowCreationExpert extends DefaultDelegatingLinkExpert 
     }
 
     @objid ("7e99a2e2-1eb2-11e2-8009-002564c97630")
-    private BpmnLane getFirstLane(final BpmnLane lane) {
+    private static BpmnLane getFirstLane(final BpmnLane lane) {
         BpmnLaneSet owner = (BpmnLaneSet) lane.getCompositionOwner();
         if (owner.getParentLane() != null) {
             return getFirstLane(owner.getParentLane());

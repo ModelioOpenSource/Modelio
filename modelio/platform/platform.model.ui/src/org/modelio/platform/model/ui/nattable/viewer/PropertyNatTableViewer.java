@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.viewer;
 
 import java.util.ArrayList;
@@ -91,11 +90,10 @@ public class PropertyNatTableViewer extends Viewer {
 
     /**
      * Create a new instance of the table viewer.
-     * 
      * @param parent widget for the table.
      */
     @objid ("de65eee9-4d54-44dd-a101-c2cb516bf1af")
-    public PropertyNatTableViewer(final Composite parent) {
+    public  PropertyNatTableViewer(final Composite parent) {
         this.natTable = new NatTable(parent, false);
     }
 
@@ -170,6 +168,7 @@ public class PropertyNatTableViewer extends Viewer {
         setupColumnsSize(this.bodyDataLayer);
         
         this.natTable.requestLayout();
+        
     }
 
     @objid ("47446000-63dd-44bd-9363-4df4a9a82936")
@@ -221,6 +220,7 @@ public class PropertyNatTableViewer extends Viewer {
                 this.selectionLayer.selectRow(0, row, false, true);
             }
         }
+        
     }
 
     /**
@@ -246,6 +246,7 @@ public class PropertyNatTableViewer extends Viewer {
         } else {
             throw new IllegalArgumentException(String.valueOf(input));
         }
+        
     }
 
     @objid ("30171529-5369-4afe-a792-887ec883c26c")
@@ -256,6 +257,7 @@ public class PropertyNatTableViewer extends Viewer {
         
         this.dataModel = input;
         setupTable();
+        
     }
 
     /**
@@ -280,6 +282,7 @@ public class PropertyNatTableViewer extends Viewer {
                 CoreUi.LOG.error(e);
             }
         }
+        
     }
 
     @objid ("974ec0ef-8fd1-4a96-87e0-cab6313d7343")
@@ -305,6 +308,7 @@ public class PropertyNatTableViewer extends Viewer {
                 dataLayer.setColumnWidthPercentageByPosition(i, 80 / (columnCount - 1));
             }
         }
+        
     }
 
     /**
@@ -344,6 +348,7 @@ public class PropertyNatTableViewer extends Viewer {
                 return null;
             }
         };
+        
     }
 
     /**
@@ -360,7 +365,6 @@ public class PropertyNatTableViewer extends Viewer {
     /**
      * Refreshes this viewer completely with information freshly obtained from this
      * viewer's model.
-     * 
      * @param forceConfiguration force a NatTable configuration.
      */
     @objid ("fd330ab2-9834-4e0d-b663-f5908d105edb")
@@ -391,6 +395,7 @@ public class PropertyNatTableViewer extends Viewer {
             }
         }
         this.natTable.refresh();
+        
     }
 
 }

@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.module.jaxbv2;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
  * <p>
@@ -96,7 +95,6 @@ public class Jxbv2ExternDocumentType {
 
     /**
      * Gets the value of the name property.
-     * 
      * @return possible object is {@link String }
      */
     @objid ("6e81968f-2a41-4b7d-86d2-360f0e67a923")
@@ -106,7 +104,6 @@ public class Jxbv2ExternDocumentType {
 
     /**
      * Sets the value of the name property.
-     * 
      * @param value allowed object is {@link String }
      */
     @objid ("b00c5c1c-f150-49dd-85f6-cebd2c8adc63")
@@ -116,7 +113,6 @@ public class Jxbv2ExternDocumentType {
 
     /**
      * Gets the value of the uid property.
-     * 
      * @return possible object is {@link String }
      */
     @objid ("ef281c53-2efb-40cc-9854-8634dd7d0721")
@@ -126,7 +122,6 @@ public class Jxbv2ExternDocumentType {
 
     /**
      * Sets the value of the uid property.
-     * 
      * @param value allowed object is {@link String }
      */
     @objid ("a7dae9af-9e02-4174-81e2-8d95cc5fde58")
@@ -136,7 +131,6 @@ public class Jxbv2ExternDocumentType {
 
     /**
      * Gets the value of the label property.
-     * 
      * @return possible object is {@link String }
      */
     @objid ("395785dc-1be1-41b5-9818-7ef4f194dae6")
@@ -146,7 +140,6 @@ public class Jxbv2ExternDocumentType {
 
     /**
      * Sets the value of the label property.
-     * 
      * @param value allowed object is {@link String }
      */
     @objid ("3e9c446d-bd12-4fc7-9150-fc3089a21961")
@@ -156,7 +149,6 @@ public class Jxbv2ExternDocumentType {
 
     /**
      * Gets the value of the isHidden property.
-     * 
      * @return possible object is {@link String }
      */
     @objid ("e14b3b4c-7174-4fe1-839b-1401195a8e4e")
@@ -166,7 +158,6 @@ public class Jxbv2ExternDocumentType {
 
     /**
      * Sets the value of the isHidden property.
-     * 
      * @param value allowed object is {@link String }
      */
     @objid ("f31b908d-4f7f-4148-9db3-c68d57608c51")
@@ -176,7 +167,6 @@ public class Jxbv2ExternDocumentType {
 
     /**
      * Gets the value of the description property.
-     * 
      * @return possible object is {@link String }
      */
     @objid ("cf876b95-b57e-436f-9f2a-eb151ee49a1d")
@@ -186,7 +176,6 @@ public class Jxbv2ExternDocumentType {
 
     /**
      * Sets the value of the description property.
-     * 
      * @param value allowed object is {@link String }
      */
     @objid ("8f233076-15ae-460d-81dc-7b76cae551e9")
@@ -196,7 +185,6 @@ public class Jxbv2ExternDocumentType {
 
     /**
      * Gets the value of the extensions property.
-     * 
      * @return possible object is {@link Jxbv2ExternDocumentType.Jxbv2Extensions }
      */
     @objid ("d3a8558b-3f4b-4ba0-9d80-2df46ec63bf3")
@@ -206,7 +194,6 @@ public class Jxbv2ExternDocumentType {
 
     /**
      * Sets the value of the extensions property.
-     * 
      * @param value allowed object is {@link Jxbv2ExternDocumentType.Jxbv2Extensions }
      */
     @objid ("3499618d-ac86-4c1f-9a77-c620f95ce44f")
@@ -236,8 +223,8 @@ public class Jxbv2ExternDocumentType {
     @objid ("71d8469e-bbd3-4385-9af7-c85f241137ce")
     @XmlAccessorType (XmlAccessType.FIELD)
     @XmlType (name = "", propOrder = {
-            "stereotypeRef"
-    })
+                "stereotypeRef"
+        })
     public static class Jxbv2Extensions {
         @objid ("c5372a0e-1da8-4ccf-9daf-f1f56925747d")
         @XmlElement (name = "StereotypeRef")

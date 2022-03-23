@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.bpmnsharedefinition;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -64,6 +63,7 @@ public class BpmnSharedDefinitionsEditPart extends AbstractNodeEditPart {
             throw new IllegalArgumentException("CallBehaviorEditPart#addChildVisual: unknown index " + index);
         }
         getFigure().add(child, gmAbstractObject.getLayoutData(), index);
+        
     }
 
     @objid ("ad5b9ea5-5e46-4e3b-9489-cc5bef085b8b")
@@ -74,6 +74,7 @@ public class BpmnSharedDefinitionsEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                           new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("73b7eaa3-0e50-430b-a89f-0832d9ff0ed9")
@@ -103,6 +104,7 @@ public class BpmnSharedDefinitionsEditPart extends AbstractNodeEditPart {
                 super.refreshFromStyle(aFigure, style);
             }
         }
+        
     }
 
     @objid ("e3883082-cc2c-4241-afca-6bdaa2ebd618")
@@ -110,6 +112,7 @@ public class BpmnSharedDefinitionsEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         GmBpmnSharedDefinitionsPrimaryNode callBehaviorModel = (GmBpmnSharedDefinitionsPrimaryNode) getModel();
         getFigure().getParent().setConstraint(getFigure(), callBehaviorModel.getLayoutData());
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,9 +38,10 @@ public class ECallBehaviorAction extends EActivityNode {
     }
 
     @objid ("a3c6ee8f-b017-4885-9495-7e6d2194bf1a")
-    public ECallBehaviorAction(org.eclipse.uml2.uml.CallBehaviorAction element) {
+    public  ECallBehaviorAction(org.eclipse.uml2.uml.CallBehaviorAction element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("2f88ab35-cced-43d7-8c4e-c4f87284bac3")
@@ -50,6 +50,7 @@ public class ECallBehaviorAction extends EActivityNode {
         super.setProperties(objingElt);
         setSynchronous((CallBehaviorAction) objingElt);
         setBehavior((CallBehaviorAction) objingElt);
+        
     }
 
     @objid ("bce1e5ba-260f-42ca-a5c2-87531d69173b")
@@ -67,6 +68,7 @@ public class ECallBehaviorAction extends EActivityNode {
                 action.setCalled((Behavior) objingBehavior);
             }
         }
+        
     }
 
 }

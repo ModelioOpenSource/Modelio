@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.signal;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("9d36d02b-ca62-4e9d-ac9f-5616c922fdd2")
 public class Exception {
-    @objid ("8bb33fb3-88e5-4644-809f-93402f05e2ba")
+    @objid ("6f2a7ebb-0952-4a13-b532-a4a6d2b7b22b")
     public static final String STEREOTYPE_NAME = "exception";
 
     /**
      * The underlying {@link Signal} represented by this proxy, never null.
      */
-    @objid ("cd6d1407-97c8-42f5-8767-ffd0d8633ca0")
+    @objid ("6d1b09d2-3348-409a-843e-ed5ac1f1f30f")
     protected final Signal elt;
 
     /**
      * Tells whether a {@link Exception proxy} can be instantiated from a {@link MObject} checking it is a {@link Signal} stereotyped << exception >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("116ebe16-9b13-4f82-973d-fad7fc2b48c3")
+    @objid ("0df7de60-8d5d-41db-9f4a-50b2486bc0ee")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Signal) && ((Signal) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, Exception.STEREOTYPE_NAME));
     }
@@ -77,9 +75,9 @@ public class Exception {
      * 
      * @return a {@link Exception} proxy on the created {@link Signal}.
      */
-    @objid ("fd1c64a1-0bf5-4007-b4ae-693fa880898c")
+    @objid ("f03ba7eb-1238-498b-8a42-ba7d363ff7e4")
     public static Exception create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Signal");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.Signal");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, Exception.STEREOTYPE_NAME);
         return Exception.instantiate((Signal)e);
     }
@@ -91,7 +89,7 @@ public class Exception {
      * @param obj a Signal
      * @return a {@link Exception} proxy or <i>null</i>.
      */
-    @objid ("265fb914-b552-4c5a-99c1-7c05ef5ee908")
+    @objid ("685a7e12-bd17-4a7a-a4ff-35145f07500c")
     public static Exception instantiate(Signal obj) {
         return Exception.canInstantiate(obj) ? new Exception(obj) : null;
     }
@@ -104,7 +102,7 @@ public class Exception {
      * @return a {@link Exception} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("f89c371f-f3f8-4e1f-8a95-d5b196049a16")
+    @objid ("8094d93e-c867-4220-8d7e-b72ea56d8209")
     public static Exception safeInstantiate(Signal obj) throws IllegalArgumentException {
         if (Exception.canInstantiate(obj))
         	return new Exception(obj);
@@ -112,7 +110,7 @@ public class Exception {
         	throw new IllegalArgumentException("Exception: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("5eb2294a-4f75-40bd-a0b6-e727a353b461")
+    @objid ("917e5d53-c279-46a0-bd50-56374f30f46c")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,46 +130,47 @@ public class Exception {
      * Get the underlying {@link Signal}. 
      * @return the Signal represented by this proxy, never null.
      */
-    @objid ("532ea5eb-c2fb-473c-8674-4c1df7bd932d")
+    @objid ("780c7c26-517c-4640-a4b3-0ae7af515ba4")
     public Signal getElement() {
         return this.elt;
     }
 
-    @objid ("02ea00b7-24dc-4b2f-93ac-3c476e1cdb93")
+    @objid ("c38578f5-f4d0-4a26-959a-d76a5e777c59")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("045a143d-3ebb-42e4-962a-704032a04ae8")
-    protected Exception(Signal elt) {
+    @objid ("74bab799-409e-4173-b7ac-79474e2cdc28")
+    protected  Exception(Signal elt) {
         this.elt = elt;
     }
 
     @objid ("9d616c88-ee7e-4e3e-a81d-c779a5fefc14")
     public static final class MdaTypes {
-        @objid ("86f3b9c4-c3a2-40d2-bb01-3a38752a0e3f")
+        @objid ("92e2cb05-4bc6-4cd6-b3bc-394529ff0eea")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("eb0d8353-8380-482e-9dd3-122e2b832768")
+        @objid ("b56648a6-905f-4b94-b789-883d030945f8")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("a38181bd-2bef-48d4-9cd7-06ab60c420a6")
+        @objid ("2b2c3d7b-b8e4-4e8b-957d-8487f10f8047")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("00a4ad35-e781-4966-b663-50ebd130f5d2")
+        @objid ("e6a46960-f49f-4717-b74a-a8821ddb0c17")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "00700680-0000-01d1-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

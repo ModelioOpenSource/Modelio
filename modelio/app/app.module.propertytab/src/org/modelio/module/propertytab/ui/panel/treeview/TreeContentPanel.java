@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.module.propertytab.ui.panel.treeview;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,7 +46,7 @@ public class TreeContentPanel implements IModulePropertyTreePanel {
     protected TreeViewer treeViewer;
 
     @objid ("c89a9c92-1eba-11e2-9382-bc305ba4815c")
-    public TreeContentPanel(Composite parent, ModelElement element) {
+    public  TreeContentPanel(Composite parent, ModelElement element) {
         createGUI(parent);
     }
 
@@ -56,6 +55,7 @@ public class TreeContentPanel implements IModulePropertyTreePanel {
     public void stop() {
         setInput(null, null);
         disableGUI();
+        
     }
 
     @objid ("c89ac3a3-1eba-11e2-9382-bc305ba4815c")
@@ -108,6 +108,7 @@ public class TreeContentPanel implements IModulePropertyTreePanel {
         final LayoutChangeListener layoutListener = new LayoutChangeListener();
         col1.getColumn().addControlListener(layoutListener);
         this.treeViewer.getTree().addControlListener(layoutListener);
+        
     }
 
     @objid ("c89b11c4-1eba-11e2-9382-bc305ba4815c")
@@ -155,6 +156,7 @@ public class TreeContentPanel implements IModulePropertyTreePanel {
         } else {
             this.treeViewer.setInput(moduleProperty);
         }
+        
     }
 
     @objid ("c89bae03-1eba-11e2-9382-bc305ba4815c")
@@ -165,7 +167,7 @@ public class TreeContentPanel implements IModulePropertyTreePanel {
     @objid ("459c5b53-3acf-465f-a9a3-81b578161274")
     private class LayoutChangeListener implements ControlListener {
         @objid ("f67b0e48-ac08-46c0-a477-90b4c80a17c6")
-        protected LayoutChangeListener() {
+        protected  LayoutChangeListener() {
             super();
         }
 
@@ -192,6 +194,7 @@ public class TreeContentPanel implements IModulePropertyTreePanel {
             if (newWidth > 0) {
                 col1.setWidth(newWidth);
             }
+            
         }
 
         @objid ("09e8b078-ee7c-4e85-a06b-42c9ebafef13")

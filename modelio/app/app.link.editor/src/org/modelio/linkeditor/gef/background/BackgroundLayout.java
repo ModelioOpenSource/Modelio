@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.gef.background;
 
 import java.util.HashMap;
@@ -52,6 +51,7 @@ public class BackgroundLayout extends FreeformLayout {
             bounds = bounds.getTranslated(offsetPoint);
             f.setBounds(bounds);
         }
+        
     }
 
     @objid ("1b8a1d6f-5e33-11e2-b81d-002564c97630")
@@ -99,6 +99,7 @@ public class BackgroundLayout extends FreeformLayout {
     public void setConstraint(final IFigure figure, final Object newConstraint) {
         super.setConstraint(figure, newConstraint);
         this.cachedPositions.clear();
+        
     }
 
 }

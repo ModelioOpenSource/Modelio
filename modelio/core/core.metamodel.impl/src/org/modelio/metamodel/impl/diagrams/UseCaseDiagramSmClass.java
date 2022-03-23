@@ -17,19 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.diagrams;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.diagrams.StaticDiagram;
 import org.modelio.metamodel.diagrams.UseCaseDiagram;
-import org.modelio.metamodel.impl.diagrams.StaticDiagramSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("1ec2bda1-fb94-4a5c-a85c-452bd832a8fc")
 public class UseCaseDiagramSmClass extends StaticDiagramSmClass {
     @objid ("7db7a15e-903c-4dc9-9118-3eecacd484c1")
-    public UseCaseDiagramSmClass(ISmMetamodelFragment origin) {
+    public  UseCaseDiagramSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class UseCaseDiagramSmClass extends StaticDiagramSmClass {
     @Override
     public String getName() {
         return "UseCaseDiagram";
+        
     }
 
     @objid ("06d8cbc0-82ec-49e8-a269-abb66c2fce4a")
@@ -62,18 +62,21 @@ public class UseCaseDiagramSmClass extends StaticDiagramSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return UseCaseDiagram.class;
+        
     }
 
     @objid ("a93ba325-adeb-454e-b789-8de1d26a0062")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("00f141f6-ea97-473a-a362-49dcb057dfea")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("108a0a08-1c27-4e3b-a0d9-b4ed0b77a955")
@@ -86,6 +89,7 @@ public class UseCaseDiagramSmClass extends StaticDiagramSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("bfceb265-d6f8-4aea-b23f-30f227a71eef")
@@ -94,7 +98,7 @@ public class UseCaseDiagramSmClass extends StaticDiagramSmClass {
         private UseCaseDiagramSmClass smClass;
 
         @objid ("8275905a-a554-450e-a618-1504fb7ec02c")
-        public UseCaseDiagramObjectFactory(UseCaseDiagramSmClass smClass) {
+        public  UseCaseDiagramObjectFactory(UseCaseDiagramSmClass smClass) {
             this.smClass = smClass;
         }
 

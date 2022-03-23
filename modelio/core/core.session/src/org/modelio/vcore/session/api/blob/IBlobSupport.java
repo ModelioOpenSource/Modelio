@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.api.blob;
 
 import java.util.Collection;
@@ -39,7 +38,6 @@ public interface IBlobSupport {
      * Add a blob change listener.
      * <p>
      * Blob change listeners are triggered when {@link #fireBlobsChanged(IBlobChangeEvent)} is called.
-     * 
      * @param listener a blob change listener.
      */
     @objid ("bd38cadb-81c7-4b06-a161-38df0ee5430c")
@@ -50,7 +48,6 @@ public interface IBlobSupport {
      * <p>
      * Blob providers are asked for blobs related to CMS nodes to make the same CMS operation
      * as the related element.
-     * 
      * @param provider a blob provider.
      */
     @objid ("8b45b40b-1dca-48af-bc39-21236a2dfe11")
@@ -60,7 +57,6 @@ public interface IBlobSupport {
      * Get all blobs related to a given model object.
      * <p>
      * Asks all registered blob providers.
-     * 
      * @param obj a model object
      * @return all related blobs
      */
@@ -69,7 +65,6 @@ public interface IBlobSupport {
 
     /**
      * Fires all blob providers a blob change event.
-     * 
      * @param event a blob change event to fire.
      */
     @objid ("a924598b-13d7-4b59-8fd2-1d596fdaa0c9")
@@ -84,7 +79,6 @@ public interface IBlobSupport {
      * <p>
      * The implementation should decide what to do with the blobs it handles.
      * An implementation usually duplicate the blobs of the original object.
-     * 
      * @param from the original model object
      * @param to the model object copy.
      */
@@ -93,7 +87,6 @@ public interface IBlobSupport {
 
     /**
      * Remove a blob change listener.
-     * 
      * @param listener a blob change listener.
      */
     @objid ("423d200e-3480-462b-9ee5-777d8f089fb0")
@@ -101,7 +94,6 @@ public interface IBlobSupport {
 
     /**
      * Remove a blob provider.
-     * 
      * @param provider a blob provider.
      */
     @objid ("df621722-4dee-43d9-9096-1ec11eac77cf")
@@ -112,7 +104,6 @@ public interface IBlobSupport {
      * <p>
      * The implementation should decide what to do with the blobs it handles.
      * An implementation usually moves the blobs of the moved object to the destination repository.
-     * 
      * @param objs the moved model objects. the model object is already in the new repository.
      * @param fromRepo its previous repository
      * @param destRepo its new repository.

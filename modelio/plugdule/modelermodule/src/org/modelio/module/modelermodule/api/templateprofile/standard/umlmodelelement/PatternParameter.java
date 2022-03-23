@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.templateprofile.standard.umlmodelelement;
 
@@ -50,30 +49,29 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("5e418c31-b192-4b0e-978e-0c376b0d9327")
 public class PatternParameter {
-    @objid ("c5dfc5ec-6dbc-484a-a8a4-972863f98214")
+    @objid ("595433e4-5287-4d0b-9211-df9a3dd4494b")
     public static final String STEREOTYPE_NAME = "PatternParameter";
 
-    @objid ("aacbf7b6-400d-4653-aab9-54e52c2d9446")
+    @objid ("e15133e3-e5f3-40f9-9296-c193ae634300")
     public static final String PATTERNPARAMETER_LABEL_TAGTYPE = "PatternParameter.Label";
 
-    @objid ("89472dca-dd94-49ed-8801-c1c6adbde29f")
+    @objid ("602bd689-0cce-4f1b-94dd-a4951a105241")
     public static final String PATTERNPARAMETER_NAME_TAGTYPE = "PatternParameter.Name";
 
     /**
      * The underlying {@link UmlModelElement} represented by this proxy, never null.
      */
-    @objid ("bdd66051-abe5-4397-8370-3d2e9f13782f")
+    @objid ("650635fc-5795-4928-a0c7-f45c0e53c0b8")
     protected final UmlModelElement elt;
 
     /**
      * Tells whether a {@link PatternParameter proxy} can be instantiated from a {@link MObject} checking it is a {@link UmlModelElement} stereotyped << PatternParameter >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("bce19a6b-3bd9-433c-9fba-f86eba60cc81")
+    @objid ("9fdfba5c-4964-4ac3-bcdf-01d0cc7d0fe1")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof UmlModelElement) && ((UmlModelElement) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, PatternParameter.STEREOTYPE_NAME));
     }
@@ -83,9 +81,9 @@ public class PatternParameter {
      * 
      * @return a {@link PatternParameter} proxy on the created {@link UmlModelElement}.
      */
-    @objid ("cc7a2e7e-d6a4-4fa0-a4cb-f08549a52377")
+    @objid ("eb3cc5a5-cb7c-4e43-909a-6293e664896e")
     public static PatternParameter create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("UmlModelElement");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.UmlModelElement");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, PatternParameter.STEREOTYPE_NAME);
         return PatternParameter.instantiate((UmlModelElement)e);
     }
@@ -97,7 +95,7 @@ public class PatternParameter {
      * @param obj a UmlModelElement
      * @return a {@link PatternParameter} proxy or <i>null</i>.
      */
-    @objid ("4ad24d9a-a5aa-4c0c-b8d4-a2de6d6ad8dd")
+    @objid ("d97ee82c-3975-4e2e-9f7b-9375e21dc69b")
     public static PatternParameter instantiate(UmlModelElement obj) {
         return PatternParameter.canInstantiate(obj) ? new PatternParameter(obj) : null;
     }
@@ -110,7 +108,7 @@ public class PatternParameter {
      * @return a {@link PatternParameter} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("6bba4d84-2bf0-41fe-8547-74678781c9b6")
+    @objid ("451d0d16-6739-4d0e-8240-1a1ba52a13c1")
     public static PatternParameter safeInstantiate(UmlModelElement obj) throws IllegalArgumentException {
         if (PatternParameter.canInstantiate(obj))
         	return new PatternParameter(obj);
@@ -118,7 +116,7 @@ public class PatternParameter {
         	throw new IllegalArgumentException("PatternParameter: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("97e3bf34-7bc4-4905-b42e-e8c0640ccdb5")
+    @objid ("c10af296-c9d0-424f-bfba-a73563eae788")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -138,7 +136,7 @@ public class PatternParameter {
      * Get the underlying {@link UmlModelElement}. 
      * @return the UmlModelElement represented by this proxy, never null.
      */
-    @objid ("706aeb79-2870-4dc4-998e-11bfd0c261d8")
+    @objid ("ce9ffc4a-b018-4272-b858-0171f84f39b0")
     public UmlModelElement getElement() {
         return this.elt;
     }
@@ -148,7 +146,7 @@ public class PatternParameter {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("b54fae24-b01f-4f9c-bbe3-e4e0c077bc6b")
+    @objid ("99ee2b88-1766-48bc-922a-81c4ae57b645")
     public String getPatternParameterLabel() {
         return this.elt.getTagValue(PatternParameter.MdaTypes.PATTERNPARAMETER_LABEL_TAGTYPE_ELT);
     }
@@ -158,15 +156,16 @@ public class PatternParameter {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("a3b6c61c-59d0-4121-8e3e-e896b0085d3e")
+    @objid ("3232e43a-7c11-4ee0-bd2b-af34d77f70da")
     public String getPatternParameterName() {
         return this.elt.getTagValue(PatternParameter.MdaTypes.PATTERNPARAMETER_NAME_TAGTYPE_ELT);
     }
 
-    @objid ("6fb19d67-6c38-47ec-bb16-776a6a6eefd6")
+    @objid ("1a85019e-6863-4eb6-87b2-903942db8daa")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
     /**
@@ -174,7 +173,7 @@ public class PatternParameter {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("e94b221c-8e1d-46b6-a8b4-83324ce36409")
+    @objid ("4cba3505-0b41-4a38-b901-40fb96256820")
     public void setPatternParameterLabel(String value) {
         this.elt.putTagValue(PatternParameter.MdaTypes.PATTERNPARAMETER_LABEL_TAGTYPE_ELT, value);
     }
@@ -184,48 +183,48 @@ public class PatternParameter {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("40cad761-444d-42ed-8f44-4d35be4ff331")
+    @objid ("b94b15ef-968f-4c0b-a257-c1a5726caab4")
     public void setPatternParameterName(String value) {
         this.elt.putTagValue(PatternParameter.MdaTypes.PATTERNPARAMETER_NAME_TAGTYPE_ELT, value);
     }
 
-    @objid ("7613f709-92be-4dfc-9842-26155dc10d44")
-    protected PatternParameter(UmlModelElement elt) {
+    @objid ("8ae6c30a-03a7-46c4-bcd6-4f168e533601")
+    protected  PatternParameter(UmlModelElement elt) {
         this.elt = elt;
     }
 
     @objid ("95543ba9-bbac-4691-835b-eb384142a7bc")
     public static final class MdaTypes {
-        @objid ("9727d0ae-5923-401c-9f0e-b861bc8890ad")
+        @objid ("a0d20f96-f864-4a5e-ab6e-6d86f810467e")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("7a6c0ea4-49a2-4371-b6b4-bf97dccc1e6e")
+        @objid ("3ed86e57-40a8-4d25-93f8-464d82180bfc")
         public static TagType PATTERNPARAMETER_NAME_TAGTYPE_ELT;
 
-        @objid ("a49ef2f8-7a9b-4994-aaae-d6e24f98d9be")
+        @objid ("9d067d5a-25d7-4f16-b5e0-4e23c400336c")
         public static TagType PATTERNPARAMETER_LABEL_TAGTYPE_ELT;
 
-        @objid ("51290ee0-abe8-4ee3-a5c9-7a7fa1586f88")
+        @objid ("976b6ccd-cdb0-4fbe-9489-27716b5d9f41")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("ebf68ef6-373c-47ac-b851-fe89d9b6de64")
+        @objid ("ba01f3e5-e253-4ea9-b174-9f5447068d72")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("aae4c0bf-c37d-4acb-ae7b-cdb133533e4f")
+        @objid ("2639f627-3299-4d15-b3d8-67c68ec0661a")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "3c4678f8-f169-11df-ae59-0014224f9977");
             PATTERNPARAMETER_NAME_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "f2db899a-f169-11df-ae59-0014224f9977");
             PATTERNPARAMETER_LABEL_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "f739b2fd-f169-11df-ae59-0014224f9977");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

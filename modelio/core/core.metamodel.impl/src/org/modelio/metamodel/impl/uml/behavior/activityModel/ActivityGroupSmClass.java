@@ -17,18 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityGroupData;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivitySmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.Activity;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityGroup;
@@ -50,7 +48,7 @@ public class ActivityGroupSmClass extends UmlModelElementSmClass {
     private SmDependency inActivityDep;
 
     @objid ("7e980fcb-e746-4c3f-9a6e-67912c375a1f")
-    public ActivityGroupSmClass(ISmMetamodelFragment origin) {
+    public  ActivityGroupSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -58,6 +56,7 @@ public class ActivityGroupSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "ActivityGroup";
+        
     }
 
     @objid ("ad047723-18ca-4286-bfd2-19f07dafba9d")
@@ -70,18 +69,21 @@ public class ActivityGroupSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ActivityGroup.class;
+        
     }
 
     @objid ("9b1916bb-549e-4705-b041-361eb50e1576")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("a60bc9b1-081c-45f6-9c94-992378cc57aa")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("637715cd-2f7a-4c1a-b168-2ffbb85996e0")
@@ -97,6 +99,8 @@ public class ActivityGroupSmClass extends UmlModelElementSmClass {
         this.inActivityDep = new InActivitySmDependency();
         this.inActivityDep.init("InActivity", this, metamodel.getMClass(Activity.MQNAME), 0, 1 );
         registerDependency(this.inActivityDep);
+        
+        
     }
 
     @objid ("a81a2333-0a49-41cf-b3ad-a982c9ef1b66")
@@ -113,7 +117,7 @@ public class ActivityGroupSmClass extends UmlModelElementSmClass {
         private ActivityGroupSmClass smClass;
 
         @objid ("95a5979e-bb94-43f3-9214-f67893046c80")
-        public ActivityGroupObjectFactory(ActivityGroupSmClass smClass) {
+        public  ActivityGroupObjectFactory(ActivityGroupSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -155,6 +159,7 @@ public class ActivityGroupSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((ActivitySmClass)this.getTarget()).getOwnedGroupDep();
             }
             return this.symetricDep;
+            
         }
 
     }

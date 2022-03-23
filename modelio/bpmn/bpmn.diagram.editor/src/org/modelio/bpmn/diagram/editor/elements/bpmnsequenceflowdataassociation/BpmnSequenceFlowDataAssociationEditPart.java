@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnsequenceflowdataassociation;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -27,7 +26,6 @@ import org.modelio.diagram.elements.core.link.LinkEditPart;
  * Edit part for {@link GmBpmnSequenceFlowDataAssociation}.
  */
 @objid ("48592628-b171-477c-a6a7-9a35dd516196")
-public class BpmnSequenceFlowDataAssociationEditPart extends LinkEditPart {
-
-// Nothing to do
+public class BpmnSequenceFlowDataAssociationEditPart extends LinkEditPart {// Nothing to do
+    
 }

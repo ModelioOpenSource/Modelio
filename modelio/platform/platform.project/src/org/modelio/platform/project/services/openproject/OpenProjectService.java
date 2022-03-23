@@ -17,13 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.project.services.openproject;
 
 import java.io.IOException;
 import java.net.URI;
 import java.nio.file.Paths;
+import java.util.concurrent.CancellationException;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.CompletionException;
 import java.util.stream.Collectors;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -46,8 +47,8 @@ import org.modelio.gproject.fragment.migration.MigrationFailedException;
 import org.modelio.gproject.gproject.GProblem;
 import org.modelio.gproject.gproject.GProject;
 import org.modelio.gproject.gproject.GProjectAuthenticationException;
-import org.modelio.gproject.gproject.GProjectConfigurer.IAccessDeniedHandler;
 import org.modelio.gproject.gproject.GProjectConfigurer;
+import org.modelio.gproject.gproject.GProjectConfigurer.IAccessDeniedHandler;
 import org.modelio.gproject.gproject.GProjectEnvironment;
 import org.modelio.gproject.gproject.GProjectFactory;
 import org.modelio.gproject.gproject.IGProjectEnv;
@@ -73,7 +74,6 @@ import org.modelio.platform.project.services.IProjectService;
 import org.modelio.platform.project.services.ModulesUpdater;
 import org.modelio.platform.ui.progress.ModelioProgressAdapter;
 import org.modelio.platform.ui.swt.DefaultShellProvider;
-import org.modelio.platform.ui.swt.SwtThreadHelper;
 import org.modelio.vbasic.auth.IAuthData;
 import org.modelio.vbasic.files.CloseOnFail;
 import org.modelio.vbasic.files.FileUtils;
@@ -115,7 +115,7 @@ public class OpenProjectService implements IProjectOpener {
      * @param synchronizer the service to synchronize the project from remote project configuration
      */
     @objid ("52b1fb1f-9314-4ed4-8db6-476d58746f3b")
-    public OpenProjectService(final GProjectConfigurer synchronizer) {
+    public  OpenProjectService(final GProjectConfigurer synchronizer) {
         this.projectSynchronizer = synchronizer;
     }
 
@@ -233,7 +233,7 @@ public class OpenProjectService implements IProjectOpener {
             final TodoRunner todoRunner = new TodoRunner(this.project, moduleService, authPrompter);
             todoRunner.execute(new ModelioProgressAdapter(mon.newChild(50)));
             if (!todoRunner.getFailures().isEmpty()) {
-                AppProjectCore.LOG.warning(todoRunner.getFailuresReport().toString());
+                AppProjectCore.LOG.warning(todoRunner.getFailuresReport());
                 if (!this.batchMode) {
                     todoRunner.reportFailures(parentShell);
                 }
@@ -247,7 +247,11 @@ public class OpenProjectService implements IProjectOpener {
         
         
             // Fire PROJECT_OPENED
-            this.projectServiceAccess.postAsyncEvent(ModelioEvent.PROJECT_OPENED, this.project);
+            if (this.batchMode) {
+                this.projectServiceAccess.postSyncEvent(ModelioEvent.PROJECT_OPENED, this.project);
+            } else {
+                this.projectServiceAccess.postAsyncEvent(ModelioEvent.PROJECT_OPENED, this.project);
+            }
         
             // Validate project opening
             shield.success();
@@ -257,32 +261,35 @@ public class OpenProjectService implements IProjectOpener {
             this.project.getMonitorSupport().addMonitor(projectMonitor);
             projectOpeningMonitor.processDefered();
         }
+        
     }
 
     @objid ("1c6b4f5b-40ef-4338-bbcf-c4df49d1476b")
     @Override
-    public void openProject(final URI projectURI, final IAuthData authData, final boolean batchMode, final IProgressMonitor monitor) throws GProjectAuthenticationException, IOException, InterruptedException {
+    public void openProject(final URI projectURI, final IAuthData authData, final boolean runInBatchMode, final IProgressMonitor monitor) throws GProjectAuthenticationException, IOException, InterruptedException {
         if (projectURI == null) {
             throw new IllegalArgumentException("Cannot open 'null' project.");
         }
         
         final ProjectDescriptor projectToOpen = new ProjectDescriptorReader().read(Paths.get(projectURI), null);
         
-        openProject(projectToOpen, authData, batchMode, monitor);
+        openProject(projectToOpen, authData, runInBatchMode, monitor);
+        
     }
 
     /**
      * Called by {@link #checkModelioVersion(GProject, ProjectDescriptor, Shell)} when Modelio is newer by build number.
      * <p>
      * @see ModelioVersion#VERSION
-     * 
      * @param projectDescriptor the project descriptor
      * @param parent a SWT shell to use for GUI
      * @param neededVersion the project Modelio version
      * @return a open confirmation message or null
-     * @throws java.io.IOException to refuse project opening
+     * @throws IOException to refuse project opening
+     * @deprecated not called since 5.0 anymore : build number difference are now always accepted.
      */
     @objid ("7cc75f37-19a3-43e6-8094-1345e1e3e9f0")
+    @Deprecated
     protected String checkNewerModelioVersionBuild(final ProjectDescriptor projectDescriptor, final Shell parent, final Version neededVersion) throws IOException {
         // accept by default
         return null;
@@ -337,6 +344,7 @@ public class OpenProjectService implements IProjectOpener {
         } else {
             new FragmentsMigrator(getContext(), gproject, OpenProjectService.askFragmentMigrationConfirmation).migrateFragments(mon, allowedMonWork);
         }
+        
     }
 
     /**
@@ -350,85 +358,91 @@ public class OpenProjectService implements IProjectOpener {
      * </ul>
      * <p>
      * This method may be redefined by subclasses to add more constraints.
-     * @param canOpen           whether Modelio is able to open the project
-     * 
+     * @param pbMsg a computed message
      * @param projectDescriptor the project descriptor
      * @param parent a SWT shell to use for GUI
      * @param neededVersion the project Modelio version
-     * @param pbMsg a computed message
-     * @throws java.io.IOException to refuse opening the project. The caller will display a message dialog from the exception content.
+     * @throws IOException to refuse opening the project. The caller will display a message dialog from the exception content.
      */
     @objid ("cd898073-3ce3-4e62-87a5-336f9bdb5896")
-    protected void onModelioVersionMismatch(final ProjectDescriptor projectDescriptor, final Shell parent, final Version neededVersion, final String pbMsg) throws IOException {
-        final String message = pbMsg;
-        final Version fProjectVersion = neededVersion;
+    protected void onModelioVersionMismatch(final ProjectDescriptor projectDescriptor, final Shell parent, final Version neededVersion, final String message) throws IOException {
+        final String fProjectVersion = neededVersion.toString("V.R");
+        final String strModelioVersion = ModelioVersion.VERSION.toString("V.R");
         
-        final boolean acceptMigration = SwtThreadHelper.syncSupply(
-                parent.getDisplay(),
-                () -> MessageDialog.openQuestion(
-                        parent,
-                        AppProjectCore.I18N.getMessage("OpenProjectService.version.dialog.possible.title",
-                                projectDescriptor.getName(), fProjectVersion, ModelioVersion.VERSION),
-                        AppProjectCore.I18N.getMessage("OpenProjectService.version.dialog.possible.message",
-                                projectDescriptor.getName(), fProjectVersion, ModelioVersion.VERSION, message)));
+        boolean acceptMigration;
+        try {
+            acceptMigration = CompletableFuture.supplyAsync(
+                    () -> MessageDialog.openQuestion(
+                            parent,
+                            AppProjectCore.I18N.getMessage("OpenProjectService.version.dialog.possible.title",
+                                    projectDescriptor.getName(), fProjectVersion, strModelioVersion ),
+                            AppProjectCore.I18N.getMessage("OpenProjectService.version.dialog.possible.message",
+                                    projectDescriptor.getName(), fProjectVersion, strModelioVersion, message)),
+                    x -> parent.getDisplay().asyncExec(x))
+                    .join();
+        } catch (CompletionException | CancellationException e) {
+            IOException ioe = new IOException(message);
+            ioe.addSuppressed(e);
+            throw ioe;
+        }
+        
         
         if (!acceptMigration) {
-            throw new IOException(pbMsg);
+            throw new IOException(message);
         }
+        
     }
 
     /**
      * Check Modelio version and ask user for confirmation if Modelio versions don't match.
-     * 
      * @param gProject the project
      * @param projectDescriptor the project descriptor
      * @param parent a SWT shell
      * @return true if modelio versions were different, else false
-     * @throws java.io.IOException to abort project opening
+     * @throws IOException to abort project opening
      */
     @objid ("2d55ddaa-dcb3-4928-ac40-c3f6f89c208d")
     private boolean checkModelioVersion(final GProject gProject, final ProjectDescriptor projectDescriptor, final Shell parent) throws IOException {
-        Version neededVersion = gProject.getExpectedModelioVersion();
+        Version projectVersion = gProject.getExpectedModelioVersion().withoutBuild();
         String pbMsg = null;
         boolean canOpen = true;
         
-        if (neededVersion == null) {
-            neededVersion = VersionHelper.guessModelioVersion(projectDescriptor, gProject);
+        if (projectVersion == null) {
+            projectVersion = VersionHelper.guessModelioVersion(projectDescriptor, gProject).withoutBuild();
         }
         
-        if (neededVersion == null) {
+        String projectVersionStr = projectVersion==null ? "<none>" : projectVersion.toString("V.R");
+        String modelioVersionStr = ModelioVersion.MAJOR_MINOR.toString("V.R");
+        
+        if (projectVersion == null) {
             pbMsg = AppProjectCore.I18N.getMessage("OpenProjectService.version.none",
                     projectDescriptor.getName(),
                     null,
-                    ModelioVersion.VERSION);
-        } else if (neededVersion.isNewerThan(ModelioVersion.VERSION)) {
+                    modelioVersionStr);
+        } else if (projectVersion.isNewerThan(ModelioVersion.MAJOR_MINOR)) {
             pbMsg = AppProjectCore.I18N.getMessage("OpenProjectService.version.future",
                     projectDescriptor.getName(),
-                    neededVersion,
-                    ModelioVersion.VERSION);
-        } else if (neededVersion.isOlderThan(ModelioVersion.VERSION)) {
-            if (neededVersion.getMajorVersion() < 2) {
+                    projectVersionStr,
+                    modelioVersionStr);
+        } else if (projectVersion.isOlderThan(ModelioVersion.MAJOR_MINOR)) {
+            if (projectVersion.getMajorVersion() < 2) {
                 // need to be migrated from Modelio 1
-                pbMsg = AppProjectCore.I18N.getMessage("OpenProjectService.version.v1", projectDescriptor.getName(), neededVersion, ModelioVersion.VERSION);
+                pbMsg = AppProjectCore.I18N.getMessage("OpenProjectService.version.v1", projectDescriptor.getName(), projectVersionStr, modelioVersionStr);
                 canOpen = false;
-            } else if (neededVersion.getMajorVersion() < 3) {
+            } else if (projectVersion.getMajorVersion() < 3) {
                 // need to be migrated from Modelio 2
-                pbMsg = AppProjectCore.I18N.getMessage("OpenProjectService.version.v2", projectDescriptor.getName(), neededVersion, ModelioVersion.VERSION);
+                pbMsg = AppProjectCore.I18N.getMessage("OpenProjectService.version.v2", projectDescriptor.getName(), projectVersionStr, modelioVersionStr);
                 canOpen = false;
-            } else if (neededVersion.getMinorVersion() < ModelioVersion.VERSION.getMinorVersion() ||
-                    neededVersion.getMajorVersion() < ModelioVersion.VERSION.getMajorVersion()) {
+            } else {
                 // Migration needed from 3.x
                 // Automatic migration possible
-                pbMsg = AppProjectCore.I18N.getMessage("OpenProjectService.version.MigrationNeeded", projectDescriptor.getName(), neededVersion, ModelioVersion.VERSION);
-            } else {
-                // only build changes
-                pbMsg = checkNewerModelioVersionBuild(projectDescriptor, parent, neededVersion);
+                pbMsg = AppProjectCore.I18N.getMessage("OpenProjectService.version.MigrationNeeded", projectDescriptor.getName(), projectVersionStr, modelioVersionStr);
             }
         }
         
         if (pbMsg != null) {
             if (canOpen) {
-                onModelioVersionMismatch(projectDescriptor, parent, neededVersion, pbMsg);
+                onModelioVersionMismatch(projectDescriptor, parent, projectVersion, pbMsg);
                 return true;
             } else {
                 throw new IOException(pbMsg);
@@ -453,6 +467,7 @@ public class OpenProjectService implements IProjectOpener {
                 .addMetamodelExtensions(env.getActiveMetamodelExtensions())
                 .setModulesCache(getModuleCache())
                 .setRamcCache(env.getRamcCachePath());
+        
     }
 
     @objid ("cb61fb6e-713f-480a-8fe4-42c7e06a13ec")
@@ -487,6 +502,7 @@ public class OpenProjectService implements IProjectOpener {
                 imfactory.setDefaultValue("DEFAULT_NOTE_MIMETYPE", prefsHelper.getNoteDefaultMimeType());
             }
         });
+        
     }
 
     @objid ("7b203cde-7d61-4515-88a8-cb2cc182b426")
@@ -535,6 +551,7 @@ public class OpenProjectService implements IProjectOpener {
                 store.setToDefault(ProjectPreferencesKeys.NOTE_DEFAULT_MIMETYPE_PREFKEY);
             }
         }
+        
     }
 
     @objid ("9cb90edd-3cb3-4b86-a51b-f0a3992de641")
@@ -553,6 +570,7 @@ public class OpenProjectService implements IProjectOpener {
                 MessageDialog.openWarning(new DefaultShellProvider().getShell(), title, message);
             });
         }
+        
     }
 
     @objid ("41d09262-e599-4095-b93d-6e639bd3bc9a")
@@ -580,13 +598,15 @@ public class OpenProjectService implements IProjectOpener {
             final Display d = shell != null ? shell.getDisplay() : Display.getDefault();
             d.syncExec(() -> GProblemReportDialog.open(shell, OpenProjectService.this.project.getName(), OpenProjectService.this.projectSynchronizer.getFailures()));
         }
+        
     }
 
     @objid ("da992962-eac5-4a2d-965f-b6b235a68760")
     private void synchronizeProjectAgainstServer(final SubMonitor mon, IAuthenticationPrompter authPrompter) throws GProjectAuthenticationException {
         try {
-            IAccessDeniedHandler authCB = (name, uri, data, e)
-                    -> authPrompter.promptAuthentication(data, name, uri.toString(), FileUtils.getLocalizedMessage(e));
+            IAccessDeniedHandler authCB = authPrompter==null ?
+                    (name, uri, data, e) -> null :
+                    (name, uri, data, e) -> authPrompter.promptAuthentication(data, name, uri.toString(), FileUtils.getLocalizedMessage(e));
         
             this.projectSynchronizer.setAccessDeniedHandler(authCB);
             this.projectSynchronizer.synchronize(
@@ -597,6 +617,9 @@ public class OpenProjectService implements IProjectOpener {
                 reportSynchronizationFailures();
             }
         } catch (GProjectAuthenticationException e) {
+            if (authPrompter==null)
+                throw e;
+        
             IAuthData newAuth = authPrompter.promptAuthentication(
                     e.getAuthData(),
                     this.project.getName(),
@@ -613,6 +636,7 @@ public class OpenProjectService implements IProjectOpener {
         } catch (final IOException e) {
             reportSynchronizationFail(e, this.project);
         }
+        
     }
 
     @objid ("8685002f-396a-473f-b0c0-faf944473433")
@@ -637,6 +661,7 @@ public class OpenProjectService implements IProjectOpener {
         if (!ms.isOK()) {
             Display.getDefault().asyncExec(() -> statusReporter.report(ms, StatusReporter.SHOW));
         }
+        
     }
 
 }

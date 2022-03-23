@@ -17,18 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ObjectNodeSmClass;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.PinData;
 import org.modelio.metamodel.impl.uml.statik.ParameterSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.ObjectNode;
 import org.modelio.metamodel.uml.behavior.activityModel.Pin;
@@ -57,7 +55,7 @@ public class PinSmClass extends ObjectNodeSmClass {
     private SmDependency matchedDep;
 
     @objid ("73b83251-6611-42be-b908-6e9238aa404a")
-    public PinSmClass(ISmMetamodelFragment origin) {
+    public  PinSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -65,6 +63,7 @@ public class PinSmClass extends ObjectNodeSmClass {
     @Override
     public String getName() {
         return "Pin";
+        
     }
 
     @objid ("03d94266-e878-4b22-a807-b13dd0ff4177")
@@ -77,18 +76,21 @@ public class PinSmClass extends ObjectNodeSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Pin.class;
+        
     }
 
     @objid ("a4435a41-33b1-4d20-80dd-fbf1ae87a000")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("ca9047dd-66be-4ad5-8c49-84c972dfc5fb")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("79a64d4e-c547-4125-a687-1682a54db2fa")
@@ -112,6 +114,8 @@ public class PinSmClass extends ObjectNodeSmClass {
         this.matchedDep = new MatchedSmDependency();
         this.matchedDep.init("Matched", this, metamodel.getMClass(Parameter.MQNAME), 0, 1 , SmDirective.SMCDPARTOF);
         registerDependency(this.matchedDep);
+        
+        
     }
 
     @objid ("729e5c12-1ad2-4ad9-962a-624830189c99")
@@ -144,7 +148,7 @@ public class PinSmClass extends ObjectNodeSmClass {
         private PinSmClass smClass;
 
         @objid ("b51beb86-3a8c-405a-9df9-5b71b85bb548")
-        public PinObjectFactory(PinSmClass smClass) {
+        public  PinObjectFactory(PinSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -214,6 +218,7 @@ public class PinSmClass extends ObjectNodeSmClass {
             	this.symetricDep = ((ParameterSmClass)this.getTarget()).getMatchingDep();
             }
             return this.symetricDep;
+            
         }
 
     }

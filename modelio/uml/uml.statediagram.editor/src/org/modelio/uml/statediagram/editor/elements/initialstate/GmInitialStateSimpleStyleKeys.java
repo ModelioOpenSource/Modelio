@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.initialstate;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,33 +31,33 @@ import org.modelio.uml.statediagram.editor.style.StateAbstractStyleKeyProvider;
 @objid ("f5487967-55b6-11e2-877f-002564c97630")
 public class GmInitialStateSimpleStyleKeys extends StateAbstractStyleKeyProvider {
     @objid ("810812ec-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmInitialStateStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmInitialStateStructuredStyleKeys.REPMODE;
 
     @objid ("810812ee-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = GmInitialStateStructuredStyleKeys.FILLCOLOR;
+    static final StyleKey FILLCOLOR = GmInitialStateStructuredStyleKeys.FILLCOLOR;
 
     @objid ("810812f0-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = GmInitialStateStructuredStyleKeys.FILLMODE;
+    static final StyleKey FILLMODE = GmInitialStateStructuredStyleKeys.FILLMODE;
 
     @objid ("810812f2-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("INITIALSTATE_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("INITIALSTATE_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("81099989-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = GmInitialStateStructuredStyleKeys.LINEWIDTH;
+    static final StyleKey LINEWIDTH = GmInitialStateStructuredStyleKeys.LINEWIDTH;
 
     @objid ("8109998b-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmInitialStateStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmInitialStateStructuredStyleKeys.FONT;
 
     @objid ("8109998d-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmInitialStateStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmInitialStateStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("8109998f-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmInitialStateStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmInitialStateStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("81099991-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmInitialStateStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmInitialStateStructuredStyleKeys.SHOWTAGS;
 
     @objid ("81099993-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWLABEL = GmInitialStateStructuredStyleKeys.SHOWLABEL;
+    static final StyleKey SHOWLABEL = GmInitialStateStructuredStyleKeys.SHOWLABEL;
 
 }

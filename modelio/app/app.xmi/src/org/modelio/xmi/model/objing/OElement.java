@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import java.util.ArrayList;
@@ -46,7 +45,6 @@ public class OElement {
 
     /**
      * return the exported Modelio Element
-     * 
      * @return the Element
      */
     @objid ("62254bf6-3e93-4edd-8f11-36fb5c541348")
@@ -56,7 +54,6 @@ public class OElement {
 
     /**
      * return the Modelio identifier of the current Modelio Element
-     * 
      * @return the identifier
      */
     @objid ("f523ab67-da60-444d-8604-7bf10742b3b1")
@@ -66,11 +63,10 @@ public class OElement {
 
     /**
      * Constructor with the exported Modelio IElemnt as parameter
-     * 
      * @param element : the exported Modelio Element
      */
     @objid ("38a89a94-5687-4acc-9768-e2896ff78ac1")
-    public OElement(final Element element) {
+    public  OElement(final Element element) {
         this.objingElt = element;
         
         if (element instanceof ModelElement){
@@ -92,6 +88,7 @@ public class OElement {
                 }
             }
         }
+        
     }
 
     @objid ("961e2670-315d-46b7-83c3-36ac8968dd86")
@@ -106,7 +103,6 @@ public class OElement {
 
     /**
      * Return the name of the corresponding Ecore class
-     * 
      * @return the name
      */
     @objid ("6091063d-cff7-427a-89d0-f879f55cfedd")
@@ -125,6 +121,7 @@ public class OElement {
             PExportProfile pprofile = new PExportProfile(ProfileUtils.getProfileRoot(profile));
             profileVisitor.visit(pprofile);
         }
+        
     }
 
 }

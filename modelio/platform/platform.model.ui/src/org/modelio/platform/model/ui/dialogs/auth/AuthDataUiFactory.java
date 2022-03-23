@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.dialogs.auth;
 
 import java.util.ArrayList;
@@ -34,7 +33,7 @@ import org.modelio.vbasic.auth.UserPasswordAuthData;
 @objid ("1f78f280-aa48-4659-bcb1-a139b97c5ed7")
 class AuthDataUiFactory {
     @objid ("5f2d2662-aa95-4bb5-ad2b-9f88b921e694")
-     static List<Class<? extends IAuthData>> supportedSchemes;
+    static List<Class<? extends IAuthData>> supportedSchemes;
 
     @objid ("881d4130-0db0-474b-8c61-4f0af220ed02")
     public static IAuthDataUi createPanel(Composite parent, Class<? extends IAuthData> scheme) {
@@ -45,6 +44,7 @@ class AuthDataUiFactory {
         } else {
             return null;
         }
+        
     }
 
     @objid ("070007ff-7f9c-483a-81b3-3f733f5e93ee")

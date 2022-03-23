@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,7 +45,7 @@ public class OAttributeLink extends OElement implements IOElement {
     }
 
     @objid ("2ef10730-2330-4592-8ed0-008257942105")
-    public OAttributeLink(AttributeLink element) {
+    public  OAttributeLink(AttributeLink element) {
         super(element);
     }
 
@@ -60,6 +59,7 @@ public class OAttributeLink extends OElement implements IOElement {
             InstanceSpecification ecoreOwner = (InstanceSpecification) temp;
             ecoreOwner.getSlots().add((org.eclipse.uml2.uml.Slot) ecoreElt);
         }
+        
     }
 
     @objid ("09de2635-81d4-4651-993a-c72a787819f3")
@@ -74,6 +74,7 @@ public class OAttributeLink extends OElement implements IOElement {
             ObjingEAnnotation.setName(ecoreElt, getObjingElement().getName());
             setOwnerAnnotation(ecoreElt);
         }
+        
     }
 
     @objid ("84a7d5b4-a55c-4d4e-bf42-a4c1bc213d4b")
@@ -88,6 +89,7 @@ public class OAttributeLink extends OElement implements IOElement {
                 slot.setDefiningFeature((org.eclipse.uml2.uml.StructuralFeature) ecoreFeature);
             }
         }
+        
     }
 
     @objid ("dccf83aa-511f-4eea-81cc-42dd0e04f69c")
@@ -95,6 +97,7 @@ public class OAttributeLink extends OElement implements IOElement {
         org.eclipse.uml2.uml.Expression expr = UMLFactory.eINSTANCE.createExpression();
         org.eclipse.uml2.uml.ValueSpecification result = slot.createValue(null, null, expr.eClass());
         ((org.eclipse.uml2.uml.Expression) result).setSymbol(value);
+        
     }
 
     @objid ("99cf5c4d-2030-44aa-88ba-7c68de1191de")
@@ -215,6 +218,7 @@ public class OAttributeLink extends OElement implements IOElement {
                 }
             }
         }
+        
     }
 
     @objid ("aa5495b8-249c-4852-9a56-eee3edd45ad7")
@@ -227,6 +231,7 @@ public class OAttributeLink extends OElement implements IOElement {
     private void setOwnerAnnotation(org.eclipse.uml2.uml.Element ecoreElt) {
         Instance objOwner = getObjingElement().getAttributed();       
         ObjingEAnnotation.setOwner(ecoreElt, objOwner.getUuid().toString());
+        
     }
 
 }

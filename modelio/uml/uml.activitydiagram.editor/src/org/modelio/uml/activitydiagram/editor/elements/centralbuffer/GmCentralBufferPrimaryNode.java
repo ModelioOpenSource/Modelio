@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.centralbuffer;
 
 import java.util.Collections;
@@ -68,25 +67,25 @@ public class GmCentralBufferPrimaryNode extends GmNoStyleCompositeNode implement
 
     /**
      * Default constructor.
-     * 
      * @param diagram the diagram in which this gm is unmasked.
      * @param ref a reference to the represented central buffer.
      */
     @objid ("29e75982-55b6-11e2-877f-002564c97630")
-    public GmCentralBufferPrimaryNode(IGmDiagram diagram, MRef ref) {
+    public  GmCentralBufferPrimaryNode(IGmDiagram diagram, MRef ref) {
         super(diagram, ref);
         this.header = new GmActivityNodeHeader(diagram, ref);
         this.header.setShowMetaclassIcon(true);
         super.addChild(this.header);
         this.objectNodeStateLabel = new GmObjectNodeStateLabel(diagram, ref);
         addChild(this.objectNodeStateLabel);
+        
     }
 
     /**
      * Empty constructor, needed for serialisation.
      */
     @objid ("29e7598b-55b6-11e2-877f-002564c97630")
-    public GmCentralBufferPrimaryNode() {
+    public  GmCentralBufferPrimaryNode() {
         // empty constructor for the serialization
     }
 
@@ -113,7 +112,6 @@ public class GmCentralBufferPrimaryNode extends GmNoStyleCompositeNode implement
 
     /**
      * Get the stereotype image to display.
-     * 
      * @return the stereotype image to display. Must not be <i>null</i>.
      */
     @objid ("29e8e008-55b6-11e2-877f-002564c97630")
@@ -145,6 +143,7 @@ public class GmCentralBufferPrimaryNode extends GmNoStyleCompositeNode implement
             break;
         }
         }
+        
     }
 
     @objid ("29e8e01b-55b6-11e2-877f-002564c97630")
@@ -156,6 +155,7 @@ public class GmCentralBufferPrimaryNode extends GmNoStyleCompositeNode implement
         firePropertyChange(PROPERTY_LABEL, oldLabel, this.header.getMainLabel());
         // forcing visual refresh in case Image changed
         firePropertyChange(PROPERTY_LAYOUTDATA, null, getLayoutData());
+        
     }
 
     @objid ("29e8e01e-55b6-11e2-877f-002564c97630")
@@ -164,6 +164,7 @@ public class GmCentralBufferPrimaryNode extends GmNoStyleCompositeNode implement
         // Returned result depends on current representation mode:
         List<GmNodeModel> ret;
         switch (this.getRepresentationMode()) {
+        case USER_IMAGE:
         case IMAGE: {
             ret = Collections.emptyList();
             break;
@@ -183,6 +184,7 @@ public class GmCentralBufferPrimaryNode extends GmNoStyleCompositeNode implement
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmCentralBuffer.", GmCentralBufferPrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("29e8e02d-55b6-11e2-877f-002564c97630")
@@ -190,6 +192,7 @@ public class GmCentralBufferPrimaryNode extends GmNoStyleCompositeNode implement
         super.read(in);
         this.header = (GmActivityNodeHeader) this.getChildren().get(0);
         this.objectNodeStateLabel = (GmElementLabel) this.getChildren().get(1);
+        
     }
 
     @objid ("29e8e032-55b6-11e2-877f-002564c97630")
@@ -200,11 +203,10 @@ public class GmCentralBufferPrimaryNode extends GmNoStyleCompositeNode implement
 
     /**
      * Migration constructor.
-     * 
      * @param oldVersionGm the instance to migrate from.
      */
     @objid ("29ea6699-55b6-11e2-877f-002564c97630")
-    GmCentralBufferPrimaryNode(final _GmCentralBuffer oldVersionGm) {
+     GmCentralBufferPrimaryNode(final _GmCentralBuffer oldVersionGm) {
         super(oldVersionGm.getDiagram(), oldVersionGm.getRepresentedRef());
         
         this.header = oldVersionGm.getHeader();
@@ -215,6 +217,7 @@ public class GmCentralBufferPrimaryNode extends GmNoStyleCompositeNode implement
         this.objectNodeStateLabel = oldVersionGm.getObjectNodeStateLabel();
         oldVersionGm.removeChild(this.objectNodeStateLabel);
         addChild(this.objectNodeStateLabel);
+        
     }
 
 }

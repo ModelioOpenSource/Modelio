@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,17 +50,15 @@ public class ShallowHistoryPseudoStatePropertyModel extends AbstractPropertyMode
     /**
      * Create a new <i>ShallowHistoryPseudoState</i> data model from an
      * <i>ShallowHistoryPseudoState</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("6045f0ac-a4fc-41e5-ba9a-51ab51e38651")
-    public ShallowHistoryPseudoStatePropertyModel(ShallowHistoryPseudoState theEditedElement) {
+    public  ShallowHistoryPseudoStatePropertyModel(ShallowHistoryPseudoState theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("67680b24-3010-49ab-817f-cd827d48574d")
@@ -72,7 +69,6 @@ public class ShallowHistoryPseudoStatePropertyModel extends AbstractPropertyMode
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("d3d80140-7672-41b5-b1c2-84e5db9ed6df")
@@ -85,7 +81,6 @@ public class ShallowHistoryPseudoStatePropertyModel extends AbstractPropertyMode
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -107,6 +102,7 @@ public class ShallowHistoryPseudoStatePropertyModel extends AbstractPropertyMode
         default:
             return null;
         }
+        
     }
 
     /**
@@ -116,7 +112,6 @@ public class ShallowHistoryPseudoStatePropertyModel extends AbstractPropertyMode
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -139,13 +134,13 @@ public class ShallowHistoryPseudoStatePropertyModel extends AbstractPropertyMode
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -170,6 +165,7 @@ public class ShallowHistoryPseudoStatePropertyModel extends AbstractPropertyMode
         default:
             return;
         }
+        
     }
 
 }

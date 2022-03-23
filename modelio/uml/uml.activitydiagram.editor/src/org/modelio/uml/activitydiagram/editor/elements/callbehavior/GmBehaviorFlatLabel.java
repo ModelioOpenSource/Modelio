@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.callbehavior;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,12 +45,11 @@ public class GmBehaviorFlatLabel extends GmDefaultModelElementLabel {
 
     /**
      * C'tor.
-     * 
      * @param diagram the diagram.
      * @param relatedRef ref to the related CallBehaviorAction
      */
     @objid ("29b4feec-55b6-11e2-877f-002564c97630")
-    public GmBehaviorFlatLabel(IGmDiagram diagram, MRef relatedRef) {
+    public  GmBehaviorFlatLabel(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -59,7 +57,7 @@ public class GmBehaviorFlatLabel extends GmDefaultModelElementLabel {
      * Empty c'tor for deserialization.
      */
     @objid ("29b6855a-55b6-11e2-877f-002564c97630")
-    public GmBehaviorFlatLabel() {
+    public  GmBehaviorFlatLabel() {
         // Nothing to do.
     }
 
@@ -75,6 +73,7 @@ public class GmBehaviorFlatLabel extends GmDefaultModelElementLabel {
         } else {
             return elName + ": call " + calledName;
         }
+        
     }
 
     @objid ("29b68561-55b6-11e2-877f-002564c97630")
@@ -106,6 +105,7 @@ public class GmBehaviorFlatLabel extends GmDefaultModelElementLabel {
             break;
         }
         }
+        
     }
 
     @objid ("29b6856f-55b6-11e2-877f-002564c97630")
@@ -115,6 +115,7 @@ public class GmBehaviorFlatLabel extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmBehaviorFlatLabel.", GmBehaviorFlatLabel.MINOR_VERSION);
+        
     }
 
     @objid ("29b68575-55b6-11e2-877f-002564c97630")

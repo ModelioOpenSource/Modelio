@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.core.navigate;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.Creatable;
 import org.modelio.platform.core.IModelioEventService;
 import org.modelio.platform.core.events.ModelioEvent;
@@ -56,6 +55,7 @@ public class ModelioNavigationService implements IModelioNavigationService {
         } else {
             this.eventService.postAsyncEvent(this, ModelioEvent.NAVIGATE_ELEMENT, Arrays.asList(data));
         }
+        
     }
 
     @objid ("005bd8da-a86b-10ac-8258-001ec947cd2a")
@@ -66,6 +66,7 @@ public class ModelioNavigationService implements IModelioNavigationService {
         } else {
             this.eventService.postAsyncEvent(this, ModelioEvent.NAVIGATE_ELEMENT, data);
         }
+        
     }
 
 }

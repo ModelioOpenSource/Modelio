@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /**
  * 
  */
@@ -41,7 +40,7 @@ public class EditDependencyFilterHandler {
      * C'tor.
      */
     @objid ("1b6b2b8f-5e33-11e2-b81d-002564c97630")
-    public EditDependencyFilterHandler() {
+    public  EditDependencyFilterHandler() {
         super();
     }
 

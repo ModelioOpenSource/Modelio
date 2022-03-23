@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.project.services.openproject;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,7 +42,6 @@ public interface IAuthenticationPrompter {
      * <p>
      * This method may be called from any thread, the implementation
      * must synchronize with the UI thread.
-     * 
      * @param authData the authentication to complete
      * @param name the project or fragment name to authenticate.
      * @param location the location of the element to authenticate. Usually an URI. May be null.

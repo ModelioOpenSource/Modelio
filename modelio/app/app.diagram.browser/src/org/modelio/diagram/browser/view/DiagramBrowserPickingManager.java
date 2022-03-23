@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.view;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -53,10 +52,11 @@ class DiagramBrowserPickingManager implements MouseListener, MouseTrackListener,
     private ISelection pickingStartSelection;
 
     @objid ("001210d8-0d4f-10c6-842f-001ec947cd2a")
-    public DiagramBrowserPickingManager(TreeViewer view, IPickingSession pickingSession) {
+    public  DiagramBrowserPickingManager(TreeViewer view, IPickingSession pickingSession) {
         this.view = view;
         this.pickingSession = pickingSession;
         this.defaultCursor = view.getTree().getCursor();
+        
     }
 
     @objid ("001225f0-0d4f-10c6-842f-001ec947cd2a")
@@ -98,6 +98,7 @@ class DiagramBrowserPickingManager implements MouseListener, MouseTrackListener,
                 this.pickingSession.pick(selectedElement);
             }
         }
+        
     }
 
     @objid ("0012a8ea-0d4f-10c6-842f-001ec947cd2a")
@@ -126,6 +127,7 @@ class DiagramBrowserPickingManager implements MouseListener, MouseTrackListener,
         
         // Store the current selection to restore it when the picking ends
         this.pickingStartSelection = this.view.getSelection();
+        
     }
 
     @objid ("00132a22-0d4f-10c6-842f-001ec947cd2a")
@@ -140,6 +142,7 @@ class DiagramBrowserPickingManager implements MouseListener, MouseTrackListener,
         // Restore old selection
         this.view.setSelection(this.pickingStartSelection);
         this.pickingStartSelection = null;
+        
     }
 
     @objid ("00134368-0d4f-10c6-842f-001ec947cd2a")
@@ -170,6 +173,7 @@ class DiagramBrowserPickingManager implements MouseListener, MouseTrackListener,
         } else {
             this.view.getTree().setCursor(SharedCursors2.CURSOR_PICKING);
         }
+        
     }
 
 }

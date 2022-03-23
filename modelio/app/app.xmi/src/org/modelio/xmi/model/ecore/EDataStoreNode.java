@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,7 @@ public class EDataStoreNode extends ECentralBufferNode {
     }
 
     @objid ("cd3039e1-b696-4f3a-8a55-8a3bdcda7261")
-    public EDataStoreNode(org.eclipse.uml2.uml.DataStoreNode element) {
+    public  EDataStoreNode(org.eclipse.uml2.uml.DataStoreNode element) {
         super(element);
     }
 

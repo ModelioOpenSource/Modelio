@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.hybrid;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -59,7 +58,6 @@ public class HybridNatValueEditor extends AbstractCellEditor {
 
     /**
      * Build a new editor.
-     * 
      * @param session a model session, needed to look for elements. CAN BE
      * <code>null</code> in which case no completion will occur in
      * the editor.
@@ -68,9 +66,10 @@ public class HybridNatValueEditor extends AbstractCellEditor {
      * no picking will occur in the editor.
      */
     @objid ("04da068d-8374-49ef-923a-796c8b4a5470")
-    public HybridNatValueEditor(ICoreSession session, IModelioPickingService pickingService) {
+    public  HybridNatValueEditor(ICoreSession session, IModelioPickingService pickingService) {
         this.session = session;
         this.pickingService = pickingService;
+        
     }
 
     /**
@@ -102,6 +101,7 @@ public class HybridNatValueEditor extends AbstractCellEditor {
                 }
             });
         }
+        
     }
 
     @objid ("f9c81574-6284-4420-8d81-4fa36038ed61")
@@ -110,6 +110,7 @@ public class HybridNatValueEditor extends AbstractCellEditor {
         // Clean up
         this.textElement = null;
         super.close();
+        
     }
 
     @objid ("73befe93-af16-4d3f-a301-6b10a393cd0f")
@@ -148,6 +149,7 @@ public class HybridNatValueEditor extends AbstractCellEditor {
             // editorControl.removeFocusListener(this.focusListener);
             // editorControl.removeTraverseListener(this.traverseListener);
         }
+        
     }
 
     /**
@@ -177,6 +179,7 @@ public class HybridNatValueEditor extends AbstractCellEditor {
         } else {
             this.textElement.setValue(null);
         }
+        
     }
 
     @objid ("1bc743d1-1993-4562-9aef-48209dc6a67d")

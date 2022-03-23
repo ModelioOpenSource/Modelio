@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.label.name;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,12 +45,11 @@ public final class GmNameLabel extends GmDefaultModelElementLabel {
 
     /**
      * Create a model element label
-     * 
      * @param diagram the diagram.
      * @param relatedRef a reference to the element this GmModel is related to.
      */
     @objid ("7ea5a873-1dec-11e2-8cad-001ec947c8cc")
-    public GmNameLabel(IGmDiagram diagram, MRef relatedRef) {
+    public  GmNameLabel(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -59,7 +57,7 @@ public final class GmNameLabel extends GmDefaultModelElementLabel {
      * For deserialization only.
      */
     @objid ("7ea5a878-1dec-11e2-8cad-001ec947c8cc")
-    public GmNameLabel() {
+    public  GmNameLabel() {
         // serialization
     }
 
@@ -71,6 +69,7 @@ public final class GmNameLabel extends GmDefaultModelElementLabel {
         } else {
             return "";
         }
+        
     }
 
     @objid ("7ea80ad2-1dec-11e2-8cad-001ec947c8cc")
@@ -90,6 +89,7 @@ public final class GmNameLabel extends GmDefaultModelElementLabel {
                 break;
             }
         }
+        
     }
 
     @objid ("7ea80ad6-1dec-11e2-8cad-001ec947c8cc")
@@ -99,6 +99,7 @@ public final class GmNameLabel extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmNameLabel.", MINOR_VERSION);
+        
     }
 
     @objid ("7ea80ada-1dec-11e2-8cad-001ec947c8cc")

@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ObjectNodeSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.InstanceNode;
 import org.modelio.metamodel.uml.behavior.activityModel.ObjectNode;
 import org.modelio.vbasic.version.Version;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("862cba32-9690-4ed1-9234-5f4f1162a549")
 public class InstanceNodeSmClass extends ObjectNodeSmClass {
     @objid ("6fc34028-53c3-41ef-869f-5b66cc139c11")
-    public InstanceNodeSmClass(ISmMetamodelFragment origin) {
+    public  InstanceNodeSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class InstanceNodeSmClass extends ObjectNodeSmClass {
     @Override
     public String getName() {
         return "InstanceNode";
+        
     }
 
     @objid ("d29d5488-ec01-4b7f-a623-d04d24e86311")
@@ -62,18 +62,21 @@ public class InstanceNodeSmClass extends ObjectNodeSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return InstanceNode.class;
+        
     }
 
     @objid ("fa569ec4-29bf-498d-b5d9-6c511add2dfa")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("d3d6fee0-03ee-4d5c-bd58-5a26c528e98a")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("8d939408-e50a-477a-a8a9-0e74e84a78c5")
@@ -86,6 +89,7 @@ public class InstanceNodeSmClass extends ObjectNodeSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("75e3ae5c-0c46-4af1-a783-7d9df7c9caad")
@@ -94,7 +98,7 @@ public class InstanceNodeSmClass extends ObjectNodeSmClass {
         private InstanceNodeSmClass smClass;
 
         @objid ("f2826048-e952-429e-83a4-25b5834f6788")
-        public InstanceNodeObjectFactory(InstanceNodeSmClass smClass) {
+        public  InstanceNodeObjectFactory(InstanceNodeSmClass smClass) {
             this.smClass = smClass;
         }
 

@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.exchange;
 
 import java.io.File;
@@ -43,14 +42,14 @@ public class XmiImportConfiguration {
 
     /**
      * Default constructor.
-     * 
      * @param xmiFile File in XMI format containing the model to import.
      * @param packageToImport the default owner for the import.
      */
     @objid ("147aa7bb-9516-11e1-a83f-002564c97630")
-    public XmiImportConfiguration(final File xmiFile, Package packageToImport) {
+    public  XmiImportConfiguration(final File xmiFile, Package packageToImport) {
         this.owner = packageToImport;
         this.xmiFile = xmiFile;
+        
     }
 
     @objid ("147af5dc-9516-11e1-a83f-002564c97630")
@@ -79,6 +78,7 @@ public class XmiImportConfiguration {
         if (file.exists()){
             this.xmiFile = file;
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package com.sun.star.comp.beans;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,11 +36,12 @@ public class Controller extends Wrapper implements com.sun.star.frame.XControlle
     private com.sun.star.frame.XDispatchProvider xDispatchProvider;
 
     @objid ("2a090419-1d9c-44cc-a283-d9ff4c52738f")
-    Controller(final com.sun.star.frame.XController xController) {
+     Controller(final com.sun.star.frame.XController xController) {
         super( xController );
         this.xController = xController;
         this.xDispatchProvider = UnoRuntime.queryInterface( com.sun.star.frame.XDispatchProvider.class,
             xController );
+        
     }
 
     /**

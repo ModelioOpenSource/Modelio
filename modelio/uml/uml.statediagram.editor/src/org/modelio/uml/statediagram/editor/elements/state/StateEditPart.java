@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.state;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -26,6 +25,7 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.Label;
 import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.PositionConstants;
+import org.eclipse.gef.AccessibleAnchorProvider;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -36,7 +36,11 @@ import org.modelio.diagram.elements.core.figures.MinimumSizeLayout;
 import org.modelio.diagram.elements.core.figures.RoundedBoxFigure;
 import org.modelio.diagram.elements.core.figures.ToolbarLayoutWithGrab;
 import org.modelio.diagram.elements.core.link.DefaultCreateLinkEditPolicy;
+import org.modelio.diagram.elements.core.link.anchors.fixed.AbstractFixedNodeAnchorProvider;
+import org.modelio.diagram.elements.core.link.anchors.fixed.IFixedConnectionAnchorFactory;
+import org.modelio.diagram.elements.core.link.anchors.fixed.VariableFixedAnchorProvider;
 import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
+import org.modelio.diagram.elements.core.policies.AnchorsFeedbackEditPolicy;
 import org.modelio.diagram.elements.core.tools.multipoint.CreateMultiPointRequest;
 import org.modelio.diagram.elements.umlcommon.constraint.ConstraintLinkEditPolicy;
 import org.modelio.diagram.styles.core.IStyle;
@@ -55,6 +59,9 @@ public class StateEditPart extends AbstractNodeEditPart {
 
     @objid ("df472a9d-30bd-44f5-b528-815535aab0a3")
     private Label label;
+
+    @objid ("2954b833-f177-4a64-83f6-0753cff846f7")
+    private AbstractFixedNodeAnchorProvider nodeAnchorProvider;
 
     @objid ("f58a162c-55b6-11e2-877f-002564c97630")
     @Override
@@ -76,6 +83,8 @@ public class StateEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                 new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        installEditPolicy(AnchorsFeedbackEditPolicy.class, new AnchorsFeedbackEditPolicy(this.nodeAnchorProvider));
+        
     }
 
     @objid ("f58a1634-55b6-11e2-877f-002564c97630")
@@ -111,6 +120,7 @@ public class StateEditPart extends AbstractNodeEditPart {
         if (!switchRepresentationMode()) {
             super.refreshFromStyle(aFigure, style);
         }
+        
     }
 
     @objid ("f58a1640-55b6-11e2-877f-002564c97630")
@@ -128,15 +138,17 @@ public class StateEditPart extends AbstractNodeEditPart {
                 getFigure().remove(this.label);
             }
         }
+        
     }
 
     @objid ("f58a1643-55b6-11e2-877f-002564c97630")
-    public StateEditPart() {
+    public  StateEditPart() {
         super();
         this.label = new Label();
         this.label.setIcon(StateEditPart.compositeIcon);
         this.label.setBorder(new MarginBorder(0, 0, 3, 3));
         this.label.setLabelAlignment(PositionConstants.RIGHT);
+        
     }
 
     @objid ("f58a1645-55b6-11e2-877f-002564c97630")
@@ -146,10 +158,50 @@ public class StateEditPart extends AbstractNodeEditPart {
         return (IFigure) getFigure().getChildren().get(0);
     }
 
-
-static {
-        // Statically initialize the icon.
-        StateEditPart.compositeIcon = AbstractUIPlugin.imageDescriptorFromPlugin(DiagramEditorState.PLUGIN_ID,
-                "icons/composite.png").createImage();
+    @objid ("06d00094-2c8e-4df1-94a0-e2f7aef0e03e")
+    @Override
+    protected AbstractFixedNodeAnchorProvider getNodeAnchorProvider() {
+        if (this.nodeAnchorProvider == null) {
+            this.nodeAnchorProvider = createAnchorProvider(this.figure);
+        }
+        return this.nodeAnchorProvider;
     }
+
+    @objid ("94876a4b-e864-46b1-a0fc-987726a5ce3e")
+    @Override
+    protected void setFigure(IFigure figure) {
+        super.setFigure(figure);
+        getNodeAnchorProvider().onFigureMoved(figure);
+        
+    }
+
+    /**
+     * Create the {@link AbstractFixedNodeAnchorProvider} for this edit part.
+     * @param figure the edit part figure.
+     * @return the created anchor provider.
+     */
+    @objid ("826fa20e-3bd3-4dd3-ad30-a214a807e800")
+    protected AbstractFixedNodeAnchorProvider createAnchorProvider(IFigure figure) {
+        return new VariableFixedAnchorProvider();
+    }
+
+    /**
+     * Adapt to {@link AccessibleAnchorProvider} or {@link IFixedConnectionAnchorFactory}.
+     */
+    @objid ("4dfe4bc7-2c5b-4d9d-bc99-14436392bce4")
+    @Override
+    public Object getAdapter(Class adapter) {
+        if (AccessibleAnchorProvider.class.isAssignableFrom(adapter)) {
+            return this.nodeAnchorProvider.getAccessibleAnchorProvider(getFigure());
+        } else if (IFixedConnectionAnchorFactory.class.isAssignableFrom(adapter)) {
+            return this.nodeAnchorProvider;
+        }
+        return super.getAdapter(adapter);
+    }
+static {
+            // Statically initialize the icon.
+            StateEditPart.compositeIcon = AbstractUIPlugin.imageDescriptorFromPlugin(DiagramEditorState.PLUGIN_ID,
+                    "icons/composite.png").createImage();
+        }
+    
 }

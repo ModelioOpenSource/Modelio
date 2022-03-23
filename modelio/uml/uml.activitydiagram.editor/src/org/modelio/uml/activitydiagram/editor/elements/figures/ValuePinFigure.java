@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.figures;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,11 +32,12 @@ public class ValuePinFigure extends GradientFigure {
     private LineBorder lineBorder;
 
     @objid ("2a723448-55b6-11e2-877f-002564c97630")
-    public ValuePinFigure() {
+    public  ValuePinFigure() {
         super();
         this.setOpaque(true);
         this.lineBorder = new LineBorder(1);
         setBorder(this.lineBorder);
+        
     }
 
     @objid ("2a72344a-55b6-11e2-877f-002564c97630")
@@ -47,6 +47,7 @@ public class ValuePinFigure extends GradientFigure {
             super.setLineColor(lineColor);
             this.lineBorder.setColor(lineColor);
         }
+        
     }
 
     @objid ("2a72344e-55b6-11e2-877f-002564c97630")
@@ -56,6 +57,7 @@ public class ValuePinFigure extends GradientFigure {
             super.setLineWidth(lineWidth);
             this.lineBorder.setWidth(lineWidth);
         }
+        
     }
 
     @objid ("2a723452-55b6-11e2-877f-002564c97630")
@@ -67,6 +69,7 @@ public class ValuePinFigure extends GradientFigure {
         r.shrink(r.width / 3, r.height / 3);
         g.setBackgroundColor(this.penOptions.lineColor);
         g.fillRectangle(r);
+        
     }
 
 }

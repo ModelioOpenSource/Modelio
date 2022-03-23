@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.script.options;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -51,15 +50,17 @@ public class ScriptOptions {
         if(this.preferences != null){
             this.preferences.setValue(DEBUG_MODE, value ? "true" : "false");
         }
+        
     }
 
     @objid ("6d0d5a01-6665-43cb-8ffe-1cc7ff84d042")
-    public ScriptOptions(IPreferenceStore preferences) {
+    public  ScriptOptions(IPreferenceStore preferences) {
         this.preferences = preferences;
                
         if (preferences != null) {
             preferences.setDefault(DEBUG_MODE, DEBUG_MODE_DEFAULT);
         }
+        
     }
 
 }

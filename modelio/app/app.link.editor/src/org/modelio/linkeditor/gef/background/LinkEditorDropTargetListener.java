@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.gef.background;
 
 import java.util.ArrayList;
@@ -50,14 +49,15 @@ public class LinkEditorDropTargetListener extends AbstractTransferDropTargetList
     private IProjectService projectService;
 
     @objid ("1ba1eb24-5e33-11e2-b81d-002564c97630")
-    public LinkEditorDropTargetListener(final EditPartViewer viewer, IProjectService projectService) {
+    public  LinkEditorDropTargetListener(final EditPartViewer viewer, IProjectService projectService) {
         super(viewer, ModelElementTransfer.getInstance());
         this.setEnablementDeterminedByCommand(true);
         this.projectService = projectService;
+        
     }
 
     @objid ("1ba1eb2a-5e33-11e2-b81d-002564c97630")
-    public LinkEditorDropTargetListener(final EditPartViewer viewer, final Transfer xfer) {
+    public  LinkEditorDropTargetListener(final EditPartViewer viewer, final Transfer xfer) {
         super(viewer, xfer);
     }
 
@@ -72,12 +72,12 @@ public class LinkEditorDropTargetListener extends AbstractTransferDropTargetList
     protected void updateTargetRequest() {
         this.getTargetRequest().setLocation(this.getDropLocation());
         this.setRequestDroppedElements(this.getCurrentEvent());
+        
     }
 
     /**
      * Get the elements dragged from the same instance of Modelio. Uses {@link LocalSelectionTransfer}.
      * @see LocalSelectionTransfer
-     * 
      * @return the dragged elements.
      */
     @objid ("1ba1eb3c-5e33-11e2-b81d-002564c97630")
@@ -111,7 +111,6 @@ public class LinkEditorDropTargetListener extends AbstractTransferDropTargetList
 
     /**
      * Updates the ModelElementDropRequest dragged elements.
-     * 
      * @param event the event to get the infos from.
      */
     @objid ("1ba1eb4a-5e33-11e2-b81d-002564c97630")
@@ -137,6 +136,7 @@ public class LinkEditorDropTargetListener extends AbstractTransferDropTargetList
             }
         
         }
+        
     }
 
 }

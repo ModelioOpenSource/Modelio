@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.staticdiagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,7 +30,6 @@ import org.modelio.diagram.elements.common.abstractdiagram.AbstractDiagramFigure
  * @author phv
  */
 @objid ("36b7929c-55b7-11e2-877f-002564c97630")
-public class StaticDiagramFigure extends AbstractDiagramFigure {
-
-// Nothing to do
+public class StaticDiagramFigure extends AbstractDiagramFigure {// Nothing to do
+    
 }

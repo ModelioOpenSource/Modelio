@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.local.save;
 
 import java.util.Collection;
@@ -98,6 +97,7 @@ class DependencyAnalyzer {
         
         // remove 'object' from recursion context
         recursionContext.remove(object);
+        
     }
 
     @objid ("a826c267-5afd-44aa-aeb0-42aad8eca103")
@@ -111,6 +111,7 @@ class DependencyAnalyzer {
         } else {
             doGetDependentObjects(target, deps, recursionContext);    // !!! recursive call !!!
         }
+        
     }
 
     @objid ("b894cf68-11c2-4ad5-8894-e5420f3a22ad")
@@ -123,6 +124,7 @@ class DependencyAnalyzer {
         } else {
             deps.refDeps.add(target);
         }
+        
     }
 
 }

@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ControlNodeSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.ControlNode;
 import org.modelio.metamodel.uml.behavior.activityModel.ForkJoinNode;
 import org.modelio.vbasic.version.Version;
@@ -49,7 +48,7 @@ public class ForkJoinNodeSmClass extends ControlNodeSmClass {
     private SmAttribute joinSpecAtt;
 
     @objid ("9727a927-37a6-46d8-8d8c-e9d32f0e74f3")
-    public ForkJoinNodeSmClass(ISmMetamodelFragment origin) {
+    public  ForkJoinNodeSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -57,6 +56,7 @@ public class ForkJoinNodeSmClass extends ControlNodeSmClass {
     @Override
     public String getName() {
         return "ForkJoinNode";
+        
     }
 
     @objid ("bce3844d-74f5-4c6b-aaf3-033d7045a0b6")
@@ -69,18 +69,21 @@ public class ForkJoinNodeSmClass extends ControlNodeSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ForkJoinNode.class;
+        
     }
 
     @objid ("6e382204-c82b-4779-b32c-42658c8d8ee5")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("4916e72a-a275-4402-92a5-66b9c5aa6b2a")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("56ecf80e-fb8e-45ba-ba33-5c5d339e865c")
@@ -101,6 +104,7 @@ public class ForkJoinNodeSmClass extends ControlNodeSmClass {
         
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("fe8405f9-6e5c-4555-9814-1ca0bd78b83e")
@@ -125,7 +129,7 @@ public class ForkJoinNodeSmClass extends ControlNodeSmClass {
         private ForkJoinNodeSmClass smClass;
 
         @objid ("4cfd7906-70be-4723-9275-7734be4b1f12")
-        public ForkJoinNodeObjectFactory(ForkJoinNodeSmClass smClass) {
+        public  ForkJoinNodeObjectFactory(ForkJoinNodeSmClass smClass) {
             this.smClass = smClass;
         }
 

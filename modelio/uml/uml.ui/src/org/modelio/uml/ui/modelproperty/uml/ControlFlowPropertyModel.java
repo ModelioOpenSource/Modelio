@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.util.Collections;
@@ -51,21 +50,19 @@ public class ControlFlowPropertyModel extends AbstractPropertyModel<ControlFlow>
      */
     @objid ("11534ea8-1421-4069-99dd-74fd7859dea1")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name", "Target",
-			"Guard", "Weight" };
+    			"Guard", "Weight" };
 
     /**
      * Create a new <i>ControlFlow</i> data model from an <i>ControlFlow</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("b276cfb4-bd30-447a-8b7f-17abf0ec8396")
-    public ControlFlowPropertyModel(ControlFlow theEditedElement) {
+    public  ControlFlowPropertyModel(ControlFlow theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("6d5a4835-0543-481e-a9d0-6db591c42e75")
@@ -76,7 +73,6 @@ public class ControlFlowPropertyModel extends AbstractPropertyModel<ControlFlow>
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("a7b4bf9a-fd6e-4de3-9d5d-477ced0f5481")
@@ -89,7 +85,6 @@ public class ControlFlowPropertyModel extends AbstractPropertyModel<ControlFlow>
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -117,6 +112,7 @@ public class ControlFlowPropertyModel extends AbstractPropertyModel<ControlFlow>
         default:
             return null;
         }
+        
     }
 
     /**
@@ -126,7 +122,6 @@ public class ControlFlowPropertyModel extends AbstractPropertyModel<ControlFlow>
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -156,13 +151,13 @@ public class ControlFlowPropertyModel extends AbstractPropertyModel<ControlFlow>
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -196,6 +191,7 @@ public class ControlFlowPropertyModel extends AbstractPropertyModel<ControlFlow>
         default:
             return;
         }
+        
     }
 
 }

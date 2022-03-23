@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.importer.service.processor.update;
 
 import java.util.ArrayList;
@@ -60,12 +59,13 @@ public class CreateElementProcessorUpdate implements IBPMNImportProcessor {
     }
 
     @objid ("55f5cbe2-3cc4-4fcd-a4c6-92ee61dfda31")
-    public CreateElementProcessorUpdate(ICoreSession session, IDiagramService diagramService, Map<String, Object> elementsMap, boolean keepId) {
+    public  CreateElementProcessorUpdate(ICoreSession session, IDiagramService diagramService, Map<String, Object> elementsMap, boolean keepId) {
         this.session = session;
         this.diagramService = diagramService;
         this.elementsMap = elementsMap;
         this.factory = new ProductionFactory();
         this.keepId = keepId;
+        
     }
 
     /**

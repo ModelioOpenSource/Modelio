@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.flowfinal;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.swt.graphics.Path;
 import org.modelio.diagram.elements.core.figures.EllipseFigure;
 
 /**
@@ -38,15 +38,25 @@ public class FlowFinalFigure extends EllipseFigure {
         // super method will draw the shapedFigure
         super.paintFigure(graphics);
         
-        final Rectangle r = getBounds().getCopy();
+        final Rectangle r = getBounds();
         // reclip with path and draw crossed lines
-        if (this.shaper != null)
-            graphics.setClip(this.shaper.getShapePath(r));
         
-        graphics.setForegroundColor(this.penOptions.lineColor);
-        graphics.setLineWidth(this.penOptions.lineWidth);
-        graphics.drawLine(r.getTopLeft(), r.getBottomRight());
-        graphics.drawLine(r.getTopRight(), r.getBottomLeft());
+        Path shapePath = null;
+        if (this.shaper != null) {
+            shapePath = this.shaper.createShapePath(r);
+            graphics.setClip(shapePath);
+        }
+        
+        try {
+            graphics.setForegroundColor(this.penOptions.lineColor);
+            graphics.setLineWidth(this.penOptions.lineWidth);
+            graphics.drawLine(r.getTopLeft(), r.getBottomRight());
+            graphics.drawLine(r.getTopRight(), r.getBottomLeft());
+        } finally {
+            if (shapePath != null)
+                shapePath.dispose();
+        }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta.mof;
 
 import java.util.Collection;
@@ -51,7 +50,7 @@ public class MofSmClass extends SmObjectSmClass {
     private final String name;
 
     @objid ("0889ae4f-6b1a-4499-aa35-2b64e778ebc2")
-    private String qualifiedName;
+    private final String qualifiedName;
 
     @objid ("6d81bae7-0251-40dc-8986-f490a2f22453")
     private boolean isAbstract;
@@ -59,19 +58,20 @@ public class MofSmClass extends SmObjectSmClass {
     @objid ("bb675b84-70af-4081-8ab7-78217592244d")
     private boolean isLinkMetaclass;
 
+    
     @mdl.prop
     @objid ("5a14ceac-abd1-4a97-92ba-e90c54fe2d06")
-    private boolean temporary;
+    public boolean temporary;
 
     @mdl.propgetter
     public boolean isTemporary() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.temporary;
     }
 
     @mdl.propsetter
     public void setTemporary(boolean value) {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         this.temporary = value;
     }
 
@@ -88,12 +88,13 @@ public class MofSmClass extends SmObjectSmClass {
      * @param isCmsNode whether the metaclass is a CMS node
      */
     @objid ("2917f2e8-48dc-4765-ba6a-1166d08dfa25")
-    public MofSmClass(ISmMetamodelFragment origin, String name, String qualifiedName, boolean isCmsNode) {
+    public  MofSmClass(ISmMetamodelFragment origin, String name, String qualifiedName, boolean isCmsNode) {
         super(origin);
         this.name = name;
         this.qualifiedName = qualifiedName;
         this.isCmsNode = isCmsNode;
         this.version = new Version(0,0,0);
+        
     }
 
     @objid ("4c09a12d-d849-4432-82b6-5f985bd14955")
@@ -110,7 +111,6 @@ public class MofSmClass extends SmObjectSmClass {
 
     /**
      * Quick access to the 'Name' attribute.
-     * 
      * @return the 'Name' attribute.
      */
     @objid ("31866cff-7c06-4336-a007-5eaaf62dc026")
@@ -161,6 +161,7 @@ public class MofSmClass extends SmObjectSmClass {
         }
         
         registerFactory(new MofObjectFactory(this));
+        
     }
 
     @objid ("ba6f9bb9-98b6-4c3f-a5f4-99b19c503e56")
@@ -174,7 +175,6 @@ public class MofSmClass extends SmObjectSmClass {
      * <p>
      * A relationship metaclass elements represents links between other objects. They have source and target MDependencies.
      * @since toutatis
-     * 
      * @return true if this metaclass is fake.
      */
     @objid ("3c442a9d-1529-4b5a-b97d-832a9a0652bd")
@@ -224,17 +224,18 @@ public class MofSmClass extends SmObjectSmClass {
         if(this.nameAtt == null && !this.isAbstract) {
             //Log.warning("%s metaclass has no name attribute.", getQualifiedName());
         }
+        
     }
 
     /**
      * Set the parent metaclass.
-     * 
      * @param aMofCls the parent metaclass.
      */
     @objid ("572b7ced-7195-47e5-a31d-f874fa51dd40")
     public void setParent(SmClass aMofCls) {
         metaclassModified();
         this.parentClass = aMofCls;
+        
     }
 
     /**
@@ -242,11 +243,12 @@ public class MofSmClass extends SmObjectSmClass {
      */
     @objid ("30096c4a-fad9-4924-9b68-ca192251a64c")
     public void addAttribute(MofSmAttribute mofAtt) {
-        assert (! getSelfAttDef().stream().filter( at -> at.getName().equals(mofAtt.getName())).findAny().isPresent());
+        assert (! getSelfAttDef().stream().anyMatch( at -> at.getName().equals(mofAtt.getName())));
         
         metaclassModified();
         
         registerAttribute(mofAtt);
+        
     }
 
     /**
@@ -254,12 +256,13 @@ public class MofSmClass extends SmObjectSmClass {
      */
     @objid ("2668e9ab-a632-4f45-9ebc-c4390aaa290b")
     public void addDependency(MofSmDependency dep) {
-        assert (! getSelfDepDef().stream().filter( d -> d.getName().equals(dep.getName())).findAny().isPresent())
+        assert (! getSelfDepDef().stream().anyMatch( d -> d.getName().equals(dep.getName())))
         : String.format("'%s' dependency already exist in '%s' : %s", dep, this, getSelfDepDef());
         
         metaclassModified();
         
         registerDependency(dep);
+        
     }
 
     @objid ("87769bac-4c24-4897-b84a-92f7be6ac5f7")
@@ -291,6 +294,7 @@ public class MofSmClass extends SmObjectSmClass {
             resetCache();
             postInit();
         }
+        
     }
 
     @objid ("da3357dc-5034-41d6-a9e6-71cbb6a9e78f")
@@ -298,6 +302,7 @@ public class MofSmClass extends SmObjectSmClass {
         resetCache();
         
         getDirectSubClasses().forEach(c -> ((MofSmClass)c).metaclassModified());
+        
     }
 
     @objid ("a23bc355-b516-4489-a116-be48c05bcfbd")
@@ -359,18 +364,18 @@ public class MofSmClass extends SmObjectSmClass {
     @objid ("33649d08-c3e2-433d-8059-5651ce9e3264")
     @Override
     public String toString() {
-        return String.format("%s[%s '%s' v%s ]", 
+        return String.format("%s[%s '%s' v%s ]",
                                                         getClass().getSimpleName(),
                                                         isFake() ? "fake " : "",
-                                                        getQualifiedName(), 
+                                                        getQualifiedName(),
                                                         getVersion());
+        
     }
 
     /**
      * Delete a dependency.
      * <p>
      * The opposite is not deleted.
-     * 
      * @param depName the dependency to remove.
      */
     @objid ("81716d51-519c-4b72-86fa-12bd9aedc1a4")
@@ -383,17 +388,19 @@ public class MofSmClass extends SmObjectSmClass {
         
         metaclassModified();
         ((MofSmClass) dep.getType()).metaclassModified();
+        
     }
 
     @objid ("3ca39900-8881-44fb-b194-a822baccad71")
     private static final class MofObjectFactory implements ISmObjectFactory {
         @objid ("31b26591-3d0c-4ac3-b02b-b5620999d1de")
-         MofSmClass mclass;
+        MofSmClass mclass;
 
         @objid ("9ba014cb-f8cd-4dde-bee2-49b296e73847")
-        public MofObjectFactory(MofSmClass mclass) {
+        public  MofObjectFactory(MofSmClass mclass) {
             super();
             this.mclass = mclass;
+            
         }
 
         @objid ("795a23d1-1729-4cc8-8c67-c395a0b51d9e")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.bpmn;
 
 import java.util.Collection;
@@ -44,7 +43,7 @@ public class BpmnLaneDG extends DiagramNode {
      * @param node The gm node represented by this class.
      */
     @objid ("7b43bc9f-61eb-451e-939e-c7e6a34b49fd")
-    public BpmnLaneDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  BpmnLaneDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 
@@ -57,6 +56,7 @@ public class BpmnLaneDG extends DiagramNode {
         } else {
             return Collections.emptyList();
         }
+        
     }
 
     @objid ("d5e68a6d-ff11-49b8-8493-64f4504e9b52")
@@ -75,6 +75,7 @@ public class BpmnLaneDG extends DiagramNode {
         } else {
             return Collections.emptyList();
         }
+        
     }
 
 }

@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.browser.view.handlers.copy;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
@@ -41,8 +40,8 @@ import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.metamodel.uml.statik.Operation;
 import org.modelio.metamodel.uml.statik.Parameter;
 import org.modelio.model.browser.view.plugin.BrowserViewActivator;
-import org.modelio.platform.model.ui.swt.copy.PasteElementObject.PasteType;
 import org.modelio.platform.model.ui.swt.copy.PasteElementObject;
+import org.modelio.platform.model.ui.swt.copy.PasteElementObject.PasteType;
 import org.modelio.platform.model.ui.swt.copy.PasteElementTransfer;
 import org.modelio.platform.model.ui.swt.copy.TransferItem;
 import org.modelio.platform.project.services.IProjectService;
@@ -66,7 +65,6 @@ public class PasteElementHandler {
 
     /**
      * Available only when the selection contains only one modifiable element.
-     * 
      * @param selection the current modelio selection.
      * @param currentDisplay the current SWT display
      * @return true if the handler can be executed.
@@ -155,7 +153,6 @@ public class PasteElementHandler {
 
     /**
      * Cut the currently selected elements.
-     * 
      * @param selection the current modelio selection.
      * @param currentDisplay the display Modelio runs into.
      */
@@ -262,6 +259,7 @@ public class PasteElementHandler {
                 }
             }
         }
+        
     }
 
     @objid ("c87aa797-2500-11e2-ba1c-002564c97630")
@@ -272,6 +270,7 @@ public class PasteElementHandler {
         MessageDialog.openError(null, title, e.getLocalizedMessage());
         
         BrowserViewActivator.LOG.error(e);
+        
     }
 
     @objid ("c87aa79a-2500-11e2-ba1c-002564c97630")
@@ -315,7 +314,6 @@ public class PasteElementHandler {
 
     /**
      * Tells whether 'child' can be owned by 'parent'.
-     * 
      * @param owner The future parent element
      * @param composed a child element
      * @return true only if parent can contain the child.

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,7 @@ public class EGeneralizationSet extends ENamedElement {
     }
 
     @objid ("42037cf0-4dbf-4e7a-afc5-e01b5eaaea5b")
-    public EGeneralizationSet(org.eclipse.uml2.uml.GeneralizationSet element) {
+    public  EGeneralizationSet(org.eclipse.uml2.uml.GeneralizationSet element) {
         super(element);
     }
 

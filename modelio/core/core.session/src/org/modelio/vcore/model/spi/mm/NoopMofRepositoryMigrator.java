@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model.spi.mm;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,7 +38,7 @@ public final class NoopMofRepositoryMigrator extends AbstractMofRepositoryMigrat
      * @param targetMetamodel the target metamodel
      */
     @objid ("37aeaa2f-f398-414c-9a12-99bfa57b2c12")
-    public NoopMofRepositoryMigrator(MetamodelVersionDescriptor fromMetamodel, MetamodelVersionDescriptor targetMetamodel) {
+    public  NoopMofRepositoryMigrator(MetamodelVersionDescriptor fromMetamodel, MetamodelVersionDescriptor targetMetamodel) {
         super(fromMetamodel, targetMetamodel);
     }
 

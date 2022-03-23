@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.abstractdiagram;
 
 import java.util.ArrayList;
@@ -47,7 +46,7 @@ public class ConstraintFinalizationEditPolicy extends MultiPointCreationEditPoli
      * C'tor.
      */
     @objid ("7e084d6a-1dec-11e2-8cad-001ec947c8cc")
-    public ConstraintFinalizationEditPolicy() {
+    public  ConstraintFinalizationEditPolicy() {
         super(false);
     }
 
@@ -117,6 +116,7 @@ public class ConstraintFinalizationEditPolicy extends MultiPointCreationEditPoli
         } else {
             return null;
         }
+        
     }
 
     @objid ("7e0d11ef-1dec-11e2-8cad-001ec947c8cc")
@@ -124,6 +124,7 @@ public class ConstraintFinalizationEditPolicy extends MultiPointCreationEditPoli
     protected void showTargetConnectionFeedback(final CreateMultiPointRequest request) {
         // do NOT use the default highlight for diagram background, this is ugly!
         // TODO: define a better highlight
+        
     }
 
 }

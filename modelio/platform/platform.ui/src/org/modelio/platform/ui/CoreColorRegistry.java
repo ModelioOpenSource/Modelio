@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.ui;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -62,7 +61,6 @@ public class CoreColorRegistry {
      * <li> darker for factor 0 <= f <= 1.0
      * <li> and brighter for factor 1.0 >= f >= 2.
      * </ul>
-     * 
      * @param color the original color
      * @param factor a factor between 0 and 2.
      * @return a color lighter or darker
@@ -96,7 +94,6 @@ public class CoreColorRegistry {
      * <li> 1 : the target color
      * <li> 0 < f < 1.0 : an intermediate color
      * </ul>
-     * 
      * @param color the source color
      * @param target the target color
      * @param factor a float between 0 and 1.
@@ -116,51 +113,51 @@ public class CoreColorRegistry {
             final Color resColor = getColor(rgb);
             return resColor;
         }
+        
     }
-
-
 static {
-        final ColorRegistry colorRegistry = JFaceResources.getColorRegistry();
-
-        if (colorRegistry.get(JFacePreferences.ERROR_COLOR) == null) {
-            colorRegistry.put(JFacePreferences.ERROR_COLOR, UIColor.RED.getRGB());
+            final ColorRegistry colorRegistry = JFaceResources.getColorRegistry();
+    
+            if (colorRegistry.get(JFacePreferences.ERROR_COLOR) == null) {
+                colorRegistry.put(JFacePreferences.ERROR_COLOR, UIColor.RED.getRGB());
+            }
+    
+            if (colorRegistry.get(JFacePreferences.HYPERLINK_COLOR) == null) {
+                colorRegistry.put(JFacePreferences.HYPERLINK_COLOR, UIColor.SWT_LINK_FOREGROUND.getRGB());
+            }
+    
+            if (colorRegistry.get(JFacePreferences.ACTIVE_HYPERLINK_COLOR) == null) {
+                colorRegistry.put(JFacePreferences.ACTIVE_HYPERLINK_COLOR, UIColor.SWT_LINK_FOREGROUND.getRGB());
+            }
+    
+            if (colorRegistry.get(JFacePreferences.QUALIFIER_COLOR) == null) {
+                colorRegistry.put(JFacePreferences.QUALIFIER_COLOR, UIColor.SWT_WIDGET_FOREGROUND.getRGB());
+            }
+    
+            if (colorRegistry.get(JFacePreferences.DECORATIONS_COLOR) == null) {
+                colorRegistry.put(JFacePreferences.DECORATIONS_COLOR, UIColor.SWT_WIDGET_FOREGROUND.getRGB());
+            }
+    
+            if (colorRegistry.get(JFacePreferences.COUNTER_COLOR) == null) {
+                colorRegistry.put(JFacePreferences.COUNTER_COLOR, UIColor.SWT_WIDGET_FOREGROUND.getRGB());
+            }
+    
+            if (colorRegistry.get(JFacePreferences.CONTENT_ASSIST_BACKGROUND_COLOR) == null) {
+                colorRegistry.put(JFacePreferences.CONTENT_ASSIST_BACKGROUND_COLOR, UIColor.SWT_INFO_BACKGROUND.getRGB());
+            }
+    
+            if (colorRegistry.get(JFacePreferences.CONTENT_ASSIST_FOREGROUND_COLOR) == null) {
+                colorRegistry.put(JFacePreferences.CONTENT_ASSIST_FOREGROUND_COLOR, UIColor.SWT_INFO_FOREGROUND.getRGB());
+            }
+    
+            if (colorRegistry.get(JFacePreferences.INFORMATION_BACKGROUND_COLOR) == null) {
+                colorRegistry.put(JFacePreferences.INFORMATION_BACKGROUND_COLOR, UIColor.SWT_INFO_BACKGROUND.getRGB());
+            }
+    
+            if (colorRegistry.get(JFacePreferences.INFORMATION_FOREGROUND_COLOR) == null) {
+                colorRegistry.put(JFacePreferences.INFORMATION_FOREGROUND_COLOR, UIColor.SWT_INFO_FOREGROUND.getRGB());
+            }
+    
         }
-
-        if (colorRegistry.get(JFacePreferences.HYPERLINK_COLOR) == null) {
-            colorRegistry.put(JFacePreferences.HYPERLINK_COLOR, UIColor.SWT_LINK_FOREGROUND.getRGB());
-        }
-
-        if (colorRegistry.get(JFacePreferences.ACTIVE_HYPERLINK_COLOR) == null) {
-            colorRegistry.put(JFacePreferences.ACTIVE_HYPERLINK_COLOR, UIColor.SWT_LINK_FOREGROUND.getRGB());
-        }
-
-        if (colorRegistry.get(JFacePreferences.QUALIFIER_COLOR) == null) {
-            colorRegistry.put(JFacePreferences.QUALIFIER_COLOR, UIColor.SWT_WIDGET_FOREGROUND.getRGB());
-        }
-
-        if (colorRegistry.get(JFacePreferences.DECORATIONS_COLOR) == null) {
-            colorRegistry.put(JFacePreferences.DECORATIONS_COLOR, UIColor.SWT_WIDGET_FOREGROUND.getRGB());
-        }
-
-        if (colorRegistry.get(JFacePreferences.COUNTER_COLOR) == null) {
-            colorRegistry.put(JFacePreferences.COUNTER_COLOR, UIColor.SWT_WIDGET_FOREGROUND.getRGB());
-        }
-
-        if (colorRegistry.get(JFacePreferences.CONTENT_ASSIST_BACKGROUND_COLOR) == null) {
-            colorRegistry.put(JFacePreferences.CONTENT_ASSIST_BACKGROUND_COLOR, UIColor.SWT_INFO_BACKGROUND.getRGB());
-        }
-
-        if (colorRegistry.get(JFacePreferences.CONTENT_ASSIST_FOREGROUND_COLOR) == null) {
-            colorRegistry.put(JFacePreferences.CONTENT_ASSIST_FOREGROUND_COLOR, UIColor.SWT_INFO_FOREGROUND.getRGB());
-        }
-
-        if (colorRegistry.get(JFacePreferences.INFORMATION_BACKGROUND_COLOR) == null) {
-            colorRegistry.put(JFacePreferences.INFORMATION_BACKGROUND_COLOR, UIColor.SWT_INFO_BACKGROUND.getRGB());
-        }
-
-        if (colorRegistry.get(JFacePreferences.INFORMATION_FOREGROUND_COLOR) == null) {
-            colorRegistry.put(JFacePreferences.INFORMATION_FOREGROUND_COLOR, UIColor.SWT_INFO_FOREGROUND.getRGB());
-        }
-
-    }
+    
 }

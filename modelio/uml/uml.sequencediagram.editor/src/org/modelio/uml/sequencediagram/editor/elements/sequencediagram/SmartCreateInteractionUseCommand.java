@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.sequencediagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -28,8 +27,8 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.requests.CreateRequest;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
 import org.modelio.diagram.elements.core.model.GmModel;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
 import org.modelio.metamodel.uml.behavior.interactionModel.Interaction;
 import org.modelio.metamodel.uml.behavior.interactionModel.InteractionUse;
@@ -67,11 +66,12 @@ public class SmartCreateInteractionUseCommand extends Command {
      * @param parentElement the element that will own the new ObjectNode
      */
     @objid ("d9822f09-55b6-11e2-877f-002564c97630")
-    public SmartCreateInteractionUseCommand(final Point dropLocation, final Interaction toUnmask, final EditPart parentEditPart, final Interaction parentElement) {
+    public  SmartCreateInteractionUseCommand(final Point dropLocation, final Interaction toUnmask, final EditPart parentEditPart, final Interaction parentElement) {
         this.location = dropLocation;
         this.toUnmask = toUnmask;
         this.parentEditPart = parentEditPart;
         this.parentElement = parentElement;
+        
     }
 
     @objid ("d9822f18-55b6-11e2-877f-002564c97630")
@@ -85,6 +85,7 @@ public class SmartCreateInteractionUseCommand extends Command {
         }
         return (this.parentElement != null && this.parentElement.isValid() && this.parentElement.getStatus()
                         .isModifiable());
+        
     }
 
     @objid ("d9822f1d-55b6-11e2-877f-002564c97630")
@@ -103,6 +104,7 @@ public class SmartCreateInteractionUseCommand extends Command {
         
         // Unmask it
         unmaskElement(interactionUse);
+        
     }
 
     @objid ("d9822f20-55b6-11e2-877f-002564c97630")
@@ -119,6 +121,7 @@ public class SmartCreateInteractionUseCommand extends Command {
         if (cmd != null && cmd.canExecute()) {
             cmd.execute();
         }
+        
     }
 
 }

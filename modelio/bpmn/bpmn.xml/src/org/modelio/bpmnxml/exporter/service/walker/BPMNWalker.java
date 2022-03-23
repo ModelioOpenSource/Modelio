@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.exporter.service.walker;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -61,10 +60,11 @@ public class BPMNWalker {
     private TDefinitions jaxRoot;
 
     @objid ("0d80f85f-ae2f-460a-ae3d-0d4d7e73d45b")
-    public BPMNWalker(ModelElement modelioRoot, IBPMNProcessor processor, IDiagramService diagramService) {
+    public  BPMNWalker(ModelElement modelioRoot, IBPMNProcessor processor, IDiagramService diagramService) {
         this.processor = processor;
         this.modelioRoot = modelioRoot;
         this.diagramService = diagramService;
+        
     }
 
     @objid ("e8a10030-ea78-4e24-8715-9c8d2531e4b6")
@@ -76,6 +76,7 @@ public class BPMNWalker {
         } else if (this.modelioRoot instanceof BpmnCollaboration) {
             walkCollaboration(context, (BpmnCollaboration) this.modelioRoot);
         }
+        
     }
 
     @objid ("7d2d9d5d-0d8a-419f-9c62-19d5f96d68bb")
@@ -101,6 +102,7 @@ public class BPMNWalker {
         for (AbstractDiagram diagram : modelioElement.getProduct()) {
             walkBpmnDiagram(result, diagram);
         }
+        
     }
 
     @objid ("42b1e7c6-59d6-4350-ac54-e93275902e66")
@@ -119,6 +121,7 @@ public class BPMNWalker {
         for (AbstractDiagram diagram : modelioElement.getProduct()) {
             walkBpmnDiagram(result, diagram);
         }
+        
     }
 
     @objid ("1a769b97-081a-479d-b73c-da07d4b29c8c")
@@ -133,6 +136,7 @@ public class BPMNWalker {
                 walkLaneSet(rlane, childLaneSet);
             }
         }
+        
     }
 
     @objid ("c0da4373-91a6-462a-a4b0-71315dfe2751")
@@ -144,6 +148,7 @@ public class BPMNWalker {
         } else if (flowElement instanceof BpmnItemAwareElement) {
             walkItem(context, (BpmnItemAwareElement) flowElement);
         }
+        
     }
 
     @objid ("04e133c4-674a-4d3e-9fcc-2607ed30a547")
@@ -204,6 +209,7 @@ public class BPMNWalker {
             }
         
         }
+        
     }
 
     @objid ("7a84d8dd-5156-451b-aa57-fe970f5cb42f")
@@ -215,6 +221,7 @@ public class BPMNWalker {
         for (AbstractDiagram diagram : modelioElement.getProduct()) {
             walkBpmnDiagram(result, diagram);
         }
+        
     }
 
     @objid ("9dcef5c7-a70b-472e-b1ad-8a4b2d345785")

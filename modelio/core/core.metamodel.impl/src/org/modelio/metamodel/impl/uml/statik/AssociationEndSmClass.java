@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
@@ -30,12 +30,6 @@ import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.behavior.activityModel.ObjectNodeSmClass;
 import org.modelio.metamodel.impl.uml.informationFlow.InformationFlowSmClass;
-import org.modelio.metamodel.impl.uml.statik.AssociationEndData;
-import org.modelio.metamodel.impl.uml.statik.AssociationSmClass;
-import org.modelio.metamodel.impl.uml.statik.AttributeSmClass;
-import org.modelio.metamodel.impl.uml.statik.ClassifierSmClass;
-import org.modelio.metamodel.impl.uml.statik.LinkEndSmClass;
-import org.modelio.metamodel.impl.uml.statik.StructuralFeatureSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.ObjectNode;
 import org.modelio.metamodel.uml.informationFlow.InformationFlow;
 import org.modelio.metamodel.uml.statik.AggregationKind;
@@ -94,7 +88,7 @@ public class AssociationEndSmClass extends StructuralFeatureSmClass {
     private SmDependency associationDep;
 
     @objid ("651f569c-296b-48df-8512-57c2426a5ef0")
-    public AssociationEndSmClass(ISmMetamodelFragment origin) {
+    public  AssociationEndSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -102,6 +96,7 @@ public class AssociationEndSmClass extends StructuralFeatureSmClass {
     @Override
     public String getName() {
         return "AssociationEnd";
+        
     }
 
     @objid ("752182b4-18bb-4de6-abfa-416abff2115d")
@@ -114,18 +109,21 @@ public class AssociationEndSmClass extends StructuralFeatureSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return AssociationEnd.class;
+        
     }
 
     @objid ("981384c5-0578-44c3-bfdd-2eba21e7a890")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("5900c9d0-519e-4978-8ab5-cebcf8f319b7")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("8727c504-b5c8-4933-8e56-36c1b4bb0cf3")
@@ -181,6 +179,8 @@ public class AssociationEndSmClass extends StructuralFeatureSmClass {
         this.associationDep = new AssociationSmDependency();
         this.associationDep.init("Association", this, metamodel.getMClass(Association.MQNAME), 0, 1 , SmDirective.SMCDSHAREDCOMPONENT);
         registerDependency(this.associationDep);
+        
+        
     }
 
     @objid ("48ad77aa-5911-4ad0-8dca-1305e6015066")
@@ -275,6 +275,7 @@ public class AssociationEndSmClass extends StructuralFeatureSmClass {
     @Override
     public boolean isLinkMetaclass() {
         return true;
+        
     }
 
     @objid ("c755cf6a-9176-4b3e-84ee-ce0e6653cee0")
@@ -283,7 +284,7 @@ public class AssociationEndSmClass extends StructuralFeatureSmClass {
         private AssociationEndSmClass smClass;
 
         @objid ("277855e7-0c44-4554-9c8d-871fb2a2f86b")
-        public AssociationEndObjectFactory(AssociationEndSmClass smClass) {
+        public  AssociationEndObjectFactory(AssociationEndSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -353,6 +354,7 @@ public class AssociationEndSmClass extends StructuralFeatureSmClass {
             	this.symetricDep = ((ClassifierSmClass)this.getTarget()).getTargetingEndDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -381,6 +383,7 @@ public class AssociationEndSmClass extends StructuralFeatureSmClass {
             	this.symetricDep = ((AssociationEndSmClass)this.getTarget()).getOppositeDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -409,6 +412,7 @@ public class AssociationEndSmClass extends StructuralFeatureSmClass {
             	this.symetricDep = ((ClassifierSmClass)this.getTarget()).getOwnedEndDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -428,6 +432,7 @@ public class AssociationEndSmClass extends StructuralFeatureSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((AssociationEndData) data).mOccurence = values;
+            
         }
 
         @objid ("310a45e0-d192-4b18-8d48-1b401a4b76a4")
@@ -437,6 +442,7 @@ public class AssociationEndSmClass extends StructuralFeatureSmClass {
             	this.symetricDep = ((LinkEndSmClass)this.getTarget()).getModelDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -456,6 +462,7 @@ public class AssociationEndSmClass extends StructuralFeatureSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((AssociationEndData) data).mSent = values;
+            
         }
 
         @objid ("748f7fde-766b-4f98-975d-f69acd0153fa")
@@ -465,6 +472,7 @@ public class AssociationEndSmClass extends StructuralFeatureSmClass {
             	this.symetricDep = ((InformationFlowSmClass)this.getTarget()).getChannelDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -484,6 +492,7 @@ public class AssociationEndSmClass extends StructuralFeatureSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((AssociationEndData) data).mQualifier = values;
+            
         }
 
         @objid ("a9dd902d-2c19-44ea-ae09-110f6ecbedc2")
@@ -493,6 +502,7 @@ public class AssociationEndSmClass extends StructuralFeatureSmClass {
             	this.symetricDep = ((AttributeSmClass)this.getTarget()).getQualifiedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -521,6 +531,7 @@ public class AssociationEndSmClass extends StructuralFeatureSmClass {
             	this.symetricDep = ((AssociationEndSmClass)this.getTarget()).getOppositeOwnerDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -540,6 +551,7 @@ public class AssociationEndSmClass extends StructuralFeatureSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((AssociationEndData) data).mRepresentingObjectNode = values;
+            
         }
 
         @objid ("191f7d93-a631-4403-add5-f4b108db6c84")
@@ -549,6 +561,7 @@ public class AssociationEndSmClass extends StructuralFeatureSmClass {
             	this.symetricDep = ((ObjectNodeSmClass)this.getTarget()).getRepresentedRoleDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -577,6 +590,7 @@ public class AssociationEndSmClass extends StructuralFeatureSmClass {
             	this.symetricDep = ((AssociationSmClass)this.getTarget()).getEndDep();
             }
             return this.symetricDep;
+            
         }
 
     }

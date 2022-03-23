@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.engine.core;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,7 +28,7 @@ public abstract class AbstractControl implements IControl {
     protected IRule rule;
 
     @objid ("710c73e9-3451-42bd-b712-d8b02dc02a61")
-    public AbstractControl(IRule rule) {
+    public  AbstractControl(IRule rule) {
         this.rule = rule;
     }
 

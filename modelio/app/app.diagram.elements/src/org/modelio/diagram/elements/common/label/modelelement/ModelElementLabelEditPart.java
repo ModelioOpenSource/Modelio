@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.label.modelelement;
 
 import java.beans.PropertyChangeEvent;
@@ -44,7 +43,7 @@ public class ModelElementLabelEditPart extends ModelElementHeaderEditPart {
      * Default constructor.
      */
     @objid ("f2010d61-e9ca-4498-840d-3aae045f440d")
-    public ModelElementLabelEditPart() {
+    public  ModelElementLabelEditPart() {
         super();
     }
 
@@ -95,6 +94,7 @@ public class ModelElementLabelEditPart extends ModelElementHeaderEditPart {
         } else {
             super.propertyChange(evt);
         }
+        
     }
 
     @objid ("7e9e816b-1dec-11e2-8cad-001ec947c8cc")
@@ -105,6 +105,7 @@ public class ModelElementLabelEditPart extends ModelElementHeaderEditPart {
         if (fig.isVisible()) {
             super.refreshFromStyle(fig, style);
         }
+        
     }
 
     @objid ("520e19ab-bdcd-4da1-b9c8-fc863c351236")
@@ -115,6 +116,7 @@ public class ModelElementLabelEditPart extends ModelElementHeaderEditPart {
         } else {
             aFigure.setVisible(false);
         }
+        
     }
 
 }

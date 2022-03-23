@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.objects;
 
 import java.util.ArrayList;
@@ -33,8 +33,6 @@ import org.modelio.metamodel.bpmn.objects.BpmnDataAssociation;
 import org.modelio.metamodel.bpmn.objects.BpmnSequenceFlowDataAssociation;
 import org.modelio.metamodel.bpmn.rootElements.BpmnBaseElement;
 import org.modelio.metamodel.impl.bpmn.flows.BpmnSequenceFlowSmClass;
-import org.modelio.metamodel.impl.bpmn.objects.BpmnDataAssociationSmClass;
-import org.modelio.metamodel.impl.bpmn.objects.BpmnSequenceFlowDataAssociationData;
 import org.modelio.metamodel.impl.bpmn.rootElements.BpmnBaseElementSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
@@ -57,7 +55,7 @@ public class BpmnSequenceFlowDataAssociationSmClass extends BpmnBaseElementSmCla
     private SmDependency dataAssociationDep;
 
     @objid ("be62fd75-4e8a-47ed-b96b-4495d2585aea")
-    public BpmnSequenceFlowDataAssociationSmClass(ISmMetamodelFragment origin) {
+    public  BpmnSequenceFlowDataAssociationSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -65,6 +63,7 @@ public class BpmnSequenceFlowDataAssociationSmClass extends BpmnBaseElementSmCla
     @Override
     public String getName() {
         return "BpmnSequenceFlowDataAssociation";
+        
     }
 
     @objid ("955aa4f2-27b5-4bec-9acf-ec8300d96a25")
@@ -77,18 +76,21 @@ public class BpmnSequenceFlowDataAssociationSmClass extends BpmnBaseElementSmCla
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnSequenceFlowDataAssociation.class;
+        
     }
 
     @objid ("a73a8976-d144-4957-81ea-ea2d756494b5")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("df1f31c5-4d7d-4551-8c85-5b90a3a2e076")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("340a706c-b0ad-4465-9b6c-f9d297521af1")
@@ -108,6 +110,8 @@ public class BpmnSequenceFlowDataAssociationSmClass extends BpmnBaseElementSmCla
         this.dataAssociationDep = new DataAssociationSmDependency();
         this.dataAssociationDep.init("DataAssociation", this, metamodel.getMClass(BpmnDataAssociation.MQNAME), 2, 2 , SmDirective.SMCDPARTOF);
         registerDependency(this.dataAssociationDep);
+        
+        
     }
 
     @objid ("f913c9ba-7af6-4f05-a067-e9f5e77cd531")
@@ -132,7 +136,7 @@ public class BpmnSequenceFlowDataAssociationSmClass extends BpmnBaseElementSmCla
         private BpmnSequenceFlowDataAssociationSmClass smClass;
 
         @objid ("77fffab8-4954-4a86-887d-597487fadb2b")
-        public BpmnSequenceFlowDataAssociationObjectFactory(BpmnSequenceFlowDataAssociationSmClass smClass) {
+        public  BpmnSequenceFlowDataAssociationObjectFactory(BpmnSequenceFlowDataAssociationSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -174,6 +178,7 @@ public class BpmnSequenceFlowDataAssociationSmClass extends BpmnBaseElementSmCla
             	this.symetricDep = ((BpmnSequenceFlowSmClass)this.getTarget()).getConnectorDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -193,6 +198,7 @@ public class BpmnSequenceFlowDataAssociationSmClass extends BpmnBaseElementSmCla
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnSequenceFlowDataAssociationData) data).mDataAssociation = values;
+            
         }
 
         @objid ("703b357c-37b3-4031-bfce-b157c6ace4cc")
@@ -202,6 +208,7 @@ public class BpmnSequenceFlowDataAssociationSmClass extends BpmnBaseElementSmCla
             	this.symetricDep = ((BpmnDataAssociationSmClass)this.getTarget()).getVisualShortCutDep();
             }
             return this.symetricDep;
+            
         }
 
     }

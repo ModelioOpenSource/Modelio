@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.api.impl.app.picking;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,7 +29,7 @@ public class PickingSessionProxy implements IPickingSession {
     private org.modelio.platform.core.picking.IPickingSession session;
 
     @objid ("25196193-1073-4148-8df4-70daa21354fd")
-    public PickingSessionProxy(org.modelio.platform.core.picking.IPickingSession session) {
+    public  PickingSessionProxy(org.modelio.platform.core.picking.IPickingSession session) {
         this.session = session;
     }
 

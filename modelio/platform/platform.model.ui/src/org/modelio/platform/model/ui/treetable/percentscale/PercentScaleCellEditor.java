@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.treetable.percentscale;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,10 +40,11 @@ public class PercentScaleCellEditor extends CellEditor {
     private Slider slider;
 
     @objid ("6b413634-1eba-11e2-9382-bc305ba4815c")
-    public PercentScaleCellEditor(Composite parent, int min, int max) {
+    public  PercentScaleCellEditor(Composite parent, int min, int max) {
         super(parent);
         this.min = min;
         this.max = max;
+        
     }
 
     @objid ("6b415d43-1eba-11e2-9382-bc305ba4815c")

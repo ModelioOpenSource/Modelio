@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,7 +38,7 @@ public class ECommunicationPath extends EAssociation {
     }
 
     @objid ("2fa5c192-a78c-4cad-8262-125b1f8036f8")
-    public ECommunicationPath(org.eclipse.uml2.uml.CommunicationPath element) {
+    public  ECommunicationPath(org.eclipse.uml2.uml.CommunicationPath element) {
         super(element);
     }
 

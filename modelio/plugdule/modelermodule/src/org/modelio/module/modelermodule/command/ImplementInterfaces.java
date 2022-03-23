@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.module.modelermodule.command;
 
 import java.util.List;
@@ -53,6 +52,7 @@ public class ImplementInterfaces extends DefaultModuleCommandHandler {
                 transaction.rollback();
             }
         }
+        
     }
 
     /**

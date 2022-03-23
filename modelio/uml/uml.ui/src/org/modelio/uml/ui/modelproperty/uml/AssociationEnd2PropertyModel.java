@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.text.MessageFormat;
@@ -51,16 +50,15 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public class AssociationEnd2PropertyModel extends AbstractPropertyModel<AssociationEnd> {
     @objid ("c6fe8d74-2fae-4604-9aef-c43c8bb20118")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "AssociationName",
-            "IsNavigable", "RoleName", "RoleTarget", "AssociationType", "MultiplicityMin", "MultiplicityMax",
-            "Visibility", "IsModifiable", "AccessMode", "IsAbstract", "IsClass", "IsOrdered", "IsUnique" };
+                "IsNavigable", "RoleName", "RoleTarget", "AssociationType", "MultiplicityMin", "MultiplicityMax",
+                "Visibility", "IsModifiable", "AccessMode", "IsAbstract", "IsClass", "IsOrdered", "IsUnique" };
 
     /**
      * Create a new <i>AssociationEnd</i> data model from an <i>AssociationEnd</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("3e51f67b-e5b3-4d14-a73c-daeef56b4963")
-    public AssociationEnd2PropertyModel(AssociationEnd theEditedElement) {
+    public  AssociationEnd2PropertyModel(AssociationEnd theEditedElement) {
         super(theEditedElement);
     }
 
@@ -142,6 +140,7 @@ public class AssociationEnd2PropertyModel extends AbstractPropertyModel<Associat
         default:
             return null;
         }
+        
     }
 
     @objid ("57e62c17-43f2-4c20-abf2-b1e989ee65c7")
@@ -166,6 +165,7 @@ public class AssociationEnd2PropertyModel extends AbstractPropertyModel<Associat
         default:
             return null;
         }
+        
     }
 
     @objid ("3b5d50d5-abb3-4d07-80a7-091e7efc7871")
@@ -230,6 +230,7 @@ public class AssociationEnd2PropertyModel extends AbstractPropertyModel<Associat
         default:
             return null;
         }
+        
     }
 
     @objid ("a2a55158-c3c2-4c97-b8a0-265367c394b2")
@@ -304,6 +305,7 @@ public class AssociationEnd2PropertyModel extends AbstractPropertyModel<Associat
         default:
             return;
         }
+        
     }
 
     @objid ("e6d3573b-a759-47db-9045-48ee77d2f99f")
@@ -321,6 +323,7 @@ public class AssociationEnd2PropertyModel extends AbstractPropertyModel<Associat
         default:
             return;
         }
+        
     }
 
     /**
@@ -345,6 +348,7 @@ public class AssociationEnd2PropertyModel extends AbstractPropertyModel<Associat
             } else {
                 return true;
             }
+            
         }
 
     }

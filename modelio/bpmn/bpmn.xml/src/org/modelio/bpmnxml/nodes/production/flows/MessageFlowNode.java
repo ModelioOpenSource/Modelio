@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.production.flows;
 
 import java.util.Map;
-import javax.xml.namespace.QName;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.xml.namespace.QName;
 import org.modelio.bpmnxml.model.TCollaboration;
 import org.modelio.bpmnxml.model.TMessage;
 import org.modelio.bpmnxml.model.TMessageFlow;
@@ -39,7 +38,7 @@ import org.modelio.vcore.session.impl.CoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("bf87ac5c-ac6c-4596-92e6-d47bca7cf482")
-public class MessageFlowNode implements IProductionNode<BpmnMessageFlow,TMessageFlow> {
+public class MessageFlowNode implements IProductionNode<BpmnMessageFlow, TMessageFlow> {
     @objid ("4311204d-db1d-45b2-afed-865d334db7cb")
     private Map<String, Object> elementsMap;
 
@@ -75,6 +74,7 @@ public class MessageFlowNode implements IProductionNode<BpmnMessageFlow,TMessage
         } else {
             return factory.create(BpmnMessageFlow.class, context, "MessageFlow");
         }
+        
     }
 
     @objid ("c916f0aa-0656-4fbd-9bf5-cddd6272665a")

@@ -17,21 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
-import org.modelio.metamodel.impl.uml.statik.BindingSmClass;
-import org.modelio.metamodel.impl.uml.statik.NaryConnectorData;
-import org.modelio.metamodel.impl.uml.statik.NaryLinkSmClass;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.metamodel.uml.statik.Binding;
 import org.modelio.metamodel.uml.statik.NaryConnector;
@@ -57,7 +54,7 @@ public class NaryConnectorSmClass extends NaryLinkSmClass {
     private SmDependency representedFeatureDep;
 
     @objid ("5a7a4b35-2ca2-4a80-b266-b357f9b3e7f9")
-    public NaryConnectorSmClass(ISmMetamodelFragment origin) {
+    public  NaryConnectorSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -65,6 +62,7 @@ public class NaryConnectorSmClass extends NaryLinkSmClass {
     @Override
     public String getName() {
         return "NaryConnector";
+        
     }
 
     @objid ("1dd2c5b3-6bb6-4a67-86cd-80b58d707237")
@@ -77,18 +75,21 @@ public class NaryConnectorSmClass extends NaryLinkSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return NaryConnector.class;
+        
     }
 
     @objid ("d45bebd7-c88a-4df2-ba5f-fac3830bd5d0")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("5944ebbc-d7cc-414d-bf59-2953bbdd9ee6")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("1be1b41d-5ba1-4e4b-a6b6-8b3de00defd8")
@@ -108,6 +109,8 @@ public class NaryConnectorSmClass extends NaryLinkSmClass {
         this.representedFeatureDep = new RepresentedFeatureSmDependency();
         this.representedFeatureDep.init("RepresentedFeature", this, metamodel.getMClass(UmlModelElement.MQNAME), 0, 1 , SmDirective.SMCDPARTOF);
         registerDependency(this.representedFeatureDep);
+        
+        
     }
 
     @objid ("d1981fab-1061-4fbd-9c0f-d865126bf56e")
@@ -132,7 +135,7 @@ public class NaryConnectorSmClass extends NaryLinkSmClass {
         private NaryConnectorSmClass smClass;
 
         @objid ("60db4cd3-1592-4297-97b5-4a75eae1ddfb")
-        public NaryConnectorObjectFactory(NaryConnectorSmClass smClass) {
+        public  NaryConnectorObjectFactory(NaryConnectorSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -165,6 +168,7 @@ public class NaryConnectorSmClass extends NaryLinkSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((NaryConnectorData) data).mRepresentation = values;
+            
         }
 
         @objid ("c2557b9c-9e71-4734-89d1-93da0954dcd7")
@@ -174,6 +178,7 @@ public class NaryConnectorSmClass extends NaryLinkSmClass {
             	this.symetricDep = ((BindingSmClass)this.getTarget()).getConnectorRoleDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -202,6 +207,7 @@ public class NaryConnectorSmClass extends NaryLinkSmClass {
             	this.symetricDep = ((UmlModelElementSmClass)this.getTarget()).getRepresentingConnectorDep();
             }
             return this.symetricDep;
+            
         }
 
     }

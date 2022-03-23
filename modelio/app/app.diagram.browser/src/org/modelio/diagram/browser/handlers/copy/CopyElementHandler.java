@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.handlers.copy;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.inject.Inject;
 import javax.inject.Named;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.services.IServiceConstants;
@@ -33,8 +32,8 @@ import org.eclipse.swt.dnd.Clipboard;
 import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.widgets.Display;
 import org.modelio.metamodel.diagrams.DiagramSet;
-import org.modelio.platform.model.ui.swt.copy.PasteElementObject.PasteType;
 import org.modelio.platform.model.ui.swt.copy.PasteElementObject;
+import org.modelio.platform.model.ui.swt.copy.PasteElementObject.PasteType;
 import org.modelio.platform.model.ui.swt.copy.PasteElementTransfer;
 import org.modelio.platform.model.ui.swt.copy.TransferItem;
 import org.modelio.platform.project.services.IProjectService;
@@ -46,7 +45,7 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 @objid ("b1ebe066-54c7-11e2-ae63-002564c97630")
 public class CopyElementHandler {
     @objid ("b1ebe068-54c7-11e2-ae63-002564c97630")
-     boolean ctrlFlag;
+    boolean ctrlFlag;
 
     @objid ("b1ee41c3-54c7-11e2-ae63-002564c97630")
     @Inject
@@ -54,7 +53,6 @@ public class CopyElementHandler {
 
     /**
      * Available only when the selected elements is not empty.
-     * 
      * @param selection the current modelio selection.
      * @return true if the handler can be executed.
      */
@@ -76,7 +74,6 @@ public class CopyElementHandler {
 
     /**
      * Copy the currently selected elements.
-     * 
      * @param selection the current modelio selection.
      * @param currentDisplay the display Modelio runs into.
      */
@@ -102,6 +99,7 @@ public class CopyElementHandler {
         
         Clipboard clipboard= new Clipboard(currentDisplay);
         clipboard.setContents(new Object[] { toCopy }, new Transfer[] { PasteElementTransfer.getInstance() });
+        
     }
 
     @objid ("b1ee41d6-54c7-11e2-ae63-002564c97630")

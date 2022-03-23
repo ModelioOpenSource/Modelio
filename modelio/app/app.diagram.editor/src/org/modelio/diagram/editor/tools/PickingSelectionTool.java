@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.tools;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,7 @@ public class PickingSelectionTool extends PanSelectionTool {
     private IPickingSession session;
 
     @objid ("66aed167-33f7-11e2-95fe-001ec947c8cc")
-    public PickingSelectionTool(IPickingSession session) {
+    public  PickingSelectionTool(IPickingSession session) {
         this.session = session;
     }
 
@@ -48,6 +47,7 @@ public class PickingSelectionTool extends PanSelectionTool {
         } else {
             return this.session.hover(hoveredElement) ? SharedCursors2.CURSOR_PICKING_YES : SharedCursors2.CURSOR_PICKING_NO;
         }
+        
     }
 
     @objid ("66aed16e-33f7-11e2-95fe-001ec947c8cc")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.collections;
 
 import java.util.Collection;
@@ -41,9 +40,10 @@ public class CompoundIterator<E> implements Iterator<E> {
     private Iterator<? extends E> subIt;
 
     @objid ("ff2d731a-c1ef-11e1-92d5-001ec947ccaf")
-    public CompoundIterator(Collection<Collection<? extends E>> collections) {
+    public  CompoundIterator(Collection<Collection<? extends E>> collections) {
         this.contentIt = collections.iterator();
         walk();
+        
     }
 
     @objid ("ff2d7321-c1ef-11e1-92d5-001ec947ccaf")
@@ -56,6 +56,7 @@ public class CompoundIterator<E> implements Iterator<E> {
             this.subIt = this.contentIt.next().iterator();
         } 
         this.next = this.subIt.next();
+        
     }
 
     @objid ("ff2d7323-c1ef-11e1-92d5-001ec947ccaf")

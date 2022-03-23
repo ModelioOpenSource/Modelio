@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.api.impl.model.change;
 
 import java.util.ArrayList;
@@ -35,7 +34,7 @@ public class StatusChangeEvent implements IStatusChangeEvent {
     private org.modelio.vcore.session.api.model.change.IStatusChangeEvent coreEvent;
 
     @objid ("69ef3a39-8228-4580-b3de-ca0473f4b5f4")
-    public StatusChangeEvent(org.modelio.vcore.session.api.model.change.IStatusChangeEvent coreEvent) {
+    public  StatusChangeEvent(org.modelio.vcore.session.api.model.change.IStatusChangeEvent coreEvent) {
         this.coreEvent = coreEvent;
     }
 

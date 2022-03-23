@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.infrastructure;
 
 import java.util.List;
@@ -30,7 +29,7 @@ import org.modelio.audit.preferences.model.AuditRule;
 @objid ("cd638ce7-6591-4afd-96ac-7ecb5d85b39e")
 public class InfrastructureAuditPlan extends AbstractAuditExecutionPlan {
     @objid ("8f95f407-6c6a-4e1d-a42f-af742bdd5da0")
-    public InfrastructureAuditPlan(List<AuditCategory> rootCategories) {
+    public  InfrastructureAuditPlan(List<AuditCategory> rootCategories) {
         super(rootCategories);
     }
 
@@ -52,6 +51,7 @@ public class InfrastructureAuditPlan extends AbstractAuditExecutionPlan {
         } catch (IllegalAccessException e) {
             Audit.LOG.error(e);
         }
+        
     }
 
 }

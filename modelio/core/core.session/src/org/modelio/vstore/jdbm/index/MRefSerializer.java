@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.jdbm.index;
 
 import java.io.IOException;
@@ -48,6 +47,7 @@ public class MRefSerializer implements Serializer<MRef> {
         out.writeUTF(obj.uuid); 
         out.writeUTF(obj.name); 
         out.writeUTF(obj.mc);
+        
     }
 
     @objid ("94e71b4c-a6f7-4f6c-be70-585f3503df78")

@@ -17,23 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
-import org.modelio.metamodel.impl.uml.statik.BindingSmClass;
-import org.modelio.metamodel.impl.uml.statik.CollaborationSmClass;
-import org.modelio.metamodel.impl.uml.statik.CollaborationUseData;
-import org.modelio.metamodel.impl.uml.statik.NameSpaceSmClass;
-import org.modelio.metamodel.impl.uml.statik.OperationSmClass;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.metamodel.uml.statik.Binding;
 import org.modelio.metamodel.uml.statik.Collaboration;
@@ -67,7 +62,7 @@ public class CollaborationUseSmClass extends UmlModelElementSmClass {
     private SmDependency roleBindingDep;
 
     @objid ("c89a4fdf-9c27-4ac0-bd68-877d817cb6eb")
-    public CollaborationUseSmClass(ISmMetamodelFragment origin) {
+    public  CollaborationUseSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -75,6 +70,7 @@ public class CollaborationUseSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "CollaborationUse";
+        
     }
 
     @objid ("49102a73-736c-446e-9782-86e5ea9d11d8")
@@ -87,18 +83,21 @@ public class CollaborationUseSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return CollaborationUse.class;
+        
     }
 
     @objid ("f147f80c-9506-45de-8543-bcb00e4852f3")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("b3844de9-3432-4ed0-9ad0-f227ad3f1390")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("22385858-e0a5-4204-b3d5-796d66957eb1")
@@ -126,6 +125,8 @@ public class CollaborationUseSmClass extends UmlModelElementSmClass {
         this.roleBindingDep = new RoleBindingSmDependency();
         this.roleBindingDep.init("RoleBinding", this, metamodel.getMClass(Binding.MQNAME), 0, -1 , SmDirective.SMCDCOMPONENT);
         registerDependency(this.roleBindingDep);
+        
+        
     }
 
     @objid ("60d7490f-dc68-4b86-99ef-adb12b5fb0f8")
@@ -166,7 +167,7 @@ public class CollaborationUseSmClass extends UmlModelElementSmClass {
         private CollaborationUseSmClass smClass;
 
         @objid ("f8f8f0f6-3159-4b83-bb40-e0e13916ea91")
-        public CollaborationUseObjectFactory(CollaborationUseSmClass smClass) {
+        public  CollaborationUseObjectFactory(CollaborationUseSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -208,6 +209,7 @@ public class CollaborationUseSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((CollaborationSmClass)this.getTarget()).getOccurrenceDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -236,6 +238,7 @@ public class CollaborationUseSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((NameSpaceSmClass)this.getTarget()).getOwnedCollaborationUseDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -264,6 +267,7 @@ public class CollaborationUseSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((OperationSmClass)this.getTarget()).getOwnedCollaborationUseDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -283,6 +287,7 @@ public class CollaborationUseSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((CollaborationUseData) data).mRoleBinding = values;
+            
         }
 
         @objid ("b0da99c1-d958-4bcc-a1b4-860d9e778223")
@@ -292,6 +297,7 @@ public class CollaborationUseSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((BindingSmClass)this.getTarget()).getOwnerDep();
             }
             return this.symetricDep;
+            
         }
 
     }

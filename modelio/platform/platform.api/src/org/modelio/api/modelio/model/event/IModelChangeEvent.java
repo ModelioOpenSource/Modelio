@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.model.event;
 
 import java.util.List;
@@ -34,7 +33,6 @@ public interface IModelChangeEvent {
      * the transaction.
      * <p><p>
      * The {@link IElementMovedEvent} class is used to determine more precise information.
-     * 
      * @return A list of move events
      */
     @objid ("01f413bc-0000-00e2-0000-000000000000")
@@ -46,7 +44,6 @@ public interface IModelChangeEvent {
      * Only the top deleted elements are listed here. For example if a package P1, which contained a
      * class C1, has been deleted, only the package P1
      * will be given through the use of this returned list.
-     * 
      * @return The list of deleted elements
      */
     @objid ("01f413bc-0000-00ea-0000-000000000000")
@@ -58,7 +55,6 @@ public interface IModelChangeEvent {
      * Only the top created elements are listed here. For example if a package P1 has been created
      * and in the same way, a class C1 has been created and added to the package, only the package P1
      * will be given through the use of this returned list.
-     * 
      * @return The list of created elements
      */
     @objid ("a3daa9ee-0ecc-11e2-96c4-002564c97630")
@@ -69,7 +65,6 @@ public interface IModelChangeEvent {
      * <p><p>
      * An element is considered as updated only if it was not created or deleted during
      * the transaction.
-     * 
      * @return The updated elements
      */
     @objid ("a3dad102-0ecc-11e2-96c4-002564c97630")

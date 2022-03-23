@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.plugin;
 
 import java.util.ResourceBundle;
@@ -57,6 +56,7 @@ public final class DiagramEditorState implements BundleActivator {
         ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), PLUGIN_ID));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("diagrameditorstate"));
+        
     }
 
     @objid ("fe94b605-5a5b-11e2-9e33-00137282c51b")

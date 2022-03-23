@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.fragment;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,21 +29,27 @@ public enum FragmentState {
     /**
      * Initial state.
      */
+    @objid ("52d6b05a-d637-11e1-9f03-001ec947ccaf")
     INITIAL,
     /**
      * Being mounted.
      */
+    @objid ("5517a5a6-d637-11e1-9f03-001ec947ccaf")
     MOUNTING,
     /**
      * Operational.
      */
+    @objid ("5531df58-d637-11e1-9f03-001ec947ccaf")
     UP_FULL,
     /**
      * Operational in light mode.
      */
+    @objid ("a6f55b09-d63c-11e1-9f03-001ec947ccaf")
     UP_LIGHT,
     /**
      * Down, broken.
      */
+    @objid ("554c190a-d637-11e1-9f03-001ec947ccaf")
     DOWN;
+
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.enumliteral;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,8 +28,8 @@ import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.statik.Enumeration;
 import org.modelio.metamodel.uml.statik.EnumerationLiteral;
 import org.modelio.uml.statikdiagram.editor.elements.enumeration.EnumStructuredStyleKeys;
@@ -57,17 +56,17 @@ public class GmEnumLitteralGroup extends GmGroup {
      * Constructor for deserialization only.
      */
     @objid ("34e62e0c-55b7-11e2-877f-002564c97630")
-    public GmEnumLitteralGroup() {
+    public  GmEnumLitteralGroup() {
+        
     }
 
     /**
      * Creates an attribute group.
-     * 
      * @param diagram The diagram.
      * @param relatedRef The related element reference, must not be null.
      */
     @objid ("34e62e0f-55b7-11e2-877f-002564c97630")
-    public GmEnumLitteralGroup(IGmDiagram diagram, MRef relatedRef) {
+    public  GmEnumLitteralGroup(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -95,12 +94,6 @@ public class GmEnumLitteralGroup extends GmGroup {
         return getParent() != null && ((Boolean) getDisplayedStyle().getProperty(EnumStructuredStyleKeys.LITGROUPVISIBLE) && getParent().getRepresentationMode() == RepresentationMode.STRUCTURED);
     }
 
-    @objid ("34e7b486-55b7-11e2-877f-002564c97630")
-    @Override
-    public void obElementAdded(MObject movedEl) {
-        refreshFromObModel();
-    }
-
     @objid ("34e7b48c-55b7-11e2-877f-002564c97630")
     @Override
     public void refreshFromObModel() {
@@ -117,6 +110,7 @@ public class GmEnumLitteralGroup extends GmGroup {
                 }
             }
         }
+        
     }
 
     @objid ("34e7b48f-55b7-11e2-877f-002564c97630")
@@ -127,6 +121,7 @@ public class GmEnumLitteralGroup extends GmGroup {
         } else {
             super.styleChanged(property, newValue);
         }
+        
     }
 
     @objid ("34e7b496-55b7-11e2-877f-002564c97630")
@@ -135,6 +130,7 @@ public class GmEnumLitteralGroup extends GmGroup {
         refreshFromObModel();
         fireVisibilityChanged();
         super.styleChanged(style);
+        
     }
 
     @objid ("34e7b49c-55b7-11e2-877f-002564c97630")
@@ -147,6 +143,7 @@ public class GmEnumLitteralGroup extends GmGroup {
                 getParent().getDisplayedStyle().setProperty(key, RepresentationMode.STRUCTURED);
             }
         }
+        
     }
 
     @objid ("34e7b4a0-55b7-11e2-877f-002564c97630")
@@ -196,6 +193,7 @@ public class GmEnumLitteralGroup extends GmGroup {
             break;
         }
         }
+        
     }
 
     @objid ("34e93b1b-55b7-11e2-877f-002564c97630")
@@ -205,6 +203,7 @@ public class GmEnumLitteralGroup extends GmGroup {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmEnumLitteralGroup.", GmEnumLitteralGroup.MINOR_VERSION);
+        
     }
 
     @objid ("34e93b21-55b7-11e2-877f-002564c97630")

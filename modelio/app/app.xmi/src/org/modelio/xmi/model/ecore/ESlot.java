@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import java.util.List;
@@ -154,7 +153,7 @@ public class ESlot extends EElement {
     }
 
     @objid ("0d20f520-1eb6-4959-8e5f-42e4d566cdc0")
-    public ESlot(org.eclipse.uml2.uml.Slot element) {
+    public  ESlot(org.eclipse.uml2.uml.Slot element) {
         super(element);
         this.ecoreElement = element;
         this.owner = this.ecoreElement.getOwningInstance();
@@ -166,6 +165,7 @@ public class ESlot extends EElement {
                     this.oppositeEnd = slot;
             }
         }
+        
     }
 
     @objid ("41c56516-2408-4845-bfe6-f98bb8656138")
@@ -182,6 +182,7 @@ public class ESlot extends EElement {
         }else{
             attachBindableInstance((BindableInstance)objingElt);
         }
+        
     }
 
     @objid ("04555ea1-a14d-45e5-bee4-c4cd1f346826")
@@ -224,6 +225,7 @@ public class ESlot extends EElement {
         }
         
         objingElt.setAttributed(objRoot);
+        
     }
 
     @objid ("49180147-de0e-4520-86f3-8228408384a0")
@@ -252,6 +254,7 @@ public class ESlot extends EElement {
             }
         
         }
+        
     }
 
     @objid ("f309d757-490d-431b-ab00-4d301f60bf42")
@@ -277,6 +280,7 @@ public class ESlot extends EElement {
         }else{
             objingElt.delete();
         }
+        
     }
 
     @objid ("1f0f4ffc-6033-4fe4-af1c-429ac59c0b92")
@@ -296,6 +300,7 @@ public class ESlot extends EElement {
         }else{
             setBIProperties((BindableInstance) objingElt);
         }
+        
     }
 
     @objid ("52b503d2-91b1-4529-bb64-2bfe301029c1")
@@ -313,6 +318,7 @@ public class ESlot extends EElement {
         
         setInstanciatedFeature(objingElt);
         //        setOwningInstance(objingElt);
+        
     }
 
     @objid ("ee7549ab-cd27-4320-b3fe-410969227607")
@@ -323,6 +329,7 @@ public class ESlot extends EElement {
             objingElt.setLink(link);
             link.getLinkEnd().add(objingElt);          
         }
+        
     }
 
     @objid ("453af1d1-66db-4fb0-83d1-28e82ada9e92")
@@ -330,6 +337,7 @@ public class ESlot extends EElement {
         String temp = ObjingEAnnotation.getMultiMax(this.ecoreElement);
         if (temp != null)
             objingElt.setMultiplicityMax(temp);
+        
     }
 
     @objid ("7c456bfa-b149-4863-b182-87d46e987b78")
@@ -338,6 +346,7 @@ public class ESlot extends EElement {
         if (temp != null){
             objingElt.setMultiplicityMin(temp);
         }
+        
     }
 
     @objid ("87fa151d-f62a-44dd-8b37-8626df7892db")
@@ -345,6 +354,7 @@ public class ESlot extends EElement {
         String temp = ObjingEAnnotation.getName(this.ecoreElement);
         if (temp != null)
             objingElt.setName(temp);
+        
     }
 
     @objid ("c1acae4b-9ff4-4e70-8d49-c4ca71380299")
@@ -361,6 +371,7 @@ public class ESlot extends EElement {
             setEAnnotationValue(objingElt);
             setEAnnotationName(objingElt);
         }
+        
     }
 
     @objid ("1c37bca9-12ed-4151-b620-cd2894994225")
@@ -371,6 +382,7 @@ public class ESlot extends EElement {
         setMultiplicityMin(objingElt);
         
         objingElt.setIsConstant(ObjingEAnnotation.isConstant(this.ecoreElement));
+        
     }
 
     @objid ("247e85e3-61ce-48e8-95e5-b0339b4d45b5")
@@ -378,6 +390,7 @@ public class ESlot extends EElement {
         String temp = ObjingEAnnotation.getName(this.ecoreElement);
         if (temp != null)
             objingElt.setName(temp);
+        
     }
 
     @objid ("4d3af7b5-2157-4b43-83e1-1474682416e4")
@@ -408,6 +421,7 @@ public class ESlot extends EElement {
                 objingElt.setValue(temp);
             }
         }
+        
     }
 
     @objid ("d0e974bc-45a4-4f54-a208-bcd6fd17c0b6")
@@ -416,6 +430,7 @@ public class ESlot extends EElement {
         if (temp != null){
             objingElt.setMultiplicityMax(temp);
         }
+        
     }
 
     @objid ("ef918005-da53-4233-bf2c-073d11f0591e")
@@ -424,12 +439,14 @@ public class ESlot extends EElement {
         if (temp != null){
             objingElt.setMultiplicityMin(temp);
         }
+        
     }
 
     @objid ("ff1f360d-1e8f-4ab0-bf47-b8ef1175a352")
     private void setPortProperties(Port objPort) {
         objPort.setIsBehavior(ObjingEAnnotation.isBehavior(this.ecoreElement));
         objPort.setIsService(ObjingEAnnotation.isService(this.ecoreElement));
+        
     }
 
     @objid ("56320ddc-4baa-4c48-ae71-531f6494295f")
@@ -451,6 +468,7 @@ public class ESlot extends EElement {
                 }
             }
         }
+        
     }
 
     @objid ("b1530d9b-d6f1-4559-af19-28759851f499")
@@ -460,6 +478,7 @@ public class ESlot extends EElement {
         if (value != null){
             objingElt.setValue(value);
         }
+        
     }
 
     @objid ("a8f9b9b5-5df2-4193-8f05-2ddea4223630")
@@ -469,6 +488,7 @@ public class ESlot extends EElement {
         if (value != null){
             objingElt.setName(value);
         }
+        
     }
 
     @objid ("154ba420-9fd5-4e3b-961e-ac69839185aa")
@@ -512,6 +532,7 @@ public class ESlot extends EElement {
         }
         
         objingElt.setCluster(objRoot);
+        
     }
 
     @objid ("59cca5e1-be46-4a3a-99f4-87c8c635bc36")
@@ -521,6 +542,7 @@ public class ESlot extends EElement {
             link.getLinkEnd().get(0).setOpposite(link.getLinkEnd().get(1));
             link.getLinkEnd().get(1).setOpposite(link.getLinkEnd().get(0));
         }
+        
     }
 
     @objid ("af0425a1-0922-47f9-861b-c1dcad49a1f8")
@@ -572,6 +594,7 @@ public class ESlot extends EElement {
         }else{
             objEnd.delete();
         }
+        
     }
 
     @objid ("0726b39b-65c8-4754-9a42-343d20d20332")
@@ -600,12 +623,14 @@ public class ESlot extends EElement {
         }else{
             objingElt.delete();
         }
+        
     }
 
     @objid ("6b95cd1d-3da7-4328-b96f-db8bac7e19e3")
     private void setNaryLinkEndProperties(NaryLinkEnd objingElt) {
         objingElt.setIsUnique(ObjingEAnnotation.isIsUnique(this.ecoreElement));
         objingElt.setIsOrdered(ObjingEAnnotation.isIsOrdered(this.ecoreElement));
+        
     }
 
     @objid ("0fb57496-485a-4b58-b019-662c10b48b8c")
@@ -623,6 +648,7 @@ public class ESlot extends EElement {
                 }
             }
         }
+        
     }
 
     @objid ("86bf5aba-b637-4104-8b27-8e37b66f2726")
@@ -638,6 +664,7 @@ public class ESlot extends EElement {
                 ((Instance) objingElt).setOwner((NameSpace)objOwner);
         
         }
+        
     }
 
 }

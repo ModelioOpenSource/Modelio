@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.processCollaboration;
 
 import java.util.ArrayList;
@@ -36,7 +36,6 @@ import org.modelio.metamodel.bpmn.bpmnService.BpmnInterface;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnCollaboration;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnParticipant;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnProcess;
-import org.modelio.metamodel.impl.bpmn.processCollaboration.BpmnParticipantData;
 import org.modelio.metamodel.impl.bpmn.rootElements.BpmnBaseElementImpl;
 import org.modelio.metamodel.visitors.IModelVisitor;
 import org.modelio.vcore.smkernel.SmConstrainedList;
@@ -126,6 +125,7 @@ public class BpmnParticipantImpl extends BpmnBaseElementImpl implements BpmnPart
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("1a410e19-491a-4fc9-a71d-b9228dbe76de")
@@ -147,6 +147,7 @@ public class BpmnParticipantImpl extends BpmnBaseElementImpl implements BpmnPart
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("8043a339-822a-4df8-8fad-a4018f6432f7")

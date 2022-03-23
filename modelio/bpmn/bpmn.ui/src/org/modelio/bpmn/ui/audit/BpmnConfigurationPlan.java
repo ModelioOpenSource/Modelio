@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.ui.audit;
 
 import java.util.List;
@@ -36,9 +35,10 @@ public class BpmnConfigurationPlan implements IAuditConfigurationPlan {
     private List<AuditCategory> rootCategories;
 
     @objid ("3baea865-4957-44f5-8836-3587a6ba95bb")
-    public BpmnConfigurationPlan(List<AuditCategory> rootCategories) {
+    public  BpmnConfigurationPlan(List<AuditCategory> rootCategories) {
         super();
         this.rootCategories = rootCategories;
+        
     }
 
     @objid ("010d23af-c891-4c13-9797-6ca6db362fc0")

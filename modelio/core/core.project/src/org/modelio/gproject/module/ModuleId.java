@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.module;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,14 +37,14 @@ public class ModuleId {
 
     /**
      * Initialize
-     * 
      * @param name module name
      * @param version module version
      */
     @objid ("b370f315-f27f-11e1-8543-001ec947ccaf")
-    public ModuleId(String name, Version version) {
+    public  ModuleId(String name, Version version) {
         this.name = name;
         this.version = version;
+        
     }
 
     /**

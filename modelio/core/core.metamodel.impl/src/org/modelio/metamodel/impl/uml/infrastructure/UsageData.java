@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,7 +31,7 @@ import org.modelio.metamodel.impl.uml.infrastructure.DependencyData;
 @objid ("00913aa2-c4be-1fd8-97fe-001ec947cd2a")
 public class UsageData extends DependencyData {
     @objid ("62ad4134-1323-45ab-b34e-6eac0283e3a2")
-    public UsageData(UsageSmClass smClass) {
+    public  UsageData(UsageSmClass smClass) {
         super(smClass);
     }
 

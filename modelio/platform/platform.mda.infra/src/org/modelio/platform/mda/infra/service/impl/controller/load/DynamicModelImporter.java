@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.controller.load;
 
 import java.io.IOException;
@@ -37,17 +36,17 @@ import org.modelio.api.module.command.IModuleAction;
 import org.modelio.api.module.lifecycle.ModuleException;
 import org.modelio.gproject.data.module.JaxbModelPersistence;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Command;
+import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module;
+import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2Commands;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2ContextualMenu;
-import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2Diagrams.Jxbv2DiagramType.Jxbv2Wizard;
-import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2Diagrams.Jxbv2DiagramType;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2Diagrams;
+import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2Diagrams.Jxbv2DiagramType;
+import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2Diagrams.Jxbv2DiagramType.Jxbv2Wizard;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2Tools;
-import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2Views.Jxbv2PropertyPage;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2Views;
-import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui;
+import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Gui.Jxbv2Views.Jxbv2PropertyPage;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module.Jxbv2Parameters;
-import org.modelio.gproject.data.module.jaxbv2.Jxbv2Module;
 import org.modelio.gproject.data.module.jaxbv2.Jxbv2Tool;
 import org.modelio.platform.mda.infra.plugin.MdaInfra;
 import org.modelio.platform.mda.infra.service.contributions.IDynamicModelLoader;
@@ -94,9 +93,8 @@ public class DynamicModelImporter {
      * <li>{@link MatrixWizardReader} for matrix contributions to the creation wizard.</li>
      * </ul>
      * </p>
-     * 
      * @param dynamicModelPath the xml file to load.
-     * @throws org.modelio.api.module.lifecycle.ModuleException when an error occurs during the parsing.
+     * @throws ModuleException when an error occurs during the parsing.
      */
     @objid ("1a5e07cb-018d-11e2-9fca-001ec947c8cc")
     public void loadDynamicModel(final Path dynamicModelPath) throws ModuleException {
@@ -121,13 +119,14 @@ public class DynamicModelImporter {
         
             throw new ModuleException(msg, e);
         }
+        
     }
 
     /**
      * @param module the module to build GUI elements for.
      */
     @objid ("9c6d98a8-9ff5-4876-8745-9b0604586e20")
-    public DynamicModelImporter(final IRTModuleAccess module) {
+    public  DynamicModelImporter(final IRTModuleAccess module) {
         this.module = module;
         
         // Load all dynamic loaders from extension registry.
@@ -139,15 +138,15 @@ public class DynamicModelImporter {
                 MdaInfra.LOG.warning(e);
             }
         }
+        
     }
 
     /**
      * Load the dynamic GUI model of a module from its path.
      * <p>
      * This method must be run in the SWT thread and is meant to be passed as lambda to {@link Display#syncExec(Runnable)}.
-     * 
      * @param jaxbModule the dynamic model
-     * @throws java.util.concurrent.CompletionException on IOException, the message is already translated.
+     * @throws CompletionException on IOException, the message is already translated.
      */
     @objid ("bd1f9154-89b6-4c86-a314-f9c52af0e04e")
     private void runRegisterDynamicFeatures(final Jxbv2Module jaxbModule) throws CompletionException {
@@ -234,6 +233,7 @@ public class DynamicModelImporter {
             // Wrap into CompletionException.
             throw new CompletionException(e.getLocalizedMessage(), e);
         }
+        
     }
 
 }

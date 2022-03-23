@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.umlcommon.diagramholder;
 
 import java.util.List;
@@ -63,21 +62,21 @@ public class GmDiagramHolderLink extends GmLink {
      * Constructor that must be used for deserialization only.
      */
     @objid ("813ed891-1dec-11e2-8cad-001ec947c8cc")
-    public GmDiagramHolderLink() {
+    public  GmDiagramHolderLink() {
         // Nothing to do.
     }
 
     /**
      * Creates a new GmNoteLink
-     * 
      * @param diagram The diagram containing the link.
      * @param relatedRef a reference to the related dependency.
      * @param el the related dependency
      */
     @objid ("813ed894-1dec-11e2-8cad-001ec947c8cc")
-    public GmDiagramHolderLink(IGmDiagram diagram, MRef relatedRef, final Dependency el) {
+    public  GmDiagramHolderLink(IGmDiagram diagram, MRef relatedRef, final Dependency el) {
         super(diagram, relatedRef);
         this.relatedDep = el;
+        
     }
 
     @objid ("813ed89b-1dec-11e2-8cad-001ec947c8cc")
@@ -118,7 +117,6 @@ public class GmDiagramHolderLink extends GmLink {
 
     /**
      * Updates the proxy style to point to the given node style.
-     * 
      * @param ref the reference node, may be null.
      */
     @objid ("81413ade-1dec-11e2-8cad-001ec947c8cc")
@@ -129,6 +127,7 @@ public class GmDiagramHolderLink extends GmLink {
         } else {
             getPersistedStyle().setCascadedStyle(getDiagram().getPersistedStyle());
         }
+        
     }
 
     @objid ("81413ae3-1dec-11e2-8cad-001ec947c8cc")
@@ -138,6 +137,7 @@ public class GmDiagramHolderLink extends GmLink {
         if (to instanceof GmAbstractObject) {
             refreshStyle((GmAbstractObject) to);
         }
+        
     }
 
     @objid ("81413ae8-1dec-11e2-8cad-001ec947c8cc")
@@ -157,6 +157,7 @@ public class GmDiagramHolderLink extends GmLink {
         } else if (getTo() instanceof GmAbstractObject) {
             refreshStyle((GmAbstractObject) getTo());
         }
+        
     }
 
     @objid ("81413aed-1dec-11e2-8cad-001ec947c8cc")
@@ -172,6 +173,7 @@ public class GmDiagramHolderLink extends GmLink {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmDiagramHolderLink.", GmDiagramHolderLink.MINOR_VERSION);
+        
     }
 
     @objid ("81413af6-1dec-11e2-8cad-001ec947c8cc")
@@ -194,6 +196,7 @@ public class GmDiagramHolderLink extends GmLink {
         if (this.relatedDep == null || this.relatedDep.getDependsOn() == null || getTo() == this) {
             delete();
         }
+        
     }
 
 }

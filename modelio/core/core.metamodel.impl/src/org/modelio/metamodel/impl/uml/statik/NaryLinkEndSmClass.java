@@ -17,22 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
-import org.modelio.metamodel.impl.uml.statik.InstanceSmClass;
-import org.modelio.metamodel.impl.uml.statik.NaryLinkEndData;
-import org.modelio.metamodel.impl.uml.statik.NaryLinkSmClass;
-import org.modelio.metamodel.impl.uml.statik.ProvidedInterfaceSmClass;
-import org.modelio.metamodel.impl.uml.statik.RequiredInterfaceSmClass;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.metamodel.uml.statik.Instance;
 import org.modelio.metamodel.uml.statik.NaryLink;
@@ -78,7 +73,7 @@ public class NaryLinkEndSmClass extends UmlModelElementSmClass {
     private SmDependency providerDep;
 
     @objid ("beebe1e9-d7e9-4529-90b6-92d0e9af7d01")
-    public NaryLinkEndSmClass(ISmMetamodelFragment origin) {
+    public  NaryLinkEndSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -86,6 +81,7 @@ public class NaryLinkEndSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "NaryLinkEnd";
+        
     }
 
     @objid ("59449f7c-5e5b-4682-b46a-3dbc0b157956")
@@ -98,18 +94,21 @@ public class NaryLinkEndSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return NaryLinkEnd.class;
+        
     }
 
     @objid ("a3be723e-6521-407d-a748-2ca07407ad61")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("24cfee14-a6c2-4793-b2bf-c94aa1275396")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("166db1d1-5543-4371-97f4-1422a2622291")
@@ -153,6 +152,8 @@ public class NaryLinkEndSmClass extends UmlModelElementSmClass {
         this.providerDep = new ProviderSmDependency();
         this.providerDep.init("Provider", this, metamodel.getMClass(ProvidedInterface.MQNAME), 0, 1 , SmDirective.SMCDPARTOF);
         registerDependency(this.providerDep);
+        
+        
     }
 
     @objid ("929219b1-1304-4b4f-b82f-0b34a9e8148a")
@@ -225,7 +226,7 @@ public class NaryLinkEndSmClass extends UmlModelElementSmClass {
         private NaryLinkEndSmClass smClass;
 
         @objid ("0268462f-eb02-4d86-a486-ca4f0298f4b0")
-        public NaryLinkEndObjectFactory(NaryLinkEndSmClass smClass) {
+        public  NaryLinkEndObjectFactory(NaryLinkEndSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -323,6 +324,7 @@ public class NaryLinkEndSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((InstanceSmClass)this.getTarget()).getOwnedNaryEndDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -351,6 +353,7 @@ public class NaryLinkEndSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((NaryLinkSmClass)this.getTarget()).getNaryLinkEndDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -379,6 +382,7 @@ public class NaryLinkEndSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((RequiredInterfaceSmClass)this.getTarget()).getNaryProviderDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -407,6 +411,7 @@ public class NaryLinkEndSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((ProvidedInterfaceSmClass)this.getTarget()).getNaryConsumerDep();
             }
             return this.symetricDep;
+            
         }
 
     }

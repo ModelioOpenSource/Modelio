@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.events;
 
 import java.util.ArrayList;
@@ -31,8 +31,6 @@ import org.modelio.metamodel.bpmn.activities.BpmnActivity;
 import org.modelio.metamodel.bpmn.events.BpmnCompensateEventDefinition;
 import org.modelio.metamodel.bpmn.events.BpmnEventDefinition;
 import org.modelio.metamodel.impl.bpmn.activities.BpmnActivitySmClass;
-import org.modelio.metamodel.impl.bpmn.events.BpmnCompensateEventDefinitionData;
-import org.modelio.metamodel.impl.bpmn.events.BpmnEventDefinitionSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -54,7 +52,7 @@ public class BpmnCompensateEventDefinitionSmClass extends BpmnEventDefinitionSmC
     private SmDependency activityRefDep;
 
     @objid ("751ed04e-66e0-4efd-894a-b3391b4e607d")
-    public BpmnCompensateEventDefinitionSmClass(ISmMetamodelFragment origin) {
+    public  BpmnCompensateEventDefinitionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -62,6 +60,7 @@ public class BpmnCompensateEventDefinitionSmClass extends BpmnEventDefinitionSmC
     @Override
     public String getName() {
         return "BpmnCompensateEventDefinition";
+        
     }
 
     @objid ("f20fd1ff-1d46-4609-b2e1-26421f2e297c")
@@ -74,18 +73,21 @@ public class BpmnCompensateEventDefinitionSmClass extends BpmnEventDefinitionSmC
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnCompensateEventDefinition.class;
+        
     }
 
     @objid ("220696fb-7e51-4ee9-8ae3-27af88240b5d")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("e5de3a47-3f27-493b-9f88-61d22b5b771f")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("e376e359-12a8-439c-9fa3-8bd16f36233a")
@@ -105,6 +107,8 @@ public class BpmnCompensateEventDefinitionSmClass extends BpmnEventDefinitionSmC
         this.activityRefDep = new ActivityRefSmDependency();
         this.activityRefDep.init("ActivityRef", this, metamodel.getMClass(BpmnActivity.MQNAME), 0, 1 , SmDirective.SMCDPARTOF);
         registerDependency(this.activityRefDep);
+        
+        
     }
 
     @objid ("855cecf5-4b61-4ba2-b25a-618c149e2046")
@@ -129,7 +133,7 @@ public class BpmnCompensateEventDefinitionSmClass extends BpmnEventDefinitionSmC
         private BpmnCompensateEventDefinitionSmClass smClass;
 
         @objid ("dd258ef3-2a0a-4145-9b9e-c62bbef9df73")
-        public BpmnCompensateEventDefinitionObjectFactory(BpmnCompensateEventDefinitionSmClass smClass) {
+        public  BpmnCompensateEventDefinitionObjectFactory(BpmnCompensateEventDefinitionSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -185,6 +189,7 @@ public class BpmnCompensateEventDefinitionSmClass extends BpmnEventDefinitionSmC
             	this.symetricDep = ((BpmnActivitySmClass)this.getTarget()).getCompensateEventDefinitionsDep();
             }
             return this.symetricDep;
+            
         }
 
     }

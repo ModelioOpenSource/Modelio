@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.stereotype.creator;
 
 import java.io.File;
@@ -56,10 +55,11 @@ class DiagramImageChooserListener implements SelectionListener {
      * @param dataModel the dialog data model
      */
     @objid ("b93bbdcf-2459-48f9-9328-e5c5daaccbc9")
-    public DiagramImageChooserListener(StereotypeEditionDialog dialog, IProjectService projectService, StereotypeEditionDataModel dataModel) {
+    public  DiagramImageChooserListener(StereotypeEditionDialog dialog, IProjectService projectService, StereotypeEditionDataModel dataModel) {
         this.dialog = dialog;
         this.dataModel = dataModel;
         this.projectService = projectService;
+        
     }
 
     /**
@@ -123,6 +123,7 @@ class DiagramImageChooserListener implements SelectionListener {
         }
         
         this.dialog.refresh();
+        
     }
 
     @objid ("97e22191-90f1-4240-80d1-3fca1dafc8a1")
@@ -147,6 +148,7 @@ class DiagramImageChooserListener implements SelectionListener {
                         ModelProperty.I18N.getMessage("DiagramImageChooser.ImageIsTooBig.Message", fileName));
             }
         }
+        
     }
 
 }

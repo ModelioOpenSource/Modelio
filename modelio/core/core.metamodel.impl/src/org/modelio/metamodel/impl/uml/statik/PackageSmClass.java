@@ -17,22 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.mda.ProjectSmClass;
-import org.modelio.metamodel.impl.uml.statik.NameSpaceSmClass;
-import org.modelio.metamodel.impl.uml.statik.PackageData;
-import org.modelio.metamodel.impl.uml.statik.PackageImportSmClass;
-import org.modelio.metamodel.impl.uml.statik.PackageMergeSmClass;
 import org.modelio.metamodel.mda.Project;
 import org.modelio.metamodel.uml.statik.NameSpace;
 import org.modelio.metamodel.uml.statik.Package;
@@ -69,7 +65,7 @@ public class PackageSmClass extends NameSpaceSmClass {
     private SmDependency packageImportingDep;
 
     @objid ("7bbdaf45-b378-45f8-b158-6b718cdc098e")
-    public PackageSmClass(ISmMetamodelFragment origin) {
+    public  PackageSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -77,6 +73,7 @@ public class PackageSmClass extends NameSpaceSmClass {
     @Override
     public String getName() {
         return "Package";
+        
     }
 
     @objid ("5b6bf1a6-f5d7-45c2-9768-8bd4fb0a2fff")
@@ -89,18 +86,21 @@ public class PackageSmClass extends NameSpaceSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Package.class;
+        
     }
 
     @objid ("ef39f1b8-c2aa-4dde-a0c7-dfaf094d73a3")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("58c7dd8b-42df-4285-927f-a8138fef0a06")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("ed3c58d3-ef94-471b-a2c7-6b315bd9fe4a")
@@ -132,6 +132,8 @@ public class PackageSmClass extends NameSpaceSmClass {
         this.packageImportingDep = new PackageImportingSmDependency();
         this.packageImportingDep.init("PackageImporting", this, metamodel.getMClass(PackageImport.MQNAME), 0, -1 , SmDirective.SMCDTODELETE);
         registerDependency(this.packageImportingDep);
+        
+        
     }
 
     @objid ("8557a054-17bf-4feb-9b74-af0a98fe7668")
@@ -180,7 +182,7 @@ public class PackageSmClass extends NameSpaceSmClass {
         private PackageSmClass smClass;
 
         @objid ("ff9cc4f3-531a-4e66-be54-6664d91dc84c")
-        public PackageObjectFactory(PackageSmClass smClass) {
+        public  PackageObjectFactory(PackageSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -227,6 +229,7 @@ public class PackageSmClass extends NameSpaceSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((PackageData) data).mReceivingMerge = values;
+            
         }
 
         @objid ("d82b9ace-f662-4ae7-99c9-434a957d39c2")
@@ -236,6 +239,7 @@ public class PackageSmClass extends NameSpaceSmClass {
             	this.symetricDep = ((PackageMergeSmClass)this.getTarget()).getMergedPackageDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -264,6 +268,7 @@ public class PackageSmClass extends NameSpaceSmClass {
             	this.symetricDep = ((ProjectSmClass)this.getTarget()).getModelDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -283,6 +288,7 @@ public class PackageSmClass extends NameSpaceSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((PackageData) data).mMerge = values;
+            
         }
 
         @objid ("952f689e-d06d-44bd-91d0-e686073de145")
@@ -292,6 +298,7 @@ public class PackageSmClass extends NameSpaceSmClass {
             	this.symetricDep = ((PackageMergeSmClass)this.getTarget()).getReceivingPackageDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -311,6 +318,7 @@ public class PackageSmClass extends NameSpaceSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((PackageData) data).mPackageImporting = values;
+            
         }
 
         @objid ("7dea9cd6-b864-4849-a185-258d67e631c0")
@@ -320,6 +328,7 @@ public class PackageSmClass extends NameSpaceSmClass {
             	this.symetricDep = ((PackageImportSmClass)this.getTarget()).getImportedPackageDep();
             }
             return this.symetricDep;
+            
         }
 
     }

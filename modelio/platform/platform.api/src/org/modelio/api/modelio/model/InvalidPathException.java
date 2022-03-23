@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.model;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,17 +32,16 @@ public class InvalidPathException extends RuntimeException {
      * Constructs an InvalidPathException with no detail message
      */
     @objid ("00d00158-0001-6322-0000-000000000000")
-    public InvalidPathException() {
+    public  InvalidPathException() {
         super();
     }
 
     /**
      * Constructs an InvalidPathException with the specified detail message.
-     * 
      * @param message the detail message.
      */
     @objid ("00d00158-0001-6324-0000-000000000000")
-    public InvalidPathException(String message) {
+    public  InvalidPathException(String message) {
         super(message);
     }
 

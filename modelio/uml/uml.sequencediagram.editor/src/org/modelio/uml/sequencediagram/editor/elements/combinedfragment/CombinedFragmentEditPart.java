@@ -17,16 +17,23 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.combinedfragment;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import org.eclipse.gef.EditPart;
+import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.commands.Command;
+import org.eclipse.gef.editpolicies.SelectionEditPolicy;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
+import org.modelio.diagram.elements.common.portcontainer.AutoSizeEditPolicy2;
+import org.modelio.diagram.elements.common.portcontainer.LayoutMainNodeConnectionsEditPolicy;
 import org.modelio.diagram.elements.common.portcontainer.PortContainerEditPart;
+import org.modelio.diagram.elements.common.portcontainer.PortContainerEditPolicy;
 import org.modelio.diagram.elements.core.model.GmModel;
+import org.modelio.diagram.elements.core.policies.LayoutConnectionsConstrainedLayoutEditPolicyDecorator;
+import org.modelio.diagram.elements.core.policies.LayoutNodeConnectionsEditPolicy;
 import org.modelio.metamodel.uml.behavior.interactionModel.CombinedFragment;
 import org.modelio.metamodel.uml.behavior.interactionModel.InteractionOperand;
 import org.modelio.uml.sequencediagram.editor.elements.sequencediagram.GmSequenceDiagram;
@@ -42,7 +49,6 @@ import org.modelio.uml.sequencediagram.editor.elements.sequencediagram.Placement
 public class CombinedFragmentEditPart extends PortContainerEditPart implements IPlacementConstraintProvider {
     /**
      * Creates and returns a PlacementConstraint for the given model.
-     * 
      * @param model the graphic model for which a constraint is to be created.
      * @param x the desired X coordinate in coordinates relative to the parent figure.
      * @param y the desired Y coordinate in coordinates relative to the parent figure.
@@ -58,6 +64,7 @@ public class CombinedFragmentEditPart extends PortContainerEditPart implements I
                         width,
                         height,
                         (GmSequenceDiagram) model.getDiagram());
+        
     }
 
     @objid ("d8c1ec30-55b6-11e2-877f-002564c97630")
@@ -89,6 +96,35 @@ public class CombinedFragmentEditPart extends PortContainerEditPart implements I
             command = updateModelCommand.chain(command);
         }
         return command;
+    }
+
+    @objid ("ecf639e3-49d3-47ea-9c2b-2a5d747f3555")
+    @Override
+    protected void createEditPolicies() {
+        super.createEditPolicies();
+        removeEditPolicy(LayoutMainNodeConnectionsEditPolicy.ROLE);
+        
+    }
+
+    @objid ("28c30607-f18b-4000-a881-50f630a49823")
+    @Override
+    public SelectionEditPolicy getPreferredDragRolePolicy(String requestType) {
+        return new AutoSizeEditPolicy2() {
+            @Override
+            public void activate() {
+                super.activate();
+        
+                EditPart host = getHost();
+                host.removeEditPolicy(LayoutNodeConnectionsEditPolicy.ROLE);
+            }
+        };
+        
+    }
+
+    @objid ("417d02ef-f823-48e5-887a-a88b419cdf79")
+    @Override
+    protected EditPolicy createLayoutPolicyDecorator(EditPolicy layoutPolicy) {
+        return new LayoutConnectionsConstrainedLayoutEditPolicyDecorator((PortContainerEditPolicy) layoutPolicy);
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.bool;
 
 import java.util.List;
@@ -90,7 +89,6 @@ public class CheckBoxCellEditor extends AbstractCellEditor {
     /**
      * Sets the given value to editor control. As this method is called by {@link AbstractCellEditor#setCanonicalValue(Object)} the given value should be already a converted Boolean value. The only other values accepted in here are <code>null</code> which
      * is interpreted as <code>false</code> and Strings than can be converted to Boolean directly. Every other object will result in setting the editor value to <code>false</code>.
-     * 
      * @param value The display value to set to the wrapped editor control.
      */
     @objid ("938596e1-1ae5-42a2-976d-23078901ba2e")
@@ -107,6 +105,7 @@ public class CheckBoxCellEditor extends AbstractCellEditor {
                 this.checked = false;
             }
         }
+        
     }
 
     @objid ("6046188d-2cd6-4655-98f0-0b01ac3743d8")

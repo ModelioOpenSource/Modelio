@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.naryassoc;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,7 +44,7 @@ public class GmNAssocPrimaryNode extends GmNoStyleSimpleNode implements IImageab
     private NaryAssociation assoc;
 
     @objid ("35c67bf9-55b7-11e2-877f-002564c97630")
-     static String PROP_REFRESH_BRANCHES = "refresh branches";
+    static String PROP_REFRESH_BRANCHES = "refresh branches";
 
     /**
      * Current version of this Gm. Defaults to 0.
@@ -60,21 +59,21 @@ public class GmNAssocPrimaryNode extends GmNoStyleSimpleNode implements IImageab
      * Empty c'tor for deserialization.
      */
     @objid ("35c8025a-55b7-11e2-877f-002564c97630")
-    public GmNAssocPrimaryNode() {
+    public  GmNAssocPrimaryNode() {
         super();
     }
 
     /**
      * C'tor.
-     * 
      * @param diagram the diagram in which this gm is created.
      * @param assoc the represented n-ary association. May be null.
      * @param relatedRef a reference to the represented n-ary association. Must Not be null.
      */
     @objid ("35c8025d-55b7-11e2-877f-002564c97630")
-    public GmNAssocPrimaryNode(final IGmDiagram diagram, final NaryAssociation assoc, final MRef relatedRef) {
+    public  GmNAssocPrimaryNode(final IGmDiagram diagram, final NaryAssociation assoc, final MRef relatedRef) {
         super(diagram, relatedRef);
         this.assoc = assoc;
+        
     }
 
     @objid ("35c8026c-55b7-11e2-877f-002564c97630")
@@ -130,6 +129,7 @@ public class GmNAssocPrimaryNode extends GmNoStyleSimpleNode implements IImageab
                 break;
             }
         }
+        
     }
 
     @objid ("35c98902-55b7-11e2-877f-002564c97630")
@@ -145,12 +145,14 @@ public class GmNAssocPrimaryNode extends GmNoStyleSimpleNode implements IImageab
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmNAssocPrimaryNode.", GmNAssocPrimaryNode.MINOR_VERSION);
+        
     }
 
     @objid ("35c9890b-55b7-11e2-877f-002564c97630")
     private void read_0(final IDiagramReader in) {
         super.read(in);
         this.assoc = (NaryAssociation) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("35c98911-55b7-11e2-877f-002564c97630")

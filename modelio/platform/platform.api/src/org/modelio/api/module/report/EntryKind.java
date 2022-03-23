@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.report;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -25,8 +24,13 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
  */
 @objid ("73fa4c65-e657-45f2-9094-7449cde0ab3f")
 public enum EntryKind {
+    @objid ("02fa3df5-fa24-44dd-b091-285f41fe7fce")
     ERROR,
+    @objid ("1d89bb79-ced0-457f-b701-4c1631841d8b")
     WARNING,
+    @objid ("4bf0279f-bdf0-4e36-8329-30ae7746f318")
     TIP,
+    @objid ("d735a54a-1bf4-48ca-8ce3-c16cf41995e9")
     INFO;
+
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.transactions.smAction;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,6 +40,7 @@ public class MoveDependencyAction extends DependencyModificationAction {
     public void undo(final boolean rollback) {
         // On remet l'objet a son ancienne place dans la dependance
         this.smDep.moveRef(this.refered.getData(), this.ref, -this.index);
+        
     }
 
     /**
@@ -62,9 +62,10 @@ public class MoveDependencyAction extends DependencyModificationAction {
      * deplacement effectue.
      */
     @objid ("006d4426-0d1e-1f20-85a5-001ec947cd2a")
-    public MoveDependencyAction(final SmObjectImpl obj, final SmDependency dep, final SmObjectImpl moving, final int offset) {
+    public  MoveDependencyAction(final SmObjectImpl obj, final SmDependency dep, final SmObjectImpl moving, final int offset) {
         super(obj, dep, moving);
         this.index = offset;
+        
     }
 
     @objid ("006d44bc-0d1e-1f20-85a5-001ec947cd2a")

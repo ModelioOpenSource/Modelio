@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.util;
 
 import java.util.HashSet;
@@ -271,6 +270,7 @@ public class ObjingEAnnotation extends XMIEAnnotation {
     public static void alwaysSetOwner(final org.eclipse.uml2.uml.Element ecoreElt, final String ownerId) {
         setOrCreateEAnnotationContent(ecoreElt, OBJING_NAME,
                 OWNER, ownerId);
+        
     }
 
     @objid ("12701b71-f126-44a1-a913-621b24c7bffb")
@@ -351,6 +351,7 @@ public class ObjingEAnnotation extends XMIEAnnotation {
         }else{
             return Integer.valueOf(value);
         }
+        
     }
 
     @objid ("3be98934-a07f-45cf-9989-1b622531d0f7")
@@ -382,6 +383,7 @@ public class ObjingEAnnotation extends XMIEAnnotation {
         }else{
             return Integer.valueOf(value);
         }
+        
     }
 
     @objid ("17a32bb4-fd75-44f1-98d5-9a72132693e7")
@@ -417,6 +419,7 @@ public class ObjingEAnnotation extends XMIEAnnotation {
         } else {
             return 0;
         }
+        
     }
 
     @objid ("3179fb03-8d97-4574-a659-1056f3d2e92f")
@@ -427,6 +430,7 @@ public class ObjingEAnnotation extends XMIEAnnotation {
         }else {
             return 0;
         }
+        
     }
 
     @objid ("b718304c-8c2d-4ef4-bc6c-652cd0216f81")
@@ -763,6 +767,7 @@ public class ObjingEAnnotation extends XMIEAnnotation {
         if (isIsAbstract) {
             createEAnnotation(ecoreElt, OBJING_NAME,IS_ABSTRACT);
         }
+        
     }
 
     @objid ("f2b82625-a9e4-4400-b679-0f785e8933d9")
@@ -775,6 +780,7 @@ public class ObjingEAnnotation extends XMIEAnnotation {
         if  (isBehavior) {
             createEAnnotation(ecoreElt, OBJING_NAME,IS_BEHAVIOR);
         }
+        
     }
 
     @objid ("b2bcb1f1-3e06-4891-b551-76a95c83923e")
@@ -787,6 +793,7 @@ public class ObjingEAnnotation extends XMIEAnnotation {
         if (isCombineDuplicate) {
             createEAnnotation(ecoreElt, OBJING_NAME,IS_COMBINEDUPLICATE);
         }
+        
     }
 
     @objid ("d0302e02-7b09-4300-b9f1-63c3f041a797")
@@ -794,6 +801,7 @@ public class ObjingEAnnotation extends XMIEAnnotation {
         if (isConcurrent) {
             createEAnnotation(ecoreElt, OBJING_NAME,IS_CONCURRENT);
         }
+        
     }
 
     @objid ("ba6c78c2-d7e6-491d-9862-c88babbb96f9")
@@ -806,6 +814,7 @@ public class ObjingEAnnotation extends XMIEAnnotation {
         if (isConstant) {
             createEAnnotation(ecoreElt, OBJING_NAME,IS_CONSTANT);
         }
+        
     }
 
     @objid ("cbd30e77-94c4-4288-9881-c33ec827f1f2")
@@ -818,6 +827,7 @@ public class ObjingEAnnotation extends XMIEAnnotation {
         if (isEvent) {
             createEAnnotation(ecoreElt, OBJING_NAME,IS_EVENT);
         }
+        
     }
 
     @objid ("7b536e11-43fe-436d-8131-62db3279304b")
@@ -825,6 +835,7 @@ public class ObjingEAnnotation extends XMIEAnnotation {
         if (isException) {
             createEAnnotation(ecoreElt, OBJING_NAME,IS_EXCEPTION);
         }
+        
     }
 
     @objid ("2cbc3984-bd4e-4e9f-8745-ad34fdb3ce26")
@@ -832,6 +843,7 @@ public class ObjingEAnnotation extends XMIEAnnotation {
         if (isExpansion) {
             createEAnnotation(pin, OBJING_NAME,IS_EXPANSION);
         }
+        
     }
 
     @objid ("52666e1c-2b0c-4dad-87a6-4fe5db5d9762")
@@ -839,6 +851,7 @@ public class ObjingEAnnotation extends XMIEAnnotation {
         if (isHidden) {
             createEAnnotation(ecoreElt, OBJING_NAME,IS_HIDDEN);
         }
+        
     }
 
     @objid ("9ddc1750-495c-48fb-84ea-e6af25dfdea9")
@@ -846,6 +859,7 @@ public class ObjingEAnnotation extends XMIEAnnotation {
         if (isInstantiable) {
             createEAnnotation(ecoreElt, OBJING_NAME,IS_INSTANTIABLE);
         }
+        
     }
 
     @objid ("edbfa336-c9d5-42c1-91f0-912c6ba37ff3")
@@ -853,6 +867,7 @@ public class ObjingEAnnotation extends XMIEAnnotation {
         if (isLeaf) {
             createEAnnotation(ecoreElt, OBJING_NAME,IS_LEAF);
         }
+        
     }
 
     @objid ("b434f238-c3d7-4a5d-a8be-bb3128bf4193")
@@ -865,12 +880,14 @@ public class ObjingEAnnotation extends XMIEAnnotation {
         if (isMain) {
             createEAnnotation(ecoreElt, OBJING_NAME,IS_MAIN);
         }
+        
     }
 
     @objid ("e422123a-7916-4de5-93f3-14e66dd4784c")
     public static void setIsNamedWithConvention(final org.eclipse.uml2.uml.Stereotype ecoreElt, final boolean isNamedWithConvention) {
         if (isNamedWithConvention) 
             createEAnnotation(ecoreElt, OBJING_NAME,IS_NAMED_WITH_CONVENTION);
+        
     }
 
     @objid ("8ae0573b-916b-4826-aeb2-94781e0e2834")
@@ -878,6 +895,7 @@ public class ObjingEAnnotation extends XMIEAnnotation {
         if (isNavigable) {
             createEAnnotation(ecoreElt, OBJING_NAME,IS_NAVIGABLE);
         }
+        
     }
 
     @objid ("7eb28878-5d29-47de-8b45-d43d2a64da31")
@@ -895,6 +913,7 @@ public class ObjingEAnnotation extends XMIEAnnotation {
         if (isIsOrdered) {
             createEAnnotation(ecoreElt, OBJING_NAME,IS_ORDERED);
         }
+        
     }
 
     @objid ("52fd5fcc-10ff-4621-a0c3-9664577025ed")
@@ -912,6 +931,7 @@ public class ObjingEAnnotation extends XMIEAnnotation {
         if (isPartSignature) {
             createEAnnotation(ecoreElt, OBJING_NAME,IS_SIGNATUREPART);
         }
+        
     }
 
     @objid ("0e33881d-2712-4d94-a3f8-68db40be79a7")
@@ -924,6 +944,7 @@ public class ObjingEAnnotation extends XMIEAnnotation {
         if (isPrimitive) {
             createEAnnotation(ecoreElt, OBJING_NAME,IS_ELEMENTARY);
         }
+        
     }
 
     @objid ("0d3db433-9850-4d45-84af-844547b11174")
@@ -936,6 +957,7 @@ public class ObjingEAnnotation extends XMIEAnnotation {
         if (isReentrant) {
             createEAnnotation(ecoreElt, OBJING_NAME,IS_REENTRANT);
         }
+        
     }
 
     @objid ("9c25467b-624a-4697-80fa-1796ed9e808c")
@@ -953,6 +975,7 @@ public class ObjingEAnnotation extends XMIEAnnotation {
         if (isRequirementContainer){
             createEAnnotation(ecoreElt, OBJING_NAME,IS_REQUIREMENT_CONTAINER);
         }
+        
     }
 
     @objid ("3f0543ca-5370-4586-8e33-d75fdc828462")
@@ -960,6 +983,7 @@ public class ObjingEAnnotation extends XMIEAnnotation {
         if (isRoot) {
             createEAnnotation(ecoreElt, OBJING_NAME, IS_ROOT);
         }
+        
     }
 
     @objid ("598a2f19-d5d5-4e97-a554-f38242716200")
@@ -967,6 +991,7 @@ public class ObjingEAnnotation extends XMIEAnnotation {
         if (isRoundTrip){
             createEAnnotation(ecoreElt, OBJING_NAME,IS_ROUNDTRIP);
         }
+        
     }
 
     @objid ("f5ef2682-060b-4ed4-9a87-b378476c449e")
@@ -974,6 +999,7 @@ public class ObjingEAnnotation extends XMIEAnnotation {
         if (isService) {
             createEAnnotation(ecoreElt, OBJING_NAME, IS_SERVICE);
         }
+        
     }
 
     @objid ("5717770f-4d72-4ecf-8696-2a76427879b8")
@@ -981,6 +1007,7 @@ public class ObjingEAnnotation extends XMIEAnnotation {
         if (targetIsClass) {
             createEAnnotation(property, OBJING_NAME,IS_TARGET_IS_CLASS);
         }
+        
     }
 
     @objid ("cc00c5b7-21b7-454a-9a9e-66ee253c421f")
@@ -993,6 +1020,7 @@ public class ObjingEAnnotation extends XMIEAnnotation {
         if (isIsUnique) {
             createEAnnotation(ecoreElt, OBJING_NAME,IS_UNIQUE);
         }
+        
     }
 
     @objid ("74ffaed2-49e8-4441-b011-d26b7e81eef1")
@@ -1000,6 +1028,7 @@ public class ObjingEAnnotation extends XMIEAnnotation {
         if (isValueParameter) {
             createEAnnotation(ecoreElt, OBJING_NAME,IS_VALUEPARAMETER);
         }
+        
     }
 
     @objid ("b5de5362-4aae-4ed3-a37f-c6b20894edbf")

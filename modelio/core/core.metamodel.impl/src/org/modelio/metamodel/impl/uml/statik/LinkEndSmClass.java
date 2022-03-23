@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
@@ -30,12 +30,6 @@ import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.metamodel.impl.uml.informationFlow.InformationFlowSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
-import org.modelio.metamodel.impl.uml.statik.AssociationEndSmClass;
-import org.modelio.metamodel.impl.uml.statik.InstanceSmClass;
-import org.modelio.metamodel.impl.uml.statik.LinkEndData;
-import org.modelio.metamodel.impl.uml.statik.LinkSmClass;
-import org.modelio.metamodel.impl.uml.statik.ProvidedInterfaceSmClass;
-import org.modelio.metamodel.impl.uml.statik.RequiredInterfaceSmClass;
 import org.modelio.metamodel.uml.informationFlow.InformationFlow;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.metamodel.uml.statik.AssociationEnd;
@@ -99,7 +93,7 @@ public class LinkEndSmClass extends UmlModelElementSmClass {
     private SmDependency providerDep;
 
     @objid ("d669d32d-e78e-431b-a816-790e64338622")
-    public LinkEndSmClass(ISmMetamodelFragment origin) {
+    public  LinkEndSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -107,6 +101,7 @@ public class LinkEndSmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "LinkEnd";
+        
     }
 
     @objid ("f89a4ccc-d0c5-45bd-a9b7-94ecf5816168")
@@ -119,18 +114,21 @@ public class LinkEndSmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return LinkEnd.class;
+        
     }
 
     @objid ("259016f8-dd9a-40a3-9537-3e08e7d1c3dd")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("cc53351d-e310-4b6c-90db-a8c2b23a2cd2")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("1f280e63-0833-452e-8d28-03197feee391")
@@ -194,6 +192,8 @@ public class LinkEndSmClass extends UmlModelElementSmClass {
         this.providerDep = new ProviderSmDependency();
         this.providerDep.init("Provider", this, metamodel.getMClass(ProvidedInterface.MQNAME), 0, 1 , SmDirective.SMCDPARTOF);
         registerDependency(this.providerDep);
+        
+        
     }
 
     @objid ("70c8e35f-8a96-4c39-a282-e6597b087b1c")
@@ -304,6 +304,7 @@ public class LinkEndSmClass extends UmlModelElementSmClass {
     @Override
     public boolean isLinkMetaclass() {
         return true;
+        
     }
 
     @objid ("0dbf02c6-8bcd-4802-941a-112cb9771d10")
@@ -312,7 +313,7 @@ public class LinkEndSmClass extends UmlModelElementSmClass {
         private LinkEndSmClass smClass;
 
         @objid ("6d9507da-9c88-4580-8833-daf077603fc6")
-        public LinkEndObjectFactory(LinkEndSmClass smClass) {
+        public  LinkEndObjectFactory(LinkEndSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -410,6 +411,7 @@ public class LinkEndSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((LinkSmClass)this.getTarget()).getLinkEndDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -438,6 +440,7 @@ public class LinkEndSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((InstanceSmClass)this.getTarget()).getTargetingEndDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -466,6 +469,7 @@ public class LinkEndSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((LinkEndSmClass)this.getTarget()).getOppositeDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -485,6 +489,7 @@ public class LinkEndSmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((LinkEndData) data).mRealizedInformationFlow = values;
+            
         }
 
         @objid ("52bbb110-0d24-4ca6-ba17-217bccb17ec8")
@@ -494,6 +499,7 @@ public class LinkEndSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((InformationFlowSmClass)this.getTarget()).getRealizingLinkDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -522,6 +528,7 @@ public class LinkEndSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((AssociationEndSmClass)this.getTarget()).getOccurenceDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -550,6 +557,7 @@ public class LinkEndSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((RequiredInterfaceSmClass)this.getTarget()).getProviderDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -578,6 +586,7 @@ public class LinkEndSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((LinkEndSmClass)this.getTarget()).getOppositeOwnerDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -606,6 +615,7 @@ public class LinkEndSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((InstanceSmClass)this.getTarget()).getOwnedEndDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -634,6 +644,7 @@ public class LinkEndSmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((ProvidedInterfaceSmClass)this.getTarget()).getConsumerDep();
             }
             return this.symetricDep;
+            
         }
 
     }

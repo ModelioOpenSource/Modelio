@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.api.tools;
 
 import java.util.ArrayList;
@@ -27,14 +26,13 @@ import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.EditPart;
-import org.eclipse.gef.EditPartViewer;
 import org.eclipse.gef.GraphicalEditPart;
 import org.modelio.api.modelio.diagram.IDiagramGraphic;
 import org.modelio.api.modelio.diagram.IDiagramLink.LinkRouterKind;
-import org.modelio.api.modelio.diagram.ILinkPath;
+import org.modelio.api.modelio.diagram.ILinkRoute;
 import org.modelio.api.modelio.diagram.tools.IMultiLinkTool;
 import org.modelio.diagram.api.dg.DGFactory;
-import org.modelio.diagram.api.dg.LinkPath;
+import org.modelio.diagram.api.dg.LinkRoute;
 import org.modelio.diagram.api.services.DiagramHandle;
 import org.modelio.diagram.editor.IDiagramEditor;
 import org.modelio.diagram.editor.plugin.DiagramEditorsManager;
@@ -64,7 +62,7 @@ public class MultiLinkTool extends MultiPointCreationTool {
      * C'tor, used by platform to instantiate the tool by reflexion.
      */
     @objid ("2be6d810-f043-41ac-bf17-5fa1c15a2322")
-    public MultiLinkTool() {
+    public  MultiLinkTool() {
         this.multiLinkCommand = null;
     }
 
@@ -90,18 +88,19 @@ public class MultiLinkTool extends MultiPointCreationTool {
         otherNodes.remove(lastNode);
         
         // Gather the rectangle
-        Point where = getTargetRequest().getLocation();
-        Dimension size = (getTargetRequest().getSize() != null) ? getTargetRequest().getSize()
+        CreateMultiPointRequest targetRequest = getTargetRequest();
+        Point where = targetRequest.getLocation();
+        Dimension size = (targetRequest.getSize() != null) ? targetRequest.getSize()
                 : new Dimension(-1, -1);
         Rectangle rect = new Rectangle(where, size);
         ((GraphicalEditPart) getTargetEditPart().getViewer().getContents()).getFigure()
                 .translateToRelative(rect);
         
         // TODO Additional step: add the optional bend points and routers.
-        List<ILinkPath> paths = new ArrayList<>();
+        List<ILinkRoute> paths = new ArrayList<>();
         List<LinkRouterKind> routerList = new ArrayList<>();
         for (int i = 0; i < otherNodes.size(); i++) {
-            paths.add(new LinkPath());
+            paths.add(LinkRoute.createEmpty());
             routerList.add(LinkRouterKind.BENDPOINT);
         }
         
@@ -114,6 +113,7 @@ public class MultiLinkTool extends MultiPointCreationTool {
                 rect);
         
         setCurrentCommand(null);
+        
     }
 
     @objid ("8bd99cec-26c6-4a8c-96a3-800f46e9009e")
@@ -145,21 +145,19 @@ public class MultiLinkTool extends MultiPointCreationTool {
             return;
         }
         super.applyProperty(key, value);
+        
     }
 
     @objid ("5656a09f-dd7d-4268-85e9-43227800cfa8")
     @Override
     protected org.eclipse.gef.EditPartViewer.Conditional getTargetingConditional() {
-        return new EditPartViewer.Conditional() {
-                    @SuppressWarnings("synthetic-access")
-                    @Override
-                    public boolean evaluate(EditPart editpart) {
-                        if (MultiLinkTool.super.getTargetingConditional().evaluate(editpart)) {
-                            return doAccept(editpart);
-                        }
-                        return false;
-                    }
-                };
+        return editpart -> {
+            if (super.getTargetingConditional().evaluate(editpart)) {
+                return doAccept(editpart);
+            }
+            return false;
+        };
+        
     }
 
     /**
@@ -168,7 +166,6 @@ public class MultiLinkTool extends MultiPointCreationTool {
      * With a REQ_MULTIPOINT_FIRST request: if (acceptFirst) return true, else return acceptLast.<br>
      * With a REQ_MULTIPOINT_ADDITIONAL request: if (acceptAdditional) return true, else return acceptLast.<br>
      * When acceptLast returns true, switches the current request to REQ_MULTIPOINT_LAST.
-     * 
      * @param editpart The edit part to check.
      * @return true if the request is accepted.
      */
@@ -187,24 +184,27 @@ public class MultiLinkTool extends MultiPointCreationTool {
             return false;
         }
         
-        if (getTargetRequest().getType().equals(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST)) {
+        if (CreateMultiPointRequest.REQ_MULTIPOINT_FIRST.equals(getTargetRequest().getType())) {
             // Accept First
-            if (MultiLinkTool.this.multiLinkCommand.acceptFirstElement(this.diagramHandle, dg)) {
+            if (this.multiLinkCommand.acceptFirstElement(this.diagramHandle, dg)) {
                 return true;
-            } else if (MultiLinkTool.this.multiLinkCommand.acceptLastElement(this.diagramHandle,
+            } else if (this.multiLinkCommand.acceptLastElement(
+                    this.diagramHandle,
                     getOtherNodes(),
                     dg)) { // Accept Last
                 // Swtich request type -> last point
                 getTargetRequest().setType(CreateMultiPointRequest.REQ_MULTIPOINT_LAST);
                 return true;
             }
-        } else if (getTargetRequest().getType().equals(CreateMultiPointRequest.REQ_MULTIPOINT_ADDITIONAL)) {
+        } else if (CreateMultiPointRequest.REQ_MULTIPOINT_ADDITIONAL.equals(getTargetRequest().getType())) {
             // Accept Additional
-            if (MultiLinkTool.this.multiLinkCommand.acceptAdditionalElement(this.diagramHandle,
+            if (this.multiLinkCommand.acceptAdditionalElement(
+                    this.diagramHandle,
                     getOtherNodes(),
                     dg)) {
                 return true;
-            } else if (MultiLinkTool.this.multiLinkCommand.acceptLastElement(this.diagramHandle,
+            } else if (this.multiLinkCommand.acceptLastElement(
+                    this.diagramHandle,
                     getOtherNodes(),
                     dg)) { // Accept Last
                 // Swtich request type -> last point
@@ -224,6 +224,7 @@ public class MultiLinkTool extends MultiPointCreationTool {
         
             this.diagramHandle = DiagramHandle.create(editor, true);
         }
+        
     }
 
     @objid ("7ae62760-d4c7-4325-b3e4-28a0c6186fe8")
@@ -234,6 +235,7 @@ public class MultiLinkTool extends MultiPointCreationTool {
             this.diagramHandle.close();
             this.diagramHandle = null;
         }
+        
     }
 
 }

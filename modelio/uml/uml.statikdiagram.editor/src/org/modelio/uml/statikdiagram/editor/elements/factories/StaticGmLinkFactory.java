@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.factories;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -177,7 +176,7 @@ public class StaticGmLinkFactory implements IGmLinkFactory {
         private IGmDiagram diagram;
 
         @objid ("36ba9fc0-55b7-11e2-877f-002564c97630")
-        public ImplVisitor(IGmDiagram diagram) {
+        public  ImplVisitor(IGmDiagram diagram) {
             this.diagram = diagram;
         }
 
@@ -194,6 +193,7 @@ public class StaticGmLinkFactory implements IGmLinkFactory {
                     association.getEnd().get(0),
                     new MRef(association.getEnd().get(0)),
                     new MRef(association));
+            
         }
 
         @objid ("828f5907-df5e-41e6-b189-50016b10fbfe")
@@ -203,6 +203,7 @@ public class StaticGmLinkFactory implements IGmLinkFactory {
                     role,
                     new MRef(role),
                     new MRef(role.getAssociation()));
+            
         }
 
         @objid ("67587c9e-5676-4d39-87b4-6e8a71b6b382")
@@ -241,6 +242,7 @@ public class StaticGmLinkFactory implements IGmLinkFactory {
                     (ConnectorEnd) connector.getLinkEnd().get(0),
                     new MRef(connector.getLinkEnd().get(0)),
                     new MRef(connector));
+            
         }
 
         @objid ("aa05fcba-1a31-4803-8cf0-c85d69e74927")
@@ -254,6 +256,7 @@ public class StaticGmLinkFactory implements IGmLinkFactory {
                     role,
                     new MRef(role),
                     new MRef(role.getLink()));
+            
         }
 
         @objid ("36ba9fec-55b7-11e2-877f-002564c97630")
@@ -289,6 +292,7 @@ public class StaticGmLinkFactory implements IGmLinkFactory {
             return new GmInterfaceRealization(this.diagram,
                     theInterfaceRealization,
                     new MRef(theInterfaceRealization));
+            
         }
 
         @objid ("ed32b086-fb63-4501-831a-14e836312cb1")
@@ -298,6 +302,7 @@ public class StaticGmLinkFactory implements IGmLinkFactory {
                     link.getLinkEnd().get(0),
                     new MRef(link.getLinkEnd().get(0)),
                     new MRef(link));
+            
         }
 
         @objid ("78977fe7-b15c-4423-bfbb-d970d2710161")
@@ -307,6 +312,7 @@ public class StaticGmLinkFactory implements IGmLinkFactory {
                     role,
                     new MRef(role),
                     new MRef(role.getLink()));
+            
         }
 
         @objid ("75ba39e1-96c6-4eae-8501-2ccd74fe6f84")
@@ -345,6 +351,7 @@ public class StaticGmLinkFactory implements IGmLinkFactory {
             return new GmProvidedInterfaceLink(this.diagram,
                     theProvidedInterface,
                     new MRef(theProvidedInterface));
+            
         }
 
         @objid ("36bc2673-55b7-11e2-877f-002564c97630")
@@ -359,6 +366,7 @@ public class StaticGmLinkFactory implements IGmLinkFactory {
             return new GmRequiredInterfaceLink(this.diagram,
                     theRequiredInterface,
                     new MRef(theRequiredInterface));
+            
         }
 
         @objid ("2c47fdb8-ab78-4103-bc2c-0d21a42b9819")

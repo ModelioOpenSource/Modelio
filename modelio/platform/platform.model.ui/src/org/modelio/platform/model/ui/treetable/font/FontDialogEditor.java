@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.treetable.font;
 
 import java.text.MessageFormat;
@@ -90,24 +89,22 @@ public class FontDialogEditor extends CellEditor {
     /**
      * Creates a new dialog cell editor with no control
      * @param color
-     * 
      * @param parent the parent control
      */
     @objid ("6b374b24-1eba-11e2-9382-bc305ba4815c")
-    protected FontDialogEditor(Composite parent) {
+    protected  FontDialogEditor(Composite parent) {
         this(parent, SWT.NONE);
     }
 
     /**
      * Creates a new dialog cell editor parented under the given control. The cell editor value is <code>null</code>
      * initially, and has no validator.
-     * 
      * @param parent the parent control
      * @param style the style bits
      * @since 2.1
      */
     @objid ("6b377232-1eba-11e2-9382-bc305ba4815c")
-    public FontDialogEditor(Composite parent, int style) {
+    public  FontDialogEditor(Composite parent, int style) {
         super(parent, style);
     }
 
@@ -117,7 +114,6 @@ public class FontDialogEditor extends CellEditor {
      * The default implementation of this framework method creates the button display on the right hand side of the
      * dialog cell editor. Subclasses may extend or reimplement.
      * </p>
-     * 
      * @param parent the parent control
      * @return the new button control
      */
@@ -138,7 +134,6 @@ public class FontDialogEditor extends CellEditor {
      * Subclasses may reimplement. If you reimplement this method, you should also reimplement
      * <code>updateContents</code>.
      * </p>
-     * 
      * @param cell the control for this cell editor
      * @return the underlying control
      */
@@ -237,6 +232,7 @@ public class FontDialogEditor extends CellEditor {
         }
         
         super.deactivate();
+        
     }
 
     @objid ("6b383580-1eba-11e2-9382-bc305ba4815c")
@@ -251,11 +247,11 @@ public class FontDialogEditor extends CellEditor {
         this.button.setFocus();
         // add a FocusListener to the button
         this.button.addFocusListener(this.getButtonFocusListener());
+        
     }
 
     /**
      * Return a listener for button focus.
-     * 
      * @return FocusListener
      */
     @objid ("6b385c93-1eba-11e2-9382-bc305ba4815c")
@@ -281,11 +277,11 @@ public class FontDialogEditor extends CellEditor {
     protected void doSetValue(Object value) {
         this.value = (Font) value;
         this.updateContents(value);
+        
     }
 
     /**
      * Returns the default label widget created by <code>createContents</code>.
-     * 
      * @return the default label widget
      */
     @objid ("6b38aab0-1eba-11e2-9382-bc305ba4815c")
@@ -300,7 +296,6 @@ public class FontDialogEditor extends CellEditor {
      * This framework method must be implemented by concrete subclasses. It is called when the user has pressed the
      * button and the dialog box must pop up.
      * </p>
-     * 
      * @param cellEditorWindow the parent control cell editor's window so that a subclass can adjust the dialog box accordingly
      * @return the selected value, or <code>null</code> if the dialog was canceled or no selection was made in the
      * dialog
@@ -333,7 +328,6 @@ public class FontDialogEditor extends CellEditor {
      * Subclasses may reimplement. If you reimplement this method, you should also reimplement
      * <code>createContents</code>.
      * </p>
-     * 
      * @param value the new value of this cell editor
      */
     @objid ("6b38f8d1-1eba-11e2-9382-bc305ba4815c")
@@ -350,6 +344,7 @@ public class FontDialogEditor extends CellEditor {
                 text = value.toString();
         }
         this.defaultLabel.setText(text);
+        
     }
 
     /**
@@ -366,6 +361,7 @@ public class FontDialogEditor extends CellEditor {
                 FontDialogEditor.this.contents.setBounds(0, 0, bounds.width - size.x, bounds.height);
             }
             FontDialogEditor.this.button.setBounds(bounds.width - size.x, 0, size.x, bounds.height);
+            
         }
 
         @objid ("6b3946f0-1eba-11e2-9382-bc305ba4815c")

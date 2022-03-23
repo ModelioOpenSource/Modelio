@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.util;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,7 +29,7 @@ public class ExcludeElementFilter implements IObjectFilter {
     private MObject excludedElt;
 
     @objid ("62087d2d-b33c-4cd1-b359-eeb815753d59")
-    public ExcludeElementFilter(MObject newExcludedElt) {
+    public  ExcludeElementFilter(MObject newExcludedElt) {
         this.excludedElt = newExcludedElt;
     }
 

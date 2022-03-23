@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.transactions.smAction;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -48,7 +47,7 @@ public abstract class SimpleAction implements IAction {
      * @param refered the modified model object.
      */
     @objid ("006b12f0-0d1e-1f20-85a5-001ec947cd2a")
-    public SimpleAction(final SmObjectImpl refered) {
+    public  SimpleAction(final SmObjectImpl refered) {
         this.refered = refered;
     }
 

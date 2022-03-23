@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.local.loader.sax;
 
 import java.util.Collection;
@@ -35,7 +34,6 @@ public interface IDependencyContentHook {
      * get the content of a given model dependency.
      * <p>
      * Can modify the content of the dependency.
-     * 
      * @param obj the loading model object
      * @param dep the dependency being loaded.
      * @return the read dependency content or <code>null</code> if nothing.
@@ -45,7 +43,6 @@ public interface IDependencyContentHook {
 
     /**
      * Get the dependencies for which content has to be added.
-     * 
      * @param obj a model object
      * @return dependencies for which content has to be added. Returns an empty list if nothing to return.
      */
@@ -56,7 +53,7 @@ public interface IDependencyContentHook {
      * Content for a dependency on a model object
      */
     @objid ("e62bc1c1-d6d6-4994-88b2-898ef9ae0ed1")
-    interface Content {
+    public interface Content {
         /**
          * @return the refered dependency
          */

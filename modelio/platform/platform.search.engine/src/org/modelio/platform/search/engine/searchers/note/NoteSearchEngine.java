@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.search.engine.searchers.note;
 
 import java.util.ArrayList;
@@ -47,7 +46,8 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 @objid ("bd9547e8-16cc-4f56-8eec-1be0b278296c")
 public class NoteSearchEngine implements ISearchEngine {
     @objid ("ab99cdc6-5d67-4a0b-a74a-9d8582d1dc7d")
-    public NoteSearchEngine() {
+    public  NoteSearchEngine() {
+        
     }
 
     @objid ("d6d902b9-55bb-4f40-8569-a01adc99707a")

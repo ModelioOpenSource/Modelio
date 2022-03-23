@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.ramc.core.packaging;
 
 import java.io.IOException;
@@ -80,7 +79,7 @@ public class RamcPackager {
      * @param archivePath the archive path
      */
     @objid ("7ebc81ec-ccc1-4db4-90a8-2f1a06e60ba5")
-    public RamcPackager(GProject gproject, Artifact artifact, final Path archivePath) {
+    public  RamcPackager(GProject gproject, Artifact artifact, final Path archivePath) {
         this(gproject, artifact, archivePath, new ArrayList<IModelComponentContributor>());
     }
 
@@ -91,7 +90,7 @@ public class RamcPackager {
      * @param contributors the RAMC contributors
      */
     @objid ("c2e03ffa-a5b8-11e1-aa98-001ec947ccaf")
-    public RamcPackager(GProject gproject, Artifact artifact, final Path archivePath, List<IModelComponentContributor> contributors) {
+    public  RamcPackager(GProject gproject, Artifact artifact, final Path archivePath, List<IModelComponentContributor> contributors) {
         this.archivePath = archivePath;
         this.ramc = new ModelComponent(artifact);
         this.gproject = gproject;
@@ -102,15 +101,15 @@ public class RamcPackager {
         Version v = this.ramc.getVersion();
         v = new Version(v.getMajorVersion(), v.getMinorVersion(), v.getBuildVersion());
         this.ramc.setRamcVersion(v);
+        
     }
 
     /**
      * Run the packaging.
-     * 
      * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility
      * to call done() on the given monitor. Accepts <i>null</i>, indicating that no progress should be
      * reported and that the operation cannot be cancelled.
-     * @throws java.io.IOException if any error occurs.
+     * @throws IOException if any error occurs.
      */
     @objid ("c2e03ffd-a5b8-11e1-aa98-001ec947ccaf")
     public void run(final IModelioProgress monitor) throws IOException {
@@ -136,6 +135,7 @@ public class RamcPackager {
         
         // Cleanup
         FileUtils.delete(this.workPath);
+        
     }
 
     @objid ("c2e0400a-a5b8-11e1-aa98-001ec947ccaf")
@@ -184,6 +184,7 @@ public class RamcPackager {
         } finally {
             targetSession.close();
         }
+        
     }
 
     @objid ("d3a623c0-cb72-11e1-87f1-001ec947ccaf")
@@ -191,6 +192,7 @@ public class RamcPackager {
         subMonitor.subTask(CoreProject.I18N.getString("RamcPackager.ExportFiles"));
         FilesExporter exporter = new FilesExporter(exportPath, this.gproject.getProjectFileStructure().getProjectPath());
         exporter.run(getFilesToExport(), metadatas, subMonitor);
+        
     }
 
     @objid ("c2e04000-a5b8-11e1-aa98-001ec947ccaf")
@@ -200,6 +202,7 @@ public class RamcPackager {
         
         Zipper zip = new Zipper(archive);
         zip.compressContent(dataPath, subMonitor, null);
+        
     }
 
     @objid ("3ae7dea2-eb51-473c-a8ed-969d6d1ec1af")

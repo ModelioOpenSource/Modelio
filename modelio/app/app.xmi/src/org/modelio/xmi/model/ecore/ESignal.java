@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,9 +41,10 @@ public class ESignal extends ENamedElement {
     }
 
     @objid ("c7ebad8d-b052-4684-9aa6-0a5e32aecd70")
-    public ESignal(org.eclipse.uml2.uml.Signal element) {
+    public  ESignal(org.eclipse.uml2.uml.Signal element) {
         super(element);
         this.ecoreElement = element;
+        
     }
 
     @objid ("c68b91f2-f9e9-4193-a21c-2572c9385a33")
@@ -65,6 +65,7 @@ public class ESignal extends ENamedElement {
         }else{
             ((Signal) objingElt).setOwner(revProp.getExternalPackage());
         }
+        
     }
 
     @objid ("e5c0c207-1627-48a4-828a-356d99282647")
@@ -78,6 +79,7 @@ public class ESignal extends ENamedElement {
             setIsEventEAnnotation((Signal) objingElt);
             setIsExceptionEAnnotation((Signal) objingElt);
         }
+        
     }
 
     @objid ("b3f9979a-48e9-4744-8725-5b37060efaa1")
@@ -87,6 +89,7 @@ public class ESignal extends ENamedElement {
             if ((objingType != null) && (objingType instanceof GeneralClass))
                 objingElt.setBase((GeneralClass) objingType);      
         }
+        
     }
 
     @objid ("e04c5d34-eb07-47b8-96a9-5efe52b4bff0")

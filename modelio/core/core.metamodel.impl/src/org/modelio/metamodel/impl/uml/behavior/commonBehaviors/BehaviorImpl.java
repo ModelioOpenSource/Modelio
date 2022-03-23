@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.commonBehaviors;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.uml.behavior.commonBehaviors.BehaviorData;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementImpl;
 import org.modelio.metamodel.uml.behavior.activityModel.CallBehaviorAction;
 import org.modelio.metamodel.uml.behavior.commonBehaviors.Behavior;
@@ -95,6 +94,7 @@ public abstract class BehaviorImpl extends UmlModelElementImpl implements Behavi
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("ffca9587-e046-4d0a-b2fb-4133c3efd163")
@@ -129,6 +129,7 @@ public abstract class BehaviorImpl extends UmlModelElementImpl implements Behavi
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("4bdf1d95-93e1-457b-ba8d-b5b30150496e")
@@ -150,6 +151,7 @@ public abstract class BehaviorImpl extends UmlModelElementImpl implements Behavi
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("aff3bb23-201e-4268-a207-9b537e3e953b")
@@ -171,6 +173,7 @@ public abstract class BehaviorImpl extends UmlModelElementImpl implements Behavi
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("cb16d660-657d-4d18-bcbd-40cfb81bd55f")
@@ -192,6 +195,7 @@ public abstract class BehaviorImpl extends UmlModelElementImpl implements Behavi
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("8b821d23-e937-4a55-84c9-8b443ff551fc")

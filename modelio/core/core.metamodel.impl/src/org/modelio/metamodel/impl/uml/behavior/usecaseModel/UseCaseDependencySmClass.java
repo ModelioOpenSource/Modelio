@@ -17,20 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.usecaseModel;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.usecaseModel.ExtensionPointSmClass;
-import org.modelio.metamodel.impl.uml.behavior.usecaseModel.UseCaseDependencyData;
-import org.modelio.metamodel.impl.uml.behavior.usecaseModel.UseCaseSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementSmClass;
 import org.modelio.metamodel.uml.behavior.usecaseModel.ExtensionPoint;
 import org.modelio.metamodel.uml.behavior.usecaseModel.UseCase;
@@ -60,7 +57,7 @@ public class UseCaseDependencySmClass extends UmlModelElementSmClass {
     private SmDependency targetDep;
 
     @objid ("fce16ebb-c284-4519-b42b-88b9a3aaa301")
-    public UseCaseDependencySmClass(ISmMetamodelFragment origin) {
+    public  UseCaseDependencySmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -68,6 +65,7 @@ public class UseCaseDependencySmClass extends UmlModelElementSmClass {
     @Override
     public String getName() {
         return "UseCaseDependency";
+        
     }
 
     @objid ("523a7fe9-e334-4d2f-8db8-7746b2f35c53")
@@ -80,18 +78,21 @@ public class UseCaseDependencySmClass extends UmlModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return UseCaseDependency.class;
+        
     }
 
     @objid ("8cb0b65a-7f16-4144-bb67-0304e90c4093")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("9a2dab36-d017-45be-a554-1451c8defd51")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("5e5c580d-15ca-420a-a9cb-632bca210163")
@@ -115,6 +116,8 @@ public class UseCaseDependencySmClass extends UmlModelElementSmClass {
         this.targetDep = new TargetSmDependency();
         this.targetDep.init("Target", this, metamodel.getMClass(UseCase.MQNAME), 1, 1 , SmDirective.SMCDLINKTARGET, SmDirective.SMCDPARTOF);
         registerDependency(this.targetDep);
+        
+        
     }
 
     @objid ("323ff11d-67e9-4b71-aff1-34b9f65989ba")
@@ -145,6 +148,7 @@ public class UseCaseDependencySmClass extends UmlModelElementSmClass {
     @Override
     public boolean isLinkMetaclass() {
         return true;
+        
     }
 
     @objid ("e795a442-7b92-4e69-b212-79986facf6aa")
@@ -153,7 +157,7 @@ public class UseCaseDependencySmClass extends UmlModelElementSmClass {
         private UseCaseDependencySmClass smClass;
 
         @objid ("c738799a-a685-432e-808c-73db838ce85a")
-        public UseCaseDependencyObjectFactory(UseCaseDependencySmClass smClass) {
+        public  UseCaseDependencyObjectFactory(UseCaseDependencySmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -195,6 +199,7 @@ public class UseCaseDependencySmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((UseCaseSmClass)this.getTarget()).getUsedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -214,6 +219,7 @@ public class UseCaseDependencySmClass extends UmlModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((UseCaseDependencyData) data).mExtensionLocation = values;
+            
         }
 
         @objid ("8b706001-fbec-4935-894a-26dfe5023cef")
@@ -223,6 +229,7 @@ public class UseCaseDependencySmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((ExtensionPointSmClass)this.getTarget()).getExtendedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -251,6 +258,7 @@ public class UseCaseDependencySmClass extends UmlModelElementSmClass {
             	this.symetricDep = ((UseCaseSmClass)this.getTarget()).getUserDep();
             }
             return this.symetricDep;
+            
         }
 
     }

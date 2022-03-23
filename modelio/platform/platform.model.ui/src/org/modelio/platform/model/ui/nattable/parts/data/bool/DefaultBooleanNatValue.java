@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.bool;
 
 import java.security.InvalidParameterException;
@@ -31,21 +30,19 @@ import org.modelio.platform.model.ui.nattable.parts.data.DefaultNatValue;
 public class DefaultBooleanNatValue extends DefaultNatValue implements IBooleanNatValue {
     /**
      * Creates a new instance.
-     * 
      * @param value the wrapped value.
      */
     @objid ("cd621802-969c-476a-806f-b815ed642d6b")
-    public DefaultBooleanNatValue(Boolean value) {
+    public  DefaultBooleanNatValue(Boolean value) {
         super(value, false);
     }
 
     /**
      * Copy constructor, creating a new instance with the same configuration as the other.
-     * 
      * @param anotherInstance the instance to copy.
      */
     @objid ("de31b96a-d98d-4589-b883-2bc5c4db6147")
-    public DefaultBooleanNatValue(DefaultBooleanNatValue anotherInstance) {
+    public  DefaultBooleanNatValue(DefaultBooleanNatValue anotherInstance) {
         super(anotherInstance);
     }
 
@@ -62,6 +59,7 @@ public class DefaultBooleanNatValue extends DefaultNatValue implements IBooleanN
             throw new InvalidParameterException("Value must be a Boolean.");
         }
         super.setValue(value);
+        
     }
 
 }

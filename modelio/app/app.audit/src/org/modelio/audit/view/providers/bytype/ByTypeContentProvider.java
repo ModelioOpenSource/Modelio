@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.view.providers.bytype;
 
 import java.util.List;
@@ -44,7 +43,7 @@ public class ByTypeContentProvider implements ITreeContentProvider {
     private AuditTypeModel infos;
 
     @objid ("cd375493-a4fe-4dfd-ab76-73fa63b33792")
-    public ByTypeContentProvider(String jobId) {
+    public  ByTypeContentProvider(String jobId) {
         this.jobId = jobId;
         
         this.error = new AuditTypeModel();
@@ -55,6 +54,7 @@ public class ByTypeContentProvider implements ITreeContentProvider {
         
         this.infos = new AuditTypeModel();
         this.infos.severity = AuditSeverity.AuditAdvice;
+        
     }
 
     @objid ("4bde8283-11dd-417e-9580-1547296aa33e")

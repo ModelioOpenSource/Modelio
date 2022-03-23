@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.classifier;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -121,6 +120,7 @@ public class ClassifierElementDropEditPolicy extends DefaultElementDropEditPolic
                         element instanceof Instance ||
                         element instanceof NameSpace ||
                         element instanceof Parameter);
+        
     }
 
     @objid ("3432205c-55b7-11e2-877f-002564c97630")

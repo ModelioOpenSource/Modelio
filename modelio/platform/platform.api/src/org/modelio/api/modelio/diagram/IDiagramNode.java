@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.diagram;
 
 import java.util.Collection;
@@ -37,7 +36,6 @@ public interface IDiagramNode extends IDiagramGraphic {
 
     /**
      * Return the node location and size as a Rectangle.
-     * 
      * @return the node bounds.
      */
     @objid ("a4287dcc-0ecc-11e2-96c4-002564c97630")
@@ -51,7 +49,6 @@ public interface IDiagramNode extends IDiagramGraphic {
      * Get the current fill color.
      * <br>
      * Might return <code>null</code> if the corresponding style key isn't defined.
-     * 
      * @return The fill color.
      */
     @objid ("bfda3e2d-77e1-11e0-bfdb-002564c97630")
@@ -62,7 +59,6 @@ public interface IDiagramNode extends IDiagramGraphic {
      * - 0 : The figure must be transparent.<br>
      * - 1 : The figure is filled with a solid color.<br>
      * - 2 : The figure is filled with a gradient.
-     * 
      * @return The fill mode.
      */
     @objid ("bfda8c4e-77e1-11e0-bfdb-002564c97630")
@@ -72,7 +68,6 @@ public interface IDiagramNode extends IDiagramGraphic {
      * Get the first child node with the given role.
      * <p>
      * To be used when you know at most one element matches the role.
-     * 
      * @param role the asked role
      * @return the asked nodes.
      * @since 3.5
@@ -94,7 +89,6 @@ public interface IDiagramNode extends IDiagramGraphic {
      * </p>
      * <br>
      * Might return <code>null</code> if the corresponding style key isn't defined.
-     * 
      * @return The font.
      */
     @objid ("bfdb4f9e-77e1-11e0-bfdb-002564c97630")
@@ -104,7 +98,6 @@ public interface IDiagramNode extends IDiagramGraphic {
      * Get the current line color.
      * <br>
      * Might return <code>null</code> if the corresponding style key isn't defined.
-     * 
      * @return The line color.
      */
     @objid ("bfdbc4ce-77e1-11e0-bfdb-002564c97630")
@@ -112,7 +105,6 @@ public interface IDiagramNode extends IDiagramGraphic {
 
     /**
      * Get the current line width.
-     * 
      * @return The line width.
      */
     @objid ("bfdd245e-77e1-11e0-bfdb-002564c97630")
@@ -120,37 +112,35 @@ public interface IDiagramNode extends IDiagramGraphic {
 
     /**
      * Return the list of children nodes of this node.
-     * 
      * @return A list of nodes in any case, possibly an empty one. Never returns null
      */
     @objid ("6d1ab32d-69b5-11e0-adf3-002564c97630")
     List<IDiagramNode> getNodes();
 
-//    /**
-//     * Get the children nodes layouted as satellite of this node.
-//     * @return the satellite nodes.
-//     * @since 3.5
-//     */
-//    public Collection<IDiagramNode> getSatelliteNodes();
-//
-//    /**
-//     * Get the child nodes layouted as port.
-//     * @return the port nodes.
-//     * @since 3.5
-//     */
-//    public Collection<IDiagramNode> getPortNodes();
-//
-//    /**
-//     * Get the child node that represents the satellite label of this node.
-//     * <p>
-//     * The main satellite label, if any,  may be moved and resized.
-//     * @return The main satellite label or <i>null</i>.
-//     * @since 3.5
-//     */
-//    public IDiagramNode getMainSatelliteLabel() ;
+    //    /**
+    //     * Get the children nodes layouted as satellite of this node.
+    //     * @return the satellite nodes.
+    //     * @since 3.5
+    //     */
+    //    public Collection<IDiagramNode> getSatelliteNodes();
+    //
+    //    /**
+    //     * Get the child nodes layouted as port.
+    //     * @return the port nodes.
+    //     * @since 3.5
+    //     */
+    //    public Collection<IDiagramNode> getPortNodes();
+    //
+    //    /**
+    //     * Get the child node that represents the satellite label of this node.
+    //     * <p>
+    //     * The main satellite label, if any,  may be moved and resized.
+    //     * @return The main satellite label or <i>null</i>.
+    //     * @since 3.5
+    //     */
+    //    public IDiagramNode getMainSatelliteLabel() ;
     /**
      * Get the child nodes with the given role.
-     * 
      * @param role the asked role
      * @return the asked nodes.
      * @since 3.5
@@ -163,7 +153,6 @@ public interface IDiagramNode extends IDiagramGraphic {
      * <p>
      * When no satellites are displayed, returns the same value as getBounds().
      * </p>
-     * 
      * @return the node bounds.
      * @since 3.1
      */
@@ -181,7 +170,6 @@ public interface IDiagramNode extends IDiagramGraphic {
      * - 0 : simple mode<br>
      * - 1 : structured mode<br>
      * - 2 : image mode
-     * 
      * @return The representation mode.
      */
     @objid ("bfdd998e-77e1-11e0-bfdb-002564c97630")
@@ -191,7 +179,6 @@ public interface IDiagramNode extends IDiagramGraphic {
      * Get the current text color.
      * <br>
      * Might return <code>null</code> if the corresponding style key isn't defined.
-     * 
      * @return The text color.
      */
     @objid ("bfde0ebe-77e1-11e0-bfdb-002564c97630")
@@ -213,7 +200,6 @@ public interface IDiagramNode extends IDiagramGraphic {
      * This method changes both the location and the size of a node by changing its current bounds.<br>
      * Note however that the requested change might no be performed when some layout constraints are maintained by the
      * parent of the node (ie the requested changes are refused or adapted by the parent of the node).
-     * 
      * @param newBounds the new node bounds
      */
     @objid ("a4294121-0ecc-11e2-96c4-002564c97630")
@@ -221,7 +207,6 @@ public interface IDiagramNode extends IDiagramGraphic {
 
     /**
      * Modify the current fill color.
-     * 
      * @param value The new fill color.
      */
     @objid ("bfda653d-77e1-11e0-bfdb-002564c97630")
@@ -232,7 +217,6 @@ public interface IDiagramNode extends IDiagramGraphic {
      * - 0 : The figure must be transparent.<br>
      * - 1 : The figure is filled with a solid color.<br>
      * - 2 : The figure is filled with a gradient.
-     * 
      * @param value The new fill mode.
      */
     @objid ("bfdb288d-77e1-11e0-bfdb-002564c97630")
@@ -252,16 +236,14 @@ public interface IDiagramNode extends IDiagramGraphic {
      * and <code><it>height</it></code> is an integer representing the
      * font height. Example: <code>Times New Roman-bold-36</code>.
      * </p>
-     * 
      * @param value The new font.
-     * @throws org.eclipse.jface.resource.DataFormatException if the given value does not represent font data
+     * @throws DataFormatException if the given value does not represent font data
      */
     @objid ("bfdb9dbd-77e1-11e0-bfdb-002564c97630")
     void setFont(final String value) throws DataFormatException;
 
     /**
      * Modify the current line color.
-     * 
      * @param value The new line color.
      */
     @objid ("bfdc12ed-77e1-11e0-bfdb-002564c97630")
@@ -269,7 +251,6 @@ public interface IDiagramNode extends IDiagramGraphic {
 
     /**
      * Modify the current line width.
-     * 
      * @param value The new line width.
      */
     @objid ("bfdd727d-77e1-11e0-bfdb-002564c97630")
@@ -279,7 +260,6 @@ public interface IDiagramNode extends IDiagramGraphic {
      * Change the location of the node, setting its new position to (x,y). Note however that the requested change might
      * no be performed when some layout constraints are maintained by the parent of the node (ie the requested change is
      * refused or adapted by the parent of the node).
-     * 
      * @param x the new X position
      * @param y the new Y position
      * @return true if the change could be requested (different from 'performed' see note above)
@@ -292,7 +272,6 @@ public interface IDiagramNode extends IDiagramGraphic {
      * - 0 : simple mode<br>
      * - 1 : structured mode<br>
      * - 2 : image mode
-     * 
      * @param value The new representation mode.
      */
     @objid ("bfdde7ad-77e1-11e0-bfdb-002564c97630")
@@ -302,7 +281,6 @@ public interface IDiagramNode extends IDiagramGraphic {
      * Change the size of the node to (width,height).<br>
      * Note however that the requested change might no be performed when some layout constraints are maintained by the
      * parent of the node (ie the requested change is refused or adapted by the parent of the node).
-     * 
      * @param width the new width
      * @param height the new height
      * @return true if the change could be requested (different from 'performed' see note above)
@@ -312,7 +290,6 @@ public interface IDiagramNode extends IDiagramGraphic {
 
     /**
      * Modify the current text color.
-     * 
      * @param value The new text color.
      */
     @objid ("bfde5cdd-77e1-11e0-bfdb-002564c97630")
@@ -323,23 +300,28 @@ public interface IDiagramNode extends IDiagramGraphic {
      * @since 3.5
      */
     @objid ("5e5d2469-e7b3-419d-9973-25af5828f77e")
-    enum Role {
+    public enum Role {
         /**
          * The child is contained in the parent node main figure.
          */
+        @objid ("19f7c21d-e773-4742-a34a-ea817225f3ee")
         INNER,
         /**
          * The child is the main floating label of the parent node.
          */
+        @objid ("2dd9ce9c-f023-44d5-bec8-7ece3d1449b2")
         LABEL,
         /**
          * The child is layouted as a Port of the parent node main figure.
          */
+        @objid ("d4a5e454-8935-40e5-b8c6-eb1862665fa8")
         PORT,
         /**
          * The child is a floating label.
          */
+        @objid ("4596b610-4eb5-4b4d-a816-13dff0d70ddd")
         SATELLITE;
+
     }
 
 }

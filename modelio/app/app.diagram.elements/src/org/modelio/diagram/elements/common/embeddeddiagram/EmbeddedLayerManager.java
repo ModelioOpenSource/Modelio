@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.embeddeddiagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -43,9 +42,10 @@ class EmbeddedLayerManager implements LayerManager {
     private final EmbeddedDiagramRootEditPart rootEp;
 
     @objid ("9d9b2c3d-c598-43fe-93ff-9fad143e3028")
-    public EmbeddedLayerManager(EmbeddedDiagramRootEditPart rootEp) {
+    public  EmbeddedLayerManager(EmbeddedDiagramRootEditPart rootEp) {
         this.rootEp = rootEp;
         this.parentLayerManager = LayerManager.Helper.find(this.rootEp.getParent());
+        
     }
 
     @objid ("f623ee0b-d62a-4359-9182-28fc009ec312")

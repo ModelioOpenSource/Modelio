@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.umlcommon.externdocument;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -80,7 +79,7 @@ public class ExternDocumentFigure extends ShapedFigure {
      * Creates a document figure.
      */
     @objid ("8151eb53-1dec-11e2-8cad-001ec947c8cc")
-    public ExternDocumentFigure() {
+    public  ExternDocumentFigure() {
         super(ExternDocumentFigure.DOCUMENT_SHAPER);
         
         // The document figure is a container layouted as a vertical toolbar
@@ -93,7 +92,7 @@ public class ExternDocumentFigure extends ShapedFigure {
         
         // Type area
         this.type = new Label();
-        TLBRBorder typeBorder = new TLBRBorder(getLineColor(), 1, false, false, true, false); 
+        TLBRBorder typeBorder = new TLBRBorder(getLineColor(), 1, false, false, true, false);
         typeBorder.setStyle(Graphics.LINE_DASH);
         this.type.setBorder(new CompoundBorder(typeBorder, new MarginBorder(2)));
         this.type.setLabelAlignment(PositionConstants.LEFT);
@@ -126,11 +125,11 @@ public class ExternDocumentFigure extends ShapedFigure {
         this.scrollPane.setContents(this.contents);
         
         this.add(this.scrollPane);
+        
     }
 
     /**
      * Get the external document content figure.
-     * 
      * @return The figure where the document content is displayed.
      */
     @objid ("8151eb56-1dec-11e2-8cad-001ec947c8cc")
@@ -140,7 +139,6 @@ public class ExternDocumentFigure extends ShapedFigure {
 
     /**
      * Get the external document name figure.
-     * 
      * @return The figure where the document name is displayed.
      */
     @objid ("8151eb5d-1dec-11e2-8cad-001ec947c8cc")
@@ -150,7 +148,6 @@ public class ExternDocumentFigure extends ShapedFigure {
 
     /**
      * Get the external document type figure.
-     * 
      * @return The figure where the document type is displayed.
      */
     @objid ("8151eb64-1dec-11e2-8cad-001ec947c8cc")
@@ -165,6 +162,7 @@ public class ExternDocumentFigure extends ShapedFigure {
         this.contents.setForegroundColor(textColor);
         this.type.setForegroundColor(textColor);
         super.setTextColor(textColor);
+        
     }
 
     @objid ("8151eb70-1dec-11e2-8cad-001ec947c8cc")
@@ -182,50 +180,51 @@ public class ExternDocumentFigure extends ShapedFigure {
         this.type.setPreferredSize(preferredSize);
         this.type.setMaximumSize(preferredSize);
         super.setTextFont(textFont);
+        
     }
 
     /**
      * set the displayed document name.
-     * 
      * @param name the document name.
      */
     @objid ("8151eb7c-1dec-11e2-8cad-001ec947c8cc")
     public void setName(final String name) {
         this.name.setText(name);
         this.name.setMinimumSize(this.name.getPreferredSize(-1, -1));
+        
     }
 
     /**
      * set the displayed document mimeType.
-     * 
      * @param mimeType the document mimeType.
      */
     @objid ("8151eb81-1dec-11e2-8cad-001ec947c8cc")
     public void setType(final Image mimeType) {
         this.type.setIcon(mimeType);
         this.type.setMinimumSize(this.type.getPreferredSize(-1, -1));
+        
     }
 
     /**
      * Set the document text.
-     * 
      * @param contents the document text.
      */
     @objid ("8151eb86-1dec-11e2-8cad-001ec947c8cc")
     public void setContents(final String contents) {
         this.contentsText.setText(contents);
         this.contentsText.setMinimumSize(this.contentsText.getPreferredSize(-1, -1));
+        
     }
 
     /**
      * Set the displayed document type.
-     * 
      * @param type the document type.
      */
     @objid ("8151eb8b-1dec-11e2-8cad-001ec947c8cc")
     public void setType(final String type) {
         this.type.setText(type);
         this.type.setMinimumSize(this.type.getPreferredSize(-1, -1));
+        
     }
 
     /**
@@ -237,7 +236,7 @@ public class ExternDocumentFigure extends ShapedFigure {
     @objid ("8151eb90-1dec-11e2-8cad-001ec947c8cc")
     private static final class DocumentLayout extends ToolbarLayoutWithGrab {
         @objid ("8151eb93-1dec-11e2-8cad-001ec947c8cc")
-        DocumentLayout() {
+         DocumentLayout() {
             super(false);
         }
 
@@ -274,7 +273,6 @@ public class ExternDocumentFigure extends ShapedFigure {
 
         /**
          * Calculate the minimum size a document should be.
-         * 
          * @param container the document figure
          * @param wHint the width hint (the desired width of the container)
          * @param hHint the height hint (the desired height of the container)
@@ -303,7 +301,6 @@ public class ExternDocumentFigure extends ShapedFigure {
 
         /**
          * Compute the ideal size of the document.
-         * 
          * @param container the document figure
          * @param wHint the width hint (the desired width of the container)
          * @param hHint the height hint (the desired height of the container)
@@ -337,7 +334,7 @@ public class ExternDocumentFigure extends ShapedFigure {
     @objid ("81544dd2-1dec-11e2-8cad-001ec947c8cc")
     public static final class TransparentScrollPane extends ScrollPane {
         @objid ("81544dd7-1dec-11e2-8cad-001ec947c8cc")
-        public TransparentScrollPane() {
+        public  TransparentScrollPane() {
             super();
         }
 
@@ -358,7 +355,7 @@ public class ExternDocumentFigure extends ShapedFigure {
 
         @objid ("12c1c9ba-1308-45b9-ba81-1203a061b4b6")
         @Override
-        public Path getShapePath(Rectangle rect) {
+        public Path createShapePath(Rectangle rect) {
             Path path = new Path(Display.getCurrent());
             
             Point[] points = computeShape(rect);
@@ -389,7 +386,6 @@ public class ExternDocumentFigure extends ShapedFigure {
          * 5----------4
          * </pre>
          * @param p an array of 6 points. If null a new array with 6 points will be allocated.
-         * 
          * @param r the bounding box rectangle
          * @return the passed array or a new one
          */

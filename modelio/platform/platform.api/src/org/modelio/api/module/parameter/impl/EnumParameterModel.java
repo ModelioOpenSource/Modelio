@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.parameter.impl;
 
 import java.util.Collection;
@@ -29,9 +28,10 @@ public class EnumParameterModel extends ParameterModel {
     protected Map<String, String> items;
 
     @objid ("e496973e-feb1-11dd-8b31-0014222a9f79")
-    public EnumParameterModel(IModuleUserConfiguration conf, String name, String label, String description, String defaultValue) {
+    public  EnumParameterModel(IModuleUserConfiguration conf, String name, String label, String description, String defaultValue) {
         super(conf, name, label, description, defaultValue);
         this.items = new LinkedHashMap<>();
+        
     }
 
     @objid ("e4e3237a-9137-11dd-9e51-001ec947ccaf")

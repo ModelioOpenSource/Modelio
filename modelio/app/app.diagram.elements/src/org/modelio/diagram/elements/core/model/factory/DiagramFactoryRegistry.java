@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.model.factory;
 
 import java.util.ArrayList;
@@ -53,7 +52,6 @@ public class DiagramFactoryRegistry {
 
     /**
      * Register factory extensions.
-     * 
      * @param factoryId the identifier for the factory extensions.
      * @param nodeFactory the node factory extension.
      * @param linkFactory the link factory extension.
@@ -64,11 +62,11 @@ public class DiagramFactoryRegistry {
         this.gmNodeFactories.put(factoryId, nodeFactory);
         this.gmLinkFactories.put(factoryId, linkFactory);
         this.editPartFactories.put(factoryId, editPartFactory);
+        
     }
 
     /**
      * Get the node factory for this identifier.
-     * 
      * @param factoryId the identifier for the factory extension.
      * @return the node factory extension.
      */
@@ -79,7 +77,6 @@ public class DiagramFactoryRegistry {
 
     /**
      * Get the link factory for this identifier.
-     * 
      * @param factoryId the identifier for the factory extension.
      * @return the link factory extension.
      */
@@ -90,7 +87,6 @@ public class DiagramFactoryRegistry {
 
     /**
      * Get the edit part factory for this identifier.
-     * 
      * @param factoryId the identifier for the factory extension.
      * @return the edit part factory extension.
      */
@@ -101,7 +97,6 @@ public class DiagramFactoryRegistry {
 
     /**
      * Register a factory extension.
-     * 
      * @param extensionId the identifier for the factory extension.
      * @param extendedFactoryIds identifiers of all extended factories.
      */
@@ -116,6 +111,7 @@ public class DiagramFactoryRegistry {
                 DiagramElements.LOG.debug("'%s' Factory extension already registered for '%s'" , extensionId, extendedFactoryId);
             }
         }
+        
     }
 
     /**

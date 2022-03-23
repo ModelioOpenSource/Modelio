@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.flows;
 
 import java.util.ArrayList;
@@ -31,8 +31,6 @@ import org.modelio.metamodel.bpmn.flows.BpmnMessage;
 import org.modelio.metamodel.bpmn.flows.BpmnMessageFlow;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnCollaboration;
 import org.modelio.metamodel.bpmn.rootElements.BpmnBaseElement;
-import org.modelio.metamodel.impl.bpmn.flows.BpmnMessageFlowData;
-import org.modelio.metamodel.impl.bpmn.flows.BpmnMessageSmClass;
 import org.modelio.metamodel.impl.bpmn.processCollaboration.BpmnCollaborationSmClass;
 import org.modelio.metamodel.impl.bpmn.rootElements.BpmnBaseElementSmClass;
 import org.modelio.vbasic.version.Version;
@@ -61,7 +59,7 @@ public class BpmnMessageFlowSmClass extends BpmnBaseElementSmClass {
     private SmDependency collaborationDep;
 
     @objid ("6335467d-4257-4e5e-aaf6-2cc8a2e99822")
-    public BpmnMessageFlowSmClass(ISmMetamodelFragment origin) {
+    public  BpmnMessageFlowSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -69,6 +67,7 @@ public class BpmnMessageFlowSmClass extends BpmnBaseElementSmClass {
     @Override
     public String getName() {
         return "BpmnMessageFlow";
+        
     }
 
     @objid ("8c99c34e-f57c-4e1d-9604-77b408f5a486")
@@ -81,18 +80,21 @@ public class BpmnMessageFlowSmClass extends BpmnBaseElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnMessageFlow.class;
+        
     }
 
     @objid ("af56adfb-eaf4-4507-bb55-17112d8c0af4")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("dc555f4f-04d3-46ec-829e-e127bd78c6aa")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("c28a2dad-7203-484a-a62d-8d9e5c78783f")
@@ -120,6 +122,8 @@ public class BpmnMessageFlowSmClass extends BpmnBaseElementSmClass {
         this.collaborationDep = new CollaborationSmDependency();
         this.collaborationDep.init("Collaboration", this, metamodel.getMClass(BpmnCollaboration.MQNAME), 1, 1 );
         registerDependency(this.collaborationDep);
+        
+        
     }
 
     @objid ("0886fa10-1713-4340-891d-ed7c5f1ddc42")
@@ -158,6 +162,7 @@ public class BpmnMessageFlowSmClass extends BpmnBaseElementSmClass {
     @Override
     public boolean isLinkMetaclass() {
         return true;
+        
     }
 
     @objid ("414d75db-cf8b-42ed-9657-949369e0a56d")
@@ -166,7 +171,7 @@ public class BpmnMessageFlowSmClass extends BpmnBaseElementSmClass {
         private BpmnMessageFlowSmClass smClass;
 
         @objid ("2b14f323-fd2a-4dcc-a494-8b30d8d94f26")
-        public BpmnMessageFlowObjectFactory(BpmnMessageFlowSmClass smClass) {
+        public  BpmnMessageFlowObjectFactory(BpmnMessageFlowSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -208,6 +213,7 @@ public class BpmnMessageFlowSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnMessageSmClass)this.getTarget()).getMessageFlowDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -236,6 +242,7 @@ public class BpmnMessageFlowSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnBaseElementSmClass)this.getTarget()).getOutgoingFlowDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -264,6 +271,7 @@ public class BpmnMessageFlowSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnBaseElementSmClass)this.getTarget()).getIncomingFlowDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -292,6 +300,7 @@ public class BpmnMessageFlowSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnCollaborationSmClass)this.getTarget()).getMessageFlowDep();
             }
             return this.symetricDep;
+            
         }
 
     }

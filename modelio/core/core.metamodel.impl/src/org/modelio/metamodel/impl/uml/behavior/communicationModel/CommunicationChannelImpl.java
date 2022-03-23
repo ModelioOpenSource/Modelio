@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.communicationModel;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.uml.behavior.communicationModel.CommunicationChannelData;
 import org.modelio.metamodel.impl.uml.infrastructure.UmlModelElementImpl;
 import org.modelio.metamodel.uml.behavior.communicationModel.CommunicationChannel;
 import org.modelio.metamodel.uml.behavior.communicationModel.CommunicationMessage;
@@ -67,6 +66,7 @@ public class CommunicationChannelImpl extends UmlModelElementImpl implements Com
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("a1dd27ff-cc4f-46a3-9a3e-293b17e08720")
@@ -127,6 +127,7 @@ public class CommunicationChannelImpl extends UmlModelElementImpl implements Com
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("8959dfd4-4218-4df4-b721-6fd1f8afd29b")

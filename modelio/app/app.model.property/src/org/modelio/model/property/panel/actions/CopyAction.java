@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel.actions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,10 +31,11 @@ public class CopyAction extends Action {
     private ElementPropertyController controller;
 
     @objid ("fe7bed18-11e5-4aec-862a-1196e4c74e97")
-    public CopyAction(ElementPropertyController controller) {
+    public  CopyAction(ElementPropertyController controller) {
         this.controller = controller;
         this.setText(ModelProperty.I18N.getString("CopyElement.label"));
         this.setImageDescriptor(UI.getImageDescriptor("icons/copy.png"));
+        
     }
 
     @objid ("456f1848-2607-46f9-a245-61be46c52fa5")

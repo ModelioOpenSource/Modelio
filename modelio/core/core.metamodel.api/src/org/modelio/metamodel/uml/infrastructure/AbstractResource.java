@@ -17,17 +17,15 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.uml.infrastructure;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.uml.infrastructure.ModelElement;
-import org.modelio.metamodel.uml.infrastructure.ResourceType;
 
 /**
  * AbstractResource v2.1.00
@@ -53,7 +51,6 @@ public interface AbstractResource extends ModelElement {
      * Get access to the represented resource.
      * <p>
      * Returns null if the element is not yet initialized.
-     * 
      * @return an access to the represented resource.
      */
     @objid ("d7140571-f25e-4d08-a546-559779cffcc1")
@@ -63,7 +60,6 @@ public interface AbstractResource extends ModelElement {
      * Initialize the element to embed a resource.
      * <p>
      * Use the returned handle to store the resource content.
-     * 
      * @param fileName a file name that will be used in case of file extraction.
      * @return a handle to write the resource content.
      */
@@ -74,7 +70,6 @@ public interface AbstractResource extends ModelElement {
      * Initialize the element to reference an external resource.
      * <p>
      * Use the returned handle to access the external resource content.
-     * 
      * @param resourceLocation The resource location. Must be either an absolute file path or an {@link java.net.URI}.
      * @return a handle to access the resource content.
      */
@@ -86,7 +81,6 @@ public interface AbstractResource extends ModelElement {
      * <p>
      * Embedded resources are stored with the model and are managed in version if the model is
      * in a SVN repository.
-     * 
      * @return whether the resource is embedded.
      */
     @objid ("81b69c09-0325-435f-a967-967c7ba7128f")

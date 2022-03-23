@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.contributor;
 
 import java.util.List;
@@ -43,7 +42,6 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public interface IWizardContributor {
     /**
      * Execute the creation action.
-     * 
      * @param context the model element on which the wizard is run
      * @param name the name of the element to create.
      * @param description the description of the element to create.
@@ -54,7 +52,6 @@ public interface IWizardContributor {
 
     /**
      * Get a complete textual explanation of the contributior's role or function.
-     * 
      * @return the contribution's role or function.
      */
     @objid ("d27e968a-f065-4968-ab50-4bad191ceab0")
@@ -62,7 +59,6 @@ public interface IWizardContributor {
 
     /**
      * Get a URL to some 'help' or 'documentation' page about the behavior and usage of the contributor. The URL is relative to the help system 'root'.
-     * 
      * @return the help URL.
      */
     @objid ("9ab0cfb2-8b4c-4d2b-a15c-c47e9eb65d57")
@@ -71,7 +67,6 @@ public interface IWizardContributor {
     /**
      * The contributor's icon.
      * Lifecycle: the image lifecycle is not dealt with at all by the wizard for this image.
-     * 
      * @return the contributor small icon
      */
     @objid ("0490d12d-2a1b-4765-9c57-8626e358a7cb")
@@ -81,7 +76,6 @@ public interface IWizardContributor {
      * Get a short textual explanation of the contributor's role or function.
      * <p>
      * This text is displayed in the panel header. Must be short (one line). Must be I18n'ed.
-     * 
      * @return the short explanation.
      */
     @objid ("4ceed4d6-4e26-429b-ab1d-300e2830dbea")
@@ -89,7 +83,6 @@ public interface IWizardContributor {
 
     /**
      * Get the label to be displayed for the contributor by the Creation Wizard in its "type" browser. Must be I18n'ed.
-     * 
      * @return the label to be displayed
      */
     @objid ("a6e56c11-967d-4a5a-b9ad-55994175d762")
@@ -97,7 +90,6 @@ public interface IWizardContributor {
 
     /**
      * Get the module that is providing this contributor.
-     * 
      * @return the module that contributed this contribution, or null if the contributor was not provided by a Module.
      */
     @objid ("20abf057-f79a-4e5e-8c67-98fb9a034502")
@@ -105,7 +97,6 @@ public interface IWizardContributor {
 
     /**
      * Get the preview image of this contributor. The
-     * 
      * @return a preview image to display in the wizard or null.
      */
     @objid ("587a10b0-209e-4a0b-9f73-f166d7eba51b")
@@ -113,7 +104,6 @@ public interface IWizardContributor {
 
     /**
      * Get the valid scopes for this contributor, ie the (metaclass+stereotype) combinations which are accepted as 'context' in {@link #accept(MObject)} and {@link #actionPerformed(ModelElement, String, String)}
-     * 
      * @return the scopes this wizard applies to
      */
     @objid ("e27f9a3d-fbdd-4adc-8720-3f75aef1478d")
@@ -121,7 +111,6 @@ public interface IWizardContributor {
 
     /**
      * Set a textual explanation of the contribution's role or function.
-     * 
      * @param details a textual explanation
      */
     @objid ("ab067d70-abe7-4997-a9dc-9a23488e53ad")
@@ -137,7 +126,6 @@ public interface IWizardContributor {
      * Get a short textual explanation of the contribution's role or function.
      * <p>
      * This text is displayed in the panel header.
-     * 
      * @param information the short explanation.
      */
     @objid ("f15104d6-e8d6-4ce5-8f82-4e7138deb6ff")
@@ -169,7 +157,6 @@ public interface IWizardContributor {
 
     /**
      * This method checks if an element is accepted.
-     * 
      * @param main the model element to check.
      * @return <code>true</code> if the element is accepted.
      */
@@ -178,7 +165,6 @@ public interface IWizardContributor {
 
     /**
      * Get the GUI panel to display in the wizard.
-     * 
      * @return the wizard panel to display.
      * @since 3.4
      */
@@ -201,7 +187,6 @@ public interface IWizardContributor {
 
     /**
      * Get the type of element which is created by this contributor.
-     * 
      * @return a descriptor indicating which element type is created by the contribution.
      */
     @objid ("9e6a023d-c481-44df-aaa6-73ea6cd09290")
@@ -209,7 +194,6 @@ public interface IWizardContributor {
 
     /**
      * Sets the contributor icon. Lifecycle: the actual image for the icon is created by the Wizard GUI from the given descriptor and freed when necessary.
-     * 
      * @param iconDescriptor this wizard contribution icon
      */
     @objid ("6ffcb2c8-2f69-4beb-afe4-32ea9db259cf")
@@ -217,7 +201,6 @@ public interface IWizardContributor {
 
     /**
      * Get the id of the creator that is used by this contributor {@link IModelViewTemplate}. Optional, empty string means no creator defined.
-     * 
      * @return the creator id or an empty string if the contributor is not using a predefined creator.
      * 
      * @since 4.1.0
@@ -234,7 +217,6 @@ public interface IWizardContributor {
 
     /**
      * The contributor's icon. Lifecycle: the image is created by the Wizard GUI from the given descriptor and freed when necessary.
-     * 
      * @return the contributor small icon
      */
     @objid ("29ea9b9b-b198-4678-a1b0-c4608e60c618")

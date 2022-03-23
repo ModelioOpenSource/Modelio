@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import java.util.List;
@@ -40,7 +39,7 @@ public class EPin extends EActivityNode {
     }
 
     @objid ("4caadcec-592b-4985-84be-3d3255e174e9")
-    public EPin(org.eclipse.uml2.uml.Pin element) {
+    public  EPin(org.eclipse.uml2.uml.Pin element) {
         super(element);
     }
 
@@ -54,6 +53,7 @@ public class EPin extends EActivityNode {
         setExpansionEAnnotation((Pin) objingElt);
         setMatched((Pin) objingElt);
         setUpperBound((Pin) objingElt);
+        
     }
 
     @objid ("b70e5753-cb8e-4b59-b784-0dca3152d67c")
@@ -72,6 +72,7 @@ public class EPin extends EActivityNode {
                     pin.setUpperBound(stringValue);
             }
         }
+        
     }
 
     @objid ("f9ddac42-6148-469f-a104-deae36b68e3e")
@@ -121,6 +122,7 @@ public class EPin extends EActivityNode {
                 }
             }
         }
+        
     }
 
 }

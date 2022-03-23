@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.editors.service;
 
 import java.io.File;
@@ -39,7 +38,7 @@ public class MDATextEditor implements IMDATextEditor, IEditorListener {
     private IMDAEditorListener listener = null;
 
     @objid ("7b4b92ae-2a77-11e2-9fb9-bc305ba4815c")
-    private IDocumentInput oInput = null;
+    private IDocumentInput oInput;
 
     @objid ("7b4b92af-2a77-11e2-9fb9-bc305ba4815c")
     private MPart editorPart;
@@ -48,10 +47,12 @@ public class MDATextEditor implements IMDATextEditor, IEditorListener {
     private ModelElement element;
 
     @objid ("7b4b92b0-2a77-11e2-9fb9-bc305ba4815c")
-    public MDATextEditor(IDocumentInput input, MPart part) {
-        this.oInput = input;
+    public  MDATextEditor(IDocumentInput input, MPart part, EditorType type) {
         this.editorPart = part;
+        this.type = type;
+        this.oInput = input;
         this.oInput.setSaveListener(this);
+        
     }
 
     @objid ("7b4b92b4-2a77-11e2-9fb9-bc305ba4815c")
@@ -81,8 +82,9 @@ public class MDATextEditor implements IMDATextEditor, IEditorListener {
     @objid ("7b4b92c4-2a77-11e2-9fb9-bc305ba4815c")
     @Override
     public void setReadonlyMode(boolean readOnly) {
-        IDocumentEditor editor = (IDocumentEditor)this.editorPart.getObject();
+        IDocumentEditor editor = (IDocumentEditor) this.editorPart.getObject();
         editor.setReadonlyMode(readOnly);
+        
     }
 
     @objid ("7b4b92c8-2a77-11e2-9fb9-bc305ba4815c")
@@ -114,6 +116,7 @@ public class MDATextEditor implements IMDATextEditor, IEditorListener {
         if (this.listener != null) {
             this.listener.documentSaved(this, this.element, file);
         }
+        
     }
 
     @objid ("c1cd9c8f-2e5d-11e2-a8ff-bc305ba4815c")
@@ -123,6 +126,7 @@ public class MDATextEditor implements IMDATextEditor, IEditorListener {
             this.listener.editorClosed(this);
         }
         this.listener = null;
+        
     }
 
     @objid ("c10a986e-3003-11e2-a3ce-bc305ba4815c")

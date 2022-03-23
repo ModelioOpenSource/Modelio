@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.model.spi.mm;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,10 +44,11 @@ public abstract class AbstractMofRepositoryMigrator implements IMofRepositoryMig
      * @param targetMetamodel the target metamodel
      */
     @objid ("dab9b2d8-6853-4bbb-8621-61e32d111ac2")
-    public AbstractMofRepositoryMigrator(MetamodelVersionDescriptor fromMetamodel, MetamodelVersionDescriptor targetMetamodel) {
+    public  AbstractMofRepositoryMigrator(MetamodelVersionDescriptor fromMetamodel, MetamodelVersionDescriptor targetMetamodel) {
         this.fromMetamodel = fromMetamodel;
         this.targetMetamodel = targetMetamodel;
         this.metamodelChangeDescriptor = new MetamodelChangeDescriptor();
+        
     }
 
     /**
@@ -80,9 +80,8 @@ public abstract class AbstractMofRepositoryMigrator implements IMofRepositoryMig
 
     /**
      * Modify the metamodel so that it can read the {@link #getSourceMetamodel()} repository.
-     * 
      * @param metamodel the metamodel at the {@link #getTargetMetamodel() target} state.
-     * @throws org.modelio.vcore.model.spi.mm.MofMigrationException on fatal failure preventing migration
+     * @throws MofMigrationException on fatal failure preventing migration
      */
     @objid ("1ace3f1f-715c-4ba6-8d40-b818959c8e21")
     @Override
@@ -92,7 +91,6 @@ public abstract class AbstractMofRepositoryMigrator implements IMofRepositoryMig
 
     /**
      * Migrates the given repository using the given session.
-     * 
      * @param monitor a progress monitor
      * @param session the migration session
      */
@@ -104,7 +102,6 @@ public abstract class AbstractMofRepositoryMigrator implements IMofRepositoryMig
 
     /**
      * Set the metamodel changes descriptor.
-     * 
      * @param changes the metamodel changes descriptor.
      * @return this instance
      */

@@ -17,13 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.sequence;
 
 import java.util.Collection;
 import java.util.Collections;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.geometry.Point;
+import org.modelio.api.modelio.diagram.IDiagramLink.ExtensionRole;
+import org.modelio.api.modelio.diagram.IDiagramLink.LinkRouterKind;
 import org.modelio.api.modelio.diagram.ILinkPath;
 import org.modelio.api.modelio.diagram.InvalidDestinationPointException;
 import org.modelio.api.modelio.diagram.InvalidPointsPathException;
@@ -45,7 +46,7 @@ public class MessageDG extends DiagramLink {
      * @param link The gm link represented by this class.
      */
     @objid ("95bfc49c-07a7-4756-adad-8e2bbb9bd988")
-    public MessageDG(DiagramHandle diagramHandle, IGmLink link) {
+    public  MessageDG(DiagramHandle diagramHandle, IGmLink link) {
         super(diagramHandle, link);
     }
 
@@ -95,6 +96,7 @@ public class MessageDG extends DiagramLink {
             return Collections.emptyList();
         
         }
+        
     }
 
 }

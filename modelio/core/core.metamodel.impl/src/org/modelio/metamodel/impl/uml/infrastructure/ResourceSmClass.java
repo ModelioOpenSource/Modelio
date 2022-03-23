@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.infrastructure.AbstractResourceSmClass;
 import org.modelio.metamodel.uml.infrastructure.AbstractResource;
 import org.modelio.metamodel.uml.infrastructure.Resource;
 import org.modelio.vbasic.version.Version;
@@ -42,7 +41,7 @@ import org.modelio.vcore.smkernel.meta.smannotations.SmDirective;
 @objid ("955a8b5f-9725-4702-8ec9-55a39db52af4")
 public class ResourceSmClass extends AbstractResourceSmClass {
     @objid ("3156eb38-e993-43ef-b575-733e8240a276")
-    public ResourceSmClass(ISmMetamodelFragment origin) {
+    public  ResourceSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -50,6 +49,7 @@ public class ResourceSmClass extends AbstractResourceSmClass {
     @Override
     public String getName() {
         return "Resource";
+        
     }
 
     @objid ("e80390cc-a7ee-443c-8733-029068302b79")
@@ -62,18 +62,21 @@ public class ResourceSmClass extends AbstractResourceSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return Resource.class;
+        
     }
 
     @objid ("3e768d20-572f-4ff5-9f12-6eeb2e852e15")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("91dfed00-5dc5-483d-82ae-8509d442db35")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("d39cfaab-fbd2-46d6-8c29-9d384eaf059a")
@@ -86,6 +89,7 @@ public class ResourceSmClass extends AbstractResourceSmClass {
         // Initialize and register the SmAttribute
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("4da3cc9f-58df-4d50-b4d7-50884103a404")
@@ -94,7 +98,7 @@ public class ResourceSmClass extends AbstractResourceSmClass {
         private ResourceSmClass smClass;
 
         @objid ("5c208899-9a62-4629-b563-487ce93ba314")
-        public ResourceObjectFactory(ResourceSmClass smClass) {
+        public  ResourceObjectFactory(ResourceSmClass smClass) {
             this.smClass = smClass;
         }
 

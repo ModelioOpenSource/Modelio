@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.symbol.panel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -49,7 +48,6 @@ interface ISymbolPanelModel {
 
     /**
      * Contains the current selection and computations about the selection.
-     * 
      * @return the symbol panel selection.
      */
     @objid ("8970a5e0-bc1d-4a23-ae04-2630d96a5ad3")
@@ -63,7 +61,6 @@ interface ISymbolPanelModel {
 
     /**
      * Tells from the selected graphic model and the edited style whether style extraction should create a theme or a style.
-     * 
      * @return true if a theme should be created, false if a style should be created.
      */
     @objid ("c3f83512-a9d9-41d7-b2ab-4c4aa7efcc10")
@@ -79,11 +76,11 @@ interface ISymbolPanelModel {
         } else {
             return selectedSymbol instanceof IGmDiagram;
         }
+        
     }
 
     /**
      * Walk the parent style hierarchy until a NamedStyle is found.
-     * 
      * @param s a style.
      * @return the named style the given style is based on.
      */
@@ -95,6 +92,7 @@ interface ISymbolPanelModel {
             }
         }
         throw new IllegalArgumentException(String.format("%s style has no named style in its parent hierarchy.", s));
+        
     }
 
     /**

@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.structuredactivitynode;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("bdf50b00-893c-4015-b22e-78595230db6d")
 public class UML2SequenceNode {
-    @objid ("052b3b67-5551-4cae-ae98-17b03c02d871")
+    @objid ("9a5adc79-deb0-4774-99e1-b53d21813526")
     public static final String STEREOTYPE_NAME = "UML2SequenceNode";
 
     /**
      * The underlying {@link StructuredActivityNode} represented by this proxy, never null.
      */
-    @objid ("5e1cac9b-79e0-42dd-8478-b795f3e8c104")
+    @objid ("ca5966dc-0a04-4cbf-bd81-0937e5c75b84")
     protected final StructuredActivityNode elt;
 
     /**
      * Tells whether a {@link UML2SequenceNode proxy} can be instantiated from a {@link MObject} checking it is a {@link StructuredActivityNode} stereotyped << UML2SequenceNode >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("3800c1fa-139a-4f81-b41b-321dce4230f4")
+    @objid ("ae1b7126-6d0f-4d69-81ed-543457b02966")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof StructuredActivityNode) && ((StructuredActivityNode) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2SequenceNode.STEREOTYPE_NAME));
     }
@@ -77,9 +75,9 @@ public class UML2SequenceNode {
      * 
      * @return a {@link UML2SequenceNode} proxy on the created {@link StructuredActivityNode}.
      */
-    @objid ("d3126953-b807-4490-9be7-1a66d54951fb")
+    @objid ("7c7a023e-f06c-41f4-93ad-4b894dbed2bd")
     public static UML2SequenceNode create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("StructuredActivityNode");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.StructuredActivityNode");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2SequenceNode.STEREOTYPE_NAME);
         return UML2SequenceNode.instantiate((StructuredActivityNode)e);
     }
@@ -91,7 +89,7 @@ public class UML2SequenceNode {
      * @param obj a StructuredActivityNode
      * @return a {@link UML2SequenceNode} proxy or <i>null</i>.
      */
-    @objid ("2ce03fa2-8a71-4047-8cc0-d7525e316132")
+    @objid ("727095d6-f71a-40be-bc0a-237f6dcfd0cc")
     public static UML2SequenceNode instantiate(StructuredActivityNode obj) {
         return UML2SequenceNode.canInstantiate(obj) ? new UML2SequenceNode(obj) : null;
     }
@@ -104,7 +102,7 @@ public class UML2SequenceNode {
      * @return a {@link UML2SequenceNode} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("99d5b05d-1c4c-41d2-887c-c953a8715e28")
+    @objid ("8de99ba9-5ed2-408e-9d2a-1e3ea06c9e74")
     public static UML2SequenceNode safeInstantiate(StructuredActivityNode obj) throws IllegalArgumentException {
         if (UML2SequenceNode.canInstantiate(obj))
         	return new UML2SequenceNode(obj);
@@ -112,7 +110,7 @@ public class UML2SequenceNode {
         	throw new IllegalArgumentException("UML2SequenceNode: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("6023842d-37cc-4c17-a9ef-e7da10e2b853")
+    @objid ("63ca779b-94fd-414b-8b1c-d0b1c2486102")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,46 +130,47 @@ public class UML2SequenceNode {
      * Get the underlying {@link StructuredActivityNode}. 
      * @return the StructuredActivityNode represented by this proxy, never null.
      */
-    @objid ("b14c27e5-abb2-4dcf-8a1d-8d1770b1d257")
+    @objid ("abbf7c78-5ce6-4094-940c-655efdfdf6a4")
     public StructuredActivityNode getElement() {
         return this.elt;
     }
 
-    @objid ("ce2804a7-e8f8-4e87-84fa-6d9915070cfb")
+    @objid ("51e96938-4aac-4a57-bdf8-51a73f0bcaee")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("919ef998-9de8-40b8-8ebc-d3da86898f3d")
-    protected UML2SequenceNode(StructuredActivityNode elt) {
+    @objid ("fe45e391-450a-4fae-a4b5-ad9c6ece3120")
+    protected  UML2SequenceNode(StructuredActivityNode elt) {
         this.elt = elt;
     }
 
     @objid ("01ac84f0-0cf7-4434-b841-53d0f299b742")
     public static final class MdaTypes {
-        @objid ("8dce66b7-61aa-444e-b389-213e00cac8bf")
+        @objid ("f4b37e1e-1903-4e18-b35e-8d7d990f971d")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("07f5af2e-7aa2-426f-b47a-48913c95fe20")
+        @objid ("24701509-331d-4662-bd72-6f14e731d4f6")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("902918b3-61a6-4b18-b577-9c3ec5d9596d")
+        @objid ("ed305f80-a923-4ab9-a982-1b2ba85c6bd3")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("95c2e201-49ee-4153-9908-362cde968469")
+        @objid ("ee799acf-6544-4427-a006-5944bad8cf0d")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "fca54004-5d0d-11df-a996-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

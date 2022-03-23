@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.lifecycle;
 
 import java.util.Map;
@@ -34,9 +33,8 @@ public interface IModuleLifeCycleHandler {
     /**
      * Called when the mdac is selected, which corresponds to the user action
      * "Deploy a mdac...".
-     * 
      * @return if the mdac accepts to be selected
-     * @throws org.modelio.api.module.lifecycle.ModuleException when an error occurs preventing the module from being
+     * @throws ModuleException when an error occurs preventing the module from being
      * selected.
      */
     @objid ("01f40414-0000-328f-0000-000000000000")
@@ -49,9 +47,8 @@ public interface IModuleLifeCycleHandler {
      * <li>the project has just been opened
      * <li>the mdac has finished to be upgraded from a previous version
      * </ul>
-     * 
      * @return if the mdac accepts to be started
-     * @throws org.modelio.api.module.lifecycle.ModuleException when an error occurs preventing the module from starting.
+     * @throws ModuleException when an error occurs preventing the module from starting.
      */
     @objid ("01f40414-0000-3294-0000-000000000000")
     boolean start() throws ModuleException;
@@ -63,16 +60,14 @@ public interface IModuleLifeCycleHandler {
      * <li>the project is being closed
      * <li>the mdac is going to be upgraded to another version
      * </ul>
-     * 
-     * @throws org.modelio.api.module.lifecycle.ModuleException when an error occurs preventing the module from stopping.
+     * @throws ModuleException when an error occurs preventing the module from stopping.
      */
     @objid ("01f40414-0000-3299-0000-000000000000")
     void stop() throws ModuleException;
 
     /**
      * Called when the mdac is deselected from the project.
-     * 
-     * @throws org.modelio.api.module.lifecycle.ModuleException when an error occurs preventing the module from being
+     * @throws ModuleException when an error occurs preventing the module from being
      * unselected.
      */
     @objid ("01f40414-0000-329c-0000-000000000000")
@@ -80,10 +75,9 @@ public interface IModuleLifeCycleHandler {
 
     /**
      * Called when the mdac is being upgraded from a previous version.
-     * 
      * @param oldVersion The previous version of the MDAC
      * @param oldParameters The previous list of parameters (key, value)
-     * @throws org.modelio.api.module.lifecycle.ModuleException when an error occurs preventing the module from being
+     * @throws ModuleException when an error occurs preventing the module from being
      * upgraded.
      */
     @objid ("01f40414-0000-329f-0000-000000000000")
@@ -91,7 +85,6 @@ public interface IModuleLifeCycleHandler {
 
     /**
      * Called when a module parameter value has changed.
-     * 
      * @param pName The name of the parameter whose value changed.
      * @param oldValue The previous value of the parameter value. Can be <code>null</code>.
      * @param newValue The new value of the parameter value. Can be <code>null</code>.

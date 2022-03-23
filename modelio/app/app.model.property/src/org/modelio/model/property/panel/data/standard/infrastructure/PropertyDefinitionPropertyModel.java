@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel.data.standard.infrastructure;
 
 import java.util.ArrayList;
@@ -64,22 +63,20 @@ public class PropertyDefinitionPropertyModel extends AbstractPropertyModel<Prope
      */
     @objid ("dcf60120-e41c-452b-a58d-c4f0929834db")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name", "Type",
-	        "DefaultValue", "IsEditable", "Metaclass", "Stereotype" };
+    	        "DefaultValue", "IsEditable", "Metaclass", "Stereotype" };
 
     /**
      * Create a new <i>PropertyDefinition</i> data model from an
      * <i>PropertyDefinition</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("624bb0e9-1c6c-4b63-8059-0f427f8a0d0c")
-    public PropertyDefinitionPropertyModel(PropertyDefinition theEditedElement) {
+    public  PropertyDefinitionPropertyModel(PropertyDefinition theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("20b4ab93-57e5-4f72-b91c-625233ae26b3")
@@ -90,7 +87,6 @@ public class PropertyDefinitionPropertyModel extends AbstractPropertyModel<Prope
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("428db300-f67f-41ba-b64f-7af0465ca9f9")
@@ -103,13 +99,13 @@ public class PropertyDefinitionPropertyModel extends AbstractPropertyModel<Prope
             // Ignore 'metaclass' and 'stereotype' fields for non-element properties
             return PropertyDefinitionPropertyModel.PROPERTIES.length - 2;
         }
+        
     }
 
     /**
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -152,6 +148,7 @@ public class PropertyDefinitionPropertyModel extends AbstractPropertyModel<Prope
         default:
             return null;
         }
+        
     }
 
     /**
@@ -161,7 +158,6 @@ public class PropertyDefinitionPropertyModel extends AbstractPropertyModel<Prope
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -224,13 +220,13 @@ public class PropertyDefinitionPropertyModel extends AbstractPropertyModel<Prope
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -271,6 +267,7 @@ public class PropertyDefinitionPropertyModel extends AbstractPropertyModel<Prope
         default:
             return;
         }
+        
     }
 
     @objid ("301ef5f8-a1af-44de-bc0b-cc3dbf3e64c9")

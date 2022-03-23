@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.project.services.workspace;
 
 import java.io.File;
@@ -59,7 +58,7 @@ public class WorkspaceService implements IWorkspaceService {
     private Path workspace;
 
     @objid ("28bbf1b8-8b77-4484-8291-3b1a14723032")
-    public WorkspaceService(Path initialWorkspace) {
+    public  WorkspaceService(Path initialWorkspace) {
         this.workspace = initialWorkspace;
     }
 
@@ -88,6 +87,7 @@ public class WorkspaceService implements IWorkspaceService {
                 throw new IllegalArgumentException("Invalid workspace path: " + workspacePath);
             }
         }
+        
     }
 
     @objid ("44289020-da16-41da-ba85-823c5f2e42c5")
@@ -104,10 +104,11 @@ public class WorkspaceService implements IWorkspaceService {
         
         FileUtils.delete(projectToDelete.getProjectFileStructure().getProjectPath());
         refreshWorkspace(null);
+        
     }
 
     /**
-     * @throws java.io.IOException in case of I/O failure.
+     * @throws IOException in case of I/O failure.
      */
     @objid ("0089fb8e-8c65-103c-a520-001ec947cd2a")
     @Override
@@ -124,6 +125,7 @@ public class WorkspaceService implements IWorkspaceService {
         zipper.compress(projectToExport.getProjectFileStructure().getProjectPath(), skipDirectoryMatchers, null, monitor, null);
         
         AppProjectCore.LOG.info("Exported archive '%s' %,d bytes.", archivePath, Files.size(archivePath));
+        
     }
 
     @objid ("0080f426-acc2-103b-a520-001ec947cd2a")
@@ -145,6 +147,7 @@ public class WorkspaceService implements IWorkspaceService {
         if (projectToSelect != null) {
             this.projectServiceAccess.postAsyncEvent(ModelioEvent.WORKSPACE_NAVIGATE, projectToSelect);
         }
+        
     }
 
     @objid ("ddfed9a9-bcb8-4683-9326-13ed63566396")
@@ -165,6 +168,7 @@ public class WorkspaceService implements IWorkspaceService {
         
         // Notify workspace for refresh
         refreshWorkspace(name);
+        
     }
 
     /**
@@ -173,7 +177,6 @@ public class WorkspaceService implements IWorkspaceService {
      * <li>use the last used workspace as saved in the preferences</li>
      * <li>default to user's home directory otherwise</li>
      * </ol>
-     * 
      * @return the workspace path
      */
     @objid ("0035c4b0-7baa-10b3-9941-001ec947cd2a")
@@ -200,7 +203,6 @@ public class WorkspaceService implements IWorkspaceService {
 
     /**
      * Write the workspace preferences
-     * 
      * @param workspace the workspace path
      */
     @objid ("0035eddc-7baa-10b3-9941-001ec947cd2a")
@@ -215,10 +217,12 @@ public class WorkspaceService implements IWorkspaceService {
                 AppProjectCore.LOG.error(e);
             }
         }
+        
     }
 
     @objid ("849dd81c-478d-48a1-9588-6afd796b0995")
-    public WorkspaceService() {
+    public  WorkspaceService() {
+        
     }
 
 }

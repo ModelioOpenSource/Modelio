@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.api.services;
 
 import java.util.ArrayList;
@@ -25,7 +24,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.draw2d.Bendpoint;
 import org.eclipse.draw2d.Connection;
 import org.eclipse.draw2d.ConnectionAnchor;
 import org.eclipse.draw2d.IFigure;
@@ -33,6 +31,7 @@ import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.gef.ConnectionEditPart;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.GraphicalEditPart;
+import org.eclipse.gef.NodeEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.commands.Command;
@@ -41,32 +40,33 @@ import org.eclipse.gef.requests.ReconnectRequest;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.modelio.api.modelio.diagram.IDiagramLink;
+import org.modelio.api.modelio.diagram.IDiagramLink.ExtensionRole;
+import org.modelio.api.modelio.diagram.IDiagramLink.LinkRouterKind;
 import org.modelio.api.modelio.diagram.IDiagramNode;
 import org.modelio.api.modelio.diagram.ILinkPath;
+import org.modelio.api.modelio.diagram.ILinkRoute;
+import org.modelio.api.modelio.diagram.ILinkRouteBuilder;
 import org.modelio.api.modelio.diagram.InvalidDestinationPointException;
 import org.modelio.api.modelio.diagram.InvalidPointsPathException;
 import org.modelio.api.modelio.diagram.InvalidSourcePointException;
 import org.modelio.api.modelio.diagram.style.IStyleHandle;
 import org.modelio.diagram.api.dg.DGFactory;
 import org.modelio.diagram.api.dg.LinkPath;
+import org.modelio.diagram.api.dg.LinkRoute;
+import org.modelio.diagram.api.dg.LinkRouteBuilder;
 import org.modelio.diagram.api.style.StyleHandle;
 import org.modelio.diagram.elements.common.abstractdiagram.GmAbstractDiagram;
-import org.modelio.diagram.elements.core.figures.anchors.ISlidableAnchor;
-import org.modelio.diagram.elements.core.link.GmPath;
-import org.modelio.diagram.elements.core.link.IAnchorModelProvider;
-import org.modelio.diagram.elements.core.link.path.BendPointUtils;
-import org.modelio.diagram.elements.core.link.path.ConnectionHelperFactory;
-import org.modelio.diagram.elements.core.link.path.IConnectionHelper;
-import org.modelio.diagram.elements.core.link.path.RawPathData;
+import org.modelio.diagram.elements.core.figures.anchors.RaySlidableAnchor;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.model.IGmNode;
 import org.modelio.diagram.elements.core.model.IGmPath;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
+import org.modelio.diagram.elements.core.requests.CreateLinkConstants;
 import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.diagram.styles.core.NamedStyle;
+import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.diagram.styles.core.StyleKey.ConnectionRouterId;
 import org.modelio.diagram.styles.core.StyleKey.LinePattern;
-import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.diagram.styles.plugin.DiagramStyles;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
@@ -77,55 +77,40 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 public abstract class DiagramAbstractLink extends DiagramGraphic implements IDiagramLink {
     /**
      * Return the path of the current link.
-     * 
      * @return The LinkPath that represent the path of the current link.
      */
     @objid ("4a911be1-494e-40f2-a488-dc184896c2c3")
     @Override
     public ILinkPath getPath() {
-        final LinkPath linkPath = new LinkPath();
-        final List<Point> points = new ArrayList<>();
-        
         final ConnectionEditPart editPart = getConnectionEditPart();
         final Connection cnx = (Connection) editPart.getFigure();
-        
-        final ConnectionAnchor sourceAnchor = cnx.getSourceAnchor();
-        
-        final ConnectionAnchor targetAnchor = cnx.getTargetAnchor();
-        
-        final IConnectionHelper helper = ConnectionHelperFactory.createFromSerializedData(getModelPath().getRouterKind(), editPart, cnx);
-        
-        List<Bendpoint> bps = BendPointUtils.toDraw2dConstraint(helper.getModelBendPoints());
-        bps.forEach(bp -> points.add(bp.getLocation().getCopy()));
-        
-        // Source point
-        if (points.isEmpty()) {
-            Point.SINGLETON.setLocation(sourceAnchor.getLocation(targetAnchor.getReferencePoint()));
-        } else {
-            Point.SINGLETON.setLocation(points.get(0));
-            cnx.translateToAbsolute(Point.SINGLETON);
-            Point.SINGLETON.setLocation(sourceAnchor.getLocation(Point.SINGLETON));
-        }
-        cnx.translateToRelative(Point.SINGLETON);
-        points.add(0, Point.SINGLETON.getCopy());
-        
-        // Target point
-        Point.SINGLETON.setLocation(points.get(points.size() - 1));
-        cnx.translateToAbsolute(Point.SINGLETON);
-        Point.SINGLETON.setLocation(targetAnchor.getLocation(Point.SINGLETON));
-        cnx.translateToRelative(Point.SINGLETON);
-        points.add(Point.SINGLETON.getCopy());
-        
-        linkPath.setPoints(points);
+        final LinkPath linkPath = new LinkPath(cnx);
         return linkPath;
+    }
+
+    @objid ("13f44d9b-3a5a-45b1-84af-9985697c013e")
+    @Override
+    public ILinkRoute getRoute() {
+        return new LinkRoute(getConnectionEditPart());
+    }
+
+    @objid ("4bd03d97-6e7e-4595-b73c-54a4e45c287d")
+    @Override
+    public ILinkRouteBuilder buildRoute() {
+        return new LinkRouteBuilder(getConnectionEditPart());
+    }
+
+    @objid ("93c87f39-dfe0-4966-b83d-82c5faa54094")
+    @Override
+    public void setRoute(ILinkRoute linkPath) throws InvalidSourcePointException, InvalidPointsPathException, InvalidDestinationPointException {
+        ((LinkRoute) linkPath).apply(getConnectionEditPart());
     }
 
     /**
      * Route the path of a link.
      * 
-     * This method computes a path so that the link goes through the whole list of points. the router referenced by the current Link is an orthogonal router the path will have orthogonal angles. the router referenced by the current Link is a direct router
-     * this method is equivalent to the setPath method.
-     * 
+     * This method computes a path so that the link goes through the whole list of points. If the router referenced by the current Link is an orthogonal router the path will have orthogonal angles. If the router referenced by the current Link is a direct
+     * router this method is equivalent to the setPath method.
      * @param points A collection of points that must be on the link path.
      */
     @objid ("ae930fec-2b07-434c-b2c3-839f120b09c6")
@@ -135,80 +120,87 @@ public abstract class DiagramAbstractLink extends DiagramGraphic implements IDia
         path.setPoints(points);
         try {
             setPath(path);
-        } catch (final InvalidPointsPathException e) {
-            throw new IllegalArgumentException(e.getLocalizedMessage(), e);
-        } catch (final InvalidSourcePointException e) {
-            throw new IllegalArgumentException(e.getLocalizedMessage(), e);
-        } catch (final InvalidDestinationPointException e) {
+        } catch (InvalidPointsPathException | InvalidSourcePointException | InvalidDestinationPointException e) {
             throw new IllegalArgumentException(e.getLocalizedMessage(), e);
         }
+        
     }
 
     /**
      * Set the path of a link.
      * 
      * This method tries to set the current link path.
-     * 
-     * @throws org.modelio.api.modelio.diagram.InvalidSourcePointException If the source point is invalid.
-     * @throws org.modelio.api.modelio.diagram.InvalidPointsPathException If the given path is invalid with the router type associated with the current link.
-     * @throws org.modelio.api.modelio.diagram.InvalidDestinationPointException If the destination point is invalid.
+     * @throws InvalidSourcePointException If the source point is invalid.
+     * @throws InvalidPointsPathException If the given path is invalid with the router type associated with the current link.
+     * @throws InvalidDestinationPointException If the destination point is invalid.
      */
     @objid ("8fb92ab3-249d-45a9-a0dd-c3461c867301")
     @Override
     public void setPath(ILinkPath linkPath) throws InvalidSourcePointException, InvalidPointsPathException, InvalidDestinationPointException {
         final List<Point> points = new ArrayList<>(linkPath.getPoints());
-        if (points.size() < 2) {
+        int npoints = points.size();
+        if (npoints < 2) {
             throw new InvalidPointsPathException("You must have at least a source and a destination point");
         }
         
-        final ConnectionEditPart editPart = getConnectionEditPart();
-        final Connection cnx = (Connection) editPart.getFigure();
+        ILinkRoute route = new LinkRoute(getConnectionEditPart())
+                .clearBendPoints()
+                .setSourceAnchor(points.get(0), true)
+                .setTargetAnchor(points.get(npoints - 1), true);
         
-        final RawPathData rawPath = new RawPathData();
-        rawPath.setRoutingMode(getModelPath().getRouterKind());
-        
-        // Remove the first point and move the source anchor
-        Point sourceLocation = points.get(0).getCopy();
-        setSourceLocation(sourceLocation);
-        rawPath.setSrcPoint(sourceLocation);
-        points.remove(0);
-        
-        // Remove the last point and move the target anchor
-        Point targetLocation = points.get(points.size() - 1).getCopy();
-        setTargetLocation(targetLocation);
-        rawPath.setLastPoint(targetLocation);
-        points.remove(points.size() - 1);
-        
-        for (Point relativePoint : points) {
-            Point.SINGLETON.setLocation(relativePoint);
-            editPart.getFigure().translateToAbsolute(Point.SINGLETON);
-            rawPath.getPath().add(Point.SINGLETON.getCopy());
+        for (int i = 1; i < npoints - 1; i++) {
+            route.addBendPoint(points.get(i));
         }
         
-        final IConnectionHelper helper = ConnectionHelperFactory.createFromRawData(rawPath, cnx);
+        setRoute(route);
         
-        // Change the path
-        final GmPath newPath = new GmPath(getModelPath());
-        if (editPart.getSource() instanceof IAnchorModelProvider) {
-            ConnectionAnchor sourceAnchor = cnx.getSourceAnchor();
-            if (sourceAnchor instanceof ISlidableAnchor) {
-                ((ISlidableAnchor) sourceAnchor).setLocation(sourceLocation);
-            }
-            newPath.setSourceAnchor(((IAnchorModelProvider) editPart.getSource()).createAnchorModel(sourceAnchor));
+    }
+
+    /**
+     * Compute a new target anchor
+     * @param connectionEditPart the connection
+     * @param reqLoc a location in absolute coordinates
+     * @return a new target anchor
+     */
+    @objid ("2cfc2e7d-8027-4295-b975-49a7010db917")
+    protected ConnectionAnchor requestTargetAnchor(ConnectionEditPart connectionEditPart, Point reqLoc, boolean exact) {
+        NodeEditPart targetEditPart = (NodeEditPart) connectionEditPart.getTarget();
+        
+        ReconnectRequest reconnectRequest = new ReconnectRequest(RequestConstants.REQ_RECONNECT_TARGET);
+        reconnectRequest.setConnectionEditPart(connectionEditPart);
+        reconnectRequest.setTargetEditPart(targetEditPart);
+        reconnectRequest.setLocation(reqLoc);
+        if (exact) {
+            IFigure targetFigure = targetEditPart.getFigure();
+            reconnectRequest.getExtendedData().put(CreateLinkConstants.PROP_RECONNECT_ON_SAME_FACE,
+                    new RaySlidableAnchor(targetFigure, reqLoc.getDifference(targetFigure.getBounds().getLocation())));
         }
-        if (editPart.getTarget() instanceof IAnchorModelProvider) {
-            ConnectionAnchor targetAnchor = cnx.getTargetAnchor();
-            if (targetAnchor instanceof ISlidableAnchor) {
-                ((ISlidableAnchor) targetAnchor).setLocation(targetLocation);
-            }
-            newPath.setTargetAnchor(((IAnchorModelProvider) editPart.getTarget()).createAnchorModel(targetAnchor));
+        
+        ConnectionAnchor newAnchor = targetEditPart.getTargetConnectionAnchor(reconnectRequest);
+        return newAnchor;
+    }
+
+    /**
+     * Compute a new source anchor
+     * @param connectionEditPart the connection
+     * @param reqLoc a location in absolute coordinates
+     * @return a new target anchor
+     */
+    @objid ("1795846c-ac2c-43c8-8109-7ea43aeaaa38")
+    protected ConnectionAnchor requestSourceAnchor(ConnectionEditPart connectionEditPart, Point reqLoc, boolean exact) {
+        NodeEditPart sourceEditPart = (NodeEditPart) connectionEditPart.getSource();
+        ReconnectRequest reconnectRequest = new ReconnectRequest(RequestConstants.REQ_RECONNECT_SOURCE);
+        reconnectRequest.setConnectionEditPart(connectionEditPart);
+        reconnectRequest.setTargetEditPart(sourceEditPart);
+        reconnectRequest.setLocation(reqLoc);
+        if (exact) {
+            IFigure srcFigure = sourceEditPart.getFigure();
+            reconnectRequest.getExtendedData().put(CreateLinkConstants.PROP_RECONNECT_ON_SAME_FACE,
+                    new RaySlidableAnchor(srcFigure, reqLoc.getDifference(srcFigure.getBounds().getLocation())));
         }
         
-        newPath.setPathData(helper.getModelPathData());
-        
-        getModel().setLayoutData(newPath);
-        
-        editPart.getFigure().getUpdateManager().performValidation();
+        ConnectionAnchor newConnectionAnchor = sourceEditPart.getSourceConnectionAnchor(reconnectRequest);
+        return newConnectionAnchor;
     }
 
     /**
@@ -241,15 +233,15 @@ public abstract class DiagramAbstractLink extends DiagramGraphic implements IDia
         
             getModel().getDisplayedStyle().setProperty(styleKey, routerId);
         }
+        
     }
 
     /**
      * Creates a diagram link.
-     * 
      * @param diagramHandle The diagram manipulation class.
      */
     @objid ("97fe33c6-52b9-404c-92e0-6fb1718d4678")
-    public DiagramAbstractLink(DiagramHandle diagramHandle) {
+    protected  DiagramAbstractLink(DiagramHandle diagramHandle) {
         super(diagramHandle);
     }
 
@@ -262,20 +254,21 @@ public abstract class DiagramAbstractLink extends DiagramGraphic implements IDia
         deleteReq.setEditParts(editPart);
         
         execRequest(editPart, deleteReq);
+        
     }
 
     @objid ("defd5bff-8069-44b1-91d6-296f633251e8")
     @Override
     public boolean isPrimarySelected() {
         final GraphicalEditPart editPart = this.diagramHandle.getEditPart(getModel());
-        return (editPart.getSelected() == EditPart.SELECTED_PRIMARY);
+        return editPart.getSelected() == EditPart.SELECTED_PRIMARY;
     }
 
     @objid ("e21626a6-7af4-4d56-bb00-a965a0e3793a")
     @Override
     public boolean isSelected() {
         final GraphicalEditPart editPart = this.diagramHandle.getEditPart(getModel());
-        return (editPart.getSelected() != EditPart.SELECTED_NONE);
+        return editPart.getSelected() != EditPart.SELECTED_NONE;
     }
 
     @objid ("b2d2d523-2f4e-432d-821d-90f690df8209")
@@ -291,6 +284,7 @@ public abstract class DiagramAbstractLink extends DiagramGraphic implements IDia
         req.setLocation(absTargetPoint);
         
         execRequest(connEditPart.getTarget(), req);
+        
     }
 
     @objid ("3ef0bec5-c380-4c93-9e37-177f7bafa61c")
@@ -306,6 +300,7 @@ public abstract class DiagramAbstractLink extends DiagramGraphic implements IDia
         req.setLocation(absTargetPoint);
         
         execRequest(connEditPart.getSource(), req);
+        
     }
 
     /**
@@ -325,6 +320,7 @@ public abstract class DiagramAbstractLink extends DiagramGraphic implements IDia
         default:
             return LinkRouterKind.DIRECT;
         }
+        
     }
 
     @objid ("30fc150a-8c01-4ab9-a299-ab530433c7b3")
@@ -383,6 +379,7 @@ public abstract class DiagramAbstractLink extends DiagramGraphic implements IDia
         default:
             return 0;
         }
+        
     }
 
     @objid ("a812bbc9-cba6-4046-a69b-3d0940a0c481")
@@ -434,6 +431,7 @@ public abstract class DiagramAbstractLink extends DiagramGraphic implements IDia
             return;
         }
         getModel().getDisplayedStyle().setProperty(styleKey, value);
+        
     }
 
     @objid ("969be64f-b098-439f-aa31-86ed02f357a5")
@@ -445,6 +443,7 @@ public abstract class DiagramAbstractLink extends DiagramGraphic implements IDia
         }
         getModel().getDisplayedStyle()
                 .setProperty(styleKey, StyleKeyTypeConverter.convertFromString(styleKey, value));
+        
     }
 
     @objid ("1936eaf1-a489-4e04-93cb-e4221e2632c3")
@@ -456,6 +455,7 @@ public abstract class DiagramAbstractLink extends DiagramGraphic implements IDia
         }
         
         getModel().getDisplayedStyle().setProperty(styleKey, StyleKeyTypeConverter.convertFromString(styleKey, value));
+        
     }
 
     @objid ("b50b1962-c105-470a-82aa-6bf8ac4a8b96")
@@ -488,6 +488,7 @@ public abstract class DiagramAbstractLink extends DiagramGraphic implements IDia
         }
         
         getModel().getDisplayedStyle().setProperty(styleKey, pattern);
+        
     }
 
     @objid ("46eb0249-7c68-4f95-a56e-176ad4318109")
@@ -499,6 +500,7 @@ public abstract class DiagramAbstractLink extends DiagramGraphic implements IDia
         }
         
         getModel().getDisplayedStyle().setProperty(styleKey, value);
+        
     }
 
     @objid ("bd397417-551a-4bbe-bc21-ac7d423cc2df")
@@ -510,6 +512,7 @@ public abstract class DiagramAbstractLink extends DiagramGraphic implements IDia
         }
         
         getModel().getDisplayedStyle().setProperty(styleKey, value);
+        
     }
 
     @objid ("9bad231e-ac85-4da7-8fbe-a940a07346ce")
@@ -521,12 +524,13 @@ public abstract class DiagramAbstractLink extends DiagramGraphic implements IDia
         }
         
         getModel().getDisplayedStyle().setProperty(styleKey, StyleKeyTypeConverter.convertFromString(styleKey, value));
+        
     }
 
     @objid ("336d0253-12cf-4493-ac7b-c8afa543f0fa")
     @Override
     public IStyleHandle getStyle() {
-        final NamedStyle style = ((NamedStyle) getModel().getDisplayedStyle().getCascadedStyle());
+        final NamedStyle style = (NamedStyle) getModel().getDisplayedStyle().getCascadedStyle();
         final StyleHandle newStyle = new StyleHandle(style);
         return newStyle;
     }
@@ -536,6 +540,7 @@ public abstract class DiagramAbstractLink extends DiagramGraphic implements IDia
     public void setStyle(final IStyleHandle style) {
         final NamedStyle namedStyle = DiagramStyles.getStyleManager().getStyle(style.getName());
         getModel().getDisplayedStyle().setCascadedStyle(namedStyle);
+        
     }
 
     @objid ("886b1100-8461-4569-bd2f-10e72daad11e")
@@ -574,11 +579,11 @@ public abstract class DiagramAbstractLink extends DiagramGraphic implements IDia
             getModel().getDisplayedStyle()
                     .setProperty(key, StyleKeyTypeConverter.convertFromString(key, stringValue));
         }
+        
     }
 
     /**
      * Get the edited connection edit part.
-     * 
      * @return the edit connection edit part.
      */
     @objid ("c5ac5668-0654-4f75-a76a-b5ee5d5aa2bd")
@@ -588,7 +593,6 @@ public abstract class DiagramAbstractLink extends DiagramGraphic implements IDia
 
     /**
      * Get and execute if possible the command produced by the given request on the given edit part.
-     * 
      * @param editPart an edit part.
      * @param req a request to execute.
      */
@@ -601,6 +605,7 @@ public abstract class DiagramAbstractLink extends DiagramGraphic implements IDia
                 ((GraphicalEditPart) editPart).getFigure().getUpdateManager().performValidation();
             }
         }
+        
     }
 
     @objid ("002e02c9-e137-417b-9938-25fdcd9a48cd")
@@ -642,6 +647,7 @@ public abstract class DiagramAbstractLink extends DiagramGraphic implements IDia
         } else {
             return DGFactory.getInstance().getDiagramNodes(this.diagramHandle, n);
         }
+        
     }
 
     @objid ("844de005-a991-4f3a-a10e-4c4d75032977")
@@ -653,6 +659,7 @@ public abstract class DiagramAbstractLink extends DiagramGraphic implements IDia
         } else {
             return DGFactory.getInstance().getDiagramNode(this.diagramHandle, (GmNodeModel) n.iterator().next());
         }
+        
     }
 
     @objid ("88685879-8962-4011-a1ec-fcd5c4d1d0bb")
@@ -666,6 +673,7 @@ public abstract class DiagramAbstractLink extends DiagramGraphic implements IDia
         } else {
             return null;
         }
+        
     }
 
 }

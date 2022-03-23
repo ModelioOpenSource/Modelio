@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.handlers.align;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.e4.core.di.annotations.CanExecute;
@@ -61,7 +60,6 @@ public abstract class AbstractAlignHandler {
 
     /**
      * This method returns the effective bounds (those seen by the end user) of a figure
-     * 
      * @param figure the figure which bounds are to be returned.
      * @return a copy of the effective bounds of the figure
      */
@@ -75,7 +73,6 @@ public abstract class AbstractAlignHandler {
      * Filter the selection: when an ancestor is also in selection, remove the child.
      * That is done because any translation/resizing applied to the ancestor will already have an
      * impact on the child.
-     * 
      * @param primarySelection the primary selection
      * @param otherSelections the secondary selection that will be filtered
      */
@@ -106,11 +103,11 @@ public abstract class AbstractAlignHandler {
         } else {
             return null;
         }
+        
     }
 
     /**
      * Extract and filter the GEF selection from the Eclipse selection
-     * 
      * @param selection the Eclipse selection
      * @param otherSelections a container for the secondary selection
      * @return the primary selected edit part, or null

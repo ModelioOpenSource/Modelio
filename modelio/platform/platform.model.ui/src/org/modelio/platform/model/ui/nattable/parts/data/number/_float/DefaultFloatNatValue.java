@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.number._float;
 
 import java.security.InvalidParameterException;
@@ -31,21 +30,19 @@ import org.modelio.platform.model.ui.nattable.parts.data.DefaultNatValue;
 public class DefaultFloatNatValue extends DefaultNatValue implements IFloatNatValue {
     /**
      * Creates a new instance.
-     * 
      * @param value the wrapped value.
      */
     @objid ("59a997cf-7dfc-4963-a8cf-784c68143a15")
-    public DefaultFloatNatValue(Float value) {
+    public  DefaultFloatNatValue(Float value) {
         super(value, false);
     }
 
     /**
      * Copy constructor, creating a new instance with the same configuration as the other.
-     * 
      * @param anotherInstance the instance to copy.
      */
     @objid ("6c7d114f-0e50-4c70-8c63-be031f4ff4aa")
-    public DefaultFloatNatValue(DefaultFloatNatValue anotherInstance) {
+    public  DefaultFloatNatValue(DefaultFloatNatValue anotherInstance) {
         super(anotherInstance);
     }
 
@@ -62,6 +59,7 @@ public class DefaultFloatNatValue extends DefaultNatValue implements IFloatNatVa
             throw new InvalidParameterException("Value must be a Float.");
         }
         super.setValue(value);
+        
     }
 
 }

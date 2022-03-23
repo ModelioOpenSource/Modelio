@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.gate;
 
 import java.beans.PropertyChangeEvent;
@@ -90,6 +89,7 @@ public class GatePrimaryNodeEditPart extends AbstractNodeEditPart {
             getFigure().invalidate();
         }
         super.propertyChange(evt);
+        
     }
 
     @objid ("d8f75401-55b6-11e2-877f-002564c97630")
@@ -100,6 +100,7 @@ public class GatePrimaryNodeEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                 new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("d8f75404-55b6-11e2-877f-002564c97630")
@@ -121,6 +122,7 @@ public class GatePrimaryNodeEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         super.refreshVisuals();
         getFigure().getParent().setConstraint(getFigure(), ((GmAbstractObject) getModel()).getLayoutData());
+        
     }
 
     @objid ("d8f7540c-55b6-11e2-877f-002564c97630")
@@ -131,6 +133,7 @@ public class GatePrimaryNodeEditPart extends AbstractNodeEditPart {
                 super.refreshFromStyle(aFigure, style);
             }
         }
+        
     }
 
 }

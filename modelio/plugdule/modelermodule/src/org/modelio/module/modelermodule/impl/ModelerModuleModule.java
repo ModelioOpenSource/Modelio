@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.module.modelermodule.impl;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -73,16 +72,16 @@ public class ModelerModuleModule extends AbstractJavaModule {
      * <p>
      * <p>
      * This constructor must not be called by the user. It is automatically invoked by Modelio when the module is installed, selected or started.
-     * 
      * @param moduleContext the module's context.
      */
     @objid ("e8160f77-9187-43c5-ab4f-b3c7116a48de")
-    public ModelerModuleModule(IModuleContext moduleContext) {
+    public  ModelerModuleModule(IModuleContext moduleContext) {
         super(moduleContext);
         this.session = new ModelerModuleLifeCycleHandler(this);
         this.peerModule = new ModelerModulePeerModule(this, moduleContext.getPeerConfiguration());
         
         ModelerModuleModule.instance = this;
+        
     }
 
     @objid ("2338e2a2-5259-44d3-9ec3-2a384e9ab1ac")
@@ -186,7 +185,6 @@ public class ModelerModuleModule extends AbstractJavaModule {
 
     /**
      * Generated expert looking for a MDA expert in the generated MDA API.
-     * 
      * @param st a stereotype owned by the current module.
      * @return a MDA expert belonging to the MDA API or <code>null</code>.
      */
@@ -221,6 +219,7 @@ public class ModelerModuleModule extends AbstractJavaModule {
             case "c2d2a1ec-2c29-453c-a79c-19e4f2d27f13": return new org.modelio.module.modelermodule.api.methodology.infrastructure.methodologicallink.StateExpert();
             default: return null;
         }
+        
     }
 
 }

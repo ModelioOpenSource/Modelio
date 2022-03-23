@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.linktovoid;
 
 import java.beans.PropertyChangeEvent;
@@ -30,6 +29,9 @@ import org.eclipse.gef.Request;
 import org.eclipse.gef.requests.ReconnectRequest;
 import org.modelio.diagram.elements.core.link.GmLink;
 import org.modelio.diagram.elements.core.link.LinkEditPart;
+import org.modelio.diagram.elements.core.link.RoutingMode;
+import org.modelio.diagram.elements.core.policies.LayoutConnectionConnectionsEditPolicy;
+import org.modelio.diagram.elements.core.policies.LayoutNodeConnectionsEditPolicy;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
@@ -49,6 +51,9 @@ public class LinkToVoidEditPart extends LinkEditPart {
         super.createEditPolicies();
         
         installEditPolicy(EditPolicy.CONNECTION_ENDPOINTS_ROLE, new LinkToVoidEndPointEditPolicy());
+        installEditPolicy(LayoutConnectionConnectionsEditPolicy.ROLE, null);
+        installEditPolicy(LayoutNodeConnectionsEditPolicy.ROLE, null);
+        
     }
 
     @objid ("7ece3080-1dec-11e2-8cad-001ec947c8cc")
@@ -84,6 +89,13 @@ public class LinkToVoidEditPart extends LinkEditPart {
         } else {
             super.propertyChange(evt);
         }
+        
+    }
+
+    @objid ("a7901733-7bb4-447f-8ee1-df048cfbc9bc")
+    @Override
+    protected void updateRouterDependentEditPolicies(RoutingMode mode) {
+        // Do nothing
     }
 
 }

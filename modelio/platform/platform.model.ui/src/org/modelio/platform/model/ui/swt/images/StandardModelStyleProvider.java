@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.images;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -81,7 +80,6 @@ public class StandardModelStyleProvider {
      * <li>Incomplete model elements font color is light red #FF8080.</li>
      * <li>Ramc model elements font color is modified yellow #A0A000.</li>
      * </ul>
-     * 
      * @return a Color.
      */
     @objid ("5641b7d4-d899-4ef4-9047-ad21c7945df1")
@@ -112,7 +110,6 @@ public class StandardModelStyleProvider {
      * the element
      * @param status
      * the element state
-     * 
      * @return its background color
      */
     @objid ("f4fc4706-0bd2-460c-be32-877bfaeb5c5c")

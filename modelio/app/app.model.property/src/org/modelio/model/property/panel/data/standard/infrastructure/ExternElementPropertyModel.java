@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel.data.standard.infrastructure;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,15 +35,14 @@ import org.modelio.platform.model.ui.nattable.viewer.model.IPropertyModel;
 public class ExternElementPropertyModel extends AbstractPropertyModel<ExternElement> {
     @objid ("10c231e2-c98c-4c97-b02b-2cacf5de6d9a")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name", "Provider",
-            "Location" };
+                "Location" };
 
     /**
      * Instantiate the externElement properties view.
-     * 
      * @param theEditedElement the current note type.
      */
     @objid ("104ccb69-44cc-4490-a149-40ac148b8e0d")
-    public ExternElementPropertyModel(ExternElement theEditedElement) {
+    public  ExternElementPropertyModel(ExternElement theEditedElement) {
         super(theEditedElement);
     }
 
@@ -94,6 +92,7 @@ public class ExternElementPropertyModel extends AbstractPropertyModel<ExternElem
         default:
             return null;
         }
+        
     }
 
     /**
@@ -123,6 +122,7 @@ public class ExternElementPropertyModel extends AbstractPropertyModel<ExternElem
         default:
             return null;
         }
+        
     }
 
     /**
@@ -155,6 +155,7 @@ public class ExternElementPropertyModel extends AbstractPropertyModel<ExternElem
         default:
             return;
         }
+        
     }
 
     @objid ("033b1e6c-5312-4f90-8265-bb8d81cc0032")

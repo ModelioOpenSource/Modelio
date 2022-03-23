@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.modules.parameters.standard;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -58,13 +57,13 @@ class ParametersEditingSupport extends EditingSupport {
 
     /**
      * Initialize the StylePropertyEditingSupport.
-     * 
      * @param viewer The style viewer.
      */
     @objid ("024fa361-5ecb-4c61-85cb-9d0fe6995a15")
-    public ParametersEditingSupport(TreeViewer viewer) {
+    public  ParametersEditingSupport(TreeViewer viewer) {
         super(viewer);
         this.viewer = viewer;
+        
     }
 
     @objid ("ba5db310-fc5c-4cff-a7c6-c689b78f9676")
@@ -75,6 +74,7 @@ class ParametersEditingSupport extends EditingSupport {
         } else {
             return false;
         }
+        
     }
 
     @objid ("77ab43c7-9a74-4f82-a194-7aa1ae08720a")
@@ -148,6 +148,7 @@ class ParametersEditingSupport extends EditingSupport {
             property.setValue(value);
         }
         this.viewer.refresh(element, true);
+        
     }
 
 }

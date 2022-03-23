@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.activitydiagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -78,6 +77,7 @@ public class ActivityDiagramEditPart extends AbstractDiagramEditPart {
         // Remove the default DIRECT_EDIT policy: we don't want the diagram
         // background to delegate direct edit requests.
         installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE, null);
+        
     }
 
 }

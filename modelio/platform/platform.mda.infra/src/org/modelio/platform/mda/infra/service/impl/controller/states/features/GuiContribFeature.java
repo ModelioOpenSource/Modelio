@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.controller.states.features;
 
 import java.util.List;
@@ -30,9 +29,9 @@ import org.modelio.api.modelio.diagram.tools.IDiagramTool;
 import org.modelio.api.modelio.diagram.tools.ILinkTool;
 import org.modelio.api.modelio.diagram.tools.IMultiLinkTool;
 import org.modelio.api.modelio.editor.IEditionService;
+import org.modelio.platform.mda.infra.service.IRTModule;
 import org.modelio.platform.mda.infra.service.IRTModule.DiagramCustomizationDescriptor;
 import org.modelio.platform.mda.infra.service.IRTModule.DiagramToolDescriptor;
-import org.modelio.platform.mda.infra.service.IRTModule;
 import org.modelio.platform.mda.infra.service.contributions.WizardContribution;
 import org.modelio.platform.mda.infra.service.impl.IRTModuleAccess;
 import org.modelio.vcore.smkernel.mapi.MMetamodel;
@@ -48,6 +47,7 @@ public class GuiContribFeature extends AbstractFeature {
         addDiagramTools();
         addDiagramCustomizers();
         addDiagramWizardContributions();
+        
     }
 
     @objid ("bfd7859d-38e9-4752-bf41-f7b33f48ae44")
@@ -56,13 +56,14 @@ public class GuiContribFeature extends AbstractFeature {
         removeDiagramCustomizers();
         removeDiagramTools();
         removeDiagramWizardContributions();
+        
     }
 
     /**
      * @param module the module
      */
     @objid ("4682dd3a-0c51-47c5-898c-d49c499e3dba")
-    public GuiContribFeature(IRTModuleAccess module) {
+    public  GuiContribFeature(IRTModuleAccess module) {
         super(module);
     }
 
@@ -71,6 +72,7 @@ public class GuiContribFeature extends AbstractFeature {
         if (this.module.getDiagramCustomizations().size() > 0) {
             Display.getDefault().syncExec(new DiagramCustomizerAdder(this.module));
         }
+        
     }
 
     @objid ("12395d6a-01fb-4b02-bfc4-cd60cdf493e9")
@@ -78,6 +80,7 @@ public class GuiContribFeature extends AbstractFeature {
         if (this.module.getDiagramCustomizations().size() > 0) {
             Display.getDefault().syncExec(new DiagramCustomizerRemover(this.module));
         }
+        
     }
 
     @objid ("1c81e84d-36e5-469b-9bda-975b7b7ce2b5")
@@ -85,6 +88,7 @@ public class GuiContribFeature extends AbstractFeature {
         if (this.module.getDiagramTools().size() > 0) {
             Display.getDefault().syncExec(new DiagramToolsAdder(this.module));
         }
+        
     }
 
     @objid ("177559a0-54d4-48e5-9e57-dc0e79a1e136")
@@ -92,6 +96,7 @@ public class GuiContribFeature extends AbstractFeature {
         if (this.module.getDiagramTools().size() > 0) {
             Display.getDefault().syncExec(new DiagramToolsRemover(this.module));
         }
+        
     }
 
     @objid ("cccb61ac-5aed-44c9-ae54-957b2eb4ae53")
@@ -99,6 +104,7 @@ public class GuiContribFeature extends AbstractFeature {
         if (this.module.getWizardContributions().size() > 0) {
             Display.getDefault().syncExec(new DiagramWizardContributionAdder(this.module));
         }
+        
     }
 
     @objid ("67885298-810a-42b6-ac89-b9b7289cc42c")
@@ -106,6 +112,7 @@ public class GuiContribFeature extends AbstractFeature {
         if (this.module.getWizardContributions().size() > 0) {
             Display.getDefault().syncExec(new DiagramWizardContributionRemover(this.module));
         }
+        
     }
 
     @objid ("5248dd16-ebd6-4066-a7a0-a582b7280909")
@@ -120,7 +127,7 @@ public class GuiContribFeature extends AbstractFeature {
         private final IRTModule rtModule;
 
         @objid ("ccd162f5-a720-41b2-a260-101782305bbd")
-        public DiagramCustomizerAdder(final IRTModule rtModule) {
+        public  DiagramCustomizerAdder(final IRTModule rtModule) {
             this.rtModule = rtModule;
         }
 
@@ -134,6 +141,7 @@ public class GuiContribFeature extends AbstractFeature {
                 diagramService.registerDiagramCustomization(descriptor.getStereotype(),
                         mm.getMClass(descriptor.getBaseDiagramClass()), descriptor.getCustomizer());
             }
+            
         }
 
     }
@@ -144,7 +152,7 @@ public class GuiContribFeature extends AbstractFeature {
         private final IRTModule rtModule;
 
         @objid ("fed81089-d181-4687-92cb-858e744a01b8")
-        public DiagramCustomizerRemover(final IRTModule rtModule) {
+        public  DiagramCustomizerRemover(final IRTModule rtModule) {
             this.rtModule = rtModule;
         }
 
@@ -158,6 +166,7 @@ public class GuiContribFeature extends AbstractFeature {
                 diagramService.unregisterDiagramCustomization(descriptor.getStereotype(),
                         mm.getMClass(descriptor.getBaseDiagramClass()), descriptor.getCustomizer());
             }
+            
         }
 
     }
@@ -168,7 +177,7 @@ public class GuiContribFeature extends AbstractFeature {
         private final IRTModule rtModule;
 
         @objid ("971ebb0a-1ace-4b6e-83ce-8decf803c676")
-        public DiagramToolsAdder(final IRTModule rtModule) {
+        public  DiagramToolsAdder(final IRTModule rtModule) {
             this.rtModule = rtModule;
         }
 
@@ -200,6 +209,7 @@ public class GuiContribFeature extends AbstractFeature {
                             toolDescriptor.getDep(), (IMultiLinkTool) handler);
                 }
             }
+            
         }
 
     }
@@ -210,7 +220,7 @@ public class GuiContribFeature extends AbstractFeature {
         private final IRTModule rtModule;
 
         @objid ("770d331b-5350-4d91-a8bf-45a3fa659ad9")
-        public DiagramToolsRemover(final IRTModule rtModule) {
+        public  DiagramToolsRemover(final IRTModule rtModule) {
             this.rtModule = rtModule;
         }
 
@@ -222,6 +232,7 @@ public class GuiContribFeature extends AbstractFeature {
             for (DiagramToolDescriptor toolDescriptor : diagramTools) {
                 diagramService.unregisterCustomizedTool(toolDescriptor.getId());
             }
+            
         }
 
     }
@@ -232,7 +243,7 @@ public class GuiContribFeature extends AbstractFeature {
         private final IRTModule rtModule;
 
         @objid ("4234c0fc-8118-41e3-a2b1-a8d69e8f8103")
-        public DiagramWizardContributionAdder(final IRTModule rtModule) {
+        public  DiagramWizardContributionAdder(final IRTModule rtModule) {
             this.rtModule = rtModule;
         }
 
@@ -244,6 +255,7 @@ public class GuiContribFeature extends AbstractFeature {
             for (WizardContribution contribution : wizardContributions) {
                 editionService.registerDiagramContributor(contribution.getCategory(), contribution.getContributor());
             }
+            
         }
 
     }
@@ -254,7 +266,7 @@ public class GuiContribFeature extends AbstractFeature {
         private final IRTModule rtModule;
 
         @objid ("545985e6-abd0-4e6f-a0dd-1672f70b56dc")
-        public DiagramWizardContributionRemover(final IRTModule rtModule) {
+        public  DiagramWizardContributionRemover(final IRTModule rtModule) {
             this.rtModule = rtModule;
         }
 
@@ -266,6 +278,7 @@ public class GuiContribFeature extends AbstractFeature {
             for (WizardContribution contribution : diagramWizardContributions) {
                 editionService.unregisterDiagramContributor(contribution.getCategory(), contribution.getContributor());
             }
+            
         }
 
     }

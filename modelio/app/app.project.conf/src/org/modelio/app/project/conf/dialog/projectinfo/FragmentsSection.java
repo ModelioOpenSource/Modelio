@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.projectinfo;
 
 import java.net.URI;
@@ -62,13 +61,12 @@ class FragmentsSection {
     private TableViewer viewer;
 
     @objid ("a7459d3e-33f6-11e2-a514-002564c97630")
-    public FragmentsSection(IEclipseContext applicationContext) {
+    public  FragmentsSection(IEclipseContext applicationContext) {
         super();
     }
 
     /**
      * Update() is called by the project infos view when the project to be displayed changes or need contents refresh
-     * 
      * @param selectedProject the project selected in the workspace tree view
      */
     @objid ("a7459d41-33f6-11e2-a514-002564c97630")
@@ -84,6 +82,7 @@ class FragmentsSection {
         for (TableColumn col : this.viewer.getTable().getColumns()) {
             col.pack();
         }
+        
     }
 
     @objid ("a7459d45-33f6-11e2-a514-002564c97630")

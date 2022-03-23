@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.browser.view.plugin;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -25,12 +24,13 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 @objid ("e2265c20-ad13-4afd-9b56-31c7a0313747")
 public class Initializer {
     @objid ("a21e75da-6f2d-46a2-ab1a-45c0f130aa90")
-    public Initializer() {
+    public  Initializer() {
         super();
         // FIXME init other processors :
         // - related diagrams
         // - element creation
         // - module commands
+        
     }
 
 }

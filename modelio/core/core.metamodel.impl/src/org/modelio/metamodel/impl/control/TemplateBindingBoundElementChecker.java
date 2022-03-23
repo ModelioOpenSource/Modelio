@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.control;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -80,7 +79,7 @@ public class TemplateBindingBoundElementChecker extends AbstractDependencyTypeCh
      * C'tor
      */
     @objid ("3c6b87b5-8597-495c-8bb3-69564024855b")
-    public TemplateBindingBoundElementChecker(SmMetamodel mm) {
+    public  TemplateBindingBoundElementChecker(SmMetamodel mm) {
         // Cached SmClass
         this.artifactID = mm.getMClass(Artifact.class);
         this.classID = mm.getMClass(Class.class);
@@ -100,6 +99,7 @@ public class TemplateBindingBoundElementChecker extends AbstractDependencyTypeCh
         // Symetric checker
         NameSpaceDeclaredChecker symetricChecker = new NameSpaceDeclaredChecker(this);
         symetricChecker.register(mm.getMClass(NameSpace.class), "Declared");
+        
     }
 
     @objid ("ea01823a-ec50-11e1-91c5-002564c97630")
@@ -128,10 +128,10 @@ public class TemplateBindingBoundElementChecker extends AbstractDependencyTypeCh
     @objid ("ea0308c4-ec50-11e1-91c5-002564c97630")
     static class NameSpaceDeclaredChecker extends AbstractDependencyTypeChecker {
         @objid ("ea0308c7-ec50-11e1-91c5-002564c97630")
-         TemplateBindingBoundElementChecker symetricChecker;
+        TemplateBindingBoundElementChecker symetricChecker;
 
         @objid ("ea0308c8-ec50-11e1-91c5-002564c97630")
-        public NameSpaceDeclaredChecker(TemplateBindingBoundElementChecker symetricChecker) {
+        public  NameSpaceDeclaredChecker(TemplateBindingBoundElementChecker symetricChecker) {
             this.symetricChecker = symetricChecker;
         }
 

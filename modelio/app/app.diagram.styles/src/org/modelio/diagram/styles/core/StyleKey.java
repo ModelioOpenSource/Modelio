@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.core;
 
 import java.util.Collection;
@@ -52,52 +51,56 @@ public class StyleKey {
     /**
      * Unique identifier for the style key.
      */
+    
     @mdl.prop
     @objid ("27a31d9c-1927-11e2-92d2-001ec947c8cc")
-    private String id;
+    public String id;
 
     @mdl.propgetter
     public String getId() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.id;
     }
 
     /**
      * Label displayed in the GUI.
      */
+    
     @mdl.prop
     @objid ("27a7e24f-1927-11e2-92d2-001ec947c8cc")
-    private String label;
+    public String label;
 
     @mdl.propgetter
     public String getLabel() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.label;
     }
 
     /**
      * Tooltip displayable by the GUI.
      */
+    
     @mdl.prop
     @objid ("27a7e257-1927-11e2-92d2-001ec947c8cc")
-    private String tooltip;
+    public String tooltip;
 
     @mdl.propgetter
     public String getTooltip() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.tooltip;
     }
 
     /**
      * Category that can be used to group style keys.
      */
+    
     @mdl.prop
     @objid ("27aca706-1927-11e2-92d2-001ec947c8cc")
-    private String category;
+    public String category;
 
     @mdl.propgetter
     public String getCategory() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.category;
     }
 
@@ -119,19 +122,19 @@ public class StyleKey {
     /**
      * Type of the style key.
      */
+    
     @mdl.prop
     @objid ("de20fe3a-cbf5-4713-81d9-7463a386b6de")
-    private Class<?> type;
+    public Class<?> type;
 
     @mdl.propgetter
     public Class<?> getType() {
-        // Automatically generated method. Please do not modify this code.
+        // Automatically generated method. Please delete this comment before entering specific code.
         return this.type;
     }
 
     /**
      * Return the StyleKey instance for a given string key.
-     * 
      * @param key the key string value
      * @return the StyleKey for the given string key or null if none found.
      */
@@ -142,7 +145,6 @@ public class StyleKey {
 
     /**
      * Get all instances of StyleKey.
-     * 
      * @return all created style keys.
      */
     @objid ("8580d356-1926-11e2-92d2-001ec947c8cc")
@@ -152,7 +154,6 @@ public class StyleKey {
 
     /**
      * Creates a style key.
-     * 
      * @param id The style key id.
      * @param type The type of the style key.
      * @param label the key I18n label
@@ -160,7 +161,7 @@ public class StyleKey {
      * @param category the key I18n category
      */
     @objid ("8580d35d-1926-11e2-92d2-001ec947c8cc")
-    public StyleKey(String id, Class<?> type, String label, String tooltip, String category) {
+    public  StyleKey(String id, Class<?> type, String label, String tooltip, String category) {
         this.id = id;
         this.metakey = null;
         this.type = type;
@@ -168,11 +169,11 @@ public class StyleKey {
         this.tooltip = tooltip;
         this.category = category;
         instances.put(this.id, this);
+        
     }
 
     /**
      * Creates a StyleKey based on a MetaKey.
-     * 
      * @param id The style id
      * @param metakey the base meta key.
      * @param label the key I18n label
@@ -180,7 +181,7 @@ public class StyleKey {
      * @param category the key I18n category
      */
     @objid ("8583359f-1926-11e2-92d2-001ec947c8cc")
-    public StyleKey(String id, MetaKey metakey, String label, String tooltip, String category) {
+    public  StyleKey(String id, MetaKey metakey, String label, String tooltip, String category) {
         this.id = id;
         this.metakey = metakey;
         this.type = metakey.getType();
@@ -188,6 +189,7 @@ public class StyleKey {
         this.tooltip = tooltip;
         this.category = category;
         instances.put(this.id, this);
+        
     }
 
     @objid ("858335a7-1926-11e2-92d2-001ec947c8cc")
@@ -215,7 +217,6 @@ public class StyleKey {
 
     /**
      * Get the meta key if any.
-     * 
      * @return the meta key or null if the style key is not based on a meta key.
      */
     @objid ("858335ad-1926-11e2-92d2-001ec947c8cc")
@@ -237,7 +238,6 @@ public class StyleKey {
      * Compare this style key with the given one for matching.
      * <p>
      * The style keys match if they are the same or have the same meta key.
-     * 
      * @param k The style key to compare with.
      * @return true if the style keys are the same or have the same meta key.
      */
@@ -257,9 +257,8 @@ public class StyleKey {
      * <p>
      * Throws an exception explaining the problem if the value is not valid.
      * The exception message may be directly displayed in the GUI so must be human readable.
-     * 
      * @param value the style key value to check
-     * @throws java.lang.IllegalArgumentException if the value is not valid. The message tells why.
+     * @throws IllegalArgumentException if the value is not valid. The message tells why.
      */
     @objid ("abef35ab-465b-4112-86b7-ff622bb2b57c")
     public void validate(Object value) throws IllegalArgumentException {
@@ -273,6 +272,7 @@ public class StyleKey {
             String msg = DiagramStyles.I18N.getMessage("StyleKey.InvalidValue", String.valueOf(value), this.id, getType().getSimpleName());
             throw new IllegalArgumentException(msg);
         }
+        
     }
 
     /**
@@ -283,15 +283,19 @@ public class StyleKey {
         /**
          * The figure must be transparent.
          */
+        @objid ("858335c4-1926-11e2-92d2-001ec947c8cc")
         TRANSPARENT,
         /**
          * The figure is filled with a solid color.
          */
+        @objid ("858597f3-1926-11e2-92d2-001ec947c8cc")
         SOLID,
         /**
          * The figure is filled with a gradient.
          */
+        @objid ("858597f5-1926-11e2-92d2-001ec947c8cc")
         GRADIENT;
+
     }
 
     /**
@@ -302,19 +306,24 @@ public class StyleKey {
         /**
          * Don't display the name.
          */
+        @objid ("858597f9-1926-11e2-92d2-001ec947c8cc")
         NONE,
         /**
          * Simple mode should display just the name.
          */
+        @objid ("858597fb-1926-11e2-92d2-001ec947c8cc")
         SIMPLE,
         /**
          * Qualified mode should display the name of the element with its parent name.
          */
+        @objid ("858597fd-1926-11e2-92d2-001ec947c8cc")
         QUALIFIED,
         /**
          * Qualified mode should display the name of the element with its absolute path from the root package.
          */
+        @objid ("858597ff-1926-11e2-92d2-001ec947c8cc")
         FULLQUALIFIED;
+
     }
 
     /**
@@ -325,19 +334,24 @@ public class StyleKey {
         /**
          * Don't display stereotypes at all.
          */
+        @objid ("85859803-1926-11e2-92d2-001ec947c8cc")
         NONE,
         /**
          * Display a small icon for each stereotype.
          */
+        @objid ("85859805-1926-11e2-92d2-001ec947c8cc")
         ICON,
         /**
          * Display a <<A stereotype>> label for each stereotype.
          */
+        @objid ("85859807-1926-11e2-92d2-001ec947c8cc")
         TEXT,
         /**
          * Display a <<A stereotype>> label and a small icon for each stereotype.
          */
+        @objid ("85859809-1926-11e2-92d2-001ec947c8cc")
         TEXTICON;
+
     }
 
     /**
@@ -348,19 +362,24 @@ public class StyleKey {
         /**
          * Display all namespaces or features.
          */
+        @objid ("8585980d-1926-11e2-92d2-001ec947c8cc")
         ALL,
         /**
          * Display only public namespaces or features.
          */
+        @objid ("8585980f-1926-11e2-92d2-001ec947c8cc")
         ALL_PUBLIC,
         /**
          * Display only all public, protected and package private features and namespaces.
          */
+        @objid ("85859811-1926-11e2-92d2-001ec947c8cc")
         ALL_NON_PRIVATE,
         /**
          * No automatic display, the user manually unmask the namespaces or features.
          */
+        @objid ("85859813-1926-11e2-92d2-001ec947c8cc")
         MANUAL;
+
     }
 
     /**
@@ -371,15 +390,19 @@ public class StyleKey {
         /**
          * Don't display internal structure.
          */
+        @objid ("85859817-1926-11e2-92d2-001ec947c8cc")
         NONE,
         /**
          * Display the internal structure as a list of labels.
          */
+        @objid ("85859819-1926-11e2-92d2-001ec947c8cc")
         LIST,
         /**
          * Display the internal structure as an embedded diagram.
          */
+        @objid ("8585981b-1926-11e2-92d2-001ec947c8cc")
         DIAGRAM;
+
     }
 
     /**
@@ -392,21 +415,26 @@ public class StyleKey {
          * person, ... Other elements should usually be represented as a rectangle with the element name inside. No sub
          * element should be represented.
          */
+        @objid ("8585981f-1926-11e2-92d2-001ec947c8cc")
         SIMPLE,
         /**
          * Nodes in structured mode should display the structure of the represented element: classes should display
          * their attributes, operations, internal structure, ...
          */
+        @objid ("85859821-1926-11e2-92d2-001ec947c8cc")
         STRUCTURED,
         /**
          * Stereotype image mode. Nodes should display a big image representing the first stereotype that defines a
          * diagram image. A default image is defined for elements where no stereotype defines a diagram image.
          */
+        @objid ("85859823-1926-11e2-92d2-001ec947c8cc")
         IMAGE,
         /**
          * User defined image mode. Nodes should display a big image representing the image defined in the {userDiagramImage} tagged value. A default image is defined for elements where there is no user diagram image.
          */
+        @objid ("caa96af9-2d0d-4a39-bd70-68815596f02d")
         USER_IMAGE;
+
     }
 
     /**
@@ -421,27 +449,31 @@ public class StyleKey {
          * 
          * @see org.eclipse.swt.SWT#LINE_SOLID
          */
+        @objid ("85859827-1926-11e2-92d2-001ec947c8cc")
         LINE_SOLID,
         /**
          * Line drawing style for dashed lines
          */
+        @objid ("85859829-1926-11e2-92d2-001ec947c8cc")
         LINE_DASH,
         /**
          * Line drawing style for dotted lines
          */
+        @objid ("8585982b-1926-11e2-92d2-001ec947c8cc")
         LINE_DOT,
         /**
          * Line drawing style for alternating dash-dot lines
          */
+        @objid ("8585982d-1926-11e2-92d2-001ec947c8cc")
         LINE_DASHDOT,
         /**
          * Line drawing style for dash-dot-dot lines
          */
+        @objid ("8585982f-1926-11e2-92d2-001ec947c8cc")
         LINE_DASHDOTDOT;
 
         /**
          * Convert the enumerate to its {@link org.eclipse.swt.SWT} matching line style constant.
-         * 
          * @return the SWT matching line style constant.
          */
         @objid ("85859831-1926-11e2-92d2-001ec947c8cc")
@@ -451,7 +483,6 @@ public class StyleKey {
 
         /**
          * Convert the given {@link org.eclipse.swt.SWT} constant to a LinePattern
-         * 
          * @param i an SWT line style constant
          * @return The matching line pattern.
          */
@@ -470,16 +501,20 @@ public class StyleKey {
         /**
          * Direct from source to destination.
          */
+        @objid ("8585983e-1926-11e2-92d2-001ec947c8cc")
         DIRECT,
         /**
          * link with bend point. Uses {@link org.eclipse.draw2d.BendpointConnectionRouter}
          */
+        @objid ("85859840-1926-11e2-92d2-001ec947c8cc")
         BENDPOINT,
         /**
          * Orthogonal link. Uses {@link org.modelio.diagram.elements.core.figures.routers.OrthogonalRouter
          * OrthogonalRouter} router.
          */
+        @objid ("85859842-1926-11e2-92d2-001ec947c8cc")
         ORTHOGONAL;
+
     }
 
 }

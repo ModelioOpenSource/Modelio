@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.deploymentdiagram.editor.elements.manifestation;
 
 import java.util.List;
@@ -59,18 +58,18 @@ public class GmManifestation extends GmLink {
      * For deserialization only.
      */
     @objid ("972fba88-55b6-11e2-877f-002564c97630")
-    public GmManifestation() {
+    public  GmManifestation() {
+        
     }
 
     /**
      * Initialize a control flow graphic model.
-     * 
      * @param diagram The owning diagram
      * @param theManifestation The reference flow, may be null
      * @param ref The referenced flow reference, may not be null
      */
     @objid ("972fba8b-55b6-11e2-877f-002564c97630")
-    public GmManifestation(IGmDiagram diagram, Manifestation theManifestation, MRef ref) {
+    public  GmManifestation(IGmDiagram diagram, Manifestation theManifestation, MRef ref) {
         super(diagram, ref);
         this.theManifestation = theManifestation;
         
@@ -78,6 +77,7 @@ public class GmManifestation extends GmLink {
         extension.setShowLabel(false);
         extension.setShowMetaclassKeyword(true);
         addExtension(ExtensionLocation.MiddleNW, IGmLink.ROLE_MAIN_LABEL, extension);
+        
     }
 
     @objid ("972fba97-55b6-11e2-877f-002564c97630")
@@ -104,6 +104,7 @@ public class GmManifestation extends GmLink {
         super.readLink(in);
         
         this.theManifestation = (Manifestation) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("97314127-55b6-11e2-877f-002564c97630")
@@ -131,6 +132,7 @@ public class GmManifestation extends GmLink {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmManifestation.", GmManifestation.MINOR_VERSION);
+        
     }
 
     @objid ("97314142-55b6-11e2-877f-002564c97630")

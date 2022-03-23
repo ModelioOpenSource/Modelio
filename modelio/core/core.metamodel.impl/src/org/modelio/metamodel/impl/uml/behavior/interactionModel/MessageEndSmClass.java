@@ -17,19 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.interactionModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.MessageEndData;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.MessageSmClass;
-import org.modelio.metamodel.impl.uml.behavior.interactionModel.OccurrenceSpecificationSmClass;
 import org.modelio.metamodel.uml.behavior.interactionModel.Message;
 import org.modelio.metamodel.uml.behavior.interactionModel.MessageEnd;
 import org.modelio.metamodel.uml.behavior.interactionModel.OccurrenceSpecification;
@@ -53,7 +50,7 @@ public class MessageEndSmClass extends OccurrenceSpecificationSmClass {
     private SmDependency sentMessageDep;
 
     @objid ("0e08571c-058c-4a6a-8a63-843fd2ba0f76")
-    public MessageEndSmClass(ISmMetamodelFragment origin) {
+    public  MessageEndSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -61,6 +58,7 @@ public class MessageEndSmClass extends OccurrenceSpecificationSmClass {
     @Override
     public String getName() {
         return "MessageEnd";
+        
     }
 
     @objid ("247c0c40-31bb-44bd-a59e-45b27ae450ee")
@@ -73,18 +71,21 @@ public class MessageEndSmClass extends OccurrenceSpecificationSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return MessageEnd.class;
+        
     }
 
     @objid ("0568206b-2f98-4b03-b64a-603144e30fbc")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("7ba4d514-9bb5-40e2-8489-22119c16856b")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("97390644-ecc7-49eb-b22e-855fed3665c0")
@@ -104,6 +105,8 @@ public class MessageEndSmClass extends OccurrenceSpecificationSmClass {
         this.sentMessageDep = new SentMessageSmDependency();
         this.sentMessageDep.init("SentMessage", this, metamodel.getMClass(Message.MQNAME), 0, 1 , SmDirective.SMCDCOMPONENT, SmDirective.SMCDTODELETE);
         registerDependency(this.sentMessageDep);
+        
+        
     }
 
     @objid ("028f1485-fbe9-4400-bea0-1dae9725b188")
@@ -128,7 +131,7 @@ public class MessageEndSmClass extends OccurrenceSpecificationSmClass {
         private MessageEndSmClass smClass;
 
         @objid ("3ce7c654-1c11-44d4-b76a-640667f2ef16")
-        public MessageEndObjectFactory(MessageEndSmClass smClass) {
+        public  MessageEndObjectFactory(MessageEndSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -170,6 +173,7 @@ public class MessageEndSmClass extends OccurrenceSpecificationSmClass {
             	this.symetricDep = ((MessageSmClass)this.getTarget()).getReceiveEventDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -198,6 +202,7 @@ public class MessageEndSmClass extends OccurrenceSpecificationSmClass {
             	this.symetricDep = ((MessageSmClass)this.getTarget()).getSendEventDep();
             }
             return this.symetricDep;
+            
         }
 
     }

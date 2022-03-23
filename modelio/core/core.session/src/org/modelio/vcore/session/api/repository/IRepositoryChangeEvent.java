@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.api.repository;
 
 import java.util.Collection;
@@ -32,7 +31,6 @@ import org.modelio.vcore.smkernel.mapi.MRef;
 public interface IRepositoryChangeEvent {
     /**
      * Get the created elements.
-     * 
      * @return the created element references.
      */
     @objid ("04441b05-913a-47eb-9412-2c6cbce60468")
@@ -40,7 +38,6 @@ public interface IRepositoryChangeEvent {
 
     /**
      * Get the elements deleted.
-     * 
      * @return the deleted element references.
      */
     @objid ("46ace76d-cd3c-4115-a6a8-736e0be07e41")
@@ -48,7 +45,6 @@ public interface IRepositoryChangeEvent {
 
     /**
      * Get the Modified elements.
-     * 
      * @return the updated element references.
      */
     @objid ("a3293439-912d-4e17-b333-bc211accf530")
@@ -56,7 +52,6 @@ public interface IRepositoryChangeEvent {
 
     /**
      * Get the created blobs identifiers.
-     * 
      * @return the created blobs identifiers.
      */
     @objid ("6d441c5a-4d67-4afe-b443-aa5345789e75")
@@ -64,7 +59,6 @@ public interface IRepositoryChangeEvent {
 
     /**
      * Get the deleted blobs identifiers.
-     * 
      * @return the deleted blobs identifiers.
      */
     @objid ("6e678f5b-2544-4750-94cc-3463d833d2d8")
@@ -72,7 +66,6 @@ public interface IRepositoryChangeEvent {
 
     /**
      * Get the updated blobs identifiers.
-     * 
      * @return the updated blobs identifiers.
      */
     @objid ("dda6b12d-3182-4260-9c77-4b22a17ae716")
@@ -86,7 +79,6 @@ public interface IRepositoryChangeEvent {
 
     /**
      * Get the precision of the repository change event.
-     * 
      * @return the change event precision.
      */
     @objid ("2a5aeee7-a89f-4e44-a914-99b30eaa52cd")
@@ -96,23 +88,27 @@ public interface IRepositoryChangeEvent {
      * Precision of the repository change event.
      */
     @objid ("353ea8da-a209-41f0-b227-76f1d91ce89f")
-    enum Granularity {
+    public enum Granularity {
         /**
          * The event contains the exact list of modified elements.
          */
+        @objid ("11b6834a-6d76-4a0a-9a72-62c8720e4d76")
         OBJECT,
         /**
          * The event contains only the changed CMS nodes.
          * <p>
          * eg: an object created inside a CMS node is reported as a changed CMS node.
          */
+        @objid ("f131855c-9d38-44f2-841a-517db8c2488d")
         CMSNODE,
         /**
          * There is no detail about the change event.
          * <p>
          * The listener can only consider that anything may have been changed in the repository.
          */
+        @objid ("852627ff-d7b3-45d5-bfbf-fbb1e0616bb2")
         UNDEFINED;
+
     }
 
 }

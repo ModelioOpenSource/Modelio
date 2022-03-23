@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class OActivityFinalNode extends OActivityNode {
     }
 
     @objid ("5f46d2a0-7012-4deb-9a46-a5188f7dc261")
-    public OActivityFinalNode(ActivityFinalNode element) {
+    public  OActivityFinalNode(ActivityFinalNode element) {
         super(element);
     }
 

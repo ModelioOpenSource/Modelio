@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.packageimport;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -48,12 +47,11 @@ public class GmPackageImportHeader extends GmDefaultModelElementLabel {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
     @objid ("36069225-55b7-11e2-877f-002564c97630")
-    public GmPackageImportHeader(IGmDiagram diagram, MRef relatedRef) {
+    public  GmPackageImportHeader(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -61,7 +59,8 @@ public class GmPackageImportHeader extends GmDefaultModelElementLabel {
      * For deserialization only.
      */
     @objid ("3606922e-55b7-11e2-877f-002564c97630")
-    public GmPackageImportHeader() {
+    public  GmPackageImportHeader() {
+        
     }
 
     @objid ("360818b2-55b7-11e2-877f-002564c97630")
@@ -79,6 +78,7 @@ public class GmPackageImportHeader extends GmDefaultModelElementLabel {
             return "<<import all>>";
         else
             return "<<access all>>";
+        
     }
 
     @objid ("360818cf-55b7-11e2-877f-002564c97630")
@@ -98,6 +98,7 @@ public class GmPackageImportHeader extends GmDefaultModelElementLabel {
                 break;
             }
         }
+        
     }
 
     @objid ("360818d5-55b7-11e2-877f-002564c97630")
@@ -107,6 +108,7 @@ public class GmPackageImportHeader extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmPackageImportHeader.", GmPackageImportHeader.MINOR_VERSION);
+        
     }
 
     @objid ("360818db-55b7-11e2-877f-002564c97630")

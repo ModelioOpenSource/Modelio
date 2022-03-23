@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.api;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,9 +29,12 @@ public enum XMIExtension {
     /**
      * .xmi extension
      */
+    @objid ("b2b683d8-93fe-4557-98cd-16a888d561e0")
     XMI,
     /**
      * .uml extension
      */
+    @objid ("29da1853-3b3f-4662-bb42-d4ab192b32f6")
     UML;
+
 }

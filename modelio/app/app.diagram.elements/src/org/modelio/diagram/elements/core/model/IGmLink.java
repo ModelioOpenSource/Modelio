@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.model;
 
 import java.util.Collection;
@@ -46,7 +45,6 @@ public interface IGmLink extends IGmLinkable, IGmLinkObject {
      * Update the link origin.
      * <p>
      * This method is intended to be called only by {@link IGmLinkable#addEndingLink(IGmLink)}. It does not fire change event.
-     * 
      * @param from The new link origin
      */
     @objid ("80801c7a-1dec-11e2-8cad-001ec947c8cc")
@@ -68,7 +66,6 @@ public interface IGmLink extends IGmLinkable, IGmLinkObject {
      * Update the link destination.
      * <p>
      * This method is intended to be called only by {@link IGmLinkable#addEndingLink(IGmLink)}. It does not fire change event.
-     * 
      * @param to The new destination
      */
     @objid ("80801c82-1dec-11e2-8cad-001ec947c8cc")
@@ -85,7 +82,6 @@ public interface IGmLink extends IGmLinkable, IGmLinkObject {
 
     /**
      * Get the locator model used to layout the given extension.
-     * 
      * @param extension A link extension.
      * @return The locator model.
      */
@@ -94,7 +90,6 @@ public interface IGmLink extends IGmLinkable, IGmLinkObject {
 
     /**
      * Change the given extension location.
-     * 
      * @param extension The link extension.
      * @param layoutData The extension layout constraint.
      */
@@ -103,7 +98,6 @@ public interface IGmLink extends IGmLinkable, IGmLinkObject {
 
     /**
      * Get the first link extension with the given role name.
-     * 
      * @param role the role of the node to find.
      * @return the found node or null.
      */
@@ -112,7 +106,6 @@ public interface IGmLink extends IGmLinkable, IGmLinkObject {
 
     /**
      * Get the link extension with the given role name.
-     * 
      * @param role the role of the node to find.
      * @return the found nodes.
      */

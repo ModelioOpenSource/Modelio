@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.collabuselink;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,12 +46,11 @@ public class GmCollabUseLinkHeader extends GmDefaultModelElementLabel {
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
     @objid ("348f346e-55b7-11e2-877f-002564c97630")
-    public GmCollabUseLinkHeader(IGmDiagram diagram, MRef relatedRef) {
+    public  GmCollabUseLinkHeader(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -60,7 +58,8 @@ public class GmCollabUseLinkHeader extends GmDefaultModelElementLabel {
      * For deserialization only.
      */
     @objid ("348f3477-55b7-11e2-877f-002564c97630")
-    public GmCollabUseLinkHeader() {
+    public  GmCollabUseLinkHeader() {
+        
     }
 
     /**
@@ -98,6 +97,7 @@ public class GmCollabUseLinkHeader extends GmDefaultModelElementLabel {
                 break;
             }
         }
+        
     }
 
     @objid ("3490baeb-55b7-11e2-877f-002564c97630")
@@ -107,6 +107,7 @@ public class GmCollabUseLinkHeader extends GmDefaultModelElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmCollabUseLinkHeader.", GmCollabUseLinkHeader.MINOR_VERSION);
+        
     }
 
     @objid ("3490baf1-55b7-11e2-877f-002564c97630")

@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.rootElements;
 
 import java.util.ArrayList;
@@ -35,8 +35,6 @@ import org.modelio.metamodel.bpmn.rootElements.BpmnBaseElement;
 import org.modelio.metamodel.impl.bpmn.activities.BpmnSubProcessSmClass;
 import org.modelio.metamodel.impl.bpmn.processCollaboration.BpmnCollaborationSmClass;
 import org.modelio.metamodel.impl.bpmn.processCollaboration.BpmnProcessSmClass;
-import org.modelio.metamodel.impl.bpmn.rootElements.BpmnArtifactData;
-import org.modelio.metamodel.impl.bpmn.rootElements.BpmnBaseElementSmClass;
 import org.modelio.vbasic.version.Version;
 import org.modelio.vcore.smkernel.ISmObjectData;
 import org.modelio.vcore.smkernel.ISmObjectFactory;
@@ -60,7 +58,7 @@ public class BpmnArtifactSmClass extends BpmnBaseElementSmClass {
     private SmDependency processDep;
 
     @objid ("6839814e-0f2e-484c-bb9e-ae35bac055a4")
-    public BpmnArtifactSmClass(ISmMetamodelFragment origin) {
+    public  BpmnArtifactSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -68,6 +66,7 @@ public class BpmnArtifactSmClass extends BpmnBaseElementSmClass {
     @Override
     public String getName() {
         return "BpmnArtifact";
+        
     }
 
     @objid ("c512e976-6cb0-49e5-ae74-3455bb7f912b")
@@ -80,18 +79,21 @@ public class BpmnArtifactSmClass extends BpmnBaseElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnArtifact.class;
+        
     }
 
     @objid ("b7bfaee3-0072-4439-b9e8-3526e9bfff06")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("3b425585-82ab-4d29-8b8a-029885e9b998")
     @Override
     public boolean isAbstract() {
         return true;
+        
     }
 
     @objid ("d328066e-52e8-4401-b31e-e3f5896c49eb")
@@ -115,6 +117,8 @@ public class BpmnArtifactSmClass extends BpmnBaseElementSmClass {
         this.processDep = new ProcessSmDependency();
         this.processDep.init("Process", this, metamodel.getMClass(BpmnProcess.MQNAME), 0, 1 );
         registerDependency(this.processDep);
+        
+        
     }
 
     @objid ("75467178-b743-406e-b7b2-b58b5b119e83")
@@ -147,7 +151,7 @@ public class BpmnArtifactSmClass extends BpmnBaseElementSmClass {
         private BpmnArtifactSmClass smClass;
 
         @objid ("85a901cb-2df0-4c69-9a24-91bf1e0185e0")
-        public BpmnArtifactObjectFactory(BpmnArtifactSmClass smClass) {
+        public  BpmnArtifactObjectFactory(BpmnArtifactSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -189,6 +193,7 @@ public class BpmnArtifactSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnSubProcessSmClass)this.getTarget()).getArtifactDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -217,6 +222,7 @@ public class BpmnArtifactSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnCollaborationSmClass)this.getTarget()).getArtifactDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -245,6 +251,7 @@ public class BpmnArtifactSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnProcessSmClass)this.getTarget()).getArtifactDep();
             }
             return this.symetricDep;
+            
         }
 
     }

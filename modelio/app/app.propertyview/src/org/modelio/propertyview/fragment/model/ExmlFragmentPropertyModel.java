@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.propertyview.fragment.model;
 
 import java.io.IOException;
@@ -37,11 +36,10 @@ import org.modelio.propertyview.plugin.PropertyViewPlugin;
 public class ExmlFragmentPropertyModel extends AbstractFragmentPropertyModel {
     /**
      * Create a new <i>ExmlFragment</i> data model from an <i>ExmlFragment</i>.
-     * 
      * @param fragment the fragment of which properties will be display
      */
     @objid ("9e02e801-3d0a-483c-a366-2d3533bc7b34")
-    public ExmlFragmentPropertyModel(ExmlFragment fragment) {
+    public  ExmlFragmentPropertyModel(ExmlFragment fragment) {
         super(fragment);
         IFragmentInfos infos;
         try {
@@ -50,6 +48,7 @@ public class ExmlFragmentPropertyModel extends AbstractFragmentPropertyModel {
         } catch (IOException e) {
             PropertyViewPlugin.LOG.error(e);
         }
+        
     }
 
     @objid ("d84822f2-b1a8-481c-a674-90f8c08b2c9f")

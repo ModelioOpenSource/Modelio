@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.local.save;
 
 import java.io.IOException;
@@ -26,10 +25,10 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.stream.FactoryConfigurationError;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.vbasic.xml.CloseableXMLStreamWriter;
 import org.modelio.vcore.smkernel.IRepositoryObject;
 import org.modelio.vcore.smkernel.SmObjectImpl;
@@ -52,7 +51,6 @@ public class ExmlSaver implements ExmlTags {
      * Get the parent CMS node of the given object.
      * <p>
      * If the object is itself a CMS node returns the composition owner CMS node.
-     * 
      * @param object a model object
      * @return its parent CMS node.
      */
@@ -79,10 +77,9 @@ public class ExmlSaver implements ExmlTags {
 
     /**
      * Save the given CMS node in an output stream.
-     * 
      * @param object the CMS node to save
      * @param os an output stream.
-     * @throws java.io.IOException in case of failure.
+     * @throws IOException in case of failure.
      */
     @objid ("fd245740-5986-11e1-991a-001ec947ccaf")
     public void externalize(final SmObjectImpl object, final OutputStream os) throws IOException {
@@ -103,6 +100,7 @@ public class ExmlSaver implements ExmlTags {
         } finally {
             this.out = null;
         }
+        
     }
 
     @objid ("fd245741-5986-11e1-991a-001ec947ccaf")
@@ -131,6 +129,7 @@ public class ExmlSaver implements ExmlTags {
         
         // // Processed, remove from context
         // recursionContext.remove(object);
+        
     }
 
     @objid ("fd245738-5986-11e1-991a-001ec947ccaf")
@@ -152,6 +151,7 @@ public class ExmlSaver implements ExmlTags {
             }
         }
         this.out.writeEndElement();
+        
     }
 
     @objid ("fd245735-5986-11e1-991a-001ec947ccaf")
@@ -162,6 +162,7 @@ public class ExmlSaver implements ExmlTags {
             dumpATT(object, att);
         }
         this.out.writeEndElement();
+        
     }
 
     @objid ("fd245734-5986-11e1-991a-001ec947ccaf")
@@ -187,14 +188,14 @@ public class ExmlSaver implements ExmlTags {
         }
         
         this.out.writeEndElement();
+        
     }
 
     /**
      * Write the object SmDependencies.
-     * 
      * @param object the CMS node
      * @param recursionContext to avoid cycles
-     * @throws javax.xml.stream.XMLStreamException in case of XML error
+     * @throws XMLStreamException in case of XML error
      */
     @objid ("fd245730-5986-11e1-991a-001ec947ccaf")
     private void dumpDEPENDENCIES(final SmObjectImpl object, Collection<SmObjectImpl> recursionContext) throws XMLStreamException {
@@ -216,6 +217,7 @@ public class ExmlSaver implements ExmlTags {
         }
         
         this.out.writeEndElement();
+        
     }
 
     /**
@@ -270,13 +272,13 @@ public class ExmlSaver implements ExmlTags {
         }
         
         this.out.writeEndElement();
+        
     }
 
     /**
      * Write the file header.
-     * 
      * @param object the main CMS node
-     * @throws javax.xml.stream.XMLStreamException in case of write error.
+     * @throws XMLStreamException in case of write error.
      */
     @objid ("fd24572a-5986-11e1-991a-001ec947ccaf")
     private void dumpEXT(final SmObjectImpl object) throws XMLStreamException {
@@ -286,6 +288,7 @@ public class ExmlSaver implements ExmlTags {
         //dumpFileDEPS(object);
         dumpOBJECT(object, new HashSet<SmObjectImpl>(), true);
         this.out.writeEndElement();
+        
     }
 
     @objid ("fd21f74d-5986-11e1-991a-001ec947ccaf")
@@ -295,6 +298,7 @@ public class ExmlSaver implements ExmlTags {
         this.out.writeAttribute(ATT_ID_NAME, Objects.toString(object.getName(), ""));
         this.out.writeAttribute(ATT_ID_MC, object.getMClass().getQualifiedName());
         this.out.writeAttribute(ATT_ID_UID, object.getUuid().toString());
+        
     }
 
     @objid ("fd21f747-5986-11e1-991a-001ec947ccaf")
@@ -311,6 +315,7 @@ public class ExmlSaver implements ExmlTags {
             }
         }
         this.out.writeEndElement();
+        
     }
 
     @objid ("fd21f73c-5986-11e1-991a-001ec947ccaf")
@@ -327,6 +332,7 @@ public class ExmlSaver implements ExmlTags {
             throw new XMLStreamException(object+" is not in a CMS node.");
         }*/
         this.out.writeEndElement();
+        
     }
 
     /**
@@ -336,7 +342,6 @@ public class ExmlSaver implements ExmlTags {
      * <p><code>
      * "&#x5d; &#x5d;&gt;" <b>---></b> "]"(1) <b>+</b> "&#x5d; &#x5d;&gt;&lt;![CDATA[" <b>+</b> "]&gt;"(2)
      * </code>
-     * 
      * @param aString a future CDATA string
      * @return a CDATA ready string
      */

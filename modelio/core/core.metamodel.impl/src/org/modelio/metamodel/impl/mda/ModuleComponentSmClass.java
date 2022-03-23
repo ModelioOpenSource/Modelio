@@ -17,19 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.mda;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.mda.ModuleComponentData;
-import org.modelio.metamodel.impl.mda.ModuleParameterSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.AbstractProjectSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.ProfileSmClass;
 import org.modelio.metamodel.impl.uml.infrastructure.properties.PropertyTypeSmClass;
@@ -86,7 +84,7 @@ public class ModuleComponentSmClass extends AbstractProjectSmClass {
     private SmDependency impactedDep;
 
     @objid ("c02fadb2-f49b-4bb5-ac19-8d5494689c0d")
-    public ModuleComponentSmClass(ISmMetamodelFragment origin) {
+    public  ModuleComponentSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -94,6 +92,7 @@ public class ModuleComponentSmClass extends AbstractProjectSmClass {
     @Override
     public String getName() {
         return "ModuleComponent";
+        
     }
 
     @objid ("9fc508cf-6d20-416d-8222-2709178b2335")
@@ -106,18 +105,21 @@ public class ModuleComponentSmClass extends AbstractProjectSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ModuleComponent.class;
+        
     }
 
     @objid ("89e11faf-a6d1-4ab0-a96d-70c9ac1debf3")
     @Override
     public boolean isCmsNode() {
         return true;
+        
     }
 
     @objid ("5b3616a8-34e9-4040-93fb-ae24d9702029")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("68e032d5-70ad-4059-a356-e5d3109b8a2e")
@@ -173,6 +175,8 @@ public class ModuleComponentSmClass extends AbstractProjectSmClass {
         this.impactedDep = new ImpactedSmDependency();
         this.impactedDep.init("Impacted", this, metamodel.getMClass(ModuleComponent.MQNAME), 0, -1 );
         registerDependency(this.impactedDep);
+        
+        
     }
 
     @objid ("4373b221-b2a2-4fcd-8a8f-6e4a0a556ba2")
@@ -267,6 +271,7 @@ public class ModuleComponentSmClass extends AbstractProjectSmClass {
     @Override
     public boolean areOrphansAllowed() {
         return true;
+        
     }
 
     @objid ("8ca01b67-f746-4b8f-9a13-9da81377d4b2")
@@ -275,7 +280,7 @@ public class ModuleComponentSmClass extends AbstractProjectSmClass {
         private ModuleComponentSmClass smClass;
 
         @objid ("889ff9de-5dbb-44eb-aef6-50d8ddd5eeb4")
-        public ModuleComponentObjectFactory(ModuleComponentSmClass smClass) {
+        public  ModuleComponentObjectFactory(ModuleComponentSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -392,6 +397,7 @@ public class ModuleComponentSmClass extends AbstractProjectSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ModuleComponentData) data).mDefinedPropertyType = values;
+            
         }
 
         @objid ("1b78ee9e-4546-4ce1-880b-81101a3f058d")
@@ -401,6 +407,7 @@ public class ModuleComponentSmClass extends AbstractProjectSmClass {
             	this.symetricDep = ((PropertyTypeSmClass)this.getTarget()).getModuleOwnerDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -420,6 +427,7 @@ public class ModuleComponentSmClass extends AbstractProjectSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ModuleComponentData) data).mOwnedProfile = values;
+            
         }
 
         @objid ("e0fa3f3a-708b-4f9b-bdee-f498bf8e2e19")
@@ -429,6 +437,7 @@ public class ModuleComponentSmClass extends AbstractProjectSmClass {
             	this.symetricDep = ((ProfileSmClass)this.getTarget()).getOwnerModuleDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -448,6 +457,7 @@ public class ModuleComponentSmClass extends AbstractProjectSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ModuleComponentData) data).mModuleParameter = values;
+            
         }
 
         @objid ("f81d4094-f65c-4167-8ae4-1202066e8e08")
@@ -457,6 +467,7 @@ public class ModuleComponentSmClass extends AbstractProjectSmClass {
             	this.symetricDep = ((ModuleParameterSmClass)this.getTarget()).getOwnerDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -476,6 +487,7 @@ public class ModuleComponentSmClass extends AbstractProjectSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ModuleComponentData) data).mDependsOn = values;
+            
         }
 
         @objid ("330f3e62-b9b0-4dd9-ac84-33d02236c9f0")
@@ -485,6 +497,7 @@ public class ModuleComponentSmClass extends AbstractProjectSmClass {
             	this.symetricDep = ((ModuleComponentSmClass)this.getTarget()).getImpactedDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -504,6 +517,7 @@ public class ModuleComponentSmClass extends AbstractProjectSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((ModuleComponentData) data).mImpacted = values;
+            
         }
 
         @objid ("84c22800-dd8d-47d6-ad29-bd2a76528730")
@@ -513,6 +527,7 @@ public class ModuleComponentSmClass extends AbstractProjectSmClass {
             	this.symetricDep = ((ModuleComponentSmClass)this.getTarget()).getDependsOnDep();
             }
             return this.symetricDep;
+            
         }
 
     }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
@@ -79,6 +78,7 @@ public class PropertyTableImpl extends ElementImpl implements PropertyTable {
         } catch (IOException e) {
             throw new Error(e); // cannot happen
         }
+        
     }
 
     @objid ("71fabe40-282d-11e2-bf07-001ec947ccaf")
@@ -93,11 +93,11 @@ public class PropertyTableImpl extends ElementImpl implements PropertyTable {
         }
         
         setContent(props);
+        
     }
 
     /**
      * Update the cached Properties from the string content.
-     * 
      * @return the new cached Properties.
      */
     @objid ("b5b0b9f3-8d2c-44a1-8173-3c97f0a44fe1")
@@ -119,7 +119,6 @@ public class PropertyTableImpl extends ElementImpl implements PropertyTable {
      * Get the internal property table.
      * <p>
      * The internal property table reflects the string content at the moment it is computed.
-     * 
      * @return the internal property table.
      */
     @objid ("0ab19bd3-e3e4-41f5-be52-5cee16a1623e")
@@ -130,11 +129,11 @@ public class PropertyTableImpl extends ElementImpl implements PropertyTable {
             return computeTable();
         else
             return syncTable;
+        
     }
 
     /**
      * Return the cached properties if the Properties is up to date with the string content.
-     * 
      * @return the cached property table or <code>null</code>.
      */
     @objid ("07ffcaec-5a48-4ecb-ba9d-767191ca6ac7")

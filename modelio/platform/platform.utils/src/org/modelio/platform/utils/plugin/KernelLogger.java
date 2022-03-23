@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.utils.plugin;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -42,7 +41,7 @@ class KernelLogger implements IBasicLogger {
     private int logLevel = IBasicLogger.TRACE;
 
     @objid ("b0765e71-93f3-4c5b-ad42-79d49e3280e1")
-    public KernelLogger() {
+    public  KernelLogger() {
         this.service = LoggerFactory.getLogger("modelio.core");
     }
 
@@ -52,6 +51,7 @@ class KernelLogger implements IBasicLogger {
         if (isErrorEnabled()) {
             this.service.error(message);
         }
+        
     }
 
     @objid ("a3dee50f-675e-4d62-9e5c-1f39684640d0")
@@ -60,6 +60,7 @@ class KernelLogger implements IBasicLogger {
         if (isErrorEnabled()) {
             this.service.error(String.format(format, args));
         }
+        
     }
 
     @objid ("62bcd9a6-517c-4227-ad74-c3c75885cb81")
@@ -68,6 +69,7 @@ class KernelLogger implements IBasicLogger {
         if (isErrorEnabled()) {
             this.service.error(ex.getMessage(), ex);
         }
+        
     }
 
     @objid ("6ab392b3-433d-42f9-bb35-2692c3f7eeb5")
@@ -76,6 +78,7 @@ class KernelLogger implements IBasicLogger {
         if (isTraceEnabled()) {
             this.service.trace(message);
         }
+        
     }
 
     @objid ("55b79b0c-008f-4660-a1e2-aaecb00335cd")
@@ -84,6 +87,7 @@ class KernelLogger implements IBasicLogger {
         if (isTraceEnabled()) {
             this.service.trace(String.format(format, args));
         }
+        
     }
 
     @objid ("904a051b-cfdc-49b4-9f43-7b48b03e6abd")
@@ -92,6 +96,7 @@ class KernelLogger implements IBasicLogger {
         if (isTraceEnabled()) {
             this.service.trace(ex.getMessage(), ex);
         }
+        
     }
 
     @objid ("ed41c336-512f-4948-8587-f854f7a51753")
@@ -100,6 +105,7 @@ class KernelLogger implements IBasicLogger {
         if (isWarnEnabled()) {
             this.service.warn(message);
         }
+        
     }
 
     @objid ("f0cffd82-1857-4ddb-8b9a-c78b2a783b4c")
@@ -108,6 +114,7 @@ class KernelLogger implements IBasicLogger {
         if (isWarnEnabled()) {
             this.service.warn(String.format(format, args));
         }
+        
     }
 
     @objid ("028ddeb7-913f-4298-a969-00068a42a533")
@@ -116,6 +123,7 @@ class KernelLogger implements IBasicLogger {
         if (isWarnEnabled()) {
             this.service.warn(ex.getMessage(), ex);
         }
+        
     }
 
     @objid ("bad7a409-606f-43a2-aa7d-93af0d2c1ca3")

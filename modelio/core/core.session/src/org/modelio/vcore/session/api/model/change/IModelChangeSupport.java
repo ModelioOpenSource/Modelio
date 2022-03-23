@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.api.model.change;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,7 +49,6 @@ import com.modeliosoft.modelio.javadesigner.annotations.objid;
 public interface IModelChangeSupport {
     /**
      * Add a model change handler.
-     * 
      * @param aHandler a model change handler.
      */
     @objid ("0061c06a-58c5-10c8-842f-001ec947cd2a")
@@ -58,7 +56,6 @@ public interface IModelChangeSupport {
 
     /**
      * Add a model change listener.
-     * 
      * @param aListener the listener.
      */
     @objid ("0061cd80-58c5-10c8-842f-001ec947cd2a")
@@ -69,7 +66,6 @@ public interface IModelChangeSupport {
      * <p>
      * They are used to update diagrams, which need an open transaction because they persist some data in the model.
      * They can modify the model but are expected to do only non structural modifications.
-     * 
      * @param aListener the listener to add
      */
     @objid ("5c1683bd-38f3-4ec3-9312-a88522d4b08d")
@@ -95,7 +91,6 @@ public interface IModelChangeSupport {
 
     /**
      * Add a model status change event listener.
-     * 
      * @param aListener a model status change event listeners.
      */
     @objid ("0061e9d2-58c5-10c8-842f-001ec947cd2a")

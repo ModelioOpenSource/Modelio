@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.module.jaxbv1;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 
 /**
  * <p>Java class for diagram-command-link complex type.
@@ -161,7 +160,6 @@ public class JxbDiagramCommandLink {
 
     /**
      * Sets the value of the handler property.
-     * 
      * @param value allowed object is
      * {@link JxbHandler }
      */
@@ -183,7 +181,6 @@ public class JxbDiagramCommandLink {
 
     /**
      * Sets the value of the name property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -205,7 +202,6 @@ public class JxbDiagramCommandLink {
 
     /**
      * Sets the value of the label property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -227,7 +223,6 @@ public class JxbDiagramCommandLink {
 
     /**
      * Sets the value of the tooltip property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -249,7 +244,6 @@ public class JxbDiagramCommandLink {
 
     /**
      * Sets the value of the image property.
-     * 
      * @param value allowed object is
      * {@link String }
      */
@@ -271,7 +265,6 @@ public class JxbDiagramCommandLink {
 
     /**
      * Sets the value of the group property.
-     * 
      * @param value allowed object is
      * {@link String }
      */

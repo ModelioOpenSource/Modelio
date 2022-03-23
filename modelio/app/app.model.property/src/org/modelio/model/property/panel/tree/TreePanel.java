@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel.tree;
 
 import java.util.Objects;
@@ -52,12 +51,13 @@ public class TreePanel extends Composite {
     private TreeViewer viewer = null;
 
     @objid ("8faeeca3-c068-11e1-8c0a-002564c97630")
-    public TreePanel(SashForm sash, int style) {
+    public  TreePanel(SashForm sash, int style) {
         super(sash, style);
         
         this.annotationLabelProvider = new TreeLabelProvider();
         
         createGUI();
+        
     }
 
     @objid ("8faeeca8-c068-11e1-8c0a-002564c97630")
@@ -72,6 +72,7 @@ public class TreePanel extends Composite {
         this.viewer.setAutoExpandLevel(3);
         
         initEditor();
+        
     }
 
     @objid ("8faeecaa-c068-11e1-8c0a-002564c97630")
@@ -91,6 +92,7 @@ public class TreePanel extends Composite {
         String[] properties = new String[1];
         properties[0] = "name";
         this.viewer.setColumnProperties(properties);
+        
     }
 
     /**
@@ -103,7 +105,6 @@ public class TreePanel extends Composite {
 
     /**
      * Select the given model element in the annotation view.
-     * 
      * @param target the model element to select.
      */
     @objid ("8fb14db1-c068-11e1-8c0a-002564c97630")
@@ -121,6 +122,7 @@ public class TreePanel extends Composite {
             this.viewer.setSelection(new TreeSelection(treePath), true);
             setLastType(target);
         }
+        
     }
 
     @objid ("8fb14dba-c068-11e1-8c0a-002564c97630")
@@ -133,6 +135,7 @@ public class TreePanel extends Composite {
             // Don't keep the selection if it is nor a module, nor stereotype
             this.lastSelectedType = null;
         }
+        
     }
 
     /**
@@ -168,6 +171,7 @@ public class TreePanel extends Composite {
                 }
             }
         }
+        
     }
 
     /**

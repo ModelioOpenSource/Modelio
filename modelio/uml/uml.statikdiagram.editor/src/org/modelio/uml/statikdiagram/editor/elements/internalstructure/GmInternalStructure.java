@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.internalstructure;
 
 import java.beans.PropertyChangeEvent;
@@ -37,9 +36,9 @@ import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
+import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.diagram.styles.core.StyleKey.InternalsViewMode;
 import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
-import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.vcore.smkernel.mapi.MObject;
 import org.modelio.vcore.smkernel.mapi.MRef;
 
@@ -77,12 +76,11 @@ public final class GmInternalStructure extends GmNoStyleCompositeNode implements
 
     /**
      * Creates an InternalStructure classes group.
-     * 
      * @param diagram The diagram.
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      */
     @objid ("358972c9-55b7-11e2-877f-002564c97630")
-    public GmInternalStructure(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmInternalStructure(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
         
         this.InternalStructureZone = new GmInternalStructureZone(diagram, relatedRef);
@@ -97,18 +95,31 @@ public final class GmInternalStructure extends GmNoStyleCompositeNode implements
         
         super.addChild(this.InternalGroup);
         super.addChild(this.InternalStructureZone);
+        
+    }
+
+    @objid ("f790055b-03cc-4bb8-bc43-3912ae4ac0ae")
+    @Override
+    public void delete() {
+        // Avoid useless work on delete
+        if (this.InternalGroup != null)
+            this.InternalGroup.removePropertyChangeListener(this);
+        if (this.InternalStructureZone != null)
+            this.InternalStructureZone.removePropertyChangeListener(this);
+        
+        super.delete();
+        
     }
 
     /**
      * Creates an InternalStructure classes group from existing zone & group.
-     * 
      * @param diagram The diagram.
      * @param relatedRef a reference to the element this GmModel is related to, must not be null.
      * @param zone an existing InternalStructure zone.
      * @param group an existing InternalStructure group.
      */
     @objid ("358972d4-55b7-11e2-877f-002564c97630")
-    public GmInternalStructure(final IGmDiagram diagram, final MRef relatedRef, final GmFreeZone zone, final GmGroup group) {
+    public  GmInternalStructure(final IGmDiagram diagram, final MRef relatedRef, final GmFreeZone zone, final GmGroup group) {
         super(diagram, relatedRef);
         
         this.InternalStructureZone = zone;
@@ -123,6 +134,7 @@ public final class GmInternalStructure extends GmNoStyleCompositeNode implements
         // Register as a property change listener for content synchronization.
         this.InternalStructureZone.addPropertyChangeListener(this);
         this.InternalGroup.addPropertyChangeListener(this);
+        
     }
 
     /**
@@ -157,6 +169,7 @@ public final class GmInternalStructure extends GmNoStyleCompositeNode implements
             break;
         }
         }
+        
     }
 
     @objid ("358af984-55b7-11e2-877f-002564c97630")
@@ -166,6 +179,7 @@ public final class GmInternalStructure extends GmNoStyleCompositeNode implements
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmInternalStructure.", GmInternalStructure.MINOR_VERSION);
+        
     }
 
     @objid ("358af98b-55b7-11e2-877f-002564c97630")
@@ -177,6 +191,7 @@ public final class GmInternalStructure extends GmNoStyleCompositeNode implements
         
         this.InternalGroup = (GmGroup) getFirstChild(GROUP);
         this.InternalGroup.addPropertyChangeListener(this);
+        
     }
 
     @objid ("358af991-55b7-11e2-877f-002564c97630")
@@ -187,6 +202,7 @@ public final class GmInternalStructure extends GmNoStyleCompositeNode implements
         } else {
             return this.InternalGroup;
         }
+        
     }
 
     @objid ("358af99b-55b7-11e2-877f-002564c97630")
@@ -197,6 +213,7 @@ public final class GmInternalStructure extends GmNoStyleCompositeNode implements
         } else {
             return this.InternalGroup.canUnmask(el);
         }
+        
     }
 
     @objid ("358c7fff-55b7-11e2-877f-002564c97630")
@@ -212,6 +229,7 @@ public final class GmInternalStructure extends GmNoStyleCompositeNode implements
         if (child == this.InternalGroup || child == this.InternalStructureZone) {
             child.removePropertyChangeListener(this);
         }
+        
     }
 
     /**
@@ -233,13 +251,13 @@ public final class GmInternalStructure extends GmNoStyleCompositeNode implements
                 return;
             }
         }
+        
     }
 
     /**
      * Synchronize target's children according to the source's children.
      * Unwanted children are all masked.
      * Missing children are unmasked.
-     * 
      * @param source the gm having the right children.
      * @param target the gm that might have unwanted/missing children.
      */
@@ -282,6 +300,7 @@ public final class GmInternalStructure extends GmNoStyleCompositeNode implements
             getDiagram().unmask(target, elt, constraint.getCopy());
             constraint.translate(10, 10);
         }
+        
     }
 
     /**
@@ -296,6 +315,7 @@ public final class GmInternalStructure extends GmNoStyleCompositeNode implements
         } else {
             return true;
         }
+        
     }
 
     @objid ("358c8022-55b7-11e2-877f-002564c97630")
@@ -308,7 +328,8 @@ public final class GmInternalStructure extends GmNoStyleCompositeNode implements
      * Constructor for deserialization only.
      */
     @objid ("358c8027-55b7-11e2-877f-002564c97630")
-    public GmInternalStructure() {
+    public  GmInternalStructure() {
+        
     }
 
     /**
@@ -345,6 +366,7 @@ public final class GmInternalStructure extends GmNoStyleCompositeNode implements
         if (visible) {
             getParent().getDisplayedStyle().setProperty(getStyleKey(MetaKey.REPMODE), RepresentationMode.STRUCTURED);
         }
+        
     }
 
     @objid ("358e06a2-55b7-11e2-877f-002564c97630")
@@ -353,6 +375,7 @@ public final class GmInternalStructure extends GmNoStyleCompositeNode implements
         // The visibility may have changed so fires a notification.
         fireVisibilityChanged();
         super.styleChanged(style);
+        
     }
 
     @objid ("358e06a8-55b7-11e2-877f-002564c97630")
@@ -363,6 +386,7 @@ public final class GmInternalStructure extends GmNoStyleCompositeNode implements
         } else {
             super.styleChanged(property, newValue);
         }
+        
     }
 
 }

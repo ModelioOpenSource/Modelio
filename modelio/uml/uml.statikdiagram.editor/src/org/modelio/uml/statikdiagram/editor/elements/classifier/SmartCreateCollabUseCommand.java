@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.classifier;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -28,8 +27,8 @@ import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.requests.CreateRequest;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
 import org.modelio.diagram.elements.core.model.GmModel;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
 import org.modelio.metamodel.uml.statik.Collaboration;
 import org.modelio.metamodel.uml.statik.CollaborationUse;
@@ -65,11 +64,12 @@ public class SmartCreateCollabUseCommand extends Command {
      * @param parentElement the element that will own the new ObjectNode
      */
     @objid ("3436b434-55b7-11e2-877f-002564c97630")
-    public SmartCreateCollabUseCommand(final Point dropLocation, final MObject toUnmask, final EditPart parentEditPart, final MObject parentElement) {
+    public  SmartCreateCollabUseCommand(final Point dropLocation, final MObject toUnmask, final EditPart parentEditPart, final MObject parentElement) {
         this.location = dropLocation;
         this.toUnmask = toUnmask;
         this.parentEditPart = parentEditPart;
         this.parentElement = parentElement;
+        
     }
 
     @objid ("3436b443-55b7-11e2-877f-002564c97630")
@@ -118,6 +118,7 @@ public class SmartCreateCollabUseCommand extends Command {
         
         // Unmask the node
         unmaskElement(collabUseNode);
+        
     }
 
     @objid ("34383a9d-55b7-11e2-877f-002564c97630")
@@ -134,6 +135,7 @@ public class SmartCreateCollabUseCommand extends Command {
         if (cmd != null && cmd.canExecute()) {
             cmd.execute();
         }
+        
     }
 
 }

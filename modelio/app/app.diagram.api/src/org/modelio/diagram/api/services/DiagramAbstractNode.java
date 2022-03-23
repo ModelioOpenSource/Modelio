@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.api.services;
 
 import java.util.Collection;
@@ -35,10 +34,11 @@ import org.eclipse.gef.requests.GroupRequest;
 import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Font;
 import org.modelio.api.modelio.diagram.IDiagramNode;
+import org.modelio.api.modelio.diagram.IDiagramNode.Role;
 import org.modelio.diagram.elements.core.model.IGmObject;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.FillMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.FillMode;
 
 /**
  * This class represents a DiagramGraphic of the 'node' kind.
@@ -47,11 +47,10 @@ import org.modelio.diagram.styles.core.StyleKey;
 public abstract class DiagramAbstractNode extends DiagramGraphic implements IDiagramNode {
     /**
      * Creates a diagram node.
-     * 
      * @param diagramHandle The diagram manipulation class.
      */
     @objid ("fe776269-7dfd-4e28-a41d-a20b864c0880")
-    public DiagramAbstractNode(DiagramHandle diagramHandle) {
+    public  DiagramAbstractNode(DiagramHandle diagramHandle) {
         super(diagramHandle);
     }
 
@@ -68,11 +67,11 @@ public abstract class DiagramAbstractNode extends DiagramGraphic implements IDia
         if (!oldSize.equals(newSize)) {
             setSize(newSize.width, newSize.height);
         }
+        
     }
 
     /**
      * Return the node location and size as a Rectangle.
-     * 
      * @return the node bounds.
      */
     @objid ("490748e6-68ee-472e-9b8f-a5344eb57588")
@@ -110,7 +109,6 @@ public abstract class DiagramAbstractNode extends DiagramGraphic implements IDia
     /**
      * This method changes both the location and the size of a node by changing its current bounds.<br>
      * Note however that the requested change might no be performed when some layout constraints are maintained by the parent of the node (ie the requested changes are refused or adapted by the parent of the node).
-     * 
      * @param newBounds the new node bounds
      */
     @objid ("e6eacc0f-78f1-4b62-8ff1-40ae61305557")
@@ -122,6 +120,7 @@ public abstract class DiagramAbstractNode extends DiagramGraphic implements IDia
         
         setLocation(newBounds.x, newBounds.y);
         setSize(newBounds.width, newBounds.height);
+        
     }
 
     @objid ("095e0bf2-e517-4d28-a70e-738130f70331")
@@ -136,6 +135,7 @@ public abstract class DiagramAbstractNode extends DiagramGraphic implements IDia
         if (cmd != null && cmd.canExecute()) {
             editPart.getViewer().getEditDomain().getCommandStack().execute(cmd);
         }
+        
     }
 
     /**
@@ -143,7 +143,6 @@ public abstract class DiagramAbstractNode extends DiagramGraphic implements IDia
      * <p>
      * Note however that the requested change might no be performed when some layout constraints are maintained
      * by the parent of the node (ie the requested change is refused or adapted by the parent of the node).
-     * 
      * @param x the new X position
      * @param y the new Y position
      * @return true if the change could be requested (different from 'performed' see note above)
@@ -175,12 +174,12 @@ public abstract class DiagramAbstractNode extends DiagramGraphic implements IDia
         } else {
             return false;
         }
+        
     }
 
     /**
      * Change the size of the node to (width,height).<br>
      * Note however that the requested change might no be performed when some layout constraints are maintained by the parent of the node (ie the requested change is refused or adapted by the parent of the node).
-     * 
      * @param width the new width
      * @param height the new height
      * @return true if the change could be requested (different from 'performed' see note above)
@@ -209,6 +208,7 @@ public abstract class DiagramAbstractNode extends DiagramGraphic implements IDia
         } else {
             return false;
         }
+        
     }
 
     @objid ("d6a4a384-7664-4f20-8806-fd675ebb15e9")
@@ -263,6 +263,7 @@ public abstract class DiagramAbstractNode extends DiagramGraphic implements IDia
         }
         getModel().getDisplayedStyle()
         .setProperty(styleKey, StyleKeyTypeConverter.convertFromString(styleKey, value));
+        
     }
 
     @objid ("626281c5-dd49-4cdb-9e6d-0e50396e85fa")
@@ -274,6 +275,7 @@ public abstract class DiagramAbstractNode extends DiagramGraphic implements IDia
         }
         getModel().getDisplayedStyle()
         .setProperty(styleKey, StyleKeyTypeConverter.convertFromString(styleKey, value));
+        
     }
 
     @objid ("f1b4ae70-b1cd-4f3c-9118-c1f2ed820699")
@@ -285,6 +287,7 @@ public abstract class DiagramAbstractNode extends DiagramGraphic implements IDia
         }
         
         getModel().getDisplayedStyle().setProperty(styleKey, value);
+        
     }
 
     @objid ("77c804b0-6e6e-4820-b800-4d3672dd29e5")
@@ -296,6 +299,7 @@ public abstract class DiagramAbstractNode extends DiagramGraphic implements IDia
         }
         getModel().getDisplayedStyle()
         .setProperty(styleKey, StyleKeyTypeConverter.convertFromString(styleKey, value));
+        
     }
 
     @objid ("6ed35269-aaaa-4e50-9d73-6a51724ac79e")
@@ -328,6 +332,7 @@ public abstract class DiagramAbstractNode extends DiagramGraphic implements IDia
         default:
             return 2;
         }
+        
     }
 
     @objid ("87bb9332-147d-47c8-9e43-a7d2edd9e73a")
@@ -340,6 +345,7 @@ public abstract class DiagramAbstractNode extends DiagramGraphic implements IDia
         
         getModel().getDisplayedStyle()
         .setProperty(styleKey, StyleKeyTypeConverter.convertFromString(styleKey, value));
+        
     }
 
     @objid ("a113af60-2c0e-47bd-8a50-c242fca38582")
@@ -367,6 +373,7 @@ public abstract class DiagramAbstractNode extends DiagramGraphic implements IDia
         }
         
         getModel().getDisplayedStyle().setProperty(styleKey, pattern);
+        
     }
 
     @objid ("a6028698-76ec-4418-8c97-b8d3d836afbb")
@@ -390,6 +397,7 @@ public abstract class DiagramAbstractNode extends DiagramGraphic implements IDia
         } else {
             return c.iterator().next();
         }
+        
     }
 
 }

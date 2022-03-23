@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.decisionmerge;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,17 +49,17 @@ public class GmInputBehaviourText extends GmElementText {
      * Empty c'tor for deserialization.
      */
     @objid ("2a45f428-55b6-11e2-877f-002564c97630")
-    public GmInputBehaviourText() {
+    public  GmInputBehaviourText() {
+        
     }
 
     /**
      * Default c'tor.
-     * 
      * @param diagram the diagram.
      * @param relatedRef reference of the related element, must not be null.
      */
     @objid ("2a45f42b-55b6-11e2-877f-002564c97630")
-    public GmInputBehaviourText(IGmDiagram diagram, MRef relatedRef) {
+    public  GmInputBehaviourText(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -73,6 +72,7 @@ public class GmInputBehaviourText extends GmElementText {
         } else {
             return getDisplayedStyle().getProperty(key);
         }
+        
     }
 
     @objid ("2a45f438-55b6-11e2-877f-002564c97630")
@@ -93,6 +93,7 @@ public class GmInputBehaviourText extends GmElementText {
                         el.setDecisionInputBehavior(text);
                     }
                 };
+        
     }
 
     @objid ("2a45f43f-55b6-11e2-877f-002564c97630")
@@ -119,6 +120,7 @@ public class GmInputBehaviourText extends GmElementText {
             break;
         }
         }
+        
     }
 
     @objid ("2a45f44a-55b6-11e2-877f-002564c97630")
@@ -128,6 +130,7 @@ public class GmInputBehaviourText extends GmElementText {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmInputBehaviourText.", GmInputBehaviourText.MINOR_VERSION);
+        
     }
 
     @objid ("2a45f450-55b6-11e2-877f-002564c97630")

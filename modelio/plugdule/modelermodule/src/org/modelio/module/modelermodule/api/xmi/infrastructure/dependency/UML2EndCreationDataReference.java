@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.infrastructure.dependency;
 
@@ -49,24 +48,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("2bb9e3da-9089-4006-a6a4-4b50ae303353")
 public class UML2EndCreationDataReference {
-    @objid ("52821bbf-2852-4305-9ec5-2561e8af60cc")
+    @objid ("2aae4524-c6c7-4ae3-87bb-f3f6e9a1ecd1")
     public static final String STEREOTYPE_NAME = "UML2EndCreationDataReference";
 
     /**
      * The underlying {@link Dependency} represented by this proxy, never null.
      */
-    @objid ("66f2872d-b40e-41d8-a8f7-2d3dc60c840e")
+    @objid ("fca25ef0-537a-426c-873d-a5aac2abe777")
     protected final Dependency elt;
 
     /**
      * Tells whether a {@link UML2EndCreationDataReference proxy} can be instantiated from a {@link MObject} checking it is a {@link Dependency} stereotyped << UML2EndCreationDataReference >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("ad53819c-93bc-4e1d-9931-f7253eccdfc7")
+    @objid ("787fb67d-8b63-4b45-b093-88358e5c9c43")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof Dependency) && ((Dependency) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2EndCreationDataReference.STEREOTYPE_NAME));
     }
@@ -76,9 +74,9 @@ public class UML2EndCreationDataReference {
      * 
      * @return a {@link UML2EndCreationDataReference} proxy on the created {@link Dependency}.
      */
-    @objid ("7fc61de0-5298-41bf-9c91-9e6a891fb7d3")
+    @objid ("545340ec-0701-45c6-9f65-b0e6b01d0154")
     public static UML2EndCreationDataReference create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Dependency");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Infrastructure.Dependency");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2EndCreationDataReference.STEREOTYPE_NAME);
         return UML2EndCreationDataReference.instantiate((Dependency)e);
     }
@@ -90,7 +88,7 @@ public class UML2EndCreationDataReference {
      * @param obj a Dependency
      * @return a {@link UML2EndCreationDataReference} proxy or <i>null</i>.
      */
-    @objid ("492a5e9a-058a-4dc7-8ae3-bbd64ecde6ef")
+    @objid ("018ebf25-a7fe-4e97-a94f-46b134201dc3")
     public static UML2EndCreationDataReference instantiate(Dependency obj) {
         return UML2EndCreationDataReference.canInstantiate(obj) ? new UML2EndCreationDataReference(obj) : null;
     }
@@ -103,7 +101,7 @@ public class UML2EndCreationDataReference {
      * @return a {@link UML2EndCreationDataReference} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("42fd3d72-7a8f-4483-8313-76fb8380f962")
+    @objid ("4b786d7f-bf9f-421c-9e08-1a6002036066")
     public static UML2EndCreationDataReference safeInstantiate(Dependency obj) throws IllegalArgumentException {
         if (UML2EndCreationDataReference.canInstantiate(obj))
         	return new UML2EndCreationDataReference(obj);
@@ -111,7 +109,7 @@ public class UML2EndCreationDataReference {
         	throw new IllegalArgumentException("UML2EndCreationDataReference: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("edd13420-9474-498b-b5f8-ffad6844decf")
+    @objid ("37391e3a-af99-44a3-a75f-420ec5596466")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -131,46 +129,47 @@ public class UML2EndCreationDataReference {
      * Get the underlying {@link Dependency}. 
      * @return the Dependency represented by this proxy, never null.
      */
-    @objid ("30e6d139-9772-4d7d-8713-adf3c0aa540f")
+    @objid ("c02c7c8d-6af8-4351-a498-6f7cd8509618")
     public Dependency getElement() {
         return this.elt;
     }
 
-    @objid ("81465b41-c50b-401c-abef-802ffda6468b")
+    @objid ("bfe75690-a6f7-4f31-984f-c858868aef09")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("efb6e6a1-5abd-4689-aba9-96f42ec44b21")
-    protected UML2EndCreationDataReference(Dependency elt) {
+    @objid ("07b09105-f482-49a3-ba08-b62ab5306e20")
+    protected  UML2EndCreationDataReference(Dependency elt) {
         this.elt = elt;
     }
 
     @objid ("ce8685fd-e624-48a1-a3ab-352efe352774")
     public static final class MdaTypes {
-        @objid ("dc67b724-9be2-4601-9b5f-517382bc07fb")
+        @objid ("d66b1267-85c8-484d-b045-74fc20220dfc")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("daef2125-c027-4593-bc7a-0c92336ac1f7")
+        @objid ("bb98beb0-1dde-43b5-9789-7bb0502eb877")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("330926b8-0032-47f3-a79e-f4d0ee9990e7")
+        @objid ("165815bc-02c2-4581-9c6a-dff48d4d6da6")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("fb0f9470-03a5-4ec4-8a7c-59a4766bf28d")
+        @objid ("feb51100-912e-454c-84b4-a85884c0dcb9")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "ee06097f-de99-11de-905b-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

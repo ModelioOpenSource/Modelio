@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.manager;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ import org.modelio.diagram.styles.core.NamedStyle;
 @objid ("40e34e28-b444-4cb2-b444-42c03e5c8deb")
 class MissingNamedStyle extends NamedStyle {
     @objid ("a812f2ec-dd50-4879-9ca5-16c0b4cbb893")
-    public MissingNamedStyle(String name) {
+    public  MissingNamedStyle(String name) {
         super(name, FactoryStyle.getInstance());
     }
 
@@ -42,6 +41,7 @@ class MissingNamedStyle extends NamedStyle {
     public void write(IDiagramWriter out) {
         // write a reference to a NamedStyle with same name.
         out.writeExtRef(new NamedStyle(getName(), getCascadedStyle()), "", getName());
+        
     }
 
 }

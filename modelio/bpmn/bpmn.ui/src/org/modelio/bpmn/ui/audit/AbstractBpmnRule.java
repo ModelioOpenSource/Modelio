@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.ui.audit;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,6 @@ public abstract class AbstractBpmnRule extends AbstractRule {
     /**
      * Return the BPMN process from a BPMN node.
      * @param lane a BPMN node.
-     * 
      * @return The owner BPMN Process.
      */
     @objid ("2b168152-4f2f-46cf-8e43-5c2511316dcc")

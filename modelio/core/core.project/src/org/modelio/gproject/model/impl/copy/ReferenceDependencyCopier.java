@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.model.impl.copy;
 
 import java.util.ArrayList;
@@ -40,9 +39,10 @@ class ReferenceDependencyCopier implements IDependencyUpdater {
     private final IObjectFinder objectFinder;
 
     @objid ("01f419b4-0000-3331-0000-000000000000")
-    public ReferenceDependencyCopier(ICoreSession localSession, IObjectFinder objectFinder) {
+    public  ReferenceDependencyCopier(ICoreSession localSession, IObjectFinder objectFinder) {
         this.localSession = localSession;
         this.objectFinder = objectFinder;
+        
     }
 
     @objid ("01f419b4-0000-3341-0000-000000000000")
@@ -68,6 +68,7 @@ class ReferenceDependencyCopier implements IDependencyUpdater {
         for (SmObjectImpl obj : equivalentLocalValues) {
             localObject.appendDepVal(localDep, obj);
         }
+        
     }
 
     @objid ("000de5f8-5247-1091-8d81-001ec947cd2a")

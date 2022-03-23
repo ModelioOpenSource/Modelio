@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.interactionModel;
 
 import java.util.ArrayList;
@@ -49,7 +49,7 @@ public class DurationConstraintSmClass extends ConstraintSmClass {
     private SmAttribute durationMaxAtt;
 
     @objid ("bd0a1d3d-693d-49ce-bcd4-1f616bbfd907")
-    public DurationConstraintSmClass(ISmMetamodelFragment origin) {
+    public  DurationConstraintSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -57,6 +57,7 @@ public class DurationConstraintSmClass extends ConstraintSmClass {
     @Override
     public String getName() {
         return "DurationConstraint";
+        
     }
 
     @objid ("f9232b53-81fc-4dd0-adb6-c357a6869ea3")
@@ -69,18 +70,21 @@ public class DurationConstraintSmClass extends ConstraintSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return DurationConstraint.class;
+        
     }
 
     @objid ("c6bc3520-82e7-4900-a7e1-2a577bea4564")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("0fa4ab08-2ad3-4c03-9714-c3fd5eab31b3")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("dede565b-3e1d-4fc4-8315-0a1208cb0009")
@@ -101,6 +105,7 @@ public class DurationConstraintSmClass extends ConstraintSmClass {
         
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("93b777be-fc6d-4ca8-9965-9ee54b98402f")
@@ -125,7 +130,7 @@ public class DurationConstraintSmClass extends ConstraintSmClass {
         private DurationConstraintSmClass smClass;
 
         @objid ("28c93a0b-2a32-4792-a71f-1c48bfdd0325")
-        public DurationConstraintObjectFactory(DurationConstraintSmClass smClass) {
+        public  DurationConstraintObjectFactory(DurationConstraintSmClass smClass) {
             this.smClass = smClass;
         }
 

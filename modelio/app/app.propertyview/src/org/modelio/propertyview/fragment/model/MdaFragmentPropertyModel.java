@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.propertyview.fragment.model;
 
 import java.io.IOException;
@@ -40,11 +39,10 @@ public class MdaFragmentPropertyModel extends AbstractFragmentPropertyModel {
 
     /**
      * Create a new <i>MdaFragment</i> data model from an <i>MdaFragment</i>.
-     * 
      * @param fragment the fragment of which properties will be display
      */
     @objid ("7b0b7092-95f5-4d3c-96f9-1c7af8577968")
-    public MdaFragmentPropertyModel(MdaFragment fragment) {
+    public  MdaFragmentPropertyModel(MdaFragment fragment) {
         super(fragment);
         try {
             IModelComponentInfos infos = fragment.getInformations();
@@ -53,11 +51,11 @@ public class MdaFragmentPropertyModel extends AbstractFragmentPropertyModel {
         } catch (IOException e) {
             PropertyViewPlugin.LOG.error(e);
         }
+        
     }
 
     /**
      * Get fragment version
-     * 
      * @return the fragment revision
      */
     @objid ("aefa75fe-00e1-4289-99d1-6f34382a9cbb")
@@ -67,7 +65,6 @@ public class MdaFragmentPropertyModel extends AbstractFragmentPropertyModel {
 
     /**
      * Set fragment version
-     * 
      * @param version the fragment version
      */
     @objid ("1f1f3235-e0db-4d31-b4fe-a01a85661ea4")

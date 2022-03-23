@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -58,10 +57,11 @@ public class ONaryLink extends OModelElement {
     }
 
     @objid ("47a76052-6166-4d85-bb81-b773971cff5e")
-    public ONaryLink(NaryLink element) {
+    public  ONaryLink(NaryLink element) {
         super(element);
         this.linkOwner = AbstractObjingModelNavigation.getNaryLinkOwner(element);
         this.connectorOwner = AbstractObjingModelNavigation.getNaryConnectorOwner(element);
+        
     }
 
     @objid ("52f33632-9b0d-4312-adb8-175edfa21cc0")
@@ -74,6 +74,7 @@ public class ONaryLink extends OModelElement {
                 attachInstanceSpecification((InstanceSpecification) ecoreElt);
             }
         }
+        
     }
 
     @objid ("3a502d83-ea4d-4bbf-b43f-347f38a141bb")
@@ -90,6 +91,7 @@ public class ONaryLink extends OModelElement {
                 ObjingEAnnotation.setIsLink(ecoreElt);  
             }
         }
+        
     }
 
     @objid ("a353bbd5-474d-4eff-9db5-fe92a7906e55")
@@ -98,6 +100,7 @@ public class ONaryLink extends OModelElement {
         if (AbstractObjingModelNavigation.isNotNullOrEmpty(eltName)) {
             connector.setName(eltName);
         }
+        
     }
 
     @objid ("e4b0dc1b-6411-4bdf-a7b9-bc1f461b7d6d")
@@ -110,6 +113,7 @@ public class ONaryLink extends OModelElement {
                 connector.getClassifiers().add((org.eclipse.uml2.uml.Classifier) type);
             }
         }
+        
     }
 
     @objid ("c73bc0b8-ace9-4eb1-ad70-2a02866b29b7")
@@ -130,6 +134,7 @@ public class ONaryLink extends OModelElement {
                         + ") Not Found");
             }
         }
+        
     }
 
     @objid ("88748d07-c9af-4244-b5b6-36684bf25b86")
@@ -149,12 +154,14 @@ public class ONaryLink extends OModelElement {
                 GenerationProperties.getInstance().addWarning(message, getObjingElement());
             }
         }
+        
     }
 
     @objid ("5e5d850c-597a-4d36-bbc7-30f288979a62")
     private void setConnectorProperties(org.eclipse.uml2.uml.Connector ecoreElt) {
         setBase(ecoreElt);
         setKind(ecoreElt);
+        
     }
 
     @objid ("b9895ce4-98c1-4517-b818-2e437526cc6e")
@@ -167,6 +174,7 @@ public class ONaryLink extends OModelElement {
             }
         
         }
+        
     }
 
     @objid ("37e5e691-2c49-4b7c-8b0f-eb9c019a8986")

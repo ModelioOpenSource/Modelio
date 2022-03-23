@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.rcp.inputpart;
 
 import java.util.Collection;
@@ -39,7 +38,6 @@ public interface IInputPartService {
      * <p>
      * Equivalent to <code>hideInputPart(part, false)</code>.
      * </p>
-     * 
      * @param part the part to hide.
      */
     @objid ("59810458-c0d1-41f0-b514-a45cb0f5ecd3")
@@ -53,7 +51,6 @@ public interface IInputPartService {
 
     /**
      * Hide an eclipse MPart.
-     * 
      * @param part the part to hide.
      * @param forceVisible if <code>true</code>, force to show the part before hiding it (the part cannot be hidden if it is not visible in the current perspective)
      */

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.communicationdiagram.editor.elements.communicationnode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -67,6 +66,7 @@ public class CommunicationNodeEditPart extends AbstractNodeEditPart {
         if (!switchRepresentationMode()) {
             super.refreshFromStyle(aFigure, style);
         }
+        
     }
 
     @objid ("7a51496a-55b6-11e2-877f-002564c97630")
@@ -77,6 +77,7 @@ public class CommunicationNodeEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                 new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     @objid ("7a51496d-55b6-11e2-877f-002564c97630")
@@ -84,6 +85,7 @@ public class CommunicationNodeEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         GmAbstractObject model = getModel();
         getFigure().getParent().setConstraint(getFigure(), model.getLayoutData());
+        
     }
 
     @objid ("7a514970-55b6-11e2-877f-002564c97630")
@@ -91,6 +93,7 @@ public class CommunicationNodeEditPart extends AbstractNodeEditPart {
     protected void addChildVisual(EditPart childEditPart, int index) {
         final IFigure child = ((GraphicalEditPart) childEditPart).getFigure();
         getFigure().add(child, BorderLayout.CENTER, index);
+        
     }
 
     @objid ("7a514975-55b6-11e2-877f-002564c97630")

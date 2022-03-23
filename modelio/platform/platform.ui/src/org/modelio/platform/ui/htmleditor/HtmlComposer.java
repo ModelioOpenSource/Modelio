@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.ui.htmleditor;
 
 import java.io.IOException;
@@ -146,12 +145,11 @@ public class HtmlComposer {
      * Constructs a new instance of a {@link Browser} and includes a ckeditor instance.
      * @see Browser#Browser(Composite, int)
      * @since 0.8
-     * 
      * @param parent a composite control which will be the parent of the new instance (cannot be null)
      * @param style the style of control to construct
      */
     @objid ("81087760-15f7-41aa-909e-eeabdb073191")
-    public HtmlComposer(final Composite parent, final int style) {
+    public  HtmlComposer(final Composite parent, final int style) {
         this.browser = new Browser(parent, style);
         this.browser.setMenu(new Menu(this.browser));
         debugLog(this.browser, "C'Tor HtmlComposer.HtmlComposer()");
@@ -181,6 +179,7 @@ public class HtmlComposer {
         });
         
         this.browser.setUrl(baseUrl.toString());
+        
     }
 
     /**
@@ -206,6 +205,7 @@ public class HtmlComposer {
     public void addFocusListener(final FocusListener listener) {
         // this.browser.addFocusListener(listener);
         this.focusListeners.add(listener);
+        
     }
 
     /**
@@ -221,7 +221,6 @@ public class HtmlComposer {
      * <p>
      * The listener addition is deferred in a queue when this method is called
      * before CKEditor is initialized.
-     * 
      * @param listener a listener
      */
     @objid ("280ed00e-3361-472f-adbd-e314392efea5")
@@ -234,6 +233,7 @@ public class HtmlComposer {
             debugLog(this.browser, "addModifyListener(%s) queued", listener.getClass());
             this.pendingActions.add(() -> addModifyListener(listener));
         }
+        
     }
 
     @objid ("bd0e2816-f30e-4c07-9744-b43338ee985d")
@@ -291,6 +291,7 @@ public class HtmlComposer {
             this.focusListeners.clear();
         }
         this.browser.dispose();
+        
     }
 
     /**
@@ -305,6 +306,7 @@ public class HtmlComposer {
             UI.LOG.debug(e);
             return null;
         }
+        
     }
 
     /**
@@ -316,7 +318,6 @@ public class HtmlComposer {
      * (ProgressListener.completed() gives notification of this).
      * @see org.eclipse.swt.browser.Browser#execute(java.lang.String)
      * @see org.eclipse.swt.browser.Browser#evaluate(java.lang.String)
-     * 
      * @param script the script with javascript commands
      * @return true if the operation was successful and false otherwise
      */
@@ -330,11 +331,11 @@ public class HtmlComposer {
             UI.LOG.warning(e);
             return false;
         }
+        
     }
 
     /**
      * Executes a given command
-     * 
      * @param command the command to execute
      */
     @objid ("6480584c-dfe5-46a0-94d0-7784f4c265f9")
@@ -347,13 +348,13 @@ public class HtmlComposer {
             debugLog(this.browser, ".execute(%s) deferred: not yet initialized " , command.getName() );
             this.pendingActions.add(() -> execute(command));
         }
+        
     }
 
     /**
      * Execute a command that returns a result.
      * <p>
      * Ignore the command and returns null if CKEditor is not yet initialized.
-     * 
      * @param command the command to execute
      * @return the result of the execution.
      */
@@ -526,7 +527,6 @@ public class HtmlComposer {
      * Returns the current HTML content of the widget.
      * <p>
      * Returns null if CKEditor is not yet initialized.
-     * 
      * @return the html
      */
     @objid ("557dd26b-2197-4b36-89b5-5ddd04852ac7")
@@ -869,6 +869,7 @@ public class HtmlComposer {
     public void removeFocusListener(final FocusListener listener) {
         // this.browser.removeFocusListener(listener);
         this.focusListeners.remove(listener);
+        
     }
 
     /**
@@ -890,6 +891,7 @@ public class HtmlComposer {
             debugLog(this.browser, "removeModifyListener(%s) also queued", listener.getClass());
             this.pendingActions.add(() -> removeModifyListener(listener));
         }
+        
     }
 
     @objid ("4e39954f-a05f-4493-8be0-b8d73139cbc0")
@@ -934,6 +936,7 @@ public class HtmlComposer {
                 return "document.getElementById(\'cke_editor1_arialbl\').nextSibling.style.backgroundColor = \'" + hexValue + "\';";
             }
         });
+        
     }
 
     /**
@@ -1012,6 +1015,7 @@ public class HtmlComposer {
             // Defer until initialized
             this.pendingActions.add(() -> setEditable(onOff));
         }
+        
     }
 
     /**
@@ -1024,7 +1028,6 @@ public class HtmlComposer {
 
     /**
      * @see org.eclipse.swt.widgets.Composite#setFocus()
-     * 
      * @return if the control got focus, and false if it was unable to.
      */
     @objid ("2684ed25-d978-458b-9989-fb408ff72c16")
@@ -1074,6 +1077,7 @@ public class HtmlComposer {
         final SetHtmlCommand setHtmlCommand = new SetHtmlCommand(html);
         execute(setHtmlCommand);
         this.lastHtmlContent = html;
+        
     }
 
     /**
@@ -1284,6 +1288,7 @@ public class HtmlComposer {
             }
         }
         this.pendingActions.clear();
+        
     }
 
     @objid ("53037090-f4e1-423b-952e-27ff52134d7b")
@@ -1315,6 +1320,7 @@ public class HtmlComposer {
                 return Boolean.TRUE;
             }
         };
+        
     }
 
     @objid ("4ae5fe81-e088-4dbf-90d3-1d898dc36437")
@@ -1330,6 +1336,7 @@ public class HtmlComposer {
             System.arraycopy(arguments, 1, fargs, 0, arguments.length - 1);
             UI.LOG.debug(format, fargs);
         }
+        
     }
 
     @objid ("90db6387-4906-44a5-af81-5e40ee708e2b")
@@ -1347,12 +1354,13 @@ public class HtmlComposer {
             System.arraycopy(arguments, 1, fargs, 0, arguments.length - 1);
             UI.LOG.debug(format, fargs);
         }
+        
     }
 
     @objid ("501fc4b9-18b0-4b03-939e-74a24fc56ce8")
     private class FocusGainedFunction extends BrowserFunction {
         @objid ("58ab466c-5f48-4b43-8845-b482ddec595d")
-        public FocusGainedFunction(Browser browser) {
+        public  FocusGainedFunction(Browser browser) {
             super(browser, "_delegate_focusGained");
         }
 
@@ -1374,7 +1382,7 @@ public class HtmlComposer {
     @objid ("635f142d-c0e6-4b2f-8b4d-8066f1980d4d")
     private class FocusLostFunction extends BrowserFunction {
         @objid ("0c519ab8-0115-4aca-a17e-73296ca1fe31")
-        public FocusLostFunction(Browser browser) {
+        public  FocusLostFunction(Browser browser) {
             super(browser, "_delegate_focusLost");
         }
 
@@ -1407,7 +1415,7 @@ public class HtmlComposer {
     @objid ("efe568c6-53f4-4bf1-835e-32e47ea6f138")
     private class InitFunction extends BrowserFunction {
         @objid ("b388be37-7a59-4f9e-acee-986642a7e203")
-        public InitFunction(Browser browser) {
+        public  InitFunction(Browser browser) {
             super(browser, "_delegate_init");
         }
 
@@ -1434,7 +1442,7 @@ public class HtmlComposer {
     @objid ("10f0ff83-0216-49a5-835e-0aa46b69601a")
     private class ModifiedFunction extends BrowserFunction {
         @objid ("7a6af4a7-db60-4c2c-bf7f-957bbe4f6689")
-        public ModifiedFunction(Browser browser) {
+        public  ModifiedFunction(Browser browser) {
             super(browser, "_delegate_modified");
         }
 
@@ -1466,7 +1474,7 @@ public class HtmlComposer {
     @objid ("7bc4dbe5-e9d6-4e80-9ee9-7582d3d413ad")
     private class SelectionChangedFunction extends BrowserFunction {
         @objid ("01dca000-9b44-4a51-a618-f9bdf8243700")
-        public SelectionChangedFunction(Browser browser) {
+        public  SelectionChangedFunction(Browser browser) {
             super(browser, "_delegate_selectionChanged");
         }
 

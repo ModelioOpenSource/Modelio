@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,7 +40,7 @@ class MStatusImpl implements MStatus {
     private final boolean dirty;
 
     @objid ("aaf50c0a-d287-11e1-b069-001ec947ccaf")
-    MStatusImpl(SmObjectImpl obj) {
+     MStatusImpl(SmObjectImpl obj) {
         long lstatus = obj.getSmStatusFlags();
         int count = 0;
         
@@ -62,6 +61,7 @@ class MStatusImpl implements MStatus {
         
         this.status = lstatus;
         this.dirty = obj.getRepositoryObject().isDirty(obj);
+        
     }
 
     @objid ("aaf50c0d-d287-11e1-b069-001ec947ccaf")

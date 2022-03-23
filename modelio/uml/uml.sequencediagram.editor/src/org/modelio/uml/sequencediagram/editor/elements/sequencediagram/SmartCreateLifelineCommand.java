@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.sequencediagram;
 
 import java.util.ArrayList;
@@ -31,8 +30,8 @@ import org.eclipse.gef.requests.CreateRequest;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
 import org.modelio.diagram.elements.core.helpers.UnmaskHelper;
 import org.modelio.diagram.elements.core.model.GmModel;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
 import org.modelio.metamodel.uml.behavior.interactionModel.Interaction;
 import org.modelio.metamodel.uml.behavior.interactionModel.Lifeline;
@@ -77,11 +76,12 @@ public class SmartCreateLifelineCommand extends Command {
      * @param parentElement the element that will own the new ObjectNode
      */
     @objid ("d983b58f-55b6-11e2-877f-002564c97630")
-    public SmartCreateLifelineCommand(final Point dropLocation, final MObject toUnmask, final EditPart parentEditPart, final MObject parentElement) {
+    public  SmartCreateLifelineCommand(final Point dropLocation, final MObject toUnmask, final EditPart parentEditPart, final MObject parentElement) {
         this.location = dropLocation;
         this.toUnmask = toUnmask;
         this.parentEditPart = parentEditPart;
         this.parentElement = parentElement;
+        
     }
 
     @objid ("d983b59e-55b6-11e2-877f-002564c97630")
@@ -95,6 +95,7 @@ public class SmartCreateLifelineCommand extends Command {
         }
         return (this.parentElement != null && this.parentElement.isValid() && this.parentElement.getStatus()
                         .isModifiable());
+        
     }
 
     @objid ("d983b5a3-55b6-11e2-877f-002564c97630")
@@ -151,6 +152,7 @@ public class SmartCreateLifelineCommand extends Command {
         // Link the lifeline to the instance
         lifelineNode.setRepresented(instanceNode);
         lifelineNode.setName(instanceNode.getName());
+        
     }
 
     @objid ("d983b5a6-55b6-11e2-877f-002564c97630")
@@ -190,7 +192,6 @@ public class SmartCreateLifelineCommand extends Command {
 
     /**
      * Copy the Ports of the base class to the instance.
-     * 
      * @param part the part where Ports are to be added.
      * @return the created ports.
      */
@@ -226,6 +227,7 @@ public class SmartCreateLifelineCommand extends Command {
         if (cmd != null && cmd.canExecute()) {
             cmd.execute();
         }
+        
     }
 
 }

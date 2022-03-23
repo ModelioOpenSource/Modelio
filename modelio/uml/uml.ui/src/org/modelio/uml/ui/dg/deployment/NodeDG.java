@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.dg.deployment;
 
 import java.util.ArrayList;
@@ -45,7 +44,7 @@ public class NodeDG extends PortContainerDG {
      * @param node The gm node represented by this class.
      */
     @objid ("61c67137-34e9-49ef-aff7-82cf12605202")
-    public NodeDG(DiagramHandle diagramHandle, GmNodeModel node) {
+    public  NodeDG(DiagramHandle diagramHandle, GmNodeModel node) {
         super(diagramHandle, node);
     }
 

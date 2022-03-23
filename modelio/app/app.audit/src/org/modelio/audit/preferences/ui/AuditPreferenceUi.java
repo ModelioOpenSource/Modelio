@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.preferences.ui;
 
 import java.io.File;
@@ -81,18 +80,17 @@ public class AuditPreferenceUi {
 
     /**
      * Initialize the preference editor.
-     * 
      * @param auditService the audit service
      */
     @objid ("b20b8808-ba8a-46d9-8367-6fe4544fd982")
-    public AuditPreferenceUi(IAuditService auditService) {
+    public  AuditPreferenceUi(IAuditService auditService) {
         this.auditService = auditService;
         this.preferences = this.auditService.getConfigurationModel();
+        
     }
 
     /**
      * Create the GUI
-     * 
      * @param parent the parent composite where the content must be created.
      * @return the created root composite
      */
@@ -174,6 +172,7 @@ public class AuditPreferenceUi {
         this.importFromFile.addListener(SWT.Selection, e -> onImportConfiguration());
         this.factory.addListener(SWT.Selection, e -> onResetConfiguration());
         this.save.addListener(SWT.Selection, e -> onSaveConfiguration());
+        
     }
 
     @objid ("31e99d6a-2708-4a2a-9dd8-823ac0f8e17e")
@@ -187,12 +186,14 @@ public class AuditPreferenceUi {
         }
         
         MessageDialog.openError(parentShell, title, message);
+        
     }
 
     @objid ("ee8bdeac-b155-4b7c-a8ae-4e6f12392593")
     private void onSaveConfiguration() {
         // replace the current by the updated plan
         this.auditService.apply(this.preferences);
+        
     }
 
     @objid ("3720bb4a-09ea-45d9-bce4-5ca41bbe2df0")
@@ -200,6 +201,7 @@ public class AuditPreferenceUi {
         // use a configurator for factory settings
         this.preferences = this.auditService.getFactorySettings();
         this.treeViewer.setInput(this.preferences);
+        
     }
 
     @objid ("028925ef-2ed4-4fc9-a870-0c8922282da2")
@@ -224,6 +226,7 @@ public class AuditPreferenceUi {
                 reportError(Audit.I18N.getString("Preferences.Audit.Import.Error"), e);
             }
         }
+        
     }
 
     @objid ("de4899d9-7695-42af-b99c-6f14ce349f9e")
@@ -256,6 +259,7 @@ public class AuditPreferenceUi {
             }
         
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.mmextensions.standard.facilities;
 
 import java.util.LinkedHashSet;
@@ -52,7 +51,6 @@ public abstract class RelatedDiagramHelper {
      * <p>
      * <i>Please note that <b>diagrams the element is displayed into are not included</b>, you must call {@link ModelElement#getDiagramElement()} to get them.</i>
      * </p>
-     * 
      * @param elt a model element.
      * @return a diagram list.
      */

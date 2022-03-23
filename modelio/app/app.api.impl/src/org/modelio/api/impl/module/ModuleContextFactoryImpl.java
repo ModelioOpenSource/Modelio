@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.api.impl.module;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,7 +45,7 @@ public class ModuleContextFactoryImpl extends ModuleContextFactory {
     }
 
     @objid ("493ce802-7325-4c82-8f57-3c0a209b8ade")
-    public ModuleContextFactoryImpl(IEclipseContext eclipseContext) {
+    public  ModuleContextFactoryImpl(IEclipseContext eclipseContext) {
         this.eclipseContext = eclipseContext;
     }
 
@@ -54,6 +53,7 @@ public class ModuleContextFactoryImpl extends ModuleContextFactory {
     public void register() {
         assert(ModuleContextFactory.instance == null);
         ModuleContextFactory.instance = this;
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnmessage;
 
 import java.util.List;
@@ -56,18 +55,17 @@ public class GmBpmnMessageLink extends GmLink implements IGmNodeLink {
      * Constructor that must be used for deserialization only.
      */
     @objid ("61623b18-55b6-11e2-877f-002564c97630")
-    public GmBpmnMessageLink() {
+    public  GmBpmnMessageLink() {
         // Nothing to do.
     }
 
     /**
      * Creates a new GmNoteLink
-     * 
      * @param diagram The diagram containing the link.
      * @param relatedRef a reference to the represented Note.
      */
     @objid ("6163c179-55b6-11e2-877f-002564c97630")
-    public GmBpmnMessageLink(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmBpmnMessageLink(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -129,7 +127,6 @@ public class GmBpmnMessageLink extends GmLink implements IGmNodeLink {
 
     /**
      * Updates the proxy style to point to the given node style.
-     * 
      * @param ref the reference node, may be null.
      */
     @objid ("6163c1b7-55b6-11e2-877f-002564c97630")
@@ -140,6 +137,7 @@ public class GmBpmnMessageLink extends GmLink implements IGmNodeLink {
         } else {
             getPersistedStyle().setCascadedStyle(getDiagram().getPersistedStyle());
         }
+        
     }
 
     @objid ("6165481b-55b6-11e2-877f-002564c97630")
@@ -149,6 +147,7 @@ public class GmBpmnMessageLink extends GmLink implements IGmNodeLink {
         if (to instanceof GmAbstractObject) {
             refreshStyle((GmAbstractObject) to);
         }
+        
     }
 
     @objid ("61654822-55b6-11e2-877f-002564c97630")
@@ -158,6 +157,7 @@ public class GmBpmnMessageLink extends GmLink implements IGmNodeLink {
         if (getTo() instanceof GmAbstractObject) {
             refreshStyle((GmAbstractObject) getTo());
         }
+        
     }
 
     @objid ("61654829-55b6-11e2-877f-002564c97630")
@@ -167,6 +167,7 @@ public class GmBpmnMessageLink extends GmLink implements IGmNodeLink {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmBpmnMessageLink.", GmBpmnMessageLink.MINOR_VERSION);
+        
     }
 
     @objid ("6165482f-55b6-11e2-877f-002564c97630")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.ui.application.quit;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,6 +49,7 @@ public class QuitHandler {
         
             workbench.close();
         }
+        
     }
 
     @objid ("22452f5c-486b-11e2-820c-002564c97630")

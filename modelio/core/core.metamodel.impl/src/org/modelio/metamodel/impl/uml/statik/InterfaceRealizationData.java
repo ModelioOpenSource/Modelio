@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,13 +32,13 @@ import org.modelio.vcore.smkernel.SmObjectImpl;
 @objid ("000f6478-c4bf-1fd8-97fe-001ec947cd2a")
 public class InterfaceRealizationData extends UmlModelElementData {
     @objid ("869e2cd2-2e4c-459a-83fa-d882655f5bfe")
-     SmObjectImpl mImplemented;
+    SmObjectImpl mImplemented;
 
     @objid ("2c01f285-efa9-44e7-9514-f4be1426b020")
-     SmObjectImpl mImplementer;
+    SmObjectImpl mImplementer;
 
     @objid ("28b2631f-d5bf-4ad0-9421-7552ad938409")
-    public InterfaceRealizationData(InterfaceRealizationSmClass smClass) {
+    public  InterfaceRealizationData(InterfaceRealizationSmClass smClass) {
         super(smClass);
     }
 

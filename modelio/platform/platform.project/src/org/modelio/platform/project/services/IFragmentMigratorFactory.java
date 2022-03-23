@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.project.services;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,6 @@ import org.modelio.gproject.gproject.GProject;
 public interface IFragmentMigratorFactory {
     /**
      * Get a fragment migrator
-     * 
      * @param eclipseContext the E4 context
      * @param project the project to work on.
      * @param withConfirmation whether to ask user for confirmation.

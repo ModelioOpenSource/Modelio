@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.stateinvariant;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,21 +30,21 @@ import org.modelio.uml.sequencediagram.editor.style.SequenceAbstractStyleKeyProv
 @objid ("d999125f-55b6-11e2-877f-002564c97630")
 public class GmStateInvariantStructuredStyleKeys extends SequenceAbstractStyleKeyProvider {
     @objid ("5070318a-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("STATEINVARIANT_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("STATEINVARIANT_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("5070318c-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("STATEINVARIANT_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("STATEINVARIANT_FILLMODE", MetaKey.FILLMODE);
 
     @objid ("5070318e-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("STATEINVARIANT_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("STATEINVARIANT_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("50703190-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("STATEINVARIANT_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("STATEINVARIANT_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("50703192-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("STATEINVARIANT_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("STATEINVARIANT_FONT", MetaKey.FONT);
 
     @objid ("50703194-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("STATEINVARIANT_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("STATEINVARIANT_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
 }

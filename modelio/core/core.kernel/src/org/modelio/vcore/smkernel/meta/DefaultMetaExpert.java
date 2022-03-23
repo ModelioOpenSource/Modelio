@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.smkernel.meta;
 
 import java.util.ArrayList;
@@ -66,6 +65,7 @@ public class DefaultMetaExpert implements MExpert {
         } else {
             return false;
         }
+        
     }
 
     @objid ("39b4da69-61e7-43a4-8c6b-b831cc8d1137")

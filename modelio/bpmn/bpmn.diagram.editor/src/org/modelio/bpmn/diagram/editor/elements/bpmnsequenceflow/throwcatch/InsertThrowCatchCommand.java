@@ -17,23 +17,21 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnsequenceflow.throwcatch;
 
 import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.modelio.bpmn.diagram.editor.elements.bpmnsequenceflow.GmBpmnSequenceFlow;
 import org.modelio.diagram.elements.common.portcontainer.GmPortContainer;
 import org.modelio.diagram.elements.core.commands.DefaultCreateElementCommand;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
 import org.modelio.diagram.elements.core.link.GmPath;
-import org.modelio.diagram.elements.core.link.anchors.GmLinkAnchor;
+import org.modelio.diagram.elements.core.link.anchors.GmFixedAnchor;
 import org.modelio.diagram.elements.core.model.GmModel;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmPath;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.core.node.GmNodeModel;
@@ -78,10 +76,11 @@ class InsertThrowCatchCommand extends DefaultCreateElementCommand {
     private BpmnLinkEventDefinition catchEventLinkDefinition;
 
     @objid ("65ff5ae0-cf6c-4b6c-8219-6e63b3eee670")
-    public InsertThrowCatchCommand(IGmDiagram diagram, GmBpmnSequenceFlow gmFlow, ModelioCreationContext ctx, Rectangle requestRect) {
+    public  InsertThrowCatchCommand(IGmDiagram diagram, GmBpmnSequenceFlow gmFlow, ModelioCreationContext ctx, Rectangle requestRect) {
         super(diagram.getRelatedElement().getCompositionOwner(), getEventCompatibleParentNode(ctx.getMetaclass(), gmFlow), ctx, requestRect);
         this.diagram = diagram;
         this.gmFlow = gmFlow;
+        
     }
 
     @objid ("ea5d6c5b-7462-449b-b996-ce87fd3106e0")
@@ -94,6 +93,7 @@ class InsertThrowCatchCommand extends DefaultCreateElementCommand {
         } else if (newElement instanceof BpmnIntermediateCatchEvent) {
             doBeforeUnmask((BpmnIntermediateCatchEvent) newElement);
         }
+        
     }
 
     /**
@@ -112,12 +112,13 @@ class InsertThrowCatchCommand extends DefaultCreateElementCommand {
         GmNodeModel catchFlowTargetGm = getGmForFlowNode(catchFlowTarget, getParentNode());
         if (catchFlowTargetGm != null && catchEventGm != null) {
             Rectangle catchFlowTargetBounds = (Rectangle) catchFlowTargetGm.getLayoutData();
+            Rectangle catchFlowTargetMainNodeBounds = (Rectangle) ((GmPortContainer) catchFlowTargetGm).getMainNode().getLayoutData();
             Rectangle catchEventBounds = (Rectangle) catchEventGm.getLayoutData();
             Rectangle catchMainNodeBounds = (Rectangle) ((GmPortContainer) catchEventGm).getMainNode().getLayoutData();
         
             // Compute the 'desired' position of the catch main node
-            Rectangle catchMainNodeComputedBounds = new Rectangle(catchFlowTargetBounds.getLeft().x - catchMainNodeBounds.width * 2,
-                    catchFlowTargetBounds.getLeft().y - catchMainNodeBounds.height / 2,
+            Rectangle catchMainNodeComputedBounds = new Rectangle(catchFlowTargetBounds.x + catchFlowTargetMainNodeBounds.getLeft().x - catchMainNodeBounds.width * 2,
+                    catchFlowTargetBounds.y + catchFlowTargetMainNodeBounds.getLeft().y - catchMainNodeBounds.height / 2,
                     catchMainNodeBounds.width, catchMainNodeBounds.height);
         
             // Compute the required translation
@@ -129,11 +130,11 @@ class InsertThrowCatchCommand extends DefaultCreateElementCommand {
         
             // Unmask and route the flow between the catch event and its target node (anchors set to the figure centers)
             IGmPath gmpath = new GmPath();
-            gmpath.setSourceAnchor(new GmLinkAnchor(new Dimension(catchMainNodeBounds.width / 2, catchMainNodeBounds.height / 2)));
-            gmpath.setTargetAnchor(new GmLinkAnchor(new Dimension(catchFlowTargetBounds.width / 2, catchFlowTargetBounds.height / 2)));
+            gmpath.setSourceAnchor(new GmFixedAnchor(1, 0, 1));
+            gmpath.setTargetAnchor(new GmFixedAnchor(3, 0, 1));
             gmpath.setPathData(Collections.EMPTY_LIST);
             gmpath.setRouterKind(ConnectionRouterId.ORTHOGONAL);
-            this.diagram.unmaskLink(catchFlow, catchEventGm, catchFlowTargetGm, gmpath);
+            this.diagram.unmaskLink(catchFlow, ((GmPortContainer) catchEventGm).getMainNode(), ((GmPortContainer) catchFlowTargetGm).getMainNode(), gmpath);
         } else {
             // Unmask @ 0,0
             this.diagram.unmaskAsChild(this.catchEvent, new Rectangle(0, 0, -1, -1));
@@ -149,12 +150,13 @@ class InsertThrowCatchCommand extends DefaultCreateElementCommand {
         
         if (throwFlowSourceGm != null && catchEventGm != null) {
             Rectangle throwFlowSourceBounds = (Rectangle) throwFlowSourceGm.getLayoutData();
+            Rectangle throwFlowSourceMainNodeBounds = (Rectangle) ((GmPortContainer) throwFlowSourceGm).getMainNode().getLayoutData();
             Rectangle throwEventBounds = (Rectangle) throwEventGm.getLayoutData();
             Rectangle throwMainNodeBounds = (Rectangle) ((GmPortContainer) catchEventGm).getMainNode().getLayoutData();
         
             // Compute the 'desired' position of the throw main node
-            Rectangle throwMainNodeComputedBounds = new Rectangle(throwFlowSourceBounds.getRight().x + throwMainNodeBounds.width,
-                    throwFlowSourceBounds.getRight().y - throwMainNodeBounds.height / 2,
+            Rectangle throwMainNodeComputedBounds = new Rectangle(throwFlowSourceBounds.x + throwFlowSourceMainNodeBounds.getRight().x - throwFlowSourceMainNodeBounds.x + throwMainNodeBounds.width,
+                    throwFlowSourceBounds.y + throwFlowSourceMainNodeBounds.getRight().y - throwMainNodeBounds.height / 2,
                     throwMainNodeBounds.width, throwMainNodeBounds.height);
         
             // Compute the required translation
@@ -166,14 +168,15 @@ class InsertThrowCatchCommand extends DefaultCreateElementCommand {
         
             // Unmask and route the flow between the throw event and its source node (anchors set to the figure centers)
             IGmPath gmpath = new GmPath();
-            gmpath.setSourceAnchor(new GmLinkAnchor(new Dimension(throwFlowSourceBounds.width / 2, throwFlowSourceBounds.height / 2)));
-            gmpath.setTargetAnchor(new GmLinkAnchor(new Dimension(throwMainNodeBounds.width / 2, throwMainNodeBounds.height / 2)));
+            gmpath.setSourceAnchor(new GmFixedAnchor(1, 0, 1));
+            gmpath.setTargetAnchor(new GmFixedAnchor(3, 0, 1));
             gmpath.setPathData(Collections.EMPTY_LIST);
             gmpath.setRouterKind(ConnectionRouterId.ORTHOGONAL);
-            this.diagram.unmaskLink(throwFlow, throwFlowSourceGm, throwEventGm, gmpath);
+            this.diagram.unmaskLink(throwFlow, ((GmPortContainer) throwFlowSourceGm).getMainNode(), ((GmPortContainer) throwEventGm).getMainNode(), gmpath);
         
             this.gmFlow.delete();
         }
+        
     }
 
     /**
@@ -199,6 +202,7 @@ class InsertThrowCatchCommand extends DefaultCreateElementCommand {
         
         // Connect them
         branchEvents();
+        
     }
 
     /**
@@ -224,6 +228,7 @@ class InsertThrowCatchCommand extends DefaultCreateElementCommand {
         
         // Connect them
         branchEvents();
+        
     }
 
     @objid ("972ae6e6-bb45-4c2a-a1ba-18b2bb3b146a")
@@ -243,6 +248,7 @@ class InsertThrowCatchCommand extends DefaultCreateElementCommand {
         this.newFlow = (BpmnSequenceFlow) modelFactory.createElement(metamodel.getMClass(BpmnSequenceFlow.class), getParentElement(), getParentElement().getMClass().getDependency("FlowElement"));
         this.newFlow.setSourceRef(this.catchEvent);
         this.newFlow.setTargetRef(oldTarget);
+        
     }
 
     @objid ("4e661045-b77f-4173-b231-7fe442f50240")
@@ -265,6 +271,7 @@ class InsertThrowCatchCommand extends DefaultCreateElementCommand {
         } else {
             return getCatchEventCompatibleParentNode((GmNodeModel) gmFlow.getTo());
         }
+        
     }
 
     @objid ("809a0f06-4ba7-4a63-9b52-fd169d64c590")
@@ -274,6 +281,7 @@ class InsertThrowCatchCommand extends DefaultCreateElementCommand {
         } else {
             return getThrowEventCompatibleParentNode(gm.getParentNode());
         }
+        
     }
 
     @objid ("c8013f02-ea95-4d17-bdaf-49dfc4481e98")
@@ -283,6 +291,7 @@ class InsertThrowCatchCommand extends DefaultCreateElementCommand {
         } else {
             return getCatchEventCompatibleParentNode(gm.getParentNode());
         }
+        
     }
 
 }

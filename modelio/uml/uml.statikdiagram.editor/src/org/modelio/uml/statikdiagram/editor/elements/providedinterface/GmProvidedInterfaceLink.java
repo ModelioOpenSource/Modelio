@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.providedinterface;
 
 import java.util.ArrayList;
@@ -71,30 +70,30 @@ public class GmProvidedInterfaceLink extends GmLink {
     private static final int MAJOR_VERSION = 0;
 
     @objid ("6327507e-5bd5-11e2-9e33-00137282c51b")
-     static final ProvidedInterfaceStyleKeys STYLE_KEYS = new ProvidedInterfaceStyleKeys();
+    static final ProvidedInterfaceStyleKeys STYLE_KEYS = new ProvidedInterfaceStyleKeys();
 
     /**
      * Constructor that must be used for deserialization only.
      */
     @objid ("36546421-55b7-11e2-877f-002564c97630")
-    public GmProvidedInterfaceLink() {
+    public  GmProvidedInterfaceLink() {
         // Nothing to do.
     }
 
     /**
      * Creates a new GmNoteLink
-     * 
      * @param diagram The diagram containing the link.
      * @param el the represented element, may be null.
      * @param relatedRef a reference to the represented Note.
      */
     @objid ("3655ea79-55b7-11e2-877f-002564c97630")
-    public GmProvidedInterfaceLink(IGmDiagram diagram, final ProvidedInterface el, MRef relatedRef) {
+    public  GmProvidedInterfaceLink(IGmDiagram diagram, final ProvidedInterface el, MRef relatedRef) {
         super(diagram, relatedRef);
         this.element = el;
         
         addExtension(new GmProvidedInterfaceLabel(diagram, el, relatedRef),
                ROLE_MAIN_LABEL, new GmFractionalConnectionLocator(0.9, 0, -25));
+        
     }
 
     @objid ("3655ea86-55b7-11e2-877f-002564c97630")
@@ -112,6 +111,7 @@ public class GmProvidedInterfaceLink extends GmLink {
         } else {
             return connectors.iterator().next();
         }
+        
     }
 
     @objid ("3655ea93-55b7-11e2-877f-002564c97630")
@@ -140,7 +140,6 @@ public class GmProvidedInterfaceLink extends GmLink {
 
     /**
      * Get the lollipop image for the stereotype image mode.
-     * 
      * @return the lollipop stereotype image.
      */
     @objid ("3655eab4-55b7-11e2-877f-002564c97630")
@@ -153,11 +152,11 @@ public class GmProvidedInterfaceLink extends GmLink {
     public void readLink(IDiagramReader in) {
         super.readLink(in);
         this.element = (ProvidedInterface) resolveRef(this.getRepresentedRef());
+        
     }
 
     /**
      * Get all connections to provided interfaces in the model.
-     * 
      * @return all provided interface connections.
      */
     @objid ("3657711f-55b7-11e2-877f-002564c97630")
@@ -172,7 +171,6 @@ public class GmProvidedInterfaceLink extends GmLink {
 
     /**
      * Get the lollipop connection between this required interface and connected provided interfaces.
-     * 
      * @return the lollipop connection
      */
     @objid ("36577128-55b7-11e2-877f-002564c97630")
@@ -183,6 +181,7 @@ public class GmProvidedInterfaceLink extends GmLink {
         } else {
             return null;
         }
+        
     }
 
     @objid ("3657712c-55b7-11e2-877f-002564c97630")
@@ -192,6 +191,7 @@ public class GmProvidedInterfaceLink extends GmLink {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmProvidedInterfaceLink.", GmProvidedInterfaceLink.MINOR_VERSION);
+        
     }
 
     @objid ("36577132-55b7-11e2-877f-002564c97630")

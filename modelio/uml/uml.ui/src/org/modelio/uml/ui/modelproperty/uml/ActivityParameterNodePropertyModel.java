@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.util.ArrayList;
@@ -63,22 +62,20 @@ public class ActivityParameterNodePropertyModel extends AbstractPropertyModel<Ac
      */
     @objid ("cc4d1a3f-894f-4495-8aaa-e38e18691b14")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name", "Type",
-	        "UpperBound", "IsControlType", "Ordering", "SelectionBehavior", "InState", "Represented" };
+    	        "UpperBound", "IsControlType", "Ordering", "SelectionBehavior", "InState", "Represented" };
 
     /**
      * Create a new <i>ActivityParameterNode</i> data model from an
      * <i>ActivityParameterNode</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("19255586-b5ea-4f6e-84ee-3c7b23a9b2e0")
-    public ActivityParameterNodePropertyModel(ActivityParameterNode theEditedElement) {
+    public  ActivityParameterNodePropertyModel(ActivityParameterNode theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("54099655-4b6d-4cf9-a0c7-30e510a14062")
@@ -89,7 +86,6 @@ public class ActivityParameterNodePropertyModel extends AbstractPropertyModel<Ac
 
     /**
      * Returns the element represented by the given instance node.
-     * 
      * @return the represented element
      */
     @objid ("37fb8b38-10b0-45ec-857f-849f6bbdedfe")
@@ -112,7 +108,6 @@ public class ActivityParameterNodePropertyModel extends AbstractPropertyModel<Ac
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("d30ad5e5-5c42-4e9f-bd3a-96e440ef3023")
@@ -125,7 +120,6 @@ public class ActivityParameterNodePropertyModel extends AbstractPropertyModel<Ac
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -161,6 +155,7 @@ public class ActivityParameterNodePropertyModel extends AbstractPropertyModel<Ac
         default:
             return null;
         }
+        
     }
 
     /**
@@ -170,7 +165,6 @@ public class ActivityParameterNodePropertyModel extends AbstractPropertyModel<Ac
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -213,12 +207,12 @@ public class ActivityParameterNodePropertyModel extends AbstractPropertyModel<Ac
         default:
             return null;
         }
+        
     }
 
     /**
      * Set the InstanceNode represented elements. This method set the right
      * dependency and clears the otheEditedElement.
-     * 
      * @param theEditedElement the instance node
      * @param value the new represented element
      */
@@ -269,13 +263,13 @@ public class ActivityParameterNodePropertyModel extends AbstractPropertyModel<Ac
                 theEditedElement.setRepresentedRealParameter((BehaviorParameter) value);
             }
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -321,6 +315,7 @@ public class ActivityParameterNodePropertyModel extends AbstractPropertyModel<Ac
         default:
             return;
         }
+        
     }
 
 }

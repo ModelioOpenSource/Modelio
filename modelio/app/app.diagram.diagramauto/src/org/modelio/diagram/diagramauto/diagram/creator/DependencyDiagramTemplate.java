@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.diagramauto.diagram.creator;
 
 import java.util.ArrayList;
@@ -60,11 +59,12 @@ public class DependencyDiagramTemplate extends AbstractDiagramTemplate {
      * Mandatory default c'tor needed by eclipse when loading the extension point.
      */
     @objid ("b2f35d46-bdf0-4b35-af54-f7d51b948ff7")
-    public DependencyDiagramTemplate() {
+    public  DependencyDiagramTemplate() {
         super();
         
         this._leftDgs = new ArrayList<>();
         this._rightDgs = new ArrayList<>();
+        
     }
 
     @objid ("a9d4794a-2a64-465a-a23e-e96c1e98ffdd")
@@ -84,6 +84,7 @@ public class DependencyDiagramTemplate extends AbstractDiagramTemplate {
         } else {
             return null;
         }
+        
     }
 
     @objid ("a0d02b05-a85b-4782-9fe7-c3ecf4d2235c")
@@ -92,6 +93,7 @@ public class DependencyDiagramTemplate extends AbstractDiagramTemplate {
         if (main instanceof NameSpace) {
             initialUnmasking(dh, (NameSpace) main);
         }
+        
     }
 
     @objid ("400f8ae7-913e-475e-b1cf-b0825a66b1f7")
@@ -140,6 +142,7 @@ public class DependencyDiagramTemplate extends AbstractDiagramTemplate {
         
             dh.unmask(blueLink, 0, 0);
         }
+        
     }
 
     @objid ("b3141c26-8030-4a98-8b08-f6ef2d0dc987")
@@ -153,6 +156,7 @@ public class DependencyDiagramTemplate extends AbstractDiagramTemplate {
         } else {
             node.setStyle(new DiagramStyleHandle(DiagramStyles.getStyleManager().getStyle(DiagramStyles.EXTERN_STYLE_NAME)));
         }
+        
     }
 
     @objid ("b257d36c-39d5-454c-b926-655b901448a9")
@@ -189,6 +193,7 @@ public class DependencyDiagramTemplate extends AbstractDiagramTemplate {
                 DiagramAuto.LOG.debug(e);
             }
         }
+        
     }
 
     @objid ("f2e3349a-ceb7-4a52-a5a4-ab0288050f3a")
@@ -244,6 +249,7 @@ public class DependencyDiagramTemplate extends AbstractDiagramTemplate {
         this._mainDG = null;
         this._leftDgs.clear();
         this._rightDgs.clear();
+        
     }
 
 }

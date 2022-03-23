@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.controller.load;
 
 import java.io.IOException;
@@ -83,16 +82,17 @@ public class ModuleLoader {
      * @param rtModule the module
      */
     @objid ("36d66263-ae93-4f00-8eb3-993dcb071285")
-    public ModuleLoader(final IRTModuleAccess rtModule) {
+    public  ModuleLoader(final IRTModuleAccess rtModule) {
         this.rtModule = rtModule;
         this.gProject = rtModule.getGModule().getProject();
         this.gModule = rtModule.getGModule();
         this.moduleHandle = this.gModule.getModuleHandle();
+        
     }
 
     /**
      * @return the loaded module implementation
-     * @throws org.modelio.api.module.lifecycle.ModuleException on failure, if sanity checks fail
+     * @throws ModuleException on failure, if sanity checks fail
      */
     @objid ("8a81c9ac-f34b-11e1-9458-001ec947c8cc")
     @SuppressWarnings ("resource")
@@ -126,6 +126,7 @@ public class ModuleLoader {
         
             return iModule;
         }
+        
     }
 
     /**
@@ -134,8 +135,7 @@ public class ModuleLoader {
      * the GModule
      * @param rtModuleHandle
      * the IModuleHandle
-     * 
-     * @throws org.modelio.api.module.lifecycle.ModuleException if the module cannot be loaded.
+     * @throws ModuleException if the module cannot be loaded.
      */
     @objid ("9aa1c953-f84d-40b5-97e0-0a3a110c5815")
     private void checkModule() throws ModuleException {
@@ -163,14 +163,14 @@ public class ModuleLoader {
                             this.gModule.getName(), this.gModule
                                     .getModuleHandle().getUid()));
         }
+        
     }
 
     /**
      * Load all metamodel fragments and register them in the modeling session.
-     * 
      * @param classLoader the class loader to use
      * @return the loaded metamodel fragments
-     * @throws org.modelio.api.module.lifecycle.ModuleException in case of error loading a fragment
+     * @throws ModuleException in case of error loading a fragment
      */
     @objid ("fa24dd00-47ae-4ca1-abaf-2684ea31e88a")
     public List<ISmMetamodelFragment> loadMetamodelFragments(ClassLoader classLoader) throws ModuleException {
@@ -240,13 +240,12 @@ public class ModuleLoader {
 
     /**
      * Fetch by reflexion the main class of this module and instantiate it.
-     * 
      * @param classLoader the module class loader
      * @param mainClassName the module main class name
      * @param moduleUserConfiguration module user configuration
      * @param moduleApiConfiguration module api configuration
      * @return the loaded module
-     * @throws org.modelio.api.module.lifecycle.ModuleException in case of error
+     * @throws ModuleException in case of error
      */
     @objid ("7f175707-0263-11e2-9fca-001ec947c8cc")
     public IModule instantiateModuleMainClass(ClassLoader classLoader, String mainClassName, IModuleUserConfiguration moduleUserConfiguration, IModuleAPIConfiguration moduleApiConfiguration) throws ModuleException {
@@ -291,11 +290,11 @@ public class ModuleLoader {
                     moduleApiConfiguration, mainClass);
         
         }
+        
     }
 
     /**
      * Check the module version is compatible with the current Modelio
-     * 
      * @param rtModuleHandle the module to check.
      * @return <code>true</code> if this module is not compatible with the
      * current Modelio.
@@ -305,12 +304,12 @@ public class ModuleLoader {
         return CompatibilityHelper.isCompatible(CompatibilityHelper
                 .getCompatibilityLevel(ModelioVersion.VERSION,
                         rtModuleHandle.getBinaryVersion()));
+        
     }
 
     /**
      * Convert any exception to a {@link ModuleException} by wrapping it if
      * needed.
-     * 
      * @param cause an exception
      * @return a ModuleException.
      */
@@ -329,11 +328,11 @@ public class ModuleLoader {
         } else {
             return new ModuleException(cause.getLocalizedMessage(), cause);
         }
+        
     }
 
     /**
      * Instantiate a fake module.
-     * 
      * @return a fake module
      */
     @objid ("0b61c1c7-8587-4149-8407-0d81b2a10937")
@@ -343,7 +342,6 @@ public class ModuleLoader {
 
     /**
      * Instantiate a fake module.
-     * 
      * @return a fake module
      */
     @objid ("2c872102-3024-45d6-b0c4-2d87928c45b6")
@@ -354,8 +352,7 @@ public class ModuleLoader {
     /**
      * Call the static install(String projectPath, String moduleResourcesPath)
      * method on the module main class using a temporary class loader.
-     * 
-     * @throws org.modelio.api.module.lifecycle.ModuleException on failure
+     * @throws ModuleException on failure
      */
     @objid ("1abed92c-5371-41c4-9d85-9f38627e4d9b")
     public void callStaticMethodInstall() throws ModuleException {
@@ -369,13 +366,13 @@ public class ModuleLoader {
         } else {
             callPluginStaticMethodInstall(moduleClassLoader);
         }
+        
     }
 
     /**
      * @param moduleUserConfiguration
      * @param moduleApiConfiguration
      * @throws ModuleException
-     * 
      * @param mainClass @return
      */
     @objid ("cc67ab5e-5029-4893-9fc4-b8b9bb37f07e")
@@ -475,6 +472,7 @@ public class ModuleLoader {
             e2.initCause(cause);
             throw e2;
         }
+        
     }
 
     /**
@@ -482,7 +480,6 @@ public class ModuleLoader {
      * @param moduleApiConfiguration
      * @throws ModuleException
      * @throws NoSuchMethodException
-     * 
      * @param mainClass @return
      */
     @objid ("d6d9254f-efa7-4906-b679-03a408796b61")
@@ -570,6 +567,7 @@ public class ModuleLoader {
             e2.initCause(cause);
             throw e2;
         }
+        
     }
 
     @objid ("30162673-a2d7-4d04-b4ec-22c503b2be18")
@@ -648,6 +646,7 @@ public class ModuleLoader {
             e2.initCause(cause);
             throw e2;
         }
+        
     }
 
     @objid ("25468569-3f74-446d-928a-0acfb475c103")
@@ -751,6 +750,7 @@ public class ModuleLoader {
         } catch (IOException e) {
             MdaInfra.LOG.error(e);
         }
+        
     }
 
 }

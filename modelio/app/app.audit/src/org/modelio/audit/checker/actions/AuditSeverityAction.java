@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.checker.actions;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,7 +43,7 @@ public class AuditSeverityAction extends Action {
     private IAuditService auditService;
 
     @objid ("785f6054-079e-4545-b551-68b2cffb173c")
-    public AuditSeverityAction(String mode, IAuditService auditService, Tree tree) {
+    public  AuditSeverityAction(String mode, IAuditService auditService, Tree tree) {
         this.mode = mode;
         this.auditService = auditService;
         this.tree = tree;
@@ -59,6 +58,7 @@ public class AuditSeverityAction extends Action {
             setText(Audit.I18N.getString("Audit.CheckerView.Contextual.AuditError"));
             setImageDescriptor(Audit.getImageDescriptor("icons/error.png"));
         }
+        
     }
 
     @objid ("73b16764-0ffe-4827-b952-315baf6ccbfb")
@@ -89,6 +89,7 @@ public class AuditSeverityAction extends Action {
                 this.tree.redraw();
             }
         }
+        
     }
 
     @objid ("a05f7a47-4e4b-4436-83ab-d2b8fe83cf31")

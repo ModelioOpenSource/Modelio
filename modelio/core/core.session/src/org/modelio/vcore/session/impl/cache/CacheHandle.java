@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.cache;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,11 +34,10 @@ public class CacheHandle implements ICacheHandle {
 
     /**
      * Initialize the cache handler
-     * 
      * @param cacheManager the cache to maintain.
      */
     @objid ("006e898a-0d1e-1f20-85a5-001ec947cd2a")
-    public CacheHandle(CacheManager cacheManager) {
+    public  CacheHandle(CacheManager cacheManager) {
         this.cacheManager = cacheManager;
     }
 
@@ -51,6 +49,7 @@ public class CacheHandle implements ICacheHandle {
         } catch (DuplicateObjectException e) {
             throw new IllegalArgumentException(e);
         }
+        
     }
 
     @objid ("006c8108-0d1e-1f20-85a5-001ec947cd2a")

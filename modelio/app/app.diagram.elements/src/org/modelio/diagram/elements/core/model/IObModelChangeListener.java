@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.model;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -29,20 +28,9 @@ import org.modelio.vcore.smkernel.mapi.MObject;
 @objid ("8084e163-1dec-11e2-8cad-001ec947c8cc")
 public interface IObModelChangeListener {
     /**
-     * Called when an MObject is added to the represented MObject.
-     * <p>
-     * The Gm element may then create another Gm element representing the created MObject.
-     * 
-     * @param addedEl The added element
-     */
-    @objid ("8084e165-1dec-11e2-8cad-001ec947c8cc")
-    void obElementAdded(MObject addedEl);
-
-    /**
      * Called when the represented element that was previously absent from the model is now present in the model.
      * <p>
      * The Gm element should then refresh itself from the element.
-     * 
      * @param resolvedElement The now present element.
      */
     @objid ("8084e168-1dec-11e2-8cad-001ec947c8cc")
@@ -55,5 +43,13 @@ public interface IObModelChangeListener {
      */
     @objid ("8084e16b-1dec-11e2-8cad-001ec947c8cc")
     void obElementsUpdated();
+
+    /**
+     * Called when the related element is deleted.
+     * <p>
+     * The default implementation deletes itself.
+     */
+    @objid ("838148eb-8215-4cd0-a668-2729ab3482ea")
+    void obElementDeleted();
 
 }

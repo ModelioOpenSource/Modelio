@@ -17,19 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ExpansionNodeData;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ExpansionRegionSmClass;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ObjectNodeSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.ExpansionNode;
 import org.modelio.metamodel.uml.behavior.activityModel.ExpansionRegion;
 import org.modelio.metamodel.uml.behavior.activityModel.ObjectNode;
@@ -53,7 +50,7 @@ public class ExpansionNodeSmClass extends ObjectNodeSmClass {
     private SmDependency regionAsInputDep;
 
     @objid ("a2ff501a-e4cd-487c-b6a0-132e187a5f29")
-    public ExpansionNodeSmClass(ISmMetamodelFragment origin) {
+    public  ExpansionNodeSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -61,6 +58,7 @@ public class ExpansionNodeSmClass extends ObjectNodeSmClass {
     @Override
     public String getName() {
         return "ExpansionNode";
+        
     }
 
     @objid ("ebe33434-7828-419c-a242-9b6bfb0587ba")
@@ -73,18 +71,21 @@ public class ExpansionNodeSmClass extends ObjectNodeSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return ExpansionNode.class;
+        
     }
 
     @objid ("944fa5c0-7aab-4168-8cf7-6cafd21e4107")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("46dc6095-3743-418f-ab35-42a3e48f9946")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("91572832-3db1-4c31-8f0d-7ba1e304e014")
@@ -104,6 +105,8 @@ public class ExpansionNodeSmClass extends ObjectNodeSmClass {
         this.regionAsInputDep = new RegionAsInputSmDependency();
         this.regionAsInputDep.init("RegionAsInput", this, metamodel.getMClass(ExpansionRegion.MQNAME), 0, 1 );
         registerDependency(this.regionAsInputDep);
+        
+        
     }
 
     @objid ("02ef3967-00e2-412a-ac39-5885bdddbe16")
@@ -128,7 +131,7 @@ public class ExpansionNodeSmClass extends ObjectNodeSmClass {
         private ExpansionNodeSmClass smClass;
 
         @objid ("88a1a22a-7233-44a5-ae24-d26835ecb77d")
-        public ExpansionNodeObjectFactory(ExpansionNodeSmClass smClass) {
+        public  ExpansionNodeObjectFactory(ExpansionNodeSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -170,6 +173,7 @@ public class ExpansionNodeSmClass extends ObjectNodeSmClass {
             	this.symetricDep = ((ExpansionRegionSmClass)this.getTarget()).getOutputElementDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -198,6 +202,7 @@ public class ExpansionNodeSmClass extends ObjectNodeSmClass {
             	this.symetricDep = ((ExpansionRegionSmClass)this.getTarget()).getInputElementDep();
             }
             return this.symetricDep;
+            
         }
 
     }

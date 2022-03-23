@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,7 +34,7 @@ public class OState extends OModelElement {
     }
 
     @objid ("87c125a0-97fb-4b9b-983a-c4835a778beb")
-    public OState(State param) {
+    public  OState(State param) {
         super(param);
     }
 
@@ -46,6 +45,7 @@ public class OState extends OModelElement {
         if (ecoreOwner instanceof  org.eclipse.uml2.uml.Region){
             ( (org.eclipse.uml2.uml.Region) ecoreOwner).getSubvertices().add((org.eclipse.uml2.uml.State) ecoreElt);
         }
+        
     }
 
     @objid ("26b33a2f-091e-46b6-bd2c-c9d604b50d0c")
@@ -53,6 +53,7 @@ public class OState extends OModelElement {
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         super.setProperties(ecoreElt);
         setSubMachine((org.eclipse.uml2.uml.State) ecoreElt);
+        
     }
 
     @objid ("ea24f106-55a1-4f68-a67b-6d5f65d53535")
@@ -65,6 +66,7 @@ public class OState extends OModelElement {
                 ecoreElt.setSubmachine((org.eclipse.uml2.uml.StateMachine) ecoreSubMachine);
             }
         }
+        
     }
 
     @objid ("e2fa18c4-d677-43cd-9387-c25f0a43f2de")

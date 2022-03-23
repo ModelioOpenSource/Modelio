@@ -17,14 +17,13 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.executionspecification;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.gef.commands.Command;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.metamodel.mmextensions.standard.factory.IStandardModelFactory;
 import org.modelio.metamodel.uml.behavior.interactionModel.ExecutionOccurenceSpecification;
@@ -49,14 +48,14 @@ public class CreateExecutionSpecificationCommand extends Command {
 
     /**
      * C'tor.
-     * 
      * @param parentNode the node into which the created execution should be unmasked.
      * @param initialLayoutData the initial layout data to use. X coordinate will be ignored, since it will be updated in the container's layout.
      */
     @objid ("d8e37de0-55b6-11e2-877f-002564c97630")
-    public CreateExecutionSpecificationCommand(final GmCompositeNode parentNode, final Rectangle initialLayoutData) {
+    public  CreateExecutionSpecificationCommand(final GmCompositeNode parentNode, final Rectangle initialLayoutData) {
         this.initialLayoutData = initialLayoutData;
         this.parentNode = parentNode;
+        
     }
 
     @objid ("d8e37de9-55b6-11e2-877f-002564c97630")
@@ -117,6 +116,7 @@ public class CreateExecutionSpecificationCommand extends Command {
         diagram.unmask(this.parentNode, startOccurence, this.initialLayoutData);
         diagram.unmask(this.parentNode, finishOccurence, this.initialLayoutData);
         diagram.unmask(this.parentNode, newExecution, this.initialLayoutData);
+        
     }
 
 }

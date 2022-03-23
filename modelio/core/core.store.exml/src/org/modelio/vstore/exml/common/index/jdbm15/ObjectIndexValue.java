@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common.index.jdbm15;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,15 +29,16 @@ import org.modelio.vstore.exml.common.model.ObjId;
 @objid ("a5f35355-e3f1-4b3e-8960-2410ff00cc76")
 class ObjectIndexValue {
     @objid ("db99e4b0-c948-4e76-8a82-8b759be433a7")
-     final String name;
+    final String name;
 
     @objid ("0e8be74c-04a5-4408-806e-d2b57bda50ab")
-     final ObjId cmsNodeId;
+    final ObjId cmsNodeId;
 
     @objid ("e517714c-dc79-4825-bd87-3d48e450262f")
-    public ObjectIndexValue(String name, ObjId parentId) {
+    public  ObjectIndexValue(String name, ObjId parentId) {
         this.name = name;
         this.cmsNodeId = parentId;
+        
     }
 
     @objid ("93dac75a-2ca6-4390-a428-5827711dfd57")

@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.dialogs.dialog.panels.operation;
 
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.Creatable;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.SWT;
@@ -63,7 +62,7 @@ public class OperationEditPanel implements IPanelProvider {
 
     @objid ("c89aa290-2402-4d8a-8b73-ee06caaac6f5")
     @Inject
-     IProjectService projectService;
+    IProjectService projectService;
 
     @objid ("c6d634d1-2f62-415b-a129-f6ecc277a065")
     private OperationPropertiesPanel propertiesPanel;
@@ -140,9 +139,10 @@ public class OperationEditPanel implements IPanelProvider {
         } else {
             return obj instanceof Operation;
         }
+        
     }
 
-// private ElementDescriptionPanel descriptionPanel;
+    // private ElementDescriptionPanel descriptionPanel;
     @objid ("b9dc33bf-7b61-41dc-9c7a-344bb08b8055")
     @Override
     public void setInput(Object input) {
@@ -168,6 +168,7 @@ public class OperationEditPanel implements IPanelProvider {
         this.propertiesPanel.setInput(this.model);
         this.parametersPanel.setInput(this.model);
         this.descriptionPanel.setInput(this.model.getOperation());
+        
     }
 
     @objid ("99a9d0c7-f615-4102-965c-b8fbd6183468")

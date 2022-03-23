@@ -17,20 +17,18 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.data.project;
 
-import java.io.ByteArrayInputStream;
-import java.io.FilterInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Base64;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import net.sf.practicalxml.DomUtil;
@@ -77,18 +75,18 @@ public class ProjectDescriptorReader {
      * C'tor.
      */
     @objid ("eedc2207-9a71-11e1-ac83-001ec947ccaf")
-    public ProjectDescriptorReader() {
+    public  ProjectDescriptorReader() {
+        
     }
 
     /**
      * Read a project descriptor from an XML input source.
-     * 
      * @param is the XML input source.
      * @param scope the definition scope of the file.
      * If non <code>null</code> all elements will be assumed of the given scope.
      * If <code>null</code>, the scope will be read from the file.
      * @return the read descriptor.
-     * @throws java.io.IOException in case of failure
+     * @throws IOException in case of failure
      */
     @objid ("cd325526-2eb6-413d-bc3a-53cbf1f3b77e")
     public ProjectDescriptor read(final InputSource is, DefinitionScope scope) throws IOException {
@@ -116,14 +114,13 @@ public class ProjectDescriptorReader {
      * <p>
      * Looks for an {@link ProjectDescriptorWriter#CONF_ENCRYPT_FILE} file in the same directory
      * to determine encryption of the file.
-     * 
      * @param confFile The project.conf file path
      * <code>null</code> means the project is in the conf file directory.
      * @param scope the definition scope of the file.
      * If non <code>null</code> all elements will be assumed of the given scope.
      * If <code>null</code>, the scope will be read from the file.
      * @return the read descriptor.
-     * @throws java.io.IOException in case of failure
+     * @throws IOException in case of failure
      */
     @objid ("eedc2209-9a71-11e1-ac83-001ec947ccaf")
     public ProjectDescriptor read(final Path confFile, DefinitionScope scope) throws IOException {
@@ -133,7 +130,7 @@ public class ProjectDescriptorReader {
         String encryption = "";
         Path encryptionFile = this.localProjectPath.resolve(ProjectDescriptorWriter.CONF_ENCRYPT_FILE);
         if (Files.isRegularFile(encryptionFile)) {
-            encryption = new String(Files.readAllBytes(encryptionFile));
+            encryption = new String(Files.readAllBytes(encryptionFile), StandardCharsets.UTF_8);
         }
         
         // Setup input stream and run parsing
@@ -143,12 +140,12 @@ public class ProjectDescriptorReader {
             xmlSource.setSystemId(confFile.toUri().toString());
             return read(xmlSource, scope);
         }
+        
     }
 
     /**
      * Set the scope to set to read descriptor elements if no scope is specified either
      * in the source nor in the call to {@link #read(InputSource, DefinitionScope)}.
-     * 
      * @param defaultScope the default scope.
      * @return <code>this</code> for convenience.
      */
@@ -161,10 +158,9 @@ public class ProjectDescriptorReader {
     /**
      * Convert the project descriptor DOM tree to the current version.
      * @see ProjectDescriptor#serialVersionUID
-     * 
      * @param p the project descriptor DOM element
      * @param lversion the read format version
-     * @throws java.io.IOException in case of failure
+     * @throws IOException in case of failure
      */
     @objid ("eedc2211-9a71-11e1-ac83-001ec947ccaf")
     @SuppressWarnings("static-method")
@@ -181,6 +177,7 @@ public class ProjectDescriptorReader {
         } else {
             throw new IOException(GProjectData.I18N.getMessage("ProjectDescriptorReader.format.unsupported", lversion, ProjectDescriptor.serialVersionUID));
         }
+        
     }
 
     @objid ("a78bd7c4-abbc-11e1-8392-001ec947ccaf")
@@ -273,14 +270,14 @@ public class ProjectDescriptorReader {
         for (Element f : DomUtil.getChildren(p, "todo")) {
             decodeTodo(f);
         }
+        
     }
 
     /**
      * Reads the &lt;properties> tag and returns its content.
-     * 
      * @param domNode the &lt;properties> DOM element.
      * @return the read properties
-     * @throws java.io.IOException in case of parse error
+     * @throws IOException in case of parse error
      */
     @objid ("f47686b2-aa5a-11e1-8392-001ec947ccaf")
     private GProperties decodeProperties(final Element domNode) throws IOException {
@@ -341,6 +338,7 @@ public class ProjectDescriptorReader {
         } catch (IllegalArgumentException e) {
             throw new IOException("Invalid fragment scope '" + ftype + "' on fragment '" + domEl.getAttribute("id") + "'", e);
         }
+        
     }
 
     @objid ("47239769-c825-4761-b026-04701dc416cd")
@@ -374,7 +372,6 @@ public class ProjectDescriptorReader {
 
     /**
      * Create an authentication data from the given scheme id.
-     * 
      * @return the authentication data
      */
     @objid ("d1767cec-0e77-4445-bfb3-c6ba579105e8")
@@ -407,17 +404,19 @@ public class ProjectDescriptorReader {
         default:
             return new UnknownAuthData(scheme);
         }
+        
     }
 
     @objid ("4364e312-14c6-4774-bdfc-09a1128485ce")
     private InputStream getDecryptedInputStream(final InputStream is, String encryption) throws IOException {
         if (encryption.equals("base64")) {
-            return new Base64DecoderInputStream(is);
+            return Base64.getDecoder().wrap(is);
         } else if (encryption.isEmpty()) {
             return is;
         } else {
             throw new IOException("Unsupported encryption:" + encryption);
         }
+        
     }
 
     @objid ("1997ee4e-d569-11e1-9f03-001ec947ccaf")
@@ -432,6 +431,7 @@ public class ProjectDescriptorReader {
         } catch (IllegalArgumentException e) {
             throw new IOException("Invalid fragment type '" + ftype + "' on fragment '" + domEl.getAttribute("id") + "'", e);
         }
+        
     }
 
     @objid ("0083bdba-f36a-11e1-9173-001ec947ccaf")
@@ -445,6 +445,7 @@ public class ProjectDescriptorReader {
         } catch (NumberFormatException e) {
             throw new IOException(e);
         }
+        
     }
 
     @objid ("844beed5-2ebd-4c0b-8ad4-ec5ecd707623")
@@ -478,6 +479,7 @@ public class ProjectDescriptorReader {
                 actionsList.add(desc);
             }
         }
+        
     }
 
     @objid ("8e8f168a-3b9d-44a4-bbfc-c2cd7e51d763")
@@ -518,6 +520,7 @@ public class ProjectDescriptorReader {
                     this.projectDesc.getName(), f.getParentNode().getChildNodes());
             return null;
         }
+        
     }
 
     @objid ("f6a73748-eb39-4936-8e56-3a187ec57cb9")
@@ -543,7 +546,6 @@ public class ProjectDescriptorReader {
      * Parse a property value style Element that may be serialized either as a DOM attribute or TEXT node.
      * <p>
      * Return the DOM attribute value if defined, the TEXT content in other case.
-     * 
      * @param domNode the DOM element
      * @param attName the attribute name to look for
      * @return the content of the attribute or the content of the Text node.
@@ -555,53 +557,6 @@ public class ProjectDescriptorReader {
         if (v.isEmpty())
             v = domNode.getTextContent();
         return v;
-    }
-
-    /**
-     * Filter input stream that decodes an input stream coded in Base64.
-     * <p>
-     * The whole input stream is read at opening.
-     */
-    @objid ("4f4ac999-b6ee-434e-a026-ef9bfd943d0a")
-    private static class Base64DecoderInputStream extends FilterInputStream {
-        @objid ("a54fc81a-c0d5-4975-8568-20f7785fb508")
-        protected Base64DecoderInputStream(InputStream in) throws IOException {
-            super(Base64DecoderInputStream.init(in));
-        }
-
-        @objid ("e4a89a72-c128-424e-bbe4-f2797f4efefa")
-        private static ByteArrayInputStream init(InputStream in) throws IOException {
-            InputStreamReader reader = new InputStreamReader(in);
-            
-            StringBuilder ss = new StringBuilder();
-            char[] cbuf = new char[2048];
-            int read;
-            while ((read = reader.read(cbuf)) > 0) {
-                ss.append(cbuf, 0, read);
-            }
-            
-            byte[] srcContent = javax.xml.bind.DatatypeConverter.parseBase64Binary(ss.toString());
-            return new ByteArrayInputStream(srcContent);
-        }
-
-        @objid ("b0448ee0-5052-43d7-8aee-e00b0705d1b9")
-        @Override
-        public int read() throws IOException {
-            return this.in.read();
-        }
-
-        @objid ("e485e330-b1de-427c-b271-4b100f550598")
-        @Override
-        public int read(byte[] b, int off, int len) throws IOException {
-            return this.in.read(b, off, len);
-        }
-
-        @objid ("391be21b-4464-4745-a4cf-6e4ba50e2bf0")
-        @Override
-        public int read(byte[] b) throws IOException {
-            return this.in.read(b);
-        }
-
     }
 
 }

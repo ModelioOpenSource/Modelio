@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.module.command;
 
 import java.nio.file.Files;
@@ -76,7 +75,7 @@ public class DefaultModuleAction implements IModuleAction {
      * @param command the command handler
      */
     @objid ("fa237f2f-5b7b-11e0-a93a-002564c97630")
-    public DefaultModuleAction(final IModule module, final String name, final String label, final String tooltip, final String bitmapPath, final String slotPattern, final String slotImagePaths, final boolean needReadWriteObject, final boolean editTheModel, final IModuleCommandHandler command) {
+    public  DefaultModuleAction(final IModule module, final String name, final String label, final String tooltip, final String bitmapPath, final String slotPattern, final String slotImagePaths, final boolean needReadWriteObject, final boolean editTheModel, final IModuleCommandHandler command) {
         this.module = module;
         this.name = name;
         this.label = label;
@@ -89,6 +88,7 @@ public class DefaultModuleAction implements IModuleAction {
         this.needReadWriteObject = needReadWriteObject;
         this.editTheModel = editTheModel;
         this.handler = command;
+        
     }
 
     @objid ("00d012e4-0000-59b7-0000-000000000000")
@@ -199,6 +199,7 @@ public class DefaultModuleAction implements IModuleAction {
             // Ignore exception
             return false;
         }
+        
     }
 
     @objid ("72d5ec5f-e247-11dd-abd0-0014222a9f79")
@@ -227,6 +228,7 @@ public class DefaultModuleAction implements IModuleAction {
                 this.slots.add(this.module.getModuleContext().getI18nSupport().getString(slot));
             }
         }
+        
     }
 
     @objid ("080e6eb0-a308-4574-9773-6f03b0e9126c")
@@ -237,6 +239,7 @@ public class DefaultModuleAction implements IModuleAction {
                 this.slotImagePaths.add(this.module.getModuleContext().getI18nSupport().getString(slotImagePath));
             }
         }
+        
     }
 
 }

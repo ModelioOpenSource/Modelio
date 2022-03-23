@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.audit;
 
 import java.util.ArrayList;
@@ -69,6 +68,7 @@ public class R2940 extends AbstractUmlRule {
                 AuditTrigger.MOVE |
                 AuditTrigger.UPDATE);
         plan.registerRule(State.MQNAME, this, AuditTrigger.MOVE);
+        
     }
 
     @objid ("22fd5573-9b57-4780-8c9d-9dcc5cbf5848")
@@ -108,14 +108,14 @@ public class R2940 extends AbstractUmlRule {
      * Default constructor for R2940
      */
     @objid ("f8aab443-013c-482c-bd07-1453bbd9f773")
-    public R2940() {
+    public  R2940() {
         this.checkerInstance = new CheckR2940(this);
     }
 
     @objid ("6c2e0582-ee7d-4781-b03c-58a05907a42a")
     private static class CheckR2940 extends AbstractControl {
         @objid ("f024ccb6-7e3a-4cd7-9f51-46fcbfa649bb")
-        public CheckR2940(IRule rule) {
+        public  CheckR2940(IRule rule) {
             super(rule);
         }
 
@@ -152,7 +152,6 @@ public class R2940 extends AbstractUmlRule {
 
         /**
          * This rules check that all origin state of a JoinPseudoState are all contained in the same State and are in different regions.
-         * 
          * @param join The JoinPseudoState to check.
          * @return The audit entry.
          */
@@ -219,7 +218,6 @@ public class R2940 extends AbstractUmlRule {
 
         /**
          * Fetches all the origin states of a JoinPseudoState
-         * 
          * @param join The JoinPseudoState.
          * @return The list of origin State.
          */
@@ -238,7 +236,6 @@ public class R2940 extends AbstractUmlRule {
 
         /**
          * Fetches all the ancestors for each state.
-         * 
          * @param sourceStates The states from which to get the ancestors.
          * @return A map containing all the ancestors of each state.
          */
@@ -265,7 +262,6 @@ public class R2940 extends AbstractUmlRule {
 
         /**
          * Tries to fetch the common ancestors to all the states. If none exists, it returns an empty list.
-         * 
          * @param ancestorsMap The map of the state and their ancestors.
          * @return The list of common ancestors.
          */

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.abstractdiagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -63,6 +62,7 @@ public class AbstractDiagramLayout extends FreeformLayout {
         
         // Call original behavior
         super.layout(parent);
+        
     }
 
     @objid ("7973b886-7964-4fc8-bbde-39e754caaa0e")
@@ -75,6 +75,7 @@ public class AbstractDiagramLayout extends FreeformLayout {
             // In an abstract diagram layout, constraints should always be Rectangle, ignoring invalid constraint
             return null;
         }
+        
     }
 
 }

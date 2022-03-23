@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.communicationdiagram.editor.elements.communicationmessage;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -75,6 +74,7 @@ public class CommunicationMessageArrowEditPart extends AbstractNodeEditPart {
     protected void createEditPolicies() {
         super.createEditPolicies();
         removeEditPolicy(EditPolicy.COMPONENT_ROLE);
+        
     }
 
 }

@@ -17,19 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnlane;
 
-import java.util.List;
-import java.util.Set;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.BorderLayout;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.GraphicalEditPart;
-import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.requests.GroupRequest;
 import org.modelio.bpmn.diagram.editor.elements.diagrams.GmBpmnDiagramStyleKeys;
@@ -40,7 +35,6 @@ import org.modelio.diagram.elements.core.figures.MinimumSizeLayout;
 import org.modelio.diagram.elements.core.figures.borders.TLBRBorder;
 import org.modelio.diagram.elements.core.model.GmModel;
 import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
-import org.modelio.diagram.elements.core.node.GmNodeDragTracker;
 import org.modelio.diagram.elements.core.policies.AutoExpandEditPolicy;
 import org.modelio.diagram.elements.core.policies.DefaultDeleteNodeEditPolicy;
 import org.modelio.diagram.elements.core.tools.multipoint.CreateMultiPointRequest;
@@ -109,6 +103,7 @@ public class BpmnLaneEditPart extends AbstractNodeEditPart {
             }
         });
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        
     }
 
     /**
@@ -120,6 +115,7 @@ public class BpmnLaneEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         GmBpmnLane partitionModel = (GmBpmnLane) getModel();
         getFigure().getParent().setConstraint(getFigure(), partitionModel.getLayoutData());
+        
     }
 
     @objid ("6115efba-55b6-11e2-877f-002564c97630")
@@ -146,6 +142,7 @@ public class BpmnLaneEditPart extends AbstractNodeEditPart {
         } else {
             throw new IllegalArgumentException("Unexpected child");
         }
+        
     }
 
     @objid ("6115efbf-55b6-11e2-877f-002564c97630")
@@ -164,6 +161,7 @@ public class BpmnLaneEditPart extends AbstractNodeEditPart {
         } else {
             super.refreshFromStyle(aFigure, style);
         }
+        
     }
 
     @objid ("6115efc6-55b6-11e2-877f-002564c97630")
@@ -178,21 +176,6 @@ public class BpmnLaneEditPart extends AbstractNodeEditPart {
     @objid ("e871f7c7-63c4-4a0c-921c-ae2d0d395f4a")
     private boolean isHorizontalLaneOrientation() {
         return getModel().getDisplayedStyle().getProperty(GmBpmnDiagramStyleKeys.HORIZONTAL_LANES);
-    }
-
-    @objid ("adc78cfb-fd4f-470e-b494-2fb1a8fd8bcc")
-    @Override
-    public DragTracker getDragTracker(Request request) {
-        if (getModel().isUserEditable()) {
-            return new GmNodeDragTracker(this) {
-                @Override
-                protected void computeAllLinksFor(List<Object> operationSet, Set<Object> linksToAdd) {
-                    // Ignore links
-                }
-            };
-        } else {
-            return super.getDragTracker(request);
-        }
     }
 
 }

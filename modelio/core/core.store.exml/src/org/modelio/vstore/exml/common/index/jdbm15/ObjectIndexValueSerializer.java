@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.common.index.jdbm15;
 
 import java.io.IOException;
@@ -33,7 +32,7 @@ class ObjectIndexValueSerializer implements Serializer<ObjectIndexValue> {
     private final ObjIdSerializer idSerializer;
 
     @objid ("c81a6288-05c9-4d66-9d89-846568583e7d")
-    ObjectIndexValueSerializer(ObjIdSerializer idSerializer) {
+     ObjectIndexValueSerializer(ObjIdSerializer idSerializer) {
         this.idSerializer = idSerializer;
     }
 
@@ -42,6 +41,7 @@ class ObjectIndexValueSerializer implements Serializer<ObjectIndexValue> {
     public void serialize(SerializerOutput out, ObjectIndexValue obj) throws IOException {
         out.writeUTF(obj.name);
         this.idSerializer.serialize(out, obj.cmsNodeId);
+        
     }
 
     @objid ("329b9fa2-876b-4d6e-b1a7-74f0527d9636")

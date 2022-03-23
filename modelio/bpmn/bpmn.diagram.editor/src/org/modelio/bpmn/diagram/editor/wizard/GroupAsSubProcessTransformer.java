@@ -17,11 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.wizard;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -30,15 +30,20 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.jface.viewers.ISelection;
 import org.modelio.api.modelio.diagram.IDiagramGraphic;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
+import org.modelio.api.modelio.diagram.IDiagramLink;
 import org.modelio.api.modelio.diagram.IDiagramNode;
 import org.modelio.api.modelio.diagram.IDiagramService;
+import org.modelio.api.modelio.diagram.ILinkPoint;
+import org.modelio.api.modelio.diagram.ILinkRoute;
+import org.modelio.api.modelio.diagram.InvalidLinkPathException;
+import org.modelio.api.modelio.diagram.LinkAnchorFace;
 import org.modelio.api.modelio.model.IModelingSession;
 import org.modelio.api.module.context.IModuleContext;
 import org.modelio.metamodel.bpmn.activities.BpmnSubProcess;
@@ -49,7 +54,6 @@ import org.modelio.metamodel.bpmn.events.BpmnStartEvent;
 import org.modelio.metamodel.bpmn.flows.BpmnSequenceFlow;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnLane;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnProcess;
-import org.modelio.metamodel.bpmn.rootElements.BpmnBaseElement;
 import org.modelio.metamodel.bpmn.rootElements.BpmnFlowElement;
 import org.modelio.metamodel.bpmn.rootElements.BpmnFlowNode;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
@@ -57,11 +61,9 @@ import org.modelio.platform.model.ui.swt.SelectionHelper;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 /**
- * This model transformer gathers every selected {@link BpmnFlowNode} into a {@link BpmnSubProcess},
- * keeping the link's layout between them.
+ * This model transformer gathers every selected {@link BpmnFlowNode} into a {@link BpmnSubProcess}, keeping the link's layout between them.
  * <p>
- * Flows which source or target is not moved into the sub process are considered outside the scope and
- * are rerouted to link the {@link BpmnSubProcess} itself instead.
+ * Flows which source or target is not moved into the sub process are considered outside the scope and are rerouted to link the {@link BpmnSubProcess} itself instead.
  * </p>
  */
 @objid ("8ca1f2b9-6dda-4366-958c-9247589724bf")
@@ -83,7 +85,10 @@ public class GroupAsSubProcessTransformer implements IModelTransformer {
     private IModuleContext moduleContext;
 
     /**
-     * Criteria: - process design diagram or subprocess diagram - selection contains only flow nodes (non-Javadoc)
+     * Criteria:<ul>
+     * <li> process design diagram or subprocess diagram
+     * <li> selection contains only flow nodes
+     * </ul>
      * @see IModelTransformer#isAvailable(AbstractDiagram, ISelection)
      */
     @objid ("1e2098b1-f3d8-4bf1-ade2-0519b17a40bb")
@@ -102,7 +107,10 @@ public class GroupAsSubProcessTransformer implements IModelTransformer {
     }
 
     /**
-     * Criteria: - process design diagram or subprocess diagram - selection conforms to the processable selection scheme: only flow nodes, homogeneous incoming and outgoing links. (non-Javadoc)
+     * Criteria:<ul>
+     * <li> process design diagram or subprocess diagram
+     * <li> selection conforms to the processable selection scheme: only flow nodes, homogeneous incoming and outgoing links.
+     * </ul>
      * @see IModelTransformer#isAvailable(AbstractDiagram, ISelection)
      */
     @objid ("dbf0ed60-33df-4dd4-bdf9-fdaafc82d7e0")
@@ -138,7 +146,7 @@ public class GroupAsSubProcessTransformer implements IModelTransformer {
                 }
             }
         }
-        return elements.size() > 0;
+        return !elements.isEmpty();
     }
 
     @objid ("0c9d58a2-8734-4d5a-8c5b-c109fd7a9e8c")
@@ -153,6 +161,10 @@ public class GroupAsSubProcessTransformer implements IModelTransformer {
                 return false;
             }
             BpmnFlowNode node = (BpmnFlowNode) elt;
+            if (this.nodes.contains(node)) {
+                continue;
+            }
+        
             for (BpmnSequenceFlow flow : node.getOutgoing()) {
                 if (elements.contains(flow.getTargetRef())) {
                     // subprocess internal link
@@ -183,6 +195,7 @@ public class GroupAsSubProcessTransformer implements IModelTransformer {
         parse(elements);
         
         List<BpmnFlowNode> flowNodes = elements.stream()
+                .distinct()
                 .filter(e -> e instanceof BpmnFlowNode)
                 .map(e -> (BpmnFlowNode) e)
                 .collect(Collectors.toList());
@@ -190,7 +203,8 @@ public class GroupAsSubProcessTransformer implements IModelTransformer {
         IDiagramService ds = this.moduleContext.getModelioServices().getDiagramService();
         
         try (IDiagramHandle dh = ds.getDiagramHandle(diagram)) {
-            Map<Object, Rectangle> selectionGeometry = getSelectionGeometry(dh, flowNodes);
+            Map<Object, Rectangle> nodeGeometry = getNodeGeometry(dh, flowNodes);
+            Map<MObject, ILinkRoute> linkGeometry = getLinkGeometry(dh, this.links);
         
             // Create the sub process and adapt the model
             Object[] results = createSubprocess(flowNodes.get(0).getCompositionOwner());
@@ -201,8 +215,8 @@ public class GroupAsSubProcessTransformer implements IModelTransformer {
             BpmnEndEvent spEndEvent = (BpmnEndEvent) results[3];
         
             // Layout the subprocess diagram
-            Point spTranslation = new Point(selectionGeometry.get("global").getTopLeft().negate());
-            layoutSubprocessDiagram(ds, selectionGeometry, spdiagram, spStartEvent, spEndEvent, spTranslation);
+            Point spTranslation = new Point(nodeGeometry.get("global").getTopLeft().negate());
+            layoutSubprocessDiagram(ds, nodeGeometry, linkGeometry, spdiagram, spStartEvent, spEndEvent, spTranslation);
         
             for (BpmnFlowNode e : flowNodes) {
                 IDiagramGraphic dg = getDiagramGraphic(dh, e);
@@ -217,69 +231,151 @@ public class GroupAsSubProcessTransformer implements IModelTransformer {
         
             IDiagramNode dg = (IDiagramNode) getDiagramGraphic(dh, sp);
             if (dg != null) {
-                dg.setBounds(selectionGeometry.get("global").getCopy());
+                dg.setBounds(nodeGeometry.get("global").getCopy());
                 dg.setProperty("SUBPROCESS_SHOWCONTENT", "true");
             }
+        
+            // Mask links to the new SubProcess, the diagram will unmask them automatically with a proper layout
+            for (BpmnSequenceFlow incoming : sp.getIncoming()) {
+                for (IDiagramGraphic incomingDg : dh.getDiagramGraphics(incoming)) {
+                    incomingDg.mask();
+                }
+            }
+        
+            // Mask links from the new SubProcess, the diagram will unmask them automatically with a proper layout
+            for (BpmnSequenceFlow outgoing : sp.getOutgoing()) {
+                for (IDiagramGraphic outgoingDg : dh.getDiagramGraphics(outgoing)) {
+                    outgoingDg.mask();
+                }
+            }
+        
             dh.save();
-            dh.close();
             return Arrays.asList(sp);
         }
+        
     }
 
     @objid ("70a9b126-3561-470d-a8e5-749015668e07")
-    private void layoutSubprocessDiagram(IDiagramService ds, Map<Object, Rectangle> selectionGeometry, BpmnSubProcessDiagram spdiagram, BpmnStartEvent spStartEvent, BpmnEndEvent spEndEvent, Point translation) {
+    private void layoutSubprocessDiagram(IDiagramService ds, Map<Object, Rectangle> nodeGeometry, Map<MObject, ILinkRoute> linkGeometry, BpmnSubProcessDiagram spdiagram, BpmnStartEvent spStartEvent, BpmnEndEvent spEndEvent, Point translation) {
         try (IDiagramHandle dhsp = ds.getDiagramHandle(spdiagram)) {
-        
-            Point offset = new Point(translation);
+            final Point offset;
             IDiagramNode dgStart = (IDiagramNode) getDiagramGraphic(dhsp, spStartEvent);
-            if (dgStart != null) {
-                offset = translation.getTranslated(dgStart.getBounds().width() + 20, 0);
-            }
-        
-            for (BpmnFlowNode e : this.nodes) {
-                Rectangle bounds = selectionGeometry.get(e).translate(offset);
-        
-                IDiagramNode dg1 = (IDiagramNode) getDiagramGraphic(dhsp, e);
-                if (dg1 == null) {
-                    List<IDiagramGraphic> dgs = dhsp.unmask(e, bounds.x, bounds.y);
-                    dg1 = dgs.isEmpty() ? null : (IDiagramNode) dgs.get(0);
-                }
-                if (dg1 != null) {
-                    dg1.setBounds(bounds);
-                }
-            }
-        
-            if (dgStart != null) {
-                if (!spStartEvent.getOutgoing().isEmpty()) {
-                    Rectangle linkedNodeBounds = selectionGeometry.get(spStartEvent.getOutgoing().get(0).getTargetRef());
-                    int x = linkedNodeBounds.x() - dgStart.getBounds().width() - 20;
-                    int y = linkedNodeBounds.y() + linkedNodeBounds.height() / 2 - dgStart.getBounds().height() / 2;
-                    dgStart.setLocation(x, y);
-                }
-            }
-        
             IDiagramNode dgEnd = (IDiagramNode) getDiagramGraphic(dhsp, spEndEvent);
-            if (dgEnd != null) {
-                if (!spEndEvent.getIncoming().isEmpty()) {
-                    Rectangle linkedNodeBounds = selectionGeometry.get(spEndEvent.getIncoming().get(0).getSourceRef());
-                    int x = linkedNodeBounds.x() + linkedNodeBounds.width() + 20;
-                    int y = linkedNodeBounds.y() + linkedNodeBounds.height() / 2 - dgEnd.getBounds().height() / 2;
-                    dgEnd.setLocation(x, y);
-                } else {
-                    Rectangle r = selectionGeometry.get("global");
-                    int x = r.width() + 20;
-                    int y = r.height() + 20;
-                    dgEnd.setLocation(x, y);
-                }
+        
+            if (dgStart != null) {
+                offset = translation.getTranslated(dgStart.getBounds().width() + 50, 0);
+            } else {
+                offset = new Point(translation);
             }
+        
+            layoutNodes(dhsp, dgStart, dgEnd, nodeGeometry, offset);
+        
+            layoutLinks(dhsp, dgStart, dgEnd, linkGeometry, offset);
         
             dhsp.save();
-            dhsp.close();
         }
+        
+    }
+
+    @objid ("f8a08eb9-8901-443f-b025-457a90255f87")
+    private IDiagramNode layoutNodes(IDiagramHandle dhsp, IDiagramNode dgStart, IDiagramNode dgEnd, Map<Object, Rectangle> nodeGeometry, final Point offset) {
+        // Get nodes back in place
+        for (BpmnFlowNode e : this.nodes) {
+            Rectangle bounds = nodeGeometry.get(e).translate(offset);
+        
+            IDiagramNode dg1 = (IDiagramNode) getDiagramGraphic(dhsp, e);
+            if (dg1 == null) {
+                List<IDiagramGraphic> dgs = dhsp.unmask(e, bounds.x, bounds.y);
+                dg1 = dgs.isEmpty() ? null : (IDiagramNode) dgs.get(0);
+            }
+            if (dg1 != null) {
+                dg1.setBounds(bounds);
+            }
+        }
+        
+        // Move the new start event
+        if (dgStart != null) {
+            BpmnStartEvent spStartEvent = (BpmnStartEvent) dgStart.getElement();
+            if (!spStartEvent.getOutgoing().isEmpty()) {
+                Rectangle linkedNodeBounds = nodeGeometry.get(spStartEvent.getOutgoing().get(0).getTargetRef());
+                int x = linkedNodeBounds.x() - dgStart.getBounds().width() - 50;
+                int y = linkedNodeBounds.y() + linkedNodeBounds.height() / 2 - dgStart.getBounds().height() / 2;
+                dgStart.setLocation(x, y);
+            }
+        }
+        
+        // Move the new end event
+        if (dgEnd != null) {
+            BpmnEndEvent spEndEvent = (BpmnEndEvent) dgEnd.getElement();
+            if (!spEndEvent.getIncoming().isEmpty()) {
+                Rectangle linkedNodeBounds = nodeGeometry.get(spEndEvent.getIncoming().get(0).getSourceRef());
+                int x = linkedNodeBounds.x() + linkedNodeBounds.width() + 50;
+                int y = linkedNodeBounds.y() + linkedNodeBounds.height() / 2 - dgEnd.getBounds().height() / 2;
+                dgEnd.setLocation(x, y);
+            } else {
+                Rectangle r = nodeGeometry.get("global");
+                int x = r.width() + 50;
+                int y = r.height() + 50;
+                dgEnd.setLocation(x, y);
+            }
+        }
+        return dgEnd;
+    }
+
+    @objid ("08aee1bb-4130-43a3-a0ab-3ac4f8b8d14e")
+    private void layoutLinks(IDiagramHandle dhsp, IDiagramNode dgStart, IDiagramNode dgEnd, Map<MObject, ILinkRoute> linkGeometry, final Point offset) {
+        // Now that nodes are placed, fix the link layout
+        final Point tmp = new Point();
+        for (BpmnSequenceFlow f : this.links) {
+            ILinkRoute linkPath = linkGeometry.get(f);
+            if (linkPath != null) {
+                IDiagramLink dg1 = (IDiagramLink) getDiagramGraphic(dhsp, f);
+                if (dg1 == null) {
+                    List<IDiagramGraphic> dgs = dhsp.unmask(f, 0, 0);
+                    dg1 = dgs.isEmpty() ? null : (IDiagramLink) dgs.get(0);
+                }
+        
+                if (dg1 != null) {
+                    try {
+                        List<ILinkPoint> points = linkPath.getAllPoints();
+                        for (ILinkPoint p : points) {
+                            p.setLocation(p.getLocation(tmp).translate(offset));
+                        }
+                        dg1.setRoute(linkPath);
+                    } catch (@SuppressWarnings ("unused") InvalidLinkPathException e1) {
+                        // Invalid path, let the auto-unmask do its job
+                        dg1.mask();
+                    }
+                }
+            }
+        }
+        
+        // Layout new link from the start event
+        if (dgStart != null) {
+            for (IDiagramLink link : dgStart.getFromLinks()) {
+                link.buildRoute()
+                .setSourceAnchor(LinkAnchorFace.EAST, false)
+                .setTargetAnchor(LinkAnchorFace.WEST, false)
+                .apply();
+                //link.setPath(Arrays.asList(dgStart.getBounds().getRight(), ((IDiagramNode) link.getTo()).getBounds().getLeft()));
+            }
+        }
+        
+        // Layout new link from the end event
+        if (dgEnd != null) {
+            for (IDiagramLink link : dgEnd.getToLinks()) {
+                link.buildRoute()
+                        .setSourceAnchor(LinkAnchorFace.EAST, false)
+                        .setTargetAnchor(LinkAnchorFace.WEST, false)
+                        .apply();
+                //link.setPath(Arrays.asList(((IDiagramNode) link.getFrom()).getBounds().getRight(), dgEnd.getBounds().getLeft()));
+            }
+        }
+        
     }
 
     @objid ("ecc2cf3e-d303-40fa-828e-a991baa6e777")
-    private IDiagramGraphic getDiagramGraphic(IDiagramHandle dh, BpmnBaseElement o) {
+    private IDiagramGraphic getDiagramGraphic(IDiagramHandle dh, MObject o) {
         List<IDiagramGraphic> dgs = dh.getDiagramGraphics(o);
         return dgs.isEmpty() ? null : dgs.get(0);
     }
@@ -296,6 +392,7 @@ public class GroupAsSubProcessTransformer implements IModelTransformer {
             fe.setSubProcess(null);
             fe.setContainer((BpmnProcess) parent);
         }
+        
     }
 
     @objid ("ecec32bd-383b-4bb9-bca0-695de902ab88")
@@ -380,7 +477,7 @@ public class GroupAsSubProcessTransformer implements IModelTransformer {
     }
 
     @objid ("f0b3d746-0b6b-4b9c-98b1-410c39f125bd")
-    private Map<Object, Rectangle> getSelectionGeometry(IDiagramHandle dh, List<BpmnFlowNode> elements) {
+    private Map<Object, Rectangle> getNodeGeometry(IDiagramHandle dh, Collection<BpmnFlowNode> elements) {
         Map<Object, Rectangle> results = new HashMap<>();
         
         int minX = Integer.MAX_VALUE;
@@ -390,7 +487,7 @@ public class GroupAsSubProcessTransformer implements IModelTransformer {
         
         for (BpmnFlowNode e : elements) {
             IDiagramGraphic dg = getDiagramGraphic(dh, e);
-            if (dg != null) {
+            if (dg instanceof IDiagramNode) {
                 Rectangle bounds = ((IDiagramNode) dg).getBounds().getCopy();
                 results.put(e, bounds);
                 minX = Math.min(bounds.x(), minX);
@@ -401,6 +498,20 @@ public class GroupAsSubProcessTransformer implements IModelTransformer {
         }
         
         results.put("global", new Rectangle(minX, minY, maxX - minX, maxY - minY));
+        return results;
+    }
+
+    @objid ("457fc9a5-042a-4128-98f6-05e49283a76b")
+    private Map<MObject, ILinkRoute> getLinkGeometry(IDiagramHandle dh, Collection<BpmnSequenceFlow> links2) {
+        Map<MObject, ILinkRoute> results = new HashMap<>();
+        
+        for (MObject e : links2) {
+            IDiagramGraphic dg = getDiagramGraphic(dh, e);
+            if (dg instanceof IDiagramLink) {
+                ILinkRoute path = ((IDiagramLink) dg).getRoute();
+                results.put(e, path);
+            }
+        }
         return results;
     }
 

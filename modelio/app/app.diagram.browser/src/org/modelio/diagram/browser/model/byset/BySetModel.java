@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.model.byset;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,12 +32,11 @@ public class BySetModel extends AbstractModel {
     @objid ("00452694-0d4f-10c6-842f-001ec947cd2a")
     @Override
     public ITreeContentProvider getContentProvider() {
-        
         return this.bySetContentProvider;
     }
 
     @objid ("77e6b108-8736-4b87-ad4e-c2a565f38fc2")
-    public BySetModel(GProject project) {
+    public  BySetModel(GProject project) {
         this.bySetContentProvider = new BySetContentProvider(project);
     }
 

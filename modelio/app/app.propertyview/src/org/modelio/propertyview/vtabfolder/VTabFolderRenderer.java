@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.propertyview.vtabfolder;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -83,7 +82,7 @@ public class VTabFolderRenderer {
     @objid ("cdf0b542-7827-4281-8cc4-823c148b15e1")
     private static final String ELLIPSIS = "..."; // $NON-NLS-1$
 
-// Part constants
+    // Part constants
     /**
      * Part constant indicating the body of the tab folder. The body is the underlying container for all of the tab folder and all other parts are drawn on top of it. (value is -1).
      * 
@@ -179,7 +178,6 @@ public class VTabFolderRenderer {
     /**
      * Constructs a new instance of this class given its parent.
      * @see Widget#getStyle
-     * 
      * @param parent CTabFolder
      * 
      * @exception IllegalArgumentException
@@ -188,12 +186,13 @@ public class VTabFolderRenderer {
      * </ul>
      */
     @objid ("ff346574-632b-4060-b4ae-a72917458756")
-    protected VTabFolderRenderer(VTabFolder parent) {
+    protected  VTabFolderRenderer(VTabFolder parent) {
         if (parent == null)
             return;
         if (parent.isDisposed())
             SWT.error(SWT.ERROR_INVALID_ARGUMENT);
         this.parent = parent;
+        
     }
 
     /**
@@ -223,7 +222,6 @@ public class VTabFolderRenderer {
      * <li>SWT.SELECTED - whether the part is selected</li>
      * </ul>
      * </p>
-     * 
      * @param part a part constant
      * @param state current state
      * @param gc the gc to use for measuring
@@ -335,7 +333,6 @@ public class VTabFolderRenderer {
      * @see CTabFolderRenderer#computeSize(int, int, GC, int, int) valid part and state values
      * 
      * @since 3.6
-     * 
      * @param part one of the part constants
      * @param state the state of the part
      * @param x the desired x coordinate of the client area
@@ -417,6 +414,7 @@ public class VTabFolderRenderer {
             this.fillColor.dispose();
             this.fillColor = null;
         }
+        
     }
 
     /**
@@ -444,7 +442,6 @@ public class VTabFolderRenderer {
      * <li>SWT.HOT - whether the part is hot (i.e. mouse is over the part)</li>
      * </ul>
      * </p>
-     * 
      * @param part part to draw
      * @param state state of the part
      * @param bounds the bounds of the part
@@ -485,6 +482,7 @@ public class VTabFolderRenderer {
             }
             break;
         }
+        
     }
 
     @objid ("6798866f-6259-4cdb-9312-deb081cd5b99")
@@ -494,6 +492,7 @@ public class VTabFolderRenderer {
         Image image = selected ? this.parent.selectionBgImage : null;
         
         drawBackground(gc, null, bounds.x, bounds.y, bounds.width, bounds.height, defaultBackground, image);
+        
     }
 
     @objid ("24fdef38-d8d0-4d09-af6d-613109a18003")
@@ -517,6 +516,7 @@ public class VTabFolderRenderer {
         }
         x = this.parent.isOnRight() ? size.x - borderRight - width : borderLeft;
         drawBackground(gc, shape, x, y, width, height, defaultBackground, image);
+        
     }
 
     @objid ("2523a4d8-2fd6-4f89-99de-2b89f843bc69")
@@ -553,19 +553,21 @@ public class VTabFolderRenderer {
                 region.dispose();
             }
         }
+        
     }
 
-/*
-     * Draw the border of the tab
-     * 
-     * @param gc
-     * 
-     * @param shape
-     */
+    /*
+         * Draw the border of the tab
+         * 
+         * @param gc
+         * 
+         * @param shape
+         */
     @objid ("c1e3de8e-f412-4f56-9b6f-6d3dfdb7132e")
     private void drawBorder(GC gc, int[] shape) {
         gc.setForeground(this.parent.getDisplay().getSystemColor(BORDER1_COLOR));
         gc.drawPolyline(shape);
+        
     }
 
     @objid ("0de36eed-7892-48b0-bd5a-8f0f60cfcd2c")
@@ -648,6 +650,7 @@ public class VTabFolderRenderer {
                 gc.drawLine(x1, y1, x1, y2); // left
             }
         }
+        
     }
 
     @objid ("0a1e3f78-084d-45cf-8b24-90bdf346b89e")
@@ -732,6 +735,7 @@ public class VTabFolderRenderer {
         }
         }
         f.dispose();
+        
     }
 
     /**
@@ -760,13 +764,14 @@ public class VTabFolderRenderer {
             // draw left vertical line highlight
             gc.drawLine(x + 1, y + BEVEL, x + 1, y + h - BEVEL);
         }
+        
     }
 
-/*
-     * Draw the unselected border for the receiver on the left.
-     * 
-     * @param gc
-     */
+    /*
+         * Draw the unselected border for the receiver on the left.
+         * 
+         * @param gc
+         */
     @objid ("63477b91-a47a-43d3-ac77-aae3b548bdaa")
     private void drawTopUnselectedBorder(GC gc, Rectangle bounds) {
         int x = bounds.x;
@@ -789,13 +794,14 @@ public class VTabFolderRenderer {
             shape[3] = y;
         }
         drawBorder(gc, shape);
+        
     }
 
-/*
-     * Draw the unselected border for the receiver on the right.
-     * 
-     * @param gc
-     */
+    /*
+         * Draw the unselected border for the receiver on the right.
+         * 
+         * @param gc
+         */
     @objid ("b9f8dac0-c433-42a1-9b6b-d494786a1c69")
     private void drawBottomUnselectedBorder(GC gc, Rectangle bounds) {
         int x = bounds.x;
@@ -821,100 +827,101 @@ public class VTabFolderRenderer {
         }
         
         drawBorder(gc, shape);
+        
     }
 
-//
-// private void drawMaximize(GC gc, Rectangle maxRect, int maxImageState) {
-// if (maxRect.width == 0 || maxRect.height == 0)
-// return;
-// Display display = this.parent.getDisplay();
-// // 5x4 or 7x9
-// int x = maxRect.x + (maxRect.width - 10) / 2;
-// int y = maxRect.y + 3;
-//
-// gc.setForeground(display.getSystemColor(BUTTON_BORDER));
-// gc.setBackground(display.getSystemColor(BUTTON_FILL));
-//
-// switch (maxImageState & (SWT.HOT | SWT.SELECTED)) {
-// case SWT.NONE: {
-//
-// gc.fillRectangle(x, y + 3, 5, 4);
-// gc.fillRectangle(x + 2, y, 5, 4);
-// gc.drawRectangle(x, y + 3, 5, 4);
-// gc.drawRectangle(x + 2, y, 5, 4);
-// gc.drawLine(x + 3, y + 1, x + 6, y + 1);
-// gc.drawLine(x + 1, y + 4, x + 4, y + 4);
-//
-// break;
-// }
-// case SWT.HOT: {
-// gc.fillRoundRectangle(maxRect.x, maxRect.y, maxRect.width, maxRect.height, 6, 6);
-// gc.drawRoundRectangle(maxRect.x, maxRect.y, maxRect.width - 1, maxRect.height - 1, 6, 6);
-//
-// gc.fillRectangle(x, y + 3, 5, 4);
-// gc.fillRectangle(x + 2, y, 5, 4);
-// gc.drawRectangle(x, y + 3, 5, 4);
-// gc.drawRectangle(x + 2, y, 5, 4);
-// gc.drawLine(x + 3, y + 1, x + 6, y + 1);
-// gc.drawLine(x + 1, y + 4, x + 4, y + 4);
-//
-// break;
-// }
-// case SWT.SELECTED: {
-// gc.fillRoundRectangle(maxRect.x, maxRect.y, maxRect.width, maxRect.height, 6, 6);
-// gc.drawRoundRectangle(maxRect.x, maxRect.y, maxRect.width - 1, maxRect.height - 1, 6, 6);
-//
-// gc.fillRectangle(x + 1, y + 4, 5, 4);
-// gc.fillRectangle(x + 3, y + 1, 5, 4);
-// gc.drawRectangle(x + 1, y + 4, 5, 4);
-// gc.drawRectangle(x + 3, y + 1, 5, 4);
-// gc.drawLine(x + 4, y + 2, x + 7, y + 2);
-// gc.drawLine(x + 2, y + 5, x + 5, y + 5);
-//
-// break;
-// }
-// }
-// }
-//
-// private void drawMinimize(GC gc, Rectangle minRect, int minImageState) {
-// if (minRect.width == 0 || minRect.height == 0)
-// return;
-// Display display = this.parent.getDisplay();
-// // 5x4 or 9x3
-// int x = minRect.x + (minRect.width - 10) / 2;
-// int y = minRect.y + 3;
-//
-// gc.setForeground(display.getSystemColor(BUTTON_BORDER));
-// gc.setBackground(display.getSystemColor(BUTTON_FILL));
-//
-// switch (minImageState & (SWT.HOT | SWT.SELECTED)) {
-// case SWT.NONE: {
-//
-// gc.fillRectangle(x, y, 9, 3);
-// gc.drawRectangle(x, y, 9, 3);
-//
-// break;
-// }
-// case SWT.HOT: {
-// gc.fillRoundRectangle(minRect.x, minRect.y, minRect.width, minRect.height, 6, 6);
-// gc.drawRoundRectangle(minRect.x, minRect.y, minRect.width - 1, minRect.height - 1, 6, 6);
-//
-// gc.fillRectangle(x, y, 9, 3);
-// gc.drawRectangle(x, y, 9, 3);
-//
-// break;
-// }
-// case SWT.SELECTED: {
-// gc.fillRoundRectangle(minRect.x, minRect.y, minRect.width, minRect.height, 6, 6);
-// gc.drawRoundRectangle(minRect.x, minRect.y, minRect.width - 1, minRect.height - 1, 6, 6);
-//
-// gc.fillRectangle(x + 1, y + 1, 9, 3);
-// gc.drawRectangle(x + 1, y + 1, 9, 3);
-//
-// break;
-// }
-// }
-// }
+    //
+    // private void drawMaximize(GC gc, Rectangle maxRect, int maxImageState) {
+    // if (maxRect.width == 0 || maxRect.height == 0)
+    // return;
+    // Display display = this.parent.getDisplay();
+    // // 5x4 or 7x9
+    // int x = maxRect.x + (maxRect.width - 10) / 2;
+    // int y = maxRect.y + 3;
+    //
+    // gc.setForeground(display.getSystemColor(BUTTON_BORDER));
+    // gc.setBackground(display.getSystemColor(BUTTON_FILL));
+    //
+    // switch (maxImageState & (SWT.HOT | SWT.SELECTED)) {
+    // case SWT.NONE: {
+    //
+    // gc.fillRectangle(x, y + 3, 5, 4);
+    // gc.fillRectangle(x + 2, y, 5, 4);
+    // gc.drawRectangle(x, y + 3, 5, 4);
+    // gc.drawRectangle(x + 2, y, 5, 4);
+    // gc.drawLine(x + 3, y + 1, x + 6, y + 1);
+    // gc.drawLine(x + 1, y + 4, x + 4, y + 4);
+    //
+    // break;
+    // }
+    // case SWT.HOT: {
+    // gc.fillRoundRectangle(maxRect.x, maxRect.y, maxRect.width, maxRect.height, 6, 6);
+    // gc.drawRoundRectangle(maxRect.x, maxRect.y, maxRect.width - 1, maxRect.height - 1, 6, 6);
+    //
+    // gc.fillRectangle(x, y + 3, 5, 4);
+    // gc.fillRectangle(x + 2, y, 5, 4);
+    // gc.drawRectangle(x, y + 3, 5, 4);
+    // gc.drawRectangle(x + 2, y, 5, 4);
+    // gc.drawLine(x + 3, y + 1, x + 6, y + 1);
+    // gc.drawLine(x + 1, y + 4, x + 4, y + 4);
+    //
+    // break;
+    // }
+    // case SWT.SELECTED: {
+    // gc.fillRoundRectangle(maxRect.x, maxRect.y, maxRect.width, maxRect.height, 6, 6);
+    // gc.drawRoundRectangle(maxRect.x, maxRect.y, maxRect.width - 1, maxRect.height - 1, 6, 6);
+    //
+    // gc.fillRectangle(x + 1, y + 4, 5, 4);
+    // gc.fillRectangle(x + 3, y + 1, 5, 4);
+    // gc.drawRectangle(x + 1, y + 4, 5, 4);
+    // gc.drawRectangle(x + 3, y + 1, 5, 4);
+    // gc.drawLine(x + 4, y + 2, x + 7, y + 2);
+    // gc.drawLine(x + 2, y + 5, x + 5, y + 5);
+    //
+    // break;
+    // }
+    // }
+    // }
+    //
+    // private void drawMinimize(GC gc, Rectangle minRect, int minImageState) {
+    // if (minRect.width == 0 || minRect.height == 0)
+    // return;
+    // Display display = this.parent.getDisplay();
+    // // 5x4 or 9x3
+    // int x = minRect.x + (minRect.width - 10) / 2;
+    // int y = minRect.y + 3;
+    //
+    // gc.setForeground(display.getSystemColor(BUTTON_BORDER));
+    // gc.setBackground(display.getSystemColor(BUTTON_FILL));
+    //
+    // switch (minImageState & (SWT.HOT | SWT.SELECTED)) {
+    // case SWT.NONE: {
+    //
+    // gc.fillRectangle(x, y, 9, 3);
+    // gc.drawRectangle(x, y, 9, 3);
+    //
+    // break;
+    // }
+    // case SWT.HOT: {
+    // gc.fillRoundRectangle(minRect.x, minRect.y, minRect.width, minRect.height, 6, 6);
+    // gc.drawRoundRectangle(minRect.x, minRect.y, minRect.width - 1, minRect.height - 1, 6, 6);
+    //
+    // gc.fillRectangle(x, y, 9, 3);
+    // gc.drawRectangle(x, y, 9, 3);
+    //
+    // break;
+    // }
+    // case SWT.SELECTED: {
+    // gc.fillRoundRectangle(minRect.x, minRect.y, minRect.width, minRect.height, 6, 6);
+    // gc.drawRoundRectangle(minRect.x, minRect.y, minRect.width - 1, minRect.height - 1, 6, 6);
+    //
+    // gc.fillRectangle(x + 1, y + 1, 9, 3);
+    // gc.drawRectangle(x + 1, y + 1, 9, 3);
+    //
+    // break;
+    // }
+    // }
+    // }
     /**
      * Draw a seleted tab
      * @param itemIndex
@@ -1197,6 +1204,7 @@ public class VTabFolderRenderer {
             }
         
         }
+        
     }
 
     @objid ("968a3934-bd9a-4773-a060-52bdfccbb6bf")
@@ -1302,6 +1310,7 @@ public class VTabFolderRenderer {
             gc.setForeground(borderColor);
             gc.drawPolyline(shape);
         }
+        
     }
 
     @objid ("bab1f600-7206-438b-b898-f6f1e348ddb5")
@@ -1374,6 +1383,7 @@ public class VTabFolderRenderer {
             // draw close
         
         }
+        
     }
 
     @objid ("96bd8e7e-9868-4ca5-aa3a-3ab8857ca2e1")
@@ -1386,6 +1396,7 @@ public class VTabFolderRenderer {
         gc.fillRectangle(region.getBounds());
         gc.setClipping(clipping);
         clipping.dispose();
+        
     }
 
     @objid ("eccd6b52-20da-4f10-acee-cabf74894380")
@@ -1414,9 +1425,9 @@ public class VTabFolderRenderer {
         return end == 0 ? text.substring(0, 1) : text + ellipses;
     }
 
-/*
-     * Return whether to use ellipses or just truncate labels
-     */
+    /*
+         * Return whether to use ellipses or just truncate labels
+         */
     @objid ("648887a9-0baf-48fd-9953-822041c8972d")
     private boolean useEllipses() {
         return this.parent.isSimple();

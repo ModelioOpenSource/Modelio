@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.preferences.proxy;
 
 import java.util.ArrayList;
@@ -69,7 +68,7 @@ public class NonProxyHostsComposite extends Composite {
     private Label hostsLabel;
 
     @objid ("e37e6dd8-a519-4d9b-8bb6-f8fc15e9ebba")
-     CheckboxTableViewer hostsViewer;
+    CheckboxTableViewer hostsViewer;
 
     @objid ("111d3ef7-699a-433e-954d-ec75dc629736")
     private Button addButton;
@@ -84,9 +83,10 @@ public class NonProxyHostsComposite extends Composite {
     private List<ProxyBypassData> bypassHosts = new ArrayList<>();
 
     @objid ("7d149346-33b5-4ba9-aa08-a4d9b3355557")
-    NonProxyHostsComposite(Composite parent, int style) {
+     NonProxyHostsComposite(Composite parent, int style) {
         super(parent, style);
         createWidgets();
+        
     }
 
     @objid ("48f2a019-df30-4484-9b3c-c4bd68c5d6cb")
@@ -162,6 +162,7 @@ public class NonProxyHostsComposite extends Composite {
         
         initializeValues();
         enableButtons();
+        
     }
 
     @objid ("13f03420-5f14-4299-9ac5-59759cca506a")
@@ -170,6 +171,7 @@ public class NonProxyHostsComposite extends Composite {
         super.setEnabled(enabled);
         this.hostsViewer.getTable().setEnabled(enabled);
         enableButtons();
+        
     }
 
     @objid ("945d5033-b3e1-48fb-b9d8-2a3d0f207382")
@@ -185,6 +187,7 @@ public class NonProxyHostsComposite extends Composite {
             this.editButton.setEnabled(false);
             this.removeButton.setEnabled(false);
         }
+        
     }
 
     @objid ("ea0af4b7-75a1-4693-8f78-f1467cb4541b")
@@ -213,6 +216,7 @@ public class NonProxyHostsComposite extends Composite {
             this.hostsViewer.refresh();
             setProvider(this.currentProvider);
         }
+        
     }
 
     @objid ("33a357ba-f7b8-4dff-8893-104b64cae66b")
@@ -236,6 +240,7 @@ public class NonProxyHostsComposite extends Composite {
             this.bypassHosts.remove(data);
         }
         this.hostsViewer.refresh();
+        
     }
 
     @objid ("53ab0ea9-9985-4d16-858d-33e4fe8a68a7")
@@ -255,6 +260,7 @@ public class NonProxyHostsComposite extends Composite {
             }
             this.hostsViewer.refresh();
         }
+        
     }
 
     @objid ("4146a1ff-44fc-4d25-89e5-8adef43820ac")
@@ -328,6 +334,7 @@ public class NonProxyHostsComposite extends Composite {
         }
         this.hostsViewer.setInput(this.bypassHosts);
         setProvider(ProxySelector.getDefaultProvider());
+        
     }
 
     @objid ("2333234c-bd5d-42c4-be69-fafbdad82871")
@@ -347,6 +354,7 @@ public class NonProxyHostsComposite extends Composite {
         }
         this.hostsViewer
                 .setCheckedElements(selected.toArray(new ProxyBypassData[0]));
+        
     }
 
     @objid ("dfa509c1-688d-45ba-8aff-60d4e3c87878")
@@ -362,6 +370,7 @@ public class NonProxyHostsComposite extends Composite {
         }
         String data[] = hosts.toArray(new String[0]);
         ProxySelector.setBypassHosts(provider, data);
+        
     }
 
     @objid ("ab8722a6-3b9f-48b3-85e4-daeaacb1490f")
@@ -384,6 +393,7 @@ public class NonProxyHostsComposite extends Composite {
         }
         this.hostsViewer.refresh();
         setProvider(this.currentProvider);
+        
     }
 
     @objid ("fe4b117b-8809-4c54-bca9-309b629e953f")

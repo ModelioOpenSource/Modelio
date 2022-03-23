@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.linkeditor.gef.background.typeselection;
 
 import java.util.Set;
@@ -37,7 +36,7 @@ public class TypeSelectionModel {
     private LinkTypeDescriptor selectedType;
 
     @objid ("1b9865b3-5e33-11e2-b81d-002564c97630")
-    public TypeSelectionModel(final MObject centerElement, final MObject[] droppedElements, boolean isFrom, Set<LinkTypeDescriptor> candidates) {
+    public  TypeSelectionModel(final MObject centerElement, final MObject[] droppedElements, boolean isFrom, Set<LinkTypeDescriptor> candidates) {
         this.types = candidates;
     }
 

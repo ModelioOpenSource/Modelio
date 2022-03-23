@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.viewer.config;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -56,6 +55,7 @@ public class SelectionLayerConfiguration extends DefaultSelectionLayerConfigurat
         public void configureRegistry(IConfigRegistry configRegistry) {
             configureSelectedCell(configRegistry);
             configureSelectedHeader(configRegistry);
+            
         }
 
         @objid ("ab23ce46-eeee-4c62-9740-f6d0dd999448")
@@ -71,6 +71,7 @@ public class SelectionLayerConfiguration extends DefaultSelectionLayerConfigurat
             configRegistry.registerConfigAttribute(CellConfigAttributes.CELL_STYLE, cellStyle, DisplayMode.SELECT, GridRegion.COLUMN_HEADER);
             configRegistry.registerConfigAttribute(CellConfigAttributes.CELL_STYLE, cellStyle, DisplayMode.SELECT, GridRegion.CORNER);
             configRegistry.registerConfigAttribute(CellConfigAttributes.CELL_STYLE, cellStyle, DisplayMode.SELECT, GridRegion.ROW_HEADER);
+            
         }
 
         @objid ("35b001a0-9702-457f-a998-3395614d8c71")
@@ -98,10 +99,11 @@ public class SelectionLayerConfiguration extends DefaultSelectionLayerConfigurat
             cellStyle.setAttributeValue(CellStyleAttributes.FONT, this.colorScheme.selectedRowColumnFont);
             
             configRegistry.registerConfigAttribute(CellConfigAttributes.CELL_STYLE, cellStyle, DisplayMode.SELECT);
+            
         }
 
         @objid ("4489b60d-15dd-46e2-9501-20607a816877")
-        public SelectionStyleConfiguration() {
+        public  SelectionStyleConfiguration() {
             super();
         }
 

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -49,21 +48,19 @@ public class PackagePropertyModel extends AbstractPropertyModel<Package> {
      */
     @objid ("708b411b-6160-4770-890f-7e484e9040e3")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name", "Visibility",
-			"IsAbstract", "IsLeaf" };
+    			"IsAbstract", "IsLeaf" };
 
     /**
      * Create a new <i>Package</i> data model from an <i>Package</i>.
-     * 
      * @param theEditedElement the package containing the properties to display.
      */
     @objid ("f01f0605-ebe6-431d-917a-38e9c8e8bbad")
-    public PackagePropertyModel(Package theEditedElement) {
+    public  PackagePropertyModel(Package theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("63514db4-a154-40d1-bd07-d26de7a2b93b")
@@ -74,7 +71,6 @@ public class PackagePropertyModel extends AbstractPropertyModel<Package> {
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("71d3be01-dc30-4b83-b826-c51a8cc5e7b9")
@@ -87,7 +83,6 @@ public class PackagePropertyModel extends AbstractPropertyModel<Package> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -117,6 +112,7 @@ public class PackagePropertyModel extends AbstractPropertyModel<Package> {
         default:
             return null;
         }
+        
     }
 
     /**
@@ -126,7 +122,6 @@ public class PackagePropertyModel extends AbstractPropertyModel<Package> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -155,13 +150,13 @@ public class PackagePropertyModel extends AbstractPropertyModel<Package> {
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -203,6 +198,7 @@ public class PackagePropertyModel extends AbstractPropertyModel<Package> {
         default:
             return;
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.model.property.panel.data.standard;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -93,7 +92,8 @@ public class InfrastructurePropertyModelProvider implements IPropertyModelProvid
     @objid ("9b470280-ccc4-4907-9092-07f8d3b7d135")
     private static class InfrastructurePropertyModelVisitor extends DefaultInfrastructureVisitor {
         @objid ("fec8a3df-9c92-4792-99a8-d36acb688a78")
-        public InfrastructurePropertyModelVisitor() {
+        public  InfrastructurePropertyModelVisitor() {
+            
         }
 
         @objid ("8e23af6c-fd01-4398-93b4-efcfcd3eeacf")

@@ -17,15 +17,14 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.checker;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-import javax.inject.Inject;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Inject;
 import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.model.application.MApplication;
 import org.eclipse.e4.ui.workbench.modeling.EModelService;
@@ -113,7 +112,7 @@ public class CheckerPanelProvider implements IPanelProvider {
     private IProjectService projectService;
 
     @objid ("106b1506-22a7-4fae-ba45-39f2736da135")
-    public CheckerPanelProvider() {
+    public  CheckerPanelProvider() {
         this.jobId = UUID.randomUUID().toString();
     }
 
@@ -238,6 +237,7 @@ public class CheckerPanelProvider implements IPanelProvider {
     public void dispose() {
         this.auditService.interuptCheck(this.jobId);
         this.auditPanel.dispose();
+        
     }
 
     @objid ("a83365ee-8848-4ff9-b3c5-18efaa1f82e9")
@@ -302,6 +302,7 @@ public class CheckerPanelProvider implements IPanelProvider {
         } else if (newInput instanceof List) {
             this.auditService.checkElementTree((List<MObject>) newInput, this.jobId);
         }
+        
     }
 
     @objid ("b2171e31-c1e5-46f3-b01c-ff6fcdde325e")
@@ -343,6 +344,7 @@ public class CheckerPanelProvider implements IPanelProvider {
         });
         Menu menu = menuMgr.createContextMenu(this.auditPanel.getTreeViewer().getTree());
         this.auditPanel.getTreeViewer().getTree().setMenu(menu);
+        
     }
 
 }

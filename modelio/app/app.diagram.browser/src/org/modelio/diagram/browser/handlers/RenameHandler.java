@@ -17,12 +17,11 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.browser.handlers;
 
 import java.util.List;
-import javax.inject.Named;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.inject.Named;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.e4.core.di.annotations.CanExecute;
 import org.eclipse.e4.ui.services.IServiceConstants;
@@ -56,6 +55,7 @@ public class RenameHandler extends AbstractBrwModelHandler {
             } else
                 browserView.getComposite().getPanel().editElement(firstObject, 0);
         }
+        
     }
 
     @objid ("001b194e-0d4f-10c6-842f-001ec947cd2a")
@@ -81,7 +81,7 @@ public class RenameHandler extends AbstractBrwModelHandler {
     }
 
     @objid ("ca3793eb-4b58-11e2-a4d3-002564c97630")
-    public RenameHandler() {
+    public  RenameHandler() {
         super();
     }
 

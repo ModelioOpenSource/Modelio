@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,7 @@ public class OObjectFlow extends OActivityEdge {
     }
 
     @objid ("ad0edac5-794e-4c5b-a161-a33d893395af")
-    public OObjectFlow(ObjectFlow element) {
+    public  OObjectFlow(ObjectFlow element) {
         super(element);
     }
 
@@ -57,6 +56,7 @@ public class OObjectFlow extends OActivityEdge {
         //Modelio Properties
         if (GenerationProperties.getInstance().isRoundtripEnabled())
             setEffectEAnnotation((org.eclipse.uml2.uml.ObjectFlow) ecoreElt);
+        
     }
 
     @objid ("571d6964-acf1-424a-af1a-9c77d22e8113")
@@ -83,6 +83,7 @@ public class OObjectFlow extends OActivityEdge {
         }
         
         ObjingEAnnotation.setEffect(flow, effect);
+        
     }
 
     @objid ("ebb6624f-4ff0-4604-bbd8-d721fa004c2d")
@@ -120,6 +121,7 @@ public class OObjectFlow extends OActivityEdge {
                     ecorePkg.getPackagedElements().add(behavior);
             }
         }
+        
     }
 
     @objid ("afe5b010-f892-40ac-b6a7-f0f207f126a1")
@@ -133,6 +135,7 @@ public class OObjectFlow extends OActivityEdge {
             behavior.getBodies().add(transformationBehavior);
             flow.setSelection(behavior);
         }
+        
     }
 
     @objid ("130f8756-eda2-46b3-9bc8-f64ff6140b4c")

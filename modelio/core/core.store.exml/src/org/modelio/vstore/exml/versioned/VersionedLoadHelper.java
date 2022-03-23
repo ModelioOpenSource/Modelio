@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.exml.versioned;
 
 import java.util.Objects;
@@ -38,16 +37,16 @@ class VersionedLoadHelper extends LoadHelper {
 
     /**
      * initialize the helper.
-     * 
      * @param exmlBase the EXML repository
      * @param statusInitializer the element status initializer
      * @param loadReadWrite <code>true</code> if the repository is read/write, <code>false</code> if read only.
      */
     @objid ("679724aa-2e7b-11e2-8aaa-001ec947ccaf")
-    public VersionedLoadHelper(IExmlBase exmlBase, IVersionStatusInitializer statusInitializer, boolean loadReadWrite) {
+    public  VersionedLoadHelper(IExmlBase exmlBase, IVersionStatusInitializer statusInitializer, boolean loadReadWrite) {
         super(Objects.requireNonNull(exmlBase), loadReadWrite);
         
         this.statusInitializer = Objects.requireNonNull(statusInitializer);
+        
     }
 
     @objid ("679724b0-2e7b-11e2-8aaa-001ec947ccaf")
@@ -58,6 +57,7 @@ class VersionedLoadHelper extends LoadHelper {
         if (!this.loadReadWrite) {
             modelLoader.setRStatus(obj, 0, IRStatus.USERWRITE, 0);
         }
+        
     }
 
 }

@@ -17,11 +17,10 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.bpmnmessageflow;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.bpmn.diagram.editor.elements.style.BpmnAbstractStyleKeyProvider;
+import org.modelio.bpmn.diagram.editor.elements.common.style.BpmnAbstractStyleKeyProvider;
 import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.diagram.styles.core.StyleKey;
 
@@ -35,7 +34,7 @@ public class GmBpmnMessageFlowStyleKeys extends BpmnAbstractStyleKeyProvider {
      */
     @objid ("71f84a0c-55c1-11e2-9337-002564c97630")
     public static final StyleKey CONNECTIONROUTER = createStyleKey("BPMNMESSAGEFLOW_ROUTINGMODE",
-            MetaKey.CONNECTIONROUTER);
+                MetaKey.CONNECTIONROUTER);
 
     /**
      * Line color
@@ -60,7 +59,7 @@ public class GmBpmnMessageFlowStyleKeys extends BpmnAbstractStyleKeyProvider {
      */
     @objid ("71f84a18-55c1-11e2-9337-002564c97630")
     public static final StyleKey DRAWLINEBRIDGES = createStyleKey("BPMNMESSAGEFLOW_DRAWLINEBRIDGES",
-            MetaKey.DRAWLINEBRIDGES);
+                MetaKey.DRAWLINEBRIDGES);
 
     /**
      * Text font.
@@ -79,7 +78,7 @@ public class GmBpmnMessageFlowStyleKeys extends BpmnAbstractStyleKeyProvider {
      */
     @objid ("71f84a21-55c1-11e2-9337-002564c97630")
     public static final StyleKey SHOWSTEREOTYPES = createStyleKey("BPMNMESSAGEFLOW_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+                MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Display tagged values
@@ -92,13 +91,13 @@ public class GmBpmnMessageFlowStyleKeys extends BpmnAbstractStyleKeyProvider {
      */
     @objid ("71f84a27-55c1-11e2-9337-002564c97630")
     public static final StyleKey NAMEVISIBLE = createStyleKey("BPMNMESSAGEFLOW_NAMEVISIBLE",
-            MetaKey.SHOWLABEL);
+                MetaKey.SHOWLABEL);
 
     /**
      * Line pattern
      */
     @objid ("71f84a2a-55c1-11e2-9337-002564c97630")
     public static final StyleKey LINEPATTERN = createStyleKey("BPMNMESSAGEFLOW_LINEPATTERN",
-            MetaKey.LINEPATTERN);
+                MetaKey.LINEPATTERN);
 
 }

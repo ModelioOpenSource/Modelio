@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.centralbuffer;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,7 +35,6 @@ import org.modelio.uml.activitydiagram.editor.elements.centralbuffer.v0._GmCentr
 public class GmCentralBufferMigrator implements IPersistentMigrator {
     /**
      * Instantiate a version of the {@link IPersistent} as it was when its major version was the given parameter. The returned instance can then be used to read the serialisation string corresponding to the version without risk.
-     * 
      * @param majorVersionToInstantiate the major version of the instance requested.
      * @return an instance of IPersistent at the requested version.
      */
@@ -51,11 +49,11 @@ public class GmCentralBufferMigrator implements IPersistentMigrator {
             return null;
         }
         }
+        
     }
 
     /**
      * Returns an instance of IPersistent with the most recent major version, using as much information from the given IPersistent as possible.
-     * 
      * @param instanceToMigrate an instance of a previous major version to be used as source of information.
      * @return an instance of IPersistent with the most recent major version based on the given instance.
      */

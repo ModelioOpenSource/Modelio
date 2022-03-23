@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class ESendObjectAction extends EActivityNode {
     }
 
     @objid ("73ac79e2-2819-4720-948b-435d74acff0d")
-    public ESendObjectAction(org.eclipse.uml2.uml.SendObjectAction element) {
+    public  ESendObjectAction(org.eclipse.uml2.uml.SendObjectAction element) {
         super(element);
     }
 

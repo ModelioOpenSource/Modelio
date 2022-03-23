@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.header;
 
 import java.util.ArrayList;
@@ -32,8 +31,8 @@ import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.MetaKey;
 import org.modelio.diagram.styles.core.ProxyStyle;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.metamodel.uml.infrastructure.TaggedValue;
 import org.modelio.vcore.smkernel.mapi.MRef;
@@ -58,20 +57,20 @@ public class GmDefaultModelElementHeader extends GmModelElementHeader {
      * For deserialization only.
      */
     @objid ("7e608441-1dec-11e2-8cad-001ec947c8cc")
-    public GmDefaultModelElementHeader() {
+    public  GmDefaultModelElementHeader() {
         // Empty c'tor for deserialization only.
     }
 
     /**
      * Initializes a model element header.
-     * 
      * @param diagram the owning diagram.
      * @param relatedRef the element reference.
      */
     @objid ("7e608444-1dec-11e2-8cad-001ec947c8cc")
-    public GmDefaultModelElementHeader(IGmDiagram diagram, MRef relatedRef) {
+    public  GmDefaultModelElementHeader(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
         setStackedStereotypes(true);
+        
     }
 
     /**
@@ -97,6 +96,7 @@ public class GmDefaultModelElementHeader extends GmModelElementHeader {
         }
         
         super.setParent(parent);
+        
     }
 
     /**
@@ -110,6 +110,7 @@ public class GmDefaultModelElementHeader extends GmModelElementHeader {
         }
         
         super.setParentLink(parentLink);
+        
     }
 
     @objid ("7e60845a-1dec-11e2-8cad-001ec947c8cc")
@@ -146,6 +147,7 @@ public class GmDefaultModelElementHeader extends GmModelElementHeader {
         } else {
             return null;
         }
+        
     }
 
     @objid ("7e62e6a4-1dec-11e2-8cad-001ec947c8cc")
@@ -165,6 +167,7 @@ public class GmDefaultModelElementHeader extends GmModelElementHeader {
                 break;
             }
         }
+        
     }
 
     @objid ("7e62e6a8-1dec-11e2-8cad-001ec947c8cc")
@@ -174,6 +177,7 @@ public class GmDefaultModelElementHeader extends GmModelElementHeader {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmDefaultModelElementHeader.", MINOR_VERSION);
+        
     }
 
     @objid ("7e62e6ac-1dec-11e2-8cad-001ec947c8cc")
@@ -195,6 +199,7 @@ public class GmDefaultModelElementHeader extends GmModelElementHeader {
         } else {
             return getParent().getStyleKeys();
         }
+        
     }
 
 }

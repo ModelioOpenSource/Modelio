@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.linktovoid;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -39,11 +38,10 @@ import org.modelio.diagram.elements.core.link.SelectConnectionEditPartTracker;
 public class LinkToVoidEditPartTracker extends SelectConnectionEditPartTracker {
     /**
      * Initialize the tracker.
-     * 
      * @param owner Connection edit part that creates and owns the tracker object
      */
     @objid ("7ece308e-1dec-11e2-8cad-001ec947c8cc")
-    public LinkToVoidEditPartTracker(final ConnectionEditPart owner) {
+    public  LinkToVoidEditPartTracker(final ConnectionEditPart owner) {
         super(owner);
     }
 
@@ -54,6 +52,7 @@ public class LinkToVoidEditPartTracker extends SelectConnectionEditPartTracker {
         
         if (getConnection().getSourceAnchor() instanceof SatelliteAnchor)
             setType(LinkToVoidConstants.REQ_LINKTOVOID_RECONNECT_SOURCE);
+        
     }
 
     @objid ("7ece309a-1dec-11e2-8cad-001ec947c8cc")
@@ -63,6 +62,7 @@ public class LinkToVoidEditPartTracker extends SelectConnectionEditPartTracker {
         
         //if (getConnection().getTargetAnchor() instanceof SatelliteAnchor)
         setType(LinkToVoidConstants.REQ_LINKTOVOID_RECONNECT_TARGET);
+        
     }
 
     @objid ("7ece309f-1dec-11e2-8cad-001ec947c8cc")
@@ -80,6 +80,7 @@ public class LinkToVoidEditPartTracker extends SelectConnectionEditPartTracker {
         } else {
             return super.createSourceRequest();
         }
+        
     }
 
     /**
@@ -90,7 +91,8 @@ public class LinkToVoidEditPartTracker extends SelectConnectionEditPartTracker {
     @objid ("7ece30a5-1dec-11e2-8cad-001ec947c8cc")
     private static class LinkToVoidReconnectRequest extends ReconnectRequest {
         @objid ("7ece30aa-1dec-11e2-8cad-001ec947c8cc")
-        public LinkToVoidReconnectRequest() {
+        public  LinkToVoidReconnectRequest() {
+            
         }
 
         @objid ("7ece30ac-1dec-11e2-8cad-001ec947c8cc")

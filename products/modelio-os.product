@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Modelio 4" uid="org.modelio.product" id="org.modelio.app.ui.modelio" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="4.1.0.qualifier" useFeatures="true" includeLaunchers="true">
+<product name="Modelio" uid="org.modelio.product" id="org.modelio.app.ui.modelio" application="org.eclipse.e4.ui.workbench.swt.E4Application" version="5.1.0.qualifier" useFeatures="true" includeLaunchers="true">
 
    <configIni use="default">
    </configIni>
@@ -93,9 +93,9 @@
       <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="0" />
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
-      <property name="osgi.configuration.area" value="@user.home/.modelio/4.1/opensource-cache/conf" />
+      <property name="osgi.configuration.area" value="@user.home/.modelio/5.1/opensource-cache/conf" />
       <property name="osgi.configuration.cascaded" value="true" />
-      <property name="osgi.instance.area" value="@user.home/.modelio/4.1/opensource-cache/data" />
+      <property name="osgi.instance.area" value="@user.home/.modelio/5.1/opensource-cache/data" />
       <property name="osgi.locking" value="none" />
       <property name="osgi.sharedConfiguration.area" value="file\:configuration/" />
       <property name="osgi.sharedConfiguration.area.readlOnly" value="true" />

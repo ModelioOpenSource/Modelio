@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.swap;
 
 import java.io.File;
@@ -60,10 +59,11 @@ public class FileSwap implements ISwap {
      * @param swapPath the swap directory
      */
     @objid ("3f1af8fc-7e46-11e1-bee3-001ec947ccaf")
-    public FileSwap(SmMetamodel metamodel, final File swapPath) {
+    public  FileSwap(SmMetamodel metamodel, final File swapPath) {
         this.metamodel = metamodel;
         this.swapPath = swapPath.getAbsolutePath();
         //        Log.trace("Swap initialized to:"+swapPath);
+        
     }
 
     @objid ("17df7294-84b6-11e1-b644-001ec947ccaf")
@@ -75,6 +75,7 @@ public class FileSwap implements ISwap {
             Log.warning("Failed to clean the swap space on "+this.swapPath+":");
             Log.warning(e);
         }
+        
     }
 
     @objid ("004681ba-702c-1f21-85a5-001ec947cd2a")
@@ -104,6 +105,7 @@ public class FileSwap implements ISwap {
         } finally {
             //new File(getFileName(id)).delete();
         }
+        
     }
 
     @objid ("004649d4-702c-1f21-85a5-001ec947cd2a")
@@ -118,6 +120,7 @@ public class FileSwap implements ISwap {
                     Log.error(e);
                     throw new IOError(e);
                 }
+        
     }
 
     @objid ("00465cee-702c-1f21-85a5-001ec947cd2a")
@@ -169,7 +172,8 @@ public class FileSwap implements ISwap {
         }
 
         @objid ("dd913d00-cb55-11e1-87f1-001ec947ccaf")
-        public Index() {
+        public  Index() {
+            
         }
 
     }

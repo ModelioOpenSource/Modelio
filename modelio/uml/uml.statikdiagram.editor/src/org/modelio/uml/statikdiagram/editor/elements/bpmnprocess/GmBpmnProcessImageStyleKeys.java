@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.bpmnprocess;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,18 +31,18 @@ import org.modelio.uml.statikdiagram.editor.style.StaticAbstractStyleKeyProvider
 @objid ("3428f89f-55b7-11e2-877f-002564c97630")
 public class GmBpmnProcessImageStyleKeys extends StaticAbstractStyleKeyProvider {
     @objid ("a5fea8d2-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = GmBpmnProcessStructuredStyleKeys.REPMODE;
+    static final StyleKey REPMODE = GmBpmnProcessStructuredStyleKeys.REPMODE;
 
     @objid ("a5fea8d4-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = GmBpmnProcessStructuredStyleKeys.FONT;
+    static final StyleKey FONT = GmBpmnProcessStructuredStyleKeys.FONT;
 
     @objid ("a5fea8d6-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = GmBpmnProcessStructuredStyleKeys.TEXTCOLOR;
+    static final StyleKey TEXTCOLOR = GmBpmnProcessStructuredStyleKeys.TEXTCOLOR;
 
     @objid ("a5fea8d8-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = GmBpmnProcessStructuredStyleKeys.SHOWSTEREOTYPES;
+    static final StyleKey SHOWSTEREOTYPES = GmBpmnProcessStructuredStyleKeys.SHOWSTEREOTYPES;
 
     @objid ("a5fea8da-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = GmBpmnProcessStructuredStyleKeys.SHOWTAGS;
+    static final StyleKey SHOWTAGS = GmBpmnProcessStructuredStyleKeys.SHOWTAGS;
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.popupmenu;
 
 import java.io.IOException;
@@ -27,11 +26,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import javax.xml.XMLConstants;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.platform.model.ui.plugin.CoreUi;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -87,6 +86,7 @@ class CreationPopupXmlLoader {
                 parsePopupNode(node);
             }
         }
+        
     }
 
     @objid ("e9649dfb-ccc0-402f-a311-5c741bf7bf4f")
@@ -124,11 +124,11 @@ class CreationPopupXmlLoader {
                 registerPopupEntry(metaclassName, new SeparatorPopupEntryDescriptor());
             }
         }
+        
     }
 
     /**
      * Add a popup entry to display on a specific metaclass.
-     * 
      * @param sourceMetaclass The metaclass to display the popup for.
      * @param item the entry to add.
      */
@@ -139,6 +139,7 @@ class CreationPopupXmlLoader {
         }
         
         this.popupEntries.get(sourceMetaclass).add(item);
+        
     }
 
     @objid ("ec98855c-bed4-4a41-ac4f-d618c0bc1178")
@@ -187,6 +188,7 @@ class CreationPopupXmlLoader {
             }
             entryDescriptor.parameters.put(name, value);
         }
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.bpmnbehavior;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,31 +31,31 @@ import org.modelio.uml.statikdiagram.editor.style.StaticAbstractStyleKeyProvider
 @objid ("34215759-55b7-11e2-877f-002564c97630")
 public class GmBpmnBehaviorStructuredStyleKeys extends StaticAbstractStyleKeyProvider {
     @objid ("a5fd2240-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("BPMNBEHAVIOR_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("BPMNBEHAVIOR_REPMODE", MetaKey.REPMODE);
 
     @objid ("a5fd2242-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("BPMNBEHAVIOR_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("BPMNBEHAVIOR_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("a5fd2244-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("BPMNBEHAVIOR_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("BPMNBEHAVIOR_FILLMODE", MetaKey.FILLMODE);
 
     @objid ("a5fd2246-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("BPMNBEHAVIOR_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("BPMNBEHAVIOR_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("a5fd2248-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("BPMNBEHAVIOR_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("BPMNBEHAVIOR_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("a5fd224a-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("BPMNBEHAVIOR_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("BPMNBEHAVIOR_FONT", MetaKey.FONT);
 
     @objid ("a5fea8c9-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("BPMNBEHAVIOR_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("BPMNBEHAVIOR_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("a5fea8cb-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("BPMNBEHAVIOR_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("BPMNBEHAVIOR_SHOWSTEREOTYPES",
+                MetaKey.SHOWSTEREOTYPES);
 
     @objid ("a5fea8cd-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("BPMNBEHAVIOR_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("BPMNBEHAVIOR_SHOWTAGS", MetaKey.SHOWTAGS);
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.edition.notes.panelprovider.data.documents;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -70,13 +69,12 @@ public class DocumentContentComposite extends Composite implements INoteContent 
 
     /**
      * Constructor
-     * 
      * @param parentComposite the parent composite
      * @param style style bits
      * @param activationService Modelio activation service
      */
     @objid ("b208600d-4f46-446c-bd9e-78a4e7cea5ee")
-    public DocumentContentComposite(Composite parentComposite, int style, IActivationService activationService) {
+    public  DocumentContentComposite(Composite parentComposite, int style, IActivationService activationService) {
         super(parentComposite, style);
         
         this.activationService = activationService;
@@ -115,6 +113,7 @@ public class DocumentContentComposite extends Composite implements INoteContent 
                 // nothing to do
             }
         });
+        
     }
 
     @objid ("019bfe33-5cbc-49ba-9e8f-2de8e1b1517a")
@@ -137,6 +136,7 @@ public class DocumentContentComposite extends Composite implements INoteContent 
             this.text.setBackground(UIColor.TEXT_READONLY_BG);
             stop();
         }
+        
     }
 
     @objid ("4cea44d2-7154-4498-b730-025a04d8ed0b")
@@ -144,6 +144,7 @@ public class DocumentContentComposite extends Composite implements INoteContent 
         this.modelingSession = session;
         this.text.addFocusListener(this.noteModifier);
         this.text.addKeyListener(this.noteModifier);
+        
     }
 
     @objid ("e1cd799e-6b35-40ca-9c2c-d1daf705edc4")
@@ -151,6 +152,7 @@ public class DocumentContentComposite extends Composite implements INoteContent 
         this.text.removeFocusListener(this.noteModifier);
         this.text.removeKeyListener(this.noteModifier);
         this.modelingSession = null;
+        
     }
 
     @objid ("b65c2a0b-c91f-40ce-910f-ec06024ddcbd")
@@ -173,7 +175,8 @@ public class DocumentContentComposite extends Composite implements INoteContent 
     @objid ("b1eb78a9-eb2d-4711-8eb7-05eefcfe8df0")
     private class DocumentContentModifier implements FocusListener, KeyListener {
         @objid ("c7c64601-5696-4f2a-be69-b6f832f2d7b2")
-        public DocumentContentModifier() {
+        public  DocumentContentModifier() {
+            
         }
 
         @objid ("f4a5402a-36f8-4e3e-9385-53c77c6ee8a5")
@@ -189,6 +192,7 @@ public class DocumentContentComposite extends Composite implements INoteContent 
                     docText.getShell().setFocus();
                 }
             }
+            
         }
 
         @objid ("9c14eb75-b647-487c-8239-88bbadda1829")
@@ -203,6 +207,7 @@ public class DocumentContentComposite extends Composite implements INoteContent 
             if ((event.stateMask &= SWT.MOD1) != 0 && event.keyCode == SWT.CR) {
                 event.doit = false;
             }
+            
         }
 
         @objid ("81b40f57-f5bb-4b1b-ad01-94579ef79c14")
@@ -221,6 +226,7 @@ public class DocumentContentComposite extends Composite implements INoteContent 
             } else if ((event.stateMask &= SWT.MOD1) != 0 && event.keyCode == 'a') {
                 docText.selectAll();
             }
+            
         }
 
         @objid ("4cfe9e52-4fe6-4382-acee-e04458a1075b")
@@ -246,6 +252,7 @@ public class DocumentContentComposite extends Composite implements INoteContent 
                     docText.setBackground(UIColor.TEXT_READONLY_BG);
                 }
             }
+            
         }
 
     }

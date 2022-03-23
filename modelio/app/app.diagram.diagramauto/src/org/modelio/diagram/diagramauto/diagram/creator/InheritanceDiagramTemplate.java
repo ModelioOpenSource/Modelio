@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.diagramauto.diagram.creator;
 
 import java.util.ArrayList;
@@ -60,11 +59,12 @@ public class InheritanceDiagramTemplate extends AbstractDiagramTemplate {
      * Mandatory default c'tor needed by eclipse when loading the extension point.
      */
     @objid ("a436b93d-adab-4107-9730-74415cfc432b")
-    public InheritanceDiagramTemplate() {
+    public  InheritanceDiagramTemplate() {
         super();
         
         this._topDgs = new ArrayList<>();
         this._bottomDgs = new ArrayList<>();
+        
     }
 
     @objid ("6db9a607-04db-4a04-9c49-c3065dee1193")
@@ -81,6 +81,7 @@ public class InheritanceDiagramTemplate extends AbstractDiagramTemplate {
         } else {
             return null;
         }
+        
     }
 
     @objid ("70d93d5b-448a-4b53-9c99-6588a98c9228")
@@ -89,6 +90,7 @@ public class InheritanceDiagramTemplate extends AbstractDiagramTemplate {
         if (main instanceof Classifier) {
             initialUnmasking(dh, (Classifier) main);
         }
+        
     }
 
     @objid ("d8e4ab56-fb39-45f5-a0ea-c52a2dff52f0")
@@ -212,6 +214,7 @@ public class InheritanceDiagramTemplate extends AbstractDiagramTemplate {
             this._bottomDgs.remove(innerNode);
             innerNode.mask();
         }
+        
     }
 
     @objid ("1a7d63b1-2635-4cd1-bea2-1dcf028cdecf")
@@ -225,6 +228,7 @@ public class InheritanceDiagramTemplate extends AbstractDiagramTemplate {
         } else {
             node.setStyle(new DiagramStyleHandle(DiagramStyles.getStyleManager().getStyle(DiagramStyles.EXTERN_STYLE_NAME)));
         }
+        
     }
 
     @objid ("0fefc119-863e-4c34-a0bd-199a07f05f46")
@@ -261,6 +265,7 @@ public class InheritanceDiagramTemplate extends AbstractDiagramTemplate {
                 DiagramAuto.LOG.debug(e);
             }
         }
+        
     }
 
     @objid ("3f65618b-c449-46c3-b9c0-02baaa300225")
@@ -285,6 +290,7 @@ public class InheritanceDiagramTemplate extends AbstractDiagramTemplate {
         this._topDgs.clear();
         this._bottomDgs.clear();
         this._mainDG = null;
+        
     }
 
 }

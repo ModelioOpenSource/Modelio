@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.ui.plugin;
 
 import java.util.ResourceBundle;
@@ -65,6 +64,7 @@ public class BpmnUi extends AbstractUIPlugin {
         ExtendedLogService service = bundleContext.getService(ref);
         LOG = new PluginLogger(service.getLogger(bundleContext.getBundle(), PLUGIN_ID));
         I18N = new BundledMessages(LOG, ResourceBundle.getBundle("bpmnui"));
+        
     }
 
     @objid ("e56195ad-d9ca-4530-8473-e7d11b3c6f41")
@@ -76,7 +76,6 @@ public class BpmnUi extends AbstractUIPlugin {
     /**
      * Returns an image descriptor for the image file at the given plug-in
      * relative path
-     * 
      * @param path the path
      * @return the image descriptor
      */

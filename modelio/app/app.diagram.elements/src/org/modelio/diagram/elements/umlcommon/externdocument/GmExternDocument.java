@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.umlcommon.externdocument;
 
 import java.util.ArrayList;
@@ -38,8 +37,8 @@ import org.modelio.diagram.elements.core.node.GmSimpleNode;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.editors.richnote.api.RichNoteFormatRegistry;
 import org.modelio.metamodel.diagrams.AbstractDiagram;
 import org.modelio.metamodel.uml.infrastructure.Document;
@@ -67,26 +66,27 @@ public class GmExternDocument extends GmSimpleNode {
     private Document document;
 
     @objid ("81544df1-1dec-11e2-8cad-001ec947c8cc")
-     static final GmExternDocumentStyleKeys KEYS = new GmExternDocumentStyleKeys();
+    static final GmExternDocumentStyleKeys KEYS = new GmExternDocumentStyleKeys();
 
     /**
      * Constructor to use only for deserialization.
      */
     @objid ("81544df8-1dec-11e2-8cad-001ec947c8cc")
-    public GmExternDocument() {
+    public  GmExternDocument() {
+        
     }
 
     /**
      * Creates a GmExternDocument.
-     * 
      * @param diagram The diagram owning the node
      * @param document The represented document element
      * @param ref The represented document reference
      */
     @objid ("8156b005-1dec-11e2-8cad-001ec947c8cc")
-    public GmExternDocument(final IGmDiagram diagram, final Document document, final MRef ref) {
+    public  GmExternDocument(final IGmDiagram diagram, final Document document, final MRef ref) {
         super(diagram, ref);
         this.document = document;
+        
     }
 
     /**
@@ -99,6 +99,7 @@ public class GmExternDocument extends GmSimpleNode {
         } else {
             return "?";
         }
+        
     }
 
     /**
@@ -111,6 +112,7 @@ public class GmExternDocument extends GmSimpleNode {
         } else {
             return "?";
         }
+        
     }
 
     @objid ("8156b016-1dec-11e2-8cad-001ec947c8cc")
@@ -130,6 +132,7 @@ public class GmExternDocument extends GmSimpleNode {
                         GmExternDocument.this.getRepresentedElement().setName(text);
                     }
                 };
+        
     }
 
     @objid ("8156b01b-1dec-11e2-8cad-001ec947c8cc")
@@ -158,7 +161,6 @@ public class GmExternDocument extends GmSimpleNode {
 
     /**
      * Get the extern document type label.
-     * 
      * @return the document type label.
      */
     @objid ("8156b033-1dec-11e2-8cad-001ec947c8cc")
@@ -176,7 +178,6 @@ public class GmExternDocument extends GmSimpleNode {
 
     /**
      * Get the extern document type label.
-     * 
      * @return the document type label.
      */
     @objid ("8156b038-1dec-11e2-8cad-001ec947c8cc")
@@ -201,6 +202,7 @@ public class GmExternDocument extends GmSimpleNode {
             break;
         }
         }
+        
     }
 
     @objid ("8156b042-1dec-11e2-8cad-001ec947c8cc")
@@ -211,6 +213,7 @@ public class GmExternDocument extends GmSimpleNode {
         
             refreshExternDocumentLink();
         }
+        
     }
 
     @objid ("8156b045-1dec-11e2-8cad-001ec947c8cc")
@@ -232,6 +235,7 @@ public class GmExternDocument extends GmSimpleNode {
             // the removed link represents the same element (the document) as this gm: delete self as well.
             delete();
         }
+        
     }
 
     @objid ("8156b04f-1dec-11e2-8cad-001ec947c8cc")
@@ -241,12 +245,14 @@ public class GmExternDocument extends GmSimpleNode {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmExternDocument.", GmExternDocument.MINOR_VERSION);
+        
     }
 
     @objid ("8159125f-1dec-11e2-8cad-001ec947c8cc")
     private void read_0(final IDiagramReader in) {
         super.read(in);
         this.document = (Document) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("81591263-1dec-11e2-8cad-001ec947c8cc")
@@ -306,6 +312,7 @@ public class GmExternDocument extends GmSimpleNode {
                 }
             }
         }
+        
     }
 
 }

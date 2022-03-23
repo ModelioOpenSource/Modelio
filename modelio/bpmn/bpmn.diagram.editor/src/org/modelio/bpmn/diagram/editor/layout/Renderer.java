@@ -17,28 +17,28 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.layout;
 
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.geometry.Point;
 import org.modelio.api.modelio.diagram.IDiagramHandle;
 import org.modelio.api.modelio.diagram.IDiagramLink;
 import org.modelio.bpmn.diagram.editor.layout.ILayoutableLink.AnchorDirection;
+import org.modelio.bpmn.diagram.editor.plugin.DiagramEditorBpmn;
 
 /**
- * The Renderer is in charge of the graphic rendering of the layouter results, ie setting the (x,y) coordinates and 'w,h) size of the diagram elements based on the Layouter results.
+ * The Renderer is in charge of the graphic rendering of the layouter results,
+ * ie setting the (x,y) coordinates and (w,h) size of the diagram elements based on the Layouter results.
  */
 @objid ("6dd105cc-48b4-40ab-8f49-1ebaf002deee")
 public class Renderer {
     @objid ("39db649e-46a8-45c2-93ad-53c87ed4dc52")
-    private IDiagramHandle dh;
+    private final IDiagramHandle dh;
 
     @objid ("16e2aae8-82a5-429a-bb01-d9f478e50984")
-    public Renderer(IDiagramHandle dh) {
+    public  Renderer(IDiagramHandle dh) {
         this.dh = dh;
     }
 
@@ -49,10 +49,6 @@ public class Renderer {
         nodeGrid.compute();
         
         for (ILayoutableNode layoutData : layout.getNodes()) {
-            // for (Entry<IDiagramNode, ILayoutableNode> entry : this.nodesLayout.entrySet()) {
-            // IDiagramNode node = entry.getKey();
-            // ILayoutableNode layoutData = entry.getValue();
-        
             Point pt = nodeGrid.getLocation(layoutData.getRow(), layoutData.getCol());
         
             layoutData.setLocation(pt.x, pt.y);
@@ -62,6 +58,7 @@ public class Renderer {
             // layoutData.getRow(),
             // layoutData.getCol(), nodeGrid.getLocation(layoutData.getRow(), layoutData.getCol()));
         }
+        
     }
 
     @objid ("f6e5af8a-05fa-4095-bf1e-c7c8f4d2254e")
@@ -77,32 +74,37 @@ public class Renderer {
         int[] vzLinksXoffsets = new int[layout.getColNumber()];
         Arrays.fill(vzLinksYoffsets, 0);
         
-        // for (Entry<IDiagramLink, ILayoutableLink> linkEntry : this.linksLayout.entrySet()) {
         for (ILayoutableLink linkData : layout.getLinks()) {
         
             IDiagramLink link2 = linkData.getLinkDG();
         
-            if (link2.isSelected()) {
-                // System.out.println("Renderer.renderLinks2( ) selected:" + linkData);
+            if (false && link2.isSelected()) {
+                DiagramEditorBpmn.LOG.debug("Renderer.renderLinks2() rendering: %s" , linkData);
             }
         
             link2.setRouterKind(IDiagramLink.LinkRouterKind.ORTHOGONAL);
-            
+        
         
             switch (linkData.getShape()) {
         
             case HorizontalDirect:
                 // Horizontal link
-                Point hd1 = linkData.getSourcePoint();
-                Point hd2 = linkData.getTargetPoint();
-                link2.setPath(Arrays.asList(hd1, hd2));
+                if (false) {
+                    // FIXME 24/06/2021 disabled to let auto unmask layout the link and use fixed anchors
+                    Point hd1 = linkData.getSourcePoint();
+                    Point hd2 = linkData.getTargetPoint();
+                    link2.setPath(Arrays.asList(hd1, hd2));
+                }
                 break;
         
             case VerticalDirect:
                 // Vertical link
-                Point vd1 = linkData.getSourcePoint();
-                Point vd2 = linkData.getTargetPoint();
-                link2.setPath(Arrays.asList(vd1, vd2));
+                if (false) {
+                    // FIXME 24/06/2021 disabled to let auto unmask layout the link and use fixed anchors
+                    Point vd1 = linkData.getSourcePoint();
+                    Point vd2 = linkData.getTargetPoint();
+                    link2.setPath(Arrays.asList(vd1, vd2));
+                }
                 break;
         
             case HorizontalBridge:
@@ -190,12 +192,14 @@ public class Renderer {
         // print " ", e.getName(),'=', t[0].getName() + '[' + t[1] + ']', t[0].getBounds(), "->", t[2].getName() + '[' + t[3] + ']', t[2].getBounds(), t[4]
         // print " layout path =", t[5]
         // print " dg path =", e.getPath()
+        
     }
 
     @objid ("1fb2cbad-f33d-4d95-bd6a-afbfcd36fc68")
     public void render(LayoutModel layoutModel) {
         renderNodes(layoutModel);
         renderLinks(layoutModel);
+        
     }
 
     @objid ("2dc19659-9b4b-4628-bfee-dfbaf3a0cd36")
@@ -225,35 +229,30 @@ public class Renderer {
         }
         
         renderLinks2(layout);
+        
     }
 
     @objid ("66971f39-cfb1-4cf2-99f1-4a7382c338e9")
     private void distributeNorthAnchors(ILayoutableNode lNode) {
         List<ILayoutableLink> outLinks = lNode.getOutLinks(AnchorDirection.North);
         
-        outLinks.sort(new Comparator<ILayoutableLink>() {
-            @Override
-            public int compare(ILayoutableLink ll1, ILayoutableLink ll2) {
-                int r = Double.compare(ll1.getSlope(), ll2.getSlope());
-                if (r == 0) {
-                    return Double.compare(ll1.getTo().getCol(), ll2.getTo().getCol());
-                } else {
-                    return r;
-                }
+        outLinks.sort((ll1, ll2) -> {
+            int r = Double.compare(ll1.getSlope(), ll2.getSlope());
+            if (r == 0) {
+                return Double.compare(ll1.getTo().getCol(), ll2.getTo().getCol());
+            } else {
+                return r;
             }
         });
         
         List<ILayoutableLink> inLinks = lNode.getInLinks(AnchorDirection.North);
         
-        inLinks.sort(new Comparator<ILayoutableLink>() {
-            @Override
-            public int compare(ILayoutableLink ll1, ILayoutableLink ll2) {
-                int r = Double.compare(ll1.getSlope(), ll2.getSlope());
-                if (r == 0) {
-                    return Double.compare(ll1.getTo().getCol(), ll2.getTo().getCol());
-                } else {
-                    return r;
-                }
+        inLinks.sort((ll1, ll2) -> {
+            int r = Double.compare(ll1.getSlope(), ll2.getSlope());
+            if (r == 0) {
+                return Double.compare(ll1.getTo().getCol(), ll2.getTo().getCol());
+            } else {
+                return r;
             }
         });
         
@@ -272,35 +271,30 @@ public class Renderer {
             // routeLink(ll, curX, -1, -1, -1);
             curX += deltaX;
         }
+        
     }
 
     @objid ("9f645644-c93c-4e09-8c7e-f92b39b28f0f")
     private void distributeSouthAnchors(ILayoutableNode lNode) {
         List<ILayoutableLink> outLinks = lNode.getOutLinks(AnchorDirection.South);
         
-        outLinks.sort(new Comparator<ILayoutableLink>() {
-            @Override
-            public int compare(ILayoutableLink ll1, ILayoutableLink ll2) {
-                int r = -Double.compare(ll1.getSlope(), ll2.getSlope());
-                if (r == 0) {
-                    return Double.compare(ll1.getTo().getCol(), ll2.getTo().getCol());
-                } else {
-                    return r;
-                }
+        outLinks.sort((ll1, ll2) -> {
+            int r = -Double.compare(ll1.getSlope(), ll2.getSlope());
+            if (r == 0) {
+                return Double.compare(ll1.getTo().getCol(), ll2.getTo().getCol());
+            } else {
+                return r;
             }
         });
         
         List<ILayoutableLink> inLinks = lNode.getInLinks(AnchorDirection.South);
         
-        inLinks.sort(new Comparator<ILayoutableLink>() {
-            @Override
-            public int compare(ILayoutableLink ll1, ILayoutableLink ll2) {
-                int r = Double.compare(ll1.getSlope(), ll2.getSlope());
-                if (r == 0) {
-                    return Double.compare(ll1.getTo().getCol(), ll2.getTo().getCol());
-                } else {
-                    return r;
-                }
+        inLinks.sort((ll1, ll2) -> {
+            int r = Double.compare(ll1.getSlope(), ll2.getSlope());
+            if (r == 0) {
+                return Double.compare(ll1.getTo().getCol(), ll2.getTo().getCol());
+            } else {
+                return r;
             }
         });
         
@@ -319,35 +313,30 @@ public class Renderer {
             // routeLink(ll, curX, -1, -1, -1);
             curX += deltaX;
         }
+        
     }
 
     @objid ("ea10c916-ae84-4f60-8318-5d8a1b1cfa24")
     private void distributeEastAnchors(ILayoutableNode lNode) {
         List<ILayoutableLink> outLinks = lNode.getOutLinks(AnchorDirection.East);
         
-        outLinks.sort(new Comparator<ILayoutableLink>() {
-            @Override
-            public int compare(ILayoutableLink ll1, ILayoutableLink ll2) {
-                int r = Double.compare(ll1.getSlope(), ll2.getSlope());
-                if (r == 0) {
-                    return Double.compare(ll1.getTo().getCol(), ll2.getTo().getCol());
-                } else {
-                    return r;
-                }
+        outLinks.sort((ll1, ll2) -> {
+            int r = Double.compare(ll1.getSlope(), ll2.getSlope());
+            if (r == 0) {
+                return Double.compare(ll1.getTo().getCol(), ll2.getTo().getCol());
+            } else {
+                return r;
             }
         });
         
         List<ILayoutableLink> inLinks = lNode.getInLinks(AnchorDirection.East);
         
-        inLinks.sort(new Comparator<ILayoutableLink>() {
-            @Override
-            public int compare(ILayoutableLink ll1, ILayoutableLink ll2) {
-                int r = -Double.compare(ll1.getSlope(), ll2.getSlope());
-                if (r == 0) {
-                    return Double.compare(ll1.getTo().getCol(), ll2.getTo().getCol());
-                } else {
-                    return r;
-                }
+        inLinks.sort((ll1, ll2) -> {
+            int r = -Double.compare(ll1.getSlope(), ll2.getSlope());
+            if (r == 0) {
+                return Double.compare(ll1.getTo().getCol(), ll2.getTo().getCol());
+            } else {
+                return r;
             }
         });
         
@@ -367,35 +356,30 @@ public class Renderer {
             // routeLink(ll, curX, -1, -1, -1);
             curY += deltaY;
         }
+        
     }
 
     @objid ("05e2a494-c886-4716-b404-8f121230940b")
     private void distributeWestAnchors(ILayoutableNode lNode) {
         List<ILayoutableLink> outLinks = lNode.getOutLinks(AnchorDirection.West);
         
-        outLinks.sort(new Comparator<ILayoutableLink>() {
-            @Override
-            public int compare(ILayoutableLink ll1, ILayoutableLink ll2) {
-                int r = -Double.compare(ll1.getSlope(), ll2.getSlope());
-                if (r == 0) {
-                    return Double.compare(ll1.getTo().getCol(), ll2.getTo().getCol());
-                } else {
-                    return r;
-                }
+        outLinks.sort((ll1, ll2) -> {
+            int r = -Double.compare(ll1.getSlope(), ll2.getSlope());
+            if (r == 0) {
+                return Double.compare(ll1.getTo().getCol(), ll2.getTo().getCol());
+            } else {
+                return r;
             }
         });
         
         List<ILayoutableLink> inLinks = lNode.getInLinks(AnchorDirection.West);
         
-        inLinks.sort(new Comparator<ILayoutableLink>() {
-            @Override
-            public int compare(ILayoutableLink ll1, ILayoutableLink ll2) {
-                int r = -Double.compare(ll1.getSlope(), ll2.getSlope());
-                if (r == 0) {
-                    return -Double.compare(ll1.getTo().getCol(), ll2.getTo().getCol());
-                } else {
-                    return -r;
-                }
+        inLinks.sort((ll1, ll2) -> {
+            int r = -Double.compare(ll1.getSlope(), ll2.getSlope());
+            if (r == 0) {
+                return -Double.compare(ll1.getTo().getCol(), ll2.getTo().getCol());
+            } else {
+                return -r;
             }
         });
         
@@ -415,15 +399,22 @@ public class Renderer {
             // routeLink(ll, curX, -1, -1, -1);
             curY += deltaY;
         }
+        
     }
 
     @objid ("ccd9eb39-317f-499e-aadc-ba00154b5ced")
     private static class NodeGrid {
+        /**
+         * For columns
+         */
         @objid ("3b103bb8-b3b1-4905-8173-84f2531c964b")
-        private int[] xTabs; // For columns
+        private int[] xTabs;
 
+        /**
+         * For rows
+         */
         @objid ("77200d77-d77c-486d-9f63-b194674558fc")
-        private int[] yTabs; // For rows
+        private int[] yTabs;
 
         @objid ("3f60847a-4ea8-4346-b95e-aa589518eb9b")
         private int xSpacing;
@@ -435,10 +426,11 @@ public class Renderer {
         private LayoutModel layout;
 
         @objid ("c7f720e5-f2b3-417b-867f-a14b5fa0f042")
-        public NodeGrid(LayoutModel layout, int xSpacing, int ySpacing) {
+        public  NodeGrid(LayoutModel layout, int xSpacing, int ySpacing) {
             this.layout = layout;
             this.xSpacing = xSpacing;
             this.ySpacing = ySpacing;
+            
         }
 
         @objid ("ba273961-ecb5-4d2d-b606-9e7107ac6144")
@@ -481,6 +473,7 @@ public class Renderer {
             // System.out.printf("%d, ", yTab);
             
             // System.out.println();
+            
         }
 
         @objid ("8019206b-575b-4ba4-8104-5c572bf8de40")

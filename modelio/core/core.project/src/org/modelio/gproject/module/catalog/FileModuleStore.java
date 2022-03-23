@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.module.catalog;
 
 import java.io.IOException;
@@ -74,9 +73,9 @@ public class FileModuleStore implements IModuleStore {
     @objid ("677c29aa-29ac-4343-9596-4c5fd20400ed")
     private static final int VERSION = 4;
 
-/*
-     * The cache state
-     */
+    /*
+         * The cache state
+         */
     @objid ("f88e2410-3d7c-4b86-962a-a1e799926a0a")
     protected CacheState state = CacheState.INITIAL;
 
@@ -91,12 +90,11 @@ public class FileModuleStore implements IModuleStore {
 
     /**
      * Instantiate a new FileModuleCatalog.
-     * 
      * @param metamodelFragments the metamodel fragments to use
      * @param cachePath the path to store unzipped .jmdacs into. Needs to be a writable directory.
      */
     @objid ("8e17727a-2852-4bc3-a5d6-5e3d6522c7e5")
-    public FileModuleStore(Collection<IGMetamodelExtension> metamodelFragments, Path cachePath) {
+    public  FileModuleStore(Collection<IGMetamodelExtension> metamodelFragments, Path cachePath) {
         this.metamodelExtensions = metamodelFragments;
         this.cachePath = cachePath;
         
@@ -112,6 +110,7 @@ public class FileModuleStore implements IModuleStore {
         this.entries = new HashMap<>();
         this.state = CacheState.INITIAL;
         migration();
+        
     }
 
     @objid ("b8063de3-7e52-4cc0-93ba-26fa46227682")
@@ -199,7 +198,6 @@ public class FileModuleStore implements IModuleStore {
 
     /**
      * Find all modules with the given name.
-     * 
      * @return the module cache path
      */
     @objid ("e9f4408c-6779-4901-ba99-2d54c726e6b4")
@@ -288,6 +286,7 @@ public class FileModuleStore implements IModuleStore {
             Path path1 = path.getParent();
             FileUtils.delete(path1);
         }
+        
     }
 
     /**
@@ -315,11 +314,10 @@ public class FileModuleStore implements IModuleStore {
 
     /**
      * Instantiate a new ModuleHandle from a .jmdac archive file. Returns a zip file system
-     * 
      * @param zipPath to construct the file system from
      * @param create true if the zip file should be created
      * @return a zip file system
-     * @throws java.io.IOException in case of failure
+     * @throws IOException in case of failure
      */
     @objid ("47ce0cea-c8ad-4559-8969-95fa8ce3eb38")
     protected FileSystem createZipFileSystem(Path zipPath, boolean create) throws IOException {
@@ -405,6 +403,7 @@ public class FileModuleStore implements IModuleStore {
                 Log.warning(e);
             }
         }
+        
     }
 
     @objid ("09943088-a2e9-4bb6-b6a5-9bac14e48262")
@@ -463,6 +462,7 @@ public class FileModuleStore implements IModuleStore {
             Log.warning(e);
             this.state = CacheState.INITIAL;
         }
+        
     }
 
     /**
@@ -494,23 +494,23 @@ public class FileModuleStore implements IModuleStore {
         /**
          * @param entryPath the extracted module path
          * @param metamodelFragments the metamodel fragments
-         * @throws java.io.IOException on failure finding a directory in the extracted module path.
+         * @throws IOException on failure finding a directory in the extracted module path.
          */
         @objid ("faf4dc9d-a5af-4ddf-898d-52fa95a022fd")
-        public FileModuleStoreEntry(Path entryPath, Collection<IGMetamodelExtension> metamodelFragments) throws IOException {
+        public  FileModuleStoreEntry(Path entryPath, Collection<IGMetamodelExtension> metamodelFragments) throws IOException {
             this.entryPath = entryPath;
             this.datapath = getModuleContentsPath(entryPath);
             this.metamodelExtensions = metamodelFragments;
+            
         }
 
         /**
          * Get the module handle for this entry
-         * 
          * @param monitor the progress monitor to use for reporting progress to the user. It is the caller's responsibility to call <code>done()</code> on the given monitor. Accepts <code>null</code>, indicating that no progress should be reported and that
          * the
          * operation cannot be cancelled.
          * @return the module handle
-         * @throws java.io.IOException in case of failure.
+         * @throws IOException in case of failure.
          */
         @objid ("b7eb1bfc-94ff-4bbe-9d9d-71174d7800de")
         public IModuleHandle getModuleHandle(IModelioProgress monitor) throws IOException {
@@ -538,6 +538,7 @@ public class FileModuleStore implements IModuleStore {
             
             throw new NoSuchFileException(aPath.toString(), null,
                     CoreProject.I18N.getMessage("FileModuleStoreEntry.doesNotContainDirectory", aPath));
+            
         }
 
         /**
@@ -548,6 +549,7 @@ public class FileModuleStore implements IModuleStore {
         private void normalizeEntryContents(IModelioProgress monitor) throws IOException {
             new ModuleXmlExtractor(this.datapath.resolve("module.xml"), this.datapath, this.metamodelExtensions)
             .extractModuleXmlContent(monitor);
+            
         }
 
     }
@@ -559,8 +561,11 @@ public class FileModuleStore implements IModuleStore {
      */
     @objid ("d5396a79-db7d-4e82-80f4-245c1314007f")
     protected enum CacheState {
+        @objid ("450c93e2-8899-42fc-beb8-fb845f6930ba")
         INITIAL,
+        @objid ("e86d09bb-003e-4789-84b0-249727a84565")
         VALID;
+
     }
 
 }

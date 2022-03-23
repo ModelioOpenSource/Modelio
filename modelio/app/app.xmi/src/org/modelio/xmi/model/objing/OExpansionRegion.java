@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -28,7 +27,7 @@ import org.modelio.metamodel.uml.behavior.activityModel.ExpansionRegion;
 @objid ("e8681f17-83f9-4cb4-9e18-a1a46ff9864b")
 public class OExpansionRegion extends OStructuredActivityNode {
     @objid ("fa90df7b-544b-4c8a-8aea-95a9a0dc6ffd")
-    public OExpansionRegion(ExpansionRegion element) {
+    public  OExpansionRegion(ExpansionRegion element) {
         super(element);
     }
 
@@ -43,6 +42,7 @@ public class OExpansionRegion extends OStructuredActivityNode {
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         super.setProperties(ecoreElt);
         setMode((org.eclipse.uml2.uml.ExpansionRegion) ecoreElt);
+        
     }
 
     @objid ("c1f20fd1-4572-4f32-b544-392d15a557e9")
@@ -63,6 +63,7 @@ public class OExpansionRegion extends OStructuredActivityNode {
             break;
         
         }
+        
     }
 
     @objid ("8f42d1c2-90d1-48bd-8514-b0a87bc7ca24")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.naryconnector;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -41,11 +40,10 @@ public class AcceptNConnectorEditPolicy extends MultiPointCreationEditPolicy {
      * C'tor.
      * @see MultiPointCreationEditPolicy#MultiPointCreationEditPolicy(boolean) for details on the effect of isOpaque
      * parameter.
-     * 
      * @param isOpaque whether this policy is opaque or not.
      */
     @objid ("35d4375d-55b7-11e2-877f-002564c97630")
-    public AcceptNConnectorEditPolicy(final boolean isOpaque) {
+    public  AcceptNConnectorEditPolicy(final boolean isOpaque) {
         super(isOpaque);
     }
 
@@ -57,6 +55,7 @@ public class AcceptNConnectorEditPolicy extends MultiPointCreationEditPolicy {
             return new AcceptModifiableNodeCommand(getHost());
         else
             return null;
+        
     }
 
     @objid ("35d4376a-55b7-11e2-877f-002564c97630")
@@ -80,6 +79,7 @@ public class AcceptNConnectorEditPolicy extends MultiPointCreationEditPolicy {
             return new AcceptModifiableNodeCommand(getHost());
         } else
             return null;
+        
     }
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.emf;
 
 import java.util.UUID;
@@ -28,8 +27,8 @@ import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.EValidator;
-import org.eclipse.emf.ecore.EcorePackage.Literals;
 import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.emf.ecore.EcorePackage.Literals;
 import org.eclipse.emf.ecore.impl.EAttributeImpl;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 import org.eclipse.emf.ecore.util.EcoreValidator;
@@ -123,6 +122,7 @@ public class ESmPackage extends EPackageImpl {
         EAttributeImpl a = (EAttributeImpl)this.ecoreFactory.createEAttribute();
         a.setFeatureID(id);
         owner.getEStructuralFeatures().add(a);
+        
     }
 
     @objid ("bbd14004-bc87-11e1-b576-001ec947ccaf")
@@ -191,6 +191,7 @@ public class ESmPackage extends EPackageImpl {
             }
         
         }
+        
     }
 
     @objid ("bbd14006-bc87-11e1-b576-001ec947ccaf")
@@ -215,6 +216,7 @@ public class ESmPackage extends EPackageImpl {
                 }
             }
         }
+        
     }
 
     @objid ("bbd14008-bc87-11e1-b576-001ec947ccaf")
@@ -236,6 +238,7 @@ public class ESmPackage extends EPackageImpl {
         } else {
             throw new UnsupportedOperationException(type+" is not yet handled.");
         }
+        
     }
 
     @objid ("bbd1400f-bc87-11e1-b576-001ec947ccaf")
@@ -253,9 +256,10 @@ public class ESmPackage extends EPackageImpl {
      * @param mmFragment The metamodel fragment
      */
     @objid ("8eb735f9-df6a-4531-85ae-f3b0121a1565")
-    public ESmPackage(SmMetamodel metamodel, ISmMetamodelFragment mmFragment) {
+    public  ESmPackage(SmMetamodel metamodel, ISmMetamodelFragment mmFragment) {
         this.metamodel = metamodel;
         this.mmFragment = mmFragment;
+        
     }
 
 }

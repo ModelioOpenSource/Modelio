@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor.tools;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -98,7 +97,6 @@ public class PanSelectionTool extends SelectionTool {
     /**
      * Returns the cursor used under normal conditions.
      * @see #setDefaultCursor(Cursor)
-     * 
      * @return the default cursor
      */
     @objid ("66aa0ccd-33f7-11e2-95fe-001ec947c8cc")
@@ -124,6 +122,7 @@ public class PanSelectionTool extends SelectionTool {
             return true;
         } else
             return super.handleButtonDown(which);
+        
     }
 
     /**
@@ -183,6 +182,7 @@ public class PanSelectionTool extends SelectionTool {
         } else {
             return super.handleDrag();
         }
+        
     }
 
     /**
@@ -223,6 +223,7 @@ public class PanSelectionTool extends SelectionTool {
         }
         
         diagramFigure.setWorkArea(r);
+        
     }
 
 }

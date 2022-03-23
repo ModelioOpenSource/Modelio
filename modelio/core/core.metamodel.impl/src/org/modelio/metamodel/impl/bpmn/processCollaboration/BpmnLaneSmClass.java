@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.bpmn.processCollaboration;
 
 import java.util.ArrayList;
@@ -32,8 +32,6 @@ import org.modelio.metamodel.bpmn.processCollaboration.BpmnLane;
 import org.modelio.metamodel.bpmn.processCollaboration.BpmnLaneSet;
 import org.modelio.metamodel.bpmn.rootElements.BpmnBaseElement;
 import org.modelio.metamodel.bpmn.rootElements.BpmnFlowElement;
-import org.modelio.metamodel.impl.bpmn.processCollaboration.BpmnLaneData;
-import org.modelio.metamodel.impl.bpmn.processCollaboration.BpmnLaneSetSmClass;
 import org.modelio.metamodel.impl.bpmn.rootElements.BpmnBaseElementSmClass;
 import org.modelio.metamodel.impl.bpmn.rootElements.BpmnFlowElementSmClass;
 import org.modelio.vbasic.version.Version;
@@ -63,7 +61,7 @@ public class BpmnLaneSmClass extends BpmnBaseElementSmClass {
     private SmDependency bpmnPartitionElementRefDep;
 
     @objid ("39de647b-8a2b-4a03-8079-56115d6d5310")
-    public BpmnLaneSmClass(ISmMetamodelFragment origin) {
+    public  BpmnLaneSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -71,6 +69,7 @@ public class BpmnLaneSmClass extends BpmnBaseElementSmClass {
     @Override
     public String getName() {
         return "BpmnLane";
+        
     }
 
     @objid ("a5a115a2-9c1c-46a6-8b46-93552f5af1b2")
@@ -83,18 +82,21 @@ public class BpmnLaneSmClass extends BpmnBaseElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return BpmnLane.class;
+        
     }
 
     @objid ("2674b903-a14f-4276-834f-b2520d04baf0")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("9d3dc0ce-0d99-4121-af1d-eb8952b59d45")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("2f73391a-ff76-4111-9af4-512513ca9db8")
@@ -122,6 +124,8 @@ public class BpmnLaneSmClass extends BpmnBaseElementSmClass {
         this.bpmnPartitionElementRefDep = new BpmnPartitionElementRefSmDependency();
         this.bpmnPartitionElementRefDep.init("BpmnPartitionElementRef", this, metamodel.getMClass(BpmnBaseElement.MQNAME), 0, 1 , SmDirective.SMCDPARTOF);
         registerDependency(this.bpmnPartitionElementRefDep);
+        
+        
     }
 
     @objid ("aa1d1eeb-e5bf-4565-ac1a-ddf002e482ba")
@@ -162,7 +166,7 @@ public class BpmnLaneSmClass extends BpmnBaseElementSmClass {
         private BpmnLaneSmClass smClass;
 
         @objid ("1b653ec6-2ac1-4a3f-898d-02f4779d4a00")
-        public BpmnLaneObjectFactory(BpmnLaneSmClass smClass) {
+        public  BpmnLaneObjectFactory(BpmnLaneSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -204,6 +208,7 @@ public class BpmnLaneSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnLaneSetSmClass)this.getTarget()).getParentLaneDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -223,6 +228,7 @@ public class BpmnLaneSmClass extends BpmnBaseElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((BpmnLaneData) data).mFlowElementRef = values;
+            
         }
 
         @objid ("f145f48e-7a7c-404a-9b53-07cd9b7e84bd")
@@ -232,6 +238,7 @@ public class BpmnLaneSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnFlowElementSmClass)this.getTarget()).getLaneDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -260,6 +267,7 @@ public class BpmnLaneSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnLaneSetSmClass)this.getTarget()).getLaneDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -288,6 +296,7 @@ public class BpmnLaneSmClass extends BpmnBaseElementSmClass {
             	this.symetricDep = ((BpmnBaseElementSmClass)this.getTarget()).getPartitionedLaneRefsDep();
             }
             return this.symetricDep;
+            
         }
 
     }

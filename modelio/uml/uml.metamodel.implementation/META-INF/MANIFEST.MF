@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: UML implementation
 Bundle-SymbolicName: org.modelio.uml.metamodel.implementation;singleton:=true
-Bundle-Version: 4.1.0.qualifier
+Bundle-Version: 5.1.0.qualifier
 Bundle-ClassPath: res/,
  .
 Bundle-Vendor: modelio.org

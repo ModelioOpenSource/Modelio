@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.api.impl.meta;
 
 import java.util.ArrayList;
@@ -45,34 +44,32 @@ public class MetamodelService implements IMetamodelService {
      */
     @objid ("90e1bcd7-209a-4a88-b785-f710ad2d7e23")
     private static final IMetamodelI18nSupport I18N_SUPPORT = new IMetamodelI18nSupport() {
-        @Override
-        public String getLabel(MAttribute mAtt) {
-            return MetamodelLabels.getString(mAtt.getName());
-        }
-        @Override
-        public String getLabel(MDependency mDep) {
-            return MetamodelLabels.getString(mDep.getName());
-        }
-        @Override
-        public String getLabel(MClass mClass) {
-            return MetamodelLabels.getString(mClass.getName());
-        }
-    };
+            @Override
+            public String getLabel(MAttribute mAtt) {
+                return MetamodelLabels.getString(mAtt.getName());
+            }
+            @Override
+            public String getLabel(MDependency mDep) {
+                return MetamodelLabels.getString(mDep.getName());
+            }
+            @Override
+            public String getLabel(MClass mClass) {
+                return MetamodelLabels.getString(mClass.getName());
+            }
+        };
 
     /**
      * C'tor.
-     * 
      * @param metamodel the current metamodel.
      */
     @objid ("22dc64bb-736b-4647-aba2-ebcfbe9a86d4")
-    public MetamodelService(MMetamodel metamodel) {
+    public  MetamodelService(MMetamodel metamodel) {
         this.metamodel = metamodel;
     }
 
     /**
      * Returns the textual name of a metaclass.<br>
      * <em>Note: The returned name is <u>NOT</u> i18n'd.</em>
-     * 
      * @param metaclassName the metaclass whose name is sought.
      * @return the textual name of the metaclass. Might be <code>null</code> if no metaclass matches.
      */
@@ -89,7 +86,6 @@ public class MetamodelService implements IMetamodelService {
     /**
      * Returns the textual name of a metaclass.<br>
      * <em>Note: The returned name is <u>NOT</u> i18n'd.</em>
-     * 
      * @param metaclass the metaclass whose name is sought, or <code>null</code> if the given class is not a metaclass.
      * @return the textual name of the metaclass.
      */
@@ -103,7 +99,6 @@ public class MetamodelService implements IMetamodelService {
      * Get the metaclasses that inherit from the given metaclass.
      * <p>
      * The given metaclass will in the result list.
-     * 
      * @param javaMetaclass The parent metaclass of the wanted metaclasses.
      * @return A list of metaclasses that inherit from the given metaclass.
      */

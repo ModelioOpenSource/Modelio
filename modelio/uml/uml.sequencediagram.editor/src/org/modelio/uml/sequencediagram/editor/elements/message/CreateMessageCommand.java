@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.sequencediagram.editor.elements.message;
 
 import java.util.OptionalInt;
@@ -50,11 +49,10 @@ public class CreateMessageCommand extends DefaultCreateLinkCommand {
 
     /**
      * C'tor.
-     * 
      * @param context the creation context.
      */
     @objid ("d94fd45b-55b6-11e2-877f-002564c97630")
-    public CreateMessageCommand(ModelioLinkCreationContext context) {
+    public  CreateMessageCommand(ModelioLinkCreationContext context) {
         super(context);
     }
 
@@ -124,6 +122,7 @@ public class CreateMessageCommand extends DefaultCreateLinkCommand {
         CreateMessageHelper helper = new CreateMessageHelper((GmSequenceDiagram) gmDiagram);
         helper.setRequest(this.request);
         helper.createMessage(this.sourceNode, this.sourceTime, this.targetNode, this.targetTime, type);
+        
     }
 
     @objid ("d9515ade-55b6-11e2-877f-002564c97630")
@@ -145,6 +144,7 @@ public class CreateMessageCommand extends DefaultCreateLinkCommand {
         // Automatically generated method. Please delete this comment before
         // entering specific code.
         this.sourceTime = value;
+        
     }
 
     @objid ("d9515ae9-55b6-11e2-877f-002564c97630")
@@ -152,6 +152,7 @@ public class CreateMessageCommand extends DefaultCreateLinkCommand {
         // Automatically generated method. Please delete this comment before
         // entering specific code.
         this.targetTime = value;
+        
     }
 
     @objid ("d9515aec-55b6-11e2-877f-002564c97630")

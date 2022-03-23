@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.load;
 
 import java.util.Collection;
@@ -39,17 +38,15 @@ public class ModelUnloader {
 
     /**
      * Initialize the unloader.
-     * 
      * @param cacheManager the session cache manager
      */
     @objid ("58853ff2-8723-43ec-a7b9-b1cb1c94bb71")
-    public ModelUnloader(CacheManager cacheManager) {
+    public  ModelUnloader(CacheManager cacheManager) {
         this.cacheManager = cacheManager;
     }
 
     /**
      * Delete the given model object
-     * 
      * @param objToUnload the object to delete.
      */
     @objid ("6d085ec5-f2a7-4a26-8916-338742e9529b")
@@ -95,6 +92,7 @@ public class ModelUnloader {
             obj.getData().setRFlags(IRStatus.DELETED, IRStatus.BEINGDELETED, 0);
             this.cacheManager.removeFromCache(obj);
         }
+        
     }
 
     @objid ("6d27ca74-bc0c-406c-9388-8a7d9834d1ef")
@@ -111,6 +109,7 @@ public class ModelUnloader {
                 }
             }
         }
+        
     }
 
 }

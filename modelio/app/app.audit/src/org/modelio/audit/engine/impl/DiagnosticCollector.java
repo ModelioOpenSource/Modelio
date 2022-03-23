@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.engine.impl;
 
 import java.util.ArrayList;
@@ -41,9 +40,10 @@ public class DiagnosticCollector implements IDiagnosticCollector {
     }
 
     @objid ("90f84c48-4417-4ed5-a5a2-0fae08f90ffd")
-    public DiagnosticCollector(String jobId) {
+    public  DiagnosticCollector(String jobId) {
         this.entries = new ArrayList<>();
         this.jobId = jobId;
+        
     }
 
     @objid ("1800e34a-add2-4fa1-9c58-b1466df2dd3f")
@@ -52,6 +52,7 @@ public class DiagnosticCollector implements IDiagnosticCollector {
         entry.setJobId(this.jobId);
         
         this.entries.add(entry);
+        
     }
 
     @objid ("16ed671b-1524-430e-b083-de1354beb1f3")
@@ -62,6 +63,7 @@ public class DiagnosticCollector implements IDiagnosticCollector {
         }
         
         this.entries.addAll(entries);
+        
     }
 
 }

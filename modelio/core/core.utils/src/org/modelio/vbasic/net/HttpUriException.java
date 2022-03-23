@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vbasic.net;
 
 import java.nio.file.FileSystemException;
@@ -49,9 +48,10 @@ public class HttpUriException extends FileSystemException implements IHttpUriExc
      * @param reason a message. It should be the HTTP response body or the HTTP status line message.
      */
     @objid ("f0178015-be07-4716-b9c9-b2c1fd46cee9")
-    public HttpUriException(int httpStatus, String file, String reason) {
+    public  HttpUriException(int httpStatus, String file, String reason) {
         super(file, null, reason);
         this.httpStatus = httpStatus;
+        
     }
 
     /**
@@ -59,9 +59,10 @@ public class HttpUriException extends FileSystemException implements IHttpUriExc
      * @param file the file that needs authentication
      */
     @objid ("e2a58139-befe-4bab-aead-d539b35ff19d")
-    public HttpUriException(int httpStatus, String file) {
+    public  HttpUriException(int httpStatus, String file) {
         super(file);
         this.httpStatus = httpStatus;
+        
     }
 
     @objid ("f75f384d-7485-4973-9593-26d5036d6284")
@@ -79,7 +80,7 @@ public class HttpUriException extends FileSystemException implements IHttpUriExc
      * @param reason a message. It should be the HTTP response body or the HTTP status line message.
      */
     @objid ("d891a386-d6be-46ed-b585-df9446373351")
-    public HttpUriException(int httpStatus, Throwable cause, String file, String reason) {
+    public  HttpUriException(int httpStatus, Throwable cause, String file, String reason) {
         this(httpStatus, file, reason);
     }
 

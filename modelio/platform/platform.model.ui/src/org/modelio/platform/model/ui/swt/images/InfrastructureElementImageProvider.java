@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.swt.images;
 
 import java.net.URL;
@@ -57,7 +56,6 @@ public class InfrastructureElementImageProvider implements IElementImageProvider
 
     /**
      * Get the icon for a metaclass and a flavor
-     * 
      * @param metaclass a metaclass
      * @param flavor a flavor to concatenate to the lookup key.
      * @return the found icon or a default unknown icon.
@@ -77,7 +75,6 @@ public class InfrastructureElementImageProvider implements IElementImageProvider
 
     /**
      * Get the diagram big image for a metaclass and a flavor.
-     * 
      * @param metaclass a metaclass
      * @param flavor a flavor to concatenate to the lookup key.
      * @return the found image or null.
@@ -114,6 +111,7 @@ public class InfrastructureElementImageProvider implements IElementImageProvider
             keyBuffer.append(flavor);
             return keyBuffer.toString();
         }
+        
     }
 
     @objid ("5fd4ab28-abdb-403b-89e6-94aede9478d3")
@@ -140,7 +138,6 @@ public class InfrastructureElementImageProvider implements IElementImageProvider
 
     /**
      * Get the icon for a metaclass.
-     * 
      * @param metaclassName a metaclass name.
      * @return the metaclass icon.
      */
@@ -187,6 +184,7 @@ public class InfrastructureElementImageProvider implements IElementImageProvider
         } else {
             return null;
         }
+        
     }
 
     @objid ("5d288c1c-899c-433b-aedf-086364532117")

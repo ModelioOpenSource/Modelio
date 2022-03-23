@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.modules.parameters;
 
 import java.util.Arrays;
@@ -36,8 +35,8 @@ import org.modelio.app.project.conf.dialog.modules.parameters.standard.DefaultPa
 import org.modelio.app.project.conf.plugin.AppProjectConfExt;
 import org.modelio.gproject.module.GModule;
 import org.modelio.platform.mda.infra.service.IModuleManagementService;
-import org.modelio.platform.mda.infra.service.IRTModule.ModuleRuntimeState;
 import org.modelio.platform.mda.infra.service.IRTModule;
+import org.modelio.platform.mda.infra.service.IRTModule.ModuleRuntimeState;
 import org.modelio.platform.ui.panel.IPanelProvider;
 
 /**
@@ -55,9 +54,10 @@ public class ParameterSection {
     private Composite composite;
 
     @objid ("668b5388-d5c2-4c13-8041-47614a520aad")
-    public ParameterSection(IEclipseContext applicationContext) {
+    public  ParameterSection(IEclipseContext applicationContext) {
         this.moduleService = applicationContext.get(IModuleManagementService.class);
         this.parameterViewer = null;
+        
     }
 
     @objid ("d932f097-3519-427d-918b-888f3cc4e5be")
@@ -86,6 +86,7 @@ public class ParameterSection {
         }
         
         this.composite.layout(true, true);
+        
     }
 
     @objid ("a3f59ff8-1fb7-4d6b-950a-938cdfff9bf2")

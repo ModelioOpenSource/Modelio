@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.project.ext_org.plugin;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,7 +49,6 @@ public class ProjectServiceInitializerOrg {
      * Called by E4.
      * 
      * Create, initialize the IProjectService instance and add it to the context.
-     * 
      * @param context the Eclipse context
      */
     @objid ("00022664-dcdb-103c-9961-001ec947cd2a")
@@ -79,6 +77,7 @@ public class ProjectServiceInitializerOrg {
                 (eclipseContext, project, withConfirmation) -> new FragmentsMigrator(eclipseContext, project, withConfirmation));
         context.set(IProjectService.class, projectService);
         context.set(ICurrentProjectService.class, projectService);
+        
     }
 
 }

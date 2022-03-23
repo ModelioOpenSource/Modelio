@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statediagram.editor.elements.join;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -27,6 +26,7 @@ import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.draw2d.geometry.Rectangle;
 import org.eclipse.draw2d.geometry.Transposer;
+import org.eclipse.gef.AccessibleAnchorProvider;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.RequestConstants;
 import org.eclipse.gef.commands.Command;
@@ -35,15 +35,19 @@ import org.modelio.diagram.elements.common.linkednode.LinkedNodeRequestConstants
 import org.modelio.diagram.elements.common.linkednode.LinkedNodeStartCreationEditPolicy;
 import org.modelio.diagram.elements.core.figures.RectangularFigure;
 import org.modelio.diagram.elements.core.link.DefaultCreateLinkEditPolicy;
+import org.modelio.diagram.elements.core.link.anchors.fixed.AbstractFixedNodeAnchorProvider;
+import org.modelio.diagram.elements.core.link.anchors.fixed.IFixedConnectionAnchorFactory;
 import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
+import org.modelio.diagram.elements.core.policies.AnchorsFeedbackEditPolicy;
 import org.modelio.diagram.elements.core.policies.DefaultNodeResizableEditPolicy;
 import org.modelio.diagram.elements.core.tools.multipoint.CreateMultiPointRequest;
 import org.modelio.diagram.elements.umlcommon.constraint.ConstraintLinkEditPolicy;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.uml.statediagram.editor.elements.ForkJoinOrientation;
+import org.modelio.uml.statediagram.editor.elements.common.ForkJoinAnchorProvider;
 
 /**
- * EditPart for an Join Node.
+ * EditPart for a Join Node.
  * 
  * @author fpoyer
  */
@@ -51,6 +55,9 @@ import org.modelio.uml.statediagram.editor.elements.ForkJoinOrientation;
 public class JoinPrimaryNodeEditPart extends AbstractNodeEditPart {
     @objid ("f55ac8e8-55b6-11e2-877f-002564c97630")
     private ForkJoinOrientation currentOrientation = null;
+
+    @objid ("4f006bc7-58c6-4d30-98ff-f4deb52fc552")
+    private ForkJoinAnchorProvider nodeAnchorProvider;
 
     @objid ("f55ac8e9-55b6-11e2-877f-002564c97630")
     @Override
@@ -77,6 +84,8 @@ public class JoinPrimaryNodeEditPart extends AbstractNodeEditPart {
         installEditPolicy(LinkedNodeRequestConstants.REQ_LINKEDNODE_START,
                 new LinkedNodeStartCreationEditPolicy());
         installEditPolicy(CreateMultiPointRequest.REQ_MULTIPOINT_FIRST, new ConstraintLinkEditPolicy(false));
+        installEditPolicy(AnchorsFeedbackEditPolicy.class, new AnchorsFeedbackEditPolicy(this.nodeAnchorProvider));
+        
     }
 
     @objid ("f55ac8f1-55b6-11e2-877f-002564c97630")
@@ -84,6 +93,7 @@ public class JoinPrimaryNodeEditPart extends AbstractNodeEditPart {
     protected void refreshVisuals() {
         GmJoinPrimaryNode joinModel = (GmJoinPrimaryNode) this.getModel();
         this.getFigure().getParent().setConstraint(this.getFigure(), joinModel.getLayoutData());
+        
     }
 
     @objid ("f55ac8f4-55b6-11e2-877f-002564c97630")
@@ -108,6 +118,7 @@ public class JoinPrimaryNodeEditPart extends AbstractNodeEditPart {
                 }
             }
         }
+        
     }
 
     @objid ("f55c4f62-55b6-11e2-877f-002564c97630")
@@ -127,11 +138,14 @@ public class JoinPrimaryNodeEditPart extends AbstractNodeEditPart {
             }
             resizePolicy.activate();
         
+            this.currentOrientation = orientation;
+        
             // rotate the fork join node according to the orientation
             doRotationFigure(aFigure);
         
-            this.currentOrientation = orientation;
+            this.nodeAnchorProvider.refresh(this.figure);
         }
+        
     }
 
     @objid ("f55c4f66-55b6-11e2-877f-002564c97630")
@@ -140,8 +154,8 @@ public class JoinPrimaryNodeEditPart extends AbstractNodeEditPart {
         Transposer transposer = new Transposer();
         transposer.enable();
         Rectangle newBounds = transposer.t(oldBounds);
-        int w = (newBounds.width - oldBounds.width);
-        int h = (newBounds.height - oldBounds.height);
+        int w = newBounds.width - oldBounds.width;
+        int h = newBounds.height - oldBounds.height;
         
         if (aFigure.getParent() != null) {
             ChangeBoundsRequest resizeRequest = new ChangeBoundsRequest(RequestConstants.REQ_RESIZE);
@@ -153,6 +167,48 @@ public class JoinPrimaryNodeEditPart extends AbstractNodeEditPart {
         } else {
             aFigure.setSize(w, h);
         }
+        
+    }
+
+    @objid ("5fca7e42-55cb-4330-a484-33af0e3e3633")
+    @Override
+    protected ForkJoinAnchorProvider getNodeAnchorProvider() {
+        if (this.nodeAnchorProvider == null) {
+            this.nodeAnchorProvider = createAnchorProvider(this.figure);
+        }
+        return this.nodeAnchorProvider;
+    }
+
+    @objid ("db0fdf8e-b8d5-404e-ac97-89b5924d4bb4")
+    @Override
+    protected void setFigure(IFigure figure) {
+        super.setFigure(figure);
+        getNodeAnchorProvider().onFigureMoved(figure);
+        
+    }
+
+    /**
+     * Create the {@link AbstractFixedNodeAnchorProvider} for this edit part.
+     * @param figure the edit part figure.
+     * @return the created anchor provider.
+     */
+    @objid ("0b15a93c-8e64-47ae-9164-1d393b0ac6c0")
+    protected ForkJoinAnchorProvider createAnchorProvider(IFigure figure) {
+        return new ForkJoinAnchorProvider(() -> this.currentOrientation);
+    }
+
+    /**
+     * Adapt to {@link AccessibleAnchorProvider} or {@link IFixedConnectionAnchorFactory}.
+     */
+    @objid ("09c1fa23-192b-443d-8c81-e33243491d32")
+    @Override
+    public Object getAdapter(Class adapter) {
+        if (AccessibleAnchorProvider.class.isAssignableFrom(adapter)) {
+            return this.nodeAnchorProvider.getAccessibleAnchorProvider(getFigure());
+        } else if (IFixedConnectionAnchorFactory.class.isAssignableFrom(adapter)) {
+            return this.nodeAnchorProvider;
+        }
+        return super.getAdapter(adapter);
     }
 
 }

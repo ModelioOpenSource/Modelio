@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.collabuse;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -35,61 +34,61 @@ public class CollaborationUseStructuredStyleKeys extends StaticAbstractStyleKeyP
      * Representation mode.
      */
     @objid ("a62347c9-55c2-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("COLLABORATIONUSE_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("COLLABORATIONUSE_REPMODE", MetaKey.REPMODE);
 
     /**
      * Fill color.
      */
     @objid ("a62347cc-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("COLLABORATIONUSE_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("COLLABORATIONUSE_FILLCOLOR", MetaKey.FILLCOLOR);
 
     /**
      * Fill mode.
      */
     @objid ("a62347cf-55c2-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("COLLABORATIONUSE_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("COLLABORATIONUSE_FILLMODE", MetaKey.FILLMODE);
 
     /**
      * Line color.
      */
     @objid ("a62347d2-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("COLLABORATIONUSE_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("COLLABORATIONUSE_LINECOLOR", MetaKey.LINECOLOR);
 
     /**
      * Line width.
      */
     @objid ("a62347d5-55c2-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("COLLABORATIONUSE_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("COLLABORATIONUSE_LINEWIDTH", MetaKey.LINEWIDTH);
 
     /**
      * Text font.
      */
     @objid ("a62347d8-55c2-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("COLLABORATIONUSE_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("COLLABORATIONUSE_FONT", MetaKey.FONT);
 
     /**
      * Text color.
      */
     @objid ("a62347db-55c2-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("COLLABORATIONUSE_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("COLLABORATIONUSE_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     /**
      * Display name.
      */
     @objid ("a62347de-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWNAME = createStyleKey("COLLABORATIONUSE_SHOWNAME", MetaKey.SHOWNAME);
+    static final StyleKey SHOWNAME = createStyleKey("COLLABORATIONUSE_SHOWNAME", MetaKey.SHOWNAME);
 
     /**
      * Display stereotypes.
      */
     @objid ("a62347e1-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("COLLABORATIONUSE_SHOWSTEREOTYPES",
-                                                           MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("COLLABORATIONUSE_SHOWSTEREOTYPES",
+                                                               MetaKey.SHOWSTEREOTYPES);
 
     /**
      * Display tagged values.
      */
     @objid ("a62347e4-55c2-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("COLLABORATIONUSE_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("COLLABORATIONUSE_SHOWTAGS", MetaKey.SHOWTAGS);
 
 }

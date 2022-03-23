@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.objectnode;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -47,18 +46,17 @@ public class GmObjectNodeStateLabel extends GmElementLabel {
      * Empty c'tor for deserialisation.
      */
     @objid ("2adb7d68-55b6-11e2-877f-002564c97630")
-    public GmObjectNodeStateLabel() {
+    public  GmObjectNodeStateLabel() {
         // Nothing to do.
     }
 
     /**
      * C'tor.
-     * 
      * @param diagram the diagram.
      * @param relatedRef ref to the related ObjectNode
      */
     @objid ("2adb7d6b-55b6-11e2-877f-002564c97630")
-    public GmObjectNodeStateLabel(final IGmDiagram diagram, final MRef relatedRef) {
+    public  GmObjectNodeStateLabel(final IGmDiagram diagram, final MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -96,6 +94,7 @@ public class GmObjectNodeStateLabel extends GmElementLabel {
             break;
         }
         }
+        
     }
 
     @objid ("2adb7d81-55b6-11e2-877f-002564c97630")
@@ -105,6 +104,7 @@ public class GmObjectNodeStateLabel extends GmElementLabel {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmObjectNodeStateLabel.", GmObjectNodeStateLabel.MINOR_VERSION);
+        
     }
 
     @objid ("2adb7d87-55b6-11e2-877f-002564c97630")

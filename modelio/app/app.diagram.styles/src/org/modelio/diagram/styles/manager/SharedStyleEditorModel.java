@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.manager;
 
 import java.util.ArrayList;
@@ -26,8 +25,8 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Objects;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.modelio.diagram.styles.core.AbstractStyleKeyProvider;
@@ -35,6 +34,7 @@ import org.modelio.diagram.styles.core.FactoryStyle;
 import org.modelio.diagram.styles.core.IStyle;
 import org.modelio.diagram.styles.core.StyleKey;
 import org.modelio.diagram.styles.core.view.ISymbolViewItem;
+import org.modelio.diagram.styles.core.view.ISymbolViewItem.Choice;
 import org.modelio.diagram.styles.core.view.ISymbolViewModel;
 import org.modelio.diagram.styles.core.view.LegacyStyleKeyProviderSymbolViewModel;
 
@@ -50,7 +50,7 @@ public class SharedStyleEditorModel implements ISymbolViewModel {
     private final List<ISymbolViewItem> roots;
 
     @objid ("2f447a4b-ac8c-4cc6-967c-edb1e5968483")
-    public SharedStyleEditorModel(IStyle style) {
+    public  SharedStyleEditorModel(IStyle style) {
         this.roots = new ArrayList<>();
         Map<String, List<StyleKey>> allStyleKeys = new HashMap<>();
         Collection<StyleKey> managedKeys = new HashSet<>();
@@ -91,6 +91,7 @@ public class SharedStyleEditorModel implements ISymbolViewModel {
         }
         
         Collections.sort(this.roots, (o1, o2) -> o1.getLabel().compareTo(o2.getLabel()));
+        
     }
 
     @objid ("d14ddac1-258f-463d-9bc3-cbf3c84ae57a")
@@ -154,7 +155,7 @@ public class SharedStyleEditorModel implements ISymbolViewModel {
         private final ISymbolViewModel model;
 
         @objid ("8a284828-c28a-4573-b48a-cf85c2e0bc0e")
-        public RootNode(ISymbolViewModel model) {
+        public  RootNode(ISymbolViewModel model) {
             this.model = model;
         }
 
@@ -264,12 +265,13 @@ public class SharedStyleEditorModel implements ISymbolViewModel {
         private final ISymbolViewModel rootModel;
 
         @objid ("34633570-c267-4c52-a27e-616e5ee462d4")
-        public ProxyNode(ISymbolViewItem delegate, ISymbolViewModel delegateModel, ISymbolViewModel rootModel, ISymbolViewItem parentNode) {
+        public  ProxyNode(ISymbolViewItem delegate, ISymbolViewModel delegateModel, ISymbolViewModel rootModel, ISymbolViewItem parentNode) {
             super();
             this.delegate = delegate;
             this.rootModel = rootModel;
             this.model = delegateModel;
             this.parentNode = parentNode;
+            
         }
 
         @objid ("9c1a0c34-401d-4835-8720-458efadaae7f")

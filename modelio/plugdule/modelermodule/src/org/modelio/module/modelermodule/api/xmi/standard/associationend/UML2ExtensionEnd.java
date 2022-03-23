@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.associationend;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("1e11d2ec-9ce3-43ed-8790-218d82be338b")
 public class UML2ExtensionEnd {
-    @objid ("e48a0a57-d56c-4691-b06a-a62ca166056a")
+    @objid ("83e71c2b-49cd-4b22-a4a0-668cca2743b6")
     public static final String STEREOTYPE_NAME = "UML2ExtensionEnd";
 
     /**
      * The underlying {@link AssociationEnd} represented by this proxy, never null.
      */
-    @objid ("de51000a-e3e0-4202-908b-03f88eb7c31a")
+    @objid ("723b966d-6029-42ea-a1e4-04f812b0c17a")
     protected final AssociationEnd elt;
 
     /**
      * Tells whether a {@link UML2ExtensionEnd proxy} can be instantiated from a {@link MObject} checking it is a {@link AssociationEnd} stereotyped << UML2ExtensionEnd >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("8c4fcc65-1874-4c90-981e-c4d8131ee9d2")
+    @objid ("9fcf1eaf-77c0-40e2-99a4-cbac59de7e7b")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof AssociationEnd) && ((AssociationEnd) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2ExtensionEnd.STEREOTYPE_NAME));
     }
@@ -77,9 +75,9 @@ public class UML2ExtensionEnd {
      * 
      * @return a {@link UML2ExtensionEnd} proxy on the created {@link AssociationEnd}.
      */
-    @objid ("a1b804e7-3b90-4fc9-861d-88b834d61f98")
+    @objid ("fafc52e1-2f28-4116-8524-91ad42ff4608")
     public static UML2ExtensionEnd create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("AssociationEnd");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.AssociationEnd");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2ExtensionEnd.STEREOTYPE_NAME);
         return UML2ExtensionEnd.instantiate((AssociationEnd)e);
     }
@@ -91,7 +89,7 @@ public class UML2ExtensionEnd {
      * @param obj a AssociationEnd
      * @return a {@link UML2ExtensionEnd} proxy or <i>null</i>.
      */
-    @objid ("9b0bba5f-a253-4bc5-93d1-c409ace446db")
+    @objid ("02c6d7bb-bd83-453f-a858-ba4030fb1ab2")
     public static UML2ExtensionEnd instantiate(AssociationEnd obj) {
         return UML2ExtensionEnd.canInstantiate(obj) ? new UML2ExtensionEnd(obj) : null;
     }
@@ -104,7 +102,7 @@ public class UML2ExtensionEnd {
      * @return a {@link UML2ExtensionEnd} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("f8eecfcd-2bd2-43fc-b84f-adce9fc4e2f2")
+    @objid ("3f5c848b-f878-4ee8-a79f-1cc3e9b347fb")
     public static UML2ExtensionEnd safeInstantiate(AssociationEnd obj) throws IllegalArgumentException {
         if (UML2ExtensionEnd.canInstantiate(obj))
         	return new UML2ExtensionEnd(obj);
@@ -112,7 +110,7 @@ public class UML2ExtensionEnd {
         	throw new IllegalArgumentException("UML2ExtensionEnd: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("5d12864c-72c1-4c8c-b7f7-ee92cb785684")
+    @objid ("f8615ffe-9115-4391-a6cd-d5234728def3")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,46 +130,47 @@ public class UML2ExtensionEnd {
      * Get the underlying {@link AssociationEnd}. 
      * @return the AssociationEnd represented by this proxy, never null.
      */
-    @objid ("1ec85d2b-d066-4ff1-b3e1-50127d282c97")
+    @objid ("3af6c50c-d721-4f7d-a57e-cbf6c357b7ae")
     public AssociationEnd getElement() {
         return this.elt;
     }
 
-    @objid ("e9a64ebe-6676-4406-b93a-236f064f664f")
+    @objid ("da25f1d5-7d95-4868-8f70-a0375b481205")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("5c49d2b4-4b5c-43f9-b938-821fe06f1eb5")
-    protected UML2ExtensionEnd(AssociationEnd elt) {
+    @objid ("0904d59c-36db-4d71-964e-9b406d367100")
+    protected  UML2ExtensionEnd(AssociationEnd elt) {
         this.elt = elt;
     }
 
     @objid ("bd346fa3-cf3c-4b64-a0dc-310c1bd53e73")
     public static final class MdaTypes {
-        @objid ("7f973e57-599f-44d2-8ceb-e84ed673f553")
+        @objid ("aee88fbd-c02a-40e1-80e9-f37d72d7e788")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("a3a858f6-e7bc-454a-99c2-3ac3a4e1ddb4")
+        @objid ("5820d0c5-6fd4-406e-bb1a-4b0ec91fd008")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("a5b2f7eb-3ef6-4b81-9184-b22457160ff5")
+        @objid ("a182fe25-1f34-4036-904a-0831a91d8e58")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("9c2df524-b964-4851-bd1a-c4e8f09cdfd5")
+        @objid ("a64f6cb1-e512-455e-a9d3-990ff76ce392")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "770df309-5d0c-11df-a996-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

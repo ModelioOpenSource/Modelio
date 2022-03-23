@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.editor;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,7 +33,6 @@ import org.eclipse.gef.RootEditPart;
 public interface IDiagramEditor extends IAdaptable {
     /**
      * Return the root edit part of this editor.
-     * 
      * @return the root edit part of this editor.
      */
     @objid ("6664e89d-33f7-11e2-95fe-001ec947c8cc")
@@ -49,7 +47,6 @@ public interface IDiagramEditor extends IAdaptable {
 
     /**
      * Returns the input for this editor.
-     * 
      * @return the editor input
      */
     @objid ("6664e8a2-33f7-11e2-95fe-001ec947c8cc")

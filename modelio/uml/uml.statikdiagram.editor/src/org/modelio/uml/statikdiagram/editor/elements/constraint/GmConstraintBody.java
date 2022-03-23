@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.constraint;
 
 import java.util.ArrayList;
@@ -33,8 +32,8 @@ import org.modelio.diagram.elements.core.node.GmNodeModel;
 import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.infrastructure.Constraint;
 import org.modelio.metamodel.uml.infrastructure.UmlModelElement;
 import org.modelio.vcore.smkernel.mapi.MObject;
@@ -60,29 +59,29 @@ public class GmConstraintBody extends GmCompositeNode {
     private Constraint constraint;
 
     @objid ("811b153b-1dec-11e2-8cad-001ec947c8cc")
-     static final GmConstraintStyleKeys KEYS = new GmConstraintStyleKeys();
+    static final GmConstraintStyleKeys KEYS = new GmConstraintStyleKeys();
 
     /**
      * Empty c'tor for deserialisation.
      */
     @objid ("811b1542-1dec-11e2-8cad-001ec947c8cc")
-    public GmConstraintBody() {
+    public  GmConstraintBody() {
         super();
     }
 
     /**
      * C'tor.
-     * 
      * @param diagram the diagram in which this gm is created.
      * @param constraint the represented constraint. May be null.
      * @param relatedRef a reference to the represented constraint. Must Not be null.
      */
     @objid ("811b1545-1dec-11e2-8cad-001ec947c8cc")
-    public GmConstraintBody(final IGmDiagram diagram, final Constraint constraint, final MRef relatedRef) {
+    public  GmConstraintBody(final IGmDiagram diagram, final Constraint constraint, final MRef relatedRef) {
         super(diagram, relatedRef);
         this.constraint = constraint;
         GmConstraintBodyLabel header = new GmConstraintBodyLabel(diagram, relatedRef);
         addChild(header);
+        
     }
 
     @objid ("811b154e-1dec-11e2-8cad-001ec947c8cc")
@@ -162,6 +161,7 @@ public class GmConstraintBody extends GmCompositeNode {
                 }
             }
         }
+        
     }
 
     @objid ("811d77ab-1dec-11e2-8cad-001ec947c8cc")
@@ -193,6 +193,7 @@ public class GmConstraintBody extends GmCompositeNode {
             break;
         }
         }
+        
     }
 
     @objid ("811d77ba-1dec-11e2-8cad-001ec947c8cc")
@@ -202,12 +203,14 @@ public class GmConstraintBody extends GmCompositeNode {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmConstraintBody.", GmConstraintBody.MINOR_VERSION);
+        
     }
 
     @objid ("811d77be-1dec-11e2-8cad-001ec947c8cc")
     private void read_0(final IDiagramReader in) {
         super.read(in);
         this.constraint = (Constraint) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("811d77c2-1dec-11e2-8cad-001ec947c8cc")
@@ -229,6 +232,7 @@ public class GmConstraintBody extends GmCompositeNode {
             // the removed link represents the same element (the constraint) as this gm: delete self as well.
             delete();
         }
+        
     }
 
 }

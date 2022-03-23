@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.metamodel.impl.mmextensions.standard.modelshield.standardcheckers;
 
 import java.util.ArrayList;
@@ -66,6 +65,7 @@ public class E264Checker implements IChecker {
             objects.addAll(finish_life_line);
             report.addEntry(new ModelError(ERRORID, object, objects));
         }
+        
     }
 
     @objid ("0000beaa-e473-1f69-b3fb-001ec947cd2a")
@@ -76,6 +76,7 @@ public class E264Checker implements IChecker {
         
         // trigger=*, metaclass=ExecutionSpecification, feature=Finish
         plan.registerChecker(this, smMetamodel.getMClass(ExecutionSpecification.class), TriggerType.AnyTrigger, "Finish");
+        
     }
 
 }

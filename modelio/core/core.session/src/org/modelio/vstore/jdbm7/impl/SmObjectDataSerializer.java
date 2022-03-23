@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.jdbm7.impl;
 
 import java.io.DataInput;
@@ -51,17 +50,18 @@ public class SmObjectDataSerializer {
     private byte rid;
 
     @objid ("daa863bb-38d0-4bee-9c74-226db7205888")
-    private static Map<Class<?>,Object[]> enumContent = new HashMap<>();
+    private static Map<Class<?>, Object[]> enumContent = new HashMap<>();
 
     @objid ("ffc47319-d4f2-480e-8b6a-016ae36c7d03")
     private ILoadHelper loadHelper;
 
     @objid ("a448c5f7-d654-4dd4-9ea9-25f844b98bdf")
-    public SmObjectDataSerializer(byte rid, ILoadHelper loadHelper) {
+    public  SmObjectDataSerializer(byte rid, ILoadHelper loadHelper) {
         assert (rid >=0);
         
         this.rid = rid;
         this.loadHelper = loadHelper;
+        
     }
 
     @objid ("c63f174f-bf24-47b3-8bf9-8f679ba511e5")
@@ -79,6 +79,7 @@ public class SmObjectDataSerializer {
                 writeMultipleDep(out, obj, d);
             }
         }
+        
     }
 
     @objid ("6d1372bb-b94d-485b-b079-6028f1e764be")
@@ -95,6 +96,7 @@ public class SmObjectDataSerializer {
                 readDep(in, obj, d, loader);
             }
         }
+        
     }
 
     @objid ("55830c5b-96bf-4d33-845b-84ed853bdf2b")
@@ -126,6 +128,7 @@ public class SmObjectDataSerializer {
         }
         
         loader.loadAttribute(obj, att, val);
+        
     }
 
     @objid ("cb08e2af-38cd-4fa2-bc26-0ca0c87641d2")
@@ -153,6 +156,7 @@ public class SmObjectDataSerializer {
         } else {
             throw new UnsupportedOperationException(type+" "+val+" "+att+" attribute not supported.");
         }
+        
     }
 
     @objid ("ed327888-8b6f-4eb2-922a-4fc306ad05bb")
@@ -165,6 +169,7 @@ public class SmObjectDataSerializer {
         for (SmObjectImpl val : content) {
             writeRef(out, val);
         }
+        
     }
 
     @objid ("08661f2f-a2f9-41e8-a597-9c6a06413e4e")
@@ -184,6 +189,7 @@ public class SmObjectDataSerializer {
         }
         
         loader.loadDependency(obj, d, vals);
+        
     }
 
     @objid ("a051c1ee-5c23-4ffe-babb-4d0007ed542e")
@@ -221,11 +227,11 @@ public class SmObjectDataSerializer {
         
         out.writeUTF(val.getMClass().getQualifiedName());
         out.writeUTF(val.getUuid());
+        
     }
 
     /**
      * Get all possible enumeration values of an enumerate type.
-     * 
      * @param type a enumerate class.
      * @return all possible values, ordered.
      */

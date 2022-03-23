@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.callbehavior;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -50,12 +49,11 @@ public class GmBehaviorLabel extends GmDefaultModelElementHeader {
 
     /**
      * C'tor.
-     * 
      * @param diagram the diagram.
      * @param relatedRef ref to the related CallBehaviorAction
      */
     @objid ("29b6858d-55b6-11e2-877f-002564c97630")
-    public GmBehaviorLabel(IGmDiagram diagram, MRef relatedRef) {
+    public  GmBehaviorLabel(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -63,7 +61,7 @@ public class GmBehaviorLabel extends GmDefaultModelElementHeader {
      * Empty c'tor for deserialization.
      */
     @objid ("29b68596-55b6-11e2-877f-002564c97630")
-    public GmBehaviorLabel() {
+    public  GmBehaviorLabel() {
         // Nothing to do.
     }
 
@@ -79,6 +77,7 @@ public class GmBehaviorLabel extends GmDefaultModelElementHeader {
         } else {
             return elName + ": call " + calledName;
         }
+        
     }
 
     @objid ("29b80bfd-55b6-11e2-877f-002564c97630")
@@ -109,6 +108,7 @@ public class GmBehaviorLabel extends GmDefaultModelElementHeader {
         } else {
             return ElementImageService.getIcon(callBehavior);
         }
+        
     }
 
     @objid ("29b80c10-55b6-11e2-877f-002564c97630")
@@ -128,6 +128,7 @@ public class GmBehaviorLabel extends GmDefaultModelElementHeader {
             break;
         }
         }
+        
     }
 
     @objid ("29b80c16-55b6-11e2-877f-002564c97630")
@@ -137,6 +138,7 @@ public class GmBehaviorLabel extends GmDefaultModelElementHeader {
         
         // Write version of this Gm if different of 0
         writeMinorVersion(out, "GmBehaviorLabel.", GmBehaviorLabel.MINOR_VERSION);
+        
     }
 
     @objid ("29b80c1c-55b6-11e2-877f-002564c97630")

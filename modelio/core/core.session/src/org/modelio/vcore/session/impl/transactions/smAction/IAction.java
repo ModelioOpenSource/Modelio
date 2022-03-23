@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.transactions.smAction;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,7 +29,6 @@ import org.modelio.vcore.session.impl.transactions.smAction.smActionInteractions
 public interface IAction {
     /**
      * Visitor pattern
-     * 
      * @param v a visitor
      */
     @objid ("006bd1f4-0d1e-1f20-85a5-001ec947cd2a")
@@ -57,7 +55,6 @@ public interface IAction {
 
     /**
      * Execute le undo de l'action
-     * 
      * @param rollback whether the undo is for a transaction rollback or a 'undo' command.
      */
     @objid ("006b1f98-0d1e-1f20-85a5-001ec947cd2a")

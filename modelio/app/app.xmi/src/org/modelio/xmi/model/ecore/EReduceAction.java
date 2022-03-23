@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class EReduceAction extends EActivityNode {
     }
 
     @objid ("2459d98f-f099-4a28-b0e9-b2c5d89b3410")
-    public EReduceAction(org.eclipse.uml2.uml.ReduceAction element) {
+    public  EReduceAction(org.eclipse.uml2.uml.ReduceAction element) {
         super(element);
     }
 

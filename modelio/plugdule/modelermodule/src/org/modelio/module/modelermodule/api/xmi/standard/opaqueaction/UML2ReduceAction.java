@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.xmi.standard.opaqueaction;
 
@@ -50,24 +49,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("f1c94473-28e1-4fe7-ac2d-cd800cd05029")
 public class UML2ReduceAction {
-    @objid ("9c37b901-282d-46a1-b045-bb9d552f72b2")
+    @objid ("c9894f92-4a12-461f-a511-d475898dc079")
     public static final String STEREOTYPE_NAME = "UML2ReduceAction";
 
     /**
      * The underlying {@link OpaqueAction} represented by this proxy, never null.
      */
-    @objid ("cb69d7da-cb03-4ba9-9f42-2c82ba146b8d")
+    @objid ("f4b4aca0-2373-43cc-9048-080d1c66c818")
     protected final OpaqueAction elt;
 
     /**
      * Tells whether a {@link UML2ReduceAction proxy} can be instantiated from a {@link MObject} checking it is a {@link OpaqueAction} stereotyped << UML2ReduceAction >>.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("d14cfcbd-4af7-499d-8625-4af8eee69701")
+    @objid ("54c9d090-2cb5-48a8-9e11-e1a7ddfb1d36")
     public static boolean canInstantiate(MObject elt) {
         return ((elt instanceof OpaqueAction) && ((OpaqueAction) elt).isStereotyped(IModelerModulePeerModule.MODULE_NAME, UML2ReduceAction.STEREOTYPE_NAME));
     }
@@ -77,9 +75,9 @@ public class UML2ReduceAction {
      * 
      * @return a {@link UML2ReduceAction} proxy on the created {@link OpaqueAction}.
      */
-    @objid ("0e711e66-f0c9-4e6e-b63f-4b5e54a4fc80")
+    @objid ("682b98ba-4b15-426b-b507-e39d5ffac37c")
     public static UML2ReduceAction create() {
-        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("OpaqueAction");
+        ModelElement e = (ModelElement)ModelerModuleModule.getInstance().getModuleContext().getModelingSession().getModel().createElement("Standard.OpaqueAction");
         e.addStereotype(IModelerModulePeerModule.MODULE_NAME, UML2ReduceAction.STEREOTYPE_NAME);
         return UML2ReduceAction.instantiate((OpaqueAction)e);
     }
@@ -91,7 +89,7 @@ public class UML2ReduceAction {
      * @param obj a OpaqueAction
      * @return a {@link UML2ReduceAction} proxy or <i>null</i>.
      */
-    @objid ("9b7a9136-ce60-41d5-bd9a-0050611abe28")
+    @objid ("091a45d1-edb4-4002-b310-4635d17e563a")
     public static UML2ReduceAction instantiate(OpaqueAction obj) {
         return UML2ReduceAction.canInstantiate(obj) ? new UML2ReduceAction(obj) : null;
     }
@@ -104,7 +102,7 @@ public class UML2ReduceAction {
      * @return a {@link UML2ReduceAction} proxy.
      * @throws IllegalArgumentException if the instantiation cannot be carried out.
      */
-    @objid ("b2680c20-23e5-4fa8-a5f6-baa6a8b37eca")
+    @objid ("c2baa9ef-0ae1-4948-ac02-a1a73253c05d")
     public static UML2ReduceAction safeInstantiate(OpaqueAction obj) throws IllegalArgumentException {
         if (UML2ReduceAction.canInstantiate(obj))
         	return new UML2ReduceAction(obj);
@@ -112,7 +110,7 @@ public class UML2ReduceAction {
         	throw new IllegalArgumentException("UML2ReduceAction: Cannot instantiate "+obj+": wrong element type or stereotype");
     }
 
-    @objid ("b3896935-6261-4f61-9785-b4a115f68fb6")
+    @objid ("366b417f-e050-4d24-bf47-32328e0ea261")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -132,46 +130,47 @@ public class UML2ReduceAction {
      * Get the underlying {@link OpaqueAction}. 
      * @return the OpaqueAction represented by this proxy, never null.
      */
-    @objid ("c116c2c7-64bf-48d4-9f81-f9590ffa760b")
+    @objid ("26847a53-6bc1-4124-8d89-a121c63068c3")
     public OpaqueAction getElement() {
         return this.elt;
     }
 
-    @objid ("ac03ce90-4c58-4a28-a365-01abc95dd201")
+    @objid ("4b1bc640-1f9d-45c1-8e7a-5d8ed1c9b63a")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
-    @objid ("b39c72b4-93ea-47b7-bfd5-ac9e4b75cb40")
-    protected UML2ReduceAction(OpaqueAction elt) {
+    @objid ("3760109e-57b7-41e1-828f-4c420ea0053d")
+    protected  UML2ReduceAction(OpaqueAction elt) {
         this.elt = elt;
     }
 
     @objid ("bb02c893-e717-4243-aea0-fd3720614737")
     public static final class MdaTypes {
-        @objid ("2464947e-3063-41c7-9fd7-bc0107aa2f17")
+        @objid ("2c9c0b1b-ac10-47c9-be55-defd442a6bf8")
         public static Stereotype STEREOTYPE_ELT;
 
-        @objid ("8865909c-b721-4a39-a82c-abf8213dd742")
+        @objid ("23da91a2-32e2-4122-ba8d-fbad5ff68551")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("11d146b5-43e1-41f2-9938-48c56ecefb38")
+        @objid ("792e9de2-21b8-49fe-8b22-36e94081a756")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("96676766-c3f3-445c-82d7-c0141260c319")
+        @objid ("90bbe353-d3a9-4078-88a5-8385c2b80100")
         public static void init(IModuleContext ctx) {
             STEREOTYPE_ELT = ctx.getModelingSession().findElementById(Stereotype.class, "2eb4ec1b-c2fd-11de-8ac8-001302895b2b");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

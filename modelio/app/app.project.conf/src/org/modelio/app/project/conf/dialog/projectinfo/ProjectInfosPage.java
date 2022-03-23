@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.app.project.conf.dialog.projectinfo;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -63,7 +62,6 @@ public class ProjectInfosPage implements IProjectConfPage {
      * Creates the SWT controls.
      * <p>
      * Called by E4 injection.
-     * 
      * @param toolkit a form toolkit
      * @param application the E4 application model
      * @param parent the parent composite.
@@ -114,6 +112,7 @@ public class ProjectInfosPage implements IProjectConfPage {
         this.storageSection.setInput(projectAdapter);
         this.fragmentsSection.setInput(projectAdapter);
         this.modulesSection.setInput(projectAdapter);
+        
     }
 
     @objid ("b8cdd418-fe2f-490d-af80-d15bdfc4a6f1")

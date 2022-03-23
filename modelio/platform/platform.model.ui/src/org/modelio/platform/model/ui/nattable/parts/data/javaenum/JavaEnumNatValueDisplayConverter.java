@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.javaenum;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -37,11 +36,10 @@ public class JavaEnumNatValueDisplayConverter extends DisplayConverter {
 
     /**
      * Default constructor for this converter.
-     * 
      * @param enumType the enum type to be converted.
      */
     @objid ("f855ddd0-d4d8-4741-b5a5-a3da6e47c165")
-    public JavaEnumNatValueDisplayConverter(Class<?> enumType) {
+    public  JavaEnumNatValueDisplayConverter(Class<?> enumType) {
         this.enumType = enumType;
     }
 

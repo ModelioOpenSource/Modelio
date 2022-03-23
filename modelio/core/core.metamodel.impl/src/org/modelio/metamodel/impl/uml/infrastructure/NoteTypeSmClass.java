@@ -17,22 +17,17 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Infrastructure, version 2.1.03, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Dec 13, 2018
 */
+
 package org.modelio.metamodel.impl.uml.infrastructure;
 
 import java.util.ArrayList;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.infrastructure.MetaclassReferenceSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.ModelElementSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.NoteSmClass;
-import org.modelio.metamodel.impl.uml.infrastructure.NoteTypeData;
-import org.modelio.metamodel.impl.uml.infrastructure.StereotypeSmClass;
 import org.modelio.metamodel.uml.infrastructure.MetaclassReference;
 import org.modelio.metamodel.uml.infrastructure.ModelElement;
 import org.modelio.metamodel.uml.infrastructure.Note;
@@ -72,7 +67,7 @@ public class NoteTypeSmClass extends ModelElementSmClass {
     private SmDependency ownerReferenceDep;
 
     @objid ("424f05d7-de0c-4cc2-91c1-ac6a0fcf966d")
-    public NoteTypeSmClass(ISmMetamodelFragment origin) {
+    public  NoteTypeSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -80,6 +75,7 @@ public class NoteTypeSmClass extends ModelElementSmClass {
     @Override
     public String getName() {
         return "NoteType";
+        
     }
 
     @objid ("2723b83a-2074-4a7f-874c-e30f46b3f703")
@@ -92,18 +88,21 @@ public class NoteTypeSmClass extends ModelElementSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return NoteType.class;
+        
     }
 
     @objid ("10e428f5-a6f9-4f6f-b58b-a50bdd5e898e")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("6f608f87-cdbf-4ad6-8a3b-6e9388da1e22")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("ceed1298-65da-48b9-98c5-9edcc296a66e")
@@ -139,6 +138,8 @@ public class NoteTypeSmClass extends ModelElementSmClass {
         this.ownerReferenceDep = new OwnerReferenceSmDependency();
         this.ownerReferenceDep.init("OwnerReference", this, metamodel.getMClass(MetaclassReference.MQNAME), 0, 1 );
         registerDependency(this.ownerReferenceDep);
+        
+        
     }
 
     @objid ("3a1377cc-f5f9-4d9c-8555-6563036e4e09")
@@ -195,7 +196,7 @@ public class NoteTypeSmClass extends ModelElementSmClass {
         private NoteTypeSmClass smClass;
 
         @objid ("7b88cb4f-fe8e-40a6-89ef-f7721b0683ce")
-        public NoteTypeObjectFactory(NoteTypeSmClass smClass) {
+        public  NoteTypeObjectFactory(NoteTypeSmClass smClass) {
             this.smClass = smClass;
         }
 
@@ -270,6 +271,7 @@ public class NoteTypeSmClass extends ModelElementSmClass {
         @Override
         protected void initValueList(ISmObjectData data, List<SmObjectImpl> values) {
             ((NoteTypeData) data).mElement = values;
+            
         }
 
         @objid ("a89d24b6-cdf9-4059-8f62-93a6cda1f47f")
@@ -279,6 +281,7 @@ public class NoteTypeSmClass extends ModelElementSmClass {
             	this.symetricDep = ((NoteSmClass)this.getTarget()).getModelDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -307,6 +310,7 @@ public class NoteTypeSmClass extends ModelElementSmClass {
             	this.symetricDep = ((StereotypeSmClass)this.getTarget()).getDefinedNoteTypeDep();
             }
             return this.symetricDep;
+            
         }
 
     }
@@ -335,6 +339,7 @@ public class NoteTypeSmClass extends ModelElementSmClass {
             	this.symetricDep = ((MetaclassReferenceSmClass)this.getTarget()).getDefinedNoteTypeDep();
             }
             return this.symetricDep;
+            
         }
 
     }

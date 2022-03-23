@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.uml;
 
 import java.util.Collections;
@@ -54,22 +53,20 @@ public class ObjectFlowPropertyModel extends AbstractPropertyModel<ObjectFlow> {
      */
     @objid ("b77d5e8e-bf3f-466e-a078-c28f3895fb08")
     private static final String[] PROPERTIES = new String[] { AbstractPropertyModel.PROPERTY_ID, "Name", "Target",
-			"Guard", "Weight", "TransformationBehavior", "Effect", "SelectionBehavior", "IsMultiCast",
-			"IsMultiReceive" };
+    			"Guard", "Weight", "TransformationBehavior", "Effect", "SelectionBehavior", "IsMultiCast",
+    			"IsMultiReceive" };
 
     /**
      * Create a new <i>ObjectFlow</i> data model from an <i>ObjectFlow</i>.
-     * 
      * @param theEditedElement the model to edit.
      */
     @objid ("0f527a21-6518-4375-b928-53bab54146fc")
-    public ObjectFlowPropertyModel(ObjectFlow theEditedElement) {
+    public  ObjectFlowPropertyModel(ObjectFlow theEditedElement) {
         super(theEditedElement);
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("fffb31e3-63f3-41b9-9552-bf460a2c3878")
@@ -80,7 +77,6 @@ public class ObjectFlowPropertyModel extends AbstractPropertyModel<ObjectFlow> {
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("a3b4627b-e275-4e5e-a5be-fb336fd09923")
@@ -93,7 +89,6 @@ public class ObjectFlowPropertyModel extends AbstractPropertyModel<ObjectFlow> {
      * Return the value that will be displayed at the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the value corresponding to the row and column
@@ -131,6 +126,7 @@ public class ObjectFlowPropertyModel extends AbstractPropertyModel<ObjectFlow> {
         default:
             return null;
         }
+        
     }
 
     /**
@@ -140,7 +136,6 @@ public class ObjectFlowPropertyModel extends AbstractPropertyModel<ObjectFlow> {
      * of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -180,13 +175,13 @@ public class ObjectFlowPropertyModel extends AbstractPropertyModel<ObjectFlow> {
         default:
             return null;
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -235,6 +230,7 @@ public class ObjectFlowPropertyModel extends AbstractPropertyModel<ObjectFlow> {
         default:
             return;
         }
+        
     }
 
 }

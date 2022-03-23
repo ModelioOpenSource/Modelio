@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.calloperation;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -31,34 +30,34 @@ import org.modelio.uml.activitydiagram.editor.style.ActivityAbstractStyleKeyProv
 @objid ("29de31ba-55b6-11e2-877f-002564c97630")
 public class GmCallOperationStructuredStyleKeys extends ActivityAbstractStyleKeyProvider {
     @objid ("d19a8476-55c0-11e2-9337-002564c97630")
-     static final StyleKey REPMODE = createStyleKey("CALLOPERATION_REPMODE", MetaKey.REPMODE);
+    static final StyleKey REPMODE = createStyleKey("CALLOPERATION_REPMODE", MetaKey.REPMODE);
 
     @objid ("d19a8478-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLCOLOR = createStyleKey("CALLOPERATION_FILLCOLOR", MetaKey.FILLCOLOR);
+    static final StyleKey FILLCOLOR = createStyleKey("CALLOPERATION_FILLCOLOR", MetaKey.FILLCOLOR);
 
     @objid ("d19a847a-55c0-11e2-9337-002564c97630")
-     static final StyleKey FILLMODE = createStyleKey("CALLOPERATION_FILLMODE", MetaKey.FILLMODE);
+    static final StyleKey FILLMODE = createStyleKey("CALLOPERATION_FILLMODE", MetaKey.FILLMODE);
 
     @objid ("d19a847c-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINECOLOR = createStyleKey("CALLOPERATION_LINECOLOR", MetaKey.LINECOLOR);
+    static final StyleKey LINECOLOR = createStyleKey("CALLOPERATION_LINECOLOR", MetaKey.LINECOLOR);
 
     @objid ("d19a847e-55c0-11e2-9337-002564c97630")
-     static final StyleKey LINEWIDTH = createStyleKey("CALLOPERATION_LINEWIDTH", MetaKey.LINEWIDTH);
+    static final StyleKey LINEWIDTH = createStyleKey("CALLOPERATION_LINEWIDTH", MetaKey.LINEWIDTH);
 
     @objid ("d19a8480-55c0-11e2-9337-002564c97630")
-     static final StyleKey FONT = createStyleKey("CALLOPERATION_FONT", MetaKey.FONT);
+    static final StyleKey FONT = createStyleKey("CALLOPERATION_FONT", MetaKey.FONT);
 
     @objid ("d19a8482-55c0-11e2-9337-002564c97630")
-     static final StyleKey TEXTCOLOR = createStyleKey("CALLOPERATION_TEXTCOLOR", MetaKey.TEXTCOLOR);
+    static final StyleKey TEXTCOLOR = createStyleKey("CALLOPERATION_TEXTCOLOR", MetaKey.TEXTCOLOR);
 
     @objid ("d19a8484-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWSTEREOTYPES = createStyleKey("CALLOPERATION_SHOWSTEREOTYPES",
-            MetaKey.SHOWSTEREOTYPES);
+    static final StyleKey SHOWSTEREOTYPES = createStyleKey("CALLOPERATION_SHOWSTEREOTYPES",
+                MetaKey.SHOWSTEREOTYPES);
 
     @objid ("d19a8486-55c0-11e2-9337-002564c97630")
-     static final StyleKey SHOWTAGS = createStyleKey("CALLOPERATION_SHOWTAGS", MetaKey.SHOWTAGS);
+    static final StyleKey SHOWTAGS = createStyleKey("CALLOPERATION_SHOWTAGS", MetaKey.SHOWTAGS);
 
     @objid ("d19a8488-55c0-11e2-9337-002564c97630")
-     static final StyleKey AUTOSHOWPINS = createStyleKey("CALLOPERATION_AUTOSHOWPINS", MetaKey.AUTOSHOWPINS);
+    static final StyleKey AUTOSHOWPINS = createStyleKey("CALLOPERATION_AUTOSHOWPINS", MetaKey.AUTOSHOWPINS);
 
 }

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.gproject.fragment;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -30,7 +29,6 @@ import org.modelio.gproject.data.project.FragmentDescriptor;
 public interface IFragmentFactory {
     /**
      * Instantiate a {@link IProjectFragment} from a fragment descriptor.
-     * 
      * @param fd The fragment descriptor
      * @return a project fragment ready to mount.
      */
@@ -40,7 +38,6 @@ public interface IFragmentFactory {
     /**
      * Tells whether the factory supports the given fragment.
      * @param fDesc
-     * 
      * @return <code>true</code> if the given fragment is supported by the factory, else <code>false</code>
      */
     @objid ("aa7c47ea-0eed-11e2-8e4b-001ec947ccaf")

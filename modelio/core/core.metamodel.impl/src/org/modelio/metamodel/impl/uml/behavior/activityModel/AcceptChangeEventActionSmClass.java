@@ -17,17 +17,16 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.behavior.activityModel;
 
 import java.util.ArrayList;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
-import org.modelio.metamodel.impl.uml.behavior.activityModel.ActivityActionSmClass;
 import org.modelio.metamodel.uml.behavior.activityModel.AcceptChangeEventAction;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityAction;
 import org.modelio.vbasic.version.Version;
@@ -46,7 +45,7 @@ public class AcceptChangeEventActionSmClass extends ActivityActionSmClass {
     private SmAttribute changeExpresionAtt;
 
     @objid ("e2f86c6d-3afb-46c1-8e9f-afcb12537329")
-    public AcceptChangeEventActionSmClass(ISmMetamodelFragment origin) {
+    public  AcceptChangeEventActionSmClass(ISmMetamodelFragment origin) {
         super(origin);
     }
 
@@ -54,6 +53,7 @@ public class AcceptChangeEventActionSmClass extends ActivityActionSmClass {
     @Override
     public String getName() {
         return "AcceptChangeEventAction";
+        
     }
 
     @objid ("f2ca31ae-6891-4340-9910-4999000df2c4")
@@ -66,18 +66,21 @@ public class AcceptChangeEventActionSmClass extends ActivityActionSmClass {
     @Override
     public java.lang.Class<? extends MObject> getJavaInterface() {
         return AcceptChangeEventAction.class;
+        
     }
 
     @objid ("70539c2e-3333-44d6-8be3-843eef4e906d")
     @Override
     public boolean isCmsNode() {
         return false;
+        
     }
 
     @objid ("ebae726c-96ac-4809-bf13-f45ba42ac931")
     @Override
     public boolean isAbstract() {
         return false;
+        
     }
 
     @objid ("b57ccc9a-7a7a-47cf-949d-5583c5ab63af")
@@ -94,6 +97,7 @@ public class AcceptChangeEventActionSmClass extends ActivityActionSmClass {
         
         
         // Initialize and register the SmDependency
+        
     }
 
     @objid ("40083800-335b-41a4-a475-099d444845c2")
@@ -110,7 +114,7 @@ public class AcceptChangeEventActionSmClass extends ActivityActionSmClass {
         private AcceptChangeEventActionSmClass smClass;
 
         @objid ("7f24bcb0-a03d-47b6-87b5-7709aac45faa")
-        public AcceptChangeEventActionObjectFactory(AcceptChangeEventActionSmClass smClass) {
+        public  AcceptChangeEventActionObjectFactory(AcceptChangeEventActionSmClass smClass) {
             this.smClass = smClass;
         }
 

@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.diagram;
 
 import java.io.File;
@@ -34,7 +33,9 @@ import org.modelio.metamodel.uml.behavior.usecaseModel.UseCase;
 import org.modelio.metamodel.uml.infrastructure.ModelTree;
 import org.modelio.metamodel.uml.infrastructure.Stereotype;
 import org.modelio.metamodel.uml.statik.Classifier;
+import org.modelio.metamodel.uml.statik.Component;
 import org.modelio.metamodel.uml.statik.NameSpace;
+import org.modelio.metamodel.uml.statik.Package;
 import org.modelio.vcore.smkernel.mapi.MClass;
 
 /**
@@ -86,7 +87,6 @@ public interface IDiagramService {
     /**
      * Get an installed diagram styles from its name.
      * @since 2.2
-     * 
      * @param name the name of the style to look for.
      * @return The style with the given name, or <code>null</code> if it isn't installed.
      */
@@ -95,7 +95,6 @@ public interface IDiagramService {
 
     /**
      * List all diagram styles that are currently installed.
-     * 
      * @return A list of styles. Might be empty, but not <code>null</code>.
      */
     @objid ("7ed90eca-d7a5-11e0-9245-001ec947cd2a")
@@ -103,7 +102,6 @@ public interface IDiagramService {
 
     /**
      * Register a new named style along with its 'data' file.<br>
-     * 
      * @param styleName then name of the style to register.
      * @param baseStyleName the cascaded style.
      * @param styleData the list of all properties defined in the style.
@@ -115,7 +113,6 @@ public interface IDiagramService {
     /**
      * Get a diagram handle on 'diagram'.<br>
      * It opens a new diagram editor in Modelio, or select it if already opened.
-     * 
      * @param diagram the AbstractDiagram to open.
      * @return a diagram handle representing this diagram.
      */
@@ -124,7 +121,6 @@ public interface IDiagramService {
 
     /**
      * Get the palette tool from the given id.
-     * 
      * @param id An id.
      * @return the found palette tool or <i>null</i> if none found.
      */
@@ -154,7 +150,6 @@ public interface IDiagramService {
 
     /**
      * Register diagram contributor
-     * 
      * @param category of the diagram contributor
      * @deprecated use {@link IEditionService#registerDiagramContributor}
      * @param contributor the diagram contributor
@@ -165,7 +160,6 @@ public interface IDiagramService {
 
     /**
      * Unregister diagram contributor
-     * 
      * @param category of the diagram contributor
      * @deprecated use {@link IEditionService#unregisterDiagramContributor}
      * @param contributor the diagram contributor
@@ -263,10 +257,10 @@ public interface IDiagramService {
      * </tr>
      * <tr>
      * <td>"SubPackageStructureDiagramTemplate"</td>
-     * <td>A SubPackage Structure diagram shows the internal structure of a package in terms of packages, and the dependencies between them.
+     * <td>A SubPackage Structure diagram shows the internal structure of a {@link Package} or {@link Component} in terms of packages, and the dependencies between them.
      * </p>
      * <p>
-     * For a package, it includes:
+     * It includes:
      * <ul>
      * <li>Its sub-packages.</li>
      * <li>The blue links (impact links) between those sub-packages.</li>
@@ -284,7 +278,6 @@ public interface IDiagramService {
      * </td>
      * </tr>
      * </table>
-     * 
      * @param modelViewTemplateId identifier of the diagram template.
      * @since 4.1
      * @return a new Diagram Creator. Might be <code>null</code> if the id is not found.

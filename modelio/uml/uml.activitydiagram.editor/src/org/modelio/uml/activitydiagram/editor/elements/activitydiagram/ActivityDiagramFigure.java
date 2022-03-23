@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.activitydiagram;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -32,7 +31,8 @@ public class ActivityDiagramFigure extends AbstractDiagramFigure {
      * Constructor.
      */
     @objid ("29905fe5-55b6-11e2-877f-002564c97630")
-    public ActivityDiagramFigure() {
+    public  ActivityDiagramFigure() {
+        
     }
 
 }

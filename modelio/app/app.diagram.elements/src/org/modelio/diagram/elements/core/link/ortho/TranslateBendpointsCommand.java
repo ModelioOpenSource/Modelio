@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.ortho;
 
 import java.util.List;
@@ -53,11 +52,12 @@ public class TranslateBendpointsCommand extends Command {
      */
     @objid ("80421f60-1dec-11e2-8cad-001ec947c8cc")
     @SuppressWarnings ("unchecked")
-    public TranslateBendpointsCommand(final ConnectionEditPart connectionEP) {
+    public  TranslateBendpointsCommand(final ConnectionEditPart connectionEP) {
         this.model = (IGmLinkObject) connectionEP.getModel();
         this.connection = (Connection) connectionEP.getFigure();
         List<Bendpoint> routingConstraint = (List<Bendpoint>) this.connection.getRoutingConstraint();
         this.newPathData = BendPointUtils.draw2dConstraintToModelConstraint(routingConstraint);
+        
     }
 
     @objid ("80421f69-1dec-11e2-8cad-001ec947c8cc")
@@ -74,6 +74,7 @@ public class TranslateBendpointsCommand extends Command {
         GmPath lpath = new GmPath(this.model.getPath());
         lpath.setPathData(this.newPathData);
         this.model.setLayoutData(lpath);
+        
     }
 
     @objid ("6f91d6ac-e6ee-48ac-b190-bd903ee65d29")

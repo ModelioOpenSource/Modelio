@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.portcontainer;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -34,11 +33,10 @@ import org.modelio.diagram.elements.core.node.GmNodeDragTracker;
 public class SatelliteDragEditPartsTracker extends GmNodeDragTracker {
     /**
      * Default constructor.
-     * 
      * @param sourceEditPart the edit part this DragTracker applies to.
      */
     @objid ("7f02a467-1dec-11e2-8cad-001ec947c8cc")
-    public SatelliteDragEditPartsTracker(EditPart sourceEditPart) {
+    public  SatelliteDragEditPartsTracker(EditPart sourceEditPart) {
         super(sourceEditPart);
     }
 

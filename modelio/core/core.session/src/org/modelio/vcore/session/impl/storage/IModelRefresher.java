@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vcore.session.impl.storage;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,6 @@ public interface IModelRefresher extends IModelLoader {
     /**
      * Delete a model object.
      * <p>
-     * 
      * @param obj the model object to delete.
      */
     @objid ("a7f493ed-4bf1-4af2-855b-8dda4fa42fb9")

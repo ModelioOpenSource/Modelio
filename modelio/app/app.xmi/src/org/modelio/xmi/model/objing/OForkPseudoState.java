@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.objing;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -33,7 +32,7 @@ public class OForkPseudoState extends OAbstractPseudoState {
     }
 
     @objid ("fb618e67-1942-4ce2-964b-e5726bd0ce6d")
-    public OForkPseudoState(ForkPseudoState param) {
+    public  OForkPseudoState(ForkPseudoState param) {
         super(param);
     }
 
@@ -48,6 +47,7 @@ public class OForkPseudoState extends OAbstractPseudoState {
     public void setProperties(org.eclipse.uml2.uml.Element ecoreElt) {
         super.setProperties(ecoreElt);
         setKind( (org.eclipse.uml2.uml.Pseudostate)ecoreElt);
+        
     }
 
     @objid ("89c87d49-44d4-4cf6-829e-783ccb6cd0c8")

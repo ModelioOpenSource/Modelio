@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.ui.htmleditor.commands;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,7 @@ public abstract class Command implements ICommand {
     }
 
     @objid ("07559473-894c-47f7-9266-7397488eae64")
-    public Command(String name) {
+    public  Command(String name) {
         this.name = name;
     }
 

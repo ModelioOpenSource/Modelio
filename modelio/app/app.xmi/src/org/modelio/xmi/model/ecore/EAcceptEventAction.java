@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.xmi.model.ecore;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -48,7 +47,7 @@ public class EAcceptEventAction extends EActivityNode {
     private boolean hasTimeEvent = false;
 
     @objid ("4891d5f1-a0f9-4f64-bffd-5a4df1a00c85")
-    public EAcceptEventAction(org.eclipse.uml2.uml.AcceptEventAction element) {
+    public  EAcceptEventAction(org.eclipse.uml2.uml.AcceptEventAction element) {
         super(element);
         
         if (EcoreModelNavigation.hasSignalEvent(element)) {
@@ -60,6 +59,7 @@ public class EAcceptEventAction extends EActivityNode {
         } else if (EcoreModelNavigation.hasTimeEvent(element)) {
             this.hasTimeEvent = true;
         }
+        
     }
 
     @objid ("0e493c8f-4c55-419f-985d-66a78515e3fd")
@@ -106,6 +106,7 @@ public class EAcceptEventAction extends EActivityNode {
             setChangeExpression((AcceptChangeEventAction) objingElt);
         else if (this.hasTimeEvent)
             setTimeExpression((AcceptTimeEventAction) objingElt);
+        
     }
 
     @objid ("5a515adf-f2a9-458d-846a-e4189e1ca323")
@@ -125,6 +126,7 @@ public class EAcceptEventAction extends EActivityNode {
                 }
             }
         }
+        
     }
 
     @objid ("f59d1829-3b3c-484b-82ab-5924be545750")
@@ -140,6 +142,7 @@ public class EAcceptEventAction extends EActivityNode {
                 }
             }
         }
+        
     }
 
     @objid ("7b724d3f-f020-4af5-8d8b-4820fe1f503f")
@@ -158,6 +161,7 @@ public class EAcceptEventAction extends EActivityNode {
                 }
             }
         }
+        
     }
 
     @objid ("5417fa0e-7f8c-446e-b546-521279bb0d08")
@@ -175,6 +179,7 @@ public class EAcceptEventAction extends EActivityNode {
                 }
             }
         }
+        
     }
 
 }

@@ -14,7 +14,6 @@
  * limitations under the License.
  * 
  */
-
 package org.modelio.api.modelio.picking;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -45,7 +44,6 @@ public interface IPickingClient {
 
     /**
      * Returns whether the field accepts the element as a value.
-     * 
      * @param target the new value candidate.
      * @return true if the new value is valid, false in the other case.
      */
@@ -55,7 +53,6 @@ public interface IPickingClient {
     /**
      * Set the field value to the given element and end the picking session
      * if the given element is valid.
-     * 
      * @param target The new represented element in the field
      * @return true if the new value is valid, false in the other case.
      */

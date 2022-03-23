@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.ui.modelproperty.bpmn;
 
 import java.util.ArrayList;
@@ -66,21 +65,20 @@ public class BpmnEndEventPropertyModel extends AbstractPropertyModel<BpmnEndEven
 
     /**
      * Create a new <i>BpmnEndEvent</i> data model from an <i>BpmnEndEvent</i>.
-     * 
      * @param theEditedElement the model to edit.
      * @param modelService the model service needed to find elements.
      */
     @objid ("afc942a6-9249-4950-8b7a-edb61f37f03c")
-    public BpmnEndEventPropertyModel(BpmnEndEvent theEditedElement, IMModelServices modelService, UmlPropertyModelVisitor umlPropertyModelVisitor) {
+    public  BpmnEndEventPropertyModel(BpmnEndEvent theEditedElement, IMModelServices modelService, UmlPropertyModelVisitor umlPropertyModelVisitor) {
         super(theEditedElement);
         this.modelService = modelService;
         this.umlPropertyModelVisitor = umlPropertyModelVisitor;
         updateFieldsLists();
+        
     }
 
     /**
      * The number of columns that the properties table must display.
-     * 
      * @return the number of columns
      */
     @objid ("43664f50-51ca-41f1-859d-13c57a7a43ce")
@@ -91,7 +89,6 @@ public class BpmnEndEventPropertyModel extends AbstractPropertyModel<BpmnEndEven
 
     /**
      * The number of rows that the properties table must display.
-     * 
      * @return the number of rows
      */
     @objid ("ccceae29-a582-4637-a085-686d512e32a2")
@@ -107,7 +104,6 @@ public class BpmnEndEventPropertyModel extends AbstractPropertyModel<BpmnEndEven
      * This type will be used to choose an editor and a renderer for each cell of the properties table.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number
      * @param col the column number
      * @return the type of the element corresponding to the row and column
@@ -120,13 +116,13 @@ public class BpmnEndEventPropertyModel extends AbstractPropertyModel<BpmnEndEven
         } else {
             return this.fieldList.get(row);
         }
+        
     }
 
     /**
      * Set value in the model for the specified row and column.
      * <p>
      * The first column contains the properties names.
-     * 
      * @param row the row number.
      * @param col the column number.
      * @param value the value specified by the user.
@@ -168,6 +164,7 @@ public class BpmnEndEventPropertyModel extends AbstractPropertyModel<BpmnEndEven
             }
         
         }
+        
     }
 
     @objid ("566461ce-bb6e-49f3-8e37-1890319e0159")
@@ -206,6 +203,7 @@ public class BpmnEndEventPropertyModel extends AbstractPropertyModel<BpmnEndEven
                 }
             }
         }
+        
     }
 
     @objid ("bd9c78ee-9c77-469a-a0f8-d89a4477c85f")
@@ -214,16 +212,24 @@ public class BpmnEndEventPropertyModel extends AbstractPropertyModel<BpmnEndEven
         BpmnEventDefinition event_definition = (BpmnEventDefinition) modelFactory.createElement(EventType.getMetaclass(evt));
         event_definition.setName(this.modelService.getElementNamer().getBaseName(event_definition.getMClass()));
         event_definition.setDefined(this.theEditedElement);
+        
     }
 
     @objid ("00b0134c-0493-4f5e-bc35-db6e3c602de1")
     private enum EventType {
+        @objid ("f3f66f57-b14c-42d2-bc3e-36fc80610150")
         Cancel,
+        @objid ("14bc914a-5c21-4c45-aa0b-35d4db0b06fe")
         Compensate,
+        @objid ("473b4ffd-05a1-49a1-aca6-563ed0c760e9")
         Error,
+        @objid ("897021ec-28ca-47d3-857e-55552c08bbc7")
         Escalation,
+        @objid ("536ce1ba-015f-4cf7-9f1a-4d31e8aa0064")
         Message,
+        @objid ("ade09b3d-5243-4017-a9eb-c62106488151")
         Signal,
+        @objid ("df1a232d-fe81-4363-b3ef-764968e3e170")
         Terminate;
 
         @objid ("f531664d-acd9-44c8-80dc-e7f8ea34f0ec")

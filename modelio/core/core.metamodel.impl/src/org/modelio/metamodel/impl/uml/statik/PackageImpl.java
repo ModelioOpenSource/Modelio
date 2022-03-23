@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 /* WARNING: GENERATED FILE -  DO NOT EDIT
      Metamodel: Standard, version 2.3.00, by Modeliosoft
      Generator version: 3.8.00
      Generated on: Sep 7, 2018
 */
+
 package org.modelio.metamodel.impl.uml.statik;
 
 import java.util.ArrayList;
@@ -30,7 +30,6 @@ import java.util.Collections;
 import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.emf.common.util.EList;
-import org.modelio.metamodel.impl.uml.statik.PackageData;
 import org.modelio.metamodel.mda.Project;
 import org.modelio.metamodel.uml.statik.Package;
 import org.modelio.metamodel.uml.statik.PackageImport;
@@ -77,6 +76,7 @@ public class PackageImpl extends NameSpaceImpl implements Package {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("84d67ecf-0062-41e3-9b53-d43746fac505")
@@ -111,6 +111,7 @@ public class PackageImpl extends NameSpaceImpl implements Package {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("850a4c6b-c188-43f1-a5b4-90092c8678e1")
@@ -132,6 +133,7 @@ public class PackageImpl extends NameSpaceImpl implements Package {
         	}
         }
         return Collections.unmodifiableList(results);
+        
     }
 
     @objid ("91b9354c-0fb6-4344-b83c-fdaf6b30ba30")

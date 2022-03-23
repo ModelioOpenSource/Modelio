@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.model.ui.nattable.parts.data.string.single;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -46,7 +45,6 @@ import org.eclipse.swt.widgets.Text;
 public class StringEditor extends TextCellEditor {
     /**
      * Build a new editor.
-     * 
      * @param commitOnUpDown Flag to configure whether the editor should commit and move
      * the selection in the corresponding way if the up or down key
      * is pressed.
@@ -54,7 +52,7 @@ public class StringEditor extends TextCellEditor {
      * value was committed after pressing enter.
      */
     @objid ("ba4e1f82-5b6b-4a73-86d4-463f13e4b105")
-    public StringEditor(boolean commitOnUpDown, boolean moveSelectionOnEnter) {
+    public  StringEditor(boolean commitOnUpDown, boolean moveSelectionOnEnter) {
         super(commitOnUpDown, moveSelectionOnEnter);
     }
 

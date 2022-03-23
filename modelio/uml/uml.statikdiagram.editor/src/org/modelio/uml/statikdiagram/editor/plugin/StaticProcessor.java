@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.plugin;
 
 import java.net.URL;
@@ -110,6 +109,7 @@ public class StaticProcessor extends AbstractDiagramInitializationProcessor {
         configurerRegistry.registerDiagramConfigurer(ClassDiagram.MNAME, null, new ClassDiagramConfigurer());
         
         configurerRegistry.registerDiagramConfigurer(StaticDiagram.MNAME, null, new StaticDiagramConfigurer());
+        
     }
 
     @objid ("6582837c-5bd5-11e2-9e33-00137282c51b")
@@ -118,6 +118,7 @@ public class StaticProcessor extends AbstractDiagramInitializationProcessor {
         factoryRegistry.registerDiagramFactories(ClassDiagram.MNAME, new StaticGmNodeFactory(), new StaticGmLinkFactory(), new StaticEditPartFactory());
         
         factoryRegistry.registerDiagramFactories(StaticDiagram.MNAME, new StaticGmNodeFactory(), new StaticGmLinkFactory(), new StaticEditPartFactory());
+        
     }
 
     @objid ("6584e5ca-5bd5-11e2-9e33-00137282c51b")
@@ -312,6 +313,7 @@ public class StaticProcessor extends AbstractDiagramInitializationProcessor {
         
         // Operation
         factoryStyle.declareProvider(GmOperationStyleKeys.class);
+        
     }
 
     @objid ("6584e5cc-5bd5-11e2-9e33-00137282c51b")
@@ -324,6 +326,7 @@ public class StaticProcessor extends AbstractDiagramInitializationProcessor {
         StyleLoader loader = new StyleLoader();
         loader.load(url);
         factoryStyle.injectDefaultValues(loader.getStyleProperties());
+        
     }
 
 }

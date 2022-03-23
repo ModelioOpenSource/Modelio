@@ -17,11 +17,8 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.api.tools;
 
-import java.util.ArrayList;
-import java.util.List;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.gef.EditPart;
@@ -34,7 +31,7 @@ import org.modelio.api.modelio.diagram.IDiagramGraphic;
 import org.modelio.api.modelio.diagram.IDiagramLink.LinkRouterKind;
 import org.modelio.api.modelio.diagram.tools.IAttachedBoxTool;
 import org.modelio.diagram.api.dg.DGFactory;
-import org.modelio.diagram.api.dg.LinkPath;
+import org.modelio.diagram.api.dg.LinkRoute;
 import org.modelio.diagram.api.services.DiagramHandle;
 import org.modelio.diagram.editor.IDiagramEditor;
 import org.modelio.diagram.editor.plugin.DiagramEditorsManager;
@@ -66,7 +63,7 @@ public class AttachedBoxTool extends LinkedNodeCreationTool {
      * C'tor, used by platform to instantiate the tool by reflexion.
      */
     @objid ("1bfb95b1-7eac-4c2f-8119-ff95c9b45d2f")
-    public AttachedBoxTool() {
+    public  AttachedBoxTool() {
         this.attachedBoxCommand = null;
     }
 
@@ -83,6 +80,7 @@ public class AttachedBoxTool extends LinkedNodeCreationTool {
                         return false;
                     }
                 };
+        
     }
 
     @objid ("15d20bb6-15a7-4c30-90c2-345627595564")
@@ -96,8 +94,7 @@ public class AttachedBoxTool extends LinkedNodeCreationTool {
         initDiagramHandle(targetModel);
         
         // Additional step: add the optional bend points.
-        List<Point> points = new ArrayList<>();
-        LinkPath path = new LinkPath(points);
+        LinkRoute path = LinkRoute.createEmpty();
         
         Point where = ((CreateConnectionRequest) getTargetRequest()).getLocation().getCopy();
         ((GraphicalEditPart) getTargetEditPart().getViewer().getContents()).getFigure()
@@ -118,6 +115,7 @@ public class AttachedBoxTool extends LinkedNodeCreationTool {
         
         // FIXME we must handle notes created in a diagram, without a link
         setCurrentCommand(null);
+        
     }
 
     @objid ("386a4faa-b071-4368-b6e0-3651244ba487")
@@ -130,11 +128,11 @@ public class AttachedBoxTool extends LinkedNodeCreationTool {
             return;
         }
         super.applyProperty(key, value);
+        
     }
 
     /**
      * Sets the tools state.
-     * 
      * @param state the new state
      */
     @objid ("b1ffed17-fb68-4da7-a12c-12df0a387d31")
@@ -145,13 +143,13 @@ public class AttachedBoxTool extends LinkedNodeCreationTool {
         if (state == AbstractConnectionCreationTool.STATE_CONNECTION_STARTED) {
             this.sourceGm = (GmModel) getTargetEditPart().getModel();
         }
+        
     }
 
     /**
      * Updates the target editpart and returns <code>true</code> if the target changes. The target is updated by using
      * the target conditional and the target request. If the target has been locked, this method does nothing and
      * returns <code>false</code>.
-     * 
      * @return <code>true</code> if the target was changed
      */
     @objid ("26522056-d773-4c52-b5ff-e2d68c9e5cf1")
@@ -175,6 +173,7 @@ public class AttachedBoxTool extends LinkedNodeCreationTool {
         } else {
             return false;
         }
+        
     }
 
     @objid ("a03ac566-dce5-46e1-8827-7fb116d7ff83")
@@ -198,6 +197,7 @@ public class AttachedBoxTool extends LinkedNodeCreationTool {
         } else {
             return true;
         }
+        
     }
 
     @objid ("e5a612c0-302e-44ef-a320-1cfd80d65db7")
@@ -208,6 +208,7 @@ public class AttachedBoxTool extends LinkedNodeCreationTool {
             IDiagramEditor editor = (IDiagramEditor) DiagramEditorsManager.getInstance().get(diagram).getObject();
             this.diagramHandle = DiagramHandle.create(editor, true);
         }
+        
     }
 
     @objid ("96384240-3587-4a03-b81b-e7130c06d3c2")
@@ -218,6 +219,7 @@ public class AttachedBoxTool extends LinkedNodeCreationTool {
             this.diagramHandle.close();
             this.diagramHandle = null;
         }
+        
     }
 
 }

@@ -17,13 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmnxml.nodes.production.events;
 
 import java.util.List;
 import java.util.Map;
-import javax.xml.bind.JAXBElement;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
+import javax.xml.bind.JAXBElement;
 import org.modelio.bpmnxml.model.ObjectFactory;
 import org.modelio.bpmnxml.model.TComplexBehaviorDefinition;
 import org.modelio.bpmnxml.model.TFlowElement;
@@ -43,7 +42,7 @@ import org.modelio.vcore.session.api.ICoreSession;
 import org.modelio.vcore.smkernel.mapi.MObject;
 
 @objid ("18331009-d430-44bf-bd6e-600551f57261")
-public class ImplicitThrowEventNode implements IProductionNode<BpmnImplicitThrowEvent,TImplicitThrowEvent> {
+public class ImplicitThrowEventNode implements IProductionNode<BpmnImplicitThrowEvent, TImplicitThrowEvent> {
     @objid ("5939448f-be72-4d2e-8f3e-c7a332fbdf1b")
     private Map<String, Object> elementsMap;
 
@@ -84,6 +83,7 @@ public class ImplicitThrowEventNode implements IProductionNode<BpmnImplicitThrow
         } else {
             return factory.create(BpmnImplicitThrowEvent.class, context);
         }
+        
     }
 
     @objid ("915b6bc6-c619-4a62-a0a8-53343120e338")

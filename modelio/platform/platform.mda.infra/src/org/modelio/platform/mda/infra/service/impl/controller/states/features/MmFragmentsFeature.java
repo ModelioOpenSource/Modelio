@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.platform.mda.infra.service.impl.controller.states.features;
 
 import java.util.List;
@@ -37,7 +36,7 @@ public class MmFragmentsFeature extends AbstractFeature {
      * @param module the module
      */
     @objid ("17b410cf-040e-46e9-a6a5-da4cc7eef8fd")
-    public MmFragmentsFeature(IRTModuleAccess module) {
+    public  MmFragmentsFeature(IRTModuleAccess module) {
         super(module);
     }
 
@@ -52,6 +51,7 @@ public class MmFragmentsFeature extends AbstractFeature {
         
         List<ISmMetamodelFragment> mmFrags = loader.loadMetamodelFragments( this.module.getClassLoader());
         this.module.getMetamodelFragments().addAll(mmFrags);
+        
     }
 
     /**
@@ -66,6 +66,7 @@ public class MmFragmentsFeature extends AbstractFeature {
         }
         
         this.module.getMetamodelFragments().clear();
+        
     }
 
     @objid ("d8fbe16e-67fb-4e41-984a-5c938ef4d8a1")

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.jdbm.impl.migration.v4;
 
 import java.io.IOException;
@@ -44,6 +43,7 @@ class V4MRefSerializer implements Serializer<MRef> {
         V4UuidSerializer.instance.serialize(out, UUID.fromString(obj.uuid));
         out.writeUTF(obj.name); 
         out.writeUTF(obj.mc);
+        
     }
 
     @objid ("dfa34efe-8b59-4977-a802-03e35a9c345f")

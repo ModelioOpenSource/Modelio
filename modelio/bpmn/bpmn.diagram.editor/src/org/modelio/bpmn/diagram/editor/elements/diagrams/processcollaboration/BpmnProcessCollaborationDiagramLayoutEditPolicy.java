@@ -17,12 +17,12 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.bpmn.diagram.editor.elements.diagrams.processcollaboration;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.commands.Command;
+import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gef.requests.ChangeBoundsRequest;
 import org.eclipse.gef.requests.CreateRequest;
 import org.modelio.api.module.mda.IMdaExpert;
@@ -30,8 +30,8 @@ import org.modelio.bpmn.diagram.editor.elements.participant.CreateBpmnParticipan
 import org.modelio.diagram.elements.common.abstractdiagram.DiagramEditLayoutPolicy;
 import org.modelio.diagram.elements.core.commands.ModelioCreationContext;
 import org.modelio.diagram.elements.core.commands.NodeChangeLayoutCommand;
-import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.model.IGmDiagram;
+import org.modelio.diagram.elements.core.model.IGmDiagram.IModelManager;
 import org.modelio.diagram.elements.core.node.AbstractNodeEditPart;
 import org.modelio.diagram.elements.core.node.GmCompositeNode;
 import org.modelio.diagram.elements.drawings.core.GmDrawing;
@@ -61,7 +61,7 @@ class BpmnProcessCollaborationDiagramLayoutEditPolicy extends DiagramEditLayoutP
             GmCompositeNode hostGmNode = getHostCompositeNode();
         
             IGmDiagram gmDiagram = getHostCompositeNode().getDiagram();
-            boolean isParticipantCreation = cls != BpmnProcess.class && (elementToUnmask == null || (!isSmartProcess(elementToUnmask, gmDiagram) && isSmartParticipant(elementToUnmask, gmDiagram)));
+            boolean isParticipantCreation = cls != BpmnProcess.class && (elementToUnmask == null || !isSmartProcess(elementToUnmask, gmDiagram) && isSmartParticipant(elementToUnmask, gmDiagram));
             if (isParticipantCreation || cls == BpmnProcess.class || isSmartProcess(elementToUnmask, gmDiagram)) {
                 if (elementToUnmask != null && !hostGmNode.canUnmask(elementToUnmask)) {
                     return null;
@@ -98,9 +98,13 @@ class BpmnProcessCollaborationDiagramLayoutEditPolicy extends DiagramEditLayoutP
     protected Command createChangeConstraintCommand(ChangeBoundsRequest request, EditPart movedEditPart, Object constraint) {
         // if child is a 'node' it usually can be resized and/or moved
         if (movedEditPart instanceof AbstractNodeEditPart || movedEditPart.getModel() instanceof GmDrawing) {
-            final NodeChangeLayoutCommand command = new NodeChangeLayoutCommand();
-            command.setModel(movedEditPart.getModel());
-            command.setConstraint(constraint);
+            final CompoundCommand command = new CompoundCommand();
+        
+            final NodeChangeLayoutCommand layoutCommand = new NodeChangeLayoutCommand();
+            layoutCommand.setModel(movedEditPart.getModel());
+            layoutCommand.setConstraint(constraint);
+            command.add(layoutCommand);
+        
             return command;
         }
         return null;

@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.core.link.ortho;
 
 import java.beans.PropertyChangeEvent;
@@ -43,20 +42,22 @@ public class HorizontalSegmentMoveHandle extends ConnectionHandle {
      * @param index the index.
      */
     @objid ("8036339e-1dec-11e2-8cad-001ec947c8cc")
-    public HorizontalSegmentMoveHandle(final ConnectionEditPart owner, final int index) {
+    public  HorizontalSegmentMoveHandle(final ConnectionEditPart owner, final int index) {
         super();
         setOwner(owner);
         setIndex(index);
+        
     }
 
     @objid ("803633a7-1dec-11e2-8cad-001ec947c8cc")
     @Override
     protected DragTracker createDragTracker() {
-        ConnectionSegmentTracker connectionSegmentTracker = new ConnectionSegmentTracker((ConnectionEditPart) getOwner(),
-                                                                                         getIndex(),
-                                                                                         Orientation.HORIZONTAL);
-        connectionSegmentTracker.setDefaultCursor(getCursor());
-        return connectionSegmentTracker;
+        ConnectionSegmentTracker tracker = new ConnectionSegmentTracker((ConnectionEditPart) getOwner(),
+                getIndex(),
+                Orientation.HORIZONTAL);
+        tracker.setDefaultCursor(getCursor());
+        tracker.setDisabledCursor(Cursors.NO);
+        return tracker;
     }
 
     @objid ("803633ae-1dec-11e2-8cad-001ec947c8cc")
@@ -66,7 +67,6 @@ public class HorizontalSegmentMoveHandle extends ConnectionHandle {
 
     /**
      * Revalidates this handle when the connection's points change.
-     * 
      * @param event the event that caused the points change
      */
     @objid ("803633b2-1dec-11e2-8cad-001ec947c8cc")
@@ -80,18 +80,20 @@ public class HorizontalSegmentMoveHandle extends ConnectionHandle {
         this.index = index;
         setLocator(new SegmentLocator(getConnection(), index));
         ((ConnectionSegmentTracker) getDragTracker()).setIndex(index);
+        
     }
 
     @objid ("803633bc-1dec-11e2-8cad-001ec947c8cc")
     @Override
     public void validate() {
-        if (getIndex() < 0 || getIndex() >= getConnection().getPoints().size() - 1)
+        if (getIndex() < 0 || getIndex() >= getConnection().getPoints().size() - 1) {
             return;
+        }
         super.validate();
+        
     }
-
-
 {
-        setCursor(Cursors.SIZENS);
-    }
+            setCursor(Cursors.SIZENS);
+        }
+    
 }

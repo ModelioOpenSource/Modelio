@@ -14,12 +14,11 @@
  * limitations under the License.
  * 
  */
-
 /*
  * WARNING: GENERATED FILE - DO NOT EDIT
- * Module: ModelerModule v9.1.00
+ * Module: ModelerModule v9.3.00
 
- * This file was generated on 3/2/20 11:26 AM by Modelio Studio.
+ * This file was generated on 10/8/20 2:50 PM by Modelio Studio.
  */
 package org.modelio.module.modelermodule.api.default_.standard.classifier;
 
@@ -51,24 +50,23 @@ import org.modelio.vcore.smkernel.mapi.MObject;
  */
 @objid ("181e65e2-2003-426a-88d1-ffec1d011e64")
 public class MMStandardClassifier {
-    @objid ("65856075-40a7-449f-9448-d9d15fcfc61c")
+    @objid ("3e0d54c2-c095-4ebd-a7a2-15739d2bee7e")
     public static final String PERSISTENCE_TAGTYPE = "persistence";
 
     /**
      * The underlying {@link Classifier} represented by this proxy, never null.
      */
-    @objid ("a35a3781-bc83-43d7-9f41-3ba06bd7a1fc")
+    @objid ("8fe0e69b-c311-4126-9594-02239c115eef")
     protected final Classifier elt;
 
     /**
      * Tells whether a {@link MMStandardClassifier proxy} can be instantiated from a {@link MObject} checking it is a {@link Classifier}.
      * <p>
      * The method returns <code>false</code> if the instantiation cannot be carried out.
-     * 
      * @param elt a model object
      * @return <code>true</code> if the instantiation can be carried out else <code>false</code>.
      */
-    @objid ("a793a347-0a54-4326-923f-db787b514031")
+    @objid ("e39ff0fc-cf6e-43a4-a857-3c8fb67080b1")
     public static boolean canInstantiate(MObject elt) {
         return (elt instanceof Classifier);
     }
@@ -80,12 +78,12 @@ public class MMStandardClassifier {
      * @param obj a Classifier
      * @return a {@link MMStandardClassifier} proxy or <i>null</i>.
      */
-    @objid ("7ce3cecd-a4b4-4476-9638-6108002322b0")
+    @objid ("992ab474-578b-42e8-8ccb-88518617bddc")
     public static MMStandardClassifier instantiate(Classifier obj) {
         return MMStandardClassifier.canInstantiate(obj) ? new MMStandardClassifier(obj) : null;
     }
 
-    @objid ("8e34bdfc-b1e6-43ce-806f-d0ac6e6b1dbe")
+    @objid ("ef9c6477-8037-4a1c-9408-47c5198db0a3")
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -105,7 +103,7 @@ public class MMStandardClassifier {
      * Get the underlying {@link Classifier}. 
      * @return the Classifier represented by this proxy, never null.
      */
-    @objid ("e2b72948-5632-4d6f-bd25-90084e85199e")
+    @objid ("c3066169-a8dd-4aa4-9da8-df4ebbceadab")
     public Classifier getElement() {
         return this.elt;
     }
@@ -115,15 +113,16 @@ public class MMStandardClassifier {
      * <p>Property description:<br/>
      * <i></i></p>
      */
-    @objid ("dcedb078-a9c4-4110-86e6-ce468956bc55")
+    @objid ("2e36b7e5-54a4-46e6-b6e4-740f2e3725e3")
     public List<String> getPersistence() {
         return this.elt.getTagValues(MMStandardClassifier.MdaTypes.PERSISTENCE_TAGTYPE_ELT);
     }
 
-    @objid ("84fe748c-d3f9-436c-a7d7-ee3e30d0ebb0")
+    @objid ("429b0669-360d-48f0-995e-f5737ae36beb")
     @Override
     public int hashCode() {
         return 23 + ((this.elt == null) ? 0 : this.elt.hashCode());
+        
     }
 
     /**
@@ -131,40 +130,40 @@ public class MMStandardClassifier {
      * <p>Property description:
      * <br/><i></i></p>
      */
-    @objid ("7bb9d905-d35b-4e4f-9d4a-0803566b707b")
+    @objid ("bfd62c6e-bffc-460a-ba92-d3780483c450")
     public void setPersistence(List<String> values) {
         this.elt.putTagValues(MMStandardClassifier.MdaTypes.PERSISTENCE_TAGTYPE_ELT, values);
     }
 
-    @objid ("2fb1ee81-5b76-4cdc-9da8-2c80e716ee5f")
-    protected MMStandardClassifier(Classifier elt) {
+    @objid ("15d93639-e5da-4be7-9a38-30e8f9062c61")
+    protected  MMStandardClassifier(Classifier elt) {
         this.elt = elt;
     }
 
     @objid ("b0dd20e3-d783-4cce-98a8-448a6ff4bcbc")
     public static final class MdaTypes {
-        @objid ("9ea3f7a6-1a34-4cf5-b139-b773c64315a5")
+        @objid ("cb4fbbf2-883b-498f-90fd-ee916b4f3a3f")
         public static TagType PERSISTENCE_TAGTYPE_ELT;
 
-        @objid ("bae1c5ec-c387-4996-92f9-810ecc9220d6")
+        @objid ("e5da0071-1b7d-47cd-ab71-ee0da5db7454")
         private static Stereotype MDAASSOCDEP;
 
-        @objid ("887ca43a-6ed8-414b-96d3-2787768e0955")
+        @objid ("a6227a22-c6d3-4217-88c7-68b6f3e8d884")
         private static TagType MDAASSOCDEP_ROLE;
 
-        @objid ("2ad33bd4-0e02-426a-b8ad-98958ae51c38")
+        @objid ("f9dd258c-3617-4480-ae53-4521837ef4d1")
         public static void init(IModuleContext ctx) {
             PERSISTENCE_TAGTYPE_ELT = ctx.getModelingSession().findElementById(TagType.class, "00700680-0000-01ed-0000-000000000000");
             MDAASSOCDEP = ctx.getModelingSession().findElementById(Stereotype.class, "94b7efa5-f94c-4d1d-896f-f103e56a8e2e");
             MDAASSOCDEP_ROLE = ctx.getModelingSession().findElementById(TagType.class, "7637f2fd-b750-43c1-a15c-5d0b084ca1cd");
+            
         }
-
-
 	static {
-		if(ModelerModuleModule.getInstance() != null) {
-			init(ModelerModuleModule.getInstance().getModuleContext());
-		}
-	}
+        		if(ModelerModuleModule.getInstance() != null) {
+        			init(ModelerModuleModule.getInstance().getModuleContext());
+        		}
+        	}
+        
     }
 
 }

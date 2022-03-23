@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.root;
 
 import java.beans.PropertyChangeListener;
@@ -71,7 +70,7 @@ public class ScalableFreeformRootEditPart2 extends ScalableFreeformRootEditPart 
     private final PropertyChangeListener gridAndBackgroundListener;
 
     @objid ("6692352c-33f7-11e2-95fe-001ec947c8cc")
-    public ScalableFreeformRootEditPart2() {
+    public  ScalableFreeformRootEditPart2() {
         this.gridAndBackgroundListener = evt -> {
               
             String property = evt.getPropertyName();
@@ -86,6 +85,7 @@ public class ScalableFreeformRootEditPart2 extends ScalableFreeformRootEditPart 
                 refreshBackground();
             }
         };
+        
     }
 
     @objid ("66923548-33f7-11e2-95fe-001ec947c8cc")
@@ -101,11 +101,11 @@ public class ScalableFreeformRootEditPart2 extends ScalableFreeformRootEditPart 
         } else {
             this.creationLocationTip = ORIGIN;
         }
+        
     }
 
     /**
      * Creates the background layer.
-     * 
      * @return the background layer
      */
     @objid ("66923541-33f7-11e2-95fe-001ec947c8cc")
@@ -124,7 +124,6 @@ public class ScalableFreeformRootEditPart2 extends ScalableFreeformRootEditPart 
 
     /**
      * Creates a layered pane and the layers that should be scaled.
-     * 
      * @return a new freeform layered pane containing the scalable layers
      */
     @objid ("6692353b-33f7-11e2-95fe-001ec947c8cc")
@@ -187,6 +186,7 @@ public class ScalableFreeformRootEditPart2 extends ScalableFreeformRootEditPart 
             backgroundLayer.setTileSize(tileSize);
         
         }
+        
     }
 
     @objid ("6692352e-33f7-11e2-95fe-001ec947c8cc")
@@ -210,6 +210,7 @@ public class ScalableFreeformRootEditPart2 extends ScalableFreeformRootEditPart 
         if (gridAlpha != null) {
             grid.setGridAlpha(gridAlpha);
         }
+        
     }
 
     /**
@@ -224,6 +225,7 @@ public class ScalableFreeformRootEditPart2 extends ScalableFreeformRootEditPart 
             refreshBackground();
             refreshGridLayer();
         }
+        
     }
 
     /**
@@ -234,6 +236,7 @@ public class ScalableFreeformRootEditPart2 extends ScalableFreeformRootEditPart 
     protected void unregister() {
         getViewer().removePropertyChangeListener(this.gridAndBackgroundListener);
         super.unregister();
+        
     }
 
     /**
@@ -279,7 +282,7 @@ public class ScalableFreeformRootEditPart2 extends ScalableFreeformRootEditPart 
     @objid ("630d79cb-659e-445f-91d4-0b080a08acc2")
     public static class FeedbackLayer extends FreeformLayer2 {
         @objid ("c944089e-ca8a-4eec-bc14-d158801741ca")
-        FeedbackLayer() {
+         FeedbackLayer() {
             setEnabled(false);
         }
 

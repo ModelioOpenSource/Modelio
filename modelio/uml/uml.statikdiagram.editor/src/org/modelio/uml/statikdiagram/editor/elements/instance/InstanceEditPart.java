@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.statikdiagram.editor.elements.instance;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -64,6 +63,7 @@ public class InstanceEditPart extends AbstractNodeEditPart {
         
         updateSeparations(getFigure());
         updateFigureBorder(getFigure());
+        
     }
 
     @objid ("3541bb85-55b7-11e2-877f-002564c97630")
@@ -83,6 +83,7 @@ public class InstanceEditPart extends AbstractNodeEditPart {
         if (model.getRelatedElement() instanceof BindableInstance) {
             installEditPolicy("nary-connector", new AcceptNConnectorEditPolicy(true));
         }
+        
     }
 
     @objid ("3541bb88-55b7-11e2-877f-002564c97630")
@@ -117,6 +118,7 @@ public class InstanceEditPart extends AbstractNodeEditPart {
                 updateFigureBorder((GradientFigure) aFigure);
             }
         }
+        
     }
 
     @objid ("3541bb94-55b7-11e2-877f-002564c97630")
@@ -126,6 +128,7 @@ public class InstanceEditPart extends AbstractNodeEditPart {
         GmInstancePrimaryNode model = (GmInstancePrimaryNode) getModel();
         
         aFigure.getParent().setConstraint(aFigure, model.getLayoutData());
+        
     }
 
     @objid ("3541bb97-55b7-11e2-877f-002564c97630")
@@ -135,11 +138,11 @@ public class InstanceEditPart extends AbstractNodeEditPart {
         
         updateSeparations(getFigure());
         updateFigureBorder(getFigure());
+        
     }
 
     /**
      * Update the separation lines between zones.
-     * 
      * @param aFigure the composite figure to update.
      */
     @objid ("354341f9-55b7-11e2-877f-002564c97630")
@@ -153,6 +156,7 @@ public class InstanceEditPart extends AbstractNodeEditPart {
                 false);
         
         ChildFigureLineSeparator.updateSeparation(aFigure, zoneBorder);
+        
     }
 
     @objid ("354341fd-55b7-11e2-877f-002564c97630")
@@ -162,6 +166,7 @@ public class InstanceEditPart extends AbstractNodeEditPart {
         final CompoundBorder b = new CompoundBorder(outer, inner);
         
         aFigure.setBorder(b);
+        
     }
 
     @objid ("d2481e42-087d-4250-b44a-8f3815c37898")

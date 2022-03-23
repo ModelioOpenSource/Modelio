@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.api.impl.editor;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -36,9 +35,10 @@ public class MdaRichNoteEditor implements IRichNoteEditor {
     private Document doc;
 
     @objid ("08d84219-45fb-416c-9fba-cda969bcdb42")
-    public MdaRichNoteEditor(Document doc, final IExternDocumentChangeListener editor) {
+    public  MdaRichNoteEditor(Document doc, final IExternDocumentChangeListener editor) {
         this.editor = editor;
         this.doc = doc;
+        
     }
 
     @objid ("f6570646-9200-4ac1-a0bc-356d3dcb863f")

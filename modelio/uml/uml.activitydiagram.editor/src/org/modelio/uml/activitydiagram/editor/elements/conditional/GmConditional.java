@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.uml.activitydiagram.editor.elements.conditional;
 
 import java.util.Collections;
@@ -33,8 +32,8 @@ import org.modelio.diagram.persistence.IDiagramReader;
 import org.modelio.diagram.persistence.IDiagramWriter;
 import org.modelio.diagram.styles.core.AbstractStyleKeyProvider;
 import org.modelio.diagram.styles.core.MetaKey;
-import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.diagram.styles.core.StyleKey;
+import org.modelio.diagram.styles.core.StyleKey.RepresentationMode;
 import org.modelio.metamodel.uml.behavior.activityModel.ActivityAction;
 import org.modelio.metamodel.uml.behavior.activityModel.ConditionalNode;
 import org.modelio.metamodel.uml.behavior.activityModel.InputPin;
@@ -67,26 +66,25 @@ public class GmConditional extends GmPinContainer {
     private static final String IMAGE_LABEL_ROLE = "ImageLabel";
 
     @objid ("d1143d6c-55c0-11e2-9337-002564c97630")
-     static final AbstractStyleKeyProvider STRUCTURED_KEYS = new GmConditionalStructuredStyleKeys();
+    static final AbstractStyleKeyProvider STRUCTURED_KEYS = new GmConditionalStructuredStyleKeys();
 
     @objid ("d1143d6e-55c0-11e2-9337-002564c97630")
-     static final AbstractStyleKeyProvider SIMPLE_KEYS = new GmConditionalSimpleStyleKeys();
+    static final AbstractStyleKeyProvider SIMPLE_KEYS = new GmConditionalSimpleStyleKeys();
 
     @objid ("d1143d70-55c0-11e2-9337-002564c97630")
-     static final AbstractStyleKeyProvider IMAGE_KEYS = new GmConditionalImageStyleKeys();
+    static final AbstractStyleKeyProvider IMAGE_KEYS = new GmConditionalImageStyleKeys();
 
     @objid ("e6b557e4-3ecf-463a-aea7-15fffe722f2c")
-     static final AbstractStyleKeyProvider USERIMAGE_KEYS = new GmConditionalUserImageStyleKeys();
+    static final AbstractStyleKeyProvider USERIMAGE_KEYS = new GmConditionalUserImageStyleKeys();
 
     /**
      * Constructor.
-     * 
      * @param diagram the diagram in which the conditional is unmasked.
      * @param el the unmasked conditional.
      * @param ref a reference to the unmasked conditional.
      */
     @objid ("2a139999-55b6-11e2-877f-002564c97630")
-    public GmConditional(IGmDiagram diagram, ConditionalNode el, MRef ref) {
+    public  GmConditional(IGmDiagram diagram, ConditionalNode el, MRef ref) {
         super(diagram, ref);
         this.element = el;
         
@@ -99,6 +97,7 @@ public class GmConditional extends GmPinContainer {
         
         super.addChild(mainNode);
         super.addChild(imageModeHeader);
+        
     }
 
     @objid ("2a1399a5-55b6-11e2-877f-002564c97630")
@@ -113,6 +112,7 @@ public class GmConditional extends GmPinContainer {
         return ((InputPin.class.isAssignableFrom(el.getClass()) ||
                         ValuePin.class.isAssignableFrom(el.getClass()) || OutputPin.class.isAssignableFrom(el.getClass())) && el.getCompositionOwner()
                                 .equals(this.element));
+        
     }
 
     @objid ("2a1399b5-55b6-11e2-877f-002564c97630")
@@ -159,7 +159,7 @@ public class GmConditional extends GmPinContainer {
      * Empty constructor needed for deserialisation.
      */
     @objid ("2a152027-55b6-11e2-877f-002564c97630")
-    public GmConditional() {
+    public  GmConditional() {
         // Nothing specific to do.
     }
 
@@ -184,6 +184,7 @@ public class GmConditional extends GmPinContainer {
             break;
         }
         }
+        
     }
 
     @objid ("2a152030-55b6-11e2-877f-002564c97630")
@@ -205,6 +206,7 @@ public class GmConditional extends GmPinContainer {
         
         // Write version of this Gm if different of 0
         GmAbstractObject.writeMinorVersion(out, "GmConditional.", GmConditional.MINOR_VERSION);
+        
     }
 
     @objid ("2a152044-55b6-11e2-877f-002564c97630")
@@ -217,6 +219,7 @@ public class GmConditional extends GmPinContainer {
         imageModeHeader.setLayoutData(Integer.valueOf(PositionConstants.SOUTH));
         
         super.addChild(imageModeHeader, 1);
+        
     }
 
     @objid ("2a152049-55b6-11e2-877f-002564c97630")
@@ -229,6 +232,7 @@ public class GmConditional extends GmPinContainer {
     private void read_1(final IDiagramReader in) {
         super.read(in);
         this.element = (ConditionalNode) resolveRef(getRepresentedRef());
+        
     }
 
     @objid ("2a152054-55b6-11e2-877f-002564c97630")
@@ -244,6 +248,7 @@ public class GmConditional extends GmPinContainer {
                 ret.remove(imageModeHeader);
                 break;
             }
+            case USER_IMAGE:
             case IMAGE:
             default: {
                 break;
@@ -256,7 +261,6 @@ public class GmConditional extends GmPinContainer {
 
     /**
      * Is this node a Satellite, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Satellite.
      */
@@ -266,11 +270,11 @@ public class GmConditional extends GmPinContainer {
         String role = childNode.getRoleInComposition();
         return GmPortContainer.SATELLITE_ROLE.equals(role)
                         || GmConditional.IMAGE_LABEL_ROLE.equals(role);
+        
     }
 
     /**
      * Is this node a Port, which position is defined relatively to the Main Node's bounds.
-     * 
      * @param childNode the node to check.
      * @return <code>true</code> if the node is a Port.
      */

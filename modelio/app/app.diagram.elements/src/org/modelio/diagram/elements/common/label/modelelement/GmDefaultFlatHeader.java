@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.elements.common.label.modelelement;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -44,12 +43,11 @@ public final class GmDefaultFlatHeader extends GmDefaultModelElementLabel {
 
     /**
      * Create an header label
-     * 
      * @param diagram the diagram.
      * @param relatedRef reference to the diagram.
      */
     @objid ("7e94f7fd-1dec-11e2-8cad-001ec947c8cc")
-    public GmDefaultFlatHeader(IGmDiagram diagram, MRef relatedRef) {
+    public  GmDefaultFlatHeader(IGmDiagram diagram, MRef relatedRef) {
         super(diagram, relatedRef);
     }
 
@@ -57,7 +55,7 @@ public final class GmDefaultFlatHeader extends GmDefaultModelElementLabel {
      * For deserialization only.
      */
     @objid ("7e975a51-1dec-11e2-8cad-001ec947c8cc")
-    public GmDefaultFlatHeader() {
+    public  GmDefaultFlatHeader() {
         // serialization
     }
 
@@ -69,7 +67,6 @@ public final class GmDefaultFlatHeader extends GmDefaultModelElementLabel {
 
     /**
      * Migrate this instance to a {@link GmDefaultModelElementHeader}.
-     * 
      * @return a {@link GmDefaultModelElementHeader}.
      */
     @objid ("86ba9f04-41aa-4deb-9901-9f5b969ede86")

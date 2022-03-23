@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.diagram.styles.viewer;
 
 import java.util.Objects;
@@ -50,10 +49,11 @@ public class StyleEditPanelSelection {
     private ISelection selection;
 
     @objid ("40d6f8c4-3102-472f-a211-ba311e9a7d03")
-    protected StyleEditPanelSelection(ColumnViewer viewer, Supplier<IStyle> styleGetter) {
+    protected  StyleEditPanelSelection(ColumnViewer viewer, Supplier<IStyle> styleGetter) {
         this.styleGetter = Objects.requireNonNull(styleGetter);
         
         viewer.addSelectionChangedListener(event -> updateSelection(event.getSelection()));
+        
     }
 
     @objid ("2066bc1b-583f-4352-a9c6-7d436c5d0c83")
@@ -67,6 +67,7 @@ public class StyleEditPanelSelection {
                 .toStream(newSelection, ISymbolViewItem.class)
                 .anyMatch(item -> item.getStyleKey() != null && editedStyle.isLocal(item.getStyleKey()));
         this.selectionContainsModifiedProperties = isAnyModified;
+        
     }
 
     @objid ("fcf03e14-d77e-429e-b5c8-d89f2ad8d28b")

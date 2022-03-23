@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.audit.view.dialog.auditEntry;
 
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
@@ -38,7 +37,7 @@ class LinkedElementLabelProvider extends StyledCellLabelProvider {
     private BrowserLabelProvider elementLabelProvider;
 
     @objid ("c2b086b9-e51a-4759-907f-86d74119fc86")
-    public LinkedElementLabelProvider() {
+    public  LinkedElementLabelProvider() {
         this.elementLabelProvider = new UniversalLabelProvider();
     }
 
@@ -60,6 +59,7 @@ class LinkedElementLabelProvider extends StyledCellLabelProvider {
         }
         
         super.update(cell);
+        
     }
 
 }

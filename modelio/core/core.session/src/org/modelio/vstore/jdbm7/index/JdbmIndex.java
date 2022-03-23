@@ -17,7 +17,6 @@
  * along with Modelio.  If not, see <http://www.gnu.org/licenses/>.
  * 
  */
-
 package org.modelio.vstore.jdbm7.index;
 
 import java.io.IOError;
@@ -27,8 +26,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Map.Entry;
 import java.util.Map;
+import java.util.Map.Entry;
 import com.modeliosoft.modelio.javadesigner.annotations.objid;
 import jdbm.PrimaryHashMap;
 import jdbm.RecordManager;
@@ -50,7 +49,7 @@ public class JdbmIndex {
      * Inverse of {@link #users}
      */
     @objid ("70e01768-e3d9-48a4-a018-a349c913fe55")
-    private PrimaryHashMap<MRef,Collection<MRef>> users;
+    private PrimaryHashMap<MRef, Collection<MRef>> users;
 
     /**
      * Foreign objects used by an object
@@ -70,16 +69,15 @@ public class JdbmIndex {
      * it is stored into. A CMS node is stored into itself.
      */
     @objid ("20e8e387-258a-4cd6-99e2-8108a56b216b")
-    private Map<String, Map<String,Boolean>> objectsIndex;
+    private Map<String, Map<String, Boolean>> objectsIndex;
 
     /**
      * Initialize the index.
-     * 
      * @param db the JDBM database storing the index.
-     * @throws java.io.IOException in case of I/O error
+     * @throws IOException in case of I/O error
      */
     @objid ("a8766620-9d96-41a2-8266-0e1a47c8de61")
-    public JdbmIndex(final RecordManager db) throws IOException {
+    public  JdbmIndex(final RecordManager db) throws IOException {
         this.db = db;
         try {
             this.objectsIndex = new HashMap<>();
@@ -90,14 +88,14 @@ public class JdbmIndex {
         } catch (IOError e) {
             throw new IOException(e);
         }
+        
     }
 
     /**
      * Get all instances of a metaclass.
-     * 
      * @param cls a metaclass
      * @return all stored instances references.
-     * @throws java.io.IOError in case of I/O error
+     * @throws IOError in case of I/O error
      */
     @objid ("5dc411bf-c15d-4a59-a0bc-8b2eab3a3bfc")
     public Collection<String> getByMClass(final SmClass cls) throws IOError {
@@ -106,9 +104,8 @@ public class JdbmIndex {
 
     /**
      * Remove the given object from main indexes.
-     * 
      * @param id the reference to remove
-     * @throws java.io.IOError in case of I/O failure
+     * @throws IOError in case of I/O failure
      */
     @objid ("d95fd7c2-7a46-4a3a-82bf-efe6a724c3a5")
     public void removeObj(final MRef id) throws IOError {
@@ -124,6 +121,7 @@ public class JdbmIndex {
             ref.addAll(newUsers);
             map.put(k, ref);
         }
+        
     }
 
     @objid ("0d0d3039-b6b2-4672-96d0-8bb529a56361")
@@ -135,14 +133,14 @@ public class JdbmIndex {
                 out.println("   - "+user);
             }
         }
+        
     }
 
     /**
      * Get local objects referring to the given local or foreign object.
-     * 
      * @param objRef a local or foreign object
      * @return all referred local objects.
-     * @throws java.io.IOError in case of I/O error
+     * @throws IOError in case of I/O error
      */
     @objid ("f859860b-1348-4c79-a7e5-2ba3894d623e")
     public Collection<MRef> getUserRefs(final MRef objRef) throws IOError {
@@ -157,13 +155,13 @@ public class JdbmIndex {
             dumpForeignUsers(System.err);
             throw e;
         }
+        
     }
 
     /**
      * Remove the given object from cross reference indexes.
-     * 
      * @param toRemove the reference to remove
-     * @throws java.io.IOError in case of I/O failure
+     * @throws IOError in case of I/O failure
      */
     @objid ("203a10f1-eefe-4060-b4ca-58ab31fd4846")
     public void removeCrossRefs(final MRef toRemove) throws IOError {
@@ -184,28 +182,28 @@ public class JdbmIndex {
         }
         
         this.users.remove(toRemove);
+        
     }
 
     /**
      * Index the given model object.
-     * 
      * @param obj a model object to index
-     * @throws java.io.IOError in case of I/O failure
+     * @throws IOError in case of I/O failure
      */
     @objid ("21133a92-f024-4163-babf-a50c59d01367")
     public void addToMain(SmObjectImpl obj) throws IOError {
         MClass mClass = obj.getMClass();
         String uuid = obj.getUuid();
         addRefToMain(mClass, uuid);
+        
     }
 
     /**
      * Add the given model object to cross references indexes.
      * <p>
      * Call {@link #removeCrossRefs(MRef)} first if the object was already in the index.
-     * 
      * @param obj a model object to index
-     * @throws java.io.IOException in case of I/O failure
+     * @throws IOException in case of I/O failure
      */
     @objid ("60aaf68b-fe2b-4246-98b3-4a4023a2cb29")
     public void addCrossRefs(SmObjectImpl obj) throws IOException {
@@ -246,6 +244,7 @@ public class JdbmIndex {
         } catch (IOError e ) {
             throw new IOException(e);
         }
+        
     }
 
     @objid ("74eca7df-d7e4-412f-9391-058353fad1a4")
@@ -259,11 +258,11 @@ public class JdbmIndex {
             l.add(v);
             map.put(k, l);
         }
+        
     }
 
     /**
      * Get the object index for the given metaclass.
-     * 
      * @param mClass a metaclass
      * @return the class objects index
      */
@@ -275,7 +274,6 @@ public class JdbmIndex {
 
     /**
      * Get the object index for the given metaclass.
-     * 
      * @param className a metaclass name
      * @return the class objects index
      */
@@ -293,7 +291,6 @@ public class JdbmIndex {
 
     /**
      * Add the given reference to the main index
-     * 
      * @param mClass the metaclass
      * @param uuid the UUID
      */
@@ -301,6 +298,7 @@ public class JdbmIndex {
     public void addRefToMain(MClass mClass, String uuid) {
         Map<String, Boolean> ref = getObjectIndex(mClass);
         ref.put(uuid, Boolean.TRUE);
+        
     }
 
     @objid ("5af04c5d-8acb-4222-ad9e-a01c7bf9041f")
@@ -320,6 +318,7 @@ public class JdbmIndex {
                 addTo(this.users, objRef, valRef);
             }
         }
+        
     }
 
 }
